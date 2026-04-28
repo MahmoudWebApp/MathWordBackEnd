@@ -23,7 +23,7 @@ namespace MathWorldAPI.Controllers
             _searchService = searchService;
         }
 
-        // ========== Reindex Meilisearch ==========
+        // ========== Meilisearch Management ==========
 
         [HttpPost("reindex")]
         public async Task<IActionResult> ReindexAll()
@@ -31,14 +31,12 @@ namespace MathWorldAPI.Controllers
             await _searchService.ReindexAllAsync();
             return Ok(new { Message = "Reindexing completed successfully" });
         }
+
         [HttpPost("sync-meilisearch")]
-        // Recommended to uncomment the following line to protect this endpoint so that only admins can use it
-        // [Authorize(Roles = "Admin")] 
         public async Task<IActionResult> SyncMeiliSearch()
         {
             try
             {
-                // 1. Fetch all problems from the database
                 var allProblems = await _context.Problems
                     .Include(p => p.Category)
                     .Include(p => p.ProblemTags)
@@ -49,10 +47,6 @@ namespace MathWorldAPI.Controllers
                 {
                     return Ok(new { message = "No problems found in the database to sync." });
                 }
-
-                // 2. Send problems to Meilisearch
-                // Since you have an UpdateProblemAsync function, we loop through problems and add them one by one
-                // (If your Service supports batch AddDocumentsAsync, that would be better for performance)
 
                 int successCount = 0;
                 foreach (var problem in allProblems)
