@@ -23,6 +23,15 @@ namespace MathWorldAPI.Controllers
             _searchService = searchService;
         }
 
+        // ========== Reindex Meilisearch ==========
+
+        [HttpPost("reindex")]
+        public async Task<IActionResult> ReindexAll()
+        {
+            await _searchService.ReindexAllAsync();
+            return Ok(new { Message = "Reindexing completed successfully" });
+        }
+
         // ========== Problems Management ==========
 
         [HttpPost("problems")]
@@ -284,7 +293,6 @@ namespace MathWorldAPI.Controllers
 
             await _context.SaveChangesAsync();
 
-            // Update affected problems in Meilisearch
             var affectedProblemIds = await _context.ProblemTags
                 .Where(pt => pt.TagId == id)
                 .Select(pt => pt.ProblemId)
