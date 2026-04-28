@@ -1,6 +1,7 @@
 ﻿// ================================
 // File: Services/IMeiliSearchService.cs
 // ================================
+// No changes — keeping for reference
 
 using MathWorldAPI.Models;
 
