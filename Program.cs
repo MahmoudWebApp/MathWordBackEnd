@@ -1,5 +1,5 @@
 ﻿// =============================================
-// File: Program.cs - Merged Version with Keep-Alive & Resilience
+// File: Program.cs
 // =============================================
 
 using System.Text;
@@ -10,7 +10,6 @@ using Microsoft.OpenApi.Models;
 using MathWorldAPI.Data;
 using MathWorldAPI.Middleware;
 using MathWorldAPI.Services;
-using Polly; // Add Polly for handling transient errors
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,19 +17,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// 2. Register Services - MeiliSearch as Singleton with Polly Retry Policy
+// 2. Register Services
 builder.Services.AddScoped<IAuthService, AuthService>();
-builder.Services.AddHttpClient<IMeiliSearchService, MeiliSearchService>(client =>
-{
-    client.BaseAddress = new Uri(builder.Configuration["MeiliSearch:Url"] ?? "http://localhost:7700");
-    client.Timeout = TimeSpan.FromSeconds(30);
-})
-.AddTransientHttpErrorPolicy(policy =>
-    policy.WaitAndRetryAsync(3, retryAttempt =>
-        TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)) // Exponential backoff: 2s, 4s, 8s
-));
+builder.Services.AddScoped<IMeiliSearchService, MeiliSearchService>();
 
-// 3. Configure JWT Authentication (Combined: Security + Flexibility)
+// 3. Configure JWT Authentication
 var jwtKey = builder.Configuration["Jwt:Key"] ?? "MathWorldSuperSecretKey2025!@#$%";
 builder.Services.AddAuthentication(options =>
 {
@@ -39,19 +30,16 @@ builder.Services.AddAuthentication(options =>
 })
 .AddJwtBearer(options =>
 {
-    options.RequireHttpsMetadata = false; // Change to true in production
+    options.RequireHttpsMetadata = false;
     options.SaveToken = true;
     options.TokenValidationParameters = new TokenValidationParameters
     {
         ValidateIssuerSigningKey = true,
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey)),
-
-        // Support both modes: with or without Issuer/Audience validation
         ValidateIssuer = !string.IsNullOrEmpty(builder.Configuration["Jwt:Issuer"]),
         ValidateAudience = !string.IsNullOrEmpty(builder.Configuration["Jwt:Audience"]),
         ValidIssuer = builder.Configuration["Jwt:Issuer"],
         ValidAudience = builder.Configuration["Jwt:Audience"],
-
         ClockSkew = TimeSpan.Zero
     };
 });
@@ -104,7 +92,7 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-// 7. Configure CORS for React Frontend (Restricted for Security)
+// 7. Configure CORS for React Frontend
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("ReactApp", policy =>
@@ -113,7 +101,7 @@ builder.Services.AddCors(options =>
                 "http://localhost:3000",
                 "http://localhost:3001",
                 "http://localhost:5173",
-                "https://your-frontend.onrender.com" // Add your actual frontend URL
+                "https://your-frontend.onrender.com"
             )
             .AllowAnyHeader()
             .AllowAnyMethod()
@@ -126,20 +114,18 @@ builder.Services.AddHttpClient("KeepAlive");
 
 var app = builder.Build();
 
-// 9. Apply Database Migrations on Startup (with error handling)
+// 9. Apply Database Migrations on Startup
 using (var scope = app.Services.CreateScope())
 {
     var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
     try
     {
-        // Use Migrate() instead of EnsureCreated() to handle migrations properly
         await dbContext.Database.MigrateAsync();
         Console.WriteLine("Database migrated successfully!");
     }
     catch (Exception ex)
     {
         Console.WriteLine($"Database error: {ex.Message}");
-        // In production: log the error but don't crash the app for transient issues
     }
 }
 
@@ -152,12 +138,12 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseCors("ReactApp");
-app.UseMiddleware<LanguageMiddleware>(); // Keep the custom language middleware
+app.UseMiddleware<LanguageMiddleware>();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 
-// 11. Health Check Endpoint (used by Keep-Alive task)
+// 11. Health Check Endpoint
 app.MapGet("/health", () => Results.Ok(new
 {
     status = "healthy",
@@ -165,8 +151,7 @@ app.MapGet("/health", () => Results.Ok(new
     service = "MathWorld-Backend"
 }));
 
-// 12. Keep-Alive Background Task: Ping both services every 10 minutes
-// Prevents Render Free Tier from sleeping (sleep timeout is 15 minutes)
+// 12. Keep-Alive Background Task
 _ = Task.Run(async () =>
 {
     var logger = app.Services.GetRequiredService<ILogger<Program>>();
@@ -174,15 +159,15 @@ _ = Task.Run(async () =>
 
     var targets = new[]
     {
-        "https://mathwordbackend.onrender.com/health",      // Backend service itself
-        "https://mathworld-search.onrender.com/health"      // Meilisearch service
+        "https://mathwordbackend.onrender.com/health",
+        "https://mathworld-search.onrender.com/health"
     };
 
     logger.LogInformation("Keep-alive task started - pinging every 10 minutes");
 
     while (true)
     {
-        await Task.Delay(TimeSpan.FromMinutes(10)); // Ping every 10 minutes (less than 15 min sleep threshold)
+        await Task.Delay(TimeSpan.FromMinutes(10));
 
         foreach (var url in targets)
         {
@@ -194,7 +179,6 @@ _ = Task.Run(async () =>
                 var response = await client.GetAsync(url);
                 var content = await response.Content.ReadAsStringAsync();
 
-                // Verify response is JSON, not HTML (Render sleep page)
                 if (response.IsSuccessStatusCode && content.TrimStart().StartsWith("{"))
                 {
                     logger.LogInformation("Keep-alive ping {Url} -> {Status}", url, response.StatusCode);
