@@ -22,9 +22,57 @@ namespace MathWorldAPI.Controllers
             _searchService = searchService;
         }
 
-        // ========== SEARCH - Direct PostgreSQL Search (Temporary bypass Meilisearch) ==========
-        [HttpGet("search")]
-        public async Task<IActionResult> Search(
+        // ========== SEARCH OPTION 1: Using Meilisearch (Advanced Search) ==========
+        [HttpGet("meilisearch-search")]
+        public async Task<IActionResult> MeiliSearch(
+            [FromQuery] string q = "",
+            [FromQuery] int? categoryId = null,
+            [FromQuery] string? difficulty = null)
+        {
+            var language = LanguageHelper.GetLanguageFromRequest(Request);
+
+            if (string.IsNullOrWhiteSpace(q))
+                return BadRequest(LanguageHelper.ErrorResponse("SearchQueryEmpty", language));
+
+            // Search using Meilisearch
+            var problemIds = await _searchService.SearchAsync(q, categoryId, difficulty);
+
+            if (problemIds == null || problemIds.Count == 0)
+                return Ok(LanguageHelper.SuccessResponse("NoResultsFound", language, new { Query = q, Total = 0, Results = new List<ProblemPreviewDto>() }));
+
+            // Get full problem details from database
+            var problems = await _context.Problems
+                .Include(p => p.Category)
+                .Where(p => problemIds.Contains(p.Id))
+                .Select(p => new ProblemPreviewDto
+                {
+                    Id = p.Id,
+                    Title = language == "en" ? p.TitleEn : p.TitleAr,
+                    Difficulty = p.Difficulty,
+                    CategoryName = language == "en" ? p.Category.NameEn : p.Category.NameAr,
+                    ViewsCount = p.ViewsCount,
+                    RequiresLogin = true
+                })
+                .ToListAsync();
+
+            // Order results according to Meilisearch relevance
+            var orderedProblems = problemIds
+                .Select(id => problems.FirstOrDefault(p => p.Id == id))
+                .Where(p => p != null)
+                .ToList();
+
+            return Ok(LanguageHelper.SuccessResponse("", language, new
+            {
+                SearchType = "Meilisearch",
+                Query = q,
+                Total = orderedProblems.Count,
+                Results = orderedProblems
+            }));
+        }
+
+        // ========== SEARCH OPTION 2: Using PostgreSQL (Direct Database Search) ==========
+        [HttpGet("postgresql-search")]
+        public async Task<IActionResult> PostgreSqlSearch(
             [FromQuery] string q = "",
             [FromQuery] int? categoryId = null,
             [FromQuery] string? difficulty = null)
@@ -35,7 +83,6 @@ namespace MathWorldAPI.Controllers
                 return BadRequest(LanguageHelper.ErrorResponse("SearchQueryEmpty", language));
 
             // DIRECT POSTGRESQL SEARCH (Without Meilisearch)
-            // This is a temporary solution until Meilisearch is properly configured
             var query = _context.Problems
                 .Include(p => p.Category)
                 .AsQueryable();
@@ -70,9 +117,36 @@ namespace MathWorldAPI.Controllers
 
             // Return results or no results message
             if (problems.Count == 0)
-                return Ok(LanguageHelper.SuccessResponse("NoResultsFound", language, new { Query = q, Total = 0, Results = problems }));
+                return Ok(LanguageHelper.SuccessResponse("NoResultsFound", language, new
+                {
+                    SearchType = "PostgreSQL",
+                    Query = q,
+                    Total = 0,
+                    Results = problems
+                }));
 
-            return Ok(LanguageHelper.SuccessResponse("", language, new { Query = q, Total = problems.Count, Results = problems }));
+            return Ok(LanguageHelper.SuccessResponse("", language, new
+            {
+                SearchType = "PostgreSQL",
+                Query = q,
+                Total = problems.Count,
+                Results = problems
+            }));
+        }
+
+        // ========== LEGACY SEARCH (Redirects to Meilisearch by default) ==========
+        [HttpGet("search")]
+        public async Task<IActionResult> Search(
+            [FromQuery] string q = "",
+            [FromQuery] int? categoryId = null,
+            [FromQuery] string? difficulty = null,
+            [FromQuery] string? engine = "meilisearch") // Default to meilisearch
+        {
+            // Redirect to the appropriate search engine based on 'engine' parameter
+            if (engine == "postgresql")
+                return await PostgreSqlSearch(q, categoryId, difficulty);
+            else
+                return await MeiliSearch(q, categoryId, difficulty);
         }
 
         [HttpGet("{id}")]
@@ -95,7 +169,7 @@ namespace MathWorldAPI.Controllers
             problem.ViewsCount++;
             await _context.SaveChangesAsync();
 
-            // Try to update Meilisearch (optional, won't break if fails)
+            // Try to update Meilisearch (won't break if fails)
             try { await _searchService.UpdateProblemAsync(problem); } catch { }
 
             var tags = problem.ProblemTags.Select(pt => language == "en" ? pt.Tag.TextEn : pt.Tag.TextAr).ToList();
