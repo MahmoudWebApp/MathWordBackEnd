@@ -22,6 +22,7 @@ namespace MathWorldAPI.Controllers
             _searchService = searchService;
         }
 
+        // ========== SEARCH - Direct PostgreSQL Search (Temporary bypass Meilisearch) ==========
         [HttpGet("search")]
         public async Task<IActionResult> Search(
             [FromQuery] string q = "",
@@ -33,11 +34,29 @@ namespace MathWorldAPI.Controllers
             if (string.IsNullOrWhiteSpace(q))
                 return BadRequest(LanguageHelper.ErrorResponse("SearchQueryEmpty", language));
 
-            var problemIds = await _searchService.SearchAsync(q, categoryId, difficulty);
-
-            var problems = await _context.Problems
+            // DIRECT POSTGRESQL SEARCH (Without Meilisearch)
+            // This is a temporary solution until Meilisearch is properly configured
+            var query = _context.Problems
                 .Include(p => p.Category)
-                .Where(p => problemIds.Contains(p.Id))
+                .AsQueryable();
+
+            // Search in titles and question text (Arabic & English)
+            query = query.Where(p =>
+                p.TitleAr.Contains(q) ||
+                p.TitleEn.Contains(q) ||
+                p.QuestionTextAr.Contains(q) ||
+                p.QuestionTextEn.Contains(q));
+
+            // Apply category filter if provided
+            if (categoryId.HasValue)
+                query = query.Where(p => p.CategoryId == categoryId.Value);
+
+            // Apply difficulty filter if provided
+            if (!string.IsNullOrEmpty(difficulty))
+                query = query.Where(p => p.Difficulty == difficulty);
+
+            // Get results
+            var problems = await query
                 .Select(p => new ProblemPreviewDto
                 {
                     Id = p.Id,
@@ -49,15 +68,11 @@ namespace MathWorldAPI.Controllers
                 })
                 .ToListAsync();
 
-            var orderedProblems = problemIds
-                .Select(id => problems.FirstOrDefault(p => p.Id == id))
-                .Where(p => p != null)
-                .ToList();
+            // Return results or no results message
+            if (problems.Count == 0)
+                return Ok(LanguageHelper.SuccessResponse("NoResultsFound", language, new { Query = q, Total = 0, Results = problems }));
 
-            if (orderedProblems.Count == 0)
-                return Ok(LanguageHelper.SuccessResponse("NoResultsFound", language, new { Query = q, Total = 0, Results = new List<ProblemPreviewDto>() }));
-
-            return Ok(LanguageHelper.SuccessResponse("", language, new { Query = q, Total = orderedProblems.Count, Results = orderedProblems }));
+            return Ok(LanguageHelper.SuccessResponse("", language, new { Query = q, Total = problems.Count, Results = problems }));
         }
 
         [HttpGet("{id}")]
@@ -79,7 +94,9 @@ namespace MathWorldAPI.Controllers
 
             problem.ViewsCount++;
             await _context.SaveChangesAsync();
-            await _searchService.UpdateProblemAsync(problem);
+
+            // Try to update Meilisearch (optional, won't break if fails)
+            try { await _searchService.UpdateProblemAsync(problem); } catch { }
 
             var tags = problem.ProblemTags.Select(pt => language == "en" ? pt.Tag.TextEn : pt.Tag.TextAr).ToList();
 
