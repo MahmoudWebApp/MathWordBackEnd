@@ -1,0 +1,20 @@
+echo "# Visual Studio
+.vs/
+bin/
+obj/
+*.user
+*.suo
+*.cache
+*.dbmdl
+
+# .NET
+*.dll
+*.exe
+*.pdb
+
+# Meilisearch
+data.ms/
+
+# User secrets
+secrets.json
+appsettings.Development.json" > .gitignore

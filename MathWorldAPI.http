@@ -1,0 +1,6 @@
+@MathWorldAPI_HostAddress = http://localhost:5229
+
+GET {{MathWorldAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
