@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿// File: MathWorldAPI/Controllers/AdminController.cs
+
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using MathWorldAPI.Data;
@@ -9,6 +11,10 @@ using MathWorldAPI.Services;
 
 namespace MathWorldAPI.Controllers
 {
+    /// <summary>
+    /// Admin-only controller for system management operations.
+    /// All endpoints require Admin role authorization.
+    /// </summary>
     [ApiController]
     [Route("api/admin")]
     [Authorize(Roles = "Admin")]
@@ -16,81 +22,51 @@ namespace MathWorldAPI.Controllers
     {
         private readonly AppDbContext _context;
         private readonly IMeiliSearchService _searchService;
+        private readonly IWebHostEnvironment _environment;
 
-        public AdminController(AppDbContext context, IMeiliSearchService searchService)
+        public AdminController(AppDbContext context, IMeiliSearchService searchService, IWebHostEnvironment environment)
         {
             _context = context;
             _searchService = searchService;
+            _environment = environment;
         }
 
         // =========================================
         // Meilisearch Management
         // =========================================
 
+        /// <summary>
+        /// Triggers a full reindex of all problems in Meilisearch.
+        /// </summary>
         [HttpPost("reindex")]
         public async Task<IActionResult> ReindexAll()
         {
             try
             {
                 await _searchService.ReindexAllAsync();
-
-                return Ok(new
-                {
-                    success = true,
-                    message = "Reindex completed successfully."
-                });
+                return Ok(LanguageHelper.SuccessResponse<object>(null, "Success", LanguageHelper.GetLanguageFromRequest(Request)));
             }
-            catch (Exception ex)
+            catch (Exception) // ✅ FIX: Removed unused 'ex' variable to resolve CS0168
             {
-                return StatusCode(500, new
-                {
-                    success = false,
-                    message = "Reindex failed.",
-                    error = ex.Message
-                });
+                return StatusCode(500, LanguageHelper.ErrorResponse<ApiResponse<object>>("ServerError", LanguageHelper.GetLanguageFromRequest(Request), 500));
             }
         }
 
+        /// <summary>
+        /// Syncs all problems from database to Meilisearch index.
+        /// </summary>
         [HttpPost("sync-meilisearch")]
         public async Task<IActionResult> SyncMeiliSearch()
         {
             try
             {
-                var problems = await _context.Problems
-                    .Include(p => p.Category)
-                    .Include(p => p.ProblemTags)
-                    .ThenInclude(pt => pt.Tag)
-                    .ToListAsync();
-
-                if (!problems.Any())
-                {
-                    return Ok(new
-                    {
-                        success = true,
-                        message = "No problems found."
-                    });
-                }
-
-                foreach (var problem in problems)
-                {
-                    await _searchService.UpdateProblemAsync(problem);
-                }
-
-                return Ok(new
-                {
-                    success = true,
-                    message = "Sync completed successfully.",
-                    total = problems.Count
-                });
+                var problems = await _context.Problems.Include(p => p.Category).Include(p => p.ProblemTags).ThenInclude(pt => pt.Tag).ToListAsync();
+                foreach (var problem in problems) await _searchService.UpdateProblemAsync(problem);
+                return Ok(LanguageHelper.SuccessResponse(new SyncResultDto { Total = problems.Count }, "Success", LanguageHelper.GetLanguageFromRequest(Request)));
             }
-            catch (Exception ex)
+            catch (Exception) // ✅ FIX: Removed unused 'ex' variable to resolve CS0168
             {
-                return StatusCode(500, new
-                {
-                    success = false,
-                    message = "Sync failed.",
-                    error = ex.Message
-                });
+                return StatusCode(500, LanguageHelper.ErrorResponse<ApiResponse<SyncResultDto>>("ServerError", LanguageHelper.GetLanguageFromRequest(Request), 500));
             }
         }
 
@@ -98,16 +74,18 @@ namespace MathWorldAPI.Controllers
         // Problems Management
         // =========================================
 
+        /// <summary>
+        /// Creates a new math problem with options and optional tags.
+        /// </summary>
         [HttpPost("problems")]
-        public async Task<IActionResult> CreateProblem([FromBody] CreateProblemDto dto)
+        [ProducesResponseType(typeof(ApiResponse<ProblemCreatedDto>), StatusCodes.Status201Created)]
+        public async Task<ActionResult<ApiResponse<ProblemCreatedDto>>> CreateProblem([FromBody] CreateProblemDto dto)
         {
             var language = LanguageHelper.GetLanguageFromRequest(Request);
-
             if (dto.Options == null || dto.Options.Count != 4)
-                return BadRequest(LanguageHelper.ErrorResponse("OptionsCountError", language));
-
+                return BadRequest(LanguageHelper.ErrorResponse<ApiResponse<ProblemCreatedDto>>("OptionsCountError", language));
             if (dto.Options.Count(x => x.IsCorrect) != 1)
-                return BadRequest(LanguageHelper.ErrorResponse("CorrectOptionError", language));
+                return BadRequest(LanguageHelper.ErrorResponse<ApiResponse<ProblemCreatedDto>>("CorrectOptionError", language));
 
             var problem = new MathProblem
             {
@@ -121,14 +99,7 @@ namespace MathWorldAPI.Controllers
                 Points = dto.Points,
                 CategoryId = dto.CategoryId,
                 CreatedAt = DateTime.UtcNow,
-                Options = dto.Options.Select(o => new QuestionOption
-                {
-                    TextAr = o.TextAr,
-                    TextEn = o.TextEn,
-                    LatexCode = o.LatexCode,
-                    IsCorrect = o.IsCorrect,
-                    Order = o.Order
-                }).ToList()
+                Options = dto.Options.Select(o => new QuestionOption { TextAr = o.TextAr, TextEn = o.TextEn, LatexCode = o.LatexCode, IsCorrect = o.IsCorrect, Order = o.Order }).ToList()
             };
 
             _context.Problems.Add(problem);
@@ -136,254 +107,201 @@ namespace MathWorldAPI.Controllers
 
             if (dto.TagIds != null && dto.TagIds.Any())
             {
-                foreach (var tagId in dto.TagIds)
-                {
-                    _context.ProblemTags.Add(new ProblemTag
-                    {
-                        ProblemId = problem.Id,
-                        TagId = tagId
-                    });
-                }
-
+                foreach (var tagId in dto.TagIds) _context.ProblemTags.Add(new ProblemTag { ProblemId = problem.Id, TagId = tagId });
                 await _context.SaveChangesAsync();
             }
 
             await _searchService.IndexProblemAsync(problem);
 
-            return Ok(LanguageHelper.SuccessResponse("ProblemCreated", language, new
-            {
-                Id = problem.Id
-            }));
+            // ✅ FIX: Changed nameof(GetProblem) to "GetProblem" string literal to resolve CS0103
+            // The target action exists in a different controller, so nameof() fails in this context.
+            return CreatedAtAction("GetProblem", "Problems", new { id = problem.Id },
+                LanguageHelper.SuccessResponse(new ProblemCreatedDto { Id = problem.Id }, "ProblemCreated", language, 201));
         }
 
+        /// <summary>
+        /// Updates an existing problem with new data.
+        /// </summary>
         [HttpPut("problems/{id}")]
         public async Task<IActionResult> UpdateProblem(int id, [FromBody] CreateProblemDto dto)
         {
             var language = LanguageHelper.GetLanguageFromRequest(Request);
+            var problem = await _context.Problems.Include(p => p.Options).Include(p => p.ProblemTags).FirstOrDefaultAsync(p => p.Id == id);
+            if (problem == null) return NotFound(LanguageHelper.ErrorResponse<ApiResponse<object>>("ProblemNotFound", language, 404));
 
-            var problem = await _context.Problems
-                .Include(p => p.Options)
-                .Include(p => p.ProblemTags)
-                .FirstOrDefaultAsync(p => p.Id == id);
-
-            if (problem == null)
-                return NotFound(LanguageHelper.ErrorResponse("ProblemNotFound", language, 404));
-
-            problem.TitleAr = dto.TitleAr;
-            problem.TitleEn = dto.TitleEn;
-            problem.QuestionTextAr = dto.QuestionTextAr;
-            problem.QuestionTextEn = dto.QuestionTextEn;
-            problem.LatexCode = dto.LatexCode;
-            problem.DetailedSolution = dto.DetailedSolution;
-            problem.Difficulty = dto.Difficulty;
-            problem.Points = dto.Points;
-            problem.CategoryId = dto.CategoryId;
+            problem.TitleAr = dto.TitleAr; problem.TitleEn = dto.TitleEn;
+            problem.QuestionTextAr = dto.QuestionTextAr; problem.QuestionTextEn = dto.QuestionTextEn;
+            problem.LatexCode = dto.LatexCode; problem.DetailedSolution = dto.DetailedSolution;
+            problem.Difficulty = dto.Difficulty; problem.Points = dto.Points; problem.CategoryId = dto.CategoryId;
 
             _context.QuestionOptions.RemoveRange(problem.Options);
-
-            problem.Options = dto.Options.Select(o => new QuestionOption
-            {
-                TextAr = o.TextAr,
-                TextEn = o.TextEn,
-                LatexCode = o.LatexCode,
-                IsCorrect = o.IsCorrect,
-                Order = o.Order
-            }).ToList();
+            problem.Options = dto.Options.Select(o => new QuestionOption { TextAr = o.TextAr, TextEn = o.TextEn, LatexCode = o.LatexCode, IsCorrect = o.IsCorrect, Order = o.Order }).ToList();
 
             _context.ProblemTags.RemoveRange(problem.ProblemTags);
-
             if (dto.TagIds != null && dto.TagIds.Any())
             {
-                foreach (var tagId in dto.TagIds)
-                {
-                    _context.ProblemTags.Add(new ProblemTag
-                    {
-                        ProblemId = problem.Id,
-                        TagId = tagId
-                    });
-                }
+                foreach (var tagId in dto.TagIds) _context.ProblemTags.Add(new ProblemTag { ProblemId = problem.Id, TagId = tagId });
             }
 
             await _context.SaveChangesAsync();
-
             await _searchService.UpdateProblemAsync(problem);
-
-            return Ok(LanguageHelper.SuccessResponse("ProblemUpdated", language));
+            return Ok(LanguageHelper.SuccessResponse<object>(null, "ProblemUpdated", language));
         }
 
+        /// <summary>
+        /// Deletes a problem and removes it from Meilisearch index.
+        /// </summary>
         [HttpDelete("problems/{id}")]
         public async Task<IActionResult> DeleteProblem(int id)
         {
             var language = LanguageHelper.GetLanguageFromRequest(Request);
-
             var problem = await _context.Problems.FindAsync(id);
-
-            if (problem == null)
-                return NotFound(LanguageHelper.ErrorResponse("ProblemNotFound", language, 404));
+            if (problem == null) return NotFound(LanguageHelper.ErrorResponse<ApiResponse<object>>("ProblemNotFound", language, 404));
 
             _context.Problems.Remove(problem);
             await _context.SaveChangesAsync();
-
             await _searchService.DeleteProblemAsync(id);
-
-            return Ok(LanguageHelper.SuccessResponse("ProblemDeleted", language));
+            return Ok(LanguageHelper.SuccessResponse<object>(null, "ProblemDeleted", language));
         }
 
         // =========================================
-        // Categories
+        // Categories Management (with FormData support)
         // =========================================
 
         [HttpGet("categories")]
         public async Task<IActionResult> GetAllCategories()
         {
-            var data = await _context.Categories
-                .OrderBy(x => x.Order)
-                .Select(c => new CategoryDto
-                {
-                    Id = c.Id,
-                    NameAr = c.NameAr,
-                    NameEn = c.NameEn,
-                    Icon = c.Icon
-                })
-                .ToListAsync();
-
-            return Ok(data);
+            var language = LanguageHelper.GetLanguageFromRequest(Request);
+            var data = await _context.Categories.OrderBy(x => x.Order).Select(c => new CategoryDto { Id = c.Id, NameAr = c.NameAr, NameEn = c.NameEn, Icon = c.Icon }).ToListAsync();
+            return Ok(LanguageHelper.SuccessResponse(data, "Success", language));
         }
 
         [HttpPost("categories")]
-        public async Task<IActionResult> CreateCategory(CreateCategoryDto dto)
+        [Consumes("multipart/form-data")]
+        public async Task<IActionResult> CreateCategory([FromForm] CreateCategoryDto dto)
         {
             var language = LanguageHelper.GetLanguageFromRequest(Request);
+            var category = new Category { NameAr = dto.NameAr, NameEn = dto.NameEn, Order = dto.Order };
 
-            var category = new Category
+            if (dto.Icon != null && dto.Icon.Length > 0)
             {
-                NameAr = dto.NameAr,
-                NameEn = dto.NameEn,
-                Icon = dto.Icon,
-                Order = dto.Order
-            };
+                var ext = Path.GetExtension(dto.Icon.FileName).ToLower();
+                var allowed = new[] { ".jpg", ".jpeg", ".png", ".svg", ".webp" };
+                if (!allowed.Contains(ext)) return BadRequest(LanguageHelper.ErrorResponse<ApiResponse<object>>("BadRequest", language, 400));
+
+                var folder = Path.Combine(_environment.WebRootPath, "uploads", "categories");
+                Directory.CreateDirectory(folder);
+                var fileName = $"{Guid.NewGuid()}{ext}";
+                using var stream = new FileStream(Path.Combine(folder, fileName), FileMode.Create);
+                await dto.Icon.CopyToAsync(stream);
+                category.Icon = $"/uploads/categories/{fileName}";
+            }
 
             _context.Categories.Add(category);
             await _context.SaveChangesAsync();
-
-            return Ok(LanguageHelper.SuccessResponse("CategoryCreated", language, new
-            {
-                Id = category.Id
-            }));
+            return CreatedAtAction(nameof(GetAllCategories), LanguageHelper.SuccessResponse(new CategoryDto { Id = category.Id, NameAr = category.NameAr, NameEn = category.NameEn, Icon = category.Icon }, "CategoryCreated", language, 201));
         }
 
         [HttpPut("categories/{id}")]
-        public async Task<IActionResult> UpdateCategory(int id, UpdateCategoryDto dto)
+        [Consumes("multipart/form-data")]
+        public async Task<IActionResult> UpdateCategory(int id, [FromForm] UpdateCategoryDto dto)
         {
             var language = LanguageHelper.GetLanguageFromRequest(Request);
-
             var category = await _context.Categories.FindAsync(id);
+            if (category == null) return NotFound(LanguageHelper.ErrorResponse<ApiResponse<object>>("CategoryNotFound", language, 404));
 
-            if (category == null)
-                return NotFound(LanguageHelper.ErrorResponse("CategoryNotFound", language, 404));
+            if (!string.IsNullOrWhiteSpace(dto.NameAr)) category.NameAr = dto.NameAr;
+            if (!string.IsNullOrWhiteSpace(dto.NameEn)) category.NameEn = dto.NameEn;
+            if (dto.Order.HasValue) category.Order = dto.Order.Value;
 
-            category.NameAr = dto.NameAr;
-            category.NameEn = dto.NameEn;
-            category.Icon = dto.Icon;
-            category.Order = dto.Order;
+            if (dto.Icon != null && dto.Icon.Length > 0)
+            {
+                var ext = Path.GetExtension(dto.Icon.FileName).ToLower();
+                var allowed = new[] { ".jpg", ".jpeg", ".png", ".svg", ".webp" };
+                if (!allowed.Contains(ext)) return BadRequest(LanguageHelper.ErrorResponse<ApiResponse<object>>("BadRequest", language, 400));
+
+                if (!string.IsNullOrEmpty(category.Icon))
+                {
+                    var oldPath = Path.Combine(_environment.WebRootPath, category.Icon.TrimStart('/'));
+                    if (System.IO.File.Exists(oldPath)) System.IO.File.Delete(oldPath);
+                }
+
+                var folder = Path.Combine(_environment.WebRootPath, "uploads", "categories");
+                Directory.CreateDirectory(folder);
+                var fileName = $"{Guid.NewGuid()}{ext}";
+                using var stream = new FileStream(Path.Combine(folder, fileName), FileMode.Create);
+                await dto.Icon.CopyToAsync(stream);
+                category.Icon = $"/uploads/categories/{fileName}";
+            }
 
             await _context.SaveChangesAsync();
-
-            return Ok(LanguageHelper.SuccessResponse("CategoryUpdated", language));
+            return Ok(LanguageHelper.SuccessResponse(new CategoryDto { Id = category.Id, NameAr = category.NameAr, NameEn = category.NameEn, Icon = category.Icon }, "CategoryUpdated", language));
         }
 
         [HttpDelete("categories/{id}")]
         public async Task<IActionResult> DeleteCategory(int id)
         {
             var language = LanguageHelper.GetLanguageFromRequest(Request);
-
             var category = await _context.Categories.FindAsync(id);
+            if (category == null) return NotFound(LanguageHelper.ErrorResponse<ApiResponse<object>>("CategoryNotFound", language, 404));
+            if (await _context.Problems.AnyAsync(x => x.CategoryId == id))
+                return BadRequest(LanguageHelper.ErrorResponse<ApiResponse<object>>("CategoryHasProblems", language));
 
-            if (category == null)
-                return NotFound(LanguageHelper.ErrorResponse("CategoryNotFound", language, 404));
-
-            var hasProblems = await _context.Problems.AnyAsync(x => x.CategoryId == id);
-
-            if (hasProblems)
-                return BadRequest(LanguageHelper.ErrorResponse("CategoryHasProblems", language));
+            if (!string.IsNullOrEmpty(category.Icon))
+            {
+                var path = Path.Combine(_environment.WebRootPath, category.Icon.TrimStart('/'));
+                if (System.IO.File.Exists(path)) System.IO.File.Delete(path);
+            }
 
             _context.Categories.Remove(category);
             await _context.SaveChangesAsync();
-
-            return Ok(LanguageHelper.SuccessResponse("CategoryDeleted", language));
+            return Ok(LanguageHelper.SuccessResponse<object>(null, "CategoryDeleted", language));
         }
 
         // =========================================
-        // Tags
+        // Tags Management
         // =========================================
 
         [HttpGet("tags")]
         public async Task<IActionResult> GetAllTags()
         {
-            var data = await _context.SearchTags
-                .Select(t => new TagResponseDto
-                {
-                    Id = t.Id,
-                    TextAr = t.TextAr,
-                    TextEn = t.TextEn,
-                    ProblemsCount = t.ProblemTags.Count
-                })
-                .ToListAsync();
-
-            return Ok(data);
+            var language = LanguageHelper.GetLanguageFromRequest(Request);
+            var data = await _context.SearchTags.Select(t => new TagResponseDto { Id = t.Id, TextAr = t.TextAr, TextEn = t.TextEn, ProblemsCount = t.ProblemTags.Count }).ToListAsync();
+            return Ok(LanguageHelper.SuccessResponse(data, "Success", language));
         }
 
         [HttpPost("tags")]
-        public async Task<IActionResult> CreateTag(CreateTagDto dto)
+        public async Task<IActionResult> CreateTag([FromBody] CreateTagDto dto)
         {
             var language = LanguageHelper.GetLanguageFromRequest(Request);
-
-            var tag = new SearchTag
-            {
-                TextAr = dto.TextAr,
-                TextEn = dto.TextEn
-            };
-
+            var tag = new SearchTag { TextAr = dto.TextAr, TextEn = dto.TextEn };
             _context.SearchTags.Add(tag);
             await _context.SaveChangesAsync();
-
-            return Ok(LanguageHelper.SuccessResponse("TagCreated", language, new
-            {
-                Id = tag.Id
-            }));
+            return CreatedAtAction(nameof(GetAllTags), LanguageHelper.SuccessResponse(new TagCreatedDto { Id = tag.Id }, "TagCreated", language, 201));
         }
 
         [HttpDelete("tags/{id}")]
         public async Task<IActionResult> DeleteTag(int id)
         {
             var language = LanguageHelper.GetLanguageFromRequest(Request);
-
-            var tag = await _context.SearchTags
-                .Include(x => x.ProblemTags)
-                .FirstOrDefaultAsync(x => x.Id == id);
-
-            if (tag == null)
-                return NotFound(LanguageHelper.ErrorResponse("TagNotFound", language, 404));
+            var tag = await _context.SearchTags.Include(x => x.ProblemTags).FirstOrDefaultAsync(x => x.Id == id);
+            if (tag == null) return NotFound(LanguageHelper.ErrorResponse<ApiResponse<object>>("TagNotFound", language, 404));
 
             _context.ProblemTags.RemoveRange(tag.ProblemTags);
             _context.SearchTags.Remove(tag);
-
             await _context.SaveChangesAsync();
-
-            return Ok(LanguageHelper.SuccessResponse("TagDeleted", language));
+            return Ok(LanguageHelper.SuccessResponse<object>(null, "TagDeleted", language));
         }
 
         // =========================================
-        // Users
+        // Users Management
         // =========================================
 
         [HttpGet("users")]
-        public async Task<IActionResult> GetUsers(int page = 1, int pageSize = 20)
+        public async Task<IActionResult> GetUsers([FromQuery] int page = 1, [FromQuery] int pageSize = 20)
         {
-            var users = await _context.Users
-                .OrderByDescending(x => x.CreatedAt)
-                .Skip((page - 1) * pageSize)
-                .Take(pageSize)
+            var language = LanguageHelper.GetLanguageFromRequest(Request);
+            var users = await _context.Users.OrderByDescending(x => x.CreatedAt).Skip((page - 1) * pageSize).Take(pageSize)
                 .Select(u => new UserListDto
                 {
                     Id = u.Id,
@@ -394,18 +312,12 @@ namespace MathWorldAPI.Controllers
                     IsActive = u.IsActive,
                     CreatedAt = u.CreatedAt,
                     SolvedProblemsCount = _context.UserProgresses.Count(p => p.UserId == u.Id && p.IsSolved)
-                })
-                .ToListAsync();
+                }).ToListAsync();
 
             var total = await _context.Users.CountAsync();
+            var meta = new MetaData { Total = total, Page = page, PageSize = pageSize, TotalPages = (int)Math.Ceiling(total / (double)pageSize) };
 
-            return Ok(new
-            {
-                Total = total,
-                Page = page,
-                PageSize = pageSize,
-                Users = users
-            });
+            return Ok(LanguageHelper.SuccessResponse(new PagedUserListDto { Users = users, Total = total, Page = page, PageSize = pageSize, TotalPages = meta.TotalPages ?? 0 }, "Success", language, meta: meta));
         }
 
         // =========================================
@@ -415,18 +327,15 @@ namespace MathWorldAPI.Controllers
         [HttpGet("stats")]
         public async Task<IActionResult> Stats()
         {
-            var totalProblems = await _context.Problems.CountAsync();
-            var totalUsers = await _context.Users.CountAsync();
-            var totalSolved = await _context.UserProgresses.CountAsync(x => x.IsSolved);
-            var totalViews = await _context.Problems.SumAsync(x => x.ViewsCount);
-
-            return Ok(new
+            var language = LanguageHelper.GetLanguageFromRequest(Request);
+            var stats = new DashboardStatsDto
             {
-                TotalProblems = totalProblems,
-                TotalUsers = totalUsers,
-                TotalSolved = totalSolved,
-                TotalViews = totalViews
-            });
+                TotalProblems = await _context.Problems.CountAsync(),
+                TotalUsers = await _context.Users.CountAsync(),
+                TotalSolved = await _context.UserProgresses.CountAsync(x => x.IsSolved),
+                TotalViews = await _context.Problems.SumAsync(x => (long)x.ViewsCount)
+            };
+            return Ok(LanguageHelper.SuccessResponse(stats, "Success", language));
         }
     }
 }

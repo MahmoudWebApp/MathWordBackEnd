@@ -1,23 +1,51 @@
-﻿namespace MathWorldAPI.DTOs
+﻿// File: MathWorldAPI/DTOs/AdminDtos.cs
+
+namespace MathWorldAPI.DTOs
 {
-    public class UpdateUserDto
+    /// <summary>
+    /// DTO for sync/reindex operations result
+    /// </summary>
+    public class SyncResultDto
     {
-        public int UserId { get; set; }
-        public string? FullName { get; set; }
-        public string? Role { get; set; }
-        public string? SubscriptionType { get; set; }
-        public bool? IsActive { get; set; }
+        public int Total { get; set; }
     }
 
-    public class UserListDto
+    /// <summary>
+    /// DTO for problem creation result
+    /// </summary>
+    public class ProblemCreatedDto
     {
         public int Id { get; set; }
-        public string FullName { get; set; } = string.Empty;
-        public string Email { get; set; } = string.Empty;
-        public string Role { get; set; } = string.Empty;
-        public string SubscriptionType { get; set; } = string.Empty;
-        public bool IsActive { get; set; }
-        public int SolvedProblemsCount { get; set; }
-        public DateTime CreatedAt { get; set; }
+    }
+
+    /// <summary>
+    /// DTO for tag creation result
+    /// </summary>
+    public class TagCreatedDto
+    {
+        public int Id { get; set; }
+    }
+
+    /// <summary>
+    /// DTO for paginated user list response
+    /// </summary>
+    public class PagedUserListDto
+    {
+        public List<UserListDto> Users { get; set; } = new();
+        public int Total { get; set; }
+        public int Page { get; set; }
+        public int PageSize { get; set; }
+        public int TotalPages { get; set; }
+    }
+
+    /// <summary>
+    /// DTO for dashboard statistics
+    /// </summary>
+    public class DashboardStatsDto
+    {
+        public int TotalProblems { get; set; }
+        public int TotalUsers { get; set; }
+        public long TotalSolved { get; set; }
+        public long TotalViews { get; set; }
     }
 }
