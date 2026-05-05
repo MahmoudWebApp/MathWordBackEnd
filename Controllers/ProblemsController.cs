@@ -23,9 +23,6 @@ namespace MathWorldAPI.Controllers
         private readonly AppDbContext _context;
         private readonly IMeiliSearchService _searchService;
 
-        /// <summary>
-        /// Initializes a new instance of the ProblemsController.
-        /// </summary>
         public ProblemsController(AppDbContext context, IMeiliSearchService searchService)
         {
             _context = context;
@@ -33,85 +30,111 @@ namespace MathWorldAPI.Controllers
         }
 
         // =====================================
-        // Search using Meilisearch
-        // =====================================
+// Search using Meilisearch
+// =====================================
 
-        /// <summary>
-        /// Searches problems using Meilisearch engine with optional filters.
-        /// </summary>
-        [HttpGet("meilisearch-search")]
-        [ProducesResponseType(typeof(ApiResponse<SearchResponseDto>), StatusCodes.Status200OK)]
-        [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult<ApiResponse<SearchResponseDto>>> MeiliSearch(
-            [FromQuery] string q = "",
-            [FromQuery] int? categoryId = null,
-            [FromQuery] string? difficulty = null)
-        {
-            var language = LanguageHelper.GetLanguageFromRequest(Request);
+[HttpGet("meilisearch-search")]
+[ProducesResponseType(typeof(ApiResponse<SearchResponseDto>), StatusCodes.Status200OK)]
+public async Task<ActionResult<ApiResponse<SearchResponseDto>>> MeiliSearch(
+    [FromQuery] string q = "",
+    [FromQuery] int? categoryId = null,
+    [FromQuery] int? tagId = null,
+    [FromQuery] string? difficulty = null)
+{
+    var language = LanguageHelper.GetLanguageFromRequest(Request);
 
-            if (string.IsNullOrWhiteSpace(q))
-                return BadRequest(LanguageHelper.ErrorResponse<ApiResponse<SearchResponseDto>>("SearchQueryEmpty", language));
+    // ✅ لو q فارغ، نجيب كل المسائل مع الفلاتر من DB
+    if (string.IsNullOrWhiteSpace(q))
+    {
+        var query = _context.Problems
+            .Include(p => p.Category)
+            .Include(p => p.ProblemTags)
+            .AsQueryable();
 
-            var problemIds = await _searchService.SearchAsync(q, categoryId, difficulty);
+        if (categoryId.HasValue) query = query.Where(p => p.CategoryId == categoryId.Value);
+        if (tagId.HasValue) query = query.Where(p => p.ProblemTags.Any(pt => pt.TagId == tagId.Value));
+        if (!string.IsNullOrWhiteSpace(difficulty)) query = query.Where(p => p.Difficulty == difficulty);
 
-            if (problemIds == null || problemIds.Count == 0)
+        var allProblems = await query   // ← غيّرنا الاسم هنا
+            .Select(p => new ProblemPreviewDto
             {
-                return Ok(LanguageHelper.SuccessResponse(
-                    new SearchResponseDto { Query = q, Results = new List<ProblemPreviewDto>() },
-                    "NoResultsFound", language, meta: new MetaData { SearchType = "Meilisearch", Query = q, Total = 0 }));
-            }
+                Id = p.Id,
+                Title = language == "en" ? p.TitleEn : p.TitleAr,
+                Difficulty = p.Difficulty,
+                CategoryName = language == "en" ? p.Category.NameEn : p.Category.NameAr,
+                ViewsCount = p.ViewsCount,
+                RequiresLogin = true
+            })
+            .ToListAsync();
 
-            var problems = await _context.Problems
-                .Include(p => p.Category)
-                .Where(p => problemIds.Contains(p.Id))
-                .Select(p => new ProblemPreviewDto
-                {
-                    Id = p.Id,
-                    Title = language == "en" ? p.TitleEn : p.TitleAr,
-                    Difficulty = p.Difficulty,
-                    CategoryName = language == "en" ? p.Category.NameEn : p.Category.NameAr,
-                    ViewsCount = p.ViewsCount,
-                    RequiresLogin = true
-                })
-                .ToListAsync();
+        return Ok(LanguageHelper.SuccessResponse(
+            new SearchResponseDto { Query = q, Results = allProblems },  // ← وهنا
+            allProblems.Count == 0 ? "NoResultsFound" : "Success",
+            language, meta: new MetaData { SearchType = "Meilisearch", Query = q, Total = allProblems.Count }));  // ← وهنا
+    }
 
-            // ✅ FIX: Explicitly handle nullable reference types to resolve CS8619
-            var ordered = problemIds
-                .Select(id => problems.FirstOrDefault(p => p.Id == id))
-                .Where(p => p != null)
-                .Select(p => p!)
-                .ToList();
+    var problemIds = await _searchService.SearchAsync(q, categoryId, difficulty);
 
-            return Ok(LanguageHelper.SuccessResponse(
-                new SearchResponseDto { Query = q, Results = ordered },
-                "Success", language, meta: new MetaData { SearchType = "Meilisearch", Query = q, Total = ordered.Count }));
-        }
+    if (problemIds == null || problemIds.Count == 0)
+    {
+        return Ok(LanguageHelper.SuccessResponse(
+            new SearchResponseDto { Query = q, Results = new List<ProblemPreviewDto>() },
+            "NoResultsFound", language, meta: new MetaData { SearchType = "Meilisearch", Query = q, Total = 0 }));
+    }
+
+    var problems = await _context.Problems
+        .Include(p => p.Category)
+        .Where(p => problemIds.Contains(p.Id))
+        .Select(p => new ProblemPreviewDto
+        {
+            Id = p.Id,
+            Title = language == "en" ? p.TitleEn : p.TitleAr,
+            Difficulty = p.Difficulty,
+            CategoryName = language == "en" ? p.Category.NameEn : p.Category.NameAr,
+            ViewsCount = p.ViewsCount,
+            RequiresLogin = true
+        })
+        .ToListAsync();
+
+    var ordered = problemIds
+        .Select(id => problems.FirstOrDefault(p => p.Id == id))
+        .Where(p => p != null)
+        .Select(p => p!)
+        .ToList();
+
+    return Ok(LanguageHelper.SuccessResponse(
+        new SearchResponseDto { Query = q, Results = ordered },
+        "Success", language, meta: new MetaData { SearchType = "Meilisearch", Query = q, Total = ordered.Count }));
+}
 
         // =====================================
         // Search using PostgreSQL
         // =====================================
 
-        /// <summary>
-        /// Searches problems using PostgreSQL full-text search with optional filters.
-        /// </summary>
         [HttpGet("postgresql-search")]
         [ProducesResponseType(typeof(ApiResponse<SearchResponseDto>), StatusCodes.Status200OK)]
-        [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<ApiResponse<SearchResponseDto>>> PostgreSqlSearch(
             [FromQuery] string q = "",
             [FromQuery] int? categoryId = null,
+            [FromQuery] int? tagId = null,
             [FromQuery] string? difficulty = null)
         {
             var language = LanguageHelper.GetLanguageFromRequest(Request);
 
-            if (string.IsNullOrWhiteSpace(q))
-                return BadRequest(LanguageHelper.ErrorResponse<ApiResponse<SearchResponseDto>>("SearchQueryEmpty", language));
+            var query = _context.Problems
+                .Include(p => p.Category)
+                .Include(p => p.ProblemTags)
+                .AsQueryable();
 
-            var query = _context.Problems.Include(p => p.Category).AsQueryable();
-            query = query.Where(p => p.TitleAr.Contains(q) || p.TitleEn.Contains(q) ||
-                                     p.QuestionTextAr.Contains(q) || p.QuestionTextEn.Contains(q));
+            // ✅ نضيف شرط البحث بس لو q مش فارغ
+            if (!string.IsNullOrWhiteSpace(q))
+            {
+                query = query.Where(p => p.TitleAr.Contains(q) || p.TitleEn.Contains(q) ||
+                                         p.QuestionTextAr.Contains(q) || p.QuestionTextEn.Contains(q));
+            }
 
             if (categoryId.HasValue) query = query.Where(p => p.CategoryId == categoryId.Value);
+            if (tagId.HasValue) query = query.Where(p => p.ProblemTags.Any(pt => pt.TagId == tagId.Value));
             if (!string.IsNullOrWhiteSpace(difficulty)) query = query.Where(p => p.Difficulty == difficulty);
 
             var problems = await query
@@ -136,30 +159,24 @@ namespace MathWorldAPI.Controllers
         // Main search endpoint (router)
         // =====================================
 
-        /// <summary>
-        /// Main search endpoint that routes to the specified search engine.
-        /// ✅ FIX: Changed return type to ActionResult<T> to match underlying methods and resolve CS0029
-        /// </summary>
         [HttpGet("search")]
         [ProducesResponseType(typeof(ApiResponse<SearchResponseDto>), StatusCodes.Status200OK)]
         public async Task<ActionResult<ApiResponse<SearchResponseDto>>> Search(
             [FromQuery] string q = "",
             [FromQuery] int? categoryId = null,
+            [FromQuery] int? tagId = null,
             [FromQuery] string? difficulty = null,
             [FromQuery] string? engine = "meilisearch")
         {
             return engine == "postgresql"
-                ? await PostgreSqlSearch(q, categoryId, difficulty)
-                : await MeiliSearch(q, categoryId, difficulty);
+                ? await PostgreSqlSearch(q, categoryId, tagId, difficulty)
+                : await MeiliSearch(q, categoryId, tagId, difficulty);
         }
 
         // =====================================
         // Get single problem with role-based content
         // =====================================
 
-        /// <summary>
-        /// Retrieves a single problem with content filtered by user role.
-        /// </summary>
         [HttpGet("{id}")]
         [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status404NotFound)]
@@ -178,16 +195,13 @@ namespace MathWorldAPI.Controllers
             if (problem == null)
                 return NotFound(LanguageHelper.ErrorResponse<ApiResponse<object>>("ProblemNotFound", language, 404));
 
-            // Increment view count
             problem.ViewsCount++;
             await _context.SaveChangesAsync();
 
-            // Attempt to update search index (non-critical operation)
             try { await _searchService.UpdateProblemAsync(problem); } catch { }
 
             var tags = problem.ProblemTags.Select(pt => language == "en" ? pt.Tag.TextEn : pt.Tag.TextAr).ToList();
 
-            // ==================== Admin View ====================
             if (userRole == "Admin")
             {
                 return Ok(LanguageHelper.SuccessResponse(new
@@ -207,7 +221,6 @@ namespace MathWorldAPI.Controllers
                 }, "Success", language));
             }
 
-            // ==================== Logged-in User View ====================
             if (userId.HasValue)
             {
                 var progress = await _context.UserProgresses.FirstOrDefaultAsync(up => up.UserId == userId.Value && up.ProblemId == id);
@@ -250,7 +263,6 @@ namespace MathWorldAPI.Controllers
                 }, "Success", language));
             }
 
-            // ==================== Public View ====================
             return Ok(LanguageHelper.SuccessResponse(new ProblemForPublicDto
             {
                 Id = problem.Id,
@@ -269,9 +281,6 @@ namespace MathWorldAPI.Controllers
         // Submit answer endpoint
         // =====================================
 
-        /// <summary>
-        /// Submits a user's answer to a problem and evaluates correctness.
-        /// </summary>
         [Authorize]
         [HttpPost("submit")]
         [ProducesResponseType(typeof(ApiResponse<AnswerResultDto>), StatusCodes.Status200OK)]
@@ -353,14 +362,8 @@ namespace MathWorldAPI.Controllers
         // Helper methods
         // =====================================
 
-        /// <summary>
-        /// Extracts the authenticated user's ID from JWT claims.
-        /// </summary>
         private int? GetUserId() => User.Identity?.IsAuthenticated == true ? int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? "0") : null;
 
-        /// <summary>
-        /// Extracts the authenticated user's role from JWT claims.
-        /// </summary>
         private string? GetUserRole() => User.Identity?.IsAuthenticated == true ? User.FindFirst(ClaimTypes.Role)?.Value : null;
     }
 }
