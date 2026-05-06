@@ -224,12 +224,27 @@ namespace MathWorldAPI.Services
         }
 
         // -----------------------------------------------
-        // Search problems and return matching problem IDs
+        // Search problems and return matching problem IDs (Legacy method)
         // -----------------------------------------------
         public async Task<List<int>> SearchAsync(
             string query,
             int? categoryId = null,
             string? difficulty = null)
+        {
+            var (ids, _) = await SearchWithPaginationAsync(query, categoryId, difficulty, 1, 1000);
+            return ids;
+        }
+
+        // -----------------------------------------------
+        // Search problems with pagination support (NEW METHOD)
+        // Returns both IDs and total count for pagination
+        // -----------------------------------------------
+        public async Task<(List<int> Ids, int TotalCount)> SearchWithPaginationAsync(
+            string query,
+            int? categoryId = null,
+            string? difficulty = null,
+            int page = 1,
+            int pageSize = 10)
         {
             try
             {
@@ -250,10 +265,12 @@ namespace MathWorldAPI.Services
                     filters.Add($"difficulty = \"{difficulty}\"");
                 }
 
+                // ✅ FIX: Use HitsPerPage and Page instead of Limit/Offset
+                // This returns PaginatedSearchResult<T> which has TotalHits property
                 var searchQuery = new SearchQuery
                 {
-                    Limit = 100,
-                    Offset = 0,
+                    HitsPerPage = pageSize,
+                    Page = page,
                     Filter = filters.Any() ? string.Join(" AND ", filters) : null,
                     AttributesToRetrieve = new[] { "id" } // Optimize: only retrieve ID field
                 };
@@ -263,22 +280,34 @@ namespace MathWorldAPI.Services
                     string.IsNullOrWhiteSpace(query) ? "*" : query,
                     searchQuery);
 
-                _logger.LogDebug("Search query '{Query}' returned {Count} results.",
-                    query ?? "*", result.Hits.Count);
+                // ✅ FIX: Cast ISearchable<T> to PaginatedSearchResult<T> to access TotalHits
+                // When using HitsPerPage/Page, SearchAsync returns PaginatedSearchResult<T>
+                // which contains TotalHits (exhaustive count) and TotalPages [^1^][^12^]
+                if (result is not PaginatedSearchResult<MeiliProblemDocument> paginatedResult)
+                {
+                    _logger.LogWarning("Search result is not a PaginatedSearchResult. Returning empty results.");
+                    return (new List<int>(), 0);
+                }
 
-                return result.Hits.Select(x => x.Id).ToList();
+                var ids = paginatedResult.Hits.Select(x => x.Id).ToList();
+                var totalCount = (int)paginatedResult.TotalHits;
+
+                _logger.LogDebug("Search query '{Query}' (Page {Page}, Size {PageSize}) returned {Count} of {Total} results.",
+                    query ?? "*", page, pageSize, ids.Count, totalCount);
+
+                return (ids, totalCount);
             }
             catch (MeilisearchTimeoutError ex)
             {
                 _logger.LogWarning(ex, "Search timed out for query '{Query}'. Meilisearch may be waking up.", query);
                 // Return empty list instead of crashing - graceful degradation
-                return new List<int>();
+                return (new List<int>(), 0);
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Search failed for query '{Query}'.", query);
                 // Return empty list to avoid breaking the user experience
-                return new List<int>();
+                return (new List<int>(), 0);
             }
         }
 

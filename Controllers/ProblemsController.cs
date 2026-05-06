@@ -37,7 +37,7 @@ namespace MathWorldAPI.Controllers
         // =====================================
 
         /// <summary>
-        /// Searches problems using Meilisearch engine with optional filters.
+        /// Searches problems using Meilisearch engine with optional filters and pagination.
         /// When query is empty, returns all problems filtered by category/tag/difficulty from PostgreSQL.
         /// </summary>
         [HttpGet("meilisearch-search")]
@@ -46,8 +46,14 @@ namespace MathWorldAPI.Controllers
             [FromQuery] string q = "",
             [FromQuery] int? categoryId = null,
             [FromQuery] int? tagId = null,
-            [FromQuery] string? difficulty = null)
+            [FromQuery] string? difficulty = null,
+            [FromQuery] int page = 1,
+            [FromQuery] int pageSize = 10)
         {
+            // Validate pagination parameters
+            page = Math.Max(1, page);
+            pageSize = Math.Clamp(pageSize, 1, 100);
+
             var language = LanguageHelper.GetLanguageFromRequest(Request);
 
             // ✅ If query is empty, fetch from PostgreSQL with filters (no search needed)
@@ -62,7 +68,13 @@ namespace MathWorldAPI.Controllers
                 if (tagId.HasValue) query = query.Where(p => p.ProblemTags.Any(pt => pt.TagId == tagId.Value));
                 if (!string.IsNullOrWhiteSpace(difficulty)) query = query.Where(p => p.Difficulty == difficulty);
 
+                // Get total count for pagination
+                var total = await query.CountAsync();
+
+                // Get paginated results
                 var allProblems = await query
+                    .Skip((page - 1) * pageSize)
+                    .Take(pageSize)
                     .Select(p => new ProblemPreviewDto
                     {
                         Id = p.Id,
@@ -75,17 +87,33 @@ namespace MathWorldAPI.Controllers
                     .ToListAsync();
 
                 return Ok(LanguageHelper.SuccessResponse(
-                    new SearchResponseDto { Query = q, Results = allProblems , Total= allProblems.Count },
+                    new SearchResponseDto
+                    {
+                        Query = q,
+                        Page = page,
+                        PageSize = pageSize,
+                        Results = allProblems,
+                        Total = total
+                    },
                     allProblems.Count == 0 ? "NoResultsFound" : "Success",
-                    language, meta: new MetaData { SearchType = "Meilisearch", Query = q, Total = allProblems.Count }));
+                    language, meta: new MetaData { SearchType = "Meilisearch", Query = q, Total = total }));
             }
 
-            var problemIds = await _searchService.SearchAsync(q, categoryId, difficulty);
+            // Get search results from Meilisearch with pagination
+            // ✅ FIX: Use correct method name SearchWithPaginationAsync and explicit tuple deconstruction
+            (List<int> problemIds, int totalCount) = await _searchService.SearchWithPaginationAsync(q, categoryId, difficulty, page, pageSize);
 
             if (problemIds == null || problemIds.Count == 0)
             {
                 return Ok(LanguageHelper.SuccessResponse(
-                    new SearchResponseDto { Query = q, Results = new List<ProblemPreviewDto>(), Total = 0 },
+                    new SearchResponseDto
+                    {
+                        Query = q,
+                        Page = page,
+                        PageSize = pageSize,
+                        Results = new List<ProblemPreviewDto>(),
+                        Total = 0
+                    },
                     "NoResultsFound", language, meta: new MetaData { SearchType = "Meilisearch", Query = q, Total = 0 }));
             }
 
@@ -111,8 +139,15 @@ namespace MathWorldAPI.Controllers
                 .ToList();
 
             return Ok(LanguageHelper.SuccessResponse(
-                new SearchResponseDto { Query = q, Results = ordered, Total = ordered.Count },
-                "Success", language, meta: new MetaData { SearchType = "Meilisearch", Query = q, Total = ordered.Count }));
+                new SearchResponseDto
+                {
+                    Query = q,
+                    Page = page,
+                    PageSize = pageSize,
+                    Results = ordered,
+                    Total = totalCount
+                },
+                "Success", language, meta: new MetaData { SearchType = "Meilisearch", Query = q, Total = totalCount }));
         }
 
         // =====================================
@@ -120,7 +155,7 @@ namespace MathWorldAPI.Controllers
         // =====================================
 
         /// <summary>
-        /// Searches problems using PostgreSQL full-text search with optional filters.
+        /// Searches problems using PostgreSQL full-text search with optional filters and pagination.
         /// Supports filtering by category, tag, and difficulty even when search query is empty.
         /// </summary>
         [HttpGet("postgresql-search")]
@@ -129,8 +164,14 @@ namespace MathWorldAPI.Controllers
             [FromQuery] string q = "",
             [FromQuery] int? categoryId = null,
             [FromQuery] int? tagId = null,
-            [FromQuery] string? difficulty = null)
+            [FromQuery] string? difficulty = null,
+            [FromQuery] int page = 1,
+            [FromQuery] int pageSize = 10)
         {
+            // Validate pagination parameters
+            page = Math.Max(1, page);
+            pageSize = Math.Clamp(pageSize, 1, 100);
+
             var language = LanguageHelper.GetLanguageFromRequest(Request);
 
             var query = _context.Problems
@@ -149,7 +190,13 @@ namespace MathWorldAPI.Controllers
             if (tagId.HasValue) query = query.Where(p => p.ProblemTags.Any(pt => pt.TagId == tagId.Value));
             if (!string.IsNullOrWhiteSpace(difficulty)) query = query.Where(p => p.Difficulty == difficulty);
 
+            // Get total count for pagination
+            var total = await query.CountAsync();
+
+            // Get paginated results
             var problems = await query
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
                 .Select(p => new ProblemPreviewDto
                 {
                     Id = p.Id,
@@ -162,9 +209,16 @@ namespace MathWorldAPI.Controllers
                 .ToListAsync();
 
             return Ok(LanguageHelper.SuccessResponse(
-                new SearchResponseDto { Query = q, Results = problems, Total = problems.Count },
+                new SearchResponseDto
+                {
+                    Query = q,
+                    Page = page,
+                    PageSize = pageSize,
+                    Results = problems,
+                    Total = total
+                },
                 problems.Count == 0 ? "NoResultsFound" : "Success",
-                language, meta: new MetaData { SearchType = "PostgreSQL", Query = q, Total = problems.Count }));
+                language, meta: new MetaData { SearchType = "PostgreSQL", Query = q, Total = total }));
         }
 
         // =====================================
@@ -173,7 +227,7 @@ namespace MathWorldAPI.Controllers
 
         /// <summary>
         /// Main search endpoint that routes to the specified search engine.
-        /// Supports Meilisearch (default) and PostgreSQL engines.
+        /// Supports Meilisearch (default) and PostgreSQL engines with pagination.
         /// </summary>
         [HttpGet("search")]
         [ProducesResponseType(typeof(ApiResponse<SearchResponseDto>), StatusCodes.Status200OK)]
@@ -182,11 +236,13 @@ namespace MathWorldAPI.Controllers
             [FromQuery] int? categoryId = null,
             [FromQuery] int? tagId = null,
             [FromQuery] string? difficulty = null,
-            [FromQuery] string? engine = "meilisearch")
+            [FromQuery] string? engine = "meilisearch",
+            [FromQuery] int page = 1,
+            [FromQuery] int pageSize = 10)
         {
             return engine == "postgresql"
-                ? await PostgreSqlSearch(q, categoryId, tagId, difficulty)
-                : await MeiliSearch(q, categoryId, tagId, difficulty);
+                ? await PostgreSqlSearch(q, categoryId, tagId, difficulty, page, pageSize)
+                : await MeiliSearch(q, categoryId, tagId, difficulty, page, pageSize);
         }
 
         // =====================================

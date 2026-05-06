@@ -1,7 +1,6 @@
 ﻿// ================================
 // File: Services/IMeiliSearchService.cs
 // ================================
-// No changes — keeping for reference
 
 using MathWorldAPI.Models;
 
@@ -11,10 +10,19 @@ namespace MathWorldAPI.Services
     {
         Task IndexProblemAsync(MathProblem problem);
 
+        // Legacy method for backward compatibility
         Task<List<int>> SearchAsync(
             string query,
             int? categoryId = null,
             string? difficulty = null);
+
+        // NEW: Search with pagination support
+        Task<(List<int> Ids, int TotalCount)> SearchWithPaginationAsync(
+            string query,
+            int? categoryId = null,
+            string? difficulty = null,
+            int page = 1,
+            int pageSize = 10);
 
         Task UpdateProblemAsync(MathProblem problem);
 
