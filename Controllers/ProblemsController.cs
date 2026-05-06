@@ -93,7 +93,8 @@ namespace MathWorldAPI.Controllers
                         Page = page,
                         PageSize = pageSize,
                         Results = allProblems,
-                        Total = total
+                        Total = total,
+                        TotalPages = (int)Math.Ceiling((double)total / pageSize)  // Add this
                     },
                     allProblems.Count == 0 ? "NoResultsFound" : "Success",
                     language, meta: new MetaData { SearchType = "Meilisearch", Query = q, Total = total }));

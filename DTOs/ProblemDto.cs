@@ -155,11 +155,11 @@ namespace MathWorldAPI.DTOs
     /// </summary>
     public class SearchResponseDto
     {
-        public string Query { get; set; } = "";
-        public int Page { get; set; } = 1;
-        public int PageSize { get; set; } = 10;
+        public string Query { get; set; } = string.Empty;
+        public int Page { get; set; }
+        public int PageSize { get; set; }
         public int Total { get; set; }
-        public int TotalPages => (int)Math.Ceiling((double)Total / PageSize);
+        public int TotalPages { get; set; }  
         public List<ProblemPreviewDto> Results { get; set; } = new();
     }
 }
