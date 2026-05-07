@@ -28,6 +28,31 @@ namespace MathWorldAPI.Controllers
         }
 
         /// <summary>
+        /// Returns the base wwwroot path, handles null WebRootPath on Render/Docker environments
+        /// </summary>
+        private string GetBaseUploadPath()
+        {
+            return !string.IsNullOrEmpty(_environment.WebRootPath)
+                ? _environment.WebRootPath
+                : Path.Combine(_environment.ContentRootPath, "wwwroot");
+        }
+
+        /// <summary>
+        /// Returns the uploads/categories folder path and creates it if it doesn't exist.
+        /// Fixes ArgumentNullException when WebRootPath is null on Render/Docker.
+        /// </summary>
+        private string GetUploadsFolderPath()
+        {
+            var basePath = !string.IsNullOrEmpty(_environment.WebRootPath)
+                ? _environment.WebRootPath
+                : Path.Combine(_environment.ContentRootPath, "wwwroot");
+
+            var folder = Path.Combine(basePath, "uploads", "categories");
+            Directory.CreateDirectory(folder);
+            return folder;
+        }
+
+        /// <summary>
         /// Retrieves all categories ordered by display order
         /// </summary>
         [HttpGet]
@@ -153,16 +178,16 @@ namespace MathWorldAPI.Controllers
                         }));
                 }
 
+                // Delete the old icon file if it exists
                 if (!string.IsNullOrEmpty(category.Icon))
                 {
-                    var oldFilePath = Path.Combine(_environment.WebRootPath, category.Icon.TrimStart('/'));
+                    var oldFilePath = Path.Combine(GetBaseUploadPath(), category.Icon.TrimStart('/'));
                     if (System.IO.File.Exists(oldFilePath))
                         System.IO.File.Delete(oldFilePath);
                 }
 
-                var uploadsFolder = Path.Combine(_environment.WebRootPath, "uploads", "categories");
-                Directory.CreateDirectory(uploadsFolder);
-
+                // Save the new icon file with a unique name
+                var uploadsFolder = GetUploadsFolderPath();
                 var uniqueFileName = $"{Guid.NewGuid()}{fileExtension}";
                 var filePath = Path.Combine(uploadsFolder, uniqueFileName);
 
@@ -205,17 +230,18 @@ namespace MathWorldAPI.Controllers
                 Order = dto.Order
             };
 
+            // Handle icon file upload if provided
             if (dto.Icon != null && dto.Icon.Length > 0)
             {
                 var allowedExtensions = new[] { ".jpg", ".jpeg", ".png", ".svg", ".webp" };
                 var fileExtension = Path.GetExtension(dto.Icon.FileName).ToLowerInvariant();
 
                 if (!allowedExtensions.Contains(fileExtension))
-                    return BadRequest(LanguageHelper.ErrorResponse<ApiResponse<CategoryDto>>("BadRequest", language, 400));
+                    return BadRequest(LanguageHelper.ErrorResponse<ApiResponse<CategoryDto>>(
+                        "BadRequest", language, 400));
 
-                var uploadsFolder = Path.Combine(_environment.WebRootPath, "uploads", "categories");
-                Directory.CreateDirectory(uploadsFolder);
-
+                // Save the icon file with a unique name
+                var uploadsFolder = GetUploadsFolderPath();
                 var uniqueFileName = $"{Guid.NewGuid()}{fileExtension}";
                 var filePath = Path.Combine(uploadsFolder, uniqueFileName);
 
@@ -253,15 +279,18 @@ namespace MathWorldAPI.Controllers
 
             var category = await _context.Categories.FindAsync(id);
             if (category == null)
-                return NotFound(LanguageHelper.ErrorResponse<ApiResponse<object>>("CategoryNotFound", language, 404));
+                return NotFound(LanguageHelper.ErrorResponse<ApiResponse<object>>(
+                    "CategoryNotFound", language, 404));
 
             var hasProblems = await _context.Problems.AnyAsync(p => p.CategoryId == id);
             if (hasProblems)
-                return BadRequest(LanguageHelper.ErrorResponse<ApiResponse<object>>("CategoryHasProblems", language, 400));
+                return BadRequest(LanguageHelper.ErrorResponse<ApiResponse<object>>(
+                    "CategoryHasProblems", language, 400));
 
+            // Delete the icon file if it exists
             if (!string.IsNullOrEmpty(category.Icon))
             {
-                var filePath = Path.Combine(_environment.WebRootPath, category.Icon.TrimStart('/'));
+                var filePath = Path.Combine(GetBaseUploadPath(), category.Icon.TrimStart('/'));
                 if (System.IO.File.Exists(filePath))
                     System.IO.File.Delete(filePath);
             }
