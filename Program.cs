@@ -161,7 +161,7 @@ builder.Services.AddHttpClient("KeepAlive", client =>
 {
     client.Timeout = TimeSpan.FromSeconds(30);
 });
-
+builder.Services.AddHttpClient<IImgBbStorageService, ImgBbStorageService>();
 // ============================================================================
 // Build the Application
 // ============================================================================

@@ -22,13 +22,13 @@ namespace MathWorldAPI.Controllers
     {
         private readonly AppDbContext _context;
         private readonly IMeiliSearchService _searchService;
-        private readonly IWebHostEnvironment _environment;
+        private readonly IImgBbStorageService _imgBbStorage;
 
-        public AdminController(AppDbContext context, IMeiliSearchService searchService, IWebHostEnvironment environment)
+        public AdminController(AppDbContext context, IMeiliSearchService searchService, IImgBbStorageService imgBbStorage)
         {
             _context = context;
             _searchService = searchService;
-            _environment = environment;
+            _imgBbStorage = imgBbStorage;
         }
 
         // =========================================
@@ -46,7 +46,7 @@ namespace MathWorldAPI.Controllers
                 await _searchService.ReindexAllAsync();
                 return Ok(LanguageHelper.SuccessResponse<object>(null, "Success", LanguageHelper.GetLanguageFromRequest(Request)));
             }
-            catch (Exception) // ✅ FIX: Removed unused 'ex' variable to resolve CS0168
+            catch (Exception)
             {
                 return StatusCode(500, LanguageHelper.ErrorResponse<ApiResponse<object>>("ServerError", LanguageHelper.GetLanguageFromRequest(Request), 500));
             }
@@ -64,7 +64,7 @@ namespace MathWorldAPI.Controllers
                 foreach (var problem in problems) await _searchService.UpdateProblemAsync(problem);
                 return Ok(LanguageHelper.SuccessResponse(new SyncResultDto { Total = problems.Count }, "Success", LanguageHelper.GetLanguageFromRequest(Request)));
             }
-            catch (Exception) // ✅ FIX: Removed unused 'ex' variable to resolve CS0168
+            catch (Exception)
             {
                 return StatusCode(500, LanguageHelper.ErrorResponse<ApiResponse<SyncResultDto>>("ServerError", LanguageHelper.GetLanguageFromRequest(Request), 500));
             }
@@ -112,11 +112,7 @@ namespace MathWorldAPI.Controllers
             }
 
             await _searchService.IndexProblemAsync(problem);
-
-            // ✅ FIX: Changed nameof(GetProblem) to "GetProblem" string literal to resolve CS0103
-            // The target action exists in a different controller, so nameof() fails in this context.
-            return CreatedAtAction("GetProblem", "Problems", new { id = problem.Id },
-                LanguageHelper.SuccessResponse(new ProblemCreatedDto { Id = problem.Id }, "ProblemCreated", language, 201));
+            return CreatedAtAction("GetProblem", "Problems", new { id = problem.Id }, LanguageHelper.SuccessResponse(new ProblemCreatedDto { Id = problem.Id }, "ProblemCreated", language, 201));
         }
 
         /// <summary>
@@ -139,9 +135,7 @@ namespace MathWorldAPI.Controllers
 
             _context.ProblemTags.RemoveRange(problem.ProblemTags);
             if (dto.TagIds != null && dto.TagIds.Any())
-            {
                 foreach (var tagId in dto.TagIds) _context.ProblemTags.Add(new ProblemTag { ProblemId = problem.Id, TagId = tagId });
-            }
 
             await _context.SaveChangesAsync();
             await _searchService.UpdateProblemAsync(problem);
@@ -165,7 +159,7 @@ namespace MathWorldAPI.Controllers
         }
 
         // =========================================
-        // Categories Management (with FormData support)
+        // Categories Management (Using ImgBB)
         // =========================================
 
         /// <summary>
@@ -175,22 +169,10 @@ namespace MathWorldAPI.Controllers
         public async Task<IActionResult> GetAllCategories()
         {
             var language = LanguageHelper.GetLanguageFromRequest(Request);
+            var categories = await _context.Categories.OrderBy(x => x.Order).Select(c => new CategoryDto { Id = c.Id, NameAr = c.NameAr, NameEn = c.NameEn, Icon = c.Icon ?? string.Empty }).ToListAsync();
 
-            // Fetch data without URL transformation first (LINQ cannot access HttpContext)
-            var categories = await _context.Categories
-                .OrderBy(x => x.Order)
-                .Select(c => new CategoryDto
-                {
-                    Id = c.Id,
-                    NameAr = c.NameAr,
-                    NameEn = c.NameEn,
-                    Icon = c.Icon
-                })
-                .ToListAsync();
-
-            // Build full URLs after materializing the query
             foreach (var cat in categories)
-                cat.Icon = UploadHelper.GetFullImageUrl(Request, cat.Icon);
+                cat.Icon = _imgBbStorage.GetFullUrl(cat.Icon) ?? string.Empty;
 
             return Ok(LanguageHelper.SuccessResponse(categories, "Success", language));
         }
@@ -207,25 +189,16 @@ namespace MathWorldAPI.Controllers
 
             if (dto.Icon != null && dto.Icon.Length > 0)
             {
-                // Validate file extension before saving
                 if (!UploadHelper.IsValidImageExtension(dto.Icon.FileName, out _))
                     return BadRequest(LanguageHelper.ErrorResponse<ApiResponse<object>>("BadRequest", language, 400));
 
-                // Save file and get relative path
-                category.Icon = await UploadHelper.SaveFileAsync(_environment, dto.Icon);
+                category.Icon = await _imgBbStorage.UploadFileAsync(dto.Icon);
             }
 
             _context.Categories.Add(category);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetAllCategories),
-                LanguageHelper.SuccessResponse(new CategoryDto
-                {
-                    Id = category.Id,
-                    NameAr = category.NameAr,
-                    NameEn = category.NameEn,
-                    Icon = UploadHelper.GetFullImageUrl(Request, category.Icon)
-                }, "CategoryCreated", language, 201));
+            return CreatedAtAction(nameof(GetAllCategories), LanguageHelper.SuccessResponse(new CategoryDto { Id = category.Id, NameAr = category.NameAr, NameEn = category.NameEn, Icon = _imgBbStorage.GetFullUrl(category.Icon) ?? string.Empty }, "CategoryCreated", language, 201));
         }
 
         /// <summary>
@@ -245,30 +218,18 @@ namespace MathWorldAPI.Controllers
 
             if (dto.Icon != null && dto.Icon.Length > 0)
             {
-                // Validate file extension before saving
                 if (!UploadHelper.IsValidImageExtension(dto.Icon.FileName, out _))
                     return BadRequest(LanguageHelper.ErrorResponse<ApiResponse<object>>("BadRequest", language, 400));
 
-                // Delete old icon file if exists
-                UploadHelper.DeleteFileIfExists(_environment, category.Icon);
-
-                // Save new icon file and get relative path
-                category.Icon = await UploadHelper.SaveFileAsync(_environment, dto.Icon);
+                category.Icon = await _imgBbStorage.UploadFileAsync(dto.Icon);
             }
 
             await _context.SaveChangesAsync();
-            return Ok(LanguageHelper.SuccessResponse(new CategoryDto
-            {
-                Id = category.Id,
-                NameAr = category.NameAr,
-                NameEn = category.NameEn,
-                Icon = UploadHelper.GetFullImageUrl(Request, category.Icon)
-            }, "CategoryUpdated", language));
+            return Ok(LanguageHelper.SuccessResponse(new CategoryDto { Id = category.Id, NameAr = category.NameAr, NameEn = category.NameEn, Icon = _imgBbStorage.GetFullUrl(category.Icon) ?? string.Empty }, "CategoryUpdated", language));
         }
 
         /// <summary>
         /// Deletes a category. Fails if any problems are linked to it.
-        /// Also removes the associated icon file from disk.
         /// </summary>
         [HttpDelete("categories/{id}")]
         public async Task<IActionResult> DeleteCategory(int id)
@@ -276,13 +237,8 @@ namespace MathWorldAPI.Controllers
             var language = LanguageHelper.GetLanguageFromRequest(Request);
             var category = await _context.Categories.FindAsync(id);
             if (category == null) return NotFound(LanguageHelper.ErrorResponse<ApiResponse<object>>("CategoryNotFound", language, 404));
-
-            // Prevent deletion if problems reference this category
             if (await _context.Problems.AnyAsync(x => x.CategoryId == id))
                 return BadRequest(LanguageHelper.ErrorResponse<ApiResponse<object>>("CategoryHasProblems", language));
-
-            // Remove icon file from disk
-            UploadHelper.DeleteFileIfExists(_environment, category.Icon);
 
             _context.Categories.Remove(category);
             await _context.SaveChangesAsync();
@@ -345,17 +301,7 @@ namespace MathWorldAPI.Controllers
         {
             var language = LanguageHelper.GetLanguageFromRequest(Request);
             var users = await _context.Users.OrderByDescending(x => x.CreatedAt).Skip((page - 1) * pageSize).Take(pageSize)
-                .Select(u => new UserListDto
-                {
-                    Id = u.Id,
-                    FullName = u.FullName,
-                    Email = u.Email,
-                    Role = u.Role,
-                    SubscriptionType = u.SubscriptionType,
-                    IsActive = u.IsActive,
-                    CreatedAt = u.CreatedAt,
-                    SolvedProblemsCount = _context.UserProgresses.Count(p => p.UserId == u.Id && p.IsSolved)
-                }).ToListAsync();
+                .Select(u => new UserListDto { Id = u.Id, FullName = u.FullName, Email = u.Email, Role = u.Role, SubscriptionType = u.SubscriptionType, IsActive = u.IsActive, CreatedAt = u.CreatedAt, SolvedProblemsCount = _context.UserProgresses.Count(p => p.UserId == u.Id && p.IsSolved) }).ToListAsync();
 
             var total = await _context.Users.CountAsync();
             var meta = new MetaData { Total = total, Page = page, PageSize = pageSize, TotalPages = (int)Math.Ceiling(total / (double)pageSize) };
@@ -374,13 +320,7 @@ namespace MathWorldAPI.Controllers
         public async Task<IActionResult> Stats()
         {
             var language = LanguageHelper.GetLanguageFromRequest(Request);
-            var stats = new DashboardStatsDto
-            {
-                TotalProblems = await _context.Problems.CountAsync(),
-                TotalUsers = await _context.Users.CountAsync(),
-                TotalSolved = await _context.UserProgresses.CountAsync(x => x.IsSolved),
-                TotalViews = await _context.Problems.SumAsync(x => (long)x.ViewsCount)
-            };
+            var stats = new DashboardStatsDto { TotalProblems = await _context.Problems.CountAsync(), TotalUsers = await _context.Users.CountAsync(), TotalSolved = await _context.UserProgresses.CountAsync(x => x.IsSolved), TotalViews = await _context.Problems.SumAsync(x => (long)x.ViewsCount) };
             return Ok(LanguageHelper.SuccessResponse(stats, "Success", language));
         }
     }
