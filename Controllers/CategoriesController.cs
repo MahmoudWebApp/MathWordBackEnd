@@ -28,32 +28,7 @@ namespace MathWorldAPI.Controllers
         }
 
         /// <summary>
-        /// Returns the base wwwroot path, handles null WebRootPath on Render/Docker environments
-        /// </summary>
-        private string GetBaseUploadPath()
-        {
-            return !string.IsNullOrEmpty(_environment.WebRootPath)
-                ? _environment.WebRootPath
-                : Path.Combine(_environment.ContentRootPath, "wwwroot");
-        }
-
-        /// <summary>
-        /// Returns the uploads/categories folder path and creates it if it doesn't exist.
-        /// Fixes ArgumentNullException when WebRootPath is null on Render/Docker.
-        /// </summary>
-        private string GetUploadsFolderPath()
-        {
-            var basePath = !string.IsNullOrEmpty(_environment.WebRootPath)
-                ? _environment.WebRootPath
-                : Path.Combine(_environment.ContentRootPath, "wwwroot");
-
-            var folder = Path.Combine(basePath, "uploads", "categories");
-            Directory.CreateDirectory(folder);
-            return folder;
-        }
-
-        /// <summary>
-        /// Retrieves all categories ordered by display order
+        /// Retrieves all categories ordered by display order.
         /// </summary>
         [HttpGet]
         [ProducesResponseType(typeof(ApiResponse<List<CategoryDto>>), StatusCodes.Status200OK)]
@@ -63,6 +38,7 @@ namespace MathWorldAPI.Controllers
             {
                 var language = LanguageHelper.GetLanguageFromRequest(Request);
 
+                // Fetch data without URL transformation first (LINQ cannot access HttpContext)
                 var categories = await _context.Categories
                     .OrderBy(c => c.Order)
                     .Select(c => new CategoryDto
@@ -74,6 +50,10 @@ namespace MathWorldAPI.Controllers
                     })
                     .ToListAsync();
 
+                // Build full URLs after materializing the query
+                foreach (var cat in categories)
+                    cat.Icon = UploadHelper.GetFullImageUrl(Request, cat.Icon);
+
                 return Ok(LanguageHelper.SuccessResponse(categories, "Success", language));
             }
             catch (Exception)
@@ -84,7 +64,7 @@ namespace MathWorldAPI.Controllers
         }
 
         /// <summary>
-        /// Retrieves problems belonging to a specific category with pagination
+        /// Retrieves problems belonging to a specific category with pagination.
         /// </summary>
         [HttpGet("{id}/problems")]
         [ProducesResponseType(typeof(ApiResponse<PagedResult<ProblemPreviewDto>>), StatusCodes.Status200OK)]
@@ -132,7 +112,7 @@ namespace MathWorldAPI.Controllers
             var result = new PagedResult<ProblemPreviewDto>
             {
                 CategoryName = language == "en" ? category.NameEn : category.NameAr,
-                CategoryIcon = category.Icon,
+                CategoryIcon = UploadHelper.GetFullImageUrl(Request, category.Icon),
                 Items = problems
             };
 
@@ -140,7 +120,7 @@ namespace MathWorldAPI.Controllers
         }
 
         /// <summary>
-        /// Updates a category with optional icon file upload (FormData)
+        /// Updates a category with optional icon file upload (FormData).
         /// </summary>
         [HttpPut("{id}")]
         [ProducesResponseType(typeof(ApiResponse<CategoryDto>), StatusCodes.Status200OK)]
@@ -165,11 +145,9 @@ namespace MathWorldAPI.Controllers
             // Handle icon file upload if provided
             if (dto.Icon != null && dto.Icon.Length > 0)
             {
-                var allowedExtensions = new[] { ".jpg", ".jpeg", ".png", ".svg", ".webp" };
-                var fileExtension = Path.GetExtension(dto.Icon.FileName).ToLowerInvariant();
-
-                if (!allowedExtensions.Contains(fileExtension))
+                if (!UploadHelper.IsValidImageExtension(dto.Icon.FileName, out var fileExtension))
                 {
+                    var allowedExtensions = new[] { ".jpg", ".jpeg", ".png", ".svg", ".webp" };
                     return BadRequest(LanguageHelper.ErrorResponse<ApiResponse<CategoryDto>>(
                         "BadRequest", language, 400,
                         new Dictionary<string, List<string>>
@@ -179,24 +157,10 @@ namespace MathWorldAPI.Controllers
                 }
 
                 // Delete the old icon file if it exists
-                if (!string.IsNullOrEmpty(category.Icon))
-                {
-                    var oldFilePath = Path.Combine(GetBaseUploadPath(), category.Icon.TrimStart('/'));
-                    if (System.IO.File.Exists(oldFilePath))
-                        System.IO.File.Delete(oldFilePath);
-                }
+                UploadHelper.DeleteFileIfExists(_environment, category.Icon);
 
                 // Save the new icon file with a unique name
-                var uploadsFolder = GetUploadsFolderPath();
-                var uniqueFileName = $"{Guid.NewGuid()}{fileExtension}";
-                var filePath = Path.Combine(uploadsFolder, uniqueFileName);
-
-                using (var stream = new FileStream(filePath, FileMode.Create))
-                {
-                    await dto.Icon.CopyToAsync(stream);
-                }
-
-                category.Icon = $"/uploads/categories/{uniqueFileName}";
+                category.Icon = await UploadHelper.SaveFileAsync(_environment, dto.Icon);
             }
 
             await _context.SaveChangesAsync();
@@ -206,14 +170,14 @@ namespace MathWorldAPI.Controllers
                 Id = category.Id,
                 NameAr = category.NameAr,
                 NameEn = category.NameEn,
-                Icon = category.Icon
+                Icon = UploadHelper.GetFullImageUrl(Request, category.Icon)
             };
 
             return Ok(LanguageHelper.SuccessResponse(result, "CategoryUpdated", language));
         }
 
         /// <summary>
-        /// Creates a new category with optional icon upload
+        /// Creates a new category with optional icon upload.
         /// </summary>
         [HttpPost]
         [ProducesResponseType(typeof(ApiResponse<CategoryDto>), StatusCodes.Status201Created)]
@@ -233,22 +197,12 @@ namespace MathWorldAPI.Controllers
             // Handle icon file upload if provided
             if (dto.Icon != null && dto.Icon.Length > 0)
             {
-                var allowedExtensions = new[] { ".jpg", ".jpeg", ".png", ".svg", ".webp" };
-                var fileExtension = Path.GetExtension(dto.Icon.FileName).ToLowerInvariant();
-
-                if (!allowedExtensions.Contains(fileExtension))
+                if (!UploadHelper.IsValidImageExtension(dto.Icon.FileName, out _))
                     return BadRequest(LanguageHelper.ErrorResponse<ApiResponse<CategoryDto>>(
                         "BadRequest", language, 400));
 
                 // Save the icon file with a unique name
-                var uploadsFolder = GetUploadsFolderPath();
-                var uniqueFileName = $"{Guid.NewGuid()}{fileExtension}";
-                var filePath = Path.Combine(uploadsFolder, uniqueFileName);
-
-                using (var stream = new FileStream(filePath, FileMode.Create))
-                    await dto.Icon.CopyToAsync(stream);
-
-                category.Icon = $"/uploads/categories/{uniqueFileName}";
+                category.Icon = await UploadHelper.SaveFileAsync(_environment, dto.Icon);
             }
 
             _context.Categories.Add(category);
@@ -259,7 +213,7 @@ namespace MathWorldAPI.Controllers
                 Id = category.Id,
                 NameAr = category.NameAr,
                 NameEn = category.NameEn,
-                Icon = category.Icon
+                Icon = UploadHelper.GetFullImageUrl(Request, category.Icon)
             };
 
             return CreatedAtAction(nameof(GetAll), new { id = category.Id },
@@ -267,7 +221,8 @@ namespace MathWorldAPI.Controllers
         }
 
         /// <summary>
-        /// Deletes a category (only if no problems are associated)
+        /// Deletes a category (only if no problems are associated).
+        /// Also removes the associated icon file from disk.
         /// </summary>
         [HttpDelete("{id}")]
         [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status200OK)]
@@ -288,12 +243,7 @@ namespace MathWorldAPI.Controllers
                     "CategoryHasProblems", language, 400));
 
             // Delete the icon file if it exists
-            if (!string.IsNullOrEmpty(category.Icon))
-            {
-                var filePath = Path.Combine(GetBaseUploadPath(), category.Icon.TrimStart('/'));
-                if (System.IO.File.Exists(filePath))
-                    System.IO.File.Delete(filePath);
-            }
+            UploadHelper.DeleteFileIfExists(_environment, category.Icon);
 
             _context.Categories.Remove(category);
             await _context.SaveChangesAsync();

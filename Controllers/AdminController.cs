@@ -32,32 +32,6 @@ namespace MathWorldAPI.Controllers
         }
 
         // =========================================
-        // Helper Methods for Safe File Uploads
-        // =========================================
-
-        /// <summary>
-        /// Returns the base wwwroot path, handles null WebRootPath on Render/Docker environments
-        /// </summary>
-        private string GetBaseUploadPath()
-        {
-            return !string.IsNullOrEmpty(_environment.WebRootPath)
-                ? _environment.WebRootPath
-                : Path.Combine(_environment.ContentRootPath, "wwwroot");
-        }
-
-        /// <summary>
-        /// Returns the uploads/categories folder path and creates it if it doesn't exist.
-        /// Fixes ArgumentNullException when WebRootPath is null on Render/Docker.
-        /// </summary>
-        private string GetUploadsFolderPath()
-        {
-            var basePath = GetBaseUploadPath();
-            var folder = Path.Combine(basePath, "uploads", "categories");
-            Directory.CreateDirectory(folder);
-            return folder;
-        }
-
-        // =========================================
         // Meilisearch Management
         // =========================================
 
@@ -194,14 +168,36 @@ namespace MathWorldAPI.Controllers
         // Categories Management (with FormData support)
         // =========================================
 
+        /// <summary>
+        /// Retrieves all categories ordered by display order.
+        /// </summary>
         [HttpGet("categories")]
         public async Task<IActionResult> GetAllCategories()
         {
             var language = LanguageHelper.GetLanguageFromRequest(Request);
-            var data = await _context.Categories.OrderBy(x => x.Order).Select(c => new CategoryDto { Id = c.Id, NameAr = c.NameAr, NameEn = c.NameEn, Icon = c.Icon }).ToListAsync();
-            return Ok(LanguageHelper.SuccessResponse(data, "Success", language));
+
+            // Fetch data without URL transformation first (LINQ cannot access HttpContext)
+            var categories = await _context.Categories
+                .OrderBy(x => x.Order)
+                .Select(c => new CategoryDto
+                {
+                    Id = c.Id,
+                    NameAr = c.NameAr,
+                    NameEn = c.NameEn,
+                    Icon = c.Icon
+                })
+                .ToListAsync();
+
+            // Build full URLs after materializing the query
+            foreach (var cat in categories)
+                cat.Icon = UploadHelper.GetFullImageUrl(Request, cat.Icon);
+
+            return Ok(LanguageHelper.SuccessResponse(categories, "Success", language));
         }
 
+        /// <summary>
+        /// Creates a new category with optional icon upload via multipart/form-data.
+        /// </summary>
         [HttpPost("categories")]
         [Consumes("multipart/form-data")]
         public async Task<IActionResult> CreateCategory([FromForm] CreateCategoryDto dto)
@@ -211,25 +207,30 @@ namespace MathWorldAPI.Controllers
 
             if (dto.Icon != null && dto.Icon.Length > 0)
             {
-                var ext = Path.GetExtension(dto.Icon.FileName).ToLower();
-                var allowed = new[] { ".jpg", ".jpeg", ".png", ".svg", ".webp" };
-                if (!allowed.Contains(ext)) return BadRequest(LanguageHelper.ErrorResponse<ApiResponse<object>>("BadRequest", language, 400));
+                // Validate file extension before saving
+                if (!UploadHelper.IsValidImageExtension(dto.Icon.FileName, out _))
+                    return BadRequest(LanguageHelper.ErrorResponse<ApiResponse<object>>("BadRequest", language, 400));
 
-                // ✅ FIX: Use secure folder creation method
-                var folder = GetUploadsFolderPath();
-                var fileName = $"{Guid.NewGuid()}{ext}";
-
-                using var stream = new FileStream(Path.Combine(folder, fileName), FileMode.Create);
-                await dto.Icon.CopyToAsync(stream);
-
-                category.Icon = $"/uploads/categories/{fileName}";
+                // Save file and get relative path
+                category.Icon = await UploadHelper.SaveFileAsync(_environment, dto.Icon);
             }
 
             _context.Categories.Add(category);
             await _context.SaveChangesAsync();
-            return CreatedAtAction(nameof(GetAllCategories), LanguageHelper.SuccessResponse(new CategoryDto { Id = category.Id, NameAr = category.NameAr, NameEn = category.NameEn, Icon = category.Icon }, "CategoryCreated", language, 201));
+
+            return CreatedAtAction(nameof(GetAllCategories),
+                LanguageHelper.SuccessResponse(new CategoryDto
+                {
+                    Id = category.Id,
+                    NameAr = category.NameAr,
+                    NameEn = category.NameEn,
+                    Icon = UploadHelper.GetFullImageUrl(Request, category.Icon)
+                }, "CategoryCreated", language, 201));
         }
 
+        /// <summary>
+        /// Updates an existing category with optional icon replacement via multipart/form-data.
+        /// </summary>
         [HttpPut("categories/{id}")]
         [Consumes("multipart/form-data")]
         public async Task<IActionResult> UpdateCategory(int id, [FromForm] UpdateCategoryDto dto)
@@ -244,46 +245,44 @@ namespace MathWorldAPI.Controllers
 
             if (dto.Icon != null && dto.Icon.Length > 0)
             {
-                var ext = Path.GetExtension(dto.Icon.FileName).ToLower();
-                var allowed = new[] { ".jpg", ".jpeg", ".png", ".svg", ".webp" };
-                if (!allowed.Contains(ext)) return BadRequest(LanguageHelper.ErrorResponse<ApiResponse<object>>("BadRequest", language, 400));
+                // Validate file extension before saving
+                if (!UploadHelper.IsValidImageExtension(dto.Icon.FileName, out _))
+                    return BadRequest(LanguageHelper.ErrorResponse<ApiResponse<object>>("BadRequest", language, 400));
 
-                // ✅ FIX: Use secure base path for deletion
-                if (!string.IsNullOrEmpty(category.Icon))
-                {
-                    var oldPath = Path.Combine(GetBaseUploadPath(), category.Icon.TrimStart('/'));
-                    if (System.IO.File.Exists(oldPath)) System.IO.File.Delete(oldPath);
-                }
+                // Delete old icon file if exists
+                UploadHelper.DeleteFileIfExists(_environment, category.Icon);
 
-                // ✅ FIX: Use secure folder creation method for new upload
-                var folder = GetUploadsFolderPath();
-                var fileName = $"{Guid.NewGuid()}{ext}";
-
-                using var stream = new FileStream(Path.Combine(folder, fileName), FileMode.Create);
-                await dto.Icon.CopyToAsync(stream);
-
-                category.Icon = $"/uploads/categories/{fileName}";
+                // Save new icon file and get relative path
+                category.Icon = await UploadHelper.SaveFileAsync(_environment, dto.Icon);
             }
 
             await _context.SaveChangesAsync();
-            return Ok(LanguageHelper.SuccessResponse(new CategoryDto { Id = category.Id, NameAr = category.NameAr, NameEn = category.NameEn, Icon = category.Icon }, "CategoryUpdated", language));
+            return Ok(LanguageHelper.SuccessResponse(new CategoryDto
+            {
+                Id = category.Id,
+                NameAr = category.NameAr,
+                NameEn = category.NameEn,
+                Icon = UploadHelper.GetFullImageUrl(Request, category.Icon)
+            }, "CategoryUpdated", language));
         }
 
+        /// <summary>
+        /// Deletes a category. Fails if any problems are linked to it.
+        /// Also removes the associated icon file from disk.
+        /// </summary>
         [HttpDelete("categories/{id}")]
         public async Task<IActionResult> DeleteCategory(int id)
         {
             var language = LanguageHelper.GetLanguageFromRequest(Request);
             var category = await _context.Categories.FindAsync(id);
             if (category == null) return NotFound(LanguageHelper.ErrorResponse<ApiResponse<object>>("CategoryNotFound", language, 404));
+
+            // Prevent deletion if problems reference this category
             if (await _context.Problems.AnyAsync(x => x.CategoryId == id))
                 return BadRequest(LanguageHelper.ErrorResponse<ApiResponse<object>>("CategoryHasProblems", language));
 
-            // ✅ FIX: Use secure base path for deletion
-            if (!string.IsNullOrEmpty(category.Icon))
-            {
-                var path = Path.Combine(GetBaseUploadPath(), category.Icon.TrimStart('/'));
-                if (System.IO.File.Exists(path)) System.IO.File.Delete(path);
-            }
+            // Remove icon file from disk
+            UploadHelper.DeleteFileIfExists(_environment, category.Icon);
 
             _context.Categories.Remove(category);
             await _context.SaveChangesAsync();
@@ -294,6 +293,9 @@ namespace MathWorldAPI.Controllers
         // Tags Management
         // =========================================
 
+        /// <summary>
+        /// Retrieves all tags with their associated problem counts.
+        /// </summary>
         [HttpGet("tags")]
         public async Task<IActionResult> GetAllTags()
         {
@@ -302,6 +304,9 @@ namespace MathWorldAPI.Controllers
             return Ok(LanguageHelper.SuccessResponse(data, "Success", language));
         }
 
+        /// <summary>
+        /// Creates a new searchable tag.
+        /// </summary>
         [HttpPost("tags")]
         public async Task<IActionResult> CreateTag([FromBody] CreateTagDto dto)
         {
@@ -312,6 +317,9 @@ namespace MathWorldAPI.Controllers
             return CreatedAtAction(nameof(GetAllTags), LanguageHelper.SuccessResponse(new TagCreatedDto { Id = tag.Id }, "TagCreated", language, 201));
         }
 
+        /// <summary>
+        /// Deletes a tag and removes all its associations with problems.
+        /// </summary>
         [HttpDelete("tags/{id}")]
         public async Task<IActionResult> DeleteTag(int id)
         {
@@ -329,6 +337,9 @@ namespace MathWorldAPI.Controllers
         // Users Management
         // =========================================
 
+        /// <summary>
+        /// Retrieves a paginated list of all registered users with their solved problem counts.
+        /// </summary>
         [HttpGet("users")]
         public async Task<IActionResult> GetUsers([FromQuery] int page = 1, [FromQuery] int pageSize = 20)
         {
@@ -356,6 +367,9 @@ namespace MathWorldAPI.Controllers
         // Statistics
         // =========================================
 
+        /// <summary>
+        /// Retrieves overall dashboard statistics including totals for problems, users, solved counts, and views.
+        /// </summary>
         [HttpGet("stats")]
         public async Task<IActionResult> Stats()
         {
