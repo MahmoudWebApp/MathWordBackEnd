@@ -20,6 +20,10 @@ namespace MathWorldAPI.Controllers
 
         public TagsController(AppDbContext context) => _context = context;
 
+        /// <summary>
+        /// Retrieves all tags.
+        /// Returns 'Text' based on the current request language.
+        /// </summary>
         [HttpGet]
         [ProducesResponseType(typeof(ApiResponse<List<TagResponseDto>>), StatusCodes.Status200OK)]
         public async Task<ActionResult<ApiResponse<List<TagResponseDto>>>> GetAllTags()
@@ -32,6 +36,7 @@ namespace MathWorldAPI.Controllers
                     Id = t.Id,
                     TextAr = t.TextAr,
                     TextEn = t.TextEn,
+                    Text = language == "en" ? t.TextEn : t.TextAr, 
                     ProblemsCount = t.ProblemTags.Count
                 })
                 .ToListAsync();
@@ -39,6 +44,9 @@ namespace MathWorldAPI.Controllers
             return Ok(LanguageHelper.SuccessResponse(tags, "Success", language));
         }
 
+        /// <summary>
+        /// Retrieves problems belonging to a specific tag with pagination.
+        /// </summary>
         [HttpGet("{tagId}/problems")]
         [ProducesResponseType(typeof(ApiResponse<PagedResult<ProblemPreviewDto>>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status404NotFound)]

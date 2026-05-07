@@ -30,6 +30,7 @@ namespace MathWorldAPI.Controllers
 
         /// <summary>
         /// Retrieves all categories ordered by display order.
+        /// Returns 'Name' based on the current request language.
         /// </summary>
         [HttpGet]
         [ProducesResponseType(typeof(ApiResponse<List<CategoryDto>>), StatusCodes.Status200OK)]
@@ -38,7 +39,18 @@ namespace MathWorldAPI.Controllers
             try
             {
                 var language = LanguageHelper.GetLanguageFromRequest(Request);
-                var categories = await _context.Categories.OrderBy(c => c.Order).Select(c => new CategoryDto { Id = c.Id, NameAr = c.NameAr, NameEn = c.NameEn, Icon = c.Icon ?? string.Empty }).ToListAsync();
+
+                var categories = await _context.Categories
+                    .OrderBy(c => c.Order)
+                    .Select(c => new CategoryDto
+                    {
+                        Id = c.Id,
+                        NameAr = c.NameAr,
+                        NameEn = c.NameEn,
+                        Name = language == "en" ? c.NameEn : c.NameAr, 
+                        Icon = c.Icon ?? string.Empty
+                    })
+                    .ToListAsync();
 
                 foreach (var cat in categories)
                     cat.Icon = _imgBbStorage.GetFullUrl(cat.Icon) ?? string.Empty;
@@ -67,7 +79,15 @@ namespace MathWorldAPI.Controllers
             var total = await query.CountAsync();
 
             var problems = await query.Skip((page - 1) * pageSize).Take(pageSize)
-                .Select(p => new ProblemPreviewDto { Id = p.Id, Title = language == "en" ? p.TitleEn : p.TitleAr, Difficulty = p.Difficulty, CategoryName = language == "en" ? p.Category.NameEn : p.Category.NameAr, ViewsCount = p.ViewsCount, RequiresLogin = true }).ToListAsync();
+                .Select(p => new ProblemPreviewDto
+                {
+                    Id = p.Id,
+                    Title = language == "en" ? p.TitleEn : p.TitleAr,
+                    Difficulty = p.Difficulty,
+                    CategoryName = language == "en" ? p.Category.NameEn : p.Category.NameAr,
+                    ViewsCount = p.ViewsCount,
+                    RequiresLogin = true
+                }).ToListAsync();
 
             var meta = new MetaData { Total = total, Page = page, PageSize = pageSize, TotalPages = (int)Math.Ceiling(total / (double)pageSize) };
 
@@ -111,7 +131,14 @@ namespace MathWorldAPI.Controllers
             }
 
             await _context.SaveChangesAsync();
-            return Ok(LanguageHelper.SuccessResponse(new CategoryDto { Id = category.Id, NameAr = category.NameAr, NameEn = category.NameEn, Icon = _imgBbStorage.GetFullUrl(category.Icon) ?? string.Empty }, "CategoryUpdated", language));
+            return Ok(LanguageHelper.SuccessResponse(new CategoryDto
+            {
+                Id = category.Id,
+                NameAr = category.NameAr,
+                NameEn = category.NameEn,
+            
+                Icon = _imgBbStorage.GetFullUrl(category.Icon) ?? string.Empty
+            }, "CategoryUpdated", language));
         }
 
         /// <summary>
@@ -136,7 +163,14 @@ namespace MathWorldAPI.Controllers
             _context.Categories.Add(category);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetAll), new { id = category.Id }, LanguageHelper.SuccessResponse(new CategoryDto { Id = category.Id, NameAr = category.NameAr, NameEn = category.NameEn, Icon = _imgBbStorage.GetFullUrl(category.Icon) ?? string.Empty }, "CategoryCreated", language, 201));
+            return CreatedAtAction(nameof(GetAll), new { id = category.Id },
+                LanguageHelper.SuccessResponse(new CategoryDto
+                {
+                    Id = category.Id,
+                    NameAr = category.NameAr,
+                    NameEn = category.NameEn, 
+                    Icon = _imgBbStorage.GetFullUrl(category.Icon) ?? string.Empty
+                }, "CategoryCreated", language, 201));
         }
 
         /// <summary>

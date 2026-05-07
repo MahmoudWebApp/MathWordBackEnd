@@ -36,6 +36,7 @@ namespace MathWorldAPI.DTOs
         public int Id { get; set; }
         public string TextAr { get; set; } = string.Empty;
         public string TextEn { get; set; } = string.Empty;
+        public string Text { get; set; } = string.Empty;
         public int ProblemsCount { get; set; }
     }
 }
