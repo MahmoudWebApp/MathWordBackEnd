@@ -32,6 +32,32 @@ namespace MathWorldAPI.Controllers
         }
 
         // =========================================
+        // Helper Methods for Safe File Uploads
+        // =========================================
+
+        /// <summary>
+        /// Returns the base wwwroot path, handles null WebRootPath on Render/Docker environments
+        /// </summary>
+        private string GetBaseUploadPath()
+        {
+            return !string.IsNullOrEmpty(_environment.WebRootPath)
+                ? _environment.WebRootPath
+                : Path.Combine(_environment.ContentRootPath, "wwwroot");
+        }
+
+        /// <summary>
+        /// Returns the uploads/categories folder path and creates it if it doesn't exist.
+        /// Fixes ArgumentNullException when WebRootPath is null on Render/Docker.
+        /// </summary>
+        private string GetUploadsFolderPath()
+        {
+            var basePath = GetBaseUploadPath();
+            var folder = Path.Combine(basePath, "uploads", "categories");
+            Directory.CreateDirectory(folder);
+            return folder;
+        }
+
+        // =========================================
         // Meilisearch Management
         // =========================================
 
@@ -189,11 +215,13 @@ namespace MathWorldAPI.Controllers
                 var allowed = new[] { ".jpg", ".jpeg", ".png", ".svg", ".webp" };
                 if (!allowed.Contains(ext)) return BadRequest(LanguageHelper.ErrorResponse<ApiResponse<object>>("BadRequest", language, 400));
 
-                var folder = Path.Combine(_environment.WebRootPath, "uploads", "categories");
-                Directory.CreateDirectory(folder);
+                // ✅ FIX: Use secure folder creation method
+                var folder = GetUploadsFolderPath();
                 var fileName = $"{Guid.NewGuid()}{ext}";
+
                 using var stream = new FileStream(Path.Combine(folder, fileName), FileMode.Create);
                 await dto.Icon.CopyToAsync(stream);
+
                 category.Icon = $"/uploads/categories/{fileName}";
             }
 
@@ -220,17 +248,20 @@ namespace MathWorldAPI.Controllers
                 var allowed = new[] { ".jpg", ".jpeg", ".png", ".svg", ".webp" };
                 if (!allowed.Contains(ext)) return BadRequest(LanguageHelper.ErrorResponse<ApiResponse<object>>("BadRequest", language, 400));
 
+                // ✅ FIX: Use secure base path for deletion
                 if (!string.IsNullOrEmpty(category.Icon))
                 {
-                    var oldPath = Path.Combine(_environment.WebRootPath, category.Icon.TrimStart('/'));
+                    var oldPath = Path.Combine(GetBaseUploadPath(), category.Icon.TrimStart('/'));
                     if (System.IO.File.Exists(oldPath)) System.IO.File.Delete(oldPath);
                 }
 
-                var folder = Path.Combine(_environment.WebRootPath, "uploads", "categories");
-                Directory.CreateDirectory(folder);
+                // ✅ FIX: Use secure folder creation method for new upload
+                var folder = GetUploadsFolderPath();
                 var fileName = $"{Guid.NewGuid()}{ext}";
+
                 using var stream = new FileStream(Path.Combine(folder, fileName), FileMode.Create);
                 await dto.Icon.CopyToAsync(stream);
+
                 category.Icon = $"/uploads/categories/{fileName}";
             }
 
@@ -247,9 +278,10 @@ namespace MathWorldAPI.Controllers
             if (await _context.Problems.AnyAsync(x => x.CategoryId == id))
                 return BadRequest(LanguageHelper.ErrorResponse<ApiResponse<object>>("CategoryHasProblems", language));
 
+            // ✅ FIX: Use secure base path for deletion
             if (!string.IsNullOrEmpty(category.Icon))
             {
-                var path = Path.Combine(_environment.WebRootPath, category.Icon.TrimStart('/'));
+                var path = Path.Combine(GetBaseUploadPath(), category.Icon.TrimStart('/'));
                 if (System.IO.File.Exists(path)) System.IO.File.Delete(path);
             }
 

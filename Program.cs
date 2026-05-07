@@ -17,6 +17,10 @@ using MathWorldAPI.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// ✅ FIX: Force WebRootPath to a specific physical path for Docker/Render environments
+// This guarantees that _environment.WebRootPath will never be null.
+builder.Environment.WebRootPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot");
+
 // ============================================================================
 // 1. Configure DbContext with PostgreSQL
 // ============================================================================
@@ -128,7 +132,6 @@ builder.Services.AddSwaggerGen(c =>
     });
 
     // ✅ Dynamic FormData Filter - Auto-documents any [FromForm] endpoint
-    // Supports IFormFile, arrays, enums, [Description] attributes, and validation
     c.OperationFilter<MathWorldAPI.Filters.DynamicFormDataOperationFilter>();
 });
 
@@ -178,7 +181,6 @@ using (var scope = app.Services.CreateScope())
     catch (Exception ex)
     {
         Console.WriteLine($"❌ Database migration error: {ex.Message}");
-        // In production: consider failing fast or using a health check
     }
 }
 
@@ -186,14 +188,13 @@ using (var scope = app.Services.CreateScope())
 // 11. Configure Middleware Pipeline (Order Matters!)
 // ============================================================================
 
-// Swagger UI only in Development environment
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI(c =>
     {
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "MathWorld API v1");
-        c.RoutePrefix = "swagger"; // Access at https://localhost:7000/swagger
+        c.RoutePrefix = "swagger";
     });
 }
 
@@ -202,6 +203,9 @@ app.UseHttpsRedirection();
 
 // CORS must come before authentication
 app.UseCors("ReactApp");
+
+// ✅ FIX: This line is required to serve images from the wwwroot folder to React
+app.UseStaticFiles();
 
 // Custom middleware for language detection/logging
 app.UseMiddleware<LanguageMiddleware>();
@@ -232,7 +236,6 @@ _ = Task.Run(async () =>
     var logger = app.Services.GetRequiredService<ILogger<Program>>();
     var factory = app.Services.GetRequiredService<IHttpClientFactory>();
 
-    // URLs to ping to keep services awake (update with your actual URLs)
     var targets = new[]
     {
         "https://mathwordbackend.onrender.com/health",
