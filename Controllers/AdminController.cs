@@ -74,46 +74,90 @@ namespace MathWorldAPI.Controllers
         // Problems Management
         // =========================================
 
+        // =========================================
+        // Problems Management
+        // =========================================
+
         /// <summary>
-        /// Creates a new math problem with options and optional tags.
+        /// Retrieves a paginated list of all problems with full details for admin management.
+        /// Supports filtering by search query, category, tag, and difficulty using PostgreSQL.
         /// </summary>
-        [HttpPost("problems")]
-        [ProducesResponseType(typeof(ApiResponse<ProblemCreatedDto>), StatusCodes.Status201Created)]
-        public async Task<ActionResult<ApiResponse<ProblemCreatedDto>>> CreateProblem([FromBody] CreateProblemDto dto)
+        [HttpGet("problems")]
+        [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetAllProblems(
+            [FromQuery] string? q = null,
+            [FromQuery] int? categoryId = null,
+            [FromQuery] int? tagId = null,
+            [FromQuery] string? difficulty = null,
+            [FromQuery] int page = 1,
+            [FromQuery] int pageSize = 10)
         {
             var language = LanguageHelper.GetLanguageFromRequest(Request);
-            if (dto.Options == null || dto.Options.Count != 4)
-                return BadRequest(LanguageHelper.ErrorResponse<ApiResponse<ProblemCreatedDto>>("OptionsCountError", language));
-            if (dto.Options.Count(x => x.IsCorrect) != 1)
-                return BadRequest(LanguageHelper.ErrorResponse<ApiResponse<ProblemCreatedDto>>("CorrectOptionError", language));
 
-            var problem = new MathProblem
+            // Validate pagination
+            page = Math.Max(1, page);
+            pageSize = Math.Clamp(pageSize, 1, 100);
+
+            var query = _context.Problems
+                .Include(p => p.Options)
+                .Include(p => p.ProblemTags)
+                .AsQueryable();
+
+            // 1. Apply Text Search (if provided)
+            if (!string.IsNullOrWhiteSpace(q))
             {
-                TitleAr = dto.TitleAr,
-                TitleEn = dto.TitleEn,
-                QuestionTextAr = dto.QuestionTextAr,
-                QuestionTextEn = dto.QuestionTextEn,
-                LatexCode = dto.LatexCode,
-                DetailedSolution = dto.DetailedSolution,
-                Difficulty = dto.Difficulty,
-                Points = dto.Points,
-                CategoryId = dto.CategoryId,
-                CreatedAt = DateTime.UtcNow,
-                Options = dto.Options.Select(o => new QuestionOption { TextAr = o.TextAr, TextEn = o.TextEn, LatexCode = o.LatexCode, IsCorrect = o.IsCorrect, Order = o.Order }).ToList()
-            };
-
-            _context.Problems.Add(problem);
-            await _context.SaveChangesAsync();
-
-            if (dto.TagIds != null && dto.TagIds.Any())
-            {
-                foreach (var tagId in dto.TagIds) _context.ProblemTags.Add(new ProblemTag { ProblemId = problem.Id, TagId = tagId });
-                await _context.SaveChangesAsync();
+                query = query.Where(p => p.TitleAr.Contains(q) || p.TitleEn.Contains(q) ||
+                                         p.QuestionTextAr.Contains(q) || p.QuestionTextEn.Contains(q));
             }
 
-            await _searchService.IndexProblemAsync(problem);
-            return CreatedAtAction("GetProblem", "Problems", new { id = problem.Id }, LanguageHelper.SuccessResponse(new ProblemCreatedDto { Id = problem.Id }, "ProblemCreated", language, 201));
+            // 2. Apply Filters
+            if (categoryId.HasValue)
+                query = query.Where(p => p.CategoryId == categoryId.Value);
+
+            if (tagId.HasValue)
+                query = query.Where(p => p.ProblemTags.Any(pt => pt.TagId == tagId.Value));
+
+            if (!string.IsNullOrWhiteSpace(difficulty))
+                query = query.Where(p => p.Difficulty == difficulty);
+
+            // 3. Get Total Count for Pagination
+            var total = await query.CountAsync();
+
+            // 4. Get Paginated Results with Full Details
+            var problems = await query
+                .OrderByDescending(p => p.Id) 
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .Select(p => new
+                {
+                    p.Id,
+                    p.TitleAr,
+                    p.TitleEn,
+                    p.QuestionTextAr,
+                    p.QuestionTextEn,
+                    p.LatexCode,
+                    p.DetailedSolution,
+                    p.Difficulty,
+                    p.Points,
+                    p.CategoryId,
+                    Options = p.Options.OrderBy(o => o.Order).Select(o => new { o.TextAr, o.TextEn, o.LatexCode, o.IsCorrect, o.Order }).ToList(),
+                    TagIds = p.ProblemTags.Select(pt => pt.TagId).ToList()
+                })
+                .ToListAsync();
+
+            // 5. Construct Paginated Response
+            var responseData = new
+            {
+                Results = problems,
+                Total = total,
+                Page = page,
+                PageSize = pageSize,
+                TotalPages = (int)Math.Ceiling((double)total / pageSize)
+            };
+
+            return Ok(LanguageHelper.SuccessResponse(responseData, problems.Count == 0 ? "NoResultsFound" : "Success", language));
         }
+
 
         /// <summary>
         /// Updates an existing problem with new data.
@@ -256,7 +300,7 @@ namespace MathWorldAPI.Controllers
         public async Task<IActionResult> GetAllTags()
         {
             var language = LanguageHelper.GetLanguageFromRequest(Request);
-            var data = await _context.SearchTags.Select(t => new TagResponseDto { Id = t.Id, TextAr = t.TextAr, TextEn = t.TextEn, ProblemsCount = t.ProblemTags.Count }).ToListAsync();
+            var data = await _context.SearchTags.Select(t => new TagResponseDto { Id = t.Id, TextAr = t.TextAr, TextEn = t.TextEn, Text = language == "en" ? t.TextEn : t.TextAr, ProblemsCount = t.ProblemTags.Count }).ToListAsync();
             return Ok(LanguageHelper.SuccessResponse(data, "Success", language));
         }
 
