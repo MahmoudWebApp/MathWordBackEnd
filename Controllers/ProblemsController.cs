@@ -292,7 +292,8 @@ namespace MathWorldAPI.Controllers
                     problem.QuestionTextAr,
                     problem.QuestionTextEn,
                     problem.LatexCode,
-                    problem.DetailedSolution,
+                    problem.DetailedSolutionAr,
+                     problem.DetailedSolutionEn,
                     problem.Difficulty,
                     problem.Points,
                     problem.CategoryId,
@@ -438,7 +439,7 @@ namespace MathWorldAPI.Controllers
             {
                 IsCorrect = isCorrect,
                 PointsEarned = isCorrect ? problem.Points : 0,
-                DetailedSolution = problem.DetailedSolution,
+                DetailedSolution = language == "en" ? problem.DetailedSolutionEn : problem.DetailedSolutionAr,
                 CorrectOptionText = correctText,
                 IsSolved = isCorrect
             }, messageKey, language, args: messageArgs ?? Array.Empty<object>()));

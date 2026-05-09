@@ -8,7 +8,10 @@ namespace MathWorldAPI.Models
         public string QuestionTextAr { get; set; } = string.Empty;
         public string QuestionTextEn { get; set; } = string.Empty;
         public string LatexCode { get; set; } = string.Empty;
-        public string DetailedSolution { get; set; } = string.Empty;
+    
+        public string DetailedSolutionAr { get; set; } = string.Empty; 
+        public string DetailedSolutionEn { get; set; } = string.Empty; 
+                                                                      
         public string Difficulty { get; set; } = "Medium";
         public int Points { get; set; } = 10;
         public int ViewsCount { get; set; } = 0;

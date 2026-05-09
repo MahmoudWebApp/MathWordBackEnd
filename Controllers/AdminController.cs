@@ -132,7 +132,8 @@ namespace MathWorldAPI.Controllers
                     p.QuestionTextAr,
                     p.QuestionTextEn,
                     p.LatexCode,
-                    p.DetailedSolution,
+                    p.DetailedSolutionAr, 
+                    p.DetailedSolutionEn,
                     p.Difficulty,
                     p.Points,
                     p.CategoryId,
@@ -176,7 +177,8 @@ namespace MathWorldAPI.Controllers
                 QuestionTextAr = dto.QuestionTextAr,
                 QuestionTextEn = dto.QuestionTextEn,
                 LatexCode = dto.LatexCode,
-                DetailedSolution = dto.DetailedSolution,
+                DetailedSolutionAr = dto.DetailedSolutionAr, 
+                DetailedSolutionEn = dto.DetailedSolutionEn, 
                 Difficulty = dto.Difficulty,
                 Points = dto.Points,
                 CategoryId = dto.CategoryId,
@@ -212,7 +214,8 @@ namespace MathWorldAPI.Controllers
 
             problem.TitleAr = dto.TitleAr; problem.TitleEn = dto.TitleEn;
             problem.QuestionTextAr = dto.QuestionTextAr; problem.QuestionTextEn = dto.QuestionTextEn;
-            problem.LatexCode = dto.LatexCode; problem.DetailedSolution = dto.DetailedSolution;
+            problem.LatexCode = dto.LatexCode; problem.DetailedSolutionAr = dto.DetailedSolutionAr; 
+            problem.DetailedSolutionEn = dto.DetailedSolutionEn;
             problem.Difficulty = dto.Difficulty; problem.Points = dto.Points; problem.CategoryId = dto.CategoryId;
 
             _context.QuestionOptions.RemoveRange(problem.Options);

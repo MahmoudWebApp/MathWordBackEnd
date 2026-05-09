@@ -24,8 +24,12 @@ namespace MathWorldAPI.DTOs
         [Description("LaTeX code for mathematical notation")]
         public string LatexCode { get; set; } = string.Empty;
 
-        [Description("Detailed solution explanation")]
-        public string DetailedSolution { get; set; } = string.Empty;
+    
+        [Description("Detailed solution explanation in Arabic")]
+        public string DetailedSolutionAr { get; set; } = string.Empty; 
+
+        [Description("Detailed solution explanation in English")]
+        public string DetailedSolutionEn { get; set; } = string.Empty; 
 
         [Description("Difficulty level: Easy, Medium, or Hard")]
         public string Difficulty { get; set; } = "Medium";
