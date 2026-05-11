@@ -85,6 +85,7 @@ namespace MathWorldAPI.DTOs
         public bool IsSolved { get; set; }
         public bool IsFavorite { get; set; }
         public List<string> Tags { get; set; } = new();
+        public string DetailedSolution { get; internal set; }
     }
 
     /// <summary>
