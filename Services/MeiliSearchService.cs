@@ -11,6 +11,10 @@ using System.Text.Json;
 
 namespace MathWorldAPI.Services
 {
+    /// <summary>
+    /// Implementation of IMeiliSearchService using the official Meilisearch .NET client.
+    /// Handles full-text search, filtering, and pagination for Math Problems.
+    /// </summary>
     public class MeiliSearchService : IMeiliSearchService
     {
         private readonly MeilisearchClient _client;
@@ -88,17 +92,6 @@ namespace MathWorldAPI.Services
         }
 
         // -----------------------------------------------
-        // Check if response is valid JSON (not HTML sleep page)
-        // -----------------------------------------------
-        private static bool IsValidJsonResponse(string content)
-        {
-            if (string.IsNullOrWhiteSpace(content)) return false;
-
-            var trimmed = content.TrimStart();
-            return trimmed.StartsWith("{") || trimmed.StartsWith("[");
-        }
-
-        // -----------------------------------------------
         // Ensure index is initialized only once (thread-safe)
         // -----------------------------------------------
         private async Task EnsureIndexInitializedAsync()
@@ -166,10 +159,11 @@ namespace MathWorldAPI.Services
                 await index.WaitForTaskAsync(task1.TaskUid);
 
                 // Update filterable attributes (fields used for filtering)
+                // CHANGED: Replaced "difficulty" with "stageId"
                 var task2 = await index.UpdateFilterableAttributesAsync(new[]
                 {
                     "categoryId",
-                    "difficulty"
+                    "stageId"
                 });
                 await index.WaitForTaskAsync(task2.TaskUid);
 
@@ -229,20 +223,20 @@ namespace MathWorldAPI.Services
         public async Task<List<int>> SearchAsync(
             string query,
             int? categoryId = null,
-            string? difficulty = null)
+            int? stageId = null) // CHANGED from string? difficulty
         {
-            var (ids, _) = await SearchWithPaginationAsync(query, categoryId, difficulty, 1, 1000);
+            var (ids, _) = await SearchWithPaginationAsync(query, categoryId, stageId, 1, 1000);
             return ids;
         }
 
         // -----------------------------------------------
-        // Search problems with pagination support (NEW METHOD)
+        // Search problems with pagination support
         // Returns both IDs and total count for pagination
         // -----------------------------------------------
         public async Task<(List<int> Ids, int TotalCount)> SearchWithPaginationAsync(
             string query,
             int? categoryId = null,
-            string? difficulty = null,
+            int? stageId = null, // CHANGED from string? difficulty
             int page = 1,
             int pageSize = 10)
         {
@@ -260,12 +254,13 @@ namespace MathWorldAPI.Services
                     filters.Add($"categoryId = {categoryId.Value}");
                 }
 
-                if (!string.IsNullOrWhiteSpace(difficulty))
+                // CHANGED: Use stageId (numeric) instead of difficulty (string)
+                if (stageId.HasValue)
                 {
-                    filters.Add($"difficulty = \"{difficulty}\"");
+                    filters.Add($"stageId = {stageId.Value}");
                 }
 
-                // ✅ FIX: Use HitsPerPage and Page instead of Limit/Offset
+                // Use HitsPerPage and Page instead of Limit/Offset
                 // This returns PaginatedSearchResult<T> which has TotalHits property
                 var searchQuery = new SearchQuery
                 {
@@ -280,9 +275,7 @@ namespace MathWorldAPI.Services
                     string.IsNullOrWhiteSpace(query) ? "*" : query,
                     searchQuery);
 
-                // ✅ FIX: Cast ISearchable<T> to PaginatedSearchResult<T> to access TotalHits
-                // When using HitsPerPage/Page, SearchAsync returns PaginatedSearchResult<T>
-                // which contains TotalHits (exhaustive count) and TotalPages [^1^][^12^]
+                // Cast ISearchable<T> to PaginatedSearchResult<T> to access TotalHits
                 if (result is not PaginatedSearchResult<MeiliProblemDocument> paginatedResult)
                 {
                     _logger.LogWarning("Search result is not a PaginatedSearchResult. Returning empty results.");
@@ -415,7 +408,7 @@ namespace MathWorldAPI.Services
             QuestionTextEn = problem.QuestionTextEn ?? string.Empty,
             LatexCode = problem.LatexCode,
             CategoryId = problem.CategoryId,
-            Difficulty = problem.Difficulty ?? string.Empty,
+            StageId = problem.StageId, // CHANGED from Difficulty
             ViewsCount = problem.ViewsCount,
             Points = problem.Points,
             CreatedAt = problem.CreatedAt
@@ -434,7 +427,7 @@ namespace MathWorldAPI.Services
             public string QuestionTextEn { get; set; } = string.Empty;
             public string? LatexCode { get; set; }
             public int CategoryId { get; set; }
-            public string Difficulty { get; set; } = string.Empty;
+            public int StageId { get; set; } // CHANGED from string Difficulty
             public int ViewsCount { get; set; }
             public int Points { get; set; }
             public DateTime CreatedAt { get; set; }

@@ -80,7 +80,8 @@ namespace MathWorldAPI.Controllers
                 {
                     Id = p.Id,
                     Title = language == "en" ? p.TitleEn : p.TitleAr,
-                    Difficulty = p.Difficulty,
+                    StageId = p.StageId, // Changed from Difficulty
+                    StageName = language == "en" ? p.Stage.NameEn : p.Stage.NameAr, // Changed from Difficulty
                     CategoryName = language == "en" ? p.Category.NameEn : p.Category.NameAr,
                     ViewsCount = p.ViewsCount,
                     RequiresLogin = true

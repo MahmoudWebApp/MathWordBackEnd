@@ -94,7 +94,8 @@ namespace MathWorldAPI.Controllers
                 {
                     Id = up.Problem.Id,
                     Title = language == "en" ? up.Problem.TitleEn : up.Problem.TitleAr,
-                    Difficulty = up.Problem.Difficulty,
+                    StageId = up.Problem.StageId, // Changed from Difficulty
+                    StageName = language == "en" ? up.Problem.Stage.NameEn : up.Problem.Stage.NameAr, // Changed from Difficulty
                     CategoryName = language == "en" ? up.Problem.Category.NameEn : up.Problem.Category.NameAr,
                     ViewsCount = up.Problem.ViewsCount,
                     RequiresLogin = true
@@ -112,13 +113,15 @@ namespace MathWorldAPI.Controllers
 
             var solved = await _context.UserProgresses
                 .Include(up => up.Problem).ThenInclude(p => p.Category)
+                .Include(up => up.Problem).ThenInclude(p => p.Stage)
                 .Where(up => up.UserId == userId && up.IsSolved)
                 .OrderByDescending(up => up.SolvedAt)
                 .Select(up => new ProblemPreviewDto
                 {
                     Id = up.Problem.Id,
                     Title = language == "en" ? up.Problem.TitleEn : up.Problem.TitleAr,
-                    Difficulty = up.Problem.Difficulty,
+                    StageId = up.Problem.StageId, // Changed from Difficulty
+                    StageName = language == "en" ? up.Problem.Stage.NameEn : up.Problem.Stage.NameAr, // Changed from Difficulty
                     CategoryName = language == "en" ? up.Problem.Category.NameEn : up.Problem.Category.NameAr,
                     ViewsCount = up.Problem.ViewsCount,
                     RequiresLogin = true

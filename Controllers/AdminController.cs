@@ -76,7 +76,7 @@ namespace MathWorldAPI.Controllers
 
         /// <summary>
         /// Retrieves a paginated list of all problems with full details for admin management.
-        /// Supports filtering by search query, category, tag, and difficulty using PostgreSQL.
+        /// Supports filtering by search query, category, tag, and stage using PostgreSQL.
         /// </summary>
         [HttpGet("problems")]
         [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status200OK)]
@@ -84,7 +84,7 @@ namespace MathWorldAPI.Controllers
             [FromQuery] string? q = null,
             [FromQuery] int? categoryId = null,
             [FromQuery] int? tagId = null,
-            [FromQuery] string? difficulty = null,
+            [FromQuery] int? stageId = null, // Replaced difficulty with stageId
             [FromQuery] int page = 1,
             [FromQuery] int pageSize = 10)
         {
@@ -97,6 +97,7 @@ namespace MathWorldAPI.Controllers
             var query = _context.Problems
                 .Include(p => p.Options)
                 .Include(p => p.ProblemTags)
+                .Include(p => p.Stage) // Included Stage to get the name
                 .AsQueryable();
 
             // 1. Apply Text Search (if provided)
@@ -113,8 +114,8 @@ namespace MathWorldAPI.Controllers
             if (tagId.HasValue)
                 query = query.Where(p => p.ProblemTags.Any(pt => pt.TagId == tagId.Value));
 
-            if (!string.IsNullOrWhiteSpace(difficulty))
-                query = query.Where(p => p.Difficulty == difficulty);
+            if (stageId.HasValue)
+                query = query.Where(p => p.StageId == stageId.Value); // Applied Stage filter
 
             // 3. Get Total Count for Pagination
             var total = await query.CountAsync();
@@ -132,9 +133,10 @@ namespace MathWorldAPI.Controllers
                     p.QuestionTextAr,
                     p.QuestionTextEn,
                     p.LatexCode,
-                    p.DetailedSolutionAr, 
+                    p.DetailedSolutionAr,
                     p.DetailedSolutionEn,
-                    p.Difficulty,
+                    p.StageId, // Replaced Difficulty
+                    StageName = language == "en" ? p.Stage.NameEn : p.Stage.NameAr, // Added StageName
                     p.Points,
                     p.CategoryId,
                     Options = p.Options.OrderBy(o => o.Order).Select(o => new { o.TextAr, o.TextEn, o.LatexCode, o.IsCorrect, o.Order }).ToList(),
@@ -177,9 +179,9 @@ namespace MathWorldAPI.Controllers
                 QuestionTextAr = dto.QuestionTextAr,
                 QuestionTextEn = dto.QuestionTextEn,
                 LatexCode = dto.LatexCode,
-                DetailedSolutionAr = dto.DetailedSolutionAr, 
-                DetailedSolutionEn = dto.DetailedSolutionEn, 
-                Difficulty = dto.Difficulty,
+                DetailedSolutionAr = dto.DetailedSolutionAr,
+                DetailedSolutionEn = dto.DetailedSolutionEn,
+                StageId = dto.StageId, // Replaced Difficulty
                 Points = dto.Points,
                 CategoryId = dto.CategoryId,
                 CreatedAt = DateTime.UtcNow,
@@ -214,9 +216,10 @@ namespace MathWorldAPI.Controllers
 
             problem.TitleAr = dto.TitleAr; problem.TitleEn = dto.TitleEn;
             problem.QuestionTextAr = dto.QuestionTextAr; problem.QuestionTextEn = dto.QuestionTextEn;
-            problem.LatexCode = dto.LatexCode; problem.DetailedSolutionAr = dto.DetailedSolutionAr; 
+            problem.LatexCode = dto.LatexCode; problem.DetailedSolutionAr = dto.DetailedSolutionAr;
             problem.DetailedSolutionEn = dto.DetailedSolutionEn;
-            problem.Difficulty = dto.Difficulty; problem.Points = dto.Points; problem.CategoryId = dto.CategoryId;
+            problem.StageId = dto.StageId; // Replaced Difficulty
+            problem.Points = dto.Points; problem.CategoryId = dto.CategoryId;
 
             _context.QuestionOptions.RemoveRange(problem.Options);
             problem.Options = dto.Options.Select(o => new QuestionOption { TextAr = o.TextAr, TextEn = o.TextEn, LatexCode = o.LatexCode, IsCorrect = o.IsCorrect, Order = o.Order }).ToList();
@@ -410,6 +413,64 @@ namespace MathWorldAPI.Controllers
             var language = LanguageHelper.GetLanguageFromRequest(Request);
             var stats = new DashboardStatsDto { TotalProblems = await _context.Problems.CountAsync(), TotalUsers = await _context.Users.CountAsync(), TotalSolved = await _context.UserProgresses.CountAsync(x => x.IsSolved), TotalViews = await _context.Problems.SumAsync(x => (long)x.ViewsCount) };
             return Ok(LanguageHelper.SuccessResponse(stats, "Success", language));
+        }
+
+        // =========================================
+        // Educational Stages Management
+        // =========================================
+
+        [HttpGet("stages")]
+        public async Task<IActionResult> GetAllStages()
+        {
+            var language = LanguageHelper.GetLanguageFromRequest(Request);
+            var stages = await _context.EducationalStages
+                .OrderBy(s => s.Order)
+                .Select(s => new StageDto { Id = s.Id, NameAr = s.NameAr, NameEn = s.NameEn, Order = s.Order })
+                .ToListAsync();
+
+            return Ok(LanguageHelper.SuccessResponse(stages, "Success", language));
+        }
+
+        [HttpPost("stages")]
+        public async Task<IActionResult> CreateStage([FromBody] StageDto dto)
+        {
+            var language = LanguageHelper.GetLanguageFromRequest(Request);
+            var stage = new EducationalStage { NameAr = dto.NameAr, NameEn = dto.NameEn, Order = dto.Order };
+
+            _context.EducationalStages.Add(stage);
+            await _context.SaveChangesAsync();
+
+            return Ok(LanguageHelper.SuccessResponse(new { stage.Id }, "StageCreated", language));
+        }
+
+        [HttpPut("stages/{id}")]
+        public async Task<IActionResult> UpdateStage(int id, [FromBody] StageDto dto)
+        {
+            var language = LanguageHelper.GetLanguageFromRequest(Request);
+            var stage = await _context.EducationalStages.FindAsync(id);
+            if (stage == null) return NotFound(LanguageHelper.ErrorResponse<object>("StageNotFound", language, 404));
+
+            stage.NameAr = dto.NameAr;
+            stage.NameEn = dto.NameEn;
+            stage.Order = dto.Order;
+
+            await _context.SaveChangesAsync();
+            return Ok(LanguageHelper.SuccessResponse<object>(null, "StageUpdated", language));
+        }
+
+        [HttpDelete("stages/{id}")]
+        public async Task<IActionResult> DeleteStage(int id)
+        {
+            var language = LanguageHelper.GetLanguageFromRequest(Request);
+            var stage = await _context.EducationalStages.FindAsync(id);
+            if (stage == null) return NotFound();
+
+            if (await _context.Problems.AnyAsync(p => p.StageId == id))
+                return BadRequest(LanguageHelper.ErrorResponse<object>("StageHasProblems", language));
+
+            _context.EducationalStages.Remove(stage);
+            await _context.SaveChangesAsync();
+            return Ok(LanguageHelper.SuccessResponse<object>(null, "StageDeleted", language));
         }
     }
 }

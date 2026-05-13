@@ -38,6 +38,10 @@ namespace MathWorldAPI.Helpers
             { "AnswerCorrect", ("✅ أحسنت! إجابتك صحيحة", "✅ Excellent! Your answer is correct") },
             { "AnswerWrong", ("❌ إجابتك غير صحيحة. الإجابة الصحيحة هي: {0}", "❌ Your answer is incorrect. The correct answer is: {0}") },
             { "AlreadySolved", ("لقد قمت بحل هذه المسألة مسبقاً", "You have already solved this problem") },
+            
+            // ✅ NEW: Added for One-Attempt rule limitation
+            { "OnlyOneAttemptAllowed", ("لقد استنفدت محاولتك. يسمح بمحاولة واحدة فقط لحل كل مسألة", "You have exhausted your attempt. Only one attempt is allowed per problem") },
+
             { "RequiresLogin", ("🔐 سجل دخولك أو أنشئ حساباً مجاناً لحل هذه المسألة", "🔐 Please login or create a free account to solve this problem") },
             { "OptionNotFound", ("الخيار المحدد غير موجود", "Selected option not found") },
 
@@ -53,6 +57,14 @@ namespace MathWorldAPI.Helpers
             { "TagCreated", ("تمت إضافة التاغ بنجاح", "Tag created successfully") },
             { "TagUpdated", ("تم تحديث التاغ بنجاح", "Tag updated successfully") },
             { "TagDeleted", ("تم حذف التاغ بنجاح", "Tag deleted successfully") },
+
+            // ==================== Educational Stages Messages (NEW) ====================
+            // ✅ NEW: Added for the new Stage management system in AdminController
+            { "StageNotFound", ("المرحلة الدراسية غير موجودة", "Educational stage not found") },
+            { "StageCreated", ("تمت إضافة المرحلة بنجاح", "Stage created successfully") },
+            { "StageUpdated", ("تم تحديث المرحلة بنجاح", "Stage updated successfully") },
+            { "StageDeleted", ("تم حذف المرحلة بنجاح", "Stage deleted successfully") },
+            { "StageHasProblems", ("لا يمكن حذف المرحلة لوجود مسائل تابعة لها", "Cannot delete stage because it has associated problems") },
 
             // ==================== User Messages ====================
             { "UserNotFound", ("المستخدم غير موجود", "User not found") },

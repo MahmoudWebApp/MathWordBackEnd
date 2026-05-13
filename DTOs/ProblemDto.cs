@@ -24,15 +24,14 @@ namespace MathWorldAPI.DTOs
         [Description("LaTeX code for mathematical notation")]
         public string LatexCode { get; set; } = string.Empty;
 
-    
         [Description("Detailed solution explanation in Arabic")]
-        public string DetailedSolutionAr { get; set; } = string.Empty; 
+        public string DetailedSolutionAr { get; set; } = string.Empty;
 
         [Description("Detailed solution explanation in English")]
-        public string DetailedSolutionEn { get; set; } = string.Empty; 
+        public string DetailedSolutionEn { get; set; } = string.Empty;
 
-        [Description("Difficulty level: Easy, Medium, or Hard")]
-        public string Difficulty { get; set; } = "Medium";
+        [Description("Educational Stage ID this problem belongs to")]
+        public int StageId { get; set; } // Replaced Difficulty with StageId
 
         [Description("Points awarded for solving this problem")]
         public int Points { get; set; } = 10;
@@ -77,7 +76,10 @@ namespace MathWorldAPI.DTOs
         public string Title { get; set; } = string.Empty;
         public string QuestionText { get; set; } = string.Empty;
         public string LatexCode { get; set; } = string.Empty;
-        public string Difficulty { get; set; } = string.Empty;
+
+        public int StageId { get; set; } // Replaced Difficulty
+        public string StageName { get; set; } = string.Empty; // Replaced Difficulty
+
         public int Points { get; set; }
         public string CategoryName { get; set; } = string.Empty;
         public string CategoryIcon { get; set; } = string.Empty;
@@ -85,7 +87,7 @@ namespace MathWorldAPI.DTOs
         public bool IsSolved { get; set; }
         public bool IsFavorite { get; set; }
         public List<string> Tags { get; set; } = new();
-        public string DetailedSolution { get; internal set; }
+        public string? DetailedSolution { get; internal set; }
     }
 
     /// <summary>
@@ -135,7 +137,10 @@ namespace MathWorldAPI.DTOs
         public string Title { get; set; } = string.Empty;
         public string QuestionText { get; set; } = string.Empty;
         public string LatexCode { get; set; } = string.Empty;
-        public string Difficulty { get; set; } = string.Empty;
+
+        public int StageId { get; set; } // Replaced Difficulty
+        public string StageName { get; set; } = string.Empty; // Replaced Difficulty
+
         public string CategoryName { get; set; } = string.Empty;
         public string CategoryIcon { get; set; } = string.Empty;
         public string Message { get; set; } = string.Empty;
@@ -149,7 +154,10 @@ namespace MathWorldAPI.DTOs
     {
         public int Id { get; set; }
         public string Title { get; set; } = string.Empty;
-        public string Difficulty { get; set; } = string.Empty;
+
+        public int StageId { get; set; } // Added StageId to fix the compiler error
+        public string StageName { get; set; } = string.Empty; // Replaced Difficulty
+
         public string CategoryName { get; set; } = string.Empty;
         public int ViewsCount { get; set; }
         public bool RequiresLogin { get; set; } = true;
@@ -164,7 +172,18 @@ namespace MathWorldAPI.DTOs
         public int Page { get; set; }
         public int PageSize { get; set; }
         public int Total { get; set; }
-        public int TotalPages { get; set; }  
+        public int TotalPages { get; set; }
         public List<ProblemPreviewDto> Results { get; set; } = new();
+    }
+
+    /// <summary>
+    /// DTO for Educational Stages Management
+    /// </summary>
+    public class StageDto
+    {
+        public int Id { get; set; }
+        public string NameAr { get; set; } = string.Empty;
+        public string NameEn { get; set; } = string.Empty;
+        public int Order { get; set; }
     }
 }

@@ -15,6 +15,7 @@ namespace MathWorldAPI.Data
         public DbSet<ProblemTag> ProblemTags => Set<ProblemTag>();
         public DbSet<UserProgress> UserProgresses => Set<UserProgress>();
         public DbSet<SocialLogin> SocialLogins => Set<SocialLogin>();
+        public DbSet<EducationalStage> EducationalStages => Set<EducationalStage>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -10,9 +10,10 @@ namespace MathWorldAPI.Models
         public string LatexCode { get; set; } = string.Empty;
     
         public string DetailedSolutionAr { get; set; } = string.Empty; 
-        public string DetailedSolutionEn { get; set; } = string.Empty; 
-                                                                      
-        public string Difficulty { get; set; } = "Medium";
+        public string DetailedSolutionEn { get; set; } = string.Empty;
+
+        public int StageId { get; set; }
+        public EducationalStage Stage { get; set; } = null!;
         public int Points { get; set; } = 10;
         public int ViewsCount { get; set; } = 0;
         public int SolvedCount { get; set; } = 0;
