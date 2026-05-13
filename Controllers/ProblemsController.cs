@@ -83,6 +83,8 @@ namespace MathWorldAPI.Controllers
                         Title = language == "en" ? p.TitleEn : p.TitleAr,
                         StageId = p.StageId,
                         StageName = language == "en" ? p.Stage.NameEn : p.Stage.NameAr,
+                        LatexCode = p.LatexCode,     
+                        Points = p.Points,
                         CategoryName = language == "en" ? p.Category.NameEn : p.Category.NameAr,
                         ViewsCount = p.ViewsCount,
                         RequiresLogin = true
@@ -131,6 +133,8 @@ namespace MathWorldAPI.Controllers
                     Title = language == "en" ? p.TitleEn : p.TitleAr,
                     StageId = p.StageId,
                     StageName = language == "en" ? p.Stage.NameEn : p.Stage.NameAr,
+                    LatexCode = p.LatexCode,      
+                    Points = p.Points,
                     CategoryName = language == "en" ? p.Category.NameEn : p.Category.NameAr,
                     ViewsCount = p.ViewsCount,
                     RequiresLogin = true
@@ -210,6 +214,8 @@ namespace MathWorldAPI.Controllers
                     Title = language == "en" ? p.TitleEn : p.TitleAr,
                     StageId = p.StageId,
                     StageName = language == "en" ? p.Stage.NameEn : p.Stage.NameAr,
+                    LatexCode = p.LatexCode,     
+                    Points = p.Points,
                     CategoryName = language == "en" ? p.Category.NameEn : p.Category.NameAr,
                     ViewsCount = p.ViewsCount,
                     RequiresLogin = true

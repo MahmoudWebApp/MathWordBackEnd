@@ -157,8 +157,9 @@ namespace MathWorldAPI.DTOs
 
         public int StageId { get; set; } // Added StageId to fix the compiler error
         public string StageName { get; set; } = string.Empty; // Replaced Difficulty
-
         public string CategoryName { get; set; } = string.Empty;
+        public string LatexCode { get; set; } = string.Empty;   
+        public int Points { get; set; }
         public int ViewsCount { get; set; }
         public bool RequiresLogin { get; set; } = true;
     }
