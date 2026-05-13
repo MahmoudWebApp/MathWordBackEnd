@@ -9,6 +9,7 @@ using MathWorldAPI.DTOs;
 using MathWorldAPI.Helpers;
 using MathWorldAPI.Services;
 using MathWorldAPI.Models;
+using Microsoft.Extensions.DependencyInjection; // Required for IServiceScopeFactory
 
 namespace MathWorldAPI.Controllers
 {
@@ -16,6 +17,11 @@ namespace MathWorldAPI.Controllers
     /// Controller for managing math problems including search, retrieval, and answer submission.
     /// Supports role-based access control and multilingual responses.
     /// Difficulty has been replaced with Educational Stages.
+    /// 
+    /// PERFORMANCE NOTE: Always add .AsSplitQuery() when using multiple Include()
+    /// on one‑to‑many relationships (e.g., Options, ProblemTags) to avoid
+    /// Cartesian explosion. Also ensure that foreign‑key columns (StageId, CategoryId,
+    /// etc.) have database indexes.
     /// </summary>
     [ApiController]
     [Route("api/[controller]")]
@@ -23,14 +29,18 @@ namespace MathWorldAPI.Controllers
     {
         private readonly AppDbContext _context;
         private readonly IMeiliSearchService _searchService;
+        private readonly IServiceScopeFactory _scopeFactory; // For background work
 
         /// <summary>
         /// Initializes a new instance of the ProblemsController.
         /// </summary>
-        public ProblemsController(AppDbContext context, IMeiliSearchService searchService)
+        public ProblemsController(AppDbContext context,
+                                  IMeiliSearchService searchService,
+                                  IServiceScopeFactory scopeFactory)
         {
             _context = context;
             _searchService = searchService;
+            _scopeFactory = scopeFactory;
         }
 
         // =====================================
@@ -47,7 +57,7 @@ namespace MathWorldAPI.Controllers
             [FromQuery] string q = "",
             [FromQuery] int? categoryId = null,
             [FromQuery] int? tagId = null,
-            [FromQuery] int? stageId = null, 
+            [FromQuery] int? stageId = null,
             [FromQuery] int page = 1,
             [FromQuery] int pageSize = 10)
         {
@@ -60,10 +70,12 @@ namespace MathWorldAPI.Controllers
             // If query is empty, fetch from PostgreSQL with filters (no search needed)
             if (string.IsNullOrWhiteSpace(q))
             {
+                // Use AsSplitQuery to avoid Cartesian explosion when joining ProblemTags
                 var query = _context.Problems
                     .Include(p => p.Category)
-                    .Include(p => p.Stage) // Include the Educational Stage
+                    .Include(p => p.Stage)
                     .Include(p => p.ProblemTags)
+                    .AsSplitQuery()
                     .AsQueryable();
 
                 if (categoryId.HasValue) query = query.Where(p => p.CategoryId == categoryId.Value);
@@ -83,7 +95,7 @@ namespace MathWorldAPI.Controllers
                         Title = language == "en" ? p.TitleEn : p.TitleAr,
                         StageId = p.StageId,
                         StageName = language == "en" ? p.Stage.NameEn : p.Stage.NameAr,
-                        LatexCode = p.LatexCode,     
+                        LatexCode = p.LatexCode,
                         Points = p.Points,
                         CategoryName = language == "en" ? p.Category.NameEn : p.Category.NameAr,
                         ViewsCount = p.ViewsCount,
@@ -106,7 +118,6 @@ namespace MathWorldAPI.Controllers
             }
 
             // Get search results from Meilisearch with pagination
-            // NOTE: Ensure your IMeiliSearchService.SearchWithPaginationAsync signature is updated to accept int? stageId instead of string? difficulty
             (List<int> problemIds, int totalCount) = await _searchService.SearchWithPaginationAsync(q, categoryId, stageId, page, pageSize);
 
             if (problemIds == null || problemIds.Count == 0)
@@ -123,9 +134,10 @@ namespace MathWorldAPI.Controllers
                     "NoResultsFound", language, meta: new MetaData { SearchType = "Meilisearch", Query = q, Total = 0 }));
             }
 
+            // No many-to-many include here – no AsSplitQuery needed
             var problems = await _context.Problems
                 .Include(p => p.Category)
-                .Include(p => p.Stage) // Include Stage
+                .Include(p => p.Stage)
                 .Where(p => problemIds.Contains(p.Id))
                 .Select(p => new ProblemPreviewDto
                 {
@@ -133,7 +145,7 @@ namespace MathWorldAPI.Controllers
                     Title = language == "en" ? p.TitleEn : p.TitleAr,
                     StageId = p.StageId,
                     StageName = language == "en" ? p.Stage.NameEn : p.Stage.NameAr,
-                    LatexCode = p.LatexCode,      
+                    LatexCode = p.LatexCode,
                     Points = p.Points,
                     CategoryName = language == "en" ? p.Category.NameEn : p.Category.NameAr,
                     ViewsCount = p.ViewsCount,
@@ -141,7 +153,7 @@ namespace MathWorldAPI.Controllers
                 })
                 .ToListAsync();
 
-            // Explicitly handle nullable reference types to resolve CS8619
+            // Maintain order from Meilisearch result
             var ordered = problemIds
                 .Select(id => problems.FirstOrDefault(p => p.Id == id))
                 .Where(p => p != null)
@@ -174,7 +186,7 @@ namespace MathWorldAPI.Controllers
             [FromQuery] string q = "",
             [FromQuery] int? categoryId = null,
             [FromQuery] int? tagId = null,
-            [FromQuery] int? stageId = null, // Replaced Difficulty with stageId
+            [FromQuery] int? stageId = null,
             [FromQuery] int page = 1,
             [FromQuery] int pageSize = 10)
         {
@@ -184,10 +196,12 @@ namespace MathWorldAPI.Controllers
 
             var language = LanguageHelper.GetLanguageFromRequest(Request);
 
+            // Use AsSplitQuery to avoid Cartesian explosion
             var query = _context.Problems
                 .Include(p => p.Category)
-                .Include(p => p.Stage) // Include Stage
+                .Include(p => p.Stage)
                 .Include(p => p.ProblemTags)
+                .AsSplitQuery()
                 .AsQueryable();
 
             // Only apply text search if query is provided
@@ -214,7 +228,7 @@ namespace MathWorldAPI.Controllers
                     Title = language == "en" ? p.TitleEn : p.TitleAr,
                     StageId = p.StageId,
                     StageName = language == "en" ? p.Stage.NameEn : p.Stage.NameAr,
-                    LatexCode = p.LatexCode,     
+                    LatexCode = p.LatexCode,
                     Points = p.Points,
                     CategoryName = language == "en" ? p.Category.NameEn : p.Category.NameAr,
                     ViewsCount = p.ViewsCount,
@@ -249,7 +263,7 @@ namespace MathWorldAPI.Controllers
             [FromQuery] string q = "",
             [FromQuery] int? categoryId = null,
             [FromQuery] int? tagId = null,
-            [FromQuery] int? stageId = null, // Replaced Difficulty
+            [FromQuery] int? stageId = null,
             [FromQuery] string? engine = "meilisearch",
             [FromQuery] int page = 1,
             [FromQuery] int pageSize = 10)
@@ -276,22 +290,20 @@ namespace MathWorldAPI.Controllers
             var userId = GetUserId();
             var userRole = GetUserRole();
 
+            // Use AsSplitQuery to prevent Cartesian explosion when loading Options & ProblemTags together
             var problem = await _context.Problems
                 .Include(p => p.Category)
-                .Include(p => p.Stage) // Include the educational stage
+                .Include(p => p.Stage)
                 .Include(p => p.Options)
                 .Include(p => p.ProblemTags).ThenInclude(pt => pt.Tag)
+                .AsSplitQuery()
                 .FirstOrDefaultAsync(p => p.Id == id);
 
             if (problem == null)
                 return NotFound(LanguageHelper.ErrorResponse<ApiResponse<object>>("ProblemNotFound", language, 404));
 
-            // Increment view count
-            problem.ViewsCount++;
-            await _context.SaveChangesAsync();
-
-            // Attempt to update search index (non-critical operation)
-            try { await _searchService.UpdateProblemAsync(problem); } catch { }
+            // Move non‑critical operations to a background task so the user doesn't wait
+            _ = BackgroundUpdateAsync(id);
 
             var tags = problem.ProblemTags.Select(pt => language == "en" ? pt.Tag.TextEn : pt.Tag.TextAr).ToList();
 
@@ -321,9 +333,11 @@ namespace MathWorldAPI.Controllers
             // ==================== Logged-in User View ====================
             if (userId.HasValue)
             {
-                var progress = await _context.UserProgresses.FirstOrDefaultAsync(up => up.UserId == userId.Value && up.ProblemId == id);
+                // This additional query is still separate; consider combining with a projection if it becomes a bottleneck
+                var progress = await _context.UserProgresses
+                    .AsNoTracking()
+                    .FirstOrDefaultAsync(up => up.UserId == userId.Value && up.ProblemId == id);
 
-                // Note: No hints are included in the response anymore.
                 return Ok(LanguageHelper.SuccessResponse(new ProblemForStudentDto
                 {
                     Id = problem.Id,
@@ -331,11 +345,11 @@ namespace MathWorldAPI.Controllers
                     QuestionText = language == "en" ? problem.QuestionTextEn : problem.QuestionTextAr,
                     LatexCode = problem.LatexCode,
                     StageId = problem.StageId,
-                    StageName = language == "en"? problem.Stage?.NameEn ?? "Unknown Stage": problem.Stage?.NameAr ?? "مرحلة غير معروفة",
+                    StageName = language == "en" ? problem.Stage?.NameEn ?? "Unknown Stage" : problem.Stage?.NameAr ?? "مرحلة غير معروفة",
                     Points = problem.Points,
                     CategoryName = language == "en" ? problem.Category.NameEn : problem.Category.NameAr,
                     CategoryIcon = problem.Category.Icon,
-                    IsSolved = progress != null, // If there's a progress record, the attempt is finished
+                    IsSolved = progress != null,
                     IsFavorite = progress?.IsFavorite ?? false,
                     DetailedSolution = language == "en" ? problem.DetailedSolutionEn : problem.DetailedSolutionAr,
                     YoutubeSolutionUrl = problem.YoutubeSolutionUrl,
@@ -405,14 +419,13 @@ namespace MathWorldAPI.Controllers
             {
                 UserId = userId.Value,
                 ProblemId = dto.ProblemId,
-                IsSolved = isCorrect, // True if correct, false if wrong. But attempt is marked as finished either way.
+                IsSolved = isCorrect,
                 IsCorrect = isCorrect,
                 SelectedOptionId = dto.SelectedOptionId,
-                Attempts = 1, // Will always be 1
+                Attempts = 1,
                 TimeSpentSeconds = dto.TimeSpentSeconds,
                 SolvedAt = isCorrect ? DateTime.UtcNow : null,
                 LastAttemptAt = DateTime.UtcNow,
-
             };
 
             _context.UserProgresses.Add(newProgress);
@@ -454,5 +467,32 @@ namespace MathWorldAPI.Controllers
         /// Extracts the authenticated user's role from JWT claims.
         /// </summary>
         private string? GetUserRole() => User.Identity?.IsAuthenticated == true ? User.FindFirst(ClaimTypes.Role)?.Value : null;
+
+        /// <summary>
+        /// Performs non‑critical updates (increment view count, update search index)
+        /// in a background task using a new DI scope. Fire‑and‑forget; errors are silently ignored.
+        /// </summary>
+        private async Task BackgroundUpdateAsync(int problemId)
+        {
+            // Create a new scope because the original request scope will be disposed
+            using var scope = _scopeFactory.CreateScope();
+            var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+            var searchService = scope.ServiceProvider.GetRequiredService<IMeiliSearchService>();
+
+            try
+            {
+                var problem = await db.Problems.FindAsync(problemId);
+                if (problem != null)
+                {
+                    problem.ViewsCount++;
+                    await db.SaveChangesAsync();
+                    await searchService.UpdateProblemAsync(problem);
+                }
+            }
+            catch
+            {
+                // Non‑critical operations – ignore any failure
+            }
+        }
     }
 }
