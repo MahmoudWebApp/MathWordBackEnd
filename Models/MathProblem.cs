@@ -8,7 +8,7 @@ namespace MathWorldAPI.Models
         public string QuestionTextAr { get; set; } = string.Empty;
         public string QuestionTextEn { get; set; } = string.Empty;
         public string LatexCode { get; set; } = string.Empty;
-    
+        public string? YoutubeSolutionUrl { get; set; }
         public string DetailedSolutionAr { get; set; } = string.Empty; 
         public string DetailedSolutionEn { get; set; } = string.Empty;
 

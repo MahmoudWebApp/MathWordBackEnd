@@ -139,6 +139,7 @@ namespace MathWorldAPI.Controllers
                     StageName = language == "en" ? p.Stage.NameEn : p.Stage.NameAr, // Added StageName
                     p.Points,
                     p.CategoryId,
+                    p.YoutubeSolutionUrl,
                     Options = p.Options.OrderBy(o => o.Order).Select(o => new { o.TextAr, o.TextEn, o.LatexCode, o.IsCorrect, o.Order }).ToList(),
                     TagIds = p.ProblemTags.Select(pt => pt.TagId).ToList()
                 })
@@ -181,6 +182,7 @@ namespace MathWorldAPI.Controllers
                 LatexCode = dto.LatexCode,
                 DetailedSolutionAr = dto.DetailedSolutionAr,
                 DetailedSolutionEn = dto.DetailedSolutionEn,
+                YoutubeSolutionUrl = dto.YoutubeSolutionUrl,
                 StageId = dto.StageId, // Replaced Difficulty
                 Points = dto.Points,
                 CategoryId = dto.CategoryId,
@@ -220,7 +222,7 @@ namespace MathWorldAPI.Controllers
             problem.DetailedSolutionEn = dto.DetailedSolutionEn;
             problem.StageId = dto.StageId; // Replaced Difficulty
             problem.Points = dto.Points; problem.CategoryId = dto.CategoryId;
-
+            problem.YoutubeSolutionUrl = dto.YoutubeSolutionUrl;
             _context.QuestionOptions.RemoveRange(problem.Options);
             problem.Options = dto.Options.Select(o => new QuestionOption { TextAr = o.TextAr, TextEn = o.TextEn, LatexCode = o.LatexCode, IsCorrect = o.IsCorrect, Order = o.Order }).ToList();
 

@@ -338,6 +338,7 @@ namespace MathWorldAPI.Controllers
                     IsSolved = progress != null, // If there's a progress record, the attempt is finished
                     IsFavorite = progress?.IsFavorite ?? false,
                     DetailedSolution = language == "en" ? problem.DetailedSolutionEn : problem.DetailedSolutionAr,
+                    YoutubeSolutionUrl = problem.YoutubeSolutionUrl,
                     Options = problem.Options.OrderBy(o => o.Order).Select(o => new OptionForStudentDto
                     { Id = o.Id, Text = language == "en" ? o.TextEn : o.TextAr, LatexCode = o.LatexCode, Order = o.Order }).ToList(),
                     Tags = tags
@@ -410,7 +411,8 @@ namespace MathWorldAPI.Controllers
                 Attempts = 1, // Will always be 1
                 TimeSpentSeconds = dto.TimeSpentSeconds,
                 SolvedAt = isCorrect ? DateTime.UtcNow : null,
-                LastAttemptAt = DateTime.UtcNow
+                LastAttemptAt = DateTime.UtcNow,
+
             };
 
             _context.UserProgresses.Add(newProgress);
@@ -434,7 +436,8 @@ namespace MathWorldAPI.Controllers
                 PointsEarned = isCorrect ? problem.Points : 0,
                 DetailedSolution = language == "en" ? problem.DetailedSolutionEn : problem.DetailedSolutionAr,
                 CorrectOptionText = correctText,
-                IsSolved = isCorrect
+                IsSolved = isCorrect,
+                YoutubeSolutionUrl = problem.YoutubeSolutionUrl
             }, messageKey, language, args: messageArgs ?? Array.Empty<object>()));
         }
 

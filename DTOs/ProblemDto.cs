@@ -30,6 +30,9 @@ namespace MathWorldAPI.DTOs
         [Description("Detailed solution explanation in English")]
         public string DetailedSolutionEn { get; set; } = string.Empty;
 
+        [Description("Link to the solution video on YouTube (optional)")]
+        public string? YoutubeSolutionUrl { get; set; }
+
         [Description("Educational Stage ID this problem belongs to")]
         public int StageId { get; set; } // Replaced Difficulty with StageId
 
@@ -88,6 +91,7 @@ namespace MathWorldAPI.DTOs
         public bool IsFavorite { get; set; }
         public List<string> Tags { get; set; } = new();
         public string? DetailedSolution { get; internal set; }
+        public string? YoutubeSolutionUrl { get; set; }
     }
 
     /// <summary>
@@ -126,6 +130,7 @@ namespace MathWorldAPI.DTOs
         public string DetailedSolution { get; set; } = string.Empty;
         public string CorrectOptionText { get; set; } = string.Empty;
         public bool IsSolved { get; set; }
+        public string? YoutubeSolutionUrl { get; set; }
     }
 
     /// <summary>
