@@ -103,6 +103,7 @@ namespace MathWorldAPI.DTOs
         public string Text { get; set; } = string.Empty;
         public string LatexCode { get; set; } = string.Empty;
         public int Order { get; set; }
+        public bool? IsCorrect { get; set; }
     }
 
     /// <summary>

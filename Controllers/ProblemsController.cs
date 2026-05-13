@@ -1,15 +1,15 @@
 ﻿// File: MathWorldAPI/Controllers/ProblemsController.cs
 
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.EntityFrameworkCore;
-using System.Security.Claims;
 using MathWorldAPI.Data;
 using MathWorldAPI.DTOs;
 using MathWorldAPI.Helpers;
-using MathWorldAPI.Services;
 using MathWorldAPI.Models;
+using MathWorldAPI.Services;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection; // Required for IServiceScopeFactory
+using System.Security.Claims;
 
 namespace MathWorldAPI.Controllers
 {
@@ -306,6 +306,7 @@ namespace MathWorldAPI.Controllers
             _ = BackgroundUpdateAsync(id);
 
             var tags = problem.ProblemTags.Select(pt => language == "en" ? pt.Tag.TextEn : pt.Tag.TextAr).ToList();
+          
 
             // ==================== Admin View ====================
             if (userRole == "Admin")
@@ -325,7 +326,14 @@ namespace MathWorldAPI.Controllers
                     problem.Points,
                     problem.CategoryId,
                     CategoryName = language == "en" ? problem.Category.NameEn : problem.Category.NameAr,
-                    Options = problem.Options.OrderBy(o => o.Order).Select(o => new { o.Id, o.TextAr, o.TextEn, o.LatexCode, o.IsCorrect, o.Order }),
+                    Options = problem.Options.OrderBy(o => o.Order).Select(o => new OptionForStudentDto
+                    {
+                        Id = o.Id,
+                        Text = language == "en" ? o.TextEn : o.TextAr,
+                        LatexCode = o.LatexCode,
+                        Order = o.Order,
+                        IsCorrect =  o.IsCorrect 
+                    }).ToList(),
                     Tags = problem.ProblemTags.Select(pt => new { pt.Tag.Id, pt.Tag.TextAr, pt.Tag.TextEn })
                 }, "Success", language));
             }
@@ -354,7 +362,13 @@ namespace MathWorldAPI.Controllers
                     DetailedSolution = language == "en" ? problem.DetailedSolutionEn : problem.DetailedSolutionAr,
                     YoutubeSolutionUrl = problem.YoutubeSolutionUrl,
                     Options = problem.Options.OrderBy(o => o.Order).Select(o => new OptionForStudentDto
-                    { Id = o.Id, Text = language == "en" ? o.TextEn : o.TextAr, LatexCode = o.LatexCode, Order = o.Order }).ToList(),
+                    {
+                        Id = o.Id,
+                        Text = language == "en" ? o.TextEn : o.TextAr,
+                        LatexCode = o.LatexCode,
+                        Order = o.Order,
+                        IsCorrect = o.IsCorrect
+                    }).ToList(),
                     Tags = tags
                 }, "Success", language));
             }
