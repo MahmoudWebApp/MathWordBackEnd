@@ -20,6 +20,37 @@ namespace MathWorldAPI.DTOs
     }
 
     /// <summary>
+    /// DTO for the unified user dashboard (combines profile, stats, and recent activities)
+    /// </summary>
+    public class UserDashboardDto
+    {
+        public int Id { get; set; }
+        public string FullName { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public string Role { get; set; } = string.Empty;
+        public string SubscriptionType { get; set; } = string.Empty;
+        public int SolvedProblemsCount { get; set; }
+        public int FavoriteProblemsCount { get; set; }
+        public int TotalPoints { get; set; }
+        public int SuccessRate { get; set; }
+        public DateTime MemberSince { get; set; }
+        public List<ProblemPreviewDto> RecentSolved { get; set; } = new();
+        public List<ProblemPreviewDto> RecentFavorites { get; set; } = new();
+        public List<RecentActivityItemDto> RecentActivities { get; set; } = new();
+    }
+
+    /// <summary>
+    /// DTO for a single recent activity item in the dashboard
+    /// </summary>
+    public class RecentActivityItemDto
+    {
+        public int ProblemId { get; set; }
+        public string Title { get; set; } = string.Empty;
+        public string CategoryName { get; set; } = string.Empty;
+        public DateTime SolvedAt { get; set; }
+    }
+
+    /// <summary>
     /// DTO for toggling favorite status
     /// </summary>
     public class FavoriteDto
