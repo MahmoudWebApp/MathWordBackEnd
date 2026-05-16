@@ -146,7 +146,8 @@ builder.Services.AddCors(options =>
                 "http://localhost:3000",      // React default port
                 "http://localhost:3001",      // React alternate port
                 "http://localhost:5173",      // Vite default port
-                "https://your-frontend.onrender.com" // Production frontend URL
+                "https://mathwords.netlify.app"  // Production frontend URL
+                
             )
             .AllowAnyHeader()
             .AllowAnyMethod()
