@@ -17,5 +17,8 @@ namespace MathWorldAPI.Models
         public List<UserProgress> UserProgresses { get; set; } = new();
         [JsonIgnore]
         public List<SocialLogin> SocialLogins { get; set; } = new();
+
+        public string? ProfilePicture { get; set; }
+        public DateTime? LastLoginAt { get; set; }
     }
 }

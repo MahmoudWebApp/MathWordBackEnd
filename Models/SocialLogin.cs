@@ -9,5 +9,9 @@
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
         public AppUser User { get; set; } = null!;
+     
+        public string? AccessToken { get; set; }
+        public string? ProfilePicture { get; set; }
+        public DateTime? LastLoginAt { get; set; }
     }
 }

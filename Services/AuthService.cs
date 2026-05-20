@@ -49,14 +49,20 @@ namespace MathWorldAPI.Services
             };
         }
 
-        public async Task<AuthResponseDto?> LoginAsync(LoginDto dto)
+        public async Task<(AuthResponseDto? Response, string? ErrorCode)> LoginAsync(LoginDto dto)
         {
             var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == dto.Email);
 
             if (user == null || !BCrypt.Net.BCrypt.Verify(dto.Password, user.PasswordHash))
-                return null;
+                return (null, "InvalidCredentials");
 
-            return new AuthResponseDto
+            if (!user.IsActive)
+                return (null, "AccountDeactivated");
+
+            user.LastLoginAt = DateTime.UtcNow;
+            await _context.SaveChangesAsync();
+
+            return (new AuthResponseDto
             {
                 Id = user.Id,
                 FullName = user.FullName,
@@ -64,7 +70,7 @@ namespace MathWorldAPI.Services
                 Role = user.Role,
                 SubscriptionType = user.SubscriptionType,
                 Token = GenerateJwtToken(user)
-            };
+            }, null);
         }
 
         public async Task<AppUser?> GetUserByIdAsync(int id)
@@ -95,12 +101,12 @@ namespace MathWorldAPI.Services
             {
                 Subject = new ClaimsIdentity(claims),
                 Expires = DateTime.UtcNow.AddDays(7),
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key),
+                SigningCredentials = new SigningCredentials(
+                    new SymmetricSecurityKey(key),
                     SecurityAlgorithms.HmacSha256Signature),
-                  Issuer = _configuration["Jwt:Issuer"],
+                Issuer = _configuration["Jwt:Issuer"],
                 Audience = _configuration["Jwt:Audience"]
             };
-
 
             var token = tokenHandler.CreateToken(tokenDescriptor);
             return tokenHandler.WriteToken(token);

@@ -17,7 +17,7 @@ using MathWorldAPI.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// ✅ FIX: Force WebRootPath to a specific physical path for Docker/Render environments
+// FIX: Force WebRootPath to a specific physical path for Docker/Render environments
 // This guarantees that _environment.WebRootPath will never be null.
 builder.Environment.WebRootPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot");
 
@@ -31,6 +31,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 // 2. Register Application Services
 // ============================================================================
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<ISocialAuthService, SocialAuthService>();
 builder.Services.AddScoped<IMeiliSearchService, MeiliSearchService>();
 
 // ============================================================================
@@ -109,7 +110,7 @@ builder.Services.AddSwaggerGen(c =>
         Description = "API for MathWorld - Math Problems Platform"
     });
 
-    // ✅ JWT Bearer Authentication - Enter token WITHOUT the word 'Bearer'
+    // JWT Bearer Authentication - Enter token WITHOUT the word 'Bearer'
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         Description = "Enter your JWT token (without the word 'Bearer')",
@@ -131,7 +132,7 @@ builder.Services.AddSwaggerGen(c =>
         }
     });
 
-    // ✅ Dynamic FormData Filter - Auto-documents any [FromForm] endpoint
+    // Dynamic FormData Filter - Auto-documents any [FromForm] endpoint
     c.OperationFilter<MathWorldAPI.Filters.DynamicFormDataOperationFilter>();
 });
 
@@ -143,26 +144,44 @@ builder.Services.AddCors(options =>
     options.AddPolicy("ReactApp", policy =>
     {
         policy.WithOrigins(
-                "http://localhost:3000",      // React default port
-                "http://localhost:3001",      // React alternate port
-                "http://localhost:5173",      // Vite default port
-                "https://mathwords.netlify.app"  // Production frontend URL
-                
+                // HTTP origins
+                "http://localhost:3000",
+                "http://localhost:3001",
+                "http://localhost:5173",
+                // HTTPS origins (added)
+                "https://localhost:3000",
+                "https://localhost:3001",
+                "https://localhost:5173",
+                // Production
+                "https://mathwords.netlify.app"
             )
             .AllowAnyHeader()
             .AllowAnyMethod()
-            .AllowCredentials(); // Required for JWT cookies if used
+            .AllowCredentials();
     });
 });
 
 // ============================================================================
-// 9. Register HttpClient for Keep-Alive Background Pings
+// 9. Register HttpClient for External Services
 // ============================================================================
 builder.Services.AddHttpClient("KeepAlive", client =>
 {
     client.Timeout = TimeSpan.FromSeconds(30);
 });
 builder.Services.AddHttpClient<IImgBbStorageService, ImgBbStorageService>();
+
+
+builder.Services.AddHttpClient("GoogleAuth", client =>
+{
+    client.BaseAddress = new Uri("https://www.googleapis.com/");
+    client.Timeout = TimeSpan.FromSeconds(30);
+});
+
+builder.Services.AddHttpClient("FacebookAuth", client =>
+{
+    client.BaseAddress = new Uri("https://graph.facebook.com/");
+    client.Timeout = TimeSpan.FromSeconds(30);
+});
 // ============================================================================
 // Build the Application
 // ============================================================================
@@ -177,11 +196,11 @@ using (var scope = app.Services.CreateScope())
     try
     {
         await dbContext.Database.MigrateAsync();
-        Console.WriteLine("✅ Database migrated successfully!");
+        Console.WriteLine("Database migrated successfully!");
     }
     catch (Exception ex)
     {
-        Console.WriteLine($"❌ Database migration error: {ex.Message}");
+        Console.WriteLine($"Database migration error: {ex.Message}");
     }
 }
 
@@ -200,12 +219,12 @@ if (app.Environment.IsDevelopment())
 }
 
 // Security middleware - redirect HTTP to HTTPS
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 // CORS must come before authentication
 app.UseCors("ReactApp");
 
-// ✅ FIX: This line is required to serve images from the wwwroot folder to React
+// This line is required to serve images from the wwwroot folder to React
 app.UseStaticFiles();
 
 // Custom middleware for language detection/logging
@@ -243,7 +262,7 @@ _ = Task.Run(async () =>
         "https://mathworld-search.onrender.com/health"
     };
 
-    logger.LogInformation("🔄 Keep-alive task started - pinging every 10 minutes");
+    logger.LogInformation("Keep-alive task started - pinging every 10 minutes");
 
     while (true)
     {
@@ -259,21 +278,21 @@ _ = Task.Run(async () =>
 
                 if (response.IsSuccessStatusCode && content.TrimStart().StartsWith("{"))
                 {
-                    logger.LogInformation("✅ Keep-alive ping {Url} -> {Status}", url, response.StatusCode);
+                    logger.LogInformation("Keep-alive ping {Url} -> {Status}", url, response.StatusCode);
                 }
                 else
                 {
-                    logger.LogWarning("⚠️ Keep-alive ping {Url} returned unexpected: {ContentType}",
+                    logger.LogWarning("Keep-alive ping {Url} returned unexpected: {ContentType}",
                         url, response.Content.Headers.ContentType?.MediaType);
                 }
             }
             catch (TaskCanceledException)
             {
-                logger.LogWarning("⏱️ Keep-alive timeout for {Url}", url);
+                logger.LogWarning("Keep-alive timeout for {Url}", url);
             }
             catch (Exception ex)
             {
-                logger.LogWarning("❌ Keep-alive ping failed for {Url}: {Error}", url, ex.Message);
+                logger.LogWarning("Keep-alive ping failed for {Url}: {Error}", url, ex.Message);
             }
         }
     }
@@ -282,8 +301,8 @@ _ = Task.Run(async () =>
 // ============================================================================
 // Start the Application
 // ============================================================================
-Console.WriteLine("🚀 MathWorld API is running!");
-Console.WriteLine($"📚 Swagger UI: https://localhost:{builder.Configuration["HttpsPort"] ?? "7000"}/swagger");
-Console.WriteLine($"🌐 Base URL: https://localhost:{builder.Configuration["HttpsPort"] ?? "7000"}/api");
+Console.WriteLine("MathWorld API is running!");
+Console.WriteLine($"Swagger UI: https://localhost:{builder.Configuration["HttpsPort"] ?? "7000"}/swagger");
+Console.WriteLine($"Base URL: https://localhost:{builder.Configuration["HttpsPort"] ?? "7000"}/api");
 
 app.Run();
