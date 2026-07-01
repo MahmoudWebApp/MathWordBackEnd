@@ -1,6 +1,4 @@
-﻿// File: MathWorldAPI/Controllers/CategoriesController.cs
-
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MathWorldAPI.Data;
 using MathWorldAPI.DTOs;
@@ -10,11 +8,6 @@ using MathWorldAPI.Services;
 
 namespace MathWorldAPI.Controllers
 {
-    /// <summary>
-    /// Controller for managing math problem categories.
-    /// Supports CRUD operations and icon file uploads via multipart/form-data.
-    /// All responses follow the standardized ApiResponse{T} format.
-    /// </summary>
     [ApiController]
     [Route("api/[controller]")]
     public class CategoriesController : ControllerBase
@@ -28,10 +21,6 @@ namespace MathWorldAPI.Controllers
             _imgBbStorage = imgBbStorage;
         }
 
-        /// <summary>
-        /// Retrieves all categories ordered by display order.
-        /// Returns 'Name' based on the current request language.
-        /// </summary>
         [HttpGet]
         [ProducesResponseType(typeof(ApiResponse<List<CategoryDto>>), StatusCodes.Status200OK)]
         public async Task<ActionResult<ApiResponse<List<CategoryDto>>>> GetAll()
@@ -41,14 +30,17 @@ namespace MathWorldAPI.Controllers
                 var language = LanguageHelper.GetLanguageFromRequest(Request);
 
                 var categories = await _context.Categories
-                    .OrderBy(c => c.Order)
+                    .OrderBy(c => c.StageId)
+                    .ThenBy(c => c.Order)
                     .Select(c => new CategoryDto
                     {
                         Id = c.Id,
                         NameAr = c.NameAr,
                         NameEn = c.NameEn,
-                        Name = language == "en" ? c.NameEn : c.NameAr, 
-                        Icon = c.Icon ?? string.Empty
+                        Name = language == "en" ? c.NameEn : c.NameAr,
+                        Icon = c.Icon ?? string.Empty,
+                        StageId = c.StageId,
+                        Order = c.Order
                     })
                     .ToListAsync();
 
@@ -59,13 +51,10 @@ namespace MathWorldAPI.Controllers
             }
             catch (Exception)
             {
-                return StatusCode(500, LanguageHelper.ErrorResponse<ApiResponse<List<CategoryDto>>>("ServerError", LanguageHelper.GetLanguageFromRequest(Request), 500));
+                return StatusCode(500, LanguageHelper.ErrorResponse < ApiResponse<List<CategoryDto>>>("ServerError", LanguageHelper.GetLanguageFromRequest(Request), 500));
             }
         }
 
-        /// <summary>
-        /// Retrieves problems belonging to a specific category with pagination.
-        /// </summary>
         [HttpGet("{id}/problems")]
         [ProducesResponseType(typeof(ApiResponse<PagedResult<ProblemPreviewDto>>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status404NotFound)]
@@ -73,18 +62,21 @@ namespace MathWorldAPI.Controllers
         {
             var language = LanguageHelper.GetLanguageFromRequest(Request);
             var category = await _context.Categories.FindAsync(id);
-            if (category == null) return NotFound(LanguageHelper.ErrorResponse<ApiResponse<PagedResult<ProblemPreviewDto>>>("CategoryNotFound", language, 404));
+            if (category == null) return NotFound(LanguageHelper.ErrorResponse < ApiResponse<PagedResult<ProblemPreviewDto>>>("CategoryNotFound", language, 404));
 
             var query = _context.Problems.Include(p => p.Category).Where(p => p.CategoryId == id);
             var total = await query.CountAsync();
 
-            var problems = await query.Skip((page - 1) * pageSize).Take(pageSize)
+            var problems = await query
+                .OrderByDescending(p => p.Id)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
                 .Select(p => new ProblemPreviewDto
                 {
                     Id = p.Id,
                     Title = language == "en" ? p.TitleEn : p.TitleAr,
-                    StageId = p.StageId, // Changed from Difficulty
-                    StageName = language == "en" ? p.Stage.NameEn : p.Stage.NameAr, // Changed from Difficulty
+                    StageId = p.StageId,
+                    StageName = language == "en" ? p.Stage.NameEn : p.Stage.NameAr,
                     CategoryName = language == "en" ? p.Category.NameEn : p.Category.NameAr,
                     ViewsCount = p.ViewsCount,
                     RequiresLogin = true
@@ -102,13 +94,7 @@ namespace MathWorldAPI.Controllers
             return Ok(LanguageHelper.SuccessResponse(result, "Success", language, meta: meta));
         }
 
-        /// <summary>
-        /// Updates a category with optional icon file upload (FormData).
-        /// </summary>
         [HttpPut("{id}")]
-        [ProducesResponseType(typeof(ApiResponse<CategoryDto>), StatusCodes.Status200OK)]
-        [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status404NotFound)]
         [Consumes("multipart/form-data")]
         public async Task<ActionResult<ApiResponse<CategoryDto>>> UpdateCategory(int id, [FromForm] UpdateCategoryDto dto)
         {
@@ -119,6 +105,7 @@ namespace MathWorldAPI.Controllers
             if (!string.IsNullOrWhiteSpace(dto.NameAr)) category.NameAr = dto.NameAr;
             if (!string.IsNullOrWhiteSpace(dto.NameEn)) category.NameEn = dto.NameEn;
             if (dto.Order.HasValue) category.Order = dto.Order.Value;
+            if (dto.StageId.HasValue) category.StageId = dto.StageId.Value;
 
             if (dto.Icon != null && dto.Icon.Length > 0)
             {
@@ -137,21 +124,24 @@ namespace MathWorldAPI.Controllers
                 Id = category.Id,
                 NameAr = category.NameAr,
                 NameEn = category.NameEn,
-            
-                Icon = _imgBbStorage.GetFullUrl(category.Icon) ?? string.Empty
+                Icon = _imgBbStorage.GetFullUrl(category.Icon) ?? string.Empty,
+                StageId = category.StageId,
+                Order = category.Order
             }, "CategoryUpdated", language));
         }
 
-        /// <summary>
-        /// Creates a new category with optional icon upload.
-        /// </summary>
         [HttpPost]
-        [ProducesResponseType(typeof(ApiResponse<CategoryDto>), StatusCodes.Status201Created)]
         [Consumes("multipart/form-data")]
         public async Task<ActionResult<ApiResponse<CategoryDto>>> CreateCategory([FromForm] CreateCategoryDto dto)
         {
             var language = LanguageHelper.GetLanguageFromRequest(Request);
-            var category = new Category { NameAr = dto.NameAr, NameEn = dto.NameEn, Order = dto.Order };
+            var category = new Category
+            {
+                NameAr = dto.NameAr,
+                NameEn = dto.NameEn,
+                Order = dto.Order,
+                StageId = dto.StageId
+            };
 
             if (dto.Icon != null && dto.Icon.Length > 0)
             {
@@ -164,29 +154,25 @@ namespace MathWorldAPI.Controllers
             _context.Categories.Add(category);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetAll), new { id = category.Id },
-                LanguageHelper.SuccessResponse(new CategoryDto
-                {
-                    Id = category.Id,
-                    NameAr = category.NameAr,
-                    NameEn = category.NameEn, 
-                    Icon = _imgBbStorage.GetFullUrl(category.Icon) ?? string.Empty
-                }, "CategoryCreated", language, 201));
+            return CreatedAtAction(nameof(GetAll), LanguageHelper.SuccessResponse(new CategoryDto
+            {
+                Id = category.Id,
+                NameAr = category.NameAr,
+                NameEn = category.NameEn,
+                Icon = _imgBbStorage.GetFullUrl(category.Icon) ?? string.Empty,
+                StageId = category.StageId,
+                Order = category.Order
+            }, "CategoryCreated", language, 201));
         }
 
-        /// <summary>
-        /// Deletes a category (only if no problems are associated).
-        /// </summary>
         [HttpDelete("{id}")]
-        [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status200OK)]
-        [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status404NotFound)]
-        [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<ApiResponse<object>>> DeleteCategory(int id)
         {
             var language = LanguageHelper.GetLanguageFromRequest(Request);
             var category = await _context.Categories.FindAsync(id);
             if (category == null) return NotFound(LanguageHelper.ErrorResponse<ApiResponse<object>>("CategoryNotFound", language, 404));
-            if (await _context.Problems.AnyAsync(p => p.CategoryId == id)) return BadRequest(LanguageHelper.ErrorResponse<ApiResponse<object>>("CategoryHasProblems", language));
+            if (await _context.Problems.AnyAsync(p => p.CategoryId == id))
+                return BadRequest(LanguageHelper.ErrorResponse<ApiResponse<object>>("CategoryHasProblems", language));
 
             _context.Categories.Remove(category);
             await _context.SaveChangesAsync();

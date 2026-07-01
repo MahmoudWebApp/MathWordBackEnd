@@ -25,6 +25,7 @@ namespace MathWorldAPI.Services
         private readonly string _meiliUrl;
         private readonly int _maxRetries;
         private readonly int _retryDelaySeconds;
+        private readonly bool _enabled; // NEW
 
         // Initialize index only once per service lifetime (thread-safe)
         private static bool _initialized = false;
@@ -39,6 +40,14 @@ namespace MathWorldAPI.Services
             _logger = logger;
             _configuration = configuration;
 
+            _enabled = configuration.GetValue<bool>("Meilisearch:Enabled"); // NEW
+
+            if (!_enabled)
+            {
+                _logger.LogInformation("Meilisearch is disabled. All search operations will be no-ops.");
+                return; // NEW - skip initialization if disabled
+            }
+
             _meiliUrl = configuration["Meilisearch:Url"] ?? "http://localhost:7700";
             var meiliKey = configuration["Meilisearch:ApiKey"] ?? "masterKey";
             _maxRetries = configuration.GetValue<int>("Meilisearch:MaxRetries", 6);
@@ -52,13 +61,14 @@ namespace MathWorldAPI.Services
         // -----------------------------------------------
         private async Task<bool> WaitForMeilisearchAsync(int maxRetries = -1)
         {
+            if (!_enabled) return false; // NEW
+
             if (maxRetries == -1) maxRetries = _maxRetries;
 
             for (int i = 0; i < maxRetries; i++)
             {
                 try
                 {
-                    // Attempt to get health status from Meilisearch
                     var health = await _client.HealthAsync();
 
                     if (health.Status == "available")
@@ -69,14 +79,12 @@ namespace MathWorldAPI.Services
                 }
                 catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.ServiceUnavailable)
                 {
-                    // Render returned 503 - service is sleeping
                     _logger.LogWarning("Meilisearch service is sleeping (HTTP 503). Attempt {Attempt}/{Max}.",
                         i + 1, maxRetries);
                 }
                 catch (Exception ex)
                 {
-                    // Handle connection errors, timeouts, or HTML responses
-                    var delay = TimeSpan.FromSeconds(Math.Pow(2, Math.Min(i, 5))); // Exponential backoff: 1s, 2s, 4s, 8s, 16s, 32s (cap at 32s)
+                    var delay = TimeSpan.FromSeconds(Math.Pow(2, Math.Min(i, 5)));
 
                     _logger.LogWarning(
                         "Meilisearch not ready (attempt {Attempt}/{Max}). Retrying in {Delay}s... Error: {Error}",
@@ -96,15 +104,14 @@ namespace MathWorldAPI.Services
         // -----------------------------------------------
         private async Task EnsureIndexInitializedAsync()
         {
+            if (!_enabled) return; // NEW
             if (_initialized) return;
 
             await _initLock.WaitAsync();
             try
             {
-                // Double-check after acquiring lock
                 if (_initialized) return;
 
-                // Wait for Meilisearch to be ready before initialization
                 bool isReady = await WaitForMeilisearchAsync();
                 if (!isReady)
                 {
@@ -128,9 +135,10 @@ namespace MathWorldAPI.Services
         // -----------------------------------------------
         private async Task InitializeIndexAsync()
         {
+            if (!_enabled) return; // NEW
+
             try
             {
-                // Attempt to create index (ignore if already exists)
                 await _client.CreateIndexAsync(_indexName, "id");
             }
             catch (MeilisearchApiError ex) when (ex.Code == "index_already_exists")
@@ -147,19 +155,15 @@ namespace MathWorldAPI.Services
 
             try
             {
-                // Update searchable attributes (fields used for text search)
                 var task1 = await index.UpdateSearchableAttributesAsync(new[]
                 {
                     "titleAr",
                     "titleEn",
                     "questionTextAr",
-                    "questionTextEn",
-                    "latexCode"
+                    "questionTextEn"
                 });
                 await index.WaitForTaskAsync(task1.TaskUid);
 
-                // Update filterable attributes (fields used for filtering)
-                // CHANGED: Replaced "difficulty" with "stageId"
                 var task2 = await index.UpdateFilterableAttributesAsync(new[]
                 {
                     "categoryId",
@@ -167,7 +171,6 @@ namespace MathWorldAPI.Services
                 });
                 await index.WaitForTaskAsync(task2.TaskUid);
 
-                // Update sortable attributes (fields used for sorting results)
                 var task3 = await index.UpdateSortableAttributesAsync(new[]
                 {
                     "viewsCount",
@@ -190,6 +193,7 @@ namespace MathWorldAPI.Services
         // -----------------------------------------------
         public async Task IndexProblemAsync(MathProblem problem)
         {
+            if (!_enabled) return; // NEW
             if (problem == null)
             {
                 _logger.LogWarning("Attempted to index a null problem.");
@@ -223,30 +227,32 @@ namespace MathWorldAPI.Services
         public async Task<List<int>> SearchAsync(
             string query,
             int? categoryId = null,
-            int? stageId = null) // CHANGED from string? difficulty
+            int? stageId = null)
         {
+            if (!_enabled) return new List<int>(); // NEW
+
             var (ids, _) = await SearchWithPaginationAsync(query, categoryId, stageId, 1, 1000);
             return ids;
         }
 
         // -----------------------------------------------
         // Search problems with pagination support
-        // Returns both IDs and total count for pagination
         // -----------------------------------------------
         public async Task<(List<int> Ids, int TotalCount)> SearchWithPaginationAsync(
             string query,
             int? categoryId = null,
-            int? stageId = null, // CHANGED from string? difficulty
+            int? stageId = null,
             int page = 1,
             int pageSize = 10)
         {
+            if (!_enabled) return (new List<int>(), 0); // NEW
+
             try
             {
                 await EnsureIndexInitializedAsync();
 
                 var index = _client.Index(_indexName);
 
-                // Build filter string based on provided parameters
                 var filters = new List<string>();
 
                 if (categoryId.HasValue)
@@ -254,28 +260,23 @@ namespace MathWorldAPI.Services
                     filters.Add($"categoryId = {categoryId.Value}");
                 }
 
-                // CHANGED: Use stageId (numeric) instead of difficulty (string)
                 if (stageId.HasValue)
                 {
                     filters.Add($"stageId = {stageId.Value}");
                 }
 
-                // Use HitsPerPage and Page instead of Limit/Offset
-                // This returns PaginatedSearchResult<T> which has TotalHits property
                 var searchQuery = new SearchQuery
                 {
                     HitsPerPage = pageSize,
                     Page = page,
                     Filter = filters.Any() ? string.Join(" AND ", filters) : null,
-                    AttributesToRetrieve = new[] { "id" } // Optimize: only retrieve ID field
+                    AttributesToRetrieve = new[] { "id" }
                 };
 
-                // Execute search with strongly-typed model to avoid casting errors
                 var result = await index.SearchAsync<MeiliProblemDocument>(
                     string.IsNullOrWhiteSpace(query) ? "*" : query,
                     searchQuery);
 
-                // Cast ISearchable<T> to PaginatedSearchResult<T> to access TotalHits
                 if (result is not PaginatedSearchResult<MeiliProblemDocument> paginatedResult)
                 {
                     _logger.LogWarning("Search result is not a PaginatedSearchResult. Returning empty results.");
@@ -293,13 +294,11 @@ namespace MathWorldAPI.Services
             catch (MeilisearchTimeoutError ex)
             {
                 _logger.LogWarning(ex, "Search timed out for query '{Query}'. Meilisearch may be waking up.", query);
-                // Return empty list instead of crashing - graceful degradation
                 return (new List<int>(), 0);
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Search failed for query '{Query}'.", query);
-                // Return empty list to avoid breaking the user experience
                 return (new List<int>(), 0);
             }
         }
@@ -309,6 +308,7 @@ namespace MathWorldAPI.Services
         // -----------------------------------------------
         public async Task UpdateProblemAsync(MathProblem problem)
         {
+            if (!_enabled) return; // NEW
             if (problem == null)
             {
                 _logger.LogWarning("Attempted to update a null problem.");
@@ -329,7 +329,6 @@ namespace MathWorldAPI.Services
             }
             catch (Exception ex)
             {
-                // Non-critical: do not break the HTTP response if search update fails
                 _logger.LogWarning(ex, "Failed to update problem {ProblemId} in Meilisearch. The problem was saved to database but search may be outdated.", problem.Id);
             }
         }
@@ -339,6 +338,8 @@ namespace MathWorldAPI.Services
         // -----------------------------------------------
         public async Task DeleteProblemAsync(int id)
         {
+            if (!_enabled) return; // NEW
+
             try
             {
                 await EnsureIndexInitializedAsync();
@@ -351,7 +352,6 @@ namespace MathWorldAPI.Services
             }
             catch (Exception ex)
             {
-                // Non-critical: log warning but do not crash
                 _logger.LogWarning(ex, "Failed to delete problem {ProblemId} from Meilisearch.", id);
             }
         }
@@ -361,13 +361,13 @@ namespace MathWorldAPI.Services
         // -----------------------------------------------
         public async Task ReindexAllAsync()
         {
-            // Force re-initialization to reapply settings
+            if (!_enabled) return; // NEW
+
             _initialized = false;
             await EnsureIndexInitializedAsync();
 
             var index = _client.Index(_indexName);
 
-            // Fetch all problems from database
             var problems = await _context.Problems.AsNoTracking().ToListAsync();
 
             if (!problems.Any())
@@ -376,12 +376,10 @@ namespace MathWorldAPI.Services
                 return;
             }
 
-            // Convert to Meilisearch documents
             var documents = problems.Select(BuildDocument).ToList();
 
             try
             {
-                // Batch add documents to index
                 var task = await index.AddDocumentsAsync(documents);
                 await index.WaitForTaskAsync(task.TaskUid);
 
@@ -406,9 +404,8 @@ namespace MathWorldAPI.Services
             TitleEn = problem.TitleEn ?? string.Empty,
             QuestionTextAr = problem.QuestionTextAr ?? string.Empty,
             QuestionTextEn = problem.QuestionTextEn ?? string.Empty,
-            LatexCode = problem.LatexCode,
             CategoryId = problem.CategoryId,
-            StageId = problem.StageId, // CHANGED from Difficulty
+            StageId = problem.StageId,
             ViewsCount = problem.ViewsCount,
             Points = problem.Points,
             CreatedAt = problem.CreatedAt
@@ -416,7 +413,6 @@ namespace MathWorldAPI.Services
 
         // -----------------------------------------------
         // Strongly-typed document model for Meilisearch
-        // Prevents runtime casting errors with dynamic objects
         // -----------------------------------------------
         private class MeiliProblemDocument
         {
@@ -425,9 +421,8 @@ namespace MathWorldAPI.Services
             public string TitleEn { get; set; } = string.Empty;
             public string QuestionTextAr { get; set; } = string.Empty;
             public string QuestionTextEn { get; set; } = string.Empty;
-            public string? LatexCode { get; set; }
             public int CategoryId { get; set; }
-            public int StageId { get; set; } // CHANGED from string Difficulty
+            public int StageId { get; set; }
             public int ViewsCount { get; set; }
             public int Points { get; set; }
             public DateTime CreatedAt { get; set; }
@@ -436,14 +431,12 @@ namespace MathWorldAPI.Services
 
     // -----------------------------------------------
     // Custom exception for search service errors
-    // Provides localized error messages for API responses
     // -----------------------------------------------
     public class ServiceException : Exception
     {
         public ServiceException(string message, Exception? innerException = null)
             : base(message, innerException) { }
 
-        // Get localized error message based on language preference
         public static string GetLocalizedErrorMessage(string key, string language = "en")
         {
             var messages = new Dictionary<string, Dictionary<string, string>>
@@ -477,7 +470,6 @@ namespace MathWorldAPI.Services
                 return message;
             }
 
-            // Fallback to English
             return translations?.GetValueOrDefault("en") ?? "An unexpected error occurred.";
         }
     }

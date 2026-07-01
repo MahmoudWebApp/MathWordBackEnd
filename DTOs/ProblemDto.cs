@@ -1,66 +1,47 @@
-﻿// File: MathWorldAPI/DTOs/ProblemDto.cs
-
-using System.ComponentModel;
+﻿using System.ComponentModel;
 
 namespace MathWorldAPI.DTOs
 {
     /// <summary>
-    /// DTO for creating a new math problem
+    /// DTO for creating a new math problem.
+    /// Question text and solution can contain LaTeX expressions wrapped in $...$ or $$...$$.
     /// </summary>
     public class CreateProblemDto
     {
-        [Description("Problem title in Arabic")]
-        public string TitleAr { get; set; } = string.Empty;
-
-        [Description("Problem title in English")]
-        public string TitleEn { get; set; } = string.Empty;
-
-        [Description("Question text in Arabic")]
+        [Description("Arabic question text (can contain $LaTeX$)")]
         public string QuestionTextAr { get; set; } = string.Empty;
 
-        [Description("Question text in English")]
+        [Description("English question text (can contain $LaTeX$)")]
         public string QuestionTextEn { get; set; } = string.Empty;
 
-        [Description("LaTeX code for mathematical notation")]
-        public string LatexCode { get; set; } = string.Empty;
-
-        [Description("Detailed solution explanation in Arabic")]
+        [Description("Detailed Arabic solution (can contain $LaTeX$)")]
         public string DetailedSolutionAr { get; set; } = string.Empty;
 
-        [Description("Detailed solution explanation in English")]
+        [Description("Detailed English solution (can contain $LaTeX$)")]
         public string DetailedSolutionEn { get; set; } = string.Empty;
 
-        [Description("Link to the solution video on YouTube (optional)")]
+        [Description("YouTube solution video URL (optional)")]
         public string? YoutubeSolutionUrl { get; set; }
 
-        [Description("Educational Stage ID this problem belongs to")]
-        public int StageId { get; set; } // Replaced Difficulty with StageId
+        [Description("Educational stage ID")]
+        public int StageId { get; set; }
 
-        [Description("Points awarded for solving this problem")]
+        [Description("Points assigned to the problem")]
         public int Points { get; set; } = 10;
 
-        [Description("Category ID this problem belongs to")]
+        [Description("Category ID")]
         public int CategoryId { get; set; }
 
-        [Description("List of 4 answer options")]
+        [Description("List of four answer options (LaTeX only)")]
         public List<QuestionOptionDto> Options { get; set; } = new();
-
-        [Description("List of tag IDs associated with this problem")]
-        public List<int> TagIds { get; set; } = new();
     }
 
     /// <summary>
-    /// DTO for question options
+    /// DTO for a question option. Only LaTeX code, correctness, and order.
     /// </summary>
     public class QuestionOptionDto
     {
-        [Description("Option text in Arabic")]
-        public string TextAr { get; set; } = string.Empty;
-
-        [Description("Option text in English")]
-        public string TextEn { get; set; } = string.Empty;
-
-        [Description("LaTeX code for the option")]
+        [Description("LaTeX code for the answer option (example: \\frac{x}{y})")]
         public string LatexCode { get; set; } = string.Empty;
 
         [Description("Indicates if this is the correct answer")]
@@ -70,33 +51,24 @@ namespace MathWorldAPI.DTOs
         public int Order { get; set; }
     }
 
-    /// <summary>
-    /// DTO for problem details shown to students (without correct answers unless solved)
-    /// </summary>
     public class ProblemForStudentDto
     {
         public int Id { get; set; }
         public string Title { get; set; } = string.Empty;
         public string QuestionText { get; set; } = string.Empty;
-        public string LatexCode { get; set; } = string.Empty;
-
-        public int StageId { get; set; } // Replaced Difficulty
-        public string StageName { get; set; } = string.Empty; // Replaced Difficulty
-
+        public int StageId { get; set; }
+        public string StageName { get; set; } = string.Empty;
         public int Points { get; set; }
+        public int CategoryId { get; set; }
         public string CategoryName { get; set; } = string.Empty;
         public string CategoryIcon { get; set; } = string.Empty;
         public List<OptionForStudentDto> Options { get; set; } = new();
         public bool IsSolved { get; set; }
         public bool IsFavorite { get; set; }
-        public List<string> Tags { get; set; } = new();
         public string? DetailedSolution { get; internal set; }
         public string? YoutubeSolutionUrl { get; set; }
     }
 
-    /// <summary>
-    /// DTO for answer options shown to students (without IsCorrect flag)
-    /// </summary>
     public class OptionForStudentDto
     {
         public int Id { get; set; }
@@ -106,24 +78,18 @@ namespace MathWorldAPI.DTOs
         public bool? IsCorrect { get; set; }
     }
 
-    /// <summary>
-    /// DTO for submitting an answer
-    /// </summary>
     public class SubmitAnswerDto
     {
-        [Description("ID of the problem being answered")]
+        [Description("معرف المسألة")]
         public int ProblemId { get; set; }
 
-        [Description("ID of the selected option")]
+        [Description("معرف الخيار المختار")]
         public int SelectedOptionId { get; set; }
 
-        [Description("Time spent on this problem in seconds")]
+        [Description("الوقت المستغرق بالثواني")]
         public int TimeSpentSeconds { get; set; }
     }
 
-    /// <summary>
-    /// DTO for answer submission result
-    /// </summary>
     public class AnswerResultDto
     {
         public bool IsCorrect { get; set; }
@@ -135,44 +101,38 @@ namespace MathWorldAPI.DTOs
     }
 
     /// <summary>
-    /// DTO for problem details shown to public users (requires login to solve)
+    /// DTO for problem data returned to public/unauthenticated users.
     /// </summary>
     public class ProblemForPublicDto
     {
         public int Id { get; set; }
         public string Title { get; set; } = string.Empty;
         public string QuestionText { get; set; } = string.Empty;
-        public string LatexCode { get; set; } = string.Empty;
+        public int StageId { get; set; }
+        public string StageName { get; set; } = string.Empty;
 
-        public int StageId { get; set; } // Replaced Difficulty
-        public string StageName { get; set; } = string.Empty; // Replaced Difficulty
-
+        public int CategoryId { get; set; }
         public string CategoryName { get; set; } = string.Empty;
         public string CategoryIcon { get; set; } = string.Empty;
         public string Message { get; set; } = string.Empty;
-        public List<string> Tags { get; set; } = new();
     }
 
     /// <summary>
-    /// DTO for problem preview in lists
+    /// DTO for problem preview in search results.
     /// </summary>
     public class ProblemPreviewDto
     {
         public int Id { get; set; }
         public string Title { get; set; } = string.Empty;
-
-        public int StageId { get; set; } // Added StageId to fix the compiler error
-        public string StageName { get; set; } = string.Empty; // Replaced Difficulty
+        public int StageId { get; set; }
+        public string StageName { get; set; } = string.Empty;
+        public int CategoryId { get; set; }
         public string CategoryName { get; set; } = string.Empty;
-        public string LatexCode { get; set; } = string.Empty;   
         public int Points { get; set; }
         public int ViewsCount { get; set; }
         public bool RequiresLogin { get; set; } = true;
     }
 
-    /// <summary>
-    /// DTO for search response
-    /// </summary>
     public class SearchResponseDto
     {
         public string Query { get; set; } = string.Empty;
@@ -183,9 +143,6 @@ namespace MathWorldAPI.DTOs
         public List<ProblemPreviewDto> Results { get; set; } = new();
     }
 
-    /// <summary>
-    /// DTO for Educational Stages Management
-    /// </summary>
     public class StageDto
     {
         public int Id { get; set; }

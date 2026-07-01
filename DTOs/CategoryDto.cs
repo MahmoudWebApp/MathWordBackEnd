@@ -1,56 +1,52 @@
-// File: MathWorldAPI/DTOs/CategoryDto.cs
-
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using Microsoft.AspNetCore.Http;
 
 namespace MathWorldAPI.DTOs
 {
-    /// <summary>
-    /// Data Transfer Object for category responses
-    /// </summary>
     public class CategoryDto
     {
         public int Id { get; set; }
         public string NameAr { get; set; } = string.Empty;
         public string NameEn { get; set; } = string.Empty;
-
         public string Name { get; set; } = string.Empty;
         public string Icon { get; set; } = string.Empty;
+        public int StageId { get; set; }
+        public int Order { get; set; }
     }
 
-    /// <summary>
-    /// DTO for creating a new category - supports file upload
-    /// </summary>
     public class CreateCategoryDto
     {
-        [Description("Arabic name for the category (required, max 100 characters)")]
+        [Description("اسم الفئة بالعربي (مطلوب، بحد أقصى 100 حرف)")]
         public string NameAr { get; set; } = string.Empty;
 
-        [Description("English name for the category (required, max 100 characters)")]
+        [Description("اسم الفئة بالإنجليزي (مطلوب، بحد أقصى 100 حرف)")]
         public string NameEn { get; set; } = string.Empty;
 
-        [Description("Category icon image file (JPG, PNG, SVG, WebP - max 2MB)")]
+        [Description("أيقونة الفئة (JPG, PNG, SVG, WebP - الحد الأقصى 2MB)")]
         public IFormFile? Icon { get; set; }
 
-        [Description("Display order - lower numbers appear first")]
+        [Description("ترتيب العرض - الأرقام الأصغر تظهر أولاً")]
         public int Order { get; set; } = 0;
+
+        [Description("معرف المرحلة الدراسية التي تنتمي لها الفئة")]
+        public int StageId { get; set; }
     }
 
-    /// <summary>
-    /// DTO for updating an existing category - supports file upload
-    /// </summary>
     public class UpdateCategoryDto
     {
-        [Description("Arabic name for the category (optional)")]
+        [Description("اسم الفئة بالعربي (اختياري)")]
         public string? NameAr { get; set; }
 
-        [Description("English name for the category (optional)")]
+        [Description("اسم الفئة بالإنجليزي (اختياري)")]
         public string? NameEn { get; set; }
 
-        [Description("New icon image file to upload (optional - replaces existing icon)")]
+        [Description("أيقونة جديدة لرفعها (اختياري - تستبدل الحالية)")]
         public IFormFile? Icon { get; set; }
 
-        [Description("Display order (optional)")]
+        [Description("ترتيب العرض (اختياري)")]
         public int? Order { get; set; }
+
+        [Description("معرف المرحلة الدراسية (اختياري)")]
+        public int? StageId { get; set; }
     }
 }

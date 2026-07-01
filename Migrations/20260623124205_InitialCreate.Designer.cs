@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MathWorldAPI.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260513115701_AddYoutubeSolutionUrlToMathProblem")]
-    partial class AddYoutubeSolutionUrlToMathProblem
+    [Migration("20260623124205_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -47,8 +47,14 @@ namespace MathWorldAPI.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("boolean");
 
+                    b.Property<DateTime?>("LastLoginAt")
+                        .HasColumnType("timestamp with time zone");
+
                     b.Property<string>("PasswordHash")
                         .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("ProfilePicture")
                         .HasColumnType("text");
 
                     b.Property<string>("Role")
@@ -62,6 +68,19 @@ namespace MathWorldAPI.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Email = "admin@mathworld.com",
+                            FullName = "System Admin",
+                            IsActive = true,
+                            PasswordHash = "$2a$11$RbqK6qNfL1j3hQJZ7YqH0u7l9m8n5p2q4r6s8t0v2x4z6A8C0E2G4I",
+                            Role = "Admin",
+                            SubscriptionType = "Premium"
+                        });
                 });
 
             modelBuilder.Entity("MathWorldAPI.Models.Category", b =>
@@ -87,7 +106,12 @@ namespace MathWorldAPI.Migrations
                     b.Property<int>("Order")
                         .HasColumnType("integer");
 
+                    b.Property<int>("StageId")
+                        .HasColumnType("integer");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("StageId");
 
                     b.ToTable("Categories");
 
@@ -96,41 +120,145 @@ namespace MathWorldAPI.Migrations
                         {
                             Id = 1,
                             Icon = "🔢",
-                            NameAr = "جبر",
-                            NameEn = "Algebra",
-                            Order = 1
+                            NameAr = "الأعداد والعمليات الحسابية",
+                            NameEn = "Numbers & Operations",
+                            Order = 1,
+                            StageId = 1
                         },
                         new
                         {
                             Id = 2,
-                            Icon = "📐",
-                            NameAr = "هندسة",
-                            NameEn = "Geometry",
-                            Order = 2
+                            Icon = "🧩",
+                            NameAr = "التفكير الجبري المبكر",
+                            NameEn = "Early Algebraic Thinking",
+                            Order = 2,
+                            StageId = 1
                         },
                         new
                         {
                             Id = 3,
-                            Icon = "📈",
-                            NameAr = "تفاضل وتكامل",
-                            NameEn = "Calculus",
-                            Order = 3
+                            Icon = "📏",
+                            NameAr = "الهندسة والقياس",
+                            NameEn = "Geometry & Measurement",
+                            Order = 3,
+                            StageId = 1
                         },
                         new
                         {
                             Id = 4,
                             Icon = "📊",
-                            NameAr = "إحصاء",
-                            NameEn = "Statistics",
-                            Order = 4
+                            NameAr = "البيانات والاحتمالات",
+                            NameEn = "Data & Basic Probability",
+                            Order = 4,
+                            StageId = 1
                         },
                         new
                         {
                             Id = 5,
-                            Icon = "💡",
-                            NameAr = "قدرات كمي",
-                            NameEn = "Quantitative Aptitude",
-                            Order = 5
+                            Icon = "🔬",
+                            NameAr = "نظرية الأعداد والأسس",
+                            NameEn = "Number Theory & Exponents",
+                            Order = 1,
+                            StageId = 2
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Icon = "⚖️",
+                            NameAr = "الجبر والدوال",
+                            NameEn = "Algebra & Functions",
+                            Order = 2,
+                            StageId = 2
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Icon = "💹",
+                            NameAr = "النسب والتناسب",
+                            NameEn = "Ratios & Proportions",
+                            Order = 3,
+                            StageId = 2
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Icon = "📐",
+                            NameAr = "الهندسة والبراهين",
+                            NameEn = "Geometry & Proofs",
+                            Order = 4,
+                            StageId = 2
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Icon = "📈",
+                            NameAr = "الجبر المتقدم",
+                            NameEn = "Advanced Algebra",
+                            Order = 1,
+                            StageId = 3
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Icon = "📐",
+                            NameAr = "حساب المثلثات",
+                            NameEn = "Trigonometry",
+                            Order = 2,
+                            StageId = 3
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Icon = "∫",
+                            NameAr = "التفاضل والتكامل",
+                            NameEn = "Calculus",
+                            Order = 3,
+                            StageId = 3
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Icon = "🎲",
+                            NameAr = "الإحصاء والاحتمالات المتقدم",
+                            NameEn = "Advanced Statistics",
+                            Order = 4,
+                            StageId = 3
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Icon = "🌌",
+                            NameAr = "التفاضل متعدد المتغيرات",
+                            NameEn = "Multivariable Calculus",
+                            Order = 1,
+                            StageId = 4
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Icon = "🧮",
+                            NameAr = "الجبر الخطي",
+                            NameEn = "Linear Algebra",
+                            Order = 2,
+                            StageId = 4
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Icon = "🌀",
+                            NameAr = "المعادلات التفاضلية",
+                            NameEn = "Differential Equations",
+                            Order = 3,
+                            StageId = 4
+                        },
+                        new
+                        {
+                            Id = 16,
+                            Icon = "∞",
+                            NameAr = "التحليل الحقيقي",
+                            NameEn = "Real Analysis",
+                            Order = 4,
+                            StageId = 4
                         });
                 });
 
@@ -156,6 +284,36 @@ namespace MathWorldAPI.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("EducationalStages");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            NameAr = "المرحلة الابتدائية",
+                            NameEn = "Elementary School",
+                            Order = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            NameAr = "المرحلة الإعدادية",
+                            NameEn = "Middle School",
+                            Order = 2
+                        },
+                        new
+                        {
+                            Id = 3,
+                            NameAr = "المرحلة الثانوية",
+                            NameEn = "High School",
+                            Order = 3
+                        },
+                        new
+                        {
+                            Id = 4,
+                            NameAr = "المرحلة الجامعية",
+                            NameEn = "University",
+                            Order = 4
+                        });
                 });
 
             modelBuilder.Entity("MathWorldAPI.Models.MathProblem", b =>
@@ -224,29 +382,6 @@ namespace MathWorldAPI.Migrations
                     b.ToTable("Problems");
                 });
 
-            modelBuilder.Entity("MathWorldAPI.Models.ProblemTag", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("ProblemId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("TagId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProblemId");
-
-                    b.HasIndex("TagId");
-
-                    b.ToTable("ProblemTags");
-                });
-
             modelBuilder.Entity("MathWorldAPI.Models.QuestionOption", b =>
                 {
                     b.Property<int>("Id")
@@ -268,40 +403,11 @@ namespace MathWorldAPI.Migrations
                     b.Property<int>("ProblemId")
                         .HasColumnType("integer");
 
-                    b.Property<string>("TextAr")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("TextEn")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.HasKey("Id");
 
                     b.HasIndex("ProblemId");
 
                     b.ToTable("QuestionOptions");
-                });
-
-            modelBuilder.Entity("MathWorldAPI.Models.SearchTag", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("TextAr")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("TextEn")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("SearchTags");
                 });
 
             modelBuilder.Entity("MathWorldAPI.Models.SocialLogin", b =>
@@ -312,8 +418,17 @@ namespace MathWorldAPI.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("AccessToken")
+                        .HasColumnType("text");
+
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
+
+                    b.Property<DateTime?>("LastLoginAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("ProfilePicture")
+                        .HasColumnType("text");
 
                     b.Property<string>("Provider")
                         .IsRequired()
@@ -381,6 +496,17 @@ namespace MathWorldAPI.Migrations
                     b.ToTable("UserProgresses");
                 });
 
+            modelBuilder.Entity("MathWorldAPI.Models.Category", b =>
+                {
+                    b.HasOne("MathWorldAPI.Models.EducationalStage", "Stage")
+                        .WithMany("Categories")
+                        .HasForeignKey("StageId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Stage");
+                });
+
             modelBuilder.Entity("MathWorldAPI.Models.MathProblem", b =>
                 {
                     b.HasOne("MathWorldAPI.Models.Category", "Category")
@@ -398,25 +524,6 @@ namespace MathWorldAPI.Migrations
                     b.Navigation("Category");
 
                     b.Navigation("Stage");
-                });
-
-            modelBuilder.Entity("MathWorldAPI.Models.ProblemTag", b =>
-                {
-                    b.HasOne("MathWorldAPI.Models.MathProblem", "Problem")
-                        .WithMany("ProblemTags")
-                        .HasForeignKey("ProblemId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MathWorldAPI.Models.SearchTag", "Tag")
-                        .WithMany("ProblemTags")
-                        .HasForeignKey("TagId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Problem");
-
-                    b.Navigation("Tag");
                 });
 
             modelBuilder.Entity("MathWorldAPI.Models.QuestionOption", b =>
@@ -474,6 +581,8 @@ namespace MathWorldAPI.Migrations
 
             modelBuilder.Entity("MathWorldAPI.Models.EducationalStage", b =>
                 {
+                    b.Navigation("Categories");
+
                     b.Navigation("Problems");
                 });
 
@@ -481,14 +590,7 @@ namespace MathWorldAPI.Migrations
                 {
                     b.Navigation("Options");
 
-                    b.Navigation("ProblemTags");
-
                     b.Navigation("UserProgresses");
-                });
-
-            modelBuilder.Entity("MathWorldAPI.Models.SearchTag", b =>
-                {
-                    b.Navigation("ProblemTags");
                 });
 #pragma warning restore 612, 618
         }

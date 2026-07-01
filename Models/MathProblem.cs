@@ -1,5 +1,8 @@
 namespace MathWorldAPI.Models
 {
+    /// <summary>
+    /// Represents a math problem with bilingual content and LaTeX support.
+    /// </summary>
     public class MathProblem
     {
         public int Id { get; set; }
@@ -7,9 +10,9 @@ namespace MathWorldAPI.Models
         public string TitleEn { get; set; } = string.Empty;
         public string QuestionTextAr { get; set; } = string.Empty;
         public string QuestionTextEn { get; set; } = string.Empty;
-        public string LatexCode { get; set; } = string.Empty;
+      
         public string? YoutubeSolutionUrl { get; set; }
-        public string DetailedSolutionAr { get; set; } = string.Empty; 
+        public string DetailedSolutionAr { get; set; } = string.Empty;
         public string DetailedSolutionEn { get; set; } = string.Empty;
 
         public int StageId { get; set; }
@@ -22,7 +25,6 @@ namespace MathWorldAPI.Models
         public int CategoryId { get; set; }
         public Category Category { get; set; } = null!;
         public List<QuestionOption> Options { get; set; } = new();
-        public List<ProblemTag> ProblemTags { get; set; } = new();
         public List<UserProgress> UserProgresses { get; set; } = new();
     }
 }
