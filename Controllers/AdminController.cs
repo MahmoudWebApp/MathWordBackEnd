@@ -1,16 +1,19 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.EntityFrameworkCore;
+﻿// File: MathWorldAPI/Controllers/AdminController.cs
+
 using MathWorldAPI.Data;
 using MathWorldAPI.DTOs;
 using MathWorldAPI.Helpers;
 using MathWorldAPI.Models;
 using MathWorldAPI.Services;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace MathWorldAPI.Controllers
 {
     /// <summary>
-    /// Admin controller for managing problems, categories, stages, users, and system operations.
+    /// Admin controller for managing problems, categories, stages,
+    /// users, statistics, search indexing, and system maintenance.
     /// Requires Admin role authorization.
     /// </summary>
     [ApiController]
@@ -18,59 +21,183 @@ namespace MathWorldAPI.Controllers
     [Authorize(Roles = "Admin")]
     public class AdminController : ControllerBase
     {
+        /// <summary>
+        /// Maximum allowed category icon size in bytes.
+        /// The current limit is 2 MB.
+        /// </summary>
+        private const long MaximumIconSize = 2 * 1024 * 1024;
+
         private readonly AppDbContext _context;
         private readonly IMeiliSearchService _searchService;
         private readonly IImgBbStorageService _imgBbStorage;
+        private readonly ILogger<AdminController> _logger;
 
         /// <summary>
         /// Initializes a new instance of the AdminController.
         /// </summary>
-        public AdminController(AppDbContext context, IMeiliSearchService searchService, IImgBbStorageService imgBbStorage)
+        /// <param name="context">
+        /// Application database context.
+        /// </param>
+        /// <param name="searchService">
+        /// Search indexing service.
+        /// </param>
+        /// <param name="imgBbStorage">
+        /// Category image storage service.
+        /// </param>
+        /// <param name="logger">
+        /// Application logger.
+        /// </param>
+        public AdminController(
+            AppDbContext context,
+            IMeiliSearchService searchService,
+            IImgBbStorageService imgBbStorage,
+            ILogger<AdminController> logger)
         {
             _context = context;
             _searchService = searchService;
             _imgBbStorage = imgBbStorage;
+            _logger = logger;
         }
+
+        // =====================================================================
+        // SEARCH INDEX MANAGEMENT
+        // =====================================================================
 
         /// <summary>
         /// Reindexes all problems in MeiliSearch.
         /// </summary>
+        /// <returns>
+        /// A successful response when all problems have been reindexed.
+        /// </returns>
         [HttpPost("reindex")]
+        [ProducesResponseType(
+            typeof(ApiResponse<object>),
+            StatusCodes.Status200OK)]
+        [ProducesResponseType(
+            typeof(ApiResponse<object>),
+            StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> ReindexAll()
         {
+            var language =
+                LanguageHelper.GetLanguageFromRequest(Request);
+
             try
             {
                 await _searchService.ReindexAllAsync();
-                return Ok(LanguageHelper.SuccessResponse<object>(null, "Success", LanguageHelper.GetLanguageFromRequest(Request)));
+
+                _logger.LogInformation(
+                    "All problems were reindexed successfully.");
+
+                return Ok(
+                    LanguageHelper.SuccessResponse<object>(
+                        null,
+                        "Success",
+                        language));
             }
-            catch (Exception)
+            catch (Exception exception)
             {
-                return StatusCode(500, LanguageHelper.ErrorResponse<ApiResponse<object>>("ServerError", LanguageHelper.GetLanguageFromRequest(Request), 500));
+                _logger.LogError(
+                    exception,
+                    "Failed to reindex all problems.");
+
+                return StatusCode(
+                    StatusCodes.Status500InternalServerError,
+                    LanguageHelper.ErrorResponse<object>(
+                        "ServerError",
+                        language,
+                        StatusCodes.Status500InternalServerError));
             }
         }
 
         /// <summary>
-        /// Syncs all problems from PostgreSQL to MeiliSearch.
+        /// Synchronizes all PostgreSQL problems with MeiliSearch.
         /// </summary>
+        /// <returns>
+        /// The total number of synchronized problems.
+        /// </returns>
         [HttpPost("sync-meilisearch")]
+        [ProducesResponseType(
+            typeof(ApiResponse<SyncResultDto>),
+            StatusCodes.Status200OK)]
+        [ProducesResponseType(
+            typeof(ApiResponse<SyncResultDto>),
+            StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> SyncMeiliSearch()
         {
+            var language =
+                LanguageHelper.GetLanguageFromRequest(Request);
+
             try
             {
-                var problems = await _context.Problems.Include(p => p.Category).ToListAsync();
-                foreach (var problem in problems) await _searchService.UpdateProblemAsync(problem);
-                return Ok(LanguageHelper.SuccessResponse(new SyncResultDto { Total = problems.Count }, "Success", LanguageHelper.GetLanguageFromRequest(Request)));
+                var problems = await _context.Problems
+                    .Include(problem => problem.Category)
+                    .Include(problem => problem.Stage)
+                    .AsNoTracking()
+                    .ToListAsync();
+
+                foreach (var problem in problems)
+                {
+                    await _searchService.UpdateProblemAsync(problem);
+                }
+
+                _logger.LogInformation(
+                    "Synchronized {ProblemCount} problems with MeiliSearch.",
+                    problems.Count);
+
+                return Ok(
+                    LanguageHelper.SuccessResponse(
+                        new SyncResultDto
+                        {
+                            Total = problems.Count
+                        },
+                        "Success",
+                        language));
             }
-            catch (Exception)
+            catch (Exception exception)
             {
-                return StatusCode(500, LanguageHelper.ErrorResponse<ApiResponse<SyncResultDto>>("ServerError", LanguageHelper.GetLanguageFromRequest(Request), 500));
+                _logger.LogError(
+                    exception,
+                    "Failed to synchronize problems with MeiliSearch.");
+
+                return StatusCode(
+                    StatusCodes.Status500InternalServerError,
+                    LanguageHelper.ErrorResponse<SyncResultDto>(
+                        "ServerError",
+                        language,
+                        StatusCodes.Status500InternalServerError));
             }
         }
 
+        // =====================================================================
+        // PROBLEM MANAGEMENT
+        // =====================================================================
+
         /// <summary>
-        /// Gets all problems with optional filtering and pagination.
+        /// Gets all problems with optional search, category filtering,
+        /// stage filtering, and pagination.
         /// </summary>
+        /// <param name="q">
+        /// Optional search text.
+        /// </param>
+        /// <param name="categoryId">
+        /// Optional category ID.
+        /// </param>
+        /// <param name="stageId">
+        /// Optional educational stage ID.
+        /// </param>
+        /// <param name="page">
+        /// Current one-based page number.
+        /// </param>
+        /// <param name="pageSize">
+        /// Number of problems returned per page.
+        /// </param>
+        /// <returns>
+        /// Paginated administrative problem information.
+        /// </returns>
         [HttpGet("problems")]
+        [ProducesResponseType(
+            typeof(ApiResponse<object>),
+            StatusCodes.Status200OK)]
         public async Task<IActionResult> GetAllProblems(
             [FromQuery] string? q = null,
             [FromQuery] int? categoryId = null,
@@ -78,49 +205,92 @@ namespace MathWorldAPI.Controllers
             [FromQuery] int page = 1,
             [FromQuery] int pageSize = 10)
         {
-            var language = LanguageHelper.GetLanguageFromRequest(Request);
+            var language =
+                LanguageHelper.GetLanguageFromRequest(Request);
 
             page = Math.Max(1, page);
             pageSize = Math.Clamp(pageSize, 1, 100);
 
             var query = _context.Problems
-                .Include(p => p.Options)
-                .Include(p => p.Stage)
+                .AsNoTracking()
+                .Include(problem => problem.Options)
+                .Include(problem => problem.Stage)
+                .Include(problem => problem.Category)
                 .AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(q))
             {
-                query = query.Where(p => p.TitleAr.Contains(q) || p.TitleEn.Contains(q) ||
-                                         p.QuestionTextAr.Contains(q) || p.QuestionTextEn.Contains(q));
+                var normalizedQuery = q.Trim();
+
+                query = query.Where(problem =>
+                    problem.TitleAr.Contains(normalizedQuery) ||
+                    problem.TitleEn.Contains(normalizedQuery) ||
+                    problem.QuestionTextAr.Contains(normalizedQuery) ||
+                    problem.QuestionTextEn.Contains(normalizedQuery));
             }
 
             if (categoryId.HasValue)
-                query = query.Where(p => p.CategoryId == categoryId.Value);
+            {
+                query = query.Where(problem =>
+                    problem.CategoryId == categoryId.Value);
+            }
 
             if (stageId.HasValue)
-                query = query.Where(p => p.StageId == stageId.Value);
+            {
+                query = query.Where(problem =>
+                    problem.StageId == stageId.Value);
+            }
 
-            var total = await query.CountAsync();
+            var total =
+                await query.CountAsync();
+
+            var totalPages =
+                (int)Math.Ceiling(total / (double)pageSize);
 
             var problems = await query
-                .OrderByDescending(p => p.Id)
+                .OrderByDescending(problem => problem.Id)
                 .Skip((page - 1) * pageSize)
                 .Take(pageSize)
-                .Select(p => new
+                .Select(problem => new
                 {
-                    p.Id,
-                    p.TitleAr,
-                    p.TitleEn,
-                    p.QuestionTextAr,
-                    p.QuestionTextEn,
-                    p.DetailedSolutionAr,
-                    p.DetailedSolutionEn,
-                    p.StageId,
-                    StageName = language == "en" ? p.Stage.NameEn : p.Stage.NameAr,
-                    p.Points,
-                    p.CategoryId,
-                    p.YoutubeSolutionUrl,
-                    Options = p.Options.OrderBy(o => o.Order).Select(o => new { o.LatexCode, o.IsCorrect, o.Order }).ToList()
+                    problem.Id,
+                    problem.TitleAr,
+                    problem.TitleEn,
+                    problem.QuestionTextAr,
+                    problem.QuestionTextEn,
+                    problem.DetailedSolutionAr,
+                    problem.DetailedSolutionEn,
+                    problem.StageId,
+
+                    StageName = language == "en"
+                        ? problem.Stage.NameEn
+                        : problem.Stage.NameAr,
+
+                    problem.Points,
+                    problem.CategoryId,
+
+                    CategoryName = language == "en"
+                        ? problem.Category.NameEn
+                        : problem.Category.NameAr,
+
+                    CategoryIcon =
+                        problem.Category.Icon ?? string.Empty,
+
+                    problem.ViewsCount,
+                    problem.SolvedCount,
+                    problem.CreatedAt,
+                    problem.YoutubeSolutionUrl,
+
+                    Options = problem.Options
+                        .OrderBy(option => option.Order)
+                        .Select(option => new AdminOptionDto
+                        {
+                            Id = option.Id,
+                            LatexCode = option.LatexCode,
+                            IsCorrect = option.IsCorrect,
+                            Order = option.Order
+                        })
+                        .ToList()
                 })
                 .ToListAsync();
 
@@ -130,299 +300,1414 @@ namespace MathWorldAPI.Controllers
                 Total = total,
                 Page = page,
                 PageSize = pageSize,
-                TotalPages = (int)Math.Ceiling((double)total / pageSize)
+                TotalPages = totalPages
             };
 
-            return Ok(LanguageHelper.SuccessResponse(responseData, problems.Count == 0 ? "NoResultsFound" : "Success", language));
+            var metadata =
+                new MetaData
+                {
+                    Total = total,
+                    Page = page,
+                    PageSize = pageSize,
+                    TotalPages = totalPages,
+                    Query = q
+                };
+
+            _logger.LogInformation(
+                "Administrator requested problem page {Page}. Returned {Count} of {Total} problems.",
+                page,
+                problems.Count,
+                total);
+
+            return Ok(
+                LanguageHelper.SuccessResponse(
+                    responseData,
+                    problems.Count == 0
+                        ? "NoResultsFound"
+                        : "Success",
+                    language,
+                    meta: metadata));
         }
 
         /// <summary>
-        /// Creates a new math problem. Title is auto-extracted from question text.
+        /// Creates a new math problem.
+        /// The Arabic and English titles are automatically extracted
+        /// from the corresponding question text.
         /// </summary>
+        /// <param name="dto">
+        /// Problem creation data.
+        /// </param>
+        /// <returns>
+        /// The ID of the newly created problem.
+        /// </returns>
         [HttpPost("problems")]
-        public async Task<ActionResult<ApiResponse<ProblemCreatedDto>>> CreateProblem([FromBody] CreateProblemDto dto)
+        [ProducesResponseType(
+            typeof(ApiResponse<ProblemCreatedDto>),
+            StatusCodes.Status201Created)]
+        [ProducesResponseType(
+            typeof(ApiResponse<ProblemCreatedDto>),
+            StatusCodes.Status400BadRequest)]
+        public async Task<
+            ActionResult<ApiResponse<ProblemCreatedDto>>> CreateProblem(
+            [FromBody] CreateProblemDto dto)
         {
-            var language = LanguageHelper.GetLanguageFromRequest(Request);
+            var language =
+                LanguageHelper.GetLanguageFromRequest(Request);
 
-            if (dto.Options == null || dto.Options.Count != 4)
-                return BadRequest(LanguageHelper.ErrorResponse<ApiResponse<ProblemCreatedDto>>("OptionsCountError", language));
-            if (dto.Options.Count(x => x.IsCorrect) != 1)
-                return BadRequest(LanguageHelper.ErrorResponse<ApiResponse<ProblemCreatedDto>>("CorrectOptionError", language));
+            var validationMessage =
+                ValidateProblemOptions(dto);
 
-            var problem = new MathProblem
+            if (validationMessage != null)
             {
-                TitleAr = MathTextHelper.ExtractTitleFromQuestion(dto.QuestionTextAr),
-                TitleEn = MathTextHelper.ExtractTitleFromQuestion(dto.QuestionTextEn),
-                QuestionTextAr = dto.QuestionTextAr,
-                QuestionTextEn = dto.QuestionTextEn,
-                DetailedSolutionAr = dto.DetailedSolutionAr,
-                DetailedSolutionEn = dto.DetailedSolutionEn,
-                YoutubeSolutionUrl = dto.YoutubeSolutionUrl,
-                StageId = dto.StageId,
-                Points = dto.Points,
-                CategoryId = dto.CategoryId,
-                CreatedAt = DateTime.UtcNow,
-                Options = dto.Options.Select(o => new QuestionOption
+                return BadRequest(
+                    LanguageHelper.ErrorResponse<ProblemCreatedDto>(
+                        validationMessage,
+                        language,
+                        StatusCodes.Status400BadRequest));
+            }
+
+            var stageExists =
+                await _context.EducationalStages
+                    .AnyAsync(stage =>
+                        stage.Id == dto.StageId);
+
+            if (!stageExists)
+            {
+                return BadRequest(
+                    LanguageHelper.ErrorResponse<ProblemCreatedDto>(
+                        "StageNotFound",
+                        language,
+                        StatusCodes.Status400BadRequest));
+            }
+
+            var category = await _context.Categories
+                .AsNoTracking()
+                .FirstOrDefaultAsync(item =>
+                    item.Id == dto.CategoryId);
+
+            if (category == null)
+            {
+                return BadRequest(
+                    LanguageHelper.ErrorResponse<ProblemCreatedDto>(
+                        "CategoryNotFound",
+                        language,
+                        StatusCodes.Status400BadRequest));
+            }
+
+            if (category.StageId != dto.StageId)
+            {
+                return BadRequest(
+                    LanguageHelper.ErrorResponse<ProblemCreatedDto>(
+                        "BadRequest",
+                        language,
+                        StatusCodes.Status400BadRequest,
+                        new Dictionary<string, List<string>>
+                        {
+                            {
+                                "StageId",
+                                new List<string>
+                                {
+                                    "The selected category does not belong to the selected stage."
+                                }
+                            }
+                        }));
+            }
+
+            var problem =
+                new MathProblem
                 {
-                    LatexCode = o.LatexCode,
-                    IsCorrect = o.IsCorrect,
-                    Order = o.Order
-                }).ToList()
-            };
+                    TitleAr =
+                        MathTextHelper.ExtractTitleFromQuestion(
+                            dto.QuestionTextAr),
+
+                    TitleEn =
+                        MathTextHelper.ExtractTitleFromQuestion(
+                            dto.QuestionTextEn),
+
+                    QuestionTextAr =
+                        dto.QuestionTextAr.Trim(),
+
+                    QuestionTextEn =
+                        dto.QuestionTextEn.Trim(),
+
+                    DetailedSolutionAr =
+                        dto.DetailedSolutionAr.Trim(),
+
+                    DetailedSolutionEn =
+                        dto.DetailedSolutionEn.Trim(),
+
+                    YoutubeSolutionUrl =
+                        NormalizeOptionalText(
+                            dto.YoutubeSolutionUrl),
+
+                    StageId =
+                        dto.StageId,
+
+                    Points =
+                        dto.Points,
+
+                    CategoryId =
+                        dto.CategoryId,
+
+                    CreatedAt =
+                        DateTime.UtcNow,
+
+                    Options = dto.Options
+                        .OrderBy(option => option.Order)
+                        .Select(option =>
+                            new QuestionOption
+                            {
+                                LatexCode =
+                                    option.LatexCode.Trim(),
+
+                                IsCorrect =
+                                    option.IsCorrect,
+
+                                Order =
+                                    option.Order
+                            })
+                        .ToList()
+                };
 
             _context.Problems.Add(problem);
+
             await _context.SaveChangesAsync();
 
-            try { await _searchService.IndexProblemAsync(problem); } catch { }
+            try
+            {
+                await _searchService.IndexProblemAsync(problem);
 
-            return CreatedAtAction("GetProblem", "Problems", new { id = problem.Id }, LanguageHelper.SuccessResponse(new ProblemCreatedDto { Id = problem.Id }, "ProblemCreated", language, 201));
+                _logger.LogInformation(
+                    "Problem {ProblemId} was indexed in MeiliSearch.",
+                    problem.Id);
+            }
+            catch (Exception exception)
+            {
+                // Search indexing is non-critical.
+                // The problem remains successfully stored in PostgreSQL.
+                _logger.LogWarning(
+                    exception,
+                    "Problem {ProblemId} was created but could not be indexed.",
+                    problem.Id);
+            }
+
+            _logger.LogInformation(
+                "Problem {ProblemId} was created successfully.",
+                problem.Id);
+
+            return CreatedAtAction(
+                "GetProblem",
+                "Problems",
+                new
+                {
+                    id = problem.Id
+                },
+                LanguageHelper.SuccessResponse(
+                    new ProblemCreatedDto
+                    {
+                        Id = problem.Id
+                    },
+                    "ProblemCreated",
+                    language,
+                    StatusCodes.Status201Created));
         }
 
         /// <summary>
-        /// Updates an existing problem.
+        /// Updates an existing math problem and replaces its answer options.
         /// </summary>
-        [HttpPut("problems/{id}")]
-        public async Task<IActionResult> UpdateProblem(int id, [FromBody] CreateProblemDto dto)
+        /// <param name="id">
+        /// Problem ID.
+        /// </param>
+        /// <param name="dto">
+        /// Updated problem data.
+        /// </param>
+        /// <returns>
+        /// A successful response when the problem is updated.
+        /// </returns>
+        [HttpPut("problems/{id:int}")]
+        [ProducesResponseType(
+            typeof(ApiResponse<object>),
+            StatusCodes.Status200OK)]
+        [ProducesResponseType(
+            typeof(ApiResponse<object>),
+            StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(
+            typeof(ApiResponse<object>),
+            StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> UpdateProblem(
+            int id,
+            [FromBody] CreateProblemDto dto)
         {
-            var language = LanguageHelper.GetLanguageFromRequest(Request);
-            var problem = await _context.Problems.Include(p => p.Options).FirstOrDefaultAsync(p => p.Id == id);
-            if (problem == null) return NotFound(LanguageHelper.ErrorResponse<ApiResponse<object>>("ProblemNotFound", language, 404));
+            var language =
+                LanguageHelper.GetLanguageFromRequest(Request);
 
-            problem.TitleAr = MathTextHelper.ExtractTitleFromQuestion(dto.QuestionTextAr);
-            problem.TitleEn = MathTextHelper.ExtractTitleFromQuestion(dto.QuestionTextEn);
-            problem.QuestionTextAr = dto.QuestionTextAr;
-            problem.QuestionTextEn = dto.QuestionTextEn;
-            problem.DetailedSolutionAr = dto.DetailedSolutionAr;
-            problem.DetailedSolutionEn = dto.DetailedSolutionEn;
-            problem.StageId = dto.StageId;
-            problem.Points = dto.Points;
-            problem.CategoryId = dto.CategoryId;
-            problem.YoutubeSolutionUrl = dto.YoutubeSolutionUrl;
+            var validationMessage =
+                ValidateProblemOptions(dto);
 
-            _context.QuestionOptions.RemoveRange(problem.Options);
-            problem.Options = dto.Options.Select(o => new QuestionOption
+            if (validationMessage != null)
             {
-                LatexCode = o.LatexCode,
-                IsCorrect = o.IsCorrect,
-                Order = o.Order
-            }).ToList();
+                return BadRequest(
+                    LanguageHelper.ErrorResponse<object>(
+                        validationMessage,
+                        language,
+                        StatusCodes.Status400BadRequest));
+            }
+
+            var problem = await _context.Problems
+                .Include(item => item.Options)
+                .FirstOrDefaultAsync(item =>
+                    item.Id == id);
+
+            if (problem == null)
+            {
+                return NotFound(
+                    LanguageHelper.ErrorResponse<object>(
+                        "ProblemNotFound",
+                        language,
+                        StatusCodes.Status404NotFound));
+            }
+
+            var stageExists =
+                await _context.EducationalStages
+                    .AnyAsync(stage =>
+                        stage.Id == dto.StageId);
+
+            if (!stageExists)
+            {
+                return BadRequest(
+                    LanguageHelper.ErrorResponse<object>(
+                        "StageNotFound",
+                        language,
+                        StatusCodes.Status400BadRequest));
+            }
+
+            var category = await _context.Categories
+                .AsNoTracking()
+                .FirstOrDefaultAsync(item =>
+                    item.Id == dto.CategoryId);
+
+            if (category == null)
+            {
+                return BadRequest(
+                    LanguageHelper.ErrorResponse<object>(
+                        "CategoryNotFound",
+                        language,
+                        StatusCodes.Status400BadRequest));
+            }
+
+            if (category.StageId != dto.StageId)
+            {
+                return BadRequest(
+                    LanguageHelper.ErrorResponse<object>(
+                        "BadRequest",
+                        language,
+                        StatusCodes.Status400BadRequest,
+                        new Dictionary<string, List<string>>
+                        {
+                            {
+                                "StageId",
+                                new List<string>
+                                {
+                                    "The selected category does not belong to the selected stage."
+                                }
+                            }
+                        }));
+            }
+
+            problem.TitleAr =
+                MathTextHelper.ExtractTitleFromQuestion(
+                    dto.QuestionTextAr);
+
+            problem.TitleEn =
+                MathTextHelper.ExtractTitleFromQuestion(
+                    dto.QuestionTextEn);
+
+            problem.QuestionTextAr =
+                dto.QuestionTextAr.Trim();
+
+            problem.QuestionTextEn =
+                dto.QuestionTextEn.Trim();
+
+            problem.DetailedSolutionAr =
+                dto.DetailedSolutionAr.Trim();
+
+            problem.DetailedSolutionEn =
+                dto.DetailedSolutionEn.Trim();
+
+            problem.StageId =
+                dto.StageId;
+
+            problem.Points =
+                dto.Points;
+
+            problem.CategoryId =
+                dto.CategoryId;
+
+            problem.YoutubeSolutionUrl =
+                NormalizeOptionalText(
+                    dto.YoutubeSolutionUrl);
+
+            // Remove existing answer options before inserting new ones.
+            _context.QuestionOptions.RemoveRange(
+                problem.Options);
+
+            problem.Options = dto.Options
+                .OrderBy(option => option.Order)
+                .Select(option =>
+                    new QuestionOption
+                    {
+                        LatexCode =
+                            option.LatexCode.Trim(),
+
+                        IsCorrect =
+                            option.IsCorrect,
+
+                        Order =
+                            option.Order
+                    })
+                .ToList();
 
             await _context.SaveChangesAsync();
-            try { await _searchService.UpdateProblemAsync(problem); } catch { }
-            return Ok(LanguageHelper.SuccessResponse<object>(null, "ProblemUpdated", language));
+
+            try
+            {
+                await _searchService.UpdateProblemAsync(problem);
+
+                _logger.LogInformation(
+                    "Problem {ProblemId} was updated in MeiliSearch.",
+                    problem.Id);
+            }
+            catch (Exception exception)
+            {
+                // Search indexing is non-critical.
+                _logger.LogWarning(
+                    exception,
+                    "Problem {ProblemId} was updated in PostgreSQL but not in MeiliSearch.",
+                    problem.Id);
+            }
+
+            _logger.LogInformation(
+                "Problem {ProblemId} was updated successfully.",
+                problem.Id);
+
+            return Ok(
+                LanguageHelper.SuccessResponse<object>(
+                    null,
+                    "ProblemUpdated",
+                    language));
         }
 
         /// <summary>
         /// Deletes a problem by ID.
+        /// Related answer options and progress records are deleted
+        /// according to configured entity relationships.
         /// </summary>
-        [HttpDelete("problems/{id}")]
-        public async Task<IActionResult> DeleteProblem(int id)
+        /// <param name="id">
+        /// Problem ID.
+        /// </param>
+        /// <returns>
+        /// A successful response when the problem is deleted.
+        /// </returns>
+        [HttpDelete("problems/{id:int}")]
+        [ProducesResponseType(
+            typeof(ApiResponse<object>),
+            StatusCodes.Status200OK)]
+        [ProducesResponseType(
+            typeof(ApiResponse<object>),
+            StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> DeleteProblem(
+            int id)
         {
-            var language = LanguageHelper.GetLanguageFromRequest(Request);
-            var problem = await _context.Problems.FindAsync(id);
-            if (problem == null) return NotFound(LanguageHelper.ErrorResponse<ApiResponse<object>>("ProblemNotFound", language, 404));
+            var language =
+                LanguageHelper.GetLanguageFromRequest(Request);
+
+            var problem =
+                await _context.Problems
+                    .FirstOrDefaultAsync(item =>
+                        item.Id == id);
+
+            if (problem == null)
+            {
+                return NotFound(
+                    LanguageHelper.ErrorResponse<object>(
+                        "ProblemNotFound",
+                        language,
+                        StatusCodes.Status404NotFound));
+            }
 
             _context.Problems.Remove(problem);
+
             await _context.SaveChangesAsync();
-            try { await _searchService.DeleteProblemAsync(id); } catch { };
-            return Ok(LanguageHelper.SuccessResponse<object>(null, "ProblemDeleted", language));
+
+            try
+            {
+                await _searchService.DeleteProblemAsync(id);
+
+                _logger.LogInformation(
+                    "Problem {ProblemId} was deleted from MeiliSearch.",
+                    id);
+            }
+            catch (Exception exception)
+            {
+                // Search deletion is non-critical.
+                _logger.LogWarning(
+                    exception,
+                    "Problem {ProblemId} was deleted from PostgreSQL but not from MeiliSearch.",
+                    id);
+            }
+
+            _logger.LogInformation(
+                "Problem {ProblemId} was deleted successfully.",
+                id);
+
+            return Ok(
+                LanguageHelper.SuccessResponse<object>(
+                    null,
+                    "ProblemDeleted",
+                    language));
         }
 
+        // =====================================================================
+        // CATEGORY MANAGEMENT
+        // =====================================================================
+
         /// <summary>
-        /// Gets all categories ordered by stage and order.
+        /// Gets all categories ordered by stage and display order.
         /// </summary>
+        /// <returns>
+        /// All available categories.
+        /// </returns>
         [HttpGet("categories")]
+        [ProducesResponseType(
+            typeof(ApiResponse<List<CategoryDto>>),
+            StatusCodes.Status200OK)]
         public async Task<IActionResult> GetAllCategories()
         {
-            var language = LanguageHelper.GetLanguageFromRequest(Request);
+            var language =
+                LanguageHelper.GetLanguageFromRequest(Request);
+
             var categories = await _context.Categories
-                .OrderBy(c => c.StageId)
-                .ThenBy(c => c.Order)
-                .Select(c => new CategoryDto { Id = c.Id, NameAr = c.NameAr, NameEn = c.NameEn, Icon = c.Icon ?? string.Empty, StageId = c.StageId, Order = c.Order })
+                .AsNoTracking()
+                .OrderBy(category => category.StageId)
+                .ThenBy(category => category.Order)
+                .Select(category => new CategoryDto
+                {
+                    Id = category.Id,
+                    NameAr = category.NameAr,
+                    NameEn = category.NameEn,
+
+                    Name = language == "en"
+                        ? category.NameEn
+                        : category.NameAr,
+
+                    Icon =
+                        category.Icon ?? string.Empty,
+
+                    StageId =
+                        category.StageId,
+
+                    Order =
+                        category.Order
+                })
                 .ToListAsync();
 
-            foreach (var cat in categories)
-                cat.Icon = _imgBbStorage.GetFullUrl(cat.Icon) ?? string.Empty;
+            foreach (var category in categories)
+            {
+                category.Icon =
+                    _imgBbStorage.GetFullUrl(
+                        category.Icon)
+                    ?? string.Empty;
+            }
 
-            return Ok(LanguageHelper.SuccessResponse(categories, "Success", language));
+            return Ok(
+                LanguageHelper.SuccessResponse(
+                    categories,
+                    "Success",
+                    language));
         }
 
         /// <summary>
-        /// Creates a new category with optional icon upload.
+        /// Creates a new category with an optional uploaded icon.
         /// </summary>
+        /// <param name="dto">
+        /// Category creation data.
+        /// </param>
+        /// <returns>
+        /// The newly created category.
+        /// </returns>
         [HttpPost("categories")]
         [Consumes("multipart/form-data")]
-        public async Task<IActionResult> CreateCategory([FromForm] CreateCategoryDto dto)
+        [ProducesResponseType(
+            typeof(ApiResponse<CategoryDto>),
+            StatusCodes.Status201Created)]
+        [ProducesResponseType(
+            typeof(ApiResponse<CategoryDto>),
+            StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> CreateCategory(
+            [FromForm] CreateCategoryDto dto)
         {
-            var language = LanguageHelper.GetLanguageFromRequest(Request);
-            var category = new Category { NameAr = dto.NameAr, NameEn = dto.NameEn, Order = dto.Order, StageId = dto.StageId };
+            var language =
+                LanguageHelper.GetLanguageFromRequest(Request);
 
-            if (dto.Icon != null && dto.Icon.Length > 0)
+            var stageExists =
+                await _context.EducationalStages
+                    .AnyAsync(stage =>
+                        stage.Id == dto.StageId);
+
+            if (!stageExists)
             {
-                if (!UploadHelper.IsValidImageExtension(dto.Icon.FileName, out _))
-                    return BadRequest(LanguageHelper.ErrorResponse<ApiResponse<object>>("BadRequest", language, 400));
+                return BadRequest(
+                    LanguageHelper.ErrorResponse<CategoryDto>(
+                        "StageNotFound",
+                        language,
+                        StatusCodes.Status400BadRequest));
+            }
 
-                category.Icon = await _imgBbStorage.UploadFileAsync(dto.Icon);
+            var category =
+                new Category
+                {
+                    NameAr =
+                        dto.NameAr.Trim(),
+
+                    NameEn =
+                        dto.NameEn.Trim(),
+
+                    Order =
+                        Math.Max(0, dto.Order),
+
+                    StageId =
+                        dto.StageId
+                };
+
+            if (dto.Icon != null &&
+                dto.Icon.Length > 0)
+            {
+                var iconErrors =
+                    ValidateIcon(dto.Icon);
+
+                if (iconErrors != null)
+                {
+                    return BadRequest(
+                        LanguageHelper.ErrorResponse<CategoryDto>(
+                            "InvalidImage",
+                            language,
+                            StatusCodes.Status400BadRequest,
+                            iconErrors));
+                }
+
+                category.Icon =
+                    await _imgBbStorage.UploadFileAsync(
+                        dto.Icon);
             }
 
             _context.Categories.Add(category);
+
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetAllCategories), LanguageHelper.SuccessResponse(new CategoryDto { Id = category.Id, NameAr = category.NameAr, NameEn = category.NameEn, Icon = _imgBbStorage.GetFullUrl(category.Icon) ?? string.Empty, StageId = category.StageId, Order = category.Order }, "CategoryCreated", language, 201));
+            _logger.LogInformation(
+                "Category {CategoryId} was created by an administrator.",
+                category.Id);
+
+            var response =
+                MapCategory(
+                    category,
+                    language);
+
+            return CreatedAtAction(
+                nameof(GetAllCategories),
+                LanguageHelper.SuccessResponse(
+                    response,
+                    "CategoryCreated",
+                    language,
+                    StatusCodes.Status201Created));
         }
 
         /// <summary>
         /// Updates an existing category.
         /// </summary>
-        [HttpPut("categories/{id}")]
+        /// <param name="id">
+        /// Category ID.
+        /// </param>
+        /// <param name="dto">
+        /// Category update data.
+        /// </param>
+        /// <returns>
+        /// The updated category.
+        /// </returns>
+        [HttpPut("categories/{id:int}")]
         [Consumes("multipart/form-data")]
-        public async Task<IActionResult> UpdateCategory(int id, [FromForm] UpdateCategoryDto dto)
+        [ProducesResponseType(
+            typeof(ApiResponse<CategoryDto>),
+            StatusCodes.Status200OK)]
+        [ProducesResponseType(
+            typeof(ApiResponse<CategoryDto>),
+            StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> UpdateCategory(
+            int id,
+            [FromForm] UpdateCategoryDto dto)
         {
-            var language = LanguageHelper.GetLanguageFromRequest(Request);
-            var category = await _context.Categories.FindAsync(id);
-            if (category == null) return NotFound(LanguageHelper.ErrorResponse<ApiResponse<object>>("CategoryNotFound", language, 404));
+            var language =
+                LanguageHelper.GetLanguageFromRequest(Request);
 
-            if (!string.IsNullOrWhiteSpace(dto.NameAr)) category.NameAr = dto.NameAr;
-            if (!string.IsNullOrWhiteSpace(dto.NameEn)) category.NameEn = dto.NameEn;
-            if (dto.Order.HasValue) category.Order = dto.Order.Value;
-            if (dto.StageId.HasValue) category.StageId = dto.StageId.Value;
+            var category =
+                await _context.Categories
+                    .FirstOrDefaultAsync(item =>
+                        item.Id == id);
 
-            if (dto.Icon != null && dto.Icon.Length > 0)
+            if (category == null)
             {
-                if (!UploadHelper.IsValidImageExtension(dto.Icon.FileName, out _))
-                    return BadRequest(LanguageHelper.ErrorResponse<ApiResponse<object>>("BadRequest", language, 400));
+                return NotFound(
+                    LanguageHelper.ErrorResponse<CategoryDto>(
+                        "CategoryNotFound",
+                        language,
+                        StatusCodes.Status404NotFound));
+            }
 
-                category.Icon = await _imgBbStorage.UploadFileAsync(dto.Icon);
+            if (dto.StageId.HasValue)
+            {
+                var stageExists =
+                    await _context.EducationalStages
+                        .AnyAsync(stage =>
+                            stage.Id == dto.StageId.Value);
+
+                if (!stageExists)
+                {
+                    return BadRequest(
+                        LanguageHelper.ErrorResponse<CategoryDto>(
+                            "StageNotFound",
+                            language,
+                            StatusCodes.Status400BadRequest));
+                }
+            }
+
+            if (!string.IsNullOrWhiteSpace(dto.NameAr))
+            {
+                category.NameAr =
+                    dto.NameAr.Trim();
+            }
+
+            if (!string.IsNullOrWhiteSpace(dto.NameEn))
+            {
+                category.NameEn =
+                    dto.NameEn.Trim();
+            }
+
+            if (dto.Order.HasValue)
+            {
+                category.Order =
+                    Math.Max(0, dto.Order.Value);
+            }
+
+            if (dto.StageId.HasValue)
+            {
+                category.StageId =
+                    dto.StageId.Value;
+            }
+
+            if (dto.Icon != null &&
+                dto.Icon.Length > 0)
+            {
+                var iconErrors =
+                    ValidateIcon(dto.Icon);
+
+                if (iconErrors != null)
+                {
+                    return BadRequest(
+                        LanguageHelper.ErrorResponse<CategoryDto>(
+                            "InvalidImage",
+                            language,
+                            StatusCodes.Status400BadRequest,
+                            iconErrors));
+                }
+
+                category.Icon =
+                    await _imgBbStorage.UploadFileAsync(
+                        dto.Icon);
             }
 
             await _context.SaveChangesAsync();
-            return Ok(LanguageHelper.SuccessResponse(new CategoryDto { Id = category.Id, NameAr = category.NameAr, NameEn = category.NameEn, Icon = _imgBbStorage.GetFullUrl(category.Icon) ?? string.Empty, StageId = category.StageId, Order = category.Order }, "CategoryUpdated", language));
+
+            _logger.LogInformation(
+                "Category {CategoryId} was updated by an administrator.",
+                category.Id);
+
+            var response =
+                MapCategory(
+                    category,
+                    language);
+
+            return Ok(
+                LanguageHelper.SuccessResponse(
+                    response,
+                    "CategoryUpdated",
+                    language));
         }
 
         /// <summary>
-        /// Deletes a category by ID.
+        /// Deletes a category when it has no associated problems.
         /// </summary>
-        [HttpDelete("categories/{id}")]
-        public async Task<IActionResult> DeleteCategory(int id)
+        /// <param name="id">
+        /// Category ID.
+        /// </param>
+        /// <returns>
+        /// A successful response when the category is deleted.
+        /// </returns>
+        [HttpDelete("categories/{id:int}")]
+        [ProducesResponseType(
+            typeof(ApiResponse<object>),
+            StatusCodes.Status200OK)]
+        [ProducesResponseType(
+            typeof(ApiResponse<object>),
+            StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(
+            typeof(ApiResponse<object>),
+            StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> DeleteCategory(
+            int id)
         {
-            var language = LanguageHelper.GetLanguageFromRequest(Request);
-            var category = await _context.Categories.FindAsync(id);
-            if (category == null) return NotFound(LanguageHelper.ErrorResponse<ApiResponse<object>>("CategoryNotFound", language, 404));
-            if (await _context.Problems.AnyAsync(x => x.CategoryId == id))
-                return BadRequest(LanguageHelper.ErrorResponse<ApiResponse<object>>("CategoryHasProblems", language));
+            var language =
+                LanguageHelper.GetLanguageFromRequest(Request);
+
+            var category =
+                await _context.Categories
+                    .FirstOrDefaultAsync(item =>
+                        item.Id == id);
+
+            if (category == null)
+            {
+                return NotFound(
+                    LanguageHelper.ErrorResponse<object>(
+                        "CategoryNotFound",
+                        language,
+                        StatusCodes.Status404NotFound));
+            }
+
+            var hasProblems =
+                await _context.Problems
+                    .AnyAsync(problem =>
+                        problem.CategoryId == id);
+
+            if (hasProblems)
+            {
+                return BadRequest(
+                    LanguageHelper.ErrorResponse<object>(
+                        "CategoryHasProblems",
+                        language,
+                        StatusCodes.Status400BadRequest));
+            }
 
             _context.Categories.Remove(category);
+
             await _context.SaveChangesAsync();
-            return Ok(LanguageHelper.SuccessResponse<object>(null, "CategoryDeleted", language));
+
+            _logger.LogInformation(
+                "Category {CategoryId} was deleted by an administrator.",
+                id);
+
+            return Ok(
+                LanguageHelper.SuccessResponse<object>(
+                    null,
+                    "CategoryDeleted",
+                    language));
         }
 
+        // =====================================================================
+        // USER MANAGEMENT
+        // =====================================================================
+
         /// <summary>
-        /// Gets paginated list of users.
+        /// Gets a paginated list of users.
         /// </summary>
+        /// <param name="page">
+        /// Current one-based page number.
+        /// </param>
+        /// <param name="pageSize">
+        /// Number of users returned per page.
+        /// </param>
+        /// <returns>
+        /// Paginated user data.
+        /// </returns>
         [HttpGet("users")]
-        public async Task<IActionResult> GetUsers([FromQuery] int page = 1, [FromQuery] int pageSize = 20)
+        [ProducesResponseType(
+            typeof(ApiResponse<PagedUserListDto>),
+            StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetUsers(
+            [FromQuery] int page = 1,
+            [FromQuery] int pageSize = 20)
         {
-            var language = LanguageHelper.GetLanguageFromRequest(Request);
-            var users = await _context.Users.OrderByDescending(x => x.CreatedAt).Skip((page - 1) * pageSize).Take(pageSize)
-                .Select(u => new UserListDto { Id = u.Id, FullName = u.FullName, Email = u.Email, Role = u.Role, SubscriptionType = u.SubscriptionType, IsActive = u.IsActive, CreatedAt = u.CreatedAt, SolvedProblemsCount = _context.UserProgresses.Count(p => p.UserId == u.Id && p.IsSolved) }).ToListAsync();
+            var language =
+                LanguageHelper.GetLanguageFromRequest(Request);
 
-            var total = await _context.Users.CountAsync();
-            var meta = new MetaData { Total = total, Page = page, PageSize = pageSize, TotalPages = (int)Math.Ceiling(total / (double)pageSize) };
+            page = Math.Max(1, page);
+            pageSize = Math.Clamp(pageSize, 1, 100);
 
-            return Ok(LanguageHelper.SuccessResponse(new PagedUserListDto { Users = users, Total = total, Page = page, PageSize = pageSize, TotalPages = meta.TotalPages ?? 0 }, "Success", language, meta: meta));
-        }
+            var total =
+                await _context.Users.CountAsync();
 
-        /// <summary>
-        /// Gets dashboard statistics.
-        /// </summary>
-        [HttpGet("stats")]
-        public async Task<IActionResult> Stats()
-        {
-            var language = LanguageHelper.GetLanguageFromRequest(Request);
-            var stats = new DashboardStatsDto { TotalProblems = await _context.Problems.CountAsync(), TotalUsers = await _context.Users.CountAsync(), TotalSolved = await _context.UserProgresses.CountAsync(x => x.IsSolved), TotalViews = await _context.Problems.SumAsync(x => (long)x.ViewsCount) };
-            return Ok(LanguageHelper.SuccessResponse(stats, "Success", language));
-        }
+            var totalPages =
+                (int)Math.Ceiling(
+                    total / (double)pageSize);
 
-        /// <summary>
-        /// Gets all educational stages ordered by order.
-        /// </summary>
-        [HttpGet("stages")]
-        public async Task<IActionResult> GetAllStages()
-        {
-            var language = LanguageHelper.GetLanguageFromRequest(Request);
-            var stages = await _context.EducationalStages
-                .OrderBy(s => s.Order)
-                .Select(s => new StageDto { Id = s.Id, NameAr = s.NameAr, NameEn = s.NameEn, Order = s.Order })
+            var users = await _context.Users
+                .AsNoTracking()
+                .OrderByDescending(user =>
+                    user.CreatedAt)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .Select(user =>
+                    new UserListDto
+                    {
+                        Id = user.Id,
+                        FullName = user.FullName,
+                        Email = user.Email,
+                        Role = user.Role,
+
+                        SubscriptionType =
+                            user.SubscriptionType,
+
+                        IsActive =
+                            user.IsActive,
+
+                        CreatedAt =
+                            user.CreatedAt,
+
+                        SolvedProblemsCount =
+                            _context.UserProgresses.Count(
+                                progress =>
+                                    progress.UserId == user.Id &&
+                                    progress.IsSolved)
+                    })
                 .ToListAsync();
 
-            return Ok(LanguageHelper.SuccessResponse(stages, "Success", language));
+            var metadata =
+                new MetaData
+                {
+                    Total = total,
+                    Page = page,
+                    PageSize = pageSize,
+                    TotalPages = totalPages
+                };
+
+            var response =
+                new PagedUserListDto
+                {
+                    Users = users,
+                    Total = total,
+                    Page = page,
+                    PageSize = pageSize,
+                    TotalPages = totalPages
+                };
+
+            return Ok(
+                LanguageHelper.SuccessResponse(
+                    response,
+                    "Success",
+                    language,
+                    meta: metadata));
+        }
+
+        // =====================================================================
+        // PLATFORM STATISTICS
+        // =====================================================================
+
+        /// <summary>
+        /// Gets administrative dashboard statistics.
+        /// </summary>
+        /// <returns>
+        /// Platform problem, user, solved, and view statistics.
+        /// </returns>
+        [HttpGet("stats")]
+        [ProducesResponseType(
+            typeof(ApiResponse<DashboardStatsDto>),
+            StatusCodes.Status200OK)]
+        public async Task<IActionResult> Stats()
+        {
+            var language =
+                LanguageHelper.GetLanguageFromRequest(Request);
+
+            var totalViews =
+                await _context.Problems
+                    .Select(problem =>
+                        (long?)problem.ViewsCount)
+                    .SumAsync()
+                ?? 0;
+
+            var stats =
+                new DashboardStatsDto
+                {
+                    TotalProblems =
+                        await _context.Problems.CountAsync(),
+
+                    TotalUsers =
+                        await _context.Users.CountAsync(),
+
+                    TotalSolved =
+                        await _context.UserProgresses
+                            .CountAsync(progress =>
+                                progress.IsSolved),
+
+                    TotalViews =
+                        totalViews
+                };
+
+            return Ok(
+                LanguageHelper.SuccessResponse(
+                    stats,
+                    "Success",
+                    language));
+        }
+
+        // =====================================================================
+        // EDUCATIONAL STAGE MANAGEMENT
+        // =====================================================================
+
+        /// <summary>
+        /// Gets all educational stages ordered by display order.
+        /// </summary>
+        /// <returns>
+        /// All educational stages.
+        /// </returns>
+        [HttpGet("stages")]
+        [ProducesResponseType(
+            typeof(ApiResponse<List<StageDto>>),
+            StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetAllStages()
+        {
+            var language =
+                LanguageHelper.GetLanguageFromRequest(Request);
+
+            var stages =
+                await _context.EducationalStages
+                    .AsNoTracking()
+                    .OrderBy(stage =>
+                        stage.Order)
+                    .Select(stage =>
+                        new StageDto
+                        {
+                            Id = stage.Id,
+                            NameAr = stage.NameAr,
+                            NameEn = stage.NameEn,
+                            Order = stage.Order
+                        })
+                    .ToListAsync();
+
+            return Ok(
+                LanguageHelper.SuccessResponse(
+                    stages,
+                    "Success",
+                    language));
         }
 
         /// <summary>
         /// Creates a new educational stage.
         /// </summary>
+        /// <param name="dto">
+        /// Educational stage data.
+        /// </param>
+        /// <returns>
+        /// The ID of the created stage.
+        /// </returns>
         [HttpPost("stages")]
-        public async Task<IActionResult> CreateStage([FromBody] StageDto dto)
+        [ProducesResponseType(
+            typeof(ApiResponse<object>),
+            StatusCodes.Status200OK)]
+        public async Task<IActionResult> CreateStage(
+            [FromBody] StageDto dto)
         {
-            var language = LanguageHelper.GetLanguageFromRequest(Request);
-            var stage = new EducationalStage { NameAr = dto.NameAr, NameEn = dto.NameEn, Order = dto.Order };
+            var language =
+                LanguageHelper.GetLanguageFromRequest(Request);
+
+            var stage =
+                new EducationalStage
+                {
+                    NameAr =
+                        dto.NameAr.Trim(),
+
+                    NameEn =
+                        dto.NameEn.Trim(),
+
+                    Order =
+                        Math.Max(0, dto.Order)
+                };
 
             _context.EducationalStages.Add(stage);
+
             await _context.SaveChangesAsync();
 
-            return Ok(LanguageHelper.SuccessResponse(new { stage.Id }, "StageCreated", language));
+            _logger.LogInformation(
+                "Educational stage {StageId} was created.",
+                stage.Id);
+
+            return Ok(
+                LanguageHelper.SuccessResponse(
+                    new
+                    {
+                        stage.Id
+                    },
+                    "StageCreated",
+                    language));
         }
 
         /// <summary>
-        /// Updates an existing stage.
+        /// Updates an existing educational stage.
         /// </summary>
-        [HttpPut("stages/{id}")]
-        public async Task<IActionResult> UpdateStage(int id, [FromBody] StageDto dto)
+        /// <param name="id">
+        /// Educational stage ID.
+        /// </param>
+        /// <param name="dto">
+        /// Updated educational stage data.
+        /// </param>
+        /// <returns>
+        /// A successful response when the stage is updated.
+        /// </returns>
+        [HttpPut("stages/{id:int}")]
+        [ProducesResponseType(
+            typeof(ApiResponse<object>),
+            StatusCodes.Status200OK)]
+        [ProducesResponseType(
+            typeof(ApiResponse<object>),
+            StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> UpdateStage(
+            int id,
+            [FromBody] StageDto dto)
         {
-            var language = LanguageHelper.GetLanguageFromRequest(Request);
-            var stage = await _context.EducationalStages.FindAsync(id);
-            if (stage == null) return NotFound(LanguageHelper.ErrorResponse<object>("StageNotFound", language, 404));
+            var language =
+                LanguageHelper.GetLanguageFromRequest(Request);
 
-            stage.NameAr = dto.NameAr;
-            stage.NameEn = dto.NameEn;
-            stage.Order = dto.Order;
+            var stage =
+                await _context.EducationalStages
+                    .FirstOrDefaultAsync(item =>
+                        item.Id == id);
+
+            if (stage == null)
+            {
+                return NotFound(
+                    LanguageHelper.ErrorResponse<object>(
+                        "StageNotFound",
+                        language,
+                        StatusCodes.Status404NotFound));
+            }
+
+            stage.NameAr =
+                dto.NameAr.Trim();
+
+            stage.NameEn =
+                dto.NameEn.Trim();
+
+            stage.Order =
+                Math.Max(0, dto.Order);
 
             await _context.SaveChangesAsync();
-            return Ok(LanguageHelper.SuccessResponse<object>(null, "StageUpdated", language));
+
+            _logger.LogInformation(
+                "Educational stage {StageId} was updated.",
+                stage.Id);
+
+            return Ok(
+                LanguageHelper.SuccessResponse<object>(
+                    null,
+                    "StageUpdated",
+                    language));
         }
 
         /// <summary>
-        /// Deletes a stage by ID.
+        /// Deletes an educational stage when it has no associated
+        /// categories or problems.
         /// </summary>
-        [HttpDelete("stages/{id}")]
-        public async Task<IActionResult> DeleteStage(int id)
+        /// <param name="id">
+        /// Educational stage ID.
+        /// </param>
+        /// <returns>
+        /// A successful response when the stage is deleted.
+        /// </returns>
+        [HttpDelete("stages/{id:int}")]
+        [ProducesResponseType(
+            typeof(ApiResponse<object>),
+            StatusCodes.Status200OK)]
+        [ProducesResponseType(
+            typeof(ApiResponse<object>),
+            StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(
+            typeof(ApiResponse<object>),
+            StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> DeleteStage(
+            int id)
         {
-            var language = LanguageHelper.GetLanguageFromRequest(Request);
-            var stage = await _context.EducationalStages.FindAsync(id);
-            if (stage == null) return NotFound();
+            var language =
+                LanguageHelper.GetLanguageFromRequest(Request);
 
-            if (await _context.Problems.AnyAsync(p => p.StageId == id))
-                return BadRequest(LanguageHelper.ErrorResponse<object>("StageHasProblems", language));
+            var stage =
+                await _context.EducationalStages
+                    .FirstOrDefaultAsync(item =>
+                        item.Id == id);
+
+            if (stage == null)
+            {
+                return NotFound(
+                    LanguageHelper.ErrorResponse<object>(
+                        "StageNotFound",
+                        language,
+                        StatusCodes.Status404NotFound));
+            }
+
+            var hasCategories =
+                await _context.Categories
+                    .AnyAsync(category =>
+                        category.StageId == id);
+
+            var hasProblems =
+                await _context.Problems
+                    .AnyAsync(problem =>
+                        problem.StageId == id);
+
+            if (hasCategories || hasProblems)
+            {
+                return BadRequest(
+                    LanguageHelper.ErrorResponse<object>(
+                        "StageHasProblems",
+                        language,
+                        StatusCodes.Status400BadRequest));
+            }
 
             _context.EducationalStages.Remove(stage);
+
             await _context.SaveChangesAsync();
-            return Ok(LanguageHelper.SuccessResponse<object>(null, "StageDeleted", language));
+
+            _logger.LogInformation(
+                "Educational stage {StageId} was deleted.",
+                id);
+
+            return Ok(
+                LanguageHelper.SuccessResponse<object>(
+                    null,
+                    "StageDeleted",
+                    language));
         }
 
+        // =====================================================================
+        // MAINTENANCE ENDPOINTS
+        // =====================================================================
 
         // في AdminController، أضف endpoint مؤقت:
+
+        /// <summary>
+        /// Rebuilds the Arabic and English titles of all existing problems
+        /// from their question text.
+        /// This endpoint is intended for temporary administrative maintenance.
+        /// </summary>
+        /// <returns>
+        /// The total number of processed problems.
+        /// </returns>
         [HttpPost("fix-titles")]
+        [ProducesResponseType(
+            StatusCodes.Status200OK)]
         public async Task<IActionResult> FixTitles()
         {
-            var problems = await _context.Problems.ToListAsync();
-            foreach (var p in problems)
+            var problems =
+                await _context.Problems.ToListAsync();
+
+            foreach (var problem in problems)
             {
-                p.TitleAr = MathTextHelper.ExtractTitleFromQuestion(p.QuestionTextAr);
-                p.TitleEn = MathTextHelper.ExtractTitleFromQuestion(p.QuestionTextEn);
+                problem.TitleAr =
+                    MathTextHelper.ExtractTitleFromQuestion(
+                        problem.QuestionTextAr);
+
+                problem.TitleEn =
+                    MathTextHelper.ExtractTitleFromQuestion(
+                        problem.QuestionTextEn);
             }
+
             await _context.SaveChangesAsync();
-            return Ok(new { count = problems.Count });
+
+            _logger.LogWarning(
+                "The temporary fix-titles endpoint updated {ProblemCount} problems.",
+                problems.Count);
+
+            return Ok(
+                new
+                {
+                    count = problems.Count
+                });
+        }
+
+        // =====================================================================
+        // PRIVATE HELPERS
+        // =====================================================================
+
+        /// <summary>
+        /// Validates the option collection of a problem.
+        /// </summary>
+        /// <param name="dto">
+        /// Problem data containing the answer options.
+        /// </param>
+        /// <returns>
+        /// A localization message key when validation fails;
+        /// otherwise null.
+        /// </returns>
+        private static string? ValidateProblemOptions(
+            CreateProblemDto dto)
+        {
+            if (dto.Options == null ||
+                dto.Options.Count != 4)
+            {
+                return "OptionsCountError";
+            }
+
+            if (dto.Options.Count(option =>
+                    option.IsCorrect) != 1)
+            {
+                return "CorrectOptionError";
+            }
+
+            if (dto.Options.Any(option =>
+                    string.IsNullOrWhiteSpace(
+                        option.LatexCode)))
+            {
+                return "BadRequest";
+            }
+
+            var distinctOrders =
+                dto.Options
+                    .Select(option => option.Order)
+                    .Distinct()
+                    .Count();
+
+            if (distinctOrders != 4)
+            {
+                return "BadRequest";
+            }
+
+            if (dto.Options.Any(option =>
+                    option.Order < 1 ||
+                    option.Order > 4))
+            {
+                return "BadRequest";
+            }
+
+            return null;
+        }
+
+        /// <summary>
+        /// Validates an uploaded category icon.
+        /// </summary>
+        /// <param name="icon">
+        /// Uploaded image file.
+        /// </param>
+        /// <returns>
+        /// Validation errors when the icon is invalid;
+        /// otherwise null.
+        /// </returns>
+        private static Dictionary<string, List<string>>? ValidateIcon(
+            IFormFile icon)
+        {
+            if (icon.Length <= 0)
+            {
+                return new Dictionary<string, List<string>>
+                {
+                    {
+                        "Icon",
+                        new List<string>
+                        {
+                            "The uploaded image is empty."
+                        }
+                    }
+                };
+            }
+
+            if (icon.Length > MaximumIconSize)
+            {
+                return new Dictionary<string, List<string>>
+                {
+                    {
+                        "Icon",
+                        new List<string>
+                        {
+                            "The image must not exceed 2 MB."
+                        }
+                    }
+                };
+            }
+
+            if (!UploadHelper.IsValidImageExtension(
+                    icon.FileName,
+                    out _))
+            {
+                var allowedExtensions =
+                    new[]
+                    {
+                        ".jpg",
+                        ".jpeg",
+                        ".png",
+                        ".svg",
+                        ".webp"
+                    };
+
+                return new Dictionary<string, List<string>>
+                {
+                    {
+                        "Icon",
+                        new List<string>
+                        {
+                            $"Only {string.Join(", ", allowedExtensions)} files are allowed."
+                        }
+                    }
+                };
+            }
+
+            return null;
+        }
+
+        /// <summary>
+        /// Maps a category entity to a localized category DTO.
+        /// </summary>
+        /// <param name="category">
+        /// Category entity.
+        /// </param>
+        /// <param name="language">
+        /// Selected response language.
+        /// </param>
+        /// <returns>
+        /// Localized category data.
+        /// </returns>
+        private CategoryDto MapCategory(
+            Category category,
+            string language)
+        {
+            return new CategoryDto
+            {
+                Id = category.Id,
+                NameAr = category.NameAr,
+                NameEn = category.NameEn,
+
+                Name = language == "en"
+                    ? category.NameEn
+                    : category.NameAr,
+
+                Icon =
+                    _imgBbStorage.GetFullUrl(
+                        category.Icon)
+                    ?? string.Empty,
+
+                StageId = category.StageId,
+                Order = category.Order
+            };
+        }
+
+        /// <summary>
+        /// Trims optional text and converts empty values to null.
+        /// </summary>
+        /// <param name="value">
+        /// Optional input value.
+        /// </param>
+        /// <returns>
+        /// Trimmed text or null.
+        /// </returns>
+        private static string? NormalizeOptionalText(
+            string? value)
+        {
+            return string.IsNullOrWhiteSpace(value)
+                ? null
+                : value.Trim();
         }
     }
-
 }

@@ -1,19 +1,22 @@
-﻿using MathWorldAPI.Data;
+﻿// File: MathWorldAPI/Controllers/ProblemsController.cs
+
+using System.Data;
+using System.Security.Claims;
+using MathWorldAPI.Data;
 using MathWorldAPI.DTOs;
 using MathWorldAPI.Helpers;
 using MathWorldAPI.Models;
 using MathWorldAPI.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using System.Security.Claims;
 
 namespace MathWorldAPI.Controllers
 {
     /// <summary>
-    /// Controller for managing math problems, search, and answer submission.
+    /// Controller for managing public problem access, problem search,
+    /// problem details, view counters, and answer submission.
     /// </summary>
     [ApiController]
     [Route("api/[controller]")]
@@ -22,28 +25,42 @@ namespace MathWorldAPI.Controllers
         private readonly AppDbContext _context;
         private readonly IMeiliSearchService _searchService;
         private readonly IServiceScopeFactory _scopeFactory;
+        private readonly IImgBbStorageService _imgBbStorage;
+        private readonly ILogger<ProblemsController> _logger;
         private readonly bool _meilisearchEnabled;
 
         /// <summary>
         /// Initializes a new instance of the ProblemsController.
         /// </summary>
-        public ProblemsController(AppDbContext context,
-                                  IMeiliSearchService searchService,
-                                  IServiceScopeFactory scopeFactory,
-                                  IConfiguration configuration)
+        public ProblemsController(
+            AppDbContext context,
+            IMeiliSearchService searchService,
+            IServiceScopeFactory scopeFactory,
+            IImgBbStorageService imgBbStorage,
+            IConfiguration configuration,
+            ILogger<ProblemsController> logger)
         {
             _context = context;
             _searchService = searchService;
             _scopeFactory = scopeFactory;
-            _meilisearchEnabled = configuration.GetValue<bool>("Meilisearch:Enabled");
+            _imgBbStorage = imgBbStorage;
+            _logger = logger;
+
+            _meilisearchEnabled =
+                configuration.GetValue<bool>(
+                    "Meilisearch:Enabled");
         }
 
         /// <summary>
-        /// Searches problems using MeiliSearch engine.
+        /// Searches problems using MeiliSearch.
+        /// Falls back to PostgreSQL when MeiliSearch is disabled.
         /// </summary>
         [HttpGet("meilisearch-search")]
-        [ProducesResponseType(typeof(ApiResponse<SearchResponseDto>), StatusCodes.Status200OK)]
-        public async Task<ActionResult<ApiResponse<SearchResponseDto>>> MeiliSearch(
+        [ProducesResponseType(
+            typeof(ApiResponse<SearchResponseDto>),
+            StatusCodes.Status200OK)]
+        public async Task<
+            ActionResult<ApiResponse<SearchResponseDto>>> MeiliSearch(
             [FromQuery] string q = "",
             [FromQuery] int? categoryId = null,
             [FromQuery] int? stageId = null,
@@ -53,110 +70,228 @@ namespace MathWorldAPI.Controllers
             page = Math.Max(1, page);
             pageSize = Math.Clamp(pageSize, 1, 100);
 
-            var language = LanguageHelper.GetLanguageFromRequest(Request);
+            if (!_meilisearchEnabled)
+            {
+                _logger.LogInformation(
+                    "MeiliSearch is disabled. Falling back to PostgreSQL.");
+
+                return await PostgreSqlSearch(
+                    q,
+                    categoryId,
+                    stageId,
+                    page,
+                    pageSize);
+            }
+
+            var language =
+                LanguageHelper.GetLanguageFromRequest(Request);
 
             if (string.IsNullOrWhiteSpace(q))
             {
                 var query = _context.Problems
-                    .Include(p => p.Category)
-                    .Include(p => p.Stage)
+                    .AsNoTracking()
+                    .Include(problem => problem.Category)
+                    .Include(problem => problem.Stage)
                     .AsQueryable();
 
-                if (categoryId.HasValue) query = query.Where(p => p.CategoryId == categoryId.Value);
-                if (stageId.HasValue) query = query.Where(p => p.StageId == stageId.Value);
+                if (categoryId.HasValue)
+                {
+                    query = query.Where(
+                        problem =>
+                            problem.CategoryId ==
+                            categoryId.Value);
+                }
 
-                var total = await query.CountAsync();
+                if (stageId.HasValue)
+                {
+                    query = query.Where(
+                        problem =>
+                            problem.StageId ==
+                            stageId.Value);
+                }
+
+                var total =
+                    await query.CountAsync();
+
+                var totalPages =
+                    (int)Math.Ceiling(
+                        total / (double)pageSize);
 
                 var allProblems = await query
-                    .OrderByDescending(p => p.Id)
+                    .OrderByDescending(problem => problem.Id)
                     .Skip((page - 1) * pageSize)
                     .Take(pageSize)
-                    .Select(p => new ProblemPreviewDto
+                    .Select(problem => new ProblemPreviewDto
                     {
-                        Id = p.Id,
-                        Title = language == "en" ? p.TitleEn : p.TitleAr,
-                        StageId = p.StageId,
-                        StageName = language == "en" ? p.Stage.NameEn : p.Stage.NameAr,
-                        Points = p.Points,
-                        CategoryId = p.CategoryId,
-                        CategoryName = language == "en" ? p.Category.NameEn : p.Category.NameAr,
-                        ViewsCount = p.ViewsCount,
+                        Id = problem.Id,
+
+                        Title = language == "en"
+                            ? problem.TitleEn
+                            : problem.TitleAr,
+
+                        StageId = problem.StageId,
+
+                        StageName = language == "en"
+                            ? problem.Stage.NameEn
+                            : problem.Stage.NameAr,
+
+                        Points = problem.Points,
+
+                        CategoryId = problem.CategoryId,
+
+                        CategoryName = language == "en"
+                            ? problem.Category.NameEn
+                            : problem.Category.NameAr,
+
+                        ViewsCount = problem.ViewsCount,
                         RequiresLogin = true
                     })
                     .ToListAsync();
 
-                return Ok(LanguageHelper.SuccessResponse(
-                    new SearchResponseDto
-                    {
-                        Query = q,
-                        Page = page,
-                        PageSize = pageSize,
-                        Results = allProblems,
-                        Total = total,
-                        TotalPages = (int)Math.Ceiling((double)total / pageSize)
-                    },
-                    allProblems.Count == 0 ? "NoResultsFound" : "Success",
-                    language, meta: new MetaData { SearchType = "Meilisearch", Query = q, Total = total }));
-            }
-
-            (List<int> problemIds, int totalCount) = await _searchService.SearchWithPaginationAsync(q, categoryId, stageId, page, pageSize);
-
-            if (problemIds == null || problemIds.Count == 0)
-            {
-                return Ok(LanguageHelper.SuccessResponse(
-                    new SearchResponseDto
-                    {
-                        Query = q,
-                        Page = page,
-                        PageSize = pageSize,
-                        Results = new List<ProblemPreviewDto>(),
-                        Total = 0
-                    },
-                    "NoResultsFound", language, meta: new MetaData { SearchType = "Meilisearch", Query = q, Total = 0 }));
-            }
-
-            var problems = await _context.Problems
-                .Include(p => p.Category)
-                .Include(p => p.Stage)
-                .Where(p => problemIds.Contains(p.Id))
-                .Select(p => new ProblemPreviewDto
-                {
-                    Id = p.Id,
-                    Title = language == "en" ? p.TitleEn : p.TitleAr,
-                    StageId = p.StageId,
-                    StageName = language == "en" ? p.Stage.NameEn : p.Stage.NameAr,
-                    Points = p.Points,
-                    CategoryId = p.CategoryId,
-                    CategoryName = language == "en" ? p.Category.NameEn : p.Category.NameAr,
-                    ViewsCount = p.ViewsCount,
-                    RequiresLogin = true
-                })
-                .ToListAsync();
-
-            var ordered = problemIds
-                .Select(id => problems.FirstOrDefault(p => p.Id == id))
-                .Where(p => p != null)
-                .Select(p => p!)
-                .ToList();
-
-            return Ok(LanguageHelper.SuccessResponse(
-                new SearchResponseDto
+                var response = new SearchResponseDto
                 {
                     Query = q,
                     Page = page,
                     PageSize = pageSize,
-                    Results = ordered,
-                    Total = totalCount
-                },
-                "Success", language, meta: new MetaData { SearchType = "Meilisearch", Query = q, Total = totalCount }));
+                    Results = allProblems,
+                    Total = total,
+                    TotalPages = totalPages
+                };
+
+                return Ok(
+                    LanguageHelper.SuccessResponse(
+                        response,
+                        allProblems.Count == 0
+                            ? "NoResultsFound"
+                            : "Success",
+                        language,
+                        meta: new MetaData
+                        {
+                            SearchType = "Meilisearch",
+                            Query = q,
+                            Total = total,
+                            Page = page,
+                            PageSize = pageSize,
+                            TotalPages = totalPages
+                        }));
+            }
+
+            var (problemIds, totalCount) =
+                await _searchService.SearchWithPaginationAsync(
+                    q,
+                    categoryId,
+                    stageId,
+                    page,
+                    pageSize);
+
+            var totalResultPages =
+                (int)Math.Ceiling(
+                    totalCount / (double)pageSize);
+
+            if (problemIds == null ||
+                problemIds.Count == 0)
+            {
+                return Ok(
+                    LanguageHelper.SuccessResponse(
+                        new SearchResponseDto
+                        {
+                            Query = q,
+                            Page = page,
+                            PageSize = pageSize,
+                            Results = new List<ProblemPreviewDto>(),
+                            Total = 0,
+                            TotalPages = 0
+                        },
+                        "NoResultsFound",
+                        language,
+                        meta: new MetaData
+                        {
+                            SearchType = "Meilisearch",
+                            Query = q,
+                            Total = 0,
+                            Page = page,
+                            PageSize = pageSize,
+                            TotalPages = 0
+                        }));
+            }
+
+            var problems = await _context.Problems
+                .AsNoTracking()
+                .Include(problem => problem.Category)
+                .Include(problem => problem.Stage)
+                .Where(problem =>
+                    problemIds.Contains(problem.Id))
+                .Select(problem => new ProblemPreviewDto
+                {
+                    Id = problem.Id,
+
+                    Title = language == "en"
+                        ? problem.TitleEn
+                        : problem.TitleAr,
+
+                    StageId = problem.StageId,
+
+                    StageName = language == "en"
+                        ? problem.Stage.NameEn
+                        : problem.Stage.NameAr,
+
+                    Points = problem.Points,
+
+                    CategoryId = problem.CategoryId,
+
+                    CategoryName = language == "en"
+                        ? problem.Category.NameEn
+                        : problem.Category.NameAr,
+
+                    ViewsCount = problem.ViewsCount,
+                    RequiresLogin = true
+                })
+                .ToListAsync();
+
+            // Preserve the result order returned by MeiliSearch.
+            var ordered = problemIds
+                .Select(id =>
+                    problems.FirstOrDefault(
+                        problem => problem.Id == id))
+                .Where(problem => problem != null)
+                .Select(problem => problem!)
+                .ToList();
+
+            return Ok(
+                LanguageHelper.SuccessResponse(
+                    new SearchResponseDto
+                    {
+                        Query = q,
+                        Page = page,
+                        PageSize = pageSize,
+                        Results = ordered,
+                        Total = totalCount,
+                        TotalPages = totalResultPages
+                    },
+                    ordered.Count == 0
+                        ? "NoResultsFound"
+                        : "Success",
+                    language,
+                    meta: new MetaData
+                    {
+                        SearchType = "Meilisearch",
+                        Query = q,
+                        Total = totalCount,
+                        Page = page,
+                        PageSize = pageSize,
+                        TotalPages = totalResultPages
+                    }));
         }
 
         /// <summary>
-        /// Searches problems using PostgreSQL full-text search.
+        /// Searches problems using PostgreSQL.
         /// </summary>
         [HttpGet("postgresql-search")]
-        [ProducesResponseType(typeof(ApiResponse<SearchResponseDto>), StatusCodes.Status200OK)]
-        public async Task<ActionResult<ApiResponse<SearchResponseDto>>> PostgreSqlSearch(
+        [ProducesResponseType(
+            typeof(ApiResponse<SearchResponseDto>),
+            StatusCodes.Status200OK)]
+        public async Task<
+            ActionResult<ApiResponse<SearchResponseDto>>> PostgreSqlSearch(
             [FromQuery] string q = "",
             [FromQuery] int? categoryId = null,
             [FromQuery] int? stageId = null,
@@ -166,61 +301,116 @@ namespace MathWorldAPI.Controllers
             page = Math.Max(1, page);
             pageSize = Math.Clamp(pageSize, 1, 100);
 
-            var language = LanguageHelper.GetLanguageFromRequest(Request);
+            var language =
+                LanguageHelper.GetLanguageFromRequest(Request);
 
             var query = _context.Problems
-                .Include(p => p.Category)
-                .Include(p => p.Stage)
+                .AsNoTracking()
+                .Include(problem => problem.Category)
+                .Include(problem => problem.Stage)
                 .AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(q))
             {
-                query = query.Where(p => p.TitleAr.Contains(q) || p.TitleEn.Contains(q) ||
-                                         p.QuestionTextAr.Contains(q) || p.QuestionTextEn.Contains(q));
+                var normalizedQuery = q.Trim();
+
+                query = query.Where(problem =>
+                    problem.TitleAr.Contains(normalizedQuery) ||
+                    problem.TitleEn.Contains(normalizedQuery) ||
+                    problem.QuestionTextAr.Contains(normalizedQuery) ||
+                    problem.QuestionTextEn.Contains(normalizedQuery));
             }
 
-            if (categoryId.HasValue) query = query.Where(p => p.CategoryId == categoryId.Value);
-            if (stageId.HasValue) query = query.Where(p => p.StageId == stageId.Value);
+            if (categoryId.HasValue)
+            {
+                query = query.Where(
+                    problem =>
+                        problem.CategoryId ==
+                        categoryId.Value);
+            }
 
-            var total = await query.CountAsync();
+            if (stageId.HasValue)
+            {
+                query = query.Where(
+                    problem =>
+                        problem.StageId ==
+                        stageId.Value);
+            }
+
+            var total =
+                await query.CountAsync();
+
+            var totalPages =
+                (int)Math.Ceiling(
+                    total / (double)pageSize);
 
             var problems = await query
-                .OrderByDescending(p => p.Id)
+                .OrderByDescending(problem => problem.Id)
                 .Skip((page - 1) * pageSize)
                 .Take(pageSize)
-                .Select(p => new ProblemPreviewDto
+                .Select(problem => new ProblemPreviewDto
                 {
-                    Id = p.Id,
-                    Title = language == "en" ? p.TitleEn : p.TitleAr,
-                    StageId = p.StageId,
-                    StageName = language == "en" ? p.Stage.NameEn : p.Stage.NameAr,
-                    Points = p.Points,
-                    CategoryId = p.CategoryId,
-                    CategoryName = language == "en" ? p.Category.NameEn : p.Category.NameAr,
-                    ViewsCount = p.ViewsCount,
+                    Id = problem.Id,
+
+                    Title = language == "en"
+                        ? problem.TitleEn
+                        : problem.TitleAr,
+
+                    StageId = problem.StageId,
+
+                    StageName = language == "en"
+                        ? problem.Stage.NameEn
+                        : problem.Stage.NameAr,
+
+                    Points = problem.Points,
+
+                    CategoryId = problem.CategoryId,
+
+                    CategoryName = language == "en"
+                        ? problem.Category.NameEn
+                        : problem.Category.NameAr,
+
+                    ViewsCount = problem.ViewsCount,
                     RequiresLogin = true
                 })
                 .ToListAsync();
 
-            return Ok(LanguageHelper.SuccessResponse(
-                new SearchResponseDto
-                {
-                    Query = q,
-                    Page = page,
-                    PageSize = pageSize,
-                    Results = problems,
-                    Total = total
-                },
-                problems.Count == 0 ? "NoResultsFound" : "Success",
-                language, meta: new MetaData { SearchType = "PostgreSQL", Query = q, Total = total }));
+            return Ok(
+                LanguageHelper.SuccessResponse(
+                    new SearchResponseDto
+                    {
+                        Query = q,
+                        Page = page,
+                        PageSize = pageSize,
+                        Results = problems,
+                        Total = total,
+                        TotalPages = totalPages
+                    },
+                    problems.Count == 0
+                        ? "NoResultsFound"
+                        : "Success",
+                    language,
+                    meta: new MetaData
+                    {
+                        SearchType = "PostgreSQL",
+                        Query = q,
+                        Total = total,
+                        Page = page,
+                        PageSize = pageSize,
+                        TotalPages = totalPages
+                    }));
         }
 
         /// <summary>
-        /// Unified search endpoint that routes to MeiliSearch or PostgreSQL based on configuration.
+        /// Unified problem search endpoint.
+        /// Uses MeiliSearch or PostgreSQL according to configuration.
         /// </summary>
         [HttpGet("search")]
-        [ProducesResponseType(typeof(ApiResponse<SearchResponseDto>), StatusCodes.Status200OK)]
-        public async Task<ActionResult<ApiResponse<SearchResponseDto>>> Search(
+        [ProducesResponseType(
+            typeof(ApiResponse<SearchResponseDto>),
+            StatusCodes.Status200OK)]
+        public async Task<
+            ActionResult<ApiResponse<SearchResponseDto>>> Search(
             [FromQuery] string q = "",
             [FromQuery] int? categoryId = null,
             [FromQuery] int? stageId = null,
@@ -228,216 +418,541 @@ namespace MathWorldAPI.Controllers
             [FromQuery] int page = 1,
             [FromQuery] int pageSize = 10)
         {
-            var usePostgres = !_meilisearchEnabled || engine == "postgresql";
+            var usePostgres =
+                !_meilisearchEnabled ||
+                string.Equals(
+                    engine,
+                    "postgresql",
+                    StringComparison.OrdinalIgnoreCase);
+
             return usePostgres
-                ? await PostgreSqlSearch(q, categoryId, stageId, page, pageSize)
-                : await MeiliSearch(q, categoryId, stageId, page, pageSize);
+                ? await PostgreSqlSearch(
+                    q,
+                    categoryId,
+                    stageId,
+                    page,
+                    pageSize)
+                : await MeiliSearch(
+                    q,
+                    categoryId,
+                    stageId,
+                    page,
+                    pageSize);
         }
 
         /// <summary>
-        /// Gets a single problem by ID. Returns different data based on user role and authentication status.
+        /// Gets a single problem by ID.
+        /// Administrators receive full bilingual data.
+        /// Students receive localized safe options without correctness data.
+        /// Public users receive problem information without answer options.
         /// </summary>
-        [HttpGet("{id}")]
-        [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status200OK)]
-        [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> GetProblem(int id)
+        [HttpGet("{id:int}")]
+        [ProducesResponseType(
+            typeof(ApiResponse<object>),
+            StatusCodes.Status200OK)]
+        [ProducesResponseType(
+            typeof(ApiResponse<object>),
+            StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> GetProblem(
+            int id)
         {
-            var language = LanguageHelper.GetLanguageFromRequest(Request);
-            var userId = GetUserId();
-            var userRole = GetUserRole();
+            var language =
+                LanguageHelper.GetLanguageFromRequest(Request);
+
+            var userId =
+                GetUserId();
+
+            var userRole =
+                GetUserRole();
 
             var problem = await _context.Problems
-                .Include(p => p.Category)
-                .Include(p => p.Stage)
-                .Include(p => p.Options)
+                .Include(item => item.Category)
+                .Include(item => item.Stage)
+                .Include(item => item.Options)
                 .AsSplitQuery()
-                .FirstOrDefaultAsync(p => p.Id == id);
+                .FirstOrDefaultAsync(item =>
+                    item.Id == id);
 
             if (problem == null)
-                return NotFound(LanguageHelper.ErrorResponse<ApiResponse<object>>("ProblemNotFound", language, 404));
+            {
+                return NotFound(
+                    LanguageHelper.ErrorResponse<object>(
+                        "ProblemNotFound",
+                        language,
+                        StatusCodes.Status404NotFound));
+            }
 
+            // View updates are non-critical and run in a separate scope.
             _ = BackgroundUpdateAsync(id);
 
-            if (userRole == "Admin")
+            var categoryIcon =
+                _imgBbStorage.GetFullUrl(
+                    problem.Category.Icon)
+                ?? string.Empty;
+
+            if (string.Equals(
+                    userRole,
+                    "Admin",
+                    StringComparison.OrdinalIgnoreCase))
             {
-                return Ok(LanguageHelper.SuccessResponse(new
-                {
-                    problem.Id,
-                    problem.TitleAr,
-                    problem.TitleEn,
-                    problem.QuestionTextAr,
-                    problem.QuestionTextEn,
-                    problem.DetailedSolutionAr,
-                    problem.DetailedSolutionEn,
-                    problem.StageId,
-                    StageName = language == "en" ? problem.Stage?.NameEn ?? "Unknown Stage" : problem.Stage?.NameAr ?? "مرحلة غير معروفة",
-                    problem.Points,
-                    problem.CategoryId,
-                    CategoryName = language == "en" ? problem.Category.NameEn : problem.Category.NameAr,
-                    Options = problem.Options.OrderBy(o => o.Order).Select(o => new OptionForStudentDto
-                    {
-                        Id = o.Id,
-                        LatexCode = o.LatexCode,
-                        Order = o.Order,
-                        IsCorrect = o.IsCorrect
-                    }).ToList()
-                }, "Success", language));
+                return Ok(
+                    LanguageHelper.SuccessResponse(
+                        new
+                        {
+                            problem.Id,
+                            problem.TitleAr,
+                            problem.TitleEn,
+                            problem.QuestionTextAr,
+                            problem.QuestionTextEn,
+                            problem.DetailedSolutionAr,
+                            problem.DetailedSolutionEn,
+                            problem.StageId,
+
+                            StageName = language == "en"
+                                ? problem.Stage.NameEn
+                                : problem.Stage.NameAr,
+
+                            problem.Points,
+                            problem.CategoryId,
+
+                            CategoryName = language == "en"
+                                ? problem.Category.NameEn
+                                : problem.Category.NameAr,
+
+                            CategoryIcon = categoryIcon,
+                            problem.YoutubeSolutionUrl,
+
+                            Options = problem.Options
+                                .OrderBy(option => option.Order)
+                                .Select(option => new AdminOptionDto
+                                {
+                                    Id = option.Id,
+                                    LatexCode = option.LatexCode,
+                                    IsCorrect = option.IsCorrect,
+                                    Order = option.Order
+                                })
+                                .ToList()
+                        },
+                        "Success",
+                        language));
             }
 
             if (userId.HasValue)
             {
-                var progress = await _context.UserProgresses
-                    .AsNoTracking()
-                    .FirstOrDefaultAsync(up => up.UserId == userId.Value && up.ProblemId == id);
+                var progress =
+                    await _context.UserProgresses
+                        .AsNoTracking()
+                        .FirstOrDefaultAsync(item =>
+                            item.UserId == userId.Value &&
+                            item.ProblemId == id);
 
-                return Ok(LanguageHelper.SuccessResponse(new ProblemForStudentDto
+                var hasAttempted =
+                    progress?.Attempts > 0;
+
+                var response =
+                    new ProblemForStudentDto
+                    {
+                        Id = problem.Id,
+
+                        Title = language == "en"
+                            ? problem.TitleEn
+                            : problem.TitleAr,
+
+                        QuestionText = language == "en"
+                            ? problem.QuestionTextEn
+                            : problem.QuestionTextAr,
+
+                        StageId = problem.StageId,
+
+                        StageName = language == "en"
+                            ? problem.Stage.NameEn
+                            : problem.Stage.NameAr,
+
+                        Points = problem.Points,
+
+                        CategoryId = problem.CategoryId,
+
+                        CategoryName = language == "en"
+                            ? problem.Category.NameEn
+                            : problem.Category.NameAr,
+
+                        CategoryIcon = categoryIcon,
+
+                        IsSolved =
+                            progress?.IsSolved ?? false,
+
+                        IsFavorite =
+                            progress?.IsFavorite ?? false,
+
+                        HasAttempted = hasAttempted,
+                        CanSubmit = !hasAttempted,
+
+                        DetailedSolution = hasAttempted
+                            ? language == "en"
+                                ? problem.DetailedSolutionEn
+                                : problem.DetailedSolutionAr
+                            : null,
+
+                        YoutubeSolutionUrl = hasAttempted
+                            ? problem.YoutubeSolutionUrl
+                            : null,
+
+                        Options = problem.Options
+                            .OrderBy(option => option.Order)
+                            .Select(option =>
+                                new OptionForStudentDto
+                                {
+                                    Id = option.Id,
+                                    LatexCode = option.LatexCode,
+                                    Order = option.Order
+                                })
+                            .ToList()
+                    };
+
+                return Ok(
+                    LanguageHelper.SuccessResponse(
+                        response,
+                        "Success",
+                        language));
+            }
+
+            var publicResponse =
+                new ProblemForPublicDto
                 {
                     Id = problem.Id,
-                    Title = language == "en" ? problem.TitleEn : problem.TitleAr,
-                    QuestionText = language == "en" ? problem.QuestionTextEn : problem.QuestionTextAr,
-                    StageId = problem.StageId,
-                    StageName = language == "en" ? problem.Stage?.NameEn ?? "Unknown Stage" : problem.Stage?.NameAr ?? "مرحلة غير معروفة",
-                    Points = problem.Points,
-                    CategoryId = problem.CategoryId,
-                    CategoryName = language == "en" ? problem.Category.NameEn : problem.Category.NameAr,
-                    CategoryIcon = problem.Category.Icon,
-                    IsSolved = progress != null,
-                    IsFavorite = progress?.IsFavorite ?? false,
-                    DetailedSolution = language == "en" ? problem.DetailedSolutionEn : problem.DetailedSolutionAr,
-                    YoutubeSolutionUrl = problem.YoutubeSolutionUrl,
-                    Options = problem.Options.OrderBy(o => o.Order).Select(o => new OptionForStudentDto
-                    {
-                        Id = o.Id,
-                        LatexCode = o.LatexCode,
-                        Order = o.Order,
-                        IsCorrect = o.IsCorrect
-                    }).ToList()
-                }, "Success", language));
-            }
 
-            return Ok(LanguageHelper.SuccessResponse(new ProblemForPublicDto
-            {
-                Id = problem.Id,
-                Title = language == "en" ? problem.TitleEn : problem.TitleAr,
-                QuestionText = language == "en" ? problem.QuestionTextEn : problem.QuestionTextAr,
-                StageId = problem.StageId,
-                StageName = language == "en" ? problem.Stage?.NameEn ?? "Unknown Stage" : problem.Stage?.NameAr ?? "مرحلة غير معروفة",
-                CategoryId = problem.CategoryId,
-                CategoryName = language == "en" ? problem.Category.NameEn : problem.Category.NameAr,
-                CategoryIcon = problem.Category.Icon,
-                Message = LanguageHelper.GetMessage("RequiresLogin", language)
-            }, "Success", language));
+                    Title = language == "en"
+                        ? problem.TitleEn
+                        : problem.TitleAr,
+
+                    QuestionText = language == "en"
+                        ? problem.QuestionTextEn
+                        : problem.QuestionTextAr,
+
+                    StageId = problem.StageId,
+
+                    StageName = language == "en"
+                        ? problem.Stage.NameEn
+                        : problem.Stage.NameAr,
+
+                    CategoryId = problem.CategoryId,
+
+                    CategoryName = language == "en"
+                        ? problem.Category.NameEn
+                        : problem.Category.NameAr,
+
+                    CategoryIcon = categoryIcon,
+
+                    Message =
+                        LanguageHelper.GetMessage(
+                            "RequiresLogin",
+                            language)
+                };
+
+            return Ok(
+                LanguageHelper.SuccessResponse(
+                    publicResponse,
+                    "Success",
+                    language));
         }
 
         /// <summary>
-        /// Submits an answer for a problem. Only one attempt is allowed per user.
+        /// Submits one answer for a problem.
+        /// A favorite-only progress record does not count as an attempt.
+        /// Correct-answer information is returned only after submission.
         /// </summary>
         [Authorize]
+        [EnableRateLimiting("answers")]
         [HttpPost("submit")]
-        [ProducesResponseType(typeof(ApiResponse<AnswerResultDto>), StatusCodes.Status200OK)]
-        [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status401Unauthorized)]
-        [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<ApiResponse<AnswerResultDto>>> SubmitAnswer([FromBody] SubmitAnswerDto dto)
+        [ProducesResponseType(
+            typeof(ApiResponse<AnswerResultDto>),
+            StatusCodes.Status200OK)]
+        [ProducesResponseType(
+            typeof(ApiResponse<AnswerResultDto>),
+            StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(
+            typeof(ApiResponse<AnswerResultDto>),
+            StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(
+            typeof(ApiResponse<AnswerResultDto>),
+            StatusCodes.Status404NotFound)]
+        [ProducesResponseType(
+            typeof(ApiResponse<AnswerResultDto>),
+            StatusCodes.Status409Conflict)]
+        public async Task<
+            ActionResult<ApiResponse<AnswerResultDto>>> SubmitAnswer(
+            [FromBody] SubmitAnswerDto dto)
         {
-            var userId = GetUserId();
-            var language = LanguageHelper.GetLanguageFromRequest(Request);
+            var userId =
+                GetUserId();
+
+            var language =
+                LanguageHelper.GetLanguageFromRequest(Request);
 
             if (!userId.HasValue)
-                return Unauthorized(LanguageHelper.ErrorResponse<ApiResponse<AnswerResultDto>>("Unauthorized", language, 401));
-
-            var problem = await _context.Problems.Include(p => p.Options).FirstOrDefaultAsync(p => p.Id == dto.ProblemId);
-            if (problem == null)
-                return NotFound(LanguageHelper.ErrorResponse<ApiResponse<AnswerResultDto>>("ProblemNotFound", language, 404));
-
-            var selectedOption = problem.Options.FirstOrDefault(o => o.Id == dto.SelectedOptionId);
-            if (selectedOption == null)
-                return BadRequest(LanguageHelper.ErrorResponse<ApiResponse<AnswerResultDto>>("OptionNotFound", language));
-
-            var isCorrect = selectedOption.IsCorrect;
-
-            var existingProgress = await _context.UserProgresses.FirstOrDefaultAsync(up => up.UserId == userId.Value && up.ProblemId == dto.ProblemId);
-
-            if (existingProgress != null)
-                return BadRequest(LanguageHelper.ErrorResponse<ApiResponse<AnswerResultDto>>("OnlyOneAttemptAllowed", language));
-
-            var newProgress = new UserProgress
             {
-                UserId = userId.Value,
-                ProblemId = dto.ProblemId,
-                IsSolved = isCorrect,
-                IsCorrect = isCorrect,
-                SelectedOptionId = dto.SelectedOptionId,
-                Attempts = 1,
-                TimeSpentSeconds = dto.TimeSpentSeconds,
-                SolvedAt = isCorrect ? DateTime.UtcNow : null,
-                LastAttemptAt = DateTime.UtcNow,
-            };
-
-            _context.UserProgresses.Add(newProgress);
-
-            if (isCorrect)
-            {
-                problem.SolvedCount++;
+                return Unauthorized(
+                    LanguageHelper.ErrorResponse<AnswerResultDto>(
+                        "Unauthorized",
+                        language,
+                        StatusCodes.Status401Unauthorized));
             }
 
-            await _context.SaveChangesAsync();
-
-            var correctOption = problem.Options.First(o => o.IsCorrect);
-            var correctText = correctOption.LatexCode;
-            var messageKey = isCorrect ? "AnswerCorrect" : "AnswerWrong";
-            var messageArgs = isCorrect ? null : new object[] { correctText };
-
-            return Ok(LanguageHelper.SuccessResponse(new AnswerResultDto
-            {
-                IsCorrect = isCorrect,
-                PointsEarned = isCorrect ? problem.Points : 0,
-                DetailedSolution = language == "en" ? problem.DetailedSolutionEn : problem.DetailedSolutionAr,
-                CorrectOptionText = correctText,
-                IsSolved = isCorrect,
-                YoutubeSolutionUrl = problem.YoutubeSolutionUrl
-            }, messageKey, language, args: messageArgs ?? Array.Empty<object>()));
-        }
-
-        /// <summary>
-        /// Gets the current authenticated user ID from claims.
-        /// </summary>
-        private int? GetUserId() => User.Identity?.IsAuthenticated == true ? int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? "0") : null;
-
-        /// <summary>
-        /// Gets the current authenticated user role from claims.
-        /// </summary>
-        private string? GetUserRole() => User.Identity?.IsAuthenticated == true ? User.FindFirst(ClaimTypes.Role)?.Value : null;
-
-        /// <summary>
-        /// Background task to update view count and sync with MeiliSearch.
-        /// </summary>
-        private async Task BackgroundUpdateAsync(int problemId)
-        {
-            using var scope = _scopeFactory.CreateScope();
-            var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+            await using var transaction =
+                await _context.Database.BeginTransactionAsync(
+                    IsolationLevel.Serializable);
 
             try
             {
-                var problem = await db.Problems.FindAsync(problemId);
-                if (problem != null)
+                var problem = await _context.Problems
+                    .Include(item => item.Options)
+                    .FirstOrDefaultAsync(item =>
+                        item.Id == dto.ProblemId);
+
+                if (problem == null)
                 {
-                    problem.ViewsCount++;
-                    await db.SaveChangesAsync();
-                    if (_meilisearchEnabled)
+                    return NotFound(
+                        LanguageHelper.ErrorResponse<AnswerResultDto>(
+                            "ProblemNotFound",
+                            language,
+                            StatusCodes.Status404NotFound));
+                }
+
+                var selectedOption =
+                    problem.Options.FirstOrDefault(option =>
+                        option.Id == dto.SelectedOptionId);
+
+                if (selectedOption == null)
+                {
+                    return BadRequest(
+                        LanguageHelper.ErrorResponse<AnswerResultDto>(
+                            "OptionNotFound",
+                            language,
+                            StatusCodes.Status400BadRequest));
+                }
+
+                var correctOption =
+                    problem.Options.FirstOrDefault(option =>
+                        option.IsCorrect);
+
+                if (correctOption == null)
+                {
+                    _logger.LogError(
+                        "Problem {ProblemId} has no correct option.",
+                        problem.Id);
+
+                    throw new InvalidOperationException(
+                        $"Problem {problem.Id} has no correct option.");
+                }
+
+                var progress =
+                    await _context.UserProgresses
+                        .FirstOrDefaultAsync(item =>
+                            item.UserId == userId.Value &&
+                            item.ProblemId == dto.ProblemId);
+
+                if (progress?.Attempts > 0)
+                {
+                    return BadRequest(
+                        LanguageHelper.ErrorResponse<AnswerResultDto>(
+                            "ProblemAlreadyAttempted",
+                            language,
+                            StatusCodes.Status400BadRequest));
+                }
+
+                var isCorrect =
+                    selectedOption.IsCorrect;
+
+                var now =
+                    DateTime.UtcNow;
+
+                if (progress == null)
+                {
+                    progress = new UserProgress
                     {
-                        try
-                        {
-                            var searchService = scope.ServiceProvider.GetRequiredService<IMeiliSearchService>();
-                            await searchService.UpdateProblemAsync(problem);
-                        }
-                        catch { }
+                        UserId = userId.Value,
+                        ProblemId = dto.ProblemId,
+                        IsFavorite = false
+                    };
+
+                    _context.UserProgresses.Add(progress);
+                }
+
+                // Preserve the favorite value when the progress record
+                // was previously created by the favorite endpoint.
+                progress.IsSolved = isCorrect;
+                progress.IsCorrect = isCorrect;
+                progress.SelectedOptionId = selectedOption.Id;
+                progress.Attempts = 1;
+                progress.TimeSpentSeconds =
+                    Math.Clamp(
+                        dto.TimeSpentSeconds,
+                        0,
+                        86400);
+                progress.SolvedAt =
+                    isCorrect ? now : null;
+                progress.LastAttemptAt = now;
+
+                if (isCorrect)
+                {
+                    problem.SolvedCount++;
+                }
+
+                await _context.SaveChangesAsync();
+                await transaction.CommitAsync();
+
+                var result =
+                    new AnswerResultDto
+                    {
+                        IsCorrect = isCorrect,
+
+                        SelectedOptionId =
+                            selectedOption.Id,
+
+                        CorrectOptionId =
+                            correctOption.Id,
+
+                        PointsEarned =
+                            isCorrect
+                                ? problem.Points
+                                : 0,
+
+                        CorrectOptionText =
+                            correctOption.LatexCode,
+
+                        DetailedSolution =
+                            language == "en"
+                                ? problem.DetailedSolutionEn
+                                : problem.DetailedSolutionAr,
+
+                        IsSolved = isCorrect,
+                        HasAttempted = true,
+
+                        YoutubeSolutionUrl =
+                            problem.YoutubeSolutionUrl
+                    };
+
+                _logger.LogInformation(
+                    "User {UserId} submitted answer for problem {ProblemId}. Correct: {IsCorrect}",
+                    userId.Value,
+                    problem.Id,
+                    isCorrect);
+
+                return Ok(
+                    LanguageHelper.SuccessResponse(
+                        result,
+                        isCorrect
+                            ? "AnswerCorrect"
+                            : "AnswerWrong",
+                        language,
+                        args: isCorrect
+                            ? Array.Empty<object>()
+                            : new object[]
+                            {
+                                correctOption.LatexCode
+                            }));
+            }
+            catch (DbUpdateException exception)
+            {
+                await transaction.RollbackAsync();
+
+                _logger.LogWarning(
+                    exception,
+                    "Concurrent or duplicate submission detected for user {UserId} and problem {ProblemId}.",
+                    userId.Value,
+                    dto.ProblemId);
+
+                return Conflict(
+                    LanguageHelper.ErrorResponse<AnswerResultDto>(
+                        "ProblemAlreadyAttempted",
+                        language,
+                        StatusCodes.Status409Conflict));
+            }
+        }
+
+        /// <summary>
+        /// Gets the authenticated user ID from JWT claims.
+        /// </summary>
+        private int? GetUserId()
+        {
+            var value =
+                User.FindFirstValue(
+                    ClaimTypes.NameIdentifier);
+
+            return int.TryParse(
+                value,
+                out var userId)
+                    ? userId
+                    : null;
+        }
+
+        /// <summary>
+        /// Gets the authenticated user role from JWT claims.
+        /// </summary>
+        private string? GetUserRole()
+        {
+            return User.Identity?.IsAuthenticated == true
+                ? User.FindFirstValue(
+                    ClaimTypes.Role)
+                : null;
+        }
+
+        /// <summary>
+        /// Updates the view counter and search index in a separate scope.
+        /// Errors in this non-critical operation do not fail the request.
+        /// </summary>
+        private async Task BackgroundUpdateAsync(
+            int problemId)
+        {
+            using var scope =
+                _scopeFactory.CreateScope();
+
+            var database =
+                scope.ServiceProvider
+                    .GetRequiredService<AppDbContext>();
+
+            try
+            {
+                var problem =
+                    await database.Problems
+                        .FindAsync(problemId);
+
+                if (problem == null)
+                {
+                    return;
+                }
+
+                problem.ViewsCount++;
+
+                await database.SaveChangesAsync();
+
+                if (_meilisearchEnabled)
+                {
+                    try
+                    {
+                        var searchService =
+                            scope.ServiceProvider
+                                .GetRequiredService<
+                                    IMeiliSearchService>();
+
+                        await searchService.UpdateProblemAsync(
+                            problem);
+                    }
+                    catch (Exception exception)
+                    {
+                        _logger.LogWarning(
+                            exception,
+                            "Failed to update problem {ProblemId} in MeiliSearch.",
+                            problemId);
                     }
                 }
             }
-            catch
+            catch (Exception exception)
             {
-                // Non-critical operations - ignore any errors
+                _logger.LogWarning(
+                    exception,
+                    "Failed to update views for problem {ProblemId}.",
+                    problemId);
             }
         }
     }

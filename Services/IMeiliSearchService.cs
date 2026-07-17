@@ -1,54 +1,95 @@
-﻿// ================================
-// File: Services/IMeiliSearchService.cs
-// ================================
+﻿// File: MathWorldAPI/Services/IMeiliSearchService.cs
 
 using MathWorldAPI.Models;
 
 namespace MathWorldAPI.Services
 {
     /// <summary>
-    /// Interface for Meilisearch operations.
-    /// Handles indexing, updating, deleting, and searching math problems.
+    /// Defines MeiliSearch indexing, updating, deleting,
+    /// searching, pagination, and full reindex operations.
     /// </summary>
     public interface IMeiliSearchService
     {
         /// <summary>
-        /// Adds a new math problem to the Meilisearch index.
+        /// Adds a new math problem to the MeiliSearch index.
         /// </summary>
-        Task IndexProblemAsync(MathProblem problem);
+        /// <param name="problem">
+        /// Problem to add to the search index.
+        /// </param>
+        Task IndexProblemAsync(
+            MathProblem problem);
 
         /// <summary>
-        /// Legacy method for backward compatibility.
-        /// Returns a list of problem IDs matching the search criteria.
+        /// Searches for problems and returns matching problem IDs.
+        /// This method is kept for backward compatibility.
         /// </summary>
+        /// <param name="query">
+        /// Search query.
+        /// </param>
+        /// <param name="categoryId">
+        /// Optional category filter.
+        /// </param>
+        /// <param name="stageId">
+        /// Optional stage filter.
+        /// </param>
+        /// <returns>
+        /// Matching problem IDs.
+        /// </returns>
         Task<List<int>> SearchAsync(
             string query,
             int? categoryId = null,
-            int? stageId = null); // Changed from string? difficulty
+            int? stageId = null);
 
         /// <summary>
-        /// NEW: Search with pagination support.
-        /// Returns a tuple containing the list of matching problem IDs and the total count.
+        /// Searches for problems with pagination.
         /// </summary>
-        Task<(List<int> Ids, int TotalCount)> SearchWithPaginationAsync(
-            string query,
-            int? categoryId = null,
-            int? stageId = null, // Changed from string? difficulty
-            int page = 1,
-            int pageSize = 10);
+        /// <param name="query">
+        /// Search query.
+        /// </param>
+        /// <param name="categoryId">
+        /// Optional category filter.
+        /// </param>
+        /// <param name="stageId">
+        /// Optional educational stage filter.
+        /// </param>
+        /// <param name="page">
+        /// Current one-based page number.
+        /// </param>
+        /// <param name="pageSize">
+        /// Number of results returned per page.
+        /// </param>
+        /// <returns>
+        /// Matching problem IDs and total matching result count.
+        /// </returns>
+        Task<(List<int> Ids, int TotalCount)>
+            SearchWithPaginationAsync(
+                string query,
+                int? categoryId = null,
+                int? stageId = null,
+                int page = 1,
+                int pageSize = 10);
 
         /// <summary>
-        /// Updates an existing math problem in the Meilisearch index.
+        /// Updates an existing problem in the MeiliSearch index.
         /// </summary>
-        Task UpdateProblemAsync(MathProblem problem);
+        /// <param name="problem">
+        /// Problem to update.
+        /// </param>
+        Task UpdateProblemAsync(
+            MathProblem problem);
 
         /// <summary>
-        /// Deletes a math problem from the Meilisearch index by its ID.
+        /// Deletes a problem from the MeiliSearch index.
         /// </summary>
-        Task DeleteProblemAsync(int id);
+        /// <param name="id">
+        /// Problem ID.
+        /// </param>
+        Task DeleteProblemAsync(
+            int id);
 
         /// <summary>
-        /// Clears the existing index and re-indexes all problems from the database.
+        /// Rebuilds the complete MeiliSearch problem index
+        /// from PostgreSQL.
         /// </summary>
         Task ReindexAllAsync();
     }
