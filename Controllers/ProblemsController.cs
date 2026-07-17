@@ -1,6 +1,5 @@
 ﻿// File: MathWorldAPI/Controllers/ProblemsController.cs
 
-using System.Data;
 using System.Security.Claims;
 using MathWorldAPI.Data;
 using MathWorldAPI.DTOs;
@@ -67,8 +66,16 @@ namespace MathWorldAPI.Controllers
             [FromQuery] int page = 1,
             [FromQuery] int pageSize = 10)
         {
-            page = Math.Max(1, page);
-            pageSize = Math.Clamp(pageSize, 1, 100);
+            page =
+                Math.Max(
+                    1,
+                    page);
+
+            pageSize =
+                Math.Clamp(
+                    pageSize,
+                    1,
+                    100);
 
             if (!_meilisearchEnabled)
             {
@@ -84,28 +91,32 @@ namespace MathWorldAPI.Controllers
             }
 
             var language =
-                LanguageHelper.GetLanguageFromRequest(Request);
+                LanguageHelper.GetLanguageFromRequest(
+                    Request);
 
             if (string.IsNullOrWhiteSpace(q))
             {
-                var query = _context.Problems
-                    .AsNoTracking()
-                    .Include(problem => problem.Category)
-                    .Include(problem => problem.Stage)
-                    .AsQueryable();
+                var query =
+                    _context.Problems
+                        .AsNoTracking()
+                        .Include(problem =>
+                            problem.Category)
+                        .Include(problem =>
+                            problem.Stage)
+                        .AsQueryable();
 
                 if (categoryId.HasValue)
                 {
-                    query = query.Where(
-                        problem =>
+                    query =
+                        query.Where(problem =>
                             problem.CategoryId ==
                             categoryId.Value);
                 }
 
                 if (stageId.HasValue)
                 {
-                    query = query.Where(
-                        problem =>
+                    query =
+                        query.Where(problem =>
                             problem.StageId ==
                             stageId.Value);
                 }
@@ -115,48 +126,76 @@ namespace MathWorldAPI.Controllers
 
                 var totalPages =
                     (int)Math.Ceiling(
-                        total / (double)pageSize);
+                        total /
+                        (double)pageSize);
 
-                var allProblems = await query
-                    .OrderByDescending(problem => problem.Id)
-                    .Skip((page - 1) * pageSize)
-                    .Take(pageSize)
-                    .Select(problem => new ProblemPreviewDto
+                var allProblems =
+                    await query
+                        .OrderByDescending(problem =>
+                            problem.Id)
+                        .Skip(
+                            (page - 1) *
+                            pageSize)
+                        .Take(pageSize)
+                        .Select(problem =>
+                            new ProblemPreviewDto
+                            {
+                                Id =
+                                    problem.Id,
+
+                                Title =
+                                    language == "en"
+                                        ? problem.TitleEn
+                                        : problem.TitleAr,
+
+                                StageId =
+                                    problem.StageId,
+
+                                StageName =
+                                    language == "en"
+                                        ? problem.Stage.NameEn
+                                        : problem.Stage.NameAr,
+
+                                Points =
+                                    problem.Points,
+
+                                CategoryId =
+                                    problem.CategoryId,
+
+                                CategoryName =
+                                    language == "en"
+                                        ? problem.Category.NameEn
+                                        : problem.Category.NameAr,
+
+                                ViewsCount =
+                                    problem.ViewsCount,
+
+                                RequiresLogin =
+                                    true
+                            })
+                        .ToListAsync();
+
+                var response =
+                    new SearchResponseDto
                     {
-                        Id = problem.Id,
+                        Query =
+                            q,
 
-                        Title = language == "en"
-                            ? problem.TitleEn
-                            : problem.TitleAr,
+                        Page =
+                            page,
 
-                        StageId = problem.StageId,
+                        PageSize =
+                            pageSize,
 
-                        StageName = language == "en"
-                            ? problem.Stage.NameEn
-                            : problem.Stage.NameAr,
+                        Results =
+                            allProblems,
 
-                        Points = problem.Points,
+                        Total =
+                            total,
 
-                        CategoryId = problem.CategoryId,
-
-                        CategoryName = language == "en"
-                            ? problem.Category.NameEn
-                            : problem.Category.NameAr,
-
-                        ViewsCount = problem.ViewsCount,
-                        RequiresLogin = true
-                    })
-                    .ToListAsync();
-
-                var response = new SearchResponseDto
-                {
-                    Query = q,
-                    Page = page,
-                    PageSize = pageSize,
-                    Results = allProblems,
-                    Total = total,
-                    TotalPages = totalPages
-                };
+                        TotalPages =
+                            totalPages
+                    };
 
                 return Ok(
                     LanguageHelper.SuccessResponse(
@@ -167,106 +206,170 @@ namespace MathWorldAPI.Controllers
                         language,
                         meta: new MetaData
                         {
-                            SearchType = "Meilisearch",
-                            Query = q,
-                            Total = total,
-                            Page = page,
-                            PageSize = pageSize,
-                            TotalPages = totalPages
+                            SearchType =
+                                "Meilisearch",
+
+                            Query =
+                                q,
+
+                            Total =
+                                total,
+
+                            Page =
+                                page,
+
+                            PageSize =
+                                pageSize,
+
+                            TotalPages =
+                                totalPages
                         }));
             }
 
             var (problemIds, totalCount) =
-                await _searchService.SearchWithPaginationAsync(
-                    q,
-                    categoryId,
-                    stageId,
-                    page,
-                    pageSize);
+                await _searchService
+                    .SearchWithPaginationAsync(
+                        q,
+                        categoryId,
+                        stageId,
+                        page,
+                        pageSize);
 
             var totalResultPages =
                 (int)Math.Ceiling(
-                    totalCount / (double)pageSize);
+                    totalCount /
+                    (double)pageSize);
 
-            if (problemIds == null ||
-                problemIds.Count == 0)
+            if (problemIds.Count == 0)
             {
                 return Ok(
                     LanguageHelper.SuccessResponse(
                         new SearchResponseDto
                         {
-                            Query = q,
-                            Page = page,
-                            PageSize = pageSize,
-                            Results = new List<ProblemPreviewDto>(),
-                            Total = 0,
-                            TotalPages = 0
+                            Query =
+                                q,
+
+                            Page =
+                                page,
+
+                            PageSize =
+                                pageSize,
+
+                            Results =
+                                new List<ProblemPreviewDto>(),
+
+                            Total =
+                                0,
+
+                            TotalPages =
+                                0
                         },
                         "NoResultsFound",
                         language,
                         meta: new MetaData
                         {
-                            SearchType = "Meilisearch",
-                            Query = q,
-                            Total = 0,
-                            Page = page,
-                            PageSize = pageSize,
-                            TotalPages = 0
+                            SearchType =
+                                "Meilisearch",
+
+                            Query =
+                                q,
+
+                            Total =
+                                0,
+
+                            Page =
+                                page,
+
+                            PageSize =
+                                pageSize,
+
+                            TotalPages =
+                                0
                         }));
             }
 
-            var problems = await _context.Problems
-                .AsNoTracking()
-                .Include(problem => problem.Category)
-                .Include(problem => problem.Stage)
-                .Where(problem =>
-                    problemIds.Contains(problem.Id))
-                .Select(problem => new ProblemPreviewDto
-                {
-                    Id = problem.Id,
+            var problems =
+                await _context.Problems
+                    .AsNoTracking()
+                    .Include(problem =>
+                        problem.Category)
+                    .Include(problem =>
+                        problem.Stage)
+                    .Where(problem =>
+                        problemIds.Contains(
+                            problem.Id))
+                    .Select(problem =>
+                        new ProblemPreviewDto
+                        {
+                            Id =
+                                problem.Id,
 
-                    Title = language == "en"
-                        ? problem.TitleEn
-                        : problem.TitleAr,
+                            Title =
+                                language == "en"
+                                    ? problem.TitleEn
+                                    : problem.TitleAr,
 
-                    StageId = problem.StageId,
+                            StageId =
+                                problem.StageId,
 
-                    StageName = language == "en"
-                        ? problem.Stage.NameEn
-                        : problem.Stage.NameAr,
+                            StageName =
+                                language == "en"
+                                    ? problem.Stage.NameEn
+                                    : problem.Stage.NameAr,
 
-                    Points = problem.Points,
+                            Points =
+                                problem.Points,
 
-                    CategoryId = problem.CategoryId,
+                            CategoryId =
+                                problem.CategoryId,
 
-                    CategoryName = language == "en"
-                        ? problem.Category.NameEn
-                        : problem.Category.NameAr,
+                            CategoryName =
+                                language == "en"
+                                    ? problem.Category.NameEn
+                                    : problem.Category.NameAr,
 
-                    ViewsCount = problem.ViewsCount,
-                    RequiresLogin = true
-                })
-                .ToListAsync();
+                            ViewsCount =
+                                problem.ViewsCount,
+
+                            RequiresLogin =
+                                true
+                        })
+                    .ToListAsync();
 
             // Preserve the result order returned by MeiliSearch.
-            var ordered = problemIds
-                .Select(id =>
-                    problems.FirstOrDefault(
-                        problem => problem.Id == id))
-                .Where(problem => problem != null)
-                .Select(problem => problem!)
-                .ToList();
+            var ordered =
+                problemIds
+                    .Select(id =>
+                        problems.FirstOrDefault(
+                            problem =>
+                                problem.Id == id))
+                    .Where(problem =>
+                        problem != null)
+                    .Select(problem =>
+                        problem!)
+                    .ToList();
 
             return Ok(
                 LanguageHelper.SuccessResponse(
                     new SearchResponseDto
                     {
-                        Query = q,
-                        Page = page,
-                        PageSize = pageSize,
-                        Results = ordered,
-                        Total = totalCount,
-                        TotalPages = totalResultPages
+                        Query =
+                            q,
+
+                        Page =
+                            page,
+
+                        PageSize =
+                            pageSize,
+
+                        Results =
+                            ordered,
+
+                        Total =
+                            totalCount,
+
+                        TotalPages =
+                            totalResultPages
                     },
                     ordered.Count == 0
                         ? "NoResultsFound"
@@ -274,12 +377,23 @@ namespace MathWorldAPI.Controllers
                     language,
                     meta: new MetaData
                     {
-                        SearchType = "Meilisearch",
-                        Query = q,
-                        Total = totalCount,
-                        Page = page,
-                        PageSize = pageSize,
-                        TotalPages = totalResultPages
+                        SearchType =
+                            "Meilisearch",
+
+                        Query =
+                            q,
+
+                        Total =
+                            totalCount,
+
+                        Page =
+                            page,
+
+                        PageSize =
+                            pageSize,
+
+                        TotalPages =
+                            totalResultPages
                     }));
         }
 
@@ -298,41 +412,59 @@ namespace MathWorldAPI.Controllers
             [FromQuery] int page = 1,
             [FromQuery] int pageSize = 10)
         {
-            page = Math.Max(1, page);
-            pageSize = Math.Clamp(pageSize, 1, 100);
+            page =
+                Math.Max(
+                    1,
+                    page);
+
+            pageSize =
+                Math.Clamp(
+                    pageSize,
+                    1,
+                    100);
 
             var language =
-                LanguageHelper.GetLanguageFromRequest(Request);
+                LanguageHelper.GetLanguageFromRequest(
+                    Request);
 
-            var query = _context.Problems
-                .AsNoTracking()
-                .Include(problem => problem.Category)
-                .Include(problem => problem.Stage)
-                .AsQueryable();
+            var query =
+                _context.Problems
+                    .AsNoTracking()
+                    .Include(problem =>
+                        problem.Category)
+                    .Include(problem =>
+                        problem.Stage)
+                    .AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(q))
             {
-                var normalizedQuery = q.Trim();
+                var normalizedQuery =
+                    q.Trim();
 
-                query = query.Where(problem =>
-                    problem.TitleAr.Contains(normalizedQuery) ||
-                    problem.TitleEn.Contains(normalizedQuery) ||
-                    problem.QuestionTextAr.Contains(normalizedQuery) ||
-                    problem.QuestionTextEn.Contains(normalizedQuery));
+                query =
+                    query.Where(problem =>
+                        problem.TitleAr.Contains(
+                            normalizedQuery) ||
+                        problem.TitleEn.Contains(
+                            normalizedQuery) ||
+                        problem.QuestionTextAr.Contains(
+                            normalizedQuery) ||
+                        problem.QuestionTextEn.Contains(
+                            normalizedQuery));
             }
 
             if (categoryId.HasValue)
             {
-                query = query.Where(
-                    problem =>
+                query =
+                    query.Where(problem =>
                         problem.CategoryId ==
                         categoryId.Value);
             }
 
             if (stageId.HasValue)
             {
-                query = query.Where(
-                    problem =>
+                query =
+                    query.Where(problem =>
                         problem.StageId ==
                         stageId.Value);
             }
@@ -342,49 +474,76 @@ namespace MathWorldAPI.Controllers
 
             var totalPages =
                 (int)Math.Ceiling(
-                    total / (double)pageSize);
+                    total /
+                    (double)pageSize);
 
-            var problems = await query
-                .OrderByDescending(problem => problem.Id)
-                .Skip((page - 1) * pageSize)
-                .Take(pageSize)
-                .Select(problem => new ProblemPreviewDto
-                {
-                    Id = problem.Id,
+            var problems =
+                await query
+                    .OrderByDescending(problem =>
+                        problem.Id)
+                    .Skip(
+                        (page - 1) *
+                        pageSize)
+                    .Take(pageSize)
+                    .Select(problem =>
+                        new ProblemPreviewDto
+                        {
+                            Id =
+                                problem.Id,
 
-                    Title = language == "en"
-                        ? problem.TitleEn
-                        : problem.TitleAr,
+                            Title =
+                                language == "en"
+                                    ? problem.TitleEn
+                                    : problem.TitleAr,
 
-                    StageId = problem.StageId,
+                            StageId =
+                                problem.StageId,
 
-                    StageName = language == "en"
-                        ? problem.Stage.NameEn
-                        : problem.Stage.NameAr,
+                            StageName =
+                                language == "en"
+                                    ? problem.Stage.NameEn
+                                    : problem.Stage.NameAr,
 
-                    Points = problem.Points,
+                            Points =
+                                problem.Points,
 
-                    CategoryId = problem.CategoryId,
+                            CategoryId =
+                                problem.CategoryId,
 
-                    CategoryName = language == "en"
-                        ? problem.Category.NameEn
-                        : problem.Category.NameAr,
+                            CategoryName =
+                                language == "en"
+                                    ? problem.Category.NameEn
+                                    : problem.Category.NameAr,
 
-                    ViewsCount = problem.ViewsCount,
-                    RequiresLogin = true
-                })
-                .ToListAsync();
+                            ViewsCount =
+                                problem.ViewsCount,
+
+                            RequiresLogin =
+                                true
+                        })
+                    .ToListAsync();
 
             return Ok(
                 LanguageHelper.SuccessResponse(
                     new SearchResponseDto
                     {
-                        Query = q,
-                        Page = page,
-                        PageSize = pageSize,
-                        Results = problems,
-                        Total = total,
-                        TotalPages = totalPages
+                        Query =
+                            q,
+
+                        Page =
+                            page,
+
+                        PageSize =
+                            pageSize,
+
+                        Results =
+                            problems,
+
+                        Total =
+                            total,
+
+                        TotalPages =
+                            totalPages
                     },
                     problems.Count == 0
                         ? "NoResultsFound"
@@ -392,18 +551,30 @@ namespace MathWorldAPI.Controllers
                     language,
                     meta: new MetaData
                     {
-                        SearchType = "PostgreSQL",
-                        Query = q,
-                        Total = total,
-                        Page = page,
-                        PageSize = pageSize,
-                        TotalPages = totalPages
+                        SearchType =
+                            "PostgreSQL",
+
+                        Query =
+                            q,
+
+                        Total =
+                            total,
+
+                        Page =
+                            page,
+
+                        PageSize =
+                            pageSize,
+
+                        TotalPages =
+                            totalPages
                     }));
         }
 
         /// <summary>
         /// Unified problem search endpoint.
-        /// Uses MeiliSearch or PostgreSQL according to configuration.
+        /// PostgreSQL is used by default.
+        /// MeiliSearch is used only when it is enabled and explicitly requested.
         /// </summary>
         [HttpGet("search")]
         [ProducesResponseType(
@@ -414,25 +585,25 @@ namespace MathWorldAPI.Controllers
             [FromQuery] string q = "",
             [FromQuery] int? categoryId = null,
             [FromQuery] int? stageId = null,
-            [FromQuery] string? engine = "meilisearch",
+            [FromQuery] string? engine = "postgresql",
             [FromQuery] int page = 1,
             [FromQuery] int pageSize = 10)
         {
-            var usePostgres =
-                !_meilisearchEnabled ||
+            var useMeiliSearch =
+                _meilisearchEnabled &&
                 string.Equals(
                     engine,
-                    "postgresql",
+                    "meilisearch",
                     StringComparison.OrdinalIgnoreCase);
 
-            return usePostgres
-                ? await PostgreSqlSearch(
+            return useMeiliSearch
+                ? await MeiliSearch(
                     q,
                     categoryId,
                     stageId,
                     page,
                     pageSize)
-                : await MeiliSearch(
+                : await PostgreSqlSearch(
                     q,
                     categoryId,
                     stageId,
@@ -457,7 +628,8 @@ namespace MathWorldAPI.Controllers
             int id)
         {
             var language =
-                LanguageHelper.GetLanguageFromRequest(Request);
+                LanguageHelper.GetLanguageFromRequest(
+                    Request);
 
             var userId =
                 GetUserId();
@@ -465,13 +637,18 @@ namespace MathWorldAPI.Controllers
             var userRole =
                 GetUserRole();
 
-            var problem = await _context.Problems
-                .Include(item => item.Category)
-                .Include(item => item.Stage)
-                .Include(item => item.Options)
-                .AsSplitQuery()
-                .FirstOrDefaultAsync(item =>
-                    item.Id == id);
+            var problem =
+                await _context.Problems
+                    .AsNoTracking()
+                    .Include(item =>
+                        item.Category)
+                    .Include(item =>
+                        item.Stage)
+                    .Include(item =>
+                        item.Options)
+                    .AsSplitQuery()
+                    .FirstOrDefaultAsync(item =>
+                        item.Id == id);
 
             if (problem == null)
             {
@@ -483,7 +660,8 @@ namespace MathWorldAPI.Controllers
             }
 
             // View updates are non-critical and run in a separate scope.
-            _ = BackgroundUpdateAsync(id);
+            _ =
+                BackgroundUpdateAsync(id);
 
             var categoryIcon =
                 _imgBbStorage.GetFullUrl(
@@ -508,30 +686,44 @@ namespace MathWorldAPI.Controllers
                             problem.DetailedSolutionEn,
                             problem.StageId,
 
-                            StageName = language == "en"
-                                ? problem.Stage.NameEn
-                                : problem.Stage.NameAr,
+                            StageName =
+                                language == "en"
+                                    ? problem.Stage.NameEn
+                                    : problem.Stage.NameAr,
 
                             problem.Points,
                             problem.CategoryId,
 
-                            CategoryName = language == "en"
-                                ? problem.Category.NameEn
-                                : problem.Category.NameAr,
+                            CategoryName =
+                                language == "en"
+                                    ? problem.Category.NameEn
+                                    : problem.Category.NameAr,
 
-                            CategoryIcon = categoryIcon,
+                            CategoryIcon =
+                                categoryIcon,
+
                             problem.YoutubeSolutionUrl,
 
-                            Options = problem.Options
-                                .OrderBy(option => option.Order)
-                                .Select(option => new AdminOptionDto
-                                {
-                                    Id = option.Id,
-                                    LatexCode = option.LatexCode,
-                                    IsCorrect = option.IsCorrect,
-                                    Order = option.Order
-                                })
-                                .ToList()
+                            Options =
+                                problem.Options
+                                    .OrderBy(option =>
+                                        option.Order)
+                                    .Select(option =>
+                                        new AdminOptionDto
+                                        {
+                                            Id =
+                                                option.Id,
+
+                                            LatexCode =
+                                                option.LatexCode,
+
+                                            IsCorrect =
+                                                option.IsCorrect,
+
+                                            Order =
+                                                option.Order
+                                        })
+                                    .ToList()
                         },
                         "Success",
                         language));
@@ -543,11 +735,12 @@ namespace MathWorldAPI.Controllers
                     await _context.UserProgresses
                         .AsNoTracking()
                         .FirstOrDefaultAsync(progressItem =>
-                            progressItem.UserId == userId.Value &&
-                            progressItem.ProblemId == id);
+                            progressItem.UserId ==
+                            userId.Value &&
+                            progressItem.ProblemId ==
+                            id);
 
-                // A favorite-only record has Attempts equal to zero
-                // and must not be treated as an answer attempt.
+                // A favorite-only progress record has no answer attempts.
                 var hasAttempted =
                     progress != null &&
                     progress.Attempts > 0;
@@ -555,7 +748,8 @@ namespace MathWorldAPI.Controllers
                 var correctOptionId =
                     hasAttempted
                         ? problem.Options
-                            .FirstOrDefault(option => option.IsCorrect)
+                            .FirstOrDefault(option =>
+                                option.IsCorrect)
                             ?.Id
                         : null;
 
@@ -581,16 +775,8 @@ namespace MathWorldAPI.Controllers
 
                             StageName =
                                 language == "en"
-                                    ? problem.Stage?.NameEn
-                                        ?? "Unknown Stage"
-                                    : problem.Stage?.NameAr
-                                        ?? "مرحلة غير معروفة",
-
-                            Points =
-                                problem.Points,
-
-                            ViewsCount =
-                                problem.ViewsCount,
+                                    ? problem.Stage.NameEn
+                                    : problem.Stage.NameAr,
 
                             CategoryId =
                                 problem.CategoryId,
@@ -601,7 +787,13 @@ namespace MathWorldAPI.Controllers
                                     : problem.Category.NameAr,
 
                             CategoryIcon =
-                                problem.Category.Icon,
+                                categoryIcon,
+
+                            Points =
+                                problem.Points,
+
+                            ViewsCount =
+                                problem.ViewsCount,
 
                             IsSolved =
                                 progress?.IsSolved
@@ -643,7 +835,8 @@ namespace MathWorldAPI.Controllers
                             // Never expose option correctness to students.
                             Options =
                                 problem.Options
-                                    .OrderBy(option => option.Order)
+                                    .OrderBy(option =>
+                                        option.Order)
                                     .Select(option =>
                                         new OptionForStudentDto
                                         {
@@ -668,29 +861,37 @@ namespace MathWorldAPI.Controllers
             var publicResponse =
                 new ProblemForPublicDto
                 {
-                    Id = problem.Id,
+                    Id =
+                        problem.Id,
 
-                    Title = language == "en"
-                        ? problem.TitleEn
-                        : problem.TitleAr,
+                    Title =
+                        language == "en"
+                            ? problem.TitleEn
+                            : problem.TitleAr,
 
-                    QuestionText = language == "en"
-                        ? problem.QuestionTextEn
-                        : problem.QuestionTextAr,
+                    QuestionText =
+                        language == "en"
+                            ? problem.QuestionTextEn
+                            : problem.QuestionTextAr,
 
-                    StageId = problem.StageId,
+                    StageId =
+                        problem.StageId,
 
-                    StageName = language == "en"
-                        ? problem.Stage.NameEn
-                        : problem.Stage.NameAr,
+                    StageName =
+                        language == "en"
+                            ? problem.Stage.NameEn
+                            : problem.Stage.NameAr,
 
-                    CategoryId = problem.CategoryId,
+                    CategoryId =
+                        problem.CategoryId,
 
-                    CategoryName = language == "en"
-                        ? problem.Category.NameEn
-                        : problem.Category.NameAr,
+                    CategoryName =
+                        language == "en"
+                            ? problem.Category.NameEn
+                            : problem.Category.NameAr,
 
-                    CategoryIcon = categoryIcon,
+                    CategoryIcon =
+                        categoryIcon,
 
                     Message =
                         LanguageHelper.GetMessage(
@@ -712,6 +913,7 @@ namespace MathWorldAPI.Controllers
         /// into a real answer attempt.
         /// </summary>
         [Authorize]
+        [EnableRateLimiting("answers")]
         [HttpPost("submit")]
         [ProducesResponseType(
             typeof(ApiResponse<AnswerResultDto>),
@@ -740,7 +942,7 @@ namespace MathWorldAPI.Controllers
             {
                 return Unauthorized(
                     LanguageHelper.ErrorResponse<
-                        ApiResponse<AnswerResultDto>>(
+                        AnswerResultDto>(
                         "Unauthorized",
                         language,
                         StatusCodes.Status401Unauthorized));
@@ -758,7 +960,7 @@ namespace MathWorldAPI.Controllers
             {
                 return NotFound(
                     LanguageHelper.ErrorResponse<
-                        ApiResponse<AnswerResultDto>>(
+                        AnswerResultDto>(
                         "ProblemNotFound",
                         language,
                         StatusCodes.Status404NotFound));
@@ -774,18 +976,19 @@ namespace MathWorldAPI.Controllers
             {
                 return BadRequest(
                     LanguageHelper.ErrorResponse<
-                        ApiResponse<AnswerResultDto>>(
+                        AnswerResultDto>(
                         "OptionNotFound",
-                        language));
+                        language,
+                        StatusCodes.Status400BadRequest));
             }
 
             var progress =
                 await _context.UserProgresses
                     .FirstOrDefaultAsync(progressItem =>
                         progressItem.UserId ==
-                            userId.Value &&
+                        userId.Value &&
                         progressItem.ProblemId ==
-                            dto.ProblemId);
+                        dto.ProblemId);
 
             // A record with Attempts greater than zero means
             // the student has already submitted an answer.
@@ -794,9 +997,30 @@ namespace MathWorldAPI.Controllers
             {
                 return BadRequest(
                     LanguageHelper.ErrorResponse<
-                        ApiResponse<AnswerResultDto>>(
+                        AnswerResultDto>(
                         "OnlyOneAttemptAllowed",
-                        language));
+                        language,
+                        StatusCodes.Status400BadRequest));
+            }
+
+            var correctOption =
+                problem.Options
+                    .FirstOrDefault(option =>
+                        option.IsCorrect);
+
+            if (correctOption == null)
+            {
+                _logger.LogError(
+                    "Problem {ProblemId} has no correct option configured.",
+                    problem.Id);
+
+                return StatusCode(
+                    StatusCodes.Status500InternalServerError,
+                    LanguageHelper.ErrorResponse<
+                        AnswerResultDto>(
+                        "UnexpectedError",
+                        language,
+                        StatusCodes.Status500InternalServerError));
             }
 
             var isCorrect =
@@ -841,7 +1065,7 @@ namespace MathWorldAPI.Controllers
             progress.TimeSpentSeconds =
                 Math.Clamp(
                     dto.TimeSpentSeconds,
-                    1,
+                    0,
                     86400);
 
             progress.SolvedAt =
@@ -859,10 +1083,6 @@ namespace MathWorldAPI.Controllers
 
             await _context.SaveChangesAsync();
 
-            var correctOption =
-                problem.Options.First(
-                    option => option.IsCorrect);
-
             var correctText =
                 correctOption.LatexCode;
 
@@ -876,7 +1096,7 @@ namespace MathWorldAPI.Controllers
                     ? Array.Empty<object>()
                     : new object[]
                     {
-                correctText
+                        correctText
                     };
 
             return Ok(
@@ -937,7 +1157,8 @@ namespace MathWorldAPI.Controllers
         /// </summary>
         private string? GetUserRole()
         {
-            return User.Identity?.IsAuthenticated == true
+            return User.Identity?.IsAuthenticated ==
+                   true
                 ? User.FindFirstValue(
                     ClaimTypes.Role)
                 : null;
@@ -955,7 +1176,8 @@ namespace MathWorldAPI.Controllers
 
             var database =
                 scope.ServiceProvider
-                    .GetRequiredService<AppDbContext>();
+                    .GetRequiredService<
+                        AppDbContext>();
 
             try
             {
@@ -981,8 +1203,9 @@ namespace MathWorldAPI.Controllers
                                 .GetRequiredService<
                                     IMeiliSearchService>();
 
-                        await searchService.UpdateProblemAsync(
-                            problem);
+                        await searchService
+                            .UpdateProblemAsync(
+                                problem);
                     }
                     catch (Exception exception)
                     {
