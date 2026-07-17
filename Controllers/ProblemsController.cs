@@ -542,76 +542,125 @@ namespace MathWorldAPI.Controllers
                 var progress =
                     await _context.UserProgresses
                         .AsNoTracking()
-                        .FirstOrDefaultAsync(item =>
-                            item.UserId == userId.Value &&
-                            item.ProblemId == id);
+                        .FirstOrDefaultAsync(progressItem =>
+                            progressItem.UserId == userId.Value &&
+                            progressItem.ProblemId == id);
 
+                // A favorite-only record has Attempts equal to zero
+                // and must not be treated as an answer attempt.
                 var hasAttempted =
-                    progress?.Attempts > 0;
+                    progress != null &&
+                    progress.Attempts > 0;
 
-                var response =
-                    new ProblemForStudentDto
-                    {
-                        Id = problem.Id,
-
-                        Title = language == "en"
-                            ? problem.TitleEn
-                            : problem.TitleAr,
-
-                        QuestionText = language == "en"
-                            ? problem.QuestionTextEn
-                            : problem.QuestionTextAr,
-
-                        StageId = problem.StageId,
-
-                        StageName = language == "en"
-                            ? problem.Stage.NameEn
-                            : problem.Stage.NameAr,
-
-                        Points = problem.Points,
-
-                        CategoryId = problem.CategoryId,
-
-                        CategoryName = language == "en"
-                            ? problem.Category.NameEn
-                            : problem.Category.NameAr,
-
-                        CategoryIcon = categoryIcon,
-
-                        IsSolved =
-                            progress?.IsSolved ?? false,
-
-                        IsFavorite =
-                            progress?.IsFavorite ?? false,
-
-                        HasAttempted = hasAttempted,
-                        CanSubmit = !hasAttempted,
-
-                        DetailedSolution = hasAttempted
-                            ? language == "en"
-                                ? problem.DetailedSolutionEn
-                                : problem.DetailedSolutionAr
-                            : null,
-
-                        YoutubeSolutionUrl = hasAttempted
-                            ? problem.YoutubeSolutionUrl
-                            : null,
-
-                        Options = problem.Options
-                            .OrderBy(option => option.Order)
-                            .Select(option =>
-                                new OptionForStudentDto
-                                {
-                                    Id = option.Id,
-                                    LatexCode = option.LatexCode,
-                                    Order = option.Order
-                                })
-                            .ToList()
-                    };
+                var correctOptionId =
+                    hasAttempted
+                        ? problem.Options
+                            .FirstOrDefault(option => option.IsCorrect)
+                            ?.Id
+                        : null;
 
                 return Ok(
                     LanguageHelper.SuccessResponse(
-                        response,
+                        new ProblemForStudentDto
+                        {
+                            Id =
+                                problem.Id,
+
+                            Title =
+                                language == "en"
+                                    ? problem.TitleEn
+                                    : problem.TitleAr,
+
+                            QuestionText =
+                                language == "en"
+                                    ? problem.QuestionTextEn
+                                    : problem.QuestionTextAr,
+
+                            StageId =
+                                problem.StageId,
+
+                            StageName =
+                                language == "en"
+                                    ? problem.Stage?.NameEn
+                                        ?? "Unknown Stage"
+                                    : problem.Stage?.NameAr
+                                        ?? "مرحلة غير معروفة",
+
+                            Points =
+                                problem.Points,
+
+                            ViewsCount =
+                                problem.ViewsCount,
+
+                            CategoryId =
+                                problem.CategoryId,
+
+                            CategoryName =
+                                language == "en"
+                                    ? problem.Category.NameEn
+                                    : problem.Category.NameAr,
+
+                            CategoryIcon =
+                                problem.Category.Icon,
+
+                            IsSolved =
+                                progress?.IsSolved
+                                ?? false,
+
+                            HasAttempted =
+                                hasAttempted,
+
+                            WasCorrect =
+                                hasAttempted
+                                    ? progress!.IsCorrect
+                                    : null,
+
+                            SelectedOptionId =
+                                hasAttempted
+                                    ? progress!.SelectedOptionId
+                                    : null,
+
+                            CorrectOptionId =
+                                correctOptionId,
+
+                            IsFavorite =
+                                progress?.IsFavorite
+                                ?? false,
+
+                            // Never expose the solution before an answer attempt.
+                            DetailedSolution =
+                                hasAttempted
+                                    ? language == "en"
+                                        ? problem.DetailedSolutionEn
+                                        : problem.DetailedSolutionAr
+                                    : null,
+
+                            YoutubeSolutionUrl =
+                                hasAttempted
+                                    ? problem.YoutubeSolutionUrl
+                                    : null,
+
+                            // Never expose option correctness to students.
+                            Options =
+                                problem.Options
+                                    .OrderBy(option => option.Order)
+                                    .Select(option =>
+                                        new OptionForStudentDto
+                                        {
+                                            Id =
+                                                option.Id,
+
+                                            LatexCode =
+                                                option.LatexCode,
+
+                                            Order =
+                                                option.Order,
+
+                                            IsCorrect =
+                                                null
+                                        })
+                                    .ToList()
+                        },
                         "Success",
                         language));
             }
@@ -657,28 +706,25 @@ namespace MathWorldAPI.Controllers
         }
 
         /// <summary>
-        /// Submits one answer for a problem.
-        /// A favorite-only progress record does not count as an attempt.
-        /// Correct-answer information is returned only after submission.
+        /// Submits an answer for a problem.
+        /// Only one answer attempt is allowed per user and problem.
+        /// A favorite-only progress record may still be converted
+        /// into a real answer attempt.
         /// </summary>
         [Authorize]
-        [EnableRateLimiting("answers")]
         [HttpPost("submit")]
         [ProducesResponseType(
             typeof(ApiResponse<AnswerResultDto>),
             StatusCodes.Status200OK)]
         [ProducesResponseType(
-            typeof(ApiResponse<AnswerResultDto>),
+            typeof(ApiResponse<object>),
             StatusCodes.Status400BadRequest)]
         [ProducesResponseType(
-            typeof(ApiResponse<AnswerResultDto>),
+            typeof(ApiResponse<object>),
             StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(
-            typeof(ApiResponse<AnswerResultDto>),
+            typeof(ApiResponse<object>),
             StatusCodes.Status404NotFound)]
-        [ProducesResponseType(
-            typeof(ApiResponse<AnswerResultDto>),
-            StatusCodes.Status409Conflict)]
         public async Task<
             ActionResult<ApiResponse<AnswerResultDto>>> SubmitAnswer(
             [FromBody] SubmitAnswerDto dto)
@@ -687,127 +733,164 @@ namespace MathWorldAPI.Controllers
                 GetUserId();
 
             var language =
-                LanguageHelper.GetLanguageFromRequest(Request);
+                LanguageHelper.GetLanguageFromRequest(
+                    Request);
 
             if (!userId.HasValue)
             {
                 return Unauthorized(
-                    LanguageHelper.ErrorResponse<AnswerResultDto>(
+                    LanguageHelper.ErrorResponse<
+                        ApiResponse<AnswerResultDto>>(
                         "Unauthorized",
                         language,
                         StatusCodes.Status401Unauthorized));
             }
 
-            await using var transaction =
-                await _context.Database.BeginTransactionAsync(
-                    IsolationLevel.Serializable);
+            var problem =
+                await _context.Problems
+                    .Include(problemItem =>
+                        problemItem.Options)
+                    .FirstOrDefaultAsync(problemItem =>
+                        problemItem.Id ==
+                        dto.ProblemId);
 
-            try
+            if (problem == null)
             {
-                var problem = await _context.Problems
-                    .Include(item => item.Options)
-                    .FirstOrDefaultAsync(item =>
-                        item.Id == dto.ProblemId);
+                return NotFound(
+                    LanguageHelper.ErrorResponse<
+                        ApiResponse<AnswerResultDto>>(
+                        "ProblemNotFound",
+                        language,
+                        StatusCodes.Status404NotFound));
+            }
 
-                if (problem == null)
-                {
-                    return NotFound(
-                        LanguageHelper.ErrorResponse<AnswerResultDto>(
-                            "ProblemNotFound",
-                            language,
-                            StatusCodes.Status404NotFound));
-                }
+            var selectedOption =
+                problem.Options
+                    .FirstOrDefault(option =>
+                        option.Id ==
+                        dto.SelectedOptionId);
 
-                var selectedOption =
-                    problem.Options.FirstOrDefault(option =>
-                        option.Id == dto.SelectedOptionId);
+            if (selectedOption == null)
+            {
+                return BadRequest(
+                    LanguageHelper.ErrorResponse<
+                        ApiResponse<AnswerResultDto>>(
+                        "OptionNotFound",
+                        language));
+            }
 
-                if (selectedOption == null)
-                {
-                    return BadRequest(
-                        LanguageHelper.ErrorResponse<AnswerResultDto>(
-                            "OptionNotFound",
-                            language,
-                            StatusCodes.Status400BadRequest));
-                }
+            var progress =
+                await _context.UserProgresses
+                    .FirstOrDefaultAsync(progressItem =>
+                        progressItem.UserId ==
+                            userId.Value &&
+                        progressItem.ProblemId ==
+                            dto.ProblemId);
 
-                var correctOption =
-                    problem.Options.FirstOrDefault(option =>
-                        option.IsCorrect);
+            // A record with Attempts greater than zero means
+            // the student has already submitted an answer.
+            if (progress != null &&
+                progress.Attempts > 0)
+            {
+                return BadRequest(
+                    LanguageHelper.ErrorResponse<
+                        ApiResponse<AnswerResultDto>>(
+                        "OnlyOneAttemptAllowed",
+                        language));
+            }
 
-                if (correctOption == null)
-                {
-                    _logger.LogError(
-                        "Problem {ProblemId} has no correct option.",
-                        problem.Id);
+            var isCorrect =
+                selectedOption.IsCorrect;
 
-                    throw new InvalidOperationException(
-                        $"Problem {problem.Id} has no correct option.");
-                }
+            var now =
+                DateTime.UtcNow;
 
-                var progress =
-                    await _context.UserProgresses
-                        .FirstOrDefaultAsync(item =>
-                            item.UserId == userId.Value &&
-                            item.ProblemId == dto.ProblemId);
-
-                if (progress?.Attempts > 0)
-                {
-                    return BadRequest(
-                        LanguageHelper.ErrorResponse<AnswerResultDto>(
-                            "ProblemAlreadyAttempted",
-                            language,
-                            StatusCodes.Status400BadRequest));
-                }
-
-                var isCorrect =
-                    selectedOption.IsCorrect;
-
-                var now =
-                    DateTime.UtcNow;
-
-                if (progress == null)
-                {
-                    progress = new UserProgress
+            // A favorite can create a progress record before
+            // the student answers the problem.
+            if (progress == null)
+            {
+                progress =
+                    new UserProgress
                     {
-                        UserId = userId.Value,
-                        ProblemId = dto.ProblemId,
-                        IsFavorite = false
+                        UserId =
+                            userId.Value,
+
+                        ProblemId =
+                            dto.ProblemId,
+
+                        IsFavorite =
+                            false
                     };
 
-                    _context.UserProgresses.Add(progress);
-                }
+                _context.UserProgresses.Add(
+                    progress);
+            }
 
-                // Preserve the favorite value when the progress record
-                // was previously created by the favorite endpoint.
-                progress.IsSolved = isCorrect;
-                progress.IsCorrect = isCorrect;
-                progress.SelectedOptionId = selectedOption.Id;
-                progress.Attempts = 1;
-                progress.TimeSpentSeconds =
-                    Math.Clamp(
-                        dto.TimeSpentSeconds,
-                        0,
-                        86400);
-                progress.SolvedAt =
-                    isCorrect ? now : null;
-                progress.LastAttemptAt = now;
+            progress.IsSolved =
+                isCorrect;
 
-                if (isCorrect)
-                {
-                    problem.SolvedCount++;
-                }
+            progress.IsCorrect =
+                isCorrect;
 
-                await _context.SaveChangesAsync();
-                await transaction.CommitAsync();
+            progress.SelectedOptionId =
+                dto.SelectedOptionId;
 
-                var result =
+            progress.Attempts =
+                1;
+
+            progress.TimeSpentSeconds =
+                Math.Clamp(
+                    dto.TimeSpentSeconds,
+                    1,
+                    86400);
+
+            progress.SolvedAt =
+                isCorrect
+                    ? now
+                    : null;
+
+            progress.LastAttemptAt =
+                now;
+
+            if (isCorrect)
+            {
+                problem.SolvedCount++;
+            }
+
+            await _context.SaveChangesAsync();
+
+            var correctOption =
+                problem.Options.First(
+                    option => option.IsCorrect);
+
+            var correctText =
+                correctOption.LatexCode;
+
+            var messageKey =
+                isCorrect
+                    ? "AnswerCorrect"
+                    : "AnswerWrong";
+
+            var messageArgs =
+                isCorrect
+                    ? Array.Empty<object>()
+                    : new object[]
+                    {
+                correctText
+                    };
+
+            return Ok(
+                LanguageHelper.SuccessResponse(
                     new AnswerResultDto
                     {
-                        IsCorrect = isCorrect,
+                        IsCorrect =
+                            isCorrect,
+
+                        IsSolved =
+                            isCorrect,
 
                         SelectedOptionId =
-                            selectedOption.Id,
+                            dto.SelectedOptionId,
 
                         CorrectOptionId =
                             correctOption.Id,
@@ -817,57 +900,20 @@ namespace MathWorldAPI.Controllers
                                 ? problem.Points
                                 : 0,
 
-                        CorrectOptionText =
-                            correctOption.LatexCode,
-
                         DetailedSolution =
                             language == "en"
                                 ? problem.DetailedSolutionEn
                                 : problem.DetailedSolutionAr,
 
-                        IsSolved = isCorrect,
-                        HasAttempted = true,
+                        CorrectOptionText =
+                            correctText,
 
                         YoutubeSolutionUrl =
                             problem.YoutubeSolutionUrl
-                    };
-
-                _logger.LogInformation(
-                    "User {UserId} submitted answer for problem {ProblemId}. Correct: {IsCorrect}",
-                    userId.Value,
-                    problem.Id,
-                    isCorrect);
-
-                return Ok(
-                    LanguageHelper.SuccessResponse(
-                        result,
-                        isCorrect
-                            ? "AnswerCorrect"
-                            : "AnswerWrong",
-                        language,
-                        args: isCorrect
-                            ? Array.Empty<object>()
-                            : new object[]
-                            {
-                                correctOption.LatexCode
-                            }));
-            }
-            catch (DbUpdateException exception)
-            {
-                await transaction.RollbackAsync();
-
-                _logger.LogWarning(
-                    exception,
-                    "Concurrent or duplicate submission detected for user {UserId} and problem {ProblemId}.",
-                    userId.Value,
-                    dto.ProblemId);
-
-                return Conflict(
-                    LanguageHelper.ErrorResponse<AnswerResultDto>(
-                        "ProblemAlreadyAttempted",
-                        language,
-                        StatusCodes.Status409Conflict));
-            }
+                    },
+                    messageKey,
+                    language,
+                    args: messageArgs));
         }
 
         /// <summary>
