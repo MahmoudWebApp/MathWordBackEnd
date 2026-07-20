@@ -1,4 +1,4 @@
-﻿// File: MathWorldAPI/Controllers/ProblemsController.cs
+// File: MathWorldAPI/Controllers/ProblemsController.cs
 
 using System.Security.Claims;
 using MathWorldAPI.Data;
@@ -15,7 +15,8 @@ namespace MathWorldAPI.Controllers
 {
     /// <summary>
     /// Controller for managing public problem access, problem search,
-    /// problem details, view counters, and answer submission.
+    /// problem details, view counters, answer submission, and attempt history.
+    /// متحكم الوصول للمسائل والبحث والتفاصيل والمشاهدات والإجابات وسجل المحاولات.
     /// </summary>
     [ApiController]
     [Route("api/[controller]")]
@@ -819,6 +820,38 @@ namespace MathWorldAPI.Controllers
                                 progress?.IsFavorite
                                 ?? false,
 
+                            AttemptCount =
+                                progress?.Attempts
+                                ?? 0,
+
+                            FirstAttemptCorrect =
+                                progress?.FirstAttemptCorrect,
+
+                            CanRetry =
+                                hasAttempted,
+
+                            MasteryStatus =
+                                progress?.MasteryStatus
+                                ?? MasteryStatuses.New,
+
+                            BestTimeSeconds =
+                                progress?.BestTimeSeconds,
+
+                            AverageTimeSeconds =
+                                GetAverageTimeSeconds(
+                                    progress),
+
+                            IsInErrorNotebook =
+                                progress?.IsInErrorNotebook
+                                ?? false,
+
+                            IsErrorNotebookArchived =
+                                progress?.IsErrorNotebookArchived
+                                ?? false,
+
+                            NextReviewAt =
+                                progress?.NextReviewAt,
+
                             // Never expose the solution before an answer attempt.
                             DetailedSolution =
                                 hasAttempted
@@ -907,10 +940,11 @@ namespace MathWorldAPI.Controllers
         }
 
         /// <summary>
-        /// Submits an answer for a problem.
-        /// Only one answer attempt is allowed per user and problem.
-        /// A favorite-only progress record may still be converted
-        /// into a real answer attempt.
+        /// Submits an official or training answer attempt for a problem.
+        /// The first attempt remains the official result while later attempts
+        /// are stored as training history without replacing the original result.
+        /// يرسل محاولة إجابة رسمية أو تدريبية لمسألة، مع الاحتفاظ بالمحاولة
+        /// الأولى كنتيجة رسمية وتخزين المحاولات اللاحقة كسجل تدريبي مستقل.
         /// </summary>
         [Authorize]
         [EnableRateLimiting("answers")]
@@ -982,27 +1016,6 @@ namespace MathWorldAPI.Controllers
                         StatusCodes.Status400BadRequest));
             }
 
-            var progress =
-                await _context.UserProgresses
-                    .FirstOrDefaultAsync(progressItem =>
-                        progressItem.UserId ==
-                        userId.Value &&
-                        progressItem.ProblemId ==
-                        dto.ProblemId);
-
-            // A record with Attempts greater than zero means
-            // the student has already submitted an answer.
-            if (progress != null &&
-                progress.Attempts > 0)
-            {
-                return BadRequest(
-                    LanguageHelper.ErrorResponse<
-                        AnswerResultDto>(
-                        "OnlyOneAttemptAllowed",
-                        language,
-                        StatusCodes.Status400BadRequest));
-            }
-
             var correctOption =
                 problem.Options
                     .FirstOrDefault(option =>
@@ -1023,11 +1036,26 @@ namespace MathWorldAPI.Controllers
                         StatusCodes.Status500InternalServerError));
             }
 
-            var isCorrect =
-                selectedOption.IsCorrect;
+            await using var transaction =
+                await _context.Database
+                    .BeginTransactionAsync();
+
+            var progress =
+                await _context.UserProgresses
+                    .FirstOrDefaultAsync(progressItem =>
+                        progressItem.UserId ==
+                        userId.Value &&
+                        progressItem.ProblemId ==
+                        dto.ProblemId);
 
             var now =
                 DateTime.UtcNow;
+
+            var timeSpentSeconds =
+                Math.Clamp(
+                    dto.TimeSpentSeconds,
+                    0,
+                    86400);
 
             // A favorite can create a progress record before
             // the student answers the problem.
@@ -1043,15 +1071,53 @@ namespace MathWorldAPI.Controllers
                             dto.ProblemId,
 
                         IsFavorite =
-                            false
+                            false,
+
+                        MasteryStatus =
+                            MasteryStatuses.New
                     };
 
                 _context.UserProgresses.Add(
                     progress);
             }
 
-            progress.IsSolved =
-                isCorrect;
+            var isOfficialAttempt =
+                progress.Attempts == 0;
+
+            var attemptNumber =
+                progress.Attempts + 1;
+
+            var isCorrect =
+                selectedOption.IsCorrect;
+
+            var wasSolved =
+                progress.IsSolved;
+
+            var wasInErrorNotebook =
+                progress.IsInErrorNotebook;
+
+            var isDueReview =
+                wasInErrorNotebook &&
+                (!progress.NextReviewAt.HasValue ||
+                 progress.NextReviewAt.Value <= now);
+
+            var pointsEarned =
+                isCorrect &&
+                !wasSolved
+                    ? problem.Points
+                    : 0;
+
+            if (isOfficialAttempt)
+            {
+                progress.FirstAttemptCorrect =
+                    isCorrect;
+
+                progress.FirstSelectedOptionId =
+                    dto.SelectedOptionId;
+
+                progress.FirstAttemptAt =
+                    now;
+            }
 
             progress.IsCorrect =
                 isCorrect;
@@ -1060,43 +1126,121 @@ namespace MathWorldAPI.Controllers
                 dto.SelectedOptionId;
 
             progress.Attempts =
-                1;
+                attemptNumber;
 
             progress.TimeSpentSeconds =
-                Math.Clamp(
-                    dto.TimeSpentSeconds,
-                    0,
-                    86400);
+                timeSpentSeconds;
 
-            progress.SolvedAt =
-                isCorrect
-                    ? now
-                    : null;
+            progress.TotalTimeSpentSeconds +=
+                timeSpentSeconds;
 
             progress.LastAttemptAt =
                 now;
 
             if (isCorrect)
             {
-                problem.SolvedCount++;
+                progress.CorrectAttempts++;
+
+                if (timeSpentSeconds > 0 &&
+                    (!progress.BestTimeSeconds.HasValue ||
+                     timeSpentSeconds <
+                     progress.BestTimeSeconds.Value))
+                {
+                    progress.BestTimeSeconds =
+                        timeSpentSeconds;
+                }
+
+                if (!wasSolved)
+                {
+                    progress.IsSolved =
+                        true;
+
+                    progress.SolvedAt =
+                        now;
+
+                    problem.SolvedCount++;
+                }
+            }
+            else
+            {
+                progress.IncorrectAttempts++;
             }
 
-            await _context.SaveChangesAsync();
+            UpdateLearningState(
+                progress,
+                isCorrect,
+                wasInErrorNotebook,
+                isDueReview,
+                now);
 
-            var correctText =
-                correctOption.LatexCode;
+            var attempt =
+                new ProblemAttempt
+                {
+                    UserId =
+                        userId.Value,
+
+                    ProblemId =
+                        problem.Id,
+
+                    SelectedOptionId =
+                        selectedOption.Id,
+
+                    SelectedOptionText =
+                        selectedOption.LatexCode,
+
+                    CorrectOptionId =
+                        correctOption.Id,
+
+                    CorrectOptionText =
+                        correctOption.LatexCode,
+
+                    IsCorrect =
+                        isCorrect,
+
+                    IsOfficial =
+                        isOfficialAttempt,
+
+                    AttemptNumber =
+                        attemptNumber,
+
+                    TimeSpentSeconds =
+                        timeSpentSeconds,
+
+                    PointsEarned =
+                        pointsEarned,
+
+                    UsedHint =
+                        false,
+
+                    StartedAt =
+                        now.AddSeconds(
+                            -timeSpentSeconds),
+
+                    SubmittedAt =
+                        now
+                };
+
+            _context.ProblemAttempts.Add(
+                attempt);
+
+            await _context.SaveChangesAsync();
+            await transaction.CommitAsync();
 
             var messageKey =
-                isCorrect
-                    ? "AnswerCorrect"
-                    : "AnswerWrong";
+                isOfficialAttempt
+                    ? isCorrect
+                        ? "AnswerCorrect"
+                        : "AnswerWrong"
+                    : isCorrect
+                        ? "TrainingAnswerCorrect"
+                        : "TrainingAnswerWrong";
 
             var messageArgs =
                 isCorrect
                     ? Array.Empty<object>()
                     : new object[]
                     {
-                        correctText
+                        correctOption.LatexCode
                     };
 
             return Ok(
@@ -1107,18 +1251,16 @@ namespace MathWorldAPI.Controllers
                             isCorrect,
 
                         IsSolved =
-                            isCorrect,
+                            progress.IsSolved,
 
                         SelectedOptionId =
-                            dto.SelectedOptionId,
+                            selectedOption.Id,
 
                         CorrectOptionId =
                             correctOption.Id,
 
                         PointsEarned =
-                            isCorrect
-                                ? problem.Points
-                                : 0,
+                            pointsEarned,
 
                         DetailedSolution =
                             language == "en"
@@ -1126,14 +1268,308 @@ namespace MathWorldAPI.Controllers
                                 : problem.DetailedSolutionAr,
 
                         CorrectOptionText =
-                            correctText,
+                            correctOption.LatexCode,
 
                         YoutubeSolutionUrl =
-                            problem.YoutubeSolutionUrl
+                            problem.YoutubeSolutionUrl,
+
+                        AttemptId =
+                            attempt.Id,
+
+                        AttemptNumber =
+                            attempt.AttemptNumber,
+
+                        IsOfficialAttempt =
+                            attempt.IsOfficial,
+
+                        FirstAttemptCorrect =
+                            progress.FirstAttemptCorrect
+                            ?? false,
+
+                        AttemptTimeSeconds =
+                            attempt.TimeSpentSeconds,
+
+                        BestTimeSeconds =
+                            progress.BestTimeSeconds,
+
+                        TotalAttempts =
+                            progress.Attempts,
+
+                        CanRetry =
+                            true,
+
+                        MasteryStatus =
+                            progress.MasteryStatus,
+
+                        IsInErrorNotebook =
+                            progress.IsInErrorNotebook,
+
+                        NextReviewAt =
+                            progress.NextReviewAt
                     },
                     messageKey,
                     language,
                     args: messageArgs));
+        }
+
+        /// <summary>
+        /// Gets the authenticated student's complete attempt history for a problem.
+        /// يعيد سجل محاولات الطالب المسجل بالكامل لمسألة محددة.
+        /// </summary>
+        [Authorize]
+        [HttpGet("{id:int}/attempts")]
+        [ProducesResponseType(
+            typeof(ApiResponse<ProblemAttemptHistoryDto>),
+            StatusCodes.Status200OK)]
+        [ProducesResponseType(
+            typeof(ApiResponse<object>),
+            StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(
+            typeof(ApiResponse<object>),
+            StatusCodes.Status404NotFound)]
+        public async Task<
+            ActionResult<ApiResponse<ProblemAttemptHistoryDto>>>
+            GetAttemptHistory(
+                int id)
+        {
+            var userId =
+                GetUserId();
+
+            var language =
+                LanguageHelper.GetLanguageFromRequest(
+                    Request);
+
+            if (!userId.HasValue)
+            {
+                return Unauthorized(
+                    LanguageHelper.ErrorResponse<
+                        ProblemAttemptHistoryDto>(
+                        "Unauthorized",
+                        language,
+                        StatusCodes.Status401Unauthorized));
+            }
+
+            var problemExists =
+                await _context.Problems
+                    .AsNoTracking()
+                    .AnyAsync(problem =>
+                        problem.Id == id);
+
+            if (!problemExists)
+            {
+                return NotFound(
+                    LanguageHelper.ErrorResponse<
+                        ProblemAttemptHistoryDto>(
+                        "ProblemNotFound",
+                        language,
+                        StatusCodes.Status404NotFound));
+            }
+
+            var progress =
+                await _context.UserProgresses
+                    .AsNoTracking()
+                    .FirstOrDefaultAsync(progressItem =>
+                        progressItem.UserId ==
+                        userId.Value &&
+                        progressItem.ProblemId ==
+                        id);
+
+            var attempts =
+                await _context.ProblemAttempts
+                    .AsNoTracking()
+                    .Where(attempt =>
+                        attempt.UserId ==
+                        userId.Value &&
+                        attempt.ProblemId ==
+                        id)
+                    .OrderBy(attempt =>
+                        attempt.AttemptNumber)
+                    .Select(attempt =>
+                        new ProblemAttemptDto
+                        {
+                            Id =
+                                attempt.Id,
+
+                            AttemptNumber =
+                                attempt.AttemptNumber,
+
+                            IsOfficial =
+                                attempt.IsOfficial,
+
+                            SelectedOptionId =
+                                attempt.SelectedOptionId,
+
+                            SelectedOptionText =
+                                attempt.SelectedOptionText,
+
+                            CorrectOptionId =
+                                attempt.CorrectOptionId,
+
+                            CorrectOptionText =
+                                attempt.CorrectOptionText,
+
+                            IsCorrect =
+                                attempt.IsCorrect,
+
+                            TimeSpentSeconds =
+                                attempt.TimeSpentSeconds,
+
+                            PointsEarned =
+                                attempt.PointsEarned,
+
+                            UsedHint =
+                                attempt.UsedHint,
+
+                            StartedAt =
+                                attempt.StartedAt,
+
+                            SubmittedAt =
+                                attempt.SubmittedAt
+                        })
+                    .ToListAsync();
+
+            var response =
+                new ProblemAttemptHistoryDto
+                {
+                    ProblemId =
+                        id,
+
+                    TotalAttempts =
+                        progress?.Attempts
+                        ?? attempts.Count,
+
+                    FirstAttemptCorrect =
+                        progress?.FirstAttemptCorrect,
+
+                    IsSolved =
+                        progress?.IsSolved
+                        ?? false,
+
+                    BestTimeSeconds =
+                        progress?.BestTimeSeconds,
+
+                    AverageTimeSeconds =
+                        GetAverageTimeSeconds(
+                            progress),
+
+                    MasteryStatus =
+                        progress?.MasteryStatus
+                        ?? MasteryStatuses.New,
+
+                    IsInErrorNotebook =
+                        progress?.IsInErrorNotebook
+                        ?? false,
+
+                    IsErrorNotebookArchived =
+                        progress?.IsErrorNotebookArchived
+                        ?? false,
+
+                    NextReviewAt =
+                        progress?.NextReviewAt,
+
+                    Attempts =
+                        attempts
+                };
+
+            return Ok(
+                LanguageHelper.SuccessResponse(
+                    response,
+                    "AttemptHistoryRetrieved",
+                    language));
+        }
+
+        /// <summary>
+        /// Updates the learning and spaced-review state after an attempt.
+        /// يحدث حالة التعلم والمراجعة المتباعدة بعد تسجيل محاولة.
+        /// </summary>
+        private static void UpdateLearningState(
+            UserProgress progress,
+            bool isCorrect,
+            bool wasInErrorNotebook,
+            bool isDueReview,
+            DateTime now)
+        {
+            if (!isCorrect)
+            {
+                progress.IsInErrorNotebook =
+                    true;
+
+                progress.IsErrorNotebookArchived =
+                    false;
+
+                progress.MasteryStatus =
+                    MasteryStatuses.NeedsReview;
+
+                progress.ConsecutiveCorrectReviews =
+                    0;
+
+                progress.NextReviewAt =
+                    now.AddDays(1);
+
+                return;
+            }
+
+            if (!wasInErrorNotebook)
+            {
+                progress.MasteryStatus =
+                    progress.MasteryStatus ==
+                    MasteryStatuses.Mastered
+                        ? MasteryStatuses.Mastered
+                        : MasteryStatuses.Practicing;
+
+                return;
+            }
+
+            progress.MasteryStatus =
+                MasteryStatuses.Practicing;
+
+            if (!isDueReview)
+            {
+                return;
+            }
+
+            progress.ConsecutiveCorrectReviews++;
+
+            if (progress.ConsecutiveCorrectReviews >= 3)
+            {
+                progress.MasteryStatus =
+                    MasteryStatuses.Mastered;
+
+                progress.IsInErrorNotebook =
+                    false;
+
+                progress.IsErrorNotebookArchived =
+                    false;
+
+                progress.NextReviewAt =
+                    null;
+
+                return;
+            }
+
+            progress.NextReviewAt =
+                progress.ConsecutiveCorrectReviews == 1
+                    ? now.AddDays(3)
+                    : now.AddDays(7);
+        }
+
+        /// <summary>
+        /// Calculates the rounded average solving time for a progress record.
+        /// يحسب متوسط وقت الحل المقرب لسجل تقدم محدد.
+        /// </summary>
+        private static int? GetAverageTimeSeconds(
+            UserProgress? progress)
+        {
+            if (progress == null ||
+                progress.Attempts <= 0)
+            {
+                return null;
+            }
+
+            return (int)Math.Round(
+                progress.TotalTimeSpentSeconds /
+                (double)progress.Attempts,
+                MidpointRounding.AwayFromZero);
         }
 
         /// <summary>

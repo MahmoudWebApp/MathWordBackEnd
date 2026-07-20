@@ -1,4 +1,4 @@
-﻿// File: MathWorldAPI/Helpers/LanguageHelper.cs
+// File: MathWorldAPI/Helpers/LanguageHelper.cs
 
 using System.Globalization;
 
@@ -131,6 +131,55 @@ namespace MathWorldAPI.Helpers
                 (
                     "❌ إجابتك غير صحيحة. الإجابة الصحيحة هي: {0}",
                     "❌ Your answer is incorrect. The correct answer is: {0}"
+                )
+            },
+            {
+                "TrainingAnswerCorrect",
+                (
+                    "✅ إجابتك التدريبية صحيحة وتم حفظ تقدمك",
+                    "✅ Your training answer is correct and your progress was saved"
+                )
+            },
+            {
+                "TrainingAnswerWrong",
+                (
+                    "❌ إجابتك التدريبية غير صحيحة. الإجابة الصحيحة هي: {0}",
+                    "❌ Your training answer is incorrect. The correct answer is: {0}"
+                )
+            },
+            {
+                "AttemptHistoryRetrieved",
+                (
+                    "تم جلب سجل المحاولات بنجاح",
+                    "Attempt history retrieved successfully"
+                )
+            },
+            {
+                "ErrorNotebookRetrieved",
+                (
+                    "تم جلب دفتر الأخطاء بنجاح",
+                    "Error notebook retrieved successfully"
+                )
+            },
+            {
+                "ProblemArchivedFromErrorNotebook",
+                (
+                    "تمت أرشفة المسألة من دفتر الأخطاء",
+                    "Problem archived from the error notebook"
+                )
+            },
+            {
+                "ProblemRestoredToErrorNotebook",
+                (
+                    "تمت استعادة المسألة إلى دفتر الأخطاء",
+                    "Problem restored to the error notebook"
+                )
+            },
+            {
+                "ProblemNotInErrorNotebook",
+                (
+                    "المسألة غير موجودة في دفتر الأخطاء",
+                    "Problem is not in the error notebook"
                 )
             },
             {
@@ -331,6 +380,13 @@ namespace MathWorldAPI.Helpers
                 (
                     "تمت العملية بنجاح",
                     "Operation completed successfully"
+                )
+            },
+            {
+                "UnexpectedError",
+                (
+                    "حدث خطأ غير متوقع",
+                    "An unexpected error occurred"
                 )
             },
             {

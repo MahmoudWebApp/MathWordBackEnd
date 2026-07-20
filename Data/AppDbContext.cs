@@ -1,4 +1,4 @@
-﻿// File: MathWorldAPI/Data/AppDbContext.cs
+// File: MathWorldAPI/Data/AppDbContext.cs
 
 using MathWorldAPI.Models;
 using Microsoft.EntityFrameworkCore;
@@ -50,6 +50,13 @@ namespace MathWorldAPI.Data
         /// </summary>
         public DbSet<UserProgress> UserProgresses =>
             Set<UserProgress>();
+
+        /// <summary>
+        /// Immutable problem attempt history table.
+        /// جدول سجل محاولات المسائل غير القابل للاستبدال.
+        /// </summary>
+        public DbSet<ProblemAttempt> ProblemAttempts =>
+            Set<ProblemAttempt>();
 
         /// <summary>
         /// Social login providers table.
@@ -139,6 +146,32 @@ namespace MathWorldAPI.Data
                 .HasForeignKey(progress => progress.ProblemId)
                 .OnDelete(DeleteBehavior.Cascade);
 
+            modelBuilder.Entity<UserProgress>()
+                .Property(progress => progress.MasteryStatus)
+                .HasMaxLength(32)
+                .HasDefaultValue(MasteryStatuses.New)
+                .IsRequired();
+
+            modelBuilder.Entity<ProblemAttempt>()
+                .HasOne(attempt => attempt.User)
+                .WithMany(user => user.ProblemAttempts)
+                .HasForeignKey(attempt => attempt.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<ProblemAttempt>()
+                .HasOne(attempt => attempt.Problem)
+                .WithMany(problem => problem.ProblemAttempts)
+                .HasForeignKey(attempt => attempt.ProblemId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<ProblemAttempt>()
+                .Property(attempt => attempt.SelectedOptionText)
+                .IsRequired();
+
+            modelBuilder.Entity<ProblemAttempt>()
+                .Property(attempt => attempt.CorrectOptionText)
+                .IsRequired();
+
             modelBuilder.Entity<SocialLogin>()
                 .HasOne(login => login.User)
                 .WithMany(user => user.SocialLogins)
@@ -156,6 +189,37 @@ namespace MathWorldAPI.Data
                     progress.ProblemId
                 })
                 .IsUnique();
+
+            modelBuilder.Entity<UserProgress>()
+                .HasIndex(progress => new
+                {
+                    progress.UserId,
+                    progress.IsInErrorNotebook,
+                    progress.IsErrorNotebookArchived
+                });
+
+            modelBuilder.Entity<UserProgress>()
+                .HasIndex(progress => new
+                {
+                    progress.UserId,
+                    progress.NextReviewAt
+                });
+
+            modelBuilder.Entity<ProblemAttempt>()
+                .HasIndex(attempt => new
+                {
+                    attempt.UserId,
+                    attempt.ProblemId,
+                    attempt.AttemptNumber
+                })
+                .IsUnique();
+
+            modelBuilder.Entity<ProblemAttempt>()
+                .HasIndex(attempt => new
+                {
+                    attempt.UserId,
+                    attempt.SubmittedAt
+                });
 
             modelBuilder.Entity<QuestionOption>()
                 .HasIndex(option => new

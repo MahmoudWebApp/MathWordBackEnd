@@ -1,4 +1,4 @@
-﻿// File: MathWorldAPI/DTOs/ProblemDto.cs
+// File: MathWorldAPI/DTOs/ProblemDto.cs
 
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -131,6 +131,7 @@ namespace MathWorldAPI.DTOs
     /// <summary>
     /// Represents complete problem information returned
     /// to an authenticated student.
+    /// يمثل معلومات المسألة الكاملة التي يتم إرجاعها للطالب المسجل.
     /// </summary>
     public class ProblemForStudentDto
     {
@@ -224,6 +225,61 @@ namespace MathWorldAPI.DTOs
         public bool IsFavorite { get; set; }
 
         /// <summary>
+        /// Gets or sets the total number of submitted attempts.
+        /// يعيد أو يحدد العدد الإجمالي للمحاولات المرسلة.
+        /// </summary>
+        public int AttemptCount { get; set; }
+
+        /// <summary>
+        /// Gets or sets whether the official first attempt was correct.
+        /// يعيد أو يحدد ما إذا كانت المحاولة الرسمية الأولى صحيحة.
+        /// </summary>
+        public bool? FirstAttemptCorrect { get; set; }
+
+        /// <summary>
+        /// Gets or sets whether another training attempt is allowed.
+        /// يعيد أو يحدد ما إذا كانت محاولة تدريبية أخرى مسموحة.
+        /// </summary>
+        public bool CanRetry { get; set; }
+
+        /// <summary>
+        /// Gets or sets the current mastery status.
+        /// يعيد أو يحدد حالة الإتقان الحالية.
+        /// </summary>
+        public string MasteryStatus { get; set; } =
+            string.Empty;
+
+        /// <summary>
+        /// Gets or sets the best correct solving time in seconds.
+        /// يعيد أو يحدد أفضل وقت حل صحيح بالثواني.
+        /// </summary>
+        public int? BestTimeSeconds { get; set; }
+
+        /// <summary>
+        /// Gets or sets the average solving time in seconds.
+        /// يعيد أو يحدد متوسط وقت الحل بالثواني.
+        /// </summary>
+        public int? AverageTimeSeconds { get; set; }
+
+        /// <summary>
+        /// Gets or sets whether the problem is currently in the error notebook.
+        /// يعيد أو يحدد ما إذا كانت المسألة موجودة حاليًا في دفتر الأخطاء.
+        /// </summary>
+        public bool IsInErrorNotebook { get; set; }
+
+        /// <summary>
+        /// Gets or sets whether the problem is archived from the error notebook.
+        /// يعيد أو يحدد ما إذا كانت المسألة مؤرشفة من دفتر الأخطاء.
+        /// </summary>
+        public bool IsErrorNotebookArchived { get; set; }
+
+        /// <summary>
+        /// Gets or sets the next recommended review date.
+        /// يعيد أو يحدد تاريخ المراجعة التالية المقترحة.
+        /// </summary>
+        public DateTime? NextReviewAt { get; set; }
+
+        /// <summary>
         /// Gets or sets the localized detailed solution.
         /// This value is hidden until the student submits an answer.
         /// </summary>
@@ -303,7 +359,8 @@ namespace MathWorldAPI.DTOs
     }
 
     /// <summary>
-    /// DTO for submitting an answer to a math problem.
+    /// DTO for submitting an official or training answer to a math problem.
+    /// كائن نقل البيانات لإرسال إجابة رسمية أو تدريبية لمسألة رياضية.
     /// </summary>
     public class SubmitAnswerDto
     {
@@ -335,6 +392,7 @@ namespace MathWorldAPI.DTOs
     /// <summary>
     /// Represents the result returned after validating
     /// a student's selected answer.
+    /// يمثل النتيجة التي يتم إرجاعها بعد التحقق من إجابة الطالب المحددة.
     /// </summary>
     public class AnswerResultDto
     {
@@ -380,6 +438,157 @@ namespace MathWorldAPI.DTOs
         /// Gets or sets the optional video solution URL.
         /// </summary>
         public string? YoutubeSolutionUrl { get; set; }
+
+        /// <summary>
+        /// Gets or sets the saved attempt record ID.
+        /// يعيد أو يحدد معرف سجل المحاولة المحفوظة.
+        /// </summary>
+        public int AttemptId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the sequential attempt number.
+        /// يعيد أو يحدد الرقم التسلسلي للمحاولة.
+        /// </summary>
+        public int AttemptNumber { get; set; }
+
+        /// <summary>
+        /// Gets or sets whether this is the official first attempt.
+        /// يعيد أو يحدد ما إذا كانت هذه هي المحاولة الرسمية الأولى.
+        /// </summary>
+        public bool IsOfficialAttempt { get; set; }
+
+        /// <summary>
+        /// Gets or sets whether the official first attempt was correct.
+        /// يعيد أو يحدد ما إذا كانت المحاولة الرسمية الأولى صحيحة.
+        /// </summary>
+        public bool FirstAttemptCorrect { get; set; }
+
+        /// <summary>
+        /// Gets or sets the duration of this attempt in seconds.
+        /// يعيد أو يحدد مدة هذه المحاولة بالثواني.
+        /// </summary>
+        public int AttemptTimeSeconds { get; set; }
+
+        /// <summary>
+        /// Gets or sets the best correct solving time in seconds.
+        /// يعيد أو يحدد أفضل وقت حل صحيح بالثواني.
+        /// </summary>
+        public int? BestTimeSeconds { get; set; }
+
+        /// <summary>
+        /// Gets or sets the total number of attempts.
+        /// يعيد أو يحدد العدد الإجمالي للمحاولات.
+        /// </summary>
+        public int TotalAttempts { get; set; }
+
+        /// <summary>
+        /// Gets or sets whether the student may retry the problem.
+        /// يعيد أو يحدد ما إذا كان بإمكان الطالب إعادة حل المسألة.
+        /// </summary>
+        public bool CanRetry { get; set; }
+
+        /// <summary>
+        /// Gets or sets the current mastery status.
+        /// يعيد أو يحدد حالة الإتقان الحالية.
+        /// </summary>
+        public string MasteryStatus { get; set; } =
+            string.Empty;
+
+        /// <summary>
+        /// Gets or sets whether the problem is currently in the error notebook.
+        /// يعيد أو يحدد ما إذا كانت المسألة موجودة حاليًا في دفتر الأخطاء.
+        /// </summary>
+        public bool IsInErrorNotebook { get; set; }
+
+        /// <summary>
+        /// Gets or sets the next recommended review date.
+        /// يعيد أو يحدد تاريخ المراجعة التالية المقترحة.
+        /// </summary>
+        public DateTime? NextReviewAt { get; set; }
+    }
+
+    /// <summary>
+    /// Represents one stored problem attempt returned to the student.
+    /// يمثل محاولة محفوظة لمسألة يتم إرجاعها للطالب.
+    /// </summary>
+    public class ProblemAttemptDto
+    {
+        public int Id { get; set; }
+        public int AttemptNumber { get; set; }
+        public bool IsOfficial { get; set; }
+        public int SelectedOptionId { get; set; }
+        public string SelectedOptionText { get; set; } =
+            string.Empty;
+        public int CorrectOptionId { get; set; }
+        public string CorrectOptionText { get; set; } =
+            string.Empty;
+        public bool IsCorrect { get; set; }
+        public int TimeSpentSeconds { get; set; }
+        public int PointsEarned { get; set; }
+        public bool UsedHint { get; set; }
+        public DateTime StartedAt { get; set; }
+        public DateTime SubmittedAt { get; set; }
+    }
+
+    /// <summary>
+    /// Represents a problem attempt history with its learning summary.
+    /// يمثل سجل محاولات المسألة مع ملخص التعلم الخاص بها.
+    /// </summary>
+    public class ProblemAttemptHistoryDto
+    {
+        public int ProblemId { get; set; }
+        public int TotalAttempts { get; set; }
+        public bool? FirstAttemptCorrect { get; set; }
+        public bool IsSolved { get; set; }
+        public int? BestTimeSeconds { get; set; }
+        public int? AverageTimeSeconds { get; set; }
+        public string MasteryStatus { get; set; } =
+            string.Empty;
+        public bool IsInErrorNotebook { get; set; }
+        public bool IsErrorNotebookArchived { get; set; }
+        public DateTime? NextReviewAt { get; set; }
+        public List<ProblemAttemptDto> Attempts { get; set; } =
+            new();
+    }
+
+    /// <summary>
+    /// Represents one problem displayed in the student's error notebook.
+    /// يمثل مسألة واحدة معروضة في دفتر أخطاء الطالب.
+    /// </summary>
+    public class ErrorNotebookProblemDto
+    {
+        public int Id { get; set; }
+        public string Title { get; set; } = string.Empty;
+        public int StageId { get; set; }
+        public string StageName { get; set; } = string.Empty;
+        public int CategoryId { get; set; }
+        public string CategoryName { get; set; } = string.Empty;
+        public int AttemptCount { get; set; }
+        public int IncorrectAttempts { get; set; }
+        public int CorrectAttempts { get; set; }
+        public string MasteryStatus { get; set; } = string.Empty;
+        public bool IsArchived { get; set; }
+        public DateTime? NextReviewAt { get; set; }
+        public DateTime LastAttemptAt { get; set; }
+    }
+
+    /// <summary>
+    /// DTO for archiving or restoring a problem in the error notebook.
+    /// كائن نقل البيانات لأرشفة مسألة أو استعادتها في دفتر الأخطاء.
+    /// </summary>
+    public class SetErrorNotebookArchiveDto
+    {
+        public bool IsArchived { get; set; }
+    }
+
+    /// <summary>
+    /// Represents the result of an error notebook archive update.
+    /// يمثل نتيجة تحديث أرشفة مسألة في دفتر الأخطاء.
+    /// </summary>
+    public class ErrorNotebookArchiveResultDto
+    {
+        public int ProblemId { get; set; }
+        public bool IsArchived { get; set; }
     }
 
     /// <summary>

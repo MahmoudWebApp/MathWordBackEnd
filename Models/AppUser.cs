@@ -15,6 +15,10 @@ namespace MathWorldAPI.Models
 
         [JsonIgnore]
         public List<UserProgress> UserProgresses { get; set; } = new();
+
+        [JsonIgnore]
+        public List<ProblemAttempt> ProblemAttempts { get; set; } = new();
+
         [JsonIgnore]
         public List<SocialLogin> SocialLogins { get; set; } = new();
 

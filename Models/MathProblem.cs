@@ -26,5 +26,6 @@ namespace MathWorldAPI.Models
         public Category Category { get; set; } = null!;
         public List<QuestionOption> Options { get; set; } = new();
         public List<UserProgress> UserProgresses { get; set; } = new();
+        public List<ProblemAttempt> ProblemAttempts { get; set; } = new();
     }
 }

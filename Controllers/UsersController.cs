@@ -1,4 +1,4 @@
-﻿// File: MathWorldAPI/Controllers/UsersController.cs
+// File: MathWorldAPI/Controllers/UsersController.cs
 
 using System.Data;
 using System.Security.Claims;
@@ -14,7 +14,8 @@ namespace MathWorldAPI.Controllers
 {
     /// <summary>
     /// Controller for authenticated user profile, dashboard,
-    /// favorites, solved problems, and favorite status operations.
+    /// favorites, solved problems, error notebook, and favorite status operations.
+    /// متحكم ملف المستخدم ولوحة المعلومات والمفضلة والمسائل المحلولة ودفتر الأخطاء.
     /// </summary>
     [ApiController]
     [Route("api/[controller]")]
@@ -90,10 +91,17 @@ namespace MathWorldAPI.Controllers
                         progress.UserId == userId &&
                         progress.Attempts > 0);
 
+            // The success rate uses only official first attempts.
+            var officialCorrectCount =
+                await _context.UserProgresses
+                    .CountAsync(progress =>
+                        progress.UserId == userId &&
+                        progress.FirstAttemptCorrect == true);
+
             var successRate =
                 totalAttempted > 0
                     ? (int)Math.Round(
-                        solvedCount /
+                        officialCorrectCount /
                         (double)totalAttempted *
                         100)
                     : 0;
@@ -552,6 +560,170 @@ namespace MathWorldAPI.Controllers
                 LanguageHelper.SuccessResponse(
                     solved,
                     "Success",
+                    language));
+        }
+
+        /// <summary>
+        /// Gets the current student's error notebook problems.
+        /// يعيد مسائل دفتر الأخطاء الخاصة بالطالب الحالي.
+        /// </summary>
+        [HttpGet("error-notebook")]
+        [ProducesResponseType(
+            typeof(ApiResponse<List<ErrorNotebookProblemDto>>),
+            StatusCodes.Status200OK)]
+        public async Task<
+            ActionResult<ApiResponse<List<ErrorNotebookProblemDto>>>>
+            GetErrorNotebook(
+                [FromQuery] bool includeArchived = false)
+        {
+            var userId =
+                GetUserId();
+
+            var language =
+                LanguageHelper.GetLanguageFromRequest(
+                    Request);
+
+            var query =
+                _context.UserProgresses
+                    .AsNoTracking()
+                    .Where(progress =>
+                        progress.UserId == userId &&
+                        progress.IsInErrorNotebook);
+
+            if (!includeArchived)
+            {
+                query =
+                    query.Where(progress =>
+                        !progress.IsErrorNotebookArchived);
+            }
+
+            var problems =
+                await query
+                    .OrderBy(progress =>
+                        progress.NextReviewAt == null)
+                    .ThenBy(progress =>
+                        progress.NextReviewAt)
+                    .ThenByDescending(progress =>
+                        progress.LastAttemptAt)
+                    .Select(progress =>
+                        new ErrorNotebookProblemDto
+                        {
+                            Id =
+                                progress.Problem.Id,
+
+                            Title =
+                                language == "en"
+                                    ? progress.Problem.TitleEn
+                                    : progress.Problem.TitleAr,
+
+                            StageId =
+                                progress.Problem.StageId,
+
+                            StageName =
+                                language == "en"
+                                    ? progress.Problem.Stage.NameEn
+                                    : progress.Problem.Stage.NameAr,
+
+                            CategoryId =
+                                progress.Problem.CategoryId,
+
+                            CategoryName =
+                                language == "en"
+                                    ? progress.Problem.Category.NameEn
+                                    : progress.Problem.Category.NameAr,
+
+                            AttemptCount =
+                                progress.Attempts,
+
+                            IncorrectAttempts =
+                                progress.IncorrectAttempts,
+
+                            CorrectAttempts =
+                                progress.CorrectAttempts,
+
+                            MasteryStatus =
+                                progress.MasteryStatus,
+
+                            IsArchived =
+                                progress.IsErrorNotebookArchived,
+
+                            NextReviewAt =
+                                progress.NextReviewAt,
+
+                            LastAttemptAt =
+                                progress.LastAttemptAt
+                        })
+                    .ToListAsync();
+
+            return Ok(
+                LanguageHelper.SuccessResponse(
+                    problems,
+                    "ErrorNotebookRetrieved",
+                    language));
+        }
+
+        /// <summary>
+        /// Archives or restores a problem in the current student's error notebook.
+        /// يؤرشف أو يستعيد مسألة في دفتر أخطاء الطالب الحالي.
+        /// </summary>
+        [HttpPut("error-notebook/{problemId:int}/archive")]
+        [ProducesResponseType(
+            typeof(ApiResponse<ErrorNotebookArchiveResultDto>),
+            StatusCodes.Status200OK)]
+        [ProducesResponseType(
+            typeof(ApiResponse<object>),
+            StatusCodes.Status404NotFound)]
+        public async Task<
+            ActionResult<ApiResponse<ErrorNotebookArchiveResultDto>>>
+            SetErrorNotebookArchive(
+                int problemId,
+                [FromBody] SetErrorNotebookArchiveDto dto)
+        {
+            var userId =
+                GetUserId();
+
+            var language =
+                LanguageHelper.GetLanguageFromRequest(
+                    Request);
+
+            var progress =
+                await _context.UserProgresses
+                    .FirstOrDefaultAsync(progressItem =>
+                        progressItem.UserId == userId &&
+                        progressItem.ProblemId == problemId &&
+                        progressItem.IsInErrorNotebook);
+
+            if (progress == null)
+            {
+                return NotFound(
+                    LanguageHelper.ErrorResponse<
+                        ErrorNotebookArchiveResultDto>(
+                        "ProblemNotInErrorNotebook",
+                        language,
+                        StatusCodes.Status404NotFound));
+            }
+
+            progress.IsErrorNotebookArchived =
+                dto.IsArchived;
+
+            await _context.SaveChangesAsync();
+
+            var messageKey =
+                dto.IsArchived
+                    ? "ProblemArchivedFromErrorNotebook"
+                    : "ProblemRestoredToErrorNotebook";
+
+            return Ok(
+                LanguageHelper.SuccessResponse(
+                    new ErrorNotebookArchiveResultDto
+                    {
+                        ProblemId =
+                            problemId,
+
+                        IsArchived =
+                            progress.IsErrorNotebookArchived
+                    },
+                    messageKey,
                     language));
         }
 
