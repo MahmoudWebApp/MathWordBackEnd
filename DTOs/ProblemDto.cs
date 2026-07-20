@@ -412,9 +412,10 @@ namespace MathWorldAPI.DTOs
         public int SelectedOptionId { get; set; }
 
         /// <summary>
-        /// Gets or sets the correct option ID.
+        /// Gets or sets the correct option ID after a correct answer.
+        /// يعيد أو يحدد معرف الخيار الصحيح بعد الإجابة الصحيحة.
         /// </summary>
-        public int CorrectOptionId { get; set; }
+        public int? CorrectOptionId { get; set; }
 
         /// <summary>
         /// Gets or sets the points earned from this answer.
@@ -422,17 +423,17 @@ namespace MathWorldAPI.DTOs
         public int PointsEarned { get; set; }
 
         /// <summary>
-        /// Gets or sets the localized detailed solution.
+        /// Gets or sets the localized detailed solution after a correct answer.
+        /// يعيد أو يحدد الحل المفصل المترجم بعد الإجابة الصحيحة.
         /// </summary>
-        public string DetailedSolution { get; set; } =
-            string.Empty;
+        public string? DetailedSolution { get; set; }
 
         /// <summary>
-        /// Gets or sets the mathematical content
-        /// of the correct option.
+        /// Gets or sets the mathematical content of the correct option
+        /// after a correct answer.
+        /// يعيد أو يحدد محتوى الخيار الصحيح بعد الإجابة الصحيحة.
         /// </summary>
-        public string CorrectOptionText { get; set; } =
-            string.Empty;
+        public string? CorrectOptionText { get; set; }
 
         /// <summary>
         /// Gets or sets the optional video solution URL.
@@ -519,9 +520,8 @@ namespace MathWorldAPI.DTOs
         public int SelectedOptionId { get; set; }
         public string SelectedOptionText { get; set; } =
             string.Empty;
-        public int CorrectOptionId { get; set; }
-        public string CorrectOptionText { get; set; } =
-            string.Empty;
+        public int? CorrectOptionId { get; set; }
+        public string? CorrectOptionText { get; set; }
         public bool IsCorrect { get; set; }
         public int TimeSpentSeconds { get; set; }
         public int PointsEarned { get; set; }

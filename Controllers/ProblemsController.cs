@@ -746,8 +746,13 @@ namespace MathWorldAPI.Controllers
                     progress != null &&
                     progress.Attempts > 0;
 
+                // The correct answer and solution remain hidden after an incorrect attempt.
+                var canRevealAnswer =
+                    hasAttempted &&
+                    progress!.IsCorrect;
+
                 var correctOptionId =
-                    hasAttempted
+                    canRevealAnswer
                         ? problem.Options
                             .FirstOrDefault(option =>
                                 option.IsCorrect)
@@ -852,16 +857,16 @@ namespace MathWorldAPI.Controllers
                             NextReviewAt =
                                 progress?.NextReviewAt,
 
-                            // Never expose the solution before an answer attempt.
+                            // Reveal the solution only after the latest answer is correct.
                             DetailedSolution =
-                                hasAttempted
+                                canRevealAnswer
                                     ? language == "en"
                                         ? problem.DetailedSolutionEn
                                         : problem.DetailedSolutionAr
                                     : null,
 
                             YoutubeSolutionUrl =
-                                hasAttempted
+                                canRevealAnswer
                                     ? problem.YoutubeSolutionUrl
                                     : null,
 
@@ -1236,12 +1241,7 @@ namespace MathWorldAPI.Controllers
                         : "TrainingAnswerWrong";
 
             var messageArgs =
-                isCorrect
-                    ? Array.Empty<object>()
-                    : new object[]
-                    {
-                        correctOption.LatexCode
-                    };
+                Array.Empty<object>();
 
             return Ok(
                 LanguageHelper.SuccessResponse(
@@ -1257,21 +1257,29 @@ namespace MathWorldAPI.Controllers
                             selectedOption.Id,
 
                         CorrectOptionId =
-                            correctOption.Id,
+                            isCorrect
+                                ? correctOption.Id
+                                : null,
 
                         PointsEarned =
                             pointsEarned,
 
                         DetailedSolution =
-                            language == "en"
-                                ? problem.DetailedSolutionEn
-                                : problem.DetailedSolutionAr,
+                            isCorrect
+                                ? language == "en"
+                                    ? problem.DetailedSolutionEn
+                                    : problem.DetailedSolutionAr
+                                : null,
 
                         CorrectOptionText =
-                            correctOption.LatexCode,
+                            isCorrect
+                                ? correctOption.LatexCode
+                                : null,
 
                         YoutubeSolutionUrl =
-                            problem.YoutubeSolutionUrl,
+                            isCorrect
+                                ? problem.YoutubeSolutionUrl
+                                : null,
 
                         AttemptId =
                             attempt.Id,
@@ -1403,10 +1411,14 @@ namespace MathWorldAPI.Controllers
                                 attempt.SelectedOptionText,
 
                             CorrectOptionId =
-                                attempt.CorrectOptionId,
+                                attempt.IsCorrect
+                                    ? attempt.CorrectOptionId
+                                    : null,
 
                             CorrectOptionText =
-                                attempt.CorrectOptionText,
+                                attempt.IsCorrect
+                                    ? attempt.CorrectOptionText
+                                    : null,
 
                             IsCorrect =
                                 attempt.IsCorrect,

@@ -129,8 +129,8 @@ namespace MathWorldAPI.Helpers
             {
                 "AnswerWrong",
                 (
-                    "❌ إجابتك غير صحيحة. الإجابة الصحيحة هي: {0}",
-                    "❌ Your answer is incorrect. The correct answer is: {0}"
+                    "❌ إجابتك غير صحيحة. حاول مرة أخرى للاستفادة من التدريب",
+                    "❌ Your answer is incorrect. Try again to benefit from the training"
                 )
             },
             {
@@ -143,8 +143,8 @@ namespace MathWorldAPI.Helpers
             {
                 "TrainingAnswerWrong",
                 (
-                    "❌ إجابتك التدريبية غير صحيحة. الإجابة الصحيحة هي: {0}",
-                    "❌ Your training answer is incorrect. The correct answer is: {0}"
+                    "❌ إجابتك التدريبية غير صحيحة. حاول مرة أخرى",
+                    "❌ Your training answer is incorrect. Try again"
                 )
             },
             {
