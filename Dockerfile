@@ -42,8 +42,8 @@ COPY --from=publish /app/publish .
 # ✅ FIX: Create wwwroot directories and set permissions as root user, then switch back to app user
 USER root
 RUN mkdir -p /app/wwwroot/uploads/categories \
-    && chmod -R 777 /app/wwwroot \
-    && chown -R $APP_UID:$APP_UID /app/wwwroot
+    && chown -R $APP_UID:$APP_UID /app/wwwroot \
+    && chmod -R 755 /app/wwwroot
 
 USER $APP_UID
 

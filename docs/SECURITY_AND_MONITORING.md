@@ -48,9 +48,19 @@ For local development, copy `appsettings.Development.example.json` to
 Return codes: 200 means OK; 503 means not ready. These routes do not expose
 credentials or exception details.
 
-Configure the external uptime monitor to check `/health/ready` every 5 minutes
-and alert the service owner after 2 consecutive failures. `/health/live` can be
-used by infrastructure that needs to distinguish an API crash from a DB outage.
+On a **paid service**, configure an external uptime monitor on `/health/ready`
+at a cadence appropriate for your operating plan. Use `/health/live` as the
+lightweight HTTP health-check path in Render > Settings > Health Checks. Never
+configure Render's frequent internal check to hit the database for each probe.
+Run external database readiness checks less often, with alerting based on
+consecutive failures and a clear incident owner.
+
+On the current **Render Free** plan, the service spins down after idle time.
+An external check every 5 minutes keeps it awake, which consumes Free instance
+hours across the workspace and may suspend the service when the shared
+monthly allowance runs out. Do not enable continuous external checks without
+choosing a monitoring cadence or a suitable paid plan. This PR does not
+activate any recurring monitor or change Render settings.
 
 ## Request telemetry
 
@@ -88,3 +98,30 @@ integration tests, penetration tests, production migration, or live deployment.
 
 Do not merge without: successful CI, staged verification of login/problem-solving,
 new secrets present on Render, rotated exposed credentials, and rollback plan.
+
+## Render service audit — 2026-11-12 (read-only)
+
+- Confirmed service: `MathWordBackEnd`, deployed from GitHub `main` via Docker.
+- `autoDeploy=yes` / `autoDeployTrigger=commit`: **merging this PR deploys automatically**.
+- Compute plan: `free`, Oregon, one instance; no custom `healthCheckPath`.
+- Existing deployment was marked `live` on Render; no inference is made about
+  the availability of external monitoring or configuration of production secrets.
+- The current Render integration permits reading service settings, but does **not**
+  provide a read-only action for environment variable names/values. Check
+  `Environment` in the dashboard before merge; do not assume variables are set.
+- HTTP request/latency samples were not available in the inspected metrics.
+  CPU/memory usage samples were available. Avoid treating absent metrics as
+  proof of an outage or an absence of traffic.
+- Free service idle spin-down is normal and can cause slow cold starts.
+- Running an HTTP-ready probe on a database with intermittent networking
+  can cause false alarms; liveness and readiness are deliberately separate.
+
+### Before moving this PR from Draft
+
+1. Review Render > Environment; populate required values without copying
+   previously committed secrets. Rotate exposed credentials at their providers.
+2. Verify staging build and login/problem-solving behavior end-to-end.
+3. After staging verifies new routes, set `/health/live` in Render Settings >
+   Health Checks, preserving the default check until the route is deployed.
+4. Decide paid vs free-plan monitor cadence; then configure external alerting.
+5. Confirm backup retention and a safe restore rehearsal for Supabase.
