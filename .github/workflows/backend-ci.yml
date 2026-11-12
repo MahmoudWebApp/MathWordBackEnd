@@ -1,0 +1,53 @@
+name: Backend build and config safety
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install .NET SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
+
+      - name: Check tracked configuration has no credentials
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          config = json.loads(Path("appsettings.json").read_text(encoding="utf-8-sig"))
+          keys = [
+              ("ConnectionStrings", "DefaultConnection"),
+              ("Jwt", "Key"),
+              ("Meilisearch", "ApiKey"),
+              ("Facebook", "AppSecret"),
+          ]
+          for section, key in keys:
+              value = config.get(section, {}).get(key, "")
+              if str(value or "").strip():
+                  raise SystemExit(f"Sensitive config {section}:{key} must be empty in git")
+          if str(config.get("IMGBB_API_KEY") or "").strip():
+              raise SystemExit("Sensitive config IMGBB_API_KEY must be empty in git")
+          if Path("appsettings.Development.json").exists():
+              raise SystemExit("Local development config must not be committed")
+          print("Tracked configuration contains no configured credentials")
+          PY
+
+      - name: Restore dependencies
+        run: dotnet restore MathWorldAPI.csproj
+
+      - name: Compile release configuration
+        run: dotnet build MathWorldAPI.csproj -c Release --no-restore

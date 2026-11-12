@@ -33,14 +33,22 @@ builder.Environment.WebRootPath =
 // ============================================================================
 
 var connectionString =
-    builder.Configuration.GetConnectionString("DefaultConnection")
-    ?? throw new InvalidOperationException(
-        "ConnectionStrings:DefaultConnection is not configured.");
+    builder.Configuration.GetConnectionString("DefaultConnection");
+
+if (string.IsNullOrWhiteSpace(connectionString))
+{
+    throw new InvalidOperationException(
+        "ConnectionStrings:DefaultConnection must be configured through a secure environment setting.");
+}
 
 var jwtKey =
-    builder.Configuration["Jwt:Key"]
-    ?? throw new InvalidOperationException(
-        "Jwt:Key is not configured.");
+    builder.Configuration["Jwt:Key"];
+
+if (string.IsNullOrWhiteSpace(jwtKey))
+{
+    throw new InvalidOperationException(
+        "Jwt:Key must be configured through a secure environment setting.");
+}
 
 var jwtIssuer =
     builder.Configuration["Jwt:Issuer"]
@@ -464,6 +472,10 @@ if (app.Environment.IsDevelopment())
 
 app.UseRouting();
 
+// Record low-cardinality request metrics and structured duration logs.
+// Keep this after routing so /api/problems/{id} is recorded as a template.
+app.UseMiddleware<RequestTelemetryMiddleware>();
+
 // CORS must run before authentication and authorization.
 app.UseCors("Frontend");
 
@@ -520,6 +532,59 @@ app.MapGet(
                     service = "MathWorld-Backend",
                     version = "1.0.0"
                 });
+        })
+    .AllowAnonymous();
+
+// Liveness checks the process only (no database dependency).
+app.MapGet(
+        "/health/live",
+        () => Results.Ok(new
+        {
+            status = "alive",
+            service = "MathWorld-Backend"
+        }))
+    .AllowAnonymous();
+
+// Readiness checks the real database with a bounded timeout.
+// Do not return connection strings or exception details to callers.
+app.MapGet(
+        "/health/ready",
+        async (
+            AppDbContext database,
+            ILogger<Program> logger,
+            CancellationToken cancellationToken) =>
+        {
+            using var timeout =
+                CancellationTokenSource.CreateLinkedTokenSource(
+                    cancellationToken);
+            timeout.CancelAfter(TimeSpan.FromSeconds(3));
+
+            try
+            {
+                if (await database.Database.CanConnectAsync(timeout.Token))
+                {
+                    return Results.Ok(new
+                    {
+                        status = "ready",
+                        database = "available"
+                    });
+                }
+            }
+            catch (Exception exception)
+                when (!cancellationToken.IsCancellationRequested)
+            {
+                logger.LogWarning(
+                    exception,
+                    "Database readiness probe failed.");
+            }
+
+            return Results.Json(
+                new
+                {
+                    status = "unready",
+                    database = "unavailable"
+                },
+                statusCode: StatusCodes.Status503ServiceUnavailable);
         })
     .AllowAnonymous();
 
