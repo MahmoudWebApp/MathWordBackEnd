@@ -22,7 +22,7 @@ This file is the durable source of truth for continuation across conversations. 
 | B02 | Backend regression, integration, migrations | BLOCKED | Manual workflow_dispatch enabled; need successful .NET and disposable PostgreSQL CI |
 | B03 | Central server-side feature flags | IN PROGRESS | Fail-closed config service and read-only public API committed; persistence/admin UI/audit not yet built; CI unverified |
 | B04 | Coupon/campaign redemption | NOT STARTED | Limits, locking, expiry, idempotency |
-| B05 | Premium entitlements/exports/analytics | NOT STARTED | API + secure authorization |
+| B05 | Premium entitlements/exports/analytics | IN PROGRESS | Student entitlement snapshot API and tests committed; export/analytics enforcement still pending; CI unverified |
 | W01 | Next.js premium/admin settings | NOT STARTED | Admin campaigns, grants, history |
 | W02 | Next.js geometric redesign and RTL | NOT STARTED | Design tokens, responsive/a11y review |
 | W03 | Next.js SVG category icons | NOT STARTED | Icon registry and fallbacks |
@@ -77,3 +77,9 @@ Date; repository/branch/PR; exact files changed; behavior before/after; test com
 - Added Services/LaunchFeatureFlags.cs, DI registration in Program.cs, and Controllers/PublicFeaturesController.cs exposing GET /api/config/features.
 - Flags default false: PaidCheckout, CouponRedemption, TutorMarketplace, Ads, GeometryInteractive, Notifications. Environment config can set Features__<Name>; clients must not treat flags as authorization.
 - Added disposable-DB integration assertions for safe defaults. Backend build and tests have not been run successfully yet.
+
+## Progress update — student entitlement API
+- New GET /api/users/subscription requires authenticated active Student, returns effective Free/Premium, expiry, daily limit, solution-preview and analytics-export capability flags, and ads eligibility (also gated by AdsEnabled).
+- Added integration coverage for unauthorized/admin, Free, Premium and expired Premium, and updated CI path filters.
+- IMPORTANT: CanRevealSolutionBeforeAnswer and CanExportAnalytics are entitlement hints only; corresponding feature APIs must enforce authorization separately before launch.
+- Code committed to draft backend PR #20; no successful .NET build or integration run confirmed.
