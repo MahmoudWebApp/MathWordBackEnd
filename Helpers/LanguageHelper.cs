@@ -346,6 +346,13 @@ namespace MathWorldAPI.Helpers
             // ==================== User Messages ====================
 
             {
+                "InvalidLearnerFilters",
+                (
+                    "معايير البحث أو التصفية أو التصفح غير صالحة.",
+                    "Invalid learner search, filters or pagination."
+                )
+            },
+            {
                 "UserNotFound",
                 (
                     "المستخدم غير موجود",
