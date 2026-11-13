@@ -126,6 +126,23 @@ def main():
     assert profile["CurrentStageId"] == stage2
     dashboard = expect("GET", "/api/users/dashboard", 200, token=token)
     assert dashboard["CurrentStageId"] == stage2
+    assert dashboard["SolvedProblemsCount"] == 0, dashboard
+    assert dashboard["TotalPoints"] == 0, dashboard
+    assert dashboard["RecentSolved"] == [], dashboard
+    assert expect("GET", "/api/users/solved", 200, token=token) == []
+    assert expect("GET", "/api/users/favorites", 200, token=token) == []
+    assert expect("GET", "/api/users/error-notebook", 200, token=token) == []
+
+    # The original stage's records must reappear unchanged after switching back.
+    expect("PUT", "/api/users/learning-stage", 200, {"StageId": stage1}, token)
+    returned = expect("GET", "/api/users/dashboard", 200, token=token)
+    assert returned["SolvedProblemsCount"] == 1, returned
+    assert returned["TotalPoints"] == 10, returned
+    assert len(returned["RecentSolved"]) == 1, returned
+    assert len(expect("GET", "/api/users/solved", 200, token=token)) == 1
+
+    # Leave the account in stage2 to ensure persistence on next login.
+    expect("PUT", "/api/users/learning-stage", 200, {"StageId": stage2}, token)
 
     logged_in = expect("POST", "/api/auth/login", 200, {
         "Email": "journey-learner@mathworld.test",
