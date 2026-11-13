@@ -49,6 +49,6 @@ USER $APP_UID
 
 # ✅ FIX: Add health check for orchestration platforms (Render, Kubernetes, etc.)
 HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
-    CMD curl -f http://localhost:8080/health || exit 1
+    CMD curl -f http://localhost:8080/health/live || exit 1
 
 ENTRYPOINT ["dotnet", "MathWorldAPI.dll"]

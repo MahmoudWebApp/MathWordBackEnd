@@ -93,8 +93,12 @@ provider-level settings and the user's selection/authorization.
 ## CI and release safety
 
 `.github/workflows/backend-ci.yml` checks for secrets in tracked app configuration
-and compiles .NET 9 on pull requests and pushes to main. It does **not** yet run
-integration tests, penetration tests, production migration, or live deployment.
+and compiles .NET 9 on pull requests and pushes to main. The pipeline also
+starts the API with **dummy CI-only configuration** (no real database), checks
+that `/health/live` returns 200, and confirms `/health/ready` fails safely
+with 503 when its database is unreachable. This is a small runtime smoke test,
+not a replacement for authentication, load, integration, or production tests.
+It does **not** run production migrations or live deployment.
 
 Do not merge without: successful CI, staged verification of login/problem-solving,
 new secrets present on Render, rotated exposed credentials, and rollback plan.
@@ -125,3 +129,12 @@ new secrets present on Render, rotated exposed credentials, and rollback plan.
    Health Checks, preserving the default check until the route is deployed.
 4. Decide paid vs free-plan monitor cadence; then configure external alerting.
 5. Confirm backup retention and a safe restore rehearsal for Supabase.
+
+## Docker image health behavior
+
+Docker's existing `HEALTHCHECK` is now pointed at `/health/live` rather than
+`/health`, so intermittent database failures cannot make the application
+container fail its **process liveness** probe. Database reachability is
+separately tracked via `/health/ready`. The image's `curl` availability and
+Docker build behavior should be verified with the deployment pipeline before
+turning on any Docker/Render health-check policy.
