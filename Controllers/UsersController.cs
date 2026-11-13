@@ -76,12 +76,17 @@ namespace MathWorldAPI.Controllers
             // Dashboard data is scoped to the learner's ACTIVE stage. Stage
             // changes preserve all progress in UserProgresses and attempts.
             var activeStageId = user.CurrentStageId;
+            var allowedCategories = await HttpContext.RequestServices
+                .GetRequiredService<ProblemCategoryAccessService>()
+                .GetAllowedCategoryIdsAsync(User, HttpContext.RequestAborted);
 
             // Count only correctly solved problems.
             var solvedCount =
                 await _context.UserProgresses
                     .CountAsync(progress =>
                         progress.UserId == userId &&
+                        (allowedCategories == null ||
+                         allowedCategories.Contains(progress.Problem.CategoryId)) &&
                         (!activeStageId.HasValue ||
                          progress.Problem.StageId == activeStageId.Value) &&
                         progress.IsSolved);
@@ -90,6 +95,8 @@ namespace MathWorldAPI.Controllers
                 await _context.UserProgresses
                     .CountAsync(progress =>
                         progress.UserId == userId &&
+                        (allowedCategories == null ||
+                         allowedCategories.Contains(progress.Problem.CategoryId)) &&
                         (!activeStageId.HasValue ||
                          progress.Problem.StageId == activeStageId.Value) &&
                         progress.IsFavorite);
@@ -99,6 +106,8 @@ namespace MathWorldAPI.Controllers
                 await _context.UserProgresses
                     .CountAsync(progress =>
                         progress.UserId == userId &&
+                        (allowedCategories == null ||
+                         allowedCategories.Contains(progress.Problem.CategoryId)) &&
                         (!activeStageId.HasValue ||
                          progress.Problem.StageId == activeStageId.Value) &&
                         progress.Attempts > 0);
@@ -108,6 +117,8 @@ namespace MathWorldAPI.Controllers
                 await _context.UserProgresses
                     .CountAsync(progress =>
                         progress.UserId == userId &&
+                        (allowedCategories == null ||
+                         allowedCategories.Contains(progress.Problem.CategoryId)) &&
                         (!activeStageId.HasValue ||
                          progress.Problem.StageId == activeStageId.Value) &&
                         progress.FirstAttemptCorrect == true);
@@ -124,6 +135,8 @@ namespace MathWorldAPI.Controllers
                 await _context.UserProgresses
                     .Where(progress =>
                         progress.UserId == userId &&
+                        (allowedCategories == null ||
+                         allowedCategories.Contains(progress.Problem.CategoryId)) &&
                         (!activeStageId.HasValue ||
                          progress.Problem.StageId == activeStageId.Value) &&
                         progress.IsSolved)
@@ -147,6 +160,8 @@ namespace MathWorldAPI.Controllers
                     .AsNoTracking()
                     .Where(progress =>
                         progress.UserId == userId &&
+                        (allowedCategories == null ||
+                         allowedCategories.Contains(progress.Problem.CategoryId)) &&
                         (!activeStageId.HasValue ||
                          progress.Problem.StageId == activeStageId.Value) &&
                         progress.IsSolved)
@@ -168,6 +183,8 @@ namespace MathWorldAPI.Controllers
                     .AsNoTracking()
                     .Where(progress =>
                         progress.UserId == userId &&
+                        (allowedCategories == null ||
+                         allowedCategories.Contains(progress.Problem.CategoryId)) &&
                         (!activeStageId.HasValue ||
                          progress.Problem.StageId == activeStageId.Value) &&
                         progress.IsFavorite)
