@@ -55,6 +55,16 @@ def main():
         "Email": ADMIN_EMAIL, "Password": ADMIN_PASSWORD
     }))
     one, two, three = student(501), student(502), student(503)
+    status, _ = api("GET", "/api/users/subscription")
+    assert status == 401, status
+    status, _ = api("GET", "/api/users/subscription", token=admin)
+    assert status == 403, status
+    free_entitlement = expect("GET", "/api/users/subscription", 200, token=one)
+    assert free_entitlement["SubscriptionType"] == "Free", free_entitlement
+    assert free_entitlement["DailyNewProblemsLimit"] == 10, free_entitlement
+    assert not free_entitlement["CanRevealSolutionBeforeAnswer"], free_entitlement
+    assert not free_entitlement["CanExportAnalytics"], free_entitlement
+    assert not free_entitlement["AdsEligible"], free_entitlement
 
     status, _ = api("GET", "/api/users/daily-quota", token=admin)
     assert status == 403, status
@@ -107,6 +117,11 @@ def main():
         "-c", """UPDATE "Users" SET "SubscriptionType"='Premium'
                  WHERE "Email"='learner-ci-502@mathworld.test' AND "Role"='Student'"""
     ], check=True, timeout=20, capture_output=True)
+    premium_entitlement = expect("GET", "/api/users/subscription", 200, token=two)
+    assert premium_entitlement["IsPremium"], premium_entitlement
+    assert premium_entitlement["CanRevealSolutionBeforeAnswer"], premium_entitlement
+    assert premium_entitlement["CanExportAnalytics"], premium_entitlement
+    assert premium_entitlement["DailyNewProblemsLimit"] is None, premium_entitlement
     premium = quota(two, 2)
     assert premium["Unlimited"] and premium.get("Remaining") is None, premium
     code, body = submit(two, *q2[10])
@@ -121,6 +136,9 @@ def main():
                  WHERE "Email"='learner-ci-502@mathworld.test'
                    AND "Role"='Student'"""
     ], check=True, timeout=20, capture_output=True)
+    expired_entitlement = expect("GET", "/api/users/subscription", 200, token=two)
+    assert not expired_entitlement["IsPremium"], expired_entitlement
+    assert expired_entitlement["DailyNewProblemsLimit"] == 10, expired_entitlement
     expired = quota(two, 2)
     assert not expired["Unlimited"] and expired["SubscriptionType"] == "Free", expired
     code, body = submit(two, *expired_question)
