@@ -780,6 +780,19 @@ namespace MathWorldAPI.Controllers
                 LanguageHelper.GetLanguageFromRequest(
                     Request);
 
+            var access = HttpContext.RequestServices
+                .GetRequiredService<ProblemCategoryAccessService>();
+            var categoryId = await _context.Problems.AsNoTracking()
+                .Where(p => p.Id == problemId)
+                .Select(p => (int?)p.CategoryId)
+                .FirstOrDefaultAsync();
+            if (!categoryId.HasValue)
+                return NotFound(new { Message = "ProblemNotFound" });
+            if (!await access.CanReadProblemAsync(User, categoryId.Value,
+                HttpContext.RequestAborted))
+                return StatusCode(StatusCodes.Status403Forbidden,
+                    new { Message = "CategoryLocked" });
+
             var progress =
                 await _context.UserProgresses
                     .FirstOrDefaultAsync(progressItem =>
@@ -838,6 +851,19 @@ namespace MathWorldAPI.Controllers
 
             var language =
                 LanguageHelper.GetLanguageFromRequest(Request);
+
+            var access = HttpContext.RequestServices
+                .GetRequiredService<ProblemCategoryAccessService>();
+            var categoryId = await _context.Problems.AsNoTracking()
+                .Where(p => p.Id == problemId)
+                .Select(p => (int?)p.CategoryId)
+                .FirstOrDefaultAsync();
+            if (!categoryId.HasValue)
+                return NotFound(new { Message = "ProblemNotFound" });
+            if (!await access.CanReadProblemAsync(User, categoryId.Value,
+                HttpContext.RequestAborted))
+                return StatusCode(StatusCodes.Status403Forbidden,
+                    new { Message = "CategoryLocked" });
 
             var isFavorite =
                 await _context.UserProgresses
