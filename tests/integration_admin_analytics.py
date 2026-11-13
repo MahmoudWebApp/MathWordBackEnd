@@ -93,6 +93,9 @@ def main():
     old_stats = expect("GET", "/api/admin/stats", 200, token=admin)
     assert old_stats["TotalUsers"] == 1, old_stats
     assert old_stats["TotalSolved"] == 1, old_stats
+    public_stats = expect("GET", "/api/stats", 200)
+    assert public_stats["TotalUsers"] == 1, public_stats
+    assert public_stats["TotalSolved"] == 1, public_stats
     print("PASS: operator role cannot learn, student cannot access analytics; "
           "per-stage, category and daily metrics are correct")
 
