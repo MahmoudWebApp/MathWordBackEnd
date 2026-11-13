@@ -176,3 +176,9 @@ Status below reflects confirmed implementation scope, not production completion.
 - An authenticated identity without a user ID is now denied category access; unauthenticated ID claims cannot grant student or admin entitlements.
 - Favorite mutations, favorite checks and error-notebook archive mutations now require a consistent stage/category association for the target problem.
 - **Verification still needed:** build and integration tests, especially anonymous catalog access, inactive accounts, malformed JWT claims and inconsistent historical records. No production deploy performed.
+
+## CI checkpoint — .NET 9 build and policy smoke tests
+- Added `.github/workflows/backend-build.yml` to restore and build the backend on premium branch pushes and relevant pull requests.
+- Added `tests/MathWorld.PolicySmoke` as a dependency-free executable policy check for default/configured Free categories, invalid stage configuration, and positive journey group sizes; CI runs it after compilation.
+- Excluded test sources from the web application's default compile glob in `MathWorldAPI.csproj`.
+- **Execution status:** no successful workflow run has been observed; local environment lacks the .NET SDK. These changes are committed but must be verified in GitHub Actions before merge. No production deployment.
