@@ -139,3 +139,9 @@ Status below reflects confirmed implementation scope, not production completion.
 ## Implementation checkpoint — shared entitlement service
 - Added `Services/ProblemCategoryAccessService.cs`, registered in `Program.cs`, and switched ProblemsController, ProblemDiagramsController and StageCategoryAccessController to the same Free/Premium category resolver.
 - **Not verified:** no build or integration tests completed; GitHub workflow runs for the latest commit were not found. All remaining controllers and search response shapes need security review. Configuration-based stage choices remain temporary, and invalid configuration currently fails closed. Rewarded ads, SEO, CAPTCHA and marketing stay tracked separately.
+
+## Security review checkpoint — category list and official attempts
+- Guarded `GET /api/categories/{id}/problems` via shared `ProblemCategoryAccessService`; category names remain public but locked problem previews are forbidden.
+- Restored `isOfficialAttempt = progress.Attempts == 0` in `ProblemsController.SubmitAnswer` after old quota removal; first-attempt XP behavior depends on it.
+- Unrestricted Admin category access now requires authenticated identity.
+- **Build not yet verified.** Audit remaining student/progress/analytics controllers, eliminate unsafe anonymous data disclosures, add entitlement integration tests and CI verification before merge.
