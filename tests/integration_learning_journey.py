@@ -40,6 +40,8 @@ def main():
         try:
             status, body = call("GET", "/health/ready")
             if status == 200 and body["status"] == "ready":
+                assert body.get("database") == "available", body
+                assert body.get("schema") == "current", body
                 break
         except Exception:
             pass
