@@ -24,6 +24,8 @@ namespace MathWorldAPI.Data
         /// <summary>
         /// Users table.
         /// </summary>
+        public DbSet<SubscriptionGrant> SubscriptionGrants => Set<SubscriptionGrant>();
+
         public DbSet<AppUser> Users =>
             Set<AppUser>();
 
@@ -105,6 +107,20 @@ namespace MathWorldAPI.Data
                 .Property(user => user.SubscriptionType)
                 .HasMaxLength(32)
                 .IsRequired();
+
+            modelBuilder.Entity<SubscriptionGrant>()
+                .HasIndex(x => new { x.LearnerId, x.ChangedAtUtc });
+
+            modelBuilder.Entity<SubscriptionGrant>()
+                .Property(x => x.Reason).HasMaxLength(500).IsRequired();
+
+            modelBuilder.Entity<SubscriptionGrant>()
+                .HasOne<AppUser>().WithMany().HasForeignKey(x => x.LearnerId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<SubscriptionGrant>()
+                .HasOne<AppUser>().WithMany().HasForeignKey(x => x.AdminId)
+                .OnDelete(DeleteBehavior.Restrict);
 
             // Stage preference never changes or deletes historical learning data.
             modelBuilder.Entity<AppUser>()
