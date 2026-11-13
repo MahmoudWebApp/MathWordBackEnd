@@ -1034,6 +1034,12 @@ namespace MathWorldAPI.Controllers
                         StatusCodes.Status404NotFound));
             }
 
+            // Check category access before looking up answer options or correctness.
+            var allowedForSubmission = await GetAllowedCategoryIdsAsync();
+            if (allowedForSubmission != null && !allowedForSubmission.Contains(problem.CategoryId))
+                return StatusCode(StatusCodes.Status403Forbidden,
+                    new { Message = "CategoryLocked" });
+
             var selectedOption =
                 problem.Options
                     .FirstOrDefault(option =>
@@ -1069,12 +1075,6 @@ namespace MathWorldAPI.Controllers
                         language,
                         StatusCodes.Status500InternalServerError));
             }
-
-            // Legacy daily quota removed. Access is enforced by category instead.
-            var allowedForSubmission = await GetAllowedCategoryIdsAsync();
-            if (allowedForSubmission != null && !allowedForSubmission.Contains(problem.CategoryId))
-                return StatusCode(StatusCodes.Status403Forbidden,
-                    new { Message = "CategoryLocked" });
 
             var progress =
                 await _context.UserProgresses
