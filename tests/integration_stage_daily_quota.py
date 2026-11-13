@@ -45,6 +45,12 @@ def main():
         "Refusing to mutate non-disposable PostgreSQL"
     )
     wait_ready()
+    # Public capabilities are display hints only; paid launch stays OFF by default.
+    features = expect("GET", "/api/config/features", 200)
+    assert not features["PaidCheckoutEnabled"], features
+    assert not features["CouponRedemptionEnabled"], features
+    assert not features["TutorMarketplaceEnabled"], features
+    assert not features["GeometryInteractiveEnabled"], features
     admin = token_of(expect("POST", "/api/auth/login", 200, {
         "Email": ADMIN_EMAIL, "Password": ADMIN_PASSWORD
     }))
