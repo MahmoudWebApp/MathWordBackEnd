@@ -1638,56 +1638,10 @@ namespace MathWorldAPI.Controllers
         // Keep all search paths on PostgreSQL until a secure filtered index exists.
         private static bool _configurationAllowsUnfilteredSearch() => false;
 
-        /// <summary>
-        /// Returns null only for administrators. Free/anonymous access is restricted
-        /// to two categories per stage; inactive users receive no categories.
-        /// </summary>
-        private async Task<List<int>?> GetAllowedCategoryIdsAsync()
-        {
-            if (string.Equals(GetUserRole(), "Admin", StringComparison.OrdinalIgnoreCase))
-                return null;
-
-            var learnerId = GetUserId();
-            if (learnerId.HasValue)
-            {
-                var learner = await _context.Users.AsNoTracking()
-                    .FirstOrDefaultAsync(u => u.Id == learnerId.Value);
-                if (learner == null || !learner.IsActive || learner.Role != "Student")
-                    return new List<int>();
-                if (PremiumEntitlement.IsActive(learner))
-                    return await _context.Categories.AsNoTracking()
-                        .Select(c => c.Id).ToListAsync();
-            }
-
-            var all = await _context.Categories.AsNoTracking()
-                .OrderBy(c => c.StageId).ThenBy(c => c.Order).ThenBy(c => c.Id)
-                .ToListAsync();
-            var result = new List<int>();
-            foreach (var stage in all.GroupBy(c => c.StageId))
-            {
-                var raw = HttpContext.RequestServices.GetRequiredService<IConfiguration>()
-                    [$"FreeCategoryAccess:Stages:{stage.Key}"];
-                List<int>? configured = null;
-                if (!string.IsNullOrWhiteSpace(raw))
-                {
-                    var values = raw.Split(',', StringSplitOptions.TrimEntries |
-                        StringSplitOptions.RemoveEmptyEntries);
-                    if (values.Length != CategoryAccessPolicy.DefaultFreeCategoriesPerStage ||
-                        values.Any(value => !int.TryParse(value, out _)))
-                        continue; // Fail closed on invalid configuration.
-                    configured = values.Select(int.Parse).ToList();
-                }
-                try
-                {
-                    result.AddRange(CategoryAccessPolicy.ResolveFreeCategoryIds(stage, configured));
-                }
-                catch (ArgumentException)
-                {
-                    // Invalid stage configuration must not unlock paid categories.
-                }
-            }
-            return result;
-        }
+        private Task<List<int>?> GetAllowedCategoryIdsAsync() =>
+            HttpContext.RequestServices
+                .GetRequiredService<ProblemCategoryAccessService>()
+                .GetAllowedCategoryIdsAsync(User, HttpContext.RequestAborted);
 
         /// <summary>
         /// Gets the authenticated user ID from JWT claims.
