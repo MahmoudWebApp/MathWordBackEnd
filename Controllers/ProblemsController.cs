@@ -664,8 +664,10 @@ namespace MathWorldAPI.Controllers
                         StatusCodes.Status404NotFound));
             }
 
-            var allowedForDetail = await GetAllowedCategoryIdsAsync();
-            if (allowedForDetail != null && !allowedForDetail.Contains(problem.CategoryId))
+            var categoryAccess = HttpContext.RequestServices
+                .GetRequiredService<ProblemCategoryAccessService>();
+            if (!await categoryAccess.CanReadProblemAsync(User,
+                problem.StageId, problem.CategoryId, HttpContext.RequestAborted))
                 return StatusCode(StatusCodes.Status403Forbidden,
                     new { Message = "CategoryLocked" });
 
@@ -1035,8 +1037,10 @@ namespace MathWorldAPI.Controllers
             }
 
             // Check category access before looking up answer options or correctness.
-            var allowedForSubmission = await GetAllowedCategoryIdsAsync();
-            if (allowedForSubmission != null && !allowedForSubmission.Contains(problem.CategoryId))
+            var categoryAccess = HttpContext.RequestServices
+                .GetRequiredService<ProblemCategoryAccessService>();
+            if (!await categoryAccess.CanReadProblemAsync(User,
+                problem.StageId, problem.CategoryId, HttpContext.RequestAborted))
                 return StatusCode(StatusCodes.Status403Forbidden,
                     new { Message = "CategoryLocked" });
 
