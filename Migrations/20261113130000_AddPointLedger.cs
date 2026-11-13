@@ -102,6 +102,10 @@ namespace MathWorldAPI.Migrations
                     ON up.""UserId"" = a.""UserId""
                    AND up.""ProblemId"" = a.""ProblemId"";
             ");
+            // Public Supabase schema: never expose personal award rows through
+            // the PostgREST Data API. ASP.NET accesses PostgreSQL directly.
+            migrationBuilder.Sql(@"ALTER TABLE ""PointLedger"" ENABLE ROW LEVEL SECURITY;");
+
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
