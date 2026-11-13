@@ -26,8 +26,6 @@ namespace MathWorldAPI.Data
         /// </summary>
         public DbSet<SubscriptionGrant> SubscriptionGrants => Set<SubscriptionGrant>();
 
-        public DbSet<StageFreeCategorySelection> StageFreeCategorySelections => Set<StageFreeCategorySelection>();
-
         public DbSet<AppUser> Users =>
             Set<AppUser>();
 
@@ -83,16 +81,6 @@ namespace MathWorldAPI.Data
             ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
-            modelBuilder.Entity<StageFreeCategorySelection>().HasKey(x => x.StageId);
-            modelBuilder.Entity<StageFreeCategorySelection>()
-                .HasOne<EducationalStage>().WithOne()
-                .HasForeignKey<StageFreeCategorySelection>(x => x.StageId)
-                .OnDelete(DeleteBehavior.Cascade);
-            modelBuilder.Entity<StageFreeCategorySelection>()
-                .HasOne<AppUser>().WithMany()
-                .HasForeignKey(x => x.UpdatedByAdminId)
-                .OnDelete(DeleteBehavior.Restrict);
 
             // =================================================================
             // USER CONFIGURATION
