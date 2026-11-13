@@ -32,6 +32,8 @@ namespace MathWorldAPI.Data
         /// <summary>
         /// Categories table.
         /// </summary>
+        public DbSet<ProblemDiagram> ProblemDiagrams => Set<ProblemDiagram>();
+
         public DbSet<Category> Categories =>
             Set<Category>();
 
@@ -138,6 +140,27 @@ namespace MathWorldAPI.Data
                 .WithMany(stage => stage.Categories)
                 .HasForeignKey(category => category.StageId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<ProblemDiagram>()
+                .HasKey(diagram => diagram.ProblemId);
+
+            modelBuilder.Entity<ProblemDiagram>()
+                .HasOne(diagram => diagram.Problem)
+                .WithOne()
+                .HasForeignKey<ProblemDiagram>(diagram => diagram.ProblemId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<ProblemDiagram>()
+                .Property(diagram => diagram.DiagramJson)
+                .HasMaxLength(30000).IsRequired();
+
+            modelBuilder.Entity<ProblemDiagram>()
+                .Property(diagram => diagram.AltTextAr)
+                .HasMaxLength(500).IsRequired();
+
+            modelBuilder.Entity<ProblemDiagram>()
+                .Property(diagram => diagram.AltTextEn)
+                .HasMaxLength(500).IsRequired();
 
             modelBuilder.Entity<MathProblem>()
                 .HasOne(problem => problem.Category)
