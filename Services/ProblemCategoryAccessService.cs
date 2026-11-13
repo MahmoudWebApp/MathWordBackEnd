@@ -56,6 +56,10 @@ public sealed class ProblemCategoryAccessService
     {
         // Validate the database user before trusting any role claim.
         // A revoked or inactive account must not retain category access.
+        if (principal.Identity?.IsAuthenticated == true &&
+            string.IsNullOrWhiteSpace(principal.FindFirstValue(ClaimTypes.NameIdentifier)))
+            return new List<int>();
+
         var rawId = principal.FindFirstValue(ClaimTypes.NameIdentifier);
         if (!string.IsNullOrWhiteSpace(rawId))
         {
@@ -64,7 +68,8 @@ public sealed class ProblemCategoryAccessService
 
             var learner = await _db.Users.AsNoTracking()
                 .FirstOrDefaultAsync(u => u.Id == id, cancellationToken);
-            if (learner == null || !learner.IsActive)
+            if (learner == null || !learner.IsActive ||
+                principal.Identity?.IsAuthenticated != true)
                 return new List<int>();
             if (principal.Identity?.IsAuthenticated == true &&
                 principal.IsInRole("Admin") &&
