@@ -672,7 +672,7 @@ namespace MathWorldAPI.Services
                     fullName,
                     normalizedEmail);
 
-            user =
+            var user =
                 new AppUser
                 {
                     FullName =
