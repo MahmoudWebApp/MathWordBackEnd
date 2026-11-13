@@ -124,9 +124,10 @@ namespace MathWorldAPI.Controllers
                 }
             }
 
+            var rowIds = rows.Select(row => row.UserId).ToArray();
             var names = includeIdentities
                 ? await _db.Users.AsNoTracking()
-                    .Where(x => rows.Select(row => row.UserId).Contains(x.Id))
+                    .Where(x => rowIds.Contains(x.Id))
                     .Select(x => new { x.Id, x.FullName })
                     .ToDictionaryAsync(x => x.Id, x => x.FullName, cancellationToken)
                 : new System.Collections.Generic.Dictionary<int, string>();
