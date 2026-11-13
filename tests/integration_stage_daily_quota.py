@@ -106,6 +106,32 @@ def main():
     code, body = submit(two, *q2[10])
     assert code == 200, (code, body)
 
+    # Expired Premium must no longer bypass the 10-question Free limit.
+    expired_question = question(admin, 2500, 2, 5)
+    subprocess.run([
+        "psql", "-X", "-v", "ON_ERROR_STOP=1",
+        "-c", """UPDATE "Users"
+                 SET "PremiumExpiresAtUtc" = NOW() - INTERVAL '1 second'
+                 WHERE "Email"='learner-ci-502@mathworld.test'
+                   AND "Role"='Student'"""
+    ], check=True, timeout=20, capture_output=True)
+    expired = quota(two, 2)
+    assert not expired["Unlimited"] and expired["SubscriptionType"] == "Free", expired
+    code, body = submit(two, *expired_question)
+    assert code == 429, (code, body)
+
+    # Removing expiry restores the original indefinite Premium grant.
+    subprocess.run([
+        "psql", "-X", "-v", "ON_ERROR_STOP=1",
+        "-c", """UPDATE "Users"
+                 SET "PremiumExpiresAtUtc" = NULL
+                 WHERE "Email"='learner-ci-502@mathworld.test'
+                   AND "Role"='Student'"""
+    ], check=True, timeout=20, capture_output=True)
+    assert quota(two, 2)["Unlimited"]
+    code, body = submit(two, *expired_question)
+    assert code == 200, (code, body)
+
     # Two DIFFERENT questions racing for the same final slot must serialize.
     for qid, correct in q3[:9]:
         code, body = submit(three, qid, correct)
