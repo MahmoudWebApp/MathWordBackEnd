@@ -1061,6 +1061,25 @@ namespace MathWorldAPI.Controllers
                         StatusCodes.Status500InternalServerError));
             }
 
+            // Quota is derived from immutable first-ever attempts and must
+            // be checked while holding a per-user/per-stage transaction lock.
+            // This covers simultaneous submissions to DIFFERENT problems.
+            await ProblemTransactionLocks.LockStudentStageQuotaAsync(
+                _context, userId.Value, problem.StageId,
+                HttpContext.RequestAborted);
+
+            var subscription = await _context.Users.AsNoTracking()
+                .Where(u => u.Id == userId.Value && u.Role == "Student")
+                .Select(u => u.SubscriptionType)
+                .FirstOrDefaultAsync(HttpContext.RequestAborted);
+            if (subscription == null)
+            {
+                return Unauthorized(
+                    LanguageHelper.ErrorResponse<AnswerResultDto>(
+                        "Unauthorized", language,
+                        StatusCodes.Status401Unauthorized));
+            }
+
             var progress =
                 await _context.UserProgresses
                     .FirstOrDefaultAsync(progressItem =>
@@ -1104,6 +1123,25 @@ namespace MathWorldAPI.Controllers
 
             var isOfficialAttempt =
                 progress.Attempts == 0;
+
+            // Re-attempting an already attempted problem consumes no
+            // further daily slots even if the previous attempt was yesterday.
+            if (isOfficialAttempt &&
+                !string.Equals(subscription, "Premium",
+                    StringComparison.OrdinalIgnoreCase))
+            {
+                var used = await StageDailyQuota.CountUsedAsync(
+                    _context, userId.Value, problem.StageId, now,
+                    HttpContext.RequestAborted);
+                if (used >= StageDailyQuota.FreeLimit)
+                {
+                    return StatusCode(
+                        StatusCodes.Status429TooManyRequests,
+                        LanguageHelper.ErrorResponse<AnswerResultDto>(
+                            "DailyQuotaExceeded", language,
+                            StatusCodes.Status429TooManyRequests));
+                }
+            }
 
             var attemptNumber =
                 progress.Attempts + 1;
