@@ -87,8 +87,15 @@ namespace MathWorldAPI.Controllers
             [FromQuery] int page = 1, [FromQuery] int pageSize = 20,
             CancellationToken cancellationToken = default)
         {
-            if (page < 1 || pageSize < 1 || pageSize > 50)
+            if (page < 1 || pageSize < 1 || pageSize > 50 ||
+                (long)(page - 1) * pageSize > int.MaxValue)
                 return BadRequest(new { Message = "InvalidPagination" });
+            var adminId = int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier),
+                out var parsed) ? parsed : 0;
+            if (adminId <= 0 || !await _db.Users.AsNoTracking().AnyAsync(
+                    u => u.Id == adminId && u.Role == "Admin" && u.IsActive,
+                    cancellationToken))
+                return Forbid();
             if (!await _db.Users.AsNoTracking().AnyAsync(
                     u => u.Id == learnerId && u.Role == "Student", cancellationToken))
                 return NotFound(new { Message = "UserNotFound" });
