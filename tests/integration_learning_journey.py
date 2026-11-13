@@ -25,7 +25,8 @@ def call(method, route, payload=None, token=None):
         with urllib.request.urlopen(req, timeout=20) as response:
             return response.status, json.loads(response.read())
     except urllib.error.HTTPError as error:
-        return error.code, json.loads(error.read())
+        raw = error.read()
+        return error.code, json.loads(raw) if raw else {}
 
 
 def expect(method, route, status, payload=None, token=None):
