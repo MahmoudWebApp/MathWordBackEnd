@@ -187,3 +187,8 @@ Status below reflects confirmed implementation scope, not production completion.
 - GitHub Actions reported eight queued checks on commit `6d83a4759e1d7f2c1b8d60eaa27003975bc420f1`, including backend build, stage journey, admin analytics and PostgreSQL integrity. The dedicated backend policy job was queued at run 43504660296; no successful conclusion observed at inspection time.
 - Expanded `tests/MathWorld.PolicySmoke/Program.cs` with Free, active Premium, expired Premium and inactive student entitlement assertions (commit `e90544a43e90d7d63d9683e683c0ae667e71ffde`).
 - **Pending:** check CI completion and fix failures; no production deploy or DB migration.
+
+## Policy configuration validation checkpoint
+- `CategoryAccessPolicy.ResolveFreeCategoryIds` now rejects explicitly empty, duplicate or incomplete overrides; missing overrides still choose first two categories by editorial order.
+- `ProblemCategoryAccessService` treats an explicitly blank stage override as invalid (fail closed), rather than silently reverting to defaults.
+- Added smoke test cases for these invalid overrides. Latest observed CI jobs were queued; no passing build or test conclusion yet. Production unchanged.
