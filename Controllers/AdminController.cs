@@ -1290,13 +1290,14 @@ namespace MathWorldAPI.Controllers
                     TotalProblems =
                         await _context.Problems.CountAsync(),
 
+                    // Admin identities are operators, not platform learners.
                     TotalUsers =
-                        await _context.Users.CountAsync(),
+                        await _context.Users.CountAsync(user => user.Role == "Student"),
 
                     TotalSolved =
                         await _context.UserProgresses
                             .CountAsync(progress =>
-                                progress.IsSolved),
+                                progress.IsSolved && progress.User.Role == "Student"),
 
                     TotalViews =
                         totalViews
