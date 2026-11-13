@@ -1,0 +1,87 @@
+name: PostgreSQL point ledger and ranking tests
+
+on:
+  push:
+    branches:
+      - feature/point-ledger-stage-rankings-v1
+  pull_request:
+    paths:
+      - 'Controllers/**'
+      - 'Services/**'
+      - 'Data/**'
+      - 'Models/**'
+      - 'Migrations/**'
+      - 'tests/**'
+      - '.github/workflows/problem-integrity-ci.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  problem-integrity:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: ci_only_password
+          POSTGRES_DB: mathworld_ci
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres -d mathworld_ci"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+      - name: Build backend
+        run: dotnet build MathWorldAPI.csproj -c Release
+      - name: Start backend with disposable CI database
+        shell: bash
+        env:
+          ASPNETCORE_ENVIRONMENT: Production
+          ASPNETCORE_URLS: http://127.0.0.1:5051
+          ConnectionStrings__DefaultConnection: Host=127.0.0.1;Port=5432;Database=mathworld_ci;Username=postgres;Password=ci_only_password
+          Jwt__Key: ci_only_test_signing_key_never_use_in_production_0123456789
+          Jwt__Issuer: MathWorld-CI
+          Jwt__Audience: MathWorld-CI
+          Meilisearch__Enabled: 'false'
+          BootstrapAdmin__Enabled: 'true'
+          BootstrapAdmin__Email: ci-admin@mathworld.test
+          BootstrapAdmin__Password: CI_TEST_ADMIN_PASSWORD_12345
+          BootstrapAdmin__FullName: CI Administrator
+          Database__ApplyMigrationsOnStartup: 'true'
+        run: |
+          set -euo pipefail
+          dotnet run --no-build --no-launch-profile -c Release --project MathWorldAPI.csproj > /tmp/mathworld-integration.log 2>&1 &
+          pid=$!
+          echo "$pid" > /tmp/mathworld-integration.pid
+          sleep 3
+          if ! kill -0 "$pid" 2>/dev/null; then
+            tail -n 80 /tmp/mathworld-integration.log
+            exit 1
+          fi
+      - name: Verify stage rankings and immutable point credits
+        run: python3 tests/integration_point_ledger.py
+        env:
+          MATHWORLD_TEST_BASE_URL: http://127.0.0.1:5051
+          PGHOST: 127.0.0.1
+          PGPORT: 5432
+          PGUSER: postgres
+          PGPASSWORD: ci_only_password
+          PGDATABASE: mathworld_ci
+      - name: Print limited logs when tests fail
+        if: failure()
+        run: |
+          grep -E 'Unhandled exception|fail:|error:|warn:|Database migration|Starting|started' /tmp/mathworld-integration.log | tail -n 60 || true
+      - name: Stop test API
+        if: always()
+        run: |
+          if test -f /tmp/mathworld-integration.pid; then
+            kill "$(cat /tmp/mathworld-integration.pid)" 2>/dev/null || true
+          fi

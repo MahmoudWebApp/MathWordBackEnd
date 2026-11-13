@@ -107,16 +107,11 @@ namespace MathWorldAPI.Controllers
                     : 0;
 
             var totalPoints =
-                await _context.UserProgresses
-                    .Where(progress =>
-                        progress.UserId == userId &&
-                        progress.IsSolved)
-                    .Join(
-                        _context.Problems,
-                        progress => progress.ProblemId,
-                        problem => problem.Id,
-                        (_, problem) => problem.Points)
-                    .SumAsync();
+                await _context.PointLedgerEntries.AsNoTracking()
+                    .Where(award =>
+                        award.UserId == userId &&
+                        award.Reason == PointLedgerReasons.SolveCredit)
+                    .SumAsync(award => award.Points);
 
             var recentSolvedData =
                 await _context.UserProgresses
@@ -267,16 +262,11 @@ namespace MathWorldAPI.Controllers
                         progress.IsSolved);
 
             var totalPoints =
-                await _context.UserProgresses
-                    .Where(progress =>
-                        progress.UserId == userId &&
-                        progress.IsSolved)
-                    .Join(
-                        _context.Problems,
-                        progress => progress.ProblemId,
-                        problem => problem.Id,
-                        (_, problem) => problem.Points)
-                    .SumAsync();
+                await _context.PointLedgerEntries.AsNoTracking()
+                    .Where(award =>
+                        award.UserId == userId &&
+                        award.Reason == PointLedgerReasons.SolveCredit)
+                    .SumAsync(award => award.Points);
 
             var profile =
                 new UserProfileDto
