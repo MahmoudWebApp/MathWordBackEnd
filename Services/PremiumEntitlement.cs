@@ -12,10 +12,13 @@ namespace MathWorldAPI.Services
             string.Equals(subscriptionType, "Premium",
                 StringComparison.OrdinalIgnoreCase);
 
+        public static bool IsActive(string? subscriptionType, DateTime? expiresAtUtc,
+            DateTime? nowUtc = null) =>
+            IsActive(subscriptionType) &&
+            (!expiresAtUtc.HasValue || expiresAtUtc.Value > (nowUtc ?? DateTime.UtcNow));
+
         public static bool IsActive(AppUser user, DateTime? nowUtc = null) =>
-            IsActive(user.SubscriptionType) &&
-            (!user.PremiumExpiresAtUtc.HasValue ||
-             user.PremiumExpiresAtUtc.Value > (nowUtc ?? DateTime.UtcNow));
+            IsActive(user.SubscriptionType, user.PremiumExpiresAtUtc, nowUtc);
 
         public static string EffectiveType(AppUser user, DateTime? nowUtc = null) =>
             IsActive(user, nowUtc) ? "Premium" : "Free";
