@@ -30,7 +30,7 @@ namespace MathWorldAPI.Controllers
 
             var access = HttpContext.RequestServices
                 .GetRequiredService<ProblemCategoryAccessService>();
-            if (!await access.CanReadProblemAsync(User, problem.CategoryId, cancellationToken))
+            if (!await access.CanReadProblemAsync(User, problem.StageId, problem.CategoryId, cancellationToken))
                 return StatusCode(403, new { Message = "CategoryLocked" });
 
             var record = await _db.ProblemDiagrams.AsNoTracking()
