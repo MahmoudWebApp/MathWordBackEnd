@@ -438,7 +438,8 @@ namespace MathWorldAPI.Controllers
                         problem.Category)
                     .Include(problem =>
                         problem.Stage)
-                    .Where(problem => allowedCategoryIds == null || allowedCategoryIds.Contains(problem.CategoryId))
+                    .Where(problem => problem.Category.StageId == problem.StageId &&
+                        (allowedCategoryIds == null || allowedCategoryIds.Contains(problem.CategoryId)))
                     .AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(q))
