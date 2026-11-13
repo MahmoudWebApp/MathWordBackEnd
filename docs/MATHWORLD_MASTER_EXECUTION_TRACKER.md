@@ -160,3 +160,8 @@ Status below reflects confirmed implementation scope, not production completion.
 - Guarded `PUT /api/users/error-notebook/{problemId}/archive` and `GET /api/users/favorite/check/{problemId}` using category entitlements.
 - In `POST /api/problems/submit-answer`, category authorization now runs before validating submitted answer-option IDs or reading correctness; locked questions return a uniform category-locked response.
 - **Not yet verified:** compile, tests and runtime integration; audit all remaining endpoints and stage/category consistency; admin persisted configuration and web/mobile integration remain outstanding.
+
+## Security checkpoint — category/stage consistency
+- Added overload of `ProblemCategoryAccessService.CanReadProblemAsync` validating `Category.StageId == MathProblem.StageId` before granting access.
+- Applied it to problem detail, answer submission and geometry diagrams; category listings and PostgreSQL search now exclude mismatched-stage problems.
+- **Outstanding:** other user read paths may still include legacy mismatched records; add DB constraint/data repair after assessing existing records; verify build and tests, complete persistent admin configuration and web/Flutter integration.
