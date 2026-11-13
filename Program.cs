@@ -79,6 +79,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 // 3. Register application services
 // ============================================================================
 
+builder.Services.AddScoped<ProblemCategoryAccessService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<ISocialAuthService, SocialAuthService>();
 builder.Services.AddScoped<IMeiliSearchService, MeiliSearchService>();
