@@ -176,6 +176,13 @@ namespace MathWorldAPI.Helpers
                 )
             },
             {
+                "DailyQuotaExceeded",
+                (
+                    "استهلكت 10 مسائل جديدة لهذا المستوى اليوم. يمكنك إعادة تدريب المسائل السابقة أو الانتظار إلى منتصف الليل بتوقيت UTC أو الترقية إلى Premium.",
+                    "You've used 10 new problems in this stage today. You can retry previous problems, wait until midnight UTC, or upgrade to Premium."
+                )
+            },
+            {
                 "TrainingAnswerCorrect",
                 (
                     "✅ إجابتك التدريبية صحيحة وتم حفظ تقدمك",
