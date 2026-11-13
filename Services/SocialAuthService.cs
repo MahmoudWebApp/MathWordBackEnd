@@ -772,8 +772,7 @@ namespace MathWorldAPI.Services
                         normalizedProvider,
                         normalizedProviderId);
 
-                    throw new InvalidOperationException(
-                        "The social provider account is already connected to another user.");
+                    throw new SocialAccountConflictException();
                 }
 
                 providerIdentity.ProfilePicture =
