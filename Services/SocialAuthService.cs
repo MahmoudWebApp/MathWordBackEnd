@@ -126,6 +126,11 @@ namespace MathWorldAPI.Services
                     "Google user verified: {Email}",
                     googleUser.Email);
 
+                // Keep creation and provider identity binding atomic. A failed
+                // link must not leave an orphan MathWorld account.
+                await using var transaction =
+                    await _context.Database.BeginTransactionAsync();
+
                 // Step 2: Find an existing user or create a new user.
                 var user =
                     await FindOrCreateUserFromSocial(
@@ -162,6 +167,7 @@ namespace MathWorldAPI.Services
                     DateTime.UtcNow;
 
                 await _context.SaveChangesAsync();
+                await transaction.CommitAsync();
 
                 _logger.LogInformation(
                     "Google login succeeded for user {UserId}.",
@@ -243,6 +249,11 @@ namespace MathWorldAPI.Services
                     "Facebook user verified: {Email}",
                     facebookUser.Email);
 
+                // Keep creation and provider identity binding atomic. A failed
+                // link must not leave an orphan MathWorld account.
+                await using var transaction =
+                    await _context.Database.BeginTransactionAsync();
+
                 // Step 2: Find an existing user or create a new user.
                 var user =
                     await FindOrCreateUserFromSocial(
@@ -281,6 +292,7 @@ namespace MathWorldAPI.Services
                     DateTime.UtcNow;
 
                 await _context.SaveChangesAsync();
+                await transaction.CommitAsync();
 
                 _logger.LogInformation(
                     "Facebook login succeeded for user {UserId}.",
