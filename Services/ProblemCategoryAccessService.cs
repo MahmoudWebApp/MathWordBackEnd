@@ -1,6 +1,5 @@
 using System.Security.Claims;
 using MathWorldAPI.Data;
-using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 
 namespace MathWorldAPI.Services;
@@ -55,7 +54,7 @@ public sealed class ProblemCategoryAccessService
     public async Task<List<int>?> GetAllowedCategoryIdsAsync(
         ClaimsPrincipal principal, CancellationToken cancellationToken = default)
     {
-        if (principal.IsInRole("Admin"))
+        if (principal.Identity?.IsAuthenticated == true && principal.IsInRole("Admin"))
             return null;
 
         var rawId = principal.FindFirstValue(ClaimTypes.NameIdentifier);
