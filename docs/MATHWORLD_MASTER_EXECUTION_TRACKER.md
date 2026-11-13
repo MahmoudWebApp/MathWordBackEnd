@@ -165,3 +165,9 @@ Status below reflects confirmed implementation scope, not production completion.
 - Added overload of `ProblemCategoryAccessService.CanReadProblemAsync` validating `Category.StageId == MathProblem.StageId` before granting access.
 - Applied it to problem detail, answer submission and geometry diagrams; category listings and PostgreSQL search now exclude mismatched-stage problems.
 - **Outstanding:** other user read paths may still include legacy mismatched records; add DB constraint/data repair after assessing existing records; verify build and tests, complete persistent admin configuration and web/Flutter integration.
+
+## Implementation checkpoint — data consistency and verified admin
+- `UsersController` student-facing dashboard/list queries exclude problem rows whose category belongs to a different stage.
+- `LearningJourneyController` inventory and progress aggregation now exclude stage/category-inconsistent problems.
+- `ProblemCategoryAccessService` now validates active admin identity against the Users table before unrestricted access; stale admin JWT claims alone are insufficient.
+- **Still unverified:** compilation, EF Core query translation and integration tests. Complete remaining controller audit, persistent admin selection, web/mobile UI and CI before production merge.
