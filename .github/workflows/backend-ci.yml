@@ -103,3 +103,25 @@ jobs:
           assert json.loads(Path("/tmp/mathworld-ready.json").read_text())["status"] == "unready"
           print("GET /health/ready -> 503 + unready for unavailable test database")
           PY
+          python3 - <<'PY'
+          import urllib.error
+          import urllib.request
+
+          endpoints = [
+              "/api/auth/social/link/google",
+              "/api/auth/social/link/facebook",
+          ]
+          for endpoint in endpoints:
+              request = urllib.request.Request(
+                  "http://127.0.0.1:5050" + endpoint,
+                  data=b'{"Provider":"Google","AccessToken":"not-a-real-token"}',
+                  headers={"Content-Type": "application/json"},
+                  method="POST",
+              )
+              try:
+                  urllib.request.urlopen(request, timeout=8)
+                  raise AssertionError("Anonymous provider linking was accepted")
+              except urllib.error.HTTPError as error:
+                  assert error.code == 401, (endpoint, error.code)
+                  print(f"Anonymous social linking blocked: {endpoint}")
+          PY

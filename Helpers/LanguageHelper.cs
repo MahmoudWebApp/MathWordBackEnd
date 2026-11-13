@@ -54,6 +54,27 @@ namespace MathWorldAPI.Helpers
                 )
             },
             {
+                "SocialAccountLinkRequired",
+                (
+                    "هذا البريد مسجل مسبقاً. سجّل الدخول بالطريقة القديمة أولاً، ثم اربط حساب Google أو Facebook من إعدادات الحساب.",
+                    "An account already uses this email. Sign in with your existing method, then link the social provider from account settings."
+                )
+            },
+            {
+                "SocialAccountAlreadyLinked",
+                (
+                    "هذا الحساب الاجتماعي مربوط بحساب آخر، أو تم ربط حساب مختلف من نفس الخدمة.",
+                    "This provider identity is already linked to another account, or a different identity is linked for this provider."
+                )
+            },
+            {
+                "SocialAccountLinked",
+                (
+                    "تم ربط الحساب الاجتماعي بنجاح",
+                    "Social provider linked successfully"
+                )
+            },
+            {
                 "InvalidGoogleToken",
                 (
                     "رمز Google غير صالح",

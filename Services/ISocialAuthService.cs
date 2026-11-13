@@ -36,5 +36,8 @@ namespace MathWorldAPI.Services
         /// </returns>
         Task<AuthResponseDto?> FacebookLoginAsync(
             SocialLoginDto dto);
+
+        Task<bool> LinkGoogleAsync(int userId, SocialLoginDto dto);
+        Task<bool> LinkFacebookAsync(int userId, SocialLoginDto dto);
     }
 }

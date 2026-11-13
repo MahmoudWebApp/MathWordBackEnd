@@ -126,6 +126,11 @@ namespace MathWorldAPI.Services
                     "Google user verified: {Email}",
                     googleUser.Email);
 
+                // Keep creation and provider identity binding atomic. A failed
+                // link must not leave an orphan MathWorld account.
+                await using var transaction =
+                    await _context.Database.BeginTransactionAsync();
+
                 // Step 2: Find an existing user or create a new user.
                 var user =
                     await FindOrCreateUserFromSocial(
@@ -162,6 +167,7 @@ namespace MathWorldAPI.Services
                     DateTime.UtcNow;
 
                 await _context.SaveChangesAsync();
+                await transaction.CommitAsync();
 
                 _logger.LogInformation(
                     "Google login succeeded for user {UserId}.",
@@ -172,6 +178,14 @@ namespace MathWorldAPI.Services
 
                 // Step 5: Generate an application JWT.
                 return BuildAuthResponse(user);
+            }
+            catch (SocialAccountLinkRequiredException)
+            {
+                throw;
+            }
+            catch (SocialAccountConflictException)
+            {
+                throw;
             }
             catch (Exception exception)
             {
@@ -223,9 +237,7 @@ namespace MathWorldAPI.Services
                 }
 
                 if (string.IsNullOrWhiteSpace(
-                        facebookUser.FacebookId) ||
-                    string.IsNullOrWhiteSpace(
-                        facebookUser.Email))
+                        facebookUser.FacebookId))
                 {
                     _logger.LogWarning(
                         "Facebook login rejected because ID or email information is missing.");
@@ -236,6 +248,11 @@ namespace MathWorldAPI.Services
                 _logger.LogInformation(
                     "Facebook user verified: {Email}",
                     facebookUser.Email);
+
+                // Keep creation and provider identity binding atomic. A failed
+                // link must not leave an orphan MathWorld account.
+                await using var transaction =
+                    await _context.Database.BeginTransactionAsync();
 
                 // Step 2: Find an existing user or create a new user.
                 var user =
@@ -275,6 +292,7 @@ namespace MathWorldAPI.Services
                     DateTime.UtcNow;
 
                 await _context.SaveChangesAsync();
+                await transaction.CommitAsync();
 
                 _logger.LogInformation(
                     "Facebook login succeeded for user {UserId}.",
@@ -286,6 +304,14 @@ namespace MathWorldAPI.Services
                 // Step 5: Generate an application JWT.
                 return BuildAuthResponse(user);
             }
+            catch (SocialAccountLinkRequiredException)
+            {
+                throw;
+            }
+            catch (SocialAccountConflictException)
+            {
+                throw;
+            }
             catch (Exception exception)
             {
                 _logger.LogError(
@@ -295,6 +321,63 @@ namespace MathWorldAPI.Services
 
                 return null;
             }
+        }
+
+        /// <summary>
+        /// Explicitly links Google to an authenticated MathWorld student.
+        /// The caller's valid MathWorld JWT proves ownership of the local user;
+        /// a verified Google ID token proves ownership of the provider identity.
+        /// </summary>
+        public async Task<bool> LinkGoogleAsync(
+            int userId,
+            SocialLoginDto dto)
+        {
+            if (string.IsNullOrWhiteSpace(dto.AccessToken))
+                return false;
+            var identity = await VerifyGoogleTokenAsync(dto.AccessToken);
+            if (identity == null ||
+                !identity.EmailVerified ||
+                string.IsNullOrWhiteSpace(identity.GoogleId))
+                return false;
+
+            return await LinkExistingAccountAsync(
+                userId, "Google", identity.GoogleId, identity.Picture);
+        }
+
+        /// <summary>
+        /// Explicitly links Facebook to an authenticated MathWorld student.
+        /// </summary>
+        public async Task<bool> LinkFacebookAsync(
+            int userId,
+            SocialLoginDto dto)
+        {
+            if (string.IsNullOrWhiteSpace(dto.AccessToken))
+                return false;
+            var identity = await VerifyFacebookTokenAsync(dto.AccessToken);
+            if (identity == null ||
+                string.IsNullOrWhiteSpace(identity.FacebookId))
+                return false;
+
+            return await LinkExistingAccountAsync(
+                userId, "Facebook", identity.FacebookId,
+                identity.Picture?.Data?.Url);
+        }
+
+        private async Task<bool> LinkExistingAccountAsync(
+            int userId,
+            string provider,
+            string providerId,
+            string? profilePicture)
+        {
+            var user = await _context.Users
+                .FirstOrDefaultAsync(item => item.Id == userId && item.IsActive);
+            if (user == null)
+                return false;
+
+            // SaveSocialLogin enforces that a provider identity cannot be
+            // reassigned to another user or silently swapped on this account.
+            await SaveSocialLogin(user.Id, provider, providerId, profilePicture);
+            return true;
         }
 
         /// <summary>
@@ -545,9 +628,9 @@ namespace MathWorldAPI.Services
             var normalizedProviderId =
                 providerId.Trim();
 
-            var normalizedEmail =
-                NormalizeEmail(email);
-
+            // Provider ID, not an email string, is the binding key.
+            // An existing provider relationship must work even if a provider
+            // no longer returns an email (common with Facebook).
             // First try to find the user through the existing
             // provider relationship.
             var linkedLogin =
@@ -576,27 +659,23 @@ namespace MathWorldAPI.Services
                 return linkedUser;
             }
 
-            // Next try to find the user by verified email.
-            var user =
-                await _context.Users
-                    .FirstOrDefaultAsync(item =>
-                        item.Email.ToLower() ==
-                        normalizedEmail);
-
-            if (user != null)
+            // An unlinked social provider MUST NOT claim an existing MathWorld
+            // identity based on the same email address. The learner needs
+            // an authenticated and explicit account-linking action.
+            if (string.IsNullOrWhiteSpace(email))
             {
-                if (!string.IsNullOrWhiteSpace(
-                        profilePicture) &&
-                    string.IsNullOrWhiteSpace(
-                        user.ProfilePicture))
-                {
-                    user.ProfilePicture =
-                        profilePicture.Trim();
+                _logger.LogWarning(
+                    "Unlinked {Provider} identity has no usable email.",
+                    normalizedProvider);
+                return null;
+            }
 
-                    await _context.SaveChangesAsync();
-                }
-
-                return user;
+            var normalizedEmail = NormalizeEmail(email);
+            var emailInUse = await _context.Users
+                .AnyAsync(item => item.Email.ToLower() == normalizedEmail);
+            if (emailInUse)
+            {
+                throw new SocialAccountLinkRequiredException();
             }
 
             // Create a new application user.
@@ -605,7 +684,7 @@ namespace MathWorldAPI.Services
                     fullName,
                     normalizedEmail);
 
-            user =
+            var user =
                 new AppUser
                 {
                     FullName =
@@ -705,8 +784,7 @@ namespace MathWorldAPI.Services
                         normalizedProvider,
                         normalizedProviderId);
 
-                    throw new InvalidOperationException(
-                        "The social provider account is already connected to another user.");
+                    throw new SocialAccountConflictException();
                 }
 
                 providerIdentity.ProfilePicture =
@@ -732,8 +810,15 @@ namespace MathWorldAPI.Services
 
             if (existingUserProvider != null)
             {
-                existingUserProvider.ProviderId =
-                    normalizedProviderId;
+                // Never silently replace an account's existing provider ID.
+                // A provider change requires an explicit unlink/link workflow.
+                if (!string.Equals(
+                        existingUserProvider.ProviderId,
+                        normalizedProviderId,
+                        StringComparison.Ordinal))
+                {
+                    throw new SocialAccountConflictException();
+                }
 
                 existingUserProvider.ProfilePicture =
                     normalizedPicture
