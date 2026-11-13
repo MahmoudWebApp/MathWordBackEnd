@@ -132,6 +132,31 @@ def main():
     code, body = submit(two, *expired_question)
     assert code == 200, (code, body)
 
+    # Admin-only subscription controls must record a durable audit trail.
+    import urllib.parse
+    student_email = "learner-ci-502@mathworld.test"
+    # Resolve the learner through the admin-only directory, not by guessing IDs.
+    directory = expect("GET", "/api/admin/learners?search=" +
+                       urllib.parse.quote(student_email), 200, token=admin)
+    learner = next(x for x in directory["Learners"] if x["Email"] == student_email)
+    learner_id = learner["Id"]
+    endpoint = f"/api/admin/learners/{learner_id}/subscription"
+    change = {"SubscriptionType": "Free", "Reason": "CI expiry and revoke check"}
+    status, _ = api("PUT", endpoint, change, two)
+    assert status == 403, status
+    status, _ = api("PUT", endpoint, change)
+    assert status == 401, status
+    changed = expect("PUT", endpoint, 200, change, admin)
+    assert changed["SubscriptionType"] == "Free", changed
+    assert not quota(two, 2)["Unlimited"]
+    history = expect("GET", endpoint + "-history", 200, token=admin)
+    assert history["Total"] >= 1 and history["Records"][0]["NewType"] == "Free", history
+    changed = expect("PUT", endpoint, 200, {
+        "SubscriptionType": "Premium",
+        "Reason": "CI administrator grant check"
+    }, admin)
+    assert changed["Unlimited"] and quota(two, 2)["Unlimited"], changed
+
     # Two DIFFERENT questions racing for the same final slot must serialize.
     for qid, correct in q3[:9]:
         code, body = submit(three, qid, correct)
