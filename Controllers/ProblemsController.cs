@@ -1127,8 +1127,7 @@ namespace MathWorldAPI.Controllers
             // Re-attempting an already attempted problem consumes no
             // further daily slots even if the previous attempt was yesterday.
             if (isOfficialAttempt &&
-                !string.Equals(subscription, "Premium",
-                    StringComparison.OrdinalIgnoreCase))
+                !PremiumEntitlement.IsActive(subscription))
             {
                 var used = await StageDailyQuota.CountUsedAsync(
                     _context, userId.Value, problem.StageId, now,
