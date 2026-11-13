@@ -110,14 +110,15 @@ namespace MathWorldAPI.Controllers
             // Count inventory separately: progress records can also be created
             // just for favorites without any submitted attempts.
             var inventory = await _context.Problems.AsNoTracking()
-                .Where(p => p.StageId == stage.Id)
+                .Where(p => p.StageId == stage.Id && p.Category.StageId == stage.Id)
                 .GroupBy(p => p.CategoryId)
                 .Select(g => new { CategoryId = g.Key, Count = g.Count() })
                 .ToDictionaryAsync(x => x.CategoryId, x => x.Count,
                     cancellationToken);
 
             var progress = await _context.UserProgresses.AsNoTracking()
-                .Where(p => p.UserId == userId && p.Problem.StageId == stage.Id)
+                .Where(p => p.UserId == userId && p.Problem.StageId == stage.Id &&
+                    p.Problem.Category.StageId == stage.Id)
                 .GroupBy(p => p.Problem.CategoryId)
                 .Select(g => new
                 {
