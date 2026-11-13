@@ -462,6 +462,34 @@ namespace MathWorldAPI.Migrations
                     b.ToTable("ProblemAttempts");
                 });
 
+            modelBuilder.Entity("MathWorldAPI.Models.ProblemDiagram", b =>
+                {
+                    b.Property<int>("ProblemId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("AltTextAr")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("character varying(500)");
+
+                    b.Property<string>("AltTextEn")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("character varying(500)");
+
+                    b.Property<string>("DiagramJson")
+                        .IsRequired()
+                        .HasMaxLength(30000)
+                        .HasColumnType("character varying(30000)");
+
+                    b.Property<int>("SchemaVersion")
+                        .HasColumnType("integer");
+
+                    b.HasKey("ProblemId");
+
+                    b.ToTable("ProblemDiagrams");
+                });
+
             modelBuilder.Entity("MathWorldAPI.Models.QuestionOption", b =>
                 {
                     b.Property<int>("Id")
@@ -671,6 +699,17 @@ namespace MathWorldAPI.Migrations
                     b.Navigation("Problem");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("MathWorldAPI.Models.ProblemDiagram", b =>
+                {
+                    b.HasOne("MathWorldAPI.Models.MathProblem", "Problem")
+                        .WithOne()
+                        .HasForeignKey("MathWorldAPI.Models.ProblemDiagram", "ProblemId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Problem");
                 });
 
             modelBuilder.Entity("MathWorldAPI.Models.QuestionOption", b =>
