@@ -22,7 +22,7 @@ namespace MathWorldAPI.Controllers
         public PremiumProblemSolutionsController(AppDbContext db) => _db = db;
 
         [HttpGet("{problemId:int}/premium-solution")]
-        [EnableRateLimiting("answers")]
+        [EnableRateLimiting("solution-preview")]
         [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
         public async Task<IActionResult> Get(int problemId,
             CancellationToken cancellationToken)
