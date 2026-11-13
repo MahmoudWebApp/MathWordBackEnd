@@ -82,6 +82,27 @@ namespace MathWorldAPI.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("MathWorldAPI.Models.SubscriptionGrant", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
+                    b.Property<int>("AdminId").HasColumnType("integer");
+                    b.Property<DateTime>("ChangedAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<int>("LearnerId").HasColumnType("integer");
+                    b.Property<string>("NewType").IsRequired().HasColumnType("text");
+                    b.Property<DateTime?>("NewExpiresAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<DateTime?>("PreviousExpiresAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<string>("PreviousType").IsRequired().HasColumnType("text");
+                    b.Property<string>("Reason").IsRequired().HasMaxLength(500)
+                        .HasColumnType("character varying(500)");
+                    b.HasKey("Id");
+                    b.HasIndex("AdminId");
+                    b.HasIndex("LearnerId", "ChangedAtUtc");
+                    b.ToTable("SubscriptionGrants");
+                });
+
             modelBuilder.Entity("MathWorldAPI.Models.Category", b =>
                 {
                     b.Property<int>("Id")
