@@ -3,16 +3,52 @@ using MathWorldAPI.Models;
 namespace MathWorldAPI.Services;
 
 /// <summary>
-/// Pure entitlement rules for the category-access model.
-/// This service is not wired into controllers yet: endpoints must switch
-/// atomically from legacy daily quotas to server-enforced category checks.
+/// Category access rules. No daily question quota exists in this policy.
+/// Controllers must validate the category belongs to the requested stage.
 /// </summary>
 public static class CategoryAccessPolicy
 {
+    public const int DefaultFreeCategoriesPerStage = 2;
+
     /// <summary>
-    /// Determines whether an active learner can access a category.
-    /// Free category IDs are selected per educational stage by admin policy.
+    /// Resolves free categories for one stage. Configured IDs are honored only
+    /// if they belong to the stage; otherwise the first two categories by
+    /// editorial Order, then Id, are used. Configuration is a transitional
+    /// mechanism until the audited admin editor is implemented.
     /// </summary>
+    public static IReadOnlyList<int> ResolveFreeCategoryIds(
+        IEnumerable<Category> stageCategories,
+        IEnumerable<int>? configuredIds = null)
+    {
+        if (stageCategories is null)
+            throw new ArgumentNullException(nameof(stageCategories));
+
+        var categories = stageCategories
+            .OrderBy(category => category.Order)
+            .ThenBy(category => category.Id)
+            .ToList();
+
+        if (categories.Count == 0)
+            return Array.Empty<int>();
+
+        var stageId = categories[0].StageId;
+        if (categories.Any(category => category.StageId != stageId))
+            throw new ArgumentException("All categories must belong to the same stage.", nameof(stageCategories));
+
+        var available = categories.Select(category => category.Id).ToHashSet();
+        var configured = configuredIds?.Distinct().ToList();
+        if (configured is { Count: > 0 })
+        {
+            if (configured.Count != DefaultFreeCategoriesPerStage ||
+                configured.Any(id => !available.Contains(id)))
+                throw new ArgumentException("Exactly two valid category IDs from the same stage are required.", nameof(configuredIds));
+            return configured;
+        }
+
+        return categories.Take(DefaultFreeCategoriesPerStage)
+            .Select(category => category.Id).ToList();
+    }
+
     public static bool CanAccess(
         AppUser learner,
         int stageId,
@@ -22,23 +58,16 @@ public static class CategoryAccessPolicy
     {
         if (learner is null)
             throw new ArgumentNullException(nameof(learner));
-
         if (freeCategoryIds is null)
             throw new ArgumentNullException(nameof(freeCategoryIds));
-
-        if (!learner.IsActive || stageId <= 0 || categoryId <= 0)
-            return false;
-
-        if (!string.Equals(learner.Role, "Student", StringComparison.OrdinalIgnoreCase))
+        if (!learner.IsActive || stageId <= 0 || categoryId <= 0 ||
+            !string.Equals(learner.Role, "Student", StringComparison.OrdinalIgnoreCase))
             return false;
 
         return PremiumEntitlement.IsActive(learner, nowUtc)
             || freeCategoryIds.Contains(categoryId);
     }
 
-    /// <summary>
-    /// A category may contain any positive number of vetted questions.
-    /// This does not represent a daily attempt quota.
-    /// </summary>
+    /// <summary>Groups have editor-selected positive sizes, never a fixed ten.</summary>
     public static bool IsValidGroupSize(int questionCount) => questionCount > 0;
 }
