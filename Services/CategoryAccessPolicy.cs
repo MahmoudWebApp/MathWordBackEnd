@@ -36,10 +36,11 @@ public static class CategoryAccessPolicy
             throw new ArgumentException("All categories must belong to the same stage.", nameof(stageCategories));
 
         var available = categories.Select(category => category.Id).ToHashSet();
-        var configured = configuredIds?.Distinct().ToList();
-        if (configured is { Count: > 0 })
+        var configured = configuredIds?.ToList();
+        if (configured is not null)
         {
             if (configured.Count != DefaultFreeCategoriesPerStage ||
+                configured.Distinct().Count() != configured.Count ||
                 configured.Any(id => !available.Contains(id)))
                 throw new ArgumentException("Exactly two valid category IDs from the same stage are required.", nameof(configuredIds));
             return configured;
