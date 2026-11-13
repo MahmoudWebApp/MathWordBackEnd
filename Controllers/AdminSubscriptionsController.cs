@@ -31,10 +31,11 @@ namespace MathWorldAPI.Controllers
                 return Forbid();
 
             var type = request.SubscriptionType?.Trim();
+            var reason = request.Reason?.Trim();
             if ((type != "Free" && type != "Premium") ||
-                string.IsNullOrWhiteSpace(request.Reason) ||
-                request.Reason.Trim().Length < 3 ||
-                request.Reason.Length > 500 ||
+                string.IsNullOrWhiteSpace(reason) ||
+                reason.Length < 3 ||
+                reason.Length > 500 ||
                 (type == "Free" && request.PremiumExpiresAtUtc.HasValue) ||
                 (request.PremiumExpiresAtUtc.HasValue &&
                     (request.PremiumExpiresAtUtc.Value.Kind != DateTimeKind.Utc ||
@@ -66,7 +67,7 @@ namespace MathWorldAPI.Controllers
                     NewType = type!,
                     PreviousExpiresAtUtc = previousExpiry,
                     NewExpiresAtUtc = request.PremiumExpiresAtUtc,
-                    Reason = request.Reason.Trim(),
+                    Reason = reason!,
                     ChangedAtUtc = DateTime.UtcNow
                 });
                 await _db.SaveChangesAsync(cancellationToken);
