@@ -20,7 +20,7 @@ This file is the durable source of truth for continuation across conversations. 
 |---|---|---|---|
 | B01 | Premium backend expiry, admin grants, audit | IN PROGRESS | Draft backend PR #20; audited grants, expiry, bounded grant and auth tests committed; build/CI not verified |
 | B02 | Backend regression, integration, migrations | BLOCKED | Manual workflow_dispatch enabled; need successful .NET and disposable PostgreSQL CI |
-| B03 | Central server-side feature flags | NOT STARTED | Schema, admin API, audit, fail-closed defaults |
+| B03 | Central server-side feature flags | IN PROGRESS | Fail-closed config service and read-only public API committed; persistence/admin UI/audit not yet built; CI unverified |
 | B04 | Coupon/campaign redemption | NOT STARTED | Limits, locking, expiry, idempotency |
 | B05 | Premium entitlements/exports/analytics | NOT STARTED | API + secure authorization |
 | W01 | Next.js premium/admin settings | NOT STARTED | Admin campaigns, grants, history |
@@ -72,3 +72,8 @@ Date; repository/branch/PR; exact files changed; behavior before/after; test com
 ## Progress update — backend account enforcement
 - Added active-account checks to StageDailyQuotaController and ProblemsController submission subscription query. Deactivated students cannot request daily quota or submit answers through these paths using an otherwise valid JWT.
 - Scope: two backend controllers; committed to draft PR #20. Not verified by successful .NET CI; do not merge until verified.
+
+## Progress update — launch flags foundation
+- Added Services/LaunchFeatureFlags.cs, DI registration in Program.cs, and Controllers/PublicFeaturesController.cs exposing GET /api/config/features.
+- Flags default false: PaidCheckout, CouponRedemption, TutorMarketplace, Ads, GeometryInteractive, Notifications. Environment config can set Features__<Name>; clients must not treat flags as authorization.
+- Added disposable-DB integration assertions for safe defaults. Backend build and tests have not been run successfully yet.
