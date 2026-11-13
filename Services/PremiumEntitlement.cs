@@ -3,8 +3,8 @@ using MathWorldAPI.Models;
 namespace MathWorldAPI.Services
 {
     /// <summary>
-    /// Centralized entitlement check. A future expiry-aware schema migration
-    /// will extend this policy; clients must never decide entitlement.
+    /// Effective subscription is evaluated server-side at request time.
+    /// Null expiry preserves existing indefinite Premium accounts.
     /// </summary>
     public static class PremiumEntitlement
     {
@@ -12,7 +12,12 @@ namespace MathWorldAPI.Services
             string.Equals(subscriptionType, "Premium",
                 StringComparison.OrdinalIgnoreCase);
 
-        public static bool IsActive(AppUser user) =>
-            IsActive(user.SubscriptionType);
+        public static bool IsActive(AppUser user, DateTime? nowUtc = null) =>
+            IsActive(user.SubscriptionType) &&
+            (!user.PremiumExpiresAtUtc.HasValue ||
+             user.PremiumExpiresAtUtc.Value > (nowUtc ?? DateTime.UtcNow));
+
+        public static string EffectiveType(AppUser user, DateTime? nowUtc = null) =>
+            IsActive(user, nowUtc) ? "Premium" : "Free";
     }
 }
