@@ -545,8 +545,10 @@ app.MapGet(
         }))
     .AllowAnonymous();
 
-// Readiness checks the real database with a bounded timeout.
-// Do not return connection strings or exception details to callers.
+// Readiness checks connectivity AND whether EF Core schema migrations are
+// up to date. A reachable database with an outdated schema caused HTTP 500
+// logins during the 2026-11-13 learning-stage rollout.
+// Do not apply migrations in the readiness endpoint or expose schema details.
 app.MapGet(
         "/health/ready",
         async (
@@ -563,10 +565,33 @@ app.MapGet(
             {
                 if (await database.Database.CanConnectAsync(timeout.Token))
                 {
+                    // Read-only check: EF migrations must already have been
+                    // applied by an explicit migration release step.
+                    // CanConnectAsync alone returns true for a missing column.
+                    var pending = await database.Database.GetPendingMigrationsAsync(
+                        timeout.Token);
+
+                    if (pending.Any())
+                    {
+                        logger.LogWarning(
+                            "Database readiness blocked: {Count} unapplied EF migrations.",
+                            pending.Count());
+
+                        return Results.Json(
+                            new
+                            {
+                                status = "unready",
+                                database = "available",
+                                schema = "outdated"
+                            },
+                            statusCode: StatusCodes.Status503ServiceUnavailable);
+                    }
+
                     return Results.Ok(new
                     {
                         status = "ready",
-                        database = "available"
+                        database = "available",
+                        schema = "current"
                     });
                 }
             }

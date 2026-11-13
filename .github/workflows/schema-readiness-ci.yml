@@ -1,0 +1,86 @@
+name: Schema drift readiness guard
+
+on:
+  push:
+    branches:
+      - fix/readiness-detect-pending-db-migrations
+  pull_request:
+    paths:
+      - 'Program.cs'
+      - 'Migrations/**'
+      - '.github/workflows/schema-readiness-ci.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  missing-migration:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: ci_only_password
+          POSTGRES_DB: mathworld_ci
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres -d mathworld_ci"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+      - name: Build backend
+        run: dotnet build MathWorldAPI.csproj -c Release
+
+      - name: Verify an unmigrated but reachable DB cannot pass readiness
+        env:
+          ASPNETCORE_ENVIRONMENT: Production
+          ASPNETCORE_URLS: http://127.0.0.1:5053
+          ConnectionStrings__DefaultConnection: Host=127.0.0.1;Port=5432;Database=mathworld_ci;Username=postgres;Password=ci_only_password
+          Jwt__Key: ci_only_test_signing_key_never_use_in_production_0123456789
+          Jwt__Issuer: MathWorld-CI
+          Jwt__Audience: MathWorld-CI
+          Meilisearch__Enabled: 'false'
+          BootstrapAdmin__Enabled: 'false'
+          Database__ApplyMigrationsOnStartup: 'false'
+        shell: bash
+        run: |
+          set -euo pipefail
+          dotnet run --no-launch-profile --no-build -c Release --project MathWorldAPI.csproj > /tmp/mathworld-schema-ci.log 2>&1 &
+          pid=$!
+          trap 'kill "$pid" 2>/dev/null || true' EXIT
+          alive=0
+          for i in $(seq 1 40); do
+            if curl -fsS --max-time 2 http://127.0.0.1:5053/health/live > /dev/null; then
+              alive=1
+              break
+            fi
+            if ! kill -0 "$pid" 2>/dev/null; then
+              echo "API exited unexpectedly"
+              tail -n 45 /tmp/mathworld-schema-ci.log
+              exit 1
+            fi
+            sleep 1
+          done
+          test "$alive" -eq 1
+          status="$(curl -sS --max-time 12 -o /tmp/ready.json -w '%{http_code}' http://127.0.0.1:5053/health/ready)"
+          if test "$status" != "503"; then
+            echo "Missing migrations must return HTTP 503, got $status"
+            tail -n 35 /tmp/mathworld-schema-ci.log
+            exit 1
+          fi
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          data = json.loads(Path('/tmp/ready.json').read_text())
+          assert data['status'] == 'unready', data
+          assert data['database'] == 'available', data
+          assert data['schema'] == 'outdated', data
+          print('PASS: reachable DB with unapplied migrations -> 503, schema outdated')
+          PY
