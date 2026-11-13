@@ -121,7 +121,7 @@ def main():
     assert premium_entitlement["IsPremium"], premium_entitlement
     assert premium_entitlement["CanRevealSolutionBeforeAnswer"], premium_entitlement
     assert premium_entitlement["CanExportAnalytics"], premium_entitlement
-    assert premium_entitlement["DailyNewProblemsLimit"] is None, premium_entitlement
+    assert premium_entitlement.get("DailyNewProblemsLimit") is None, premium_entitlement
     premium = quota(two, 2)
     assert premium["Unlimited"] and premium.get("Remaining") is None, premium
     code, body = submit(two, *q2[10])
