@@ -82,6 +82,24 @@ public sealed class ProblemCategoryAccessService
         return allowed;
     }
 
+    /// <summary>
+    /// Fail closed for inconsistent legacy records: a problem must belong to
+    /// the same stage as its category before access can be granted.
+    /// </summary>
+    public async Task<bool> CanReadProblemAsync(
+        ClaimsPrincipal principal, int stageId, int categoryId,
+        CancellationToken cancellationToken = default)
+    {
+        if (stageId <= 0 || categoryId <= 0)
+            return false;
+        var categoryMatchesStage = await _db.Categories.AsNoTracking()
+            .AnyAsync(c => c.Id == categoryId && c.StageId == stageId,
+                cancellationToken);
+        if (!categoryMatchesStage)
+            return false;
+        return await CanReadProblemAsync(principal, categoryId, cancellationToken);
+    }
+
     public async Task<bool> CanReadProblemAsync(
         ClaimsPrincipal principal, int categoryId,
         CancellationToken cancellationToken = default)
