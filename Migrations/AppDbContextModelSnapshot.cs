@@ -64,6 +64,9 @@ namespace MathWorldAPI.Migrations
                         .HasMaxLength(32)
                         .HasColumnType("character varying(32)");
 
+                    b.Property<DateTime?>("PremiumExpiresAtUtc")
+                        .HasColumnType("timestamp with time zone");
+
                     b.Property<string>("SubscriptionType")
                         .IsRequired()
                         .HasMaxLength(32)
