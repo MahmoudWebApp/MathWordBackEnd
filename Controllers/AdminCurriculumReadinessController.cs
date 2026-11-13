@@ -56,7 +56,7 @@ namespace MathWorldAPI.Controllers
             {
                 var stageProblems = problemsByStage.GetValueOrDefault(stage.Id) ?? new();
                 var stageCategories = categories.Where(c => c.StageId == stage.Id).ToList();
-                var invalidProblems = stageProblems.Count(p =>
+                var invalidProblemIds = stageProblems.Where(p =>
                     string.IsNullOrWhiteSpace(p.QuestionTextAr) ||
                     string.IsNullOrWhiteSpace(p.QuestionTextEn) ||
                     string.IsNullOrWhiteSpace(p.DetailedSolutionAr) ||
@@ -64,7 +64,8 @@ namespace MathWorldAPI.Controllers
                     p.OptionTexts.Count != 4 || p.CorrectOptionCount != 1 ||
                     p.OptionTexts.Any(o => string.IsNullOrWhiteSpace(o)) ||
                     p.OptionTexts.Distinct(StringComparer.Ordinal).Count() != 4 ||
-                    !stageCategories.Any(c => c.Id == p.CategoryId));
+                    !stageCategories.Any(c => c.Id == p.CategoryId))
+                    .Select(p => p.Id).OrderBy(id => id).ToList();
                 return new
                 {
                     StageId = stage.Id,
@@ -75,7 +76,8 @@ namespace MathWorldAPI.Controllers
                     RequiredMinimum = 10,
                     MissingToMinimum = Math.Max(0, 10 - stageProblems.Count),
                     MeetsMinimum = stageProblems.Count >= 10,
-                    InvalidProblemCount = invalidProblems,
+                    InvalidProblemCount = invalidProblemIds.Count,
+                    InvalidProblemIds = invalidProblemIds,
                     Categories = stageCategories.Select(c => new
                     {
                         CategoryId = c.Id, c.NameAr, c.NameEn, c.Icon, c.Order,
@@ -89,6 +91,7 @@ namespace MathWorldAPI.Controllers
                 MinimumProblemsPerStage = 10,
                 StageCount = stages.Count,
                 TotalProblems = problems.Count,
+                TotalMissingToMinimum = result.Sum(s => s.MissingToMinimum),
                 StagesBelowMinimum = result.Count(s => !s.MeetsMinimum),
                 StagesWithInvalidProblems = result.Count(s => s.InvalidProblemCount > 0),
                 Stages = result
