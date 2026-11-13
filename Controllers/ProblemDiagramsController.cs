@@ -1,4 +1,5 @@
 using MathWorldAPI.Services;
+using System.Security.Claims;
 using MathWorldAPI.Data;
 using MathWorldAPI.Helpers;
 using Microsoft.AspNetCore.Mvc;
@@ -21,6 +22,54 @@ namespace MathWorldAPI.Controllers
         public async Task<IActionResult> Get(int problemId, CancellationToken cancellationToken)
         {
             if (problemId <= 0) return BadRequest(new { Message = "InvalidProblemId" });
+            // Diagrams are part of the protected problem content.
+            var problem = await _db.Problems.AsNoTracking()
+                .Where(p => p.Id == problemId)
+                .Select(p => new { p.StageId, p.CategoryId })
+                .FirstOrDefaultAsync(cancellationToken);
+            if (problem == null) return NotFound(new { Message = "ProblemNotFound" });
+
+            var role = User.FindFirstValue(ClaimTypes.Role);
+            if (!string.Equals(role, "Admin", StringComparison.OrdinalIgnoreCase))
+            {
+                var userId = int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out var parsed)
+                    ? parsed : 0;
+                var learner = userId > 0 ? await _db.Users.AsNoTracking()
+                    .FirstOrDefaultAsync(u => u.Id == userId && u.IsActive && u.Role == "Student",
+                        cancellationToken) : null;
+                if (userId > 0 && learner == null)
+                    return StatusCode(403, new { Message = "CategoryLocked" });
+                if (learner == null || !PremiumEntitlement.IsActive(learner))
+                {
+                    var categories = await _db.Categories.AsNoTracking()
+                        .Where(c => c.StageId == problem.StageId)
+                        .OrderBy(c => c.Order).ThenBy(c => c.Id)
+                        .ToListAsync(cancellationToken);
+                    var config = HttpContext.RequestServices.GetRequiredService<IConfiguration>()
+                        [$"FreeCategoryAccess:Stages:{problem.StageId}"];
+                    List<int>? configured = null;
+                    if (!string.IsNullOrWhiteSpace(config))
+                    {
+                        var parts = config.Split(',', StringSplitOptions.TrimEntries |
+                            StringSplitOptions.RemoveEmptyEntries);
+                        if (parts.Length != CategoryAccessPolicy.DefaultFreeCategoriesPerStage ||
+                            parts.Any(part => !int.TryParse(part, out _)))
+                            return StatusCode(403, new { Message = "CategoryLocked" });
+                        configured = parts.Select(int.Parse).ToList();
+                    }
+                    try
+                    {
+                        var free = CategoryAccessPolicy.ResolveFreeCategoryIds(categories, configured);
+                        if (!free.Contains(problem.CategoryId))
+                            return StatusCode(403, new { Message = "CategoryLocked" });
+                    }
+                    catch (ArgumentException)
+                    {
+                        return StatusCode(403, new { Message = "CategoryLocked" });
+                    }
+                }
+            }
+
             var record = await _db.ProblemDiagrams.AsNoTracking()
                 .Where(x => x.ProblemId == problemId)
                 .Select(x => new { x.SchemaVersion, x.DiagramJson, x.AltTextAr, x.AltTextEn })
