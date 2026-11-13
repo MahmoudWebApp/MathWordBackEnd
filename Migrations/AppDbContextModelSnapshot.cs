@@ -30,6 +30,9 @@ namespace MathWorldAPI.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
+                    b.Property<int?>("CurrentStageId")
+                        .HasColumnType("integer");
+
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
 
@@ -70,6 +73,8 @@ namespace MathWorldAPI.Migrations
 
                     b.HasIndex("Email")
                         .IsUnique();
+
+                    b.HasIndex("CurrentStageId");
 
                     b.ToTable("Users");
                 });
@@ -683,6 +688,14 @@ namespace MathWorldAPI.Migrations
                     b.Navigation("Problem");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("MathWorldAPI.Models.AppUser", b =>
+                {
+                    b.HasOne("MathWorldAPI.Models.EducationalStage", null)
+                        .WithMany()
+                        .HasForeignKey("CurrentStageId")
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("MathWorldAPI.Models.AppUser", b =>

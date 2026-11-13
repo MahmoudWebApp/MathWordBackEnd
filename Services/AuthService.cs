@@ -437,6 +437,7 @@ namespace MathWorldAPI.Services
 
                 SubscriptionType =
                     user.SubscriptionType,
+                CurrentStageId = user.CurrentStageId,
 
                 ProfilePicture =
                     user.ProfilePicture,

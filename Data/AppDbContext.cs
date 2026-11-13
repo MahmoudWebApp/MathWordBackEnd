@@ -106,6 +106,13 @@ namespace MathWorldAPI.Data
                 .HasMaxLength(32)
                 .IsRequired();
 
+            // Stage preference never changes or deletes historical learning data.
+            modelBuilder.Entity<AppUser>()
+                .HasOne<EducationalStage>()
+                .WithMany()
+                .HasForeignKey(user => user.CurrentStageId)
+                .OnDelete(DeleteBehavior.Restrict);
+
             // =================================================================
             // ENTITY RELATIONSHIPS
             // =================================================================

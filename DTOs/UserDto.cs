@@ -35,6 +35,8 @@ namespace MathWorldAPI.DTOs
         /// </summary>
         public string SubscriptionType { get; set; } = string.Empty;
 
+        public int? CurrentStageId { get; set; }
+
         /// <summary>
         /// Gets or sets the number of correctly solved problems.
         /// </summary>
@@ -81,6 +83,8 @@ namespace MathWorldAPI.DTOs
         /// Gets or sets the user's subscription type.
         /// </summary>
         public string SubscriptionType { get; set; } = string.Empty;
+
+        public int? CurrentStageId { get; set; }
 
         /// <summary>
         /// Gets or sets the number of correctly solved problems.
