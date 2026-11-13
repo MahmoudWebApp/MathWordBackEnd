@@ -55,7 +55,8 @@ namespace MathWorldAPI.Controllers
 
             var previousType = learner.SubscriptionType;
             var previousExpiry = learner.PremiumExpiresAtUtc;
-            if (previousType != type || previousExpiry != request.PremiumExpiresAtUtc)
+            if (!string.Equals(previousType, type, StringComparison.Ordinal) ||
+                previousExpiry != request.PremiumExpiresAtUtc)
             {
                 learner.SubscriptionType = type!;
                 learner.PremiumExpiresAtUtc = request.PremiumExpiresAtUtc;
