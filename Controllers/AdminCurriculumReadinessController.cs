@@ -45,7 +45,7 @@ namespace MathWorldAPI.Controllers
                     p.Id, p.StageId, p.CategoryId,
                     p.QuestionTextAr, p.QuestionTextEn,
                     p.DetailedSolutionAr, p.DetailedSolutionEn,
-                    OptionCount = p.Options.Count,
+                    OptionTexts = p.Options.Select(o => o.LatexCode).ToList(),
                     CorrectOptionCount = p.Options.Count(o => o.IsCorrect)
                 })
                 .ToListAsync(cancellationToken);
@@ -61,7 +61,9 @@ namespace MathWorldAPI.Controllers
                     string.IsNullOrWhiteSpace(p.QuestionTextEn) ||
                     string.IsNullOrWhiteSpace(p.DetailedSolutionAr) ||
                     string.IsNullOrWhiteSpace(p.DetailedSolutionEn) ||
-                    p.OptionCount != 4 || p.CorrectOptionCount != 1 ||
+                    p.OptionTexts.Count != 4 || p.CorrectOptionCount != 1 ||
+                    p.OptionTexts.Any(o => string.IsNullOrWhiteSpace(o)) ||
+                    p.OptionTexts.Distinct(StringComparer.Ordinal).Count() != 4 ||
                     !stageCategories.Any(c => c.Id == p.CategoryId));
                 return new
                 {
