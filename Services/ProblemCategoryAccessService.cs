@@ -28,7 +28,7 @@ public sealed class ProblemCategoryAccessService
             .ToListAsync(cancellationToken);
         var raw = _configuration[$"FreeCategoryAccess:Stages:{stageId}"];
         List<int>? configured = null;
-        if (!string.IsNullOrWhiteSpace(raw))
+        if (raw is not null)
         {
             var parts = raw.Split(',', StringSplitOptions.TrimEntries |
                 StringSplitOptions.RemoveEmptyEntries);
