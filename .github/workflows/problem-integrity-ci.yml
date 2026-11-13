@@ -66,6 +66,10 @@ jobs:
             tail -n 80 /tmp/mathworld-integration.log
             exit 1
           fi
+      - name: Verify point ledger, stage rankings and privacy
+        run: python3 tests/integration_point_ledger.py
+        env:
+          MATHWORLD_TEST_BASE_URL: http://127.0.0.1:5051
       - name: Verify concurrent answers and protected learner history
         run: python3 tests/integration_problem_history.py
         env:
