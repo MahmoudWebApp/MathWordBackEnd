@@ -135,3 +135,7 @@ Status below reflects confirmed implementation scope, not production completion.
 ## Implementation checkpoint — geometry category guard
 - Added Free/Premium category access validation to `GET /api/problems/{problemId}/diagram` so a locked problem's geometry JSON is not publicly retrievable. Commit d894458.
 - **Open blockers:** authorization logic currently duplicated between controllers; refactor into shared scoped service before launch; audit all remaining API endpoints; implement persisted admin-configured free categories; add integration tests, verify build/CI, and update web/Flutter. Do not merge as production-ready until security gates pass.
+
+## Implementation checkpoint — shared entitlement service
+- Added `Services/ProblemCategoryAccessService.cs`, registered in `Program.cs`, and switched ProblemsController, ProblemDiagramsController and StageCategoryAccessController to the same Free/Premium category resolver.
+- **Not verified:** no build or integration tests completed; GitHub workflow runs for the latest commit were not found. All remaining controllers and search response shapes need security review. Configuration-based stage choices remain temporary, and invalid configuration currently fails closed. Rewarded ads, SEO, CAPTCHA and marketing stay tracked separately.
