@@ -374,55 +374,6 @@ namespace MathWorldAPI.Migrations
                     b.ToTable("Problems");
                 });
 
-            modelBuilder.Entity("MathWorldAPI.Models.PointLedger", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
-
-                    b.Property<int>("AttemptId")
-                        .HasColumnType("integer");
-
-                    b.Property<DateTime>("AwardedAt")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<bool>("FirstTryCorrect")
-                        .HasColumnType("boolean");
-
-                    b.Property<int>("Points")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("ProblemId")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("Reason")
-                        .IsRequired()
-                        .HasMaxLength(40)
-                        .HasColumnType("character varying(40)");
-
-                    b.Property<int>("StageId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AttemptId")
-                        .IsUnique();
-
-                    b.HasIndex("ProblemId");
-
-                    b.HasIndex("StageId", "AwardedAt");
-
-                    b.HasIndex("UserId", "ProblemId", "Reason")
-                        .IsUnique();
-
-                    b.ToTable("PointLedger");
-                });
-
             modelBuilder.Entity("MathWorldAPI.Models.ProblemAttempt", b =>
                 {
                     b.Property<int>("Id")
@@ -677,33 +628,6 @@ namespace MathWorldAPI.Migrations
                     b.Navigation("Category");
 
                     b.Navigation("Stage");
-                });
-
-            modelBuilder.Entity("MathWorldAPI.Models.PointLedger", b =>
-                {
-                    b.HasOne("MathWorldAPI.Models.ProblemAttempt", null)
-                        .WithMany()
-                        .HasForeignKey("AttemptId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("MathWorldAPI.Models.MathProblem", null)
-                        .WithMany()
-                        .HasForeignKey("ProblemId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("MathWorldAPI.Models.EducationalStage", null)
-                        .WithMany()
-                        .HasForeignKey("StageId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("MathWorldAPI.Models.AppUser", null)
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("MathWorldAPI.Models.ProblemAttempt", b =>
