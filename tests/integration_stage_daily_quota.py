@@ -78,6 +78,13 @@ def main():
     q1 = [question(admin, 2100 + i, 1, 1) for i in range(11)]
     q2 = [question(admin, 2200 + i, 2, 5) for i in range(11)]
     q3 = [question(admin, 2300 + i, 1, 1) for i in range(11)]
+    preview_url = f"/api/problems/{q2[0][0]}/premium-solution"
+    status, _ = api("GET", preview_url)
+    assert status == 401, status
+    status, _ = api("GET", preview_url, token=admin)
+    assert status == 403, status
+    status, _ = api("GET", preview_url, token=one)
+    assert status == 403, status
 
     expect("PUT", "/api/users/learning-stage", 200, {"StageId": 1}, one)
     assert_quota(one, 1, 0, 10)
@@ -122,6 +129,8 @@ def main():
     assert premium_entitlement["CanRevealSolutionBeforeAnswer"], premium_entitlement
     assert premium_entitlement["CanExportAnalytics"], premium_entitlement
     assert premium_entitlement.get("DailyNewProblemsLimit") is None, premium_entitlement
+    preview = expect("GET", preview_url, 200, token=two)
+    assert preview["CorrectOptionId"] == q2[0][1], preview
     premium = quota(two, 2)
     assert premium["Unlimited"] and premium.get("Remaining") is None, premium
     code, body = submit(two, *q2[10])
@@ -139,6 +148,8 @@ def main():
     expired_entitlement = expect("GET", "/api/users/subscription", 200, token=two)
     assert not expired_entitlement["IsPremium"], expired_entitlement
     assert expired_entitlement["DailyNewProblemsLimit"] == 10, expired_entitlement
+    status, _ = api("GET", preview_url, token=two)
+    assert status == 403, status
     expired = quota(two, 2)
     assert not expired["Unlimited"] and expired["SubscriptionType"] == "Free", expired
     code, body = submit(two, *expired_question)
