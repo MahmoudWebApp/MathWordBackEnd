@@ -11,6 +11,8 @@ on:
       - 'Controllers/AdminController.cs'
       - 'Controllers/ProblemsController.cs'
       - 'Services/StageDailyQuota.cs'
+      - 'Services/PremiumEntitlement.cs'
+      - 'Controllers/AdminSubscriptionsController.cs'
       - 'Services/ProblemTransactionLocks.cs'
       - 'Controllers/UsersController.cs'
       - 'Models/**'
