@@ -38,9 +38,32 @@ public sealed class StageCategoryAccessController : ControllerBase
             .GetRequiredService<ProblemCategoryAccessService>()
             .GetFreeCategoryIdsAsync(stageId, cancellationToken);
 
+        var categories = await _db.Categories.AsNoTracking()
+            .Where(category => category.StageId == stageId)
+            .OrderBy(category => category.Order).ThenBy(category => category.Id)
+            .Select(category => new
+            {
+                category.Id,
+                category.NameAr,
+                category.NameEn,
+                category.Icon,
+                category.Order
+            })
+            .ToListAsync(cancellationToken);
+        var freeIds = ids.ToHashSet();
+
         return Ok(new
         {
             StageId = stageId,
+            Categories = categories.Select(category => new
+            {
+                category.Id,
+                category.NameAr,
+                category.NameEn,
+                category.Icon,
+                category.Order,
+                IsFree = freeIds.Contains(category.Id)
+            }).ToList(),
             FreeCategoryIds = ids,
             FreeCategoryCount = ids.Count,
             DailyProblemLimit = (int?)null,
