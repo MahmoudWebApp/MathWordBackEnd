@@ -145,3 +145,8 @@ Status below reflects confirmed implementation scope, not production completion.
 - Restored `isOfficialAttempt = progress.Attempts == 0` in `ProblemsController.SubmitAnswer` after old quota removal; first-attempt XP behavior depends on it.
 - Unrestricted Admin category access now requires authenticated identity.
 - **Build not yet verified.** Audit remaining student/progress/analytics controllers, eliminate unsafe anonymous data disclosures, add entitlement integration tests and CI verification before merge.
+
+## Implementation checkpoint — journey lock indicators and favorites guard
+- `StageCategoryProgressDto.IsLocked` is now populated by `LearningJourneyController` using shared entitlement service. Historical progress is retained when a category becomes locked.
+- `UsersController.ToggleFavorite` now blocks mutations on inaccessible categories. Existing historical favorites and progress remain stored.
+- **Remaining:** web and Flutter must render locked categories; verify all user read endpoints for content leakage; add tests and verify build/CI; implement persistent admin choice and secure ad unlocks only after compliance review.
