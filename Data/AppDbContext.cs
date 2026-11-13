@@ -87,7 +87,7 @@ namespace MathWorldAPI.Data
             modelBuilder.Entity<StageFreeCategorySelection>().HasKey(x => x.StageId);
             modelBuilder.Entity<StageFreeCategorySelection>()
                 .ToTable(t => t.HasCheckConstraint("CK_StageFreeCategorySelections_Distinct",
-                    "\\\"FirstCategoryId\\\" <> \\\"SecondCategoryId\\\""));
+                    "\"FirstCategoryId\" <> \"SecondCategoryId\""));
             modelBuilder.Entity<StageFreeCategorySelection>()
                 .HasOne<EducationalStage>().WithOne()
                 .HasForeignKey<StageFreeCategorySelection>(x => x.StageId)
