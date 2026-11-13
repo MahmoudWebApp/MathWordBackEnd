@@ -126,3 +126,8 @@ Status below reflects confirmed implementation scope, not production completion.
 - Added `Controllers/StageCategoryAccessController.cs` GET `/api/stages/{stageId}/free-categories` with optional temporary `FreeCategoryAccess:Stages:{stageId}` comma-separated category IDs and fail-closed invalid configuration.
 - **Important:** This read-only endpoint is NOT access enforcement. Old daily quota enforcement still exists. Do not deploy the new policy as complete until backend problem list/search/detail/submit and other read paths enforce it atomically, old quota is removed, web/Flutter updated, and tests pass.
 - No build, CI, database migration or deployment verified for this batch.
+
+## Implementation checkpoint — category guards on problem endpoints (2026-11-13)
+- ProblemsController: removed the daily new-problem answer rejection, added category checks to PostgreSQL search, problem detail, answer submission and attempt history. MeiliSearch paths fall back to PostgreSQL while the external index lacks entitlement-aware filtering. Legacy daily-quota API now returns unlimited; student subscription reports null daily cap.
+- Free access is currently resolved from the first two categories per stage or temporary server configuration. Premium sees all categories. No rewarded-ad unlocks are active.
+- **NOT RELEASE READY:** no verified .NET build/integration run for this commit; old quota-based CI assertions need replacement; full audit of other controllers (progress, category list, diagrams, related recommendations, analytics) remains; admin-editable persisted category selection and tests remain; web/Flutter clients not yet updated. Treat these as security blockers before merging/deploying.
