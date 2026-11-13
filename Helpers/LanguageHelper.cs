@@ -134,6 +134,20 @@ namespace MathWorldAPI.Helpers
                 )
             },
             {
+                "ProblemHasStudentAttempts",
+                (
+                    "لا يمكن تعديل المسألة بعد إجابة الطلاب عليها. أنشئ مسألة جديدة للحفاظ على سجلهم.",
+                    "This problem has student attempts. Create a new problem to preserve their history."
+                )
+            },
+            {
+                "ProblemHasStudentHistory",
+                (
+                    "لا يمكن حذف المسألة لأن الطلاب حفظوها أو أرسلوا إجابات عليها.",
+                    "Cannot delete a problem linked to student answers, progress, or favorites."
+                )
+            },
+            {
                 "OptionsCountError",
                 (
                     "يجب إدخال 4 خيارات بالضبط",
