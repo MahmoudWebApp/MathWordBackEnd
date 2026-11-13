@@ -1261,6 +1261,25 @@ namespace MathWorldAPI.Controllers
             }
 
             await _context.SaveChangesAsync();
+
+            // Record the first legitimate solve credit exactly once, with the
+            // original point value and stage. Both writes share this transaction.
+            if (isCorrect && !wasSolved)
+            {
+                _context.PointLedgerEntries.Add(new PointLedger
+                {
+                    UserId = userId.Value,
+                    ProblemId = problem.Id,
+                    StageId = problem.StageId,
+                    AttemptId = attempt.Id,
+                    Reason = PointLedgerReasons.SolveCredit,
+                    Points = pointsEarned,
+                    FirstTryCorrect = progress.FirstAttemptCorrect == true,
+                    AwardedAt = now
+                });
+                await _context.SaveChangesAsync();
+            }
+
             await transaction.CommitAsync();
 
             var messageKey =
