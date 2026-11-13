@@ -78,7 +78,9 @@ namespace MathWorldAPI.Controllers
                     1,
                     100);
 
-            if (!_meilisearchEnabled)
+            // Category filtering must happen in PostgreSQL; do not expose locked
+            // titles or counts from an unfiltered external search index.
+            if (true)
             {
                 _logger.LogInformation(
                     "MeiliSearch is disabled. Falling back to PostgreSQL.");
@@ -428,6 +430,7 @@ namespace MathWorldAPI.Controllers
                 LanguageHelper.GetLanguageFromRequest(
                     Request);
 
+            var allowedCategoryIds = await GetAllowedCategoryIdsAsync();
             var query =
                 _context.Problems
                     .AsNoTracking()
@@ -435,6 +438,7 @@ namespace MathWorldAPI.Controllers
                         problem.Category)
                     .Include(problem =>
                         problem.Stage)
+                    .Where(problem => allowedCategoryIds == null || allowedCategoryIds.Contains(problem.CategoryId))
                     .AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(q))
@@ -659,6 +663,11 @@ namespace MathWorldAPI.Controllers
                         language,
                         StatusCodes.Status404NotFound));
             }
+
+            var allowedForDetail = await GetAllowedCategoryIdsAsync();
+            if (allowedForDetail != null && !allowedForDetail.Contains(problem.CategoryId))
+                return StatusCode(StatusCodes.Status403Forbidden,
+                    new { Message = "CategoryLocked" });
 
             // View updates are non-critical and run in a separate scope.
             // Admin previews are management activity, not student engagement.
@@ -1061,24 +1070,11 @@ namespace MathWorldAPI.Controllers
                         StatusCodes.Status500InternalServerError));
             }
 
-            // Quota is derived from immutable first-ever attempts and must
-            // be checked while holding a per-user/per-stage transaction lock.
-            // This covers simultaneous submissions to DIFFERENT problems.
-            await ProblemTransactionLocks.LockStudentStageQuotaAsync(
-                _context, userId.Value, problem.StageId,
-                HttpContext.RequestAborted);
-
-            var subscription = await _context.Users.AsNoTracking()
-                .Where(u => u.Id == userId.Value && u.Role == "Student" && u.IsActive)
-                .Select(u => new { u.SubscriptionType, u.PremiumExpiresAtUtc })
-                .FirstOrDefaultAsync(HttpContext.RequestAborted);
-            if (subscription == null)
-            {
-                return Unauthorized(
-                    LanguageHelper.ErrorResponse<AnswerResultDto>(
-                        "Unauthorized", language,
-                        StatusCodes.Status401Unauthorized));
-            }
+            // Legacy daily quota removed. Access is enforced by category instead.
+            var allowedForSubmission = await GetAllowedCategoryIdsAsync();
+            if (allowedForSubmission != null && !allowedForSubmission.Contains(problem.CategoryId))
+                return StatusCode(StatusCodes.Status403Forbidden,
+                    new { Message = "CategoryLocked" });
 
             var progress =
                 await _context.UserProgresses
@@ -1119,28 +1115,6 @@ namespace MathWorldAPI.Controllers
 
                 _context.UserProgresses.Add(
                     progress);
-            }
-
-            var isOfficialAttempt =
-                progress.Attempts == 0;
-
-            // Re-attempting an already attempted problem consumes no
-            // further daily slots even if the previous attempt was yesterday.
-            if (isOfficialAttempt &&
-                !PremiumEntitlement.IsActive(subscription.SubscriptionType,
-                    subscription.PremiumExpiresAtUtc))
-            {
-                var used = await StageDailyQuota.CountUsedAsync(
-                    _context, userId.Value, problem.StageId, now,
-                    HttpContext.RequestAborted);
-                if (used >= StageDailyQuota.FreeLimit)
-                {
-                    return StatusCode(
-                        StatusCodes.Status429TooManyRequests,
-                        LanguageHelper.ErrorResponse<AnswerResultDto>(
-                            "DailyQuotaExceeded", language,
-                            StatusCodes.Status429TooManyRequests));
-                }
             }
 
             var attemptNumber =
@@ -1655,6 +1629,57 @@ namespace MathWorldAPI.Controllers
                 progress.TotalTimeSpentSeconds /
                 (double)progress.Attempts,
                 MidpointRounding.AwayFromZero);
+        }
+
+        /// <summary>
+        /// Returns null only for administrators. Free/anonymous access is restricted
+        /// to two categories per stage; inactive users receive no categories.
+        /// </summary>
+        private async Task<List<int>?> GetAllowedCategoryIdsAsync()
+        {
+            if (string.Equals(GetUserRole(), "Admin", StringComparison.OrdinalIgnoreCase))
+                return null;
+
+            var learnerId = GetUserId();
+            if (learnerId.HasValue)
+            {
+                var learner = await _context.Users.AsNoTracking()
+                    .FirstOrDefaultAsync(u => u.Id == learnerId.Value);
+                if (learner == null || !learner.IsActive || learner.Role != "Student")
+                    return new List<int>();
+                if (PremiumEntitlement.IsActive(learner))
+                    return await _context.Categories.AsNoTracking()
+                        .Select(c => c.Id).ToListAsync();
+            }
+
+            var all = await _context.Categories.AsNoTracking()
+                .OrderBy(c => c.StageId).ThenBy(c => c.Order).ThenBy(c => c.Id)
+                .ToListAsync();
+            var result = new List<int>();
+            foreach (var stage in all.GroupBy(c => c.StageId))
+            {
+                var raw = HttpContext.RequestServices.GetRequiredService<IConfiguration>()
+                    [$"FreeCategoryAccess:Stages:{stage.Key}"];
+                List<int>? configured = null;
+                if (!string.IsNullOrWhiteSpace(raw))
+                {
+                    var values = raw.Split(',', StringSplitOptions.TrimEntries |
+                        StringSplitOptions.RemoveEmptyEntries);
+                    if (values.Length != CategoryAccessPolicy.DefaultFreeCategoriesPerStage ||
+                        values.Any(value => !int.TryParse(value, out _)))
+                        continue; // Fail closed on invalid configuration.
+                    configured = values.Select(int.Parse).ToList();
+                }
+                try
+                {
+                    result.AddRange(CategoryAccessPolicy.ResolveFreeCategoryIds(stage, configured));
+                }
+                catch (ArgumentException)
+                {
+                    // Invalid stage configuration must not unlock paid categories.
+                }
+            }
+            return result;
         }
 
         /// <summary>
