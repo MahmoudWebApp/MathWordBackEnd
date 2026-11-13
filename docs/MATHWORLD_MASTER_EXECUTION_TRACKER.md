@@ -1,3 +1,5 @@
+> **LATEST DECISIONS OVERRIDE OLDER ENTRIES BELOW (2026-11-13):** The Free 10-new-questions/day quota is CANCELLED. Free has unlimited attempts in admin-configurable unlocked categories (initial target: two per stage); Premium has unlimited attempts in all categories. Student groups have CONFIGURABLE size, not a fixed ten. Earlier tracker lines mentioning the daily quota are historical implementation evidence, NOT current requirements. See [category-access policy](MATHWORLD_CATEGORY_ACCESS_AND_EVERGREEN_MEDIA_POLICY.md).
+
 > **Canonical full scope:** [MATHWORLD_CANONICAL_REQUIREMENTS.md](MATHWORLD_CANONICAL_REQUIREMENTS.md). Before starting any new implementation batch, read this file; it consolidates all user-requested features including geometry, Flutter launcher logo, full UI parity, new categories/problems, Premium, notifications, security, launch and zero-extra-cost policy. This tracker records execution status only; no requirement may be dropped because it is absent from a short sprint list.
 
 # MathWorld master execution tracker — 2026-11-13
@@ -101,3 +103,20 @@ Date; repository/branch/PR; exact files changed; behavior before/after; test com
 - **Flutter external launcher logo is required**, not merely an in-app logo. Android adaptive icon foreground/background and monochrome variant, round launcher, splash, and available iOS icon assets must derive from the approved logo. Verify no black rectangle/background behind the mark on Android; test on a release APK.
 - Do not mark W02/W03/F02/F03/C03 DONE without actual code/assets, screenshots or build checks, and review. Do not claim these items shipped while they are still documentation-only.
 - These items are explicitly user-requested and must remain visible in every final release-readiness report, alongside new categories and reviewed problems.
+
+## Updated execution priorities — 2026-11-13 (supersedes historical ordering)
+Status below reflects confirmed implementation scope, not production completion.
+1. **P0 — Category entitlements:** replace legacy StageDailyQuota enforcement with server-validated Free category unlocks and Premium all-category access; make initial two free categories per stage admin-configurable; protect list/details/answers/progress/search, preserve history, update API contracts and web/Flutter clients. **NOT DONE**.
+2. **P0 — Flexible learning groups:** Stage -> Category -> ordered groups with variable editor-set problem counts; stable group/problem IDs; Continue Journey, completion and accessible locked states. **NOT DONE**.
+3. **P0 — Practice longevity:** retry, mistake review, spaced review, mixed challenges, honest exhaustion handling, first-attempt vs retry analytics, no repeat XP farming. **NOT DONE**.
+4. **P0 — Curated math bank:** stage/category curriculum coverage, editorial import/approval, bilingual correctness, deduplication, question-type taxonomy and additive publication. Existing DB baseline 16 categories / 34 problems as checked on 2026-11-13; target thousands of vetted questions over successive batches, not unreviewed padding. Import preview exists; publishing workflow remains **NOT DONE**.
+5. **P1 — YouTube linkage:** optional videos at category, problem-type and selective individual-problem levels, reusable link metadata and future evergreen annual production calendar. No forced viewing. **NOT DONE**.
+6. **P1 — Premium/commercial:** expiry and manual admin grants have partial backend support; mount admin UI, 100%-off launch campaigns, discount codes, purchase webhooks and refunds; checkout remains OFF until legal/provider approval. **PARTIAL**.
+7. **P1 — Learning insights:** learner/admin analytics, leaderboards, PDFs/Excel, achievement integrity and reporting. **PARTIAL / NOT DONE**.
+8. **P1 — Web/Flutter design parity:** logo, launcher/splash, stage/category icons, geometry diagrams, bilingual RTL/LTR, accessible math; some foundation code exists, full QA **NOT DONE**.
+9. **P1 — Auth and communications:** Google/Facebook OAuth, CAPTCHA/rate limits, admin MFA, durable notifications, SignalR, FCM, verified email. **PARTIAL / NOT DONE**.
+10. **P0 RELEASE GATE — Reliability:** CI/builds, authorization and regression tests, migration/staging, load testing, security review, independent backups and restore drill, monitoring, VPS cutover only with explicit approval. **NOT DONE**.
+
+**Execution order:** P0 category access -> P0 groups/journey -> P0 review and editorial workflow -> P1 media linkage and parity -> commercial/auth/notifications -> release QA. Media publishing calendar (12+ months) is a separate post-product-readiness workstream, not a 12-month engineering schedule.
+
+**User-facing access acceptance:** Free student can solve more than ten questions in one day inside an unlocked category; cannot access a locked category via direct API; Premium can access all categories; group sizes vary; expired Premium preserves progress; no daily quota blocks attempts.
