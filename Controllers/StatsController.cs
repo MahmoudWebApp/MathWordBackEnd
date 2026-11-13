@@ -36,8 +36,9 @@ namespace MathWorldAPI.Controllers
             var stats = new DashboardStatsDto
             {
                 TotalProblems = await _context.Problems.CountAsync(),
-                TotalUsers = await _context.Users.CountAsync(),
-                TotalSolved = await _context.UserProgresses.CountAsync(x => x.IsSolved),
+                TotalUsers = await _context.Users.CountAsync(u => u.Role == "Student"),
+                TotalSolved = await _context.UserProgresses.CountAsync(
+                    x => x.IsSolved && x.User.Role == "Student"),
                 TotalViews = await _context.Problems.SumAsync(x => (long)x.ViewsCount)
             };
 
