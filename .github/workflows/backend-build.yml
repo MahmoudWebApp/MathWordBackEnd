@@ -28,3 +28,5 @@ jobs:
         run: dotnet restore MathWorldAPI.csproj
       - name: Compile backend (Release)
         run: dotnet build MathWorldAPI.csproj --configuration Release --no-restore
+      - name: Run Free category policy smoke checks
+        run: dotnet run --project tests/MathWorld.PolicySmoke/MathWorld.PolicySmoke.csproj --configuration Release
