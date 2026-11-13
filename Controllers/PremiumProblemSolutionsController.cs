@@ -46,7 +46,7 @@ namespace MathWorldAPI.Controllers
                 return NotFound(new { Message = "ProblemNotFound" });
 
             var language = LanguageHelper.GetLanguageFromRequest(Request);
-            var correctOptionId = await _db.Set<MathWorldAPI.Models.ProblemOption>()
+            var correctOptionId = await _db.QuestionOptions
                 .AsNoTracking().Where(o => o.ProblemId == problemId && o.IsCorrect)
                 .Select(o => (int?)o.Id).FirstOrDefaultAsync(cancellationToken);
 
