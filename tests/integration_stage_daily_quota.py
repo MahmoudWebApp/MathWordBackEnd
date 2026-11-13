@@ -186,6 +186,27 @@ def main():
         "Reason": "Invalid tier"
     }, admin)
 
+    # A bounded grant must be active now and preserve its UTC expiry.
+    from datetime import datetime, timedelta, timezone
+    expiry = (datetime.now(timezone.utc) + timedelta(days=7)).isoformat()
+    changed = expect("PUT", endpoint, 200, {
+        "SubscriptionType": "Premium",
+        "PremiumExpiresAtUtc": expiry,
+        "Reason": "CI seven-day promotional access"
+    }, admin)
+    assert changed["Unlimited"] and changed["PremiumExpiresAtUtc"], changed
+    assert quota(two, 2)["Unlimited"]
+    history = expect("GET", endpoint + "-history", 200, token=admin)
+    assert history["Records"][0]["NewExpiresAtUtc"], history
+
+    # Unknown learners cannot receive entitlements or expose history.
+    expect("PUT", "/api/admin/learners/2147483647/subscription", 404, {
+        "SubscriptionType": "Premium",
+        "Reason": "Unknown learner check"
+    }, admin)
+    expect("GET", "/api/admin/learners/2147483647/subscription-history",
+           404, token=admin)
+
     # Two DIFFERENT questions racing for the same final slot must serialize.
     for qid, correct in q3[:9]:
         code, body = submit(three, qid, correct)
