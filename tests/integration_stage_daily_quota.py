@@ -63,6 +63,19 @@ def main():
     assert status == 404, status
 
     questions = [create_question(admin, 3100 + i, 1, 1) for i in range(12)]
+    catalog = expect("GET", "/api/stages/1/free-categories", 200)
+    assert catalog["FreeCategoryIds"] == [1, 2], catalog
+    assert catalog["FreeCategoryCount"] == 2, catalog
+    assert catalog["DailyProblemLimit"] is None, catalog
+    assert {item["Id"] for item in catalog["Categories"] if item["IsFree"]} == {1, 2}, catalog
+    locked_question = create_question(admin, 3999, 1, 3)
+    code, _ = api("GET", f"/api/problems/{locked_question[0]}", token=free)
+    assert code == 403, code
+    code, _ = submit(free, *locked_question)
+    assert code == 403, code
+    code, _ = api("GET", "/api/categories/3/problems", token=free)
+    assert code == 403, code
+
     expect("PUT", "/api/users/learning-stage", 200, {"StageId": 1}, free)
     assert_unlimited(free, 1)
     for qid, correct in questions:
@@ -83,6 +96,10 @@ def main():
     assert paid["IsPremium"] and paid["CanRevealSolutionBeforeAnswer"], paid
     assert paid["CanExportAnalytics"] and paid["DailyNewProblemsLimit"] is None, paid
     assert_unlimited(premium, 1)
+    code, _ = api("GET", f"/api/problems/{locked_question[0]}", token=premium)
+    assert code == 200, code
+    code, body = submit(premium, *locked_question)
+    assert code == 200, (code, body)
 
     subprocess.run([
         "psql", "-X", "-v", "ON_ERROR_STOP=1",
