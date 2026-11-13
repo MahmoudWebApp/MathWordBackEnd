@@ -41,6 +41,7 @@ namespace MathWorldAPI.Controllers
         /// Includes profile, statistics, recent solved problems,
         /// recent favorites, and recent activity.
         /// </summary>
+        [Authorize(Roles = "Student")]
         [HttpGet("dashboard")]
         [ProducesResponseType(
             typeof(ApiResponse<UserDashboardDto>),
@@ -307,6 +308,7 @@ namespace MathWorldAPI.Controllers
         /// Toggles or explicitly updates favorite status.
         /// A favorite-only record keeps Attempts equal to zero.
         /// </summary>
+        [Authorize(Roles = "Student")]
         [HttpPost("favorite/toggle")]
         [ProducesResponseType(
             typeof(ApiResponse<FavoriteResultDto>),
@@ -438,6 +440,7 @@ namespace MathWorldAPI.Controllers
         /// <summary>
         /// Gets favorite problems for the current user.
         /// </summary>
+        [Authorize(Roles = "Student")]
         [HttpGet("favorites")]
         [ProducesResponseType(
             typeof(ApiResponse<List<ProblemPreviewDto>>),
@@ -503,6 +506,7 @@ namespace MathWorldAPI.Controllers
         /// <summary>
         /// Gets correctly solved problems for the current user.
         /// </summary>
+        [Authorize(Roles = "Student")]
         [HttpGet("solved")]
         [ProducesResponseType(
             typeof(ApiResponse<List<ProblemPreviewDto>>),
@@ -569,6 +573,7 @@ namespace MathWorldAPI.Controllers
         /// Gets the current student's error notebook problems.
         /// يعيد مسائل دفتر الأخطاء الخاصة بالطالب الحالي.
         /// </summary>
+        [Authorize(Roles = "Student")]
         [HttpGet("error-notebook")]
         [ProducesResponseType(
             typeof(ApiResponse<List<ErrorNotebookProblemDto>>),
@@ -668,6 +673,7 @@ namespace MathWorldAPI.Controllers
         /// Archives or restores a problem in the current student's error notebook.
         /// يؤرشف أو يستعيد مسألة في دفتر أخطاء الطالب الحالي.
         /// </summary>
+        [Authorize(Roles = "Student")]
         [HttpPut("error-notebook/{problemId:int}/archive")]
         [ProducesResponseType(
             typeof(ApiResponse<ErrorNotebookArchiveResultDto>),
@@ -732,6 +738,7 @@ namespace MathWorldAPI.Controllers
         /// <summary>
         /// Checks whether a problem is currently in the user's favorites.
         /// </summary>
+        [Authorize(Roles = "Student")]
         [HttpGet("favorite/check/{problemId:int}")]
         [ProducesResponseType(
             typeof(ApiResponse<FavoriteCheckDto>),
