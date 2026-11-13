@@ -23,6 +23,45 @@ def leaderboard(token, stage=1, period="all"):
     return expect("GET", f"/api/users/leaderboard?stageId={stage}&period={period}",
                   200, token=token)
 
+
+def verify_historical_backfill():
+    """Replay the exact EF backfill SQL on disposable CI data only."""
+    import os
+    import subprocess
+    from pathlib import Path
+
+    if (os.getenv("PGHOST") not in ("127.0.0.1", "localhost")
+            or os.getenv("PGDATABASE") != "mathworld_ci"
+            or os.getenv("PGUSER") != "postgres"):
+        raise AssertionError("Refusing backfill test outside disposable CI PostgreSQL")
+
+    def sql(command):
+        result = subprocess.run(
+            ["psql", "-X", "-v", "ON_ERROR_STOP=1", "-A", "-t", "-c", command],
+            text=True, capture_output=True, check=True, timeout=25,
+        )
+        return result.stdout.strip()
+
+    before = sql('SELECT COUNT(*), COALESCE(SUM("Points"),0) FROM "PointLedger"')
+    assert before == "5|50", before
+
+    # Only the disposable CI database is cleared; user attempts remain saved.
+    sql('DELETE FROM "PointLedger"')
+    source = (Path(__file__).parent.parent /
+              "Migrations" / "20261113130000_AddPointLedger.cs").read_text()
+    anchor = 'migrationBuilder.Sql(@"'
+    start = source.index(anchor) + len(anchor)
+    end = source.index('");', start)
+    original_backfill_sql = source[start:end].replace('""', '"')
+    assert 'FROM "ProblemAttempts"' in original_backfill_sql
+    sql(original_backfill_sql)
+    after = sql('SELECT COUNT(*), COALESCE(SUM("Points"),0) FROM "PointLedger"')
+    assert after == before, (before, after)
+    row_security = sql(
+        "SELECT relrowsecurity FROM pg_class WHERE relname='PointLedger'")
+    assert row_security == "t", row_security
+    print("PASS: original awarded points backfilled exactly, RLS enabled")
+
 def main():
     from os import environ
     base = environ.get("MATHWORLD_TEST_BASE_URL", "http://127.0.0.1:5054")
@@ -76,6 +115,7 @@ def main():
     assert forbidden == 403, forbidden
     invalid, _ = api("GET", "/api/users/leaderboard?period=never", token=first)
     assert invalid == 400, invalid
+    verify_historical_backfill()
     print("PASS: unique awards, tie break, historical points, stage isolation, privacy")
 
 if __name__ == "__main__":
