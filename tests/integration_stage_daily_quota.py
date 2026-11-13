@@ -102,7 +102,7 @@ def main():
                  WHERE "Email"='learner-ci-502@mathworld.test' AND "Role"='Student'"""
     ], check=True, timeout=20, capture_output=True)
     premium = quota(two, 2)
-    assert premium["Unlimited"] and premium["Remaining"] is None, premium
+    assert premium["Unlimited"] and premium.get("Remaining") is None, premium
     code, body = submit(two, *q2[10])
     assert code == 200, (code, body)
 
