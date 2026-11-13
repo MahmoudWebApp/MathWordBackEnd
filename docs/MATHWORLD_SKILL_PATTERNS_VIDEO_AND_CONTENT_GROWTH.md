@@ -1,26 +1,37 @@
-# MathWorld — Skill Patterns, Video Lessons and Finite Question Bank
+# MathWorld — Simple Student Journey and Growing Question Bank
 
-Status: approved product direction; implementation pending.
+Status: approved product direction; implementation pending. This document supersedes any more complex unit/skill navigation proposed earlier.
 
-## Core principles
-- Do not generate random questions in the app. All questions are authored, reviewed, versioned and added to the database in batches.
-- Premium means unlimited daily attempts, **not** an infinite supply of unique questions. Free permits 10 new attempts per stage per UTC day; retries are not charged.
-- Each educational stage has categories; each category has distinct learning **patterns/skills** (e.g. adding unlike fractions). Questions belong to a pattern, difficulty and curriculum level.
-- Each pattern can have one or more curated YouTube lessons, Arabic/English metadata, prerequisites, learning objectives, examples and reviewed questions.
-- Students progress Learn -> Practice -> Mixed Challenge -> Mastery -> Spaced Review. Challenges reuse vetted questions without implying they are new.
-- Prefer unseen questions; once exhausted, clearly label review/retry and prioritize incorrect or low-confidence questions. Never present repeats as new.
-- Vary practice through mixed topics, timed/untimed challenges, milestones, personal-best goals, optional hints, and spaced repetition, without punitive streak mechanics.
-- Video lessons are optional and linked by pattern, not duplicated for every question. Use official embeddable YouTube URLs, store video IDs and language, and verify rights/availability.
-- Editorial flow: draft -> validation (bilingual, one correct option, distinct options, math correctness, stage/pattern fit, near-duplicate check) -> reviewer approval -> publish. Preserve published question IDs and historical progress.
-- Deduplication: stable editorial content key, normalized question text, mathematical equivalence checks where feasible, and manual review for semantic near-duplicates. Do not assume string matching catches every duplicate.
-- Analytics: pattern mastery, coverage, repeated-question frequency, incorrect answers, question exhaustion, and video-to-practice completion. Prioritize new batches where coverage is thin.
-- Initial editorial target: ~100 reviewed questions per category; grow gradually without a hard total ceiling. Do not delay launch solely to reach an arbitrary count.
+## Student navigation (only three levels)
+**Educational stage -> Category -> Group of 10 questions.**
+- No mandatory nested units, lesson hierarchies, or complex pattern trees in the student interface.
+- Groups are numbered clearly (Group 1, Group 2, ...), contain 10 curated questions each, and display completed/current/locked states.
+- Completing a group unlocks the next group. Keep completion criteria straightforward; do not block students indefinitely due to mistakes.
+- A category is complete when all its currently available groups are complete. Students can review previous questions.
+- Adding new groups later must not revoke historical completions or change the identity of previously answered questions.
+- Free: 10 new question attempts per educational stage per UTC day; retrying old questions does not consume quota. Premium: no daily attempt cap; both tiers follow the same educational sequence.
+- Unlimited attempts does **not** mean unlimited distinct questions; clearly distinguish new questions from review.
 
-## Implementation phases
-1. Inspect current stage/category/question/video schemas and API consumers; write additive migration design.
-2. Add Pattern/Skill entity, question association, curated video lessons and review workflow; backfill existing questions conservatively.
-3. Add admin pattern editor, batch import with duplicate prevention, and approval/publish flow.
-4. Implement bilingual web and Flutter skill journey, videos, mastery, mixed review and clear exhausted-bank UX.
-5. Seed reviewed question batches, QA curriculum coverage and parity, then measure and expand.
+## Video lessons: optional and gradually added
+- Videos are **never required** to start, complete or unlock a group.
+- Admin can optionally attach a YouTube video to a category or group, and update the link later.
+- Only show a 'Watch explanation' action if a valid, published video link exists; otherwise hide it entirely, with no empty placeholders or 'coming soon' blocker.
+- Add videos incrementally as the MathWorld YouTube channel publishes them. Store YouTube ID/URL and bilingual optional title; validate links.
 
-No production database migration, bulk seed, video upload, or publication is authorized by this planning document.
+## Content management and quality
+- Admin manually adds questions or imports reviewed batches. No random question generation in the student application.
+- All questions have bilingual text, four distinct answer choices, one verified correct answer, detailed bilingual solution, stage/category and stable IDs.
+- Group membership/order must be stable; do not silently reshuffle previously completed groups.
+- Detect duplicates with stable content keys, normalized bilingual text, and editorial review for mathematical/semantic equivalents.
+- Draft -> validate -> review -> publish. Never auto-publish generated or unreviewed content.
+- Existing 34 questions and user progress must be preserved and assigned to groups carefully.
+- Start with 100 curated questions per category (10 groups); expand later with more groups. No arbitrary lifetime question cap.
+
+## Implementation steps
+1. Audit existing models, endpoints and progress semantics, and design additive group tables/fields.
+2. Add category group listing, group-question assignment and unlock/progress API while preserving existing IDs.
+3. Implement matching simple UI on web and Flutter.
+4. Implement admin manual/batch authoring, deduplication and optional video links.
+5. Backfill existing questions safely, verify completion and quota behavior, then add reviewed content batches.
+
+This is a specification, not a claim that features or database changes have been deployed.
