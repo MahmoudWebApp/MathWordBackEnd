@@ -49,12 +49,21 @@ def main():
                       token=admin)
     assert overview["TotalStudents"] == 1, overview
     assert overview["AttemptsInWindow"] == 0, overview
+    assert len(overview["DailyActivity"]) == 7, overview
+    assert all(day["Attempts"] == 0 for day in overview["DailyActivity"])
+    assert overview["MostMissedCategories"] == [], overview
+    assert overview["MostMissedProblems"] == [], overview
     assert len(overview["Stages"]) == 4, overview
     assert sum(x["Problems"] for x in overview["Stages"]) == 1, overview
 
     # Admin viewing question details must not become a learner solve.
     expect("GET", f"/api/problems/{question_id}", 200, token=admin)
 
+    question = expect("GET", f"/api/problems/{question_id}", 200, token=admin)
+    wrong_option = next(option["Id"] for option in question["Options"]
+                        if not option["IsCorrect"])
+    wrong, wrong_result = submit(learner, question_id, wrong_option)
+    assert wrong == 200, (wrong, wrong_result)
     success, payload = submit(learner, question_id, correct_option)
     assert success == 200, (success, payload)
 
@@ -62,26 +71,42 @@ def main():
                       token=admin)
     assert overview["TotalStudents"] == 1, overview
     assert overview["ActiveStudentsInWindow"] == 1, overview
-    assert overview["AttemptsInWindow"] == 1, overview
+    assert overview["AttemptsInWindow"] == 2, overview
     assert overview["CorrectAttemptsInWindow"] == 1, overview
     assert overview["TotalUniqueSolved"] == 1, overview
-    assert overview["CorrectRatePercent"] == 100.0, overview
+    assert overview["CorrectRatePercent"] == 50.0, overview
+    assert len(overview["DailyActivity"]) == 7, overview
+    assert sum(day["Attempts"] for day in overview["DailyActivity"]) == 2
+    assert sum(day["CorrectAttempts"] for day in overview["DailyActivity"]) == 1
+    assert sum(day["UniqueStudents"] for day in overview["DailyActivity"]) == 1
+    assert len(overview["MostMissedCategories"]) == 1, overview
+    weak = overview["MostMissedCategories"][0]
+    assert weak["StageId"] == 1 and weak["CategoryId"] == 1, weak
+    assert weak["IncorrectAttemptsInWindow"] == 1, weak
+    assert weak["CorrectAttemptsInWindow"] == 1, weak
+    assert weak["IncorrectRatePercent"] == 50.0, weak
+    assert weak["AverageAttemptSeconds"] >= 0, weak
+    assert len(overview["MostMissedProblems"]) == 1, overview
+    most_missed = overview["MostMissedProblems"][0]
+    assert most_missed["ProblemId"] == question_id
+    assert most_missed["IncorrectAttemptsInWindow"] == 1
+    assert most_missed["CorrectAttemptsInWindow"] == 1
     stage = next(x for x in overview["Stages"] if x["StageId"] == 1)
     assert stage["Problems"] == 1, stage
     assert stage["UniqueSolved"] == 1, stage
     assert stage["ActiveStudentsInWindow"] == 1, stage
-    assert stage["AttemptsInWindow"] == 1, stage
+    assert stage["AttemptsInWindow"] == 2, stage
 
     details = expect("GET", "/api/admin/analytics/stages/1?days=7", 200,
                      token=admin)
     assert details["Summary"]["StageId"] == 1, details
     assert details["Categories"], details
     cat = next(x for x in details["Categories"] if x["Problems"] == 1)
-    assert cat["UniqueSolved"] == 1 and cat["AttemptsInWindow"] == 1, cat
+    assert cat["UniqueSolved"] == 1 and cat["AttemptsInWindow"] == 2, cat
     assert details["TopLearners"][0]["UniqueSolved"] == 1, details
     assert details["TopLearners"][0]["AwardedPoints"] == 10, details
     assert len(details["DailyActivity"]) == 7, details
-    assert sum(day["Attempts"] for day in details["DailyActivity"]) == 1
+    assert sum(day["Attempts"] for day in details["DailyActivity"]) == 2
 
     other = expect("GET", "/api/admin/analytics/stages/2", 200, token=admin)
     assert other["Summary"]["UniqueSolved"] == 0
