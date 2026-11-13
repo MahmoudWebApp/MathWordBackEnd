@@ -65,6 +65,13 @@ namespace MathWorldAPI.Controllers
             var stageIds = stages.ToHashSet();
             var categoryStages = categories.ToDictionary(c => c.Id, c => c.StageId);
             var usedKeys = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            var usedQuestions = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            var existingQuestions = await _db.Problems.AsNoTracking()
+                .Select(p => new { p.StageId, p.QuestionTextAr, p.QuestionTextEn })
+                .ToListAsync(cancellationToken);
+            var existingQuestionKeys = existingQuestions.Select(p =>
+                QuestionKey(p.StageId, p.QuestionTextAr, p.QuestionTextEn))
+                .ToHashSet(StringComparer.OrdinalIgnoreCase);
             var results = new List<object>();
             var validCount = 0;
 
@@ -96,6 +103,16 @@ namespace MathWorldAPI.Controllers
                     string.IsNullOrWhiteSpace(item.DetailedSolutionAr) ||
                     string.IsNullOrWhiteSpace(item.DetailedSolutionEn))
                     errors.Add("MissingBilingualContent");
+
+                if (!string.IsNullOrWhiteSpace(item.QuestionTextAr) &&
+                    !string.IsNullOrWhiteSpace(item.QuestionTextEn))
+                {
+                    var questionKey = QuestionKey(item.StageId, item.QuestionTextAr, item.QuestionTextEn);
+                    if (!usedQuestions.Add(questionKey))
+                        errors.Add("DuplicateQuestionInBatch");
+                    if (existingQuestionKeys.Contains(questionKey))
+                        errors.Add("QuestionAlreadyExistsInStage");
+                }
 
                 if (item.Points is < 1 or > 100000) errors.Add("InvalidPoints");
                 var options = item.Options;
@@ -130,5 +147,8 @@ namespace MathWorldAPI.Controllers
                 Results = results
             });
         }
+
+        private static string QuestionKey(int stageId, string? ar, string? en) =>
+            stageId + "|" + (ar ?? "").Trim() + "|" + (en ?? "").Trim();
     }
 }
