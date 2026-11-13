@@ -228,6 +228,26 @@ builder.Services.AddRateLimiter(options =>
             });
     });
 
+    // Solution previews have their own bucket; viewing a Premium solution
+    // must never consume the answer-submission rate limit.
+    options.AddPolicy("solution-preview", httpContext =>
+    {
+        var userId = httpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+        var partitionKey = userId
+            ?? httpContext.Connection.RemoteIpAddress?.ToString()
+            ?? "unknown-client";
+        return RateLimitPartition.GetTokenBucketLimiter(
+            partitionKey,
+            _ => new TokenBucketRateLimiterOptions
+            {
+                TokenLimit = 30,
+                TokensPerPeriod = 30,
+                ReplenishmentPeriod = TimeSpan.FromMinutes(1),
+                QueueLimit = 0,
+                AutoReplenishment = true
+            });
+    });
+
     options.OnRejected = async (
         context,
         cancellationToken) =>
