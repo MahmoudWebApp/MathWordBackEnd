@@ -46,7 +46,8 @@ namespace MathWorldAPI.Controllers
                 SubscriptionType = isPremium ? "Premium" : "Free",
                 IsPremium = isPremium,
                 PremiumExpiresAtUtc = isPremium ? user.PremiumExpiresAtUtc : null,
-                DailyNewProblemsLimit = (int?)null, // Legacy client compatibility: no daily cap.\n                FreeCategoriesPerStage = CategoryAccessPolicy.DefaultFreeCategoriesPerStage,
+                DailyNewProblemsLimit = (int?)null, // Legacy client compatibility: no daily cap.
+                FreeCategoriesPerStage = CategoryAccessPolicy.DefaultFreeCategoriesPerStage,
                 CanRevealSolutionBeforeAnswer = isPremium,
                 CanExportAnalytics = isPremium,
                 AdsEligible = !isPremium && _features.AdsEnabled
