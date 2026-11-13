@@ -32,8 +32,8 @@ namespace MathWorldAPI.Controllers
             [FromBody] UpsertDiagramRequest request,
             CancellationToken cancellationToken)
         {
-            if (problemId <= 0 || !await ActiveAdmin(cancellationToken))
-                return Forbid();
+            if (!await ActiveAdmin(cancellationToken)) return Forbid();
+            if (problemId <= 0) return BadRequest(new { Message = "InvalidProblemId" });
 
             if (request.Scene.ValueKind != JsonValueKind.Object ||
                 !GeometrySceneValidator.TryParse(request.Scene.GetRawText(), out var scene) ||
