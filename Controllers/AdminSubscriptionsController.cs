@@ -44,9 +44,9 @@ namespace MathWorldAPI.Controllers
             await using var transaction =
                 await _db.Database.BeginTransactionAsync(cancellationToken);
             // Serialize concurrent changes to the same learner across API instances.
-            await _db.Database.ExecuteSqlInterpolatedAsync(
-                $"SELECT pg_advisory_xact_lock({-987654321}, {learnerId})",
-                cancellationToken);
+            await _db.Database.SqlQuery<int>(
+                $"SELECT 1 AS \"Value\" FROM pg_advisory_xact_lock({-987654321}, {learnerId})")
+                .SingleAsync(cancellationToken);
             var learner = await _db.Users.FirstOrDefaultAsync(
                 u => u.Id == learnerId && u.Role == "Student", cancellationToken);
             if (learner == null)
