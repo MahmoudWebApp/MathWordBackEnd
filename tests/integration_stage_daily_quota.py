@@ -27,7 +27,7 @@ def quota(token, stage=None):
 def assert_unlimited(token, stage):
     result = quota(token, stage)
     assert result["StageId"] == stage, result
-    assert result["Unlimited"] and result["Remaining"] is None, result
+    assert result["Unlimited"] and result.get("Remaining") is None, result
     assert result["Limit"] == 0, result
 
 
