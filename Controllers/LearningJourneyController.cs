@@ -125,8 +125,7 @@ namespace MathWorldAPI.Controllers
                     Solved = g.Count(p => p.IsSolved),
                     FirstTry = g.Count(p => p.FirstAttemptCorrect == true),
                     Mastered = g.Count(p =>
-                        p.MasteryStatus == MasteryStatuses.Mastered),
-                    Points = g.Sum(p => p.IsSolved ? p.Problem.Points : 0)
+                        p.MasteryStatus == MasteryStatuses.Mastered)
                 })
                 .ToListAsync(cancellationToken);
             var progressByCategory = progress.ToDictionary(p => p.CategoryId);
@@ -151,6 +150,12 @@ namespace MathWorldAPI.Controllers
                 };
             }).ToList();
 
+            var totalPoints = await _context.PointLedgerEntries.AsNoTracking()
+                .Where(award => award.UserId == userId &&
+                    award.StageId == stage.Id &&
+                    award.Reason == PointLedgerReasons.SolveCredit)
+                .SumAsync(award => award.Points, cancellationToken);
+
             var total = categoryProgress.Sum(c => c.TotalProblems);
             var solvedTotal = categoryProgress.Sum(c => c.SolvedProblems);
             return Ok(Success(new LearningJourneyDto
@@ -163,7 +168,7 @@ namespace MathWorldAPI.Controllers
                 SolvedProblems = solvedTotal,
                 FirstTryCorrect = categoryProgress.Sum(c => c.FirstTryCorrect),
                 MasteredProblems = categoryProgress.Sum(c => c.MasteredProblems),
-                TotalPoints = progress.Sum(p => p.Points),
+                TotalPoints = totalPoints,
                 CompletionPercent = total == 0 ? 0 :
                     (int)Math.Round(100.0 * solvedTotal / total),
                 Categories = categoryProgress
