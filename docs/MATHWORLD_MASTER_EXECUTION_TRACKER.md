@@ -182,3 +182,8 @@ Status below reflects confirmed implementation scope, not production completion.
 - Added `tests/MathWorld.PolicySmoke` as a dependency-free executable policy check for default/configured Free categories, invalid stage configuration, and positive journey group sizes; CI runs it after compilation.
 - Excluded test sources from the web application's default compile glob in `MathWorldAPI.csproj`.
 - **Execution status:** no successful workflow run has been observed; local environment lacks the .NET SDK. These changes are committed but must be verified in GitHub Actions before merge. No production deployment.
+
+## CI status — workflows queued and expanded entitlement smoke tests
+- GitHub Actions reported eight queued checks on commit `6d83a4759e1d7f2c1b8d60eaa27003975bc420f1`, including backend build, stage journey, admin analytics and PostgreSQL integrity. The dedicated backend policy job was queued at run 43504660296; no successful conclusion observed at inspection time.
+- Expanded `tests/MathWorld.PolicySmoke/Program.cs` with Free, active Premium, expired Premium and inactive student entitlement assertions (commit `e90544a43e90d7d63d9683e683c0ae667e71ffde`).
+- **Pending:** check CI completion and fix failures; no production deploy or DB migration.
