@@ -42,20 +42,19 @@ namespace MathWorldAPI.Controllers
                 return NotFound(Error("StageNotFound", 404));
 
             var date = StageDailyQuota.UtcDayStart(DateTime.UtcNow);
-            var used = await StageDailyQuota.CountUsedAsync(_db, userId,
-                stage.Id, date, cancellationToken);
-            var unlimited = StageDailyQuota.IsUnlimited(user);
+            var used = 0; // Legacy endpoint: quota removed, always unlimited.
+            var unlimited = true;
             var result = new StageDailyQuotaDto
             {
                 StageId = stage.Id,
                 NameAr = stage.NameAr,
                 NameEn = stage.NameEn,
-                Limit = StageDailyQuota.FreeLimit,
+                Limit = 0,
                 Used = used,
-                Remaining = unlimited ? null : Math.Max(0, StageDailyQuota.FreeLimit - used),
+                Remaining = null,
                 Unlimited = unlimited,
                 SubscriptionType = PremiumEntitlement.EffectiveType(user),
-                PremiumExpiresAtUtc = unlimited ? user.PremiumExpiresAtUtc : null,
+                PremiumExpiresAtUtc = PremiumEntitlement.IsActive(user) ? user.PremiumExpiresAtUtc : null,
                 DayUtc = date,
                 ResetsAtUtc = date.AddDays(1)
             };
