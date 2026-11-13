@@ -83,6 +83,7 @@ builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<ISocialAuthService, SocialAuthService>();
 builder.Services.AddScoped<IMeiliSearchService, MeiliSearchService>();
 builder.Services.AddScoped<AdminBootstrapper>();
+builder.Services.AddSingleton<LaunchFeatureFlags>();
 
 // Register ImgBB as a typed HTTP client.
 builder.Services.AddHttpClient<IImgBbStorageService, ImgBbStorageService>();
