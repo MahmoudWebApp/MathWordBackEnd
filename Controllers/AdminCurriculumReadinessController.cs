@@ -50,6 +50,8 @@ namespace MathWorldAPI.Controllers
                 })
                 .ToListAsync(cancellationToken);
 
+            var orphanProblemIds = problems.Where(p => !stages.Any(stage => stage.Id == p.StageId))
+                .Select(p => p.Id).OrderBy(id => id).ToList();
             var problemsByStage = problems.GroupBy(p => p.StageId)
                 .ToDictionary(g => g.Key, g => g.ToList());
             var result = stages.Select(stage =>
@@ -91,6 +93,8 @@ namespace MathWorldAPI.Controllers
                 MinimumProblemsPerStage = 10,
                 StageCount = stages.Count,
                 TotalProblems = problems.Count,
+                OrphanProblemIds = orphanProblemIds,
+                OrphanProblemCount = orphanProblemIds.Count,
                 TotalMissingToMinimum = result.Sum(s => s.MissingToMinimum),
                 StagesBelowMinimum = result.Count(s => !s.MeetsMinimum),
                 StagesWithInvalidProblems = result.Count(s => s.InvalidProblemCount > 0),
