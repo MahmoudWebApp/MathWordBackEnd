@@ -24,6 +24,9 @@ on:
       - 'tests/integration_stage_daily_quota.py'
       - 'tests/integration_problem_history.py'
       - 'Controllers/AdminLearnersController.cs'
+      - 'Controllers/StudentSubscriptionController.cs'
+      - 'Controllers/PublicFeaturesController.cs'
+      - 'Services/LaunchFeatureFlags.cs'
       - '.github/workflows/stage-daily-quota-ci.yml'
 
 permissions:
