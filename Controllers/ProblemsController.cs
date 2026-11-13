@@ -661,8 +661,11 @@ namespace MathWorldAPI.Controllers
             }
 
             // View updates are non-critical and run in a separate scope.
-            _ =
-                BackgroundUpdateAsync(id);
+            // Admin previews are management activity, not student engagement.
+            if (!string.Equals(userRole, "Admin", StringComparison.OrdinalIgnoreCase))
+            {
+                _ = BackgroundUpdateAsync(id);
+            }
 
             var categoryIcon =
                 _imgBbStorage.GetFullUrl(
@@ -951,7 +954,7 @@ namespace MathWorldAPI.Controllers
         /// يرسل محاولة إجابة رسمية أو تدريبية لمسألة، مع الاحتفاظ بالمحاولة
         /// الأولى كنتيجة رسمية وتخزين المحاولات اللاحقة كسجل تدريبي مستقل.
         /// </summary>
-        [Authorize]
+        [Authorize(Roles = "Student")]
         [EnableRateLimiting("answers")]
         [HttpPost("submit")]
         [ProducesResponseType(
@@ -1356,7 +1359,7 @@ namespace MathWorldAPI.Controllers
         /// Gets the authenticated student's complete attempt history for a problem.
         /// يعيد سجل محاولات الطالب المسجل بالكامل لمسألة محددة.
         /// </summary>
-        [Authorize]
+        [Authorize(Roles = "Student")]
         [HttpGet("{id:int}/attempts")]
         [ProducesResponseType(
             typeof(ApiResponse<ProblemAttemptHistoryDto>),
