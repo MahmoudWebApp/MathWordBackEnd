@@ -68,3 +68,7 @@ Date; repository/branch/PR; exact files changed; behavior before/after; test com
 - PostgreSQL advisory lock SQL invocation corrected to a scalar query.
 - Verified through GitHub file reads/commits only; no successful CI evidence available, no production changes.
 - Next implementation gate: obtain CI logs and fix actual build/runtime failures before UI integration.
+
+## Progress update — backend account enforcement
+- Added active-account checks to StageDailyQuotaController and ProblemsController submission subscription query. Deactivated students cannot request daily quota or submit answers through these paths using an otherwise valid JWT.
+- Scope: two backend controllers; committed to draft PR #20. Not verified by successful .NET CI; do not merge until verified.
