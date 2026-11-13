@@ -32,6 +32,16 @@ try
 }
 catch (ArgumentException) { }
 
+foreach (var invalid in new[] { Array.Empty<int>(), new[] { 2, 2 }, new[] { 2 } })
+{
+    try
+    {
+        CategoryAccessPolicy.ResolveFreeCategoryIds(categories, invalid);
+        throw new InvalidOperationException("Malformed explicit Free configuration was accepted.");
+    }
+    catch (ArgumentException) { }
+}
+
 Assert(CategoryAccessPolicy.ResolveFreeCategoryIds(Array.Empty<Category>()).Count == 0,
     "Empty stage must have no unlocked categories.");
 Assert(CategoryAccessPolicy.IsValidGroupSize(10) &&
