@@ -1,4 +1,4 @@
-using System.Text.Json;
+using MathWorldAPI.Services;
 using MathWorldAPI.Data;
 using MathWorldAPI.Helpers;
 using Microsoft.AspNetCore.Mvc;
@@ -29,38 +29,19 @@ namespace MathWorldAPI.Controllers
             if (record.SchemaVersion != 1 || record.DiagramJson.Length > 30000)
                 return NotFound(new { Message = "UnsupportedDiagram" });
 
-            try
-            {
-                using var document = JsonDocument.Parse(record.DiagramJson);
-                var root = document.RootElement;
-                if (root.ValueKind != JsonValueKind.Object ||
-                    !root.TryGetProperty("schemaVersion", out var version) ||
-                    version.ValueKind != JsonValueKind.Number || version.GetInt32() != 1 ||
-                    !root.TryGetProperty("viewport", out var viewport) ||
-                    viewport.ValueKind != JsonValueKind.Object ||
-                    !root.TryGetProperty("objects", out var objects) ||
-                    objects.ValueKind != JsonValueKind.Array || objects.GetArrayLength() > 100)
-                    return NotFound(new { Message = "InvalidDiagram" });
+            if (!GeometrySceneValidator.TryParse(record.DiagramJson, out var parsed))
+                return NotFound(new { Message = "InvalidDiagram" });
 
-                var scene = new
-                {
-                    schemaVersion = 1,
-                    viewport = viewport.Clone(),
-                    objects = objects.Clone(),
-                    altTextAr = record.AltTextAr,
-                    altTextEn = record.AltTextEn
-                };
-                return Ok(LanguageHelper.SuccessResponse(scene, "Success",
-                    LanguageHelper.GetLanguageFromRequest(Request)));
-            }
-            catch (JsonException)
+            var scene = new
             {
-                return NotFound(new { Message = "InvalidDiagram" });
-            }
-            catch (InvalidOperationException)
-            {
-                return NotFound(new { Message = "InvalidDiagram" });
-            }
+                schemaVersion = 1,
+                viewport = parsed.GetProperty("viewport"),
+                objects = parsed.GetProperty("objects"),
+                altTextAr = record.AltTextAr,
+                altTextEn = record.AltTextEn
+            };
+            return Ok(LanguageHelper.SuccessResponse(scene, "Success",
+                LanguageHelper.GetLanguageFromRequest(Request)));
         }
     }
 }
