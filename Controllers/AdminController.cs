@@ -553,6 +553,16 @@ namespace MathWorldAPI.Controllers
                         StatusCodes.Status400BadRequest));
             }
 
+            await using var transaction =
+                await _context.Database.BeginTransactionAsync();
+
+            // Exclusive question lock waits until any in-flight submissions
+            // finish. Prevent rewriting a question during a student attempt.
+            await ProblemTransactionLocks.LockQuestionForAdminMutationAsync(
+                _context,
+                id,
+                HttpContext.RequestAborted);
+
             var problem = await _context.Problems
                 .Include(item => item.Options)
                 .FirstOrDefaultAsync(item =>
@@ -565,6 +575,23 @@ namespace MathWorldAPI.Controllers
                         "ProblemNotFound",
                         language,
                         StatusCodes.Status404NotFound));
+            }
+
+            var hasAnswerHistory =
+                await _context.ProblemAttempts
+                    .AnyAsync(item => item.ProblemId == id) ||
+                await _context.UserProgresses
+                    .AnyAsync(item =>
+                        item.ProblemId == id &&
+                        item.Attempts > 0);
+
+            if (hasAnswerHistory)
+            {
+                return Conflict(
+                    LanguageHelper.ErrorResponse<object>(
+                        "ProblemHasStudentAttempts",
+                        language,
+                        StatusCodes.Status409Conflict));
             }
 
             var stageExists =
@@ -668,6 +695,7 @@ namespace MathWorldAPI.Controllers
                 .ToList();
 
             await _context.SaveChangesAsync();
+            await transaction.CommitAsync();
 
             try
             {
@@ -698,9 +726,9 @@ namespace MathWorldAPI.Controllers
         }
 
         /// <summary>
-        /// Deletes a problem by ID.
-        /// Related answer options and progress records are deleted
-        /// according to configured entity relationships.
+        /// Deletes an unattempted, unsaved problem only.
+        /// Retains problems that have student attempts/progress/favorites
+        /// until an explicit soft-deletion/versioning feature is available.
         /// </summary>
         /// <param name="id">
         /// Problem ID.
@@ -721,6 +749,14 @@ namespace MathWorldAPI.Controllers
             var language =
                 LanguageHelper.GetLanguageFromRequest(Request);
 
+            await using var transaction =
+                await _context.Database.BeginTransactionAsync();
+
+            await ProblemTransactionLocks.LockQuestionForAdminMutationAsync(
+                _context,
+                id,
+                HttpContext.RequestAborted);
+
             var problem =
                 await _context.Problems
                     .FirstOrDefaultAsync(item =>
@@ -735,9 +771,25 @@ namespace MathWorldAPI.Controllers
                         StatusCodes.Status404NotFound));
             }
 
+            var hasStudentData =
+                await _context.UserProgresses
+                    .AnyAsync(item => item.ProblemId == id) ||
+                await _context.ProblemAttempts
+                    .AnyAsync(item => item.ProblemId == id);
+
+            if (hasStudentData)
+            {
+                return Conflict(
+                    LanguageHelper.ErrorResponse<object>(
+                        "ProblemHasStudentHistory",
+                        language,
+                        StatusCodes.Status409Conflict));
+            }
+
             _context.Problems.Remove(problem);
 
             await _context.SaveChangesAsync();
+            await transaction.CommitAsync();
 
             try
             {

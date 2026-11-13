@@ -987,6 +987,23 @@ namespace MathWorldAPI.Controllers
                         StatusCodes.Status401Unauthorized));
             }
 
+            // Different learners can answer concurrently, but each learner's
+            // submissions to this question are serialized across API instances.
+            // Shared question lock prevents concurrent admin deletion/edits.
+            await using var transaction =
+                await _context.Database.BeginTransactionAsync();
+
+            await ProblemTransactionLocks.LockQuestionForAnswerAsync(
+                _context,
+                dto.ProblemId,
+                HttpContext.RequestAborted);
+
+            await ProblemTransactionLocks.LockStudentAttemptAsync(
+                _context,
+                userId.Value,
+                dto.ProblemId,
+                HttpContext.RequestAborted);
+
             var problem =
                 await _context.Problems
                     .Include(problemItem =>
@@ -1040,10 +1057,6 @@ namespace MathWorldAPI.Controllers
                         language,
                         StatusCodes.Status500InternalServerError));
             }
-
-            await using var transaction =
-                await _context.Database
-                    .BeginTransactionAsync();
 
             var progress =
                 await _context.UserProgresses
@@ -1163,7 +1176,7 @@ namespace MathWorldAPI.Controllers
                     progress.SolvedAt =
                         now;
 
-                    problem.SolvedCount++;
+                    // SolvedCount is incremented atomically below.
                 }
             }
             else
@@ -1227,6 +1240,25 @@ namespace MathWorldAPI.Controllers
 
             _context.ProblemAttempts.Add(
                 attempt);
+
+            // Different students may solve the same problem simultaneously.
+            // Update directly in SQL to avoid losing count increments.
+            if (isCorrect && !wasSolved)
+            {
+                var affected = await _context.Problems
+                    .Where(item => item.Id == problem.Id)
+                    .ExecuteUpdateAsync(
+                        updates => updates.SetProperty(
+                            item => item.SolvedCount,
+                            item => item.SolvedCount + 1),
+                        HttpContext.RequestAborted);
+
+                if (affected != 1)
+                {
+                    throw new DbUpdateConcurrencyException(
+                        "The problem disappeared during answer submission.");
+                }
+            }
 
             await _context.SaveChangesAsync();
             await transaction.CommitAsync();
