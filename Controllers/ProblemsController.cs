@@ -1117,6 +1117,9 @@ namespace MathWorldAPI.Controllers
                     progress);
             }
 
+            // The first answer is the official attempt; retries are practice.
+            var isOfficialAttempt = progress.Attempts == 0;
+
             var attemptNumber =
                 progress.Attempts + 1;
 
