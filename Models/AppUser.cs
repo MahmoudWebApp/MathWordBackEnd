@@ -10,6 +10,7 @@ namespace MathWorldAPI.Models
         public string PasswordHash { get; set; } = string.Empty;
         public string Role { get; set; } = "Student";
         public string SubscriptionType { get; set; } = "Free";
+        public int? CurrentStageId { get; set; } // Nullable for existing learners
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public bool IsActive { get; set; } = true;
 

@@ -803,6 +803,7 @@ namespace MathWorldAPI.Services
 
                 SubscriptionType =
                     user.SubscriptionType,
+                CurrentStageId = user.CurrentStageId,
 
                 Token =
                     _authService.GenerateJwtToken(

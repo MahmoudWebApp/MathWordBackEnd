@@ -165,6 +165,7 @@ namespace MathWorldAPI.Controllers
                     Role = user.Role,
                     SubscriptionType =
                         user.SubscriptionType,
+                    CurrentStageId = user.CurrentStageId,
                     SolvedProblemsCount =
                         solvedCount,
                     FavoriteProblemsCount =
@@ -286,6 +287,7 @@ namespace MathWorldAPI.Controllers
                     Role = user.Role,
                     SubscriptionType =
                         user.SubscriptionType,
+                    CurrentStageId = user.CurrentStageId,
                     SolvedProblemsCount =
                         solvedCount,
                     TotalPoints =
