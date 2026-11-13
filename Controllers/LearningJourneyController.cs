@@ -3,6 +3,7 @@ using MathWorldAPI.Data;
 using MathWorldAPI.DTOs;
 using MathWorldAPI.Helpers;
 using MathWorldAPI.Models;
+using MathWorldAPI.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -131,6 +132,10 @@ namespace MathWorldAPI.Controllers
                 .ToListAsync(cancellationToken);
             var progressByCategory = progress.ToDictionary(p => p.CategoryId);
 
+            var access = HttpContext.RequestServices
+                .GetRequiredService<ProblemCategoryAccessService>();
+            var allowed = await access.GetAllowedCategoryIdsAsync(User, cancellationToken);
+
             var categoryProgress = categories.Select(category =>
             {
                 inventory.TryGetValue(category.Id, out var total);
@@ -139,6 +144,7 @@ namespace MathWorldAPI.Controllers
                 return new StageCategoryProgressDto
                 {
                     CategoryId = category.Id,
+                    IsLocked = allowed != null && !allowed.Contains(category.Id),
                     NameAr = category.NameAr,
                     NameEn = category.NameEn,
                     TotalProblems = total,
