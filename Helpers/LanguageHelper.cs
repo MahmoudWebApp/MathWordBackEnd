@@ -301,6 +301,13 @@ namespace MathWorldAPI.Helpers
             // ==================== Educational Stage Messages ====================
 
             {
+                "InvalidAnalyticsWindow",
+                (
+                    "فترة الإحصائيات غير صالحة. اختر من 1 إلى 365 يومًا.",
+                    "Invalid analytics window. Choose from 1 to 365 days."
+                )
+            },
+            {
                 "StageNotFound",
                 (
                     "المرحلة الدراسية غير موجودة",
