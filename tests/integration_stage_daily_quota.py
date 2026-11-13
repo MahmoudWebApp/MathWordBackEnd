@@ -149,6 +149,10 @@ def main():
     changed = expect("PUT", endpoint, 200, change, admin)
     assert changed["SubscriptionType"] == "Free", changed
     assert not quota(two, 2)["Unlimited"]
+    status, _ = api("GET", endpoint + "-history", token=two)
+    assert status == 403, status
+    status, _ = api("GET", endpoint + "-history")
+    assert status == 401, status
     history = expect("GET", endpoint + "-history", 200, token=admin)
     assert history["Total"] >= 1 and history["Records"][0]["NewType"] == "Free", history
     changed = expect("PUT", endpoint, 200, {
