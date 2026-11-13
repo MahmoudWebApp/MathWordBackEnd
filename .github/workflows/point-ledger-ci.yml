@@ -70,6 +70,11 @@ jobs:
         run: python3 tests/integration_point_ledger.py
         env:
           MATHWORLD_TEST_BASE_URL: http://127.0.0.1:5051
+          PGHOST: 127.0.0.1
+          PGPORT: 5432
+          PGUSER: postgres
+          PGPASSWORD: ci_only_password
+          PGDATABASE: mathworld_ci
       - name: Print limited logs when tests fail
         if: failure()
         run: |
