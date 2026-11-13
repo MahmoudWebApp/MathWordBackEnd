@@ -1070,7 +1070,7 @@ namespace MathWorldAPI.Controllers
 
             var subscription = await _context.Users.AsNoTracking()
                 .Where(u => u.Id == userId.Value && u.Role == "Student")
-                .Select(u => u.SubscriptionType)
+                .Select(u => new { u.SubscriptionType, u.PremiumExpiresAtUtc })
                 .FirstOrDefaultAsync(HttpContext.RequestAborted);
             if (subscription == null)
             {
@@ -1127,7 +1127,9 @@ namespace MathWorldAPI.Controllers
             // Re-attempting an already attempted problem consumes no
             // further daily slots even if the previous attempt was yesterday.
             if (isOfficialAttempt &&
-                !PremiumEntitlement.IsActive(subscription))
+                !(PremiumEntitlement.IsActive(subscription.SubscriptionType) &&
+                    (!subscription.PremiumExpiresAtUtc.HasValue ||
+                     subscription.PremiumExpiresAtUtc.Value > DateTime.UtcNow)))
             {
                 var used = await StageDailyQuota.CountUsedAsync(
                     _context, userId.Value, problem.StageId, now,
