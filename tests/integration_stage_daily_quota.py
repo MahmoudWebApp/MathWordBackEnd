@@ -157,6 +157,31 @@ def main():
     }, admin)
     assert changed["Unlimited"] and quota(two, 2)["Unlimited"], changed
 
+    # A repeated identical grant is idempotent and creates no extra audit row.
+    history_before = expect("GET", endpoint + "-history", 200, token=admin)
+    expect("PUT", endpoint, 200, {
+        "SubscriptionType": "Premium",
+        "Reason": "CI administrator grant check"
+    }, admin)
+    history_after = expect("GET", endpoint + "-history", 200, token=admin)
+    assert history_before["Total"] == history_after["Total"], history_after
+
+    # Invalid expiry and subscription values must be rejected.
+    expect("PUT", endpoint, 400, {
+        "SubscriptionType": "Premium",
+        "PremiumExpiresAtUtc": "2000-01-01T00:00:00Z",
+        "Reason": "Expired grant rejected"
+    }, admin)
+    expect("PUT", endpoint, 400, {
+        "SubscriptionType": "Free",
+        "PremiumExpiresAtUtc": "2099-01-01T00:00:00Z",
+        "Reason": "Free cannot have expiry"
+    }, admin)
+    expect("PUT", endpoint, 400, {
+        "SubscriptionType": "Enterprise",
+        "Reason": "Invalid tier"
+    }, admin)
+
     # Two DIFFERENT questions racing for the same final slot must serialize.
     for qid, correct in q3[:9]:
         code, body = submit(three, qid, correct)
