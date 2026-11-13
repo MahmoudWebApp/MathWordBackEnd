@@ -27,7 +27,7 @@ namespace MathWorldAPI.Controllers
                 return Unauthorized(Error("Unauthorized", 401));
 
             var user = await _db.Users.AsNoTracking()
-                .FirstOrDefaultAsync(u => u.Id == userId && u.Role == "Student",
+                .FirstOrDefaultAsync(u => u.Id == userId && u.Role == "Student" && u.IsActive,
                     cancellationToken);
             if (user == null)
                 return NotFound(Error("UserNotFound", 404));
