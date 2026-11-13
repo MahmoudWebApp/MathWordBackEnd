@@ -36,6 +36,117 @@ namespace MathWorldAPI.Controllers
                 .Select(a => a.UserId).Distinct()
                 .CountAsync(cancellationToken);
 
+            // Server-calculated platform trends: only actual Student attempts.
+            var dailyRows = await _db.ProblemAttempts.AsNoTracking()
+                .Where(a => a.User.Role == "Student" && a.SubmittedAt >= cutoffUtc)
+                .GroupBy(a => a.SubmittedAt.Date)
+                .Select(g => new
+                {
+                    Day = g.Key,
+                    Attempts = g.Count(),
+                    Correct = g.Count(a => a.IsCorrect),
+                    Students = g.Select(a => a.UserId).Distinct().Count()
+                }).ToListAsync(cancellationToken);
+            var dailyLookup = dailyRows.ToDictionary(x => x.Day.Date);
+            var dailyActivity = Enumerable.Range(0, days).Select(index =>
+            {
+                var date = cutoffUtc.AddDays(index);
+                dailyLookup.TryGetValue(date.Date, out var row);
+                return new AdminActivityDayDto
+                {
+                    DayUtc = date,
+                    Attempts = row?.Attempts ?? 0,
+                    CorrectAttempts = row?.Correct ?? 0,
+                    UniqueStudents = row?.Students ?? 0
+                };
+            }).ToList();
+
+            var categoryErrorRows = await _db.ProblemAttempts.AsNoTracking()
+                .Where(a => a.User.Role == "Student" && a.SubmittedAt >= cutoffUtc)
+                .GroupBy(a => a.Problem.CategoryId)
+                .Select(g => new
+                {
+                    CategoryId = g.Key,
+                    Attempts = g.Count(),
+                    Incorrect = g.Count(a => !a.IsCorrect),
+                    Correct = g.Count(a => a.IsCorrect),
+                    Seconds = g.Sum(a => a.TimeSpentSeconds)
+                })
+                .Where(row => row.Incorrect > 0)
+                .OrderByDescending(row => row.Incorrect)
+                .ThenByDescending(row => row.Attempts)
+                .ThenBy(row => row.CategoryId)
+                .Take(5).ToListAsync(cancellationToken);
+
+            var categoryIds = categoryErrorRows.Select(x => x.CategoryId).ToArray();
+            var categoryDetails = await _db.Categories.AsNoTracking()
+                .Where(c => categoryIds.Contains(c.Id))
+                .Select(c => new
+                {
+                    c.Id, c.StageId, c.NameAr, c.NameEn,
+                    StageNameAr = c.Stage.NameAr,
+                    StageNameEn = c.Stage.NameEn
+                }).ToDictionaryAsync(c => c.Id, cancellationToken);
+            var missedCategories = categoryErrorRows
+                .Where(row => categoryDetails.ContainsKey(row.CategoryId))
+                .Select(row =>
+                {
+                    var cat = categoryDetails[row.CategoryId];
+                    return new AdminWeakCategoryDto
+                    {
+                        CategoryId = cat.Id, StageId = cat.StageId,
+                        NameAr = cat.NameAr, NameEn = cat.NameEn,
+                        StageNameAr = cat.StageNameAr,
+                        StageNameEn = cat.StageNameEn,
+                        AttemptsInWindow = row.Attempts,
+                        IncorrectAttemptsInWindow = row.Incorrect,
+                        CorrectAttemptsInWindow = row.Correct,
+                        IncorrectRatePercent = Percent(row.Incorrect, row.Attempts),
+                        AverageAttemptSeconds = row.Attempts == 0 ? 0 :
+                            Math.Round((double)row.Seconds / row.Attempts, 1)
+                    };
+                }).ToList();
+
+            var problemErrorRows = await _db.ProblemAttempts.AsNoTracking()
+                .Where(a => a.User.Role == "Student" && a.SubmittedAt >= cutoffUtc)
+                .GroupBy(a => a.ProblemId)
+                .Select(g => new
+                {
+                    ProblemId = g.Key,
+                    Attempts = g.Count(),
+                    Incorrect = g.Count(a => !a.IsCorrect),
+                    Correct = g.Count(a => a.IsCorrect)
+                })
+                .Where(row => row.Incorrect > 0)
+                .OrderByDescending(row => row.Incorrect)
+                .ThenByDescending(row => row.Attempts)
+                .ThenBy(row => row.ProblemId)
+                .Take(5).ToListAsync(cancellationToken);
+            var problemIds = problemErrorRows.Select(x => x.ProblemId).ToArray();
+            var problemDetails = await _db.Problems.AsNoTracking()
+                .Where(p => problemIds.Contains(p.Id))
+                .Select(p => new
+                {
+                    p.Id, p.StageId, p.CategoryId, p.TitleAr, p.TitleEn
+                }).ToDictionaryAsync(p => p.Id, cancellationToken);
+            var missedProblems = problemErrorRows
+                .Where(row => problemDetails.ContainsKey(row.ProblemId))
+                .Select(row =>
+                {
+                    var problem = problemDetails[row.ProblemId];
+                    return new AdminMissedProblemDto
+                    {
+                        ProblemId = problem.Id,
+                        StageId = problem.StageId,
+                        CategoryId = problem.CategoryId,
+                        TitleAr = problem.TitleAr,
+                        TitleEn = problem.TitleEn,
+                        AttemptsInWindow = row.Attempts,
+                        IncorrectAttemptsInWindow = row.Incorrect,
+                        CorrectAttemptsInWindow = row.Correct
+                    };
+                }).ToList();
+
             var result = new AdminAnalyticsOverviewDto
             {
                 GeneratedAtUtc = DateTime.UtcNow,
@@ -46,7 +157,10 @@ namespace MathWorldAPI.Controllers
                 TotalUniqueSolved = stages.Sum(s => s.UniqueSolved),
                 AttemptsInWindow = stages.Sum(s => s.AttemptsInWindow),
                 CorrectAttemptsInWindow = stages.Sum(s => s.CorrectAttemptsInWindow),
-                Stages = stages
+                Stages = stages,
+                DailyActivity = dailyActivity,
+                MostMissedCategories = missedCategories,
+                MostMissedProblems = missedProblems
             };
             result.CorrectRatePercent = Percent(
                 result.CorrectAttemptsInWindow, result.AttemptsInWindow);
