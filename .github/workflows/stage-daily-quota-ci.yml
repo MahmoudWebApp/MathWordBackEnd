@@ -1,6 +1,7 @@
 name: Free daily quota per stage PostgreSQL tests
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - feature/stage-daily-quota-v1
@@ -22,6 +23,7 @@ on:
       - 'Migrations/**'
       - 'tests/integration_stage_daily_quota.py'
       - 'tests/integration_problem_history.py'
+      - 'Controllers/AdminLearnersController.cs'
       - '.github/workflows/stage-daily-quota-ci.yml'
 
 permissions:
