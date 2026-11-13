@@ -120,3 +120,9 @@ Status below reflects confirmed implementation scope, not production completion.
 **Execution order:** P0 category access -> P0 groups/journey -> P0 review and editorial workflow -> P1 media linkage and parity -> commercial/auth/notifications -> release QA. Media publishing calendar (12+ months) is a separate post-product-readiness workstream, not a 12-month engineering schedule.
 
 **User-facing access acceptance:** Free student can solve more than ten questions in one day inside an unlocked category; cannot access a locked category via direct API; Premium can access all categories; group sizes vary; expired Premium preserves progress; no daily quota blocks attempts.
+
+## Implementation checkpoint — free category read catalog (2026-11-13)
+- Added `Services/CategoryAccessPolicy.cs` (pure category access helper, two Free categories per stage by default, variable-sized groups).
+- Added `Controllers/StageCategoryAccessController.cs` GET `/api/stages/{stageId}/free-categories` with optional temporary `FreeCategoryAccess:Stages:{stageId}` comma-separated category IDs and fail-closed invalid configuration.
+- **Important:** This read-only endpoint is NOT access enforcement. Old daily quota enforcement still exists. Do not deploy the new policy as complete until backend problem list/search/detail/submit and other read paths enforce it atomically, old quota is removed, web/Flutter updated, and tests pass.
+- No build, CI, database migration or deployment verified for this batch.
