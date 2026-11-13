@@ -19,7 +19,12 @@ namespace MathWorldAPI.Controllers
     public sealed class StudentSubscriptionController : ControllerBase
     {
         private readonly AppDbContext _db;
-        public StudentSubscriptionController(AppDbContext db) => _db = db;
+        private readonly LaunchFeatureFlags _features;
+        public StudentSubscriptionController(AppDbContext db, LaunchFeatureFlags features)
+        {
+            _db = db;
+            _features = features;
+        }
 
         [HttpGet]
         [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
@@ -44,7 +49,7 @@ namespace MathWorldAPI.Controllers
                 DailyNewProblemsLimit = isPremium ? (int?)null : StageDailyQuota.FreeLimit,
                 CanRevealSolutionBeforeAnswer = isPremium,
                 CanExportAnalytics = isPremium,
-                AdsEligible = !isPremium
+                AdsEligible = !isPremium && _features.AdsEnabled
             }, "Success", LanguageHelper.GetLanguageFromRequest(Request)));
         }
     }
