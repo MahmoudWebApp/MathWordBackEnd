@@ -54,7 +54,8 @@ namespace MathWorldAPI.Controllers
                 Used = used,
                 Remaining = unlimited ? null : Math.Max(0, StageDailyQuota.FreeLimit - used),
                 Unlimited = unlimited,
-                SubscriptionType = user.SubscriptionType,
+                SubscriptionType = PremiumEntitlement.EffectiveType(user),
+                PremiumExpiresAtUtc = unlimited ? user.PremiumExpiresAtUtc : null,
                 DayUtc = date,
                 ResetsAtUtc = date.AddDays(1)
             };
