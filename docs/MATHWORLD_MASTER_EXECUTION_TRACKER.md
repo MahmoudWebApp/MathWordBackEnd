@@ -18,8 +18,8 @@ This file is the durable source of truth for continuation across conversations. 
 ## Workstream tracker (status: NOT STARTED / IN PROGRESS / BLOCKED / DONE)
 | ID | Workstream | Status | Evidence / next action |
 |---|---|---|---|
-| B01 | Premium backend expiry, admin grants, audit | IN PROGRESS | Draft backend PR #20; build/CI not verified |
-| B02 | Backend regression, integration, migrations | BLOCKED | Need successful .NET and disposable PostgreSQL CI |
+| B01 | Premium backend expiry, admin grants, audit | IN PROGRESS | Draft backend PR #20; audited grants, expiry, bounded grant and auth tests committed; build/CI not verified |
+| B02 | Backend regression, integration, migrations | BLOCKED | Manual workflow_dispatch enabled; need successful .NET and disposable PostgreSQL CI |
 | B03 | Central server-side feature flags | NOT STARTED | Schema, admin API, audit, fail-closed defaults |
 | B04 | Coupon/campaign redemption | NOT STARTED | Limits, locking, expiry, idempotency |
 | B05 | Premium entitlements/exports/analytics | NOT STARTED | API + secure authorization |
@@ -62,3 +62,9 @@ Date; repository/branch/PR; exact files changed; behavior before/after; test com
 - Official curriculum target by country/stage and number of problems per category.
 - Hostinger server access and production migration approval at cutover time.
 - Exact transactional email sending domain and quotas.
+
+## Progress update — 2026-11-13 (batch)
+- Backend draft PR #20: added manual GitHub Actions dispatch and expanded tests for bounded Premium grants, history authorization, invalid requests, idempotent grants and missing learner handling.
+- PostgreSQL advisory lock SQL invocation corrected to a scalar query.
+- Verified through GitHub file reads/commits only; no successful CI evidence available, no production changes.
+- Next implementation gate: obtain CI logs and fix actual build/runtime failures before UI integration.
