@@ -1,20 +1,26 @@
-echo "# Visual Studio
+# Visual Studio / .NET build output
 .vs/
-bin/
-obj/
+.vscode/
+**/bin/
+**/obj/
 *.user
 *.suo
 *.cache
 *.dbmdl
-
-# .NET
 *.dll
 *.exe
 *.pdb
 
-# Meilisearch
-data.ms/
-
-# User secrets
+# Machine-specific secrets and local settings
+appsettings.Development.json
+appsettings.*.local.json
 secrets.json
-appsettings.Development.json" > .gitignore
+.env
+.env.*
+!.env.example
+*.pfx
+*.p12
+*.pem
+
+# Local search index
+data.ms/

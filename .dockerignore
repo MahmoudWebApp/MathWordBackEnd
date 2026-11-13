@@ -28,3 +28,11 @@ README.md
 !.git/config
 !.git/packed-refs
 !.git/refs/heads/**
+# Local development credentials must never enter the Docker build context.
+**/appsettings.Development.json
+**/appsettings.*.local.json
+**/secrets.json
+**/.env.*
+**/*.pfx
+**/*.p12
+**/*.pem

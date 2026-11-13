@@ -42,13 +42,13 @@ COPY --from=publish /app/publish .
 # ✅ FIX: Create wwwroot directories and set permissions as root user, then switch back to app user
 USER root
 RUN mkdir -p /app/wwwroot/uploads/categories \
-    && chmod -R 777 /app/wwwroot \
-    && chown -R $APP_UID:$APP_UID /app/wwwroot
+    && chown -R $APP_UID:$APP_UID /app/wwwroot \
+    && chmod -R 755 /app/wwwroot
 
 USER $APP_UID
 
 # ✅ FIX: Add health check for orchestration platforms (Render, Kubernetes, etc.)
 HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
-    CMD curl -f http://localhost:8080/health || exit 1
+    CMD curl -f http://localhost:8080/health/live || exit 1
 
 ENTRYPOINT ["dotnet", "MathWorldAPI.dll"]

@@ -1,0 +1,105 @@
+name: Backend build and config safety
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install .NET SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
+
+      - name: Check tracked configuration has no credentials
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          config = json.loads(Path("appsettings.json").read_text(encoding="utf-8-sig"))
+          keys = [
+              ("ConnectionStrings", "DefaultConnection"),
+              ("Jwt", "Key"),
+              ("Meilisearch", "ApiKey"),
+              ("Facebook", "AppSecret"),
+          ]
+          for section, key in keys:
+              value = config.get(section, {}).get(key, "")
+              if str(value or "").strip():
+                  raise SystemExit(f"Sensitive config {section}:{key} must be empty in git")
+          if str(config.get("IMGBB_API_KEY") or "").strip():
+              raise SystemExit("Sensitive config IMGBB_API_KEY must be empty in git")
+          if Path("appsettings.Development.json").exists():
+              raise SystemExit("Local development config must not be committed")
+          print("Tracked configuration contains no configured credentials")
+          PY
+
+      - name: Restore dependencies
+        run: dotnet restore MathWorldAPI.csproj
+
+      - name: Compile release configuration
+        run: dotnet build MathWorldAPI.csproj -c Release --no-restore
+
+      - name: Smoke-test API process and health endpoints (no real database)
+        shell: bash
+        env:
+          ASPNETCORE_ENVIRONMENT: Production
+          ASPNETCORE_URLS: http://127.0.0.1:5050
+          ConnectionStrings__DefaultConnection: Host=127.0.0.1;Port=65432;Database=ci_dummy;Username=ci;Password=not_a_real_password
+          Jwt__Key: ci_test_only_signing_key_no_production_use_0123456789abcdef
+          Jwt__Issuer: MathWorld-CI
+          Jwt__Audience: MathWorld-CI
+          BootstrapAdmin__Enabled: "false"
+          Database__ApplyMigrationsOnStartup: "false"
+        run: |
+          set -euo pipefail
+          dotnet run --no-build --no-launch-profile -c Release --project MathWorldAPI.csproj >/tmp/mathworld-ci-app.log 2>&1 &
+          pid=$!
+          trap 'kill "$pid" 2>/dev/null || true' EXIT
+          ready=0
+          for attempt in $(seq 1 30); do
+            if curl --fail --silent --max-time 2 http://127.0.0.1:5050/health/live > /tmp/mathworld-live.json; then
+              ready=1
+              break
+            fi
+            if ! kill -0 "$pid" 2>/dev/null; then
+              echo "API process quit during startup"
+              tail -n 40 /tmp/mathworld-ci-app.log
+              exit 1
+            fi
+            sleep 1
+          done
+          if [[ "$ready" -ne 1 ]]; then
+            echo "The API did not become live within the smoke-test window"
+            tail -n 40 /tmp/mathworld-ci-app.log
+            exit 1
+          fi
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          assert json.loads(Path("/tmp/mathworld-live.json").read_text())["status"] == "alive"
+          print("GET /health/live -> 200 + alive")
+          PY
+          status="$(curl -sS --max-time 8 -o /tmp/mathworld-ready.json -w '%{http_code}' http://127.0.0.1:5050/health/ready)"
+          if [[ "$status" != "503" ]]; then
+            echo "Expected database readiness to fail safely (503), got $status"
+            exit 1
+          fi
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          assert json.loads(Path("/tmp/mathworld-ready.json").read_text())["status"] == "unready"
+          print("GET /health/ready -> 503 + unready for unavailable test database")
+          PY

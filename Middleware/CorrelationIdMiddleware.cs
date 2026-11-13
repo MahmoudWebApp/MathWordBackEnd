@@ -1,21 +1,22 @@
-﻿// File: MathWorldAPI/Middleware/CorrelationIdMiddleware.cs
+using System.Text.RegularExpressions;
 
 namespace MathWorldAPI.Middleware
 {
     /// <summary>
-    /// Adds a stable correlation ID to every HTTP request and response.
-    /// The ID can be used to find the matching request in server logs.
+    /// Validates or generates a correlation ID for safe tracing across requests.
+    /// Never trust an arbitrary client-supplied string in response headers/logs.
     /// </summary>
     public sealed class CorrelationIdMiddleware
     {
         private const string HeaderName = "X-Correlation-ID";
 
+        private static readonly Regex SafeCorrelationId = new(
+            "^[A-Za-z0-9_-]{1,64}$",
+            RegexOptions.Compiled | RegexOptions.CultureInvariant);
+
         private readonly RequestDelegate _next;
         private readonly ILogger<CorrelationIdMiddleware> _logger;
 
-        /// <summary>
-        /// Initializes a new instance of the CorrelationIdMiddleware.
-        /// </summary>
         public CorrelationIdMiddleware(
             RequestDelegate next,
             ILogger<CorrelationIdMiddleware> logger)
@@ -24,18 +25,14 @@ namespace MathWorldAPI.Middleware
             _logger = logger;
         }
 
-        /// <summary>
-        /// Reads or generates a correlation ID and adds it to the response.
-        /// </summary>
         public async Task InvokeAsync(HttpContext context)
         {
-            var incomingId =
-                context.Request.Headers[HeaderName]
-                    .FirstOrDefault();
+            var incomingId = context.Request.Headers[HeaderName]
+                .FirstOrDefault();
 
             var correlationId =
-                !string.IsNullOrWhiteSpace(incomingId)
-                && incomingId.Length <= 100
+                incomingId is not null &&
+                SafeCorrelationId.IsMatch(incomingId)
                     ? incomingId
                     : Guid.NewGuid().ToString("N");
 
@@ -43,9 +40,7 @@ namespace MathWorldAPI.Middleware
 
             context.Response.OnStarting(() =>
             {
-                context.Response.Headers[HeaderName] =
-                    correlationId;
-
+                context.Response.Headers[HeaderName] = correlationId;
                 return Task.CompletedTask;
             });
 
@@ -55,18 +50,7 @@ namespace MathWorldAPI.Middleware
                            ["CorrelationId"] = correlationId
                        }))
             {
-                _logger.LogInformation(
-                    "Request started: {Method} {Path}",
-                    context.Request.Method,
-                    context.Request.Path);
-
                 await _next(context);
-
-                _logger.LogInformation(
-                    "Request completed: {Method} {Path} with status {StatusCode}",
-                    context.Request.Method,
-                    context.Request.Path,
-                    context.Response.StatusCode);
             }
         }
     }
