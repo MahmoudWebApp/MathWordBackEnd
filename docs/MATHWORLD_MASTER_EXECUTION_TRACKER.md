@@ -150,3 +150,8 @@ Status below reflects confirmed implementation scope, not production completion.
 - `StageCategoryProgressDto.IsLocked` is now populated by `LearningJourneyController` using shared entitlement service. Historical progress is retained when a category becomes locked.
 - `UsersController.ToggleFavorite` now blocks mutations on inaccessible categories. Existing historical favorites and progress remain stored.
 - **Remaining:** web and Flutter must render locked categories; verify all user read endpoints for content leakage; add tests and verify build/CI; implement persistent admin choice and secure ad unlocks only after compliance review.
+
+## Implementation checkpoint — student account read-path restrictions
+- `UsersController`: filtered favorites, solved problems, error notebook and dashboard statistics/recent previews by current category entitlements. Historical records remain in storage; access restrictions apply at query time.
+- **Product decision to revisit:** dashboard summary statistics now reflect accessible categories rather than all historical achievements; a separate lifetime summary may be needed for expired Premium subscribers without exposing locked content.
+- **Security/QA blockers:** audit error-notebook archive/favorite-check and other mutation endpoints, test EF query translation, build and CI; persisted admin category selections, client changes, SEO/CAPTCHA and rewarded ad unlocks are not done.
