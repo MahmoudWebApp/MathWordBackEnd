@@ -26,6 +26,20 @@ public sealed class ProblemCategoryAccessService
             .Where(c => c.StageId == stageId)
             .OrderBy(c => c.Order).ThenBy(c => c.Id)
             .ToListAsync(cancellationToken);
+        var saved = await _db.StageFreeCategorySelections.AsNoTracking()
+            .FirstOrDefaultAsync(x => x.StageId == stageId, cancellationToken);
+        if (saved != null)
+        {
+            try
+            {
+                return CategoryAccessPolicy.ResolveFreeCategoryIds(categories,
+                    new[] { saved.FirstCategoryId, saved.SecondCategoryId });
+            }
+            catch (ArgumentException)
+            {
+                return Array.Empty<int>();
+            }
+        }
         var raw = _configuration[$"FreeCategoryAccess:Stages:{stageId}"];
         List<int>? configured = null;
         if (raw is not null)
