@@ -15,12 +15,10 @@ namespace MathWorldAPI.Controllers;
 public sealed class StageCategoryAccessController : ControllerBase
 {
     private readonly AppDbContext _db;
-    private readonly IConfiguration _configuration;
 
-    public StageCategoryAccessController(AppDbContext db, IConfiguration configuration)
+    public StageCategoryAccessController(AppDbContext db)
     {
         _db = db;
-        _configuration = configuration;
     }
 
     [HttpGet("{stageId:int}/free-categories")]
@@ -36,36 +34,9 @@ public sealed class StageCategoryAccessController : ControllerBase
         if (!exists)
             return NotFound(new { Message = "StageNotFound" });
 
-        var categories = await _db.Categories.AsNoTracking()
-            .Where(category => category.StageId == stageId)
-            .OrderBy(category => category.Order)
-            .ThenBy(category => category.Id)
-            .ToListAsync(cancellationToken);
-
-        // Temporary configuration mechanism; audited admin configuration
-        // must replace this before launch.
-        var raw = _configuration[$"FreeCategoryAccess:Stages:{stageId}"];
-        List<int>? configured = null;
-        if (!string.IsNullOrWhiteSpace(raw))
-        {
-            var parts = raw.Split(',', StringSplitOptions.TrimEntries |
-                StringSplitOptions.RemoveEmptyEntries);
-            if (parts.Length != CategoryAccessPolicy.DefaultFreeCategoriesPerStage ||
-                parts.Any(part => !int.TryParse(part, out _)))
-                return StatusCode(503, new { Message = "FreeCategoryConfigurationInvalid" });
-
-            configured = parts.Select(int.Parse).ToList();
-        }
-
-        IReadOnlyList<int> ids;
-        try
-        {
-            ids = CategoryAccessPolicy.ResolveFreeCategoryIds(categories, configured);
-        }
-        catch (ArgumentException)
-        {
-            return StatusCode(503, new { Message = "FreeCategoryConfigurationInvalid" });
-        }
+        var ids = await HttpContext.RequestServices
+            .GetRequiredService<ProblemCategoryAccessService>()
+            .GetFreeCategoryIdsAsync(stageId, cancellationToken);
 
         return Ok(new
         {
