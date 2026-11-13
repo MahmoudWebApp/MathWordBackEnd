@@ -87,6 +87,7 @@ namespace MathWorldAPI.Controllers
                         progress.UserId == userId &&
                         (allowedCategories == null ||
                          allowedCategories.Contains(progress.Problem.CategoryId)) &&
+                        progress.Problem.Category.StageId == progress.Problem.StageId &&
                         (!activeStageId.HasValue ||
                          progress.Problem.StageId == activeStageId.Value) &&
                         progress.IsSolved);
@@ -97,6 +98,7 @@ namespace MathWorldAPI.Controllers
                         progress.UserId == userId &&
                         (allowedCategories == null ||
                          allowedCategories.Contains(progress.Problem.CategoryId)) &&
+                        progress.Problem.Category.StageId == progress.Problem.StageId &&
                         (!activeStageId.HasValue ||
                          progress.Problem.StageId == activeStageId.Value) &&
                         progress.IsFavorite);
@@ -108,6 +110,7 @@ namespace MathWorldAPI.Controllers
                         progress.UserId == userId &&
                         (allowedCategories == null ||
                          allowedCategories.Contains(progress.Problem.CategoryId)) &&
+                        progress.Problem.Category.StageId == progress.Problem.StageId &&
                         (!activeStageId.HasValue ||
                          progress.Problem.StageId == activeStageId.Value) &&
                         progress.Attempts > 0);
@@ -119,6 +122,7 @@ namespace MathWorldAPI.Controllers
                         progress.UserId == userId &&
                         (allowedCategories == null ||
                          allowedCategories.Contains(progress.Problem.CategoryId)) &&
+                        progress.Problem.Category.StageId == progress.Problem.StageId &&
                         (!activeStageId.HasValue ||
                          progress.Problem.StageId == activeStageId.Value) &&
                         progress.FirstAttemptCorrect == true);
@@ -137,6 +141,7 @@ namespace MathWorldAPI.Controllers
                         progress.UserId == userId &&
                         (allowedCategories == null ||
                          allowedCategories.Contains(progress.Problem.CategoryId)) &&
+                        progress.Problem.Category.StageId == progress.Problem.StageId &&
                         (!activeStageId.HasValue ||
                          progress.Problem.StageId == activeStageId.Value) &&
                         progress.IsSolved)
@@ -162,6 +167,7 @@ namespace MathWorldAPI.Controllers
                         progress.UserId == userId &&
                         (allowedCategories == null ||
                          allowedCategories.Contains(progress.Problem.CategoryId)) &&
+                        progress.Problem.Category.StageId == progress.Problem.StageId &&
                         (!activeStageId.HasValue ||
                          progress.Problem.StageId == activeStageId.Value) &&
                         progress.IsSolved)
@@ -185,6 +191,7 @@ namespace MathWorldAPI.Controllers
                         progress.UserId == userId &&
                         (allowedCategories == null ||
                          allowedCategories.Contains(progress.Problem.CategoryId)) &&
+                        progress.Problem.Category.StageId == progress.Problem.StageId &&
                         (!activeStageId.HasValue ||
                          progress.Problem.StageId == activeStageId.Value) &&
                         progress.IsFavorite)
@@ -516,6 +523,7 @@ namespace MathWorldAPI.Controllers
                     .Where(progress =>
                         (allowedCategories == null ||
                          allowedCategories.Contains(progress.Problem.CategoryId)) &&
+                        progress.Problem.Category.StageId == progress.Problem.StageId &&
                         progress.UserId == userId &&
                         (!activeStageId.HasValue ||
                          progress.Problem.StageId == activeStageId.Value) &&
@@ -595,6 +603,7 @@ namespace MathWorldAPI.Controllers
                     .Where(progress =>
                         (allowedCategories == null ||
                          allowedCategories.Contains(progress.Problem.CategoryId)) &&
+                        progress.Problem.Category.StageId == progress.Problem.StageId &&
                         progress.UserId == userId &&
                         (!activeStageId.HasValue ||
                          progress.Problem.StageId == activeStageId.Value) &&
@@ -678,6 +687,7 @@ namespace MathWorldAPI.Controllers
                     .Where(progress =>
                         (allowedCategories == null ||
                          allowedCategories.Contains(progress.Problem.CategoryId)) &&
+                        progress.Problem.Category.StageId == progress.Problem.StageId &&
                         progress.UserId == userId &&
                         (!activeStageId.HasValue ||
                          progress.Problem.StageId == activeStageId.Value) &&
