@@ -80,10 +80,10 @@ namespace MathWorldAPI.Controllers
 
             // Category filtering must happen in PostgreSQL; do not expose locked
             // titles or counts from an unfiltered external search index.
-            if (true)
+            if (!_meilisearchEnabled || !_configurationAllowsUnfilteredSearch())
             {
                 _logger.LogInformation(
-                    "MeiliSearch is disabled. Falling back to PostgreSQL.");
+                    "Category-aware PostgreSQL search enforced.");
 
                 return await PostgreSqlSearch(
                     q,
@@ -1404,11 +1404,14 @@ namespace MathWorldAPI.Controllers
                         StatusCodes.Status401Unauthorized));
             }
 
+            var allowedForHistory = await GetAllowedCategoryIdsAsync();
             var problemExists =
                 await _context.Problems
                     .AsNoTracking()
                     .AnyAsync(problem =>
-                        problem.Id == id);
+                        problem.Id == id &&
+                        (allowedForHistory == null ||
+                         allowedForHistory.Contains(problem.CategoryId)));
 
             if (!problemExists)
             {
@@ -1630,6 +1633,10 @@ namespace MathWorldAPI.Controllers
                 (double)progress.Attempts,
                 MidpointRounding.AwayFromZero);
         }
+
+        // External MeiliSearch index is not yet entitlement-aware.
+        // Keep all search paths on PostgreSQL until a secure filtered index exists.
+        private static bool _configurationAllowsUnfilteredSearch() => false;
 
         /// <summary>
         /// Returns null only for administrators. Free/anonymous access is restricted
