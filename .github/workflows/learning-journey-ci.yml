@@ -6,6 +6,7 @@ on:
       - feature/student-learning-stage-journey-v1
   pull_request:
     paths:
+      - 'Program.cs'
       - 'Controllers/LearningJourneyController.cs'
       - 'Models/**'
       - 'DTOs/**'
