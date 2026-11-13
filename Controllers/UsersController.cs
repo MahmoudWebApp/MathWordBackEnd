@@ -369,17 +369,17 @@ namespace MathWorldAPI.Controllers
             var language =
                 LanguageHelper.GetLanguageFromRequest(Request);
 
-            var categoryId = await _context.Problems.AsNoTracking()
+            var problemAccess = await _context.Problems.AsNoTracking()
                 .Where(problem => problem.Id == dto.ProblemId)
-                .Select(problem => (int?)problem.CategoryId)
+                .Select(problem => new { problem.CategoryId, problem.StageId })
                 .FirstOrDefaultAsync();
 
-            var problemExists = categoryId.HasValue;
+            var problemExists = problemAccess != null;
             if (problemExists)
             {
                 var access = HttpContext.RequestServices
                     .GetRequiredService<ProblemCategoryAccessService>();
-                if (!await access.CanReadProblemAsync(User, categoryId!.Value,
+                if (!await access.CanReadProblemAsync(User, problemAccess!.StageId, problemAccess.CategoryId,
                     HttpContext.RequestAborted))
                     return StatusCode(StatusCodes.Status403Forbidden,
                         new { Message = "CategoryLocked" });
