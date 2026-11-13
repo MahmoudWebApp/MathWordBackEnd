@@ -67,6 +67,7 @@ jobs:
           Jwt__Issuer: MathWorld-CI
           Jwt__Audience: MathWorld-CI
           Meilisearch__Enabled: 'false'
+          RateLimits__AnswerTokensPerMinute: '100'
           BootstrapAdmin__Enabled: 'true'
           BootstrapAdmin__Email: ci-admin@mathworld.test
           BootstrapAdmin__Password: CI_TEST_ADMIN_PASSWORD_12345
