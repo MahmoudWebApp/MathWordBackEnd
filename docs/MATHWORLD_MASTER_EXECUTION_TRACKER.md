@@ -171,3 +171,8 @@ Status below reflects confirmed implementation scope, not production completion.
 - `LearningJourneyController` inventory and progress aggregation now exclude stage/category-inconsistent problems.
 - `ProblemCategoryAccessService` now validates active admin identity against the Users table before unrestricted access; stale admin JWT claims alone are insufficient.
 - **Still unverified:** compilation, EF Core query translation and integration tests. Complete remaining controller audit, persistent admin selection, web/mobile UI and CI before production merge.
+
+## Security checkpoint — principal validation and student mutations
+- An authenticated identity without a user ID is now denied category access; unauthenticated ID claims cannot grant student or admin entitlements.
+- Favorite mutations, favorite checks and error-notebook archive mutations now require a consistent stage/category association for the target problem.
+- **Verification still needed:** build and integration tests, especially anonymous catalog access, inactive accounts, malformed JWT claims and inconsistent historical records. No production deploy performed.
