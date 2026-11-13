@@ -6,6 +6,7 @@ using MathWorldAPI.Data;
 using MathWorldAPI.DTOs;
 using MathWorldAPI.Helpers;
 using MathWorldAPI.Models;
+using MathWorldAPI.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -344,10 +345,21 @@ namespace MathWorldAPI.Controllers
             var language =
                 LanguageHelper.GetLanguageFromRequest(Request);
 
-            var problemExists =
-                await _context.Problems
-                    .AnyAsync(problem =>
-                        problem.Id == dto.ProblemId);
+            var categoryId = await _context.Problems.AsNoTracking()
+                .Where(problem => problem.Id == dto.ProblemId)
+                .Select(problem => (int?)problem.CategoryId)
+                .FirstOrDefaultAsync();
+
+            var problemExists = categoryId.HasValue;
+            if (problemExists)
+            {
+                var access = HttpContext.RequestServices
+                    .GetRequiredService<ProblemCategoryAccessService>();
+                if (!await access.CanReadProblemAsync(User, categoryId!.Value,
+                    HttpContext.RequestAborted))
+                    return StatusCode(StatusCodes.Status403Forbidden,
+                        new { Message = "CategoryLocked" });
+            }
 
             if (!problemExists)
             {
