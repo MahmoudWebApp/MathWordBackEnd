@@ -166,7 +166,8 @@ namespace MathWorldAPI.Controllers
                 _context.Problems
                     .AsNoTracking()
                     .Where(problem =>
-                        problem.CategoryId == id);
+                        problem.CategoryId == id &&
+                        problem.StageId == category.StageId);
 
             var total =
                 await query.CountAsync();
