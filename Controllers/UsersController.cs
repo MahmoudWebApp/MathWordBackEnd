@@ -489,10 +489,16 @@ namespace MathWorldAPI.Controllers
             var language =
                 LanguageHelper.GetLanguageFromRequest(Request);
 
+            var allowedCategories = await HttpContext.RequestServices
+                .GetRequiredService<ProblemCategoryAccessService>()
+                .GetAllowedCategoryIdsAsync(User, HttpContext.RequestAborted);
+
             var favorites =
                 await _context.UserProgresses
                     .AsNoTracking()
                     .Where(progress =>
+                        (allowedCategories == null ||
+                         allowedCategories.Contains(progress.Problem.CategoryId)) &&
                         progress.UserId == userId &&
                         (!activeStageId.HasValue ||
                          progress.Problem.StageId == activeStageId.Value) &&
@@ -562,10 +568,16 @@ namespace MathWorldAPI.Controllers
             var language =
                 LanguageHelper.GetLanguageFromRequest(Request);
 
+            var allowedCategories = await HttpContext.RequestServices
+                .GetRequiredService<ProblemCategoryAccessService>()
+                .GetAllowedCategoryIdsAsync(User, HttpContext.RequestAborted);
+
             var solved =
                 await _context.UserProgresses
                     .AsNoTracking()
                     .Where(progress =>
+                        (allowedCategories == null ||
+                         allowedCategories.Contains(progress.Problem.CategoryId)) &&
                         progress.UserId == userId &&
                         (!activeStageId.HasValue ||
                          progress.Problem.StageId == activeStageId.Value) &&
@@ -639,10 +651,16 @@ namespace MathWorldAPI.Controllers
                 LanguageHelper.GetLanguageFromRequest(
                     Request);
 
+            var allowedCategories = await HttpContext.RequestServices
+                .GetRequiredService<ProblemCategoryAccessService>()
+                .GetAllowedCategoryIdsAsync(User, HttpContext.RequestAborted);
+
             var query =
                 _context.UserProgresses
                     .AsNoTracking()
                     .Where(progress =>
+                        (allowedCategories == null ||
+                         allowedCategories.Contains(progress.Problem.CategoryId)) &&
                         progress.UserId == userId &&
                         (!activeStageId.HasValue ||
                          progress.Problem.StageId == activeStageId.Value) &&
