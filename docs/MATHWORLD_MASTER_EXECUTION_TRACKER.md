@@ -83,3 +83,12 @@ Date; repository/branch/PR; exact files changed; behavior before/after; test com
 - Added integration coverage for unauthorized/admin, Free, Premium and expired Premium, and updated CI path filters.
 - IMPORTANT: CanRevealSolutionBeforeAnswer and CanExportAnalytics are entitlement hints only; corresponding feature APIs must enforce authorization separately before launch.
 - Code committed to draft backend PR #20; no successful .NET build or integration run confirmed.
+
+## Verified execution checkpoint — 2026-11-13 (latest)
+- Backend commit 65b4e9a: **7/7 GitHub Actions workflows passed** (build, quota, PostgreSQL integrity, journey, admin segregation, admin insights, schema drift). PR #20 remains draft; no production deployment.
+- Next.js draft PR #18: student subscription and lazy Premium solution queries wired into RTK Query; early reveal button in `src/app/[locale]/problems/[id]/page.tsx`, visible only when server entitlement allows it. Web student stage typecheck passed for commit 1d977545. UI/behavioral QA still required.
+- Flutter draft PR #12: `lib/services/premium_api_service.dart` and reusable `lib/widgets/premium_solution_panel.dart` committed (f671163a). **Not yet mounted into the actual problem detail screen, nor build-tested.**
+- Explicit user reminder: **do not forget full UI refresh, new educational-stage categories, and additional reviewed math problems.** These remain required workstreams W02/W03/F03/C01/C02/C03; do not mark them complete just because Premium API is ready.
+- Content acceptance: preserve existing category identifiers and learner history; prepare additive category migration; write bilingual problem statements, plausible distractors, correct-option proof and detailed worked solutions; check stage suitability and duplicate questions; keep free tier 10 new problems per stage per day (not 10 total questions in the bank). No unreviewed auto-generated problems released publicly.
+- Visual acceptance: web/mobile feature parity, logo-based tokens, Arabic RTL and English LTR, responsive layouts, consistent category iconography, accessible math typography and solution rendering; avoid disrupting existing working journeys.
+- Immediate order: wire and test Flutter Premium panel; admin grant/history UI; reviewed category and question seed pipeline; web/mobile visual parity; end-to-end QA. Country-specific curriculum remains unresolved, so stage/category additions must be explicitly mapped and reviewed before publication.
