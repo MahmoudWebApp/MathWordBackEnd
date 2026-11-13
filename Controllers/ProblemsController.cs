@@ -1069,7 +1069,7 @@ namespace MathWorldAPI.Controllers
                 HttpContext.RequestAborted);
 
             var subscription = await _context.Users.AsNoTracking()
-                .Where(u => u.Id == userId.Value && u.Role == "Student")
+                .Where(u => u.Id == userId.Value && u.Role == "Student" && u.IsActive)
                 .Select(u => new { u.SubscriptionType, u.PremiumExpiresAtUtc })
                 .FirstOrDefaultAsync(HttpContext.RequestAborted);
             if (subscription == null)
