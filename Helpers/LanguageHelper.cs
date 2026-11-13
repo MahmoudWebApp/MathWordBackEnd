@@ -301,20 +301,6 @@ namespace MathWorldAPI.Helpers
             // ==================== Educational Stage Messages ====================
 
             {
-                "InvalidLeaderboardPeriod",
-                (
-                    "الفترة غير صحيحة. اختر all أو weekly أو monthly.",
-                    "Invalid period. Use all, weekly, or monthly."
-                )
-            },
-            {
-                "InvalidLeaderboardPagination",
-                (
-                    "رقم الصفحة أو حجم الصفحة غير صالح.",
-                    "Invalid page number or page size."
-                )
-            },
-            {
                 "StageNotFound",
                 (
                     "المرحلة الدراسية غير موجودة",
