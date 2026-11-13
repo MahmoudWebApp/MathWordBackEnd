@@ -223,7 +223,7 @@ def main():
 
     # A bounded grant must be active now and preserve its UTC expiry.
     from datetime import datetime, timedelta, timezone
-    expiry = (datetime.now(timezone.utc) + timedelta(days=7)).isoformat()
+    expiry = (datetime.now(timezone.utc) + timedelta(days=7)).isoformat().replace("+00:00", "Z")
     changed = expect("PUT", endpoint, 200, {
         "SubscriptionType": "Premium",
         "PremiumExpiresAtUtc": expiry,
