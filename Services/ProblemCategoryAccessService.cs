@@ -54,9 +54,8 @@ public sealed class ProblemCategoryAccessService
     public async Task<List<int>?> GetAllowedCategoryIdsAsync(
         ClaimsPrincipal principal, CancellationToken cancellationToken = default)
     {
-        if (principal.Identity?.IsAuthenticated == true && principal.IsInRole("Admin"))
-            return null;
-
+        // Validate the database user before trusting any role claim.
+        // A revoked or inactive account must not retain category access.
         var rawId = principal.FindFirstValue(ClaimTypes.NameIdentifier);
         if (!string.IsNullOrWhiteSpace(rawId))
         {
@@ -65,8 +64,13 @@ public sealed class ProblemCategoryAccessService
 
             var learner = await _db.Users.AsNoTracking()
                 .FirstOrDefaultAsync(u => u.Id == id, cancellationToken);
-            if (learner == null || !learner.IsActive ||
-                !string.Equals(learner.Role, "Student", StringComparison.OrdinalIgnoreCase))
+            if (learner == null || !learner.IsActive)
+                return new List<int>();
+            if (principal.Identity?.IsAuthenticated == true &&
+                principal.IsInRole("Admin") &&
+                string.Equals(learner.Role, "Admin", StringComparison.OrdinalIgnoreCase))
+                return null;
+            if (!string.Equals(learner.Role, "Student", StringComparison.OrdinalIgnoreCase))
                 return new List<int>();
 
             if (PremiumEntitlement.IsActive(learner))
