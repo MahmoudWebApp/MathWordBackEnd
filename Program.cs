@@ -220,8 +220,8 @@ builder.Services.AddRateLimiter(options =>
             partitionKey,
             _ => new TokenBucketRateLimiterOptions
             {
-                TokenLimit = builder.Configuration.GetValue<int>("RateLimits:AnswerTokensPerMinute", 15),
-                TokensPerPeriod = builder.Configuration.GetValue<int>("RateLimits:AnswerTokensPerMinute", 15),
+                TokenLimit = Math.Clamp(builder.Configuration.GetValue<int>("RateLimits:AnswerTokensPerMinute", 15), 15, 100),
+                TokensPerPeriod = Math.Clamp(builder.Configuration.GetValue<int>("RateLimits:AnswerTokensPerMinute", 15), 15, 100),
                 ReplenishmentPeriod = TimeSpan.FromMinutes(1),
                 QueueLimit = 0,
                 AutoReplenishment = true
