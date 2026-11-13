@@ -18,6 +18,11 @@ namespace MathWorldAPI.DTOs
         public int CorrectAttemptsInWindow { get; set; }
         public double CorrectRatePercent { get; set; }
         public List<AdminStageAnalyticsDto> Stages { get; set; } = new();
+        // Activity metrics are from real Student attempts during WindowDays.
+        // Empty on quiet test environments; do not fabricate chart points.
+        public List<AdminActivityDayDto> DailyActivity { get; set; } = new();
+        public List<AdminWeakCategoryDto> MostMissedCategories { get; set; } = new();
+        public List<AdminMissedProblemDto> MostMissedProblems { get; set; } = new();
     }
 
     public sealed class AdminStageAnalyticsDto
@@ -65,6 +70,37 @@ namespace MathWorldAPI.DTOs
         // This is the original award snapshot on stored attempts, not
         // the current editable question point value.
         public int AwardedPoints { get; set; }
+    }
+
+    /// <summary>
+    /// Relative mistake activity, not a formal statement about a student's ability.
+    /// Rankings require at least one incorrect attempt in the selected window.
+    /// </summary>
+    public sealed class AdminWeakCategoryDto
+    {
+        public int CategoryId { get; set; }
+        public int StageId { get; set; }
+        public string NameAr { get; set; } = string.Empty;
+        public string NameEn { get; set; } = string.Empty;
+        public string StageNameAr { get; set; } = string.Empty;
+        public string StageNameEn { get; set; } = string.Empty;
+        public int AttemptsInWindow { get; set; }
+        public int IncorrectAttemptsInWindow { get; set; }
+        public int CorrectAttemptsInWindow { get; set; }
+        public double IncorrectRatePercent { get; set; }
+        public double AverageAttemptSeconds { get; set; }
+    }
+
+    public sealed class AdminMissedProblemDto
+    {
+        public int ProblemId { get; set; }
+        public int StageId { get; set; }
+        public int CategoryId { get; set; }
+        public string TitleAr { get; set; } = string.Empty;
+        public string TitleEn { get; set; } = string.Empty;
+        public int AttemptsInWindow { get; set; }
+        public int IncorrectAttemptsInWindow { get; set; }
+        public int CorrectAttemptsInWindow { get; set; }
     }
 
     public sealed class AdminActivityDayDto
