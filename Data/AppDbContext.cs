@@ -58,6 +58,10 @@ namespace MathWorldAPI.Data
         public DbSet<ProblemAttempt> ProblemAttempts =>
             Set<ProblemAttempt>();
 
+        // Immutable competitive solve credit (one per user and problem).
+        public DbSet<PointLedger> PointLedgerEntries =>
+            Set<PointLedger>();
+
         /// <summary>
         /// Social login providers table.
         /// </summary>
@@ -179,6 +183,38 @@ namespace MathWorldAPI.Data
                 .Property(attempt => attempt.CorrectOptionText)
                 .IsRequired();
 
+            modelBuilder.Entity<PointLedger>()
+                .ToTable("PointLedger");
+
+            modelBuilder.Entity<PointLedger>()
+                .Property(award => award.Reason)
+                .HasMaxLength(40)
+                .IsRequired();
+
+            modelBuilder.Entity<PointLedger>()
+                .HasOne<AppUser>()
+                .WithMany()
+                .HasForeignKey(award => award.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<PointLedger>()
+                .HasOne<MathProblem>()
+                .WithMany()
+                .HasForeignKey(award => award.ProblemId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<PointLedger>()
+                .HasOne<EducationalStage>()
+                .WithMany()
+                .HasForeignKey(award => award.StageId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<PointLedger>()
+                .HasOne<ProblemAttempt>()
+                .WithMany()
+                .HasForeignKey(award => award.AttemptId)
+                .OnDelete(DeleteBehavior.Restrict);
+
             modelBuilder.Entity<SocialLogin>()
                 .HasOne(login => login.User)
                 .WithMany(user => user.SocialLogins)
@@ -227,6 +263,17 @@ namespace MathWorldAPI.Data
                     attempt.UserId,
                     attempt.SubmittedAt
                 });
+
+            modelBuilder.Entity<PointLedger>()
+                .HasIndex(award => new { award.UserId, award.ProblemId, award.Reason })
+                .IsUnique();
+
+            modelBuilder.Entity<PointLedger>()
+                .HasIndex(award => award.AttemptId)
+                .IsUnique();
+
+            modelBuilder.Entity<PointLedger>()
+                .HasIndex(award => new { award.StageId, award.AwardedAt });
 
             modelBuilder.Entity<QuestionOption>()
                 .HasIndex(option => new
