@@ -78,6 +78,13 @@ namespace MathWorldAPI.Helpers
             // ==================== Problem Messages ====================
 
             {
+                "LearningStageRequired",
+                (
+                    "اختر مرحلتك التعليمية أولاً لعرض رحلتك.",
+                    "Choose your learning stage to view your journey."
+                )
+            },
+            {
                 "ProblemNotFound",
                 (
                     "المسألة غير موجودة",
