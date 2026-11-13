@@ -155,3 +155,8 @@ Status below reflects confirmed implementation scope, not production completion.
 - `UsersController`: filtered favorites, solved problems, error notebook and dashboard statistics/recent previews by current category entitlements. Historical records remain in storage; access restrictions apply at query time.
 - **Product decision to revisit:** dashboard summary statistics now reflect accessible categories rather than all historical achievements; a separate lifetime summary may be needed for expired Premium subscribers without exposing locked content.
 - **Security/QA blockers:** audit error-notebook archive/favorite-check and other mutation endpoints, test EF query translation, build and CI; persisted admin category selections, client changes, SEO/CAPTCHA and rewarded ad unlocks are not done.
+
+## Security checkpoint — notebook mutations and answer validation order
+- Guarded `PUT /api/users/error-notebook/{problemId}/archive` and `GET /api/users/favorite/check/{problemId}` using category entitlements.
+- In `POST /api/problems/submit-answer`, category authorization now runs before validating submitted answer-option IDs or reading correctness; locked questions return a uniform category-locked response.
+- **Not yet verified:** compile, tests and runtime integration; audit all remaining endpoints and stage/category consistency; admin persisted configuration and web/mobile integration remain outstanding.
