@@ -154,6 +154,14 @@ namespace MathWorldAPI.Controllers
                         StatusCodes.Status404NotFound));
             }
 
+            // Category metadata stays public, but locked questions must not leak
+            // through the category-specific paginated endpoint.
+            var access = HttpContext.RequestServices
+                .GetRequiredService<ProblemCategoryAccessService>();
+            if (!await access.CanReadProblemAsync(User, id, HttpContext.RequestAborted))
+                return StatusCode(StatusCodes.Status403Forbidden,
+                    new { Message = "CategoryLocked" });
+
             var query =
                 _context.Problems
                     .AsNoTracking()
