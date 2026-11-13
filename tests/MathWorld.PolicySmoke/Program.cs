@@ -40,4 +40,23 @@ Assert(CategoryAccessPolicy.IsValidGroupSize(10) &&
        !CategoryAccessPolicy.IsValidGroupSize(-1),
        "Journey group size must be positive and configurable.");
 
-Console.WriteLine("PASS: Free category selection, invalid configuration and journey group size.");
+var freeStudent = new AppUser { Role = "Student", IsActive = true, SubscriptionType = "Free" };
+var premiumStudent = new AppUser { Role = "Student", IsActive = true, SubscriptionType = "Premium" };
+var expiredPremium = new AppUser
+{
+    Role = "Student", IsActive = true, SubscriptionType = "Premium",
+    PremiumExpiresAtUtc = DateTime.UtcNow.AddDays(-1)
+};
+var inactivePremium = new AppUser { Role = "Student", IsActive = false, SubscriptionType = "Premium" };
+Assert(CategoryAccessPolicy.CanAccess(freeStudent, 1, 2, defaults),
+    "Free student should access unlocked category.");
+Assert(!CategoryAccessPolicy.CanAccess(freeStudent, 1, 4, defaults),
+    "Free student should not access locked category.");
+Assert(CategoryAccessPolicy.CanAccess(premiumStudent, 1, 4, defaults),
+    "Active Premium student should access locked category.");
+Assert(!CategoryAccessPolicy.CanAccess(expiredPremium, 1, 4, defaults),
+    "Expired Premium should not access locked category.");
+Assert(!CategoryAccessPolicy.CanAccess(inactivePremium, 1, 2, defaults),
+    "Inactive student should not access even Free category.");
+
+Console.WriteLine("PASS: Free category selection, invalid configuration journey group size, Free/Premium entitlement and inactive accounts.");
