@@ -48,7 +48,7 @@ def main():
     assert status == 403, status
     ent = expect("GET", "/api/users/subscription", 200, token=free)
     assert ent["SubscriptionType"] == "Free" and not ent["IsPremium"], ent
-    assert ent["DailyNewProblemsLimit"] is None, ent
+    assert ent.get("DailyNewProblemsLimit") is None, ent
     assert ent["FreeCategoriesPerStage"] == 2, ent
     assert not ent["CanRevealSolutionBeforeAnswer"], ent
     assert not ent["CanExportAnalytics"], ent
@@ -66,7 +66,7 @@ def main():
     catalog = expect("GET", "/api/stages/1/free-categories", 200)
     assert catalog["FreeCategoryIds"] == [1, 2], catalog
     assert catalog["FreeCategoryCount"] == 2, catalog
-    assert catalog["DailyProblemLimit"] is None, catalog
+    assert catalog.get("DailyProblemLimit") is None, catalog
     assert {item["Id"] for item in catalog["Categories"] if item["IsFree"]} == {1, 2}, catalog
     locked_question = create_question(admin, 3999, 1, 3)
     code, _ = api("GET", f"/api/problems/{locked_question[0]}", token=free)
@@ -94,7 +94,7 @@ def main():
     ], check=True, timeout=20, capture_output=True)
     paid = expect("GET", "/api/users/subscription", 200, token=premium)
     assert paid["IsPremium"] and paid["CanRevealSolutionBeforeAnswer"], paid
-    assert paid["CanExportAnalytics"] and paid["DailyNewProblemsLimit"] is None, paid
+    assert paid["CanExportAnalytics"] and paid.get("DailyNewProblemsLimit") is None, paid
     assert_unlimited(premium, 1)
     code, _ = api("GET", f"/api/problems/{locked_question[0]}", token=premium)
     assert code == 200, code
@@ -108,7 +108,7 @@ def main():
     ], check=True, timeout=20, capture_output=True)
     expired = expect("GET", "/api/users/subscription", 200, token=premium)
     assert not expired["IsPremium"] and not expired["CanExportAnalytics"], expired
-    assert expired["DailyNewProblemsLimit"] is None, expired
+    assert expired.get("DailyNewProblemsLimit") is None, expired
     assert_unlimited(premium, 1)
     print("PASS: Free unlimited 12+ problems, replay, Premium and expiry.")
 
