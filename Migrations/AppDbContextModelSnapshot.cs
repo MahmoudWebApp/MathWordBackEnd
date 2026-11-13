@@ -22,6 +22,20 @@ namespace MathWorldAPI.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("MathWorldAPI.Models.StageFreeCategorySelection", b =>
+                {
+                    b.Property<int>("StageId").HasColumnType("integer");
+                    b.Property<int>("FirstCategoryId").HasColumnType("integer");
+                    b.Property<int>("SecondCategoryId").HasColumnType("integer");
+                    b.Property<int>("UpdatedByAdminId").HasColumnType("integer");
+                    b.Property<DateTime>("UpdatedAtUtc").HasColumnType("timestamp with time zone");
+                    b.HasKey("StageId");
+                    b.HasIndex("UpdatedByAdminId");
+                    b.ToTable("StageFreeCategorySelections", t =>
+                        t.HasCheckConstraint("CK_StageFreeCategorySelections_Distinct",
+                            "\"FirstCategoryId\" <> \"SecondCategoryId\""));
+                });
+
             modelBuilder.Entity("MathWorldAPI.Models.AppUser", b =>
                 {
                     b.Property<int>("Id")
