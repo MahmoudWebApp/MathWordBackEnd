@@ -60,7 +60,7 @@ public sealed class DailyChallengeController : ControllerBase
         var day = DateTime.UtcNow.Date;
         // Stable per learner, stage and UTC day. No unstable runtime string hashing.
         var offset = eligible.Count == 0 ? 0 :
-            (int)(((long)day.DayNumber() * 31 + (long)userId * 17 +
+            (int)(((long)DateOnly.FromDateTime(day).DayNumber * 31 + (long)userId * 17 +
                 (long)targetStage.Value * 13) % eligible.Count);
         var selected = Enumerable.Range(0, Math.Min(5, eligible.Count))
             .Select(i => eligible[(offset + i) % eligible.Count]).ToList();
