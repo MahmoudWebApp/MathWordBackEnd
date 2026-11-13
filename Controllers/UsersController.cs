@@ -792,13 +792,13 @@ namespace MathWorldAPI.Controllers
 
             var access = HttpContext.RequestServices
                 .GetRequiredService<ProblemCategoryAccessService>();
-            var categoryId = await _context.Problems.AsNoTracking()
+            var problemAccess = await _context.Problems.AsNoTracking()
                 .Where(p => p.Id == problemId)
-                .Select(p => (int?)p.CategoryId)
+                .Select(p => new { p.StageId, p.CategoryId })
                 .FirstOrDefaultAsync();
-            if (!categoryId.HasValue)
+            if (problemAccess == null)
                 return NotFound(new { Message = "ProblemNotFound" });
-            if (!await access.CanReadProblemAsync(User, categoryId.Value,
+            if (!await access.CanReadProblemAsync(User, problemAccess.StageId, problemAccess.CategoryId,
                 HttpContext.RequestAborted))
                 return StatusCode(StatusCodes.Status403Forbidden,
                     new { Message = "CategoryLocked" });
@@ -864,13 +864,13 @@ namespace MathWorldAPI.Controllers
 
             var access = HttpContext.RequestServices
                 .GetRequiredService<ProblemCategoryAccessService>();
-            var categoryId = await _context.Problems.AsNoTracking()
+            var problemAccess = await _context.Problems.AsNoTracking()
                 .Where(p => p.Id == problemId)
-                .Select(p => (int?)p.CategoryId)
+                .Select(p => new { p.StageId, p.CategoryId })
                 .FirstOrDefaultAsync();
-            if (!categoryId.HasValue)
+            if (problemAccess == null)
                 return NotFound(new { Message = "ProblemNotFound" });
-            if (!await access.CanReadProblemAsync(User, categoryId.Value,
+            if (!await access.CanReadProblemAsync(User, problemAccess.StageId, problemAccess.CategoryId,
                 HttpContext.RequestAborted))
                 return StatusCode(StatusCodes.Status403Forbidden,
                     new { Message = "CategoryLocked" });
