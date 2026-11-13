@@ -1,7 +1,7 @@
 # MathWorld — Updated access and evergreen media policy (2026-11-13)
 
 ## Superseding decision: NO daily question quota
-The former Free limit of 10 new questions per stage per day is **cancelled**. Do not present it as current product policy. The student-facing groups of ten questions are **navigation units only**, not a daily limit.
+The former Free limit of 10 new questions per stage per day is **cancelled**. Do not present it as current product policy. The student-facing groups with configurable question counts are **navigation units only**, not a daily limit.
 
 ## Access policy
 - Free learners have unlimited attempts and retries within a configurable set of unlocked categories; initial proposal: **two free categories per educational stage**, with exact category IDs configurable by admins.
@@ -13,7 +13,7 @@ The former Free limit of 10 new questions per stage per day is **cancelled**. Do
 - Ensure students retain progress and attempts when category access changes or Premium expires. Avoid exposing paid question text through search or caching.
 
 ## Student journey and longevity
-- Simple visible flow: Stage -> Category -> ordered groups of ten vetted problems, with Continue Journey, Retry, Review Mistakes and Mixed Challenge.
+- Simple visible flow: Stage -> Category -> ordered groups with flexible counts of vetted problems, with Continue Journey, Retry, Review Mistakes and Mixed Challenge.
 - Build curriculum coverage per stage, category, concept, difficulty and prerequisite internally without cluttering student UI.
 - A finite, curated question bank can grow without a fixed upper ceiling; never promise mathematically infinite unique questions or guaranteed 12 months of unseen questions to every Premium learner.
 - Target a year-long learning **program** through progressive coverage, spaced review, mixed practice and periodic additions. Faster students may advance freely.
@@ -37,3 +37,8 @@ The former Free limit of 10 new questions per stage per day is **cancelled**. Do
 4. Free category selection and promo windows are admin-configurable and audited.
 5. Progress survives downgrade, re-upgrade and content additions.
 6. All tests explicitly assert the obsolete daily quota is not enforced.
+
+## Group-size clarification (2026-11-13)
+- Groups are not fixed at ten. Editorial admins choose a suitable count for each group (e.g., 10, 20, 30, or more) based on concept coverage and difficulty.
+- Group size is not a daily allowance. Both Free and Premium have unlimited attempts in categories they are entitled to access.
+- Students see group question counts and completion progress; progress survives group expansion and content additions.
