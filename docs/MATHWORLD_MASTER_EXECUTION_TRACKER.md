@@ -1,3 +1,5 @@
+> **Canonical full scope:** [MATHWORLD_CANONICAL_REQUIREMENTS.md](MATHWORLD_CANONICAL_REQUIREMENTS.md). Before starting any new implementation batch, read this file; it consolidates all user-requested features including geometry, Flutter launcher logo, full UI parity, new categories/problems, Premium, notifications, security, launch and zero-extra-cost policy. This tracker records execution status only; no requirement may be dropped because it is absent from a short sprint list.
+
 # MathWorld master execution tracker — 2026-11-13
 
 This file is the durable source of truth for continuation across conversations. Never mark an item DONE without commit/PR plus build/test evidence. Do not autonomously deploy, purchase services, activate checkout or change production databases.
