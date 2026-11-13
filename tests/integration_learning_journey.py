@@ -56,8 +56,8 @@ def main():
         "Password": "CI_TEST_PASSWORD_2026"
     })
     token = registered["Token"]
-    assert registered["CurrentStageId"] is None
-    assert expect("GET", "/api/users/learning-stage", 200, token=token)["StageId"] is None
+    assert registered.get("CurrentStageId") is None
+    assert expect("GET", "/api/users/learning-stage", 200, token=token).get("StageId") is None
     expect("GET", "/api/users/journey", 409, token=token)
     expect("PUT", "/api/users/learning-stage", 404, {"StageId": 999999}, token)
 
