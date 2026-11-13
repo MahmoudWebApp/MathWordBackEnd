@@ -14,8 +14,7 @@ namespace MathWorldAPI.Services
         public const int FreeLimit = 10;
 
         public static bool IsUnlimited(AppUser user) =>
-            string.Equals(user.SubscriptionType, "Premium",
-                StringComparison.OrdinalIgnoreCase);
+            PremiumEntitlement.IsActive(user);
 
         public static DateTime UtcDayStart(DateTime now) => now.ToUniversalTime().Date;
 
