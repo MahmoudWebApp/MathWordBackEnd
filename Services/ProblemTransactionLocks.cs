@@ -37,6 +37,23 @@ namespace MathWorldAPI.Services
                 cancellationToken);
         }
 
+        /// <summary>
+        /// Serializes all new submissions from one learner in one stage across
+        /// API instances. Negative user ID keeps this int-pair key distinct
+        /// from per-problem (positive userId, problemId) locks. Acquired
+        /// inside the same transaction as the attempt and quota check.
+        /// </summary>
+        public static Task LockStudentStageQuotaAsync(
+            AppDbContext context,
+            int userId,
+            int stageId,
+            CancellationToken cancellationToken = default)
+        {
+            return context.Database.ExecuteSqlInterpolatedAsync(
+                $"SELECT pg_advisory_xact_lock({-userId}, {stageId})",
+                cancellationToken);
+        }
+
         public static Task LockQuestionForAdminMutationAsync(
             AppDbContext context,
             int problemId,
