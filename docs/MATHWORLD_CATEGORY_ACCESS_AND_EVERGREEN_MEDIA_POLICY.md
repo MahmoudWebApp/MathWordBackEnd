@@ -4,13 +4,22 @@
 The former Free limit of 10 new questions per stage per day is **cancelled**. Do not present it as current product policy. The student-facing groups with configurable question counts are **navigation units only**, not a daily limit.
 
 ## Access policy
-- Free learners have unlimited attempts and retries within a configurable set of unlocked categories; initial proposal: **two free categories per educational stage**, with exact category IDs configurable by admins.
-- Premium learners can access all categories with unlimited attempts and retries, early detailed solutions, advanced analytics and PDF/Excel exports, no ads when ads exist, and future tutor access when launched.
+- Free learners have unlimited attempts and retries in **exactly two categories per stage** (or fewer only when a stage lacks two categories). The initial default is the first two by editorial order; active admins can explicitly save a different pair. This is enforced by the server, not just the UI.
+- Premium learners can access all categories with unlimited attempts and retries, early detailed solutions and personal analytics/CSV export. Native PDF/XLSX generation, future ad-free benefits and tutor access are **planned, not shipped**.
 - Premium target price: USD 5/year, subject to payments readiness.
-- Admins can grant Premium for a fixed term or indefinitely, run 100%-off introductory promotions, issue discount codes with expiration/redemption limits and audit every grant.
+- Admins can grant Premium for fixed or indefinite terms and issue audited one-use 100%-gift codes on development branches. Percentage-off checkout coupons and paid subscriptions require a future payment integration.
 - Access control must be enforced on the backend for category lists, problem details, answer submission, progress and early solutions, not just by hiding UI.
-- Existing StageDailyQuota implementation is **legacy and conflicts with this decision**. Plan to remove/disable its enforcement with tests and replace it with category-entitlement checks; do not claim this migration is already done.
+- The legacy StageDailyQuota endpoint remains for backward compatibility but returns **unlimited**, with no ten-per-day enforcement. Free category entitlements are enforced in protected problem endpoints; the backend/Flutter/web integration checks run on feature branches, not deployed production.
 - Ensure students retain progress and attempts when category access changes or Premium expires. Avoid exposing paid question text through search or caching.
+
+## Implemented Free-category administration — development branches only
+
+- `GET /api/stages/{stageId}/free-categories` returns the effective public access catalog.
+- `PUT /api/admin/stages/{stageId}/free-categories` accepts `{ "CategoryIds": [firstId, secondId] }` for an authenticated **active Admin** only. Two different existing categories belonging to the same stage are mandatory. It writes the persisted selection with admin ID and timestamp.
+- The Next.js Admin Categories page displays a bilingual two-category editor with validation and confirmation. Selection changes are **not** silently applied during category editing.
+- Both `/api/categories/{id}` and `/api/admin/categories/{id}` reject moving populated/Free-selected categories and deleting Free-selected categories. This includes default Free categories before a custom pair is stored. Use the dedicated selector first.
+- Disposable PostgreSQL checks validate no daily quota, Free/Premium access boundaries, the selection endpoint, unauthorized changes and both category-management routes.
+- Migration, release authorization, device QA and rollout are still required before production uses this feature.
 
 ## Student journey and longevity
 - Simple visible flow: Stage -> Category -> ordered groups with flexible counts of vetted problems, with Continue Journey, Retry, Review Mistakes and Mixed Challenge.
