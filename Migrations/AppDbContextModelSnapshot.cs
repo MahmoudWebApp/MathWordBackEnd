@@ -22,6 +22,47 @@ namespace MathWorldAPI.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("MathWorldAPI.Models.UserNotification", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+                    b.Property<string>("BodyAr")
+                        .IsRequired()
+                        .HasMaxLength(1000)
+                        .HasColumnType("character varying(1000)");
+                    b.Property<string>("BodyEn")
+                        .IsRequired()
+                        .HasMaxLength(1000)
+                        .HasColumnType("character varying(1000)");
+                    b.Property<DateTime>("CreatedAtUtc")
+                        .HasColumnType("timestamp with time zone");
+                    b.Property<DateTime?>("ReadAtUtc")
+                        .HasColumnType("timestamp with time zone");
+                    b.Property<string>("TargetPath")
+                        .HasMaxLength(300)
+                        .HasColumnType("character varying(300)");
+                    b.Property<string>("TitleAr")
+                        .IsRequired()
+                        .HasMaxLength(160)
+                        .HasColumnType("character varying(160)");
+                    b.Property<string>("TitleEn")
+                        .IsRequired()
+                        .HasMaxLength(160)
+                        .HasColumnType("character varying(160)");
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasMaxLength(40)
+                        .HasColumnType("character varying(40)");
+                    b.Property<int>("UserId")
+                        .HasColumnType("integer");
+                    b.HasKey("Id");
+                    b.HasIndex("UserId", "CreatedAtUtc");
+                    b.HasIndex("UserId", "ReadAtUtc");
+                    b.ToTable("UserNotifications");
+                });
+
             modelBuilder.Entity("MathWorldAPI.Models.StageFreeCategorySelection", b =>
                 {
                     b.Property<int>("StageId").HasColumnType("integer");
@@ -664,6 +705,15 @@ namespace MathWorldAPI.Migrations
                         .IsUnique();
 
                     b.ToTable("UserProgresses");
+                });
+
+            modelBuilder.Entity("MathWorldAPI.Models.UserNotification", b =>
+                {
+                    b.HasOne("MathWorldAPI.Models.AppUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("MathWorldAPI.Models.StageFreeCategorySelection", b =>
