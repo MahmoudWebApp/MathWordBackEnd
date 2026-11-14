@@ -166,6 +166,35 @@ def main():
     expect("PUT", "/api/notifications/read-all", 204, token=learner1)
     assert expect("GET", "/api/notifications", 200, token=learner1)["UnreadCount"] == 0
 
+    # Proposed stage categories are preview-only. They must not reparent
+    # existing category IDs or insert unreviewed content.
+    categories_before = expect("GET", "/api/categories", 200)
+    proposed_category = {
+        "ContentKey": "ci_category_new_001",
+        "StageId": 1,
+        "Order": 8,
+        "NameAr": "الفئة التجريبية للمراجعة فقط",
+        "NameEn": "Review only sample category",
+        "SuggestedIconKey": "calculator",
+        "ReviewStatus": "Proposed",
+        "NotesAr": "لا تنشر تلقائياً",
+        "NotesEn": "Never publish automatically",
+    }
+    payload = {"Categories": [proposed_category]}
+    assert api("POST", "/api/admin/curriculum/categories/preview",
+               payload, learner1)[0] == 403
+    category_preview = expect("POST", "/api/admin/curriculum/categories/preview",
+                              200, payload, admin)
+    assert category_preview["DryRun"] and not category_preview["Published"]
+    assert category_preview["ValidCount"] == 1, category_preview
+    assert not category_preview["SupportsAutomaticCategoryPublishing"]
+    duplicate = dict(proposed_category)
+    duplicate["ContentKey"] = "ci_category_new_002"
+    category_duplicates = expect("POST", "/api/admin/curriculum/categories/preview",
+                                 200, {"Categories": [proposed_category, duplicate]}, admin)
+    assert category_duplicates["InvalidCount"] == 1, category_duplicates
+    assert len(expect("GET", "/api/categories", 200)) == len(categories_before)
+
     # Import preview is read-only. Draft and approval must not insert questions.
     proposed = draft_question()
     original_count = expect("GET", "/api/admin/curriculum/readiness", 200, token=admin)["TotalProblems"]
