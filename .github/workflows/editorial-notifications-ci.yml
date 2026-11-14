@@ -8,6 +8,8 @@ on:
     paths:
       - 'Controllers/AdminCurriculumDraftsController.cs'
       - 'Controllers/AdminCurriculumImportPreviewController.cs'
+      - 'Controllers/AdminCategoryImportPreviewController.cs'
+      - 'Controllers/CategoriesController.cs'
       - 'Controllers/AdminNotificationsController.cs'
       - 'Controllers/NotificationsController.cs'
       - 'Controllers/ProblemsController.cs'
