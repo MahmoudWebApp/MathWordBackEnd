@@ -36,7 +36,8 @@ public sealed class AdminStageFreeCategoriesController : ControllerBase
                 u => u.Id == adminId && u.Role == "Admin" && u.IsActive, ct))
             return Forbid();
 
-        if (stageId <= 0 || request?.CategoryIds is not { Count: 2 } ids ||
+        var ids = request?.CategoryIds;
+        if (stageId <= 0 || ids is null || ids.Count != 2 ||
             ids.Any(id => id <= 0) || ids[0] == ids[1])
             return BadRequest(new { Message = "ExactlyTwoDistinctFreeCategoriesRequired" });
 
