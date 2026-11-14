@@ -6,6 +6,7 @@ using MathWorldAPI.Data;
 using MathWorldAPI.DTOs;
 using MathWorldAPI.Helpers;
 using MathWorldAPI.Models;
+using MathWorldAPI.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -75,12 +76,18 @@ namespace MathWorldAPI.Controllers
             // Dashboard data is scoped to the learner's ACTIVE stage. Stage
             // changes preserve all progress in UserProgresses and attempts.
             var activeStageId = user.CurrentStageId;
+            var allowedCategories = await HttpContext.RequestServices
+                .GetRequiredService<ProblemCategoryAccessService>()
+                .GetAllowedCategoryIdsAsync(User, HttpContext.RequestAborted);
 
             // Count only correctly solved problems.
             var solvedCount =
                 await _context.UserProgresses
                     .CountAsync(progress =>
                         progress.UserId == userId &&
+                        (allowedCategories == null ||
+                         allowedCategories.Contains(progress.Problem.CategoryId)) &&
+                        progress.Problem.Category.StageId == progress.Problem.StageId &&
                         (!activeStageId.HasValue ||
                          progress.Problem.StageId == activeStageId.Value) &&
                         progress.IsSolved);
@@ -89,6 +96,9 @@ namespace MathWorldAPI.Controllers
                 await _context.UserProgresses
                     .CountAsync(progress =>
                         progress.UserId == userId &&
+                        (allowedCategories == null ||
+                         allowedCategories.Contains(progress.Problem.CategoryId)) &&
+                        progress.Problem.Category.StageId == progress.Problem.StageId &&
                         (!activeStageId.HasValue ||
                          progress.Problem.StageId == activeStageId.Value) &&
                         progress.IsFavorite);
@@ -98,6 +108,9 @@ namespace MathWorldAPI.Controllers
                 await _context.UserProgresses
                     .CountAsync(progress =>
                         progress.UserId == userId &&
+                        (allowedCategories == null ||
+                         allowedCategories.Contains(progress.Problem.CategoryId)) &&
+                        progress.Problem.Category.StageId == progress.Problem.StageId &&
                         (!activeStageId.HasValue ||
                          progress.Problem.StageId == activeStageId.Value) &&
                         progress.Attempts > 0);
@@ -107,6 +120,9 @@ namespace MathWorldAPI.Controllers
                 await _context.UserProgresses
                     .CountAsync(progress =>
                         progress.UserId == userId &&
+                        (allowedCategories == null ||
+                         allowedCategories.Contains(progress.Problem.CategoryId)) &&
+                        progress.Problem.Category.StageId == progress.Problem.StageId &&
                         (!activeStageId.HasValue ||
                          progress.Problem.StageId == activeStageId.Value) &&
                         progress.FirstAttemptCorrect == true);
@@ -123,6 +139,9 @@ namespace MathWorldAPI.Controllers
                 await _context.UserProgresses
                     .Where(progress =>
                         progress.UserId == userId &&
+                        (allowedCategories == null ||
+                         allowedCategories.Contains(progress.Problem.CategoryId)) &&
+                        progress.Problem.Category.StageId == progress.Problem.StageId &&
                         (!activeStageId.HasValue ||
                          progress.Problem.StageId == activeStageId.Value) &&
                         progress.IsSolved)
@@ -146,6 +165,9 @@ namespace MathWorldAPI.Controllers
                     .AsNoTracking()
                     .Where(progress =>
                         progress.UserId == userId &&
+                        (allowedCategories == null ||
+                         allowedCategories.Contains(progress.Problem.CategoryId)) &&
+                        progress.Problem.Category.StageId == progress.Problem.StageId &&
                         (!activeStageId.HasValue ||
                          progress.Problem.StageId == activeStageId.Value) &&
                         progress.IsSolved)
@@ -167,6 +189,9 @@ namespace MathWorldAPI.Controllers
                     .AsNoTracking()
                     .Where(progress =>
                         progress.UserId == userId &&
+                        (allowedCategories == null ||
+                         allowedCategories.Contains(progress.Problem.CategoryId)) &&
+                        progress.Problem.Category.StageId == progress.Problem.StageId &&
                         (!activeStageId.HasValue ||
                          progress.Problem.StageId == activeStageId.Value) &&
                         progress.IsFavorite)
@@ -344,10 +369,21 @@ namespace MathWorldAPI.Controllers
             var language =
                 LanguageHelper.GetLanguageFromRequest(Request);
 
-            var problemExists =
-                await _context.Problems
-                    .AnyAsync(problem =>
-                        problem.Id == dto.ProblemId);
+            var problemAccess = await _context.Problems.AsNoTracking()
+                .Where(problem => problem.Id == dto.ProblemId)
+                .Select(problem => new { problem.CategoryId, problem.StageId })
+                .FirstOrDefaultAsync();
+
+            var problemExists = problemAccess != null;
+            if (problemExists)
+            {
+                var access = HttpContext.RequestServices
+                    .GetRequiredService<ProblemCategoryAccessService>();
+                if (!await access.CanReadProblemAsync(User, problemAccess!.StageId, problemAccess.CategoryId,
+                    HttpContext.RequestAborted))
+                    return StatusCode(StatusCodes.Status403Forbidden,
+                        new { Message = "CategoryLocked" });
+            }
 
             if (!problemExists)
             {
@@ -477,10 +513,17 @@ namespace MathWorldAPI.Controllers
             var language =
                 LanguageHelper.GetLanguageFromRequest(Request);
 
+            var allowedCategories = await HttpContext.RequestServices
+                .GetRequiredService<ProblemCategoryAccessService>()
+                .GetAllowedCategoryIdsAsync(User, HttpContext.RequestAborted);
+
             var favorites =
                 await _context.UserProgresses
                     .AsNoTracking()
                     .Where(progress =>
+                        (allowedCategories == null ||
+                         allowedCategories.Contains(progress.Problem.CategoryId)) &&
+                        progress.Problem.Category.StageId == progress.Problem.StageId &&
                         progress.UserId == userId &&
                         (!activeStageId.HasValue ||
                          progress.Problem.StageId == activeStageId.Value) &&
@@ -550,10 +593,17 @@ namespace MathWorldAPI.Controllers
             var language =
                 LanguageHelper.GetLanguageFromRequest(Request);
 
+            var allowedCategories = await HttpContext.RequestServices
+                .GetRequiredService<ProblemCategoryAccessService>()
+                .GetAllowedCategoryIdsAsync(User, HttpContext.RequestAborted);
+
             var solved =
                 await _context.UserProgresses
                     .AsNoTracking()
                     .Where(progress =>
+                        (allowedCategories == null ||
+                         allowedCategories.Contains(progress.Problem.CategoryId)) &&
+                        progress.Problem.Category.StageId == progress.Problem.StageId &&
                         progress.UserId == userId &&
                         (!activeStageId.HasValue ||
                          progress.Problem.StageId == activeStageId.Value) &&
@@ -627,10 +677,17 @@ namespace MathWorldAPI.Controllers
                 LanguageHelper.GetLanguageFromRequest(
                     Request);
 
+            var allowedCategories = await HttpContext.RequestServices
+                .GetRequiredService<ProblemCategoryAccessService>()
+                .GetAllowedCategoryIdsAsync(User, HttpContext.RequestAborted);
+
             var query =
                 _context.UserProgresses
                     .AsNoTracking()
                     .Where(progress =>
+                        (allowedCategories == null ||
+                         allowedCategories.Contains(progress.Problem.CategoryId)) &&
+                        progress.Problem.Category.StageId == progress.Problem.StageId &&
                         progress.UserId == userId &&
                         (!activeStageId.HasValue ||
                          progress.Problem.StageId == activeStageId.Value) &&
@@ -733,6 +790,19 @@ namespace MathWorldAPI.Controllers
                 LanguageHelper.GetLanguageFromRequest(
                     Request);
 
+            var access = HttpContext.RequestServices
+                .GetRequiredService<ProblemCategoryAccessService>();
+            var problemAccess = await _context.Problems.AsNoTracking()
+                .Where(p => p.Id == problemId)
+                .Select(p => new { p.StageId, p.CategoryId })
+                .FirstOrDefaultAsync();
+            if (problemAccess == null)
+                return NotFound(new { Message = "ProblemNotFound" });
+            if (!await access.CanReadProblemAsync(User, problemAccess.StageId, problemAccess.CategoryId,
+                HttpContext.RequestAborted))
+                return StatusCode(StatusCodes.Status403Forbidden,
+                    new { Message = "CategoryLocked" });
+
             var progress =
                 await _context.UserProgresses
                     .FirstOrDefaultAsync(progressItem =>
@@ -791,6 +861,19 @@ namespace MathWorldAPI.Controllers
 
             var language =
                 LanguageHelper.GetLanguageFromRequest(Request);
+
+            var access = HttpContext.RequestServices
+                .GetRequiredService<ProblemCategoryAccessService>();
+            var problemAccess = await _context.Problems.AsNoTracking()
+                .Where(p => p.Id == problemId)
+                .Select(p => new { p.StageId, p.CategoryId })
+                .FirstOrDefaultAsync();
+            if (problemAccess == null)
+                return NotFound(new { Message = "ProblemNotFound" });
+            if (!await access.CanReadProblemAsync(User, problemAccess.StageId, problemAccess.CategoryId,
+                HttpContext.RequestAborted))
+                return StatusCode(StatusCodes.Status403Forbidden,
+                    new { Message = "CategoryLocked" });
 
             var isFavorite =
                 await _context.UserProgresses

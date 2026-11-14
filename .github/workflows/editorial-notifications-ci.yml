@@ -1,0 +1,91 @@
+name: Editorial drafts and notifications PostgreSQL integration
+
+on:
+  push:
+    branches:
+      - feature/premium-entitlement-foundation
+  pull_request:
+    paths:
+      - 'Controllers/AdminCurriculumDraftsController.cs'
+      - 'Controllers/AdminCurriculumImportPreviewController.cs'
+      - 'Controllers/AdminCategoryImportPreviewController.cs'
+      - 'Controllers/CategoriesController.cs'
+      - 'Controllers/AdminNotificationsController.cs'
+      - 'Controllers/NotificationsController.cs'
+      - 'Controllers/ProblemsController.cs'
+      - 'Controllers/StudentPremiumAnalyticsController.cs'
+      - 'Controllers/StudentLeaderboardController.cs'
+      - 'Controllers/StudentAchievementsController.cs'
+      - 'Controllers/PremiumAccessCodesController.cs'
+      - 'Models/**'
+      - 'Migrations/**'
+      - 'Data/**'
+      - 'tests/integration_editorial_notifications.py'
+      - '.github/workflows/editorial-notifications-ci.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  editorial-and-inbox:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: ci_only_password
+          POSTGRES_DB: mathworld_ci
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres -d mathworld_ci"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+      - name: Build API
+        run: dotnet build MathWorldAPI.csproj --configuration Release
+      - name: Start API on disposable PostgreSQL
+        env:
+          ASPNETCORE_ENVIRONMENT: Production
+          ASPNETCORE_URLS: http://127.0.0.1:5059
+          ConnectionStrings__DefaultConnection: Host=127.0.0.1;Port=5432;Database=mathworld_ci;Username=postgres;Password=ci_only_password
+          Jwt__Key: ci_only_test_signing_key_never_use_in_production_0123456789
+          Jwt__Issuer: MathWorld-CI
+          Jwt__Audience: MathWorld-CI
+          Meilisearch__Enabled: 'false'
+          BootstrapAdmin__Enabled: 'true'
+          BootstrapAdmin__Email: ci-admin@mathworld.test
+          BootstrapAdmin__Password: CI_TEST_ADMIN_PASSWORD_12345
+          BootstrapAdmin__FullName: CI Administrator
+          Database__ApplyMigrationsOnStartup: 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          dotnet run --no-build --no-launch-profile --configuration Release --project MathWorldAPI.csproj > /tmp/mathworld-editorial-ci.log 2>&1 &
+          echo "$!" > /tmp/mathworld-editorial-ci.pid
+          sleep 3
+          if ! kill -0 "$(cat /tmp/mathworld-editorial-ci.pid)" 2>/dev/null; then
+            tail -n 70 /tmp/mathworld-editorial-ci.log
+            exit 1
+          fi
+      - name: Verify ownership, achievements and editorial publication
+        env:
+          MATHWORLD_TEST_BASE_URL: http://127.0.0.1:5059
+        run: python3 tests/integration_editorial_notifications.py
+      - name: Print actionable error markers
+        if: failure()
+        run: |
+          grep -E 'Unhandled exception|fail:|error:|Database migration' /tmp/mathworld-editorial-ci.log | tail -n 55 || true
+      - name: Stop API
+        if: always()
+        run: |
+          if test -f /tmp/mathworld-editorial-ci.pid; then
+            kill "$(cat /tmp/mathworld-editorial-ci.pid)" 2>/dev/null || true
+          fi

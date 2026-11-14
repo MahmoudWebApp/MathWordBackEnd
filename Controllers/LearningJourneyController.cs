@@ -3,6 +3,7 @@ using MathWorldAPI.Data;
 using MathWorldAPI.DTOs;
 using MathWorldAPI.Helpers;
 using MathWorldAPI.Models;
+using MathWorldAPI.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -109,14 +110,15 @@ namespace MathWorldAPI.Controllers
             // Count inventory separately: progress records can also be created
             // just for favorites without any submitted attempts.
             var inventory = await _context.Problems.AsNoTracking()
-                .Where(p => p.StageId == stage.Id)
+                .Where(p => p.StageId == stage.Id && p.Category.StageId == stage.Id)
                 .GroupBy(p => p.CategoryId)
                 .Select(g => new { CategoryId = g.Key, Count = g.Count() })
                 .ToDictionaryAsync(x => x.CategoryId, x => x.Count,
                     cancellationToken);
 
             var progress = await _context.UserProgresses.AsNoTracking()
-                .Where(p => p.UserId == userId && p.Problem.StageId == stage.Id)
+                .Where(p => p.UserId == userId && p.Problem.StageId == stage.Id &&
+                    p.Problem.Category.StageId == stage.Id)
                 .GroupBy(p => p.Problem.CategoryId)
                 .Select(g => new
                 {
@@ -131,6 +133,10 @@ namespace MathWorldAPI.Controllers
                 .ToListAsync(cancellationToken);
             var progressByCategory = progress.ToDictionary(p => p.CategoryId);
 
+            var access = HttpContext.RequestServices
+                .GetRequiredService<ProblemCategoryAccessService>();
+            var allowed = await access.GetAllowedCategoryIdsAsync(User, cancellationToken);
+
             var categoryProgress = categories.Select(category =>
             {
                 inventory.TryGetValue(category.Id, out var total);
@@ -139,6 +145,7 @@ namespace MathWorldAPI.Controllers
                 return new StageCategoryProgressDto
                 {
                     CategoryId = category.Id,
+                    IsLocked = allowed != null && !allowed.Contains(category.Id),
                     NameAr = category.NameAr,
                     NameEn = category.NameEn,
                     TotalProblems = total,

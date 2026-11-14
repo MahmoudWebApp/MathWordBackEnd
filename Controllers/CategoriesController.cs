@@ -154,11 +154,20 @@ namespace MathWorldAPI.Controllers
                         StatusCodes.Status404NotFound));
             }
 
+            // Category metadata stays public, but locked questions must not leak
+            // through the category-specific paginated endpoint.
+            var access = HttpContext.RequestServices
+                .GetRequiredService<ProblemCategoryAccessService>();
+            if (!await access.CanReadProblemAsync(User, id, HttpContext.RequestAborted))
+                return StatusCode(StatusCodes.Status403Forbidden,
+                    new { Message = "CategoryLocked" });
+
             var query =
                 _context.Problems
                     .AsNoTracking()
                     .Where(problem =>
-                        problem.CategoryId == id);
+                        problem.CategoryId == id &&
+                        problem.StageId == category.StageId);
 
             var total =
                 await query.CountAsync();
@@ -304,14 +313,43 @@ namespace MathWorldAPI.Controllers
 
             if (dto.Order.HasValue)
             {
-                category.Order =
-                    Math.Max(0, dto.Order.Value);
+                var nextOrder = Math.Max(0, dto.Order.Value);
+                var wouldChangeFree = await HttpContext.RequestServices
+                    .GetRequiredService<ProblemCategoryAccessService>()
+                    .WouldReorderChangeImplicitFreeCategoriesAsync(category.StageId, id, nextOrder);
+                if (wouldChangeFree)
+                    return Conflict(LanguageHelper.ErrorResponse<CategoryDto>(
+                        "FreeCategoryOrderRequiresExplicitSelection", language,
+                        StatusCodes.Status409Conflict));
+                category.Order = nextOrder;
             }
 
-            if (dto.StageId.HasValue)
+            if (dto.StageId.HasValue &&
+                dto.StageId.Value != category.StageId)
             {
-                category.StageId =
-                    dto.StageId.Value;
+                // Changing the stage of a populated or Free-unlocked category
+                // would invalidate persisted question journeys and two-free-
+                // category entitlements. Rename/reorder in place instead.
+                var hasProblems = await _context.Problems.AnyAsync(
+                    problem => problem.CategoryId == id);
+                var explicitlySelected = await _context.StageFreeCategorySelections.AsNoTracking()
+                    .AnyAsync(selection => selection.FirstCategoryId == id ||
+                        selection.SecondCategoryId == id);
+                // Before an admin saves a custom pair, the first two sorted
+                // categories are already unlocked. Protect those too, or deleting
+                // one would silently unlock another category for every Free user.
+                var effectiveFreeCategoryIds = await HttpContext.RequestServices
+                    .GetRequiredService<ProblemCategoryAccessService>()
+                    .GetFreeCategoryIdsAsync(category.StageId);
+                var isFreeSelected = explicitlySelected || effectiveFreeCategoryIds.Contains(id);
+                if (hasProblems || isFreeSelected)
+                {
+                    return Conflict(LanguageHelper.ErrorResponse<CategoryDto>(
+                        "CategoryStageChangeBlocked",
+                        language,
+                        StatusCodes.Status409Conflict));
+                }
+                category.StageId = dto.StageId.Value;
             }
 
             if (dto.Icon != null &&
@@ -478,6 +516,26 @@ namespace MathWorldAPI.Controllers
                         "CategoryHasProblems",
                         language,
                         StatusCodes.Status400BadRequest));
+            }
+
+            // A category may be selected for Free access even before it has
+            // problems; deleting it silently breaks the two-category policy.
+            var explicitlySelected = await _context.StageFreeCategorySelections.AsNoTracking()
+                    .AnyAsync(selection => selection.FirstCategoryId == id ||
+                        selection.SecondCategoryId == id);
+                // Before an admin saves a custom pair, the first two sorted
+                // categories are already unlocked. Protect those too, or deleting
+                // one would silently unlock another category for every Free user.
+                var effectiveFreeCategoryIds = await HttpContext.RequestServices
+                    .GetRequiredService<ProblemCategoryAccessService>()
+                    .GetFreeCategoryIdsAsync(category.StageId);
+                var isFreeSelected = explicitlySelected || effectiveFreeCategoryIds.Contains(id);
+            if (isFreeSelected)
+            {
+                return Conflict(LanguageHelper.ErrorResponse<object>(
+                    "CategoryIsFreeSelection",
+                    language,
+                    StatusCodes.Status409Conflict));
             }
 
             _context.Categories.Remove(category);

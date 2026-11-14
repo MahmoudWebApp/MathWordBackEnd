@@ -22,6 +22,113 @@ namespace MathWorldAPI.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("MathWorldAPI.Models.CurriculumDraftBatch", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+                    b.Property<int>("ProblemCount").HasColumnType("integer");
+                    b.Property<string>("ProblemsJson").IsRequired().HasColumnType("text");
+                    b.Property<int>("PublishedCount").HasColumnType("integer");
+                    b.Property<DateTime?>("PublishedAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<string>("ReviewNote").HasMaxLength(1000).HasColumnType("character varying(1000)");
+                    b.Property<DateTime?>("ReviewedAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<int?>("ReviewedByAdminId").HasColumnType("integer");
+                    b.Property<string>("Status").IsRequired().HasMaxLength(30).HasColumnType("character varying(30)");
+                    b.Property<DateTime>("SubmittedAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<int>("SubmittedByAdminId").HasColumnType("integer");
+                    b.HasKey("Id");
+                    b.HasIndex("ReviewedByAdminId");
+                    b.HasIndex("SubmittedByAdminId");
+                    b.HasIndex("Status", "SubmittedAtUtc");
+                    b.ToTable("CurriculumDraftBatches");
+                });
+
+            modelBuilder.Entity("MathWorldAPI.Models.PremiumAccessCode", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+                    b.Property<string>("CodeHash")
+                        .IsRequired()
+                        .HasMaxLength(64)
+                        .HasColumnType("character varying(64)");
+                    b.Property<string>("Label")
+                        .IsRequired()
+                        .HasMaxLength(80)
+                        .HasColumnType("character varying(80)");
+                    b.Property<int>("PremiumDays").HasColumnType("integer");
+                    b.Property<int>("CreatedByAdminId").HasColumnType("integer");
+                    b.Property<DateTime>("CreatedAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<DateTime>("ExpiresAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<int?>("RedeemedByUserId").HasColumnType("integer");
+                    b.Property<DateTime?>("RedeemedAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<DateTime?>("RevokedAtUtc").HasColumnType("timestamp with time zone");
+                    b.HasKey("Id");
+                    b.HasIndex("CodeHash").IsUnique();
+                    b.HasIndex("CreatedByAdminId");
+                    b.HasIndex("RedeemedByUserId");
+                    b.HasIndex("ExpiresAtUtc");
+                    b.ToTable("PremiumAccessCodes");
+                });
+
+            modelBuilder.Entity("MathWorldAPI.Models.UserNotification", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+                    b.Property<string>("BodyAr")
+                        .IsRequired()
+                        .HasMaxLength(1000)
+                        .HasColumnType("character varying(1000)");
+                    b.Property<string>("BodyEn")
+                        .IsRequired()
+                        .HasMaxLength(1000)
+                        .HasColumnType("character varying(1000)");
+                    b.Property<DateTime>("CreatedAtUtc")
+                        .HasColumnType("timestamp with time zone");
+                    b.Property<DateTime?>("ReadAtUtc")
+                        .HasColumnType("timestamp with time zone");
+                    b.Property<string>("TargetPath")
+                        .HasMaxLength(300)
+                        .HasColumnType("character varying(300)");
+                    b.Property<string>("TitleAr")
+                        .IsRequired()
+                        .HasMaxLength(160)
+                        .HasColumnType("character varying(160)");
+                    b.Property<string>("TitleEn")
+                        .IsRequired()
+                        .HasMaxLength(160)
+                        .HasColumnType("character varying(160)");
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasMaxLength(40)
+                        .HasColumnType("character varying(40)");
+                    b.Property<int>("UserId")
+                        .HasColumnType("integer");
+                    b.HasKey("Id");
+                    b.HasIndex("UserId", "CreatedAtUtc");
+                    b.HasIndex("UserId", "ReadAtUtc");
+                    b.ToTable("UserNotifications");
+                });
+
+            modelBuilder.Entity("MathWorldAPI.Models.StageFreeCategorySelection", b =>
+                {
+                    b.Property<int>("StageId").HasColumnType("integer");
+                    b.Property<int>("FirstCategoryId").HasColumnType("integer");
+                    b.Property<int>("SecondCategoryId").HasColumnType("integer");
+                    b.Property<int>("UpdatedByAdminId").HasColumnType("integer");
+                    b.Property<DateTime>("UpdatedAtUtc").HasColumnType("timestamp with time zone");
+                    b.HasKey("StageId");
+                    b.HasIndex("UpdatedByAdminId");
+                    b.ToTable("StageFreeCategorySelections", t =>
+                        t.HasCheckConstraint("CK_StageFreeCategorySelections_Distinct",
+                            "\"FirstCategoryId\" <> \"SecondCategoryId\""));
+                });
+
             modelBuilder.Entity("MathWorldAPI.Models.AppUser", b =>
                 {
                     b.Property<int>("Id")
@@ -64,6 +171,9 @@ namespace MathWorldAPI.Migrations
                         .HasMaxLength(32)
                         .HasColumnType("character varying(32)");
 
+                    b.Property<DateTime?>("PremiumExpiresAtUtc")
+                        .HasColumnType("timestamp with time zone");
+
                     b.Property<string>("SubscriptionType")
                         .IsRequired()
                         .HasMaxLength(32)
@@ -77,6 +187,27 @@ namespace MathWorldAPI.Migrations
                     b.HasIndex("CurrentStageId");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("MathWorldAPI.Models.SubscriptionGrant", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
+                    b.Property<int>("AdminId").HasColumnType("integer");
+                    b.Property<DateTime>("ChangedAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<int>("LearnerId").HasColumnType("integer");
+                    b.Property<string>("NewType").IsRequired().HasColumnType("text");
+                    b.Property<DateTime?>("NewExpiresAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<DateTime?>("PreviousExpiresAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<string>("PreviousType").IsRequired().HasColumnType("text");
+                    b.Property<string>("Reason").IsRequired().HasMaxLength(500)
+                        .HasColumnType("character varying(500)");
+                    b.HasKey("Id");
+                    b.HasIndex("AdminId");
+                    b.HasIndex("LearnerId", "ChangedAtUtc");
+                    b.ToTable("SubscriptionGrants");
                 });
 
             modelBuilder.Entity("MathWorldAPI.Models.Category", b =>
@@ -438,6 +569,34 @@ namespace MathWorldAPI.Migrations
                     b.ToTable("ProblemAttempts");
                 });
 
+            modelBuilder.Entity("MathWorldAPI.Models.ProblemDiagram", b =>
+                {
+                    b.Property<int>("ProblemId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("AltTextAr")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("character varying(500)");
+
+                    b.Property<string>("AltTextEn")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("character varying(500)");
+
+                    b.Property<string>("DiagramJson")
+                        .IsRequired()
+                        .HasMaxLength(30000)
+                        .HasColumnType("character varying(30000)");
+
+                    b.Property<int>("SchemaVersion")
+                        .HasColumnType("integer");
+
+                    b.HasKey("ProblemId");
+
+                    b.ToTable("ProblemDiagrams");
+                });
+
             modelBuilder.Entity("MathWorldAPI.Models.QuestionOption", b =>
                 {
                     b.Property<int>("Id")
@@ -600,6 +759,56 @@ namespace MathWorldAPI.Migrations
                     b.ToTable("UserProgresses");
                 });
 
+            modelBuilder.Entity("MathWorldAPI.Models.CurriculumDraftBatch", b =>
+                {
+                    b.HasOne("MathWorldAPI.Models.AppUser", null)
+                        .WithMany()
+                        .HasForeignKey("ReviewedByAdminId")
+                        .OnDelete(DeleteBehavior.Restrict);
+                    b.HasOne("MathWorldAPI.Models.AppUser", null)
+                        .WithMany()
+                        .HasForeignKey("SubmittedByAdminId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("MathWorldAPI.Models.PremiumAccessCode", b =>
+                {
+                    b.HasOne("MathWorldAPI.Models.AppUser", null)
+                        .WithMany()
+                        .HasForeignKey("CreatedByAdminId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+                    b.HasOne("MathWorldAPI.Models.AppUser", null)
+                        .WithMany()
+                        .HasForeignKey("RedeemedByUserId")
+                        .OnDelete(DeleteBehavior.Restrict);
+                });
+
+            modelBuilder.Entity("MathWorldAPI.Models.UserNotification", b =>
+                {
+                    b.HasOne("MathWorldAPI.Models.AppUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("MathWorldAPI.Models.StageFreeCategorySelection", b =>
+                {
+                    b.HasOne("MathWorldAPI.Models.EducationalStage", null)
+                        .WithOne()
+                        .HasForeignKey("MathWorldAPI.Models.StageFreeCategorySelection", "StageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MathWorldAPI.Models.AppUser", null)
+                        .WithMany()
+                        .HasForeignKey("UpdatedByAdminId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("MathWorldAPI.Models.Category", b =>
                 {
                     b.HasOne("MathWorldAPI.Models.EducationalStage", "Stage")
@@ -649,6 +858,17 @@ namespace MathWorldAPI.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("MathWorldAPI.Models.ProblemDiagram", b =>
+                {
+                    b.HasOne("MathWorldAPI.Models.MathProblem", "Problem")
+                        .WithOne()
+                        .HasForeignKey("MathWorldAPI.Models.ProblemDiagram", "ProblemId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Problem");
+                });
+
             modelBuilder.Entity("MathWorldAPI.Models.QuestionOption", b =>
                 {
                     b.HasOne("MathWorldAPI.Models.MathProblem", "Problem")
@@ -696,6 +916,21 @@ namespace MathWorldAPI.Migrations
                         .WithMany()
                         .HasForeignKey("CurrentStageId")
                         .OnDelete(DeleteBehavior.Restrict);
+                });
+
+            modelBuilder.Entity("MathWorldAPI.Models.SubscriptionGrant", b =>
+                {
+                    b.HasOne("MathWorldAPI.Models.AppUser", null)
+                        .WithMany()
+                        .HasForeignKey("AdminId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("MathWorldAPI.Models.AppUser", null)
+                        .WithMany()
+                        .HasForeignKey("LearnerId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("MathWorldAPI.Models.AppUser", b =>

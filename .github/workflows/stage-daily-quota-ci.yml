@@ -1,9 +1,11 @@
-name: Free daily quota per stage PostgreSQL tests
+name: Free unlimited practice and category access PostgreSQL tests
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - feature/stage-daily-quota-v1
+      - feature/premium-entitlement-foundation
   pull_request:
     paths:
       - 'Program.cs'
@@ -11,6 +13,8 @@ on:
       - 'Controllers/AdminController.cs'
       - 'Controllers/ProblemsController.cs'
       - 'Services/StageDailyQuota.cs'
+      - 'Services/PremiumEntitlement.cs'
+      - 'Controllers/AdminSubscriptionsController.cs'
       - 'Services/ProblemTransactionLocks.cs'
       - 'Controllers/UsersController.cs'
       - 'Models/**'
@@ -19,6 +23,11 @@ on:
       - 'Migrations/**'
       - 'tests/integration_stage_daily_quota.py'
       - 'tests/integration_problem_history.py'
+      - 'Controllers/AdminLearnersController.cs'
+      - 'Controllers/StudentSubscriptionController.cs'
+      - 'Controllers/PremiumProblemSolutionsController.cs'
+      - 'Controllers/PublicFeaturesController.cs'
+      - 'Services/LaunchFeatureFlags.cs'
       - '.github/workflows/stage-daily-quota-ci.yml'
 
 permissions:
@@ -58,6 +67,7 @@ jobs:
           Jwt__Issuer: MathWorld-CI
           Jwt__Audience: MathWorld-CI
           Meilisearch__Enabled: 'false'
+          RateLimits__AnswerTokensPerMinute: '100'
           BootstrapAdmin__Enabled: 'true'
           BootstrapAdmin__Email: ci-admin@mathworld.test
           BootstrapAdmin__Password: CI_TEST_ADMIN_PASSWORD_12345
@@ -72,7 +82,7 @@ jobs:
             tail -n 80 /tmp/mathworld-stage-quota.log
             exit 1
           fi
-      - name: Verify 10 daily new problems per stage and Premium exemption
+      - name: Verify unlimited Free practice, two-category policy and Premium entitlement
         env:
           MATHWORLD_TEST_BASE_URL: http://127.0.0.1:5063
           PGHOST: 127.0.0.1

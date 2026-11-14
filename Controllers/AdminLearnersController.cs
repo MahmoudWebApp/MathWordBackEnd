@@ -1,6 +1,7 @@
 using MathWorldAPI.Data;
 using MathWorldAPI.DTOs;
 using MathWorldAPI.Helpers;
+using MathWorldAPI.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -43,8 +44,15 @@ namespace MathWorldAPI.Controllers
                 query = query.Where(user => user.CurrentStageId == stageId.Value);
             if (isActive.HasValue)
                 query = query.Where(user => user.IsActive == isActive.Value);
-            if (!string.IsNullOrWhiteSpace(subscription))
-                query = query.Where(user => user.SubscriptionType == subscription);
+            var nowUtc = DateTime.UtcNow;
+            if (subscription == "Premium")
+                query = query.Where(user => user.SubscriptionType == "Premium" &&
+                    (user.PremiumExpiresAtUtc == null ||
+                     user.PremiumExpiresAtUtc > nowUtc));
+            else if (subscription == "Free")
+                query = query.Where(user => user.SubscriptionType != "Premium" ||
+                    (user.PremiumExpiresAtUtc != null &&
+                     user.PremiumExpiresAtUtc <= nowUtc));
 
             var keyword = search?.Trim();
             if (!string.IsNullOrEmpty(keyword))
@@ -64,7 +72,7 @@ namespace MathWorldAPI.Controllers
                 .Select(u => new
                 {
                     u.Id, u.FullName, u.Email, u.CurrentStageId,
-                    u.SubscriptionType, u.IsActive, u.CreatedAt, u.LastLoginAt
+                    u.SubscriptionType, u.PremiumExpiresAtUtc, u.IsActive, u.CreatedAt, u.LastLoginAt
                 }).ToListAsync(cancellationToken);
             var ids = users.Select(u => u.Id).ToArray();
 
@@ -106,7 +114,9 @@ namespace MathWorldAPI.Controllers
                         Id = u.Id, FullName = u.FullName, Email = u.Email,
                         CurrentStageId = u.CurrentStageId,
                         StageNameAr = stage?.NameAr, StageNameEn = stage?.NameEn,
-                        IsActive = u.IsActive, SubscriptionType = u.SubscriptionType,
+                        IsActive = u.IsActive,
+                        SubscriptionType = PremiumEntitlement.IsActive(u.SubscriptionType, u.PremiumExpiresAtUtc, nowUtc) ? "Premium" : "Free",
+                        PremiumExpiresAtUtc = u.PremiumExpiresAtUtc,
                         CreatedAt = u.CreatedAt, LastLoginAt = u.LastLoginAt,
                         LastAttemptAt = a?.LastAttemptAt,
                         SolvedProblems = p?.Solved ?? 0,
@@ -129,7 +139,7 @@ namespace MathWorldAPI.Controllers
                 .Select(u => new
                 {
                     u.Id, u.FullName, u.Email, u.CurrentStageId, u.IsActive,
-                    u.SubscriptionType, u.CreatedAt, u.LastLoginAt
+                    u.SubscriptionType, u.PremiumExpiresAtUtc, u.CreatedAt, u.LastLoginAt
                 })
                 .FirstOrDefaultAsync(cancellationToken);
             if (user == null)
@@ -232,7 +242,9 @@ namespace MathWorldAPI.Controllers
                     CurrentStageId = user.CurrentStageId,
                     StageNameAr = selectedStage?.NameAr,
                     StageNameEn = selectedStage?.NameEn,
-                    IsActive = user.IsActive, SubscriptionType = user.SubscriptionType,
+                    IsActive = user.IsActive,
+                    SubscriptionType = PremiumEntitlement.IsActive(user.SubscriptionType, user.PremiumExpiresAtUtc) ? "Premium" : "Free",
+                    PremiumExpiresAtUtc = user.PremiumExpiresAtUtc,
                     CreatedAt = user.CreatedAt, LastLoginAt = user.LastLoginAt,
                     LastAttemptAt = attemptSummary?.Last,
                     SolvedProblems = progressSummary?.Solved ?? 0,

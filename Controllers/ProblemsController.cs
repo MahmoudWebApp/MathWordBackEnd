@@ -78,10 +78,12 @@ namespace MathWorldAPI.Controllers
                     1,
                     100);
 
-            if (!_meilisearchEnabled)
+            // Category filtering must happen in PostgreSQL; do not expose locked
+            // titles or counts from an unfiltered external search index.
+            if (!_meilisearchEnabled || !_configurationAllowsUnfilteredSearch())
             {
                 _logger.LogInformation(
-                    "MeiliSearch is disabled. Falling back to PostgreSQL.");
+                    "Category-aware PostgreSQL search enforced.");
 
                 return await PostgreSqlSearch(
                     q,
@@ -428,6 +430,7 @@ namespace MathWorldAPI.Controllers
                 LanguageHelper.GetLanguageFromRequest(
                     Request);
 
+            var allowedCategoryIds = await GetAllowedCategoryIdsAsync();
             var query =
                 _context.Problems
                     .AsNoTracking()
@@ -435,6 +438,8 @@ namespace MathWorldAPI.Controllers
                         problem.Category)
                     .Include(problem =>
                         problem.Stage)
+                    .Where(problem => problem.Category.StageId == problem.StageId &&
+                        (allowedCategoryIds == null || allowedCategoryIds.Contains(problem.CategoryId)))
                     .AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(q))
@@ -659,6 +664,13 @@ namespace MathWorldAPI.Controllers
                         language,
                         StatusCodes.Status404NotFound));
             }
+
+            var categoryAccess = HttpContext.RequestServices
+                .GetRequiredService<ProblemCategoryAccessService>();
+            if (!await categoryAccess.CanReadProblemAsync(User,
+                problem.StageId, problem.CategoryId, HttpContext.RequestAborted))
+                return StatusCode(StatusCodes.Status403Forbidden,
+                    new { Message = "CategoryLocked" });
 
             // View updates are non-critical and run in a separate scope.
             // Admin previews are management activity, not student engagement.
@@ -1001,6 +1013,12 @@ namespace MathWorldAPI.Controllers
                 dto.ProblemId,
                 HttpContext.RequestAborted);
 
+            // Serialize all first-time solves by this learner so milestone
+            // counts cannot race across two different problems.
+            await _context.Database.SqlQuery<int>(
+                    $"SELECT 1 AS \"Value\" FROM pg_advisory_xact_lock({-987654320}, {userId.Value})")
+                .SingleAsync(HttpContext.RequestAborted);
+
             await ProblemTransactionLocks.LockStudentAttemptAsync(
                 _context,
                 userId.Value,
@@ -1024,6 +1042,14 @@ namespace MathWorldAPI.Controllers
                         language,
                         StatusCodes.Status404NotFound));
             }
+
+            // Check category access before looking up answer options or correctness.
+            var categoryAccess = HttpContext.RequestServices
+                .GetRequiredService<ProblemCategoryAccessService>();
+            if (!await categoryAccess.CanReadProblemAsync(User,
+                problem.StageId, problem.CategoryId, HttpContext.RequestAborted))
+                return StatusCode(StatusCodes.Status403Forbidden,
+                    new { Message = "CategoryLocked" });
 
             var selectedOption =
                 problem.Options
@@ -1059,25 +1085,6 @@ namespace MathWorldAPI.Controllers
                         "UnexpectedError",
                         language,
                         StatusCodes.Status500InternalServerError));
-            }
-
-            // Quota is derived from immutable first-ever attempts and must
-            // be checked while holding a per-user/per-stage transaction lock.
-            // This covers simultaneous submissions to DIFFERENT problems.
-            await ProblemTransactionLocks.LockStudentStageQuotaAsync(
-                _context, userId.Value, problem.StageId,
-                HttpContext.RequestAborted);
-
-            var subscription = await _context.Users.AsNoTracking()
-                .Where(u => u.Id == userId.Value && u.Role == "Student")
-                .Select(u => u.SubscriptionType)
-                .FirstOrDefaultAsync(HttpContext.RequestAborted);
-            if (subscription == null)
-            {
-                return Unauthorized(
-                    LanguageHelper.ErrorResponse<AnswerResultDto>(
-                        "Unauthorized", language,
-                        StatusCodes.Status401Unauthorized));
             }
 
             var progress =
@@ -1121,27 +1128,8 @@ namespace MathWorldAPI.Controllers
                     progress);
             }
 
-            var isOfficialAttempt =
-                progress.Attempts == 0;
-
-            // Re-attempting an already attempted problem consumes no
-            // further daily slots even if the previous attempt was yesterday.
-            if (isOfficialAttempt &&
-                !string.Equals(subscription, "Premium",
-                    StringComparison.OrdinalIgnoreCase))
-            {
-                var used = await StageDailyQuota.CountUsedAsync(
-                    _context, userId.Value, problem.StageId, now,
-                    HttpContext.RequestAborted);
-                if (used >= StageDailyQuota.FreeLimit)
-                {
-                    return StatusCode(
-                        StatusCodes.Status429TooManyRequests,
-                        LanguageHelper.ErrorResponse<AnswerResultDto>(
-                            "DailyQuotaExceeded", language,
-                            StatusCodes.Status429TooManyRequests));
-                }
-            }
+            // The first answer is the official attempt; retries are practice.
+            var isOfficialAttempt = progress.Attempts == 0;
 
             var attemptNumber =
                 progress.Attempts + 1;
@@ -1301,6 +1289,31 @@ namespace MathWorldAPI.Controllers
                 }
             }
 
+            // Milestone notices are created only on the first correct solve
+            // and committed atomically with the attempt. The learner-wide
+            // advisory lock above guarantees milestone uniqueness.
+            if (isCorrect && !wasSolved)
+            {
+                var solvedBefore = await _context.UserProgresses.AsNoTracking()
+                    .CountAsync(p => p.UserId == userId.Value && p.IsSolved,
+                        HttpContext.RequestAborted);
+                var solvedNow = solvedBefore + 1;
+                if (new[] { 1, 10, 25, 50, 100, 250, 500, 1000 }.Contains(solvedNow))
+                {
+                    _context.UserNotifications.Add(new UserNotification
+                    {
+                        UserId = userId.Value,
+                        Type = "achievement",
+                        TitleAr = "إنجاز جديد في MathWorld!",
+                        TitleEn = "New MathWorld milestone!",
+                        BodyAr = $"أحسنت! حللت {solvedNow} مسألة بنجاح. واصل التقدم!",
+                        BodyEn = $"Well done! You've solved {solvedNow} unique problems. Keep going!",
+                        TargetPath = "/dashboard",
+                        CreatedAtUtc = now
+                    });
+                }
+            }
+
             await _context.SaveChangesAsync();
             await transaction.CommitAsync();
 
@@ -1430,11 +1443,14 @@ namespace MathWorldAPI.Controllers
                         StatusCodes.Status401Unauthorized));
             }
 
+            var allowedForHistory = await GetAllowedCategoryIdsAsync();
             var problemExists =
                 await _context.Problems
                     .AsNoTracking()
                     .AnyAsync(problem =>
-                        problem.Id == id);
+                        problem.Id == id &&
+                        (allowedForHistory == null ||
+                         allowedForHistory.Contains(problem.CategoryId)));
 
             if (!problemExists)
             {
@@ -1656,6 +1672,15 @@ namespace MathWorldAPI.Controllers
                 (double)progress.Attempts,
                 MidpointRounding.AwayFromZero);
         }
+
+        // External MeiliSearch index is not yet entitlement-aware.
+        // Keep all search paths on PostgreSQL until a secure filtered index exists.
+        private static bool _configurationAllowsUnfilteredSearch() => false;
+
+        private Task<List<int>?> GetAllowedCategoryIdsAsync() =>
+            HttpContext.RequestServices
+                .GetRequiredService<ProblemCategoryAccessService>()
+                .GetAllowedCategoryIdsAsync(User, HttpContext.RequestAborted);
 
         /// <summary>
         /// Gets the authenticated user ID from JWT claims.

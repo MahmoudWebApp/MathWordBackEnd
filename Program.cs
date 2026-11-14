@@ -79,10 +79,12 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 // 3. Register application services
 // ============================================================================
 
+builder.Services.AddScoped<ProblemCategoryAccessService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<ISocialAuthService, SocialAuthService>();
 builder.Services.AddScoped<IMeiliSearchService, MeiliSearchService>();
 builder.Services.AddScoped<AdminBootstrapper>();
+builder.Services.AddSingleton<LaunchFeatureFlags>();
 
 // Register ImgBB as a typed HTTP client.
 builder.Services.AddHttpClient<IImgBbStorageService, ImgBbStorageService>();
@@ -219,8 +221,47 @@ builder.Services.AddRateLimiter(options =>
             partitionKey,
             _ => new TokenBucketRateLimiterOptions
             {
-                TokenLimit = 15,
-                TokensPerPeriod = 15,
+                TokenLimit = Math.Clamp(builder.Configuration.GetValue<int>("RateLimits:AnswerTokensPerMinute", 15), 15, 100),
+                TokensPerPeriod = Math.Clamp(builder.Configuration.GetValue<int>("RateLimits:AnswerTokensPerMinute", 15), 15, 100),
+                ReplenishmentPeriod = TimeSpan.FromMinutes(1),
+                QueueLimit = 0,
+                AutoReplenishment = true
+            });
+    });
+
+    // Authenticated Premium gift attempts are bounded separately from
+    // solving questions and login, limiting abuse without slowing practice.
+    options.AddPolicy("premium-code", httpContext =>
+    {
+        var userId = httpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+        var partitionKey = userId
+            ?? httpContext.Connection.RemoteIpAddress?.ToString()
+            ?? "unknown-client";
+        return RateLimitPartition.GetFixedWindowLimiter(
+            partitionKey,
+            _ => new FixedWindowRateLimiterOptions
+            {
+                PermitLimit = 8,
+                Window = TimeSpan.FromMinutes(1),
+                QueueLimit = 0,
+                AutoReplenishment = true
+            });
+    });
+
+    // Solution previews have their own bucket; viewing a Premium solution
+    // must never consume the answer-submission rate limit.
+    options.AddPolicy("solution-preview", httpContext =>
+    {
+        var userId = httpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+        var partitionKey = userId
+            ?? httpContext.Connection.RemoteIpAddress?.ToString()
+            ?? "unknown-client";
+        return RateLimitPartition.GetTokenBucketLimiter(
+            partitionKey,
+            _ => new TokenBucketRateLimiterOptions
+            {
+                TokenLimit = 30,
+                TokensPerPeriod = 30,
                 ReplenishmentPeriod = TimeSpan.FromMinutes(1),
                 QueueLimit = 0,
                 AutoReplenishment = true
