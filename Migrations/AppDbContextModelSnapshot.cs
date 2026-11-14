@@ -22,6 +22,29 @@ namespace MathWorldAPI.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("MathWorldAPI.Models.CurriculumDraftBatch", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+                    b.Property<int>("ProblemCount").HasColumnType("integer");
+                    b.Property<string>("ProblemsJson").IsRequired().HasColumnType("text");
+                    b.Property<int>("PublishedCount").HasColumnType("integer");
+                    b.Property<DateTime?>("PublishedAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<string>("ReviewNote").HasMaxLength(1000).HasColumnType("character varying(1000)");
+                    b.Property<DateTime?>("ReviewedAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<int?>("ReviewedByAdminId").HasColumnType("integer");
+                    b.Property<string>("Status").IsRequired().HasMaxLength(30).HasColumnType("character varying(30)");
+                    b.Property<DateTime>("SubmittedAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<int>("SubmittedByAdminId").HasColumnType("integer");
+                    b.HasKey("Id");
+                    b.HasIndex("ReviewedByAdminId");
+                    b.HasIndex("SubmittedByAdminId");
+                    b.HasIndex("Status", "SubmittedAtUtc");
+                    b.ToTable("CurriculumDraftBatches");
+                });
+
             modelBuilder.Entity("MathWorldAPI.Models.UserNotification", b =>
                 {
                     b.Property<long>("Id")
@@ -705,6 +728,19 @@ namespace MathWorldAPI.Migrations
                         .IsUnique();
 
                     b.ToTable("UserProgresses");
+                });
+
+            modelBuilder.Entity("MathWorldAPI.Models.CurriculumDraftBatch", b =>
+                {
+                    b.HasOne("MathWorldAPI.Models.AppUser", null)
+                        .WithMany()
+                        .HasForeignKey("ReviewedByAdminId")
+                        .OnDelete(DeleteBehavior.Restrict);
+                    b.HasOne("MathWorldAPI.Models.AppUser", null)
+                        .WithMany()
+                        .HasForeignKey("SubmittedByAdminId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("MathWorldAPI.Models.UserNotification", b =>
