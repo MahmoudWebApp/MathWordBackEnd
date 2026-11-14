@@ -46,7 +46,9 @@ Coordinates are illustration units; the mathematical values 3, 4 and 5 belong in
 ## Constraints and rollout
 
 - Supported primitives: point, segment, ray, vector, line, circle, polygon, angle, axes.
-- Version 1; at most 100 objects, 30 polygon vertices, bounded finite coordinates, short unique IDs and labels.
+- Version 1; at most 100 objects, 30 polygon vertices, bounded finite coordinates (absolute value <= 10,000), short unique IDs and labels.
+- Both `altTextAr` and `altTextEn` are required, nonblank and at most 500 UTF-16 code units to support accessible bilingual rendering.
+- An angle uses a signed sweep (`endDegrees - startDegrees`) whose magnitude must be greater than 0 and less than 360 degrees; empty/full-turn arcs are rejected consistently by the API, Next.js, and Flutter.
 - No raw HTML/SVG/JavaScript or remote assets.
 - Requires the additive `AddProblemDiagrams` migration before using the API.
 - Do **not** seed or change production problems without a reviewed curriculum mapping.
