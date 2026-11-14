@@ -666,6 +666,21 @@ namespace MathWorldAPI.Migrations
                     b.ToTable("UserProgresses");
                 });
 
+            modelBuilder.Entity("MathWorldAPI.Models.StageFreeCategorySelection", b =>
+                {
+                    b.HasOne("MathWorldAPI.Models.EducationalStage", null)
+                        .WithOne()
+                        .HasForeignKey("MathWorldAPI.Models.StageFreeCategorySelection", "StageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MathWorldAPI.Models.AppUser", null)
+                        .WithMany()
+                        .HasForeignKey("UpdatedByAdminId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("MathWorldAPI.Models.Category", b =>
                 {
                     b.HasOne("MathWorldAPI.Models.EducationalStage", "Stage")
