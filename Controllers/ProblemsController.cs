@@ -1013,6 +1013,12 @@ namespace MathWorldAPI.Controllers
                 dto.ProblemId,
                 HttpContext.RequestAborted);
 
+            // Serialize all first-time solves by this learner so milestone
+            // counts cannot race across two different problems.
+            await _context.Database.SqlQuery<int>(
+                    $"SELECT 1 AS \"Value\" FROM pg_advisory_xact_lock({-987654320}, {userId.Value})")
+                .SingleAsync(HttpContext.RequestAborted);
+
             await ProblemTransactionLocks.LockStudentAttemptAsync(
                 _context,
                 userId.Value,
@@ -1280,6 +1286,31 @@ namespace MathWorldAPI.Controllers
                 {
                     throw new DbUpdateConcurrencyException(
                         "The problem disappeared during answer submission.");
+                }
+            }
+
+            // Milestone notices are created only on the first correct solve
+            // and committed atomically with the attempt. The learner-wide
+            // advisory lock above guarantees milestone uniqueness.
+            if (isCorrect && !wasSolved)
+            {
+                var solvedBefore = await _context.UserProgresses.AsNoTracking()
+                    .CountAsync(p => p.UserId == userId.Value && p.IsSolved,
+                        HttpContext.RequestAborted);
+                var solvedNow = solvedBefore + 1;
+                if (new[] { 1, 10, 25, 50, 100, 250, 500, 1000 }.Contains(solvedNow))
+                {
+                    _context.UserNotifications.Add(new UserNotification
+                    {
+                        UserId = userId.Value,
+                        Type = "achievement",
+                        TitleAr = "إنجاز جديد في MathWorld!",
+                        TitleEn = "New MathWorld milestone!",
+                        BodyAr = $"أحسنت! حللت {solvedNow} مسألة بنجاح. واصل التقدم!",
+                        BodyEn = $"Well done! You've solved {solvedNow} unique problems. Keep going!",
+                        TargetPath = "/dashboard",
+                        CreatedAtUtc = now
+                    });
                 }
             }
 
