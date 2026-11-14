@@ -30,6 +30,7 @@ namespace MathWorldAPI.Data
 
         public DbSet<UserNotification> UserNotifications => Set<UserNotification>();
         public DbSet<CurriculumDraftBatch> CurriculumDraftBatches => Set<CurriculumDraftBatch>();
+        public DbSet<PremiumAccessCode> PremiumAccessCodes => Set<PremiumAccessCode>();
 
         public DbSet<AppUser> Users =>
             Set<AppUser>();
@@ -99,6 +100,23 @@ namespace MathWorldAPI.Data
                 .HasOne<AppUser>().WithMany()
                 .HasForeignKey(x => x.UpdatedByAdminId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<PremiumAccessCode>()
+                .HasOne<AppUser>().WithMany()
+                .HasForeignKey(x => x.CreatedByAdminId)
+                .OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<PremiumAccessCode>()
+                .HasOne<AppUser>().WithMany()
+                .HasForeignKey(x => x.RedeemedByUserId)
+                .OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<PremiumAccessCode>()
+                .Property(x => x.CodeHash).HasMaxLength(64).IsRequired();
+            modelBuilder.Entity<PremiumAccessCode>()
+                .HasIndex(x => x.CodeHash).IsUnique();
+            modelBuilder.Entity<PremiumAccessCode>()
+                .Property(x => x.Label).HasMaxLength(80).IsRequired();
+            modelBuilder.Entity<PremiumAccessCode>()
+                .HasIndex(x => x.ExpiresAtUtc);
 
             modelBuilder.Entity<CurriculumDraftBatch>()
                 .HasOne<AppUser>().WithMany()
