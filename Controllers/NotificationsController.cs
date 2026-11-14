@@ -26,17 +26,20 @@ public sealed class NotificationsController : ControllerBase
     // The inbox shows the latest 30 days. A read event never deletes a notice.
     [HttpGet]
     [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
-    public async Task<IActionResult> List([FromQuery] int take = 30, CancellationToken ct = default)
+    public async Task<IActionResult> List([FromQuery] int take = 30,
+        [FromQuery] int skip = 0, CancellationToken ct = default)
     {
         var userId = await ActiveUserId(ct);
         if (userId is null) return Unauthorized();
         if (take < 1 || take > 50) return BadRequest(new { Message = "InvalidPageSize" });
+        if (skip < 0 || skip > 10000) return BadRequest(new { Message = "InvalidPageOffset" });
 
         var cutoff = DateTime.UtcNow.AddDays(-30);
         var mine = _db.UserNotifications.AsNoTracking()
             .Where(x => x.UserId == userId.Value && x.CreatedAtUtc >= cutoff);
+        var totalCount = await mine.CountAsync(ct);
         var items = await mine.OrderByDescending(x => x.CreatedAtUtc)
-            .ThenByDescending(x => x.Id).Take(take)
+            .ThenByDescending(x => x.Id).Skip(skip).Take(take)
             .Select(x => new {
                 x.Id, x.Type, x.TitleAr, x.TitleEn, x.BodyAr, x.BodyEn,
                 x.TargetPath, x.CreatedAtUtc, x.ReadAtUtc
@@ -44,7 +47,9 @@ public sealed class NotificationsController : ControllerBase
         var unread = await mine.CountAsync(x => x.ReadAtUtc == null, ct);
 
         return Ok(LanguageHelper.SuccessResponse(
-            new { Items = items, UnreadCount = unread },
+            new { Items = items, UnreadCount = unread,
+                TotalCount = totalCount, HasMore = skip + items.Count < totalCount,
+                Skip = skip, Take = take },
             "Success", LanguageHelper.GetLanguageFromRequest(Request)));
     }
 
