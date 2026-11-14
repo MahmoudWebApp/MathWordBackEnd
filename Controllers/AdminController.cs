@@ -1046,8 +1046,15 @@ namespace MathWorldAPI.Controllers
 
             if (dto.Order.HasValue)
             {
-                category.Order =
-                    Math.Max(0, dto.Order.Value);
+                var nextOrder = Math.Max(0, dto.Order.Value);
+                var wouldChangeFree = await HttpContext.RequestServices
+                    .GetRequiredService<ProblemCategoryAccessService>()
+                    .WouldReorderChangeImplicitFreeCategoriesAsync(category.StageId, id, nextOrder);
+                if (wouldChangeFree)
+                    return Conflict(LanguageHelper.ErrorResponse<CategoryDto>(
+                        "FreeCategoryOrderRequiresExplicitSelection", language,
+                        StatusCodes.Status409Conflict));
+                category.Order = nextOrder;
             }
 
             if (dto.StageId.HasValue && dto.StageId.Value != category.StageId)
