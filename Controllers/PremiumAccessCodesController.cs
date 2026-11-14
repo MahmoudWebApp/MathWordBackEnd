@@ -8,6 +8,7 @@ using MathWorldAPI.Models;
 using MathWorldAPI.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.EntityFrameworkCore;
 
 namespace MathWorldAPI.Controllers;
@@ -142,6 +143,7 @@ public sealed class PremiumAccessCodesController : ControllerBase
 
     [HttpPost("users/premium-codes/redeem")]
     [Authorize(Roles = "Student")]
+    [EnableRateLimiting("premium-code")]
     public async Task<IActionResult> Redeem([FromBody] RedeemCodeRequest? request,
         CancellationToken ct)
     {
