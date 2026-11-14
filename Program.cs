@@ -229,6 +229,25 @@ builder.Services.AddRateLimiter(options =>
             });
     });
 
+    // Authenticated Premium gift attempts are bounded separately from
+    // solving questions and login, limiting abuse without slowing practice.
+    options.AddPolicy("premium-code", httpContext =>
+    {
+        var userId = httpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+        var partitionKey = userId
+            ?? httpContext.Connection.RemoteIpAddress?.ToString()
+            ?? "unknown-client";
+        return RateLimitPartition.GetFixedWindowLimiter(
+            partitionKey,
+            _ => new FixedWindowRateLimiterOptions
+            {
+                PermitLimit = 8,
+                Window = TimeSpan.FromMinutes(1),
+                QueueLimit = 0,
+                AutoReplenishment = true
+            });
+    });
+
     // Solution previews have their own bucket; viewing a Premium solution
     // must never consume the answer-submission rate limit.
     options.AddPolicy("solution-preview", httpContext =>
