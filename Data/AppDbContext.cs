@@ -28,6 +28,8 @@ namespace MathWorldAPI.Data
 
         public DbSet<StageFreeCategorySelection> StageFreeCategorySelections => Set<StageFreeCategorySelection>();
 
+        public DbSet<UserNotification> UserNotifications => Set<UserNotification>();
+
         public DbSet<AppUser> Users =>
             Set<AppUser>();
 
@@ -96,6 +98,27 @@ namespace MathWorldAPI.Data
                 .HasOne<AppUser>().WithMany()
                 .HasForeignKey(x => x.UpdatedByAdminId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<UserNotification>()
+                .HasOne<AppUser>().WithMany()
+                .HasForeignKey(x => x.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<UserNotification>()
+                .Property(x => x.Type).HasMaxLength(40).IsRequired();
+            modelBuilder.Entity<UserNotification>()
+                .Property(x => x.TitleAr).HasMaxLength(160).IsRequired();
+            modelBuilder.Entity<UserNotification>()
+                .Property(x => x.TitleEn).HasMaxLength(160).IsRequired();
+            modelBuilder.Entity<UserNotification>()
+                .Property(x => x.BodyAr).HasMaxLength(1000).IsRequired();
+            modelBuilder.Entity<UserNotification>()
+                .Property(x => x.BodyEn).HasMaxLength(1000).IsRequired();
+            modelBuilder.Entity<UserNotification>()
+                .Property(x => x.TargetPath).HasMaxLength(300);
+            modelBuilder.Entity<UserNotification>()
+                .HasIndex(x => new { x.UserId, x.CreatedAtUtc });
+            modelBuilder.Entity<UserNotification>()
+                .HasIndex(x => new { x.UserId, x.ReadAtUtc });
 
             // =================================================================
             // USER CONFIGURATION
