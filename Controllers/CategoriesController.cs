@@ -317,10 +317,25 @@ namespace MathWorldAPI.Controllers
                     Math.Max(0, dto.Order.Value);
             }
 
-            if (dto.StageId.HasValue)
+            if (dto.StageId.HasValue &&
+                dto.StageId.Value != category.StageId)
             {
-                category.StageId =
-                    dto.StageId.Value;
+                // Changing the stage of a populated or Free-unlocked category
+                // would invalidate persisted question journeys and two-free-
+                // category entitlements. Rename/reorder in place instead.
+                var hasProblems = await _context.Problems.AnyAsync(
+                    problem => problem.CategoryId == id);
+                var isFreeSelected = await _context.StageFreeCategorySelections
+                    .AnyAsync(selection => selection.FirstCategoryId == id ||
+                        selection.SecondCategoryId == id);
+                if (hasProblems || isFreeSelected)
+                {
+                    return Conflict(LanguageHelper.ErrorResponse<CategoryDto>(
+                        "CategoryStageChangeBlocked",
+                        language,
+                        StatusCodes.Status409Conflict));
+                }
+                category.StageId = dto.StageId.Value;
             }
 
             if (dto.Icon != null &&
@@ -487,6 +502,19 @@ namespace MathWorldAPI.Controllers
                         "CategoryHasProblems",
                         language,
                         StatusCodes.Status400BadRequest));
+            }
+
+            // A category may be selected for Free access even before it has
+            // problems; deleting it silently breaks the two-category policy.
+            var isFreeSelected = await _context.StageFreeCategorySelections
+                .AnyAsync(selection => selection.FirstCategoryId == id ||
+                    selection.SecondCategoryId == id);
+            if (isFreeSelected)
+            {
+                return Conflict(LanguageHelper.ErrorResponse<object>(
+                    "CategoryIsFreeSelection",
+                    language,
+                    StatusCodes.Status409Conflict));
             }
 
             _context.Categories.Remove(category);
