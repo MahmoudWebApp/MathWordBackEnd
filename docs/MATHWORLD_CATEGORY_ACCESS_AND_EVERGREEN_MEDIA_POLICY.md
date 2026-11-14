@@ -17,7 +17,8 @@ The former Free limit of 10 new questions per stage per day is **cancelled**. Do
 - `GET /api/stages/{stageId}/free-categories` returns the effective public access catalog.
 - `PUT /api/admin/stages/{stageId}/free-categories` accepts `{ "CategoryIds": [firstId, secondId] }` for an authenticated **active Admin** only. Two different existing categories belonging to the same stage are mandatory. It writes the persisted selection with admin ID and timestamp.
 - The Next.js Admin Categories page displays a bilingual two-category editor with validation and confirmation. Selection changes are **not** silently applied during category editing.
-- Both `/api/categories/{id}` and `/api/admin/categories/{id}` reject moving populated/Free-selected categories and deleting Free-selected categories. This includes default Free categories before a custom pair is stored. Use the dedicated selector first.
+- Both `/api/categories/{id}` and `/api/admin/categories/{id}` reject moving populated/Free-selected categories and deleting Free-selected categories. This includes default Free categories before a custom pair is stored. Editorial reordering that would change the **implicit** Free pair is also rejected. Use the dedicated selector to pin the current pair before reordering.
+- The public stage catalog includes `HasSavedFreeSelection` so the admin UI can offer a one-click pin of the existing default pair without changing the student's current access.
 - Disposable PostgreSQL checks validate no daily quota, Free/Premium access boundaries, the selection endpoint, unauthorized changes and both category-management routes.
 - Migration, release authorization, device QA and rollout are still required before production uses this feature.
 
