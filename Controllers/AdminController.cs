@@ -1050,10 +1050,24 @@ namespace MathWorldAPI.Controllers
                     Math.Max(0, dto.Order.Value);
             }
 
-            if (dto.StageId.HasValue)
+            if (dto.StageId.HasValue && dto.StageId.Value != category.StageId)
             {
-                category.StageId =
-                    dto.StageId.Value;
+                // This is the actual /api/admin/categories route used by the
+                // dashboard. Apply the same protections as /api/categories:
+                // moving a populated/Free-selected category changes the stage
+                // of saved attempts and can invalidate Free entitlements.
+                var hasProblems = await _context.Problems.AsNoTracking()
+                    .AnyAsync(problem => problem.CategoryId == id);
+                var isFreeSelected = await _context.StageFreeCategorySelections.AsNoTracking()
+                    .AnyAsync(selection => selection.FirstCategoryId == id ||
+                        selection.SecondCategoryId == id);
+                if (hasProblems || isFreeSelected)
+                    return Conflict(LanguageHelper.ErrorResponse<CategoryDto>(
+                        "CategoryStageChangeBlocked",
+                        language,
+                        StatusCodes.Status409Conflict));
+
+                category.StageId = dto.StageId.Value;
             }
 
             if (dto.Icon != null &&
@@ -1147,6 +1161,17 @@ namespace MathWorldAPI.Controllers
                         language,
                         StatusCodes.Status400BadRequest));
             }
+
+            // The public category-management route already protects explicitly
+            // Free-selected categories; the admin route must not bypass it.
+            var isFreeSelected = await _context.StageFreeCategorySelections.AsNoTracking()
+                .AnyAsync(selection => selection.FirstCategoryId == id ||
+                    selection.SecondCategoryId == id);
+            if (isFreeSelected)
+                return Conflict(LanguageHelper.ErrorResponse<object>(
+                    "CategoryIsFreeSelection",
+                    language,
+                    StatusCodes.Status409Conflict));
 
             _context.Categories.Remove(category);
 
