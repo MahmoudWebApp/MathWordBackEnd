@@ -44,6 +44,28 @@ def move_category(token, route, target_stage):
         return error.code
 
 
+def reorder_category(token, route, next_order):
+    boundary = "MWFreeCategoryOrder"
+    form = (
+        f"--{boundary}\r\n"
+        'Content-Disposition: form-data; name="Order"\r\n\r\n'
+        f"{next_order}\r\n"
+        f"--{boundary}--\r\n"
+    ).encode("utf-8")
+    request = urllib.request.Request(
+        BASE + route, data=form,
+        headers={
+            "Authorization": "Bearer " + token,
+            "Content-Type": f"multipart/form-data; boundary={boundary}",
+        }, method="PUT",
+    )
+    try:
+        with urllib.request.urlopen(request, timeout=25) as response:
+            return response.status
+    except urllib.error.HTTPError as error:
+        return error.code
+
+
 def quota(token, stage=None):
     suffix = f"?stageId={stage}" if stage is not None else ""
     return expect("GET", "/api/users/daily-quota" + suffix, 200, token=token)
@@ -137,11 +159,16 @@ def main():
     assert_unlimited(premium, 1)
 
     # The default (unsaved) Free pair is already effective for learners.
-    # Category 2 has no problems; deleting/moving it would silently change
-    # which category a Free learner can reach.
+    # Deleting, moving or reordering another category into the top two
+    # must not silently change which questions the Free learner can access.
+    default_catalog = expect("GET", "/api/stages/1/free-categories", 200)
+    assert default_catalog["FreeCategoryIds"] == [1, 2], default_catalog
+    assert not default_catalog["HasSavedFreeSelection"], default_catalog
     for route in ("/api/categories/2", "/api/admin/categories/2"):
         assert api("DELETE", route, token=admin)[0] == 409, route
         assert move_category(admin, route, 2) == 409, route
+    for route in ("/api/categories/3", "/api/admin/categories/3"):
+        assert reorder_category(admin, route, 0) == 409, route
 
     # The dashboard talks to /api/admin/categories, not /api/categories.
     # Selecting exactly two Free categories must be server-authorized and
@@ -163,6 +190,7 @@ def main():
     }, admin)
     assert saved["FreeCategoryIds"] == [2, 3], saved
     catalog = expect("GET", "/api/stages/1/free-categories", 200)
+    assert catalog["HasSavedFreeSelection"], catalog
     assert catalog["FreeCategoryIds"] == [2, 3], catalog
     assert {x["Id"] for x in catalog["Categories"] if x["IsFree"]} == {2, 3}
     assert api("GET", f"/api/problems/{questions[0][0]}", token=free)[0] == 403
@@ -173,7 +201,12 @@ def main():
     assert move_category(admin, "/api/admin/categories/1", 2) == 409, (
         "Populated category moved through dashboard route"
     )
-    print("PASS: Free unlimited practice, audited stage selection and both admin/category guards.")
+    assert reorder_category(admin, "/api/admin/categories/3", 0) == 200, (
+        "Explicitly saved Free pair must survive category editorial reordering"
+    )
+    after_reorder = expect("GET", "/api/stages/1/free-categories", 200)
+    assert after_reorder["FreeCategoryIds"] == [2, 3], after_reorder
+    print("PASS: Free unlimited practice, protected default/saved selection and admin/category guards.")
 
 
 if __name__ == "__main__":
