@@ -82,6 +82,22 @@ def main():
     achievements = [n for n in notices if n["Type"] == "achievement"]
     assert len(achievements) == 1, achievements
 
+    # Student rankings must be stage-isolated and anonymize other learners.
+    leaderboard = expect("GET", "/api/users/leaderboard?stageId=1&period=all",
+                         200, token=learner1)
+    assert leaderboard["TotalLearners"] == 1 and leaderboard["MyRank"] == 1
+    assert leaderboard["Entries"][0]["IsCurrentUser"]
+    assert api("GET", "/api/users/leaderboard?stageId=2", token=learner1)[0] == 403
+    assert api("GET", "/api/users/leaderboard?period=invalid", token=learner1)[0] == 400
+    assert api("GET", "/api/users/leaderboard", token=admin)[0] == 403
+
+    assert submit(learner2, question_id, correct_option)[0] == 200
+    ranking = expect("GET", "/api/users/leaderboard?stageId=1&period=weekly",
+                     200, token=learner1)
+    assert ranking["TotalLearners"] == 2 and ranking["MyRank"] == 1, ranking
+    assert ranking["Entries"][1]["DisplayName"] == "Learner #2", ranking
+    assert all("learner-ci-" not in row["DisplayName"] for row in ranking["Entries"])
+
     # Admin subscription changes produce a separate notice in the same DB transaction.
     assert api("GET", "/api/users/premium-analytics", token=learner1)[0] == 403
     assert api("GET", "/api/users/premium-analytics", token=learner2)[0] == 403
@@ -156,7 +172,7 @@ def main():
     assert api("POST", f"/api/admin/curriculum/drafts/{batch_id}/publish",
                {"Confirm": True}, admin)[0] == 409
     assert api("POST", "/api/admin/curriculum/drafts", {"Problems": [proposed]}, admin)[0] == 400
-    print("PASS: private inbox, achievements, Premium analytics/CSV, editorial review and safe publish")
+    print("PASS: private inbox, achievements, anonymous rankings, Premium report/CSV and safe publishing")
 
 
 if __name__ == "__main__":
