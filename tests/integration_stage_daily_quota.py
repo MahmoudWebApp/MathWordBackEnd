@@ -25,10 +25,10 @@ def move_category(token, route, target_stage):
     # Both API endpoints bind category updates from multipart/form-data.
     boundary = "MWFreeCategoryGuard"
     form = (
-        f"--{boundary}\\r\\n"
-        'Content-Disposition: form-data; name="StageId"\\r\\n\\r\\n'
-        f"{target_stage}\\r\\n"
-        f"--{boundary}--\\r\\n"
+        f"--{boundary}\r\n"
+        'Content-Disposition: form-data; name="StageId"\r\n\r\n'
+        f"{target_stage}\r\n"
+        f"--{boundary}--\r\n"
     ).encode("utf-8")
     request = urllib.request.Request(
         BASE + route, data=form,
