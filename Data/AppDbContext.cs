@@ -29,6 +29,7 @@ namespace MathWorldAPI.Data
         public DbSet<StageFreeCategorySelection> StageFreeCategorySelections => Set<StageFreeCategorySelection>();
 
         public DbSet<UserNotification> UserNotifications => Set<UserNotification>();
+        public DbSet<CurriculumDraftBatch> CurriculumDraftBatches => Set<CurriculumDraftBatch>();
 
         public DbSet<AppUser> Users =>
             Set<AppUser>();
@@ -98,6 +99,23 @@ namespace MathWorldAPI.Data
                 .HasOne<AppUser>().WithMany()
                 .HasForeignKey(x => x.UpdatedByAdminId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<CurriculumDraftBatch>()
+                .HasOne<AppUser>().WithMany()
+                .HasForeignKey(x => x.SubmittedByAdminId)
+                .OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<CurriculumDraftBatch>()
+                .HasOne<AppUser>().WithMany()
+                .HasForeignKey(x => x.ReviewedByAdminId)
+                .OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<CurriculumDraftBatch>()
+                .Property(x => x.Status).HasMaxLength(30).IsRequired();
+            modelBuilder.Entity<CurriculumDraftBatch>()
+                .Property(x => x.ProblemsJson).IsRequired();
+            modelBuilder.Entity<CurriculumDraftBatch>()
+                .Property(x => x.ReviewNote).HasMaxLength(1000);
+            modelBuilder.Entity<CurriculumDraftBatch>()
+                .HasIndex(x => new { x.Status, x.SubmittedAtUtc });
 
             modelBuilder.Entity<UserNotification>()
                 .HasOne<AppUser>().WithMany()
