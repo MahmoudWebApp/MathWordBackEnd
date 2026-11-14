@@ -4,6 +4,8 @@
 Coverage: JWT-owned inbox, admin messages, first-solve achievements, editorial
 draft/approval/publish, duplicate prevention and no premature publication.
 """
+import urllib.request
+
 from integration_problem_history import (
     BASE, ADMIN_EMAIL, ADMIN_PASSWORD, api, expect, token_of, wait_ready,
     student, create_question, submit,
@@ -81,10 +83,34 @@ def main():
     assert len(achievements) == 1, achievements
 
     # Admin subscription changes produce a separate notice in the same DB transaction.
+    assert api("GET", "/api/users/premium-analytics", token=learner1)[0] == 403
+    assert api("GET", "/api/users/premium-analytics", token=learner2)[0] == 403
+    assert api("GET", "/api/users/premium-analytics", token=admin)[0] == 403
+
     expect("PUT", f"/api/admin/learners/{learner_id}/subscription", 200, {
         "SubscriptionType": "Premium",
         "Reason": "CI verified premium grant",
     }, admin)
+
+    report = expect("GET", "/api/users/premium-analytics", 200, token=learner1)
+    assert report["SolvedProblems"] == 1 and report["Attempts"] == 2, report
+    assert report["CorrectAttempts"] == 2 and report["AwardedPoints"] == 10, report
+    assert len(report["Categories"]) == 1, report
+    category = report["Categories"][0]
+    assert category["StageId"] == 1 and category["CategoryId"] == 1, category
+
+    request = urllib.request.Request(
+        BASE + "/api/users/premium-analytics/export.csv",
+        headers={"Authorization": "Bearer " + learner1},
+    )
+    with urllib.request.urlopen(request, timeout=25) as response:
+        csv_bytes = response.read()
+        assert response.status == 200
+        assert "text/csv" in response.headers.get("Content-Type", "")
+        assert csv_bytes.startswith(b"\\xef\\xbb\\xbf"), csv_bytes[:12]
+        csv_text = csv_bytes.decode("utf-8-sig")
+        assert "StageId,CategoryId" in csv_text and "الأعداد" in csv_text, csv_text
+
     notices = expect("GET", "/api/notifications", 200, token=learner1)["Items"]
     assert len([n for n in notices if n["Type"] == "subscription"]) == 1
     expect("PUT", "/api/notifications/read-all", 204, token=learner1)
@@ -130,7 +156,7 @@ def main():
     assert api("POST", f"/api/admin/curriculum/drafts/{batch_id}/publish",
                {"Confirm": True}, admin)[0] == 409
     assert api("POST", "/api/admin/curriculum/drafts", {"Problems": [proposed]}, admin)[0] == 400
-    print("PASS: owned notifications, milestone, subscription notice, draft review and safe publish")
+    print("PASS: private inbox, achievements, Premium analytics/CSV, editorial review and safe publish")
 
 
 if __name__ == "__main__":
