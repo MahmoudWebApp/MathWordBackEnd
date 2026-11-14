@@ -107,7 +107,7 @@ def main():
         csv_bytes = response.read()
         assert response.status == 200
         assert "text/csv" in response.headers.get("Content-Type", "")
-        assert csv_bytes.startswith(b"\\xef\\xbb\\xbf"), csv_bytes[:12]
+        assert csv_bytes.startswith(bytes([0xEF, 0xBB, 0xBF])), csv_bytes[:12]
         csv_text = csv_bytes.decode("utf-8-sig")
         assert "StageId,CategoryId" in csv_text and "الأعداد" in csv_text, csv_text
 
