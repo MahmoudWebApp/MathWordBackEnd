@@ -166,6 +166,29 @@ def main():
     expect("PUT", "/api/notifications/read-all", 204, token=learner1)
     assert expect("GET", "/api/notifications", 200, token=learner1)["UnreadCount"] == 0
 
+    # Launch gift access: a one-use code grants 365 days without checkout.
+    voucher = expect("POST", "/api/admin/premium-codes", 200, {
+        "Label": "CI annual gift", "PremiumDays": 365, "ExpiresInDays": 30
+    }, admin)
+    assert voucher["SingleUse"] and voucher["Code"].startswith("MW-")
+    claim = expect("POST", "/api/users/premium-codes/redeem", 200, {
+        "Code": voucher["Code"]
+    }, learner2)
+    assert claim["SubscriptionType"] == "Premium", claim
+    assert api("POST", "/api/users/premium-codes/redeem",
+               {"Code": voucher["Code"]}, learner1)[0] == 400
+    listing = expect("GET", "/api/admin/premium-codes", 200, token=admin)
+    assert listing["Codes"][0]["Status"] == "Redeemed"
+    assert "CodeHash" not in listing["Codes"][0]
+    assert "Code" not in listing["Codes"][0]
+    unused = expect("POST", "/api/admin/premium-codes", 200, {
+        "Label": "CI revoked gift", "PremiumDays": 30, "ExpiresInDays": 7
+    }, admin)
+    expect("PUT", f"/api/admin/premium-codes/{unused['Id']}/revoke",
+           204, token=admin)
+    assert api("POST", "/api/users/premium-codes/redeem",
+               {"Code": unused["Code"]}, learner2)[0] == 400
+
     # Proposed stage categories are preview-only. They must not reparent
     # existing category IDs or insert unreviewed content.
     categories_before = expect("GET", "/api/categories", 200)
