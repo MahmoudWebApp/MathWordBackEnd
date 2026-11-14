@@ -2,6 +2,8 @@
 """Free unlimited practice and Premium entitlements against disposable PostgreSQL CI only."""
 import os
 import subprocess
+import urllib.request
+import urllib.error
 from integration_problem_history import (
     BASE, ADMIN_EMAIL, ADMIN_PASSWORD, api, expect,
     make_question, student, submit, token_of, wait_ready,
@@ -17,6 +19,29 @@ def create_question(admin, marker, stage, category):
     detail = expect("GET", f"/api/problems/{qid}", 200, token=admin)
     correct = next(o["Id"] for o in detail["Options"] if o["IsCorrect"])
     return qid, correct
+
+
+def move_category(token, route, target_stage):
+    # Both API endpoints bind category updates from multipart/form-data.
+    boundary = "MWFreeCategoryGuard"
+    form = (
+        f"--{boundary}\\r\\n"
+        'Content-Disposition: form-data; name="StageId"\\r\\n\\r\\n'
+        f"{target_stage}\\r\\n"
+        f"--{boundary}--\\r\\n"
+    ).encode("utf-8")
+    request = urllib.request.Request(
+        BASE + route, data=form,
+        headers={
+            "Authorization": "Bearer " + token,
+            "Content-Type": f"multipart/form-data; boundary={boundary}",
+        }, method="PUT",
+    )
+    try:
+        with urllib.request.urlopen(request, timeout=25) as response:
+            return response.status
+    except urllib.error.HTTPError as error:
+        return error.code
 
 
 def quota(token, stage=None):
@@ -110,7 +135,38 @@ def main():
     assert not expired["IsPremium"] and not expired["CanExportAnalytics"], expired
     assert expired.get("DailyNewProblemsLimit") is None, expired
     assert_unlimited(premium, 1)
-    print("PASS: Free unlimited 12+ problems, replay, Premium and expiry.")
+
+    # The dashboard talks to /api/admin/categories, not /api/categories.
+    # Selecting exactly two Free categories must be server-authorized and
+    # prevent both routes from deleting/moving an explicitly selected one.
+    assert api("PUT", "/api/admin/stages/1/free-categories", {
+        "CategoryIds": [2, 3]
+    }, free)[0] == 403
+    assert api("PUT", "/api/admin/stages/1/free-categories", {
+        "CategoryIds": [2, 3]
+    })[0] == 401
+    assert api("PUT", "/api/admin/stages/1/free-categories", {
+        "CategoryIds": [2, 2]
+    }, admin)[0] == 400
+    assert api("PUT", "/api/admin/stages/1/free-categories", {
+        "CategoryIds": [2, 5]
+    }, admin)[0] == 400
+    saved = expect("PUT", "/api/admin/stages/1/free-categories", 200, {
+        "CategoryIds": [2, 3]
+    }, admin)
+    assert saved["FreeCategoryIds"] == [2, 3], saved
+    catalog = expect("GET", "/api/stages/1/free-categories", 200)
+    assert catalog["FreeCategoryIds"] == [2, 3], catalog
+    assert {x["Id"] for x in catalog["Categories"] if x["IsFree"]} == {2, 3}
+    assert api("GET", f"/api/problems/{questions[0][0]}", token=free)[0] == 403
+    assert api("GET", f"/api/problems/{locked_question[0]}", token=free)[0] == 200
+    for route in ("/api/categories/2", "/api/admin/categories/2"):
+        assert api("DELETE", route, token=admin)[0] == 409, route
+        assert move_category(admin, route, 2) == 409, route
+    assert move_category(admin, "/api/admin/categories/1", 2) == 409, (
+        "Populated category moved through dashboard route"
+    )
+    print("PASS: Free unlimited practice, audited stage selection and both admin/category guards.")
 
 
 if __name__ == "__main__":
