@@ -48,7 +48,15 @@ namespace MathWorldAPI.Services
                     !Finite(viewport, "height", true) ||
                     !root.TryGetProperty("objects", out var objects) ||
                     objects.ValueKind != JsonValueKind.Array ||
-                    objects.GetArrayLength() > 100) return false;
+                    objects.GetArrayLength() > 100 ||
+                    !root.TryGetProperty("altTextAr", out var altAr) ||
+                    altAr.ValueKind != JsonValueKind.String ||
+                    string.IsNullOrWhiteSpace(altAr.GetString()) ||
+                    altAr.GetString()!.Length > 500 ||
+                    !root.TryGetProperty("altTextEn", out var altEn) ||
+                    altEn.ValueKind != JsonValueKind.String ||
+                    string.IsNullOrWhiteSpace(altEn.GetString()) ||
+                    altEn.GetString()!.Length > 500) return false;
 
                 var ids = new HashSet<string>(StringComparer.Ordinal);
                 foreach (var obj in objects.EnumerateArray())
@@ -90,6 +98,11 @@ namespace MathWorldAPI.Services
                         case "angle":
                             if (!Coordinates(obj, "cx", "cy", "startDegrees", "endDegrees") ||
                                 !Finite(obj, "radius", true)) return false;
+                            // SVG cannot render a full circle as one arc. Match the Flutter/web
+                            // signed sweep contract to avoid displaying contradictory diagrams.
+                            var sweep = obj.GetProperty("endDegrees").GetDouble()
+                                - obj.GetProperty("startDegrees").GetDouble();
+                            if (sweep == 0 || Math.Abs(sweep) >= 360) return false;
                             break;
                         case "axes":
                             if (!Coordinates(obj, "originX", "originY") ||
