@@ -12,6 +12,7 @@ on:
       - 'Controllers/NotificationsController.cs'
       - 'Controllers/ProblemsController.cs'
       - 'Controllers/StudentPremiumAnalyticsController.cs'
+      - 'Controllers/StudentLeaderboardController.cs'
       - 'Models/**'
       - 'Migrations/**'
       - 'Data/**'
