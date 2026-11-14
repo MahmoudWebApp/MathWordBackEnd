@@ -82,6 +82,15 @@ def main():
     achievements = [n for n in notices if n["Type"] == "achievement"]
     assert len(achievements) == 1, achievements
 
+    badges = expect("GET", "/api/users/achievements", 200, token=learner1)
+    assert badges["UniqueSolved"] == 1 and badges["EarnedCount"] == 1, badges
+    assert badges["NextMilestone"] == 10, badges
+    assert badges["Badges"][0]["Key"] == "first_step" and badges["Badges"][0]["Earned"]
+    assert not badges["Badges"][1]["Earned"], badges
+    assert api("GET", "/api/users/achievements")[0] == 401
+    assert api("GET", "/api/users/achievements", token=admin)[0] == 403
+    assert expect("GET", "/api/users/achievements", 200, token=learner2)["UniqueSolved"] == 0
+
     # Student rankings must be stage-isolated and anonymize other learners.
     leaderboard = expect("GET", "/api/users/leaderboard?stageId=1&period=all",
                          200, token=learner1)
