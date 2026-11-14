@@ -5,6 +5,7 @@ Coverage: JWT-owned inbox, admin messages, first-solve achievements, editorial
 draft/approval/publish, duplicate prevention and no premature publication.
 """
 import urllib.request
+import urllib.error
 
 from integration_problem_history import (
     BASE, ADMIN_EMAIL, ADMIN_PASSWORD, api, expect, token_of, wait_ready,
@@ -74,6 +75,30 @@ def main():
 
     # First unique solve emits exactly one achievement; retry doesn't duplicate it.
     question_id, correct_option = create_question(admin, 9101)
+    # A category containing questions must never move stages: this would
+    # break saved progress, leaderboard grouping and Free entitlements.
+    boundary = "MWCategoryStageBoundary"
+    form = (
+        f"--{boundary}\\r\\n"
+        'Content-Disposition: form-data; name="StageId"\\r\\n\\r\\n'
+        "2\\r\\n"
+        f"--{boundary}--\\r\\n"
+    ).encode("utf-8")
+    move = urllib.request.Request(
+        BASE + "/api/categories/1",
+        data=form,
+        headers={
+            "Authorization": "Bearer " + admin,
+            "Content-Type": f"multipart/form-data; boundary={boundary}",
+        },
+        method="PUT",
+    )
+    try:
+        urllib.request.urlopen(move, timeout=25)
+        raise AssertionError("Moving a populated category was wrongly allowed")
+    except urllib.error.HTTPError as err:
+        assert err.code == 409, (err.code, err.read()[:250])
+
     code, _ = submit(learner1, question_id, correct_option)
     assert code == 200
     code, _ = submit(learner1, question_id, correct_option)
