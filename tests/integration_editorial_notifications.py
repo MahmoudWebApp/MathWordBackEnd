@@ -79,10 +79,10 @@ def main():
     # break saved progress, leaderboard grouping and Free entitlements.
     boundary = "MWCategoryStageBoundary"
     form = (
-        f"--{boundary}\\r\\n"
-        'Content-Disposition: form-data; name="StageId"\\r\\n\\r\\n'
-        "2\\r\\n"
-        f"--{boundary}--\\r\\n"
+        f"--{boundary}\r\n"
+        'Content-Disposition: form-data; name="StageId"\r\n\r\n'
+        "2\r\n"
+        f"--{boundary}--\r\n"
     ).encode("utf-8")
     move = urllib.request.Request(
         BASE + "/api/categories/1",
