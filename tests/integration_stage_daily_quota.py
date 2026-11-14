@@ -136,6 +136,13 @@ def main():
     assert expired.get("DailyNewProblemsLimit") is None, expired
     assert_unlimited(premium, 1)
 
+    # The default (unsaved) Free pair is already effective for learners.
+    # Category 2 has no problems; deleting/moving it would silently change
+    # which category a Free learner can reach.
+    for route in ("/api/categories/2", "/api/admin/categories/2"):
+        assert api("DELETE", route, token=admin)[0] == 409, route
+        assert move_category(admin, route, 2) == 409, route
+
     # The dashboard talks to /api/admin/categories, not /api/categories.
     # Selecting exactly two Free categories must be server-authorized and
     # prevent both routes from deleting/moving an explicitly selected one.
