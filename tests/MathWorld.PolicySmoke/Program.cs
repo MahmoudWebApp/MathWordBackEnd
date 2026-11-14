@@ -1,4 +1,5 @@
 using MathWorldAPI.Models;
+using System.Text.Json;
 using MathWorldAPI.Services;
 
 static void Assert(bool condition, string message)
@@ -70,3 +71,26 @@ Assert(!CategoryAccessPolicy.CanAccess(inactivePremium, 1, 2, defaults),
     "Inactive student should not access even Free category.");
 
 Console.WriteLine("PASS: Free category selection, invalid configuration journey group size, Free/Premium entitlement and inactive accounts.");
+
+// A stored geometry scene must render consistently in Next.js and Flutter.
+static string DiagramJson(string objects, string altAr = "رسم هندسي") =>
+    "{\"schemaVersion\":1,\"viewport\":{\"width\":360,\"height\":260}," +
+    "\"altTextAr\":" + JsonSerializer.Serialize(altAr) +
+    ",\"altTextEn\":\"Geometry figure\",\"objects\":[" + objects + "]}";
+
+var signedArc = """{"id":"arc","type":"angle","cx":100,"cy":100,"radius":30,"startDegrees":90,"endDegrees":0}""";
+Assert(GeometrySceneValidator.TryParse(DiagramJson(signedArc), out _),
+    "A valid negative angle sweep must be accepted.");
+Assert(!GeometrySceneValidator.TryParse(DiagramJson(signedArc, ""), out _),
+    "Bilingual geometry alt text must not be blank.");
+Assert(!GeometrySceneValidator.TryParse(
+        DiagramJson(signedArc.Replace("\"endDegrees\":0", "\"endDegrees\":90")), out _),
+    "A zero-angle arc must be rejected.");
+Assert(!GeometrySceneValidator.TryParse(
+        DiagramJson(signedArc.Replace("\"startDegrees\":90", "\"startDegrees\":360")), out _),
+    "A sweep of magnitude 360 must be rejected.");
+Assert(!GeometrySceneValidator.TryParse(
+        DiagramJson("""{"id":"out","type":"point","x":10001,"y":0}"""), out _),
+    "Primitive coordinates must respect shared +/-10000 bounds.");
+Console.WriteLine("PASS: geometry bilingual alt text, bounded coordinates and signed arc validation.");
+
