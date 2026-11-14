@@ -325,9 +325,16 @@ namespace MathWorldAPI.Controllers
                 // category entitlements. Rename/reorder in place instead.
                 var hasProblems = await _context.Problems.AnyAsync(
                     problem => problem.CategoryId == id);
-                var isFreeSelected = await _context.StageFreeCategorySelections
+                var explicitlySelected = await _context.StageFreeCategorySelections.AsNoTracking()
                     .AnyAsync(selection => selection.FirstCategoryId == id ||
                         selection.SecondCategoryId == id);
+                // Before an admin saves a custom pair, the first two sorted
+                // categories are already unlocked. Protect those too, or deleting
+                // one would silently unlock another category for every Free user.
+                var effectiveFreeCategoryIds = await HttpContext.RequestServices
+                    .GetRequiredService<ProblemCategoryAccessService>()
+                    .GetFreeCategoryIdsAsync(category.StageId);
+                var isFreeSelected = explicitlySelected || effectiveFreeCategoryIds.Contains(id);
                 if (hasProblems || isFreeSelected)
                 {
                     return Conflict(LanguageHelper.ErrorResponse<CategoryDto>(
@@ -506,9 +513,16 @@ namespace MathWorldAPI.Controllers
 
             // A category may be selected for Free access even before it has
             // problems; deleting it silently breaks the two-category policy.
-            var isFreeSelected = await _context.StageFreeCategorySelections
-                .AnyAsync(selection => selection.FirstCategoryId == id ||
-                    selection.SecondCategoryId == id);
+            var explicitlySelected = await _context.StageFreeCategorySelections.AsNoTracking()
+                    .AnyAsync(selection => selection.FirstCategoryId == id ||
+                        selection.SecondCategoryId == id);
+                // Before an admin saves a custom pair, the first two sorted
+                // categories are already unlocked. Protect those too, or deleting
+                // one would silently unlock another category for every Free user.
+                var effectiveFreeCategoryIds = await HttpContext.RequestServices
+                    .GetRequiredService<ProblemCategoryAccessService>()
+                    .GetFreeCategoryIdsAsync(category.StageId);
+                var isFreeSelected = explicitlySelected || effectiveFreeCategoryIds.Contains(id);
             if (isFreeSelected)
             {
                 return Conflict(LanguageHelper.ErrorResponse<object>(
