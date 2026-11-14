@@ -63,6 +63,34 @@ public sealed class ProblemCategoryAccessService
     }
 
     /// <summary>
+    /// Reordering categories must not silently replace the two default Free
+    /// categories. Admins can persist the current pair first through the
+    /// dedicated stage configuration endpoint, then reorder freely.
+    /// Persisted/configured selections are independent of editorial order.
+    /// </summary>
+    public async Task<bool> WouldReorderChangeImplicitFreeCategoriesAsync(
+        int stageId, int categoryId, int proposedOrder,
+        CancellationToken cancellationToken = default)
+    {
+        if (await _db.StageFreeCategorySelections.AsNoTracking()
+                .AnyAsync(x => x.StageId == stageId, cancellationToken) ||
+            _configuration[$"FreeCategoryAccess:Stages:{stageId}"] is not null)
+            return false;
+
+        var categories = await _db.Categories.AsNoTracking()
+            .Where(c => c.StageId == stageId)
+            .ToListAsync(cancellationToken);
+        var target = categories.FirstOrDefault(c => c.Id == categoryId);
+        if (target is null || target.Order == proposedOrder)
+            return false;
+
+        var before = CategoryAccessPolicy.ResolveFreeCategoryIds(categories);
+        target.Order = proposedOrder;
+        var after = CategoryAccessPolicy.ResolveFreeCategoryIds(categories);
+        return !before.SequenceEqual(after);
+    }
+
+    /// <summary>
     /// Null means unrestricted admin access. Empty means no category access.
     /// </summary>
     public async Task<List<int>?> GetAllowedCategoryIdsAsync(
