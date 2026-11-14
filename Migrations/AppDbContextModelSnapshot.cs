@@ -45,6 +45,35 @@ namespace MathWorldAPI.Migrations
                     b.ToTable("CurriculumDraftBatches");
                 });
 
+            modelBuilder.Entity("MathWorldAPI.Models.PremiumAccessCode", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+                    b.Property<string>("CodeHash")
+                        .IsRequired()
+                        .HasMaxLength(64)
+                        .HasColumnType("character varying(64)");
+                    b.Property<string>("Label")
+                        .IsRequired()
+                        .HasMaxLength(80)
+                        .HasColumnType("character varying(80)");
+                    b.Property<int>("PremiumDays").HasColumnType("integer");
+                    b.Property<int>("CreatedByAdminId").HasColumnType("integer");
+                    b.Property<DateTime>("CreatedAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<DateTime>("ExpiresAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<int?>("RedeemedByUserId").HasColumnType("integer");
+                    b.Property<DateTime?>("RedeemedAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<DateTime?>("RevokedAtUtc").HasColumnType("timestamp with time zone");
+                    b.HasKey("Id");
+                    b.HasIndex("CodeHash").IsUnique();
+                    b.HasIndex("CreatedByAdminId");
+                    b.HasIndex("RedeemedByUserId");
+                    b.HasIndex("ExpiresAtUtc");
+                    b.ToTable("PremiumAccessCodes");
+                });
+
             modelBuilder.Entity("MathWorldAPI.Models.UserNotification", b =>
                 {
                     b.Property<long>("Id")
@@ -741,6 +770,19 @@ namespace MathWorldAPI.Migrations
                         .HasForeignKey("SubmittedByAdminId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("MathWorldAPI.Models.PremiumAccessCode", b =>
+                {
+                    b.HasOne("MathWorldAPI.Models.AppUser", null)
+                        .WithMany()
+                        .HasForeignKey("CreatedByAdminId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+                    b.HasOne("MathWorldAPI.Models.AppUser", null)
+                        .WithMany()
+                        .HasForeignKey("RedeemedByUserId")
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("MathWorldAPI.Models.UserNotification", b =>
