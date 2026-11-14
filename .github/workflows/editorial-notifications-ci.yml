@@ -16,6 +16,7 @@ on:
       - 'Controllers/StudentPremiumAnalyticsController.cs'
       - 'Controllers/StudentLeaderboardController.cs'
       - 'Controllers/StudentAchievementsController.cs'
+      - 'Controllers/PremiumAccessCodesController.cs'
       - 'Models/**'
       - 'Migrations/**'
       - 'Data/**'
