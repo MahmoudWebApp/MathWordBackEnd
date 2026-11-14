@@ -73,6 +73,36 @@ def main():
     expect("PUT", f"/api/notifications/{notice_id}/read", 204, token=learner1)
     assert expect("GET", "/api/notifications", 200, token=learner1)["UnreadCount"] == 0
 
+    # Full-page inbox is offset-paginated within 30 days and bound to JWT owner.
+    # Add two more read notices without altering later achievement unread checks.
+    extra_ids = []
+    for n in (2, 3):
+        extra = expect("POST", f"/api/admin/notifications/learners/{learner_id}", 200, {
+            "TitleAr": f"إشعار اختبار {n}",
+            "TitleEn": f"Test notice {n}",
+            "BodyAr": "رسالة تجريبية للصفحات",
+            "BodyEn": "Pagination integration check",
+            "TargetPath": "/dashboard",
+        }, admin)
+        extra_ids.append(extra["Id"])
+        expect("PUT", f"/api/notifications/{extra['Id']}/read", 204, token=learner1)
+    first = expect("GET", "/api/notifications?take=1&skip=0", 200, token=learner1)
+    second = expect("GET", "/api/notifications?take=1&skip=1", 200, token=learner1)
+    third = expect("GET", "/api/notifications?take=1&skip=2", 200, token=learner1)
+    end = expect("GET", "/api/notifications?take=1&skip=3", 200, token=learner1)
+    assert first["TotalCount"] == 3 and first["HasMore"], first
+    assert second["HasMore"] and not third["HasMore"], (second, third)
+    assert not end["Items"] and not end["HasMore"], end
+    assert [page["Items"][0]["Id"] for page in (first, second, third)] == [
+        extra_ids[1], extra_ids[0], notice_id,
+    ]
+    assert first["UnreadCount"] == 0
+    assert api("GET", "/api/notifications?take=0", token=learner1)[0] == 400
+    assert api("GET", "/api/notifications?skip=-1", token=learner1)[0] == 400
+    assert api("GET", "/api/notifications?skip=10001", token=learner1)[0] == 400
+    isolated = expect("GET", "/api/notifications?take=1&skip=0", 200, token=learner2)
+    assert isolated["TotalCount"] == 0 and not isolated["Items"], isolated
+
     # First unique solve emits exactly one achievement; retry doesn't duplicate it.
     question_id, correct_option = create_question(admin, 9101)
     # A category containing questions must never move stages: this would
