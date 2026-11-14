@@ -71,6 +71,23 @@ namespace MathWorldAPI.Controllers
                     Reason = reason!,
                     ChangedAtUtc = DateTime.UtcNow
                 });
+                // Persist the student's notice in the same transaction as the grant.
+                // Do not notify when an idempotent request changes nothing.
+                _db.UserNotifications.Add(new UserNotification
+                {
+                    UserId = learner.Id,
+                    Type = "subscription",
+                    TitleAr = type == "Premium" ? "تم تفعيل اشتراك Premium" : "تم تحديث الاشتراك",
+                    TitleEn = type == "Premium" ? "Premium is now active" : "Subscription updated",
+                    BodyAr = type == "Premium"
+                        ? "تم تفعيل مزايا الاشتراك على حسابك."
+                        : "أصبح حسابك على الخطة المجانية.",
+                    BodyEn = type == "Premium"
+                        ? "Premium benefits are now active for your account."
+                        : "Your account is now on the Free plan.",
+                    TargetPath = "/dashboard",
+                    CreatedAtUtc = DateTime.UtcNow
+                });
                 await _db.SaveChangesAsync(cancellationToken);
             }
             await transaction.CommitAsync(cancellationToken);
