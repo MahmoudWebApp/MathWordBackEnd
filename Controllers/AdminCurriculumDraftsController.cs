@@ -132,8 +132,12 @@ public sealed class AdminCurriculumDraftsController : ControllerBase
         if (note.Length is < 10 or > 1000)
             return BadRequest(new { Message = "ReviewNoteRequired10To1000" });
 
+        await using var reviewTransaction = await _db.Database.BeginTransactionAsync(ct);
+        // Lock the batch so two administrators cannot approve/reject
+        // the same pending draft concurrently.
         var batch = await _db.CurriculumDraftBatches
-            .FirstOrDefaultAsync(x => x.Id == id, ct);
+            .FromSqlInterpolated($@"SELECT * FROM ""CurriculumDraftBatches"" WHERE ""Id"" = {id} FOR UPDATE")
+            .SingleOrDefaultAsync(ct);
         if (batch is null) return NotFound();
         if (batch.Status != "Pending")
             return Conflict(new { Message = "BatchNotPending" });
@@ -153,6 +157,7 @@ public sealed class AdminCurriculumDraftsController : ControllerBase
         batch.ReviewedAtUtc = DateTime.UtcNow;
         batch.ReviewNote = note;
         await _db.SaveChangesAsync(ct);
+        await reviewTransaction.CommitAsync(ct);
         return Ok(new { batch.Id, batch.Status, batch.ReviewedByAdminId, batch.ReviewedAtUtc });
     }
 
@@ -166,6 +171,12 @@ public sealed class AdminCurriculumDraftsController : ControllerBase
 
         await using var transaction = await _db.Database.BeginTransactionAsync(
             IsolationLevel.Serializable, ct);
+
+        // Serialize editorial publication across separate batches, too.
+        // Validation then runs in this transaction before any inserts.
+        await _db.Database.SqlQuery<int>(
+                $"SELECT 1 AS \"Value\" FROM pg_advisory_xact_lock({-987654319})")
+            .SingleAsync(ct);
 
         // Prevent two publish requests from committing the same batch.
         var batch = await _db.CurriculumDraftBatches
