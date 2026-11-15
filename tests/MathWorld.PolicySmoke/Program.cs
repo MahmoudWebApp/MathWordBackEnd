@@ -1,3 +1,6 @@
+using System.IO.Compression;
+using System.Xml.Linq;
+using MathWorldAPI.Controllers;
 using MathWorldAPI.Models;
 using System.Text.Json;
 using MathWorldAPI.Services;
@@ -144,3 +147,37 @@ try
 catch (ArgumentOutOfRangeException) { }
 Console.WriteLine("PASS: scheduled discount UTC boundaries, disabling, usage caps and safe monetary calculations.");
 
+
+var workbookReport = new StudentPremiumAnalyticsController.StudentAnalyticsReport(
+    DateTime.UtcNow, 1, 1, 2, 1, 1, 1, 10, 42,
+    new[]
+    {
+        new StudentPremiumAnalyticsController.CategoryStatistics(
+            1, 1, "المرحلة الأولى", "Stage one",
+            "=1+2", "Arithmetic", 1, 1, 0, 2, 1, 1, 1, 10, 42)
+    });
+var xlsx = PremiumAnalyticsXlsxExporter.Create(workbookReport, true);
+using (var archive = new ZipArchive(new MemoryStream(xlsx), ZipArchiveMode.Read))
+{
+    foreach (var name in new[] {
+        "[Content_Types].xml", "_rels/.rels", "xl/workbook.xml",
+        "xl/_rels/workbook.xml.rels", "xl/worksheets/sheet1.xml"
+    })
+        Assert(archive.GetEntry(name) is not null, "XLSX archive is missing " + name);
+
+    var sheet = XDocument.Load(archive.GetEntry("xl/worksheets/sheet1.xml")!.Open());
+    XNamespace ns = "http://schemas.openxmlformats.org/spreadsheetml/2006/main";
+    var userTextCell = sheet.Descendants(ns + "c")
+        .Single(x => (string?)x.Attribute("r") == "E2");
+    Assert((string?)userTextCell.Attribute("t") == "inlineStr" &&
+           (string?)userTextCell.Descendants(ns + "t").Single() == "=1+2",
+        "Untrusted category names must be Excel literal strings, never formulas.");
+    var totalSeconds = sheet.Descendants(ns + "c")
+        .Single(x => (string?)x.Attribute("r") == "O3");
+    Assert((string?)totalSeconds.Element(ns + "v") == "42",
+        "Premium Excel totals must be exported as numeric cells.");
+    var rtlView = sheet.Descendants(ns + "sheetView").Single();
+    Assert((string?)rtlView.Attribute("rightToLeft") == "1",
+        "Arabic Excel workbook must use the RTL worksheet direction.");
+}
+Console.WriteLine("PASS: native Premium XLSX ZIP structure, RTL, typed totals and formula-injection protection.");
