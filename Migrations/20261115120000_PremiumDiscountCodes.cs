@@ -43,7 +43,7 @@ public partial class PremiumDiscountCodes : Migration
                 table.CheckConstraint("CK_PremiumDiscountCodes_Usage",
                     "\"RedemptionCount\" >= 0 AND (\"MaxRedemptions\" IS NULL OR \"MaxRedemptions\" > 0)");
                 table.CheckConstraint("CK_PremiumDiscountCodes_Amount",
-                    "\"Amount\" >= 0 AND ((\"DiscountKind\" = 'Percentage' AND \"Amount\" <= 100) OR \"DiscountKind\" = 'FixedUsd')");
+                    "\"Amount\" >= 0 AND ((\"DiscountKind\" = 'Percentage' AND \"Amount\" <= 100) OR (\"DiscountKind\" = 'FixedUsd' AND \"Amount\" <= 5.00))");
             });
 
         migrationBuilder.CreateIndex(
