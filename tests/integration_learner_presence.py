@@ -2,6 +2,9 @@
 """Presence API checks on disposable local PostgreSQL only. No production writes."""
 import os
 import subprocess
+import threading
+import urllib.request
+from contextlib import ExitStack
 from integration_problem_history import (
     BASE, ADMIN_EMAIL, ADMIN_PASSWORD, api, expect,
     student, token_of, wait_ready,
@@ -87,8 +90,76 @@ def main():
     assert stale["Total"] == 0, stale
     expect("DELETE", f"/api/users/presence/sessions/{C}", 204, token=two)
 
-    # A user-initiated sign-out is an explicit action, not a browser-close guess.
     actor_id = first["Students"][0]["Id"]
+
+    # SSE is an authenticated, user-scoped *refresh hint*, not a source of
+    # notification bodies or bearer tokens. Reuse these already-created
+    # students so the real five-per-minute auth limiter remains enabled.
+    assert api("GET", "/api/notifications/stream")[0] == 401
+
+    def open_stream(token):
+        request = urllib.request.Request(
+            BASE + "/api/notifications/stream",
+            headers={"Authorization": "Bearer " + token,
+                     "Accept": "text/event-stream"}
+        )
+        response = urllib.request.urlopen(request, timeout=7)
+        assert "text/event-stream" in response.headers.get("Content-Type", "")
+        assert response.readline().startswith(b": connected")
+        assert response.readline().strip() == b""
+        return response
+
+    def reader_loop(response, received, observed):
+        try:
+            while True:
+                line = response.readline()
+                if not line:
+                    break
+                if line.strip() == b"event: inbox":
+                    received.append(line)
+                    observed.set()
+                    return
+                assert b"Bearer " not in line and b"learner-ci-" not in line
+        except (OSError, ValueError):
+            pass
+
+    first_seen, second_seen = threading.Event(), threading.Event()
+    first_frames, second_frames = [], []
+    with ExitStack() as stack:
+        first_stream = stack.enter_context(open_stream(one))
+        second_stream = stack.enter_context(open_stream(two))
+        listener1 = threading.Thread(
+            target=reader_loop, args=(first_stream, first_frames, first_seen),
+            daemon=True)
+        listener2 = threading.Thread(
+            target=reader_loop, args=(second_stream, second_frames, second_seen),
+            daemon=True)
+        listener1.start()
+        listener2.start()
+
+        notice = {
+            "TitleAr": "اختبار حدث لحظي", "TitleEn": "Realtime event test",
+            "BodyAr": "بيانات خاصة لا تدخل البث",
+            "BodyEn": "Private notice body never enters SSE",
+            "TargetPath": "/dashboard",
+        }
+        expect("POST", f"/api/admin/notifications/learners/{actor_id}", 200,
+               notice, admin)
+        assert first_seen.wait(5), "Learner 1 did not receive an inbox hint"
+        assert not second_seen.wait(.6), "Notification leaked to another learner"
+
+        learner2_directory = expect(
+            "GET",
+            "/api/admin/engagement/students?search=CI%20Learner%209812",
+            200, token=admin)
+        second_id = learner2_directory["Students"][0]["Id"]
+        expect("POST", f"/api/admin/notifications/learners/{second_id}",
+               200, notice, admin)
+        assert second_seen.wait(5), "Learner 2 did not receive an inbox hint"
+        assert first_frames == [b"event: inbox\\n"], first_frames
+        assert second_frames == [b"event: inbox\\n"], second_frames
+
+    # A user-initiated sign-out is an explicit action, not a browser-close guess.
     expect("POST", "/api/users/session/sign-out", 204, token=one)
     audit_path = (f"/api/admin/activity-audit?actorId={actor_id}"
                   "&action=ExplicitSignOut&days=30")
@@ -101,7 +172,7 @@ def main():
     assert event["Action"] == "ExplicitSignOut"
     assert "learner-ci-" not in str(event).lower() and "password" not in str(event).lower()
 
-    print("PASS: learner-only presence, session ownership, per-stage counts, expiry and private sign-out audit")
+    print("PASS: learner-only presence, session ownership, per-stage counts, expiry, isolated SSE notifications and private sign-out audit")
 
 
 if __name__ == "__main__":
