@@ -32,6 +32,7 @@ namespace MathWorldAPI.Data
         public DbSet<CurriculumDraftBatch> CurriculumDraftBatches => Set<CurriculumDraftBatch>();
         public DbSet<PremiumAccessCode> PremiumAccessCodes => Set<PremiumAccessCode>();
         public DbSet<PremiumDiscountCode> PremiumDiscountCodes => Set<PremiumDiscountCode>();
+        public DbSet<PremiumCheckoutOrder> PremiumCheckoutOrders => Set<PremiumCheckoutOrder>();
 
         public DbSet<AppUser> Users =>
             Set<AppUser>();
@@ -101,6 +102,51 @@ namespace MathWorldAPI.Data
                 .HasOne<AppUser>().WithMany()
                 .HasForeignKey(x => x.UpdatedByAdminId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<PremiumCheckoutOrder>()
+                .HasOne<AppUser>().WithMany()
+                .HasForeignKey(x => x.StudentId).OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<PremiumCheckoutOrder>()
+                .HasOne<PremiumDiscountCode>().WithMany()
+                .HasForeignKey(x => x.DiscountCodeId).OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<PremiumCheckoutOrder>()
+                .Property(x => x.OrderReference).HasMaxLength(64).IsRequired();
+            modelBuilder.Entity<PremiumCheckoutOrder>()
+                .HasIndex(x => x.OrderReference).IsUnique();
+            modelBuilder.Entity<PremiumCheckoutOrder>()
+                .Property(x => x.Status).HasMaxLength(24).IsRequired();
+            modelBuilder.Entity<PremiumCheckoutOrder>()
+                .Property(x => x.Currency).HasMaxLength(3).IsRequired();
+            modelBuilder.Entity<PremiumCheckoutOrder>()
+                .Property(x => x.Provider).HasMaxLength(40);
+            modelBuilder.Entity<PremiumCheckoutOrder>()
+                .Property(x => x.ProviderPaymentId).HasMaxLength(160);
+            modelBuilder.Entity<PremiumCheckoutOrder>()
+                .HasIndex(x => new { x.Provider, x.ProviderPaymentId })
+                .IsUnique()
+                .HasFilter("\\"Provider\\" IS NOT NULL AND \\"ProviderPaymentId\\" IS NOT NULL");
+            modelBuilder.Entity<PremiumCheckoutOrder>()
+                .HasIndex(x => new { x.StudentId, x.CreatedAtUtc });
+            modelBuilder.Entity<PremiumCheckoutOrder>()
+                .Property(x => x.SubtotalUsd).HasPrecision(10, 2);
+            modelBuilder.Entity<PremiumCheckoutOrder>()
+                .Property(x => x.DiscountUsd).HasPrecision(10, 2);
+            modelBuilder.Entity<PremiumCheckoutOrder>()
+                .Property(x => x.TotalUsd).HasPrecision(10, 2);
+            modelBuilder.Entity<PremiumCheckoutOrder>()
+                .ToTable(t =>
+                {
+                    t.HasCheckConstraint("CK_PremiumCheckoutOrders_Amounts",
+                        "\\"SubtotalUsd\\" >= 0 AND \\"DiscountUsd\\" >= 0 AND \\"TotalUsd\\" >= 0 AND \\"SubtotalUsd\\" = \\"DiscountUsd\\" + \\"TotalUsd\\"");
+                    t.HasCheckConstraint("CK_PremiumCheckoutOrders_Currency",
+                        "\\"Currency\\" = 'USD'");
+                    t.HasCheckConstraint("CK_PremiumCheckoutOrders_Status",
+                        "\\"Status\\" IN ('Pending', 'Paid', 'Failed', 'Cancelled', 'Refunded')");
+                    t.HasCheckConstraint("CK_PremiumCheckoutOrders_PaidVerification",
+                        "\\"Status\\" <> 'Paid' OR \\"VerifiedPaidAtUtc\\" IS NOT NULL");
+                    t.HasCheckConstraint("CK_PremiumCheckoutOrders_DiscountRedemption",
+                        "\\"DiscountRedeemedAtUtc\\" IS NULL OR (\"DiscountCodeId\" IS NOT NULL AND \\"VerifiedPaidAtUtc\\" IS NOT NULL)");
+                });
 
             modelBuilder.Entity<PremiumDiscountCode>()
                 .HasOne<AppUser>().WithMany()
