@@ -12,6 +12,8 @@ namespace MathWorldAPI.Services;
 public sealed class NotificationStreamBroker
 {
     private readonly ConcurrentDictionary<Guid, (int UserId, Channel<bool> Channel)> _listeners = new();
+    private readonly object _gate = new();
+    private const int MaxStreamsPerAccount = 3;
 
     public sealed class Subscription : IDisposable
     {
@@ -33,22 +35,34 @@ public sealed class NotificationStreamBroker
         }
     }
 
-    public Subscription Subscribe(int userId)
+    /// <summary>
+    /// Prevent unlimited simultaneous open HTTP streams per account.
+    /// The lock makes the per-user cap atomic even with concurrent tabs.
+    /// </summary>
+    public Subscription? TrySubscribe(int userId)
     {
         if (userId <= 0) throw new ArgumentOutOfRangeException(nameof(userId));
-        var key = Guid.NewGuid();
-        var channel = Channel.CreateBounded<bool>(new BoundedChannelOptions(4)
+        lock (_gate)
         {
-            FullMode = BoundedChannelFullMode.DropOldest,
-            SingleReader = true,
-            SingleWriter = false
-        });
-        _listeners[key] = (userId, channel);
-        return new Subscription(channel.Reader, () =>
-        {
-            if (_listeners.TryRemove(key, out var removed))
-                removed.Channel.Writer.TryComplete();
-        });
+            if (_listeners.Values.Count(x => x.UserId == userId) >= MaxStreamsPerAccount)
+                return null;
+            var key = Guid.NewGuid();
+            var channel = Channel.CreateBounded<bool>(new BoundedChannelOptions(4)
+            {
+                FullMode = BoundedChannelFullMode.DropOldest,
+                SingleReader = true,
+                SingleWriter = false
+            });
+            _listeners[key] = (userId, channel);
+            return new Subscription(channel.Reader, () =>
+            {
+                lock (_gate)
+                {
+                    if (_listeners.TryRemove(key, out var removed))
+                        removed.Channel.Writer.TryComplete();
+                }
+            });
+        }
     }
 
     public void Notify(int userId)
