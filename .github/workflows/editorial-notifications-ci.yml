@@ -21,6 +21,9 @@ on:
       - 'Migrations/**'
       - 'Data/**'
       - 'tests/integration_editorial_notifications.py'
+      - 'tests/integration_learner_presence.py'
+      - 'Controllers/LearnerPresenceController.cs'
+      - 'Controllers/AdminEngagementController.cs'
       - '.github/workflows/editorial-notifications-ci.yml'
 
 permissions:
@@ -79,6 +82,15 @@ jobs:
         env:
           MATHWORLD_TEST_BASE_URL: http://127.0.0.1:5059
         run: python3 tests/integration_editorial_notifications.py
+      - name: Verify live learner presence, admin ownership and expiry
+        env:
+          MATHWORLD_TEST_BASE_URL: http://127.0.0.1:5059
+          PGHOST: 127.0.0.1
+          PGPORT: '5432'
+          PGUSER: postgres
+          PGPASSWORD: ci_only_password
+          PGDATABASE: mathworld_ci
+        run: python3 tests/integration_learner_presence.py
       - name: Print actionable error markers
         if: failure()
         run: |
