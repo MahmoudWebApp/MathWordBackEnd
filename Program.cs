@@ -80,6 +80,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 // ============================================================================
 
 builder.Services.AddScoped<ProblemCategoryAccessService>();
+// Invoked only by a future server-side, independently verified payment adapter.
+builder.Services.AddScoped<PremiumPaymentSettlementService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<ISocialAuthService, SocialAuthService>();
 builder.Services.AddScoped<IMeiliSearchService, MeiliSearchService>();
