@@ -57,11 +57,27 @@ public sealed class NotificationsController : ControllerBase
             await Response.WriteAsync(": connected\n\n", ct);
             await Response.Body.FlushAsync(ct);
 
+            // A long-lived connection must never outlive its JWT. An
+            // expired access token is revalidated during the next reconnect.
             var end = DateTime.UtcNow.AddMinutes(5);
+            if (long.TryParse(User.FindFirst("exp")?.Value, out var unixExpiry))
+            {
+                try
+                {
+                    var jwtEnd = DateTimeOffset.FromUnixTimeSeconds(unixExpiry).UtcDateTime;
+                    if (jwtEnd < end) end = jwtEnd;
+                }
+                catch (ArgumentOutOfRangeException)
+                {
+                    end = DateTime.UtcNow;
+                }
+            }
             while (!ct.IsCancellationRequested && DateTime.UtcNow < end)
             {
                 using var waiting = CancellationTokenSource.CreateLinkedTokenSource(ct);
-                waiting.CancelAfter(TimeSpan.FromSeconds(20));
+                var remaining = end - DateTime.UtcNow;
+                waiting.CancelAfter(remaining < TimeSpan.FromSeconds(20)
+                    ? remaining : TimeSpan.FromSeconds(20));
                 try
                 {
                     await subscription.Reader.ReadAsync(waiting.Token);
