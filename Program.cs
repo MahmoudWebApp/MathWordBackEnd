@@ -83,6 +83,8 @@ builder.Services.AddScoped<ProblemCategoryAccessService>();
 builder.Services.AddScoped<PlatformActivityAuditWriter>();
 // Invoked only by a future server-side, independently verified payment adapter.
 builder.Services.AddScoped<PremiumPaymentSettlementService>();
+// Privacy-minimal learner presence: expire stale sessions hourly.
+builder.Services.AddHostedService<LearnerPresenceCleanupService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<ISocialAuthService, SocialAuthService>();
 builder.Services.AddScoped<IMeiliSearchService, MeiliSearchService>();
