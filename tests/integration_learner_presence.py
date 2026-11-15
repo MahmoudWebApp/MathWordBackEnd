@@ -156,8 +156,8 @@ def main():
         expect("POST", f"/api/admin/notifications/learners/{second_id}",
                200, notice, admin)
         assert second_seen.wait(5), "Learner 2 did not receive an inbox hint"
-        assert first_frames == [b"event: inbox\\n"], first_frames
-        assert second_frames == [b"event: inbox\\n"], second_frames
+        assert first_frames == [b"event: inbox\n"], first_frames
+        assert second_frames == [b"event: inbox\n"], second_frames
 
     # A user-initiated sign-out is an explicit action, not a browser-close guess.
     expect("POST", "/api/users/session/sign-out", 204, token=one)
