@@ -35,6 +35,12 @@ public sealed class NotificationStreamBroker
         }
     }
 
+    // Backwards-compatible API for internal callers that require a stream.
+    // HTTP endpoints should prefer TrySubscribe so they can return 429.
+    public Subscription Subscribe(int userId) =>
+        TrySubscribe(userId) ??
+        throw new InvalidOperationException("Too many active notification streams.");
+
     /// <summary>
     /// Prevent unlimited simultaneous open HTTP streams per account.
     /// The lock makes the per-user cap atomic even with concurrent tabs.
