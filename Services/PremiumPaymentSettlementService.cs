@@ -13,7 +13,12 @@ namespace MathWorldAPI.Services;
 public sealed class PremiumPaymentSettlementService
 {
     private readonly AppDbContext _db;
-    public PremiumPaymentSettlementService(AppDbContext db) => _db = db;
+    private readonly NotificationStreamBroker _stream;
+    public PremiumPaymentSettlementService(AppDbContext db, NotificationStreamBroker stream)
+    {
+        _db = db;
+        _stream = stream;
+    }
 
     // A verified receipt is SERVER-ONLY evidence. Client POST bodies are not evidence.
     public sealed record VerifiedReceipt(
@@ -178,6 +183,7 @@ public sealed class PremiumPaymentSettlementService
 
         await _db.SaveChangesAsync(ct);
         await tx.CommitAsync(ct);
+        _stream.Notify(student.Id);
         return new Result(Outcome.Settled, order.Id, expires);
     }
 }
