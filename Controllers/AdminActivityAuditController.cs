@@ -88,7 +88,7 @@ public sealed class AdminActivityAuditController : ControllerBase
             Entries = entries,
             HasMore = page * pageSize < total,
             WindowDays = days,
-            Note = "Audit starts at deployment; logout is not recorded reliably on JWT-only clients."
+            Note = "Audit starts at deployment. Explicit sign-out is recorded only when the authenticated client request succeeds; closing a browser or force-quitting an app does not confirm logout."
         }, "Success", LanguageHelper.GetLanguageFromRequest(Request)));
     }
 }
