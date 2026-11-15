@@ -16,7 +16,12 @@ namespace MathWorldAPI.Controllers
     public sealed class AdminSubscriptionsController : ControllerBase
     {
         private readonly AppDbContext _db;
-        public AdminSubscriptionsController(AppDbContext db) => _db = db;
+        private readonly NotificationStreamBroker _stream;
+        public AdminSubscriptionsController(AppDbContext db, NotificationStreamBroker stream)
+        {
+            _db = db;
+            _stream = stream;
+        }
 
         [HttpPut("{learnerId:int}/subscription")]
         public async Task<IActionResult> Update(
@@ -91,6 +96,9 @@ namespace MathWorldAPI.Controllers
                 await _db.SaveChangesAsync(cancellationToken);
             }
             await transaction.CommitAsync(cancellationToken);
+            if (!string.Equals(previousType, type, StringComparison.Ordinal) ||
+                previousExpiry != request.PremiumExpiresAtUtc)
+                _stream.Notify(learner.Id);
             return Ok(LanguageHelper.SuccessResponse(new SubscriptionStatusDto
             {
                 LearnerId = learner.Id,
