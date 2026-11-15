@@ -5,6 +5,7 @@ using MathWorldAPI.Data;
 using MathWorldAPI.Helpers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.EntityFrameworkCore;
 
 namespace MathWorldAPI.Controllers;
@@ -37,6 +38,7 @@ public sealed class NotificationsController : ControllerBase
     /// One process only; periodic inbox polling is required for failover.
     /// </summary>
     [HttpGet("stream")]
+    [EnableRateLimiting("notification-stream")]
     [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
     public async Task Stream(CancellationToken ct)
     {
@@ -76,6 +78,7 @@ public sealed class NotificationsController : ControllerBase
             {
                 using var waiting = CancellationTokenSource.CreateLinkedTokenSource(ct);
                 var remaining = end - DateTime.UtcNow;
+                if (remaining <= TimeSpan.Zero) break;
                 waiting.CancelAfter(remaining < TimeSpan.FromSeconds(20)
                     ? remaining : TimeSpan.FromSeconds(20));
                 try
