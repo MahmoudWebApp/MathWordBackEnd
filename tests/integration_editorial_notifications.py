@@ -55,6 +55,23 @@ def main():
     students = expect("GET", "/api/admin/learners", 200, token=admin)["Learners"]
     learner_id = next(item["Id"] for item in students if item["Email"].startswith("learner-ci-9101@"))
 
+    # Realtime transport uses the learner JWT header (never a token in URL).
+    # Stream frames are hints without titles/body/user data; the client GETs
+    # the private inbox. This test also proves a committed admin send emits
+    # a refresh event before the client falls back to polling.
+    stream_request = urllib.request.Request(
+        BASE + "/api/notifications/stream",
+        headers={
+            "Authorization": "Bearer " + learner1,
+            "Accept": "text/event-stream",
+        },
+    )
+    assert api("GET", "/api/notifications/stream")[0] == 401
+    stream = urllib.request.urlopen(stream_request, timeout=8)
+    assert "text/event-stream" in stream.headers.get("Content-Type", "")
+    assert stream.readline().startswith(b": connected")
+    assert stream.readline().strip() == b""
+
     sent = expect("POST", f"/api/admin/notifications/learners/{learner_id}", 200, {
         "TitleAr": "اختبار إشعار",
         "TitleEn": "Test notice",
@@ -63,6 +80,10 @@ def main():
         "TargetPath": "/dashboard",
     }, admin)
     notice_id = sent["Id"]
+    assert stream.readline().strip() == b"event: inbox", "Admin notice did not trigger SSE"
+    assert stream.readline().strip() == b"data: {}", "SSE must not expose notice content"
+    assert stream.readline().strip() == b""
+    stream.close()
     own = expect("GET", "/api/notifications", 200, token=learner1)
     assert own["UnreadCount"] == 1, own
     assert any(n["Id"] == notice_id for n in own["Items"])
