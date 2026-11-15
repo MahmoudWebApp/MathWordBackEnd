@@ -45,6 +45,43 @@ namespace MathWorldAPI.Migrations
                     b.ToTable("CurriculumDraftBatches");
                 });
 
+            modelBuilder.Entity("MathWorldAPI.Models.PremiumCheckoutOrder", b =>
+                {
+                    b.Property<long>("Id").ValueGeneratedOnAdd().HasColumnType("bigint")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+                    b.Property<int>("StudentId").HasColumnType("integer");
+                    b.Property<long?>("DiscountCodeId").HasColumnType("bigint");
+                    b.Property<string>("OrderReference").IsRequired().HasMaxLength(64).HasColumnType("character varying(64)");
+                    b.Property<string>("Status").IsRequired().HasMaxLength(24).HasColumnType("character varying(24)");
+                    b.Property<decimal>("SubtotalUsd").HasPrecision(10, 2).HasColumnType("numeric(10,2)");
+                    b.Property<decimal>("DiscountUsd").HasPrecision(10, 2).HasColumnType("numeric(10,2)");
+                    b.Property<decimal>("TotalUsd").HasPrecision(10, 2).HasColumnType("numeric(10,2)");
+                    b.Property<string>("Currency").IsRequired().HasMaxLength(3).HasColumnType("character varying(3)");
+                    b.Property<string>("Provider").HasMaxLength(40).HasColumnType("character varying(40)");
+                    b.Property<string>("ProviderPaymentId").HasMaxLength(160).HasColumnType("character varying(160)");
+                    b.Property<DateTime>("CreatedAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<DateTime?>("VerifiedPaidAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<DateTime?>("DiscountRedeemedAtUtc").HasColumnType("timestamp with time zone");
+                    b.HasKey("Id");
+                    b.HasIndex("OrderReference").IsUnique();
+                    b.HasIndex("StudentId", "CreatedAtUtc");
+                    b.HasIndex("DiscountCodeId");
+                    b.HasIndex("Provider", "ProviderPaymentId").IsUnique()
+                        .HasFilter("\"Provider\" IS NOT NULL AND \"ProviderPaymentId\" IS NOT NULL");
+                    b.ToTable("PremiumCheckoutOrders", t =>
+                        {
+                            t.HasCheckConstraint("CK_PremiumCheckoutOrders_Amounts",
+                                "\"SubtotalUsd\" >= 0 AND \"DiscountUsd\" >= 0 AND \"TotalUsd\" >= 0 AND \"SubtotalUsd\" = \"DiscountUsd\" + \"TotalUsd\"");
+                            t.HasCheckConstraint("CK_PremiumCheckoutOrders_Currency", "\"Currency\" = 'USD'");
+                            t.HasCheckConstraint("CK_PremiumCheckoutOrders_Status",
+                                "\"Status\" IN ('Pending', 'Paid', 'Failed', 'Cancelled', 'Refunded')");
+                            t.HasCheckConstraint("CK_PremiumCheckoutOrders_PaidVerification",
+                                "\"Status\" <> 'Paid' OR \"VerifiedPaidAtUtc\" IS NOT NULL");
+                            t.HasCheckConstraint("CK_PremiumCheckoutOrders_DiscountRedemption",
+                                "\"DiscountRedeemedAtUtc\" IS NULL OR (\"DiscountCodeId\" IS NOT NULL AND \"VerifiedPaidAtUtc\" IS NOT NULL)");
+                        });
+                });
+
             modelBuilder.Entity("MathWorldAPI.Models.PremiumDiscountCode", b =>
                 {
                     b.Property<long>("Id")
@@ -799,6 +836,14 @@ namespace MathWorldAPI.Migrations
                         .HasForeignKey("SubmittedByAdminId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("MathWorldAPI.Models.PremiumCheckoutOrder", b =>
+                {
+                    b.HasOne("MathWorldAPI.Models.AppUser", null).WithMany()
+                        .HasForeignKey("StudentId").OnDelete(DeleteBehavior.Restrict).IsRequired();
+                    b.HasOne("MathWorldAPI.Models.PremiumDiscountCode", null).WithMany()
+                        .HasForeignKey("DiscountCodeId").OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("MathWorldAPI.Models.PremiumDiscountCode", b =>
