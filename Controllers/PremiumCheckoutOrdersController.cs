@@ -74,6 +74,15 @@ public sealed class PremiumCheckoutOrdersController : ControllerBase
                     discountCode.DiscountKind, out var kind) || !Enum.IsDefined(kind))
                 return BadRequest(new { Message = "InvalidOrUnavailableDiscount" });
 
+            if (discountCode.MaxRedemptionsPerStudent is int maxPerStudent)
+            {
+                var used = await _db.PremiumCheckoutOrders.AsNoTracking().CountAsync(
+                    x => x.StudentId == studentId.Value &&
+                        x.DiscountCodeId == discountCode.Id &&
+                        x.DiscountRedeemedAtUtc != null, ct);
+                if (used >= maxPerStudent)
+                    return BadRequest(new { Message = "InvalidOrUnavailableDiscount" });
+            }
             quote = PremiumDiscountCalculator.Calculate(
                 PremiumDiscountCalculator.AnnualPriceUsd, kind, discountCode.Amount);
         }
