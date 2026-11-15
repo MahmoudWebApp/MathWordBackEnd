@@ -7,6 +7,7 @@ using MathWorldAPI.Models;
 using MathWorldAPI.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.EntityFrameworkCore;
 
 namespace MathWorldAPI.Controllers;
@@ -153,6 +154,7 @@ public sealed class PremiumDiscountCodesController : ControllerBase
     }
 
     [HttpPost("users/premium-discounts/quote")]
+    [EnableRateLimiting("premium-code")]
     [Authorize(Roles = "Student")]
     [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
     public async Task<IActionResult> Quote([FromBody] QuoteRequest? request, CancellationToken ct)
@@ -171,7 +173,9 @@ public sealed class PremiumDiscountCodesController : ControllerBase
                 PremiumDiscountEligibility.Status.Active)
             return BadRequest(new { Message = "InvalidOrUnavailableDiscount" });
 
-        var kind = Enum.Parse<PremiumDiscountCalculator.DiscountKind>(code.DiscountKind);
+        if (!Enum.TryParse<PremiumDiscountCalculator.DiscountKind>(code.DiscountKind, out var kind) ||
+            !Enum.IsDefined(kind))
+            return BadRequest(new { Message = "InvalidOrUnavailableDiscount" });
         var quote = PremiumDiscountCalculator.Calculate(
             PremiumDiscountCalculator.AnnualPriceUsd, kind, code.Amount);
         Response.Headers.CacheControl = "no-store";
