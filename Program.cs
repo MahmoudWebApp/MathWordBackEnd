@@ -251,6 +251,23 @@ builder.Services.AddRateLimiter(options =>
             });
     });
 
+    // A student heartbeat is best-effort and cannot flood PostgreSQL.
+    // Each learner has a small quota independent of solving questions.
+    options.AddPolicy("presence", httpContext =>
+    {
+        var id = httpContext.User.FindFirstValue(ClaimTypes.NameIdentifier)
+            ?? httpContext.Connection.RemoteIpAddress?.ToString()
+            ?? "unknown-client";
+        return RateLimitPartition.GetFixedWindowLimiter(id,
+            _ => new FixedWindowRateLimiterOptions
+            {
+                PermitLimit = 6,
+                Window = TimeSpan.FromMinutes(1),
+                QueueLimit = 0,
+                AutoReplenishment = true
+            });
+    });
+
     // Solution previews have their own bucket; viewing a Premium solution
     // must never consume the answer-submission rate limit.
     options.AddPolicy("solution-preview", httpContext =>
