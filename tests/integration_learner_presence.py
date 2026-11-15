@@ -86,7 +86,22 @@ def main():
                    200, token=admin)
     assert stale["Total"] == 0, stale
     expect("DELETE", f"/api/users/presence/sessions/{C}", 204, token=two)
-    print("PASS: learner-only presence, session ownership, per-stage distinct counts and expiry")
+
+    # A user-initiated sign-out is an explicit action, not a browser-close guess.
+    actor_id = first["Students"][0]["Id"]
+    expect("POST", "/api/users/session/sign-out", 204, token=one)
+    audit_path = (f"/api/admin/activity-audit?actorId={actor_id}"
+                  "&action=ExplicitSignOut&days=30")
+    assert api("GET", audit_path, token=one)[0] == 403
+    actions = expect("GET", audit_path, 200, token=admin)
+    assert actions["Total"] == 1, actions
+    event = actions["Entries"][0]
+    assert event["ActorUserId"] == actor_id
+    assert event["ActorRole"] == "Student"
+    assert event["Action"] == "ExplicitSignOut"
+    assert "learner-ci-" not in str(event).lower() and "password" not in str(event).lower()
+
+    print("PASS: learner-only presence, session ownership, per-stage counts, expiry and private sign-out audit")
 
 
 if __name__ == "__main__":
