@@ -163,6 +163,8 @@ namespace MathWorldAPI.Data
             modelBuilder.Entity<PremiumDiscountCode>()
                 .Property(x => x.Amount).HasPrecision(10, 2);
             modelBuilder.Entity<PremiumDiscountCode>()
+                .Property(x => x.MaxRedemptionsPerStudent).HasDefaultValue(1);
+            modelBuilder.Entity<PremiumDiscountCode>()
                 .HasIndex(x => new { x.Enabled, x.StartsAtUtc, x.EndsAtUtc });
             modelBuilder.Entity<PremiumDiscountCode>()
                 .ToTable(t =>
