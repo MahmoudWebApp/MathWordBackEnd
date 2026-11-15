@@ -535,6 +535,10 @@ app.UseRateLimiter();
 
 app.UseAuthorization();
 
+// Store successful user/admin command metadata after authorization.
+// No request bodies, email addresses, tokens or raw query strings.
+app.UseMiddleware<PlatformActivityAuditMiddleware>();
+
 app.MapControllers();
 
 // ============================================================================
