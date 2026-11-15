@@ -92,6 +92,17 @@ public sealed class PremiumCheckoutOrdersController : ControllerBase
         if (quote.TotalUsd == 0m)
             return Conflict(new { Message = "ZeroValueCheckoutNotAvailable" });
 
+        // Bound pending drafts per student. The advisory lock serializes
+        // concurrent create requests so the cap cannot be bypassed in a race.
+        await using var tx = await _db.Database.BeginTransactionAsync(ct);
+        await _db.Database.SqlQuery<int>(
+                $"SELECT 1 AS \"Value\" FROM pg_advisory_xact_lock({-987654320}, {studentId.Value})")
+            .SingleAsync(ct);
+        var pending = await _db.PremiumCheckoutOrders.CountAsync(
+            x => x.StudentId == studentId.Value && x.Status == "Pending", ct);
+        if (pending >= 3)
+            return Conflict(new { Message = "TooManyPendingCheckoutOrders" });
+
         var order = new PremiumCheckoutOrder
         {
             StudentId = studentId.Value,
@@ -106,6 +117,7 @@ public sealed class PremiumCheckoutOrdersController : ControllerBase
         };
         _db.PremiumCheckoutOrders.Add(order);
         await _db.SaveChangesAsync(ct);
+        await tx.CommitAsync(ct);
         Response.Headers.CacheControl = "no-store";
         return CreatedAtAction(nameof(GetOrder), new { id = order.Id }, new
         {
