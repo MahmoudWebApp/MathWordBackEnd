@@ -210,3 +210,26 @@ firstInbox.Dispose();
 realtime.Notify(101);
 Assert(!firstInbox.Reader.TryRead(out _), "Disposed SSE listener must no longer receive signals.");
 Console.WriteLine("PASS: user-scoped SSE invalidation, no cross-user signals, subscriber disposal.");
+
+
+var streamBroker = new NotificationStreamBroker();
+using var streamOne = streamBroker.TrySubscribe(1042);
+using var streamTwo = streamBroker.TrySubscribe(1042);
+using var streamThree = streamBroker.TrySubscribe(1042);
+using var otherStream = streamBroker.TrySubscribe(1043);
+Assert(streamOne is not null && streamTwo is not null &&
+       streamThree is not null && otherStream is not null,
+    "Three streams per learner plus an independent learner must be allowed.");
+Assert(streamBroker.TrySubscribe(1042) is null,
+    "A fourth simultaneous SSE connection for one learner must be rejected.");
+streamBroker.Notify(1042);
+Assert(streamOne!.Reader.TryRead(out _) && streamTwo!.Reader.TryRead(out _) &&
+       streamThree!.Reader.TryRead(out _),
+    "Authenticated listener tabs must receive their own refresh hints.");
+Assert(!otherStream!.Reader.TryRead(out _),
+    "A notice must never be delivered to a different user's SSE channel.");
+streamThree.Dispose();
+using var reopenedStream = streamBroker.TrySubscribe(1042);
+Assert(reopenedStream is not null,
+    "Disposing a listener must release the concurrent connection slot.");
+Console.WriteLine("PASS: notification stream isolation, per-account connection caps and release.");
