@@ -4,6 +4,7 @@ import os
 import subprocess
 import threading
 import urllib.request
+import urllib.error
 from contextlib import ExitStack
 from integration_problem_history import (
     BASE, ADMIN_EMAIL, ADMIN_PASSWORD, api, expect,
@@ -171,6 +172,27 @@ def main():
     assert event["ActorRole"] == "Student"
     assert event["Action"] == "ExplicitSignOut"
     assert "learner-ci-" not in str(event).lower() and "password" not in str(event).lower()
+
+    # Read-only CSV export must enforce the same admin ownership and filters.
+    csv_request = urllib.request.Request(
+        BASE + "/api/admin/activity-audit/export.csv?days=30"
+               "&action=ExplicitSignOut&actorId=" + str(actor_id),
+        headers={"Authorization": "Bearer " + admin, "Accept": "text/csv"})
+    with urllib.request.urlopen(csv_request, timeout=10) as csv_response:
+        exported = csv_response.read().decode("utf-8-sig")
+        assert csv_response.headers.get("Cache-Control") == "no-store"
+        assert csv_response.headers.get("Content-Type", "").startswith("text/csv")
+        assert exported.startswith("EventId,ActorUserId,ActorName,")
+        assert "ExplicitSignOut" in exported, exported
+        assert "password" not in exported.lower()
+    forbidden = urllib.request.Request(
+        BASE + "/api/admin/activity-audit/export.csv?days=30",
+        headers={"Authorization": "Bearer " + one})
+    try:
+        urllib.request.urlopen(forbidden, timeout=10)
+        raise AssertionError("Student downloaded an admin-only audit CSV")
+    except urllib.error.HTTPError as forbidden_response:
+        assert forbidden_response.code == 403, forbidden_response.code
 
     print("PASS: learner-only presence, session ownership, per-stage counts, expiry, isolated SSE notifications and private sign-out audit")
 
