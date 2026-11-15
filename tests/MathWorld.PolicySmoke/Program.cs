@@ -197,3 +197,16 @@ foreach (var (method, route, action) in new[]
         $"Wrong audit action label for {method} {route}.");
 }
 Console.WriteLine("PASS: admin audit labels for publishing, revocation, disable, messaging and legacy category CRUD.");
+
+var realtime = new NotificationStreamBroker();
+using var firstInbox = realtime.Subscribe(101);
+using var secondInbox = realtime.Subscribe(202);
+realtime.Notify(101);
+Assert(firstInbox.Reader.TryRead(out _), "Recipient must receive an inbox refresh signal.");
+Assert(!secondInbox.Reader.TryRead(out _), "A private notification cannot refresh another user's inbox.");
+realtime.Notify(202);
+Assert(secondInbox.Reader.TryRead(out _), "Second recipient must receive their own signal.");
+firstInbox.Dispose();
+realtime.Notify(101);
+Assert(!firstInbox.Reader.TryRead(out _), "Disposed SSE listener must no longer receive signals.");
+Console.WriteLine("PASS: user-scoped SSE invalidation, no cross-user signals, subscriber disposal.");
