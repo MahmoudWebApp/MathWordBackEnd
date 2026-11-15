@@ -32,6 +32,7 @@ public sealed class PremiumDiscountCodesController : ControllerBase
         public DateTime StartsAtUtc { get; set; }
         public DateTime EndsAtUtc { get; set; }
         public int? MaxRedemptions { get; set; }
+        public int? MaxRedemptionsPerStudent { get; set; } = 1;
     }
 
     public sealed class QuoteRequest
@@ -75,7 +76,8 @@ public sealed class PremiumDiscountCodesController : ControllerBase
             (kind == PremiumDiscountCalculator.DiscountKind.Percentage && request.Amount > 100m) ||
             (kind == PremiumDiscountCalculator.DiscountKind.FixedUsd && request.Amount > PremiumDiscountCalculator.AnnualPriceUsd) ||
             decimal.Round(request.Amount, 2) != request.Amount ||
-            request.MaxRedemptions is <= 0)
+            request.MaxRedemptions is <= 0 ||
+            request.MaxRedemptionsPerStudent is <= 0)
             return BadRequest(new { Message = "InvalidDiscountSettings" });
 
         var now = DateTime.UtcNow;
@@ -98,6 +100,7 @@ public sealed class PremiumDiscountCodesController : ControllerBase
             StartsAtUtc = request.StartsAtUtc,
             EndsAtUtc = request.EndsAtUtc,
             MaxRedemptions = request.MaxRedemptions,
+            MaxRedemptionsPerStudent = request.MaxRedemptionsPerStudent,
             CreatedByAdminId = adminId.Value,
             CreatedAtUtc = now,
             Enabled = true
@@ -108,7 +111,8 @@ public sealed class PremiumDiscountCodesController : ControllerBase
         return Ok(new
         {
             code.Id, Code = display, code.Label, code.DiscountKind, code.Amount,
-            code.StartsAtUtc, code.EndsAtUtc, code.MaxRedemptions, code.Enabled
+            code.StartsAtUtc, code.EndsAtUtc, code.MaxRedemptions,
+            code.MaxRedemptionsPerStudent, code.Enabled
         });
     }
 
@@ -134,7 +138,8 @@ public sealed class PremiumDiscountCodesController : ControllerBase
             Codes = codes.Select(x => new
             {
                 x.Id, x.Label, x.DiscountKind, x.Amount, x.StartsAtUtc,
-                x.EndsAtUtc, x.Enabled, x.MaxRedemptions, x.RedemptionCount,
+                x.EndsAtUtc, x.Enabled, x.MaxRedemptions,
+                x.MaxRedemptionsPerStudent, x.RedemptionCount,
                 x.CreatedAtUtc,
                 Status = PremiumDiscountEligibility.Evaluate(Policy(x), now).ToString()
             })
@@ -159,7 +164,8 @@ public sealed class PremiumDiscountCodesController : ControllerBase
     [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
     public async Task<IActionResult> Quote([FromBody] QuoteRequest? request, CancellationToken ct)
     {
-        if (await ActiveUserId("Student", ct) is null) return Forbid();
+        var studentId = await ActiveUserId("Student", ct);
+        if (studentId is null) return Forbid();
         var normalized = Normalize(request?.Code);
         if (!Regex.IsMatch(normalized, "^MD[0-9A-F]{36}$"))
             return BadRequest(new { Message = "InvalidOrUnavailableDiscount" });
@@ -172,6 +178,15 @@ public sealed class PremiumDiscountCodesController : ControllerBase
             PremiumDiscountEligibility.Evaluate(Policy(code), now) !=
                 PremiumDiscountEligibility.Status.Active)
             return BadRequest(new { Message = "InvalidOrUnavailableDiscount" });
+
+        if (code.MaxRedemptionsPerStudent is int maxPerStudent)
+        {
+            var used = await _db.PremiumCheckoutOrders.AsNoTracking().CountAsync(
+                x => x.StudentId == studentId.Value && x.DiscountCodeId == code.Id &&
+                     x.DiscountRedeemedAtUtc != null, ct);
+            if (used >= maxPerStudent)
+                return BadRequest(new { Message = "InvalidOrUnavailableDiscount" });
+        }
 
         if (!Enum.TryParse<PremiumDiscountCalculator.DiscountKind>(code.DiscountKind, out var kind) ||
             !Enum.IsDefined(kind))
