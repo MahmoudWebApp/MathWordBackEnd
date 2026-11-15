@@ -82,6 +82,39 @@ jobs:
         env:
           MATHWORLD_TEST_BASE_URL: http://127.0.0.1:5059
         run: python3 tests/integration_editorial_notifications.py
+      # The prior integration test logs in and registers multiple users.
+      # Production auth protection is intentionally only 5 attempts/min/IP;
+      # starting a fresh test API resets its in-memory limiter without
+      # weakening the production policy or sleeping for a full minute.
+      - name: Restart disposable API to isolate auth rate-limit windows
+        env:
+          ASPNETCORE_ENVIRONMENT: Production
+          ASPNETCORE_URLS: http://127.0.0.1:5059
+          ConnectionStrings__DefaultConnection: Host=127.0.0.1;Port=5432;Database=mathworld_ci;Username=postgres;Password=ci_only_password
+          Jwt__Key: ci_only_test_signing_key_never_use_in_production_0123456789
+          Jwt__Issuer: MathWorld-CI
+          Jwt__Audience: MathWorld-CI
+          Meilisearch__Enabled: 'false'
+          BootstrapAdmin__Enabled: 'true'
+          BootstrapAdmin__Email: ci-admin@mathworld.test
+          BootstrapAdmin__Password: CI_TEST_ADMIN_PASSWORD_12345
+          BootstrapAdmin__FullName: CI Administrator
+          Database__ApplyMigrationsOnStartup: 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          kill "$(cat /tmp/mathworld-editorial-ci.pid)"
+          # Wait for the prior listener to exit before starting the replacement.
+          for attempt in $(seq 1 30); do
+            if ! curl -fsS --max-time 1 http://127.0.0.1:5059/health/ready >/dev/null 2>&1; then
+              break
+            fi
+            sleep 1
+          done
+          dotnet run --no-build --no-launch-profile --configuration Release --project MathWorldAPI.csproj >> /tmp/mathworld-editorial-ci.log 2>&1 &
+          echo "$!" > /tmp/mathworld-editorial-ci.pid
+          MATHWORLD_TEST_BASE_URL=http://127.0.0.1:5059 python3 -c 'import sys; sys.path.insert(0,"tests"); from integration_problem_history import wait_ready; wait_ready()'
+
       - name: Verify live learner presence, admin ownership and expiry
         env:
           MATHWORLD_TEST_BASE_URL: http://127.0.0.1:5059
