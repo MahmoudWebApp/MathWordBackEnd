@@ -255,6 +255,23 @@ builder.Services.AddRateLimiter(options =>
             });
     });
 
+    // Limit opening long-lived SSE streams per authenticated account.
+    // Keep normal inbox GET and solving requests in separate budgets.
+    options.AddPolicy("notification-stream", httpContext =>
+    {
+        var id = httpContext.User.FindFirstValue(ClaimTypes.NameIdentifier)
+            ?? httpContext.Connection.RemoteIpAddress?.ToString()
+            ?? "unknown-client";
+        return RateLimitPartition.GetFixedWindowLimiter(id,
+            _ => new FixedWindowRateLimiterOptions
+            {
+                PermitLimit = 12,
+                Window = TimeSpan.FromMinutes(1),
+                QueueLimit = 0,
+                AutoReplenishment = true
+            });
+    });
+
     // A student heartbeat is best-effort and cannot flood PostgreSQL.
     // Each learner has a small quota independent of solving questions.
     options.AddPolicy("presence", httpContext =>
