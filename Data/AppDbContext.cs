@@ -122,11 +122,11 @@ namespace MathWorldAPI.Data
                 .ToTable(t =>
                 {
                     t.HasCheckConstraint("CK_PremiumDiscountCodes_Window",
-                        "\\"EndsAtUtc\\" > \\"StartsAtUtc\\"");
+                        "\"EndsAtUtc\" > \"StartsAtUtc\"");
                     t.HasCheckConstraint("CK_PremiumDiscountCodes_Usage",
-                        "\\"RedemptionCount\\" >= 0 AND (\\"MaxRedemptions\\" IS NULL OR \\"MaxRedemptions\\" > 0)");
+                        "\"RedemptionCount\" >= 0 AND (\"MaxRedemptions\" IS NULL OR \"MaxRedemptions\" > 0)");
                     t.HasCheckConstraint("CK_PremiumDiscountCodes_Amount",
-                        "\\"Amount\\" >= 0 AND ((\\"DiscountKind\\" = 'Percentage' AND \\"Amount\\" <= 100) OR \\"DiscountKind\\" = 'FixedUsd')");
+                        "\"Amount\" >= 0 AND ((\"DiscountKind\" = 'Percentage' AND \"Amount\" <= 100) OR \"DiscountKind\" = 'FixedUsd')");
                 });
 
             modelBuilder.Entity<PremiumAccessCode>()
