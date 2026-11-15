@@ -29,6 +29,7 @@ public sealed class AdminEngagementController : ControllerBase
     }
 
     private static DateTime Cutoff(int days) => DateTime.UtcNow.Date.AddDays(1 - days);
+    private static DateTime PresenceCutoff() => DateTime.UtcNow.AddMinutes(-5);
 
     [HttpGet("overview")]
     public async Task<IActionResult> Overview([FromQuery] int days = 30, CancellationToken ct = default)
@@ -36,6 +37,22 @@ public sealed class AdminEngagementController : ControllerBase
         if (!await ActiveAdmin(ct)) return Forbid();
         if (days is < 1 or > 90) return BadRequest(new { Message = "InvalidActivityWindow" });
         var start = Cutoff(days);
+        // Online means distinct active learners with a confirmed server
+        // heartbeat in the last five minutes; not active browser sockets.
+        var presenceCutoff = PresenceCutoff();
+        var online = from presence in _db.LearnerPresences.AsNoTracking()
+                     join student in _db.Users.AsNoTracking()
+                         on presence.UserId equals student.Id
+                     where presence.LastSeenAtUtc >= presenceCutoff &&
+                           student.IsActive && student.Role == "Student"
+                     select new { presence.UserId, student.CurrentStageId };
+        var onlineLearners = await online.Select(x => x.UserId).Distinct().CountAsync(ct);
+        var onlineByStage = await online
+            .Where(x => x.CurrentStageId.HasValue)
+            .GroupBy(x => x.CurrentStageId!.Value)
+            .Select(g => new { StageId = g.Key, Count = g.Select(x => x.UserId).Distinct().Count() })
+            .ToDictionaryAsync(x => x.StageId, x => x.Count, ct);
+
         var learners = _db.Users.AsNoTracking().Where(x => x.Role == "Student");
         var attempts = _db.ProblemAttempts.AsNoTracking()
             .Where(x => x.User.Role == "Student" && x.SubmittedAt >= start);
@@ -86,6 +103,7 @@ public sealed class AdminEngagementController : ControllerBase
             TotalStudents = await learners.CountAsync(ct),
             NewStudents = await learners.CountAsync(u => u.CreatedAt >= start, ct),
             ActiveSolvers = counts?.Active ?? 0, SuccessfulSolves = counts?.Successful ?? 0,
+            OnlineLearners = onlineLearners, PresenceWindowMinutes = 5,
             DailyActivity = timeline,
             Stages = stages.Select(s =>
             {
@@ -93,6 +111,7 @@ public sealed class AdminEngagementController : ControllerBase
                 registrationsByStage.TryGetValue(s.Id, out var signups);
                 return new { StageId = s.Id, s.NameAr, s.NameEn,
                     ActiveSolvers = a?.Active ?? 0,
+                    OnlineLearners = onlineByStage.GetValueOrDefault(s.Id),
                     SuccessfulSolves = a?.Successful ?? 0,
                     Signups = signups?.Count ?? 0 };
             }).ToArray()
@@ -203,6 +222,12 @@ public sealed class AdminEngagementController : ControllerBase
             .Select(g => new { UserId = g.Key, LastPracticeAt = g.Max(a => a.SubmittedAt),
                 Attempts = g.Count() }).ToListAsync(ct);
         var attemptByUser = attemptStats.ToDictionary(x => x.UserId);
+        var lastHeartbeat = await _db.LearnerPresences.AsNoTracking()
+            .Where(p => ids.Contains(p.UserId))
+            .GroupBy(p => p.UserId)
+            .Select(g => new { UserId = g.Key, LastSeenAtUtc = g.Max(p => p.LastSeenAtUtc) })
+            .ToDictionaryAsync(x => x.UserId, x => x.LastSeenAtUtc, ct);
+        var presenceCutoff = PresenceCutoff();
         return Ok(LanguageHelper.SuccessResponse(new
         {
             Total = total, Page = page, PageSize = pageSize,
@@ -212,9 +237,14 @@ public sealed class AdminEngagementController : ControllerBase
                 return new { u.Id, u.FullName, u.CreatedAt, u.LastLoginAt,
                     u.CurrentStageId, u.IsActive,
                     LastPracticeAt = (DateTime?)stat?.LastPracticeAt,
+                    LastHeartbeatAtUtc = lastHeartbeat.TryGetValue(u.Id, out var heartbeat)
+                        ? (DateTime?)heartbeat : null,
+                    IsOnline = u.IsActive && lastHeartbeat.TryGetValue(u.Id, out var seen) &&
+                        seen >= presenceCutoff,
                     Attempts = stat?.Attempts ?? 0 };
             }).ToArray(),
-            Note = "No reliable sign-out timestamp is available in current JWT sessions."
+            PresenceWindowMinutes = 5,
+            Note = "Online means a server heartbeat within five minutes; exact signout cannot be inferred from abrupt app/browser closure."
         }, "Success", LanguageHelper.GetLanguageFromRequest(Request)));
     }
 }
