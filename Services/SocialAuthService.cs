@@ -122,9 +122,7 @@ namespace MathWorldAPI.Services
                     return null;
                 }
 
-                _logger.LogInformation(
-                    "Google user verified: {Email}",
-                    googleUser.Email);
+                _logger.LogDebug("Google identity token verified.");
 
                 // Keep creation and provider identity binding atomic. A failed
                 // link must not leave an orphan MathWorld account.
@@ -245,9 +243,7 @@ namespace MathWorldAPI.Services
                     return null;
                 }
 
-                _logger.LogInformation(
-                    "Facebook user verified: {Email}",
-                    facebookUser.Email);
+                _logger.LogDebug("Facebook identity token verified.");
 
                 // Keep creation and provider identity binding atomic. A failed
                 // link must not leave an orphan MathWorld account.
@@ -723,10 +719,9 @@ namespace MathWorldAPI.Services
             await _context.SaveChangesAsync();
 
             _logger.LogInformation(
-                "New user {UserId} was created from {Provider}: {Email}",
+                "New user {UserId} was created via {Provider}.",
                 user.Id,
-                normalizedProvider,
-                normalizedEmail);
+                normalizedProvider);
 
             Console.WriteLine(
                 $"New social user created. Provider: {normalizedProvider}, UserId: {user.Id}");
