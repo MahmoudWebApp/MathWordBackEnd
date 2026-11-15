@@ -54,7 +54,7 @@ public sealed class NotificationsController : ControllerBase
         try
         {
             await Response.StartAsync(ct);
-            await Response.WriteAsync(": connected\\n\\n", ct);
+            await Response.WriteAsync(": connected\n\n", ct);
             await Response.Body.FlushAsync(ct);
 
             var end = DateTime.UtcNow.AddMinutes(5);
@@ -67,12 +67,12 @@ public sealed class NotificationsController : ControllerBase
                     await subscription.Reader.ReadAsync(waiting.Token);
                     // Account suspension takes effect even for an open stream.
                     if (await ActiveUserId(ct) != userId) break;
-                    await Response.WriteAsync("event: inbox\\ndata: {}\\n\\n", ct);
+                    await Response.WriteAsync("event: inbox\ndata: {}\n\n", ct);
                 }
                 catch (OperationCanceledException) when (!ct.IsCancellationRequested)
                 {
                     if (await ActiveUserId(ct) != userId) break;
-                    await Response.WriteAsync(": keep-alive\\n\\n", ct);
+                    await Response.WriteAsync(": keep-alive\n\n", ct);
                 }
                 await Response.Body.FlushAsync(ct);
             }
