@@ -45,6 +45,35 @@ namespace MathWorldAPI.Migrations
                     b.ToTable("CurriculumDraftBatches");
                 });
 
+            modelBuilder.Entity("MathWorldAPI.Models.PremiumDiscountCode", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+                    b.Property<string>("CodeHash").IsRequired().HasMaxLength(64).HasColumnType("character varying(64)");
+                    b.Property<string>("Label").IsRequired().HasMaxLength(80).HasColumnType("character varying(80)");
+                    b.Property<string>("DiscountKind").IsRequired().HasMaxLength(20).HasColumnType("character varying(20)");
+                    b.Property<decimal>("Amount").HasPrecision(10, 2).HasColumnType("numeric(10,2)");
+                    b.Property<DateTime>("StartsAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<DateTime>("EndsAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<bool>("Enabled").HasColumnType("boolean");
+                    b.Property<int?>("MaxRedemptions").HasColumnType("integer");
+                    b.Property<int>("RedemptionCount").HasColumnType("integer");
+                    b.Property<int>("CreatedByAdminId").HasColumnType("integer");
+                    b.Property<DateTime>("CreatedAtUtc").HasColumnType("timestamp with time zone");
+                    b.HasKey("Id");
+                    b.HasIndex("CodeHash").IsUnique();
+                    b.HasIndex("CreatedByAdminId");
+                    b.HasIndex("Enabled", "StartsAtUtc", "EndsAtUtc");
+                    b.ToTable("PremiumDiscountCodes", t =>
+                        {
+                            t.HasCheckConstraint("CK_PremiumDiscountCodes_Window", "\"EndsAtUtc\" > \"StartsAtUtc\"");
+                            t.HasCheckConstraint("CK_PremiumDiscountCodes_Usage", "\"RedemptionCount\" >= 0 AND (\"MaxRedemptions\" IS NULL OR \"MaxRedemptions\" > 0)");
+                            t.HasCheckConstraint("CK_PremiumDiscountCodes_Amount", "\"Amount\" >= 0 AND ((\"DiscountKind\" = 'Percentage' AND \"Amount\" <= 100) OR (\"DiscountKind\" = 'FixedUsd' AND \"Amount\" <= 5.00))");
+                        });
+                });
+
             modelBuilder.Entity("MathWorldAPI.Models.PremiumAccessCode", b =>
                 {
                     b.Property<long>("Id")
@@ -768,6 +797,15 @@ namespace MathWorldAPI.Migrations
                     b.HasOne("MathWorldAPI.Models.AppUser", null)
                         .WithMany()
                         .HasForeignKey("SubmittedByAdminId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("MathWorldAPI.Models.PremiumDiscountCode", b =>
+                {
+                    b.HasOne("MathWorldAPI.Models.AppUser", null)
+                        .WithMany()
+                        .HasForeignKey("CreatedByAdminId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
