@@ -15,6 +15,8 @@ public sealed class PremiumDiscountCode
     public DateTime EndsAtUtc { get; set; }
     public bool Enabled { get; set; } = true;
     public int? MaxRedemptions { get; set; }
+    // Null allows multiple purchases by the same student; 1 is the default.
+    public int? MaxRedemptionsPerStudent { get; set; } = 1;
     public int RedemptionCount { get; set; }
     public int CreatedByAdminId { get; set; }
     public DateTime CreatedAtUtc { get; set; } = DateTime.UtcNow;
