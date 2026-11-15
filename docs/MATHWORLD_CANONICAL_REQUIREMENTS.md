@@ -1,6 +1,8 @@
 # MathWorld — MASTER REQUIREMENTS AND ACCEPTANCE REGISTER
 **Canonical requirements register • 2026-11-13 • approved scope consolidated from project conversations**
 
+**Latest requirement decision (2026-11-15):** This file originated on 2026-11-13. Free access is **two unlocked categories per stage with unlimited practice**, replacing the discarded 10-questions-per-day concept. Checkout/provider choice, live payment and ad unlock remain deferred. Automated draft coverage is not teacher-approved publication. Keep feature work on review branches until a separate staging acceptance and owner-approved deployment.
+
 **Purpose:** single source of truth for every requested improvement, enhancement and development. Do not silently drop any item. This register documents **requirements**, not evidence of implementation. All changes require code + tests + verification before DONE. Read together with `MATHWORLD_MASTER_EXECUTION_TRACKER.md`, `MATHWORLD_FULL_STACK_LAUNCH_ROADMAP.md`, `NOTIFICATIONS_SVG_GEOMETRY_ZERO_COST_PLAN.md`, and `CURRICULUM_CATEGORY_AND_PROBLEM_EXPANSION_V1.md`.
 
 ## 0. Non-negotiable operating rules
@@ -14,14 +16,14 @@
 ## 1. Student learning journey and content
 - [ ] After login/onboarding student chooses educational stage; remember selection; switch stage without deleting any historical progress.
 - [ ] Each stage has clearly organized categories, levels, problem lists, completion progress and visible learning journey; **minimum ten reviewed problems per level** as user requested, then grow curated bank per category.
-- [ ] Free student: **10 NEW answered problems per stage per UTC day**; repeat/review prior problems without consuming new quota. Enforce on server and prevent races/abuse.
+- [ ] Free student: **exactly two admin-selected categories unlocked per educational stage, with unlimited practice of questions inside those categories and no daily ten-question quota**. The backend must deny access to locked categories; never rely on hiding a client UI link alone. Existing attempts and historical progress remain intact.
 - [ ] Premium: unlimited new problems; reveal correct answer + detailed worked solution **before attempting**, server-authorized; access to advanced personal statistics, export Excel and PDF, no ads on web or app.
 - [ ] Premium future: access to private math tutor contact/marketplace, gated OFF until moderation, verification and consent are ready.
 - [ ] Points/XP, daily streaks, achievements, badges, stage/category completion, student rankings by stage, and admin leaderboard of most active solvers; fair scoring and anti-cheat.
 - [ ] Student dashboard: personal performance, accuracy, attempts, improvement, time, strengths/weaknesses, error notebook, recommendations, historical charts, review scheduling.
 - [ ] Category expansion across **all existing educational stages**; new bilingual categories and reviewed problem bank; do not renumber existing IDs. Seed/import must be idempotent and previewable, with validation and rollback.
 - [ ] Every problem: bilingual statement/title, four distinct plausible answer options, exactly one correct, difficulty, correct math solution in both languages, explanation and optional video, topic/stage fit, deduplication, editorial review, copyright provenance.
-- [ ] Problem quantity target and curriculum mapping are separate from daily quota. Draft catalogue and ten example problems live in `CURRICULUM_CATEGORY_AND_PROBLEM_EXPANSION_V1.md`; **not published**.
+- [ ] Problem quantity target and curriculum mapping are independent of entitlement. **No Free daily attempt quota**. The 320 bilingual problem drafts remain unpublished until editorial approval and staging publication review (see the frontend branch's `docs/content/MATHWORLD_320_QUESTION_CONTENT_GATE.md`).
 - [ ] Problem types: arithmetic, fractions, percentages, algebra, equations, geometry, functions, graphs, probability/statistics, trigonometry, coordinates/vectors, calculus and advanced levels appropriate to the actual stage; avoid claiming official national curriculum without selection.
 
 ## 2. Geometry inside questions — BOTH platforms (mandatory)
@@ -36,7 +38,7 @@
 - [ ] Use approved new MathWorld logo everywhere: header, auth, app screens, favicon, social previews, Android/iOS launcher and splash. Match brand palette without inventing replacement logo.
 - [ ] **Flutter OUTSIDE launcher icon** visible on phone home screen, Android adaptive foreground/background and round/monochrome icons, iOS icons where supported; fix black background around logo; test a **release APK** and screenshots on real Android themes.
 - [ ] Unified clean modern geometric/math design tokens, typography, consistent outlined category icons, color, spacing, buttons, states, responsive layout, dark/light readability and accessibility.
-- [ ] Same stage cards, category cards, problems, answers, geometry, quota, Premium status, achievements and navigation patterns on web and Flutter while respecting native ergonomics.
+- [ ] Same stage cards, category cards, problems, answers, geometry, Free-category availability, Premium status, achievements and navigation patterns on web and Flutter while respecting native ergonomics.
 - [ ] SVG/category icon registry with same semantic keys on both platforms; support old emoji icon values until migrated safely. No hard-coded remote asset URLs or unsafe SVG.
 - [ ] Correct Arabic RTL and English LTR, bilingual math layout, equation/LaTeX rendering, readable solution steps, empty/loading/error states, keyboard and screen-reader support.
 - [ ] Inspect actual app/web pages and close visual inconsistencies; do not count UI redesign as complete just because styles or icons were proposed.
