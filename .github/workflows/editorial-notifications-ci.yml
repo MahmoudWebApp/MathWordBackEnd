@@ -85,6 +85,9 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          # PostgreSQL migrations + admin bootstrap can take longer than the
+          # initial three-second sleep. Check actual readiness before CORS.
+          MATHWORLD_TEST_BASE_URL=http://127.0.0.1:5059 python3 -c 'import sys; sys.path.insert(0,"tests"); from integration_problem_history import wait_ready; wait_ready()'
           python3 - <<'PY'
           import urllib.request
 
