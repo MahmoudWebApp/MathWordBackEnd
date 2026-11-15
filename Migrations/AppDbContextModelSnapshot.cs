@@ -96,6 +96,8 @@ namespace MathWorldAPI.Migrations
                     b.Property<DateTime>("EndsAtUtc").HasColumnType("timestamp with time zone");
                     b.Property<bool>("Enabled").HasColumnType("boolean");
                     b.Property<int?>("MaxRedemptions").HasColumnType("integer");
+                    b.Property<int?>("MaxRedemptionsPerStudent")
+                        .ValueGeneratedOnAdd().HasColumnType("integer").HasDefaultValue(1);
                     b.Property<int>("RedemptionCount").HasColumnType("integer");
                     b.Property<int>("CreatedByAdminId").HasColumnType("integer");
                     b.Property<DateTime>("CreatedAtUtc").HasColumnType("timestamp with time zone");
@@ -106,7 +108,7 @@ namespace MathWorldAPI.Migrations
                     b.ToTable("PremiumDiscountCodes", t =>
                         {
                             t.HasCheckConstraint("CK_PremiumDiscountCodes_Window", "\"EndsAtUtc\" > \"StartsAtUtc\"");
-                            t.HasCheckConstraint("CK_PremiumDiscountCodes_Usage", "\"RedemptionCount\" >= 0 AND (\"MaxRedemptions\" IS NULL OR \"MaxRedemptions\" > 0)");
+                            t.HasCheckConstraint("CK_PremiumDiscountCodes_Usage", "\"RedemptionCount\" >= 0 AND (\"MaxRedemptions\" IS NULL OR \"MaxRedemptions\" > 0) AND (\"MaxRedemptionsPerStudent\" IS NULL OR \"MaxRedemptionsPerStudent\" > 0)");
                             t.HasCheckConstraint("CK_PremiumDiscountCodes_Amount", "\"Amount\" >= 0 AND ((\"DiscountKind\" = 'Percentage' AND \"Amount\" <= 100) OR (\"DiscountKind\" = 'FixedUsd' AND \"Amount\" <= 5.00))");
                         });
                 });
