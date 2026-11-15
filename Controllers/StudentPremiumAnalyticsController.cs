@@ -78,6 +78,29 @@ public sealed class StudentPremiumAnalyticsController : ControllerBase
         return File(bytes, "text/csv; charset=utf-8", "mathworld-premium-analytics.csv");
     }
 
+    /// <summary>
+    /// Real Excel workbook, not a renamed CSV. Each cell is a number or
+    /// inline string (never a formula), and only the verified owner can export.
+    /// </summary>
+    [HttpGet("export.xlsx")]
+    [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
+    public async Task<IActionResult> ExportXlsx([FromQuery] string lang = "ar",
+        CancellationToken ct = default)
+    {
+        if (lang != "ar" && lang != "en")
+            return BadRequest(new { Message = "InvalidReportLanguage" });
+        var userId = await PremiumStudentId(ct);
+        if (userId.Status is not null) return userId.Status;
+
+        var report = await BuildReport(userId.Id!.Value, ct);
+        var bytes = PremiumAnalyticsXlsxExporter.Create(report, lang == "ar");
+        Response.Headers.CacheControl = "no-store";
+        Response.Headers["X-Content-Type-Options"] = "nosniff";
+        return File(bytes,
+            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            "mathworld-premium-analytics.xlsx");
+    }
+
     private async Task<(int? Id, IActionResult? Status)> PremiumStudentId(CancellationToken ct)
     {
         if (!int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out var id) || id <= 0)
