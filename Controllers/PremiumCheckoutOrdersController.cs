@@ -107,6 +107,32 @@ public sealed class PremiumCheckoutOrdersController : ControllerBase
         });
     }
 
+    [HttpGet("orders")]
+    public async Task<IActionResult> MyOrders([FromQuery] int page = 1,
+        [FromQuery] int pageSize = 20, CancellationToken ct = default)
+    {
+        var studentId = await StudentId(ct);
+        if (studentId is null) return Forbid();
+        if (page < 1 || pageSize is < 1 or > 50 ||
+            (long)(page - 1) * pageSize > int.MaxValue)
+            return BadRequest(new { Message = "InvalidPagination" });
+
+        var query = _db.PremiumCheckoutOrders.AsNoTracking()
+            .Where(x => x.StudentId == studentId.Value);
+        var total = await query.CountAsync(ct);
+        var orders = await query.OrderByDescending(x => x.CreatedAtUtc)
+            .ThenByDescending(x => x.Id)
+            .Skip((page - 1) * pageSize).Take(pageSize)
+            .Select(x => new
+            {
+                x.Id, x.OrderReference, x.Status, x.SubtotalUsd,
+                x.DiscountUsd, x.TotalUsd, x.Currency, x.CreatedAtUtc,
+                x.VerifiedPaidAtUtc
+            }).ToListAsync(ct);
+        Response.Headers.CacheControl = "no-store";
+        return Ok(new { Total = total, Page = page, PageSize = pageSize, Orders = orders });
+    }
+
     [HttpGet("orders/{id:long}")]
     public async Task<IActionResult> GetOrder(long id, CancellationToken ct)
     {
