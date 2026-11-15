@@ -18,6 +18,40 @@ public sealed class PlatformActivityAuditMiddleware
     private readonly RequestDelegate _next;
     public PlatformActivityAuditMiddleware(RequestDelegate next) => _next = next;
 
+    /// <summary>
+    /// Stable, low-cardinality event labels. We only inspect the matched
+    /// route template (never raw query strings, values or request bodies).
+    /// </summary>
+    public static string ClassifyAction(string method, string route)
+    {
+        if (method == "DELETE") return "Delete";
+        if (method is "PUT" or "PATCH")
+        {
+            if (route.Contains("/disable", StringComparison.OrdinalIgnoreCase))
+                return "Disable";
+            if (route.Contains("/revoke", StringComparison.OrdinalIgnoreCase))
+                return "Revoke";
+            return "Update";
+        }
+        if (method == "POST")
+        {
+            if (route.Contains("/publish", StringComparison.OrdinalIgnoreCase))
+                return "Publish";
+            if (route.Contains("/approve", StringComparison.OrdinalIgnoreCase))
+                return "Approve";
+            if (route.Contains("/reject", StringComparison.OrdinalIgnoreCase))
+                return "Reject";
+            if (route.Contains("/redeem", StringComparison.OrdinalIgnoreCase))
+                return "Redeem";
+            if (route.Contains("/grant", StringComparison.OrdinalIgnoreCase))
+                return "Grant";
+            if (route.Contains("/notifications", StringComparison.OrdinalIgnoreCase))
+                return "Notify";
+            return "CreateOrSubmit";
+        }
+        return "Change";
+    }
+
     public async Task InvokeAsync(HttpContext context, AppDbContext db,
         ILogger<PlatformActivityAuditMiddleware> logger)
     {
@@ -66,14 +100,7 @@ public sealed class PlatformActivityAuditMiddleware
             {
                 ActorUserId = userId,
                 ActorRole = role,
-                Action = method switch
-                {
-                    "POST" => "CreateOrSubmit",
-                    "PUT" => "Update",
-                    "PATCH" => "Update",
-                    "DELETE" => "Delete",
-                    _ => "Change"
-                },
+                Action = ClassifyAction(method, route),
                 Resource = route.Length <= 140 ? route : route[..140],
                 ResourceId = resourceId?.Length > 64 ? resourceId[..64] : resourceId,
                 Origin = "api",
