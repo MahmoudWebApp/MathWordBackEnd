@@ -81,6 +81,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 builder.Services.AddScoped<ProblemCategoryAccessService>();
 builder.Services.AddScoped<PlatformActivityAuditWriter>();
+// Lightweight SSE invalidation; per-process only, with polling as fallback.
+builder.Services.AddSingleton<NotificationStreamBroker>();
 // Invoked only by a future server-side, independently verified payment adapter.
 builder.Services.AddScoped<PremiumPaymentSettlementService>();
 // Privacy-minimal learner presence: expire stale sessions hourly.
