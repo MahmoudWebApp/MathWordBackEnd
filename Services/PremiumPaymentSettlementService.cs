@@ -107,6 +107,18 @@ public sealed class PremiumPaymentSettlementService
                 !Enum.TryParse<PremiumDiscountCalculator.DiscountKind>(
                     discount.DiscountKind, out var kind) || !Enum.IsDefined(kind))
                 return new Result(Outcome.DiscountNoLongerEligible, order.Id);
+            // The coupon row is locked: simultaneous settlements using the
+            // same code are serialized, including per-student usage checks.
+            if (discount.MaxRedemptionsPerStudent is int maxPerStudent)
+            {
+                var previousUses = await _db.PremiumCheckoutOrders.AsNoTracking()
+                    .CountAsync(x => x.StudentId == order.StudentId &&
+                        x.DiscountCodeId == discount.Id &&
+                        x.DiscountRedeemedAtUtc != null, ct);
+                if (previousUses >= maxPerStudent)
+                    return new Result(Outcome.DiscountNoLongerEligible, order.Id);
+            }
+
             var price = PremiumDiscountCalculator.Calculate(
                 PremiumDiscountCalculator.AnnualPriceUsd, kind, discount.Amount);
             if (price.SubtotalUsd != order.SubtotalUsd ||
