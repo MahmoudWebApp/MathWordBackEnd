@@ -33,6 +33,7 @@ namespace MathWorldAPI.Data
         public DbSet<PremiumAccessCode> PremiumAccessCodes => Set<PremiumAccessCode>();
         public DbSet<PremiumDiscountCode> PremiumDiscountCodes => Set<PremiumDiscountCode>();
         public DbSet<PremiumCheckoutOrder> PremiumCheckoutOrders => Set<PremiumCheckoutOrder>();
+        public DbSet<PlatformActivityEvent> PlatformActivityEvents => Set<PlatformActivityEvent>();
 
         public DbSet<AppUser> Users =>
             Set<AppUser>();
@@ -89,6 +90,21 @@ namespace MathWorldAPI.Data
             ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<PlatformActivityEvent>(entity =>
+            {
+                entity.Property(e => e.ActorRole).HasMaxLength(32).IsRequired();
+                entity.Property(e => e.Action).HasMaxLength(64).IsRequired();
+                entity.Property(e => e.Resource).HasMaxLength(140).IsRequired();
+                entity.Property(e => e.ResourceId).HasMaxLength(64);
+                entity.Property(e => e.Origin).HasMaxLength(24).IsRequired();
+                entity.HasIndex(e => new { e.ActorUserId, e.CreatedAtUtc });
+                entity.HasIndex(e => new { e.ActorRole, e.CreatedAtUtc });
+                entity.HasIndex(e => new { e.CreatedAtUtc, e.Id });
+                entity.HasOne<AppUser>().WithMany()
+                    .HasForeignKey(e => e.ActorUserId)
+                    .OnDelete(DeleteBehavior.Restrict);
+            });
 
             modelBuilder.Entity<StageFreeCategorySelection>().HasKey(x => x.StageId);
             modelBuilder.Entity<StageFreeCategorySelection>()
