@@ -4,6 +4,7 @@ using MathWorldAPI.Controllers;
 using MathWorldAPI.Models;
 using System.Text.Json;
 using MathWorldAPI.Services;
+using MathWorldAPI.Middleware;
 
 static void Assert(bool condition, string message)
 {
@@ -181,3 +182,18 @@ using (var archive = new ZipArchive(new MemoryStream(xlsx), ZipArchiveMode.Read)
         "Arabic Excel workbook must use the RTL worksheet direction.");
 }
 Console.WriteLine("PASS: native Premium XLSX ZIP structure, RTL, typed totals and formula-injection protection.");
+
+foreach (var (method, route, action) in new[]
+{
+    ("POST", "api/admin/curriculum/drafts/{id}/publish", "Publish"),
+    ("PUT", "api/admin/premium-codes/{id}/revoke", "Revoke"),
+    ("PUT", "api/admin/premium-discounts/{id}/disable", "Disable"),
+    ("POST", "api/admin/notifications/learners/{learnerId}", "Notify"),
+    ("DELETE", "api/categories/{id}", "Delete"),
+    ("POST", "api/categories", "CreateOrSubmit")
+})
+{
+    Assert(PlatformActivityAuditMiddleware.ClassifyAction(method, route) == action,
+        $"Wrong audit action label for {method} {route}.");
+}
+Console.WriteLine("PASS: admin audit labels for publishing, revocation, disable, messaging and legacy category CRUD.");
