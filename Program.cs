@@ -455,7 +455,8 @@ var allowedOrigins =
             "https://localhost:3000",
             "https://localhost:3001",
             "https://localhost:5173",
-            "https://mathwords.netlify.app"
+            "https://mathwords.netlify.app",
+            "https://math-world-frontend.vercel.app"
         };
 
 builder.Services.AddCors(options =>
