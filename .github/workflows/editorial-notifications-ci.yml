@@ -68,6 +68,9 @@ jobs:
           BootstrapAdmin__Password: CI_TEST_ADMIN_PASSWORD_12345
           BootstrapAdmin__FullName: CI Administrator
           Database__ApplyMigrationsOnStartup: 'true'
+          # Match Vercel + previous Netlify origin configuration on Render.
+          Cors__Origins__0: https://mathwords.netlify.app
+          Cors__Origins__1: https://math-world-frontend.vercel.app
         shell: bash
         run: |
           set -euo pipefail
@@ -78,6 +81,39 @@ jobs:
             tail -n 70 /tmp/mathworld-editorial-ci.log
             exit 1
           fi
+      - name: Verify Vercel and Netlify CORS without wildcard origins
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import urllib.request
+
+          url = "http://127.0.0.1:5059/api/stages"
+          for origin, allowed in (
+              ("https://math-world-frontend.vercel.app", True),
+              ("https://mathwords.netlify.app", True),
+              ("https://untrusted.mathworld.test", False),
+          ):
+              request = urllib.request.Request(
+                  url,
+                  method="OPTIONS",
+                  headers={
+                      "Origin": origin,
+                      "Access-Control-Request-Method": "GET",
+                      "Access-Control-Request-Headers": "Authorization",
+                  },
+              )
+              with urllib.request.urlopen(request, timeout=10) as response:
+                  actual = response.headers.get("Access-Control-Allow-Origin")
+                  credentials = response.headers.get("Access-Control-Allow-Credentials")
+                  if allowed:
+                      assert actual == origin, (origin, actual)
+                      assert credentials == "true", (origin, credentials)
+                  else:
+                      assert not actual, (origin, actual)
+          print("PASS: exact Vercel + Netlify CORS with no wildcard origins")
+          PY
+
       - name: Verify ownership, achievements and editorial publication
         env:
           MATHWORLD_TEST_BASE_URL: http://127.0.0.1:5059
@@ -100,6 +136,9 @@ jobs:
           BootstrapAdmin__Password: CI_TEST_ADMIN_PASSWORD_12345
           BootstrapAdmin__FullName: CI Administrator
           Database__ApplyMigrationsOnStartup: 'true'
+          # Match Vercel + previous Netlify origin configuration on Render.
+          Cors__Origins__0: https://mathwords.netlify.app
+          Cors__Origins__1: https://math-world-frontend.vercel.app
         shell: bash
         run: |
           set -euo pipefail
