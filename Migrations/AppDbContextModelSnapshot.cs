@@ -45,6 +45,24 @@ namespace MathWorldAPI.Migrations
                     b.ToTable("CurriculumDraftBatches");
                 });
 
+            modelBuilder.Entity("MathWorldAPI.Models.PlatformActivityEvent", b =>
+                {
+                    b.Property<long>("Id").ValueGeneratedOnAdd().HasColumnType("bigint")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+                    b.Property<int>("ActorUserId").HasColumnType("integer");
+                    b.Property<string>("ActorRole").IsRequired().HasMaxLength(32).HasColumnType("character varying(32)");
+                    b.Property<string>("Action").IsRequired().HasMaxLength(64).HasColumnType("character varying(64)");
+                    b.Property<string>("Resource").IsRequired().HasMaxLength(140).HasColumnType("character varying(140)");
+                    b.Property<string>("ResourceId").HasMaxLength(64).HasColumnType("character varying(64)");
+                    b.Property<string>("Origin").IsRequired().HasMaxLength(24).HasColumnType("character varying(24)");
+                    b.Property<DateTime>("CreatedAtUtc").HasColumnType("timestamp with time zone");
+                    b.HasKey("Id");
+                    b.HasIndex("ActorUserId", "CreatedAtUtc");
+                    b.HasIndex("ActorRole", "CreatedAtUtc");
+                    b.HasIndex("CreatedAtUtc", "Id");
+                    b.ToTable("PlatformActivityEvents");
+                });
+
             modelBuilder.Entity("MathWorldAPI.Models.PremiumCheckoutOrder", b =>
                 {
                     b.Property<long>("Id").ValueGeneratedOnAdd().HasColumnType("bigint")
@@ -836,6 +854,14 @@ namespace MathWorldAPI.Migrations
                     b.HasOne("MathWorldAPI.Models.AppUser", null)
                         .WithMany()
                         .HasForeignKey("SubmittedByAdminId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("MathWorldAPI.Models.PlatformActivityEvent", b =>
+                {
+                    b.HasOne("MathWorldAPI.Models.AppUser", null).WithMany()
+                        .HasForeignKey("ActorUserId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
