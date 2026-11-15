@@ -34,6 +34,7 @@ namespace MathWorldAPI.Data
         public DbSet<PremiumDiscountCode> PremiumDiscountCodes => Set<PremiumDiscountCode>();
         public DbSet<PremiumCheckoutOrder> PremiumCheckoutOrders => Set<PremiumCheckoutOrder>();
         public DbSet<PlatformActivityEvent> PlatformActivityEvents => Set<PlatformActivityEvent>();
+        public DbSet<LearnerPresence> LearnerPresences => Set<LearnerPresence>();
 
         public DbSet<AppUser> Users =>
             Set<AppUser>();
@@ -90,6 +91,16 @@ namespace MathWorldAPI.Data
             ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<LearnerPresence>(entity =>
+            {
+                entity.HasKey(e => new { e.UserId, e.SessionId });
+                entity.Property(e => e.LastSeenAtUtc).IsRequired();
+                entity.HasIndex(e => e.LastSeenAtUtc);
+                entity.HasOne<AppUser>().WithMany()
+                    .HasForeignKey(e => e.UserId)
+                    .OnDelete(DeleteBehavior.Cascade);
+            });
 
             modelBuilder.Entity<PlatformActivityEvent>(entity =>
             {
