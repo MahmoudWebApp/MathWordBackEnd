@@ -198,7 +198,8 @@ public sealed class AdminEngagementController : ControllerBase
     [HttpGet("students")]
     public async Task<IActionResult> Students([FromQuery] int page = 1,
         [FromQuery] int? stageId = null,
-        [FromQuery] string? search = null, CancellationToken ct = default)
+        [FromQuery] string? search = null,
+        [FromQuery] bool onlineOnly = false, CancellationToken ct = default)
     {
         if (!await ActiveAdmin(ct)) return Forbid();
         const int pageSize = 20;
@@ -207,6 +208,12 @@ public sealed class AdminEngagementController : ControllerBase
             return BadRequest(new { Message = "InvalidLearnerFilter" });
         var users = _db.Users.AsNoTracking().Where(u => u.Role == "Student");
         if (stageId.HasValue) users = users.Where(u => u.CurrentStageId == stageId.Value);
+        if (onlineOnly)
+        {
+            var activeSince = PresenceCutoff();
+            users = users.Where(u => u.IsActive && _db.LearnerPresences.Any(p =>
+                p.UserId == u.Id && p.LastSeenAtUtc >= activeSince));
+        }
         var q = search?.Trim();
         if (!string.IsNullOrWhiteSpace(q))
             users = users.Where(u => EF.Functions.ILike(u.FullName, "%" + q + "%"));
