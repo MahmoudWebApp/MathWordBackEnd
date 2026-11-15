@@ -27,6 +27,7 @@ namespace MathWorldAPI.Controllers
         private readonly IServiceScopeFactory _scopeFactory;
         private readonly IImgBbStorageService _imgBbStorage;
         private readonly ILogger<ProblemsController> _logger;
+        private readonly NotificationStreamBroker _notificationStream;
         private readonly bool _meilisearchEnabled;
 
         /// <summary>
@@ -38,6 +39,7 @@ namespace MathWorldAPI.Controllers
             IServiceScopeFactory scopeFactory,
             IImgBbStorageService imgBbStorage,
             IConfiguration configuration,
+            NotificationStreamBroker notificationStream,
             ILogger<ProblemsController> logger)
         {
             _context = context;
@@ -45,6 +47,7 @@ namespace MathWorldAPI.Controllers
             _scopeFactory = scopeFactory;
             _imgBbStorage = imgBbStorage;
             _logger = logger;
+            _notificationStream = notificationStream;
 
             _meilisearchEnabled =
                 configuration.GetValue<bool>(
@@ -1292,6 +1295,7 @@ namespace MathWorldAPI.Controllers
             // Milestone notices are created only on the first correct solve
             // and committed atomically with the attempt. The learner-wide
             // advisory lock above guarantees milestone uniqueness.
+            var createdMilestoneNotice = false;
             if (isCorrect && !wasSolved)
             {
                 var solvedBefore = await _context.UserProgresses.AsNoTracking()
@@ -1300,6 +1304,7 @@ namespace MathWorldAPI.Controllers
                 var solvedNow = solvedBefore + 1;
                 if (new[] { 1, 10, 25, 50, 100, 250, 500, 1000 }.Contains(solvedNow))
                 {
+                    createdMilestoneNotice = true;
                     _context.UserNotifications.Add(new UserNotification
                     {
                         UserId = userId.Value,
@@ -1316,6 +1321,7 @@ namespace MathWorldAPI.Controllers
 
             await _context.SaveChangesAsync();
             await transaction.CommitAsync();
+            if (createdMilestoneNotice) _notificationStream.Notify(userId.Value);
 
             var messageKey =
                 isOfficialAttempt
