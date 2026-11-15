@@ -94,3 +94,53 @@ Assert(!GeometrySceneValidator.TryParse(
     "Primitive coordinates must respect shared +/-10000 bounds.");
 Console.WriteLine("PASS: geometry bilingual alt text, bounded coordinates and signed arc validation.");
 
+
+var discountStart = new DateTime(2026, 12, 1, 0, 0, 0, DateTimeKind.Utc);
+var discountEnd = discountStart.AddDays(30);
+var discountPolicy = new PremiumDiscountEligibility.Policy(
+    discountStart, discountEnd, true, 2, 0);
+Assert(PremiumDiscountEligibility.Evaluate(discountPolicy, discountStart.AddTicks(-1)) ==
+       PremiumDiscountEligibility.Status.Scheduled,
+    "Discount must not be usable before its UTC start.");
+Assert(PremiumDiscountEligibility.Evaluate(discountPolicy, discountStart) ==
+       PremiumDiscountEligibility.Status.Active,
+    "Discount must activate at the UTC start instant.");
+Assert(PremiumDiscountEligibility.Evaluate(discountPolicy, discountEnd.AddTicks(-1)) ==
+       PremiumDiscountEligibility.Status.Active,
+    "Discount must remain valid before its UTC end.");
+Assert(PremiumDiscountEligibility.Evaluate(discountPolicy, discountEnd) ==
+       PremiumDiscountEligibility.Status.Expired,
+    "Discount must expire at the exact UTC end instant.");
+Assert(PremiumDiscountEligibility.Evaluate(discountPolicy with { Enabled = false }, discountStart) ==
+       PremiumDiscountEligibility.Status.Disabled,
+    "Disabled discount must never be active.");
+Assert(PremiumDiscountEligibility.Evaluate(discountPolicy with { RedemptionCount = 2 }, discountStart) ==
+       PremiumDiscountEligibility.Status.Exhausted,
+    "Discount must stop after reaching its usage cap.");
+Assert(PremiumDiscountEligibility.Evaluate(discountPolicy with { MaxRedemptions = null }, discountStart) ==
+       PremiumDiscountEligibility.Status.Active,
+    "Discount without a total usage cap should remain eligible within its window.");
+try
+{
+    PremiumDiscountEligibility.Validate(discountPolicy with { EndsAtUtc = discountStart });
+    throw new InvalidOperationException("Invalid discount date window was accepted.");
+}
+catch (ArgumentException) { }
+
+var percentageQuote = PremiumDiscountCalculator.Calculate(
+    PremiumDiscountCalculator.AnnualPriceUsd,
+    PremiumDiscountCalculator.DiscountKind.Percentage, 20m);
+Assert(percentageQuote.SubtotalUsd == 5m && percentageQuote.DiscountUsd == 1m &&
+       percentageQuote.TotalUsd == 4m, "20% discount must produce USD 4.00.");
+var fixedQuote = PremiumDiscountCalculator.Calculate(
+    5m, PremiumDiscountCalculator.DiscountKind.FixedUsd, 10m);
+Assert(fixedQuote.DiscountUsd == 5m && fixedQuote.TotalUsd == 0m,
+    "Discounts must never produce negative totals.");
+try
+{
+    PremiumDiscountCalculator.Calculate(5m, PremiumDiscountCalculator.DiscountKind.Percentage, 101m);
+    throw new InvalidOperationException("Over-100% discount was accepted.");
+}
+catch (ArgumentOutOfRangeException) { }
+Console.WriteLine("PASS: scheduled discount UTC boundaries, disabling, usage caps and safe monetary calculations.");
+
