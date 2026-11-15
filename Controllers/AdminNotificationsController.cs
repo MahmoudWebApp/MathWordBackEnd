@@ -2,6 +2,7 @@ using System.Security.Claims;
 using MathWorldAPI.Data;
 using MathWorldAPI.Helpers;
 using MathWorldAPI.Models;
+using MathWorldAPI.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -15,7 +16,12 @@ namespace MathWorldAPI.Controllers;
 public sealed class AdminNotificationsController : ControllerBase
 {
     private readonly AppDbContext _db;
-    public AdminNotificationsController(AppDbContext db) => _db = db;
+    private readonly NotificationStreamBroker _stream;
+    public AdminNotificationsController(AppDbContext db, NotificationStreamBroker stream)
+    {
+        _db = db;
+        _stream = stream;
+    }
 
     public sealed class SendLearnerNoticeRequest
     {
@@ -59,6 +65,7 @@ public sealed class AdminNotificationsController : ControllerBase
         };
         _db.UserNotifications.Add(notification);
         await _db.SaveChangesAsync(ct);
+        _stream.Notify(learnerId);
 
         return Ok(LanguageHelper.SuccessResponse(
             new { notification.Id, notification.UserId, notification.CreatedAtUtc },
