@@ -24,7 +24,12 @@ namespace MathWorldAPI.Controllers;
 public sealed class PremiumAccessCodesController : ControllerBase
 {
     private readonly AppDbContext _db;
-    public PremiumAccessCodesController(AppDbContext db) => _db = db;
+    private readonly NotificationStreamBroker _stream;
+    public PremiumAccessCodesController(AppDbContext db, NotificationStreamBroker stream)
+    {
+        _db = db;
+        _stream = stream;
+    }
 
     public sealed class CreateCodeRequest
     {
@@ -214,6 +219,7 @@ public sealed class PremiumAccessCodesController : ControllerBase
 
         await _db.SaveChangesAsync(ct);
         await tx.CommitAsync(ct);
+        _stream.Notify(user.Id);
         return Ok(LanguageHelper.SuccessResponse(new
         {
             SubscriptionType = "Premium",
