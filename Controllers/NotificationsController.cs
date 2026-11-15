@@ -1,4 +1,6 @@
 using System.Security.Claims;
+using System.Threading.Channels;
+using MathWorldAPI.Services;
 using MathWorldAPI.Data;
 using MathWorldAPI.Helpers;
 using Microsoft.AspNetCore.Authorization;
@@ -13,7 +15,12 @@ namespace MathWorldAPI.Controllers;
 public sealed class NotificationsController : ControllerBase
 {
     private readonly AppDbContext _db;
-    public NotificationsController(AppDbContext db) => _db = db;
+    private readonly NotificationStreamBroker _stream;
+    public NotificationsController(AppDbContext db, NotificationStreamBroker stream)
+    {
+        _db = db;
+        _stream = stream;
+    }
 
     private async Task<int?> ActiveUserId(CancellationToken ct)
     {
@@ -21,6 +28,67 @@ public sealed class NotificationsController : ControllerBase
             return null;
         return await _db.Users.AsNoTracking().AnyAsync(
             x => x.Id == userId && x.IsActive, ct) ? userId : null;
+    }
+
+    /// <summary>
+    /// Authenticated server-sent invalidation events for foreground clients.
+    /// Send only a refresh hint; the private inbox is fetched separately.
+    /// Reconnect at least every five minutes to re-check JWT and account.
+    /// One process only; periodic inbox polling is required for failover.
+    /// </summary>
+    [HttpGet("stream")]
+    [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
+    public async Task Stream(CancellationToken ct)
+    {
+        var userId = await ActiveUserId(ct);
+        if (userId is null)
+        {
+            Response.StatusCode = StatusCodes.Status401Unauthorized;
+            return;
+        }
+
+        Response.ContentType = "text/event-stream; charset=utf-8";
+        Response.Headers.CacheControl = "no-store, no-transform";
+        Response.Headers["X-Accel-Buffering"] = "no";
+        using var subscription = _stream.Subscribe(userId.Value);
+        try
+        {
+            await Response.StartAsync(ct);
+            await Response.WriteAsync(": connected\\n\\n", ct);
+            await Response.Body.FlushAsync(ct);
+
+            var end = DateTime.UtcNow.AddMinutes(5);
+            while (!ct.IsCancellationRequested && DateTime.UtcNow < end)
+            {
+                using var waiting = CancellationTokenSource.CreateLinkedTokenSource(ct);
+                waiting.CancelAfter(TimeSpan.FromSeconds(20));
+                try
+                {
+                    await subscription.Reader.ReadAsync(waiting.Token);
+                    // Account suspension takes effect even for an open stream.
+                    if (await ActiveUserId(ct) != userId) break;
+                    await Response.WriteAsync("event: inbox\\ndata: {}\\n\\n", ct);
+                }
+                catch (OperationCanceledException) when (!ct.IsCancellationRequested)
+                {
+                    if (await ActiveUserId(ct) != userId) break;
+                    await Response.WriteAsync(": keep-alive\\n\\n", ct);
+                }
+                await Response.Body.FlushAsync(ct);
+            }
+        }
+        catch (OperationCanceledException) when (ct.IsCancellationRequested)
+        {
+            // Closing a page or app cancels the stream.
+        }
+        catch (IOException) when (ct.IsCancellationRequested)
+        {
+            // Client disconnected.
+        }
+        catch (ChannelClosedException)
+        {
+            // A disposed subscriber ends its stream.
+        }
     }
 
     // The inbox shows the latest 30 days. A read event never deletes a notice.
@@ -65,6 +133,7 @@ public sealed class NotificationsController : ControllerBase
         {
             notice.ReadAtUtc = DateTime.UtcNow;
             await _db.SaveChangesAsync(ct);
+            _stream.Notify(userId.Value);
         }
         return NoContent();
     }
@@ -75,10 +144,11 @@ public sealed class NotificationsController : ControllerBase
         var userId = await ActiveUserId(ct);
         if (userId is null) return Unauthorized();
         var cutoff = DateTime.UtcNow.AddDays(-30);
-        await _db.UserNotifications
+        var changed = await _db.UserNotifications
             .Where(x => x.UserId == userId.Value && x.ReadAtUtc == null && x.CreatedAtUtc >= cutoff)
             .ExecuteUpdateAsync(setters => setters.SetProperty(
                 x => x.ReadAtUtc, DateTime.UtcNow), ct);
+        if (changed > 0) _stream.Notify(userId.Value);
         return NoContent();
     }
 }
