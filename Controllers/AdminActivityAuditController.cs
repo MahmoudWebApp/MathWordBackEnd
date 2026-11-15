@@ -21,10 +21,37 @@ public sealed class AdminActivityAuditController : ControllerBase
     private readonly AppDbContext _db;
     public AdminActivityAuditController(AppDbContext db) => _db = db;
 
+    [HttpGet("summary")]
+    public async Task<IActionResult> Summary([FromQuery] int days = 30,
+        CancellationToken ct = default)
+    {
+        if (!int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out var callerId) ||
+            !await _db.Users.AsNoTracking().AnyAsync(
+                x => x.Id == callerId && x.IsActive && x.Role == "Admin", ct))
+            return Forbid();
+        if (days is not (7 or 30 or 90 or 180))
+            return BadRequest(new { Message = "InvalidAuditWindow" });
+        var cutoff = DateTime.UtcNow.AddDays(-days);
+        var events = _db.PlatformActivityEvents.AsNoTracking()
+            .Where(e => e.CreatedAtUtc >= cutoff);
+        var byAction = await events.GroupBy(e => new { e.ActorRole, e.Action })
+            .Select(g => new { g.Key.ActorRole, g.Key.Action, Count = g.Count() })
+            .OrderByDescending(x => x.Count).Take(30).ToListAsync(ct);
+        return Ok(LanguageHelper.SuccessResponse(new
+        {
+            WindowDays = days, RecordedEvents = await events.CountAsync(ct),
+            UniqueStudents = await events.Where(x => x.ActorRole == "Student")
+                .Select(x => x.ActorUserId).Distinct().CountAsync(ct),
+            UniqueAdmins = await events.Where(x => x.ActorRole == "Admin")
+                .Select(x => x.ActorUserId).Distinct().CountAsync(ct),
+            ByAction = byAction
+        }, "Success", LanguageHelper.GetLanguageFromRequest(Request)));
+    }
+
     [HttpGet]
     public async Task<IActionResult> List([FromQuery] int page = 1,
         [FromQuery] int days = 30, [FromQuery] string? role = null,
-        [FromQuery] int? userId = null, CancellationToken ct = default)
+        [FromQuery] int? userId = null, [FromQuery] int? actorId = null, CancellationToken ct = default)
     {
         if (!int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out var callerId) ||
             !await _db.Users.AsNoTracking().AnyAsync(
@@ -32,14 +59,17 @@ public sealed class AdminActivityAuditController : ControllerBase
             return Forbid();
         if (page is < 1 or > 50000 || days is not (7 or 30 or 90 or 180) ||
             (role is not null && role != "Admin" && role != "Student") ||
-            userId is <= 0)
+            userId is <= 0 || actorId is <= 0)
             return BadRequest(new { Message = "InvalidAuditFilter" });
         const int pageSize = 30;
         var cutoff = DateTime.UtcNow.AddDays(-days);
         var query = _db.PlatformActivityEvents.AsNoTracking()
             .Where(x => x.CreatedAtUtc >= cutoff);
         if (role is not null) query = query.Where(x => x.ActorRole == role);
-        if (userId is int id) query = query.Where(x => x.ActorUserId == id);
+        if (userId.HasValue && actorId.HasValue && userId != actorId)
+            return BadRequest(new { Message = "InconsistentActorFilter" });
+        var filteredId = userId ?? actorId;
+        if (filteredId is int id) query = query.Where(x => x.ActorUserId == id);
         var total = await query.CountAsync(ct);
         var entries = await (from e in query
                 join u in _db.Users.AsNoTracking() on e.ActorUserId equals u.Id
@@ -57,7 +87,8 @@ public sealed class AdminActivityAuditController : ControllerBase
             Page = page, PageSize = pageSize, Total = total,
             Entries = entries,
             HasMore = page * pageSize < total,
-            Notice = "Audit starts at deployment; logout is not recorded reliably on JWT-only clients."
+            WindowDays = days,
+            Note = "Audit starts at deployment; logout is not recorded reliably on JWT-only clients."
         }, "Success", LanguageHelper.GetLanguageFromRequest(Request)));
     }
 }
