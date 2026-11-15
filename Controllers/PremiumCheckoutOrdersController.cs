@@ -107,6 +107,36 @@ public sealed class PremiumCheckoutOrdersController : ControllerBase
         });
     }
 
+    /// <summary>
+    /// Cancels an unsubmitted, local-only draft. Once a provider is attached,
+    /// cancellation must be coordinated with that provider, never done here.
+    /// The conditional SQL update makes concurrent requests idempotent.
+    /// </summary>
+    [HttpPost("orders/{id:long}/cancel")]
+    public async Task<IActionResult> Cancel(long id, CancellationToken ct)
+    {
+        var studentId = await StudentId(ct);
+        if (studentId is null) return Forbid();
+
+        var updated = await _db.PremiumCheckoutOrders
+            .Where(x => x.Id == id && x.StudentId == studentId.Value &&
+                x.Status == "Pending" && x.Provider == null &&
+                x.ProviderPaymentId == null && x.VerifiedPaidAtUtc == null)
+            .ExecuteUpdateAsync(setters => setters.SetProperty(x => x.Status, "Cancelled"), ct);
+
+        if (updated == 1)
+            return Ok(new { Id = id, Status = "Cancelled" });
+
+        var existing = await _db.PremiumCheckoutOrders.AsNoTracking()
+            .Where(x => x.Id == id && x.StudentId == studentId.Value)
+            .Select(x => new { x.Id, x.Status, x.Provider, x.ProviderPaymentId })
+            .SingleOrDefaultAsync(ct);
+        if (existing is null) return NotFound(new { Message = "CheckoutOrderNotFound" });
+        if (existing.Status == "Cancelled")
+            return Ok(new { Id = id, Status = "Cancelled" });
+        return Conflict(new { Message = "CheckoutOrderCannotBeCancelled" });
+    }
+
     [HttpGet("orders")]
     public async Task<IActionResult> MyOrders([FromQuery] int page = 1,
         [FromQuery] int pageSize = 20, CancellationToken ct = default)
