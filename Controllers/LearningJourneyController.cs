@@ -27,11 +27,12 @@ namespace MathWorldAPI.Controllers
         }
 
         [HttpGet("learning-stage")]
+        [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
         public async Task<ActionResult<ApiResponse<LearningStageDto>>> GetLearningStage(
             CancellationToken cancellationToken)
         {
             var user = await _context.Users.AsNoTracking()
-                .FirstOrDefaultAsync(u => u.Id == UserId(), cancellationToken);
+                .FirstOrDefaultAsync(u => u.Id == UserId() && u.Role == "Student" && u.IsActive, cancellationToken);
 
             if (user == null)
                 return NotFound(Error<LearningStageDto>("UserNotFound", 404));
@@ -61,7 +62,7 @@ namespace MathWorldAPI.Controllers
                 return NotFound(Error<LearningStageDto>("StageNotFound", 404));
 
             var user = await _context.Users.FirstOrDefaultAsync(
-                u => u.Id == UserId(), cancellationToken);
+                u => u.Id == UserId() && u.Role == "Student" && u.IsActive, cancellationToken);
             if (user == null)
                 return NotFound(Error<LearningStageDto>("UserNotFound", 404));
 
@@ -80,13 +81,14 @@ namespace MathWorldAPI.Controllers
         }
 
         [HttpGet("journey")]
+        [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
         public async Task<ActionResult<ApiResponse<LearningJourneyDto>>> GetJourney(
             [FromQuery] int? stageId,
             CancellationToken cancellationToken)
         {
             var userId = UserId();
             var user = await _context.Users.AsNoTracking()
-                .FirstOrDefaultAsync(u => u.Id == userId, cancellationToken);
+                .FirstOrDefaultAsync(u => u.Id == userId && u.Role == "Student" && u.IsActive, cancellationToken);
             if (user == null)
                 return NotFound(Error<LearningJourneyDto>("UserNotFound", 404));
 
