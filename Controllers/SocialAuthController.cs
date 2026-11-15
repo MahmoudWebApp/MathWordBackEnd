@@ -21,16 +21,19 @@ namespace MathWorldAPI.Controllers
     {
         private readonly ISocialAuthService _socialAuthService;
         private readonly ILogger<SocialAuthController> _logger;
+        private readonly PlatformActivityAuditWriter _audit;
 
         /// <summary>
         /// Initializes a new instance of the SocialAuthController.
         /// </summary>
         public SocialAuthController(
             ISocialAuthService socialAuthService,
-            ILogger<SocialAuthController> logger)
+            ILogger<SocialAuthController> logger,
+            PlatformActivityAuditWriter audit)
         {
             _socialAuthService = socialAuthService;
             _logger = logger;
+            _audit = audit;
         }
 
         /// <summary>
@@ -83,6 +86,7 @@ namespace MathWorldAPI.Controllers
             _logger.LogInformation(
                 "Google authentication succeeded for user {UserId}.",
                 result.Id);
+            await _audit.TryRecordAsync(result.Id, "LoggedInGoogle");
 
             return Ok(
                 LanguageHelper.SuccessResponse(
@@ -141,6 +145,7 @@ namespace MathWorldAPI.Controllers
             _logger.LogInformation(
                 "Facebook authentication succeeded for user {UserId}.",
                 result.Id);
+            await _audit.TryRecordAsync(result.Id, "LoggedInFacebook");
 
             return Ok(
                 LanguageHelper.SuccessResponse(
