@@ -51,7 +51,8 @@ public sealed class AdminActivityAuditController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> List([FromQuery] int page = 1,
         [FromQuery] int days = 30, [FromQuery] string? role = null,
-        [FromQuery] int? userId = null, [FromQuery] int? actorId = null, CancellationToken ct = default)
+        [FromQuery] int? userId = null, [FromQuery] int? actorId = null,
+        [FromQuery] string? action = null, CancellationToken ct = default)
     {
         if (!int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out var callerId) ||
             !await _db.Users.AsNoTracking().AnyAsync(
@@ -59,13 +60,16 @@ public sealed class AdminActivityAuditController : ControllerBase
             return Forbid();
         if (page is < 1 or > 50000 || days is not (7 or 30 or 90 or 180) ||
             (role is not null && role != "Admin" && role != "Student") ||
-            userId is <= 0 || actorId is <= 0)
+            userId is <= 0 || actorId is <= 0 ||
+            (action is not null && (action.Length is < 1 or > 64 ||
+                action.Any(c => !char.IsAsciiLetterOrDigit(c)))))
             return BadRequest(new { Message = "InvalidAuditFilter" });
         const int pageSize = 30;
         var cutoff = DateTime.UtcNow.AddDays(-days);
         var query = _db.PlatformActivityEvents.AsNoTracking()
             .Where(x => x.CreatedAtUtc >= cutoff);
         if (role is not null) query = query.Where(x => x.ActorRole == role);
+        if (action is not null) query = query.Where(x => x.Action == action);
         if (userId.HasValue && actorId.HasValue && userId != actorId)
             return BadRequest(new { Message = "InconsistentActorFilter" });
         var filteredId = userId ?? actorId;
