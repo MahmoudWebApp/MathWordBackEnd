@@ -11,7 +11,7 @@ namespace MathWorldAPI.Services;
 /// </summary>
 public sealed class NotificationStreamBroker
 {
-    private readonly ConcurrentDictionary<int, ConcurrentDictionary<Guid, Channel<bool>>> _listeners = new();
+    private readonly ConcurrentDictionary<Guid, (int UserId, Channel<bool> Channel)> _listeners = new();
 
     public sealed class Subscription : IDisposable
     {
@@ -43,27 +43,20 @@ public sealed class NotificationStreamBroker
             SingleReader = true,
             SingleWriter = false
         });
-        var userListeners = _listeners.GetOrAdd(userId,
-            _ => new ConcurrentDictionary<Guid, Channel<bool>>());
-        userListeners[key] = channel;
-
+        _listeners[key] = (userId, channel);
         return new Subscription(channel.Reader, () =>
         {
-            if (userListeners.TryRemove(key, out var removed))
-                removed.Writer.TryComplete();
-            if (userListeners.IsEmpty)
-                _listeners.TryRemove(
-                    new KeyValuePair<int, ConcurrentDictionary<Guid, Channel<bool>>>(
-                        userId, userListeners));
+            if (_listeners.TryRemove(key, out var removed))
+                removed.Channel.Writer.TryComplete();
         });
     }
 
     public void Notify(int userId)
     {
-        if (_listeners.TryGetValue(userId, out var listeners))
+        foreach (var listener in _listeners.Values)
         {
-            foreach (var channel in listeners.Values)
-                channel.Writer.TryWrite(true);
+            if (listener.UserId == userId)
+                listener.Channel.Writer.TryWrite(true);
         }
     }
 }
