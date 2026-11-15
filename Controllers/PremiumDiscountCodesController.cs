@@ -35,6 +35,14 @@ public sealed class PremiumDiscountCodesController : ControllerBase
         public int? MaxRedemptionsPerStudent { get; set; } = 1;
     }
 
+    public sealed class UpdateSettingsRequest
+    {
+        public DateTime StartsAtUtc { get; set; }
+        public DateTime EndsAtUtc { get; set; }
+        public int? MaxRedemptions { get; set; }
+        public int? MaxRedemptionsPerStudent { get; set; } = 1;
+    }
+
     public sealed class QuoteRequest
     {
         public string Code { get; set; } = "";
@@ -143,6 +151,52 @@ public sealed class PremiumDiscountCodesController : ControllerBase
                 x.CreatedAtUtc,
                 Status = PremiumDiscountEligibility.Evaluate(Policy(x), now).ToString()
             })
+        });
+    }
+
+    [HttpPut("admin/premium-discounts/{id:long}/settings")]
+    [Authorize(Roles = "Admin")]
+    public async Task<IActionResult> UpdateSettings(long id,
+        [FromBody] UpdateSettingsRequest? request, CancellationToken ct)
+    {
+        if (await ActiveUserId("Admin", ct) is null) return Forbid();
+        if (request is null ||
+            request.MaxRedemptions is <= 0 ||
+            request.MaxRedemptionsPerStudent is <= 0)
+            return BadRequest(new { Message = "InvalidDiscountSettings" });
+
+        var now = DateTime.UtcNow;
+        var policy = new PremiumDiscountEligibility.Policy(
+            request.StartsAtUtc, request.EndsAtUtc, true, request.MaxRedemptions, 0);
+        try { PremiumDiscountEligibility.Validate(policy); }
+        catch (ArgumentException) { return BadRequest(new { Message = "InvalidDiscountWindow" }); }
+        if (request.EndsAtUtc <= now || request.EndsAtUtc > now.AddYears(3))
+            return BadRequest(new { Message = "InvalidDiscountWindow" });
+
+        // Lock the same row used by settlement, so admin edits and
+        // paid redemptions cannot change coupon limits concurrently.
+        await using var tx = await _db.Database.BeginTransactionAsync(ct);
+        var code = await _db.PremiumDiscountCodes
+            .FromSqlInterpolated($@"SELECT * FROM ""PremiumDiscountCodes""
+                WHERE ""Id"" = {id} FOR UPDATE")
+            .SingleOrDefaultAsync(ct);
+        if (code is null) return NotFound(new { Message = "DiscountNotFound" });
+        if (!code.Enabled)
+            return Conflict(new { Message = "DiscountDisabled" });
+        if (request.MaxRedemptions is int max && max < code.RedemptionCount)
+            return Conflict(new { Message = "DiscountLimitBelowUsage" });
+
+        code.StartsAtUtc = request.StartsAtUtc;
+        code.EndsAtUtc = request.EndsAtUtc;
+        code.MaxRedemptions = request.MaxRedemptions;
+        code.MaxRedemptionsPerStudent = request.MaxRedemptionsPerStudent;
+        await _db.SaveChangesAsync(ct);
+        await tx.CommitAsync(ct);
+        return Ok(new
+        {
+            code.Id, code.StartsAtUtc, code.EndsAtUtc,
+            code.MaxRedemptions, code.MaxRedemptionsPerStudent,
+            code.RedemptionCount, code.Enabled
         });
     }
 
