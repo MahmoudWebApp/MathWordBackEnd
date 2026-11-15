@@ -52,7 +52,12 @@ public sealed class NotificationsController : ControllerBase
         Response.ContentType = "text/event-stream; charset=utf-8";
         Response.Headers.CacheControl = "no-store, no-transform";
         Response.Headers["X-Accel-Buffering"] = "no";
-        using var subscription = _stream.Subscribe(userId.Value);
+        using var subscription = _stream.TrySubscribe(userId.Value);
+        if (subscription is null)
+        {
+            Response.StatusCode = StatusCodes.Status429TooManyRequests;
+            return;
+        }
         try
         {
             await Response.StartAsync(ct);
