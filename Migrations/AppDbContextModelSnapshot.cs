@@ -45,6 +45,16 @@ namespace MathWorldAPI.Migrations
                     b.ToTable("CurriculumDraftBatches");
                 });
 
+            modelBuilder.Entity("MathWorldAPI.Models.LearnerPresence", b =>
+                {
+                    b.Property<int>("UserId").HasColumnType("integer");
+                    b.Property<Guid>("SessionId").HasColumnType("uuid");
+                    b.Property<DateTime>("LastSeenAtUtc").HasColumnType("timestamp with time zone");
+                    b.HasKey("UserId", "SessionId");
+                    b.HasIndex("LastSeenAtUtc");
+                    b.ToTable("LearnerPresences");
+                });
+
             modelBuilder.Entity("MathWorldAPI.Models.PlatformActivityEvent", b =>
                 {
                     b.Property<long>("Id").ValueGeneratedOnAdd().HasColumnType("bigint")
@@ -855,6 +865,14 @@ namespace MathWorldAPI.Migrations
                         .WithMany()
                         .HasForeignKey("SubmittedByAdminId")
                         .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("MathWorldAPI.Models.LearnerPresence", b =>
+                {
+                    b.HasOne("MathWorldAPI.Models.AppUser", null).WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
