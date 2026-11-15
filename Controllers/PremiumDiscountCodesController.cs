@@ -80,9 +80,9 @@ public sealed class PremiumDiscountCodesController : ControllerBase
             !Enum.TryParse<PremiumDiscountCalculator.DiscountKind>(
                 request.DiscountKind, false, out var kind) ||
             !Enum.IsDefined(kind) ||
-            request.Amount < 0m ||
-            (kind == PremiumDiscountCalculator.DiscountKind.Percentage && request.Amount > 100m) ||
-            (kind == PremiumDiscountCalculator.DiscountKind.FixedUsd && request.Amount > PremiumDiscountCalculator.AnnualPriceUsd) ||
+            request.Amount <= 0m ||
+            (kind == PremiumDiscountCalculator.DiscountKind.Percentage && request.Amount >= 100m) ||
+            (kind == PremiumDiscountCalculator.DiscountKind.FixedUsd && request.Amount >= PremiumDiscountCalculator.AnnualPriceUsd) ||
             decimal.Round(request.Amount, 2) != request.Amount ||
             request.MaxRedemptions is <= 0 ||
             request.MaxRedemptionsPerStudent is <= 0)
