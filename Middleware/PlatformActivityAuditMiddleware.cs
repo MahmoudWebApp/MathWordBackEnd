@@ -66,7 +66,13 @@ public sealed class PlatformActivityAuditMiddleware
         if (method is not ("POST" or "PUT" or "PATCH" or "DELETE")) return;
 
         var urlPath = context.Request.Path.Value ?? "";
-        var adminCommand = urlPath.StartsWith("/api/admin/", StringComparison.OrdinalIgnoreCase);
+        // Categories are edited under /api/categories (legacy controller),
+        // not /api/admin/categories. Admin creations/updates/deletions must
+        // still appear in the same audit trail as modern admin endpoints.
+        var adminCommand =
+            urlPath.StartsWith("/api/admin/", StringComparison.OrdinalIgnoreCase) ||
+            urlPath.Equals("/api/categories", StringComparison.OrdinalIgnoreCase) ||
+            urlPath.StartsWith("/api/categories/", StringComparison.OrdinalIgnoreCase);
         var learnerCommand = urlPath.StartsWith("/api/users/learning-stage", StringComparison.OrdinalIgnoreCase) ||
             urlPath.StartsWith("/api/users/premium-codes/", StringComparison.OrdinalIgnoreCase) ||
             urlPath.StartsWith("/api/problems/", StringComparison.OrdinalIgnoreCase) ||
