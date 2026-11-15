@@ -124,7 +124,7 @@ namespace MathWorldAPI.Data
             modelBuilder.Entity<PremiumCheckoutOrder>()
                 .HasIndex(x => new { x.Provider, x.ProviderPaymentId })
                 .IsUnique()
-                .HasFilter("\\"Provider\\" IS NOT NULL AND \\"ProviderPaymentId\\" IS NOT NULL");
+                .HasFilter("\"Provider\" IS NOT NULL AND \"ProviderPaymentId\" IS NOT NULL");
             modelBuilder.Entity<PremiumCheckoutOrder>()
                 .HasIndex(x => new { x.StudentId, x.CreatedAtUtc });
             modelBuilder.Entity<PremiumCheckoutOrder>()
@@ -137,15 +137,15 @@ namespace MathWorldAPI.Data
                 .ToTable(t =>
                 {
                     t.HasCheckConstraint("CK_PremiumCheckoutOrders_Amounts",
-                        "\\"SubtotalUsd\\" >= 0 AND \\"DiscountUsd\\" >= 0 AND \\"TotalUsd\\" >= 0 AND \\"SubtotalUsd\\" = \\"DiscountUsd\\" + \\"TotalUsd\\"");
+                        "\"SubtotalUsd\" >= 0 AND \"DiscountUsd\" >= 0 AND \"TotalUsd\" >= 0 AND \"SubtotalUsd\" = \"DiscountUsd\" + \"TotalUsd\"");
                     t.HasCheckConstraint("CK_PremiumCheckoutOrders_Currency",
-                        "\\"Currency\\" = 'USD'");
+                        "\"Currency\" = 'USD'");
                     t.HasCheckConstraint("CK_PremiumCheckoutOrders_Status",
-                        "\\"Status\\" IN ('Pending', 'Paid', 'Failed', 'Cancelled', 'Refunded')");
+                        "\"Status\" IN ('Pending', 'Paid', 'Failed', 'Cancelled', 'Refunded')");
                     t.HasCheckConstraint("CK_PremiumCheckoutOrders_PaidVerification",
-                        "\\"Status\\" <> 'Paid' OR \\"VerifiedPaidAtUtc\\" IS NOT NULL");
+                        "\"Status\" <> 'Paid' OR \"VerifiedPaidAtUtc\" IS NOT NULL");
                     t.HasCheckConstraint("CK_PremiumCheckoutOrders_DiscountRedemption",
-                        "\\"DiscountRedeemedAtUtc\\" IS NULL OR (\"DiscountCodeId\" IS NOT NULL AND \\"VerifiedPaidAtUtc\\" IS NOT NULL)");
+                        "\"DiscountRedeemedAtUtc\" IS NULL OR (\"DiscountCodeId\" IS NOT NULL AND \"VerifiedPaidAtUtc\" IS NOT NULL)");
                 });
 
             modelBuilder.Entity<PremiumDiscountCode>()
