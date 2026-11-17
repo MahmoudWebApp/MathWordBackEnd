@@ -119,6 +119,14 @@ def main():
     item = next(p for p in admin_problems["Results"] if p["Id"] == problem_id)
     correct_id = next(option["Id"] for option in item["Options"]
                       if option["IsCorrect"])
+    # A registered student with no solved problems has no earned rank.
+    # Do not mistake an existing account for a ranked learner.
+    unranked = expect("GET",
+        f"/api/users/leaderboard?stageId={stage1}&period=all",
+        200, token=token)
+    assert unranked.get("MyRank") is None, unranked
+    assert not any(e["IsCurrentUser"] for e in unranked["Entries"]), unranked
+
     solved = expect("POST", "/api/problems/submit", 200, {
         "ProblemId": problem_id,
         "SelectedOptionId": correct_id,
@@ -147,6 +155,30 @@ def main():
     assert my_rank_row["Points"] == after["TotalPoints"], (
         my_rank_row, after
     )
+
+    # One real learner must be visible even if nobody else has solved in
+    # this stage. Training retries cannot count the same solved problem twice.
+    assert sum(e["IsCurrentUser"] for e in before_switch_ranks["Entries"]) == 1
+    assert before_switch_ranks["MyRank"] == my_rank_row["Rank"]
+    practice_retry = expect("POST", "/api/problems/submit", 200, {
+        "ProblemId": problem_id,
+        "SelectedOptionId": correct_id,
+        "TimeSpentSeconds": 2
+    }, token)
+    assert practice_retry["IsCorrect"] is True
+    assert not practice_retry["IsOfficialAttempt"], practice_retry
+    rank_after_retry = expect("GET",
+        f"/api/users/leaderboard?stageId={stage1}&period=all",
+        200, token=token)
+    assert rank_after_retry["MyRank"] == before_switch_ranks["MyRank"]
+    assert rank_after_retry["TotalLearners"] == before_switch_ranks["TotalLearners"]
+    retry_row = next(e for e in rank_after_retry["Entries"] if e["IsCurrentUser"])
+    assert retry_row["SolvedProblems"] == my_rank_row["SolvedProblems"]
+    assert retry_row["Points"] == my_rank_row["Points"]
+    unchanged = expect("GET", "/api/users/journey", 200, token=token)
+    assert unchanged["SolvedProblems"] == after["SolvedProblems"]
+    assert unchanged["TotalPoints"] == after["TotalPoints"]
+
     updated_challenge = expect("GET", "/api/users/daily-challenge", 200, token=token)
     assert [p["Id"] for p in updated_challenge["Problems"]] == [
         p["Id"] for p in challenge["Problems"]
