@@ -59,9 +59,22 @@ public sealed class AdminEngagementController : ControllerBase
                 x.Problem.Category.StageId == x.Problem.StageId);
         var counts = await attempts.GroupBy(x => 1).Select(g => new
         {
-            Active = g.Select(x => x.UserId).Distinct().Count(),
-            Successful = g.Count(x => x.IsOfficial && x.IsCorrect)
+            Active = g.Select(x => x.UserId).Distinct().Count()
         }).FirstOrDefaultAsync(ct);
+
+        // Count distinct questions first solved in this window, including a
+        // correct retry after an incorrect official attempt. Counting only
+        // IsOfficial && IsCorrect hides those genuine successes, while
+        // counting every correct attempt inflates repeated practice.
+        var newlySolved = _db.UserProgresses.AsNoTracking()
+            .Where(p => p.User.Role == "Student" && p.IsSolved &&
+                p.SolvedAt >= start &&
+                p.Problem.Category.StageId == p.Problem.StageId);
+        var successfulSolves = await newlySolved.CountAsync(ct);
+        var solvedByStage = await newlySolved
+            .GroupBy(p => p.Problem.StageId)
+            .Select(g => new { StageId = g.Key, Count = g.Count() })
+            .ToDictionaryAsync(x => x.StageId, x => x.Count, ct);
 
         var activity = await attempts.GroupBy(x => x.SubmittedAt.Date).Select(g => new
         {
@@ -88,8 +101,7 @@ public sealed class AdminEngagementController : ControllerBase
             .Select(g => new
             {
                 StageId = g.Key,
-                Active = g.Select(a => a.UserId).Distinct().Count(),
-                Successful = g.Count(a => a.IsOfficial && a.IsCorrect)
+                Active = g.Select(a => a.UserId).Distinct().Count()
             }).ToListAsync(ct);
         var stageSignups = await learners.Where(u => u.CreatedAt >= start &&
                 u.CurrentStageId.HasValue)
@@ -103,7 +115,7 @@ public sealed class AdminEngagementController : ControllerBase
             GeneratedAtUtc = DateTime.UtcNow, WindowDays = days,
             TotalStudents = await learners.CountAsync(ct),
             NewStudents = await learners.CountAsync(u => u.CreatedAt >= start, ct),
-            ActiveSolvers = counts?.Active ?? 0, SuccessfulSolves = counts?.Successful ?? 0,
+            ActiveSolvers = counts?.Active ?? 0, SuccessfulSolves = successfulSolves,
             OnlineLearners = onlineLearners, PresenceWindowMinutes = 5,
             DailyActivity = timeline,
             Stages = stages.Select(s =>
@@ -113,7 +125,7 @@ public sealed class AdminEngagementController : ControllerBase
                 return new { StageId = s.Id, s.NameAr, s.NameEn,
                     ActiveSolvers = a?.Active ?? 0,
                     OnlineLearners = onlineByStage.GetValueOrDefault(s.Id),
-                    SuccessfulSolves = a?.Successful ?? 0,
+                    SuccessfulSolves = solvedByStage.GetValueOrDefault(s.Id),
                     Signups = signups?.Count ?? 0 };
             }).ToArray()
         }, "Success", LanguageHelper.GetLanguageFromRequest(Request)));
