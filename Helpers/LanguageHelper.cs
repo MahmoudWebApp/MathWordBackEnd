@@ -176,6 +176,13 @@ namespace MathWorldAPI.Helpers
                 )
             },
             {
+                "CategoryLocked",
+                (
+                    "هذه الفئة متاحة لمشتركي Premium. أول فئتين من كل مرحلة مفتوحتان مجاناً.",
+                    "This category requires Premium. The first two categories in each stage are free."
+                )
+            },
+            {
                 "DailyQuotaExceeded",
                 (
                     "استهلكت 10 مسائل جديدة لهذا المستوى اليوم. يمكنك إعادة تدريب المسائل السابقة أو الانتظار إلى منتصف الليل بتوقيت UTC أو الترقية إلى Premium.",
