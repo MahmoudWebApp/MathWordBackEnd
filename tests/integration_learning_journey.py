@@ -265,6 +265,52 @@ def main():
     })
     assert logged_in["CurrentStageId"] == stage2
 
+    # Admin overview must treat the first *successful* solve as one success
+    # even when the student's official first answer was wrong. Further
+    # correct training retries must not inflate the solved count.
+    def successful_stage_solves():
+        overview = expect("GET", "/api/admin/engagement/overview?days=7",
+                          200, token=admin_token)
+        return next(item["SuccessfulSolves"] for item in overview["Stages"]
+                    if item["StageId"] == stage2)
+
+    baseline_successful = successful_stage_solves()
+    retry_question = dict(create)
+    retry_question.update({
+        "StageId": stage2,
+        "CategoryId": 5,
+        "QuestionTextAr": "ما نتيجة 3 - 1 ؟",
+        "QuestionTextEn": "What is 3 - 1?"
+    })
+    retry_problem = expect("POST", "/api/admin/problems", 201,
+                           retry_question, admin_token)
+    retry_id = retry_problem["Id"]
+    retry_details = expect("GET", f"/api/problems/{retry_id}", 200,
+                           token=admin_token)
+    correct_retry = next(option["Id"] for option in retry_details["Options"]
+                         if option["IsCorrect"])
+    incorrect_retry = next(option["Id"] for option in retry_details["Options"]
+                           if not option["IsCorrect"])
+    wrong_first = expect("POST", "/api/problems/submit", 200, {
+        "ProblemId": retry_id, "SelectedOptionId": incorrect_retry,
+        "TimeSpentSeconds": 3,
+    }, token)
+    assert not wrong_first["IsCorrect"], wrong_first
+    assert successful_stage_solves() == baseline_successful
+    right_retry = expect("POST", "/api/problems/submit", 200, {
+        "ProblemId": retry_id, "SelectedOptionId": correct_retry,
+        "TimeSpentSeconds": 3,
+    }, token)
+    assert right_retry["IsCorrect"] and right_retry["IsSolved"], right_retry
+    assert not right_retry["IsOfficialAttempt"], right_retry
+    assert successful_stage_solves() == baseline_successful + 1
+    repeat_correct = expect("POST", "/api/problems/submit", 200, {
+        "ProblemId": retry_id, "SelectedOptionId": correct_retry,
+        "TimeSpentSeconds": 2,
+    }, token)
+    assert repeat_correct["IsCorrect"] and repeat_correct["PointsEarned"] == 0
+    assert successful_stage_solves() == baseline_successful + 1
+
     assert call("GET", "/api/users/learning-stage")[0] == 401
     assert call("GET", "/api/users/journey")[0] == 401
     print("PASS: onboarding, invalid stage, progress and points, stage switching, old history, auth")
