@@ -44,6 +44,37 @@ namespace MathWorldAPI.Controllers
             return !freeCategoryIds.Contains(categoryId);
         }
 
+        private async Task<bool> IsFreeStudentAsync()
+        {
+            var userId = GetUserId();
+            if (!userId.HasValue ||
+                !string.Equals(GetUserRole(), "Student", StringComparison.OrdinalIgnoreCase))
+                return false;
+
+            var subscription = await _context.Users.AsNoTracking()
+                .Where(user => user.Id == userId.Value && user.Role == "Student")
+                .Select(user => user.SubscriptionType)
+                .FirstOrDefaultAsync(HttpContext.RequestAborted);
+
+            return !string.Equals(subscription, "Premium", StringComparison.OrdinalIgnoreCase);
+        }
+
+        private async Task<int[]> FreeCategoryIdsAsync()
+        {
+            // Apply the same deterministic order as category cards and detail access.
+            var categories = await _context.Categories.AsNoTracking()
+                .OrderBy(category => category.StageId)
+                .ThenBy(category => category.Order)
+                .ThenBy(category => category.Id)
+                .Select(category => new { category.Id, category.StageId })
+                .ToListAsync(HttpContext.RequestAborted);
+
+            return categories.GroupBy(category => category.StageId)
+                .SelectMany(group => group.Take(2))
+                .Select(category => category.Id)
+                .ToArray();
+        }
+
         private readonly AppDbContext _context;
         private readonly IMeiliSearchService _searchService;
         private readonly IServiceScopeFactory _scopeFactory;
@@ -112,6 +143,11 @@ namespace MathWorldAPI.Controllers
                     page,
                     pageSize);
             }
+
+            // Protect the direct Meili endpoint too: filtering after
+            // Meili pagination would leak category presence and wrong totals.
+            if (await IsFreeStudentAsync())
+                return await PostgreSqlSearch(q, categoryId, stageId, page, pageSize);
 
             var language =
                 LanguageHelper.GetLanguageFromRequest(
@@ -450,6 +486,26 @@ namespace MathWorldAPI.Controllers
                 LanguageHelper.GetLanguageFromRequest(
                     Request);
 
+            // A Free student must never see inaccessible results that then
+            // fail on detail. Explicit locked-category searches return a clear 403.
+            int[]? accessibleCategoryIds = null;
+            if (await IsFreeStudentAsync())
+            {
+                accessibleCategoryIds = await FreeCategoryIdsAsync();
+                if (categoryId.HasValue &&
+                    !accessibleCategoryIds.Contains(categoryId.Value))
+                {
+                    var categoryExists = await _context.Categories.AsNoTracking()
+                        .AnyAsync(category => category.Id == categoryId.Value,
+                            HttpContext.RequestAborted);
+                    if (categoryExists)
+                        return StatusCode(StatusCodes.Status403Forbidden,
+                            LanguageHelper.ErrorResponse<SearchResponseDto>(
+                                "CategoryLocked", language,
+                                StatusCodes.Status403Forbidden));
+                }
+            }
+
             var query =
                 _context.Problems
                     .AsNoTracking()
@@ -458,6 +514,12 @@ namespace MathWorldAPI.Controllers
                     .Include(problem =>
                         problem.Stage)
                     .AsQueryable();
+
+            if (accessibleCategoryIds != null)
+            {
+                query = query.Where(problem =>
+                    accessibleCategoryIds.Contains(problem.CategoryId));
+            }
 
             if (!string.IsNullOrWhiteSpace(q))
             {
