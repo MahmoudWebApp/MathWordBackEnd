@@ -122,7 +122,20 @@ def main():
     assert catalog["FreeCategoryCount"] == 2, catalog
     assert catalog.get("DailyProblemLimit") is None, catalog
     assert {item["Id"] for item in catalog["Categories"] if item["IsFree"]} == {1, 2}, catalog
+    # The same response must provide real published-question counts. The
+    # category page must not depend on a second /categories HTTP request.
+    public_counts = {item["Id"]: item["ProblemsCount"]
+                     for item in category_catalog if item["StageId"] == 1}
+    assert {item["Id"] for item in catalog["Categories"]} == set(public_counts), catalog
+    assert all(isinstance(item.get("ProblemsCount"), int) and
+               item["ProblemsCount"] == public_counts[item["Id"]]
+               for item in catalog["Categories"]), (catalog, public_counts)
     locked_question = create_question(admin, 3999, 1, 3)
+    updated_catalog = expect("GET", "/api/stages/1/free-categories", 200)
+    updated_count = next(item["ProblemsCount"]
+                         for item in updated_catalog["Categories"]
+                         if item["Id"] == 3)
+    assert updated_count == public_counts[3] + 1, updated_catalog
     code, _ = api("GET", f"/api/problems/{locked_question[0]}", token=free)
     assert code == 403, code
     code, _ = submit(free, *locked_question)
