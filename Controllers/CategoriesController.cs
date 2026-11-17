@@ -80,7 +80,10 @@ namespace MathWorldAPI.Controllers
                                     category.StageId,
 
                                 Order =
-                                    category.Order
+                                    category.Order,
+                                ProblemsCount = _context.Problems.Count(
+                                    p => p.CategoryId == category.Id &&
+                                         p.StageId == category.StageId)
                             })
                         .ToListAsync();
 
