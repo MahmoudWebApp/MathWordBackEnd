@@ -668,11 +668,9 @@ namespace MathWorldAPI.Controllers
             var userId =
                 GetUserId();
 
-            var activeStageId = await _context.Users.AsNoTracking()
-                .Where(user => user.Id == userId)
-                .Select(user => user.CurrentStageId)
-                .FirstOrDefaultAsync();
-
+            // The notebook retains attempts across educational stages.
+            // Its items are still restricted to categories currently
+            // accessible through the Free/Premium entitlement policy.
             var language =
                 LanguageHelper.GetLanguageFromRequest(
                     Request);
@@ -689,8 +687,6 @@ namespace MathWorldAPI.Controllers
                          allowedCategories.Contains(progress.Problem.CategoryId)) &&
                         progress.Problem.Category.StageId == progress.Problem.StageId &&
                         progress.UserId == userId &&
-                        (!activeStageId.HasValue ||
-                         progress.Problem.StageId == activeStageId.Value) &&
                         progress.IsInErrorNotebook);
 
             if (!includeArchived)
