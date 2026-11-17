@@ -62,6 +62,15 @@ def main():
     q1 = [question(admin, 2100 + i, 1, 1) for i in range(11)]
     q2 = [question(admin, 2200 + i, 2, 5) for i in range(11)]
     q3 = [question(admin, 2300 + i, 1, 1) for i in range(11)]
+    locked_one = question(admin, 2400, 1, 3)
+    locked_two = question(admin, 2500, 2, 7)
+
+    # Free students cannot fetch answers or submit directly for locked categories.
+    assert api("GET", f"/api/problems/{locked_one[0]}", token=one)[0] == 403
+    assert submit(one, *locked_one)[0] == 403
+    # Admin tools still access all content without Free restrictions.
+    assert api("GET", f"/api/problems/{locked_one[0]}", token=admin)[0] == 200
+
 
     expect("PUT", "/api/users/learning-stage", 200, {"StageId": 1}, one)
     assert_quota(one, 1, 0, None)
@@ -103,6 +112,8 @@ def main():
     ], check=True, timeout=20, capture_output=True)
     premium = quota(two, 2)
     assert premium["Unlimited"] and premium.get("Remaining") is None, premium
+    assert api("GET", f"/api/problems/{locked_two[0]}", token=two)[0] == 200
+    assert submit(two, *locked_two)[0] == 200
     code, body = submit(two, *q2[10])
     assert code == 200, (code, body)
 
