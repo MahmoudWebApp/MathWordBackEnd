@@ -362,8 +362,10 @@ var configuredOrigins =
         .GetSection("Cors:Origins")
         .Get<string[]>();
 
+// Exact, first-party production hosts must remain available even when
+// Cors:Origins is configured separately on Render. Never allow *.vercel.app.
 var allowedOrigins =
-    configuredOrigins is { Length: > 0 }
+    (configuredOrigins is { Length: > 0 }
         ? configuredOrigins
         : new[]
         {
@@ -374,7 +376,15 @@ var allowedOrigins =
             "https://localhost:3001",
             "https://localhost:5173",
             "https://mathwords.netlify.app"
-        };
+        })
+    .Concat(new[]
+    {
+        "https://mathwords.netlify.app",
+        "https://math-world-frontend-mahmouds-projects-0868fac1.vercel.app",
+        "https://math-world-frontend-git-main-mahmouds-projects-0868fac1.vercel.app"
+    })
+    .Distinct(StringComparer.OrdinalIgnoreCase)
+    .ToArray();
 
 builder.Services.AddCors(options =>
 {
