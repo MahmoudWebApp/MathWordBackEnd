@@ -94,6 +94,26 @@ def main():
     }
     made = expect("POST", "/api/admin/problems", 201, create, admin_token)
     problem_id = made["Id"]
+
+    # Daily challenge is optional practice, not a ten-problem quota or
+    # bonus-score exam. It contains only the server-authorized problem cards.
+    challenge = expect("GET", "/api/users/daily-challenge", 200, token=token)
+    assert challenge["StageId"] == stage1
+    assert 1 <= challenge["Total"] <= 5
+    assert challenge["Total"] == len(challenge["Problems"])
+    assert challenge["Completed"] == 0
+    assert challenge["DateUtc"] and len(challenge["DateUtc"]) == 10
+    assert all(problem["CategoryId"] in (1, 2)
+               for problem in challenge["Problems"]), challenge
+    assert all(not (set(problem) &
+                    {"IsCorrect", "DetailedSolutionAr", "DetailedSolutionEn",
+                     "CorrectOptionId", "Options", "YoutubeSolutionUrl"})
+               for problem in challenge["Problems"])
+    same_day = expect("GET", "/api/users/daily-challenge", 200, token=token)
+    assert same_day["Problems"] == challenge["Problems"]
+    assert call("GET", "/api/users/daily-challenge")[0] == 401
+    assert call("GET", "/api/users/daily-challenge", token=admin_token)[0] == 403
+    assert call("GET", "/api/users/daily-challenge?stageId=999999", token=token)[0] == 404
     admin_problems = expect("GET", "/api/admin/problems?pageSize=100",
                             200, token=admin_token)
     item = next(p for p in admin_problems["Results"] if p["Id"] == problem_id)
@@ -111,6 +131,14 @@ def main():
     assert after["FirstTryCorrect"] == 1
     assert after["TotalPoints"] == 10
     assert after["Categories"][0]["SolvedProblems"] == 1
+    updated_challenge = expect("GET", "/api/users/daily-challenge", 200, token=token)
+    assert [p["Id"] for p in updated_challenge["Problems"]] == [
+        p["Id"] for p in challenge["Problems"]
+    ], "Same UTC day must keep the same suggested questions after an answer"
+    if problem_id in {p["Id"] for p in challenge["Problems"]}:
+        assert updated_challenge["Completed"] == challenge["Completed"] + 1
+        assert next(p for p in updated_challenge["Problems"]
+                    if p["Id"] == problem_id)["IsSolved"]
 
     switched = expect("PUT", "/api/users/learning-stage", 200,
                       {"StageId": stage2}, token)
