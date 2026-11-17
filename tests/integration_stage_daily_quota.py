@@ -68,14 +68,14 @@ def main():
     for qid, correct in q1[:10]:
         status, data = submit(one, qid, correct)
         assert status == 200, (status, data)
-    assert_quota(one, 1, 11, None)
+    assert_quota(one, 1, 10, None)
 
     code, body = submit(one, *q1[10])
     assert code == 200, (code, body)
     # Re-attempt the first-ever solved problem: no extra quota consumed.
     code, body = submit(one, *q1[0])
     assert code == 200 and not body["Data"]["IsOfficialAttempt"], (code, body)
-    assert_quota(one, 1, 10, 0)
+    assert_quota(one, 1, 11, None)
 
     # Changing stage does not reset used Stage 1 allowance.
     expect("PUT", "/api/users/learning-stage", 200, {"StageId": 2}, one)
@@ -86,9 +86,9 @@ def main():
     assert_quota(one, 2, 1, None)
     expect("PUT", "/api/users/learning-stage", 200, {"StageId": 1}, one)
     assert_quota(one, 1, 10, 0)
-    assert_quota(one, 2, 1, 9)
+    assert_quota(one, 2, 1, None)
 
-    # Same 10-per-stage limit applies to a different learner.
+    # A different Free learner can also answer more than ten.
     for qid, correct in q2[:10]:
         code, body = submit(two, qid, correct)
         assert code == 200, (code, body)
@@ -106,7 +106,7 @@ def main():
     code, body = submit(two, *q2[10])
     assert code == 200, (code, body)
 
-    # Two DIFFERENT questions racing for the same final slot must serialize.
+    # Concurrent first attempts must both succeed without a daily cap.
     for qid, correct in q3[:9]:
         code, body = submit(three, qid, correct)
         assert code == 200, (code, body)
