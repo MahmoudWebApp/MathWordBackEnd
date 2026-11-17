@@ -54,8 +54,8 @@ def main():
     assert status == 403, status
     status, _ = api("GET", "/api/users/daily-quota")
     assert status == 401, status
-    status, _ = api("GET", "/api/users/daily-quota", token=one)
-    assert status == 409, status
+    status, quota_at_signup = api("GET", "/api/users/daily-quota", token=one)
+    assert status == 200 and quota_at_signup["Data"]["StageId"] == 1, (status, quota_at_signup)
     status, _ = api("GET", "/api/users/daily-quota?stageId=9999", token=one)
     assert status == 404, status
 
