@@ -157,7 +157,8 @@ def main():
     stage2_ranks = expect("GET",
         f"/api/users/leaderboard?stageId={stage2}&period=all",
         200, token=token)
-    assert stage2_ranks["MyRank"] is None, stage2_ranks
+    # JSON omit-null serializer may omit MyRank entirely when unranked.
+    assert stage2_ranks.get("MyRank") is None, stage2_ranks
     assert all(not e["IsCurrentUser"] for e in stage2_ranks["Entries"]), stage2_ranks
     # A user must not query an arbitrary stage as an access workaround.
     assert call("GET",
