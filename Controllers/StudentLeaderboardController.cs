@@ -51,6 +51,13 @@ public sealed class StudentLeaderboardController : ControllerBase
             .FirstOrDefaultAsync(ct);
         if (stage is null) return NotFound(new { Message = "StageNotFound" });
 
+        // Membership is not a score: include active students who selected
+        // this stage in a separate count, even before their first solve.
+        // Never assign a leaderboard rank or points for mere registration.
+        var stageParticipants = await _db.Users.AsNoTracking()
+            .CountAsync(u => u.Role == "Student" && u.IsActive &&
+                u.CurrentStageId == stage.Id, ct);
+
         // A rolling window, not a guessed calendar week/month.
         var cutoff = period == "weekly" ? DateTime.UtcNow.AddDays(-7) :
             period == "monthly" ? DateTime.UtcNow.AddDays(-30) : (DateTime?)null;
@@ -106,6 +113,7 @@ public sealed class StudentLeaderboardController : ControllerBase
             Page = page,
             PageSize = pageSize,
             TotalLearners = scores.Count,
+            StageParticipants = stageParticipants,
             MyRank = myIndex >= 0 ? myIndex + 1 : (int?)null,
             Entries = entries
         });
