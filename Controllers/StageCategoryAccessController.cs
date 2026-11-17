@@ -15,10 +15,12 @@ namespace MathWorldAPI.Controllers;
 public sealed class StageCategoryAccessController : ControllerBase
 {
     private readonly AppDbContext _db;
+    private readonly IImgBbStorageService _imageStorage;
 
-    public StageCategoryAccessController(AppDbContext db)
+    public StageCategoryAccessController(AppDbContext db, IImgBbStorageService imageStorage)
     {
         _db = db;
+        _imageStorage = imageStorage;
     }
 
     [HttpGet("{stageId:int}/free-categories")]
@@ -73,7 +75,7 @@ public sealed class StageCategoryAccessController : ControllerBase
                 category.Id,
                 category.NameAr,
                 category.NameEn,
-                category.Icon,
+                Icon = _imageStorage.GetFullUrl(category.Icon) ?? string.Empty,
                 category.Order,
                 ProblemsCount = problemCounts.GetValueOrDefault(category.Id),
                 IsFree = freeIds.Contains(category.Id)
