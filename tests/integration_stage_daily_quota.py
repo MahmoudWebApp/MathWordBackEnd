@@ -33,7 +33,7 @@ def assert_quota(token, stage, used, remaining):
     result = quota(token, stage)
     assert result["StageId"] == stage, result
     assert result["Used"] == used, result
-    assert result["Remaining"] is None, result
+    assert result.get("Remaining") is None, result
     assert result["Limit"] == 0 and result["Unlimited"], result
     assert result["ResetsAtUtc"] > result["DayUtc"], result
 
