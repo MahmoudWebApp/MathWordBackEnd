@@ -50,6 +50,17 @@ public sealed class StageCategoryAccessController : ControllerBase
                 category.Order
             })
             .ToListAsync(cancellationToken);
+        // The stage catalog is the single source of truth for both access
+        // and publish-ready inventory. Count only problems whose stage matches
+        // their category, matching the protected problem-list endpoints.
+        var problemCounts = await _db.Problems.AsNoTracking()
+            .Where(problem => problem.StageId == stageId &&
+                problem.Category.StageId == stageId)
+            .GroupBy(problem => problem.CategoryId)
+            .Select(group => new { CategoryId = group.Key, Count = group.Count() })
+            .ToDictionaryAsync(item => item.CategoryId, item => item.Count,
+                cancellationToken);
+
         var freeIds = ids.ToHashSet();
         var hasSavedSelection = await _db.StageFreeCategorySelections.AsNoTracking()
             .AnyAsync(selection => selection.StageId == stageId, cancellationToken);
@@ -64,6 +75,7 @@ public sealed class StageCategoryAccessController : ControllerBase
                 category.NameEn,
                 category.Icon,
                 category.Order,
+                ProblemsCount = problemCounts.GetValueOrDefault(category.Id),
                 IsFree = freeIds.Contains(category.Id)
             }).ToList(),
             FreeCategoryIds = ids,
