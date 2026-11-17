@@ -126,6 +126,8 @@ def main():
         200, token=token)
     assert unranked.get("MyRank") is None, unranked
     assert not any(e["IsCurrentUser"] for e in unranked["Entries"]), unranked
+    # Enrollment and earned leaderboard ranking are different real facts.
+    assert unranked["StageParticipants"] >= 1, unranked
 
     solved = expect("POST", "/api/problems/submit", 200, {
         "ProblemId": problem_id,
@@ -144,6 +146,7 @@ def main():
         200, token=token)
     assert before_switch_ranks["MyRank"] is not None, before_switch_ranks
     assert before_switch_ranks["TotalLearners"] >= 1, before_switch_ranks
+    assert before_switch_ranks["StageParticipants"] >= 1, before_switch_ranks
     my_rank_row = next(
         e for e in before_switch_ranks["Entries"] if e["IsCurrentUser"]
     )
@@ -219,6 +222,7 @@ def main():
         200, token=token)
     # JSON omit-null serializer may omit MyRank entirely when unranked.
     assert stage2_ranks.get("MyRank") is None, stage2_ranks
+    assert stage2_ranks["StageParticipants"] >= 1, stage2_ranks
     assert all(not e["IsCurrentUser"] for e in stage2_ranks["Entries"]), stage2_ranks
     # A user must not query an arbitrary stage as an access workaround.
     assert call("GET",
