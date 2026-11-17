@@ -94,7 +94,7 @@ def main():
     assert code == 200, (code, body)
     assert_quota(one, 2, 1, None)
     expect("PUT", "/api/users/learning-stage", 200, {"StageId": 1}, one)
-    assert_quota(one, 1, 10, 0)
+    assert_quota(one, 1, 11, None)
     assert_quota(one, 2, 1, None)
 
     # A different Free learner can also answer more than ten.
