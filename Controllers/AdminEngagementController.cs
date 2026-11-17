@@ -55,7 +55,8 @@ public sealed class AdminEngagementController : ControllerBase
 
         var learners = _db.Users.AsNoTracking().Where(x => x.Role == "Student");
         var attempts = _db.ProblemAttempts.AsNoTracking()
-            .Where(x => x.User.Role == "Student" && x.SubmittedAt >= start);
+            .Where(x => x.User.Role == "Student" && x.SubmittedAt >= start &&
+                x.Problem.Category.StageId == x.Problem.StageId);
         var counts = await attempts.GroupBy(x => 1).Select(g => new
         {
             Active = g.Select(x => x.UserId).Distinct().Count(),
@@ -137,7 +138,7 @@ public sealed class AdminEngagementController : ControllerBase
             .Select(c => new { c.Id, c.NameAr, c.NameEn }).ToListAsync(ct);
         var activity = await _db.ProblemAttempts.AsNoTracking()
             .Where(a => a.User.Role == "Student" && a.Problem.StageId == stageId &&
-                a.SubmittedAt >= start)
+                a.Problem.Category.StageId == stageId && a.SubmittedAt >= start)
             .GroupBy(a => a.Problem.CategoryId)
             .Select(g => new
             {
@@ -150,7 +151,7 @@ public sealed class AdminEngagementController : ControllerBase
         // aggregated rows are transferred to the application.
         var solvedByLearner = await _db.UserProgresses.AsNoTracking()
             .Where(p => p.IsSolved && p.User.Role == "Student" &&
-                p.Problem.StageId == stageId)
+                p.Problem.StageId == stageId && p.Problem.Category.StageId == stageId)
             .GroupBy(p => new { p.Problem.CategoryId, p.UserId, p.User.FullName })
             .Select(g => new
             {
