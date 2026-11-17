@@ -74,6 +74,12 @@ def main():
 
     expect("PUT", "/api/users/learning-stage", 200, {"StageId": 1}, one)
     assert_quota(one, 1, 0, None)
+    # Stage members appear in rankings even with zero solved problems.
+    initial_board = expect("GET", "/api/users/leaderboard?stageId=1", 200,
+                           token=one)
+    assert initial_board["TotalLearners"] >= 1, initial_board
+    assert initial_board["MyRank"] is not None, initial_board
+    assert any(row["IsCurrentUser"] for row in initial_board["Entries"]), initial_board
     for qid, correct in q1[:10]:
         status, data = submit(one, qid, correct)
         assert status == 200, (status, data)
@@ -85,6 +91,12 @@ def main():
     code, body = submit(one, *q1[0])
     assert code == 200 and not body["Data"]["IsOfficialAttempt"], (code, body)
     assert_quota(one, 1, 11, None)
+    board = expect("GET", "/api/users/leaderboard?stageId=1&period=all", 200,
+                   token=one)
+    mine = next(row for row in board["Entries"] if row["IsCurrentUser"])
+    assert mine["SolvedProblems"] == 11, board
+    assert mine["DisplayName"] in ("أنت", "You"), board
+    assert all("UserId" not in row for row in board["Entries"]), board
 
     # Changing stage does not reset used Stage 1 allowance.
     expect("PUT", "/api/users/learning-stage", 200, {"StageId": 2}, one)
