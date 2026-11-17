@@ -55,10 +55,12 @@ public sealed class StudentLeaderboardController : ControllerBase
         var cutoff = period == "weekly" ? DateTime.UtcNow.AddDays(-7) :
             period == "monthly" ? DateTime.UtcNow.AddDays(-30) : (DateTime?)null;
 
+        // Rank activity by the problem's original educational stage, not
+        // a learner's *current* stage preference. Switching stages must not
+        // erase the prior stage's leaderboard or remove earlier solvers.
         var query = _db.ProblemAttempts.AsNoTracking()
             .Where(a => a.Problem.StageId == stage.Id &&
-                a.User.Role == "Student" && a.User.IsActive &&
-                a.User.CurrentStageId == stage.Id);
+                a.User.Role == "Student" && a.User.IsActive);
         if (cutoff is not null)
             query = query.Where(a => a.SubmittedAt >= cutoff.Value);
 
