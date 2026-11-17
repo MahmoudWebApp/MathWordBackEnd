@@ -22,8 +22,8 @@ concurrency:
 # three independent public repositories. Update the refs after each batch.
 # No production deploys, external DB access, credentials or app-store signing.
 env:
-  MATHWORLD_WEB_COMMIT: 6bcff3172aeb94bb1aea6feece6477084673e366
-  MATHWORLD_MOBILE_COMMIT: 89778cb276f59c3f690952188caa1deae672837c
+  MATHWORLD_WEB_COMMIT: 20251b1feb3c844a6e341633babede0a3c457acb
+  MATHWORLD_MOBILE_COMMIT: 293b3f1ffc13b1f0b75ed0b9b9a9dbf4e575bdaf
 
 jobs:
   backend:
@@ -106,7 +106,7 @@ jobs:
         run: flutter analyze --no-fatal-infos
       - name: Free access, notebook, geometry and RTL regressions
         working-directory: mobile
-        run: flutter test test/models/stage_daily_quota_test.dart test/category_grid_layout_test.dart test/learning_journey_recommendation_test.dart test/notification_pagination_test.dart
+        run: flutter test test/models/stage_daily_quota_test.dart test/category_grid_layout_test.dart test/learning_journey_recommendation_test.dart test/notification_pagination_test.dart test/daily_challenge_model_test.dart
       - name: Build release-mode debug-signed Android APK
         working-directory: mobile
         run: flutter build apk --release
