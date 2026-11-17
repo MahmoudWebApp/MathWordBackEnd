@@ -68,6 +68,18 @@ def main():
     # Free students cannot fetch answers or submit directly for locked categories.
     assert api("GET", f"/api/problems/{locked_one[0]}", token=one)[0] == 403
     assert submit(one, *locked_one)[0] == 403
+    # List searches only return accessible previews. No dead-end cards.
+    code, listing = api("GET", "/api/problems/search?stageId=1&pageSize=100",
+                        token=one)
+    assert code == 200, (code, listing)
+    assert listing["Data"]["Results"], listing
+    assert all(row["CategoryId"] in (1, 2)
+               for row in listing["Data"]["Results"]), listing
+    assert api("GET", "/api/problems/search?categoryId=3",
+               token=one)[0] == 403
+    assert api("GET", "/api/problems/meilisearch-search?categoryId=3",
+               token=one)[0] == 403
+
     # Admin tools still access all content without Free restrictions.
     assert api("GET", f"/api/problems/{locked_one[0]}", token=admin)[0] == 200
 
@@ -124,6 +136,10 @@ def main():
     ], check=True, timeout=20, capture_output=True)
     premium = quota(two, 2)
     assert premium["Unlimited"] and premium.get("Remaining") is None, premium
+    # Premium can list categories blocked for Free accounts.
+    code, premium_listing = api("GET", "/api/problems/search?categoryId=7",
+                                token=two)
+    assert code == 200 and premium_listing["Data"]["Results"], premium_listing
     assert api("GET", f"/api/problems/{locked_two[0]}", token=two)[0] == 200
     assert submit(two, *locked_two)[0] == 200
     code, body = submit(two, *q2[10])
