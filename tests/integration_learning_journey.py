@@ -131,6 +131,12 @@ def main():
     assert after["FirstTryCorrect"] == 1
     assert after["TotalPoints"] == 10
     assert after["Categories"][0]["SolvedProblems"] == 1
+    before_switch_ranks = expect("GET",
+        f"/api/users/leaderboard?stageId={stage1}&period=all",
+        200, token=token)
+    assert before_switch_ranks["MyRank"] is not None, before_switch_ranks
+    assert before_switch_ranks["TotalLearners"] >= 1, before_switch_ranks
+    assert any(e["IsCurrentUser"] for e in before_switch_ranks["Entries"]), before_switch_ranks
     updated_challenge = expect("GET", "/api/users/daily-challenge", 200, token=token)
     assert [p["Id"] for p in updated_challenge["Problems"]] == [
         p["Id"] for p in challenge["Problems"]
@@ -146,6 +152,17 @@ def main():
     other = expect("GET", "/api/users/journey", 200, token=token)
     assert other["StageId"] == stage2
     assert other["SolvedProblems"] == 0
+    # A different selected stage has no earned attempts yet. Do not display a
+    # fake rank for simply having a registered account.
+    stage2_ranks = expect("GET",
+        f"/api/users/leaderboard?stageId={stage2}&period=all",
+        200, token=token)
+    assert stage2_ranks["MyRank"] is None, stage2_ranks
+    assert all(not e["IsCurrentUser"] for e in stage2_ranks["Entries"]), stage2_ranks
+    # A user must not query an arbitrary stage as an access workaround.
+    assert call("GET",
+        f"/api/users/leaderboard?stageId={stage1}&period=all",
+        token=token)[0] == 403
 
     old = expect("GET", "/api/users/journey?stageId=" + str(stage1),
                  200, token=token)
@@ -168,6 +185,15 @@ def main():
     assert returned["TotalPoints"] == 10, returned
     assert len(returned["RecentSolved"]) == 1, returned
     assert len(expect("GET", "/api/users/solved", 200, token=token)) == 1
+    # Switching back must restore the same scored ranking, not silently lose
+    # the point record while the learner's stage selection was different.
+    back_ranks = expect("GET",
+        f"/api/users/leaderboard?stageId={stage1}&period=all",
+        200, token=token)
+    assert back_ranks["MyRank"] == before_switch_ranks["MyRank"], (
+        back_ranks, before_switch_ranks
+    )
+    assert back_ranks["TotalLearners"] >= 1 and back_ranks["Entries"], back_ranks
 
     # Leave the account in stage2 to ensure persistence on next login.
     expect("PUT", "/api/users/learning-stage", 200, {"StageId": stage2}, token)
