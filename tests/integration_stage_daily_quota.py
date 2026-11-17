@@ -133,6 +133,26 @@ def main():
     code, body = submit(free, *questions[0])
     assert code == 200 and not body["Data"]["IsOfficialAttempt"], (code, body)
 
+    # An earlier-stage mistake must remain in the notebook after changing
+    # educational stage. The backend still enforces the two Free categories
+    # per stage and must never expose a locked topic from another stage.
+    stage_two_question = create_question(admin, 4401, 2, 5)
+    second_options = expect("GET", f"/api/problems/{stage_two_question[0]}",
+                            200, token=admin)["Options"]
+    incorrect_option = next(o["Id"] for o in second_options if not o["IsCorrect"])
+    expect("PUT", "/api/users/learning-stage", 200, {"StageId": 2}, free)
+    assert_unlimited(free, 2)
+    wrong_status, wrong_body = submit(free, stage_two_question[0], incorrect_option)
+    assert wrong_status == 200 and not wrong_body["Data"]["IsCorrect"], (
+        wrong_status, wrong_body
+    )
+    expect("PUT", "/api/users/learning-stage", 200, {"StageId": 1}, free)
+    notebook = expect("GET", "/api/users/error-notebook?includeArchived=true",
+                      200, token=free)
+    assert stage_two_question[0] in {problem["Id"] for problem in notebook}, (
+        "A past-stage mistake was lost after switching stages", notebook
+    )
+
     # Premium still controls pre-answer solutions and analytics, not daily quota.
     subprocess.run([
         "psql", "-X", "-v", "ON_ERROR_STOP=1",
