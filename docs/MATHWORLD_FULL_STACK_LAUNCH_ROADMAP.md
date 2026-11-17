@@ -2,6 +2,22 @@
 
 Status: implementation plan; NOT proof of completion. No production deployment or migration without explicit approval and tested backups.
 
+## Current implementation and release priorities — 17 November 2026
+
+This roadmap started before the owner's last Free-access decision. **The outdated 10-new-questions-per-day proposal is cancelled**: Free learners have unlimited practice within exactly two admin-selected categories per educational stage.
+
+| Priority | What remains | Why it is not closed |
+| --- | --- | --- |
+| P0 — before real launch | Independent educator review of **320** bilingual *draft* questions, correct answers and solutions; create/review the 16 proposed categories, approve import and publish only reviewed content | Draft CSV structural CI is not academic validation or database publication |
+| P0 — real use | Owner-approved migration of backend feature schema with verified backup/restore and staging or equivalent isolated acceptance; check actual Free/Premium expiry/locked direct API calls, admin workflows and notifications | CI disposable Postgres tests pass; live production schema may not match |
+| P0 — phone/web | Manual bilingual Android app icon/splash, 320px/large text, RTL math notation and PDF/XLSX viewing; iOS build/signing testing; web PWA/permissions | GitHub builds alone do not test a physical device |
+| P1 — identity | Google/Facebook OAuth provider IDs, Android signing SHAs, correct redirects, session revocation/reset/verification, admin MFA and email infrastructure | Requires provider ownership/credentials and security acceptance |
+| P1 — notifications | Background FCM/APNs push, consent/quiet hours and delivery logs; SSE in-app foreground is implemented | Push requires native credentials and device acceptance |
+| P1 — engagement | Optional daily practice is implemented; **formal exams, tournaments, verified certificates and challenge admin blueprints** are *not* yet implemented | Need vetted question pool and fraud/grade validation before awards |
+| Deferred | Live $5/year payment gateway, checkout webhooks, ads, tutor marketplace, Hostinger VPS/domain move, Meilisearch phase 2 | Separate owner decision and operational/security work |
+
+**Build policy:** Continue batches on unmerged PR branches, then use the GitHub Actions full-stack workflow to build Backend, Next.js and Flutter Android from pinned reviewed commits. Do not imply a production deploy or database import.
+
 ## Launch policy
 - Free access enabled. Premium entitlement and features developed now; paid checkout disabled by default.
 - Server-owned flags: premiumFeaturesEnabled, premiumCheckoutEnabled, promoRedemptionEnabled, adsEnabled, smsEnabled, socialLoginGoogleEnabled, socialLoginFacebookEnabled. Admin updates audited; safe defaults, authorization enforced on API.
@@ -21,7 +37,7 @@ Status: implementation plan; NOT proof of completion. No production deployment o
 - Test expired grants, concurrency, duplicate redemption, suspended accounts and rollback.
 
 ## Milestone 2 — student features
-- Free quota 10 NEW questions per stage per UTC day; historical retry free; enforcement on server.
+- Free: **exactly two admin-selected categories per educational stage, with unlimited problems and retries in those categories; no daily ten-question quota**. Premium: all categories, unlimited practice, early solutions and advanced reporting. Enforce access on the server.
 - Premium unlimited, reveal-before-answer (secure solution API), progress analytics, PDF/Excel exports, no ads; future tutor messaging behind flag.
 - Stage switching preserves progress; points ledger, achievements, leaderboard; anti-cheat and moderation.
 
@@ -63,8 +79,8 @@ Status: implementation plan; NOT proof of completion. No production deployment o
 - Report each feature as DONE / IN PROGRESS / BLOCKED / NOT STARTED with commit/PR and test evidence. No unverified completion claims.
 
 ## Known baseline
-- Backend draft PR #20 includes Premium expiry, audited admin grants and quota enforcement changes; unverified CI, do not merge/deploy.
-- Web/Flutter already have stage and quota work from earlier PRs; revalidate before marking complete.
+- Backend PR #20 implements Premium expiry, audited admin grants, Free category access and optional UTC daily practice cards. GitHub Actions PostgreSQL integration suites passed on the reviewed feature commit; no production deployment, stage-data acceptance or educator publication has been approved.
+- Web PR #18 and Flutter PR #12 implement stage journey, category entitlement and daily practice UI, plus notifications, progress and Premium reporting. Recheck the latest GitHub Actions SHAs before approval; a passed build is not a physical-device acceptance or store signing.
 - Meilisearch phase 2. Tutors phase 2. Paid checkout OFF at launch.
 
 ## User decisions required later
