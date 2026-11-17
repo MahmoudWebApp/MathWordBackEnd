@@ -77,7 +77,8 @@ def student(index):
     response = expect("POST", "/api/auth/register", 201, {
         "FullName": f"CI Learner {index}",
         "Email": f"learner-ci-{index}@mathworld.test",
-        "Password": "CI_TEST_STUDENT_PASSWORD_12345"
+        "Password": "CI_TEST_STUDENT_PASSWORD_12345",
+        "StageId": 1
     })
     return token_of(response)
 
