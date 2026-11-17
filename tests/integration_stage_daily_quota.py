@@ -110,6 +110,13 @@ def main():
     assert status == 404, status
 
     questions = [create_question(admin, 3100 + i, 1, 1) for i in range(12)]
+    # Let both clients know which topics contain real published questions;
+    # a known-empty topic must not lead to an empty problem-list dead end.
+    category_catalog = expect("GET", "/api/categories", 200, token=free)
+    assert all(isinstance(category.get("ProblemsCount"), int)
+               for category in category_catalog), category_catalog
+    first_inventory = next(c for c in category_catalog if c["Id"] == 1)
+    assert first_inventory["ProblemsCount"] >= len(questions), first_inventory
     catalog = expect("GET", "/api/stages/1/free-categories", 200)
     assert catalog["FreeCategoryIds"] == [1, 2], catalog
     assert catalog["FreeCategoryCount"] == 2, catalog
