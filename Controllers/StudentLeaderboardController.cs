@@ -55,22 +55,27 @@ public sealed class StudentLeaderboardController : ControllerBase
         var cutoff = period == "weekly" ? DateTime.UtcNow.AddDays(-7) :
             period == "monthly" ? DateTime.UtcNow.AddDays(-30) : (DateTime?)null;
 
-        // Rank activity by the problem's original educational stage, not
-        // a learner's *current* stage preference. Switching stages must not
-        // erase the prior stage's leaderboard or remove earlier solvers.
-        var query = _db.ProblemAttempts.AsNoTracking()
-            .Where(a => a.Problem.StageId == stage.Id &&
-                a.User.Role == "Student" && a.User.IsActive);
+        // UserProgress is the same canonical source used by the student
+        // dashboard. Legacy solved questions can predate ProblemAttempts,
+        // so aggregating attempts made a learner with 5 solved problems
+        // disappear entirely from the leaderboard.
+        // A progress row represents one user/problem (no repeat inflation).
+        // Scope by the problem's stage, not the student's current selection.
+        var query = _db.UserProgresses.AsNoTracking()
+            .Where(p => p.Problem.StageId == stage.Id &&
+                p.Problem.Category.StageId == stage.Id &&
+                p.User.Role == "Student" && p.User.IsActive &&
+                p.IsSolved);
         if (cutoff is not null)
-            query = query.Where(a => a.SubmittedAt >= cutoff.Value);
+            query = query.Where(p => p.SolvedAt >= cutoff.Value);
 
-        var scores = await query.GroupBy(a => a.UserId)
+        var scores = await query.GroupBy(p => p.UserId)
             .Select(g => new
             {
                 UserId = g.Key,
-                SolvedProblems = g.Count(a => a.PointsEarned > 0),
-                Points = g.Sum(a => a.PointsEarned),
-                FirstTryCorrect = g.Count(a => a.IsOfficial && a.IsCorrect)
+                SolvedProblems = g.Count(),
+                Points = g.Sum(p => p.Problem.Points),
+                FirstTryCorrect = g.Count(p => p.FirstAttemptCorrect == true)
             })
             .Where(x => x.SolvedProblems > 0)
             .OrderByDescending(x => x.SolvedProblems)
