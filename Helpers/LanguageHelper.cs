@@ -360,6 +360,13 @@ namespace MathWorldAPI.Helpers
             // ==================== User Messages ====================
 
             {
+                "InvalidSubscriptionType",
+                (
+                    "نوع الاشتراك يجب أن يكون Free أو Premium.",
+                    "Subscription type must be Free or Premium."
+                )
+            },
+            {
                 "InvalidLearnerFilters",
                 (
                     "معايير البحث أو التصفية أو التصفح غير صالحة.",
