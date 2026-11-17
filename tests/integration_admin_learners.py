@@ -24,6 +24,16 @@ def main():
     status, _ = api("GET", "/api/admin/learners")
     assert status == 401, status
 
+    # Content audit is admin-only and never exposes learner identities.
+    assert api("GET", "/api/admin/content-audit")[0] == 401
+    assert api("GET", "/api/admin/content-audit", token=learner1)[0] == 403
+    audit = expect("GET", "/api/admin/content-audit", 200, token=admin)
+    assert audit["Summary"]["TotalStages"] >= 4, audit
+    assert audit["Summary"]["TotalCategories"] >= 8, audit
+    assert audit["Summary"]["LearnersWithoutStage"] >= 0, audit
+    assert len(audit["Categories"]) == audit["Summary"]["TotalCategories"], audit
+    assert "Password" not in str(audit) and "Email" not in str(audit), audit
+
     all_students = expect("GET", "/api/admin/learners", 200, token=admin)
     assert all_students["Total"] == 2, all_students
     ids = [x["Id"] for x in all_students["Learners"]]
@@ -93,6 +103,11 @@ def main():
     assert page1["Learners"][0]["Id"] != page2["Learners"][0]["Id"]
 
     question_id, correct_option = create_question(admin, 71)
+    updated_audit = expect("GET", "/api/admin/content-audit", 200, token=admin)
+    assert updated_audit["Summary"]["TotalProblems"] >= (
+        audit["Summary"]["TotalProblems"] + 1), updated_audit
+    assert updated_audit["Summary"]["ProblemsWithInvalidOptions"] == 0, updated_audit
+
     code, result = submit(learner1, question_id, correct_option)
     assert code == 200, (code, result)
 
