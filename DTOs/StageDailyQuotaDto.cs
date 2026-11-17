@@ -2,8 +2,8 @@ namespace MathWorldAPI.DTOs
 {
     /// <summary>
     /// Current quota for an authenticated Student in one real stage.
-    /// A Premium account has Unlimited=true and Remaining=null.
-    /// Reset is always next midnight UTC.
+    /// All accounts have unlimited daily attempts. Remaining is always null.
+    /// The historical count and date fields are retained for older clients.
     /// </summary>
     public sealed class StageDailyQuotaDto
     {
