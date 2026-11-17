@@ -380,6 +380,7 @@ var allowedOrigins =
     .Concat(new[]
     {
         "https://mathwords.netlify.app",
+        "https://math-world-frontend.vercel.app",
         "https://math-world-frontend-mahmouds-projects-0868fac1.vercel.app",
         "https://math-world-frontend-git-main-mahmouds-projects-0868fac1.vercel.app"
     })
