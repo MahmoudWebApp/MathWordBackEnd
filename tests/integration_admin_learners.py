@@ -49,6 +49,35 @@ def main():
     assert expect("GET", "/api/admin/learners?isActive=true&subscription=Free",
                   200, token=admin)["Total"] == 2
 
+    # Only an Admin can grant or revoke Premium; Free has no daily cap.
+    subscription_route = f"/api/admin/learners/{first['Id']}/subscription"
+    locked_payload = make_question(71001)
+    locked_payload["StageId"] = 1
+    locked_payload["CategoryId"] = 3
+    locked_problem = expect("POST", "/api/admin/problems", 201,
+                            locked_payload, admin)["Id"]
+    assert api("GET", f"/api/problems/{locked_problem}", token=learner1)[0] == 403
+    assert api("PUT", subscription_route,
+               {"SubscriptionType": "Premium"}, learner1)[0] == 403
+    assert api("PUT", subscription_route,
+               {"SubscriptionType": "Premium"})[0] == 401
+    assert api("PUT", subscription_route,
+               {"SubscriptionType": "Unknown"}, admin)[0] == 400
+    assert api("PUT", "/api/admin/learners/999999/subscription",
+               {"SubscriptionType": "Premium"}, admin)[0] == 404
+    upgraded = expect("PUT", subscription_route, 200,
+                      {"SubscriptionType": "Premium"}, admin)
+    assert upgraded["Id"] == first["Id"] and upgraded["SubscriptionType"] == "Premium"
+    assert api("GET", f"/api/problems/{locked_problem}", token=learner1)[0] == 200
+    # Repeating a grant is safe. Revocation must take effect immediately.
+    assert expect("PUT", subscription_route, 200,
+                  {"SubscriptionType": "Premium"}, admin)["SubscriptionType"] == "Premium"
+    downgraded = expect("PUT", subscription_route, 200,
+                        {"SubscriptionType": "Free"}, admin)
+    assert downgraded["SubscriptionType"] == "Free"
+    assert api("GET", f"/api/problems/{locked_problem}", token=learner1)[0] == 403
+
+
     page1 = expect("GET", "/api/admin/learners?pageSize=1&page=1", 200,
                    token=admin)
     page2 = expect("GET", "/api/admin/learners?pageSize=1&page=2", 200,
@@ -104,7 +133,7 @@ def main():
                   "/api/admin/learners/999999/attempts"]:
         status, _ = api("GET", route, token=admin)
         assert status == 404, (route, status)
-    print("PASS: admin role, privacy, filtering, pagination, stage history, points, attempts")
+    print("PASS: admin learner directory, role privacy, manual Premium grants and revocation, stage history and attempts")
 
 if __name__ == "__main__":
     main()
