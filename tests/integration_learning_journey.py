@@ -155,6 +155,13 @@ def main():
     assert my_rank_row["Points"] == after["TotalPoints"], (
         my_rank_row, after
     )
+    # The administrator must see the same real learner among stage solvers.
+    admin_stage = expect("GET",
+        f"/api/admin/engagement/stages/{stage1}?days=30",
+        200, token=admin_token)
+    assert any(row["FullName"] == "Learning Journey Test Learner" and
+               row["Solved"] == 1 for row in admin_stage["TopStudents"]), admin_stage
+    assert any(row["TotalSolved"] >= 1 for row in admin_stage["Categories"]), admin_stage
 
     # One real learner must be visible even if nobody else has solved in
     # this stage. Training retries cannot count the same solved problem twice.
