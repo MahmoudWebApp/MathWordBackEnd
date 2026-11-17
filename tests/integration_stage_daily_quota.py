@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Free daily quotas are stage-local, replay safe, and concurrency safe.
+"""Unlimited practice remains stage-scoped for reporting and retry safe.
 
 Runs ONLY against a disposable local PostgreSQL CI backend.
 """
@@ -33,8 +33,8 @@ def assert_quota(token, stage, used, remaining):
     result = quota(token, stage)
     assert result["StageId"] == stage, result
     assert result["Used"] == used, result
-    assert result["Remaining"] == remaining, result
-    assert result["Limit"] == 10 and not result["Unlimited"], result
+    assert result.get("Remaining") is None, result
+    assert result["Limit"] == 0 and result["Unlimited"], result
     assert result["ResetsAtUtc"] > result["DayUtc"], result
 
 
@@ -62,39 +62,48 @@ def main():
     q1 = [question(admin, 2100 + i, 1, 1) for i in range(11)]
     q2 = [question(admin, 2200 + i, 2, 5) for i in range(11)]
     q3 = [question(admin, 2300 + i, 1, 1) for i in range(11)]
+    locked_one = question(admin, 2400, 1, 3)
+    locked_two = question(admin, 2500, 2, 7)
+
+    # Free students cannot fetch answers or submit directly for locked categories.
+    assert api("GET", f"/api/problems/{locked_one[0]}", token=one)[0] == 403
+    assert submit(one, *locked_one)[0] == 403
+    # Admin tools still access all content without Free restrictions.
+    assert api("GET", f"/api/problems/{locked_one[0]}", token=admin)[0] == 200
+
 
     expect("PUT", "/api/users/learning-stage", 200, {"StageId": 1}, one)
-    assert_quota(one, 1, 0, 10)
+    assert_quota(one, 1, 0, None)
     for qid, correct in q1[:10]:
         status, data = submit(one, qid, correct)
         assert status == 200, (status, data)
-    assert_quota(one, 1, 10, 0)
+    assert_quota(one, 1, 10, None)
 
     code, body = submit(one, *q1[10])
-    assert code == 429 and "10" in str(body), (code, body)
+    assert code == 200, (code, body)
     # Re-attempt the first-ever solved problem: no extra quota consumed.
     code, body = submit(one, *q1[0])
     assert code == 200 and not body["Data"]["IsOfficialAttempt"], (code, body)
-    assert_quota(one, 1, 10, 0)
+    assert_quota(one, 1, 11, None)
 
     # Changing stage does not reset used Stage 1 allowance.
     expect("PUT", "/api/users/learning-stage", 200, {"StageId": 2}, one)
     assert quota(one)["StageId"] == 2
-    assert_quota(one, 2, 0, 10)
+    assert_quota(one, 2, 0, None)
     code, body = submit(one, *q2[0])
     assert code == 200, (code, body)
-    assert_quota(one, 2, 1, 9)
+    assert_quota(one, 2, 1, None)
     expect("PUT", "/api/users/learning-stage", 200, {"StageId": 1}, one)
-    assert_quota(one, 1, 10, 0)
-    assert_quota(one, 2, 1, 9)
+    assert_quota(one, 1, 11, None)
+    assert_quota(one, 2, 1, None)
 
-    # Same 10-per-stage limit applies to a different learner.
+    # A different Free learner can also answer more than ten.
     for qid, correct in q2[:10]:
         code, body = submit(two, qid, correct)
         assert code == 200, (code, body)
     code, body = submit(two, *q2[10])
-    assert code == 429, (code, body)
-    assert_quota(two, 2, 10, 0)
+    assert code == 200, (code, body)
+    assert_quota(two, 2, 11, None)
     # Disposable PostgreSQL only: simulate a future audited admin upgrade.
     subprocess.run([
         "psql", "-X", "-v", "ON_ERROR_STOP=1",
@@ -103,21 +112,23 @@ def main():
     ], check=True, timeout=20, capture_output=True)
     premium = quota(two, 2)
     assert premium["Unlimited"] and premium.get("Remaining") is None, premium
+    assert api("GET", f"/api/problems/{locked_two[0]}", token=two)[0] == 200
+    assert submit(two, *locked_two)[0] == 200
     code, body = submit(two, *q2[10])
     assert code == 200, (code, body)
 
-    # Two DIFFERENT questions racing for the same final slot must serialize.
+    # Concurrent first attempts must both succeed without a daily cap.
     for qid, correct in q3[:9]:
         code, body = submit(three, qid, correct)
         assert code == 200, (code, body)
-    assert_quota(three, 1, 9, 1)
+    assert_quota(three, 1, 9, None)
     with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
         results = list(executor.map(lambda q: submit(three, *q), q3[9:11]))
-    assert sorted(code for code, _ in results) == [200, 429], results
-    assert_quota(three, 1, 10, 0)
+    assert sorted(code for code, _ in results) == [200, 200], results
+    assert_quota(three, 1, 11, None)
 
-    print("PASS: free per-stage 10, historical retry, stage switch, "
-          "Premium bypass, same-stage concurrent submit, auth and scope")
+    print("PASS: unlimited practice, stage-scoped reporting, retries, "
+          "Premium and Free concurrent submissions, auth and scope")
 
 
 if __name__ == "__main__":

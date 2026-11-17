@@ -80,7 +80,10 @@ namespace MathWorldAPI.Controllers
                                     category.StageId,
 
                                 Order =
-                                    category.Order
+                                    category.Order,
+
+                                ProblemsCount =
+                                    category.Problems.Count()
                             })
                         .ToListAsync();
 
@@ -577,7 +580,9 @@ namespace MathWorldAPI.Controllers
                     ?? string.Empty,
 
                 StageId = category.StageId,
-                Order = category.Order
+                Order = category.Order,
+                ProblemsCount = _context.Problems.Count(problem =>
+                    problem.CategoryId == category.Id)
             };
         }
     }

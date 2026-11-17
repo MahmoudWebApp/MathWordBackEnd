@@ -22,6 +22,28 @@ namespace MathWorldAPI.Controllers
     [Route("api/[controller]")]
     public class ProblemsController : ControllerBase
     {
+        private async Task<bool> IsCategoryLockedAsync(int userId, int categoryId, int stageId)
+        {
+            var subscription = await _context.Users.AsNoTracking()
+                .Where(user => user.Id == userId && user.Role == "Student")
+                .Select(user => user.SubscriptionType)
+                .FirstOrDefaultAsync(HttpContext.RequestAborted);
+
+            if (string.Equals(subscription, "Premium", StringComparison.OrdinalIgnoreCase))
+                return false;
+
+            // Deterministic ordering, shared with the mobile category display.
+            var freeCategoryIds = await _context.Categories.AsNoTracking()
+                .Where(category => category.StageId == stageId)
+                .OrderBy(category => category.Order)
+                .ThenBy(category => category.Id)
+                .Select(category => category.Id)
+                .Take(2)
+                .ToListAsync(HttpContext.RequestAborted);
+
+            return !freeCategoryIds.Contains(categoryId);
+        }
+
         private readonly AppDbContext _context;
         private readonly IMeiliSearchService _searchService;
         private readonly IServiceScopeFactory _scopeFactory;
@@ -660,6 +682,19 @@ namespace MathWorldAPI.Controllers
                         StatusCodes.Status404NotFound));
             }
 
+            // Free learners can open only the first two categories per stage.
+            // Check the database, never client-provided entitlement flags.
+            if (userId.HasValue &&
+                string.Equals(userRole, "Student", StringComparison.OrdinalIgnoreCase) &&
+                await IsCategoryLockedAsync(userId.Value, problem.CategoryId, problem.StageId))
+            {
+                return StatusCode(
+                    StatusCodes.Status403Forbidden,
+                    LanguageHelper.ErrorResponse<object>(
+                        "CategoryLocked", language,
+                        StatusCodes.Status403Forbidden));
+            }
+
             // View updates are non-critical and run in a separate scope.
             // Admin previews are management activity, not student engagement.
             if (!string.Equals(userRole, "Admin", StringComparison.OrdinalIgnoreCase))
@@ -1025,6 +1060,15 @@ namespace MathWorldAPI.Controllers
                         StatusCodes.Status404NotFound));
             }
 
+            if (await IsCategoryLockedAsync(userId.Value, problem.CategoryId, problem.StageId))
+            {
+                return StatusCode(
+                    StatusCodes.Status403Forbidden,
+                    LanguageHelper.ErrorResponse<AnswerResultDto>(
+                        "CategoryLocked", language,
+                        StatusCodes.Status403Forbidden));
+            }
+
             var selectedOption =
                 problem.Options
                     .FirstOrDefault(option =>
@@ -1123,25 +1167,6 @@ namespace MathWorldAPI.Controllers
 
             var isOfficialAttempt =
                 progress.Attempts == 0;
-
-            // Re-attempting an already attempted problem consumes no
-            // further daily slots even if the previous attempt was yesterday.
-            if (isOfficialAttempt &&
-                !string.Equals(subscription, "Premium",
-                    StringComparison.OrdinalIgnoreCase))
-            {
-                var used = await StageDailyQuota.CountUsedAsync(
-                    _context, userId.Value, problem.StageId, now,
-                    HttpContext.RequestAborted);
-                if (used >= StageDailyQuota.FreeLimit)
-                {
-                    return StatusCode(
-                        StatusCodes.Status429TooManyRequests,
-                        LanguageHelper.ErrorResponse<AnswerResultDto>(
-                            "DailyQuotaExceeded", language,
-                            StatusCodes.Status429TooManyRequests));
-                }
-            }
 
             var attemptNumber =
                 progress.Attempts + 1;

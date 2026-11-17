@@ -1,5 +1,4 @@
 using MathWorldAPI.Data;
-using MathWorldAPI.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace MathWorldAPI.Services
@@ -11,11 +10,7 @@ namespace MathWorldAPI.Services
     /// </summary>
     public static class StageDailyQuota
     {
-        public const int FreeLimit = 10;
-
-        public static bool IsUnlimited(AppUser user) =>
-            string.Equals(user.SubscriptionType, "Premium",
-                StringComparison.OrdinalIgnoreCase);
+        // Only historical attempt counts remain; no daily quota is enforced.
 
         public static DateTime UtcDayStart(DateTime now) => now.ToUniversalTime().Date;
 

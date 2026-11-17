@@ -44,16 +44,15 @@ namespace MathWorldAPI.Controllers
             var date = StageDailyQuota.UtcDayStart(DateTime.UtcNow);
             var used = await StageDailyQuota.CountUsedAsync(_db, userId,
                 stage.Id, date, cancellationToken);
-            var unlimited = StageDailyQuota.IsUnlimited(user);
             var result = new StageDailyQuotaDto
             {
                 StageId = stage.Id,
                 NameAr = stage.NameAr,
                 NameEn = stage.NameEn,
-                Limit = StageDailyQuota.FreeLimit,
+                Limit = 0, // Legacy field: no daily limit for any subscription.
                 Used = used,
-                Remaining = unlimited ? null : Math.Max(0, StageDailyQuota.FreeLimit - used),
-                Unlimited = unlimited,
+                Remaining = null,
+                Unlimited = true,
                 SubscriptionType = user.SubscriptionType,
                 DayUtc = date,
                 ResetsAtUtc = date.AddDays(1)
