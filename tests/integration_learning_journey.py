@@ -155,6 +155,17 @@ def main():
     assert my_rank_row["Points"] == after["TotalPoints"], (
         my_rank_row, after
     )
+    # A newly solved question must appear in all three leaderboard periods,
+    # even when this is the only active learner in the stage.
+    for period in ("weekly", "monthly"):
+        recent = expect("GET",
+            f"/api/users/leaderboard?stageId={stage1}&period={period}",
+            200, token=token)
+        mine = [row for row in recent["Entries"] if row["IsCurrentUser"]]
+        assert len(mine) == 1, (period, recent)
+        assert recent["MyRank"] == mine[0]["Rank"], (period, recent)
+        assert mine[0]["SolvedProblems"] == 1, (period, recent)
+        assert mine[0]["Points"] == after["TotalPoints"], (period, recent)
     # The administrator must see the same real learner among stage solvers.
     admin_stage = expect("GET",
         f"/api/admin/engagement/stages/{stage1}?days=30",
