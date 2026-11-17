@@ -57,6 +57,9 @@ def main():
     locked_problem = expect("POST", "/api/admin/problems", 201,
                             locked_payload, admin)["Id"]
     assert api("GET", f"/api/problems/{locked_problem}", token=learner1)[0] == 403
+    preview = f"/api/problems/{locked_problem}/solution-preview"
+    assert api("GET", preview, token=learner1)[0] == 403
+    assert api("GET", preview)[0] == 401
     assert api("PUT", subscription_route,
                {"SubscriptionType": "Premium"}, learner1)[0] == 403
     assert api("PUT", subscription_route,
@@ -69,6 +72,9 @@ def main():
                       {"SubscriptionType": "Premium"}, admin)
     assert upgraded["Id"] == first["Id"] and upgraded["SubscriptionType"] == "Premium"
     assert api("GET", f"/api/problems/{locked_problem}", token=learner1)[0] == 200
+    solution = expect("GET", preview, 200, token=learner1)
+    assert solution["ProblemId"] == locked_problem
+    assert solution["CorrectOptionId"] is not None, solution
     # Repeating a grant is safe. Revocation must take effect immediately.
     assert expect("PUT", subscription_route, 200,
                   {"SubscriptionType": "Premium"}, admin)["SubscriptionType"] == "Premium"
@@ -76,6 +82,7 @@ def main():
                         {"SubscriptionType": "Free"}, admin)
     assert downgraded["SubscriptionType"] == "Free"
     assert api("GET", f"/api/problems/{locked_problem}", token=learner1)[0] == 403
+    assert api("GET", preview, token=learner1)[0] == 403
 
 
     page1 = expect("GET", "/api/admin/learners?pageSize=1&page=1", 200,
