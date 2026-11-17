@@ -360,6 +360,13 @@ namespace MathWorldAPI.Helpers
             // ==================== User Messages ====================
 
             {
+                "PremiumRequiredForSolution",
+                (
+                    "معاينة الحل قبل الإجابة متاحة فقط لمشتركي Premium.",
+                    "Previewing the solution before answering requires Premium."
+                )
+            },
+            {
                 "InvalidSubscriptionType",
                 (
                     "نوع الاشتراك يجب أن يكون Free أو Premium.",
