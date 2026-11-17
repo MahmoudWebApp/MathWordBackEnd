@@ -17,6 +17,63 @@ def main():
     expect("PUT", "/api/users/learning-stage", 200, {"StageId": 1}, learner1)
     expect("PUT", "/api/users/learning-stage", 200, {"StageId": 2}, learner2)
 
+    # Persistent notifications: no cross-learner visibility, private unread
+    # state, Admin-only creation and optional stage-scoped announcements.
+    assert api("GET", "/api/notifications")[0] == 401
+    assert api("GET", "/api/notifications", token=admin)[0] == 403
+    assert api("POST", "/api/admin/notifications/announce", {
+        "TitleAr": "اختبار", "TitleEn": "Test",
+        "BodyAr": "رسالة", "BodyEn": "Message",
+        "StageId": 1
+    }, learner1)[0] == 403
+    assert api("POST", "/api/admin/notifications/announce", {
+        "TitleAr": "اختبار", "TitleEn": "Test",
+        "BodyAr": "رسالة", "BodyEn": "Message",
+        "ActionPath": "//evil.example"
+    }, admin)[0] == 400
+    assert expect("POST", "/api/admin/notifications/announce", 200, {
+        "TitleAr": "مرحباً", "TitleEn": "Welcome",
+        "BodyAr": "خبر جديد", "BodyEn": "New announcement",
+        "StageId": 1, "ActionPath": "/stages/1"
+    }, admin)["Sent"] == 1
+    first_notice_page = expect("GET", "/api/notifications", 200,
+                               token=learner1)
+    second_notice_page = expect("GET", "/api/notifications", 200,
+                                token=learner2)
+    assert first_notice_page["Total"] == 1, first_notice_page
+    assert first_notice_page["UnreadCount"] == 1, first_notice_page
+    assert not second_notice_page["Notifications"], second_notice_page
+    notice = first_notice_page["Notifications"][0]
+    assert notice["Title"] == "مرحباً" and not notice["IsRead"], notice
+    assert notice["ActionPath"] == "/stages/1", notice
+    unread_route = "/api/notifications/unread-count"
+    assert expect("GET", unread_route, 200,
+                  token=learner1)["UnreadCount"] == 1
+    assert api("PUT", f"/api/notifications/{notice['Id']}/read",
+               token=learner2)[0] == 404
+    assert expect("PUT", f"/api/notifications/{notice['Id']}/read", 200,
+                  token=learner1)["IsRead"]
+    assert expect("PUT", f"/api/notifications/{notice['Id']}/read", 200,
+                  token=learner1)["IsRead"]
+    assert expect("GET", unread_route, 200,
+                  token=learner1)["UnreadCount"] == 0
+    assert expect("POST", "/api/admin/notifications/announce", 200, {
+        "TitleAr": "عام", "TitleEn": "All",
+        "BodyAr": "للجميع", "BodyEn": "For everyone"
+    }, admin)["Sent"] == 2
+    assert expect("GET", unread_route, 200,
+                  token=learner1)["UnreadCount"] == 1
+    assert expect("GET", unread_route, 200,
+                  token=learner2)["UnreadCount"] == 1
+    assert expect("PUT", "/api/notifications/read-all", 200,
+                  token=learner1)["Updated"] == 1
+    assert expect("GET", unread_route, 200,
+                  token=learner1)["UnreadCount"] == 0
+    assert expect("GET", unread_route, 200,
+                  token=learner2)["UnreadCount"] == 1
+    assert api("GET", "/api/notifications?pageSize=500",
+               token=learner1)[0] == 400
+
     for route in ["/api/admin/learners", "/api/admin/learners/1",
                   "/api/admin/learners/1/attempts"]:
         status, _ = api("GET", route, token=learner1)
