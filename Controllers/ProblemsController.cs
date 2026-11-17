@@ -1045,6 +1045,58 @@ namespace MathWorldAPI.Controllers
         }
 
         /// <summary>
+        /// Allows a Premium student to request the solution before submitting.
+        /// No entitlement is read from the client; it is always checked in
+        /// the database to support immediate Admin changes.
+        /// </summary>
+        [Authorize(Roles = "Student")]
+        [HttpGet("{id:int}/solution-preview")]
+        public async Task<IActionResult> GetSolutionPreview(
+            int id, CancellationToken cancellationToken)
+        {
+            var language = LanguageHelper.GetLanguageFromRequest(Request);
+            var userId = GetUserId();
+            if (!userId.HasValue)
+                return Unauthorized(LanguageHelper.ErrorResponse<object>(
+                    "Unauthorized", language, StatusCodes.Status401Unauthorized));
+
+            var subscription = await _context.Users.AsNoTracking()
+                .Where(user => user.Id == userId.Value && user.Role == "Student")
+                .Select(user => user.SubscriptionType)
+                .FirstOrDefaultAsync(cancellationToken);
+            if (!string.Equals(subscription, "Premium",
+                StringComparison.OrdinalIgnoreCase))
+                return StatusCode(StatusCodes.Status403Forbidden,
+                    LanguageHelper.ErrorResponse<object>(
+                        "PremiumRequiredForSolution", language,
+                        StatusCodes.Status403Forbidden));
+
+            var problem = await _context.Problems.AsNoTracking()
+                .Where(item => item.Id == id)
+                .Select(item => new
+                {
+                    item.Id,
+                    item.DetailedSolutionAr,
+                    item.DetailedSolutionEn,
+                    item.YoutubeSolutionUrl,
+                    CorrectOptionId = item.Options.Where(option => option.IsCorrect)
+                        .Select(option => (int?)option.Id).FirstOrDefault()
+                }).FirstOrDefaultAsync(cancellationToken);
+            if (problem == null)
+                return NotFound(LanguageHelper.ErrorResponse<object>(
+                    "ProblemNotFound", language, StatusCodes.Status404NotFound));
+
+            return Ok(LanguageHelper.SuccessResponse(new
+            {
+                ProblemId = problem.Id,
+                problem.CorrectOptionId,
+                DetailedSolution = language == "en"
+                    ? problem.DetailedSolutionEn : problem.DetailedSolutionAr,
+                problem.YoutubeSolutionUrl
+            }, "Success", language));
+        }
+
+        /// <summary>
         /// Submits an official or training answer attempt for a problem.
         /// The first attempt remains the official result while later attempts
         /// are stored as training history without replacing the original result.
