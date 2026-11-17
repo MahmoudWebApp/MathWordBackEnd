@@ -151,6 +151,7 @@ namespace MathWorldAPI.Services
 
                 Role = normalizedRole,
                 SubscriptionType = "Free",
+                CurrentStageId = dto.StageId,
                 CreatedAt = DateTime.UtcNow,
                 IsActive = true
             };
