@@ -136,7 +136,17 @@ def main():
         200, token=token)
     assert before_switch_ranks["MyRank"] is not None, before_switch_ranks
     assert before_switch_ranks["TotalLearners"] >= 1, before_switch_ranks
-    assert any(e["IsCurrentUser"] for e in before_switch_ranks["Entries"]), before_switch_ranks
+    my_rank_row = next(
+        e for e in before_switch_ranks["Entries"] if e["IsCurrentUser"]
+    )
+    # Leaderboard now uses the same solved progress as student dashboard
+    # (including legacy answers that predate immutable attempt records).
+    assert my_rank_row["SolvedProblems"] == after["SolvedProblems"], (
+        my_rank_row, after
+    )
+    assert my_rank_row["Points"] == after["TotalPoints"], (
+        my_rank_row, after
+    )
     updated_challenge = expect("GET", "/api/users/daily-challenge", 200, token=token)
     assert [p["Id"] for p in updated_challenge["Problems"]] == [
         p["Id"] for p in challenge["Problems"]
