@@ -1,10 +1,12 @@
 ﻿// File: MathWorldAPI/Controllers/AuthController.cs
 
+using MathWorldAPI.Data;
 using MathWorldAPI.DTOs;
 using MathWorldAPI.Helpers;
 using MathWorldAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.RateLimiting;
+using Microsoft.EntityFrameworkCore;
 
 namespace MathWorldAPI.Controllers
 {
@@ -18,6 +20,7 @@ namespace MathWorldAPI.Controllers
     public class AuthController : ControllerBase
     {
         private readonly IAuthService _authService;
+        private readonly AppDbContext _db;
         private readonly ILogger<AuthController> _logger;
 
         /// <summary>
@@ -31,9 +34,11 @@ namespace MathWorldAPI.Controllers
         /// </param>
         public AuthController(
             IAuthService authService,
+            AppDbContext db,
             ILogger<AuthController> logger)
         {
             _authService = authService;
+            _db = db;
             _logger = logger;
         }
 
@@ -63,6 +68,17 @@ namespace MathWorldAPI.Controllers
         {
             var language =
                 LanguageHelper.GetLanguageFromRequest(Request);
+
+            // Reject invalid or missing stage before account creation.
+            // Do not silently assign the elementary default to new learners.
+            if (!await _db.EducationalStages.AsNoTracking()
+                .AnyAsync(stage => stage.Id == dto.StageId))
+            {
+                return BadRequest(
+                    LanguageHelper.ErrorResponse<AuthResponseDto>(
+                        "StageNotFound", language,
+                        StatusCodes.Status400BadRequest));
+            }
 
             var result =
                 await _authService.RegisterAsync(
