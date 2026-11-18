@@ -1,5 +1,6 @@
 using System.Security.Claims;
 using MathWorldAPI.Data;
+using MathWorldAPI.DTOs;
 using MathWorldAPI.Helpers;
 using MathWorldAPI.Models;
 using MathWorldAPI.Services;
@@ -69,6 +70,65 @@ public sealed class AdminNotificationsController : ControllerBase
 
         return Ok(LanguageHelper.SuccessResponse(
             new { notification.Id, notification.UserId, notification.CreatedAtUtc },
+            "Success", LanguageHelper.GetLanguageFromRequest(Request)));
+    }
+
+    // Retain the original admin announcement contract for existing clients.
+    // New clients use the versioned inbox; write both stores atomically until
+    // historical notices are migrated, so no existing app loses announcements.
+    [HttpPost("announce")]
+    public async Task<IActionResult> Announce(
+        [FromBody] SendStudentAnnouncementDto request, CancellationToken ct)
+    {
+        if (!int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out var adminId) ||
+            !await _db.Users.AsNoTracking().AnyAsync(
+                u => u.Id == adminId && u.Role == "Admin" && u.IsActive, ct))
+            return Forbid();
+
+        var path = request.ActionPath?.Trim();
+        if (request.StageId is < 1 || !ValidPath(path))
+            return BadRequest();
+        if (request.StageId.HasValue &&
+            !await _db.EducationalStages.AsNoTracking().AnyAsync(
+                x => x.Id == request.StageId.Value, ct))
+            return BadRequest();
+
+        var recipients = await _db.Users.AsNoTracking()
+            .Where(u => u.Role == "Student" && u.IsActive &&
+                        (!request.StageId.HasValue ||
+                         u.CurrentStageId == request.StageId.Value))
+            .Select(u => u.Id).ToArrayAsync(ct);
+
+        var when = DateTime.UtcNow;
+        foreach (var id in recipients)
+        {
+            _db.StudentNotifications.Add(new StudentNotification
+            {
+                UserId = id,
+                TitleAr = request.TitleAr.Trim(),
+                TitleEn = request.TitleEn.Trim(),
+                BodyAr = request.BodyAr.Trim(),
+                BodyEn = request.BodyEn.Trim(),
+                ActionPath = path,
+                CreatedAt = when,
+                Type = "announcement"
+            });
+            _db.UserNotifications.Add(new UserNotification
+            {
+                UserId = id,
+                TitleAr = request.TitleAr.Trim(),
+                TitleEn = request.TitleEn.Trim(),
+                BodyAr = request.BodyAr.Trim(),
+                BodyEn = request.BodyEn.Trim(),
+                TargetPath = path,
+                CreatedAtUtc = when,
+                Type = "announcement"
+            });
+        }
+        await _db.SaveChangesAsync(ct);
+        foreach (var id in recipients) _stream.Notify(id);
+        return Ok(LanguageHelper.SuccessResponse(
+            new { Sent = recipients.Length },
             "Success", LanguageHelper.GetLanguageFromRequest(Request)));
     }
 
