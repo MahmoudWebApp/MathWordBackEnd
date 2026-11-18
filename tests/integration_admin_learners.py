@@ -145,7 +145,7 @@ def main():
                {"SubscriptionType": "Premium", "Reason": "CI subscription check"}, admin)[0] == 404
     upgraded = expect("PUT", subscription_route, 200,
                       {"SubscriptionType": "Premium", "Reason": "CI subscription check"}, admin)
-    assert upgraded["Id"] == first["Id"] and upgraded["SubscriptionType"] == "Premium"
+    assert upgraded["LearnerId"] == first["Id"] and upgraded["SubscriptionType"] == "Premium"
     report_initial = expect("GET", report_route, 200, token=learner1)
     assert report_initial["StageId"] == 1, report_initial
     assert report_initial["SolvedProblems"] == 0, report_initial
