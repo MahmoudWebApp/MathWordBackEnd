@@ -22,8 +22,8 @@ concurrency:
 # three independent public repositories. Update the refs after each batch.
 # No production deploys, external DB access, credentials or app-store signing.
 env:
-  MATHWORLD_WEB_COMMIT: c6fe021e2f69c53d63fdb999adbe963bfd859173
-  MATHWORLD_MOBILE_COMMIT: f19b5d71bd6c2acca87175d0343b30a94ca86e6e
+  MATHWORLD_WEB_COMMIT: edfb2225a2485b404d81faeff7f6a6aebca8f8f8
+  MATHWORLD_MOBILE_COMMIT: a82e63b9c21b1cb6cb45785207e4ae16b82392f5
 
 jobs:
   backend:
