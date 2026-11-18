@@ -115,6 +115,22 @@ public sealed class NotificationsController : ControllerBase
         }
     }
 
+    // Lightweight count for clients that only render the student bell.
+    [HttpGet("unread-count")]
+    [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
+    public async Task<IActionResult> UnreadCount(CancellationToken ct)
+    {
+        var userId = await ActiveUserId(ct);
+        if (userId is null) return Unauthorized();
+        var cutoff = DateTime.UtcNow.AddDays(-30);
+        var count = await _db.UserNotifications.AsNoTracking()
+            .CountAsync(x => x.UserId == userId.Value &&
+                             x.ReadAtUtc == null && x.CreatedAtUtc >= cutoff, ct);
+        return Ok(LanguageHelper.SuccessResponse(
+            new { UnreadCount = count }, "Success",
+            LanguageHelper.GetLanguageFromRequest(Request)));
+    }
+
     // The inbox shows the latest 30 days. A read event never deletes a notice.
     [HttpGet]
     [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
