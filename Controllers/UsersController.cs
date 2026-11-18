@@ -304,7 +304,8 @@ namespace MathWorldAPI.Controllers
                     Role = user.Role,
                     SubscriptionType =
                         user.SubscriptionType,
-                    CurrentStageId = user.CurrentStageId,
+                    CurrentStageId = user.CurrentStageId ?? await LegacyLearningStage.ElementaryIdAsync(
+                        _context, HttpContext.RequestAborted),
                     SolvedProblemsCount =
                         solvedCount,
                     TotalPoints =
