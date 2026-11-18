@@ -48,8 +48,8 @@ def main():
     expect("PUT", "/api/users/learning-stage", 200, {"StageId": 1}, learner2)
 
     # Notifications use the authenticated token, never a user-id query param.
-    assert expect("GET", "/api/notifications", 200, token=learner1)["UnreadCount"] == 0
-    assert api("GET", "/api/notifications")[0] == 401
+    assert expect("GET", "/api/notifications/v2", 200, token=learner1)["UnreadCount"] == 0
+    assert api("GET", "/api/notifications/v2")[0] == 401
     assert api("POST", "/api/admin/notifications/learners/1", {}, learner1)[0] == 403
 
     students = expect("GET", "/api/admin/learners", 200, token=admin)["Learners"]
@@ -60,13 +60,13 @@ def main():
     # the private inbox. This test also proves a committed admin send emits
     # a refresh event before the client falls back to polling.
     stream_request = urllib.request.Request(
-        BASE + "/api/notifications/stream",
+        BASE + "/api/notifications/v2/stream",
         headers={
             "Authorization": "Bearer " + learner1,
             "Accept": "text/event-stream",
         },
     )
-    assert api("GET", "/api/notifications/stream")[0] == 401
+    assert api("GET", "/api/notifications/v2/stream")[0] == 401
     stream = urllib.request.urlopen(stream_request, timeout=8)
     assert "text/event-stream" in stream.headers.get("Content-Type", "")
     assert stream.readline().startswith(b": connected")
@@ -84,15 +84,15 @@ def main():
     assert stream.readline().strip() == b"data: {}", "SSE must not expose notice content"
     assert stream.readline().strip() == b""
     stream.close()
-    own = expect("GET", "/api/notifications", 200, token=learner1)
+    own = expect("GET", "/api/notifications/v2", 200, token=learner1)
     assert own["UnreadCount"] == 1, own
     assert any(n["Id"] == notice_id for n in own["Items"])
-    other = expect("GET", "/api/notifications", 200, token=learner2)
+    other = expect("GET", "/api/notifications/v2", 200, token=learner2)
     assert other["UnreadCount"] == 0 and not other["Items"], other
-    assert api("PUT", f"/api/notifications/{notice_id}/read", token=learner2)[0] == 404
-    expect("PUT", f"/api/notifications/{notice_id}/read", 204, token=learner1)
-    expect("PUT", f"/api/notifications/{notice_id}/read", 204, token=learner1)
-    assert expect("GET", "/api/notifications", 200, token=learner1)["UnreadCount"] == 0
+    assert api("PUT", f"/api/notifications/v2/{notice_id}/read", token=learner2)[0] == 404
+    expect("PUT", f"/api/notifications/v2/{notice_id}/read", 204, token=learner1)
+    expect("PUT", f"/api/notifications/v2/{notice_id}/read", 204, token=learner1)
+    assert expect("GET", "/api/notifications/v2", 200, token=learner1)["UnreadCount"] == 0
 
     # Full-page inbox is offset-paginated within 30 days and bound to JWT owner.
     # Add two more read notices without altering later achievement unread checks.
@@ -106,11 +106,11 @@ def main():
             "TargetPath": "/dashboard",
         }, admin)
         extra_ids.append(extra["Id"])
-        expect("PUT", f"/api/notifications/{extra['Id']}/read", 204, token=learner1)
-    first = expect("GET", "/api/notifications?take=1&skip=0", 200, token=learner1)
-    second = expect("GET", "/api/notifications?take=1&skip=1", 200, token=learner1)
-    third = expect("GET", "/api/notifications?take=1&skip=2", 200, token=learner1)
-    end = expect("GET", "/api/notifications?take=1&skip=3", 200, token=learner1)
+        expect("PUT", f"/api/notifications/v2/{extra['Id']}/read", 204, token=learner1)
+    first = expect("GET", "/api/notifications/v2?take=1&skip=0", 200, token=learner1)
+    second = expect("GET", "/api/notifications/v2?take=1&skip=1", 200, token=learner1)
+    third = expect("GET", "/api/notifications/v2?take=1&skip=2", 200, token=learner1)
+    end = expect("GET", "/api/notifications/v2?take=1&skip=3", 200, token=learner1)
     assert first["TotalCount"] == 3 and first["HasMore"], first
     assert second["HasMore"] and not third["HasMore"], (second, third)
     assert not end["Items"] and not end["HasMore"], end
@@ -118,10 +118,10 @@ def main():
         extra_ids[1], extra_ids[0], notice_id,
     ]
     assert first["UnreadCount"] == 0
-    assert api("GET", "/api/notifications?take=0", token=learner1)[0] == 400
-    assert api("GET", "/api/notifications?skip=-1", token=learner1)[0] == 400
-    assert api("GET", "/api/notifications?skip=10001", token=learner1)[0] == 400
-    isolated = expect("GET", "/api/notifications?take=1&skip=0", 200, token=learner2)
+    assert api("GET", "/api/notifications/v2?take=0", token=learner1)[0] == 400
+    assert api("GET", "/api/notifications/v2?skip=-1", token=learner1)[0] == 400
+    assert api("GET", "/api/notifications/v2?skip=10001", token=learner1)[0] == 400
+    isolated = expect("GET", "/api/notifications/v2?take=1&skip=0", 200, token=learner2)
     assert isolated["TotalCount"] == 0 and not isolated["Items"], isolated
 
     # First unique solve emits exactly one achievement; retry doesn't duplicate it.
@@ -154,7 +154,7 @@ def main():
     assert code == 200
     code, _ = submit(learner1, question_id, correct_option)
     assert code == 200
-    notices = expect("GET", "/api/notifications", 200, token=learner1)["Items"]
+    notices = expect("GET", "/api/notifications/v2", 200, token=learner1)["Items"]
     achievements = [n for n in notices if n["Type"] == "achievement"]
     assert len(achievements) == 1, achievements
 
@@ -212,10 +212,10 @@ def main():
         csv_text = csv_bytes.decode("utf-8-sig")
         assert "StageId,CategoryId" in csv_text and "الأعداد" in csv_text, csv_text
 
-    notices = expect("GET", "/api/notifications", 200, token=learner1)["Items"]
+    notices = expect("GET", "/api/notifications/v2", 200, token=learner1)["Items"]
     assert len([n for n in notices if n["Type"] == "subscription"]) == 1
-    expect("PUT", "/api/notifications/read-all", 204, token=learner1)
-    assert expect("GET", "/api/notifications", 200, token=learner1)["UnreadCount"] == 0
+    expect("PUT", "/api/notifications/v2/read-all", 204, token=learner1)
+    assert expect("GET", "/api/notifications/v2", 200, token=learner1)["UnreadCount"] == 0
 
     # Launch gift access: a one-use code grants 365 days without checkout.
     voucher = expect("POST", "/api/admin/premium-codes", 200, {
