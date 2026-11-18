@@ -444,8 +444,10 @@ var configuredOrigins =
         .GetSection("Cors:Origins")
         .Get<string[]>();
 
+// Exact, first-party production hosts must remain available even when
+// Cors:Origins is configured separately on Render. Never allow *.vercel.app.
 var allowedOrigins =
-    configuredOrigins is { Length: > 0 }
+    (configuredOrigins is { Length: > 0 }
         ? configuredOrigins
         : new[]
         {

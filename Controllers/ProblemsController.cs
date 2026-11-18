@@ -22,6 +22,59 @@ namespace MathWorldAPI.Controllers
     [Route("api/[controller]")]
     public class ProblemsController : ControllerBase
     {
+        private async Task<bool> IsCategoryLockedAsync(int userId, int categoryId, int stageId)
+        {
+            var subscription = await _context.Users.AsNoTracking()
+                .Where(user => user.Id == userId && user.Role == "Student")
+                .Select(user => user.SubscriptionType)
+                .FirstOrDefaultAsync(HttpContext.RequestAborted);
+
+            if (string.Equals(subscription, "Premium", StringComparison.OrdinalIgnoreCase))
+                return false;
+
+            // Deterministic ordering, shared with the mobile category display.
+            var freeCategoryIds = await _context.Categories.AsNoTracking()
+                .Where(category => category.StageId == stageId)
+                .OrderBy(category => category.Order)
+                .ThenBy(category => category.Id)
+                .Select(category => category.Id)
+                .Take(2)
+                .ToListAsync(HttpContext.RequestAborted);
+
+            return !freeCategoryIds.Contains(categoryId);
+        }
+
+        private async Task<bool> IsFreeStudentAsync()
+        {
+            var userId = GetUserId();
+            if (!userId.HasValue ||
+                !string.Equals(GetUserRole(), "Student", StringComparison.OrdinalIgnoreCase))
+                return false;
+
+            var subscription = await _context.Users.AsNoTracking()
+                .Where(user => user.Id == userId.Value && user.Role == "Student")
+                .Select(user => user.SubscriptionType)
+                .FirstOrDefaultAsync(HttpContext.RequestAborted);
+
+            return !string.Equals(subscription, "Premium", StringComparison.OrdinalIgnoreCase);
+        }
+
+        private async Task<int[]> FreeCategoryIdsAsync()
+        {
+            // Apply the same deterministic order as category cards and detail access.
+            var categories = await _context.Categories.AsNoTracking()
+                .OrderBy(category => category.StageId)
+                .ThenBy(category => category.Order)
+                .ThenBy(category => category.Id)
+                .Select(category => new { category.Id, category.StageId })
+                .ToListAsync(HttpContext.RequestAborted);
+
+            return categories.GroupBy(category => category.StageId)
+                .SelectMany(group => group.Take(2))
+                .Select(category => category.Id)
+                .ToArray();
+        }
+
         private readonly AppDbContext _context;
         private readonly IMeiliSearchService _searchService;
         private readonly IServiceScopeFactory _scopeFactory;
@@ -95,6 +148,11 @@ namespace MathWorldAPI.Controllers
                     page,
                     pageSize);
             }
+
+            // Protect the direct Meili endpoint too: filtering after
+            // Meili pagination would leak category presence and wrong totals.
+            if (await IsFreeStudentAsync())
+                return await PostgreSqlSearch(q, categoryId, stageId, page, pageSize);
 
             var language =
                 LanguageHelper.GetLanguageFromRequest(
@@ -444,6 +502,12 @@ namespace MathWorldAPI.Controllers
                     .Where(problem => problem.Category.StageId == problem.StageId &&
                         (allowedCategoryIds == null || allowedCategoryIds.Contains(problem.CategoryId)))
                     .AsQueryable();
+
+            if (accessibleCategoryIds != null)
+            {
+                query = query.Where(problem =>
+                    accessibleCategoryIds.Contains(problem.CategoryId));
+            }
 
             if (!string.IsNullOrWhiteSpace(q))
             {
@@ -960,6 +1024,58 @@ namespace MathWorldAPI.Controllers
                     publicResponse,
                     "Success",
                     language));
+        }
+
+        /// <summary>
+        /// Allows a Premium student to request the solution before submitting.
+        /// No entitlement is read from the client; it is always checked in
+        /// the database to support immediate Admin changes.
+        /// </summary>
+        [Authorize(Roles = "Student")]
+        [HttpGet("{id:int}/solution-preview")]
+        public async Task<IActionResult> GetSolutionPreview(
+            int id, CancellationToken cancellationToken)
+        {
+            var language = LanguageHelper.GetLanguageFromRequest(Request);
+            var userId = GetUserId();
+            if (!userId.HasValue)
+                return Unauthorized(LanguageHelper.ErrorResponse<object>(
+                    "Unauthorized", language, StatusCodes.Status401Unauthorized));
+
+            var subscription = await _context.Users.AsNoTracking()
+                .Where(user => user.Id == userId.Value && user.Role == "Student")
+                .Select(user => user.SubscriptionType)
+                .FirstOrDefaultAsync(cancellationToken);
+            if (!string.Equals(subscription, "Premium",
+                StringComparison.OrdinalIgnoreCase))
+                return StatusCode(StatusCodes.Status403Forbidden,
+                    LanguageHelper.ErrorResponse<object>(
+                        "PremiumRequiredForSolution", language,
+                        StatusCodes.Status403Forbidden));
+
+            var problem = await _context.Problems.AsNoTracking()
+                .Where(item => item.Id == id)
+                .Select(item => new
+                {
+                    item.Id,
+                    item.DetailedSolutionAr,
+                    item.DetailedSolutionEn,
+                    item.YoutubeSolutionUrl,
+                    CorrectOptionId = item.Options.Where(option => option.IsCorrect)
+                        .Select(option => (int?)option.Id).FirstOrDefault()
+                }).FirstOrDefaultAsync(cancellationToken);
+            if (problem == null)
+                return NotFound(LanguageHelper.ErrorResponse<object>(
+                    "ProblemNotFound", language, StatusCodes.Status404NotFound));
+
+            return Ok(LanguageHelper.SuccessResponse(new
+            {
+                ProblemId = problem.Id,
+                problem.CorrectOptionId,
+                DetailedSolution = language == "en"
+                    ? problem.DetailedSolutionEn : problem.DetailedSolutionAr,
+                problem.YoutubeSolutionUrl
+            }, "Success", language));
         }
 
         /// <summary>

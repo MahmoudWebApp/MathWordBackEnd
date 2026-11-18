@@ -209,7 +209,7 @@ namespace MathWorldAPI.Controllers
                     Role = user.Role,
                     SubscriptionType =
                         user.SubscriptionType,
-                    CurrentStageId = user.CurrentStageId,
+                    CurrentStageId = activeStageId,
                     SolvedProblemsCount =
                         solvedCount,
                     FavoriteProblemsCount =
@@ -331,7 +331,8 @@ namespace MathWorldAPI.Controllers
                     Role = user.Role,
                     SubscriptionType =
                         user.SubscriptionType,
-                    CurrentStageId = user.CurrentStageId,
+                    CurrentStageId = user.CurrentStageId ?? await LegacyLearningStage.ElementaryIdAsync(
+                        _context, HttpContext.RequestAborted),
                     SolvedProblemsCount =
                         solvedCount,
                     TotalPoints =
@@ -505,10 +506,12 @@ namespace MathWorldAPI.Controllers
             var userId =
                 GetUserId();
 
-            var activeStageId = await _context.Users.AsNoTracking()
+            var selectedStageId = await _context.Users.AsNoTracking()
                 .Where(user => user.Id == userId)
                 .Select(user => user.CurrentStageId)
                 .FirstOrDefaultAsync();
+            var activeStageId = await LegacyLearningStage.EffectiveIdAsync(
+                _context, selectedStageId, HttpContext.RequestAborted);
 
             var language =
                 LanguageHelper.GetLanguageFromRequest(Request);
@@ -525,8 +528,7 @@ namespace MathWorldAPI.Controllers
                          allowedCategories.Contains(progress.Problem.CategoryId)) &&
                         progress.Problem.Category.StageId == progress.Problem.StageId &&
                         progress.UserId == userId &&
-                        (!activeStageId.HasValue ||
-                         progress.Problem.StageId == activeStageId.Value) &&
+                        progress.Problem.StageId == activeStageId.Value &&
                         progress.IsFavorite)
                     .OrderByDescending(progress =>
                         progress.LastAttemptAt)
@@ -585,10 +587,12 @@ namespace MathWorldAPI.Controllers
             var userId =
                 GetUserId();
 
-            var activeStageId = await _context.Users.AsNoTracking()
+            var selectedStageId = await _context.Users.AsNoTracking()
                 .Where(user => user.Id == userId)
                 .Select(user => user.CurrentStageId)
                 .FirstOrDefaultAsync();
+            var activeStageId = await LegacyLearningStage.EffectiveIdAsync(
+                _context, selectedStageId, HttpContext.RequestAborted);
 
             var language =
                 LanguageHelper.GetLanguageFromRequest(Request);
@@ -605,8 +609,7 @@ namespace MathWorldAPI.Controllers
                          allowedCategories.Contains(progress.Problem.CategoryId)) &&
                         progress.Problem.Category.StageId == progress.Problem.StageId &&
                         progress.UserId == userId &&
-                        (!activeStageId.HasValue ||
-                         progress.Problem.StageId == activeStageId.Value) &&
+                        progress.Problem.StageId == activeStageId.Value &&
                         progress.IsSolved)
                     .OrderByDescending(progress =>
                         progress.SolvedAt)

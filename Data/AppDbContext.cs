@@ -78,6 +78,10 @@ namespace MathWorldAPI.Data
         public DbSet<SocialLogin> SocialLogins =>
             Set<SocialLogin>();
 
+        /// <summary>Private notifications scoped to one student.</summary>
+        public DbSet<StudentNotification> StudentNotifications =>
+            Set<StudentNotification>();
+
         /// <summary>
         /// Educational stages table.
         /// </summary>
@@ -394,6 +398,48 @@ namespace MathWorldAPI.Data
             modelBuilder.Entity<ProblemAttempt>()
                 .Property(attempt => attempt.CorrectOptionText)
                 .IsRequired();
+
+            modelBuilder.Entity<StudentNotification>()
+                .HasOne(notification => notification.User)
+                .WithMany()
+                .HasForeignKey(notification => notification.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<StudentNotification>()
+                .Property(notification => notification.Type)
+                .HasMaxLength(40).IsRequired();
+
+            modelBuilder.Entity<StudentNotification>()
+                .Property(notification => notification.TitleAr)
+                .HasMaxLength(140).IsRequired();
+
+            modelBuilder.Entity<StudentNotification>()
+                .Property(notification => notification.TitleEn)
+                .HasMaxLength(140).IsRequired();
+
+            modelBuilder.Entity<StudentNotification>()
+                .Property(notification => notification.BodyAr)
+                .HasMaxLength(1000).IsRequired();
+
+            modelBuilder.Entity<StudentNotification>()
+                .Property(notification => notification.BodyEn)
+                .HasMaxLength(1000).IsRequired();
+
+            modelBuilder.Entity<StudentNotification>()
+                .Property(notification => notification.ActionPath)
+                .HasMaxLength(200);
+
+            modelBuilder.Entity<StudentNotification>()
+                .HasIndex(notification => new {
+                    notification.UserId,
+                    notification.CreatedAt
+                });
+
+            modelBuilder.Entity<StudentNotification>()
+                .HasIndex(notification => new {
+                    notification.UserId,
+                    notification.ReadAt
+                });
 
             modelBuilder.Entity<SocialLogin>()
                 .HasOne(login => login.User)

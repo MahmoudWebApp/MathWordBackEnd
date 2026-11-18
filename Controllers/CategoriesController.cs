@@ -1,5 +1,6 @@
 ﻿// File: MathWorldAPI/Controllers/CategoriesController.cs
 
+using System.Security.Claims;
 using MathWorldAPI.Data;
 using MathWorldAPI.DTOs;
 using MathWorldAPI.Helpers;
@@ -61,6 +62,8 @@ namespace MathWorldAPI.Controllers
                             category.StageId)
                         .ThenBy(category =>
                             category.Order)
+                        .ThenBy(category =>
+                            category.Id)
                         .Select(category =>
                             new CategoryDto
                             {
@@ -638,7 +641,9 @@ namespace MathWorldAPI.Controllers
                     ?? string.Empty,
 
                 StageId = category.StageId,
-                Order = category.Order
+                Order = category.Order,
+                ProblemsCount = _context.Problems.Count(problem =>
+                    problem.CategoryId == category.Id)
             };
         }
     }

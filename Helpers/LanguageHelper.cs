@@ -176,6 +176,13 @@ namespace MathWorldAPI.Helpers
                 )
             },
             {
+                "CategoryLocked",
+                (
+                    "هذه الفئة متاحة لمشتركي Premium. أول فئتين من كل مرحلة مفتوحتان مجاناً.",
+                    "This category requires Premium. The first two categories in each stage are free."
+                )
+            },
+            {
                 "DailyQuotaExceeded",
                 (
                     "استهلكت 10 مسائل جديدة لهذا المستوى اليوم. يمكنك إعادة تدريب المسائل السابقة أو الانتظار إلى منتصف الليل بتوقيت UTC أو الترقية إلى Premium.",
@@ -352,6 +359,20 @@ namespace MathWorldAPI.Helpers
 
             // ==================== User Messages ====================
 
+            {
+                "PremiumRequiredForSolution",
+                (
+                    "معاينة الحل قبل الإجابة متاحة فقط لمشتركي Premium.",
+                    "Previewing the solution before answering requires Premium."
+                )
+            },
+            {
+                "InvalidSubscriptionType",
+                (
+                    "نوع الاشتراك يجب أن يكون Free أو Premium.",
+                    "Subscription type must be Free or Premium."
+                )
+            },
             {
                 "InvalidLearnerFilters",
                 (

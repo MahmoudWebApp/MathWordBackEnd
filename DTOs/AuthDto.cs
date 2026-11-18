@@ -34,6 +34,14 @@ namespace MathWorldAPI.DTOs
         [StringLength(128, MinimumLength = 8)]
         [Description("Password with at least 8 characters.")]
         public string Password { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Every new locally registered learner chooses a stage.
+        /// Existing accounts with no stage are handled separately.
+        /// </summary>
+        [Range(1, int.MaxValue)]
+        [Description("Selected educational stage ID.")]
+        public int StageId { get; set; }
     }
 
     /// <summary>

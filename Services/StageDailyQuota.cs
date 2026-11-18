@@ -1,5 +1,4 @@
 using MathWorldAPI.Data;
-using MathWorldAPI.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace MathWorldAPI.Services

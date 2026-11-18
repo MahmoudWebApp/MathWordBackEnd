@@ -17,12 +17,79 @@ def main():
     expect("PUT", "/api/users/learning-stage", 200, {"StageId": 1}, learner1)
     expect("PUT", "/api/users/learning-stage", 200, {"StageId": 2}, learner2)
 
+    # Persistent notifications: no cross-learner visibility, private unread
+    # state, Admin-only creation and optional stage-scoped announcements.
+    assert api("GET", "/api/notifications")[0] == 401
+    assert api("GET", "/api/notifications", token=admin)[0] == 403
+    assert api("POST", "/api/admin/notifications/announce", {
+        "TitleAr": "اختبار", "TitleEn": "Test",
+        "BodyAr": "رسالة", "BodyEn": "Message",
+        "StageId": 1
+    }, learner1)[0] == 403
+    assert api("POST", "/api/admin/notifications/announce", {
+        "TitleAr": "اختبار", "TitleEn": "Test",
+        "BodyAr": "رسالة", "BodyEn": "Message",
+        "ActionPath": "//evil.example"
+    }, admin)[0] == 400
+    assert expect("POST", "/api/admin/notifications/announce", 200, {
+        "TitleAr": "مرحباً", "TitleEn": "Welcome",
+        "BodyAr": "خبر جديد", "BodyEn": "New announcement",
+        "StageId": 1, "ActionPath": "/stages/1"
+    }, admin)["Sent"] == 1
+    first_notice_page = expect("GET", "/api/notifications", 200,
+                               token=learner1)
+    second_notice_page = expect("GET", "/api/notifications", 200,
+                                token=learner2)
+    assert first_notice_page["Total"] == 1, first_notice_page
+    assert first_notice_page["UnreadCount"] == 1, first_notice_page
+    assert not second_notice_page["Notifications"], second_notice_page
+    notice = first_notice_page["Notifications"][0]
+    assert notice["Title"] == "مرحباً" and not notice["IsRead"], notice
+    assert notice["ActionPath"] == "/stages/1", notice
+    unread_route = "/api/notifications/unread-count"
+    assert expect("GET", unread_route, 200,
+                  token=learner1)["UnreadCount"] == 1
+    assert api("PUT", f"/api/notifications/{notice['Id']}/read",
+               token=learner2)[0] == 404
+    assert expect("PUT", f"/api/notifications/{notice['Id']}/read", 200,
+                  token=learner1)["IsRead"]
+    assert expect("PUT", f"/api/notifications/{notice['Id']}/read", 200,
+                  token=learner1)["IsRead"]
+    assert expect("GET", unread_route, 200,
+                  token=learner1)["UnreadCount"] == 0
+    assert expect("POST", "/api/admin/notifications/announce", 200, {
+        "TitleAr": "عام", "TitleEn": "All",
+        "BodyAr": "للجميع", "BodyEn": "For everyone"
+    }, admin)["Sent"] == 2
+    assert expect("GET", unread_route, 200,
+                  token=learner1)["UnreadCount"] == 1
+    assert expect("GET", unread_route, 200,
+                  token=learner2)["UnreadCount"] == 1
+    assert expect("PUT", "/api/notifications/read-all", 200,
+                  token=learner1)["Updated"] == 1
+    assert expect("GET", unread_route, 200,
+                  token=learner1)["UnreadCount"] == 0
+    assert expect("GET", unread_route, 200,
+                  token=learner2)["UnreadCount"] == 1
+    assert api("GET", "/api/notifications?pageSize=500",
+               token=learner1)[0] == 400
+
     for route in ["/api/admin/learners", "/api/admin/learners/1",
                   "/api/admin/learners/1/attempts"]:
         status, _ = api("GET", route, token=learner1)
         assert status == 403, (route, status)
     status, _ = api("GET", "/api/admin/learners")
     assert status == 401, status
+
+    # Content audit is admin-only and never exposes learner identities.
+    assert api("GET", "/api/admin/content-audit")[0] == 401
+    assert api("GET", "/api/admin/content-audit", token=learner1)[0] == 403
+    audit = expect("GET", "/api/admin/content-audit", 200, token=admin)
+    assert audit["Summary"]["TotalStages"] >= 4, audit
+    assert audit["Summary"]["TotalCategories"] >= 8, audit
+    assert audit["Summary"]["LearnersWithoutStage"] >= 0, audit
+    assert len(audit["Categories"]) == audit["Summary"]["TotalCategories"], audit
+    assert "Password" not in str(audit) and "Email" not in str(audit), audit
 
     all_students = expect("GET", "/api/admin/learners", 200, token=admin)
     assert all_students["Total"] == 2, all_students
@@ -49,6 +116,70 @@ def main():
     assert expect("GET", "/api/admin/learners?isActive=true&subscription=Free",
                   200, token=admin)["Total"] == 2
 
+    # Learner-owned reports are never available to anonymous/Admin/Free.
+    report_route = "/api/users/premium-report"
+    csv_route = "/api/users/premium-report/csv"
+    assert api("GET", report_route)[0] == 401
+    assert api("GET", report_route, token=admin)[0] == 403
+    assert api("GET", report_route, token=learner1)[0] == 403
+    assert api("GET", csv_route, token=learner1)[0] == 403
+
+    # Only an Admin can grant or revoke Premium; Free has no daily cap.
+    subscription_route = f"/api/admin/learners/{first['Id']}/subscription"
+    locked_payload = make_question(71001)
+    locked_payload["StageId"] = 1
+    locked_payload["CategoryId"] = 3
+    locked_problem = expect("POST", "/api/admin/problems", 201,
+                            locked_payload, admin)["Id"]
+    assert api("GET", f"/api/problems/{locked_problem}", token=learner1)[0] == 403
+    preview = f"/api/problems/{locked_problem}/solution-preview"
+    assert api("GET", preview, token=learner1)[0] == 403
+    assert api("GET", preview)[0] == 401
+    assert api("PUT", subscription_route,
+               {"SubscriptionType": "Premium"}, learner1)[0] == 403
+    assert api("PUT", subscription_route,
+               {"SubscriptionType": "Premium"})[0] == 401
+    assert api("PUT", subscription_route,
+               {"SubscriptionType": "Unknown"}, admin)[0] == 400
+    assert api("PUT", "/api/admin/learners/999999/subscription",
+               {"SubscriptionType": "Premium"}, admin)[0] == 404
+    upgraded = expect("PUT", subscription_route, 200,
+                      {"SubscriptionType": "Premium"}, admin)
+    assert upgraded["Id"] == first["Id"] and upgraded["SubscriptionType"] == "Premium"
+    report_initial = expect("GET", report_route, 200, token=learner1)
+    assert report_initial["StageId"] == 1, report_initial
+    assert report_initial["SolvedProblems"] == 0, report_initial
+    assert len(report_initial["Categories"]) >= 1, report_initial
+    assert api("GET", report_route + "?stageId=999999",
+               token=learner1)[0] == 404
+    # CSV is intentionally not JSON; verify the binary export directly.
+    import urllib.request
+    csv_request = urllib.request.Request(
+        BASE + csv_route,
+        headers={"Authorization": "Bearer " + learner1,
+                 "Accept": "text/csv"})
+    with urllib.request.urlopen(csv_request, timeout=20) as response:
+        assert response.status == 200, response.status
+        assert response.headers.get_content_type() == "text/csv"
+        csv_bytes = response.read()
+        assert csv_bytes[:3] == bytes((239, 187, 191)), csv_bytes[:12]
+        assert b"Category,Total Problems" in csv_bytes
+    assert api("GET", f"/api/problems/{locked_problem}", token=learner1)[0] == 200
+    solution = expect("GET", preview, 200, token=learner1)
+    assert solution["ProblemId"] == locked_problem
+    assert solution["CorrectOptionId"] is not None, solution
+    # Repeating a grant is safe. Revocation must take effect immediately.
+    assert expect("PUT", subscription_route, 200,
+                  {"SubscriptionType": "Premium"}, admin)["SubscriptionType"] == "Premium"
+    downgraded = expect("PUT", subscription_route, 200,
+                        {"SubscriptionType": "Free"}, admin)
+    assert downgraded["SubscriptionType"] == "Free"
+    assert api("GET", report_route, token=learner1)[0] == 403
+    assert api("GET", csv_route, token=learner1)[0] == 403
+    assert api("GET", f"/api/problems/{locked_problem}", token=learner1)[0] == 403
+    assert api("GET", preview, token=learner1)[0] == 403
+
+
     page1 = expect("GET", "/api/admin/learners?pageSize=1&page=1", 200,
                    token=admin)
     page2 = expect("GET", "/api/admin/learners?pageSize=1&page=2", 200,
@@ -57,6 +188,11 @@ def main():
     assert page1["Learners"][0]["Id"] != page2["Learners"][0]["Id"]
 
     question_id, correct_option = create_question(admin, 71)
+    updated_audit = expect("GET", "/api/admin/content-audit", 200, token=admin)
+    assert updated_audit["Summary"]["TotalProblems"] >= (
+        audit["Summary"]["TotalProblems"] + 1), updated_audit
+    assert updated_audit["Summary"]["ProblemsWithInvalidOptions"] == 0, updated_audit
+
     code, result = submit(learner1, question_id, correct_option)
     assert code == 200, (code, result)
 
@@ -64,6 +200,15 @@ def main():
     current = now["Learners"][0]
     assert current["SolvedProblems"] == 1 and current["AttemptedProblems"] == 1, current
     assert current["TotalAwardedPoints"] == 10 and current["LastAttemptAt"], current
+    expect("PUT", subscription_route, 200,
+           {"SubscriptionType": "Premium"}, admin)
+    report_solved = expect("GET", report_route, 200, token=learner1)
+    assert report_solved["SolvedProblems"] == 1, report_solved
+    assert report_solved["OfficialPoints"] == 10, report_solved
+    assert sum(c["SolvedProblems"] for c in report_solved["Categories"]) == 1
+    assert sum(c["OfficialPoints"] for c in report_solved["Categories"]) == 10
+    expect("PUT", subscription_route, 200,
+           {"SubscriptionType": "Free"}, admin)
 
     details = expect("GET", f"/api/admin/learners/{first['Id']}?stageId=1",
                      200, token=admin)
@@ -104,7 +249,7 @@ def main():
                   "/api/admin/learners/999999/attempts"]:
         status, _ = api("GET", route, token=admin)
         assert status == 404, (route, status)
-    print("PASS: admin role, privacy, filtering, pagination, stage history, points, attempts")
+    print("PASS: admin learner directory, role privacy, manual Premium grants and revocation, stage history and attempts")
 
 if __name__ == "__main__":
     main()

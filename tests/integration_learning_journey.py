@@ -56,12 +56,22 @@ def main():
     registered = expect("POST", "/api/auth/register", 201, {
         "FullName": "Learning Journey Test Learner",
         "Email": "journey-learner@mathworld.test",
-        "Password": "CI_TEST_PASSWORD_2026"
+        "Password": "CI_TEST_PASSWORD_2026",
+        "StageId": stage1
     })
+    # New accounts must choose a stage; missing and invalid stage are rejected.
+    invalid = {
+        "FullName": "Invalid Stage Learner",
+        "Email": "invalid-stage@mathworld.test",
+        "Password": "CI_TEST_PASSWORD_2026"
+    }
+    assert call("POST", "/api/auth/register", invalid)[0] == 400
+    invalid["StageId"] = 999999
+    assert call("POST", "/api/auth/register", invalid)[0] == 400
     token = registered["Token"]
-    assert registered.get("CurrentStageId") is None
-    assert expect("GET", "/api/users/learning-stage", 200, token=token).get("StageId") is None
-    expect("GET", "/api/users/journey", 409, token=token)
+    assert registered["CurrentStageId"] == stage1
+    assert expect("GET", "/api/users/learning-stage", 200, token=token)["StageId"] == stage1
+    assert expect("GET", "/api/users/journey", 200, token=token)["StageId"] == stage1
     expect("PUT", "/api/users/learning-stage", 404, {"StageId": 999999}, token)
 
     saved = expect("PUT", "/api/users/learning-stage", 200,

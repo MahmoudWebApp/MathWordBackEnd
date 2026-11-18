@@ -1,0 +1,1062 @@
+{
+  "description": "32 reviewed bilingual math questions added to MathWorld on 2026-11-18. Content backup only; existing production DB was populated separately. No learner data.",
+  "count": 32,
+  "questions": [
+    {
+      "StageId": 1,
+      "CategoryId": 1,
+      "Points": 10,
+      "TitleAr": "كم يساوي 84 - 29؟",
+      "TitleEn": "What is 84 - 29?",
+      "QuestionTextAr": "كم يساوي 84 - 29؟",
+      "QuestionTextEn": "What is 84 - 29?",
+      "DetailedSolutionAr": "نطرح 29 من 84: 84 - 20 = 64، ثم 64 - 9 = 55.",
+      "DetailedSolutionEn": "Subtract 20 from 84 to get 64, then subtract 9 to get 55.",
+      "Options": [
+        {
+          "Order": 1,
+          "IsCorrect": true,
+          "LatexCode": "55"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "54"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "65"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "45"
+        }
+      ]
+    },
+    {
+      "StageId": 1,
+      "CategoryId": 2,
+      "Points": 10,
+      "TitleAr": "إذا كان x + 9 = 23، فما قيمة x؟",
+      "TitleEn": "If x + 9 = 23, what is x?",
+      "QuestionTextAr": "إذا كان x + 9 = 23، فما قيمة x؟",
+      "QuestionTextEn": "If x + 9 = 23, what is x?",
+      "DetailedSolutionAr": "نطرح 9 من الطرفين، فنحصل على x = 23 - 9 = 14.",
+      "DetailedSolutionEn": "Subtract 9 from both sides: x = 23 - 9 = 14.",
+      "Options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "12"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": true,
+          "LatexCode": "14"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "16"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "32"
+        }
+      ]
+    },
+    {
+      "StageId": 1,
+      "CategoryId": 3,
+      "Points": 10,
+      "TitleAr": "مستطيل طوله 8 سم وعرضه 5 سم؛ ما محيطه؟",
+      "TitleEn": "A rectangle is 8 cm long and 5 cm wide. What is its perimeter?",
+      "QuestionTextAr": "مستطيل طوله 8 سم وعرضه 5 سم؛ ما محيطه؟",
+      "QuestionTextEn": "A rectangle is 8 cm long and 5 cm wide. What is its perimeter?",
+      "DetailedSolutionAr": "المحيط يساوي 2 × (الطول + العرض)، أي 2 × (8 + 5) = 26 سم.",
+      "DetailedSolutionEn": "Perimeter = 2(length + width) = 2(8 + 5) = 26 cm.",
+      "Options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "13"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "40"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "26"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "20"
+        }
+      ]
+    },
+    {
+      "StageId": 1,
+      "CategoryId": 4,
+      "Points": 10,
+      "TitleAr": "ما المتوسط الحسابي للأعداد 4 و6 و8 و10؟",
+      "TitleEn": "What is the mean of 4, 6, 8, and 10?",
+      "QuestionTextAr": "ما المتوسط الحسابي للأعداد 4 و6 و8 و10؟",
+      "QuestionTextEn": "What is the mean of 4, 6, 8, and 10?",
+      "DetailedSolutionAr": "مجموع الأعداد 28 وعددها 4، إذن المتوسط 28 ÷ 4 = 7.",
+      "DetailedSolutionEn": "The sum is 28 and there are four values, so the mean is 28 / 4 = 7.",
+      "Options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "8"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "6"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "9"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": true,
+          "LatexCode": "7"
+        }
+      ]
+    },
+    {
+      "StageId": 2,
+      "CategoryId": 5,
+      "Points": 10,
+      "TitleAr": "ما قيمة 2 أس 5؟",
+      "TitleEn": "What is 2 raised to the fifth power?",
+      "QuestionTextAr": "ما قيمة 2 أس 5؟",
+      "QuestionTextEn": "What is 2 raised to the fifth power?",
+      "DetailedSolutionAr": "2 أس 5 يعني 2 × 2 × 2 × 2 × 2 = 32.",
+      "DetailedSolutionEn": "Two to the fifth power equals 2 × 2 × 2 × 2 × 2 = 32.",
+      "Options": [
+        {
+          "Order": 1,
+          "IsCorrect": true,
+          "LatexCode": "32"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "10"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "16"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "64"
+        }
+      ]
+    },
+    {
+      "StageId": 2,
+      "CategoryId": 6,
+      "Points": 10,
+      "TitleAr": "إذا كانت f(x) = x² - 3، فأوجد f(4).",
+      "TitleEn": "If f(x) = x² - 3, find f(4).",
+      "QuestionTextAr": "إذا كانت f(x) = x² - 3، فأوجد f(4).",
+      "QuestionTextEn": "If f(x) = x² - 3, find f(4).",
+      "DetailedSolutionAr": "نعوض x = 4 فنحصل على 4² - 3 = 16 - 3 = 13.",
+      "DetailedSolutionEn": "Substitute x = 4: 4² - 3 = 16 - 3 = 13.",
+      "Options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "11"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": true,
+          "LatexCode": "13"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "19"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "5"
+        }
+      ]
+    },
+    {
+      "StageId": 2,
+      "CategoryId": 7,
+      "Points": 10,
+      "TitleAr": "نسبة التفاح إلى البرتقال 2 إلى 3، ومجموع الثمار 45. كم تفاحة؟",
+      "TitleEn": "The ratio of apples to oranges is 2:3, and there are 45 fruits. How many apples?",
+      "QuestionTextAr": "نسبة التفاح إلى البرتقال 2 إلى 3، ومجموع الثمار 45. كم تفاحة؟",
+      "QuestionTextEn": "The ratio of apples to oranges is 2:3, and there are 45 fruits. How many apples?",
+      "DetailedSolutionAr": "عدد الأجزاء 2 + 3 = 5؛ قيمة الجزء 45 ÷ 5 = 9، وعدد التفاح 2 × 9 = 18.",
+      "DetailedSolutionEn": "There are 5 equal parts; each is 45 / 5 = 9. Apples = 2 × 9 = 18.",
+      "Options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "27"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "15"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "18"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "30"
+        }
+      ]
+    },
+    {
+      "StageId": 2,
+      "CategoryId": 8,
+      "Points": 10,
+      "TitleAr": "مثلث قائم ضلعاه القائمان 6 سم و8 سم؛ ما طول الوتر؟",
+      "TitleEn": "A right triangle has legs of 6 cm and 8 cm. How long is its hypotenuse?",
+      "QuestionTextAr": "مثلث قائم ضلعاه القائمان 6 سم و8 سم؛ ما طول الوتر؟",
+      "QuestionTextEn": "A right triangle has legs of 6 cm and 8 cm. How long is its hypotenuse?",
+      "DetailedSolutionAr": "حسب فيثاغورس: مربع الوتر = 6² + 8² = 36 + 64 = 100، فالوتر 10 سم.",
+      "DetailedSolutionEn": "By Pythagoras, c² = 6² + 8² = 100, so c = 10 cm.",
+      "Options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "12"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "14"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "9"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": true,
+          "LatexCode": "10"
+        }
+      ]
+    },
+    {
+      "StageId": 3,
+      "CategoryId": 9,
+      "Points": 10,
+      "TitleAr": "ما جذرا المعادلة x² - 7x + 12 = 0؟",
+      "TitleEn": "What are the roots of x² - 7x + 12 = 0?",
+      "QuestionTextAr": "ما جذرا المعادلة x² - 7x + 12 = 0؟",
+      "QuestionTextEn": "What are the roots of x² - 7x + 12 = 0?",
+      "DetailedSolutionAr": "نحلل المقدار إلى (x - 3)(x - 4) = 0، إذن الجذران 3 و4.",
+      "DetailedSolutionEn": "Factor as (x - 3)(x - 4) = 0. Thus the roots are 3 and 4.",
+      "Options": [
+        {
+          "Order": 1,
+          "IsCorrect": true,
+          "LatexCode": "(3,4)"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "(2,6)"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "(-3,-4)"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "(1,12)"
+        }
+      ]
+    },
+    {
+      "StageId": 3,
+      "CategoryId": 10,
+      "Points": 10,
+      "TitleAr": "ما قيمة cos(60°)؟",
+      "TitleEn": "What is cos(60°)?",
+      "QuestionTextAr": "ما قيمة cos(60°)؟",
+      "QuestionTextEn": "What is cos(60°)?",
+      "DetailedSolutionAr": "من القيم المثلثية الأساسية: cos(60°) = 1/2.",
+      "DetailedSolutionEn": "From standard trigonometric values, cos(60°) = 1/2.",
+      "Options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "1"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": true,
+          "LatexCode": "\\frac{1}{2}"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "0"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "\\frac{\\sqrt{3}}{2}"
+        }
+      ]
+    },
+    {
+      "StageId": 3,
+      "CategoryId": 11,
+      "Points": 10,
+      "TitleAr": "أوجد مشتقة f(x) = 5x² - 4x.",
+      "TitleEn": "Find the derivative of f(x) = 5x² - 4x.",
+      "QuestionTextAr": "أوجد مشتقة f(x) = 5x² - 4x.",
+      "QuestionTextEn": "Find the derivative of f(x) = 5x² - 4x.",
+      "DetailedSolutionAr": "مشتقة 5x² هي 10x، ومشتقة -4x هي -4؛ المشتقة 10x - 4.",
+      "DetailedSolutionEn": "Differentiate term by term: d(5x²)/dx = 10x and d(-4x)/dx = -4.",
+      "Options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "5x-4"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "10x"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "10x-4"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "10x+4"
+        }
+      ]
+    },
+    {
+      "StageId": 3,
+      "CategoryId": 12,
+      "Points": 10,
+      "TitleAr": "ما التباين السكاني للقيم 2 و2 و4 و4؟",
+      "TitleEn": "What is the population variance of 2, 2, 4, and 4?",
+      "QuestionTextAr": "ما التباين السكاني للقيم 2 و2 و4 و4؟",
+      "QuestionTextEn": "What is the population variance of 2, 2, 4, and 4?",
+      "DetailedSolutionAr": "المتوسط 3، ومجموع مربعات الانحرافات 4؛ التباين السكاني = 4 ÷ 4 = 1.",
+      "DetailedSolutionEn": "The mean is 3. The sum of squared deviations is 4, so population variance = 4 / 4 = 1.",
+      "Options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "2"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "4"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "\\frac{1}{2}"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": true,
+          "LatexCode": "1"
+        }
+      ]
+    },
+    {
+      "StageId": 4,
+      "CategoryId": 13,
+      "Points": 10,
+      "TitleAr": "إذا كانت f(x,y) = x²y + 3y، فما قيمة المشتقة الجزئية بالنسبة إلى x عند (2,1)؟",
+      "TitleEn": "For f(x,y) = x²y + 3y, evaluate the partial derivative with respect to x at (2,1).",
+      "QuestionTextAr": "إذا كانت f(x,y) = x²y + 3y، فما قيمة المشتقة الجزئية بالنسبة إلى x عند (2,1)؟",
+      "QuestionTextEn": "For f(x,y) = x²y + 3y, evaluate the partial derivative with respect to x at (2,1).",
+      "DetailedSolutionAr": "المشتقة الجزئية بالنسبة إلى x هي 2xy؛ بالتعويض (2,1) نحصل على 2 × 2 × 1 = 4.",
+      "DetailedSolutionEn": "The partial derivative with respect to x is 2xy. At (2,1), it equals 4.",
+      "Options": [
+        {
+          "Order": 1,
+          "IsCorrect": true,
+          "LatexCode": "4"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "7"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "2"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "10"
+        }
+      ]
+    },
+    {
+      "StageId": 4,
+      "CategoryId": 14,
+      "Points": 10,
+      "TitleAr": "ما محدد المصفوفة ذات الصفين (2,1) و(3,4)؟",
+      "TitleEn": "Find the determinant of the 2x2 matrix with rows (2,1) and (3,4).",
+      "QuestionTextAr": "ما محدد المصفوفة ذات الصفين (2,1) و(3,4)؟",
+      "QuestionTextEn": "Find the determinant of the 2x2 matrix with rows (2,1) and (3,4).",
+      "DetailedSolutionAr": "محدد المصفوفة = (2 × 4) - (1 × 3) = 8 - 3 = 5.",
+      "DetailedSolutionEn": "The determinant is (2 × 4) - (1 × 3) = 8 - 3 = 5.",
+      "Options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "11"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": true,
+          "LatexCode": "5"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "-5"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "8"
+        }
+      ]
+    },
+    {
+      "StageId": 4,
+      "CategoryId": 15,
+      "Points": 10,
+      "TitleAr": "ما الحل العام للمعادلة التفاضلية dy/dx = 2x؟",
+      "TitleEn": "What is the general solution of the differential equation dy/dx = 2x?",
+      "QuestionTextAr": "ما الحل العام للمعادلة التفاضلية dy/dx = 2x؟",
+      "QuestionTextEn": "What is the general solution of the differential equation dy/dx = 2x?",
+      "DetailedSolutionAr": "نُكامل الطرفين بالنسبة إلى x فنحصل على y = x² + C.",
+      "DetailedSolutionEn": "Integrate both sides with respect to x: y = x² + C.",
+      "Options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "y=2x+C"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "y=x+C"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "y=x^{2}+C"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "y=2x^{2}+C"
+        }
+      ]
+    },
+    {
+      "StageId": 4,
+      "CategoryId": 16,
+      "Points": 10,
+      "TitleAr": "ما نهاية المتتالية 1/n عندما n تؤول إلى ما لا نهاية؟",
+      "TitleEn": "What is the limit of the sequence 1/n as n tends to infinity?",
+      "QuestionTextAr": "ما نهاية المتتالية 1/n عندما n تؤول إلى ما لا نهاية؟",
+      "QuestionTextEn": "What is the limit of the sequence 1/n as n tends to infinity?",
+      "DetailedSolutionAr": "كلما كبرت n تناقصت 1/n واقتربت من الصفر، لذلك النهاية صفر.",
+      "DetailedSolutionEn": "As n grows without bound, 1/n approaches 0, so the limit is zero.",
+      "Options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "1"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "\\infty"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "-1"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": true,
+          "LatexCode": "0"
+        }
+      ]
+    },
+    {
+      "StageId": 1,
+      "CategoryId": 1,
+      "Points": 10,
+      "TitleAr": "كم يساوي 9 × 6؟",
+      "TitleEn": "What is 9 multiplied by 6?",
+      "QuestionTextAr": "كم يساوي 9 × 6؟",
+      "QuestionTextEn": "What is 9 multiplied by 6?",
+      "DetailedSolutionAr": "نحسب 9 × 6 = 54.",
+      "DetailedSolutionEn": "Multiply nine by six: 54.",
+      "Options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "45"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": true,
+          "LatexCode": "54"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "63"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "56"
+        }
+      ]
+    },
+    {
+      "StageId": 1,
+      "CategoryId": 2,
+      "Points": 10,
+      "TitleAr": "إذا كان 4x = 36، فما قيمة x؟",
+      "TitleEn": "If 4x = 36, what is x?",
+      "QuestionTextAr": "إذا كان 4x = 36، فما قيمة x؟",
+      "QuestionTextEn": "If 4x = 36, what is x?",
+      "DetailedSolutionAr": "نقسم الطرفين على 4 فنحصل على x = 9.",
+      "DetailedSolutionEn": "Divide both sides by 4 to obtain x = 9.",
+      "Options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "8"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "12"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "9"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "32"
+        }
+      ]
+    },
+    {
+      "StageId": 1,
+      "CategoryId": 3,
+      "Points": 10,
+      "TitleAr": "مثلث قاعدته 10 سم وارتفاعه 6 سم، ما مساحته؟",
+      "TitleEn": "A triangle has a 10 cm base and a 6 cm height. What is its area?",
+      "QuestionTextAr": "مثلث قاعدته 10 سم وارتفاعه 6 سم، ما مساحته؟",
+      "QuestionTextEn": "A triangle has a 10 cm base and a 6 cm height. What is its area?",
+      "DetailedSolutionAr": "المساحة = نصف القاعدة × الارتفاع = 10 × 6 ÷ 2 = 30 سم².",
+      "DetailedSolutionEn": "Triangle area = base × height / 2 = 10 × 6 / 2 = 30 cm².",
+      "Options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "60"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "16"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "20"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": true,
+          "LatexCode": "30"
+        }
+      ]
+    },
+    {
+      "StageId": 1,
+      "CategoryId": 4,
+      "Points": 10,
+      "TitleAr": "عند رمي نرد عادل، ما احتمال الحصول على عدد زوجي؟",
+      "TitleEn": "When rolling a fair six-sided die, what is the probability of an even number?",
+      "QuestionTextAr": "عند رمي نرد عادل، ما احتمال الحصول على عدد زوجي؟",
+      "QuestionTextEn": "When rolling a fair six-sided die, what is the probability of an even number?",
+      "DetailedSolutionAr": "الأعداد الزوجية هي 2 و4 و6، أي 3 نتائج من أصل 6، فالاحتمال 1/2.",
+      "DetailedSolutionEn": "Even outcomes are 2, 4, and 6: three of six possible outcomes, giving 1/2.",
+      "Options": [
+        {
+          "Order": 1,
+          "IsCorrect": true,
+          "LatexCode": "\\frac{1}{2}"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "\\frac{1}{3}"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "\\frac{1}{6}"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "\\frac{2}{3}"
+        }
+      ]
+    },
+    {
+      "StageId": 2,
+      "CategoryId": 5,
+      "Points": 10,
+      "TitleAr": "ما القاسم المشترك الأكبر للعددين 48 و60؟",
+      "TitleEn": "What is the greatest common divisor of 48 and 60?",
+      "QuestionTextAr": "ما القاسم المشترك الأكبر للعددين 48 و60؟",
+      "QuestionTextEn": "What is the greatest common divisor of 48 and 60?",
+      "DetailedSolutionAr": "عوامل 48 و60 المشتركة تتضمن 1 و2 و3 و4 و6 و12، وأكبرها 12.",
+      "DetailedSolutionEn": "The common positive divisors include 1, 2, 3, 4, 6, and 12; the greatest is 12.",
+      "Options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "6"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": true,
+          "LatexCode": "12"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "24"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "4"
+        }
+      ]
+    },
+    {
+      "StageId": 2,
+      "CategoryId": 6,
+      "Points": 10,
+      "TitleAr": "حل المعادلة 2x + 7 = 19.",
+      "TitleEn": "Solve the equation 2x + 7 = 19.",
+      "QuestionTextAr": "حل المعادلة 2x + 7 = 19.",
+      "QuestionTextEn": "Solve the equation 2x + 7 = 19.",
+      "DetailedSolutionAr": "نطرح 7: 2x = 12، ثم نقسم على 2: x = 6.",
+      "DetailedSolutionEn": "Subtract 7: 2x = 12. Divide by 2: x = 6.",
+      "Options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "12"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "13"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "6"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "5"
+        }
+      ]
+    },
+    {
+      "StageId": 2,
+      "CategoryId": 7,
+      "Points": 10,
+      "TitleAr": "ثمن أربعة أقلام 12، فكم ثمن سبعة أقلام بالسعر نفسه؟",
+      "TitleEn": "Four identical pens cost 12 units. How much do seven cost at the same rate?",
+      "QuestionTextAr": "ثمن أربعة أقلام 12، فكم ثمن سبعة أقلام بالسعر نفسه؟",
+      "QuestionTextEn": "Four identical pens cost 12 units. How much do seven cost at the same rate?",
+      "DetailedSolutionAr": "ثمن القلم الواحد 12 ÷ 4 = 3، وثمن السبعة 7 × 3 = 21.",
+      "DetailedSolutionEn": "One pen costs 12 / 4 = 3 units; seven cost 7 × 3 = 21.",
+      "Options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "28"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "18"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "24"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": true,
+          "LatexCode": "21"
+        }
+      ]
+    },
+    {
+      "StageId": 2,
+      "CategoryId": 8,
+      "Points": 10,
+      "TitleAr": "زاويتان متقابلتان بالرأس، قياس إحداهما 117°. ما قياس الأخرى؟",
+      "TitleEn": "Two vertically opposite angles are formed by intersecting lines. One is 117°. What is the other?",
+      "QuestionTextAr": "زاويتان متقابلتان بالرأس، قياس إحداهما 117°. ما قياس الأخرى؟",
+      "QuestionTextEn": "Two vertically opposite angles are formed by intersecting lines. One is 117°. What is the other?",
+      "DetailedSolutionAr": "الزاويتان المتقابلتان بالرأس متساويتان، لذا قياس الثانية 117°.",
+      "DetailedSolutionEn": "Vertically opposite angles are equal, so the other angle is 117°.",
+      "Options": [
+        {
+          "Order": 1,
+          "IsCorrect": true,
+          "LatexCode": "117"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "63"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "90"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "73"
+        }
+      ]
+    },
+    {
+      "StageId": 3,
+      "CategoryId": 9,
+      "Points": 10,
+      "TitleAr": "أوجد قيمة لوغاريتم 81 للأساس 3.",
+      "TitleEn": "Evaluate log base 3 of 81.",
+      "QuestionTextAr": "أوجد قيمة لوغاريتم 81 للأساس 3.",
+      "QuestionTextEn": "Evaluate log base 3 of 81.",
+      "DetailedSolutionAr": "بما أن 3 أس 4 = 81، فإن لوغاريتم 81 للأساس 3 يساوي 4.",
+      "DetailedSolutionEn": "Because 3 to the fourth power is 81, log base 3 of 81 is 4.",
+      "Options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "3"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": true,
+          "LatexCode": "4"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "9"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "27"
+        }
+      ]
+    },
+    {
+      "StageId": 3,
+      "CategoryId": 10,
+      "Points": 10,
+      "TitleAr": "ما قيمة tan(45°)؟",
+      "TitleEn": "What is tan(45°)?",
+      "QuestionTextAr": "ما قيمة tan(45°)؟",
+      "QuestionTextEn": "What is tan(45°)?",
+      "DetailedSolutionAr": "من القيم المثلثية الأساسية: tan(45°) = 1.",
+      "DetailedSolutionEn": "From standard trigonometric values, tan(45°) = 1.",
+      "Options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "0"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "\\frac{1}{2}"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "1"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "\\sqrt{3}"
+        }
+      ]
+    },
+    {
+      "StageId": 3,
+      "CategoryId": 11,
+      "Points": 10,
+      "TitleAr": "أوجد التكامل غير المحدد للدالة 6x² بالنسبة إلى x.",
+      "TitleEn": "Find the indefinite integral of 6x² with respect to x.",
+      "QuestionTextAr": "أوجد التكامل غير المحدد للدالة 6x² بالنسبة إلى x.",
+      "QuestionTextEn": "Find the indefinite integral of 6x² with respect to x.",
+      "DetailedSolutionAr": "نستخدم قاعدة تكامل القوى: ∫6x² dx = 6x³/3 + C = 2x³ + C.",
+      "DetailedSolutionEn": "By the power rule, ∫6x² dx = 6x³/3 + C = 2x³ + C.",
+      "Options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "6x^{3}+C"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "3x^{3}+C"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "12x+C"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": true,
+          "LatexCode": "2x^{3}+C"
+        }
+      ]
+    },
+    {
+      "StageId": 3,
+      "CategoryId": 12,
+      "Points": 10,
+      "TitleAr": "نرمي قطعة نقد عادلة ثلاث مرات. ما احتمال ظهور الصورة في كل الرميات؟",
+      "TitleEn": "A fair coin is tossed three times. What is the probability of heads on every toss?",
+      "QuestionTextAr": "نرمي قطعة نقد عادلة ثلاث مرات. ما احتمال ظهور الصورة في كل الرميات؟",
+      "QuestionTextEn": "A fair coin is tossed three times. What is the probability of heads on every toss?",
+      "DetailedSolutionAr": "الرميات مستقلة، واحتمال الصورة في كل رمية 1/2؛ إذن (1/2)³ = 1/8.",
+      "DetailedSolutionEn": "Independent tosses each have probability 1/2, so all heads has probability (1/2)^3 = 1/8.",
+      "Options": [
+        {
+          "Order": 1,
+          "IsCorrect": true,
+          "LatexCode": "\\frac{1}{8}"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "\\frac{1}{4}"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "\\frac{3}{8}"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "\\frac{1}{2}"
+        }
+      ]
+    },
+    {
+      "StageId": 4,
+      "CategoryId": 13,
+      "Points": 10,
+      "TitleAr": "إذا كانت f(x,y) = x² + y²، فما متجه التدرج عند النقطة (1,2)؟",
+      "TitleEn": "For f(x,y) = x² + y², what is its gradient at (1,2)?",
+      "QuestionTextAr": "إذا كانت f(x,y) = x² + y²، فما متجه التدرج عند النقطة (1,2)؟",
+      "QuestionTextEn": "For f(x,y) = x² + y², what is its gradient at (1,2)?",
+      "DetailedSolutionAr": "متجه التدرج يساوي (2x, 2y)، وعند (1,2) يساوي (2,4).",
+      "DetailedSolutionEn": "The gradient is (2x, 2y), which at (1,2) equals (2,4).",
+      "Options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "(1,2)"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": true,
+          "LatexCode": "(2,4)"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "(4,2)"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "(2,2)"
+        }
+      ]
+    },
+    {
+      "StageId": 4,
+      "CategoryId": 14,
+      "Points": 10,
+      "TitleAr": "ما الضرب القياسي للمتجهين (1,2) و(3,4)؟",
+      "TitleEn": "What is the dot product of vectors (1,2) and (3,4)?",
+      "QuestionTextAr": "ما الضرب القياسي للمتجهين (1,2) و(3,4)؟",
+      "QuestionTextEn": "What is the dot product of vectors (1,2) and (3,4)?",
+      "DetailedSolutionAr": "الضرب القياسي = 1 × 3 + 2 × 4 = 3 + 8 = 11.",
+      "DetailedSolutionEn": "The dot product is 1 × 3 + 2 × 4 = 11.",
+      "Options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "10"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "7"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "11"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "14"
+        }
+      ]
+    },
+    {
+      "StageId": 4,
+      "CategoryId": 15,
+      "Points": 10,
+      "TitleAr": "حل المسألة الابتدائية y' = y مع y(0) = 2.",
+      "TitleEn": "Solve the initial-value problem y' = y with y(0) = 2.",
+      "QuestionTextAr": "حل المسألة الابتدائية y' = y مع y(0) = 2.",
+      "QuestionTextEn": "Solve the initial-value problem y' = y with y(0) = 2.",
+      "DetailedSolutionAr": "الحل العام y = Ce^x. من y(0)=2 نحصل على C=2، إذاً y=2e^x.",
+      "DetailedSolutionEn": "The general solution is y = Ce^x. Since y(0)=2, C=2 and y=2e^x.",
+      "Options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "y=e^{2x}"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "y=2x"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "y=2e^{-x}"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": true,
+          "LatexCode": "y=2e^{x}"
+        }
+      ]
+    },
+    {
+      "StageId": 4,
+      "CategoryId": 16,
+      "Points": 10,
+      "TitleAr": "إذا كانت f متصلة على [0,1] وتحقق f(0)=-2 وf(1)=1، فما الذي تضمنه نظرية القيمة الوسيطة؟",
+      "TitleEn": "A continuous function f on [0,1] satisfies f(0)=-2 and f(1)=1. What does the intermediate value theorem guarantee?",
+      "QuestionTextAr": "إذا كانت f متصلة على [0,1] وتحقق f(0)=-2 وf(1)=1، فما الذي تضمنه نظرية القيمة الوسيطة؟",
+      "QuestionTextEn": "A continuous function f on [0,1] satisfies f(0)=-2 and f(1)=1. What does the intermediate value theorem guarantee?",
+      "DetailedSolutionAr": "لأن الصفر يقع بين -2 و1 والدالة متصلة، فهناك c داخل (0,1) بحيث f(c)=0.",
+      "DetailedSolutionEn": "Since zero lies between -2 and 1 and f is continuous, there exists c in (0,1) with f(c)=0.",
+      "Options": [
+        {
+          "Order": 1,
+          "IsCorrect": true,
+          "LatexCode": "\\exists c\\in(0,1):f(c)=0"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "f(x)>0\\;\\forall x\\in(0,1)"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "f(0)=f(1)"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "f'(x)=0\\;\\forall x"
+        }
+      ]
+    }
+  ]
+}
