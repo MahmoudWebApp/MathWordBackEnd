@@ -180,7 +180,7 @@ def main():
     ranking = expect("GET", "/api/users/leaderboard?stageId=1&period=weekly",
                      200, token=learner1)
     assert ranking["TotalLearners"] == 2 and ranking["MyRank"] == 1, ranking
-    assert ranking["Entries"][1]["DisplayName"] == "Learner #2", ranking
+    assert ranking["Entries"][1]["DisplayName"] == "CI L.", ranking
     assert all("learner-ci-" not in row["DisplayName"] for row in ranking["Entries"])
 
     # Admin subscription changes produce a separate notice in the same DB transaction.
