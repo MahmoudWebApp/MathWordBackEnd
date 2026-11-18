@@ -38,6 +38,7 @@ public sealed class NotificationsController : ControllerBase
     /// One process only; periodic inbox polling is required for failover.
     /// </summary>
     [HttpGet("stream")]
+    [HttpGet("/api/notifications/stream")]
     [EnableRateLimiting("notification-stream")]
     [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
     public async Task Stream(CancellationToken ct)
