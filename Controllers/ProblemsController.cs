@@ -503,12 +503,6 @@ namespace MathWorldAPI.Controllers
                         (allowedCategoryIds == null || allowedCategoryIds.Contains(problem.CategoryId)))
                     .AsQueryable();
 
-            if (accessibleCategoryIds != null)
-            {
-                query = query.Where(problem =>
-                    accessibleCategoryIds.Contains(problem.CategoryId));
-            }
-
             if (!string.IsNullOrWhiteSpace(q))
             {
                 var normalizedQuery =
