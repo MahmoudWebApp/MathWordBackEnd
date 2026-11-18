@@ -468,10 +468,12 @@ namespace MathWorldAPI.Controllers
             var userId =
                 GetUserId();
 
-            var activeStageId = await _context.Users.AsNoTracking()
+            var selectedStageId = await _context.Users.AsNoTracking()
                 .Where(user => user.Id == userId)
                 .Select(user => user.CurrentStageId)
                 .FirstOrDefaultAsync();
+            var activeStageId = await LegacyLearningStage.EffectiveIdAsync(
+                _context, selectedStageId, HttpContext.RequestAborted);
 
             var language =
                 LanguageHelper.GetLanguageFromRequest(Request);
@@ -540,10 +542,12 @@ namespace MathWorldAPI.Controllers
             var userId =
                 GetUserId();
 
-            var activeStageId = await _context.Users.AsNoTracking()
+            var selectedStageId = await _context.Users.AsNoTracking()
                 .Where(user => user.Id == userId)
                 .Select(user => user.CurrentStageId)
                 .FirstOrDefaultAsync();
+            var activeStageId = await LegacyLearningStage.EffectiveIdAsync(
+                _context, selectedStageId, HttpContext.RequestAborted);
 
             var language =
                 LanguageHelper.GetLanguageFromRequest(Request);
@@ -615,10 +619,12 @@ namespace MathWorldAPI.Controllers
             var userId =
                 GetUserId();
 
-            var activeStageId = await _context.Users.AsNoTracking()
+            var selectedStageId = await _context.Users.AsNoTracking()
                 .Where(user => user.Id == userId)
                 .Select(user => user.CurrentStageId)
                 .FirstOrDefaultAsync();
+            var activeStageId = await LegacyLearningStage.EffectiveIdAsync(
+                _context, selectedStageId, HttpContext.RequestAborted);
 
             var language =
                 LanguageHelper.GetLanguageFromRequest(
