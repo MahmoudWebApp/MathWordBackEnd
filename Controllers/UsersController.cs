@@ -93,8 +93,7 @@ namespace MathWorldAPI.Controllers
                 await _context.UserProgresses
                     .CountAsync(progress =>
                         progress.UserId == userId &&
-                        (!activeStageId.HasValue ||
-                         progress.Problem.StageId == activeStageId.Value) &&
+                        progress.Problem.StageId == activeStageId.Value &&
                         progress.IsFavorite);
 
             // Favorite-only records do not count as attempts.
@@ -102,8 +101,7 @@ namespace MathWorldAPI.Controllers
                 await _context.UserProgresses
                     .CountAsync(progress =>
                         progress.UserId == userId &&
-                        (!activeStageId.HasValue ||
-                         progress.Problem.StageId == activeStageId.Value) &&
+                        progress.Problem.StageId == activeStageId.Value &&
                         progress.Attempts > 0);
 
             // The success rate uses only official first attempts.
@@ -111,8 +109,7 @@ namespace MathWorldAPI.Controllers
                 await _context.UserProgresses
                     .CountAsync(progress =>
                         progress.UserId == userId &&
-                        (!activeStageId.HasValue ||
-                         progress.Problem.StageId == activeStageId.Value) &&
+                        progress.Problem.StageId == activeStageId.Value &&
                         progress.FirstAttemptCorrect == true);
 
             var successRate =
@@ -127,8 +124,7 @@ namespace MathWorldAPI.Controllers
                 await _context.UserProgresses
                     .Where(progress =>
                         progress.UserId == userId &&
-                        (!activeStageId.HasValue ||
-                         progress.Problem.StageId == activeStageId.Value) &&
+                        progress.Problem.StageId == activeStageId.Value &&
                         progress.IsSolved)
                     .Join(
                         _context.Problems,
@@ -150,8 +146,7 @@ namespace MathWorldAPI.Controllers
                     .AsNoTracking()
                     .Where(progress =>
                         progress.UserId == userId &&
-                        (!activeStageId.HasValue ||
-                         progress.Problem.StageId == activeStageId.Value) &&
+                        progress.Problem.StageId == activeStageId.Value &&
                         progress.IsSolved)
                     .OrderByDescending(progress =>
                         progress.SolvedAt)
@@ -171,8 +166,7 @@ namespace MathWorldAPI.Controllers
                     .AsNoTracking()
                     .Where(progress =>
                         progress.UserId == userId &&
-                        (!activeStageId.HasValue ||
-                         progress.Problem.StageId == activeStageId.Value) &&
+                        progress.Problem.StageId == activeStageId.Value &&
                         progress.IsFavorite)
                     .OrderByDescending(progress =>
                         progress.LastAttemptAt)
@@ -486,8 +480,7 @@ namespace MathWorldAPI.Controllers
                     .AsNoTracking()
                     .Where(progress =>
                         progress.UserId == userId &&
-                        (!activeStageId.HasValue ||
-                         progress.Problem.StageId == activeStageId.Value) &&
+                        progress.Problem.StageId == activeStageId.Value &&
                         progress.IsFavorite)
                     .OrderByDescending(progress =>
                         progress.LastAttemptAt)
@@ -559,8 +552,7 @@ namespace MathWorldAPI.Controllers
                     .AsNoTracking()
                     .Where(progress =>
                         progress.UserId == userId &&
-                        (!activeStageId.HasValue ||
-                         progress.Problem.StageId == activeStageId.Value) &&
+                        progress.Problem.StageId == activeStageId.Value &&
                         progress.IsSolved)
                     .OrderByDescending(progress =>
                         progress.SolvedAt)
@@ -636,8 +628,7 @@ namespace MathWorldAPI.Controllers
                     .AsNoTracking()
                     .Where(progress =>
                         progress.UserId == userId &&
-                        (!activeStageId.HasValue ||
-                         progress.Problem.StageId == activeStageId.Value) &&
+                        progress.Problem.StageId == activeStageId.Value &&
                         progress.IsInErrorNotebook);
 
             if (!includeArchived)
