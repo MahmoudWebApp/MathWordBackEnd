@@ -12,7 +12,9 @@ namespace MathWorldAPI.DTOs
         public string Icon { get; set; } = string.Empty;
         public int StageId { get; set; }
         public int Order { get; set; }
-        public int ProblemsCount { get; set; }
+        // Null for admin create/update responses when inventory was not loaded;
+        // non-null in the learner category catalogue, including zero.
+        public int? ProblemsCount { get; set; }
     }
 
     public class CreateCategoryDto

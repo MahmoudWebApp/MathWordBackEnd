@@ -24,12 +24,26 @@ namespace MathWorldAPI.Data
         /// <summary>
         /// Users table.
         /// </summary>
+        public DbSet<SubscriptionGrant> SubscriptionGrants => Set<SubscriptionGrant>();
+
+        public DbSet<StageFreeCategorySelection> StageFreeCategorySelections => Set<StageFreeCategorySelection>();
+
+        public DbSet<UserNotification> UserNotifications => Set<UserNotification>();
+        public DbSet<CurriculumDraftBatch> CurriculumDraftBatches => Set<CurriculumDraftBatch>();
+        public DbSet<PremiumAccessCode> PremiumAccessCodes => Set<PremiumAccessCode>();
+        public DbSet<PremiumDiscountCode> PremiumDiscountCodes => Set<PremiumDiscountCode>();
+        public DbSet<PremiumCheckoutOrder> PremiumCheckoutOrders => Set<PremiumCheckoutOrder>();
+        public DbSet<PlatformActivityEvent> PlatformActivityEvents => Set<PlatformActivityEvent>();
+        public DbSet<LearnerPresence> LearnerPresences => Set<LearnerPresence>();
+
         public DbSet<AppUser> Users =>
             Set<AppUser>();
 
         /// <summary>
         /// Categories table.
         /// </summary>
+        public DbSet<ProblemDiagram> ProblemDiagrams => Set<ProblemDiagram>();
+
         public DbSet<Category> Categories =>
             Set<Category>();
 
@@ -82,6 +96,173 @@ namespace MathWorldAPI.Data
         {
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.Entity<LearnerPresence>(entity =>
+            {
+                entity.HasKey(e => new { e.UserId, e.SessionId });
+                entity.Property(e => e.LastSeenAtUtc).IsRequired();
+                entity.HasIndex(e => e.LastSeenAtUtc);
+                entity.HasOne<AppUser>().WithMany()
+                    .HasForeignKey(e => e.UserId)
+                    .OnDelete(DeleteBehavior.Cascade);
+            });
+
+            modelBuilder.Entity<PlatformActivityEvent>(entity =>
+            {
+                entity.Property(e => e.ActorRole).HasMaxLength(32).IsRequired();
+                entity.Property(e => e.Action).HasMaxLength(64).IsRequired();
+                entity.Property(e => e.Resource).HasMaxLength(140).IsRequired();
+                entity.Property(e => e.ResourceId).HasMaxLength(64);
+                entity.Property(e => e.Origin).HasMaxLength(24).IsRequired();
+                entity.HasIndex(e => new { e.ActorUserId, e.CreatedAtUtc });
+                entity.HasIndex(e => new { e.ActorRole, e.CreatedAtUtc });
+                entity.HasIndex(e => new { e.CreatedAtUtc, e.Id });
+                entity.HasOne<AppUser>().WithMany()
+                    .HasForeignKey(e => e.ActorUserId)
+                    .OnDelete(DeleteBehavior.Restrict);
+            });
+
+            modelBuilder.Entity<StageFreeCategorySelection>().HasKey(x => x.StageId);
+            modelBuilder.Entity<StageFreeCategorySelection>()
+                .ToTable(t => t.HasCheckConstraint("CK_StageFreeCategorySelections_Distinct",
+                    "\"FirstCategoryId\" <> \"SecondCategoryId\""));
+            modelBuilder.Entity<StageFreeCategorySelection>()
+                .HasOne<EducationalStage>().WithOne()
+                .HasForeignKey<StageFreeCategorySelection>(x => x.StageId)
+                .OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<StageFreeCategorySelection>()
+                .HasOne<AppUser>().WithMany()
+                .HasForeignKey(x => x.UpdatedByAdminId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<PremiumCheckoutOrder>()
+                .HasOne<AppUser>().WithMany()
+                .HasForeignKey(x => x.StudentId).OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<PremiumCheckoutOrder>()
+                .HasOne<PremiumDiscountCode>().WithMany()
+                .HasForeignKey(x => x.DiscountCodeId).OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<PremiumCheckoutOrder>()
+                .Property(x => x.OrderReference).HasMaxLength(64).IsRequired();
+            modelBuilder.Entity<PremiumCheckoutOrder>()
+                .HasIndex(x => x.OrderReference).IsUnique();
+            modelBuilder.Entity<PremiumCheckoutOrder>()
+                .Property(x => x.Status).HasMaxLength(24).IsRequired();
+            modelBuilder.Entity<PremiumCheckoutOrder>()
+                .Property(x => x.Currency).HasMaxLength(3).IsRequired();
+            modelBuilder.Entity<PremiumCheckoutOrder>()
+                .Property(x => x.Provider).HasMaxLength(40);
+            modelBuilder.Entity<PremiumCheckoutOrder>()
+                .Property(x => x.ProviderPaymentId).HasMaxLength(160);
+            modelBuilder.Entity<PremiumCheckoutOrder>()
+                .HasIndex(x => new { x.Provider, x.ProviderPaymentId })
+                .IsUnique()
+                .HasFilter("\"Provider\" IS NOT NULL AND \"ProviderPaymentId\" IS NOT NULL");
+            modelBuilder.Entity<PremiumCheckoutOrder>()
+                .HasIndex(x => new { x.StudentId, x.CreatedAtUtc });
+            modelBuilder.Entity<PremiumCheckoutOrder>()
+                .Property(x => x.SubtotalUsd).HasPrecision(10, 2);
+            modelBuilder.Entity<PremiumCheckoutOrder>()
+                .Property(x => x.DiscountUsd).HasPrecision(10, 2);
+            modelBuilder.Entity<PremiumCheckoutOrder>()
+                .Property(x => x.TotalUsd).HasPrecision(10, 2);
+            modelBuilder.Entity<PremiumCheckoutOrder>()
+                .ToTable(t =>
+                {
+                    t.HasCheckConstraint("CK_PremiumCheckoutOrders_Amounts",
+                        "\"SubtotalUsd\" >= 0 AND \"DiscountUsd\" >= 0 AND \"TotalUsd\" >= 0 AND \"SubtotalUsd\" = \"DiscountUsd\" + \"TotalUsd\"");
+                    t.HasCheckConstraint("CK_PremiumCheckoutOrders_Currency",
+                        "\"Currency\" = 'USD'");
+                    t.HasCheckConstraint("CK_PremiumCheckoutOrders_Status",
+                        "\"Status\" IN ('Pending', 'Paid', 'Failed', 'Cancelled', 'Refunded')");
+                    t.HasCheckConstraint("CK_PremiumCheckoutOrders_PaidVerification",
+                        "\"Status\" <> 'Paid' OR \"VerifiedPaidAtUtc\" IS NOT NULL");
+                    t.HasCheckConstraint("CK_PremiumCheckoutOrders_DiscountRedemption",
+                        "\"DiscountRedeemedAtUtc\" IS NULL OR (\"DiscountCodeId\" IS NOT NULL AND \"VerifiedPaidAtUtc\" IS NOT NULL)");
+                });
+
+            modelBuilder.Entity<PremiumDiscountCode>()
+                .HasOne<AppUser>().WithMany()
+                .HasForeignKey(x => x.CreatedByAdminId)
+                .OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<PremiumDiscountCode>()
+                .Property(x => x.CodeHash).HasMaxLength(64).IsRequired();
+            modelBuilder.Entity<PremiumDiscountCode>()
+                .HasIndex(x => x.CodeHash).IsUnique();
+            modelBuilder.Entity<PremiumDiscountCode>()
+                .Property(x => x.Label).HasMaxLength(80).IsRequired();
+            modelBuilder.Entity<PremiumDiscountCode>()
+                .Property(x => x.DiscountKind).HasMaxLength(20).IsRequired();
+            modelBuilder.Entity<PremiumDiscountCode>()
+                .Property(x => x.Amount).HasPrecision(10, 2);
+            modelBuilder.Entity<PremiumDiscountCode>()
+                .Property(x => x.MaxRedemptionsPerStudent).HasDefaultValue(1);
+            modelBuilder.Entity<PremiumDiscountCode>()
+                .HasIndex(x => new { x.Enabled, x.StartsAtUtc, x.EndsAtUtc });
+            modelBuilder.Entity<PremiumDiscountCode>()
+                .ToTable(t =>
+                {
+                    t.HasCheckConstraint("CK_PremiumDiscountCodes_Window",
+                        "\"EndsAtUtc\" > \"StartsAtUtc\"");
+                    t.HasCheckConstraint("CK_PremiumDiscountCodes_Usage",
+                        "\"RedemptionCount\" >= 0 AND (\"MaxRedemptions\" IS NULL OR \"MaxRedemptions\" > 0) AND (\"MaxRedemptionsPerStudent\" IS NULL OR \"MaxRedemptionsPerStudent\" > 0)");
+                    t.HasCheckConstraint("CK_PremiumDiscountCodes_Amount",
+                        "\"Amount\" >= 0 AND ((\"DiscountKind\" = 'Percentage' AND \"Amount\" <= 100) OR (\"DiscountKind\" = 'FixedUsd' AND \"Amount\" <= 5.00))");
+                });
+
+            modelBuilder.Entity<PremiumAccessCode>()
+                .HasOne<AppUser>().WithMany()
+                .HasForeignKey(x => x.CreatedByAdminId)
+                .OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<PremiumAccessCode>()
+                .HasOne<AppUser>().WithMany()
+                .HasForeignKey(x => x.RedeemedByUserId)
+                .OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<PremiumAccessCode>()
+                .Property(x => x.CodeHash).HasMaxLength(64).IsRequired();
+            modelBuilder.Entity<PremiumAccessCode>()
+                .HasIndex(x => x.CodeHash).IsUnique();
+            modelBuilder.Entity<PremiumAccessCode>()
+                .Property(x => x.Label).HasMaxLength(80).IsRequired();
+            modelBuilder.Entity<PremiumAccessCode>()
+                .HasIndex(x => x.ExpiresAtUtc);
+
+            modelBuilder.Entity<CurriculumDraftBatch>()
+                .HasOne<AppUser>().WithMany()
+                .HasForeignKey(x => x.SubmittedByAdminId)
+                .OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<CurriculumDraftBatch>()
+                .HasOne<AppUser>().WithMany()
+                .HasForeignKey(x => x.ReviewedByAdminId)
+                .OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<CurriculumDraftBatch>()
+                .Property(x => x.Status).HasMaxLength(30).IsRequired();
+            modelBuilder.Entity<CurriculumDraftBatch>()
+                .Property(x => x.ProblemsJson).IsRequired();
+            modelBuilder.Entity<CurriculumDraftBatch>()
+                .Property(x => x.ReviewNote).HasMaxLength(1000);
+            modelBuilder.Entity<CurriculumDraftBatch>()
+                .HasIndex(x => new { x.Status, x.SubmittedAtUtc });
+
+            modelBuilder.Entity<UserNotification>()
+                .HasOne<AppUser>().WithMany()
+                .HasForeignKey(x => x.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<UserNotification>()
+                .Property(x => x.Type).HasMaxLength(40).IsRequired();
+            modelBuilder.Entity<UserNotification>()
+                .Property(x => x.TitleAr).HasMaxLength(160).IsRequired();
+            modelBuilder.Entity<UserNotification>()
+                .Property(x => x.TitleEn).HasMaxLength(160).IsRequired();
+            modelBuilder.Entity<UserNotification>()
+                .Property(x => x.BodyAr).HasMaxLength(1000).IsRequired();
+            modelBuilder.Entity<UserNotification>()
+                .Property(x => x.BodyEn).HasMaxLength(1000).IsRequired();
+            modelBuilder.Entity<UserNotification>()
+                .Property(x => x.TargetPath).HasMaxLength(300);
+            modelBuilder.Entity<UserNotification>()
+                .HasIndex(x => new { x.UserId, x.CreatedAtUtc });
+            modelBuilder.Entity<UserNotification>()
+                .HasIndex(x => new { x.UserId, x.ReadAtUtc });
+
             // =================================================================
             // USER CONFIGURATION
             // =================================================================
@@ -110,6 +291,20 @@ namespace MathWorldAPI.Data
                 .HasMaxLength(32)
                 .IsRequired();
 
+            modelBuilder.Entity<SubscriptionGrant>()
+                .HasIndex(x => new { x.LearnerId, x.ChangedAtUtc });
+
+            modelBuilder.Entity<SubscriptionGrant>()
+                .Property(x => x.Reason).HasMaxLength(500).IsRequired();
+
+            modelBuilder.Entity<SubscriptionGrant>()
+                .HasOne<AppUser>().WithMany().HasForeignKey(x => x.LearnerId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<SubscriptionGrant>()
+                .HasOne<AppUser>().WithMany().HasForeignKey(x => x.AdminId)
+                .OnDelete(DeleteBehavior.Restrict);
+
             // Stage preference never changes or deletes historical learning data.
             modelBuilder.Entity<AppUser>()
                 .HasOne<EducationalStage>()
@@ -126,6 +321,27 @@ namespace MathWorldAPI.Data
                 .WithMany(stage => stage.Categories)
                 .HasForeignKey(category => category.StageId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<ProblemDiagram>()
+                .HasKey(diagram => diagram.ProblemId);
+
+            modelBuilder.Entity<ProblemDiagram>()
+                .HasOne(diagram => diagram.Problem)
+                .WithOne()
+                .HasForeignKey<ProblemDiagram>(diagram => diagram.ProblemId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<ProblemDiagram>()
+                .Property(diagram => diagram.DiagramJson)
+                .HasMaxLength(30000).IsRequired();
+
+            modelBuilder.Entity<ProblemDiagram>()
+                .Property(diagram => diagram.AltTextAr)
+                .HasMaxLength(500).IsRequired();
+
+            modelBuilder.Entity<ProblemDiagram>()
+                .Property(diagram => diagram.AltTextEn)
+                .HasMaxLength(500).IsRequired();
 
             modelBuilder.Entity<MathProblem>()
                 .HasOne(problem => problem.Category)

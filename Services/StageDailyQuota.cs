@@ -1,16 +1,22 @@
 using MathWorldAPI.Data;
+using MathWorldAPI.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace MathWorldAPI.Services
 {
     /// <summary>
-    /// Counts first-ever submissions by a student, attributed to the problem's
-    /// educational stage and the UTC date of the original submission.
-    /// Relies on existing immutable ProblemAttempts; no new schema required.
+    /// Legacy UTC analytics helper for first-ever submissions.
+    /// Daily limits were removed: this helper must not gate solving.
+    /// Free access is restricted to two categories per stage, not attempts.
     /// </summary>
     public static class StageDailyQuota
     {
-        // Only historical attempt counts remain; no daily quota is enforced.
+        // Compatibility only; a zero cap is not enforced anywhere.
+        [Obsolete("Daily question quotas are disabled. Check category access instead.")]
+        public const int FreeLimit = 0;
+
+        public static bool IsUnlimited(AppUser user) =>
+            PremiumEntitlement.IsActive(user);
 
         public static DateTime UtcDayStart(DateTime now) => now.ToUniversalTime().Date;
 

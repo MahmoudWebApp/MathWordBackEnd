@@ -1,63 +1,108 @@
+using System.Security.Claims;
 using MathWorldAPI.Data;
 using MathWorldAPI.DTOs;
 using MathWorldAPI.Helpers;
 using MathWorldAPI.Models;
+using MathWorldAPI.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace MathWorldAPI.Controllers
+namespace MathWorldAPI.Controllers;
+
+/// <summary>Manual in-app messaging to one learner. Bulk messaging is deliberately not enabled.</summary>
+[ApiController]
+[Route("api/admin/notifications")]
+[Authorize(Roles = "Admin")]
+public sealed class AdminNotificationsController : ControllerBase
 {
-    /// <summary>Only administrators can send in-app learner announcements.</summary>
-    [ApiController]
-    [Authorize(Roles = "Admin")]
-    [Route("api/admin/notifications")]
-    public sealed class AdminNotificationsController : ControllerBase
+    private readonly AppDbContext _db;
+    private readonly NotificationStreamBroker _stream;
+    public AdminNotificationsController(AppDbContext db, NotificationStreamBroker stream)
     {
-        private readonly AppDbContext _db;
-        private readonly ILogger<AdminNotificationsController> _logger;
+        _db = db;
+        _stream = stream;
+    }
 
-        public AdminNotificationsController(
-            AppDbContext db, ILogger<AdminNotificationsController> logger)
+    public sealed class SendLearnerNoticeRequest
+    {
+        public string TitleAr { get; set; } = "";
+        public string TitleEn { get; set; } = "";
+        public string BodyAr { get; set; } = "";
+        public string BodyEn { get; set; } = "";
+        public string? TargetPath { get; set; }
+    }
+
+    [HttpPost("learners/{learnerId:int}")]
+    public async Task<IActionResult> SendToLearner(int learnerId,
+        [FromBody] SendLearnerNoticeRequest request, CancellationToken ct)
+    {
+        if (!int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out var adminId) ||
+            !await _db.Users.AsNoTracking().AnyAsync(
+                u => u.Id == adminId && u.Role == "Admin" && u.IsActive, ct))
+            return Forbid();
+
+        if (learnerId <= 0 || request == null ||
+            !ValidText(request.TitleAr, 160) || !ValidText(request.TitleEn, 160) ||
+            !ValidText(request.BodyAr, 1000) || !ValidText(request.BodyEn, 1000) ||
+            !ValidPath(request.TargetPath))
+            return BadRequest(new { Message = "InvalidNotification" });
+
+        if (!await _db.Users.AsNoTracking().AnyAsync(
+            u => u.Id == learnerId && u.Role == "Student" && u.IsActive, ct))
+            return NotFound(new { Message = "LearnerNotFound" });
+
+        var notification = new UserNotification
         {
-            _db = db;
-            _logger = logger;
-        }
+            UserId = learnerId,
+            Type = "admin",
+            TitleAr = request.TitleAr.Trim(),
+            TitleEn = request.TitleEn.Trim(),
+            BodyAr = request.BodyAr.Trim(),
+            BodyEn = request.BodyEn.Trim(),
+            TargetPath = string.IsNullOrWhiteSpace(request.TargetPath)
+                ? null : request.TargetPath.Trim(),
+            CreatedAtUtc = DateTime.UtcNow
+        };
+        _db.UserNotifications.Add(notification);
+        await _db.SaveChangesAsync(ct);
+        _stream.Notify(learnerId);
 
-        [HttpPost("announce")]
-        public async Task<IActionResult> Announce(
-            [FromBody] SendStudentAnnouncementDto request,
-            CancellationToken cancellationToken)
+        return Ok(LanguageHelper.SuccessResponse(
+            new { notification.Id, notification.UserId, notification.CreatedAtUtc },
+            "Success", LanguageHelper.GetLanguageFromRequest(Request)));
+    }
+
+    // Retain the original admin announcement contract for existing clients.
+    // New clients use the versioned inbox; write both stores atomically until
+    // historical notices are migrated, so no existing app loses announcements.
+    [HttpPost("announce")]
+    public async Task<IActionResult> Announce(
+        [FromBody] SendStudentAnnouncementDto request, CancellationToken ct)
+    {
+        if (!int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out var adminId) ||
+            !await _db.Users.AsNoTracking().AnyAsync(
+                u => u.Id == adminId && u.Role == "Admin" && u.IsActive, ct))
+            return Forbid();
+
+        var path = request.ActionPath?.Trim();
+        if (request.StageId is < 1 || !ValidPath(path))
+            return BadRequest();
+        if (request.StageId.HasValue &&
+            !await _db.EducationalStages.AsNoTracking().AnyAsync(
+                x => x.Id == request.StageId.Value, ct))
+            return BadRequest();
+
+        var recipients = await _db.Users.AsNoTracking()
+            .Where(u => u.Role == "Student" && u.IsActive &&
+                        (!request.StageId.HasValue ||
+                         u.CurrentStageId == request.StageId.Value))
+            .Select(u => u.Id).ToArrayAsync(ct);
+
+        var when = DateTime.UtcNow;
+        foreach (var id in recipients)
         {
-            // Only internal routes are safe to embed in client notifications.
-            var path = request.ActionPath?.Trim();
-            if (path != null &&
-                (!path.StartsWith("/", StringComparison.Ordinal)
-                    || path.StartsWith("//", StringComparison.Ordinal)
-                    || path.Contains('\\') || path.Contains('\n')
-                    || path.Contains('\r')))
-                return BadRequest();
-
-            if (request.StageId is < 1)
-                return BadRequest();
-            if (request.StageId.HasValue &&
-                !await _db.EducationalStages.AsNoTracking().AnyAsync(
-                    stage => stage.Id == request.StageId.Value,
-                    cancellationToken))
-                return BadRequest();
-
-            var recipients = await _db.Users.AsNoTracking()
-                .Where(user => user.Role == "Student" && user.IsActive
-                    && (!request.StageId.HasValue
-                        || user.CurrentStageId == request.StageId.Value))
-                .Select(user => user.Id)
-                .ToArrayAsync(cancellationToken);
-            if (recipients.Length == 0)
-                return Ok(LanguageHelper.SuccessResponse(new { Sent = 0 },
-                    "Success", LanguageHelper.GetLanguageFromRequest(Request)));
-
-            var timestamp = DateTime.UtcNow;
-            var messages = recipients.Select(id => new StudentNotification
+            _db.StudentNotifications.Add(new StudentNotification
             {
                 UserId = id,
                 TitleAr = request.TitleAr.Trim(),
@@ -65,19 +110,39 @@ namespace MathWorldAPI.Controllers
                 BodyAr = request.BodyAr.Trim(),
                 BodyEn = request.BodyEn.Trim(),
                 ActionPath = path,
-                CreatedAt = timestamp,
+                CreatedAt = when,
                 Type = "announcement"
-            }).ToArray();
-            _db.StudentNotifications.AddRange(messages);
-            await _db.SaveChangesAsync(cancellationToken);
-
-            _logger.LogInformation(
-                "Admin announcement sent to {RecipientCount} students in stage {StageId}",
-                recipients.Length, request.StageId);
-
-            return Ok(LanguageHelper.SuccessResponse(
-                new { Sent = recipients.Length },
-                "Success", LanguageHelper.GetLanguageFromRequest(Request)));
+            });
+            _db.UserNotifications.Add(new UserNotification
+            {
+                UserId = id,
+                TitleAr = request.TitleAr.Trim(),
+                TitleEn = request.TitleEn.Trim(),
+                BodyAr = request.BodyAr.Trim(),
+                BodyEn = request.BodyEn.Trim(),
+                TargetPath = path,
+                CreatedAtUtc = when,
+                Type = "announcement"
+            });
         }
+        await _db.SaveChangesAsync(ct);
+        foreach (var id in recipients) _stream.Notify(id);
+        return Ok(LanguageHelper.SuccessResponse(
+            new { Sent = recipients.Length },
+            "Success", LanguageHelper.GetLanguageFromRequest(Request)));
+    }
+
+    private static bool ValidText(string? value, int max) =>
+        !string.IsNullOrWhiteSpace(value) && value.Trim().Length <= max;
+
+    private static bool ValidPath(string? value)
+    {
+        if (string.IsNullOrWhiteSpace(value)) return true;
+        var path = value.Trim();
+        return path.Length <= 300 && path.StartsWith("/", StringComparison.Ordinal) &&
+            !path.StartsWith("//", StringComparison.Ordinal) &&
+            !path.Contains('\u005c') &&
+            !path.Contains("://", StringComparison.Ordinal) &&
+            !path.Any(char.IsControl);
     }
 }

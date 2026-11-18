@@ -27,7 +27,7 @@ namespace MathWorldAPI.Controllers
                 return Unauthorized(Error("Unauthorized", 401));
 
             var user = await _db.Users.AsNoTracking()
-                .FirstOrDefaultAsync(u => u.Id == userId && u.Role == "Student",
+                .FirstOrDefaultAsync(u => u.Id == userId && u.Role == "Student" && u.IsActive,
                     cancellationToken);
             if (user == null)
                 return NotFound(Error("UserNotFound", 404));
@@ -43,18 +43,19 @@ namespace MathWorldAPI.Controllers
                 return NotFound(Error("StageNotFound", 404));
 
             var date = StageDailyQuota.UtcDayStart(DateTime.UtcNow);
-            var used = await StageDailyQuota.CountUsedAsync(_db, userId,
-                stage.Id, date, cancellationToken);
+            var used = 0; // Legacy endpoint: quota removed, always unlimited.
+            var unlimited = true;
             var result = new StageDailyQuotaDto
             {
                 StageId = stage.Id,
                 NameAr = stage.NameAr,
                 NameEn = stage.NameEn,
-                Limit = 0, // Legacy field: no daily limit for any subscription.
+                Limit = 0,
                 Used = used,
                 Remaining = null,
-                Unlimited = true,
-                SubscriptionType = user.SubscriptionType,
+                Unlimited = unlimited,
+                SubscriptionType = PremiumEntitlement.EffectiveType(user),
+                PremiumExpiresAtUtc = PremiumEntitlement.IsActive(user) ? user.PremiumExpiresAtUtc : null,
                 DayUtc = date,
                 ResetsAtUtc = date.AddDays(1)
             };

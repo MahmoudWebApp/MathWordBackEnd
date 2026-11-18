@@ -2,6 +2,7 @@ using System.Security.Claims;
 using MathWorldAPI.Data;
 using MathWorldAPI.DTOs;
 using MathWorldAPI.Helpers;
+using MathWorldAPI.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -28,45 +29,10 @@ namespace MathWorldAPI.Controllers
             _logger = logger;
         }
 
-        /// <summary>
-        /// Manually grants or revokes Premium. Restricted to real Admin JWTs;
-        /// billing flows remain separate and the student role cannot be changed.
-        /// </summary>
-        [HttpPut("{learnerId:int}/subscription")]
-        public async Task<IActionResult> SetSubscription(
-            [FromRoute] int learnerId,
-            [FromBody] ChangeLearnerSubscriptionDto? request,
-            CancellationToken cancellationToken = default)
-        {
-            var submitted = request?.SubscriptionType?.Trim();
-            var next = string.Equals(submitted, "Premium",
-                StringComparison.OrdinalIgnoreCase) ? "Premium" :
-                string.Equals(submitted, "Free",
-                    StringComparison.OrdinalIgnoreCase) ? "Free" : null;
-
-            if (learnerId < 1 || next == null)
-                return BadRequest(Error<object>("InvalidSubscriptionType", 400));
-
-            var student = await _db.Users.FirstOrDefaultAsync(user =>
-                user.Id == learnerId && user.Role == "Student",
-                cancellationToken);
-            if (student == null)
-                return NotFound(Error<object>("UserNotFound", 404));
-
-            if (!string.Equals(student.SubscriptionType, next,
-                StringComparison.Ordinal))
-            {
-                var previous = student.SubscriptionType;
-                student.SubscriptionType = next;
-                await _db.SaveChangesAsync(cancellationToken);
-                _logger.LogInformation(
-                    "Admin {AdminId} changed learner {LearnerId} subscription {Previous} -> {Next}",
-                    User.FindFirstValue(ClaimTypes.NameIdentifier),
-                    learnerId, previous, next);
-            }
-
-            return Ok(Success(new { student.Id, student.SubscriptionType }));
-        }
+        // Subscription writes are exclusively handled by AdminSubscriptionsController,
+        // which requires a reason, audits the grant and notifies the learner.
+        // Retaining the old write handler would produce ambiguous routing and
+        // permit unaudited, unvalidated Premium changes.
 
         [HttpGet]
         public async Task<IActionResult> List(
@@ -90,8 +56,15 @@ namespace MathWorldAPI.Controllers
                 query = query.Where(user => user.CurrentStageId == stageId.Value);
             if (isActive.HasValue)
                 query = query.Where(user => user.IsActive == isActive.Value);
-            if (!string.IsNullOrWhiteSpace(subscription))
-                query = query.Where(user => user.SubscriptionType == subscription);
+            var nowUtc = DateTime.UtcNow;
+            if (subscription == "Premium")
+                query = query.Where(user => user.SubscriptionType == "Premium" &&
+                    (user.PremiumExpiresAtUtc == null ||
+                     user.PremiumExpiresAtUtc > nowUtc));
+            else if (subscription == "Free")
+                query = query.Where(user => user.SubscriptionType != "Premium" ||
+                    (user.PremiumExpiresAtUtc != null &&
+                     user.PremiumExpiresAtUtc <= nowUtc));
 
             var keyword = search?.Trim();
             if (!string.IsNullOrEmpty(keyword))
@@ -111,7 +84,7 @@ namespace MathWorldAPI.Controllers
                 .Select(u => new
                 {
                     u.Id, u.FullName, u.Email, u.CurrentStageId,
-                    u.SubscriptionType, u.IsActive, u.CreatedAt, u.LastLoginAt
+                    u.SubscriptionType, u.PremiumExpiresAtUtc, u.IsActive, u.CreatedAt, u.LastLoginAt
                 }).ToListAsync(cancellationToken);
             var ids = users.Select(u => u.Id).ToArray();
 
@@ -153,7 +126,9 @@ namespace MathWorldAPI.Controllers
                         Id = u.Id, FullName = u.FullName, Email = u.Email,
                         CurrentStageId = u.CurrentStageId,
                         StageNameAr = stage?.NameAr, StageNameEn = stage?.NameEn,
-                        IsActive = u.IsActive, SubscriptionType = u.SubscriptionType,
+                        IsActive = u.IsActive,
+                        SubscriptionType = PremiumEntitlement.IsActive(u.SubscriptionType, u.PremiumExpiresAtUtc, nowUtc) ? "Premium" : "Free",
+                        PremiumExpiresAtUtc = u.PremiumExpiresAtUtc,
                         CreatedAt = u.CreatedAt, LastLoginAt = u.LastLoginAt,
                         LastAttemptAt = a?.LastAttemptAt,
                         SolvedProblems = p?.Solved ?? 0,
@@ -176,7 +151,7 @@ namespace MathWorldAPI.Controllers
                 .Select(u => new
                 {
                     u.Id, u.FullName, u.Email, u.CurrentStageId, u.IsActive,
-                    u.SubscriptionType, u.CreatedAt, u.LastLoginAt
+                    u.SubscriptionType, u.PremiumExpiresAtUtc, u.CreatedAt, u.LastLoginAt
                 })
                 .FirstOrDefaultAsync(cancellationToken);
             if (user == null)
@@ -279,7 +254,9 @@ namespace MathWorldAPI.Controllers
                     CurrentStageId = user.CurrentStageId,
                     StageNameAr = selectedStage?.NameAr,
                     StageNameEn = selectedStage?.NameEn,
-                    IsActive = user.IsActive, SubscriptionType = user.SubscriptionType,
+                    IsActive = user.IsActive,
+                    SubscriptionType = PremiumEntitlement.IsActive(user.SubscriptionType, user.PremiumExpiresAtUtc) ? "Premium" : "Free",
+                    PremiumExpiresAtUtc = user.PremiumExpiresAtUtc,
                     CreatedAt = user.CreatedAt, LastLoginAt = user.LastLoginAt,
                     LastAttemptAt = attemptSummary?.Last,
                     SolvedProblems = progressSummary?.Solved ?? 0,

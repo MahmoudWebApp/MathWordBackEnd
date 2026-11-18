@@ -27,11 +27,12 @@ namespace MathWorldAPI.Controllers
         }
 
         [HttpGet("learning-stage")]
+        [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
         public async Task<ActionResult<ApiResponse<LearningStageDto>>> GetLearningStage(
             CancellationToken cancellationToken)
         {
             var user = await _context.Users.AsNoTracking()
-                .FirstOrDefaultAsync(u => u.Id == UserId(), cancellationToken);
+                .FirstOrDefaultAsync(u => u.Id == UserId() && u.Role == "Student" && u.IsActive, cancellationToken);
 
             if (user == null)
                 return NotFound(Error<LearningStageDto>("UserNotFound", 404));
@@ -66,7 +67,7 @@ namespace MathWorldAPI.Controllers
                 return NotFound(Error<LearningStageDto>("StageNotFound", 404));
 
             var user = await _context.Users.FirstOrDefaultAsync(
-                u => u.Id == UserId(), cancellationToken);
+                u => u.Id == UserId() && u.Role == "Student" && u.IsActive, cancellationToken);
             if (user == null)
                 return NotFound(Error<LearningStageDto>("UserNotFound", 404));
 
@@ -85,13 +86,14 @@ namespace MathWorldAPI.Controllers
         }
 
         [HttpGet("journey")]
+        [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
         public async Task<ActionResult<ApiResponse<LearningJourneyDto>>> GetJourney(
             [FromQuery] int? stageId,
             CancellationToken cancellationToken)
         {
             var userId = UserId();
             var user = await _context.Users.AsNoTracking()
-                .FirstOrDefaultAsync(u => u.Id == userId, cancellationToken);
+                .FirstOrDefaultAsync(u => u.Id == userId && u.Role == "Student" && u.IsActive, cancellationToken);
             if (user == null)
                 return NotFound(Error<LearningJourneyDto>("UserNotFound", 404));
 
@@ -116,14 +118,15 @@ namespace MathWorldAPI.Controllers
             // Count inventory separately: progress records can also be created
             // just for favorites without any submitted attempts.
             var inventory = await _context.Problems.AsNoTracking()
-                .Where(p => p.StageId == stage.Id)
+                .Where(p => p.StageId == stage.Id && p.Category.StageId == stage.Id)
                 .GroupBy(p => p.CategoryId)
                 .Select(g => new { CategoryId = g.Key, Count = g.Count() })
                 .ToDictionaryAsync(x => x.CategoryId, x => x.Count,
                     cancellationToken);
 
             var progress = await _context.UserProgresses.AsNoTracking()
-                .Where(p => p.UserId == userId && p.Problem.StageId == stage.Id)
+                .Where(p => p.UserId == userId && p.Problem.StageId == stage.Id &&
+                    p.Problem.Category.StageId == stage.Id)
                 .GroupBy(p => p.Problem.CategoryId)
                 .Select(g => new
                 {
@@ -138,6 +141,10 @@ namespace MathWorldAPI.Controllers
                 .ToListAsync(cancellationToken);
             var progressByCategory = progress.ToDictionary(p => p.CategoryId);
 
+            var access = HttpContext.RequestServices
+                .GetRequiredService<ProblemCategoryAccessService>();
+            var allowed = await access.GetAllowedCategoryIdsAsync(User, cancellationToken);
+
             var categoryProgress = categories.Select(category =>
             {
                 inventory.TryGetValue(category.Id, out var total);
@@ -146,6 +153,7 @@ namespace MathWorldAPI.Controllers
                 return new StageCategoryProgressDto
                 {
                     CategoryId = category.Id,
+                    IsLocked = allowed != null && !allowed.Contains(category.Id),
                     NameAr = category.NameAr,
                     NameEn = category.NameEn,
                     TotalProblems = total,

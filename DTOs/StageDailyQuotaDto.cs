@@ -15,6 +15,7 @@ namespace MathWorldAPI.DTOs
         public int? Remaining { get; set; }
         public bool Unlimited { get; set; }
         public string SubscriptionType { get; set; } = "Free";
+        public DateTime? PremiumExpiresAtUtc { get; set; }
         public DateTime DayUtc { get; set; }
         public DateTime ResetsAtUtc { get; set; }
     }

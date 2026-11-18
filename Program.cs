@@ -79,10 +79,19 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 // 3. Register application services
 // ============================================================================
 
+builder.Services.AddScoped<ProblemCategoryAccessService>();
+builder.Services.AddScoped<PlatformActivityAuditWriter>();
+// Lightweight SSE invalidation; per-process only, with polling as fallback.
+builder.Services.AddSingleton<NotificationStreamBroker>();
+// Invoked only by a future server-side, independently verified payment adapter.
+builder.Services.AddScoped<PremiumPaymentSettlementService>();
+// Privacy-minimal learner presence: expire stale sessions hourly.
+builder.Services.AddHostedService<LearnerPresenceCleanupService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<ISocialAuthService, SocialAuthService>();
 builder.Services.AddScoped<IMeiliSearchService, MeiliSearchService>();
 builder.Services.AddScoped<AdminBootstrapper>();
+builder.Services.AddSingleton<LaunchFeatureFlags>();
 
 // Register ImgBB as a typed HTTP client.
 builder.Services.AddHttpClient<IImgBbStorageService, ImgBbStorageService>();
@@ -219,8 +228,81 @@ builder.Services.AddRateLimiter(options =>
             partitionKey,
             _ => new TokenBucketRateLimiterOptions
             {
-                TokenLimit = 15,
-                TokensPerPeriod = 15,
+                TokenLimit = Math.Clamp(builder.Configuration.GetValue<int>("RateLimits:AnswerTokensPerMinute", 15), 15, 100),
+                TokensPerPeriod = Math.Clamp(builder.Configuration.GetValue<int>("RateLimits:AnswerTokensPerMinute", 15), 15, 100),
+                ReplenishmentPeriod = TimeSpan.FromMinutes(1),
+                QueueLimit = 0,
+                AutoReplenishment = true
+            });
+    });
+
+    // Authenticated Premium gift attempts are bounded separately from
+    // solving questions and login, limiting abuse without slowing practice.
+    options.AddPolicy("premium-code", httpContext =>
+    {
+        var userId = httpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+        var partitionKey = userId
+            ?? httpContext.Connection.RemoteIpAddress?.ToString()
+            ?? "unknown-client";
+        return RateLimitPartition.GetFixedWindowLimiter(
+            partitionKey,
+            _ => new FixedWindowRateLimiterOptions
+            {
+                PermitLimit = 8,
+                Window = TimeSpan.FromMinutes(1),
+                QueueLimit = 0,
+                AutoReplenishment = true
+            });
+    });
+
+    // Limit opening long-lived SSE streams per authenticated account.
+    // Keep normal inbox GET and solving requests in separate budgets.
+    options.AddPolicy("notification-stream", httpContext =>
+    {
+        var id = httpContext.User.FindFirstValue(ClaimTypes.NameIdentifier)
+            ?? httpContext.Connection.RemoteIpAddress?.ToString()
+            ?? "unknown-client";
+        return RateLimitPartition.GetFixedWindowLimiter(id,
+            _ => new FixedWindowRateLimiterOptions
+            {
+                PermitLimit = 12,
+                Window = TimeSpan.FromMinutes(1),
+                QueueLimit = 0,
+                AutoReplenishment = true
+            });
+    });
+
+    // A student heartbeat is best-effort and cannot flood PostgreSQL.
+    // Each learner has a small quota independent of solving questions.
+    options.AddPolicy("presence", httpContext =>
+    {
+        var id = httpContext.User.FindFirstValue(ClaimTypes.NameIdentifier)
+            ?? httpContext.Connection.RemoteIpAddress?.ToString()
+            ?? "unknown-client";
+        return RateLimitPartition.GetFixedWindowLimiter(id,
+            _ => new FixedWindowRateLimiterOptions
+            {
+                PermitLimit = 6,
+                Window = TimeSpan.FromMinutes(1),
+                QueueLimit = 0,
+                AutoReplenishment = true
+            });
+    });
+
+    // Solution previews have their own bucket; viewing a Premium solution
+    // must never consume the answer-submission rate limit.
+    options.AddPolicy("solution-preview", httpContext =>
+    {
+        var userId = httpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+        var partitionKey = userId
+            ?? httpContext.Connection.RemoteIpAddress?.ToString()
+            ?? "unknown-client";
+        return RateLimitPartition.GetTokenBucketLimiter(
+            partitionKey,
+            _ => new TokenBucketRateLimiterOptions
+            {
+                TokenLimit = 30,
+                TokensPerPeriod = 30,
                 ReplenishmentPeriod = TimeSpan.FromMinutes(1),
                 QueueLimit = 0,
                 AutoReplenishment = true
@@ -502,6 +584,10 @@ app.UseAuthentication();
 app.UseRateLimiter();
 
 app.UseAuthorization();
+
+// Store successful user/admin command metadata after authorization.
+// No request bodies, email addresses, tokens or raw query strings.
+app.UseMiddleware<PlatformActivityAuditMiddleware>();
 
 app.MapControllers();
 

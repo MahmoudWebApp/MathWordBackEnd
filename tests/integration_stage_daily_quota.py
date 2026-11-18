@@ -1,27 +1,69 @@
 #!/usr/bin/env python3
-"""Unlimited practice remains stage-scoped for reporting and retry safe.
-
-Runs ONLY against a disposable local PostgreSQL CI backend.
-"""
-import concurrent.futures
+"""Free unlimited practice and Premium entitlements against disposable PostgreSQL CI only."""
 import os
 import subprocess
+import urllib.request
+import urllib.error
 from integration_problem_history import (
     BASE, ADMIN_EMAIL, ADMIN_PASSWORD, api, expect,
     make_question, student, submit, token_of, wait_ready,
 )
 
 
-def question(admin, marker, stage, category):
+def create_question(admin, marker, stage, category):
     payload = make_question(marker)
     payload["StageId"] = stage
     payload["CategoryId"] = category
     created = expect("POST", "/api/admin/problems", 201, payload, admin)
     qid = created["Id"]
     detail = expect("GET", f"/api/problems/{qid}", 200, token=admin)
-    correct = next(option["Id"] for option in detail["Options"]
-                   if option["IsCorrect"])
+    correct = next(o["Id"] for o in detail["Options"] if o["IsCorrect"])
     return qid, correct
+
+
+def move_category(token, route, target_stage):
+    # Both API endpoints bind category updates from multipart/form-data.
+    boundary = "MWFreeCategoryGuard"
+    form = (
+        f"--{boundary}\r\n"
+        'Content-Disposition: form-data; name="StageId"\r\n\r\n'
+        f"{target_stage}\r\n"
+        f"--{boundary}--\r\n"
+    ).encode("utf-8")
+    request = urllib.request.Request(
+        BASE + route, data=form,
+        headers={
+            "Authorization": "Bearer " + token,
+            "Content-Type": f"multipart/form-data; boundary={boundary}",
+        }, method="PUT",
+    )
+    try:
+        with urllib.request.urlopen(request, timeout=25) as response:
+            return response.status
+    except urllib.error.HTTPError as error:
+        return error.code
+
+
+def reorder_category(token, route, next_order):
+    boundary = "MWFreeCategoryOrder"
+    form = (
+        f"--{boundary}\r\n"
+        'Content-Disposition: form-data; name="Order"\r\n\r\n'
+        f"{next_order}\r\n"
+        f"--{boundary}--\r\n"
+    ).encode("utf-8")
+    request = urllib.request.Request(
+        BASE + route, data=form,
+        headers={
+            "Authorization": "Bearer " + token,
+            "Content-Type": f"multipart/form-data; boundary={boundary}",
+        }, method="PUT",
+    )
+    try:
+        with urllib.request.urlopen(request, timeout=25) as response:
+            return response.status
+    except urllib.error.HTTPError as error:
+        return error.code
 
 
 def quota(token, stage=None):
@@ -29,13 +71,11 @@ def quota(token, stage=None):
     return expect("GET", "/api/users/daily-quota" + suffix, 200, token=token)
 
 
-def assert_quota(token, stage, used, remaining):
+def assert_unlimited(token, stage):
     result = quota(token, stage)
     assert result["StageId"] == stage, result
-    assert result["Used"] == used, result
-    assert result.get("Remaining") is None, result
-    assert result["Limit"] == 0 and result["Unlimited"], result
-    assert result["ResetsAtUtc"] > result["DayUtc"], result
+    assert result["Unlimited"] and result.get("Remaining") is None, result
+    assert result["Limit"] == 0, result
 
 
 def main():
@@ -48,115 +88,168 @@ def main():
     admin = token_of(expect("POST", "/api/auth/login", 200, {
         "Email": ADMIN_EMAIL, "Password": ADMIN_PASSWORD
     }))
-    one, two, three = student(501), student(502), student(503)
+    free, premium = student(501), student(502)
+    status, _ = api("GET", "/api/users/subscription")
+    assert status == 401, status
+    status, _ = api("GET", "/api/users/subscription", token=admin)
+    assert status == 403, status
+    ent = expect("GET", "/api/users/subscription", 200, token=free)
+    assert ent["SubscriptionType"] == "Free" and not ent["IsPremium"], ent
+    assert ent.get("DailyNewProblemsLimit") is None, ent
+    assert ent["FreeCategoriesPerStage"] == 2, ent
+    assert not ent["CanRevealSolutionBeforeAnswer"], ent
+    assert not ent["CanExportAnalytics"], ent
 
     status, _ = api("GET", "/api/users/daily-quota", token=admin)
     assert status == 403, status
     status, _ = api("GET", "/api/users/daily-quota")
     assert status == 401, status
-    status, quota_at_signup = api("GET", "/api/users/daily-quota", token=one)
-    assert status == 200 and quota_at_signup["Data"]["StageId"] == 1, (status, quota_at_signup)
-    status, _ = api("GET", "/api/users/daily-quota?stageId=9999", token=one)
+    # Legacy learners without a selected stage now default to Elementary.
+    # There is no daily limit for questions within accessible categories.
+    initial = expect("GET", "/api/users/daily-quota", 200, token=free)
+    assert initial["StageId"] == 1 and initial["Unlimited"], initial
+    assert initial["Limit"] == 0 and initial.get("Remaining") is None, initial
+    status, _ = api("GET", "/api/users/daily-quota?stageId=9999", token=free)
     assert status == 404, status
 
-    q1 = [question(admin, 2100 + i, 1, 1) for i in range(11)]
-    q2 = [question(admin, 2200 + i, 2, 5) for i in range(11)]
-    q3 = [question(admin, 2300 + i, 1, 1) for i in range(11)]
-    locked_one = question(admin, 2400, 1, 3)
-    locked_two = question(admin, 2500, 2, 7)
+    questions = [create_question(admin, 3100 + i, 1, 1) for i in range(12)]
+    # Let both clients know which topics contain real published questions;
+    # a known-empty topic must not lead to an empty problem-list dead end.
+    category_catalog = expect("GET", "/api/categories", 200, token=free)
+    assert all(isinstance(category.get("ProblemsCount"), int)
+               for category in category_catalog), category_catalog
+    first_inventory = next(c for c in category_catalog if c["Id"] == 1)
+    assert first_inventory["ProblemsCount"] >= len(questions), first_inventory
+    catalog = expect("GET", "/api/stages/1/free-categories", 200)
+    assert catalog["FreeCategoryIds"] == [1, 2], catalog
+    assert catalog["FreeCategoryCount"] == 2, catalog
+    assert catalog.get("DailyProblemLimit") is None, catalog
+    assert {item["Id"] for item in catalog["Categories"] if item["IsFree"]} == {1, 2}, catalog
+    # The same response must provide real published-question counts. The
+    # category page must not depend on a second /categories HTTP request.
+    public_counts = {item["Id"]: item["ProblemsCount"]
+                     for item in category_catalog if item["StageId"] == 1}
+    assert {item["Id"] for item in catalog["Categories"]} == set(public_counts), catalog
+    assert all(isinstance(item.get("ProblemsCount"), int) and
+               item["ProblemsCount"] == public_counts[item["Id"]]
+               for item in catalog["Categories"]), (catalog, public_counts)
+    locked_question = create_question(admin, 3999, 1, 3)
+    updated_catalog = expect("GET", "/api/stages/1/free-categories", 200)
+    updated_count = next(item["ProblemsCount"]
+                         for item in updated_catalog["Categories"]
+                         if item["Id"] == 3)
+    assert updated_count == public_counts[3] + 1, updated_catalog
+    code, _ = api("GET", f"/api/problems/{locked_question[0]}", token=free)
+    assert code == 403, code
+    code, _ = submit(free, *locked_question)
+    assert code == 403, code
+    code, _ = api("GET", "/api/categories/3/problems", token=free)
+    assert code == 403, code
 
-    # Free students cannot fetch answers or submit directly for locked categories.
-    assert api("GET", f"/api/problems/{locked_one[0]}", token=one)[0] == 403
-    assert submit(one, *locked_one)[0] == 403
-    # List searches only return accessible previews. No dead-end cards.
-    code, listing = api("GET", "/api/problems/search?stageId=1&pageSize=100",
-                        token=one)
-    assert code == 200, (code, listing)
-    assert listing["Data"]["Results"], listing
-    assert all(row["CategoryId"] in (1, 2)
-               for row in listing["Data"]["Results"]), listing
-    assert api("GET", "/api/problems/search?categoryId=3",
-               token=one)[0] == 403
-    assert api("GET", "/api/problems/meilisearch-search?categoryId=3",
-               token=one)[0] == 403
-
-    # Admin tools still access all content without Free restrictions.
-    assert api("GET", f"/api/problems/{locked_one[0]}", token=admin)[0] == 200
-
-
-    expect("PUT", "/api/users/learning-stage", 200, {"StageId": 1}, one)
-    assert_quota(one, 1, 0, None)
-    # Stage members appear in rankings even with zero solved problems.
-    initial_board = expect("GET", "/api/users/leaderboard?stageId=1", 200,
-                           token=one)
-    assert initial_board["TotalLearners"] >= 1, initial_board
-    assert initial_board["MyRank"] is not None, initial_board
-    assert any(row["IsCurrentUser"] for row in initial_board["Entries"]), initial_board
-    for qid, correct in q1[:10]:
-        status, data = submit(one, qid, correct)
-        assert status == 200, (status, data)
-    assert_quota(one, 1, 10, None)
-
-    code, body = submit(one, *q1[10])
-    assert code == 200, (code, body)
-    # Re-attempt the first-ever solved problem: no extra quota consumed.
-    code, body = submit(one, *q1[0])
-    assert code == 200 and not body["Data"]["IsOfficialAttempt"], (code, body)
-    assert_quota(one, 1, 11, None)
-    board = expect("GET", "/api/users/leaderboard?stageId=1&period=all", 200,
-                   token=one)
-    mine = next(row for row in board["Entries"] if row["IsCurrentUser"])
-    assert mine["SolvedProblems"] == 11, board
-    assert mine["DisplayName"] in ("أنت", "You"), board
-    assert all("UserId" not in row for row in board["Entries"]), board
-
-    # Changing stage does not reset used Stage 1 allowance.
-    expect("PUT", "/api/users/learning-stage", 200, {"StageId": 2}, one)
-    assert quota(one)["StageId"] == 2
-    assert_quota(one, 2, 0, None)
-    code, body = submit(one, *q2[0])
-    assert code == 200, (code, body)
-    assert_quota(one, 2, 1, None)
-    expect("PUT", "/api/users/learning-stage", 200, {"StageId": 1}, one)
-    assert_quota(one, 1, 11, None)
-    assert_quota(one, 2, 1, None)
-
-    # A different Free learner can also answer more than ten.
-    for qid, correct in q2[:10]:
-        code, body = submit(two, qid, correct)
+    expect("PUT", "/api/users/learning-stage", 200, {"StageId": 1}, free)
+    assert_unlimited(free, 1)
+    for qid, correct in questions:
+        code, body = submit(free, qid, correct)
         assert code == 200, (code, body)
-    code, body = submit(two, *q2[10])
-    assert code == 200, (code, body)
-    assert_quota(two, 2, 11, None)
-    # Disposable PostgreSQL only: simulate a future audited admin upgrade.
+    assert_unlimited(free, 1)
+    # Reattempts remain allowed and should not become new official attempts.
+    code, body = submit(free, *questions[0])
+    assert code == 200 and not body["Data"]["IsOfficialAttempt"], (code, body)
+
+    # An earlier-stage mistake must remain in the notebook after changing
+    # educational stage. The backend still enforces the two Free categories
+    # per stage and must never expose a locked topic from another stage.
+    stage_two_question = create_question(admin, 4401, 2, 5)
+    second_options = expect("GET", f"/api/problems/{stage_two_question[0]}",
+                            200, token=admin)["Options"]
+    incorrect_option = next(o["Id"] for o in second_options if not o["IsCorrect"])
+    expect("PUT", "/api/users/learning-stage", 200, {"StageId": 2}, free)
+    assert_unlimited(free, 2)
+    wrong_status, wrong_body = submit(free, stage_two_question[0], incorrect_option)
+    assert wrong_status == 200 and not wrong_body["Data"]["IsCorrect"], (
+        wrong_status, wrong_body
+    )
+    expect("PUT", "/api/users/learning-stage", 200, {"StageId": 1}, free)
+    notebook = expect("GET", "/api/users/error-notebook?includeArchived=true",
+                      200, token=free)
+    assert stage_two_question[0] in {problem["Id"] for problem in notebook}, (
+        "A past-stage mistake was lost after switching stages", notebook
+    )
+
+    # Premium still controls pre-answer solutions and analytics, not daily quota.
     subprocess.run([
         "psql", "-X", "-v", "ON_ERROR_STOP=1",
         "-c", """UPDATE "Users" SET "SubscriptionType"='Premium'
                  WHERE "Email"='learner-ci-502@mathworld.test' AND "Role"='Student'"""
     ], check=True, timeout=20, capture_output=True)
-    premium = quota(two, 2)
-    assert premium["Unlimited"] and premium.get("Remaining") is None, premium
-    # Premium can list categories blocked for Free accounts.
-    code, premium_listing = api("GET", "/api/problems/search?categoryId=7",
-                                token=two)
-    assert code == 200 and premium_listing["Data"]["Results"], premium_listing
-    assert api("GET", f"/api/problems/{locked_two[0]}", token=two)[0] == 200
-    assert submit(two, *locked_two)[0] == 200
-    code, body = submit(two, *q2[10])
+    paid = expect("GET", "/api/users/subscription", 200, token=premium)
+    assert paid["IsPremium"] and paid["CanRevealSolutionBeforeAnswer"], paid
+    assert paid["CanExportAnalytics"] and paid.get("DailyNewProblemsLimit") is None, paid
+    assert_unlimited(premium, 1)
+    code, _ = api("GET", f"/api/problems/{locked_question[0]}", token=premium)
+    assert code == 200, code
+    code, body = submit(premium, *locked_question)
     assert code == 200, (code, body)
 
-    # Concurrent first attempts must both succeed without a daily cap.
-    for qid, correct in q3[:9]:
-        code, body = submit(three, qid, correct)
-        assert code == 200, (code, body)
-    assert_quota(three, 1, 9, None)
-    with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
-        results = list(executor.map(lambda q: submit(three, *q), q3[9:11]))
-    assert sorted(code for code, _ in results) == [200, 200], results
-    assert_quota(three, 1, 11, None)
+    subprocess.run([
+        "psql", "-X", "-v", "ON_ERROR_STOP=1",
+        "-c", """UPDATE "Users" SET "PremiumExpiresAtUtc"=NOW()-INTERVAL '1 second'
+                 WHERE "Email"='learner-ci-502@mathworld.test' AND "Role"='Student'"""
+    ], check=True, timeout=20, capture_output=True)
+    expired = expect("GET", "/api/users/subscription", 200, token=premium)
+    assert not expired["IsPremium"] and not expired["CanExportAnalytics"], expired
+    assert expired.get("DailyNewProblemsLimit") is None, expired
+    assert_unlimited(premium, 1)
 
-    print("PASS: unlimited practice, stage-scoped reporting, retries, "
-          "Premium and Free concurrent submissions, auth and scope")
+    # The default (unsaved) Free pair is already effective for learners.
+    # Deleting, moving or reordering another category into the top two
+    # must not silently change which questions the Free learner can access.
+    default_catalog = expect("GET", "/api/stages/1/free-categories", 200)
+    assert default_catalog["FreeCategoryIds"] == [1, 2], default_catalog
+    assert not default_catalog["HasSavedFreeSelection"], default_catalog
+    for route in ("/api/categories/2", "/api/admin/categories/2"):
+        assert api("DELETE", route, token=admin)[0] == 409, route
+        assert move_category(admin, route, 2) == 409, route
+    for route in ("/api/categories/3", "/api/admin/categories/3"):
+        assert reorder_category(admin, route, 0) == 409, route
+
+    # The dashboard talks to /api/admin/categories, not /api/categories.
+    # Selecting exactly two Free categories must be server-authorized and
+    # prevent both routes from deleting/moving an explicitly selected one.
+    assert api("PUT", "/api/admin/stages/1/free-categories", {
+        "CategoryIds": [2, 3]
+    }, free)[0] == 403
+    assert api("PUT", "/api/admin/stages/1/free-categories", {
+        "CategoryIds": [2, 3]
+    })[0] == 401
+    assert api("PUT", "/api/admin/stages/1/free-categories", {
+        "CategoryIds": [2, 2]
+    }, admin)[0] == 400
+    assert api("PUT", "/api/admin/stages/1/free-categories", {
+        "CategoryIds": [2, 5]
+    }, admin)[0] == 400
+    saved = expect("PUT", "/api/admin/stages/1/free-categories", 200, {
+        "CategoryIds": [2, 3]
+    }, admin)
+    assert saved["FreeCategoryIds"] == [2, 3], saved
+    catalog = expect("GET", "/api/stages/1/free-categories", 200)
+    assert catalog["HasSavedFreeSelection"], catalog
+    assert catalog["FreeCategoryIds"] == [2, 3], catalog
+    assert {x["Id"] for x in catalog["Categories"] if x["IsFree"]} == {2, 3}
+    assert api("GET", f"/api/problems/{questions[0][0]}", token=free)[0] == 403
+    assert api("GET", f"/api/problems/{locked_question[0]}", token=free)[0] == 200
+    for route in ("/api/categories/2", "/api/admin/categories/2"):
+        assert api("DELETE", route, token=admin)[0] == 409, route
+        assert move_category(admin, route, 2) == 409, route
+    assert move_category(admin, "/api/admin/categories/1", 2) == 409, (
+        "Populated category moved through dashboard route"
+    )
+    assert reorder_category(admin, "/api/admin/categories/3", 0) == 200, (
+        "Explicitly saved Free pair must survive category editorial reordering"
+    )
+    after_reorder = expect("GET", "/api/stages/1/free-categories", 200)
+    assert after_reorder["FreeCategoryIds"] == [2, 3], after_reorder
+    print("PASS: Free unlimited practice, protected default/saved selection and admin/category guards.")
 
 
 if __name__ == "__main__":

@@ -22,6 +22,7 @@ namespace MathWorldAPI.Controllers
         private readonly IAuthService _authService;
         private readonly AppDbContext _db;
         private readonly ILogger<AuthController> _logger;
+        private readonly PlatformActivityAuditWriter _audit;
 
         /// <summary>
         /// Initializes a new instance of the AuthController.
@@ -35,11 +36,13 @@ namespace MathWorldAPI.Controllers
         public AuthController(
             IAuthService authService,
             AppDbContext db,
-            ILogger<AuthController> logger)
+            ILogger<AuthController> logger,
+            PlatformActivityAuditWriter audit)
         {
             _authService = authService;
             _db = db;
             _logger = logger;
+            _audit = audit;
         }
 
         /// <summary>
@@ -88,8 +91,7 @@ namespace MathWorldAPI.Controllers
             if (result == null)
             {
                 _logger.LogWarning(
-                    "Registration failed because email {Email} already exists.",
-                    dto.Email);
+                    "Registration was rejected because the submitted identifier already exists.");
 
                 return BadRequest(
                     LanguageHelper.ErrorResponse<AuthResponseDto>(
@@ -101,6 +103,7 @@ namespace MathWorldAPI.Controllers
             _logger.LogInformation(
                 "User {UserId} registered successfully.",
                 result.Id);
+            await _audit.TryRecordAsync(result.Id, "Registered");
 
             Console.WriteLine(
                 $"User registered successfully. UserId: {result.Id}");
@@ -146,8 +149,7 @@ namespace MathWorldAPI.Controllers
             if (result == null)
             {
                 _logger.LogWarning(
-                    "Login failed for email {Email}. Error code: {ErrorCode}",
-                    dto.Email,
+                    "Login failed. Error code: {ErrorCode}",
                     errorCode ?? "InvalidCredentials");
 
                 return Unauthorized(
@@ -160,6 +162,7 @@ namespace MathWorldAPI.Controllers
             _logger.LogInformation(
                 "User {UserId} logged in successfully.",
                 result.Id);
+            await _audit.TryRecordAsync(result.Id, "LoggedIn");
 
             Console.WriteLine(
                 $"User logged in successfully. UserId: {result.Id}");

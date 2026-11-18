@@ -21,7 +21,7 @@ namespace MathWorldAPI.Controllers
         public LeaderboardController(AppDbContext db) => _db = db;
 
         [Authorize(Roles = "Student")]
-        [HttpGet("users/leaderboard")]
+        [HttpGet("legacy/users/leaderboard")]
         public async Task<IActionResult> StudentLeaderboard(
             [FromQuery] int? stageId,
             [FromQuery] string period = "all",

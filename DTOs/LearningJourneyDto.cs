@@ -20,6 +20,7 @@ namespace MathWorldAPI.DTOs
     public sealed class StageCategoryProgressDto
     {
         public int CategoryId { get; set; }
+        public bool IsLocked { get; set; }
         public string NameAr { get; set; } = string.Empty;
         public string NameEn { get; set; } = string.Empty;
         public int TotalProblems { get; set; }

@@ -10,6 +10,7 @@ namespace MathWorldAPI.Controllers
 {
     [ApiController]
     [Authorize(Roles = "Student")]
+    // Original public contract for existing student clients.
     [Route("api/notifications")]
     public sealed class StudentNotificationsController : ControllerBase
     {

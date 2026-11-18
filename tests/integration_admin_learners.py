@@ -142,10 +142,10 @@ def main():
     assert api("PUT", subscription_route,
                {"SubscriptionType": "Unknown"}, admin)[0] == 400
     assert api("PUT", "/api/admin/learners/999999/subscription",
-               {"SubscriptionType": "Premium"}, admin)[0] == 404
+               {"SubscriptionType": "Premium", "Reason": "CI subscription check"}, admin)[0] == 404
     upgraded = expect("PUT", subscription_route, 200,
-                      {"SubscriptionType": "Premium"}, admin)
-    assert upgraded["Id"] == first["Id"] and upgraded["SubscriptionType"] == "Premium"
+                      {"SubscriptionType": "Premium", "Reason": "CI subscription check"}, admin)
+    assert upgraded["LearnerId"] == first["Id"] and upgraded["SubscriptionType"] == "Premium"
     report_initial = expect("GET", report_route, 200, token=learner1)
     assert report_initial["StageId"] == 1, report_initial
     assert report_initial["SolvedProblems"] == 0, report_initial
@@ -170,9 +170,9 @@ def main():
     assert solution["CorrectOptionId"] is not None, solution
     # Repeating a grant is safe. Revocation must take effect immediately.
     assert expect("PUT", subscription_route, 200,
-                  {"SubscriptionType": "Premium"}, admin)["SubscriptionType"] == "Premium"
+                  {"SubscriptionType": "Premium", "Reason": "CI subscription check"}, admin)["SubscriptionType"] == "Premium"
     downgraded = expect("PUT", subscription_route, 200,
-                        {"SubscriptionType": "Free"}, admin)
+                        {"SubscriptionType": "Free", "Reason": "CI subscription check"}, admin)
     assert downgraded["SubscriptionType"] == "Free"
     assert api("GET", report_route, token=learner1)[0] == 403
     assert api("GET", csv_route, token=learner1)[0] == 403
@@ -201,14 +201,14 @@ def main():
     assert current["SolvedProblems"] == 1 and current["AttemptedProblems"] == 1, current
     assert current["TotalAwardedPoints"] == 10 and current["LastAttemptAt"], current
     expect("PUT", subscription_route, 200,
-           {"SubscriptionType": "Premium"}, admin)
+           {"SubscriptionType": "Premium", "Reason": "CI subscription check"}, admin)
     report_solved = expect("GET", report_route, 200, token=learner1)
     assert report_solved["SolvedProblems"] == 1, report_solved
     assert report_solved["OfficialPoints"] == 10, report_solved
     assert sum(c["SolvedProblems"] for c in report_solved["Categories"]) == 1
     assert sum(c["OfficialPoints"] for c in report_solved["Categories"]) == 10
     expect("PUT", subscription_route, 200,
-           {"SubscriptionType": "Free"}, admin)
+           {"SubscriptionType": "Free", "Reason": "CI subscription check"}, admin)
 
     details = expect("GET", f"/api/admin/learners/{first['Id']}?stageId=1",
                      200, token=admin)

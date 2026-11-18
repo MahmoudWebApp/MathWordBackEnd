@@ -108,11 +108,7 @@ public sealed class StudentPremiumAnalyticsController : ControllerBase
         var user = await _db.Users.AsNoTracking().FirstOrDefaultAsync(
             u => u.Id == id && u.Role == "Student" && u.IsActive, ct);
         if (user is null) return (null, Unauthorized());
-        // Existing production schema has SubscriptionType but not the
-        // PremiumExpiresAtUtc column; use the persisted plan until the
-        // reviewed entitlement migration is deployed.
-        if (!string.Equals(user.SubscriptionType, "Premium",
-                StringComparison.OrdinalIgnoreCase))
+        if (!PremiumEntitlement.IsActive(user))
             return (null, StatusCode(StatusCodes.Status403Forbidden,
                 new { Message = "PremiumRequired" }));
         return (id, null);

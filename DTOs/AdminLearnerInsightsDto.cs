@@ -19,6 +19,7 @@ namespace MathWorldAPI.DTOs
         public string? StageNameAr { get; set; }
         public string? StageNameEn { get; set; }
         public string SubscriptionType { get; set; } = "Free";
+        public DateTime? PremiumExpiresAtUtc { get; set; }
         public bool IsActive { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime? LastLoginAt { get; set; }

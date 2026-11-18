@@ -1,0 +1,208 @@
+name: Premium migration upgrade rehearsal from current main
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - feature/premium-entitlement-foundation
+    paths:
+      - '.github/workflows/premium-upgrade-rehearsal.yml'
+      - 'Migrations/**'
+      - 'Models/**'
+      - 'Data/**'
+      - 'Program.cs'
+  pull_request:
+    paths:
+      - '.github/workflows/premium-upgrade-rehearsal.yml'
+      - 'Migrations/**'
+      - 'Models/**'
+      - 'Data/**'
+      - 'Program.cs'
+
+permissions:
+  contents: read
+
+jobs:
+  upgrade-existing-schema:
+    name: Existing main schema -> Premium release (disposable PostgreSQL)
+    runs-on: ubuntu-latest
+    timeout-minutes: 28
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: ci_only_password
+          POSTGRES_DB: mathworld_upgrade_ci
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres -d mathworld_upgrade_ci"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 20
+    env:
+      ASPNETCORE_ENVIRONMENT: Production
+      ConnectionStrings__DefaultConnection: Host=127.0.0.1;Port=5432;Database=mathworld_upgrade_ci;Username=postgres;Password=ci_only_password
+      Jwt__Key: ci_only_test_signing_key_never_use_in_production_0123456789
+      Jwt__Issuer: MathWorld-CI
+      Jwt__Audience: MathWorld-CI
+      Meilisearch__Enabled: 'false'
+      BootstrapAdmin__Enabled: 'true'
+      BootstrapAdmin__Email: ci-admin@mathworld.test
+      BootstrapAdmin__Password: CI_TEST_ADMIN_PASSWORD_12345
+      BootstrapAdmin__FullName: CI Administrator
+      Database__ApplyMigrationsOnStartup: 'true'
+      PGHOST: 127.0.0.1
+      PGPORT: '5432'
+      PGUSER: postgres
+      PGPASSWORD: ci_only_password
+      PGDATABASE: mathworld_upgrade_ci
+    steps:
+      - name: Checkout current main (pre-Premium schema)
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          path: baseline
+          persist-credentials: false
+      - name: Checkout Premium branch (new schema)
+        uses: actions/checkout@v4
+        with:
+          path: premium
+          persist-credentials: false
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+      - name: Compile current main without deploying
+        working-directory: baseline
+        run: dotnet build MathWorldAPI.csproj --configuration Release
+      - name: Boot current main on fresh isolated DB, preserving migration history
+        shell: bash
+        working-directory: baseline
+        env:
+          ASPNETCORE_URLS: http://127.0.0.1:5068
+        run: |
+          set -euo pipefail
+          dotnet run --no-build --no-launch-profile -c Release --project MathWorldAPI.csproj > /tmp/mathworld-baseline.log 2>&1 &
+          echo "$!" > /tmp/mathworld-baseline.pid
+          for i in $(seq 1 90); do
+            if curl -fsS --max-time 2 http://127.0.0.1:5068/health/ready > /dev/null; then
+              echo "Baseline main migrations applied and readiness passed"
+              exit 0
+            fi
+            if ! kill -0 "$(cat /tmp/mathworld-baseline.pid)" 2>/dev/null; then
+              tail -n 90 /tmp/mathworld-baseline.log
+              exit 1
+            fi
+            sleep 2
+          done
+          tail -n 90 /tmp/mathworld-baseline.log
+          exit 1
+      - name: Snapshot baseline users, migration history, and existing notifications
+        shell: bash
+        run: |
+          set -euo pipefail
+          psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM "Users"' > /tmp/mathworld-baseline-users-count
+          test "$(cat /tmp/mathworld-baseline-users-count)" -ge 1
+          psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM "__EFMigrationsHistory"' > /tmp/mathworld-baseline-migration-count
+          psql -X -v ON_ERROR_STOP=1 -Atc "SELECT COUNT(*) FROM \"__EFMigrationsHistory\" WHERE \"MigrationId\"='20261117210000_AddStudentNotifications'" | grep -qx 1
+          psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM "StudentNotifications"' > /tmp/mathworld-baseline-notifications-count
+          echo 'PASS: current main schema and legacy notifications exist before Premium migration'
+      - name: Stop baseline server before upgrading the same DB
+        shell: bash
+        run: |
+          kill "$(cat /tmp/mathworld-baseline.pid)"
+          for i in $(seq 1 30); do
+            if ! curl -fsS --max-time 1 http://127.0.0.1:5068/health >/dev/null 2>&1; then
+              break
+            fi
+            sleep 1
+          done
+      - name: Build Premium release without touching production
+        working-directory: premium
+        run: dotnet build MathWorldAPI.csproj --configuration Release
+      - name: Upgrade existing main schema with Premium EF migrations
+        working-directory: premium
+        shell: bash
+        env:
+          ASPNETCORE_URLS: http://127.0.0.1:5069
+        run: |
+          set -euo pipefail
+          dotnet run --no-build --no-launch-profile -c Release --project MathWorldAPI.csproj > /tmp/mathworld-premium-upgrade.log 2>&1 &
+          echo "$!" > /tmp/mathworld-premium-upgrade.pid
+          for i in $(seq 1 90); do
+            if curl -fsS --max-time 2 http://127.0.0.1:5069/health/ready > /dev/null; then
+              echo "PASS: Premium schema upgrade and API readiness"
+              exit 0
+            fi
+            if ! kill -0 "$(cat /tmp/mathworld-premium-upgrade.pid)" 2>/dev/null; then
+              tail -n 100 /tmp/mathworld-premium-upgrade.log
+              exit 1
+            fi
+            sleep 2
+          done
+          tail -n 100 /tmp/mathworld-premium-upgrade.log
+          exit 1
+      - name: Assert all new tables exist and old student/admin data survived
+        shell: bash
+        run: |
+          set -euo pipefail
+          before="$(cat /tmp/mathworld-baseline-users-count)"
+          after="$(psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM "Users"')"
+          test "$after" -eq "$before"
+          notifications="$(psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM "StudentNotifications"')"
+          test "$notifications" -eq "$(cat /tmp/mathworld-baseline-notifications-count)"
+          psql -X -v ON_ERROR_STOP=1 -At <<'SQL'
+          DO $$
+          DECLARE
+            required_table text;
+            required_tables text[] := ARRAY[
+              'SubscriptionGrants', 'PremiumAccessCodes', 'PremiumDiscountCodes',
+              'PremiumCheckoutOrders', 'UserNotifications',
+              'StageFreeCategorySelections', 'CurriculumDraftBatches',
+              'ProblemDiagrams', 'PlatformActivityEvents', 'LearnerPresences'
+            ];
+          BEGIN
+            FOREACH required_table IN ARRAY required_tables LOOP
+              IF to_regclass(format('public.%I', required_table)) IS NULL THEN
+                RAISE EXCEPTION 'Missing required Premium release table: %', required_table;
+              END IF;
+            END LOOP;
+            IF NOT EXISTS (
+              SELECT 1 FROM information_schema.columns
+              WHERE table_schema='public' AND table_name='Users'
+                AND column_name='PremiumExpiresAtUtc'
+            ) THEN
+              RAISE EXCEPTION 'Missing Premium expiry column';
+            END IF;
+          END $$;
+          SQL
+          before_count="$(cat /tmp/mathworld-baseline-migration-count)"
+          after_count="$(psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM "__EFMigrationsHistory"')"
+          test "$after_count" -gt "$before_count"
+          echo "PASS: main schema upgraded; legacy admin/users and notifications preserved; Premium tables created"
+      - name: Verify 100% Premium gift issue/redeem/reuse/revoke after upgrading old schema
+        working-directory: premium
+        env:
+          MATHWORLD_TEST_BASE_URL: http://127.0.0.1:5069
+        run: |
+          # This existing integration covers admin ownership, gift-code
+          # creation, one-time redemption, rejected replay and revocation,
+          # learner notifications, and draft publication on local test data.
+          # It refuses to run against a remote host.
+          python3 tests/integration_editorial_notifications.py
+      - name: Print safe diagnostics if upgrade fails
+        if: failure()
+        shell: bash
+        run: |
+          for file in /tmp/mathworld-baseline.log /tmp/mathworld-premium-upgrade.log; do
+            if test -f "$file"; then
+              grep -E 'Unhandled exception|fail:|error:|Database migration|already exists|relation' "$file" | tail -n 55 || true
+            fi
+          done
+      - name: Stop isolated API
+        if: always()
+        shell: bash
+        run: |
+          if test -f /tmp/mathworld-baseline.pid; then kill "$(cat /tmp/mathworld-baseline.pid)" 2>/dev/null || true; fi
+          if test -f /tmp/mathworld-premium-upgrade.pid; then kill "$(cat /tmp/mathworld-premium-upgrade.pid)" 2>/dev/null || true; fi

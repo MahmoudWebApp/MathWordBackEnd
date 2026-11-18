@@ -1,0 +1,32 @@
+name: Backend build and policy checks
+
+on:
+  push:
+    branches:
+      - feature/premium-entitlement-foundation
+  pull_request:
+    paths:
+      - '**/*.cs'
+      - '**/*.csproj'
+      - '.github/workflows/backend-build.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install .NET 9
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+      - name: Restore backend
+        run: dotnet restore MathWorldAPI.csproj
+      - name: Compile backend (Release)
+        run: dotnet build MathWorldAPI.csproj --configuration Release --no-restore
+      - name: Run Free category policy smoke checks
+        run: dotnet run --project tests/MathWorld.PolicySmoke/MathWorld.PolicySmoke.csproj --configuration Release
