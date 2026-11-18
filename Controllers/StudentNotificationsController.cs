@@ -10,7 +10,9 @@ namespace MathWorldAPI.Controllers
 {
     [ApiController]
     [Authorize(Roles = "Student")]
-    [Route("api/notifications")]
+    // Compatibility-only route for notifications created by the legacy
+    // admin-announcement flow. The unified inbox owns /api/notifications.
+    [Route("api/legacy-student-notifications")]
     public sealed class StudentNotificationsController : ControllerBase
     {
         private readonly AppDbContext _db;
