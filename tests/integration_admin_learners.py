@@ -152,7 +152,18 @@ def main():
     assert len(report_initial["Categories"]) >= 1, report_initial
     assert api("GET", report_route + "?stageId=999999",
                token=learner1)[0] == 404
-    assert api("GET", csv_route, token=learner1)[0] == 200
+    # CSV is intentionally not JSON; verify the binary export directly.
+    import urllib.request
+    csv_request = urllib.request.Request(
+        BASE + csv_route,
+        headers={"Authorization": "Bearer " + learner1,
+                 "Accept": "text/csv"})
+    with urllib.request.urlopen(csv_request, timeout=20) as response:
+        assert response.status == 200, response.status
+        assert response.headers.get_content_type() == "text/csv"
+        csv_bytes = response.read()
+        assert csv_bytes[:3] == bytes((239, 187, 191)), csv_bytes[:12]
+        assert b"Category,Total Problems" in csv_bytes
     assert api("GET", f"/api/problems/{locked_problem}", token=learner1)[0] == 200
     solution = expect("GET", preview, 200, token=learner1)
     assert solution["ProblemId"] == locked_problem
