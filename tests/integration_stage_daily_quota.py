@@ -104,8 +104,11 @@ def main():
     assert status == 403, status
     status, _ = api("GET", "/api/users/daily-quota")
     assert status == 401, status
-    status, _ = api("GET", "/api/users/daily-quota", token=free)
-    assert status == 409, status
+    # Legacy learners without a selected stage now default to Elementary.
+    # There is no daily limit for questions within accessible categories.
+    initial = expect("GET", "/api/users/daily-quota", 200, token=free)
+    assert initial["StageId"] == 1 and initial["Unlimited"], initial
+    assert initial["Limit"] == 0 and initial.get("Remaining") is None, initial
     status, _ = api("GET", "/api/users/daily-quota?stageId=9999", token=free)
     assert status == 404, status
 
