@@ -457,9 +457,17 @@ var allowedOrigins =
             "https://localhost:3000",
             "https://localhost:3001",
             "https://localhost:5173",
-            "https://mathwords.netlify.app",
-            "https://math-world-frontend.vercel.app"
-        };
+            "https://mathwords.netlify.app"
+        })
+    .Concat(new[]
+    {
+        "https://mathwords.netlify.app",
+        "https://math-world-frontend.vercel.app",
+        "https://math-world-frontend-mahmouds-projects-0868fac1.vercel.app",
+        "https://math-world-frontend-git-main-mahmouds-projects-0868fac1.vercel.app"
+    })
+    .Distinct(StringComparer.OrdinalIgnoreCase)
+    .ToArray();
 
 builder.Services.AddCors(options =>
 {
