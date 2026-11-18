@@ -116,6 +116,14 @@ def main():
     assert expect("GET", "/api/admin/learners?isActive=true&subscription=Free",
                   200, token=admin)["Total"] == 2
 
+    # Learner-owned reports are never available to anonymous/Admin/Free.
+    report_route = "/api/users/premium-report"
+    csv_route = "/api/users/premium-report/csv"
+    assert api("GET", report_route)[0] == 401
+    assert api("GET", report_route, token=admin)[0] == 403
+    assert api("GET", report_route, token=learner1)[0] == 403
+    assert api("GET", csv_route, token=learner1)[0] == 403
+
     # Only an Admin can grant or revoke Premium; Free has no daily cap.
     subscription_route = f"/api/admin/learners/{first['Id']}/subscription"
     locked_payload = make_question(71001)
@@ -138,6 +146,24 @@ def main():
     upgraded = expect("PUT", subscription_route, 200,
                       {"SubscriptionType": "Premium"}, admin)
     assert upgraded["Id"] == first["Id"] and upgraded["SubscriptionType"] == "Premium"
+    report_initial = expect("GET", report_route, 200, token=learner1)
+    assert report_initial["StageId"] == 1, report_initial
+    assert report_initial["SolvedProblems"] == 0, report_initial
+    assert len(report_initial["Categories"]) >= 1, report_initial
+    assert api("GET", report_route + "?stageId=999999",
+               token=learner1)[0] == 404
+    # CSV is intentionally not JSON; verify the binary export directly.
+    import urllib.request
+    csv_request = urllib.request.Request(
+        BASE + csv_route,
+        headers={"Authorization": "Bearer " + learner1,
+                 "Accept": "text/csv"})
+    with urllib.request.urlopen(csv_request, timeout=20) as response:
+        assert response.status == 200, response.status
+        assert response.headers.get_content_type() == "text/csv"
+        csv_bytes = response.read()
+        assert csv_bytes[:3] == bytes((239, 187, 191)), csv_bytes[:12]
+        assert b"Category,Total Problems" in csv_bytes
     assert api("GET", f"/api/problems/{locked_problem}", token=learner1)[0] == 200
     solution = expect("GET", preview, 200, token=learner1)
     assert solution["ProblemId"] == locked_problem
@@ -148,6 +174,8 @@ def main():
     downgraded = expect("PUT", subscription_route, 200,
                         {"SubscriptionType": "Free"}, admin)
     assert downgraded["SubscriptionType"] == "Free"
+    assert api("GET", report_route, token=learner1)[0] == 403
+    assert api("GET", csv_route, token=learner1)[0] == 403
     assert api("GET", f"/api/problems/{locked_problem}", token=learner1)[0] == 403
     assert api("GET", preview, token=learner1)[0] == 403
 
@@ -172,6 +200,15 @@ def main():
     current = now["Learners"][0]
     assert current["SolvedProblems"] == 1 and current["AttemptedProblems"] == 1, current
     assert current["TotalAwardedPoints"] == 10 and current["LastAttemptAt"], current
+    expect("PUT", subscription_route, 200,
+           {"SubscriptionType": "Premium"}, admin)
+    report_solved = expect("GET", report_route, 200, token=learner1)
+    assert report_solved["SolvedProblems"] == 1, report_solved
+    assert report_solved["OfficialPoints"] == 10, report_solved
+    assert sum(c["SolvedProblems"] for c in report_solved["Categories"]) == 1
+    assert sum(c["OfficialPoints"] for c in report_solved["Categories"]) == 10
+    expect("PUT", subscription_route, 200,
+           {"SubscriptionType": "Free"}, admin)
 
     details = expect("GET", f"/api/admin/learners/{first['Id']}?stageId=1",
                      200, token=admin)
