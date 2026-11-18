@@ -35,6 +35,7 @@ namespace MathWorldAPI.Controllers
         /// </param>
         public AuthController(
             IAuthService authService,
+            AppDbContext db,
             ILogger<AuthController> logger,
             PlatformActivityAuditWriter audit)
         {
