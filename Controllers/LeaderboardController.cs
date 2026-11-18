@@ -9,9 +9,9 @@ using Microsoft.EntityFrameworkCore;
 namespace MathWorldAPI.Controllers
 {
     /// <summary>
-    /// Stage-scoped rankings based on unique solved questions. A learner who
-    /// selected the stage appears even before completing their first problem.
-    /// Names of other learners are never exposed to student clients.
+    /// Stage-scoped rankings based on unique solved questions. Only learners
+    /// with an actual solved problem in the requested period are ranked.
+    /// Peers receive abbreviated names rather than their full private names.
     /// </summary>
     [ApiController]
     [Route("api")]
@@ -78,8 +78,8 @@ namespace MathWorldAPI.Controllers
                 _ => null
             };
 
-            // A member of this stage must not disappear when they have zero solves.
-            // Also include learners with prior solved work if they switched stages.
+            // Keep learners with solved history after stage changes, but don't
+            // manufacture a ranking position for people with zero solves.
             var members = _db.Users.AsNoTracking().Where(u => u.Role == "Student" &&
                 (u.CurrentStageId == stageId ||
                  _db.UserProgresses.Any(p => p.UserId == u.Id &&
@@ -101,24 +101,26 @@ namespace MathWorldAPI.Controllers
                     p.UserId == u.Id && p.FirstAttemptCorrect == true)
             });
 
-            var sorted = scores
+            var ranked = scores.Where(x => x.SolvedProblems > 0);
+
+            var sorted = ranked
                 .OrderByDescending(x => x.SolvedProblems)
                 .ThenByDescending(x => x.Points)
                 .ThenByDescending(x => x.FirstTryCorrect)
                 .ThenBy(x => x.UserId);
 
-            var total = await scores.CountAsync(cancellationToken);
+            var total = await ranked.CountAsync(cancellationToken);
             var rows = await sorted.Skip((page - 1) * pageSize)
                 .Take(pageSize).ToListAsync(cancellationToken);
 
             int? myRank = null;
             if (currentUserId.HasValue)
             {
-                var mine = await scores.FirstOrDefaultAsync(
+                var mine = await ranked.FirstOrDefaultAsync(
                     x => x.UserId == currentUserId.Value, cancellationToken);
                 if (mine != null)
                 {
-                    var ahead = await scores.CountAsync(x =>
+                    var ahead = await ranked.CountAsync(x =>
                         x.SolvedProblems > mine.SolvedProblems ||
                         (x.SolvedProblems == mine.SolvedProblems &&
                             x.Points > mine.Points) ||
@@ -154,7 +156,7 @@ namespace MathWorldAPI.Controllers
                         UserId = admin ? row.UserId : null,
                         DisplayName = admin ? row.FullName :
                             self ? (arabic ? "أنت" : "You") :
-                            arabic ? $"متعلم #{rank}" : $"Learner #{rank}",
+                            AbbreviatedName(row.FullName, arabic),
                         SolvedProblems = row.SolvedProblems,
                         Points = row.Points,
                         FirstTryCorrect = row.FirstTryCorrect,
@@ -164,6 +166,19 @@ namespace MathWorldAPI.Controllers
             };
             return Ok(LanguageHelper.SuccessResponse(result, "Success",
                 LanguageHelper.GetLanguageFromRequest(Request)));
+        }
+
+        // Real registered names are represented without exposing the full
+        // legal name of another learner (many learners may be minors).
+        private static string AbbreviatedName(string? fullName, bool arabic)
+        {
+            var parts = (fullName ?? string.Empty).Trim().Split(
+                (char[]?)null, StringSplitOptions.RemoveEmptyEntries);
+            if (parts.Length == 0)
+                return arabic ? "مشارك" : "Learner";
+            if (parts.Length == 1)
+                return parts[0];
+            return $"{parts[0]} {parts[1][0]}.";
         }
 
         private ApiResponse<object> Error(string key, int status) =>
