@@ -1,5 +1,6 @@
 ﻿// File: MathWorldAPI/Controllers/CategoriesController.cs
 
+using System.Security.Claims;
 using MathWorldAPI.Data;
 using MathWorldAPI.DTOs;
 using MathWorldAPI.Helpers;
@@ -61,6 +62,8 @@ namespace MathWorldAPI.Controllers
                             category.StageId)
                         .ThenBy(category =>
                             category.Order)
+                        .ThenBy(category =>
+                            category.Id)
                         .Select(category =>
                             new CategoryDto
                             {
@@ -155,6 +158,56 @@ namespace MathWorldAPI.Controllers
                         "CategoryNotFound",
                         language,
                         StatusCodes.Status404NotFound));
+            }
+
+            // Respect the same two-free-categories-per-stage rule used by
+            // individual problem details and answer submission. The category
+            // listing must not expose locked problem previews to Free students.
+            if (User.IsInRole("Student"))
+            {
+                if (!int.TryParse(
+                    User.FindFirstValue(ClaimTypes.NameIdentifier), out var studentId))
+                {
+                    return Unauthorized(
+                        LanguageHelper.ErrorResponse<PagedResult<ProblemPreviewDto>>(
+                            "Unauthorized", language,
+                            StatusCodes.Status401Unauthorized));
+                }
+
+                var subscription = await _context.Users.AsNoTracking()
+                    .Where(user => user.Id == studentId &&
+                                   user.Role == "Student" && user.IsActive)
+                    .Select(user => user.SubscriptionType)
+                    .FirstOrDefaultAsync(HttpContext.RequestAborted);
+
+                if (subscription == null)
+                {
+                    return Unauthorized(
+                        LanguageHelper.ErrorResponse<PagedResult<ProblemPreviewDto>>(
+                            "Unauthorized", language,
+                            StatusCodes.Status401Unauthorized));
+                }
+
+                if (!string.Equals(
+                    subscription, "Premium", StringComparison.OrdinalIgnoreCase))
+                {
+                    var unlockedCategoryIds = await _context.Categories.AsNoTracking()
+                        .Where(item => item.StageId == category.StageId)
+                        .OrderBy(item => item.Order)
+                        .ThenBy(item => item.Id)
+                        .Select(item => item.Id)
+                        .Take(2)
+                        .ToListAsync(HttpContext.RequestAborted);
+
+                    if (!unlockedCategoryIds.Contains(category.Id))
+                    {
+                        return StatusCode(
+                            StatusCodes.Status403Forbidden,
+                            LanguageHelper.ErrorResponse<PagedResult<ProblemPreviewDto>>(
+                                "CategoryLocked", language,
+                                StatusCodes.Status403Forbidden));
+                    }
+                }
             }
 
             var query =
