@@ -12,7 +12,7 @@ namespace MathWorldAPI.Controllers;
 
 [ApiController]
 [Authorize]
-[Route("api/notifications")]
+[Route("api/notifications/v2")]
 public sealed class NotificationsController : ControllerBase
 {
     private readonly AppDbContext _db;
