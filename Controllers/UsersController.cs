@@ -6,6 +6,7 @@ using MathWorldAPI.Data;
 using MathWorldAPI.DTOs;
 using MathWorldAPI.Helpers;
 using MathWorldAPI.Models;
+using MathWorldAPI.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -74,15 +75,18 @@ namespace MathWorldAPI.Controllers
 
             // Dashboard data is scoped to the learner's ACTIVE stage. Stage
             // changes preserve all progress in UserProgresses and attempts.
-            var activeStageId = user.CurrentStageId;
+            var activeStageId = await LegacyLearningStage.EffectiveIdAsync(
+                _context, user.CurrentStageId, HttpContext.RequestAborted);
+            if (!activeStageId.HasValue)
+                return Conflict(LanguageHelper.ErrorResponse<UserDashboardDto>(
+                    "LearningStageRequired", language, StatusCodes.Status409Conflict));
 
             // Count only correctly solved problems.
             var solvedCount =
                 await _context.UserProgresses
                     .CountAsync(progress =>
                         progress.UserId == userId &&
-                        (!activeStageId.HasValue ||
-                         progress.Problem.StageId == activeStageId.Value) &&
+                        progress.Problem.StageId == activeStageId.Value &&
                         progress.IsSolved);
 
             var favoriteCount =
@@ -184,7 +188,7 @@ namespace MathWorldAPI.Controllers
                     Role = user.Role,
                     SubscriptionType =
                         user.SubscriptionType,
-                    CurrentStageId = user.CurrentStageId,
+                    CurrentStageId = activeStageId,
                     SolvedProblemsCount =
                         solvedCount,
                     FavoriteProblemsCount =
