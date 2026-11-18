@@ -181,6 +181,16 @@ jobs:
           after_count="$(psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM "__EFMigrationsHistory"')"
           test "$after_count" -gt "$before_count"
           echo "PASS: main schema upgraded; legacy admin/users and notifications preserved; Premium tables created"
+      - name: Verify 100% Premium gift issue/redeem/reuse/revoke after upgrading old schema
+        working-directory: premium
+        env:
+          MATHWORLD_TEST_BASE_URL: http://127.0.0.1:5069
+        run: |
+          # This existing integration covers admin ownership, gift-code
+          # creation, one-time redemption, rejected replay and revocation,
+          # learner notifications, and draft publication on local test data.
+          # It refuses to run against a remote host.
+          python3 tests/integration_editorial_notifications.py
       - name: Print safe diagnostics if upgrade fails
         if: failure()
         shell: bash
