@@ -285,6 +285,18 @@ namespace MathWorldAPI.Migrations
                     b.ToTable("Users");
                 });
 
+            // Relationship added by the main-branch StudentNotifications migration.
+            modelBuilder.Entity("MathWorldAPI.Models.StudentNotification", b =>
+                {
+                    b.HasOne("MathWorldAPI.Models.AppUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("MathWorldAPI.Models.SubscriptionGrant", b =>
                 {
                     b.Property<long>("Id")
