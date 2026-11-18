@@ -29,45 +29,10 @@ namespace MathWorldAPI.Controllers
             _logger = logger;
         }
 
-        /// <summary>
-        /// Manually grants or revokes Premium. Restricted to real Admin JWTs;
-        /// billing flows remain separate and the student role cannot be changed.
-        /// </summary>
-        [HttpPut("{learnerId:int}/subscription")]
-        public async Task<IActionResult> SetSubscription(
-            [FromRoute] int learnerId,
-            [FromBody] ChangeLearnerSubscriptionDto? request,
-            CancellationToken cancellationToken = default)
-        {
-            var submitted = request?.SubscriptionType?.Trim();
-            var next = string.Equals(submitted, "Premium",
-                StringComparison.OrdinalIgnoreCase) ? "Premium" :
-                string.Equals(submitted, "Free",
-                    StringComparison.OrdinalIgnoreCase) ? "Free" : null;
-
-            if (learnerId < 1 || next == null)
-                return BadRequest(Error<object>("InvalidSubscriptionType", 400));
-
-            var student = await _db.Users.FirstOrDefaultAsync(user =>
-                user.Id == learnerId && user.Role == "Student",
-                cancellationToken);
-            if (student == null)
-                return NotFound(Error<object>("UserNotFound", 404));
-
-            if (!string.Equals(student.SubscriptionType, next,
-                StringComparison.Ordinal))
-            {
-                var previous = student.SubscriptionType;
-                student.SubscriptionType = next;
-                await _db.SaveChangesAsync(cancellationToken);
-                _logger.LogInformation(
-                    "Admin {AdminId} changed learner {LearnerId} subscription {Previous} -> {Next}",
-                    User.FindFirstValue(ClaimTypes.NameIdentifier),
-                    learnerId, previous, next);
-            }
-
-            return Ok(Success(new { student.Id, student.SubscriptionType }));
-        }
+        // Subscription writes are exclusively handled by AdminSubscriptionsController,
+        // which requires a reason, audits the grant and notifies the learner.
+        // Retaining the old write handler would produce ambiguous routing and
+        // permit unaudited, unvalidated Premium changes.
 
         [HttpGet]
         public async Task<IActionResult> List(
