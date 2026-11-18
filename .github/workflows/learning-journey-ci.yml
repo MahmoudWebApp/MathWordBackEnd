@@ -73,7 +73,7 @@ jobs:
       - name: Show error markers on failure
         if: failure()
         run: |
-          grep -E 'Unhandled exception|fail:|error:|Database migration' /tmp/mathworld-journey.log | tail -n 55 || true
+          tail -n 180 /tmp/mathworld-journey.log || true
       - name: Stop API
         if: always()
         run: |
