@@ -265,6 +265,20 @@ namespace MathWorldAPI.Services
                     $"Password hash upgraded. UserId: {user.Id}");
             }
 
+            // Existing Student accounts predate required stage registration.
+            // Apply the Elementary default once on authenticated login;
+            // historical attempts and progress remain attached to their stages.
+            if (string.Equals(user.Role, "Student", StringComparison.OrdinalIgnoreCase)
+                && !user.CurrentStageId.HasValue)
+            {
+                user.CurrentStageId = await LegacyLearningStage.ElementaryIdAsync(_context);
+                if (!user.CurrentStageId.HasValue)
+                {
+                    _logger.LogError("Cannot resolve the Elementary learning stage for legacy user {UserId}.", user.Id);
+                    return (null, "LearningStageRequired");
+                }
+            }
+
             user.LastLoginAt =
                 DateTime.UtcNow;
 
