@@ -24,7 +24,7 @@ permissions:
 
 jobs:
   upgrade-existing-schema:
-    name: Existing main schema -> Premium release (disposable PostgreSQL)
+    name: Current main schema -> proposed release (disposable PostgreSQL)
     runs-on: ubuntu-latest
     timeout-minutes: 28
     services:
@@ -59,7 +59,7 @@ jobs:
       PGPASSWORD: ci_only_password
       PGDATABASE: mathworld_upgrade_ci
     steps:
-      - name: Checkout current main (pre-Premium schema)
+      - name: Checkout current main (baseline already includes merged Premium migrations)
         uses: actions/checkout@v4
         with:
           ref: main
@@ -179,7 +179,15 @@ jobs:
           SQL
           before_count="$(cat /tmp/mathworld-baseline-migration-count)"
           after_count="$(psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM "__EFMigrationsHistory"')"
-          test "$after_count" -gt "$before_count"
+          if [ "$after_count" -lt "$before_count" ]; then
+            echo "Migration history shrank during the release rehearsal"
+            exit 1
+          fi
+          if [ "$after_count" -eq "$before_count" ]; then
+            echo "No additional migrations to apply: current main already has the Premium schema"
+          else
+            echo "Additional EF migrations applied: $((after_count - before_count))"
+          fi
           echo "PASS: main schema upgraded; legacy admin/users and notifications preserved; Premium tables created"
       - name: Verify 100% Premium gift issue/redeem/reuse/revoke after upgrading old schema
         working-directory: premium
