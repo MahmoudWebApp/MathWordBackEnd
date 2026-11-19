@@ -34,9 +34,13 @@ public sealed class DailyChallengeController : ControllerBase
 
         var learner = await _db.Users.AsNoTracking()
             .Where(x => x.Id == userId && x.IsActive && x.Role == "Student")
-            .Select(x => new { x.CurrentStageId })
             .FirstOrDefaultAsync(ct);
         if (learner == null) return Unauthorized();
+        // The daily challenge is an account-upgrade benefit; unrestricted
+        // problem solving in Free categories remains available separately.
+        if (!PremiumEntitlement.IsActive(learner))
+            return StatusCode(StatusCodes.Status403Forbidden,
+                new { Message = "AccountUpgradeRequired" });
 
         var targetStage = stageId ?? learner.CurrentStageId;
         if (!targetStage.HasValue || targetStage.Value <= 0)

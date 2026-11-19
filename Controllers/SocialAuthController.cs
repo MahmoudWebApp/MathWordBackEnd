@@ -3,6 +3,8 @@
 
 using System.Security.Claims;
 using MathWorldAPI.DTOs;
+using MathWorldAPI.Data;
+using Microsoft.EntityFrameworkCore;
 using MathWorldAPI.Helpers;
 using MathWorldAPI.Services;
 using Microsoft.AspNetCore.Authorization;
@@ -22,6 +24,8 @@ namespace MathWorldAPI.Controllers
         private readonly ISocialAuthService _socialAuthService;
         private readonly ILogger<SocialAuthController> _logger;
         private readonly PlatformActivityAuditWriter _audit;
+        private readonly AppDbContext _db;
+        private readonly IConfiguration _configuration;
 
         /// <summary>
         /// Initializes a new instance of the SocialAuthController.
@@ -29,11 +33,15 @@ namespace MathWorldAPI.Controllers
         public SocialAuthController(
             ISocialAuthService socialAuthService,
             ILogger<SocialAuthController> logger,
-            PlatformActivityAuditWriter audit)
+            PlatformActivityAuditWriter audit,
+            AppDbContext db,
+            IConfiguration configuration)
         {
             _socialAuthService = socialAuthService;
             _logger = logger;
             _audit = audit;
+            _db = db;
+            _configuration = configuration;
         }
 
         /// <summary>
@@ -98,6 +106,7 @@ namespace MathWorldAPI.Controllers
         /// <summary>
         /// Authenticates a user using a Facebook OAuth access token.
         /// </summary>
+        [ApiExplorerSettings(IgnoreApi = true)]
         [HttpPost("facebook")]
         [ProducesResponseType(
             typeof(ApiResponse<AuthResponseDto>),
@@ -109,6 +118,9 @@ namespace MathWorldAPI.Controllers
             ActionResult<ApiResponse<AuthResponseDto>>> FacebookLogin(
             [FromBody] SocialLoginDto dto)
         {
+            // Disabled by default; Google is the only active social provider.
+            if (!_configuration.GetValue<bool>("Features:FacebookLoginEnabled", false))
+                return NotFound();
             var language =
                 LanguageHelper.GetLanguageFromRequest(Request);
 
@@ -154,6 +166,27 @@ namespace MathWorldAPI.Controllers
                     language));
         }
         /// <summary>
+        /// Current student account-link status. Never expose provider IDs or tokens.
+        /// </summary>
+        [HttpGet("link-status")]
+        [Authorize(Roles = "Student")]
+        [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
+        public async Task<IActionResult> GetLinkStatus(CancellationToken ct)
+        {
+            if (!int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out var userId) ||
+                userId <= 0) return Unauthorized();
+            if (!await _db.Users.AsNoTracking().AnyAsync(
+                u => u.Id == userId && u.Role == "Student" && u.IsActive, ct))
+                return Unauthorized();
+
+            var googleLinked = await _db.SocialLogins.AsNoTracking().AnyAsync(
+                x => x.UserId == userId && x.Provider == "Google", ct);
+            return Ok(LanguageHelper.SuccessResponse(
+                new { GoogleLinked = googleLinked }, "Success",
+                LanguageHelper.GetLanguageFromRequest(Request)));
+        }
+
+        /// <summary>
         /// Links Google with an existing signed-in student, only after
         /// validating both the MathWorld JWT and the Google identity token.
         /// </summary>
@@ -192,11 +225,14 @@ namespace MathWorldAPI.Controllers
         /// Links Facebook to a signed-in learner, without replacing an
         /// existing provider ID or any of their MathWorld learning data.
         /// </summary>
+        [ApiExplorerSettings(IgnoreApi = true)]
         [HttpPost("link/facebook")]
         [Authorize(Roles = "Student")]
         public async Task<ActionResult<ApiResponse<object>>> LinkFacebook(
             [FromBody] SocialLoginDto dto)
         {
+            if (!_configuration.GetValue<bool>("Features:FacebookLoginEnabled", false))
+                return NotFound();
             var language = LanguageHelper.GetLanguageFromRequest(Request);
             if (!int.TryParse(
                 User.FindFirstValue(ClaimTypes.NameIdentifier),

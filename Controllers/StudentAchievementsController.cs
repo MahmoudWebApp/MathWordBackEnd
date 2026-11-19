@@ -1,5 +1,6 @@
 using System.Security.Claims;
 using MathWorldAPI.Data;
+using MathWorldAPI.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -37,26 +38,30 @@ public sealed class StudentAchievementsController : ControllerBase
         if (!int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out var userId) ||
             userId <= 0)
             return Unauthorized();
-        if (!await _db.Users.AsNoTracking().AnyAsync(
-                u => u.Id == userId && u.Role == "Student" && u.IsActive, ct))
-            return Unauthorized();
+        var student = await _db.Users.AsNoTracking().FirstOrDefaultAsync(
+            u => u.Id == userId && u.Role == "Student" && u.IsActive, ct);
+        if (student == null) return Unauthorized();
+        var allBadgesEnabled = PremiumEntitlement.IsActive(student);
 
         var solved = await _db.UserProgresses.AsNoTracking()
             .CountAsync(p => p.UserId == userId && p.IsSolved, ct);
-        var badges = Milestones.Select(m => new
+        // The first two milestones stay earnable for all learners. Advanced
+        // badges are visible as an upgrade incentive but never awarded to Free.
+        var badges = Milestones.Select((m, index) => new
         {
             m.Key, m.TitleAr, m.TitleEn,
             RequiredSolved = m.Count,
-            Earned = solved >= m.Count,
+            IsAvailable = index < 2 || allBadgesEnabled,
+            Earned = (index < 2 || allBadgesEnabled) && solved >= m.Count,
             CurrentProgress = Math.Min(solved, m.Count)
         }).ToArray();
-        var next = Milestones.FirstOrDefault(m => solved < m.Count);
+        var next = badges.FirstOrDefault(m => m.IsAvailable && !m.Earned);
         return Ok(new
         {
             UniqueSolved = solved,
             EarnedCount = badges.Count(b => b.Earned),
             TotalBadges = badges.Length,
-            NextMilestone = next.Count == 0 ? (int?)null : next.Count,
+            NextMilestone = next?.RequiredSolved,
             Badges = badges
         });
     }
