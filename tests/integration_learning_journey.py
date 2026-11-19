@@ -74,9 +74,9 @@ def main():
     assert call("GET", "/api/auth/social/link-status")[0] == 401
     # Meta login and linking are explicitly disabled for this release.
     assert call("POST", "/api/auth/social/facebook",
-                {"AccessToken": "invalid"})[0] == 404
+                {"Provider": "Facebook", "AccessToken": "invalid"})[0] == 404
     assert call("POST", "/api/auth/social/link/facebook",
-                {"AccessToken": "invalid"}, token=token)[0] == 404
+                {"Provider": "Facebook", "AccessToken": "invalid"}, token=token)[0] == 404
     assert registered["CurrentStageId"] == stage1
     assert expect("GET", "/api/users/learning-stage", 200, token=token)["StageId"] == stage1
     assert expect("GET", "/api/users/journey", 200, token=token)["StageId"] == stage1
