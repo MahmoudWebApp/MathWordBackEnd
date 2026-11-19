@@ -107,11 +107,14 @@ jobs:
           import urllib.error
           import urllib.request
 
+          # Google linking still requires a JWT. Facebook routes are
+          # intentionally absent (404), even if a legacy feature flag exists.
           endpoints = [
-              "/api/auth/social/link/google",
-              "/api/auth/social/link/facebook",
+              ("/api/auth/social/link/google", 401),
+              ("/api/auth/social/link/facebook", 404),
+              ("/api/auth/social/facebook", 404),
           ]
-          for endpoint in endpoints:
+          for endpoint, expected_status in endpoints:
               request = urllib.request.Request(
                   "http://127.0.0.1:5050" + endpoint,
                   data=b'{"Provider":"Google","AccessToken":"not-a-real-token"}',
@@ -122,6 +125,6 @@ jobs:
                   urllib.request.urlopen(request, timeout=8)
                   raise AssertionError("Anonymous provider linking was accepted")
               except urllib.error.HTTPError as error:
-                  assert error.code == 401, (endpoint, error.code)
+                  assert error.code == expected_status, (endpoint, error.code)
                   print(f"Anonymous social linking blocked: {endpoint}")
           PY
