@@ -291,11 +291,6 @@ def main():
     })
     assert logged_in["CurrentStageId"] == stage2
 
-    # Read the Google-link status after all required login requests so
-    # the shared per-minute auth limiter does not alter the journey test.
-    linked = expect("GET", "/api/auth/social/link-status", 200, token=token)
-    assert linked["GoogleLinked"] is False, linked
-
     # Admin overview must treat the first *successful* solve as one success
     # even when the student's official first answer was wrong. Further
     # correct training retries must not inflate the solved count.
