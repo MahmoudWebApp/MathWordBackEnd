@@ -1,5 +1,5 @@
 ﻿// File: MathWorldAPI/Controllers/SocialAuthController.cs
-// Description: API endpoints for Google and Facebook authentication.
+// Description: Google authentication and linked Google accounts only.
 
 using System.Security.Claims;
 using MathWorldAPI.DTOs;
@@ -14,7 +14,7 @@ using Microsoft.AspNetCore.RateLimiting;
 namespace MathWorldAPI.Controllers
 {
     /// <summary>
-    /// Handles social authentication using Google and Facebook.
+    /// Handles Google sign-in and Google account linking.
     /// </summary>
     [ApiController]
     [Route("api/auth/social")]
@@ -25,7 +25,6 @@ namespace MathWorldAPI.Controllers
         private readonly ILogger<SocialAuthController> _logger;
         private readonly PlatformActivityAuditWriter _audit;
         private readonly AppDbContext _db;
-        private readonly IConfiguration _configuration;
 
         /// <summary>
         /// Initializes a new instance of the SocialAuthController.
@@ -34,14 +33,12 @@ namespace MathWorldAPI.Controllers
             ISocialAuthService socialAuthService,
             ILogger<SocialAuthController> logger,
             PlatformActivityAuditWriter audit,
-            AppDbContext db,
-            IConfiguration configuration)
+            AppDbContext db)
         {
             _socialAuthService = socialAuthService;
             _logger = logger;
             _audit = audit;
             _db = db;
-            _configuration = configuration;
         }
 
         /// <summary>
@@ -104,68 +101,6 @@ namespace MathWorldAPI.Controllers
         }
 
         /// <summary>
-        /// Authenticates a user using a Facebook OAuth access token.
-        /// </summary>
-        [ApiExplorerSettings(IgnoreApi = true)]
-        [HttpPost("facebook")]
-        [ProducesResponseType(
-            typeof(ApiResponse<AuthResponseDto>),
-            StatusCodes.Status200OK)]
-        [ProducesResponseType(
-            typeof(ApiResponse<AuthResponseDto>),
-            StatusCodes.Status401Unauthorized)]
-        public async Task<
-            ActionResult<ApiResponse<AuthResponseDto>>> FacebookLogin(
-            [FromBody] SocialLoginDto dto)
-        {
-            // Disabled by default; Google is the only active social provider.
-            if (!_configuration.GetValue<bool>("Features:FacebookLoginEnabled", false))
-                return NotFound();
-            var language =
-                LanguageHelper.GetLanguageFromRequest(Request);
-
-            AuthResponseDto? result;
-            try
-            {
-                result = await _socialAuthService.FacebookLoginAsync(dto);
-            }
-            catch (SocialAccountLinkRequiredException)
-            {
-                return Conflict(LanguageHelper.ErrorResponse<AuthResponseDto>(
-                    "SocialAccountLinkRequired", language,
-                    StatusCodes.Status409Conflict));
-            }
-            catch (SocialAccountConflictException)
-            {
-                return Conflict(LanguageHelper.ErrorResponse<AuthResponseDto>(
-                    "SocialAccountAlreadyLinked", language,
-                    StatusCodes.Status409Conflict));
-            }
-
-            if (result == null)
-            {
-                _logger.LogWarning(
-                    "Facebook authentication failed.");
-
-                return Unauthorized(
-                    LanguageHelper.ErrorResponse<AuthResponseDto>(
-                        "InvalidFacebookToken",
-                        language,
-                        StatusCodes.Status401Unauthorized));
-            }
-
-            _logger.LogInformation(
-                "Facebook authentication succeeded for user {UserId}.",
-                result.Id);
-            await _audit.TryRecordAsync(result.Id, "LoggedInFacebook");
-
-            return Ok(
-                LanguageHelper.SuccessResponse(
-                    result,
-                    "LoginSuccess",
-                    language));
-        }
-        /// <summary>
         /// Current student account-link status. Never expose provider IDs or tokens.
         /// </summary>
         [HttpGet("link-status")]
@@ -221,42 +156,6 @@ namespace MathWorldAPI.Controllers
             }
         }
 
-        /// <summary>
-        /// Links Facebook to a signed-in learner, without replacing an
-        /// existing provider ID or any of their MathWorld learning data.
-        /// </summary>
-        [ApiExplorerSettings(IgnoreApi = true)]
-        [HttpPost("link/facebook")]
-        [Authorize(Roles = "Student")]
-        public async Task<ActionResult<ApiResponse<object>>> LinkFacebook(
-            [FromBody] SocialLoginDto dto)
-        {
-            if (!_configuration.GetValue<bool>("Features:FacebookLoginEnabled", false))
-                return NotFound();
-            var language = LanguageHelper.GetLanguageFromRequest(Request);
-            if (!int.TryParse(
-                User.FindFirstValue(ClaimTypes.NameIdentifier),
-                out var userId))
-                return Unauthorized();
 
-            try
-            {
-                var result = await _socialAuthService.LinkFacebookAsync(userId, dto);
-                if (!result)
-                    return Unauthorized(LanguageHelper.ErrorResponse<object>(
-                        "InvalidFacebookToken", language,
-                        StatusCodes.Status401Unauthorized));
-
-                return Ok(LanguageHelper.SuccessResponse(
-                    new { Linked = true, Provider = "Facebook" },
-                    "SocialAccountLinked", language));
-            }
-            catch (SocialAccountConflictException)
-            {
-                return Conflict(LanguageHelper.ErrorResponse<object>(
-                    "SocialAccountAlreadyLinked", language,
-                    StatusCodes.Status409Conflict));
-            }
-        }
     }
 }
