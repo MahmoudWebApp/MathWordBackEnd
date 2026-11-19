@@ -1,8 +1,6 @@
 ﻿// File: MathWorldAPI/Services/SocialAuthService.cs
-// Description: Handles social authentication logic for Google and Facebook OAuth.
+// Description: Verifies Google identity and links Google to existing student accounts.
 
-using System.Net.Http.Json;
-using System.Text.Json.Serialization;
 using Google.Apis.Auth;
 using MathWorldAPI.Data;
 using MathWorldAPI.DTOs;
@@ -12,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 namespace MathWorldAPI.Services
 {
     /// <summary>
-    /// Provides Google and Facebook authentication.
+    /// Provides Google authentication and authorized account linking.
     /// Provider tokens are validated for each request but are never
     /// persisted in the application database.
     /// </summary>
@@ -27,7 +25,6 @@ namespace MathWorldAPI.Services
         private readonly AppDbContext _context;
         private readonly IConfiguration _configuration;
         private readonly IAuthService _authService;
-        private readonly IHttpClientFactory _httpClientFactory;
         private readonly ILogger<SocialAuthService> _logger;
 
         /// <summary>
@@ -42,9 +39,6 @@ namespace MathWorldAPI.Services
         /// <param name="authService">
         /// Local authentication service used to generate JWT tokens.
         /// </param>
-        /// <param name="httpClientFactory">
-        /// HTTP client factory used for Facebook Graph API requests.
-        /// </param>
         /// <param name="logger">
         /// Application logger.
         /// </param>
@@ -52,13 +46,11 @@ namespace MathWorldAPI.Services
             AppDbContext context,
             IConfiguration configuration,
             IAuthService authService,
-            IHttpClientFactory httpClientFactory,
             ILogger<SocialAuthService> logger)
         {
             _context = context;
             _configuration = configuration;
             _authService = authService;
-            _httpClientFactory = httpClientFactory;
             _logger = logger;
 
             Console.WriteLine(
@@ -197,129 +189,6 @@ namespace MathWorldAPI.Services
         }
 
         /// <summary>
-        /// Authenticates a user using a Facebook access token.
-        /// </summary>
-        /// <param name="dto">
-        /// Social authentication data containing the Facebook access token.
-        /// </param>
-        /// <returns>
-        /// Authentication information when the token is valid;
-        /// otherwise null.
-        /// </returns>
-        public async Task<AuthResponseDto?> FacebookLoginAsync(
-            SocialLoginDto dto)
-        {
-            ArgumentNullException.ThrowIfNull(dto);
-
-            if (string.IsNullOrWhiteSpace(dto.AccessToken))
-            {
-                _logger.LogWarning(
-                    "Facebook authentication was requested without a token.");
-
-                return null;
-            }
-
-            try
-            {
-                // Step 1: Verify the Facebook token and fetch user data.
-                var facebookUser =
-                    await VerifyFacebookTokenAsync(
-                        dto.AccessToken);
-
-                if (facebookUser == null)
-                {
-                    _logger.LogWarning(
-                        "Facebook token verification failed.");
-
-                    return null;
-                }
-
-                if (string.IsNullOrWhiteSpace(
-                        facebookUser.FacebookId))
-                {
-                    _logger.LogWarning(
-                        "Facebook login rejected because ID or email information is missing.");
-
-                    return null;
-                }
-
-                _logger.LogDebug("Facebook identity token verified.");
-
-                // Keep creation and provider identity binding atomic. A failed
-                // link must not leave an orphan MathWorld account.
-                await using var transaction =
-                    await _context.Database.BeginTransactionAsync();
-
-                // Step 2: Find an existing user or create a new user.
-                var user =
-                    await FindOrCreateUserFromSocial(
-                        provider: "Facebook",
-                        providerId: facebookUser.FacebookId,
-                        email: facebookUser.Email,
-                        fullName: facebookUser.Name,
-                        profilePicture:
-                            facebookUser.Picture?.Data?.Url);
-
-                if (user == null)
-                {
-                    return null;
-                }
-
-                if (!user.IsActive)
-                {
-                    _logger.LogWarning(
-                        "Facebook login rejected because user {UserId} is inactive.",
-                        user.Id);
-
-                    return null;
-                }
-
-                // Step 3: Create or update the social login relationship.
-                // The Facebook token is intentionally not stored.
-                await SaveSocialLogin(
-                    userId: user.Id,
-                    provider: "Facebook",
-                    providerId: facebookUser.FacebookId,
-                    profilePicture:
-                        facebookUser.Picture?.Data?.Url);
-
-                // Step 4: Update the user login timestamp.
-                user.LastLoginAt =
-                    DateTime.UtcNow;
-
-                await _context.SaveChangesAsync();
-                await transaction.CommitAsync();
-
-                _logger.LogInformation(
-                    "Facebook login succeeded for user {UserId}.",
-                    user.Id);
-
-                Console.WriteLine(
-                    $"Facebook login succeeded. UserId: {user.Id}");
-
-                // Step 5: Generate an application JWT.
-                return BuildAuthResponse(user);
-            }
-            catch (SocialAccountLinkRequiredException)
-            {
-                throw;
-            }
-            catch (SocialAccountConflictException)
-            {
-                throw;
-            }
-            catch (Exception exception)
-            {
-                _logger.LogError(
-                    exception,
-                    "Facebook login error: {Message}",
-                    exception.Message);
-
-                return null;
-            }
-        }
-
-        /// <summary>
         /// Explicitly links Google to an authenticated MathWorld student.
         /// The caller's valid MathWorld JWT proves ownership of the local user;
         /// a verified Google ID token proves ownership of the provider identity.
@@ -338,25 +207,6 @@ namespace MathWorldAPI.Services
 
             return await LinkExistingAccountAsync(
                 userId, "Google", identity.GoogleId, identity.Picture);
-        }
-
-        /// <summary>
-        /// Explicitly links Facebook to an authenticated MathWorld student.
-        /// </summary>
-        public async Task<bool> LinkFacebookAsync(
-            int userId,
-            SocialLoginDto dto)
-        {
-            if (string.IsNullOrWhiteSpace(dto.AccessToken))
-                return false;
-            var identity = await VerifyFacebookTokenAsync(dto.AccessToken);
-            if (identity == null ||
-                string.IsNullOrWhiteSpace(identity.FacebookId))
-                return false;
-
-            return await LinkExistingAccountAsync(
-                userId, "Facebook", identity.FacebookId,
-                identity.Picture?.Data?.Url);
         }
 
         private async Task<bool> LinkExistingAccountAsync(
@@ -459,137 +309,6 @@ namespace MathWorldAPI.Services
         }
 
         /// <summary>
-        /// Verifies a Facebook access token and retrieves
-        /// Facebook profile information.
-        /// </summary>
-        /// <param name="accessToken">
-        /// Facebook access token received from the client application.
-        /// </param>
-        /// <returns>
-        /// Verified Facebook user information or null.
-        /// </returns>
-        private async Task<FacebookUserInfo?> VerifyFacebookTokenAsync(
-            string accessToken)
-        {
-            try
-            {
-                var appId =
-                    _configuration["Facebook:AppId"]?
-                        .Trim();
-
-                var appSecret =
-                    _configuration["Facebook:AppSecret"]?
-                        .Trim();
-
-                if (string.IsNullOrWhiteSpace(appId))
-                {
-                    throw new InvalidOperationException(
-                        "Facebook:AppId is not configured.");
-                }
-
-                if (string.IsNullOrWhiteSpace(appSecret))
-                {
-                    throw new InvalidOperationException(
-                        "Facebook:AppSecret is not configured.");
-                }
-
-                var client =
-                    _httpClientFactory.CreateClient(
-                        "FacebookAuth");
-
-                // Step 1: Verify token validity with Facebook.
-                var encodedUserToken =
-                    Uri.EscapeDataString(accessToken);
-
-                var appAccessToken =
-                    Uri.EscapeDataString(
-                        $"{appId}|{appSecret}");
-
-                var debugUrl =
-                    $"debug_token?input_token={encodedUserToken}" +
-                    $"&access_token={appAccessToken}";
-
-                var debugResponse =
-                    await client.GetFromJsonAsync<
-                        FacebookDebugTokenResponse>(
-                        debugUrl);
-
-                var debugData =
-                    debugResponse?.Data;
-
-                if (debugData == null ||
-                    !debugData.IsValid)
-                {
-                    _logger.LogWarning(
-                        "Facebook token is not valid.");
-
-                    return null;
-                }
-
-                if (!string.Equals(
-                        debugData.AppId,
-                        appId,
-                        StringComparison.Ordinal))
-                {
-                    _logger.LogWarning(
-                        "Facebook token was issued for a different application.");
-
-                    return null;
-                }
-
-                // Step 2: Fetch user profile data.
-                var fields =
-                    "id,name,email,first_name,last_name," +
-                    "picture.width(200).height(200)";
-
-                var userUrl =
-                    $"me?fields={Uri.EscapeDataString(fields)}" +
-                    $"&access_token={encodedUserToken}";
-
-                var facebookUser =
-                    await client.GetFromJsonAsync<
-                        FacebookUserInfo>(
-                        userUrl);
-
-                if (facebookUser == null)
-                {
-                    return null;
-                }
-
-                if (!string.IsNullOrWhiteSpace(
-                        debugData.UserId) &&
-                    !string.Equals(
-                        debugData.UserId,
-                        facebookUser.FacebookId,
-                        StringComparison.Ordinal))
-                {
-                    _logger.LogWarning(
-                        "Facebook debug token user ID does not match the profile user ID.");
-
-                    return null;
-                }
-
-                return facebookUser;
-            }
-            catch (HttpRequestException exception)
-            {
-                _logger.LogError(
-                    exception,
-                    "Facebook Graph API request failed.");
-
-                return null;
-            }
-            catch (Exception exception)
-            {
-                _logger.LogError(
-                    exception,
-                    "Facebook token verification error.");
-
-                return null;
-            }
-        }
-
-        /// <summary>
         /// Finds an existing social provider relationship,
         /// finds a user by verified email, or creates a new user.
         /// </summary>
@@ -625,8 +344,8 @@ namespace MathWorldAPI.Services
                 providerId.Trim();
 
             // Provider ID, not an email string, is the binding key.
-            // An existing provider relationship must work even if a provider
-            // no longer returns an email (common with Facebook).
+            // An existing verified provider link remains authoritative even if
+            // the provider stops returning an email.
             // First try to find the user through the existing
             // provider relationship.
             var linkedLogin =
@@ -908,14 +627,6 @@ namespace MathWorldAPI.Services
                 return "Google";
             }
 
-            if (string.Equals(
-                    provider,
-                    "Facebook",
-                    StringComparison.OrdinalIgnoreCase))
-            {
-                return "Facebook";
-            }
-
             throw new ArgumentException(
                 "Unsupported social authentication provider.",
                 nameof(provider));
@@ -1019,122 +730,4 @@ namespace MathWorldAPI.Services
         public bool EmailVerified { get; set; }
     }
 
-    /// <summary>
-    /// Facebook user profile data returned by Graph API.
-    /// </summary>
-    public class FacebookUserInfo
-    {
-        /// <summary>
-        /// Gets or sets the Facebook user ID.
-        /// </summary>
-        [JsonPropertyName("id")]
-        public string FacebookId { get; set; } =
-            string.Empty;
-
-        /// <summary>
-        /// Gets or sets the Facebook account email.
-        /// </summary>
-        [JsonPropertyName("email")]
-        public string Email { get; set; } =
-            string.Empty;
-
-        /// <summary>
-        /// Gets or sets the Facebook display name.
-        /// </summary>
-        [JsonPropertyName("name")]
-        public string Name { get; set; } =
-            string.Empty;
-
-        /// <summary>
-        /// Gets or sets the first name.
-        /// </summary>
-        [JsonPropertyName("first_name")]
-        public string? FirstName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the last name.
-        /// </summary>
-        [JsonPropertyName("last_name")]
-        public string? LastName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the Facebook picture wrapper.
-        /// </summary>
-        [JsonPropertyName("picture")]
-        public FacebookPicture? Picture { get; set; }
-    }
-
-    /// <summary>
-    /// Facebook picture data wrapper.
-    /// </summary>
-    public class FacebookPicture
-    {
-        /// <summary>
-        /// Gets or sets the Facebook picture data.
-        /// </summary>
-        [JsonPropertyName("data")]
-        public FacebookPictureData? Data { get; set; }
-    }
-
-    /// <summary>
-    /// Facebook picture URL data.
-    /// </summary>
-    public class FacebookPictureData
-    {
-        /// <summary>
-        /// Gets or sets the profile picture URL.
-        /// </summary>
-        [JsonPropertyName("url")]
-        public string? Url { get; set; }
-
-        /// <summary>
-        /// Gets or sets whether the image is a default silhouette.
-        /// </summary>
-        [JsonPropertyName("is_silhouette")]
-        public bool IsSilhouette { get; set; }
-    }
-
-    /// <summary>
-    /// Wrapper returned by the Facebook debug_token endpoint.
-    /// </summary>
-    internal sealed class FacebookDebugTokenResponse
-    {
-        /// <summary>
-        /// Gets or sets the token verification data.
-        /// </summary>
-        [JsonPropertyName("data")]
-        public FacebookDebugTokenData? Data { get; set; }
-    }
-
-    /// <summary>
-    /// Token verification data returned by Facebook.
-    /// </summary>
-    internal sealed class FacebookDebugTokenData
-    {
-        /// <summary>
-        /// Gets or sets the Facebook application ID.
-        /// </summary>
-        [JsonPropertyName("app_id")]
-        public string AppId { get; set; } =
-            string.Empty;
-
-        /// <summary>
-        /// Gets or sets whether the token is valid.
-        /// </summary>
-        [JsonPropertyName("is_valid")]
-        public bool IsValid { get; set; }
-
-        /// <summary>
-        /// Gets or sets the Facebook user ID associated with the token.
-        /// </summary>
-        [JsonPropertyName("user_id")]
-        public string UserId { get; set; } =
-            string.Empty;
-
-        /// <summary>
-        /// Gets or sets the token expiration timestamp.
-        /// </summary>
-        [JsonPropertyName("expires_at")]
-        public long ExpiresAt { get; set; }
-    }
 }
