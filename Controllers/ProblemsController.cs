@@ -491,7 +491,12 @@ namespace MathWorldAPI.Controllers
                 LanguageHelper.GetLanguageFromRequest(
                     Request);
 
-            var allowedCategoryIds = await GetAllowedCategoryIdsAsync();
+            // Public catalog search exposes only ProblemPreviewDto metadata (no
+            // question text, answer options or solutions). Show every category
+            // to guests; enforce Free/Premium restrictions for signed-in users.
+            var allowedCategoryIds = User.Identity?.IsAuthenticated == true
+                ? await GetAllowedCategoryIdsAsync()
+                : null;
             var query =
                 _context.Problems
                     .AsNoTracking()
