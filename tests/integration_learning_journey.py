@@ -69,13 +69,6 @@ def main():
     invalid["StageId"] = 999999
     assert call("POST", "/api/auth/register", invalid)[0] == 400
     token = registered["Token"]
-    linked = expect("GET", "/api/auth/social/link-status", 200, token=token)
-    assert linked["GoogleLinked"] is False, linked
-    assert call("GET", "/api/auth/social/link-status")[0] == 401
-    # Meta login and linking are explicitly disabled for this release.
-    # Facebook is disabled in configuration. This existing integration run
-    # already exercises the authentication limiter, so keep this request-path
-    # assertion in a dedicated auth test rather than conflating 429 with 404.
     assert registered["CurrentStageId"] == stage1
     assert expect("GET", "/api/users/learning-stage", 200, token=token)["StageId"] == stage1
     assert expect("GET", "/api/users/journey", 200, token=token)["StageId"] == stage1
@@ -96,6 +89,10 @@ def main():
         "Password": "CI_TEST_ADMIN_PASSWORD_12345"
     })
     admin_token = admin_login["Token"]
+    # Verify the account-linked status without using up the shared auth
+    # limiter before the test's necessary admin login.
+    linked = expect("GET", "/api/auth/social/link-status", 200, token=token)
+    assert linked["GoogleLinked"] is False, linked
     create = {
         "QuestionTextAr": "ما قيمة 1 + 1 ؟",
         "QuestionTextEn": "What is 1 + 1?",
