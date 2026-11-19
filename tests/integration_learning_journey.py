@@ -105,8 +105,19 @@ def main():
     made = expect("POST", "/api/admin/problems", 201, create, admin_token)
     problem_id = made["Id"]
 
-    # Daily challenge is optional practice, not a ten-problem quota or
-    # bonus-score exam. It contains only the server-authorized problem cards.
+    # Daily challenge is now an upgraded-account benefit, not the Free
+    # ten-question quota (Free solving remains unlimited in its two categories).
+    assert call("GET", "/api/users/daily-challenge", token=token)[0] == 403
+    free_badges = expect("GET", "/api/users/achievements", 200, token=token)
+    assert len([b for b in free_badges["Badges"] if b["IsAvailable"]]) == 2
+    assert all(not b["Earned"] for b in free_badges["Badges"][2:])
+    expect("PUT", f"/api/admin/learners/{registered['Id']}/subscription", 200, {
+        "SubscriptionType": "Premium",
+        "Reason": "CI: verify account-upgrade benefits"
+    }, admin_token)
+    premium_badges = expect("GET", "/api/users/achievements", 200, token=token)
+    assert all(b["IsAvailable"] for b in premium_badges["Badges"])
+    # Premium can browse the stable five-question daily selection.
     challenge = expect("GET", "/api/users/daily-challenge", 200, token=token)
     assert challenge["StageId"] == stage1
     assert 1 <= challenge["Total"] <= 5
