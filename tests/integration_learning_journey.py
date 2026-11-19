@@ -89,10 +89,7 @@ def main():
         "Password": "CI_TEST_ADMIN_PASSWORD_12345"
     })
     admin_token = admin_login["Token"]
-    # Verify the account-linked status without using up the shared auth
-    # limiter before the test's necessary admin login.
-    linked = expect("GET", "/api/auth/social/link-status", 200, token=token)
-    assert linked["GoogleLinked"] is False, linked
+
     create = {
         "QuestionTextAr": "ما قيمة 1 + 1 ؟",
         "QuestionTextEn": "What is 1 + 1?",
@@ -293,6 +290,11 @@ def main():
         "Password": "CI_TEST_PASSWORD_2026"
     })
     assert logged_in["CurrentStageId"] == stage2
+
+    # Read the Google-link status after all required login requests so
+    # the shared per-minute auth limiter does not alter the journey test.
+    linked = expect("GET", "/api/auth/social/link-status", 200, token=token)
+    assert linked["GoogleLinked"] is False, linked
 
     # Admin overview must treat the first *successful* solve as one success
     # even when the student's official first answer was wrong. Further
