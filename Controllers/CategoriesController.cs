@@ -160,13 +160,18 @@ namespace MathWorldAPI.Controllers
                         StatusCodes.Status404NotFound));
             }
 
-            // Category metadata stays public, but locked questions must not leak
-            // through the category-specific paginated endpoint.
-            var access = HttpContext.RequestServices
-                .GetRequiredService<ProblemCategoryAccessService>();
-            if (!await access.CanReadProblemAsync(User, id, HttpContext.RequestAborted))
-                return StatusCode(StatusCodes.Status403Forbidden,
-                    new { Message = "CategoryLocked" });
+            // Guests may browse preview titles for every category, without
+            // question bodies, options or solutions. Only authenticated users
+            // are subject to Free/Premium category authorization here; the
+            // detailed problem and submission endpoints stay protected.
+            if (User.Identity?.IsAuthenticated == true)
+            {
+                var access = HttpContext.RequestServices
+                    .GetRequiredService<ProblemCategoryAccessService>();
+                if (!await access.CanReadProblemAsync(User, id, HttpContext.RequestAborted))
+                    return StatusCode(StatusCodes.Status403Forbidden,
+                        new { Message = "CategoryLocked" });
+            }
 
             var query =
                 _context.Problems
