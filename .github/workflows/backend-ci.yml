@@ -127,4 +127,17 @@ jobs:
               except urllib.error.HTTPError as error:
                   assert error.code == expected_status, (endpoint, error.code)
                   print(f"Anonymous social linking blocked: {endpoint}")
+
+          # The web/Flutter settings tile requires this exact endpoint.
+          # It must not expose linked-account data to unauthenticated users.
+          anonymous_link_status = urllib.request.Request(
+              "http://127.0.0.1:5050/api/auth/social/link-status",
+              method="GET",
+          )
+          try:
+              urllib.request.urlopen(anonymous_link_status, timeout=8)
+              raise AssertionError("Anonymous Google link status was exposed")
+          except urllib.error.HTTPError as error:
+              assert error.code == 401, error.code
+              print("GET /api/auth/social/link-status -> 401 without JWT")
           PY
