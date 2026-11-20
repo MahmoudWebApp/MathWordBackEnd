@@ -1,0 +1,1927 @@
+{
+  "status": "draft",
+  "stage": 3,
+  "count": 60,
+  "problems": [
+    {
+      "ContentKey": "mw20261120-c9-t1-i0",
+      "StageId": 3,
+      "CategoryId": 9,
+      "QuestionTextAr": "ما حاصل ضرب جذري \\(x^2-7x+10=0\\)؟",
+      "QuestionTextEn": "What is the product of the roots of \\(x^2-7x+10=0\\)?",
+      "DetailedSolutionAr": "بقاعدة فييتا حاصل الضرب هو الحد الثابت 10.",
+      "DetailedSolutionEn": "Vieta: the product equals the constant 10.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "13",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "8",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "10",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "11",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c9-t2-i0",
+      "StageId": 3,
+      "CategoryId": 9,
+      "QuestionTextAr": "احسب مميز \\(x^2+2x+3=0\\).",
+      "QuestionTextEn": "Compute the discriminant of \\(x^2+2x+3=0\\).",
+      "DetailedSolutionAr": "المميز 2²−4×3=-8.",
+      "DetailedSolutionEn": "Discriminant 2²−4×3=-8.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "-10",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "-8",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "-7",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "-5",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c9-t3-i0",
+      "StageId": 3,
+      "CategoryId": 9,
+      "QuestionTextAr": "حلّل \\(x^2+5x+6\\) إلى عوامل.",
+      "QuestionTextEn": "Factor \\(x^2+5x+6\\).",
+      "DetailedSolutionAr": "لأن 2+3=5 و2×3=6 فالعوامل صحيحة.",
+      "DetailedSolutionEn": "Since 2+3=5 and 2×3=6, the factors follow.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "(x+2)(x+3)",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "(x-2)(x-3)",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "(x+2)(x-3)",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "(x+1)(x+6)",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c10-t1-i0",
+      "StageId": 3,
+      "CategoryId": 10,
+      "QuestionTextAr": "مجاور الزاوية θ في مثلث قائم 4 والوتر 5، أوجد \\(\\cos\\theta\\).",
+      "QuestionTextEn": "Right triangle: adjacent to θ is 4, hypotenuse 5. Find cos θ.",
+      "DetailedSolutionAr": "جيب التمام=4/5.",
+      "DetailedSolutionEn": "Cosine=adjacent/hypotenuse=4/5.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "\\frac{5}{4}",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{4}{5}",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "\\frac{3}{5}",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{3}{4}",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c10-t2-i0",
+      "StageId": 3,
+      "CategoryId": 10,
+      "QuestionTextAr": "مقابل الزاوية θ 3 والمجاور 4 في مثلث قائم، أوجد \\(\\tan\\theta\\).",
+      "QuestionTextEn": "Right triangle: opposite θ is 3, adjacent 4. Find tan θ.",
+      "DetailedSolutionAr": "الظل=3/4.",
+      "DetailedSolutionEn": "Tangent=opposite/adjacent=3/4.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "\\frac{3}{4}",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "\\frac{4}{3}",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{3}{5}",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{4}{5}",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c10-t3-i0",
+      "StageId": 3,
+      "CategoryId": 10,
+      "QuestionTextAr": "ما القيمة الدقيقة لجيب الزاوية 0°؟",
+      "QuestionTextEn": "Find the exact sine of angle 0°.",
+      "DetailedSolutionAr": "من جدول الزوايا الخاصة: الجيب=0.",
+      "DetailedSolutionEn": "From special-angle values, sine=0.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "\\frac{1}{2}",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{\\sqrt{2}}{2}",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{\\sqrt{3}}{2}",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "0",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c11-t1-i0",
+      "StageId": 3,
+      "CategoryId": 11,
+      "QuestionTextAr": "أوجد \\(f'(2)\\) للدالة \\(f(x)=3x^{3}\\).",
+      "QuestionTextEn": "Find f'(2) for \\(f(x)=3x^{3}\\).",
+      "DetailedSolutionAr": "بقاعدة القوة f'(x)=9x^{2}، فالقيمة 36.",
+      "DetailedSolutionEn": "By the power rule f'(x)=9x^{2}, giving 36.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "36",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "37",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "39",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "34",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c11-t2-i0",
+      "StageId": 3,
+      "CategoryId": 11,
+      "QuestionTextAr": "احسب \\(\\int 4x^{1}\\,dx\\).",
+      "QuestionTextEn": "Compute \\(\\int 4x^{1}\\,dx\\).",
+      "DetailedSolutionAr": "نقسم على الأس الجديد 2 فنحصل على 2x^{2}+C.",
+      "DetailedSolutionEn": "Divide by the new power 2, obtaining 2x^{2}+C.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "4x^{2}+C",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "2x^{1}+C",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "4x^{1}+C",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "2x^{2}+C",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c11-t3-i0",
+      "StageId": 3,
+      "CategoryId": 11,
+      "QuestionTextAr": "احسب \\(\\int_0^{3} 4t\\,dt\\).",
+      "QuestionTextEn": "Evaluate \\(\\int_0^{3} 4t\\,dt\\).",
+      "DetailedSolutionAr": "الدالة الأصلية 2t²، وعند الحد الأعلى الناتج 18.",
+      "DetailedSolutionEn": "Antiderivative 2t²; evaluating gives 18.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "21",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "16",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "18",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "19",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c12-t1-i0",
+      "StageId": 3,
+      "CategoryId": 12,
+      "QuestionTextAr": "كم طريقة لاختيار طالبين من 4 طلاب دون ترتيب؟",
+      "QuestionTextEn": "How many unordered pairs can be selected from 4 students?",
+      "DetailedSolutionAr": "C(4,2)=6.",
+      "DetailedSolutionEn": "C(4,2)=6.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "7",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "9",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "4",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "6",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c12-t2-i0",
+      "StageId": 3,
+      "CategoryId": 12,
+      "QuestionTextAr": "نرمي قطعة نقد عادلة 2 مرات؛ ما احتمال الصورة في كل الرميات؟",
+      "QuestionTextEn": "Toss a fair coin 2 times; probability of heads on all tosses?",
+      "DetailedSolutionAr": "الاحتمال=(1/2)^2=1/4.",
+      "DetailedSolutionEn": "Probability=(1/2)^2=1/4.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "\\frac{1}{5}",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{3}{4}",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{1}{4}",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "\\frac{1}{2}",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c12-t3-i0",
+      "StageId": 3,
+      "CategoryId": 12,
+      "QuestionTextAr": "تكررت القيمة 2 عدد 3 مرات والقيمة 8 عدد 3 مرات، أوجد المتوسط.",
+      "QuestionTextEn": "Value 2 appears 3 times and 8 appears 3 times. Find the mean.",
+      "DetailedSolutionAr": "لتساوي التكرارات المتوسط=(2+8)/2=5.",
+      "DetailedSolutionEn": "Equal frequencies mean the average is (2+8)/2=5.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "3",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "5",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "6",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "8",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c9-t1-i1",
+      "StageId": 3,
+      "CategoryId": 9,
+      "QuestionTextAr": "ما حاصل ضرب جذري \\(x^2-9x+18=0\\)؟",
+      "QuestionTextEn": "What is the product of the roots of \\(x^2-9x+18=0\\)?",
+      "DetailedSolutionAr": "بقاعدة فييتا حاصل الضرب هو الحد الثابت 18.",
+      "DetailedSolutionEn": "Vieta: the product equals the constant 18.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "16",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "18",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "19",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "21",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c9-t2-i1",
+      "StageId": 3,
+      "CategoryId": 9,
+      "QuestionTextAr": "احسب مميز \\(x^2+3x+4=0\\).",
+      "QuestionTextEn": "Compute the discriminant of \\(x^2+3x+4=0\\).",
+      "DetailedSolutionAr": "المميز 3²−4×4=-7.",
+      "DetailedSolutionEn": "Discriminant 3²−4×4=-7.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "-7",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "-6",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "-4",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "-9",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c9-t3-i1",
+      "StageId": 3,
+      "CategoryId": 9,
+      "QuestionTextAr": "حلّل \\(x^2+7x+12\\) إلى عوامل.",
+      "QuestionTextEn": "Factor \\(x^2+7x+12\\).",
+      "DetailedSolutionAr": "لأن 3+4=7 و3×4=12 فالعوامل صحيحة.",
+      "DetailedSolutionEn": "Since 3+4=7 and 3×4=12, the factors follow.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "(x-3)(x-4)",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "(x+3)(x-4)",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "(x+1)(x+12)",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "(x+3)(x+4)",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c10-t1-i1",
+      "StageId": 3,
+      "CategoryId": 10,
+      "QuestionTextAr": "مجاور الزاوية θ في مثلث قائم 12 والوتر 13، أوجد \\(\\cos\\theta\\).",
+      "QuestionTextEn": "Right triangle: adjacent to θ is 12, hypotenuse 13. Find cos θ.",
+      "DetailedSolutionAr": "جيب التمام=12/13.",
+      "DetailedSolutionEn": "Cosine=adjacent/hypotenuse=12/13.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "\\frac{12}{13}",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "\\frac{5}{13}",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{5}{12}",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{13}{12}",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c10-t2-i1",
+      "StageId": 3,
+      "CategoryId": 10,
+      "QuestionTextAr": "مقابل الزاوية θ 5 والمجاور 12 في مثلث قائم، أوجد \\(\\tan\\theta\\).",
+      "QuestionTextEn": "Right triangle: opposite θ is 5, adjacent 12. Find tan θ.",
+      "DetailedSolutionAr": "الظل=5/12.",
+      "DetailedSolutionEn": "Tangent=opposite/adjacent=5/12.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "\\frac{12}{5}",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{5}{13}",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{12}{13}",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{5}{12}",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c10-t3-i1",
+      "StageId": 3,
+      "CategoryId": 10,
+      "QuestionTextAr": "ما القيمة الدقيقة لجيب الزاوية 30°؟",
+      "QuestionTextEn": "Find the exact sine of angle 30°.",
+      "DetailedSolutionAr": "من جدول الزوايا الخاصة: الجيب=\\frac{1}{2}.",
+      "DetailedSolutionEn": "From special-angle values, sine=\\frac{1}{2}.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "\\frac{\\sqrt{2}}{2}",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{\\sqrt{3}}{2}",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{1}{2}",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "0",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c11-t1-i1",
+      "StageId": 3,
+      "CategoryId": 11,
+      "QuestionTextAr": "أوجد \\(f'(3)\\) للدالة \\(f(x)=4x^{4}\\).",
+      "QuestionTextEn": "Find f'(3) for \\(f(x)=4x^{4}\\).",
+      "DetailedSolutionAr": "بقاعدة القوة f'(x)=16x^{3}، فالقيمة 432.",
+      "DetailedSolutionEn": "By the power rule f'(x)=16x^{3}, giving 432.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "433",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "435",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "430",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "432",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c11-t2-i1",
+      "StageId": 3,
+      "CategoryId": 11,
+      "QuestionTextAr": "احسب \\(\\int 9x^{2}\\,dx\\).",
+      "QuestionTextEn": "Compute \\(\\int 9x^{2}\\,dx\\).",
+      "DetailedSolutionAr": "نقسم على الأس الجديد 3 فنحصل على 3x^{3}+C.",
+      "DetailedSolutionEn": "Divide by the new power 3, obtaining 3x^{3}+C.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "3x^{2}+C",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "9x^{2}+C",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "3x^{3}+C",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "9x^{3}+C",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c11-t3-i1",
+      "StageId": 3,
+      "CategoryId": 11,
+      "QuestionTextAr": "احسب \\(\\int_0^{4} 6t\\,dt\\).",
+      "QuestionTextEn": "Evaluate \\(\\int_0^{4} 6t\\,dt\\).",
+      "DetailedSolutionAr": "الدالة الأصلية 3t²، وعند الحد الأعلى الناتج 48.",
+      "DetailedSolutionEn": "Antiderivative 3t²; evaluating gives 48.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "46",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "48",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "49",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "51",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c12-t1-i1",
+      "StageId": 3,
+      "CategoryId": 12,
+      "QuestionTextAr": "كم طريقة لاختيار طالبين من 5 طلاب دون ترتيب؟",
+      "QuestionTextEn": "How many unordered pairs can be selected from 5 students?",
+      "DetailedSolutionAr": "C(5,2)=10.",
+      "DetailedSolutionEn": "C(5,2)=10.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "13",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "8",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "10",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "11",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c12-t2-i1",
+      "StageId": 3,
+      "CategoryId": 12,
+      "QuestionTextAr": "نرمي قطعة نقد عادلة 3 مرات؛ ما احتمال الصورة في كل الرميات؟",
+      "QuestionTextEn": "Toss a fair coin 3 times; probability of heads on all tosses?",
+      "DetailedSolutionAr": "الاحتمال=(1/2)^3=1/8.",
+      "DetailedSolutionEn": "Probability=(1/2)^3=1/8.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "\\frac{3}{8}",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{1}{8}",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "\\frac{1}{4}",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{1}{9}",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c12-t3-i1",
+      "StageId": 3,
+      "CategoryId": 12,
+      "QuestionTextAr": "تكررت القيمة 3 عدد 4 مرات والقيمة 9 عدد 4 مرات، أوجد المتوسط.",
+      "QuestionTextEn": "Value 3 appears 4 times and 9 appears 4 times. Find the mean.",
+      "DetailedSolutionAr": "لتساوي التكرارات المتوسط=(3+9)/2=6.",
+      "DetailedSolutionEn": "Equal frequencies mean the average is (3+9)/2=6.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "6",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "7",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "9",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "4",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c9-t1-i2",
+      "StageId": 3,
+      "CategoryId": 9,
+      "QuestionTextAr": "ما حاصل ضرب جذري \\(x^2-11x+28=0\\)؟",
+      "QuestionTextEn": "What is the product of the roots of \\(x^2-11x+28=0\\)?",
+      "DetailedSolutionAr": "بقاعدة فييتا حاصل الضرب هو الحد الثابت 28.",
+      "DetailedSolutionEn": "Vieta: the product equals the constant 28.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "28",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "29",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "31",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "26",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c9-t2-i2",
+      "StageId": 3,
+      "CategoryId": 9,
+      "QuestionTextAr": "احسب مميز \\(x^2+4x+5=0\\).",
+      "QuestionTextEn": "Compute the discriminant of \\(x^2+4x+5=0\\).",
+      "DetailedSolutionAr": "المميز 4²−4×5=-4.",
+      "DetailedSolutionEn": "Discriminant 4²−4×5=-4.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "-3",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "-1",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "-6",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "-4",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c9-t3-i2",
+      "StageId": 3,
+      "CategoryId": 9,
+      "QuestionTextAr": "حلّل \\(x^2+9x+20\\) إلى عوامل.",
+      "QuestionTextEn": "Factor \\(x^2+9x+20\\).",
+      "DetailedSolutionAr": "لأن 4+5=9 و4×5=20 فالعوامل صحيحة.",
+      "DetailedSolutionEn": "Since 4+5=9 and 4×5=20, the factors follow.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "(x+4)(x-5)",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "(x+1)(x+20)",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "(x+4)(x+5)",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "(x-4)(x-5)",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c10-t1-i2",
+      "StageId": 3,
+      "CategoryId": 10,
+      "QuestionTextAr": "مجاور الزاوية θ في مثلث قائم 15 والوتر 17، أوجد \\(\\cos\\theta\\).",
+      "QuestionTextEn": "Right triangle: adjacent to θ is 15, hypotenuse 17. Find cos θ.",
+      "DetailedSolutionAr": "جيب التمام=15/17.",
+      "DetailedSolutionEn": "Cosine=adjacent/hypotenuse=15/17.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "\\frac{8}{17}",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{8}{15}",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{17}{15}",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{15}{17}",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c10-t2-i2",
+      "StageId": 3,
+      "CategoryId": 10,
+      "QuestionTextAr": "مقابل الزاوية θ 8 والمجاور 15 في مثلث قائم، أوجد \\(\\tan\\theta\\).",
+      "QuestionTextEn": "Right triangle: opposite θ is 8, adjacent 15. Find tan θ.",
+      "DetailedSolutionAr": "الظل=8/15.",
+      "DetailedSolutionEn": "Tangent=opposite/adjacent=8/15.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "\\frac{8}{17}",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{15}{17}",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{8}{15}",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "\\frac{15}{8}",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c10-t3-i2",
+      "StageId": 3,
+      "CategoryId": 10,
+      "QuestionTextAr": "ما القيمة الدقيقة لجيب الزاوية 45°؟",
+      "QuestionTextEn": "Find the exact sine of angle 45°.",
+      "DetailedSolutionAr": "من جدول الزوايا الخاصة: الجيب=\\frac{\\sqrt{2}}{2}.",
+      "DetailedSolutionEn": "From special-angle values, sine=\\frac{\\sqrt{2}}{2}.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "\\frac{\\sqrt{3}}{2}",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{\\sqrt{2}}{2}",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "0",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{1}{2}",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c11-t1-i2",
+      "StageId": 3,
+      "CategoryId": 11,
+      "QuestionTextAr": "أوجد \\(f'(4)\\) للدالة \\(f(x)=5x^{5}\\).",
+      "QuestionTextEn": "Find f'(4) for \\(f(x)=5x^{5}\\).",
+      "DetailedSolutionAr": "بقاعدة القوة f'(x)=25x^{4}، فالقيمة 6400.",
+      "DetailedSolutionEn": "By the power rule f'(x)=25x^{4}, giving 6400.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "6403",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "6398",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "6400",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "6401",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c11-t2-i2",
+      "StageId": 3,
+      "CategoryId": 11,
+      "QuestionTextAr": "احسب \\(\\int 16x^{3}\\,dx\\).",
+      "QuestionTextEn": "Compute \\(\\int 16x^{3}\\,dx\\).",
+      "DetailedSolutionAr": "نقسم على الأس الجديد 4 فنحصل على 4x^{4}+C.",
+      "DetailedSolutionEn": "Divide by the new power 4, obtaining 4x^{4}+C.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "16x^{3}+C",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "4x^{4}+C",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "16x^{4}+C",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "4x^{3}+C",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c11-t3-i2",
+      "StageId": 3,
+      "CategoryId": 11,
+      "QuestionTextAr": "احسب \\(\\int_0^{5} 8t\\,dt\\).",
+      "QuestionTextEn": "Evaluate \\(\\int_0^{5} 8t\\,dt\\).",
+      "DetailedSolutionAr": "الدالة الأصلية 4t²، وعند الحد الأعلى الناتج 100.",
+      "DetailedSolutionEn": "Antiderivative 4t²; evaluating gives 100.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "100",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "101",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "103",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "98",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c12-t1-i2",
+      "StageId": 3,
+      "CategoryId": 12,
+      "QuestionTextAr": "كم طريقة لاختيار طالبين من 6 طلاب دون ترتيب؟",
+      "QuestionTextEn": "How many unordered pairs can be selected from 6 students?",
+      "DetailedSolutionAr": "C(6,2)=15.",
+      "DetailedSolutionEn": "C(6,2)=15.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "13",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "15",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "16",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "18",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c12-t2-i2",
+      "StageId": 3,
+      "CategoryId": 12,
+      "QuestionTextAr": "نرمي قطعة نقد عادلة 4 مرات؛ ما احتمال الصورة في كل الرميات؟",
+      "QuestionTextEn": "Toss a fair coin 4 times; probability of heads on all tosses?",
+      "DetailedSolutionAr": "الاحتمال=(1/2)^4=1/16.",
+      "DetailedSolutionEn": "Probability=(1/2)^4=1/16.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "\\frac{1}{16}",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "\\frac{1}{8}",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{1}{17}",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{3}{16}",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c12-t3-i2",
+      "StageId": 3,
+      "CategoryId": 12,
+      "QuestionTextAr": "تكررت القيمة 4 عدد 5 مرات والقيمة 10 عدد 5 مرات، أوجد المتوسط.",
+      "QuestionTextEn": "Value 4 appears 5 times and 10 appears 5 times. Find the mean.",
+      "DetailedSolutionAr": "لتساوي التكرارات المتوسط=(4+10)/2=7.",
+      "DetailedSolutionEn": "Equal frequencies mean the average is (4+10)/2=7.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "8",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "10",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "5",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "7",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c9-t1-i3",
+      "StageId": 3,
+      "CategoryId": 9,
+      "QuestionTextAr": "ما حاصل ضرب جذري \\(x^2-13x+40=0\\)؟",
+      "QuestionTextEn": "What is the product of the roots of \\(x^2-13x+40=0\\)?",
+      "DetailedSolutionAr": "بقاعدة فييتا حاصل الضرب هو الحد الثابت 40.",
+      "DetailedSolutionEn": "Vieta: the product equals the constant 40.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "41",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "43",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "38",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "40",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c9-t2-i3",
+      "StageId": 3,
+      "CategoryId": 9,
+      "QuestionTextAr": "احسب مميز \\(x^2+5x+6=0\\).",
+      "QuestionTextEn": "Compute the discriminant of \\(x^2+5x+6=0\\).",
+      "DetailedSolutionAr": "المميز 5²−4×6=1.",
+      "DetailedSolutionEn": "Discriminant 5²−4×6=1.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "4",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "-1",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "1",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "2",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c9-t3-i3",
+      "StageId": 3,
+      "CategoryId": 9,
+      "QuestionTextAr": "حلّل \\(x^2+11x+30\\) إلى عوامل.",
+      "QuestionTextEn": "Factor \\(x^2+11x+30\\).",
+      "DetailedSolutionAr": "لأن 5+6=11 و5×6=30 فالعوامل صحيحة.",
+      "DetailedSolutionEn": "Since 5+6=11 and 5×6=30, the factors follow.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "(x+1)(x+30)",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "(x+5)(x+6)",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "(x-5)(x-6)",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "(x+5)(x-6)",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c10-t1-i3",
+      "StageId": 3,
+      "CategoryId": 10,
+      "QuestionTextAr": "مجاور الزاوية θ في مثلث قائم 24 والوتر 25، أوجد \\(\\cos\\theta\\).",
+      "QuestionTextEn": "Right triangle: adjacent to θ is 24, hypotenuse 25. Find cos θ.",
+      "DetailedSolutionAr": "جيب التمام=24/25.",
+      "DetailedSolutionEn": "Cosine=adjacent/hypotenuse=24/25.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "\\frac{7}{24}",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{25}{24}",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{24}{25}",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "\\frac{7}{25}",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c10-t2-i3",
+      "StageId": 3,
+      "CategoryId": 10,
+      "QuestionTextAr": "مقابل الزاوية θ 7 والمجاور 24 في مثلث قائم، أوجد \\(\\tan\\theta\\).",
+      "QuestionTextEn": "Right triangle: opposite θ is 7, adjacent 24. Find tan θ.",
+      "DetailedSolutionAr": "الظل=7/24.",
+      "DetailedSolutionEn": "Tangent=opposite/adjacent=7/24.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "\\frac{24}{25}",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{7}{24}",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "\\frac{24}{7}",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{7}{25}",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c10-t3-i3",
+      "StageId": 3,
+      "CategoryId": 10,
+      "QuestionTextAr": "ما القيمة الدقيقة لجيب الزاوية 60°؟",
+      "QuestionTextEn": "Find the exact sine of angle 60°.",
+      "DetailedSolutionAr": "من جدول الزوايا الخاصة: الجيب=\\frac{\\sqrt{3}}{2}.",
+      "DetailedSolutionEn": "From special-angle values, sine=\\frac{\\sqrt{3}}{2}.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "\\frac{\\sqrt{3}}{2}",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "0",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{1}{2}",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{\\sqrt{2}}{2}",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c11-t1-i3",
+      "StageId": 3,
+      "CategoryId": 11,
+      "QuestionTextAr": "أوجد \\(f'(5)\\) للدالة \\(f(x)=6x^{6}\\).",
+      "QuestionTextEn": "Find f'(5) for \\(f(x)=6x^{6}\\).",
+      "DetailedSolutionAr": "بقاعدة القوة f'(x)=36x^{5}، فالقيمة 112500.",
+      "DetailedSolutionEn": "By the power rule f'(x)=36x^{5}, giving 112500.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "112498",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "112500",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "112501",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "112503",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c11-t2-i3",
+      "StageId": 3,
+      "CategoryId": 11,
+      "QuestionTextAr": "احسب \\(\\int 25x^{4}\\,dx\\).",
+      "QuestionTextEn": "Compute \\(\\int 25x^{4}\\,dx\\).",
+      "DetailedSolutionAr": "نقسم على الأس الجديد 5 فنحصل على 5x^{5}+C.",
+      "DetailedSolutionEn": "Divide by the new power 5, obtaining 5x^{5}+C.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "5x^{5}+C",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "25x^{5}+C",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "5x^{4}+C",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "25x^{4}+C",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c11-t3-i3",
+      "StageId": 3,
+      "CategoryId": 11,
+      "QuestionTextAr": "احسب \\(\\int_0^{6} 10t\\,dt\\).",
+      "QuestionTextEn": "Evaluate \\(\\int_0^{6} 10t\\,dt\\).",
+      "DetailedSolutionAr": "الدالة الأصلية 5t²، وعند الحد الأعلى الناتج 180.",
+      "DetailedSolutionEn": "Antiderivative 5t²; evaluating gives 180.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "181",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "183",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "178",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "180",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c12-t1-i3",
+      "StageId": 3,
+      "CategoryId": 12,
+      "QuestionTextAr": "كم طريقة لاختيار طالبين من 7 طلاب دون ترتيب؟",
+      "QuestionTextEn": "How many unordered pairs can be selected from 7 students?",
+      "DetailedSolutionAr": "C(7,2)=21.",
+      "DetailedSolutionEn": "C(7,2)=21.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "21",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "22",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "24",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "19",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c12-t2-i3",
+      "StageId": 3,
+      "CategoryId": 12,
+      "QuestionTextAr": "نرمي قطعة نقد عادلة 5 مرات؛ ما احتمال الصورة في كل الرميات؟",
+      "QuestionTextEn": "Toss a fair coin 5 times; probability of heads on all tosses?",
+      "DetailedSolutionAr": "الاحتمال=(1/2)^5=1/32.",
+      "DetailedSolutionEn": "Probability=(1/2)^5=1/32.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "\\frac{1}{16}",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{1}{33}",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{3}{32}",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{1}{32}",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c12-t3-i3",
+      "StageId": 3,
+      "CategoryId": 12,
+      "QuestionTextAr": "تكررت القيمة 5 عدد 6 مرات والقيمة 11 عدد 6 مرات، أوجد المتوسط.",
+      "QuestionTextEn": "Value 5 appears 6 times and 11 appears 6 times. Find the mean.",
+      "DetailedSolutionAr": "لتساوي التكرارات المتوسط=(5+11)/2=8.",
+      "DetailedSolutionEn": "Equal frequencies mean the average is (5+11)/2=8.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "11",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "6",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "8",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "9",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c9-t1-i4",
+      "StageId": 3,
+      "CategoryId": 9,
+      "QuestionTextAr": "ما حاصل ضرب جذري \\(x^2-15x+54=0\\)؟",
+      "QuestionTextEn": "What is the product of the roots of \\(x^2-15x+54=0\\)?",
+      "DetailedSolutionAr": "بقاعدة فييتا حاصل الضرب هو الحد الثابت 54.",
+      "DetailedSolutionEn": "Vieta: the product equals the constant 54.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "57",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "52",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "54",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "55",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c9-t2-i4",
+      "StageId": 3,
+      "CategoryId": 9,
+      "QuestionTextAr": "احسب مميز \\(x^2+6x+7=0\\).",
+      "QuestionTextEn": "Compute the discriminant of \\(x^2+6x+7=0\\).",
+      "DetailedSolutionAr": "المميز 6²−4×7=8.",
+      "DetailedSolutionEn": "Discriminant 6²−4×7=8.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "6",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "8",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "9",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "11",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c9-t3-i4",
+      "StageId": 3,
+      "CategoryId": 9,
+      "QuestionTextAr": "حلّل \\(x^2+13x+42\\) إلى عوامل.",
+      "QuestionTextEn": "Factor \\(x^2+13x+42\\).",
+      "DetailedSolutionAr": "لأن 6+7=13 و6×7=42 فالعوامل صحيحة.",
+      "DetailedSolutionEn": "Since 6+7=13 and 6×7=42, the factors follow.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "(x+6)(x+7)",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "(x-6)(x-7)",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "(x+6)(x-7)",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "(x+1)(x+42)",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c10-t1-i4",
+      "StageId": 3,
+      "CategoryId": 10,
+      "QuestionTextAr": "مجاور الزاوية θ في مثلث قائم 40 والوتر 41، أوجد \\(\\cos\\theta\\).",
+      "QuestionTextEn": "Right triangle: adjacent to θ is 40, hypotenuse 41. Find cos θ.",
+      "DetailedSolutionAr": "جيب التمام=40/41.",
+      "DetailedSolutionEn": "Cosine=adjacent/hypotenuse=40/41.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "\\frac{41}{40}",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{40}{41}",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "\\frac{9}{41}",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{9}{40}",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c10-t2-i4",
+      "StageId": 3,
+      "CategoryId": 10,
+      "QuestionTextAr": "مقابل الزاوية θ 9 والمجاور 40 في مثلث قائم، أوجد \\(\\tan\\theta\\).",
+      "QuestionTextEn": "Right triangle: opposite θ is 9, adjacent 40. Find tan θ.",
+      "DetailedSolutionAr": "الظل=9/40.",
+      "DetailedSolutionEn": "Tangent=opposite/adjacent=9/40.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "\\frac{9}{40}",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "\\frac{40}{9}",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{9}{41}",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{40}{41}",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c10-t3-i4",
+      "StageId": 3,
+      "CategoryId": 10,
+      "QuestionTextAr": "ما القيمة الدقيقة لجيب الزاوية 90°؟",
+      "QuestionTextEn": "Find the exact sine of angle 90°.",
+      "DetailedSolutionAr": "من جدول الزوايا الخاصة: الجيب=1.",
+      "DetailedSolutionEn": "From special-angle values, sine=1.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "0",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{1}{2}",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{\\sqrt{2}}{2}",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "1",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c11-t1-i4",
+      "StageId": 3,
+      "CategoryId": 11,
+      "QuestionTextAr": "أوجد \\(f'(6)\\) للدالة \\(f(x)=7x^{7}\\).",
+      "QuestionTextEn": "Find f'(6) for \\(f(x)=7x^{7}\\).",
+      "DetailedSolutionAr": "بقاعدة القوة f'(x)=49x^{6}، فالقيمة 2286144.",
+      "DetailedSolutionEn": "By the power rule f'(x)=49x^{6}, giving 2286144.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "2286144",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "2286145",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "2286147",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "2286142",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c11-t2-i4",
+      "StageId": 3,
+      "CategoryId": 11,
+      "QuestionTextAr": "احسب \\(\\int 36x^{5}\\,dx\\).",
+      "QuestionTextEn": "Compute \\(\\int 36x^{5}\\,dx\\).",
+      "DetailedSolutionAr": "نقسم على الأس الجديد 6 فنحصل على 6x^{6}+C.",
+      "DetailedSolutionEn": "Divide by the new power 6, obtaining 6x^{6}+C.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "36x^{6}+C",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "6x^{5}+C",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "36x^{5}+C",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "6x^{6}+C",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c11-t3-i4",
+      "StageId": 3,
+      "CategoryId": 11,
+      "QuestionTextAr": "احسب \\(\\int_0^{7} 12t\\,dt\\).",
+      "QuestionTextEn": "Evaluate \\(\\int_0^{7} 12t\\,dt\\).",
+      "DetailedSolutionAr": "الدالة الأصلية 6t²، وعند الحد الأعلى الناتج 294.",
+      "DetailedSolutionEn": "Antiderivative 6t²; evaluating gives 294.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "297",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "292",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "294",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "295",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c12-t1-i4",
+      "StageId": 3,
+      "CategoryId": 12,
+      "QuestionTextAr": "كم طريقة لاختيار طالبين من 8 طلاب دون ترتيب؟",
+      "QuestionTextEn": "How many unordered pairs can be selected from 8 students?",
+      "DetailedSolutionAr": "C(8,2)=28.",
+      "DetailedSolutionEn": "C(8,2)=28.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "29",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "31",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "26",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "28",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c12-t2-i4",
+      "StageId": 3,
+      "CategoryId": 12,
+      "QuestionTextAr": "نرمي قطعة نقد عادلة 6 مرات؛ ما احتمال الصورة في كل الرميات؟",
+      "QuestionTextEn": "Toss a fair coin 6 times; probability of heads on all tosses?",
+      "DetailedSolutionAr": "الاحتمال=(1/2)^6=1/64.",
+      "DetailedSolutionEn": "Probability=(1/2)^6=1/64.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "\\frac{1}{65}",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{3}{64}",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{1}{64}",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "\\frac{1}{32}",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c12-t3-i4",
+      "StageId": 3,
+      "CategoryId": 12,
+      "QuestionTextAr": "تكررت القيمة 6 عدد 7 مرات والقيمة 12 عدد 7 مرات، أوجد المتوسط.",
+      "QuestionTextEn": "Value 6 appears 7 times and 12 appears 7 times. Find the mean.",
+      "DetailedSolutionAr": "لتساوي التكرارات المتوسط=(6+12)/2=9.",
+      "DetailedSolutionEn": "Equal frequencies mean the average is (6+12)/2=9.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "7",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "9",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "10",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "12",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    }
+  ]
+}
