@@ -48,6 +48,8 @@ public sealed class StageCategoryAccessController : ControllerBase
                 category.Id,
                 category.NameAr,
                 category.NameEn,
+                category.DescriptionAr,
+                category.DescriptionEn,
                 category.Icon,
                 category.Order
             })
@@ -75,6 +77,8 @@ public sealed class StageCategoryAccessController : ControllerBase
                 category.Id,
                 category.NameAr,
                 category.NameEn,
+                category.DescriptionAr,
+                category.DescriptionEn,
                 Icon = _imageStorage.GetFullUrl(category.Icon) ?? string.Empty,
                 category.Order,
                 ProblemsCount = problemCounts.GetValueOrDefault(category.Id),

@@ -70,6 +70,8 @@ namespace MathWorldAPI.Controllers
                                 Id = category.Id,
                                 NameAr = category.NameAr,
                                 NameEn = category.NameEn,
+                                DescriptionAr = category.DescriptionAr,
+                                DescriptionEn = category.DescriptionEn,
 
                                 Name = language == "en"
                                     ? category.NameEn
@@ -322,6 +324,11 @@ namespace MathWorldAPI.Controllers
                     dto.NameEn.Trim();
             }
 
+            if (dto.DescriptionAr != null)
+                category.DescriptionAr = dto.DescriptionAr.Trim();
+            if (dto.DescriptionEn != null)
+                category.DescriptionEn = dto.DescriptionEn.Trim();
+
             if (dto.Order.HasValue)
             {
                 var nextOrder = Math.Max(0, dto.Order.Value);
@@ -442,8 +449,9 @@ namespace MathWorldAPI.Controllers
                     Order =
                         Math.Max(0, dto.Order),
 
-                    StageId =
-                        dto.StageId
+                    StageId = dto.StageId,
+                    DescriptionAr = dto.DescriptionAr.Trim(),
+                    DescriptionEn = dto.DescriptionEn.Trim()
                 };
 
             if (dto.Icon != null &&
@@ -635,6 +643,8 @@ namespace MathWorldAPI.Controllers
                 Id = category.Id,
                 NameAr = category.NameAr,
                 NameEn = category.NameEn,
+                                DescriptionAr = category.DescriptionAr,
+                                DescriptionEn = category.DescriptionEn,
 
                 Name = language == "en"
                     ? category.NameEn
