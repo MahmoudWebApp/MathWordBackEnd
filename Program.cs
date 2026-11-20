@@ -102,12 +102,6 @@ builder.Services.AddHttpClient("GoogleAuth", client =>
     client.Timeout = TimeSpan.FromSeconds(30);
 });
 
-builder.Services.AddHttpClient("FacebookAuth", client =>
-{
-    client.BaseAddress = new Uri("https://graph.facebook.com/");
-    client.Timeout = TimeSpan.FromSeconds(30);
-});
-
 // ============================================================================
 // 4. Configure JWT authentication
 // ============================================================================
