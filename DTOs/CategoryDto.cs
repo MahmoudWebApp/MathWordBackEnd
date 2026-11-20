@@ -10,6 +10,8 @@ namespace MathWorldAPI.DTOs
         public string NameEn { get; set; } = string.Empty;
         public string Name { get; set; } = string.Empty;
         public string Icon { get; set; } = string.Empty;
+        public string DescriptionAr { get; set; } = string.Empty;
+        public string DescriptionEn { get; set; } = string.Empty;
         public int StageId { get; set; }
         public int Order { get; set; }
         // Null for admin create/update responses when inventory was not loaded;
@@ -27,6 +29,8 @@ namespace MathWorldAPI.DTOs
 
         [Description("أيقونة الفئة (JPG, PNG, SVG, WebP - الحد الأقصى 2MB)")]
         public IFormFile? Icon { get; set; }
+        public string DescriptionAr { get; set; } = string.Empty;
+        public string DescriptionEn { get; set; } = string.Empty;
 
         [Description("ترتيب العرض - الأرقام الأصغر تظهر أولاً")]
         public int Order { get; set; } = 0;
@@ -45,6 +49,8 @@ namespace MathWorldAPI.DTOs
 
         [Description("أيقونة جديدة لرفعها (اختياري - تستبدل الحالية)")]
         public IFormFile? Icon { get; set; }
+        public string? DescriptionAr { get; set; }
+        public string? DescriptionEn { get; set; }
 
         [Description("ترتيب العرض (اختياري)")]
         public int? Order { get; set; }
