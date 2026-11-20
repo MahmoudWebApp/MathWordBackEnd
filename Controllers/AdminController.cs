@@ -924,6 +924,9 @@ namespace MathWorldAPI.Controllers
                     NameEn =
                         dto.NameEn.Trim(),
 
+                    DescriptionAr = dto.DescriptionAr?.Trim() ?? string.Empty,
+                    DescriptionEn = dto.DescriptionEn?.Trim() ?? string.Empty,
+
                     Order =
                         Math.Max(0, dto.Order),
 
@@ -1386,6 +1389,8 @@ namespace MathWorldAPI.Controllers
                             Id = stage.Id,
                             NameAr = stage.NameAr,
                             NameEn = stage.NameEn,
+                            DescriptionAr = stage.DescriptionAr,
+                            DescriptionEn = stage.DescriptionEn,
                             Order = stage.Order
                         })
                     .ToListAsync();
@@ -1492,6 +1497,9 @@ namespace MathWorldAPI.Controllers
 
             stage.NameEn =
                 dto.NameEn.Trim();
+
+            stage.DescriptionAr = dto.DescriptionAr?.Trim() ?? string.Empty;
+            stage.DescriptionEn = dto.DescriptionEn?.Trim() ?? string.Empty;
 
             stage.Order =
                 Math.Max(0, dto.Order);
