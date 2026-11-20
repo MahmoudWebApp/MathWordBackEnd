@@ -1,6 +1,6 @@
 {
   "batch": "mathworld-2026-11-20-first80",
-  "status": "editorial-draft",
+  "status": "published-in-development-database; human/editorial math review still required",
   "count": 80,
   "problems": [
     {
@@ -2563,5 +2563,12 @@
         }
       ]
     }
-  ]
+  ],
+  "publishNote": "80 additive Problems + 320 QuestionOptions inserted into existing MathWorld Supabase; 0 category-stage mismatches, 0 invalid four-option sets. Existing 66 questions and all attempts preserved. Original bank already contained duplicate question IDs 3 and 4; untouched.",
+  "stageAllocation": {
+    "1": 20,
+    "2": 20,
+    "3": 20,
+    "4": 20
+  }
 }
