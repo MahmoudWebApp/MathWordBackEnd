@@ -1,0 +1,1927 @@
+{
+  "status": "draft",
+  "stage": 2,
+  "count": 60,
+  "problems": [
+    {
+      "ContentKey": "mw20261120-c5-t1-i0",
+      "StageId": 2,
+      "CategoryId": 5,
+      "QuestionTextAr": "أوجد القاسم المشترك الأكبر لـ6 و10.",
+      "QuestionTextEn": "Find gcd(6,10).",
+      "DetailedSolutionAr": "العددان 3×2 و5×2، وبما أن 3 و5 أوليان فيما بينهما فالقاسم الأكبر 2.",
+      "DetailedSolutionEn": "Numbers are 3×2 and 5×2; as 3 and 5 are coprime, gcd=2.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "5",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "0",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "2",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "3",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c5-t2-i0",
+      "StageId": 2,
+      "CategoryId": 5,
+      "QuestionTextAr": "بسّط \\(\\frac{2^{5}}{2^{3}}\\).",
+      "QuestionTextEn": "Simplify \\(\\frac{2^{5}}{2^{3}}\\).",
+      "DetailedSolutionAr": "نطرح الأسين: 5-3=2.",
+      "DetailedSolutionEn": "Subtract the exponents: 5-3=2.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "2^{4}",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "2^{2}",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "2^{1}",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "2^{3}",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c5-t3-i0",
+      "StageId": 2,
+      "CategoryId": 5,
+      "QuestionTextAr": "أوجد المضاعف المشترك الأصغر للعددين 8 و10.",
+      "QuestionTextEn": "Find the least common multiple of 8 and 10.",
+      "DetailedSolutionAr": "لأن 4 و5 أوليان فيما بينهما فإن المضاعف المشترك الأصغر 20×2=40.",
+      "DetailedSolutionEn": "LCM(4,5)=20, so LCM(8,10)=20×2=40.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "40",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "41",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "43",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "38",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c6-t1-i0",
+      "StageId": 2,
+      "CategoryId": 6,
+      "QuestionTextAr": "لتكن \\(f(x)=2x+5\\)، إذا كانت \\(f(x)=11\\) فأوجد x.",
+      "QuestionTextEn": "Given \\(f(x)=2x+5\\), solve f(x)=11.",
+      "DetailedSolutionAr": "نطرح 5 ثم نقسم على 2 لنجد x=3.",
+      "DetailedSolutionEn": "Subtract 5, divide by 2, and obtain x=3.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "1",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "3",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "4",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "6",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c6-t2-i0",
+      "StageId": 2,
+      "CategoryId": 6,
+      "QuestionTextAr": "ما ميل المستقيم المار بالنقطتين (1،4) و(4،10)؟",
+      "QuestionTextEn": "Find the slope between (1,4) and (4,10).",
+      "DetailedSolutionAr": "الميل = (10−4)/(4−1)=6/3=2.",
+      "DetailedSolutionEn": "Slope = (10−4)/(4−1)=6/3=2.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "2",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "3",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "5",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "0",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c6-t3-i0",
+      "StageId": 2,
+      "CategoryId": 6,
+      "QuestionTextAr": "إذا كانت \\(g(x)=2x^2+3\\)، أوجد \\(g(2)\\).",
+      "QuestionTextEn": "Given \\(g(x)=2x^2+3\\), find g(2).",
+      "DetailedSolutionAr": "نحسب 2×2²+3=11.",
+      "DetailedSolutionEn": "Compute 2×2²+3=11.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "12",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "14",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "9",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "11",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c7-t1-i0",
+      "StageId": 2,
+      "CategoryId": 7,
+      "QuestionTextAr": "خصم متجر 10% من ثمن 100، ما قيمة الخصم؟",
+      "QuestionTextEn": "A store discounts 10% from a price of 100. Find the discount amount.",
+      "DetailedSolutionAr": "الخصم=100×10/100=10.",
+      "DetailedSolutionEn": "Discount=100×10/100=10.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "10",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "11",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "13",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "8",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c7-t2-i0",
+      "StageId": 2,
+      "CategoryId": 7,
+      "QuestionTextAr": "مقياس خريطة: 1 سم يمثل 2 كم. كم يمثل 3 سم؟",
+      "QuestionTextEn": "Map scale: 1 cm represents 2 km. What distance is 3 cm?",
+      "DetailedSolutionAr": "المسافة الحقيقية=2×3=6 كم.",
+      "DetailedSolutionEn": "Actual distance=2×3=6 km.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "7",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "9",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "4",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "6",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c7-t3-i0",
+      "StageId": 2,
+      "CategoryId": 7,
+      "QuestionTextAr": "إذا ارتفع سعر 40 بنسبة 25%، فما السعر الجديد؟",
+      "QuestionTextEn": "If 40 increases by 25%, what is the new price?",
+      "DetailedSolutionAr": "الزيادة=10، فالجديد=40+10=50.",
+      "DetailedSolutionEn": "Increase=10, so new price=40+10=50.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "53",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "48",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "50",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "51",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c8-t1-i0",
+      "StageId": 2,
+      "CategoryId": 8,
+      "QuestionTextAr": "ما مجموع الزوايا الداخلية لمضلع عدد أضلاعه 5؟",
+      "QuestionTextEn": "Find the sum of interior angles of a polygon with 5 sides.",
+      "DetailedSolutionAr": "المجموع=(5−2)×180=540°.",
+      "DetailedSolutionEn": "Sum=(5−2)×180=540°.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "541",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "543",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "538",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "540",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c8-t2-i0",
+      "StageId": 2,
+      "CategoryId": 8,
+      "QuestionTextAr": "وتر مثلث قائم 5، وأحد ضلعيه 3. ما الضلع الثاني؟",
+      "QuestionTextEn": "A right triangle has hypotenuse 5 and one leg 3. Find its other leg.",
+      "DetailedSolutionAr": "بتطبيق فيثاغورس: √(5²−3²)=4.",
+      "DetailedSolutionEn": "By Pythagoras, √(5²−3²)=4.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "7",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "3",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "4",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "5",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c8-t3-i0",
+      "StageId": 2,
+      "CategoryId": 8,
+      "QuestionTextAr": "مثلثان متشابهان. طول ضلع في الأول 3 ومعامل التكبير 2، ما طول الضلع المناظر؟",
+      "QuestionTextEn": "Similar triangles: a side is 3 with scale factor 2. Find the corresponding side.",
+      "DetailedSolutionAr": "الطول الجديد=3×2=6.",
+      "DetailedSolutionEn": "New length=3×2=6.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "4",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "6",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "7",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "9",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c5-t1-i1",
+      "StageId": 2,
+      "CategoryId": 5,
+      "QuestionTextAr": "أوجد القاسم المشترك الأكبر لـ9 و15.",
+      "QuestionTextEn": "Find gcd(9,15).",
+      "DetailedSolutionAr": "العددان 3×3 و5×3، وبما أن 3 و5 أوليان فيما بينهما فالقاسم الأكبر 3.",
+      "DetailedSolutionEn": "Numbers are 3×3 and 5×3; as 3 and 5 are coprime, gcd=3.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "1",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "3",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "4",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "6",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c5-t2-i1",
+      "StageId": 2,
+      "CategoryId": 5,
+      "QuestionTextAr": "بسّط \\(\\frac{3^{6}}{3^{4}}\\).",
+      "QuestionTextEn": "Simplify \\(\\frac{3^{6}}{3^{4}}\\).",
+      "DetailedSolutionAr": "نطرح الأسين: 6-4=2.",
+      "DetailedSolutionEn": "Subtract the exponents: 6-4=2.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "3^{2}",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "3^{1}",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "3^{3}",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "3^{4}",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c5-t3-i1",
+      "StageId": 2,
+      "CategoryId": 5,
+      "QuestionTextAr": "أوجد المضاعف المشترك الأصغر للعددين 12 و15.",
+      "QuestionTextEn": "Find the least common multiple of 12 and 15.",
+      "DetailedSolutionAr": "لأن 4 و5 أوليان فيما بينهما فإن المضاعف المشترك الأصغر 20×3=60.",
+      "DetailedSolutionEn": "LCM(4,5)=20, so LCM(12,15)=20×3=60.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "61",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "63",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "58",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "60",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c6-t1-i1",
+      "StageId": 2,
+      "CategoryId": 6,
+      "QuestionTextAr": "لتكن \\(f(x)=3x+6\\)، إذا كانت \\(f(x)=18\\) فأوجد x.",
+      "QuestionTextEn": "Given \\(f(x)=3x+6\\), solve f(x)=18.",
+      "DetailedSolutionAr": "نطرح 6 ثم نقسم على 3 لنجد x=4.",
+      "DetailedSolutionEn": "Subtract 6, divide by 3, and obtain x=4.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "4",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "5",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "7",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "2",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c6-t2-i1",
+      "StageId": 2,
+      "CategoryId": 6,
+      "QuestionTextAr": "ما ميل المستقيم المار بالنقطتين (2،5) و(6،17)؟",
+      "QuestionTextEn": "Find the slope between (2,5) and (6,17).",
+      "DetailedSolutionAr": "الميل = (17−5)/(6−2)=12/4=3.",
+      "DetailedSolutionEn": "Slope = (17−5)/(6−2)=12/4=3.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "4",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "6",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "1",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "3",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c6-t3-i1",
+      "StageId": 2,
+      "CategoryId": 6,
+      "QuestionTextAr": "إذا كانت \\(g(x)=3x^2+4\\)، أوجد \\(g(3)\\).",
+      "QuestionTextEn": "Given \\(g(x)=3x^2+4\\), find g(3).",
+      "DetailedSolutionAr": "نحسب 3×3²+4=31.",
+      "DetailedSolutionEn": "Compute 3×3²+4=31.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "34",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "29",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "31",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "32",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c7-t1-i1",
+      "StageId": 2,
+      "CategoryId": 7,
+      "QuestionTextAr": "خصم متجر 20% من ثمن 120، ما قيمة الخصم؟",
+      "QuestionTextEn": "A store discounts 20% from a price of 120. Find the discount amount.",
+      "DetailedSolutionAr": "الخصم=120×20/100=24.",
+      "DetailedSolutionEn": "Discount=120×20/100=24.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "25",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "27",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "22",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "24",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c7-t2-i1",
+      "StageId": 2,
+      "CategoryId": 7,
+      "QuestionTextAr": "مقياس خريطة: 1 سم يمثل 3 كم. كم يمثل 4 سم؟",
+      "QuestionTextEn": "Map scale: 1 cm represents 3 km. What distance is 4 cm?",
+      "DetailedSolutionAr": "المسافة الحقيقية=3×4=12 كم.",
+      "DetailedSolutionEn": "Actual distance=3×4=12 km.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "15",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "10",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "12",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "13",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c7-t3-i1",
+      "StageId": 2,
+      "CategoryId": 7,
+      "QuestionTextAr": "إذا ارتفع سعر 60 بنسبة 25%، فما السعر الجديد؟",
+      "QuestionTextEn": "If 60 increases by 25%, what is the new price?",
+      "DetailedSolutionAr": "الزيادة=15، فالجديد=60+15=75.",
+      "DetailedSolutionEn": "Increase=15, so new price=60+15=75.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "73",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "75",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "76",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "78",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c8-t1-i1",
+      "StageId": 2,
+      "CategoryId": 8,
+      "QuestionTextAr": "ما مجموع الزوايا الداخلية لمضلع عدد أضلاعه 6؟",
+      "QuestionTextEn": "Find the sum of interior angles of a polygon with 6 sides.",
+      "DetailedSolutionAr": "المجموع=(6−2)×180=720°.",
+      "DetailedSolutionEn": "Sum=(6−2)×180=720°.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "723",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "718",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "720",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "721",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c8-t2-i1",
+      "StageId": 2,
+      "CategoryId": 8,
+      "QuestionTextAr": "وتر مثلث قائم 13، وأحد ضلعيه 5. ما الضلع الثاني؟",
+      "QuestionTextEn": "A right triangle has hypotenuse 13 and one leg 5. Find its other leg.",
+      "DetailedSolutionAr": "بتطبيق فيثاغورس: √(13²−5²)=12.",
+      "DetailedSolutionEn": "By Pythagoras, √(13²−5²)=12.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "11",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "12",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "13",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "15",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c8-t3-i1",
+      "StageId": 2,
+      "CategoryId": 8,
+      "QuestionTextAr": "مثلثان متشابهان. طول ضلع في الأول 4 ومعامل التكبير 3، ما طول الضلع المناظر؟",
+      "QuestionTextEn": "Similar triangles: a side is 4 with scale factor 3. Find the corresponding side.",
+      "DetailedSolutionAr": "الطول الجديد=4×3=12.",
+      "DetailedSolutionEn": "New length=4×3=12.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "12",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "13",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "15",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "10",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c5-t1-i2",
+      "StageId": 2,
+      "CategoryId": 5,
+      "QuestionTextAr": "أوجد القاسم المشترك الأكبر لـ12 و20.",
+      "QuestionTextEn": "Find gcd(12,20).",
+      "DetailedSolutionAr": "العددان 3×4 و5×4، وبما أن 3 و5 أوليان فيما بينهما فالقاسم الأكبر 4.",
+      "DetailedSolutionEn": "Numbers are 3×4 and 5×4; as 3 and 5 are coprime, gcd=4.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "4",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "5",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "7",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "2",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c5-t2-i2",
+      "StageId": 2,
+      "CategoryId": 5,
+      "QuestionTextAr": "بسّط \\(\\frac{4^{7}}{4^{5}}\\).",
+      "QuestionTextEn": "Simplify \\(\\frac{4^{7}}{4^{5}}\\).",
+      "DetailedSolutionAr": "نطرح الأسين: 7-5=2.",
+      "DetailedSolutionEn": "Subtract the exponents: 7-5=2.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "4^{1}",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "4^{3}",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "4^{4}",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "4^{2}",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c5-t3-i2",
+      "StageId": 2,
+      "CategoryId": 5,
+      "QuestionTextAr": "أوجد المضاعف المشترك الأصغر للعددين 16 و20.",
+      "QuestionTextEn": "Find the least common multiple of 16 and 20.",
+      "DetailedSolutionAr": "لأن 4 و5 أوليان فيما بينهما فإن المضاعف المشترك الأصغر 20×4=80.",
+      "DetailedSolutionEn": "LCM(4,5)=20, so LCM(16,20)=20×4=80.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "83",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "78",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "80",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "81",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c6-t1-i2",
+      "StageId": 2,
+      "CategoryId": 6,
+      "QuestionTextAr": "لتكن \\(f(x)=4x+7\\)، إذا كانت \\(f(x)=27\\) فأوجد x.",
+      "QuestionTextEn": "Given \\(f(x)=4x+7\\), solve f(x)=27.",
+      "DetailedSolutionAr": "نطرح 7 ثم نقسم على 4 لنجد x=5.",
+      "DetailedSolutionEn": "Subtract 7, divide by 4, and obtain x=5.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "6",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "8",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "3",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "5",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c6-t2-i2",
+      "StageId": 2,
+      "CategoryId": 6,
+      "QuestionTextAr": "ما ميل المستقيم المار بالنقطتين (3،6) و(8،26)؟",
+      "QuestionTextEn": "Find the slope between (3,6) and (8,26).",
+      "DetailedSolutionAr": "الميل = (26−6)/(8−3)=20/5=4.",
+      "DetailedSolutionEn": "Slope = (26−6)/(8−3)=20/5=4.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "7",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "2",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "4",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "5",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c6-t3-i2",
+      "StageId": 2,
+      "CategoryId": 6,
+      "QuestionTextAr": "إذا كانت \\(g(x)=4x^2+5\\)، أوجد \\(g(4)\\).",
+      "QuestionTextEn": "Given \\(g(x)=4x^2+5\\), find g(4).",
+      "DetailedSolutionAr": "نحسب 4×4²+5=69.",
+      "DetailedSolutionEn": "Compute 4×4²+5=69.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "67",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "69",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "70",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "72",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c7-t1-i2",
+      "StageId": 2,
+      "CategoryId": 7,
+      "QuestionTextAr": "خصم متجر 25% من ثمن 140، ما قيمة الخصم؟",
+      "QuestionTextEn": "A store discounts 25% from a price of 140. Find the discount amount.",
+      "DetailedSolutionAr": "الخصم=140×25/100=35.",
+      "DetailedSolutionEn": "Discount=140×25/100=35.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "38",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "33",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "35",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "36",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c7-t2-i2",
+      "StageId": 2,
+      "CategoryId": 7,
+      "QuestionTextAr": "مقياس خريطة: 1 سم يمثل 4 كم. كم يمثل 5 سم؟",
+      "QuestionTextEn": "Map scale: 1 cm represents 4 km. What distance is 5 cm?",
+      "DetailedSolutionAr": "المسافة الحقيقية=4×5=20 كم.",
+      "DetailedSolutionEn": "Actual distance=4×5=20 km.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "18",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "20",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "21",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "23",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c7-t3-i2",
+      "StageId": 2,
+      "CategoryId": 7,
+      "QuestionTextAr": "إذا ارتفع سعر 80 بنسبة 25%، فما السعر الجديد؟",
+      "QuestionTextEn": "If 80 increases by 25%, what is the new price?",
+      "DetailedSolutionAr": "الزيادة=20، فالجديد=80+20=100.",
+      "DetailedSolutionEn": "Increase=20, so new price=80+20=100.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "100",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "101",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "103",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "98",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c8-t1-i2",
+      "StageId": 2,
+      "CategoryId": 8,
+      "QuestionTextAr": "ما مجموع الزوايا الداخلية لمضلع عدد أضلاعه 7؟",
+      "QuestionTextEn": "Find the sum of interior angles of a polygon with 7 sides.",
+      "DetailedSolutionAr": "المجموع=(7−2)×180=900°.",
+      "DetailedSolutionEn": "Sum=(7−2)×180=900°.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "898",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "900",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "901",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "903",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c8-t2-i2",
+      "StageId": 2,
+      "CategoryId": 8,
+      "QuestionTextAr": "وتر مثلث قائم 17، وأحد ضلعيه 8. ما الضلع الثاني؟",
+      "QuestionTextEn": "A right triangle has hypotenuse 17 and one leg 8. Find its other leg.",
+      "DetailedSolutionAr": "بتطبيق فيثاغورس: √(17²−8²)=15.",
+      "DetailedSolutionEn": "By Pythagoras, √(17²−8²)=15.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "15",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "16",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "18",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "14",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c8-t3-i2",
+      "StageId": 2,
+      "CategoryId": 8,
+      "QuestionTextAr": "مثلثان متشابهان. طول ضلع في الأول 5 ومعامل التكبير 4، ما طول الضلع المناظر؟",
+      "QuestionTextEn": "Similar triangles: a side is 5 with scale factor 4. Find the corresponding side.",
+      "DetailedSolutionAr": "الطول الجديد=5×4=20.",
+      "DetailedSolutionEn": "New length=5×4=20.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "21",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "23",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "18",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "20",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c5-t1-i3",
+      "StageId": 2,
+      "CategoryId": 5,
+      "QuestionTextAr": "أوجد القاسم المشترك الأكبر لـ15 و25.",
+      "QuestionTextEn": "Find gcd(15,25).",
+      "DetailedSolutionAr": "العددان 3×5 و5×5، وبما أن 3 و5 أوليان فيما بينهما فالقاسم الأكبر 5.",
+      "DetailedSolutionEn": "Numbers are 3×5 and 5×5; as 3 and 5 are coprime, gcd=5.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "6",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "8",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "3",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "5",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c5-t2-i3",
+      "StageId": 2,
+      "CategoryId": 5,
+      "QuestionTextAr": "بسّط \\(\\frac{5^{8}}{5^{6}}\\).",
+      "QuestionTextEn": "Simplify \\(\\frac{5^{8}}{5^{6}}\\).",
+      "DetailedSolutionAr": "نطرح الأسين: 8-6=2.",
+      "DetailedSolutionEn": "Subtract the exponents: 8-6=2.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "5^{3}",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "5^{4}",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "5^{2}",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "5^{1}",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c5-t3-i3",
+      "StageId": 2,
+      "CategoryId": 5,
+      "QuestionTextAr": "أوجد المضاعف المشترك الأصغر للعددين 20 و25.",
+      "QuestionTextEn": "Find the least common multiple of 20 and 25.",
+      "DetailedSolutionAr": "لأن 4 و5 أوليان فيما بينهما فإن المضاعف المشترك الأصغر 20×5=100.",
+      "DetailedSolutionEn": "LCM(4,5)=20, so LCM(20,25)=20×5=100.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "98",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "100",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "101",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "103",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c6-t1-i3",
+      "StageId": 2,
+      "CategoryId": 6,
+      "QuestionTextAr": "لتكن \\(f(x)=5x+8\\)، إذا كانت \\(f(x)=38\\) فأوجد x.",
+      "QuestionTextEn": "Given \\(f(x)=5x+8\\), solve f(x)=38.",
+      "DetailedSolutionAr": "نطرح 8 ثم نقسم على 5 لنجد x=6.",
+      "DetailedSolutionEn": "Subtract 8, divide by 5, and obtain x=6.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "9",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "4",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "6",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "7",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c6-t2-i3",
+      "StageId": 2,
+      "CategoryId": 6,
+      "QuestionTextAr": "ما ميل المستقيم المار بالنقطتين (4،7) و(10،37)؟",
+      "QuestionTextEn": "Find the slope between (4,7) and (10,37).",
+      "DetailedSolutionAr": "الميل = (37−7)/(10−4)=30/6=5.",
+      "DetailedSolutionEn": "Slope = (37−7)/(10−4)=30/6=5.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "3",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "5",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "6",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "8",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c6-t3-i3",
+      "StageId": 2,
+      "CategoryId": 6,
+      "QuestionTextAr": "إذا كانت \\(g(x)=5x^2+6\\)، أوجد \\(g(5)\\).",
+      "QuestionTextEn": "Given \\(g(x)=5x^2+6\\), find g(5).",
+      "DetailedSolutionAr": "نحسب 5×5²+6=131.",
+      "DetailedSolutionEn": "Compute 5×5²+6=131.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "131",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "132",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "134",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "129",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c7-t1-i3",
+      "StageId": 2,
+      "CategoryId": 7,
+      "QuestionTextAr": "خصم متجر 40% من ثمن 160، ما قيمة الخصم؟",
+      "QuestionTextEn": "A store discounts 40% from a price of 160. Find the discount amount.",
+      "DetailedSolutionAr": "الخصم=160×40/100=64.",
+      "DetailedSolutionEn": "Discount=160×40/100=64.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "62",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "64",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "65",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "67",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c7-t2-i3",
+      "StageId": 2,
+      "CategoryId": 7,
+      "QuestionTextAr": "مقياس خريطة: 1 سم يمثل 5 كم. كم يمثل 6 سم؟",
+      "QuestionTextEn": "Map scale: 1 cm represents 5 km. What distance is 6 cm?",
+      "DetailedSolutionAr": "المسافة الحقيقية=5×6=30 كم.",
+      "DetailedSolutionEn": "Actual distance=5×6=30 km.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "30",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "31",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "33",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "28",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c7-t3-i3",
+      "StageId": 2,
+      "CategoryId": 7,
+      "QuestionTextAr": "إذا ارتفع سعر 100 بنسبة 25%، فما السعر الجديد؟",
+      "QuestionTextEn": "If 100 increases by 25%, what is the new price?",
+      "DetailedSolutionAr": "الزيادة=25، فالجديد=100+25=125.",
+      "DetailedSolutionEn": "Increase=25, so new price=100+25=125.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "126",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "128",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "123",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "125",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c8-t1-i3",
+      "StageId": 2,
+      "CategoryId": 8,
+      "QuestionTextAr": "ما مجموع الزوايا الداخلية لمضلع عدد أضلاعه 8؟",
+      "QuestionTextEn": "Find the sum of interior angles of a polygon with 8 sides.",
+      "DetailedSolutionAr": "المجموع=(8−2)×180=1080°.",
+      "DetailedSolutionEn": "Sum=(8−2)×180=1080°.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "1080",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "1081",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "1083",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "1078",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c8-t2-i3",
+      "StageId": 2,
+      "CategoryId": 8,
+      "QuestionTextAr": "وتر مثلث قائم 25، وأحد ضلعيه 7. ما الضلع الثاني؟",
+      "QuestionTextEn": "A right triangle has hypotenuse 25 and one leg 7. Find its other leg.",
+      "DetailedSolutionAr": "بتطبيق فيثاغورس: √(25²−7²)=24.",
+      "DetailedSolutionEn": "By Pythagoras, √(25²−7²)=24.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "25",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "27",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "23",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "24",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c8-t3-i3",
+      "StageId": 2,
+      "CategoryId": 8,
+      "QuestionTextAr": "مثلثان متشابهان. طول ضلع في الأول 6 ومعامل التكبير 5، ما طول الضلع المناظر؟",
+      "QuestionTextEn": "Similar triangles: a side is 6 with scale factor 5. Find the corresponding side.",
+      "DetailedSolutionAr": "الطول الجديد=6×5=30.",
+      "DetailedSolutionEn": "New length=6×5=30.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "33",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "28",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "30",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "31",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c5-t1-i4",
+      "StageId": 2,
+      "CategoryId": 5,
+      "QuestionTextAr": "أوجد القاسم المشترك الأكبر لـ18 و30.",
+      "QuestionTextEn": "Find gcd(18,30).",
+      "DetailedSolutionAr": "العددان 3×6 و5×6، وبما أن 3 و5 أوليان فيما بينهما فالقاسم الأكبر 6.",
+      "DetailedSolutionEn": "Numbers are 3×6 and 5×6; as 3 and 5 are coprime, gcd=6.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "9",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "4",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "6",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "7",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c5-t2-i4",
+      "StageId": 2,
+      "CategoryId": 5,
+      "QuestionTextAr": "بسّط \\(\\frac{6^{9}}{6^{7}}\\).",
+      "QuestionTextEn": "Simplify \\(\\frac{6^{9}}{6^{7}}\\).",
+      "DetailedSolutionAr": "نطرح الأسين: 9-7=2.",
+      "DetailedSolutionEn": "Subtract the exponents: 9-7=2.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "6^{4}",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "6^{2}",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "6^{1}",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "6^{3}",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c5-t3-i4",
+      "StageId": 2,
+      "CategoryId": 5,
+      "QuestionTextAr": "أوجد المضاعف المشترك الأصغر للعددين 24 و30.",
+      "QuestionTextEn": "Find the least common multiple of 24 and 30.",
+      "DetailedSolutionAr": "لأن 4 و5 أوليان فيما بينهما فإن المضاعف المشترك الأصغر 20×6=120.",
+      "DetailedSolutionEn": "LCM(4,5)=20, so LCM(24,30)=20×6=120.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "120",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "121",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "123",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "118",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c6-t1-i4",
+      "StageId": 2,
+      "CategoryId": 6,
+      "QuestionTextAr": "لتكن \\(f(x)=6x+9\\)، إذا كانت \\(f(x)=51\\) فأوجد x.",
+      "QuestionTextEn": "Given \\(f(x)=6x+9\\), solve f(x)=51.",
+      "DetailedSolutionAr": "نطرح 9 ثم نقسم على 6 لنجد x=7.",
+      "DetailedSolutionEn": "Subtract 9, divide by 6, and obtain x=7.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "5",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "7",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "8",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "10",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c6-t2-i4",
+      "StageId": 2,
+      "CategoryId": 6,
+      "QuestionTextAr": "ما ميل المستقيم المار بالنقطتين (5،8) و(12،50)؟",
+      "QuestionTextEn": "Find the slope between (5,8) and (12,50).",
+      "DetailedSolutionAr": "الميل = (50−8)/(12−5)=42/7=6.",
+      "DetailedSolutionEn": "Slope = (50−8)/(12−5)=42/7=6.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "6",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "7",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "9",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "4",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c6-t3-i4",
+      "StageId": 2,
+      "CategoryId": 6,
+      "QuestionTextAr": "إذا كانت \\(g(x)=6x^2+7\\)، أوجد \\(g(6)\\).",
+      "QuestionTextEn": "Given \\(g(x)=6x^2+7\\), find g(6).",
+      "DetailedSolutionAr": "نحسب 6×6²+7=223.",
+      "DetailedSolutionEn": "Compute 6×6²+7=223.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "224",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "226",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "221",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "223",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c7-t1-i4",
+      "StageId": 2,
+      "CategoryId": 7,
+      "QuestionTextAr": "خصم متجر 50% من ثمن 180، ما قيمة الخصم؟",
+      "QuestionTextEn": "A store discounts 50% from a price of 180. Find the discount amount.",
+      "DetailedSolutionAr": "الخصم=180×50/100=90.",
+      "DetailedSolutionEn": "Discount=180×50/100=90.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "90",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "91",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "93",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "88",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c7-t2-i4",
+      "StageId": 2,
+      "CategoryId": 7,
+      "QuestionTextAr": "مقياس خريطة: 1 سم يمثل 6 كم. كم يمثل 7 سم؟",
+      "QuestionTextEn": "Map scale: 1 cm represents 6 km. What distance is 7 cm?",
+      "DetailedSolutionAr": "المسافة الحقيقية=6×7=42 كم.",
+      "DetailedSolutionEn": "Actual distance=6×7=42 km.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "43",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "45",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "40",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "42",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c7-t3-i4",
+      "StageId": 2,
+      "CategoryId": 7,
+      "QuestionTextAr": "إذا ارتفع سعر 120 بنسبة 25%، فما السعر الجديد؟",
+      "QuestionTextEn": "If 120 increases by 25%, what is the new price?",
+      "DetailedSolutionAr": "الزيادة=30، فالجديد=120+30=150.",
+      "DetailedSolutionEn": "Increase=30, so new price=120+30=150.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "153",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "148",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "150",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "151",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c8-t1-i4",
+      "StageId": 2,
+      "CategoryId": 8,
+      "QuestionTextAr": "ما مجموع الزوايا الداخلية لمضلع عدد أضلاعه 9؟",
+      "QuestionTextEn": "Find the sum of interior angles of a polygon with 9 sides.",
+      "DetailedSolutionAr": "المجموع=(9−2)×180=1260°.",
+      "DetailedSolutionEn": "Sum=(9−2)×180=1260°.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "1261",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "1263",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "1258",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "1260",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c8-t2-i4",
+      "StageId": 2,
+      "CategoryId": 8,
+      "QuestionTextAr": "وتر مثلث قائم 41، وأحد ضلعيه 9. ما الضلع الثاني؟",
+      "QuestionTextEn": "A right triangle has hypotenuse 41 and one leg 9. Find its other leg.",
+      "DetailedSolutionAr": "بتطبيق فيثاغورس: √(41²−9²)=40.",
+      "DetailedSolutionEn": "By Pythagoras, √(41²−9²)=40.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "43",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "39",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "40",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "41",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c8-t3-i4",
+      "StageId": 2,
+      "CategoryId": 8,
+      "QuestionTextAr": "مثلثان متشابهان. طول ضلع في الأول 7 ومعامل التكبير 6، ما طول الضلع المناظر؟",
+      "QuestionTextEn": "Similar triangles: a side is 7 with scale factor 6. Find the corresponding side.",
+      "DetailedSolutionAr": "الطول الجديد=7×6=42.",
+      "DetailedSolutionEn": "New length=7×6=42.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "40",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "42",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "43",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "45",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    }
+  ]
+}
