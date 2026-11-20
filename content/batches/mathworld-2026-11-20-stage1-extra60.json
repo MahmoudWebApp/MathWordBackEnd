@@ -1,0 +1,1927 @@
+{
+  "status": "draft",
+  "stage": 1,
+  "count": 60,
+  "problems": [
+    {
+      "ContentKey": "mw20261120-c1-t1-i0",
+      "StageId": 1,
+      "CategoryId": 1,
+      "QuestionTextAr": "احسب 12 × 4.",
+      "QuestionTextEn": "Compute 12 × 4.",
+      "DetailedSolutionAr": "بضرب العددين: 12×4=48.",
+      "DetailedSolutionEn": "Multiply: 12×4=48.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "51",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "46",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "48",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "49",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c1-t2-i0",
+      "StageId": 1,
+      "CategoryId": 1,
+      "QuestionTextAr": "احسب 36 ÷ 3.",
+      "QuestionTextEn": "Calculate 36 divided by 3.",
+      "DetailedSolutionAr": "لأن 3×12=36، الناتج 12.",
+      "DetailedSolutionEn": "Since 3×12=36, the quotient is 12.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "10",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "12",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "13",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "15",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c1-t3-i0",
+      "StageId": 1,
+      "CategoryId": 1,
+      "QuestionTextAr": "ثمن القلم 7 وحدات. كم ثمن 4 أقلام؟",
+      "QuestionTextEn": "Each pen costs 7 units. What do 4 pens cost?",
+      "DetailedSolutionAr": "الثمن=4×7=28.",
+      "DetailedSolutionEn": "Cost=4×7=28.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "28",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "29",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "31",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "26",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c2-t1-i0",
+      "StageId": 1,
+      "CategoryId": 2,
+      "QuestionTextAr": "حل المعادلة \\(2x+4=10\\).",
+      "QuestionTextEn": "Solve \\(2x+4=10\\).",
+      "DetailedSolutionAr": "بطرح 4 ثم القسمة على 2 نجد س=3.",
+      "DetailedSolutionEn": "Subtract 4, then divide by 2 to find x=3.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "1",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "3",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "4",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "6",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c2-t2-i0",
+      "StageId": 1,
+      "CategoryId": 2,
+      "QuestionTextAr": "المتتالية 2، 5، 8، 11؛ ما الحد الخامس؟",
+      "QuestionTextEn": "Sequence 2, 5, 8, 11; find the fifth term.",
+      "DetailedSolutionAr": "نزيد بمقدار 3 كل مرة، فالحد الخامس 14.",
+      "DetailedSolutionEn": "Add 3 each time, giving fifth term 14.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "14",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "15",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "17",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "12",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c2-t3-i0",
+      "StageId": 1,
+      "CategoryId": 2,
+      "QuestionTextAr": "إذا س=5 فما قيمة \\(2x-3\\)؟",
+      "QuestionTextEn": "If x=5, evaluate \\(2x-3\\).",
+      "DetailedSolutionAr": "2×5−3=7.",
+      "DetailedSolutionEn": "2×5−3=7.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "8",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "10",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "5",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "7",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c3-t1-i0",
+      "StageId": 1,
+      "CategoryId": 3,
+      "QuestionTextAr": "ما محيط مستطيل طوله 7 سم وعرضه 4 سم؟",
+      "QuestionTextEn": "Find the perimeter of a 7 cm by 4 cm rectangle.",
+      "DetailedSolutionAr": "المحيط=2×(7+4)=22 سم.",
+      "DetailedSolutionEn": "Perimeter=2×(7+4)=22 cm.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "22",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "23",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "25",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "20",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c3-t2-i0",
+      "StageId": 1,
+      "CategoryId": 3,
+      "QuestionTextAr": "زاويتا مثلث هما 50° و60°، ما الثالثة؟",
+      "QuestionTextEn": "Two angles of a triangle are 50° and 60°. Find the third.",
+      "DetailedSolutionAr": "الزاوية الثالثة=180−50−60=70°.",
+      "DetailedSolutionEn": "The third angle=180−50−60=70°.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "71",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "73",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "68",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "70",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c3-t3-i0",
+      "StageId": 1,
+      "CategoryId": 3,
+      "QuestionTextAr": "حوّل 2 متر إلى سنتيمترات.",
+      "QuestionTextEn": "Convert 2 metres to centimetres.",
+      "DetailedSolutionAr": "بما أن المتر 100 سم فالنتيجة 200.",
+      "DetailedSolutionEn": "One metre equals 100 cm, giving 200.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "203",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "198",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "200",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "201",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c4-t1-i0",
+      "StageId": 1,
+      "CategoryId": 4,
+      "QuestionTextAr": "ما المنوال: 3، 9، 3، 4، 3؟",
+      "QuestionTextEn": "Find the mode: 3, 9, 3, 4, 3.",
+      "DetailedSolutionAr": "3 يتكرر ثلاث مرات وهو الأكثر تكراراً.",
+      "DetailedSolutionEn": "The value 3 occurs three times, most often.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "9",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "4",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "5",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "3",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c4-t2-i0",
+      "StageId": 1,
+      "CategoryId": 4,
+      "QuestionTextAr": "في كيس 1 كرات حمراء و6 زرقاء. ما احتمال سحب حمراء؟",
+      "QuestionTextEn": "A bag has 1 red and 6 blue balls. Find the probability of red.",
+      "DetailedSolutionAr": "الاحتمال=الحمراء/المجموع=1/7.",
+      "DetailedSolutionEn": "Probability=red/total=1/7.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "\\frac{2}{7}",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{1}{8}",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{1}{7}",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "\\frac{6}{7}",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c4-t3-i0",
+      "StageId": 1,
+      "CategoryId": 4,
+      "QuestionTextAr": "ما وسيط القيم المرتبة 6، 9، 10، 13، 17؟",
+      "QuestionTextEn": "What is the median of ordered values 6, 9, 10, 13, 17?",
+      "DetailedSolutionAr": "العدد الأوسط هو الثالث 10.",
+      "DetailedSolutionEn": "The third, middle value is 10.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "17",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "10",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "9",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "13",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c1-t1-i1",
+      "StageId": 1,
+      "CategoryId": 1,
+      "QuestionTextAr": "احسب 15 × 5.",
+      "QuestionTextEn": "Compute 15 × 5.",
+      "DetailedSolutionAr": "بضرب العددين: 15×5=75.",
+      "DetailedSolutionEn": "Multiply: 15×5=75.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "73",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "75",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "76",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "78",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c1-t2-i1",
+      "StageId": 1,
+      "CategoryId": 1,
+      "QuestionTextAr": "احسب 56 ÷ 4.",
+      "QuestionTextEn": "Calculate 56 divided by 4.",
+      "DetailedSolutionAr": "لأن 4×14=56، الناتج 14.",
+      "DetailedSolutionEn": "Since 4×14=56, the quotient is 14.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "14",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "15",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "17",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "12",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c1-t3-i1",
+      "StageId": 1,
+      "CategoryId": 1,
+      "QuestionTextAr": "ثمن القلم 8 وحدات. كم ثمن 5 أقلام؟",
+      "QuestionTextEn": "Each pen costs 8 units. What do 5 pens cost?",
+      "DetailedSolutionAr": "الثمن=5×8=40.",
+      "DetailedSolutionEn": "Cost=5×8=40.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "41",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "43",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "38",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "40",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c2-t1-i1",
+      "StageId": 1,
+      "CategoryId": 2,
+      "QuestionTextAr": "حل المعادلة \\(3x+5=17\\).",
+      "QuestionTextEn": "Solve \\(3x+5=17\\).",
+      "DetailedSolutionAr": "بطرح 5 ثم القسمة على 3 نجد س=4.",
+      "DetailedSolutionEn": "Subtract 5, then divide by 3 to find x=4.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "4",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "5",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "7",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "2",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c2-t2-i1",
+      "StageId": 1,
+      "CategoryId": 2,
+      "QuestionTextAr": "المتتالية 3، 7، 11، 15؛ ما الحد الخامس؟",
+      "QuestionTextEn": "Sequence 3, 7, 11, 15; find the fifth term.",
+      "DetailedSolutionAr": "نزيد بمقدار 4 كل مرة، فالحد الخامس 19.",
+      "DetailedSolutionEn": "Add 4 each time, giving fifth term 19.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "20",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "22",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "17",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "19",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c2-t3-i1",
+      "StageId": 1,
+      "CategoryId": 2,
+      "QuestionTextAr": "إذا س=6 فما قيمة \\(2x-4\\)؟",
+      "QuestionTextEn": "If x=6, evaluate \\(2x-4\\).",
+      "DetailedSolutionAr": "2×6−4=8.",
+      "DetailedSolutionEn": "2×6−4=8.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "11",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "6",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "8",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "9",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c3-t1-i1",
+      "StageId": 1,
+      "CategoryId": 3,
+      "QuestionTextAr": "ما محيط مستطيل طوله 8 سم وعرضه 5 سم؟",
+      "QuestionTextEn": "Find the perimeter of a 8 cm by 5 cm rectangle.",
+      "DetailedSolutionAr": "المحيط=2×(8+5)=26 سم.",
+      "DetailedSolutionEn": "Perimeter=2×(8+5)=26 cm.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "27",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "29",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "24",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "26",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c3-t2-i1",
+      "StageId": 1,
+      "CategoryId": 3,
+      "QuestionTextAr": "زاويتا مثلث هما 57° و63°، ما الثالثة؟",
+      "QuestionTextEn": "Two angles of a triangle are 57° and 63°. Find the third.",
+      "DetailedSolutionAr": "الزاوية الثالثة=180−57−63=60°.",
+      "DetailedSolutionEn": "The third angle=180−57−63=60°.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "63",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "58",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "60",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "61",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c3-t3-i1",
+      "StageId": 1,
+      "CategoryId": 3,
+      "QuestionTextAr": "حوّل 3 متر إلى سنتيمترات.",
+      "QuestionTextEn": "Convert 3 metres to centimetres.",
+      "DetailedSolutionAr": "بما أن المتر 100 سم فالنتيجة 300.",
+      "DetailedSolutionEn": "One metre equals 100 cm, giving 300.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "298",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "300",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "301",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "303",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c4-t1-i1",
+      "StageId": 1,
+      "CategoryId": 4,
+      "QuestionTextAr": "ما المنوال: 4، 11، 4، 5، 4؟",
+      "QuestionTextEn": "Find the mode: 4, 11, 4, 5, 4.",
+      "DetailedSolutionAr": "4 يتكرر ثلاث مرات وهو الأكثر تكراراً.",
+      "DetailedSolutionEn": "The value 4 occurs three times, most often.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "5",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "6",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "4",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "11",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c4-t2-i1",
+      "StageId": 1,
+      "CategoryId": 4,
+      "QuestionTextAr": "في كيس 2 كرات حمراء و7 زرقاء. ما احتمال سحب حمراء؟",
+      "QuestionTextEn": "A bag has 2 red and 7 blue balls. Find the probability of red.",
+      "DetailedSolutionAr": "الاحتمال=الحمراء/المجموع=2/9.",
+      "DetailedSolutionEn": "Probability=red/total=2/9.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "\\frac{2}{10}",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{2}{9}",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "\\frac{7}{9}",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{3}{9}",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c4-t3-i1",
+      "StageId": 1,
+      "CategoryId": 4,
+      "QuestionTextAr": "ما وسيط القيم المرتبة 9، 12، 13، 16، 20؟",
+      "QuestionTextEn": "What is the median of ordered values 9, 12, 13, 16, 20?",
+      "DetailedSolutionAr": "العدد الأوسط هو الثالث 13.",
+      "DetailedSolutionEn": "The third, middle value is 13.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "13",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "12",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "16",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "20",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c1-t1-i2",
+      "StageId": 1,
+      "CategoryId": 1,
+      "QuestionTextAr": "احسب 18 × 6.",
+      "QuestionTextEn": "Compute 18 × 6.",
+      "DetailedSolutionAr": "بضرب العددين: 18×6=108.",
+      "DetailedSolutionEn": "Multiply: 18×6=108.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "108",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "109",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "111",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "106",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c1-t2-i2",
+      "StageId": 1,
+      "CategoryId": 1,
+      "QuestionTextAr": "احسب 80 ÷ 5.",
+      "QuestionTextEn": "Calculate 80 divided by 5.",
+      "DetailedSolutionAr": "لأن 5×16=80، الناتج 16.",
+      "DetailedSolutionEn": "Since 5×16=80, the quotient is 16.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "17",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "19",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "14",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "16",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c1-t3-i2",
+      "StageId": 1,
+      "CategoryId": 1,
+      "QuestionTextAr": "ثمن القلم 9 وحدات. كم ثمن 6 أقلام؟",
+      "QuestionTextEn": "Each pen costs 9 units. What do 6 pens cost?",
+      "DetailedSolutionAr": "الثمن=6×9=54.",
+      "DetailedSolutionEn": "Cost=6×9=54.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "57",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "52",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "54",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "55",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c2-t1-i2",
+      "StageId": 1,
+      "CategoryId": 2,
+      "QuestionTextAr": "حل المعادلة \\(4x+6=26\\).",
+      "QuestionTextEn": "Solve \\(4x+6=26\\).",
+      "DetailedSolutionAr": "بطرح 6 ثم القسمة على 4 نجد س=5.",
+      "DetailedSolutionEn": "Subtract 6, then divide by 4 to find x=5.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "6",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "8",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "3",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "5",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c2-t2-i2",
+      "StageId": 1,
+      "CategoryId": 2,
+      "QuestionTextAr": "المتتالية 4، 9، 14، 19؛ ما الحد الخامس؟",
+      "QuestionTextEn": "Sequence 4, 9, 14, 19; find the fifth term.",
+      "DetailedSolutionAr": "نزيد بمقدار 5 كل مرة، فالحد الخامس 24.",
+      "DetailedSolutionEn": "Add 5 each time, giving fifth term 24.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "27",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "22",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "24",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "25",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c2-t3-i2",
+      "StageId": 1,
+      "CategoryId": 2,
+      "QuestionTextAr": "إذا س=7 فما قيمة \\(2x-5\\)؟",
+      "QuestionTextEn": "If x=7, evaluate \\(2x-5\\).",
+      "DetailedSolutionAr": "2×7−5=9.",
+      "DetailedSolutionEn": "2×7−5=9.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "7",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "9",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "10",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "12",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c3-t1-i2",
+      "StageId": 1,
+      "CategoryId": 3,
+      "QuestionTextAr": "ما محيط مستطيل طوله 9 سم وعرضه 6 سم؟",
+      "QuestionTextEn": "Find the perimeter of a 9 cm by 6 cm rectangle.",
+      "DetailedSolutionAr": "المحيط=2×(9+6)=30 سم.",
+      "DetailedSolutionEn": "Perimeter=2×(9+6)=30 cm.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "33",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "28",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "30",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "31",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c3-t2-i2",
+      "StageId": 1,
+      "CategoryId": 3,
+      "QuestionTextAr": "زاويتا مثلث هما 64° و66°، ما الثالثة؟",
+      "QuestionTextEn": "Two angles of a triangle are 64° and 66°. Find the third.",
+      "DetailedSolutionAr": "الزاوية الثالثة=180−64−66=50°.",
+      "DetailedSolutionEn": "The third angle=180−64−66=50°.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "48",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "50",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "51",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "53",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c3-t3-i2",
+      "StageId": 1,
+      "CategoryId": 3,
+      "QuestionTextAr": "حوّل 4 متر إلى سنتيمترات.",
+      "QuestionTextEn": "Convert 4 metres to centimetres.",
+      "DetailedSolutionAr": "بما أن المتر 100 سم فالنتيجة 400.",
+      "DetailedSolutionEn": "One metre equals 100 cm, giving 400.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "400",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "401",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "403",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "398",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c4-t1-i2",
+      "StageId": 1,
+      "CategoryId": 4,
+      "QuestionTextAr": "ما المنوال: 5، 13، 5، 6، 5؟",
+      "QuestionTextEn": "Find the mode: 5, 13, 5, 6, 5.",
+      "DetailedSolutionAr": "5 يتكرر ثلاث مرات وهو الأكثر تكراراً.",
+      "DetailedSolutionEn": "The value 5 occurs three times, most often.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "7",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "5",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "13",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "6",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c4-t2-i2",
+      "StageId": 1,
+      "CategoryId": 4,
+      "QuestionTextAr": "في كيس 3 كرات حمراء و8 زرقاء. ما احتمال سحب حمراء؟",
+      "QuestionTextEn": "A bag has 3 red and 8 blue balls. Find the probability of red.",
+      "DetailedSolutionAr": "الاحتمال=الحمراء/المجموع=3/11.",
+      "DetailedSolutionEn": "Probability=red/total=3/11.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "\\frac{3}{11}",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "\\frac{8}{11}",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{4}{11}",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{3}{12}",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c4-t3-i2",
+      "StageId": 1,
+      "CategoryId": 4,
+      "QuestionTextAr": "ما وسيط القيم المرتبة 12، 15، 16، 19، 23؟",
+      "QuestionTextEn": "What is the median of ordered values 12, 15, 16, 19, 23?",
+      "DetailedSolutionAr": "العدد الأوسط هو الثالث 16.",
+      "DetailedSolutionEn": "The third, middle value is 16.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "15",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "19",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "23",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "16",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c1-t1-i3",
+      "StageId": 1,
+      "CategoryId": 1,
+      "QuestionTextAr": "احسب 21 × 7.",
+      "QuestionTextEn": "Compute 21 × 7.",
+      "DetailedSolutionAr": "بضرب العددين: 21×7=147.",
+      "DetailedSolutionEn": "Multiply: 21×7=147.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "148",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "150",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "145",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "147",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c1-t2-i3",
+      "StageId": 1,
+      "CategoryId": 1,
+      "QuestionTextAr": "احسب 108 ÷ 6.",
+      "QuestionTextEn": "Calculate 108 divided by 6.",
+      "DetailedSolutionAr": "لأن 6×18=108، الناتج 18.",
+      "DetailedSolutionEn": "Since 6×18=108, the quotient is 18.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "21",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "16",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "18",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "19",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c1-t3-i3",
+      "StageId": 1,
+      "CategoryId": 1,
+      "QuestionTextAr": "ثمن القلم 10 وحدات. كم ثمن 7 أقلام؟",
+      "QuestionTextEn": "Each pen costs 10 units. What do 7 pens cost?",
+      "DetailedSolutionAr": "الثمن=7×10=70.",
+      "DetailedSolutionEn": "Cost=7×10=70.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "68",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "70",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "71",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "73",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c2-t1-i3",
+      "StageId": 1,
+      "CategoryId": 2,
+      "QuestionTextAr": "حل المعادلة \\(5x+7=37\\).",
+      "QuestionTextEn": "Solve \\(5x+7=37\\).",
+      "DetailedSolutionAr": "بطرح 7 ثم القسمة على 5 نجد س=6.",
+      "DetailedSolutionEn": "Subtract 7, then divide by 5 to find x=6.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "9",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "4",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "6",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "7",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c2-t2-i3",
+      "StageId": 1,
+      "CategoryId": 2,
+      "QuestionTextAr": "المتتالية 5، 11، 17، 23؛ ما الحد الخامس؟",
+      "QuestionTextEn": "Sequence 5, 11, 17, 23; find the fifth term.",
+      "DetailedSolutionAr": "نزيد بمقدار 6 كل مرة، فالحد الخامس 29.",
+      "DetailedSolutionEn": "Add 6 each time, giving fifth term 29.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "27",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "29",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "30",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "32",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c2-t3-i3",
+      "StageId": 1,
+      "CategoryId": 2,
+      "QuestionTextAr": "إذا س=8 فما قيمة \\(2x-6\\)؟",
+      "QuestionTextEn": "If x=8, evaluate \\(2x-6\\).",
+      "DetailedSolutionAr": "2×8−6=10.",
+      "DetailedSolutionEn": "2×8−6=10.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "10",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "11",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "13",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "8",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c3-t1-i3",
+      "StageId": 1,
+      "CategoryId": 3,
+      "QuestionTextAr": "ما محيط مستطيل طوله 10 سم وعرضه 7 سم؟",
+      "QuestionTextEn": "Find the perimeter of a 10 cm by 7 cm rectangle.",
+      "DetailedSolutionAr": "المحيط=2×(10+7)=34 سم.",
+      "DetailedSolutionEn": "Perimeter=2×(10+7)=34 cm.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "32",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "34",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "35",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "37",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c3-t2-i3",
+      "StageId": 1,
+      "CategoryId": 3,
+      "QuestionTextAr": "زاويتا مثلث هما 71° و69°، ما الثالثة؟",
+      "QuestionTextEn": "Two angles of a triangle are 71° and 69°. Find the third.",
+      "DetailedSolutionAr": "الزاوية الثالثة=180−71−69=40°.",
+      "DetailedSolutionEn": "The third angle=180−71−69=40°.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "40",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "41",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "43",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "38",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c3-t3-i3",
+      "StageId": 1,
+      "CategoryId": 3,
+      "QuestionTextAr": "حوّل 5 متر إلى سنتيمترات.",
+      "QuestionTextEn": "Convert 5 metres to centimetres.",
+      "DetailedSolutionAr": "بما أن المتر 100 سم فالنتيجة 500.",
+      "DetailedSolutionEn": "One metre equals 100 cm, giving 500.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "501",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "503",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "498",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "500",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c4-t1-i3",
+      "StageId": 1,
+      "CategoryId": 4,
+      "QuestionTextAr": "ما المنوال: 6، 15، 6، 7، 6؟",
+      "QuestionTextEn": "Find the mode: 6, 15, 6, 7, 6.",
+      "DetailedSolutionAr": "6 يتكرر ثلاث مرات وهو الأكثر تكراراً.",
+      "DetailedSolutionEn": "The value 6 occurs three times, most often.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "6",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "15",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "7",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "8",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c4-t2-i3",
+      "StageId": 1,
+      "CategoryId": 4,
+      "QuestionTextAr": "في كيس 4 كرات حمراء و9 زرقاء. ما احتمال سحب حمراء؟",
+      "QuestionTextEn": "A bag has 4 red and 9 blue balls. Find the probability of red.",
+      "DetailedSolutionAr": "الاحتمال=الحمراء/المجموع=4/13.",
+      "DetailedSolutionEn": "Probability=red/total=4/13.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "\\frac{9}{13}",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{5}{13}",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{4}{14}",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{4}{13}",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c4-t3-i3",
+      "StageId": 1,
+      "CategoryId": 4,
+      "QuestionTextAr": "ما وسيط القيم المرتبة 15، 18، 19، 22، 26؟",
+      "QuestionTextEn": "What is the median of ordered values 15, 18, 19, 22, 26?",
+      "DetailedSolutionAr": "العدد الأوسط هو الثالث 19.",
+      "DetailedSolutionEn": "The third, middle value is 19.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "22",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "26",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "19",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "18",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c1-t1-i4",
+      "StageId": 1,
+      "CategoryId": 1,
+      "QuestionTextAr": "احسب 24 × 8.",
+      "QuestionTextEn": "Compute 24 × 8.",
+      "DetailedSolutionAr": "بضرب العددين: 24×8=192.",
+      "DetailedSolutionEn": "Multiply: 24×8=192.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "195",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "190",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "192",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "193",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c1-t2-i4",
+      "StageId": 1,
+      "CategoryId": 1,
+      "QuestionTextAr": "احسب 140 ÷ 7.",
+      "QuestionTextEn": "Calculate 140 divided by 7.",
+      "DetailedSolutionAr": "لأن 7×20=140، الناتج 20.",
+      "DetailedSolutionEn": "Since 7×20=140, the quotient is 20.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "18",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "20",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "21",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "23",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c1-t3-i4",
+      "StageId": 1,
+      "CategoryId": 1,
+      "QuestionTextAr": "ثمن القلم 11 وحدات. كم ثمن 8 أقلام؟",
+      "QuestionTextEn": "Each pen costs 11 units. What do 8 pens cost?",
+      "DetailedSolutionAr": "الثمن=8×11=88.",
+      "DetailedSolutionEn": "Cost=8×11=88.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "88",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "89",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "91",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "86",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c2-t1-i4",
+      "StageId": 1,
+      "CategoryId": 2,
+      "QuestionTextAr": "حل المعادلة \\(6x+8=50\\).",
+      "QuestionTextEn": "Solve \\(6x+8=50\\).",
+      "DetailedSolutionAr": "بطرح 8 ثم القسمة على 6 نجد س=7.",
+      "DetailedSolutionEn": "Subtract 8, then divide by 6 to find x=7.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "5",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "7",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "8",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "10",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c2-t2-i4",
+      "StageId": 1,
+      "CategoryId": 2,
+      "QuestionTextAr": "المتتالية 6، 13، 20، 27؛ ما الحد الخامس؟",
+      "QuestionTextEn": "Sequence 6, 13, 20, 27; find the fifth term.",
+      "DetailedSolutionAr": "نزيد بمقدار 7 كل مرة، فالحد الخامس 34.",
+      "DetailedSolutionEn": "Add 7 each time, giving fifth term 34.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "34",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "35",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "37",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "32",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c2-t3-i4",
+      "StageId": 1,
+      "CategoryId": 2,
+      "QuestionTextAr": "إذا س=9 فما قيمة \\(2x-7\\)؟",
+      "QuestionTextEn": "If x=9, evaluate \\(2x-7\\).",
+      "DetailedSolutionAr": "2×9−7=11.",
+      "DetailedSolutionEn": "2×9−7=11.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "12",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "14",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "9",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "11",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c3-t1-i4",
+      "StageId": 1,
+      "CategoryId": 3,
+      "QuestionTextAr": "ما محيط مستطيل طوله 11 سم وعرضه 8 سم؟",
+      "QuestionTextEn": "Find the perimeter of a 11 cm by 8 cm rectangle.",
+      "DetailedSolutionAr": "المحيط=2×(11+8)=38 سم.",
+      "DetailedSolutionEn": "Perimeter=2×(11+8)=38 cm.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "38",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "39",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "41",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "36",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c3-t2-i4",
+      "StageId": 1,
+      "CategoryId": 3,
+      "QuestionTextAr": "زاويتا مثلث هما 78° و72°، ما الثالثة؟",
+      "QuestionTextEn": "Two angles of a triangle are 78° and 72°. Find the third.",
+      "DetailedSolutionAr": "الزاوية الثالثة=180−78−72=30°.",
+      "DetailedSolutionEn": "The third angle=180−78−72=30°.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "31",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "33",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "28",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "30",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c3-t3-i4",
+      "StageId": 1,
+      "CategoryId": 3,
+      "QuestionTextAr": "حوّل 6 متر إلى سنتيمترات.",
+      "QuestionTextEn": "Convert 6 metres to centimetres.",
+      "DetailedSolutionAr": "بما أن المتر 100 سم فالنتيجة 600.",
+      "DetailedSolutionEn": "One metre equals 100 cm, giving 600.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "603",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "598",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "600",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "601",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c4-t1-i4",
+      "StageId": 1,
+      "CategoryId": 4,
+      "QuestionTextAr": "ما المنوال: 7، 17، 7، 8، 7؟",
+      "QuestionTextEn": "Find the mode: 7, 17, 7, 8, 7.",
+      "DetailedSolutionAr": "7 يتكرر ثلاث مرات وهو الأكثر تكراراً.",
+      "DetailedSolutionEn": "The value 7 occurs three times, most often.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "17",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "8",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "9",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "7",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c4-t2-i4",
+      "StageId": 1,
+      "CategoryId": 4,
+      "QuestionTextAr": "في كيس 5 كرات حمراء و10 زرقاء. ما احتمال سحب حمراء؟",
+      "QuestionTextEn": "A bag has 5 red and 10 blue balls. Find the probability of red.",
+      "DetailedSolutionAr": "الاحتمال=الحمراء/المجموع=5/15.",
+      "DetailedSolutionEn": "Probability=red/total=5/15.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "\\frac{6}{15}",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{5}{16}",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{5}{15}",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "\\frac{10}{15}",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c4-t3-i4",
+      "StageId": 1,
+      "CategoryId": 4,
+      "QuestionTextAr": "ما وسيط القيم المرتبة 18، 21، 22، 25، 29؟",
+      "QuestionTextEn": "What is the median of ordered values 18, 21, 22, 25, 29?",
+      "DetailedSolutionAr": "العدد الأوسط هو الثالث 22.",
+      "DetailedSolutionEn": "The third, middle value is 22.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "29",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "22",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "21",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "25",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    }
+  ]
+}
