@@ -365,6 +365,8 @@ namespace MathWorldAPI.Migrations
                             Icon = "🔢",
                             NameAr = "الأعداد والعمليات الحسابية",
                             NameEn = "Numbers & Operations",
+                            DescriptionAr = "",
+                            DescriptionEn = "",
                             Order = 1,
                             StageId = 1
                         },
@@ -374,6 +376,8 @@ namespace MathWorldAPI.Migrations
                             Icon = "🧩",
                             NameAr = "التفكير الجبري المبكر",
                             NameEn = "Early Algebraic Thinking",
+                            DescriptionAr = "",
+                            DescriptionEn = "",
                             Order = 2,
                             StageId = 1
                         },
@@ -383,6 +387,8 @@ namespace MathWorldAPI.Migrations
                             Icon = "📏",
                             NameAr = "الهندسة والقياس",
                             NameEn = "Geometry & Measurement",
+                            DescriptionAr = "",
+                            DescriptionEn = "",
                             Order = 3,
                             StageId = 1
                         },
@@ -392,6 +398,8 @@ namespace MathWorldAPI.Migrations
                             Icon = "📊",
                             NameAr = "البيانات والاحتمالات",
                             NameEn = "Data & Basic Probability",
+                            DescriptionAr = "",
+                            DescriptionEn = "",
                             Order = 4,
                             StageId = 1
                         },
@@ -401,6 +409,8 @@ namespace MathWorldAPI.Migrations
                             Icon = "🔬",
                             NameAr = "نظرية الأعداد والأسس",
                             NameEn = "Number Theory & Exponents",
+                            DescriptionAr = "",
+                            DescriptionEn = "",
                             Order = 1,
                             StageId = 2
                         },
@@ -410,6 +420,8 @@ namespace MathWorldAPI.Migrations
                             Icon = "⚖️",
                             NameAr = "الجبر والدوال",
                             NameEn = "Algebra & Functions",
+                            DescriptionAr = "",
+                            DescriptionEn = "",
                             Order = 2,
                             StageId = 2
                         },
@@ -419,6 +431,8 @@ namespace MathWorldAPI.Migrations
                             Icon = "💹",
                             NameAr = "النسب والتناسب",
                             NameEn = "Ratios & Proportions",
+                            DescriptionAr = "",
+                            DescriptionEn = "",
                             Order = 3,
                             StageId = 2
                         },
@@ -428,6 +442,8 @@ namespace MathWorldAPI.Migrations
                             Icon = "📐",
                             NameAr = "الهندسة والبراهين",
                             NameEn = "Geometry & Proofs",
+                            DescriptionAr = "",
+                            DescriptionEn = "",
                             Order = 4,
                             StageId = 2
                         },
@@ -437,6 +453,8 @@ namespace MathWorldAPI.Migrations
                             Icon = "📈",
                             NameAr = "الجبر المتقدم",
                             NameEn = "Advanced Algebra",
+                            DescriptionAr = "",
+                            DescriptionEn = "",
                             Order = 1,
                             StageId = 3
                         },
@@ -446,6 +464,8 @@ namespace MathWorldAPI.Migrations
                             Icon = "📐",
                             NameAr = "حساب المثلثات",
                             NameEn = "Trigonometry",
+                            DescriptionAr = "",
+                            DescriptionEn = "",
                             Order = 2,
                             StageId = 3
                         },
@@ -455,6 +475,8 @@ namespace MathWorldAPI.Migrations
                             Icon = "∫",
                             NameAr = "التفاضل والتكامل",
                             NameEn = "Calculus",
+                            DescriptionAr = "",
+                            DescriptionEn = "",
                             Order = 3,
                             StageId = 3
                         },
@@ -464,6 +486,8 @@ namespace MathWorldAPI.Migrations
                             Icon = "🎲",
                             NameAr = "الإحصاء والاحتمالات المتقدم",
                             NameEn = "Advanced Statistics",
+                            DescriptionAr = "",
+                            DescriptionEn = "",
                             Order = 4,
                             StageId = 3
                         },
@@ -473,6 +497,8 @@ namespace MathWorldAPI.Migrations
                             Icon = "🌌",
                             NameAr = "التفاضل متعدد المتغيرات",
                             NameEn = "Multivariable Calculus",
+                            DescriptionAr = "",
+                            DescriptionEn = "",
                             Order = 1,
                             StageId = 4
                         },
@@ -482,6 +508,8 @@ namespace MathWorldAPI.Migrations
                             Icon = "🧮",
                             NameAr = "الجبر الخطي",
                             NameEn = "Linear Algebra",
+                            DescriptionAr = "",
+                            DescriptionEn = "",
                             Order = 2,
                             StageId = 4
                         },
@@ -491,6 +519,8 @@ namespace MathWorldAPI.Migrations
                             Icon = "🌀",
                             NameAr = "المعادلات التفاضلية",
                             NameEn = "Differential Equations",
+                            DescriptionAr = "",
+                            DescriptionEn = "",
                             Order = 3,
                             StageId = 4
                         },
@@ -500,6 +530,8 @@ namespace MathWorldAPI.Migrations
                             Icon = "∞",
                             NameAr = "التحليل الحقيقي",
                             NameEn = "Real Analysis",
+                            DescriptionAr = "",
+                            DescriptionEn = "",
                             Order = 4,
                             StageId = 4
                         });
@@ -542,6 +574,8 @@ namespace MathWorldAPI.Migrations
                             Id = 1,
                             NameAr = "المرحلة الابتدائية",
                             NameEn = "Elementary School",
+                            DescriptionAr = "",
+                            DescriptionEn = "",
                             Order = 1
                         },
                         new
@@ -549,6 +583,8 @@ namespace MathWorldAPI.Migrations
                             Id = 2,
                             NameAr = "المرحلة الإعدادية",
                             NameEn = "Middle School",
+                            DescriptionAr = "",
+                            DescriptionEn = "",
                             Order = 2
                         },
                         new
@@ -556,6 +592,8 @@ namespace MathWorldAPI.Migrations
                             Id = 3,
                             NameAr = "المرحلة الثانوية",
                             NameEn = "High School",
+                            DescriptionAr = "",
+                            DescriptionEn = "",
                             Order = 3
                         },
                         new
@@ -563,6 +601,8 @@ namespace MathWorldAPI.Migrations
                             Id = 4,
                             NameAr = "المرحلة الجامعية",
                             NameEn = "University",
+                            DescriptionAr = "",
+                            DescriptionEn = "",
                             Order = 4
                         });
                 });
