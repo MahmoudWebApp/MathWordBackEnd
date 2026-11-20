@@ -149,9 +149,10 @@ namespace MathWorldAPI.Controllers
                     pageSize);
             }
 
-            // Protect the direct Meili endpoint too: filtering after
-            // Meili pagination would leak category presence and wrong totals.
-            if (await IsFreeStudentAsync())
+            // A learner's solved-last order must be applied BEFORE pagination.
+            // External-search ordering cannot safely sort personalized progress.
+            // Reuse the PostgreSQL query for any authenticated account.
+            if (User.Identity?.IsAuthenticated == true)
                 return await PostgreSqlSearch(q, categoryId, stageId, page, pageSize);
 
             var language =
@@ -549,10 +550,21 @@ namespace MathWorldAPI.Controllers
                     total /
                     (double)pageSize);
 
+            // Unsolved questions come first across every page, not only
+            // within the current ten results. Never expose another user's
+            // progress, and never require login for public preview cards.
+            var viewerId = User.Identity?.IsAuthenticated == true
+                ? GetUserId()
+                : null;
+            var orderedQuery = viewerId.HasValue
+                ? query.OrderBy(problem => _context.UserProgresses.Any(progress =>
+                      progress.UserId == viewerId.Value &&
+                      progress.ProblemId == problem.Id && progress.IsSolved))
+                    .ThenByDescending(problem => problem.Id)
+                : query.OrderByDescending(problem => problem.Id);
+
             var problems =
-                await query
-                    .OrderByDescending(problem =>
-                        problem.Id)
+                await orderedQuery
                     .Skip(
                         (page - 1) *
                         pageSize)
@@ -560,6 +572,14 @@ namespace MathWorldAPI.Controllers
                     .Select(problem =>
                         new ProblemPreviewDto
                         {
+                            IsSolved = viewerId.HasValue &&
+                                _context.UserProgresses.Any(progress =>
+                                    progress.UserId == viewerId.Value &&
+                                    progress.ProblemId == problem.Id && progress.IsSolved),
+                            HasAttempted = viewerId.HasValue &&
+                                _context.UserProgresses.Any(progress =>
+                                    progress.UserId == viewerId.Value &&
+                                    progress.ProblemId == problem.Id && progress.Attempts > 0),
                             Id =
                                 problem.Id,
 

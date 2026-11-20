@@ -703,6 +703,12 @@ namespace MathWorldAPI.DTOs
         /// </summary>
         public bool RequiresLogin { get; set; } =
             true;
+
+        /// <summary>Only the authenticated learner's own saved progress.</summary>
+        public bool IsSolved { get; set; }
+
+        /// <summary>Whether the learner attempted this question at least once.</summary>
+        public bool HasAttempted { get; set; }
     }
 
     /// <summary>
