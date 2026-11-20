@@ -7,6 +7,8 @@
         public string NameEn { get; set; } = string.Empty;
         public string Icon { get; set; } = "📐";
         public int Order { get; set; } = 0;
+        public string DescriptionAr { get; set; } = string.Empty;
+        public string DescriptionEn { get; set; } = string.Empty;
         public int StageId { get; set; }
         public EducationalStage Stage { get; set; } = null!;
         public List<MathProblem> Problems { get; set; } = new();
