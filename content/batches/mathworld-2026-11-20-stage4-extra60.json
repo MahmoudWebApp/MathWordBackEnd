@@ -1,0 +1,1928 @@
+{
+  "status": "published-in-single-development-database; further human editorial review required",
+  "stage": 4,
+  "count": 60,
+  "problems": [
+    {
+      "ContentKey": "mw20261120-c13-t1-i0",
+      "StageId": 4,
+      "CategoryId": 13,
+      "QuestionTextAr": "إذا \\(f(x,y)=2x^2y+1y^2\\)، أوجد \\(\\partial f/\\partial y\\) عند (2،3).",
+      "QuestionTextEn": "Given \\(f(x,y)=2x^2y+1y^2\\), evaluate \\(\\partial f/\\partial y\\) at (2,3).",
+      "DetailedSolutionAr": "المشتقة الجزئية=2x²+2y، وبالتعويض 14.",
+      "DetailedSolutionEn": "Partial derivative=2x²+2y; evaluating gives 14.",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "17",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "12",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "14",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "15",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c13-t2-i0",
+      "StageId": 4,
+      "CategoryId": 13,
+      "QuestionTextAr": "ما تدرج \\(f(x,y)=x^2+y^2\\) عند النقطة (2،3)؟",
+      "QuestionTextEn": "Find gradient of \\(f(x,y)=x^2+y^2\\) at (2,3).",
+      "DetailedSolutionAr": "التدرج=(2x,2y)، أي (4,6).",
+      "DetailedSolutionEn": "Gradient=(2x,2y), so (4,6).",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "(4,-6)",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "(4,6)",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "(2,3)",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "(6,4)",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c13-t3-i0",
+      "StageId": 4,
+      "CategoryId": 13,
+      "QuestionTextAr": "لدالة \\(f(x,y)=x^2+3y^2\\)، احسب المشتقة الاتجاهية عند (1،2) باتجاه محور x الموجب.",
+      "QuestionTextEn": "For \\(f(x,y)=x^2+3y^2\\), find directional derivative at (1,2) in positive x-direction.",
+      "DetailedSolutionAr": "الاتجاه (1,0) والمشتقة الاتجاهية هي ∂f/∂x=2x=2.",
+      "DetailedSolutionEn": "Direction (1,0); derivative equals ∂f/∂x=2x=2.",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "2",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "3",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "5",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "0",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c14-t1-i0",
+      "StageId": 4,
+      "CategoryId": 14,
+      "QuestionTextAr": "ما أثر المصفوفة \\(\\begin{pmatrix}2&0\\\\0&4\\end{pmatrix}\\)؟",
+      "QuestionTextEn": "Find trace of \\(\\begin{pmatrix}2&0\\\\0&4\\end{pmatrix}\\).",
+      "DetailedSolutionAr": "الأثر مجموع عناصر القطر 2+4=6.",
+      "DetailedSolutionEn": "Trace is diagonal sum 2+4=6.",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "4",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "6",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "7",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "9",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c14-t2-i0",
+      "StageId": 4,
+      "CategoryId": 14,
+      "QuestionTextAr": "اضرب المتجه (3،4) بالعدد 2.",
+      "QuestionTextEn": "Multiply vector (3,4) by scalar 2.",
+      "DetailedSolutionAr": "نضرب كل مركبة: (6,8).",
+      "DetailedSolutionEn": "Multiply each coordinate: (6,8).",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "(6,8)",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "(5,6)",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "(8,6)",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "(3,8)",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c14-t3-i0",
+      "StageId": 4,
+      "CategoryId": 14,
+      "QuestionTextAr": "ما محدد \\(\\begin{pmatrix}2&3\\\\0&5\\end{pmatrix}\\)؟",
+      "QuestionTextEn": "Find determinant of \\(\\begin{pmatrix}2&3\\\\0&5\\end{pmatrix}\\).",
+      "DetailedSolutionAr": "المصفوفة مثلثية، المحدد=2×5=10.",
+      "DetailedSolutionEn": "This is triangular; determinant=2×5=10.",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "11",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "13",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "8",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "10",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c15-t1-i0",
+      "StageId": 4,
+      "CategoryId": 15,
+      "QuestionTextAr": "إذا \\(y'=3\\) و\\(y(0)=2\\)، أوجد \\(y(4)\\).",
+      "QuestionTextEn": "Given \\(y'=3\\), \\(y(0)=2\\), find \\(y(4)\\).",
+      "DetailedSolutionAr": "بالتكامل y=3x+2، فالقيمة 14.",
+      "DetailedSolutionEn": "Integrate y=3x+2, yielding 14.",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "14",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "15",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "17",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "12",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c15-t2-i0",
+      "StageId": 4,
+      "CategoryId": 15,
+      "QuestionTextAr": "إذا \\(y''=0\\) و\\(y'(0)=2\\) و\\(y(0)=3\\)، أوجد \\(y(3)\\).",
+      "QuestionTextEn": "Given \\(y''=0\\), \\(y'(0)=2\\), \\(y(0)=3\\), find \\(y(3)\\).",
+      "DetailedSolutionAr": "الحل y=2x+3، لذا 9.",
+      "DetailedSolutionEn": "Solution y=2x+3, giving 9.",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "10",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "12",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "7",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "9",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c15-t3-i0",
+      "StageId": 4,
+      "CategoryId": 15,
+      "QuestionTextAr": "إذا \\(y'=4x\\) و\\(y(0)=3\\)، أوجد \\(y(2)\\).",
+      "QuestionTextEn": "Given \\(y'=4x\\), \\(y(0)=3\\), find \\(y(2)\\).",
+      "DetailedSolutionAr": "بالتكامل y=2x²+3، فالقيمة 11.",
+      "DetailedSolutionEn": "Integrate y=2x²+3, giving 11.",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "14",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "9",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "11",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "12",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c16-t1-i0",
+      "StageId": 4,
+      "CategoryId": 16,
+      "QuestionTextAr": "أوجد نهاية \\(a_n=\\frac{2}{n+1}\\) عندما \\(n\\to\\infty\\).",
+      "QuestionTextEn": "Find limit of \\(a_n=\\frac{2}{n+1}\\) as n tends to infinity.",
+      "DetailedSolutionAr": "البسط ثابت والمقام ينمو بلا حد؛ النهاية صفر.",
+      "DetailedSolutionEn": "Numerator stays constant and denominator grows, so the limit is zero.",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "1",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "2",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "+\\infty",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "0",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c16-t2-i0",
+      "StageId": 4,
+      "CategoryId": 16,
+      "QuestionTextAr": "ما نهاية \\(a_n=(\\frac{1}{2})^n\\) عندما \\(n\\to\\infty\\)؟",
+      "QuestionTextEn": "Find the limit of \\(a_n=(\\frac{1}{2})^n\\) as n tends to infinity.",
+      "DetailedSolutionAr": "بما أن 0<1/2<1 فالقوى تتجه إلى صفر.",
+      "DetailedSolutionEn": "Because 0<1/2<1, its powers tend to zero.",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "\\frac{1}{2}",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "+\\infty",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "0",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "1",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c16-t3-i0",
+      "StageId": 4,
+      "CategoryId": 16,
+      "QuestionTextAr": "لدالة f تحقق f(0)=-2 وf(1)=3، ما الشرط الكافي لضمان وجود جذر في (0,1) بنظرية القيمة الوسيطة؟",
+      "QuestionTextEn": "For f(0)=-2 and f(1)=3, what sufficient condition guarantees a root in (0,1) by the intermediate value theorem?",
+      "DetailedSolutionAr": "إذا كانت الدالة متصلة على [0,1] والصفر بين قيمتي الطرفين، يوجد جذر.",
+      "DetailedSolutionEn": "Continuity on [0,1] and opposite-signed endpoints guarantee a root.",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "f\\text{ is differentiable only at }1",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "f\\text{ is continuous on }[0,1]",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "f\\text{ is defined only at }0",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "f\\text{ is bounded at }0",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c13-t1-i1",
+      "StageId": 4,
+      "CategoryId": 13,
+      "QuestionTextAr": "إذا \\(f(x,y)=3x^2y+2y^2\\)، أوجد \\(\\partial f/\\partial y\\) عند (3،4).",
+      "QuestionTextEn": "Given \\(f(x,y)=3x^2y+2y^2\\), evaluate \\(\\partial f/\\partial y\\) at (3,4).",
+      "DetailedSolutionAr": "المشتقة الجزئية=3x²+4y، وبالتعويض 43.",
+      "DetailedSolutionEn": "Partial derivative=3x²+4y; evaluating gives 43.",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "41",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "43",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "44",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "46",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c13-t2-i1",
+      "StageId": 4,
+      "CategoryId": 13,
+      "QuestionTextAr": "ما تدرج \\(f(x,y)=x^2+y^2\\) عند النقطة (3،4)؟",
+      "QuestionTextEn": "Find gradient of \\(f(x,y)=x^2+y^2\\) at (3,4).",
+      "DetailedSolutionAr": "التدرج=(2x,2y)، أي (6,8).",
+      "DetailedSolutionEn": "Gradient=(2x,2y), so (6,8).",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "(6,8)",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "(3,4)",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "(8,6)",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "(6,-8)",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c13-t3-i1",
+      "StageId": 4,
+      "CategoryId": 13,
+      "QuestionTextAr": "لدالة \\(f(x,y)=x^2+3y^2\\)، احسب المشتقة الاتجاهية عند (2،3) باتجاه محور x الموجب.",
+      "QuestionTextEn": "For \\(f(x,y)=x^2+3y^2\\), find directional derivative at (2,3) in positive x-direction.",
+      "DetailedSolutionAr": "الاتجاه (1,0) والمشتقة الاتجاهية هي ∂f/∂x=2x=4.",
+      "DetailedSolutionEn": "Direction (1,0); derivative equals ∂f/∂x=2x=4.",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "5",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "7",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "2",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "4",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c14-t1-i1",
+      "StageId": 4,
+      "CategoryId": 14,
+      "QuestionTextAr": "ما أثر المصفوفة \\(\\begin{pmatrix}3&0\\\\0&5\\end{pmatrix}\\)؟",
+      "QuestionTextEn": "Find trace of \\(\\begin{pmatrix}3&0\\\\0&5\\end{pmatrix}\\).",
+      "DetailedSolutionAr": "الأثر مجموع عناصر القطر 3+5=8.",
+      "DetailedSolutionEn": "Trace is diagonal sum 3+5=8.",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "8",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "9",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "11",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "6",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c14-t2-i1",
+      "StageId": 4,
+      "CategoryId": 14,
+      "QuestionTextAr": "اضرب المتجه (4،5) بالعدد 3.",
+      "QuestionTextEn": "Multiply vector (4,5) by scalar 3.",
+      "DetailedSolutionAr": "نضرب كل مركبة: (12,15).",
+      "DetailedSolutionEn": "Multiply each coordinate: (12,15).",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "(7,8)",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "(15,12)",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "(4,15)",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "(12,15)",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c14-t3-i1",
+      "StageId": 4,
+      "CategoryId": 14,
+      "QuestionTextAr": "ما محدد \\(\\begin{pmatrix}3&4\\\\0&6\\end{pmatrix}\\)؟",
+      "QuestionTextEn": "Find determinant of \\(\\begin{pmatrix}3&4\\\\0&6\\end{pmatrix}\\).",
+      "DetailedSolutionAr": "المصفوفة مثلثية، المحدد=3×6=18.",
+      "DetailedSolutionEn": "This is triangular; determinant=3×6=18.",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "21",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "16",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "18",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "19",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c15-t1-i1",
+      "StageId": 4,
+      "CategoryId": 15,
+      "QuestionTextAr": "إذا \\(y'=4\\) و\\(y(0)=3\\)، أوجد \\(y(5)\\).",
+      "QuestionTextEn": "Given \\(y'=4\\), \\(y(0)=3\\), find \\(y(5)\\).",
+      "DetailedSolutionAr": "بالتكامل y=4x+3، فالقيمة 23.",
+      "DetailedSolutionEn": "Integrate y=4x+3, yielding 23.",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "24",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "26",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "21",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "23",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c15-t2-i1",
+      "StageId": 4,
+      "CategoryId": 15,
+      "QuestionTextAr": "إذا \\(y''=0\\) و\\(y'(0)=3\\) و\\(y(0)=4\\)، أوجد \\(y(4)\\).",
+      "QuestionTextEn": "Given \\(y''=0\\), \\(y'(0)=3\\), \\(y(0)=4\\), find \\(y(4)\\).",
+      "DetailedSolutionAr": "الحل y=3x+4، لذا 16.",
+      "DetailedSolutionEn": "Solution y=3x+4, giving 16.",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "19",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "14",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "16",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "17",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c15-t3-i1",
+      "StageId": 4,
+      "CategoryId": 15,
+      "QuestionTextAr": "إذا \\(y'=6x\\) و\\(y(0)=4\\)، أوجد \\(y(3)\\).",
+      "QuestionTextEn": "Given \\(y'=6x\\), \\(y(0)=4\\), find \\(y(3)\\).",
+      "DetailedSolutionAr": "بالتكامل y=3x²+4، فالقيمة 31.",
+      "DetailedSolutionEn": "Integrate y=3x²+4, giving 31.",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "29",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "31",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "32",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "34",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c16-t1-i1",
+      "StageId": 4,
+      "CategoryId": 16,
+      "QuestionTextAr": "أوجد نهاية \\(a_n=\\frac{3}{n+1}\\) عندما \\(n\\to\\infty\\).",
+      "QuestionTextEn": "Find limit of \\(a_n=\\frac{3}{n+1}\\) as n tends to infinity.",
+      "DetailedSolutionAr": "البسط ثابت والمقام ينمو بلا حد؛ النهاية صفر.",
+      "DetailedSolutionEn": "Numerator stays constant and denominator grows, so the limit is zero.",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "3",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "+\\infty",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "0",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "1",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c16-t2-i1",
+      "StageId": 4,
+      "CategoryId": 16,
+      "QuestionTextAr": "ما نهاية \\(a_n=(\\frac{1}{3})^n\\) عندما \\(n\\to\\infty\\)؟",
+      "QuestionTextEn": "Find the limit of \\(a_n=(\\frac{1}{3})^n\\) as n tends to infinity.",
+      "DetailedSolutionAr": "بما أن 0<1/3<1 فالقوى تتجه إلى صفر.",
+      "DetailedSolutionEn": "Because 0<1/3<1, its powers tend to zero.",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "+\\infty",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "0",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "1",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{1}{3}",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c16-t3-i1",
+      "StageId": 4,
+      "CategoryId": 16,
+      "QuestionTextAr": "لدالة f تحقق f(0)=-3 وf(1)=4، ما الشرط الكافي لضمان وجود جذر في (0,1) بنظرية القيمة الوسيطة؟",
+      "QuestionTextEn": "For f(0)=-3 and f(1)=4, what sufficient condition guarantees a root in (0,1) by the intermediate value theorem?",
+      "DetailedSolutionAr": "إذا كانت الدالة متصلة على [0,1] والصفر بين قيمتي الطرفين، يوجد جذر.",
+      "DetailedSolutionEn": "Continuity on [0,1] and opposite-signed endpoints guarantee a root.",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "f\\text{ is continuous on }[0,1]",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "f\\text{ is defined only at }0",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "f\\text{ is bounded at }0",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "f\\text{ is differentiable only at }1",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c13-t1-i2",
+      "StageId": 4,
+      "CategoryId": 13,
+      "QuestionTextAr": "إذا \\(f(x,y)=4x^2y+3y^2\\)، أوجد \\(\\partial f/\\partial y\\) عند (4،5).",
+      "QuestionTextEn": "Given \\(f(x,y)=4x^2y+3y^2\\), evaluate \\(\\partial f/\\partial y\\) at (4,5).",
+      "DetailedSolutionAr": "المشتقة الجزئية=4x²+6y، وبالتعويض 94.",
+      "DetailedSolutionEn": "Partial derivative=4x²+6y; evaluating gives 94.",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "94",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "95",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "97",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "92",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c13-t2-i2",
+      "StageId": 4,
+      "CategoryId": 13,
+      "QuestionTextAr": "ما تدرج \\(f(x,y)=x^2+y^2\\) عند النقطة (4،5)؟",
+      "QuestionTextEn": "Find gradient of \\(f(x,y)=x^2+y^2\\) at (4,5).",
+      "DetailedSolutionAr": "التدرج=(2x,2y)، أي (8,10).",
+      "DetailedSolutionEn": "Gradient=(2x,2y), so (8,10).",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "(4,5)",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "(10,8)",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "(8,-10)",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "(8,10)",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c13-t3-i2",
+      "StageId": 4,
+      "CategoryId": 13,
+      "QuestionTextAr": "لدالة \\(f(x,y)=x^2+3y^2\\)، احسب المشتقة الاتجاهية عند (3،4) باتجاه محور x الموجب.",
+      "QuestionTextEn": "For \\(f(x,y)=x^2+3y^2\\), find directional derivative at (3,4) in positive x-direction.",
+      "DetailedSolutionAr": "الاتجاه (1,0) والمشتقة الاتجاهية هي ∂f/∂x=2x=6.",
+      "DetailedSolutionEn": "Direction (1,0); derivative equals ∂f/∂x=2x=6.",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "9",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "4",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "6",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "7",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c14-t1-i2",
+      "StageId": 4,
+      "CategoryId": 14,
+      "QuestionTextAr": "ما أثر المصفوفة \\(\\begin{pmatrix}4&0\\\\0&6\\end{pmatrix}\\)؟",
+      "QuestionTextEn": "Find trace of \\(\\begin{pmatrix}4&0\\\\0&6\\end{pmatrix}\\).",
+      "DetailedSolutionAr": "الأثر مجموع عناصر القطر 4+6=10.",
+      "DetailedSolutionEn": "Trace is diagonal sum 4+6=10.",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "11",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "13",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "8",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "10",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c14-t2-i2",
+      "StageId": 4,
+      "CategoryId": 14,
+      "QuestionTextAr": "اضرب المتجه (5،6) بالعدد 4.",
+      "QuestionTextEn": "Multiply vector (5,6) by scalar 4.",
+      "DetailedSolutionAr": "نضرب كل مركبة: (20,24).",
+      "DetailedSolutionEn": "Multiply each coordinate: (20,24).",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "(24,20)",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "(5,24)",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "(20,24)",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "(9,10)",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c14-t3-i2",
+      "StageId": 4,
+      "CategoryId": 14,
+      "QuestionTextAr": "ما محدد \\(\\begin{pmatrix}4&5\\\\0&7\\end{pmatrix}\\)؟",
+      "QuestionTextEn": "Find determinant of \\(\\begin{pmatrix}4&5\\\\0&7\\end{pmatrix}\\).",
+      "DetailedSolutionAr": "المصفوفة مثلثية، المحدد=4×7=28.",
+      "DetailedSolutionEn": "This is triangular; determinant=4×7=28.",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "26",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "28",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "29",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "31",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c15-t1-i2",
+      "StageId": 4,
+      "CategoryId": 15,
+      "QuestionTextAr": "إذا \\(y'=5\\) و\\(y(0)=4\\)، أوجد \\(y(6)\\).",
+      "QuestionTextEn": "Given \\(y'=5\\), \\(y(0)=4\\), find \\(y(6)\\).",
+      "DetailedSolutionAr": "بالتكامل y=5x+4، فالقيمة 34.",
+      "DetailedSolutionEn": "Integrate y=5x+4, yielding 34.",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "37",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "32",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "34",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "35",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c15-t2-i2",
+      "StageId": 4,
+      "CategoryId": 15,
+      "QuestionTextAr": "إذا \\(y''=0\\) و\\(y'(0)=4\\) و\\(y(0)=5\\)، أوجد \\(y(5)\\).",
+      "QuestionTextEn": "Given \\(y''=0\\), \\(y'(0)=4\\), \\(y(0)=5\\), find \\(y(5)\\).",
+      "DetailedSolutionAr": "الحل y=4x+5، لذا 25.",
+      "DetailedSolutionEn": "Solution y=4x+5, giving 25.",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "23",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "25",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "26",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "28",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c15-t3-i2",
+      "StageId": 4,
+      "CategoryId": 15,
+      "QuestionTextAr": "إذا \\(y'=8x\\) و\\(y(0)=5\\)، أوجد \\(y(4)\\).",
+      "QuestionTextEn": "Given \\(y'=8x\\), \\(y(0)=5\\), find \\(y(4)\\).",
+      "DetailedSolutionAr": "بالتكامل y=4x²+5، فالقيمة 69.",
+      "DetailedSolutionEn": "Integrate y=4x²+5, giving 69.",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "69",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "70",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "72",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "67",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c16-t1-i2",
+      "StageId": 4,
+      "CategoryId": 16,
+      "QuestionTextAr": "أوجد نهاية \\(a_n=\\frac{4}{n+1}\\) عندما \\(n\\to\\infty\\).",
+      "QuestionTextEn": "Find limit of \\(a_n=\\frac{4}{n+1}\\) as n tends to infinity.",
+      "DetailedSolutionAr": "البسط ثابت والمقام ينمو بلا حد؛ النهاية صفر.",
+      "DetailedSolutionEn": "Numerator stays constant and denominator grows, so the limit is zero.",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "+\\infty",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "0",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "1",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "4",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c16-t2-i2",
+      "StageId": 4,
+      "CategoryId": 16,
+      "QuestionTextAr": "ما نهاية \\(a_n=(\\frac{1}{4})^n\\) عندما \\(n\\to\\infty\\)؟",
+      "QuestionTextEn": "Find the limit of \\(a_n=(\\frac{1}{4})^n\\) as n tends to infinity.",
+      "DetailedSolutionAr": "بما أن 0<1/4<1 فالقوى تتجه إلى صفر.",
+      "DetailedSolutionEn": "Because 0<1/4<1, its powers tend to zero.",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "0",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "1",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{1}{4}",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "+\\infty",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c16-t3-i2",
+      "StageId": 4,
+      "CategoryId": 16,
+      "QuestionTextAr": "لدالة f تحقق f(0)=-4 وf(1)=5، ما الشرط الكافي لضمان وجود جذر في (0,1) بنظرية القيمة الوسيطة؟",
+      "QuestionTextEn": "For f(0)=-4 and f(1)=5, what sufficient condition guarantees a root in (0,1) by the intermediate value theorem?",
+      "DetailedSolutionAr": "إذا كانت الدالة متصلة على [0,1] والصفر بين قيمتي الطرفين، يوجد جذر.",
+      "DetailedSolutionEn": "Continuity on [0,1] and opposite-signed endpoints guarantee a root.",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "f\\text{ is defined only at }0",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "f\\text{ is bounded at }0",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "f\\text{ is differentiable only at }1",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "f\\text{ is continuous on }[0,1]",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c13-t1-i3",
+      "StageId": 4,
+      "CategoryId": 13,
+      "QuestionTextAr": "إذا \\(f(x,y)=5x^2y+4y^2\\)، أوجد \\(\\partial f/\\partial y\\) عند (5،6).",
+      "QuestionTextEn": "Given \\(f(x,y)=5x^2y+4y^2\\), evaluate \\(\\partial f/\\partial y\\) at (5,6).",
+      "DetailedSolutionAr": "المشتقة الجزئية=5x²+8y، وبالتعويض 173.",
+      "DetailedSolutionEn": "Partial derivative=5x²+8y; evaluating gives 173.",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "174",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "176",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "171",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "173",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c13-t2-i3",
+      "StageId": 4,
+      "CategoryId": 13,
+      "QuestionTextAr": "ما تدرج \\(f(x,y)=x^2+y^2\\) عند النقطة (5،6)؟",
+      "QuestionTextEn": "Find gradient of \\(f(x,y)=x^2+y^2\\) at (5,6).",
+      "DetailedSolutionAr": "التدرج=(2x,2y)، أي (10,12).",
+      "DetailedSolutionEn": "Gradient=(2x,2y), so (10,12).",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "(12,10)",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "(10,-12)",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "(10,12)",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "(5,6)",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c13-t3-i3",
+      "StageId": 4,
+      "CategoryId": 13,
+      "QuestionTextAr": "لدالة \\(f(x,y)=x^2+3y^2\\)، احسب المشتقة الاتجاهية عند (4،5) باتجاه محور x الموجب.",
+      "QuestionTextEn": "For \\(f(x,y)=x^2+3y^2\\), find directional derivative at (4,5) in positive x-direction.",
+      "DetailedSolutionAr": "الاتجاه (1,0) والمشتقة الاتجاهية هي ∂f/∂x=2x=8.",
+      "DetailedSolutionEn": "Direction (1,0); derivative equals ∂f/∂x=2x=8.",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "6",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "8",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "9",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "11",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c14-t1-i3",
+      "StageId": 4,
+      "CategoryId": 14,
+      "QuestionTextAr": "ما أثر المصفوفة \\(\\begin{pmatrix}5&0\\\\0&7\\end{pmatrix}\\)؟",
+      "QuestionTextEn": "Find trace of \\(\\begin{pmatrix}5&0\\\\0&7\\end{pmatrix}\\).",
+      "DetailedSolutionAr": "الأثر مجموع عناصر القطر 5+7=12.",
+      "DetailedSolutionEn": "Trace is diagonal sum 5+7=12.",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "15",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "10",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "12",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "13",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c14-t2-i3",
+      "StageId": 4,
+      "CategoryId": 14,
+      "QuestionTextAr": "اضرب المتجه (6،7) بالعدد 5.",
+      "QuestionTextEn": "Multiply vector (6,7) by scalar 5.",
+      "DetailedSolutionAr": "نضرب كل مركبة: (30,35).",
+      "DetailedSolutionEn": "Multiply each coordinate: (30,35).",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "(6,35)",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "(30,35)",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "(11,12)",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "(35,30)",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c14-t3-i3",
+      "StageId": 4,
+      "CategoryId": 14,
+      "QuestionTextAr": "ما محدد \\(\\begin{pmatrix}5&6\\\\0&8\\end{pmatrix}\\)؟",
+      "QuestionTextEn": "Find determinant of \\(\\begin{pmatrix}5&6\\\\0&8\\end{pmatrix}\\).",
+      "DetailedSolutionAr": "المصفوفة مثلثية، المحدد=5×8=40.",
+      "DetailedSolutionEn": "This is triangular; determinant=5×8=40.",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "40",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "41",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "43",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "38",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c15-t1-i3",
+      "StageId": 4,
+      "CategoryId": 15,
+      "QuestionTextAr": "إذا \\(y'=6\\) و\\(y(0)=5\\)، أوجد \\(y(7)\\).",
+      "QuestionTextEn": "Given \\(y'=6\\), \\(y(0)=5\\), find \\(y(7)\\).",
+      "DetailedSolutionAr": "بالتكامل y=6x+5، فالقيمة 47.",
+      "DetailedSolutionEn": "Integrate y=6x+5, yielding 47.",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "45",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "47",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "48",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "50",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c15-t2-i3",
+      "StageId": 4,
+      "CategoryId": 15,
+      "QuestionTextAr": "إذا \\(y''=0\\) و\\(y'(0)=5\\) و\\(y(0)=6\\)، أوجد \\(y(6)\\).",
+      "QuestionTextEn": "Given \\(y''=0\\), \\(y'(0)=5\\), \\(y(0)=6\\), find \\(y(6)\\).",
+      "DetailedSolutionAr": "الحل y=5x+6، لذا 36.",
+      "DetailedSolutionEn": "Solution y=5x+6, giving 36.",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "36",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "37",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "39",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "34",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c15-t3-i3",
+      "StageId": 4,
+      "CategoryId": 15,
+      "QuestionTextAr": "إذا \\(y'=10x\\) و\\(y(0)=6\\)، أوجد \\(y(5)\\).",
+      "QuestionTextEn": "Given \\(y'=10x\\), \\(y(0)=6\\), find \\(y(5)\\).",
+      "DetailedSolutionAr": "بالتكامل y=5x²+6، فالقيمة 131.",
+      "DetailedSolutionEn": "Integrate y=5x²+6, giving 131.",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "132",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "134",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "129",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "131",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c16-t1-i3",
+      "StageId": 4,
+      "CategoryId": 16,
+      "QuestionTextAr": "أوجد نهاية \\(a_n=\\frac{5}{n+1}\\) عندما \\(n\\to\\infty\\).",
+      "QuestionTextEn": "Find limit of \\(a_n=\\frac{5}{n+1}\\) as n tends to infinity.",
+      "DetailedSolutionAr": "البسط ثابت والمقام ينمو بلا حد؛ النهاية صفر.",
+      "DetailedSolutionEn": "Numerator stays constant and denominator grows, so the limit is zero.",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "0",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "1",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "5",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "+\\infty",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c16-t2-i3",
+      "StageId": 4,
+      "CategoryId": 16,
+      "QuestionTextAr": "ما نهاية \\(a_n=(\\frac{1}{5})^n\\) عندما \\(n\\to\\infty\\)؟",
+      "QuestionTextEn": "Find the limit of \\(a_n=(\\frac{1}{5})^n\\) as n tends to infinity.",
+      "DetailedSolutionAr": "بما أن 0<1/5<1 فالقوى تتجه إلى صفر.",
+      "DetailedSolutionEn": "Because 0<1/5<1, its powers tend to zero.",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "1",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{1}{5}",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "+\\infty",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "0",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c16-t3-i3",
+      "StageId": 4,
+      "CategoryId": 16,
+      "QuestionTextAr": "لدالة f تحقق f(0)=-5 وf(1)=6، ما الشرط الكافي لضمان وجود جذر في (0,1) بنظرية القيمة الوسيطة؟",
+      "QuestionTextEn": "For f(0)=-5 and f(1)=6, what sufficient condition guarantees a root in (0,1) by the intermediate value theorem?",
+      "DetailedSolutionAr": "إذا كانت الدالة متصلة على [0,1] والصفر بين قيمتي الطرفين، يوجد جذر.",
+      "DetailedSolutionEn": "Continuity on [0,1] and opposite-signed endpoints guarantee a root.",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "f\\text{ is bounded at }0",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "f\\text{ is differentiable only at }1",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "f\\text{ is continuous on }[0,1]",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "f\\text{ is defined only at }0",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c13-t1-i4",
+      "StageId": 4,
+      "CategoryId": 13,
+      "QuestionTextAr": "إذا \\(f(x,y)=6x^2y+5y^2\\)، أوجد \\(\\partial f/\\partial y\\) عند (6،7).",
+      "QuestionTextEn": "Given \\(f(x,y)=6x^2y+5y^2\\), evaluate \\(\\partial f/\\partial y\\) at (6,7).",
+      "DetailedSolutionAr": "المشتقة الجزئية=6x²+10y، وبالتعويض 286.",
+      "DetailedSolutionEn": "Partial derivative=6x²+10y; evaluating gives 286.",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "289",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "284",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "286",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "287",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c13-t2-i4",
+      "StageId": 4,
+      "CategoryId": 13,
+      "QuestionTextAr": "ما تدرج \\(f(x,y)=x^2+y^2\\) عند النقطة (6،7)؟",
+      "QuestionTextEn": "Find gradient of \\(f(x,y)=x^2+y^2\\) at (6,7).",
+      "DetailedSolutionAr": "التدرج=(2x,2y)، أي (12,14).",
+      "DetailedSolutionEn": "Gradient=(2x,2y), so (12,14).",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "(12,-14)",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "(12,14)",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "(6,7)",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "(14,12)",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c13-t3-i4",
+      "StageId": 4,
+      "CategoryId": 13,
+      "QuestionTextAr": "لدالة \\(f(x,y)=x^2+3y^2\\)، احسب المشتقة الاتجاهية عند (5،6) باتجاه محور x الموجب.",
+      "QuestionTextEn": "For \\(f(x,y)=x^2+3y^2\\), find directional derivative at (5,6) in positive x-direction.",
+      "DetailedSolutionAr": "الاتجاه (1,0) والمشتقة الاتجاهية هي ∂f/∂x=2x=10.",
+      "DetailedSolutionEn": "Direction (1,0); derivative equals ∂f/∂x=2x=10.",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "10",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "11",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "13",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "8",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c14-t1-i4",
+      "StageId": 4,
+      "CategoryId": 14,
+      "QuestionTextAr": "ما أثر المصفوفة \\(\\begin{pmatrix}6&0\\\\0&8\\end{pmatrix}\\)؟",
+      "QuestionTextEn": "Find trace of \\(\\begin{pmatrix}6&0\\\\0&8\\end{pmatrix}\\).",
+      "DetailedSolutionAr": "الأثر مجموع عناصر القطر 6+8=14.",
+      "DetailedSolutionEn": "Trace is diagonal sum 6+8=14.",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "12",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "14",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "15",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "17",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c14-t2-i4",
+      "StageId": 4,
+      "CategoryId": 14,
+      "QuestionTextAr": "اضرب المتجه (7،8) بالعدد 6.",
+      "QuestionTextEn": "Multiply vector (7,8) by scalar 6.",
+      "DetailedSolutionAr": "نضرب كل مركبة: (42,48).",
+      "DetailedSolutionEn": "Multiply each coordinate: (42,48).",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "(42,48)",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "(13,14)",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "(48,42)",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "(7,48)",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c14-t3-i4",
+      "StageId": 4,
+      "CategoryId": 14,
+      "QuestionTextAr": "ما محدد \\(\\begin{pmatrix}6&7\\\\0&9\\end{pmatrix}\\)؟",
+      "QuestionTextEn": "Find determinant of \\(\\begin{pmatrix}6&7\\\\0&9\\end{pmatrix}\\).",
+      "DetailedSolutionAr": "المصفوفة مثلثية، المحدد=6×9=54.",
+      "DetailedSolutionEn": "This is triangular; determinant=6×9=54.",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "55",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "57",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "52",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "54",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c15-t1-i4",
+      "StageId": 4,
+      "CategoryId": 15,
+      "QuestionTextAr": "إذا \\(y'=7\\) و\\(y(0)=6\\)، أوجد \\(y(8)\\).",
+      "QuestionTextEn": "Given \\(y'=7\\), \\(y(0)=6\\), find \\(y(8)\\).",
+      "DetailedSolutionAr": "بالتكامل y=7x+6، فالقيمة 62.",
+      "DetailedSolutionEn": "Integrate y=7x+6, yielding 62.",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "62",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "63",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "65",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "60",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c15-t2-i4",
+      "StageId": 4,
+      "CategoryId": 15,
+      "QuestionTextAr": "إذا \\(y''=0\\) و\\(y'(0)=6\\) و\\(y(0)=7\\)، أوجد \\(y(7)\\).",
+      "QuestionTextEn": "Given \\(y''=0\\), \\(y'(0)=6\\), \\(y(0)=7\\), find \\(y(7)\\).",
+      "DetailedSolutionAr": "الحل y=6x+7، لذا 49.",
+      "DetailedSolutionEn": "Solution y=6x+7, giving 49.",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "50",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "52",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "47",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "49",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c15-t3-i4",
+      "StageId": 4,
+      "CategoryId": 15,
+      "QuestionTextAr": "إذا \\(y'=12x\\) و\\(y(0)=7\\)، أوجد \\(y(6)\\).",
+      "QuestionTextEn": "Given \\(y'=12x\\), \\(y(0)=7\\), find \\(y(6)\\).",
+      "DetailedSolutionAr": "بالتكامل y=6x²+7، فالقيمة 223.",
+      "DetailedSolutionEn": "Integrate y=6x²+7, giving 223.",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "226",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "221",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "223",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "224",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c16-t1-i4",
+      "StageId": 4,
+      "CategoryId": 16,
+      "QuestionTextAr": "أوجد نهاية \\(a_n=\\frac{6}{n+1}\\) عندما \\(n\\to\\infty\\).",
+      "QuestionTextEn": "Find limit of \\(a_n=\\frac{6}{n+1}\\) as n tends to infinity.",
+      "DetailedSolutionAr": "البسط ثابت والمقام ينمو بلا حد؛ النهاية صفر.",
+      "DetailedSolutionEn": "Numerator stays constant and denominator grows, so the limit is zero.",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "1",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "6",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "+\\infty",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "0",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c16-t2-i4",
+      "StageId": 4,
+      "CategoryId": 16,
+      "QuestionTextAr": "ما نهاية \\(a_n=(\\frac{1}{6})^n\\) عندما \\(n\\to\\infty\\)؟",
+      "QuestionTextEn": "Find the limit of \\(a_n=(\\frac{1}{6})^n\\) as n tends to infinity.",
+      "DetailedSolutionAr": "بما أن 0<1/6<1 فالقوى تتجه إلى صفر.",
+      "DetailedSolutionEn": "Because 0<1/6<1, its powers tend to zero.",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "\\frac{1}{6}",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "+\\infty",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "0",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "1",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw20261120-c16-t3-i4",
+      "StageId": 4,
+      "CategoryId": 16,
+      "QuestionTextAr": "لدالة f تحقق f(0)=-6 وf(1)=7، ما الشرط الكافي لضمان وجود جذر في (0,1) بنظرية القيمة الوسيطة؟",
+      "QuestionTextEn": "For f(0)=-6 and f(1)=7, what sufficient condition guarantees a root in (0,1) by the intermediate value theorem?",
+      "DetailedSolutionAr": "إذا كانت الدالة متصلة على [0,1] والصفر بين قيمتي الطرفين، يوجد جذر.",
+      "DetailedSolutionEn": "Continuity on [0,1] and opposite-signed endpoints guarantee a root.",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "f\\text{ is differentiable only at }1",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "f\\text{ is continuous on }[0,1]",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "f\\text{ is defined only at }0",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "f\\text{ is bounded at }0",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    }
+  ],
+  "publishNote": "Additive insertion of 60 bilingual problems and 240 options per stage; existing student attempts and earlier questions preserved. Database total 386 problems and 1544 options after all four stages."
+}
