@@ -1,5 +1,5 @@
 {
-  "status": "draft",
+  "status": "published-in-single-development-database; further human editorial review required",
   "stage": 4,
   "count": 60,
   "problems": [
@@ -1923,5 +1923,6 @@
         }
       ]
     }
-  ]
+  ],
+  "publishNote": "Additive insertion of 60 bilingual problems and 240 options per stage; existing student attempts and earlier questions preserved. Database total 386 problems and 1544 options after all four stages."
 }
