@@ -40,6 +40,8 @@ namespace MathWorldAPI.Controllers
                     Id = s.Id,
                     NameAr = s.NameAr,
                     NameEn = s.NameEn,
+                    DescriptionAr = s.DescriptionAr,
+                    DescriptionEn = s.DescriptionEn,
                     Order = s.Order
                 })
                 .ToListAsync();
