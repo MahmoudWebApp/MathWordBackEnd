@@ -1,0 +1,2574 @@
+{
+  "batch": "mathworld-2026-11-20-first80",
+  "status": "published-in-development-database; human/editorial math review still required",
+  "count": 80,
+  "problems": [
+    {
+      "ContentKey": "mw-20261120-c1-q1",
+      "StageId": 1,
+      "CategoryId": 1,
+      "QuestionTextAr": "احسب (17+9)-4.",
+      "QuestionTextEn": "Calculate (17+9)-4.",
+      "DetailedSolutionAr": "نجمع 17+9=26 ثم نطرح 4 فنحصل على 22.",
+      "DetailedSolutionEn": "First 17+9=26; then subtract 4 to obtain 22.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "23",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "25",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "20",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "22",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c2-q1",
+      "StageId": 1,
+      "CategoryId": 2,
+      "QuestionTextAr": "حل المعادلة س+7=12.",
+      "QuestionTextEn": "Solve x+7=12.",
+      "DetailedSolutionAr": "نطرح 7 من الطرفين، فنجد س=12-7=5.",
+      "DetailedSolutionEn": "Subtract 7 from both sides to find x=12-7=5.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "8",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "3",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "5",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "6",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c3-q1",
+      "StageId": 1,
+      "CategoryId": 3,
+      "QuestionTextAr": "مستطيل طوله 6 سم وعرضه 3 سم. ما مساحته بالسم المربع؟",
+      "QuestionTextEn": "A rectangle is 6 cm by 3 cm. Find its area in square centimetres.",
+      "DetailedSolutionAr": "المساحة = الطول × العرض = 6×3=18 سم².",
+      "DetailedSolutionEn": "Area = length × width = 6×3=18 cm².",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "16",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "18",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "19",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "21",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c4-q1",
+      "StageId": 1,
+      "CategoryId": 4,
+      "QuestionTextAr": "أوجد المتوسط الحسابي للقيم 5 و8 و11.",
+      "QuestionTextEn": "Find the arithmetic mean of 5, 8, and 11.",
+      "DetailedSolutionAr": "المجموع 24 ونقسمه على ثلاثة فنحصل على 8.",
+      "DetailedSolutionEn": "The sum is 24; dividing by three gives 8.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "8",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "9",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "11",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "6",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c5-q1",
+      "StageId": 2,
+      "CategoryId": 5,
+      "QuestionTextAr": "بسّط \\(2^{3}\\times2^2\\) على صورة قوة للعدد 2.",
+      "QuestionTextEn": "Write \\(2^{3}\\times2^2\\) as a single power of 2.",
+      "DetailedSolutionAr": "نجمع الأسين لأن الأساس واحد: 3+2=5.",
+      "DetailedSolutionEn": "For equal bases add the exponents: 3+2=5.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "2^{4}",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "2^{6}",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "2^{7}",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "2^{5}",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c6-q1",
+      "StageId": 2,
+      "CategoryId": 6,
+      "QuestionTextAr": "إذا كانت \\(f(x)=2x+3\\)، أوجد \\(f(2)\\).",
+      "QuestionTextEn": "If \\(f(x)=2x+3\\), find \\(f(2)\\).",
+      "DetailedSolutionAr": "بالتعويض نحصل على 2×2+3=7.",
+      "DetailedSolutionEn": "Substitute: 2×2+3=7.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "10",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "5",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "7",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "8",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c7-q1",
+      "StageId": 2,
+      "CategoryId": 7,
+      "QuestionTextAr": "إذا كان ثمن 3 دفاتر 12، فما ثمن 5 دفاتر بالسعر نفسه؟",
+      "QuestionTextEn": "If three notebooks cost 12, how much do five cost at the same price per notebook?",
+      "DetailedSolutionAr": "ثمن الواحد 12÷3=4، إذن ثمن خمسة 20.",
+      "DetailedSolutionEn": "One notebook costs 12/3=4, so five cost 20.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "18",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "20",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "21",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "23",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c8-q1",
+      "StageId": 2,
+      "CategoryId": 8,
+      "QuestionTextAr": "مثلث قائم ضلعا قائمته 3 و4. أوجد الوتر.",
+      "QuestionTextEn": "A right triangle has legs 3 and 4. Find the hypotenuse.",
+      "DetailedSolutionAr": "بتطبيق نظرية فيثاغورس: √(3²+4²)=5.",
+      "DetailedSolutionEn": "Using Pythagoras: √(3²+4²)=5.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "5",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "6",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "7",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "8",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c9-q1",
+      "StageId": 3,
+      "CategoryId": 9,
+      "QuestionTextAr": "ما مجموع جذري المعادلة \\((x-2)(x-5)=0\\)؟",
+      "QuestionTextEn": "Find the sum of the roots of \\((x-2)(x-5)=0\\).",
+      "DetailedSolutionAr": "الجذران هما 2 و5 ومجموعهما 7.",
+      "DetailedSolutionEn": "The roots are 2 and 5, so the sum is 7.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "9",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "5",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "-7",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "7",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c10-q1",
+      "StageId": 3,
+      "CategoryId": 10,
+      "QuestionTextAr": "مثلث قائم: الضلع المقابل للزاوية θ يساوي 3 والوتر 5 والمجاور 4. أوجد \\(\\sin\\theta\\).",
+      "QuestionTextEn": "In a right triangle opposite θ is 3, hypotenuse 5, adjacent 4. Find \\(\\sin\\theta\\).",
+      "DetailedSolutionAr": "الجيب = المقابل ÷ الوتر = 3/5.",
+      "DetailedSolutionEn": "Sine = opposite / hypotenuse = 3/5.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "\\frac{3}{4}",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{5}{3}",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{3}{5}",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "\\frac{4}{5}",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c11-q1",
+      "StageId": 3,
+      "CategoryId": 11,
+      "QuestionTextAr": "إذا كانت \\(f(x)=2x^2+3x\\)، احسب \\(f'(1)\\).",
+      "QuestionTextEn": "Given \\(f(x)=2x^2+3x\\), compute \\(f'(1)\\).",
+      "DetailedSolutionAr": "المشتقة f'(x)=4x+3، وعند 1 تساوي 7.",
+      "DetailedSolutionEn": "Differentiate to f'(x)=4x+3, then evaluate at 1 to get 7.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "5",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "7",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "8",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "10",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c12-q1",
+      "StageId": 3,
+      "CategoryId": 12,
+      "QuestionTextAr": "نرمي قطعة نقد عادلة 4 مرات. ما احتمال ظهور الصورة مرتين بالضبط؟",
+      "QuestionTextEn": "Toss a fair coin 4 times. What is the probability of exactly two heads?",
+      "DetailedSolutionAr": "عدد النتائج 2^4=16، وعدد طرق اختيار صورتين C(4,2)=6، فالاحتمال 6/16.",
+      "DetailedSolutionEn": "There are 16 equally likely results and C(4,2)=6 ways to choose two heads, so probability=6/16.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "\\frac{6}{16}",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "\\frac{1}{16}",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{4}{16}",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{5}{16}",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c13-q1",
+      "StageId": 4,
+      "CategoryId": 13,
+      "QuestionTextAr": "إذا كانت \\(f(x,y)=2x^2y+1y^2\\)، أوجد \\(\\partial f/\\partial x\\) عند \\((2,1)\\).",
+      "QuestionTextEn": "For \\(f(x,y)=2x^2y+1y^2\\), evaluate \\(\\partial f/\\partial x\\) at \\((2,1)\\).",
+      "DetailedSolutionAr": "نثبت y فنحصل على ∂f/∂x=4xy. بالتعويض نحصل على 8.",
+      "DetailedSolutionEn": "Hold y constant: ∂f/∂x=4xy. Substitution gives 8.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "9",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "11",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "6",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "8",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c14-q1",
+      "StageId": 4,
+      "CategoryId": 14,
+      "QuestionTextAr": "احسب محدد المصفوفة \\(\\begin{pmatrix}2&1\\\\2&4\\end{pmatrix}\\).",
+      "QuestionTextEn": "Compute the determinant of \\(\\begin{pmatrix}2&1\\\\2&4\\end{pmatrix}\\).",
+      "DetailedSolutionAr": "المحدد = ad−bc=2×4−1×2=6.",
+      "DetailedSolutionEn": "Determinant = ad−bc=2×4−1×2=6.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "9",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "4",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "6",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "7",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c15-q1",
+      "StageId": 4,
+      "CategoryId": 15,
+      "QuestionTextAr": "حل المعادلة التفاضلية \\(y'=1y\\) مع الشرط \\(y(0)=2\\).",
+      "QuestionTextEn": "Solve \\(y'=1y\\) with \\(y(0)=2\\).",
+      "DetailedSolutionAr": "الحل العام y=Ce^{1x}. بتطبيق الشرط الابتدائي نحصل على C=2.",
+      "DetailedSolutionEn": "The general solution is y=Ce^{1x}. The initial condition gives C=2.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "2+1x",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "2e^{1x}",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "2e^{-1x}",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "e^{1x}",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c1-q2",
+      "StageId": 1,
+      "CategoryId": 1,
+      "QuestionTextAr": "احسب (21+12)-5.",
+      "QuestionTextEn": "Calculate (21+12)-5.",
+      "DetailedSolutionAr": "نجمع 21+12=33 ثم نطرح 5 فنحصل على 28.",
+      "DetailedSolutionEn": "First 21+12=33; then subtract 5 to obtain 28.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "31",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "26",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "28",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "29",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c2-q2",
+      "StageId": 1,
+      "CategoryId": 2,
+      "QuestionTextAr": "حل المعادلة س+8=15.",
+      "QuestionTextEn": "Solve x+8=15.",
+      "DetailedSolutionAr": "نطرح 8 من الطرفين، فنجد س=15-8=7.",
+      "DetailedSolutionEn": "Subtract 8 from both sides to find x=15-8=7.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "5",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "7",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "8",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "10",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c3-q2",
+      "StageId": 1,
+      "CategoryId": 3,
+      "QuestionTextAr": "مستطيل طوله 7 سم وعرضه 4 سم. ما مساحته بالسم المربع؟",
+      "QuestionTextEn": "A rectangle is 7 cm by 4 cm. Find its area in square centimetres.",
+      "DetailedSolutionAr": "المساحة = الطول × العرض = 7×4=28 سم².",
+      "DetailedSolutionEn": "Area = length × width = 7×4=28 cm².",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "28",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "29",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "31",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "26",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c4-q2",
+      "StageId": 1,
+      "CategoryId": 4,
+      "QuestionTextAr": "أوجد المتوسط الحسابي للقيم 7 و10 و13.",
+      "QuestionTextEn": "Find the arithmetic mean of 7, 10, and 13.",
+      "DetailedSolutionAr": "المجموع 30 ونقسمه على ثلاثة فنحصل على 10.",
+      "DetailedSolutionEn": "The sum is 30; dividing by three gives 10.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "11",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "13",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "8",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "10",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c5-q2",
+      "StageId": 2,
+      "CategoryId": 5,
+      "QuestionTextAr": "بسّط \\(2^{4}\\times2^2\\) على صورة قوة للعدد 2.",
+      "QuestionTextEn": "Write \\(2^{4}\\times2^2\\) as a single power of 2.",
+      "DetailedSolutionAr": "نجمع الأسين لأن الأساس واحد: 4+2=6.",
+      "DetailedSolutionEn": "For equal bases add the exponents: 4+2=6.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "2^{7}",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "2^{8}",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "2^{6}",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "2^{5}",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c6-q2",
+      "StageId": 2,
+      "CategoryId": 6,
+      "QuestionTextAr": "إذا كانت \\(f(x)=3x+4\\)، أوجد \\(f(3)\\).",
+      "QuestionTextEn": "If \\(f(x)=3x+4\\), find \\(f(3)\\).",
+      "DetailedSolutionAr": "بالتعويض نحصل على 3×3+4=13.",
+      "DetailedSolutionEn": "Substitute: 3×3+4=13.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "11",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "13",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "14",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "16",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c7-q2",
+      "StageId": 2,
+      "CategoryId": 7,
+      "QuestionTextAr": "إذا كان ثمن 3 دفاتر 15، فما ثمن 5 دفاتر بالسعر نفسه؟",
+      "QuestionTextEn": "If three notebooks cost 15, how much do five cost at the same price per notebook?",
+      "DetailedSolutionAr": "ثمن الواحد 15÷3=5، إذن ثمن خمسة 25.",
+      "DetailedSolutionEn": "One notebook costs 15/3=5, so five cost 25.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "25",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "26",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "28",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "23",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c8-q2",
+      "StageId": 2,
+      "CategoryId": 8,
+      "QuestionTextAr": "مثلث قائم ضلعا قائمته 6 و8. أوجد الوتر.",
+      "QuestionTextEn": "A right triangle has legs 6 and 8. Find the hypotenuse.",
+      "DetailedSolutionAr": "بتطبيق نظرية فيثاغورس: √(6²+8²)=10.",
+      "DetailedSolutionEn": "Using Pythagoras: √(6²+8²)=10.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "12",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "14",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "16",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "10",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c9-q2",
+      "StageId": 3,
+      "CategoryId": 9,
+      "QuestionTextAr": "ما مجموع جذري المعادلة \\((x-3)(x-6)=0\\)؟",
+      "QuestionTextEn": "Find the sum of the roots of \\((x-3)(x-6)=0\\).",
+      "DetailedSolutionAr": "الجذران هما 3 و6 ومجموعهما 9.",
+      "DetailedSolutionEn": "The roots are 3 and 6, so the sum is 9.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "7",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "-9",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "9",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "11",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c10-q2",
+      "StageId": 3,
+      "CategoryId": 10,
+      "QuestionTextAr": "مثلث قائم: الضلع المقابل للزاوية θ يساوي 5 والوتر 13 والمجاور 12. أوجد \\(\\sin\\theta\\).",
+      "QuestionTextEn": "In a right triangle opposite θ is 5, hypotenuse 13, adjacent 12. Find \\(\\sin\\theta\\).",
+      "DetailedSolutionAr": "الجيب = المقابل ÷ الوتر = 5/13.",
+      "DetailedSolutionEn": "Sine = opposite / hypotenuse = 5/13.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "\\frac{13}{5}",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{5}{13}",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "\\frac{12}{13}",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{5}{12}",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c11-q2",
+      "StageId": 3,
+      "CategoryId": 11,
+      "QuestionTextAr": "إذا كانت \\(f(x)=3x^2+4x\\)، احسب \\(f'(2)\\).",
+      "QuestionTextEn": "Given \\(f(x)=3x^2+4x\\), compute \\(f'(2)\\).",
+      "DetailedSolutionAr": "المشتقة f'(x)=6x+4، وعند 2 تساوي 16.",
+      "DetailedSolutionEn": "Differentiate to f'(x)=6x+4, then evaluate at 2 to get 16.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "16",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "17",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "19",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "14",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c12-q2",
+      "StageId": 3,
+      "CategoryId": 12,
+      "QuestionTextAr": "نرمي قطعة نقد عادلة 5 مرات. ما احتمال ظهور الصورة مرتين بالضبط؟",
+      "QuestionTextEn": "Toss a fair coin 5 times. What is the probability of exactly two heads?",
+      "DetailedSolutionAr": "عدد النتائج 2^5=32، وعدد طرق اختيار صورتين C(5,2)=10، فالاحتمال 10/32.",
+      "DetailedSolutionEn": "There are 32 equally likely results and C(5,2)=10 ways to choose two heads, so probability=10/32.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "\\frac{1}{32}",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{5}{32}",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{6}{32}",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{10}{32}",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c13-q2",
+      "StageId": 4,
+      "CategoryId": 13,
+      "QuestionTextAr": "إذا كانت \\(f(x,y)=3x^2y+2y^2\\)، أوجد \\(\\partial f/\\partial x\\) عند \\((3,2)\\).",
+      "QuestionTextEn": "For \\(f(x,y)=3x^2y+2y^2\\), evaluate \\(\\partial f/\\partial x\\) at \\((3,2)\\).",
+      "DetailedSolutionAr": "نثبت y فنحصل على ∂f/∂x=6xy. بالتعويض نحصل على 36.",
+      "DetailedSolutionEn": "Hold y constant: ∂f/∂x=6xy. Substitution gives 36.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "39",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "34",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "36",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "37",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c14-q2",
+      "StageId": 4,
+      "CategoryId": 14,
+      "QuestionTextAr": "احسب محدد المصفوفة \\(\\begin{pmatrix}3&2\\\\2&5\\end{pmatrix}\\).",
+      "QuestionTextEn": "Compute the determinant of \\(\\begin{pmatrix}3&2\\\\2&5\\end{pmatrix}\\).",
+      "DetailedSolutionAr": "المحدد = ad−bc=3×5−2×2=11.",
+      "DetailedSolutionEn": "Determinant = ad−bc=3×5−2×2=11.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "9",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "11",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "12",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "14",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c15-q2",
+      "StageId": 4,
+      "CategoryId": 15,
+      "QuestionTextAr": "حل المعادلة التفاضلية \\(y'=2y\\) مع الشرط \\(y(0)=3\\).",
+      "QuestionTextEn": "Solve \\(y'=2y\\) with \\(y(0)=3\\).",
+      "DetailedSolutionAr": "الحل العام y=Ce^{2x}. بتطبيق الشرط الابتدائي نحصل على C=3.",
+      "DetailedSolutionEn": "The general solution is y=Ce^{2x}. The initial condition gives C=3.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "3e^{2x}",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "3e^{-2x}",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "e^{2x}",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "3+2x",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c1-q3",
+      "StageId": 1,
+      "CategoryId": 1,
+      "QuestionTextAr": "احسب (25+15)-6.",
+      "QuestionTextEn": "Calculate (25+15)-6.",
+      "DetailedSolutionAr": "نجمع 25+15=40 ثم نطرح 6 فنحصل على 34.",
+      "DetailedSolutionEn": "First 25+15=40; then subtract 6 to obtain 34.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "32",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "34",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "35",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "37",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c2-q3",
+      "StageId": 1,
+      "CategoryId": 2,
+      "QuestionTextAr": "حل المعادلة س+9=18.",
+      "QuestionTextEn": "Solve x+9=18.",
+      "DetailedSolutionAr": "نطرح 9 من الطرفين، فنجد س=18-9=9.",
+      "DetailedSolutionEn": "Subtract 9 from both sides to find x=18-9=9.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "9",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "10",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "12",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "7",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c3-q3",
+      "StageId": 1,
+      "CategoryId": 3,
+      "QuestionTextAr": "مستطيل طوله 8 سم وعرضه 5 سم. ما مساحته بالسم المربع؟",
+      "QuestionTextEn": "A rectangle is 8 cm by 5 cm. Find its area in square centimetres.",
+      "DetailedSolutionAr": "المساحة = الطول × العرض = 8×5=40 سم².",
+      "DetailedSolutionEn": "Area = length × width = 8×5=40 cm².",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "41",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "43",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "38",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "40",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c4-q3",
+      "StageId": 1,
+      "CategoryId": 4,
+      "QuestionTextAr": "أوجد المتوسط الحسابي للقيم 9 و12 و15.",
+      "QuestionTextEn": "Find the arithmetic mean of 9, 12, and 15.",
+      "DetailedSolutionAr": "المجموع 36 ونقسمه على ثلاثة فنحصل على 12.",
+      "DetailedSolutionEn": "The sum is 36; dividing by three gives 12.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "15",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "10",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "12",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "13",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c5-q3",
+      "StageId": 2,
+      "CategoryId": 5,
+      "QuestionTextAr": "بسّط \\(2^{5}\\times2^2\\) على صورة قوة للعدد 2.",
+      "QuestionTextEn": "Write \\(2^{5}\\times2^2\\) as a single power of 2.",
+      "DetailedSolutionAr": "نجمع الأسين لأن الأساس واحد: 5+2=7.",
+      "DetailedSolutionEn": "For equal bases add the exponents: 5+2=7.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "2^{9}",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "2^{7}",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "2^{6}",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "2^{8}",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c6-q3",
+      "StageId": 2,
+      "CategoryId": 6,
+      "QuestionTextAr": "إذا كانت \\(f(x)=4x+5\\)، أوجد \\(f(4)\\).",
+      "QuestionTextEn": "If \\(f(x)=4x+5\\), find \\(f(4)\\).",
+      "DetailedSolutionAr": "بالتعويض نحصل على 4×4+5=21.",
+      "DetailedSolutionEn": "Substitute: 4×4+5=21.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "21",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "22",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "24",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "19",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c7-q3",
+      "StageId": 2,
+      "CategoryId": 7,
+      "QuestionTextAr": "إذا كان ثمن 3 دفاتر 18، فما ثمن 5 دفاتر بالسعر نفسه؟",
+      "QuestionTextEn": "If three notebooks cost 18, how much do five cost at the same price per notebook?",
+      "DetailedSolutionAr": "ثمن الواحد 18÷3=6، إذن ثمن خمسة 30.",
+      "DetailedSolutionEn": "One notebook costs 18/3=6, so five cost 30.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "31",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "33",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "28",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "30",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c8-q3",
+      "StageId": 2,
+      "CategoryId": 8,
+      "QuestionTextAr": "مثلث قائم ضلعا قائمته 9 و12. أوجد الوتر.",
+      "QuestionTextEn": "A right triangle has legs 9 and 12. Find the hypotenuse.",
+      "DetailedSolutionAr": "بتطبيق نظرية فيثاغورس: √(9²+12²)=15.",
+      "DetailedSolutionEn": "Using Pythagoras: √(9²+12²)=15.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "21",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "24",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "15",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "18",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c9-q3",
+      "StageId": 3,
+      "CategoryId": 9,
+      "QuestionTextAr": "ما مجموع جذري المعادلة \\((x-4)(x-7)=0\\)؟",
+      "QuestionTextEn": "Find the sum of the roots of \\((x-4)(x-7)=0\\).",
+      "DetailedSolutionAr": "الجذران هما 4 و7 ومجموعهما 11.",
+      "DetailedSolutionEn": "The roots are 4 and 7, so the sum is 11.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "-11",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "11",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "13",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "9",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c10-q3",
+      "StageId": 3,
+      "CategoryId": 10,
+      "QuestionTextAr": "مثلث قائم: الضلع المقابل للزاوية θ يساوي 8 والوتر 17 والمجاور 15. أوجد \\(\\sin\\theta\\).",
+      "QuestionTextEn": "In a right triangle opposite θ is 8, hypotenuse 17, adjacent 15. Find \\(\\sin\\theta\\).",
+      "DetailedSolutionAr": "الجيب = المقابل ÷ الوتر = 8/17.",
+      "DetailedSolutionEn": "Sine = opposite / hypotenuse = 8/17.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "\\frac{8}{17}",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "\\frac{15}{17}",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{8}{15}",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{17}{8}",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c11-q3",
+      "StageId": 3,
+      "CategoryId": 11,
+      "QuestionTextAr": "إذا كانت \\(f(x)=4x^2+5x\\)، احسب \\(f'(3)\\).",
+      "QuestionTextEn": "Given \\(f(x)=4x^2+5x\\), compute \\(f'(3)\\).",
+      "DetailedSolutionAr": "المشتقة f'(x)=8x+5، وعند 3 تساوي 29.",
+      "DetailedSolutionEn": "Differentiate to f'(x)=8x+5, then evaluate at 3 to get 29.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "30",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "32",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "27",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "29",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c12-q3",
+      "StageId": 3,
+      "CategoryId": 12,
+      "QuestionTextAr": "نرمي قطعة نقد عادلة 6 مرات. ما احتمال ظهور الصورة مرتين بالضبط؟",
+      "QuestionTextEn": "Toss a fair coin 6 times. What is the probability of exactly two heads?",
+      "DetailedSolutionAr": "عدد النتائج 2^6=64، وعدد طرق اختيار صورتين C(6,2)=15، فالاحتمال 15/64.",
+      "DetailedSolutionEn": "There are 64 equally likely results and C(6,2)=15 ways to choose two heads, so probability=15/64.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "\\frac{6}{64}",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{7}{64}",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{15}{64}",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "\\frac{1}{64}",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c13-q3",
+      "StageId": 4,
+      "CategoryId": 13,
+      "QuestionTextAr": "إذا كانت \\(f(x,y)=4x^2y+3y^2\\)، أوجد \\(\\partial f/\\partial x\\) عند \\((4,3)\\).",
+      "QuestionTextEn": "For \\(f(x,y)=4x^2y+3y^2\\), evaluate \\(\\partial f/\\partial x\\) at \\((4,3)\\).",
+      "DetailedSolutionAr": "نثبت y فنحصل على ∂f/∂x=8xy. بالتعويض نحصل على 96.",
+      "DetailedSolutionEn": "Hold y constant: ∂f/∂x=8xy. Substitution gives 96.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "94",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "96",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "97",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "99",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c14-q3",
+      "StageId": 4,
+      "CategoryId": 14,
+      "QuestionTextAr": "احسب محدد المصفوفة \\(\\begin{pmatrix}4&3\\\\2&6\\end{pmatrix}\\).",
+      "QuestionTextEn": "Compute the determinant of \\(\\begin{pmatrix}4&3\\\\2&6\\end{pmatrix}\\).",
+      "DetailedSolutionAr": "المحدد = ad−bc=4×6−3×2=18.",
+      "DetailedSolutionEn": "Determinant = ad−bc=4×6−3×2=18.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "18",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "19",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "21",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "16",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c15-q3",
+      "StageId": 4,
+      "CategoryId": 15,
+      "QuestionTextAr": "حل المعادلة التفاضلية \\(y'=3y\\) مع الشرط \\(y(0)=4\\).",
+      "QuestionTextEn": "Solve \\(y'=3y\\) with \\(y(0)=4\\).",
+      "DetailedSolutionAr": "الحل العام y=Ce^{3x}. بتطبيق الشرط الابتدائي نحصل على C=4.",
+      "DetailedSolutionEn": "The general solution is y=Ce^{3x}. The initial condition gives C=4.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "4e^{-3x}",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "e^{3x}",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "4+3x",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "4e^{3x}",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c1-q4",
+      "StageId": 1,
+      "CategoryId": 1,
+      "QuestionTextAr": "احسب (29+18)-7.",
+      "QuestionTextEn": "Calculate (29+18)-7.",
+      "DetailedSolutionAr": "نجمع 29+18=47 ثم نطرح 7 فنحصل على 40.",
+      "DetailedSolutionEn": "First 29+18=47; then subtract 7 to obtain 40.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "40",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "41",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "43",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "38",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c2-q4",
+      "StageId": 1,
+      "CategoryId": 2,
+      "QuestionTextAr": "حل المعادلة س+10=21.",
+      "QuestionTextEn": "Solve x+10=21.",
+      "DetailedSolutionAr": "نطرح 10 من الطرفين، فنجد س=21-10=11.",
+      "DetailedSolutionEn": "Subtract 10 from both sides to find x=21-10=11.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "12",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "14",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "9",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "11",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c3-q4",
+      "StageId": 1,
+      "CategoryId": 3,
+      "QuestionTextAr": "مستطيل طوله 9 سم وعرضه 6 سم. ما مساحته بالسم المربع؟",
+      "QuestionTextEn": "A rectangle is 9 cm by 6 cm. Find its area in square centimetres.",
+      "DetailedSolutionAr": "المساحة = الطول × العرض = 9×6=54 سم².",
+      "DetailedSolutionEn": "Area = length × width = 9×6=54 cm².",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "57",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "52",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "54",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "55",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c4-q4",
+      "StageId": 1,
+      "CategoryId": 4,
+      "QuestionTextAr": "أوجد المتوسط الحسابي للقيم 11 و14 و17.",
+      "QuestionTextEn": "Find the arithmetic mean of 11, 14, and 17.",
+      "DetailedSolutionAr": "المجموع 42 ونقسمه على ثلاثة فنحصل على 14.",
+      "DetailedSolutionEn": "The sum is 42; dividing by three gives 14.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "12",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "14",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "15",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "17",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c5-q4",
+      "StageId": 2,
+      "CategoryId": 5,
+      "QuestionTextAr": "بسّط \\(2^{6}\\times2^2\\) على صورة قوة للعدد 2.",
+      "QuestionTextEn": "Write \\(2^{6}\\times2^2\\) as a single power of 2.",
+      "DetailedSolutionAr": "نجمع الأسين لأن الأساس واحد: 6+2=8.",
+      "DetailedSolutionEn": "For equal bases add the exponents: 6+2=8.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "2^{8}",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "2^{7}",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "2^{9}",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "2^{10}",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c6-q4",
+      "StageId": 2,
+      "CategoryId": 6,
+      "QuestionTextAr": "إذا كانت \\(f(x)=5x+6\\)، أوجد \\(f(5)\\).",
+      "QuestionTextEn": "If \\(f(x)=5x+6\\), find \\(f(5)\\).",
+      "DetailedSolutionAr": "بالتعويض نحصل على 5×5+6=31.",
+      "DetailedSolutionEn": "Substitute: 5×5+6=31.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "32",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "34",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "29",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "31",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c7-q4",
+      "StageId": 2,
+      "CategoryId": 7,
+      "QuestionTextAr": "إذا كان ثمن 3 دفاتر 21، فما ثمن 5 دفاتر بالسعر نفسه؟",
+      "QuestionTextEn": "If three notebooks cost 21, how much do five cost at the same price per notebook?",
+      "DetailedSolutionAr": "ثمن الواحد 21÷3=7، إذن ثمن خمسة 35.",
+      "DetailedSolutionEn": "One notebook costs 21/3=7, so five cost 35.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "38",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "33",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "35",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "36",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c8-q4",
+      "StageId": 2,
+      "CategoryId": 8,
+      "QuestionTextAr": "مثلث قائم ضلعا قائمته 12 و16. أوجد الوتر.",
+      "QuestionTextEn": "A right triangle has legs 12 and 16. Find the hypotenuse.",
+      "DetailedSolutionAr": "بتطبيق نظرية فيثاغورس: √(12²+16²)=20.",
+      "DetailedSolutionEn": "Using Pythagoras: √(12²+16²)=20.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "32",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "20",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "24",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "28",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c9-q4",
+      "StageId": 3,
+      "CategoryId": 9,
+      "QuestionTextAr": "ما مجموع جذري المعادلة \\((x-5)(x-8)=0\\)؟",
+      "QuestionTextEn": "Find the sum of the roots of \\((x-5)(x-8)=0\\).",
+      "DetailedSolutionAr": "الجذران هما 5 و8 ومجموعهما 13.",
+      "DetailedSolutionEn": "The roots are 5 and 8, so the sum is 13.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "13",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "15",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "11",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "-13",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c10-q4",
+      "StageId": 3,
+      "CategoryId": 10,
+      "QuestionTextAr": "مثلث قائم: الضلع المقابل للزاوية θ يساوي 7 والوتر 25 والمجاور 24. أوجد \\(\\sin\\theta\\).",
+      "QuestionTextEn": "In a right triangle opposite θ is 7, hypotenuse 25, adjacent 24. Find \\(\\sin\\theta\\).",
+      "DetailedSolutionAr": "الجيب = المقابل ÷ الوتر = 7/25.",
+      "DetailedSolutionEn": "Sine = opposite / hypotenuse = 7/25.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "\\frac{24}{25}",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{7}{24}",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{25}{7}",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{7}{25}",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c11-q4",
+      "StageId": 3,
+      "CategoryId": 11,
+      "QuestionTextAr": "إذا كانت \\(f(x)=5x^2+6x\\)، احسب \\(f'(4)\\).",
+      "QuestionTextEn": "Given \\(f(x)=5x^2+6x\\), compute \\(f'(4)\\).",
+      "DetailedSolutionAr": "المشتقة f'(x)=10x+6، وعند 4 تساوي 46.",
+      "DetailedSolutionEn": "Differentiate to f'(x)=10x+6, then evaluate at 4 to get 46.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "49",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "44",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "46",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "47",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c12-q4",
+      "StageId": 3,
+      "CategoryId": 12,
+      "QuestionTextAr": "نرمي قطعة نقد عادلة 7 مرات. ما احتمال ظهور الصورة مرتين بالضبط؟",
+      "QuestionTextEn": "Toss a fair coin 7 times. What is the probability of exactly two heads?",
+      "DetailedSolutionAr": "عدد النتائج 2^7=128، وعدد طرق اختيار صورتين C(7,2)=21، فالاحتمال 21/128.",
+      "DetailedSolutionEn": "There are 128 equally likely results and C(7,2)=21 ways to choose two heads, so probability=21/128.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "\\frac{8}{128}",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{21}{128}",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "\\frac{1}{128}",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{7}{128}",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c13-q4",
+      "StageId": 4,
+      "CategoryId": 13,
+      "QuestionTextAr": "إذا كانت \\(f(x,y)=5x^2y+4y^2\\)، أوجد \\(\\partial f/\\partial x\\) عند \\((5,4)\\).",
+      "QuestionTextEn": "For \\(f(x,y)=5x^2y+4y^2\\), evaluate \\(\\partial f/\\partial x\\) at \\((5,4)\\).",
+      "DetailedSolutionAr": "نثبت y فنحصل على ∂f/∂x=10xy. بالتعويض نحصل على 200.",
+      "DetailedSolutionEn": "Hold y constant: ∂f/∂x=10xy. Substitution gives 200.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "200",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "201",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "203",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "198",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c14-q4",
+      "StageId": 4,
+      "CategoryId": 14,
+      "QuestionTextAr": "احسب محدد المصفوفة \\(\\begin{pmatrix}5&4\\\\2&7\\end{pmatrix}\\).",
+      "QuestionTextEn": "Compute the determinant of \\(\\begin{pmatrix}5&4\\\\2&7\\end{pmatrix}\\).",
+      "DetailedSolutionAr": "المحدد = ad−bc=5×7−4×2=27.",
+      "DetailedSolutionEn": "Determinant = ad−bc=5×7−4×2=27.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "28",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "30",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "25",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "27",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c15-q4",
+      "StageId": 4,
+      "CategoryId": 15,
+      "QuestionTextAr": "حل المعادلة التفاضلية \\(y'=4y\\) مع الشرط \\(y(0)=5\\).",
+      "QuestionTextEn": "Solve \\(y'=4y\\) with \\(y(0)=5\\).",
+      "DetailedSolutionAr": "الحل العام y=Ce^{4x}. بتطبيق الشرط الابتدائي نحصل على C=5.",
+      "DetailedSolutionEn": "The general solution is y=Ce^{4x}. The initial condition gives C=5.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "e^{4x}",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "5+4x",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "5e^{4x}",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "5e^{-4x}",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c1-q5",
+      "StageId": 1,
+      "CategoryId": 1,
+      "QuestionTextAr": "احسب (33+21)-8.",
+      "QuestionTextEn": "Calculate (33+21)-8.",
+      "DetailedSolutionAr": "نجمع 33+21=54 ثم نطرح 8 فنحصل على 46.",
+      "DetailedSolutionEn": "First 33+21=54; then subtract 8 to obtain 46.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "47",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "49",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "44",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "46",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c2-q5",
+      "StageId": 1,
+      "CategoryId": 2,
+      "QuestionTextAr": "حل المعادلة س+11=24.",
+      "QuestionTextEn": "Solve x+11=24.",
+      "DetailedSolutionAr": "نطرح 11 من الطرفين، فنجد س=24-11=13.",
+      "DetailedSolutionEn": "Subtract 11 from both sides to find x=24-11=13.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "16",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "11",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "13",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "14",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c3-q5",
+      "StageId": 1,
+      "CategoryId": 3,
+      "QuestionTextAr": "مستطيل طوله 10 سم وعرضه 7 سم. ما مساحته بالسم المربع؟",
+      "QuestionTextEn": "A rectangle is 10 cm by 7 cm. Find its area in square centimetres.",
+      "DetailedSolutionAr": "المساحة = الطول × العرض = 10×7=70 سم².",
+      "DetailedSolutionEn": "Area = length × width = 10×7=70 cm².",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "68",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "70",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "71",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "73",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c4-q5",
+      "StageId": 1,
+      "CategoryId": 4,
+      "QuestionTextAr": "أوجد المتوسط الحسابي للقيم 13 و16 و19.",
+      "QuestionTextEn": "Find the arithmetic mean of 13, 16, and 19.",
+      "DetailedSolutionAr": "المجموع 48 ونقسمه على ثلاثة فنحصل على 16.",
+      "DetailedSolutionEn": "The sum is 48; dividing by three gives 16.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "16",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "17",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "19",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "14",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c5-q5",
+      "StageId": 2,
+      "CategoryId": 5,
+      "QuestionTextAr": "بسّط \\(2^{7}\\times2^2\\) على صورة قوة للعدد 2.",
+      "QuestionTextEn": "Write \\(2^{7}\\times2^2\\) as a single power of 2.",
+      "DetailedSolutionAr": "نجمع الأسين لأن الأساس واحد: 7+2=9.",
+      "DetailedSolutionEn": "For equal bases add the exponents: 7+2=9.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "2^{8}",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "2^{10}",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "2^{11}",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "2^{9}",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c6-q5",
+      "StageId": 2,
+      "CategoryId": 6,
+      "QuestionTextAr": "إذا كانت \\(f(x)=6x+7\\)، أوجد \\(f(6)\\).",
+      "QuestionTextEn": "If \\(f(x)=6x+7\\), find \\(f(6)\\).",
+      "DetailedSolutionAr": "بالتعويض نحصل على 6×6+7=43.",
+      "DetailedSolutionEn": "Substitute: 6×6+7=43.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "46",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "41",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "43",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "44",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c7-q5",
+      "StageId": 2,
+      "CategoryId": 7,
+      "QuestionTextAr": "إذا كان ثمن 3 دفاتر 24، فما ثمن 5 دفاتر بالسعر نفسه؟",
+      "QuestionTextEn": "If three notebooks cost 24, how much do five cost at the same price per notebook?",
+      "DetailedSolutionAr": "ثمن الواحد 24÷3=8، إذن ثمن خمسة 40.",
+      "DetailedSolutionEn": "One notebook costs 24/3=8, so five cost 40.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "38",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "40",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "41",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "43",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c8-q5",
+      "StageId": 2,
+      "CategoryId": 8,
+      "QuestionTextAr": "مثلث قائم ضلعا قائمته 15 و20. أوجد الوتر.",
+      "QuestionTextEn": "A right triangle has legs 15 and 20. Find the hypotenuse.",
+      "DetailedSolutionAr": "بتطبيق نظرية فيثاغورس: √(15²+20²)=25.",
+      "DetailedSolutionEn": "Using Pythagoras: √(15²+20²)=25.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "25",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "30",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "35",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "40",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c9-q5",
+      "StageId": 3,
+      "CategoryId": 9,
+      "QuestionTextAr": "ما مجموع جذري المعادلة \\((x-6)(x-9)=0\\)؟",
+      "QuestionTextEn": "Find the sum of the roots of \\((x-6)(x-9)=0\\).",
+      "DetailedSolutionAr": "الجذران هما 6 و9 ومجموعهما 15.",
+      "DetailedSolutionEn": "The roots are 6 and 9, so the sum is 15.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "17",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "13",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "-15",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "15",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c10-q5",
+      "StageId": 3,
+      "CategoryId": 10,
+      "QuestionTextAr": "مثلث قائم: الضلع المقابل للزاوية θ يساوي 9 والوتر 41 والمجاور 40. أوجد \\(\\sin\\theta\\).",
+      "QuestionTextEn": "In a right triangle opposite θ is 9, hypotenuse 41, adjacent 40. Find \\(\\sin\\theta\\).",
+      "DetailedSolutionAr": "الجيب = المقابل ÷ الوتر = 9/41.",
+      "DetailedSolutionEn": "Sine = opposite / hypotenuse = 9/41.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "\\frac{9}{40}",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{41}{9}",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{9}{41}",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "\\frac{40}{41}",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c11-q5",
+      "StageId": 3,
+      "CategoryId": 11,
+      "QuestionTextAr": "إذا كانت \\(f(x)=6x^2+7x\\)، احسب \\(f'(5)\\).",
+      "QuestionTextEn": "Given \\(f(x)=6x^2+7x\\), compute \\(f'(5)\\).",
+      "DetailedSolutionAr": "المشتقة f'(x)=12x+7، وعند 5 تساوي 67.",
+      "DetailedSolutionEn": "Differentiate to f'(x)=12x+7, then evaluate at 5 to get 67.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "65",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "67",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "68",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "70",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c12-q5",
+      "StageId": 3,
+      "CategoryId": 12,
+      "QuestionTextAr": "نرمي قطعة نقد عادلة 8 مرات. ما احتمال ظهور الصورة مرتين بالضبط؟",
+      "QuestionTextEn": "Toss a fair coin 8 times. What is the probability of exactly two heads?",
+      "DetailedSolutionAr": "عدد النتائج 2^8=256، وعدد طرق اختيار صورتين C(8,2)=28، فالاحتمال 28/256.",
+      "DetailedSolutionEn": "There are 256 equally likely results and C(8,2)=28 ways to choose two heads, so probability=28/256.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "\\frac{28}{256}",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "\\frac{1}{256}",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{8}{256}",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\frac{9}{256}",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c13-q5",
+      "StageId": 4,
+      "CategoryId": 13,
+      "QuestionTextAr": "إذا كانت \\(f(x,y)=6x^2y+5y^2\\)، أوجد \\(\\partial f/\\partial x\\) عند \\((6,5)\\).",
+      "QuestionTextEn": "For \\(f(x,y)=6x^2y+5y^2\\), evaluate \\(\\partial f/\\partial x\\) at \\((6,5)\\).",
+      "DetailedSolutionAr": "نثبت y فنحصل على ∂f/∂x=12xy. بالتعويض نحصل على 360.",
+      "DetailedSolutionEn": "Hold y constant: ∂f/∂x=12xy. Substitution gives 360.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "361",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "363",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "358",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "360",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c14-q5",
+      "StageId": 4,
+      "CategoryId": 14,
+      "QuestionTextAr": "احسب محدد المصفوفة \\(\\begin{pmatrix}6&5\\\\2&8\\end{pmatrix}\\).",
+      "QuestionTextEn": "Compute the determinant of \\(\\begin{pmatrix}6&5\\\\2&8\\end{pmatrix}\\).",
+      "DetailedSolutionAr": "المحدد = ad−bc=6×8−5×2=38.",
+      "DetailedSolutionEn": "Determinant = ad−bc=6×8−5×2=38.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "41",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "36",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "38",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "39",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c15-q5",
+      "StageId": 4,
+      "CategoryId": 15,
+      "QuestionTextAr": "حل المعادلة التفاضلية \\(y'=5y\\) مع الشرط \\(y(0)=6\\).",
+      "QuestionTextEn": "Solve \\(y'=5y\\) with \\(y(0)=6\\).",
+      "DetailedSolutionAr": "الحل العام y=Ce^{5x}. بتطبيق الشرط الابتدائي نحصل على C=6.",
+      "DetailedSolutionEn": "The general solution is y=Ce^{5x}. The initial condition gives C=6.",
+      "Points": 10,
+      "Options": [
+        {
+          "LatexCode": "6+5x",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "6e^{5x}",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "6e^{-5x}",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "e^{5x}",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c16-q1",
+      "StageId": 4,
+      "CategoryId": 16,
+      "QuestionTextAr": "الدالة f متصلة على [0,2] وتحقق f(0)=-3 وf(2)=2. ما النتيجة المضمونة؟",
+      "QuestionTextEn": "f is continuous on [0,2], f(0)=-3 and f(2)=2. Which statement is guaranteed?",
+      "DetailedSolutionAr": "الصفر يقع بين قيمتي الطرفين؛ حسب نظرية القيمة الوسيطة يوجد c بين 0 و2 تحقق f(c)=0.",
+      "DetailedSolutionEn": "Zero is between the endpoint values. The intermediate value theorem guarantees a c in (0,2) with f(c)=0.",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "\\exists c\\in(0,2):f(c)=0",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "f(1)=0",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "f'(1)=0",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "f(x)>0\\;\\forall x\\in(0,2)",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c16-q2",
+      "StageId": 4,
+      "CategoryId": 16,
+      "QuestionTextAr": "إذا كانت f قابلة للاشتقاق عند x=1، فما النتيجة اللازمة؟",
+      "QuestionTextEn": "If f is differentiable at x=1, what must hold?",
+      "DetailedSolutionAr": "وجود المشتقة عند نقطة يستلزم اتصال الدالة عندها.",
+      "DetailedSolutionEn": "Differentiability at a point implies continuity at that point.",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "f'(1)=0",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "f(1)=0",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "f\\text{ has a local maximum at }1",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "f\\text{ is continuous at }1",
+          "Order": 4,
+          "IsCorrect": true
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c16-q3",
+      "StageId": 4,
+      "CategoryId": 16,
+      "QuestionTextAr": "أوجد نهاية المتتالية \\(a_n=\\frac{3}{n}\\) عندما \\(n\\to\\infty\\).",
+      "QuestionTextEn": "Find the limit of \\(a_n=\\frac{3}{n}\\) as \\(n\\to\\infty\\).",
+      "DetailedSolutionAr": "عندما يزداد n بلا حد، يقترب الكسر 3/n من الصفر.",
+      "DetailedSolutionEn": "As n grows without bound, 3/n tends to zero.",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "3",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "+\\infty",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "0",
+          "Order": 3,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "1",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c16-q4",
+      "StageId": 4,
+      "CategoryId": 16,
+      "QuestionTextAr": "متتالية حقيقية رتيبة ومحدودة. أي عبارة صحيحة دائماً؟",
+      "QuestionTextEn": "A real sequence is monotone and bounded. Which statement always holds?",
+      "DetailedSolutionAr": "حسب مبرهنة تقارب المتتاليات الرتيبة، كل متتالية رتيبة محدودة تتقارب.",
+      "DetailedSolutionEn": "By the monotone convergence theorem, every bounded monotone real sequence converges.",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "\\text{It oscillates}",
+          "Order": 1,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\text{It converges}",
+          "Order": 2,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "\\text{It diverges}",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\text{It is eventually constant}",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    },
+    {
+      "ContentKey": "mw-20261120-c16-q5",
+      "StageId": 4,
+      "CategoryId": 16,
+      "QuestionTextAr": "أي متسلسلة مما يلي متقاربة؟",
+      "QuestionTextEn": "Which of the following series converges?",
+      "DetailedSolutionAr": "المتسلسلة من نوع p تتقارب عندما p>1؛ لذلك مجموع 1/n² متقارب.",
+      "DetailedSolutionEn": "A p-series converges for p>1, so the sum of 1/n² converges.",
+      "Points": 15,
+      "Options": [
+        {
+          "LatexCode": "\\sum_{n=1}^{\\infty}\\frac{1}{n^2}",
+          "Order": 1,
+          "IsCorrect": true
+        },
+        {
+          "LatexCode": "\\sum_{n=1}^{\\infty}\\frac{1}{n}",
+          "Order": 2,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\sum_{n=1}^{\\infty}\\frac{1}{\\sqrt{n}}",
+          "Order": 3,
+          "IsCorrect": false
+        },
+        {
+          "LatexCode": "\\sum_{n=1}^{\\infty}1",
+          "Order": 4,
+          "IsCorrect": false
+        }
+      ]
+    }
+  ],
+  "publishNote": "80 additive Problems + 320 QuestionOptions inserted into existing MathWorld Supabase; 0 category-stage mismatches, 0 invalid four-option sets. Existing 66 questions and all attempts preserved. Original bank already contained duplicate question IDs 3 and 4; untouched.",
+  "stageAllocation": {
+    "1": 20,
+    "2": 20,
+    "3": 20,
+    "4": 20
+  }
+}
