@@ -48,6 +48,8 @@ public sealed class StageCategoryAccessController : ControllerBase
                 category.Id,
                 category.NameAr,
                 category.NameEn,
+                category.DescriptionAr,
+                category.DescriptionEn,
                 category.Icon,
                 category.Order
             })
