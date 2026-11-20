@@ -1,0 +1,101 @@
+{
+  "purpose": "Original category icon values before replacing with new MathWorld SVG set; for safe rollback.",
+  "categories": [
+    {
+      "Id": 1,
+      "StageId": 1,
+      "NameAr": "الأعداد والعمليات الحسابية",
+      "Icon": "🔢"
+    },
+    {
+      "Id": 2,
+      "StageId": 1,
+      "NameAr": "التفكير الجبري المبكر",
+      "Icon": "🧩"
+    },
+    {
+      "Id": 3,
+      "StageId": 1,
+      "NameAr": "الهندسة والقياس",
+      "Icon": "📏"
+    },
+    {
+      "Id": 4,
+      "StageId": 1,
+      "NameAr": "البيانات والاحتمالات",
+      "Icon": "📊"
+    },
+    {
+      "Id": 5,
+      "StageId": 2,
+      "NameAr": "نظرية الأعداد والأسس",
+      "Icon": "🔬"
+    },
+    {
+      "Id": 6,
+      "StageId": 2,
+      "NameAr": "الجبر والدوال",
+      "Icon": "⚖️"
+    },
+    {
+      "Id": 7,
+      "StageId": 2,
+      "NameAr": "النسب والتناسب",
+      "Icon": "💹"
+    },
+    {
+      "Id": 8,
+      "StageId": 2,
+      "NameAr": "الهندسة والبراهين",
+      "Icon": "📐"
+    },
+    {
+      "Id": 9,
+      "StageId": 3,
+      "NameAr": "الجبر المتقدم",
+      "Icon": "📈"
+    },
+    {
+      "Id": 10,
+      "StageId": 3,
+      "NameAr": "حساب المثلثات",
+      "Icon": "📐"
+    },
+    {
+      "Id": 11,
+      "StageId": 3,
+      "NameAr": "التفاضل والتكامل",
+      "Icon": "∫"
+    },
+    {
+      "Id": 12,
+      "StageId": 3,
+      "NameAr": "الإحصاء والاحتمالات المتقدم",
+      "Icon": "🎲"
+    },
+    {
+      "Id": 13,
+      "StageId": 4,
+      "NameAr": "التفاضل متعدد المتغيرات",
+      "Icon": "🌌"
+    },
+    {
+      "Id": 14,
+      "StageId": 4,
+      "NameAr": "الجبر الخطي",
+      "Icon": "🧮"
+    },
+    {
+      "Id": 15,
+      "StageId": 4,
+      "NameAr": "المعادلات التفاضلية",
+      "Icon": "🌀"
+    },
+    {
+      "Id": 16,
+      "StageId": 4,
+      "NameAr": "التحليل الحقيقي",
+      "Icon": "∞"
+    }
+  ]
+}
