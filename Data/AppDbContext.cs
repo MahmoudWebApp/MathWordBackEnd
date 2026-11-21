@@ -113,6 +113,7 @@ namespace MathWorldAPI.Data
             {
                 e.HasIndex(x => x.StableKey).IsUnique();
                 e.HasIndex(x => new { x.StageId, x.CategoryId, x.SortOrder });
+                e.HasIndex(x => x.CategoryId);
                 e.Property(x => x.StableKey).HasMaxLength(160).IsRequired();
                 e.Property(x => x.NameAr).IsRequired();
                 e.Property(x => x.NameEn).IsRequired();
