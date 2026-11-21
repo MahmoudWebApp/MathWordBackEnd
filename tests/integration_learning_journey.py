@@ -59,13 +59,27 @@ def main():
         "Password": "CI_TEST_PASSWORD_2026",
         "StageId": stage1
     })
-    # New accounts must choose a stage; missing and invalid stage are rejected.
-    invalid = {
-        "FullName": "Invalid Stage Learner",
-        "Email": "invalid-stage@mathworld.test",
+    # The registration form no longer chooses a stage. New accounts keep
+    # CurrentStageId=null and complete onboarding as authenticated learners.
+    stage_later = {
+        "FullName": "Choose Stage After Signup",
+        "Email": "stage-after-signup@mathworld.test",
         "Password": "CI_TEST_PASSWORD_2026"
     }
-    assert call("POST", "/api/auth/register", invalid)[0] == 400
+    new_student = expect("POST", "/api/auth/register", 201, stage_later)
+    assert new_student["CurrentStageId"] is None, new_student
+    stage_token = new_student["Token"]
+    new_login = expect("POST", "/api/auth/login", 200, {
+        "Email": stage_later["Email"], "Password": stage_later["Password"]
+    })
+    assert new_login["CurrentStageId"] is None, new_login
+    chosen = expect("PUT", "/api/users/learning-stage", 200,
+                    {"StageId": stage2}, stage_token)
+    assert chosen["StageId"] == stage2, chosen
+    assert expect("GET", "/api/users/learning-stage", 200,
+                  token=stage_token)["StageId"] == stage2
+    invalid = dict(stage_later)
+    invalid["Email"] = "invalid-stage@mathworld.test"
     invalid["StageId"] = 999999
     assert call("POST", "/api/auth/register", invalid)[0] == 400
     token = registered["Token"]
