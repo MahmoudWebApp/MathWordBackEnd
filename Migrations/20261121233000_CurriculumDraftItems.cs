@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS ""CurriculumDraftItems""(
 CREATE INDEX IF NOT EXISTS ""IX_CurriculumDraftItems_TopicProposalId_EditorialStatus"" ON ""CurriculumDraftItems""(""TopicProposalId"",""EditorialStatus"");
 CREATE INDEX IF NOT EXISTS ""IX_CurriculumDraftItems_TopicProposalId_TemplateFamilyKey"" ON ""CurriculumDraftItems""(""TopicProposalId"",""TemplateFamilyKey"");
 ALTER TABLE ""CurriculumDraftItems"" ENABLE ROW LEVEL SECURITY;
-DO $
+DO $mw_revoke$
 BEGIN
   -- Supabase has the API roles; vanilla PostgreSQL in CI does not.
   IF EXISTS (SELECT 1 FROM pg_roles WHERE rolname = 'anon') THEN
@@ -44,7 +44,7 @@ BEGIN
     REVOKE ALL ON ""CurriculumDraftItems"" FROM authenticated;
     REVOKE ALL ON SEQUENCE ""CurriculumDraftItems_Id_seq"" FROM authenticated;
   END IF;
-END $;
+END $mw_revoke$;
 ");
     }
 
