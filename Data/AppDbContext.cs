@@ -24,6 +24,7 @@ namespace MathWorldAPI.Data
         /// <summary>
         /// Users table.
         /// </summary>
+        public DbSet<CurriculumDraftItem> CurriculumDraftItems => Set<CurriculumDraftItem>();
         public DbSet<CurriculumTopicProposal> CurriculumTopicProposals => Set<CurriculumTopicProposal>();
         public DbSet<CurriculumDomain> CurriculumDomains => Set<CurriculumDomain>();
         public DbSet<CurriculumSkill> CurriculumSkills => Set<CurriculumSkill>();
@@ -102,6 +103,21 @@ namespace MathWorldAPI.Data
             ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<CurriculumDraftItem>(e =>
+            {
+                e.HasIndex(x => x.ContentKey).IsUnique();
+                e.HasIndex(x => new { x.TopicProposalId, x.EditorialStatus });
+                e.HasIndex(x => new { x.TopicProposalId, x.TemplateFamilyKey });
+                e.Property(x => x.ContentKey).HasMaxLength(120).IsRequired();
+                e.Property(x => x.PrimarySkillKey).HasMaxLength(120).IsRequired();
+                e.Property(x => x.TemplateFamilyKey).HasMaxLength(160).IsRequired();
+                e.Property(x => x.PisaProcess).HasMaxLength(32).IsRequired();
+                e.Property(x => x.EditorialStatus).HasMaxLength(24).IsRequired();
+                e.Property(x => x.OptionsJson).HasColumnType("jsonb").IsRequired();
+                e.HasOne(x => x.TopicProposal).WithMany().HasForeignKey(x => x.TopicProposalId).OnDelete(DeleteBehavior.Cascade);
+                e.ToTable(t => t.HasCheckConstraint("CK_CurriculumDraftItems_Difficulty", "\"DifficultyLevel\" BETWEEN 1 AND 5"));
+            });
 
             modelBuilder.Entity<CurriculumTopicProposal>(e =>
             {
