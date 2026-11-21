@@ -5,9 +5,11 @@ on:
     paths:
       - 'content/catalog/**'
       - 'content/batches/mathworld-adaptive-v2-*'
+      - 'content/batches/mathworld-reasoning-extension-*'
       - 'docs/MATHWORLD_INTERNATIONAL_CURRICULUM_TAXONOMY_*.md'
       - 'tests/check_curriculum_taxonomy.py'
       - 'tests/check_adaptive_pilot_content.py'
+      - 'tests/check_curriculum_reasoning_extension.py'
       - '.github/workflows/curriculum-taxonomy-ci.yml'
   workflow_dispatch:
 
@@ -24,5 +26,9 @@ jobs:
         run: python3 tests/check_curriculum_taxonomy.py
       - name: Check varied adaptive draft math and bilingual question bank
         run: python3 tests/check_adaptive_pilot_content.py
+      - name: Cross-check distinct mathematical answers in reasoning extension
+        run: python3 tests/check_curriculum_reasoning_extension.py
       - name: Validate reproducible private editorial seed
         run: python3 scripts/generate_curriculum_editorial_seed.py --check
+      - name: Validate repeatable reasoning draft seed
+        run: python3 scripts/generate_reasoning_extension_sql.py --check
