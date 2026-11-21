@@ -331,8 +331,8 @@ namespace MathWorldAPI.Controllers
                     Role = user.Role,
                     SubscriptionType =
                         user.SubscriptionType,
-                    CurrentStageId = user.CurrentStageId ?? await LegacyLearningStage.ElementaryIdAsync(
-                        _context, HttpContext.RequestAborted),
+                    CurrentStageId = await LegacyLearningStage.EffectiveIdForUserAsync(
+                        _context, user.CurrentStageId, user.CreatedAt, HttpContext.RequestAborted),
                     SolvedProblemsCount =
                         solvedCount,
                     TotalPoints =
@@ -506,15 +506,20 @@ namespace MathWorldAPI.Controllers
             var userId =
                 GetUserId();
 
-            var selectedStageId = await _context.Users.AsNoTracking()
+            var learner = await _context.Users.AsNoTracking()
                 .Where(user => user.Id == userId)
-                .Select(user => user.CurrentStageId)
+                .Select(user => new { user.CurrentStageId, user.CreatedAt })
                 .FirstOrDefaultAsync();
-            var activeStageId = await LegacyLearningStage.EffectiveIdAsync(
-                _context, selectedStageId, HttpContext.RequestAborted);
+            if (learner == null)
+                return NotFound();
+            var activeStageId = await LegacyLearningStage.EffectiveIdForUserAsync(
+                _context, learner.CurrentStageId, learner.CreatedAt, HttpContext.RequestAborted);
 
             var language =
                 LanguageHelper.GetLanguageFromRequest(Request);
+            if (!activeStageId.HasValue)
+                return Ok(LanguageHelper.SuccessResponse(
+                    new List<ProblemPreviewDto>(), "Success", language));
 
             var allowedCategories = await HttpContext.RequestServices
                 .GetRequiredService<ProblemCategoryAccessService>()
