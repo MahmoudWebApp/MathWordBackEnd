@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MathWorldAPI.Controllers;
 
-/// <summary>Editor inventory of draft categories, never public or learner-visible.</summary>
+/// <summary>Admin inventory of editorial proposals and their current publication status.</summary>
 [ApiController]
 [Authorize(Roles = "Admin")]
 [Route("api/admin/curriculum/topics")]
@@ -44,9 +44,9 @@ public sealed class AdminCurriculumTopicsController : ControllerBase
 
         return Ok(new
         {
-            Published = false,
+            Published = rows.Length > 0 && rows.All(x => x.EditorialStatus == "Published"),
             Total = rows.Length,
-            TotalDraftProblems = rows.Sum(x => x.ProposedQuestionCount),
+            TotalDraftProblems = rows.Where(x => x.EditorialStatus != "Published").Sum(x => x.ProposedQuestionCount),
             RequiresIndependentReview = true,
             Topics = rows
         });
