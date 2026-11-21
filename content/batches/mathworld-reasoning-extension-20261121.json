@@ -1,0 +1,788 @@
+{
+  "batch_key": "mw-reasoning-extension-20261121",
+  "publication_allowed": false,
+  "stage": "draft_only",
+  "purpose": "Develop independent reasoning and representation evidence for undercovered pilot skills; batch size is editorial, not a curricular quota.",
+  "problems": [
+    {
+      "ContentKey": "mw-reasoning-compare-fifths-eighths",
+      "StageId": 1,
+      "ProposedCategoryKey": "p-fractions-decimals",
+      "PrimarySkillKey": "fraction-models",
+      "LearningObjectiveAr": "مقارنة كسرين بمقامين مختلفين",
+      "LearningObjectiveEn": "Compare fractions with unlike denominators",
+      "TemplateFamilyKey": "mw-reasoning-compare-fifths-eighths",
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "QuestionTextAr": "أي علاقة صحيحة بين $\\frac25$ و$\\frac38$؟",
+      "QuestionTextEn": "Which comparison between $\\frac25$ and $\\frac38$ is correct?",
+      "DetailedSolutionAr": "بالمقام المشترك 40 نحصل على $\\frac25=\\frac{16}{40}$ و$\\frac38=\\frac{15}{40}$؛ لذلك الأول أكبر.",
+      "DetailedSolutionEn": "Using denominator 40, $\\frac25=\\frac{16}{40}$ and $\\frac38=\\frac{15}{40}$, so the first fraction is larger.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\frac25<\\frac38",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\frac25>\\frac38",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "\\frac25=\\frac38",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "\\frac25=0.25",
+          "IsCorrect": false
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-reasoning-fraction-subtraction",
+      "StageId": 1,
+      "ProposedCategoryKey": "p-fractions-decimals",
+      "PrimarySkillKey": "fraction-operations",
+      "LearningObjectiveAr": "طرح كسور مختلفة المقامات",
+      "LearningObjectiveEn": "Subtract fractions with different denominators",
+      "TemplateFamilyKey": "mw-reasoning-fraction-subtraction",
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "QuestionTextAr": "احسب $\\frac56-\\frac14$.",
+      "QuestionTextEn": "Compute $\\frac56-\\frac14$.",
+      "DetailedSolutionAr": "المضاعف المشترك الأصغر للمقامين 12؛ $\\frac56=\\frac{10}{12}$ و$\\frac14=\\frac3{12}$، والفرق $\\frac7{12}$.",
+      "DetailedSolutionEn": "The least common denominator is 12. $\\frac56=\\frac{10}{12}$ and $\\frac14=\\frac3{12}$, so the difference is $\\frac7{12}$.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\frac49",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\frac7{12}",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "\\frac12",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "\\frac3{12}",
+          "IsCorrect": false
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-reasoning-hundredths-digit",
+      "StageId": 1,
+      "ProposedCategoryKey": "p-fractions-decimals",
+      "PrimarySkillKey": "decimal-place-value",
+      "LearningObjectiveAr": "تحديد القيمة المكانية للرقم العشري",
+      "LearningObjectiveEn": "Identify a decimal place value",
+      "TemplateFamilyKey": "mw-reasoning-hundredths-digit",
+      "DifficultyLevel": 2,
+      "PisaProcess": "employ",
+      "QuestionTextAr": "ما الرقم في منزلة الأجزاء من المئة للعدد $0.407$؟",
+      "QuestionTextEn": "Which digit is in the hundredths place of $0.407$?",
+      "DetailedSolutionAr": "المنازل بعد الفاصلة هي: الأعشار 4، والأجزاء من المئة 0، والأجزاء من الألف 7؛ لذلك الجواب 0.",
+      "DetailedSolutionEn": "After the decimal point: 4 is in tenths, 0 in hundredths, and 7 in thousandths. The hundredths digit is 0.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "4",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "7",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "0",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "40",
+          "IsCorrect": false
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-reasoning-reverse-percent-12-of-48",
+      "StageId": 1,
+      "ProposedCategoryKey": "p-fractions-decimals",
+      "PrimarySkillKey": "basic-percentages",
+      "LearningObjectiveAr": "تحويل جزء من مجموعة إلى نسبة مئوية",
+      "LearningObjectiveEn": "Express a count as a percentage",
+      "TemplateFamilyKey": "mw-reasoning-reverse-percent-12-of-48",
+      "DifficultyLevel": 2,
+      "PisaProcess": "formulate",
+      "QuestionTextAr": "في صف مؤلف من 48 طالباً شارك 12 في مسابقة. ما نسبة المشاركين؟",
+      "QuestionTextEn": "Twelve of 48 pupils in a class entered a competition. What percentage entered?",
+      "DetailedSolutionAr": "النسبة $\\frac{12}{48}=\\frac14=0.25$؛ أي $25\\%$.",
+      "DetailedSolutionEn": "The proportion is $\\frac{12}{48}=\\frac14=0.25$, or $25\\%$.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "20\\%",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "25\\%",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "30\\%",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "75\\%",
+          "IsCorrect": false
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-reasoning-number-line-eighths",
+      "StageId": 1,
+      "ProposedCategoryKey": "p-fractions-decimals",
+      "PrimarySkillKey": "fraction-models",
+      "LearningObjectiveAr": "تفسير تقسيمات مستقيم الأعداد",
+      "LearningObjectiveEn": "Interpret equal intervals on a number line",
+      "TemplateFamilyKey": "mw-reasoning-number-line-eighths",
+      "DifficultyLevel": 2,
+      "PisaProcess": "interpret_evaluate",
+      "QuestionTextAr": "قُسّمت المسافة بين 0 و1 على مستقيم أعداد إلى 8 أجزاء متساوية. أي كسر يقع عند العلامة الخامسة بعد الصفر؟",
+      "QuestionTextEn": "The interval from 0 to 1 on a number line is divided into 8 equal parts. Which fraction marks the fifth tick after zero?",
+      "DetailedSolutionAr": "كل علامة تمثل ثُمْناً واحداً، لذا العلامة الخامسة بعد الصفر هي $\\frac58$.",
+      "DetailedSolutionEn": "Each interval represents one eighth, so the fifth tick after zero marks $\\frac58$.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\frac38",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\frac58",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "\\frac57",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "\\frac85",
+          "IsCorrect": false
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-reasoning-median-six-unsorted",
+      "StageId": 2,
+      "ProposedCategoryKey": "m-statistics",
+      "PrimarySkillKey": "summary-measures",
+      "LearningObjectiveAr": "حساب الوسيط لقيم غير مرتبة بعدد زوجي",
+      "LearningObjectiveEn": "Find the median of an even-sized unsorted set",
+      "TemplateFamilyKey": "mw-reasoning-median-six-unsorted",
+      "DifficultyLevel": 2,
+      "PisaProcess": "employ",
+      "QuestionTextAr": "احسب وسيط القيم: 2، 9، 4، 12، 7، 5.",
+      "QuestionTextEn": "Find the median of the values 2, 9, 4, 12, 7, 5.",
+      "DetailedSolutionAr": "نرتبها: 2، 4، 5، 7، 9، 12. الوسيط متوسط القيمتين الثالثة والرابعة: $(5+7)/2=6$.",
+      "DetailedSolutionEn": "Sort: 2, 4, 5, 7, 9, 12. The middle two values are 5 and 7, so the median is $(5+7)/2=6$.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "5",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "6",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "7",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "9",
+          "IsCorrect": false
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-reasoning-resistant-to-outlier",
+      "StageId": 2,
+      "ProposedCategoryKey": "m-statistics",
+      "PrimarySkillKey": "distributions",
+      "LearningObjectiveAr": "اختيار المقياس الأقل تأثراً بالقيم المتطرفة",
+      "LearningObjectiveEn": "Identify a statistic resistant to an outlier",
+      "TemplateFamilyKey": "mw-reasoning-resistant-to-outlier",
+      "DifficultyLevel": 3,
+      "PisaProcess": "interpret_evaluate",
+      "QuestionTextAr": "إذا استُبدلت أكبر قيمة في البيانات 4، 5، 6، 7، 50 بالعدد 500، فأي مقياس من الآتي يبقى دون تغيير؟",
+      "QuestionTextEn": "If the largest value in 4, 5, 6, 7, 50 is replaced by 500, which statistic remains unchanged?",
+      "DetailedSolutionAr": "الوسيط هو القيمة الثالثة 6 في الحالتين، بينما يتغير المتوسط والمدى والانحراف المعياري.",
+      "DetailedSolutionEn": "The median remains the middle value 6; the mean, range and standard deviation all change.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\text{Mean}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\text{Median}",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "\\text{Range}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "\\text{Standard deviation}",
+          "IsCorrect": false
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-reasoning-compare-girls-rates",
+      "StageId": 2,
+      "ProposedCategoryKey": "m-statistics",
+      "PrimarySkillKey": "charts",
+      "LearningObjectiveAr": "مقارنة نسب من مجموعتين مختلفتي الحجم",
+      "LearningObjectiveEn": "Compare proportions across differently sized groups",
+      "TemplateFamilyKey": "mw-reasoning-compare-girls-rates",
+      "DifficultyLevel": 3,
+      "PisaProcess": "interpret_evaluate",
+      "QuestionTextAr": "في الصف أ 15 طالبة و12 طالباً، وفي الصف ب 10 طالبات و18 طالباً. أي الصفين لديه نسبة أعلى من الطالبات؟",
+      "QuestionTextEn": "Class A has 15 girls and 12 boys; Class B has 10 girls and 18 boys. Which class has the higher proportion of girls?",
+      "DetailedSolutionAr": "نسبة الطالبات في أ هي $15/27\\approx55.6\\%$، وفي ب $10/28\\approx35.7\\%$؛ النسبة أعلى في أ.",
+      "DetailedSolutionEn": "The proportions are $15/27\\approx55.6\\%$ in A and $10/28\\approx35.7\\%$ in B, so A has the higher proportion.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\text{Class A}",
+          "IsCorrect": true
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\text{Class B}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "\\text{Equal proportions}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "\\text{Cannot determine}",
+          "IsCorrect": false
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-reasoning-mode-repeated-values",
+      "StageId": 2,
+      "ProposedCategoryKey": "m-statistics",
+      "PrimarySkillKey": "summary-measures",
+      "LearningObjectiveAr": "تحديد المنوال من مجموعة بيانات",
+      "LearningObjectiveEn": "Find the mode of a dataset",
+      "TemplateFamilyKey": "mw-reasoning-mode-repeated-values",
+      "DifficultyLevel": 1,
+      "PisaProcess": "employ",
+      "QuestionTextAr": "ما منوال القيم 1، 1، 2، 3، 3، 3، 9؟",
+      "QuestionTextEn": "What is the mode of 1, 1, 2, 3, 3, 3, 9?",
+      "DetailedSolutionAr": "القيمة 3 تكررت ثلاث مرات، وهو أكثر من تكرار أي قيمة أخرى؛ لذلك المنوال هو 3.",
+      "DetailedSolutionEn": "The value 3 occurs three times, more often than any other value, so the mode is 3.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "1",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "2",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "3",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "9",
+          "IsCorrect": false
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-reasoning-range-translation",
+      "StageId": 2,
+      "ProposedCategoryKey": "m-statistics",
+      "PrimarySkillKey": "distributions",
+      "LearningObjectiveAr": "تفسير ثبات المدى عند إضافة ثابت",
+      "LearningObjectiveEn": "Understand translation invariance of range",
+      "TemplateFamilyKey": "mw-reasoning-range-translation",
+      "DifficultyLevel": 3,
+      "PisaProcess": "interpret_evaluate",
+      "QuestionTextAr": "إذا أضفنا 5 إلى كل قيمة في مجموعة بيانات، ماذا يحدث للمدى؟",
+      "QuestionTextEn": "If 5 is added to every value in a dataset, what happens to the range?",
+      "DetailedSolutionAr": "المدى هو الأكبر ناقص الأصغر. بعد إضافة 5 إلى كليهما تصبح $(\\max+5)-(\\min+5)=\\max-\\min$، فلا يتغير.",
+      "DetailedSolutionEn": "Range is maximum minus minimum. Adding 5 to both gives $(\\max+5)-(\\min+5)=\\max-\\min$, so it is unchanged.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\text{Increases by }5",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\text{Decreases by }5",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "\\text{Unchanged}",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "\\text{Doubles}",
+          "IsCorrect": false
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-reasoning-arithmetic-first-from-fifth",
+      "StageId": 3,
+      "ProposedCategoryKey": "s-sequences-series",
+      "PrimarySkillKey": "arithmetic-sequences",
+      "LearningObjectiveAr": "استرجاع الحد الأول من حد لاحق والفرق",
+      "LearningObjectiveEn": "Recover the first term of an arithmetic sequence",
+      "TemplateFamilyKey": "mw-reasoning-arithmetic-first-from-fifth",
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "QuestionTextAr": "في متتالية حسابية $a_5=23$ والفرق المشترك $d=4$. ما الحد الأول؟",
+      "QuestionTextEn": "In an arithmetic sequence, $a_5=23$ and the common difference $d=4$. Find the first term.",
+      "DetailedSolutionAr": "من $a_5=a_1+4d$ نحصل على $a_1=23-4\\times4=7$.",
+      "DetailedSolutionEn": "Since $a_5=a_1+4d$, we have $a_1=23-4\\times4=7$.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "7",
+          "IsCorrect": true
+        },
+        {
+          "Order": 2,
+          "LatexCode": "11",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "15",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "19",
+          "IsCorrect": false
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-reasoning-negative-geometric-ratio",
+      "StageId": 3,
+      "ProposedCategoryKey": "s-sequences-series",
+      "PrimarySkillKey": "geometric-sequences",
+      "LearningObjectiveAr": "حساب حد بمتتالية هندسية ذات نسبة سالبة",
+      "LearningObjectiveEn": "Evaluate a geometric sequence with a negative ratio",
+      "TemplateFamilyKey": "mw-reasoning-negative-geometric-ratio",
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "QuestionTextAr": "في متتالية هندسية حدها الأول 2 ونسبتها المشتركة $-3$، احسب الحد الرابع.",
+      "QuestionTextEn": "The first term of a geometric sequence is 2 and its common ratio is $-3$. Find the fourth term.",
+      "DetailedSolutionAr": "الحد الرابع هو $a_4=2(-3)^3=-54$؛ لأن الأس فردي تبقى الإشارة سالبة.",
+      "DetailedSolutionEn": "The fourth term is $a_4=2(-3)^3=-54$; an odd power preserves the negative sign.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "54",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "-18",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "-54",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "-162",
+          "IsCorrect": false
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-reasoning-recurrence-linear-in-n",
+      "StageId": 3,
+      "ProposedCategoryKey": "s-sequences-series",
+      "PrimarySkillKey": "recurrence-relations",
+      "LearningObjectiveAr": "تطبيق علاقة عودية تعتمد على رقم الحد",
+      "LearningObjectiveEn": "Evaluate a recurrence that depends on the term index",
+      "TemplateFamilyKey": "mw-reasoning-recurrence-linear-in-n",
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "QuestionTextAr": "إذا كان $a_1=1$ و$a_{n+1}=a_n+2n$ لكل $n\\ge1$، فما $a_4$؟",
+      "QuestionTextEn": "If $a_1=1$ and $a_{n+1}=a_n+2n$ for $n\\ge1$, what is $a_4$?",
+      "DetailedSolutionAr": "$a_2=1+2=3$ ثم $a_3=3+4=7$ ثم $a_4=7+6=13$.",
+      "DetailedSolutionEn": "$a_2=1+2=3$, then $a_3=3+4=7$, then $a_4=7+6=13$.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "9",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "11",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "13",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "15",
+          "IsCorrect": false
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-reasoning-sum-first-twelve-odd",
+      "StageId": 3,
+      "ProposedCategoryKey": "s-sequences-series",
+      "PrimarySkillKey": "series-sums",
+      "LearningObjectiveAr": "استخدام خاصية مجموع الأعداد الفردية الأولى",
+      "LearningObjectiveEn": "Apply the sum-of-odd-numbers identity",
+      "TemplateFamilyKey": "mw-reasoning-sum-first-twelve-odd",
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "QuestionTextAr": "ما مجموع أول 12 عدداً فردياً موجباً، من 1 حتى 23؟",
+      "QuestionTextEn": "What is the sum of the first 12 positive odd integers, from 1 to 23?",
+      "DetailedSolutionAr": "مجموع أول $n$ عدد فردي يساوي $n^2$، لذا $12^2=144$. ويمكن التحقق بصيغة المتسلسلة الحسابية.",
+      "DetailedSolutionEn": "The sum of the first $n$ odd integers is $n^2$, giving $12^2=144$. It also follows from the arithmetic series formula.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "121",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "132",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "144",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "169",
+          "IsCorrect": false
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-reasoning-divergent-geometric-series",
+      "StageId": 3,
+      "ProposedCategoryKey": "s-sequences-series",
+      "PrimarySkillKey": "series-sums",
+      "LearningObjectiveAr": "تمييز تباعد المتسلسلة الهندسية عندما تكون النسبة أكبر من واحد",
+      "LearningObjectiveEn": "Identify divergence of a geometric series",
+      "TemplateFamilyKey": "mw-reasoning-divergent-geometric-series",
+      "DifficultyLevel": 4,
+      "PisaProcess": "interpret_evaluate",
+      "QuestionTextAr": "ماذا يحدث لمجاميع المتسلسلة $2+4+8+16+\\cdots$؟",
+      "QuestionTextEn": "What happens to the partial sums of the series $2+4+8+16+\\cdots$?",
+      "DetailedSolutionAr": "النسبة المشتركة 2 وتزيد الحدود باستمرار، لذلك لا تتقارب المجاميع الجزئية إلى عدد منتهٍ بل تؤول إلى $+\\infty$.",
+      "DetailedSolutionEn": "The common ratio is 2, so the positive partial sums grow without bound and diverge to $+\\infty$.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\text{Converges to }4",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\text{Diverges to }+\\infty",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "\\text{Converges to }2",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "\\text{Oscillates}",
+          "IsCorrect": false
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-reasoning-truth-of-implication",
+      "StageId": 4,
+      "ProposedCategoryKey": "u-discrete-math",
+      "PrimarySkillKey": "logic",
+      "LearningObjectiveAr": "تقييم عبارة شرطية عند قيم منطقية محددة",
+      "LearningObjectiveEn": "Evaluate material implication using truth values",
+      "TemplateFamilyKey": "mw-reasoning-truth-of-implication",
+      "DifficultyLevel": 2,
+      "PisaProcess": "employ",
+      "QuestionTextAr": "إذا كانت $P$ خاطئة و$Q$ صحيحة، فما قيمة $P\\Rightarrow Q$؟",
+      "QuestionTextEn": "If $P$ is false and $Q$ is true, what is the truth value of $P\\Rightarrow Q$?",
+      "DetailedSolutionAr": "الشرطية $P\\Rightarrow Q$ خاطئة فقط عندما تكون $P$ صحيحة و$Q$ خاطئة؛ لذلك هي صحيحة هنا.",
+      "DetailedSolutionEn": "A material implication is false only when $P$ is true and $Q$ is false, so it is true here.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\text{True}",
+          "IsCorrect": true
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\text{False}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "\\text{Undefined}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "\\text{Depends on }Q",
+          "IsCorrect": false
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-reasoning-choose-three-containing-person",
+      "StageId": 4,
+      "ProposedCategoryKey": "u-discrete-math",
+      "PrimarySkillKey": "combinatorics",
+      "LearningObjectiveAr": "عد مجموعات تحت شرط اشتمال عنصر محدد",
+      "LearningObjectiveEn": "Count subsets containing a designated element",
+      "TemplateFamilyKey": "mw-reasoning-choose-three-containing-person",
+      "DifficultyLevel": 3,
+      "PisaProcess": "formulate",
+      "QuestionTextAr": "كم مجموعة من 3 أشخاص يمكن تشكيلها من 6 أشخاص إذا كان يجب أن تضم شخصاً معيناً؟",
+      "QuestionTextEn": "How many three-person groups can be chosen from six people if a designated person must be included?",
+      "DetailedSolutionAr": "نثبت الشخص المطلوب ثم نختار شخصين من الخمسة الباقين؛ العدد $\\binom52=10$.",
+      "DetailedSolutionEn": "Include the designated person, then choose 2 of the other 5: $\\binom52=10$.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "6",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "10",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "15",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "20",
+          "IsCorrect": false
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-reasoning-mod-four-classes",
+      "StageId": 4,
+      "ProposedCategoryKey": "u-discrete-math",
+      "PrimarySkillKey": "relations",
+      "LearningObjectiveAr": "عد أصناف التكافؤ بت合同 بترديد محدد",
+      "LearningObjectiveEn": "Count equivalence classes modulo an integer",
+      "TemplateFamilyKey": "mw-reasoning-mod-four-classes",
+      "DifficultyLevel": 3,
+      "PisaProcess": "interpret_evaluate",
+      "QuestionTextAr": "على مجموعة الأعداد الصحيحة، عرّف $a\\sim b$ إذا كان $a-b$ من مضاعفات 4. كم صنف تكافؤ مختلف يوجد؟",
+      "QuestionTextEn": "On the integers, define $a\\sim b$ when $a-b$ is divisible by 4. How many distinct equivalence classes are there?",
+      "DetailedSolutionAr": "يوجد أربعة أصناف بحسب الباقي عند القسمة على 4: 0 و1 و2 و3.",
+      "DetailedSolutionEn": "The four classes are determined by residues 0, 1, 2 and 3 modulo 4.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "2",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "3",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "4",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "5",
+          "IsCorrect": false
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-reasoning-complete-five-vertices",
+      "StageId": 4,
+      "ProposedCategoryKey": "u-discrete-math",
+      "PrimarySkillKey": "graphs",
+      "LearningObjectiveAr": "تحديد الحد الأقصى لحواف رسم بسيط غير موجه",
+      "LearningObjectiveEn": "Find the maximum number of edges in a simple undirected graph",
+      "TemplateFamilyKey": "mw-reasoning-complete-five-vertices",
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "QuestionTextAr": "ما أكبر عدد من الحواف في رسم بياني بسيط غير موجه يحوي 5 رؤوس؟",
+      "QuestionTextEn": "What is the maximum number of edges in a simple undirected graph with five vertices?",
+      "DetailedSolutionAr": "في الرسم الكامل يتصل كل زوج من الرؤوس بحافة واحدة، فيكون العدد $\\binom52=5\\times4/2=10$.",
+      "DetailedSolutionEn": "In a complete graph, every pair of vertices is joined by one edge: $\\binom52=5\\times4/2=10$.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "5",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "8",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "10",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "20",
+          "IsCorrect": false
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-reasoning-pigeonhole-pairs-sum-five",
+      "StageId": 4,
+      "ProposedCategoryKey": "u-discrete-math",
+      "PrimarySkillKey": "proofs",
+      "LearningObjectiveAr": "تطبيق مبدأ الحمام على أزواج أعداد",
+      "LearningObjectiveEn": "Apply the pigeonhole principle to complementary pairs",
+      "TemplateFamilyKey": "mw-reasoning-pigeonhole-pairs-sum-five",
+      "DifficultyLevel": 3,
+      "PisaProcess": "interpret_evaluate",
+      "QuestionTextAr": "اختيرت ثلاثة أعداد مختلفة من $\\{1,2,3,4\\}$. هل يُضمن وجود عددين مجموعهما 5؟",
+      "QuestionTextEn": "Three distinct numbers are chosen from $\\{1,2,3,4\\}$. Must two of them add up to 5?",
+      "DetailedSolutionAr": "الأزواج المكملة هي (1،4) و(2،3). اختيار ثلاثة أعداد من هذين الزوجين يضمن أخذ عددين من زوج واحد، ومجموعهما 5.",
+      "DetailedSolutionEn": "The complementary pairs are (1,4) and (2,3). Choosing three numbers from these two pairs forces both members of one pair to be selected, so their sum is 5.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\text{Yes}",
+          "IsCorrect": true
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\text{No}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "\\text{Only if all 4 are chosen}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "\\text{Only if 2 are chosen}",
+          "IsCorrect": false
+        }
+      ],
+      "ExpertReview": "pending"
+    }
+  ]
+}
