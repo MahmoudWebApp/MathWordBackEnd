@@ -381,8 +381,8 @@
       "PisaProcess": "employ",
       "QuestionTextAr": "احسب $1\\frac12+\\frac34$.",
       "QuestionTextEn": "Compute $1\\frac12+\\frac34$.",
-      "DetailedSolutionAr": "نكتب $1\\frac12=1\\frac24$، ثم $1\\frac24+\\frac34=1\\frac54=2\\frac14$.",
-      "DetailedSolutionEn": "Rewrite $1\\frac12=1\\frac24$; adding $\\frac34$ gives $2\\frac14$.",
+      "DetailedSolutionAr": "نحوّل العدد الكسري إلى أرباع: $1\\frac12=\\frac64$، ثم $ \\frac64+\\frac34=\\frac94=2\\frac14 $.",
+      "DetailedSolutionEn": "Convert the mixed number into quarters: $1\\frac12=\\frac64$. Then $ \\frac64+\\frac34=\\frac94=2\\frac14 $.",
       "Points": 10,
       "Options": [
         {
