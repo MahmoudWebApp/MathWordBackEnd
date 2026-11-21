@@ -72,7 +72,8 @@
             "equivalence",
             "decimal-place-value",
             "basic-percentages",
-            "fraction-operations"
+            "fraction-operations",
+            "fraction-comparisons"
           ],
           "publication_status": "editorial_proposal"
         },
@@ -424,7 +425,8 @@
             "arithmetic-sequences",
             "geometric-sequences",
             "series-sums",
-            "recurrence-relations"
+            "recurrence-relations",
+            "series-convergence"
           ],
           "publication_status": "editorial_proposal"
         },
