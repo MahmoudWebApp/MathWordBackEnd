@@ -32,8 +32,8 @@ namespace MathWorldAPI.Controllers
             if (user == null)
                 return NotFound(Error("UserNotFound", 404));
 
-            var id = stageId ?? await LegacyLearningStage.EffectiveIdAsync(
-                _db, user.CurrentStageId, cancellationToken);
+            var id = stageId ?? await LegacyLearningStage.EffectiveIdForUserAsync(
+                _db, user.CurrentStageId, user.CreatedAt, cancellationToken);
             if (!id.HasValue)
                 return Conflict(Error("LearningStageRequired", 409));
 
