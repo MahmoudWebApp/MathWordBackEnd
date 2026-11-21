@@ -22,6 +22,80 @@ namespace MathWorldAPI.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("MathWorldAPI.Models.CurriculumDomain", b =>
+                {
+                    b.Property<int>("Id").ValueGeneratedOnAdd().HasColumnType("integer");
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                    b.Property<string>("StableKey").IsRequired().HasMaxLength(120).HasColumnType("character varying(120)");
+                    b.Property<string>("NameAr").IsRequired().HasColumnType("text");
+                    b.Property<string>("NameEn").IsRequired().HasColumnType("text");
+                    b.Property<string>("DescriptionAr").IsRequired().HasColumnType("text");
+                    b.Property<string>("DescriptionEn").IsRequired().HasColumnType("text");
+                    b.Property<int>("SortOrder").HasColumnType("integer");
+                    b.Property<bool>("IsPublished").HasColumnType("boolean");
+                    b.HasKey("Id");
+                    b.HasIndex("StableKey").IsUnique();
+                    b.ToTable("CurriculumDomains");
+                });
+
+            modelBuilder.Entity("MathWorldAPI.Models.CurriculumSkill", b =>
+                {
+                    b.Property<int>("Id").ValueGeneratedOnAdd().HasColumnType("integer");
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                    b.Property<string>("StableKey").IsRequired().HasMaxLength(160).HasColumnType("character varying(160)");
+                    b.Property<int>("DomainId").HasColumnType("integer");
+                    b.Property<int>("StageId").HasColumnType("integer");
+                    b.Property<int>("CategoryId").HasColumnType("integer");
+                    b.Property<string>("NameAr").IsRequired().HasColumnType("text");
+                    b.Property<string>("NameEn").IsRequired().HasColumnType("text");
+                    b.Property<string>("DescriptionAr").IsRequired().HasColumnType("text");
+                    b.Property<string>("DescriptionEn").IsRequired().HasColumnType("text");
+                    b.Property<int>("SortOrder").HasColumnType("integer");
+                    b.Property<bool>("IsPublished").HasColumnType("boolean");
+                    b.HasKey("Id");
+                    b.HasIndex("StableKey").IsUnique();
+                    b.HasIndex("DomainId");
+                    b.HasIndex("CategoryId");
+                    b.HasIndex("StageId", "CategoryId", "SortOrder");
+                    b.ToTable("CurriculumSkills");
+                });
+
+            modelBuilder.Entity("MathWorldAPI.Models.CurriculumSkillStandard", b =>
+                {
+                    b.Property<int>("Id").ValueGeneratedOnAdd().HasColumnType("integer");
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                    b.Property<int>("SkillId").HasColumnType("integer");
+                    b.Property<string>("Framework").IsRequired().HasMaxLength(32).HasColumnType("character varying(32)");
+                    b.Property<string>("StandardCode").IsRequired().HasMaxLength(100).HasColumnType("character varying(100)");
+                    b.Property<string>("MappingType").IsRequired().HasMaxLength(20).HasColumnType("character varying(20)");
+                    b.Property<string>("ReferenceUrl").HasColumnType("text");
+                    b.HasKey("Id");
+                    b.HasIndex("SkillId", "Framework", "StandardCode").IsUnique();
+                    b.ToTable("CurriculumSkillStandards");
+                });
+
+            modelBuilder.Entity("MathWorldAPI.Models.CurriculumSkillPrerequisite", b =>
+                {
+                    b.Property<int>("SkillId").HasColumnType("integer");
+                    b.Property<int>("PrerequisiteSkillId").HasColumnType("integer");
+                    b.HasKey("SkillId", "PrerequisiteSkillId");
+                    b.HasIndex("PrerequisiteSkillId");
+                    b.ToTable("CurriculumSkillPrerequisites", t =>
+                        t.HasCheckConstraint("CK_CurriculumPrerequisite_NotSelf",
+                            "\"SkillId\" <> \"PrerequisiteSkillId\""));
+                });
+
+            modelBuilder.Entity("MathWorldAPI.Models.CurriculumProblemSkill", b =>
+                {
+                    b.Property<int>("ProblemId").HasColumnType("integer");
+                    b.Property<int>("SkillId").HasColumnType("integer");
+                    b.Property<bool>("IsPrimary").HasColumnType("boolean");
+                    b.HasKey("ProblemId", "SkillId");
+                    b.HasIndex("SkillId");
+                    b.HasIndex("ProblemId").IsUnique().HasFilter("\"IsPrimary\" = TRUE");
+                    b.ToTable("CurriculumProblemSkills");
+                });
+
             modelBuilder.Entity("MathWorldAPI.Models.CurriculumDraftBatch", b =>
                 {
                     b.Property<long>("Id")
@@ -1059,6 +1133,70 @@ namespace MathWorldAPI.Migrations
                         .HasForeignKey("UpdatedByAdminId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("MathWorldAPI.Models.CurriculumSkill", b =>
+                {
+                    b.HasOne("MathWorldAPI.Models.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+                    b.HasOne("MathWorldAPI.Models.CurriculumDomain", "Domain")
+                        .WithMany()
+                        .HasForeignKey("DomainId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+                    b.HasOne("MathWorldAPI.Models.EducationalStage", "Stage")
+                        .WithMany()
+                        .HasForeignKey("StageId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+                    b.Navigation("Category");
+                    b.Navigation("Domain");
+                    b.Navigation("Stage");
+                });
+
+            modelBuilder.Entity("MathWorldAPI.Models.CurriculumSkillStandard", b =>
+                {
+                    b.HasOne("MathWorldAPI.Models.CurriculumSkill", "Skill")
+                        .WithMany()
+                        .HasForeignKey("SkillId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                    b.Navigation("Skill");
+                });
+
+            modelBuilder.Entity("MathWorldAPI.Models.CurriculumSkillPrerequisite", b =>
+                {
+                    b.HasOne("MathWorldAPI.Models.CurriculumSkill", "PrerequisiteSkill")
+                        .WithMany()
+                        .HasForeignKey("PrerequisiteSkillId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+                    b.HasOne("MathWorldAPI.Models.CurriculumSkill", "Skill")
+                        .WithMany()
+                        .HasForeignKey("SkillId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                    b.Navigation("PrerequisiteSkill");
+                    b.Navigation("Skill");
+                });
+
+            modelBuilder.Entity("MathWorldAPI.Models.CurriculumProblemSkill", b =>
+                {
+                    b.HasOne("MathWorldAPI.Models.MathProblem", "Problem")
+                        .WithMany()
+                        .HasForeignKey("ProblemId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                    b.HasOne("MathWorldAPI.Models.CurriculumSkill", "Skill")
+                        .WithMany()
+                        .HasForeignKey("SkillId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                    b.Navigation("Problem");
+                    b.Navigation("Skill");
                 });
 
             modelBuilder.Entity("MathWorldAPI.Models.Category", b =>
