@@ -22,6 +22,30 @@ namespace MathWorldAPI.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("MathWorldAPI.Models.CurriculumTopicProposal", b =>
+                {
+                    b.Property<int>("Id").ValueGeneratedOnAdd().HasColumnType("integer");
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                    b.Property<string>("StableKey").IsRequired().HasMaxLength(120).HasColumnType("character varying(120)");
+                    b.Property<int>("StageId").HasColumnType("integer");
+                    b.Property<int>("DomainId").HasColumnType("integer");
+                    b.Property<string>("NameAr").IsRequired().HasColumnType("text");
+                    b.Property<string>("NameEn").IsRequired().HasColumnType("text");
+                    b.Property<string>("DescriptionAr").IsRequired().HasColumnType("text");
+                    b.Property<string>("DescriptionEn").IsRequired().HasColumnType("text");
+                    b.Property<string>("IconKey").IsRequired().HasMaxLength(80).HasColumnType("character varying(80)");
+                    b.Property<int>("SortOrder").HasColumnType("integer");
+                    b.Property<string>("EditorialStatus").IsRequired().HasMaxLength(24).HasColumnType("character varying(24)");
+                    b.Property<int>("ProposedQuestionCount").HasColumnType("integer");
+                    b.HasKey("Id");
+                    b.HasIndex("StableKey").IsUnique();
+                    b.HasIndex("DomainId");
+                    b.HasIndex("StageId", "SortOrder");
+                    b.ToTable("CurriculumTopicProposals", t =>
+                        t.HasCheckConstraint("CK_CurriculumTopicProposals_QuestionCount",
+                            "\"ProposedQuestionCount\" >= 0"));
+                });
+
             modelBuilder.Entity("MathWorldAPI.Models.CurriculumDomain", b =>
                 {
                     b.Property<int>("Id").ValueGeneratedOnAdd().HasColumnType("integer");
@@ -1133,6 +1157,22 @@ namespace MathWorldAPI.Migrations
                         .HasForeignKey("UpdatedByAdminId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("MathWorldAPI.Models.CurriculumTopicProposal", b =>
+                {
+                    b.HasOne("MathWorldAPI.Models.CurriculumDomain", "Domain")
+                        .WithMany()
+                        .HasForeignKey("DomainId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+                    b.HasOne("MathWorldAPI.Models.EducationalStage", "Stage")
+                        .WithMany()
+                        .HasForeignKey("StageId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+                    b.Navigation("Domain");
+                    b.Navigation("Stage");
                 });
 
             modelBuilder.Entity("MathWorldAPI.Models.CurriculumSkill", b =>
