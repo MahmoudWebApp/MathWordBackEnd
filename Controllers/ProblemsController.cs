@@ -121,7 +121,8 @@ namespace MathWorldAPI.Controllers
             [FromQuery] int? categoryId = null,
             [FromQuery] int? stageId = null,
             [FromQuery] int page = 1,
-            [FromQuery] int pageSize = 10)
+            [FromQuery] int pageSize = 10,
+            [FromQuery] bool hideSolved = false)
         {
             page =
                 Math.Max(
@@ -542,6 +543,23 @@ namespace MathWorldAPI.Controllers
                         stageId.Value);
             }
 
+            // Filter by server-owned progress BEFORE Count/Skip/Take.
+            // Filtering only visible cards would strand unsolved questions
+            // on later pages and produce misleading empty screens.
+            if (hideSolved)
+            {
+                var authenticatedStudent = User.Identity?.IsAuthenticated == true
+                    && User.IsInRole("Student") ? GetUserId() : null;
+                if (!authenticatedStudent.HasValue)
+                    return Unauthorized(LanguageHelper.ErrorResponse<object>(
+                        "Unauthorized", language,
+                        StatusCodes.Status401Unauthorized));
+
+                query = query.Where(problem => !_context.UserProgresses.Any(progress =>
+                    progress.UserId == authenticatedStudent.Value &&
+                    progress.ProblemId == problem.Id && progress.IsSolved));
+            }
+
             var total =
                 await query.CountAsync();
 
@@ -679,8 +697,15 @@ namespace MathWorldAPI.Controllers
             [FromQuery] int? stageId = null,
             [FromQuery] string? engine = "postgresql",
             [FromQuery] int page = 1,
-            [FromQuery] int pageSize = 10)
+            [FromQuery] int pageSize = 10,
+            [FromQuery] bool hideSolved = false)
         {
+            // Personalized filtering always uses PostgreSQL, regardless
+            // of a requested external search engine.
+            if (hideSolved)
+                return await PostgreSqlSearch(
+                    q, categoryId, stageId, page, pageSize, hideSolved: true);
+
             var useMeiliSearch =
                 _meilisearchEnabled &&
                 string.Equals(
