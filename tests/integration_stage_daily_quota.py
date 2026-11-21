@@ -156,6 +156,19 @@ def main():
     code, body = submit(free, *questions[0])
     assert code == 200 and not body["Data"]["IsOfficialAttempt"], (code, body)
 
+    # Hide-solved is a database-side filter, not a page-local UI shortcut.
+    visible = expect("GET", "/api/problems/search?stageId=1&categoryId=1&pageSize=100",
+                     200, token=free)
+    unsolved = expect("GET", "/api/problems/search?stageId=1&categoryId=1&pageSize=100&hideSolved=true",
+                      200, token=free)
+    assert unsolved["Total"] == visible["Total"] - len(questions), (
+        "Solved questions must be excluded before pagination and totals", visible, unsolved
+    )
+    assert not {qid for qid, _ in questions}.intersection(
+        {problem["Id"] for problem in unsolved["Results"]}), unsolved
+    unauthorized, _ = api("GET", "/api/problems/search?stageId=1&hideSolved=true")
+    assert unauthorized == 401, unauthorized
+
     # An earlier-stage mistake must remain in the notebook after changing
     # educational stage. The backend still enforces the two Free categories
     # per stage and must never expose a locked topic from another stage.
@@ -199,6 +212,14 @@ def main():
     expired = expect("GET", "/api/users/subscription", 200, token=premium)
     assert not expired["IsPremium"] and not expired["CanExportAnalytics"], expired
     assert expired.get("DailyNewProblemsLimit") is None, expired
+    for protected_path in (
+        f"/api/problems/{locked_question[0]}/solution-preview",
+        f"/api/problems/{locked_question[0]}/premium-solution",
+        "/api/users/premium-report",
+    ):
+        denied, _ = api("GET", protected_path, token=premium)
+        assert denied == 403, (protected_path, denied)
+
     assert_unlimited(premium, 1)
 
     # The default (unsaved) Free pair is already effective for learners.
