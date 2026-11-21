@@ -50,7 +50,7 @@ public sealed class CurriculumController : ControllerBase
             .OrderBy(s => s.SortOrder).ThenBy(s => s.Id)
             .Select(s => new
             {
-                s.StableKey, s.CategoryId, s.Domain.StableKey,
+                s.StableKey, s.CategoryId, DomainKey = s.Domain.StableKey,
                 s.NameAr, s.NameEn, s.DescriptionAr, s.DescriptionEn
             }).ToListAsync(cancellationToken);
         return Ok(items);
