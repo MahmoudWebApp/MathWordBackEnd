@@ -91,4 +91,45 @@ public sealed class StageCategoryAccessController : ControllerBase
             GroupsHaveVariableSizes = true
         });
     }
+    /// <summary>
+    /// Public math samples from server-configured Free categories only.
+    /// Questions are read-only; never expose options, answers or solutions.
+    /// </summary>
+    [HttpGet("{stageId:int}/examples")]
+    [ResponseCache(Duration = 120, Location = ResponseCacheLocation.Any)]
+    public async Task<IActionResult> GetExamples(
+        int stageId, CancellationToken cancellationToken)
+    {
+        if (stageId <= 0)
+            return BadRequest(new { Message = "InvalidStageId" });
+
+        if (!await _db.EducationalStages.AsNoTracking()
+            .AnyAsync(stage => stage.Id == stageId, cancellationToken))
+            return NotFound(new { Message = "StageNotFound" });
+
+        var freeCategoryIds = await HttpContext.RequestServices
+            .GetRequiredService<ProblemCategoryAccessService>()
+            .GetFreeCategoryIdsAsync(stageId, cancellationToken);
+
+        var examples = await _db.Problems.AsNoTracking()
+            .Where(problem => problem.StageId == stageId &&
+                problem.Category.StageId == stageId &&
+                freeCategoryIds.Contains(problem.CategoryId))
+            .OrderBy(problem => problem.Id)
+            .Select(problem => new
+            {
+                problem.Id,
+                problem.TitleAr,
+                problem.TitleEn,
+                problem.QuestionTextAr,
+                problem.QuestionTextEn,
+                CategoryNameAr = problem.Category.NameAr,
+                CategoryNameEn = problem.Category.NameEn
+            })
+            .Take(4)
+            .ToListAsync(cancellationToken);
+
+        return Ok(new { StageId = stageId, Results = examples });
+    }
+
 }
