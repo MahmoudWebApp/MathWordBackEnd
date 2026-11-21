@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Security.Claims;
 using MathWorldAPI.Data;
+using MathWorldAPI.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -29,6 +30,11 @@ namespace MathWorldAPI.Controllers
         public sealed class ProposedProblem
         {
             public string ContentKey { get; set; } = "";
+            // Optional metadata for the adaptive, skill-based content pipeline.
+            // Old admin clients remain compatible but their drafts are flagged.
+            public string PrimarySkillKey { get; set; } = "";
+            public string LearningObjective { get; set; } = "";
+            public string TemplateFamilyKey { get; set; } = "";
             public int StageId { get; set; }
             public int CategoryId { get; set; }
             public string QuestionTextAr { get; set; } = "";
@@ -67,17 +73,24 @@ namespace MathWorldAPI.Controllers
             var usedKeys = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
             var usedQuestions = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
             var existingQuestions = await _db.Problems.AsNoTracking()
-                .Select(p => new { p.StageId, p.QuestionTextAr, p.QuestionTextEn })
+                .Select(p => new { p.StageId, p.CategoryId, p.QuestionTextAr, p.QuestionTextEn })
                 .ToListAsync(cancellationToken);
             var existingQuestionKeys = existingQuestions.Select(p =>
                 QuestionKey(p.StageId, p.QuestionTextAr, p.QuestionTextEn))
                 .ToHashSet(StringComparer.OrdinalIgnoreCase);
+            var existingFamilies = existingQuestions
+                .GroupBy(p => CurriculumContentQuality.FamilyKey(
+                    p.StageId, p.CategoryId, p.QuestionTextAr, p.QuestionTextEn))
+                .ToDictionary(group => group.Key, group => group.Count(), StringComparer.Ordinal);
+            var proposedFamilies = new Dictionary<string, int>(StringComparer.Ordinal);
             var results = new List<object>();
             var validCount = 0;
+            var warningCount = 0;
 
             foreach (var item in request.Problems)
             {
                 var errors = new List<string>();
+                var warnings = new List<string>();
                 if (item == null)
                 {
                     results.Add(new { ContentKey = "", Valid = false,
@@ -114,6 +127,28 @@ namespace MathWorldAPI.Controllers
                         errors.Add("QuestionAlreadyExistsInStage");
                 }
 
+                // One question format with different numerals is not necessarily
+                // new learning evidence. Warn editors without deleting lessons.
+                if (!string.IsNullOrWhiteSpace(item.QuestionTextAr) &&
+                    !string.IsNullOrWhiteSpace(item.QuestionTextEn))
+                {
+                    var familyKey = CurriculumContentQuality.FamilyKey(
+                        item.StageId, item.CategoryId,
+                        item.QuestionTextAr, item.QuestionTextEn);
+                    if (existingFamilies.TryGetValue(familyKey, out var existingCount) &&
+                        existingCount > 0)
+                        warnings.Add("NumericTemplateFamilyAlreadyExists");
+                    var earlier = proposedFamilies.GetValueOrDefault(familyKey);
+                    if (earlier > 0)
+                        warnings.Add("RepeatedNumericTemplateFamilyInBatch");
+                    proposedFamilies[familyKey] = earlier + 1;
+                }
+                if (string.IsNullOrWhiteSpace(item.PrimarySkillKey) ||
+                    string.IsNullOrWhiteSpace(item.LearningObjective))
+                    warnings.Add("MissingReviewedSkillOrLearningObjective");
+                if (string.IsNullOrWhiteSpace(item.TemplateFamilyKey))
+                    warnings.Add("MissingAuthorTemplateFamilyKey");
+
                 if (item.Points is < 1 or > 100000) errors.Add("InvalidPoints");
                 var options = item.Options;
                 if (options == null || options.Count != 4)
@@ -133,7 +168,10 @@ namespace MathWorldAPI.Controllers
                 }
 
                 if (errors.Count == 0) validCount++;
-                results.Add(new { ContentKey = key, Valid = errors.Count == 0, Errors = errors });
+                warningCount += warnings.Count;
+                results.Add(new { ContentKey = key, Valid = errors.Count == 0,
+                    Errors = errors, Warnings = warnings,
+                    RequiresMathematicsReview = warnings.Count > 0 });
             }
 
             return Ok(new
@@ -143,6 +181,9 @@ namespace MathWorldAPI.Controllers
                 Total = request.Problems.Count,
                 ValidCount = validCount,
                 InvalidCount = request.Problems.Count - validCount,
+                WarningCount = warningCount,
+                RequiresEditorialApproval = true,
+                CanAutoPublish = false,
                 CanProceedToEditorialReview = validCount == request.Problems.Count,
                 Results = results
             });
