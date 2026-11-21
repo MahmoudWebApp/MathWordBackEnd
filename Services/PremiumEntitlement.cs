@@ -18,7 +18,7 @@ namespace MathWorldAPI.Services
             (!expiresAtUtc.HasValue || expiresAtUtc.Value > (nowUtc ?? DateTime.UtcNow));
 
         public static bool IsActive(AppUser user, DateTime? nowUtc = null) =>
-            IsActive(user.SubscriptionType, user.PremiumExpiresAtUtc, nowUtc);
+            user.IsActive && IsActive(user.SubscriptionType, user.PremiumExpiresAtUtc, nowUtc);
 
         public static string EffectiveType(AppUser user, DateTime? nowUtc = null) =>
             IsActive(user, nowUtc) ? "Premium" : "Free";

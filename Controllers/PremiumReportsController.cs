@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Text;
 using MathWorldAPI.Data;
 using MathWorldAPI.Helpers;
+using MathWorldAPI.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -71,11 +72,11 @@ namespace MathWorldAPI.Controllers
 
             var user = await _db.Users.AsNoTracking()
                 .Where(u => u.Id == userId && u.Role == "Student" && u.IsActive)
-                .Select(u => new { u.CurrentStageId, u.SubscriptionType })
+                .Select(u => new { u.CurrentStageId, u.SubscriptionType, u.PremiumExpiresAtUtc })
                 .FirstOrDefaultAsync(cancellationToken);
             if (user == null) return (null, Unauthorized());
-            if (!string.Equals(user.SubscriptionType, "Premium",
-                    StringComparison.OrdinalIgnoreCase))
+            if (!PremiumEntitlement.IsActive(user.SubscriptionType,
+                    user.PremiumExpiresAtUtc))
                 return (null, StatusCode(403, LanguageHelper.ErrorResponse<object>(
                     "PremiumRequired",
                     LanguageHelper.GetLanguageFromRequest(Request), 403)));

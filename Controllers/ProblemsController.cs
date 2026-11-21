@@ -1051,6 +1051,8 @@ namespace MathWorldAPI.Controllers
         /// the database to support immediate Admin changes.
         /// </summary>
         [Authorize(Roles = "Student")]
+        [EnableRateLimiting("solution-preview")]
+        [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
         [HttpGet("{id:int}/solution-preview")]
         public async Task<IActionResult> GetSolutionPreview(
             int id, CancellationToken cancellationToken)
@@ -1061,12 +1063,12 @@ namespace MathWorldAPI.Controllers
                 return Unauthorized(LanguageHelper.ErrorResponse<object>(
                     "Unauthorized", language, StatusCodes.Status401Unauthorized));
 
-            var subscription = await _context.Users.AsNoTracking()
-                .Where(user => user.Id == userId.Value && user.Role == "Student")
-                .Select(user => user.SubscriptionType)
-                .FirstOrDefaultAsync(cancellationToken);
-            if (!string.Equals(subscription, "Premium",
-                StringComparison.OrdinalIgnoreCase))
+            // The old preview route must use the same expiration/revocation
+            // policy as the newer /premium-solution endpoint.
+            var learner = await _context.Users.AsNoTracking()
+                .FirstOrDefaultAsync(user => user.Id == userId.Value &&
+                    user.Role == "Student" && user.IsActive, cancellationToken);
+            if (learner is null || !PremiumEntitlement.IsActive(learner))
                 return StatusCode(StatusCodes.Status403Forbidden,
                     LanguageHelper.ErrorResponse<object>(
                         "PremiumRequiredForSolution", language,
@@ -1077,6 +1079,8 @@ namespace MathWorldAPI.Controllers
                 .Select(item => new
                 {
                     item.Id,
+                    item.StageId,
+                    item.CategoryId,
                     item.DetailedSolutionAr,
                     item.DetailedSolutionEn,
                     item.YoutubeSolutionUrl,
@@ -1086,6 +1090,14 @@ namespace MathWorldAPI.Controllers
             if (problem == null)
                 return NotFound(LanguageHelper.ErrorResponse<object>(
                     "ProblemNotFound", language, StatusCodes.Status404NotFound));
+
+            var access = HttpContext.RequestServices
+                .GetRequiredService<ProblemCategoryAccessService>();
+            if (!await access.CanReadProblemAsync(
+                    User, problem.StageId, problem.CategoryId, cancellationToken))
+                return StatusCode(StatusCodes.Status403Forbidden,
+                    LanguageHelper.ErrorResponse<object>(
+                        "CategoryLocked", language, StatusCodes.Status403Forbidden));
 
             return Ok(LanguageHelper.SuccessResponse(new
             {

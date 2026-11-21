@@ -19,7 +19,13 @@ namespace MathWorldAPI.Controllers
     public sealed class PremiumProblemSolutionsController : ControllerBase
     {
         private readonly AppDbContext _db;
-        public PremiumProblemSolutionsController(AppDbContext db) => _db = db;
+        private readonly ProblemCategoryAccessService _access;
+        public PremiumProblemSolutionsController(
+            AppDbContext db, ProblemCategoryAccessService access)
+        {
+            _db = db;
+            _access = access;
+        }
 
         [HttpGet("{problemId:int}/premium-solution")]
         [EnableRateLimiting("solution-preview")]
@@ -44,6 +50,12 @@ namespace MathWorldAPI.Controllers
                 p => p.Id == problemId, cancellationToken);
             if (problem == null)
                 return NotFound(new { Message = "ProblemNotFound" });
+
+            // Reject malformed legacy stage/category mappings even for Premium.
+            if (!await _access.CanReadProblemAsync(
+                    User, problem.StageId, problem.CategoryId, cancellationToken))
+                return StatusCode(StatusCodes.Status403Forbidden,
+                    new { Message = "CategoryLocked" });
 
             var language = LanguageHelper.GetLanguageFromRequest(Request);
             var correctOptionId = await _db.QuestionOptions
