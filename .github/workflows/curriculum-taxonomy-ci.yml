@@ -36,3 +36,5 @@ jobs:
         run: python3 scripts/generate_reasoning_extension_sql.py --check
       - name: Cross-check fraction and series reasoning answers
         run: python3 tests/check_curriculum_depth_wave_1.py
+      - name: Validate reproducible fraction/series review batch
+        run: python3 scripts/generate_curriculum_depth_wave_sql.py --check
