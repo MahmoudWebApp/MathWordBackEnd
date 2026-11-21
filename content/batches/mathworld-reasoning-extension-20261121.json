@@ -8,7 +8,7 @@
       "ContentKey": "mw-reasoning-compare-fifths-eighths",
       "StageId": 1,
       "ProposedCategoryKey": "p-fractions-decimals",
-      "PrimarySkillKey": "fraction-models",
+      "PrimarySkillKey": "fraction-comparisons",
       "LearningObjectiveAr": "مقارنة كسرين بمقامين مختلفين",
       "LearningObjectiveEn": "Compare fractions with unlike denominators",
       "TemplateFamilyKey": "mw-reasoning-compare-fifths-eighths",
@@ -38,6 +38,45 @@
         {
           "Order": 4,
           "LatexCode": "\\frac25=0.25",
+          "IsCorrect": false
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-reasoning-non-equivalent-half",
+      "StageId": 1,
+      "ProposedCategoryKey": "p-fractions-decimals",
+      "PrimarySkillKey": "equivalence",
+      "LearningObjectiveAr": "تمييز الكسر غير المكافئ للنصف من مجموعة كسور",
+      "LearningObjectiveEn": "Identify a fraction not equivalent to one half",
+      "TemplateFamilyKey": "mw-reasoning-non-equivalent-half",
+      "DifficultyLevel": 3,
+      "PisaProcess": "interpret_evaluate",
+      "QuestionTextAr": "أي كسر من الكسور الآتية **لا** يساوي $\\frac12$؟",
+      "QuestionTextEn": "Which of these fractions is **not** equal to $\\frac12$?",
+      "DetailedSolutionAr": "$\\frac24=\\frac36=\\frac5{10}=\\frac12$، لكن $\\frac4{10}=0.4$ فلا يساوي النصف.",
+      "DetailedSolutionEn": "$\\frac24=\\frac36=\\frac5{10}=\\frac12$, but $\\frac4{10}=0.4$, so it is not one half.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\frac24",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\frac4{10}",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "\\frac36",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "\\frac5{10}",
           "IsCorrect": false
         }
       ],
@@ -554,7 +593,7 @@
       "ContentKey": "mw-reasoning-divergent-geometric-series",
       "StageId": 3,
       "ProposedCategoryKey": "s-sequences-series",
-      "PrimarySkillKey": "series-sums",
+      "PrimarySkillKey": "series-convergence",
       "LearningObjectiveAr": "تمييز تباعد المتسلسلة الهندسية عندما تكون النسبة أكبر من واحد",
       "LearningObjectiveEn": "Identify divergence of a geometric series",
       "TemplateFamilyKey": "mw-reasoning-divergent-geometric-series",
@@ -672,7 +711,7 @@
       "StageId": 4,
       "ProposedCategoryKey": "u-discrete-math",
       "PrimarySkillKey": "relations",
-      "LearningObjectiveAr": "عد أصناف التكافؤ بت合同 بترديد محدد",
+      "LearningObjectiveAr": "عد أصناف التكافؤ بترديد عدد صحيح محدد",
       "LearningObjectiveEn": "Count equivalence classes modulo an integer",
       "TemplateFamilyKey": "mw-reasoning-mod-four-classes",
       "DifficultyLevel": 3,
