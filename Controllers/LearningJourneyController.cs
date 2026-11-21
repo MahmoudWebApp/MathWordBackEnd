@@ -37,10 +37,10 @@ namespace MathWorldAPI.Controllers
             if (user == null)
                 return NotFound(Error<LearningStageDto>("UserNotFound", 404));
 
-            var effectiveId = await LegacyLearningStage.EffectiveIdAsync(
-                _context, user.CurrentStageId, cancellationToken);
+            var effectiveId = await LegacyLearningStage.EffectiveIdForUserAsync(
+                _context, user.CurrentStageId, user.CreatedAt, cancellationToken);
             if (!effectiveId.HasValue)
-                return Conflict(Error<LearningStageDto>("LearningStageRequired", 409));
+                return Ok(Success(new LearningStageDto { StageId = null }));
 
             var stage = await _context.EducationalStages.AsNoTracking()
                 .FirstOrDefaultAsync(s => s.Id == effectiveId.Value,
@@ -98,8 +98,8 @@ namespace MathWorldAPI.Controllers
                 return NotFound(Error<LearningJourneyDto>("UserNotFound", 404));
 
             // Explicit stage query allows looking at previous stage progress.
-            var id = stageId ?? await LegacyLearningStage.EffectiveIdAsync(
-                _context, user.CurrentStageId, cancellationToken);
+            var id = stageId ?? await LegacyLearningStage.EffectiveIdForUserAsync(
+                _context, user.CurrentStageId, user.CreatedAt, cancellationToken);
             if (!id.HasValue)
                 return Conflict(Error<LearningJourneyDto>(
                     "LearningStageRequired", 409));
