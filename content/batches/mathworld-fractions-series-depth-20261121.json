@@ -1,0 +1,398 @@
+{
+  "batch_key": "mathworld-mastery-evidence-wave-1-20261121",
+  "publication_allowed": false,
+  "expert_review": "pending",
+  "purpose": "Ten distinct worked examples, five for fraction comparisons and five for infinite series convergence, to increase evidence diversity. Automatic checks are not formal expert approval.",
+  "problems": [
+    {
+      "ContentKey": "mw-depth-crossmultiply-fifths",
+      "StageId": 1,
+      "ProposedCategoryKey": "p-fractions-decimals",
+      "PrimarySkillKey": "fraction-comparisons",
+      "TemplateFamilyKey": "mw-depth-crossmultiply-fifths",
+      "LearningObjectiveAr": "مقارنة كسرين باستخدام الضرب التبادلي",
+      "LearningObjectiveEn": "Compare fractions by cross-multiplication",
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "QuestionTextAr": "أي مقارنة صحيحة بين $\\frac56$ و$\\frac79$؟",
+      "QuestionTextEn": "Which comparison between $\\frac56$ and $\\frac79$ is correct?",
+      "DetailedSolutionAr": "بالضرب التبادلي: $5\\times9=45$ و$7\\times6=42$، لذا $\\frac56>\\frac79$.",
+      "DetailedSolutionEn": "Cross-multiply: $5\\times9=45$ and $7\\times6=42$. Since $45>42$, we have $\\frac56>\\frac79$.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\frac56<\\frac79",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\frac56>\\frac79",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "\\frac56=\\frac79",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "\\frac56=\\frac69",
+          "IsCorrect": false
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-depth-same-numerator-units",
+      "StageId": 1,
+      "ProposedCategoryKey": "p-fractions-decimals",
+      "PrimarySkillKey": "fraction-comparisons",
+      "TemplateFamilyKey": "mw-depth-same-numerator-units",
+      "LearningObjectiveAr": "المقارنة بين كسرين لهما البسط نفسه",
+      "LearningObjectiveEn": "Compare fractions with the same numerator",
+      "DifficultyLevel": 2,
+      "PisaProcess": "interpret_evaluate",
+      "QuestionTextAr": "أيهما أكبر: $\\frac79$ أم $\\frac7{11}$؟",
+      "QuestionTextEn": "Which is greater, $\\frac79$ or $\\frac7{11}$?",
+      "DetailedSolutionAr": "مع البسط نفسه، تقسيم الواحد إلى 9 أجزاء يعطي جزءاً أكبر من تقسيمه إلى 11 جزءاً؛ لذلك $\\frac79>\\frac7{11}$.",
+      "DetailedSolutionEn": "With the same numerator, ninths are larger units than elevenths, so $\\frac79>\\frac7{11}$.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\frac79",
+          "IsCorrect": true
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\frac7{11}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "\\text{Both are equal}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "\\text{Not enough information}",
+          "IsCorrect": false
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-depth-nearest-one",
+      "StageId": 1,
+      "ProposedCategoryKey": "p-fractions-decimals",
+      "PrimarySkillKey": "fraction-comparisons",
+      "TemplateFamilyKey": "mw-depth-nearest-one",
+      "LearningObjectiveAr": "استخدام المكمل إلى الواحد لمقارنة كسور",
+      "LearningObjectiveEn": "Compare fractions using distance from one",
+      "DifficultyLevel": 3,
+      "PisaProcess": "interpret_evaluate",
+      "QuestionTextAr": "أي الكُسور التالية أقرب إلى العدد 1؟",
+      "QuestionTextEn": "Which fraction is closest to 1?",
+      "DetailedSolutionAr": "الفروق عن الواحد هي: $1-\\frac9{10}=\\frac1{10}$ و$1-\\frac{13}{16}=\\frac3{16}$ و$1-\\frac78=\\frac18$ و$1-\\frac{11}{12}=\\frac1{12}$. أصغر فرق هو $\\frac1{12}$، لذلك الجواب $\\frac{11}{12}$.",
+      "DetailedSolutionEn": "Distances from 1 are $\\frac1{10}$, $\\frac3{16}$, $\\frac18$ and $\\frac1{12}$. The smallest is $\\frac1{12}$, hence $\\frac{11}{12}$ is closest.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\frac9{10}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\frac{13}{16}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "\\frac78",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "\\frac{11}{12}",
+          "IsCorrect": true
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-depth-strictly-between",
+      "StageId": 1,
+      "ProposedCategoryKey": "p-fractions-decimals",
+      "PrimarySkillKey": "fraction-comparisons",
+      "TemplateFamilyKey": "mw-depth-strictly-between",
+      "LearningObjectiveAr": "تحديد كسر بين كسرين على مستقيم الأعداد",
+      "LearningObjectiveEn": "Identify a fraction strictly between two fractions",
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "QuestionTextAr": "أي كسر يقع بين $\\frac13$ و$\\frac12$ دون أن يساوي أيّاً منهما؟",
+      "QuestionTextEn": "Which fraction lies strictly between $\\frac13$ and $\\frac12$?",
+      "DetailedSolutionAr": "نحوّل إلى مقام 12: $\\frac13=\\frac4{12}$ و$\\frac12=\\frac6{12}$. إذن $\\frac5{12}$ بينهما.",
+      "DetailedSolutionEn": "With denominator 12: $\\frac13=\\frac4{12}$ and $\\frac12=\\frac6{12}$. The fraction $\\frac5{12}$ lies between them.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\frac14",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\frac5{12}",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "\\frac35",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "\\frac12",
+          "IsCorrect": false
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-depth-cycling-two-classes",
+      "StageId": 1,
+      "ProposedCategoryKey": "p-fractions-decimals",
+      "PrimarySkillKey": "fraction-comparisons",
+      "TemplateFamilyKey": "mw-depth-cycling-two-classes",
+      "LearningObjectiveAr": "مقارنة نسب المشاركين في مجموعتين مختلفتي الحجم",
+      "LearningObjectiveEn": "Compare fractions of two groups with different sizes",
+      "DifficultyLevel": 3,
+      "PisaProcess": "formulate",
+      "QuestionTextAr": "في الصف الأول يأتي 3 من أصل 8 طلاب بالدراجة، وفي الصف الثاني يأتي 4 من أصل 10. أي صف فيه نسبة أكبر من راكبي الدراجات؟",
+      "QuestionTextEn": "In class A, 3 of 8 pupils cycle to school. In class B, 4 of 10 cycle. Which class has the larger fraction of cyclists?",
+      "DetailedSolutionAr": "نقارن $\\frac38$ و$\\frac4{10}$: $3\\times10=30$ و$4\\times8=32$، إذن $\\frac4{10}$ أكبر، أي الصف الثاني.",
+      "DetailedSolutionEn": "Compare $\\frac38$ and $\\frac4{10}$: $3\\times10=30$ and $4\\times8=32$. Class B has the larger fraction.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\text{Class A}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\text{Class B}",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "\\text{Equal shares}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "\\text{Cannot compare}",
+          "IsCorrect": false
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-depth-alternating-geometric-limit",
+      "StageId": 3,
+      "ProposedCategoryKey": "s-sequences-series",
+      "PrimarySkillKey": "series-convergence",
+      "TemplateFamilyKey": "mw-depth-alternating-geometric-limit",
+      "LearningObjectiveAr": "حساب مجموع متسلسلة هندسية متناوبة متقاربة",
+      "LearningObjectiveEn": "Find the sum of a convergent alternating geometric series",
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "QuestionTextAr": "ما مجموع المتسلسلة اللانهائية $1-\\frac12+\\frac14-\\frac18+\\cdots$؟",
+      "QuestionTextEn": "What is the sum of $1-\\frac12+\\frac14-\\frac18+\\cdots$?",
+      "DetailedSolutionAr": "متسلسلة هندسية حدها الأول 1 ونسبتها $-\\frac12$ وقيمة النسبة المطلقة أقل من 1، إذن $S=\\frac1{1-(-1/2)}=\\frac23$.",
+      "DetailedSolutionEn": "This is geometric with first term 1 and ratio $-\\frac12$, whose absolute value is below 1. Thus $S=\\frac1{1-(-1/2)}=\\frac23$.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\frac12",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\frac23",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "\\frac32",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "1",
+          "IsCorrect": false
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-depth-geometric-six-two",
+      "StageId": 3,
+      "ProposedCategoryKey": "s-sequences-series",
+      "PrimarySkillKey": "series-convergence",
+      "TemplateFamilyKey": "mw-depth-geometric-six-two",
+      "LearningObjectiveAr": "تمييز التقارب وحساب المجموع النهائي",
+      "LearningObjectiveEn": "Recognize convergence and calculate an infinite geometric sum",
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "QuestionTextAr": "احسب مجموع المتسلسلة اللانهائية $6+2+\\frac23+\\frac29+\\cdots$.",
+      "QuestionTextEn": "Compute the infinite sum $6+2+\\frac23+\\frac29+\\cdots$.",
+      "DetailedSolutionAr": "النسبة المشتركة $\\frac13$، لذا $S=\\frac6{1-1/3}=9$.",
+      "DetailedSolutionEn": "The common ratio is $\\frac13$, so $S=\\frac6{1-1/3}=9$.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "8",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "9",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "12",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "18",
+          "IsCorrect": false
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-depth-alternating-one-minus-one",
+      "StageId": 3,
+      "ProposedCategoryKey": "s-sequences-series",
+      "PrimarySkillKey": "series-convergence",
+      "TemplateFamilyKey": "mw-depth-alternating-one-minus-one",
+      "LearningObjectiveAr": "تمييز تذبذب المجاميع الجزئية من التقارب",
+      "LearningObjectiveEn": "Distinguish oscillating partial sums from convergence",
+      "DifficultyLevel": 3,
+      "PisaProcess": "interpret_evaluate",
+      "QuestionTextAr": "هل تتقارب المتسلسلة $1-1+1-1+\\cdots$ بالمعنى المعتاد للمجموع اللانهائي؟",
+      "QuestionTextEn": "Does the series $1-1+1-1+\\cdots$ converge in the usual sense of an infinite sum?",
+      "DetailedSolutionAr": "المجاميع الجزئية تتناوب بين 1 و0 بلا نهاية ثابتة؛ لذلك المتسلسلة لا تتقارب بالمعنى المعتاد.",
+      "DetailedSolutionEn": "Its partial sums alternate between 1 and 0, with no unique limit. Thus it does not converge in the usual sense.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\text{Converges to }0",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\text{Converges to }\\frac12",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "\\text{Does not converge}",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "\\text{Converges to }1",
+          "IsCorrect": false
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-depth-term-test-exploding",
+      "StageId": 3,
+      "ProposedCategoryKey": "s-sequences-series",
+      "PrimarySkillKey": "series-convergence",
+      "TemplateFamilyKey": "mw-depth-term-test-exploding",
+      "LearningObjectiveAr": "تطبيق شرط اقتراب حدود المتسلسلة من الصفر",
+      "LearningObjectiveEn": "Use the necessary term-to-zero condition for series convergence",
+      "DifficultyLevel": 3,
+      "PisaProcess": "interpret_evaluate",
+      "QuestionTextAr": "ما حكم تقارب المتسلسلة $1-2+4-8+16-\\cdots$؟",
+      "QuestionTextEn": "Does the series $1-2+4-8+16-\\cdots$ converge?",
+      "DetailedSolutionAr": "حدود المتسلسلة لا تقترب من الصفر بل تتزايد قيمها المطلقة؛ وبما أن اقتراب الحدود للصفر شرط ضروري للتقارب فإن المتسلسلة متباعدة.",
+      "DetailedSolutionEn": "Its terms do not approach zero; their absolute values grow. Since convergence requires terms to tend to zero, the series diverges.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\text{Converges to }-\\frac13",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\text{Converges to }0",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "\\text{Diverges}",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "\\text{Converges to }1",
+          "IsCorrect": false
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-depth-harmonic-grouping",
+      "StageId": 3,
+      "ProposedCategoryKey": "s-sequences-series",
+      "PrimarySkillKey": "series-convergence",
+      "TemplateFamilyKey": "mw-depth-harmonic-grouping",
+      "LearningObjectiveAr": "استخدام التجميع لتفسير تباعد المتسلسلة التوافقية",
+      "LearningObjectiveEn": "Use grouping to explain divergence of the harmonic series",
+      "DifficultyLevel": 4,
+      "PisaProcess": "interpret_evaluate",
+      "QuestionTextAr": "لماذا لا تتقارب المتسلسلة التوافقية $1+\\frac12+\\frac13+\\frac14+\\cdots$؟",
+      "QuestionTextEn": "Why does the harmonic series $1+\\frac12+\\frac13+\\frac14+\\cdots$ diverge?",
+      "DetailedSolutionAr": "نجمّع حدوداً بعدد مضاعف: $\\frac13+\\frac14\\ge\\frac12$، ثم $\\frac15+\\cdots+\\frac18\\ge\\frac12$، وكل مجموعة تالية تساهم بما لا يقل عن النصف. لذلك المجاميع الجزئية تكبر بلا حد.",
+      "DetailedSolutionEn": "Group terms in blocks of doubling length: $\\frac13+\\frac14\\ge\\frac12$, then $\\frac15+\\cdots+\\frac18\\ge\\frac12$, and so on. Infinitely many blocks add at least one half, so partial sums are unbounded.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\text{Terms tend to zero, so it converges}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\text{Every doubling block adds at least }\\frac12",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "\\text{All terms are rational, so it converges}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "\\text{Alternating terms cancel out}",
+          "IsCorrect": false
+        }
+      ],
+      "ExpertReview": "pending"
+    }
+  ]
+}
