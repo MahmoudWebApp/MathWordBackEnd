@@ -113,6 +113,13 @@ namespace MathWorldAPI.Helpers
                 )
             },
             {
+                "DuplicateProblemQuestion",
+                (
+                    "هذه المسألة موجودة بالفعل في المرحلة التعليمية نفسها. اختر فكرة تدريبية مختلفة بدلاً من تكرار السؤال.",
+                    "An identical question already exists in this educational stage. Please add a different practice problem."
+                )
+            },
+            {
                 "ProblemCreated",
                 (
                     "تمت إضافة المسألة بنجاح",
