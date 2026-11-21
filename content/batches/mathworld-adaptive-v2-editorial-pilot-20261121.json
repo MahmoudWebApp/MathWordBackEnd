@@ -15,7 +15,8 @@
         "fraction-models",
         "equivalence",
         "decimal-place-value",
-        "basic-percentages"
+        "basic-percentages",
+        "fraction-operations"
       ]
     },
     {
@@ -37,7 +38,8 @@
       "missing_skills": [
         "arithmetic-sequences",
         "geometric-sequences",
-        "series-sums"
+        "series-sums",
+        "recurrence-relations"
       ]
     },
     {
@@ -49,7 +51,8 @@
         "logic",
         "proofs",
         "graphs",
-        "relations"
+        "relations",
+        "combinatorics"
       ]
     }
   ],
@@ -136,7 +139,7 @@
       "ContentKey": "mw-adaptive-adding-unlike-fractions",
       "StageId": 1,
       "ProposedCategoryKey": "p-fractions-decimals",
-      "PrimarySkillKey": "equivalence",
+      "PrimarySkillKey": "fraction-operations",
       "LearningObjectiveAr": "جمع كسور مختلفة المقامات باستخدام مقام مشترك",
       "LearningObjectiveEn": "Add unlike fractions using a common denominator",
       "TemplateFamilyKey": "p-fractions-decimals-adding-unlike-fractions",
@@ -370,7 +373,7 @@
       "ContentKey": "mw-adaptive-mixed-number-sum",
       "StageId": 1,
       "ProposedCategoryKey": "p-fractions-decimals",
-      "PrimarySkillKey": "equivalence",
+      "PrimarySkillKey": "fraction-operations",
       "LearningObjectiveAr": "جمع عدد كسري مع كسر اعتيادي",
       "LearningObjectiveEn": "Add a mixed number to a fraction",
       "TemplateFamilyKey": "p-fractions-decimals-mixed-number-sum",
@@ -877,7 +880,7 @@
       "ContentKey": "mw-adaptive-recursive-third-term",
       "StageId": 3,
       "ProposedCategoryKey": "s-sequences-series",
-      "PrimarySkillKey": "geometric-sequences",
+      "PrimarySkillKey": "recurrence-relations",
       "LearningObjectiveAr": "تطبيق علاقة عودية لحساب الحدود المتتابعة",
       "LearningObjectiveEn": "Evaluate successive terms from a recurrence",
       "TemplateFamilyKey": "s-sequences-series-recursive-third-term",
@@ -1111,7 +1114,7 @@
       "ContentKey": "mw-adaptive-choose-two-seven",
       "StageId": 4,
       "ProposedCategoryKey": "u-discrete-math",
-      "PrimarySkillKey": "proofs",
+      "PrimarySkillKey": "combinatorics",
       "LearningObjectiveAr": "حساب عدد الاختيارات غير المرتبة باستخدام التوافيق",
       "LearningObjectiveEn": "Count unordered selections using combinations",
       "TemplateFamilyKey": "u-discrete-math-choose-two-seven",
