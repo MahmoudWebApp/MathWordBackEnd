@@ -36,12 +36,12 @@ namespace MathWorldAPI.DTOs
         public string Password { get; set; } = string.Empty;
 
         /// <summary>
-        /// Every new locally registered learner chooses a stage.
-        /// Existing accounts with no stage are handled separately.
+        /// Stage selection is optional during registration. New learners choose it
+        /// from the authenticated onboarding screen after the account is created.
         /// </summary>
         [Range(1, int.MaxValue)]
-        [Description("Selected educational stage ID.")]
-        public int StageId { get; set; }
+        [Description("Optional educational stage ID for compatible older clients.")]
+        public int? StageId { get; set; }
     }
 
     /// <summary>
