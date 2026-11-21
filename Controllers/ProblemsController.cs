@@ -121,8 +121,7 @@ namespace MathWorldAPI.Controllers
             [FromQuery] int? categoryId = null,
             [FromQuery] int? stageId = null,
             [FromQuery] int page = 1,
-            [FromQuery] int pageSize = 10,
-            [FromQuery] bool hideSolved = false)
+            [FromQuery] int pageSize = 10)
         {
             page =
                 Math.Max(
@@ -476,7 +475,8 @@ namespace MathWorldAPI.Controllers
             [FromQuery] int? categoryId = null,
             [FromQuery] int? stageId = null,
             [FromQuery] int page = 1,
-            [FromQuery] int pageSize = 10)
+            [FromQuery] int pageSize = 10,
+            [FromQuery] bool hideSolved = false)
         {
             page =
                 Math.Max(
