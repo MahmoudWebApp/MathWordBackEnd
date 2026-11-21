@@ -24,6 +24,7 @@ namespace MathWorldAPI.Data
         /// <summary>
         /// Users table.
         /// </summary>
+        public DbSet<CurriculumTopicProposal> CurriculumTopicProposals => Set<CurriculumTopicProposal>();
         public DbSet<CurriculumDomain> CurriculumDomains => Set<CurriculumDomain>();
         public DbSet<CurriculumSkill> CurriculumSkills => Set<CurriculumSkill>();
         public DbSet<CurriculumSkillStandard> CurriculumSkillStandards => Set<CurriculumSkillStandard>();
@@ -101,6 +102,21 @@ namespace MathWorldAPI.Data
             ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<CurriculumTopicProposal>(e =>
+            {
+                e.HasIndex(x => x.StableKey).IsUnique();
+                e.HasIndex(x => new { x.StageId, x.SortOrder });
+                e.HasIndex(x => x.DomainId);
+                e.Property(x => x.StableKey).HasMaxLength(120).IsRequired();
+                e.Property(x => x.NameAr).IsRequired();
+                e.Property(x => x.NameEn).IsRequired();
+                e.Property(x => x.IconKey).HasMaxLength(80).IsRequired();
+                e.Property(x => x.EditorialStatus).HasMaxLength(24).IsRequired();
+                e.HasOne(x => x.Stage).WithMany().HasForeignKey(x => x.StageId).OnDelete(DeleteBehavior.Restrict);
+                e.HasOne(x => x.Domain).WithMany().HasForeignKey(x => x.DomainId).OnDelete(DeleteBehavior.Restrict);
+                e.ToTable(t => t.HasCheckConstraint("CK_CurriculumTopicProposals_QuestionCount", "\"ProposedQuestionCount\" >= 0"));
+            });
 
             modelBuilder.Entity<CurriculumDomain>(e =>
             {
