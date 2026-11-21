@@ -1,0 +1,1267 @@
+{
+  "schema_version": "1.0.0",
+  "status": "draft_only_requires_independent_math_and_language_review",
+  "curriculum_taxonomy": "international-mathworld-taxonomy-v2",
+  "claim": "Original varied editorial questions; mathematically checked examples, not a complete curriculum or approved evidence of student mastery.",
+  "publication_allowed": false,
+  "provenance": "MathWorld authoring draft, no production mutation",
+  "categories": [
+    {
+      "stage_id": 1,
+      "stable_key": "p-fractions-decimals",
+      "name_ar": "الكسور والأعداد العشرية",
+      "name_en": "Fractions & Decimals",
+      "missing_skills": [
+        "fraction-models",
+        "equivalence",
+        "decimal-place-value",
+        "basic-percentages"
+      ]
+    },
+    {
+      "stage_id": 2,
+      "stable_key": "m-statistics",
+      "name_ar": "الإحصاء وتحليل البيانات",
+      "name_en": "Statistics & Data Analysis",
+      "missing_skills": [
+        "summary-measures",
+        "charts",
+        "distributions"
+      ]
+    },
+    {
+      "stage_id": 3,
+      "stable_key": "s-sequences-series",
+      "name_ar": "المتتاليات والمتسلسلات",
+      "name_en": "Sequences & Series",
+      "missing_skills": [
+        "arithmetic-sequences",
+        "geometric-sequences",
+        "series-sums"
+      ]
+    },
+    {
+      "stage_id": 4,
+      "stable_key": "u-discrete-math",
+      "name_ar": "المنطق والرياضيات المنفصلة",
+      "name_en": "Logic & Discrete Mathematics",
+      "missing_skills": [
+        "logic",
+        "proofs",
+        "graphs",
+        "relations"
+      ]
+    }
+  ],
+  "problems": [
+    {
+      "ContentKey": "mw-adaptive-fraction-of-pie",
+      "StageId": 1,
+      "ProposedCategoryKey": "p-fractions-decimals",
+      "PrimarySkillKey": "fraction-models",
+      "LearningObjectiveAr": "قُسّمت فطيرة إلى 8 قطع متساوية وأُكلت 3 قطع. ما الكسر الذي يمثل الجزء المأكول؟",
+      "LearningObjectiveEn": "A pie is cut into 8 equal pieces and 3 pieces are eaten. What fraction was eaten?",
+      "TemplateFamilyKey": "p-fractions-decimals-fraction-of-pie",
+      "DifficultyLevel": 1,
+      "PisaProcess": "formulate",
+      "QuestionTextAr": "قُسّمت فطيرة إلى 8 قطع متساوية وأُكلت 3 قطع. ما الكسر الذي يمثل الجزء المأكول؟",
+      "QuestionTextEn": "A pie is cut into 8 equal pieces and 3 pieces are eaten. What fraction was eaten?",
+      "DetailedSolutionAr": "عدد القطع المأكولة 3 من أصل 8 قطع متساوية، لذلك الكسر هو $\\frac{3}{8}$.",
+      "DetailedSolutionEn": "Three of the eight equal pieces were eaten, so the fraction is $\\frac{3}{8}$. ",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\\\frac{3}{8}",
+          "IsCorrect": true
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\\\frac{5}{8}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "\\\\frac{3}{5}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "\\\\frac{8}{3}",
+          "IsCorrect": false
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-adaptive-equivalent-quarters",
+      "StageId": 1,
+      "ProposedCategoryKey": "p-fractions-decimals",
+      "PrimarySkillKey": "equivalence",
+      "LearningObjectiveAr": "ما الكسر المكافئ لـ $\\\\frac{3}{4}$ عندما يكون المقام 12؟",
+      "LearningObjectiveEn": "Which fraction is equivalent to $\\\\frac{3}{4}$ with denominator 12?",
+      "TemplateFamilyKey": "p-fractions-decimals-equivalent-quarters",
+      "DifficultyLevel": 2,
+      "PisaProcess": "employ",
+      "QuestionTextAr": "ما الكسر المكافئ لـ $\\\\frac{3}{4}$ عندما يكون المقام 12؟",
+      "QuestionTextEn": "Which fraction is equivalent to $\\\\frac{3}{4}$ with denominator 12?",
+      "DetailedSolutionAr": "نضرب البسط والمقام في 3: $\\\\frac{3\\\\times3}{4\\\\times3}=\\\\frac{9}{12}$.",
+      "DetailedSolutionEn": "Multiply numerator and denominator by 3: $\\\\frac{3\\\\times3}{4\\\\times3}=\\\\frac{9}{12}$.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\\\frac{6}{12}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\\\frac{3}{12}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "\\\\frac{12}{9}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "\\\\frac{9}{12}",
+          "IsCorrect": true
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-adaptive-adding-unlike-fractions",
+      "StageId": 1,
+      "ProposedCategoryKey": "p-fractions-decimals",
+      "PrimarySkillKey": "equivalence",
+      "LearningObjectiveAr": "احسب $\\\\frac14+\\\\frac38$.",
+      "LearningObjectiveEn": "Compute $\\\\frac14+\\\\frac38$.",
+      "TemplateFamilyKey": "p-fractions-decimals-adding-unlike-fractions",
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "QuestionTextAr": "احسب $\\\\frac14+\\\\frac38$.",
+      "QuestionTextEn": "Compute $\\\\frac14+\\\\frac38$.",
+      "DetailedSolutionAr": "نحوّل الربع إلى أثمان: $\\\\frac14=\\\\frac28$، ثم $\\\\frac28+\\\\frac38=\\\\frac58$.",
+      "DetailedSolutionEn": "Convert quarters to eighths: $\\\\frac14=\\\\frac28$, then add to get $\\\\frac58$.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\\\frac4{12}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\\\frac78",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "\\\\frac58",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "\\\\frac48",
+          "IsCorrect": false
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-adaptive-fraction-of-collection",
+      "StageId": 1,
+      "ProposedCategoryKey": "p-fractions-decimals",
+      "PrimarySkillKey": "fraction-models",
+      "LearningObjectiveAr": "في مكتبة 36 كتاباً، ثلثاها كتب علمية. كم كتاباً علمياً يوجد؟",
+      "LearningObjectiveEn": "A library has 36 books. Two-thirds are science books. How many science books are there?",
+      "TemplateFamilyKey": "p-fractions-decimals-fraction-of-collection",
+      "DifficultyLevel": 2,
+      "PisaProcess": "formulate",
+      "QuestionTextAr": "في مكتبة 36 كتاباً، ثلثاها كتب علمية. كم كتاباً علمياً يوجد؟",
+      "QuestionTextEn": "A library has 36 books. Two-thirds are science books. How many science books are there?",
+      "DetailedSolutionAr": "نحسب $\\\\frac23\\\\times36=24$ كتاباً علمياً.",
+      "DetailedSolutionEn": "Compute $\\\\frac23\\\\times36=24$ science books.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "27",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "24",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "18",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "12",
+          "IsCorrect": false
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-adaptive-fraction-decimal-comparison",
+      "StageId": 1,
+      "ProposedCategoryKey": "p-fractions-decimals",
+      "PrimarySkillKey": "decimal-place-value",
+      "LearningObjectiveAr": "أي علاقة صحيحة بين $0.6$ و$\\\\frac35$؟",
+      "LearningObjectiveEn": "Which comparison of $0.6$ and $\\\\frac35$ is correct?",
+      "TemplateFamilyKey": "p-fractions-decimals-fraction-decimal-comparison",
+      "DifficultyLevel": 2,
+      "PisaProcess": "interpret_evaluate",
+      "QuestionTextAr": "أي علاقة صحيحة بين $0.6$ و$\\\\frac35$؟",
+      "QuestionTextEn": "Which comparison of $0.6$ and $\\\\frac35$ is correct?",
+      "DetailedSolutionAr": "نحوّل $\\\\frac35$ إلى عدد عشري بالقسمة: $3\\\\div5=0.6$، إذن العددان متساويان.",
+      "DetailedSolutionEn": "Dividing 3 by 5 gives 0.6, so both values are equal.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "0.6=\\\\frac35",
+          "IsCorrect": true
+        },
+        {
+          "Order": 2,
+          "LatexCode": "0.6>\\\\frac35",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "0.6<\\\\frac35",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "0.6=\\\\frac53",
+          "IsCorrect": false
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-adaptive-twentieths-to-decimal",
+      "StageId": 1,
+      "ProposedCategoryKey": "p-fractions-decimals",
+      "PrimarySkillKey": "decimal-place-value",
+      "LearningObjectiveAr": "اكتب $\\\\frac7{20}$ على صورة عدد عشري.",
+      "LearningObjectiveEn": "Write $\\\\frac7{20}$ as a decimal.",
+      "TemplateFamilyKey": "p-fractions-decimals-twentieths-to-decimal",
+      "DifficultyLevel": 2,
+      "PisaProcess": "employ",
+      "QuestionTextAr": "اكتب $\\\\frac7{20}$ على صورة عدد عشري.",
+      "QuestionTextEn": "Write $\\\\frac7{20}$ as a decimal.",
+      "DetailedSolutionAr": "نضرب البسط والمقام في 5: $\\\\frac7{20}=\\\\frac{35}{100}=0.35$.",
+      "DetailedSolutionEn": "Multiply top and bottom by 5: $\\\\frac7{20}=\\\\frac{35}{100}=0.35$.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "0.7",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "0.14",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "0.035",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "0.35",
+          "IsCorrect": true
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-adaptive-rounding-hundredths",
+      "StageId": 1,
+      "ProposedCategoryKey": "p-fractions-decimals",
+      "PrimarySkillKey": "decimal-place-value",
+      "LearningObjectiveAr": "قرّب العدد $4.786$ إلى أقرب جزء من مئة.",
+      "LearningObjectiveEn": "Round $4.786$ to the nearest hundredth.",
+      "TemplateFamilyKey": "p-fractions-decimals-rounding-hundredths",
+      "DifficultyLevel": 2,
+      "PisaProcess": "employ",
+      "QuestionTextAr": "قرّب العدد $4.786$ إلى أقرب جزء من مئة.",
+      "QuestionTextEn": "Round $4.786$ to the nearest hundredth.",
+      "DetailedSolutionAr": "رقم الألف 6، لذا نزيد رقم الجزء من مئة من 8 إلى 9؛ الناتج $4.79$.",
+      "DetailedSolutionEn": "The thousandths digit is 6, so round the hundredths digit up from 8 to 9: $4.79$.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "4.8",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "4.786",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "4.79",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "4.78",
+          "IsCorrect": false
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-adaptive-percentage-of-total",
+      "StageId": 1,
+      "ProposedCategoryKey": "p-fractions-decimals",
+      "PrimarySkillKey": "basic-percentages",
+      "LearningObjectiveAr": "في صف 80 تلميذاً، شارك 25% منهم في مسابقة. كم تلميذاً شارك؟",
+      "LearningObjectiveEn": "In a school group of 80 pupils, 25% entered a competition. How many entered?",
+      "TemplateFamilyKey": "p-fractions-decimals-percentage-of-total",
+      "DifficultyLevel": 2,
+      "PisaProcess": "formulate",
+      "QuestionTextAr": "في صف 80 تلميذاً، شارك 25% منهم في مسابقة. كم تلميذاً شارك؟",
+      "QuestionTextEn": "In a school group of 80 pupils, 25% entered a competition. How many entered?",
+      "DetailedSolutionAr": "نحوّل 25% إلى ربع: $\\\\frac14\\\\times80=20$.",
+      "DetailedSolutionEn": "25% is one quarter: $\\\\frac14\\\\times80=20$.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "15",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "20",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "25",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "40",
+          "IsCorrect": false
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-adaptive-mixed-number-sum",
+      "StageId": 1,
+      "ProposedCategoryKey": "p-fractions-decimals",
+      "PrimarySkillKey": "equivalence",
+      "LearningObjectiveAr": "احسب $1\\\\frac12+\\\\frac34$.",
+      "LearningObjectiveEn": "Compute $1\\\\frac12+\\\\frac34$.",
+      "TemplateFamilyKey": "p-fractions-decimals-mixed-number-sum",
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "QuestionTextAr": "احسب $1\\\\frac12+\\\\frac34$.",
+      "QuestionTextEn": "Compute $1\\\\frac12+\\\\frac34$.",
+      "DetailedSolutionAr": "نكتب $1\\\\frac12=1\\\\frac24$، ثم $1\\\\frac24+\\\\frac34=1\\\\frac54=2\\\\frac14$.",
+      "DetailedSolutionEn": "Rewrite $1\\\\frac12=1\\\\frac24$; adding $\\\\frac34$ gives $2\\\\frac14$.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "2\\\\frac14",
+          "IsCorrect": true
+        },
+        {
+          "Order": 2,
+          "LatexCode": "1\\\\frac14",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "2\\\\frac34",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "1\\\\frac34",
+          "IsCorrect": false
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-adaptive-weighted-mean-frequency",
+      "StageId": 2,
+      "ProposedCategoryKey": "m-statistics",
+      "PrimarySkillKey": "summary-measures",
+      "LearningObjectiveAr": "ظهرت القيمة 2 ثلاث مرات والقيمة 7 مرتين في مجموعة بيانات. ما المتوسط الحسابي؟",
+      "LearningObjectiveEn": "In a data set, 2 appears three times and 7 appears twice. What is the mean?",
+      "TemplateFamilyKey": "m-statistics-weighted-mean-frequency",
+      "DifficultyLevel": 3,
+      "PisaProcess": "formulate",
+      "QuestionTextAr": "ظهرت القيمة 2 ثلاث مرات والقيمة 7 مرتين في مجموعة بيانات. ما المتوسط الحسابي؟",
+      "QuestionTextEn": "In a data set, 2 appears three times and 7 appears twice. What is the mean?",
+      "DetailedSolutionAr": "المجموع $3\\\\times2+2\\\\times7=20$، وعدد القيم 5، فالمتوسط $20\\\\div5=4$.",
+      "DetailedSolutionEn": "The total is $3\\\\times2+2\\\\times7=20$ across five observations, so the mean is 4.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "4.5",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "5",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "3",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "4",
+          "IsCorrect": true
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-adaptive-median-ordered-odd",
+      "StageId": 2,
+      "ProposedCategoryKey": "m-statistics",
+      "PrimarySkillKey": "summary-measures",
+      "LearningObjectiveAr": "ما وسيط البيانات المرتبة: 1، 4، 7، 9، 12؟",
+      "LearningObjectiveEn": "What is the median of the sorted values 1, 4, 7, 9, 12?",
+      "TemplateFamilyKey": "m-statistics-median-ordered-odd",
+      "DifficultyLevel": 1,
+      "PisaProcess": "employ",
+      "QuestionTextAr": "ما وسيط البيانات المرتبة: 1، 4، 7، 9، 12؟",
+      "QuestionTextEn": "What is the median of the sorted values 1, 4, 7, 9, 12?",
+      "DetailedSolutionAr": "لدينا خمس قيم مرتبة؛ القيمة الثالثة في المنتصف هي 7.",
+      "DetailedSolutionEn": "With five ordered observations, the middle (third) value is 7.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "9",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "6",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "7",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "4",
+          "IsCorrect": false
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-adaptive-iqr-seven-values",
+      "StageId": 2,
+      "ProposedCategoryKey": "m-statistics",
+      "PrimarySkillKey": "distributions",
+      "LearningObjectiveAr": "للبيانات المرتبة 2، 4، 6، 8، 10، 12، 14، احسب المدى الربيعي باستخدام وسيطي النصفين بعد استبعاد الوسيط العام.",
+      "LearningObjectiveEn": "For the sorted data 2, 4, 6, 8, 10, 12, 14, find the IQR using medians of the two halves excluding the overall median.",
+      "TemplateFamilyKey": "m-statistics-iqr-seven-values",
+      "DifficultyLevel": 4,
+      "PisaProcess": "employ",
+      "QuestionTextAr": "للبيانات المرتبة 2، 4، 6، 8، 10، 12، 14، احسب المدى الربيعي باستخدام وسيطي النصفين بعد استبعاد الوسيط العام.",
+      "QuestionTextEn": "For the sorted data 2, 4, 6, 8, 10, 12, 14, find the IQR using medians of the two halves excluding the overall median.",
+      "DetailedSolutionAr": "الوسيط العام 8. في النصف الأدنى $Q_1=4$ وفي الأعلى $Q_3=12$، لذا $IQR=Q_3-Q_1=8$.",
+      "DetailedSolutionEn": "Exclude the overall median 8. The lower-half median is $Q_1=4$ and upper-half median is $Q_3=12$. Thus $IQR=8$.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "12",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "8",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "6",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "10",
+          "IsCorrect": false
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-adaptive-mean-translation-property",
+      "StageId": 2,
+      "ProposedCategoryKey": "m-statistics",
+      "PrimarySkillKey": "summary-measures",
+      "LearningObjectiveAr": "إذا أضفنا 3 إلى كل مشاهدة في مجموعة بيانات، كيف يتغير المتوسط الحسابي؟",
+      "LearningObjectiveEn": "If 3 is added to every observation in a data set, how does its mean change?",
+      "TemplateFamilyKey": "m-statistics-mean-translation-property",
+      "DifficultyLevel": 3,
+      "PisaProcess": "interpret_evaluate",
+      "QuestionTextAr": "إذا أضفنا 3 إلى كل مشاهدة في مجموعة بيانات، كيف يتغير المتوسط الحسابي؟",
+      "QuestionTextEn": "If 3 is added to every observation in a data set, how does its mean change?",
+      "DetailedSolutionAr": "تزداد كل قيمة بمقدار 3، لذا يزداد مجموع القيم بمقدار 3 لكل مشاهدة؛ يزداد المتوسط بمقدار 3.",
+      "DetailedSolutionEn": "Adding 3 to each observation increases the total by three times the number of observations, so the mean increases by 3.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "+3",
+          "IsCorrect": true
+        },
+        {
+          "Order": 2,
+          "LatexCode": "+1",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "\\times3",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "0",
+          "IsCorrect": false
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-adaptive-range-with-outlier",
+      "StageId": 2,
+      "ProposedCategoryKey": "m-statistics",
+      "PrimarySkillKey": "distributions",
+      "LearningObjectiveAr": "احسب مدى القيم: 3، 4، 6، 9، 20.",
+      "LearningObjectiveEn": "Find the range of the values 3, 4, 6, 9, 20.",
+      "TemplateFamilyKey": "m-statistics-range-with-outlier",
+      "DifficultyLevel": 2,
+      "PisaProcess": "employ",
+      "QuestionTextAr": "احسب مدى القيم: 3، 4، 6، 9، 20.",
+      "QuestionTextEn": "Find the range of the values 3, 4, 6, 9, 20.",
+      "DetailedSolutionAr": "المدى = أكبر قيمة − أصغر قيمة = $20-3=17$.",
+      "DetailedSolutionEn": "The range is maximum minus minimum: $20-3=17$.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "14",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "16",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "20",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "17",
+          "IsCorrect": true
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-adaptive-chart-counts-total",
+      "StageId": 2,
+      "ProposedCategoryKey": "m-statistics",
+      "PrimarySkillKey": "charts",
+      "LearningObjectiveAr": "يبين مخطط أن 8 طلاب يذهبون مشياً و12 بالدراجة و10 بالحافلة. كم العدد الكلي؟",
+      "LearningObjectiveEn": "A chart shows 8 pupils walk, 12 cycle and 10 take a bus. What is the total?",
+      "TemplateFamilyKey": "m-statistics-chart-counts-total",
+      "DifficultyLevel": 2,
+      "PisaProcess": "interpret_evaluate",
+      "QuestionTextAr": "يبين مخطط أن 8 طلاب يذهبون مشياً و12 بالدراجة و10 بالحافلة. كم العدد الكلي؟",
+      "QuestionTextEn": "A chart shows 8 pupils walk, 12 cycle and 10 take a bus. What is the total?",
+      "DetailedSolutionAr": "نجمع الفئات غير المتداخلة: $8+12+10=30$ طالباً.",
+      "DetailedSolutionEn": "Add the mutually exclusive groups: $8+12+10=30$ pupils.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "20",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "28",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "30",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "22",
+          "IsCorrect": false
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-adaptive-relative-frequency-percentage",
+      "StageId": 2,
+      "ProposedCategoryKey": "m-statistics",
+      "PrimarySkillKey": "charts",
+      "LearningObjectiveAr": "من أصل 20 استجابة في استبيان، اختار 5 طلاب خياراً معيناً. ما التكرار النسبي بالنسبة المئوية؟",
+      "LearningObjectiveEn": "In a survey with 20 responses, 5 select one option. What is the relative frequency as a percentage?",
+      "TemplateFamilyKey": "m-statistics-relative-frequency-percentage",
+      "DifficultyLevel": 3,
+      "PisaProcess": "interpret_evaluate",
+      "QuestionTextAr": "من أصل 20 استجابة في استبيان، اختار 5 طلاب خياراً معيناً. ما التكرار النسبي بالنسبة المئوية؟",
+      "QuestionTextEn": "In a survey with 20 responses, 5 select one option. What is the relative frequency as a percentage?",
+      "DetailedSolutionAr": "التكرار النسبي $\\\\frac5{20}=0.25=25\\\\%$.",
+      "DetailedSolutionEn": "The relative frequency is $\\\\frac5{20}=0.25=25\\\\%$.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "40\\\\%",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "25\\\\%",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "5\\\\%",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "20\\\\%",
+          "IsCorrect": false
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-adaptive-arithmetic-nth-expression",
+      "StageId": 3,
+      "ProposedCategoryKey": "s-sequences-series",
+      "PrimarySkillKey": "arithmetic-sequences",
+      "LearningObjectiveAr": "المتتالية $5,9,13,17,\\\\ldots$ حسابية. أي صيغة تعطي الحد $a_n$ إذا بدأنا من $n=1$؟",
+      "LearningObjectiveEn": "The arithmetic sequence is $5,9,13,17,\\\\ldots$. Which formula gives $a_n$ starting at $n=1$?",
+      "TemplateFamilyKey": "s-sequences-series-arithmetic-nth-expression",
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "QuestionTextAr": "المتتالية $5,9,13,17,\\\\ldots$ حسابية. أي صيغة تعطي الحد $a_n$ إذا بدأنا من $n=1$؟",
+      "QuestionTextEn": "The arithmetic sequence is $5,9,13,17,\\\\ldots$. Which formula gives $a_n$ starting at $n=1$?",
+      "DetailedSolutionAr": "الحد الأول 5 والفرق 4، لذا $a_n=5+4(n-1)=4n+1$.",
+      "DetailedSolutionEn": "The first term is 5 and the common difference is 4, so $a_n=5+4(n-1)=4n+1$.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "4n+1",
+          "IsCorrect": true
+        },
+        {
+          "Order": 2,
+          "LatexCode": "5n+4",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "4n-1",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "n+4",
+          "IsCorrect": false
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-adaptive-find-tenth-term",
+      "StageId": 3,
+      "ProposedCategoryKey": "s-sequences-series",
+      "PrimarySkillKey": "arithmetic-sequences",
+      "LearningObjectiveAr": "متتالية حسابية حدها الأول 4 وفرقها المشترك 3. أوجد الحد العاشر.",
+      "LearningObjectiveEn": "An arithmetic sequence has first term 4 and common difference 3. Find the tenth term.",
+      "TemplateFamilyKey": "s-sequences-series-find-tenth-term",
+      "DifficultyLevel": 2,
+      "PisaProcess": "employ",
+      "QuestionTextAr": "متتالية حسابية حدها الأول 4 وفرقها المشترك 3. أوجد الحد العاشر.",
+      "QuestionTextEn": "An arithmetic sequence has first term 4 and common difference 3. Find the tenth term.",
+      "DetailedSolutionAr": "$a_{10}=a_1+9d=4+9\\\\times3=31$.",
+      "DetailedSolutionEn": "$a_{10}=a_1+9d=4+9\\\\times3=31$.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "30",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "34",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "27",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "31",
+          "IsCorrect": true
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-adaptive-fifth-geometric-term",
+      "StageId": 3,
+      "ProposedCategoryKey": "s-sequences-series",
+      "PrimarySkillKey": "geometric-sequences",
+      "LearningObjectiveAr": "متتالية هندسية حدها الأول 3 ونسبتها المشتركة 2. ما الحد الخامس؟",
+      "LearningObjectiveEn": "A geometric sequence has first term 3 and common ratio 2. What is its fifth term?",
+      "TemplateFamilyKey": "s-sequences-series-fifth-geometric-term",
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "QuestionTextAr": "متتالية هندسية حدها الأول 3 ونسبتها المشتركة 2. ما الحد الخامس؟",
+      "QuestionTextEn": "A geometric sequence has first term 3 and common ratio 2. What is its fifth term?",
+      "DetailedSolutionAr": "$a_5=a_1r^4=3\\\\times2^4=48$.",
+      "DetailedSolutionEn": "$a_5=a_1r^4=3\\\\times2^4=48$.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "96",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "32",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "48",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "24",
+          "IsCorrect": false
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-adaptive-finite-arithmetic-sum",
+      "StageId": 3,
+      "ProposedCategoryKey": "s-sequences-series",
+      "PrimarySkillKey": "series-sums",
+      "LearningObjectiveAr": "احسب مجموع الحدود الستة: 2، 5، 8، 11، 14، 17.",
+      "LearningObjectiveEn": "Find the sum of the six terms 2, 5, 8, 11, 14, 17.",
+      "TemplateFamilyKey": "s-sequences-series-finite-arithmetic-sum",
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "QuestionTextAr": "احسب مجموع الحدود الستة: 2، 5، 8، 11، 14، 17.",
+      "QuestionTextEn": "Find the sum of the six terms 2, 5, 8, 11, 14, 17.",
+      "DetailedSolutionAr": "المجموع $S_6=\\\\frac62(2+17)=3\\\\times19=57$.",
+      "DetailedSolutionEn": "The arithmetic-series sum is $S_6=\\\\frac62(2+17)=57$.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "60",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "57",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "51",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "54",
+          "IsCorrect": false
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-adaptive-finite-geometric-sum",
+      "StageId": 3,
+      "ProposedCategoryKey": "s-sequences-series",
+      "PrimarySkillKey": "series-sums",
+      "LearningObjectiveAr": "احسب $1+2+4+8+16$.",
+      "LearningObjectiveEn": "Compute $1+2+4+8+16$.",
+      "TemplateFamilyKey": "s-sequences-series-finite-geometric-sum",
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "QuestionTextAr": "احسب $1+2+4+8+16$.",
+      "QuestionTextEn": "Compute $1+2+4+8+16$.",
+      "DetailedSolutionAr": "مجموع القوى الخمس الأولى للعدد 2 يساوي $2^5-1=31$.",
+      "DetailedSolutionEn": "The sum of the first five powers from $2^0$ through $2^4$ is $2^5-1=31$.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "31",
+          "IsCorrect": true
+        },
+        {
+          "Order": 2,
+          "LatexCode": "30",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "32",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "15",
+          "IsCorrect": false
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-adaptive-recursive-third-term",
+      "StageId": 3,
+      "ProposedCategoryKey": "s-sequences-series",
+      "PrimarySkillKey": "geometric-sequences",
+      "LearningObjectiveAr": "إذا $a_1=2$ و$a_{n+1}=2a_n+1$، أوجد $a_3$.",
+      "LearningObjectiveEn": "If $a_1=2$ and $a_{n+1}=2a_n+1$, find $a_3$.",
+      "TemplateFamilyKey": "s-sequences-series-recursive-third-term",
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "QuestionTextAr": "إذا $a_1=2$ و$a_{n+1}=2a_n+1$، أوجد $a_3$.",
+      "QuestionTextEn": "If $a_1=2$ and $a_{n+1}=2a_n+1$, find $a_3$.",
+      "DetailedSolutionAr": "أولاً $a_2=2(2)+1=5$، ثم $a_3=2(5)+1=11$.",
+      "DetailedSolutionEn": "First $a_2=2(2)+1=5$, then $a_3=2(5)+1=11$.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "5",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "9",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "12",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "11",
+          "IsCorrect": true
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-adaptive-infinite-geometric-sum",
+      "StageId": 3,
+      "ProposedCategoryKey": "s-sequences-series",
+      "PrimarySkillKey": "series-sums",
+      "LearningObjectiveAr": "أوجد مجموع المتسلسلة الهندسية اللانهائية $4+2+1+\\\\frac12+\\\\cdots$.",
+      "LearningObjectiveEn": "Find the sum of the infinite geometric series $4+2+1+\\\\frac12+\\\\cdots$.",
+      "TemplateFamilyKey": "s-sequences-series-infinite-geometric-sum",
+      "DifficultyLevel": 4,
+      "PisaProcess": "interpret_evaluate",
+      "QuestionTextAr": "أوجد مجموع المتسلسلة الهندسية اللانهائية $4+2+1+\\\\frac12+\\\\cdots$.",
+      "QuestionTextEn": "Find the sum of the infinite geometric series $4+2+1+\\\\frac12+\\\\cdots$.",
+      "DetailedSolutionAr": "النسبة $r=\\\\frac12$ وتحقق $|r|<1$، إذن $S=\\\\frac4{1-1/2}=8$.",
+      "DetailedSolutionEn": "Here $r=\\\\frac12$ with $|r|<1$, so $S=\\\\frac4{1-1/2}=8$.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "4",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\infty",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "8",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "7",
+          "IsCorrect": false
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-adaptive-find-common-difference-two-terms",
+      "StageId": 3,
+      "ProposedCategoryKey": "s-sequences-series",
+      "PrimarySkillKey": "arithmetic-sequences",
+      "LearningObjectiveAr": "في متتالية حسابية، $a_3=11$ و$a_7=27$. ما الفرق المشترك؟",
+      "LearningObjectiveEn": "In an arithmetic sequence, $a_3=11$ and $a_7=27$. Find the common difference.",
+      "TemplateFamilyKey": "s-sequences-series-find-common-difference-two-terms",
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "QuestionTextAr": "في متتالية حسابية، $a_3=11$ و$a_7=27$. ما الفرق المشترك؟",
+      "QuestionTextEn": "In an arithmetic sequence, $a_3=11$ and $a_7=27$. Find the common difference.",
+      "DetailedSolutionAr": "بين الحدين أربع خطوات: $a_7-a_3=4d=16$، ومنه $d=4$.",
+      "DetailedSolutionEn": "There are four steps between the terms: $4d=27-11=16$, hence $d=4$.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "8",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "4",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "3",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "5",
+          "IsCorrect": false
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-adaptive-demorgan-conjunction",
+      "StageId": 4,
+      "ProposedCategoryKey": "u-discrete-math",
+      "PrimarySkillKey": "logic",
+      "LearningObjectiveAr": "أي تعبير منطقي يكافئ $\\\\neg(P\\\\land Q)$؟",
+      "LearningObjectiveEn": "Which logical expression is equivalent to $\\\\neg(P\\\\land Q)$?",
+      "TemplateFamilyKey": "u-discrete-math-demorgan-conjunction",
+      "DifficultyLevel": 2,
+      "PisaProcess": "employ",
+      "QuestionTextAr": "أي تعبير منطقي يكافئ $\\\\neg(P\\\\land Q)$؟",
+      "QuestionTextEn": "Which logical expression is equivalent to $\\\\neg(P\\\\land Q)$?",
+      "DetailedSolutionAr": "حسب قانون دي مورغان، نفي اقتران عبارتين يساوي فصل نفييهما: $\\\\neg P\\\\lor\\\\neg Q$.",
+      "DetailedSolutionEn": "By De Morgan's law, negating a conjunction gives the disjunction of the negations: $\\\\neg P\\\\lor\\\\neg Q$.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\\\neg P\\\\lor\\\\neg Q",
+          "IsCorrect": true
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\\\neg P\\\\land\\\\neg Q",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "P\\\\lor Q",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "P\\\\land\\\\neg Q",
+          "IsCorrect": false
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-adaptive-contrapositive-equivalence",
+      "StageId": 4,
+      "ProposedCategoryKey": "u-discrete-math",
+      "PrimarySkillKey": "logic",
+      "LearningObjectiveAr": "العبارة $P\\\\Rightarrow Q$ تكافئ منطقياً أي عبارة؟",
+      "LearningObjectiveEn": "Which statement is logically equivalent to $P\\\\Rightarrow Q$?",
+      "TemplateFamilyKey": "u-discrete-math-contrapositive-equivalence",
+      "DifficultyLevel": 3,
+      "PisaProcess": "interpret_evaluate",
+      "QuestionTextAr": "العبارة $P\\\\Rightarrow Q$ تكافئ منطقياً أي عبارة؟",
+      "QuestionTextEn": "Which statement is logically equivalent to $P\\\\Rightarrow Q$?",
+      "DetailedSolutionAr": "العكس النقيض مكافئ دائماً: $\\\\neg Q\\\\Rightarrow\\\\neg P$.",
+      "DetailedSolutionEn": "An implication is logically equivalent to its contrapositive: $\\\\neg Q\\\\Rightarrow\\\\neg P$.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "Q\\\\Rightarrow P",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\\\neg P\\\\Rightarrow\\\\neg Q",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "P\\\\land Q",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "\\\\neg Q\\\\Rightarrow\\\\neg P",
+          "IsCorrect": true
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-adaptive-handshake-lemma-edges",
+      "StageId": 4,
+      "ProposedCategoryKey": "u-discrete-math",
+      "PrimarySkillKey": "graphs",
+      "LearningObjectiveAr": "في رسم بياني غير موجه درجات رؤوسه $2,2,2,2$. كم ضلعاً فيه؟",
+      "LearningObjectiveEn": "An undirected graph has vertex degrees $2,2,2,2$. How many edges does it have?",
+      "TemplateFamilyKey": "u-discrete-math-handshake-lemma-edges",
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "QuestionTextAr": "في رسم بياني غير موجه درجات رؤوسه $2,2,2,2$. كم ضلعاً فيه؟",
+      "QuestionTextEn": "An undirected graph has vertex degrees $2,2,2,2$. How many edges does it have?",
+      "DetailedSolutionAr": "مجموع الدرجات 8 ويحسب كل ضلع مرتين، لذا عدد الأضلاع $8/2=4$.",
+      "DetailedSolutionEn": "The degree sum is 8 and counts every edge twice, hence $8/2=4$ edges.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "6",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "8",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "4",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "2",
+          "IsCorrect": false
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-adaptive-choose-two-seven",
+      "StageId": 4,
+      "ProposedCategoryKey": "u-discrete-math",
+      "PrimarySkillKey": "proofs",
+      "LearningObjectiveAr": "كم طريقة لاختيار شخصين من 7 أشخاص دون ترتيب؟",
+      "LearningObjectiveEn": "How many unordered ways can two people be selected from seven?",
+      "TemplateFamilyKey": "u-discrete-math-choose-two-seven",
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "QuestionTextAr": "كم طريقة لاختيار شخصين من 7 أشخاص دون ترتيب؟",
+      "QuestionTextEn": "How many unordered ways can two people be selected from seven?",
+      "DetailedSolutionAr": "عدد التوافيق $\\\\binom72=\\\\frac{7\\\\cdot6}{2}=21$.",
+      "DetailedSolutionEn": "Use combinations: $\\\\binom72=\\\\frac{7\\\\cdot6}{2}=21$.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "35",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "21",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "14",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "42",
+          "IsCorrect": false
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-adaptive-pigeonhole-thirteen-twelve",
+      "StageId": 4,
+      "ProposedCategoryKey": "u-discrete-math",
+      "PrimarySkillKey": "proofs",
+      "LearningObjectiveAr": "وُزِّع 13 عنصراً على 12 صندوقاً. ما أقل عدد من العناصر يُضمَن وجوده في صندوق واحد على الأقل؟",
+      "LearningObjectiveEn": "Thirteen objects are placed into twelve boxes. What is the minimum number guaranteed to occur in at least one box?",
+      "TemplateFamilyKey": "u-discrete-math-pigeonhole-thirteen-twelve",
+      "DifficultyLevel": 3,
+      "PisaProcess": "interpret_evaluate",
+      "QuestionTextAr": "وُزِّع 13 عنصراً على 12 صندوقاً. ما أقل عدد من العناصر يُضمَن وجوده في صندوق واحد على الأقل؟",
+      "QuestionTextEn": "Thirteen objects are placed into twelve boxes. What is the minimum number guaranteed to occur in at least one box?",
+      "DetailedSolutionAr": "وفق مبدأ الحمام، $\\\\lceil13/12\\\\rceil=2$، فلا بد من صندوق يحوي عنصرين على الأقل.",
+      "DetailedSolutionEn": "By the pigeonhole principle, $\\\\lceil13/12\\\\rceil=2$, so some box holds at least two objects.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "2",
+          "IsCorrect": true
+        },
+        {
+          "Order": 2,
+          "LatexCode": "1",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "3",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "12",
+          "IsCorrect": false
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-adaptive-modulo-three-equivalence",
+      "StageId": 4,
+      "ProposedCategoryKey": "u-discrete-math",
+      "PrimarySkillKey": "relations",
+      "LearningObjectiveAr": "على الأعداد الصحيحة، عرّف $a\\\\sim b$ عندما يكون $a-b$ من مضاعفات 3. هل هذه علاقة تكافؤ؟",
+      "LearningObjectiveEn": "On integers, define $a\\\\sim b$ when $a-b$ is divisible by 3. Is this an equivalence relation?",
+      "TemplateFamilyKey": "u-discrete-math-modulo-three-equivalence",
+      "DifficultyLevel": 4,
+      "PisaProcess": "interpret_evaluate",
+      "QuestionTextAr": "على الأعداد الصحيحة، عرّف $a\\\\sim b$ عندما يكون $a-b$ من مضاعفات 3. هل هذه علاقة تكافؤ؟",
+      "QuestionTextEn": "On integers, define $a\\\\sim b$ when $a-b$ is divisible by 3. Is this an equivalence relation?",
+      "DetailedSolutionAr": "نعم؛ الفرق بين العدد ونفسه 0، وعكس الفرق يبقى مضاعفاً لـ3، ومجموع فرقين من مضاعفات 3 يبقى كذلك؛ إذن الانعكاسية والتناظر والتعدي متحققة.",
+      "DetailedSolutionEn": "Yes. The difference with itself is 0 (reflexive); negating a divisible difference preserves divisibility (symmetric); sums of divisible differences are divisible (transitive).",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\text{لا، ليست انعكاسية}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\text{لا، ليست متناظرة}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "\\text{لا، ليست متعدية}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "\\text{نعم / Yes}",
+          "IsCorrect": true
+        }
+      ],
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-adaptive-tree-nine-vertices",
+      "StageId": 4,
+      "ProposedCategoryKey": "u-discrete-math",
+      "PrimarySkillKey": "graphs",
+      "LearningObjectiveAr": "شجرة متصلة بلا دورات فيها 9 رؤوس. كم ضلعاً فيها؟",
+      "LearningObjectiveEn": "A connected acyclic tree has 9 vertices. How many edges does it have?",
+      "TemplateFamilyKey": "u-discrete-math-tree-nine-vertices",
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "QuestionTextAr": "شجرة متصلة بلا دورات فيها 9 رؤوس. كم ضلعاً فيها؟",
+      "QuestionTextEn": "A connected acyclic tree has 9 vertices. How many edges does it have?",
+      "DetailedSolutionAr": "كل شجرة ذات $n$ رؤوس تحتوي على $n-1$ ضلع، لذا $9-1=8$.",
+      "DetailedSolutionEn": "Every tree with $n$ vertices has $n-1$ edges, so $9-1=8$.",
+      "Points": 10,
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "9",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "10",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "8",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "7",
+          "IsCorrect": false
+        }
+      ],
+      "ExpertReview": "pending"
+    }
+  ]
+}
