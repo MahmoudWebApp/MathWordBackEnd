@@ -11,6 +11,21 @@ static void Assert(bool condition, string message)
     if (!condition) throw new InvalidOperationException(message);
 }
 
+// A different numeric substitution must trigger review as the same
+// template family, while stage and topic boundaries remain distinct.
+var familyOne = CurriculumContentQuality.FamilyKey(
+    1, 2, "حل س + 7 = 15", "Solve x + 7 = 15");
+var familyTwo = CurriculumContentQuality.FamilyKey(
+    1, 2, "حل س + 9 = 18", "Solve x + 9 = 18");
+var otherCategory = CurriculumContentQuality.FamilyKey(
+    1, 3, "حل س + 9 = 18", "Solve x + 9 = 18");
+Assert(familyOne == familyTwo, "Numeric-only variants must be reviewed together.");
+Assert(familyOne != otherCategory,
+    "Distinct primary mathematics topics must not share family identities.");
+Assert(CurriculumContentQuality.TemplateSignature("  نَظَرية 21  ").Contains("#"),
+    "Unicode-compatible numeral recognition must be preserved.");
+Console.WriteLine("PASS: editorial template signatures flag numeric variants and keep category scope.");
+
 var categories = new[]
 {
     new Category { Id = 4, StageId = 1, Order = 3 },
