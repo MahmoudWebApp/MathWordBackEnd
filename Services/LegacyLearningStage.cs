@@ -21,6 +21,20 @@ namespace MathWorldAPI.Services
                 .Select(stage => (int?)stage.Id)
                 .FirstOrDefaultAsync(cancellationToken);
 
+        // Earlier accounts retain the elementary fallback. Accounts created
+        // since stage onboarding was introduced must choose explicitly.
+        public static readonly DateTime OnboardingCutoffUtc =
+            new(2026, 11, 13, 0, 0, 0, DateTimeKind.Utc);
+
+        public static async Task<int?> EffectiveIdForUserAsync(
+            AppDbContext db,
+            int? selectedStageId,
+            DateTime createdAt,
+            CancellationToken cancellationToken = default) =>
+            selectedStageId.HasValue || createdAt >= OnboardingCutoffUtc
+                ? selectedStageId
+                : await ElementaryIdAsync(db, cancellationToken);
+
         public static async Task<int?> EffectiveIdAsync(
             AppDbContext db,
             int? selectedStageId,

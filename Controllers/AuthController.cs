@@ -72,10 +72,10 @@ namespace MathWorldAPI.Controllers
             var language =
                 LanguageHelper.GetLanguageFromRequest(Request);
 
-            // Reject invalid or missing stage before account creation.
-            // Do not silently assign the elementary default to new learners.
-            if (!await _db.EducationalStages.AsNoTracking()
-                .AnyAsync(stage => stage.Id == dto.StageId))
+            // New accounts can select their stage after registration.
+            // If an older client supplies a stage, still validate it strictly.
+            if (dto.StageId.HasValue && !await _db.EducationalStages.AsNoTracking()
+                .AnyAsync(stage => stage.Id == dto.StageId.Value))
             {
                 return BadRequest(
                     LanguageHelper.ErrorResponse<AuthResponseDto>(

@@ -59,13 +59,29 @@ def main():
         "Password": "CI_TEST_PASSWORD_2026",
         "StageId": stage1
     })
-    # New accounts must choose a stage; missing and invalid stage are rejected.
-    invalid = {
-        "FullName": "Invalid Stage Learner",
-        "Email": "invalid-stage@mathworld.test",
+    # The registration form no longer chooses a stage. New accounts keep
+    # CurrentStageId=null and complete onboarding as authenticated learners.
+    stage_later = {
+        "FullName": "Choose Stage After Signup",
+        "Email": "stage-after-signup@mathworld.test",
         "Password": "CI_TEST_PASSWORD_2026"
     }
-    assert call("POST", "/api/auth/register", invalid)[0] == 400
+    new_student = expect("POST", "/api/auth/register", 201, stage_later)
+    assert new_student.get("CurrentStageId") is None, new_student
+    stage_token = new_student["Token"]
+    before_choice = expect("GET", "/api/users/learning-stage", 200,
+                           token=stage_token)
+    assert before_choice.get("StageId") is None, before_choice
+    assert before_choice["HasSelectedStage"] is False, before_choice
+    # Existing suite already verifies login later. Avoid exceeding its
+    # short-window auth rate limit with an extra test login.
+    chosen = expect("PUT", "/api/users/learning-stage", 200,
+                    {"StageId": stage2}, stage_token)
+    assert chosen["StageId"] == stage2, chosen
+    assert expect("GET", "/api/users/learning-stage", 200,
+                  token=stage_token)["StageId"] == stage2
+    invalid = dict(stage_later)
+    invalid["Email"] = "invalid-stage@mathworld.test"
     invalid["StageId"] = 999999
     assert call("POST", "/api/auth/register", invalid)[0] == 400
     token = registered["Token"]

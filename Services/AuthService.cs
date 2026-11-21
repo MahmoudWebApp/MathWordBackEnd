@@ -265,11 +265,13 @@ namespace MathWorldAPI.Services
                     $"Password hash upgraded. UserId: {user.Id}");
             }
 
-            // Existing Student accounts predate required stage registration.
-            // Apply the Elementary default once on authenticated login;
-            // historical attempts and progress remain attached to their stages.
+            // Legacy learners without a stage keep the historical elementary
+            // fallback. New learners registered after stage onboarding was
+            // introduced must choose a stage explicitly after signing in.
+            // The cutoff avoids requiring a schema migration in production.
             if (string.Equals(user.Role, "Student", StringComparison.OrdinalIgnoreCase)
-                && !user.CurrentStageId.HasValue)
+                && !user.CurrentStageId.HasValue
+                && user.CreatedAt < LegacyLearningStage.OnboardingCutoffUtc)
             {
                 user.CurrentStageId = await LegacyLearningStage.ElementaryIdAsync(_context);
                 if (!user.CurrentStageId.HasValue)
