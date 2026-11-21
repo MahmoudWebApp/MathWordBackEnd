@@ -6,10 +6,12 @@ on:
       - 'content/catalog/**'
       - 'content/batches/mathworld-adaptive-v2-*'
       - 'content/batches/mathworld-reasoning-extension-*'
+      - 'content/batches/mathworld-fractions-series-depth-*'
       - 'docs/MATHWORLD_INTERNATIONAL_CURRICULUM_TAXONOMY_*.md'
       - 'tests/check_curriculum_taxonomy.py'
       - 'tests/check_adaptive_pilot_content.py'
       - 'tests/check_curriculum_reasoning_extension.py'
+      - 'tests/check_curriculum_depth_wave_1.py'
       - '.github/workflows/curriculum-taxonomy-ci.yml'
   workflow_dispatch:
 
@@ -32,3 +34,5 @@ jobs:
         run: python3 scripts/generate_curriculum_editorial_seed.py --check
       - name: Validate repeatable reasoning draft seed
         run: python3 scripts/generate_reasoning_extension_sql.py --check
+      - name: Cross-check fraction and series reasoning answers
+        run: python3 tests/check_curriculum_depth_wave_1.py
