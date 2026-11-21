@@ -179,8 +179,11 @@ jobs:
           SQL
           before_count="$(cat /tmp/mathworld-baseline-migration-count)"
           after_count="$(psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM "__EFMigrationsHistory"')"
-          test "$after_count" -gt "$before_count"
-          echo "PASS: main schema upgraded; legacy admin/users and notifications preserved; Premium tables created"
+          # The baseline is current main, which already contains Premium migrations.
+          # Security-only PRs have no new migrations; schema/table and data checks
+          # above still guard a regression or destructive schema change.
+          test "$after_count" -ge "$before_count"
+          echo "PASS: current main upgrade is non-destructive; Premium tables and legacy data preserved"
       - name: Verify 100% Premium gift issue/redeem/reuse/revoke after upgrading old schema
         working-directory: premium
         env:

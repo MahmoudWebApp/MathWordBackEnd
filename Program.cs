@@ -158,15 +158,29 @@ builder.Services
                 return Task.CompletedTask;
             },
 
-            OnTokenValidated = context =>
+            OnTokenValidated = async context =>
             {
-                var userId = context.Principal?
+                // A correctly signed JWT can outlive account deactivation
+                // or an admin role change. Reject stale claims on every request.
+                var rawId = context.Principal?
                     .FindFirstValue(ClaimTypes.NameIdentifier);
+                var role = context.Principal?
+                    .FindFirstValue(ClaimTypes.Role);
+                if (!int.TryParse(rawId, out var userId) || userId <= 0 ||
+                    (role != "Admin" && role != "Student"))
+                {
+                    context.Fail("InvalidSessionIdentity");
+                    return;
+                }
 
-                Console.WriteLine(
-                    $"JWT token validated for user: {userId ?? "unknown"}");
-
-                return Task.CompletedTask;
+                var database = context.HttpContext.RequestServices
+                    .GetRequiredService<AppDbContext>();
+                var active = await database.Users.AsNoTracking().AnyAsync(
+                    user => user.Id == userId && user.IsActive &&
+                        user.Role == role,
+                    context.HttpContext.RequestAborted);
+                if (!active)
+                    context.Fail("AccountInactiveOrRoleChanged");
             }
         };
     });

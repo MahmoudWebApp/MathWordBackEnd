@@ -73,6 +73,13 @@ Assert(!CategoryAccessPolicy.CanAccess(expiredPremium, 1, 4, defaults),
     "Expired Premium should not access locked category.");
 Assert(!CategoryAccessPolicy.CanAccess(inactivePremium, 1, 2, defaults),
     "Inactive student should not access even Free category.");
+Assert(PremiumEntitlement.IsActive(premiumStudent),
+    "An active indefinite Premium grant must stay valid.");
+Assert(!PremiumEntitlement.IsActive(expiredPremium),
+    "An expired Premium grant must not access pre-answer solutions or reports.");
+Assert(!PremiumEntitlement.IsActive(inactivePremium),
+    "Disabled accounts must never retain Premium entitlements.");
+
 
 Console.WriteLine("PASS: Free category selection, invalid configuration journey group size, Free/Premium entitlement and inactive accounts.");
 
