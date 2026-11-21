@@ -24,7 +24,8 @@ public sealed class CurriculumController : ControllerBase
         {
             new { Key = "CCSS", Name = "Common Core State Standards", Purpose = "Grade-level skills and learning objectives" },
             new { Key = "Cambridge", Name = "Cambridge International Mathematics", Purpose = "Curriculum progression cross-check" },
-            new { Key = "PISA", Name = "OECD PISA Mathematics", Purpose = "Reasoning and real-world applications" }
+            new { Key = "PISA", Name = "OECD PISA Mathematics", Purpose = "Reasoning and real-world applications" },
+            new { Key = "MSC2020", Name = "Mathematics Subject Classification 2020", Purpose = "University mathematics subject organization, not school grade standards" }
         },
         DisclaimerAr = "ننظّم المحتوى بالاستناد إلى أطر تعليمية دولية، ولسنا جهة معتمدة من هذه المؤسسات.",
         DisclaimerEn = "Our curriculum draws on international education frameworks; MathWorld is not accredited or endorsed by these organizations."
