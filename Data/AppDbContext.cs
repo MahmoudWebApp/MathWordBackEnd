@@ -24,6 +24,12 @@ namespace MathWorldAPI.Data
         /// <summary>
         /// Users table.
         /// </summary>
+        public DbSet<CurriculumDomain> CurriculumDomains => Set<CurriculumDomain>();
+        public DbSet<CurriculumSkill> CurriculumSkills => Set<CurriculumSkill>();
+        public DbSet<CurriculumSkillStandard> CurriculumSkillStandards => Set<CurriculumSkillStandard>();
+        public DbSet<CurriculumSkillPrerequisite> CurriculumSkillPrerequisites => Set<CurriculumSkillPrerequisite>();
+        public DbSet<CurriculumProblemSkill> CurriculumProblemSkills => Set<CurriculumProblemSkill>();
+
         public DbSet<SubscriptionGrant> SubscriptionGrants => Set<SubscriptionGrant>();
 
         public DbSet<StageFreeCategorySelection> StageFreeCategorySelections => Set<StageFreeCategorySelection>();
@@ -95,6 +101,47 @@ namespace MathWorldAPI.Data
             ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<CurriculumDomain>(e =>
+            {
+                e.HasIndex(x => x.StableKey).IsUnique();
+                e.Property(x => x.StableKey).HasMaxLength(120).IsRequired();
+                e.Property(x => x.NameAr).IsRequired();
+                e.Property(x => x.NameEn).IsRequired();
+            });
+            modelBuilder.Entity<CurriculumSkill>(e =>
+            {
+                e.HasIndex(x => x.StableKey).IsUnique();
+                e.HasIndex(x => new { x.StageId, x.CategoryId, x.SortOrder });
+                e.Property(x => x.StableKey).HasMaxLength(160).IsRequired();
+                e.Property(x => x.NameAr).IsRequired();
+                e.Property(x => x.NameEn).IsRequired();
+                e.HasOne(x => x.Domain).WithMany().HasForeignKey(x => x.DomainId).OnDelete(DeleteBehavior.Restrict);
+                e.HasOne(x => x.Stage).WithMany().HasForeignKey(x => x.StageId).OnDelete(DeleteBehavior.Restrict);
+                e.HasOne(x => x.Category).WithMany().HasForeignKey(x => x.CategoryId).OnDelete(DeleteBehavior.Restrict);
+            });
+            modelBuilder.Entity<CurriculumSkillStandard>(e =>
+            {
+                e.HasIndex(x => new { x.SkillId, x.Framework, x.StandardCode }).IsUnique();
+                e.Property(x => x.Framework).HasMaxLength(32).IsRequired();
+                e.Property(x => x.StandardCode).HasMaxLength(100).IsRequired();
+                e.Property(x => x.MappingType).HasMaxLength(20).IsRequired();
+                e.HasOne(x => x.Skill).WithMany().HasForeignKey(x => x.SkillId).OnDelete(DeleteBehavior.Cascade);
+            });
+            modelBuilder.Entity<CurriculumSkillPrerequisite>(e =>
+            {
+                e.HasKey(x => new { x.SkillId, x.PrerequisiteSkillId });
+                e.HasOne(x => x.Skill).WithMany().HasForeignKey(x => x.SkillId).OnDelete(DeleteBehavior.Cascade);
+                e.HasOne(x => x.PrerequisiteSkill).WithMany().HasForeignKey(x => x.PrerequisiteSkillId).OnDelete(DeleteBehavior.Restrict);
+                e.ToTable(t => t.HasCheckConstraint("CK_CurriculumPrerequisite_NotSelf", "\"SkillId\" <> \"PrerequisiteSkillId\""));
+            });
+            modelBuilder.Entity<CurriculumProblemSkill>(e =>
+            {
+                e.HasKey(x => new { x.ProblemId, x.SkillId });
+                e.HasIndex(x => x.ProblemId).IsUnique().HasFilter("\"IsPrimary\" = TRUE");
+                e.HasOne(x => x.Skill).WithMany().HasForeignKey(x => x.SkillId).OnDelete(DeleteBehavior.Cascade);
+                e.HasOne(x => x.Problem).WithMany().HasForeignKey(x => x.ProblemId).OnDelete(DeleteBehavior.Cascade);
+            });
 
             modelBuilder.Entity<LearnerPresence>(entity =>
             {
