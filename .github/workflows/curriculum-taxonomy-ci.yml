@@ -4,8 +4,10 @@ on:
   pull_request:
     paths:
       - 'content/catalog/**'
+      - 'content/batches/mathworld-adaptive-v2-*'
       - 'docs/MATHWORLD_INTERNATIONAL_CURRICULUM_TAXONOMY_*.md'
       - 'tests/check_curriculum_taxonomy.py'
+      - 'tests/check_adaptive_pilot_content.py'
       - '.github/workflows/curriculum-taxonomy-ci.yml'
   workflow_dispatch:
 
@@ -20,3 +22,5 @@ jobs:
       - uses: actions/checkout@v4
       - name: Validate bilingual subjects, skill keys and historical problem mapping
         run: python3 tests/check_curriculum_taxonomy.py
+      - name: Check varied adaptive draft math and bilingual question bank
+        run: python3 tests/check_adaptive_pilot_content.py
