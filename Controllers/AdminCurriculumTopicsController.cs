@@ -39,7 +39,7 @@ public sealed class AdminCurriculumTopicsController : ControllerBase
                 x.IconKey,
                 x.SortOrder,
                 x.EditorialStatus,
-                x.ProposedQuestionCount
+                ProposedQuestionCount = _db.CurriculumDraftItems.Count(item => item.TopicProposalId == x.Id)
             }).ToArrayAsync(ct);
 
         return Ok(new
