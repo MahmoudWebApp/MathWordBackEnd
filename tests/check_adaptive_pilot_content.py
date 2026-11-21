@@ -20,6 +20,18 @@ subjects = {c["stable_key"]: (s["stage_id"], set(c["skill_keys"]))
             for s in tax["stage_levels"] for c in s["categories"]}
 assert len(draft["categories"]) == len({c["stable_key"] for c in draft["categories"]})
 
+# Curriculum coherence regression: a shared topic may have several skill types,
+# but arithmetic-geometric recurrence and counting must not be mislabelled.
+expected_skill = {
+    "mw-adaptive-adding-unlike-fractions": "fraction-operations",
+    "mw-adaptive-mixed-number-sum": "fraction-operations",
+    "mw-adaptive-recursive-third-term": "recurrence-relations",
+    "mw-adaptive-choose-two-seven": "combinatorics",
+}
+for item in draft["problems"]:
+    if item["ContentKey"] in expected_skill:
+        assert item["PrimarySkillKey"] == expected_skill[item["ContentKey"]], item["ContentKey"]
+
 known, prompts, families, answers = set(), set(), set(), {}
 for item in draft["problems"]:
     key = item["ContentKey"]
