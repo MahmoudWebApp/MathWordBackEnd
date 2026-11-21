@@ -1,0 +1,22 @@
+name: Adaptive mathematics curriculum contract
+
+on:
+  pull_request:
+    paths:
+      - 'content/catalog/**'
+      - 'docs/MATHWORLD_INTERNATIONAL_CURRICULUM_TAXONOMY_*.md'
+      - 'tests/check_curriculum_taxonomy.py'
+      - '.github/workflows/curriculum-taxonomy-ci.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate bilingual subjects, skill keys and historical problem mapping
+        run: python3 tests/check_curriculum_taxonomy.py

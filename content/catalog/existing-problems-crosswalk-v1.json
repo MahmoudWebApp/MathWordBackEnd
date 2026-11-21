@@ -1,0 +1,2941 @@
+{
+  "version": "1.0.0",
+  "status": "read_only_proposal",
+  "source_database": {
+    "stage_count": 4,
+    "category_count": 16,
+    "problem_count": 386
+  },
+  "duplicate_exact_question_flags": [
+    {
+      "problem_ids": [
+        3,
+        4
+      ],
+      "reason": "exact Arabic question duplicate"
+    }
+  ],
+  "old_category_distribution": [
+    {
+      "old_category_id": 1,
+      "stage_id": 1,
+      "name_ar": "الأعداد والعمليات الحسابية",
+      "proposed_destinations": [
+        {
+          "new_category_key": "p-add-subtract",
+          "existing_problems": 9
+        },
+        {
+          "new_category_key": "p-multiply-divide",
+          "existing_problems": 17
+        }
+      ]
+    },
+    {
+      "old_category_id": 2,
+      "stage_id": 1,
+      "name_ar": "التفكير الجبري المبكر",
+      "proposed_destinations": [
+        {
+          "new_category_key": "p-patterns-algebra",
+          "existing_problems": 24
+        }
+      ]
+    },
+    {
+      "old_category_id": 3,
+      "stage_id": 1,
+      "name_ar": "الهندسة والقياس",
+      "proposed_destinations": [
+        {
+          "new_category_key": "p-perimeter-area",
+          "existing_problems": 14
+        },
+        {
+          "new_category_key": "p-shapes-geometry",
+          "existing_problems": 5
+        },
+        {
+          "new_category_key": "p-measure-units",
+          "existing_problems": 5
+        }
+      ]
+    },
+    {
+      "old_category_id": 4,
+      "stage_id": 1,
+      "name_ar": "البيانات والاحتمالات",
+      "proposed_destinations": [
+        {
+          "new_category_key": "p-basic-probability",
+          "existing_problems": 7
+        },
+        {
+          "new_category_key": "p-data-statistics",
+          "existing_problems": 17
+        }
+      ]
+    },
+    {
+      "old_category_id": 5,
+      "stage_id": 2,
+      "name_ar": "نظرية الأعداد والأسس",
+      "proposed_destinations": [
+        {
+          "new_category_key": "m-powers-roots",
+          "existing_problems": 12
+        },
+        {
+          "new_category_key": "m-number-theory",
+          "existing_problems": 12
+        }
+      ]
+    },
+    {
+      "old_category_id": 6,
+      "stage_id": 2,
+      "name_ar": "الجبر والدوال",
+      "proposed_destinations": [
+        {
+          "new_category_key": "m-equations-inequalities",
+          "existing_problems": 2
+        },
+        {
+          "new_category_key": "m-functions-graphs",
+          "existing_problems": 22
+        }
+      ]
+    },
+    {
+      "old_category_id": 7,
+      "stage_id": 2,
+      "name_ar": "النسب والتناسب",
+      "proposed_destinations": [
+        {
+          "new_category_key": "m-ratios-percentages",
+          "existing_problems": 24
+        }
+      ]
+    },
+    {
+      "old_category_id": 8,
+      "stage_id": 2,
+      "name_ar": "الهندسة والبراهين",
+      "proposed_destinations": [
+        {
+          "new_category_key": "m-geometry-reasoning",
+          "existing_problems": 24
+        }
+      ]
+    },
+    {
+      "old_category_id": 9,
+      "stage_id": 3,
+      "name_ar": "الجبر المتقدم",
+      "proposed_destinations": [
+        {
+          "new_category_key": "s-polynomials-equations",
+          "existing_problems": 22
+        },
+        {
+          "new_category_key": "s-exponents-logarithms",
+          "existing_problems": 2
+        }
+      ]
+    },
+    {
+      "old_category_id": 10,
+      "stage_id": 3,
+      "name_ar": "حساب المثلثات",
+      "proposed_destinations": [
+        {
+          "new_category_key": "s-trigonometry",
+          "existing_problems": 24
+        }
+      ]
+    },
+    {
+      "old_category_id": 11,
+      "stage_id": 3,
+      "name_ar": "التفاضل والتكامل",
+      "proposed_destinations": [
+        {
+          "new_category_key": "s-limits-derivatives",
+          "existing_problems": 12
+        },
+        {
+          "new_category_key": "s-integrals",
+          "existing_problems": 12
+        }
+      ]
+    },
+    {
+      "old_category_id": 12,
+      "stage_id": 3,
+      "name_ar": "الإحصاء والاحتمالات المتقدم",
+      "proposed_destinations": [
+        {
+          "new_category_key": "s-probability-counting",
+          "existing_problems": 17
+        },
+        {
+          "new_category_key": "s-statistics",
+          "existing_problems": 7
+        }
+      ]
+    },
+    {
+      "old_category_id": 13,
+      "stage_id": 4,
+      "name_ar": "التفاضل متعدد المتغيرات",
+      "proposed_destinations": [
+        {
+          "new_category_key": "u-multivariable",
+          "existing_problems": 24
+        }
+      ]
+    },
+    {
+      "old_category_id": 14,
+      "stage_id": 4,
+      "name_ar": "الجبر الخطي",
+      "proposed_destinations": [
+        {
+          "new_category_key": "u-linear-algebra",
+          "existing_problems": 24
+        }
+      ]
+    },
+    {
+      "old_category_id": 15,
+      "stage_id": 4,
+      "name_ar": "المعادلات التفاضلية",
+      "proposed_destinations": [
+        {
+          "new_category_key": "u-differential-equations",
+          "existing_problems": 24
+        }
+      ]
+    },
+    {
+      "old_category_id": 16,
+      "stage_id": 4,
+      "name_ar": "التحليل الحقيقي",
+      "proposed_destinations": [
+        {
+          "new_category_key": "u-real-analysis",
+          "existing_problems": 24
+        }
+      ]
+    }
+  ],
+  "problem_mapping": [
+    {
+      "problem_id": 3,
+      "old_category_id": 1,
+      "stage_id": 1,
+      "proposed_category_key": "p-add-subtract",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 4,
+      "old_category_id": 1,
+      "stage_id": 1,
+      "proposed_category_key": "p-add-subtract",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 5,
+      "old_category_id": 1,
+      "stage_id": 1,
+      "proposed_category_key": "p-multiply-divide",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 6,
+      "old_category_id": 2,
+      "stage_id": 1,
+      "proposed_category_key": "p-patterns-algebra",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 7,
+      "old_category_id": 2,
+      "stage_id": 1,
+      "proposed_category_key": "p-patterns-algebra",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 8,
+      "old_category_id": 3,
+      "stage_id": 1,
+      "proposed_category_key": "p-perimeter-area",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 9,
+      "old_category_id": 3,
+      "stage_id": 1,
+      "proposed_category_key": "p-perimeter-area",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 10,
+      "old_category_id": 4,
+      "stage_id": 1,
+      "proposed_category_key": "p-basic-probability",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 11,
+      "old_category_id": 4,
+      "stage_id": 1,
+      "proposed_category_key": "p-data-statistics",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 12,
+      "old_category_id": 5,
+      "stage_id": 2,
+      "proposed_category_key": "m-powers-roots",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 13,
+      "old_category_id": 5,
+      "stage_id": 2,
+      "proposed_category_key": "m-number-theory",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 14,
+      "old_category_id": 6,
+      "stage_id": 2,
+      "proposed_category_key": "m-equations-inequalities",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 15,
+      "old_category_id": 6,
+      "stage_id": 2,
+      "proposed_category_key": "m-functions-graphs",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 16,
+      "old_category_id": 7,
+      "stage_id": 2,
+      "proposed_category_key": "m-ratios-percentages",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 17,
+      "old_category_id": 7,
+      "stage_id": 2,
+      "proposed_category_key": "m-ratios-percentages",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 18,
+      "old_category_id": 8,
+      "stage_id": 2,
+      "proposed_category_key": "m-geometry-reasoning",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 19,
+      "old_category_id": 8,
+      "stage_id": 2,
+      "proposed_category_key": "m-geometry-reasoning",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 20,
+      "old_category_id": 9,
+      "stage_id": 3,
+      "proposed_category_key": "s-polynomials-equations",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 21,
+      "old_category_id": 9,
+      "stage_id": 3,
+      "proposed_category_key": "s-exponents-logarithms",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 22,
+      "old_category_id": 10,
+      "stage_id": 3,
+      "proposed_category_key": "s-trigonometry",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 23,
+      "old_category_id": 10,
+      "stage_id": 3,
+      "proposed_category_key": "s-trigonometry",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 24,
+      "old_category_id": 11,
+      "stage_id": 3,
+      "proposed_category_key": "s-limits-derivatives",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 25,
+      "old_category_id": 11,
+      "stage_id": 3,
+      "proposed_category_key": "s-integrals",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 26,
+      "old_category_id": 12,
+      "stage_id": 3,
+      "proposed_category_key": "s-probability-counting",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 27,
+      "old_category_id": 12,
+      "stage_id": 3,
+      "proposed_category_key": "s-statistics",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 28,
+      "old_category_id": 13,
+      "stage_id": 4,
+      "proposed_category_key": "u-multivariable",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 29,
+      "old_category_id": 13,
+      "stage_id": 4,
+      "proposed_category_key": "u-multivariable",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 30,
+      "old_category_id": 14,
+      "stage_id": 4,
+      "proposed_category_key": "u-linear-algebra",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 31,
+      "old_category_id": 14,
+      "stage_id": 4,
+      "proposed_category_key": "u-linear-algebra",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 32,
+      "old_category_id": 15,
+      "stage_id": 4,
+      "proposed_category_key": "u-differential-equations",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 33,
+      "old_category_id": 15,
+      "stage_id": 4,
+      "proposed_category_key": "u-differential-equations",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 34,
+      "old_category_id": 16,
+      "stage_id": 4,
+      "proposed_category_key": "u-real-analysis",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 35,
+      "old_category_id": 16,
+      "stage_id": 4,
+      "proposed_category_key": "u-real-analysis",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 36,
+      "old_category_id": 1,
+      "stage_id": 1,
+      "proposed_category_key": "p-add-subtract",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 37,
+      "old_category_id": 1,
+      "stage_id": 1,
+      "proposed_category_key": "p-add-subtract",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 38,
+      "old_category_id": 2,
+      "stage_id": 1,
+      "proposed_category_key": "p-patterns-algebra",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 39,
+      "old_category_id": 3,
+      "stage_id": 1,
+      "proposed_category_key": "p-perimeter-area",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 40,
+      "old_category_id": 4,
+      "stage_id": 1,
+      "proposed_category_key": "p-data-statistics",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 41,
+      "old_category_id": 5,
+      "stage_id": 2,
+      "proposed_category_key": "m-powers-roots",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 42,
+      "old_category_id": 6,
+      "stage_id": 2,
+      "proposed_category_key": "m-functions-graphs",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 43,
+      "old_category_id": 7,
+      "stage_id": 2,
+      "proposed_category_key": "m-ratios-percentages",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 44,
+      "old_category_id": 8,
+      "stage_id": 2,
+      "proposed_category_key": "m-geometry-reasoning",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 45,
+      "old_category_id": 9,
+      "stage_id": 3,
+      "proposed_category_key": "s-polynomials-equations",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 46,
+      "old_category_id": 10,
+      "stage_id": 3,
+      "proposed_category_key": "s-trigonometry",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 47,
+      "old_category_id": 11,
+      "stage_id": 3,
+      "proposed_category_key": "s-limits-derivatives",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 48,
+      "old_category_id": 12,
+      "stage_id": 3,
+      "proposed_category_key": "s-statistics",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 49,
+      "old_category_id": 13,
+      "stage_id": 4,
+      "proposed_category_key": "u-multivariable",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 50,
+      "old_category_id": 14,
+      "stage_id": 4,
+      "proposed_category_key": "u-linear-algebra",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 51,
+      "old_category_id": 15,
+      "stage_id": 4,
+      "proposed_category_key": "u-differential-equations",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 52,
+      "old_category_id": 16,
+      "stage_id": 4,
+      "proposed_category_key": "u-real-analysis",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 53,
+      "old_category_id": 1,
+      "stage_id": 1,
+      "proposed_category_key": "p-multiply-divide",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 54,
+      "old_category_id": 2,
+      "stage_id": 1,
+      "proposed_category_key": "p-patterns-algebra",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 55,
+      "old_category_id": 3,
+      "stage_id": 1,
+      "proposed_category_key": "p-perimeter-area",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 56,
+      "old_category_id": 4,
+      "stage_id": 1,
+      "proposed_category_key": "p-basic-probability",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 57,
+      "old_category_id": 5,
+      "stage_id": 2,
+      "proposed_category_key": "m-number-theory",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 58,
+      "old_category_id": 6,
+      "stage_id": 2,
+      "proposed_category_key": "m-equations-inequalities",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 59,
+      "old_category_id": 7,
+      "stage_id": 2,
+      "proposed_category_key": "m-ratios-percentages",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 60,
+      "old_category_id": 8,
+      "stage_id": 2,
+      "proposed_category_key": "m-geometry-reasoning",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 61,
+      "old_category_id": 9,
+      "stage_id": 3,
+      "proposed_category_key": "s-exponents-logarithms",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 62,
+      "old_category_id": 10,
+      "stage_id": 3,
+      "proposed_category_key": "s-trigonometry",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 63,
+      "old_category_id": 11,
+      "stage_id": 3,
+      "proposed_category_key": "s-integrals",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 64,
+      "old_category_id": 12,
+      "stage_id": 3,
+      "proposed_category_key": "s-probability-counting",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 65,
+      "old_category_id": 13,
+      "stage_id": 4,
+      "proposed_category_key": "u-multivariable",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 66,
+      "old_category_id": 14,
+      "stage_id": 4,
+      "proposed_category_key": "u-linear-algebra",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 67,
+      "old_category_id": 15,
+      "stage_id": 4,
+      "proposed_category_key": "u-differential-equations",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 68,
+      "old_category_id": 16,
+      "stage_id": 4,
+      "proposed_category_key": "u-real-analysis",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 69,
+      "old_category_id": 1,
+      "stage_id": 1,
+      "proposed_category_key": "p-add-subtract",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 70,
+      "old_category_id": 2,
+      "stage_id": 1,
+      "proposed_category_key": "p-patterns-algebra",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 71,
+      "old_category_id": 3,
+      "stage_id": 1,
+      "proposed_category_key": "p-perimeter-area",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 72,
+      "old_category_id": 4,
+      "stage_id": 1,
+      "proposed_category_key": "p-data-statistics",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 73,
+      "old_category_id": 5,
+      "stage_id": 2,
+      "proposed_category_key": "m-powers-roots",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 74,
+      "old_category_id": 6,
+      "stage_id": 2,
+      "proposed_category_key": "m-functions-graphs",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 75,
+      "old_category_id": 7,
+      "stage_id": 2,
+      "proposed_category_key": "m-ratios-percentages",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 76,
+      "old_category_id": 8,
+      "stage_id": 2,
+      "proposed_category_key": "m-geometry-reasoning",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 77,
+      "old_category_id": 9,
+      "stage_id": 3,
+      "proposed_category_key": "s-polynomials-equations",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 78,
+      "old_category_id": 10,
+      "stage_id": 3,
+      "proposed_category_key": "s-trigonometry",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 79,
+      "old_category_id": 11,
+      "stage_id": 3,
+      "proposed_category_key": "s-limits-derivatives",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 80,
+      "old_category_id": 12,
+      "stage_id": 3,
+      "proposed_category_key": "s-probability-counting",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 81,
+      "old_category_id": 13,
+      "stage_id": 4,
+      "proposed_category_key": "u-multivariable",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 82,
+      "old_category_id": 14,
+      "stage_id": 4,
+      "proposed_category_key": "u-linear-algebra",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 83,
+      "old_category_id": 15,
+      "stage_id": 4,
+      "proposed_category_key": "u-differential-equations",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 84,
+      "old_category_id": 1,
+      "stage_id": 1,
+      "proposed_category_key": "p-add-subtract",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 85,
+      "old_category_id": 2,
+      "stage_id": 1,
+      "proposed_category_key": "p-patterns-algebra",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 86,
+      "old_category_id": 3,
+      "stage_id": 1,
+      "proposed_category_key": "p-perimeter-area",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 87,
+      "old_category_id": 4,
+      "stage_id": 1,
+      "proposed_category_key": "p-data-statistics",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 88,
+      "old_category_id": 5,
+      "stage_id": 2,
+      "proposed_category_key": "m-powers-roots",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 89,
+      "old_category_id": 6,
+      "stage_id": 2,
+      "proposed_category_key": "m-functions-graphs",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 90,
+      "old_category_id": 7,
+      "stage_id": 2,
+      "proposed_category_key": "m-ratios-percentages",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 91,
+      "old_category_id": 8,
+      "stage_id": 2,
+      "proposed_category_key": "m-geometry-reasoning",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 92,
+      "old_category_id": 9,
+      "stage_id": 3,
+      "proposed_category_key": "s-polynomials-equations",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 93,
+      "old_category_id": 10,
+      "stage_id": 3,
+      "proposed_category_key": "s-trigonometry",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 94,
+      "old_category_id": 11,
+      "stage_id": 3,
+      "proposed_category_key": "s-limits-derivatives",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 95,
+      "old_category_id": 12,
+      "stage_id": 3,
+      "proposed_category_key": "s-probability-counting",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 96,
+      "old_category_id": 13,
+      "stage_id": 4,
+      "proposed_category_key": "u-multivariable",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 97,
+      "old_category_id": 14,
+      "stage_id": 4,
+      "proposed_category_key": "u-linear-algebra",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 98,
+      "old_category_id": 15,
+      "stage_id": 4,
+      "proposed_category_key": "u-differential-equations",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 99,
+      "old_category_id": 1,
+      "stage_id": 1,
+      "proposed_category_key": "p-add-subtract",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 100,
+      "old_category_id": 2,
+      "stage_id": 1,
+      "proposed_category_key": "p-patterns-algebra",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 101,
+      "old_category_id": 3,
+      "stage_id": 1,
+      "proposed_category_key": "p-perimeter-area",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 102,
+      "old_category_id": 4,
+      "stage_id": 1,
+      "proposed_category_key": "p-data-statistics",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 103,
+      "old_category_id": 5,
+      "stage_id": 2,
+      "proposed_category_key": "m-powers-roots",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 104,
+      "old_category_id": 6,
+      "stage_id": 2,
+      "proposed_category_key": "m-functions-graphs",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 105,
+      "old_category_id": 7,
+      "stage_id": 2,
+      "proposed_category_key": "m-ratios-percentages",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 106,
+      "old_category_id": 8,
+      "stage_id": 2,
+      "proposed_category_key": "m-geometry-reasoning",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 107,
+      "old_category_id": 9,
+      "stage_id": 3,
+      "proposed_category_key": "s-polynomials-equations",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 108,
+      "old_category_id": 10,
+      "stage_id": 3,
+      "proposed_category_key": "s-trigonometry",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 109,
+      "old_category_id": 11,
+      "stage_id": 3,
+      "proposed_category_key": "s-limits-derivatives",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 110,
+      "old_category_id": 12,
+      "stage_id": 3,
+      "proposed_category_key": "s-probability-counting",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 111,
+      "old_category_id": 13,
+      "stage_id": 4,
+      "proposed_category_key": "u-multivariable",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 112,
+      "old_category_id": 14,
+      "stage_id": 4,
+      "proposed_category_key": "u-linear-algebra",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 113,
+      "old_category_id": 15,
+      "stage_id": 4,
+      "proposed_category_key": "u-differential-equations",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 114,
+      "old_category_id": 1,
+      "stage_id": 1,
+      "proposed_category_key": "p-add-subtract",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 115,
+      "old_category_id": 2,
+      "stage_id": 1,
+      "proposed_category_key": "p-patterns-algebra",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 116,
+      "old_category_id": 3,
+      "stage_id": 1,
+      "proposed_category_key": "p-perimeter-area",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 117,
+      "old_category_id": 4,
+      "stage_id": 1,
+      "proposed_category_key": "p-data-statistics",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 118,
+      "old_category_id": 5,
+      "stage_id": 2,
+      "proposed_category_key": "m-powers-roots",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 119,
+      "old_category_id": 6,
+      "stage_id": 2,
+      "proposed_category_key": "m-functions-graphs",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 120,
+      "old_category_id": 7,
+      "stage_id": 2,
+      "proposed_category_key": "m-ratios-percentages",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 121,
+      "old_category_id": 8,
+      "stage_id": 2,
+      "proposed_category_key": "m-geometry-reasoning",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 122,
+      "old_category_id": 9,
+      "stage_id": 3,
+      "proposed_category_key": "s-polynomials-equations",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 123,
+      "old_category_id": 10,
+      "stage_id": 3,
+      "proposed_category_key": "s-trigonometry",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 124,
+      "old_category_id": 11,
+      "stage_id": 3,
+      "proposed_category_key": "s-limits-derivatives",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 125,
+      "old_category_id": 12,
+      "stage_id": 3,
+      "proposed_category_key": "s-probability-counting",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 126,
+      "old_category_id": 13,
+      "stage_id": 4,
+      "proposed_category_key": "u-multivariable",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 127,
+      "old_category_id": 14,
+      "stage_id": 4,
+      "proposed_category_key": "u-linear-algebra",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 128,
+      "old_category_id": 15,
+      "stage_id": 4,
+      "proposed_category_key": "u-differential-equations",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 129,
+      "old_category_id": 1,
+      "stage_id": 1,
+      "proposed_category_key": "p-add-subtract",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 130,
+      "old_category_id": 2,
+      "stage_id": 1,
+      "proposed_category_key": "p-patterns-algebra",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 131,
+      "old_category_id": 3,
+      "stage_id": 1,
+      "proposed_category_key": "p-perimeter-area",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 132,
+      "old_category_id": 4,
+      "stage_id": 1,
+      "proposed_category_key": "p-data-statistics",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 133,
+      "old_category_id": 5,
+      "stage_id": 2,
+      "proposed_category_key": "m-powers-roots",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 134,
+      "old_category_id": 6,
+      "stage_id": 2,
+      "proposed_category_key": "m-functions-graphs",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 135,
+      "old_category_id": 7,
+      "stage_id": 2,
+      "proposed_category_key": "m-ratios-percentages",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 136,
+      "old_category_id": 8,
+      "stage_id": 2,
+      "proposed_category_key": "m-geometry-reasoning",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 137,
+      "old_category_id": 9,
+      "stage_id": 3,
+      "proposed_category_key": "s-polynomials-equations",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 138,
+      "old_category_id": 10,
+      "stage_id": 3,
+      "proposed_category_key": "s-trigonometry",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 139,
+      "old_category_id": 11,
+      "stage_id": 3,
+      "proposed_category_key": "s-limits-derivatives",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 140,
+      "old_category_id": 12,
+      "stage_id": 3,
+      "proposed_category_key": "s-probability-counting",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 141,
+      "old_category_id": 13,
+      "stage_id": 4,
+      "proposed_category_key": "u-multivariable",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 142,
+      "old_category_id": 14,
+      "stage_id": 4,
+      "proposed_category_key": "u-linear-algebra",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 143,
+      "old_category_id": 15,
+      "stage_id": 4,
+      "proposed_category_key": "u-differential-equations",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 144,
+      "old_category_id": 16,
+      "stage_id": 4,
+      "proposed_category_key": "u-real-analysis",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 145,
+      "old_category_id": 16,
+      "stage_id": 4,
+      "proposed_category_key": "u-real-analysis",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 146,
+      "old_category_id": 16,
+      "stage_id": 4,
+      "proposed_category_key": "u-real-analysis",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 147,
+      "old_category_id": 16,
+      "stage_id": 4,
+      "proposed_category_key": "u-real-analysis",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 148,
+      "old_category_id": 16,
+      "stage_id": 4,
+      "proposed_category_key": "u-real-analysis",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 149,
+      "old_category_id": 1,
+      "stage_id": 1,
+      "proposed_category_key": "p-multiply-divide",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 150,
+      "old_category_id": 1,
+      "stage_id": 1,
+      "proposed_category_key": "p-multiply-divide",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 151,
+      "old_category_id": 1,
+      "stage_id": 1,
+      "proposed_category_key": "p-multiply-divide",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 152,
+      "old_category_id": 2,
+      "stage_id": 1,
+      "proposed_category_key": "p-patterns-algebra",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 153,
+      "old_category_id": 2,
+      "stage_id": 1,
+      "proposed_category_key": "p-patterns-algebra",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 154,
+      "old_category_id": 2,
+      "stage_id": 1,
+      "proposed_category_key": "p-patterns-algebra",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 155,
+      "old_category_id": 3,
+      "stage_id": 1,
+      "proposed_category_key": "p-perimeter-area",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 156,
+      "old_category_id": 3,
+      "stage_id": 1,
+      "proposed_category_key": "p-shapes-geometry",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 157,
+      "old_category_id": 3,
+      "stage_id": 1,
+      "proposed_category_key": "p-measure-units",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 158,
+      "old_category_id": 4,
+      "stage_id": 1,
+      "proposed_category_key": "p-data-statistics",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 159,
+      "old_category_id": 4,
+      "stage_id": 1,
+      "proposed_category_key": "p-basic-probability",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 160,
+      "old_category_id": 4,
+      "stage_id": 1,
+      "proposed_category_key": "p-data-statistics",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 161,
+      "old_category_id": 1,
+      "stage_id": 1,
+      "proposed_category_key": "p-multiply-divide",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 162,
+      "old_category_id": 1,
+      "stage_id": 1,
+      "proposed_category_key": "p-multiply-divide",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 163,
+      "old_category_id": 1,
+      "stage_id": 1,
+      "proposed_category_key": "p-multiply-divide",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 164,
+      "old_category_id": 2,
+      "stage_id": 1,
+      "proposed_category_key": "p-patterns-algebra",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 165,
+      "old_category_id": 2,
+      "stage_id": 1,
+      "proposed_category_key": "p-patterns-algebra",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 166,
+      "old_category_id": 2,
+      "stage_id": 1,
+      "proposed_category_key": "p-patterns-algebra",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 167,
+      "old_category_id": 3,
+      "stage_id": 1,
+      "proposed_category_key": "p-perimeter-area",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 168,
+      "old_category_id": 3,
+      "stage_id": 1,
+      "proposed_category_key": "p-shapes-geometry",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 169,
+      "old_category_id": 3,
+      "stage_id": 1,
+      "proposed_category_key": "p-measure-units",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 170,
+      "old_category_id": 4,
+      "stage_id": 1,
+      "proposed_category_key": "p-data-statistics",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 171,
+      "old_category_id": 4,
+      "stage_id": 1,
+      "proposed_category_key": "p-basic-probability",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 172,
+      "old_category_id": 4,
+      "stage_id": 1,
+      "proposed_category_key": "p-data-statistics",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 173,
+      "old_category_id": 1,
+      "stage_id": 1,
+      "proposed_category_key": "p-multiply-divide",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 174,
+      "old_category_id": 1,
+      "stage_id": 1,
+      "proposed_category_key": "p-multiply-divide",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 175,
+      "old_category_id": 1,
+      "stage_id": 1,
+      "proposed_category_key": "p-multiply-divide",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 176,
+      "old_category_id": 2,
+      "stage_id": 1,
+      "proposed_category_key": "p-patterns-algebra",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 177,
+      "old_category_id": 2,
+      "stage_id": 1,
+      "proposed_category_key": "p-patterns-algebra",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 178,
+      "old_category_id": 2,
+      "stage_id": 1,
+      "proposed_category_key": "p-patterns-algebra",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 179,
+      "old_category_id": 3,
+      "stage_id": 1,
+      "proposed_category_key": "p-perimeter-area",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 180,
+      "old_category_id": 3,
+      "stage_id": 1,
+      "proposed_category_key": "p-shapes-geometry",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 181,
+      "old_category_id": 3,
+      "stage_id": 1,
+      "proposed_category_key": "p-measure-units",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 182,
+      "old_category_id": 4,
+      "stage_id": 1,
+      "proposed_category_key": "p-data-statistics",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 183,
+      "old_category_id": 4,
+      "stage_id": 1,
+      "proposed_category_key": "p-basic-probability",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 184,
+      "old_category_id": 4,
+      "stage_id": 1,
+      "proposed_category_key": "p-data-statistics",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 185,
+      "old_category_id": 1,
+      "stage_id": 1,
+      "proposed_category_key": "p-multiply-divide",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 186,
+      "old_category_id": 1,
+      "stage_id": 1,
+      "proposed_category_key": "p-multiply-divide",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 187,
+      "old_category_id": 1,
+      "stage_id": 1,
+      "proposed_category_key": "p-multiply-divide",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 188,
+      "old_category_id": 2,
+      "stage_id": 1,
+      "proposed_category_key": "p-patterns-algebra",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 189,
+      "old_category_id": 2,
+      "stage_id": 1,
+      "proposed_category_key": "p-patterns-algebra",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 190,
+      "old_category_id": 2,
+      "stage_id": 1,
+      "proposed_category_key": "p-patterns-algebra",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 191,
+      "old_category_id": 3,
+      "stage_id": 1,
+      "proposed_category_key": "p-perimeter-area",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 192,
+      "old_category_id": 3,
+      "stage_id": 1,
+      "proposed_category_key": "p-shapes-geometry",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 193,
+      "old_category_id": 3,
+      "stage_id": 1,
+      "proposed_category_key": "p-measure-units",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 194,
+      "old_category_id": 4,
+      "stage_id": 1,
+      "proposed_category_key": "p-data-statistics",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 195,
+      "old_category_id": 4,
+      "stage_id": 1,
+      "proposed_category_key": "p-basic-probability",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 196,
+      "old_category_id": 4,
+      "stage_id": 1,
+      "proposed_category_key": "p-data-statistics",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 197,
+      "old_category_id": 1,
+      "stage_id": 1,
+      "proposed_category_key": "p-multiply-divide",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 198,
+      "old_category_id": 1,
+      "stage_id": 1,
+      "proposed_category_key": "p-multiply-divide",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 199,
+      "old_category_id": 1,
+      "stage_id": 1,
+      "proposed_category_key": "p-multiply-divide",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 200,
+      "old_category_id": 2,
+      "stage_id": 1,
+      "proposed_category_key": "p-patterns-algebra",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 201,
+      "old_category_id": 2,
+      "stage_id": 1,
+      "proposed_category_key": "p-patterns-algebra",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 202,
+      "old_category_id": 2,
+      "stage_id": 1,
+      "proposed_category_key": "p-patterns-algebra",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 203,
+      "old_category_id": 3,
+      "stage_id": 1,
+      "proposed_category_key": "p-perimeter-area",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 204,
+      "old_category_id": 3,
+      "stage_id": 1,
+      "proposed_category_key": "p-shapes-geometry",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 205,
+      "old_category_id": 3,
+      "stage_id": 1,
+      "proposed_category_key": "p-measure-units",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 206,
+      "old_category_id": 4,
+      "stage_id": 1,
+      "proposed_category_key": "p-data-statistics",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 207,
+      "old_category_id": 4,
+      "stage_id": 1,
+      "proposed_category_key": "p-basic-probability",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 208,
+      "old_category_id": 4,
+      "stage_id": 1,
+      "proposed_category_key": "p-data-statistics",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 209,
+      "old_category_id": 5,
+      "stage_id": 2,
+      "proposed_category_key": "m-number-theory",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 210,
+      "old_category_id": 5,
+      "stage_id": 2,
+      "proposed_category_key": "m-powers-roots",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 211,
+      "old_category_id": 5,
+      "stage_id": 2,
+      "proposed_category_key": "m-number-theory",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 212,
+      "old_category_id": 6,
+      "stage_id": 2,
+      "proposed_category_key": "m-functions-graphs",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 213,
+      "old_category_id": 6,
+      "stage_id": 2,
+      "proposed_category_key": "m-functions-graphs",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 214,
+      "old_category_id": 6,
+      "stage_id": 2,
+      "proposed_category_key": "m-functions-graphs",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 215,
+      "old_category_id": 7,
+      "stage_id": 2,
+      "proposed_category_key": "m-ratios-percentages",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 216,
+      "old_category_id": 7,
+      "stage_id": 2,
+      "proposed_category_key": "m-ratios-percentages",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 217,
+      "old_category_id": 7,
+      "stage_id": 2,
+      "proposed_category_key": "m-ratios-percentages",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 218,
+      "old_category_id": 8,
+      "stage_id": 2,
+      "proposed_category_key": "m-geometry-reasoning",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 219,
+      "old_category_id": 8,
+      "stage_id": 2,
+      "proposed_category_key": "m-geometry-reasoning",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 220,
+      "old_category_id": 8,
+      "stage_id": 2,
+      "proposed_category_key": "m-geometry-reasoning",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 221,
+      "old_category_id": 5,
+      "stage_id": 2,
+      "proposed_category_key": "m-number-theory",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 222,
+      "old_category_id": 5,
+      "stage_id": 2,
+      "proposed_category_key": "m-powers-roots",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 223,
+      "old_category_id": 5,
+      "stage_id": 2,
+      "proposed_category_key": "m-number-theory",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 224,
+      "old_category_id": 6,
+      "stage_id": 2,
+      "proposed_category_key": "m-functions-graphs",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 225,
+      "old_category_id": 6,
+      "stage_id": 2,
+      "proposed_category_key": "m-functions-graphs",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 226,
+      "old_category_id": 6,
+      "stage_id": 2,
+      "proposed_category_key": "m-functions-graphs",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 227,
+      "old_category_id": 7,
+      "stage_id": 2,
+      "proposed_category_key": "m-ratios-percentages",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 228,
+      "old_category_id": 7,
+      "stage_id": 2,
+      "proposed_category_key": "m-ratios-percentages",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 229,
+      "old_category_id": 7,
+      "stage_id": 2,
+      "proposed_category_key": "m-ratios-percentages",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 230,
+      "old_category_id": 8,
+      "stage_id": 2,
+      "proposed_category_key": "m-geometry-reasoning",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 231,
+      "old_category_id": 8,
+      "stage_id": 2,
+      "proposed_category_key": "m-geometry-reasoning",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 232,
+      "old_category_id": 8,
+      "stage_id": 2,
+      "proposed_category_key": "m-geometry-reasoning",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 233,
+      "old_category_id": 5,
+      "stage_id": 2,
+      "proposed_category_key": "m-number-theory",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 234,
+      "old_category_id": 5,
+      "stage_id": 2,
+      "proposed_category_key": "m-powers-roots",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 235,
+      "old_category_id": 5,
+      "stage_id": 2,
+      "proposed_category_key": "m-number-theory",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 236,
+      "old_category_id": 6,
+      "stage_id": 2,
+      "proposed_category_key": "m-functions-graphs",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 237,
+      "old_category_id": 6,
+      "stage_id": 2,
+      "proposed_category_key": "m-functions-graphs",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 238,
+      "old_category_id": 6,
+      "stage_id": 2,
+      "proposed_category_key": "m-functions-graphs",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 239,
+      "old_category_id": 7,
+      "stage_id": 2,
+      "proposed_category_key": "m-ratios-percentages",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 240,
+      "old_category_id": 7,
+      "stage_id": 2,
+      "proposed_category_key": "m-ratios-percentages",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 241,
+      "old_category_id": 7,
+      "stage_id": 2,
+      "proposed_category_key": "m-ratios-percentages",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 242,
+      "old_category_id": 8,
+      "stage_id": 2,
+      "proposed_category_key": "m-geometry-reasoning",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 243,
+      "old_category_id": 8,
+      "stage_id": 2,
+      "proposed_category_key": "m-geometry-reasoning",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 244,
+      "old_category_id": 8,
+      "stage_id": 2,
+      "proposed_category_key": "m-geometry-reasoning",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 245,
+      "old_category_id": 5,
+      "stage_id": 2,
+      "proposed_category_key": "m-number-theory",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 246,
+      "old_category_id": 5,
+      "stage_id": 2,
+      "proposed_category_key": "m-powers-roots",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 247,
+      "old_category_id": 5,
+      "stage_id": 2,
+      "proposed_category_key": "m-number-theory",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 248,
+      "old_category_id": 6,
+      "stage_id": 2,
+      "proposed_category_key": "m-functions-graphs",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 249,
+      "old_category_id": 6,
+      "stage_id": 2,
+      "proposed_category_key": "m-functions-graphs",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 250,
+      "old_category_id": 6,
+      "stage_id": 2,
+      "proposed_category_key": "m-functions-graphs",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 251,
+      "old_category_id": 7,
+      "stage_id": 2,
+      "proposed_category_key": "m-ratios-percentages",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 252,
+      "old_category_id": 7,
+      "stage_id": 2,
+      "proposed_category_key": "m-ratios-percentages",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 253,
+      "old_category_id": 7,
+      "stage_id": 2,
+      "proposed_category_key": "m-ratios-percentages",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 254,
+      "old_category_id": 8,
+      "stage_id": 2,
+      "proposed_category_key": "m-geometry-reasoning",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 255,
+      "old_category_id": 8,
+      "stage_id": 2,
+      "proposed_category_key": "m-geometry-reasoning",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 256,
+      "old_category_id": 8,
+      "stage_id": 2,
+      "proposed_category_key": "m-geometry-reasoning",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 257,
+      "old_category_id": 5,
+      "stage_id": 2,
+      "proposed_category_key": "m-number-theory",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 258,
+      "old_category_id": 5,
+      "stage_id": 2,
+      "proposed_category_key": "m-powers-roots",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 259,
+      "old_category_id": 5,
+      "stage_id": 2,
+      "proposed_category_key": "m-number-theory",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 260,
+      "old_category_id": 6,
+      "stage_id": 2,
+      "proposed_category_key": "m-functions-graphs",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 261,
+      "old_category_id": 6,
+      "stage_id": 2,
+      "proposed_category_key": "m-functions-graphs",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 262,
+      "old_category_id": 6,
+      "stage_id": 2,
+      "proposed_category_key": "m-functions-graphs",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 263,
+      "old_category_id": 7,
+      "stage_id": 2,
+      "proposed_category_key": "m-ratios-percentages",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 264,
+      "old_category_id": 7,
+      "stage_id": 2,
+      "proposed_category_key": "m-ratios-percentages",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 265,
+      "old_category_id": 7,
+      "stage_id": 2,
+      "proposed_category_key": "m-ratios-percentages",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 266,
+      "old_category_id": 8,
+      "stage_id": 2,
+      "proposed_category_key": "m-geometry-reasoning",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 267,
+      "old_category_id": 8,
+      "stage_id": 2,
+      "proposed_category_key": "m-geometry-reasoning",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 268,
+      "old_category_id": 8,
+      "stage_id": 2,
+      "proposed_category_key": "m-geometry-reasoning",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 269,
+      "old_category_id": 9,
+      "stage_id": 3,
+      "proposed_category_key": "s-polynomials-equations",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 270,
+      "old_category_id": 9,
+      "stage_id": 3,
+      "proposed_category_key": "s-polynomials-equations",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 271,
+      "old_category_id": 9,
+      "stage_id": 3,
+      "proposed_category_key": "s-polynomials-equations",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 272,
+      "old_category_id": 10,
+      "stage_id": 3,
+      "proposed_category_key": "s-trigonometry",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 273,
+      "old_category_id": 10,
+      "stage_id": 3,
+      "proposed_category_key": "s-trigonometry",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 274,
+      "old_category_id": 10,
+      "stage_id": 3,
+      "proposed_category_key": "s-trigonometry",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 275,
+      "old_category_id": 11,
+      "stage_id": 3,
+      "proposed_category_key": "s-limits-derivatives",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 276,
+      "old_category_id": 11,
+      "stage_id": 3,
+      "proposed_category_key": "s-integrals",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 277,
+      "old_category_id": 11,
+      "stage_id": 3,
+      "proposed_category_key": "s-integrals",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 278,
+      "old_category_id": 12,
+      "stage_id": 3,
+      "proposed_category_key": "s-probability-counting",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 279,
+      "old_category_id": 12,
+      "stage_id": 3,
+      "proposed_category_key": "s-probability-counting",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 280,
+      "old_category_id": 12,
+      "stage_id": 3,
+      "proposed_category_key": "s-statistics",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 281,
+      "old_category_id": 9,
+      "stage_id": 3,
+      "proposed_category_key": "s-polynomials-equations",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 282,
+      "old_category_id": 9,
+      "stage_id": 3,
+      "proposed_category_key": "s-polynomials-equations",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 283,
+      "old_category_id": 9,
+      "stage_id": 3,
+      "proposed_category_key": "s-polynomials-equations",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 284,
+      "old_category_id": 10,
+      "stage_id": 3,
+      "proposed_category_key": "s-trigonometry",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 285,
+      "old_category_id": 10,
+      "stage_id": 3,
+      "proposed_category_key": "s-trigonometry",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 286,
+      "old_category_id": 10,
+      "stage_id": 3,
+      "proposed_category_key": "s-trigonometry",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 287,
+      "old_category_id": 11,
+      "stage_id": 3,
+      "proposed_category_key": "s-limits-derivatives",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 288,
+      "old_category_id": 11,
+      "stage_id": 3,
+      "proposed_category_key": "s-integrals",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 289,
+      "old_category_id": 11,
+      "stage_id": 3,
+      "proposed_category_key": "s-integrals",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 290,
+      "old_category_id": 12,
+      "stage_id": 3,
+      "proposed_category_key": "s-probability-counting",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 291,
+      "old_category_id": 12,
+      "stage_id": 3,
+      "proposed_category_key": "s-probability-counting",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 292,
+      "old_category_id": 12,
+      "stage_id": 3,
+      "proposed_category_key": "s-statistics",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 293,
+      "old_category_id": 9,
+      "stage_id": 3,
+      "proposed_category_key": "s-polynomials-equations",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 294,
+      "old_category_id": 9,
+      "stage_id": 3,
+      "proposed_category_key": "s-polynomials-equations",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 295,
+      "old_category_id": 9,
+      "stage_id": 3,
+      "proposed_category_key": "s-polynomials-equations",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 296,
+      "old_category_id": 10,
+      "stage_id": 3,
+      "proposed_category_key": "s-trigonometry",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 297,
+      "old_category_id": 10,
+      "stage_id": 3,
+      "proposed_category_key": "s-trigonometry",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 298,
+      "old_category_id": 10,
+      "stage_id": 3,
+      "proposed_category_key": "s-trigonometry",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 299,
+      "old_category_id": 11,
+      "stage_id": 3,
+      "proposed_category_key": "s-limits-derivatives",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 300,
+      "old_category_id": 11,
+      "stage_id": 3,
+      "proposed_category_key": "s-integrals",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 301,
+      "old_category_id": 11,
+      "stage_id": 3,
+      "proposed_category_key": "s-integrals",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 302,
+      "old_category_id": 12,
+      "stage_id": 3,
+      "proposed_category_key": "s-probability-counting",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 303,
+      "old_category_id": 12,
+      "stage_id": 3,
+      "proposed_category_key": "s-probability-counting",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 304,
+      "old_category_id": 12,
+      "stage_id": 3,
+      "proposed_category_key": "s-statistics",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 305,
+      "old_category_id": 9,
+      "stage_id": 3,
+      "proposed_category_key": "s-polynomials-equations",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 306,
+      "old_category_id": 9,
+      "stage_id": 3,
+      "proposed_category_key": "s-polynomials-equations",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 307,
+      "old_category_id": 9,
+      "stage_id": 3,
+      "proposed_category_key": "s-polynomials-equations",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 308,
+      "old_category_id": 10,
+      "stage_id": 3,
+      "proposed_category_key": "s-trigonometry",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 309,
+      "old_category_id": 10,
+      "stage_id": 3,
+      "proposed_category_key": "s-trigonometry",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 310,
+      "old_category_id": 10,
+      "stage_id": 3,
+      "proposed_category_key": "s-trigonometry",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 311,
+      "old_category_id": 11,
+      "stage_id": 3,
+      "proposed_category_key": "s-limits-derivatives",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 312,
+      "old_category_id": 11,
+      "stage_id": 3,
+      "proposed_category_key": "s-integrals",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 313,
+      "old_category_id": 11,
+      "stage_id": 3,
+      "proposed_category_key": "s-integrals",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 314,
+      "old_category_id": 12,
+      "stage_id": 3,
+      "proposed_category_key": "s-probability-counting",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 315,
+      "old_category_id": 12,
+      "stage_id": 3,
+      "proposed_category_key": "s-probability-counting",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 316,
+      "old_category_id": 12,
+      "stage_id": 3,
+      "proposed_category_key": "s-statistics",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 317,
+      "old_category_id": 9,
+      "stage_id": 3,
+      "proposed_category_key": "s-polynomials-equations",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 318,
+      "old_category_id": 9,
+      "stage_id": 3,
+      "proposed_category_key": "s-polynomials-equations",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 319,
+      "old_category_id": 9,
+      "stage_id": 3,
+      "proposed_category_key": "s-polynomials-equations",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 320,
+      "old_category_id": 10,
+      "stage_id": 3,
+      "proposed_category_key": "s-trigonometry",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 321,
+      "old_category_id": 10,
+      "stage_id": 3,
+      "proposed_category_key": "s-trigonometry",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 322,
+      "old_category_id": 10,
+      "stage_id": 3,
+      "proposed_category_key": "s-trigonometry",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 323,
+      "old_category_id": 11,
+      "stage_id": 3,
+      "proposed_category_key": "s-limits-derivatives",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 324,
+      "old_category_id": 11,
+      "stage_id": 3,
+      "proposed_category_key": "s-integrals",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 325,
+      "old_category_id": 11,
+      "stage_id": 3,
+      "proposed_category_key": "s-integrals",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 326,
+      "old_category_id": 12,
+      "stage_id": 3,
+      "proposed_category_key": "s-probability-counting",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 327,
+      "old_category_id": 12,
+      "stage_id": 3,
+      "proposed_category_key": "s-probability-counting",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 328,
+      "old_category_id": 12,
+      "stage_id": 3,
+      "proposed_category_key": "s-statistics",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 329,
+      "old_category_id": 13,
+      "stage_id": 4,
+      "proposed_category_key": "u-multivariable",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 330,
+      "old_category_id": 13,
+      "stage_id": 4,
+      "proposed_category_key": "u-multivariable",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 331,
+      "old_category_id": 13,
+      "stage_id": 4,
+      "proposed_category_key": "u-multivariable",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 332,
+      "old_category_id": 14,
+      "stage_id": 4,
+      "proposed_category_key": "u-linear-algebra",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 333,
+      "old_category_id": 14,
+      "stage_id": 4,
+      "proposed_category_key": "u-linear-algebra",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 334,
+      "old_category_id": 14,
+      "stage_id": 4,
+      "proposed_category_key": "u-linear-algebra",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 335,
+      "old_category_id": 15,
+      "stage_id": 4,
+      "proposed_category_key": "u-differential-equations",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 336,
+      "old_category_id": 15,
+      "stage_id": 4,
+      "proposed_category_key": "u-differential-equations",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 337,
+      "old_category_id": 15,
+      "stage_id": 4,
+      "proposed_category_key": "u-differential-equations",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 338,
+      "old_category_id": 16,
+      "stage_id": 4,
+      "proposed_category_key": "u-real-analysis",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 339,
+      "old_category_id": 16,
+      "stage_id": 4,
+      "proposed_category_key": "u-real-analysis",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 340,
+      "old_category_id": 16,
+      "stage_id": 4,
+      "proposed_category_key": "u-real-analysis",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 341,
+      "old_category_id": 13,
+      "stage_id": 4,
+      "proposed_category_key": "u-multivariable",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 342,
+      "old_category_id": 13,
+      "stage_id": 4,
+      "proposed_category_key": "u-multivariable",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 343,
+      "old_category_id": 13,
+      "stage_id": 4,
+      "proposed_category_key": "u-multivariable",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 344,
+      "old_category_id": 14,
+      "stage_id": 4,
+      "proposed_category_key": "u-linear-algebra",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 345,
+      "old_category_id": 14,
+      "stage_id": 4,
+      "proposed_category_key": "u-linear-algebra",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 346,
+      "old_category_id": 14,
+      "stage_id": 4,
+      "proposed_category_key": "u-linear-algebra",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 347,
+      "old_category_id": 15,
+      "stage_id": 4,
+      "proposed_category_key": "u-differential-equations",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 348,
+      "old_category_id": 15,
+      "stage_id": 4,
+      "proposed_category_key": "u-differential-equations",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 349,
+      "old_category_id": 15,
+      "stage_id": 4,
+      "proposed_category_key": "u-differential-equations",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 350,
+      "old_category_id": 16,
+      "stage_id": 4,
+      "proposed_category_key": "u-real-analysis",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 351,
+      "old_category_id": 16,
+      "stage_id": 4,
+      "proposed_category_key": "u-real-analysis",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 352,
+      "old_category_id": 16,
+      "stage_id": 4,
+      "proposed_category_key": "u-real-analysis",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 353,
+      "old_category_id": 13,
+      "stage_id": 4,
+      "proposed_category_key": "u-multivariable",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 354,
+      "old_category_id": 13,
+      "stage_id": 4,
+      "proposed_category_key": "u-multivariable",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 355,
+      "old_category_id": 13,
+      "stage_id": 4,
+      "proposed_category_key": "u-multivariable",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 356,
+      "old_category_id": 14,
+      "stage_id": 4,
+      "proposed_category_key": "u-linear-algebra",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 357,
+      "old_category_id": 14,
+      "stage_id": 4,
+      "proposed_category_key": "u-linear-algebra",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 358,
+      "old_category_id": 14,
+      "stage_id": 4,
+      "proposed_category_key": "u-linear-algebra",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 359,
+      "old_category_id": 15,
+      "stage_id": 4,
+      "proposed_category_key": "u-differential-equations",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 360,
+      "old_category_id": 15,
+      "stage_id": 4,
+      "proposed_category_key": "u-differential-equations",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 361,
+      "old_category_id": 15,
+      "stage_id": 4,
+      "proposed_category_key": "u-differential-equations",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 362,
+      "old_category_id": 16,
+      "stage_id": 4,
+      "proposed_category_key": "u-real-analysis",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 363,
+      "old_category_id": 16,
+      "stage_id": 4,
+      "proposed_category_key": "u-real-analysis",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 364,
+      "old_category_id": 16,
+      "stage_id": 4,
+      "proposed_category_key": "u-real-analysis",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 365,
+      "old_category_id": 13,
+      "stage_id": 4,
+      "proposed_category_key": "u-multivariable",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 366,
+      "old_category_id": 13,
+      "stage_id": 4,
+      "proposed_category_key": "u-multivariable",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 367,
+      "old_category_id": 13,
+      "stage_id": 4,
+      "proposed_category_key": "u-multivariable",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 368,
+      "old_category_id": 14,
+      "stage_id": 4,
+      "proposed_category_key": "u-linear-algebra",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 369,
+      "old_category_id": 14,
+      "stage_id": 4,
+      "proposed_category_key": "u-linear-algebra",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 370,
+      "old_category_id": 14,
+      "stage_id": 4,
+      "proposed_category_key": "u-linear-algebra",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 371,
+      "old_category_id": 15,
+      "stage_id": 4,
+      "proposed_category_key": "u-differential-equations",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 372,
+      "old_category_id": 15,
+      "stage_id": 4,
+      "proposed_category_key": "u-differential-equations",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 373,
+      "old_category_id": 15,
+      "stage_id": 4,
+      "proposed_category_key": "u-differential-equations",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 374,
+      "old_category_id": 16,
+      "stage_id": 4,
+      "proposed_category_key": "u-real-analysis",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 375,
+      "old_category_id": 16,
+      "stage_id": 4,
+      "proposed_category_key": "u-real-analysis",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 376,
+      "old_category_id": 16,
+      "stage_id": 4,
+      "proposed_category_key": "u-real-analysis",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 377,
+      "old_category_id": 13,
+      "stage_id": 4,
+      "proposed_category_key": "u-multivariable",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 378,
+      "old_category_id": 13,
+      "stage_id": 4,
+      "proposed_category_key": "u-multivariable",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 379,
+      "old_category_id": 13,
+      "stage_id": 4,
+      "proposed_category_key": "u-multivariable",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 380,
+      "old_category_id": 14,
+      "stage_id": 4,
+      "proposed_category_key": "u-linear-algebra",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 381,
+      "old_category_id": 14,
+      "stage_id": 4,
+      "proposed_category_key": "u-linear-algebra",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 382,
+      "old_category_id": 14,
+      "stage_id": 4,
+      "proposed_category_key": "u-linear-algebra",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 383,
+      "old_category_id": 15,
+      "stage_id": 4,
+      "proposed_category_key": "u-differential-equations",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 384,
+      "old_category_id": 15,
+      "stage_id": 4,
+      "proposed_category_key": "u-differential-equations",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 385,
+      "old_category_id": 15,
+      "stage_id": 4,
+      "proposed_category_key": "u-differential-equations",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 386,
+      "old_category_id": 16,
+      "stage_id": 4,
+      "proposed_category_key": "u-real-analysis",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 387,
+      "old_category_id": 16,
+      "stage_id": 4,
+      "proposed_category_key": "u-real-analysis",
+      "review_status": "proposed_not_applied"
+    },
+    {
+      "problem_id": 388,
+      "old_category_id": 16,
+      "stage_id": 4,
+      "proposed_category_key": "u-real-analysis",
+      "review_status": "proposed_not_applied"
+    }
+  ],
+  "known_limitations": [
+    "Heuristic proposal; a mathematics editor must approve every assignment before moving content",
+    "Existing 37 attempts and progress must not be invalidated",
+    "No database changes were made by generating this crosswalk"
+  ]
+}

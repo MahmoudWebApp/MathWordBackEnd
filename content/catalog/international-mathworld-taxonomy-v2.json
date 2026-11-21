@@ -1,0 +1,821 @@
+{
+  "schema_version": "2.0.0",
+  "status": "proposed_not_published_requires_curriculum_review",
+  "user_visible_navigation": "stage > category > groups of ten questions",
+  "note": "These 10 per stage navigation categories are MathWorld's synthesis, not an official Cambridge, Common Core, PISA or MSC taxonomy. Skill tags remain metadata, not additional student navigation.",
+  "target": {
+    "stages": 4,
+    "category_count": "derived_from_topic_coherence_not_fixed",
+    "question_count": "determined_by_skill_evidence_not_fixed",
+    "existing_stage_ids_preserved": true
+  },
+  "standards": {
+    "cambridge_primary": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-primary/curriculum/mathematics/",
+    "cambridge_lower": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-lower-secondary/curriculum/mathematics/",
+    "common_core": "https://corestandards.org/mathematics-standards/",
+    "pisa": "https://www.oecd.org/en/publications/pisa-2022-assessment-and-analytical-framework_dfe0bf9c-en/full-report/component-3.html",
+    "msc2020": "https://mathscinet.ams.org/msc/msc.html",
+    "cupm": "https://maa.org/resource/cupm-guide/"
+  },
+  "stage_levels": [
+    {
+      "stage_id": 1,
+      "name_ar": "ابتدائية",
+      "name_en": "Primary",
+      "category_count": 11,
+      "categories": [
+        {
+          "stable_key": "p-number-sense",
+          "order": 1,
+          "name_ar": "الأعداد والقيمة المكانية",
+          "name_en": "Number Sense & Place Value",
+          "skill_keys": [
+            "counting",
+            "place-value",
+            "number-comparison",
+            "rounding"
+          ],
+          "publication_status": "editorial_proposal"
+        },
+        {
+          "stable_key": "p-add-subtract",
+          "order": 2,
+          "name_ar": "الجمع والطرح",
+          "name_en": "Addition & Subtraction",
+          "skill_keys": [
+            "whole-number-addition",
+            "whole-number-subtraction",
+            "word-problems"
+          ],
+          "publication_status": "editorial_proposal"
+        },
+        {
+          "stable_key": "p-multiply-divide",
+          "order": 3,
+          "name_ar": "الضرب والقسمة",
+          "name_en": "Multiplication & Division",
+          "skill_keys": [
+            "multiplication-facts",
+            "division-facts",
+            "equal-groups",
+            "multi-step"
+          ],
+          "publication_status": "editorial_proposal"
+        },
+        {
+          "stable_key": "p-fractions-decimals",
+          "order": 4,
+          "name_ar": "الكسور والأعداد العشرية",
+          "name_en": "Fractions & Decimals",
+          "skill_keys": [
+            "fraction-models",
+            "equivalence",
+            "decimal-place-value",
+            "basic-percentages"
+          ],
+          "publication_status": "editorial_proposal"
+        },
+        {
+          "stable_key": "p-patterns",
+          "order": 5,
+          "name_ar": "الأنماط والمتتاليات",
+          "name_en": "Patterns & Sequences",
+          "skill_keys": [
+            "number-patterns",
+            "sequence-rules",
+            "generalization"
+          ],
+          "publication_status": "editorial_proposal"
+        },
+        {
+          "stable_key": "p-early-equations",
+          "name_ar": "المعادلات المبسّطة والمجهول",
+          "name_en": "Early Equations & Unknowns",
+          "skill_keys": [
+            "unknown-as-symbol",
+            "one-step-equations",
+            "equation-models"
+          ],
+          "order": 6,
+          "publication_status": "editorial_proposal"
+        },
+        {
+          "stable_key": "p-shapes-geometry",
+          "order": 7,
+          "name_ar": "الأشكال والهندسة",
+          "name_en": "Shapes & Geometry",
+          "skill_keys": [
+            "2d-shapes",
+            "3d-shapes",
+            "angles",
+            "spatial-reasoning"
+          ],
+          "publication_status": "editorial_proposal"
+        },
+        {
+          "stable_key": "p-measure-units",
+          "order": 8,
+          "name_ar": "القياس وتحويل الوحدات",
+          "name_en": "Measurement & Units",
+          "skill_keys": [
+            "length",
+            "mass",
+            "capacity",
+            "time",
+            "metric-conversion"
+          ],
+          "publication_status": "editorial_proposal"
+        },
+        {
+          "stable_key": "p-perimeter-area",
+          "order": 9,
+          "name_ar": "المحيط والمساحة والحجوم",
+          "name_en": "Perimeter, Area & Volume",
+          "skill_keys": [
+            "perimeter",
+            "area",
+            "unit-squares",
+            "basic-volume"
+          ],
+          "publication_status": "editorial_proposal"
+        },
+        {
+          "stable_key": "p-data-statistics",
+          "order": 10,
+          "name_ar": "البيانات والإحصاء المبسّط",
+          "name_en": "Data & Introductory Statistics",
+          "skill_keys": [
+            "charts",
+            "mean",
+            "median",
+            "mode"
+          ],
+          "publication_status": "editorial_proposal"
+        },
+        {
+          "stable_key": "p-basic-probability",
+          "order": 11,
+          "name_ar": "الاحتمال البسيط",
+          "name_en": "Basic Probability",
+          "skill_keys": [
+            "possible-outcomes",
+            "simple-events",
+            "basic-proportions"
+          ],
+          "publication_status": "editorial_proposal"
+        }
+      ]
+    },
+    {
+      "stage_id": 2,
+      "name_ar": "إعدادية",
+      "name_en": "Lower Secondary",
+      "category_count": 12,
+      "categories": [
+        {
+          "stable_key": "m-integers-rationals",
+          "order": 1,
+          "name_ar": "الأعداد الصحيحة والنسبية",
+          "name_en": "Integers & Rational Numbers",
+          "skill_keys": [
+            "signed-operations",
+            "rational-arithmetic",
+            "ordering"
+          ],
+          "publication_status": "editorial_proposal"
+        },
+        {
+          "stable_key": "m-number-theory",
+          "order": 2,
+          "name_ar": "القواسم والمضاعفات",
+          "name_en": "Divisibility & Number Theory",
+          "skill_keys": [
+            "prime-factors",
+            "gcd",
+            "lcm",
+            "divisibility"
+          ],
+          "publication_status": "editorial_proposal"
+        },
+        {
+          "stable_key": "m-powers-roots",
+          "order": 3,
+          "name_ar": "الأسس والجذور",
+          "name_en": "Powers & Roots",
+          "skill_keys": [
+            "exponent-laws",
+            "roots",
+            "scientific-notation"
+          ],
+          "publication_status": "editorial_proposal"
+        },
+        {
+          "stable_key": "m-ratios-percentages",
+          "order": 4,
+          "name_ar": "النسب والتناسب والمئويات",
+          "name_en": "Ratios, Proportions & Percentages",
+          "skill_keys": [
+            "ratios",
+            "rates",
+            "direct-proportion",
+            "percent-change"
+          ],
+          "publication_status": "editorial_proposal"
+        },
+        {
+          "stable_key": "m-algebra-expressions",
+          "order": 5,
+          "name_ar": "التعابير الجبرية",
+          "name_en": "Algebraic Expressions",
+          "skill_keys": [
+            "expand",
+            "simplify",
+            "factor-basics",
+            "substitution"
+          ],
+          "publication_status": "editorial_proposal"
+        },
+        {
+          "stable_key": "m-equations",
+          "order": 6,
+          "name_ar": "المعادلات الخطية",
+          "name_en": "Linear Equations",
+          "skill_keys": [
+            "linear-equations",
+            "equations-word-problems",
+            "simultaneous-equations"
+          ],
+          "publication_status": "editorial_proposal"
+        },
+        {
+          "stable_key": "m-linear-inequalities",
+          "name_ar": "المتباينات الخطية",
+          "name_en": "Linear Inequalities",
+          "skill_keys": [
+            "solve-linear-inequalities",
+            "number-line-solutions",
+            "inequality-contexts"
+          ],
+          "order": 7,
+          "publication_status": "editorial_proposal"
+        },
+        {
+          "stable_key": "m-functions-graphs",
+          "order": 8,
+          "name_ar": "الدوال والتمثيل البياني",
+          "name_en": "Functions & Graphs",
+          "skill_keys": [
+            "function-evaluation",
+            "coordinates",
+            "linear-functions",
+            "slope"
+          ],
+          "publication_status": "editorial_proposal"
+        },
+        {
+          "stable_key": "m-geometry-angles",
+          "order": 9,
+          "name_ar": "الزوايا والمضلعات والهندسة",
+          "name_en": "Angles, Polygons & Geometry",
+          "skill_keys": [
+            "angle-relations",
+            "polygons",
+            "geometric-reasoning"
+          ],
+          "publication_status": "editorial_proposal"
+        },
+        {
+          "stable_key": "m-pythagoras-similarity",
+          "name_ar": "فيثاغورس والتشابه",
+          "name_en": "Pythagoras & Similarity",
+          "skill_keys": [
+            "pythagorean-theorem",
+            "similarity",
+            "scale-factors"
+          ],
+          "order": 10,
+          "publication_status": "editorial_proposal"
+        },
+        {
+          "stable_key": "m-statistics",
+          "order": 11,
+          "name_ar": "الإحصاء وتحليل البيانات",
+          "name_en": "Statistics & Data Analysis",
+          "skill_keys": [
+            "summary-measures",
+            "charts",
+            "distributions"
+          ],
+          "publication_status": "editorial_proposal"
+        },
+        {
+          "stable_key": "m-probability",
+          "order": 12,
+          "name_ar": "الاحتمال",
+          "name_en": "Probability",
+          "skill_keys": [
+            "sample-spaces",
+            "simple-compound-events",
+            "frequency"
+          ],
+          "publication_status": "editorial_proposal"
+        }
+      ]
+    },
+    {
+      "stage_id": 3,
+      "name_ar": "ثانوية",
+      "name_en": "Upper Secondary",
+      "category_count": 14,
+      "categories": [
+        {
+          "stable_key": "s-polynomials",
+          "name_ar": "كثيرات الحدود والتحليل",
+          "name_en": "Polynomials & Factorization",
+          "skill_keys": [
+            "polynomial-arithmetic",
+            "factorization",
+            "identities"
+          ],
+          "order": 1,
+          "publication_status": "editorial_proposal"
+        },
+        {
+          "stable_key": "s-quadratics",
+          "order": 2,
+          "name_ar": "المعادلات التربيعية",
+          "name_en": "Quadratic Equations",
+          "skill_keys": [
+            "quadratic-roots",
+            "discriminant",
+            "quadratic-formulas"
+          ],
+          "publication_status": "editorial_proposal"
+        },
+        {
+          "stable_key": "s-functions-graphs",
+          "order": 3,
+          "name_ar": "الدوال والرسوم البيانية",
+          "name_en": "Functions & Graphs",
+          "skill_keys": [
+            "domain-range",
+            "transformations",
+            "composition",
+            "inverse"
+          ],
+          "publication_status": "editorial_proposal"
+        },
+        {
+          "stable_key": "s-exponents-logarithms",
+          "order": 4,
+          "name_ar": "الدوال الأسّية واللوغاريتمية",
+          "name_en": "Exponential & Logarithmic Functions",
+          "skill_keys": [
+            "logarithm-laws",
+            "exponential-models",
+            "inverse-relations"
+          ],
+          "publication_status": "editorial_proposal"
+        },
+        {
+          "stable_key": "s-trigonometry",
+          "order": 5,
+          "name_ar": "حساب المثلثات",
+          "name_en": "Trigonometry",
+          "skill_keys": [
+            "trigonometric-ratios",
+            "identities",
+            "angles",
+            "equations"
+          ],
+          "publication_status": "editorial_proposal"
+        },
+        {
+          "stable_key": "s-analytic-geometry",
+          "order": 6,
+          "name_ar": "الهندسة التحليلية",
+          "name_en": "Analytic Geometry",
+          "skill_keys": [
+            "coordinate-lines",
+            "circles",
+            "loci"
+          ],
+          "publication_status": "editorial_proposal"
+        },
+        {
+          "stable_key": "s-vectors",
+          "name_ar": "المتجهات",
+          "name_en": "Vectors",
+          "skill_keys": [
+            "vector-components",
+            "magnitude",
+            "dot-product"
+          ],
+          "order": 7,
+          "publication_status": "editorial_proposal"
+        },
+        {
+          "stable_key": "s-sequences-series",
+          "order": 8,
+          "name_ar": "المتتاليات والمتسلسلات",
+          "name_en": "Sequences & Series",
+          "skill_keys": [
+            "arithmetic-sequences",
+            "geometric-sequences",
+            "series-sums"
+          ],
+          "publication_status": "editorial_proposal"
+        },
+        {
+          "stable_key": "s-limits",
+          "name_ar": "النهايات والاتصال",
+          "name_en": "Limits & Continuity",
+          "skill_keys": [
+            "limit-laws",
+            "one-sided-limits",
+            "continuity"
+          ],
+          "order": 9,
+          "publication_status": "editorial_proposal"
+        },
+        {
+          "stable_key": "s-derivatives",
+          "order": 10,
+          "name_ar": "المشتقات وتطبيقاتها",
+          "name_en": "Derivatives & Applications",
+          "skill_keys": [
+            "derivative-rules",
+            "tangents",
+            "optimization-basics"
+          ],
+          "publication_status": "editorial_proposal"
+        },
+        {
+          "stable_key": "s-integrals",
+          "order": 11,
+          "name_ar": "التكامل",
+          "name_en": "Integral Calculus",
+          "skill_keys": [
+            "antiderivatives",
+            "definite-integrals",
+            "fundamental-theorem"
+          ],
+          "publication_status": "editorial_proposal"
+        },
+        {
+          "stable_key": "s-statistics",
+          "order": 12,
+          "name_ar": "الإحصاء",
+          "name_en": "Statistics",
+          "skill_keys": [
+            "variation",
+            "descriptive-statistics",
+            "normal-distribution"
+          ],
+          "publication_status": "editorial_proposal"
+        },
+        {
+          "stable_key": "s-probability",
+          "order": 13,
+          "name_ar": "الاحتمال والأحداث المركبة",
+          "name_en": "Probability & Compound Events",
+          "skill_keys": [
+            "sample-spaces",
+            "compound-events",
+            "conditional-probability"
+          ],
+          "publication_status": "editorial_proposal"
+        },
+        {
+          "stable_key": "s-combinatorics",
+          "name_ar": "العد والتباديل والتوافيق",
+          "name_en": "Combinatorics & Counting",
+          "skill_keys": [
+            "permutations",
+            "combinations",
+            "counting-principles"
+          ],
+          "order": 14,
+          "publication_status": "editorial_proposal"
+        }
+      ]
+    },
+    {
+      "stage_id": 4,
+      "name_ar": "جامعية",
+      "name_en": "University Foundations",
+      "category_count": 15,
+      "categories": [
+        {
+          "stable_key": "u-single-calculus",
+          "order": 1,
+          "name_ar": "التفاضل والتكامل لمتغير واحد",
+          "name_en": "Single-Variable Calculus",
+          "skill_keys": [
+            "limits",
+            "differentiation",
+            "integration",
+            "series"
+          ],
+          "publication_status": "editorial_proposal"
+        },
+        {
+          "stable_key": "u-multivariable",
+          "order": 2,
+          "name_ar": "التفاضل والتكامل متعدد المتغيرات",
+          "name_en": "Multivariable Calculus",
+          "skill_keys": [
+            "partial-derivatives",
+            "gradients",
+            "multiple-integrals",
+            "directional-derivatives"
+          ],
+          "publication_status": "editorial_proposal"
+        },
+        {
+          "stable_key": "u-linear-algebra",
+          "order": 3,
+          "name_ar": "الجبر الخطي",
+          "name_en": "Linear Algebra",
+          "skill_keys": [
+            "matrices",
+            "determinants",
+            "vector-spaces",
+            "eigenvalues"
+          ],
+          "publication_status": "editorial_proposal"
+        },
+        {
+          "stable_key": "u-differential-equations",
+          "order": 4,
+          "name_ar": "المعادلات التفاضلية",
+          "name_en": "Differential Equations",
+          "skill_keys": [
+            "first-order-ode",
+            "second-order-ode",
+            "initial-value-problems"
+          ],
+          "publication_status": "editorial_proposal"
+        },
+        {
+          "stable_key": "u-partial-differential-equations",
+          "name_ar": "المعادلات التفاضلية الجزئية",
+          "name_en": "Partial Differential Equations",
+          "skill_keys": [
+            "first-order-pdes",
+            "diffusion",
+            "boundary-value-problems"
+          ],
+          "order": 5,
+          "publication_status": "editorial_proposal"
+        },
+        {
+          "stable_key": "u-real-analysis",
+          "order": 6,
+          "name_ar": "التحليل الحقيقي",
+          "name_en": "Real Analysis",
+          "skill_keys": [
+            "sequences",
+            "convergence",
+            "continuity",
+            "proofs"
+          ],
+          "publication_status": "editorial_proposal"
+        },
+        {
+          "stable_key": "u-complex-analysis",
+          "name_ar": "التحليل العقدي",
+          "name_en": "Complex Analysis",
+          "skill_keys": [
+            "complex-differentiation",
+            "analytic-functions",
+            "contour-integrals"
+          ],
+          "order": 7,
+          "publication_status": "editorial_proposal"
+        },
+        {
+          "stable_key": "u-abstract-algebra",
+          "order": 8,
+          "name_ar": "الجبر المجرد",
+          "name_en": "Abstract Algebra",
+          "skill_keys": [
+            "groups",
+            "rings",
+            "fields",
+            "homomorphisms"
+          ],
+          "publication_status": "editorial_proposal"
+        },
+        {
+          "stable_key": "u-discrete-math",
+          "order": 9,
+          "name_ar": "المنطق والرياضيات المنفصلة",
+          "name_en": "Logic & Discrete Mathematics",
+          "skill_keys": [
+            "logic",
+            "proofs",
+            "graphs",
+            "relations"
+          ],
+          "publication_status": "editorial_proposal"
+        },
+        {
+          "stable_key": "u-combinatorics",
+          "name_ar": "التوافيق المتقدمة",
+          "name_en": "Advanced Combinatorics",
+          "skill_keys": [
+            "enumerative-combinatorics",
+            "recurrences",
+            "generating-functions"
+          ],
+          "order": 10,
+          "publication_status": "editorial_proposal"
+        },
+        {
+          "stable_key": "u-probability",
+          "order": 11,
+          "name_ar": "نظرية الاحتمالات",
+          "name_en": "Probability Theory",
+          "skill_keys": [
+            "random-variables",
+            "distributions",
+            "expectation",
+            "conditional-probability"
+          ],
+          "publication_status": "editorial_proposal"
+        },
+        {
+          "stable_key": "u-math-statistics",
+          "order": 12,
+          "name_ar": "الإحصاء الرياضي",
+          "name_en": "Mathematical Statistics",
+          "skill_keys": [
+            "estimation",
+            "hypothesis-testing",
+            "inference",
+            "regression"
+          ],
+          "publication_status": "editorial_proposal"
+        },
+        {
+          "stable_key": "u-numerical-analysis",
+          "order": 13,
+          "name_ar": "التحليل العددي",
+          "name_en": "Numerical Analysis",
+          "skill_keys": [
+            "root-finding",
+            "numerical-integration",
+            "error-analysis",
+            "linear-systems"
+          ],
+          "publication_status": "editorial_proposal"
+        },
+        {
+          "stable_key": "u-optimization",
+          "name_ar": "التحسين الرياضي",
+          "name_en": "Optimization",
+          "skill_keys": [
+            "unconstrained-optimization",
+            "constrained-optimization",
+            "convexity"
+          ],
+          "order": 14,
+          "publication_status": "editorial_proposal"
+        },
+        {
+          "stable_key": "u-topology",
+          "name_ar": "الطوبولوجيا",
+          "name_en": "Topology",
+          "skill_keys": [
+            "topological-spaces",
+            "compactness",
+            "connectedness"
+          ],
+          "order": 15,
+          "publication_status": "editorial_proposal"
+        }
+      ]
+    }
+  ],
+  "question_metadata": {
+    "required": [
+      "stage_id",
+      "category_key",
+      "skill_key",
+      "learning_objective",
+      "content_key",
+      "template_family",
+      "difficulty_level",
+      "pisa_process",
+      "question_ar",
+      "question_en",
+      "solution_ar",
+      "solution_en",
+      "four_distinct_options",
+      "correct_option",
+      "latex_validated",
+      "editorial_status"
+    ],
+    "pisa_processes": [
+      "formulate",
+      "employ",
+      "interpret_evaluate"
+    ],
+    "editorial_statuses": [
+      "draft",
+      "validated",
+      "reviewed",
+      "published",
+      "retired"
+    ],
+    "difficulty_levels": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "review_requirements": [
+      "mathematical-correctness",
+      "one-correct-answer",
+      "bilingual-meaning-equivalence",
+      "curriculum-stage-appropriateness",
+      "semantic-deduplication",
+      "four-plausible-distractors",
+      "worked-solution",
+      "latex-web-flutter"
+    ],
+    "unique_content_policy": "stable content_key + normalised bilingual text + canonical maths/template-family; no automatic publishing"
+  },
+  "safeguards": [
+    "Never renumber or delete existing stage/category/problem IDs",
+    "No automatic production reclassification",
+    "Keep learner attempts and progress linked by immutable problem ID",
+    "Free two-category policy must be reevaluated before any category migration",
+    "100 is initial curated batch size, not a hard content cap"
+  ],
+  "quality_policy": {
+    "model": "adaptive-skill-evidence-not-question-quotas",
+    "categorization": "one coherent primary mathematical subject per student-facing category; skill objectives are internal identifiers",
+    "topic_count_policy": "unbounded; create, split or merge a proposed topic only by content coherence, after editorial review; do not rename legacy topic IDs",
+    "question_count_policy": "no fixed number per category; derive practice demand from unique learning objectives, prerequisite breadth, difficulty, varied contexts and student's demonstrated evidence; publish in reviewed incremental batches",
+    "practice_dimensions": [
+      "conceptual-understanding",
+      "procedural-fluency",
+      "application",
+      "reasoning-and-proof",
+      "transfer-to-unseen-contexts"
+    ],
+    "process_tags": [
+      "formulate",
+      "employ",
+      "interpret_evaluate"
+    ],
+    "per_problem_required": [
+      "immutable-content-key",
+      "immutable-primary-skill-key",
+      "bilingual-question",
+      "bilingual-stepwise-solution",
+      "four-distinct-plausible-options",
+      "one-verified-correct-answer",
+      "difficulty-1-to-5",
+      "cognitive-process-tag",
+      "canonical-math-signature",
+      "template-family-key",
+      "latex-web-and-flutter-preview"
+    ],
+    "duplicate_checks": [
+      "exact-text-ar-en",
+      "unicode-and-digit-normalization",
+      "equivalent-math-expression",
+      "template-family-plus-parameter-differences",
+      "semantically-equivalent-story-context"
+    ],
+    "template_repetition_policy": "do not fill a topic with numeric substitutions of the same question; limit same-template concentration within a practice session and require diverse reasoning evidence",
+    "adaptive_progress_measure": {
+      "current": "display real attempted, solved and mastered problem statuses returned from the existing API; they are not a validated skill proficiency estimate",
+      "future": "skill-level proficiency only after reviewed skill tagging and evidence thresholds, using first-try correctness, new-context transfer, error recovery and spaced independent attempts",
+      "avoid": "no invented competency scores, no equivalence of completed count with ability, no gamified endless repetitive loops"
+    },
+    "publication_policy": "draft -> programmatic math, bilingual, LaTeX and duplicate checks -> human mathematics review -> human language review -> preview -> atomic idempotent published batch -> verify post-release totals",
+    "initial_practice_bundle": "small focused learner sessions with variable length according to difficulty and objective; groups are not a rigid 10-question requirement",
+    "safeguards": [
+      "never reassign or delete answered problem IDs without signed-off student-history/Free-entitlement migration",
+      "keep old problems and user attempts intact",
+      "never publish unreviewed proposed categories with zero problems",
+      "never auto-publish AI-generated content",
+      "one public website and one Android application"
+    ]
+  },
+  "advanced_university_extensions": [
+    "functional-analysis",
+    "differential-geometry",
+    "stochastic-processes",
+    "mathematical-physics",
+    "algebraic-topology",
+    "number-theory",
+    "category-theory",
+    "computational-mathematics"
+  ]
+}
