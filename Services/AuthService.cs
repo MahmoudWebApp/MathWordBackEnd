@@ -271,7 +271,7 @@ namespace MathWorldAPI.Services
             // The cutoff avoids requiring a schema migration in production.
             if (string.Equals(user.Role, "Student", StringComparison.OrdinalIgnoreCase)
                 && !user.CurrentStageId.HasValue
-                && user.CreatedAt < new DateTime(2026, 11, 13, 0, 0, 0, DateTimeKind.Utc))
+                && user.CreatedAt < LegacyLearningStage.OnboardingCutoffUtc)
             {
                 user.CurrentStageId = await LegacyLearningStage.ElementaryIdAsync(_context);
                 if (!user.CurrentStageId.HasValue)
