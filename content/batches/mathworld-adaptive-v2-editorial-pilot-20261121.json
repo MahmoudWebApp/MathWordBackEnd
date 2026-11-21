@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "status": "draft_only_requires_independent_math_and_language_review",
   "curriculum_taxonomy": "international-mathworld-taxonomy-v2",
-  "claim": "Original varied editorial questions; mathematically checked examples, not a complete curriculum or approved evidence of student mastery.",
+  "claim": "Original varied draft questions with authored bilingual worked solutions; independent mathematical and language review pending.",
   "publication_allowed": false,
   "provenance": "MathWorld authoring draft, no production mutation",
   "categories": [
@@ -72,22 +72,22 @@
       "Options": [
         {
           "Order": 1,
-          "LatexCode": "\\\\frac{3}{8}",
+          "LatexCode": "\\frac{3}{8}",
           "IsCorrect": true
         },
         {
           "Order": 2,
-          "LatexCode": "\\\\frac{5}{8}",
+          "LatexCode": "\\frac{5}{8}",
           "IsCorrect": false
         },
         {
           "Order": 3,
-          "LatexCode": "\\\\frac{3}{5}",
+          "LatexCode": "\\frac{3}{5}",
           "IsCorrect": false
         },
         {
           "Order": 4,
-          "LatexCode": "\\\\frac{8}{3}",
+          "LatexCode": "\\frac{8}{3}",
           "IsCorrect": false
         }
       ],
@@ -103,30 +103,30 @@
       "TemplateFamilyKey": "p-fractions-decimals-equivalent-quarters",
       "DifficultyLevel": 2,
       "PisaProcess": "employ",
-      "QuestionTextAr": "ما الكسر المكافئ لـ $\\\\frac{3}{4}$ عندما يكون المقام 12؟",
-      "QuestionTextEn": "Which fraction is equivalent to $\\\\frac{3}{4}$ with denominator 12?",
-      "DetailedSolutionAr": "نضرب البسط والمقام في 3: $\\\\frac{3\\\\times3}{4\\\\times3}=\\\\frac{9}{12}$.",
-      "DetailedSolutionEn": "Multiply numerator and denominator by 3: $\\\\frac{3\\\\times3}{4\\\\times3}=\\\\frac{9}{12}$.",
+      "QuestionTextAr": "ما الكسر المكافئ لـ $\\frac{3}{4}$ عندما يكون المقام 12؟",
+      "QuestionTextEn": "Which fraction is equivalent to $\\frac{3}{4}$ with denominator 12?",
+      "DetailedSolutionAr": "نضرب البسط والمقام في 3: $\\frac{3\\times3}{4\\times3}=\\frac{9}{12}$.",
+      "DetailedSolutionEn": "Multiply numerator and denominator by 3: $\\frac{3\\times3}{4\\times3}=\\frac{9}{12}$.",
       "Points": 10,
       "Options": [
         {
           "Order": 1,
-          "LatexCode": "\\\\frac{6}{12}",
+          "LatexCode": "\\frac{6}{12}",
           "IsCorrect": false
         },
         {
           "Order": 2,
-          "LatexCode": "\\\\frac{3}{12}",
+          "LatexCode": "\\frac{3}{12}",
           "IsCorrect": false
         },
         {
           "Order": 3,
-          "LatexCode": "\\\\frac{12}{9}",
+          "LatexCode": "\\frac{12}{9}",
           "IsCorrect": false
         },
         {
           "Order": 4,
-          "LatexCode": "\\\\frac{9}{12}",
+          "LatexCode": "\\frac{9}{12}",
           "IsCorrect": true
         }
       ],
@@ -142,30 +142,30 @@
       "TemplateFamilyKey": "p-fractions-decimals-adding-unlike-fractions",
       "DifficultyLevel": 3,
       "PisaProcess": "employ",
-      "QuestionTextAr": "احسب $\\\\frac14+\\\\frac38$.",
-      "QuestionTextEn": "Compute $\\\\frac14+\\\\frac38$.",
-      "DetailedSolutionAr": "نحوّل الربع إلى أثمان: $\\\\frac14=\\\\frac28$، ثم $\\\\frac28+\\\\frac38=\\\\frac58$.",
-      "DetailedSolutionEn": "Convert quarters to eighths: $\\\\frac14=\\\\frac28$, then add to get $\\\\frac58$.",
+      "QuestionTextAr": "احسب $\\frac14+\\frac38$.",
+      "QuestionTextEn": "Compute $\\frac14+\\frac38$.",
+      "DetailedSolutionAr": "نحوّل الربع إلى أثمان: $\\frac14=\\frac28$، ثم $\\frac28+\\frac38=\\frac58$.",
+      "DetailedSolutionEn": "Convert quarters to eighths: $\\frac14=\\frac28$, then add to get $\\frac58$.",
       "Points": 10,
       "Options": [
         {
           "Order": 1,
-          "LatexCode": "\\\\frac4{12}",
+          "LatexCode": "\\frac4{12}",
           "IsCorrect": false
         },
         {
           "Order": 2,
-          "LatexCode": "\\\\frac78",
+          "LatexCode": "\\frac78",
           "IsCorrect": false
         },
         {
           "Order": 3,
-          "LatexCode": "\\\\frac58",
+          "LatexCode": "\\frac58",
           "IsCorrect": true
         },
         {
           "Order": 4,
-          "LatexCode": "\\\\frac48",
+          "LatexCode": "\\frac48",
           "IsCorrect": false
         }
       ],
@@ -183,8 +183,8 @@
       "PisaProcess": "formulate",
       "QuestionTextAr": "في مكتبة 36 كتاباً، ثلثاها كتب علمية. كم كتاباً علمياً يوجد؟",
       "QuestionTextEn": "A library has 36 books. Two-thirds are science books. How many science books are there?",
-      "DetailedSolutionAr": "نحسب $\\\\frac23\\\\times36=24$ كتاباً علمياً.",
-      "DetailedSolutionEn": "Compute $\\\\frac23\\\\times36=24$ science books.",
+      "DetailedSolutionAr": "نحسب $\\frac23\\times36=24$ كتاباً علمياً.",
+      "DetailedSolutionEn": "Compute $\\frac23\\times36=24$ science books.",
       "Points": 10,
       "Options": [
         {
@@ -220,30 +220,30 @@
       "TemplateFamilyKey": "p-fractions-decimals-fraction-decimal-comparison",
       "DifficultyLevel": 2,
       "PisaProcess": "interpret_evaluate",
-      "QuestionTextAr": "أي علاقة صحيحة بين $0.6$ و$\\\\frac35$؟",
-      "QuestionTextEn": "Which comparison of $0.6$ and $\\\\frac35$ is correct?",
-      "DetailedSolutionAr": "نحوّل $\\\\frac35$ إلى عدد عشري بالقسمة: $3\\\\div5=0.6$، إذن العددان متساويان.",
+      "QuestionTextAr": "أي علاقة صحيحة بين $0.6$ و$\\frac35$؟",
+      "QuestionTextEn": "Which comparison of $0.6$ and $\\frac35$ is correct?",
+      "DetailedSolutionAr": "نحوّل $\\frac35$ إلى عدد عشري بالقسمة: $3\\div5=0.6$، إذن العددان متساويان.",
       "DetailedSolutionEn": "Dividing 3 by 5 gives 0.6, so both values are equal.",
       "Points": 10,
       "Options": [
         {
           "Order": 1,
-          "LatexCode": "0.6=\\\\frac35",
+          "LatexCode": "0.6=\\frac35",
           "IsCorrect": true
         },
         {
           "Order": 2,
-          "LatexCode": "0.6>\\\\frac35",
+          "LatexCode": "0.6>\\frac35",
           "IsCorrect": false
         },
         {
           "Order": 3,
-          "LatexCode": "0.6<\\\\frac35",
+          "LatexCode": "0.6<\\frac35",
           "IsCorrect": false
         },
         {
           "Order": 4,
-          "LatexCode": "0.6=\\\\frac53",
+          "LatexCode": "0.6=\\frac53",
           "IsCorrect": false
         }
       ],
@@ -259,10 +259,10 @@
       "TemplateFamilyKey": "p-fractions-decimals-twentieths-to-decimal",
       "DifficultyLevel": 2,
       "PisaProcess": "employ",
-      "QuestionTextAr": "اكتب $\\\\frac7{20}$ على صورة عدد عشري.",
-      "QuestionTextEn": "Write $\\\\frac7{20}$ as a decimal.",
-      "DetailedSolutionAr": "نضرب البسط والمقام في 5: $\\\\frac7{20}=\\\\frac{35}{100}=0.35$.",
-      "DetailedSolutionEn": "Multiply top and bottom by 5: $\\\\frac7{20}=\\\\frac{35}{100}=0.35$.",
+      "QuestionTextAr": "اكتب $\\frac7{20}$ على صورة عدد عشري.",
+      "QuestionTextEn": "Write $\\frac7{20}$ as a decimal.",
+      "DetailedSolutionAr": "نضرب البسط والمقام في 5: $\\frac7{20}=\\frac{35}{100}=0.35$.",
+      "DetailedSolutionEn": "Multiply top and bottom by 5: $\\frac7{20}=\\frac{35}{100}=0.35$.",
       "Points": 10,
       "Options": [
         {
@@ -339,8 +339,8 @@
       "PisaProcess": "formulate",
       "QuestionTextAr": "في صف 80 تلميذاً، شارك 25% منهم في مسابقة. كم تلميذاً شارك؟",
       "QuestionTextEn": "In a school group of 80 pupils, 25% entered a competition. How many entered?",
-      "DetailedSolutionAr": "نحوّل 25% إلى ربع: $\\\\frac14\\\\times80=20$.",
-      "DetailedSolutionEn": "25% is one quarter: $\\\\frac14\\\\times80=20$.",
+      "DetailedSolutionAr": "نحوّل 25% إلى ربع: $\\frac14\\times80=20$.",
+      "DetailedSolutionEn": "25% is one quarter: $\\frac14\\times80=20$.",
       "Points": 10,
       "Options": [
         {
@@ -376,30 +376,30 @@
       "TemplateFamilyKey": "p-fractions-decimals-mixed-number-sum",
       "DifficultyLevel": 3,
       "PisaProcess": "employ",
-      "QuestionTextAr": "احسب $1\\\\frac12+\\\\frac34$.",
-      "QuestionTextEn": "Compute $1\\\\frac12+\\\\frac34$.",
-      "DetailedSolutionAr": "نكتب $1\\\\frac12=1\\\\frac24$، ثم $1\\\\frac24+\\\\frac34=1\\\\frac54=2\\\\frac14$.",
-      "DetailedSolutionEn": "Rewrite $1\\\\frac12=1\\\\frac24$; adding $\\\\frac34$ gives $2\\\\frac14$.",
+      "QuestionTextAr": "احسب $1\\frac12+\\frac34$.",
+      "QuestionTextEn": "Compute $1\\frac12+\\frac34$.",
+      "DetailedSolutionAr": "نكتب $1\\frac12=1\\frac24$، ثم $1\\frac24+\\frac34=1\\frac54=2\\frac14$.",
+      "DetailedSolutionEn": "Rewrite $1\\frac12=1\\frac24$; adding $\\frac34$ gives $2\\frac14$.",
       "Points": 10,
       "Options": [
         {
           "Order": 1,
-          "LatexCode": "2\\\\frac14",
+          "LatexCode": "2\\frac14",
           "IsCorrect": true
         },
         {
           "Order": 2,
-          "LatexCode": "1\\\\frac14",
+          "LatexCode": "1\\frac14",
           "IsCorrect": false
         },
         {
           "Order": 3,
-          "LatexCode": "2\\\\frac34",
+          "LatexCode": "2\\frac34",
           "IsCorrect": false
         },
         {
           "Order": 4,
-          "LatexCode": "1\\\\frac34",
+          "LatexCode": "1\\frac34",
           "IsCorrect": false
         }
       ],
@@ -417,8 +417,8 @@
       "PisaProcess": "formulate",
       "QuestionTextAr": "ظهرت القيمة 2 ثلاث مرات والقيمة 7 مرتين في مجموعة بيانات. ما المتوسط الحسابي؟",
       "QuestionTextEn": "In a data set, 2 appears three times and 7 appears twice. What is the mean?",
-      "DetailedSolutionAr": "المجموع $3\\\\times2+2\\\\times7=20$، وعدد القيم 5، فالمتوسط $20\\\\div5=4$.",
-      "DetailedSolutionEn": "The total is $3\\\\times2+2\\\\times7=20$ across five observations, so the mean is 4.",
+      "DetailedSolutionAr": "المجموع $3\\times2+2\\times7=20$، وعدد القيم 5، فالمتوسط $20\\div5=4$.",
+      "DetailedSolutionEn": "The total is $3\\times2+2\\times7=20$ across five observations, so the mean is 4.",
       "Points": 10,
       "Options": [
         {
@@ -651,28 +651,28 @@
       "PisaProcess": "interpret_evaluate",
       "QuestionTextAr": "من أصل 20 استجابة في استبيان، اختار 5 طلاب خياراً معيناً. ما التكرار النسبي بالنسبة المئوية؟",
       "QuestionTextEn": "In a survey with 20 responses, 5 select one option. What is the relative frequency as a percentage?",
-      "DetailedSolutionAr": "التكرار النسبي $\\\\frac5{20}=0.25=25\\\\%$.",
-      "DetailedSolutionEn": "The relative frequency is $\\\\frac5{20}=0.25=25\\\\%$.",
+      "DetailedSolutionAr": "التكرار النسبي $\\frac5{20}=0.25=25\\%$.",
+      "DetailedSolutionEn": "The relative frequency is $\\frac5{20}=0.25=25\\%$.",
       "Points": 10,
       "Options": [
         {
           "Order": 1,
-          "LatexCode": "40\\\\%",
+          "LatexCode": "40\\%",
           "IsCorrect": false
         },
         {
           "Order": 2,
-          "LatexCode": "25\\\\%",
+          "LatexCode": "25\\%",
           "IsCorrect": true
         },
         {
           "Order": 3,
-          "LatexCode": "5\\\\%",
+          "LatexCode": "5\\%",
           "IsCorrect": false
         },
         {
           "Order": 4,
-          "LatexCode": "20\\\\%",
+          "LatexCode": "20\\%",
           "IsCorrect": false
         }
       ],
@@ -688,8 +688,8 @@
       "TemplateFamilyKey": "s-sequences-series-arithmetic-nth-expression",
       "DifficultyLevel": 3,
       "PisaProcess": "employ",
-      "QuestionTextAr": "المتتالية $5,9,13,17,\\\\ldots$ حسابية. أي صيغة تعطي الحد $a_n$ إذا بدأنا من $n=1$؟",
-      "QuestionTextEn": "The arithmetic sequence is $5,9,13,17,\\\\ldots$. Which formula gives $a_n$ starting at $n=1$?",
+      "QuestionTextAr": "المتتالية $5,9,13,17,\\ldots$ حسابية. أي صيغة تعطي الحد $a_n$ إذا بدأنا من $n=1$؟",
+      "QuestionTextEn": "The arithmetic sequence is $5,9,13,17,\\ldots$. Which formula gives $a_n$ starting at $n=1$?",
       "DetailedSolutionAr": "الحد الأول 5 والفرق 4، لذا $a_n=5+4(n-1)=4n+1$.",
       "DetailedSolutionEn": "The first term is 5 and the common difference is 4, so $a_n=5+4(n-1)=4n+1$.",
       "Points": 10,
@@ -729,8 +729,8 @@
       "PisaProcess": "employ",
       "QuestionTextAr": "متتالية حسابية حدها الأول 4 وفرقها المشترك 3. أوجد الحد العاشر.",
       "QuestionTextEn": "An arithmetic sequence has first term 4 and common difference 3. Find the tenth term.",
-      "DetailedSolutionAr": "$a_{10}=a_1+9d=4+9\\\\times3=31$.",
-      "DetailedSolutionEn": "$a_{10}=a_1+9d=4+9\\\\times3=31$.",
+      "DetailedSolutionAr": "$a_{10}=a_1+9d=4+9\\times3=31$.",
+      "DetailedSolutionEn": "$a_{10}=a_1+9d=4+9\\times3=31$.",
       "Points": 10,
       "Options": [
         {
@@ -768,8 +768,8 @@
       "PisaProcess": "employ",
       "QuestionTextAr": "متتالية هندسية حدها الأول 3 ونسبتها المشتركة 2. ما الحد الخامس؟",
       "QuestionTextEn": "A geometric sequence has first term 3 and common ratio 2. What is its fifth term?",
-      "DetailedSolutionAr": "$a_5=a_1r^4=3\\\\times2^4=48$.",
-      "DetailedSolutionEn": "$a_5=a_1r^4=3\\\\times2^4=48$.",
+      "DetailedSolutionAr": "$a_5=a_1r^4=3\\times2^4=48$.",
+      "DetailedSolutionEn": "$a_5=a_1r^4=3\\times2^4=48$.",
       "Points": 10,
       "Options": [
         {
@@ -807,8 +807,8 @@
       "PisaProcess": "employ",
       "QuestionTextAr": "احسب مجموع الحدود الستة: 2، 5، 8، 11، 14، 17.",
       "QuestionTextEn": "Find the sum of the six terms 2, 5, 8, 11, 14, 17.",
-      "DetailedSolutionAr": "المجموع $S_6=\\\\frac62(2+17)=3\\\\times19=57$.",
-      "DetailedSolutionEn": "The arithmetic-series sum is $S_6=\\\\frac62(2+17)=57$.",
+      "DetailedSolutionAr": "المجموع $S_6=\\frac62(2+17)=3\\times19=57$.",
+      "DetailedSolutionEn": "The arithmetic-series sum is $S_6=\\frac62(2+17)=57$.",
       "Points": 10,
       "Options": [
         {
@@ -922,10 +922,10 @@
       "TemplateFamilyKey": "s-sequences-series-infinite-geometric-sum",
       "DifficultyLevel": 4,
       "PisaProcess": "interpret_evaluate",
-      "QuestionTextAr": "أوجد مجموع المتسلسلة الهندسية اللانهائية $4+2+1+\\\\frac12+\\\\cdots$.",
-      "QuestionTextEn": "Find the sum of the infinite geometric series $4+2+1+\\\\frac12+\\\\cdots$.",
-      "DetailedSolutionAr": "النسبة $r=\\\\frac12$ وتحقق $|r|<1$، إذن $S=\\\\frac4{1-1/2}=8$.",
-      "DetailedSolutionEn": "Here $r=\\\\frac12$ with $|r|<1$, so $S=\\\\frac4{1-1/2}=8$.",
+      "QuestionTextAr": "أوجد مجموع المتسلسلة الهندسية اللانهائية $4+2+1+\\frac12+\\cdots$.",
+      "QuestionTextEn": "Find the sum of the infinite geometric series $4+2+1+\\frac12+\\cdots$.",
+      "DetailedSolutionAr": "النسبة $r=\\frac12$ وتحقق $|r|<1$، إذن $S=\\frac4{1-1/2}=8$.",
+      "DetailedSolutionEn": "Here $r=\\frac12$ with $|r|<1$, so $S=\\frac4{1-1/2}=8$.",
       "Points": 10,
       "Options": [
         {
@@ -1000,30 +1000,30 @@
       "TemplateFamilyKey": "u-discrete-math-demorgan-conjunction",
       "DifficultyLevel": 2,
       "PisaProcess": "employ",
-      "QuestionTextAr": "أي تعبير منطقي يكافئ $\\\\neg(P\\\\land Q)$؟",
-      "QuestionTextEn": "Which logical expression is equivalent to $\\\\neg(P\\\\land Q)$?",
-      "DetailedSolutionAr": "حسب قانون دي مورغان، نفي اقتران عبارتين يساوي فصل نفييهما: $\\\\neg P\\\\lor\\\\neg Q$.",
-      "DetailedSolutionEn": "By De Morgan's law, negating a conjunction gives the disjunction of the negations: $\\\\neg P\\\\lor\\\\neg Q$.",
+      "QuestionTextAr": "أي تعبير منطقي يكافئ $\\neg(P\\land Q)$؟",
+      "QuestionTextEn": "Which logical expression is equivalent to $\\neg(P\\land Q)$?",
+      "DetailedSolutionAr": "حسب قانون دي مورغان، نفي اقتران عبارتين يساوي فصل نفييهما: $\\neg P\\lor\\neg Q$.",
+      "DetailedSolutionEn": "By De Morgan's law, negating a conjunction gives the disjunction of the negations: $\\neg P\\lor\\neg Q$.",
       "Points": 10,
       "Options": [
         {
           "Order": 1,
-          "LatexCode": "\\\\neg P\\\\lor\\\\neg Q",
+          "LatexCode": "\\neg P\\lor\\neg Q",
           "IsCorrect": true
         },
         {
           "Order": 2,
-          "LatexCode": "\\\\neg P\\\\land\\\\neg Q",
+          "LatexCode": "\\neg P\\land\\neg Q",
           "IsCorrect": false
         },
         {
           "Order": 3,
-          "LatexCode": "P\\\\lor Q",
+          "LatexCode": "P\\lor Q",
           "IsCorrect": false
         },
         {
           "Order": 4,
-          "LatexCode": "P\\\\land\\\\neg Q",
+          "LatexCode": "P\\land\\neg Q",
           "IsCorrect": false
         }
       ],
@@ -1039,30 +1039,30 @@
       "TemplateFamilyKey": "u-discrete-math-contrapositive-equivalence",
       "DifficultyLevel": 3,
       "PisaProcess": "interpret_evaluate",
-      "QuestionTextAr": "العبارة $P\\\\Rightarrow Q$ تكافئ منطقياً أي عبارة؟",
-      "QuestionTextEn": "Which statement is logically equivalent to $P\\\\Rightarrow Q$?",
-      "DetailedSolutionAr": "العكس النقيض مكافئ دائماً: $\\\\neg Q\\\\Rightarrow\\\\neg P$.",
-      "DetailedSolutionEn": "An implication is logically equivalent to its contrapositive: $\\\\neg Q\\\\Rightarrow\\\\neg P$.",
+      "QuestionTextAr": "العبارة $P\\Rightarrow Q$ تكافئ منطقياً أي عبارة؟",
+      "QuestionTextEn": "Which statement is logically equivalent to $P\\Rightarrow Q$?",
+      "DetailedSolutionAr": "العكس النقيض مكافئ دائماً: $\\neg Q\\Rightarrow\\neg P$.",
+      "DetailedSolutionEn": "An implication is logically equivalent to its contrapositive: $\\neg Q\\Rightarrow\\neg P$.",
       "Points": 10,
       "Options": [
         {
           "Order": 1,
-          "LatexCode": "Q\\\\Rightarrow P",
+          "LatexCode": "Q\\Rightarrow P",
           "IsCorrect": false
         },
         {
           "Order": 2,
-          "LatexCode": "\\\\neg P\\\\Rightarrow\\\\neg Q",
+          "LatexCode": "\\neg P\\Rightarrow\\neg Q",
           "IsCorrect": false
         },
         {
           "Order": 3,
-          "LatexCode": "P\\\\land Q",
+          "LatexCode": "P\\land Q",
           "IsCorrect": false
         },
         {
           "Order": 4,
-          "LatexCode": "\\\\neg Q\\\\Rightarrow\\\\neg P",
+          "LatexCode": "\\neg Q\\Rightarrow\\neg P",
           "IsCorrect": true
         }
       ],
@@ -1119,8 +1119,8 @@
       "PisaProcess": "employ",
       "QuestionTextAr": "كم طريقة لاختيار شخصين من 7 أشخاص دون ترتيب؟",
       "QuestionTextEn": "How many unordered ways can two people be selected from seven?",
-      "DetailedSolutionAr": "عدد التوافيق $\\\\binom72=\\\\frac{7\\\\cdot6}{2}=21$.",
-      "DetailedSolutionEn": "Use combinations: $\\\\binom72=\\\\frac{7\\\\cdot6}{2}=21$.",
+      "DetailedSolutionAr": "عدد التوافيق $\\binom72=\\frac{7\\cdot6}{2}=21$.",
+      "DetailedSolutionEn": "Use combinations: $\\binom72=\\frac{7\\cdot6}{2}=21$.",
       "Points": 10,
       "Options": [
         {
@@ -1158,8 +1158,8 @@
       "PisaProcess": "interpret_evaluate",
       "QuestionTextAr": "وُزِّع 13 عنصراً على 12 صندوقاً. ما أقل عدد من العناصر يُضمَن وجوده في صندوق واحد على الأقل؟",
       "QuestionTextEn": "Thirteen objects are placed into twelve boxes. What is the minimum number guaranteed to occur in at least one box?",
-      "DetailedSolutionAr": "وفق مبدأ الحمام، $\\\\lceil13/12\\\\rceil=2$، فلا بد من صندوق يحوي عنصرين على الأقل.",
-      "DetailedSolutionEn": "By the pigeonhole principle, $\\\\lceil13/12\\\\rceil=2$, so some box holds at least two objects.",
+      "DetailedSolutionAr": "وفق مبدأ الحمام، $\\lceil13/12\\rceil=2$، فلا بد من صندوق يحوي عنصرين على الأقل.",
+      "DetailedSolutionEn": "By the pigeonhole principle, $\\lceil13/12\\rceil=2$, so some box holds at least two objects.",
       "Points": 10,
       "Options": [
         {
@@ -1195,8 +1195,8 @@
       "TemplateFamilyKey": "u-discrete-math-modulo-three-equivalence",
       "DifficultyLevel": 4,
       "PisaProcess": "interpret_evaluate",
-      "QuestionTextAr": "على الأعداد الصحيحة، عرّف $a\\\\sim b$ عندما يكون $a-b$ من مضاعفات 3. هل هذه علاقة تكافؤ؟",
-      "QuestionTextEn": "On integers, define $a\\\\sim b$ when $a-b$ is divisible by 3. Is this an equivalence relation?",
+      "QuestionTextAr": "على الأعداد الصحيحة، عرّف $a\\sim b$ عندما يكون $a-b$ من مضاعفات 3. هل هذه علاقة تكافؤ؟",
+      "QuestionTextEn": "On integers, define $a\\sim b$ when $a-b$ is divisible by 3. Is this an equivalence relation?",
       "DetailedSolutionAr": "نعم؛ الفرق بين العدد ونفسه 0، وعكس الفرق يبقى مضاعفاً لـ3، ومجموع فرقين من مضاعفات 3 يبقى كذلك؛ إذن الانعكاسية والتناظر والتعدي متحققة.",
       "DetailedSolutionEn": "Yes. The difference with itself is 0 (reflexive); negating a divisible difference preserves divisibility (symmetric); sums of divisible differences are divisible (transitive).",
       "Points": 10,
