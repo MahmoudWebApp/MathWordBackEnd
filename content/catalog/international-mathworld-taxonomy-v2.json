@@ -1,8 +1,8 @@
 {
   "schema_version": "2.0.0",
   "status": "proposed_not_published_requires_curriculum_review",
-  "user_visible_navigation": "stage > category > groups of ten questions",
-  "note": "These 10 per stage navigation categories are MathWorld's synthesis, not an official Cambridge, Common Core, PISA or MSC taxonomy. Skill tags remain metadata, not additional student navigation.",
+  "user_visible_navigation": "stage > coherent category > flexible learning groups > objective-based problems",
+  "note": "Per-stage topic lists are editorial proposals derived from learning objectives; no fixed category or question count is an official Cambridge, Common Core, PISA or MSC taxonomy. Skills are instructional metadata.",
   "target": {
     "stages": 4,
     "category_count": "derived_from_topic_coherence_not_fixed",
@@ -71,7 +71,8 @@
             "fraction-models",
             "equivalence",
             "decimal-place-value",
-            "basic-percentages"
+            "basic-percentages",
+            "fraction-operations"
           ],
           "publication_status": "editorial_proposal"
         },
@@ -422,7 +423,8 @@
           "skill_keys": [
             "arithmetic-sequences",
             "geometric-sequences",
-            "series-sums"
+            "series-sums",
+            "recurrence-relations"
           ],
           "publication_status": "editorial_proposal"
         },
@@ -616,7 +618,8 @@
             "logic",
             "proofs",
             "graphs",
-            "relations"
+            "relations",
+            "combinatorics"
           ],
           "publication_status": "editorial_proposal"
         },
@@ -749,11 +752,11 @@
     "unique_content_policy": "stable content_key + normalised bilingual text + canonical maths/template-family; no automatic publishing"
   },
   "safeguards": [
-    "Never renumber or delete existing stage/category/problem IDs",
+    "During development, replacement of legacy educational content may be staged and tested; preserve login, admin and subscription configurations",
     "No automatic production reclassification",
-    "Keep learner attempts and progress linked by immutable problem ID",
+    "When educational content is reset in development, reset associated attempts/progress explicitly; never leave dangling foreign keys",
     "Free two-category policy must be reevaluated before any category migration",
-    "100 is initial curated batch size, not a hard content cap"
+    "Problem batch size is chosen by review capacity and distinct learning evidence, not a fixed minimum or maximum"
   ],
   "quality_policy": {
     "model": "adaptive-skill-evidence-not-question-quotas",
