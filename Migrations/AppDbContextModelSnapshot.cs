@@ -22,6 +22,33 @@ namespace MathWorldAPI.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("MathWorldAPI.Models.CurriculumDraftItem", b =>
+                {
+                    b.Property<long>("Id").ValueGeneratedOnAdd().HasColumnType("bigint");
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
+                    b.Property<int>("TopicProposalId").HasColumnType("integer");
+                    b.Property<string>("ContentKey").IsRequired().HasMaxLength(120).HasColumnType("character varying(120)");
+                    b.Property<string>("PrimarySkillKey").IsRequired().HasMaxLength(120).HasColumnType("character varying(120)");
+                    b.Property<string>("TemplateFamilyKey").IsRequired().HasMaxLength(160).HasColumnType("character varying(160)");
+                    b.Property<int>("DifficultyLevel").HasColumnType("integer");
+                    b.Property<string>("PisaProcess").IsRequired().HasMaxLength(32).HasColumnType("character varying(32)");
+                    b.Property<string>("LearningObjectiveAr").IsRequired().HasColumnType("text");
+                    b.Property<string>("LearningObjectiveEn").IsRequired().HasColumnType("text");
+                    b.Property<string>("QuestionTextAr").IsRequired().HasColumnType("text");
+                    b.Property<string>("QuestionTextEn").IsRequired().HasColumnType("text");
+                    b.Property<string>("DetailedSolutionAr").IsRequired().HasColumnType("text");
+                    b.Property<string>("DetailedSolutionEn").IsRequired().HasColumnType("text");
+                    b.Property<string>("OptionsJson").IsRequired().HasColumnType("jsonb");
+                    b.Property<string>("EditorialStatus").IsRequired().HasMaxLength(24).HasColumnType("character varying(24)");
+                    b.HasKey("Id");
+                    b.HasIndex("ContentKey").IsUnique();
+                    b.HasIndex("TopicProposalId", "EditorialStatus");
+                    b.HasIndex("TopicProposalId", "TemplateFamilyKey");
+                    b.ToTable("CurriculumDraftItems", t =>
+                        t.HasCheckConstraint("CK_CurriculumDraftItems_Difficulty",
+                            "\"DifficultyLevel\" BETWEEN 1 AND 5"));
+                });
+
             modelBuilder.Entity("MathWorldAPI.Models.CurriculumTopicProposal", b =>
                 {
                     b.Property<int>("Id").ValueGeneratedOnAdd().HasColumnType("integer");
@@ -1157,6 +1184,16 @@ namespace MathWorldAPI.Migrations
                         .HasForeignKey("UpdatedByAdminId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("MathWorldAPI.Models.CurriculumDraftItem", b =>
+                {
+                    b.HasOne("MathWorldAPI.Models.CurriculumTopicProposal", "TopicProposal")
+                        .WithMany()
+                        .HasForeignKey("TopicProposalId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                    b.Navigation("TopicProposal");
                 });
 
             modelBuilder.Entity("MathWorldAPI.Models.CurriculumTopicProposal", b =>
