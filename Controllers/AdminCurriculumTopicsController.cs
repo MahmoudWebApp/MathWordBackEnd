@@ -39,14 +39,18 @@ public sealed class AdminCurriculumTopicsController : ControllerBase
                 x.IconKey,
                 x.SortOrder,
                 x.EditorialStatus,
-                ProposedQuestionCount = _db.CurriculumDraftItems.Count(item => item.TopicProposalId == x.Id)
+                ProposedQuestionCount = _db.CurriculumDraftItems.Count(item => item.TopicProposalId == x.Id),
+                PublishedQuestionCount = _db.CurriculumDraftItems.Count(item =>
+                    item.TopicProposalId == x.Id && item.EditorialStatus == "Published"),
+                DraftQuestionCount = _db.CurriculumDraftItems.Count(item =>
+                    item.TopicProposalId == x.Id && item.EditorialStatus != "Published")
             }).ToArrayAsync(ct);
 
         return Ok(new
         {
             Published = rows.Length > 0 && rows.All(x => x.EditorialStatus == "Published"),
             Total = rows.Length,
-            TotalDraftProblems = rows.Where(x => x.EditorialStatus != "Published").Sum(x => x.ProposedQuestionCount),
+            TotalDraftProblems = rows.Sum(x => x.DraftQuestionCount),
             RequiresIndependentReview = true,
             Topics = rows
         });
