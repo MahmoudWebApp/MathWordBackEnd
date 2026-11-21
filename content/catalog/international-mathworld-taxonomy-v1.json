@@ -1,0 +1,591 @@
+{
+  "schema_version": "1.0.0",
+  "status": "proposed_for_editorial_review",
+  "user_visible_navigation": "stage > category > groups of ten questions",
+  "note": "These 10 per stage navigation categories are MathWorld's synthesis, not an official Cambridge, Common Core, PISA or MSC taxonomy. Skill tags remain metadata, not additional student navigation.",
+  "target": {
+    "stages": 4,
+    "categories_per_stage_initial": 10,
+    "questions_per_category_initial": 100,
+    "group_size": 10,
+    "lifetime_cap": false
+  },
+  "standards": {
+    "cambridge_primary": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-primary/curriculum/mathematics/",
+    "cambridge_lower": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-lower-secondary/curriculum/mathematics/",
+    "common_core": "https://corestandards.org/mathematics-standards/",
+    "pisa": "https://www.oecd.org/en/publications/pisa-2022-assessment-and-analytical-framework_dfe0bf9c-en/full-report/component-3.html",
+    "msc2020": "https://mathscinet.ams.org/msc/msc.html",
+    "cupm": "https://maa.org/resource/cupm-guide/"
+  },
+  "stage_levels": [
+    {
+      "stage_id": 1,
+      "name_ar": "ابتدائية",
+      "name_en": "Primary",
+      "category_count": 10,
+      "categories": [
+        {
+          "stable_key": "p-number-sense",
+          "order": 1,
+          "name_ar": "الأعداد والقيمة المكانية",
+          "name_en": "Number Sense & Place Value",
+          "skill_keys": [
+            "counting",
+            "place-value",
+            "number-comparison",
+            "rounding"
+          ]
+        },
+        {
+          "stable_key": "p-add-subtract",
+          "order": 2,
+          "name_ar": "الجمع والطرح",
+          "name_en": "Addition & Subtraction",
+          "skill_keys": [
+            "whole-number-addition",
+            "whole-number-subtraction",
+            "word-problems"
+          ]
+        },
+        {
+          "stable_key": "p-multiply-divide",
+          "order": 3,
+          "name_ar": "الضرب والقسمة",
+          "name_en": "Multiplication & Division",
+          "skill_keys": [
+            "multiplication-facts",
+            "division-facts",
+            "equal-groups",
+            "multi-step"
+          ]
+        },
+        {
+          "stable_key": "p-fractions-decimals",
+          "order": 4,
+          "name_ar": "الكسور والأعداد العشرية",
+          "name_en": "Fractions & Decimals",
+          "skill_keys": [
+            "fraction-models",
+            "equivalence",
+            "decimal-place-value",
+            "basic-percentages"
+          ]
+        },
+        {
+          "stable_key": "p-patterns-algebra",
+          "order": 5,
+          "name_ar": "الأنماط والتفكير الجبري",
+          "name_en": "Patterns & Early Algebra",
+          "skill_keys": [
+            "number-patterns",
+            "unknowns",
+            "one-step-equations",
+            "substitution"
+          ]
+        },
+        {
+          "stable_key": "p-shapes-geometry",
+          "order": 6,
+          "name_ar": "الأشكال والهندسة",
+          "name_en": "Shapes & Geometry",
+          "skill_keys": [
+            "2d-shapes",
+            "3d-shapes",
+            "angles",
+            "spatial-reasoning"
+          ]
+        },
+        {
+          "stable_key": "p-measure-units",
+          "order": 7,
+          "name_ar": "القياس وتحويل الوحدات",
+          "name_en": "Measurement & Units",
+          "skill_keys": [
+            "length",
+            "mass",
+            "capacity",
+            "time",
+            "metric-conversion"
+          ]
+        },
+        {
+          "stable_key": "p-perimeter-area",
+          "order": 8,
+          "name_ar": "المحيط والمساحة والحجوم",
+          "name_en": "Perimeter, Area & Volume",
+          "skill_keys": [
+            "perimeter",
+            "area",
+            "unit-squares",
+            "basic-volume"
+          ]
+        },
+        {
+          "stable_key": "p-data-statistics",
+          "order": 9,
+          "name_ar": "البيانات والإحصاء المبسّط",
+          "name_en": "Data & Introductory Statistics",
+          "skill_keys": [
+            "charts",
+            "mean",
+            "median",
+            "mode"
+          ]
+        },
+        {
+          "stable_key": "p-basic-probability",
+          "order": 10,
+          "name_ar": "الاحتمال البسيط",
+          "name_en": "Basic Probability",
+          "skill_keys": [
+            "possible-outcomes",
+            "simple-events",
+            "basic-proportions"
+          ]
+        }
+      ]
+    },
+    {
+      "stage_id": 2,
+      "name_ar": "إعدادية",
+      "name_en": "Lower Secondary",
+      "category_count": 10,
+      "categories": [
+        {
+          "stable_key": "m-integers-rationals",
+          "order": 1,
+          "name_ar": "الأعداد الصحيحة والنسبية",
+          "name_en": "Integers & Rational Numbers",
+          "skill_keys": [
+            "signed-operations",
+            "rational-arithmetic",
+            "ordering"
+          ]
+        },
+        {
+          "stable_key": "m-number-theory",
+          "order": 2,
+          "name_ar": "القواسم والمضاعفات",
+          "name_en": "Divisibility & Number Theory",
+          "skill_keys": [
+            "prime-factors",
+            "gcd",
+            "lcm",
+            "divisibility"
+          ]
+        },
+        {
+          "stable_key": "m-powers-roots",
+          "order": 3,
+          "name_ar": "الأسس والجذور",
+          "name_en": "Powers & Roots",
+          "skill_keys": [
+            "exponent-laws",
+            "roots",
+            "scientific-notation"
+          ]
+        },
+        {
+          "stable_key": "m-ratios-percentages",
+          "order": 4,
+          "name_ar": "النسب والتناسب والمئويات",
+          "name_en": "Ratios, Proportions & Percentages",
+          "skill_keys": [
+            "ratios",
+            "rates",
+            "direct-proportion",
+            "percent-change"
+          ]
+        },
+        {
+          "stable_key": "m-algebra-expressions",
+          "order": 5,
+          "name_ar": "التعابير الجبرية",
+          "name_en": "Algebraic Expressions",
+          "skill_keys": [
+            "expand",
+            "simplify",
+            "factor-basics",
+            "substitution"
+          ]
+        },
+        {
+          "stable_key": "m-equations-inequalities",
+          "order": 6,
+          "name_ar": "المعادلات والمتباينات",
+          "name_en": "Equations & Inequalities",
+          "skill_keys": [
+            "linear-equations",
+            "inequalities",
+            "word-equations"
+          ]
+        },
+        {
+          "stable_key": "m-functions-graphs",
+          "order": 7,
+          "name_ar": "الدوال والتمثيل البياني",
+          "name_en": "Functions & Graphs",
+          "skill_keys": [
+            "function-evaluation",
+            "coordinates",
+            "linear-functions",
+            "slope"
+          ]
+        },
+        {
+          "stable_key": "m-geometry-reasoning",
+          "order": 8,
+          "name_ar": "الهندسة والاستدلال",
+          "name_en": "Geometry & Reasoning",
+          "skill_keys": [
+            "angles",
+            "similarity",
+            "pythagoras",
+            "area-volume"
+          ]
+        },
+        {
+          "stable_key": "m-statistics",
+          "order": 9,
+          "name_ar": "الإحصاء وتحليل البيانات",
+          "name_en": "Statistics & Data Analysis",
+          "skill_keys": [
+            "summary-measures",
+            "charts",
+            "distributions"
+          ]
+        },
+        {
+          "stable_key": "m-probability",
+          "order": 10,
+          "name_ar": "الاحتمال",
+          "name_en": "Probability",
+          "skill_keys": [
+            "sample-spaces",
+            "simple-compound-events",
+            "frequency"
+          ]
+        }
+      ]
+    },
+    {
+      "stage_id": 3,
+      "name_ar": "ثانوية",
+      "name_en": "Upper Secondary",
+      "category_count": 10,
+      "categories": [
+        {
+          "stable_key": "s-polynomials-equations",
+          "order": 1,
+          "name_ar": "كثيرات الحدود والمعادلات",
+          "name_en": "Polynomials & Equations",
+          "skill_keys": [
+            "factoring",
+            "quadratics",
+            "roots",
+            "discriminant"
+          ]
+        },
+        {
+          "stable_key": "s-functions-graphs",
+          "order": 2,
+          "name_ar": "الدوال والرسوم البيانية",
+          "name_en": "Functions & Graphs",
+          "skill_keys": [
+            "domain-range",
+            "transformations",
+            "composition",
+            "inverse"
+          ]
+        },
+        {
+          "stable_key": "s-exponents-logarithms",
+          "order": 3,
+          "name_ar": "الدوال الأسّية واللوغاريتمية",
+          "name_en": "Exponential & Logarithmic Functions",
+          "skill_keys": [
+            "logarithm-laws",
+            "exponential-models",
+            "inverse-relations"
+          ]
+        },
+        {
+          "stable_key": "s-trigonometry",
+          "order": 4,
+          "name_ar": "حساب المثلثات",
+          "name_en": "Trigonometry",
+          "skill_keys": [
+            "trigonometric-ratios",
+            "identities",
+            "angles",
+            "equations"
+          ]
+        },
+        {
+          "stable_key": "s-analytic-geometry-vectors",
+          "order": 5,
+          "name_ar": "الهندسة التحليلية والمتجهات",
+          "name_en": "Coordinate Geometry & Vectors",
+          "skill_keys": [
+            "lines",
+            "circles",
+            "vectors",
+            "dot-product"
+          ]
+        },
+        {
+          "stable_key": "s-sequences-series",
+          "order": 6,
+          "name_ar": "المتتاليات والمتسلسلات",
+          "name_en": "Sequences & Series",
+          "skill_keys": [
+            "arithmetic-sequences",
+            "geometric-sequences",
+            "series-sums"
+          ]
+        },
+        {
+          "stable_key": "s-limits-derivatives",
+          "order": 7,
+          "name_ar": "النهايات والمشتقات",
+          "name_en": "Limits & Derivatives",
+          "skill_keys": [
+            "limits",
+            "derivative-rules",
+            "tangents",
+            "applications"
+          ]
+        },
+        {
+          "stable_key": "s-integrals",
+          "order": 8,
+          "name_ar": "التكامل",
+          "name_en": "Integral Calculus",
+          "skill_keys": [
+            "antiderivatives",
+            "definite-integrals",
+            "fundamental-theorem"
+          ]
+        },
+        {
+          "stable_key": "s-statistics",
+          "order": 9,
+          "name_ar": "الإحصاء",
+          "name_en": "Statistics",
+          "skill_keys": [
+            "variation",
+            "descriptive-statistics",
+            "normal-distribution"
+          ]
+        },
+        {
+          "stable_key": "s-probability-counting",
+          "order": 10,
+          "name_ar": "الاحتمالات والتوافيق",
+          "name_en": "Probability & Counting",
+          "skill_keys": [
+            "combinations",
+            "permutations",
+            "binomial-events",
+            "conditional-probability"
+          ]
+        }
+      ]
+    },
+    {
+      "stage_id": 4,
+      "name_ar": "جامعية",
+      "name_en": "University Foundations",
+      "category_count": 10,
+      "categories": [
+        {
+          "stable_key": "u-single-calculus",
+          "order": 1,
+          "name_ar": "التفاضل والتكامل لمتغير واحد",
+          "name_en": "Single-Variable Calculus",
+          "skill_keys": [
+            "limits",
+            "differentiation",
+            "integration",
+            "series"
+          ]
+        },
+        {
+          "stable_key": "u-multivariable",
+          "order": 2,
+          "name_ar": "التفاضل والتكامل متعدد المتغيرات",
+          "name_en": "Multivariable Calculus",
+          "skill_keys": [
+            "partial-derivatives",
+            "gradients",
+            "multiple-integrals",
+            "directional-derivatives"
+          ]
+        },
+        {
+          "stable_key": "u-linear-algebra",
+          "order": 3,
+          "name_ar": "الجبر الخطي",
+          "name_en": "Linear Algebra",
+          "skill_keys": [
+            "matrices",
+            "determinants",
+            "vector-spaces",
+            "eigenvalues"
+          ]
+        },
+        {
+          "stable_key": "u-differential-equations",
+          "order": 4,
+          "name_ar": "المعادلات التفاضلية",
+          "name_en": "Differential Equations",
+          "skill_keys": [
+            "first-order-ode",
+            "second-order-ode",
+            "initial-value-problems"
+          ]
+        },
+        {
+          "stable_key": "u-real-analysis",
+          "order": 5,
+          "name_ar": "التحليل الحقيقي",
+          "name_en": "Real Analysis",
+          "skill_keys": [
+            "sequences",
+            "convergence",
+            "continuity",
+            "proofs"
+          ]
+        },
+        {
+          "stable_key": "u-abstract-algebra",
+          "order": 6,
+          "name_ar": "الجبر المجرد",
+          "name_en": "Abstract Algebra",
+          "skill_keys": [
+            "groups",
+            "rings",
+            "fields",
+            "homomorphisms"
+          ]
+        },
+        {
+          "stable_key": "u-discrete-combinatorics",
+          "order": 7,
+          "name_ar": "الرياضيات المنفصلة والتوافيق",
+          "name_en": "Discrete Mathematics & Combinatorics",
+          "skill_keys": [
+            "logic",
+            "graph-theory",
+            "counting",
+            "recurrences"
+          ]
+        },
+        {
+          "stable_key": "u-probability",
+          "order": 8,
+          "name_ar": "نظرية الاحتمالات",
+          "name_en": "Probability Theory",
+          "skill_keys": [
+            "random-variables",
+            "distributions",
+            "expectation",
+            "conditional-probability"
+          ]
+        },
+        {
+          "stable_key": "u-math-statistics",
+          "order": 9,
+          "name_ar": "الإحصاء الرياضي",
+          "name_en": "Mathematical Statistics",
+          "skill_keys": [
+            "estimation",
+            "hypothesis-testing",
+            "inference",
+            "regression"
+          ]
+        },
+        {
+          "stable_key": "u-numerical-analysis",
+          "order": 10,
+          "name_ar": "التحليل العددي",
+          "name_en": "Numerical Analysis",
+          "skill_keys": [
+            "root-finding",
+            "numerical-integration",
+            "error-analysis",
+            "linear-systems"
+          ]
+        }
+      ]
+    }
+  ],
+  "question_metadata": {
+    "required": [
+      "stage_id",
+      "category_key",
+      "skill_key",
+      "learning_objective",
+      "content_key",
+      "template_family",
+      "difficulty_level",
+      "pisa_process",
+      "question_ar",
+      "question_en",
+      "solution_ar",
+      "solution_en",
+      "four_distinct_options",
+      "correct_option",
+      "latex_validated",
+      "editorial_status"
+    ],
+    "pisa_processes": [
+      "formulate",
+      "employ",
+      "interpret_evaluate"
+    ],
+    "editorial_statuses": [
+      "draft",
+      "validated",
+      "reviewed",
+      "published",
+      "retired"
+    ],
+    "difficulty_levels": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "review_requirements": [
+      "mathematical-correctness",
+      "one-correct-answer",
+      "bilingual-meaning-equivalence",
+      "curriculum-stage-appropriateness",
+      "semantic-deduplication",
+      "four-plausible-distractors",
+      "worked-solution",
+      "latex-web-flutter"
+    ],
+    "unique_content_policy": "stable content_key + normalised bilingual text + canonical maths/template-family; no automatic publishing"
+  },
+  "advanced_university_extensions": [
+    "complex-analysis",
+    "topology",
+    "partial-differential-equations",
+    "functional-analysis",
+    "optimization",
+    "geometry-and-topology",
+    "stochastic-processes",
+    "mathematical-modeling"
+  ],
+  "safeguards": [
+    "Never renumber or delete existing stage/category/problem IDs",
+    "No automatic production reclassification",
+    "Keep learner attempts and progress linked by immutable problem ID",
+    "Free two-category policy must be reevaluated before any category migration",
+    "100 is initial curated batch size, not a hard content cap"
+  ]
+}
