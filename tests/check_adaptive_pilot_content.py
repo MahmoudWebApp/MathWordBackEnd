@@ -83,7 +83,7 @@ checks = {
     "handshake-lemma-edges": str(sum([2,2,2,2])//2),
     "choose-two-seven": str(math.comb(7,2)),
     "pigeonhole-thirteen-twelve": str(math.ceil(13/12)),
-    "modulo-three-equivalence": r"\text{نعم / Yes}",
+    "modulo-three-equivalence": "3",
     "tree-nine-vertices": str(9-1),
 }
 assert set(checks) == set(answers), (set(checks)^set(answers))
