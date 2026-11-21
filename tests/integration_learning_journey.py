@@ -69,10 +69,8 @@ def main():
     new_student = expect("POST", "/api/auth/register", 201, stage_later)
     assert new_student.get("CurrentStageId") is None, new_student
     stage_token = new_student["Token"]
-    new_login = expect("POST", "/api/auth/login", 200, {
-        "Email": stage_later["Email"], "Password": stage_later["Password"]
-    })
-    assert new_login.get("CurrentStageId") is None, new_login
+    # Existing suite already verifies login later. Avoid exceeding its
+    # short-window auth rate limit with an extra test login.
     chosen = expect("PUT", "/api/users/learning-stage", 200,
                     {"StageId": stage2}, stage_token)
     assert chosen["StageId"] == stage2, chosen
