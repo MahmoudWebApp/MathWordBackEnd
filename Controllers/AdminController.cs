@@ -8,6 +8,7 @@ using MathWorldAPI.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Npgsql;
 
 namespace MathWorldAPI.Controllers
 {
@@ -26,6 +27,13 @@ namespace MathWorldAPI.Controllers
         /// The current limit is 2 MB.
         /// </summary>
         private const long MaximumIconSize = 2 * 1024 * 1024;
+
+        // A database expression index also guards concurrent admin requests.
+        private static bool IsDuplicateProblemQuestion(DbUpdateException exception) =>
+            exception.InnerException is PostgresException postgres &&
+            postgres.SqlState == PostgresErrorCodes.UniqueViolation &&
+            (postgres.ConstraintName == "UX_Problems_StageQuestionArNormalized" ||
+             postgres.ConstraintName == "UX_Problems_StageQuestionEnNormalized");
 
         private readonly AppDbContext _context;
         private readonly IMeiliSearchService _searchService;
@@ -471,7 +479,15 @@ namespace MathWorldAPI.Controllers
 
             _context.Problems.Add(problem);
 
-            await _context.SaveChangesAsync();
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateException exception) when (IsDuplicateProblemQuestion(exception))
+            {
+                return Conflict(LanguageHelper.ErrorResponse<ProblemCreatedDto>(
+                    "DuplicateProblemQuestion", language, StatusCodes.Status409Conflict));
+            }
 
             try
             {
@@ -694,7 +710,15 @@ namespace MathWorldAPI.Controllers
                     })
                 .ToList();
 
-            await _context.SaveChangesAsync();
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateException exception) when (IsDuplicateProblemQuestion(exception))
+            {
+                return Conflict(LanguageHelper.ErrorResponse<object>(
+                    "DuplicateProblemQuestion", language, StatusCodes.Status409Conflict));
+            }
             await transaction.CommitAsync();
 
             try
