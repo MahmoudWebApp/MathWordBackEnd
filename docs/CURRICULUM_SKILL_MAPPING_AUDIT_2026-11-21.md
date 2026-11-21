@@ -7,7 +7,7 @@ Connected Supabase project MathWorldDB was updated in **development** only. All 
 - 386 current problems; **386/386** now linked to exactly one **draft primary skill**.
 - **75** skill records, including the 6 previously tagged primary arithmetic skills plus 69 from a reviewed template-group mapping of the other 360 problems.
 - Eight top-level domains, not a fixed category count. No new categories published yet.
-- 0 external framework code mappings currently; these require exact and grade-appropriate verification, especially MSC2020 for university content.
+- 10 CCSS standards are now linked to 10 draft skills as **related** references after checking the official CCSS text; 0 direct-certification claims. Cambridge/PISA/MSC2020 skill-code mapping remains unverified, particularly MSC2020 for university content.
 - 17 skills have one problem; 22 have fewer than three problems; 41 have one digit-normalized question template, showing incomplete diversity even though every existing question is mapped. Numeric-normalization is a screening heuristic, NOT expert judgment.
 - 0 problems missing a primary skill, 0 invalid cross-category primary links in mapping input.
 - 7 users, 37 attempts and 30 progress records remained as is. No account, auth, Premium or Free policy changes.
@@ -20,6 +20,7 @@ Connected Supabase project MathWorldDB was updated in **development** only. All 
 - `Controllers/CurriculumController.cs`: public reference frameworks with non-accreditation disclaimer; only published domains/skills returned.
 - `Controllers/AdminCurriculumSkillsController.cs`: admin-only live curriculum coverage by category and objective, with active-admin check and invalid-link report.
 - Index fix for category foreign key added after advisor warning.
+- `scripts/seed_ccss_related_standard_mappings.sql`: 10 researched CCSS related links for primary arithmetic and middle-stage ratios/percentages; does not imply official endorsement or a complete grade-level standards mapping.
 
 ## Developer cautions and checks
 - Database changes verified via Supabase SQL, but **no dotnet build** available here. GitHub draft PR / CI should run before merging.
