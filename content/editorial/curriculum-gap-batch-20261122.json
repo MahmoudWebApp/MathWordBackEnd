@@ -480,39 +480,39 @@
           "pisaProcess": "employ"
         },
         {
-          "contentKey": "mw-20261122-m-integers-rationals-signed-division",
-          "primarySkillKey": 0,
-          "templateFamilyKey": "m-integers-rationals-signed-division",
+          "contentKey": "mw-20261122-m-integers-rationals-integer-ordering",
+          "primarySkillKey": 1,
+          "templateFamilyKey": "m-integers-rationals-integer-ordering",
           "difficultyLevel": 2,
-          "titleAr": "قسمة الموقّعات",
-          "titleEn": "Division with signs",
-          "questionTextAr": "احسب (−24)÷6.",
-          "questionTextEn": "Evaluate (−24)÷6.",
-          "detailedSolutionAr": "إشارة الناتج سالبة؛ 24÷6=4، إذاً −4.",
-          "detailedSolutionEn": "Signs differ, so the result is negative: 24÷6=4, hence −4.",
+          "titleAr": "ترتيب الأعداد الموقّعة",
+          "titleEn": "Ordering signed integers",
+          "questionTextAr": "رتّب الأعداد −8، −2، 4، 0 تصاعدياً.",
+          "questionTextEn": "Order −8, −2, 4, 0 from least to greatest.",
+          "detailedSolutionAr": "الأعداد السالبة أصغر من الصفر، والأبعد عنه إلى اليسار أصغر: −8 < −2 < 0 < 4.",
+          "detailedSolutionEn": "Negative integers lie below zero; farther left means smaller: −8 < −2 < 0 < 4.",
           "options": [
             {
               "Order": 1,
-              "IsCorrect": false,
-              "LatexCode": "4"
+              "LatexCode": "−2، −8، 0، 4",
+              "IsCorrect": false
             },
             {
               "Order": 2,
-              "IsCorrect": false,
-              "LatexCode": "−6"
+              "LatexCode": "−8، −2، 0، 4",
+              "IsCorrect": true
             },
             {
               "Order": 3,
-              "IsCorrect": true,
-              "LatexCode": "−4"
+              "LatexCode": "4، 0، −2، −8",
+              "IsCorrect": false
             },
             {
               "Order": 4,
-              "IsCorrect": false,
-              "LatexCode": "6"
+              "LatexCode": "−8، 0، −2، 4",
+              "IsCorrect": false
             }
           ],
-          "pisaProcess": "employ"
+          "pisaProcess": "interpret"
         },
         {
           "contentKey": "mw-20261122-m-integers-rationals-abs-distance",
