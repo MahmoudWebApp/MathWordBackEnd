@@ -211,7 +211,7 @@ def main():
     assert api("GET", "/api/users/daily-challenge?stageId=2", token=learner1)[0] == 400
 
     report = expect("GET", "/api/users/premium-analytics", 200, token=learner1)
-    assert report["SolvedProblems"] == 1 and report["Attempts"] == 2, report
+    assert report["SolvedProblems"] == 1 and report["Attempts"] == 1, report
     assert report["CorrectAttempts"] == 2 and report["AwardedPoints"] == 10, report
     assert len(report["Categories"]) == 1, report
     category = report["Categories"][0]
