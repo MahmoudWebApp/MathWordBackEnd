@@ -97,7 +97,7 @@ for topic in data["topics"]:
             assert len(item["questionText"+lang].strip()) >= 15
             assert len(item["detailedSolution"+lang].strip()) >= 15
             normalized = re.sub(r"[0-9٠-٩]+", "#",item["questionText"+lang].lower())
-            normalized = re.sub(r"\\s+", " ", normalized).strip()
+            normalized = re.sub(r"\s+", " ", normalized).strip()
             assert (stage,lang,normalized) not in templates, key
             templates.add((stage,lang,normalized))
         opts = item["options"]
