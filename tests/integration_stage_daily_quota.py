@@ -170,8 +170,11 @@ def main():
     assert unsolved["Total"] == visible["Total"] - 1, (
         "Solved questions must be excluded before pagination and totals", visible, unsolved
     )
-    assert not {qid for qid, _ in questions}.intersection(
-        {problem["Id"] for problem in unsolved["Results"]}), unsolved
+    # Resetting this category made all previously solved questions New,
+    # except the single question the learner just answered in the new cycle.
+    assert questions[0][0] not in {p["Id"] for p in unsolved["Results"]}, unsolved
+    assert {qid for qid, _ in questions[1:]}.issubset(
+        {p["Id"] for p in unsolved["Results"]}), unsolved
     unauthorized, _ = api("GET", "/api/problems/search?stageId=1&hideSolved=true")
     assert unauthorized == 401, unauthorized
 
