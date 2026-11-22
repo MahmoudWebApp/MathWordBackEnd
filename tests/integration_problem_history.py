@@ -107,6 +107,55 @@ def solved_count(admin, question_id):
     return problem["SolvedCount"]
 
 
+def verify_diverse_category_paging(admin, student_token):
+    """On CI's disposable DB, numerical variants should not fill page one."""
+    newest = {}
+    for family in ("المربعات", "الأشجار", "الرسومات"):
+        for variant in (1, 2):
+            body = make_question(1000 + variant)
+            body["QuestionTextAr"] = (
+                f"سؤال التنوع {family} يحتوي {variant} عناصر"
+            )
+            body["QuestionTextEn"] = (
+                f"Curriculum diversity {family} has {variant} items"
+            )
+            item = expect("POST", "/api/admin/problems", 201, body, admin)
+            newest[family] = item["Id"]
+
+    data = expect(
+        "GET", "/api/categories/1/problems?page=1&pageSize=3",
+        200, token=student_token
+    )
+    first_ids = [item["Id"] for item in data["Items"]]
+    assert first_ids == [
+        newest["الرسومات"], newest["الأشجار"], newest["المربعات"]
+    ], ("A learner received repeated number clones before fresh concepts", first_ids)
+
+    # The same order must remain stable when clients change page size.
+    page1 = expect(
+        "GET", "/api/categories/1/problems?page=1&pageSize=2",
+        200, token=student_token
+    )
+    page2 = expect(
+        "GET", "/api/categories/1/problems?page=2&pageSize=2",
+        200, token=student_token
+    )
+    ids1 = [item["Id"] for item in page1["Items"]]
+    ids2 = [item["Id"] for item in page2["Items"]]
+    full = expect(
+        "GET", "/api/categories/1/problems?page=1&pageSize=4",
+        200, token=student_token
+    )
+    assert ids1 + ids2 == [item["Id"] for item in full["Items"]]
+    assert not set(ids1).intersection(ids2), "Overlapping pages"
+
+    # Browsing remains a preview for guests: no question body/answers.
+    guest = expect("GET", "/api/categories/1/problems?page=1&pageSize=2", 200)
+    assert all("QuestionText" not in item and "Options" not in item
+               for item in guest["Items"])
+    print("PASS: category previews interleave math concepts before numeric clones")
+
+
 def main():
     assert BASE.startswith(("http://127.0.0.1:", "http://localhost:")), (
         "Refusing destructive integration checks against a remote URL"
@@ -161,6 +210,7 @@ def main():
     expect("POST", "/api/users/favorite/toggle", 200,
            {"ProblemId": favorite_id, "IsFavorite": True}, users[0])
     expect("DELETE", f"/api/admin/problems/{favorite_id}", 409, token=admin)
+    verify_diverse_category_paging(admin, users[0])
     print("PASS: same-user concurrency, atomic solves, history, CRUD guards")
 
 
