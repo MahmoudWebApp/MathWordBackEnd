@@ -153,7 +153,7 @@ def main():
     code, _ = submit(learner1, question_id, correct_option)
     assert code == 200
     code, _ = submit(learner1, question_id, correct_option)
-    assert code == 200
+    assert code == 409  # Already solved; no extra badges or repeat points
     notices = expect("GET", "/api/notifications/v2", 200, token=learner1)["Items"]
     achievements = [n for n in notices if n["Type"] == "achievement"]
     assert len(achievements) == 1, achievements
