@@ -1,0 +1,475 @@
+{
+  "batch_key": "mathworld-bank2-university",
+  "status": "editorial_pending",
+  "stage": 4,
+  "problems": [
+    {
+      "ContentKey": "mw-bank2-u-dot-perpendicular",
+      "StageId": 4,
+      "PrimarySkillKey": "university-dot-product",
+      "TemplateFamilyKey": "concept-u-dot-perpendicular",
+      "LearningObjectiveAr": "تمييز التعامد من الضرب النقطي",
+      "LearningObjectiveEn": "Recognize perpendicular vectors through a dot product",
+      "QuestionTextAr": "ما الضرب النقطي للمتجهين (2, −3) و(3، 2)؟",
+      "QuestionTextEn": "What is the dot product of vectors (2, −3) and (3, 2)?",
+      "DetailedSolutionAr": "الضرب النقطي 2 × 3 + (−3) × 2 = 6 − 6 = 0، لذا المتجهان متعامدان.",
+      "DetailedSolutionEn": "The dot product is 2 × 3 + (−3) × 2 = 6 − 6 = 0, so the vectors are orthogonal.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "-12",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "0",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "6",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "12",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 2,
+      "PisaProcess": "employ",
+      "CognitiveType": "orthogonality",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank2-u-dot-three-dimensional",
+      "StageId": 4,
+      "PrimarySkillKey": "university-dot-product",
+      "TemplateFamilyKey": "concept-u-dot-three-dimensional",
+      "LearningObjectiveAr": "حساب الضرب النقطي في فضاء ثلاثي الأبعاد",
+      "LearningObjectiveEn": "Compute a dot product in three dimensions",
+      "QuestionTextAr": "احسب الضرب النقطي (1، 2، −1) · (4، 0، 5).",
+      "QuestionTextEn": "Compute the dot product (1, 2, −1) · (4, 0, 5).",
+      "DetailedSolutionAr": "نضرب المركبات المتناظرة ونجمع: 1 × 4 + 2 × 0 + (−1) × 5 = −1.",
+      "DetailedSolutionEn": "Multiply matching components and add: 1 × 4 + 2 × 0 + (−1) × 5 = −1.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "-9",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "-1",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "1",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "9",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 2,
+      "PisaProcess": "employ",
+      "CognitiveType": "three-dimensional",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank2-u-dot-parameter",
+      "StageId": 4,
+      "PrimarySkillKey": "university-dot-product",
+      "TemplateFamilyKey": "concept-u-dot-parameter",
+      "LearningObjectiveAr": "استنتاج مركبة مجهولة من شرط التعامد",
+      "LearningObjectiveEn": "Find an unknown vector component from orthogonality",
+      "QuestionTextAr": "المتجهان (k، 2) و(3، −6) متعامدان. ما قيمة k؟",
+      "QuestionTextEn": "Vectors (k, 2) and (3, −6) are perpendicular. What is k?",
+      "DetailedSolutionAr": "شرط التعامد: 3k + 2(−6) = 0، أي 3k = 12، فتكون k = 4.",
+      "DetailedSolutionEn": "Orthogonality requires 3k + 2(−6) = 0, hence 3k = 12 and k = 4.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "-4",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "2",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "4",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "6",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "CognitiveType": "symbolic-parameter",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank2-u-dot-angle-cos",
+      "StageId": 4,
+      "PrimarySkillKey": "university-dot-product",
+      "TemplateFamilyKey": "concept-u-dot-angle-cos",
+      "LearningObjectiveAr": "حساب جيب تمام الزاوية بين متجهين من الضرب النقطي",
+      "LearningObjectiveEn": "Find cosine of angle between two vectors",
+      "QuestionTextAr": "ما قيمة cos(θ) بين المتجهين (1، 0) و(1، √3)؟",
+      "QuestionTextEn": "What is cos θ between vectors (1, 0) and (1, √3)?",
+      "DetailedSolutionAr": "الضرب النقطي 1، والطولان 1 و2، لذا cos(θ) = 1 ÷ (1 × 2) = 1/2.",
+      "DetailedSolutionEn": "The dot product is 1, and the magnitudes are 1 and 2. Thus cos θ = 1/(1 × 2) = 1/2.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\frac12",
+          "IsCorrect": true
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\frac{\\sqrt3}{2}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "1",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "2",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "interpret_evaluate",
+      "CognitiveType": "angle-geometry",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank2-u-independent-determinant",
+      "StageId": 4,
+      "PrimarySkillKey": "university-linear-independence",
+      "TemplateFamilyKey": "concept-u-independent-determinant",
+      "LearningObjectiveAr": "استخدام محدد مصفوفة عمودين للتحقق من الاستقلال",
+      "LearningObjectiveEn": "Use a 2-by-2 determinant to assess independence",
+      "QuestionTextAr": "ما محدد المصفوفة التي عموداها (1، 2) و(3، 7)؟",
+      "QuestionTextEn": "What is the determinant of the matrix with columns (1, 2) and (3, 7)?",
+      "DetailedSolutionAr": "المصفوفة [[1,3],[2,7]]، ومحددها 1 × 7 − 3 × 2 = 1؛ إذن العمودان مستقلان خطياً.",
+      "DetailedSolutionEn": "The matrix is [[1,3],[2,7]]. Its determinant is 1 × 7 − 3 × 2 = 1, so its columns are independent.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "0",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "1",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "5",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "13",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "CognitiveType": "nonzero-determinant",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank2-u-independent-dimension",
+      "StageId": 4,
+      "PrimarySkillKey": "university-linear-independence",
+      "TemplateFamilyKey": "concept-u-independent-dimension",
+      "LearningObjectiveAr": "إيجاد بُعد الفضاء المولّد من متجهين مستقلين",
+      "LearningObjectiveEn": "Find the dimension of a span of independent vectors",
+      "QuestionTextAr": "ما بُعد الفضاء المولّد بالمتجهين (1، 0، 1) و(0، 1، 1) في R³؟",
+      "QuestionTextEn": "What is the dimension of the span of (1, 0, 1) and (0, 1, 1) in R³?",
+      "DetailedSolutionAr": "المتجهان غير متناسبين، ولا يمكن كتابة أحدهما كمضاعف للآخر؛ إذن مستقلان وبُعد فضائهما المولّد 2.",
+      "DetailedSolutionEn": "Neither vector is a scalar multiple of the other, so they are independent and their span has dimension 2.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "0",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "1",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "2",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "3",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 2,
+      "PisaProcess": "interpret_evaluate",
+      "CognitiveType": "span-dimension",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank2-u-independent-dependent-rank",
+      "StageId": 4,
+      "PrimarySkillKey": "university-linear-independence",
+      "TemplateFamilyKey": "concept-u-independent-dependent-rank",
+      "LearningObjectiveAr": "تمييز اعتماد متجهين متناسبين وتحديد رتبة مصفوفتهم",
+      "LearningObjectiveEn": "Identify a dependent pair and its matrix rank",
+      "QuestionTextAr": "ما رتبة المصفوفة التي عموداها (2، 4) و(5، 10)؟",
+      "QuestionTextEn": "What is the rank of the matrix with columns (2, 4) and (5, 10)?",
+      "DetailedSolutionAr": "العمود الثاني يساوي 2.5 مرة الأول؛ لذلك هما معتمدان خطياً، والرتبة 1.",
+      "DetailedSolutionEn": "The second column is 2.5 times the first. The columns are dependent, so the rank is 1.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "0",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "1",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "2",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "4",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 2,
+      "PisaProcess": "interpret_evaluate",
+      "CognitiveType": "proportional-columns",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank2-u-independent-three-r2",
+      "StageId": 4,
+      "PrimarySkillKey": "university-linear-independence",
+      "TemplateFamilyKey": "concept-u-independent-three-r2",
+      "LearningObjectiveAr": "تحديد أكبر عدد من المتجهات المستقلة في مستوٍ",
+      "LearningObjectiveEn": "Determine maximal independence within R²",
+      "QuestionTextAr": "في R² لدينا المتجهات (1، 2) و(3، 6) و(0، 1). ما أكبر عدد يمكن اختياره منها بحيث تكون مستقلة خطياً؟",
+      "QuestionTextEn": "In R² consider (1, 2), (3, 6), and (0, 1). What is the largest number of linearly independent vectors among them?",
+      "DetailedSolutionAr": "المتجه الثاني ثلاثة أضعاف الأول، أما الأول والثالث فمستقلان؛ لذلك العدد الأكبر 2، ولا يمكن وجود ثلاثة متجهات مستقلة في R².",
+      "DetailedSolutionEn": "The second vector is three times the first. The first and third are independent, so the maximum number is 2; three vectors cannot be independent in R².",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "0",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "1",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "2",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "3",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "interpret_evaluate",
+      "CognitiveType": "basis-selection",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank2-u-monotone-one-minus",
+      "StageId": 4,
+      "PrimarySkillKey": "university-monotone-convergence",
+      "TemplateFamilyKey": "concept-u-monotone-one-minus",
+      "LearningObjectiveAr": "استنتاج نهاية متتالية متزايدة ومحدودة",
+      "LearningObjectiveEn": "Find a bounded increasing sequence's limit",
+      "QuestionTextAr": "متتالية aₙ = 1 − 1/n للأعداد الطبيعية n ≥ 1. ما نهايتها؟",
+      "QuestionTextEn": "For n ≥ 1, aₙ = 1 − 1/n. What is its limit?",
+      "DetailedSolutionAr": "كلما كبر n صغر 1/n نحو الصفر، وتزداد aₙ نحو 1 من الأسفل. لذا نهايتها 1.",
+      "DetailedSolutionEn": "As n increases, 1/n decreases to zero. Thus aₙ increases toward 1 from below.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "0",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "1",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "2",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "\\infty",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "interpret_evaluate",
+      "CognitiveType": "bounded-increasing",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank2-u-monotone-geometric",
+      "StageId": 4,
+      "PrimarySkillKey": "university-monotone-convergence",
+      "TemplateFamilyKey": "concept-u-monotone-geometric",
+      "LearningObjectiveAr": "تحديد نهاية متتالية هندسية متناقصة",
+      "LearningObjectiveEn": "Find the limit of a decreasing geometric sequence",
+      "QuestionTextAr": "لـ n ≥ 1، اعتبر aₙ = (1/2)ⁿ. ما نهايتها؟",
+      "QuestionTextEn": "For n ≥ 1 let aₙ = (1/2)ⁿ. What is its limit?",
+      "DetailedSolutionAr": "بما أن النسبة 1/2 بين صفر وواحد، فإن حدود المتتالية موجبة ومتناقصة وتقترب من صفر.",
+      "DetailedSolutionEn": "Because the ratio 1/2 is between 0 and 1, terms stay positive, decrease, and tend to zero.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "0",
+          "IsCorrect": true
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\frac12",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "1",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "\\infty",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 2,
+      "PisaProcess": "employ",
+      "CognitiveType": "geometric-limit",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank2-u-monotone-sum",
+      "StageId": 4,
+      "PrimarySkillKey": "university-monotone-convergence",
+      "TemplateFamilyKey": "concept-u-monotone-sum",
+      "LearningObjectiveAr": "تفسير تقارب مجاميع جزئية متزايدة ومحدودة",
+      "LearningObjectiveEn": "Determine a limit of increasing bounded partial sums",
+      "QuestionTextAr": "لتكن aₙ = 1/2 + 1/4 + ⋯ + 1/2ⁿ. ما نهاية aₙ عند n → ∞؟",
+      "QuestionTextEn": "Let aₙ = 1/2 + 1/4 + ⋯ + 1/2ⁿ. What is lim aₙ as n → ∞?",
+      "DetailedSolutionAr": "المجموع الجزئي لمتسلسلة هندسية = 1 − (1/2)ⁿ. وهو متزايد وأصغر من 1 ونهايته 1.",
+      "DetailedSolutionEn": "The partial geometric sum is 1 − (1/2)ⁿ. It increases, stays below 1 and tends to 1.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\frac12",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "1",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "2",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "\\infty",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "CognitiveType": "partial-sums",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank2-u-monotone-recurrence",
+      "StageId": 4,
+      "PrimarySkillKey": "university-monotone-convergence",
+      "TemplateFamilyKey": "concept-u-monotone-recurrence",
+      "LearningObjectiveAr": "إثبات تقارب متتالية معرفة بعلاقة تراجعية",
+      "LearningObjectiveEn": "Find a monotone recurrence's fixed-point limit",
+      "QuestionTextAr": "متتالية تبدأ بـ a₁ = 2، ثم aₙ₊₁ = (aₙ + 6)/2. إذا كانت متزايدة ومحدودة، فما نهايتها؟",
+      "QuestionTextEn": "A sequence starts at a₁ = 2 and satisfies aₙ₊₁ = (aₙ + 6)/2. Assuming it is increasing and bounded, what is its limit?",
+      "DetailedSolutionAr": "إذا كانت النهاية L، فبالمرور للنهاية: L = (L + 6)/2، إذن 2L = L + 6 ومنه L = 6. وفعلاً 2، 4، 5، 5.5… متزايدة ومحدودة بـ6.",
+      "DetailedSolutionEn": "Let the limit be L. Then L = (L + 6)/2, giving L = 6. The terms 2, 4, 5, 5.5, ... increase and remain below 6.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "2",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "4",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "6",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "12",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 4,
+      "PisaProcess": "interpret_evaluate",
+      "CognitiveType": "recurrence-fixed-point",
+      "Points": 10,
+      "ExpertReview": "pending"
+    }
+  ]
+}
