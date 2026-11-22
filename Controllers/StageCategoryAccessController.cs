@@ -66,6 +66,8 @@ public sealed class StageCategoryAccessController : ControllerBase
                 cancellationToken);
 
         var freeIds = ids.ToHashSet();
+        var hasSavedSelection = await _db.StageFreeCategorySelections.AsNoTracking()
+            .AnyAsync(selection => selection.StageId == stageId, cancellationToken);
 
         return Ok(new
         {
@@ -84,7 +86,7 @@ public sealed class StageCategoryAccessController : ControllerBase
             }).ToList(),
             FreeCategoryIds = ids,
             FreeCategoryCount = ids.Count,
-            HasSavedFreeSelection = false,
+            HasSavedFreeSelection = hasSavedSelection,
             DailyProblemLimit = (int?)null,
             GroupsHaveVariableSizes = true
         });

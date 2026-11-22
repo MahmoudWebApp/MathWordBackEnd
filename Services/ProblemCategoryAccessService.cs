@@ -26,11 +26,40 @@ public sealed class ProblemCategoryAccessService
             .Where(c => c.StageId == stageId)
             .OrderBy(c => c.Order).ThenBy(c => c.Id)
             .ToListAsync(cancellationToken);
-        // Free access is a stable product rule: first two categories in
-        // editorial order (then Id) for EVERY stage. Persisted legacy overrides
-        // are intentionally ignored and never used to grant extra access.
-        return categories.Take(CategoryAccessPolicy.DefaultFreeCategoriesPerStage)
-            .Select(category => category.Id).ToList();
+        var saved = await _db.StageFreeCategorySelections.AsNoTracking()
+            .FirstOrDefaultAsync(x => x.StageId == stageId, cancellationToken);
+        if (saved != null)
+        {
+            try
+            {
+                return CategoryAccessPolicy.ResolveFreeCategoryIds(categories,
+                    new[] { saved.FirstCategoryId, saved.SecondCategoryId });
+            }
+            catch (ArgumentException)
+            {
+                return Array.Empty<int>();
+            }
+        }
+        var raw = _configuration[$"FreeCategoryAccess:Stages:{stageId}"];
+        List<int>? configured = null;
+        if (raw is not null)
+        {
+            var parts = raw.Split(',', StringSplitOptions.TrimEntries |
+                StringSplitOptions.RemoveEmptyEntries);
+            if (parts.Length != CategoryAccessPolicy.DefaultFreeCategoriesPerStage ||
+                parts.Any(part => !int.TryParse(part, out _)))
+                return Array.Empty<int>(); // Fail closed.
+            configured = parts.Select(int.Parse).ToList();
+        }
+
+        try
+        {
+            return CategoryAccessPolicy.ResolveFreeCategoryIds(categories, configured);
+        }
+        catch (ArgumentException)
+        {
+            return Array.Empty<int>();
+        }
     }
 
     /// <summary>

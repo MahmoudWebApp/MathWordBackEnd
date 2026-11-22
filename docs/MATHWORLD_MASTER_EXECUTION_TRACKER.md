@@ -1,3 +1,42 @@
+## 2026-11-22 — cross-stack retrospective audit (verified vs not yet finished)
+
+This update supersedes the **execution status** of older 2026-11-13 tracker
+entries, NOT the remaining requirements. Follow the canonical requirements
+register; in particular, each stage has **exactly two ADMIN-SELECTED Free
+categories**, not permanently locked to the first two editorial positions.
+
+- Verified development DB: **601 questions, 24 categories, 94 skills, 2,404
+  answer options, 7 user accounts, 37 attempts and 30 learner progress rows**.
+  No empty categories, exact Arabic duplicate-question groups or mismatched
+  question/category-stage mappings. There are 80 skills below eight questions
+  and 252 extra same-text-numeric-template variants that need concept review.
+- Editorial status: machine math or CI checks do **not** mean human curricular
+  approval. Published drafts still await human editorial sign-off. The
+  standards-aligned roadmap proposes 52 coherent topic candidates; only 24
+  categories are currently present, with no fixed per-stage category quota.
+- Previous Free policy change (backend PR #79) accidentally removed the
+  administrator's ability to choose which two topics are Free. This review
+  restores the audited stage-level selection, with fail-closed validation,
+  preservation of attempts and progress, and the existing disposable PostgreSQL
+  integration scenario. An unsaved stage defaults to its first two topics.
+- Web PR #79 introduced stage -> topic -> problems navigation, Premium popup
+  fixes, and Light Mode pattern; retrospective fixes restore the Free editor
+  inside the selected stage and support extending an already-Premium account,
+  with visible subscription change history.
+- Flutter PR #61 correctly blocks administrator login on mobile; retrospective
+  tests additionally require that an absent role cannot silently become Student.
+  No administrator screen or administrator account is added to Flutter.
+- Operational readiness is **not certified**: Vercel's original alias points
+  to a READY deployment, but full end-to-end browser access is unverified;
+  backend Render rollout was not verified; Google OAuth and Premium conversion
+  require real-device/browser tests; Android launcher icon needs on-device
+  inspection; production restore drill, CAPTCHA/MFA, notifications email/push,
+  ongoing question bank expansion and student challenge UX remain open.
+- Release invariant: one original website, one learner-only mobile app, no
+  fabricated statistics, no checkout prices or purchases until approval.
+
+---
+
 > **ADDITIONAL LOCKED DECISIONS — 2026-11-13:** Free unlocks exactly **two categories in EACH educational stage** by default, admin-selectable, with unlimited daily problem attempts inside unlocked categories. Premium unlocks every category. The legacy 10-per-day quota must be removed **only together with backend category access enforcement**. Later, optionally offer consent-based **rewarded ads to unlock individual otherwise-locked problems** with server-side temporary entitlements, age/privacy and ad-network policy checks, caps and anti-abuse; no ads for Premium and **Ads OFF until reviewed and approved**. Marketing, technical SEO, content SEO, Search Console, analytics, CAPTCHA server validation and launch readiness are mandatory workstreams, not optional post-launch notes.\n\n> **LATEST DECISIONS OVERRIDE OLDER ENTRIES BELOW (2026-11-13):** The Free 10-new-questions/day quota is CANCELLED. Free has unlimited attempts in admin-configurable unlocked categories (initial target: two per stage); Premium has unlimited attempts in all categories. Student groups have CONFIGURABLE size, not a fixed ten. Earlier tracker lines mentioning the daily quota are historical implementation evidence, NOT current requirements. See [category-access policy](MATHWORLD_CATEGORY_ACCESS_AND_EVERGREEN_MEDIA_POLICY.md).
 
 > **Canonical full scope:** [MATHWORLD_CANONICAL_REQUIREMENTS.md](MATHWORLD_CANONICAL_REQUIREMENTS.md). Before starting any new implementation batch, read this file; it consolidates all user-requested features including geometry, Flutter launcher logo, full UI parity, new categories/problems, Premium, notifications, security, launch and zero-extra-cost policy. This tracker records execution status only; no requirement may be dropped because it is absent from a short sprint list.
