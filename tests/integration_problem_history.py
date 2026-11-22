@@ -219,6 +219,29 @@ def main():
            {"ProblemId": favorite_id, "IsFavorite": True}, users[0])
     expect("DELETE", f"/api/admin/problems/{favorite_id}", 409, token=admin)
     verify_diverse_category_paging(admin, users[0])
+    # Incorrect work enters the error notebook; one successful retry removes
+    # it immediately and locks individual replay until a whole-scope reset.
+    mistake_id, mistake_answer = create_question(admin, 9911)
+    admin_problem = expect("GET", f"/api/problems/{mistake_id}", 200, token=admin)
+    wrong_option = next(x["Id"] for x in admin_problem["Options"] if not x["IsCorrect"])
+    wrong_code, wrong = submit(users[0], mistake_id, wrong_option)
+    assert wrong_code == 200 and not wrong["Data"]["IsSolved"], (wrong_code, wrong)
+    notebook = expect("GET", "/api/users/error-notebook", 200, token=users[0])
+    assert mistake_id in {p["Id"] for p in notebook}, notebook
+    retry_code, correct = submit(users[0], mistake_id, mistake_answer)
+    assert retry_code == 200 and correct["Data"]["IsSolved"], (retry_code, correct)
+    assert not correct["Data"]["IsInErrorNotebook"] and not correct["Data"]["CanRetry"], correct
+    notebook = expect("GET", "/api/users/error-notebook", 200, token=users[0])
+    assert mistake_id not in {p["Id"] for p in notebook}, notebook
+    assert submit(users[0], mistake_id, mistake_answer)[0] == 409
+    # Resetting the entire selected stage is also allowed.
+    stage_reset = expect("POST", "/api/users/practice/reset", 200,
+                         {"StageId": 1}, users[0])
+    assert stage_reset["ResetSolved"] >= 2, stage_reset
+    restored = expect("GET", f"/api/problems/{mistake_id}", 200, token=users[0])
+    assert not restored["IsSolved"] and not restored["HasAttempted"], restored
+    assert api("POST", "/api/users/practice/reset", {"StageId": 2}, users[0])[0] == 403
+
     print("PASS: atomic solves, solved replay denied, topic reset, immutable attempts")
 
 
