@@ -247,6 +247,15 @@ public sealed class AdminEngagementController : ControllerBase
             .GroupBy(p => p.UserId)
             .Select(g => new { UserId = g.Key, LastSeenAtUtc = g.Max(p => p.LastSeenAtUtc) })
             .ToDictionaryAsync(x => x.UserId, x => x.LastSeenAtUtc, ct);
+        // Only a user-requested API sign-out is a verified sign-out time.
+        // Admin operator events are never part of the learner report.
+        var lastSignOuts = await _db.PlatformActivityEvents.AsNoTracking()
+            .Where(e => ids.Contains(e.ActorUserId) &&
+                e.ActorRole == "Student" && e.Action == "ExplicitSignOut")
+            .GroupBy(e => e.ActorUserId)
+            .Select(g => new { UserId = g.Key,
+                LastExplicitSignOutAtUtc = g.Max(e => e.CreatedAtUtc) })
+            .ToDictionaryAsync(x => x.UserId, x => x.LastExplicitSignOutAtUtc, ct);
         var presenceCutoff = PresenceCutoff();
         return Ok(LanguageHelper.SuccessResponse(new
         {
@@ -257,6 +266,8 @@ public sealed class AdminEngagementController : ControllerBase
                 return new { u.Id, u.FullName, u.CreatedAt, u.LastLoginAt,
                     u.CurrentStageId, u.IsActive,
                     LastPracticeAt = (DateTime?)stat?.LastPracticeAt,
+                    LastExplicitSignOutAtUtc = lastSignOuts.TryGetValue(u.Id, out var signout)
+                        ? (DateTime?)signout : null,
                     LastHeartbeatAtUtc = lastHeartbeat.TryGetValue(u.Id, out var heartbeat)
                         ? (DateTime?)heartbeat : null,
                     IsOnline = u.IsActive && lastHeartbeat.TryGetValue(u.Id, out var seen) &&
@@ -264,7 +275,7 @@ public sealed class AdminEngagementController : ControllerBase
                     Attempts = stat?.Attempts ?? 0 };
             }).ToArray(),
             PresenceWindowMinutes = 5,
-            Note = "Online means a server heartbeat within five minutes; exact signout cannot be inferred from abrupt app/browser closure."
+            Note = "Online means a recent server heartbeat. LastExplicitSignOutAtUtc is only user-requested sign-out; closing a browser or app is not a verified sign-out."
         }, "Success", LanguageHelper.GetLanguageFromRequest(Request)));
     }
 }
