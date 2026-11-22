@@ -104,6 +104,16 @@ for topic in data["topics"]:
         assert [o["Order"] for o in opts] == [1,2,3,4]
         assert len({o["LatexCode"].strip() for o in opts}) == 4
         assert all(not re.search(r"[\u0621-\u064a]", o["LatexCode"]) for o in opts), ("non-bilingual option",key)
+        # Reject mathematically identical rational distractors, not merely
+        # different strings such as -3/6 and -1/2.
+        def rational_value(value: str):
+            clean = value.strip().replace("−", "-")
+            if re.fullmatch(r"-?\d+(?:/\d+)?", clean):
+                return Fraction(clean)
+            return None
+        rational_choices = [rational_value(o["LatexCode"]) for o in opts]
+        if all(v is not None for v in rational_choices):
+            assert len(set(rational_choices)) == len(rational_choices), ("equivalent fraction distractors", key)
         selected = [o["LatexCode"] for o in opts if o["IsCorrect"] is True]
         assert selected == [expected[key]], (key, selected, expected[key])
     assert min(counts.values()) >= 2 and len(counts) == 3, (topic["stableKey"],counts)

@@ -1,0 +1,383 @@
+{
+  "source": "MathWorld verified live published question audit",
+  "date": "2026-11-22",
+  "scope": "content-only: math titles, explanatory solutions, bilingual distractors; no correct-answer flag/choice IDs/student state changed",
+  "changes": [
+    {
+      "problemId": 7,
+      "oldFields": {
+        "ta": "أكمل النمط التالي: $2, 4, 6, 8, ?",
+        "te": "Complete the following pattern: $2, 4, 6, 8, ?"
+      },
+      "newFields": {
+        "ta": "أكمل النمط: $2, 4, 6, 8, ?$",
+        "te": "Complete the pattern: $2, 4, 6, 8, ?$"
+      },
+      "oldOptions": {},
+      "newOptions": {},
+      "expectedAnswerOptionId": 17
+    },
+    {
+      "problemId": 23,
+      "oldFields": {
+        "te": "Verify that $\\sin^2 \\theta + \\cos^2 \\theta = 1$ by calculating the expression when $\\theta ="
+      },
+      "newFields": {
+        "te": "Verify $\\sin^2\\theta+\\cos^2\\theta=1$ at $\\theta=45^\\circ$"
+      },
+      "oldOptions": {},
+      "newOptions": {},
+      "expectedAnswerOptionId": 81
+    },
+    {
+      "problemId": 28,
+      "oldFields": {
+        "te": "Find the partial derivative $\\frac{\\partial f}{\\partial x}$ of the function $f(x,y) = x^2 y + 3xy^2"
+      },
+      "newFields": {
+        "te": "Find $\\partial f/\\partial x$ for $f=x^2y+3xy^2+\\sin x$"
+      },
+      "oldOptions": {},
+      "newOptions": {},
+      "expectedAnswerOptionId": 101
+    },
+    {
+      "problemId": 29,
+      "oldFields": {
+        "te": "Find the double integral $\\iint_R xy \\, dA$ over the rectangular region $R: 0 \\le x \\le 1, 0 \\le y",
+        "sa": "$\\iint_R xy \\, dA = \\int_0^1 \\int_0^2 xy \\, dy \\, dx = \\int_0^1 x \\left[\\frac{y^2}{2}\\right]_0^2 dx = \\int_0^1 x(2) \\, dx = \\left[x^2\\right]_0^1 = 1$.",
+        "se": "$\\iint_R xy \\, dA = \\int_0^1 \\int_0^2 xy \\, dy \\, dx = \\int_0^1 x \\left[\\frac{y^2}{2}\\right]_0^2 dx = \\int_0^1 x(2) \\, dx = \\left[x^2\\right]_0^1 = 1$."
+      },
+      "newFields": {
+        "te": "Compute $\\iint_R xy\\,dA$, $0\\le x\\le1$, $0\\le y\\le2$",
+        "sa": "نفك التكامل على المنطقة المستطيلة: $\\int_0^1\\int_0^2 xy\\,dy\\,dx$. أولاً بالتكامل بالنسبة إلى $y$ نحصل على $\\int_0^1 2x\\,dx$، ثم نحسب $[x^2]_0^1=1$. إذن قيمة التكامل المزدوج هي $1$.",
+        "se": "Integrate over the rectangle as $\\int_0^1\\int_0^2 xy\\,dy\\,dx$. Integrating in $y$ gives $\\int_0^1 2x\\,dx$; integrating in $x$ yields $[x^2]_0^1=1$. Therefore, the double integral is $1$."
+      },
+      "oldOptions": {},
+      "newOptions": {},
+      "expectedAnswerOptionId": 105
+    },
+    {
+      "problemId": 31,
+      "oldFields": {},
+      "newFields": {},
+      "oldOptions": {
+        "115": "\\text{يعتمد على المجال}",
+        "116": "\\text{غير معرف}"
+      },
+      "newOptions": {
+        "115": "\\text{يعتمد على المجال (Depends on field)}",
+        "116": "\\text{غير معرّف (Undefined)}"
+      },
+      "expectedAnswerOptionId": 113
+    },
+    {
+      "problemId": 34,
+      "oldFields": {},
+      "newFields": {},
+      "oldOptions": {
+        "128": "\\text{غير موجودة}"
+      },
+      "newOptions": {
+        "128": "\\text{غير موجودة (Does not exist)}"
+      },
+      "expectedAnswerOptionId": 125
+    },
+    {
+      "problemId": 35,
+      "oldFields": {},
+      "newFields": {},
+      "oldOptions": {
+        "131": "\\text{فقط من اليمين}",
+        "132": "\\text{فقط من اليسار}"
+      },
+      "newOptions": {
+        "131": "\\text{فقط من اليمين (Right only)}",
+        "132": "\\text{فقط من اليسار (Left only)}"
+      },
+      "expectedAnswerOptionId": 129
+    },
+    {
+      "problemId": 154,
+      "oldFields": {
+        "qa": "إذا س=5 فما قيمة \\(2x-3\\)؟",
+        "ta": "إذا س=5 فما قيمة \\(2x-3\\)؟",
+        "sa": "2×5−3=7.",
+        "se": "2×5−3=7."
+      },
+      "newFields": {
+        "qa": "إذا كان $x=5$، فما قيمة التعبير $2x-3$؟",
+        "ta": "التعويض في $2x-3$ عند $x=5$",
+        "sa": "نعوّض $x=5$ في التعبير $2x-3$، ثم نضرب أولاً: $2\\times5=10$، ونطرح 3، فنحصل على $10-3=7$.",
+        "se": "Substitute $x=5$ into $2x-3$. Multiply first: $2\\times5=10$, then subtract 3, giving $10-3=7$."
+      },
+      "oldOptions": {},
+      "newOptions": {},
+      "expectedAnswerOptionId": 608
+    },
+    {
+      "problemId": 166,
+      "oldFields": {
+        "qa": "إذا س=6 فما قيمة \\(2x-4\\)؟",
+        "ta": "إذا س=6 فما قيمة \\(2x-4\\)؟",
+        "sa": "2×6−4=8.",
+        "se": "2×6−4=8."
+      },
+      "newFields": {
+        "qa": "إذا كان $x=6$، فما قيمة التعبير $2x-4$؟",
+        "ta": "التعويض في $2x-4$ عند $x=6$",
+        "sa": "نعوّض $x=6$ في التعبير $2x-4$، ثم نضرب أولاً: $2\\times6=12$، ونطرح 4، فنحصل على $12-4=8$.",
+        "se": "Substitute $x=6$ into $2x-4$. Multiply first: $2\\times6=12$, then subtract 4, giving $12-4=8$."
+      },
+      "oldOptions": {},
+      "newOptions": {},
+      "expectedAnswerOptionId": 655
+    },
+    {
+      "problemId": 178,
+      "oldFields": {
+        "qa": "إذا س=7 فما قيمة \\(2x-5\\)؟",
+        "ta": "إذا س=7 فما قيمة \\(2x-5\\)؟",
+        "sa": "2×7−5=9.",
+        "se": "2×7−5=9."
+      },
+      "newFields": {
+        "qa": "إذا كان $x=7$، فما قيمة التعبير $2x-5$؟",
+        "ta": "التعويض في $2x-5$ عند $x=7$",
+        "sa": "نعوّض $x=7$ في التعبير $2x-5$، ثم نضرب أولاً: $2\\times7=14$، ونطرح 5، فنحصل على $14-5=9$.",
+        "se": "Substitute $x=7$ into $2x-5$. Multiply first: $2\\times7=14$, then subtract 5, giving $14-5=9$."
+      },
+      "oldOptions": {},
+      "newOptions": {},
+      "expectedAnswerOptionId": 702
+    },
+    {
+      "problemId": 190,
+      "oldFields": {
+        "qa": "إذا س=8 فما قيمة \\(2x-6\\)؟",
+        "ta": "إذا س=8 فما قيمة \\(2x-6\\)؟",
+        "sa": "2×8−6=10.",
+        "se": "2×8−6=10."
+      },
+      "newFields": {
+        "qa": "إذا كان $x=8$، فما قيمة التعبير $2x-6$؟",
+        "ta": "التعويض في $2x-6$ عند $x=8$",
+        "sa": "نعوّض $x=8$ في التعبير $2x-6$، ثم نضرب أولاً: $2\\times8=16$، ونطرح 6، فنحصل على $16-6=10$.",
+        "se": "Substitute $x=8$ into $2x-6$. Multiply first: $2\\times8=16$, then subtract 6, giving $16-6=10$."
+      },
+      "oldOptions": {},
+      "newOptions": {},
+      "expectedAnswerOptionId": 749
+    },
+    {
+      "problemId": 202,
+      "oldFields": {
+        "qa": "إذا س=9 فما قيمة \\(2x-7\\)؟",
+        "ta": "إذا س=9 فما قيمة \\(2x-7\\)؟",
+        "sa": "2×9−7=11.",
+        "se": "2×9−7=11."
+      },
+      "newFields": {
+        "qa": "إذا كان $x=9$، فما قيمة التعبير $2x-7$؟",
+        "ta": "التعويض في $2x-7$ عند $x=9$",
+        "sa": "نعوّض $x=9$ في التعبير $2x-7$، ثم نضرب أولاً: $2\\times9=18$، ونطرح 7، فنحصل على $18-7=11$.",
+        "se": "Substitute $x=9$ into $2x-7$. Multiply first: $2\\times9=18$, then subtract 7, giving $18-7=11$."
+      },
+      "oldOptions": {},
+      "newOptions": {},
+      "expectedAnswerOptionId": 800
+    },
+    {
+      "problemId": 273,
+      "oldFields": {
+        "sa": "الظل=3/4.",
+        "se": "Tangent=opposite/adjacent=3/4."
+      },
+      "newFields": {
+        "sa": "في المثلث القائم، ظل الزاوية يساوي طول الضلع المقابل مقسوماً على طول المجاور: $\\tan\\theta=\\frac{3}{4}$.",
+        "se": "In a right triangle, tangent is the opposite side divided by the adjacent side: $\\tan\\theta=\\frac{3}{4}$."
+      },
+      "oldOptions": {},
+      "newOptions": {},
+      "expectedAnswerOptionId": 1081
+    },
+    {
+      "problemId": 278,
+      "oldFields": {
+        "sa": "C(4,2)=6.",
+        "se": "C(4,2)=6."
+      },
+      "newFields": {
+        "sa": "الاختيار دون ترتيب يُحسب بالتوافيق؛ نختار طالبين من 4، لذا $\\binom{4}{2}=\\frac{4\\times3}{2}=6$ طريقة.",
+        "se": "Because order does not matter, use combinations: choosing two students from 4 gives $\\binom{4}{2}=\\frac{4\\times3}{2}=6$ ways."
+      },
+      "oldOptions": {},
+      "newOptions": {},
+      "expectedAnswerOptionId": 1104
+    },
+    {
+      "problemId": 285,
+      "oldFields": {
+        "sa": "الظل=5/12.",
+        "se": "Tangent=opposite/adjacent=5/12."
+      },
+      "newFields": {
+        "sa": "في المثلث القائم، ظل الزاوية يساوي طول الضلع المقابل مقسوماً على طول المجاور: $\\tan\\theta=\\frac{5}{12}$.",
+        "se": "In a right triangle, tangent is the opposite side divided by the adjacent side: $\\tan\\theta=\\frac{5}{12}$."
+      },
+      "oldOptions": {},
+      "newOptions": {},
+      "expectedAnswerOptionId": 1132
+    },
+    {
+      "problemId": 290,
+      "oldFields": {
+        "sa": "C(5,2)=10.",
+        "se": "C(5,2)=10."
+      },
+      "newFields": {
+        "sa": "الاختيار دون ترتيب يُحسب بالتوافيق؛ نختار طالبين من 5، لذا $\\binom{5}{2}=\\frac{5\\times4}{2}=10$ طريقة.",
+        "se": "Because order does not matter, use combinations: choosing two students from 5 gives $\\binom{5}{2}=\\frac{5\\times4}{2}=10$ ways."
+      },
+      "oldOptions": {},
+      "newOptions": {},
+      "expectedAnswerOptionId": 1151
+    },
+    {
+      "problemId": 297,
+      "oldFields": {
+        "sa": "الظل=8/15.",
+        "se": "Tangent=opposite/adjacent=8/15."
+      },
+      "newFields": {
+        "sa": "في المثلث القائم، ظل الزاوية يساوي طول الضلع المقابل مقسوماً على طول المجاور: $\\tan\\theta=\\frac{8}{15}$.",
+        "se": "In a right triangle, tangent is the opposite side divided by the adjacent side: $\\tan\\theta=\\frac{8}{15}$."
+      },
+      "oldOptions": {},
+      "newOptions": {},
+      "expectedAnswerOptionId": 1179
+    },
+    {
+      "problemId": 302,
+      "oldFields": {
+        "sa": "C(6,2)=15.",
+        "se": "C(6,2)=15."
+      },
+      "newFields": {
+        "sa": "الاختيار دون ترتيب يُحسب بالتوافيق؛ نختار طالبين من 6، لذا $\\binom{6}{2}=\\frac{6\\times5}{2}=15$ طريقة.",
+        "se": "Because order does not matter, use combinations: choosing two students from 6 gives $\\binom{6}{2}=\\frac{6\\times5}{2}=15$ ways."
+      },
+      "oldOptions": {},
+      "newOptions": {},
+      "expectedAnswerOptionId": 1198
+    },
+    {
+      "problemId": 309,
+      "oldFields": {
+        "sa": "الظل=7/24.",
+        "se": "Tangent=opposite/adjacent=7/24."
+      },
+      "newFields": {
+        "sa": "في المثلث القائم، ظل الزاوية يساوي طول الضلع المقابل مقسوماً على طول المجاور: $\\tan\\theta=\\frac{7}{24}$.",
+        "se": "In a right triangle, tangent is the opposite side divided by the adjacent side: $\\tan\\theta=\\frac{7}{24}$."
+      },
+      "oldOptions": {},
+      "newOptions": {},
+      "expectedAnswerOptionId": 1226
+    },
+    {
+      "problemId": 314,
+      "oldFields": {
+        "sa": "C(7,2)=21.",
+        "se": "C(7,2)=21."
+      },
+      "newFields": {
+        "sa": "الاختيار دون ترتيب يُحسب بالتوافيق؛ نختار طالبين من 7، لذا $\\binom{7}{2}=\\frac{7\\times6}{2}=21$ طريقة.",
+        "se": "Because order does not matter, use combinations: choosing two students from 7 gives $\\binom{7}{2}=\\frac{7\\times6}{2}=21$ ways."
+      },
+      "oldOptions": {},
+      "newOptions": {},
+      "expectedAnswerOptionId": 1245
+    },
+    {
+      "problemId": 321,
+      "oldFields": {
+        "sa": "الظل=9/40.",
+        "se": "Tangent=opposite/adjacent=9/40."
+      },
+      "newFields": {
+        "sa": "في المثلث القائم، ظل الزاوية يساوي طول الضلع المقابل مقسوماً على طول المجاور: $\\tan\\theta=\\frac{9}{40}$.",
+        "se": "In a right triangle, tangent is the opposite side divided by the adjacent side: $\\tan\\theta=\\frac{9}{40}$."
+      },
+      "oldOptions": {},
+      "newOptions": {},
+      "expectedAnswerOptionId": 1273
+    },
+    {
+      "problemId": 326,
+      "oldFields": {
+        "sa": "C(8,2)=28.",
+        "se": "C(8,2)=28."
+      },
+      "newFields": {
+        "sa": "الاختيار دون ترتيب يُحسب بالتوافيق؛ نختار طالبين من 8، لذا $\\binom{8}{2}=\\frac{8\\times7}{2}=28$ طريقة.",
+        "se": "Because order does not matter, use combinations: choosing two students from 8 gives $\\binom{8}{2}=\\frac{8\\times7}{2}=28$ ways."
+      },
+      "oldOptions": {},
+      "newOptions": {},
+      "expectedAnswerOptionId": 1296
+    },
+    {
+      "problemId": 437,
+      "oldFields": {
+        "sa": "$a_5=a_1r^4=3\\times2^4=48$.",
+        "se": "$a_5=a_1r^4=3\\times2^4=48$."
+      },
+      "newFields": {
+        "sa": "هذه متتالية هندسية حدها الأول $a_1=3$ ونسبتها المشتركة $r=2$. قانون الحد العام $a_n=a_1r^{n-1}$، ولذلك $a_5=3\\times2^4=48$.",
+        "se": "This is a geometric sequence with first term $a_1=3$ and common ratio $r=2$. Using $a_n=a_1r^{n-1}$ gives $a_5=3\\times2^4=48$."
+      },
+      "oldOptions": {},
+      "newOptions": {},
+      "expectedAnswerOptionId": 1739
+    },
+    {
+      "problemId": 439,
+      "oldFields": {
+        "sa": "$a_{10}=a_1+9d=4+9\\times3=31$.",
+        "se": "$a_{10}=a_1+9d=4+9\\times3=31$."
+      },
+      "newFields": {
+        "sa": "نستخدم قانون المتتالية الحسابية $a_n=a_1+(n-1)d$. لدينا $a_1=4$ و$d=3$، لذا $a_{10}=4+9\\times3=31$.",
+        "se": "Use the arithmetic progression formula $a_n=a_1+(n-1)d$. With $a_1=4$ and $d=3$, $a_{10}=4+9\\times3=31$."
+      },
+      "oldOptions": {},
+      "newOptions": {},
+      "expectedAnswerOptionId": 1748
+    },
+    {
+      "problemId": 641,
+      "oldFields": {},
+      "newFields": {},
+      "oldOptions": {
+        "2556": "\\frac{8}{2}"
+      },
+      "newOptions": {
+        "2556": "\\frac{8}{6}"
+      },
+      "expectedAnswerOptionId": 2553
+    },
+    {
+      "problemId": 817,
+      "oldFields": {},
+      "newFields": {},
+      "oldOptions": {
+        "3259": "\\frac{3}{12}"
+      },
+      "newOptions": {
+        "3259": "\\frac{2}{3}"
+      },
+      "expectedAnswerOptionId": 3257
+    }
+  ]
+}
