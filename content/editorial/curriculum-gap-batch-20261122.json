@@ -312,8 +312,8 @@
           "titleEn": "Counting groups of hundreds",
           "questionTextAr": "كم يساوي أربعون مجموعة من مئة؟",
           "questionTextEn": "What is the total value of forty groups of one hundred?",
-          "detailedSolutionAr": "40×100=4,000.",
-          "detailedSolutionEn": "40×100=4,000.",
+          "detailedSolutionAr": "أربعون مجموعة من مئة تساوي 40×100=4,000 وحدة.",
+          "detailedSolutionEn": "Forty groups of one hundred give 40×100=4,000 units.",
           "options": [
             {
               "Order": 1,
@@ -383,8 +383,8 @@
           "titleEn": "Temperature change",
           "questionTextAr": "كانت الحرارة −7 درجات ثم ارتفعت 12 درجة. كم أصبحت؟",
           "questionTextEn": "The temperature was −7°C and rose by 12°C. What is it now?",
-          "detailedSolutionAr": "−7+12=5 درجات.",
-          "detailedSolutionEn": "−7+12=5°C.",
+          "detailedSolutionAr": "نبدأ من −7 درجات ثم نضيف ارتفاعاً مقداره 12 درجة، فنحصل على −7+12=5 درجات.",
+          "detailedSolutionEn": "Start at −7°C and add the 12°C rise, giving −7+12=5°C.",
           "options": [
             {
               "Order": 1,
@@ -699,8 +699,8 @@
           "titleEn": "Population growth",
           "questionTextAr": "يُعطى عدد أفراد مستعمرة بالدالة P(t)=250×(1.2)^t. ما P(2)؟",
           "questionTextEn": "A colony has P(t)=250×(1.2)^t. Find P(2).",
-          "detailedSolutionAr": "نحسب 250×1.44=360.",
-          "detailedSolutionEn": "250×1.44=360.",
+          "detailedSolutionAr": "عند t=2 نحسب (1.2)^2=1.44، ثم P(2)=250×1.44=360 فرداً.",
+          "detailedSolutionEn": "At t=2, the growth multiplier is (1.2)^2=1.44, so P(2)=250×1.44=360 individuals.",
           "options": [
             {
               "Order": 1,
@@ -1015,8 +1015,8 @@
           "titleEn": "Standard score",
           "questionTextAr": "في مجتمع متوسطه 70 وانحرافه المعياري 6، ما الدرجة المعيارية للقيمة 82؟",
           "questionTextEn": "For a population with mean 70 and standard deviation 6, find the z-score of 82.",
-          "detailedSolutionAr": "z=(82−70)/6=2.",
-          "detailedSolutionEn": "z=(82−70)/6=2.",
+          "detailedSolutionAr": "نطرح متوسط المجتمع من القيمة ثم نقسم على الانحراف المعياري: z=(82−70)/6=2.",
+          "detailedSolutionEn": "Subtract the population mean and divide by the standard deviation: z=(82−70)/6=2.",
           "options": [
             {
               "Order": 1,
