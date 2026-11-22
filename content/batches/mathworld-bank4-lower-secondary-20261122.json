@@ -1,0 +1,163 @@
+{
+  "batch_key": "mathworld-bank4-lower-secondary",
+  "status": "editorial_pending",
+  "stage": 2,
+  "problems": [
+    {
+      "ContentKey": "mw-bank4-m-power-negative-base",
+      "StageId": 2,
+      "PrimarySkillKey": "middle-evaluate-powers",
+      "TemplateFamilyKey": "concept-m-power-negative-base",
+      "LearningObjectiveAr": "تقييم قوة فردية لعدد سالب",
+      "LearningObjectiveEn": "Evaluate an odd power of a negative base",
+      "QuestionTextAr": "ما قيمة (−4)³؟",
+      "QuestionTextEn": "What is the value of (−4)³?",
+      "DetailedSolutionAr": "نضرب العدد −4 ثلاث مرات: (−4)×(−4)×(−4) = 16×(−4) = −64.",
+      "DetailedSolutionEn": "Multiply the negative base three times: (−4)(−4)(−4) = 16(−4) = −64.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "-64",
+          "IsCorrect": true
+        },
+        {
+          "Order": 2,
+          "LatexCode": "-12",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "12",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "64",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 2,
+      "PisaProcess": "employ",
+      "CognitiveType": "odd-negative-exponent",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank4-m-power-zero-exponent",
+      "StageId": 2,
+      "PrimarySkillKey": "middle-evaluate-powers",
+      "TemplateFamilyKey": "concept-m-power-zero-exponent",
+      "LearningObjectiveAr": "تفسير الأس الصفري لعدد غير صفري",
+      "LearningObjectiveEn": "Explain the zero-exponent law",
+      "QuestionTextAr": "أي قيمة تساوي 17⁰؟",
+      "QuestionTextEn": "What is 17 to the power zero?",
+      "DetailedSolutionAr": "أي عدد غير صفري مرفوع للأس صفر يساوي 1، لذا 17⁰ = 1.",
+      "DetailedSolutionEn": "Every nonzero number raised to the zero power equals 1. Thus 17⁰ = 1.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "0",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "1",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "17",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "170",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 2,
+      "PisaProcess": "interpret_evaluate",
+      "CognitiveType": "zero-exponent",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank4-m-power-negative-exponent",
+      "StageId": 2,
+      "PrimarySkillKey": "middle-evaluate-powers",
+      "TemplateFamilyKey": "concept-m-power-negative-exponent",
+      "LearningObjectiveAr": "تقييم أس سالب بوصفه مقلوب قوة موجبة",
+      "LearningObjectiveEn": "Evaluate a negative exponent as a reciprocal",
+      "QuestionTextAr": "احسب 2⁻³ واكتب الناتج ككسر مبسط.",
+      "QuestionTextEn": "Evaluate 2^(-3) and express the result as a simplified fraction.",
+      "DetailedSolutionAr": "الأس السالب يعني المقلوب: 2⁻³ = 1 / 2³ = 1/8.",
+      "DetailedSolutionEn": "A negative exponent means a reciprocal: 2^(-3) = 1/2³ = 1/8.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\frac18",
+          "IsCorrect": true
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\frac13",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "6",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "8",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "CognitiveType": "reciprocal-exponent",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank4-m-power-cube-volume",
+      "StageId": 2,
+      "PrimarySkillKey": "middle-evaluate-powers",
+      "TemplateFamilyKey": "concept-m-power-cube-volume",
+      "LearningObjectiveAr": "ربط القوة الثالثة بحجم مكعب",
+      "LearningObjectiveEn": "Connect the third power to cube volume",
+      "QuestionTextAr": "صندوق مكعب طول حرفه 3 سم. ما حجمه بالسم³؟",
+      "QuestionTextEn": "A cube-shaped box has an edge length of 3 cm. What is its volume in cm³?",
+      "DetailedSolutionAr": "حجم المكعب = طول الحرف × نفسه × نفسه = 3³ = 27 سم³.",
+      "DetailedSolutionEn": "The volume of a cube is edge length cubed: 3³ = 27 cm³.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "9",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "18",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "27",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "81",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 2,
+      "PisaProcess": "formulate",
+      "CognitiveType": "power-in-geometry",
+      "Points": 10,
+      "ExpertReview": "pending"
+    }
+  ]
+}
