@@ -25,5 +25,7 @@
         public int TotalUsers { get; set; }
         public long TotalSolved { get; set; }
         public long TotalViews { get; set; }
+        public int TotalCategories { get; set; }
+        public int TotalSkills { get; set; }
     }
 }
