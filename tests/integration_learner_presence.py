@@ -162,6 +162,15 @@ def main():
 
     # A user-initiated sign-out is an explicit action, not a browser-close guess.
     expect("POST", "/api/users/session/sign-out", 204, token=one)
+    learner_activity = expect(
+        "GET", "/api/admin/engagement/students?search=CI%20Learner%209811",
+        200, token=admin)
+    assert learner_activity["Students"][0]["LastExplicitSignOutAtUtc"], learner_activity
+    # An unclosed second session must never invent a sign-out timestamp.
+    learner2_activity = expect(
+        "GET", "/api/admin/engagement/students?search=CI%20Learner%209812",
+        200, token=admin)
+    assert learner2_activity["Students"][0].get("LastExplicitSignOutAtUtc") is None, learner2_activity
     audit_path = (f"/api/admin/activity-audit?actorId={actor_id}"
                   "&action=ExplicitSignOut&days=30")
     assert api("GET", audit_path, token=one)[0] == 403
