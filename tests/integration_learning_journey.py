@@ -287,7 +287,11 @@ def main():
     assert returned["SolvedProblemsCount"] == 1, returned
     assert returned["TotalPoints"] == 10, returned
     assert len(returned["RecentSolved"]) == 1, returned
-    assert len(expect("GET", "/api/users/solved", 200, token=token)) == 1
+    solved_previews = expect("GET", "/api/users/solved", 200, token=token)
+    assert len(solved_previews) == 1
+    # A solved list must never label its own entries as New in either client.
+    assert solved_previews[0]["IsSolved"] is True, solved_previews
+    assert solved_previews[0]["HasAttempted"] is True, solved_previews
     # Switching back must restore the same scored ranking, not silently lose
     # the point record while the learner's stage selection was different.
     back_ranks = expect("GET",
