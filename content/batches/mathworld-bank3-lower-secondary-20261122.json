@@ -1,0 +1,319 @@
+{
+  "batch_key": "mathworld-bank3-lower-secondary",
+  "status": "editorial_pending",
+  "stage": 2,
+  "problems": [
+    {
+      "ContentKey": "mw-bank3-m-isosceles-base",
+      "StageId": 2,
+      "PrimarySkillKey": "middle-triangle-angles",
+      "TemplateFamilyKey": "concept-m-isosceles-base",
+      "LearningObjectiveAr": "إيجاد زاويتي قاعدة مثلث متساوي الساقين",
+      "LearningObjectiveEn": "Find base angles in an isosceles triangle",
+      "QuestionTextAr": "زاوية رأس مثلث متساوي الساقين 40°. كم قياس كل زاوية عند القاعدة؟",
+      "QuestionTextEn": "The apex angle of an isosceles triangle is 40°. What is each base angle?",
+      "DetailedSolutionAr": "الزاويتان عند القاعدة متساويتان، ومجموعهما 180 − 40 = 140°. إذن كل منهما 70°.",
+      "DetailedSolutionEn": "The two base angles are equal and sum to 180 − 40 = 140°, so each is 70°.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "40",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "60",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "70",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "80",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 2,
+      "PisaProcess": "employ",
+      "CognitiveType": "isosceles-property",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank3-m-triangle-exterior",
+      "StageId": 2,
+      "PrimarySkillKey": "middle-triangle-angles",
+      "TemplateFamilyKey": "concept-m-triangle-exterior",
+      "LearningObjectiveAr": "استخدام نظرية الزاوية الخارجية للمثلث",
+      "LearningObjectiveEn": "Use the exterior-angle theorem",
+      "QuestionTextAr": "زاوية خارجية في مثلث تساوي 125°، وإحدى الزاويتين الداخليتين غير المجاورتين تساوي 45°. كم قياس الأخرى؟",
+      "QuestionTextEn": "An exterior angle of a triangle is 125°, and one remote interior angle is 45°. What is the other remote interior angle?",
+      "DetailedSolutionAr": "الزاوية الخارجية تساوي مجموع الداخليتين البعيدتين عنها، إذن 125 − 45 = 80°.",
+      "DetailedSolutionEn": "The exterior angle equals the sum of the two remote interior angles, so 125 − 45 = 80°.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "45",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "55",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "80",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "125",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "CognitiveType": "exterior-angle",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank3-m-right-triangle-complement",
+      "StageId": 2,
+      "PrimarySkillKey": "middle-triangle-angles",
+      "TemplateFamilyKey": "concept-m-right-triangle-complement",
+      "LearningObjectiveAr": "استنتاج الزاوية الحادة الأخرى في مثلث قائم",
+      "LearningObjectiveEn": "Find the remaining acute angle in a right triangle",
+      "QuestionTextAr": "في مثلث قائم إحدى الزاويتين الحادتين 35°. ما قياس الزاوية الحادة الأخرى؟",
+      "QuestionTextEn": "In a right triangle, one acute angle is 35°. What is the other acute angle?",
+      "DetailedSolutionAr": "مجموع الزاويتين الحادتين في المثلث القائم 90°، لذا 90 − 35 = 55°.",
+      "DetailedSolutionEn": "The two acute angles of a right triangle sum to 90°, so the other is 55°.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "35",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "45",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "55",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "65",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 2,
+      "PisaProcess": "interpret_evaluate",
+      "CognitiveType": "complementary-angles",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank3-m-triangle-angle-ratio",
+      "StageId": 2,
+      "PrimarySkillKey": "middle-triangle-angles",
+      "TemplateFamilyKey": "concept-m-triangle-angle-ratio",
+      "LearningObjectiveAr": "تقسيم مجموع زوايا مثلث بنسبة معطاة",
+      "LearningObjectiveEn": "Use a ratio to determine a triangle's largest angle",
+      "QuestionTextAr": "زوايا مثلث بنسبة 1 : 2 : 3. ما قياس أكبر زاوية فيه بالدرجات؟",
+      "QuestionTextEn": "A triangle's angles are in the ratio 1 : 2 : 3. How many degrees is its largest angle?",
+      "DetailedSolutionAr": "مجموع الأجزاء 6، والجزء = 180 ÷ 6 = 30°؛ أكبر زاوية = 3 × 30 = 90°.",
+      "DetailedSolutionEn": "There are 6 parts in total. Each is 180 ÷ 6 = 30°; the largest angle is 3 × 30 = 90°.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "30",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "60",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "90",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "120",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "formulate",
+      "CognitiveType": "angle-ratio",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank3-m-vertical-symbolic",
+      "StageId": 2,
+      "PrimarySkillKey": "middle-vertical-angles",
+      "TemplateFamilyKey": "concept-m-vertical-symbolic",
+      "LearningObjectiveAr": "حل معادلة من تساوي زاويتين متقابلتين بالرأس",
+      "LearningObjectiveEn": "Solve an equation using vertically opposite angles",
+      "QuestionTextAr": "زاويتان متقابلتان بالرأس قياساهما (x + 20)° و(3x − 40)°. ما x؟",
+      "QuestionTextEn": "Vertically opposite angles measure (x + 20)° and (3x − 40)°. Find x.",
+      "DetailedSolutionAr": "الزاويتان متساويتان: x + 20 = 3x − 40، ومنه 2x = 60، إذن x = 30.",
+      "DetailedSolutionEn": "Vertically opposite angles are equal: x + 20 = 3x − 40; hence 2x = 60 and x = 30.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "20",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "30",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "40",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "60",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "CognitiveType": "linear-angle-equation",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank3-m-vertical-measure",
+      "StageId": 2,
+      "PrimarySkillKey": "middle-vertical-angles",
+      "TemplateFamilyKey": "concept-m-vertical-measure",
+      "LearningObjectiveAr": "حساب قياس زاوية بعد حل متغير التساوي",
+      "LearningObjectiveEn": "Find an angle measure after solving for the variable",
+      "QuestionTextAr": "زاويتان متقابلتان بالرأس قياساهما (2x + 5)° و(x + 35)°. ما قياس **إحداهما**؟",
+      "QuestionTextEn": "Two vertically opposite angles measure (2x + 5)° and (x + 35)°. What is the measure of either angle?",
+      "DetailedSolutionAr": "من 2x + 5 = x + 35 نجد x = 30. بالتعويض يكون قياس الزاوية 2 × 30 + 5 = 65°.",
+      "DetailedSolutionEn": "Equating the opposite angles gives x = 30. Substitution gives 2 × 30 + 5 = 65°.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "30",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "35",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "60",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "65",
+          "IsCorrect": true
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "interpret_evaluate",
+      "CognitiveType": "solve-then-substitute",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank3-m-vertical-pair-sum",
+      "StageId": 2,
+      "PrimarySkillKey": "middle-vertical-angles",
+      "TemplateFamilyKey": "concept-m-vertical-pair-sum",
+      "LearningObjectiveAr": "استخدام مجموع قياسي زاويتين متقابلتين بالرأس",
+      "LearningObjectiveEn": "Find each of two equal angles from their combined measure",
+      "QuestionTextAr": "مجموع قياسي زاويتين متقابلتين بالرأس 146°. كم قياس كل منهما؟",
+      "QuestionTextEn": "The sum of two vertically opposite angles is 146°. What is the measure of each?",
+      "DetailedSolutionAr": "لأنهما متساويتان، نقسم المجموع على 2: 146 ÷ 2 = 73°.",
+      "DetailedSolutionEn": "They have equal measures, so each is 146 ÷ 2 = 73°.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "63",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "70",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "73",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "146",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 2,
+      "PisaProcess": "employ",
+      "CognitiveType": "pair-sum",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank3-m-vertical-number-of-acute",
+      "StageId": 2,
+      "PrimarySkillKey": "middle-vertical-angles",
+      "TemplateFamilyKey": "concept-m-vertical-number-of-acute",
+      "LearningObjectiveAr": "تفسير عدد الزوايا المتقابلة المتساوية عند تقاطع خطين",
+      "LearningObjectiveEn": "Count congruent acute angles formed by intersecting lines",
+      "QuestionTextAr": "يتقاطع خطان مستقيمان وتتشكل زاوية قياسها 65°. كم زاوية من الزوايا الأربع تساوي 65°؟",
+      "QuestionTextEn": "Two straight lines intersect and one of the four angles measures 65°. How many of the four angles measure 65°?",
+      "DetailedSolutionAr": "الزاوية المقابلة لها بالرأس تساوي 65° أيضاً، والزاويتان الباقيتان 115°. إذن زاويتان فقط تساويان 65°.",
+      "DetailedSolutionEn": "The vertically opposite angle is also 65°, while the adjacent angles are 115°. Exactly two angles measure 65°.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "1",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "2",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "3",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "4",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 2,
+      "PisaProcess": "interpret_evaluate",
+      "CognitiveType": "count-congruent",
+      "Points": 10,
+      "ExpertReview": "pending"
+    }
+  ]
+}
