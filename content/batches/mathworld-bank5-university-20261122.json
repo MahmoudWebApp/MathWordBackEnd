@@ -1,0 +1,163 @@
+{
+  "batch_key": "mathworld-bank5-university",
+  "status": "editorial_pending",
+  "stage": 4,
+  "problems": [
+    {
+      "ContentKey": "mw-bank5-u-ode-integrate-ivp",
+      "StageId": 4,
+      "PrimarySkillKey": "university-integrating-ode",
+      "TemplateFamilyKey": "concept-u-ode-integrate-ivp",
+      "LearningObjectiveAr": "حل مسألة قيمة ابتدائية بالتكامل المباشر",
+      "LearningObjectiveEn": "Solve an initial-value problem through direct integration",
+      "QuestionTextAr": "تحقق الدالة y المعادلة y'=3x² وy(0)=4. ما قيمة y(2)؟",
+      "QuestionTextEn": "A function y satisfies y'=3x² and y(0)=4. What is y(2)?",
+      "DetailedSolutionAr": "بالتكامل y=x³+C، ومن y(0)=4 نحصل على C=4. إذن y(2)=8+4=12.",
+      "DetailedSolutionEn": "Integrate to y=x³+C; y(0)=4 gives C=4. Hence y(2)=8+4=12.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "8",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "10",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "12",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "16",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "CognitiveType": "direct-integration-ivp",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank5-u-ode-exponential-growth",
+      "StageId": 4,
+      "PrimarySkillKey": "university-exponential-ode",
+      "TemplateFamilyKey": "concept-u-ode-exponential-growth",
+      "LearningObjectiveAr": "تطبيق حل معادلة تفاضلية أسية على نمو متصل",
+      "LearningObjectiveEn": "Solve an exponential growth initial-value equation",
+      "QuestionTextAr": "إذا كان y'=2y وy(0)=3، فما y(1)؟",
+      "QuestionTextEn": "For y'=2y and y(0)=3, what is y(1)?",
+      "DetailedSolutionAr": "الحل العام y=Ce^(2x)، وبشرط البداية C=3، لذا y(1)=3e².",
+      "DetailedSolutionEn": "The general solution is y=Ce^(2x); y(0)=3 gives C=3, so y(1)=3e².",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "3e^2",
+          "IsCorrect": true
+        },
+        {
+          "Order": 2,
+          "LatexCode": "2e^3",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "3e",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "6e",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "CognitiveType": "exponential-growth",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank5-u-ode-second-order-ivp",
+      "StageId": 4,
+      "PrimarySkillKey": "university-second-order-ivp",
+      "TemplateFamilyKey": "concept-u-ode-second-order-ivp",
+      "LearningObjectiveAr": "حل معادلة تفاضلية من الدرجة الثانية بشرطي بداية",
+      "LearningObjectiveEn": "Solve a second-order IVP at a specific point",
+      "QuestionTextAr": "حل y''+y=0 مع y(0)=0 وy'(0)=2. ما قيمة y(π/2)؟",
+      "QuestionTextEn": "Solve y''+y=0 with y(0)=0 and y'(0)=2. What is y(π/2)?",
+      "DetailedSolutionAr": "الحل y=Acos x+Bsin x. من y(0)=0 يكون A=0، ومن y'(0)=2 يكون B=2، إذن y(π/2)=2.",
+      "DetailedSolutionEn": "The solution is y=A cos x+B sin x. Initial conditions give A=0 and B=2, so y(π/2)=2.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "0",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "1",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "2",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "\\pi",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 4,
+      "PisaProcess": "interpret_evaluate",
+      "CognitiveType": "second-order-initial-data",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank5-u-ode-integrating-factor",
+      "StageId": 4,
+      "PrimarySkillKey": "university-integrating-ode",
+      "TemplateFamilyKey": "concept-u-ode-integrating-factor",
+      "LearningObjectiveAr": "حل معادلة تفاضلية خطية غير متجانسة",
+      "LearningObjectiveEn": "Solve a nonhomogeneous linear ODE using an integrating factor",
+      "QuestionTextAr": "تحقق y المعادلة y'+y=2 مع y(0)=0. ما y(ln 2)؟",
+      "QuestionTextEn": "A function satisfies y'+y=2 and y(0)=0. Find y(ln 2).",
+      "DetailedSolutionAr": "بضرب المعادلة في e^x نحصل على (e^x y)'=2e^x. بالتكامل y=2+Ce^(−x)، ومن شرط البداية C=−2؛ عند x=ln2 نجد y=2−2×(1/2)=1.",
+      "DetailedSolutionEn": "Multiplying by e^x gives (e^x y)'=2e^x. Thus y=2+Ce^(−x). Since y(0)=0, C=−2, and y(ln2)=2−2/2=1.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "0",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "1",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "2",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "4",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 4,
+      "PisaProcess": "employ",
+      "CognitiveType": "integrating-factor",
+      "Points": 10,
+      "ExpertReview": "pending"
+    }
+  ]
+}
