@@ -184,21 +184,27 @@ using (var archive = new ZipArchive(new MemoryStream(xlsx), ZipArchiveMode.Read)
 {
     foreach (var name in new[] {
         "[Content_Types].xml", "_rels/.rels", "xl/workbook.xml",
-        "xl/_rels/workbook.xml.rels", "xl/worksheets/sheet1.xml"
+        "xl/_rels/workbook.xml.rels", "xl/worksheets/sheet1.xml", "xl/styles.xml"
     })
         Assert(archive.GetEntry(name) is not null, "XLSX archive is missing " + name);
 
     var sheet = XDocument.Load(archive.GetEntry("xl/worksheets/sheet1.xml")!.Open());
     XNamespace ns = "http://schemas.openxmlformats.org/spreadsheetml/2006/main";
     var userTextCell = sheet.Descendants(ns + "c")
-        .Single(x => (string?)x.Attribute("r") == "E2");
+        .Single(x => (string?)x.Attribute("r") == "E7");
     Assert((string?)userTextCell.Attribute("t") == "inlineStr" &&
            (string?)userTextCell.Descendants(ns + "t").Single() == "=1+2",
         "Untrusted category names must be Excel literal strings, never formulas.");
     var totalSeconds = sheet.Descendants(ns + "c")
-        .Single(x => (string?)x.Attribute("r") == "O3");
+        .Single(x => (string?)x.Attribute("r") == "O8");
     Assert((string?)totalSeconds.Element(ns + "v") == "42",
         "Premium Excel totals must be exported as numeric cells.");
+    var branded = sheet.Descendants(ns + "c")
+        .Single(x => (string?)x.Attribute("r") == "A1");
+    Assert(((string?)branded.Descendants(ns + "t").Single())?.Contains("MathWorld") == true,
+        "Premium Excel report should prominently identify MathWorld.");
+    Assert(sheet.Descendants(ns + "conditionalFormatting").Count() >= 2,
+        "The worksheet must include editable Excel-native progress data bars.");
     var rtlView = sheet.Descendants(ns + "sheetView").Single();
     Assert((string?)rtlView.Attribute("rightToLeft") == "1",
         "Arabic Excel workbook must use the RTL worksheet direction.");
