@@ -180,6 +180,44 @@ def main():
     assert api("GET", preview, token=learner1)[0] == 403
 
 
+    # One-click annual Premium can grant a single learner or a selected batch.
+    # All requests are server-validated and AUDITED without a browser reason/date.
+    annual = "/api/admin/learners/premium-annual"
+    selected = [first["Id"], second["Id"]]
+    assert api("POST", annual, {"LearnerIds": selected})[0] == 401
+    assert api("POST", annual, {"LearnerIds": selected}, learner1)[0] == 403
+    assert api("POST", annual, {"LearnerIds": selected + [999999]}, admin)[0] == 400
+    assert api("POST", annual, {"LearnerIds": [first["Id"], first["Id"]]}, admin)[0] == 400
+    assert expect("GET", f"/api/admin/learners/{first['Id']}", 200,
+                  token=admin)["Learner"]["SubscriptionType"] == "Free"
+
+    granted = expect("POST", annual, 200, {"LearnerIds": selected}, admin)
+    assert granted["Updated"] == 2, granted
+    assert sorted(granted["UpdatedIds"]) == sorted(selected), granted
+    assert granted["DurationMonths"] == 12, granted
+    details_after = expect("GET", f"/api/admin/learners/{first['Id']}", 200,
+                           token=admin)
+    expiry_before = details_after["Learner"]["PremiumExpiresAtUtc"]
+    assert details_after["Learner"]["SubscriptionType"] == "Premium", details_after
+    assert expiry_before, details_after
+    import datetime
+    from datetime import timezone
+    parsed_expiry = datetime.datetime.fromisoformat(expiry_before.replace("Z", "+00:00"))
+    delta = parsed_expiry - datetime.datetime.now(timezone.utc)
+    assert 364 <= delta.days <= 366, delta
+    renewed = expect("POST", annual, 200, {"LearnerIds": [first["Id"]]}, admin)
+    assert renewed["Updated"] == 1, renewed
+    expiry_after = expect("GET", f"/api/admin/learners/{first['Id']}", 200,
+                          token=admin)["Learner"]["PremiumExpiresAtUtc"]
+    assert datetime.datetime.fromisoformat(expiry_after.replace("Z", "+00:00")) > parsed_expiry
+    history = expect("GET", f"/api/admin/learners/{first['Id']}/subscription-history",
+                     200, token=admin)
+    assert any(h["Reason"] == "AdminAnnualPremiumRenewal"
+               for h in history["Records"]), history
+    for learner_id in selected:
+        expect("PUT", f"/api/admin/learners/{learner_id}/subscription", 200,
+               {"SubscriptionType": "Free", "Reason": "Reset CI annual access"}, admin)
+
     page1 = expect("GET", "/api/admin/learners?pageSize=1&page=1", 200,
                    token=admin)
     page2 = expect("GET", "/api/admin/learners?pageSize=1&page=2", 200,
