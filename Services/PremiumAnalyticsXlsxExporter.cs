@@ -20,6 +20,11 @@ public static class PremiumAnalyticsXlsxExporter
     private const string WorkbookMime = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml";
     private const string WorksheetMime = "application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml";
     private const string StylesMime = "application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml";
+    private const string ChartMime = "application/vnd.openxmlformats-officedocument.drawingml.chart+xml";
+    private const string DrawingMime = "application/vnd.openxmlformats-officedocument.drawing+xml";
+    private const string ChartNs = "http://schemas.openxmlformats.org/drawingml/2006/chart";
+    private const string DrawingNs = "http://schemas.openxmlformats.org/drawingml/2006/main";
+    private const string SpreadsheetDrawingNs = "http://schemas.openxmlformats.org/drawingml/2006/spreadsheetDrawing";
 
     private static readonly string[] Headers =
     [
@@ -37,6 +42,23 @@ public static class PremiumAnalyticsXlsxExporter
         StudentPremiumAnalyticsController.StudentAnalyticsReport report, bool rightToLeft)
     {
         ArgumentNullException.ThrowIfNull(report);
+        // Show twelve real categories by practice volume. The complete data
+        // remains on the first worksheet, without unverified chart numbers.
+        var chartRows = report.Categories
+            .OrderByDescending(x => x.AttemptedProblems)
+            .ThenBy(x => x.StageId).ThenBy(x => x.CategoryId)
+            .Take(12).ToArray();
+        var showCharts = chartRows.Length > 0;
+        var chartsSheetName = rightToLeft ? "مخططات التقدم" : "Progress charts";
+        // The exact approved MathWorld mark is an embedded project resource,
+        // not a third-party URL or a runtime network dependency.
+        using var logoResource = typeof(PremiumAnalyticsXlsxExporter).Assembly
+            .GetManifestResourceStream("MathWorld.Brand.Logo.png");
+        if (logoResource is null)
+            throw new InvalidOperationException("MathWorld report logo resource missing.");
+        using var logoBuffer = new MemoryStream();
+        logoResource.CopyTo(logoBuffer);
+        var brandPng = logoBuffer.ToArray();
         using var memory = new MemoryStream();
 
         using (var archive = new ZipArchive(memory, ZipArchiveMode.Create, leaveOpen: true))
@@ -53,9 +75,21 @@ public static class PremiumAnalyticsXlsxExporter
                 w.WriteAttributeString("Extension", "xml");
                 w.WriteAttributeString("ContentType", "application/xml");
                 w.WriteEndElement();
+                w.WriteStartElement("Default", ContentTypes);
+                w.WriteAttributeString("Extension", "png");
+                w.WriteAttributeString("ContentType", "image/png");
+                w.WriteEndElement();
                 Override(w, "/xl/workbook.xml", WorkbookMime);
                 Override(w, "/xl/worksheets/sheet1.xml", WorksheetMime);
+                Override(w, "/xl/worksheets/sheet2.xml", WorksheetMime);
                 Override(w, "/xl/styles.xml", StylesMime);
+                Override(w, "/xl/drawings/drawing2.xml", DrawingMime);
+                if (showCharts)
+                {
+                    Override(w, "/xl/drawings/drawing1.xml", DrawingMime);
+                    Override(w, "/xl/charts/chart1.xml", ChartMime);
+                    Override(w, "/xl/charts/chart2.xml", ChartMime);
+                }
                 w.WriteEndElement();
             });
 
@@ -76,6 +110,11 @@ public static class PremiumAnalyticsXlsxExporter
                 w.WriteAttributeString("sheetId", "1");
                 w.WriteAttributeString("r", "id", OfficeRelations, "rId1");
                 w.WriteEndElement();
+                w.WriteStartElement("sheet", Spreadsheet);
+                w.WriteAttributeString("name", chartsSheetName);
+                w.WriteAttributeString("sheetId", "2");
+                w.WriteAttributeString("r", "id", OfficeRelations, "rId3");
+                w.WriteEndElement();
                 w.WriteEndElement();
                 w.WriteEndElement();
             });
@@ -86,6 +125,8 @@ public static class PremiumAnalyticsXlsxExporter
                 Relationship(w, "rId1", OfficeRelations + "/worksheet",
                     "worksheets/sheet1.xml");
                 Relationship(w, "rId2", OfficeRelations + "/styles", "styles.xml");
+                Relationship(w, "rId3", OfficeRelations + "/worksheet",
+                    "worksheets/sheet2.xml");
                 w.WriteEndElement();
             });
 
@@ -117,9 +158,9 @@ public static class PremiumAnalyticsXlsxExporter
                 w.WriteEndElement();
 
                 w.WriteStartElement("sheetData", Spreadsheet);
-                WriteRow(w, 1, [ "MathWorld  ∑  |  Mathematics learning report" ], 1);
-                WriteRow(w, 2, [ rightToLeft ? "تقرير التقدم الشخصي" : "Personal learning progress report" ], 4);
-                WriteRow(w, 3, [ "Generated UTC: " + DateTime.UtcNow.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture) ], 0);
+                WriteRow(w, 1, [ "", "", "MathWorld  ∑  |  Mathematics learning report" ], 1);
+                WriteRow(w, 2, [ "", "", rightToLeft ? "تقرير التقدم الشخصي" : "Personal learning progress report" ], 4);
+                WriteRow(w, 3, [ "", "", "Generated UTC: " + report.GeneratedAtUtc.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture) ], 0);
                 WriteRow(w, 4, [
                     rightToLeft ? "محلولة" : "Solved", report.SolvedProblems,
                     rightToLeft ? "تمت تجربتها" : "Attempted", report.AttemptedProblems,
@@ -158,7 +199,7 @@ public static class PremiumAnalyticsXlsxExporter
 
                 // A branded heading without pretending the data rows are a chart.
                 w.WriteStartElement("mergeCells", Spreadsheet);
-                foreach (var span in new[] { "A1:O1", "A2:O2" })
+                foreach (var span in new[] { "C1:O1", "C2:O2" })
                 {
                     w.WriteStartElement("mergeCell", Spreadsheet);
                     w.WriteAttributeString("ref", span);
@@ -177,13 +218,371 @@ public static class PremiumAnalyticsXlsxExporter
                     DataBar(w, "H7:H" + (rowNumber - 1), "FF7C3AED", 1);
                     DataBar(w, "I7:I" + (rowNumber - 1), "FFE14EAC", 2);
                 }
+                w.WriteStartElement("drawing", Spreadsheet);
+                w.WriteAttributeString("r", "id", OfficeRelations, "rId1");
+                w.WriteEndElement();
                 w.WriteEndElement();
             });
 
+            // A separate, editable chart-data tab keeps the native Excel
+            // chart objects away from the full-width report's filter table.
+            XmlPart(archive, "xl/worksheets/sheet2.xml", w =>
+            {
+                w.WriteStartElement("worksheet", Spreadsheet);
+                w.WriteAttributeString("xmlns", "r", null, OfficeRelations);
+                w.WriteStartElement("sheetViews", Spreadsheet);
+                w.WriteStartElement("sheetView", Spreadsheet);
+                w.WriteAttributeString("workbookViewId", "0");
+                if (rightToLeft) w.WriteAttributeString("rightToLeft", "1");
+                w.WriteEndElement();
+                w.WriteEndElement();
+                w.WriteStartElement("cols", Spreadsheet);
+                for (var i = 1; i <= 22; i++)
+                {
+                    w.WriteStartElement("col", Spreadsheet);
+                    w.WriteAttributeString("min", i.ToString(CultureInfo.InvariantCulture));
+                    w.WriteAttributeString("max", i.ToString(CultureInfo.InvariantCulture));
+                    w.WriteAttributeString("width", i == 1 ? "38" : "16");
+                    w.WriteAttributeString("customWidth", "1");
+                    w.WriteEndElement();
+                }
+                w.WriteEndElement();
+                w.WriteStartElement("sheetData", Spreadsheet);
+                WriteRow(w, 1, [rightToLeft ? "MathWorld ∑ | مخططات التقدم"
+                    : "MathWorld ∑ | Learning progress charts"], 1);
+                WriteRow(w, 2, [rightToLeft ? "الفئات الاثنتا عشرة الأكثر تجربة، بيانات من حسابك الحقيقي"
+                    : "Twelve most attempted categories, sourced from your account"], 4);
+                WriteRow(w, 3, [""]);
+                WriteRow(w, 4, [rightToLeft ? "الفئة" : "Category",
+                    rightToLeft ? "محلولة" : "Solved",
+                    rightToLeft ? "أخطاء للمراجعة" : "Notebook errors",
+                    rightToLeft ? "محاولات صحيحة" : "Correct attempts",
+                    rightToLeft ? "محاولات خاطئة" : "Incorrect attempts",
+                    rightToLeft ? "تمت تجربتها" : "Attempted"], 2);
+                var index = 5;
+                foreach (var category in chartRows)
+                {
+                    WriteRow(w, index++, [
+                        rightToLeft ? category.CategoryNameAr : category.CategoryNameEn,
+                        category.SolvedProblems, category.ErrorNotebookProblems,
+                        category.CorrectAttempts, category.IncorrectAttempts,
+                        category.AttemptedProblems], index % 2 == 0 ? 3 : 0);
+                }
+                w.WriteEndElement();
+                w.WriteStartElement("mergeCells", Spreadsheet);
+                foreach (var range in new[] { "A1:F1", "A2:F2" })
+                {
+                    w.WriteStartElement("mergeCell", Spreadsheet);
+                    w.WriteAttributeString("ref", range);
+                    w.WriteEndElement();
+                }
+                w.WriteEndElement();
+                if (showCharts)
+                {
+                    w.WriteStartElement("drawing", Spreadsheet);
+                    w.WriteAttributeString("r", "id", OfficeRelations, "rId1");
+                    w.WriteEndElement();
+                }
+                w.WriteEndElement();
+            });
+            if (showCharts)
+            {
+                XmlPart(archive, "xl/worksheets/_rels/sheet2.xml.rels", w =>
+                {
+                    w.WriteStartElement("Relationships", PackageRelations);
+                    Relationship(w, "rId1", OfficeRelations + "/drawing",
+                        "../drawings/drawing1.xml");
+                    w.WriteEndElement();
+                });
+                XmlPart(archive, "xl/drawings/drawing1.xml", w =>
+                {
+                    w.WriteStartElement("xdr", "wsDr", SpreadsheetDrawingNs);
+                    WriteChartAnchor(w, 2, "Solved and review", 7, 3, 21, 23, "rId1");
+                    WriteChartAnchor(w, 3, "Correct and incorrect", 7, 25, 21, 45, "rId2");
+                    WriteBrandImageAnchor(w, 4, 17, 0, 21, 3, "rId3");
+                    w.WriteEndElement();
+                });
+                XmlPart(archive, "xl/drawings/_rels/drawing1.xml.rels", w =>
+                {
+                    w.WriteStartElement("Relationships", PackageRelations);
+                    Relationship(w, "rId1", OfficeRelations + "/chart", "../charts/chart1.xml");
+                    Relationship(w, "rId2", OfficeRelations + "/chart", "../charts/chart2.xml");
+                    Relationship(w, "rId3", OfficeRelations + "/image", "../media/image1.png");
+                    w.WriteEndElement();
+                });
+                XmlPart(archive, "xl/charts/chart1.xml", w => WriteCategoryChart(w,
+                    rightToLeft ? "المسائل المحلولة والأخطاء" : "Solved problems and review errors",
+                    chartsSheetName, chartRows, rightToLeft,
+                    rightToLeft ? "محلولة" : "Solved", "B",
+                    rightToLeft ? "تحتاج مراجعة" : "Needs review", "C",
+                    "7C3AED", "EC4899", 104486, 104487));
+                XmlPart(archive, "xl/charts/chart2.xml", w => WriteCategoryChart(w,
+                    rightToLeft ? "المحاولات الصحيحة والخاطئة" : "Correct and incorrect attempts",
+                    chartsSheetName, chartRows, rightToLeft,
+                    rightToLeft ? "صحيحة" : "Correct", "D",
+                    rightToLeft ? "خاطئة" : "Incorrect", "E",
+                    "0D9488", "E59A1A", 204486, 204487));
+            }
+            XmlPart(archive, "xl/worksheets/_rels/sheet1.xml.rels", w =>
+            {
+                w.WriteStartElement("Relationships", PackageRelations);
+                Relationship(w, "rId1", OfficeRelations + "/drawing", "../drawings/drawing2.xml");
+                w.WriteEndElement();
+            });
+            XmlPart(archive, "xl/drawings/drawing2.xml", w =>
+            {
+                w.WriteStartElement("xdr", "wsDr", SpreadsheetDrawingNs);
+                WriteBrandImageAnchor(w, 2, 0, 0, 2, 3, "rId1");
+                w.WriteEndElement();
+            });
+            XmlPart(archive, "xl/drawings/_rels/drawing2.xml.rels", w =>
+            {
+                w.WriteStartElement("Relationships", PackageRelations);
+                Relationship(w, "rId1", OfficeRelations + "/image", "../media/image1.png");
+                w.WriteEndElement();
+            });
+            var imageEntry = archive.CreateEntry("xl/media/image1.png", CompressionLevel.Optimal);
+            using (var stream = imageEntry.Open())
+                stream.Write(brandPng, 0, brandPng.Length);
             XmlPart(archive, "xl/styles.xml", w => WriteStyles(w));
         }
 
         return memory.ToArray();
+    }
+
+    private static void WriteBrandImageAnchor(XmlWriter w, int shapeId,
+        int startCol, int startRow, int endCol, int endRow, string relationshipId)
+    {
+        w.WriteStartElement("xdr", "twoCellAnchor", SpreadsheetDrawingNs);
+        foreach (var (element, col, row) in new[]
+            { ("from", startCol, startRow), ("to", endCol, endRow) })
+        {
+            w.WriteStartElement("xdr", element, SpreadsheetDrawingNs);
+            foreach (var (part, number) in new[]
+                { ("col", col), ("colOff", 0), ("row", row), ("rowOff", 0) })
+                w.WriteElementString("xdr", part, SpreadsheetDrawingNs,
+                    number.ToString(CultureInfo.InvariantCulture));
+            w.WriteEndElement();
+        }
+        w.WriteStartElement("xdr", "pic", SpreadsheetDrawingNs);
+        w.WriteStartElement("xdr", "nvPicPr", SpreadsheetDrawingNs);
+        w.WriteStartElement("xdr", "cNvPr", SpreadsheetDrawingNs);
+        w.WriteAttributeString("id", shapeId.ToString(CultureInfo.InvariantCulture));
+        w.WriteAttributeString("name", "MathWorld approved logo");
+        w.WriteAttributeString("descr", "MathWorld original brand mark");
+        w.WriteEndElement();
+        w.WriteStartElement("xdr", "cNvPicPr", SpreadsheetDrawingNs);
+        w.WriteStartElement("a", "picLocks", DrawingNs);
+        w.WriteAttributeString("noChangeAspect", "1");
+        w.WriteEndElement();
+        w.WriteEndElement();
+        w.WriteEndElement();
+        w.WriteStartElement("xdr", "blipFill", SpreadsheetDrawingNs);
+        w.WriteStartElement("a", "blip", DrawingNs);
+        w.WriteAttributeString("r", "embed", OfficeRelations, relationshipId);
+        w.WriteEndElement();
+        w.WriteStartElement("a", "stretch", DrawingNs);
+        w.WriteStartElement("a", "fillRect", DrawingNs);
+        w.WriteEndElement();
+        w.WriteEndElement();
+        w.WriteEndElement();
+        w.WriteStartElement("xdr", "spPr", SpreadsheetDrawingNs);
+        w.WriteStartElement("a", "prstGeom", DrawingNs);
+        w.WriteAttributeString("prst", "rect");
+        w.WriteStartElement("a", "avLst", DrawingNs);
+        w.WriteEndElement();
+        w.WriteEndElement();
+        w.WriteEndElement();
+        w.WriteEndElement();
+        w.WriteStartElement("xdr", "clientData", SpreadsheetDrawingNs);
+        w.WriteEndElement();
+        w.WriteEndElement();
+    }
+
+    private static void WriteChartAnchor(XmlWriter w, int shapeId, string shapeName,
+        int startCol, int startRow, int endCol, int endRow, string relationshipId)
+    {
+        w.WriteStartElement("xdr", "twoCellAnchor", SpreadsheetDrawingNs);
+        foreach (var (element, col, row) in new[]
+            { ("from", startCol, startRow), ("to", endCol, endRow) })
+        {
+            w.WriteStartElement("xdr", element, SpreadsheetDrawingNs);
+            foreach (var (part, number) in new[]
+                { ("col", col), ("colOff", 0), ("row", row), ("rowOff", 0) })
+            {
+                w.WriteElementString("xdr", part, SpreadsheetDrawingNs,
+                    number.ToString(CultureInfo.InvariantCulture));
+            }
+            w.WriteEndElement();
+        }
+        w.WriteStartElement("xdr", "graphicFrame", SpreadsheetDrawingNs);
+        w.WriteAttributeString("macro", "");
+        w.WriteStartElement("xdr", "nvGraphicFramePr", SpreadsheetDrawingNs);
+        w.WriteStartElement("xdr", "cNvPr", SpreadsheetDrawingNs);
+        w.WriteAttributeString("id", shapeId.ToString(CultureInfo.InvariantCulture));
+        w.WriteAttributeString("name", shapeName);
+        w.WriteEndElement();
+        w.WriteStartElement("xdr", "cNvGraphicFramePr", SpreadsheetDrawingNs);
+        w.WriteEndElement();
+        w.WriteEndElement();
+        w.WriteStartElement("xdr", "xfrm", SpreadsheetDrawingNs);
+        w.WriteStartElement("a", "off", DrawingNs);
+        w.WriteAttributeString("x", "0"); w.WriteAttributeString("y", "0");
+        w.WriteEndElement();
+        w.WriteStartElement("a", "ext", DrawingNs);
+        w.WriteAttributeString("cx", "0"); w.WriteAttributeString("cy", "0");
+        w.WriteEndElement();
+        w.WriteEndElement();
+        w.WriteStartElement("a", "graphic", DrawingNs);
+        w.WriteStartElement("a", "graphicData", DrawingNs);
+        w.WriteAttributeString("uri", ChartNs);
+        w.WriteStartElement("c", "chart", ChartNs);
+        w.WriteAttributeString("xmlns", "r", null, OfficeRelations);
+        w.WriteAttributeString("r", "id", OfficeRelations, relationshipId);
+        w.WriteEndElement();
+        w.WriteEndElement();
+        w.WriteEndElement();
+        w.WriteEndElement();
+        w.WriteStartElement("xdr", "clientData", SpreadsheetDrawingNs);
+        w.WriteEndElement();
+        w.WriteEndElement();
+    }
+
+    private static void ChartValue(XmlWriter w, string name, string value)
+    {
+        w.WriteStartElement("c", name, ChartNs);
+        w.WriteAttributeString("val", value);
+        w.WriteEndElement();
+    }
+
+    private static void ChartText(XmlWriter w, string text)
+    {
+        w.WriteStartElement("c", "title", ChartNs);
+        w.WriteStartElement("c", "tx", ChartNs);
+        w.WriteStartElement("c", "rich", ChartNs);
+        w.WriteStartElement("a", "bodyPr", DrawingNs); w.WriteEndElement();
+        w.WriteStartElement("a", "lstStyle", DrawingNs); w.WriteEndElement();
+        w.WriteStartElement("a", "p", DrawingNs);
+        w.WriteStartElement("a", "r", DrawingNs);
+        w.WriteStartElement("a", "t", DrawingNs);
+        w.WriteString(text);
+        w.WriteEndElement();
+        w.WriteEndElement();
+        w.WriteEndElement();
+        w.WriteEndElement();
+        w.WriteEndElement();
+        w.WriteEndElement();
+    }
+
+    private static void WriteSeries(XmlWriter w, int index, string label,
+        string color, string sheet, IReadOnlyList<string> categories,
+        IReadOnlyList<int> numbers, string valueCol)
+    {
+        w.WriteStartElement("c", "ser", ChartNs);
+        ChartValue(w, "idx", index.ToString(CultureInfo.InvariantCulture));
+        ChartValue(w, "order", index.ToString(CultureInfo.InvariantCulture));
+        w.WriteStartElement("c", "tx", ChartNs);
+        w.WriteElementString("c", "v", ChartNs, label);
+        w.WriteEndElement();
+        w.WriteStartElement("c", "spPr", ChartNs);
+        w.WriteStartElement("a", "solidFill", DrawingNs);
+        w.WriteStartElement("a", "srgbClr", DrawingNs);
+        w.WriteAttributeString("val", color);
+        w.WriteEndElement(); w.WriteEndElement(); w.WriteEndElement();
+        w.WriteStartElement("c", "cat", ChartNs);
+        w.WriteStartElement("c", "strRef", ChartNs);
+        w.WriteElementString("c", "f", ChartNs,
+            "'" + sheet.Replace("'", "''") + "'!$A$5:$A$" + (categories.Count + 4));
+        w.WriteStartElement("c", "strCache", ChartNs);
+        ChartValue(w, "ptCount", categories.Count.ToString(CultureInfo.InvariantCulture));
+        for (var i = 0; i < categories.Count; i++)
+        {
+            w.WriteStartElement("c", "pt", ChartNs);
+            w.WriteAttributeString("idx", i.ToString(CultureInfo.InvariantCulture));
+            w.WriteElementString("c", "v", ChartNs, categories[i]);
+            w.WriteEndElement();
+        }
+        w.WriteEndElement(); w.WriteEndElement(); w.WriteEndElement();
+        w.WriteStartElement("c", "val", ChartNs);
+        w.WriteStartElement("c", "numRef", ChartNs);
+        w.WriteElementString("c", "f", ChartNs,
+            "'" + sheet.Replace("'", "''") + "'!$" + valueCol +
+            "$5:$" + valueCol + "$" + (numbers.Count + 4));
+        w.WriteStartElement("c", "numCache", ChartNs);
+        w.WriteElementString("c", "formatCode", ChartNs, "0");
+        ChartValue(w, "ptCount", numbers.Count.ToString(CultureInfo.InvariantCulture));
+        for (var i = 0; i < numbers.Count; i++)
+        {
+            w.WriteStartElement("c", "pt", ChartNs);
+            w.WriteAttributeString("idx", i.ToString(CultureInfo.InvariantCulture));
+            w.WriteElementString("c", "v", ChartNs,
+                numbers[i].ToString(CultureInfo.InvariantCulture));
+            w.WriteEndElement();
+        }
+        w.WriteEndElement(); w.WriteEndElement(); w.WriteEndElement();
+        w.WriteEndElement();
+    }
+
+    private static void WriteCategoryChart(XmlWriter w, string title,
+        string sheetName, IReadOnlyList<StudentPremiumAnalyticsController.CategoryStatistics> categories,
+        bool rightToLeft, string label1, string col1,
+        string label2, string col2, string color1, string color2,
+        int categoryAxisId, int valueAxisId)
+    {
+        w.WriteStartElement("c", "chartSpace", ChartNs);
+        w.WriteAttributeString("xmlns", "a", null, DrawingNs);
+        w.WriteStartElement("c", "chart", ChartNs);
+        ChartText(w, title);
+        ChartValue(w, "autoTitleDeleted", "0");
+        w.WriteStartElement("c", "plotArea", ChartNs);
+        w.WriteStartElement("c", "layout", ChartNs); w.WriteEndElement();
+        w.WriteStartElement("c", "barChart", ChartNs);
+        ChartValue(w, "barDir", "bar");
+        ChartValue(w, "grouping", "clustered");
+        ChartValue(w, "varyColors", "0");
+        var names = categories.Select(x => rightToLeft ? x.CategoryNameAr : x.CategoryNameEn).ToArray();
+        WriteSeries(w, 0, label1, color1, sheetName, names,
+            categories.Select(x => col1 == "B" ? x.SolvedProblems : x.CorrectAttempts).ToArray(),
+            col1);
+        WriteSeries(w, 1, label2, color2, sheetName, names,
+            categories.Select(x => col2 == "C" ? x.ErrorNotebookProblems : x.IncorrectAttempts).ToArray(),
+            col2);
+        ChartValue(w, "gapWidth", "80");
+        ChartValue(w, "axId", categoryAxisId.ToString(CultureInfo.InvariantCulture));
+        ChartValue(w, "axId", valueAxisId.ToString(CultureInfo.InvariantCulture));
+        w.WriteEndElement();
+        w.WriteStartElement("c", "catAx", ChartNs);
+        ChartValue(w, "axId", categoryAxisId.ToString(CultureInfo.InvariantCulture));
+        w.WriteStartElement("c", "scaling", ChartNs);
+        ChartValue(w, "orientation", "minMax");
+        w.WriteEndElement();
+        ChartValue(w, "axPos", "l");
+        ChartValue(w, "tickLblPos", "nextTo");
+        ChartValue(w, "crossAx", valueAxisId.ToString(CultureInfo.InvariantCulture));
+        ChartValue(w, "crosses", "autoZero");
+        w.WriteEndElement();
+        w.WriteStartElement("c", "valAx", ChartNs);
+        ChartValue(w, "axId", valueAxisId.ToString(CultureInfo.InvariantCulture));
+        w.WriteStartElement("c", "scaling", ChartNs);
+        ChartValue(w, "orientation", "minMax");
+        w.WriteEndElement();
+        ChartValue(w, "axPos", "b");
+        w.WriteStartElement("c", "numFmt", ChartNs);
+        w.WriteAttributeString("formatCode", "0");
+        w.WriteAttributeString("sourceLinked", "0");
+        w.WriteEndElement();
+        ChartValue(w, "tickLblPos", "nextTo");
+        ChartValue(w, "crossAx", categoryAxisId.ToString(CultureInfo.InvariantCulture));
+        ChartValue(w, "crosses", "autoZero");
+        w.WriteEndElement();
+        w.WriteEndElement();
+        w.WriteStartElement("c", "legend", ChartNs);
+        ChartValue(w, "legendPos", "b");
+        w.WriteStartElement("c", "layout", ChartNs); w.WriteEndElement();
+        w.WriteEndElement();
+        ChartValue(w, "plotVisOnly", "1");
+        w.WriteEndElement();
+        w.WriteEndElement();
     }
 
     private static void XmlPart(ZipArchive archive, string name, Action<XmlWriter> write)

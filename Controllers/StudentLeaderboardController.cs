@@ -128,8 +128,10 @@ public sealed class StudentLeaderboardController : ControllerBase
             .Select((x, offset) => new
             {
                 Rank = (page - 1) * pageSize + offset + 1,
-                DisplayName = x.UserId == userId ? (arabic ? "أنت" : "You") :
-                    AbbreviatedName(names.GetValueOrDefault(x.UserId), arabic),
+                // Show the learner's actual saved first name (and optional
+                // family initial), including to the learner themselves.
+                // Highlighting "Your ranking" is a UI badge, not a fake name.
+                DisplayName = AbbreviatedName(names.GetValueOrDefault(x.UserId), arabic),
                 x.SolvedProblems,
                 x.Points,
                 x.FirstTryCorrect,
