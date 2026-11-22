@@ -197,8 +197,8 @@ def main():
 
     history = expect("GET", f"/api/problems/{question_id}/attempts",
                      200, token=users[0])
-    assert history["TotalAttempts"] == 2, history
-    assert len(history["Attempts"]) == 2, history
+    assert history["TotalAttempts"] == 1, history  # current practice cycle
+    assert len(history["Attempts"]) == 2, history  # immutable audit preserved
 
     expect("PUT", f"/api/admin/problems/{question_id}", 409,
            make_question(2), admin)
