@@ -66,12 +66,12 @@ public sealed class DailyChallengeController : ControllerBase
             .Where(p => p.UserId == userId && p.IsSolved &&
                 p.SolvedAt.HasValue && p.SolvedAt.Value < day)
             .Select(p => p.ProblemId).ToListAsync(ct);
-        var previouslySolved = solvedBeforeToday.ToHashSet();
 
         var eligible = await _db.Problems.AsNoTracking()
             .Where(p => p.StageId == targetStage.Value &&
                 p.Category.StageId == targetStage.Value &&
-                allowed.Contains(p.CategoryId))
+                allowed.Contains(p.CategoryId) &&
+                !solvedBeforeToday.Contains(p.Id))
             .OrderBy(p => p.Id)
             .Select(p => new { p.Id, p.CategoryId, p.TitleAr, p.TitleEn, p.Points })
             .ToListAsync(ct);
@@ -86,8 +86,7 @@ public sealed class DailyChallengeController : ControllerBase
             .GroupBy(p => p.CategoryId)
             .OrderBy(g => Rank(g.Key))
             .SelectMany(g => g
-                .OrderBy(p => previouslySolved.Contains(p.Id) ? 1 : 0)
-                .ThenBy(p => Rank(p.Id))
+                .OrderBy(p => Rank(p.Id))
                 .Select((problem, index) => new { problem, index }))
             .OrderBy(x => x.index)
             .ThenBy(x => Rank(x.problem.CategoryId))
