@@ -68,3 +68,47 @@ GROUP BY 1,2
 HAVING COUNT(*)>1
 ORDER BY similar_question_count DESC,p."StageId"
 LIMIT 35;
+
+
+-- Per-stage pedagogical breadth after every wave (read-only heuristic).
+-- Only numeric digits are masked; structurally similar prompts may represent
+-- different conceptual exercises and should not be automatically removed.
+WITH numeric_families AS (
+  SELECT p."StageId",
+         regexp_replace(
+           regexp_replace(lower(btrim(p."QuestionTextAr")),
+             '[[:digit:]٠-٩]+','#','g'),
+           '[[:space:]]+',' ','g') AS family,
+         COUNT(*) AS question_count
+  FROM "Problems" p GROUP BY p."StageId",family
+)
+SELECT "StageId", SUM(question_count) AS problems,
+       COUNT(*) AS approximate_structural_families,
+       COUNT(*) FILTER (WHERE question_count>1) AS repeated_family_groups,
+       SUM(question_count-1) AS additional_numeric_variants
+FROM numeric_families GROUP BY ROLLUP("StageId")
+ORDER BY "StageId" NULLS LAST;
+
+-- Next content wave priorities; thresholds are editorial guidance, never
+-- an official curriculum requirement or proof of mastery.
+WITH skill_coverage AS (
+ SELECT s."StageId",s."StableKey",s."NameAr",
+        COUNT(ps."ProblemId") AS question_count
+ FROM "CurriculumSkills" s
+ LEFT JOIN "CurriculumProblemSkills" ps ON ps."SkillId"=s."Id"
+   AND ps."IsPrimary"
+ GROUP BY s."Id"
+)
+SELECT "StageId","StableKey","NameAr",question_count
+FROM skill_coverage
+WHERE question_count<5
+ORDER BY "StageId",question_count,"StableKey";
+
+-- Ensure answer choices within each question are individually distinct too.
+SELECT COUNT(*) AS questions_with_repeated_options
+FROM (
+ SELECT p."Id" FROM "Problems" p
+ LEFT JOIN "QuestionOptions" o ON o."ProblemId"=p."Id"
+ GROUP BY p."Id"
+ HAVING COUNT(DISTINCT o."LatexCode")<>4
+) invalid;

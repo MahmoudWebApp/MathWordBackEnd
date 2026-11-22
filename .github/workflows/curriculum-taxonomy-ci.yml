@@ -10,6 +10,7 @@ on:
       - 'content/batches/mathworld-bank2-*'
       - 'content/batches/mathworld-bank3-*'
       - 'content/batches/mathworld-bank4-*'
+      - 'content/batches/mathworld-bank5-*'
       - 'docs/MATHWORLD_INTERNATIONAL_CURRICULUM_TAXONOMY_*.md'
       - 'tests/check_curriculum_taxonomy.py'
       - 'tests/check_adaptive_pilot_content.py'
@@ -18,9 +19,11 @@ on:
       - 'tests/check_question_bank_depth_wave_2.py'
       - 'tests/check_question_bank_depth_wave_3.py'
       - 'tests/check_question_bank_depth_wave_4.py'
+      - 'tests/check_question_bank_depth_wave_5.py'
       - 'scripts/generate_question_bank_depth_wave_2_sql.py'
       - 'scripts/generate_question_bank_depth_wave_3_sql.py'
       - 'scripts/generate_question_bank_depth_wave_4_sql.py'
+      - 'scripts/generate_question_bank_depth_wave_5_sql.py'
       - '.github/workflows/curriculum-taxonomy-ci.yml'
   workflow_dispatch:
 
@@ -59,3 +62,7 @@ jobs:
         run: python3 tests/check_question_bank_depth_wave_4.py
       - name: Verify atomic 40-question seed SQL contract
         run: python3 scripts/generate_question_bank_depth_wave_4_sql.py --check
+      - name: Verify 18 distinct new items with independent mathematics
+        run: python3 tests/check_question_bank_depth_wave_5.py
+      - name: Verify 18-question atomic SQL seed contract
+        run: python3 scripts/generate_question_bank_depth_wave_5_sql.py --check
