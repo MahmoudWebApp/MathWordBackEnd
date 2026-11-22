@@ -1,0 +1,606 @@
+{
+  "meta": {
+    "batch": "mathworld-depth-wave3-20261122",
+    "status": "Draft",
+    "publication": "Independent educator review required before any public release",
+    "note": "Extend existing Published topic proposals with Draft items only; no new student-facing categories."
+  },
+  "topics": [
+    {
+      "existingTopicKey": "p-fractions-decimals",
+      "stageId": 1,
+      "skillKey": "fraction-operations",
+      "objectiveAr": "العمليات على الكسور",
+      "objectiveEn": "Fraction operations",
+      "items": [
+        {
+          "contentKey": "mw-depth3-p-fractions-decimals-fraction-sum",
+          "primarySkillKey": "fraction-operations",
+          "templateFamilyKey": "p-fractions-decimals-fraction-sum",
+          "difficultyLevel": 2,
+          "pisaProcess": "employ",
+          "titleAr": "جمع كسرين",
+          "titleEn": "Adding fractions",
+          "questionTextAr": "ما ناتج $\\frac34+\\frac18$ في أبسط صورة؟",
+          "questionTextEn": "Find $\\frac34+\\frac18$ in simplest form.",
+          "detailedSolutionAr": "نحوّل 3/4 إلى 6/8، ثم نضيف 1/8 فنحصل على 7/8.",
+          "detailedSolutionEn": "Convert 3/4 to 6/8; add 1/8 to obtain 7/8.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "\\frac78",
+              "IsCorrect": true
+            },
+            {
+              "Order": 2,
+              "LatexCode": "\\frac58",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "\\frac48",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "\\frac{11}8",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-depth3-p-fractions-decimals-fraction-subtract",
+          "primarySkillKey": "fraction-operations",
+          "templateFamilyKey": "p-fractions-decimals-fraction-subtract",
+          "difficultyLevel": 2,
+          "pisaProcess": "employ",
+          "titleAr": "طرح الكسور",
+          "titleEn": "Subtract fractions",
+          "questionTextAr": "احسب $\\frac56-\\frac13$ واكتب الناتج في أبسط صورة.",
+          "questionTextEn": "Calculate $\\frac56-\\frac13$ in simplest form.",
+          "detailedSolutionAr": "نحوّل 1/3 إلى 2/6، ثم 5/6-2/6=3/6=1/2.",
+          "detailedSolutionEn": "Write 1/3 as 2/6 and subtract: 5/6-2/6=3/6=1/2.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "\\frac23",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "\\frac12",
+              "IsCorrect": true
+            },
+            {
+              "Order": 3,
+              "LatexCode": "\\frac16",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "\\frac36",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-depth3-p-fractions-decimals-fraction-group",
+          "primarySkillKey": "fraction-operations",
+          "templateFamilyKey": "p-fractions-decimals-fraction-group",
+          "difficultyLevel": 2,
+          "pisaProcess": "employ",
+          "titleAr": "جزء من مجموعة",
+          "titleEn": "Fraction of a group",
+          "questionTextAr": "في صندوق 18 كرة، ثلثاها زرقاء. كم كرة زرقاء؟",
+          "questionTextEn": "A box holds 18 balls. Two-thirds are blue. How many are blue?",
+          "detailedSolutionAr": "ثلث 18 يساوي 6؛ بالتالي ثلثاه يساويان 2×6=12.",
+          "detailedSolutionEn": "One-third of 18 is 6, so two-thirds is 2×6=12.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "6",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "9",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "12",
+              "IsCorrect": true
+            },
+            {
+              "Order": 4,
+              "LatexCode": "16",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-depth3-p-fractions-decimals-fraction-mixed",
+          "primarySkillKey": "fraction-operations",
+          "templateFamilyKey": "p-fractions-decimals-fraction-mixed",
+          "difficultyLevel": 2,
+          "pisaProcess": "employ",
+          "titleAr": "جمع أعداد كسرية",
+          "titleEn": "Adding mixed numbers",
+          "questionTextAr": "ما ناتج $1\\frac14+2\\frac12$ ككسر غير فعلي؟",
+          "questionTextEn": "Find $1\\frac14+2\\frac12$ as an improper fraction.",
+          "detailedSolutionAr": "الأعداد الكسرية هي 5/4 و10/4؛ مجموعهما 15/4.",
+          "detailedSolutionEn": "The mixed numbers are 5/4 and 10/4, totaling 15/4.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "\\frac{11}4",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "\\frac{13}4",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "\\frac{14}4",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "\\frac{15}4",
+              "IsCorrect": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "existingTopicKey": "m-statistics",
+      "stageId": 2,
+      "skillKey": "summary-measures",
+      "objectiveAr": "مقاييس النزعة المركزية",
+      "objectiveEn": "Measures of center",
+      "items": [
+        {
+          "contentKey": "mw-depth3-m-statistics-mean",
+          "primarySkillKey": "summary-measures",
+          "templateFamilyKey": "m-statistics-mean",
+          "difficultyLevel": 2,
+          "pisaProcess": "employ",
+          "titleAr": "حساب المتوسط",
+          "titleEn": "Mean",
+          "questionTextAr": "ما المتوسط الحسابي للبيانات 4، 7، 7، 10؟",
+          "questionTextEn": "Find the mean of 4, 7, 7, and 10.",
+          "detailedSolutionAr": "مجموع القيم 28 وعددها 4، لذلك المتوسط 28÷4=7.",
+          "detailedSolutionEn": "The sum is 28 and there are four observations, so the mean is 28÷4=7.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "6",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "7",
+              "IsCorrect": true
+            },
+            {
+              "Order": 3,
+              "LatexCode": "8",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "10",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-depth3-m-statistics-median",
+          "primarySkillKey": "summary-measures",
+          "templateFamilyKey": "m-statistics-median",
+          "difficultyLevel": 2,
+          "pisaProcess": "employ",
+          "titleAr": "حساب الوسيط",
+          "titleEn": "Median",
+          "questionTextAr": "ما وسيط البيانات المرتبة 2، 5، 8، 12، 20؟",
+          "questionTextEn": "Find the median of sorted data 2, 5, 8, 12, 20.",
+          "detailedSolutionAr": "العدد الأوسط بين خمس قيم مرتبة هو الثالث، أي 8.",
+          "detailedSolutionEn": "Of five ordered observations, the middle one is third: 8.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "5",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "10",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "8",
+              "IsCorrect": true
+            },
+            {
+              "Order": 4,
+              "LatexCode": "12",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-depth3-m-statistics-mode",
+          "primarySkillKey": "summary-measures",
+          "templateFamilyKey": "m-statistics-mode",
+          "difficultyLevel": 2,
+          "pisaProcess": "employ",
+          "titleAr": "حساب المنوال",
+          "titleEn": "Mode",
+          "questionTextAr": "ما منوال البيانات 3، 5، 5، 5، 8، 8؟",
+          "questionTextEn": "Find the mode of 3, 5, 5, 5, 8, 8.",
+          "detailedSolutionAr": "تكررت القيمة 5 ثلاث مرات، وهو أكثر من أي قيمة أخرى.",
+          "detailedSolutionEn": "The value 5 occurs three times, more often than any other.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "5",
+              "IsCorrect": true
+            },
+            {
+              "Order": 2,
+              "LatexCode": "8",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "3",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "6",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-depth3-m-statistics-outlier",
+          "primarySkillKey": "summary-measures",
+          "templateFamilyKey": "m-statistics-outlier",
+          "difficultyLevel": 2,
+          "pisaProcess": "employ",
+          "titleAr": "تأثير قيمة متطرفة",
+          "titleEn": "Outlier effect",
+          "questionTextAr": "القيم 4، 5، 6، 7، 8 متوسطها 6. إذا استُبدلت 8 بـ28، فما المتوسط الجديد؟",
+          "questionTextEn": "Values 4, 5, 6, 7, 8 have mean 6. If 8 is replaced by 28, find the new mean.",
+          "detailedSolutionAr": "المجموع الجديد 30-8+28=50، والمتوسط 50÷5=10.",
+          "detailedSolutionEn": "The new sum is 30-8+28=50, and the new mean is 50÷5=10.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "6",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "8",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "10",
+              "IsCorrect": true
+            },
+            {
+              "Order": 4,
+              "LatexCode": "14",
+              "IsCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "existingTopicKey": "s-sequences-series",
+      "stageId": 3,
+      "skillKey": "series-convergence",
+      "objectiveAr": "تقارب المتسلسلات",
+      "objectiveEn": "Series convergence",
+      "items": [
+        {
+          "contentKey": "mw-depth3-s-sequences-series-infinite-geometric",
+          "primarySkillKey": "series-convergence",
+          "templateFamilyKey": "s-sequences-series-infinite-geometric",
+          "difficultyLevel": 2,
+          "pisaProcess": "employ",
+          "titleAr": "مجموع متسلسلة هندسية",
+          "titleEn": "Infinite geometric sum",
+          "questionTextAr": "ما مجموع $3+\\frac32+\\frac34+\\cdots$ إلى ما لا نهاية؟",
+          "questionTextEn": "Find the infinite sum $3+\\frac32+\\frac34+\\cdots$.",
+          "detailedSolutionAr": "النسبة 1/2 أقل من واحد مطلقاً؛ المجموع 3/(1-1/2)=6.",
+          "detailedSolutionEn": "The ratio is 1/2, with absolute value below 1, so the sum is 3/(1-1/2)=6.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "3",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "4",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "6",
+              "IsCorrect": true
+            },
+            {
+              "Order": 4,
+              "LatexCode": "9",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-depth3-s-sequences-series-divergent-ratio",
+          "primarySkillKey": "series-convergence",
+          "templateFamilyKey": "s-sequences-series-divergent-ratio",
+          "difficultyLevel": 2,
+          "pisaProcess": "employ",
+          "titleAr": "نسبة تؤدي للتباعد",
+          "titleEn": "Divergent ratio",
+          "questionTextAr": "المتسلسلة $\\sum_{n=0}^{\\infty}(1.1)^n$ متباعدة. أي شرط يدل على ذلك؟",
+          "questionTextEn": "The series $\\sum_{n=0}^{\\infty}(1.1)^n$ diverges. Which ratio condition explains why?",
+          "detailedSolutionAr": "المتسلسلة الهندسية تتقارب إذا |r|<1؛ لكن هنا |r|>1، فلا تتقارب.",
+          "detailedSolutionEn": "A geometric series converges if |r|<1; here |r|>1, so it diverges.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "|r|<1",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "r=\\frac12",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "r=0",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "|r|>1",
+              "IsCorrect": true
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-depth3-s-sequences-series-alternating",
+          "primarySkillKey": "series-convergence",
+          "templateFamilyKey": "s-sequences-series-alternating",
+          "difficultyLevel": 2,
+          "pisaProcess": "employ",
+          "titleAr": "مجموع هندسي متناوب",
+          "titleEn": "Alternating geometric series",
+          "questionTextAr": "احسب $\\sum_{n=0}^{\\infty}(-\\frac12)^n$.",
+          "questionTextEn": "Evaluate $\\sum_{n=0}^{\\infty}(-\\frac12)^n$.",
+          "detailedSolutionAr": "الحد الأول 1 والنسبة -1/2؛ المجموع 1/(1+1/2)=2/3.",
+          "detailedSolutionEn": "The first term is 1 and the ratio is -1/2, giving 1/(1+1/2)=2/3.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "\\frac12",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "\\frac23",
+              "IsCorrect": true
+            },
+            {
+              "Order": 3,
+              "LatexCode": "\\frac32",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "-\\frac23",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-depth3-s-sequences-series-constant-terms",
+          "primarySkillKey": "series-convergence",
+          "templateFamilyKey": "s-sequences-series-constant-terms",
+          "difficultyLevel": 2,
+          "pisaProcess": "employ",
+          "titleAr": "شرط النهاية للتقارب",
+          "titleEn": "Term test for convergence",
+          "questionTextAr": "لماذا تتباعد المتسلسلة $\\sum_{n=1}^{\\infty}2$؟",
+          "questionTextEn": "Why does the series $\\sum_{n=1}^{\\infty}2$ diverge?",
+          "detailedSolutionAr": "الحد العام ثابت يساوي 2 وليس صفرًا؛ شرط التقارب الضروري غير محقق.",
+          "detailedSolutionEn": "Every term equals 2, not approaching 0; the necessary convergence condition fails.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "\\lim_{n\\to\\infty}a_n=0",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "\\lim_{n\\to\\infty}a_n=2",
+              "IsCorrect": true
+            },
+            {
+              "Order": 3,
+              "LatexCode": "|r|<1",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "a_1=0",
+              "IsCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "existingTopicKey": "u-discrete-math",
+      "stageId": 4,
+      "skillKey": "logic",
+      "objectiveAr": "المنطق الرياضي",
+      "objectiveEn": "Mathematical logic",
+      "items": [
+        {
+          "contentKey": "mw-depth3-u-discrete-math-negate-universal",
+          "primarySkillKey": "logic",
+          "templateFamilyKey": "u-discrete-math-negate-universal",
+          "difficultyLevel": 2,
+          "pisaProcess": "employ",
+          "titleAr": "نفي قضية كلية",
+          "titleEn": "Negate a universal",
+          "questionTextAr": "ما النفي المنطقي لعبارة $\\forall x\\,P(x)$؟",
+          "questionTextEn": "What is the logical negation of $\\forall x\\,P(x)$?",
+          "detailedSolutionAr": "نفي عبارة لكل x هو وجود x واحد لا تتحقق عنده P؛ أي ∃x¬P(x).",
+          "detailedSolutionEn": "Negating 'for every x' means some x fails P; thus there exists x with not P(x).",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "\\forall x\\,\\neg P(x)",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "\\exists x\\,\\neg P(x)",
+              "IsCorrect": true
+            },
+            {
+              "Order": 3,
+              "LatexCode": "\\exists x\\,P(x)",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "\\neg\\exists x\\,\\neg P(x)",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-depth3-u-discrete-math-implication",
+          "primarySkillKey": "logic",
+          "templateFamilyKey": "u-discrete-math-implication",
+          "difficultyLevel": 2,
+          "pisaProcess": "employ",
+          "titleAr": "حالة كذب الاستلزام",
+          "titleEn": "False implication",
+          "questionTextAr": "متى تكون العبارة $P\\Rightarrow Q$ كاذبة؟",
+          "questionTextEn": "When is $P\\Rightarrow Q$ false?",
+          "detailedSolutionAr": "الاستلزام كاذب عندما تكون P صحيحة بينما تكون Q خاطئة فقط.",
+          "detailedSolutionEn": "An implication is false only when P is true and Q is false.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "P=0,\\,Q=0",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "P=0,\\,Q=1",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "P=1,\\,Q=0",
+              "IsCorrect": true
+            },
+            {
+              "Order": 4,
+              "LatexCode": "P=1,\\,Q=1",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-depth3-u-discrete-math-contrapositive",
+          "primarySkillKey": "logic",
+          "templateFamilyKey": "u-discrete-math-contrapositive",
+          "difficultyLevel": 2,
+          "pisaProcess": "employ",
+          "titleAr": "العكس النقيض",
+          "titleEn": "Contrapositive",
+          "questionTextAr": "ما العكس النقيض للعبارة $P\\Rightarrow Q$؟",
+          "questionTextEn": "What is the contrapositive of $P\\Rightarrow Q$?",
+          "detailedSolutionAr": "نبدّل طرفي الاستلزام وننفي كل طرف: ¬Q⇒¬P، وهي مكافئة للأصل.",
+          "detailedSolutionEn": "Exchange and negate antecedent and consequent: ¬Q⇒¬P, equivalent to the original.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "\\neg Q\\Rightarrow\\neg P",
+              "IsCorrect": true
+            },
+            {
+              "Order": 2,
+              "LatexCode": "Q\\Rightarrow P",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "\\neg P\\Rightarrow\\neg Q",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "P\\Rightarrow\\neg Q",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-depth3-u-discrete-math-demorgan",
+          "primarySkillKey": "logic",
+          "templateFamilyKey": "u-discrete-math-demorgan",
+          "difficultyLevel": 2,
+          "pisaProcess": "employ",
+          "titleAr": "قانون دي مورغان",
+          "titleEn": "De Morgan's law",
+          "questionTextAr": "أي عبارة مكافئة منطقياً لـ $\\neg(P\\land Q)$؟",
+          "questionTextEn": "Which expression is equivalent to $\\neg(P\\land Q)$?",
+          "detailedSolutionAr": "حسب قانون دي مورغان نفي الاقتران يساوي فصل نفي طرفيه، أي ¬P∨¬Q.",
+          "detailedSolutionEn": "By De Morgan's law, negating a conjunction gives the disjunction of negations.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "\\neg P\\land\\neg Q",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "P\\lor Q",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "P\\land Q",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "\\neg P\\lor\\neg Q",
+              "IsCorrect": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
