@@ -112,10 +112,9 @@ public static class PremiumAnalyticsXlsxExporter
                 w.WriteEndElement();
                 w.WriteStartElement("fills", Spreadsheet);
                 w.WriteAttributeString("count", "4");
-                foreach (var pattern in new[] { "none", "gray125", "solid", "solid" })
+                for (var index = 0; index < 4; index++)
                 {
-                    var index = pattern == "none" ? 0 : pattern == "gray125" ? 1 :
-                        pattern == "solid" ? 2 : 0;
+                    var pattern = index == 0 ? "none" : index == 1 ? "gray125" : "solid";
                     w.WriteStartElement("fill", Spreadsheet);
                     w.WriteStartElement("patternFill", Spreadsheet);
                     w.WriteAttributeString("patternType", pattern);
