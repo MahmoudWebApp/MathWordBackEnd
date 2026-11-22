@@ -11,6 +11,16 @@ namespace MathWorldAPI.DTOs
         public string Reason { get; set; } = string.Empty;
     }
 
+    /// <summary>
+    /// Grant one audited year of Premium for one or more active learners.
+    /// The server determines the term, never the browser clock.
+    /// </summary>
+    public sealed class AnnualPremiumGrantDto
+    {
+        [Required, MinLength(1), MaxLength(100)]
+        public List<int> LearnerIds { get; set; } = new();
+    }
+
     public sealed class SubscriptionStatusDto
     {
         public int LearnerId { get; set; }
