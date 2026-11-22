@@ -29,7 +29,10 @@ def fr(v):
     if v.denominator==1:
         return str(v.numerator)
     sign="-" if v.numerator<0 else ""
-    return rf"{sign}\frac{{{abs(v.numerator)}}}{{{v.denominator}}}"
+    num=abs(v.numerator)
+    numerator=f"{{{num}}}" if num>=10 else str(num)
+    denominator=f"{{{v.denominator}}}" if v.denominator>=10 else str(v.denominator)
+    return rf"{sign}\frac{numerator}{denominator}"
 
 def variance(values):
     n=len(values)
