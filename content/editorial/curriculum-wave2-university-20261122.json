@@ -1,0 +1,474 @@
+{
+  "meta": {
+    "batch": "curriculum-gap-wave2-20261122",
+    "status": "Draft",
+    "publication": "Requires independent educator mathematical review before publication",
+    "catalog": "content/catalog/international-mathworld-taxonomy-v2.json",
+    "stageId": 4
+  },
+  "topics": [
+    {
+      "stableKey": "u-numerical-analysis",
+      "stageId": 4,
+      "domainId": 5,
+      "iconKey": "numerical-analysis",
+      "sortOrder": 20,
+      "nameAr": "التحليل العددي",
+      "nameEn": "Numerical Analysis",
+      "descriptionAr": "تقريب جذور الدوال وتكاملاتها، وتحليل أخطاء التقريب وحل الأنظمة الخطية بخطوات عددية.",
+      "descriptionEn": "Numerical root finding, quadrature, approximation errors and iterative or elimination techniques for linear systems.",
+      "skills": [
+        {
+          "key": "root-finding",
+          "nameAr": "إيجاد الجذور عددياً",
+          "nameEn": "Numerical root finding",
+          "objectiveAr": "تنفيذ خطوات التنصيف ونيوتن وتقييم تقريب الجذور",
+          "objectiveEn": "Apply bisection and Newton iterations to approximate roots"
+        },
+        {
+          "key": "numerical-integration",
+          "nameAr": "التكامل العددي",
+          "nameEn": "Numerical quadrature",
+          "objectiveAr": "تطبيق قواعد شبه المنحرف والمنتصف وسمبسون لتقريب التكامل",
+          "objectiveEn": "Apply trapezoidal, midpoint, and Simpson rules to approximate definite integrals"
+        },
+        {
+          "key": "error-analysis",
+          "nameAr": "تحليل الخطأ",
+          "nameEn": "Numerical error analysis",
+          "objectiveAr": "التمييز بين الخطأ المطلق والنسبي وحدود خطأ التقريب",
+          "objectiveEn": "Distinguish absolute error, relative error, and rounding bounds"
+        },
+        {
+          "key": "linear-systems",
+          "nameAr": "حل أنظمة خطية عددياً",
+          "nameEn": "Numerical linear systems",
+          "objectiveAr": "تنفيذ خطوات جـاكوبي والحذف وحساب متجه المتبقي",
+          "objectiveEn": "Use Jacobi iteration, elimination, and residuals for linear systems"
+        }
+      ],
+      "items": [
+        {
+          "contentKey": "mw-wave2-u-numerical-analysis-bisection-first-midpoint",
+          "primarySkillKey": 0,
+          "templateFamilyKey": "u-numerical-analysis-bisection-first-midpoint",
+          "difficultyLevel": 1,
+          "pisaProcess": "employ",
+          "titleAr": "منتصف فترة التنصيف",
+          "titleEn": "Bisection midpoint",
+          "questionTextAr": "لإيجاد جذر $f(x)=x^2-2$ بطريقة التنصيف على الفترة [1,2]، ما أول نقطة وسطية؟",
+          "questionTextEn": "Using bisection to find a zero of $f(x)=x^2-2$ on [1,2], what is the first midpoint?",
+          "detailedSolutionAr": "نحسب منتصف الفترة: (1+2)/2=1.5. يتم تقييم الدالة عند هذه النقطة بعد ذلك.",
+          "detailedSolutionEn": "The first midpoint is (1+2)/2=1.5, where the function can then be evaluated.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "1",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "1.25",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "1.5",
+              "IsCorrect": true
+            },
+            {
+              "Order": 4,
+              "LatexCode": "2",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave2-u-numerical-analysis-bisection-exact-root",
+          "primarySkillKey": 0,
+          "templateFamilyKey": "u-numerical-analysis-bisection-exact-root",
+          "difficultyLevel": 2,
+          "pisaProcess": "interpret_evaluate",
+          "titleAr": "جذر عند منتصف الفترة",
+          "titleEn": "Exact zero at midpoint",
+          "questionTextAr": "نبدأ التنصيف للدالة $f(x)=x^2-4$ على [1,3]. ما قيمة أول نقطة وسطية تحقق $f(x)=0$؟",
+          "questionTextEn": "Start bisection for $f(x)=x^2-4$ on [1,3]. What first midpoint makes $f(x)=0$?",
+          "detailedSolutionAr": "منتصف الفترة هو (1+3)/2=2، وعند x=2 نجد f(2)=4-4=0.",
+          "detailedSolutionEn": "The midpoint is (1+3)/2=2, and f(2)=4-4=0.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "2",
+              "IsCorrect": true
+            },
+            {
+              "Order": 2,
+              "LatexCode": "1.5",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "3",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "4",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave2-u-numerical-analysis-newton-first-step",
+          "primarySkillKey": 0,
+          "templateFamilyKey": "u-numerical-analysis-newton-first-step",
+          "difficultyLevel": 3,
+          "pisaProcess": "employ",
+          "titleAr": "خطوة أولى لطريقة نيوتن",
+          "titleEn": "Newton's first step",
+          "questionTextAr": "لدالة $f(x)=x^2-9$ مع $x_0=4$، ما قيمة $x_1$ بطريقة نيوتن؟",
+          "questionTextEn": "For $f(x)=x^2-9$ with $x_0=4$, compute the first Newton iterate $x_1$.",
+          "detailedSolutionAr": "مشتقة الدالة f'(x)=2x. إذن x1=4-(16-9)/(2×4)=4-7/8=3.125.",
+          "detailedSolutionEn": "The derivative is f'(x)=2x. Thus x1=4-(16-9)/8=4-7/8=3.125.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "3.5",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "3",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "3.25",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "3.125",
+              "IsCorrect": true
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave2-u-numerical-analysis-trapezoid-single-panel",
+          "primarySkillKey": 1,
+          "templateFamilyKey": "u-numerical-analysis-trapezoid-single-panel",
+          "difficultyLevel": 2,
+          "pisaProcess": "employ",
+          "titleAr": "قاعدة شبه المنحرف",
+          "titleEn": "Trapezoidal rule",
+          "questionTextAr": "قدّر التكامل من 0 إلى 2 للدالة $f(x)=x^2$ بقاعدة شبه المنحرف باستخدام فترة واحدة.",
+          "questionTextEn": "Approximate the integral of $f(x)=x^2$ from 0 to 2 by the trapezoidal rule using one panel.",
+          "detailedSolutionAr": "نستخدم (b-a)/2 × [f(a)+f(b)] = (2/2) × [0+4] = 4.",
+          "detailedSolutionEn": "Trapezoid with one panel: (b-a)/2 × [f(a)+f(b)] = (2/2) × [0+4] = 4.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "4",
+              "IsCorrect": true
+            },
+            {
+              "Order": 2,
+              "LatexCode": "2",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "\\frac83",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "8",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave2-u-numerical-analysis-midpoint-rectangle",
+          "primarySkillKey": 1,
+          "templateFamilyKey": "u-numerical-analysis-midpoint-rectangle",
+          "difficultyLevel": 2,
+          "pisaProcess": "employ",
+          "titleAr": "قاعدة المستطيل المتوسط",
+          "titleEn": "Midpoint quadrature",
+          "questionTextAr": "قدّر التكامل من 0 إلى 2 للدالة $f(x)=x^2$ بقاعدة المنتصف بفترة واحدة.",
+          "questionTextEn": "Approximate the integral of $f(x)=x^2$ from 0 to 2 using the one-panel midpoint rule.",
+          "detailedSolutionAr": "منتصف [0,2] هو 1؛ عرض الفترة 2 وقيمة الدالة 1، لذلك التقريب 2×1=2.",
+          "detailedSolutionEn": "The midpoint is 1, the interval width is 2 and f(1)=1, giving 2×1=2.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "1",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "2",
+              "IsCorrect": true
+            },
+            {
+              "Order": 3,
+              "LatexCode": "4",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "\\frac83",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave2-u-numerical-analysis-simpson-parabola",
+          "primarySkillKey": 1,
+          "templateFamilyKey": "u-numerical-analysis-simpson-parabola",
+          "difficultyLevel": 3,
+          "pisaProcess": "employ",
+          "titleAr": "قاعدة سمبسون للقطع المكافئ",
+          "titleEn": "Simpson rule on a quadratic",
+          "questionTextAr": "قدّر التكامل من 0 إلى 2 للدالة $f(x)=x^2$ بقاعدة سمبسون 1/3 باستخدام فترتين فرعيتين متساويتين.",
+          "questionTextEn": "Use Simpson's 1/3 rule with two equal subintervals to integrate $f(x)=x^2$ from 0 to 2.",
+          "detailedSolutionAr": "الخطوة h=1، وسمبسون يعطينا (1/3)[f(0)+4f(1)+f(2)] = (1/3)(0+4+4)=8/3.",
+          "detailedSolutionEn": "With h=1, Simpson gives (1/3)[f(0)+4f(1)+f(2)] = (1/3)(0+4+4)=8/3.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "4",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "2",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "\\frac43",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "\\frac{8}{3}",
+              "IsCorrect": true
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave2-u-numerical-analysis-absolute-error",
+          "primarySkillKey": 2,
+          "templateFamilyKey": "u-numerical-analysis-absolute-error",
+          "difficultyLevel": 1,
+          "pisaProcess": "employ",
+          "titleAr": "الخطأ المطلق",
+          "titleEn": "Absolute error",
+          "questionTextAr": "قيمة دقيقة تساوي 10 وقربناها إلى 9.7. ما الخطأ المطلق؟",
+          "questionTextEn": "An exact value is 10 and its approximation is 9.7. What is the absolute error?",
+          "detailedSolutionAr": "الخطأ المطلق هو القيمة المطلقة للفرق: |10-9.7|=0.3.",
+          "detailedSolutionEn": "Absolute error is the magnitude of the difference: |10-9.7|=0.3.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "0.03",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "3",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "0.3",
+              "IsCorrect": true
+            },
+            {
+              "Order": 4,
+              "LatexCode": "0.7",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave2-u-numerical-analysis-relative-error",
+          "primarySkillKey": 2,
+          "templateFamilyKey": "u-numerical-analysis-relative-error",
+          "difficultyLevel": 2,
+          "pisaProcess": "interpret_evaluate",
+          "titleAr": "الخطأ النسبي المئوي",
+          "titleEn": "Percentage relative error",
+          "questionTextAr": "إذا كانت القيمة الدقيقة 50 والتقريب 49، فما الخطأ النسبي بالنسبة المئوية؟",
+          "questionTextEn": "If the exact value is 50 and the approximation is 49, what is the percentage relative error?",
+          "detailedSolutionAr": "الخطأ المطلق 1، ونقسم على القيمة الدقيقة 50: 1/50=0.02=2%.",
+          "detailedSolutionEn": "Absolute error is 1; divide by the exact value 50: 1/50=0.02=2%.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "1\\%",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "2\\%",
+              "IsCorrect": true
+            },
+            {
+              "Order": 3,
+              "LatexCode": "5\\%",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "0.2\\%",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave2-u-numerical-analysis-rounding-bound",
+          "primarySkillKey": 2,
+          "templateFamilyKey": "u-numerical-analysis-rounding-bound",
+          "difficultyLevel": 2,
+          "pisaProcess": "interpret_evaluate",
+          "titleAr": "حدّ الخطأ عند التقريب",
+          "titleEn": "Rounding error bound",
+          "questionTextAr": "عند تقريب قياس إلى أقرب جزء من مئة، ما الحد الأعلى للخطأ المطلق بسبب التقريب؟",
+          "questionTextEn": "When rounding a measurement to the nearest hundredth, what is the maximum absolute rounding error?",
+          "detailedSolutionAr": "المسافة بين قيمتين متتاليتين 0.01، وأكبر خطأ تقريب لا يتجاوز نصفها وهو 0.005.",
+          "detailedSolutionEn": "Adjacent rounded values differ by 0.01; the absolute error is bounded by half of that, 0.005.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "0.01",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "0.05",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "0.001",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "0.005",
+              "IsCorrect": true
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave2-u-numerical-analysis-jacobi-first-step",
+          "primarySkillKey": 3,
+          "templateFamilyKey": "u-numerical-analysis-jacobi-first-step",
+          "difficultyLevel": 3,
+          "pisaProcess": "employ",
+          "titleAr": "تكرار جاكوبي الأول",
+          "titleEn": "Jacobi first iteration",
+          "questionTextAr": "للنظام $4x+y=9$ و$x+3y=7$، نبدأ $x_0=y_0=0$. ما الزوج $(x_1,y_1)$ بطريقة جاكوبي؟",
+          "questionTextEn": "For $4x+y=9$ and $x+3y=7$, start from $x_0=y_0=0$. What is the first Jacobi iterate $(x_1,y_1)$?",
+          "detailedSolutionAr": "نحسب x1=(9-y0)/4=9/4 وy1=(7-x0)/3=7/3 باستخدام القيم القديمة فقط.",
+          "detailedSolutionEn": "Use only the previous iterate: x1=(9-y0)/4=9/4 and y1=(7-x0)/3=7/3.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "(\\frac94,\\frac73)",
+              "IsCorrect": true
+            },
+            {
+              "Order": 2,
+              "LatexCode": "(\\frac73,\\frac94)",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "(9,7)",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "(\\frac94,\\frac{19}{12})",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave2-u-numerical-analysis-linear-elimination",
+          "primarySkillKey": 3,
+          "templateFamilyKey": "u-numerical-analysis-linear-elimination",
+          "difficultyLevel": 2,
+          "pisaProcess": "employ",
+          "titleAr": "الحذف الغاوسي لنظام صغير",
+          "titleEn": "Elimination on a small system",
+          "questionTextAr": "باستخدام الحذف، حل النظام $2x+y=7$ و$x-y=2$. ما قيمة $x$؟",
+          "questionTextEn": "Use elimination to solve $2x+y=7$ and $x-y=2$. What is $x$?",
+          "detailedSolutionAr": "نجمع المعادلتين فيزول y: 3x=9، وبالتالي x=3، ومن الثانية y=1.",
+          "detailedSolutionEn": "Add the equations to eliminate y: 3x=9, so x=3 and the other equation gives y=1.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "2",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "4",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "1",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "3",
+              "IsCorrect": true
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave2-u-numerical-analysis-residual-infinity-norm",
+          "primarySkillKey": 3,
+          "templateFamilyKey": "u-numerical-analysis-residual-infinity-norm",
+          "difficultyLevel": 3,
+          "pisaProcess": "interpret_evaluate",
+          "titleAr": "معيار متجه المتبقي",
+          "titleEn": "Residual infinity norm",
+          "questionTextAr": "للنظام $A=diag(2,3)$ و$b=(4,9)$، إذا كان التقريب $x=(2,2)$، فما معيار اللانهاية للمتبقي $r=b-Ax$؟",
+          "questionTextEn": "For $A=diag(2,3)$, $b=(4,9)$ and approximate solution $x=(2,2)$, find the infinity norm of residual $r=b-Ax$.",
+          "detailedSolutionAr": "نحسب Ax=(4,6)، والمتبقي r=(0,3)، وأكبر قيمة مطلقة لعناصره تساوي 3.",
+          "detailedSolutionEn": "Compute Ax=(4,6); residual r=(0,3); its infinity norm is max(|0|,|3|)=3.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "0",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "1",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "3",
+              "IsCorrect": true
+            },
+            {
+              "Order": 4,
+              "LatexCode": "9",
+              "IsCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

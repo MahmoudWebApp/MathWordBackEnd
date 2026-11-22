@@ -1,0 +1,467 @@
+{
+  "meta": {
+    "batch": "curriculum-gap-wave2-20261122",
+    "status": "Draft",
+    "publication": "Requires independent educator mathematical review before publication",
+    "catalog": "content/catalog/international-mathworld-taxonomy-v2.json",
+    "stageId": 3
+  },
+  "topics": [
+    {
+      "stableKey": "s-analytic-geometry",
+      "stageId": 3,
+      "domainId": 3,
+      "iconKey": "analytic-geometry",
+      "sortOrder": 20,
+      "nameAr": "الهندسة التحليلية",
+      "nameEn": "Analytic Geometry",
+      "descriptionAr": "التمثيل الإحداثي للمستقيمات والدوائر، وحساب الأطوال والميول والمحلات الهندسية.",
+      "descriptionEn": "Coordinate lines and circles, slopes, lengths, perpendicular bisectors and geometric loci.",
+      "skills": [
+        {
+          "key": "coordinate-lines",
+          "nameAr": "الخطوط المستقيمة على المستوى الإحداثي",
+          "nameEn": "Coordinate lines",
+          "objectiveAr": "حساب الميل ومنتصف القطعة والمسافة ومعادلات المستقيمات",
+          "objectiveEn": "Compute slopes, midpoints, distances and equations of lines"
+        },
+        {
+          "key": "circles",
+          "nameAr": "معادلات الدائرة",
+          "nameEn": "Circle equations",
+          "objectiveAr": "تحديد مركز الدائرة ونصف قطرها والتحقق من النقاط عليها",
+          "objectiveEn": "Determine centers and radii of circles and test point membership"
+        },
+        {
+          "key": "loci",
+          "nameAr": "المحلات الهندسية والمنصفات",
+          "nameEn": "Geometric loci",
+          "objectiveAr": "تحديد مجموعات النقاط متساوية البعد والمنصفات العمودية",
+          "objectiveEn": "Describe equidistant loci and perpendicular bisectors"
+        }
+      ],
+      "items": [
+        {
+          "contentKey": "mw-wave2-s-analytic-geometry-slope-two-points",
+          "primarySkillKey": 0,
+          "templateFamilyKey": "s-analytic-geometry-slope-two-points",
+          "difficultyLevel": 2,
+          "pisaProcess": "employ",
+          "titleAr": "ميل مستقيم بنقطتين",
+          "titleEn": "Slope from two points",
+          "questionTextAr": "ما ميل المستقيم المار بالنقطتين (1,2) و(5,10)؟",
+          "questionTextEn": "What is the slope of the line passing through (1,2) and (5,10)?",
+          "detailedSolutionAr": "الميل يساوي التغير في y على التغير في x، أي (10-2)/(5-1)=8/4=2.",
+          "detailedSolutionEn": "The slope is rise over run: (10-2)/(5-1)=8/4=2.",
+          "options": [
+            {
+              "LatexCode": "\\frac12",
+              "Order": 1,
+              "IsCorrect": false
+            },
+            {
+              "LatexCode": "4",
+              "Order": 2,
+              "IsCorrect": false
+            },
+            {
+              "LatexCode": "2",
+              "Order": 3,
+              "IsCorrect": true
+            },
+            {
+              "LatexCode": "8",
+              "Order": 4,
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave2-s-analytic-geometry-midpoint",
+          "primarySkillKey": 0,
+          "templateFamilyKey": "s-analytic-geometry-midpoint",
+          "difficultyLevel": 2,
+          "pisaProcess": "employ",
+          "titleAr": "منتصف قطعة مستقيمة",
+          "titleEn": "Line-segment midpoint",
+          "questionTextAr": "ما إحداثيا منتصف القطعة الواصلة بين (2,6) و(8,0)؟",
+          "questionTextEn": "Find the midpoint of the segment joining (2,6) and (8,0).",
+          "detailedSolutionAr": "نأخذ متوسط كل إحداثي: x=(2+8)/2=5 وy=(6+0)/2=3، فيكون المنتصف (5,3).",
+          "detailedSolutionEn": "Average the coordinates: x=(2+8)/2=5 and y=(6+0)/2=3, so the midpoint is (5,3).",
+          "options": [
+            {
+              "LatexCode": "(3,5)",
+              "Order": 1,
+              "IsCorrect": false
+            },
+            {
+              "LatexCode": "(6,3)",
+              "Order": 2,
+              "IsCorrect": false
+            },
+            {
+              "LatexCode": "(5,6)",
+              "Order": 3,
+              "IsCorrect": false
+            },
+            {
+              "LatexCode": "(5,3)",
+              "Order": 4,
+              "IsCorrect": true
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave2-s-analytic-geometry-distance-origin",
+          "primarySkillKey": 0,
+          "templateFamilyKey": "s-analytic-geometry-distance-origin",
+          "difficultyLevel": 2,
+          "pisaProcess": "employ",
+          "titleAr": "طول قطعة على الشبكة",
+          "titleEn": "Coordinate distance",
+          "questionTextAr": "احسب المسافة بين النقطتين (0,0) و(6,8).",
+          "questionTextEn": "Find the distance between (0,0) and (6,8).",
+          "detailedSolutionAr": "باستخدام فيثاغورس: جذر (6^2+8^2)=جذر 100=10.",
+          "detailedSolutionEn": "By the distance formula, sqrt(6^2+8^2)=sqrt(100)=10.",
+          "options": [
+            {
+              "LatexCode": "10",
+              "Order": 1,
+              "IsCorrect": true
+            },
+            {
+              "LatexCode": "14",
+              "Order": 2,
+              "IsCorrect": false
+            },
+            {
+              "LatexCode": "12",
+              "Order": 3,
+              "IsCorrect": false
+            },
+            {
+              "LatexCode": "7",
+              "Order": 4,
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave2-s-analytic-geometry-line-intercept",
+          "primarySkillKey": 0,
+          "templateFamilyKey": "s-analytic-geometry-line-intercept",
+          "difficultyLevel": 2,
+          "pisaProcess": "interpret_evaluate",
+          "titleAr": "معادلة مستقيم من الميل والجزء المقطوع",
+          "titleEn": "Line from slope and intercept",
+          "questionTextAr": "مستقيم ميله -2 ويقطع محور y عند 3. ما معادلته؟",
+          "questionTextEn": "A line has slope -2 and y-intercept 3. Which equation represents it?",
+          "detailedSolutionAr": "نستخدم y=mx+b مع m=-2 وb=3 فنحصل على y=-2x+3.",
+          "detailedSolutionEn": "Using y=mx+b with m=-2 and b=3 gives y=-2x+3.",
+          "options": [
+            {
+              "LatexCode": "y=2x+3",
+              "Order": 1,
+              "IsCorrect": false
+            },
+            {
+              "LatexCode": "y=-2x+3",
+              "Order": 2,
+              "IsCorrect": true
+            },
+            {
+              "LatexCode": "y=-2x-3",
+              "Order": 3,
+              "IsCorrect": false
+            },
+            {
+              "LatexCode": "y=3x-2",
+              "Order": 4,
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave2-s-analytic-geometry-circle-radius",
+          "primarySkillKey": 1,
+          "templateFamilyKey": "s-analytic-geometry-circle-radius",
+          "difficultyLevel": 1,
+          "pisaProcess": "employ",
+          "titleAr": "نصف قطر دائرة مركزها الأصل",
+          "titleEn": "Radius of a circle",
+          "questionTextAr": "ما نصف قطر الدائرة التي معادلتها $x^2+y^2=49$؟",
+          "questionTextEn": "What is the radius of the circle $x^2+y^2=49$?",
+          "detailedSolutionAr": "في المعادلة القياسية x^2+y^2=r^2 نجد r^2=49، إذن r=7.",
+          "detailedSolutionEn": "In standard form x^2+y^2=r^2, r^2=49 and the nonnegative radius is r=7.",
+          "options": [
+            {
+              "LatexCode": "49",
+              "Order": 1,
+              "IsCorrect": false
+            },
+            {
+              "LatexCode": "14",
+              "Order": 2,
+              "IsCorrect": false
+            },
+            {
+              "LatexCode": "7",
+              "Order": 3,
+              "IsCorrect": true
+            },
+            {
+              "LatexCode": "\\sqrt7",
+              "Order": 4,
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave2-s-analytic-geometry-translated-circle",
+          "primarySkillKey": 1,
+          "templateFamilyKey": "s-analytic-geometry-translated-circle",
+          "difficultyLevel": 3,
+          "pisaProcess": "employ",
+          "titleAr": "دائرة ذات مركز غير صفري",
+          "titleEn": "Circle with shifted center",
+          "questionTextAr": "أي معادلة تمثل دائرة مركزها (2,-3) ونصف قطرها 4؟",
+          "questionTextEn": "Which equation describes a circle centered at (2,-3) with radius 4?",
+          "detailedSolutionAr": "نطبق (x-h)^2+(y-k)^2=r^2. بوضع h=2 وk=-3 وr=4 نحصل على (x-2)^2+(y+3)^2=16.",
+          "detailedSolutionEn": "Use (x-h)^2+(y-k)^2=r^2 with h=2, k=-3 and r=4: (x-2)^2+(y+3)^2=16.",
+          "options": [
+            {
+              "LatexCode": "(x+2)^2+(y-3)^2=16",
+              "Order": 1,
+              "IsCorrect": false
+            },
+            {
+              "LatexCode": "(x-2)^2+(y-3)^2=16",
+              "Order": 2,
+              "IsCorrect": false
+            },
+            {
+              "LatexCode": "(x-2)^2+(y+3)^2=4",
+              "Order": 3,
+              "IsCorrect": false
+            },
+            {
+              "LatexCode": "(x-2)^2+(y+3)^2=16",
+              "Order": 4,
+              "IsCorrect": true
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave2-s-analytic-geometry-diameter-to-equation",
+          "primarySkillKey": 1,
+          "templateFamilyKey": "s-analytic-geometry-diameter-to-equation",
+          "difficultyLevel": 3,
+          "pisaProcess": "formulate",
+          "titleAr": "الدائرة من طرفي القطر",
+          "titleEn": "Circle from diameter endpoints",
+          "questionTextAr": "طرفا قطر دائرة هما (-2,0) و(4,0). ما معادلة الدائرة؟",
+          "questionTextEn": "A circle has diameter endpoints (-2,0) and (4,0). Which is its equation?",
+          "detailedSolutionAr": "مركز الدائرة منتصف القطر أي (1,0)، وطول القطر 6 فالنصف قطر 3. المعادلة (x-1)^2+y^2=9.",
+          "detailedSolutionEn": "The diameter midpoint is (1,0) and its length is 6, so radius is 3. Equation: (x-1)^2+y^2=9.",
+          "options": [
+            {
+              "LatexCode": "(x+1)^2+y^2=9",
+              "Order": 1,
+              "IsCorrect": false
+            },
+            {
+              "LatexCode": "(x-1)^2+y^2=9",
+              "Order": 2,
+              "IsCorrect": true
+            },
+            {
+              "LatexCode": "(x-1)^2+y^2=36",
+              "Order": 3,
+              "IsCorrect": false
+            },
+            {
+              "LatexCode": "x^2+y^2=9",
+              "Order": 4,
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave2-s-analytic-geometry-point-on-circle",
+          "primarySkillKey": 1,
+          "templateFamilyKey": "s-analytic-geometry-point-on-circle",
+          "difficultyLevel": 2,
+          "pisaProcess": "interpret_evaluate",
+          "titleAr": "التحقق من نقطة على دائرة",
+          "titleEn": "Point on a circle",
+          "questionTextAr": "أي نقطة تقع على الدائرة $x^2+y^2=25$؟",
+          "questionTextEn": "Which point lies on $x^2+y^2=25$?",
+          "detailedSolutionAr": "للزوج (3,4) نجد 3^2+4^2=9+16=25، ولذلك يحقق المعادلة.",
+          "detailedSolutionEn": "For (3,4), 3^2+4^2=9+16=25, so the point lies on the circle.",
+          "options": [
+            {
+              "LatexCode": "(4,4)",
+              "Order": 1,
+              "IsCorrect": false
+            },
+            {
+              "LatexCode": "(1,5)",
+              "Order": 2,
+              "IsCorrect": false
+            },
+            {
+              "LatexCode": "(3,4)",
+              "Order": 3,
+              "IsCorrect": true
+            },
+            {
+              "LatexCode": "(3,3)",
+              "Order": 4,
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave2-s-analytic-geometry-equidistant-two-points",
+          "primarySkillKey": 2,
+          "templateFamilyKey": "s-analytic-geometry-equidistant-two-points",
+          "difficultyLevel": 2,
+          "pisaProcess": "formulate",
+          "titleAr": "المحل الهندسي للنقاط متساوية البعد",
+          "titleEn": "Equidistant from two points",
+          "questionTextAr": "ما المعادلة التي تحققها جميع النقاط المتساوية البعد عن (0,0) و(4,0)؟",
+          "questionTextEn": "Find the locus of points equidistant from (0,0) and (4,0).",
+          "detailedSolutionAr": "المنصف العمودي للقطعة الأفقية يمر بمنتصفها (2,0)، وهو المستقيم الرأسي x=2.",
+          "detailedSolutionEn": "The perpendicular bisector of the horizontal segment passes through midpoint (2,0): x=2.",
+          "options": [
+            {
+              "LatexCode": "x=4",
+              "Order": 1,
+              "IsCorrect": false
+            },
+            {
+              "LatexCode": "y=2",
+              "Order": 2,
+              "IsCorrect": false
+            },
+            {
+              "LatexCode": "x=2",
+              "Order": 3,
+              "IsCorrect": true
+            },
+            {
+              "LatexCode": "y=0",
+              "Order": 4,
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave2-s-analytic-geometry-equidistant-parallel-lines",
+          "primarySkillKey": 2,
+          "templateFamilyKey": "s-analytic-geometry-equidistant-parallel-lines",
+          "difficultyLevel": 2,
+          "pisaProcess": "employ",
+          "titleAr": "متساوي البعد عن مستقيمين",
+          "titleEn": "Equidistant from parallel lines",
+          "questionTextAr": "ما معادلة الخط الواقع بين المستقيمين $y=1$ و$y=7$ وعلى المسافة نفسها منهما؟",
+          "questionTextEn": "Find the line midway between $y=1$ and $y=7$, equidistant from both.",
+          "detailedSolutionAr": "متوسط الإحداثيين الرأسيين هو (1+7)/2=4، لذلك المستقيم هو y=4.",
+          "detailedSolutionEn": "Take the midpoint of the two y-values: (1+7)/2=4, so the midway line is y=4.",
+          "options": [
+            {
+              "LatexCode": "y=4",
+              "Order": 1,
+              "IsCorrect": true
+            },
+            {
+              "LatexCode": "y=3",
+              "Order": 2,
+              "IsCorrect": false
+            },
+            {
+              "LatexCode": "x=4",
+              "Order": 3,
+              "IsCorrect": false
+            },
+            {
+              "LatexCode": "y=6",
+              "Order": 4,
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave2-s-analytic-geometry-fixed-distance-locus",
+          "primarySkillKey": 2,
+          "templateFamilyKey": "s-analytic-geometry-fixed-distance-locus",
+          "difficultyLevel": 2,
+          "pisaProcess": "interpret_evaluate",
+          "titleAr": "نقاط تبعد مسافة ثابتة",
+          "titleEn": "Fixed-distance locus",
+          "questionTextAr": "أي معادلة تمثل مجموعة نقاط تبعد ثلاث وحدات عن (1,2)؟",
+          "questionTextEn": "Which equation describes all points at distance 3 from (1,2)?",
+          "detailedSolutionAr": "هذه دائرة مركزها (1,2) ونصف قطرها 3، لذا (x-1)^2+(y-2)^2=9.",
+          "detailedSolutionEn": "This is a circle centered at (1,2) with radius 3, so (x-1)^2+(y-2)^2=9.",
+          "options": [
+            {
+              "LatexCode": "(x-1)^2+(y-2)^2=3",
+              "Order": 1,
+              "IsCorrect": false
+            },
+            {
+              "LatexCode": "(x+1)^2+(y+2)^2=9",
+              "Order": 2,
+              "IsCorrect": false
+            },
+            {
+              "LatexCode": "(x-1)^2+(y+2)^2=9",
+              "Order": 3,
+              "IsCorrect": false
+            },
+            {
+              "LatexCode": "(x-1)^2+(y-2)^2=9",
+              "Order": 4,
+              "IsCorrect": true
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave2-s-analytic-geometry-vertical-segment-bisector",
+          "primarySkillKey": 2,
+          "templateFamilyKey": "s-analytic-geometry-vertical-segment-bisector",
+          "difficultyLevel": 3,
+          "pisaProcess": "formulate",
+          "titleAr": "منصف عمودي لقطعة رأسية",
+          "titleEn": "Perpendicular bisector of vertical segment",
+          "questionTextAr": "طرفا قطعة رأسية هما (0,-2) و(0,6). ما معادلة منصفها العمودي؟",
+          "questionTextEn": "A vertical segment joins (0,-2) and (0,6). What is its perpendicular bisector?",
+          "detailedSolutionAr": "منتصف القطعة هو (0,2). المستقيم العمودي على قطعة رأسية يكون أفقياً، فالمعادلة y=2.",
+          "detailedSolutionEn": "The midpoint is (0,2). A perpendicular to a vertical line is horizontal, hence y=2.",
+          "options": [
+            {
+              "LatexCode": "x=2",
+              "Order": 1,
+              "IsCorrect": false
+            },
+            {
+              "LatexCode": "y=2",
+              "Order": 2,
+              "IsCorrect": true
+            },
+            {
+              "LatexCode": "y=0",
+              "Order": 3,
+              "IsCorrect": false
+            },
+            {
+              "LatexCode": "x=0",
+              "Order": 4,
+              "IsCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
