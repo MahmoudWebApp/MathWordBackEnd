@@ -43,25 +43,50 @@ public sealed class StudentAchievementsController : ControllerBase
         if (student == null) return Unauthorized();
         var allBadgesEnabled = PremiumEntitlement.IsActive(student);
 
-        var solved = await _db.UserProgresses.AsNoTracking()
-            .CountAsync(p => p.UserId == userId && p.IsSolved, ct);
-        // The first two milestones stay earnable for all learners. Advanced
-        // badges are visible as an upgrade incentive but never awarded to Free.
+        // Progress badges describe the CURRENT stage, never answers earned in
+        // another stage. Changing stage keeps the underlying history intact.
+        var stageId = student.CurrentStageId ?? 1;
+        var solvedByStage = await _db.UserProgresses.AsNoTracking()
+            .Where(p => p.UserId == userId && p.IsSolved)
+            .GroupBy(p => p.Problem.StageId)
+            .Select(g => new { StageId = g.Key, Solved = g.Count() })
+            .ToListAsync(ct);
+        var solved = solvedByStage.FirstOrDefault(x => x.StageId == stageId)?.Solved ?? 0;
+        var stagesWithSolved = solvedByStage.Count(x => x.Solved > 0);
+        var stageCount = await _db.EducationalStages.AsNoTracking().CountAsync(ct);
+
+        // First two stage milestones are Free; advanced ones are Premium.
         var badges = Milestones.Select((m, index) => new
         {
-            m.Key, m.TitleAr, m.TitleEn,
+            Key = $"stage_{stageId}_{m.Key}",
+            m.TitleAr, m.TitleEn,
             RequiredSolved = m.Count,
             IsAvailable = index < 2 || allBadgesEnabled,
             Earned = (index < 2 || allBadgesEnabled) && solved >= m.Count,
             CurrentProgress = Math.Min(solved, m.Count)
-        }).ToArray();
+        }).ToList();
+
+        // A real cross-stage milestone requires solving at least one distinct
+        // problem in EVERY existing stage. It never appears earned from mere signup.
+        badges.Add(new
+        {
+            Key = "all_stages_explorer",
+            TitleAr = "مستكشف جميع المراحل",
+            TitleEn = "All-Stage Explorer",
+            RequiredSolved = stageCount,
+            IsAvailable = allBadgesEnabled,
+            Earned = allBadgesEnabled && stageCount > 0 && stagesWithSolved >= stageCount,
+            CurrentProgress = Math.Min(stagesWithSolved, stageCount)
+        });
+
         var next = badges.FirstOrDefault(m => m.IsAvailable && !m.Earned);
         return Ok(new
         {
+            StageId = stageId,
             UniqueSolved = solved,
             EarnedCount = badges.Count(b => b.Earned),
-            TotalBadges = badges.Length,
-            NextMilestone = next?.RequiredSolved,
+            TotalBadges = badges.Count,
+            NextMilestone = next?.Key == "all_stages_explorer" ? (int?)null : next?.RequiredSolved,
             Badges = badges
         });
     }
