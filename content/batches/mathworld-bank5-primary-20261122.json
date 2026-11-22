@@ -1,0 +1,163 @@
+{
+  "batch_key": "mathworld-bank5-primary",
+  "status": "editorial_pending",
+  "stage": 1,
+  "problems": [
+    {
+      "ContentKey": "mw-bank5-p-division-remainder",
+      "StageId": 1,
+      "PrimarySkillKey": "primary-division",
+      "TemplateFamilyKey": "concept-p-division-remainder",
+      "LearningObjectiveAr": "القسمة مع تفسير الباقي",
+      "LearningObjectiveEn": "Interpret quotient and remainder",
+      "QuestionTextAr": "يريد معلّم توزيع 96 قلماً بالتساوي على 7 طلاب. كم قلماً يأخذ كل طالب وكم قلماً يبقى؟",
+      "QuestionTextEn": "A teacher shares 96 pencils equally among 7 students. How many pencils does each student receive, and how many are left?",
+      "DetailedSolutionAr": "96 = 7 × 13 + 5؛ إذن نصيب كل طالب 13 قلماً ويبقى 5 أقلام.",
+      "DetailedSolutionEn": "96 = 7 × 13 + 5. Each pupil gets 13 pencils, with 5 left over.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\text{12 each, 12 left}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\text{13 each, 5 left}",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "\\text{14 each, 2 left}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "\\text{13 each, 4 left}",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "interpret_evaluate",
+      "CognitiveType": "remainder",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank5-p-buses-ceiling",
+      "StageId": 1,
+      "PrimarySkillKey": "primary-multiplicative-word-problems",
+      "TemplateFamilyKey": "concept-p-buses-ceiling",
+      "LearningObjectiveAr": "تقريب عدد المجموعات للأعلى في سياق واقعي",
+      "LearningObjectiveEn": "Round up the number of groups needed",
+      "QuestionTextAr": "يريد 145 طالباً الذهاب في رحلة، وتستوعب الحافلة الواحدة 38 طالباً. كم حافلة نحتاج على الأقل؟",
+      "QuestionTextEn": "145 pupils need transport. Each bus can hold 38. What is the minimum number of buses required?",
+      "DetailedSolutionAr": "ثلاث حافلات تستوعب 114 طالباً فقط، وأربع حافلات تستوعب 152؛ لذلك نحتاج 4.",
+      "DetailedSolutionEn": "Three buses carry only 114 pupils; four carry 152. Therefore four buses are needed.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "3",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "4",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "5",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "6",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "formulate",
+      "CognitiveType": "ceiling-division",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank5-p-pencils-inventory",
+      "StageId": 1,
+      "PrimarySkillKey": "primary-multiplicative-word-problems",
+      "TemplateFamilyKey": "concept-p-pencils-inventory",
+      "LearningObjectiveAr": "استخدام الضرب ثم الطرح في مسألة مخزون",
+      "LearningObjectiveEn": "Use multiplication then subtraction for stock changes",
+      "QuestionTextAr": "اشترت مدرسة 18 علبة أقلام في كل علبة 12 قلماً، ثم وزّعت 35 قلماً. كم قلماً بقي؟",
+      "QuestionTextEn": "A school bought 18 boxes of pencils with 12 pencils each, then distributed 35 pencils. How many remain?",
+      "DetailedSolutionAr": "العدد قبل التوزيع 18×12=216، والباقي 216−35=181.",
+      "DetailedSolutionEn": "Initially there are 18×12=216 pencils. After distributing 35, 181 remain.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "171",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "181",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "191",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "251",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "formulate",
+      "CognitiveType": "inventory-two-operations",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank5-p-times-25-strategy",
+      "StageId": 1,
+      "PrimarySkillKey": "primary-multiplication",
+      "TemplateFamilyKey": "concept-p-times-25-strategy",
+      "LearningObjectiveAr": "استخدام مضاعفات المئة لتبسيط ضرب ذهني",
+      "LearningObjectiveEn": "Multiply by 25 using hundreds",
+      "QuestionTextAr": "استخدم حقيقة أن 25 = 100÷4 لحساب 48 × 25.",
+      "QuestionTextEn": "Use 25 = 100÷4 to calculate 48 × 25.",
+      "DetailedSolutionAr": "48 × 25 = 48 × 100 ÷ 4 = 4800 ÷ 4 = 1200.",
+      "DetailedSolutionEn": "Rewrite 48×25 = 48×100/4 = 4800/4 = 1200.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "1000",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "1100",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "1200",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "1300",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "CognitiveType": "compensation-multiplication",
+      "Points": 10,
+      "ExpertReview": "pending"
+    }
+  ]
+}
