@@ -1,0 +1,163 @@
+{
+  "batch_key": "mathworld-bank5-upper-secondary",
+  "status": "editorial_pending",
+  "stage": 3,
+  "problems": [
+    {
+      "ContentKey": "mw-bank5-s-derivative-poly-eval",
+      "StageId": 3,
+      "PrimarySkillKey": "secondary-polynomial-derivatives",
+      "TemplateFamilyKey": "concept-s-derivative-poly-eval",
+      "LearningObjectiveAr": "حساب قيمة المشتقة بعد تطبيق قاعدة القوى",
+      "LearningObjectiveEn": "Evaluate a polynomial derivative at a point",
+      "QuestionTextAr": "لتكن f(x)=2x³−4x. ما قيمة f'(3)؟",
+      "QuestionTextEn": "Let f(x)=2x³−4x. What is f'(3)?",
+      "DetailedSolutionAr": "f'(x)=6x²−4، بالتعويض x=3 نحصل على 6×9−4=50.",
+      "DetailedSolutionEn": "Differentiate to get f'(x)=6x²−4. At x=3, this is 54−4=50.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "42",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "46",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "50",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "54",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "CognitiveType": "polynomial-derivative",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank5-s-tangent-line",
+      "StageId": 3,
+      "PrimarySkillKey": "secondary-polynomial-derivatives",
+      "TemplateFamilyKey": "concept-s-tangent-line",
+      "LearningObjectiveAr": "استخراج معادلة المماس من قيمة الدالة ومشتقتها",
+      "LearningObjectiveEn": "Find the tangent line to a polynomial at a point",
+      "QuestionTextAr": "أوجد معادلة مماس الدالة f(x)=x³−x عند x=2.",
+      "QuestionTextEn": "Find the tangent line to f(x)=x³−x at x=2.",
+      "DetailedSolutionAr": "f(2)=6، والميل f'(2)=3×2²−1=11. إذن y−6=11(x−2)، أي y=11x−16.",
+      "DetailedSolutionEn": "f(2)=6 and f'(2)=3(2²)−1=11. Thus y−6=11(x−2), giving y=11x−16.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "y=11x-16",
+          "IsCorrect": true
+        },
+        {
+          "Order": 2,
+          "LatexCode": "y=6x-11",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "y=11x+16",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "y=5x-4",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 4,
+      "PisaProcess": "interpret_evaluate",
+      "CognitiveType": "tangent-equation",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank5-s-antiderivative-polynomial",
+      "StageId": 3,
+      "PrimarySkillKey": "secondary-indefinite-integrals",
+      "TemplateFamilyKey": "concept-s-antiderivative-polynomial",
+      "LearningObjectiveAr": "إيجاد دالة أصلية متعددة الحدود مع ثابت التكامل",
+      "LearningObjectiveEn": "Find a polynomial antiderivative including its constant",
+      "QuestionTextAr": "احسب التكامل غير المحدد ∫(6x²−4x)dx.",
+      "QuestionTextEn": "Compute the indefinite integral ∫(6x²−4x) dx.",
+      "DetailedSolutionAr": "بتكامل كل حد نحصل على 2x³−2x²+C. المشتقة تعيد 6x²−4x.",
+      "DetailedSolutionEn": "Integrate termwise to obtain 2x³−2x²+C; differentiating gives the original integrand.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "2x^3-2x^2+C",
+          "IsCorrect": true
+        },
+        {
+          "Order": 2,
+          "LatexCode": "3x^3-4x^2+C",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "2x^3-4x+C",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "6x^3-4x^2+C",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "CognitiveType": "polynomial-antiderivative",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank5-s-definite-polynomial",
+      "StageId": 3,
+      "PrimarySkillKey": "secondary-definite-integrals",
+      "TemplateFamilyKey": "concept-s-definite-polynomial",
+      "LearningObjectiveAr": "حساب تكامل محدد بتطبيق دالة أصلية عند الحدود",
+      "LearningObjectiveEn": "Evaluate a definite integral through an antiderivative",
+      "QuestionTextAr": "ما قيمة التكامل المحدد من 0 إلى 2 للدالة 3x²+1؟",
+      "QuestionTextEn": "Evaluate the definite integral of 3x²+1 from x=0 to x=2.",
+      "DetailedSolutionAr": "الدالة الأصلية x³+x، ونتيجة التعويض عند الحدين = (8+2)−0=10.",
+      "DetailedSolutionEn": "An antiderivative is x³+x. At the bounds, (8+2)−0=10.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "6",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "8",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "10",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "12",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "CognitiveType": "definite-polynomial-integral",
+      "Points": 10,
+      "ExpertReview": "pending"
+    }
+  ]
+}
