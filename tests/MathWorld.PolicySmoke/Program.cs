@@ -205,6 +205,40 @@ using (var archive = new ZipArchive(new MemoryStream(xlsx), ZipArchiveMode.Read)
         "Premium Excel report should prominently identify MathWorld.");
     Assert(sheet.Descendants(ns + "conditionalFormatting").Count() >= 2,
         "The worksheet must include editable Excel-native progress data bars.");
+    // A real editable Excel chart is an OOXML chart part with a drawing,
+    // relationships, series data references and cached numeric values.
+    foreach (var name in new[] {
+        "xl/worksheets/sheet2.xml",
+        "xl/worksheets/_rels/sheet2.xml.rels",
+        "xl/drawings/drawing1.xml",
+        "xl/drawings/_rels/drawing1.xml.rels",
+        "xl/charts/chart1.xml", "xl/charts/chart2.xml"
+    })
+        Assert(archive.GetEntry(name) is not null,
+            "Excel-native charting is missing " + name);
+    var dashboard = XDocument.Load(archive.GetEntry("xl/worksheets/sheet2.xml")!.Open());
+    Assert(dashboard.Descendants(ns + "drawing").Count() == 1,
+        "Charts must be anchored in their own editable worksheet.");
+    Assert(dashboard.Descendants(ns + "c")
+        .Any(c => (string?)c.Attribute("r") == "B5" &&
+                  (string?)c.Element(ns + "v") == "1"),
+        "Charts must use the real solved-count data, not invented examples.");
+    XNamespace chartNs = "http://schemas.openxmlformats.org/drawingml/2006/chart";
+    foreach (var name in new[] { "xl/charts/chart1.xml", "xl/charts/chart2.xml" })
+    {
+        var chartXml = XDocument.Load(archive.GetEntry(name)!.Open());
+        Assert(chartXml.Descendants(chartNs + "barChart").Count() == 1 &&
+               chartXml.Descendants(chartNs + "ser").Count() == 2,
+            "The report must contain two native data-linked series per chart.");
+        Assert(chartXml.Descendants(chartNs + "f").Any() &&
+               chartXml.Descendants(chartNs + "numCache").Count() == 2,
+            "Chart values must retain editable sheet references and cached real data.");
+    }
+    var drawingXml = XDocument.Load(archive.GetEntry("xl/drawings/drawing1.xml")!.Open());
+    XNamespace drawingNs =
+        "http://schemas.openxmlformats.org/drawingml/2006/spreadsheetDrawing";
+    Assert(drawingXml.Descendants(drawingNs + "twoCellAnchor").Count() == 2,
+        "Both charts must have visible nonoverlapping anchors.");
     var rtlView = sheet.Descendants(ns + "sheetView").Single();
     Assert((string?)rtlView.Attribute("rightToLeft") == "1",
         "Arabic Excel workbook must use the RTL worksheet direction.");
