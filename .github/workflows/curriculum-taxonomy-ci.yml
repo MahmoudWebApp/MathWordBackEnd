@@ -7,11 +7,14 @@ on:
       - 'content/batches/mathworld-adaptive-v2-*'
       - 'content/batches/mathworld-reasoning-extension-*'
       - 'content/batches/mathworld-fractions-series-depth-*'
+      - 'content/batches/mathworld-bank2-*'
       - 'docs/MATHWORLD_INTERNATIONAL_CURRICULUM_TAXONOMY_*.md'
       - 'tests/check_curriculum_taxonomy.py'
       - 'tests/check_adaptive_pilot_content.py'
       - 'tests/check_curriculum_reasoning_extension.py'
       - 'tests/check_curriculum_depth_wave_1.py'
+      - 'tests/check_question_bank_depth_wave_2.py'
+      - 'scripts/generate_question_bank_depth_wave_2_sql.py'
       - '.github/workflows/curriculum-taxonomy-ci.yml'
   workflow_dispatch:
 
@@ -38,3 +41,7 @@ jobs:
         run: python3 tests/check_curriculum_depth_wave_1.py
       - name: Validate reproducible fraction/series review batch
         run: python3 scripts/generate_curriculum_depth_wave_sql.py --check
+      - name: Cross-check 48 different bilingual mathematical answers
+        run: python3 tests/check_question_bank_depth_wave_2.py
+      - name: Verify 48-question development SQL contract
+        run: python3 scripts/generate_question_bank_depth_wave_2_sql.py --check
