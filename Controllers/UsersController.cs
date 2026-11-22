@@ -199,7 +199,9 @@ namespace MathWorldAPI.Controllers
                             .Select(progress =>
                                 MapToProblemPreview(
                                     progress.Problem,
-                                    language))
+                                    language,
+                                    progress.IsSolved,
+                                    progress.Attempts > 0))
                             .ToList(),
 
                     RecentActivities =
