@@ -1,0 +1,715 @@
+{
+  "batch_key": "mathworld-bank5-nine-skill-coverage",
+  "status": "editorial_pending",
+  "stage_counts": {
+    "1": 6,
+    "2": 4,
+    "3": 4,
+    "4": 4
+  },
+  "review_note": "Mathematical QA and CI are not a substitute for human editorial approval. Development content only.",
+  "problems": [
+    {
+      "ContentKey": "mw-bank5-p-grid",
+      "StageId": 1,
+      "PrimarySkillKey": "p-fractions-decimals-fraction-models",
+      "TemplateFamilyKey": "concept-bank5-p-grid",
+      "LearningObjectiveAr": "تبسيط الكسر الذي يمثّل مساحة مظللة",
+      "LearningObjectiveEn": "Simplify a fraction represented by shaded grid cells",
+      "QuestionTextAr": "مستطيل مكوّن من 12 مربعاً متساوياً، ظُلّل 9 منها. ما الكسر الذي يعبّر عن الجزء المظلل في أبسط صورة؟",
+      "QuestionTextEn": "A rectangle is divided into 12 equal cells and 9 are shaded. What fraction of the rectangle is shaded, in simplest form?",
+      "DetailedSolutionAr": "الجزء المظلل 9 من 12، وبالقسمة على 3 نحصل على 3/4.",
+      "DetailedSolutionEn": "Nine of 12 cells are shaded. Divide numerator and denominator by 3 to obtain 3/4.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\frac{3}{4}",
+          "IsCorrect": true
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\frac{1}{4}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "\\frac{3}{12}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "\\frac{4}{3}",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 2,
+      "PisaProcess": "employ",
+      "CognitiveType": "area-fraction-model",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank5-p-improper",
+      "StageId": 1,
+      "PrimarySkillKey": "p-fractions-decimals-fraction-models",
+      "TemplateFamilyKey": "concept-bank5-p-improper",
+      "LearningObjectiveAr": "تحويل نموذج أجزاء متساوية إلى كسر غير فعلي",
+      "LearningObjectiveEn": "Represent whole units and additional equal parts as an improper fraction",
+      "QuestionTextAr": "لدينا شريطان متساويان، كل شريط مقسّم إلى 8 أجزاء. لُوّن الشريط الأول كله و3 أجزاء من الثاني. كم ثُمناً لُوّن بالمجموع؟",
+      "QuestionTextEn": "Two identical bars each contain 8 equal segments. All of the first bar and 3 segments of the second are colored. How many eighths are colored altogether?",
+      "DetailedSolutionAr": "الشريط الكامل = 8 أثمان، ومع 3 أثمان يصبح المجموع 11 ثُمناً، أي 11/8.",
+      "DetailedSolutionEn": "The full bar is eight eighths; adding three more eighths gives 11/8.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\frac{3}{8}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\frac{11}{8}",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "\\frac{8}{11}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "\\frac{5}{8}",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 2,
+      "PisaProcess": "employ",
+      "CognitiveType": "improper-fraction-visualization",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank5-p-part-of-part",
+      "StageId": 1,
+      "PrimarySkillKey": "p-fractions-decimals-fraction-operations",
+      "TemplateFamilyKey": "concept-bank5-p-part-of-part",
+      "LearningObjectiveAr": "حساب جزء من جزء باستعمال ضرب الكسور",
+      "LearningObjectiveEn": "Find a fraction of a fractional amount",
+      "QuestionTextAr": "أخذت مريم نصف الكمية الموجودة في زجاجة تحتوي 3/4 لتر من العصير. كم لتراً أخذت؟",
+      "QuestionTextEn": "Mariam took half the juice from a bottle containing 3/4 liter. How many liters did she take?",
+      "DetailedSolutionAr": "نحسب نصف ثلاثة أرباع: (1/2) × (3/4) = 3/8 لتر.",
+      "DetailedSolutionEn": "Half of three quarters is (1/2) × (3/4) = 3/8 liter.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\frac{3}{4}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\frac{1}{4}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "\\frac{3}{8}",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "\\frac{5}{8}",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 2,
+      "PisaProcess": "employ",
+      "CognitiveType": "fraction-of-fraction-context",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank5-p-sharing",
+      "StageId": 1,
+      "PrimarySkillKey": "p-fractions-decimals-fraction-operations",
+      "TemplateFamilyKey": "concept-bank5-p-sharing",
+      "LearningObjectiveAr": "قسمة كمية كسرية على عدد صحيح",
+      "LearningObjectiveEn": "Divide a fractional quantity equally among people",
+      "QuestionTextAr": "قُسّمت كمية مقدارها 2/3 كغ من الفاكهة بالتساوي على 4 أطفال. ما نصيب الطفل الواحد بالكيلوغرام؟",
+      "QuestionTextEn": "A 2/3-kilogram portion of fruit is divided equally among four children. How many kilograms does each child receive?",
+      "DetailedSolutionAr": "النصيب = (2/3) ÷ 4 = (2/3) × (1/4) = 1/6 كغ.",
+      "DetailedSolutionEn": "Each share is (2/3) ÷ 4 = 2/12 = 1/6 kilogram.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\frac{2}{7}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\frac{1}{3}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "\\frac{4}{3}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "\\frac{1}{6}",
+          "IsCorrect": true
+        }
+      ],
+      "DifficultyLevel": 2,
+      "PisaProcess": "employ",
+      "CognitiveType": "equal-sharing-fraction",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank5-p-expanded",
+      "StageId": 1,
+      "PrimarySkillKey": "p-fractions-decimals-decimal-place-value",
+      "TemplateFamilyKey": "concept-bank5-p-expanded",
+      "LearningObjectiveAr": "قراءة العدد العشري من مجموع القيم المكانية",
+      "LearningObjectiveEn": "Compose a decimal from expanded place values",
+      "QuestionTextAr": "أي عدد عشري يساوي 8 وحدات و3 أعشار و6 أجزاء من مئة؟",
+      "QuestionTextEn": "Which decimal represents 8 ones, 3 tenths, and 6 hundredths?",
+      "DetailedSolutionAr": "8 + 0.3 + 0.06 = 8.36؛ رقم الأعشار 3 ورقم الأجزاء من مئة 6.",
+      "DetailedSolutionEn": "8 + 0.3 + 0.06 = 8.36; 3 is in the tenths place and 6 in the hundredths place.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "8.36",
+          "IsCorrect": true
+        },
+        {
+          "Order": 2,
+          "LatexCode": "8.63",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "8.306",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "83.6",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 2,
+      "PisaProcess": "employ",
+      "CognitiveType": "expanded-decimal-representation",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank5-p-times-ten",
+      "StageId": 1,
+      "PrimarySkillKey": "p-fractions-decimals-decimal-place-value",
+      "TemplateFamilyKey": "concept-bank5-p-times-ten",
+      "LearningObjectiveAr": "تفسير أثر الضرب بعشرة على القيمة المكانية",
+      "LearningObjectiveEn": "Explain the effect of multiplying a decimal by ten",
+      "QuestionTextAr": "ما قيمة 0.47 مضروبة في 10؟ استخدم انتقال المنازل العشرية لتحديد الإجابة.",
+      "QuestionTextEn": "What is 0.47 multiplied by 10? Use decimal place value to find the answer.",
+      "DetailedSolutionAr": "الضرب في 10 ينقل قيمة كل رقم منزلة واحدة لليسار؛ 0.47 × 10 = 4.7.",
+      "DetailedSolutionEn": "Multiplying by ten shifts the value of each digit one place to the left: 0.47 × 10 = 4.7.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "0.047",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "4.7",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "47",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "0.57",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 2,
+      "PisaProcess": "employ",
+      "CognitiveType": "decimal-scaling-place-value",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank5-m-pictograph",
+      "StageId": 2,
+      "PrimarySkillKey": "m-statistics-charts",
+      "TemplateFamilyKey": "concept-bank5-m-pictograph",
+      "LearningObjectiveAr": "قراءة مفتاح المخطط التصويري والمقارنة",
+      "LearningObjectiveEn": "Interpret a pictograph key and compare quantities",
+      "QuestionTextAr": "في مخطط تصويري للكتب، كل رمز ★ يمثّل 4 كتب. يظهر لدى المجموعة أ ستة رموز ولدى المجموعة ب ثلاثة رموز. كم كتاباً تزيد المجموعة أ عن ب؟",
+      "QuestionTextEn": "In a book pictograph, each star represents 4 books. Group A has six stars and group B has three stars. How many more books does group A have?",
+      "DetailedSolutionAr": "أ = 6 × 4 = 24 كتاباً، وب = 3 × 4 = 12 كتاباً، والفرق = 12 كتاباً.",
+      "DetailedSolutionEn": "A represents 6 × 4 = 24 books and B represents 3 × 4 = 12 books, so the difference is 12.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "3",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "9",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "12",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "36",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 2,
+      "PisaProcess": "employ",
+      "CognitiveType": "pictograph-key-comparison",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank5-m-line-trend",
+      "StageId": 2,
+      "PrimarySkillKey": "m-statistics-charts",
+      "TemplateFamilyKey": "concept-bank5-m-line-trend",
+      "LearningObjectiveAr": "تحديد أكبر تغير موجب بين نقطتين متتاليتين",
+      "LearningObjectiveEn": "Find the largest positive change in sequential line-chart values",
+      "QuestionTextAr": "يعرض مخطط خطي أربع قراءات متتالية: 14 ثم 23 ثم 19 ثم 31. ما مقدار أكبر زيادة بين قراءتين متتاليتين؟",
+      "QuestionTextEn": "A line chart shows four successive values: 14, 23, 19, and 31. What is the largest increase between consecutive points?",
+      "DetailedSolutionAr": "الفروق المتتالية: +9 ثم −4 ثم +12؛ أكبر زيادة هي 12.",
+      "DetailedSolutionEn": "The successive differences are +9, −4, and +12. The largest positive change is 12.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "9",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "4",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "17",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "12",
+          "IsCorrect": true
+        }
+      ],
+      "DifficultyLevel": 2,
+      "PisaProcess": "employ",
+      "CognitiveType": "line-chart-change-interpretation",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank5-m-mean-deviation",
+      "StageId": 2,
+      "PrimarySkillKey": "m-statistics-distributions",
+      "TemplateFamilyKey": "concept-bank5-m-mean-deviation",
+      "LearningObjectiveAr": "حساب متوسط الانحراف المطلق لمجموعة صغيرة",
+      "LearningObjectiveEn": "Calculate mean absolute deviation for a small data set",
+      "QuestionTextAr": "للقيم 2 و4 و6 متوسط حسابي يساوي 4. ما متوسط الانحرافات المطلقة لهذه القيم عن المتوسط؟",
+      "QuestionTextEn": "The data values 2, 4, and 6 have a mean of 4. What is their mean absolute deviation?",
+      "DetailedSolutionAr": "الانحرافات المطلقة هي 2 و0 و2؛ المتوسط = (2 + 0 + 2) / 3 = 4/3.",
+      "DetailedSolutionEn": "The absolute deviations are 2, 0, and 2; their mean is (2 + 0 + 2) / 3 = 4/3.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\frac{4}{3}",
+          "IsCorrect": true
+        },
+        {
+          "Order": 2,
+          "LatexCode": "2",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "1",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "\\frac{2}{3}",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "CognitiveType": "mean-absolute-deviation",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank5-m-iqr-compare",
+      "StageId": 2,
+      "PrimarySkillKey": "m-statistics-distributions",
+      "TemplateFamilyKey": "concept-bank5-m-iqr-compare",
+      "LearningObjectiveAr": "مقارنة مديين ربيعيين من الملخصات الخماسية",
+      "LearningObjectiveEn": "Compare two interquartile ranges from quartile summaries",
+      "QuestionTextAr": "في مجموعتين من البيانات: للمجموعة أ الربيع الأول 6 والثالث 18، وللمجموعة ب الربيع الأول 9 والثالث 15. بكم يزيد المدى الربيعي للمجموعة أ؟",
+      "QuestionTextEn": "For data set A, Q1 = 6 and Q3 = 18. For data set B, Q1 = 9 and Q3 = 15. By how much does A's interquartile range exceed B's?",
+      "DetailedSolutionAr": "مدى أ الربيعي = 18 − 6 = 12، ومدى ب = 15 − 9 = 6؛ الفرق 6.",
+      "DetailedSolutionEn": "A's IQR is 18 − 6 = 12; B's is 15 − 9 = 6; the difference is 6.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "12",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "6",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "3",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "9",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "CognitiveType": "quartile-spread-comparison",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank5-s-missing-terms",
+      "StageId": 3,
+      "PrimarySkillKey": "s-sequences-series-arithmetic-sequences",
+      "TemplateFamilyKey": "concept-bank5-s-missing-terms",
+      "LearningObjectiveAr": "استنتاج حدود مفقودة في متتالية حسابية",
+      "LearningObjectiveEn": "Reconstruct missing terms in an arithmetic sequence",
+      "QuestionTextAr": "أكمل متتالية حسابية ذات خمسة حدود: 4، ___، ___، ___، 20. ما الحدود الثلاثة المفقودة بالترتيب؟",
+      "QuestionTextEn": "Complete this five-term arithmetic sequence: 4, ___, ___, ___, 20. Which three terms are missing in order?",
+      "DetailedSolutionAr": "هناك أربع فترات متساوية، فالفرق = (20 − 4) / 4 = 4، والحدود هي 8 و12 و16.",
+      "DetailedSolutionEn": "There are four equal intervals. The common difference is (20 − 4)/4 = 4, giving 8, 12, 16.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "6,\\ 10,\\ 14",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "9,\\ 13,\\ 17",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "8,\\ 12,\\ 16",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "7,\\ 11,\\ 15",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "CognitiveType": "arithmetic-sequence-interpolation",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank5-s-target-index",
+      "StageId": 3,
+      "PrimarySkillKey": "s-sequences-series-arithmetic-sequences",
+      "TemplateFamilyKey": "concept-bank5-s-target-index",
+      "LearningObjectiveAr": "إيجاد رتبة حد معلوم في متتالية حسابية",
+      "LearningObjectiveEn": "Find the index of a specified arithmetic-sequence term",
+      "QuestionTextAr": "متتالية حسابية حدها الأول 5 وفرقها المشترك 3. ما رتبة الحد الذي قيمته 47؟",
+      "QuestionTextEn": "An arithmetic sequence starts at 5 with common difference 3. At which term index does the value 47 occur?",
+      "DetailedSolutionAr": "47 = 5 + (n − 1) × 3، إذن 42 = 3(n − 1) ومنه n = 15.",
+      "DetailedSolutionEn": "Solve 47 = 5 + 3(n − 1): n − 1 = 14, so n = 15.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "14",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "16",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "17",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "15",
+          "IsCorrect": true
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "CognitiveType": "inverse-arithmetic-sequence-index",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank5-s-alternating-pairs",
+      "StageId": 3,
+      "PrimarySkillKey": "s-sequences-series-series-sums",
+      "TemplateFamilyKey": "concept-bank5-s-alternating-pairs",
+      "LearningObjectiveAr": "جمع حدود متناوبة بالإقران",
+      "LearningObjectiveEn": "Sum alternating integer terms using pairing",
+      "QuestionTextAr": "احسب مجموع الأعداد المتناوبة: 1 − 2 + 3 − 4 + ⋯ + 19 − 20.",
+      "QuestionTextEn": "Evaluate the alternating sum 1 − 2 + 3 − 4 + ⋯ + 19 − 20.",
+      "DetailedSolutionAr": "نقرن كل حدين: (1 − 2) + (3 − 4) + ... + (19 − 20)، ولدينا 10 أزواج، مجموع كل زوج −1، فيكون المجموع −10.",
+      "DetailedSolutionEn": "Pair consecutive terms: each of the ten pairs equals −1, so the sum is −10.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "-10",
+          "IsCorrect": true
+        },
+        {
+          "Order": 2,
+          "LatexCode": "10",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "0",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "-20",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "CognitiveType": "alternating-series-pairing",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank5-s-telescope",
+      "StageId": 3,
+      "PrimarySkillKey": "s-sequences-series-series-sums",
+      "TemplateFamilyKey": "concept-bank5-s-telescope",
+      "LearningObjectiveAr": "استخدام الاختزال المتسلسل في مجموع كسري",
+      "LearningObjectiveEn": "Evaluate a telescoping rational sum",
+      "QuestionTextAr": "أوجد مجموع (1 − 1/2) + (1/2 − 1/3) + (1/3 − 1/4) + (1/4 − 1/5).",
+      "QuestionTextEn": "Find the sum (1 − 1/2) + (1/2 − 1/3) + (1/3 − 1/4) + (1/4 − 1/5).",
+      "DetailedSolutionAr": "تتلاشى الحدود الوسطى، ويبقى 1 − 1/5 = 4/5.",
+      "DetailedSolutionEn": "Intermediate terms cancel, leaving 1 − 1/5 = 4/5.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\frac{1}{5}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\frac{4}{5}",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "\\frac{5}{4}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "1",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 4,
+      "PisaProcess": "employ",
+      "CognitiveType": "telescoping-sum-cancellation",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank5-u-bipartite",
+      "StageId": 4,
+      "PrimarySkillKey": "u-discrete-math-graphs",
+      "TemplateFamilyKey": "concept-bank5-u-bipartite",
+      "LearningObjectiveAr": "حساب عدد حواف الرسم الثنائي الكامل",
+      "LearningObjectiveEn": "Count edges in a complete bipartite graph",
+      "QuestionTextAr": "في الرسم البياني الثنائي الكامل K₂,₃، كل رأس من المجموعة الأولى متصل بكل رأس من الثانية. كم حافة في الرسم؟",
+      "QuestionTextEn": "In the complete bipartite graph K₂,₃, every vertex in the first group connects to every vertex in the second. How many edges are there?",
+      "DetailedSolutionAr": "عدد الحواف في Kₘ,ₙ هو m × n؛ بالتالي 2 × 3 = 6 حواف.",
+      "DetailedSolutionEn": "A complete bipartite graph Kₘ,ₙ has m × n edges; here 2 × 3 = 6.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "5",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "9",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "6",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "10",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "CognitiveType": "complete-bipartite-edge-count",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank5-u-odd-cycle",
+      "StageId": 4,
+      "PrimarySkillKey": "u-discrete-math-graphs",
+      "TemplateFamilyKey": "concept-bank5-u-odd-cycle",
+      "LearningObjectiveAr": "تحديد عدد الألوان اللازمة لدورة فردية",
+      "LearningObjectiveEn": "Determine the chromatic number of an odd cycle",
+      "QuestionTextAr": "ما أقل عدد من الألوان لتلوين رؤوس دورة بسيطة مؤلفة من 5 رؤوس بحيث لا يتجاور رأسان من اللون نفسه؟",
+      "QuestionTextEn": "What is the minimum number of colors needed to color the vertices of a 5-cycle so adjacent vertices have different colors?",
+      "DetailedSolutionAr": "الدورة ذات طول فردي لا يمكن تلوينها بلونين، وثلاثة ألوان تكفي، لذا العدد اللوني 3.",
+      "DetailedSolutionEn": "An odd cycle cannot be colored with two colors, but three colors suffice; the chromatic number is 3.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "2",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "4",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "5",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "3",
+          "IsCorrect": true
+        }
+      ],
+      "DifficultyLevel": 4,
+      "PisaProcess": "employ",
+      "CognitiveType": "odd-cycle-vertex-coloring",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank5-u-biconditional",
+      "StageId": 4,
+      "PrimarySkillKey": "u-discrete-math-logic",
+      "TemplateFamilyKey": "concept-bank5-u-biconditional",
+      "LearningObjectiveAr": "تمييز صفوف الصدق لعبارة التكافؤ المنطقي",
+      "LearningObjectiveEn": "Count true assignments for a biconditional",
+      "QuestionTextAr": "عند فحص الحالات الأربع الممكنة لقيمتي P وQ، في كم حالة تكون العبارة P ↔ Q صحيحة؟",
+      "QuestionTextEn": "Among the four possible truth assignments for P and Q, in how many is the biconditional P ↔ Q true?",
+      "DetailedSolutionAr": "التكافؤ صادق عندما تتساوى القيمتان: (ص،ص) و(خ،خ)، أي في حالتين.",
+      "DetailedSolutionEn": "A biconditional is true when both truth values match: (true,true) and (false,false), so in two assignments.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "2",
+          "IsCorrect": true
+        },
+        {
+          "Order": 2,
+          "LatexCode": "1",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "3",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "4",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "CognitiveType": "biconditional-truth-table",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank5-u-absorption",
+      "StageId": 4,
+      "PrimarySkillKey": "u-discrete-math-logic",
+      "TemplateFamilyKey": "concept-bank5-u-absorption",
+      "LearningObjectiveAr": "تبسيط عبارة منطقية باستخدام قانون الامتصاص",
+      "LearningObjectiveEn": "Apply Boolean absorption to simplify a logical expression",
+      "QuestionTextAr": "بسط العبارة المنطقية P ∧ (P ∨ Q) باستخدام قوانين الجبر المنطقي.",
+      "QuestionTextEn": "Simplify the logical expression P ∧ (P ∨ Q) using Boolean algebra.",
+      "DetailedSolutionAr": "بقانون الامتصاص P ∧ (P ∨ Q) = P لأي قيمتي صدق لـ P وQ.",
+      "DetailedSolutionEn": "By the absorption law, P ∧ (P ∨ Q) = P for all truth assignments.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "Q",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "P",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "P \\land Q",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "P \\lor Q",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "CognitiveType": "boolean-absorption-law",
+      "Points": 10,
+      "ExpertReview": "pending"
+    }
+  ]
+}
