@@ -9,6 +9,7 @@ on:
       - 'content/batches/mathworld-fractions-series-depth-*'
       - 'content/batches/mathworld-bank2-*'
       - 'content/batches/mathworld-bank3-*'
+      - 'content/batches/mathworld-bank4-*'
       - 'docs/MATHWORLD_INTERNATIONAL_CURRICULUM_TAXONOMY_*.md'
       - 'tests/check_curriculum_taxonomy.py'
       - 'tests/check_adaptive_pilot_content.py'
@@ -16,8 +17,10 @@ on:
       - 'tests/check_curriculum_depth_wave_1.py'
       - 'tests/check_question_bank_depth_wave_2.py'
       - 'tests/check_question_bank_depth_wave_3.py'
+      - 'tests/check_question_bank_depth_wave_4.py'
       - 'scripts/generate_question_bank_depth_wave_2_sql.py'
       - 'scripts/generate_question_bank_depth_wave_3_sql.py'
+      - 'scripts/generate_question_bank_depth_wave_4_sql.py'
       - '.github/workflows/curriculum-taxonomy-ci.yml'
   workflow_dispatch:
 
@@ -52,3 +55,7 @@ jobs:
         run: python3 tests/check_question_bank_depth_wave_3.py
       - name: Verify 32-question SQL contract and student-data protection
         run: python3 scripts/generate_question_bank_depth_wave_3_sql.py --check
+      - name: Verify 40 independent mathematical answers and bilingual content
+        run: python3 tests/check_question_bank_depth_wave_4.py
+      - name: Verify atomic 40-question seed SQL contract
+        run: python3 scripts/generate_question_bank_depth_wave_4_sql.py --check
