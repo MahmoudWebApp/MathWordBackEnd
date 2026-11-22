@@ -12,7 +12,7 @@ CATALOG=json.loads((ROOT/"content/catalog/international-mathworld-taxonomy-v2.js
 assert DATA["meta"]["status"]=="Draft"
 assert len(DATA["topics"])==4
 def ftex(x:Fraction)->str:
-    return r"\frac"+str(x.numerator)+str(x.denominator) if x.denominator!=1 else str(x.numerator)
+    return r"\frac"+("{" + str(x.numerator) + "}" if abs(x.numerator)>9 else str(x.numerator))+("{" + str(x.denominator) + "}" if x.denominator>9 else str(x.denominator)) if x.denominator!=1 else str(x.numerator)
 # Independently calculate the mathematical values rather than copying answer keys.
 expected={
 "p-fractions-decimals-fraction-sum":ftex(Fraction(3,4)+Fraction(1,8)),
