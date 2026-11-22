@@ -84,8 +84,8 @@
           "pisaProcess": "employ",
           "titleAr": "حل متباينة ذات معامل موجب",
           "titleEn": "Positive-coefficient inequality",
-          "questionTextAr": "حل $3x-4\\ge11$.",
-          "questionTextEn": "Solve $3x-4\\ge11$.",
+          "questionTextAr": "أوجد جميع الأعداد الحقيقية التي تحقق المتباينة $3x-4\\ge11$.",
+          "questionTextEn": "Find all real values satisfying the inequality $3x-4\\ge11$.",
           "detailedSolutionAr": "نضيف 4 فنحصل على $3x\\ge15$، ثم نقسم على 3 الموجب: $x\\ge5$.",
           "detailedSolutionEn": "Add 4 to get $3x\\ge15$; divide by positive 3 to obtain $x\\ge5$.",
           "options": [
@@ -119,8 +119,8 @@
           "pisaProcess": "employ",
           "titleAr": "انعكاس إشارة المتباينة",
           "titleEn": "Reverse an inequality",
-          "questionTextAr": "حل $-2x+6<10$.",
-          "questionTextEn": "Solve $-2x+6<10$.",
+          "questionTextAr": "أوجد مجموعة حل المتباينة الخطية $-2x+6<10$ مع الانتباه للإشارة.",
+          "questionTextEn": "Find the solution set of the linear inequality $-2x+6<10$, considering the sign.",
           "detailedSolutionAr": "بطرح 6 نحصل على $-2x<4$. نقسم على عدد سالب ونقلب الإشارة فنحصل على $x>-2$.",
           "detailedSolutionEn": "Subtract 6: $-2x<4$. Dividing by negative 2 reverses the inequality, so $x>-2$.",
           "options": [
@@ -154,8 +154,8 @@
           "pisaProcess": "interpret_evaluate",
           "titleAr": "متغير مطروح من ثابت",
           "titleEn": "A subtracted variable",
-          "questionTextAr": "ما حل $5-x\\le2$؟",
-          "questionTextEn": "Solve $5-x\\le2$.",
+          "questionTextAr": "حدد جميع القيم الحقيقية التي تحقق المتباينة $5-x\\le2$.",
+          "questionTextEn": "Determine all real values satisfying the inequality $5-x\\le2$.",
           "detailedSolutionAr": "نطرح 5: $-x\\le-3$، ثم نضرب في -1 ونقلب الإشارة: $x\\ge3$.",
           "detailedSolutionEn": "Subtract 5: $-x\\le-3$. Multiply by -1 and reverse the sign: $x\\ge3$.",
           "options": [
