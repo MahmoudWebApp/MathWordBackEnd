@@ -1,0 +1,163 @@
+{
+  "batch_key": "mathworld-bank4-primary",
+  "status": "editorial_pending",
+  "stage": 1,
+  "problems": [
+    {
+      "ContentKey": "mw-bank4-p-subtract-water",
+      "StageId": 1,
+      "PrimarySkillKey": "primary-subtraction",
+      "TemplateFamilyKey": "concept-p-subtract-water",
+      "LearningObjectiveAr": "استخراج كمية مستهلكة من كمية ابتدائية وباقية",
+      "LearningObjectiveEn": "Determine a used quantity from an initial amount and remainder",
+      "QuestionTextAr": "خزان فيه 425 لتراً من الماء. بقي فيه 178 لتراً بعد استخدام بعض الماء. كم لتراً استُخدم؟",
+      "QuestionTextEn": "A tank initially holds 425 liters of water. After some water is used, 178 liters remain. How many liters were used?",
+      "DetailedSolutionAr": "المستخدم = الكمية الأصلية − الباقي = 425 − 178 = 247 لتراً. نتحقق: 247 + 178 = 425.",
+      "DetailedSolutionEn": "Used water equals initial minus remaining: 425 − 178 = 247 liters. Check: 247 + 178 = 425.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "237",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "247",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "253",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "603",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 2,
+      "PisaProcess": "formulate",
+      "CognitiveType": "change-and-remainder",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank4-p-subtract-compare",
+      "StageId": 1,
+      "PrimarySkillKey": "primary-subtraction",
+      "TemplateFamilyKey": "concept-p-subtract-compare",
+      "LearningObjectiveAr": "استخدام الطرح لإيجاد الفرق بين مجموعتين",
+      "LearningObjectiveEn": "Compare two collections using subtraction",
+      "QuestionTextAr": "جمعت ليلى 650 ملصقاً، وجمع سامر 487 ملصقاً. بكم ملصقاً تزيد مجموعة ليلى؟",
+      "QuestionTextEn": "Layla collected 650 stickers and Samer collected 487. How many more stickers does Layla have?",
+      "DetailedSolutionAr": "الفرق = 650 − 487 = 163 ملصقاً. هذه مقارنة وليست مجموع المجموعتين.",
+      "DetailedSolutionEn": "The difference is 650 − 487 = 163 stickers, not the sum of the collections.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "153",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "163",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "173",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "1137",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 2,
+      "PisaProcess": "interpret_evaluate",
+      "CognitiveType": "part-comparison",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank4-p-subtract-missing-start",
+      "StageId": 1,
+      "PrimarySkillKey": "primary-subtraction",
+      "TemplateFamilyKey": "concept-p-subtract-missing-start",
+      "LearningObjectiveAr": "استنتاج العدد الأصلي باستعمال علاقة الطرح والجمع",
+      "LearningObjectiveEn": "Find a starting amount from a subtraction relation",
+      "QuestionTextAr": "بعد سحب 38 بطاقة من صندوق بقيت 95 بطاقة. كم بطاقة كانت في الصندوق قبل السحب؟",
+      "QuestionTextEn": "After 38 cards were removed from a box, 95 remained. How many cards were in the box originally?",
+      "DetailedSolutionAr": "إذا كان العدد الأصلي x فـ x − 38 = 95، وبالتالي x = 95 + 38 = 133.",
+      "DetailedSolutionEn": "If x is the original quantity, x − 38 = 95, so x = 95 + 38 = 133.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "57",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "123",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "133",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "143",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "formulate",
+      "CognitiveType": "missing-minuend",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank4-p-subtract-borrowing",
+      "StageId": 1,
+      "PrimarySkillKey": "primary-subtraction",
+      "TemplateFamilyKey": "concept-p-subtract-borrowing",
+      "LearningObjectiveAr": "تطبيق الاستلاف عبر الصفر في عملية طرح",
+      "LearningObjectiveEn": "Regroup across zero in a subtraction",
+      "QuestionTextAr": "احسب 503 − 287 مع الانتباه إلى الاستلاف من المئات.",
+      "QuestionTextEn": "Calculate 503 − 287, paying attention to regrouping through the zero tens digit.",
+      "DetailedSolutionAr": "نحوّل 503 إلى 4 مئات و9 عشرات و13 آحاداً؛ 13−7=6 و9−8=1 و4−2=2، فالنتيجة 216.",
+      "DetailedSolutionEn": "Regroup 503 as 4 hundreds, 9 tens and 13 ones. Then 13−7=6, 9−8=1, and 4−2=2: 216.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "206",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "216",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "224",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "316",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "CognitiveType": "regroup-through-zero",
+      "Points": 10,
+      "ExpertReview": "pending"
+    }
+  ]
+}
