@@ -1,0 +1,319 @@
+{
+  "batch_key": "mathworld-bank3-university",
+  "status": "editorial_pending",
+  "stage": 4,
+  "problems": [
+    {
+      "ContentKey": "mw-bank3-u-double-additive",
+      "StageId": 4,
+      "PrimarySkillKey": "university-double-integrals",
+      "TemplateFamilyKey": "concept-u-double-additive",
+      "LearningObjectiveAr": "فصل التكامل المزدوج لمجموع دالتين",
+      "LearningObjectiveEn": "Evaluate a double integral of a sum over a rectangle",
+      "QuestionTextAr": "أوجد التكامل المزدوج للدالة f(x,y)=x+y على المستطيل 0 ≤ x ≤ 2 و0 ≤ y ≤ 3.",
+      "QuestionTextEn": "Evaluate the double integral of f(x,y)=x+y over 0 ≤ x ≤ 2 and 0 ≤ y ≤ 3.",
+      "DetailedSolutionAr": "بالتكامل بالنسبة إلى y نحصل على 3x + 9/2. ثم بالتكامل من 0 إلى 2 بالنسبة إلى x نحصل على 6 + 9 = 15.",
+      "DetailedSolutionEn": "Integrate with respect to y to obtain 3x + 9/2. Integrating from x=0 to x=2 gives 6 + 9 = 15.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "9",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "12",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "15",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "18",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "CognitiveType": "separable-sum",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank3-u-double-triangle-region",
+      "StageId": 4,
+      "PrimarySkillKey": "university-double-integrals",
+      "TemplateFamilyKey": "concept-u-double-triangle-region",
+      "LearningObjectiveAr": "ربط تكامل دالة ثابتة بمساحة منطقة مثلثية",
+      "LearningObjectiveEn": "Interpret the integral of 1 as a triangular area",
+      "QuestionTextAr": "احسب التكامل المزدوج للدالة 1 على المنطقة x ≥ 0 وy ≥ 0 وx+y ≤ 1.",
+      "QuestionTextEn": "Find the double integral of 1 over the region x ≥ 0, y ≥ 0, x+y ≤ 1.",
+      "DetailedSolutionAr": "المنطقة مثلث قائم ساقاه 1 و1، وتكامل 1 يساوي المساحة: (1 × 1)/2 = 1/2.",
+      "DetailedSolutionEn": "The region is a right triangle with legs 1 and 1. Integrating 1 gives its area, 1/2.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\frac14",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\frac12",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "1",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "2",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "interpret_evaluate",
+      "CognitiveType": "geometric-area",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank3-u-double-separable-x2",
+      "StageId": 4,
+      "PrimarySkillKey": "university-double-integrals",
+      "TemplateFamilyKey": "concept-u-double-separable-x2",
+      "LearningObjectiveAr": "حساب تكامل مزدوج لدالة تعتمد على متغير واحد",
+      "LearningObjectiveEn": "Integrate a single-variable function over a rectangle",
+      "QuestionTextAr": "احسب التكامل المزدوج لـ x² على المنطقة 0 ≤ x ≤ 1 و0 ≤ y ≤ 2.",
+      "QuestionTextEn": "Calculate the double integral of x² over the region 0 ≤ x ≤ 1 and 0 ≤ y ≤ 2.",
+      "DetailedSolutionAr": "التكامل بالنسبة إلى y يعطي 2x²، ثم تكامل 2x² من 0 إلى 1 هو 2/3.",
+      "DetailedSolutionEn": "Integrating with respect to y yields 2x². Integrating from x=0 to 1 gives 2/3.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\frac13",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\frac12",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "\\frac23",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "2",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "CognitiveType": "single-variable-integrand",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank3-u-double-symmetry",
+      "StageId": 4,
+      "PrimarySkillKey": "university-double-integrals",
+      "TemplateFamilyKey": "concept-u-double-symmetry",
+      "LearningObjectiveAr": "توظيف التناظر لحساب تكامل مزدوج",
+      "LearningObjectiveEn": "Exploit symmetry of an integrand over a square",
+      "QuestionTextAr": "ما قيمة التكامل المزدوج لـ (x−y) على المربع 0 ≤ x ≤ 1 و0 ≤ y ≤ 1؟",
+      "QuestionTextEn": "What is the double integral of (x−y) over the square 0 ≤ x ≤ 1, 0 ≤ y ≤ 1?",
+      "DetailedSolutionAr": "المنطقة متناظرة عند تبادل x وy، والدالة تتغير إشارتها؛ لذا التكامل صفر. وبالحساب: 1/2 − 1/2 = 0.",
+      "DetailedSolutionEn": "Swapping x and y leaves the square unchanged but reverses the integrand's sign, so the integral is zero. Directly: 1/2 − 1/2 = 0.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "-1",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "0",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "\\frac12",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "1",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 4,
+      "PisaProcess": "interpret_evaluate",
+      "CognitiveType": "antisymmetry",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank3-u-limit-sine",
+      "StageId": 4,
+      "PrimarySkillKey": "university-function-limits",
+      "TemplateFamilyKey": "concept-u-limit-sine",
+      "LearningObjectiveAr": "استخدام النهاية المثلثية الأساسية",
+      "LearningObjectiveEn": "Use the standard sine limit",
+      "QuestionTextAr": "احسب النهاية عندما x يقترب من 0 للتعبير sin(3x)/x، مع قياس الزوايا بالراديان.",
+      "QuestionTextEn": "Evaluate lim as x → 0 of sin(3x)/x, with angles measured in radians.",
+      "DetailedSolutionAr": "نعيد الكتابة 3 × [sin(3x)/(3x)]، ونستخدم النهاية الأساسية sin(u)/u → 1؛ إذن النهاية 3.",
+      "DetailedSolutionEn": "Rewrite as 3[sin(3x)/(3x)] and apply lim sin u/u = 1 as u→0, giving 3.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "0",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "1",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "3",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "6",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "CognitiveType": "trig-limit",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank3-u-limit-cosine",
+      "StageId": 4,
+      "PrimarySkillKey": "university-function-limits",
+      "TemplateFamilyKey": "concept-u-limit-cosine",
+      "LearningObjectiveAr": "تقييم نهاية باستخدام هوية مثلثية",
+      "LearningObjectiveEn": "Evaluate a limit using a trigonometric identity",
+      "QuestionTextAr": "ما نهاية (1−cos x)/x عندما x → 0 بالراديان؟",
+      "QuestionTextEn": "What is lim (1−cos x)/x as x → 0 in radians?",
+      "DetailedSolutionAr": "باستخدام 1−cos x = 2sin²(x/2) أو التوسع المحلي، يكون البسط من رتبة x²، لذا النسبة تقترب من 0.",
+      "DetailedSolutionEn": "Using 1−cos x = 2sin²(x/2), the numerator is order x² near zero, so the quotient tends to 0.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "-1",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "0",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "\\frac12",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "1",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "CognitiveType": "trig-identity",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank3-u-limit-polynomial-infinity",
+      "StageId": 4,
+      "PrimarySkillKey": "university-function-limits",
+      "TemplateFamilyKey": "concept-u-limit-polynomial-infinity",
+      "LearningObjectiveAr": "حساب نهاية دالة نسبية عند اللانهاية",
+      "LearningObjectiveEn": "Find a rational function's limit at infinity",
+      "QuestionTextAr": "أوجد نهاية (2x²+1)/(x²−3) عندما x → +∞.",
+      "QuestionTextEn": "Find the limit of (2x²+1)/(x²−3) as x → +∞.",
+      "DetailedSolutionAr": "نقسم البسط والمقام على x² لنحصل على (2+1/x²)/(1−3/x²). عندما x يذهب إلى اللانهاية تصبح النسبة 2.",
+      "DetailedSolutionEn": "Divide numerator and denominator by x²: (2+1/x²)/(1−3/x²). The vanishing terms leave 2.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "0",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "1",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "2",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "\\infty",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 2,
+      "PisaProcess": "employ",
+      "CognitiveType": "dominant-degree",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank3-u-limit-exponential",
+      "StageId": 4,
+      "PrimarySkillKey": "university-function-limits",
+      "TemplateFamilyKey": "concept-u-limit-exponential",
+      "LearningObjectiveAr": "استخدام النهاية الأساسية للدالة الأسية",
+      "LearningObjectiveEn": "Use the exponential derivative limit",
+      "QuestionTextAr": "احسب نهاية (e^(2x)−1)/x عندما x → 0.",
+      "QuestionTextEn": "Evaluate lim (e^(2x)−1)/x as x → 0.",
+      "DetailedSolutionAr": "نكتب 2 × [(e^(2x)−1)/(2x)]، والنهاية الأساسية (e^u−1)/u تساوي 1؛ لذلك النتيجة 2.",
+      "DetailedSolutionEn": "Write 2[(e^(2x)−1)/(2x)] and use lim (e^u−1)/u = 1. The result is 2.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "0",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "1",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "2",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "e^2",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "CognitiveType": "exponential-limit",
+      "Points": 10,
+      "ExpertReview": "pending"
+    }
+  ]
+}

@@ -1,0 +1,319 @@
+{
+  "batch_key": "mathworld-bank3-upper-secondary",
+  "status": "editorial_pending",
+  "stage": 3,
+  "problems": [
+    {
+      "ContentKey": "mw-bank3-s-dice-sum-eight",
+      "StageId": 3,
+      "PrimarySkillKey": "secondary-two-dice-probability",
+      "TemplateFamilyKey": "concept-s-dice-sum-eight",
+      "LearningObjectiveAr": "حساب احتمال مجموع محدد عند رمي نردين",
+      "LearningObjectiveEn": "Count outcomes giving a specific sum for two dice",
+      "QuestionTextAr": "نرمي نردين عادلين. ما احتمال أن يكون مجموع الوجهين 8؟",
+      "QuestionTextEn": "Two fair six-sided dice are rolled. What is the probability that their sum is 8?",
+      "DetailedSolutionAr": "الحالات المواتية المرتبة: (2,6)، (3,5)، (4,4)، (5,3)، (6,2)، وعددها 5 من 36؛ إذن 5/36.",
+      "DetailedSolutionEn": "Five ordered outcomes yield 8: (2,6),(3,5),(4,4),(5,3),(6,2), out of 36 equally likely outcomes.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\frac4{36}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\frac5{36}",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "\\frac6{36}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "\\frac8{36}",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "CognitiveType": "enumerated-sum",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank3-s-dice-both-even",
+      "StageId": 3,
+      "PrimarySkillKey": "secondary-two-dice-probability",
+      "TemplateFamilyKey": "concept-s-dice-both-even",
+      "LearningObjectiveAr": "حساب احتمال حدثين مستقلين عند رمي نردين",
+      "LearningObjectiveEn": "Use independence for both dice showing even numbers",
+      "QuestionTextAr": "ما احتمال ظهور عدد زوجي على كل من نردين عادلين؟",
+      "QuestionTextEn": "What is the probability that both of two fair dice show even numbers?",
+      "DetailedSolutionAr": "لكل نرد 3 أعداد زوجية من أصل 6. باستقلالهما: (3/6) × (3/6) = 1/4.",
+      "DetailedSolutionEn": "Each die has three even faces out of six. By independence, (3/6) × (3/6) = 1/4.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\frac16",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\frac14",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "\\frac12",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "\\frac34",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 2,
+      "PisaProcess": "employ",
+      "CognitiveType": "independent-events",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank3-s-dice-at-least-one-six",
+      "StageId": 3,
+      "PrimarySkillKey": "secondary-two-dice-probability",
+      "TemplateFamilyKey": "concept-s-dice-at-least-one-six",
+      "LearningObjectiveAr": "استخدام الحدث المتمم في الاحتمالات",
+      "LearningObjectiveEn": "Use a complement to find at-least-one probability",
+      "QuestionTextAr": "إذا رُمِي نردان عادلان، فما احتمال ظهور العدد 6 على أحدهما على الأقل؟",
+      "QuestionTextEn": "When two fair dice are rolled, what is the probability of at least one six?",
+      "DetailedSolutionAr": "احتمال عدم ظهور 6 في أي نرد = (5/6)² = 25/36؛ إذن المطلوب 1 − 25/36 = 11/36.",
+      "DetailedSolutionEn": "Neither die shows six with probability (5/6)^2 = 25/36. The complement has probability 11/36.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\frac1{36}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\frac6{36}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "\\frac{11}{36}",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "\\frac{12}{36}",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "interpret_evaluate",
+      "CognitiveType": "complement-event",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank3-s-dice-product-even",
+      "StageId": 3,
+      "PrimarySkillKey": "secondary-two-dice-probability",
+      "TemplateFamilyKey": "concept-s-dice-product-even",
+      "LearningObjectiveAr": "تمييز احتمال جداء زوجي من الحدث المتمم",
+      "LearningObjectiveEn": "Find the probability a product is even",
+      "QuestionTextAr": "عند رمي نردين عادلين، ما احتمال أن يكون حاصل ضرب العددين زوجياً؟",
+      "QuestionTextEn": "When two fair dice are rolled, what is the probability the product of their numbers is even?",
+      "DetailedSolutionAr": "يكون الجداء فردياً فقط إذا كان العددان فرديين؛ احتمال ذلك (3/6)² = 1/4، ومنه احتمال الجداء الزوجي = 3/4.",
+      "DetailedSolutionEn": "The product is odd only if both faces are odd, probability 1/4. Thus the chance of an even product is 3/4.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\frac14",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\frac12",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "\\frac23",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "\\frac34",
+          "IsCorrect": true
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "interpret_evaluate",
+      "CognitiveType": "parity-complement",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank3-s-geom-common-ratio",
+      "StageId": 3,
+      "PrimarySkillKey": "s-sequences-series-geometric-sequences",
+      "TemplateFamilyKey": "concept-s-geom-common-ratio",
+      "LearningObjectiveAr": "استخراج أساس المتتالية الهندسية من حدودها",
+      "LearningObjectiveEn": "Identify a geometric sequence's common ratio",
+      "QuestionTextAr": "متتالية هندسية تبدأ بالحدود 2، 6، 18، 54، ... . ما أساسها؟",
+      "QuestionTextEn": "A geometric sequence begins 2, 6, 18, 54, ... . What is its common ratio?",
+      "DetailedSolutionAr": "نقسم كل حد على الذي قبله: 6 ÷ 2 = 3، وكذلك 18 ÷ 6 = 3؛ إذن الأساس 3.",
+      "DetailedSolutionEn": "Each term divided by the preceding one gives 3, so the common ratio is 3.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "2",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "3",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "4",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "6",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 2,
+      "PisaProcess": "employ",
+      "CognitiveType": "pattern-ratio",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank3-s-geom-missing-ratio",
+      "StageId": 3,
+      "PrimarySkillKey": "s-sequences-series-geometric-sequences",
+      "TemplateFamilyKey": "concept-s-geom-missing-ratio",
+      "LearningObjectiveAr": "إيجاد الأساس الموجب من حدين غير متجاورين",
+      "LearningObjectiveEn": "Infer a positive geometric ratio from non-adjacent terms",
+      "QuestionTextAr": "في متتالية هندسية حدها الثاني 6 وحدها الرابع 54، وأساسها موجب. ما قيمة الأساس؟",
+      "QuestionTextEn": "In a geometric sequence the second term is 6 and the fourth is 54. Its common ratio is positive. What is the ratio?",
+      "DetailedSolutionAr": "النسبة بين الحد الرابع والثاني تساوي r² = 54/6 = 9؛ وبما أن r موجب، فـ r = 3.",
+      "DetailedSolutionEn": "Since a₄/a₂ = r² = 54/6 = 9 and r is positive, r = 3.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "-3",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "2",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "3",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "9",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "CognitiveType": "nonadjacent-inference",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank3-s-geom-mean",
+      "StageId": 3,
+      "PrimarySkillKey": "s-sequences-series-geometric-sequences",
+      "TemplateFamilyKey": "concept-s-geom-mean",
+      "LearningObjectiveAr": "تحديد الوسط الهندسي الموجب بين عددين",
+      "LearningObjectiveEn": "Find the positive geometric mean between two terms",
+      "QuestionTextAr": "ما العدد الموجب الذي يجعل 4، x، 36 حدوداً متتالية في متتالية هندسية؟",
+      "QuestionTextEn": "What positive number x makes 4, x, 36 consecutive terms of a geometric sequence?",
+      "DetailedSolutionAr": "الحد الأوسط يحقق x² = 4 × 36 = 144، ومع شرط الإيجابية يكون x = 12.",
+      "DetailedSolutionEn": "The middle term satisfies x² = 4 × 36 = 144. The positive solution is x = 12.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "6",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "9",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "12",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "18",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "CognitiveType": "geometric-mean",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank3-s-geom-threshold",
+      "StageId": 3,
+      "PrimarySkillKey": "s-sequences-series-geometric-sequences",
+      "TemplateFamilyKey": "concept-s-geom-threshold",
+      "LearningObjectiveAr": "تحديد أول حد يحقق شرطاً في متتالية هندسية",
+      "LearningObjectiveEn": "Find the first term below a threshold",
+      "QuestionTextAr": "متتالية هندسية تبدأ 48، 24، 12، 6، ... . ما رقم أول حد أصغر من 10؟",
+      "QuestionTextEn": "A geometric sequence begins 48, 24, 12, 6, ... . What is the index of its first term less than 10?",
+      "DetailedSolutionAr": "الحد الثالث 12 ليس أصغر من 10، والحد الرابع 6 أصغر من 10، لذا الرقم 4.",
+      "DetailedSolutionEn": "The third term 12 is not below 10; the fourth term 6 is, so the first qualifying index is 4.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "2",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "3",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "4",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "5",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "interpret_evaluate",
+      "CognitiveType": "inequality-threshold",
+      "Points": 10,
+      "ExpertReview": "pending"
+    }
+  ]
+}
