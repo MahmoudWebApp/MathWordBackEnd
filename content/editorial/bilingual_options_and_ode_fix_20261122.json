@@ -1,0 +1,370 @@
+{
+  "date": "2026-11-22",
+  "purpose": "Make explanatory answer options bilingual and correct ODE integration-constant proof without changing answer flags, ids or learner progress",
+  "changes": [
+    {
+      "problemId": 147,
+      "oldSolutions": {},
+      "newSolutions": {},
+      "oldOptions": {
+        "577": "\\text{It oscillates}",
+        "578": "\\text{It converges}",
+        "579": "\\text{It diverges}",
+        "580": "\\text{It is eventually constant}"
+      },
+      "newOptions": {
+        "577": "\\text{تتذبذب (Oscillates)}",
+        "578": "\\text{تتقارب (Converges)}",
+        "579": "\\text{تتباعد (Diverges)}",
+        "580": "\\text{تصبح ثابتة لاحقاً (Eventually constant)}"
+      },
+      "correctOptionId": 578
+    },
+    {
+      "problemId": 479,
+      "oldSolutions": {},
+      "newSolutions": {},
+      "oldOptions": {
+        "1905": "\\text{Mean}",
+        "1906": "\\text{Median}",
+        "1907": "\\text{Range}",
+        "1908": "\\text{Standard deviation}"
+      },
+      "newOptions": {
+        "1905": "\\text{المتوسط (Mean)}",
+        "1906": "\\text{الوسيط (Median)}",
+        "1907": "\\text{المدى (Range)}",
+        "1908": "\\text{الانحراف المعياري (Std. deviation)}"
+      },
+      "correctOptionId": 1906
+    },
+    {
+      "problemId": 480,
+      "oldSolutions": {},
+      "newSolutions": {},
+      "oldOptions": {
+        "1909": "\\text{Class A}",
+        "1910": "\\text{Class B}",
+        "1911": "\\text{Equal proportions}",
+        "1912": "\\text{Cannot determine}"
+      },
+      "newOptions": {
+        "1909": "\\text{الصف أ (Class A)}",
+        "1910": "\\text{الصف ب (Class B)}",
+        "1911": "\\text{النسب متساوية (Equal proportions)}",
+        "1912": "\\text{لا يمكن التحديد (Cannot determine)}"
+      },
+      "correctOptionId": 1909
+    },
+    {
+      "problemId": 482,
+      "oldSolutions": {},
+      "newSolutions": {},
+      "oldOptions": {
+        "1917": "\\text{Increases by }5",
+        "1918": "\\text{Decreases by }5",
+        "1919": "\\text{Unchanged}",
+        "1920": "\\text{Doubles}"
+      },
+      "newOptions": {
+        "1917": "\\text{يزيد بمقدار 5 (Increases by 5)}",
+        "1918": "\\text{ينقص بمقدار 5 (Decreases by 5)}",
+        "1919": "\\text{لا يتغير (Unchanged)}",
+        "1920": "\\text{يتضاعف (Doubles)}"
+      },
+      "correctOptionId": 1919
+    },
+    {
+      "problemId": 487,
+      "oldSolutions": {},
+      "newSolutions": {},
+      "oldOptions": {
+        "1937": "\\text{Converges to }4",
+        "1938": "\\text{Diverges to }+\\infty",
+        "1939": "\\text{Converges to }2",
+        "1940": "\\text{Oscillates}"
+      },
+      "newOptions": {
+        "1937": "\\text{يتقارب إلى 4 (Converges to 4)}",
+        "1938": "\\text{يتباعد إلى ما لا نهاية (+infinity)}",
+        "1939": "\\text{يتقارب إلى 2 (Converges to 2)}",
+        "1940": "\\text{يتذبذب (Oscillates)}"
+      },
+      "correctOptionId": 1938
+    },
+    {
+      "problemId": 488,
+      "oldSolutions": {},
+      "newSolutions": {},
+      "oldOptions": {
+        "1941": "\\text{True}",
+        "1942": "\\text{False}",
+        "1943": "\\text{Undefined}",
+        "1944": "\\text{Depends on }Q"
+      },
+      "newOptions": {
+        "1941": "\\text{صحيحة (True)}",
+        "1942": "\\text{خاطئة (False)}",
+        "1943": "\\text{غير معرّفة (Undefined)}",
+        "1944": "\\text{تعتمد على Q (Depends on Q)}"
+      },
+      "correctOptionId": 1941
+    },
+    {
+      "problemId": 492,
+      "oldSolutions": {},
+      "newSolutions": {},
+      "oldOptions": {
+        "1957": "\\text{Yes}",
+        "1958": "\\text{No}",
+        "1959": "\\text{Only if all 4 are chosen}",
+        "1960": "\\text{Only if 2 are chosen}"
+      },
+      "newOptions": {
+        "1957": "\\text{نعم (Yes)}",
+        "1958": "\\text{لا (No)}",
+        "1959": "\\text{فقط إذا اختيرت الأربعة (Only all 4)}",
+        "1960": "\\text{فقط إذا اختير اثنان (Only 2)}"
+      },
+      "correctOptionId": 1957
+    },
+    {
+      "problemId": 504,
+      "oldSolutions": {},
+      "newSolutions": {},
+      "oldOptions": {
+        "2007": "\\text{Both are equal}",
+        "2008": "\\text{Not enough information}"
+      },
+      "newOptions": {
+        "2007": "\\text{متساويان (Both equal)}",
+        "2008": "\\text{المعطيات غير كافية (Insufficient info)}"
+      },
+      "correctOptionId": 2005
+    },
+    {
+      "problemId": 507,
+      "oldSolutions": {},
+      "newSolutions": {},
+      "oldOptions": {
+        "2017": "\\text{Class A}",
+        "2018": "\\text{Class B}",
+        "2019": "\\text{Equal shares}",
+        "2020": "\\text{Cannot compare}"
+      },
+      "newOptions": {
+        "2017": "\\text{الصف أ (Class A)}",
+        "2018": "\\text{الصف ب (Class B)}",
+        "2019": "\\text{النسب متساوية (Equal shares)}",
+        "2020": "\\text{لا يمكن المقارنة (Cannot compare)}"
+      },
+      "correctOptionId": 2018
+    },
+    {
+      "problemId": 510,
+      "oldSolutions": {},
+      "newSolutions": {},
+      "oldOptions": {
+        "2029": "\\text{Converges to }0",
+        "2030": "\\text{Converges to }\\frac12",
+        "2031": "\\text{Does not converge}",
+        "2032": "\\text{Converges to }1"
+      },
+      "newOptions": {
+        "2029": "\\text{يتقارب إلى 0 (Converges to 0)}",
+        "2030": "\\text{يتقارب إلى نصف (Converges to 1/2)}",
+        "2031": "\\text{لا يتقارب (Does not converge)}",
+        "2032": "\\text{يتقارب إلى 1 (Converges to 1)}"
+      },
+      "correctOptionId": 2031
+    },
+    {
+      "problemId": 511,
+      "oldSolutions": {},
+      "newSolutions": {},
+      "oldOptions": {
+        "2033": "\\text{Converges to }-\\frac13",
+        "2034": "\\text{Converges to }0",
+        "2035": "\\text{Diverges}",
+        "2036": "\\text{Converges to }1"
+      },
+      "newOptions": {
+        "2033": "\\text{يتقارب إلى سالب ثلث (Converges to -1/3)}",
+        "2034": "\\text{يتقارب إلى 0 (Converges to 0)}",
+        "2035": "\\text{يتباعد (Diverges)}",
+        "2036": "\\text{يتقارب إلى 1 (Converges to 1)}"
+      },
+      "correctOptionId": 2035
+    },
+    {
+      "problemId": 512,
+      "oldSolutions": {},
+      "newSolutions": {},
+      "oldOptions": {
+        "2037": "\\text{Terms tend to zero, so it converges}",
+        "2038": "\\text{Every doubling block adds at least }\\frac12",
+        "2039": "\\text{All terms are rational, so it converges}",
+        "2040": "\\text{Alternating terms cancel out}"
+      },
+      "newOptions": {
+        "2037": "\\text{الحدود إلى صفر إذن تتقارب (Terms to zero, converge)}",
+        "2038": "\\text{كل كتلة مضاعفة تضيف نصفاً (Each block adds 1/2)}",
+        "2039": "\\text{كل الحدود نسبية إذن تتقارب (All rational, converge)}",
+        "2040": "\\text{الحدود المتناوبة تتلاشى (Alternation cancels)}"
+      },
+      "correctOptionId": 2038
+    },
+    {
+      "problemId": 782,
+      "oldSolutions": {},
+      "newSolutions": {},
+      "oldOptions": {
+        "3117": "\\text{Converges absolutely}",
+        "3118": "\\text{Diverges}",
+        "3119": "\\text{Converges to 1}",
+        "3120": "\\text{Converges to 0}"
+      },
+      "newOptions": {
+        "3117": "\\text{تتقارب مطلقاً (Absolutely convergent)}",
+        "3118": "\\text{تتباعد (Diverges)}",
+        "3119": "\\text{تتقارب إلى 1 (Converges to 1)}",
+        "3120": "\\text{تتقارب إلى 0 (Converges to 0)}"
+      },
+      "correctOptionId": 3118
+    },
+    {
+      "problemId": 783,
+      "oldSolutions": {},
+      "newSolutions": {},
+      "oldOptions": {
+        "3121": "\\text{Diverges}",
+        "3122": "\\text{Converges absolutely}",
+        "3123": "\\text{Converges conditionally}",
+        "3124": "\\text{Has finitely many terms}"
+      },
+      "newOptions": {
+        "3121": "\\text{تتباعد (Diverges)}",
+        "3122": "\\text{تتقارب مطلقاً (Absolutely convergent)}",
+        "3123": "\\text{تتقارب شرطياً (Conditionally convergent)}",
+        "3124": "\\text{حدودها منتهية (Finite terms)}"
+      },
+      "correctOptionId": 3123
+    },
+    {
+      "problemId": 789,
+      "oldSolutions": {},
+      "newSolutions": {},
+      "oldOptions": {
+        "3145": "\\text{Odd n implies odd }n^2",
+        "3146": "\\text{Even n implies odd }n^2",
+        "3147": "\\text{Even }n^2\\text{ implies odd n}",
+        "3148": "\\text{Odd }n^2\\text{ implies even n}"
+      },
+      "newOptions": {
+        "3145": "\\text{إذا كان n فردياً فمربعه فردي (Odd n, odd square)}",
+        "3146": "\\text{إذا كان n زوجياً فمربعه فردي (Even n, odd square)}",
+        "3147": "\\text{إذا كان مربع n زوجياً فـn فردي (Even square, odd n)}",
+        "3148": "\\text{إذا كان مربع n فردياً فـn زوجي (Odd square, even n)}"
+      },
+      "correctOptionId": 3145
+    },
+    {
+      "problemId": 791,
+      "oldSolutions": {},
+      "newSolutions": {},
+      "oldOptions": {
+        "3153": "\\text{a and b are both even}",
+        "3154": "\\text{a and b are both odd}",
+        "3155": "\\text{a=0 and b=1}",
+        "3156": "\\text{a and b are equal}"
+      },
+      "newOptions": {
+        "3153": "\\text{a وb زوجيان (Both even)}",
+        "3154": "\\text{a وb فرديان (Both odd)}",
+        "3155": "\\text{a=0 وb=1}",
+        "3156": "\\text{a وb متساويان (Equal)}"
+      },
+      "correctOptionId": 3153
+    },
+    {
+      "problemId": 796,
+      "oldSolutions": {},
+      "newSolutions": {},
+      "oldOptions": {
+        "3173": "\\text{Equivalence relation}",
+        "3174": "\\text{Total order}",
+        "3175": "\\text{Partial but not total order}",
+        "3176": "\\text{Neither a partial order nor equivalence}"
+      },
+      "newOptions": {
+        "3173": "\\text{علاقة تكافؤ (Equivalence)}",
+        "3174": "\\text{ترتيب كلي (Total order)}",
+        "3175": "\\text{ترتيب جزئي غير كلي (Partial, not total)}",
+        "3176": "\\text{ليست ترتيباً جزئياً ولا تكافؤاً (Neither)}"
+      },
+      "correctOptionId": 3175
+    },
+    {
+      "problemId": 798,
+      "oldSolutions": {},
+      "newSolutions": {},
+      "oldOptions": {
+        "3184": "\\text{Does not exist}"
+      },
+      "newOptions": {
+        "3184": "\\text{غير موجودة (Does not exist)}"
+      },
+      "correctOptionId": 3182
+    },
+    {
+      "problemId": 800,
+      "oldSolutions": {},
+      "newSolutions": {},
+      "oldOptions": {
+        "3189": "\\text{Continuous but not differentiable}",
+        "3190": "\\text{Differentiable but discontinuous}",
+        "3191": "\\text{Both differentiable and discontinuous}",
+        "3192": "\\text{Neither continuous nor differentiable}"
+      },
+      "newOptions": {
+        "3189": "\\text{متصلة وغير قابلة للاشتقاق (Continuous, not differentiable)}",
+        "3190": "\\text{قابلة للاشتقاق وغير متصلة (Differentiable, discontinuous)}",
+        "3191": "\\text{قابلة للاشتقاق وغير متصلة معاً (Both)}",
+        "3192": "\\text{غير متصلة وغير قابلة للاشتقاق (Neither)}"
+      },
+      "correctOptionId": 3189
+    },
+    {
+      "problemId": 858,
+      "oldSolutions": {},
+      "newSolutions": {},
+      "oldOptions": {
+        "3425": "\\text{Right triangle}",
+        "3426": "\\text{Acute triangle}",
+        "3427": "\\text{Obtuse triangle}",
+        "3428": "\\text{Not a triangle}"
+      },
+      "newOptions": {
+        "3425": "\\text{مثلث قائم (Right triangle)}",
+        "3426": "\\text{مثلث حاد (Acute triangle)}",
+        "3427": "\\text{مثلث منفرج (Obtuse triangle)}",
+        "3428": "\\text{ليس مثلثاً (Not a triangle)}"
+      },
+      "correctOptionId": 3425
+    },
+    {
+      "problemId": 32,
+      "oldSolutions": {
+        "sa": "$\\frac{dy}{y} = 3 \\, dx$. بالتكامل: $\\ln |y| = 3x + C$. إذاً $y = Ae^{3x}$ حيث $A = e^C$.",
+        "se": "$\\frac{dy}{y} = 3 \\, dx$. Integrating: $\\ln |y| = 3x + C$. Therefore $y = Ae^{3x}$ where $A = e^C$."
+      },
+      "newSolutions": {
+        "sa": "نحل المعادلة $y'=3y$ بالفصل عندما $y\\ne0$: لدينا $\\frac{dy}{y}=3\\,dx$، ثم بالتكامل $\\ln|y|=3x+C$. وبأخذ الأس نحصل على $|y|=e^Ce^{3x}$، فنضم الإشارة في ثابت حقيقي $A$ ونكتب $y=Ae^{3x}$. كما أن $A=0$ يعطي الحل الصفري، إذن $A\\in\\mathbb R$.",
+        "se": "For $y\\ne0$, separate variables: $\\frac{dy}{y}=3\\,dx$, so $\\ln|y|=3x+C$ and $|y|=e^Ce^{3x}$. Absorb the sign into a real constant $A$ to obtain $y=Ae^{3x}$. The zero solution is also included by allowing $A=0$; thus $A\\in\\mathbb R$."
+      },
+      "oldOptions": {},
+      "newOptions": {},
+      "correctOptionId": 117
+    }
+  ]
+}

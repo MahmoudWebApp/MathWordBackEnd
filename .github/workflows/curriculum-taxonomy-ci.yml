@@ -18,6 +18,7 @@ on:
       - 'tests/check_curriculum_gap_wave2_20261122.py'
       - 'tests/check_curriculum_depth_wave3_20261122.py'
       - 'tests/check_published_question_corrections_20261122.py'
+      - 'tests/check_bilingual_math_options_20261122.py'
       - 'tests/check_adaptive_pilot_content.py'
       - 'tests/check_curriculum_reasoning_extension.py'
       - 'tests/check_curriculum_depth_wave_1.py'
@@ -53,6 +54,8 @@ jobs:
         run: python3 tests/check_curriculum_depth_wave3_20261122.py
       - name: Validate published question corrections without changing correct answers
         run: python3 tests/check_published_question_corrections_20261122.py
+      - name: Validate bilingual options and full ODE constant family
+        run: python3 tests/check_bilingual_math_options_20261122.py
       - name: Check varied adaptive draft math and bilingual question bank
         run: python3 tests/check_adaptive_pilot_content.py
       - name: Cross-check distinct mathematical answers in reasoning extension
