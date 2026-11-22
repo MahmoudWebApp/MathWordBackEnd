@@ -88,7 +88,7 @@ for topic in data["topics"]:
         key = item["contentKey"].removeprefix("mw-20261122-")
         assert key in expected, ("unexpected item", key)
         assert item["difficultyLevel"] in (1,2,3)
-        assert item["pisaProcess"] in ("formulate","employ","interpret")
+        assert item["pisaProcess"] in ("formulate","employ","interpret_evaluate")
         assert 0 <= item["primarySkillKey"] < len(topic["skills"])
         counts[item["primarySkillKey"]] += 1
         assert item["templateFamilyKey"].startswith(topic["stableKey"]+"-")
