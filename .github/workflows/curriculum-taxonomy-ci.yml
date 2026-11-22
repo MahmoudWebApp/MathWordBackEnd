@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - 'content/catalog/**'
+      - 'content/editorial/**'
       - 'content/batches/mathworld-adaptive-v2-*'
       - 'content/batches/mathworld-reasoning-extension-*'
       - 'content/batches/mathworld-fractions-series-depth-*'
@@ -13,6 +14,7 @@ on:
       - 'content/batches/mathworld-bank5-*'
       - 'docs/MATHWORLD_INTERNATIONAL_CURRICULUM_TAXONOMY_*.md'
       - 'tests/check_curriculum_taxonomy.py'
+      - 'tests/check_curriculum_gap_batch_20261122.py'
       - 'tests/check_adaptive_pilot_content.py'
       - 'tests/check_curriculum_reasoning_extension.py'
       - 'tests/check_curriculum_depth_wave_1.py'
@@ -40,6 +42,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: Validate bilingual subjects, skill keys and historical problem mapping
         run: python3 tests/check_curriculum_taxonomy.py
+      - name: Check 32 new skill-aligned problems and independent answers
+        run: python3 tests/check_curriculum_gap_batch_20261122.py
       - name: Check varied adaptive draft math and bilingual question bank
         run: python3 tests/check_adaptive_pilot_content.py
       - name: Cross-check distinct mathematical answers in reasoning extension

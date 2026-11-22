@@ -1,0 +1,1292 @@
+{
+  "meta": {
+    "batch": "curriculum-gap-batch-20261122",
+    "status": "Draft",
+    "source": "original MathWorld editorial expansion",
+    "publication": "Requires independent pedagogical and mathematical review before publication",
+    "frameworks": [
+      {
+        "name": "Common Core",
+        "reference": "https://www.thecorestandards.org/Math/"
+      },
+      {
+        "name": "OECD PISA 2022",
+        "reference": "https://www.oecd.org/en/publications/pisa-2022-assessment-and-analytical-framework_dfe0bf9c-en/full-report/component-3.html"
+      },
+      {
+        "name": "Cambridge Maths",
+        "reference": "https://www.cambridgeinternational.org/programmes-and-qualifications/maths/"
+      }
+    ],
+    "topics": 4,
+    "items": 32,
+    "catalog": "content/catalog/international-mathworld-taxonomy-v2.json",
+    "reconciliation": "Stable topic identifiers and names match the canonical 52-topic editorial plan. The draft is intentionally partial and not certified/published."
+  },
+  "topics": [
+    {
+      "stableKey": "p-number-sense",
+      "stageId": 1,
+      "domainId": 1,
+      "iconKey": "place-value",
+      "sortOrder": 12,
+      "nameAr": "الأعداد والقيمة المكانية",
+      "nameEn": "Number Sense & Place Value",
+      "descriptionAr": "فهم الأعداد والقيمة المكانية والمقارنة والتقريب والتقدير، مع استكمال العد في دفعات لاحقة.",
+      "descriptionEn": "Number sense, positional value, comparison, rounding, and estimation, with further counting objectives in later reviewed batches.",
+      "skills": [
+        {
+          "key": "place-value",
+          "nameAr": "القيمة المكانية وبناء الأعداد",
+          "nameEn": "Place value and composing numbers",
+          "objectiveAr": "تحديد القيمة المكانية وبناء أعداد من صيغ موسعة",
+          "objectiveEn": "Identify positional values and compose numbers from expanded forms"
+        },
+        {
+          "key": "rounding",
+          "nameAr": "تقريب الأعداد",
+          "nameEn": "Rounding whole numbers",
+          "objectiveAr": "تقريب الأعداد إلى منزلة محددة وشرح السبب",
+          "objectiveEn": "Round whole numbers to a requested place and justify the result"
+        },
+        {
+          "key": "estimation",
+          "nameAr": "التقدير والتحقق من معقولية النتائج",
+          "nameEn": "Estimation and reasonableness",
+          "objectiveAr": "تقدير ناتج عملية باستخدام أعداد ملائمة",
+          "objectiveEn": "Estimate operation outcomes using compatible numbers"
+        }
+      ],
+      "items": [
+        {
+          "contentKey": "mw-20261122-p-number-sense-digit-value",
+          "primarySkillKey": 0,
+          "templateFamilyKey": "p-number-sense-digit-value",
+          "difficultyLevel": 1,
+          "titleAr": "قيمة رقم في عدد",
+          "titleEn": "Value of a digit",
+          "questionTextAr": "في العدد 462,915، ما قيمة الرقم 6؟",
+          "questionTextEn": "In 462,915, what is the value of the digit 6?",
+          "detailedSolutionAr": "الرقم 6 في منزلة عشرات الألوف؛ لذلك قيمته 6×10,000=60,000.",
+          "detailedSolutionEn": "The digit 6 is in the ten-thousands place, so its value is 6×10,000=60,000.",
+          "options": [
+            {
+              "Order": 1,
+              "IsCorrect": false,
+              "LatexCode": "6,000"
+            },
+            {
+              "Order": 2,
+              "IsCorrect": false,
+              "LatexCode": "600"
+            },
+            {
+              "Order": 3,
+              "IsCorrect": true,
+              "LatexCode": "60,000"
+            },
+            {
+              "Order": 4,
+              "IsCorrect": false,
+              "LatexCode": "600,000"
+            }
+          ],
+          "pisaProcess": "interpret_evaluate"
+        },
+        {
+          "contentKey": "mw-20261122-p-number-sense-expanded-form",
+          "primarySkillKey": 0,
+          "templateFamilyKey": "p-number-sense-expanded-form",
+          "difficultyLevel": 2,
+          "titleAr": "الصيغة الموسعة",
+          "titleEn": "Expanded form",
+          "questionTextAr": "ما العدد الناتج من 70,000 + 500 + 40 + 3؟",
+          "questionTextEn": "Which number equals 70,000 + 500 + 40 + 3?",
+          "detailedSolutionAr": "نجمع قيم المنازل: 70,000+500+40+3=70,543.",
+          "detailedSolutionEn": "Add the place values: 70,000+500+40+3=70,543.",
+          "options": [
+            {
+              "Order": 1,
+              "IsCorrect": false,
+              "LatexCode": "75,043"
+            },
+            {
+              "Order": 2,
+              "IsCorrect": true,
+              "LatexCode": "70,543"
+            },
+            {
+              "Order": 3,
+              "IsCorrect": false,
+              "LatexCode": "70,453"
+            },
+            {
+              "Order": 4,
+              "IsCorrect": false,
+              "LatexCode": "70,053"
+            }
+          ],
+          "pisaProcess": "employ"
+        },
+        {
+          "contentKey": "mw-20261122-p-number-sense-compare-numbers",
+          "primarySkillKey": 0,
+          "templateFamilyKey": "p-number-sense-compare-numbers",
+          "difficultyLevel": 2,
+          "titleAr": "مقارنة القيم المكانية",
+          "titleEn": "Comparing place values",
+          "questionTextAr": "اختر الرمز الصحيح الذي يملأ المربع: 58,209 □ 58,290.",
+          "questionTextEn": "Choose the correct comparison symbol: 58,209 □ 58,290.",
+          "detailedSolutionAr": "تتساوى المنازل حتى العشرات؛ 0 عشرات أصغر من 9 عشرات، لذا 58,209 < 58,290.",
+          "detailedSolutionEn": "The earlier digits match; 0 tens is less than 9 tens, so 58,209 < 58,290.",
+          "options": [
+            {
+              "LatexCode": ">",
+              "Order": 1,
+              "IsCorrect": false
+            },
+            {
+              "LatexCode": "=",
+              "Order": 2,
+              "IsCorrect": false
+            },
+            {
+              "LatexCode": "<",
+              "Order": 3,
+              "IsCorrect": true
+            },
+            {
+              "LatexCode": "≥",
+              "Order": 4,
+              "IsCorrect": false
+            }
+          ],
+          "pisaProcess": "interpret_evaluate"
+        },
+        {
+          "contentKey": "mw-20261122-p-number-sense-round-to-hundred",
+          "primarySkillKey": 1,
+          "templateFamilyKey": "p-number-sense-round-to-hundred",
+          "difficultyLevel": 2,
+          "titleAr": "التقريب لأقرب مئة",
+          "titleEn": "Round to nearest hundred",
+          "questionTextAr": "قرّب العدد 37,648 إلى أقرب مئة.",
+          "questionTextEn": "Round 37,648 to the nearest hundred.",
+          "detailedSolutionAr": "رقم العشرات 4 أصغر من 5؛ تبقى المئات كما هي، فيكون 37,600.",
+          "detailedSolutionEn": "The tens digit is 4, less than 5; keep the hundreds digit and obtain 37,600.",
+          "options": [
+            {
+              "Order": 1,
+              "IsCorrect": false,
+              "LatexCode": "37,700"
+            },
+            {
+              "Order": 2,
+              "IsCorrect": true,
+              "LatexCode": "37,600"
+            },
+            {
+              "Order": 3,
+              "IsCorrect": false,
+              "LatexCode": "37,650"
+            },
+            {
+              "Order": 4,
+              "IsCorrect": false,
+              "LatexCode": "38,000"
+            }
+          ],
+          "pisaProcess": "employ"
+        },
+        {
+          "contentKey": "mw-20261122-p-number-sense-round-to-thousand",
+          "primarySkillKey": 1,
+          "templateFamilyKey": "p-number-sense-round-to-thousand",
+          "difficultyLevel": 2,
+          "titleAr": "التقريب لأقرب ألف",
+          "titleEn": "Round to nearest thousand",
+          "questionTextAr": "قرّب 9,650 إلى أقرب ألف.",
+          "questionTextEn": "Round 9,650 to the nearest thousand.",
+          "detailedSolutionAr": "رقم المئات 6 يساوي 5 أو يزيد عليه؛ نقرّب 9,650 إلى 10,000.",
+          "detailedSolutionEn": "The hundreds digit is 6, so 9,650 rounds up to 10,000.",
+          "options": [
+            {
+              "Order": 1,
+              "IsCorrect": false,
+              "LatexCode": "9,000"
+            },
+            {
+              "Order": 2,
+              "IsCorrect": false,
+              "LatexCode": "9,600"
+            },
+            {
+              "Order": 3,
+              "IsCorrect": true,
+              "LatexCode": "10,000"
+            },
+            {
+              "Order": 4,
+              "IsCorrect": false,
+              "LatexCode": "9,700"
+            }
+          ],
+          "pisaProcess": "employ"
+        },
+        {
+          "contentKey": "mw-20261122-p-number-sense-estimate-sum",
+          "primarySkillKey": 2,
+          "templateFamilyKey": "p-number-sense-estimate-sum",
+          "difficultyLevel": 2,
+          "titleAr": "تقدير مجموع",
+          "titleEn": "Estimate a total",
+          "questionTextAr": "لتقدير 392 + 614 بالتقريب إلى أقرب مئة لكل عدد، ما الناتج؟",
+          "questionTextEn": "Estimate 392 + 614 by rounding each number to the nearest hundred.",
+          "detailedSolutionAr": "392≈400 و614≈600؛ المجموع التقديري 1,000.",
+          "detailedSolutionEn": "392≈400 and 614≈600; the estimate is 1,000.",
+          "options": [
+            {
+              "Order": 1,
+              "IsCorrect": false,
+              "LatexCode": "900"
+            },
+            {
+              "Order": 2,
+              "IsCorrect": false,
+              "LatexCode": "1,100"
+            },
+            {
+              "Order": 3,
+              "IsCorrect": false,
+              "LatexCode": "1,006"
+            },
+            {
+              "Order": 4,
+              "IsCorrect": true,
+              "LatexCode": "1,000"
+            }
+          ],
+          "pisaProcess": "formulate"
+        },
+        {
+          "contentKey": "mw-20261122-p-number-sense-estimate-difference",
+          "primarySkillKey": 2,
+          "templateFamilyKey": "p-number-sense-estimate-difference",
+          "difficultyLevel": 3,
+          "titleAr": "تقدير فرق",
+          "titleEn": "Estimate a difference",
+          "questionTextAr": "قدّر 1,508 − 692 بتقريب كل عدد لأقرب مئة.",
+          "questionTextEn": "Estimate 1,508 − 692 by rounding each number to the nearest hundred.",
+          "detailedSolutionAr": "1,508≈1,500 و692≈700؛ الفرق التقديري 800.",
+          "detailedSolutionEn": "1,508≈1,500 and 692≈700, giving an estimated difference of 800.",
+          "options": [
+            {
+              "Order": 1,
+              "IsCorrect": false,
+              "LatexCode": "900"
+            },
+            {
+              "Order": 2,
+              "IsCorrect": true,
+              "LatexCode": "800"
+            },
+            {
+              "Order": 3,
+              "IsCorrect": false,
+              "LatexCode": "700"
+            },
+            {
+              "Order": 4,
+              "IsCorrect": false,
+              "LatexCode": "816"
+            }
+          ],
+          "pisaProcess": "formulate"
+        },
+        {
+          "contentKey": "mw-20261122-p-number-sense-forty-hundreds",
+          "primarySkillKey": 0,
+          "templateFamilyKey": "p-number-sense-forty-hundreds",
+          "difficultyLevel": 1,
+          "titleAr": "تجميع المئات",
+          "titleEn": "Counting groups of hundreds",
+          "questionTextAr": "كم يساوي أربعون مجموعة من مئة؟",
+          "questionTextEn": "What is the total value of forty groups of one hundred?",
+          "detailedSolutionAr": "أربعون مجموعة من مئة تساوي 40×100=4,000 وحدة.",
+          "detailedSolutionEn": "Forty groups of one hundred give 40×100=4,000 units.",
+          "options": [
+            {
+              "Order": 1,
+              "IsCorrect": false,
+              "LatexCode": "400"
+            },
+            {
+              "Order": 2,
+              "IsCorrect": false,
+              "LatexCode": "40,000"
+            },
+            {
+              "Order": 3,
+              "IsCorrect": true,
+              "LatexCode": "4,000"
+            },
+            {
+              "Order": 4,
+              "IsCorrect": false,
+              "LatexCode": "440"
+            }
+          ],
+          "pisaProcess": "employ"
+        }
+      ]
+    },
+    {
+      "stableKey": "m-integers-rationals",
+      "stageId": 2,
+      "domainId": 1,
+      "iconKey": "signed-rationals",
+      "sortOrder": 12,
+      "nameAr": "الأعداد الصحيحة والنسبية",
+      "nameEn": "Integers & Rational Numbers",
+      "descriptionAr": "عمليات الأعداد الموقّعة والقيمة المطلقة والأعداد النسبية؛ تُستكمل مسائل الترتيب في دفعات لاحقة.",
+      "descriptionEn": "Signed operations, absolute values, and rational arithmetic; additional ordering tasks are scheduled for later review.",
+      "skills": [
+        {
+          "key": "signed-operations",
+          "nameAr": "عمليات الأعداد الصحيحة الموقّعة",
+          "nameEn": "Signed integer operations",
+          "objectiveAr": "حساب العمليات الأربع بالأعداد الصحيحة الموقعة",
+          "objectiveEn": "Compute operations on signed integers"
+        },
+        {
+          "key": "absolute-value",
+          "nameAr": "القيمة المطلقة وترتيب الأعداد",
+          "nameEn": "Absolute value and number order",
+          "objectiveAr": "تفسير المسافة عن الصفر وتمييز ترتيب الأعداد",
+          "objectiveEn": "Interpret distance from zero and signed number order"
+        },
+        {
+          "key": "rational-arithmetic",
+          "nameAr": "العمليات على الأعداد النسبية",
+          "nameEn": "Rational-number arithmetic",
+          "objectiveAr": "جمع وطرح كسور وأعداد عشرية موقعة",
+          "objectiveEn": "Add and subtract signed fractions and decimals"
+        }
+      ],
+      "items": [
+        {
+          "contentKey": "mw-20261122-m-integers-rationals-signed-temperature",
+          "primarySkillKey": 0,
+          "templateFamilyKey": "m-integers-rationals-signed-temperature",
+          "difficultyLevel": 1,
+          "titleAr": "التغير في الحرارة",
+          "titleEn": "Temperature change",
+          "questionTextAr": "كانت الحرارة −7 درجات ثم ارتفعت 12 درجة. كم أصبحت؟",
+          "questionTextEn": "The temperature was −7°C and rose by 12°C. What is it now?",
+          "detailedSolutionAr": "نبدأ من −7 درجات ثم نضيف ارتفاعاً مقداره 12 درجة، فنحصل على −7+12=5 درجات.",
+          "detailedSolutionEn": "Start at −7°C and add the 12°C rise, giving −7+12=5°C.",
+          "options": [
+            {
+              "Order": 1,
+              "IsCorrect": false,
+              "LatexCode": "−19"
+            },
+            {
+              "Order": 2,
+              "IsCorrect": false,
+              "LatexCode": "−5"
+            },
+            {
+              "Order": 3,
+              "IsCorrect": true,
+              "LatexCode": "5"
+            },
+            {
+              "Order": 4,
+              "IsCorrect": false,
+              "LatexCode": "19"
+            }
+          ],
+          "pisaProcess": "formulate"
+        },
+        {
+          "contentKey": "mw-20261122-m-integers-rationals-subtract-negative",
+          "primarySkillKey": 0,
+          "templateFamilyKey": "m-integers-rationals-subtract-negative",
+          "difficultyLevel": 2,
+          "titleAr": "طرح عدد سالب",
+          "titleEn": "Subtracting a negative",
+          "questionTextAr": "احسب −4 − (−9).",
+          "questionTextEn": "Evaluate −4 − (−9).",
+          "detailedSolutionAr": "طرح السالب يعادل الجمع: −4+9=5.",
+          "detailedSolutionEn": "Subtracting a negative is addition: −4+9=5.",
+          "options": [
+            {
+              "Order": 1,
+              "IsCorrect": false,
+              "LatexCode": "−13"
+            },
+            {
+              "Order": 2,
+              "IsCorrect": true,
+              "LatexCode": "5"
+            },
+            {
+              "Order": 3,
+              "IsCorrect": false,
+              "LatexCode": "−5"
+            },
+            {
+              "Order": 4,
+              "IsCorrect": false,
+              "LatexCode": "13"
+            }
+          ],
+          "pisaProcess": "employ"
+        },
+        {
+          "contentKey": "mw-20261122-m-integers-rationals-product-negatives",
+          "primarySkillKey": 0,
+          "templateFamilyKey": "m-integers-rationals-product-negatives",
+          "difficultyLevel": 2,
+          "titleAr": "ضرب عددين سالبين",
+          "titleEn": "Multiplying negatives",
+          "questionTextAr": "احسب (−3)×(−8).",
+          "questionTextEn": "Evaluate (−3)×(−8).",
+          "detailedSolutionAr": "حاصل ضرب عددين سالبين موجب؛ 3×8=24.",
+          "detailedSolutionEn": "The product of two negatives is positive; 3×8=24.",
+          "options": [
+            {
+              "Order": 1,
+              "IsCorrect": false,
+              "LatexCode": "−24"
+            },
+            {
+              "Order": 2,
+              "IsCorrect": false,
+              "LatexCode": "11"
+            },
+            {
+              "Order": 3,
+              "IsCorrect": true,
+              "LatexCode": "24"
+            },
+            {
+              "Order": 4,
+              "IsCorrect": false,
+              "LatexCode": "−11"
+            }
+          ],
+          "pisaProcess": "employ"
+        },
+        {
+          "contentKey": "mw-20261122-m-integers-rationals-integer-ordering",
+          "primarySkillKey": 1,
+          "templateFamilyKey": "m-integers-rationals-integer-ordering",
+          "difficultyLevel": 2,
+          "titleAr": "ترتيب الأعداد الموقّعة",
+          "titleEn": "Ordering signed integers",
+          "questionTextAr": "رتّب الأعداد −8، −2، 4، 0 تصاعدياً.",
+          "questionTextEn": "Order −8, −2, 4, 0 from least to greatest.",
+          "detailedSolutionAr": "الأعداد السالبة أصغر من الصفر، والأبعد عنه إلى اليسار أصغر: −8 < −2 < 0 < 4.",
+          "detailedSolutionEn": "Negative integers lie below zero; farther left means smaller: −8 < −2 < 0 < 4.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "−2، −8، 0، 4",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "−8، −2، 0، 4",
+              "IsCorrect": true
+            },
+            {
+              "Order": 3,
+              "LatexCode": "4، 0، −2، −8",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "−8، 0، −2، 4",
+              "IsCorrect": false
+            }
+          ],
+          "pisaProcess": "interpret_evaluate"
+        },
+        {
+          "contentKey": "mw-20261122-m-integers-rationals-abs-distance",
+          "primarySkillKey": 1,
+          "templateFamilyKey": "m-integers-rationals-abs-distance",
+          "difficultyLevel": 2,
+          "titleAr": "المسافة عن الصفر",
+          "titleEn": "Distance from zero",
+          "questionTextAr": "احسب |−13| − |5|.",
+          "questionTextEn": "Evaluate |−13| − |5|.",
+          "detailedSolutionAr": "القيمة المطلقة تمثل المسافة عن الصفر؛ 13−5=8.",
+          "detailedSolutionEn": "Absolute values are distances from zero; 13−5=8.",
+          "options": [
+            {
+              "Order": 1,
+              "IsCorrect": false,
+              "LatexCode": "−8"
+            },
+            {
+              "Order": 2,
+              "IsCorrect": true,
+              "LatexCode": "8"
+            },
+            {
+              "Order": 3,
+              "IsCorrect": false,
+              "LatexCode": "18"
+            },
+            {
+              "Order": 4,
+              "IsCorrect": false,
+              "LatexCode": "−18"
+            }
+          ],
+          "pisaProcess": "interpret_evaluate"
+        },
+        {
+          "contentKey": "mw-20261122-m-integers-rationals-rational-add",
+          "primarySkillKey": 2,
+          "templateFamilyKey": "m-integers-rationals-rational-add",
+          "difficultyLevel": 2,
+          "titleAr": "جمع الكسور الموقعة",
+          "titleEn": "Adding signed fractions",
+          "questionTextAr": "احسب −3/4 + 1/2.",
+          "questionTextEn": "Evaluate −3/4 + 1/2.",
+          "detailedSolutionAr": "نحوّل النصف إلى 2/4 ثم −3/4+2/4=−1/4.",
+          "detailedSolutionEn": "Rewrite 1/2 as 2/4: −3/4+2/4=−1/4.",
+          "options": [
+            {
+              "Order": 1,
+              "IsCorrect": false,
+              "LatexCode": "1/4"
+            },
+            {
+              "Order": 2,
+              "IsCorrect": false,
+              "LatexCode": "−5/4"
+            },
+            {
+              "Order": 3,
+              "IsCorrect": true,
+              "LatexCode": "−1/4"
+            },
+            {
+              "Order": 4,
+              "IsCorrect": false,
+              "LatexCode": "−1/2"
+            }
+          ],
+          "pisaProcess": "employ"
+        },
+        {
+          "contentKey": "mw-20261122-m-integers-rationals-rational-subtract",
+          "primarySkillKey": 2,
+          "templateFamilyKey": "m-integers-rationals-rational-subtract",
+          "difficultyLevel": 3,
+          "titleAr": "طرح الكسور الموقعة",
+          "titleEn": "Subtracting signed fractions",
+          "questionTextAr": "احسب −5/6 − 1/3.",
+          "questionTextEn": "Evaluate −5/6 − 1/3.",
+          "detailedSolutionAr": "1/3=2/6؛ لذا −5/6−2/6=−7/6.",
+          "detailedSolutionEn": "Since 1/3=2/6, −5/6−2/6=−7/6.",
+          "options": [
+            {
+              "Order": 1,
+              "IsCorrect": false,
+              "LatexCode": "−3/6"
+            },
+            {
+              "Order": 2,
+              "IsCorrect": true,
+              "LatexCode": "−7/6"
+            },
+            {
+              "Order": 3,
+              "IsCorrect": false,
+              "LatexCode": "−1/2"
+            },
+            {
+              "Order": 4,
+              "IsCorrect": false,
+              "LatexCode": "7/6"
+            }
+          ],
+          "pisaProcess": "employ"
+        },
+        {
+          "contentKey": "mw-20261122-m-integers-rationals-signed-decimals",
+          "primarySkillKey": 2,
+          "templateFamilyKey": "m-integers-rationals-signed-decimals",
+          "difficultyLevel": 2,
+          "titleAr": "جمع أعداد عشرية موقعة",
+          "titleEn": "Adding signed decimals",
+          "questionTextAr": "ما ناتج −2.5 + 1.75؟",
+          "questionTextEn": "What is −2.5 + 1.75?",
+          "detailedSolutionAr": "−2.50+1.75=−0.75.",
+          "detailedSolutionEn": "−2.50+1.75=−0.75.",
+          "options": [
+            {
+              "Order": 1,
+              "IsCorrect": false,
+              "LatexCode": "0.75"
+            },
+            {
+              "Order": 2,
+              "IsCorrect": false,
+              "LatexCode": "−1.25"
+            },
+            {
+              "Order": 3,
+              "IsCorrect": false,
+              "LatexCode": "−4.25"
+            },
+            {
+              "Order": 4,
+              "IsCorrect": true,
+              "LatexCode": "−0.75"
+            }
+          ],
+          "pisaProcess": "employ"
+        }
+      ]
+    },
+    {
+      "stableKey": "s-exponents-logarithms",
+      "stageId": 3,
+      "domainId": 2,
+      "iconKey": "exponential-growth",
+      "sortOrder": 12,
+      "nameAr": "الدوال الأسّية واللوغاريتمية",
+      "nameEn": "Exponential & Logarithmic Functions",
+      "descriptionAr": "فئة الدوال الأسّية واللوغاريتمية: الدفعة الأولى تغطي النمو والتناقص والتفسير، وتبقى قوانين اللوغاريتمات قيد الإعداد.",
+      "descriptionEn": "Exponential and logarithmic functions: the first reviewed draft covers growth, decay, and interpretation; logarithm laws remain to be drafted.",
+      "skills": [
+        {
+          "key": "growth-models",
+          "nameAr": "نماذج النمو الأسي",
+          "nameEn": "Exponential growth models",
+          "objectiveAr": "حساب قيم نموذج نمو أسي في سياق واقعي",
+          "objectiveEn": "Evaluate exponential growth models in context"
+        },
+        {
+          "key": "decay-half-life",
+          "nameAr": "التناقص ونصف العمر",
+          "nameEn": "Decay and half-life",
+          "objectiveAr": "تفسير عوامل التناقص وحساب نصف العمر",
+          "objectiveEn": "Interpret decay factors and half-life"
+        },
+        {
+          "key": "model-interpretation",
+          "nameAr": "قراءة النموذج الأسي",
+          "nameEn": "Interpreting exponential models",
+          "objectiveAr": "تحديد القيمة الابتدائية ومعدل التغير من الصيغة",
+          "objectiveEn": "Identify initial values and percentage rates from a model"
+        }
+      ],
+      "items": [
+        {
+          "contentKey": "mw-20261122-s-exponents-logarithms-population-growth",
+          "primarySkillKey": 0,
+          "templateFamilyKey": "s-exponents-logarithms-population-growth",
+          "difficultyLevel": 2,
+          "titleAr": "تزايد عدد السكان",
+          "titleEn": "Population growth",
+          "questionTextAr": "يُعطى عدد أفراد مستعمرة بالدالة P(t)=250×(1.2)^t. ما P(2)؟",
+          "questionTextEn": "A colony has P(t)=250×(1.2)^t. Find P(2).",
+          "detailedSolutionAr": "عند t=2 نحسب (1.2)^2=1.44، ثم P(2)=250×1.44=360 فرداً.",
+          "detailedSolutionEn": "At t=2, the growth multiplier is (1.2)^2=1.44, so P(2)=250×1.44=360 individuals.",
+          "options": [
+            {
+              "Order": 1,
+              "IsCorrect": false,
+              "LatexCode": "300"
+            },
+            {
+              "Order": 2,
+              "IsCorrect": true,
+              "LatexCode": "360"
+            },
+            {
+              "Order": 3,
+              "IsCorrect": false,
+              "LatexCode": "390"
+            },
+            {
+              "Order": 4,
+              "IsCorrect": false,
+              "LatexCode": "250"
+            }
+          ],
+          "pisaProcess": "employ"
+        },
+        {
+          "contentKey": "mw-20261122-s-exponents-logarithms-doubling",
+          "primarySkillKey": 0,
+          "templateFamilyKey": "s-exponents-logarithms-doubling",
+          "difficultyLevel": 2,
+          "titleAr": "تضاعف الكمية",
+          "titleEn": "Doubling process",
+          "questionTextAr": "يبدأ عدد البكتيريا بـ80 ويتضاعف كل ساعة. كم يصبح بعد 3 ساعات؟",
+          "questionTextEn": "A culture starts with 80 bacteria and doubles each hour. How many after 3 hours?",
+          "detailedSolutionAr": "بعد ثلاث فترات تضاعف: 80×2^3=640.",
+          "detailedSolutionEn": "After three doublings: 80×2^3=640.",
+          "options": [
+            {
+              "Order": 1,
+              "IsCorrect": false,
+              "LatexCode": "240"
+            },
+            {
+              "Order": 2,
+              "IsCorrect": false,
+              "LatexCode": "320"
+            },
+            {
+              "Order": 3,
+              "IsCorrect": true,
+              "LatexCode": "640"
+            },
+            {
+              "Order": 4,
+              "IsCorrect": false,
+              "LatexCode": "480"
+            }
+          ],
+          "pisaProcess": "formulate"
+        },
+        {
+          "contentKey": "mw-20261122-s-exponents-logarithms-compound-interest",
+          "primarySkillKey": 0,
+          "templateFamilyKey": "s-exponents-logarithms-compound-interest",
+          "difficultyLevel": 3,
+          "titleAr": "فائدة مركبة",
+          "titleEn": "Compound growth",
+          "questionTextAr": "مبلغ 2,000 ينمو بمعدل 10% سنوياً دون سحب. كم يصبح بعد سنتين؟",
+          "questionTextEn": "An amount of 2,000 grows by 10% each year. What is it after two years?",
+          "detailedSolutionAr": "2,000×(1.10)^2=2,420.",
+          "detailedSolutionEn": "2,000×(1.10)^2=2,420.",
+          "options": [
+            {
+              "Order": 1,
+              "IsCorrect": false,
+              "LatexCode": "2,200"
+            },
+            {
+              "Order": 2,
+              "IsCorrect": true,
+              "LatexCode": "2,420"
+            },
+            {
+              "Order": 3,
+              "IsCorrect": false,
+              "LatexCode": "2,400"
+            },
+            {
+              "Order": 4,
+              "IsCorrect": false,
+              "LatexCode": "2,600"
+            }
+          ],
+          "pisaProcess": "formulate"
+        },
+        {
+          "contentKey": "mw-20261122-s-exponents-logarithms-decay-two-periods",
+          "primarySkillKey": 1,
+          "templateFamilyKey": "s-exponents-logarithms-decay-two-periods",
+          "difficultyLevel": 2,
+          "titleAr": "تناقص نسبة سنوية",
+          "titleEn": "Percentage decay",
+          "questionTextAr": "كم تبقى من 1,200 بعد تناقص 10% سنوياً لمدة سنتين؟",
+          "questionTextEn": "How much remains of 1,200 after 10% decay each year for two years?",
+          "detailedSolutionAr": "نضرب بعامل البقاء 0.9 مرتين: 1,200×0.9^2=972.",
+          "detailedSolutionEn": "Multiply by 0.9 twice: 1,200×0.9^2=972.",
+          "options": [
+            {
+              "Order": 1,
+              "IsCorrect": false,
+              "LatexCode": "960"
+            },
+            {
+              "Order": 2,
+              "IsCorrect": false,
+              "LatexCode": "1,080"
+            },
+            {
+              "Order": 3,
+              "IsCorrect": true,
+              "LatexCode": "972"
+            },
+            {
+              "Order": 4,
+              "IsCorrect": false,
+              "LatexCode": "980"
+            }
+          ],
+          "pisaProcess": "employ"
+        },
+        {
+          "contentKey": "mw-20261122-s-exponents-logarithms-half-life",
+          "primarySkillKey": 1,
+          "templateFamilyKey": "s-exponents-logarithms-half-life",
+          "difficultyLevel": 3,
+          "titleAr": "حساب نصف العمر",
+          "titleEn": "Half-life reasoning",
+          "questionTextAr": "كتلة 640 غراماً ونصف عمرها 4 ساعات. بعد كم ساعة تصبح 80 غراماً؟",
+          "questionTextEn": "A 640 g sample has a half-life of 4 hours. After how many hours will it reach 80 g?",
+          "detailedSolutionAr": "640→320→160→80؛ ثلاث فترات نصف عمر، أي 3×4=12 ساعة.",
+          "detailedSolutionEn": "640→320→160→80 is three half-lives, so 3×4=12 hours.",
+          "options": [
+            {
+              "LatexCode": "8",
+              "Order": 1,
+              "IsCorrect": false
+            },
+            {
+              "LatexCode": "16",
+              "Order": 2,
+              "IsCorrect": false
+            },
+            {
+              "LatexCode": "12",
+              "Order": 3,
+              "IsCorrect": true
+            },
+            {
+              "LatexCode": "20",
+              "Order": 4,
+              "IsCorrect": false
+            }
+          ],
+          "pisaProcess": "interpret_evaluate"
+        },
+        {
+          "contentKey": "mw-20261122-s-exponents-logarithms-factor-decay",
+          "primarySkillKey": 1,
+          "templateFamilyKey": "s-exponents-logarithms-factor-decay",
+          "difficultyLevel": 2,
+          "titleAr": "تفسير معامل التناقص",
+          "titleEn": "Interpret decay factor",
+          "questionTextAr": "إذا كانت Q(t)=200×(0.7)^t، فما نسبة النقص في كل فترة؟",
+          "questionTextEn": "For Q(t)=200×(0.7)^t, what percent is lost each period?",
+          "detailedSolutionAr": "يتبقى 70% في كل فترة، فيكون النقص 100%−70%=30%.",
+          "detailedSolutionEn": "70% remains each period, so the loss is 100%−70%=30%.",
+          "options": [
+            {
+              "Order": 1,
+              "IsCorrect": false,
+              "LatexCode": "70%"
+            },
+            {
+              "Order": 2,
+              "IsCorrect": false,
+              "LatexCode": "20%"
+            },
+            {
+              "Order": 3,
+              "IsCorrect": false,
+              "LatexCode": "7%"
+            },
+            {
+              "Order": 4,
+              "IsCorrect": true,
+              "LatexCode": "30%"
+            }
+          ],
+          "pisaProcess": "interpret_evaluate"
+        },
+        {
+          "contentKey": "mw-20261122-s-exponents-logarithms-rate-growth",
+          "primarySkillKey": 2,
+          "templateFamilyKey": "s-exponents-logarithms-rate-growth",
+          "difficultyLevel": 1,
+          "titleAr": "تفسير معدل النمو",
+          "titleEn": "Interpret growth rate",
+          "questionTextAr": "ما نسبة النمو لكل فترة في N(t)=450×(1.03)^t؟",
+          "questionTextEn": "What is the growth rate per period for N(t)=450×(1.03)^t?",
+          "detailedSolutionAr": "المعامل 1.03=1+0.03؛ معدل النمو 3%.",
+          "detailedSolutionEn": "The factor 1.03=1+0.03, so growth is 3%.",
+          "options": [
+            {
+              "Order": 1,
+              "IsCorrect": false,
+              "LatexCode": "0.3%"
+            },
+            {
+              "Order": 2,
+              "IsCorrect": false,
+              "LatexCode": "30%"
+            },
+            {
+              "Order": 3,
+              "IsCorrect": true,
+              "LatexCode": "3%"
+            },
+            {
+              "Order": 4,
+              "IsCorrect": false,
+              "LatexCode": "103%"
+            }
+          ],
+          "pisaProcess": "interpret_evaluate"
+        },
+        {
+          "contentKey": "mw-20261122-s-exponents-logarithms-exp-sequence",
+          "primarySkillKey": 2,
+          "templateFamilyKey": "s-exponents-logarithms-exp-sequence",
+          "difficultyLevel": 2,
+          "titleAr": "صيغة المتتالية الهندسية",
+          "titleEn": "Geometric sequence formula",
+          "questionTextAr": "ما صيغة الحد العام للمتتالية 2، 6، 18، 54، مع بدء الترقيم من n=1؟",
+          "questionTextEn": "Which formula gives the sequence 2, 6, 18, 54 starting at n=1?",
+          "detailedSolutionAr": "النسبة المشتركة 3 والحد الأول 2، لذلك الحد العام هو a_n=2×3^{n−1}.",
+          "detailedSolutionEn": "The common ratio is 3 and the first term is 2, so a_n=2×3^{n−1}.",
+          "options": [
+            {
+              "LatexCode": "a_n=2+3(n-1)",
+              "Order": 1,
+              "IsCorrect": false
+            },
+            {
+              "LatexCode": "a_n=2\\cdot3^{n-1}",
+              "Order": 2,
+              "IsCorrect": true
+            },
+            {
+              "LatexCode": "a_n=3n",
+              "Order": 3,
+              "IsCorrect": false
+            },
+            {
+              "LatexCode": "a_n=2\\cdot2^{n-1}",
+              "Order": 4,
+              "IsCorrect": false
+            }
+          ],
+          "pisaProcess": "interpret_evaluate"
+        }
+      ]
+    },
+    {
+      "stableKey": "u-math-statistics",
+      "stageId": 4,
+      "domainId": 4,
+      "iconKey": "statistical-inference",
+      "sortOrder": 12,
+      "nameAr": "الإحصاء الرياضي",
+      "nameEn": "Mathematical Statistics",
+      "descriptionAr": "الإحصاء الرياضي: أساسيات العينة وفترات الثقة والفرضيات؛ تقدير المعلمات والانحدار يتطلبان دفعات إضافية.",
+      "descriptionEn": "Mathematical statistics: samples, confidence intervals and hypothesis tests; further estimation and regression objectives require later batches.",
+      "skills": [
+        {
+          "key": "sampling-distribution",
+          "nameAr": "إحصاءات العينة والخطأ المعياري",
+          "nameEn": "Sampling statistics and standard error",
+          "objectiveAr": "حساب المتوسط والنسبة والخطأ المعياري من عينة",
+          "objectiveEn": "Calculate sample statistics and standard error"
+        },
+        {
+          "key": "confidence-intervals",
+          "nameAr": "فترات الثقة",
+          "nameEn": "Confidence intervals",
+          "objectiveAr": "تكوين وتفسير فترات الثقة عندما يكون الانحراف المعياري معروفاً",
+          "objectiveEn": "Construct and interpret confidence intervals with known population standard deviation"
+        },
+        {
+          "key": "hypothesis-testing",
+          "nameAr": "اختبارات الفرضيات",
+          "nameEn": "Hypothesis testing",
+          "objectiveAr": "تفسير الفرضية الصفرية والقرارات والأخطاء",
+          "objectiveEn": "Interpret null hypotheses, decisions, and error types"
+        }
+      ],
+      "items": [
+        {
+          "contentKey": "mw-20261122-u-math-statistics-z-score",
+          "primarySkillKey": 0,
+          "templateFamilyKey": "u-math-statistics-z-score",
+          "difficultyLevel": 2,
+          "titleAr": "الدرجة المعيارية",
+          "titleEn": "Standard score",
+          "questionTextAr": "في مجتمع متوسطه 70 وانحرافه المعياري 6، ما الدرجة المعيارية للقيمة 82؟",
+          "questionTextEn": "For a population with mean 70 and standard deviation 6, find the z-score of 82.",
+          "detailedSolutionAr": "نطرح متوسط المجتمع من القيمة ثم نقسم على الانحراف المعياري: z=(82−70)/6=2.",
+          "detailedSolutionEn": "Subtract the population mean and divide by the standard deviation: z=(82−70)/6=2.",
+          "options": [
+            {
+              "Order": 1,
+              "IsCorrect": false,
+              "LatexCode": "1"
+            },
+            {
+              "Order": 2,
+              "IsCorrect": true,
+              "LatexCode": "2"
+            },
+            {
+              "Order": 3,
+              "IsCorrect": false,
+              "LatexCode": "3"
+            },
+            {
+              "Order": 4,
+              "IsCorrect": false,
+              "LatexCode": "−2"
+            }
+          ],
+          "pisaProcess": "employ"
+        },
+        {
+          "contentKey": "mw-20261122-u-math-statistics-standard-error",
+          "primarySkillKey": 0,
+          "templateFamilyKey": "u-math-statistics-standard-error",
+          "difficultyLevel": 2,
+          "titleAr": "الخطأ المعياري للمتوسط",
+          "titleEn": "Standard error of mean",
+          "questionTextAr": "إذا كان σ=15 وحجم العينة n=25، فما الخطأ المعياري للمتوسط؟",
+          "questionTextEn": "If population σ=15 and sample size n=25, what is the standard error of the sample mean?",
+          "detailedSolutionAr": "SE=σ/√n=15/5=3.",
+          "detailedSolutionEn": "SE=σ/√n=15/5=3.",
+          "options": [
+            {
+              "Order": 1,
+              "IsCorrect": false,
+              "LatexCode": "5"
+            },
+            {
+              "Order": 2,
+              "IsCorrect": false,
+              "LatexCode": "0.6"
+            },
+            {
+              "Order": 3,
+              "IsCorrect": true,
+              "LatexCode": "3"
+            },
+            {
+              "Order": 4,
+              "IsCorrect": false,
+              "LatexCode": "15"
+            }
+          ],
+          "pisaProcess": "employ"
+        },
+        {
+          "contentKey": "mw-20261122-u-math-statistics-sample-proportion",
+          "primarySkillKey": 0,
+          "templateFamilyKey": "u-math-statistics-sample-proportion",
+          "difficultyLevel": 1,
+          "titleAr": "نسبة العينة",
+          "titleEn": "Sample proportion",
+          "questionTextAr": "نجح 18 طالباً من عينة حجمها 30. ما النسبة المشاهدة للنجاح؟",
+          "questionTextEn": "18 out of 30 sampled students passed. What is the observed success proportion?",
+          "detailedSolutionAr": "نسبة العينة هي 18/30=0.6.",
+          "detailedSolutionEn": "The sample proportion is 18/30=0.6.",
+          "options": [
+            {
+              "Order": 1,
+              "IsCorrect": false,
+              "LatexCode": "0.18"
+            },
+            {
+              "Order": 2,
+              "IsCorrect": false,
+              "LatexCode": "0.3"
+            },
+            {
+              "Order": 3,
+              "IsCorrect": true,
+              "LatexCode": "0.6"
+            },
+            {
+              "Order": 4,
+              "IsCorrect": false,
+              "LatexCode": "0.8"
+            }
+          ],
+          "pisaProcess": "formulate"
+        },
+        {
+          "contentKey": "mw-20261122-u-math-statistics-mean-confidence",
+          "primarySkillKey": 1,
+          "templateFamilyKey": "u-math-statistics-mean-confidence",
+          "difficultyLevel": 3,
+          "titleAr": "فترة الثقة للمتوسط",
+          "titleEn": "Mean confidence interval",
+          "questionTextAr": "متوسط عينة 100، والانحراف المعياري للمجتمع 10، وحجم العينة 100. بافتراض النموذج الطبيعي، ما فترة الثقة 95% باستخدام z=1.96؟",
+          "questionTextEn": "The sample mean is 100, population σ=10, n=100. Using the normal approximation and z=1.96, find the 95% confidence interval.",
+          "detailedSolutionAr": "الخطأ المعياري 10/√100=1، والهامش 1.96؛ الفترة [98.04,101.96].",
+          "detailedSolutionEn": "SE=10/√100=1; margin=1.96. The interval is [98.04,101.96].",
+          "options": [
+            {
+              "Order": 1,
+              "IsCorrect": false,
+              "LatexCode": "[90,110]"
+            },
+            {
+              "Order": 2,
+              "IsCorrect": true,
+              "LatexCode": "[98.04,101.96]"
+            },
+            {
+              "Order": 3,
+              "IsCorrect": false,
+              "LatexCode": "[99.04,100.96]"
+            },
+            {
+              "Order": 4,
+              "IsCorrect": false,
+              "LatexCode": "[96,104]"
+            }
+          ],
+          "pisaProcess": "employ"
+        },
+        {
+          "contentKey": "mw-20261122-u-math-statistics-ci-margin",
+          "primarySkillKey": 1,
+          "templateFamilyKey": "u-math-statistics-ci-margin",
+          "difficultyLevel": 2,
+          "titleAr": "هامش الخطأ",
+          "titleEn": "Margin of error",
+          "questionTextAr": "عند σ=8 وn=64 وz=1.96، ما هامش الخطأ لفترة ثقة طبيعية؟",
+          "questionTextEn": "For σ=8, n=64, and z=1.96, what is the normal confidence-interval margin of error?",
+          "detailedSolutionAr": "الهامش z×σ/√n=1.96×8/8=1.96.",
+          "detailedSolutionEn": "Margin = z×σ/√n=1.96×8/8=1.96.",
+          "options": [
+            {
+              "Order": 1,
+              "IsCorrect": false,
+              "LatexCode": "0.98"
+            },
+            {
+              "Order": 2,
+              "IsCorrect": true,
+              "LatexCode": "1.96"
+            },
+            {
+              "Order": 3,
+              "IsCorrect": false,
+              "LatexCode": "8"
+            },
+            {
+              "Order": 4,
+              "IsCorrect": false,
+              "LatexCode": "15.68"
+            }
+          ],
+          "pisaProcess": "employ"
+        },
+        {
+          "contentKey": "mw-20261122-u-math-statistics-sample-size-ci",
+          "primarySkillKey": 1,
+          "templateFamilyKey": "u-math-statistics-sample-size-ci",
+          "difficultyLevel": 3,
+          "titleAr": "أثر حجم العينة على الدقة",
+          "titleEn": "Sample size and precision",
+          "questionTextAr": "مع ثبات الانحراف المعياري ومستوى الثقة، إذا ضُرب حجم العينة في 4، فبأي عامل يُضرب عرض فترة الثقة؟",
+          "questionTextEn": "With fixed standard deviation and confidence level, if the sample size is multiplied by 4, what factor multiplies the confidence-interval width?",
+          "detailedSolutionAr": "العرض يتناسب مع 1/√n، لذا عند ضرب n في 4 يصبح العرض نصف قيمته.",
+          "detailedSolutionEn": "Interval width scales as 1/√n; quadrupling n halves the width.",
+          "options": [
+            {
+              "LatexCode": "2",
+              "Order": 1,
+              "IsCorrect": false
+            },
+            {
+              "LatexCode": "1",
+              "Order": 2,
+              "IsCorrect": false
+            },
+            {
+              "LatexCode": "1/2",
+              "Order": 3,
+              "IsCorrect": true
+            },
+            {
+              "LatexCode": "1/4",
+              "Order": 4,
+              "IsCorrect": false
+            }
+          ],
+          "pisaProcess": "interpret_evaluate"
+        },
+        {
+          "contentKey": "mw-20261122-u-math-statistics-p-value",
+          "primarySkillKey": 2,
+          "templateFamilyKey": "u-math-statistics-p-value",
+          "difficultyLevel": 2,
+          "titleAr": "قرار اختبار الفرضية",
+          "titleEn": "Hypothesis-test decision",
+          "questionTextAr": "عندما p=0.02 ومستوى الدلالة α=0.05، أي مقارنة تبرر رفض الفرضية الصفرية؟",
+          "questionTextEn": "When p=0.02 and significance level α=0.05, which inequality justifies rejecting the null hypothesis?",
+          "detailedSolutionAr": "بما أن 0.02<0.05 فإننا نرفض الفرضية الصفرية، دون أن نثبت بديلها قطعياً.",
+          "detailedSolutionEn": "Since 0.02<0.05, reject the null hypothesis; this does not prove the alternative with certainty.",
+          "options": [
+            {
+              "LatexCode": "p>\\alpha",
+              "Order": 1,
+              "IsCorrect": false
+            },
+            {
+              "LatexCode": "p<\\alpha",
+              "Order": 2,
+              "IsCorrect": true
+            },
+            {
+              "LatexCode": "p=\\alpha",
+              "Order": 3,
+              "IsCorrect": false
+            },
+            {
+              "LatexCode": "p=1",
+              "Order": 4,
+              "IsCorrect": false
+            }
+          ],
+          "pisaProcess": "interpret_evaluate"
+        },
+        {
+          "contentKey": "mw-20261122-u-math-statistics-type-one",
+          "primarySkillKey": 2,
+          "templateFamilyKey": "u-math-statistics-type-one",
+          "difficultyLevel": 2,
+          "titleAr": "الخطأ من النوع الأول",
+          "titleEn": "Type I error",
+          "questionTextAr": "أي رمز يشير عادةً إلى احتمال الخطأ من النوع الأول، أي رفض فرضية صفرية صحيحة؟",
+          "questionTextEn": "Which symbol conventionally denotes the probability of a Type I error: rejecting a true null hypothesis?",
+          "detailedSolutionAr": "الخطأ من النوع الأول يعني رفض H_0 وهي صحيحة، ويُرمز لاحتمال هذا الخطأ بالحرف α.",
+          "detailedSolutionEn": "Type I error means rejecting a true H_0; its probability is denoted by α.",
+          "options": [
+            {
+              "LatexCode": "\\beta",
+              "Order": 1,
+              "IsCorrect": false
+            },
+            {
+              "LatexCode": "1-\\alpha",
+              "Order": 2,
+              "IsCorrect": false
+            },
+            {
+              "LatexCode": "\\alpha",
+              "Order": 3,
+              "IsCorrect": true
+            },
+            {
+              "LatexCode": "1-\\beta",
+              "Order": 4,
+              "IsCorrect": false
+            }
+          ],
+          "pisaProcess": "interpret_evaluate"
+        }
+      ]
+    }
+  ]
+}
