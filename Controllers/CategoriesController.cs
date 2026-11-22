@@ -189,12 +189,37 @@ namespace MathWorldAPI.Controllers
                 (int)Math.Ceiling(
                     total / (double)pageSize);
 
-            var problems =
+            // Student-facing pages should sample distinct mathematical question
+            // structures before showing the same exercise with changed numbers.
+            // The original numeric variants remain available in later pages,
+            // preserving attempts, favorites and progress. Page boundaries
+            // stay deterministic: newest item wins within each family.
+            var offset = ((long)page - 1) * pageSize;
+            var orderedProblemIds = await _context.Database.SqlQuery<int>($"""
+                SELECT ranked."Id" AS "Value"
+                FROM (
+                    SELECT p."Id",
+                           ROW_NUMBER() OVER (
+                               PARTITION BY regexp_replace(
+                                   regexp_replace(
+                                       lower(btrim(p."QuestionTextAr")),
+                                       '[[:digit:]٠-٩]+', '#', 'g'
+                                   ),
+                                   '[[:space:]]+', ' ', 'g'
+                               )
+                               ORDER BY p."Id" DESC
+                           ) AS "FamilyRound"
+                    FROM "Problems" AS p
+                    WHERE p."CategoryId" = {id}
+                      AND p."StageId" = {category.StageId}
+                ) AS ranked
+                ORDER BY ranked."FamilyRound", ranked."Id" DESC
+                LIMIT {pageSize} OFFSET {offset}
+                """).ToListAsync();
+
+            var unorderedPreviews =
                 await query
-                    .OrderByDescending(problem =>
-                        problem.Id)
-                    .Skip((page - 1) * pageSize)
-                    .Take(pageSize)
+                    .Where(problem => orderedProblemIds.Contains(problem.Id))
                     .Select(problem =>
                         new ProblemPreviewDto
                         {
@@ -227,6 +252,14 @@ namespace MathWorldAPI.Controllers
                             RequiresLogin = true
                         })
                     .ToListAsync();
+
+            // SQL "IN" filtering does not preserve the page's deliberate
+            // diversity order; put previews back in the ranked ID order.
+            var previewsById = unorderedPreviews.ToDictionary(item => item.Id);
+            var problems = orderedProblemIds
+                .Where(previewsById.ContainsKey)
+                .Select(problemId => previewsById[problemId])
+                .ToList();
 
             var metadata =
                 new MetaData
