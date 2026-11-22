@@ -43,7 +43,7 @@ expected = {
     "m-integers-rationals-signed-temperature": str(-7+12),
     "m-integers-rationals-subtract-negative": str(-4-(-9)),
     "m-integers-rationals-product-negatives": str((-3)*(-8)),
-    "m-integers-rationals-integer-ordering": "، ".join(str(n).replace("-", "−") for n in sorted([-8,-2,4,0])),
+    "m-integers-rationals-integer-ordering": "<".join(str(n) for n in sorted([-8,-2,4,0])),
     "m-integers-rationals-abs-distance": str(abs(-13)-abs(5)),
     "m-integers-rationals-rational-add": signed_fraction(Fraction(-3,4)+Fraction(1,2)),
     "m-integers-rationals-rational-subtract": signed_fraction(Fraction(-5,6)-Fraction(1,3)),
