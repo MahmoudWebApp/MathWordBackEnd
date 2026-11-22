@@ -152,9 +152,15 @@ def main():
         code, body = submit(free, qid, correct)
         assert code == 200, (code, body)
     assert_unlimited(free, 1)
-    # Reattempts remain allowed and should not become new official attempts.
+    # An already-solved problem can be replayed only after resetting its
+    # entire category (never individually); regular practice is unlimited.
     code, body = submit(free, *questions[0])
-    assert code == 200 and not body["Data"]["IsOfficialAttempt"], (code, body)
+    assert code == 409, (code, body)
+    reset = expect("POST", "/api/users/practice/reset", 200,
+                   {"StageId": 1, "CategoryId": 1}, free)
+    assert reset["ResetSolved"] >= 1, reset
+    code, body = submit(free, *questions[0])
+    assert code == 200 and body["Data"]["IsCorrect"], (code, body)
 
     # Hide-solved is a database-side filter, not a page-local UI shortcut.
     visible = expect("GET", "/api/problems/search?stageId=1&categoryId=1&pageSize=100",
