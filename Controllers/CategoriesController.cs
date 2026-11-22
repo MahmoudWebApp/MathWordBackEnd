@@ -365,6 +365,15 @@ namespace MathWorldAPI.Controllers
             if (dto.Order.HasValue)
             {
                 var nextOrder = Math.Max(0, dto.Order.Value);
+                // Prevent an unnoticed change to the current Free pair. Admin
+                // must explicitly save exactly two choices before reordering.
+                var wouldChangeFree = await HttpContext.RequestServices
+                    .GetRequiredService<ProblemCategoryAccessService>()
+                    .WouldReorderChangeImplicitFreeCategoriesAsync(category.StageId, id, nextOrder);
+                if (wouldChangeFree)
+                    return Conflict(LanguageHelper.ErrorResponse<CategoryDto>(
+                        "FreeCategoryOrderRequiresExplicitSelection", language,
+                        StatusCodes.Status409Conflict));
                 category.Order = nextOrder;
             }
 
