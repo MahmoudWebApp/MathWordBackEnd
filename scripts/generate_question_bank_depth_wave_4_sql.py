@@ -25,7 +25,7 @@ def load():
         if batch["stage"]!=stage or batch["status"]!="editorial_pending" or len(batch["problems"])!={1:4,2:4,3:8,4:24}[stage]:
             raise ValueError(f"Unexpected content review stage: {name}")
         items.extend(batch["problems"])
-    if len(items)!=40 or len({x["ContentKey"] for x in items})!=32:
+    if len(items)!=40 or len({x["ContentKey"] for x in items})!=40:
         raise ValueError("Expected 40 unique questions")
     return items
 
@@ -167,7 +167,7 @@ BEGIN
  IF (SELECT COUNT(*) FROM mw_question_bank_wave_4 q
      JOIN "Problems" p ON p."StageId"=q."StageId" AND
        p."QuestionTextAr"=q."QuestionTextAr" AND p."QuestionTextEn"=q."QuestionTextEn")<>40 THEN
-   RAISE EXCEPTION 'Not all 32 questions were inserted exactly once';
+   RAISE EXCEPTION 'Not all 40 questions were inserted exactly once';
  END IF;
  IF EXISTS(SELECT 1 FROM mw_question_bank_wave_4 q
    JOIN "Problems" p ON p."StageId"=q."StageId" AND
