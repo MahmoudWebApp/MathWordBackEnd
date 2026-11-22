@@ -19,19 +19,21 @@
       }
     ],
     "topics": 4,
-    "items": 32
+    "items": 32,
+    "catalog": "content/catalog/international-mathworld-taxonomy-v2.json",
+    "reconciliation": "Stable topic identifiers and names match the canonical 52-topic editorial plan. The draft is intentionally partial and not certified/published."
   },
   "topics": [
     {
-      "stableKey": "primary-place-value-estimation",
+      "stableKey": "p-number-sense",
       "stageId": 1,
       "domainId": 1,
       "iconKey": "place-value",
       "sortOrder": 12,
-      "nameAr": "القيمة المكانية والتقدير",
-      "nameEn": "Place Value & Estimation",
-      "descriptionAr": "القيمة المكانية للأعداد، المقارنة، التقريب والتقدير المعقول للعمليات.",
-      "descriptionEn": "Place value, comparing and rounding whole numbers, and reasonable computational estimates.",
+      "nameAr": "الأعداد والقيمة المكانية",
+      "nameEn": "Number Sense & Place Value",
+      "descriptionAr": "فهم الأعداد والقيمة المكانية والمقارنة والتقريب والتقدير، مع استكمال العد في دفعات لاحقة.",
+      "descriptionEn": "Number sense, positional value, comparison, rounding, and estimation, with further counting objectives in later reviewed batches.",
       "skills": [
         {
           "key": "place-value",
@@ -57,9 +59,9 @@
       ],
       "items": [
         {
-          "contentKey": "mw-20261122-primary-place-value-estimation-digit-value",
+          "contentKey": "mw-20261122-p-number-sense-digit-value",
           "primarySkillKey": 0,
-          "templateFamilyKey": "primary-place-value-estimation-digit-value",
+          "templateFamilyKey": "p-number-sense-digit-value",
           "difficultyLevel": 1,
           "titleAr": "قيمة رقم في عدد",
           "titleEn": "Value of a digit",
@@ -92,9 +94,9 @@
           "pisaProcess": "interpret"
         },
         {
-          "contentKey": "mw-20261122-primary-place-value-estimation-expanded-form",
+          "contentKey": "mw-20261122-p-number-sense-expanded-form",
           "primarySkillKey": 0,
-          "templateFamilyKey": "primary-place-value-estimation-expanded-form",
+          "templateFamilyKey": "p-number-sense-expanded-form",
           "difficultyLevel": 2,
           "titleAr": "الصيغة الموسعة",
           "titleEn": "Expanded form",
@@ -127,9 +129,9 @@
           "pisaProcess": "employ"
         },
         {
-          "contentKey": "mw-20261122-primary-place-value-estimation-compare-numbers",
+          "contentKey": "mw-20261122-p-number-sense-compare-numbers",
           "primarySkillKey": 0,
-          "templateFamilyKey": "primary-place-value-estimation-compare-numbers",
+          "templateFamilyKey": "p-number-sense-compare-numbers",
           "difficultyLevel": 2,
           "titleAr": "المقارنة بين عددين",
           "titleEn": "Compare whole numbers",
@@ -162,9 +164,9 @@
           "pisaProcess": "interpret"
         },
         {
-          "contentKey": "mw-20261122-primary-place-value-estimation-round-to-hundred",
+          "contentKey": "mw-20261122-p-number-sense-round-to-hundred",
           "primarySkillKey": 1,
-          "templateFamilyKey": "primary-place-value-estimation-round-to-hundred",
+          "templateFamilyKey": "p-number-sense-round-to-hundred",
           "difficultyLevel": 2,
           "titleAr": "التقريب لأقرب مئة",
           "titleEn": "Round to nearest hundred",
@@ -197,9 +199,9 @@
           "pisaProcess": "employ"
         },
         {
-          "contentKey": "mw-20261122-primary-place-value-estimation-round-to-thousand",
+          "contentKey": "mw-20261122-p-number-sense-round-to-thousand",
           "primarySkillKey": 1,
-          "templateFamilyKey": "primary-place-value-estimation-round-to-thousand",
+          "templateFamilyKey": "p-number-sense-round-to-thousand",
           "difficultyLevel": 2,
           "titleAr": "التقريب لأقرب ألف",
           "titleEn": "Round to nearest thousand",
@@ -232,9 +234,9 @@
           "pisaProcess": "employ"
         },
         {
-          "contentKey": "mw-20261122-primary-place-value-estimation-estimate-sum",
+          "contentKey": "mw-20261122-p-number-sense-estimate-sum",
           "primarySkillKey": 2,
-          "templateFamilyKey": "primary-place-value-estimation-estimate-sum",
+          "templateFamilyKey": "p-number-sense-estimate-sum",
           "difficultyLevel": 2,
           "titleAr": "تقدير مجموع",
           "titleEn": "Estimate a total",
@@ -267,9 +269,9 @@
           "pisaProcess": "formulate"
         },
         {
-          "contentKey": "mw-20261122-primary-place-value-estimation-estimate-difference",
+          "contentKey": "mw-20261122-p-number-sense-estimate-difference",
           "primarySkillKey": 2,
-          "templateFamilyKey": "primary-place-value-estimation-estimate-difference",
+          "templateFamilyKey": "p-number-sense-estimate-difference",
           "difficultyLevel": 3,
           "titleAr": "تقدير فرق",
           "titleEn": "Estimate a difference",
@@ -302,9 +304,9 @@
           "pisaProcess": "formulate"
         },
         {
-          "contentKey": "mw-20261122-primary-place-value-estimation-forty-hundreds",
+          "contentKey": "mw-20261122-p-number-sense-forty-hundreds",
           "primarySkillKey": 0,
-          "templateFamilyKey": "primary-place-value-estimation-forty-hundreds",
+          "templateFamilyKey": "p-number-sense-forty-hundreds",
           "difficultyLevel": 1,
           "titleAr": "تجميع المئات",
           "titleEn": "Counting groups of hundreds",
@@ -339,15 +341,15 @@
       ]
     },
     {
-      "stableKey": "middle-signed-rational-numbers",
+      "stableKey": "m-integers-rationals",
       "stageId": 2,
       "domainId": 1,
       "iconKey": "signed-rationals",
       "sortOrder": 12,
       "nameAr": "الأعداد الصحيحة والنسبية",
       "nameEn": "Integers & Rational Numbers",
-      "descriptionAr": "العمليات على الأعداد الموجبة والسالبة والقيمة المطلقة والكسور العشرية الموقعة.",
-      "descriptionEn": "Signed integer operations, absolute value, and arithmetic with negative fractions and decimals.",
+      "descriptionAr": "عمليات الأعداد الموقّعة والقيمة المطلقة والأعداد النسبية؛ تُستكمل مسائل الترتيب في دفعات لاحقة.",
+      "descriptionEn": "Signed operations, absolute values, and rational arithmetic; additional ordering tasks are scheduled for later review.",
       "skills": [
         {
           "key": "signed-operations",
@@ -373,9 +375,9 @@
       ],
       "items": [
         {
-          "contentKey": "mw-20261122-middle-signed-rational-numbers-signed-temperature",
+          "contentKey": "mw-20261122-m-integers-rationals-signed-temperature",
           "primarySkillKey": 0,
-          "templateFamilyKey": "middle-signed-rational-numbers-signed-temperature",
+          "templateFamilyKey": "m-integers-rationals-signed-temperature",
           "difficultyLevel": 1,
           "titleAr": "التغير في الحرارة",
           "titleEn": "Temperature change",
@@ -408,9 +410,9 @@
           "pisaProcess": "formulate"
         },
         {
-          "contentKey": "mw-20261122-middle-signed-rational-numbers-subtract-negative",
+          "contentKey": "mw-20261122-m-integers-rationals-subtract-negative",
           "primarySkillKey": 0,
-          "templateFamilyKey": "middle-signed-rational-numbers-subtract-negative",
+          "templateFamilyKey": "m-integers-rationals-subtract-negative",
           "difficultyLevel": 2,
           "titleAr": "طرح عدد سالب",
           "titleEn": "Subtracting a negative",
@@ -443,9 +445,9 @@
           "pisaProcess": "employ"
         },
         {
-          "contentKey": "mw-20261122-middle-signed-rational-numbers-product-negatives",
+          "contentKey": "mw-20261122-m-integers-rationals-product-negatives",
           "primarySkillKey": 0,
-          "templateFamilyKey": "middle-signed-rational-numbers-product-negatives",
+          "templateFamilyKey": "m-integers-rationals-product-negatives",
           "difficultyLevel": 2,
           "titleAr": "ضرب عددين سالبين",
           "titleEn": "Multiplying negatives",
@@ -478,9 +480,9 @@
           "pisaProcess": "employ"
         },
         {
-          "contentKey": "mw-20261122-middle-signed-rational-numbers-signed-division",
+          "contentKey": "mw-20261122-m-integers-rationals-signed-division",
           "primarySkillKey": 0,
-          "templateFamilyKey": "middle-signed-rational-numbers-signed-division",
+          "templateFamilyKey": "m-integers-rationals-signed-division",
           "difficultyLevel": 2,
           "titleAr": "قسمة الموقّعات",
           "titleEn": "Division with signs",
@@ -513,9 +515,9 @@
           "pisaProcess": "employ"
         },
         {
-          "contentKey": "mw-20261122-middle-signed-rational-numbers-abs-distance",
+          "contentKey": "mw-20261122-m-integers-rationals-abs-distance",
           "primarySkillKey": 1,
-          "templateFamilyKey": "middle-signed-rational-numbers-abs-distance",
+          "templateFamilyKey": "m-integers-rationals-abs-distance",
           "difficultyLevel": 2,
           "titleAr": "المسافة عن الصفر",
           "titleEn": "Distance from zero",
@@ -548,9 +550,9 @@
           "pisaProcess": "interpret"
         },
         {
-          "contentKey": "mw-20261122-middle-signed-rational-numbers-rational-add",
+          "contentKey": "mw-20261122-m-integers-rationals-rational-add",
           "primarySkillKey": 2,
-          "templateFamilyKey": "middle-signed-rational-numbers-rational-add",
+          "templateFamilyKey": "m-integers-rationals-rational-add",
           "difficultyLevel": 2,
           "titleAr": "جمع الكسور الموقعة",
           "titleEn": "Adding signed fractions",
@@ -583,9 +585,9 @@
           "pisaProcess": "employ"
         },
         {
-          "contentKey": "mw-20261122-middle-signed-rational-numbers-rational-subtract",
+          "contentKey": "mw-20261122-m-integers-rationals-rational-subtract",
           "primarySkillKey": 2,
-          "templateFamilyKey": "middle-signed-rational-numbers-rational-subtract",
+          "templateFamilyKey": "m-integers-rationals-rational-subtract",
           "difficultyLevel": 3,
           "titleAr": "طرح الكسور الموقعة",
           "titleEn": "Subtracting signed fractions",
@@ -618,9 +620,9 @@
           "pisaProcess": "employ"
         },
         {
-          "contentKey": "mw-20261122-middle-signed-rational-numbers-signed-decimals",
+          "contentKey": "mw-20261122-m-integers-rationals-signed-decimals",
           "primarySkillKey": 2,
-          "templateFamilyKey": "middle-signed-rational-numbers-signed-decimals",
+          "templateFamilyKey": "m-integers-rationals-signed-decimals",
           "difficultyLevel": 2,
           "titleAr": "جمع أعداد عشرية موقعة",
           "titleEn": "Adding signed decimals",
@@ -655,15 +657,15 @@
       ]
     },
     {
-      "stableKey": "secondary-exponential-modelling",
+      "stableKey": "s-exponents-logarithms",
       "stageId": 3,
       "domainId": 2,
       "iconKey": "exponential-growth",
       "sortOrder": 12,
-      "nameAr": "الدوال الأسية والنمذجة",
-      "nameEn": "Exponential Functions & Modelling",
-      "descriptionAr": "نمذجة النمو والتناقص، تفسير المعدل والنصف عمر، والتمييز بين التغير الأسي والخطي.",
-      "descriptionEn": "Model growth and decay, interpret rates and half-life, and distinguish exponential from linear change.",
+      "nameAr": "الدوال الأسّية واللوغاريتمية",
+      "nameEn": "Exponential & Logarithmic Functions",
+      "descriptionAr": "فئة الدوال الأسّية واللوغاريتمية: الدفعة الأولى تغطي النمو والتناقص والتفسير، وتبقى قوانين اللوغاريتمات قيد الإعداد.",
+      "descriptionEn": "Exponential and logarithmic functions: the first reviewed draft covers growth, decay, and interpretation; logarithm laws remain to be drafted.",
       "skills": [
         {
           "key": "growth-models",
@@ -689,9 +691,9 @@
       ],
       "items": [
         {
-          "contentKey": "mw-20261122-secondary-exponential-modelling-population-growth",
+          "contentKey": "mw-20261122-s-exponents-logarithms-population-growth",
           "primarySkillKey": 0,
-          "templateFamilyKey": "secondary-exponential-modelling-population-growth",
+          "templateFamilyKey": "s-exponents-logarithms-population-growth",
           "difficultyLevel": 2,
           "titleAr": "تزايد عدد السكان",
           "titleEn": "Population growth",
@@ -724,9 +726,9 @@
           "pisaProcess": "employ"
         },
         {
-          "contentKey": "mw-20261122-secondary-exponential-modelling-doubling",
+          "contentKey": "mw-20261122-s-exponents-logarithms-doubling",
           "primarySkillKey": 0,
-          "templateFamilyKey": "secondary-exponential-modelling-doubling",
+          "templateFamilyKey": "s-exponents-logarithms-doubling",
           "difficultyLevel": 2,
           "titleAr": "تضاعف الكمية",
           "titleEn": "Doubling process",
@@ -759,9 +761,9 @@
           "pisaProcess": "formulate"
         },
         {
-          "contentKey": "mw-20261122-secondary-exponential-modelling-compound-interest",
+          "contentKey": "mw-20261122-s-exponents-logarithms-compound-interest",
           "primarySkillKey": 0,
-          "templateFamilyKey": "secondary-exponential-modelling-compound-interest",
+          "templateFamilyKey": "s-exponents-logarithms-compound-interest",
           "difficultyLevel": 3,
           "titleAr": "فائدة مركبة",
           "titleEn": "Compound growth",
@@ -794,9 +796,9 @@
           "pisaProcess": "formulate"
         },
         {
-          "contentKey": "mw-20261122-secondary-exponential-modelling-decay-two-periods",
+          "contentKey": "mw-20261122-s-exponents-logarithms-decay-two-periods",
           "primarySkillKey": 1,
-          "templateFamilyKey": "secondary-exponential-modelling-decay-two-periods",
+          "templateFamilyKey": "s-exponents-logarithms-decay-two-periods",
           "difficultyLevel": 2,
           "titleAr": "تناقص نسبة سنوية",
           "titleEn": "Percentage decay",
@@ -829,9 +831,9 @@
           "pisaProcess": "employ"
         },
         {
-          "contentKey": "mw-20261122-secondary-exponential-modelling-half-life",
+          "contentKey": "mw-20261122-s-exponents-logarithms-half-life",
           "primarySkillKey": 1,
-          "templateFamilyKey": "secondary-exponential-modelling-half-life",
+          "templateFamilyKey": "s-exponents-logarithms-half-life",
           "difficultyLevel": 3,
           "titleAr": "حساب نصف العمر",
           "titleEn": "Half-life reasoning",
@@ -864,9 +866,9 @@
           "pisaProcess": "interpret"
         },
         {
-          "contentKey": "mw-20261122-secondary-exponential-modelling-factor-decay",
+          "contentKey": "mw-20261122-s-exponents-logarithms-factor-decay",
           "primarySkillKey": 1,
-          "templateFamilyKey": "secondary-exponential-modelling-factor-decay",
+          "templateFamilyKey": "s-exponents-logarithms-factor-decay",
           "difficultyLevel": 2,
           "titleAr": "تفسير معامل التناقص",
           "titleEn": "Interpret decay factor",
@@ -899,9 +901,9 @@
           "pisaProcess": "interpret"
         },
         {
-          "contentKey": "mw-20261122-secondary-exponential-modelling-rate-growth",
+          "contentKey": "mw-20261122-s-exponents-logarithms-rate-growth",
           "primarySkillKey": 2,
-          "templateFamilyKey": "secondary-exponential-modelling-rate-growth",
+          "templateFamilyKey": "s-exponents-logarithms-rate-growth",
           "difficultyLevel": 1,
           "titleAr": "تفسير معدل النمو",
           "titleEn": "Interpret growth rate",
@@ -934,9 +936,9 @@
           "pisaProcess": "interpret"
         },
         {
-          "contentKey": "mw-20261122-secondary-exponential-modelling-exp-sequence",
+          "contentKey": "mw-20261122-s-exponents-logarithms-exp-sequence",
           "primarySkillKey": 2,
-          "templateFamilyKey": "secondary-exponential-modelling-exp-sequence",
+          "templateFamilyKey": "s-exponents-logarithms-exp-sequence",
           "difficultyLevel": 2,
           "titleAr": "تمييز النمو الأسي",
           "titleEn": "Recognize geometric growth",
@@ -971,15 +973,15 @@
       ]
     },
     {
-      "stableKey": "university-statistical-inference",
+      "stableKey": "u-math-statistics",
       "stageId": 4,
       "domainId": 4,
       "iconKey": "statistical-inference",
       "sortOrder": 12,
-      "nameAr": "الاستدلال الإحصائي",
-      "nameEn": "Statistical Inference",
-      "descriptionAr": "الخطأ المعياري وفترات الثقة واختبار الفرضيات، مع التمييز بين عينة ومجتمع.",
-      "descriptionEn": "Standard errors, confidence intervals, hypothesis tests, and the distinction between samples and populations.",
+      "nameAr": "الإحصاء الرياضي",
+      "nameEn": "Mathematical Statistics",
+      "descriptionAr": "الإحصاء الرياضي: أساسيات العينة وفترات الثقة والفرضيات؛ تقدير المعلمات والانحدار يتطلبان دفعات إضافية.",
+      "descriptionEn": "Mathematical statistics: samples, confidence intervals and hypothesis tests; further estimation and regression objectives require later batches.",
       "skills": [
         {
           "key": "sampling-distribution",
@@ -996,7 +998,7 @@
           "objectiveEn": "Construct and interpret confidence intervals with known population standard deviation"
         },
         {
-          "key": "hypothesis-tests",
+          "key": "hypothesis-testing",
           "nameAr": "اختبارات الفرضيات",
           "nameEn": "Hypothesis testing",
           "objectiveAr": "تفسير الفرضية الصفرية والقرارات والأخطاء",
@@ -1005,9 +1007,9 @@
       ],
       "items": [
         {
-          "contentKey": "mw-20261122-university-statistical-inference-z-score",
+          "contentKey": "mw-20261122-u-math-statistics-z-score",
           "primarySkillKey": 0,
-          "templateFamilyKey": "university-statistical-inference-z-score",
+          "templateFamilyKey": "u-math-statistics-z-score",
           "difficultyLevel": 2,
           "titleAr": "الدرجة المعيارية",
           "titleEn": "Standard score",
@@ -1040,9 +1042,9 @@
           "pisaProcess": "employ"
         },
         {
-          "contentKey": "mw-20261122-university-statistical-inference-standard-error",
+          "contentKey": "mw-20261122-u-math-statistics-standard-error",
           "primarySkillKey": 0,
-          "templateFamilyKey": "university-statistical-inference-standard-error",
+          "templateFamilyKey": "u-math-statistics-standard-error",
           "difficultyLevel": 2,
           "titleAr": "الخطأ المعياري للمتوسط",
           "titleEn": "Standard error of mean",
@@ -1075,9 +1077,9 @@
           "pisaProcess": "employ"
         },
         {
-          "contentKey": "mw-20261122-university-statistical-inference-sample-proportion",
+          "contentKey": "mw-20261122-u-math-statistics-sample-proportion",
           "primarySkillKey": 0,
-          "templateFamilyKey": "university-statistical-inference-sample-proportion",
+          "templateFamilyKey": "u-math-statistics-sample-proportion",
           "difficultyLevel": 1,
           "titleAr": "نسبة العينة",
           "titleEn": "Sample proportion",
@@ -1110,9 +1112,9 @@
           "pisaProcess": "formulate"
         },
         {
-          "contentKey": "mw-20261122-university-statistical-inference-mean-confidence",
+          "contentKey": "mw-20261122-u-math-statistics-mean-confidence",
           "primarySkillKey": 1,
-          "templateFamilyKey": "university-statistical-inference-mean-confidence",
+          "templateFamilyKey": "u-math-statistics-mean-confidence",
           "difficultyLevel": 3,
           "titleAr": "فترة الثقة للمتوسط",
           "titleEn": "Mean confidence interval",
@@ -1145,9 +1147,9 @@
           "pisaProcess": "employ"
         },
         {
-          "contentKey": "mw-20261122-university-statistical-inference-ci-margin",
+          "contentKey": "mw-20261122-u-math-statistics-ci-margin",
           "primarySkillKey": 1,
-          "templateFamilyKey": "university-statistical-inference-ci-margin",
+          "templateFamilyKey": "u-math-statistics-ci-margin",
           "difficultyLevel": 2,
           "titleAr": "هامش الخطأ",
           "titleEn": "Margin of error",
@@ -1180,9 +1182,9 @@
           "pisaProcess": "employ"
         },
         {
-          "contentKey": "mw-20261122-university-statistical-inference-sample-size-ci",
+          "contentKey": "mw-20261122-u-math-statistics-sample-size-ci",
           "primarySkillKey": 1,
-          "templateFamilyKey": "university-statistical-inference-sample-size-ci",
+          "templateFamilyKey": "u-math-statistics-sample-size-ci",
           "difficultyLevel": 3,
           "titleAr": "أثر حجم العينة على الدقة",
           "titleEn": "Sample size and precision",
@@ -1215,9 +1217,9 @@
           "pisaProcess": "interpret"
         },
         {
-          "contentKey": "mw-20261122-university-statistical-inference-p-value",
+          "contentKey": "mw-20261122-u-math-statistics-p-value",
           "primarySkillKey": 2,
-          "templateFamilyKey": "university-statistical-inference-p-value",
+          "templateFamilyKey": "u-math-statistics-p-value",
           "difficultyLevel": 2,
           "titleAr": "قرار اختبار الفرضية",
           "titleEn": "Hypothesis-test decision",
@@ -1250,9 +1252,9 @@
           "pisaProcess": "interpret"
         },
         {
-          "contentKey": "mw-20261122-university-statistical-inference-type-one",
+          "contentKey": "mw-20261122-u-math-statistics-type-one",
           "primarySkillKey": 2,
-          "templateFamilyKey": "university-statistical-inference-type-one",
+          "templateFamilyKey": "u-math-statistics-type-one",
           "difficultyLevel": 2,
           "titleAr": "الخطأ من النوع الأول",
           "titleEn": "Type I error",
