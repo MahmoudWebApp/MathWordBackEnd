@@ -1314,8 +1314,16 @@ namespace MathWorldAPI.Controllers
             // The first answer is the official attempt; retries are practice.
             var isOfficialAttempt = progress.Attempts == 0;
 
-            var attemptNumber =
-                progress.Attempts + 1;
+            // Resetting a training cycle clears UserProgress.Attempts but
+            // NEVER deletes immutable ProblemAttempts. Their composite
+            // (UserId, ProblemId, AttemptNumber) index is unique, therefore
+            // the audit sequence cannot restart at 1 on a new cycle.
+            var previousAuditNumber = await _context.ProblemAttempts
+                .Where(item => item.UserId == userId.Value &&
+                    item.ProblemId == dto.ProblemId)
+                .MaxAsync(item => (int?)item.AttemptNumber,
+                    HttpContext.RequestAborted) ?? 0;
+            var attemptNumber = previousAuditNumber + 1;
 
             var isCorrect =
                 selectedOption.IsCorrect;
@@ -1356,7 +1364,7 @@ namespace MathWorldAPI.Controllers
                 dto.SelectedOptionId;
 
             progress.Attempts =
-                attemptNumber;
+                progress.Attempts + 1;
 
             progress.TimeSpentSeconds =
                 timeSpentSeconds;
