@@ -184,6 +184,9 @@ def main():
     assert ranking["Entries"][1]["DisplayName"] == "CI L.", ranking
     assert all("learner-ci-" not in row["DisplayName"] for row in ranking["Entries"])
 
+    # Daily challenge is Premium-only; Free solves do not unlock it.
+    assert api("GET", "/api/users/daily-challenge?stageId=1", token=learner1)[0] == 403
+
     # Admin subscription changes produce a separate notice in the same DB transaction.
     assert api("GET", "/api/users/premium-analytics", token=learner1)[0] == 403
     assert api("GET", "/api/users/premium-analytics", token=learner2)[0] == 403
@@ -193,6 +196,19 @@ def main():
         "SubscriptionType": "Premium",
         "Reason": "CI verified premium grant",
     }, admin)
+
+    # Today's challenge is stable for the learner's current stage and does
+    # not allow callers to request items from a different stage.
+    today = expect("GET", "/api/users/daily-challenge?stageId=1",
+                   200, token=learner1)
+    assert today["StageId"] == 1 and today["Total"] == len(today["Problems"])
+    assert today["Total"] > 0 and today["Total"] <= 5, today
+    assert all(row["Id"] > 0 for row in today["Problems"]), today
+    again = expect("GET", "/api/users/daily-challenge?stageId=1",
+                   200, token=learner1)
+    assert [row["Id"] for row in again["Problems"]] == [
+        row["Id"] for row in today["Problems"]]
+    assert api("GET", "/api/users/daily-challenge?stageId=2", token=learner1)[0] == 400
 
     report = expect("GET", "/api/users/premium-analytics", 200, token=learner1)
     assert report["SolvedProblems"] == 1 and report["Attempts"] == 2, report

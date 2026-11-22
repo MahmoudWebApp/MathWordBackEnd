@@ -80,77 +80,39 @@ namespace MathWorldAPI.Controllers
                 .GetRequiredService<ProblemCategoryAccessService>()
                 .GetAllowedCategoryIdsAsync(User, HttpContext.RequestAborted);
 
-            // Count only correctly solved problems.
-            var solvedCount =
-                await _context.UserProgresses
-                    .CountAsync(progress =>
-                        progress.UserId == userId &&
-                        (allowedCategories == null ||
-                         allowedCategories.Contains(progress.Problem.CategoryId)) &&
-                        progress.Problem.Category.StageId == progress.Problem.StageId &&
-                        (!activeStageId.HasValue ||
-                         progress.Problem.StageId == activeStageId.Value) &&
-                        progress.IsSolved);
+            // Consolidated stage-scoped counters: one DB query rather than
+            // five remote trips. Keep original access and progress rules.
+            var progressCounts = await _context.UserProgresses
+                .AsNoTracking()
+                .Where(progress =>
+                    progress.UserId == userId &&
+                    (allowedCategories == null ||
+                     allowedCategories.Contains(progress.Problem.CategoryId)) &&
+                    progress.Problem.Category.StageId == progress.Problem.StageId &&
+                    (!activeStageId.HasValue ||
+                     progress.Problem.StageId == activeStageId.Value))
+                .GroupBy(_ => 1)
+                .Select(group => new
+                {
+                    SolvedCount = group.Count(progress => progress.IsSolved),
+                    FavoriteCount = group.Count(progress => progress.IsFavorite),
+                    TotalAttempted = group.Count(progress => progress.Attempts > 0),
+                    OfficialCorrect = group.Count(progress =>
+                        progress.FirstAttemptCorrect == true),
+                    TotalPoints = group.Where(progress => progress.IsSolved)
+                        .Sum(progress => progress.Problem.Points)
+                })
+                .FirstOrDefaultAsync();
 
-            var favoriteCount =
-                await _context.UserProgresses
-                    .CountAsync(progress =>
-                        progress.UserId == userId &&
-                        (allowedCategories == null ||
-                         allowedCategories.Contains(progress.Problem.CategoryId)) &&
-                        progress.Problem.Category.StageId == progress.Problem.StageId &&
-                        (!activeStageId.HasValue ||
-                         progress.Problem.StageId == activeStageId.Value) &&
-                        progress.IsFavorite);
-
-            // Favorite-only records do not count as attempts.
-            var totalAttempted =
-                await _context.UserProgresses
-                    .CountAsync(progress =>
-                        progress.UserId == userId &&
-                        (allowedCategories == null ||
-                         allowedCategories.Contains(progress.Problem.CategoryId)) &&
-                        progress.Problem.Category.StageId == progress.Problem.StageId &&
-                        (!activeStageId.HasValue ||
-                         progress.Problem.StageId == activeStageId.Value) &&
-                        progress.Attempts > 0);
-
-            // The success rate uses only official first attempts.
-            var officialCorrectCount =
-                await _context.UserProgresses
-                    .CountAsync(progress =>
-                        progress.UserId == userId &&
-                        (allowedCategories == null ||
-                         allowedCategories.Contains(progress.Problem.CategoryId)) &&
-                        progress.Problem.Category.StageId == progress.Problem.StageId &&
-                        (!activeStageId.HasValue ||
-                         progress.Problem.StageId == activeStageId.Value) &&
-                        progress.FirstAttemptCorrect == true);
-
-            var successRate =
-                totalAttempted > 0
-                    ? (int)Math.Round(
-                        officialCorrectCount /
-                        (double)totalAttempted *
-                        100)
-                    : 0;
-
-            var totalPoints =
-                await _context.UserProgresses
-                    .Where(progress =>
-                        progress.UserId == userId &&
-                        (allowedCategories == null ||
-                         allowedCategories.Contains(progress.Problem.CategoryId)) &&
-                        progress.Problem.Category.StageId == progress.Problem.StageId &&
-                        (!activeStageId.HasValue ||
-                         progress.Problem.StageId == activeStageId.Value) &&
-                        progress.IsSolved)
-                    .Join(
-                        _context.Problems,
-                        progress => progress.ProblemId,
-                        problem => problem.Id,
-                        (_, problem) => problem.Points)
-                    .SumAsync();
+            var solvedCount = progressCounts?.SolvedCount ?? 0;
+            var favoriteCount = progressCounts?.FavoriteCount ?? 0;
+            var totalAttempted = progressCounts?.TotalAttempted ?? 0;
+            var officialCorrectCount = progressCounts?.OfficialCorrect ?? 0;
+            var totalPoints = progressCounts?.TotalPoints ?? 0;
+            var successRate = totalAttempted > 0
+                ? (int)Math.Round(
+                    officialCorrectCount / (double)totalAttempted * 100)
+                : 0;
 
             var recentSolvedData =
                 await _context.UserProgresses
