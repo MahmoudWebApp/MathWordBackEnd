@@ -133,32 +133,32 @@
           "primarySkillKey": 0,
           "templateFamilyKey": "p-number-sense-compare-numbers",
           "difficultyLevel": 2,
-          "titleAr": "المقارنة بين عددين",
-          "titleEn": "Compare whole numbers",
-          "questionTextAr": "أيهما أكبر: 58,209 أم 58,290؟",
-          "questionTextEn": "Which is greater: 58,209 or 58,290?",
-          "detailedSolutionAr": "عشرات الألوف والألوف والمئات متساوية؛ في منزلة العشرات 9 أكبر من 0، لذا 58,290 أكبر.",
-          "detailedSolutionEn": "The ten-thousands, thousands and hundreds match; 9 tens is greater than 0 tens, so 58,290 is greater.",
+          "titleAr": "مقارنة القيم المكانية",
+          "titleEn": "Comparing place values",
+          "questionTextAr": "اختر الرمز الصحيح الذي يملأ المربع: 58,209 □ 58,290.",
+          "questionTextEn": "Choose the correct comparison symbol: 58,209 □ 58,290.",
+          "detailedSolutionAr": "تتساوى المنازل حتى العشرات؛ 0 عشرات أصغر من 9 عشرات، لذا 58,209 < 58,290.",
+          "detailedSolutionEn": "The earlier digits match; 0 tens is less than 9 tens, so 58,209 < 58,290.",
           "options": [
             {
+              "LatexCode": ">",
               "Order": 1,
-              "IsCorrect": false,
-              "LatexCode": "58,209"
+              "IsCorrect": false
             },
             {
+              "LatexCode": "=",
               "Order": 2,
-              "IsCorrect": false,
-              "LatexCode": "العددان متساويان"
+              "IsCorrect": false
             },
             {
+              "LatexCode": "<",
               "Order": 3,
-              "IsCorrect": true,
-              "LatexCode": "58,290"
+              "IsCorrect": true
             },
             {
+              "LatexCode": "≥",
               "Order": 4,
-              "IsCorrect": false,
-              "LatexCode": "لا يمكن المقارنة"
+              "IsCorrect": false
             }
           ],
           "pisaProcess": "interpret_evaluate"
@@ -837,30 +837,30 @@
           "difficultyLevel": 3,
           "titleAr": "حساب نصف العمر",
           "titleEn": "Half-life reasoning",
-          "questionTextAr": "كتلة 640 غراماً نصف عمرها 4 ساعات. متى تصبح 80 غراماً؟",
-          "questionTextEn": "A 640 g sample has a half-life of 4 hours. When will it reach 80 g?",
+          "questionTextAr": "كتلة 640 غراماً ونصف عمرها 4 ساعات. بعد كم ساعة تصبح 80 غراماً؟",
+          "questionTextEn": "A 640 g sample has a half-life of 4 hours. After how many hours will it reach 80 g?",
           "detailedSolutionAr": "640→320→160→80؛ ثلاث فترات نصف عمر، أي 3×4=12 ساعة.",
           "detailedSolutionEn": "640→320→160→80 is three half-lives, so 3×4=12 hours.",
           "options": [
             {
+              "LatexCode": "8",
               "Order": 1,
-              "IsCorrect": false,
-              "LatexCode": "8 ساعات"
+              "IsCorrect": false
             },
             {
+              "LatexCode": "16",
               "Order": 2,
-              "IsCorrect": false,
-              "LatexCode": "16 ساعة"
+              "IsCorrect": false
             },
             {
+              "LatexCode": "12",
               "Order": 3,
-              "IsCorrect": true,
-              "LatexCode": "12 ساعة"
+              "IsCorrect": true
             },
             {
+              "LatexCode": "20",
               "Order": 4,
-              "IsCorrect": false,
-              "LatexCode": "20 ساعة"
+              "IsCorrect": false
             }
           ],
           "pisaProcess": "interpret_evaluate"
@@ -940,32 +940,32 @@
           "primarySkillKey": 2,
           "templateFamilyKey": "s-exponents-logarithms-exp-sequence",
           "difficultyLevel": 2,
-          "titleAr": "تمييز النمو الأسي",
-          "titleEn": "Recognize geometric growth",
-          "questionTextAr": "أي نمط يصف المتتالية 2، 6، 18، 54؟",
-          "questionTextEn": "Which pattern describes 2, 6, 18, 54?",
-          "detailedSolutionAr": "نضرب في 3 كل مرة؛ النسبة ثابتة وليست الفروق، فهو نمو أسي.",
-          "detailedSolutionEn": "Each term is multiplied by 3; constant ratio rather than difference means exponential growth.",
+          "titleAr": "صيغة المتتالية الهندسية",
+          "titleEn": "Geometric sequence formula",
+          "questionTextAr": "ما صيغة الحد العام للمتتالية 2، 6، 18، 54، مع بدء الترقيم من n=1؟",
+          "questionTextEn": "Which formula gives the sequence 2, 6, 18, 54 starting at n=1?",
+          "detailedSolutionAr": "النسبة المشتركة 3 والحد الأول 2، لذلك الحد العام هو a_n=2×3^{n−1}.",
+          "detailedSolutionEn": "The common ratio is 3 and the first term is 2, so a_n=2×3^{n−1}.",
           "options": [
             {
+              "LatexCode": "a_n=2+3(n-1)",
               "Order": 1,
-              "IsCorrect": false,
-              "LatexCode": "زيادة ثابتة بمقدار 3"
+              "IsCorrect": false
             },
             {
+              "LatexCode": "a_n=2\\cdot3^{n-1}",
               "Order": 2,
-              "IsCorrect": true,
-              "LatexCode": "نمو أسي بنسبة ضرب 3"
+              "IsCorrect": true
             },
             {
+              "LatexCode": "a_n=3n",
               "Order": 3,
-              "IsCorrect": false,
-              "LatexCode": "تناقص أسي"
+              "IsCorrect": false
             },
             {
+              "LatexCode": "a_n=2\\cdot2^{n-1}",
               "Order": 4,
-              "IsCorrect": false,
-              "LatexCode": "تغير خطي بمقدار 6"
+              "IsCorrect": false
             }
           ],
           "pisaProcess": "interpret_evaluate"
@@ -1188,30 +1188,30 @@
           "difficultyLevel": 3,
           "titleAr": "أثر حجم العينة على الدقة",
           "titleEn": "Sample size and precision",
-          "questionTextAr": "مع ثبات الانحراف المعياري ومستوى الثقة، ماذا يحدث لعرض فترة الثقة إذا زاد حجم العينة 4 مرات؟",
-          "questionTextEn": "Holding σ and confidence level fixed, what happens to the confidence-interval width if sample size quadruples?",
+          "questionTextAr": "مع ثبات الانحراف المعياري ومستوى الثقة، إذا ضُرب حجم العينة في 4، فبأي عامل يُضرب عرض فترة الثقة؟",
+          "questionTextEn": "With fixed standard deviation and confidence level, if the sample size is multiplied by 4, what factor multiplies the confidence-interval width?",
           "detailedSolutionAr": "العرض يتناسب مع 1/√n، لذا عند ضرب n في 4 يصبح العرض نصف قيمته.",
           "detailedSolutionEn": "Interval width scales as 1/√n; quadrupling n halves the width.",
           "options": [
             {
+              "LatexCode": "2",
               "Order": 1,
-              "IsCorrect": false,
-              "LatexCode": "يتضاعف"
+              "IsCorrect": false
             },
             {
+              "LatexCode": "1",
               "Order": 2,
-              "IsCorrect": false,
-              "LatexCode": "يبقى ثابتاً"
+              "IsCorrect": false
             },
             {
+              "LatexCode": "1/2",
               "Order": 3,
-              "IsCorrect": true,
-              "LatexCode": "يصبح النصف"
+              "IsCorrect": true
             },
             {
+              "LatexCode": "1/4",
               "Order": 4,
-              "IsCorrect": false,
-              "LatexCode": "يصبح الربع"
+              "IsCorrect": false
             }
           ],
           "pisaProcess": "interpret_evaluate"
@@ -1223,30 +1223,30 @@
           "difficultyLevel": 2,
           "titleAr": "قرار اختبار الفرضية",
           "titleEn": "Hypothesis-test decision",
-          "questionTextAr": "إذا كانت قيمة p=0.02 ومستوى الدلالة α=0.05، فما القرار الصحيح؟",
-          "questionTextEn": "If p=0.02 and significance level α=0.05, what is the decision?",
+          "questionTextAr": "عندما p=0.02 ومستوى الدلالة α=0.05، أي مقارنة تبرر رفض الفرضية الصفرية؟",
+          "questionTextEn": "When p=0.02 and significance level α=0.05, which inequality justifies rejecting the null hypothesis?",
           "detailedSolutionAr": "بما أن 0.02<0.05 فإننا نرفض الفرضية الصفرية، دون أن نثبت بديلها قطعياً.",
           "detailedSolutionEn": "Since 0.02<0.05, reject the null hypothesis; this does not prove the alternative with certainty.",
           "options": [
             {
+              "LatexCode": "p>\\alpha",
               "Order": 1,
-              "IsCorrect": false,
-              "LatexCode": "قبول الفرضية الصفرية قطعياً"
+              "IsCorrect": false
             },
             {
+              "LatexCode": "p<\\alpha",
               "Order": 2,
-              "IsCorrect": true,
-              "LatexCode": "رفض الفرضية الصفرية"
+              "IsCorrect": true
             },
             {
+              "LatexCode": "p=\\alpha",
               "Order": 3,
-              "IsCorrect": false,
-              "LatexCode": "مضاعفة حجم العينة تلقائياً"
+              "IsCorrect": false
             },
             {
+              "LatexCode": "p=1",
               "Order": 4,
-              "IsCorrect": false,
-              "LatexCode": "لا يمكن اتخاذ قرار"
+              "IsCorrect": false
             }
           ],
           "pisaProcess": "interpret_evaluate"
@@ -1258,30 +1258,30 @@
           "difficultyLevel": 2,
           "titleAr": "الخطأ من النوع الأول",
           "titleEn": "Type I error",
-          "questionTextAr": "ما المقصود بخطأ النوع الأول في اختبار الفرضيات؟",
-          "questionTextEn": "What is a Type I error in hypothesis testing?",
-          "detailedSolutionAr": "الخطأ من النوع الأول يعني رفض الفرضية الصفرية رغم أنها صحيحة.",
-          "detailedSolutionEn": "A Type I error is rejecting a true null hypothesis.",
+          "questionTextAr": "أي رمز يشير عادةً إلى احتمال الخطأ من النوع الأول، أي رفض فرضية صفرية صحيحة؟",
+          "questionTextEn": "Which symbol conventionally denotes the probability of a Type I error: rejecting a true null hypothesis?",
+          "detailedSolutionAr": "الخطأ من النوع الأول يعني رفض H_0 وهي صحيحة، ويُرمز لاحتمال هذا الخطأ بالحرف α.",
+          "detailedSolutionEn": "Type I error means rejecting a true H_0; its probability is denoted by α.",
           "options": [
             {
+              "LatexCode": "\\beta",
               "Order": 1,
-              "IsCorrect": false,
-              "LatexCode": "عدم رفض فرضية صفرية خاطئة"
+              "IsCorrect": false
             },
             {
+              "LatexCode": "1-\\alpha",
               "Order": 2,
-              "IsCorrect": true,
-              "LatexCode": "رفض فرضية صفرية صحيحة"
+              "IsCorrect": false
             },
             {
+              "LatexCode": "\\alpha",
               "Order": 3,
-              "IsCorrect": false,
-              "LatexCode": "رفض فرضية صفرية خاطئة"
+              "IsCorrect": true
             },
             {
+              "LatexCode": "1-\\beta",
               "Order": 4,
-              "IsCorrect": false,
-              "LatexCode": "عدم رفض فرضية صفرية صحيحة"
+              "IsCorrect": false
             }
           ],
           "pisaProcess": "interpret_evaluate"
