@@ -16,6 +16,7 @@ on:
       - 'tests/check_curriculum_taxonomy.py'
       - 'tests/check_curriculum_gap_batch_20261122.py'
       - 'tests/check_curriculum_gap_wave2_20261122.py'
+      - 'tests/check_curriculum_depth_wave3_20261122.py'
       - 'tests/check_adaptive_pilot_content.py'
       - 'tests/check_curriculum_reasoning_extension.py'
       - 'tests/check_curriculum_depth_wave_1.py'
@@ -47,6 +48,8 @@ jobs:
         run: python3 tests/check_curriculum_gap_batch_20261122.py
       - name: Independently verify 48 wave-two math answers and bilingual skills
         run: python3 tests/check_curriculum_gap_wave2_20261122.py
+      - name: Verify 16 under-covered skill depth questions and answer uniqueness
+        run: python3 tests/check_curriculum_depth_wave3_20261122.py
       - name: Check varied adaptive draft math and bilingual question bank
         run: python3 tests/check_adaptive_pilot_content.py
       - name: Cross-check distinct mathematical answers in reasoning extension
