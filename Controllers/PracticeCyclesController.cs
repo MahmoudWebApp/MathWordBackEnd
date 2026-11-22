@@ -1,5 +1,6 @@
 using System.Security.Claims;
 using MathWorldAPI.Data;
+using MathWorldAPI.Helpers;
 using MathWorldAPI.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
