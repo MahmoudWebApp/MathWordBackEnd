@@ -219,13 +219,13 @@ def main():
     # this stage. Training retries cannot count the same solved problem twice.
     assert sum(e["IsCurrentUser"] for e in before_switch_ranks["Entries"]) == 1
     assert before_switch_ranks["MyRank"] == my_rank_row["Rank"]
-    practice_retry = expect("POST", "/api/problems/submit", 200, {
+    # Solved questions cannot be retried individually. A learner must reset
+    # the whole topic or educational stage to begin another practice cycle.
+    assert call("POST", "/api/problems/submit", {
         "ProblemId": problem_id,
         "SelectedOptionId": correct_id,
         "TimeSpentSeconds": 2
-    }, token)
-    assert practice_retry["IsCorrect"] is True
-    assert not practice_retry["IsOfficialAttempt"], practice_retry
+    }, token)[0] == 409
     rank_after_retry = expect("GET",
         f"/api/users/leaderboard?stageId={stage1}&period=all",
         200, token=token)
@@ -287,7 +287,11 @@ def main():
     assert returned["SolvedProblemsCount"] == 1, returned
     assert returned["TotalPoints"] == 10, returned
     assert len(returned["RecentSolved"]) == 1, returned
-    assert len(expect("GET", "/api/users/solved", 200, token=token)) == 1
+    solved_previews = expect("GET", "/api/users/solved", 200, token=token)
+    assert len(solved_previews) == 1
+    # A solved list must never label its own entries as New in either client.
+    assert solved_previews[0]["IsSolved"] is True, solved_previews
+    assert solved_previews[0]["HasAttempted"] is True, solved_previews
     # Switching back must restore the same scored ranking, not silently lose
     # the point record while the learner's stage selection was different.
     back_ranks = expect("GET",
@@ -346,11 +350,10 @@ def main():
     assert right_retry["IsCorrect"] and right_retry["IsSolved"], right_retry
     assert not right_retry["IsOfficialAttempt"], right_retry
     assert successful_stage_solves() == baseline_successful + 1
-    repeat_correct = expect("POST", "/api/problems/submit", 200, {
+    assert call("POST", "/api/problems/submit", {
         "ProblemId": retry_id, "SelectedOptionId": correct_retry,
         "TimeSpentSeconds": 2,
-    }, token)
-    assert repeat_correct["IsCorrect"] and repeat_correct["PointsEarned"] == 0
+    }, token)[0] == 409
     assert successful_stage_solves() == baseline_successful + 1
 
     assert call("GET", "/api/users/learning-stage")[0] == 401

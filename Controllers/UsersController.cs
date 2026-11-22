@@ -616,7 +616,9 @@ namespace MathWorldAPI.Controllers
                             ViewsCount =
                                 progress.Problem.ViewsCount,
 
-                            RequiresLogin = true
+                            RequiresLogin = true,
+                            IsSolved = true,
+                            HasAttempted = progress.Attempts > 0
                         })
                     .ToListAsync();
 
