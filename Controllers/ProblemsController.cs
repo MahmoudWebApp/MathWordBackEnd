@@ -958,8 +958,7 @@ namespace MathWorldAPI.Controllers
                             FirstAttemptCorrect =
                                 progress?.FirstAttemptCorrect,
 
-                            CanRetry =
-                                hasAttempted,
+                            CanRetry = hasAttempted && progress != null && !progress.IsSolved && progress.IsInErrorNotebook,
 
                             MasteryStatus =
                                 progress?.MasteryStatus
@@ -1270,6 +1269,15 @@ namespace MathWorldAPI.Controllers
                         progressItem.ProblemId ==
                         dto.ProblemId);
 
+            // A solved question is final for the current practice cycle.
+            // To practice it again the student resets the whole stage or topic.
+            // Retries are only meaningful for unresolved notebook errors.
+            if (progress?.IsSolved == true)
+                return Conflict(new { Message = "AlreadySolvedResetTopicOrStage" });
+            if (progress != null && progress.Attempts > 0 &&
+                !progress.IsInErrorNotebook)
+                return Conflict(new { Message = "ProblemNotAvailableForReview" });
+
             var now =
                 DateTime.UtcNow;
 
@@ -1568,7 +1576,7 @@ namespace MathWorldAPI.Controllers
                             progress.Attempts,
 
                         CanRetry =
-                            true,
+                            !progress.IsSolved && progress.IsInErrorNotebook,
 
                         MasteryStatus =
                             progress.MasteryStatus,
@@ -1788,48 +1796,13 @@ namespace MathWorldAPI.Controllers
                 return;
             }
 
-            if (!wasInErrorNotebook)
-            {
-                progress.MasteryStatus =
-                    progress.MasteryStatus ==
-                    MasteryStatuses.Mastered
-                        ? MasteryStatuses.Mastered
-                        : MasteryStatuses.Practicing;
-
-                return;
-            }
-
-            progress.MasteryStatus =
-                MasteryStatuses.Practicing;
-
-            if (!isDueReview)
-            {
-                return;
-            }
-
-            progress.ConsecutiveCorrectReviews++;
-
-            if (progress.ConsecutiveCorrectReviews >= 3)
-            {
-                progress.MasteryStatus =
-                    MasteryStatuses.Mastered;
-
-                progress.IsInErrorNotebook =
-                    false;
-
-                progress.IsErrorNotebookArchived =
-                    false;
-
-                progress.NextReviewAt =
-                    null;
-
-                return;
-            }
-
-            progress.NextReviewAt =
-                progress.ConsecutiveCorrectReviews == 1
-                    ? now.AddDays(3)
-                    : now.AddDays(7);
+            // One correct answer closes the error immediately; no three-step
+            // spaced review and no individual replay of solved problems.
+            progress.MasteryStatus = MasteryStatuses.Mastered;
+            progress.IsInErrorNotebook = false;
+            progress.IsErrorNotebookArchived = false;
+            progress.NextReviewAt = null;
+            progress.ConsecutiveCorrectReviews = 0;
         }
 
         /// <summary>
