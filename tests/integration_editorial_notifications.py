@@ -153,7 +153,7 @@ def main():
     code, _ = submit(learner1, question_id, correct_option)
     assert code == 200
     code, _ = submit(learner1, question_id, correct_option)
-    assert code == 200
+    assert code == 409  # Already solved; no extra badges or repeat points
     notices = expect("GET", "/api/notifications/v2", 200, token=learner1)["Items"]
     achievements = [n for n in notices if n["Type"] == "achievement"]
     assert len(achievements) == 1, achievements
@@ -211,8 +211,8 @@ def main():
     assert api("GET", "/api/users/daily-challenge?stageId=2", token=learner1)[0] == 400
 
     report = expect("GET", "/api/users/premium-analytics", 200, token=learner1)
-    assert report["SolvedProblems"] == 1 and report["Attempts"] == 2, report
-    assert report["CorrectAttempts"] == 2 and report["AwardedPoints"] == 10, report
+    assert report["SolvedProblems"] == 1 and report["Attempts"] == 1, report
+    assert report["CorrectAttempts"] == 1 and report["AwardedPoints"] == 10, report
     assert len(report["Categories"]) == 1, report
     category = report["Categories"][0]
     assert category["StageId"] == 1 and category["CategoryId"] == 1, category

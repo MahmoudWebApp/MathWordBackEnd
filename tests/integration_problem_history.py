@@ -173,11 +173,19 @@ def main():
             lambda _: submit(users[0], question_id, correct_option),
             range(2)
         ))
-    assert all(code == 200 for code, _ in attempts), attempts
-    answers = [body["Data"] for _, body in attempts]
-    assert sorted(x["AttemptNumber"] for x in answers) == [1, 2], answers
-    assert sorted(x["PointsEarned"] for x in answers) == [0, 10], answers
-    assert sum(bool(x["IsOfficialAttempt"]) for x in answers) == 1, answers
+    assert sorted(code for code, _ in attempts) == [200, 409], attempts
+    accepted = [body["Data"] for code, body in attempts if code == 200]
+    assert accepted[0]["PointsEarned"] == 10 and accepted[0]["IsSolved"]
+    assert accepted[0]["IsOfficialAttempt"], accepted
+    # Only a whole-topic or stage restart can replay a solved question.
+    reset = expect("POST", "/api/users/practice/reset", 200,
+                   {"StageId": 1, "CategoryId": 1}, users[0])
+    assert reset["ResetSolved"] == 1, reset
+    assert solved_count(admin, question_id) == 0
+    status, replay = submit(users[0], question_id, correct_option)
+    assert status == 200 and replay["Data"]["IsSolved"], (status, replay)
+    assert replay["Data"]["AttemptNumber"] == 2, replay
+    assert solved_count(admin, question_id) == 1
 
     with concurrent.futures.ThreadPoolExecutor(max_workers=2) as pool:
         other_attempts = list(pool.map(
@@ -189,8 +197,8 @@ def main():
 
     history = expect("GET", f"/api/problems/{question_id}/attempts",
                      200, token=users[0])
-    assert history["TotalAttempts"] == 2, history
-    assert len(history["Attempts"]) == 2, history
+    assert history["TotalAttempts"] == 1, history  # current practice cycle
+    assert len(history["Attempts"]) == 2, history  # immutable audit preserved
 
     expect("PUT", f"/api/admin/problems/{question_id}", 409,
            make_question(2), admin)
@@ -211,7 +219,30 @@ def main():
            {"ProblemId": favorite_id, "IsFavorite": True}, users[0])
     expect("DELETE", f"/api/admin/problems/{favorite_id}", 409, token=admin)
     verify_diverse_category_paging(admin, users[0])
-    print("PASS: same-user concurrency, atomic solves, history, CRUD guards")
+    # Incorrect work enters the error notebook; one successful retry removes
+    # it immediately and locks individual replay until a whole-scope reset.
+    mistake_id, mistake_answer = create_question(admin, 9911)
+    admin_problem = expect("GET", f"/api/problems/{mistake_id}", 200, token=admin)
+    wrong_option = next(x["Id"] for x in admin_problem["Options"] if not x["IsCorrect"])
+    wrong_code, wrong = submit(users[0], mistake_id, wrong_option)
+    assert wrong_code == 200 and not wrong["Data"]["IsSolved"], (wrong_code, wrong)
+    notebook = expect("GET", "/api/users/error-notebook", 200, token=users[0])
+    assert mistake_id in {p["Id"] for p in notebook}, notebook
+    retry_code, correct = submit(users[0], mistake_id, mistake_answer)
+    assert retry_code == 200 and correct["Data"]["IsSolved"], (retry_code, correct)
+    assert not correct["Data"]["IsInErrorNotebook"] and not correct["Data"]["CanRetry"], correct
+    notebook = expect("GET", "/api/users/error-notebook", 200, token=users[0])
+    assert mistake_id not in {p["Id"] for p in notebook}, notebook
+    assert submit(users[0], mistake_id, mistake_answer)[0] == 409
+    # Resetting the entire selected stage is also allowed.
+    stage_reset = expect("POST", "/api/users/practice/reset", 200,
+                         {"StageId": 1}, users[0])
+    assert stage_reset["ResetSolved"] >= 2, stage_reset
+    restored = expect("GET", f"/api/problems/{mistake_id}", 200, token=users[0])
+    assert not restored["IsSolved"] and not restored["HasAttempted"], restored
+    assert api("POST", "/api/users/practice/reset", {"StageId": 2}, users[0])[0] == 403
+
+    print("PASS: atomic solves, solved replay denied, topic reset, immutable attempts")
 
 
 if __name__ == "__main__":

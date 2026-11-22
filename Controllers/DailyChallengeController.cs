@@ -66,12 +66,12 @@ public sealed class DailyChallengeController : ControllerBase
             .Where(p => p.UserId == userId && p.IsSolved &&
                 p.SolvedAt.HasValue && p.SolvedAt.Value < day)
             .Select(p => p.ProblemId).ToListAsync(ct);
-        var previouslySolved = solvedBeforeToday.ToHashSet();
 
         var eligible = await _db.Problems.AsNoTracking()
             .Where(p => p.StageId == targetStage.Value &&
                 p.Category.StageId == targetStage.Value &&
-                allowed.Contains(p.CategoryId))
+                allowed.Contains(p.CategoryId) &&
+                !solvedBeforeToday.Contains(p.Id))
             .OrderBy(p => p.Id)
             .Select(p => new { p.Id, p.CategoryId, p.TitleAr, p.TitleEn, p.Points })
             .ToListAsync(ct);
@@ -86,8 +86,7 @@ public sealed class DailyChallengeController : ControllerBase
             .GroupBy(p => p.CategoryId)
             .OrderBy(g => Rank(g.Key))
             .SelectMany(g => g
-                .OrderBy(p => previouslySolved.Contains(p.Id) ? 1 : 0)
-                .ThenBy(p => Rank(p.Id))
+                .OrderBy(p => Rank(p.Id))
                 .Select((problem, index) => new { problem, index }))
             .OrderBy(x => x.index)
             .ThenBy(x => Rank(x.problem.CategoryId))
@@ -96,26 +95,40 @@ public sealed class DailyChallengeController : ControllerBase
             .ToList();
         var ids = selected.Select(p => p.Id).ToArray();
 
-        // An old lifetime 'IsSolved' flag is not a daily-challenge result.
-        // Credit a challenge item only for a correct attempt TODAY (UTC).
-        // Reuse existing problem-answer processing; do not award extra points.
-        var completedToday = await _db.ProblemAttempts.AsNoTracking()
+        // Each daily question counts once as soon as an answer is submitted,
+        // whether right or wrong. The UI then advances to the next question.
+        // The correct count is independent and is shown in the result screen.
+        // Ignore prior audit rows after a voluntary practice cycle reset.
+        var activeAttempts = await _db.UserProgresses.AsNoTracking()
+            .Where(p => p.UserId == userId && p.Attempts > 0 &&
+                ids.Contains(p.ProblemId))
+            .Select(p => p.ProblemId).ToListAsync(ct);
+        var activeIds = activeAttempts.ToHashSet();
+        var answersToday = await _db.ProblemAttempts.AsNoTracking()
             .Where(p => p.UserId == userId && ids.Contains(p.ProblemId) &&
-                p.IsCorrect && p.SubmittedAt >= day && p.SubmittedAt < nextDay)
-            .Select(p => p.ProblemId)
-            .Distinct().ToListAsync(ct);
-        var completedIds = completedToday.ToHashSet();
+                p.SubmittedAt >= day && p.SubmittedAt < nextDay)
+            .GroupBy(p => p.ProblemId)
+            .Select(g => new { ProblemId = g.Key,
+                IsCorrect = g.Any(p => p.IsCorrect) })
+            .ToListAsync(ct);
+        var answeredIds = answersToday.Where(p => activeIds.Contains(p.ProblemId))
+            .Select(p => p.ProblemId).ToHashSet();
+        var correctIds = answersToday.Where(p => p.IsCorrect &&
+            activeIds.Contains(p.ProblemId))
+            .Select(p => p.ProblemId).ToHashSet();
 
         return Ok(new
         {
             DateUtc = day.ToString("yyyy-MM-dd"),
             StageId = targetStage.Value,
             Total = selected.Count,
-            Completed = selected.Count(p => completedIds.Contains(p.Id)),
+            Completed = selected.Count(p => answeredIds.Contains(p.Id)),
+            Correct = selected.Count(p => correctIds.Contains(p.Id)),
             Problems = selected.Select(p => new
             {
                 p.Id, p.CategoryId, p.TitleAr, p.TitleEn, p.Points,
-                IsSolved = completedIds.Contains(p.Id)
+                IsAnswered = answeredIds.Contains(p.Id),
+                IsSolved = correctIds.Contains(p.Id)
             }).ToList()
         });
     }

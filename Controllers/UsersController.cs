@@ -189,7 +189,9 @@ namespace MathWorldAPI.Controllers
                             .Select(progress =>
                                 MapToProblemPreview(
                                     progress.Problem,
-                                    language))
+                                    language,
+                                    progress.IsSolved,
+                                    progress.Attempts > 0))
                             .ToList(),
 
                     RecentFavorites =
@@ -197,7 +199,9 @@ namespace MathWorldAPI.Controllers
                             .Select(progress =>
                                 MapToProblemPreview(
                                     progress.Problem,
-                                    language))
+                                    language,
+                                    progress.IsSolved,
+                                    progress.Attempts > 0))
                             .ToList(),
 
                     RecentActivities =
@@ -529,7 +533,9 @@ namespace MathWorldAPI.Controllers
                             ViewsCount =
                                 progress.Problem.ViewsCount,
 
-                            RequiresLogin = true
+                            RequiresLogin = true,
+                            IsSolved = progress.IsSolved,
+                            HasAttempted = progress.Attempts > 0
                         })
                     .ToListAsync();
 
@@ -883,7 +889,9 @@ namespace MathWorldAPI.Controllers
         /// </summary>
         private static ProblemPreviewDto MapToProblemPreview(
             MathProblem problem,
-            string language)
+            string language,
+            bool isSolved,
+            bool hasAttempted)
         {
             return new ProblemPreviewDto
             {
@@ -907,7 +915,9 @@ namespace MathWorldAPI.Controllers
 
                 Points = problem.Points,
                 ViewsCount = problem.ViewsCount,
-                RequiresLogin = true
+                RequiresLogin = true,
+                IsSolved = isSolved,
+                HasAttempted = hasAttempted
             };
         }
     }
