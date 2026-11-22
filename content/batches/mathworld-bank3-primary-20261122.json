@@ -1,0 +1,319 @@
+{
+  "batch_key": "mathworld-bank3-primary",
+  "status": "editorial_pending",
+  "stage": 1,
+  "problems": [
+    {
+      "ContentKey": "mw-bank3-p-equal-boxes",
+      "StageId": 1,
+      "PrimarySkillKey": "primary-one-step-multiplicative-equations",
+      "TemplateFamilyKey": "concept-p-equal-boxes",
+      "LearningObjectiveAr": "فهم مجهول في مجموعات متساوية",
+      "LearningObjectiveEn": "Find the unit quantity in equal groups",
+      "QuestionTextAr": "وُزّعت 54 كرة بالتساوي على 6 صناديق. إذا كان في كل صندوق x كرة، فما قيمة x؟",
+      "QuestionTextEn": "54 balls are distributed equally across 6 boxes. If each box holds x balls, what is x?",
+      "DetailedSolutionAr": "نكتب 6x = 54، ثم نقسم الطرفين على 6، فنجد x = 9.",
+      "DetailedSolutionEn": "Write 6x = 54 and divide both sides by 6 to obtain x = 9.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "6",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "8",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "9",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "12",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 2,
+      "PisaProcess": "formulate",
+      "CognitiveType": "equal-groups",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank3-p-inverse-multiplication",
+      "StageId": 1,
+      "PrimarySkillKey": "primary-one-step-multiplicative-equations",
+      "TemplateFamilyKey": "concept-p-inverse-multiplication",
+      "LearningObjectiveAr": "حل معادلة أحادية الخطوة بالضرب",
+      "LearningObjectiveEn": "Solve a one-step multiplication equation",
+      "QuestionTextAr": "أي قيمة للمتغير k تحقق 7k = 91؟",
+      "QuestionTextEn": "Which value of k satisfies 7k = 91?",
+      "DetailedSolutionAr": "نقسم 91 على 7، فيكون k = 13؛ نتحقق: 7 × 13 = 91.",
+      "DetailedSolutionEn": "Divide 91 by 7 to obtain k = 13. Verify: 7 × 13 = 91.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "11",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "12",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "13",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "14",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 2,
+      "PisaProcess": "employ",
+      "CognitiveType": "inverse-multiplication",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank3-p-array-columns",
+      "StageId": 1,
+      "PrimarySkillKey": "primary-one-step-multiplicative-equations",
+      "TemplateFamilyKey": "concept-p-array-columns",
+      "LearningObjectiveAr": "استخدام صفوف وأعمدة لتشكيل معادلة ضرب",
+      "LearningObjectiveEn": "Model multiplication with an array",
+      "QuestionTextAr": "رتّبت 72 بلاطة في 8 صفوف متساوية. ما عدد البلاطات في كل صف؟",
+      "QuestionTextEn": "72 tiles are arranged in 8 equal rows. How many tiles are in each row?",
+      "DetailedSolutionAr": "إذا كان عدد البلاطات في الصف x فإن 8x = 72، وبالتالي x = 9.",
+      "DetailedSolutionEn": "If each row contains x tiles, 8x = 72, so x = 9.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "7",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "8",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "9",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "10",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 2,
+      "PisaProcess": "interpret_evaluate",
+      "CognitiveType": "array-model",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank3-p-missing-dividend",
+      "StageId": 1,
+      "PrimarySkillKey": "primary-one-step-multiplicative-equations",
+      "TemplateFamilyKey": "concept-p-missing-dividend",
+      "LearningObjectiveAr": "إيجاد المقسوم المجهول باستخدام الضرب",
+      "LearningObjectiveEn": "Find an unknown dividend by multiplication",
+      "QuestionTextAr": "إذا كان x ÷ 5 = 12، فما قيمة x؟",
+      "QuestionTextEn": "If x ÷ 5 = 12, what is x?",
+      "DetailedSolutionAr": "نضرب الطرفين في 5: x = 12 × 5 = 60.",
+      "DetailedSolutionEn": "Multiply both sides by 5: x = 12 × 5 = 60.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "17",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "50",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "60",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "65",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 2,
+      "PisaProcess": "employ",
+      "CognitiveType": "reverse-division",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank3-p-equivalent-numerator",
+      "StageId": 1,
+      "PrimarySkillKey": "p-fractions-decimals-equivalence",
+      "TemplateFamilyKey": "concept-p-equivalent-numerator",
+      "LearningObjectiveAr": "استخدام مقياس موحد لتحويل كسر إلى مقام معلوم",
+      "LearningObjectiveEn": "Scale equivalent fractions to a given denominator",
+      "QuestionTextAr": "أكمل الكسر المكافئ: 3/5 = x/20. ما قيمة x؟",
+      "QuestionTextEn": "Complete the equivalent fraction: 3/5 = x/20. Find x.",
+      "DetailedSolutionAr": "ضربنا المقام 5 في 4، لذلك نضرب البسط 3 في 4، فيكون x = 12.",
+      "DetailedSolutionEn": "The denominator is multiplied by 4, so multiply the numerator by 4: x = 12.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "8",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "12",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "15",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "18",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 2,
+      "PisaProcess": "employ",
+      "CognitiveType": "scale-up",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank3-p-equivalent-simplify",
+      "StageId": 1,
+      "PrimarySkillKey": "p-fractions-decimals-equivalence",
+      "TemplateFamilyKey": "concept-p-equivalent-simplify",
+      "LearningObjectiveAr": "تبسيط كسر بالقاسم المشترك الأكبر",
+      "LearningObjectiveEn": "Reduce a fraction using common factors",
+      "QuestionTextAr": "ما الصورة المبسطة للكسر 14/21؟",
+      "QuestionTextEn": "What is the simplest form of 14/21?",
+      "DetailedSolutionAr": "القاسم المشترك الأكبر لـ14 و21 هو 7. بالقسمة عليهما: 14/21 = 2/3.",
+      "DetailedSolutionEn": "The greatest common divisor of 14 and 21 is 7. Divide numerator and denominator by 7 to obtain 2/3.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\frac12",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\frac23",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "\\frac34",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "\\frac{7}{10}",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 2,
+      "PisaProcess": "employ",
+      "CognitiveType": "simplify-fraction",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank3-p-equivalent-decimal",
+      "StageId": 1,
+      "PrimarySkillKey": "p-fractions-decimals-equivalence",
+      "TemplateFamilyKey": "concept-p-equivalent-decimal",
+      "LearningObjectiveAr": "ربط الكسر المكافئ بالتمثيل العشري",
+      "LearningObjectiveEn": "Connect decimal and fraction representations",
+      "QuestionTextAr": "أي كسر يساوي العدد العشري 0.75 بالضبط؟",
+      "QuestionTextEn": "Which fraction is exactly equal to the decimal 0.75?",
+      "DetailedSolutionAr": "0.75 = 75/100، ونختصر بقسمة البسط والمقام على 25 لنحصل على 3/4.",
+      "DetailedSolutionEn": "0.75 = 75/100. Divide numerator and denominator by 25 to get 3/4.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\frac14",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\frac23",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "\\frac34",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "\\frac45",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 2,
+      "PisaProcess": "interpret_evaluate",
+      "CognitiveType": "decimal-fraction",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank3-p-equivalent-misconception",
+      "StageId": 1,
+      "PrimarySkillKey": "p-fractions-decimals-equivalence",
+      "TemplateFamilyKey": "concept-p-equivalent-misconception",
+      "LearningObjectiveAr": "تصحيح اعتقاد أن زيادة البسط والمقام بالقيمة نفسها تحفظ التكافؤ",
+      "LearningObjectiveEn": "Challenge the add-one numerator-and-denominator misconception",
+      "QuestionTextAr": "يقول طالب إن 2/3 و3/4 كسران متكافئان لأننا زدنا 1 للبسط والمقام. ما المقارنة الصحيحة؟",
+      "QuestionTextEn": "A pupil says 2/3 and 3/4 are equivalent because 1 was added to both numerator and denominator. Which comparison is correct?",
+      "DetailedSolutionAr": "بالضرب التبادلي 2 × 4 = 8 و3 × 3 = 9، لذا 2/3 أصغر من 3/4، ولا يكفي جمع العدد نفسه مع البسط والمقام للحفاظ على التكافؤ.",
+      "DetailedSolutionEn": "Cross-multiply: 2 × 4 = 8 and 3 × 3 = 9, so 2/3 < 3/4. Adding the same amount to numerator and denominator does not preserve equivalence.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\frac23=\\frac34",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\frac23>\\frac34",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "\\frac23<\\frac34",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "\\frac23=\\frac24",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "interpret_evaluate",
+      "CognitiveType": "misconception",
+      "Points": 10,
+      "ExpertReview": "pending"
+    }
+  ]
+}
