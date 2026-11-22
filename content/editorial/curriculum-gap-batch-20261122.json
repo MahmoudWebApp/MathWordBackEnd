@@ -493,22 +493,22 @@
           "options": [
             {
               "Order": 1,
-              "LatexCode": "−2، −8، 0، 4",
+              "LatexCode": "-2<-8<0<4",
               "IsCorrect": false
             },
             {
               "Order": 2,
-              "LatexCode": "−8، −2، 0، 4",
+              "LatexCode": "-8<-2<0<4",
               "IsCorrect": true
             },
             {
               "Order": 3,
-              "LatexCode": "4، 0، −2، −8",
+              "LatexCode": "4<0<-2<-8",
               "IsCorrect": false
             },
             {
               "Order": 4,
-              "LatexCode": "−8، 0، −2، 4",
+              "LatexCode": "-8<0<-2<4",
               "IsCorrect": false
             }
           ],
