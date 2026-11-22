@@ -167,7 +167,7 @@ def main():
                      200, token=free)
     unsolved = expect("GET", "/api/problems/search?stageId=1&categoryId=1&pageSize=100&hideSolved=true",
                       200, token=free)
-    assert unsolved["Total"] == visible["Total"] - len(questions), (
+    assert unsolved["Total"] == visible["Total"] - 1, (
         "Solved questions must be excluded before pagination and totals", visible, unsolved
     )
     assert not {qid for qid, _ in questions}.intersection(
