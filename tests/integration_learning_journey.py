@@ -151,7 +151,7 @@ def main():
     assert same_day["Problems"] == challenge["Problems"]
     assert call("GET", "/api/users/daily-challenge")[0] == 401
     assert call("GET", "/api/users/daily-challenge", token=admin_token)[0] == 403
-    assert call("GET", "/api/users/daily-challenge?stageId=999999", token=token)[0] == 404
+    # A caller may not select another stage, even a non-existent one.\n    assert call("GET", "/api/users/daily-challenge?stageId=999999", token=token)[0] == 400
     admin_problems = expect("GET", "/api/admin/problems?pageSize=100",
                             200, token=admin_token)
     item = next(p for p in admin_problems["Results"] if p["Id"] == problem_id)
