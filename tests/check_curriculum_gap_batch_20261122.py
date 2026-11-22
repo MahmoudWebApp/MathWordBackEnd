@@ -34,7 +34,7 @@ def signed_decimal(value: Decimal) -> str:
 expected = {
     "p-number-sense-digit-value": fmt(6 * 10000),
     "p-number-sense-expanded-form": fmt(70000+500+40+3),
-    "p-number-sense-compare-numbers": fmt(max(58209,58290)),
+    "p-number-sense-compare-numbers": "<" if 58209 < 58290 else ">",
     "p-number-sense-round-to-hundred": fmt((37648+50)//100*100),
     "p-number-sense-round-to-thousand": fmt((9650+500)//1000*1000),
     "p-number-sense-estimate-sum": fmt(400+600),
@@ -52,10 +52,10 @@ expected = {
     "s-exponents-logarithms-doubling": str(80*2**3),
     "s-exponents-logarithms-compound-interest": fmt(int(Decimal(2000)*Decimal("1.10")**2)),
     "s-exponents-logarithms-decay-two-periods": str(int(Decimal(1200)*Decimal("0.90")**2)),
-    "s-exponents-logarithms-half-life": str(4*3) + " ساعة",
+    "s-exponents-logarithms-half-life": str(4*3),
     "s-exponents-logarithms-factor-decay": str(int((1-Decimal("0.7"))*100))+"%",
     "s-exponents-logarithms-rate-growth": str(int((Decimal("1.03")-1)*100))+"%",
-    "s-exponents-logarithms-exp-sequence": "نمو أسي بنسبة ضرب 3",
+    "s-exponents-logarithms-exp-sequence": "a_n=2\\cdot3^{n-1}",
     "u-math-statistics-z-score": str((82-70)//6),
     "u-math-statistics-standard-error": str(15//5),
     "u-math-statistics-sample-proportion": str(Decimal(18)/Decimal(30)),
@@ -63,9 +63,9 @@ expected = {
         "["+str(Decimal(100)-Decimal("1.96")*Decimal(10)/Decimal(100).sqrt())+
         ","+str(Decimal(100)+Decimal("1.96")*Decimal(10)/Decimal(100).sqrt())+"]",
     "u-math-statistics-ci-margin": str(Decimal("1.96")*Decimal(8)/Decimal(64).sqrt()),
-    "u-math-statistics-sample-size-ci": "يصبح النصف",
-    "u-math-statistics-p-value": "رفض الفرضية الصفرية",
-    "u-math-statistics-type-one": "رفض فرضية صفرية صحيحة",
+    "u-math-statistics-sample-size-ci": str(Fraction(1,2)),
+    "u-math-statistics-p-value": "p<\\alpha" if Decimal("0.02") < Decimal("0.05") else "p>\\alpha",
+    "u-math-statistics-type-one": "\\alpha",
 }
 keys = set()
 templates = set()
@@ -103,6 +103,7 @@ for topic in data["topics"]:
         opts = item["options"]
         assert [o["Order"] for o in opts] == [1,2,3,4]
         assert len({o["LatexCode"].strip() for o in opts}) == 4
+        assert all(not re.search(r"[\u0621-\u064a]", o["LatexCode"]) for o in opts), ("non-bilingual option",key)
         selected = [o["LatexCode"] for o in opts if o["IsCorrect"] is True]
         assert selected == [expected[key]], (key, selected, expected[key])
     assert min(counts.values()) >= 2 and len(counts) == 3, (topic["stableKey"],counts)
