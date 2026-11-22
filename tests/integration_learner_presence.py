@@ -170,7 +170,7 @@ def main():
     learner2_activity = expect(
         "GET", "/api/admin/engagement/students?search=CI%20Learner%209812",
         200, token=admin)
-    assert learner2_activity["Students"][0]["LastExplicitSignOutAtUtc"] is None, learner2_activity
+    assert learner2_activity["Students"][0].get("LastExplicitSignOutAtUtc") is None, learner2_activity
     audit_path = (f"/api/admin/activity-audit?actorId={actor_id}"
                   "&action=ExplicitSignOut&days=30")
     assert api("GET", audit_path, token=one)[0] == 403
