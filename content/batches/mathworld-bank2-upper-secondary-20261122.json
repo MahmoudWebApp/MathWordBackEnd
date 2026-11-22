@@ -1,0 +1,475 @@
+{
+  "batch_key": "mathworld-bank2-upper-secondary",
+  "status": "editorial_pending",
+  "stage": 3,
+  "problems": [
+    {
+      "ContentKey": "mw-bank2-s-trig-sin-to-cos",
+      "StageId": 3,
+      "PrimarySkillKey": "secondary-pythagorean-trig-identity",
+      "TemplateFamilyKey": "concept-s-trig-sin-to-cos",
+      "LearningObjectiveAr": "استخدام هوية فيثاغورس لإيجاد جيب التمام",
+      "LearningObjectiveEn": "Use the Pythagorean identity to find cosine",
+      "QuestionTextAr": "إذا كانت θ زاوية حادة وsin(θ) = 3/5، فما cos(θ)؟",
+      "QuestionTextEn": "If θ is an acute angle and sin(θ) = 3/5, what is cos(θ)?",
+      "DetailedSolutionAr": "من sin²(θ) + cos²(θ) = 1 نحصل على cos²(θ) = 1 − 9/25 = 16/25. نأخذ الجذر الموجب لأن θ حادة: cos(θ) = 4/5.",
+      "DetailedSolutionEn": "Since sin² θ + cos² θ = 1, cos² θ = 1 − 9/25 = 16/25. The angle is acute, so cos θ = 4/5.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\frac35",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\frac45",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "\\frac{16}{25}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "-\\frac45",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 2,
+      "PisaProcess": "employ",
+      "CognitiveType": "positive-root",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank2-s-trig-cos-to-sin",
+      "StageId": 3,
+      "PrimarySkillKey": "secondary-pythagorean-trig-identity",
+      "TemplateFamilyKey": "concept-s-trig-cos-to-sin",
+      "LearningObjectiveAr": "استنتاج الجيب من جيب التمام",
+      "LearningObjectiveEn": "Find sine from cosine",
+      "QuestionTextAr": "إذا كانت θ حادة وcos(θ) = 5/13، فكم sin(θ)؟",
+      "QuestionTextEn": "If θ is acute and cos(θ) = 5/13, find sin(θ).",
+      "DetailedSolutionAr": "sin²(θ) = 1 − 25/169 = 144/169، وبما أن الزاوية حادة فـ sin(θ) = 12/13.",
+      "DetailedSolutionEn": "sin² θ = 1 − 25/169 = 144/169. Because θ is acute, sin θ = 12/13.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\frac5{13}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\frac{12}{13}",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "\\frac{144}{169}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "\\frac{13}{12}",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 2,
+      "PisaProcess": "employ",
+      "CognitiveType": "square-root",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank2-s-trig-tan-to-sin",
+      "StageId": 3,
+      "PrimarySkillKey": "secondary-pythagorean-trig-identity",
+      "TemplateFamilyKey": "concept-s-trig-tan-to-sin",
+      "LearningObjectiveAr": "ربط الظل بمثلث قائم وهوية فيثاغورس",
+      "LearningObjectiveEn": "Recover sine from tangent via a right triangle",
+      "QuestionTextAr": "زاوية حادة θ تحقق tan(θ) = 3/4. ما قيمة sin(θ)؟",
+      "QuestionTextEn": "For an acute angle θ, tan(θ) = 3/4. What is sin(θ)?",
+      "DetailedSolutionAr": "نعد الضلع المقابل 3 والمجاور 4، فيكون الوتر 5 بفيثاغورس. إذن sin(θ) = 3/5.",
+      "DetailedSolutionEn": "Use opposite side 3 and adjacent side 4. The hypotenuse is 5, so sin θ = 3/5.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\frac34",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\frac35",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "\\frac45",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "\\frac53",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "interpret_evaluate",
+      "CognitiveType": "ratio-representation",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank2-s-trig-second-quadrant",
+      "StageId": 3,
+      "PrimarySkillKey": "secondary-pythagorean-trig-identity",
+      "TemplateFamilyKey": "concept-s-trig-second-quadrant",
+      "LearningObjectiveAr": "تحديد إشارة جيب التمام في الربع الثاني",
+      "LearningObjectiveEn": "Determine cosine sign in quadrant II",
+      "QuestionTextAr": "إذا كانت θ في الربع الثاني وsin(θ) = 4/5، فما cos(θ)؟",
+      "QuestionTextEn": "θ lies in quadrant II and sin(θ) = 4/5. What is cos(θ)?",
+      "DetailedSolutionAr": "cos²(θ) = 1 − 16/25 = 9/25. جيب التمام سالب في الربع الثاني، إذن −3/5.",
+      "DetailedSolutionEn": "cos² θ = 9/25. Cosine is negative in quadrant II, so cos θ = −3/5.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\frac35",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "-\\frac35",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "\\frac45",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "-\\frac45",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "interpret_evaluate",
+      "CognitiveType": "quadrant-sign",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank2-s-log-negative",
+      "StageId": 3,
+      "PrimarySkillKey": "secondary-logarithm-evaluation",
+      "TemplateFamilyKey": "concept-s-log-negative",
+      "LearningObjectiveAr": "تقييم لوغاريتم عدد أصغر من الواحد",
+      "LearningObjectiveEn": "Evaluate a logarithm of a reciprocal power",
+      "QuestionTextAr": "أوجد قيمة log₅(1/125).",
+      "QuestionTextEn": "Evaluate log base 5 of 1/125.",
+      "DetailedSolutionAr": "لأن 1/125 = 5⁻³، فإن log₅(1/125) = −3.",
+      "DetailedSolutionEn": "Since 1/125 = 5^(−3), log base 5 of 1/125 equals −3.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "-5",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "-3",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "3",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "5",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 2,
+      "PisaProcess": "employ",
+      "CognitiveType": "negative-exponent",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank2-s-log-half-exponent",
+      "StageId": 3,
+      "PrimarySkillKey": "secondary-logarithm-evaluation",
+      "TemplateFamilyKey": "concept-s-log-half-exponent",
+      "LearningObjectiveAr": "ربط لوغاريتم الجذر بالأس الكسري",
+      "LearningObjectiveEn": "Interpret a logarithm as a fractional exponent",
+      "QuestionTextAr": "ما قيمة log₄(2)؟",
+      "QuestionTextEn": "What is log base 4 of 2?",
+      "DetailedSolutionAr": "نبحث عن العدد x الذي يحقق 4^x = 2؛ وبما أن الجذر التربيعي لـ4 يساوي 2، فإن x = 1/2.",
+      "DetailedSolutionEn": "We seek x with 4^x = 2. Since the square root of 4 is 2, x = 1/2.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\frac12",
+          "IsCorrect": true
+        },
+        {
+          "Order": 2,
+          "LatexCode": "2",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "-\\frac12",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "4",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 2,
+      "PisaProcess": "employ",
+      "CognitiveType": "fractional-exponent",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank2-s-log-difference",
+      "StageId": 3,
+      "PrimarySkillKey": "secondary-logarithm-evaluation",
+      "TemplateFamilyKey": "concept-s-log-difference",
+      "LearningObjectiveAr": "استخدام خاصية طرح اللوغاريتمات",
+      "LearningObjectiveEn": "Evaluate a difference of logarithms",
+      "QuestionTextAr": "احسب log₃(81) − log₃(3).",
+      "QuestionTextEn": "Calculate log base 3 of 81 minus log base 3 of 3.",
+      "DetailedSolutionAr": "لأن 81 = 3⁴ و3 = 3¹، فإن الفرق 4 − 1 = 3. ويمكن أيضاً استخدام log₃(81/3) = log₃(27).",
+      "DetailedSolutionEn": "Since 81 = 3^4 and 3 = 3^1, the difference is 4 − 1 = 3. Equivalently log₃(81/3) = log₃(27).",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "1",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "2",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "3",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "4",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "CognitiveType": "logarithm-law",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank2-s-log-inverse",
+      "StageId": 3,
+      "PrimarySkillKey": "secondary-logarithm-evaluation",
+      "TemplateFamilyKey": "concept-s-log-inverse",
+      "LearningObjectiveAr": "تحويل معادلة لوغاريتمية إلى أسية",
+      "LearningObjectiveEn": "Convert logarithmic notation to exponential form",
+      "QuestionTextAr": "إذا كان log₂(x) = 5، فما قيمة x؟",
+      "QuestionTextEn": "If log base 2 of x equals 5, what is x?",
+      "DetailedSolutionAr": "التعريف يعطي x = 2⁵ = 32.",
+      "DetailedSolutionEn": "The definition gives x = 2^5 = 32.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "7",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "10",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "25",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "32",
+          "IsCorrect": true
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "interpret_evaluate",
+      "CognitiveType": "inverse-conversion",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank2-s-variance-three-values",
+      "StageId": 3,
+      "PrimarySkillKey": "secondary-population-variance",
+      "TemplateFamilyKey": "concept-s-variance-three-values",
+      "LearningObjectiveAr": "حساب تباين مجتمع مكوّن من ثلاث قيم",
+      "LearningObjectiveEn": "Calculate population variance for three values",
+      "QuestionTextAr": "ما تباين المجتمع للقيم 1، 3، 5؟",
+      "QuestionTextEn": "What is the population variance of the values 1, 3, 5?",
+      "DetailedSolutionAr": "المتوسط 3، ومجموع مربعات الفروق (−2)² + 0² + 2² = 8. نقسم على حجم المجتمع 3 فنحصل على 8/3.",
+      "DetailedSolutionEn": "The mean is 3. Squared deviations add to 4 + 0 + 4 = 8; divide by population size 3 to get 8/3.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\frac83",
+          "IsCorrect": true
+        },
+        {
+          "Order": 2,
+          "LatexCode": "4",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "8",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "\\frac{8}{2}",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "CognitiveType": "population-denominator",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank2-s-variance-four-values",
+      "StageId": 3,
+      "PrimarySkillKey": "secondary-population-variance",
+      "TemplateFamilyKey": "concept-s-variance-four-values",
+      "LearningObjectiveAr": "حساب التباين لمجموعة متناظرة من القيم",
+      "LearningObjectiveEn": "Calculate variance for evenly spaced data",
+      "QuestionTextAr": "احسب تباين المجتمع للقيم 2، 4، 6، 8.",
+      "QuestionTextEn": "Find the population variance of 2, 4, 6, 8.",
+      "DetailedSolutionAr": "المتوسط 5 ومجموع مربعات الفروق 9 + 1 + 1 + 9 = 20. التباين = 20 ÷ 4 = 5.",
+      "DetailedSolutionEn": "The mean is 5. The squared deviations total 9 + 1 + 1 + 9 = 20; population variance is 20 ÷ 4 = 5.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "4",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "5",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "6",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "20",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "CognitiveType": "symmetric-data",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank2-s-variance-constant",
+      "StageId": 3,
+      "PrimarySkillKey": "secondary-population-variance",
+      "TemplateFamilyKey": "concept-s-variance-constant",
+      "LearningObjectiveAr": "تفسير انعدام التباين عند تطابق القيم",
+      "LearningObjectiveEn": "Explain why a constant data set has zero variance",
+      "QuestionTextAr": "ما تباين المجتمع للقيم 7، 7، 7، 7؟",
+      "QuestionTextEn": "What is the population variance of 7, 7, 7, 7?",
+      "DetailedSolutionAr": "كل قيمة تساوي المتوسط 7، لذلك كل فرق يساوي صفراً والتباين يساوي 0.",
+      "DetailedSolutionEn": "All values equal their mean 7, so every squared deviation is zero, giving variance 0.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "0",
+          "IsCorrect": true
+        },
+        {
+          "Order": 2,
+          "LatexCode": "1",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "7",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "49",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 1,
+      "PisaProcess": "interpret_evaluate",
+      "CognitiveType": "zero-spread",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank2-s-variance-scaling",
+      "StageId": 3,
+      "PrimarySkillKey": "secondary-population-variance",
+      "TemplateFamilyKey": "concept-s-variance-scaling",
+      "LearningObjectiveAr": "معرفة تأثير ضرب كل البيانات بثابت على التباين",
+      "LearningObjectiveEn": "Reason about how scaling data affects population variance",
+      "QuestionTextAr": "تباين المجتمع للقيم 1، 2، 3 يساوي 2/3. إذا ضربنا كل قيمة في 3، فما تباين القيم الجديدة؟",
+      "QuestionTextEn": "The population variance of 1, 2, 3 is 2/3. If every value is multiplied by 3, what is the new variance?",
+      "DetailedSolutionAr": "عند ضرب البيانات في 3 تتضاعف الفروق ثلاث مرات ومربعاتها تسع مرات؛ التباين الجديد = 9 × 2/3 = 6.",
+      "DetailedSolutionEn": "Scaling every value by 3 multiplies each squared deviation by 9. New variance = 9 × 2/3 = 6.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "2",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "3",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "6",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "18",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 4,
+      "PisaProcess": "interpret_evaluate",
+      "CognitiveType": "scale-property",
+      "Points": 10,
+      "ExpertReview": "pending"
+    }
+  ]
+}
