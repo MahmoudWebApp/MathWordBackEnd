@@ -1,0 +1,475 @@
+{
+  "batch_key": "mathworld-bank2-lower-secondary",
+  "status": "editorial_pending",
+  "stage": 2,
+  "problems": [
+    {
+      "ContentKey": "mw-bank2-m-equation-brackets",
+      "StageId": 2,
+      "PrimarySkillKey": "middle-linear-equations",
+      "TemplateFamilyKey": "concept-m-equation-brackets",
+      "LearningObjectiveAr": "حل معادلة خطية تتضمن أقواساً",
+      "LearningObjectiveEn": "Solve a linear equation with brackets",
+      "QuestionTextAr": "حل المعادلة: 4(x − 3) = 28.",
+      "QuestionTextEn": "Solve 4(x − 3) = 28.",
+      "DetailedSolutionAr": "نقسم على 4 فنحصل على x − 3 = 7، ثم نضيف 3، فيكون x = 10.",
+      "DetailedSolutionEn": "Divide by 4 to get x − 3 = 7, then add 3 to get x = 10.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "4",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "7",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "10",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "15",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 2,
+      "PisaProcess": "employ",
+      "CognitiveType": "brackets",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank2-m-equation-both-sides",
+      "StageId": 2,
+      "PrimarySkillKey": "middle-linear-equations",
+      "TemplateFamilyKey": "concept-m-equation-both-sides",
+      "LearningObjectiveAr": "عزل المتغير عندما يظهر في طرفي المعادلة",
+      "LearningObjectiveEn": "Isolate a variable on both sides",
+      "QuestionTextAr": "أوجد x من المعادلة: 2x + 5 = 3x − 8.",
+      "QuestionTextEn": "Find x from 2x + 5 = 3x − 8.",
+      "DetailedSolutionAr": "بطرح 2x وإضافة 8 نحصل على 13 = x.",
+      "DetailedSolutionEn": "Subtract 2x from both sides and add 8 to obtain x = 13.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "-13",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "3",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "8",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "13",
+          "IsCorrect": true
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "CognitiveType": "balance",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank2-m-equation-fraction",
+      "StageId": 2,
+      "PrimarySkillKey": "middle-linear-equations",
+      "TemplateFamilyKey": "concept-m-equation-fraction",
+      "LearningObjectiveAr": "حل معادلة بمجهول داخل بسط كسر",
+      "LearningObjectiveEn": "Solve a linear equation with a fraction",
+      "QuestionTextAr": "حل: (x + 6) ÷ 3 = 9.",
+      "QuestionTextEn": "Solve (x + 6) ÷ 3 = 9.",
+      "DetailedSolutionAr": "نضرب الطرفين في 3: x + 6 = 27، لذلك x = 21.",
+      "DetailedSolutionEn": "Multiply both sides by 3: x + 6 = 27, so x = 21.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "3",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "15",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "21",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "33",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 2,
+      "PisaProcess": "employ",
+      "CognitiveType": "inverse-operation",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank2-m-equation-notebooks",
+      "StageId": 2,
+      "PrimarySkillKey": "middle-linear-equations",
+      "TemplateFamilyKey": "concept-m-equation-notebooks",
+      "LearningObjectiveAr": "صياغة معادلة خطية من تكلفة الشراء",
+      "LearningObjectiveEn": "Model a purchase with a linear equation",
+      "QuestionTextAr": "ثمن 3 دفاتر متساوية السعر مع رسوم توصيل 5 وحدات هو 41 وحدة. ما ثمن الدفتر الواحد؟",
+      "QuestionTextEn": "Three equally priced notebooks plus 5 units for delivery cost 41 units in total. How much does one notebook cost?",
+      "DetailedSolutionAr": "إذا كان سعر الدفتر x، فـ 3x + 5 = 41. إذن 3x = 36 ومنه x = 12.",
+      "DetailedSolutionEn": "Let x be the price per notebook. Then 3x + 5 = 41, so 3x = 36 and x = 12.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "10",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "12",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "14",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "18",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "formulate",
+      "CognitiveType": "pricing-model",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank2-m-circle-symbolic",
+      "StageId": 2,
+      "PrimarySkillKey": "middle-circle-area",
+      "TemplateFamilyKey": "concept-m-circle-symbolic",
+      "LearningObjectiveAr": "حساب مساحة دائرة بدلالة باي",
+      "LearningObjectiveEn": "Find circle area in terms of pi",
+      "QuestionTextAr": "ما مساحة دائرة نصف قطرها 5 سم بدلالة π؟",
+      "QuestionTextEn": "What is the area of a circle of radius 5 cm, expressed in terms of π?",
+      "DetailedSolutionAr": "المساحة = πr² = π × 5² = 25π سم².",
+      "DetailedSolutionEn": "Area = πr² = π × 5² = 25π cm².",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "10\\pi",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "25\\pi",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "5\\pi",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "50\\pi",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 2,
+      "PisaProcess": "employ",
+      "CognitiveType": "radius-vs-diameter",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank2-m-circle-diameter",
+      "StageId": 2,
+      "PrimarySkillKey": "middle-circle-area",
+      "TemplateFamilyKey": "concept-m-circle-diameter",
+      "LearningObjectiveAr": "استخراج نصف القطر من القطر قبل حساب المساحة",
+      "LearningObjectiveEn": "Find the radius from diameter to calculate area",
+      "QuestionTextAr": "قطر دائرة 18 سم. ما مساحتها بدلالة π؟",
+      "QuestionTextEn": "A circle's diameter is 18 cm. What is its area in terms of π?",
+      "DetailedSolutionAr": "نصف القطر 9 سم، لذا المساحة = π × 9² = 81π سم².",
+      "DetailedSolutionEn": "The radius is 9 cm, so the area is π × 9² = 81π cm².",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "18\\pi",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "36\\pi",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "81\\pi",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "324\\pi",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "CognitiveType": "diameter",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank2-m-circle-semi",
+      "StageId": 2,
+      "PrimarySkillKey": "middle-circle-area",
+      "TemplateFamilyKey": "concept-m-circle-semi",
+      "LearningObjectiveAr": "حساب نصف مساحة دائرة",
+      "LearningObjectiveEn": "Calculate a semicircle's area",
+      "QuestionTextAr": "مساحة نصف دائرة نصف قطرها 6 سم تساوي كم بدلالة π؟",
+      "QuestionTextEn": "A semicircle has radius 6 cm. What is its area in terms of π?",
+      "DetailedSolutionAr": "مساحة الدائرة الكاملة 36π، ونصفها 18π سم².",
+      "DetailedSolutionEn": "The full circle has area 36π; half is 18π cm².",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "9\\pi",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "12\\pi",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "18\\pi",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "36\\pi",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "interpret_evaluate",
+      "CognitiveType": "half-shape",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank2-m-circle-inverse",
+      "StageId": 2,
+      "PrimarySkillKey": "middle-circle-area",
+      "TemplateFamilyKey": "concept-m-circle-inverse",
+      "LearningObjectiveAr": "تحديد نصف قطر دائرة معلومة المساحة",
+      "LearningObjectiveEn": "Recover circle radius from area",
+      "QuestionTextAr": "مساحة دائرة 64π سم². كم طول نصف قطرها بالسنتيمتر؟",
+      "QuestionTextEn": "A circle's area is 64π cm². What is its radius in centimeters?",
+      "DetailedSolutionAr": "بما أن πr² = 64π، إذن r² = 64 ونأخذ نصف القطر الموجب r = 8.",
+      "DetailedSolutionEn": "From πr² = 64π, we get r² = 64 and take the positive radius r = 8.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "4",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "8",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "16",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "32",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "CognitiveType": "inverse-area",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank2-m-ratio-total",
+      "StageId": 2,
+      "PrimarySkillKey": "middle-ratios",
+      "TemplateFamilyKey": "concept-m-ratio-total",
+      "LearningObjectiveAr": "تقسيم كمية وفق نسبة ذات مجموع أجزاء",
+      "LearningObjectiveEn": "Divide a total according to a ratio",
+      "QuestionTextAr": "نسبة الكرات الزرقاء إلى الخضراء 2 : 7، ومجموع الكرات 45. كم كرة زرقاء؟",
+      "QuestionTextEn": "Blue to green balls are in the ratio 2 : 7, with 45 balls total. How many are blue?",
+      "DetailedSolutionAr": "عدد الأجزاء = 2 + 7 = 9، وقيمة الجزء 45 ÷ 9 = 5؛ الزرقاء = 2 × 5 = 10.",
+      "DetailedSolutionEn": "Total ratio parts: 2 + 7 = 9; each part is 45 ÷ 9 = 5. Blue balls: 2 × 5 = 10.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "9",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "10",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "14",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "35",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 2,
+      "PisaProcess": "formulate",
+      "CognitiveType": "part-whole-ratio",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank2-m-ratio-known-part",
+      "StageId": 2,
+      "PrimarySkillKey": "middle-ratios",
+      "TemplateFamilyKey": "concept-m-ratio-known-part",
+      "LearningObjectiveAr": "إيجاد مقدار آخر من خلال جزء معلوم من نسبة",
+      "LearningObjectiveEn": "Find an unknown quantity from a known ratio part",
+      "QuestionTextAr": "نسبة عدد الكتب العربية إلى الإنكليزية 5 : 3، وإذا كان عدد العربية 35، فكم كتاباً إنكليزياً؟",
+      "QuestionTextEn": "Arabic to English books have ratio 5 : 3. If there are 35 Arabic books, how many English books are there?",
+      "DetailedSolutionAr": "خمسة أجزاء = 35، إذن الجزء 7، وثلاثة أجزاء = 3 × 7 = 21.",
+      "DetailedSolutionEn": "Five parts equal 35, so each part is 7. Three parts give 21 English books.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "15",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "21",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "28",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "35",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 2,
+      "PisaProcess": "employ",
+      "CognitiveType": "scale-factor",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank2-m-ratio-reverse",
+      "StageId": 2,
+      "PrimarySkillKey": "middle-ratios",
+      "TemplateFamilyKey": "concept-m-ratio-reverse",
+      "LearningObjectiveAr": "مقارنة نسبتين من أجل استخراج الكمية الأصغر",
+      "LearningObjectiveEn": "Use the larger ratio part to find the smaller",
+      "QuestionTextAr": "نسبة أقلام التلوين الصفراء إلى الزرقاء 4 : 9. إذا كان عدد الزرقاء 36، فما عدد الصفراء؟",
+      "QuestionTextEn": "Yellow to blue coloring pencils have a 4 : 9 ratio. If there are 36 blue pencils, how many yellow?",
+      "DetailedSolutionAr": "تسعة أجزاء = 36، فالجزء 4، والأصفر 4 أجزاء = 16.",
+      "DetailedSolutionEn": "Nine parts total 36, so one part is 4; the four yellow parts total 16.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "9",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "12",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "16",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "24",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 2,
+      "PisaProcess": "employ",
+      "CognitiveType": "part-scaling",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank2-m-ratio-recipe",
+      "StageId": 2,
+      "PrimarySkillKey": "middle-ratios",
+      "TemplateFamilyKey": "concept-m-ratio-recipe",
+      "LearningObjectiveAr": "استخدام نسبة تركيب وصفة مع تكبير الكمية",
+      "LearningObjectiveEn": "Scale a recipe proportionally",
+      "QuestionTextAr": "تحتاج وصفة إلى 3 أكواب من الأرز لكل 5 أكواب ماء. كم كوب ماء نحتاج عند استخدام 12 كوب أرز؟",
+      "QuestionTextEn": "A recipe uses 3 cups of rice for every 5 cups of water. How many cups of water are needed for 12 cups of rice?",
+      "DetailedSolutionAr": "نضرب الأرز في 4 (3 إلى 12)، لذا نضرب الماء في 4: 5 × 4 = 20 كوباً.",
+      "DetailedSolutionEn": "Rice is scaled by 4 (3 to 12), so water must also be multiplied by 4: 5 × 4 = 20 cups.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "15",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "18",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "20",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "24",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "formulate",
+      "CognitiveType": "scaling-context",
+      "Points": 10,
+      "ExpertReview": "pending"
+    }
+  ]
+}

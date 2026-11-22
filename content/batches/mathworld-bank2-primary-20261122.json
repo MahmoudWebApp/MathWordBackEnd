@@ -1,0 +1,475 @@
+{
+  "batch_key": "mathworld-bank2-primary",
+  "status": "editorial_pending",
+  "stage": 1,
+  "problems": [
+    {
+      "ContentKey": "mw-bank2-p-add-regroup",
+      "StageId": 1,
+      "PrimarySkillKey": "primary-addition",
+      "TemplateFamilyKey": "concept-p-add-regroup",
+      "LearningObjectiveAr": "جمع أعداد متعددة الخانات مع إعادة التجميع",
+      "LearningObjectiveEn": "Regroup when adding multi-digit numbers",
+      "QuestionTextAr": "احسب 275 + 168.",
+      "QuestionTextEn": "Calculate 275 + 168.",
+      "DetailedSolutionAr": "نجمع الآحاد: 5 + 8 = 13، ثم العشرات مع المحمول، فنحصل على 443.",
+      "DetailedSolutionEn": "Add the ones: 5 + 8 = 13; regroup through the tens and hundreds to obtain 443.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "433",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "443",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "453",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "543",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 2,
+      "PisaProcess": "employ",
+      "CognitiveType": "procedure",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank2-p-add-missing",
+      "StageId": 1,
+      "PrimarySkillKey": "primary-addition",
+      "TemplateFamilyKey": "concept-p-add-missing",
+      "LearningObjectiveAr": "إيجاد الحد الناقص في الجمع",
+      "LearningObjectiveEn": "Find a missing addend",
+      "QuestionTextAr": "أي عدد نضيفه إلى 486 لنحصل على 725؟",
+      "QuestionTextEn": "What must be added to 486 to obtain 725?",
+      "DetailedSolutionAr": "العدد الناقص = 725 − 486 = 239. نتحقق: 486 + 239 = 725.",
+      "DetailedSolutionEn": "Subtract 486 from 725: 239. Check: 486 + 239 = 725.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "229",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "249",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "239",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "339",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "CognitiveType": "inverse-operation",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank2-p-add-estimate",
+      "StageId": 1,
+      "PrimarySkillKey": "primary-addition",
+      "TemplateFamilyKey": "concept-p-add-estimate",
+      "LearningObjectiveAr": "تقدير مجموع باستخدام التقريب للمئة",
+      "LearningObjectiveEn": "Estimate a sum by rounding to hundreds",
+      "QuestionTextAr": "قدّر مجموع 198 + 306 بتقريب كل عدد إلى أقرب مئة قبل الجمع.",
+      "QuestionTextEn": "Estimate 198 + 306 by rounding each number to the nearest hundred before adding.",
+      "DetailedSolutionAr": "198 ≈ 200 و306 ≈ 300، فيكون المجموع التقديري 500.",
+      "DetailedSolutionEn": "198 rounds to 200 and 306 rounds to 300. The estimate is 500.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "400",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "500",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "504",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "600",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 2,
+      "PisaProcess": "interpret_evaluate",
+      "CognitiveType": "estimation",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank2-p-add-bus",
+      "StageId": 1,
+      "PrimarySkillKey": "primary-addition",
+      "TemplateFamilyKey": "concept-p-add-bus",
+      "LearningObjectiveAr": "جمع ثلاث كميات في سياق واقعي",
+      "LearningObjectiveEn": "Add three quantities in a real context",
+      "QuestionTextAr": "في الحافلة 38 بالغاً و27 طفلاً. صعد 16 راكباً آخر. كم راكباً صار في الحافلة؟",
+      "QuestionTextEn": "A bus has 38 adults and 27 children. Another 16 passengers board. How many passengers are now on the bus?",
+      "DetailedSolutionAr": "38 + 27 = 65، ثم 65 + 16 = 81 راكباً.",
+      "DetailedSolutionEn": "First 38 + 27 = 65; then 65 + 16 = 81 passengers.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "65",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "71",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "81",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "91",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 2,
+      "PisaProcess": "formulate",
+      "CognitiveType": "word-problem",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank2-p-triangle-find-height",
+      "StageId": 1,
+      "PrimarySkillKey": "primary-triangle-area",
+      "TemplateFamilyKey": "concept-p-triangle-find-height",
+      "LearningObjectiveAr": "استخراج ارتفاع المثلث من المساحة والقاعدة",
+      "LearningObjectiveEn": "Find triangle height from area and base",
+      "QuestionTextAr": "مساحة مثلث 42 سم² وقاعدته 12 سم. ما ارتفاعه بالسنتيمتر؟",
+      "QuestionTextEn": "A triangle has area 42 cm² and base 12 cm. What is its height in centimeters?",
+      "DetailedSolutionAr": "المساحة = القاعدة × الارتفاع ÷ 2، لذا الارتفاع = 2 × 42 ÷ 12 = 7 سم.",
+      "DetailedSolutionEn": "Using A = bh/2, the height is 2 × 42 ÷ 12 = 7 cm.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "3.5",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "6",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "7",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "14",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "CognitiveType": "inverse-formula",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank2-p-triangle-right",
+      "StageId": 1,
+      "PrimarySkillKey": "primary-triangle-area",
+      "TemplateFamilyKey": "concept-p-triangle-right",
+      "LearningObjectiveAr": "حساب مساحة مثلث قائم من الضلعين المتعامدين",
+      "LearningObjectiveEn": "Find area of a right triangle",
+      "QuestionTextAr": "مثلث قائم طولا ضلعيه المتعامدين 9 سم و8 سم. كم مساحته بالسم²؟",
+      "QuestionTextEn": "A right triangle has perpendicular sides of lengths 9 cm and 8 cm. What is its area in cm²?",
+      "DetailedSolutionAr": "الضلعان المتعامدان هما القاعدة والارتفاع، فالمساحة = 9 × 8 ÷ 2 = 36.",
+      "DetailedSolutionEn": "The perpendicular sides form the base and height: 9 × 8 ÷ 2 = 36.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "17",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "36",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "72",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "81",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 2,
+      "PisaProcess": "employ",
+      "CognitiveType": "geometric-model",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank2-p-triangle-unneeded-side",
+      "StageId": 1,
+      "PrimarySkillKey": "primary-triangle-area",
+      "TemplateFamilyKey": "concept-p-triangle-unneeded-side",
+      "LearningObjectiveAr": "تمييز الارتفاع العمودي من معلومات طول لا تلزم للمساحة",
+      "LearningObjectiveEn": "Distinguish perpendicular height from an irrelevant side",
+      "QuestionTextAr": "مثلث قاعدته 14 سم وارتفاعه العمودي 5 سم وطول أحد أضلاعه الأخرى 12 سم. ما مساحته بالسم²؟",
+      "QuestionTextEn": "A triangle has a base of 14 cm, a perpendicular height of 5 cm, and another side of 12 cm. What is its area in cm²?",
+      "DetailedSolutionAr": "نستخدم الارتفاع العمودي لا الضلع الآخر؛ المساحة = 14 × 5 ÷ 2 = 35.",
+      "DetailedSolutionEn": "Use the perpendicular height, not the other side: 14 × 5 ÷ 2 = 35.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "30",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "35",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "60",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "84",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "interpret_evaluate",
+      "CognitiveType": "irrelevant-data",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank2-p-triangle-diagonal",
+      "StageId": 1,
+      "PrimarySkillKey": "primary-triangle-area",
+      "TemplateFamilyKey": "concept-p-triangle-diagonal",
+      "LearningObjectiveAr": "إدراك أن القطر يقسم المستطيل إلى مثلثين متساويي المساحة",
+      "LearningObjectiveEn": "Use a rectangle diagonal to find triangle area",
+      "QuestionTextAr": "مستطيل أبعاده 10 سم و6 سم، قُسم بقطر إلى مثلثين. ما مساحة أحد المثلثين بالسم²؟",
+      "QuestionTextEn": "A 10 cm by 6 cm rectangle is split into two triangles by a diagonal. What is the area of either triangle in cm²?",
+      "DetailedSolutionAr": "مساحة المستطيل 10 × 6 = 60، والقطر يقسمها بالتساوي، إذن 30.",
+      "DetailedSolutionEn": "The rectangle area is 10 × 6 = 60. A diagonal halves it, giving 30.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "16",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "30",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "32",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "60",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "interpret_evaluate",
+      "CognitiveType": "area-decomposition",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank2-p-percent-ten",
+      "StageId": 1,
+      "PrimarySkillKey": "p-fractions-decimals-basic-percentages",
+      "TemplateFamilyKey": "concept-p-percent-ten",
+      "LearningObjectiveAr": "حساب عشرة بالمئة ذهنياً",
+      "LearningObjectiveEn": "Find ten percent mentally",
+      "QuestionTextAr": "كم تساوي 10% من 340؟",
+      "QuestionTextEn": "What is 10% of 340?",
+      "DetailedSolutionAr": "10% تعني العشر، و340 ÷ 10 = 34.",
+      "DetailedSolutionEn": "Ten percent is one tenth, and 340 ÷ 10 = 34.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "3.4",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "30",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "34",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "340",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 1,
+      "PisaProcess": "employ",
+      "CognitiveType": "unit-fraction",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank2-p-percent-five",
+      "StageId": 1,
+      "PrimarySkillKey": "p-fractions-decimals-basic-percentages",
+      "TemplateFamilyKey": "concept-p-percent-five",
+      "LearningObjectiveAr": "ربط خمسة بالمئة بنصف العشرة بالمئة",
+      "LearningObjectiveEn": "Find five percent using ten percent",
+      "QuestionTextAr": "يعرف طالب أن 10% من العدد 260 تساوي 26. فكم تساوي 5% من العدد نفسه؟",
+      "QuestionTextEn": "A pupil knows that 10% of 260 is 26. What is 5% of the same amount?",
+      "DetailedSolutionAr": "10% من 260 يساوي 26، و5% نصفه، أي 13.",
+      "DetailedSolutionEn": "10% of 260 is 26. Five percent is half of that, or 13.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "5",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "13",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "26",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "52",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 2,
+      "PisaProcess": "employ",
+      "CognitiveType": "mental-strategy",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank2-p-percent-share",
+      "StageId": 1,
+      "PrimarySkillKey": "p-fractions-decimals-basic-percentages",
+      "TemplateFamilyKey": "concept-p-percent-share",
+      "LearningObjectiveAr": "تحويل حصة من الكل إلى نسبة مئوية",
+      "LearningObjectiveEn": "Convert a part of a whole to a percentage",
+      "QuestionTextAr": "اختار 30 طالباً الرياضيات من بين 120 طالباً. ما نسبتهم المئوية؟",
+      "QuestionTextEn": "30 out of 120 pupils chose mathematics. What percentage is that?",
+      "DetailedSolutionAr": "النسبة = 30 ÷ 120 = 1/4 = 25%.",
+      "DetailedSolutionEn": "The share is 30 ÷ 120 = 1/4 = 25%.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "20%",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "25%",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "30%",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "40%",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 2,
+      "PisaProcess": "formulate",
+      "CognitiveType": "part-whole",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank2-p-percent-discount-amount",
+      "StageId": 1,
+      "PrimarySkillKey": "p-fractions-decimals-basic-percentages",
+      "TemplateFamilyKey": "concept-p-percent-discount-amount",
+      "LearningObjectiveAr": "تحديد مقدار الخصم لا السعر النهائي",
+      "LearningObjectiveEn": "Distinguish discount amount from final price",
+      "QuestionTextAr": "سعر حقيبة 80 وحدة نقدية. إذا كان الخصم 25%، فما **قيمة الخصم**؟",
+      "QuestionTextEn": "A bag costs 80 units of currency. With a 25% discount, what is the **discount amount**?",
+      "DetailedSolutionAr": "25% = ربع، وقيمة الخصم 80 ÷ 4 = 20. السعر النهائي 60 لكنه غير مطلوب.",
+      "DetailedSolutionEn": "Twenty-five percent is a quarter: 80 ÷ 4 = 20 discount. The final price, 60, is not asked for.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "15",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "20",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "25",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "60",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "interpret_evaluate",
+      "CognitiveType": "context-distinction",
+      "Points": 10,
+      "ExpertReview": "pending"
+    }
+  ]
+}
