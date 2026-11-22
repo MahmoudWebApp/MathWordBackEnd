@@ -79,6 +79,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 // 3. Register application services
 // ============================================================================
 
+// Cache non-personal, aggregated public statistics briefly to reduce DB round trips.
+builder.Services.AddMemoryCache();
 builder.Services.AddScoped<ProblemCategoryAccessService>();
 builder.Services.AddScoped<PlatformActivityAuditWriter>();
 // Lightweight SSE invalidation; per-process only, with polling as fallback.
