@@ -173,11 +173,19 @@ def main():
             lambda _: submit(users[0], question_id, correct_option),
             range(2)
         ))
-    assert all(code == 200 for code, _ in attempts), attempts
-    answers = [body["Data"] for _, body in attempts]
-    assert sorted(x["AttemptNumber"] for x in answers) == [1, 2], answers
-    assert sorted(x["PointsEarned"] for x in answers) == [0, 10], answers
-    assert sum(bool(x["IsOfficialAttempt"]) for x in answers) == 1, answers
+    assert sorted(code for code, _ in attempts) == [200, 409], attempts
+    accepted = [body["Data"] for code, body in attempts if code == 200]
+    assert accepted[0]["PointsEarned"] == 10 and accepted[0]["IsSolved"]
+    assert accepted[0]["IsOfficialAttempt"], accepted
+    # Only a whole-topic or stage restart can replay a solved question.
+    reset = expect("POST", "/api/users/practice/reset", 200,
+                   {"StageId": 1, "CategoryId": 1}, users[0])
+    assert reset["ResetSolved"] == 1, reset
+    assert solved_count(admin, question_id) == 0
+    status, replay = submit(users[0], question_id, correct_option)
+    assert status == 200 and replay["Data"]["IsSolved"], (status, replay)
+    assert replay["Data"]["AttemptNumber"] == 2, replay
+    assert solved_count(admin, question_id) == 1
 
     with concurrent.futures.ThreadPoolExecutor(max_workers=2) as pool:
         other_attempts = list(pool.map(
@@ -211,7 +219,7 @@ def main():
            {"ProblemId": favorite_id, "IsFavorite": True}, users[0])
     expect("DELETE", f"/api/admin/problems/{favorite_id}", 409, token=admin)
     verify_diverse_category_paging(admin, users[0])
-    print("PASS: same-user concurrency, atomic solves, history, CRUD guards")
+    print("PASS: atomic solves, solved replay denied, topic reset, immutable attempts")
 
 
 if __name__ == "__main__":
