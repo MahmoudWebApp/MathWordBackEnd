@@ -188,6 +188,20 @@ using (var archive = new ZipArchive(new MemoryStream(xlsx), ZipArchiveMode.Read)
     })
         Assert(archive.GetEntry(name) is not null, "XLSX archive is missing " + name);
 
+    foreach (var name in new[] {
+        "xl/worksheets/_rels/sheet1.xml.rels",
+        "xl/drawings/drawing2.xml", "xl/drawings/_rels/drawing2.xml.rels",
+        "xl/media/image1.png"
+    })
+        Assert(archive.GetEntry(name) is not null,
+            "The native workbook must embed the real MathWorld logo: " + name);
+    using (var image = archive.GetEntry("xl/media/image1.png")!.Open())
+    {
+        var header = new byte[8];
+        Assert(image.Read(header, 0, 8) == 8 &&
+               header.SequenceEqual(new byte[] { 137, 80, 78, 71, 13, 10, 26, 10 }),
+            "The embedded MathWorld logo must be a real PNG asset.");
+    }
     var sheet = XDocument.Load(archive.GetEntry("xl/worksheets/sheet1.xml")!.Open());
     XNamespace ns = "http://schemas.openxmlformats.org/spreadsheetml/2006/main";
     var userTextCell = sheet.Descendants(ns + "c")
@@ -200,7 +214,7 @@ using (var archive = new ZipArchive(new MemoryStream(xlsx), ZipArchiveMode.Read)
     Assert((string?)totalSeconds.Element(ns + "v") == "42",
         "Premium Excel totals must be exported as numeric cells.");
     var branded = sheet.Descendants(ns + "c")
-        .Single(x => (string?)x.Attribute("r") == "A1");
+        .Single(x => (string?)x.Attribute("r") == "C1");
     Assert(((string?)branded.Descendants(ns + "t").Single())?.Contains("MathWorld") == true,
         "Premium Excel report should prominently identify MathWorld.");
     Assert(sheet.Descendants(ns + "conditionalFormatting").Count() >= 2,
