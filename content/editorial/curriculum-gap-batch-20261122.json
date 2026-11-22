@@ -91,7 +91,7 @@
               "LatexCode": "600,000"
             }
           ],
-          "pisaProcess": "interpret"
+          "pisaProcess": "interpret_evaluate"
         },
         {
           "contentKey": "mw-20261122-p-number-sense-expanded-form",
@@ -161,7 +161,7 @@
               "LatexCode": "لا يمكن المقارنة"
             }
           ],
-          "pisaProcess": "interpret"
+          "pisaProcess": "interpret_evaluate"
         },
         {
           "contentKey": "mw-20261122-p-number-sense-round-to-hundred",
@@ -512,7 +512,7 @@
               "IsCorrect": false
             }
           ],
-          "pisaProcess": "interpret"
+          "pisaProcess": "interpret_evaluate"
         },
         {
           "contentKey": "mw-20261122-m-integers-rationals-abs-distance",
@@ -547,7 +547,7 @@
               "LatexCode": "−18"
             }
           ],
-          "pisaProcess": "interpret"
+          "pisaProcess": "interpret_evaluate"
         },
         {
           "contentKey": "mw-20261122-m-integers-rationals-rational-add",
@@ -863,7 +863,7 @@
               "LatexCode": "20 ساعة"
             }
           ],
-          "pisaProcess": "interpret"
+          "pisaProcess": "interpret_evaluate"
         },
         {
           "contentKey": "mw-20261122-s-exponents-logarithms-factor-decay",
@@ -898,7 +898,7 @@
               "LatexCode": "30%"
             }
           ],
-          "pisaProcess": "interpret"
+          "pisaProcess": "interpret_evaluate"
         },
         {
           "contentKey": "mw-20261122-s-exponents-logarithms-rate-growth",
@@ -933,7 +933,7 @@
               "LatexCode": "103%"
             }
           ],
-          "pisaProcess": "interpret"
+          "pisaProcess": "interpret_evaluate"
         },
         {
           "contentKey": "mw-20261122-s-exponents-logarithms-exp-sequence",
@@ -968,7 +968,7 @@
               "LatexCode": "تغير خطي بمقدار 6"
             }
           ],
-          "pisaProcess": "interpret"
+          "pisaProcess": "interpret_evaluate"
         }
       ]
     },
@@ -1214,7 +1214,7 @@
               "LatexCode": "يصبح الربع"
             }
           ],
-          "pisaProcess": "interpret"
+          "pisaProcess": "interpret_evaluate"
         },
         {
           "contentKey": "mw-20261122-u-math-statistics-p-value",
@@ -1249,7 +1249,7 @@
               "LatexCode": "لا يمكن اتخاذ قرار"
             }
           ],
-          "pisaProcess": "interpret"
+          "pisaProcess": "interpret_evaluate"
         },
         {
           "contentKey": "mw-20261122-u-math-statistics-type-one",
@@ -1284,7 +1284,7 @@
               "LatexCode": "عدم رفض فرضية صفرية صحيحة"
             }
           ],
-          "pisaProcess": "interpret"
+          "pisaProcess": "interpret_evaluate"
         }
       ]
     }
