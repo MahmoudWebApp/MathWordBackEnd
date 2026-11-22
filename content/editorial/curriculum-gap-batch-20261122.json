@@ -60,7 +60,7 @@
           "contentKey": "mw-20261122-primary-place-value-estimation-digit-value",
           "primarySkillKey": 0,
           "templateFamilyKey": "primary-place-value-estimation-digit-value",
-          "difficultyLevel": "interpret",
+          "difficultyLevel": 1,
           "titleAr": "قيمة رقم في عدد",
           "titleEn": "Value of a digit",
           "questionTextAr": "في العدد 462,915، ما قيمة الرقم 6؟",
@@ -88,13 +88,14 @@
               "IsCorrect": false,
               "LatexCode": "600,000"
             }
-          ]
+          ],
+          "pisaProcess": "interpret"
         },
         {
           "contentKey": "mw-20261122-primary-place-value-estimation-expanded-form",
           "primarySkillKey": 0,
           "templateFamilyKey": "primary-place-value-estimation-expanded-form",
-          "difficultyLevel": "employ",
+          "difficultyLevel": 2,
           "titleAr": "الصيغة الموسعة",
           "titleEn": "Expanded form",
           "questionTextAr": "ما العدد الناتج من 70,000 + 500 + 40 + 3؟",
@@ -122,13 +123,14 @@
               "IsCorrect": false,
               "LatexCode": "70,053"
             }
-          ]
+          ],
+          "pisaProcess": "employ"
         },
         {
           "contentKey": "mw-20261122-primary-place-value-estimation-compare-numbers",
           "primarySkillKey": 0,
           "templateFamilyKey": "primary-place-value-estimation-compare-numbers",
-          "difficultyLevel": "interpret",
+          "difficultyLevel": 2,
           "titleAr": "المقارنة بين عددين",
           "titleEn": "Compare whole numbers",
           "questionTextAr": "أيهما أكبر: 58,209 أم 58,290؟",
@@ -156,13 +158,14 @@
               "IsCorrect": false,
               "LatexCode": "لا يمكن المقارنة"
             }
-          ]
+          ],
+          "pisaProcess": "interpret"
         },
         {
           "contentKey": "mw-20261122-primary-place-value-estimation-round-to-hundred",
           "primarySkillKey": 1,
           "templateFamilyKey": "primary-place-value-estimation-round-to-hundred",
-          "difficultyLevel": "employ",
+          "difficultyLevel": 2,
           "titleAr": "التقريب لأقرب مئة",
           "titleEn": "Round to nearest hundred",
           "questionTextAr": "قرّب العدد 37,648 إلى أقرب مئة.",
@@ -190,13 +193,14 @@
               "IsCorrect": false,
               "LatexCode": "38,000"
             }
-          ]
+          ],
+          "pisaProcess": "employ"
         },
         {
           "contentKey": "mw-20261122-primary-place-value-estimation-round-to-thousand",
           "primarySkillKey": 1,
           "templateFamilyKey": "primary-place-value-estimation-round-to-thousand",
-          "difficultyLevel": "employ",
+          "difficultyLevel": 2,
           "titleAr": "التقريب لأقرب ألف",
           "titleEn": "Round to nearest thousand",
           "questionTextAr": "قرّب 9,650 إلى أقرب ألف.",
@@ -224,13 +228,14 @@
               "IsCorrect": false,
               "LatexCode": "9,700"
             }
-          ]
+          ],
+          "pisaProcess": "employ"
         },
         {
           "contentKey": "mw-20261122-primary-place-value-estimation-estimate-sum",
           "primarySkillKey": 2,
           "templateFamilyKey": "primary-place-value-estimation-estimate-sum",
-          "difficultyLevel": "formulate",
+          "difficultyLevel": 2,
           "titleAr": "تقدير مجموع",
           "titleEn": "Estimate a total",
           "questionTextAr": "لتقدير 392 + 614 بالتقريب إلى أقرب مئة لكل عدد، ما الناتج؟",
@@ -258,13 +263,14 @@
               "IsCorrect": true,
               "LatexCode": "1,000"
             }
-          ]
+          ],
+          "pisaProcess": "formulate"
         },
         {
           "contentKey": "mw-20261122-primary-place-value-estimation-estimate-difference",
           "primarySkillKey": 2,
           "templateFamilyKey": "primary-place-value-estimation-estimate-difference",
-          "difficultyLevel": "formulate",
+          "difficultyLevel": 3,
           "titleAr": "تقدير فرق",
           "titleEn": "Estimate a difference",
           "questionTextAr": "قدّر 1,508 − 692 بتقريب كل عدد لأقرب مئة.",
@@ -292,13 +298,14 @@
               "IsCorrect": false,
               "LatexCode": "816"
             }
-          ]
+          ],
+          "pisaProcess": "formulate"
         },
         {
           "contentKey": "mw-20261122-primary-place-value-estimation-forty-hundreds",
           "primarySkillKey": 0,
           "templateFamilyKey": "primary-place-value-estimation-forty-hundreds",
-          "difficultyLevel": "employ",
+          "difficultyLevel": 1,
           "titleAr": "تجميع المئات",
           "titleEn": "Counting groups of hundreds",
           "questionTextAr": "كم يساوي أربعون مجموعة من مئة؟",
@@ -326,7 +333,8 @@
               "IsCorrect": false,
               "LatexCode": "440"
             }
-          ]
+          ],
+          "pisaProcess": "employ"
         }
       ]
     },
@@ -368,7 +376,7 @@
           "contentKey": "mw-20261122-middle-signed-rational-numbers-signed-temperature",
           "primarySkillKey": 0,
           "templateFamilyKey": "middle-signed-rational-numbers-signed-temperature",
-          "difficultyLevel": "formulate",
+          "difficultyLevel": 1,
           "titleAr": "التغير في الحرارة",
           "titleEn": "Temperature change",
           "questionTextAr": "كانت الحرارة −7 درجات ثم ارتفعت 12 درجة. كم أصبحت؟",
@@ -396,13 +404,14 @@
               "IsCorrect": false,
               "LatexCode": "19"
             }
-          ]
+          ],
+          "pisaProcess": "formulate"
         },
         {
           "contentKey": "mw-20261122-middle-signed-rational-numbers-subtract-negative",
           "primarySkillKey": 0,
           "templateFamilyKey": "middle-signed-rational-numbers-subtract-negative",
-          "difficultyLevel": "employ",
+          "difficultyLevel": 2,
           "titleAr": "طرح عدد سالب",
           "titleEn": "Subtracting a negative",
           "questionTextAr": "احسب −4 − (−9).",
@@ -430,13 +439,14 @@
               "IsCorrect": false,
               "LatexCode": "13"
             }
-          ]
+          ],
+          "pisaProcess": "employ"
         },
         {
           "contentKey": "mw-20261122-middle-signed-rational-numbers-product-negatives",
           "primarySkillKey": 0,
           "templateFamilyKey": "middle-signed-rational-numbers-product-negatives",
-          "difficultyLevel": "employ",
+          "difficultyLevel": 2,
           "titleAr": "ضرب عددين سالبين",
           "titleEn": "Multiplying negatives",
           "questionTextAr": "احسب (−3)×(−8).",
@@ -464,13 +474,14 @@
               "IsCorrect": false,
               "LatexCode": "−11"
             }
-          ]
+          ],
+          "pisaProcess": "employ"
         },
         {
           "contentKey": "mw-20261122-middle-signed-rational-numbers-signed-division",
           "primarySkillKey": 0,
           "templateFamilyKey": "middle-signed-rational-numbers-signed-division",
-          "difficultyLevel": "employ",
+          "difficultyLevel": 2,
           "titleAr": "قسمة الموقّعات",
           "titleEn": "Division with signs",
           "questionTextAr": "احسب (−24)÷6.",
@@ -498,13 +509,14 @@
               "IsCorrect": false,
               "LatexCode": "6"
             }
-          ]
+          ],
+          "pisaProcess": "employ"
         },
         {
           "contentKey": "mw-20261122-middle-signed-rational-numbers-abs-distance",
           "primarySkillKey": 1,
           "templateFamilyKey": "middle-signed-rational-numbers-abs-distance",
-          "difficultyLevel": "interpret",
+          "difficultyLevel": 2,
           "titleAr": "المسافة عن الصفر",
           "titleEn": "Distance from zero",
           "questionTextAr": "احسب |−13| − |5|.",
@@ -532,13 +544,14 @@
               "IsCorrect": false,
               "LatexCode": "−18"
             }
-          ]
+          ],
+          "pisaProcess": "interpret"
         },
         {
           "contentKey": "mw-20261122-middle-signed-rational-numbers-rational-add",
           "primarySkillKey": 2,
           "templateFamilyKey": "middle-signed-rational-numbers-rational-add",
-          "difficultyLevel": "employ",
+          "difficultyLevel": 2,
           "titleAr": "جمع الكسور الموقعة",
           "titleEn": "Adding signed fractions",
           "questionTextAr": "احسب −3/4 + 1/2.",
@@ -566,13 +579,14 @@
               "IsCorrect": false,
               "LatexCode": "−1/2"
             }
-          ]
+          ],
+          "pisaProcess": "employ"
         },
         {
           "contentKey": "mw-20261122-middle-signed-rational-numbers-rational-subtract",
           "primarySkillKey": 2,
           "templateFamilyKey": "middle-signed-rational-numbers-rational-subtract",
-          "difficultyLevel": "employ",
+          "difficultyLevel": 3,
           "titleAr": "طرح الكسور الموقعة",
           "titleEn": "Subtracting signed fractions",
           "questionTextAr": "احسب −5/6 − 1/3.",
@@ -600,13 +614,14 @@
               "IsCorrect": false,
               "LatexCode": "7/6"
             }
-          ]
+          ],
+          "pisaProcess": "employ"
         },
         {
           "contentKey": "mw-20261122-middle-signed-rational-numbers-signed-decimals",
           "primarySkillKey": 2,
           "templateFamilyKey": "middle-signed-rational-numbers-signed-decimals",
-          "difficultyLevel": "employ",
+          "difficultyLevel": 2,
           "titleAr": "جمع أعداد عشرية موقعة",
           "titleEn": "Adding signed decimals",
           "questionTextAr": "ما ناتج −2.5 + 1.75؟",
@@ -634,7 +649,8 @@
               "IsCorrect": true,
               "LatexCode": "−0.75"
             }
-          ]
+          ],
+          "pisaProcess": "employ"
         }
       ]
     },
@@ -676,7 +692,7 @@
           "contentKey": "mw-20261122-secondary-exponential-modelling-population-growth",
           "primarySkillKey": 0,
           "templateFamilyKey": "secondary-exponential-modelling-population-growth",
-          "difficultyLevel": "employ",
+          "difficultyLevel": 2,
           "titleAr": "تزايد عدد السكان",
           "titleEn": "Population growth",
           "questionTextAr": "يُعطى عدد أفراد مستعمرة بالدالة P(t)=250×(1.2)^t. ما P(2)؟",
@@ -704,13 +720,14 @@
               "IsCorrect": false,
               "LatexCode": "250"
             }
-          ]
+          ],
+          "pisaProcess": "employ"
         },
         {
           "contentKey": "mw-20261122-secondary-exponential-modelling-doubling",
           "primarySkillKey": 0,
           "templateFamilyKey": "secondary-exponential-modelling-doubling",
-          "difficultyLevel": "formulate",
+          "difficultyLevel": 2,
           "titleAr": "تضاعف الكمية",
           "titleEn": "Doubling process",
           "questionTextAr": "يبدأ عدد البكتيريا بـ80 ويتضاعف كل ساعة. كم يصبح بعد 3 ساعات؟",
@@ -738,13 +755,14 @@
               "IsCorrect": false,
               "LatexCode": "480"
             }
-          ]
+          ],
+          "pisaProcess": "formulate"
         },
         {
           "contentKey": "mw-20261122-secondary-exponential-modelling-compound-interest",
           "primarySkillKey": 0,
           "templateFamilyKey": "secondary-exponential-modelling-compound-interest",
-          "difficultyLevel": "formulate",
+          "difficultyLevel": 3,
           "titleAr": "فائدة مركبة",
           "titleEn": "Compound growth",
           "questionTextAr": "مبلغ 2,000 ينمو بمعدل 10% سنوياً دون سحب. كم يصبح بعد سنتين؟",
@@ -772,13 +790,14 @@
               "IsCorrect": false,
               "LatexCode": "2,600"
             }
-          ]
+          ],
+          "pisaProcess": "formulate"
         },
         {
           "contentKey": "mw-20261122-secondary-exponential-modelling-decay-two-periods",
           "primarySkillKey": 1,
           "templateFamilyKey": "secondary-exponential-modelling-decay-two-periods",
-          "difficultyLevel": "employ",
+          "difficultyLevel": 2,
           "titleAr": "تناقص نسبة سنوية",
           "titleEn": "Percentage decay",
           "questionTextAr": "كم تبقى من 1,200 بعد تناقص 10% سنوياً لمدة سنتين؟",
@@ -806,13 +825,14 @@
               "IsCorrect": false,
               "LatexCode": "980"
             }
-          ]
+          ],
+          "pisaProcess": "employ"
         },
         {
           "contentKey": "mw-20261122-secondary-exponential-modelling-half-life",
           "primarySkillKey": 1,
           "templateFamilyKey": "secondary-exponential-modelling-half-life",
-          "difficultyLevel": "interpret",
+          "difficultyLevel": 3,
           "titleAr": "حساب نصف العمر",
           "titleEn": "Half-life reasoning",
           "questionTextAr": "كتلة 640 غراماً نصف عمرها 4 ساعات. متى تصبح 80 غراماً؟",
@@ -840,13 +860,14 @@
               "IsCorrect": false,
               "LatexCode": "20 ساعة"
             }
-          ]
+          ],
+          "pisaProcess": "interpret"
         },
         {
           "contentKey": "mw-20261122-secondary-exponential-modelling-factor-decay",
           "primarySkillKey": 1,
           "templateFamilyKey": "secondary-exponential-modelling-factor-decay",
-          "difficultyLevel": "interpret",
+          "difficultyLevel": 2,
           "titleAr": "تفسير معامل التناقص",
           "titleEn": "Interpret decay factor",
           "questionTextAr": "إذا كانت Q(t)=200×(0.7)^t، فما نسبة النقص في كل فترة؟",
@@ -874,13 +895,14 @@
               "IsCorrect": true,
               "LatexCode": "30%"
             }
-          ]
+          ],
+          "pisaProcess": "interpret"
         },
         {
           "contentKey": "mw-20261122-secondary-exponential-modelling-rate-growth",
           "primarySkillKey": 2,
           "templateFamilyKey": "secondary-exponential-modelling-rate-growth",
-          "difficultyLevel": "interpret",
+          "difficultyLevel": 1,
           "titleAr": "تفسير معدل النمو",
           "titleEn": "Interpret growth rate",
           "questionTextAr": "ما نسبة النمو لكل فترة في N(t)=450×(1.03)^t؟",
@@ -908,13 +930,14 @@
               "IsCorrect": false,
               "LatexCode": "103%"
             }
-          ]
+          ],
+          "pisaProcess": "interpret"
         },
         {
           "contentKey": "mw-20261122-secondary-exponential-modelling-exp-sequence",
           "primarySkillKey": 2,
           "templateFamilyKey": "secondary-exponential-modelling-exp-sequence",
-          "difficultyLevel": "interpret",
+          "difficultyLevel": 2,
           "titleAr": "تمييز النمو الأسي",
           "titleEn": "Recognize geometric growth",
           "questionTextAr": "أي نمط يصف المتتالية 2، 6، 18، 54؟",
@@ -942,7 +965,8 @@
               "IsCorrect": false,
               "LatexCode": "تغير خطي بمقدار 6"
             }
-          ]
+          ],
+          "pisaProcess": "interpret"
         }
       ]
     },
@@ -984,7 +1008,7 @@
           "contentKey": "mw-20261122-university-statistical-inference-z-score",
           "primarySkillKey": 0,
           "templateFamilyKey": "university-statistical-inference-z-score",
-          "difficultyLevel": "employ",
+          "difficultyLevel": 2,
           "titleAr": "الدرجة المعيارية",
           "titleEn": "Standard score",
           "questionTextAr": "في مجتمع متوسطه 70 وانحرافه المعياري 6، ما الدرجة المعيارية للقيمة 82؟",
@@ -1012,13 +1036,14 @@
               "IsCorrect": false,
               "LatexCode": "−2"
             }
-          ]
+          ],
+          "pisaProcess": "employ"
         },
         {
           "contentKey": "mw-20261122-university-statistical-inference-standard-error",
           "primarySkillKey": 0,
           "templateFamilyKey": "university-statistical-inference-standard-error",
-          "difficultyLevel": "employ",
+          "difficultyLevel": 2,
           "titleAr": "الخطأ المعياري للمتوسط",
           "titleEn": "Standard error of mean",
           "questionTextAr": "إذا كان σ=15 وحجم العينة n=25، فما الخطأ المعياري للمتوسط؟",
@@ -1046,13 +1071,14 @@
               "IsCorrect": false,
               "LatexCode": "15"
             }
-          ]
+          ],
+          "pisaProcess": "employ"
         },
         {
           "contentKey": "mw-20261122-university-statistical-inference-sample-proportion",
           "primarySkillKey": 0,
           "templateFamilyKey": "university-statistical-inference-sample-proportion",
-          "difficultyLevel": "formulate",
+          "difficultyLevel": 1,
           "titleAr": "نسبة العينة",
           "titleEn": "Sample proportion",
           "questionTextAr": "نجح 18 طالباً من عينة حجمها 30. ما النسبة المشاهدة للنجاح؟",
@@ -1080,13 +1106,14 @@
               "IsCorrect": false,
               "LatexCode": "0.8"
             }
-          ]
+          ],
+          "pisaProcess": "formulate"
         },
         {
           "contentKey": "mw-20261122-university-statistical-inference-mean-confidence",
           "primarySkillKey": 1,
           "templateFamilyKey": "university-statistical-inference-mean-confidence",
-          "difficultyLevel": "employ",
+          "difficultyLevel": 3,
           "titleAr": "فترة الثقة للمتوسط",
           "titleEn": "Mean confidence interval",
           "questionTextAr": "متوسط عينة 100، والانحراف المعياري للمجتمع 10، وحجم العينة 100. بافتراض النموذج الطبيعي، ما فترة الثقة 95% باستخدام z=1.96؟",
@@ -1114,13 +1141,14 @@
               "IsCorrect": false,
               "LatexCode": "[96,104]"
             }
-          ]
+          ],
+          "pisaProcess": "employ"
         },
         {
           "contentKey": "mw-20261122-university-statistical-inference-ci-margin",
           "primarySkillKey": 1,
           "templateFamilyKey": "university-statistical-inference-ci-margin",
-          "difficultyLevel": "employ",
+          "difficultyLevel": 2,
           "titleAr": "هامش الخطأ",
           "titleEn": "Margin of error",
           "questionTextAr": "عند σ=8 وn=64 وz=1.96، ما هامش الخطأ لفترة ثقة طبيعية؟",
@@ -1148,13 +1176,14 @@
               "IsCorrect": false,
               "LatexCode": "15.68"
             }
-          ]
+          ],
+          "pisaProcess": "employ"
         },
         {
           "contentKey": "mw-20261122-university-statistical-inference-sample-size-ci",
           "primarySkillKey": 1,
           "templateFamilyKey": "university-statistical-inference-sample-size-ci",
-          "difficultyLevel": "interpret",
+          "difficultyLevel": 3,
           "titleAr": "أثر حجم العينة على الدقة",
           "titleEn": "Sample size and precision",
           "questionTextAr": "مع ثبات الانحراف المعياري ومستوى الثقة، ماذا يحدث لعرض فترة الثقة إذا زاد حجم العينة 4 مرات؟",
@@ -1182,13 +1211,14 @@
               "IsCorrect": false,
               "LatexCode": "يصبح الربع"
             }
-          ]
+          ],
+          "pisaProcess": "interpret"
         },
         {
           "contentKey": "mw-20261122-university-statistical-inference-p-value",
           "primarySkillKey": 2,
           "templateFamilyKey": "university-statistical-inference-p-value",
-          "difficultyLevel": "interpret",
+          "difficultyLevel": 2,
           "titleAr": "قرار اختبار الفرضية",
           "titleEn": "Hypothesis-test decision",
           "questionTextAr": "إذا كانت قيمة p=0.02 ومستوى الدلالة α=0.05، فما القرار الصحيح؟",
@@ -1216,13 +1246,14 @@
               "IsCorrect": false,
               "LatexCode": "لا يمكن اتخاذ قرار"
             }
-          ]
+          ],
+          "pisaProcess": "interpret"
         },
         {
           "contentKey": "mw-20261122-university-statistical-inference-type-one",
           "primarySkillKey": 2,
           "templateFamilyKey": "university-statistical-inference-type-one",
-          "difficultyLevel": "interpret",
+          "difficultyLevel": 2,
           "titleAr": "الخطأ من النوع الأول",
           "titleEn": "Type I error",
           "questionTextAr": "ما المقصود بخطأ النوع الأول في اختبار الفرضيات؟",
@@ -1250,7 +1281,8 @@
               "IsCorrect": false,
               "LatexCode": "عدم رفض فرضية صفرية صحيحة"
             }
-          ]
+          ],
+          "pisaProcess": "interpret"
         }
       ]
     }
