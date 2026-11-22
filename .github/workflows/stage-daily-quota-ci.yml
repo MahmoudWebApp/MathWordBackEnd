@@ -10,6 +10,11 @@ on:
     paths:
       - 'Program.cs'
       - 'Controllers/StageDailyQuotaController.cs'
+      - 'Controllers/StageCategoryAccessController.cs'
+      - 'Controllers/AdminStageFreeCategoriesController.cs'
+      - 'Controllers/CategoriesController.cs'
+      - 'Services/ProblemCategoryAccessService.cs'
+      - 'Services/CategoryAccessPolicy.cs'
       - 'Controllers/AdminController.cs'
       - 'Controllers/ProblemsController.cs'
       - 'Services/StageDailyQuota.cs'
