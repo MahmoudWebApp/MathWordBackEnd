@@ -361,8 +361,8 @@
       "TemplateFamilyKey": "concept-p-percent-five",
       "LearningObjectiveAr": "ربط خمسة بالمئة بنصف العشرة بالمئة",
       "LearningObjectiveEn": "Find five percent using ten percent",
-      "QuestionTextAr": "كم تساوي 5% من 260؟",
-      "QuestionTextEn": "What is 5% of 260?",
+      "QuestionTextAr": "يعرف طالب أن 10% من العدد 260 تساوي 26. فكم تساوي 5% من العدد نفسه؟",
+      "QuestionTextEn": "A pupil knows that 10% of 260 is 26. What is 5% of the same amount?",
       "DetailedSolutionAr": "10% من 260 يساوي 26، و5% نصفه، أي 13.",
       "DetailedSolutionEn": "10% of 260 is 26. Five percent is half of that, or 13.",
       "Options": [
