@@ -1,0 +1,319 @@
+{
+  "batch_key": "mathworld-bank4-upper-secondary",
+  "status": "editorial_pending",
+  "stage": 3,
+  "problems": [
+    {
+      "ContentKey": "mw-bank4-s-quadratic-repeated-root",
+      "StageId": 3,
+      "PrimarySkillKey": "secondary-quadratic-roots",
+      "TemplateFamilyKey": "concept-s-quadratic-repeated-root",
+      "LearningObjectiveAr": "تمييز الجذر المكرر من التحليل",
+      "LearningObjectiveEn": "Recognize a repeated quadratic root",
+      "QuestionTextAr": "أوجد الجذر الحقيقي للمعادلة x² − 10x + 25 = 0.",
+      "QuestionTextEn": "Find the real root of x² − 10x + 25 = 0.",
+      "DetailedSolutionAr": "نحلل إلى (x−5)²=0، فالجذر x=5 مكرر مرتين.",
+      "DetailedSolutionEn": "Factor as (x−5)²=0. The single distinct root is x=5, repeated twice.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "-5",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "0",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "5",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "10",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "CognitiveType": "repeated-root",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank4-s-quadratic-nonmonic",
+      "StageId": 3,
+      "PrimarySkillKey": "secondary-quadratic-roots",
+      "TemplateFamilyKey": "concept-s-quadratic-nonmonic",
+      "LearningObjectiveAr": "حل معادلة تربيعية معاملها الرئيسي لا يساوي الواحد",
+      "LearningObjectiveEn": "Solve a quadratic whose leading coefficient is not one",
+      "QuestionTextAr": "ما جذرا المعادلة 2x² − 7x + 3 = 0؟",
+      "QuestionTextEn": "What are the roots of 2x² − 7x + 3 = 0?",
+      "DetailedSolutionAr": "نحلل (2x−1)(x−3)=0، ومنه الجذران x=1/2 وx=3.",
+      "DetailedSolutionEn": "Factor (2x−1)(x−3)=0. The roots are x=1/2 and x=3.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\{3,\\frac12\\}",
+          "IsCorrect": true
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\{3,-\\frac12\\}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "\\{-3,\\frac12\\}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "\\{1,3\\}",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "CognitiveType": "nonmonic-factorization",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank4-s-quadratic-area-model",
+      "StageId": 3,
+      "PrimarySkillKey": "secondary-quadratic-roots",
+      "TemplateFamilyKey": "concept-s-quadratic-area-model",
+      "LearningObjectiveAr": "اختيار الجذر الموجب في مسألة مساحة مستطيل",
+      "LearningObjectiveEn": "Select the physically meaningful root in an area model",
+      "QuestionTextAr": "مساحة مستطيل 48 سم² وطوله يزيد عن عرضه بمقدار 2 سم. كم عرضه بالسنتيمتر؟",
+      "QuestionTextEn": "A rectangle has area 48 cm² and its length is 2 cm more than its width. Find its width in centimeters.",
+      "DetailedSolutionAr": "ليكن العرض x والطول x+2. عندئذ x(x+2)=48 أي (x+8)(x−6)=0، فنرفض الجذر السالب −8 ونأخذ x=6.",
+      "DetailedSolutionEn": "Let width be x, length x+2. Then x(x+2)=48, so (x+8)(x−6)=0. Reject negative width −8; x=6.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "4",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "6",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "8",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "10",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "formulate",
+      "CognitiveType": "physical-root-selection",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank4-s-quadratic-no-real-roots",
+      "StageId": 3,
+      "PrimarySkillKey": "secondary-quadratic-roots",
+      "TemplateFamilyKey": "concept-s-quadratic-no-real-roots",
+      "LearningObjectiveAr": "تمييز المعادلات التربيعية التي لا تملك جذوراً حقيقية",
+      "LearningObjectiveEn": "Detect a quadratic with no real roots",
+      "QuestionTextAr": "كم جذر حقيقي للمعادلة x² + 4x + 8 = 0؟",
+      "QuestionTextEn": "How many real roots does x² + 4x + 8 = 0 have?",
+      "DetailedSolutionAr": "المميز Δ = 4² − 4×1×8 = −16، وهو سالب، فلا توجد جذور حقيقية.",
+      "DetailedSolutionEn": "The discriminant is 4² − 4×1×8 = −16 < 0, so there are no real roots.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "0",
+          "IsCorrect": true
+        },
+        {
+          "Order": 2,
+          "LatexCode": "1",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "2",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "4",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "interpret_evaluate",
+      "CognitiveType": "real-root-count",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank4-s-recurrence-arithmetic-decreasing",
+      "StageId": 3,
+      "PrimarySkillKey": "s-sequences-series-recurrence-relations",
+      "TemplateFamilyKey": "concept-s-recurrence-arithmetic-decreasing",
+      "LearningObjectiveAr": "متابعة علاقة تراجعية بفارق ثابت سالب",
+      "LearningObjectiveEn": "Evaluate a recurrence with a constant negative increment",
+      "QuestionTextAr": "متتالية تبدأ بـ a₁=7 وتحقق aₙ₊₁=aₙ−3. ما a₅؟",
+      "QuestionTextEn": "A sequence starts with a₁=7 and satisfies aₙ₊₁=aₙ−3. What is a₅?",
+      "DetailedSolutionAr": "الحدود هي 7، 4، 1، −2، −5؛ لذلك a₅=−5.",
+      "DetailedSolutionEn": "The terms are 7,4,1,−2,−5, so a₅=−5.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "-8",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "-5",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "-2",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "5",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 2,
+      "PisaProcess": "employ",
+      "CognitiveType": "negative-step-recurrence",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank4-s-recurrence-two-previous",
+      "StageId": 3,
+      "PrimarySkillKey": "s-sequences-series-recurrence-relations",
+      "TemplateFamilyKey": "concept-s-recurrence-two-previous",
+      "LearningObjectiveAr": "استخدام علاقة تراجعية تعتمد على الحدين السابقين",
+      "LearningObjectiveEn": "Use a two-step recurrence",
+      "QuestionTextAr": "لدينا a₁=1 وa₂=2 ولكل n≥1: ‏aₙ₊₂=aₙ₊₁+aₙ. ما قيمة a₅؟",
+      "QuestionTextEn": "Let a₁=1, a₂=2 and aₙ₊₂=aₙ₊₁+aₙ for n≥1. What is a₅?",
+      "DetailedSolutionAr": "نحسب a₃=3 ثم a₄=5 ثم a₅=8.",
+      "DetailedSolutionEn": "Compute a₃=3, a₄=5 and a₅=8.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "5",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "7",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "8",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "13",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "CognitiveType": "two-term-recursion",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank4-s-recurrence-nonlinear",
+      "StageId": 3,
+      "PrimarySkillKey": "s-sequences-series-recurrence-relations",
+      "TemplateFamilyKey": "concept-s-recurrence-nonlinear",
+      "LearningObjectiveAr": "تقييم علاقة تراجعية غير خطية",
+      "LearningObjectiveEn": "Compute successive terms of a nonlinear recurrence",
+      "QuestionTextAr": "إذا كانت a₁=1 وaₙ₊₁=aₙ²+1، فما قيمة a₄؟",
+      "QuestionTextEn": "If a₁=1 and aₙ₊₁=aₙ²+1, what is a₄?",
+      "DetailedSolutionAr": "نحسب a₂=1²+1=2، ثم a₃=2²+1=5، ثم a₄=5²+1=26.",
+      "DetailedSolutionEn": "Successively, a₂=2, a₃=5 and a₄=26.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "6",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "11",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "25",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "26",
+          "IsCorrect": true
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "CognitiveType": "nonlinear-recursion",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank4-s-recurrence-threshold",
+      "StageId": 3,
+      "PrimarySkillKey": "s-sequences-series-recurrence-relations",
+      "TemplateFamilyKey": "concept-s-recurrence-threshold",
+      "LearningObjectiveAr": "إيجاد أول رتبة تحقق متباينة في علاقة تراجعية",
+      "LearningObjectiveEn": "Find the first recurrence term above a threshold",
+      "QuestionTextAr": "إذا كانت a₁=2 وaₙ₊₁=3aₙ، فما **رقم أول حد** أكبر من 100؟",
+      "QuestionTextEn": "For a₁=2 and aₙ₊₁=3aₙ, what is the **index of the first term** greater than 100?",
+      "DetailedSolutionAr": "الحدود 2، 6، 18، 54، 162. الأول الذي يتجاوز 100 هو الحد الخامس.",
+      "DetailedSolutionEn": "The terms are 2,6,18,54,162. The first above 100 is the fifth term.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "3",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "4",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "5",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "6",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "interpret_evaluate",
+      "CognitiveType": "threshold-and-index",
+      "Points": 10,
+      "ExpertReview": "pending"
+    }
+  ]
+}

@@ -1,0 +1,943 @@
+{
+  "batch_key": "mathworld-bank4-university",
+  "status": "editorial_pending",
+  "stage": 4,
+  "problems": [
+    {
+      "ContentKey": "mw-bank4-u-ode-third-derivative",
+      "StageId": 4,
+      "PrimarySkillKey": "university-ode-order",
+      "TemplateFamilyKey": "concept-u-ode-third-derivative",
+      "LearningObjectiveAr": "تمييز أعلى مشتقة عند تحديد رتبة المعادلة",
+      "LearningObjectiveEn": "Identify an ODE's highest derivative",
+      "QuestionTextAr": "ما رتبة المعادلة التفاضلية y''' + 4y' + y = 0؟",
+      "QuestionTextEn": "What is the order of the differential equation y''' + 4y' + y = 0?",
+      "DetailedSolutionAr": "أعلى مشتقة موجودة هي المشتقة الثالثة y'''؛ لذلك رتبة المعادلة 3.",
+      "DetailedSolutionEn": "The highest derivative present is y''', the third derivative, so the equation is order 3.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "1",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "2",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "3",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "4",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 2,
+      "PisaProcess": "employ",
+      "CognitiveType": "highest-derivative",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank4-u-ode-degree-trap",
+      "StageId": 4,
+      "PrimarySkillKey": "university-ode-order",
+      "TemplateFamilyKey": "concept-u-ode-degree-trap",
+      "LearningObjectiveAr": "التفريق بين رتبة المعادلة ودرجة المشتقة",
+      "LearningObjectiveEn": "Distinguish equation order from derivative power",
+      "QuestionTextAr": "في المعادلة (y'')⁴ + y = 0، ما **الرتبة** وليس درجة أعلى مشتقة؟",
+      "QuestionTextEn": "For (y'')^4 + y = 0, what is the **order** of this equation, not the power of its highest derivative?",
+      "DetailedSolutionAr": "أعلى مشتقة هي y'' من الرتبة الثانية. رفعها للقوة 4 لا يجعل رتبة المعادلة 4.",
+      "DetailedSolutionEn": "The highest derivative is y'', which is second order. Raising it to power four does not change the order.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "1",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "2",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "4",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "8",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "interpret_evaluate",
+      "CognitiveType": "degree-vs-order",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank4-u-ode-nonlinear-first",
+      "StageId": 4,
+      "PrimarySkillKey": "university-ode-order",
+      "TemplateFamilyKey": "concept-u-ode-nonlinear-first",
+      "LearningObjectiveAr": "فهم أن القوى على الدالة نفسها لا تغيّر رتبة المشتقة",
+      "LearningObjectiveEn": "Recognize first order despite a nonlinear function term",
+      "QuestionTextAr": "ما رتبة المعادلة dy/dx = y⁵ + x؟",
+      "QuestionTextEn": "What is the order of dy/dx = y^5 + x?",
+      "DetailedSolutionAr": "تظهر المشتقة الأولى فقط dy/dx. الأس 5 على الدالة y وليس على ترتيب المشتقة؛ فالرتبة 1.",
+      "DetailedSolutionEn": "Only the first derivative dy/dx appears. The exponent 5 on y is not a derivative order; the ODE is first order.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "1",
+          "IsCorrect": true
+        },
+        {
+          "Order": 2,
+          "LatexCode": "2",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "5",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "6",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 2,
+      "PisaProcess": "interpret_evaluate",
+      "CognitiveType": "nonlinear-function",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank4-u-ode-identify-fourth",
+      "StageId": 4,
+      "PrimarySkillKey": "university-ode-order",
+      "TemplateFamilyKey": "concept-u-ode-identify-fourth",
+      "LearningObjectiveAr": "التمييز بين رتبة المشتقة وقوة المتغير عند اختيار معادلة",
+      "LearningObjectiveEn": "Select a fourth-order differential equation",
+      "QuestionTextAr": "أي المعادلات التالية رتبتها الرابعة؟",
+      "QuestionTextEn": "Which of the following differential equations has order four?",
+      "DetailedSolutionAr": "المعادلة y^(4)+y=0 تحوي المشتقة الرابعة، بينما باقي الخيارات أعلى مشتقة فيها من الرتبة الأولى إلى الثالثة.",
+      "DetailedSolutionEn": "The equation with y^(4) explicitly contains a fourth derivative. The others contain derivatives no higher than third order.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "y''+y^4=0",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "(y')^4+y=0",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "y^{(4)}+y=0",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "y'''+y=0",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "interpret_evaluate",
+      "CognitiveType": "equation-classification",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank4-u-series-geometric-sum",
+      "StageId": 4,
+      "PrimarySkillKey": "university-series-convergence",
+      "TemplateFamilyKey": "concept-u-series-geometric-sum",
+      "LearningObjectiveAr": "تقييم مجموع متسلسلة هندسية متقاربة",
+      "LearningObjectiveEn": "Evaluate a convergent geometric-series sum",
+      "QuestionTextAr": "احسب مجموع المتسلسلة اللانهائية ∑ من n=0 إلى ∞ لـ (3/5)ⁿ.",
+      "QuestionTextEn": "Evaluate the infinite series ∑ from n=0 to ∞ of (3/5)^n.",
+      "DetailedSolutionAr": "متسلسلة هندسية أساسها r=3/5 وقيمته المطلقة أقل من 1؛ المجموع 1/(1−3/5)=5/2.",
+      "DetailedSolutionEn": "The common ratio is 3/5, with magnitude below 1, so its sum is 1/(1−3/5)=5/2.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\frac35",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\frac52",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "\\frac32",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "\\frac25",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "CognitiveType": "geometric-sum",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank4-u-series-harmonic-diverges",
+      "StageId": 4,
+      "PrimarySkillKey": "university-series-convergence",
+      "TemplateFamilyKey": "concept-u-series-harmonic-diverges",
+      "LearningObjectiveAr": "استخدام السلوك التجميعي لتحديد تباعد المتسلسلة التوافقية",
+      "LearningObjectiveEn": "Recognize the divergence of the harmonic series",
+      "QuestionTextAr": "ما مصير المتسلسلة ∑ من n=1 إلى ∞ لـ 1/n؟",
+      "QuestionTextEn": "Does the series ∑ from n=1 to ∞ of 1/n converge or diverge?",
+      "DetailedSolutionAr": "المتسلسلة التوافقية متباعدة، رغم أن حدودها تؤول إلى الصفر. ويمكن إثبات ذلك بتجميع الحدود في مجموعات تتجاوز كل منها 1/2.",
+      "DetailedSolutionEn": "The harmonic series diverges even though its terms tend to zero. Grouping terms in dyadic blocks gives sums at least 1/2 repeatedly.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\text{Converges absolutely}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\text{Diverges}",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "\\text{Converges to 1}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "\\text{Converges to 0}",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "interpret_evaluate",
+      "CognitiveType": "harmonic-divergence",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank4-u-series-alternating-harmonic",
+      "StageId": 4,
+      "PrimarySkillKey": "university-series-convergence",
+      "TemplateFamilyKey": "concept-u-series-alternating-harmonic",
+      "LearningObjectiveAr": "التمييز بين التقارب الشرطي والتقارب المطلق",
+      "LearningObjectiveEn": "Distinguish conditional from absolute convergence",
+      "QuestionTextAr": "ما تصنيف المتسلسلة ∑ من n=1 إلى ∞ لـ (−1)^(n+1)/n؟",
+      "QuestionTextEn": "Classify the series ∑ from n=1 to ∞ of (−1)^(n+1)/n.",
+      "DetailedSolutionAr": "تتقارب بقاعدة لايبنتز لأن 1/n موجبة متناقصة إلى الصفر. لكن مجموع القيم المطلقة هو المتسلسلة التوافقية المتباعدة؛ لذلك التقارب شرطي.",
+      "DetailedSolutionEn": "The alternating-series test guarantees convergence because 1/n decreases to zero. The absolute-value series is harmonic and diverges, so convergence is conditional.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\text{Diverges}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\text{Converges absolutely}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "\\text{Converges conditionally}",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "\\text{Has finitely many terms}",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 4,
+      "PisaProcess": "interpret_evaluate",
+      "CognitiveType": "conditional-convergence",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank4-u-series-telescoping",
+      "StageId": 4,
+      "PrimarySkillKey": "university-series-convergence",
+      "TemplateFamilyKey": "concept-u-series-telescoping",
+      "LearningObjectiveAr": "تحليل مجموع تلسكوبي إلى فرق بين حدود متتالية",
+      "LearningObjectiveEn": "Sum a telescoping series using partial fractions",
+      "QuestionTextAr": "ما مجموع المتسلسلة ∑ من n=1 إلى ∞ لـ 1/[n(n+1)]؟",
+      "QuestionTextEn": "What is ∑ from n=1 to ∞ of 1/[n(n+1)]?",
+      "DetailedSolutionAr": "نكتب 1/[n(n+1)] = 1/n − 1/(n+1). المجموع الجزئي إلى N يساوي 1 − 1/(N+1)، ونهايته 1.",
+      "DetailedSolutionEn": "Use 1/[n(n+1)] = 1/n − 1/(n+1). The Nth partial sum is 1−1/(N+1), tending to 1.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\frac12",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "1",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "2",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "\\infty",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 4,
+      "PisaProcess": "employ",
+      "CognitiveType": "telescoping",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank4-u-comb-repeat-letters",
+      "StageId": 4,
+      "PrimarySkillKey": "u-discrete-math-combinatorics",
+      "TemplateFamilyKey": "concept-u-comb-repeat-letters",
+      "LearningObjectiveAr": "حساب التباديل المختلفة لكلمة فيها حروف مكررة",
+      "LearningObjectiveEn": "Count arrangements of a word with repeated letters",
+      "QuestionTextAr": "كم ترتيباً مختلفاً لحروف كلمة LEVEL الإنكليزية؟",
+      "QuestionTextEn": "How many distinct arrangements of the five letters in LEVEL are there?",
+      "DetailedSolutionAr": "عدد الحروف 5، ويوجد حرف L مرتين وE مرتين. عدد الترتيبات = 5!/(2!×2!)=30.",
+      "DetailedSolutionEn": "There are 5 letters with L repeated twice and E repeated twice: 5!/(2!×2!)=30.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "20",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "24",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "30",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "60",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "CognitiveType": "multiset-permutations",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank4-u-comb-group-constraint",
+      "StageId": 4,
+      "PrimarySkillKey": "u-discrete-math-combinatorics",
+      "TemplateFamilyKey": "concept-u-comb-group-constraint",
+      "LearningObjectiveAr": "حساب اختيارات مجموعات بقيود على تكوينها",
+      "LearningObjectiveEn": "Count committees with an exact composition constraint",
+      "QuestionTextAr": "لدينا 5 طالبات و4 طلاب. كم طريقة لاختيار لجنة من ثلاثة أشخاص فيها طالبتان وطالب واحد بالضبط؟",
+      "QuestionTextEn": "From 5 women and 4 men, in how many ways can we choose a three-person committee with exactly 2 women and 1 man?",
+      "DetailedSolutionAr": "نختار طالبتين بـ C(5,2)=10 وواحداً من أربعة طلاب بـ C(4,1)=4، ونضرب: 40.",
+      "DetailedSolutionEn": "Choose two women in C(5,2)=10 ways and one man in C(4,1)=4 ways. Product: 40.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "20",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "30",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "40",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "60",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "formulate",
+      "CognitiveType": "constrained-selection",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank4-u-comb-no-replacement",
+      "StageId": 4,
+      "PrimarySkillKey": "u-discrete-math-combinatorics",
+      "TemplateFamilyKey": "concept-u-comb-no-replacement",
+      "LearningObjectiveAr": "عد ترتيبات ثلاثية بلا تكرار",
+      "LearningObjectiveEn": "Count ordered choices without replacement",
+      "QuestionTextAr": "كم رمزاً مكوناً من ثلاثة أرقام مختلفة يمكن تكوينه من الأرقام 1، 2، 3، 4، 5؟",
+      "QuestionTextEn": "How many three-digit codes with distinct digits can be made from 1,2,3,4,5?",
+      "DetailedSolutionAr": "للخانة الأولى 5 اختيارات، ثم 4، ثم 3؛ فيكون العدد 5×4×3=60.",
+      "DetailedSolutionEn": "There are 5 choices for the first digit, 4 for the second and 3 for the last: 5×4×3=60.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "15",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "30",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "60",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "125",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 2,
+      "PisaProcess": "employ",
+      "CognitiveType": "ordered-no-replacement",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank4-u-comb-round-table",
+      "StageId": 4,
+      "PrimarySkillKey": "u-discrete-math-combinatorics",
+      "TemplateFamilyKey": "concept-u-comb-round-table",
+      "LearningObjectiveAr": "عد الترتيبات الدائرية مع إهمال الدوران",
+      "LearningObjectiveEn": "Count circular seatings up to rotation",
+      "QuestionTextAr": "كم ترتيباً لجلوس 5 أشخاص مختلفين حول طاولة دائرية إذا اعتُبرت الترتيبات المتطابقة بالدوران واحدة؟",
+      "QuestionTextEn": "How many arrangements of 5 distinct people around a circular table are there if rotations count as the same arrangement?",
+      "DetailedSolutionAr": "نثبّت مكان شخص واحد لإزالة الدورانات المتكافئة، ثم نرتّب الأربعة الباقين بـ 4!=24.",
+      "DetailedSolutionEn": "Fix one person's position to remove rotational duplicates; permute the remaining four in 4!=24 ways.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "5",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "20",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "24",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "120",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "interpret_evaluate",
+      "CognitiveType": "circular-permutations",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank4-u-proof-contrapositive",
+      "StageId": 4,
+      "PrimarySkillKey": "u-discrete-math-proofs",
+      "TemplateFamilyKey": "concept-u-proof-contrapositive",
+      "LearningObjectiveAr": "تمييز البرهان بالمقابل المنطقي",
+      "LearningObjectiveEn": "Identify a valid contrapositive",
+      "QuestionTextAr": "لإثبات: إذا كان n² زوجياً فإن n زوجي، ما العبارة التي تكفي لإثباتها بالمقابل المنطقي؟",
+      "QuestionTextEn": "To prove 'if n² is even, then n is even', which contrapositive statement can be proved instead?",
+      "DetailedSolutionAr": "مقابل P⇒Q هو نفي Q⇒نفي P. إذن يكفي إثبات أن n الفردي مربعه فردي.",
+      "DetailedSolutionEn": "The contrapositive of P⇒Q is not-Q⇒not-P. Thus show that an odd n has an odd square.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\text{Odd n implies odd }n^2",
+          "IsCorrect": true
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\text{Even n implies odd }n^2",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "\\text{Even }n^2\\text{ implies odd n}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "\\text{Odd }n^2\\text{ implies even n}",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "interpret_evaluate",
+      "CognitiveType": "contrapositive",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank4-u-proof-induction-step",
+      "StageId": 4,
+      "PrimarySkillKey": "u-discrete-math-proofs",
+      "TemplateFamilyKey": "concept-u-proof-induction-step",
+      "LearningObjectiveAr": "تحديد حد الانتقال عند البرهان بالاستقراء",
+      "LearningObjectiveEn": "Identify the extra term in an induction step",
+      "QuestionTextAr": "نفترض أن مجموع أول n عدد فردي موجب يساوي n². ما الحد الذي نضيفه للحصول على مجموع أول (n+1) عدد فردي؟",
+      "QuestionTextEn": "Assume the sum of the first n positive odd integers is n². What next term must be added for the sum of the first n+1 odd integers?",
+      "DetailedSolutionAr": "الأعداد الفردية تبدأ بـ1،3،5... والعدد الفردي التالي بعد 2n−1 هو 2n+1. فنحصل على n²+2n+1=(n+1)².",
+      "DetailedSolutionEn": "The next odd number after 2n−1 is 2n+1. Then n²+(2n+1)=(n+1)².",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "n+1",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "2n-1",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "2n+1",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "n^2+1",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "CognitiveType": "induction-increment",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank4-u-proof-sqrt2",
+      "StageId": 4,
+      "PrimarySkillKey": "u-discrete-math-proofs",
+      "TemplateFamilyKey": "concept-u-proof-sqrt2",
+      "LearningObjectiveAr": "فهم التناقض في برهان لا نسبية الجذر التربيعي لاثنين",
+      "LearningObjectiveEn": "Recognize the contradiction in the irrationality proof of sqrt 2",
+      "QuestionTextAr": "في برهان أن √2 عدد غير نسبي نفترض √2=a/b حيث a وb عددان صحيحان متباينان أولياً. ما التناقض الذي يصل إليه البرهان؟",
+      "QuestionTextEn": "In the proof that sqrt(2) is irrational, suppose sqrt(2)=a/b with a,b integers in lowest terms. What contradiction follows?",
+      "DetailedSolutionAr": "من a²=2b² نستنتج أن a زوجي، وبالتالي b زوجي أيضاً؛ وهذا يناقض كون الكسر في أبسط صورة.",
+      "DetailedSolutionEn": "From a²=2b², a must be even; substituting shows b is even too. This contradicts that a/b was in lowest terms.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\text{a and b are both even}",
+          "IsCorrect": true
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\text{a and b are both odd}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "\\text{a=0 and b=1}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "\\text{a and b are equal}",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 4,
+      "PisaProcess": "interpret_evaluate",
+      "CognitiveType": "proof-by-contradiction",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank4-u-proof-counterexample",
+      "StageId": 4,
+      "PrimarySkillKey": "u-discrete-math-proofs",
+      "TemplateFamilyKey": "concept-u-proof-counterexample",
+      "LearningObjectiveAr": "نقض تعميم رياضي بمثال مضاد واحد",
+      "LearningObjectiveEn": "Disprove a universal claim using a counterexample",
+      "QuestionTextAr": "أي عدد يُعدّ مثالاً مضاداً للعبارة «كل عدد أولي فردي»؟",
+      "QuestionTextEn": "Which number is a counterexample to the claim 'every prime number is odd'?",
+      "DetailedSolutionAr": "العدد 2 أولي لأنه لا يقبل القسمة إلا على 1 ونفسه، لكنه زوجي. يكفي مثال واحد لنقض التعميم.",
+      "DetailedSolutionEn": "The number 2 is prime and even, disproving the universal claim with a single counterexample.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "1",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "2",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "9",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "15",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 2,
+      "PisaProcess": "interpret_evaluate",
+      "CognitiveType": "counterexample",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank4-u-relations-nonstrict-order",
+      "StageId": 4,
+      "PrimarySkillKey": "u-discrete-math-relations",
+      "TemplateFamilyKey": "concept-u-relations-nonstrict-order",
+      "LearningObjectiveAr": "تحليل خصائص علاقة الترتيب غير الصارمة",
+      "LearningObjectiveEn": "Identify relation properties of non-strict order",
+      "QuestionTextAr": "في مجموعة الأعداد الحقيقية، علاقة aRb إذا وفقط إذا a≤b. كم خاصية من الانعكاس والتماثل والتعدي تحققها؟",
+      "QuestionTextEn": "On real numbers, define aRb iff a≤b. How many of reflexivity, symmetry and transitivity does it satisfy?",
+      "DetailedSolutionAr": "العلاقة انعكاسية لأن a≤a، ومتعدية لأن a≤b وb≤c ينتج عنهما a≤c. لكنها ليست تماثلية عموماً؛ فالعدد 2 ليس ≤1 رغم 1≤2. المجموع 2.",
+      "DetailedSolutionEn": "The relation is reflexive and transitive. It is not symmetric because 1≤2 but 2≤1 is false; exactly 2 properties hold.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "0",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "1",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "2",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "3",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "interpret_evaluate",
+      "CognitiveType": "order-vs-equivalence",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank4-u-relations-block-classes",
+      "StageId": 4,
+      "PrimarySkillKey": "u-discrete-math-relations",
+      "TemplateFamilyKey": "concept-u-relations-block-classes",
+      "LearningObjectiveAr": "تحديد أصناف التكافؤ من علاقة معرفة بالأزواج",
+      "LearningObjectiveEn": "Count equivalence classes from a finite relation",
+      "QuestionTextAr": "على المجموعة {1,2,3} عرّف R بالأزواج (1,1)، (2,2)، (3,3)، (1,2)، (2,1). كم صنف تكافؤ؟",
+      "QuestionTextEn": "On {1,2,3}, let R contain (1,1),(2,2),(3,3),(1,2),(2,1). How many equivalence classes are there?",
+      "DetailedSolutionAr": "العنصران 1 و2 متكافئان، بينما 3 متكافئ مع نفسه فقط؛ الأصناف {1,2} و{3}، أي صنفان.",
+      "DetailedSolutionEn": "Elements 1 and 2 are equivalent, while 3 is related only to itself. The classes are {1,2} and {3}, so there are 2.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "1",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "2",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "3",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "5",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "CognitiveType": "finite-partition",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank4-u-relations-transitive-closure",
+      "StageId": 4,
+      "PrimarySkillKey": "u-discrete-math-relations",
+      "TemplateFamilyKey": "concept-u-relations-transitive-closure",
+      "LearningObjectiveAr": "استنتاج الزوج اللازم لضمان التعدي",
+      "LearningObjectiveEn": "Find a missing pair required for transitivity",
+      "QuestionTextAr": "علاقة على {1,2,3} تحتوي الزوجين (1,2) و(2,3) فقط. أي زوج يجب إضافته لتصبح متعدية؟",
+      "QuestionTextEn": "A relation on {1,2,3} contains exactly (1,2) and (2,3). Which extra pair is needed for transitivity?",
+      "DetailedSolutionAr": "لأن 1R2 و2R3، فالتعدي يقتضي 1R3؛ نضيف الزوج (1,3).",
+      "DetailedSolutionEn": "Since 1R2 and 2R3, transitivity requires 1R3. Add the pair (1,3).",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "(1,1)",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "(1,3)",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "(2,1)",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "(3,2)",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "CognitiveType": "transitive-closure",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank4-u-relations-divisibility",
+      "StageId": 4,
+      "PrimarySkillKey": "u-discrete-math-relations",
+      "TemplateFamilyKey": "concept-u-relations-divisibility",
+      "LearningObjectiveAr": "تصنيف علاقة القسمة كترتيب جزئي غير كلي",
+      "LearningObjectiveEn": "Classify divisibility as a partial but not total order",
+      "QuestionTextAr": "عرّف على الأعداد الصحيحة الموجبة aRb عندما يقسم a العدد b. ما تصنيف العلاقة؟",
+      "QuestionTextEn": "On positive integers, define aRb iff a divides b. Which classification is correct?",
+      "DetailedSolutionAr": "القسمة انعكاسية ومتعدية ومضادة للتماثل على الموجبات، فهي ترتيب جزئي. ليست ترتيباً كلياً لأن 2 لا يقسم 3 ولا 3 يقسم 2.",
+      "DetailedSolutionEn": "Divisibility is reflexive, transitive and antisymmetric on positive integers, so it is a partial order. It is not total because 2 and 3 are incomparable.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\text{Equivalence relation}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\text{Total order}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "\\text{Partial but not total order}",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "\\text{Neither a partial order nor equivalence}",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 4,
+      "PisaProcess": "interpret_evaluate",
+      "CognitiveType": "partial-order",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank4-u-diff-continuity-param",
+      "StageId": 4,
+      "PrimarySkillKey": "university-differentiability-continuity",
+      "TemplateFamilyKey": "concept-u-diff-continuity-param",
+      "LearningObjectiveAr": "ضبط وسيط في دالة مجزأة لضمان الاتصال",
+      "LearningObjectiveEn": "Choose a piecewise function parameter for continuity",
+      "QuestionTextAr": "لتكن f(x)=kx+1 إذا x<2، وf(x)=x² إذا x≥2. ما قيمة k التي تجعل f متصلة عند x=2؟",
+      "QuestionTextEn": "Let f(x)=kx+1 for x<2, and f(x)=x² for x≥2. Which k makes f continuous at x=2?",
+      "DetailedSolutionAr": "نساوي النهاية اليسرى 2k+1 بالقيمة اليمنى f(2)=4؛ فنجد 2k=3 وk=3/2.",
+      "DetailedSolutionEn": "Set left limit 2k+1 equal to f(2)=4: 2k=3 and k=3/2.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\frac12",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "1",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "\\frac32",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "2",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "CognitiveType": "continuity-parameter",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank4-u-diff-xabsx",
+      "StageId": 4,
+      "PrimarySkillKey": "university-differentiability-continuity",
+      "TemplateFamilyKey": "concept-u-diff-xabsx",
+      "LearningObjectiveAr": "تحديد قابلية الاشتقاق عند نقطة لدالة تتضمن قيمة مطلقة",
+      "LearningObjectiveEn": "Differentiate x times absolute x at the origin",
+      "QuestionTextAr": "ما قيمة مشتقة f(x)=x|x| عند x=0؟",
+      "QuestionTextEn": "What is f'(0) when f(x)=x|x|?",
+      "DetailedSolutionAr": "حسب تعريف المشتقة f'(0)=lim[h→0](h|h|−0)/h=lim[h→0]|h|=0. فهي قابلة للاشتقاق عند الصفر رغم وجود قيمة مطلقة.",
+      "DetailedSolutionEn": "From the derivative definition, f'(0)=lim(h|h|)/h=lim |h|=0, so the function is differentiable at zero.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "-1",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "0",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "1",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "\\text{Does not exist}",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "CognitiveType": "derivative-definition",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank4-u-diff-piecewise-both",
+      "StageId": 4,
+      "PrimarySkillKey": "university-differentiability-continuity",
+      "TemplateFamilyKey": "concept-u-diff-piecewise-both",
+      "LearningObjectiveAr": "ضبط معامل ليكون اتصال الدالة ومشتقاتها متوافقاً",
+      "LearningObjectiveEn": "Choose a piecewise coefficient satisfying value and slope matching",
+      "QuestionTextAr": "لتكن f(x)=ax إذا x≤1، وf(x)=x²+1 إذا x>1. ما قيمة a التي تجعل f قابلة للاشتقاق عند x=1؟",
+      "QuestionTextEn": "Let f(x)=ax for x≤1 and f(x)=x²+1 for x>1. Which a makes f differentiable at x=1?",
+      "DetailedSolutionAr": "للاتصال يجب أن a=1²+1=2. وعندها المشتقة اليسرى a=2 واليمنى 2x عند x=1 تساوي 2؛ الشرطان متحققان.",
+      "DetailedSolutionEn": "Continuity requires a=1²+1=2. Then the left derivative is a=2 and the right derivative is 2x=2 at x=1, so differentiability follows.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "0",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "1",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "2",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "4",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 4,
+      "PisaProcess": "interpret_evaluate",
+      "CognitiveType": "slope-and-value-matching",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank4-u-diff-fractional-power",
+      "StageId": 4,
+      "PrimarySkillKey": "university-differentiability-continuity",
+      "TemplateFamilyKey": "concept-u-diff-fractional-power",
+      "LearningObjectiveAr": "التمييز بين الاتصال وقابلية الاشتقاق لدالة جذرية",
+      "LearningObjectiveEn": "Distinguish continuity from differentiability for a fractional power",
+      "QuestionTextAr": "ما الوصف الصحيح للدالة f(x)=x^(2/3) عند x=0، حيث الجذر التكعيبي الحقيقي؟",
+      "QuestionTextEn": "How is the real-valued function f(x)=x^(2/3) classified at x=0 (using real cube roots)?",
+      "DetailedSolutionAr": "الدالة متصلة عند الصفر لأن x^(2/3) يقترب من الصفر. لكن خارج الصفر مشتقتها (2/3)x^(−1/3) غير محدودة قرب الصفر، فلا توجد مشتقة منتهية عنده.",
+      "DetailedSolutionEn": "The function is continuous because x^(2/3)→0. Its derivative away from zero is (2/3)x^(−1/3), unbounded near zero, so it is not differentiable there.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\text{Continuous but not differentiable}",
+          "IsCorrect": true
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\text{Differentiable but discontinuous}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "\\text{Both differentiable and discontinuous}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "\\text{Neither continuous nor differentiable}",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 4,
+      "PisaProcess": "interpret_evaluate",
+      "CognitiveType": "cusp-continuity",
+      "Points": 10,
+      "ExpertReview": "pending"
+    }
+  ]
+}
