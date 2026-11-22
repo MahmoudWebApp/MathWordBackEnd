@@ -23,6 +23,108 @@ namespace MathWorldAPI.Controllers
             _stream = stream;
         }
 
+        // One-year admin activation for individual and bulk selection.
+        // All-or-nothing: check EVERY selected account after locking all IDs
+        // in stable order, then commit all grants, audit rows and notices.
+        [HttpPost("premium-annual")]
+        public async Task<IActionResult> GrantAnnualPremium(
+            [FromBody] AnnualPremiumGrantDto? request,
+            CancellationToken cancellationToken)
+        {
+            var adminId = int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier),
+                out var parsed) ? parsed : 0;
+            if (adminId <= 0 || !await _db.Users.AsNoTracking().AnyAsync(
+                    u => u.Id == adminId && u.Role == "Admin" && u.IsActive,
+                    cancellationToken))
+                return Forbid();
+
+            var requested = request?.LearnerIds;
+            if (requested == null || requested.Count == 0 || requested.Count > 100 ||
+                requested.Any(id => id <= 0))
+                return BadRequest(new { Message = "InvalidLearnerSelection" });
+
+            var ids = requested.Distinct().OrderBy(id => id).ToArray();
+            if (ids.Length != requested.Count)
+                return BadRequest(new { Message = "DuplicateLearnerSelection" });
+
+            await using var transaction = await _db.Database
+                .BeginTransactionAsync(cancellationToken);
+
+            // Use the same per-learner advisory key as manual grants and
+            // redemption. Sorting prevents deadlocks across concurrent batches.
+            foreach (var id in ids)
+                await _db.Database.SqlQuery<int>(
+                    $"SELECT 1 AS \"Value\" FROM pg_advisory_xact_lock({-987654321}, {id})")
+                    .SingleAsync(cancellationToken);
+
+            var learners = await _db.Users
+                .Where(user => ids.Contains(user.Id) &&
+                    user.Role == "Student" && user.IsActive)
+                .ToListAsync(cancellationToken);
+            if (learners.Count != ids.Length)
+                return BadRequest(new { Message = "LearnerNotFoundOrInactive" });
+
+            var now = DateTime.UtcNow;
+            var updatedIds = new List<int>();
+            var skippedIndefiniteIds = new List<int>();
+            foreach (var learner in learners.OrderBy(u => u.Id))
+            {
+                var isActive = PremiumEntitlement.IsActive(learner);
+                if (isActive && learner.PremiumExpiresAtUtc == null)
+                {
+                    // Preserve pre-existing indefinite access; never shorten it.
+                    skippedIndefiniteIds.Add(learner.Id);
+                    continue;
+                }
+
+                var previousType = learner.SubscriptionType;
+                var previousExpiry = learner.PremiumExpiresAtUtc;
+                // Renewals ADD a year to remaining time rather than shortening
+                // a paid/granted unexpired term. New grants start from today.
+                var baseDate = isActive && previousExpiry > now
+                    ? previousExpiry.Value : now;
+                var expiry = baseDate.AddYears(1);
+                learner.SubscriptionType = "Premium";
+                learner.PremiumExpiresAtUtc = expiry;
+                _db.Set<SubscriptionGrant>().Add(new SubscriptionGrant
+                {
+                    LearnerId = learner.Id,
+                    AdminId = adminId,
+                    PreviousType = previousType,
+                    NewType = "Premium",
+                    PreviousExpiresAtUtc = previousExpiry,
+                    NewExpiresAtUtc = expiry,
+                    Reason = isActive ? "AdminAnnualPremiumRenewal" : "AdminAnnualPremiumActivation",
+                    ChangedAtUtc = now
+                });
+                _db.UserNotifications.Add(new UserNotification
+                {
+                    UserId = learner.Id,
+                    Type = "subscription",
+                    TitleAr = isActive ? "تم تجديد اشتراك Premium" : "تم تفعيل اشتراك Premium",
+                    TitleEn = isActive ? "Premium renewed" : "Premium activated",
+                    BodyAr = "تم منح حسابك سنة إضافية من مزايا Premium.",
+                    BodyEn = "One year of Premium access was granted to your account.",
+                    TargetPath = "/dashboard",
+                    CreatedAtUtc = now
+                });
+                updatedIds.Add(learner.Id);
+            }
+
+            await _db.SaveChangesAsync(cancellationToken);
+            await transaction.CommitAsync(cancellationToken);
+            foreach (var id in updatedIds)
+                _stream.Notify(id);
+
+            return Ok(LanguageHelper.SuccessResponse(new
+            {
+                Updated = updatedIds.Count,
+                UpdatedIds = updatedIds,
+                SkippedIndefiniteIds = skippedIndefiniteIds,
+                DurationMonths = 12
+            }, "Success", LanguageHelper.GetLanguageFromRequest(Request)));
+        }
+
         [HttpPut("{learnerId:int}/subscription")]
         public async Task<IActionResult> Update(
             int learnerId, [FromBody] UpdateSubscriptionDto request,

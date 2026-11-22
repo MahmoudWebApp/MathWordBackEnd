@@ -39,7 +39,9 @@ namespace MathWorldAPI.Controllers
                 TotalUsers = await _context.Users.CountAsync(u => u.Role == "Student"),
                 TotalSolved = await _context.UserProgresses.CountAsync(
                     x => x.IsSolved && x.User.Role == "Student"),
-                TotalViews = await _context.Problems.SumAsync(x => (long)x.ViewsCount)
+                TotalViews = await _context.Problems.SumAsync(x => (long)x.ViewsCount),
+                TotalCategories = await _context.Categories.CountAsync(),
+                TotalSkills = await _context.CurriculumSkills.CountAsync()
             };
 
             return Ok(LanguageHelper.SuccessResponse(stats, "Success", language));
