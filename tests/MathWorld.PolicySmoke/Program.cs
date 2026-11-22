@@ -251,8 +251,10 @@ using (var archive = new ZipArchive(new MemoryStream(xlsx), ZipArchiveMode.Read)
     var drawingXml = XDocument.Load(archive.GetEntry("xl/drawings/drawing1.xml")!.Open());
     XNamespace drawingNs =
         "http://schemas.openxmlformats.org/drawingml/2006/spreadsheetDrawing";
-    Assert(drawingXml.Descendants(drawingNs + "twoCellAnchor").Count() == 2,
-        "Both charts must have visible nonoverlapping anchors.");
+    Assert(drawingXml.Descendants(drawingNs + "graphicFrame").Count() == 2 &&
+           drawingXml.Descendants(drawingNs + "pic").Count() == 1 &&
+           drawingXml.Descendants(drawingNs + "twoCellAnchor").Count() == 3,
+        "Two actual charts and the approved logo must each have a drawing anchor.");
     var rtlView = sheet.Descendants(ns + "sheetView").Single();
     Assert((string?)rtlView.Attribute("rightToLeft") == "1",
         "Arabic Excel workbook must use the RTL worksheet direction.");
