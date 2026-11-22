@@ -530,8 +530,8 @@ namespace MathWorldAPI.Controllers
                                 progress.Problem.ViewsCount,
 
                             RequiresLogin = true,
-                            IsSolved = true,
-                            HasAttempted = true
+                            IsSolved = progress.IsSolved,
+                            HasAttempted = progress.Attempts > 0
                         })
                     .ToListAsync();
 
