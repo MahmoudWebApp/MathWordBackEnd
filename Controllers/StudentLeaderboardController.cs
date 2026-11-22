@@ -77,7 +77,9 @@ public sealed class StudentLeaderboardController : ControllerBase
         if (cutoff is not null)
             query = query.Where(p => p.SolvedAt >= cutoff.Value);
 
-        var scores = await query.GroupBy(p => p.UserId)
+        // Keep ranking and pagination in PostgreSQL. Loading every learner into
+        // memory made even a 20-row page increasingly slow as the platform grew.
+        var ranked = query.GroupBy(p => p.UserId)
             .Select(g => new
             {
                 UserId = g.Key,
@@ -85,15 +87,37 @@ public sealed class StudentLeaderboardController : ControllerBase
                 Points = g.Sum(p => p.Problem.Points),
                 FirstTryCorrect = g.Count(p => p.FirstAttemptCorrect == true)
             })
-            .Where(x => x.SolvedProblems > 0)
+            .Where(x => x.SolvedProblems > 0);
+
+        var totalLearners = await ranked.CountAsync(ct);
+        var pageScores = await ranked
             .OrderByDescending(x => x.SolvedProblems)
             .ThenByDescending(x => x.Points)
             .ThenByDescending(x => x.FirstTryCorrect)
             .ThenBy(x => x.UserId)
+            .Skip((page - 1) * pageSize)
+            .Take(pageSize)
             .ToListAsync(ct);
 
-        var myIndex = scores.FindIndex(x => x.UserId == userId);
-        var pageScores = scores.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+        // Compute the current learner's position without materializing other
+        // learners' scores. Preserve exactly the same tie-breaking rules.
+        int? myRank = null;
+        var mine = await ranked.FirstOrDefaultAsync(x => x.UserId == userId, ct);
+        if (mine != null)
+        {
+            var ahead = await ranked.CountAsync(x =>
+                x.SolvedProblems > mine.SolvedProblems ||
+                (x.SolvedProblems == mine.SolvedProblems &&
+                 x.Points > mine.Points) ||
+                (x.SolvedProblems == mine.SolvedProblems &&
+                 x.Points == mine.Points &&
+                 x.FirstTryCorrect > mine.FirstTryCorrect) ||
+                (x.SolvedProblems == mine.SolvedProblems &&
+                 x.Points == mine.Points &&
+                 x.FirstTryCorrect == mine.FirstTryCorrect &&
+                 x.UserId < mine.UserId), ct);
+            myRank = ahead + 1;
+        }
         var ids = pageScores.Select(x => x.UserId).ToList();
         var names = await _db.Users.AsNoTracking()
             .Where(u => ids.Contains(u.Id))
@@ -120,9 +144,9 @@ public sealed class StudentLeaderboardController : ControllerBase
             Period = period,
             Page = page,
             PageSize = pageSize,
-            TotalLearners = scores.Count,
+            TotalLearners = totalLearners,
             StageParticipants = stageParticipants,
-            MyRank = myIndex >= 0 ? myIndex + 1 : (int?)null,
+            MyRank = myRank,
             Entries = entries
         });
     }
