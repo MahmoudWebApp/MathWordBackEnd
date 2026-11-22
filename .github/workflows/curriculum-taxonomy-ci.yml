@@ -20,10 +20,12 @@ on:
       - 'tests/check_question_bank_depth_wave_3.py'
       - 'tests/check_question_bank_depth_wave_4.py'
       - 'tests/check_question_bank_depth_wave_5.py'
+      - 'tests/check_question_bank_concept_wave_5.py'
       - 'scripts/generate_question_bank_depth_wave_2_sql.py'
       - 'scripts/generate_question_bank_depth_wave_3_sql.py'
       - 'scripts/generate_question_bank_depth_wave_4_sql.py'
       - 'scripts/generate_question_bank_depth_wave_5_sql.py'
+      - 'scripts/generate_question_bank_concept_wave_5_sql.py'
       - '.github/workflows/curriculum-taxonomy-ci.yml'
   workflow_dispatch:
 
@@ -66,3 +68,7 @@ jobs:
         run: python3 tests/check_question_bank_depth_wave_5.py
       - name: Verify 18-question atomic SQL seed contract
         run: python3 scripts/generate_question_bank_depth_wave_5_sql.py --check
+      - name: Verify 16 concept-diverse mathematical answer keys
+        run: python3 tests/check_question_bank_concept_wave_5.py
+      - name: Verify atomic 16-question current-baseline seed contract
+        run: python3 scripts/generate_question_bank_concept_wave_5_sql.py --check

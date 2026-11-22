@@ -1,0 +1,163 @@
+{
+  "batch_key": "mathworld-bank5-lower-secondary",
+  "status": "editorial_pending",
+  "stage": 2,
+  "problems": [
+    {
+      "ContentKey": "mw-bank5-m-similar-perimeters",
+      "StageId": 2,
+      "PrimarySkillKey": "middle-similar-triangles",
+      "TemplateFamilyKey": "concept-m-similar-perimeters",
+      "LearningObjectiveAr": "استعمال نسبة محيطي مثلثين متشابهين لإيجاد ضلع",
+      "LearningObjectiveEn": "Use similar-triangle perimeter ratios to find a side",
+      "QuestionTextAr": "محيطا مثلثين متشابهين 18 سم و30 سم. إذا كان ضلع في المثلث الأصغر 6 سم، فكم طول نظيره في الأكبر؟",
+      "QuestionTextEn": "Two similar triangles have perimeters 18 and 30 cm. If a side of the smaller is 6 cm, what is the corresponding side of the larger?",
+      "DetailedSolutionAr": "معامل التشابه = 30÷18 = 5/3؛ الضلع الأكبر = 6×5/3 = 10 سم.",
+      "DetailedSolutionEn": "The scale factor is 30/18 = 5/3, so the corresponding side is 6×5/3 = 10 cm.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "8",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "9",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "10",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "12",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "CognitiveType": "perimeter-scale",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank5-m-similar-area-scale",
+      "StageId": 2,
+      "PrimarySkillKey": "middle-similar-triangles",
+      "TemplateFamilyKey": "concept-m-similar-area-scale",
+      "LearningObjectiveAr": "تمييز نسبة المساحات عن نسبة الأطوال في التشابه",
+      "LearningObjectiveEn": "Distinguish area scale from length scale",
+      "QuestionTextAr": "ضُربت جميع أطوال مثلث في 3 لتكوين مثلث مشابه. كم مرة تصبح مساحته؟",
+      "QuestionTextEn": "All side lengths of a triangle are multiplied by 3 to make a similar triangle. By what factor does its area change?",
+      "DetailedSolutionAr": "المساحة تتغير بمربع معامل الطول؛ 3²=9، فتصير تسعة أضعاف.",
+      "DetailedSolutionEn": "Area scales by the square of the length factor: 3² = 9.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "3",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "6",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "9",
+          "IsCorrect": true
+        },
+        {
+          "Order": 4,
+          "LatexCode": "12",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "interpret_evaluate",
+      "CognitiveType": "square-of-scale",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank5-m-coordinate-pythagoras",
+      "StageId": 2,
+      "PrimarySkillKey": "middle-pythagorean-theorem",
+      "TemplateFamilyKey": "concept-m-coordinate-pythagoras",
+      "LearningObjectiveAr": "ربط المسافة بين نقطتين بفيثاغورس",
+      "LearningObjectiveEn": "Use Pythagoras to find a distance on the coordinate plane",
+      "QuestionTextAr": "كم المسافة بين النقطتين (1،2) و(7،10) على المستوى الإحداثي؟",
+      "QuestionTextEn": "Find the distance between (1,2) and (7,10) in the coordinate plane.",
+      "DetailedSolutionAr": "فرق الإحداثيين 6 و8، لذا المسافة = √(6²+8²)=√100=10.",
+      "DetailedSolutionEn": "The horizontal and vertical differences are 6 and 8. Distance = sqrt(6²+8²) = 10.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "8",
+          "IsCorrect": false
+        },
+        {
+          "Order": 2,
+          "LatexCode": "10",
+          "IsCorrect": true
+        },
+        {
+          "Order": 3,
+          "LatexCode": "12",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "14",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "employ",
+      "CognitiveType": "coordinate-distance",
+      "Points": 10,
+      "ExpertReview": "pending"
+    },
+    {
+      "ContentKey": "mw-bank5-m-pythagorean-converse",
+      "StageId": 2,
+      "PrimarySkillKey": "middle-pythagorean-theorem",
+      "TemplateFamilyKey": "concept-m-pythagorean-converse",
+      "LearningObjectiveAr": "التحقق من كون مثلث قائم الزاوية باستخدام عكس فيثاغورس",
+      "LearningObjectiveEn": "Use the converse of Pythagoras to classify a triangle",
+      "QuestionTextAr": "مثلث أطوال أضلاعه 8 سم و15 سم و17 سم. ما نوعه وفق الزوايا؟",
+      "QuestionTextEn": "A triangle has side lengths 8, 15, and 17 cm. How is it classified by its angles?",
+      "DetailedSolutionAr": "لأن 8²+15² = 64+225 =289 =17²، فالمثلث قائم الزاوية وفق عكس فيثاغورس.",
+      "DetailedSolutionEn": "Since 8²+15² = 289 = 17², the triangle is right-angled by the converse of Pythagoras.",
+      "Options": [
+        {
+          "Order": 1,
+          "LatexCode": "\\text{Right triangle}",
+          "IsCorrect": true
+        },
+        {
+          "Order": 2,
+          "LatexCode": "\\text{Acute triangle}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 3,
+          "LatexCode": "\\text{Obtuse triangle}",
+          "IsCorrect": false
+        },
+        {
+          "Order": 4,
+          "LatexCode": "\\text{Not a triangle}",
+          "IsCorrect": false
+        }
+      ],
+      "DifficultyLevel": 3,
+      "PisaProcess": "interpret_evaluate",
+      "CognitiveType": "converse-theorem",
+      "Points": 10,
+      "ExpertReview": "pending"
+    }
+  ]
+}
