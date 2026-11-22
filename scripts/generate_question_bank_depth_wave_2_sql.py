@@ -110,6 +110,24 @@ BEGIN
      OR regexp_replace(lower(btrim(p."QuestionTextEn")),'[[:space:]]+',' ','g')
        =regexp_replace(lower(btrim(q."QuestionTextEn")),'[[:space:]]+',' ','g'))) THEN
    RAISE EXCEPTION 'Wave duplicates existing student-bank wording; do not publish';
+ END IF; 
+ -- A numerical-substitution clone does not add a distinct mathematical concept.
+ -- Strict flag for this curated wave; review the original family manually when
+ -- planning future additions. A numerical-template match is a warning elsewhere.
+ IF EXISTS(SELECT 1 FROM mw_question_bank_wave_2 q
+   GROUP BY q."StageId",
+    regexp_replace(regexp_replace(lower(btrim(q."QuestionTextAr")),
+       '[[:digit:]٠-٩]+','#','g'),'[[:space:]]+',' ','g')
+   HAVING COUNT(*)>1) THEN
+   RAISE EXCEPTION 'The new wave repeats a template with changed numbers';
+ END IF;
+ IF EXISTS (SELECT 1 FROM mw_question_bank_wave_2 q JOIN "Problems" p
+  ON p."StageId"=q."StageId"
+  AND regexp_replace(regexp_replace(lower(btrim(p."QuestionTextAr")),
+       '[[:digit:]٠-٩]+','#','g'),'[[:space:]]+',' ','g')
+    =regexp_replace(regexp_replace(lower(btrim(q."QuestionTextAr")),
+       '[[:digit:]٠-٩]+','#','g'),'[[:space:]]+',' ','g')) THEN
+   RAISE EXCEPTION 'A candidate repeats an existing numerical template';
  END IF;
 END $preflight$;
 
