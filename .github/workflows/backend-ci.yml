@@ -33,7 +33,6 @@ jobs:
               ("ConnectionStrings", "DefaultConnection"),
               ("Jwt", "Key"),
               ("Meilisearch", "ApiKey"),
-              ("Facebook", "AppSecret"),
           ]
           for section, key in keys:
               value = config.get(section, {}).get(key, "")
@@ -45,6 +44,9 @@ jobs:
               raise SystemExit("Local development config must not be committed")
           print("Tracked configuration contains no configured credentials")
           PY
+
+      - name: Reject removed learner view/history APIs
+        run: python3 tests/check_retired_student_metrics.py
 
       - name: Restore dependencies
         run: dotnet restore MathWorldAPI.csproj
