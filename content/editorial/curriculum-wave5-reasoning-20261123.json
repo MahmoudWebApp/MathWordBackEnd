@@ -22,7 +22,7 @@
           "primarySkillKey": "counting",
           "templateFamilyKey": "wave5-digit-position-combinatorics",
           "difficultyLevel": 2,
-          "pisaProcess": "reason",
+          "pisaProcess": "interpret_evaluate",
           "titleAr": "عد الأعداد ذات رقم عشرات ثابت",
           "titleEn": "Count integers with a fixed tens digit",
           "questionTextAr": "كم عدد الأعداد الصحيحة من 200 إلى 299 التي يكون رقم العشرات فيها 4؟",
@@ -50,7 +50,9 @@
               "LatexCode": "100",
               "IsCorrect": false
             }
-          ]
+          ],
+          "learningObjectiveAr": "عد الأعداد عبر تثبيت القيم المكانية وتغيير الآحاد",
+          "learningObjectiveEn": "Count numbers by fixing place-value digits and varying units"
         },
         {
           "contentKey": "mw-wave5-subtract-through-zero-places",
@@ -85,7 +87,9 @@
               "LatexCode": "6105",
               "IsCorrect": false
             }
-          ]
+          ],
+          "learningObjectiveAr": "استخدام القيمة المكانية وإعادة التجميع للتحقق من الطرح",
+          "learningObjectiveEn": "Use place value and regrouping to compute and verify subtraction"
         }
       ]
     },
@@ -98,7 +102,7 @@
           "primarySkillKey": "simple-compound-events",
           "templateFamilyKey": "wave5-conditional-sample-space-restriction",
           "difficultyLevel": 3,
-          "pisaProcess": "reason",
+          "pisaProcess": "interpret_evaluate",
           "titleAr": "احتمال مشروط بظهور عدد زوجي",
           "titleEn": "Conditional probability after an even roll",
           "questionTextAr": "رُمِي حجر نرد عادل وعُلم أن الناتج زوجي. ما احتمال أن يكون أكبر من 3؟",
@@ -126,7 +130,9 @@
               "LatexCode": "\\frac{5}{6}",
               "IsCorrect": false
             }
-          ]
+          ],
+          "learningObjectiveAr": "تحديد فضاء الشرط وحساب الاحتمال المشروط الصحيح",
+          "learningObjectiveEn": "Restrict the sample space to compute conditional probability"
         },
         {
           "contentKey": "mw-wave5-exactly-one-six-ordered-dice",
@@ -161,7 +167,9 @@
               "LatexCode": "12",
               "IsCorrect": false
             }
-          ]
+          ],
+          "learningObjectiveAr": "عد الحالات المتنافية في التجارب العشوائية المستقلة",
+          "learningObjectiveEn": "Count mutually exclusive outcomes of distinguishable dice"
         }
       ]
     },
@@ -174,7 +182,7 @@
           "primarySkillKey": "magnitude",
           "templateFamilyKey": "wave5-inverse-vector-norm-signed",
           "difficultyLevel": 3,
-          "pisaProcess": "reason",
+          "pisaProcess": "interpret_evaluate",
           "titleAr": "استنتاج مركبة متجه سالبة من طوله",
           "titleEn": "Recover a negative vector component from its norm",
           "questionTextAr": "متجه مستوٍ مركبتاه (a,4)، وطوله 5، مع العلم أن a سالب. ما قيمة a؟",
@@ -202,7 +210,9 @@
               "LatexCode": "3",
               "IsCorrect": false
             }
-          ]
+          ],
+          "learningObjectiveAr": "عكس صيغة طول المتجه مع مراعاة إشارة المركبة",
+          "learningObjectiveEn": "Recover a signed vector component from its norm"
         },
         {
           "contentKey": "mw-wave5-dot-product-distributive-combination",
@@ -237,7 +247,9 @@
               "LatexCode": "6",
               "IsCorrect": false
             }
-          ]
+          ],
+          "learningObjectiveAr": "تطبيق خاصية توزيع الضرب القياسي على مجموع متجهين",
+          "learningObjectiveEn": "Apply distributivity of dot product over vector addition"
         }
       ]
     },
@@ -278,14 +290,16 @@
               "LatexCode": "13",
               "IsCorrect": false
             }
-          ]
+          ],
+          "learningObjectiveAr": "فحص حدود المجال عند غياب نقاط حرجة مسموحة",
+          "learningObjectiveEn": "Evaluate feasible boundaries in constrained optimization"
         },
         {
           "contentKey": "mw-wave5-coupled-quadratic-critical-value",
           "primarySkillKey": "unconstrained-optimization",
           "templateFamilyKey": "wave5-positive-definite-coupled-quadratic",
           "difficultyLevel": 4,
-          "pisaProcess": "reason",
+          "pisaProcess": "interpret_evaluate",
           "titleAr": "القيمة الصغرى لدالة تربيعية في متغيرين",
           "titleEn": "Minimum of a coupled quadratic in two variables",
           "questionTextAr": "إذا كان f(x,y)=x²+2xy+3y²−4x−8y، فما قيمتها الصغرى على المستوى الحقيقي؟",
@@ -313,7 +327,9 @@
               "LatexCode": "6",
               "IsCorrect": false
             }
-          ]
+          ],
+          "learningObjectiveAr": "حل شروط السكون والتحقق من الهسيان لإيجاد صغرى كلية",
+          "learningObjectiveEn": "Use first-order and Hessian conditions to verify a global minimum"
         }
       ]
     }
