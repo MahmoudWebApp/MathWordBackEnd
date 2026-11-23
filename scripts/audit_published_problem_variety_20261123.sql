@@ -4,7 +4,7 @@
 WITH published_patterns AS (
  SELECT p."Id",p."StageId",p."CategoryId",
         regexp_replace(regexp_replace(lower(p."QuestionTextEn"),
-          '[0-9]+(\\.[0-9]+)?','#','g'),'\\s+',' ','g') AS pattern
+          '[0-9]+(\.[0-9]+)?','#','g'),'\s+',' ','g') AS pattern
  FROM public."Problems" p
 ), repeated AS (
  SELECT "StageId","CategoryId",pattern,
@@ -29,7 +29,7 @@ WITH all_problems AS (
 ), normal AS (
  SELECT origin,stage,id,
         regexp_replace(regexp_replace(lower(question),
-          '[0-9]+(\\.[0-9]+)?','#','g'),'\\s+',' ','g') AS pattern
+          '[0-9]+(\.[0-9]+)?','#','g'),'\s+',' ','g') AS pattern
  FROM all_problems
 )
 SELECT stage,pattern,count(*) AS total,
