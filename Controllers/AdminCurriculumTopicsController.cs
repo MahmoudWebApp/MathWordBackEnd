@@ -51,7 +51,7 @@ public sealed class AdminCurriculumTopicsController : ControllerBase
             Published = rows.Length > 0 && rows.All(x => x.EditorialStatus == "Published"),
             Total = rows.Length,
             TotalDraftProblems = rows.Sum(x => x.DraftQuestionCount),
-            RequiresIndependentReview = true,
+            RequiresIndependentReview = rows.Any(x => x.DraftQuestionCount > 0),
             Topics = rows
         });
     }
@@ -93,7 +93,7 @@ public sealed class AdminCurriculumTopicsController : ControllerBase
             TopicNameEn = topic.NameEn,
             TopicStatus = topic.EditorialStatus,
             Total = questions.Count,
-            ApprovedForPublication = false,
+            ApprovedForPublication = topic.EditorialStatus == "Published" && questions.Count > 0 && questions.All(x => x.EditorialStatus == "Published"),
             Questions = questions.Select(x => new
             {
                 x.ContentKey, x.PrimarySkillKey, x.TemplateFamilyKey,

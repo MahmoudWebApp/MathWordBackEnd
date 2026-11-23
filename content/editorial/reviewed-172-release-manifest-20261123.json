@@ -1,0 +1,324 @@
+{
+  "name": "MathWorld 172 reviewed editorial drafts release",
+  "date": "2026-11-23",
+  "ownerInstruction": "Publish the 172 reviewed drafts as student-visible problems, with separate stage-specific categories and skills. Preserve the existing free categories and all learner progress.",
+  "publishedBefore": {
+    "problems": 601,
+    "categories": 24,
+    "skills": 94,
+    "primaryLinks": 601
+  },
+  "expectedAfter": {
+    "problems": 773,
+    "categories": 35,
+    "skills": 140,
+    "primaryLinks": 773
+  },
+  "drafts": 172,
+  "existingPublishedTopicIds": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "existingPublishedCategoryIds": [
+    21,
+    22,
+    23,
+    24
+  ],
+  "newCategories": [
+    {
+      "topicKey": "p-number-sense",
+      "stageId": 1,
+      "iconSlug": "number-sense"
+    },
+    {
+      "topicKey": "p-measure-units",
+      "stageId": 1,
+      "iconSlug": "measurement-units"
+    },
+    {
+      "topicKey": "m-integers-rationals",
+      "stageId": 2,
+      "iconSlug": "signed-rationals"
+    },
+    {
+      "topicKey": "m-linear-inequalities",
+      "stageId": 2,
+      "iconSlug": "linear-inequalities"
+    },
+    {
+      "topicKey": "m-probability",
+      "stageId": 2,
+      "iconSlug": "probability-compound"
+    },
+    {
+      "topicKey": "s-exponents-logarithms",
+      "stageId": 3,
+      "iconSlug": "exponential-logarithms"
+    },
+    {
+      "topicKey": "s-analytic-geometry",
+      "stageId": 3,
+      "iconSlug": "analytic-geometry"
+    },
+    {
+      "topicKey": "s-vectors",
+      "stageId": 3,
+      "iconSlug": "vectors"
+    },
+    {
+      "topicKey": "u-math-statistics",
+      "stageId": 4,
+      "iconSlug": "mathematical-statistics"
+    },
+    {
+      "topicKey": "u-numerical-analysis",
+      "stageId": 4,
+      "iconSlug": "numerical-analysis"
+    },
+    {
+      "topicKey": "u-optimization",
+      "stageId": 4,
+      "iconSlug": "optimization"
+    }
+  ],
+  "skillNames": [
+    {
+      "primarySkillKey": "fraction-operations",
+      "nameAr": "العمليات على الكسور",
+      "nameEn": "Fraction operations"
+    },
+    {
+      "primarySkillKey": "summary-measures",
+      "nameAr": "مقاييس النزعة المركزية",
+      "nameEn": "Summary measures"
+    },
+    {
+      "primarySkillKey": "series-convergence",
+      "nameAr": "تقارب المتسلسلات",
+      "nameEn": "Series convergence"
+    },
+    {
+      "primarySkillKey": "logic",
+      "nameAr": "المنطق الرياضي",
+      "nameEn": "Mathematical logic"
+    },
+    {
+      "primarySkillKey": "counting",
+      "nameAr": "أنماط العد",
+      "nameEn": "Counting patterns"
+    },
+    {
+      "primarySkillKey": "estimation",
+      "nameAr": "تقدير نواتج العمليات",
+      "nameEn": "Estimating results"
+    },
+    {
+      "primarySkillKey": "number-comparison",
+      "nameAr": "مقارنة الأعداد",
+      "nameEn": "Number comparison"
+    },
+    {
+      "primarySkillKey": "place-value",
+      "nameAr": "القيمة المكانية",
+      "nameEn": "Place value"
+    },
+    {
+      "primarySkillKey": "rounding",
+      "nameAr": "التقريب",
+      "nameEn": "Rounding numbers"
+    },
+    {
+      "primarySkillKey": "absolute-value",
+      "nameAr": "القيمة المطلقة",
+      "nameEn": "Absolute value"
+    },
+    {
+      "primarySkillKey": "rational-arithmetic",
+      "nameAr": "عمليات الأعداد النسبية",
+      "nameEn": "Rational-number arithmetic"
+    },
+    {
+      "primarySkillKey": "signed-operations",
+      "nameAr": "عمليات الأعداد الصحيحة الموقّعة",
+      "nameEn": "Signed integer operations"
+    },
+    {
+      "primarySkillKey": "decay-half-life",
+      "nameAr": "التناقص ونصف العمر",
+      "nameEn": "Decay and half-life"
+    },
+    {
+      "primarySkillKey": "growth-models",
+      "nameAr": "نماذج النمو الأسّي",
+      "nameEn": "Exponential growth models"
+    },
+    {
+      "primarySkillKey": "logarithm-domain",
+      "nameAr": "مجال الدوال اللوغاريتمية",
+      "nameEn": "Logarithmic function domain"
+    },
+    {
+      "primarySkillKey": "logarithm-inverse-and-equations",
+      "nameAr": "عكس الأسس والمعادلات اللوغاريتمية",
+      "nameEn": "Inverse exponentials and logarithmic equations"
+    },
+    {
+      "primarySkillKey": "logarithm-modeling",
+      "nameAr": "التطبيقات اللوغاريتمية",
+      "nameEn": "Logarithmic models"
+    },
+    {
+      "primarySkillKey": "logarithm-properties",
+      "nameAr": "قوانين اللوغاريتمات",
+      "nameEn": "Logarithm laws"
+    },
+    {
+      "primarySkillKey": "model-interpretation",
+      "nameAr": "تفسير النماذج الأسّية",
+      "nameEn": "Interpreting exponential models"
+    },
+    {
+      "primarySkillKey": "confidence-intervals",
+      "nameAr": "فترات الثقة",
+      "nameEn": "Confidence intervals"
+    },
+    {
+      "primarySkillKey": "hypothesis-testing",
+      "nameAr": "اختبار الفرضيات",
+      "nameEn": "Hypothesis testing"
+    },
+    {
+      "primarySkillKey": "sampling-distribution",
+      "nameAr": "توزيع العينات",
+      "nameEn": "Sampling distributions"
+    },
+    {
+      "primarySkillKey": "capacity",
+      "nameAr": "قياس السعة",
+      "nameEn": "Measuring capacity"
+    },
+    {
+      "primarySkillKey": "length",
+      "nameAr": "قياس الأطوال",
+      "nameEn": "Measuring length"
+    },
+    {
+      "primarySkillKey": "mass",
+      "nameAr": "قياس الكتلة",
+      "nameEn": "Measuring mass"
+    },
+    {
+      "primarySkillKey": "metric-conversion",
+      "nameAr": "التحويل بين الوحدات المترية",
+      "nameEn": "Metric unit conversion"
+    },
+    {
+      "primarySkillKey": "time",
+      "nameAr": "قياس الزمن",
+      "nameEn": "Time measurement"
+    },
+    {
+      "primarySkillKey": "inequality-contexts",
+      "nameAr": "مسائل المتباينات التطبيقية",
+      "nameEn": "Inequality word problems"
+    },
+    {
+      "primarySkillKey": "number-line-solutions",
+      "nameAr": "حلول المتباينات على خط الأعداد",
+      "nameEn": "Inequality solution sets on a number line"
+    },
+    {
+      "primarySkillKey": "solve-linear-inequalities",
+      "nameAr": "حل المتباينات الخطية",
+      "nameEn": "Solving linear inequalities"
+    },
+    {
+      "primarySkillKey": "circles",
+      "nameAr": "معادلات الدائرة",
+      "nameEn": "Equations of circles"
+    },
+    {
+      "primarySkillKey": "coordinate-lines",
+      "nameAr": "المستقيمات الإحداثية",
+      "nameEn": "Coordinate lines"
+    },
+    {
+      "primarySkillKey": "loci",
+      "nameAr": "المحلات الهندسية",
+      "nameEn": "Geometric loci"
+    },
+    {
+      "primarySkillKey": "error-analysis",
+      "nameAr": "تحليل أخطاء التقريب",
+      "nameEn": "Numerical error analysis"
+    },
+    {
+      "primarySkillKey": "linear-systems",
+      "nameAr": "الأنظمة الخطية العددية",
+      "nameEn": "Numerical linear systems"
+    },
+    {
+      "primarySkillKey": "numerical-integration",
+      "nameAr": "التكامل العددي",
+      "nameEn": "Numerical integration"
+    },
+    {
+      "primarySkillKey": "root-finding",
+      "nameAr": "إيجاد الجذور عددياً",
+      "nameEn": "Numerical root finding"
+    },
+    {
+      "primarySkillKey": "frequency",
+      "nameAr": "الاحتمال التجريبي",
+      "nameEn": "Experimental probability"
+    },
+    {
+      "primarySkillKey": "sample-spaces",
+      "nameAr": "فضاء العينة",
+      "nameEn": "Sample spaces"
+    },
+    {
+      "primarySkillKey": "simple-compound-events",
+      "nameAr": "الأحداث البسيطة والمركبة",
+      "nameEn": "Simple and compound events"
+    },
+    {
+      "primarySkillKey": "dot-product",
+      "nameAr": "الضرب القياسي",
+      "nameEn": "Dot product"
+    },
+    {
+      "primarySkillKey": "magnitude",
+      "nameAr": "مقدار المتجه",
+      "nameEn": "Vector magnitude"
+    },
+    {
+      "primarySkillKey": "vector-components",
+      "nameAr": "مركبات المتجهات",
+      "nameEn": "Vector components"
+    },
+    {
+      "primarySkillKey": "constrained-optimization",
+      "nameAr": "التحسين المقيّد",
+      "nameEn": "Constrained optimization"
+    },
+    {
+      "primarySkillKey": "convexity",
+      "nameAr": "التحدب والانحناء",
+      "nameEn": "Convexity and curvature"
+    },
+    {
+      "primarySkillKey": "unconstrained-optimization",
+      "nameAr": "التحسين غير المقيّد",
+      "nameEn": "Unconstrained optimization"
+    }
+  ],
+  "expectedSourceFingerprint": "382e21999d40c5d6cfb40cadbe784df7",
+  "onlyDataInsertForQuestions": true,
+  "noExistingLearnerDataModification": true,
+  "iconBaseUrl": "https://math-world-frontend.vercel.app/category-icons/",
+  "standardsNote": "Uses editorial process taxonomy but no external accreditation implied; 46 new skill names sourced from individual learning objectives."
+}
