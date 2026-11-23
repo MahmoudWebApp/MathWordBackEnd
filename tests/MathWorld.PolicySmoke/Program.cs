@@ -182,131 +182,77 @@ var workbookReport = new StudentPremiumAnalyticsController.StudentAnalyticsRepor
             "=1+2", "Arithmetic", 1, 1, 0, 2, 1, 1, 1, 10, 42)
     });
 var xlsx = PremiumAnalyticsXlsxExporter.Create(workbookReport, true);
-// A synthetic (non-user) workbook can be exported in CI for independent
-// ZIP/OOXML and Excel-reader compatibility checks.
 var sampleWorkbookPath = Environment.GetEnvironmentVariable("MATHWORLD_XLSX_SAMPLE_PATH");
 if (!string.IsNullOrWhiteSpace(sampleWorkbookPath))
     File.WriteAllBytes(sampleWorkbookPath, xlsx);
+Assert(xlsx.Length > 1000 && xlsx[0] == 0x50 && xlsx[1] == 0x4B,
+    "The branded student report must be a real XLSX ZIP.");
 using (var archive = new ZipArchive(new MemoryStream(xlsx), ZipArchiveMode.Read))
 {
-    foreach (var name in new[] {
-        "[Content_Types].xml", "_rels/.rels", "xl/workbook.xml",
-        "xl/_rels/workbook.xml.rels", "xl/worksheets/sheet1.xml", "xl/styles.xml"
-    })
-        Assert(archive.GetEntry(name) is not null, "XLSX archive is missing " + name);
-
-    foreach (var name in new[] {
-        "xl/worksheets/_rels/sheet1.xml.rels",
-        "xl/drawings/drawing2.xml", "xl/drawings/_rels/drawing2.xml.rels",
-        "xl/media/image1.png"
-    })
-        Assert(archive.GetEntry(name) is not null,
-            "The native workbook must embed the real MathWorld logo: " + name);
-    using (var image = archive.GetEntry("xl/media/image1.png")!.Open())
+    Assert(archive.Entries.Any(e => e.FullName == "xl/workbook.xml"),
+        "The Excel workbook must contain a workbook XML part.");
+    // No floating chart frames: WPS previously rendered them as a giant
+    // white overlay, making the data sheet appear empty.
+    Assert(!archive.Entries.Any(e => e.FullName.StartsWith("xl/charts/", StringComparison.Ordinal)),
+        "Progress charting must use editable in-cell data bars, not floating WPS-incompatible charts.");
+    foreach (var entry in archive.Entries.Where(e => e.FullName.EndsWith(".xml") ||
+                                                       e.FullName.EndsWith(".rels")))
+        using (var xml = entry.Open()) XDocument.Load(xml);
+    var images = archive.Entries.Where(e => e.FullName.StartsWith("xl/media/") &&
+                                            e.FullName.EndsWith(".png")).ToArray();
+    Assert(images.Length >= 1, "Excel should embed the approved MathWorld logo.");
+    foreach (var image in images)
     {
-        using var imageBuffer = new MemoryStream();
-        image.CopyTo(imageBuffer);
-        var pixels = imageBuffer.ToArray();
-        Assert(pixels.AsSpan(0, 8).SequenceEqual(
-                new byte[] { 137, 80, 78, 71, 13, 10, 26, 10 }),
-            "The embedded MathWorld logo must be a real PNG asset.");
-        // Git blob digest pins the exact already-approved transparent website
-        // mark, preventing an old mobile launcher / black-background image
-        // from silently replacing the branding inside student exports.
-        var gitHeader = Encoding.UTF8.GetBytes($"blob {pixels.Length}\0");
-        var gitBytes = gitHeader.Concat(pixels).ToArray();
-        var imageSha = Convert.ToHexString(SHA1.HashData(gitBytes)).ToLowerInvariant();
-        Assert(imageSha == "c87b96ee1fe1b93d959a53ad1e171cd9b7db209c",
-            "XLSX reports must embed the approved official MathWorld web mark.");
+        using var input = image.Open();
+        using var output = new MemoryStream();
+        input.CopyTo(output);
+        var pixels = output.ToArray();
+        var header = Encoding.UTF8.GetBytes($"blob {pixels.Length}\0");
+        var hash = Convert.ToHexString(
+            SHA1.HashData(header.Concat(pixels).ToArray())).ToLowerInvariant();
+        Assert(hash == "c87b96ee1fe1b93d959a53ad1e171cd9b7db209c",
+            "Only the exact approved MathWorld logo may be embedded in Excel.");
     }
-    var sheet = XDocument.Load(archive.GetEntry("xl/worksheets/sheet1.xml")!.Open());
-    XNamespace ns = "http://schemas.openxmlformats.org/spreadsheetml/2006/main";
-    var userTextCell = sheet.Descendants(ns + "c")
-        .Single(x => (string?)x.Attribute("r") == "B7");
-    Assert((string?)userTextCell.Attribute("t") == "inlineStr" &&
-           (string?)userTextCell.Descendants(ns + "t").Single() == "=1+2",
-        "Untrusted category names must be Excel literal strings, never formulas.");
-    var totalSeconds = sheet.Descendants(ns + "c")
-        .Single(x => (string?)x.Attribute("r") == "K8");
-    Assert((string?)totalSeconds.Element(ns + "v") == "42",
-        "Premium Excel totals must be exported as numeric cells.");
-    var branded = sheet.Descendants(ns + "c")
-        .Single(x => (string?)x.Attribute("r") == "C1");
-    Assert(((string?)branded.Descendants(ns + "t").Single())?.Contains("MathWorld") == true,
-        "Premium Excel report should prominently identify MathWorld.");
-    Assert(sheet.Descendants(ns + "conditionalFormatting").Count() >= 2,
-        "The worksheet must include editable Excel-native progress data bars.");
-    var headerCells = sheet.Descendants(ns + "row")
-        .Single(row => (string?)row.Attribute("r") == "6")
-        .Descendants(ns + "t").Select(x => (string)x).ToArray();
-    Assert(headerCells.Length == 11 &&
-           headerCells[0] == "المرحلة" && headerCells[1] == "الفئة" &&
-           !headerCells.Any(x => x.Contains("ID", StringComparison.OrdinalIgnoreCase)),
-        "Excel must use 11 localized student-friendly columns without StageId or CategoryId.");
-    // A real editable Excel chart is an OOXML chart part with a drawing,
-    // relationships, series data references and cached numeric values.
-    foreach (var name in new[] {
-        "xl/worksheets/sheet2.xml",
-        "xl/worksheets/_rels/sheet2.xml.rels",
-        "xl/drawings/drawing1.xml",
-        "xl/drawings/_rels/drawing1.xml.rels",
-        "xl/charts/chart1.xml", "xl/charts/chart2.xml"
-    })
-        Assert(archive.GetEntry(name) is not null,
-            "Excel-native charting is missing " + name);
-    var dashboard = XDocument.Load(archive.GetEntry("xl/worksheets/sheet2.xml")!.Open());
-    Assert(dashboard.Descendants(ns + "drawing").Count() == 1,
-        "Charts must be anchored in their own editable worksheet.");
-    Assert(dashboard.Descendants(ns + "c")
-        .Any(c => (string?)c.Attribute("r") == "B5" &&
-                  (string?)c.Element(ns + "v") == "1"),
-        "Charts must use the real solved-count data, not invented examples.");
-    XNamespace chartNs = "http://schemas.openxmlformats.org/drawingml/2006/chart";
-    foreach (var name in new[] { "xl/charts/chart1.xml", "xl/charts/chart2.xml" })
-    {
-        var chartXml = XDocument.Load(archive.GetEntry(name)!.Open());
-        Assert(chartXml.Descendants(chartNs + "barChart").Count() == 1 &&
-               chartXml.Descendants(chartNs + "ser").Count() == 2,
-            "The report must contain two native data-linked series per chart.");
-        Assert(chartXml.Descendants(chartNs + "f").Any() &&
-               chartXml.Descendants(chartNs + "numCache").Count() == 2,
-            "Chart values must retain editable sheet references and cached real data.");
-    }
-    var drawingXml = XDocument.Load(archive.GetEntry("xl/drawings/drawing1.xml")!.Open());
-    XNamespace drawingNs =
-        "http://schemas.openxmlformats.org/drawingml/2006/spreadsheetDrawing";
-    Assert(drawingXml.Descendants(drawingNs + "graphicFrame").Count() == 2 &&
-           drawingXml.Descendants(drawingNs + "pic").Count() == 1 &&
-           drawingXml.Descendants(drawingNs + "twoCellAnchor").Count() == 3,
-        "Two actual charts and the approved logo must each have a drawing anchor.");
-    var reportDrawing = XDocument.Load(archive.GetEntry("xl/drawings/drawing2.xml")!.Open());
-    var markAnchor = reportDrawing.Descendants(drawingNs + "twoCellAnchor").Single();
-    var markFrom = markAnchor.Element(drawingNs + "from")!;
-    var markTo = markAnchor.Element(drawingNs + "to")!;
-    Assert((string?)markFrom.Element(drawingNs + "col") == "0" &&
-           (string?)markTo.Element(drawingNs + "col") == "0" &&
-           (string?)markTo.Element(drawingNs + "colOff") == "571500",
-        "The approved square report mark must retain its intended 60px width.");
-    var rtlView = sheet.Descendants(ns + "sheetView").Single();
-    Assert((string?)rtlView.Attribute("rightToLeft") == "1",
-        "Arabic Excel workbook must use the RTL worksheet direction.");
+}
+using (var reopened = new ClosedXML.Excel.XLWorkbook(new MemoryStream(xlsx)))
+{
+    Assert(reopened.Worksheets.Count == 2, "Exactly two editable reporting sheets.");
+    var sheet = reopened.Worksheet(1);
+    var bars = reopened.Worksheet(2);
+    Assert(sheet.RightToLeft && bars.RightToLeft, "Both Arabic tabs must be RTL.");
+    Assert(sheet.Cell("A12").GetString() == "المرحلة" &&
+           sheet.Cell("B12").GetString() == "الفئة" &&
+           sheet.Cell("K12").GetString() == "الوقت بالثواني",
+        "Data must have 11 readable Arabic columns, with no IDs.");
+    Assert(!Enumerable.Range(1,11).Any(c =>
+            sheet.Cell(12,c).GetString().Contains("ID", StringComparison.OrdinalIgnoreCase)),
+        "Internal numeric IDs must not appear in student report headers.");
+    Assert(sheet.Cell("B13").GetString() == "=1+2" && !sheet.Cell("B13").HasFormula,
+        "Untrusted category labels must remain literal text, not Excel formulas.");
+    Assert(sheet.Cell("K14").GetDouble() == 42 &&
+           sheet.Cell("D14").GetDouble() == 1,
+        "Real report totals must remain numeric and accurately typed.");
+    Assert(sheet.Cell("A1").GetString().Contains("MathWorld") &&
+           sheet.Cell("A6").GetDouble() == 1,
+        "Visible report header and metric cards should contain real data.");
+    Assert(sheet.ConditionalFormats.Count >= 2 && bars.ConditionalFormats.Count >= 2,
+        "Summary and statistics tabs must have real cell-based progress bars.");
+    Assert(bars.Cell("B9").GetDouble() == 1 && bars.Cell("F9").GetDouble() == 1,
+        "The visual statistics must be tied to actual counts.");
 }
 var englishWorkbook = PremiumAnalyticsXlsxExporter.Create(workbookReport, false);
-using (var englishArchive = new ZipArchive(new MemoryStream(englishWorkbook), ZipArchiveMode.Read))
+using (var reopened = new ClosedXML.Excel.XLWorkbook(new MemoryStream(englishWorkbook)))
 {
-    var sheet = XDocument.Load(englishArchive.GetEntry("xl/worksheets/sheet1.xml")!.Open());
-    XNamespace ns = "http://schemas.openxmlformats.org/spreadsheetml/2006/main";
-    var header = sheet.Descendants(ns + "row")
-        .Single(x => (string?)x.Attribute("r") == "6")
-        .Descendants(ns + "t").Select(x => (string)x).ToArray();
-    Assert(header.Length == 11 && header[0] == "Stage" && header[1] == "Category",
-        "English XLSX must contain English-only labels.");
-    var stage = sheet.Descendants(ns + "c")
-        .Single(x => (string?)x.Attribute("r") == "A7");
-    Assert((string?)stage.Descendants(ns + "t").Single() == "Stage one",
-        "English XLSX must display English stage/category names.");
+    var sheet = reopened.Worksheet(1);
+    Assert(!sheet.RightToLeft &&
+           sheet.Cell("A12").GetString() == "Stage" &&
+           sheet.Cell("B12").GetString() == "Category",
+        "English workbook must use an English-language LTR layout.");
+    Assert(sheet.Cell("A13").GetString() == "Stage one" &&
+           sheet.Cell("B13").GetString() == "Arithmetic",
+        "English workbook must use English stage/category names.");
 }
-Console.WriteLine("PASS: localized Arabic/English student XLSX, native chart and safe content.");
+Console.WriteLine("PASS: WPS-safe styled Arabic/English XLSX, logo, numeric metrics and in-cell statistics.");
 
 // Render both languages as real PDF binaries with synthetic-only data,
 // verifying the direct-download format independently of a user session.
