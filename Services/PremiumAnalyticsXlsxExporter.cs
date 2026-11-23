@@ -12,12 +12,21 @@ namespace MathWorldAPI.Services;
 /// </summary>
 public static class PremiumAnalyticsXlsxExporter
 {
-    private static readonly XLColor Purple = XLColor.FromHtml("#6D28D9");
-    private static readonly XLColor Pink = XLColor.FromHtml("#EC4899");
-    private static readonly XLColor Ink = XLColor.FromHtml("#21142F");
-    private static readonly XLColor Lavender = XLColor.FromHtml("#F3EAFC");
-    private static readonly XLColor Light = XLColor.FromHtml("#FAF8FF");
-    private static readonly XLColor Border = XLColor.FromHtml("#E7DDF2");
+    // Calm, conventional reporting colors: green = success, red = errors,
+    // amber = points/caution. Logo remains the exact official MathWorld mark.
+    private static readonly XLColor Navy = XLColor.FromHtml("#223047");
+    private static readonly XLColor Green = XLColor.FromHtml("#15803D");
+    private static readonly XLColor Red = XLColor.FromHtml("#B91C1C");
+    private static readonly XLColor Amber = XLColor.FromHtml("#A16207");
+    private static readonly XLColor Teal = XLColor.FromHtml("#0F766E");
+    private static readonly XLColor Blue = XLColor.FromHtml("#1D4ED8");
+    private static readonly XLColor Ink = XLColor.FromHtml("#273345");
+    private static readonly XLColor SlateTint = XLColor.FromHtml("#EAF1F6");
+    private static readonly XLColor GreenTint = XLColor.FromHtml("#E5F5E9");
+    private static readonly XLColor RedTint = XLColor.FromHtml("#FCE8E8");
+    private static readonly XLColor AmberTint = XLColor.FromHtml("#FFF2D6");
+    private static readonly XLColor Light = XLColor.FromHtml("#F8FAFC");
+    private static readonly XLColor Border = XLColor.FromHtml("#DDE5EE");
 
     private static string[] Headers(bool ar) => ar
         ? ["المرحلة", "الفئة", "المسائل المجربة", "المسائل المحلولة",
@@ -71,11 +80,11 @@ public static class PremiumAnalyticsXlsxExporter
         IXLWorksheet sheet, string title, string subtitle, byte[] logo, bool ar)
     {
         // The official logo stays within the colored banner in RTL/LTR.
-        sheet.Range("A1:K2").Style.Fill.BackgroundColor = Purple;
+        sheet.Range("A1:K2").Style.Fill.BackgroundColor = Navy;
         sheet.Range("B1:K2").Merge();
         var titleRange = sheet.Range("B1:K2");
         titleRange.Value = title;
-        titleRange.Style.Fill.BackgroundColor = Purple;
+        titleRange.Style.Fill.BackgroundColor = Navy;
         titleRange.Style.Font.Bold = true;
         titleRange.Style.Font.FontSize = 19;
         titleRange.Style.Font.FontColor = XLColor.White;
@@ -84,19 +93,19 @@ public static class PremiumAnalyticsXlsxExporter
             ? XLAlignmentHorizontalValues.Right : XLAlignmentHorizontalValues.Left;
         titleRange.Style.Alignment.Indent = 1;
 
-        sheet.Range("A3:K3").Style.Fill.BackgroundColor = Lavender;
+        sheet.Range("A3:K3").Style.Fill.BackgroundColor = SlateTint;
         sheet.Range("B3:K3").Merge();
         var subtitleRange = sheet.Range("B3:K3");
         subtitleRange.Value = subtitle;
-        subtitleRange.Style.Fill.BackgroundColor = Lavender;
-        subtitleRange.Style.Font.FontColor = Purple;
+        subtitleRange.Style.Fill.BackgroundColor = SlateTint;
+        subtitleRange.Style.Font.FontColor = Navy;
         subtitleRange.Style.Font.Bold = true;
         subtitleRange.Style.Font.FontSize = 10;
         subtitleRange.Style.Alignment.Indent = 1;
         subtitleRange.Style.Alignment.Horizontal = ar
             ? XLAlignmentHorizontalValues.Right : XLAlignmentHorizontalValues.Left;
         sheet.Row(4).Height = 7;
-        sheet.Range("A4:K4").Style.Fill.BackgroundColor = Pink;
+        sheet.Range("A4:K4").Style.Fill.BackgroundColor = Teal;
         sheet.Row(1).Height = 34;
         sheet.Row(2).Height = 32;
         sheet.Row(3).Height = 27;
@@ -110,20 +119,20 @@ public static class PremiumAnalyticsXlsxExporter
     }
 
     private static void Metric(IXLWorksheet sheet, int row, int col,
-        string name, long value)
+        string name, long value, XLColor accent, XLColor tint)
     {
         var label = sheet.Range(row, col, row, col + 1).Merge();
         label.Value = name;
-        label.Style.Fill.BackgroundColor = Lavender;
-        label.Style.Font.FontColor = Purple;
+        label.Style.Fill.BackgroundColor = tint;
+        label.Style.Font.FontColor = accent;
         label.Style.Font.Bold = true;
         label.Style.Font.FontSize = 9;
         label.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
 
         var number = sheet.Range(row + 1, col, row + 1, col + 1).Merge();
         number.FirstCell().Value = value;
-        number.Style.Fill.BackgroundColor = Light;
-        number.Style.Font.FontColor = Ink;
+        number.Style.Fill.BackgroundColor = tint;
+        number.Style.Font.FontColor = accent;
         number.Style.Font.Bold = true;
         number.Style.Font.FontSize = 17;
         number.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
@@ -160,8 +169,15 @@ public static class PremiumAnalyticsXlsxExporter
             report.IncorrectAttempts, report.FirstTryCorrect,
             report.TimeSpentSeconds, accuracy
         };
+        // Green is used only for solved/correct; red for mistakes;
+        // amber for points. Neutral metrics stay slate.
+        var accents = new[] { Green, Blue, Green, Amber, Red,
+                              Blue, Red, Teal, Blue, Teal };
+        var tints = new[] { GreenTint, SlateTint, GreenTint, AmberTint, RedTint,
+                           SlateTint, RedTint, GreenTint, SlateTint, GreenTint };
         for (var i = 0; i < 10; i++)
-            Metric(sheet, i < 5 ? 5 : 8, 1 + (i % 5) * 2, labels[i], values[i]);
+            Metric(sheet, i < 5 ? 5 : 8, 1 + (i % 5) * 2,
+                labels[i], values[i], accents[i], tints[i]);
         foreach (var r in new[] { 5, 8 }) sheet.Row(r).Height = 26;
         foreach (var r in new[] { 6, 9 }) sheet.Row(r).Height = 39;
         sheet.Row(11).Height = 17;
@@ -170,7 +186,7 @@ public static class PremiumAnalyticsXlsxExporter
         for (var i = 0; i < headers.Length; i++)
             sheet.Cell(12, i + 1).Value = headers[i];
         var heading = sheet.Range(12, 1, 12, 11);
-        heading.Style.Fill.BackgroundColor = Purple;
+        heading.Style.Fill.BackgroundColor = Navy;
         heading.Style.Font.FontColor = XLColor.White;
         heading.Style.Font.Bold = true;
         heading.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
@@ -195,6 +211,14 @@ public static class PremiumAnalyticsXlsxExporter
             sheet.Cell(row, 10).Value = category.AwardedPoints;
             sheet.Cell(row, 11).Value = category.TimeSpentSeconds;
             FormatBodyRow(sheet, row, row % 2 == 1 ? Light : XLColor.White);
+            sheet.Cell(row, 4).Style.Font.FontColor = Green;
+            sheet.Cell(row, 7).Style.Font.FontColor = Green;
+            sheet.Cell(row, 9).Style.Font.FontColor = Teal;
+            sheet.Cell(row, 10).Style.Font.FontColor = Amber;
+            if (category.ErrorNotebookProblems > 0)
+                sheet.Cell(row, 5).Style.Font.FontColor = Red;
+            if (category.IncorrectAttempts > 0)
+                sheet.Cell(row, 8).Style.Font.FontColor = Red;
             row++;
         }
 
@@ -209,17 +233,17 @@ public static class PremiumAnalyticsXlsxExporter
         sheet.Cell(row, 10).Value = report.AwardedPoints;
         sheet.Cell(row, 11).Value = report.TimeSpentSeconds;
         var total = sheet.Range(row, 1, row, 11);
-        total.Style.Fill.BackgroundColor = Lavender;
-        total.Style.Font.FontColor = Purple;
+        total.Style.Fill.BackgroundColor = SlateTint;
+        total.Style.Font.FontColor = Navy;
         total.Style.Font.Bold = true;
         total.Style.Border.TopBorder = XLBorderStyleValues.Medium;
-        total.Style.Border.TopBorderColor = Purple;
+        total.Style.Border.TopBorderColor = Teal;
         sheet.Row(row).Height = 29;
 
         if (row > 13)
         {
-            sheet.Range(13, 4, row - 1, 4).AddConditionalFormat().DataBar(Purple);
-            sheet.Range(13, 5, row - 1, 5).AddConditionalFormat().DataBar(Pink);
+            sheet.Range(13, 4, row - 1, 4).AddConditionalFormat().DataBar(Green);
+            sheet.Range(13, 5, row - 1, 5).AddConditionalFormat().DataBar(Red);
         }
         // A single table with an in-place filter and no floating chart objects.
         sheet.Range(12, 1, Math.Max(12, row - 1), 11).SetAutoFilter();
@@ -280,7 +304,7 @@ public static class PremiumAnalyticsXlsxExporter
         foreach (var area in new[] { "A5:C6", "E5:I6" })
         {
             var range = sheet.Range(area);
-            range.Style.Fill.BackgroundColor = Purple;
+            range.Style.Fill.BackgroundColor = Navy;
             range.Style.Font.FontColor = XLColor.White;
             range.Style.Font.Bold = true;
             range.Style.Font.FontSize = 13;
@@ -292,8 +316,8 @@ public static class PremiumAnalyticsXlsxExporter
         foreach (var area in new[] { "A8:C8", "E8:I8" })
         {
             var cells = sheet.Range(area);
-            cells.Style.Fill.BackgroundColor = Lavender;
-            cells.Style.Font.FontColor = Purple;
+            cells.Style.Fill.BackgroundColor = SlateTint;
+            cells.Style.Font.FontColor = Navy;
             cells.Style.Font.Bold = true;
             cells.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
             cells.Style.Alignment.WrapText = true;
@@ -321,15 +345,19 @@ public static class PremiumAnalyticsXlsxExporter
             }
             sheet.Cell(row, 1).Style.Alignment.Horizontal = ar ? XLAlignmentHorizontalValues.Right : XLAlignmentHorizontalValues.Left;
             sheet.Cell(row, 5).Style.Alignment.Horizontal = ar ? XLAlignmentHorizontalValues.Right : XLAlignmentHorizontalValues.Left;
+            sheet.Cell(row, 2).Style.Font.FontColor = Green;
+            sheet.Cell(row, 3).Style.Font.FontColor = Red;
+            sheet.Cell(row, 6).Style.Font.FontColor = Green;
+            sheet.Cell(row, 7).Style.Font.FontColor = Red;
             sheet.Row(row).Height = 32;
             row++;
         }
         if (top.Length > 0)
         {
-            sheet.Range(9, 2, row - 1, 2).AddConditionalFormat().DataBar(Purple);
-            sheet.Range(9, 3, row - 1, 3).AddConditionalFormat().DataBar(Pink);
-            sheet.Range(9, 6, row - 1, 6).AddConditionalFormat().DataBar(Purple);
-            sheet.Range(9, 7, row - 1, 7).AddConditionalFormat().DataBar(Pink);
+            sheet.Range(9, 2, row - 1, 2).AddConditionalFormat().DataBar(Green);
+            sheet.Range(9, 3, row - 1, 3).AddConditionalFormat().DataBar(Red);
+            sheet.Range(9, 6, row - 1, 6).AddConditionalFormat().DataBar(Green);
+            sheet.Range(9, 7, row - 1, 7).AddConditionalFormat().DataBar(Red);
         }
         else
         {
