@@ -1,5 +1,14 @@
 # MathWorld — question-bank and solution-method review tracker
 
+## Verified complete stage-one question-bank review (23 November 2026)
+
+- Individually audited **all 34 primary fractions/decimals questions**, including percentage, rounding, fraction arithmetic and equivalent fractions; **16** original explanations were already adequate, while **18** bilingual worked explanations were expanded (IDs 423,424,426,427,477,617,618,619,620,693,694,695,696,817,818,819,820,822).
+- Independent CI checked exact rational arithmetic, percent calculations, decimal rounding and comparison direction with immutable answer IDs. The one-time atomic explanation-only SQL patch succeeded, and live readback verified **18/18 updated Arabic+English descriptions and 18/18 original correct-answer options**, without changing any learner data, progress or question.
+- Read-only equivalence check on all 34 fractions category questions parsed 29 correct options numerically and found **zero equivalent distractors**. Five non-scalar/combined-expression option forms (IDs 422,472,503,507,696) require semantic comparison rather than scalar parsing; their correctness was reviewed as individual concepts, not asserted by that numeric detector.
+- **Milestone: all 151 published elementary-stage questions have been individually reviewed** across six categories. **125** descriptions were substantively enhanced with laws, steps and reasoning in Arabic and English, and **26** were already suitable. No published question was added, deleted, moved, or re-keyed in these explanation-only changes.
+- **450 questions in the other three stages** still require individual mathematical/editing review. The separate **160 staged DraftItems across four stages** remain unpublished until they pass educator-reviewed diversity, answer-equivalence and bilingual-content checks.
+
+
 ## Verified continuation — completed primary geometry category (23 November 2026)
 
 - All **28** primary geometry/measurement questions now have individually reviewed law-led worked solutions. The preceding review had improved 12; the remaining **16** (IDs 71,86,101,131,155,167,191,203,168,180,192,204,169,181,193,205) were corrected with rectangle area/perimeter, triangle angle sum, or metre-centimetre conversion formulas, substitutions and units.
