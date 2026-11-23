@@ -24,3 +24,10 @@ secrets.json
 
 # Local search index
 data.ms/
+
+# Hostinger deployment local secrets, restored dumps and state.
+deploy/hostinger/.env
+deploy/hostinger/backups/
+deploy/hostinger/*.dump
+deploy/hostinger/*.dump.sha256
+deploy/hostinger/*.sql
