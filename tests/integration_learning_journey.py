@@ -106,6 +106,53 @@ def main():
     })
     admin_token = admin_login["Token"]
 
+    # Real guided-flow regression against the disposable PostgreSQL API:
+    # a wrong first answer must count as completed in today's challenge,
+    # remain incorrect, and NOT reshuffle the remaining questions.
+    stage2_seed = {
+        "QuestionTextAr": "اختبار تحدي اليوم: ما نتيجة 2 + 3 ؟",
+        "QuestionTextEn": "Daily challenge test: what is 2 + 3?",
+        "DetailedSolutionAr": "القانون المستخدم: الجمع. 2 + 3 = 5",
+        "DetailedSolutionEn": "Rule used: addition. 2 + 3 = 5",
+        "StageId": stage2,
+        "CategoryId": 5,
+        "Points": 7,
+        "Options": [
+            {"LatexCode": str(value), "IsCorrect": value == 5, "Order": value}
+            for value in range(4, 8)
+        ],
+    }
+    expect("POST", "/api/admin/problems", 201, stage2_seed, admin_token)
+    expect("PUT", f"/api/admin/learners/{new_student['Id']}/subscription",
+           200, {"SubscriptionType": "Premium",
+                 "Reason": "CI: guided daily challenge"}, admin_token)
+    guided = expect("GET", "/api/users/daily-challenge",
+                    200, token=stage_token)
+    assert guided["Total"] >= 1 and guided["Completed"] == 0, guided
+    first_id = guided["Problems"][0]["Id"]
+    first_details = expect("GET", f"/api/problems/{first_id}",
+                           200, token=admin_token)
+    wrong_option = next(o["Id"] for o in first_details["Options"]
+                        if not o["IsCorrect"])
+    first_wrong = expect("POST", "/api/problems/submit", 200, {
+        "ProblemId": first_id, "SelectedOptionId": wrong_option,
+        "TimeSpentSeconds": 3,
+    }, stage_token)
+    assert first_wrong["IsCorrect"] is False, first_wrong
+    guided_after_wrong = expect("GET", "/api/users/daily-challenge",
+                                200, token=stage_token)
+    assert [p["Id"] for p in guided_after_wrong["Problems"]] == [
+        p["Id"] for p in guided["Problems"]
+    ], "Daily selection must stay fixed when the first answer is wrong"
+    assert guided_after_wrong["Completed"] == 1, guided_after_wrong
+    assert guided_after_wrong["Correct"] == 0, guided_after_wrong
+    assert guided_after_wrong["Problems"][0]["IsAnswered"] is True
+    assert guided_after_wrong["Problems"][0]["IsSolved"] is False
+    # Previously wrong question is not a new question when resuming.
+    remaining = [p for p in guided_after_wrong["Problems"]
+                 if not p["IsAnswered"]]
+    assert first_id not in {p["Id"] for p in remaining}
+
     create = {
         "QuestionTextAr": "ما قيمة 1 + 1 ؟",
         "QuestionTextEn": "What is 1 + 1?",
