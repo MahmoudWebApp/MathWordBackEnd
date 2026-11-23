@@ -1,5 +1,13 @@
 # MathWorld — question-bank and solution-method review tracker
 
+## Primary draft explanatory quality gate — 20 solved with laws (23 November 2026)
+
+- Improved **20 unpublished primary draft explanations**: **8 Number Sense & Place Value (proposal 5)** and **12 Measurement & Unit Conversion (proposal 9)**. Each of the 20 has a named Arabic/English rule and multi-step substitution; includes rounding, estimation, place value, distance/mass/volume unit conversion, and time calculations.
+- CI curriculum, backend and PostgreSQL workflows passed; one-time exact original-question/option JSON and Draft-status guarded SQL was applied. Live readback confirmed **20/20 updated bilingual explanations, 20/20 unchanged original answer JSON and 20/20 still Draft**; published Problems, student progress and subscription rules unchanged.
+- New live scan: **40 DraftItems** remain without a named Arabic law or principle and **39** without an explicit English law/rule/formula keyword; down from 96/approximately 95 before 16 + 20 + 20 = **56** explanations improved. Remaining groups: secondary exponential and analytic geometry (20); university statistics and numerical analysis (20).
+- All 160 DraftItems mathematically checked, but editorial approval/actual publication of any topic or draft still remains separate.
+
+
 ## Draft solution-method pedagogy — 20 middle-school draft laws corrected (23 November 2026)
 
 - Improved **20 still-unpublished middle-school DraftItems**: **8 Integers and Rational Numbers (topic 6)** and **12 Linear Inequalities (topic 10)**. Every Arabic and English solution now explicitly names the correct arithmetic/sign/inequality or interval rule, substitutes the given numbers and checks boundary or rounding behavior where appropriate.
