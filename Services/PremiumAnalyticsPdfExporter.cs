@@ -14,11 +14,17 @@ namespace MathWorldAPI.Services;
 /// </summary>
 public static class PremiumAnalyticsPdfExporter
 {
-    private const string Purple = "#6D28D9";
-    private const string Pink = "#EC4899";
-    private const string Ink = "#110C1E";
-    private const string Light = "#FAF8FF";
-    private const string Border = "#E6D9F5";
+    // A restrained professional reporting palette. The official MathWorld
+    // logo above remains unchanged and embedded in both localized PDFs.
+    private const string Navy = "#223047";
+    private const string Teal = "#0F766E";
+    private const string Green = "#15803D";
+    private const string Red = "#B91C1C";
+    private const string Amber = "#A16207";
+    private const string Blue = "#1D4ED8";
+    private const string Ink = "#273345";
+    private const string Light = "#F8FAFC";
+    private const string Border = "#DDE5EE";
 
     private static readonly Lazy<bool> Initialized = new(() =>
     {
@@ -59,16 +65,16 @@ public static class PremiumAnalyticsPdfExporter
                 page.DefaultTextStyle(text => text.FontFamily("IBM Plex Sans Arabic")
                     .FontSize(9).FontColor(Ink));
 
-                page.Header().PaddingBottom(15).Row(row =>
+                page.Header().BorderBottom(1).BorderColor(Border).PaddingBottom(13).Row(row =>
                 {
                     row.ConstantItem(56).Height(56).Image(logo);
                     row.RelativeItem().PaddingLeft(14).Column(column =>
                     {
-                        column.Item().Text("MathWorld").FontSize(20).Bold().FontColor(Purple);
+                        column.Item().Text("MathWorld").FontSize(20).Bold().FontColor(Navy);
                         column.Item().Text(ar ? "منصة الرياضيات التفاعلية" :
-                            "Interactive mathematics learning").FontSize(9).FontColor(Pink);
+                            "Interactive mathematics learning").FontSize(9).FontColor(Teal);
                         column.Item().Text(ar ? "تقرير التقدم في الرياضيات" :
-                            "Mathematics progress report").FontSize(14).SemiBold();
+                            "Mathematics progress report").FontSize(14).SemiBold().FontColor(Navy);
                     });
                     row.ConstantItem(138).AlignRight().Column(column =>
                     {
@@ -90,21 +96,21 @@ public static class PremiumAnalyticsPdfExporter
                         {
                             row.Spacing(8);
                             row.RelativeItem().Element(c => Metric(c,
-                                ar ? "المحلولة" : "Solved", report.SolvedProblems));
+                                ar ? "المحلولة" : "Solved", report.SolvedProblems, Green));
                             row.RelativeItem().Element(c => Metric(c,
-                                ar ? "المحاولات" : "Attempts", report.Attempts));
+                                ar ? "المحاولات" : "Attempts", report.Attempts, Blue));
                             row.RelativeItem().Element(c => Metric(c,
-                                ar ? "الصحيحة" : "Correct", report.CorrectAttempts));
+                                ar ? "الصحيحة" : "Correct", report.CorrectAttempts, Green));
                             row.RelativeItem().Element(c => Metric(c,
-                                ar ? "النقاط" : "Points", report.AwardedPoints));
+                                ar ? "النقاط" : "Points", report.AwardedPoints, Amber));
                             row.RelativeItem().Element(c => Metric(c,
-                                ar ? "الدقة" : "Accuracy", accuracy.ToString() + "%"));
+                                ar ? "الدقة" : "Accuracy", accuracy.ToString() + "%", Teal));
                             row.RelativeItem().Element(c => Metric(c,
-                                ar ? "دفتر الأخطاء" : "Review errors", review));
+                                ar ? "دفتر الأخطاء" : "Review errors", review, Red));
                         });
 
                     column.Item().Text(ar ? "ملخص إحصائي حسب الفئة" :
-                        "Category performance charts").Bold().FontSize(14).FontColor(Purple);
+                        "Category performance charts").Bold().FontSize(14).FontColor(Navy);
 
                     if (top.Length == 0)
                         column.Item().Text(ar ? "لا توجد محاولات حتى الآن." :
@@ -115,27 +121,27 @@ public static class PremiumAnalyticsPdfExporter
                         {
                             chart.Spacing(7);
                             chart.Item().Text(ar ? "المسائل المحلولة" : "Solved problems")
-                                .SemiBold().FontColor(Purple);
+                                .SemiBold().FontColor(Green);
                             foreach (var item in top)
                                 chart.Item().Element(c => MetricBar(c,
                                     ar ? item.CategoryNameAr : item.CategoryNameEn,
-                                    item.SolvedProblems, maxSolved, Purple));
+                                    item.SolvedProblems, maxSolved, Green));
                         });
 
                         column.Item().Border(1).BorderColor(Border).Padding(12).Column(chart =>
                         {
                             chart.Spacing(7);
                             chart.Item().Text(ar ? "إجمالي المحاولات" : "Total attempts")
-                                .SemiBold().FontColor(Pink);
+                                .SemiBold().FontColor(Teal);
                             foreach (var item in top)
                                 chart.Item().Element(c => MetricBar(c,
                                     ar ? item.CategoryNameAr : item.CategoryNameEn,
-                                    item.Attempts, maxAttempts, Pink));
+                                    item.Attempts, maxAttempts, Teal));
                         });
                     }
 
                     column.Item().PaddingTop(6).Text(ar ? "التفاصيل حسب المرحلة والفئة" :
-                        "Detailed results by stage and category").Bold().FontSize(14).FontColor(Purple);
+                        "Detailed results by stage and category").Bold().FontSize(14).FontColor(Navy);
                     column.Item().Table(table =>
                     {
                         table.ColumnsDefinition(cols =>
@@ -151,7 +157,7 @@ public static class PremiumAnalyticsPdfExporter
                         table.Header(header =>
                         {
                             foreach (var title in titles)
-                                header.Cell().Background(Purple).PaddingVertical(8)
+                                header.Cell().Background(Navy).PaddingVertical(8)
                                     .PaddingHorizontal(5).Text(title).FontColor(Colors.White)
                                     .SemiBold().FontSize(8);
                         });
@@ -174,7 +180,7 @@ public static class PremiumAnalyticsPdfExporter
 
                 page.Footer().PaddingTop(8).BorderTop(1).BorderColor(Border).Row(row =>
                 {
-                    row.RelativeItem().Text("MathWorld").FontColor(Purple).SemiBold();
+                    row.RelativeItem().Text("MathWorld").FontColor(Navy).SemiBold();
                     row.RelativeItem().AlignRight().Text(text =>
                     {
                         text.Span(ar ? "الصفحة " : "Page ");
@@ -188,13 +194,13 @@ public static class PremiumAnalyticsPdfExporter
         return document.GeneratePdf();
     }
 
-    private static void Metric(IContainer container, string label, object value)
+    private static void Metric(IContainer container, string label, object value, string accent)
     {
         container.Column(column =>
         {
-            column.Item().Text(label).FontSize(8).FontColor("#746783");
+            column.Item().Text(label).FontSize(8).FontColor("#536377");
             column.Item().Text(Convert.ToString(value, CultureInfo.InvariantCulture) ?? "")
-                .FontSize(15).Bold().FontColor(Purple);
+                .FontSize(15).Bold().FontColor(accent);
         });
     }
 
@@ -205,7 +211,7 @@ public static class PremiumAnalyticsPdfExporter
         container.Row(row =>
         {
             row.ConstantItem(200).Text(label).FontSize(8);
-            row.RelativeItem().Height(9).Background("#F3EAFB").Row(fill =>
+            row.RelativeItem().Height(9).Background("#EAF1F6").Row(fill =>
             {
                 fill.RelativeItem((float)Math.Max(0.01, ratio)).Background(color);
                 fill.RelativeItem((float)Math.Max(0.01, 100.0 - ratio));
