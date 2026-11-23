@@ -127,4 +127,13 @@ jobs:
               except urllib.error.HTTPError as error:
                   assert error.code == expected_status, (endpoint, error.code)
                   print(f"Anonymous social linking blocked: {endpoint}")
+
+          request = urllib.request.Request(
+              "http://127.0.0.1:5050/api/auth/social/link-status", method="GET")
+          try:
+              urllib.request.urlopen(request, timeout=8)
+              raise AssertionError("Anonymous Google link status exposed")
+          except urllib.error.HTTPError as error:
+              assert error.code == 401, error.code
+              print("GET /api/auth/social/link-status -> 401 without JWT")
           PY
