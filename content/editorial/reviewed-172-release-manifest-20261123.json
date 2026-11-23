@@ -316,7 +316,7 @@
       "nameEn": "Unconstrained optimization"
     }
   ],
-  "expectedSourceFingerprint": "09e0df7819bcd971167df2368f0681c0",
+  "expectedSourceFingerprint": "382e21999d40c5d6cfb40cadbe784df7",
   "onlyDataInsertForQuestions": true,
   "noExistingLearnerDataModification": true,
   "iconBaseUrl": "https://math-world-frontend.vercel.app/category-icons/",
