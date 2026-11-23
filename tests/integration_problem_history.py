@@ -195,10 +195,23 @@ def main():
     assert all(x["Data"]["PointsEarned"] == 10 for _, x in other_attempts)
     assert solved_count(admin, question_id) == 3, "Lost an atomic solve increment"
 
-    history = expect("GET", f"/api/problems/{question_id}/attempts",
-                     200, token=users[0])
-    assert history["TotalAttempts"] == 1, history  # current practice cycle
-    assert len(history["Attempts"]) == 2, history  # immutable audit preserved
+    # The student must NOT get a solve-history timeline; only their
+    # current solved/mistake state is exposed. Keep immutable attempt rows
+    # available to the administrator for fair scoring and audit purposes.
+    expect("GET", f"/api/problems/{question_id}/attempts", 404,
+           token=users[0])
+    current = expect("GET", f"/api/problems/{question_id}", 200,
+                     token=users[0])
+    assert current["AttemptCount"] == 1, current  # current practice cycle
+    assert current["IsSolved"], current
+    learner_id = expect("GET", "/api/users/profile", 200,
+                        token=users[0])["Id"]
+    admin_audit = expect("GET",
+                         f"/api/admin/learners/{learner_id}/attempts?stageId=1",
+                         200, token=admin)
+    assert admin_audit["Total"] == 2, admin_audit
+    assert all(a["ProblemId"] == question_id
+               for a in admin_audit["Attempts"]), admin_audit
 
     expect("PUT", f"/api/admin/problems/{question_id}", 409,
            make_question(2), admin)
