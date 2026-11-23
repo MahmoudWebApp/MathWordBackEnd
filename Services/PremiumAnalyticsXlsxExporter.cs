@@ -26,17 +26,15 @@ public static class PremiumAnalyticsXlsxExporter
     private const string DrawingNs = "http://schemas.openxmlformats.org/drawingml/2006/main";
     private const string SpreadsheetDrawingNs = "http://schemas.openxmlformats.org/drawingml/2006/spreadsheetDrawing";
 
-    private static readonly string[] Headers =
-    [
-        "Stage ID / رقم المرحلة", "Category ID / رقم الفئة",
-        "Stage AR / المرحلة", "Stage EN",
-        "Category AR / الفئة", "Category EN",
-        "Attempted / جرى حلها", "Solved / المحلولة",
-        "Notebook errors / دفتر الأخطاء", "Attempts / المحاولات",
-        "Correct / الصحيحة", "Incorrect / الخاطئة",
-        "First try correct / صحيح أول مرة", "Points / النقاط",
-        "Time seconds / الوقت بالثواني"
-    ];
+    // Only meaningful student-facing columns, in the chosen export language.
+    // Internal numeric IDs never belong in a progress report.
+    private static string[] Headers(bool ar) => ar
+        ? ["المرحلة", "الفئة", "المسائل المجربة", "المسائل المحلولة",
+            "دفتر الأخطاء", "عدد المحاولات", "الإجابات الصحيحة",
+            "الإجابات الخاطئة", "صحيحة من أول مرة", "النقاط", "الوقت بالثواني"]
+        : ["Stage", "Category", "Attempted problems", "Solved problems",
+            "Error notebook", "Attempts", "Correct attempts", "Incorrect attempts",
+            "Correct on first try", "Points", "Time (seconds)"];
 
     public static byte[] Create(
         StudentPremiumAnalyticsController.StudentAnalyticsReport report, bool rightToLeft)
@@ -50,6 +48,9 @@ public static class PremiumAnalyticsXlsxExporter
             .Take(12).ToArray();
         var showCharts = chartRows.Length > 0;
         var chartsSheetName = rightToLeft ? "مخططات التقدم" : "Progress charts";
+        var headers = Headers(rightToLeft);
+        var accuracy = report.Attempts == 0 ? 0 :
+            (int)Math.Round(report.CorrectAttempts * 100.0 / report.Attempts);
         // The exact approved MathWorld mark is an embedded project resource,
         // not a third-party URL or a runtime network dependency.
         using var logoResource = typeof(PremiumAnalyticsXlsxExporter).Assembly
@@ -146,38 +147,47 @@ public static class PremiumAnalyticsXlsxExporter
                 w.WriteEndElement();
 
                 w.WriteStartElement("cols", Spreadsheet);
-                for (var i = 1; i <= Headers.Length; i++)
+                for (var i = 1; i <= headers.Length; i++)
                 {
                     w.WriteStartElement("col", Spreadsheet);
                     w.WriteAttributeString("min", i.ToString(CultureInfo.InvariantCulture));
                     w.WriteAttributeString("max", i.ToString(CultureInfo.InvariantCulture));
-                    w.WriteAttributeString("width", i is 3 or 4 or 5 or 6 ? "31" : "23");
+                    w.WriteAttributeString("width", i is 1 or 2 ? "35" : "20");
                     w.WriteAttributeString("customWidth", "1");
                     w.WriteEndElement();
                 }
                 w.WriteEndElement();
 
                 w.WriteStartElement("sheetData", Spreadsheet);
-                WriteRow(w, 1, [ "", "", "MathWorld  ∑  |  Mathematics learning report" ], 1);
-                WriteRow(w, 2, [ "", "", rightToLeft ? "تقرير التقدم الشخصي" : "Personal learning progress report" ], 4);
-                WriteRow(w, 3, [ "", "", "Generated UTC: " + report.GeneratedAtUtc.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture) ], 0);
+                WriteRow(w, 1, [ "", "", rightToLeft
+                    ? "MathWorld  |  تقرير التقدم في الرياضيات"
+                    : "MathWorld  |  Mathematics progress report" ], 1);
+                WriteRow(w, 2, [ "", "", rightToLeft
+                    ? "ملخص شخصي وإحصائيات ومخططات" : "Personal statistics and charts" ], 4);
+                WriteRow(w, 3, [ "", "", (rightToLeft ? "تاريخ التقرير: " : "Report date: ") +
+                    report.GeneratedAtUtc.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture) ], 0);
                 WriteRow(w, 4, [
-                    rightToLeft ? "محلولة" : "Solved", report.SolvedProblems,
-                    rightToLeft ? "تمت تجربتها" : "Attempted", report.AttemptedProblems,
-                    rightToLeft ? "تحتاج مراجعة" : "Needs review",
+                    rightToLeft ? "المحلولة" : "Solved", report.SolvedProblems,
+                    rightToLeft ? "المجربة" : "Attempted", report.AttemptedProblems,
+                    rightToLeft ? "دفتر الأخطاء" : "Error notebook",
                     report.Categories.Sum(x => x.ErrorNotebookProblems),
-                    rightToLeft ? "النقاط" : "Points", report.AwardedPoints
+                    rightToLeft ? "النقاط" : "Points", report.AwardedPoints,
+                    rightToLeft ? "الدقة %" : "Accuracy %", accuracy
                 ], 4);
-                WriteRow(w, 5, [ "" ]);
-                WriteRow(w, 6, Headers.Cast<object>().ToArray(), 2);
+                WriteRow(w, 5, [
+                    rightToLeft ? "المحاولات" : "Attempts", report.Attempts,
+                    rightToLeft ? "الصحيحة" : "Correct", report.CorrectAttempts,
+                    rightToLeft ? "الخاطئة" : "Incorrect", report.IncorrectAttempts,
+                    rightToLeft ? "الوقت (ثانية)" : "Time (seconds)", report.TimeSpentSeconds
+                ], 3);
+                WriteRow(w, 6, headers.Cast<object>().ToArray(), 2);
                 var rowNumber = 7;
                 foreach (var category in report.Categories)
                 {
                     WriteRow(w, rowNumber++,
                     [
-                        category.StageId, category.CategoryId,
-                        category.StageNameAr, category.StageNameEn,
-                        category.CategoryNameAr, category.CategoryNameEn,
+                        rightToLeft ? category.StageNameAr : category.StageNameEn,
+                        rightToLeft ? category.CategoryNameAr : category.CategoryNameEn,
                         category.AttemptedProblems, category.SolvedProblems,
                         category.ErrorNotebookProblems, category.Attempts,
                         category.CorrectAttempts, category.IncorrectAttempts,
@@ -187,8 +197,7 @@ public static class PremiumAnalyticsXlsxExporter
                 }
                 WriteRow(w, rowNumber,
                 [
-                    rightToLeft ? "الإجمالي / TOTAL" : "TOTAL / الإجمالي",
-                    "", "", "", "", "",
+                    rightToLeft ? "الإجمالي" : "TOTAL", "",
                     report.AttemptedProblems, report.SolvedProblems,
                     report.Categories.Sum(x => x.ErrorNotebookProblems),
                     report.Attempts, report.CorrectAttempts,
@@ -199,7 +208,7 @@ public static class PremiumAnalyticsXlsxExporter
 
                 // A branded heading without pretending the data rows are a chart.
                 w.WriteStartElement("mergeCells", Spreadsheet);
-                foreach (var span in new[] { "C1:O1", "C2:O2" })
+                foreach (var span in new[] { "C1:K1", "C2:K2" })
                 {
                     w.WriteStartElement("mergeCell", Spreadsheet);
                     w.WriteAttributeString("ref", span);
@@ -208,15 +217,15 @@ public static class PremiumAnalyticsXlsxExporter
                 w.WriteEndElement();
 
                 w.WriteStartElement("autoFilter", Spreadsheet);
-                w.WriteAttributeString("ref", "A6:O" + (rowNumber - 1).ToString(CultureInfo.InvariantCulture));
+                w.WriteAttributeString("ref", "A6:K" + (rowNumber - 1).ToString(CultureInfo.InvariantCulture));
                 w.WriteEndElement();
 
                 // Excel-native visual bars keep the report filterable/editable
                 // and directly reflect the solved and notebook counts.
                 if (rowNumber > 7)
                 {
-                    DataBar(w, "H7:H" + (rowNumber - 1), "FF7C3AED", 1);
-                    DataBar(w, "I7:I" + (rowNumber - 1), "FFE14EAC", 2);
+                    DataBar(w, "D7:D" + (rowNumber - 1), "FF7C3AED", 1);
+                    DataBar(w, "E7:E" + (rowNumber - 1), "FFE14EAC", 2);
                 }
                 w.WriteStartElement("drawing", Spreadsheet);
                 w.WriteAttributeString("r", "id", OfficeRelations, "rId1");
