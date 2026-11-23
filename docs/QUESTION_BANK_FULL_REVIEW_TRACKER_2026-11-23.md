@@ -1,5 +1,12 @@
 # MathWorld — question-bank and solution-method review tracker
 
+## Draft solution-method pedagogy — 20 middle-school draft laws corrected (23 November 2026)
+
+- Improved **20 still-unpublished middle-school DraftItems**: **8 Integers and Rational Numbers (topic 6)** and **12 Linear Inequalities (topic 10)**. Every Arabic and English solution now explicitly names the correct arithmetic/sign/inequality or interval rule, substitutes the given numbers and checks boundary or rounding behavior where appropriate.
+- Original question text, answer option JSON and Draft status were guarded in an all-or-nothing SQL transaction that changed only `CurriculumDraftItems.DetailedSolutionAr/En`. All three CI workflows passed and production readback verified **20/20 bilingual explanations, 20/20 preserved option JSON and 20/20 still Draft**.
+- Live pedagogical audit: **60 still-unpublished DraftItems remain without an explicit named law/principle in Arabic** (down from 96 before the last two rounds of 16 + 20 improvements); the English keyword scan finds **59** without an explicit rule/principle/formula. All 160 original draft answer keys have earlier independent math validations; none were published during these fixes.
+
+
 ## Draft solution-method pedagogy — first 16 improved (23 November 2026)
 
 - All **16** still-unpublished drafts under topic proposals 1-4 (primary fraction arithmetic, middle descriptive statistics, secondary geometric sequences, university propositional logic) now have detailed individualized Arabic/English explanations that begin with the applicable mathematical law or rule and show substitution and verification.
