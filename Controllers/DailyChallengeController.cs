@@ -60,25 +60,30 @@ public sealed class DailyChallengeController : ControllerBase
         var day = DateTime.UtcNow.Date;
         var nextDay = day.AddDays(1);
 
-        // Only past solved work may influence today's picks. Solving a challenge
-        // problem today must NEVER cause the list to reshuffle mid-session.
-        var solvedBeforeToday = await _db.UserProgresses.AsNoTracking()
-            .Where(p => p.UserId == userId && p.IsSolved &&
-                p.SolvedAt.HasValue && p.SolvedAt.Value < day)
+        // Choose questions that have not already been attempted in this practice
+        // cycle before today. Previously incorrect work is not answerable from
+        // the challenge screen unless an explicit mistake review is requested.
+        // The first-attempt timestamp keeps today's selection stable even after
+        // a question is answered later on the same UTC day.
+        var attemptedBeforeToday = await _db.UserProgresses.AsNoTracking()
+            .Where(p => p.UserId == userId &&
+                ((p.Attempts > 0 &&
+                    (p.FirstAttemptAt ?? p.LastAttemptAt) < day) ||
+                 (p.IsSolved && p.SolvedAt.HasValue && p.SolvedAt.Value < day)))
             .Select(p => p.ProblemId).ToListAsync(ct);
 
         var eligible = await _db.Problems.AsNoTracking()
             .Where(p => p.StageId == targetStage.Value &&
                 p.Category.StageId == targetStage.Value &&
                 allowed.Contains(p.CategoryId) &&
-                !solvedBeforeToday.Contains(p.Id))
+                !attemptedBeforeToday.Contains(p.Id))
             .OrderBy(p => p.Id)
             .Select(p => new { p.Id, p.CategoryId, p.TitleAr, p.TitleEn, p.Points })
             .ToListAsync(ct);
 
         // Spread five questions over different topics where possible. The
         // arithmetic score is stable across processes (unlike HashCode.Random).
-        // Prefer questions that were not solved before the UTC day began.
+        // Never include a previously attempted problem from before today.
         var seed = (long)DateOnly.FromDateTime(day).DayNumber * 31 +
                    (long)userId * 17 + (long)targetStage.Value * 13;
         long Rank(int id) => ((long)id * 1103515245L + seed * 1013904223L) & 0x7fffffff;

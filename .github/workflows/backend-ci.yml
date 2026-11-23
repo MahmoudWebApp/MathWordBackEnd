@@ -33,7 +33,6 @@ jobs:
               ("ConnectionStrings", "DefaultConnection"),
               ("Jwt", "Key"),
               ("Meilisearch", "ApiKey"),
-              ("Facebook", "AppSecret"),
           ]
           for section, key in keys:
               value = config.get(section, {}).get(key, "")
@@ -45,6 +44,9 @@ jobs:
               raise SystemExit("Local development config must not be committed")
           print("Tracked configuration contains no configured credentials")
           PY
+
+      - name: Reject removed learner view/history APIs
+        run: python3 tests/check_retired_student_metrics.py
 
       - name: Restore dependencies
         run: dotnet restore MathWorldAPI.csproj
@@ -127,4 +129,13 @@ jobs:
               except urllib.error.HTTPError as error:
                   assert error.code == expected_status, (endpoint, error.code)
                   print(f"Anonymous social linking blocked: {endpoint}")
+
+          request = urllib.request.Request(
+              "http://127.0.0.1:5050/api/auth/social/link-status", method="GET")
+          try:
+              urllib.request.urlopen(request, timeout=8)
+              raise AssertionError("Anonymous Google link status exposed")
+          except urllib.error.HTTPError as error:
+              assert error.code == 401, error.code
+              print("GET /api/auth/social/link-status -> 401 without JWT")
           PY

@@ -1,105 +1,57 @@
-# MathWorld — Secure social identity rollout
+# MathWorld — Google-only authentication and safe linking
+Updated: 2026-11-19. This supersedes the earlier Google/Meta rollout plan.
 
-Status: DRAFT. Do not enable social login in production before backend PR #5
-passes review, developer apps are configured and web/mobile clients are tested.
+## Current public API contract
 
-## Existing endpoints
+| Method | Route | Access | Expected behavior |
+| --- | --- | --- | --- |
+| POST | `/api/auth/social/google` | Public, rate-limited | Verify Google ID token and active user; return MathWorld JWT |
+| GET | `/api/auth/social/link-status` | Active Student JWT | Return `Data.GoogleLinked` only; no provider identifier or token |
+| POST | `/api/auth/social/link/google` | Active Student JWT | Link verified Google identity explicitly |
+| POST | `/api/auth/social/facebook` | Not registered | 404; provider is removed for now |
+| POST | `/api/auth/social/link/facebook` | Not registered | 404; provider is removed for now |
 
-- `POST /api/auth/social/google` with JSON
-  `{ "Provider":"Google", "AccessToken":"<google-id-token>" }`
-- `POST /api/auth/social/facebook` with JSON
-  `{ "Provider":"Facebook", "AccessToken":"<facebook-access-token>" }`
-- `POST /api/auth/social/link/google` with the same Google token **and**
-  `Authorization: Bearer <MathWorld-JWT>`
-- `POST /api/auth/social/link/facebook` with the Facebook token and a valid
-  MathWorld JWT. Both link endpoints are restricted to Student accounts.
+The UI shows only Google. Existing local email/password authentication remains
+available. **Historical social-link records must not be deleted**; removing a
+public login route does not authorize database account deletion.
 
-The provider token is validated on the server; only a MathWorld-owned JWT is
-issued to clients. The database stores the verified provider's stable ID and
-a local UserId, not raw access tokens.
+## Identity safety
 
-## Identity integrity rules
+- A matching email does not automatically link an unlinked Google identity.
+  Existing students must first authenticate to MathWorld and explicitly link.
+- A Google provider ID already linked to a different user is a 409 conflict.
+- Google identity tokens are verified server-side for the configured audience
+  and verified email. Store only the provider identity mapping, never tokens.
+- The account must be active before a MathWorld JWT or link-status is returned.
+- After successful link, both web and Flutter hide the link control. Re-fetch
+  `link-status` on later visits; do not infer linkage from a Google SDK session.
+- New Google-only accounts still require stage onboarding when no stage exists.
 
-1. Existing `SocialLogin.Provider + ProviderId` binding identifies the
-   MathWorld account.
-2. An unlinked verified provider identity whose email matches any existing
-   MathWorld account receives localized HTTP 409 `SocialAccountLinkRequired`.
-   **Never automatically link by matching email**.
-3. Existing user signs in through the original password/provider method and
-   uses the authenticated `link` endpoint to prove both identities.
-4. A provider identity already linked to a different UserId is rejected with
-   HTTP 409. A user's existing provider ID must not silently change.
-5. A Facebook account may stop returning email; a previously linked identity
-   can still log in by stable ProviderId. New Facebook accounts need an email
-   until an explicit safe no-email account policy is designed.
-6. New user creation and provider binding commit in one transaction; no
-   orphan account on a failed social identity link.
-7. Google ID token validation uses Google.Apis.Auth, the configured audience
-   and verified email. Facebook debug_token validation checks validity and
-   app ID before fetching the identity. Keep provider app secrets server-only.
+## Configuration and rollout
 
-## Configuration (Render Environment)
+Backend Render: `Google__ClientId` and existing JWT configuration.
+Web Vercel: `NEXT_PUBLIC_GOOGLE_CLIENT_ID` plus
+`NEXT_PUBLIC_SOCIAL_LOGIN_ENABLED=true` **only once the deployed backend
+provides the link-status route and the OAuth client authorizes the real origin**.
+Flutter needs the correct Android signing SHA and matching Google OAuth clients.
 
-| Variable | Example/value | Exposure |
-| --- | --- | --- |
-| `Google__ClientId` | Google Web OAuth client ID | Server config |
-| `Facebook__AppId` | Meta application ID | Server config |
-| `Facebook__AppSecret` | Meta application secret | **Server secret only** |
-| `Jwt__Key` | Existing strong MathWorld signing key | **Server secret** |
+Do not re-enable Meta from old environment values, stale app settings,
+Swagger descriptions or inactive feature flags.
 
-Web (Netlify) public build-time variables:
-- `NEXT_PUBLIC_SOCIAL_LOGIN_ENABLED=false` while testing
-- `NEXT_PUBLIC_GOOGLE_CLIENT_ID=<same Web OAuth client ID>`
-- `NEXT_PUBLIC_FACEBOOK_APP_ID=<Meta App ID>`
+## Release verification — no real accounts or writes in CI
 
-Google JS authorized origins should include the real website, for example
-`https://mathwords.netlify.app`, the chosen production custom domain, and
-`http://localhost:3000` for local testing. Domain configuration must match
-Google Cloud OAuth client settings. Meta JavaScript SDK domain and app-role
-configuration must match the live website; use app test users during
-development.
+1. Confirm the running Render commit is at least the Google-only controller
+   merge (#41), and has this PR's service cleanup when deployed.
+2. Verify `GET /health/live` is 200 and `GET /health/ready` is 200 with
+   migrations already applied. Do not enable automatic migrations to test it.
+3. Verify unauthenticated `GET /api/auth/social/link-status` returns 401;
+   Meta POST endpoints return 404.
+4. On an authorized test account, validate Google sign-in, explicit link,
+   revisiting settings, token failure, duplicate link 409, and stage onboarding
+   on web and Android.
+5. Revalidate Free two-category access, Premium expiry/gift-code activation,
+   daily-challenge 403 for Free, and no unauthorized analytics exposure.
 
-Android uses the **same Web OAuth client ID** for backend ID-token audience,
-plus Android OAuth clients registered with final app package name and SHA-1
-signatures for debug, release and eventual Play app signing. iOS needs its own
-OAuth client and URL callbacks.
-
-## Do not replace social apps during owner transition
-
-For a future company/organization-owned platform, transfer management/roles
-of the **same Google Cloud project/OAuth clients and Meta app** where possible.
-Creating a different Facebook app can change app-scoped user IDs and break
-existing social provider associations. Changing Google OAuth client audience
-without updating backend and clients breaks ID-token validation. Document the
-transfer and test before changing credentials.
-
-## Acceptance tests before enabling
-
-- Existing email/password learner cannot be taken over using another social
-  identity with a matching email.
-- Linked Google/Facebook identity restores the same MathWorld UserId, stage,
-  points and progress on both web/mobile.
-- Anonymous requests to linking endpoints return 401.
-- Invalid/missing provider tokens get 401.
-- Linking provider ID already associated with another student returns 409.
-- Retry and concurrent first-time registrations do not create orphan users.
-- No social provider access tokens or app secrets appear in the database/logs.
-- Account is active and role is correct before issuing MathWorld JWT.
-- Rate limits and backend error notifications work.
-- Rollback to email/password login works by disabling public feature flag,
-  without deleting linked identities.
-
-## Rollout
-
-1. Review backend PR #3 protecting learner attempt history, then PR #5.
-2. Deploy backend before exposing any UI; verify existing login still works.
-3. Configure/test Google + Meta projects with test users and valid domains.
-4. Deploy web PR #5 with social flag disabled. Enable it only after provider QA
-   and rotate/redeploy safely.
-5. Integrate Flutter Google flow after signed Android/iOS configuration. Do not
-   add Facebook native plugin with placeholder App ID: Android initialization
-   may fail and destabilize the app.
-6. Monitor provider auth 401/409, errors, new user registration spikes,
-   and duplicate/failed social-link attempts without logging raw tokens.
-
-No payments, 10-question quotas or leaderboard rules are changed by this PR.
+An API smoke test cannot substitute for the signed Android device test.
+No payment, ads, tutors, production data imports or account migration are
+part of this rollout.

@@ -8,6 +8,7 @@ on:
     paths:
       - 'Program.cs'
       - 'Controllers/LearningJourneyController.cs'
+      - 'Controllers/DailyChallengeController.cs'
       - 'Models/**'
       - 'DTOs/**'
       - 'Data/**'

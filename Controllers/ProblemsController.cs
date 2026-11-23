@@ -77,7 +77,6 @@ namespace MathWorldAPI.Controllers
 
         private readonly AppDbContext _context;
         private readonly IMeiliSearchService _searchService;
-        private readonly IServiceScopeFactory _scopeFactory;
         private readonly IImgBbStorageService _imgBbStorage;
         private readonly ILogger<ProblemsController> _logger;
         private readonly NotificationStreamBroker _notificationStream;
@@ -89,7 +88,6 @@ namespace MathWorldAPI.Controllers
         public ProblemsController(
             AppDbContext context,
             IMeiliSearchService searchService,
-            IServiceScopeFactory scopeFactory,
             IImgBbStorageService imgBbStorage,
             IConfiguration configuration,
             NotificationStreamBroker notificationStream,
@@ -97,7 +95,6 @@ namespace MathWorldAPI.Controllers
         {
             _context = context;
             _searchService = searchService;
-            _scopeFactory = scopeFactory;
             _imgBbStorage = imgBbStorage;
             _logger = logger;
             _notificationStream = notificationStream;
@@ -231,9 +228,6 @@ namespace MathWorldAPI.Controllers
                                     language == "en"
                                         ? problem.Category.NameEn
                                         : problem.Category.NameAr,
-
-                                ViewsCount =
-                                    problem.ViewsCount,
 
                                 RequiresLogin =
                                     true
@@ -392,9 +386,6 @@ namespace MathWorldAPI.Controllers
                                 language == "en"
                                     ? problem.Category.NameEn
                                     : problem.Category.NameAr,
-
-                            ViewsCount =
-                                problem.ViewsCount,
 
                             RequiresLogin =
                                 true
@@ -625,9 +616,6 @@ namespace MathWorldAPI.Controllers
                                     ? problem.Category.NameEn
                                     : problem.Category.NameAr,
 
-                            ViewsCount =
-                                problem.ViewsCount,
-
                             RequiresLogin =
                                 true
                         })
@@ -783,13 +771,6 @@ namespace MathWorldAPI.Controllers
                 return StatusCode(StatusCodes.Status403Forbidden,
                     new { Message = "CategoryLocked" });
 
-            // View updates are non-critical and run in a separate scope.
-            // Admin previews are management activity, not student engagement.
-            if (!string.Equals(userRole, "Admin", StringComparison.OrdinalIgnoreCase))
-            {
-                _ = BackgroundUpdateAsync(id);
-            }
-
             var categoryIcon =
                 _imgBbStorage.GetFullUrl(
                     problem.Category.Icon)
@@ -923,9 +904,6 @@ namespace MathWorldAPI.Controllers
 
                             Points =
                                 problem.Points,
-
-                            ViewsCount =
-                                problem.ViewsCount,
 
                             IsSolved =
                                 progress?.IsSolved
@@ -1601,179 +1579,6 @@ namespace MathWorldAPI.Controllers
         }
 
         /// <summary>
-        /// Gets the authenticated student's complete attempt history for a problem.
-        /// يعيد سجل محاولات الطالب المسجل بالكامل لمسألة محددة.
-        /// </summary>
-        [Authorize(Roles = "Student")]
-        [HttpGet("{id:int}/attempts")]
-        [ProducesResponseType(
-            typeof(ApiResponse<ProblemAttemptHistoryDto>),
-            StatusCodes.Status200OK)]
-        [ProducesResponseType(
-            typeof(ApiResponse<object>),
-            StatusCodes.Status401Unauthorized)]
-        [ProducesResponseType(
-            typeof(ApiResponse<object>),
-            StatusCodes.Status404NotFound)]
-        public async Task<
-            ActionResult<ApiResponse<ProblemAttemptHistoryDto>>>
-            GetAttemptHistory(
-                int id)
-        {
-            var userId =
-                GetUserId();
-
-            var language =
-                LanguageHelper.GetLanguageFromRequest(
-                    Request);
-
-            if (!userId.HasValue)
-            {
-                return Unauthorized(
-                    LanguageHelper.ErrorResponse<
-                        ProblemAttemptHistoryDto>(
-                        "Unauthorized",
-                        language,
-                        StatusCodes.Status401Unauthorized));
-            }
-
-            var allowedForHistory = await GetAllowedCategoryIdsAsync();
-            var problemExists =
-                await _context.Problems
-                    .AsNoTracking()
-                    .AnyAsync(problem =>
-                        problem.Id == id &&
-                        (allowedForHistory == null ||
-                         allowedForHistory.Contains(problem.CategoryId)));
-
-            if (!problemExists)
-            {
-                return NotFound(
-                    LanguageHelper.ErrorResponse<
-                        ProblemAttemptHistoryDto>(
-                        "ProblemNotFound",
-                        language,
-                        StatusCodes.Status404NotFound));
-            }
-
-            var progress =
-                await _context.UserProgresses
-                    .AsNoTracking()
-                    .FirstOrDefaultAsync(progressItem =>
-                        progressItem.UserId ==
-                        userId.Value &&
-                        progressItem.ProblemId ==
-                        id);
-
-            var attempts =
-                await _context.ProblemAttempts
-                    .AsNoTracking()
-                    .Where(attempt =>
-                        attempt.UserId ==
-                        userId.Value &&
-                        attempt.ProblemId ==
-                        id)
-                    .OrderBy(attempt =>
-                        attempt.AttemptNumber)
-                    .Select(attempt =>
-                        new ProblemAttemptDto
-                        {
-                            Id =
-                                attempt.Id,
-
-                            AttemptNumber =
-                                attempt.AttemptNumber,
-
-                            IsOfficial =
-                                attempt.IsOfficial,
-
-                            SelectedOptionId =
-                                attempt.SelectedOptionId,
-
-                            SelectedOptionText =
-                                attempt.SelectedOptionText,
-
-                            CorrectOptionId =
-                                attempt.IsCorrect
-                                    ? attempt.CorrectOptionId
-                                    : null,
-
-                            CorrectOptionText =
-                                attempt.IsCorrect
-                                    ? attempt.CorrectOptionText
-                                    : null,
-
-                            IsCorrect =
-                                attempt.IsCorrect,
-
-                            TimeSpentSeconds =
-                                attempt.TimeSpentSeconds,
-
-                            PointsEarned =
-                                attempt.PointsEarned,
-
-                            UsedHint =
-                                attempt.UsedHint,
-
-                            StartedAt =
-                                attempt.StartedAt,
-
-                            SubmittedAt =
-                                attempt.SubmittedAt
-                        })
-                    .ToListAsync();
-
-            var response =
-                new ProblemAttemptHistoryDto
-                {
-                    ProblemId =
-                        id,
-
-                    TotalAttempts =
-                        progress?.Attempts
-                        ?? attempts.Count,
-
-                    FirstAttemptCorrect =
-                        progress?.FirstAttemptCorrect,
-
-                    IsSolved =
-                        progress?.IsSolved
-                        ?? false,
-
-                    BestTimeSeconds =
-                        progress?.BestTimeSeconds,
-
-                    AverageTimeSeconds =
-                        GetAverageTimeSeconds(
-                            progress),
-
-                    MasteryStatus =
-                        progress?.MasteryStatus
-                        ?? MasteryStatuses.New,
-
-                    IsInErrorNotebook =
-                        progress?.IsInErrorNotebook
-                        ?? false,
-
-                    IsErrorNotebookArchived =
-                        progress?.IsErrorNotebookArchived
-                        ?? false,
-
-                    NextReviewAt =
-                        progress?.NextReviewAt,
-
-                    Attempts =
-                        attempts
-                };
-
-            return Ok(
-                LanguageHelper.SuccessResponse(
-                    response,
-                    "AttemptHistoryRetrieved",
-                    language));
-        }
-
-        /// <summary>
         /// Updates the learning and spaced-review state after an attempt.
         /// يحدث حالة التعلم والمراجعة المتباعدة بعد تسجيل محاولة.
         /// </summary>
@@ -1869,65 +1674,5 @@ namespace MathWorldAPI.Controllers
                 : null;
         }
 
-        /// <summary>
-        /// Updates the view counter and search index in a separate scope.
-        /// Errors in this non-critical operation do not fail the request.
-        /// </summary>
-        private async Task BackgroundUpdateAsync(
-            int problemId)
-        {
-            using var scope =
-                _scopeFactory.CreateScope();
-
-            var database =
-                scope.ServiceProvider
-                    .GetRequiredService<
-                        AppDbContext>();
-
-            try
-            {
-                var problem =
-                    await database.Problems
-                        .FindAsync(problemId);
-
-                if (problem == null)
-                {
-                    return;
-                }
-
-                problem.ViewsCount++;
-
-                await database.SaveChangesAsync();
-
-                if (_meilisearchEnabled)
-                {
-                    try
-                    {
-                        var searchService =
-                            scope.ServiceProvider
-                                .GetRequiredService<
-                                    IMeiliSearchService>();
-
-                        await searchService
-                            .UpdateProblemAsync(
-                                problem);
-                    }
-                    catch (Exception exception)
-                    {
-                        _logger.LogWarning(
-                            exception,
-                            "Failed to update problem {ProblemId} in MeiliSearch.",
-                            problemId);
-                    }
-                }
-            }
-            catch (Exception exception)
-            {
-                _logger.LogWarning(
-                    exception,
-                    "Failed to update views for problem {ProblemId}.",
-                    problemId);
-            }
-        }
     }
 }
