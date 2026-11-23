@@ -132,4 +132,23 @@ assert question_count == len(oracles) == 8
 assert len(seen_keys) == len(seen_templates) == len(seen_ar) == len(seen_en) == 8
 print("PASS: eight original bilingual concept-diverse draft problems and their independent math oracles.")
 print("PASS: CCSS/Cambridge/PISA/MSC-linked stage/skill taxonomy keys, valid processes, four unique choices.")
+# Separate, bilingual educator-review proposals for currently UNPUBLISHED
+# CurriculumSkills. They must not set IsPublished through this test or seed.
+skills = json.loads((ROOT / "content/editorial/primary-skill-description-review-20261123.json").read_text(encoding="utf-8"))
+assert skills["noLiveDatabaseChanges"] is True
+assert skills["status"].startswith("Draft")
+assert len(skills["records"]) == 11
+skill_ids = set()
+for row in skills["records"]:
+    assert row["stageId"] == 1 and row["categoryId"] in {1, 3, 33}
+    assert row["expectedIsPublished"] is False
+    assert row["skillId"] not in skill_ids and row["stableKey"].startswith("primary-")
+    skill_ids.add(row["skillId"])
+    for lang in ("Ar", "En"):
+        current = row["expectedCurrent"]["Description" + lang].strip()
+        updated = row["proposed"]["Description" + lang].strip()
+        assert current and updated != current and len(updated) > len(current)
+        assert len(updated) >= 95 and len(updated) <= 500, (row["stableKey"], lang)
+assert len(skill_ids) == 11
+print("PASS: 11 bilingual skill-description review proposals, no automatic publication.")
 print("PASS: staged-only content, no IDs moved, no production categories or learner records modified.")
