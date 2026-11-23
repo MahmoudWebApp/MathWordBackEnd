@@ -1,5 +1,13 @@
 # MathWorld — question-bank and solution-method review tracker
 
+## Additional independent editorial draft review — 36 middle-school questions (23 November 2026)
+
+- All **36** still-unpublished middle-stage draft items were individually checked against calculated answers: **8 Integers & Rational Numbers (topic 6)**, **12 Linear Inequalities (topic 10)** and **16 Probability & Compound Events (topic 13)**.
+- Source snapshot and independent mathematical oracles are versioned in `docs/review-data/middle-36-independent-drafts-20261123.json` and `tests/check_reviewed_middle_36_drafts_20261123.py`: signed integer/fraction operations, open/closed boundary logic and integer item constraints, dice outcome enumeration, independent/dependent event products and relative frequencies.
+- The adaptive mathematics curriculum, backend build and PostgreSQL integrity workflows all passed. **This was read-only**: no production questions, drafts, correct answers, topics, skills, access or learner data were changed.
+- Draft review progress is now **72 of 160 independently checked** (36 primary + 36 middle); **88** still need independent mathematical review (36 secondary, 36 university, 16 drafts attached to existing published topic proposals). All **160 draft items remain unapproved/unpublished** and subject to human editorial approval.
+
+
 ## Consolidated live release gate — 23 November 2026 (latest; supersedes older snapshots below)
 
 The production database was independently re-read after the latest guarded corrections and source merges.
