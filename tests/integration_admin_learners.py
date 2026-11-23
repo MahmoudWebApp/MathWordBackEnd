@@ -98,6 +98,16 @@ def main():
     assert all("Password" not in str(x) for x in all_students["Learners"])
     assert all("Hash" not in str(x) for x in all_students["Learners"])
 
+    # The subscription table uses the lean directory. It must keep accurate
+    # learner identities, stages and effective entitlements without aggregate joins.
+    light_directory = expect("GET", "/api/admin/learners?includeActivity=false", 200, token=admin)
+    assert light_directory["Total"] == all_students["Total"], light_directory
+    assert sorted(x["Id"] for x in light_directory["Learners"]) == sorted(ids)
+    assert all(x["SubscriptionType"] == "Free" for x in light_directory["Learners"])
+    assert all(x["SolvedProblems"] == 0 and x["TotalAwardedPoints"] == 0
+               for x in light_directory["Learners"])
+    assert all("Password" not in str(x) for x in light_directory["Learners"])
+
     stage1 = expect("GET", "/api/admin/learners?stageId=1", 200, token=admin)
     assert stage1["Total"] == 1, stage1
     first = stage1["Learners"][0]
@@ -195,6 +205,14 @@ def main():
     assert granted["Updated"] == 2, granted
     assert sorted(granted["UpdatedIds"]) == sorted(selected), granted
     assert granted["DurationMonths"] == 12, granted
+    assert len(granted["Periods"]) == 2, granted
+    assert sorted(p["LearnerId"] for p in granted["Periods"]) == sorted(selected)
+    for period in granted["Periods"]:
+        import datetime
+        start = datetime.datetime.fromisoformat(period["StartAtUtc"].replace("Z", "+00:00"))
+        end = datetime.datetime.fromisoformat(period["EndAtUtc"].replace("Z", "+00:00"))
+        assert 364 <= (end - start).days <= 366, period
+        assert start < end
     details_after = expect("GET", f"/api/admin/learners/{first['Id']}", 200,
                            token=admin)
     expiry_before = details_after["Learner"]["PremiumExpiresAtUtc"]
@@ -207,6 +225,9 @@ def main():
     assert 364 <= delta.days <= 366, delta
     renewed = expect("POST", annual, 200, {"LearnerIds": [first["Id"]]}, admin)
     assert renewed["Updated"] == 1, renewed
+    assert len(renewed["Periods"]) == 1, renewed
+    assert renewed["Periods"][0]["LearnerId"] == first["Id"]
+    assert renewed["Periods"][0]["StartAtUtc"] == expiry_before, renewed
     expiry_after = expect("GET", f"/api/admin/learners/{first['Id']}", 200,
                           token=admin)["Learner"]["PremiumExpiresAtUtc"]
     assert datetime.datetime.fromisoformat(expiry_after.replace("Z", "+00:00")) > parsed_expiry
