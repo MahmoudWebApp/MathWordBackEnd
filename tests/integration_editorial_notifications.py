@@ -227,7 +227,16 @@ def main():
         assert "text/csv" in response.headers.get("Content-Type", "")
         assert csv_bytes.startswith(bytes([0xEF, 0xBB, 0xBF])), csv_bytes[:12]
         csv_text = csv_bytes.decode("utf-8-sig")
-        assert "StageId,CategoryId" in csv_text and "الأعداد" in csv_text, csv_text
+        assert csv_text.startswith("المرحلة,الفئة,") and "الأعداد" in csv_text, csv_text
+        assert "StageId" not in csv_text and "CategoryId" not in csv_text, csv_text
+    request = urllib.request.Request(
+        BASE + "/api/users/premium-analytics/export.csv?lang=en",
+        headers={"Authorization": "Bearer " + learner1},
+    )
+    with urllib.request.urlopen(request, timeout=25) as response:
+        english_csv = response.read().decode("utf-8-sig")
+        assert english_csv.startswith("Stage,Category,"), english_csv
+        assert "StageId" not in english_csv and "CategoryId" not in english_csv
 
     notices = expect("GET", "/api/notifications/v2", 200, token=learner1)["Items"]
     assert len([n for n in notices if n["Type"] == "subscription"]) == 1
