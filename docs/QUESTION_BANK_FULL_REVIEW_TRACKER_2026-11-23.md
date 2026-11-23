@@ -1,5 +1,14 @@
 # MathWorld — question-bank and solution-method review tracker
 
+## Verified continuation — primary early algebra (23 November 2026)
+
+- Reviewed **all 28** published questions of stage-one category **2** (early algebra); **7 already adequately explained** and unchanged (IDs 6,7,154,166,178,190,202).
+- Updated **21 Arabic/English explanations** (IDs 38,54,70,85,100,115,130,152,164,176,188,200,153,165,177,189,201,689,690,691,692), explaining inverse operations, two-step equations, fixed-increment sequences and equal division. Numerical answers were calculated independently and matched against published correct option IDs.
+- Production transaction matched exact question/previous text/stage/category/only-one-correct-option preconditions for every row. Post-update readback: **21/21 bilingual explanations matched, 21/21 correct option IDs/text preserved**. No changes to user data or Free/Premium rules.
+- Cumulative in the present targeted review: **77 individual questions reviewed** across these three educational categories and earlier geometry examples, **69 improved explanations** and **8 already adequate**. **524 other published questions remain outside this individual review**. This is not mathematical certification for the remaining bank.
+- Repeated numerical variants in early algebra (groups of five for sequences, variable evaluation and equation forms) remain a curriculum-diversity risk; proposals must be checked against existing student history before a safe future replacement.
+
+
 ## Verified continuation — multiplication/division (23 November 2026)
 
 - Independently reviewed **all 21 published items** in primary stage category **33** (Multiplication and Division). Problem **5** already had an adequate bilingual solution and was left intact.
