@@ -36,3 +36,7 @@ README.md
 **/*.pfx
 **/*.p12
 **/*.pem
+# Never send production backups or VPS runtime files into Docker build.
+deploy/hostinger/backups/
+deploy/hostinger/*.dump
+deploy/hostinger/*.sql
