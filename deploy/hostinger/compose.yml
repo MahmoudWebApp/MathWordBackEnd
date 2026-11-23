@@ -1,0 +1,83 @@
+# One official HTTPS domain. Only Caddy publishes ports.
+name: mathworld
+services:
+  db:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:?POSTGRES_DB is required}
+      POSTGRES_USER: ${POSTGRES_USER:?POSTGRES_USER is required}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD is required}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U \"$${POSTGRES_USER}\" -d \"$${POSTGRES_DB}\""]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+    stop_grace_period: 60s
+
+  api:
+    build:
+      context: ../..
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    init: true
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+      ASPNETCORE_URLS: http://+:8080
+      Database__ApplyMigrationsOnStartup: "false"
+      BootstrapAdmin__Enabled: "false"
+      ConnectionStrings__DefaultConnection: "Host=db;Port=5432;Database=${POSTGRES_DB};Username=${POSTGRES_USER};Password=${POSTGRES_PASSWORD};Pooling=true;Minimum Pool Size=0;Maximum Pool Size=15"
+      Jwt__Key: ${JWT_KEY:?JWT_KEY is required}
+      Jwt__Issuer: ${JWT_ISSUER:-MathWorldAPI}
+      Jwt__Audience: ${JWT_AUDIENCE:-MathWorldClient}
+      Cors__Origins__0: "https://${MATHWORLD_DOMAIN:?MATHWORLD_DOMAIN is required}"
+      Google__ClientId: ${GOOGLE_CLIENT_ID:-}
+      Meilisearch__Enabled: "false"
+    volumes:
+      - api_uploads:/app/wwwroot/uploads
+    depends_on:
+      db:
+        condition: service_healthy
+    stop_grace_period: 30s
+
+  web:
+    build:
+      context: ../../../MathWorldFrontend
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_API_BASE_URL: /api
+        NEXT_PUBLIC_SOCIAL_LOGIN_ENABLED: ${SOCIAL_LOGIN_ENABLED:-false}
+        NEXT_PUBLIC_GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID:-}
+    restart: unless-stopped
+    init: true
+    depends_on:
+      api:
+        condition: service_healthy
+    stop_grace_period: 30s
+
+  proxy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    environment:
+      MATHWORLD_DOMAIN: ${MATHWORLD_DOMAIN:?MATHWORLD_DOMAIN is required}
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      web:
+        condition: service_healthy
+      api:
+        condition: service_healthy
+    stop_grace_period: 30s
+
+volumes:
+  postgres_data:
+  api_uploads:
+  caddy_data:
+  caddy_config:
