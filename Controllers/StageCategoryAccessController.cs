@@ -1,4 +1,5 @@
 using MathWorldAPI.Data;
+using MathWorldAPI.Models;
 using MathWorldAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -36,10 +37,10 @@ public sealed class StageCategoryAccessController : ControllerBase
         if (!exists)
             return NotFound(new { Message = "StageNotFound" });
 
-        var ids = await HttpContext.RequestServices
-            .GetRequiredService<ProblemCategoryAccessService>()
-            .GetFreeCategoryIdsAsync(stageId, cancellationToken);
-
+        // One projected catalog query returns both metadata and counts.
+        // The previous flow fetched categories twice, counted problems in a
+        // third query, and looked up the same Free selection twice. Those
+        // serial DB round trips are expensive across regions.
         var categories = await _db.Categories.AsNoTracking()
             .Where(category => category.StageId == stageId)
             .OrderBy(category => category.Order).ThenBy(category => category.Id)
@@ -51,23 +52,26 @@ public sealed class StageCategoryAccessController : ControllerBase
                 category.DescriptionAr,
                 category.DescriptionEn,
                 category.Icon,
-                category.Order
+                category.Order,
+                ProblemsCount = _db.Problems.Count(problem =>
+                    problem.CategoryId == category.Id &&
+                    problem.StageId == category.StageId)
             })
             .ToListAsync(cancellationToken);
-        // The stage catalog is the single source of truth for both access
-        // and publish-ready inventory. Count only problems whose stage matches
-        // their category, matching the protected problem-list endpoints.
-        var problemCounts = await _db.Problems.AsNoTracking()
-            .Where(problem => problem.StageId == stageId &&
-                problem.Category.StageId == stageId)
-            .GroupBy(problem => problem.CategoryId)
-            .Select(group => new { CategoryId = group.Key, Count = group.Count() })
-            .ToDictionaryAsync(item => item.CategoryId, item => item.Count,
-                cancellationToken);
 
+        var saved = await _db.StageFreeCategorySelections.AsNoTracking()
+            .FirstOrDefaultAsync(item => item.StageId == stageId, cancellationToken);
+        var access = HttpContext.RequestServices
+            .GetRequiredService<ProblemCategoryAccessService>();
+        var policyCategories = categories.Select(category => new Category
+        {
+            Id = category.Id,
+            StageId = stageId,
+            Order = category.Order
+        });
+        var ids = access.ResolveFreeCategoryIds(stageId, policyCategories, saved);
         var freeIds = ids.ToHashSet();
-        var hasSavedSelection = await _db.StageFreeCategorySelections.AsNoTracking()
-            .AnyAsync(selection => selection.StageId == stageId, cancellationToken);
+        var hasSavedSelection = saved is not null;
 
         return Ok(new
         {
@@ -81,7 +85,7 @@ public sealed class StageCategoryAccessController : ControllerBase
                 category.DescriptionEn,
                 Icon = _imageStorage.GetFullUrl(category.Icon) ?? string.Empty,
                 category.Order,
-                ProblemsCount = problemCounts.GetValueOrDefault(category.Id),
+                category.ProblemsCount,
                 IsFree = freeIds.Contains(category.Id)
             }).ToList(),
             FreeCategoryIds = ids,
