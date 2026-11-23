@@ -101,6 +101,27 @@ public sealed class StudentPremiumAnalyticsController : ControllerBase
             "mathworld-premium-analytics.xlsx");
     }
 
+    /// <summary>
+    /// Real binary PDF download (not the browser print dialog), generated from
+    /// the same authorized private report and in the selected output language.
+    /// </summary>
+    [HttpGet("export.pdf")]
+    [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
+    public async Task<IActionResult> ExportPdf([FromQuery] string lang = "ar",
+        CancellationToken ct = default)
+    {
+        if (lang != "ar" && lang != "en")
+            return BadRequest(new { Message = "InvalidReportLanguage" });
+        var userId = await PremiumStudentId(ct);
+        if (userId.Status is not null) return userId.Status;
+
+        var report = await BuildReport(userId.Id!.Value, ct);
+        var bytes = PremiumAnalyticsPdfExporter.Create(report, lang == "ar");
+        Response.Headers.CacheControl = "no-store";
+        Response.Headers["X-Content-Type-Options"] = "nosniff";
+        return File(bytes, "application/pdf", "mathworld-premium-analytics-" + lang + ".pdf");
+    }
+
     private async Task<(int? Id, IActionResult? Status)> PremiumStudentId(CancellationToken ct)
     {
         if (!int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out var id) || id <= 0)
