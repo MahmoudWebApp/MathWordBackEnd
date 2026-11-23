@@ -238,8 +238,16 @@ using (var reopened = new ClosedXML.Excel.XLWorkbook(new MemoryStream(xlsx)))
     Assert(sheet.Cell("B1").Style.Alignment.Horizontal == ClosedXML.Excel.XLAlignmentHorizontalValues.Right &&
            reopened.Worksheet(2).Cell("B1").Style.Alignment.Horizontal == ClosedXML.Excel.XLAlignmentHorizontalValues.Right,
         "Arabic Excel report headers must be right-aligned.");
-    Assert(sheet.Cell("A4").Style.Fill.BackgroundColor == ClosedXML.Excel.XLColor.FromHtml("#EC4899"),
-        "Excel reports should retain the official MathWorld purple/pink brand accents.");
+    Assert(sheet.Cell("A4").Style.Fill.BackgroundColor == ClosedXML.Excel.XLColor.FromHtml("#0F766E") &&
+           sheet.Cell("B1").Style.Fill.BackgroundColor == ClosedXML.Excel.XLColor.FromHtml("#223047"),
+        "The workbook should use restrained navy/teal report headings while retaining the official logo.");
+    Assert(sheet.Cell("A5").Style.Font.FontColor == ClosedXML.Excel.XLColor.FromHtml("#15803D") &&
+           sheet.Cell("G5").Style.Font.FontColor == ClosedXML.Excel.XLColor.FromHtml("#A16207") &&
+           sheet.Cell("I5").Style.Font.FontColor == ClosedXML.Excel.XLColor.FromHtml("#B91C1C"),
+        "Solved results must be green, points amber, and errors red.");
+    Assert(sheet.Cell("D14").Style.Font.FontColor == ClosedXML.Excel.XLColor.FromHtml("#15803D") &&
+           sheet.Cell("J14").Style.Font.FontColor == ClosedXML.Excel.XLColor.FromHtml("#A16207"),
+        "Actual category metrics should keep semantic, readable colors.";
     Assert(sheet.ConditionalFormats.Count() >= 2 && bars.ConditionalFormats.Count() >= 2,
         "Summary and statistics tabs must have real cell-based progress bars.");
     Assert(bars.Cell("B9").GetDouble() == 1 && bars.Cell("F9").GetDouble() == 1,
