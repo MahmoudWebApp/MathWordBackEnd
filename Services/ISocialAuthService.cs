@@ -7,7 +7,7 @@ namespace MathWorldAPI.Services
 {
     /// <summary>
     /// Defines authentication operations for external
-    /// Google and Facebook providers.
+    /// Google identity only; historical provider links are retained in storage.
     /// </summary>
     public interface ISocialAuthService
     {
@@ -24,20 +24,6 @@ namespace MathWorldAPI.Services
         Task<AuthResponseDto?> GoogleLoginAsync(
             SocialLoginDto dto);
 
-        /// <summary>
-        /// Authenticates a user using a Facebook access token.
-        /// </summary>
-        /// <param name="dto">
-        /// Social authentication data containing the Facebook access token.
-        /// </param>
-        /// <returns>
-        /// Authentication information when the token is valid;
-        /// otherwise null.
-        /// </returns>
-        Task<AuthResponseDto?> FacebookLoginAsync(
-            SocialLoginDto dto);
-
         Task<bool> LinkGoogleAsync(int userId, SocialLoginDto dto);
-        Task<bool> LinkFacebookAsync(int userId, SocialLoginDto dto);
     }
 }
