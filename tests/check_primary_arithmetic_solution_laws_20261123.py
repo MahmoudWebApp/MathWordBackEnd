@@ -35,6 +35,6 @@ for row in rows:
         assert len(text)>90, (pid,lang)
         assert str(result) in text, (pid,lang)
     assert f'WHERE "Id" = {pid} AND "StageId" = 1 AND "CategoryId" = 1' in sql, pid
-    assert f'AND q."Id" = {option}' in sql, pid
+    assert f'q."Id" = {option} AND q."ProblemId" = {pid}' in sql, pid
 print("PASS 16 bilingual independently calculated primary arithmetic worked solutions")
 print("PASS guarded and atomic solution-only SQL; immutable answer option IDs")
