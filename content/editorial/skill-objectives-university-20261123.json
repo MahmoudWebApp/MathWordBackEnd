@@ -1,7 +1,7 @@
 {
   "stageId": 4,
-  "status": "editorial_draft_unpublished",
-  "note": "Advanced university objectives are staged for review; each is associated with existing questions, but publication requires mathematical accuracy validation.",
+  "status": "published_in_live_mathworld_20261123",
+  "note": "Bilingual objectives reviewed for mathematical meaning, exact skill/category mapping and >=5 linked published questions per skill; not a claim of external accreditation. Live content was published with exact-match transactional SQL; do not rerun the script.",
   "objectives": [
     {
       "id": 57,
