@@ -68,27 +68,35 @@ public static class PremiumAnalyticsXlsxExporter
     }
 
     private static void Header(
-        IXLWorksheet sheet, string title, string subtitle, byte[] logo)
+        IXLWorksheet sheet, string title, string subtitle, byte[] logo, bool ar)
     {
-        sheet.Range("A1:J2").Merge();
-        var titleRange = sheet.Range("A1:J2");
+        // The official logo stays within the colored banner in RTL/LTR.
+        sheet.Range("A1:K2").Style.Fill.BackgroundColor = Purple;
+        sheet.Range("B1:K2").Merge();
+        var titleRange = sheet.Range("B1:K2");
         titleRange.Value = title;
         titleRange.Style.Fill.BackgroundColor = Purple;
         titleRange.Style.Font.Bold = true;
         titleRange.Style.Font.FontSize = 19;
         titleRange.Style.Font.FontColor = XLColor.White;
         titleRange.Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
-        titleRange.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Left;
+        titleRange.Style.Alignment.Horizontal = ar
+            ? XLAlignmentHorizontalValues.Right : XLAlignmentHorizontalValues.Left;
         titleRange.Style.Alignment.Indent = 1;
 
-        sheet.Range("A3:J3").Merge();
-        var subtitleRange = sheet.Range("A3:J3");
+        sheet.Range("A3:K3").Style.Fill.BackgroundColor = Lavender;
+        sheet.Range("B3:K3").Merge();
+        var subtitleRange = sheet.Range("B3:K3");
         subtitleRange.Value = subtitle;
         subtitleRange.Style.Fill.BackgroundColor = Lavender;
         subtitleRange.Style.Font.FontColor = Purple;
         subtitleRange.Style.Font.Bold = true;
         subtitleRange.Style.Font.FontSize = 10;
         subtitleRange.Style.Alignment.Indent = 1;
+        subtitleRange.Style.Alignment.Horizontal = ar
+            ? XLAlignmentHorizontalValues.Right : XLAlignmentHorizontalValues.Left;
+        sheet.Row(4).Height = 7;
+        sheet.Range("A4:K4").Style.Fill.BackgroundColor = Pink;
         sheet.Row(1).Height = 34;
         sheet.Row(2).Height = 32;
         sheet.Row(3).Height = 27;
@@ -96,7 +104,7 @@ public static class PremiumAnalyticsXlsxExporter
         // A small square icon, never a floating chart/drawing over report cells.
         using var stream = new MemoryStream(logo);
         sheet.AddPicture(stream, XLPictureFormat.Png, "MathWorld")
-            .MoveTo(sheet.Cell("K1"))
+            .MoveTo(sheet.Cell("A1"))
             .WithSize(62, 62);
         sheet.Column(11).Width = 19;
     }
@@ -135,7 +143,7 @@ public static class PremiumAnalyticsXlsxExporter
             : "MathWorld  |  Mathematics progress report",
             (ar ? "إحصائيات حقيقية  •  " : "Your real learning statistics  •  ") +
                 report.GeneratedAtUtc.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture),
-            logo);
+            logo, ar);
 
         var review = report.Categories.Sum(x => x.ErrorNotebookProblems);
         var accuracy = report.Attempts == 0 ? 0 :
@@ -167,7 +175,9 @@ public static class PremiumAnalyticsXlsxExporter
         heading.Style.Font.Bold = true;
         heading.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
         heading.Style.Alignment.WrapText = true;
-        sheet.Row(12).Height = 43;
+        sheet.Row(12).Height = 48;
+        sheet.Range("A12:B12").Style.Alignment.Horizontal = ar
+            ? XLAlignmentHorizontalValues.Right : XLAlignmentHorizontalValues.Left;
 
         var row = 13;
         foreach (var category in report.Categories)
@@ -228,7 +238,10 @@ public static class PremiumAnalyticsXlsxExporter
         sheet.Range(row, 3, row, 11).Style.Alignment.Horizontal =
             XLAlignmentHorizontalValues.Center;
         sheet.Cell(row, 2).Style.Font.Bold = true;
-        sheet.Row(row).Height = 25;
+        sheet.Cell(row, 2).Style.Alignment.WrapText = true;
+        sheet.Range(row, 1, row, 2).Style.Alignment.Horizontal =
+            sheet.RightToLeft ? XLAlignmentHorizontalValues.Right : XLAlignmentHorizontalValues.Left;
+        sheet.Row(row).Height = 34;
     }
 
     private static void BuildCharts(IXLWorksheet sheet,
@@ -249,7 +262,7 @@ public static class PremiumAnalyticsXlsxExporter
             : "MathWorld  |  My statistics",
             ar ? "مخططات تقدم مدمجة بالخلايا — بدون رسومات تغطي البيانات"
                : "Compact in-cell progress charts — no overlapping drawings",
-            logo);
+            logo, ar);
 
         var top = report.Categories.OrderByDescending(c => c.AttemptedProblems)
             .ThenBy(c => c.StageId).ThenBy(c => c.CategoryId)
@@ -306,7 +319,9 @@ public static class PremiumAnalyticsXlsxExporter
                 area.Style.Border.BottomBorderColor = Border;
                 area.Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
             }
-            sheet.Row(row).Height = 28;
+            sheet.Cell(row, 1).Style.Alignment.Horizontal = ar ? XLAlignmentHorizontalValues.Right : XLAlignmentHorizontalValues.Left;
+            sheet.Cell(row, 5).Style.Alignment.Horizontal = ar ? XLAlignmentHorizontalValues.Right : XLAlignmentHorizontalValues.Left;
+            sheet.Row(row).Height = 32;
             row++;
         }
         if (top.Length > 0)
