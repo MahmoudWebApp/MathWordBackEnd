@@ -1,0 +1,158 @@
+{
+  "batch": "mw-solution-laws-wave1-20261123",
+  "status": "Draft—pending independent mathematics and bilingual editorial approval",
+  "scope": "Published Geometry & Measurement category 3, 10 targeted explanation-only revisions; never changes question, options, answer key, stage, category or student records",
+  "policy": "Do not apply automatically to production; require original-explanation comparison before each update and human review.",
+  "changes": [
+    {
+      "problemId": 8,
+      "expectedAnswerOptionId": 21,
+      "questionAr": "مربع طول ضلعه $5$ سم. ما محيطه؟",
+      "oldFields": {
+        "sa": "محيط المربع = $4 \\times \\text{طول الضلع} = 4 \\times 5 = 20$ سم.",
+        "se": "Perimeter of a square = $4 \\times \\text{side length} = 4 \\times 5 = 20$ cm."
+      },
+      "newFields": {
+        "sa": "القانون المستخدم: محيط المربع = 4 × طول الضلع. طول الضلع 5 سم، لذا نعوّض: 4 × 5 = 20 سم. النتيجة: محيط المربع 20 سم لأن للمربع أربعة أضلاع متساوية.",
+        "se": "Rule used: Perimeter of a square = 4 × side length. Substitute the 5 cm side: 4 × 5 = 20 cm. The perimeter is 20 cm because the square has four equal sides."
+      },
+      "expectedNumericAnswer": 20,
+      "editorialStatus": "Draft"
+    },
+    {
+      "problemId": 9,
+      "expectedAnswerOptionId": 25,
+      "questionAr": "مستطيل طوله $8$ متر وعرضه $3$ متر. ما مساحته؟",
+      "oldFields": {
+        "sa": "مساحة المستطيل = الطول $\\times$ العرض $= 8 \\times 3 = 24$ متر مربع.",
+        "se": "Area of rectangle = length $\\times$ width $= 8 \\times 3 = 24$ square meters."
+      },
+      "newFields": {
+        "sa": "القانون المستخدم: مساحة المستطيل = الطول × العرض. المعطيات: الطول 8 م والعرض 3 م. بالتعويض: 8 × 3 = 24. النتيجة: 24 م²؛ لأن المساحة تُقاس بوحدات مربعة.",
+        "se": "Rule used: Area of a rectangle = length × width. The dimensions are 8 m and 3 m. Substitution gives 8 × 3 = 24. Final area = 24 m²; area is measured in square units."
+      },
+      "expectedNumericAnswer": 24,
+      "editorialStatus": "Draft"
+    },
+    {
+      "problemId": 39,
+      "expectedAnswerOptionId": 147,
+      "questionAr": "مستطيل طوله 8 سم وعرضه 5 سم؛ ما محيطه؟",
+      "oldFields": {
+        "sa": "المحيط يساوي 2 × (الطول + العرض)، أي 2 × (8 + 5) = 26 سم.",
+        "se": "Perimeter = 2(length + width) = 2(8 + 5) = 26 cm."
+      },
+      "newFields": {
+        "sa": "القانون المستخدم: محيط المستطيل = 2 × (الطول + العرض). المعطيات: 8 سم و5 سم. نجمع أولاً: 8 + 5 = 13 سم، ثم نضرب في 2: 2 × 13 = 26 سم. النتيجة 26 سم؛ المحيط طول حدود الشكل.",
+        "se": "Rule used: Rectangle perimeter = 2 × (length + width). Dimensions are 8 cm and 5 cm. First sum: 8 + 5 = 13 cm, then double: 2 × 13 = 26 cm. The perimeter is 26 cm, the distance around the rectangle."
+      },
+      "expectedNumericAnswer": 26,
+      "editorialStatus": "Draft"
+    },
+    {
+      "problemId": 55,
+      "expectedAnswerOptionId": 212,
+      "questionAr": "مثلث قاعدته 10 سم وارتفاعه 6 سم، ما مساحته؟",
+      "oldFields": {
+        "sa": "المساحة = نصف القاعدة × الارتفاع = 10 × 6 ÷ 2 = 30 سم².",
+        "se": "Triangle area = base × height / 2 = 10 × 6 / 2 = 30 cm²."
+      },
+      "newFields": {
+        "sa": "القانون المستخدم: مساحة المثلث = (القاعدة × الارتفاع العمودي) ÷ 2. نعوّض القاعدة 10 سم والارتفاع 6 سم: (10 × 6) ÷ 2 = 60 ÷ 2 = 30 سم². النتيجة 30 سم²، ونستخدم الارتفاع العمودي على القاعدة.",
+        "se": "Rule used: Triangle area = (base × perpendicular height) ÷ 2. Substitute base 10 cm and height 6 cm: (10 × 6) ÷ 2 = 60 ÷ 2 = 30 cm². The answer is 30 cm²; the height must be perpendicular to the base."
+      },
+      "expectedNumericAnswer": 30,
+      "editorialStatus": "Draft"
+    },
+    {
+      "problemId": 156,
+      "expectedAnswerOptionId": 616,
+      "questionAr": "زاويتا مثلث هما 50° و60°، ما الثالثة؟",
+      "oldFields": {
+        "sa": "الزاوية الثالثة=180−50−60=70°.",
+        "se": "The third angle=180−50−60=70°."
+      },
+      "newFields": {
+        "sa": "القانون المستخدم: مجموع الزوايا الداخلية للمثلث = 180°. المعطيات: 50° و60°. الزاوية المجهولة = 180° − (50° + 60°) = 180° − 110° = 70°. نتحقق: 50° + 60° + 70° = 180°.",
+        "se": "Rule used: The interior angles of a triangle sum to 180°. Given 50° and 60°, the missing angle is 180° − (50° + 60°) = 70°. Check: 50° + 60° + 70° = 180°."
+      },
+      "expectedNumericAnswer": 70,
+      "editorialStatus": "Draft"
+    },
+    {
+      "problemId": 157,
+      "expectedAnswerOptionId": 619,
+      "questionAr": "حوّل 2 متر إلى سنتيمترات.",
+      "oldFields": {
+        "sa": "بما أن المتر 100 سم فالنتيجة 200.",
+        "se": "One metre equals 100 cm, giving 200."
+      },
+      "newFields": {
+        "sa": "قاعدة التحويل: 1 متر = 100 سنتيمتر. للتحويل من المتر إلى السنتيمتر نضرب في 100. المعطى 2 متر، لذا 2 × 100 = 200 سنتيمتر. النتيجة: 200 سم.",
+        "se": "Conversion rule: 1 metre = 100 centimetres. Multiply metres by 100 to obtain centimetres. For 2 metres, 2 × 100 = 200 centimetres. Final answer: 200 cm."
+      },
+      "expectedNumericAnswer": 200,
+      "editorialStatus": "Draft"
+    },
+    {
+      "problemId": 613,
+      "expectedAnswerOptionId": 2443,
+      "questionAr": "مساحة مثلث 42 سم² وقاعدته 12 سم. ما ارتفاعه بالسنتيمتر؟",
+      "oldFields": {
+        "sa": "المساحة = القاعدة × الارتفاع ÷ 2، لذا الارتفاع = 2 × 42 ÷ 12 = 7 سم.",
+        "se": "Using A = bh/2, the height is 2 × 42 ÷ 12 = 7 cm."
+      },
+      "newFields": {
+        "sa": "القانون المستخدم: مساحة المثلث = (القاعدة × الارتفاع) ÷ 2، ومنها الارتفاع = (2 × المساحة) ÷ القاعدة. المعطيات: المساحة 42 سم² والقاعدة 12 سم. الارتفاع = (2 × 42) ÷ 12 = 84 ÷ 12 = 7 سم. التحقق: 12 × 7 ÷ 2 = 42 سم².",
+        "se": "Rule used: Triangle area A = base × height ÷ 2, hence height = 2A ÷ base. Given A = 42 cm² and base = 12 cm, height = (2 × 42) ÷ 12 = 7 cm. Check: 12 × 7 ÷ 2 = 42 cm²."
+      },
+      "expectedNumericAnswer": 7,
+      "editorialStatus": "Draft"
+    },
+    {
+      "problemId": 614,
+      "expectedAnswerOptionId": 2446,
+      "questionAr": "مثلث قائم طولا ضلعيه المتعامدين 9 سم و8 سم. كم مساحته بالسم²؟",
+      "oldFields": {
+        "sa": "الضلعان المتعامدان هما القاعدة والارتفاع، فالمساحة = 9 × 8 ÷ 2 = 36.",
+        "se": "The perpendicular sides form the base and height: 9 × 8 ÷ 2 = 36."
+      },
+      "newFields": {
+        "sa": "القانون المستخدم: مساحة المثلث القائم = (طول الضلع القائم الأول × طول الضلع القائم الثاني) ÷ 2. لأن الضلعين 9 و8 سم متعامدان، يمثّلان القاعدة والارتفاع: 9 × 8 ÷ 2 = 72 ÷ 2 = 36 سم².",
+        "se": "Rule used: Right-triangle area = (first perpendicular side × second perpendicular side) ÷ 2. The 9 cm and 8 cm sides meet at a right angle, so 9 × 8 ÷ 2 = 36 cm²."
+      },
+      "expectedNumericAnswer": 36,
+      "editorialStatus": "Draft"
+    },
+    {
+      "problemId": 615,
+      "expectedAnswerOptionId": 2450,
+      "questionAr": "مثلث قاعدته 14 سم وارتفاعه العمودي 5 سم وطول أحد أضلاعه الأخرى 12 سم. ما مساحته بالسم²؟",
+      "oldFields": {
+        "sa": "نستخدم الارتفاع العمودي لا الضلع الآخر؛ المساحة = 14 × 5 ÷ 2 = 35.",
+        "se": "Use the perpendicular height, not the other side: 14 × 5 ÷ 2 = 35."
+      },
+      "newFields": {
+        "sa": "القانون المستخدم: مساحة المثلث = (القاعدة × الارتفاع العمودي) ÷ 2. القاعدة 14 سم والارتفاع العمودي 5 سم، فنحسب 14 × 5 ÷ 2 = 35 سم². الضلع الآخر 12 سم ليس ارتفاعاً عمودياً؛ لا نستخدمه في هذا القانون.",
+        "se": "Rule used: Triangle area = (base × perpendicular height) ÷ 2. With base 14 cm and perpendicular height 5 cm, area = 14 × 5 ÷ 2 = 35 cm². The other 12 cm side is not the perpendicular height and is not used."
+      },
+      "expectedNumericAnswer": 35,
+      "editorialStatus": "Draft"
+    },
+    {
+      "problemId": 616,
+      "expectedAnswerOptionId": 2454,
+      "questionAr": "مستطيل أبعاده 10 سم و6 سم، قُسم بقطر إلى مثلثين. ما مساحة أحد المثلثين بالسم²؟",
+      "oldFields": {
+        "sa": "مساحة المستطيل 10 × 6 = 60، والقطر يقسمها بالتساوي، إذن 30.",
+        "se": "The rectangle area is 10 × 6 = 60. A diagonal halves it, giving 30."
+      },
+      "newFields": {
+        "sa": "القانون المستخدم: مساحة المستطيل = الطول × العرض، ومساحة كل مثلث ناتج عن قطره = نصف مساحة المستطيل. أولاً: 10 × 6 = 60 سم². ثانياً: 60 ÷ 2 = 30 سم². النتيجة 30 سم²؛ القطر يقسم المستطيل إلى مثلثين متساويي المساحة.",
+        "se": "Rule used: Rectangle area = length × width; a diagonal divides a rectangle into two triangles of equal area. First 10 × 6 = 60 cm²; then divide by 2: 60 ÷ 2 = 30 cm². Thus one triangle has area 30 cm²."
+      },
+      "expectedNumericAnswer": 30,
+      "editorialStatus": "Draft"
+    }
+  ]
+}

@@ -1,0 +1,173 @@
+{
+  "batch": "mathworld-primary-skill-descriptions-wave1-20261123",
+  "status": "Draft - independent bilingual pedagogical approval required",
+  "noLiveDatabaseChanges": true,
+  "policy": "These are proposed updates for currently unpublished CurriculumSkills only; do not set IsPublished or change linked problem/student data automatically",
+  "records": [
+    {
+      "skillId": 1,
+      "stageId": 1,
+      "categoryId": 1,
+      "stableKey": "primary-addition",
+      "expectedIsPublished": false,
+      "expectedCurrent": {
+        "DescriptionAr": "جمع الأعداد وفهم القيمة المكانية",
+        "DescriptionEn": "Add whole numbers with place-value understanding"
+      },
+      "proposed": {
+        "DescriptionAr": "يجمع أعداداً طبيعية بترتيب المنازل، ويشرح إعادة التجميع عند الحاجة، ويتحقق من منطقية الناتج بالتقدير أو بالعملية العكسية.",
+        "DescriptionEn": "Add whole numbers by aligning place values, explain regrouping where necessary, and check the result using estimation or inverse subtraction."
+      }
+    },
+    {
+      "skillId": 2,
+      "stageId": 1,
+      "categoryId": 1,
+      "stableKey": "primary-subtraction",
+      "expectedIsPublished": false,
+      "expectedCurrent": {
+        "DescriptionAr": "طرح الأعداد في مسائل مباشرة وحياتية",
+        "DescriptionEn": "Subtract whole numbers in numerical and contextual problems"
+      },
+      "proposed": {
+        "DescriptionAr": "يطرح أعداداً طبيعية ضمن مسائل مباشرة وحياتية، ويستخدم الاستلاف بين المنازل عندما يلزم، ويتحقق من الناتج بإعادة الجمع.",
+        "DescriptionEn": "Subtract whole numbers in numerical and realistic settings, use place-value regrouping where needed, and verify by adding the difference back."
+      }
+    },
+    {
+      "skillId": 3,
+      "stageId": 1,
+      "categoryId": 1,
+      "stableKey": "primary-multistep-arithmetic",
+      "expectedIsPublished": false,
+      "expectedCurrent": {
+        "DescriptionAr": "حل تعبيرات جمع وطرح مترابطة مع ترتيب العمليات",
+        "DescriptionEn": "Solve connected addition and subtraction steps"
+      },
+      "proposed": {
+        "DescriptionAr": "يحل مسألة من خطوتين أو أكثر، ويحدد ترتيب الجمع والطرح المناسب للسياق مع إظهار النتائج الوسيطة والوحدة النهائية.",
+        "DescriptionEn": "Solve two-step or longer arithmetic word problems, choose the required addition/subtraction sequence, and show intermediate values and final units."
+      }
+    },
+    {
+      "skillId": 12,
+      "stageId": 1,
+      "categoryId": 3,
+      "stableKey": "primary-perimeter",
+      "expectedIsPublished": false,
+      "expectedCurrent": {
+        "DescriptionAr": "حساب المحيط",
+        "DescriptionEn": "Perimeter calculations"
+      },
+      "proposed": {
+        "DescriptionAr": "يفسر المحيط بأنه مجموع أطوال حدود الشكل، ويحسب محيط المربع والمستطيل بالقوانين المناسبة، مع التمييز بين وحدات الطول والمساحة.",
+        "DescriptionEn": "Interpret perimeter as the total distance around a figure, calculate square and rectangle perimeters using the proper rules, and distinguish length from area units."
+      }
+    },
+    {
+      "skillId": 13,
+      "stageId": 1,
+      "categoryId": 3,
+      "stableKey": "primary-rectangle-area",
+      "expectedIsPublished": false,
+      "expectedCurrent": {
+        "DescriptionAr": "مساحة المستطيل",
+        "DescriptionEn": "Area of rectangles"
+      },
+      "proposed": {
+        "DescriptionAr": "يحسب مساحة المستطيل بضرب الطول في العرض، ويميز الوحدات المربعة، ويستخدم التقسيم إلى أجزاء متساوية عند حل المسائل المركبة.",
+        "DescriptionEn": "Calculate rectangle area by multiplying length by width, report square units, and reason about partitioning a rectangle into equal-area regions."
+      }
+    },
+    {
+      "skillId": 14,
+      "stageId": 1,
+      "categoryId": 3,
+      "stableKey": "primary-triangle-area",
+      "expectedIsPublished": false,
+      "expectedCurrent": {
+        "DescriptionAr": "مساحة المثلث",
+        "DescriptionEn": "Area of triangles"
+      },
+      "proposed": {
+        "DescriptionAr": "يختار قاعدة المثلث وارتفاعه العمودي، ويطبق نصف حاصل ضربهما لحساب المساحة، ويفسر سبب القسمة على اثنين ووحدات النتيجة.",
+        "DescriptionEn": "Identify a triangle's base and perpendicular height, apply half their product for area, explain division by two, and use square units."
+      }
+    },
+    {
+      "skillId": 15,
+      "stageId": 1,
+      "categoryId": 3,
+      "stableKey": "primary-triangle-angle-sum",
+      "expectedIsPublished": false,
+      "expectedCurrent": {
+        "DescriptionAr": "زوايا المثلث",
+        "DescriptionEn": "Angles in triangles"
+      },
+      "proposed": {
+        "DescriptionAr": "يوظف قاعدة أن مجموع الزوايا الداخلية للمثلث 180 درجة لإيجاد زاوية مجهولة، ويتحقق بجمع الزوايا الثلاث.",
+        "DescriptionEn": "Use the 180-degree interior-angle sum to find a missing triangle angle, and verify by summing all three angles."
+      }
+    },
+    {
+      "skillId": 16,
+      "stageId": 1,
+      "categoryId": 3,
+      "stableKey": "primary-unit-conversions",
+      "expectedIsPublished": false,
+      "expectedCurrent": {
+        "DescriptionAr": "التحويل بين وحدات الطول",
+        "DescriptionEn": "Length-unit conversions"
+      },
+      "proposed": {
+        "DescriptionAr": "يحوّل الأطوال بين المتر والسنتيمتر بوضع عامل التحويل الصحيح، ويبرر الضرب أو القسمة ويتحقق من ملاءمة الوحدة.",
+        "DescriptionEn": "Convert lengths between metres and centimetres using the correct conversion factor, explain multiplication/division, and check the resulting unit."
+      }
+    },
+    {
+      "skillId": 4,
+      "stageId": 1,
+      "categoryId": 33,
+      "stableKey": "primary-multiplication",
+      "expectedIsPublished": false,
+      "expectedCurrent": {
+        "DescriptionAr": "فهم الضرب وحساب نواتج بأعداد متدرجة",
+        "DescriptionEn": "Understand and calculate products of whole numbers"
+      },
+      "proposed": {
+        "DescriptionAr": "يمثل الضرب بالمجموعات المتساوية وبالجمع المتكرر، ويستخدم جداول الضرب وخاصيتي التبديل والتوزيع في حساب نواتج دقيقة.",
+        "DescriptionEn": "Model multiplication as equal groups or repeated addition and apply multiplication facts, commutativity and distributivity to compute products."
+      }
+    },
+    {
+      "skillId": 5,
+      "stageId": 1,
+      "categoryId": 33,
+      "stableKey": "primary-division",
+      "expectedIsPublished": false,
+      "expectedCurrent": {
+        "DescriptionAr": "حل مسائل القسمة المباشرة والتحقق من النتائج",
+        "DescriptionEn": "Solve direct division problems and verify quotients"
+      },
+      "proposed": {
+        "DescriptionAr": "يقسم أعداداً إلى مجموعات متساوية، ويفسر خارج القسمة والباقي عند وجوده، ويتحقق من الإجابة بإعادة الضرب والجمع.",
+        "DescriptionEn": "Divide quantities into equal groups, interpret quotient and remainder when applicable, and verify by multiplication plus any remainder."
+      }
+    },
+    {
+      "skillId": 6,
+      "stageId": 1,
+      "categoryId": 33,
+      "stableKey": "primary-multiplicative-word-problems",
+      "expectedIsPublished": false,
+      "expectedCurrent": {
+        "DescriptionAr": "تحويل مواقف حياتية إلى عملية ضرب صحيحة",
+        "DescriptionEn": "Model simple real-world situations using multiplication"
+      },
+      "proposed": {
+        "DescriptionAr": "يستخرج عدد المجموعات وعدد العناصر في كل مجموعة من مسألة حياتية، ويصوغ عملية ضرب مناسبة مع تفسير الناتج ووحدته.",
+        "DescriptionEn": "Identify the number of equal groups and items per group in a word problem, build the corresponding multiplication, and interpret the result with units."
+      }
+    }
+  ]
+}
