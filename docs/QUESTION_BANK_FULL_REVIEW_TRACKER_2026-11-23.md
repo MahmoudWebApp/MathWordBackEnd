@@ -1,5 +1,13 @@
 # MathWorld — question-bank and solution-method review tracker
 
+## Additional independent editorial draft review — 36 upper-secondary questions (23 November 2026)
+
+- All **36** still-unpublished secondary-stage draft items received independent source/answer checks: **8 Exponential Functions (proposal 7)**, **12 Analytic Geometry (proposal 11)** and **16 Vectors (proposal 14)**.
+- Versioned source snapshot and independent arithmetic/geometry/vector oracles: `docs/review-data/secondary-36-independent-drafts-20261123.json` and `tests/check_reviewed_secondary_36_drafts_20261123.py`. All three GitHub checks passed; no live/learner data mutated.
+- **Curriculum breadth note:** Proposal 7 is named *Exponential & Logarithmic Functions*, but its eight current draft questions cover exponential processes and no explicit logarithm evaluation/solving. Add/verify varied logarithmic contexts before promoting the category.
+- **Draft review progress 108/160** (36 primary, 36 middle, 36 upper-secondary); **52 remaining** (36 university + 16 draft items linked to already published topic proposals). All **160 pending drafts remain Draft** until explicit administrator editorial approval; independent answers do not imply approval to publish.
+
+
 ## Additional independent editorial draft review — 36 middle-school questions (23 November 2026)
 
 - All **36** still-unpublished middle-stage draft items were individually checked against calculated answers: **8 Integers & Rational Numbers (topic 6)**, **12 Linear Inequalities (topic 10)** and **16 Probability & Compound Events (topic 13)**.
