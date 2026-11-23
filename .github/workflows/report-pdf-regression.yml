@@ -1,0 +1,64 @@
+name: Bilingual premium PDF integrity and rendering
+on:
+  pull_request:
+    paths:
+      - 'Services/PremiumAnalyticsPdfExporter.cs'
+      - 'MathWorldAPI.csproj'
+      - 'assets/fonts/**'
+      - 'tests/MathWorld.PolicySmoke/Program.cs'
+      - '.github/workflows/report-pdf-regression.yml'
+permissions:
+  contents: read
+jobs:
+  pdf:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+      - name: Generate sample PDFs in both languages using synthetic metrics
+        env:
+          MATHWORLD_REPORT_SAMPLE_DIR: ci-reports
+        run: dotnet run --project tests/MathWorld.PolicySmoke/MathWorld.PolicySmoke.csproj -c Release
+      - name: Confirm PDF syntax and extractable titles in both languages
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq poppler-utils >/dev/null
+          for language in ar en; do
+            file="ci-reports/mathworld-synthetic-premium-report-$language.pdf"
+            pdfinfo "$file" | grep -E 'Pages:|Page size:|PDF version:'
+            pdftotext -layout "$file" "ci-reports/$language.txt"
+            pdftoppm -f 1 -singlefile -png -scale-to 1200 "$file" "ci-reports/$language"
+            test -s "ci-reports/$language.png"
+          done
+          echo '--- AR extracted text ---'
+          sed -n '1,20p' ci-reports/ar.txt
+          echo '--- EN extracted text ---'
+          sed -n '1,20p' ci-reports/en.txt
+          grep -q 'MathWorld' ci-reports/ar.txt
+          grep -q 'MathWorld' ci-reports/en.txt
+          grep -q 'Mathematics progress report' ci-reports/en.txt
+          # RTL PDF extraction may reorder Arabic words; verify Arabic text
+          # is extractable rather than requiring one visual-order substring.
+          python3 - <<'PY'
+          from pathlib import Path
+          value = Path('ci-reports/ar.txt').read_text('utf-8')
+          assert sum('\u0600' <= x <= '\u06ff' for x in value) > 20, 'Arabic PDF text unavailable'
+          PY
+          if grep -Eqi 'StageId|CategoryId' ci-reports/ar.txt ci-reports/en.txt; then
+            echo 'Private database IDs should not be rendered into reports'
+            exit 1
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mathworld-report-pdf-synthetic-ar-en
+          path: |
+            ci-reports/*.pdf
+            ci-reports/*.png
+          retention-days: 7
+          if-no-files-found: error

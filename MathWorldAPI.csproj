@@ -15,6 +15,8 @@
 
 	<ItemGroup>
 		<EmbeddedResource Include="assets/branding/mathworld-report-mark.png" LogicalName="MathWorld.Brand.Logo.png" />
+		<EmbeddedResource Include="assets/fonts/IBMPlexSansArabic-Regular.ttf" LogicalName="MathWorld.Brand.PdfArabicRegular.ttf" />
+		<EmbeddedResource Include="assets/fonts/IBMPlexSansArabic-SemiBold.ttf" LogicalName="MathWorld.Brand.PdfArabicSemiBold.ttf" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -28,6 +30,7 @@
 		</PackageReference>
 		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.22.1" />
 		<PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.0" />
+		<PackageReference Include="QuestPDF" Version="2026.9.2" />
 		<PackageReference Include="MeiliSearch" Version="0.15.0" />
 		<PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
 		<PackageReference Include="Polly" Version="8.6.6" />
