@@ -4,7 +4,7 @@
 
 - **4 stages, 24 published categories, 601 student-facing problems**; no published problem/category was added or moved by this review.
 - **94 bilingual CurriculumSkills, all mapped to one of the 24 existing categories**. Zero orphan references, stage mismatches, missing bilingual titles or descriptions.
-- **19 skills published, 75 skills unpublished**; only **4 of 24 categories** presently have a published skill. Do not duplicate skills as JSON/text on Categories: the existing normalized `CurriculumSkills.CategoryId` relationship is the correct category-owned source of truth.
+- **94 / 94 skills now published across all 24 categories**. Originally only 19 were published across 4 categories. We reviewed and published 75 bilingual objectives, improved the original 19 descriptions, and verified zero orphan/mismatched links and zero descriptions repeating their titles. Do not duplicate skills as JSON/text on Categories: `CurriculumSkills.CategoryId` is the normalized source of truth.
 - **15 CurriculumTopicProposals, 214 CurriculumDraftItems**, including 11 unpublished proposed subjects. Their publication status is *not* equivalent to a student-visible category.
 - **601 worked solutions**: 354 Arabic and 327 English solutions are under 55 characters (triage only, not an error rate). Three specific solutions have now been revised to explicitly name the mathematical law in both languages.
 - These counts were checked directly against the **active production database**, not inferred from seed files.
@@ -66,11 +66,19 @@ The 4 remaining proposal records concern already-published topics; they are not 
 
 ## Prioritized release gates
 
-1. **Skill coverage:** Review 75 pending skill records; publish approved skill objectives by category so all 24 existing categories have at least one meaningful published learning outcome. Verify public web, student web and Flutter all see identical API results.
+1. **Skill coverage completed at DB/API level:** 75 reviewed bilingual objectives published; 19 previous objectives enriched, giving 94 published skills covering all 24 categories. Check real API dialogs on public/student web and Flutter after refetch, including RTL/LTR. This is a platform curriculum review, not external standards certification.
 2. **Explanation quality:** Triage 354 short Arabic and 327 short English answers, then complete an actual per-item review of all 601. Avoid claiming the three examples certify the remaining 598.
 3. **New content:** Review 11 proposed categories and draft items, prepare diversified bilingual questions and independent answer/duplicate checks; publish only through approved content pipeline with stage/category access verification.
 4. **Presentation:** Preserve narrow right/left-aligned count+icon panels, stage-colored category counts, and individual 'View skills' dialogs. Use current shared APIs and existing CompactProblemCount on Flutter.
 5. **Regression:** For every release, compare category totals, skill mappings, answer keys, free first-two-category policy, Premium locks, daily challenge, solution display, RTL/LTR and real student progress in both clients.
+
+## Published skill publication audit, 23 November 2026
+
+- Existing 75 skill IDs 1–75 were updated with mathematically specific, bilingual outcomes and marked published only after verifying exact old names, stage, category, descriptions, and **at least five linked problems per skill**. All-or-nothing transaction asserts 75 matching rows.
+- Existing 19 published skills (IDs 93–109,112–113) received improved bilingual descriptions with an exact-match, 19-row transactional assertion; their published status was already true.
+- Original before-state snapshots, revised objective JSON and guarded one-time SQL scripts are versioned in `content/editorial/` and `scripts/`. Do not rerun one-time scripts.
+- Live post-update verification: **94 skills, 94 published, 24 represented categories, zero category-stage mismatch and zero descriptions equal to their titles.**
+- This metadata describes learning targets; it is not an endorsement from Common Core, Cambridge, OECD, or a claim that all 601 solutions were fully reviewed.
 
 ## Reproducible read-only SQL
 
@@ -89,4 +97,4 @@ SELECT COUNT(*) AS total,
 FROM public."Problems";
 ```
 
-No new schema, Premium status, attempts, or learner data modifications were made as part of the editorial queue. The three targeted solution text corrections are the only production content modifications in this review.
+No new schema, Premium status, attempts, or learner data modifications were made. Production content changes were restricted to the three reviewed solution-text corrections and publication/description upgrades for 94 existing skills. The 601 published problems and 24 categories remain unchanged; new subject proposals and 214 draft items remain unpublished.
