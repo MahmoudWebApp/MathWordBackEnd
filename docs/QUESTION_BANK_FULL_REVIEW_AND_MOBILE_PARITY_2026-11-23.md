@@ -5,7 +5,7 @@
 - **4 stages, 24 published categories, 601 student-facing problems**; no published problem/category was added or moved by this review.
 - **94 bilingual CurriculumSkills, all mapped to one of the 24 existing categories**. Zero orphan references, stage mismatches, missing bilingual titles or descriptions.
 - **94 / 94 skills now published across all 24 categories**. Originally only 19 were published across 4 categories. We reviewed and published 75 bilingual objectives, improved the original 19 descriptions, and verified zero orphan/mismatched links and zero descriptions repeating their titles. Do not duplicate skills as JSON/text on Categories: `CurriculumSkills.CategoryId` is the normalized source of truth.
-- **15 CurriculumTopicProposals, 214 CurriculumDraftItems**, including 11 unpublished proposed subjects. Their publication status is *not* equivalent to a student-visible category.
+- **15 CurriculumTopicProposals and 222 editorial item records on the latest read** (160 status `Draft`, 62 status `Published` in editorial metadata), including 11 unpublished proposed subjects. Initial read earlier in the review showed 214 records; this collection changed during the session. Editorial status is *not* equivalent to a student-visible `Problems` row or category.
 - **601 worked solutions**: 354 Arabic and 327 English solutions are under 55 characters (triage only, not an error rate). Three specific solutions have now been revised to explicitly name the mathematical law in both languages.
 - These counts were checked directly against the **active production database**, not inferred from seed files.
 
@@ -97,4 +97,4 @@ SELECT COUNT(*) AS total,
 FROM public."Problems";
 ```
 
-No new schema, Premium status, attempts, or learner data modifications were made. Production content changes were restricted to the three reviewed solution-text corrections and publication/description upgrades for 94 existing skills. The 601 published problems and 24 categories remain unchanged; new subject proposals and 214 draft items remain unpublished.
+No new schema, Premium status, attempts, or learner data modifications were made. Production content changes were restricted to the three reviewed solution-text corrections and publication/description upgrades for 94 existing skills. The 601 published problems and 24 categories remain unchanged; new subject proposals remain unpublished; the 222 editorial records are a mix of draft and published *editorial statuses*, not 222 new learner-visible questions.
