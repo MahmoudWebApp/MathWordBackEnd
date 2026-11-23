@@ -1,5 +1,14 @@
 # MathWorld — question-bank and solution-method review tracker
 
+## Draft correctness QA milestone — all 160 draft answers independently reviewed (23 November 2026)
+
+- All **16** remaining unpublished DraftItems belonging to existing published-topic proposals **1 (primary fractions)**, **2 (middle descriptive statistics)**, **3 (secondary infinite series)** and **4 (university propositional logic)** were checked with independent rational-number arithmetic, statistical recalculation, convergence conditions and truth tables.
+- Versioned bilingual source/answer snapshot: `docs/review-data/final-16-independent-drafts-20261123.json`; CI oracles: `tests/check_reviewed_final_16_drafts_20261123.py`. Adaptive math, backend build and PostgreSQL integrity CI passed.
+- **Mathematical answer review coverage: 160/160 DraftItems** (36 primary previously verified, 36 middle, 36 secondary, 36 university, plus these 16 cross-stage drafts). This verifies designated answers against independent math oracles; it **does not represent publication, broad curricular certification or human editorial approval**.
+- **Pedagogical explanation gate remains open:** A live read-only scan found **96/160** unpublished explanations lacking an explicit formula, law or named principle in both languages; these need carefully worded rule-first bilingual worked solutions and review before any publication.
+- **All 160 draft items remain Draft.** Editorial approval, topic skill/objective alignment, stage icon and category decisions, coverage gaps (including absent logarithm exercises in the current exponential/logarithmic proposal), numeric-template variety, and full production web/mobile/Admin testing remain pending. Do not confuse already-published topic proposals with publication of these individual DraftItems.
+
+
 ## Additional independent editorial draft review — 36 university questions (23 November 2026)
 
 - Mathematically checked **36** still-unpublished university draft questions: **8 Mathematical Statistics (proposal 8)**, **12 Numerical Analysis (proposal 12)** and **16 Optimization (proposal 15)**.
