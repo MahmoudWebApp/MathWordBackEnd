@@ -1,5 +1,14 @@
 # MathWorld — question-bank and solution-method review tracker
 
+## Verified middle-school continuation — geometry and data (23 November 2026)
+
+- Individually reviewed all **36** student-visible problems across stage-two **Geometry/Angle Measurement (category 8, 20 items)** and **Statistics/Data Analysis (category 22, 16 items)**. Five explanations (problem IDs **18,19,430,478,480**) already communicated correct relevant methods; they were retained.
+- Improved **31** specific bilingual worked solutions, with polygon interior-angle law, circle/semicircle area, isosceles triangle and vertical-angle relations, weighted means, IQR, median/mode/range, relative frequency, mean absolute deviation, charts and percent reasoning. Independent math and correct-option assertions passed in CI.
+- A one-time exact-source-and-answer-matched SQL transaction changed only the two explanation text columns. **Production readback: 31/31 updated bilingual texts matched and 31/31 original correct option IDs/text preserved.** Questions, stage/category, answers, options, progress, subscriptions and history were not changed.
+- Cumulative reviewed published bank: **187/601** individually inspected (entire elementary stage 151, plus 36 middle-stage). **158 distinct explanations improved**, 29 retained. **414** remain unreviewed; this is a targeted editorial audit, not a claim of external curriculum accreditation.
+- Middle-stage categories **5,6,7,34** (104 published questions) still need individualized review. Staged drafts remain unpublished pending independent answer and pedagogy checks.
+
+
 ## Final elementary-stage clarity audit (23 November 2026)
 
 - The two short but numerically correct explanations (IDs **422** and **476**) have now been expanded in both languages with named conversion/percentage principles, calculation and inverse check.

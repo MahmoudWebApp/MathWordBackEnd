@@ -24,6 +24,7 @@ on:
       - 'tests/check_published_question_corrections_20261122.py'
       - 'tests/check_solution_law_review_wave1_20261123.py'
       - 'tests/check_primary_arithmetic_solution_laws_20261123.py'
+      - 'tests/check_middle_geometry_statistics_laws_20261123.py'
       - 'tests/check_primary_two_short_laws_20261123.py'
       - 'tests/check_primary_fractions_finish_laws_20261123.py'
       - 'tests/check_primary_geometry_finish_laws_20261123.py'
@@ -92,6 +93,8 @@ jobs:
         run: python3 tests/check_primary_fractions_finish_laws_20261123.py
       - name: Verify two primary decimal/fraction clarity explanations
         run: python3 tests/check_primary_two_short_laws_20261123.py
+      - name: Verify middle-school geometry and statistics law-based solution review
+        run: python3 tests/check_middle_geometry_statistics_laws_20261123.py
       - name: Validate eight bilingual wave-five draft reasoning questions independently
         run: python3 tests/check_curriculum_wave5_reasoning_20261123.py
       - name: Validate idempotent Draft-only wave-five SQL without applying it
