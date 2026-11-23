@@ -1,5 +1,13 @@
 # MathWorld — question-bank and solution-method review tracker
 
+## Published numerical repetition and all-draft novelty gate — 23 November 2026 (latest)
+
+- Source-controlled exact published IDs and normalized English question templates for **63 families / 315 published questions / 252 additional numerical variants**. By stage: primary 16 families / 80 questions; middle 16 / 80; secondary 16 / 80; university 15 / 75. These are pedagogical **similarity risks**, not evidence of wrong math or user data.
+- Re-runnable **read-only SQL** in `scripts/audit_published_problem_variety_20261123.sql`, historical roster in `docs/review-data/published-template-diversity-20261123.json`, and student-history-preserving corrective guidelines in `docs/MATHWORLD_NONDESTRUCTIVE_DIVERSITY_GATE_20261123.md`.
+- New CI gates validate the 63 families and audit every **172 published-in-repository but still unpublished-in-the-app DraftItems** for repeated numeric-only wording. All three GitHub checks passed. A separate live SQL review found **zero draft↔published and zero draft↔draft** same-stage numeric skeleton collisions. This is a heuristic, not curricular certification.
+- **No published problem IDs/answers changed, no student progress removed, and no drafts automatically published.** Remaining educational decision: whether and how to diversify the 315 already-published number-variant examples without invalidating students' historical solved progress; this requires a new separately validated content/UX change.
+
+
 ## New upper-secondary logarithm breadth — live Draft-only confirmation (23 November 2026, latest)
 
 - Identified that `s-exponents-logarithms` (topic proposal 7, secondary stage) had **8 unpublished exponential/growth drafts and zero unpublished logarithm exercises**; the separate published Advanced Algebra category already had some elementary log examples.
