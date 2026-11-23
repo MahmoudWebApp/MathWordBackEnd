@@ -1,5 +1,13 @@
 # MathWorld — question-bank and solution-method review tracker
 
+## Verified middle-school continuation — ratios and triangles (23 November 2026)
+
+- Reviewed all **48 student-visible problems** across stage-two **Ratios and Proportions (category 7; 28)** and **Triangles, Similarity and Pythagoras (category 34; 20)**. Nine originally adequate explanations (IDs **16,17,43,59,44,855,856,857,858**) were left intact.
+- Improved **39** bilingual law-led explanations, including consistent-price ratios, percent discounts/increases, map scales, ratio group splitting, Pythagorean hypotenuse and missing-leg formulas, and similarity length scaling.
+- CI independent numerical oracles and existing backend/integrity checks passed; transactional live update matched all expected original rows. **Production readback verified 39/39 bilingual explanations and 39/39 unchanged answer option IDs/text**, without touching questions or learner data.
+- Cumulative audited published problems: **235/601 individually reviewed** (151 primary + 84 middle), with **197 explanations expanded** and **38 already adequate**. The remaining **366 published problems** await individual review (56 middle, 150 upper secondary, 160 university). This is a targeted review, not an external standards endorsement.
+
+
 ## Verified middle-school continuation — geometry and data (23 November 2026)
 
 - Individually reviewed all **36** student-visible problems across stage-two **Geometry/Angle Measurement (category 8, 20 items)** and **Statistics/Data Analysis (category 22, 16 items)**. Five explanations (problem IDs **18,19,430,478,480**) already communicated correct relevant methods; they were retained.
