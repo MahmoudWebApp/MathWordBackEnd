@@ -308,6 +308,24 @@ using (var englishArchive = new ZipArchive(new MemoryStream(englishWorkbook), Zi
 }
 Console.WriteLine("PASS: localized Arabic/English student XLSX, native chart and safe content.");
 
+// Render both languages as real PDF binaries with synthetic-only data,
+// verifying the direct-download format independently of a user session.
+foreach (var (ar, code) in new[] { (true, "ar"), (false, "en") })
+{
+    var pdf = PremiumAnalyticsPdfExporter.Create(workbookReport, ar);
+    Assert(pdf.Length > 1500 &&
+           System.Text.Encoding.ASCII.GetString(pdf, 0, 5) == "%PDF-",
+        "PDF must have real document bytes, not HTML or a renamed file.");
+    var outputDirectory = Environment.GetEnvironmentVariable("MATHWORLD_REPORT_SAMPLE_DIR");
+    if (!string.IsNullOrWhiteSpace(outputDirectory))
+    {
+        Directory.CreateDirectory(outputDirectory);
+        File.WriteAllBytes(Path.Combine(outputDirectory,
+            "mathworld-synthetic-premium-report-" + code + ".pdf"), pdf);
+    }
+}
+Console.WriteLine("PASS: native Arabic/English branded Premium PDF generation.");
+
 foreach (var (method, route, action) in new[]
 {
     ("POST", "api/admin/curriculum/drafts/{id}/publish", "Publish"),
