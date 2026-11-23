@@ -1,0 +1,1417 @@
+{
+  "stageId": 4,
+  "questionCount": 36,
+  "topicKeys": [
+    "u-math-statistics",
+    "u-numerical-analysis",
+    "u-optimization"
+  ],
+  "status": "Independent mathematical review completed; drafts remain unpublished pending explicit administrator editorial approval",
+  "changesToProduction": false,
+  "questions": [
+    {
+      "id": 87,
+      "topicProposalId": 8,
+      "topicKey": "u-math-statistics",
+      "contentKey": "mw-20261122-u-math-statistics-z-score",
+      "skillKey": "sampling-distribution",
+      "templateKey": "u-math-statistics-z-score",
+      "difficulty": 2,
+      "pisaProcess": "employ",
+      "objectiveAr": "حساب المتوسط والنسبة والخطأ المعياري من عينة",
+      "objectiveEn": "Calculate sample statistics and standard error",
+      "questionAr": "في مجتمع متوسطه 70 وانحرافه المعياري 6، ما الدرجة المعيارية للقيمة 82؟",
+      "questionEn": "For a population with mean 70 and standard deviation 6, find the z-score of 82.",
+      "solutionAr": "نطرح متوسط المجتمع من القيمة ثم نقسم على الانحراف المعياري: z=(82−70)/6=2.",
+      "solutionEn": "Subtract the population mean and divide by the standard deviation: z=(82−70)/6=2.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "1"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": true,
+          "LatexCode": "2"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "3"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "−2"
+        }
+      ],
+      "independentCorrectAnswer": "2"
+    },
+    {
+      "id": 88,
+      "topicProposalId": 8,
+      "topicKey": "u-math-statistics",
+      "contentKey": "mw-20261122-u-math-statistics-standard-error",
+      "skillKey": "sampling-distribution",
+      "templateKey": "u-math-statistics-standard-error",
+      "difficulty": 2,
+      "pisaProcess": "employ",
+      "objectiveAr": "حساب المتوسط والنسبة والخطأ المعياري من عينة",
+      "objectiveEn": "Calculate sample statistics and standard error",
+      "questionAr": "إذا كان σ=15 وحجم العينة n=25، فما الخطأ المعياري للمتوسط؟",
+      "questionEn": "If population σ=15 and sample size n=25, what is the standard error of the sample mean?",
+      "solutionAr": "SE=σ/√n=15/5=3.",
+      "solutionEn": "SE=σ/√n=15/5=3.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "5"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "0.6"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "3"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "15"
+        }
+      ],
+      "independentCorrectAnswer": "3"
+    },
+    {
+      "id": 89,
+      "topicProposalId": 8,
+      "topicKey": "u-math-statistics",
+      "contentKey": "mw-20261122-u-math-statistics-sample-proportion",
+      "skillKey": "sampling-distribution",
+      "templateKey": "u-math-statistics-sample-proportion",
+      "difficulty": 1,
+      "pisaProcess": "formulate",
+      "objectiveAr": "حساب المتوسط والنسبة والخطأ المعياري من عينة",
+      "objectiveEn": "Calculate sample statistics and standard error",
+      "questionAr": "نجح 18 طالباً من عينة حجمها 30. ما النسبة المشاهدة للنجاح؟",
+      "questionEn": "18 out of 30 sampled students passed. What is the observed success proportion?",
+      "solutionAr": "نسبة العينة هي 18/30=0.6.",
+      "solutionEn": "The sample proportion is 18/30=0.6.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "0.18"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "0.3"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "0.6"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "0.8"
+        }
+      ],
+      "independentCorrectAnswer": "0.6"
+    },
+    {
+      "id": 90,
+      "topicProposalId": 8,
+      "topicKey": "u-math-statistics",
+      "contentKey": "mw-20261122-u-math-statistics-mean-confidence",
+      "skillKey": "confidence-intervals",
+      "templateKey": "u-math-statistics-mean-confidence",
+      "difficulty": 3,
+      "pisaProcess": "employ",
+      "objectiveAr": "تكوين وتفسير فترات الثقة عندما يكون الانحراف المعياري معروفاً",
+      "objectiveEn": "Construct and interpret confidence intervals with known population standard deviation",
+      "questionAr": "متوسط عينة 100، والانحراف المعياري للمجتمع 10، وحجم العينة 100. بافتراض النموذج الطبيعي، ما فترة الثقة 95% باستخدام z=1.96؟",
+      "questionEn": "The sample mean is 100, population σ=10, n=100. Using the normal approximation and z=1.96, find the 95% confidence interval.",
+      "solutionAr": "الخطأ المعياري 10/√100=1، والهامش 1.96؛ الفترة [98.04,101.96].",
+      "solutionEn": "SE=10/√100=1; margin=1.96. The interval is [98.04,101.96].",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "[90,110]"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": true,
+          "LatexCode": "[98.04,101.96]"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "[99.04,100.96]"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "[96,104]"
+        }
+      ],
+      "independentCorrectAnswer": "[98.04,101.96]"
+    },
+    {
+      "id": 91,
+      "topicProposalId": 8,
+      "topicKey": "u-math-statistics",
+      "contentKey": "mw-20261122-u-math-statistics-ci-margin",
+      "skillKey": "confidence-intervals",
+      "templateKey": "u-math-statistics-ci-margin",
+      "difficulty": 2,
+      "pisaProcess": "employ",
+      "objectiveAr": "تكوين وتفسير فترات الثقة عندما يكون الانحراف المعياري معروفاً",
+      "objectiveEn": "Construct and interpret confidence intervals with known population standard deviation",
+      "questionAr": "عند σ=8 وn=64 وz=1.96، ما هامش الخطأ لفترة ثقة طبيعية؟",
+      "questionEn": "For σ=8, n=64, and z=1.96, what is the normal confidence-interval margin of error?",
+      "solutionAr": "الهامش z×σ/√n=1.96×8/8=1.96.",
+      "solutionEn": "Margin = z×σ/√n=1.96×8/8=1.96.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "0.98"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": true,
+          "LatexCode": "1.96"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "8"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "15.68"
+        }
+      ],
+      "independentCorrectAnswer": "1.96"
+    },
+    {
+      "id": 92,
+      "topicProposalId": 8,
+      "topicKey": "u-math-statistics",
+      "contentKey": "mw-20261122-u-math-statistics-sample-size-ci",
+      "skillKey": "confidence-intervals",
+      "templateKey": "u-math-statistics-sample-size-ci",
+      "difficulty": 3,
+      "pisaProcess": "interpret_evaluate",
+      "objectiveAr": "تكوين وتفسير فترات الثقة عندما يكون الانحراف المعياري معروفاً",
+      "objectiveEn": "Construct and interpret confidence intervals with known population standard deviation",
+      "questionAr": "مع ثبات الانحراف المعياري ومستوى الثقة، إذا ضُرب حجم العينة في 4، فبأي عامل يُضرب عرض فترة الثقة؟",
+      "questionEn": "With fixed standard deviation and confidence level, if the sample size is multiplied by 4, what factor multiplies the confidence-interval width?",
+      "solutionAr": "العرض يتناسب مع 1/√n، لذا عند ضرب n في 4 يصبح العرض نصف قيمته.",
+      "solutionEn": "Interval width scales as 1/√n; quadrupling n halves the width.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "2"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "1"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "1/2"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "1/4"
+        }
+      ],
+      "independentCorrectAnswer": "1/2"
+    },
+    {
+      "id": 93,
+      "topicProposalId": 8,
+      "topicKey": "u-math-statistics",
+      "contentKey": "mw-20261122-u-math-statistics-p-value",
+      "skillKey": "hypothesis-testing",
+      "templateKey": "u-math-statistics-p-value",
+      "difficulty": 2,
+      "pisaProcess": "interpret_evaluate",
+      "objectiveAr": "تفسير الفرضية الصفرية والقرارات والأخطاء",
+      "objectiveEn": "Interpret null hypotheses, decisions, and error types",
+      "questionAr": "عندما p=0.02 ومستوى الدلالة α=0.05، أي مقارنة تبرر رفض الفرضية الصفرية؟",
+      "questionEn": "When p=0.02 and significance level α=0.05, which inequality justifies rejecting the null hypothesis?",
+      "solutionAr": "بما أن 0.02<0.05 فإننا نرفض الفرضية الصفرية، دون أن نثبت بديلها قطعياً.",
+      "solutionEn": "Since 0.02<0.05, reject the null hypothesis; this does not prove the alternative with certainty.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "p>\\alpha"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": true,
+          "LatexCode": "p<\\alpha"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "p=\\alpha"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "p=1"
+        }
+      ],
+      "independentCorrectAnswer": "p<\\alpha"
+    },
+    {
+      "id": 94,
+      "topicProposalId": 8,
+      "topicKey": "u-math-statistics",
+      "contentKey": "mw-20261122-u-math-statistics-type-one",
+      "skillKey": "hypothesis-testing",
+      "templateKey": "u-math-statistics-type-one",
+      "difficulty": 2,
+      "pisaProcess": "interpret_evaluate",
+      "objectiveAr": "تفسير الفرضية الصفرية والقرارات والأخطاء",
+      "objectiveEn": "Interpret null hypotheses, decisions, and error types",
+      "questionAr": "أي رمز يشير عادةً إلى احتمال الخطأ من النوع الأول، أي رفض فرضية صفرية صحيحة؟",
+      "questionEn": "Which symbol conventionally denotes the probability of a Type I error: rejecting a true null hypothesis?",
+      "solutionAr": "الخطأ من النوع الأول يعني رفض H_0 وهي صحيحة، ويُرمز لاحتمال هذا الخطأ بالحرف α.",
+      "solutionEn": "Type I error means rejecting a true H_0; its probability is denoted by α.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "\\beta"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "1-\\alpha"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "\\alpha"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "1-\\beta"
+        }
+      ],
+      "independentCorrectAnswer": "\\alpha"
+    },
+    {
+      "id": 131,
+      "topicProposalId": 12,
+      "topicKey": "u-numerical-analysis",
+      "contentKey": "mw-wave2-u-numerical-analysis-bisection-first-midpoint",
+      "skillKey": "root-finding",
+      "templateKey": "u-numerical-analysis-bisection-first-midpoint",
+      "difficulty": 1,
+      "pisaProcess": "employ",
+      "objectiveAr": "تنفيذ خطوات التنصيف ونيوتن وتقييم تقريب الجذور",
+      "objectiveEn": "Apply bisection and Newton iterations to approximate roots",
+      "questionAr": "لإيجاد جذر $f(x)=x^2-2$ بطريقة التنصيف على الفترة [1,2]، ما أول نقطة وسطية؟",
+      "questionEn": "Using bisection to find a zero of $f(x)=x^2-2$ on [1,2], what is the first midpoint?",
+      "solutionAr": "نحسب منتصف الفترة: (1+2)/2=1.5. يتم تقييم الدالة عند هذه النقطة بعد ذلك.",
+      "solutionEn": "The first midpoint is (1+2)/2=1.5, where the function can then be evaluated.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "1"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "1.25"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "1.5"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "2"
+        }
+      ],
+      "independentCorrectAnswer": "1.5"
+    },
+    {
+      "id": 132,
+      "topicProposalId": 12,
+      "topicKey": "u-numerical-analysis",
+      "contentKey": "mw-wave2-u-numerical-analysis-bisection-exact-root",
+      "skillKey": "root-finding",
+      "templateKey": "u-numerical-analysis-bisection-exact-root",
+      "difficulty": 2,
+      "pisaProcess": "interpret_evaluate",
+      "objectiveAr": "تنفيذ خطوات التنصيف ونيوتن وتقييم تقريب الجذور",
+      "objectiveEn": "Apply bisection and Newton iterations to approximate roots",
+      "questionAr": "نبدأ التنصيف للدالة $f(x)=x^2-4$ على [1,3]. ما قيمة أول نقطة وسطية تحقق $f(x)=0$؟",
+      "questionEn": "Start bisection for $f(x)=x^2-4$ on [1,3]. What first midpoint makes $f(x)=0$?",
+      "solutionAr": "منتصف الفترة هو (1+3)/2=2، وعند x=2 نجد f(2)=4-4=0.",
+      "solutionEn": "The midpoint is (1+3)/2=2, and f(2)=4-4=0.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": true,
+          "LatexCode": "2"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "1.5"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "3"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "4"
+        }
+      ],
+      "independentCorrectAnswer": "2"
+    },
+    {
+      "id": 133,
+      "topicProposalId": 12,
+      "topicKey": "u-numerical-analysis",
+      "contentKey": "mw-wave2-u-numerical-analysis-newton-first-step",
+      "skillKey": "root-finding",
+      "templateKey": "u-numerical-analysis-newton-first-step",
+      "difficulty": 3,
+      "pisaProcess": "employ",
+      "objectiveAr": "تنفيذ خطوات التنصيف ونيوتن وتقييم تقريب الجذور",
+      "objectiveEn": "Apply bisection and Newton iterations to approximate roots",
+      "questionAr": "لدالة $f(x)=x^2-9$ مع $x_0=4$، ما قيمة $x_1$ بطريقة نيوتن؟",
+      "questionEn": "For $f(x)=x^2-9$ with $x_0=4$, compute the first Newton iterate $x_1$.",
+      "solutionAr": "مشتقة الدالة f'(x)=2x. إذن x1=4-(16-9)/(2×4)=4-7/8=3.125.",
+      "solutionEn": "The derivative is f'(x)=2x. Thus x1=4-(16-9)/8=4-7/8=3.125.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "3.5"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "3"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "3.25"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": true,
+          "LatexCode": "3.125"
+        }
+      ],
+      "independentCorrectAnswer": "3.125"
+    },
+    {
+      "id": 134,
+      "topicProposalId": 12,
+      "topicKey": "u-numerical-analysis",
+      "contentKey": "mw-wave2-u-numerical-analysis-trapezoid-single-panel",
+      "skillKey": "numerical-integration",
+      "templateKey": "u-numerical-analysis-trapezoid-single-panel",
+      "difficulty": 2,
+      "pisaProcess": "employ",
+      "objectiveAr": "تطبيق قواعد شبه المنحرف والمنتصف وسمبسون لتقريب التكامل",
+      "objectiveEn": "Apply trapezoidal, midpoint, and Simpson rules to approximate definite integrals",
+      "questionAr": "قدّر التكامل من 0 إلى 2 للدالة $f(x)=x^2$ بقاعدة شبه المنحرف باستخدام فترة واحدة.",
+      "questionEn": "Approximate the integral of $f(x)=x^2$ from 0 to 2 by the trapezoidal rule using one panel.",
+      "solutionAr": "نستخدم (b-a)/2 × [f(a)+f(b)] = (2/2) × [0+4] = 4.",
+      "solutionEn": "Trapezoid with one panel: (b-a)/2 × [f(a)+f(b)] = (2/2) × [0+4] = 4.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": true,
+          "LatexCode": "4"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "2"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "\\frac83"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "8"
+        }
+      ],
+      "independentCorrectAnswer": "4"
+    },
+    {
+      "id": 135,
+      "topicProposalId": 12,
+      "topicKey": "u-numerical-analysis",
+      "contentKey": "mw-wave2-u-numerical-analysis-midpoint-rectangle",
+      "skillKey": "numerical-integration",
+      "templateKey": "u-numerical-analysis-midpoint-rectangle",
+      "difficulty": 2,
+      "pisaProcess": "employ",
+      "objectiveAr": "تطبيق قواعد شبه المنحرف والمنتصف وسمبسون لتقريب التكامل",
+      "objectiveEn": "Apply trapezoidal, midpoint, and Simpson rules to approximate definite integrals",
+      "questionAr": "قدّر التكامل من 0 إلى 2 للدالة $f(x)=x^2$ بقاعدة المنتصف بفترة واحدة.",
+      "questionEn": "Approximate the integral of $f(x)=x^2$ from 0 to 2 using the one-panel midpoint rule.",
+      "solutionAr": "منتصف [0,2] هو 1؛ عرض الفترة 2 وقيمة الدالة 1، لذلك التقريب 2×1=2.",
+      "solutionEn": "The midpoint is 1, the interval width is 2 and f(1)=1, giving 2×1=2.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "1"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": true,
+          "LatexCode": "2"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "4"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "\\frac83"
+        }
+      ],
+      "independentCorrectAnswer": "2"
+    },
+    {
+      "id": 136,
+      "topicProposalId": 12,
+      "topicKey": "u-numerical-analysis",
+      "contentKey": "mw-wave2-u-numerical-analysis-simpson-parabola",
+      "skillKey": "numerical-integration",
+      "templateKey": "u-numerical-analysis-simpson-parabola",
+      "difficulty": 3,
+      "pisaProcess": "employ",
+      "objectiveAr": "تطبيق قواعد شبه المنحرف والمنتصف وسمبسون لتقريب التكامل",
+      "objectiveEn": "Apply trapezoidal, midpoint, and Simpson rules to approximate definite integrals",
+      "questionAr": "قدّر التكامل من 0 إلى 2 للدالة $f(x)=x^2$ بقاعدة سمبسون 1/3 باستخدام فترتين فرعيتين متساويتين.",
+      "questionEn": "Use Simpson's 1/3 rule with two equal subintervals to integrate $f(x)=x^2$ from 0 to 2.",
+      "solutionAr": "الخطوة h=1، وسمبسون يعطينا (1/3)[f(0)+4f(1)+f(2)] = (1/3)(0+4+4)=8/3.",
+      "solutionEn": "With h=1, Simpson gives (1/3)[f(0)+4f(1)+f(2)] = (1/3)(0+4+4)=8/3.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "4"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "2"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "\\frac43"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": true,
+          "LatexCode": "\\frac{8}{3}"
+        }
+      ],
+      "independentCorrectAnswer": "\\frac{8}{3}"
+    },
+    {
+      "id": 137,
+      "topicProposalId": 12,
+      "topicKey": "u-numerical-analysis",
+      "contentKey": "mw-wave2-u-numerical-analysis-absolute-error",
+      "skillKey": "error-analysis",
+      "templateKey": "u-numerical-analysis-absolute-error",
+      "difficulty": 1,
+      "pisaProcess": "employ",
+      "objectiveAr": "التمييز بين الخطأ المطلق والنسبي وحدود خطأ التقريب",
+      "objectiveEn": "Distinguish absolute error, relative error, and rounding bounds",
+      "questionAr": "قيمة دقيقة تساوي 10 وقربناها إلى 9.7. ما الخطأ المطلق؟",
+      "questionEn": "An exact value is 10 and its approximation is 9.7. What is the absolute error?",
+      "solutionAr": "الخطأ المطلق هو القيمة المطلقة للفرق: |10-9.7|=0.3.",
+      "solutionEn": "Absolute error is the magnitude of the difference: |10-9.7|=0.3.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "0.03"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "3"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "0.3"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "0.7"
+        }
+      ],
+      "independentCorrectAnswer": "0.3"
+    },
+    {
+      "id": 138,
+      "topicProposalId": 12,
+      "topicKey": "u-numerical-analysis",
+      "contentKey": "mw-wave2-u-numerical-analysis-relative-error",
+      "skillKey": "error-analysis",
+      "templateKey": "u-numerical-analysis-relative-error",
+      "difficulty": 2,
+      "pisaProcess": "interpret_evaluate",
+      "objectiveAr": "التمييز بين الخطأ المطلق والنسبي وحدود خطأ التقريب",
+      "objectiveEn": "Distinguish absolute error, relative error, and rounding bounds",
+      "questionAr": "إذا كانت القيمة الدقيقة 50 والتقريب 49، فما الخطأ النسبي بالنسبة المئوية؟",
+      "questionEn": "If the exact value is 50 and the approximation is 49, what is the percentage relative error?",
+      "solutionAr": "الخطأ المطلق 1، ونقسم على القيمة الدقيقة 50: 1/50=0.02=2%.",
+      "solutionEn": "Absolute error is 1; divide by the exact value 50: 1/50=0.02=2%.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "1\\%"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": true,
+          "LatexCode": "2\\%"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "5\\%"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "0.2\\%"
+        }
+      ],
+      "independentCorrectAnswer": "2\\%"
+    },
+    {
+      "id": 139,
+      "topicProposalId": 12,
+      "topicKey": "u-numerical-analysis",
+      "contentKey": "mw-wave2-u-numerical-analysis-rounding-bound",
+      "skillKey": "error-analysis",
+      "templateKey": "u-numerical-analysis-rounding-bound",
+      "difficulty": 2,
+      "pisaProcess": "interpret_evaluate",
+      "objectiveAr": "التمييز بين الخطأ المطلق والنسبي وحدود خطأ التقريب",
+      "objectiveEn": "Distinguish absolute error, relative error, and rounding bounds",
+      "questionAr": "عند تقريب قياس إلى أقرب جزء من مئة، ما الحد الأعلى للخطأ المطلق بسبب التقريب؟",
+      "questionEn": "When rounding a measurement to the nearest hundredth, what is the maximum absolute rounding error?",
+      "solutionAr": "المسافة بين قيمتين متتاليتين 0.01، وأكبر خطأ تقريب لا يتجاوز نصفها وهو 0.005.",
+      "solutionEn": "Adjacent rounded values differ by 0.01; the absolute error is bounded by half of that, 0.005.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "0.01"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "0.05"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "0.001"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": true,
+          "LatexCode": "0.005"
+        }
+      ],
+      "independentCorrectAnswer": "0.005"
+    },
+    {
+      "id": 140,
+      "topicProposalId": 12,
+      "topicKey": "u-numerical-analysis",
+      "contentKey": "mw-wave2-u-numerical-analysis-jacobi-first-step",
+      "skillKey": "linear-systems",
+      "templateKey": "u-numerical-analysis-jacobi-first-step",
+      "difficulty": 3,
+      "pisaProcess": "employ",
+      "objectiveAr": "تنفيذ خطوات جـاكوبي والحذف وحساب متجه المتبقي",
+      "objectiveEn": "Use Jacobi iteration, elimination, and residuals for linear systems",
+      "questionAr": "للنظام $4x+y=9$ و$x+3y=7$، نبدأ $x_0=y_0=0$. ما الزوج $(x_1,y_1)$ بطريقة جاكوبي؟",
+      "questionEn": "For $4x+y=9$ and $x+3y=7$, start from $x_0=y_0=0$. What is the first Jacobi iterate $(x_1,y_1)$?",
+      "solutionAr": "نحسب x1=(9-y0)/4=9/4 وy1=(7-x0)/3=7/3 باستخدام القيم القديمة فقط.",
+      "solutionEn": "Use only the previous iterate: x1=(9-y0)/4=9/4 and y1=(7-x0)/3=7/3.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": true,
+          "LatexCode": "(\\frac94,\\frac73)"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "(\\frac73,\\frac94)"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "(9,7)"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "(\\frac94,\\frac{19}{12})"
+        }
+      ],
+      "independentCorrectAnswer": "(\\frac94,\\frac73)"
+    },
+    {
+      "id": 141,
+      "topicProposalId": 12,
+      "topicKey": "u-numerical-analysis",
+      "contentKey": "mw-wave2-u-numerical-analysis-linear-elimination",
+      "skillKey": "linear-systems",
+      "templateKey": "u-numerical-analysis-linear-elimination",
+      "difficulty": 2,
+      "pisaProcess": "employ",
+      "objectiveAr": "تنفيذ خطوات جـاكوبي والحذف وحساب متجه المتبقي",
+      "objectiveEn": "Use Jacobi iteration, elimination, and residuals for linear systems",
+      "questionAr": "باستخدام الحذف، حل النظام $2x+y=7$ و$x-y=2$. ما قيمة $x$؟",
+      "questionEn": "Use elimination to solve $2x+y=7$ and $x-y=2$. What is $x$?",
+      "solutionAr": "نجمع المعادلتين فيزول y: 3x=9، وبالتالي x=3، ومن الثانية y=1.",
+      "solutionEn": "Add the equations to eliminate y: 3x=9, so x=3 and the other equation gives y=1.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "2"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "4"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "1"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": true,
+          "LatexCode": "3"
+        }
+      ],
+      "independentCorrectAnswer": "3"
+    },
+    {
+      "id": 142,
+      "topicProposalId": 12,
+      "topicKey": "u-numerical-analysis",
+      "contentKey": "mw-wave2-u-numerical-analysis-residual-infinity-norm",
+      "skillKey": "linear-systems",
+      "templateKey": "u-numerical-analysis-residual-infinity-norm",
+      "difficulty": 3,
+      "pisaProcess": "interpret_evaluate",
+      "objectiveAr": "تنفيذ خطوات جـاكوبي والحذف وحساب متجه المتبقي",
+      "objectiveEn": "Use Jacobi iteration, elimination, and residuals for linear systems",
+      "questionAr": "للنظام $A=diag(2,3)$ و$b=(4,9)$، إذا كان التقريب $x=(2,2)$، فما معيار اللانهاية للمتبقي $r=b-Ax$؟",
+      "questionEn": "For $A=diag(2,3)$, $b=(4,9)$ and approximate solution $x=(2,2)$, find the infinity norm of residual $r=b-Ax$.",
+      "solutionAr": "نحسب Ax=(4,6)، والمتبقي r=(0,3)، وأكبر قيمة مطلقة لعناصره تساوي 3.",
+      "solutionEn": "Compute Ax=(4,6); residual r=(0,3); its infinity norm is max(|0|,|3|)=3.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "0"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "1"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "3"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "9"
+        }
+      ],
+      "independentCorrectAnswer": "3"
+    },
+    {
+      "id": 177,
+      "topicProposalId": 15,
+      "topicKey": "u-optimization",
+      "contentKey": "mw-wave4-u-square-min",
+      "skillKey": "unconstrained-optimization",
+      "templateKey": "wave4-u-square-min",
+      "difficulty": 2,
+      "pisaProcess": "employ",
+      "objectiveAr": "تحديد نقاط الثبات والقيم المثلى",
+      "objectiveEn": "Find stationary points and optima",
+      "questionAr": "للدالة f(x)=(x-3)^2+2 على مجموعة الأعداد الحقيقية، ما أصغر قيمة ممكنة لـf؟",
+      "questionEn": "For f(x)=(x-3)^2+2 over all real x, what is its minimum value?",
+      "solutionAr": "القانون المستخدم: قاعدة المربعات: (x−a)² ≥ 0، وتتحقق القيمة الصغرى عند x=a.\n\nخطوات الحل: مربع أي عدد غير سالب، ويصير صفراً عند x=3؛ عندئذ القيمة الصغرى 2.",
+      "solutionEn": "Rule used: Square bound: (x−a)² ≥ 0, with equality at x=a.\n\nSolution steps: A square is nonnegative and vanishes at x=3, giving the minimum value 2.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "-2"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "0"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "2"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "3"
+        }
+      ],
+      "independentCorrectAnswer": "2"
+    },
+    {
+      "id": 178,
+      "topicProposalId": 15,
+      "topicKey": "u-optimization",
+      "contentKey": "mw-wave4-u-stationary",
+      "skillKey": "unconstrained-optimization",
+      "templateKey": "wave4-u-stationary",
+      "difficulty": 2,
+      "pisaProcess": "employ",
+      "objectiveAr": "تحديد نقاط الثبات والقيم المثلى",
+      "objectiveEn": "Find stationary points and optima",
+      "questionAr": "أوجد قيمة x التي تحقق f'(x)=0 للدالة f(x)=x^2-6x+5.",
+      "questionEn": "Find x where f'(x)=0 for f(x)=x^2-6x+5.",
+      "solutionAr": "القانون المستخدم: شرط نقطة الثبات لدالة قابلة للاشتقاق: f'(x)=0.\n\nخطوات الحل: نشتق فنحصل على 2x-6، ومن حل المعادلة 2x-6=0 نجد x=3؛ وهي نقطة قيمة صغرى للدالة.",
+      "solutionEn": "Rule used: Stationary-point condition for differentiable f: f'(x)=0.\n\nSolution steps: Differentiate: f'(x)=2x-6. Setting it to zero gives x=3.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "-3"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "2"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "3"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "6"
+        }
+      ],
+      "independentCorrectAnswer": "3"
+    },
+    {
+      "id": 179,
+      "topicProposalId": 15,
+      "topicKey": "u-optimization",
+      "contentKey": "mw-wave4-u-constrained-equal",
+      "skillKey": "constrained-optimization",
+      "templateKey": "wave4-u-constrained-equal",
+      "difficulty": 3,
+      "pisaProcess": "formulate",
+      "objectiveAr": "استخدام العلاقات المقيدة لتحديد أمثلية الدوال",
+      "objectiveEn": "Optimize functions subject to linear constraints",
+      "questionAr": "نريد تصغير x^2+y^2 بشرط x+y=6 حيث x وy حقيقيان. ما الزوج الذي يحقق الأصغر؟",
+      "questionEn": "Minimize x²+y² subject to x+y=6 for real x and y. Which pair gives the minimum?",
+      "solutionAr": "القانون المستخدم: بالإحلال من القيد x+y=c نكتب y=c−x ونصغّر دالة متغير واحد.\n\nخطوات الحل: من تماثل الدالة أو بإكمال المربع، تتحقق القيمة الأصغر عند x=y=3.",
+      "solutionEn": "Rule used: Use the linear constraint x+y=c to substitute y=c−x and minimize a one-variable function.\n\nSolution steps: Substitute y=6-x and complete the square; the minimum occurs at x=y=3.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "(0,6)"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "(2,4)"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "(3,3)"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "(6,0)"
+        }
+      ],
+      "independentCorrectAnswer": "(3,3)"
+    },
+    {
+      "id": 180,
+      "topicProposalId": 15,
+      "topicKey": "u-optimization",
+      "contentKey": "mw-wave4-u-product-max",
+      "skillKey": "constrained-optimization",
+      "templateKey": "wave4-u-product-max",
+      "difficulty": 3,
+      "pisaProcess": "formulate",
+      "objectiveAr": "استخدام العلاقات المقيدة لتحديد أمثلية الدوال",
+      "objectiveEn": "Optimize functions subject to linear constraints",
+      "questionAr": "إذا كان x وy غير سالبين ومجموعهما 10، فما أكبر قيمة للجداء xy؟",
+      "questionEn": "For nonnegative x and y with x+y=10, what is the greatest possible value of xy?",
+      "solutionAr": "القانون المستخدم: عند x+y=c مع x,y≥0: ‏xy ≤ (c/2)²، والمساواة عندما x=y.\n\nخطوات الحل: يبلغ الجداء قيمته الكبرى عند تساوي العددين x=y=5، وبالتالي xy=25.",
+      "solutionEn": "Rule used: For x+y=c and x,y≥0: xy ≤ (c/2)², with equality at x=y.\n\nSolution steps: The product is maximized when x=y=5, so the maximum is 25.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "20"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "24"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "25"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "50"
+        }
+      ],
+      "independentCorrectAnswer": "25"
+    },
+    {
+      "id": 181,
+      "topicProposalId": 15,
+      "topicKey": "u-optimization",
+      "contentKey": "mw-wave4-u-second-derivative",
+      "skillKey": "convexity",
+      "templateKey": "wave4-u-second-derivative",
+      "difficulty": 3,
+      "pisaProcess": "employ",
+      "objectiveAr": "تحليل المشتقة الثانية ومصفوفة هسيان",
+      "objectiveEn": "Use second derivatives and Hessian eigenvalues",
+      "questionAr": "للدالة f(x)=x^4+3x^2، ما قيمة f''(1)؟",
+      "questionEn": "For f(x)=x⁴+3x², what is f''(1)?",
+      "solutionAr": "القانون المستخدم: قانون المشتقة الثانية: نشتق f'(x) مرة أخرى للحصول على f''(x).\n\nخطوات الحل: المشتقة الأولى 4x³+6x، والثانية 12x²+6؛ بالتعويض عند 1 نجد 18.",
+      "solutionEn": "Rule used: Second derivative: differentiate f'(x) again to obtain f''(x).\n\nSolution steps: First differentiate to 4x³+6x, then to 12x²+6; at x=1 this is 18.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "12"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "14"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "18"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "24"
+        }
+      ],
+      "independentCorrectAnswer": "18"
+    },
+    {
+      "id": 182,
+      "topicProposalId": 15,
+      "topicKey": "u-optimization",
+      "contentKey": "mw-wave4-u-hessian-eigen",
+      "skillKey": "convexity",
+      "templateKey": "wave4-u-hessian-eigen",
+      "difficulty": 4,
+      "pisaProcess": "interpret_evaluate",
+      "objectiveAr": "تحليل المشتقة الثانية ومصفوفة هسيان",
+      "objectiveEn": "Use second derivatives and Hessian eigenvalues",
+      "questionAr": "لدالة f(x,y)=x^2+2y^2، ما أصغر قيمة ذاتية لمصفوفة هسيان؟",
+      "questionEn": "For f(x,y)=x²+2y², what is the smallest eigenvalue of its Hessian?",
+      "solutionAr": "القانون المستخدم: لمصفوفة هسيان قطرية، القيم الذاتية هي العناصر القطرية نفسها.\n\nخطوات الحل: مصفوفة هسيان قطرية بقيمتي 2 و4؛ القيمة الذاتية الأصغر هي 2، وكلاهما موجبتان.",
+      "solutionEn": "Rule used: For a diagonal Hessian, its eigenvalues are its diagonal entries.\n\nSolution steps: The Hessian is diagonal with entries 2 and 4; its smallest eigenvalue is 2, and both are positive.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "1"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": true,
+          "LatexCode": "2"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "4"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "6"
+        }
+      ],
+      "independentCorrectAnswer": "2"
+    },
+    {
+      "id": 207,
+      "topicProposalId": 15,
+      "topicKey": "u-optimization",
+      "contentKey": "mw-wave4-depth-u-quadratic-min-negative",
+      "skillKey": "unconstrained-optimization",
+      "templateKey": "wave4-depth-u-quadratic-min-negative",
+      "difficulty": 2,
+      "pisaProcess": "employ",
+      "objectiveAr": "تحديد نقاط الثبات والقيم المثلى",
+      "objectiveEn": "Find stationary points and optima",
+      "questionAr": "ما القيمة الصغرى للدالة f(x)=x²−4x+1 على مجموعة الأعداد الحقيقية؟",
+      "questionEn": "What is the global minimum value of f(x)=x²−4x+1 over the real numbers?",
+      "solutionAr": "القانون المستخدم: قاعدة إكمال المربع: (x−a)²≥0، فتكون أدنى قيمة عند انعدام الحد المربّع.\n\nخطوات الحل: نكمل المربع: f(x)=(x−2)²−3، وأصغر قيمة للمربع صفر، لذا القيمة الصغرى −3.",
+      "solutionEn": "Rule used: Completing-square principle: (x−a)²≥0, with the minimum when the square vanishes.\n\nSolution steps: Complete the square: f(x)=(x−2)²−3; the square is minimized at zero, giving −3.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "-4"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": true,
+          "LatexCode": "-3"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "0"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "1"
+        }
+      ],
+      "independentCorrectAnswer": "-3"
+    },
+    {
+      "id": 208,
+      "topicProposalId": 15,
+      "topicKey": "u-optimization",
+      "contentKey": "mw-wave4-depth-u-convex-cubic-domain",
+      "skillKey": "convexity",
+      "templateKey": "wave4-depth-u-convex-cubic-domain",
+      "difficulty": 3,
+      "pisaProcess": "interpret_evaluate",
+      "objectiveAr": "تحليل المشتقة الثانية ومصفوفة هسيان",
+      "objectiveEn": "Use second derivatives and Hessian eigenvalues",
+      "questionAr": "للدالة f(x)=x³ على الأعداد الحقيقية، في أي مجال تكون مشتقتها الثانية موجبة؟",
+      "questionEn": "For f(x)=x³ over real numbers, on which interval is its second derivative positive?",
+      "solutionAr": "القانون المستخدم: معيار تحدب الدالة القابلة للاشتقاق مرتين: f''(x)≥0 على المجال.\n\nخطوات الحل: المشتقة الثانية تساوي 6x، وهي موجبة فقط عندما x>0، مما يدل على التحدب في هذا المجال.",
+      "solutionEn": "Rule used: Twice-differentiable convexity criterion: f''(x)≥0 throughout the interval.\n\nSolution steps: The second derivative is 6x, positive exactly when x>0, which implies convexity there.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "x<0"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "x=0"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "x>0"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "x\\le0"
+        }
+      ],
+      "independentCorrectAnswer": "x>0"
+    },
+    {
+      "id": 209,
+      "topicProposalId": 15,
+      "topicKey": "u-optimization",
+      "contentKey": "mw-wave4-depth-u-bounded-quadratic-max",
+      "skillKey": "unconstrained-optimization",
+      "templateKey": "wave4-depth-u-bounded-quadratic-max",
+      "difficulty": 3,
+      "pisaProcess": "interpret_evaluate",
+      "objectiveAr": "تحديد نقاط الثبات والقيم المثلى",
+      "objectiveEn": "Find stationary points and optima",
+      "questionAr": "للدالة f(x)=−(x−1)²+9 على المجال المغلق [0,4]، ما أكبر قيمة لها؟",
+      "questionEn": "For f(x)=−(x−1)²+9 on the closed interval [0,4], what is its maximum value?",
+      "solutionAr": "القانون المستخدم: لتعظيم دالة على مجال مغلق، نفحص النقاط الحرجة والأطراف.\n\nخطوات الحل: القيمة الكبرى عند قمة القطع المكافئ x=1 وهي داخل المجال، فنحصل على f(1)=9.",
+      "solutionEn": "Rule used: To maximize on a closed interval, check stationary points and endpoints.\n\nSolution steps: The downward-opening parabola reaches its vertex at x=1 inside the interval, where f(1)=9.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "5"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "8"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "9"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "10"
+        }
+      ],
+      "independentCorrectAnswer": "9"
+    },
+    {
+      "id": 210,
+      "topicProposalId": 15,
+      "topicKey": "u-optimization",
+      "contentKey": "mw-wave4-depth-u-circle-constraint-max",
+      "skillKey": "constrained-optimization",
+      "templateKey": "wave4-depth-u-circle-constraint-max",
+      "difficulty": 4,
+      "pisaProcess": "formulate",
+      "objectiveAr": "استخدام العلاقات المقيدة لتحديد أمثلية الدوال",
+      "objectiveEn": "Optimize functions subject to linear constraints",
+      "questionAr": "على الدائرة x²+y²=2، ما أكبر قيمة ممكنة للمجموع x+y حيث x وy حقيقيان؟",
+      "questionEn": "Subject to x²+y²=2 for real x and y, what is the maximum possible value of x+y?",
+      "solutionAr": "القانون المستخدم: متباينة كوشي–شفارتز: |a·b|≤|a||b|، مع فحص شرط المساواة.\n\nخطوات الحل: من كوشي–شفارتز: ‏x+y≤√2·√(x²+y²)=2، وتتحقق المساواة عند x=y=1.",
+      "solutionEn": "Rule used: Cauchy–Schwarz inequality: |a·b|≤|a||b|, including its equality condition.\n\nSolution steps: By Cauchy–Schwarz, x+y≤√2·√(x²+y²)=2, with equality at x=y=1.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "1"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": true,
+          "LatexCode": "2"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "\\sqrt{2}"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "4"
+        }
+      ],
+      "independentCorrectAnswer": "2"
+    },
+    {
+      "id": 211,
+      "topicProposalId": 15,
+      "topicKey": "u-optimization",
+      "contentKey": "mw-wave4-depth-u-gradient-point",
+      "skillKey": "unconstrained-optimization",
+      "templateKey": "wave4-depth-u-gradient-point",
+      "difficulty": 2,
+      "pisaProcess": "employ",
+      "objectiveAr": "تحديد نقاط الثبات والقيم المثلى",
+      "objectiveEn": "Find stationary points and optima",
+      "questionAr": "إذا كانت f(x,y)=x²+2y²، فما قيمة متجه التدرج ∇f عند النقطة (1,-1)؟",
+      "questionEn": "If f(x,y)=x²+2y², what is the gradient vector ∇f at (1,-1)?",
+      "solutionAr": "القانون المستخدم: قانون التدرج: ∇f=(∂f/∂x,∂f/∂y).\n\nخطوات الحل: التدرج (2x,4y). عند النقطة (1,-1) يصبح (2,-4)، وهو اتجاه الزيادة الأسرع.",
+      "solutionEn": "Rule used: Gradient rule: ∇f=(∂f/∂x,∂f/∂y).\n\nSolution steps: The gradient is (2x,4y); at (1,-1) it equals (2,-4), the steepest-ascent direction.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": true,
+          "LatexCode": "(2,-4)"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "(2,4)"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "(-2,4)"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "(1,-2)"
+        }
+      ],
+      "independentCorrectAnswer": "(2,-4)"
+    },
+    {
+      "id": 212,
+      "topicProposalId": 15,
+      "topicKey": "u-optimization",
+      "contentKey": "mw-wave4-depth-u-hessian-determinant",
+      "skillKey": "convexity",
+      "templateKey": "wave4-depth-u-hessian-determinant",
+      "difficulty": 4,
+      "pisaProcess": "employ",
+      "objectiveAr": "تحليل المشتقة الثانية ومصفوفة هسيان",
+      "objectiveEn": "Use second derivatives and Hessian eigenvalues",
+      "questionAr": "للدالة f(x,y)=2x²+xy+3y²، ما قيمة محدد مصفوفة هسيان الثابتة؟",
+      "questionEn": "For f(x,y)=2x²+xy+3y², what is the determinant of its constant Hessian matrix?",
+      "solutionAr": "القانون المستخدم: قانون محدد مصفوفة 2×2: det([[a,b],[c,d]])=ad−bc.\n\nخطوات الحل: هسيان يساوي [[4,1],[1,6]]؛ نحسب المحدد 4×6−1×1=23.",
+      "solutionEn": "Rule used: 2×2 determinant formula: det([[a,b],[c,d]])=ad−bc.\n\nSolution steps: The Hessian is [[4,1],[1,6]], whose determinant is 4×6−1×1=23.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "11"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "20"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "23"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "24"
+        }
+      ],
+      "independentCorrectAnswer": "23"
+    },
+    {
+      "id": 213,
+      "topicProposalId": 15,
+      "topicKey": "u-optimization",
+      "contentKey": "mw-wave4-depth-u-least-norm-linear",
+      "skillKey": "constrained-optimization",
+      "templateKey": "wave4-depth-u-least-norm-linear",
+      "difficulty": 4,
+      "pisaProcess": "formulate",
+      "objectiveAr": "استخدام العلاقات المقيدة لتحديد أمثلية الدوال",
+      "objectiveEn": "Optimize functions subject to linear constraints",
+      "questionAr": "نصغّر x²+y² بشرط 2x+y=10 حيث المتغيران حقيقيان. ما أصغر قيمة ممكنة؟",
+      "questionEn": "Minimize x²+y² subject to 2x+y=10 for real x and y. What is the minimum objective value?",
+      "solutionAr": "القانون المستخدم: كوشي–شفارتز: (a·x)²≤|a|²|x|²؛ ننقلها إلى حد أدنى للدالة.\n\nخطوات الحل: بمتباينة كوشي: ‏(2x+y)²≤5(x²+y²)، فالقيمة لا تقل عن 100/5=20 وتتحقق عند (4,2).",
+      "solutionEn": "Rule used: Cauchy–Schwarz: (a·x)²≤|a|²|x|²; rearrange to bound the objective below.\n\nSolution steps: Cauchy–Schwarz gives (2x+y)²≤5(x²+y²), so the objective is at least 20, attained at (4,2).",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "16"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "18"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "20"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "25"
+        }
+      ],
+      "independentCorrectAnswer": "20"
+    },
+    {
+      "id": 214,
+      "topicProposalId": 15,
+      "topicKey": "u-optimization",
+      "contentKey": "mw-wave4-depth-u-convex-parameter",
+      "skillKey": "convexity",
+      "templateKey": "wave4-depth-u-convex-parameter",
+      "difficulty": 4,
+      "pisaProcess": "interpret_evaluate",
+      "objectiveAr": "تحليل المشتقة الثانية ومصفوفة هسيان",
+      "objectiveEn": "Use second derivatives and Hessian eigenvalues",
+      "questionAr": "للدالة f(x)=(a−1)x² حيث a ثابت حقيقي، ما الشرط اللازم والكافي لتحدب الدالة على كامل خط الأعداد؟",
+      "questionEn": "For f(x)=(a−1)x² with real parameter a, which necessary and sufficient condition makes f convex on the entire real line?",
+      "solutionAr": "القانون المستخدم: معيار التحدب أحادي المتغير: f''(x)≥0 لكل x في المجال.\n\nخطوات الحل: المشتقة الثانية ثابتة وتساوي 2(a−1)، لذا تكون غير سالبة لكل x إذا وفقط إذا كان a≥1.",
+      "solutionEn": "Rule used: One-dimensional convexity condition: f''(x)≥0 for every x in the domain.\n\nSolution steps: Its second derivative is 2(a−1); convexity on all real numbers holds exactly when a≥1.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "a>2"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "a\\le1"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "a\\ge1"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "a<0"
+        }
+      ],
+      "independentCorrectAnswer": "a\\ge1"
+    },
+    {
+      "id": 221,
+      "topicProposalId": 15,
+      "topicKey": "u-optimization",
+      "contentKey": "mw-wave5-boundary-quadratic-domain",
+      "skillKey": "constrained-optimization",
+      "templateKey": "wave5-boundary-minimum-constrained-interval",
+      "difficulty": 3,
+      "pisaProcess": "interpret_evaluate",
+      "objectiveAr": "فحص حدود المجال عند غياب نقاط حرجة مسموحة",
+      "objectiveEn": "Evaluate feasible boundaries in constrained optimization",
+      "questionAr": "للدالة f(x)=(x+2)²+5 مع القيد x≥0، ما أصغر قيمة ممكنة؟",
+      "questionEn": "For f(x)=(x+2)²+5 restricted to x≥0, what is the minimum value?",
+      "solutionAr": "القانون المستخدم: نفحص النقطة الحرجة والحدود المسموحة؛ رأس القطع المكافئ x=−2 خارج المجال.\n\nخطوات الحل: بما أن x≥0، تكون (x+2)² أصغر ما يمكن عند x=0. نحسب f(0)=2²+5=9. إذن الحد الأدنى هو 9.",
+      "solutionEn": "Rule used: Constrained minimization checks stationary points and boundary values; the unconstrained vertex x=−2 is infeasible.\n\nSolution steps: On x≥0, (x+2)² is smallest at x=0. Thus f(0)=2²+5=9, the global minimum on the allowed domain.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "5"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "7"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "9"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "13"
+        }
+      ],
+      "independentCorrectAnswer": "9"
+    },
+    {
+      "id": 222,
+      "topicProposalId": 15,
+      "topicKey": "u-optimization",
+      "contentKey": "mw-wave5-coupled-quadratic-critical-value",
+      "skillKey": "unconstrained-optimization",
+      "templateKey": "wave5-positive-definite-coupled-quadratic",
+      "difficulty": 4,
+      "pisaProcess": "interpret_evaluate",
+      "objectiveAr": "حل شروط السكون والتحقق من الهسيان لإيجاد صغرى كلية",
+      "objectiveEn": "Use first-order and Hessian conditions to verify a global minimum",
+      "questionAr": "إذا كان f(x,y)=x²+2xy+3y²−4x−8y، فما قيمتها الصغرى على المستوى الحقيقي؟",
+      "questionEn": "For f(x,y)=x²+2xy+3y²−4x−8y, find its global minimum value over all real x and y.",
+      "solutionAr": "القانون المستخدم: نقاط السكون تحقق ∇f=0، والمصفوفة الهسيّة الموجبة التعريف تثبت أن نقطة السكون حد أدنى كلي.\n\nخطوات الحل: نحل 2x+2y−4=0 و2x+6y−8=0 فنحصل على x=y=1. الهسيّة [[2,2],[2,6]] محددها 8>0 وعنصرها القطري الأول 2>0، فهي موجبة التعريف. بالتعويض f(1,1)=1+2+3−4−8=−6.",
+      "solutionEn": "Rule used: Solve ∇f=0; a positive-definite Hessian proves a unique global minimum for a quadratic.\n\nSolution steps: Solve 2x+2y−4=0 and 2x+6y−8=0 to get x=y=1. The Hessian [[2,2],[2,6]] has determinant 8>0 and leading entry 2>0, so it is positive definite. Then f(1,1)=1+2+3−4−8=−6.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "-8"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": true,
+          "LatexCode": "-6"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "-4"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "6"
+        }
+      ],
+      "independentCorrectAnswer": "-6"
+    }
+  ]
+}
