@@ -24,7 +24,6 @@ def main():
             "ProblemId": question_id, "SelectedOptionId": correct_option,
             "TimeSpentSeconds": 4
         }),
-        ("GET", f"/api/problems/{question_id}/attempts", None),
         ("GET", "/api/users/dashboard", None),
         ("GET", "/api/users/favorites", None),
         ("GET", "/api/users/solved", None),
@@ -39,6 +38,11 @@ def main():
     ]:
         result, payload = api(method, path, body, admin)
         assert result == 403, (method, path, result, payload)
+
+    # Retired student history route is absent for all roles. Admin receives
+    # immutable attempts via the separate /api/admin/learners/... endpoint.
+    expect("GET", f"/api/problems/{question_id}/attempts", 404, token=admin)
+    expect("GET", f"/api/problems/{question_id}/attempts", 404, token=learner)
 
     # Authenticated students must never access the admin dashboards or PII.
     expect("GET", "/api/admin/analytics/overview", 403, token=learner)
