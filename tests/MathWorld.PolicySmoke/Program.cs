@@ -235,7 +235,7 @@ using (var reopened = new ClosedXML.Excel.XLWorkbook(new MemoryStream(xlsx)))
     Assert(sheet.Cell("A1").GetString().Contains("MathWorld") &&
            sheet.Cell("A6").GetDouble() == 1,
         "Visible report header and metric cards should contain real data.");
-    Assert(sheet.ConditionalFormats.Count >= 2 && bars.ConditionalFormats.Count >= 2,
+    Assert(sheet.ConditionalFormats.Count() >= 2 && bars.ConditionalFormats.Count() >= 2,
         "Summary and statistics tabs must have real cell-based progress bars.");
     Assert(bars.Cell("B9").GetDouble() == 1 && bars.Cell("F9").GetDouble() == 1,
         "The visual statistics must be tied to actual counts.");
