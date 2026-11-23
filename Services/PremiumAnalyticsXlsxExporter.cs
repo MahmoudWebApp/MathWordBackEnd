@@ -102,7 +102,7 @@ public static class PremiumAnalyticsXlsxExporter
     }
 
     private static void Metric(IXLWorksheet sheet, int row, int col,
-        string name, int value)
+        string name, long value)
     {
         var label = sheet.Range(row, col, row, col + 1).Merge();
         label.Value = name;
