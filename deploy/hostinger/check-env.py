@@ -47,7 +47,7 @@ def main() -> int:
         domain = data.get("MATHWORLD_DOMAIN", "")
         if not re.fullmatch(r"[a-zA-Z0-9][a-zA-Z0-9.-]*[a-zA-Z0-9]", domain):
             raise ValueError("Invalid domain hostname")
-        if "." not in domain or domain.endswith(".example") or domain.endswith(".local"):
+        if ("." not in domain or domain.endswith((".example", ".local", ".test", ".invalid")) or domain in {"example.com", "mathworld.example.com", "example.org"}):
             raise ValueError("Set the final public domain, not an example")
         db = data.get("POSTGRES_DB", "")
         user = data.get("POSTGRES_USER", "")
