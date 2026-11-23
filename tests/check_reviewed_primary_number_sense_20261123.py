@@ -3,7 +3,7 @@
 import json
 from pathlib import Path
 root=Path(__file__).resolve().parents[1]
-doc=json.loads((root/'content/editorial/reviewed-primary-number-sense-24-20261123.json').read_text(encoding='utf-8'))
+doc=json.loads((root/'docs/review-data/primary-number-sense-24-20261123.json').read_text(encoding='utf-8'))
 rows=doc['questions']
 # Oracles are computed independently of the source draft's correct-option flags.
 expected={
