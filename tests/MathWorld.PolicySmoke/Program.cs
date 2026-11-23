@@ -222,12 +222,12 @@ using (var archive = new ZipArchive(new MemoryStream(xlsx), ZipArchiveMode.Read)
     var sheet = XDocument.Load(archive.GetEntry("xl/worksheets/sheet1.xml")!.Open());
     XNamespace ns = "http://schemas.openxmlformats.org/spreadsheetml/2006/main";
     var userTextCell = sheet.Descendants(ns + "c")
-        .Single(x => (string?)x.Attribute("r") == "E7");
+        .Single(x => (string?)x.Attribute("r") == "B7");
     Assert((string?)userTextCell.Attribute("t") == "inlineStr" &&
            (string?)userTextCell.Descendants(ns + "t").Single() == "=1+2",
         "Untrusted category names must be Excel literal strings, never formulas.");
     var totalSeconds = sheet.Descendants(ns + "c")
-        .Single(x => (string?)x.Attribute("r") == "O8");
+        .Single(x => (string?)x.Attribute("r") == "K8");
     Assert((string?)totalSeconds.Element(ns + "v") == "42",
         "Premium Excel totals must be exported as numeric cells.");
     var branded = sheet.Descendants(ns + "c")
@@ -236,6 +236,13 @@ using (var archive = new ZipArchive(new MemoryStream(xlsx), ZipArchiveMode.Read)
         "Premium Excel report should prominently identify MathWorld.");
     Assert(sheet.Descendants(ns + "conditionalFormatting").Count() >= 2,
         "The worksheet must include editable Excel-native progress data bars.");
+    var headerCells = sheet.Descendants(ns + "row")
+        .Single(row => (string?)row.Attribute("r") == "6")
+        .Descendants(ns + "t").Select(x => (string)x).ToArray();
+    Assert(headerCells.Length == 11 &&
+           headerCells[0] == "المرحلة" && headerCells[1] == "الفئة" &&
+           !headerCells.Any(x => x.Contains("ID", StringComparison.OrdinalIgnoreCase)),
+        "Excel must use 11 localized student-friendly columns without StageId or CategoryId.");
     // A real editable Excel chart is an OOXML chart part with a drawing,
     // relationships, series data references and cached numeric values.
     foreach (var name in new[] {
@@ -284,7 +291,22 @@ using (var archive = new ZipArchive(new MemoryStream(xlsx), ZipArchiveMode.Read)
     Assert((string?)rtlView.Attribute("rightToLeft") == "1",
         "Arabic Excel workbook must use the RTL worksheet direction.");
 }
-Console.WriteLine("PASS: native Premium XLSX ZIP structure, RTL, typed totals and formula-injection protection.");
+var englishWorkbook = PremiumAnalyticsXlsxExporter.Create(workbookReport, false);
+using (var englishArchive = new ZipArchive(new MemoryStream(englishWorkbook), ZipArchiveMode.Read))
+{
+    var sheet = XDocument.Load(englishArchive.GetEntry("xl/worksheets/sheet1.xml")!.Open());
+    XNamespace ns = "http://schemas.openxmlformats.org/spreadsheetml/2006/main";
+    var header = sheet.Descendants(ns + "row")
+        .Single(x => (string?)x.Attribute("r") == "6")
+        .Descendants(ns + "t").Select(x => (string)x).ToArray();
+    Assert(header.Length == 11 && header[0] == "Stage" && header[1] == "Category",
+        "English XLSX must contain English-only labels.");
+    var stage = sheet.Descendants(ns + "c")
+        .Single(x => (string?)x.Attribute("r") == "A7");
+    Assert((string?)stage.Descendants(ns + "t").Single() == "Stage one",
+        "English XLSX must display English stage/category names.");
+}
+Console.WriteLine("PASS: localized Arabic/English student XLSX, native chart and safe content.");
 
 foreach (var (method, route, action) in new[]
 {
