@@ -1,0 +1,1156 @@
+{
+  "meta": {
+    "batch": "curriculum-wave4-depth-20261123",
+    "source": "MathWorld original content depth expansion",
+    "status": "Draft",
+    "publication": "Pending independent educator and Arabic-English editorial approval before any learner publication",
+    "catalog": "content/catalog/international-mathworld-taxonomy-v2.json",
+    "note": "Extend four existing unpublished editorial proposals. Do not change any student-facing Categories or Problems or user records."
+  },
+  "topics": [
+    {
+      "existingTopicKey": "p-number-sense",
+      "stageId": 1,
+      "items": [
+        {
+          "contentKey": "mw-wave4-depth-p-digit-move",
+          "primarySkillKey": "place-value",
+          "templateFamilyKey": "wave4-depth-p-digit-move",
+          "difficultyLevel": 2,
+          "pisaProcess": "interpret_evaluate",
+          "titleAr": "نقل رقم بين منزلتين",
+          "titleEn": "Moving a digit between places",
+          "questionTextAr": "إذا انتقل الرقم 4 من منزلة المئات إلى منزلة الآلاف، كم مرة تصبح قيمته المكانية أكبر؟",
+          "questionTextEn": "If the digit 4 moves from the hundreds place to the thousands place, by what factor does its place value increase?",
+          "detailedSolutionAr": "كانت قيمته 400 وأصبحت 4000؛ نقسم 4000 على 400 فتصبح عشرة أضعاف.",
+          "detailedSolutionEn": "The value changes from 400 to 4,000, and 4,000 divided by 400 is a factor of ten.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "4",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "10",
+              "IsCorrect": true
+            },
+            {
+              "Order": 3,
+              "LatexCode": "100",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "1000",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave4-depth-p-place-zeros",
+          "primarySkillKey": "place-value",
+          "templateFamilyKey": "wave4-depth-p-place-zeros",
+          "difficultyLevel": 2,
+          "pisaProcess": "employ",
+          "titleAr": "عدد يحوي منازل صفرية",
+          "titleEn": "A number with zero places",
+          "questionTextAr": "ما العدد الذي يساوي ستة آلاف وأربع عشرات وتسعة آحاد، دون إضافة مئات؟",
+          "questionTextEn": "Which number represents six thousands, four tens and nine ones, with zero hundreds?",
+          "detailedSolutionAr": "نجمع 6000 و40 و9، ونضع صفراً في منزلة المئات؛ الناتج 6049.",
+          "detailedSolutionEn": "Combine 6,000, 40 and 9, with zero hundreds, giving the number 6,049.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "6049",
+              "IsCorrect": true
+            },
+            {
+              "Order": 2,
+              "LatexCode": "6409",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "6490",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "60049",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave4-depth-p-number-line-mid",
+          "primarySkillKey": "number-comparison",
+          "templateFamilyKey": "wave4-depth-p-number-line-mid",
+          "difficultyLevel": 2,
+          "pisaProcess": "formulate",
+          "titleAr": "منتصف قطعة على خط الأعداد",
+          "titleEn": "Midpoint on a number line",
+          "questionTextAr": "على خط الأعداد توجد علامتان عند 340 و360. ما العدد الواقع في منتصف المسافة بينهما؟",
+          "questionTextEn": "On a number line, two marks are at 340 and 360. What number is exactly halfway between them?",
+          "detailedSolutionAr": "منتصف العددين هو متوسطهما: ‏(340+360)÷2 = 350، وهو يبعد 10 عن كل طرف.",
+          "detailedSolutionEn": "The midpoint is the average (340+360)/2=350, ten units away from either endpoint.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "345",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "350",
+              "IsCorrect": true
+            },
+            {
+              "Order": 3,
+              "LatexCode": "355",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "370",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave4-depth-p-round-candidate",
+          "primarySkillKey": "rounding",
+          "templateFamilyKey": "wave4-depth-p-round-candidate",
+          "difficultyLevel": 3,
+          "pisaProcess": "interpret_evaluate",
+          "titleAr": "اختيار عدد حسب التقريب",
+          "titleEn": "Choose by rounding",
+          "questionTextAr": "أي عدد من الخيارات التالية يصبح 4600 عند تقريبه لأقرب مئة بالطريقة المعتادة؟",
+          "questionTextEn": "Which of these numbers rounds to 4,600 to the nearest hundred using the usual half-up rule?",
+          "detailedSolutionAr": "العدد 4563 أقرب إلى 4600 منه إلى 4500، بينما الأعداد الأخرى تُقرب إلى مئات مختلفة.",
+          "detailedSolutionEn": "The number 4,563 is nearer to 4,600 than to 4,500, while the other choices round to different hundreds.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "4490",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "4563",
+              "IsCorrect": true
+            },
+            {
+              "Order": 3,
+              "LatexCode": "4650",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "4790",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave4-depth-p-budget-remainder",
+          "primarySkillKey": "number-comparison",
+          "templateFamilyKey": "wave4-depth-p-budget-remainder",
+          "difficultyLevel": 3,
+          "pisaProcess": "formulate",
+          "titleAr": "التحقق من كفاية الميزانية",
+          "titleEn": "Check whether a budget is enough",
+          "questionTextAr": "مع النادي 1500 ليرة واشترى أدوات بمبالغ 490 و390 و610 ليرات. كم ليرة تبقّت؟",
+          "questionTextEn": "A club has 1,500 units of currency and buys supplies costing 490, 390 and 610. How much is left?",
+          "detailedSolutionAr": "نجمع المشتريات: ‏490+390+610=1490، ثم نطرح من الميزانية: ‏1500-1490=10.",
+          "detailedSolutionEn": "The purchases cost 490+390+610=1,490, leaving 1,500−1,490=10 units.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "0",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "10",
+              "IsCorrect": true
+            },
+            {
+              "Order": 3,
+              "LatexCode": "20",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "110",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave4-depth-p-pencils-tens",
+          "primarySkillKey": "counting",
+          "templateFamilyKey": "wave4-depth-p-pencils-tens",
+          "difficultyLevel": 2,
+          "pisaProcess": "formulate",
+          "titleAr": "حزم عشرية وأقلام متبقية",
+          "titleEn": "Bundles of ten and remainders",
+          "questionTextAr": "لدينا 36 قلماً. كوّنا أكبر عدد ممكن من حزم تحتوي كل منها عشرة أقلام. كم حزمة كاملة وكم قلماً متبقياً؟",
+          "questionTextEn": "There are 36 pencils. Make as many complete bundles of ten as possible. How many bundles and loose pencils remain?",
+          "detailedSolutionAr": "نقسم 36 على 10: ثلاث عشرات تستهلك 30 قلماً، ويتبقى 6 أقلام منفردة.",
+          "detailedSolutionEn": "Divide 36 by 10: three full bundles use 30 pencils and six pencils remain loose.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "(2,16)",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "(3,6)",
+              "IsCorrect": true
+            },
+            {
+              "Order": 3,
+              "LatexCode": "(4,0)",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "(3,3)",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave4-depth-p-smallest-number",
+          "primarySkillKey": "place-value",
+          "templateFamilyKey": "wave4-depth-p-smallest-number",
+          "difficultyLevel": 3,
+          "pisaProcess": "interpret_evaluate",
+          "titleAr": "أصغر عدد بشروط رقمية",
+          "titleEn": "Smallest number meeting place constraints",
+          "questionTextAr": "ما أصغر عدد مكوّن من أربعة أرقام يكون فيه الرقم 6 في المئات والرقم 8 في الآحاد؟",
+          "questionTextEn": "What is the smallest four-digit number with 6 in the hundreds place and 8 in the ones place?",
+          "detailedSolutionAr": "للحصول على أصغر عدد، نختار 1 للآلاف و0 للعشرات، مع تثبيت 6 للمئات و8 للآحاد: 1608.",
+          "detailedSolutionEn": "To minimize the number, use 1 in the thousands and 0 in the tens while keeping 6 hundreds and 8 ones: 1,608.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "1068",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "1608",
+              "IsCorrect": true
+            },
+            {
+              "Order": 3,
+              "LatexCode": "1680",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "2608",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave4-depth-p-tens-in-interval",
+          "primarySkillKey": "counting",
+          "templateFamilyKey": "wave4-depth-p-tens-in-interval",
+          "difficultyLevel": 2,
+          "pisaProcess": "interpret_evaluate",
+          "titleAr": "مضاعفات العشرة في مجال",
+          "titleEn": "Multiples of ten in a range",
+          "questionTextAr": "كم عدد مضاعفات العدد عشرة الواقعة بين 365 و390 دون احتساب الطرفين؟",
+          "questionTextEn": "How many multiples of ten lie strictly between 365 and 390, excluding both endpoints?",
+          "detailedSolutionAr": "المضاعفان الوحيدان داخل المجال المفتوح هما 370 و380، لذلك العدد اثنان.",
+          "detailedSolutionEn": "Only 370 and 380 are strictly inside this interval, so there are exactly two multiples.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "1",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "2",
+              "IsCorrect": true
+            },
+            {
+              "Order": 3,
+              "LatexCode": "3",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "4",
+              "IsCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "existingTopicKey": "m-probability",
+      "stageId": 2,
+      "items": [
+        {
+          "contentKey": "mw-wave4-depth-m-two-coins-space",
+          "primarySkillKey": "sample-spaces",
+          "templateFamilyKey": "wave4-depth-m-two-coins-space",
+          "difficultyLevel": 1,
+          "pisaProcess": "formulate",
+          "titleAr": "فضاء عينة قطعتين",
+          "titleEn": "Sample space for two coins",
+          "questionTextAr": "نرمي قطعتين نقديتين مميزتين. كم نتيجة مرتبة ممكنة في فضاء العينة؟",
+          "questionTextEn": "Two distinguishable coins are tossed. How many ordered outcomes are in the sample space?",
+          "detailedSolutionAr": "لكل قطعة نتيجتان؛ وبما أن ترتيب القطعتين مميز فعدد النتائج يساوي 2×2=4.",
+          "detailedSolutionEn": "Each coin has two outcomes, and the coins are distinguishable, giving 2×2=4 ordered outcomes.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "2",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "3",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "4",
+              "IsCorrect": true
+            },
+            {
+              "Order": 4,
+              "LatexCode": "8",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave4-depth-m-dice-sum-seven",
+          "primarySkillKey": "simple-compound-events",
+          "templateFamilyKey": "wave4-depth-m-dice-sum-seven",
+          "difficultyLevel": 3,
+          "pisaProcess": "employ",
+          "titleAr": "مجموع سبعة بحجري نرد",
+          "titleEn": "Sum of seven with two dice",
+          "questionTextAr": "إذا رمينا حجرَي نرد عادلين مميزين، فما احتمال أن يكون مجموع العددين الظاهرين سبعة؟",
+          "questionTextEn": "Two distinguishable fair dice are rolled. What is the probability that the sum of the two faces is seven?",
+          "detailedSolutionAr": "هناك 36 نتيجة مرتبة متساوية الاحتمال وست نتائج مجموعها 7؛ الاحتمال 6/36=1/6.",
+          "detailedSolutionEn": "There are 36 equally likely ordered pairs, and six have sum seven; hence 6/36=1/6.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "\\frac{1}{12}",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "\\frac{1}{9}",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "\\frac{1}{6}",
+              "IsCorrect": true
+            },
+            {
+              "Order": 4,
+              "LatexCode": "\\frac{1}{3}",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave4-depth-m-none-red-three",
+          "primarySkillKey": "simple-compound-events",
+          "templateFamilyKey": "wave4-depth-m-none-red-three",
+          "difficultyLevel": 4,
+          "pisaProcess": "employ",
+          "titleAr": "عدم حدوث لون في ثلاث محاولات",
+          "titleEn": "No red in three independent spins",
+          "questionTextAr": "قرص فيه خمسة أقسام متساوية أحدها أحمر. نديره ثلاث مرات مستقلة. ما احتمال ألّا يظهر الأحمر في أي منها؟",
+          "questionTextEn": "An equal five-sector spinner has one red sector. It is spun three independent times. What is the chance no spin is red?",
+          "detailedSolutionAr": "احتمال غير الأحمر في كل مرة 4/5؛ باستقلال اللفات يصبح الاحتمال (4/5)^3=64/125.",
+          "detailedSolutionEn": "The chance of non-red is 4/5 each spin; independence gives (4/5)^3=64/125.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "\\frac{4}{5}",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "\\frac{48}{125}",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "\\frac{61}{125}",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "\\frac{64}{125}",
+              "IsCorrect": true
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave4-depth-m-frequency-comparison",
+          "primarySkillKey": "frequency",
+          "templateFamilyKey": "wave4-depth-m-frequency-comparison",
+          "difficultyLevel": 3,
+          "pisaProcess": "interpret_evaluate",
+          "titleAr": "مقارنة نسب نجاح تجريبية",
+          "titleEn": "Compare observed success rates",
+          "questionTextAr": "نجح فريق أول 15 مرة في 50 تجربة، والثاني 18 مرة في 60 تجربة. كم نقطة مئوية الفرق بين نسبتي النجاح؟",
+          "questionTextEn": "One group succeeded 15 times in 50 trials, another 18 times in 60 trials. What is the percentage-point difference?",
+          "detailedSolutionAr": "نسبة الأول 15/50=30% ونسبة الثاني 18/60=30%؛ الفرق صفر نقطة مئوية.",
+          "detailedSolutionEn": "Both observed rates are 30% because 15/50=18/60=0.3, so the difference is zero percentage points.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "0",
+              "IsCorrect": true
+            },
+            {
+              "Order": 2,
+              "LatexCode": "3",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "5",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "10",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave4-depth-m-replacement-blue",
+          "primarySkillKey": "simple-compound-events",
+          "templateFamilyKey": "wave4-depth-m-replacement-blue",
+          "difficultyLevel": 3,
+          "pisaProcess": "employ",
+          "titleAr": "السحب مع الإرجاع",
+          "titleEn": "Drawing with replacement",
+          "questionTextAr": "كيس يحوي 3 كرات حمراء و2 زرقاء. نسحب كرة ونعيدها ثم نسحب ثانية. ما احتمال ظهور الأزرق مرتين؟",
+          "questionTextEn": "A bag holds three red and two blue balls. A ball is drawn, replaced, then another drawn. What is the chance of blue twice?",
+          "detailedSolutionAr": "مع الإرجاع يبقى احتمال الأزرق 2/5 في كل سحب، فيكون احتمال المرتين 4/25.",
+          "detailedSolutionEn": "Replacement keeps each blue probability at 2/5, so two blue draws occur with probability 4/25.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "\\frac{2}{25}",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "\\frac{4}{25}",
+              "IsCorrect": true
+            },
+            {
+              "Order": 3,
+              "LatexCode": "\\frac{2}{5}",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "\\frac{1}{5}",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave4-depth-m-exactly-one-head",
+          "primarySkillKey": "sample-spaces",
+          "templateFamilyKey": "wave4-depth-m-exactly-one-head",
+          "difficultyLevel": 2,
+          "pisaProcess": "interpret_evaluate",
+          "titleAr": "صورة واحدة بالضبط",
+          "titleEn": "Exactly one head",
+          "questionTextAr": "نرمي قطعتين نقديتين عادلتين. ما احتمال ظهور وجه الصورة مرة واحدة بالضبط؟",
+          "questionTextEn": "Two fair coins are tossed. What is the probability of obtaining exactly one head?",
+          "detailedSolutionAr": "النتائج الأربع متساوية الاحتمال؛ نتيجتان فقط فيهما صورة واحدة، إذن 2/4=1/2.",
+          "detailedSolutionEn": "Of the four equally likely outcomes, exactly two contain one head, so the probability is 2/4=1/2.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "\\frac{1}{4}",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "\\frac{1}{3}",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "\\frac{1}{2}",
+              "IsCorrect": true
+            },
+            {
+              "Order": 4,
+              "LatexCode": "\\frac{3}{4}",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave4-depth-m-three-stage-count",
+          "primarySkillKey": "sample-spaces",
+          "templateFamilyKey": "wave4-depth-m-three-stage-count",
+          "difficultyLevel": 2,
+          "pisaProcess": "formulate",
+          "titleAr": "خيارات رحلة مدرسية",
+          "titleEn": "Count three-stage choices",
+          "questionTextAr": "يمكن اختيار واحدة من 3 وسائل نقل، وواحدة من 2 وجبتين، وواحد من 2 نشاطين. كم برنامجاً مختلفاً يمكن تكوينه؟",
+          "questionTextEn": "A trip plan chooses 1 of 3 transport modes, 1 of 2 meals, and 1 of 2 activities. How many distinct plans exist?",
+          "detailedSolutionAr": "باستخدام مبدأ العد نضرب عدد الخيارات المستقلة في كل مرحلة: 3×2×2=12.",
+          "detailedSolutionEn": "By the multiplication principle, independent choices across three stages give 3×2×2=12 plans.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "7",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "10",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "12",
+              "IsCorrect": true
+            },
+            {
+              "Order": 4,
+              "LatexCode": "24",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave4-depth-m-even-or-five",
+          "primarySkillKey": "simple-compound-events",
+          "templateFamilyKey": "wave4-depth-m-even-or-five",
+          "difficultyLevel": 4,
+          "pisaProcess": "interpret_evaluate",
+          "titleAr": "احتمال اتحاد مجموعتين",
+          "titleEn": "Probability of a union",
+          "questionTextAr": "نختار عشوائياً عدداً صحيحاً من 1 إلى 10 باحتمالات متساوية. ما احتمال أن يكون زوجياً أو مضاعفاً للخمسة؟",
+          "questionTextEn": "An integer from 1 through 10 is selected uniformly. What is the probability it is even or divisible by five?",
+          "detailedSolutionAr": "الأعداد المناسبة 2 و4 و5 و6 و8 و10، وعددها ستة من أصل عشرة؛ الاحتمال 3/5.",
+          "detailedSolutionEn": "The eligible numbers are 2,4,5,6,8,10, giving six of ten outcomes or 3/5.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "\\frac{1}{2}",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "\\frac{3}{5}",
+              "IsCorrect": true
+            },
+            {
+              "Order": 3,
+              "LatexCode": "\\frac{7}{10}",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "\\frac{4}{5}",
+              "IsCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "existingTopicKey": "s-vectors",
+      "stageId": 3,
+      "items": [
+        {
+          "contentKey": "mw-wave4-depth-s-linear-combination",
+          "primarySkillKey": "vector-components",
+          "templateFamilyKey": "wave4-depth-s-linear-combination",
+          "difficultyLevel": 3,
+          "pisaProcess": "employ",
+          "titleAr": "تركيب خطي لمتجهين",
+          "titleEn": "Linear combination of vectors",
+          "questionTextAr": "إذا كان u=(4,-2) وv=(-1,3)، فما مركبتا المتجه 2u-v؟",
+          "questionTextEn": "For u=(4,-2) and v=(-1,3), what are the components of 2u−v?",
+          "detailedSolutionAr": "نحسب 2u=(8,-4)، ثم نطرح v فيكون (8-(-1),-4-3)=(9,-7).",
+          "detailedSolutionEn": "First 2u=(8,-4); subtract v componentwise to get (8−(−1),−4−3)=(9,−7).",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "(7,-1)",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "(9,-7)",
+              "IsCorrect": true
+            },
+            {
+              "Order": 3,
+              "LatexCode": "(8,-6)",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "(9,-1)",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave4-depth-s-unit-vector",
+          "primarySkillKey": "magnitude",
+          "templateFamilyKey": "wave4-depth-s-unit-vector",
+          "difficultyLevel": 3,
+          "pisaProcess": "employ",
+          "titleAr": "متجه الوحدة",
+          "titleEn": "Unit vector",
+          "questionTextAr": "ما متجه الوحدة في اتجاه المتجه (3,4) باستعمال المعيار الإقليدي؟",
+          "questionTextEn": "What is the unit vector in the direction of (3,4) under the Euclidean norm?",
+          "detailedSolutionAr": "مقدار المتجه يساوي 5، وبقسمة كل مركبة على 5 نحصل على (3/5,4/5).",
+          "detailedSolutionEn": "The norm is five. Divide both coordinates by five to obtain the unit vector (3/5,4/5).",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "(\\frac{3}{5},\\frac{4}{5})",
+              "IsCorrect": true
+            },
+            {
+              "Order": 2,
+              "LatexCode": "(\\frac{4}{5},\\frac{3}{5})",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "(3,4)",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "(\\frac{3}{4},1)",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave4-depth-s-angle-pi-four",
+          "primarySkillKey": "dot-product",
+          "templateFamilyKey": "wave4-depth-s-angle-pi-four",
+          "difficultyLevel": 3,
+          "pisaProcess": "interpret_evaluate",
+          "titleAr": "زاوية بين متجهين",
+          "titleEn": "Angle between two vectors",
+          "questionTextAr": "كم قياس الزاوية الأصغر بين المتجهين (1,0) و(1,1) بوحدة الراديان؟",
+          "questionTextEn": "What is the smaller angle, in radians, between the vectors (1,0) and (1,1)?",
+          "detailedSolutionAr": "الضرب القياسي يساوي 1، والمقداران 1 و√2؛ إذن جيب تمام الزاوية 1/√2 وتساوي π/4.",
+          "detailedSolutionEn": "The dot product is 1 and norms are 1 and √2, so cos θ=1/√2 and θ=π/4.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "\\frac{\\pi}{6}",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "\\frac{\\pi}{4}",
+              "IsCorrect": true
+            },
+            {
+              "Order": 3,
+              "LatexCode": "\\frac{\\pi}{3}",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "\\frac{\\pi}{2}",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave4-depth-s-obtuse-dot",
+          "primarySkillKey": "dot-product",
+          "templateFamilyKey": "wave4-depth-s-obtuse-dot",
+          "difficultyLevel": 2,
+          "pisaProcess": "interpret_evaluate",
+          "titleAr": "تمييز زاوية من إشارة الضرب",
+          "titleEn": "Identifying an obtuse angle from a dot product",
+          "questionTextAr": "للمتجهين a=(1,-2) وb=(-2,1)، ما قيمة ضربهما القياسي التي تدل على أن الزاوية بينهما منفرجة؟",
+          "questionTextEn": "For a=(1,-2) and b=(-2,1), what is their dot product, indicating that the angle between them is obtuse?",
+          "detailedSolutionAr": "نحسب 1×(-2)+(-2)×1=-4؛ الإشارة السالبة تؤكد أن الزاوية بين المتجهين منفرجة.",
+          "detailedSolutionEn": "The dot product is 1×(−2)+(−2)×1=−4; a negative dot product means the angle is obtuse.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "-4",
+              "IsCorrect": true
+            },
+            {
+              "Order": 2,
+              "LatexCode": "-2",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "0",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "4",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave4-depth-s-scalar-projection",
+          "primarySkillKey": "dot-product",
+          "templateFamilyKey": "wave4-depth-s-scalar-projection",
+          "difficultyLevel": 3,
+          "pisaProcess": "employ",
+          "titleAr": "الإسقاط القياسي",
+          "titleEn": "Scalar projection",
+          "questionTextAr": "ما مقدار الإسقاط القياسي الموقع للمتجه (3,4) على اتجاه المتجه (1,0)؟",
+          "questionTextEn": "What is the signed scalar projection of (3,4) onto the direction of (1,0)?",
+          "detailedSolutionAr": "الإسقاط القياسي يساوي حاصل الضرب القياسي مقسوماً على طول (1,0): ‏3÷1=3.",
+          "detailedSolutionEn": "The signed scalar projection equals the dot product divided by the target vector's length: 3/1=3.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "1",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "3",
+              "IsCorrect": true
+            },
+            {
+              "Order": 3,
+              "LatexCode": "4",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "5",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave4-depth-s-vector-triangle-area",
+          "primarySkillKey": "vector-components",
+          "templateFamilyKey": "wave4-depth-s-vector-triangle-area",
+          "difficultyLevel": 3,
+          "pisaProcess": "formulate",
+          "titleAr": "مساحة مثلث بمتجهات",
+          "titleEn": "Triangle area using vectors",
+          "questionTextAr": "متجهان من رأس مثلث هما (3,0) و(0,4). ما مساحة هذا المثلث بوحدات المساحة؟",
+          "questionTextEn": "Two side vectors from one vertex of a triangle are (3,0) and (0,4). What is the triangle's area?",
+          "detailedSolutionAr": "قيمة محدد المتجهين 3×4-0×0=12؛ مساحة المثلث نصف مساحة متوازي الأضلاع فتساوي 6.",
+          "detailedSolutionEn": "The determinant magnitude is 12. The triangle occupies half the parallelogram area, giving 6.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "6",
+              "IsCorrect": true
+            },
+            {
+              "Order": 2,
+              "LatexCode": "7",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "12",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "24",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave4-depth-s-point-distance",
+          "primarySkillKey": "magnitude",
+          "templateFamilyKey": "wave4-depth-s-point-distance",
+          "difficultyLevel": 2,
+          "pisaProcess": "employ",
+          "titleAr": "المسافة بين نقطتين",
+          "titleEn": "Distance between two points",
+          "questionTextAr": "أوجد المسافة بين النقطتين A(1,2) وB(7,10) في المستوى الديكارتي.",
+          "questionTextEn": "Find the straight-line distance between A(1,2) and B(7,10) in the Cartesian plane.",
+          "detailedSolutionAr": "متجه الإزاحة (6,8)، ولذلك المسافة √(6²+8²)=√100=10.",
+          "detailedSolutionEn": "The displacement vector is (6,8), so the distance is √(6²+8²)=√100=10.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "8",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "9",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "10",
+              "IsCorrect": true
+            },
+            {
+              "Order": 4,
+              "LatexCode": "14",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave4-depth-s-parallelogram-area",
+          "primarySkillKey": "vector-components",
+          "templateFamilyKey": "wave4-depth-s-parallelogram-area",
+          "difficultyLevel": 4,
+          "pisaProcess": "formulate",
+          "titleAr": "مساحة متوازي الأضلاع",
+          "titleEn": "Parallelogram area",
+          "questionTextAr": "متوازي أضلاع ضلعاه المتجاوران ممثلان بالمتجهين (2,1) و(1,3). ما مساحته؟",
+          "questionTextEn": "A parallelogram has adjacent side vectors (2,1) and (1,3). What is its area?",
+          "detailedSolutionAr": "المساحة تساوي القيمة المطلقة للمحدد: ‏|2×3−1×1|=5 وحدات مربعة.",
+          "detailedSolutionEn": "Area is the absolute value of the two-vector determinant: |2×3−1×1|=5 square units.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "3",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "4",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "5",
+              "IsCorrect": true
+            },
+            {
+              "Order": 4,
+              "LatexCode": "7",
+              "IsCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "existingTopicKey": "u-optimization",
+      "stageId": 4,
+      "items": [
+        {
+          "contentKey": "mw-wave4-depth-u-quadratic-min-negative",
+          "primarySkillKey": "unconstrained-optimization",
+          "templateFamilyKey": "wave4-depth-u-quadratic-min-negative",
+          "difficultyLevel": 2,
+          "pisaProcess": "employ",
+          "titleAr": "قيمة صغرى دون قيود",
+          "titleEn": "Unconstrained quadratic minimum",
+          "questionTextAr": "ما القيمة الصغرى للدالة f(x)=x²−4x+1 على مجموعة الأعداد الحقيقية؟",
+          "questionTextEn": "What is the global minimum value of f(x)=x²−4x+1 over the real numbers?",
+          "detailedSolutionAr": "نكمل المربع: f(x)=(x−2)²−3، وأصغر قيمة للمربع صفر، لذا القيمة الصغرى −3.",
+          "detailedSolutionEn": "Complete the square: f(x)=(x−2)²−3; the square is minimized at zero, giving −3.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "-4",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "-3",
+              "IsCorrect": true
+            },
+            {
+              "Order": 3,
+              "LatexCode": "0",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "1",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave4-depth-u-convex-cubic-domain",
+          "primarySkillKey": "convexity",
+          "templateFamilyKey": "wave4-depth-u-convex-cubic-domain",
+          "difficultyLevel": 3,
+          "pisaProcess": "interpret_evaluate",
+          "titleAr": "تحدب دالة تكعيبية",
+          "titleEn": "Convexity of a cubic",
+          "questionTextAr": "للدالة f(x)=x³ على الأعداد الحقيقية، في أي مجال تكون مشتقتها الثانية موجبة؟",
+          "questionTextEn": "For f(x)=x³ over real numbers, on which interval is its second derivative positive?",
+          "detailedSolutionAr": "المشتقة الثانية تساوي 6x، وهي موجبة فقط عندما x>0، مما يدل على التحدب في هذا المجال.",
+          "detailedSolutionEn": "The second derivative is 6x, positive exactly when x>0, which implies convexity there.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "x<0",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "x=0",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "x>0",
+              "IsCorrect": true
+            },
+            {
+              "Order": 4,
+              "LatexCode": "x\\le0",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave4-depth-u-bounded-quadratic-max",
+          "primarySkillKey": "unconstrained-optimization",
+          "templateFamilyKey": "wave4-depth-u-bounded-quadratic-max",
+          "difficultyLevel": 3,
+          "pisaProcess": "interpret_evaluate",
+          "titleAr": "أكبر قيمة على مجال مغلق",
+          "titleEn": "Maximum on a closed interval",
+          "questionTextAr": "للدالة f(x)=−(x−1)²+9 على المجال المغلق [0,4]، ما أكبر قيمة لها؟",
+          "questionTextEn": "For f(x)=−(x−1)²+9 on the closed interval [0,4], what is its maximum value?",
+          "detailedSolutionAr": "القيمة الكبرى عند قمة القطع المكافئ x=1 وهي داخل المجال، فنحصل على f(1)=9.",
+          "detailedSolutionEn": "The downward-opening parabola reaches its vertex at x=1 inside the interval, where f(1)=9.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "5",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "8",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "9",
+              "IsCorrect": true
+            },
+            {
+              "Order": 4,
+              "LatexCode": "10",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave4-depth-u-circle-constraint-max",
+          "primarySkillKey": "constrained-optimization",
+          "templateFamilyKey": "wave4-depth-u-circle-constraint-max",
+          "difficultyLevel": 4,
+          "pisaProcess": "formulate",
+          "titleAr": "تعظيم مجموع على دائرة",
+          "titleEn": "Maximize a linear objective on a circle",
+          "questionTextAr": "على الدائرة x²+y²=2، ما أكبر قيمة ممكنة للمجموع x+y حيث x وy حقيقيان؟",
+          "questionTextEn": "Subject to x²+y²=2 for real x and y, what is the maximum possible value of x+y?",
+          "detailedSolutionAr": "من كوشي–شفارتز: ‏x+y≤√2·√(x²+y²)=2، وتتحقق المساواة عند x=y=1.",
+          "detailedSolutionEn": "By Cauchy–Schwarz, x+y≤√2·√(x²+y²)=2, with equality at x=y=1.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "1",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "2",
+              "IsCorrect": true
+            },
+            {
+              "Order": 3,
+              "LatexCode": "\\sqrt{2}",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "4",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave4-depth-u-gradient-point",
+          "primarySkillKey": "unconstrained-optimization",
+          "templateFamilyKey": "wave4-depth-u-gradient-point",
+          "difficultyLevel": 2,
+          "pisaProcess": "employ",
+          "titleAr": "تدرج دالة تربيعية",
+          "titleEn": "Gradient of a quadratic",
+          "questionTextAr": "إذا كانت f(x,y)=x²+2y²، فما قيمة متجه التدرج ∇f عند النقطة (1,-1)؟",
+          "questionTextEn": "If f(x,y)=x²+2y², what is the gradient vector ∇f at (1,-1)?",
+          "detailedSolutionAr": "التدرج (2x,4y). عند النقطة (1,-1) يصبح (2,-4)، وهو اتجاه الزيادة الأسرع.",
+          "detailedSolutionEn": "The gradient is (2x,4y); at (1,-1) it equals (2,-4), the steepest-ascent direction.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "(2,-4)",
+              "IsCorrect": true
+            },
+            {
+              "Order": 2,
+              "LatexCode": "(2,4)",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "(-2,4)",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "(1,-2)",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave4-depth-u-hessian-determinant",
+          "primarySkillKey": "convexity",
+          "templateFamilyKey": "wave4-depth-u-hessian-determinant",
+          "difficultyLevel": 4,
+          "pisaProcess": "employ",
+          "titleAr": "محدد مصفوفة هسيان",
+          "titleEn": "Hessian determinant",
+          "questionTextAr": "للدالة f(x,y)=2x²+xy+3y²، ما قيمة محدد مصفوفة هسيان الثابتة؟",
+          "questionTextEn": "For f(x,y)=2x²+xy+3y², what is the determinant of its constant Hessian matrix?",
+          "detailedSolutionAr": "هسيان يساوي [[4,1],[1,6]]؛ نحسب المحدد 4×6−1×1=23.",
+          "detailedSolutionEn": "The Hessian is [[4,1],[1,6]], whose determinant is 4×6−1×1=23.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "11",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "20",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "23",
+              "IsCorrect": true
+            },
+            {
+              "Order": 4,
+              "LatexCode": "24",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave4-depth-u-least-norm-linear",
+          "primarySkillKey": "constrained-optimization",
+          "templateFamilyKey": "wave4-depth-u-least-norm-linear",
+          "difficultyLevel": 4,
+          "pisaProcess": "formulate",
+          "titleAr": "مسافة صغرى لقيد خطي",
+          "titleEn": "Least-norm solution with a linear constraint",
+          "questionTextAr": "نصغّر x²+y² بشرط 2x+y=10 حيث المتغيران حقيقيان. ما أصغر قيمة ممكنة؟",
+          "questionTextEn": "Minimize x²+y² subject to 2x+y=10 for real x and y. What is the minimum objective value?",
+          "detailedSolutionAr": "بمتباينة كوشي: ‏(2x+y)²≤5(x²+y²)، فالقيمة لا تقل عن 100/5=20 وتتحقق عند (4,2).",
+          "detailedSolutionEn": "Cauchy–Schwarz gives (2x+y)²≤5(x²+y²), so the objective is at least 20, attained at (4,2).",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "16",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "18",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "20",
+              "IsCorrect": true
+            },
+            {
+              "Order": 4,
+              "LatexCode": "25",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave4-depth-u-convex-parameter",
+          "primarySkillKey": "convexity",
+          "templateFamilyKey": "wave4-depth-u-convex-parameter",
+          "difficultyLevel": 4,
+          "pisaProcess": "interpret_evaluate",
+          "titleAr": "شرط تحدب يعتمد على وسيط",
+          "titleEn": "Convexity condition on a parameter",
+          "questionTextAr": "للدالة f(x)=(a−1)x² حيث a ثابت حقيقي، ما الشرط اللازم والكافي لتحدب الدالة على كامل خط الأعداد؟",
+          "questionTextEn": "For f(x)=(a−1)x² with real parameter a, which necessary and sufficient condition makes f convex on the entire real line?",
+          "detailedSolutionAr": "المشتقة الثانية ثابتة وتساوي 2(a−1)، لذا تكون غير سالبة لكل x إذا وفقط إذا كان a≥1.",
+          "detailedSolutionEn": "Its second derivative is 2(a−1); convexity on all real numbers holds exactly when a≥1.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "a>2",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "a\\le1",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "a\\ge1",
+              "IsCorrect": true
+            },
+            {
+              "Order": 4,
+              "LatexCode": "a<0",
+              "IsCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
