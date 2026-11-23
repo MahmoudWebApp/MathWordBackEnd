@@ -77,7 +77,6 @@ namespace MathWorldAPI.Controllers
 
         private readonly AppDbContext _context;
         private readonly IMeiliSearchService _searchService;
-        private readonly IServiceScopeFactory _scopeFactory;
         private readonly IImgBbStorageService _imgBbStorage;
         private readonly ILogger<ProblemsController> _logger;
         private readonly NotificationStreamBroker _notificationStream;
@@ -89,7 +88,6 @@ namespace MathWorldAPI.Controllers
         public ProblemsController(
             AppDbContext context,
             IMeiliSearchService searchService,
-            IServiceScopeFactory scopeFactory,
             IImgBbStorageService imgBbStorage,
             IConfiguration configuration,
             NotificationStreamBroker notificationStream,
@@ -97,7 +95,6 @@ namespace MathWorldAPI.Controllers
         {
             _context = context;
             _searchService = searchService;
-            _scopeFactory = scopeFactory;
             _imgBbStorage = imgBbStorage;
             _logger = logger;
             _notificationStream = notificationStream;
@@ -231,9 +228,6 @@ namespace MathWorldAPI.Controllers
                                     language == "en"
                                         ? problem.Category.NameEn
                                         : problem.Category.NameAr,
-
-                                ViewsCount =
-                                    problem.ViewsCount,
 
                                 RequiresLogin =
                                     true
@@ -392,9 +386,6 @@ namespace MathWorldAPI.Controllers
                                 language == "en"
                                     ? problem.Category.NameEn
                                     : problem.Category.NameAr,
-
-                            ViewsCount =
-                                problem.ViewsCount,
 
                             RequiresLogin =
                                 true
@@ -625,9 +616,6 @@ namespace MathWorldAPI.Controllers
                                     ? problem.Category.NameEn
                                     : problem.Category.NameAr,
 
-                            ViewsCount =
-                                problem.ViewsCount,
-
                             RequiresLogin =
                                 true
                         })
@@ -783,13 +771,6 @@ namespace MathWorldAPI.Controllers
                 return StatusCode(StatusCodes.Status403Forbidden,
                     new { Message = "CategoryLocked" });
 
-            // View updates are non-critical and run in a separate scope.
-            // Admin previews are management activity, not student engagement.
-            if (!string.Equals(userRole, "Admin", StringComparison.OrdinalIgnoreCase))
-            {
-                _ = BackgroundUpdateAsync(id);
-            }
-
             var categoryIcon =
                 _imgBbStorage.GetFullUrl(
                     problem.Category.Icon)
@@ -923,9 +904,6 @@ namespace MathWorldAPI.Controllers
 
                             Points =
                                 problem.Points,
-
-                            ViewsCount =
-                                problem.ViewsCount,
 
                             IsSolved =
                                 progress?.IsSolved
@@ -1869,65 +1847,5 @@ namespace MathWorldAPI.Controllers
                 : null;
         }
 
-        /// <summary>
-        /// Updates the view counter and search index in a separate scope.
-        /// Errors in this non-critical operation do not fail the request.
-        /// </summary>
-        private async Task BackgroundUpdateAsync(
-            int problemId)
-        {
-            using var scope =
-                _scopeFactory.CreateScope();
-
-            var database =
-                scope.ServiceProvider
-                    .GetRequiredService<
-                        AppDbContext>();
-
-            try
-            {
-                var problem =
-                    await database.Problems
-                        .FindAsync(problemId);
-
-                if (problem == null)
-                {
-                    return;
-                }
-
-                problem.ViewsCount++;
-
-                await database.SaveChangesAsync();
-
-                if (_meilisearchEnabled)
-                {
-                    try
-                    {
-                        var searchService =
-                            scope.ServiceProvider
-                                .GetRequiredService<
-                                    IMeiliSearchService>();
-
-                        await searchService
-                            .UpdateProblemAsync(
-                                problem);
-                    }
-                    catch (Exception exception)
-                    {
-                        _logger.LogWarning(
-                            exception,
-                            "Failed to update problem {ProblemId} in MeiliSearch.",
-                            problemId);
-                    }
-                }
-            }
-            catch (Exception exception)
-            {
-                _logger.LogWarning(
-                    exception,
-                    "Failed to update views for problem {ProblemId}.",
-                    problemId);
-            }
-        }
     }
 }
