@@ -1,0 +1,137 @@
+-- MathWorld bilingual editorial law-first explanations for 16 still-unpublished drafts.
+-- Guard source question, previous explanations, exact option JSON and Draft status.
+-- A changed answer, published item or stale source aborts the entire transaction.
+BEGIN;
+DO $mw_final16_draft_rules$
+DECLARE affected integer;
+BEGIN
+ UPDATE public."CurriculumDraftItems"
+ SET "DetailedSolutionAr"='القانون المستخدم: لجمع كسرين بمقامين مختلفين نوحّد المقام أولاً، ثم نجمع البسطين مع إبقاء المقام. المقام المشترك بين 4 و8 هو 8؛ لذلك 3/4 = 6/8. بالتعويض: 6/8 + 1/8 = (6 + 1)/8 = 7/8. والكسر في أبسط صورة لأن 7 و8 لا قاسم مشترك بينهما غير 1.', "DetailedSolutionEn"='Rule used: To add fractions with different denominators, rewrite them with a common denominator and add their numerators. The least common denominator of 4 and 8 is 8, so 3/4 = 6/8. Then 6/8 + 1/8 = (6 + 1)/8 = 7/8. Since 7 and 8 are coprime, the result is simplified.'
+ WHERE "Id"=143 AND "TopicProposalId"=1 AND "EditorialStatus"='Draft'
+ AND "QuestionTextAr"='ما ناتج $\frac34+\frac18$ في أبسط صورة؟' AND "QuestionTextEn"='Find $\frac34+\frac18$ in simplest form.'
+ AND "DetailedSolutionAr"='نحوّل 3/4 إلى 6/8، ثم نضيف 1/8 فنحصل على 7/8.' AND "DetailedSolutionEn"='Convert 3/4 to 6/8; add 1/8 to obtain 7/8.'
+ AND "OptionsJson"='[{"Order":1,"IsCorrect":true,"LatexCode":"\\frac78"},{"Order":2,"IsCorrect":false,"LatexCode":"\\frac58"},{"Order":3,"IsCorrect":false,"LatexCode":"\\frac48"},{"Order":4,"IsCorrect":false,"LatexCode":"\\frac{11}8"}]'::jsonb;
+ GET DIAGNOSTICS affected=ROW_COUNT;
+ IF affected<>1 THEN RAISE EXCEPTION 'Draft 143 changed or published: rollback all sixteen'; END IF;
+ UPDATE public."CurriculumDraftItems"
+ SET "DetailedSolutionAr"='القانون المستخدم: لطرح كسور ذات مقامات مختلفة نوحّد المقامات، ثم نطرح البسطين ونبسّط الناتج. نكتب 1/3 = 2/6 لأن 3 × 2 = 6. إذن 5/6 − 1/3 = 5/6 − 2/6 = (5 − 2)/6 = 3/6. بقسمة البسط والمقام على 3 نحصل على 1/2.', "DetailedSolutionEn"='Rule used: To subtract fractions, first express them over a common denominator, subtract the numerators, and simplify. Convert 1/3 to 2/6. Therefore 5/6 − 1/3 = 5/6 − 2/6 = (5 − 2)/6 = 3/6. Divide numerator and denominator by 3 to get the simplest form, 1/2.'
+ WHERE "Id"=144 AND "TopicProposalId"=1 AND "EditorialStatus"='Draft'
+ AND "QuestionTextAr"='احسب $\frac56-\frac13$ واكتب الناتج في أبسط صورة.' AND "QuestionTextEn"='Calculate $\frac56-\frac13$ in simplest form.'
+ AND "DetailedSolutionAr"='نحوّل 1/3 إلى 2/6، ثم 5/6-2/6=3/6=1/2.' AND "DetailedSolutionEn"='Write 1/3 as 2/6 and subtract: 5/6-2/6=3/6=1/2.'
+ AND "OptionsJson"='[{"Order":1,"IsCorrect":false,"LatexCode":"\\frac23"},{"Order":2,"IsCorrect":true,"LatexCode":"\\frac12"},{"Order":3,"IsCorrect":false,"LatexCode":"\\frac16"},{"Order":4,"IsCorrect":false,"LatexCode":"\\frac35"}]'::jsonb;
+ GET DIAGNOSTICS affected=ROW_COUNT;
+ IF affected<>1 THEN RAISE EXCEPTION 'Draft 144 changed or published: rollback all sixteen'; END IF;
+ UPDATE public."CurriculumDraftItems"
+ SET "DetailedSolutionAr"='القانون المستخدم: لإيجاد كسر من كمية نضرب الكمية في الكسر، أو نقسم على المقام ثم نضرب في البسط. العدد الكلي 18 كرة، والكرات الزرقاء ثلثاها. نحسب أولاً 18 ÷ 3 = 6 كرات لكل ثلث، ثم 6 × 2 = 12 كرة زرقاء. التحقق: 12/18 = 2/3.', "DetailedSolutionEn"='Rule used: To find a fraction of a quantity, multiply the total by that fraction or divide by the denominator and multiply by the numerator. Two-thirds of 18 balls is (18 ÷ 3) × 2 = 6 × 2 = 12 blue balls. Check that 12/18 simplifies to 2/3.'
+ WHERE "Id"=145 AND "TopicProposalId"=1 AND "EditorialStatus"='Draft'
+ AND "QuestionTextAr"='في صندوق 18 كرة، ثلثاها زرقاء. كم كرة زرقاء؟' AND "QuestionTextEn"='A box holds 18 balls. Two-thirds are blue. How many are blue?'
+ AND "DetailedSolutionAr"='ثلث 18 يساوي 6؛ بالتالي ثلثاه يساويان 2×6=12.' AND "DetailedSolutionEn"='One-third of 18 is 6, so two-thirds is 2×6=12.'
+ AND "OptionsJson"='[{"Order":1,"IsCorrect":false,"LatexCode":"6"},{"Order":2,"IsCorrect":false,"LatexCode":"9"},{"Order":3,"IsCorrect":true,"LatexCode":"12"},{"Order":4,"IsCorrect":false,"LatexCode":"16"}]'::jsonb;
+ GET DIAGNOSTICS affected=ROW_COUNT;
+ IF affected<>1 THEN RAISE EXCEPTION 'Draft 145 changed or published: rollback all sixteen'; END IF;
+ UPDATE public."CurriculumDraftItems"
+ SET "DetailedSolutionAr"='القانون المستخدم: تحويل العدد الكسري إلى كسر غير فعلي يكون بضرب العدد الصحيح في المقام ثم إضافة البسط مع إبقاء المقام. بالتالي 1 و1/4 = (1 × 4 + 1)/4 = 5/4، و2 و1/2 = (2 × 2 + 1)/2 = 5/2 = 10/4. نجمع: 5/4 + 10/4 = 15/4 وهو الكسر غير الفعلي المطلوب.', "DetailedSolutionEn"='Rule used: Convert a mixed number to an improper fraction by multiplying the whole part by the denominator and adding the numerator. Thus 1 1/4 = (1×4+1)/4 = 5/4 and 2 1/2 = (2×2+1)/2 = 5/2 = 10/4. With common denominator 4, the sum is 5/4 + 10/4 = 15/4.'
+ WHERE "Id"=146 AND "TopicProposalId"=1 AND "EditorialStatus"='Draft'
+ AND "QuestionTextAr"='ما ناتج $1\frac14+2\frac12$ ككسر غير فعلي؟' AND "QuestionTextEn"='Find $1\frac14+2\frac12$ as an improper fraction.'
+ AND "DetailedSolutionAr"='الأعداد الكسرية هي 5/4 و10/4؛ مجموعهما 15/4.' AND "DetailedSolutionEn"='The mixed numbers are 5/4 and 10/4, totaling 15/4.'
+ AND "OptionsJson"='[{"Order":1,"IsCorrect":false,"LatexCode":"\\frac{11}4"},{"Order":2,"IsCorrect":false,"LatexCode":"\\frac{13}4"},{"Order":3,"IsCorrect":false,"LatexCode":"\\frac{14}4"},{"Order":4,"IsCorrect":true,"LatexCode":"\\frac{15}4"}]'::jsonb;
+ GET DIAGNOSTICS affected=ROW_COUNT;
+ IF affected<>1 THEN RAISE EXCEPTION 'Draft 146 changed or published: rollback all sixteen'; END IF;
+ UPDATE public."CurriculumDraftItems"
+ SET "DetailedSolutionAr"='القانون المستخدم: المتوسط الحسابي = مجموع القيم ÷ عدد القيم. للبيانات 4 و7 و7 و10، نجمع أولاً 4 + 7 + 7 + 10 = 28. عدد المشاهدات 4، إذن المتوسط = 28 ÷ 4 = 7. وهو يعبر عن قيمة التوازن للمجموعة، وليس القيمة الأكثر تكراراً بالضرورة.', "DetailedSolutionEn"='Rule used: Arithmetic mean = sum of observations ÷ number of observations. Add the four values 4 + 7 + 7 + 10 = 28. There are four observations, so the mean is 28 ÷ 4 = 7. This is the average, which is conceptually different from the mode or median.'
+ WHERE "Id"=147 AND "TopicProposalId"=2 AND "EditorialStatus"='Draft'
+ AND "QuestionTextAr"='ما المتوسط الحسابي للبيانات 4، 7، 7، 10؟' AND "QuestionTextEn"='Find the mean of 4, 7, 7, and 10.'
+ AND "DetailedSolutionAr"='مجموع القيم 28 وعددها 4، لذلك المتوسط 28÷4=7.' AND "DetailedSolutionEn"='The sum is 28 and there are four observations, so the mean is 28÷4=7.'
+ AND "OptionsJson"='[{"Order":1,"IsCorrect":false,"LatexCode":"6"},{"Order":2,"IsCorrect":true,"LatexCode":"7"},{"Order":3,"IsCorrect":false,"LatexCode":"8"},{"Order":4,"IsCorrect":false,"LatexCode":"10"}]'::jsonb;
+ GET DIAGNOSTICS affected=ROW_COUNT;
+ IF affected<>1 THEN RAISE EXCEPTION 'Draft 147 changed or published: rollback all sixteen'; END IF;
+ UPDATE public."CurriculumDraftItems"
+ SET "DetailedSolutionAr"='القانون المستخدم: الوسيط هو القيمة الوسطى بعد ترتيب البيانات. لدينا خمس قيم مرتبة: 2، 5، 8، 12، 20. عندما يكون عدد القيم فردياً، رتبة الوسيط = (ن + 1) ÷ 2؛ هنا (5 + 1) ÷ 2 = 3. القيمة الثالثة هي 8، إذن الوسيط = 8.', "DetailedSolutionEn"='Rule used: The median is the middle value after sorting observations. The ordered data are 2, 5, 8, 12, 20. For an odd count n, median position = (n+1)/2; with n = 5 the position is 3. The third value is 8, so the median is 8.'
+ WHERE "Id"=148 AND "TopicProposalId"=2 AND "EditorialStatus"='Draft'
+ AND "QuestionTextAr"='ما وسيط البيانات المرتبة 2، 5، 8، 12، 20؟' AND "QuestionTextEn"='Find the median of sorted data 2, 5, 8, 12, 20.'
+ AND "DetailedSolutionAr"='العدد الأوسط بين خمس قيم مرتبة هو الثالث، أي 8.' AND "DetailedSolutionEn"='Of five ordered observations, the middle one is third: 8.'
+ AND "OptionsJson"='[{"Order":1,"IsCorrect":false,"LatexCode":"5"},{"Order":2,"IsCorrect":false,"LatexCode":"10"},{"Order":3,"IsCorrect":true,"LatexCode":"8"},{"Order":4,"IsCorrect":false,"LatexCode":"12"}]'::jsonb;
+ GET DIAGNOSTICS affected=ROW_COUNT;
+ IF affected<>1 THEN RAISE EXCEPTION 'Draft 148 changed or published: rollback all sixteen'; END IF;
+ UPDATE public."CurriculumDraftItems"
+ SET "DetailedSolutionAr"='القانون المستخدم: المنوال هو القيمة الأكثر تكراراً في مجموعة البيانات. نحصي التكرارات: العدد 3 ظهر مرة واحدة، والعدد 5 ظهر ثلاث مرات، والعدد 8 ظهر مرتين. أكبر تكرار هو 3 مرات للقيمة 5، لذلك المنوال = 5. لا نستخدم قانون المتوسط الحسابي لحساب المنوال.', "DetailedSolutionEn"='Rule used: The mode is the data value that occurs most often. Count occurrences: 3 appears once, 5 appears three times, and 8 appears twice. The largest frequency belongs to 5, so the mode is 5. This differs from computing the arithmetic mean.'
+ WHERE "Id"=149 AND "TopicProposalId"=2 AND "EditorialStatus"='Draft'
+ AND "QuestionTextAr"='ما منوال البيانات 3، 5، 5، 5، 8، 8؟' AND "QuestionTextEn"='Find the mode of 3, 5, 5, 5, 8, 8.'
+ AND "DetailedSolutionAr"='تكررت القيمة 5 ثلاث مرات، وهو أكثر من أي قيمة أخرى.' AND "DetailedSolutionEn"='The value 5 occurs three times, more often than any other.'
+ AND "OptionsJson"='[{"Order":1,"IsCorrect":true,"LatexCode":"5"},{"Order":2,"IsCorrect":false,"LatexCode":"8"},{"Order":3,"IsCorrect":false,"LatexCode":"3"},{"Order":4,"IsCorrect":false,"LatexCode":"6"}]'::jsonb;
+ GET DIAGNOSTICS affected=ROW_COUNT;
+ IF affected<>1 THEN RAISE EXCEPTION 'Draft 149 changed or published: rollback all sixteen'; END IF;
+ UPDATE public."CurriculumDraftItems"
+ SET "DetailedSolutionAr"='القانون المستخدم: المتوسط الجديد = مجموع القيم الجديدة ÷ عددها. مجموع القيم الأصلية 4 + 5 + 6 + 7 + 8 = 30. عند استبدال 8 بـ28 نطرح القديمة ونضيف الجديدة: 30 − 8 + 28 = 50. عدد القيم يبقى 5، لذا المتوسط الجديد = 50 ÷ 5 = 10.', "DetailedSolutionEn"='Rule used: Mean = total sum ÷ number of observations. The original sum is 4 + 5 + 6 + 7 + 8 = 30. Replacing 8 with 28 increases the sum to 30 − 8 + 28 = 50, with the count still 5. Hence the new mean is 50 ÷ 5 = 10.'
+ WHERE "Id"=150 AND "TopicProposalId"=2 AND "EditorialStatus"='Draft'
+ AND "QuestionTextAr"='القيم 4، 5، 6، 7، 8 متوسطها 6. إذا استُبدلت 8 بـ28، فما المتوسط الجديد؟' AND "QuestionTextEn"='Values 4, 5, 6, 7, 8 have mean 6. If 8 is replaced by 28, find the new mean.'
+ AND "DetailedSolutionAr"='المجموع الجديد 30-8+28=50، والمتوسط 50÷5=10.' AND "DetailedSolutionEn"='The new sum is 30-8+28=50, and the new mean is 50÷5=10.'
+ AND "OptionsJson"='[{"Order":1,"IsCorrect":false,"LatexCode":"6"},{"Order":2,"IsCorrect":false,"LatexCode":"8"},{"Order":3,"IsCorrect":true,"LatexCode":"10"},{"Order":4,"IsCorrect":false,"LatexCode":"14"}]'::jsonb;
+ GET DIAGNOSTICS affected=ROW_COUNT;
+ IF affected<>1 THEN RAISE EXCEPTION 'Draft 150 changed or published: rollback all sixteen'; END IF;
+ UPDATE public."CurriculumDraftItems"
+ SET "DetailedSolutionAr"='القانون المستخدم: مجموع المتسلسلة الهندسية اللانهائية = الحد الأول ÷ (1 − النسبة المشتركة)، بشرط أن القيمة المطلقة للنسبة أقل من 1. المتسلسلة 3 + 3/2 + 3/4 + ... حدها الأول 3 ونسبتها 1/2. الشرط متحقق، لذا المجموع = 3 ÷ (1 − 1/2) = 3 ÷ (1/2) = 6.', "DetailedSolutionEn"='Rule used: An infinite geometric series sums to S = a/(1−r) when |r| < 1. Here the first term is a = 3 and the common ratio is r = (3/2)/3 = 1/2, so the convergence condition holds. Substitute S = 3/(1−1/2) = 3/(1/2) = 6.'
+ WHERE "Id"=151 AND "TopicProposalId"=3 AND "EditorialStatus"='Draft'
+ AND "QuestionTextAr"='ما مجموع $3+\frac32+\frac34+\cdots$ إلى ما لا نهاية؟' AND "QuestionTextEn"='Find the infinite sum $3+\frac32+\frac34+\cdots$.'
+ AND "DetailedSolutionAr"='النسبة 1/2 أقل من واحد مطلقاً؛ المجموع 3/(1-1/2)=6.' AND "DetailedSolutionEn"='The ratio is 1/2, with absolute value below 1, so the sum is 3/(1-1/2)=6.'
+ AND "OptionsJson"='[{"Order":1,"IsCorrect":false,"LatexCode":"3"},{"Order":2,"IsCorrect":false,"LatexCode":"4"},{"Order":3,"IsCorrect":true,"LatexCode":"6"},{"Order":4,"IsCorrect":false,"LatexCode":"9"}]'::jsonb;
+ GET DIAGNOSTICS affected=ROW_COUNT;
+ IF affected<>1 THEN RAISE EXCEPTION 'Draft 151 changed or published: rollback all sixteen'; END IF;
+ UPDATE public."CurriculumDraftItems"
+ SET "DetailedSolutionAr"='القانون المستخدم: تتقارب المتسلسلة الهندسية اللانهائية ذات النسبة r فقط عندما |r| أقل من 1. هنا حدود المتسلسلة هي (1.1)^ن، والنسبة المشتركة r = 1.1. بما أن |1.1| = 1.1 أكبر من 1، لا تقترب الحدود من الصفر، لذلك تتباعد المتسلسلة والشرط المفسر هو |r| > 1.', "DetailedSolutionEn"='Rule used: An infinite geometric series converges exactly when the absolute value of its common ratio is below 1. In this series r = 1.1, so |r| = 1.1 > 1. Its terms do not approach zero and its sum diverges. The correct condition is |r| > 1.'
+ WHERE "Id"=152 AND "TopicProposalId"=3 AND "EditorialStatus"='Draft'
+ AND "QuestionTextAr"='المتسلسلة $\sum_{n=0}^{\infty}(1.1)^n$ متباعدة. أي شرط يدل على ذلك؟' AND "QuestionTextEn"='The series $\sum_{n=0}^{\infty}(1.1)^n$ diverges. Which ratio condition explains why?'
+ AND "DetailedSolutionAr"='المتسلسلة الهندسية تتقارب إذا |r|<1؛ لكن هنا |r|>1، فلا تتقارب.' AND "DetailedSolutionEn"='A geometric series converges if |r|<1; here |r|>1, so it diverges.'
+ AND "OptionsJson"='[{"Order":1,"IsCorrect":false,"LatexCode":"|r|<1"},{"Order":2,"IsCorrect":false,"LatexCode":"r=\\frac12"},{"Order":3,"IsCorrect":false,"LatexCode":"r=0"},{"Order":4,"IsCorrect":true,"LatexCode":"|r|>1"}]'::jsonb;
+ GET DIAGNOSTICS affected=ROW_COUNT;
+ IF affected<>1 THEN RAISE EXCEPTION 'Draft 152 changed or published: rollback all sixteen'; END IF;
+ UPDATE public."CurriculumDraftItems"
+ SET "DetailedSolutionAr"='القانون المستخدم: مجموع المتسلسلة الهندسية اللانهائية S = أ/(1 − r) عندما |r| < 1. المتسلسلة تبدأ عند ن=0، لذلك الحد الأول أ = 1 والنسبة r = −1/2. بما أن |−1/2| = 1/2 أقل من 1، نحسب S = 1/(1 − (−1/2)) = 1/(3/2) = 2/3.', "DetailedSolutionEn"='Rule used: For an infinite geometric series with |r| < 1, the sum is S = a/(1−r). Starting at n = 0, the first term is a = 1 and the ratio is r = −1/2. Because |r| = 1/2 < 1, S = 1/[1−(−1/2)] = 1/(3/2) = 2/3.'
+ WHERE "Id"=153 AND "TopicProposalId"=3 AND "EditorialStatus"='Draft'
+ AND "QuestionTextAr"='احسب $\sum_{n=0}^{\infty}(-\frac12)^n$.' AND "QuestionTextEn"='Evaluate $\sum_{n=0}^{\infty}(-\frac12)^n$.'
+ AND "DetailedSolutionAr"='الحد الأول 1 والنسبة -1/2؛ المجموع 1/(1+1/2)=2/3.' AND "DetailedSolutionEn"='The first term is 1 and the ratio is -1/2, giving 1/(1+1/2)=2/3.'
+ AND "OptionsJson"='[{"Order":1,"IsCorrect":false,"LatexCode":"\\frac12"},{"Order":2,"IsCorrect":true,"LatexCode":"\\frac23"},{"Order":3,"IsCorrect":false,"LatexCode":"\\frac32"},{"Order":4,"IsCorrect":false,"LatexCode":"-\\frac23"}]'::jsonb;
+ GET DIAGNOSTICS affected=ROW_COUNT;
+ IF affected<>1 THEN RAISE EXCEPTION 'Draft 153 changed or published: rollback all sixteen'; END IF;
+ UPDATE public."CurriculumDraftItems"
+ SET "DetailedSolutionAr"='المبدأ المستخدم: اختبار الحد العام الضروري للتقارب يقول إنه إذا كانت المتسلسلة ∑aₙ متقاربة، فلا بد أن تؤول حدودها aₙ إلى الصفر. هنا aₙ = 2 لكل ن، وبالتالي النهاية عندما ن تؤول للمالانهاية هي 2، وليست صفراً. إذن يفشل شرط التقارب الضروري وتكون المتسلسلة متباعدة.', "DetailedSolutionEn"='Rule used: The nth-term divergence test states that convergence of a series ∑a_n requires its terms a_n to approach zero. Here a_n = 2 for every n, so lim(n→∞) a_n = 2 ≠ 0. The necessary condition for convergence fails, proving that the series diverges.'
+ WHERE "Id"=154 AND "TopicProposalId"=3 AND "EditorialStatus"='Draft'
+ AND "QuestionTextAr"='لماذا تتباعد المتسلسلة $\sum_{n=1}^{\infty}2$؟' AND "QuestionTextEn"='Why does the series $\sum_{n=1}^{\infty}2$ diverge?'
+ AND "DetailedSolutionAr"='الحد العام ثابت يساوي 2 وليس صفرًا؛ شرط التقارب الضروري غير محقق.' AND "DetailedSolutionEn"='Every term equals 2, not approaching 0; the necessary convergence condition fails.'
+ AND "OptionsJson"='[{"Order":1,"IsCorrect":false,"LatexCode":"\\lim_{n\\to\\infty}a_n=0"},{"Order":2,"IsCorrect":true,"LatexCode":"\\lim_{n\\to\\infty}a_n=2"},{"Order":3,"IsCorrect":false,"LatexCode":"|r|<1"},{"Order":4,"IsCorrect":false,"LatexCode":"a_1=0"}]'::jsonb;
+ GET DIAGNOSTICS affected=ROW_COUNT;
+ IF affected<>1 THEN RAISE EXCEPTION 'Draft 154 changed or published: rollback all sixteen'; END IF;
+ UPDATE public."CurriculumDraftItems"
+ SET "DetailedSolutionAr"='القانون المستخدم: نفي العبارة الكلية يبدّل «لكل» إلى «يوجد» وينفي الخاصية نفسها: ¬(∀س P(س)) ⇔ ∃س ¬P(س). لنفي أن كل س يحقق P لا نحتاج إثبات أن كل القيم تخالفها؛ تكفي قيمة واحدة لا تحقق P. إذن النفي الصحيح هو ∃س ¬P(س).', "DetailedSolutionEn"='Rule used: Quantifier-negation law: ¬(∀x P(x)) is logically equivalent to ∃x ¬P(x). Saying that ''every x satisfies P'' is false means there exists at least one counterexample where P(x) is false. Therefore the correct negation is ∃x ¬P(x).'
+ WHERE "Id"=155 AND "TopicProposalId"=4 AND "EditorialStatus"='Draft'
+ AND "QuestionTextAr"='ما النفي المنطقي لعبارة $\forall x\,P(x)$؟' AND "QuestionTextEn"='What is the logical negation of $\forall x\,P(x)$?'
+ AND "DetailedSolutionAr"='نفي عبارة لكل x هو وجود x واحد لا تتحقق عنده P؛ أي ∃x¬P(x).' AND "DetailedSolutionEn"='Negating ''for every x'' means some x fails P; thus there exists x with not P(x).'
+ AND "OptionsJson"='[{"Order":1,"IsCorrect":false,"LatexCode":"\\forall x\\,\\neg P(x)"},{"Order":2,"IsCorrect":true,"LatexCode":"\\exists x\\,\\neg P(x)"},{"Order":3,"IsCorrect":false,"LatexCode":"\\exists x\\,P(x)"},{"Order":4,"IsCorrect":false,"LatexCode":"\\neg\\exists x\\,\\neg P(x)"}]'::jsonb;
+ GET DIAGNOSTICS affected=ROW_COUNT;
+ IF affected<>1 THEN RAISE EXCEPTION 'Draft 155 changed or published: rollback all sixteen'; END IF;
+ UPDATE public."CurriculumDraftItems"
+ SET "DetailedSolutionAr"='المبدأ المستخدم: جدول صدق الشرطية P⇒Q؛ تكون الشرطية خاطئة في حالة واحدة فقط، عندما تكون المقدمة P صحيحة (1) والنتيجة Q خاطئة (0). في بقية الحالات تكون الشرطية صحيحة. لذلك الحالة المطلوبة هي P=1 وQ=0، وليست مجرد اختلاف قيمتي العبارتين بأي ترتيب.', "DetailedSolutionEn"='Rule used: Material implication P⇒Q is false only when the antecedent P is true (1) while the consequent Q is false (0). In all other truth assignments the implication is true. Thus the required case is P = 1 and Q = 0, not merely any two different truth values.'
+ WHERE "Id"=156 AND "TopicProposalId"=4 AND "EditorialStatus"='Draft'
+ AND "QuestionTextAr"='متى تكون العبارة $P\Rightarrow Q$ كاذبة؟' AND "QuestionTextEn"='When is $P\Rightarrow Q$ false?'
+ AND "DetailedSolutionAr"='الاستلزام كاذب عندما تكون P صحيحة بينما تكون Q خاطئة فقط.' AND "DetailedSolutionEn"='An implication is false only when P is true and Q is false.'
+ AND "OptionsJson"='[{"Order":1,"IsCorrect":false,"LatexCode":"P=0,\\,Q=0"},{"Order":2,"IsCorrect":false,"LatexCode":"P=0,\\,Q=1"},{"Order":3,"IsCorrect":true,"LatexCode":"P=1,\\,Q=0"},{"Order":4,"IsCorrect":false,"LatexCode":"P=1,\\,Q=1"}]'::jsonb;
+ GET DIAGNOSTICS affected=ROW_COUNT;
+ IF affected<>1 THEN RAISE EXCEPTION 'Draft 156 changed or published: rollback all sixteen'; END IF;
+ UPDATE public."CurriculumDraftItems"
+ SET "DetailedSolutionAr"='القانون المستخدم: عكس النقيض لعبارة شرطية P⇒Q ينتج بتبديل موضعي المقدمة والنتيجة ونفي كل منهما؛ فيصبح ¬Q⇒¬P. عكس النقيض مكافئ منطقياً للعبارة الأصلية في جميع حالات جدول الصدق، بخلاف العكس Q⇒P الذي لا يلزم أن يكون مكافئاً. إذن الجواب ¬Q⇒¬P.', "DetailedSolutionEn"='Rule used: The contrapositive of P⇒Q is formed by swapping antecedent and consequent and negating both: ¬Q⇒¬P. This statement has the same truth value as the original implication for every assignment. Do not confuse it with the converse Q⇒P, which is not generally equivalent.'
+ WHERE "Id"=157 AND "TopicProposalId"=4 AND "EditorialStatus"='Draft'
+ AND "QuestionTextAr"='ما العكس النقيض للعبارة $P\Rightarrow Q$؟' AND "QuestionTextEn"='What is the contrapositive of $P\Rightarrow Q$?'
+ AND "DetailedSolutionAr"='نبدّل طرفي الاستلزام وننفي كل طرف: ¬Q⇒¬P، وهي مكافئة للأصل.' AND "DetailedSolutionEn"='Exchange and negate antecedent and consequent: ¬Q⇒¬P, equivalent to the original.'
+ AND "OptionsJson"='[{"Order":1,"IsCorrect":true,"LatexCode":"\\neg Q\\Rightarrow\\neg P"},{"Order":2,"IsCorrect":false,"LatexCode":"Q\\Rightarrow P"},{"Order":3,"IsCorrect":false,"LatexCode":"\\neg P\\Rightarrow\\neg Q"},{"Order":4,"IsCorrect":false,"LatexCode":"P\\Rightarrow\\neg Q"}]'::jsonb;
+ GET DIAGNOSTICS affected=ROW_COUNT;
+ IF affected<>1 THEN RAISE EXCEPTION 'Draft 157 changed or published: rollback all sixteen'; END IF;
+ UPDATE public."CurriculumDraftItems"
+ SET "DetailedSolutionAr"='القانون المستخدم: قانون دي مورغان لنفي الاقتران: ¬(P∧Q) ⇔ (¬P∨¬Q). معنى ذلك أن عبارة «ليس صحيحاً أن P وQ معاً» تتحقق عندما تكون واحدة منهما على الأقل خاطئة. نفي الاقتران يحول «و» إلى «أو» بعد نفي كل جزء، فيكون التعبير المكافئ ¬P∨¬Q.', "DetailedSolutionEn"='Rule used: De Morgan''s law for a negated conjunction is ¬(P∧Q) ⇔ (¬P∨¬Q). It says that ''not both P and Q'' holds when at least one statement is false. Negate each part separately and change AND to OR; the equivalent expression is ¬P∨¬Q.'
+ WHERE "Id"=158 AND "TopicProposalId"=4 AND "EditorialStatus"='Draft'
+ AND "QuestionTextAr"='أي عبارة مكافئة منطقياً لـ $\neg(P\land Q)$؟' AND "QuestionTextEn"='Which expression is equivalent to $\neg(P\land Q)$?'
+ AND "DetailedSolutionAr"='حسب قانون دي مورغان نفي الاقتران يساوي فصل نفي طرفيه، أي ¬P∨¬Q.' AND "DetailedSolutionEn"='By De Morgan''s law, negating a conjunction gives the disjunction of negations.'
+ AND "OptionsJson"='[{"Order":1,"IsCorrect":false,"LatexCode":"\\neg P\\land\\neg Q"},{"Order":2,"IsCorrect":false,"LatexCode":"P\\lor Q"},{"Order":3,"IsCorrect":false,"LatexCode":"P\\land Q"},{"Order":4,"IsCorrect":true,"LatexCode":"\\neg P\\lor\\neg Q"}]'::jsonb;
+ GET DIAGNOSTICS affected=ROW_COUNT;
+ IF affected<>1 THEN RAISE EXCEPTION 'Draft 158 changed or published: rollback all sixteen'; END IF;
+END $mw_final16_draft_rules$;
+COMMIT;

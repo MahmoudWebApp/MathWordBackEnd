@@ -1,5 +1,13 @@
 # MathWorld — question-bank and solution-method review tracker
 
+## Draft solution-method pedagogy — first 16 improved (23 November 2026)
+
+- All **16** still-unpublished drafts under topic proposals 1-4 (primary fraction arithmetic, middle descriptive statistics, secondary geometric sequences, university propositional logic) now have detailed individualized Arabic/English explanations that begin with the applicable mathematical law or rule and show substitution and verification.
+- Source-guarded, draft-status-guarded SQL transaction changed only `CurriculumDraftItems.DetailedSolutionAr/En`. **Live readback verified 16/16 bilingual explanations, 16/16 original option JSON unchanged and 16/16 records still Draft**. All three CI checks passed, including independently calculated existing correct answers. No student/progress or published Problem rows changed.
+- New live explanation audit: **80 DraftItems remain without a named Arabic rule or principle** (down from 96); the same scan also identified **79 lacking an explicit English rule/principle/formula keyword**. These are pedagogical clarity gates before editorial approval and publication, not failures of the already independently audited mathematical answer keys.
+- All **160** draft questions continue unpublished; proposal and category/icon/skill/coverage approvals remain open.
+
+
 ## Draft correctness QA milestone — all 160 draft answers independently reviewed (23 November 2026)
 
 - All **16** remaining unpublished DraftItems belonging to existing published-topic proposals **1 (primary fractions)**, **2 (middle descriptive statistics)**, **3 (secondary infinite series)** and **4 (university propositional logic)** were checked with independent rational-number arithmetic, statistical recalculation, convergence conditions and truth tables.
