@@ -1,5 +1,6 @@
 using System.Security.Claims;
 using MathWorldAPI.Data;
+using MathWorldAPI.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace MathWorldAPI.Services;
@@ -28,6 +29,20 @@ public sealed class ProblemCategoryAccessService
             .ToListAsync(cancellationToken);
         var saved = await _db.StageFreeCategorySelections.AsNoTracking()
             .FirstOrDefaultAsync(x => x.StageId == stageId, cancellationToken);
+        return ResolveFreeCategoryIds(stageId, categories, saved);
+    }
+
+    /// <summary>
+    /// Evaluate the same fail-closed policy against already fetched categories
+    /// and an optional saved selection. Pure in-memory operation: no SQL here.
+    /// Allows stage catalogs and authenticated problem reads to reuse one
+    /// category snapshot instead of re-querying Tokyo per stage.
+    /// </summary>
+    public IReadOnlyList<int> ResolveFreeCategoryIds(
+        int stageId,
+        IEnumerable<Category> categories,
+        StageFreeCategorySelection? saved)
+    {
         if (saved != null)
         {
             try
@@ -125,11 +140,22 @@ public sealed class ProblemCategoryAccessService
                     .Select(c => c.Id).ToListAsync(cancellationToken);
         }
 
-        var stages = await _db.Categories.AsNoTracking()
-            .Select(c => c.StageId).Distinct().ToListAsync(cancellationToken);
+        // Previously: DISTINCT stages + 2 SQL queries for each of four
+        // stages (9 sequential DB round trips for every Free problem read).
+        // Now: one category snapshot + one saved-selection snapshot.
+        // Never cache eligibility across users, and preserve configured/
+        // invalid-selection fail-closed behavior exactly.
+        var categories = await _db.Categories.AsNoTracking()
+            .OrderBy(c => c.StageId).ThenBy(c => c.Order).ThenBy(c => c.Id)
+            .ToListAsync(cancellationToken);
+        var savedSelections = await _db.StageFreeCategorySelections.AsNoTracking()
+            .ToDictionaryAsync(s => s.StageId, cancellationToken);
         var allowed = new List<int>();
-        foreach (var stageId in stages)
-            allowed.AddRange(await GetFreeCategoryIdsAsync(stageId, cancellationToken));
+        foreach (var stage in categories.GroupBy(c => c.StageId))
+        {
+            savedSelections.TryGetValue(stage.Key, out var saved);
+            allowed.AddRange(ResolveFreeCategoryIds(stage.Key, stage, saved));
+        }
         return allowed;
     }
 
