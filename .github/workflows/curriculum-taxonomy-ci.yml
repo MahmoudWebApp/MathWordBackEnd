@@ -24,6 +24,7 @@ on:
       - 'tests/check_published_question_corrections_20261122.py'
       - 'tests/check_solution_law_review_wave1_20261123.py'
       - 'tests/check_primary_arithmetic_solution_laws_20261123.py'
+      - 'tests/check_university_limits_discrete_laws_20261123.py'
       - 'tests/check_secondary_trig_calculus_laws_20261123.py'
       - 'tests/check_secondary_algebra_sequences_laws_20261123.py'
       - 'tests/check_secondary_probability_stats_laws_20261123.py'
@@ -113,6 +114,8 @@ jobs:
         run: python3 tests/check_secondary_algebra_sequences_laws_20261123.py
       - name: Validate all 45 upper-secondary trigonometry and calculus law explanations
         run: python3 tests/check_secondary_trig_calculus_laws_20261123.py
+      - name: Validate university IVT and discrete-logic laws and correct options
+        run: python3 tests/check_university_limits_discrete_laws_20261123.py
       - name: Validate eight bilingual wave-five draft reasoning questions independently
         run: python3 tests/check_curriculum_wave5_reasoning_20261123.py
       - name: Validate idempotent Draft-only wave-five SQL without applying it
