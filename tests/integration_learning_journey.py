@@ -118,8 +118,9 @@ def main():
         "CategoryId": 5,
         "Points": 7,
         "Options": [
-            {"LatexCode": str(value), "IsCorrect": value == 5, "Order": value}
-            for value in range(4, 8)
+            {"LatexCode": str(value), "IsCorrect": value == 5,
+             "Order": index}
+            for index, value in enumerate(range(4, 8), start=1)
         ],
     }
     expect("POST", "/api/admin/problems", 201, stage2_seed, admin_token)
