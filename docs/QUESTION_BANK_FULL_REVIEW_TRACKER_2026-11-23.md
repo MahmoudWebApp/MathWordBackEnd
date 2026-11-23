@@ -1,5 +1,28 @@
 # MathWorld — question-bank and solution-method review tracker
 
+## Consolidated live release gate — 23 November 2026 (latest; supersedes older snapshots below)
+
+The production database was independently re-read after the latest guarded corrections and source merges.
+
+| Student-facing stage | Published questions | Arabic explanations under 55 chars | English explanations under 55 chars |
+|---|---:|---:|---:|
+| Primary | 151 | 0 | 0 |
+| Lower secondary | 140 | 0 | 0 |
+| Upper secondary | 150 | 0 | 0 |
+| University | 160 | 0 | 0 |
+| **Total** | **601** | **0** | **0** |
+
+- All **601** published problems are covered by recorded individual educational review batches; approximately **468 bilingual worked explanations were expanded and 133 previously adequate explanations retained**, counting the final 3 university clarity fixes as expanded. These are **internal mathematical/editorial checks**, not third-party curriculum certification or full classroom validation.
+- Database structural health (latest read): **601 Problems / 24 Categories / 94 published CurriculumSkills spanning all 24 categories**, **zero empty categories**, **zero missing problem-skill links**, **zero questions lacking four distinct options or exactly one correct key**, **zero brief bilingual explanations under 55 characters**. No learner progress, original correct answers or Free/Premium access was intentionally changed in the explanation batches.
+- University completion: PRs **#127** (32 ODE problems, 22 revised), **#129** (22 sequences problems, 12 revised), **#130** (60 multivariable/linear-algebra problems, 45 revised), and **#131** (3 final concise explanations) were merged following successful CI and exact production readbacks. Earlier university categories #16 and #24 were reviewed independently. Original conflicting PRs #126 and #128 were closed in favor of the merged rebases, not abandoned features.
+- **Editorial draft records:** 222 total, including **160 still Draft** and **62 Published editorial metadata rows**; the latter already correspond to live questions and are **not an extra 62** to publish. There are **15 topic proposal records: 11 Draft, 4 Published**.
+- All **160 pending DraftItems** passed a structural audit: four answer options with one designated correct option, bilingual question/solution/learning-objective fields, primary skill keys, unique content keys and question texts, valid difficulty and PISA process fields; no exact live duplicate or same-stage numeric-only question-template collision in this scan. **This does not certify all 160 mathematical answers**.
+- **36 of the 160 pending drafts have also received independent per-question arithmetic/time validation** and versioned read-only QA fixtures: 24 for primary Number Sense & Place Value (merged PR **#132**) and 12 for primary Measurement & Unit Conversion (merged PR **#133**). Both topics remain **unpublished**: editorial approval and explicit admin publishing must not be bypassed. **124 pending drafts still need independent mathematical/content reviews**, plus bilingual learning-skill linking and icon/category publication validation.
+- Prior read-only analysis found **63 published numeric-template families** with 3+ near-identical formulations, containing 315 problems, or 252 additional number variants beyond a representative per family. This is a **variety risk**, not grounds to delete problems or historical student progress.
+- Production web deployment was reported `READY` by Vercel and latest Android CI is successful, but this **is not evidence of successful end-to-end login, API, export, Premium, daily-challenge, device or performance testing**. Backend Render rollout remains unverified. Hostinger migration is **explicitly postponed** until launch; do not move hosting as part of this audit.
+- Release gates remaining outside the published-question mathematical audit: independent mathematics and subject coverage for 124 remaining drafts, administrator review/publish of new topics with no empty categories and stage-specific icons, numeric-template diversification without erasing solved history, complete web/mobile/Admin/API regression and accessibility tests, actual backend deploy verification, and signed Android device/Google-login smoke test.
+
+
 ## University review — limits and discrete mathematics (23 November 2026)
 
 - Individually reviewed **46 university problems** in Limits/Continuity (18; category 16) and Logic/Discrete Mathematics (28; category 24). Twenty-two original explanations were adequate; **24 bilingual explanations were expanded** with precise Intermediate Value Theorem hypotheses, differentiability/continuity, logic equivalences, graph handshaking, counting, pigeonhole, trees, equivalence classes and propositional truth tables.
