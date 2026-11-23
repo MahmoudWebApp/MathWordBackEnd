@@ -1,0 +1,40 @@
+name: Sync the existing approved MathWorld brand mark for reports
+
+on:
+  push:
+    branches: [fix/report-xlsx-compatibility-20261123]
+    paths:
+      - '.github/workflows/sync-report-brand-mark.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/report-xlsx-compatibility-20261123
+          persist-credentials: true
+      - name: Copy the exact approved mark from the official web repository
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --location --silent --show-error --retry 3             'https://raw.githubusercontent.com/MahmoudWebApp/MathWorldFrontend/79a68a28e3f56b9bb010ba93e16673df88a261ed/public/mathworld-mark-transparent-v3.png'             -o assets/branding/mathworld-report-mark.png
+          actual="$(git hash-object assets/branding/mathworld-report-mark.png)"
+          test "$actual" = "c87b96ee1fe1b93d959a53ad1e171cd9b7db209c"
+          echo "Approved mark Git blob matches official website exactly."
+      - name: Commit approved brand image to this feature branch only
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/branding/mathworld-report-mark.png
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'fix(reports): use exact approved transparent MathWorld mark'
+          git fetch origin fix/report-xlsx-compatibility-20261123
+          git rebase origin/fix/report-xlsx-compatibility-20261123
+          git push origin HEAD:fix/report-xlsx-compatibility-20261123
