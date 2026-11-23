@@ -1,0 +1,321 @@
+{
+  "meta": {
+    "batch": "curriculum-wave5-reasoning-20261123",
+    "status": "Draft",
+    "source": "MathWorld originally authored concept-diverse reasoning questions",
+    "publication": "Requires independent bilingual mathematics educator approval, duplicate audit and staged approval before any public release",
+    "frameworks": [
+      "CCSS",
+      "Cambridge",
+      "OECD PISA",
+      "MSC2020"
+    ],
+    "noStudentFacingChanges": true
+  },
+  "topics": [
+    {
+      "existingTopicKey": "p-number-sense",
+      "stageId": 1,
+      "items": [
+        {
+          "contentKey": "mw-wave5-digit-position-range-count",
+          "primarySkillKey": "counting",
+          "templateFamilyKey": "wave5-digit-position-combinatorics",
+          "difficultyLevel": 2,
+          "pisaProcess": "reason",
+          "titleAr": "عد الأعداد ذات رقم عشرات ثابت",
+          "titleEn": "Count integers with a fixed tens digit",
+          "questionTextAr": "كم عدد الأعداد الصحيحة من 200 إلى 299 التي يكون رقم العشرات فيها 4؟",
+          "questionTextEn": "How many integers from 200 through 299 have 4 in the tens place?",
+          "detailedSolutionAr": "القانون المستخدم: في المنازل العشرية كل رقم آحاد من 0 إلى 9 يكوّن عدداً مختلفاً مع تثبيت المئات والعشرات.\n\nخطوات الحل: الأعداد هي 240، 241، ...، 249. هذه عشرة أعداد، لأن الآحاد لها عشر قيم ممكنة.",
+          "detailedSolutionEn": "Rule used: Fixing the hundreds and tens digits leaves ten possible units digits, from 0 through 9.\n\nSolution steps: The integers are 240, 241, ..., 249. There are ten choices for the units digit.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "9",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "10",
+              "IsCorrect": true
+            },
+            {
+              "Order": 3,
+              "LatexCode": "11",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "100",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave5-subtract-through-zero-places",
+          "primarySkillKey": "place-value",
+          "templateFamilyKey": "wave5-place-value-borrowing",
+          "difficultyLevel": 3,
+          "pisaProcess": "employ",
+          "titleAr": "طرح عشرات من عدد يحوي أصفاراً",
+          "titleEn": "Subtract tens across zero digits",
+          "questionTextAr": "بدأ عدّاد عند 6,005 ثم نقص 90. ما العدد الجديد؟",
+          "questionTextEn": "A counter starts at 6,005 and decreases by 90. What is the new value?",
+          "detailedSolutionAr": "القانون المستخدم: نطرح وفق القيمة المكانية ونستلف من منزلة أعلى عندما لا تكفي العشرات.\n\nخطوات الحل: نكتب 6,005 − 90 = 5,915. التحقق: 5,915 + 90 = 6,005.",
+          "detailedSolutionEn": "Rule used: Subtract by place value and regroup from a higher place when the tens place is insufficient.\n\nSolution steps: Compute 6,005 − 90 = 5,915. Check by adding 90 back: 5,915 + 90 = 6,005.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "5915",
+              "IsCorrect": true
+            },
+            {
+              "Order": 2,
+              "LatexCode": "5015",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "5995",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "6105",
+              "IsCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "existingTopicKey": "m-probability",
+      "stageId": 2,
+      "items": [
+        {
+          "contentKey": "mw-wave5-conditional-even-die",
+          "primarySkillKey": "simple-compound-events",
+          "templateFamilyKey": "wave5-conditional-sample-space-restriction",
+          "difficultyLevel": 3,
+          "pisaProcess": "reason",
+          "titleAr": "احتمال مشروط بظهور عدد زوجي",
+          "titleEn": "Conditional probability after an even roll",
+          "questionTextAr": "رُمِي حجر نرد عادل وعُلم أن الناتج زوجي. ما احتمال أن يكون أكبر من 3؟",
+          "questionTextEn": "A fair die is rolled and the outcome is known to be even. What is the chance it exceeds 3?",
+          "detailedSolutionAr": "القانون المستخدم: الاحتمال المشروط = عدد النواتج المناسبة ضمن فضاء الشرط ÷ عدد نواتج فضاء الشرط.\n\nخطوات الحل: الأعداد الزوجية الممكنة: 2 و4 و6 (ثلاثة نواتج). الأكبر من 3 بينها: 4 و6 (نتيجتان). إذن الاحتمال = 2÷3.",
+          "detailedSolutionEn": "Rule used: Conditional probability counts favorable outcomes within the restricted sample space.\n\nSolution steps: Given even, the possible faces are {2,4,6}. Two exceed 3: {4,6}. Therefore the probability is 2/3.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "\\frac{1}{3}",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "\\frac{2}{3}",
+              "IsCorrect": true
+            },
+            {
+              "Order": 3,
+              "LatexCode": "\\frac{1}{2}",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "\\frac{5}{6}",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave5-exactly-one-six-ordered-dice",
+          "primarySkillKey": "sample-spaces",
+          "templateFamilyKey": "wave5-exactly-one-marked-outcome",
+          "difficultyLevel": 3,
+          "pisaProcess": "formulate",
+          "titleAr": "نتائج رمي حجرَي نرد وفي أحدهما ستة فقط",
+          "titleEn": "Two dice with exactly one six",
+          "questionTextAr": "نرمي حجرَي نرد مختلفَي اللون. كم نتيجة مرتّبة يظهر فيها العدد 6 على حجر واحد بالضبط؟",
+          "questionTextEn": "Two distinguishable dice are rolled. How many ordered outcomes have a six on exactly one die?",
+          "detailedSolutionAr": "القانون المستخدم: مبدأ العد؛ نعد الحالات المتنافية ونجمعها.\n\nخطوات الحل: إذا كان الأول 6 فللثاني خمس قيم ليست 6. وإذا كان الثاني 6 فللأول خمس قيم. المجموع 5+5=10، ولا نحسب (6،6).",
+          "detailedSolutionEn": "Rule used: Count mutually exclusive cases and add their outcomes.\n\nSolution steps: If the first die is 6, the second has five non-six possibilities. Reversing the roles gives five more. Total 5+5=10; (6,6) is excluded.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "5",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "10",
+              "IsCorrect": true
+            },
+            {
+              "Order": 3,
+              "LatexCode": "11",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "12",
+              "IsCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "existingTopicKey": "s-vectors",
+      "stageId": 3,
+      "items": [
+        {
+          "contentKey": "mw-wave5-recover-negative-component-from-norm",
+          "primarySkillKey": "magnitude",
+          "templateFamilyKey": "wave5-inverse-vector-norm-signed",
+          "difficultyLevel": 3,
+          "pisaProcess": "reason",
+          "titleAr": "استنتاج مركبة متجه سالبة من طوله",
+          "titleEn": "Recover a negative vector component from its norm",
+          "questionTextAr": "متجه مستوٍ مركبتاه (a,4)، وطوله 5، مع العلم أن a سالب. ما قيمة a؟",
+          "questionTextEn": "A plane vector is (a,4), its length is 5, and a is negative. Find a.",
+          "detailedSolutionAr": "القانون المستخدم: طول المتجه = الجذر التربيعي لمجموع مربعي المركبتين.\n\nخطوات الحل: من العلاقة a²+4²=5² نحصل على a²=25−16=9. القيمتان ±3، وبما أن a سالب فالإجابة −3.",
+          "detailedSolutionEn": "Rule used: Euclidean norm satisfies |(a,b)|²=a²+b².\n\nSolution steps: Use a²+4²=5², so a²=25−16=9. The possible values are ±3; the negative condition selects −3.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "-5",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "-4",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "-3",
+              "IsCorrect": true
+            },
+            {
+              "Order": 4,
+              "LatexCode": "3",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave5-dot-product-distributive-combination",
+          "primarySkillKey": "dot-product",
+          "templateFamilyKey": "wave5-dot-product-distributive-reasoning",
+          "difficultyLevel": 3,
+          "pisaProcess": "employ",
+          "titleAr": "توزيع الضرب القياسي على جمع المتجهات",
+          "titleEn": "Distribute dot product over vector addition",
+          "questionTextAr": "إذا كان u=(1,2) وv=(3,0) وw=(−1,1)، فما قيمة u·(v+w)؟",
+          "questionTextEn": "If u=(1,2), v=(3,0), and w=(−1,1), compute u·(v+w).",
+          "detailedSolutionAr": "القانون المستخدم: خاصية التوزيع للضرب القياسي u·(v+w)=u·v+u·w.\n\nخطوات الحل: أولاً v+w=(2,1). ثم u·(2,1)=1×2+2×1=4. ويمكن التحقق أيضاً بجمع u·v=3 وu·w=1.",
+          "detailedSolutionEn": "Rule used: The dot product distributes over vector addition: u·(v+w)=u·v+u·w.\n\nSolution steps: First v+w=(2,1), then u·(2,1)=1×2+2×1=4. Equivalently u·v=3 and u·w=1, giving 4.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "-1",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "2",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "4",
+              "IsCorrect": true
+            },
+            {
+              "Order": 4,
+              "LatexCode": "6",
+              "IsCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "existingTopicKey": "u-optimization",
+      "stageId": 4,
+      "items": [
+        {
+          "contentKey": "mw-wave5-boundary-quadratic-domain",
+          "primarySkillKey": "constrained-optimization",
+          "templateFamilyKey": "wave5-boundary-minimum-constrained-interval",
+          "difficultyLevel": 3,
+          "pisaProcess": "interpret_evaluate",
+          "titleAr": "أصغر قيمة لدالة على المجال غير السالب",
+          "titleEn": "Minimum of a shifted quadratic for nonnegative inputs",
+          "questionTextAr": "للدالة f(x)=(x+2)²+5 مع القيد x≥0، ما أصغر قيمة ممكنة؟",
+          "questionTextEn": "For f(x)=(x+2)²+5 restricted to x≥0, what is the minimum value?",
+          "detailedSolutionAr": "القانون المستخدم: نفحص النقطة الحرجة والحدود المسموحة؛ رأس القطع المكافئ x=−2 خارج المجال.\n\nخطوات الحل: بما أن x≥0، تكون (x+2)² أصغر ما يمكن عند x=0. نحسب f(0)=2²+5=9. إذن الحد الأدنى هو 9.",
+          "detailedSolutionEn": "Rule used: Constrained minimization checks stationary points and boundary values; the unconstrained vertex x=−2 is infeasible.\n\nSolution steps: On x≥0, (x+2)² is smallest at x=0. Thus f(0)=2²+5=9, the global minimum on the allowed domain.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "5",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "7",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "9",
+              "IsCorrect": true
+            },
+            {
+              "Order": 4,
+              "LatexCode": "13",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave5-coupled-quadratic-critical-value",
+          "primarySkillKey": "unconstrained-optimization",
+          "templateFamilyKey": "wave5-positive-definite-coupled-quadratic",
+          "difficultyLevel": 4,
+          "pisaProcess": "reason",
+          "titleAr": "القيمة الصغرى لدالة تربيعية في متغيرين",
+          "titleEn": "Minimum of a coupled quadratic in two variables",
+          "questionTextAr": "إذا كان f(x,y)=x²+2xy+3y²−4x−8y، فما قيمتها الصغرى على المستوى الحقيقي؟",
+          "questionTextEn": "For f(x,y)=x²+2xy+3y²−4x−8y, find its global minimum value over all real x and y.",
+          "detailedSolutionAr": "القانون المستخدم: نقاط السكون تحقق ∇f=0، والمصفوفة الهسيّة الموجبة التعريف تثبت أن نقطة السكون حد أدنى كلي.\n\nخطوات الحل: نحل 2x+2y−4=0 و2x+6y−8=0 فنحصل على x=y=1. الهسيّة [[2,2],[2,6]] محددها 8>0 وعنصرها القطري الأول 2>0، فهي موجبة التعريف. بالتعويض f(1,1)=1+2+3−4−8=−6.",
+          "detailedSolutionEn": "Rule used: Solve ∇f=0; a positive-definite Hessian proves a unique global minimum for a quadratic.\n\nSolution steps: Solve 2x+2y−4=0 and 2x+6y−8=0 to get x=y=1. The Hessian [[2,2],[2,6]] has determinant 8>0 and leading entry 2>0, so it is positive definite. Then f(1,1)=1+2+3−4−8=−6.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "-8",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "-6",
+              "IsCorrect": true
+            },
+            {
+              "Order": 3,
+              "LatexCode": "-4",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "6",
+              "IsCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
