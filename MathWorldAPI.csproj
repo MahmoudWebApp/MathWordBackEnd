@@ -14,7 +14,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<EmbeddedResource Include="assets/branding/mathworld-logo.png" LogicalName="MathWorld.Brand.Logo.png" />
+		<EmbeddedResource Include="assets/branding/mathworld-report-mark.png" LogicalName="MathWorld.Brand.Logo.png" />
 	</ItemGroup>
 
 	<ItemGroup>

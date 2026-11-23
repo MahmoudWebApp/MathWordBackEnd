@@ -299,7 +299,7 @@ public static class PremiumAnalyticsXlsxExporter
                     w.WriteStartElement("xdr", "wsDr", SpreadsheetDrawingNs);
                     WriteChartAnchor(w, 2, "Solved and review", 7, 3, 21, 23, "rId1");
                     WriteChartAnchor(w, 3, "Correct and incorrect", 7, 25, 21, 45, "rId2");
-                    WriteBrandImageAnchor(w, 4, 17, 0, 21, 3, "rId3");
+                    WriteBrandImageAnchor(w, 4, 17, 0, 17, 3, "rId3");
                     w.WriteEndElement();
                 });
                 XmlPart(archive, "xl/drawings/_rels/drawing1.xml.rels", w =>
@@ -332,7 +332,7 @@ public static class PremiumAnalyticsXlsxExporter
             XmlPart(archive, "xl/drawings/drawing2.xml", w =>
             {
                 w.WriteStartElement("xdr", "wsDr", SpreadsheetDrawingNs);
-                WriteBrandImageAnchor(w, 2, 0, 0, 2, 3, "rId1");
+                WriteBrandImageAnchor(w, 2, 0, 0, 0, 3, "rId1");
                 w.WriteEndElement();
             });
             XmlPart(archive, "xl/drawings/_rels/drawing2.xml.rels", w =>
@@ -353,15 +353,22 @@ public static class PremiumAnalyticsXlsxExporter
     private static void WriteBrandImageAnchor(XmlWriter w, int shapeId,
         int startCol, int startRow, int endCol, int endRow, string relationshipId)
     {
+        // The canonical mark is square: 60 px wide x approximately three
+        // default-height Excel rows. Do not stretch it across multiple columns
+        // (the previous anchor rendered it as a flattened horizontal strip).
+        const int logoWidthEmu = 60 * 9525;
         w.WriteStartElement("xdr", "twoCellAnchor", SpreadsheetDrawingNs);
         foreach (var (element, col, row) in new[]
             { ("from", startCol, startRow), ("to", endCol, endRow) })
         {
             w.WriteStartElement("xdr", element, SpreadsheetDrawingNs);
-            foreach (var (part, number) in new[]
-                { ("col", col), ("colOff", 0), ("row", row), ("rowOff", 0) })
-                w.WriteElementString("xdr", part, SpreadsheetDrawingNs,
-                    number.ToString(CultureInfo.InvariantCulture));
+            w.WriteElementString("xdr", "col", SpreadsheetDrawingNs,
+                col.ToString(CultureInfo.InvariantCulture));
+            w.WriteElementString("xdr", "colOff", SpreadsheetDrawingNs,
+                (element == "to" ? logoWidthEmu : 0).ToString(CultureInfo.InvariantCulture));
+            w.WriteElementString("xdr", "row", SpreadsheetDrawingNs,
+                row.ToString(CultureInfo.InvariantCulture));
+            w.WriteElementString("xdr", "rowOff", SpreadsheetDrawingNs, "0");
             w.WriteEndElement();
         }
         w.WriteStartElement("xdr", "pic", SpreadsheetDrawingNs);

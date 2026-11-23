@@ -1,4 +1,6 @@
 using System.IO.Compression;
+using System.Security.Cryptography;
+using System.Text;
 using System.Xml.Linq;
 using MathWorldAPI.Controllers;
 using MathWorldAPI.Models;
@@ -180,6 +182,11 @@ var workbookReport = new StudentPremiumAnalyticsController.StudentAnalyticsRepor
             "=1+2", "Arithmetic", 1, 1, 0, 2, 1, 1, 1, 10, 42)
     });
 var xlsx = PremiumAnalyticsXlsxExporter.Create(workbookReport, true);
+// A synthetic (non-user) workbook can be exported in CI for independent
+// ZIP/OOXML and Excel-reader compatibility checks.
+var sampleWorkbookPath = Environment.GetEnvironmentVariable("MATHWORLD_XLSX_SAMPLE_PATH");
+if (!string.IsNullOrWhiteSpace(sampleWorkbookPath))
+    File.WriteAllBytes(sampleWorkbookPath, xlsx);
 using (var archive = new ZipArchive(new MemoryStream(xlsx), ZipArchiveMode.Read))
 {
     foreach (var name in new[] {
@@ -197,10 +204,20 @@ using (var archive = new ZipArchive(new MemoryStream(xlsx), ZipArchiveMode.Read)
             "The native workbook must embed the real MathWorld logo: " + name);
     using (var image = archive.GetEntry("xl/media/image1.png")!.Open())
     {
-        var header = new byte[8];
-        Assert(image.Read(header, 0, 8) == 8 &&
-               header.SequenceEqual(new byte[] { 137, 80, 78, 71, 13, 10, 26, 10 }),
+        using var imageBuffer = new MemoryStream();
+        image.CopyTo(imageBuffer);
+        var pixels = imageBuffer.ToArray();
+        Assert(pixels.AsSpan(0, 8).SequenceEqual(
+                new byte[] { 137, 80, 78, 71, 13, 10, 26, 10 }),
             "The embedded MathWorld logo must be a real PNG asset.");
+        // Git blob digest pins the exact already-approved transparent website
+        // mark, preventing an old mobile launcher / black-background image
+        // from silently replacing the branding inside student exports.
+        var gitHeader = Encoding.UTF8.GetBytes($"blob {pixels.Length}\0");
+        var gitBytes = gitHeader.Concat(pixels).ToArray();
+        var imageSha = Convert.ToHexString(SHA1.HashData(gitBytes)).ToLowerInvariant();
+        Assert(imageSha == "c87b96ee1fe1b93d959a53ad1e171cd9b7db209c",
+            "XLSX reports must embed the approved official MathWorld web mark.");
     }
     var sheet = XDocument.Load(archive.GetEntry("xl/worksheets/sheet1.xml")!.Open());
     XNamespace ns = "http://schemas.openxmlformats.org/spreadsheetml/2006/main";
@@ -255,6 +272,14 @@ using (var archive = new ZipArchive(new MemoryStream(xlsx), ZipArchiveMode.Read)
            drawingXml.Descendants(drawingNs + "pic").Count() == 1 &&
            drawingXml.Descendants(drawingNs + "twoCellAnchor").Count() == 3,
         "Two actual charts and the approved logo must each have a drawing anchor.");
+    var reportDrawing = XDocument.Load(archive.GetEntry("xl/drawings/drawing2.xml")!.Open());
+    var markAnchor = reportDrawing.Descendants(drawingNs + "twoCellAnchor").Single();
+    var markFrom = markAnchor.Element(drawingNs + "from")!;
+    var markTo = markAnchor.Element(drawingNs + "to")!;
+    Assert((string?)markFrom.Element(drawingNs + "col") == "0" &&
+           (string?)markTo.Element(drawingNs + "col") == "0" &&
+           (string?)markTo.Element(drawingNs + "colOff") == "571500",
+        "The approved square report mark must retain its intended 60px width.");
     var rtlView = sheet.Descendants(ns + "sheetView").Single();
     Assert((string?)rtlView.Attribute("rightToLeft") == "1",
         "Arabic Excel workbook must use the RTL worksheet direction.");
