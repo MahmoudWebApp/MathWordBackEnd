@@ -1,0 +1,40 @@
+name: One-time sync of openly licensed PDF report fonts
+on:
+  push:
+    branches: [fix/analytics-export-language-pdf-20261123]
+    paths: [.github/workflows/sync-report-fonts.yml]
+permissions:
+  contents: write
+jobs:
+  copy-fonts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/analytics-export-language-pdf-20261123
+          persist-credentials: true
+      - name: Get IBM Plex Sans Arabic fonts (SIL Open Font License)
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p assets/fonts
+          base='https://raw.githubusercontent.com/google/fonts/main/ofl/ibmplexsansarabic'
+          for file in IBMPlexSansArabic-Regular.ttf IBMPlexSansArabic-SemiBold.ttf OFL.txt; do
+            curl --fail --location --retry 3 --silent --show-error "$base/$file" -o "assets/fonts/$file"
+          done
+          file assets/fonts/*.ttf
+          sha256sum assets/fonts/*
+          test "$(stat -c%s assets/fonts/IBMPlexSansArabic-Regular.ttf)" -gt 100000
+          test "$(stat -c%s assets/fonts/IBMPlexSansArabic-SemiBold.ttf)" -gt 100000
+      - name: Commit font assets to feature branch only
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name github-actions\[bot\]
+          git config user.email 41898282+github-actions\[bot\]@users.noreply.github.com
+          git add assets/fonts
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'assets(reports): embed OFL Arabic fonts for PDF generation'
+          git fetch origin fix/analytics-export-language-pdf-20261123
+          git rebase origin/fix/analytics-export-language-pdf-20261123
+          git push origin HEAD:fix/analytics-export-language-pdf-20261123
