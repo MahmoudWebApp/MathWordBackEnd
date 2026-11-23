@@ -1,0 +1,44 @@
+{
+  "batch": "university-final-clarity-20261123",
+  "changes": [
+    {
+      "id": 647,
+      "stageId": 4,
+      "categoryId": 14,
+      "questionAr": "المتجهان (k، 2) و(3، −6) متعامدان. ما قيمة k؟",
+      "questionEn": "Vectors (k, 2) and (3, −6) are perpendicular. What is k?",
+      "beforeAr": "شرط التعامد: 3k + 2(−6) = 0، أي 3k = 12، فتكون k = 4.",
+      "beforeEn": "Orthogonality requires 3k + 2(−6) = 0, hence 3k = 12 and k = 4.",
+      "afterAr": "قانون التعامد بين متجهين: يكون حاصل الضرب النقطي صفراً. للمتجهين (k، 2) و(3، −6) نحسب (k،2) · (3،−6) = 3k + 2 × (−6) = 3k − 12. نساوي الناتج بالصفر: 3k − 12 = 0، إذن 3k = 12 ومنها k = 4. التحقق: 3 × 4 − 12 = 0.",
+      "afterEn": "Orthogonality rule: Two vectors are perpendicular exactly when their dot product is zero. For (k,2) and (3,−6), compute 3k + 2(−6) = 3k − 12. Solve 3k − 12 = 0 to obtain k = 4. Check: 3 × 4 − 12 = 0.",
+      "correctOptionId": 2579,
+      "correctOptionLatex": "4"
+    },
+    {
+      "id": 797,
+      "stageId": 4,
+      "categoryId": 16,
+      "questionAr": "لتكن f(x)=kx+1 إذا x<2، وf(x)=x² إذا x≥2. ما قيمة k التي تجعل f متصلة عند x=2؟",
+      "questionEn": "Let f(x)=kx+1 for x<2, and f(x)=x² for x≥2. Which k makes f continuous at x=2?",
+      "beforeAr": "نساوي النهاية اليسرى 2k+1 بالقيمة اليمنى f(2)=4؛ فنجد 2k=3 وk=3/2.",
+      "beforeEn": "Set left limit 2k+1 equal to f(2)=4: 2k=3 and k=3/2.",
+      "afterAr": "شرط الاستمرارية عند نقطة الفصل x = 2: النهاية اليسرى تساوي النهاية اليمنى وقيمة الدالة f(2). من الفرع الأيسر lim(x→2⁻)(kx+1) = 2k + 1. ومن الفرع الأيمن f(2) = 2² = 4. لذلك 2k + 1 = 4، ومنها 2k = 3 وk = 3/2. التحقق: 2 × (3/2) + 1 = 4.",
+      "afterEn": "Continuity at x = 2 requires the left-hand limit, right-hand limit, and f(2) to agree. From the first branch the left limit is 2k + 1. From the second branch f(2) = 2² = 4. Set 2k + 1 = 4, giving 2k = 3 and k = 3/2. Check: 2(3/2) + 1 = 4.",
+      "correctOptionId": 3179,
+      "correctOptionLatex": "\\frac32"
+    },
+    {
+      "id": 864,
+      "stageId": 4,
+      "categoryId": 15,
+      "questionAr": "إذا كان y'=2y وy(0)=3، فما y(1)؟",
+      "questionEn": "For y'=2y and y(0)=3, what is y(1)?",
+      "beforeAr": "الحل العام y=Ce^(2x)، وبشرط البداية C=3، لذا y(1)=3e².",
+      "beforeEn": "The general solution is y=Ce^(2x); y(0)=3 gives C=3, so y(1)=3e².",
+      "afterAr": "قانون المعادلة التفاضلية y′ = ay: حلها العام y = Ce^(ax)، لأن مشتقة Ce^(ax) تساوي aCe^(ax). عند a = 2 يصبح y = Ce^(2x). الشرط الابتدائي y(0) = 3 يعني C = 3، ولذلك y(1) = 3e^(2×1) = 3e². التحقق: y′ = 2y وy(0) = 3.",
+      "afterEn": "Rule: The differential equation y′ = ay has general solution y = Ce^(ax), because its derivative is aCe^(ax). With a = 2, y = Ce^(2x). The initial condition y(0) = 3 gives C = 3. Hence y(1) = 3e^(2×1) = 3e². Check that y′ = 2y and y(0) = 3.",
+      "correctOptionId": 3449,
+      "correctOptionLatex": "3e^2"
+    }
+  ]
+}
