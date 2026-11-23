@@ -57,6 +57,14 @@ jobs:
         run: |
           bash -n deploy/hostinger/backup-db.sh
           python3 -m py_compile deploy/hostinger/benchmark-public-api.py
+          python3 -m py_compile deploy/hostinger/check-env.py
+          cp deploy/hostinger/.env.example deploy/hostinger/.env
+          chmod 600 deploy/hostinger/.env
+          if python3 deploy/hostinger/check-env.py; then
+            echo 'Production preflight must reject example-domain and dummy secrets' >&2
+            exit 1
+          fi
+          rm deploy/hostinger/.env
           test -f deploy/hostinger/.env.example
           grep -q 'deploy/hostinger/backups/' .gitignore
           grep -q 'deploy/hostinger/backups/' .dockerignore
