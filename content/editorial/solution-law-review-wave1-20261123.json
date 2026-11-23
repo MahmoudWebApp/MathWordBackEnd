@@ -149,7 +149,7 @@
       },
       "newFields": {
         "sa": "القانون المستخدم: مساحة المستطيل = الطول × العرض، ومساحة كل مثلث ناتج عن قطره = نصف مساحة المستطيل. أولاً: 10 × 6 = 60 سم². ثانياً: 60 ÷ 2 = 30 سم². النتيجة 30 سم²؛ القطر يقسم المستطيل إلى مثلثين متساويي المساحة.",
-        "se": "Rules used: Rectangle area = length × width; a diagonal divides a rectangle into two triangles of equal area. First 10 × 6 = 60 cm²; then divide by 2: 60 ÷ 2 = 30 cm². Thus one triangle has area 30 cm²."
+        "se": "Rule used: Rectangle area = length × width; a diagonal divides a rectangle into two triangles of equal area. First 10 × 6 = 60 cm²; then divide by 2: 60 ÷ 2 = 30 cm². Thus one triangle has area 30 cm²."
       },
       "expectedNumericAnswer": 30,
       "editorialStatus": "Draft"
