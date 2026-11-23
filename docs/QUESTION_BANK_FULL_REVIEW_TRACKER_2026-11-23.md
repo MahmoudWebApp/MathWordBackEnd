@@ -28,6 +28,10 @@ IDs 8, 9, 39, 55, 156, 157, 613, 614, 615, 616. Each stores old Arabic/English e
 - University: boundary minimum on a constrained domain; coupled quadratic global minimum using Hessian.
 Every item includes one matching primary skill, specific bilingual learning objectives, an applicable mathematical rule, worked steps and four distinct answer choices. Mathematical oracles and cross-wave exact question checks are in `tests/check_curriculum_wave5_reasoning_20261123.py`. **These eight are only in version-controlled draft JSON, not yet in the live 152-record DraftItems table.**
 
+**First bilingual learning-objective descriptions — 11 editorial proposals:** `content/editorial/primary-skill-description-review-20261123.json` improves three primary Addition/Subtraction skills, five Geometry/Measurement skills, and three Multiplication/Division skills. Each records the immutable SkillId, StageId, CategoryId, StableKey and current bilingual description for comparison, with proposed teachable objectives. All eleven currently have `IsPublished=false`; these are **not** public until reviewed and explicitly approved. The scope and non-publication conditions are enforced in the wave-five test.
+
+**Direct comparison to the live published bank:** the eight new wave-five draft Arabic and English question texts were compared against all currently published `Problems` on 23 November 2026, ignoring surrounding whitespace and case. Each had **zero exact live matches**. This does not rule out semantic near-duplicates.
+
 ## Solution quality standard (each individual item)
 
 1. Verify the question's statement, assumptions, stage suitability, primary learning skill and whether there is exactly one mathematically correct answer.
