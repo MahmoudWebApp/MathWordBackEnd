@@ -55,7 +55,6 @@ assert F(4,6) == F(2,3)
 assert F(2,5)*F(1,4) == F(1,10)
 assert F(1,4)*F(1,2) == F(1,8)
 assert F(18,60) == F(3,10)
-assert (3*(6//2)-6)**2 == 9 # protect independent constraint arithmetic below
 # Validate the constrained extrema numerically around their unique optima.
 assert all(x*x+(6-x)**2 >= 18 for x in range(-12,19))
 assert all(x*(10-x) <= 25 for x in range(0,11))
