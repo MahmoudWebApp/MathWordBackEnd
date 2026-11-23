@@ -245,9 +245,9 @@ using (var reopened = new ClosedXML.Excel.XLWorkbook(new MemoryStream(xlsx)))
            sheet.Cell("G5").Style.Font.FontColor == ClosedXML.Excel.XLColor.FromHtml("#A16207") &&
            sheet.Cell("I5").Style.Font.FontColor == ClosedXML.Excel.XLColor.FromHtml("#B91C1C"),
         "Solved results must be green, points amber, and errors red.");
-    Assert(sheet.Cell("D14").Style.Font.FontColor == ClosedXML.Excel.XLColor.FromHtml("#15803D") &&
-           sheet.Cell("J14").Style.Font.FontColor == ClosedXML.Excel.XLColor.FromHtml("#A16207"),
-        $"Actual category colors: solved={sheet.Cell("D14").Style.Font.FontColor}, points={sheet.Cell("J14").Style.Font.FontColor}.");
+    Assert(sheet.Cell("D13").Style.Font.FontColor == ClosedXML.Excel.XLColor.FromHtml("#15803D") &&
+           sheet.Cell("J13").Style.Font.FontColor == ClosedXML.Excel.XLColor.FromHtml("#A16207"),
+        "Actual category metrics must use semantic colors; row 14 is the navy total row.");
     Assert(sheet.ConditionalFormats.Count() >= 2 && bars.ConditionalFormats.Count() >= 2,
         "Summary and statistics tabs must have real cell-based progress bars.");
     Assert(bars.Cell("B9").GetDouble() == 1 && bars.Cell("F9").GetDouble() == 1,
