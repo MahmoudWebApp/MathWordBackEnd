@@ -41,6 +41,11 @@ COPY --from=publish /app/publish .
 
 # ✅ FIX: Create wwwroot directories and set permissions as root user, then switch back to app user
 USER root
+# The runtime container previously health-checked with curl without installing
+# curl. Install it explicitly so Docker health status reflects the API.
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends curl ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
 RUN mkdir -p /app/wwwroot/uploads/categories \
     && chown -R $APP_UID:$APP_UID /app/wwwroot \
     && chmod -R 755 /app/wwwroot
