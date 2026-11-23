@@ -1,0 +1,37 @@
+{
+  "status": "reviewed_sample_only_not_blanket_approval",
+  "timestamp": "2026-11-23",
+  "purpose": "Specific worked-law corrections for three verified live primary-stage problems. Preserve question/options/answers/progress. All other 598 require item review.",
+  "updates": [
+    {
+      "problemId": 116,
+      "stageId": 1,
+      "categoryId": 3,
+      "expectedAr": "المساحة = الطول × العرض = 9×6=54 سم².",
+      "expectedEn": "Area = length × width = 9×6=54 cm².",
+      "revisedAr": "القانون المستخدم: مساحة المستطيل = الطول × العرض.\nالمعطيات: الطول = 9 سم، العرض = 6 سم.\nالتعويض: المساحة = 9 × 6 = 54.\nالإجابة النهائية: 54 سم²، لأن المساحة تُقاس بوحدات مربعة.",
+      "revisedEn": "Rule used: Rectangle area = length × width.\nGiven: length = 9 cm and width = 6 cm.\nSubstitute: area = 9 × 6 = 54.\nFinal answer: 54 cm², because area is measured in square units.",
+      "verification": "9*6=54 cm²"
+    },
+    {
+      "problemId": 179,
+      "stageId": 1,
+      "categoryId": 3,
+      "expectedAr": "المحيط=2×(9+6)=30 سم.",
+      "expectedEn": "Perimeter=2×(9+6)=30 cm.",
+      "revisedAr": "القانون المستخدم: محيط المستطيل = 2 × (الطول + العرض).\nالمعطيات: الطول = 9 سم، العرض = 6 سم.\nالتعويض: المحيط = 2 × (9 + 6) = 2 × 15 = 30.\nالإجابة النهائية: 30 سم. المحيط طول الحدود الخارجية، لذلك وحدته سم وليست سم².",
+      "revisedEn": "Rule used: Rectangle perimeter = 2 × (length + width).\nGiven: length = 9 cm and width = 6 cm.\nSubstitute: perimeter = 2 × (9 + 6) = 2 × 15 = 30.\nFinal answer: 30 cm. Perimeter is a length, so the unit is cm, not cm².",
+      "verification": "2*(9+6)=30 cm"
+    },
+    {
+      "problemId": 616,
+      "stageId": 1,
+      "categoryId": 3,
+      "expectedAr": "مساحة المستطيل 10 × 6 = 60، والقطر يقسمها بالتساوي، إذن 30.",
+      "expectedEn": "The rectangle area is 10 × 6 = 60. A diagonal halves it, giving 30.",
+      "revisedAr": "القانون المستخدم: مساحة المثلث = (القاعدة × الارتفاع) ÷ 2.\nالمبدأ الهندسي: قطر المستطيل يقسمه إلى مثلثين متطابقين ومتساويين في المساحة.\nالمعطيات: القاعدة = 10 سم والارتفاع العمودي = 6 سم.\nالتعويض: مساحة أحد المثلثين = (10 × 6) ÷ 2 = 60 ÷ 2 = 30.\nالإجابة النهائية: 30 سم².",
+      "revisedEn": "Rule used: Triangle area = (base × perpendicular height) ÷ 2.\nGeometric principle: A rectangle's diagonal divides it into two congruent triangles of equal area.\nGiven: base = 10 cm and perpendicular height = 6 cm.\nSubstitute: area of either triangle = (10 × 6) ÷ 2 = 60 ÷ 2 = 30.\nFinal answer: 30 cm².",
+      "verification": "10*6/2=30 cm²"
+    }
+  ]
+}

@@ -1,0 +1,195 @@
+{
+  "capturedAt": "2026-11-23",
+  "skills": [
+    {
+      "Id": 93,
+      "StageId": 1,
+      "CategoryId": 21,
+      "NameAr": "المئويات المبسطة",
+      "NameEn": "Basic Percentages",
+      "DescriptionAr": "المئويات المبسطة",
+      "DescriptionEn": "Basic Percentages",
+      "IsPublished": true
+    },
+    {
+      "Id": 94,
+      "StageId": 1,
+      "CategoryId": 21,
+      "NameAr": "القيمة المكانية والكسور العشرية",
+      "NameEn": "Decimal Place Value",
+      "DescriptionAr": "القيمة المكانية والكسور العشرية",
+      "DescriptionEn": "Decimal Place Value",
+      "IsPublished": true
+    },
+    {
+      "Id": 95,
+      "StageId": 1,
+      "CategoryId": 21,
+      "NameAr": "العمليات على الكسور",
+      "NameEn": "Fraction Operations",
+      "DescriptionAr": "العمليات على الكسور",
+      "DescriptionEn": "Fraction Operations",
+      "IsPublished": true
+    },
+    {
+      "Id": 96,
+      "StageId": 1,
+      "CategoryId": 21,
+      "NameAr": "الكسور المتكافئة",
+      "NameEn": "Equivalent Fractions",
+      "DescriptionAr": "الكسور المتكافئة",
+      "DescriptionEn": "Equivalent Fractions",
+      "IsPublished": true
+    },
+    {
+      "Id": 97,
+      "StageId": 1,
+      "CategoryId": 21,
+      "NameAr": "تمثيل الكسور",
+      "NameEn": "Fraction Models",
+      "DescriptionAr": "تمثيل الكسور",
+      "DescriptionEn": "Fraction Models",
+      "IsPublished": true
+    },
+    {
+      "Id": 98,
+      "StageId": 2,
+      "CategoryId": 22,
+      "NameAr": "التشتت وتوزيع البيانات",
+      "NameEn": "Data Spread and Distributions",
+      "DescriptionAr": "التشتت وتوزيع البيانات",
+      "DescriptionEn": "Data Spread and Distributions",
+      "IsPublished": true
+    },
+    {
+      "Id": 99,
+      "StageId": 2,
+      "CategoryId": 22,
+      "NameAr": "مقاييس النزعة المركزية",
+      "NameEn": "Summary Statistics",
+      "DescriptionAr": "مقاييس النزعة المركزية",
+      "DescriptionEn": "Summary Statistics",
+      "IsPublished": true
+    },
+    {
+      "Id": 100,
+      "StageId": 2,
+      "CategoryId": 22,
+      "NameAr": "تمثيل البيانات وقراءتها",
+      "NameEn": "Charts and Data Displays",
+      "DescriptionAr": "تمثيل البيانات وقراءتها",
+      "DescriptionEn": "Charts and Data Displays",
+      "IsPublished": true
+    },
+    {
+      "Id": 101,
+      "StageId": 3,
+      "CategoryId": 23,
+      "NameAr": "مجموع المتسلسلات",
+      "NameEn": "Series Sums",
+      "DescriptionAr": "مجموع المتسلسلات",
+      "DescriptionEn": "Series Sums",
+      "IsPublished": true
+    },
+    {
+      "Id": 102,
+      "StageId": 3,
+      "CategoryId": 23,
+      "NameAr": "العلاقات الرجوعية",
+      "NameEn": "Recurrence Relations",
+      "DescriptionAr": "العلاقات الرجوعية",
+      "DescriptionEn": "Recurrence Relations",
+      "IsPublished": true
+    },
+    {
+      "Id": 103,
+      "StageId": 3,
+      "CategoryId": 23,
+      "NameAr": "المتتاليات الهندسية",
+      "NameEn": "Geometric Sequences",
+      "DescriptionAr": "المتتاليات الهندسية",
+      "DescriptionEn": "Geometric Sequences",
+      "IsPublished": true
+    },
+    {
+      "Id": 104,
+      "StageId": 3,
+      "CategoryId": 23,
+      "NameAr": "المتتاليات الحسابية",
+      "NameEn": "Arithmetic Sequences",
+      "DescriptionAr": "المتتاليات الحسابية",
+      "DescriptionEn": "Arithmetic Sequences",
+      "IsPublished": true
+    },
+    {
+      "Id": 105,
+      "StageId": 4,
+      "CategoryId": 24,
+      "NameAr": "نظرية الرسوم البيانية",
+      "NameEn": "Graph Theory",
+      "DescriptionAr": "نظرية الرسوم البيانية",
+      "DescriptionEn": "Graph Theory",
+      "IsPublished": true
+    },
+    {
+      "Id": 106,
+      "StageId": 4,
+      "CategoryId": 24,
+      "NameAr": "العد والتوافيق",
+      "NameEn": "Combinatorics",
+      "DescriptionAr": "العد والتوافيق",
+      "DescriptionEn": "Combinatorics",
+      "IsPublished": true
+    },
+    {
+      "Id": 107,
+      "StageId": 4,
+      "CategoryId": 24,
+      "NameAr": "العلاقات والتكافؤ",
+      "NameEn": "Relations and Equivalence",
+      "DescriptionAr": "العلاقات والتكافؤ",
+      "DescriptionEn": "Relations and Equivalence",
+      "IsPublished": true
+    },
+    {
+      "Id": 108,
+      "StageId": 4,
+      "CategoryId": 24,
+      "NameAr": "مبادئ البرهان",
+      "NameEn": "Proof Principles",
+      "DescriptionAr": "مبادئ البرهان",
+      "DescriptionEn": "Proof Principles",
+      "IsPublished": true
+    },
+    {
+      "Id": 109,
+      "StageId": 4,
+      "CategoryId": 24,
+      "NameAr": "المنطق الرياضي",
+      "NameEn": "Mathematical Logic",
+      "DescriptionAr": "المنطق الرياضي",
+      "DescriptionEn": "Mathematical Logic",
+      "IsPublished": true
+    },
+    {
+      "Id": 112,
+      "StageId": 1,
+      "CategoryId": 21,
+      "NameAr": "مقارنة الكسور",
+      "NameEn": "Fraction Comparisons",
+      "DescriptionAr": "مقارنة الكسور",
+      "DescriptionEn": "Fraction Comparisons",
+      "IsPublished": true
+    },
+    {
+      "Id": 113,
+      "StageId": 3,
+      "CategoryId": 23,
+      "NameAr": "تقارب المتسلسلات وتباعدها",
+      "NameEn": "Series Convergence and Divergence",
+      "DescriptionAr": "تقارب المتسلسلات وتباعدها",
+      "DescriptionEn": "Series Convergence and Divergence",
+      "IsPublished": true
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "stageId": 3,
+  "status": "published_in_live_mathworld_20261123",
+  "note": "Bilingual objectives reviewed for mathematical meaning, exact skill/category mapping and >=5 linked published questions per skill; not a claim of external accreditation. Live content was published with exact-match transactional SQL; do not rerun the script.",
+  "objectives": [
+    {
+      "id": 41,
+      "descriptionAr": "يحل المعادلة التربيعية بالتحليل أو القانون العام ويتحقق بالتعويض.",
+      "descriptionEn": "Solve quadratic equations by factoring or the quadratic formula and verify roots."
+    },
+    {
+      "id": 42,
+      "descriptionAr": "يفسر اللوغاريتم بوصفه أساً ويحوّل بين الصيغتين اللوغاريتمية والأسية.",
+      "descriptionEn": "Interpret logarithms as exponents and convert between logarithmic and exponential forms."
+    },
+    {
+      "id": 43,
+      "descriptionAr": "يستخدم علاقات فييتا لإيجاد مجموع جذري معادلة تربيعية وحاصل ضربهما.",
+      "descriptionEn": "Use Viète's relations to find the sum and product of quadratic roots."
+    },
+    {
+      "id": 44,
+      "descriptionAr": "يحسب المميز ب² − 4أج ويستنتج منه عدد الجذور الحقيقية.",
+      "descriptionEn": "Compute the discriminant b² − 4ac and determine the number of real roots."
+    },
+    {
+      "id": 45,
+      "descriptionAr": "يحلل تعبيراً تربيعياً إلى عاملين ويتحقق بإعادة النشر.",
+      "descriptionEn": "Factor quadratic expressions and verify by multiplying the factors."
+    },
+    {
+      "id": 46,
+      "descriptionAr": "يستنتج جيب وجيب تمام وظل الزوايا الخاصة من مثلثات معيارية ودائرة الوحدة.",
+      "descriptionEn": "Evaluate sine, cosine and tangent at special angles using standard triangles or the unit circle."
+    },
+    {
+      "id": 47,
+      "descriptionAr": "يطبق متطابقات مثلثية أساسية لتحويل التعابير والتحقق من تساوي الطرفين.",
+      "descriptionEn": "Apply fundamental trigonometric identities to simplify expressions and verify equivalence."
+    },
+    {
+      "id": 48,
+      "descriptionAr": "يختار نسبة الجيب أو جيب التمام أو الظل من أضلاع المثلث القائم ويحسب المجهول.",
+      "descriptionEn": "Select sine, cosine or tangent in a right triangle to find missing sides or angles."
+    },
+    {
+      "id": 49,
+      "descriptionAr": "يشتق حدود كثيرات الحدود باستخدام قاعدة القوة وقواعد الجمع والثوابت.",
+      "descriptionEn": "Differentiate polynomials using the power, sum and constant rules."
+    },
+    {
+      "id": 50,
+      "descriptionAr": "يوجد دالة أصلية مع إضافة ثابت التكامل ويتحقق باشتقاقها.",
+      "descriptionEn": "Find antiderivatives including the integration constant and check by differentiation."
+    },
+    {
+      "id": 51,
+      "descriptionAr": "يحسب تكاملاً محدداً باستخدام الدالة الأصلية وتقييم الحدين ويشرح إشارة الناتج.",
+      "descriptionEn": "Evaluate definite integrals from antiderivatives and limits, interpreting signed results."
+    },
+    {
+      "id": 52,
+      "descriptionAr": "يبني فضاء نتائج حجرَي نرد ويحسب احتمال حدث بعد عد نتائجه المواتية.",
+      "descriptionEn": "Build the two-dice sample space and compute event probability by counting outcomes."
+    },
+    {
+      "id": 53,
+      "descriptionAr": "يحسب متوسط مجموعة بيانات ويشرح أثر القيم الكبيرة أو الشاذة فيه.",
+      "descriptionEn": "Compute data means and explain how unusually large or small values affect them."
+    },
+    {
+      "id": 54,
+      "descriptionAr": "يحسب التباين السكاني من متوسط مربعات الانحرافات ويميزه عن الانحراف المعياري.",
+      "descriptionEn": "Calculate population variance as the mean squared deviation and distinguish standard deviation."
+    },
+    {
+      "id": 55,
+      "descriptionAr": "يميز الأحداث في رمي قطعة نقدية ويحسب احتمالاتها لنتائج متساوية الإمكان.",
+      "descriptionEn": "Model coin-toss events and calculate probabilities of equally likely outcomes."
+    },
+    {
+      "id": 56,
+      "descriptionAr": "يستخدم التوافيق لاختيار عناصر دون ترتيب ويميزها عن التباديل.",
+      "descriptionEn": "Count unordered selections using combinations and distinguish them from permutations."
+    }
+  ]
+}

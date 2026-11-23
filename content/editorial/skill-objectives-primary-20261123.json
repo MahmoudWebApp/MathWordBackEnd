@@ -1,0 +1,107 @@
+{
+  "stageId": 1,
+  "status": "published_in_live_mathworld_20261123",
+  "note": "Bilingual objectives reviewed for mathematical meaning, exact skill/category mapping and >=5 linked published questions per skill; not a claim of external accreditation. Live content was published with exact-match transactional SQL; do not rerun the script.",
+  "objectives": [
+    {
+      "id": 1,
+      "descriptionAr": "يجمع أعداداً طبيعية باستخدام القيمة المكانية، ويفسّر الحمل ويتحقق بالتقدير.",
+      "descriptionEn": "Add whole numbers by place value, explain regrouping and check with estimation."
+    },
+    {
+      "id": 2,
+      "descriptionAr": "يطرح أعداداً طبيعية مع إعادة التجميع ويتحقق بإجراء عملية جمع عكسية.",
+      "descriptionEn": "Subtract whole numbers with regrouping and verify using inverse addition."
+    },
+    {
+      "id": 3,
+      "descriptionAr": "يحل مسألة من خطوتين أو أكثر ويبرر ترتيب عمليات الجمع والطرح.",
+      "descriptionEn": "Solve multi-step arithmetic tasks and justify the order of additions and subtractions."
+    },
+    {
+      "id": 4,
+      "descriptionAr": "يمثل الضرب بمجموعات متساوية ويحسب الناتج باستراتيجية مناسبة.",
+      "descriptionEn": "Model multiplication as equal groups and calculate products with a suitable strategy."
+    },
+    {
+      "id": 5,
+      "descriptionAr": "يستخدم القسمة لتوزيع كميات متساوية ويتحقق بضرب الناتج في المقسوم عليه.",
+      "descriptionEn": "Use division for equal sharing and verify quotients by multiplication."
+    },
+    {
+      "id": 6,
+      "descriptionAr": "يستخرج المعطيات والمطلوب من موقف حياتي ويبني عملية ضرب ويفسّر الناتج.",
+      "descriptionEn": "Identify knowns and the target in word problems, model multiplication and interpret its result."
+    },
+    {
+      "id": 7,
+      "descriptionAr": "يحدد العدد المجهول في معادلة جمع أو طرح باستخدام العملية العكسية.",
+      "descriptionEn": "Find unknowns in one-step addition or subtraction equations using inverse operations."
+    },
+    {
+      "id": 8,
+      "descriptionAr": "يكتشف قاعدة نمط عددي ويكمل المتتالية مع توضيح العلاقة بين حدودها.",
+      "descriptionEn": "Identify number-pattern rules, extend sequences and explain relationships between terms."
+    },
+    {
+      "id": 9,
+      "descriptionAr": "يحل معادلة ضرب بخطوة واحدة باستخدام القسمة والتحقق بالتعويض.",
+      "descriptionEn": "Solve one-step multiplication equations by division and check by substitution."
+    },
+    {
+      "id": 10,
+      "descriptionAr": "يعزل المتغير في معادلة خطية من خطوتين ويعيد التعويض للتحقق.",
+      "descriptionEn": "Isolate a variable in two-step linear equations and verify by substitution."
+    },
+    {
+      "id": 11,
+      "descriptionAr": "يعوّض قيماً عددية في تعبير جبري ويحسب الناتج حسب ترتيب العمليات.",
+      "descriptionEn": "Substitute numerical values into algebraic expressions and evaluate in the proper order."
+    },
+    {
+      "id": 12,
+      "descriptionAr": "يختار قانون محيط الشكل المناسب ويجمع أطوال حدوده مع كتابة وحدة طول.",
+      "descriptionEn": "Select an appropriate perimeter rule, sum boundary lengths and report length units."
+    },
+    {
+      "id": 13,
+      "descriptionAr": "يطبق مساحة المستطيل = الطول × العرض ويميز وحدات المساحة المربعة.",
+      "descriptionEn": "Apply rectangle area = length × width and distinguish square area units."
+    },
+    {
+      "id": 14,
+      "descriptionAr": "يطبق مساحة المثلث = القاعدة × الارتفاع العمودي ÷ 2 ويحدد الارتفاع الصحيح.",
+      "descriptionEn": "Apply triangle area = base × perpendicular height ÷ 2 and identify the correct height."
+    },
+    {
+      "id": 15,
+      "descriptionAr": "يوظف مجموع زوايا المثلث البالغ 180° لإيجاد زوايا مجهولة.",
+      "descriptionEn": "Use the 180° triangle-angle sum to calculate unknown interior angles."
+    },
+    {
+      "id": 16,
+      "descriptionAr": "يحوّل بين المتر والسنتيمتر والكيلومتر مع التحقق من عامل التحويل.",
+      "descriptionEn": "Convert between metres, centimetres and kilometres using verified conversion factors."
+    },
+    {
+      "id": 17,
+      "descriptionAr": "يحسب احتمال حدث بسيط من النتائج المتساوية الإمكان ويفسر قيمته بين 0 و1.",
+      "descriptionEn": "Find simple probabilities from equally likely outcomes and interpret values from 0 to 1."
+    },
+    {
+      "id": 18,
+      "descriptionAr": "يرتب القيم ويستخرج الوسيط مع معالجة حالتي العدد الفردي والزوجي.",
+      "descriptionEn": "Sort data and identify the median for both odd-sized and even-sized datasets."
+    },
+    {
+      "id": 19,
+      "descriptionAr": "يجمع قيم البيانات ويقسم على عددها لاستخراج المتوسط الحسابي وتفسيره.",
+      "descriptionEn": "Compute the arithmetic mean as sum of values divided by count, and interpret it."
+    },
+    {
+      "id": 20,
+      "descriptionAr": "يحدد المنوال بوصفه القيمة الأكثر تكراراً ويميز حالات تعدد المنوال.",
+      "descriptionEn": "Identify the most frequent value as the mode and recognise multiple modes."
+    }
+  ]
+}

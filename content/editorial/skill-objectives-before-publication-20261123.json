@@ -1,0 +1,757 @@
+{
+  "status": "before reviewed publication",
+  "capturedAt": "2026-11-23",
+  "warning": "Original descriptions and original unpublished statuses for these 75 category-owned skill records.",
+  "skills": [
+    {
+      "Id": 1,
+      "StageId": 1,
+      "CategoryId": 1,
+      "NameAr": "الجمع ضمن الأعداد الطبيعية",
+      "NameEn": "Whole-number addition",
+      "DescriptionAr": "جمع الأعداد وفهم القيمة المكانية",
+      "DescriptionEn": "Add whole numbers with place-value understanding",
+      "IsPublished": false
+    },
+    {
+      "Id": 2,
+      "StageId": 1,
+      "CategoryId": 1,
+      "NameAr": "الطرح ضمن الأعداد الطبيعية",
+      "NameEn": "Whole-number subtraction",
+      "DescriptionAr": "طرح الأعداد في مسائل مباشرة وحياتية",
+      "DescriptionEn": "Subtract whole numbers in numerical and contextual problems",
+      "IsPublished": false
+    },
+    {
+      "Id": 3,
+      "StageId": 1,
+      "CategoryId": 1,
+      "NameAr": "العمليات الحسابية متعددة الخطوات",
+      "NameEn": "Multi-step arithmetic",
+      "DescriptionAr": "حل تعبيرات جمع وطرح مترابطة مع ترتيب العمليات",
+      "DescriptionEn": "Solve connected addition and subtraction steps",
+      "IsPublished": false
+    },
+    {
+      "Id": 4,
+      "StageId": 1,
+      "CategoryId": 33,
+      "NameAr": "الضرب",
+      "NameEn": "Multiplication",
+      "DescriptionAr": "فهم الضرب وحساب نواتج بأعداد متدرجة",
+      "DescriptionEn": "Understand and calculate products of whole numbers",
+      "IsPublished": false
+    },
+    {
+      "Id": 5,
+      "StageId": 1,
+      "CategoryId": 33,
+      "NameAr": "القسمة",
+      "NameEn": "Division",
+      "DescriptionAr": "حل مسائل القسمة المباشرة والتحقق من النتائج",
+      "DescriptionEn": "Solve direct division problems and verify quotients",
+      "IsPublished": false
+    },
+    {
+      "Id": 6,
+      "StageId": 1,
+      "CategoryId": 33,
+      "NameAr": "مسائل الضرب الحياتية",
+      "NameEn": "Multiplicative word problems",
+      "DescriptionAr": "تحويل مواقف حياتية إلى عملية ضرب صحيحة",
+      "DescriptionEn": "Model simple real-world situations using multiplication",
+      "IsPublished": false
+    },
+    {
+      "Id": 7,
+      "StageId": 1,
+      "CategoryId": 2,
+      "NameAr": "معادلات الجمع والطرح",
+      "NameEn": "One-step additive equations",
+      "DescriptionAr": "معادلات الجمع والطرح",
+      "DescriptionEn": "One-step additive equations",
+      "IsPublished": false
+    },
+    {
+      "Id": 8,
+      "StageId": 1,
+      "CategoryId": 2,
+      "NameAr": "الأنماط والمتتاليات العددية",
+      "NameEn": "Number patterns and sequences",
+      "DescriptionAr": "الأنماط والمتتاليات العددية",
+      "DescriptionEn": "Number patterns and sequences",
+      "IsPublished": false
+    },
+    {
+      "Id": 9,
+      "StageId": 1,
+      "CategoryId": 2,
+      "NameAr": "معادلات الضرب البسيطة",
+      "NameEn": "One-step multiplicative equations",
+      "DescriptionAr": "معادلات الضرب البسيطة",
+      "DescriptionEn": "One-step multiplicative equations",
+      "IsPublished": false
+    },
+    {
+      "Id": 10,
+      "StageId": 1,
+      "CategoryId": 2,
+      "NameAr": "المعادلات ذات الخطوتين",
+      "NameEn": "Two-step linear equations",
+      "DescriptionAr": "المعادلات ذات الخطوتين",
+      "DescriptionEn": "Two-step linear equations",
+      "IsPublished": false
+    },
+    {
+      "Id": 11,
+      "StageId": 1,
+      "CategoryId": 2,
+      "NameAr": "التعويض في التعابير الجبرية",
+      "NameEn": "Substitution in algebraic expressions",
+      "DescriptionAr": "التعويض في التعابير الجبرية",
+      "DescriptionEn": "Substitution in algebraic expressions",
+      "IsPublished": false
+    },
+    {
+      "Id": 12,
+      "StageId": 1,
+      "CategoryId": 3,
+      "NameAr": "حساب المحيط",
+      "NameEn": "Perimeter calculations",
+      "DescriptionAr": "حساب المحيط",
+      "DescriptionEn": "Perimeter calculations",
+      "IsPublished": false
+    },
+    {
+      "Id": 13,
+      "StageId": 1,
+      "CategoryId": 3,
+      "NameAr": "مساحة المستطيل",
+      "NameEn": "Area of rectangles",
+      "DescriptionAr": "مساحة المستطيل",
+      "DescriptionEn": "Area of rectangles",
+      "IsPublished": false
+    },
+    {
+      "Id": 14,
+      "StageId": 1,
+      "CategoryId": 3,
+      "NameAr": "مساحة المثلث",
+      "NameEn": "Area of triangles",
+      "DescriptionAr": "مساحة المثلث",
+      "DescriptionEn": "Area of triangles",
+      "IsPublished": false
+    },
+    {
+      "Id": 15,
+      "StageId": 1,
+      "CategoryId": 3,
+      "NameAr": "زوايا المثلث",
+      "NameEn": "Angles in triangles",
+      "DescriptionAr": "زوايا المثلث",
+      "DescriptionEn": "Angles in triangles",
+      "IsPublished": false
+    },
+    {
+      "Id": 16,
+      "StageId": 1,
+      "CategoryId": 3,
+      "NameAr": "التحويل بين وحدات الطول",
+      "NameEn": "Length-unit conversions",
+      "DescriptionAr": "التحويل بين وحدات الطول",
+      "DescriptionEn": "Length-unit conversions",
+      "IsPublished": false
+    },
+    {
+      "Id": 17,
+      "StageId": 1,
+      "CategoryId": 4,
+      "NameAr": "الاحتمال البسيط",
+      "NameEn": "Simple probability",
+      "DescriptionAr": "الاحتمال البسيط",
+      "DescriptionEn": "Simple probability",
+      "IsPublished": false
+    },
+    {
+      "Id": 18,
+      "StageId": 1,
+      "CategoryId": 4,
+      "NameAr": "الوسيط",
+      "NameEn": "Median",
+      "DescriptionAr": "الوسيط",
+      "DescriptionEn": "Median",
+      "IsPublished": false
+    },
+    {
+      "Id": 19,
+      "StageId": 1,
+      "CategoryId": 4,
+      "NameAr": "المتوسط الحسابي",
+      "NameEn": "Arithmetic mean",
+      "DescriptionAr": "المتوسط الحسابي",
+      "DescriptionEn": "Arithmetic mean",
+      "IsPublished": false
+    },
+    {
+      "Id": 20,
+      "StageId": 1,
+      "CategoryId": 4,
+      "NameAr": "المنوال",
+      "NameEn": "Mode",
+      "DescriptionAr": "المنوال",
+      "DescriptionEn": "Mode",
+      "IsPublished": false
+    },
+    {
+      "Id": 21,
+      "StageId": 2,
+      "CategoryId": 5,
+      "NameAr": "قوانين الأسس",
+      "NameEn": "Exponent laws",
+      "DescriptionAr": "قوانين الأسس",
+      "DescriptionEn": "Exponent laws",
+      "IsPublished": false
+    },
+    {
+      "Id": 22,
+      "StageId": 2,
+      "CategoryId": 5,
+      "NameAr": "القاسم المشترك الأكبر",
+      "NameEn": "Greatest common divisor",
+      "DescriptionAr": "القاسم المشترك الأكبر",
+      "DescriptionEn": "Greatest common divisor",
+      "IsPublished": false
+    },
+    {
+      "Id": 23,
+      "StageId": 2,
+      "CategoryId": 5,
+      "NameAr": "حساب قيم القوى",
+      "NameEn": "Evaluating powers",
+      "DescriptionAr": "حساب قيم القوى",
+      "DescriptionEn": "Evaluating powers",
+      "IsPublished": false
+    },
+    {
+      "Id": 24,
+      "StageId": 2,
+      "CategoryId": 5,
+      "NameAr": "المضاعف المشترك الأصغر",
+      "NameEn": "Least common multiple",
+      "DescriptionAr": "المضاعف المشترك الأصغر",
+      "DescriptionEn": "Least common multiple",
+      "IsPublished": false
+    },
+    {
+      "Id": 25,
+      "StageId": 2,
+      "CategoryId": 6,
+      "NameAr": "المعادلات الخطية",
+      "NameEn": "Linear equations",
+      "DescriptionAr": "المعادلات الخطية",
+      "DescriptionEn": "Linear equations",
+      "IsPublished": false
+    },
+    {
+      "Id": 26,
+      "StageId": 2,
+      "CategoryId": 6,
+      "NameAr": "قيمة الدالة الخطية",
+      "NameEn": "Evaluating linear functions",
+      "DescriptionAr": "قيمة الدالة الخطية",
+      "DescriptionEn": "Evaluating linear functions",
+      "IsPublished": false
+    },
+    {
+      "Id": 27,
+      "StageId": 2,
+      "CategoryId": 6,
+      "NameAr": "قيمة الدالة التربيعية",
+      "NameEn": "Evaluating quadratic functions",
+      "DescriptionAr": "قيمة الدالة التربيعية",
+      "DescriptionEn": "Evaluating quadratic functions",
+      "IsPublished": false
+    },
+    {
+      "Id": 28,
+      "StageId": 2,
+      "CategoryId": 6,
+      "NameAr": "حل معادلة من قيمة دالة",
+      "NameEn": "Finding inputs from function values",
+      "DescriptionAr": "حل معادلة من قيمة دالة",
+      "DescriptionEn": "Finding inputs from function values",
+      "IsPublished": false
+    },
+    {
+      "Id": 29,
+      "StageId": 2,
+      "CategoryId": 6,
+      "NameAr": "ميل المستقيم",
+      "NameEn": "Slope of a line",
+      "DescriptionAr": "ميل المستقيم",
+      "DescriptionEn": "Slope of a line",
+      "IsPublished": false
+    },
+    {
+      "Id": 30,
+      "StageId": 2,
+      "CategoryId": 7,
+      "NameAr": "النسب وتوزيع الكميات",
+      "NameEn": "Ratios and proportional quantities",
+      "DescriptionAr": "النسب وتوزيع الكميات",
+      "DescriptionEn": "Ratios and proportional quantities",
+      "IsPublished": false
+    },
+    {
+      "Id": 31,
+      "StageId": 2,
+      "CategoryId": 7,
+      "NameAr": "المعدل والوحدة",
+      "NameEn": "Unit rates and proportional pricing",
+      "DescriptionAr": "المعدل والوحدة",
+      "DescriptionEn": "Unit rates and proportional pricing",
+      "IsPublished": false
+    },
+    {
+      "Id": 32,
+      "StageId": 2,
+      "CategoryId": 7,
+      "NameAr": "حساب الخصم المئوي",
+      "NameEn": "Percentage discounts",
+      "DescriptionAr": "حساب الخصم المئوي",
+      "DescriptionEn": "Percentage discounts",
+      "IsPublished": false
+    },
+    {
+      "Id": 33,
+      "StageId": 2,
+      "CategoryId": 7,
+      "NameAr": "مقياس الرسم",
+      "NameEn": "Map scales",
+      "DescriptionAr": "مقياس الرسم",
+      "DescriptionEn": "Map scales",
+      "IsPublished": false
+    },
+    {
+      "Id": 34,
+      "StageId": 2,
+      "CategoryId": 7,
+      "NameAr": "الزيادة المئوية",
+      "NameEn": "Percentage increase",
+      "DescriptionAr": "الزيادة المئوية",
+      "DescriptionEn": "Percentage increase",
+      "IsPublished": false
+    },
+    {
+      "Id": 35,
+      "StageId": 2,
+      "CategoryId": 8,
+      "NameAr": "مجموع زوايا المثلث",
+      "NameEn": "Triangle angle sum",
+      "DescriptionAr": "مجموع زوايا المثلث",
+      "DescriptionEn": "Triangle angle sum",
+      "IsPublished": false
+    },
+    {
+      "Id": 36,
+      "StageId": 2,
+      "CategoryId": 8,
+      "NameAr": "مساحة الدائرة",
+      "NameEn": "Area of circles",
+      "DescriptionAr": "مساحة الدائرة",
+      "DescriptionEn": "Area of circles",
+      "IsPublished": false
+    },
+    {
+      "Id": 37,
+      "StageId": 2,
+      "CategoryId": 34,
+      "NameAr": "نظرية فيثاغورس",
+      "NameEn": "Pythagorean theorem",
+      "DescriptionAr": "نظرية فيثاغورس",
+      "DescriptionEn": "Pythagorean theorem",
+      "IsPublished": false
+    },
+    {
+      "Id": 38,
+      "StageId": 2,
+      "CategoryId": 8,
+      "NameAr": "الزوايا المتقابلة بالرأس",
+      "NameEn": "Vertically opposite angles",
+      "DescriptionAr": "الزوايا المتقابلة بالرأس",
+      "DescriptionEn": "Vertically opposite angles",
+      "IsPublished": false
+    },
+    {
+      "Id": 39,
+      "StageId": 2,
+      "CategoryId": 8,
+      "NameAr": "زوايا المضلعات",
+      "NameEn": "Angles in polygons",
+      "DescriptionAr": "زوايا المضلعات",
+      "DescriptionEn": "Angles in polygons",
+      "IsPublished": false
+    },
+    {
+      "Id": 40,
+      "StageId": 2,
+      "CategoryId": 34,
+      "NameAr": "المثلثات المتشابهة",
+      "NameEn": "Similar triangles",
+      "DescriptionAr": "المثلثات المتشابهة",
+      "DescriptionEn": "Similar triangles",
+      "IsPublished": false
+    },
+    {
+      "Id": 41,
+      "StageId": 3,
+      "CategoryId": 9,
+      "NameAr": "جذور المعادلة التربيعية",
+      "NameEn": "Roots of quadratic equations",
+      "DescriptionAr": "جذور المعادلة التربيعية",
+      "DescriptionEn": "Roots of quadratic equations",
+      "IsPublished": false
+    },
+    {
+      "Id": 42,
+      "StageId": 3,
+      "CategoryId": 9,
+      "NameAr": "حساب اللوغاريتمات",
+      "NameEn": "Evaluating logarithms",
+      "DescriptionAr": "حساب اللوغاريتمات",
+      "DescriptionEn": "Evaluating logarithms",
+      "IsPublished": false
+    },
+    {
+      "Id": 43,
+      "StageId": 3,
+      "CategoryId": 9,
+      "NameAr": "مجموع وحاصل ضرب الجذور",
+      "NameEn": "Sums and products of roots",
+      "DescriptionAr": "مجموع وحاصل ضرب الجذور",
+      "DescriptionEn": "Sums and products of roots",
+      "IsPublished": false
+    },
+    {
+      "Id": 44,
+      "StageId": 3,
+      "CategoryId": 9,
+      "NameAr": "مميز المعادلة التربيعية",
+      "NameEn": "Quadratic discriminant",
+      "DescriptionAr": "مميز المعادلة التربيعية",
+      "DescriptionEn": "Quadratic discriminant",
+      "IsPublished": false
+    },
+    {
+      "Id": 45,
+      "StageId": 3,
+      "CategoryId": 9,
+      "NameAr": "تحليل ثلاثيات الحدود",
+      "NameEn": "Factoring quadratics",
+      "DescriptionAr": "تحليل ثلاثيات الحدود",
+      "DescriptionEn": "Factoring quadratics",
+      "IsPublished": false
+    },
+    {
+      "Id": 46,
+      "StageId": 3,
+      "CategoryId": 10,
+      "NameAr": "قيم النسب المثلثية للزوايا الخاصة",
+      "NameEn": "Trigonometric values at special angles",
+      "DescriptionAr": "قيم النسب المثلثية للزوايا الخاصة",
+      "DescriptionEn": "Trigonometric values at special angles",
+      "IsPublished": false
+    },
+    {
+      "Id": 47,
+      "StageId": 3,
+      "CategoryId": 10,
+      "NameAr": "المتطابقات المثلثية الأساسية",
+      "NameEn": "Basic trigonometric identities",
+      "DescriptionAr": "المتطابقات المثلثية الأساسية",
+      "DescriptionEn": "Basic trigonometric identities",
+      "IsPublished": false
+    },
+    {
+      "Id": 48,
+      "StageId": 3,
+      "CategoryId": 10,
+      "NameAr": "النسب المثلثية في المثلث القائم",
+      "NameEn": "Trigonometric ratios in right triangles",
+      "DescriptionAr": "النسب المثلثية في المثلث القائم",
+      "DescriptionEn": "Trigonometric ratios in right triangles",
+      "IsPublished": false
+    },
+    {
+      "Id": 49,
+      "StageId": 3,
+      "CategoryId": 11,
+      "NameAr": "اشتقاق كثيرات الحدود",
+      "NameEn": "Derivatives of polynomials",
+      "DescriptionAr": "اشتقاق كثيرات الحدود",
+      "DescriptionEn": "Derivatives of polynomials",
+      "IsPublished": false
+    },
+    {
+      "Id": 50,
+      "StageId": 3,
+      "CategoryId": 11,
+      "NameAr": "التكاملات غير المحددة",
+      "NameEn": "Indefinite integrals",
+      "DescriptionAr": "التكاملات غير المحددة",
+      "DescriptionEn": "Indefinite integrals",
+      "IsPublished": false
+    },
+    {
+      "Id": 51,
+      "StageId": 3,
+      "CategoryId": 11,
+      "NameAr": "التكاملات المحددة",
+      "NameEn": "Definite integrals",
+      "DescriptionAr": "التكاملات المحددة",
+      "DescriptionEn": "Definite integrals",
+      "IsPublished": false
+    },
+    {
+      "Id": 52,
+      "StageId": 3,
+      "CategoryId": 12,
+      "NameAr": "احتمالات رمي حجرَي النرد",
+      "NameEn": "Two-dice probability",
+      "DescriptionAr": "احتمالات رمي حجرَي النرد",
+      "DescriptionEn": "Two-dice probability",
+      "IsPublished": false
+    },
+    {
+      "Id": 53,
+      "StageId": 3,
+      "CategoryId": 35,
+      "NameAr": "المتوسط الحسابي للبيانات",
+      "NameEn": "Arithmetic mean of data",
+      "DescriptionAr": "المتوسط الحسابي للبيانات",
+      "DescriptionEn": "Arithmetic mean of data",
+      "IsPublished": false
+    },
+    {
+      "Id": 54,
+      "StageId": 3,
+      "CategoryId": 35,
+      "NameAr": "التباين السكاني",
+      "NameEn": "Population variance",
+      "DescriptionAr": "التباين السكاني",
+      "DescriptionEn": "Population variance",
+      "IsPublished": false
+    },
+    {
+      "Id": 55,
+      "StageId": 3,
+      "CategoryId": 12,
+      "NameAr": "احتمالات رمي القطعة النقدية",
+      "NameEn": "Coin-toss probability",
+      "DescriptionAr": "احتمالات رمي القطعة النقدية",
+      "DescriptionEn": "Coin-toss probability",
+      "IsPublished": false
+    },
+    {
+      "Id": 56,
+      "StageId": 3,
+      "CategoryId": 12,
+      "NameAr": "التوافيق والاختيارات",
+      "NameEn": "Combinations and selections",
+      "DescriptionAr": "التوافيق والاختيارات",
+      "DescriptionEn": "Combinations and selections",
+      "IsPublished": false
+    },
+    {
+      "Id": 57,
+      "StageId": 4,
+      "CategoryId": 13,
+      "NameAr": "المشتقات الجزئية",
+      "NameEn": "Partial derivatives",
+      "DescriptionAr": "المشتقات الجزئية",
+      "DescriptionEn": "Partial derivatives",
+      "IsPublished": false
+    },
+    {
+      "Id": 58,
+      "StageId": 4,
+      "CategoryId": 13,
+      "NameAr": "التكامل المزدوج",
+      "NameEn": "Double integrals",
+      "DescriptionAr": "التكامل المزدوج",
+      "DescriptionEn": "Double integrals",
+      "IsPublished": false
+    },
+    {
+      "Id": 59,
+      "StageId": 4,
+      "CategoryId": 13,
+      "NameAr": "متجه التدرج",
+      "NameEn": "Gradient vectors",
+      "DescriptionAr": "متجه التدرج",
+      "DescriptionEn": "Gradient vectors",
+      "IsPublished": false
+    },
+    {
+      "Id": 60,
+      "StageId": 4,
+      "CategoryId": 13,
+      "NameAr": "المشتقة الاتجاهية",
+      "NameEn": "Directional derivatives",
+      "DescriptionAr": "المشتقة الاتجاهية",
+      "DescriptionEn": "Directional derivatives",
+      "IsPublished": false
+    },
+    {
+      "Id": 61,
+      "StageId": 4,
+      "CategoryId": 14,
+      "NameAr": "محددات المصفوفات",
+      "NameEn": "Matrix determinants",
+      "DescriptionAr": "محددات المصفوفات",
+      "DescriptionEn": "Matrix determinants",
+      "IsPublished": false
+    },
+    {
+      "Id": 62,
+      "StageId": 4,
+      "CategoryId": 14,
+      "NameAr": "الاستقلال الخطي",
+      "NameEn": "Linear independence",
+      "DescriptionAr": "الاستقلال الخطي",
+      "DescriptionEn": "Linear independence",
+      "IsPublished": false
+    },
+    {
+      "Id": 63,
+      "StageId": 4,
+      "CategoryId": 14,
+      "NameAr": "الضرب القياسي",
+      "NameEn": "Dot product",
+      "DescriptionAr": "الضرب القياسي",
+      "DescriptionEn": "Dot product",
+      "IsPublished": false
+    },
+    {
+      "Id": 64,
+      "StageId": 4,
+      "CategoryId": 14,
+      "NameAr": "أثر المصفوفة",
+      "NameEn": "Matrix trace",
+      "DescriptionAr": "أثر المصفوفة",
+      "DescriptionEn": "Matrix trace",
+      "IsPublished": false
+    },
+    {
+      "Id": 65,
+      "StageId": 4,
+      "CategoryId": 14,
+      "NameAr": "ضرب المتجه بعدد",
+      "NameEn": "Scalar multiplication of vectors",
+      "DescriptionAr": "ضرب المتجه بعدد",
+      "DescriptionEn": "Scalar multiplication of vectors",
+      "IsPublished": false
+    },
+    {
+      "Id": 66,
+      "StageId": 4,
+      "CategoryId": 15,
+      "NameAr": "معادلات تفاضلية أُسية",
+      "NameEn": "Exponential first-order ODEs",
+      "DescriptionAr": "معادلات تفاضلية أُسية",
+      "DescriptionEn": "Exponential first-order ODEs",
+      "IsPublished": false
+    },
+    {
+      "Id": 67,
+      "StageId": 4,
+      "CategoryId": 15,
+      "NameAr": "رتبة المعادلة التفاضلية",
+      "NameEn": "Order of differential equations",
+      "DescriptionAr": "رتبة المعادلة التفاضلية",
+      "DescriptionEn": "Order of differential equations",
+      "IsPublished": false
+    },
+    {
+      "Id": 68,
+      "StageId": 4,
+      "CategoryId": 15,
+      "NameAr": "حل معادلات تفاضلية بالتكامل",
+      "NameEn": "Solving ODEs by integration",
+      "DescriptionAr": "حل معادلات تفاضلية بالتكامل",
+      "DescriptionEn": "Solving ODEs by integration",
+      "IsPublished": false
+    },
+    {
+      "Id": 69,
+      "StageId": 4,
+      "CategoryId": 15,
+      "NameAr": "مسائل ابتدائية من الرتبة الثانية",
+      "NameEn": "Second-order initial-value problems",
+      "DescriptionAr": "مسائل ابتدائية من الرتبة الثانية",
+      "DescriptionEn": "Second-order initial-value problems",
+      "IsPublished": false
+    },
+    {
+      "Id": 70,
+      "StageId": 4,
+      "CategoryId": 16,
+      "NameAr": "نهايات الدوال",
+      "NameEn": "Limits of functions",
+      "DescriptionAr": "نهايات الدوال",
+      "DescriptionEn": "Limits of functions",
+      "IsPublished": false
+    },
+    {
+      "Id": 71,
+      "StageId": 4,
+      "CategoryId": 16,
+      "NameAr": "الاشتقاق والاستمرارية",
+      "NameEn": "Differentiability and continuity",
+      "DescriptionAr": "الاشتقاق والاستمرارية",
+      "DescriptionEn": "Differentiability and continuity",
+      "IsPublished": false
+    },
+    {
+      "Id": 72,
+      "StageId": 4,
+      "CategoryId": 36,
+      "NameAr": "نهايات المتتاليات",
+      "NameEn": "Limits of sequences",
+      "DescriptionAr": "نهايات المتتاليات",
+      "DescriptionEn": "Limits of sequences",
+      "IsPublished": false
+    },
+    {
+      "Id": 73,
+      "StageId": 4,
+      "CategoryId": 16,
+      "NameAr": "نظرية القيمة الوسيطة",
+      "NameEn": "Intermediate value theorem",
+      "DescriptionAr": "نظرية القيمة الوسيطة",
+      "DescriptionEn": "Intermediate value theorem",
+      "IsPublished": false
+    },
+    {
+      "Id": 74,
+      "StageId": 4,
+      "CategoryId": 36,
+      "NameAr": "تقارب المتتاليات الرتيبة",
+      "NameEn": "Monotone sequence convergence",
+      "DescriptionAr": "تقارب المتتاليات الرتيبة",
+      "DescriptionEn": "Monotone sequence convergence",
+      "IsPublished": false
+    },
+    {
+      "Id": 75,
+      "StageId": 4,
+      "CategoryId": 36,
+      "NameAr": "تقارب المتسلسلات",
+      "NameEn": "Convergence of series",
+      "DescriptionAr": "تقارب المتسلسلات",
+      "DescriptionEn": "Convergence of series",
+      "IsPublished": false
+    }
+  ]
+}
