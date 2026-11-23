@@ -1,5 +1,13 @@
 # MathWorld — question-bank and solution-method review tracker
 
+## Verified secondary-school continuation — probability and descriptive statistics (23 November 2026)
+
+- Individually reviewed all **32** student-facing questions of stage-three **Probability/Combinatorics (category 12, 21)** and **Descriptive Statistics (category 35, 11)**. Fifteen originally clear solutions were kept; **17** received fuller Arabic/English formulas, steps and checks.
+- Independent CI recomputed all involved fair-coin independent-event and exactly-two-heads probabilities with exact rational values, weighted arithmetic means and population variance. Deliberately unreduced original fraction answers were preserved.
+- The guarded SQL transaction changed only bilingual explanation columns, conditional on original question, prior explanation and correct-answer flag/text. **Live readback verified 17/17 bilingual edits and 17/17 original correct-answer choices**. No question/history/access changes.
+- **Cumulative audited: 323/601** individual published problems (151 elementary + 140 middle + 32 secondary), **269 improved explanations** and **54 already adequate**. **278** still await individual review: 118 other secondary and 160 university. Unpublished DraftItems remain outside student content until independent review.
+
+
 ## Middle-stage final short-explanation audit (23 November 2026)
 
 - Four mathematically correct but short stage-two explanations (IDs **41, 44, 59, 857**) received explicit bilingual rule-based steps: positive integer exponent, right-triangle Pythagoras, constant unit-rate price and two-point coordinate distance.
