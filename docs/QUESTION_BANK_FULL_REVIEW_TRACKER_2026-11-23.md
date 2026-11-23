@@ -1,5 +1,15 @@
 # MathWorld — question-bank and solution-method review tracker
 
+## Latest mathematical + pedagogical release snapshot — all 160 drafts (23 November 2026; supersedes earlier draft gap counts)
+
+- **All 601 published MathWorld questions** have been individually reviewed in previous educational/math batches, with their published mathematical explanations expanded and their original correct answer choices checked.
+- **All 160 unpublished `CurriculumDraftItems`** now have independently math-checked correct answer options in versioned read-only editorial QA fixtures across stages 1-4, plus **an explicit named law or principle in both Arabic and English** for each of the 160 draft explanations. Draft pedagogical fixes comprised **16 + 20 + 20 + 40 = 96** source-guarded bilingual updates.
+- The final forty DraftItems were 20 secondary (exponential models and analytic geometry) and 20 university (mathematical statistics and numerical methods). New source-locked, exact-OptionsJson, Draft-status guarded transaction changed only the two explanation text fields. All three CI workflows passed; **live readback: 40/40 bilingual explanations matched, 40/40 original option JSON preserved, 40/40 still Draft**.
+- **Final live database verification:** 601 `Problems`, 24 `Categories`, 94 `CurriculumSkills`; 222 editorial metadata items of which **160 Draft** and **62 Published** (the latter are *metadata linked to already-published questions*, not an additional 62 new questions). **Zero Arabic and zero English draft explanations missing a named rule/principle**; **zero draft items with incorrect four-option/one-correct structure**. No user progress, subscription, published question options or admin permissions were intentionally changed in the draft-explanation updates.
+- **This is not publication.** All **160 draft questions remain unpublished**; topic proposal approvals (11 Draft, 4 Published), category/skill alignment, lesson objective breadth, stage-specific icons, numeric-template diversification and **explicit administrator editorial review/approval** still stand between drafts and student-visible new questions. Topic *Exponential & Logarithmic Functions* still needs genuine logarithmic question breadth before publication.
+- **Deployment and product acceptance remain distinct:** backend Render rollout has not been verified; real web/mobile/admin sessions, API latency, Premium/Free rules, export branding, accessibility, production Android signing/Google login and student workflows still need independent end-to-end tests. Hostinger full migration remains postponed until the user opts to launch.
+
+
 ## Primary draft explanatory quality gate — 20 solved with laws (23 November 2026)
 
 - Improved **20 unpublished primary draft explanations**: **8 Number Sense & Place Value (proposal 5)** and **12 Measurement & Unit Conversion (proposal 9)**. Each of the 20 has a named Arabic/English rule and multi-step substitution; includes rounding, estimation, place value, distance/mass/volume unit conversion, and time calculations.

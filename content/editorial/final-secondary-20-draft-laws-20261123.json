@@ -1,0 +1,667 @@
+{
+  "reviewedCount": 20,
+  "stageId": 3,
+  "draftOnly": true,
+  "changes": [
+    {
+      "id": 79,
+      "topicProposalId": 7,
+      "questionAr": "يُعطى عدد أفراد مستعمرة بالدالة P(t)=250×(1.2)^t. ما P(2)؟",
+      "questionEn": "A colony has P(t)=250×(1.2)^t. Find P(2).",
+      "beforeAr": "عند t=2 نحسب (1.2)^2=1.44، ثم P(2)=250×1.44=360 فرداً.",
+      "beforeEn": "At t=2, the growth multiplier is (1.2)^2=1.44, so P(2)=250×1.44=360 individuals.",
+      "afterAr": "القانون المستخدم: النمو الأسّي P(t) = P₀ × g^t، حيث P₀ القيمة الابتدائية وg عامل النمو لكل فترة. لدينا P₀ = 250 وg = 1.2 وt = 2؛ نحسب 1.2² = 1.44، ثم P(2) = 250 × 1.44 = 360 فرداً. استعملنا عامل النمو مرتين لأن المدة فترتان.",
+      "afterEn": "Rule used: Exponential growth P(t) = P₀ g^t, where P₀ is initial population and g is the growth factor per period. Here P₀ = 250, g = 1.2 and t = 2. Compute 1.2² = 1.44, then P(2) = 250 × 1.44 = 360 individuals.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "300"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": true,
+          "LatexCode": "360"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "390"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "250"
+        }
+      ],
+      "correctLatex": "360"
+    },
+    {
+      "id": 80,
+      "topicProposalId": 7,
+      "questionAr": "يبدأ عدد البكتيريا بـ80 ويتضاعف كل ساعة. كم يصبح بعد 3 ساعات؟",
+      "questionEn": "A culture starts with 80 bacteria and doubles each hour. How many after 3 hours?",
+      "beforeAr": "بعد ثلاث فترات تضاعف: 80×2^3=640.",
+      "beforeEn": "After three doublings: 80×2^3=640.",
+      "afterAr": "القانون المستخدم: إذا تضاعفت كمية كل ساعة فإن عددها بعد t ساعات = العدد الابتدائي × 2^t. نبدأ بـ80 بكتيريا، وبعد 3 ساعات يكون عامل التضاعف 2³ = 8. إذن العدد = 80 × 8 = 640 بكتيريا. لا نضرب في 3 مباشرة لأن الزيادة مركبة.",
+      "afterEn": "Rule used: A quantity that doubles each hour follows N(t) = N₀ × 2^t. Starting with 80 bacteria and waiting 3 hours gives growth factor 2³ = 8. Therefore N(3) = 80 × 8 = 640 bacteria. Repeated doubling is exponential, not linear.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "240"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "320"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "640"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "480"
+        }
+      ],
+      "correctLatex": "640"
+    },
+    {
+      "id": 81,
+      "topicProposalId": 7,
+      "questionAr": "مبلغ 2,000 ينمو بمعدل 10% سنوياً دون سحب. كم يصبح بعد سنتين؟",
+      "questionEn": "An amount of 2,000 grows by 10% each year. What is it after two years?",
+      "beforeAr": "2,000×(1.10)^2=2,420.",
+      "beforeEn": "2,000×(1.10)^2=2,420.",
+      "afterAr": "القانون المستخدم: النمو المركب بمعدل r لكل سنة يعطى بالعلاقة A = A₀(1+r)^t. المبلغ الأولي 2,000 والمعدل 10% = 0.10 والسنتان t = 2. نحسب (1.10)² = 1.21، ثم A = 2,000 × 1.21 = 2,420. كل سنة تطبق الزيادة على القيمة الجديدة.",
+      "afterEn": "Rule used: Compound annual growth follows A = A₀(1+r)^t. With initial amount 2,000, annual rate r = 0.10 and t = 2, the multiplier is (1.10)² = 1.21. Thus A = 2,000 × 1.21 = 2,420. Each year's growth compounds on the updated amount.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "2,200"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": true,
+          "LatexCode": "2,420"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "2,400"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "2,600"
+        }
+      ],
+      "correctLatex": "2,420"
+    },
+    {
+      "id": 82,
+      "topicProposalId": 7,
+      "questionAr": "كم تبقى من 1,200 بعد تناقص 10% سنوياً لمدة سنتين؟",
+      "questionEn": "How much remains of 1,200 after 10% decay each year for two years?",
+      "beforeAr": "نضرب بعامل البقاء 0.9 مرتين: 1,200×0.9^2=972.",
+      "beforeEn": "Multiply by 0.9 twice: 1,200×0.9^2=972.",
+      "afterAr": "القانون المستخدم: التناقص الأسّي بنسبة r سنوياً يكتب A = A₀(1−r)^t. البداية 1,200 ونسبة التناقص 10%، لذا عامل البقاء 0.90. بعد سنتين: A = 1,200 × 0.90² = 1,200 × 0.81 = 972. لا نطرح 20% خطياً لأن النقص في السنة الثانية من القيمة المتبقية.",
+      "afterEn": "Rule used: Repeated percentage decay follows A = A₀(1−r)^t. With A₀ = 1,200, r = 0.10 and t = 2, the retained factor is 0.90² = 0.81. The remaining amount is 1,200 × 0.81 = 972. The loss is compounded, not a single 20% subtraction.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "960"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "1,080"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "972"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "980"
+        }
+      ],
+      "correctLatex": "972"
+    },
+    {
+      "id": 83,
+      "topicProposalId": 7,
+      "questionAr": "كتلة 640 غراماً ونصف عمرها 4 ساعات. بعد كم ساعة تصبح 80 غراماً؟",
+      "questionEn": "A 640 g sample has a half-life of 4 hours. After how many hours will it reach 80 g?",
+      "beforeAr": "640→320→160→80؛ ثلاث فترات نصف عمر، أي 3×4=12 ساعة.",
+      "beforeEn": "640→320→160→80 is three half-lives, so 3×4=12 hours.",
+      "afterAr": "القانون المستخدم: كمية المادة بعد زمن t مع عمر نصف h هي M(t) = M₀(1/2)^(t/h). من 640 غ إلى 80 غ تكون النسبة 80/640 = 1/8 = (1/2)³؛ إذن مرّت 3 أعمار نصف. كل عمر نصف 4 ساعات، لذلك الزمن = 3 × 4 = 12 ساعة.",
+      "afterEn": "Rule used: Half-life decay is M(t) = M₀(1/2)^(t/h), where h is the half-life. The target fraction is 80/640 = 1/8 = (1/2)³, so three half-lives pass. Each lasts 4 hours, giving t = 3 × 4 = 12 hours.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "8"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "16"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "12"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "20"
+        }
+      ],
+      "correctLatex": "12"
+    },
+    {
+      "id": 84,
+      "topicProposalId": 7,
+      "questionAr": "إذا كانت Q(t)=200×(0.7)^t، فما نسبة النقص في كل فترة؟",
+      "questionEn": "For Q(t)=200×(0.7)^t, what percent is lost each period?",
+      "beforeAr": "يتبقى 70% في كل فترة، فيكون النقص 100%−70%=30%.",
+      "beforeEn": "70% remains each period, so the loss is 100%−70%=30%.",
+      "afterAr": "القانون المستخدم: في النموذج الأسّي Q(t) = Q₀ × g^t، يمثل g نسبة الكمية الباقية بعد كل فترة. عامل التناقص هنا g = 0.7، أي يبقى 70% من الكمية. النسبة المفقودة = (1 − 0.7) × 100% = 30%. إذن الفقد في كل فترة 30%.",
+      "afterEn": "Rule used: In the exponential model Q(t) = Q₀ g^t, factor g represents the proportion retained each period. With g = 0.7, 70% remains. The lost percentage is (1 − 0.7) × 100% = 30%. Thus each period has a 30% decay rate.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "70%"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "20%"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "7%"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": true,
+          "LatexCode": "30%"
+        }
+      ],
+      "correctLatex": "30%"
+    },
+    {
+      "id": 85,
+      "topicProposalId": 7,
+      "questionAr": "ما نسبة النمو لكل فترة في N(t)=450×(1.03)^t؟",
+      "questionEn": "What is the growth rate per period for N(t)=450×(1.03)^t?",
+      "beforeAr": "المعامل 1.03=1+0.03؛ معدل النمو 3%.",
+      "beforeEn": "The factor 1.03=1+0.03, so growth is 3%.",
+      "afterAr": "القانون المستخدم: في الدالة N(t) = N₀(1+r)^t، يكون عامل النمو 1+r. نقارن النموذج المعطى N(t) = 450 × 1.03^t فنجد 1+r = 1.03، وبالتالي r = 1.03 − 1 = 0.03 = 3%. العدد 450 هو القيمة الابتدائية ولا يغيّر النسبة.",
+      "afterEn": "Rule used: In N(t) = N₀(1+r)^t, the growth factor is 1+r. Comparing with 450 × (1.03)^t gives 1+r = 1.03, so r = 0.03 = 3% per period. The initial quantity 450 does not affect the growth rate.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "0.3%"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "30%"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "3%"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "103%"
+        }
+      ],
+      "correctLatex": "3%"
+    },
+    {
+      "id": 86,
+      "topicProposalId": 7,
+      "questionAr": "ما صيغة الحد العام للمتتالية 2، 6، 18، 54، مع بدء الترقيم من n=1؟",
+      "questionEn": "Which formula gives the sequence 2, 6, 18, 54 starting at n=1?",
+      "beforeAr": "النسبة المشتركة 3 والحد الأول 2، لذلك الحد العام هو a_n=2×3^{n−1}.",
+      "beforeEn": "The common ratio is 3 and the first term is 2, so a_n=2×3^{n−1}.",
+      "afterAr": "القانون المستخدم: الحد العام للمتتالية الهندسية هو aₙ = a₁ × r^(n−1)، حيث a₁ الحد الأول وr النسبة المشتركة. الحدود 2، 6، 18، 54 تبدأ بـ2؛ والنسبة 6/2 = 18/6 = 3. لذلك aₙ = 2 × 3^(n−1). التحقق عند n = 4: ‏2 × 27 = 54.",
+      "afterEn": "Rule used: A geometric sequence has nth term aₙ = a₁ r^(n−1), where a₁ is the first term and r is the common ratio. Here a₁ = 2 and r = 6/2 = 3. Thus aₙ = 2 × 3^(n−1). Check: n = 4 gives 2 × 27 = 54.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "a_n=2+3(n-1)"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": true,
+          "LatexCode": "a_n=2\\cdot3^{n-1}"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "a_n=3n"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "a_n=2\\cdot2^{n-1}"
+        }
+      ],
+      "correctLatex": "a_n=2\\cdot3^{n-1}"
+    },
+    {
+      "id": 119,
+      "topicProposalId": 11,
+      "questionAr": "ما ميل المستقيم المار بالنقطتين (1,2) و(5,10)؟",
+      "questionEn": "What is the slope of the line passing through (1,2) and (5,10)?",
+      "beforeAr": "الميل يساوي التغير في y على التغير في x، أي (10-2)/(5-1)=8/4=2.",
+      "beforeEn": "The slope is rise over run: (10-2)/(5-1)=8/4=2.",
+      "afterAr": "القانون المستخدم: ميل المستقيم بين نقطتين (س₁،ص₁) و(س₂،ص₂) هو (ص₂−ص₁)/(س₂−س₁)، بشرط اختلاف قيم س. للنقطتين (1،2) و(5،10): ‏م = (10−2)/(5−1) = 8/4 = 2. هذا يعني ارتفاع وحدتين لكل انتقال وحدة واحدة أفقياً.",
+      "afterEn": "Rule used: Slope between two points is m = (y₂−y₁)/(x₂−x₁), provided their x-coordinates differ. For (1,2) and (5,10), m = (10−2)/(5−1) = 8/4 = 2. The line rises two vertical units per horizontal unit.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "\\frac12"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "4"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "2"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "8"
+        }
+      ],
+      "correctLatex": "2"
+    },
+    {
+      "id": 120,
+      "topicProposalId": 11,
+      "questionAr": "ما إحداثيا منتصف القطعة الواصلة بين (2,6) و(8,0)؟",
+      "questionEn": "Find the midpoint of the segment joining (2,6) and (8,0).",
+      "beforeAr": "نأخذ متوسط كل إحداثي: x=(2+8)/2=5 وy=(6+0)/2=3، فيكون المنتصف (5,3).",
+      "beforeEn": "Average the coordinates: x=(2+8)/2=5 and y=(6+0)/2=3, so the midpoint is (5,3).",
+      "afterAr": "القانون المستخدم: إحداثيا منتصف القطعة المستقيمة هما متوسطا إحداثيي طرفيها: م = ((س₁+س₂)/2، (ص₁+ص₂)/2). للنقطتين (2،6) و(8،0)، نحسب س = (2+8)/2 = 5 وص = (6+0)/2 = 3. إذن المنتصف (5،3).",
+      "afterEn": "Rule used: The midpoint of a segment is the average of the endpoint coordinates: M = ((x₁+x₂)/2, (y₁+y₂)/2). For (2,6) and (8,0), x = (2+8)/2 = 5 and y = (6+0)/2 = 3, so M = (5,3).",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "(3,5)"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "(6,3)"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "(5,6)"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": true,
+          "LatexCode": "(5,3)"
+        }
+      ],
+      "correctLatex": "(5,3)"
+    },
+    {
+      "id": 121,
+      "topicProposalId": 11,
+      "questionAr": "احسب المسافة بين النقطتين (0,0) و(6,8).",
+      "questionEn": "Find the distance between (0,0) and (6,8).",
+      "beforeAr": "باستخدام فيثاغورس: جذر (6^2+8^2)=جذر 100=10.",
+      "beforeEn": "By the distance formula, sqrt(6^2+8^2)=sqrt(100)=10.",
+      "afterAr": "القانون المستخدم: المسافة بين نقطتين في المستوى هي d = √((س₂−س₁)² + (ص₂−ص₁)²). من (0،0) إلى (6،8)، فرق س يساوي 6 وفرق ص يساوي 8. بالتعويض d = √(6²+8²) = √(36+64) = √100 = 10 وحدات.",
+      "afterEn": "Rule used: Distance in the coordinate plane is d = √[(x₂−x₁)² + (y₂−y₁)²]. From (0,0) to (6,8), horizontal and vertical changes are 6 and 8. Thus d = √(6²+8²) = √(36+64) = √100 = 10 units.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": true,
+          "LatexCode": "10"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "14"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "12"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "7"
+        }
+      ],
+      "correctLatex": "10"
+    },
+    {
+      "id": 122,
+      "topicProposalId": 11,
+      "questionAr": "مستقيم ميله -2 ويقطع محور y عند 3. ما معادلته؟",
+      "questionEn": "A line has slope -2 and y-intercept 3. Which equation represents it?",
+      "beforeAr": "نستخدم y=mx+b مع m=-2 وb=3 فنحصل على y=-2x+3.",
+      "beforeEn": "Using y=mx+b with m=-2 and b=3 gives y=-2x+3.",
+      "afterAr": "القانون المستخدم: صيغة المستقيم بمعلومية الميل والمقطع الصادي هي ص = م س + ب، حيث م هو الميل وب قيمة تقاطع المستقيم مع محور ص. المعطى م = −2 وب = 3. نعوّض مباشرة: ص = −2س + 3. ويمكن التحقق أن المستقيم يقطع محور ص عند (0،3).",
+      "afterEn": "Rule used: Slope-intercept form of a line is y = mx + b, with slope m and y-intercept b. Given m = −2 and b = 3, substitute directly to obtain y = −2x + 3. At x = 0, y = 3, confirming the stated intercept.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "y=2x+3"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": true,
+          "LatexCode": "y=-2x+3"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "y=-2x-3"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "y=3x-2"
+        }
+      ],
+      "correctLatex": "y=-2x+3"
+    },
+    {
+      "id": 123,
+      "topicProposalId": 11,
+      "questionAr": "ما نصف قطر الدائرة التي معادلتها $x^2+y^2=49$؟",
+      "questionEn": "What is the radius of the circle $x^2+y^2=49$?",
+      "beforeAr": "في المعادلة القياسية x^2+y^2=r^2 نجد r^2=49، إذن r=7.",
+      "beforeEn": "In standard form x^2+y^2=r^2, r^2=49 and the nonnegative radius is r=7.",
+      "afterAr": "القانون المستخدم: معادلة دائرة مركزها الأصل هي س² + ص² = r²، حيث r نصف القطر غير السالب. بمقارنة س² + ص² = 49 مع الصورة القياسية نحصل على r² = 49. نأخذ الجذر التربيعي الموجب: r = √49 = 7 وحدات.",
+      "afterEn": "Rule used: A circle centered at the origin has equation x² + y² = r², where r is its nonnegative radius. Comparing x² + y² = 49 with the standard equation gives r² = 49. Thus r = √49 = 7 units.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "49"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "14"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "7"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "\\sqrt7"
+        }
+      ],
+      "correctLatex": "7"
+    },
+    {
+      "id": 124,
+      "topicProposalId": 11,
+      "questionAr": "أي معادلة تمثل دائرة مركزها (2,-3) ونصف قطرها 4؟",
+      "questionEn": "Which equation describes a circle centered at (2,-3) with radius 4?",
+      "beforeAr": "نطبق (x-h)^2+(y-k)^2=r^2. بوضع h=2 وk=-3 وr=4 نحصل على (x-2)^2+(y+3)^2=16.",
+      "beforeEn": "Use (x-h)^2+(y-k)^2=r^2 with h=2, k=-3 and r=4: (x-2)^2+(y+3)^2=16.",
+      "afterAr": "القانون المستخدم: معادلة دائرة مركزها (h,k) ونصف قطرها r هي (س−h)²+(ص−k)²=r². المعطى المركز (2،−3) ونصف القطر 4. بالتعويض تصبح (س−2)²+(ص−(−3))²=4²، أي (س−2)²+(ص+3)²=16.",
+      "afterEn": "Rule used: A circle with center (h,k) and radius r satisfies (x−h)² + (y−k)² = r². For center (2,−3) and radius 4, substitute to get (x−2)² + (y+3)² = 4² = 16. The plus sign comes from subtracting −3.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "(x+2)^2+(y-3)^2=16"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "(x-2)^2+(y-3)^2=16"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "(x-2)^2+(y+3)^2=4"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": true,
+          "LatexCode": "(x-2)^2+(y+3)^2=16"
+        }
+      ],
+      "correctLatex": "(x-2)^2+(y+3)^2=16"
+    },
+    {
+      "id": 125,
+      "topicProposalId": 11,
+      "questionAr": "طرفا قطر دائرة هما (-2,0) و(4,0). ما معادلة الدائرة؟",
+      "questionEn": "A circle has diameter endpoints (-2,0) and (4,0). Which is its equation?",
+      "beforeAr": "مركز الدائرة منتصف القطر أي (1,0)، وطول القطر 6 فالنصف قطر 3. المعادلة (x-1)^2+y^2=9.",
+      "beforeEn": "The diameter midpoint is (1,0) and its length is 6, so radius is 3. Equation: (x-1)^2+y^2=9.",
+      "afterAr": "القانون المستخدم: مركز الدائرة هو منتصف قطرها، ونصف قطرها يساوي نصف طول القطر. النهايتان (−2،0) و(4،0)، فالمركز ((−2+4)/2،0) = (1،0). طول القطر 6، فنصف القطر 3. معادلة الدائرة: (س−1)² + ص² = 9.",
+      "afterEn": "Rule used: A circle's center is the midpoint of a diameter, and radius is half its length. The diameter endpoints (−2,0) and (4,0) have midpoint (1,0) and separation 6, so r = 3. Standard circle form gives (x−1)² + y² = 3² = 9.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "(x+1)^2+y^2=9"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": true,
+          "LatexCode": "(x-1)^2+y^2=9"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "(x-1)^2+y^2=36"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "x^2+y^2=9"
+        }
+      ],
+      "correctLatex": "(x-1)^2+y^2=9"
+    },
+    {
+      "id": 126,
+      "topicProposalId": 11,
+      "questionAr": "أي نقطة تقع على الدائرة $x^2+y^2=25$؟",
+      "questionEn": "Which point lies on $x^2+y^2=25$?",
+      "beforeAr": "للزوج (3,4) نجد 3^2+4^2=9+16=25، ولذلك يحقق المعادلة.",
+      "beforeEn": "For (3,4), 3^2+4^2=9+16=25, so the point lies on the circle.",
+      "afterAr": "القانون المستخدم: تقع نقطة على الدائرة إذا حققت إحداثياتها معادلتها عند التعويض. المعادلة س²+ص²=25؛ نختبر النقطة (3،4) فنحسب 3² + 4² = 9 + 16 = 25. الطرفان متساويان، لذلك تقع النقطة (3،4) على الدائرة.",
+      "afterEn": "Rule used: A point lies on a curve if its coordinates satisfy the curve's equation. For x² + y² = 25, substitute the point (3,4): 3² + 4² = 9 + 16 = 25. Since the equation holds, (3,4) is on the circle.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "(4,4)"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "(1,5)"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "(3,4)"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "(3,3)"
+        }
+      ],
+      "correctLatex": "(3,4)"
+    },
+    {
+      "id": 127,
+      "topicProposalId": 11,
+      "questionAr": "ما المعادلة التي تحققها جميع النقاط المتساوية البعد عن (0,0) و(4,0)؟",
+      "questionEn": "Find the locus of points equidistant from (0,0) and (4,0).",
+      "beforeAr": "المنصف العمودي للقطعة الأفقية يمر بمنتصفها (2,0)، وهو المستقيم الرأسي x=2.",
+      "beforeEn": "The perpendicular bisector of the horizontal segment passes through midpoint (2,0): x=2.",
+      "afterAr": "المبدأ المستخدم: مجموعة النقاط المتساوية البعد عن نقطتين ثابتتين تشكل العمود المنصف للقطعة الواصلة بينهما. النقطتان (0،0) و(4،0) على خط أفقي، ومنتصفهما (2،0). العمود عليه خط رأسي يمر بالمُنتصف، ولذلك معادلته س = 2.",
+      "afterEn": "Rule used: The locus of points equidistant from two fixed points is the perpendicular bisector of the segment connecting them. The segment from (0,0) to (4,0) is horizontal with midpoint (2,0), so its perpendicular bisector is the vertical line x = 2.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "x=4"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "y=2"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "x=2"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "y=0"
+        }
+      ],
+      "correctLatex": "x=2"
+    },
+    {
+      "id": 128,
+      "topicProposalId": 11,
+      "questionAr": "ما معادلة الخط الواقع بين المستقيمين $y=1$ و$y=7$ وعلى المسافة نفسها منهما؟",
+      "questionEn": "Find the line midway between $y=1$ and $y=7$, equidistant from both.",
+      "beforeAr": "متوسط الإحداثيين الرأسيين هو (1+7)/2=4، لذلك المستقيم هو y=4.",
+      "beforeEn": "Take the midpoint of the two y-values: (1+7)/2=4, so the midway line is y=4.",
+      "afterAr": "المبدأ المستخدم: المستقيم الذي يبعد المسافة نفسها عن مستقيمين أفقيين متوازيين يكون في المنتصف بين قيمتي ص. للمستقيمين ص = 1 وص = 7 نحسب قيمة المنتصف (1+7)/2 = 4. إذن المعادلة ص = 4؛ وبالفعل البعد عن 1 هو 3 وعن 7 هو 3.",
+      "afterEn": "Rule used: A horizontal line equidistant from two parallel horizontal lines has y-coordinate equal to the average of their y-values. Between y = 1 and y = 7, the midpoint level is (1+7)/2 = 4. Thus the line is y = 4, three units from each.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": true,
+          "LatexCode": "y=4"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "y=3"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "x=4"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "y=6"
+        }
+      ],
+      "correctLatex": "y=4"
+    },
+    {
+      "id": 129,
+      "topicProposalId": 11,
+      "questionAr": "أي معادلة تمثل مجموعة نقاط تبعد ثلاث وحدات عن (1,2)؟",
+      "questionEn": "Which equation describes all points at distance 3 from (1,2)?",
+      "beforeAr": "هذه دائرة مركزها (1,2) ونصف قطرها 3، لذا (x-1)^2+(y-2)^2=9.",
+      "beforeEn": "This is a circle centered at (1,2) with radius 3, so (x-1)^2+(y-2)^2=9.",
+      "afterAr": "القانون المستخدم: مجموعة نقاط تبعد مسافة ثابتة r عن نقطة (h,k) هي دائرة معادلتها (س−h)²+(ص−k)²=r². المركز (1،2) والمسافة 3؛ بالتعويض (س−1)²+(ص−2)²=3²=9. هذه تمثل جميع النقاط المطلوبة.",
+      "afterEn": "Rule used: The locus of points at fixed distance r from (h,k) is a circle satisfying (x−h)² + (y−k)² = r². With center (1,2) and distance 3, substitute to get (x−1)² + (y−2)² = 9.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "(x-1)^2+(y-2)^2=3"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "(x+1)^2+(y+2)^2=9"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "(x-1)^2+(y+2)^2=9"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": true,
+          "LatexCode": "(x-1)^2+(y-2)^2=9"
+        }
+      ],
+      "correctLatex": "(x-1)^2+(y-2)^2=9"
+    },
+    {
+      "id": 130,
+      "topicProposalId": 11,
+      "questionAr": "طرفا قطعة رأسية هما (0,-2) و(0,6). ما معادلة منصفها العمودي؟",
+      "questionEn": "A vertical segment joins (0,-2) and (0,6). What is its perpendicular bisector?",
+      "beforeAr": "منتصف القطعة هو (0,2). المستقيم العمودي على قطعة رأسية يكون أفقياً، فالمعادلة y=2.",
+      "beforeEn": "The midpoint is (0,2). A perpendicular to a vertical line is horizontal, hence y=2.",
+      "afterAr": "المبدأ المستخدم: العمود المنصف لقطعة مستقيمة يمر بمنتصفها ويكون عمودياً على اتجاهها. القطعة من (0،−2) إلى (0،6) رأسية، ومنتصفها (0،(−2+6)/2) = (0،2). العمود عليها أفقي، لذا معادلته ص = 2.",
+      "afterEn": "Rule used: A perpendicular bisector passes through a segment's midpoint and is perpendicular to the segment. From (0,−2) to (0,6) the segment is vertical; its midpoint is (0,(−2+6)/2) = (0,2). The bisector is horizontal: y = 2.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "x=2"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": true,
+          "LatexCode": "y=2"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "y=0"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "x=0"
+        }
+      ],
+      "correctLatex": "y=2"
+    }
+  ]
+}
