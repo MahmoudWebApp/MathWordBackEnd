@@ -1,5 +1,14 @@
 # MathWorld — question-bank and solution-method review tracker
 
+## Verified continuation — primary statistics and probability (23 November 2026)
+
+- Independently reviewed **all 24** category-4 primary questions; two already appropriately explained (IDs 10 and 11), while **22 required clearer mathematical reasoning**.
+- Improved 22 bilingual solutions showing mean = total/number, mode = most frequent, median = middle sorted item, and equal-likelihood probability = favorable/possible. For question 207, explained **5/15 = 1/3** without changing the original correct fraction option; no equivalent distractor exists in that option set.
+- Independent Python fraction and numerical oracles plus three GitHub Actions checks **passed**. A one-time exact-source, answer-key-guarded transaction changed only bilingual explanation columns. **Production readback: 22/22 Arabic/English texts matched and 22/22 original correct option IDs/text were preserved.**
+- Cumulative: **101 published questions individually reviewed; 91 improved explanations and 10 accepted as-is**, covering primary arithmetic, multiplication/division, early algebra, data/probability, and 12 reviewed geometry examples. **500 other published problems are not yet fully reviewed**. A completed review does not imply endorsement/certification by external curricula.
+- Read-only structural scan of all 601 current published questions found **63 numeric-template families with 3 or more near-identical wordings**, containing **315 questions** and **252 additional number-only variants beyond one representative per family**. These are *potential repetition markers* (not 252 incorrect questions); proposed future diversification must preserve existing student history and keep drafts hidden pending review.
+
+
 ## Verified continuation — primary early algebra (23 November 2026)
 
 - Reviewed **all 28** published questions of stage-one category **2** (early algebra); **7 already adequately explained** and unchanged (IDs 6,7,154,166,178,190,202).
