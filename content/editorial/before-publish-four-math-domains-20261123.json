@@ -1,0 +1,41 @@
+{
+  "capturedAt": "2026-11-23",
+  "domains": [
+    {
+      "Id": 3,
+      "StableKey": "geometry-measurement",
+      "NameAr": "الهندسة والقياس",
+      "NameEn": "Geometry and Measurement",
+      "DescriptionAr": "الأشكال والحيز والقياسات والبراهين",
+      "DescriptionEn": "Shapes, space, measurement and proof",
+      "IsPublished": false
+    },
+    {
+      "Id": 5,
+      "StableKey": "calculus-analysis",
+      "NameAr": "التفاضل والتكامل والتحليل",
+      "NameEn": "Calculus and Analysis",
+      "DescriptionAr": "النهايات والتغير والتكامل والتحليل الرياضي",
+      "DescriptionEn": "Limits, rates of change, integration and analysis",
+      "IsPublished": false
+    },
+    {
+      "Id": 6,
+      "StableKey": "linear-algebra",
+      "NameAr": "الجبر الخطي",
+      "NameEn": "Linear Algebra",
+      "DescriptionAr": "المتجهات والمصفوفات والتحويلات الخطية",
+      "DescriptionEn": "Vectors, matrices and linear transformations",
+      "IsPublished": false
+    },
+    {
+      "Id": 8,
+      "StableKey": "differential-equations",
+      "NameAr": "المعادلات التفاضلية",
+      "NameEn": "Differential Equations",
+      "DescriptionAr": "نمذجة الأنظمة والتغير باستخدام المعادلات التفاضلية",
+      "DescriptionEn": "Modeling change with differential equations",
+      "IsPublished": false
+    }
+  ]
+}
