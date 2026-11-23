@@ -45,37 +45,44 @@ public sealed class StudentPremiumAnalyticsController : ControllerBase
 
     [HttpGet("export.csv")]
     [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
-    public async Task<IActionResult> ExportCsv(CancellationToken ct)
+    public async Task<IActionResult> ExportCsv([FromQuery] string lang = "ar",
+        CancellationToken ct = default)
     {
+        if (lang != "ar" && lang != "en")
+            return BadRequest(new { Message = "InvalidReportLanguage" });
         var userId = await PremiumStudentId(ct);
         if (userId.Status is not null) return userId.Status;
 
+        var ar = lang == "ar";
         var report = await BuildReport(userId.Id!.Value, ct);
         var csv = new StringBuilder();
-        csv.AppendLine("StageId,CategoryId,StageAr,StageEn,CategoryAr,CategoryEn,AttemptedProblems,SolvedProblems,ErrorNotebookProblems,Attempts,CorrectAttempts,IncorrectAttempts,FirstTryCorrect,Points,TimeSpentSeconds");
+        csv.AppendLine(ar
+            ? "المرحلة,الفئة,المسائل المجربة,المسائل المحلولة,دفتر الأخطاء,عدد المحاولات,الإجابات الصحيحة,الإجابات الخاطئة,صحيحة من أول مرة,النقاط,الوقت بالثواني"
+            : "Stage,Category,Attempted problems,Solved problems,Error notebook,Attempts,Correct attempts,Incorrect attempts,Correct on first try,Points,Time (seconds)");
+
         foreach (var row in report.Categories)
         {
-            csv.Append(row.StageId).Append(',').Append(row.CategoryId).Append(',')
-                .Append(Csv(row.StageNameAr)).Append(',').Append(Csv(row.StageNameEn)).Append(',')
-                .Append(Csv(row.CategoryNameAr)).Append(',').Append(Csv(row.CategoryNameEn)).Append(',')
+            csv.Append(Csv(ar ? row.StageNameAr : row.StageNameEn)).Append(',')
+                .Append(Csv(ar ? row.CategoryNameAr : row.CategoryNameEn)).Append(',')
                 .Append(row.AttemptedProblems).Append(',').Append(row.SolvedProblems).Append(',')
                 .Append(row.ErrorNotebookProblems).Append(',').Append(row.Attempts).Append(',')
                 .Append(row.CorrectAttempts).Append(',').Append(row.IncorrectAttempts).Append(',')
                 .Append(row.FirstTryCorrect).Append(',').Append(row.AwardedPoints).Append(',')
                 .Append(row.TimeSpentSeconds).AppendLine();
         }
-        csv.Append("TOTAL,,,,,,")
+        csv.Append(Csv(ar ? "الإجمالي" : "TOTAL")).Append(",,")
             .Append(report.AttemptedProblems).Append(',').Append(report.SolvedProblems).Append(',')
             .Append(report.Categories.Sum(x => x.ErrorNotebookProblems)).Append(',')
             .Append(report.Attempts).Append(',').Append(report.CorrectAttempts).Append(',')
             .Append(report.IncorrectAttempts).Append(',').Append(report.FirstTryCorrect).Append(',')
             .Append(report.AwardedPoints).Append(',').Append(report.TimeSpentSeconds).AppendLine();
 
-        var text = csv.ToString();
-        // Excel requires a UTF-8 BOM to recognize Arabic labels consistently.
-        var bytes = Encoding.UTF8.GetPreamble().Concat(Encoding.UTF8.GetBytes(text)).ToArray();
+        // UTF-8 BOM preserves Arabic in Excel, WPS, and other spreadsheet apps.
+        var bytes = Encoding.UTF8.GetPreamble().Concat(
+            Encoding.UTF8.GetBytes(csv.ToString())).ToArray();
         Response.Headers.CacheControl = "no-store";
-        return File(bytes, "text/csv; charset=utf-8", "mathworld-premium-analytics.csv");
+        return File(bytes, "text/csv; charset=utf-8",
+            "mathworld-premium-analytics-" + lang + ".csv");
     }
 
     /// <summary>
