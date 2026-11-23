@@ -1,0 +1,923 @@
+{
+  "topicKey": "p-number-sense",
+  "topicName": "Number Sense & Place Value",
+  "stageId": 1,
+  "domain": "Numbers and Operations",
+  "status": "Independently reviewed numerically; remains unpublished until authorized editorial publication",
+  "questionCount": 24,
+  "changesToProduction": false,
+  "questions": [
+    {
+      "id": 63,
+      "contentKey": "mw-20261122-p-number-sense-digit-value",
+      "topicProposalId": 5,
+      "primarySkillKey": "place-value",
+      "templateFamilyKey": "p-number-sense-digit-value",
+      "difficulty": 1,
+      "pisaProcess": "interpret_evaluate",
+      "objectiveAr": "تحديد القيمة المكانية وبناء أعداد من صيغ موسعة",
+      "objectiveEn": "Identify positional values and compose numbers from expanded forms",
+      "questionAr": "في العدد 462,915، ما قيمة الرقم 6؟",
+      "questionEn": "In 462,915, what is the value of the digit 6?",
+      "solutionAr": "الرقم 6 في منزلة عشرات الألوف؛ لذلك قيمته 6×10,000=60,000.",
+      "solutionEn": "The digit 6 is in the ten-thousands place, so its value is 6×10,000=60,000.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "6,000"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "600"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "60,000"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "600,000"
+        }
+      ],
+      "independentCorrectAnswer": "60,000"
+    },
+    {
+      "id": 64,
+      "contentKey": "mw-20261122-p-number-sense-expanded-form",
+      "topicProposalId": 5,
+      "primarySkillKey": "place-value",
+      "templateFamilyKey": "p-number-sense-expanded-form",
+      "difficulty": 2,
+      "pisaProcess": "employ",
+      "objectiveAr": "تحديد القيمة المكانية وبناء أعداد من صيغ موسعة",
+      "objectiveEn": "Identify positional values and compose numbers from expanded forms",
+      "questionAr": "ما العدد الناتج من 70,000 + 500 + 40 + 3؟",
+      "questionEn": "Which number equals 70,000 + 500 + 40 + 3?",
+      "solutionAr": "نجمع قيم المنازل: 70,000+500+40+3=70,543.",
+      "solutionEn": "Add the place values: 70,000+500+40+3=70,543.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "75,043"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": true,
+          "LatexCode": "70,543"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "70,453"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "70,053"
+        }
+      ],
+      "independentCorrectAnswer": "70,543"
+    },
+    {
+      "id": 65,
+      "contentKey": "mw-20261122-p-number-sense-compare-numbers",
+      "topicProposalId": 5,
+      "primarySkillKey": "place-value",
+      "templateFamilyKey": "p-number-sense-compare-numbers",
+      "difficulty": 2,
+      "pisaProcess": "interpret_evaluate",
+      "objectiveAr": "تحديد القيمة المكانية وبناء أعداد من صيغ موسعة",
+      "objectiveEn": "Identify positional values and compose numbers from expanded forms",
+      "questionAr": "اختر الرمز الصحيح الذي يملأ المربع: 58,209 □ 58,290.",
+      "questionEn": "Choose the correct comparison symbol: 58,209 □ 58,290.",
+      "solutionAr": "تتساوى المنازل حتى العشرات؛ 0 عشرات أصغر من 9 عشرات، لذا 58,209 < 58,290.",
+      "solutionEn": "The earlier digits match; 0 tens is less than 9 tens, so 58,209 < 58,290.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": ">"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "="
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "<"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "≥"
+        }
+      ],
+      "independentCorrectAnswer": "<"
+    },
+    {
+      "id": 66,
+      "contentKey": "mw-20261122-p-number-sense-round-to-hundred",
+      "topicProposalId": 5,
+      "primarySkillKey": "rounding",
+      "templateFamilyKey": "p-number-sense-round-to-hundred",
+      "difficulty": 2,
+      "pisaProcess": "employ",
+      "objectiveAr": "تقريب الأعداد إلى منزلة محددة وشرح السبب",
+      "objectiveEn": "Round whole numbers to a requested place and justify the result",
+      "questionAr": "قرّب العدد 37,648 إلى أقرب مئة.",
+      "questionEn": "Round 37,648 to the nearest hundred.",
+      "solutionAr": "رقم العشرات 4 أصغر من 5؛ تبقى المئات كما هي، فيكون 37,600.",
+      "solutionEn": "The tens digit is 4, less than 5; keep the hundreds digit and obtain 37,600.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "37,700"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": true,
+          "LatexCode": "37,600"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "37,650"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "38,000"
+        }
+      ],
+      "independentCorrectAnswer": "37,600"
+    },
+    {
+      "id": 67,
+      "contentKey": "mw-20261122-p-number-sense-round-to-thousand",
+      "topicProposalId": 5,
+      "primarySkillKey": "rounding",
+      "templateFamilyKey": "p-number-sense-round-to-thousand",
+      "difficulty": 2,
+      "pisaProcess": "employ",
+      "objectiveAr": "تقريب الأعداد إلى منزلة محددة وشرح السبب",
+      "objectiveEn": "Round whole numbers to a requested place and justify the result",
+      "questionAr": "قرّب 9,650 إلى أقرب ألف.",
+      "questionEn": "Round 9,650 to the nearest thousand.",
+      "solutionAr": "رقم المئات 6 يساوي 5 أو يزيد عليه؛ نقرّب 9,650 إلى 10,000.",
+      "solutionEn": "The hundreds digit is 6, so 9,650 rounds up to 10,000.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "9,000"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "9,600"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "10,000"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "9,700"
+        }
+      ],
+      "independentCorrectAnswer": "10,000"
+    },
+    {
+      "id": 68,
+      "contentKey": "mw-20261122-p-number-sense-estimate-sum",
+      "topicProposalId": 5,
+      "primarySkillKey": "estimation",
+      "templateFamilyKey": "p-number-sense-estimate-sum",
+      "difficulty": 2,
+      "pisaProcess": "formulate",
+      "objectiveAr": "تقدير ناتج عملية باستخدام أعداد ملائمة",
+      "objectiveEn": "Estimate operation outcomes using compatible numbers",
+      "questionAr": "لتقدير 392 + 614 بالتقريب إلى أقرب مئة لكل عدد، ما الناتج؟",
+      "questionEn": "Estimate 392 + 614 by rounding each number to the nearest hundred.",
+      "solutionAr": "392≈400 و614≈600؛ المجموع التقديري 1,000.",
+      "solutionEn": "392≈400 and 614≈600; the estimate is 1,000.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "900"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "1,100"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "1,006"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": true,
+          "LatexCode": "1,000"
+        }
+      ],
+      "independentCorrectAnswer": "1,000"
+    },
+    {
+      "id": 69,
+      "contentKey": "mw-20261122-p-number-sense-estimate-difference",
+      "topicProposalId": 5,
+      "primarySkillKey": "estimation",
+      "templateFamilyKey": "p-number-sense-estimate-difference",
+      "difficulty": 3,
+      "pisaProcess": "formulate",
+      "objectiveAr": "تقدير ناتج عملية باستخدام أعداد ملائمة",
+      "objectiveEn": "Estimate operation outcomes using compatible numbers",
+      "questionAr": "قدّر 1,508 − 692 بتقريب كل عدد لأقرب مئة.",
+      "questionEn": "Estimate 1,508 − 692 by rounding each number to the nearest hundred.",
+      "solutionAr": "1,508≈1,500 و692≈700؛ الفرق التقديري 800.",
+      "solutionEn": "1,508≈1,500 and 692≈700, giving an estimated difference of 800.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "900"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": true,
+          "LatexCode": "800"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "700"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "816"
+        }
+      ],
+      "independentCorrectAnswer": "800"
+    },
+    {
+      "id": 70,
+      "contentKey": "mw-20261122-p-number-sense-forty-hundreds",
+      "topicProposalId": 5,
+      "primarySkillKey": "place-value",
+      "templateFamilyKey": "p-number-sense-forty-hundreds",
+      "difficulty": 1,
+      "pisaProcess": "employ",
+      "objectiveAr": "تحديد القيمة المكانية وبناء أعداد من صيغ موسعة",
+      "objectiveEn": "Identify positional values and compose numbers from expanded forms",
+      "questionAr": "كم يساوي أربعون مجموعة من مئة؟",
+      "questionEn": "What is the total value of forty groups of one hundred?",
+      "solutionAr": "أربعون مجموعة من مئة تساوي 40×100=4,000 وحدة.",
+      "solutionEn": "Forty groups of one hundred give 40×100=4,000 units.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "400"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "40,000"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "4,000"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "440"
+        }
+      ],
+      "independentCorrectAnswer": "4,000"
+    },
+    {
+      "id": 159,
+      "contentKey": "mw-wave4-p-digit-value",
+      "topicProposalId": 5,
+      "primarySkillKey": "place-value",
+      "templateFamilyKey": "wave4-p-digit-value",
+      "difficulty": 1,
+      "pisaProcess": "employ",
+      "objectiveAr": "تمييز قيمة الرقم وفق موقعه",
+      "objectiveEn": "Identify a digit's positional value",
+      "questionAr": "في العدد 57,304 ما القيمة المكانية للرقم 7؟",
+      "questionEn": "In the number 57,304, what is the place value of digit 7?",
+      "solutionAr": "القانون المستخدم: قانون القيمة المكانية: قيمة الرقم = الرقم × قيمة منزلته.\n\nخطوات الحل: الرقم 7 يقع في منزلة الآلاف، لذلك قيمته تساوي 7,000.",
+      "solutionEn": "Rule used: Place-value rule: digit value = digit × value of its position.\n\nSolution steps: The digit 7 is in the thousands place, so its value is 7,000.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "700"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": true,
+          "LatexCode": "7000"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "70"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "7"
+        }
+      ],
+      "independentCorrectAnswer": "7000"
+    },
+    {
+      "id": 160,
+      "contentKey": "mw-wave4-p-compare-four",
+      "topicProposalId": 5,
+      "primarySkillKey": "number-comparison",
+      "templateFamilyKey": "wave4-p-compare-four",
+      "difficulty": 2,
+      "pisaProcess": "interpret_evaluate",
+      "objectiveAr": "ترتيب الأعداد وفق قيمتها",
+      "objectiveEn": "Compare multi-digit quantities",
+      "questionAr": "من بين الأعداد 4,096 و4,609 و4,690 و4,906، أيها الأكبر؟",
+      "questionEn": "Which is greatest: 4,096, 4,609, 4,690, or 4,906?",
+      "solutionAr": "القانون المستخدم: قاعدة المقارنة: نقارن المنازل من اليسار ونحكم عند أول اختلاف.\n\nخطوات الحل: نقارن الآلاف ثم المئات، و4,906 له 9 مئات، لذا هو الأكبر.",
+      "solutionEn": "Rule used: Comparison rule: compare digits from the highest place, at the first difference.\n\nSolution steps: Compare thousands then hundreds; 4,906 has nine hundreds and is greatest.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "4609"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "4690"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "4906"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "4096"
+        }
+      ],
+      "independentCorrectAnswer": "4906"
+    },
+    {
+      "id": 161,
+      "contentKey": "mw-wave4-p-round-hundreds",
+      "topicProposalId": 5,
+      "primarySkillKey": "rounding",
+      "templateFamilyKey": "wave4-p-round-hundreds",
+      "difficulty": 2,
+      "pisaProcess": "employ",
+      "objectiveAr": "تقريب العدد واستخدام التقدير",
+      "objectiveEn": "Round and estimate appropriately",
+      "questionAr": "قرّب العدد 3,867 إلى أقرب مئة، مع مراعاة منزلة العشرات.",
+      "questionEn": "Round 3,867 to the nearest hundred using the tens digit.",
+      "solutionAr": "القانون المستخدم: قاعدة التقريب: إذا كانت منزلة العشرات 5 أو أكثر نزيد المئات واحداً.\n\nخطوات الحل: منزلة العشرات هي 6، فنرفع المئات من 8 إلى 9 ويصبح العدد 3,900.",
+      "solutionEn": "Rule used: Rounding rule: if the tens digit is at least 5, increase the hundreds digit by one.\n\nSolution steps: The tens digit is 6, so round the hundreds place up: 3,900.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "3800"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "3860"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "3900"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "4000"
+        }
+      ],
+      "independentCorrectAnswer": "3900"
+    },
+    {
+      "id": 162,
+      "contentKey": "mw-wave4-p-step-count",
+      "topicProposalId": 5,
+      "primarySkillKey": "counting",
+      "templateFamilyKey": "wave4-p-step-count",
+      "difficulty": 2,
+      "pisaProcess": "formulate",
+      "objectiveAr": "متابعة تسلسل عددي ثابت الخطوة",
+      "objectiveEn": "Continue a fixed-step counting pattern",
+      "questionAr": "يبدأ عداد عند 1,250 ويزيد 25 في كل خطوة. ما العدد بعد ثلاث خطوات؟",
+      "questionEn": "A counter starts at 1,250 and increases by 25 each step. What does it show after three steps?",
+      "solutionAr": "القانون المستخدم: قانون النمط: الحد الجديد = البداية + عدد الخطوات × مقدار الزيادة.\n\nخطوات الحل: نضيف ثلاث مرات 25: ‏1,250 + 75 = 1,325.",
+      "solutionEn": "Rule used: Sequence rule: new value = start + number of steps × step size.\n\nSolution steps: Three increments of 25 total 75; 1,250 + 75 = 1,325.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "1275"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "1300"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "1325"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "1350"
+        }
+      ],
+      "independentCorrectAnswer": "1325"
+    },
+    {
+      "id": 163,
+      "contentKey": "mw-wave4-p-estimate-sum",
+      "topicProposalId": 5,
+      "primarySkillKey": "rounding",
+      "templateFamilyKey": "wave4-p-estimate-sum",
+      "difficulty": 2,
+      "pisaProcess": "interpret_evaluate",
+      "objectiveAr": "تقريب العدد واستخدام التقدير",
+      "objectiveEn": "Round and estimate appropriately",
+      "questionAr": "قدّر ناتج جمع 198 و304 بتقريب كل عدد إلى أقرب مئة أولاً.",
+      "questionEn": "Estimate 198 + 304 by first rounding each number to the nearest hundred.",
+      "solutionAr": "القانون المستخدم: قاعدة التقدير: نقرّب كل عدد إلى المنزلة المطلوبة ثم نجمع القيم المقرّبة.\n\nخطوات الحل: نقرّب 198 إلى 200 و304 إلى 300؛ مجموع التقدير 500.",
+      "solutionEn": "Rule used: Estimation rule: round each term to the requested place before adding.\n\nSolution steps: Round 198 to 200 and 304 to 300, then add to estimate 500.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "400"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": true,
+          "LatexCode": "500"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "502"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "600"
+        }
+      ],
+      "independentCorrectAnswer": "500"
+    },
+    {
+      "id": 164,
+      "contentKey": "mw-wave4-p-expanded-number",
+      "topicProposalId": 5,
+      "primarySkillKey": "place-value",
+      "templateFamilyKey": "wave4-p-expanded-number",
+      "difficulty": 2,
+      "pisaProcess": "employ",
+      "objectiveAr": "تمييز قيمة الرقم وفق موقعه",
+      "objectiveEn": "Identify a digit's positional value",
+      "questionAr": "ما العدد المكوّن من 4 آلاف و3 مئات و2 عشرات و7 آحاد؟",
+      "questionEn": "Which number has four thousands, three hundreds, two tens, and seven ones?",
+      "solutionAr": "القانون المستخدم: قانون تكوين العدد: العدد = مجموع (الرقم × قيمة منزلته).\n\nخطوات الحل: نجمع قيم المنازل: ‏4000 + 300 + 20 + 7 = 4327.",
+      "solutionEn": "Rule used: Expanded form: number = sum of (digit × its place value).\n\nSolution steps: Add the place values: 4,000 + 300 + 20 + 7 = 4,327.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "4237"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "4307"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "4320"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": true,
+          "LatexCode": "4327"
+        }
+      ],
+      "independentCorrectAnswer": "4327"
+    },
+    {
+      "id": 183,
+      "contentKey": "mw-wave4-depth-p-digit-move",
+      "topicProposalId": 5,
+      "primarySkillKey": "place-value",
+      "templateFamilyKey": "wave4-depth-p-digit-move",
+      "difficulty": 2,
+      "pisaProcess": "interpret_evaluate",
+      "objectiveAr": "تمييز قيمة الرقم وفق موقعه",
+      "objectiveEn": "Identify a digit's positional value",
+      "questionAr": "إذا انتقل الرقم 4 من منزلة المئات إلى منزلة الآلاف، كم مرة تصبح قيمته المكانية أكبر؟",
+      "questionEn": "If the digit 4 moves from the hundreds place to the thousands place, by what factor does its place value increase?",
+      "solutionAr": "القانون المستخدم: قانون المنازل: الانتقال منزلة واحدة إلى اليسار يضاعف قيمة الرقم عشر مرات.\n\nخطوات الحل: كانت قيمته 400 وأصبحت 4000؛ نقسم 4000 على 400 فتصبح عشرة أضعاف.",
+      "solutionEn": "Rule used: Place-value rule: shifting a digit one place left multiplies its value by ten.\n\nSolution steps: The value changes from 400 to 4,000, and 4,000 divided by 400 is a factor of ten.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "4"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": true,
+          "LatexCode": "10"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "100"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "1000"
+        }
+      ],
+      "independentCorrectAnswer": "10"
+    },
+    {
+      "id": 184,
+      "contentKey": "mw-wave4-depth-p-place-zeros",
+      "topicProposalId": 5,
+      "primarySkillKey": "place-value",
+      "templateFamilyKey": "wave4-depth-p-place-zeros",
+      "difficulty": 2,
+      "pisaProcess": "employ",
+      "objectiveAr": "تمييز قيمة الرقم وفق موقعه",
+      "objectiveEn": "Identify a digit's positional value",
+      "questionAr": "ما العدد الذي يساوي ستة آلاف وأربع عشرات وتسعة آحاد، دون إضافة مئات؟",
+      "questionEn": "Which number represents six thousands, four tens and nine ones, with zero hundreds?",
+      "solutionAr": "القانون المستخدم: الصيغة الموسعة: العدد = مجموع القيم المكانية، والمنزلة الفارغة قيمتها صفر.\n\nخطوات الحل: نجمع 6000 و40 و9، ونضع صفراً في منزلة المئات؛ الناتج 6049.",
+      "solutionEn": "Rule used: Expanded form: number = sum of place values; an empty place contributes zero.\n\nSolution steps: Combine 6,000, 40 and 9, with zero hundreds, giving the number 6,049.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": true,
+          "LatexCode": "6049"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "6409"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "6490"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "60049"
+        }
+      ],
+      "independentCorrectAnswer": "6049"
+    },
+    {
+      "id": 185,
+      "contentKey": "mw-wave4-depth-p-number-line-mid",
+      "topicProposalId": 5,
+      "primarySkillKey": "number-comparison",
+      "templateFamilyKey": "wave4-depth-p-number-line-mid",
+      "difficulty": 2,
+      "pisaProcess": "formulate",
+      "objectiveAr": "ترتيب الأعداد وفق قيمتها",
+      "objectiveEn": "Compare multi-digit quantities",
+      "questionAr": "على خط الأعداد توجد علامتان عند 340 و360. ما العدد الواقع في منتصف المسافة بينهما؟",
+      "questionEn": "On a number line, two marks are at 340 and 360. What number is exactly halfway between them?",
+      "solutionAr": "القانون المستخدم: قانون المنتصف على خط الأعداد: m=(a+b)/2.\n\nخطوات الحل: منتصف العددين هو متوسطهما: ‏(340+360)÷2 = 350، وهو يبعد 10 عن كل طرف.",
+      "solutionEn": "Rule used: Number-line midpoint: m=(a+b)/2.\n\nSolution steps: The midpoint is the average (340+360)/2=350, ten units away from either endpoint.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "345"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": true,
+          "LatexCode": "350"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "355"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "370"
+        }
+      ],
+      "independentCorrectAnswer": "350"
+    },
+    {
+      "id": 186,
+      "contentKey": "mw-wave4-depth-p-round-candidate",
+      "topicProposalId": 5,
+      "primarySkillKey": "rounding",
+      "templateFamilyKey": "wave4-depth-p-round-candidate",
+      "difficulty": 3,
+      "pisaProcess": "interpret_evaluate",
+      "objectiveAr": "تقريب العدد واستخدام التقدير",
+      "objectiveEn": "Round and estimate appropriately",
+      "questionAr": "أي عدد من الخيارات التالية يصبح 4600 عند تقريبه لأقرب مئة بالطريقة المعتادة؟",
+      "questionEn": "Which of these numbers rounds to 4,600 to the nearest hundred using the usual half-up rule?",
+      "solutionAr": "القانون المستخدم: قاعدة التقريب لأقرب مئة: المئات تزيد إذا كان رقم العشرات 5 أو أكثر.\n\nخطوات الحل: العدد 4563 أقرب إلى 4600 منه إلى 4500، بينما الأعداد الأخرى تُقرب إلى مئات مختلفة.",
+      "solutionEn": "Rule used: Nearest-hundred rule: increase the hundreds digit if the tens digit is 5 or more.\n\nSolution steps: The number 4,563 is nearer to 4,600 than to 4,500, while the other choices round to different hundreds.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "4490"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": true,
+          "LatexCode": "4563"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "4650"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "4790"
+        }
+      ],
+      "independentCorrectAnswer": "4563"
+    },
+    {
+      "id": 187,
+      "contentKey": "mw-wave4-depth-p-budget-remainder",
+      "topicProposalId": 5,
+      "primarySkillKey": "number-comparison",
+      "templateFamilyKey": "wave4-depth-p-budget-remainder",
+      "difficulty": 3,
+      "pisaProcess": "formulate",
+      "objectiveAr": "ترتيب الأعداد وفق قيمتها",
+      "objectiveEn": "Compare multi-digit quantities",
+      "questionAr": "مع النادي 1500 ليرة واشترى أدوات بمبالغ 490 و390 و610 ليرات. كم ليرة تبقّت؟",
+      "questionEn": "A club has 1,500 units of currency and buys supplies costing 490, 390 and 610. How much is left?",
+      "solutionAr": "القانون المستخدم: قانون الباقي: الباقي = الميزانية − مجموع المصروفات.\n\nخطوات الحل: نجمع المشتريات: ‏490+390+610=1490، ثم نطرح من الميزانية: ‏1500-1490=10.",
+      "solutionEn": "Rule used: Remainder formula: remaining budget = starting budget − total expenses.\n\nSolution steps: The purchases cost 490+390+610=1,490, leaving 1,500−1,490=10 units.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "0"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": true,
+          "LatexCode": "10"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "20"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "110"
+        }
+      ],
+      "independentCorrectAnswer": "10"
+    },
+    {
+      "id": 188,
+      "contentKey": "mw-wave4-depth-p-pencils-tens",
+      "topicProposalId": 5,
+      "primarySkillKey": "counting",
+      "templateFamilyKey": "wave4-depth-p-pencils-tens",
+      "difficulty": 2,
+      "pisaProcess": "formulate",
+      "objectiveAr": "متابعة تسلسل عددي ثابت الخطوة",
+      "objectiveEn": "Continue a fixed-step counting pattern",
+      "questionAr": "لدينا 36 قلماً. كوّنا أكبر عدد ممكن من حزم تحتوي كل منها عشرة أقلام. كم حزمة كاملة وكم قلماً متبقياً؟",
+      "questionEn": "There are 36 pencils. Make as many complete bundles of ten as possible. How many bundles and loose pencils remain?",
+      "solutionAr": "القانون المستخدم: خوارزمية القسمة: العدد = 10×عدد الحزم الكاملة + الباقي، حيث 0≤الباقي<10.\n\nخطوات الحل: نقسم 36 على 10: ثلاث عشرات تستهلك 30 قلماً، ويتبقى 6 أقلام منفردة.",
+      "solutionEn": "Rule used: Division identity: count = 10×full bundles + remainder, with 0≤remainder<10.\n\nSolution steps: Divide 36 by 10: three full bundles use 30 pencils and six pencils remain loose.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "(2,16)"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": true,
+          "LatexCode": "(3,6)"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "(4,0)"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "(3,3)"
+        }
+      ],
+      "independentCorrectAnswer": "(3,6)"
+    },
+    {
+      "id": 189,
+      "contentKey": "mw-wave4-depth-p-smallest-number",
+      "topicProposalId": 5,
+      "primarySkillKey": "place-value",
+      "templateFamilyKey": "wave4-depth-p-smallest-number",
+      "difficulty": 3,
+      "pisaProcess": "interpret_evaluate",
+      "objectiveAr": "تمييز قيمة الرقم وفق موقعه",
+      "objectiveEn": "Identify a digit's positional value",
+      "questionAr": "ما أصغر عدد مكوّن من أربعة أرقام يكون فيه الرقم 6 في المئات والرقم 8 في الآحاد؟",
+      "questionEn": "What is the smallest four-digit number with 6 in the hundreds place and 8 in the ones place?",
+      "solutionAr": "القانون المستخدم: قاعدة أصغر عدد بأربع خانات: تبدأ منزلة الآلاف برقم غير صفري، وتصغّر المنازل غير المقيّدة.\n\nخطوات الحل: للحصول على أصغر عدد، نختار 1 للآلاف و0 للعشرات، مع تثبيت 6 للمئات و8 للآحاد: 1608.",
+      "solutionEn": "Rule used: Smallest four-digit number: thousands must be nonzero; minimize the other unrestricted places.\n\nSolution steps: To minimize the number, use 1 in the thousands and 0 in the tens while keeping 6 hundreds and 8 ones: 1,608.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "1068"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": true,
+          "LatexCode": "1608"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "1680"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "2608"
+        }
+      ],
+      "independentCorrectAnswer": "1608"
+    },
+    {
+      "id": 190,
+      "contentKey": "mw-wave4-depth-p-tens-in-interval",
+      "topicProposalId": 5,
+      "primarySkillKey": "counting",
+      "templateFamilyKey": "wave4-depth-p-tens-in-interval",
+      "difficulty": 2,
+      "pisaProcess": "interpret_evaluate",
+      "objectiveAr": "متابعة تسلسل عددي ثابت الخطوة",
+      "objectiveEn": "Continue a fixed-step counting pattern",
+      "questionAr": "كم عدد مضاعفات العدد عشرة الواقعة بين 365 و390 دون احتساب الطرفين؟",
+      "questionEn": "How many multiples of ten lie strictly between 365 and 390, excluding both endpoints?",
+      "solutionAr": "القانون المستخدم: قانون مضاعفات عشرة: العدد n مضاعف للعدد 10 إذا كان n÷10 عدداً صحيحاً.\n\nخطوات الحل: المضاعفان الوحيدان داخل المجال المفتوح هما 370 و380، لذلك العدد اثنان.",
+      "solutionEn": "Rule used: Multiple-of-ten test: n is a multiple of 10 iff n÷10 is an integer.\n\nSolution steps: Only 370 and 380 are strictly inside this interval, so there are exactly two multiples.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "1"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": true,
+          "LatexCode": "2"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "3"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "4"
+        }
+      ],
+      "independentCorrectAnswer": "2"
+    },
+    {
+      "id": 215,
+      "contentKey": "mw-wave5-digit-position-range-count",
+      "topicProposalId": 5,
+      "primarySkillKey": "counting",
+      "templateFamilyKey": "wave5-digit-position-combinatorics",
+      "difficulty": 2,
+      "pisaProcess": "interpret_evaluate",
+      "objectiveAr": "عد الأعداد عبر تثبيت القيم المكانية وتغيير الآحاد",
+      "objectiveEn": "Count numbers by fixing place-value digits and varying units",
+      "questionAr": "كم عدد الأعداد الصحيحة من 200 إلى 299 التي يكون رقم العشرات فيها 4؟",
+      "questionEn": "How many integers from 200 through 299 have 4 in the tens place?",
+      "solutionAr": "القانون المستخدم: في المنازل العشرية كل رقم آحاد من 0 إلى 9 يكوّن عدداً مختلفاً مع تثبيت المئات والعشرات.\n\nخطوات الحل: الأعداد هي 240، 241، ...، 249. هذه عشرة أعداد، لأن الآحاد لها عشر قيم ممكنة.",
+      "solutionEn": "Rule used: Fixing the hundreds and tens digits leaves ten possible units digits, from 0 through 9.\n\nSolution steps: The integers are 240, 241, ..., 249. There are ten choices for the units digit.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "9"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": true,
+          "LatexCode": "10"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "11"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "100"
+        }
+      ],
+      "independentCorrectAnswer": "10"
+    },
+    {
+      "id": 216,
+      "contentKey": "mw-wave5-subtract-through-zero-places",
+      "topicProposalId": 5,
+      "primarySkillKey": "place-value",
+      "templateFamilyKey": "wave5-place-value-borrowing",
+      "difficulty": 3,
+      "pisaProcess": "employ",
+      "objectiveAr": "استخدام القيمة المكانية وإعادة التجميع للتحقق من الطرح",
+      "objectiveEn": "Use place value and regrouping to compute and verify subtraction",
+      "questionAr": "بدأ عدّاد عند 6,005 ثم نقص 90. ما العدد الجديد؟",
+      "questionEn": "A counter starts at 6,005 and decreases by 90. What is the new value?",
+      "solutionAr": "القانون المستخدم: نطرح وفق القيمة المكانية ونستلف من منزلة أعلى عندما لا تكفي العشرات.\n\nخطوات الحل: نكتب 6,005 − 90 = 5,915. التحقق: 5,915 + 90 = 6,005.",
+      "solutionEn": "Rule used: Subtract by place value and regroup from a higher place when the tens place is insufficient.\n\nSolution steps: Compute 6,005 − 90 = 5,915. Check by adding 90 back: 5,915 + 90 = 6,005.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": true,
+          "LatexCode": "5915"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "5015"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "5995"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "6105"
+        }
+      ],
+      "independentCorrectAnswer": "5915"
+    }
+  ]
+}
