@@ -1,5 +1,14 @@
 # MathWorld — question-bank and solution-method review tracker
 
+## Final elementary-stage clarity audit (23 November 2026)
+
+- The two short but numerically correct explanations (IDs **422** and **476**) have now been expanded in both languages with named conversion/percentage principles, calculation and inverse check.
+- Atomic, source-guarded transaction and live readback matched **2/2 bilingual explanations** and **2/2 original answer option IDs/text**, with no changes to student history, questions or access.
+- **Final primary-stage total: 151/151 questions individually reviewed; 127 bilingual worked explanations enhanced; 24 already adequate and unchanged**.
+- **Zero** primary-stage Arabic explanations and **zero** English explanations under 55 characters after the updates. This is a length/coverage signal, not automatic proof that every explanation is pedagogically perfect.
+- Remaining individually unreviewed student-facing bank: **450 questions** in stages 2–4, plus **160 DraftItems** not published to students.
+
+
 ## Verified complete stage-one question-bank review (23 November 2026)
 
 - Individually audited **all 34 primary fractions/decimals questions**, including percentage, rounding, fraction arithmetic and equivalent fractions; **16** original explanations were already adequate, while **18** bilingual worked explanations were expanded (IDs 423,424,426,427,477,617,618,619,620,693,694,695,696,817,818,819,820,822).
