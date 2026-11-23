@@ -1,0 +1,1417 @@
+{
+  "stageId": 3,
+  "questionCount": 36,
+  "topicKeys": [
+    "s-exponents-logarithms",
+    "s-analytic-geometry",
+    "s-vectors"
+  ],
+  "status": "Independent mathematical review complete; draft remains unpublished until explicit administrator approval",
+  "changesToProduction": false,
+  "questions": [
+    {
+      "id": 79,
+      "topicProposalId": 7,
+      "topicKey": "s-exponents-logarithms",
+      "contentKey": "mw-20261122-s-exponents-logarithms-population-growth",
+      "skillKey": "growth-models",
+      "templateKey": "s-exponents-logarithms-population-growth",
+      "difficulty": 2,
+      "pisaProcess": "employ",
+      "objectiveAr": "حساب قيم نموذج نمو أسي في سياق واقعي",
+      "objectiveEn": "Evaluate exponential growth models in context",
+      "questionAr": "يُعطى عدد أفراد مستعمرة بالدالة P(t)=250×(1.2)^t. ما P(2)؟",
+      "questionEn": "A colony has P(t)=250×(1.2)^t. Find P(2).",
+      "solutionAr": "عند t=2 نحسب (1.2)^2=1.44، ثم P(2)=250×1.44=360 فرداً.",
+      "solutionEn": "At t=2, the growth multiplier is (1.2)^2=1.44, so P(2)=250×1.44=360 individuals.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "300"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": true,
+          "LatexCode": "360"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "390"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "250"
+        }
+      ],
+      "independentCorrectAnswer": "360"
+    },
+    {
+      "id": 80,
+      "topicProposalId": 7,
+      "topicKey": "s-exponents-logarithms",
+      "contentKey": "mw-20261122-s-exponents-logarithms-doubling",
+      "skillKey": "growth-models",
+      "templateKey": "s-exponents-logarithms-doubling",
+      "difficulty": 2,
+      "pisaProcess": "formulate",
+      "objectiveAr": "حساب قيم نموذج نمو أسي في سياق واقعي",
+      "objectiveEn": "Evaluate exponential growth models in context",
+      "questionAr": "يبدأ عدد البكتيريا بـ80 ويتضاعف كل ساعة. كم يصبح بعد 3 ساعات؟",
+      "questionEn": "A culture starts with 80 bacteria and doubles each hour. How many after 3 hours?",
+      "solutionAr": "بعد ثلاث فترات تضاعف: 80×2^3=640.",
+      "solutionEn": "After three doublings: 80×2^3=640.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "240"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "320"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "640"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "480"
+        }
+      ],
+      "independentCorrectAnswer": "640"
+    },
+    {
+      "id": 81,
+      "topicProposalId": 7,
+      "topicKey": "s-exponents-logarithms",
+      "contentKey": "mw-20261122-s-exponents-logarithms-compound-interest",
+      "skillKey": "growth-models",
+      "templateKey": "s-exponents-logarithms-compound-interest",
+      "difficulty": 3,
+      "pisaProcess": "formulate",
+      "objectiveAr": "حساب قيم نموذج نمو أسي في سياق واقعي",
+      "objectiveEn": "Evaluate exponential growth models in context",
+      "questionAr": "مبلغ 2,000 ينمو بمعدل 10% سنوياً دون سحب. كم يصبح بعد سنتين؟",
+      "questionEn": "An amount of 2,000 grows by 10% each year. What is it after two years?",
+      "solutionAr": "2,000×(1.10)^2=2,420.",
+      "solutionEn": "2,000×(1.10)^2=2,420.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "2,200"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": true,
+          "LatexCode": "2,420"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "2,400"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "2,600"
+        }
+      ],
+      "independentCorrectAnswer": "2,420"
+    },
+    {
+      "id": 82,
+      "topicProposalId": 7,
+      "topicKey": "s-exponents-logarithms",
+      "contentKey": "mw-20261122-s-exponents-logarithms-decay-two-periods",
+      "skillKey": "decay-half-life",
+      "templateKey": "s-exponents-logarithms-decay-two-periods",
+      "difficulty": 2,
+      "pisaProcess": "employ",
+      "objectiveAr": "تفسير عوامل التناقص وحساب نصف العمر",
+      "objectiveEn": "Interpret decay factors and half-life",
+      "questionAr": "كم تبقى من 1,200 بعد تناقص 10% سنوياً لمدة سنتين؟",
+      "questionEn": "How much remains of 1,200 after 10% decay each year for two years?",
+      "solutionAr": "نضرب بعامل البقاء 0.9 مرتين: 1,200×0.9^2=972.",
+      "solutionEn": "Multiply by 0.9 twice: 1,200×0.9^2=972.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "960"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "1,080"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "972"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "980"
+        }
+      ],
+      "independentCorrectAnswer": "972"
+    },
+    {
+      "id": 83,
+      "topicProposalId": 7,
+      "topicKey": "s-exponents-logarithms",
+      "contentKey": "mw-20261122-s-exponents-logarithms-half-life",
+      "skillKey": "decay-half-life",
+      "templateKey": "s-exponents-logarithms-half-life",
+      "difficulty": 3,
+      "pisaProcess": "interpret_evaluate",
+      "objectiveAr": "تفسير عوامل التناقص وحساب نصف العمر",
+      "objectiveEn": "Interpret decay factors and half-life",
+      "questionAr": "كتلة 640 غراماً ونصف عمرها 4 ساعات. بعد كم ساعة تصبح 80 غراماً؟",
+      "questionEn": "A 640 g sample has a half-life of 4 hours. After how many hours will it reach 80 g?",
+      "solutionAr": "640→320→160→80؛ ثلاث فترات نصف عمر، أي 3×4=12 ساعة.",
+      "solutionEn": "640→320→160→80 is three half-lives, so 3×4=12 hours.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "8"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "16"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "12"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "20"
+        }
+      ],
+      "independentCorrectAnswer": "12"
+    },
+    {
+      "id": 84,
+      "topicProposalId": 7,
+      "topicKey": "s-exponents-logarithms",
+      "contentKey": "mw-20261122-s-exponents-logarithms-factor-decay",
+      "skillKey": "decay-half-life",
+      "templateKey": "s-exponents-logarithms-factor-decay",
+      "difficulty": 2,
+      "pisaProcess": "interpret_evaluate",
+      "objectiveAr": "تفسير عوامل التناقص وحساب نصف العمر",
+      "objectiveEn": "Interpret decay factors and half-life",
+      "questionAr": "إذا كانت Q(t)=200×(0.7)^t، فما نسبة النقص في كل فترة؟",
+      "questionEn": "For Q(t)=200×(0.7)^t, what percent is lost each period?",
+      "solutionAr": "يتبقى 70% في كل فترة، فيكون النقص 100%−70%=30%.",
+      "solutionEn": "70% remains each period, so the loss is 100%−70%=30%.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "70%"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "20%"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "7%"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": true,
+          "LatexCode": "30%"
+        }
+      ],
+      "independentCorrectAnswer": "30%"
+    },
+    {
+      "id": 85,
+      "topicProposalId": 7,
+      "topicKey": "s-exponents-logarithms",
+      "contentKey": "mw-20261122-s-exponents-logarithms-rate-growth",
+      "skillKey": "model-interpretation",
+      "templateKey": "s-exponents-logarithms-rate-growth",
+      "difficulty": 1,
+      "pisaProcess": "interpret_evaluate",
+      "objectiveAr": "تحديد القيمة الابتدائية ومعدل التغير من الصيغة",
+      "objectiveEn": "Identify initial values and percentage rates from a model",
+      "questionAr": "ما نسبة النمو لكل فترة في N(t)=450×(1.03)^t؟",
+      "questionEn": "What is the growth rate per period for N(t)=450×(1.03)^t?",
+      "solutionAr": "المعامل 1.03=1+0.03؛ معدل النمو 3%.",
+      "solutionEn": "The factor 1.03=1+0.03, so growth is 3%.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "0.3%"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "30%"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "3%"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "103%"
+        }
+      ],
+      "independentCorrectAnswer": "3%"
+    },
+    {
+      "id": 86,
+      "topicProposalId": 7,
+      "topicKey": "s-exponents-logarithms",
+      "contentKey": "mw-20261122-s-exponents-logarithms-exp-sequence",
+      "skillKey": "model-interpretation",
+      "templateKey": "s-exponents-logarithms-exp-sequence",
+      "difficulty": 2,
+      "pisaProcess": "interpret_evaluate",
+      "objectiveAr": "تحديد القيمة الابتدائية ومعدل التغير من الصيغة",
+      "objectiveEn": "Identify initial values and percentage rates from a model",
+      "questionAr": "ما صيغة الحد العام للمتتالية 2، 6، 18، 54، مع بدء الترقيم من n=1؟",
+      "questionEn": "Which formula gives the sequence 2, 6, 18, 54 starting at n=1?",
+      "solutionAr": "النسبة المشتركة 3 والحد الأول 2، لذلك الحد العام هو a_n=2×3^{n−1}.",
+      "solutionEn": "The common ratio is 3 and the first term is 2, so a_n=2×3^{n−1}.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "a_n=2+3(n-1)"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": true,
+          "LatexCode": "a_n=2\\cdot3^{n-1}"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "a_n=3n"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "a_n=2\\cdot2^{n-1}"
+        }
+      ],
+      "independentCorrectAnswer": "a_n=2\\cdot3^{n-1}"
+    },
+    {
+      "id": 119,
+      "topicProposalId": 11,
+      "topicKey": "s-analytic-geometry",
+      "contentKey": "mw-wave2-s-analytic-geometry-slope-two-points",
+      "skillKey": "coordinate-lines",
+      "templateKey": "s-analytic-geometry-slope-two-points",
+      "difficulty": 2,
+      "pisaProcess": "employ",
+      "objectiveAr": "حساب الميل ومنتصف القطعة والمسافة ومعادلات المستقيمات",
+      "objectiveEn": "Compute slopes, midpoints, distances and equations of lines",
+      "questionAr": "ما ميل المستقيم المار بالنقطتين (1,2) و(5,10)؟",
+      "questionEn": "What is the slope of the line passing through (1,2) and (5,10)?",
+      "solutionAr": "الميل يساوي التغير في y على التغير في x، أي (10-2)/(5-1)=8/4=2.",
+      "solutionEn": "The slope is rise over run: (10-2)/(5-1)=8/4=2.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "\\frac12"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "4"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "2"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "8"
+        }
+      ],
+      "independentCorrectAnswer": "2"
+    },
+    {
+      "id": 120,
+      "topicProposalId": 11,
+      "topicKey": "s-analytic-geometry",
+      "contentKey": "mw-wave2-s-analytic-geometry-midpoint",
+      "skillKey": "coordinate-lines",
+      "templateKey": "s-analytic-geometry-midpoint",
+      "difficulty": 2,
+      "pisaProcess": "employ",
+      "objectiveAr": "حساب الميل ومنتصف القطعة والمسافة ومعادلات المستقيمات",
+      "objectiveEn": "Compute slopes, midpoints, distances and equations of lines",
+      "questionAr": "ما إحداثيا منتصف القطعة الواصلة بين (2,6) و(8,0)؟",
+      "questionEn": "Find the midpoint of the segment joining (2,6) and (8,0).",
+      "solutionAr": "نأخذ متوسط كل إحداثي: x=(2+8)/2=5 وy=(6+0)/2=3، فيكون المنتصف (5,3).",
+      "solutionEn": "Average the coordinates: x=(2+8)/2=5 and y=(6+0)/2=3, so the midpoint is (5,3).",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "(3,5)"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "(6,3)"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "(5,6)"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": true,
+          "LatexCode": "(5,3)"
+        }
+      ],
+      "independentCorrectAnswer": "(5,3)"
+    },
+    {
+      "id": 121,
+      "topicProposalId": 11,
+      "topicKey": "s-analytic-geometry",
+      "contentKey": "mw-wave2-s-analytic-geometry-distance-origin",
+      "skillKey": "coordinate-lines",
+      "templateKey": "s-analytic-geometry-distance-origin",
+      "difficulty": 2,
+      "pisaProcess": "employ",
+      "objectiveAr": "حساب الميل ومنتصف القطعة والمسافة ومعادلات المستقيمات",
+      "objectiveEn": "Compute slopes, midpoints, distances and equations of lines",
+      "questionAr": "احسب المسافة بين النقطتين (0,0) و(6,8).",
+      "questionEn": "Find the distance between (0,0) and (6,8).",
+      "solutionAr": "باستخدام فيثاغورس: جذر (6^2+8^2)=جذر 100=10.",
+      "solutionEn": "By the distance formula, sqrt(6^2+8^2)=sqrt(100)=10.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": true,
+          "LatexCode": "10"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "14"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "12"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "7"
+        }
+      ],
+      "independentCorrectAnswer": "10"
+    },
+    {
+      "id": 122,
+      "topicProposalId": 11,
+      "topicKey": "s-analytic-geometry",
+      "contentKey": "mw-wave2-s-analytic-geometry-line-intercept",
+      "skillKey": "coordinate-lines",
+      "templateKey": "s-analytic-geometry-line-intercept",
+      "difficulty": 2,
+      "pisaProcess": "interpret_evaluate",
+      "objectiveAr": "حساب الميل ومنتصف القطعة والمسافة ومعادلات المستقيمات",
+      "objectiveEn": "Compute slopes, midpoints, distances and equations of lines",
+      "questionAr": "مستقيم ميله -2 ويقطع محور y عند 3. ما معادلته؟",
+      "questionEn": "A line has slope -2 and y-intercept 3. Which equation represents it?",
+      "solutionAr": "نستخدم y=mx+b مع m=-2 وb=3 فنحصل على y=-2x+3.",
+      "solutionEn": "Using y=mx+b with m=-2 and b=3 gives y=-2x+3.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "y=2x+3"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": true,
+          "LatexCode": "y=-2x+3"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "y=-2x-3"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "y=3x-2"
+        }
+      ],
+      "independentCorrectAnswer": "y=-2x+3"
+    },
+    {
+      "id": 123,
+      "topicProposalId": 11,
+      "topicKey": "s-analytic-geometry",
+      "contentKey": "mw-wave2-s-analytic-geometry-circle-radius",
+      "skillKey": "circles",
+      "templateKey": "s-analytic-geometry-circle-radius",
+      "difficulty": 1,
+      "pisaProcess": "employ",
+      "objectiveAr": "تحديد مركز الدائرة ونصف قطرها والتحقق من النقاط عليها",
+      "objectiveEn": "Determine centers and radii of circles and test point membership",
+      "questionAr": "ما نصف قطر الدائرة التي معادلتها $x^2+y^2=49$؟",
+      "questionEn": "What is the radius of the circle $x^2+y^2=49$?",
+      "solutionAr": "في المعادلة القياسية x^2+y^2=r^2 نجد r^2=49، إذن r=7.",
+      "solutionEn": "In standard form x^2+y^2=r^2, r^2=49 and the nonnegative radius is r=7.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "49"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "14"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "7"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "\\sqrt7"
+        }
+      ],
+      "independentCorrectAnswer": "7"
+    },
+    {
+      "id": 124,
+      "topicProposalId": 11,
+      "topicKey": "s-analytic-geometry",
+      "contentKey": "mw-wave2-s-analytic-geometry-translated-circle",
+      "skillKey": "circles",
+      "templateKey": "s-analytic-geometry-translated-circle",
+      "difficulty": 3,
+      "pisaProcess": "employ",
+      "objectiveAr": "تحديد مركز الدائرة ونصف قطرها والتحقق من النقاط عليها",
+      "objectiveEn": "Determine centers and radii of circles and test point membership",
+      "questionAr": "أي معادلة تمثل دائرة مركزها (2,-3) ونصف قطرها 4؟",
+      "questionEn": "Which equation describes a circle centered at (2,-3) with radius 4?",
+      "solutionAr": "نطبق (x-h)^2+(y-k)^2=r^2. بوضع h=2 وk=-3 وr=4 نحصل على (x-2)^2+(y+3)^2=16.",
+      "solutionEn": "Use (x-h)^2+(y-k)^2=r^2 with h=2, k=-3 and r=4: (x-2)^2+(y+3)^2=16.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "(x+2)^2+(y-3)^2=16"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "(x-2)^2+(y-3)^2=16"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "(x-2)^2+(y+3)^2=4"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": true,
+          "LatexCode": "(x-2)^2+(y+3)^2=16"
+        }
+      ],
+      "independentCorrectAnswer": "(x-2)^2+(y+3)^2=16"
+    },
+    {
+      "id": 125,
+      "topicProposalId": 11,
+      "topicKey": "s-analytic-geometry",
+      "contentKey": "mw-wave2-s-analytic-geometry-diameter-to-equation",
+      "skillKey": "circles",
+      "templateKey": "s-analytic-geometry-diameter-to-equation",
+      "difficulty": 3,
+      "pisaProcess": "formulate",
+      "objectiveAr": "تحديد مركز الدائرة ونصف قطرها والتحقق من النقاط عليها",
+      "objectiveEn": "Determine centers and radii of circles and test point membership",
+      "questionAr": "طرفا قطر دائرة هما (-2,0) و(4,0). ما معادلة الدائرة؟",
+      "questionEn": "A circle has diameter endpoints (-2,0) and (4,0). Which is its equation?",
+      "solutionAr": "مركز الدائرة منتصف القطر أي (1,0)، وطول القطر 6 فالنصف قطر 3. المعادلة (x-1)^2+y^2=9.",
+      "solutionEn": "The diameter midpoint is (1,0) and its length is 6, so radius is 3. Equation: (x-1)^2+y^2=9.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "(x+1)^2+y^2=9"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": true,
+          "LatexCode": "(x-1)^2+y^2=9"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "(x-1)^2+y^2=36"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "x^2+y^2=9"
+        }
+      ],
+      "independentCorrectAnswer": "(x-1)^2+y^2=9"
+    },
+    {
+      "id": 126,
+      "topicProposalId": 11,
+      "topicKey": "s-analytic-geometry",
+      "contentKey": "mw-wave2-s-analytic-geometry-point-on-circle",
+      "skillKey": "circles",
+      "templateKey": "s-analytic-geometry-point-on-circle",
+      "difficulty": 2,
+      "pisaProcess": "interpret_evaluate",
+      "objectiveAr": "تحديد مركز الدائرة ونصف قطرها والتحقق من النقاط عليها",
+      "objectiveEn": "Determine centers and radii of circles and test point membership",
+      "questionAr": "أي نقطة تقع على الدائرة $x^2+y^2=25$؟",
+      "questionEn": "Which point lies on $x^2+y^2=25$?",
+      "solutionAr": "للزوج (3,4) نجد 3^2+4^2=9+16=25، ولذلك يحقق المعادلة.",
+      "solutionEn": "For (3,4), 3^2+4^2=9+16=25, so the point lies on the circle.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "(4,4)"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "(1,5)"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "(3,4)"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "(3,3)"
+        }
+      ],
+      "independentCorrectAnswer": "(3,4)"
+    },
+    {
+      "id": 127,
+      "topicProposalId": 11,
+      "topicKey": "s-analytic-geometry",
+      "contentKey": "mw-wave2-s-analytic-geometry-equidistant-two-points",
+      "skillKey": "loci",
+      "templateKey": "s-analytic-geometry-equidistant-two-points",
+      "difficulty": 2,
+      "pisaProcess": "formulate",
+      "objectiveAr": "تحديد مجموعات النقاط متساوية البعد والمنصفات العمودية",
+      "objectiveEn": "Describe equidistant loci and perpendicular bisectors",
+      "questionAr": "ما المعادلة التي تحققها جميع النقاط المتساوية البعد عن (0,0) و(4,0)؟",
+      "questionEn": "Find the locus of points equidistant from (0,0) and (4,0).",
+      "solutionAr": "المنصف العمودي للقطعة الأفقية يمر بمنتصفها (2,0)، وهو المستقيم الرأسي x=2.",
+      "solutionEn": "The perpendicular bisector of the horizontal segment passes through midpoint (2,0): x=2.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "x=4"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "y=2"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "x=2"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "y=0"
+        }
+      ],
+      "independentCorrectAnswer": "x=2"
+    },
+    {
+      "id": 128,
+      "topicProposalId": 11,
+      "topicKey": "s-analytic-geometry",
+      "contentKey": "mw-wave2-s-analytic-geometry-equidistant-parallel-lines",
+      "skillKey": "loci",
+      "templateKey": "s-analytic-geometry-equidistant-parallel-lines",
+      "difficulty": 2,
+      "pisaProcess": "employ",
+      "objectiveAr": "تحديد مجموعات النقاط متساوية البعد والمنصفات العمودية",
+      "objectiveEn": "Describe equidistant loci and perpendicular bisectors",
+      "questionAr": "ما معادلة الخط الواقع بين المستقيمين $y=1$ و$y=7$ وعلى المسافة نفسها منهما؟",
+      "questionEn": "Find the line midway between $y=1$ and $y=7$, equidistant from both.",
+      "solutionAr": "متوسط الإحداثيين الرأسيين هو (1+7)/2=4، لذلك المستقيم هو y=4.",
+      "solutionEn": "Take the midpoint of the two y-values: (1+7)/2=4, so the midway line is y=4.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": true,
+          "LatexCode": "y=4"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "y=3"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "x=4"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "y=6"
+        }
+      ],
+      "independentCorrectAnswer": "y=4"
+    },
+    {
+      "id": 129,
+      "topicProposalId": 11,
+      "topicKey": "s-analytic-geometry",
+      "contentKey": "mw-wave2-s-analytic-geometry-fixed-distance-locus",
+      "skillKey": "loci",
+      "templateKey": "s-analytic-geometry-fixed-distance-locus",
+      "difficulty": 2,
+      "pisaProcess": "interpret_evaluate",
+      "objectiveAr": "تحديد مجموعات النقاط متساوية البعد والمنصفات العمودية",
+      "objectiveEn": "Describe equidistant loci and perpendicular bisectors",
+      "questionAr": "أي معادلة تمثل مجموعة نقاط تبعد ثلاث وحدات عن (1,2)؟",
+      "questionEn": "Which equation describes all points at distance 3 from (1,2)?",
+      "solutionAr": "هذه دائرة مركزها (1,2) ونصف قطرها 3، لذا (x-1)^2+(y-2)^2=9.",
+      "solutionEn": "This is a circle centered at (1,2) with radius 3, so (x-1)^2+(y-2)^2=9.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "(x-1)^2+(y-2)^2=3"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "(x+1)^2+(y+2)^2=9"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "(x-1)^2+(y+2)^2=9"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": true,
+          "LatexCode": "(x-1)^2+(y-2)^2=9"
+        }
+      ],
+      "independentCorrectAnswer": "(x-1)^2+(y-2)^2=9"
+    },
+    {
+      "id": 130,
+      "topicProposalId": 11,
+      "topicKey": "s-analytic-geometry",
+      "contentKey": "mw-wave2-s-analytic-geometry-vertical-segment-bisector",
+      "skillKey": "loci",
+      "templateKey": "s-analytic-geometry-vertical-segment-bisector",
+      "difficulty": 3,
+      "pisaProcess": "formulate",
+      "objectiveAr": "تحديد مجموعات النقاط متساوية البعد والمنصفات العمودية",
+      "objectiveEn": "Describe equidistant loci and perpendicular bisectors",
+      "questionAr": "طرفا قطعة رأسية هما (0,-2) و(0,6). ما معادلة منصفها العمودي؟",
+      "questionEn": "A vertical segment joins (0,-2) and (0,6). What is its perpendicular bisector?",
+      "solutionAr": "منتصف القطعة هو (0,2). المستقيم العمودي على قطعة رأسية يكون أفقياً، فالمعادلة y=2.",
+      "solutionEn": "The midpoint is (0,2). A perpendicular to a vertical line is horizontal, hence y=2.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "x=2"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": true,
+          "LatexCode": "y=2"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "y=0"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "x=0"
+        }
+      ],
+      "independentCorrectAnswer": "y=2"
+    },
+    {
+      "id": 171,
+      "topicProposalId": 14,
+      "topicKey": "s-vectors",
+      "contentKey": "mw-wave4-s-displacement",
+      "skillKey": "vector-components",
+      "templateKey": "wave4-s-displacement",
+      "difficulty": 2,
+      "pisaProcess": "formulate",
+      "objectiveAr": "تمثيل الإزاحة وجمع المتجهات بمركباتها",
+      "objectiveEn": "Represent displacement and add coordinate vectors",
+      "questionAr": "نقطة البداية A(2,-1) ونقطة النهاية B(-1,5). ما مركبتا المتجه AB؟",
+      "questionEn": "A=(2,-1) and B=(-1,5). What are the components of displacement vector AB?",
+      "solutionAr": "القانون المستخدم: قانون الإزاحة: المتجه AB = (xB − xA, yB − yA).\n\nخطوات الحل: نطرح إحداثيات A من B: ‏(-1-2,5-(-1))=(-3,6).",
+      "solutionEn": "Rule used: Displacement law: vector AB = (xB − xA, yB − yA).\n\nSolution steps: Subtract A from B componentwise: (-1-2, 5-(-1)) = (-3,6).",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "(3,-6)"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "(-3,4)"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "(-3,6)"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "(1,4)"
+        }
+      ],
+      "independentCorrectAnswer": "(-3,6)"
+    },
+    {
+      "id": 172,
+      "topicProposalId": 14,
+      "topicKey": "s-vectors",
+      "contentKey": "mw-wave4-s-vector-addition",
+      "skillKey": "vector-components",
+      "templateKey": "wave4-s-vector-addition",
+      "difficulty": 2,
+      "pisaProcess": "employ",
+      "objectiveAr": "تمثيل الإزاحة وجمع المتجهات بمركباتها",
+      "objectiveEn": "Represent displacement and add coordinate vectors",
+      "questionAr": "إذا كان u=(2,-3) وv=(-5,4)، فما المتجه u+v؟",
+      "questionEn": "If u=(2,-3) and v=(-5,4), what is u+v?",
+      "solutionAr": "القانون المستخدم: قانون جمع المتجهات: (a,b) + (c,d) = (a+c,b+d).\n\nخطوات الحل: نجمع المركبات المناظرة: ‏(2-5,-3+4)=(-3,1).",
+      "solutionEn": "Rule used: Vector addition: (a,b) + (c,d) = (a+c,b+d).\n\nSolution steps: Add corresponding components: (2-5, -3+4) = (-3,1).",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": true,
+          "LatexCode": "(-3,1)"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "(7,-7)"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "(-7,1)"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "(3,-1)"
+        }
+      ],
+      "independentCorrectAnswer": "(-3,1)"
+    },
+    {
+      "id": 173,
+      "topicProposalId": 14,
+      "topicKey": "s-vectors",
+      "contentKey": "mw-wave4-s-length-5-12",
+      "skillKey": "magnitude",
+      "templateKey": "wave4-s-length-5-12",
+      "difficulty": 2,
+      "pisaProcess": "employ",
+      "objectiveAr": "حساب طول المتجه من مركباته",
+      "objectiveEn": "Compute vector lengths",
+      "questionAr": "ما مقدار المتجه (5,12) في المستوى الإقليدي؟",
+      "questionEn": "What is the Euclidean magnitude of the vector (5,12)?",
+      "solutionAr": "القانون المستخدم: قانون المقدار الإقليدي: |v| = √(x² + y²).\n\nخطوات الحل: باستخدام فيثاغورس: الجذر التربيعي لـ(25+144)=الجذر التربيعي لـ169=13.",
+      "solutionEn": "Rule used: Euclidean norm: |v| = √(x² + y²).\n\nSolution steps: By Pythagoras, the length is sqrt(5²+12²)=sqrt(169)=13.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "12"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": true,
+          "LatexCode": "13"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "15"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "17"
+        }
+      ],
+      "independentCorrectAnswer": "13"
+    },
+    {
+      "id": 174,
+      "topicProposalId": 14,
+      "topicKey": "s-vectors",
+      "contentKey": "mw-wave4-s-length-minus6-8",
+      "skillKey": "magnitude",
+      "templateKey": "wave4-s-length-minus6-8",
+      "difficulty": 2,
+      "pisaProcess": "employ",
+      "objectiveAr": "حساب طول المتجه من مركباته",
+      "objectiveEn": "Compute vector lengths",
+      "questionAr": "متجه مركبتاه (-6,8). كم يبلغ طوله باستخدام قانون مقدار المتجه؟",
+      "questionEn": "A vector has components (-6,8). Find its magnitude using the vector norm formula.",
+      "solutionAr": "القانون المستخدم: قانون المقدار الإقليدي: |v| = √(x² + y²)، وتُربّع المركبات السالبة أيضاً.\n\nخطوات الحل: مربع -6 يساوي 36 ومربع 8 يساوي 64؛ الجذر التربيعي لمجموعهما 100 يساوي 10.",
+      "solutionEn": "Rule used: Euclidean norm: |v| = √(x² + y²), including squares of negative components.\n\nSolution steps: Square both components: 36+64=100; the square root is 10.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "8"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": true,
+          "LatexCode": "10"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "12"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "14"
+        }
+      ],
+      "independentCorrectAnswer": "10"
+    },
+    {
+      "id": 175,
+      "topicProposalId": 14,
+      "topicKey": "s-vectors",
+      "contentKey": "mw-wave4-s-dot-product",
+      "skillKey": "dot-product",
+      "templateKey": "wave4-s-dot-product",
+      "difficulty": 2,
+      "pisaProcess": "employ",
+      "objectiveAr": "حساب الضرب القياسي والاستدلال على التعامد",
+      "objectiveEn": "Evaluate dot products and infer orthogonality",
+      "questionAr": "احسب الضرب القياسي للمتجهين (2,-1) و(4,3).",
+      "questionEn": "Compute the dot product of (2,-1) and (4,3).",
+      "solutionAr": "القانون المستخدم: قانون الضرب القياسي: a·b = ax×bx + ay×by.\n\nخطوات الحل: نضرب المركبات ونجمع: ‏2×4 + (-1)×3 = 8-3 = 5.",
+      "solutionEn": "Rule used: Dot product: a·b = ax×bx + ay×by.\n\nSolution steps: Multiply paired components and add: 2×4 + (-1)×3 = 8-3 = 5.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": true,
+          "LatexCode": "5"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "8"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "11"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "-5"
+        }
+      ],
+      "independentCorrectAnswer": "5"
+    },
+    {
+      "id": 176,
+      "topicProposalId": 14,
+      "topicKey": "s-vectors",
+      "contentKey": "mw-wave4-s-orthogonal-unknown",
+      "skillKey": "dot-product",
+      "templateKey": "wave4-s-orthogonal-unknown",
+      "difficulty": 3,
+      "pisaProcess": "interpret_evaluate",
+      "objectiveAr": "حساب الضرب القياسي والاستدلال على التعامد",
+      "objectiveEn": "Evaluate dot products and infer orthogonality",
+      "questionAr": "متجهان (3,2) و(x,-6) متعامدان. ما قيمة x التي تجعل ضربهما القياسي صفراً؟",
+      "questionEn": "Vectors (3,2) and (x,-6) are perpendicular. What value of x makes their dot product zero?",
+      "solutionAr": "القانون المستخدم: شرط التعامد: متجهان غير صفريين متعامدان إذا وفقط إذا كان a·b = 0.\n\nخطوات الحل: شرط التعامد: ‏3x + 2×(-6)=0، ومنه 3x=12 وx=4.",
+      "solutionEn": "Rule used: Perpendicularity: two nonzero vectors are perpendicular iff a·b = 0.\n\nSolution steps: Perpendicular vectors have dot product zero: 3x-12=0, so x=4.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "-4"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "2"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "4"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "6"
+        }
+      ],
+      "independentCorrectAnswer": "4"
+    },
+    {
+      "id": 199,
+      "topicProposalId": 14,
+      "topicKey": "s-vectors",
+      "contentKey": "mw-wave4-depth-s-linear-combination",
+      "skillKey": "vector-components",
+      "templateKey": "wave4-depth-s-linear-combination",
+      "difficulty": 3,
+      "pisaProcess": "employ",
+      "objectiveAr": "تمثيل الإزاحة وجمع المتجهات بمركباتها",
+      "objectiveEn": "Represent displacement and add coordinate vectors",
+      "questionAr": "إذا كان u=(4,-2) وv=(-1,3)، فما مركبتا المتجه 2u-v؟",
+      "questionEn": "For u=(4,-2) and v=(-1,3), what are the components of 2u−v?",
+      "solutionAr": "القانون المستخدم: قانون المركبات: k(a,b)−(c,d)=(ka−c,kb−d).\n\nخطوات الحل: نحسب 2u=(8,-4)، ثم نطرح v فيكون (8-(-1),-4-3)=(9,-7).",
+      "solutionEn": "Rule used: Component rule: k(a,b)−(c,d)=(ka−c,kb−d).\n\nSolution steps: First 2u=(8,-4); subtract v componentwise to get (8−(−1),−4−3)=(9,−7).",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "(7,-1)"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": true,
+          "LatexCode": "(9,-7)"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "(8,-6)"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "(9,-1)"
+        }
+      ],
+      "independentCorrectAnswer": "(9,-7)"
+    },
+    {
+      "id": 200,
+      "topicProposalId": 14,
+      "topicKey": "s-vectors",
+      "contentKey": "mw-wave4-depth-s-unit-vector",
+      "skillKey": "magnitude",
+      "templateKey": "wave4-depth-s-unit-vector",
+      "difficulty": 3,
+      "pisaProcess": "employ",
+      "objectiveAr": "حساب طول المتجه من مركباته",
+      "objectiveEn": "Compute vector lengths",
+      "questionAr": "ما متجه الوحدة في اتجاه المتجه (3,4) باستعمال المعيار الإقليدي؟",
+      "questionEn": "What is the unit vector in the direction of (3,4) under the Euclidean norm?",
+      "solutionAr": "القانون المستخدم: قانون متجه الوحدة: û = v/|v|، حيث |v|=√(x²+y²).\n\nخطوات الحل: مقدار المتجه يساوي 5، وبقسمة كل مركبة على 5 نحصل على (3/5,4/5).",
+      "solutionEn": "Rule used: Unit vector: û = v/|v|, where |v|=√(x²+y²).\n\nSolution steps: The norm is five. Divide both coordinates by five to obtain the unit vector (3/5,4/5).",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": true,
+          "LatexCode": "(\\frac{3}{5},\\frac{4}{5})"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "(\\frac{4}{5},\\frac{3}{5})"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "(3,4)"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "(\\frac{3}{4},1)"
+        }
+      ],
+      "independentCorrectAnswer": "(\\frac{3}{5},\\frac{4}{5})"
+    },
+    {
+      "id": 201,
+      "topicProposalId": 14,
+      "topicKey": "s-vectors",
+      "contentKey": "mw-wave4-depth-s-angle-pi-four",
+      "skillKey": "dot-product",
+      "templateKey": "wave4-depth-s-angle-pi-four",
+      "difficulty": 3,
+      "pisaProcess": "interpret_evaluate",
+      "objectiveAr": "حساب الضرب القياسي والاستدلال على التعامد",
+      "objectiveEn": "Evaluate dot products and infer orthogonality",
+      "questionAr": "كم قياس الزاوية الأصغر بين المتجهين (1,0) و(1,1) بوحدة الراديان؟",
+      "questionEn": "What is the smaller angle, in radians, between the vectors (1,0) and (1,1)?",
+      "solutionAr": "القانون المستخدم: قانون زاوية المتجهات: cosθ = (a·b)/(|a||b|).\n\nخطوات الحل: الضرب القياسي يساوي 1، والمقداران 1 و√2؛ إذن جيب تمام الزاوية 1/√2 وتساوي π/4.",
+      "solutionEn": "Rule used: Angle formula: cosθ = (a·b)/(|a||b|).\n\nSolution steps: The dot product is 1 and norms are 1 and √2, so cos θ=1/√2 and θ=π/4.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "\\frac{\\pi}{6}"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": true,
+          "LatexCode": "\\frac{\\pi}{4}"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "\\frac{\\pi}{3}"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "\\frac{\\pi}{2}"
+        }
+      ],
+      "independentCorrectAnswer": "\\frac{\\pi}{4}"
+    },
+    {
+      "id": 202,
+      "topicProposalId": 14,
+      "topicKey": "s-vectors",
+      "contentKey": "mw-wave4-depth-s-obtuse-dot",
+      "skillKey": "dot-product",
+      "templateKey": "wave4-depth-s-obtuse-dot",
+      "difficulty": 2,
+      "pisaProcess": "interpret_evaluate",
+      "objectiveAr": "حساب الضرب القياسي والاستدلال على التعامد",
+      "objectiveEn": "Evaluate dot products and infer orthogonality",
+      "questionAr": "للمتجهين a=(1,-2) وb=(-2,1)، ما قيمة ضربهما القياسي التي تدل على أن الزاوية بينهما منفرجة؟",
+      "questionEn": "For a=(1,-2) and b=(-2,1), what is their dot product, indicating that the angle between them is obtuse?",
+      "solutionAr": "القانون المستخدم: معيار الزاوية المنفرجة: a·b<0 لمتجهين غير صفريين.\n\nخطوات الحل: نحسب 1×(-2)+(-2)×1=-4؛ الإشارة السالبة تؤكد أن الزاوية بين المتجهين منفرجة.",
+      "solutionEn": "Rule used: Obtuse-angle criterion: a·b<0 for two nonzero vectors.\n\nSolution steps: The dot product is 1×(−2)+(−2)×1=−4; a negative dot product means the angle is obtuse.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": true,
+          "LatexCode": "-4"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "-2"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "0"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "4"
+        }
+      ],
+      "independentCorrectAnswer": "-4"
+    },
+    {
+      "id": 203,
+      "topicProposalId": 14,
+      "topicKey": "s-vectors",
+      "contentKey": "mw-wave4-depth-s-scalar-projection",
+      "skillKey": "dot-product",
+      "templateKey": "wave4-depth-s-scalar-projection",
+      "difficulty": 3,
+      "pisaProcess": "employ",
+      "objectiveAr": "حساب الضرب القياسي والاستدلال على التعامد",
+      "objectiveEn": "Evaluate dot products and infer orthogonality",
+      "questionAr": "ما مقدار الإسقاط القياسي الموقع للمتجه (3,4) على اتجاه المتجه (1,0)؟",
+      "questionEn": "What is the signed scalar projection of (3,4) onto the direction of (1,0)?",
+      "solutionAr": "القانون المستخدم: قانون الإسقاط القياسي الموقع: comp_b(a) = (a·b)/|b|.\n\nخطوات الحل: الإسقاط القياسي يساوي حاصل الضرب القياسي مقسوماً على طول (1,0): ‏3÷1=3.",
+      "solutionEn": "Rule used: Signed scalar projection: comp_b(a) = (a·b)/|b|.\n\nSolution steps: The signed scalar projection equals the dot product divided by the target vector's length: 3/1=3.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "1"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": true,
+          "LatexCode": "3"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "4"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "5"
+        }
+      ],
+      "independentCorrectAnswer": "3"
+    },
+    {
+      "id": 204,
+      "topicProposalId": 14,
+      "topicKey": "s-vectors",
+      "contentKey": "mw-wave4-depth-s-vector-triangle-area",
+      "skillKey": "vector-components",
+      "templateKey": "wave4-depth-s-vector-triangle-area",
+      "difficulty": 3,
+      "pisaProcess": "formulate",
+      "objectiveAr": "تمثيل الإزاحة وجمع المتجهات بمركباتها",
+      "objectiveEn": "Represent displacement and add coordinate vectors",
+      "questionAr": "متجهان من رأس مثلث هما (3,0) و(0,4). ما مساحة هذا المثلث بوحدات المساحة؟",
+      "questionEn": "Two side vectors from one vertex of a triangle are (3,0) and (0,4). What is the triangle's area?",
+      "solutionAr": "القانون المستخدم: قانون مساحة مثلث بمتجهين: المساحة = |ax×by−ay×bx|/2.\n\nخطوات الحل: قيمة محدد المتجهين 3×4-0×0=12؛ مساحة المثلث نصف مساحة متوازي الأضلاع فتساوي 6.",
+      "solutionEn": "Rule used: Triangle area from two vectors = |ax×by−ay×bx|/2.\n\nSolution steps: The determinant magnitude is 12. The triangle occupies half the parallelogram area, giving 6.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": true,
+          "LatexCode": "6"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "7"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "12"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "24"
+        }
+      ],
+      "independentCorrectAnswer": "6"
+    },
+    {
+      "id": 205,
+      "topicProposalId": 14,
+      "topicKey": "s-vectors",
+      "contentKey": "mw-wave4-depth-s-point-distance",
+      "skillKey": "magnitude",
+      "templateKey": "wave4-depth-s-point-distance",
+      "difficulty": 2,
+      "pisaProcess": "employ",
+      "objectiveAr": "حساب طول المتجه من مركباته",
+      "objectiveEn": "Compute vector lengths",
+      "questionAr": "أوجد المسافة بين النقطتين A(1,2) وB(7,10) في المستوى الديكارتي.",
+      "questionEn": "Find the straight-line distance between A(1,2) and B(7,10) in the Cartesian plane.",
+      "solutionAr": "القانون المستخدم: قانون المسافة: d=√((x₂−x₁)²+(y₂−y₁)²).\n\nخطوات الحل: متجه الإزاحة (6,8)، ولذلك المسافة √(6²+8²)=√100=10.",
+      "solutionEn": "Rule used: Distance formula: d=√((x₂−x₁)²+(y₂−y₁)²).\n\nSolution steps: The displacement vector is (6,8), so the distance is √(6²+8²)=√100=10.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "8"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "9"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "10"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "14"
+        }
+      ],
+      "independentCorrectAnswer": "10"
+    },
+    {
+      "id": 206,
+      "topicProposalId": 14,
+      "topicKey": "s-vectors",
+      "contentKey": "mw-wave4-depth-s-parallelogram-area",
+      "skillKey": "vector-components",
+      "templateKey": "wave4-depth-s-parallelogram-area",
+      "difficulty": 4,
+      "pisaProcess": "formulate",
+      "objectiveAr": "تمثيل الإزاحة وجمع المتجهات بمركباتها",
+      "objectiveEn": "Represent displacement and add coordinate vectors",
+      "questionAr": "متوازي أضلاع ضلعاه المتجاوران ممثلان بالمتجهين (2,1) و(1,3). ما مساحته؟",
+      "questionEn": "A parallelogram has adjacent side vectors (2,1) and (1,3). What is its area?",
+      "solutionAr": "القانون المستخدم: قانون مساحة متوازي الأضلاع = |ax×by−ay×bx|.\n\nخطوات الحل: المساحة تساوي القيمة المطلقة للمحدد: ‏|2×3−1×1|=5 وحدات مربعة.",
+      "solutionEn": "Rule used: Parallelogram area = |ax×by−ay×bx|.\n\nSolution steps: Area is the absolute value of the two-vector determinant: |2×3−1×1|=5 square units.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "3"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "4"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "5"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "7"
+        }
+      ],
+      "independentCorrectAnswer": "5"
+    },
+    {
+      "id": 219,
+      "topicProposalId": 14,
+      "topicKey": "s-vectors",
+      "contentKey": "mw-wave5-recover-negative-component-from-norm",
+      "skillKey": "magnitude",
+      "templateKey": "wave5-inverse-vector-norm-signed",
+      "difficulty": 3,
+      "pisaProcess": "interpret_evaluate",
+      "objectiveAr": "عكس صيغة طول المتجه مع مراعاة إشارة المركبة",
+      "objectiveEn": "Recover a signed vector component from its norm",
+      "questionAr": "متجه مستوٍ مركبتاه (a,4)، وطوله 5، مع العلم أن a سالب. ما قيمة a؟",
+      "questionEn": "A plane vector is (a,4), its length is 5, and a is negative. Find a.",
+      "solutionAr": "القانون المستخدم: طول المتجه = الجذر التربيعي لمجموع مربعي المركبتين.\n\nخطوات الحل: من العلاقة a²+4²=5² نحصل على a²=25−16=9. القيمتان ±3، وبما أن a سالب فالإجابة −3.",
+      "solutionEn": "Rule used: Euclidean norm satisfies |(a,b)|²=a²+b².\n\nSolution steps: Use a²+4²=5², so a²=25−16=9. The possible values are ±3; the negative condition selects −3.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "-5"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "-4"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "-3"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "3"
+        }
+      ],
+      "independentCorrectAnswer": "-3"
+    },
+    {
+      "id": 220,
+      "topicProposalId": 14,
+      "topicKey": "s-vectors",
+      "contentKey": "mw-wave5-dot-product-distributive-combination",
+      "skillKey": "dot-product",
+      "templateKey": "wave5-dot-product-distributive-reasoning",
+      "difficulty": 3,
+      "pisaProcess": "employ",
+      "objectiveAr": "تطبيق خاصية توزيع الضرب القياسي على مجموع متجهين",
+      "objectiveEn": "Apply distributivity of dot product over vector addition",
+      "questionAr": "إذا كان u=(1,2) وv=(3,0) وw=(−1,1)، فما قيمة u·(v+w)؟",
+      "questionEn": "If u=(1,2), v=(3,0), and w=(−1,1), compute u·(v+w).",
+      "solutionAr": "القانون المستخدم: خاصية التوزيع للضرب القياسي u·(v+w)=u·v+u·w.\n\nخطوات الحل: أولاً v+w=(2,1). ثم u·(2,1)=1×2+2×1=4. ويمكن التحقق أيضاً بجمع u·v=3 وu·w=1.",
+      "solutionEn": "Rule used: The dot product distributes over vector addition: u·(v+w)=u·v+u·w.\n\nSolution steps: First v+w=(2,1), then u·(2,1)=1×2+2×1=4. Equivalently u·v=3 and u·w=1, giving 4.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "-1"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "2"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "4"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "6"
+        }
+      ],
+      "independentCorrectAnswer": "4"
+    }
+  ]
+}
