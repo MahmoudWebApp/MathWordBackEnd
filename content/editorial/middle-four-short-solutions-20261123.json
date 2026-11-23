@@ -1,0 +1,57 @@
+{
+  "batch": "four-final-middle-clarity-law-solutions-20261123",
+  "changes": [
+    {
+      "problemId": 41,
+      "stageId": 2,
+      "categoryId": 5,
+      "questionAr": "ما قيمة 2 أس 5؟",
+      "questionEn": "What is 2 raised to the fifth power?",
+      "correctOptionId": 153,
+      "correctOptionLatex": "32",
+      "beforeAr": "2 أس 5 يعني 2 × 2 × 2 × 2 × 2 = 32.",
+      "beforeEn": "Two to the fifth power equals 2 × 2 × 2 × 2 × 2 = 32.",
+      "afterAr": "قانون الأسس: أ^ن يعني ضرب العدد أ في نفسه ن مرات عندما يكون ن عدداً صحيحاً موجباً. إذن 2⁵ = 2 × 2 × 2 × 2 × 2. نحسب بالتدرج: 2 × 2 = 4، ثم 4 × 2 = 8، ثم 8 × 2 = 16، وأخيراً 16 × 2 = 32. النتيجة 32.",
+      "afterEn": "Exponent rule: For a positive integer n, a^n is the product of n factors equal to a. Thus 2⁵ = 2 × 2 × 2 × 2 × 2. Calculate stepwise: 2 × 2 = 4, then 8, then 16 and finally 32. Answer: 32."
+    },
+    {
+      "problemId": 44,
+      "stageId": 2,
+      "categoryId": 34,
+      "questionAr": "مثلث قائم ضلعاه القائمان 6 سم و8 سم؛ ما طول الوتر؟",
+      "questionEn": "A right triangle has legs of 6 cm and 8 cm. How long is its hypotenuse?",
+      "correctOptionId": 168,
+      "correctOptionLatex": "10",
+      "beforeAr": "حسب فيثاغورس: مربع الوتر = 6² + 8² = 36 + 64 = 100، فالوتر 10 سم.",
+      "beforeEn": "By Pythagoras, c² = 6² + 8² = 100, so c = 10 cm.",
+      "afterAr": "قانون فيثاغورس في المثلث القائم: مربع الوتر يساوي مجموع مربعي الضلعين القائمين، ج² = أ² + ب². طولا الضلعين القائمين 6 و8 سم. بالتعويض: ج² = 6² + 8² = 36 + 64 = 100، لذا الوتر ج = √100 = 10 سم. نأخذ الجذر الموجب لأن الطول لا يكون سالباً.",
+      "afterEn": "Pythagorean theorem: In a right triangle, the hypotenuse squared equals the sum of squares of the legs, c² = a² + b². For legs 6 cm and 8 cm, c² = 6² + 8² = 36 + 64 = 100. Therefore c = √100 = 10 cm, taking the positive length."
+    },
+    {
+      "problemId": 59,
+      "stageId": 2,
+      "categoryId": 7,
+      "questionAr": "ثمن أربعة أقلام 12، فكم ثمن سبعة أقلام بالسعر نفسه؟",
+      "questionEn": "Four identical pens cost 12 units. How much do seven cost at the same rate?",
+      "correctOptionId": 228,
+      "correctOptionLatex": "21",
+      "beforeAr": "ثمن القلم الواحد 12 ÷ 4 = 3، وثمن السبعة 7 × 3 = 21.",
+      "beforeEn": "One pen costs 12 / 4 = 3 units; seven cost 7 × 3 = 21.",
+      "afterAr": "القانون المستخدم: عند ثبات سعر الوحدة، الكلفة الكلية = عدد القطع × سعر القطعة الواحدة. تكلفة أربعة أقلام هي 12 وحدة، إذن سعر القلم = 12 ÷ 4 = 3 وحدات. تكلفة سبعة أقلام = 7 × 3 = 21 وحدة. التحقق: 21 ÷ 7 = 3، وهو سعر القلم نفسه.",
+      "afterEn": "Rule used: With a constant unit price, total cost = quantity × unit price. Four pens cost 12 units, so each costs 12 ÷ 4 = 3 units. Seven pens cost 7 × 3 = 21 units. Check: 21 ÷ 7 = 3 units per pen."
+    },
+    {
+      "problemId": 857,
+      "stageId": 2,
+      "categoryId": 34,
+      "questionAr": "كم المسافة بين النقطتين (1،2) و(7،10) على المستوى الإحداثي؟",
+      "questionEn": "Find the distance between (1,2) and (7,10) in the coordinate plane.",
+      "correctOptionId": 3422,
+      "correctOptionLatex": "10",
+      "beforeAr": "فرق الإحداثيين 6 و8، لذا المسافة = √(6²+8²)=√100=10.",
+      "beforeEn": "The horizontal and vertical differences are 6 and 8. Distance = sqrt(6²+8²) = 10.",
+      "afterAr": "قانون المسافة بين نقطتين في المستوى الإحداثي: د = √((س₂ − س₁)² + (ص₂ − ص₁)²). بين (1،2) و(7،10) نحسب فرق س = 7 − 1 = 6، وفرق ص = 10 − 2 = 8. بالتعويض: د = √(6² + 8²) = √(36 + 64) = √100 = 10 وحدات طول.",
+      "afterEn": "Distance formula between two coordinate points: d = √((x₂ − x₁)² + (y₂ − y₁)²). Between (1,2) and (7,10), Δx = 7 − 1 = 6 and Δy = 10 − 2 = 8. Substitute: d = √(6² + 8²) = √(36 + 64) = √100 = 10 length units."
+    }
+  ]
+}
