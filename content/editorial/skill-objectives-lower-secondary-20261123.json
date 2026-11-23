@@ -1,7 +1,7 @@
 {
   "stageId": 2,
-  "status": "editorial_draft_unpublished",
-  "note": "Require independent educator review and mapped-problem validation before publishing; source rows are existing unpublished bilingual CurriculumSkills.",
+  "status": "published_in_live_mathworld_20261123",
+  "note": "Bilingual objectives reviewed for mathematical meaning, exact skill/category mapping and >=5 linked published questions per skill; not a claim of external accreditation. Live content was published with exact-match transactional SQL; do not rerun the script.",
   "objectives": [
     {
       "id": 21,
