@@ -45,8 +45,13 @@ jobs:
               for name in z.namelist():
                   if name.endswith(('.xml', '.rels')):
                       ET.fromstring(z.read(name))
-              assert 'xl/media/image1.png' in z.namelist()
-              assert z.read('xl/media/image1.png')[:8] == b'\x89PNG\r\n\x1a\n'
+              images = [name for name in z.namelist()
+                        if name.startswith('xl/media/') and name.lower().endswith('.png')]
+              assert images, 'No embedded MathWorld PNG logo'
+              for name in images:
+                  assert z.read(name)[:8] == b'\x89PNG\r\n\x1a\n', name
+              assert not any(name.startswith('xl/charts/') for name in z.namelist()), (
+                  'Floating chart objects must not cover WPS worksheets')
           print('PASS: independent ZIP CRC and XML parsing of actual XLSX binary')
           PY
       - uses: actions/upload-artifact@v4
