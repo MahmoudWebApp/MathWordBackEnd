@@ -89,7 +89,7 @@ for row in rows:
     assert row["independentCorrectAnswer"] == expected[pid],pid
     assert correct == expected[pid],(pid,correct,expected[pid])
     if row["topicProposalId"] == 13:
-        assert "probability" in row["topicKey"] or "probability" in row["solutionEn"].lower() or "frequency" in row["solutionEn"].lower() or "counting" in row["solutionEn"].lower() or "independent" in row["solutionEn"].lower() or "with-replacement" in row["solutionEn"].lower(),pid
+        assert row["solutionEn"].startswith("Rule used:"),(pid,"missing explicitly stated rule")
 
 print("PASS: 36 unpublished middle-stage questions; 8 integer/rational, 12 inequalities, 16 probability/counting")
 print("PASS: independent Fraction arithmetic, inequality endpoints, boundary integer counts, exhaustive dice outcomes")
