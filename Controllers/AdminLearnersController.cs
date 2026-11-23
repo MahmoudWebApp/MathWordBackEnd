@@ -42,6 +42,7 @@ namespace MathWorldAPI.Controllers
             [FromQuery] string? subscription = null,
             [FromQuery] int page = 1,
             [FromQuery] int pageSize = 20,
+            [FromQuery] bool includeActivity = true,
             CancellationToken cancellationToken = default)
         {
             if (!ValidPagination(page, pageSize) || search?.Length > 100 ||
@@ -86,6 +87,40 @@ namespace MathWorldAPI.Controllers
                     u.Id, u.FullName, u.Email, u.CurrentStageId,
                     u.SubscriptionType, u.PremiumExpiresAtUtc, u.IsActive, u.CreatedAt, u.LastLoginAt
                 }).ToListAsync(cancellationToken);
+            // A subscription directory does not need two expensive aggregations
+            // over every matching learner's attempts and progress. Keep the original
+            // full response as the default for backward compatibility.
+            if (!includeActivity)
+            {
+                var stageNames = await _db.EducationalStages.AsNoTracking()
+                    .Select(s => new { s.Id, s.NameAr, s.NameEn })
+                    .ToDictionaryAsync(x => x.Id, cancellationToken);
+                var directory = new AdminLearnerListDto
+                {
+                    Total = total, Page = page, PageSize = pageSize,
+                    TotalPages = (int)Math.Ceiling(total / (double)pageSize),
+                    Learners = users.Select(u =>
+                    {
+                        var stageName = u.CurrentStageId.HasValue &&
+                            stageNames.TryGetValue(u.CurrentStageId.Value, out var match)
+                            ? match : null;
+                        return new AdminLearnerSummaryDto
+                        {
+                            Id = u.Id, FullName = u.FullName, Email = u.Email,
+                            CurrentStageId = u.CurrentStageId,
+                            StageNameAr = stageName?.NameAr, StageNameEn = stageName?.NameEn,
+                            IsActive = u.IsActive,
+                            SubscriptionType = PremiumEntitlement.IsActive(
+                                u.SubscriptionType, u.PremiumExpiresAtUtc, nowUtc)
+                                ? "Premium" : "Free",
+                            PremiumExpiresAtUtc = u.PremiumExpiresAtUtc,
+                            CreatedAt = u.CreatedAt, LastLoginAt = u.LastLoginAt
+                        };
+                    }).ToList()
+                };
+                return Ok(Success(directory));
+            }
+
             var ids = users.Select(u => u.Id).ToArray();
 
             var progress = await _db.UserProgresses.AsNoTracking()
