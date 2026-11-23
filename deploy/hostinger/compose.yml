@@ -34,6 +34,7 @@ services:
       Jwt__Audience: ${JWT_AUDIENCE:-MathWorldClient}
       Cors__Origins__0: "https://${MATHWORLD_DOMAIN:?MATHWORLD_DOMAIN is required}"
       Google__ClientId: ${GOOGLE_CLIENT_ID:-}
+      IMGBB_API_KEY: ${IMGBB_API_KEY:-}
       Meilisearch__Enabled: "false"
     volumes:
       - api_uploads:/app/wwwroot/uploads
