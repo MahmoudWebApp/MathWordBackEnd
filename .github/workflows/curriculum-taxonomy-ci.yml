@@ -18,6 +18,8 @@ on:
       - 'tests/check_curriculum_gap_wave2_20261122.py'
       - 'tests/check_curriculum_depth_wave3_20261122.py'
       - 'tests/check_curriculum_wave4_20261123.py'
+      - 'tests/check_curriculum_wave4_depth_20261123.py'
+      - 'scripts/generate_curriculum_wave4_depth_sql.py'
       - 'scripts/generate_curriculum_wave4_draft_sql.py'
       - 'tests/check_published_question_corrections_20261122.py'
       - 'tests/check_bilingual_math_options_20261122.py'
@@ -58,6 +60,10 @@ jobs:
         run: python3 tests/check_curriculum_wave4_20261123.py
       - name: Verify safe reproducible wave-four draft SQL
         run: python3 scripts/generate_curriculum_wave4_draft_sql.py --check
+      - name: Verify 32 depth questions with independent mathematical answers
+        run: python3 tests/check_curriculum_wave4_depth_20261123.py
+      - name: Verify atomic editorial-only SQL for 32 depth questions
+        run: python3 scripts/generate_curriculum_wave4_depth_sql.py --check
       - name: Validate published question corrections without changing correct answers
         run: python3 tests/check_published_question_corrections_20261122.py
       - name: Validate bilingual options and full ODE constant family
