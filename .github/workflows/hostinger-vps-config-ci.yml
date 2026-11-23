@@ -1,0 +1,63 @@
+name: Hostinger one-domain VPS config contract
+
+on:
+  pull_request:
+    paths:
+      - 'deploy/hostinger/**'
+      - 'Dockerfile'
+      - '.dockerignore'
+      - '.gitignore'
+      - 'Program.cs'
+      - '.github/workflows/hostinger-vps-config-ci.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check Docker Compose syntax, private services and healthchecks
+        shell: bash
+        run: |
+          set -euo pipefail
+          docker compose --env-file deploy/hostinger/.env.example \
+            -f deploy/hostinger/compose.yml config --format json > /tmp/mathworld-compose.json
+          python3 - <<'PY'
+          import json
+          d=json.load(open('/tmp/mathworld-compose.json',encoding='utf-8'))
+          services=d['services']
+          assert set(services)=={'db','api','web','proxy'}
+          for name in ('db','api','web'):
+              assert not services[name].get('ports'), name + ' must be internal'
+          proxy=services['proxy']
+          exposed={int(p['published']) for p in proxy['ports']}
+          assert exposed=={80,443}, exposed
+          assert all(services[n].get('restart')=='unless-stopped' for n in services)
+          assert 'postgres_data' in d['volumes']
+          assert services['api']['environment']['Database__ApplyMigrationsOnStartup']=='false'
+          assert services['web']['build']['args']['NEXT_PUBLIC_API_BASE_URL']=='/api'
+          assert services['db'].get('healthcheck')
+          assert services['api'].get('depends_on')
+          print('PASS: one domain, private services, no direct DB port, explicit migration gate')
+          PY
+
+      - name: Validate HTTPS reverse proxy syntax
+        run: |
+          docker run --rm \
+            --env MATHWORLD_DOMAIN=mathworld.example.com \
+            -v "$PWD/deploy/hostinger/Caddyfile:/etc/caddy/Caddyfile:ro" \
+            caddy:2-alpine validate --config /etc/caddy/Caddyfile
+
+      - name: Syntax check backup and read-only benchmark
+        run: |
+          bash -n deploy/hostinger/backup-db.sh
+          python3 -m py_compile deploy/hostinger/benchmark-public-api.py
+          test -f deploy/hostinger/.env.example
+          grep -q 'deploy/hostinger/backups/' .gitignore
+          grep -q 'deploy/hostinger/backups/' .dockerignore
+          echo 'PASS: no secrets or local backup dumps included by default'
