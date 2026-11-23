@@ -1,5 +1,13 @@
 # MathWorld — question-bank and solution-method review tracker
 
+## Verified secondary-school continuation — advanced algebra and sequences (23 November 2026)
+
+- All **62** student-facing questions in secondary **Advanced Algebra (category 9, 32)** and **Sequences/Series (category 23, 30)** were individually inspected. **24** original explanations were already mathematically adequate and were retained.
+- Improved **38** bilingual law-and-substitution explanations, including inverse logarithms, zero-product roots, Vieta sums/products, discriminant, factoring, arithmetic and geometric sequence terms/sums, recurrences, and telescoping cancellation.
+- Independent numerical/expression oracles and all existing CI checks passed. The one-time transaction matched exact old texts/question/correct-answer guards. **Production readback: 38/38 matching bilingual explanations and 38/38 original correct-option IDs/text unchanged**. No student-history, question or subscription mutation.
+- Cumulative individually reviewed **385/601** published questions (151 elementary + 140 middle + 94 secondary). **307 explanations improved**, **78 retained as adequate**; **216** student-facing questions remain (56 secondary trigonometry/calculus and 160 university). DraftItems remain staged, not exposed.
+
+
 ## Verified secondary-school continuation — probability and descriptive statistics (23 November 2026)
 
 - Individually reviewed all **32** student-facing questions of stage-three **Probability/Combinatorics (category 12, 21)** and **Descriptive Statistics (category 35, 11)**. Fifteen originally clear solutions were kept; **17** received fuller Arabic/English formulas, steps and checks.
