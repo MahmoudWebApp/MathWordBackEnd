@@ -10,6 +10,8 @@ Database write requires separate deliberate review and execution.
 """
 from __future__ import annotations
 import argparse
+import contextlib
+import io
 import json
 import runpy
 from pathlib import Path
@@ -22,7 +24,8 @@ def quote(text: str) -> str:
 
 def sql_document(doc: dict) -> str:
     # The independent math test throws on any ambiguous or incorrect answer.
-    runpy.run_path(str(ROOT/"tests/check_curriculum_wave4_20261123.py"))
+    with contextlib.redirect_stdout(io.StringIO()):
+        runpy.run_path(str(ROOT/"tests/check_curriculum_wave4_20261123.py"))
     assert doc["meta"]["status"]=="Draft"
     assert doc["meta"]["noStudentFacingChanges"] is True
     payload=quote(json.dumps(doc["topics"], ensure_ascii=False, separators=(",",":")))
