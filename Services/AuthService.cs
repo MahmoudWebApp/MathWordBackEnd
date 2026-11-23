@@ -88,11 +88,7 @@ namespace MathWorldAPI.Services
                     "Jwt:Key must contain at least 32 UTF-8 bytes.");
             }
 
-            Console.WriteLine(
-                $"AuthService initialized. JWT expiry: {_expiryMinutes} minutes.");
 
-            Console.WriteLine(
-                $"BCrypt work factor: {BCryptWorkFactor}.");
         }
 
         /// <summary>
@@ -176,8 +172,6 @@ namespace MathWorldAPI.Services
                 "User {UserId} registered successfully.",
                 user.Id);
 
-            Console.WriteLine(
-                $"User registered successfully. UserId: {user.Id}");
 
             return BuildAuthResponse(user);
         }
@@ -261,8 +255,6 @@ namespace MathWorldAPI.Services
                     "Password hash upgraded for user {UserId}.",
                     user.Id);
 
-                Console.WriteLine(
-                    $"Password hash upgraded. UserId: {user.Id}");
             }
 
             // Legacy learners without a stage keep the historical elementary
@@ -290,8 +282,6 @@ namespace MathWorldAPI.Services
                 "User {UserId} logged in successfully.",
                 user.Id);
 
-            Console.WriteLine(
-                $"User logged in successfully. UserId: {user.Id}");
 
             return (
                 BuildAuthResponse(user),
