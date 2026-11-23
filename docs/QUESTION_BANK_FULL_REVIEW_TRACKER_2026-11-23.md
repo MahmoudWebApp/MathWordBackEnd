@@ -1,5 +1,15 @@
 # MathWorld — question-bank and solution-method review tracker
 
+## Verified complete middle-stage individual question review (23 November 2026)
+
+- Individually reviewed **all 56** student-visible stage-two **Number Theory/Exponents (category 5; 28)** and **Algebra/Functions (category 6; 28)** questions. Five existing explanations (IDs 12,13,41,14,15) were mathematically adequate as originally written and retained in this batch.
+- Improved **51** bilingual worked solutions with exponent product/quotient/zero/negative rules, GCD/LCM, cube volume, linear and quadratic function evaluation, inverse linear equations, coordinate slopes and contextual equations.
+- Independent arithmetic and original answer-key oracles plus all three GitHub Actions workflows passed. A one-time exact source/answer guarded transaction updated only two solution fields. **Live readback confirmed 51/51 bilingual explanations and 51/51 unchanged correct option IDs/text**; no student progress, scores, options, questions or subscription fields changed.
+- **Milestone: 291/601 published questions individually inspected** (all **151 primary** and all **140 middle**), **248 explanations substantively improved**, **43 accepted**. **310** published questions (150 upper secondary + 160 university) remain for independent review.
+- Follow-up clarity screen: three short Arabic texts and three short English texts were counted in middle stage, involving four unique IDs **41,44,59,857**. They are mathematically correct but can be expanded for explicit pedagogy and formula context; do not label shortness an arithmetic failure.
+- **160 DraftItems remain unpublished** and require separate diversity/accuracy review before new category/problem publication.
+
+
 ## Verified middle-school continuation — ratios and triangles (23 November 2026)
 
 - Reviewed all **48 student-visible problems** across stage-two **Ratios and Proportions (category 7; 28)** and **Triangles, Similarity and Pythagoras (category 34; 20)**. Nine originally adequate explanations (IDs **16,17,43,59,44,855,856,857,858**) were left intact.
