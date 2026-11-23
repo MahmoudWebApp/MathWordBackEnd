@@ -6,7 +6,7 @@ from pathlib import Path
 root=Path(__file__).resolve().parents[1]
 d=json.loads((root/'content/editorial/secondary-ten-short-solutions-20261123.json').read_text(encoding='utf-8'))
 sql=(root/'scripts/apply_secondary_ten_short_laws_20261123.sql').read_text(encoding='utf-8')
-checks={45:('(3,4)',169),63:('2x^{3}+C',244),442:(str(Fraction(4,1)/ (1-Fraction(1,2))),1759),509:(str(Fraction(6,1)/(1-Fraction(1,3))),2026),637:(str(-3),2538),710:(str(3),2787),769:(str(5),3067),770:(r'\\{3,\\frac12\\}',3069),861:('2x^3-2x^2+C',3437),862:(str((2**3+2)-(0**3+0)),3443)}
+checks={45:('(3,4)',169),63:('2x^{3}+C',244),442:(str(Fraction(4,1)/ (1-Fraction(1,2))),1759),509:(str(Fraction(6,1)/(1-Fraction(1,3))),2026),637:(str(-3),2538),710:(str(3),2787),769:(str(5),3067),770:(r'\{3,\frac12\}',3069),861:('2x^3-2x^2+C',3437),862:(str((2**3+2)-(0**3+0)),3443)}
 assert len(d['changes'])==10
 assert {x['problemId'] for x in d['changes']}==set(checks)
 assert sql.count('UPDATE public."Problems"')==10
