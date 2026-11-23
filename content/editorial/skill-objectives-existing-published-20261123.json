@@ -1,0 +1,101 @@
+{
+  "status": "reviewed_content_improvement",
+  "note": "Existing 19 published skills, description-only upgrades; names, category mapping and published flags unchanged.",
+  "objectives": [
+    {
+      "id": 93,
+      "descriptionAr": "يحوّل بين كسر مقامه 100 والنسبة المئوية ويطبق النسبة على كميات بسيطة.",
+      "descriptionEn": "Convert fractions with denominator 100 into percentages and apply them to simple quantities."
+    },
+    {
+      "id": 94,
+      "descriptionAr": "يميز المنازل العشرية ويمثل قيم الأرقام العشرية ويرتبها حسب القيمة المكانية.",
+      "descriptionEn": "Identify decimal place values, represent decimals and compare them by place value."
+    },
+    {
+      "id": 95,
+      "descriptionAr": "يجمع ويطرح ويضرب أو يقسم الكسور في المسائل المناسبة مع تبسيط النتيجة.",
+      "descriptionEn": "Perform suitable fraction operations and simplify results where possible."
+    },
+    {
+      "id": 96,
+      "descriptionAr": "يولد كسوراً متكافئة بضرب البسط والمقام أو قسمتهما في العدد نفسه غير الصفري.",
+      "descriptionEn": "Generate equivalent fractions by scaling numerator and denominator by the same nonzero factor."
+    },
+    {
+      "id": 97,
+      "descriptionAr": "يمثل الكسور على أشكال أو خط الأعداد ويربط الجزء بالكل.",
+      "descriptionEn": "Represent fractions with shapes or number lines, relating parts to a whole."
+    },
+    {
+      "id": 98,
+      "descriptionAr": "يقارن مدى انتشار مجموعات بيانات ويشرح أثر القيم المتطرفة على التوزيع.",
+      "descriptionEn": "Compare data spread across sets and explain the effect of extreme values."
+    },
+    {
+      "id": 99,
+      "descriptionAr": "يحسب المتوسط والوسيط والمنوال ويختار المقياس الملائم للبيانات.",
+      "descriptionEn": "Compute mean, median and mode and select an appropriate measure for a dataset."
+    },
+    {
+      "id": 100,
+      "descriptionAr": "يقرأ الجداول والمخططات ويمثل البيانات بدقة ويفسر الاتجاهات الظاهرة.",
+      "descriptionEn": "Read tables and charts, display data accurately and interpret visible trends."
+    },
+    {
+      "id": 101,
+      "descriptionAr": "يجد مجموع حدود متسلسلة محددة ويطبق صيغ المجموع عندما تتحقق شروطها.",
+      "descriptionEn": "Find finite series sums and apply sum formulas when their conditions hold."
+    },
+    {
+      "id": 102,
+      "descriptionAr": "ينشئ حدود متتالية من علاقة رجوعية وقيم ابتدائية ويفحص نمطها.",
+      "descriptionEn": "Generate sequence terms from recurrence relations and initial values, then inspect the pattern."
+    },
+    {
+      "id": 103,
+      "descriptionAr": "يحدد النسبة الثابتة في متتالية هندسية ويحسب حدها العام عند تحقق الشروط.",
+      "descriptionEn": "Identify the common ratio and calculate the general term of a geometric sequence."
+    },
+    {
+      "id": 104,
+      "descriptionAr": "يحدد الفرق الثابت في متتالية حسابية ويحسب الحد المطلوب أو مجموع حدودها.",
+      "descriptionEn": "Identify the common difference and calculate arithmetic sequence terms or sums."
+    },
+    {
+      "id": 105,
+      "descriptionAr": "يمثل مسألة برؤوس وحواف ويحلل المسارات والدرجات والاتصال في الرسم البياني.",
+      "descriptionEn": "Model problems using vertices and edges and analyse paths, degrees and connectivity."
+    },
+    {
+      "id": 106,
+      "descriptionAr": "يميز بين التباديل والتوافيق ويحسب عدد الاختيارات مع مراعاة الترتيب.",
+      "descriptionEn": "Distinguish permutations from combinations and count choices with correct order assumptions."
+    },
+    {
+      "id": 107,
+      "descriptionAr": "يفحص خواص الانعكاس والتناظر والتعدي ليحدد ما إذا كانت علاقة تكافؤ.",
+      "descriptionEn": "Test reflexivity, symmetry and transitivity to determine equivalence relations."
+    },
+    {
+      "id": 108,
+      "descriptionAr": "يبني برهاناً منطقياً باستخدام فرضيات ونتائج صريحة ويميز المثال المضاد.",
+      "descriptionEn": "Construct logical proofs with explicit assumptions and conclusions and identify counterexamples."
+    },
+    {
+      "id": 109,
+      "descriptionAr": "يترجم العبارات إلى قضايا منطقية ويفحص صدقها باستخدام الروابط وجداول الحقيقة.",
+      "descriptionEn": "Translate statements into propositions and evaluate logical connectives using truth tables."
+    },
+    {
+      "id": 112,
+      "descriptionAr": "يقارن كسوراً باستخدام مقام مشترك أو تمثيل مناسب ويبرر ترتيبها.",
+      "descriptionEn": "Compare fractions by common denominators or appropriate models, explaining their order."
+    },
+    {
+      "id": 113,
+      "descriptionAr": "يختار معيار تقارب ملائم لسلسلة غير منتهية ويميز التقارب عن التباعد.",
+      "descriptionEn": "Choose a justified convergence test for infinite series and distinguish convergence from divergence."
+    }
+  ]
+}
