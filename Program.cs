@@ -70,9 +70,22 @@ if (Encoding.UTF8.GetByteCount(jwtKey) < 32)
 // 2. Configure DbContext with PostgreSQL
 // ============================================================================
 
+// Force Npgsql client-side pooling even when a legacy hosting connection
+// string has Pooling=false. Otherwise every authenticated API request can
+// negotiate fresh TCP/TLS connections to the cross-region database.
+// Cap one Render instance to 15 open connections on Supabase's free tier.
+// This does not change the host, credentials, SSL mode or migration behavior.
+var pooledConnection = new Npgsql.NpgsqlConnectionStringBuilder(connectionString)
+{
+    Pooling = true
+};
+pooledConnection.MaxPoolSize = Math.Min(pooledConnection.MaxPoolSize, 15);
+pooledConnection.MinPoolSize = Math.Min(
+    pooledConnection.MinPoolSize, pooledConnection.MaxPoolSize);
+
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
-    options.UseNpgsql(connectionString);
+    options.UseNpgsql(pooledConnection.ConnectionString);
 });
 
 // ============================================================================
