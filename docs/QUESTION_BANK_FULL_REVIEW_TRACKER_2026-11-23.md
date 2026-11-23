@@ -1,5 +1,15 @@
 # MathWorld — question-bank and solution-method review tracker
 
+## New upper-secondary logarithm breadth — live Draft-only confirmation (23 November 2026, latest)
+
+- Identified that `s-exponents-logarithms` (topic proposal 7, secondary stage) had **8 unpublished exponential/growth drafts and zero unpublished logarithm exercises**; the separate published Advanced Algebra category already had some elementary log examples.
+- Authored **12 new, individually distinct logarithm questions** under the still-Draft proposal: exponential inverses, product/quotient/power laws, shifted-log equations, rejection of an extraneous root, change of base, real domain, bases between zero and one, scientific decibels, pH and symbolic logarithm expression. Each has four unique choices, one independently calculated answer and worked Arabic and English laws with solution steps.
+- Independent math CI, backend build CI and PostgreSQL integrity CI **all passed**. Applied one protected source-topic-and-count-guarded transaction adding **only DraftItems**. Production readback verified **12/12** new questions, bilingual worked solutions, unchanged original correct answer choices and Draft status.
+- The stage-three proposal now contains **20 unpublished drafts** (8 preexisting exponential plus 12 new log); there are **172 pending DraftItems in total**, **601 student-visible Problems**, **24 visible Categories**, and **no new student-visible content**. Previously published questions and learner progress remain unchanged.
+- Standards context: <https://www.thecorestandards.org/Math/Content/HSF/> (inverse logs, exponential models) and <https://www.oecd.org/en/publications/pisa-2022-assessment-and-analytical-framework_dfe0bf9c-en/full-report/component-3.html> (mathematical modelling processes); this is **internal editorial alignment, not standards certification**.
+- Outstanding: administrator approval of proposal and drafts, category skill mappings and visual/icon QA, variety check against the 63 numeric-template families already published, web/mobile/API deployment smoke testing. Never publish these 12 automatically.
+
+
 ## Latest mathematical + pedagogical release snapshot — all 160 drafts (23 November 2026; supersedes earlier draft gap counts)
 
 - **All 601 published MathWorld questions** have been individually reviewed in previous educational/math batches, with their published mathematical explanations expanded and their original correct answer choices checked.
