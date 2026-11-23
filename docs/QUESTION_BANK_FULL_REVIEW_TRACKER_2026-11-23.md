@@ -1,5 +1,12 @@
 # MathWorld — question-bank and solution-method review tracker
 
+## Verified continuation — completed primary geometry category (23 November 2026)
+
+- All **28** primary geometry/measurement questions now have individually reviewed law-led worked solutions. The preceding review had improved 12; the remaining **16** (IDs 71,86,101,131,155,167,191,203,168,180,192,204,169,181,193,205) were corrected with rectangle area/perimeter, triangle angle sum, or metre-centimetre conversion formulas, substitutions and units.
+- Independent geometry and arithmetic oracles passed in curriculum CI. The one-time atomic source/answer-guarded DB patch was executed; production readback confirms **16/16 new bilingual explanations** and **16/16 unchanged correct answer option IDs/text**. User history, options, stages and Premium access were not changed.
+- Cumulative audit: **117 individual published questions reviewed, 107 bilingual explanations expanded, 10 already adequate**, with **484 other published problems not yet individually reviewed**. Stage-one categories 1,2,3,4,33 are now reviewed; stage-one fractions category 21 (34 questions) remains.
+
+
 ## Verified continuation — primary statistics and probability (23 November 2026)
 
 - Independently reviewed **all 24** category-4 primary questions; two already appropriately explained (IDs 10 and 11), while **22 required clearer mathematical reasoning**.
