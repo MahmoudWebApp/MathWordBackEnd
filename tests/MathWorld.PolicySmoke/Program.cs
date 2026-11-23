@@ -180,6 +180,11 @@ var workbookReport = new StudentPremiumAnalyticsController.StudentAnalyticsRepor
             "=1+2", "Arithmetic", 1, 1, 0, 2, 1, 1, 1, 10, 42)
     });
 var xlsx = PremiumAnalyticsXlsxExporter.Create(workbookReport, true);
+// A synthetic (non-user) workbook can be exported in CI for independent
+// ZIP/OOXML and Excel-reader compatibility checks.
+var sampleWorkbookPath = Environment.GetEnvironmentVariable("MATHWORLD_XLSX_SAMPLE_PATH");
+if (!string.IsNullOrWhiteSpace(sampleWorkbookPath))
+    File.WriteAllBytes(sampleWorkbookPath, xlsx);
 using (var archive = new ZipArchive(new MemoryStream(xlsx), ZipArchiveMode.Read))
 {
     foreach (var name in new[] {
