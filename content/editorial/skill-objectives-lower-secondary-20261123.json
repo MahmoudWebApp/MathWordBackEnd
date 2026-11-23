@@ -1,0 +1,107 @@
+{
+  "stageId": 2,
+  "status": "editorial_draft_unpublished",
+  "note": "Require independent educator review and mapped-problem validation before publishing; source rows are existing unpublished bilingual CurriculumSkills.",
+  "objectives": [
+    {
+      "id": 21,
+      "descriptionAr": "يستخدم قوانين ضرب القوى وقسمتها ورفع القوة لقوة مع مراعاة شروط الأسس.",
+      "descriptionEn": "Apply product, quotient and power-of-a-power rules under valid exponent conditions."
+    },
+    {
+      "id": 22,
+      "descriptionAr": "يحلل أعداداً إلى عوامل ويجد أكبر قاسم مشترك بينها ويستخدمه في مسألة.",
+      "descriptionEn": "Use factorisation to find the greatest common divisor and apply it to a problem."
+    },
+    {
+      "id": 23,
+      "descriptionAr": "يحسب قيمة قوة ذات أساس وأس محددين ويفسر الأس بوصفه ضرباً متكرراً.",
+      "descriptionEn": "Evaluate powers with a given base and exponent and explain repeated multiplication."
+    },
+    {
+      "id": 24,
+      "descriptionAr": "يحدد أصغر مضاعف مشترك لأعداد باستخدام المضاعفات أو التحليل إلى عوامل.",
+      "descriptionEn": "Find the least common multiple using multiples or prime-factor decomposition."
+    },
+    {
+      "id": 25,
+      "descriptionAr": "يحل المعادلات الخطية ويحافظ على توازن طرفي المعادلة ويتحقق من الحل.",
+      "descriptionEn": "Solve linear equations using equivalent operations and verify resulting values."
+    },
+    {
+      "id": 26,
+      "descriptionAr": "يعوّض في دالة خطية ويحدد قيمة المخرَج ويفسر معدل التغير.",
+      "descriptionEn": "Evaluate linear functions at chosen inputs and interpret the constant rate of change."
+    },
+    {
+      "id": 27,
+      "descriptionAr": "يعوّض في دالة تربيعية مع مراعاة الأقواس والأسس والإشارات.",
+      "descriptionEn": "Evaluate quadratic functions while respecting parentheses, powers and signs."
+    },
+    {
+      "id": 28,
+      "descriptionAr": "يعكس خطوات حساب الدالة لإيجاد المدخل الموافق لمخرَج معلوم.",
+      "descriptionEn": "Reverse function operations to find inputs corresponding to specified outputs."
+    },
+    {
+      "id": 29,
+      "descriptionAr": "يحسب ميل خط مستقيم من نقطتين بوصفه التغير الرأسي إلى الأفقي.",
+      "descriptionEn": "Calculate a line's slope from two points as rise divided by run."
+    },
+    {
+      "id": 30,
+      "descriptionAr": "يبسّط النسب ويوزع الكميات وفق أجزاء متناسبة مع الحفاظ على مجموعها.",
+      "descriptionEn": "Simplify ratios and divide quantities in proportion while preserving their total."
+    },
+    {
+      "id": 31,
+      "descriptionAr": "يحسب معدل الوحدة ويستخدمه لمقارنة الأسعار والكميات ذات الوحدات المختلفة.",
+      "descriptionEn": "Calculate unit rates to compare prices and quantities with appropriate units."
+    },
+    {
+      "id": 32,
+      "descriptionAr": "يحسب قيمة الخصم والناتج بعد الخصم ويميز النسبة من المبلغ النهائي.",
+      "descriptionEn": "Calculate discount amounts and discounted prices, distinguishing rate from final value."
+    },
+    {
+      "id": 33,
+      "descriptionAr": "يستخدم مقياس الرسم للتحويل بين أبعاد الخريطة والمسافات الفعلية.",
+      "descriptionEn": "Use a map scale to convert between represented distances and real distances."
+    },
+    {
+      "id": 34,
+      "descriptionAr": "يحسب الزيادة المئوية اعتماداً على القيمة الأصلية ويعطي القيمة الجديدة.",
+      "descriptionEn": "Calculate percent increase relative to the original value and determine the new amount."
+    },
+    {
+      "id": 35,
+      "descriptionAr": "يستعمل مجموع الزوايا الداخلية للمثلث 180° لاستخراج زاوية مجهولة.",
+      "descriptionEn": "Use the 180° interior-angle sum to determine a missing triangle angle."
+    },
+    {
+      "id": 36,
+      "descriptionAr": "يطبق مساحة الدائرة = π × نصف القطر² مع التمييز بين القطر ونصف القطر.",
+      "descriptionEn": "Apply circle area = π × radius² and distinguish diameter from radius."
+    },
+    {
+      "id": 37,
+      "descriptionAr": "يطبق في المثلث القائم أ² + ب² = ج² مع تحديد الوتر والتحقق من المعطيات.",
+      "descriptionEn": "Apply a² + b² = c² in right triangles, correctly identifying the hypotenuse."
+    },
+    {
+      "id": 38,
+      "descriptionAr": "يستخدم تساوي الزوايا المتقابلة بالرأس بعد تقاطع مستقيمين لإيجاد المجهول.",
+      "descriptionEn": "Use equality of vertically opposite angles to find unknown angle measures."
+    },
+    {
+      "id": 39,
+      "descriptionAr": "يحسب مجموع الزوايا الداخلية لمضلع ويستنتج قياسات الزوايا المطلوبة.",
+      "descriptionEn": "Calculate polygon interior-angle sums and deduce missing angle measures."
+    },
+    {
+      "id": 40,
+      "descriptionAr": "يستدل على تشابه مثلثين ويستخدم تناسب الأضلاع المناظرة.",
+      "descriptionEn": "Establish triangle similarity and use proportional corresponding sides."
+    }
+  ]
+}
