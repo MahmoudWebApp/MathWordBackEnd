@@ -1,0 +1,1008 @@
+{
+  "meta": {
+    "batch": "curriculum-wave4-20261123",
+    "source": "MathWorld original question-bank development",
+    "status": "Draft",
+    "publication": "Requires independent educator and bilingual review before publication",
+    "catalog": "content/catalog/international-mathworld-taxonomy-v2.json",
+    "noStudentFacingChanges": true,
+    "policy": "No editing existing Problems, Categories, learner progress, Free pair selection, Premium access, or achievement records"
+  },
+  "topics": [
+    {
+      "stableKey": "p-number-sense",
+      "stageId": 1,
+      "domainId": 1,
+      "iconKey": "numbers-place-value",
+      "sortOrder": 11,
+      "nameAr": "الأعداد والقيمة المكانية",
+      "nameEn": "Number Sense & Place Value",
+      "descriptionAr": "بناء فهم الأرقام والمنازل والتقدير والترتيب والعد المتدرج بمسائل متنوعة.",
+      "descriptionEn": "Develop place value, comparison, estimation and structured counting through varied tasks.",
+      "existingProposal": true,
+      "skills": [
+        {
+          "key": "place-value",
+          "nameAr": "القيمة المكانية",
+          "nameEn": "Place value",
+          "objectiveAr": "تمييز قيمة الرقم وفق موقعه",
+          "objectiveEn": "Identify a digit's positional value"
+        },
+        {
+          "key": "number-comparison",
+          "nameAr": "مقارنة الأعداد",
+          "nameEn": "Number comparison",
+          "objectiveAr": "ترتيب الأعداد وفق قيمتها",
+          "objectiveEn": "Compare multi-digit quantities"
+        },
+        {
+          "key": "rounding",
+          "nameAr": "التقريب والتقدير",
+          "nameEn": "Rounding and estimation",
+          "objectiveAr": "تقريب العدد واستخدام التقدير",
+          "objectiveEn": "Round and estimate appropriately"
+        },
+        {
+          "key": "counting",
+          "nameAr": "العد وفق نمط",
+          "nameEn": "Structured counting",
+          "objectiveAr": "متابعة تسلسل عددي ثابت الخطوة",
+          "objectiveEn": "Continue a fixed-step counting pattern"
+        }
+      ],
+      "items": [
+        {
+          "contentKey": "mw-wave4-p-digit-value",
+          "primarySkillKey": "place-value",
+          "templateFamilyKey": "wave4-p-digit-value",
+          "difficultyLevel": 1,
+          "pisaProcess": "employ",
+          "titleAr": "قيمة الرقم في عدد",
+          "titleEn": "Digit value in a number",
+          "questionTextAr": "في العدد 57,304 ما القيمة المكانية للرقم 7؟",
+          "questionTextEn": "In the number 57,304, what is the place value of digit 7?",
+          "detailedSolutionAr": "الرقم 7 يقع في منزلة الآلاف، لذلك قيمته تساوي 7,000.",
+          "detailedSolutionEn": "The digit 7 is in the thousands place, so its value is 7,000.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "700",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "7000",
+              "IsCorrect": true
+            },
+            {
+              "Order": 3,
+              "LatexCode": "70",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "7",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave4-p-compare-four",
+          "primarySkillKey": "number-comparison",
+          "templateFamilyKey": "wave4-p-compare-four",
+          "difficultyLevel": 2,
+          "pisaProcess": "interpret_evaluate",
+          "titleAr": "اختيار العدد الأكبر",
+          "titleEn": "Choose the greatest number",
+          "questionTextAr": "من بين الأعداد 4,096 و4,609 و4,690 و4,906، أيها الأكبر؟",
+          "questionTextEn": "Which is greatest: 4,096, 4,609, 4,690, or 4,906?",
+          "detailedSolutionAr": "نقارن الآلاف ثم المئات، و4,906 له 9 مئات، لذا هو الأكبر.",
+          "detailedSolutionEn": "Compare thousands then hundreds; 4,906 has nine hundreds and is greatest.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "4609",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "4690",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "4906",
+              "IsCorrect": true
+            },
+            {
+              "Order": 4,
+              "LatexCode": "4096",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave4-p-round-hundreds",
+          "primarySkillKey": "rounding",
+          "templateFamilyKey": "wave4-p-round-hundreds",
+          "difficultyLevel": 2,
+          "pisaProcess": "employ",
+          "titleAr": "تقريب لأقرب مئة",
+          "titleEn": "Round to the nearest hundred",
+          "questionTextAr": "قرّب العدد 3,867 إلى أقرب مئة، مع مراعاة منزلة العشرات.",
+          "questionTextEn": "Round 3,867 to the nearest hundred using the tens digit.",
+          "detailedSolutionAr": "منزلة العشرات هي 6، فنرفع المئات من 8 إلى 9 ويصبح العدد 3,900.",
+          "detailedSolutionEn": "The tens digit is 6, so round the hundreds place up: 3,900.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "3800",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "3860",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "3900",
+              "IsCorrect": true
+            },
+            {
+              "Order": 4,
+              "LatexCode": "4000",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave4-p-step-count",
+          "primarySkillKey": "counting",
+          "templateFamilyKey": "wave4-p-step-count",
+          "difficultyLevel": 2,
+          "pisaProcess": "formulate",
+          "titleAr": "ثلاث زيادات متساوية",
+          "titleEn": "Three equal jumps",
+          "questionTextAr": "يبدأ عداد عند 1,250 ويزيد 25 في كل خطوة. ما العدد بعد ثلاث خطوات؟",
+          "questionTextEn": "A counter starts at 1,250 and increases by 25 each step. What does it show after three steps?",
+          "detailedSolutionAr": "نضيف ثلاث مرات 25: ‏1,250 + 75 = 1,325.",
+          "detailedSolutionEn": "Three increments of 25 total 75; 1,250 + 75 = 1,325.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "1275",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "1300",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "1325",
+              "IsCorrect": true
+            },
+            {
+              "Order": 4,
+              "LatexCode": "1350",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave4-p-estimate-sum",
+          "primarySkillKey": "rounding",
+          "templateFamilyKey": "wave4-p-estimate-sum",
+          "difficultyLevel": 2,
+          "pisaProcess": "interpret_evaluate",
+          "titleAr": "تقدير جمع عددين",
+          "titleEn": "Estimating a sum",
+          "questionTextAr": "قدّر ناتج جمع 198 و304 بتقريب كل عدد إلى أقرب مئة أولاً.",
+          "questionTextEn": "Estimate 198 + 304 by first rounding each number to the nearest hundred.",
+          "detailedSolutionAr": "نقرّب 198 إلى 200 و304 إلى 300؛ مجموع التقدير 500.",
+          "detailedSolutionEn": "Round 198 to 200 and 304 to 300, then add to estimate 500.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "400",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "500",
+              "IsCorrect": true
+            },
+            {
+              "Order": 3,
+              "LatexCode": "502",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "600",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave4-p-expanded-number",
+          "primarySkillKey": "place-value",
+          "templateFamilyKey": "wave4-p-expanded-number",
+          "difficultyLevel": 2,
+          "pisaProcess": "employ",
+          "titleAr": "كتابة عدد من منازله",
+          "titleEn": "Build a number from place values",
+          "questionTextAr": "ما العدد المكوّن من 4 آلاف و3 مئات و2 عشرات و7 آحاد؟",
+          "questionTextEn": "Which number has four thousands, three hundreds, two tens, and seven ones?",
+          "detailedSolutionAr": "نجمع قيم المنازل: ‏4000 + 300 + 20 + 7 = 4327.",
+          "detailedSolutionEn": "Add the place values: 4,000 + 300 + 20 + 7 = 4,327.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "4237",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "4307",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "4320",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "4327",
+              "IsCorrect": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stableKey": "m-probability",
+      "stageId": 2,
+      "domainId": 4,
+      "iconKey": "probability-outcomes",
+      "sortOrder": 19,
+      "nameAr": "الاحتمال والأحداث المركبة",
+      "nameEn": "Probability & Compound Events",
+      "descriptionAr": "فضاءات العينة والاحتمال النظري والتجريبي والأحداث المتتابعة مع مراعاة الاستقلال.",
+      "descriptionEn": "Sample spaces, empirical frequencies and compound events, including dependent and independent outcomes.",
+      "existingProposal": false,
+      "skills": [
+        {
+          "key": "sample-spaces",
+          "nameAr": "فضاءات العينة",
+          "nameEn": "Sample spaces",
+          "objectiveAr": "حصر النتائج الممكنة بدقة",
+          "objectiveEn": "Count distinct possible outcomes"
+        },
+        {
+          "key": "simple-compound-events",
+          "nameAr": "الأحداث البسيطة والمركبة",
+          "nameEn": "Simple and compound events",
+          "objectiveAr": "حساب احتمال اتحاد أو تتابع أحداث بسيطة",
+          "objectiveEn": "Calculate simple and sequential event probabilities"
+        },
+        {
+          "key": "frequency",
+          "nameAr": "الاحتمال التجريبي",
+          "nameEn": "Empirical frequency",
+          "objectiveAr": "استخراج احتمال تجريبي من بيانات تكرار",
+          "objectiveEn": "Estimate probability from observed frequencies"
+        }
+      ],
+      "items": [
+        {
+          "contentKey": "mw-wave4-m-spinner-not-blue",
+          "primarySkillKey": "simple-compound-events",
+          "templateFamilyKey": "wave4-m-spinner-not-blue",
+          "difficultyLevel": 2,
+          "pisaProcess": "formulate",
+          "titleAr": "احتمال عدم ظهور الأزرق",
+          "titleEn": "Probability of not blue",
+          "questionTextAr": "قرص به 3 أقسام حمراء وقسمان أزرقان وقسم أخضر واحد، وكل الأقسام متساوية. ما احتمال عدم توقف المؤشر عند الأزرق؟",
+          "questionTextEn": "An equal-section spinner has 3 red, 2 blue and 1 green section. What is the probability of not landing on blue?",
+          "detailedSolutionAr": "لدينا 6 أقسام، غير الزرقاء أربعة؛ الاحتمال 4/6 = 2/3.",
+          "detailedSolutionEn": "There are six equal sections and four are not blue, so 4/6 = 2/3.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "\\frac{1}{3}",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "\\frac{2}{3}",
+              "IsCorrect": true
+            },
+            {
+              "Order": 3,
+              "LatexCode": "\\frac{1}{2}",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "\\frac{5}{6}",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave4-m-without-replacement",
+          "primarySkillKey": "simple-compound-events",
+          "templateFamilyKey": "wave4-m-without-replacement",
+          "difficultyLevel": 4,
+          "pisaProcess": "employ",
+          "titleAr": "سحب كرتين دون إرجاع",
+          "titleEn": "Two draws without replacement",
+          "questionTextAr": "كيس فيه كرتان حمراوان وثلاث زرقاء. نسحب كرتين تباعاً دون إرجاع. ما احتمال أن تكونا حمراوين؟",
+          "questionTextEn": "A bag has 2 red and 3 blue balls. Two are drawn without replacement. What is the probability both are red?",
+          "detailedSolutionAr": "احتمال الأولى حمراء 2/5، والثانية بعد سحبها 1/4؛ الناتج 2/5 × 1/4 = 1/10.",
+          "detailedSolutionEn": "The first red chance is 2/5 and the next is 1/4 after removal: 2/5 × 1/4 = 1/10.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "\\frac{1}{5}",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "\\frac{2}{5}",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "\\frac{1}{10}",
+              "IsCorrect": true
+            },
+            {
+              "Order": 4,
+              "LatexCode": "\\frac{1}{4}",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave4-m-spinner-coin",
+          "primarySkillKey": "simple-compound-events",
+          "templateFamilyKey": "wave4-m-spinner-coin",
+          "difficultyLevel": 3,
+          "pisaProcess": "employ",
+          "titleAr": "حدثان مستقلان",
+          "titleEn": "Two independent events",
+          "questionTextAr": "قرص من أربعة أقسام متساوية أحدها أزرق، ومعه قطعة نقود عادلة. ما احتمال ظهور الأزرق ووجه الصورة معاً؟",
+          "questionTextEn": "A spinner has four equal sectors, one blue. A fair coin is flipped. What is the chance of blue and heads together?",
+          "detailedSolutionAr": "الحدثان مستقلان؛ نضرب 1/4 باحتمال الصورة 1/2 فنحصل على 1/8.",
+          "detailedSolutionEn": "The events are independent: multiply 1/4 by 1/2 to get 1/8.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "\\frac{1}{8}",
+              "IsCorrect": true
+            },
+            {
+              "Order": 2,
+              "LatexCode": "\\frac{1}{4}",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "\\frac{1}{6}",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "\\frac{1}{2}",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave4-m-frequency-ratio",
+          "primarySkillKey": "frequency",
+          "templateFamilyKey": "wave4-m-frequency-ratio",
+          "difficultyLevel": 2,
+          "pisaProcess": "interpret_evaluate",
+          "titleAr": "احتمال من مشاهدات",
+          "titleEn": "Probability from observations",
+          "questionTextAr": "نجح جهاز في 18 اختباراً من أصل 60 اختباراً مستقلاً. ما التكرار النسبي للنجاح في العينة؟",
+          "questionTextEn": "A device passed 18 of 60 observed tests. What is its observed relative frequency of success?",
+          "detailedSolutionAr": "نقسم مرات النجاح على الاختبارات: 18/60 = 3/10، وهذه نسبة تجريبية وليست ضماناً مستقبلياً.",
+          "detailedSolutionEn": "Divide observed successes by trials: 18/60 = 3/10. This is an empirical estimate, not a guarantee.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "\\frac{1}{5}",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "\\frac{3}{10}",
+              "IsCorrect": true
+            },
+            {
+              "Order": 3,
+              "LatexCode": "\\frac{2}{5}",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "\\frac{3}{5}",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave4-m-frequency-percent",
+          "primarySkillKey": "frequency",
+          "templateFamilyKey": "wave4-m-frequency-percent",
+          "difficultyLevel": 2,
+          "pisaProcess": "interpret_evaluate",
+          "titleAr": "نسبة اللون في العينة",
+          "titleEn": "Observed percentage",
+          "questionTextAr": "من 80 تجربة لقرص دوّار ظهر اللون الأزرق 24 مرة. ما النسبة المئوية التجريبية لظهوره؟",
+          "questionTextEn": "Blue appeared in 24 of 80 spinner trials. What was the observed percentage of blue outcomes?",
+          "detailedSolutionAr": "النسبة التجريبية تساوي (24÷80)×100 = 30 بالمئة.",
+          "detailedSolutionEn": "The experimental percentage is (24/80) × 100 = 30 percent.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "24\\%",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "30\\%",
+              "IsCorrect": true
+            },
+            {
+              "Order": 3,
+              "LatexCode": "40\\%",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "60\\%",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave4-m-sample-outfits",
+          "primarySkillKey": "sample-spaces",
+          "templateFamilyKey": "wave4-m-sample-outfits",
+          "difficultyLevel": 1,
+          "pisaProcess": "formulate",
+          "titleAr": "عدد اختيارات الملابس",
+          "titleEn": "Count possible outfits",
+          "questionTextAr": "مع طالبة 3 قمصان مختلفة وسروالان مختلفان. كم زياً ممكناً باختيار قميص وسروال واحد؟",
+          "questionTextEn": "A student has 3 distinct shirts and 2 distinct pairs of trousers. How many one-shirt, one-pair outfits are possible?",
+          "detailedSolutionAr": "لكل قميص خياران من السراويل، إذن عدد الأزواج 3 × 2 = 6.",
+          "detailedSolutionEn": "Each of three shirts pairs with two trousers, yielding 3 × 2 = 6 possible outfits.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "5",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "6",
+              "IsCorrect": true
+            },
+            {
+              "Order": 3,
+              "LatexCode": "8",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "9",
+              "IsCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stableKey": "s-vectors",
+      "stageId": 3,
+      "domainId": 2,
+      "iconKey": "vector-arrows",
+      "sortOrder": 19,
+      "nameAr": "المتجهات",
+      "nameEn": "Vectors",
+      "descriptionAr": "تمثيل متجهات المستوى وجمعها وحساب المقدار والضرب القياسي واختبار التعامد.",
+      "descriptionEn": "Plane vectors, components, addition, magnitude, dot products and perpendicularity.",
+      "existingProposal": false,
+      "skills": [
+        {
+          "key": "vector-components",
+          "nameAr": "مركبات المتجه",
+          "nameEn": "Vector components",
+          "objectiveAr": "تمثيل الإزاحة وجمع المتجهات بمركباتها",
+          "objectiveEn": "Represent displacement and add coordinate vectors"
+        },
+        {
+          "key": "magnitude",
+          "nameAr": "مقدار المتجه",
+          "nameEn": "Vector magnitude",
+          "objectiveAr": "حساب طول المتجه من مركباته",
+          "objectiveEn": "Compute vector lengths"
+        },
+        {
+          "key": "dot-product",
+          "nameAr": "الضرب القياسي",
+          "nameEn": "Dot product",
+          "objectiveAr": "حساب الضرب القياسي والاستدلال على التعامد",
+          "objectiveEn": "Evaluate dot products and infer orthogonality"
+        }
+      ],
+      "items": [
+        {
+          "contentKey": "mw-wave4-s-displacement",
+          "primarySkillKey": "vector-components",
+          "templateFamilyKey": "wave4-s-displacement",
+          "difficultyLevel": 2,
+          "pisaProcess": "formulate",
+          "titleAr": "متجه الإزاحة",
+          "titleEn": "Displacement vector",
+          "questionTextAr": "نقطة البداية A(2,-1) ونقطة النهاية B(-1,5). ما مركبتا المتجه AB؟",
+          "questionTextEn": "A=(2,-1) and B=(-1,5). What are the components of displacement vector AB?",
+          "detailedSolutionAr": "نطرح إحداثيات A من B: ‏(-1-2,5-(-1))=(-3,6).",
+          "detailedSolutionEn": "Subtract A from B componentwise: (-1-2, 5-(-1)) = (-3,6).",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "(3,-6)",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "(-3,4)",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "(-3,6)",
+              "IsCorrect": true
+            },
+            {
+              "Order": 4,
+              "LatexCode": "(1,4)",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave4-s-vector-addition",
+          "primarySkillKey": "vector-components",
+          "templateFamilyKey": "wave4-s-vector-addition",
+          "difficultyLevel": 2,
+          "pisaProcess": "employ",
+          "titleAr": "جمع متجهين",
+          "titleEn": "Adding vectors",
+          "questionTextAr": "إذا كان u=(2,-3) وv=(-5,4)، فما المتجه u+v؟",
+          "questionTextEn": "If u=(2,-3) and v=(-5,4), what is u+v?",
+          "detailedSolutionAr": "نجمع المركبات المناظرة: ‏(2-5,-3+4)=(-3,1).",
+          "detailedSolutionEn": "Add corresponding components: (2-5, -3+4) = (-3,1).",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "(-3,1)",
+              "IsCorrect": true
+            },
+            {
+              "Order": 2,
+              "LatexCode": "(7,-7)",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "(-7,1)",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "(3,-1)",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave4-s-length-5-12",
+          "primarySkillKey": "magnitude",
+          "templateFamilyKey": "wave4-s-length-5-12",
+          "difficultyLevel": 2,
+          "pisaProcess": "employ",
+          "titleAr": "طول متجه",
+          "titleEn": "Vector length",
+          "questionTextAr": "ما مقدار المتجه (5,12) في المستوى الإقليدي؟",
+          "questionTextEn": "What is the Euclidean magnitude of the vector (5,12)?",
+          "detailedSolutionAr": "باستخدام فيثاغورس: الجذر التربيعي لـ(25+144)=الجذر التربيعي لـ169=13.",
+          "detailedSolutionEn": "By Pythagoras, the length is sqrt(5²+12²)=sqrt(169)=13.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "12",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "13",
+              "IsCorrect": true
+            },
+            {
+              "Order": 3,
+              "LatexCode": "15",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "17",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave4-s-length-minus6-8",
+          "primarySkillKey": "magnitude",
+          "templateFamilyKey": "wave4-s-length-minus6-8",
+          "difficultyLevel": 2,
+          "pisaProcess": "employ",
+          "titleAr": "مقدار متجه بمركبة سالبة",
+          "titleEn": "Magnitude with a negative component",
+          "questionTextAr": "متجه مركبتاه (-6,8). كم يبلغ طوله باستخدام قانون مقدار المتجه؟",
+          "questionTextEn": "A vector has components (-6,8). Find its magnitude using the vector norm formula.",
+          "detailedSolutionAr": "مربع -6 يساوي 36 ومربع 8 يساوي 64؛ الجذر التربيعي لمجموعهما 100 يساوي 10.",
+          "detailedSolutionEn": "Square both components: 36+64=100; the square root is 10.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "8",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "10",
+              "IsCorrect": true
+            },
+            {
+              "Order": 3,
+              "LatexCode": "12",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "14",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave4-s-dot-product",
+          "primarySkillKey": "dot-product",
+          "templateFamilyKey": "wave4-s-dot-product",
+          "difficultyLevel": 2,
+          "pisaProcess": "employ",
+          "titleAr": "ضرب قياسي بمتجهات",
+          "titleEn": "Dot product of two vectors",
+          "questionTextAr": "احسب الضرب القياسي للمتجهين (2,-1) و(4,3).",
+          "questionTextEn": "Compute the dot product of (2,-1) and (4,3).",
+          "detailedSolutionAr": "نضرب المركبات ونجمع: ‏2×4 + (-1)×3 = 8-3 = 5.",
+          "detailedSolutionEn": "Multiply paired components and add: 2×4 + (-1)×3 = 8-3 = 5.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "5",
+              "IsCorrect": true
+            },
+            {
+              "Order": 2,
+              "LatexCode": "8",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "11",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "-5",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave4-s-orthogonal-unknown",
+          "primarySkillKey": "dot-product",
+          "templateFamilyKey": "wave4-s-orthogonal-unknown",
+          "difficultyLevel": 3,
+          "pisaProcess": "interpret_evaluate",
+          "titleAr": "إيجاد مركبة تحقق التعامد",
+          "titleEn": "Find a perpendicular component",
+          "questionTextAr": "متجهان (3,2) و(x,-6) متعامدان. ما قيمة x التي تجعل ضربهما القياسي صفراً؟",
+          "questionTextEn": "Vectors (3,2) and (x,-6) are perpendicular. What value of x makes their dot product zero?",
+          "detailedSolutionAr": "شرط التعامد: ‏3x + 2×(-6)=0، ومنه 3x=12 وx=4.",
+          "detailedSolutionEn": "Perpendicular vectors have dot product zero: 3x-12=0, so x=4.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "-4",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "2",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "4",
+              "IsCorrect": true
+            },
+            {
+              "Order": 4,
+              "LatexCode": "6",
+              "IsCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stableKey": "u-optimization",
+      "stageId": 4,
+      "domainId": 5,
+      "iconKey": "optimization-curve",
+      "sortOrder": 20,
+      "nameAr": "التحسين الرياضي",
+      "nameEn": "Mathematical Optimization",
+      "descriptionAr": "تحسين الدوال غير المقيدة والمقيدة، وفحص الانحناء والتحدب بالأدلة التحليلية.",
+      "descriptionEn": "Unconstrained and constrained optima, second derivatives, Hessians and convexity.",
+      "existingProposal": false,
+      "skills": [
+        {
+          "key": "unconstrained-optimization",
+          "nameAr": "التحسين دون قيود",
+          "nameEn": "Unconstrained optimization",
+          "objectiveAr": "تحديد نقاط الثبات والقيم المثلى",
+          "objectiveEn": "Find stationary points and optima"
+        },
+        {
+          "key": "constrained-optimization",
+          "nameAr": "التحسين مع قيود",
+          "nameEn": "Constrained optimization",
+          "objectiveAr": "استخدام العلاقات المقيدة لتحديد أمثلية الدوال",
+          "objectiveEn": "Optimize functions subject to linear constraints"
+        },
+        {
+          "key": "convexity",
+          "nameAr": "تحدب الدوال",
+          "nameEn": "Convexity",
+          "objectiveAr": "تحليل المشتقة الثانية ومصفوفة هسيان",
+          "objectiveEn": "Use second derivatives and Hessian eigenvalues"
+        }
+      ],
+      "items": [
+        {
+          "contentKey": "mw-wave4-u-square-min",
+          "primarySkillKey": "unconstrained-optimization",
+          "templateFamilyKey": "wave4-u-square-min",
+          "difficultyLevel": 2,
+          "pisaProcess": "employ",
+          "titleAr": "القيمة الصغرى لدالة تربيعية",
+          "titleEn": "Minimum of a quadratic",
+          "questionTextAr": "للدالة f(x)=(x-3)^2+2 على مجموعة الأعداد الحقيقية، ما أصغر قيمة ممكنة لـf؟",
+          "questionTextEn": "For f(x)=(x-3)^2+2 over all real x, what is its minimum value?",
+          "detailedSolutionAr": "مربع أي عدد غير سالب، ويصير صفراً عند x=3؛ عندئذ القيمة الصغرى 2.",
+          "detailedSolutionEn": "A square is nonnegative and vanishes at x=3, giving the minimum value 2.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "-2",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "0",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "2",
+              "IsCorrect": true
+            },
+            {
+              "Order": 4,
+              "LatexCode": "3",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave4-u-stationary",
+          "primarySkillKey": "unconstrained-optimization",
+          "templateFamilyKey": "wave4-u-stationary",
+          "difficultyLevel": 2,
+          "pisaProcess": "employ",
+          "titleAr": "موضع نقطة الثبات",
+          "titleEn": "Stationary point location",
+          "questionTextAr": "أوجد قيمة x التي تحقق f'(x)=0 للدالة f(x)=x^2-6x+5.",
+          "questionTextEn": "Find x where f'(x)=0 for f(x)=x^2-6x+5.",
+          "detailedSolutionAr": "المشتقة 2x-6، وبحل 2x-6=0 نجد x=3.",
+          "detailedSolutionEn": "Differentiate: f'(x)=2x-6. Setting it to zero gives x=3.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "-3",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "2",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "3",
+              "IsCorrect": true
+            },
+            {
+              "Order": 4,
+              "LatexCode": "6",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave4-u-constrained-equal",
+          "primarySkillKey": "constrained-optimization",
+          "templateFamilyKey": "wave4-u-constrained-equal",
+          "difficultyLevel": 3,
+          "pisaProcess": "formulate",
+          "titleAr": "تقليل مجموع مربعين",
+          "titleEn": "Minimize a sum of squares",
+          "questionTextAr": "نريد تصغير x^2+y^2 بشرط x+y=6 حيث x وy حقيقيان. ما الزوج الذي يحقق الأصغر؟",
+          "questionTextEn": "Minimize x²+y² subject to x+y=6 for real x and y. Which pair gives the minimum?",
+          "detailedSolutionAr": "من تماثل الدالة أو بإكمال المربع، تتحقق القيمة الأصغر عند x=y=3.",
+          "detailedSolutionEn": "Substitute y=6-x and complete the square; the minimum occurs at x=y=3.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "(0,6)",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "(2,4)",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "(3,3)",
+              "IsCorrect": true
+            },
+            {
+              "Order": 4,
+              "LatexCode": "(6,0)",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave4-u-product-max",
+          "primarySkillKey": "constrained-optimization",
+          "templateFamilyKey": "wave4-u-product-max",
+          "difficultyLevel": 3,
+          "pisaProcess": "formulate",
+          "titleAr": "تعظيم جداء عددين",
+          "titleEn": "Maximize a product",
+          "questionTextAr": "إذا كان x وy غير سالبين ومجموعهما 10، فما أكبر قيمة للجداء xy؟",
+          "questionTextEn": "For nonnegative x and y with x+y=10, what is the greatest possible value of xy?",
+          "detailedSolutionAr": "يبلغ الجداء قيمته الكبرى عند تساوي العددين x=y=5، وبالتالي xy=25.",
+          "detailedSolutionEn": "The product is maximized when x=y=5, so the maximum is 25.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "20",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "24",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "25",
+              "IsCorrect": true
+            },
+            {
+              "Order": 4,
+              "LatexCode": "50",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave4-u-second-derivative",
+          "primarySkillKey": "convexity",
+          "templateFamilyKey": "wave4-u-second-derivative",
+          "difficultyLevel": 3,
+          "pisaProcess": "employ",
+          "titleAr": "مشتقة ثانية لاختبار التحدب",
+          "titleEn": "Second derivative for curvature",
+          "questionTextAr": "للدالة f(x)=x^4+3x^2، ما قيمة f''(1)؟",
+          "questionTextEn": "For f(x)=x⁴+3x², what is f''(1)?",
+          "detailedSolutionAr": "المشتقة الأولى 4x³+6x، والثانية 12x²+6؛ بالتعويض عند 1 نجد 18.",
+          "detailedSolutionEn": "First differentiate to 4x³+6x, then to 12x²+6; at x=1 this is 18.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "12",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "14",
+              "IsCorrect": false
+            },
+            {
+              "Order": 3,
+              "LatexCode": "18",
+              "IsCorrect": true
+            },
+            {
+              "Order": 4,
+              "LatexCode": "24",
+              "IsCorrect": false
+            }
+          ]
+        },
+        {
+          "contentKey": "mw-wave4-u-hessian-eigen",
+          "primarySkillKey": "convexity",
+          "templateFamilyKey": "wave4-u-hessian-eigen",
+          "difficultyLevel": 4,
+          "pisaProcess": "interpret_evaluate",
+          "titleAr": "أصغر قيمة ذاتية لهسيان",
+          "titleEn": "Smallest Hessian eigenvalue",
+          "questionTextAr": "لدالة f(x,y)=x^2+2y^2، ما أصغر قيمة ذاتية لمصفوفة هسيان؟",
+          "questionTextEn": "For f(x,y)=x²+2y², what is the smallest eigenvalue of its Hessian?",
+          "detailedSolutionAr": "مصفوفة هسيان قطرية بقيمتي 2 و4؛ القيمة الذاتية الأصغر هي 2، وكلاهما موجبتان.",
+          "detailedSolutionEn": "The Hessian is diagonal with entries 2 and 4; its smallest eigenvalue is 2, and both are positive.",
+          "options": [
+            {
+              "Order": 1,
+              "LatexCode": "1",
+              "IsCorrect": false
+            },
+            {
+              "Order": 2,
+              "LatexCode": "2",
+              "IsCorrect": true
+            },
+            {
+              "Order": 3,
+              "LatexCode": "4",
+              "IsCorrect": false
+            },
+            {
+              "Order": 4,
+              "LatexCode": "6",
+              "IsCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
