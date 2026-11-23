@@ -68,6 +68,20 @@ ORDER BY 1, 2;
 5. Recheck migration count, known constraints, row totals, login, four-option/single-correct checks, existing user progress, subscriptions, published curriculum and student APIs. Only then classify the blocker resolved.
 6. Review Supabase advisor results independently. `rls_enabled_no_policy` at `INFO` can be deliberate when the app uses a private service-side database connection; check exposed API grants and role separation before adding policies. Do not remove an index only because an advisor says "unused".
 
+## Read-only object-level comparison (follow-up)
+
+Compared the actual MathWorldDB schema against the five later `Up()` migration files without running any DDL:
+
+- **All 19 checked objects exist:** the seven curriculum tables and twelve explicitly named secondary/unique indexes, including both normalized-question unique indexes.
+- Four stage/category bilingual description columns exist with `text NOT NULL DEFAULT ''`, consistent with the checked migration.
+- Checked curriculum FKs, primary keys, uniqueness and validation constraints appear present, including a non-self prerequisite check, skill-standard mapping type constraint, topic proposed-count constraint and draft difficulty 1–5 check. This is a targeted check, **not** an exhaustive exact-schema equivalence proof.
+- On `CurriculumDraftItems` and `CurriculumTopicProposals`, RLS is enabled, and direct `SELECT` privileges are absent for both `anon` and `authenticated` database roles. Do not interpret an `rls_enabled_no_policy` informational lint alone as proof of unauthorized access.
+- **None of the five migration IDs is recorded in the EF history table.** This mismatch remains active despite the presence of the observed objects.
+- `Program.cs` applies migrations on startup only when `Database:ApplyMigrationsOnStartup` is enabled, and the `/health/ready` endpoint checks pending EF migrations. **The actual Render environment configuration and running backend revision were not verified**, so no claim is made that production automatically migrates or that readiness is green.
+- Production reconciliation must account for migrations that use `CREATE TABLE IF NOT EXISTS`: if a table exists with a different shape, this syntax does not repair it. Verify all columns, types, defaults, constraints, indexes, grants, RLS and previous manual SQL against a **restored isolated** database before updating EF history or applying new migrations.
+
+**Disposition:** audit refined; **P0 schema-history blocker remains open**. No production SQL write performed.
+
 ## Initial safe content checks (2026-11-24)
 
 Read-only counts: **4 stages, 35 categories, 773 problems, 140 published skills, 234 published editorial items**. Integrity checks: **0** problems with fewer/more than four options; **0** problems without exactly one correct option; **0** empty categories; **0** published skills without problem mappings. These checks do not certify mathematical correctness or solutions. All counts are dated snapshots, not expected constants.
