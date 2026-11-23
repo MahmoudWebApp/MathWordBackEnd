@@ -88,7 +88,6 @@ namespace MathWorldAPI.Services
                     "Jwt:Key must contain at least 32 UTF-8 bytes.");
             }
 
-
         }
 
         /// <summary>
@@ -129,8 +128,7 @@ namespace MathWorldAPI.Services
             if (emailExists)
             {
                 _logger.LogWarning(
-                    "Registration rejected because email {Email} already exists.",
-                    normalizedEmail);
+                    "Registration rejected because the supplied email is in use.");
 
                 return null;
             }
@@ -162,8 +160,7 @@ namespace MathWorldAPI.Services
             {
                 _logger.LogWarning(
                     exception,
-                    "Registration failed while saving user {Email}.",
-                    normalizedEmail);
+                    "Registration failed while saving a new account.");
 
                 return null;
             }
@@ -171,7 +168,6 @@ namespace MathWorldAPI.Services
             _logger.LogInformation(
                 "User {UserId} registered successfully.",
                 user.Id);
-
 
             return BuildAuthResponse(user);
         }
@@ -206,8 +202,7 @@ namespace MathWorldAPI.Services
             if (user == null)
             {
                 _logger.LogWarning(
-                    "Login failed because email {Email} was not found.",
-                    normalizedEmail);
+                    "Login failed because the supplied account was not found.");
 
                 return (
                     null,
@@ -281,7 +276,6 @@ namespace MathWorldAPI.Services
             _logger.LogInformation(
                 "User {UserId} logged in successfully.",
                 user.Id);
-
 
             return (
                 BuildAuthResponse(user),
