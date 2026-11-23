@@ -66,6 +66,7 @@ namespace MathWorldAPI.Controllers
 
             var now = DateTime.UtcNow;
             var updatedIds = new List<int>();
+            var periods = new List<object>();
             var skippedIndefiniteIds = new List<int>();
             foreach (var learner in learners.OrderBy(u => u.Id))
             {
@@ -109,6 +110,8 @@ namespace MathWorldAPI.Controllers
                     CreatedAtUtc = now
                 });
                 updatedIds.Add(learner.Id);
+                // The client displays authoritative dates, not an estimated browser clock.
+                periods.Add(new { LearnerId = learner.Id, StartAtUtc = baseDate, EndAtUtc = expiry });
             }
 
             await _db.SaveChangesAsync(cancellationToken);
@@ -121,7 +124,8 @@ namespace MathWorldAPI.Controllers
                 Updated = updatedIds.Count,
                 UpdatedIds = updatedIds,
                 SkippedIndefiniteIds = skippedIndefiniteIds,
-                DurationMonths = 12
+                DurationMonths = 12,
+                Periods = periods
             }, "Success", LanguageHelper.GetLanguageFromRequest(Request)));
         }
 
