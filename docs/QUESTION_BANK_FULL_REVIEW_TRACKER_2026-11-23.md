@@ -1,5 +1,13 @@
 # MathWorld — question-bank and solution-method review tracker
 
+## University review — limits and discrete mathematics (23 November 2026)
+
+- Individually reviewed **46 university problems** in Limits/Continuity (18; category 16) and Logic/Discrete Mathematics (28; category 24). Twenty-two original explanations were adequate; **24 bilingual explanations were expanded** with precise Intermediate Value Theorem hypotheses, differentiability/continuity, logic equivalences, graph handshaking, counting, pigeonhole, trees, equivalence classes and propositional truth tables.
+- A fresh branch from the latest main superseded conflicting old PR #124, keeping the verified educational contents without overwriting the newly merged secondary CI. Independent math/logical-oracle CI plus backend/problem-integrity checks passed.
+- Exact-original-text and correct-option-guarded production SQL succeeded; live readback verified **24/24 updated Arabic and English explanations and 24/24 unchanged correct-option IDs/text**. No changes to published questions, categories, student history or access.
+- Cumulative: **487/601** student-visible problems individually reviewed (151 elementary, 140 middle, 150 secondary, 46 university). **386 explanations expanded**, **101 retained as adequate**. **114 university published questions remain** across multivariable calculus, linear algebra, differential equations and sequences/convergence. Separately, **160 DraftItems remain unpublished pending review**.
+
+
 ## Secondary-stage final concise-explanation verification (23 November 2026)
 
 - The **ten** mathematically correct but abbreviated secondary explanations (IDs 45,63,442,509,637,710,769,770,861,862) have now been expanded with laws, substitutions and proof/check steps in both Arabic and English.
