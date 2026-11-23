@@ -61,6 +61,7 @@ From `/srv/mathworld/MathWordBackEnd/deploy/hostinger`:
 cp .env.example .env
 chmod 600 .env
 # Edit the .env values. No secrets in git, chat or issue comments.
+python3 check-env.py  # Reject placeholders and weak or exposed secrets.
 docker compose --env-file .env -f compose.yml config --quiet
 docker compose --env-file .env -f compose.yml build
 ```
