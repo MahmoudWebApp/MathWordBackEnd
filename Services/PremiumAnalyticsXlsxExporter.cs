@@ -1,782 +1,327 @@
 using System.Globalization;
-using System.IO.Compression;
-using System.Text;
-using System.Xml;
+using ClosedXML.Excel;
+using ClosedXML.Excel.Drawings;
 using MathWorldAPI.Controllers;
 
 namespace MathWorldAPI.Services;
 
 /// <summary>
-/// Small, dependency-free OOXML spreadsheet generator. Strings are written as
-/// inline strings (never formulas), preventing Excel formula injection from
-/// stage/category names. All values come from the authorized server report.
+/// A single, styled, WPS/Excel-compatible XLSX report. Uses ClosedXML instead
+/// of hand-written OOXML drawing/chart parts. Chart-like data bars live inside
+/// cells and cannot accidentally obscure worksheets in WPS Office.
 /// </summary>
 public static class PremiumAnalyticsXlsxExporter
 {
-    private const string Spreadsheet = "http://schemas.openxmlformats.org/spreadsheetml/2006/main";
-    private const string OfficeRelations = "http://schemas.openxmlformats.org/officeDocument/2006/relationships";
-    private const string PackageRelations = "http://schemas.openxmlformats.org/package/2006/relationships";
-    private const string ContentTypes = "http://schemas.openxmlformats.org/package/2006/content-types";
-    private const string WorkbookMime = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml";
-    private const string WorksheetMime = "application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml";
-    private const string StylesMime = "application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml";
-    private const string ChartMime = "application/vnd.openxmlformats-officedocument.drawingml.chart+xml";
-    private const string DrawingMime = "application/vnd.openxmlformats-officedocument.drawing+xml";
-    private const string ChartNs = "http://schemas.openxmlformats.org/drawingml/2006/chart";
-    private const string DrawingNs = "http://schemas.openxmlformats.org/drawingml/2006/main";
-    private const string SpreadsheetDrawingNs = "http://schemas.openxmlformats.org/drawingml/2006/spreadsheetDrawing";
+    private static readonly XLColor Purple = XLColor.FromHtml("#6D28D9");
+    private static readonly XLColor Pink = XLColor.FromHtml("#EC4899");
+    private static readonly XLColor Ink = XLColor.FromHtml("#21142F");
+    private static readonly XLColor Lavender = XLColor.FromHtml("#F3EAFC");
+    private static readonly XLColor Light = XLColor.FromHtml("#FAF8FF");
+    private static readonly XLColor Border = XLColor.FromHtml("#E7DDF2");
 
-    // Only meaningful student-facing columns, in the chosen export language.
-    // Internal numeric IDs never belong in a progress report.
     private static string[] Headers(bool ar) => ar
         ? ["المرحلة", "الفئة", "المسائل المجربة", "المسائل المحلولة",
-            "دفتر الأخطاء", "عدد المحاولات", "الإجابات الصحيحة",
-            "الإجابات الخاطئة", "صحيحة من أول مرة", "النقاط", "الوقت بالثواني"]
+           "دفتر الأخطاء", "عدد المحاولات", "الإجابات الصحيحة",
+           "الإجابات الخاطئة", "صحيحة من أول مرة", "النقاط", "الوقت بالثواني"]
         : ["Stage", "Category", "Attempted problems", "Solved problems",
-            "Error notebook", "Attempts", "Correct attempts", "Incorrect attempts",
-            "Correct on first try", "Points", "Time (seconds)"];
+           "Review errors", "Attempts", "Correct answers", "Incorrect answers",
+           "First-try correct", "Points", "Time (seconds)"];
 
     public static byte[] Create(
-        StudentPremiumAnalyticsController.StudentAnalyticsReport report, bool rightToLeft)
+        StudentPremiumAnalyticsController.StudentAnalyticsReport report, bool ar)
     {
         ArgumentNullException.ThrowIfNull(report);
-        // Show twelve real categories by practice volume. The complete data
-        // remains on the first worksheet, without unverified chart numbers.
-        var chartRows = report.Categories
-            .OrderByDescending(x => x.AttemptedProblems)
-            .ThenBy(x => x.StageId).ThenBy(x => x.CategoryId)
-            .Take(12).ToArray();
-        var showCharts = chartRows.Length > 0;
-        var chartsSheetName = rightToLeft ? "مخططات التقدم" : "Progress charts";
-        var headers = Headers(rightToLeft);
+
+        using var logoResource = typeof(PremiumAnalyticsXlsxExporter).Assembly
+            .GetManifestResourceStream("MathWorld.Brand.Logo.png")
+            ?? throw new InvalidOperationException("Approved MathWorld report mark is missing.");
+        using var logoMemory = new MemoryStream();
+        logoResource.CopyTo(logoMemory);
+        var logoBytes = logoMemory.ToArray();
+
+        using var workbook = new XLWorkbook();
+        workbook.Properties.Title = ar ? "MathWorld | تقرير تقدمي" : "MathWorld | My progress";
+        workbook.Properties.Subject = ar ? "تقرير إحصائيات الطالب" : "Student progress statistics";
+        workbook.Properties.Author = "MathWorld";
+        var summary = workbook.Worksheets.Add(ar ? "تقدمي" : "My progress");
+        var charts = workbook.Worksheets.Add(ar ? "إحصائياتي" : "Statistics");
+
+        Setup(summary, ar);
+        Setup(charts, ar);
+        BuildSummary(summary, report, ar, logoBytes);
+        BuildCharts(charts, report, ar, logoBytes);
+
+        using var buffer = new MemoryStream();
+        workbook.SaveAs(buffer);
+        return buffer.ToArray();
+    }
+
+    private static void Setup(IXLWorksheet sheet, bool ar)
+    {
+        sheet.RightToLeft = ar;
+        sheet.Style.Font.FontName = "Arial";
+        sheet.Style.Font.FontSize = 11;
+        sheet.Style.Font.FontColor = Ink;
+        sheet.Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
+        sheet.Style.Fill.BackgroundColor = XLColor.White;
+        sheet.ShowGridLines = false;
+    }
+
+    private static void Header(
+        IXLWorksheet sheet, string title, string subtitle, byte[] logo)
+    {
+        sheet.Range("A1:J2").Merge();
+        var titleRange = sheet.Range("A1:J2");
+        titleRange.Value = title;
+        titleRange.Style.Fill.BackgroundColor = Purple;
+        titleRange.Style.Font.Bold = true;
+        titleRange.Style.Font.FontSize = 19;
+        titleRange.Style.Font.FontColor = XLColor.White;
+        titleRange.Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
+        titleRange.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Left;
+        titleRange.Style.Alignment.Indent = 1;
+
+        sheet.Range("A3:J3").Merge();
+        var subtitleRange = sheet.Range("A3:J3");
+        subtitleRange.Value = subtitle;
+        subtitleRange.Style.Fill.BackgroundColor = Lavender;
+        subtitleRange.Style.Font.FontColor = Purple;
+        subtitleRange.Style.Font.Bold = true;
+        subtitleRange.Style.Font.FontSize = 10;
+        subtitleRange.Style.Alignment.Indent = 1;
+        sheet.Row(1).Height = 34;
+        sheet.Row(2).Height = 32;
+        sheet.Row(3).Height = 27;
+
+        // A small square icon, never a floating chart/drawing over report cells.
+        using var stream = new MemoryStream(logo);
+        sheet.AddPicture(stream, XLPictureFormat.Png, "MathWorld")
+            .MoveTo(sheet.Cell("K1"))
+            .WithSize(62, 62);
+        sheet.Column(11).Width = 19;
+    }
+
+    private static void Metric(IXLWorksheet sheet, int row, int col,
+        string name, int value)
+    {
+        var label = sheet.Range(row, col, row, col + 1).Merge();
+        label.Value = name;
+        label.Style.Fill.BackgroundColor = Lavender;
+        label.Style.Font.FontColor = Purple;
+        label.Style.Font.Bold = true;
+        label.Style.Font.FontSize = 9;
+        label.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+
+        var number = sheet.Range(row + 1, col, row + 1, col + 1).Merge();
+        number.FirstCell().Value = value;
+        number.Style.Fill.BackgroundColor = Light;
+        number.Style.Font.FontColor = Ink;
+        number.Style.Font.Bold = true;
+        number.Style.Font.FontSize = 17;
+        number.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+        number.Style.Border.BottomBorder = XLBorderStyleValues.Thin;
+        number.Style.Border.BottomBorderColor = Border;
+    }
+
+    private static void BuildSummary(IXLWorksheet sheet,
+        StudentPremiumAnalyticsController.StudentAnalyticsReport report,
+        bool ar, byte[] logo)
+    {
+        sheet.Column(1).Width = 29;
+        sheet.Column(2).Width = 37;
+        for (var i = 3; i <= 10; i++) sheet.Column(i).Width = 19;
+
+        Header(sheet, ar ? "MathWorld  |  تقرير التقدم في الرياضيات"
+            : "MathWorld  |  Mathematics progress report",
+            (ar ? "إحصائيات حقيقية  •  " : "Your real learning statistics  •  ") +
+                report.GeneratedAtUtc.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture),
+            logo);
+
+        var review = report.Categories.Sum(x => x.ErrorNotebookProblems);
         var accuracy = report.Attempts == 0 ? 0 :
             (int)Math.Round(report.CorrectAttempts * 100.0 / report.Attempts);
-        // The exact approved MathWorld mark is an embedded project resource,
-        // not a third-party URL or a runtime network dependency.
-        using var logoResource = typeof(PremiumAnalyticsXlsxExporter).Assembly
-            .GetManifestResourceStream("MathWorld.Brand.Logo.png");
-        if (logoResource is null)
-            throw new InvalidOperationException("MathWorld report logo resource missing.");
-        using var logoBuffer = new MemoryStream();
-        logoResource.CopyTo(logoBuffer);
-        var brandPng = logoBuffer.ToArray();
-        using var memory = new MemoryStream();
-
-        using (var archive = new ZipArchive(memory, ZipArchiveMode.Create, leaveOpen: true))
+        var labels = ar
+            ? new[] { "المحلولة", "المحاولات", "الصحيحة", "النقاط", "دفتر الأخطاء",
+                      "المجربة", "الخاطئة", "صحيحة أول مرة", "الوقت (ثانية)", "الدقة %" }
+            : new[] { "Solved", "Attempts", "Correct", "Points", "Review errors",
+                      "Attempted", "Incorrect", "First-try correct", "Time (seconds)", "Accuracy %" };
+        var values = new[]
         {
-            XmlPart(archive, "[Content_Types].xml", w =>
+            report.SolvedProblems, report.Attempts, report.CorrectAttempts,
+            report.AwardedPoints, review, report.AttemptedProblems,
+            report.IncorrectAttempts, report.FirstTryCorrect,
+            report.TimeSpentSeconds, accuracy
+        };
+        for (var i = 0; i < 10; i++)
+            Metric(sheet, i < 5 ? 5 : 8, 1 + (i % 5) * 2, labels[i], values[i]);
+        foreach (var r in new[] { 5, 8 }) sheet.Row(r).Height = 26;
+        foreach (var r in new[] { 6, 9 }) sheet.Row(r).Height = 39;
+        sheet.Row(11).Height = 17;
+
+        var headers = Headers(ar);
+        for (var i = 0; i < headers.Length; i++)
+            sheet.Cell(12, i + 1).Value = headers[i];
+        var heading = sheet.Range(12, 1, 12, 11);
+        heading.Style.Fill.BackgroundColor = Purple;
+        heading.Style.Font.FontColor = XLColor.White;
+        heading.Style.Font.Bold = true;
+        heading.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+        heading.Style.Alignment.WrapText = true;
+        sheet.Row(12).Height = 43;
+
+        var row = 13;
+        foreach (var category in report.Categories)
+        {
+            // ClosedXML serializes strings as literal values, never Excel formulas.
+            sheet.Cell(row, 1).Value = ar ? category.StageNameAr : category.StageNameEn;
+            sheet.Cell(row, 2).Value = ar ? category.CategoryNameAr : category.CategoryNameEn;
+            sheet.Cell(row, 3).Value = category.AttemptedProblems;
+            sheet.Cell(row, 4).Value = category.SolvedProblems;
+            sheet.Cell(row, 5).Value = category.ErrorNotebookProblems;
+            sheet.Cell(row, 6).Value = category.Attempts;
+            sheet.Cell(row, 7).Value = category.CorrectAttempts;
+            sheet.Cell(row, 8).Value = category.IncorrectAttempts;
+            sheet.Cell(row, 9).Value = category.FirstTryCorrect;
+            sheet.Cell(row, 10).Value = category.AwardedPoints;
+            sheet.Cell(row, 11).Value = category.TimeSpentSeconds;
+            FormatBodyRow(sheet, row, row % 2 == 1 ? Light : XLColor.White);
+            row++;
+        }
+
+        sheet.Cell(row, 1).Value = ar ? "الإجمالي" : "TOTAL";
+        sheet.Cell(row, 3).Value = report.AttemptedProblems;
+        sheet.Cell(row, 4).Value = report.SolvedProblems;
+        sheet.Cell(row, 5).Value = review;
+        sheet.Cell(row, 6).Value = report.Attempts;
+        sheet.Cell(row, 7).Value = report.CorrectAttempts;
+        sheet.Cell(row, 8).Value = report.IncorrectAttempts;
+        sheet.Cell(row, 9).Value = report.FirstTryCorrect;
+        sheet.Cell(row, 10).Value = report.AwardedPoints;
+        sheet.Cell(row, 11).Value = report.TimeSpentSeconds;
+        var total = sheet.Range(row, 1, row, 11);
+        total.Style.Fill.BackgroundColor = Lavender;
+        total.Style.Font.FontColor = Purple;
+        total.Style.Font.Bold = true;
+        total.Style.Border.TopBorder = XLBorderStyleValues.Medium;
+        total.Style.Border.TopBorderColor = Purple;
+        sheet.Row(row).Height = 29;
+
+        if (row > 13)
+        {
+            sheet.Range(13, 4, row - 1, 4).AddConditionalFormat().DataBar(Purple);
+            sheet.Range(13, 5, row - 1, 5).AddConditionalFormat().DataBar(Pink);
+        }
+        // A single table with an in-place filter and no floating chart objects.
+        sheet.Range(12, 1, Math.Max(12, row - 1), 11).SetAutoFilter();
+        sheet.SheetView.FreezeRows(12);
+        sheet.PageSetup.PageOrientation = XLPageOrientation.Landscape;
+        sheet.PageSetup.FitToPages(1, 0);
+    }
+
+    private static void FormatBodyRow(IXLWorksheet sheet, int row, XLColor background)
+    {
+        var range = sheet.Range(row, 1, row, 11);
+        range.Style.Fill.BackgroundColor = background;
+        range.Style.Border.BottomBorder = XLBorderStyleValues.Hair;
+        range.Style.Border.BottomBorderColor = Border;
+        range.Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
+        sheet.Range(row, 3, row, 11).Style.Alignment.Horizontal =
+            XLAlignmentHorizontalValues.Center;
+        sheet.Cell(row, 2).Style.Font.Bold = true;
+        sheet.Row(row).Height = 25;
+    }
+
+    private static void BuildCharts(IXLWorksheet sheet,
+        StudentPremiumAnalyticsController.StudentAnalyticsReport report,
+        bool ar, byte[] logo)
+    {
+        sheet.Column(1).Width = 34;
+        sheet.Column(2).Width = 17;
+        sheet.Column(3).Width = 19;
+        sheet.Column(4).Width = 4;
+        sheet.Column(5).Width = 34;
+        sheet.Column(6).Width = 17;
+        sheet.Column(7).Width = 19;
+        sheet.Column(8).Width = 17;
+        sheet.Column(9).Width = 18;
+        sheet.Column(10).Width = 8;
+        Header(sheet, ar ? "MathWorld  |  إحصائياتي"
+            : "MathWorld  |  My statistics",
+            ar ? "مخططات تقدم مدمجة بالخلايا — بدون رسومات تغطي البيانات"
+               : "Compact in-cell progress charts — no overlapping drawings",
+            logo);
+
+        var top = report.Categories.OrderByDescending(c => c.AttemptedProblems)
+            .ThenBy(c => c.StageId).ThenBy(c => c.CategoryId)
+            .Take(12).ToArray();
+        var left = ar
+            ? new[] { "الفئة", "محلولة", "دفتر الأخطاء" }
+            : new[] { "Category", "Solved", "Review errors" };
+        var right = ar
+            ? new[] { "الفئة", "الصحيحة", "الخاطئة", "المحاولات", "المجربة" }
+            : new[] { "Category", "Correct", "Incorrect", "Attempts", "Attempted" };
+        sheet.Range("A5:C6").Merge().Value =
+            ar ? "إنجاز المسائل حسب الفئة" : "Solved progress by category";
+        sheet.Range("E5:I6").Merge().Value =
+            ar ? "دقة المحاولات حسب الفئة" : "Answer accuracy by category";
+        foreach (var area in new[] { "A5:C6", "E5:I6" })
+        {
+            var range = sheet.Range(area);
+            range.Style.Fill.BackgroundColor = Purple;
+            range.Style.Font.FontColor = XLColor.White;
+            range.Style.Font.Bold = true;
+            range.Style.Font.FontSize = 13;
+            range.Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
+            range.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+        }
+        for (var i = 0; i < left.Length; i++) sheet.Cell(8, i + 1).Value = left[i];
+        for (var i = 0; i < right.Length; i++) sheet.Cell(8, i + 5).Value = right[i];
+        foreach (var area in new[] { "A8:C8", "E8:I8" })
+        {
+            var cells = sheet.Range(area);
+            cells.Style.Fill.BackgroundColor = Lavender;
+            cells.Style.Font.FontColor = Purple;
+            cells.Style.Font.Bold = true;
+            cells.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+            cells.Style.Alignment.WrapText = true;
+        }
+        sheet.Row(8).Height = 36;
+        var row = 9;
+        foreach (var c in top)
+        {
+            var name = ar ? c.CategoryNameAr : c.CategoryNameEn;
+            sheet.Cell(row, 1).Value = name;
+            sheet.Cell(row, 2).Value = c.SolvedProblems;
+            sheet.Cell(row, 3).Value = c.ErrorNotebookProblems;
+            sheet.Cell(row, 5).Value = name;
+            sheet.Cell(row, 6).Value = c.CorrectAttempts;
+            sheet.Cell(row, 7).Value = c.IncorrectAttempts;
+            sheet.Cell(row, 8).Value = c.Attempts;
+            sheet.Cell(row, 9).Value = c.AttemptedProblems;
+            foreach (var area in new[] { sheet.Range(row, 1, row, 3),
+                sheet.Range(row, 5, row, 9) })
             {
-                w.WriteStartElement("Types", ContentTypes);
-                w.WriteStartElement("Default", ContentTypes);
-                w.WriteAttributeString("Extension", "rels");
-                w.WriteAttributeString("ContentType",
-                    "application/vnd.openxmlformats-package.relationships+xml");
-                w.WriteEndElement();
-                w.WriteStartElement("Default", ContentTypes);
-                w.WriteAttributeString("Extension", "xml");
-                w.WriteAttributeString("ContentType", "application/xml");
-                w.WriteEndElement();
-                w.WriteStartElement("Default", ContentTypes);
-                w.WriteAttributeString("Extension", "png");
-                w.WriteAttributeString("ContentType", "image/png");
-                w.WriteEndElement();
-                Override(w, "/xl/workbook.xml", WorkbookMime);
-                Override(w, "/xl/worksheets/sheet1.xml", WorksheetMime);
-                Override(w, "/xl/worksheets/sheet2.xml", WorksheetMime);
-                Override(w, "/xl/styles.xml", StylesMime);
-                Override(w, "/xl/drawings/drawing2.xml", DrawingMime);
-                if (showCharts)
-                {
-                    Override(w, "/xl/drawings/drawing1.xml", DrawingMime);
-                    Override(w, "/xl/charts/chart1.xml", ChartMime);
-                    Override(w, "/xl/charts/chart2.xml", ChartMime);
-                }
-                w.WriteEndElement();
-            });
-
-            XmlPart(archive, "_rels/.rels", w =>
-            {
-                w.WriteStartElement("Relationships", PackageRelations);
-                Relationship(w, "rId1", OfficeRelations + "/officeDocument", "xl/workbook.xml");
-                w.WriteEndElement();
-            });
-
-            XmlPart(archive, "xl/workbook.xml", w =>
-            {
-                w.WriteStartElement("workbook", Spreadsheet);
-                w.WriteAttributeString("xmlns", "r", null, OfficeRelations);
-                w.WriteStartElement("sheets", Spreadsheet);
-                w.WriteStartElement("sheet", Spreadsheet);
-                w.WriteAttributeString("name", rightToLeft ? "تقدمي" : "My progress");
-                w.WriteAttributeString("sheetId", "1");
-                w.WriteAttributeString("r", "id", OfficeRelations, "rId1");
-                w.WriteEndElement();
-                w.WriteStartElement("sheet", Spreadsheet);
-                w.WriteAttributeString("name", chartsSheetName);
-                w.WriteAttributeString("sheetId", "2");
-                w.WriteAttributeString("r", "id", OfficeRelations, "rId3");
-                w.WriteEndElement();
-                w.WriteEndElement();
-                w.WriteEndElement();
-            });
-
-            XmlPart(archive, "xl/_rels/workbook.xml.rels", w =>
-            {
-                w.WriteStartElement("Relationships", PackageRelations);
-                Relationship(w, "rId1", OfficeRelations + "/worksheet",
-                    "worksheets/sheet1.xml");
-                Relationship(w, "rId2", OfficeRelations + "/styles", "styles.xml");
-                Relationship(w, "rId3", OfficeRelations + "/worksheet",
-                    "worksheets/sheet2.xml");
-                w.WriteEndElement();
-            });
-
-            XmlPart(archive, "xl/worksheets/sheet1.xml", w =>
-            {
-                w.WriteStartElement("worksheet", Spreadsheet);
-                w.WriteStartElement("sheetViews", Spreadsheet);
-                w.WriteStartElement("sheetView", Spreadsheet);
-                w.WriteAttributeString("workbookViewId", "0");
-                if (rightToLeft) w.WriteAttributeString("rightToLeft", "1");
-                w.WriteStartElement("pane", Spreadsheet);
-                w.WriteAttributeString("ySplit", "6");
-                w.WriteAttributeString("topLeftCell", "A7");
-                w.WriteAttributeString("state", "frozen");
-                w.WriteEndElement();
-                w.WriteEndElement();
-                w.WriteEndElement();
-
-                w.WriteStartElement("cols", Spreadsheet);
-                for (var i = 1; i <= headers.Length; i++)
-                {
-                    w.WriteStartElement("col", Spreadsheet);
-                    w.WriteAttributeString("min", i.ToString(CultureInfo.InvariantCulture));
-                    w.WriteAttributeString("max", i.ToString(CultureInfo.InvariantCulture));
-                    w.WriteAttributeString("width", i is 1 or 2 ? "35" : "20");
-                    w.WriteAttributeString("customWidth", "1");
-                    w.WriteEndElement();
-                }
-                w.WriteEndElement();
-
-                w.WriteStartElement("sheetData", Spreadsheet);
-                WriteRow(w, 1, [ "", "", rightToLeft
-                    ? "MathWorld  |  تقرير التقدم في الرياضيات"
-                    : "MathWorld  |  Mathematics progress report" ], 1);
-                WriteRow(w, 2, [ "", "", rightToLeft
-                    ? "ملخص شخصي وإحصائيات ومخططات" : "Personal statistics and charts" ], 4);
-                WriteRow(w, 3, [ "", "", (rightToLeft ? "تاريخ التقرير: " : "Report date: ") +
-                    report.GeneratedAtUtc.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture) ], 0);
-                WriteRow(w, 4, [
-                    rightToLeft ? "المحلولة" : "Solved", report.SolvedProblems,
-                    rightToLeft ? "المجربة" : "Attempted", report.AttemptedProblems,
-                    rightToLeft ? "دفتر الأخطاء" : "Error notebook",
-                    report.Categories.Sum(x => x.ErrorNotebookProblems),
-                    rightToLeft ? "النقاط" : "Points", report.AwardedPoints,
-                    rightToLeft ? "الدقة %" : "Accuracy %", accuracy
-                ], 4);
-                WriteRow(w, 5, [
-                    rightToLeft ? "المحاولات" : "Attempts", report.Attempts,
-                    rightToLeft ? "الصحيحة" : "Correct", report.CorrectAttempts,
-                    rightToLeft ? "الخاطئة" : "Incorrect", report.IncorrectAttempts,
-                    rightToLeft ? "الوقت (ثانية)" : "Time (seconds)", report.TimeSpentSeconds
-                ], 3);
-                WriteRow(w, 6, headers.Cast<object>().ToArray(), 2);
-                var rowNumber = 7;
-                foreach (var category in report.Categories)
-                {
-                    WriteRow(w, rowNumber++,
-                    [
-                        rightToLeft ? category.StageNameAr : category.StageNameEn,
-                        rightToLeft ? category.CategoryNameAr : category.CategoryNameEn,
-                        category.AttemptedProblems, category.SolvedProblems,
-                        category.ErrorNotebookProblems, category.Attempts,
-                        category.CorrectAttempts, category.IncorrectAttempts,
-                        category.FirstTryCorrect, category.AwardedPoints,
-                        category.TimeSpentSeconds
-                    ], rowNumber % 2 == 0 ? 3 : 0);
-                }
-                WriteRow(w, rowNumber,
-                [
-                    rightToLeft ? "الإجمالي" : "TOTAL", "",
-                    report.AttemptedProblems, report.SolvedProblems,
-                    report.Categories.Sum(x => x.ErrorNotebookProblems),
-                    report.Attempts, report.CorrectAttempts,
-                    report.IncorrectAttempts, report.FirstTryCorrect,
-                    report.AwardedPoints, report.TimeSpentSeconds
-                ], 4);
-                w.WriteEndElement();
-
-                // A branded heading without pretending the data rows are a chart.
-                w.WriteStartElement("mergeCells", Spreadsheet);
-                foreach (var span in new[] { "C1:K1", "C2:K2" })
-                {
-                    w.WriteStartElement("mergeCell", Spreadsheet);
-                    w.WriteAttributeString("ref", span);
-                    w.WriteEndElement();
-                }
-                w.WriteEndElement();
-
-                w.WriteStartElement("autoFilter", Spreadsheet);
-                w.WriteAttributeString("ref", "A6:K" + (rowNumber - 1).ToString(CultureInfo.InvariantCulture));
-                w.WriteEndElement();
-
-                // Excel-native visual bars keep the report filterable/editable
-                // and directly reflect the solved and notebook counts.
-                if (rowNumber > 7)
-                {
-                    DataBar(w, "D7:D" + (rowNumber - 1), "FF7C3AED", 1);
-                    DataBar(w, "E7:E" + (rowNumber - 1), "FFE14EAC", 2);
-                }
-                w.WriteStartElement("drawing", Spreadsheet);
-                w.WriteAttributeString("r", "id", OfficeRelations, "rId1");
-                w.WriteEndElement();
-                w.WriteEndElement();
-            });
-
-            // A separate, editable chart-data tab keeps the native Excel
-            // chart objects away from the full-width report's filter table.
-            XmlPart(archive, "xl/worksheets/sheet2.xml", w =>
-            {
-                w.WriteStartElement("worksheet", Spreadsheet);
-                w.WriteAttributeString("xmlns", "r", null, OfficeRelations);
-                w.WriteStartElement("sheetViews", Spreadsheet);
-                w.WriteStartElement("sheetView", Spreadsheet);
-                w.WriteAttributeString("workbookViewId", "0");
-                if (rightToLeft) w.WriteAttributeString("rightToLeft", "1");
-                w.WriteEndElement();
-                w.WriteEndElement();
-                w.WriteStartElement("cols", Spreadsheet);
-                for (var i = 1; i <= 22; i++)
-                {
-                    w.WriteStartElement("col", Spreadsheet);
-                    w.WriteAttributeString("min", i.ToString(CultureInfo.InvariantCulture));
-                    w.WriteAttributeString("max", i.ToString(CultureInfo.InvariantCulture));
-                    w.WriteAttributeString("width", i == 1 ? "38" : "16");
-                    w.WriteAttributeString("customWidth", "1");
-                    w.WriteEndElement();
-                }
-                w.WriteEndElement();
-                w.WriteStartElement("sheetData", Spreadsheet);
-                WriteRow(w, 1, [rightToLeft ? "MathWorld ∑ | مخططات التقدم"
-                    : "MathWorld ∑ | Learning progress charts"], 1);
-                WriteRow(w, 2, [rightToLeft ? "الفئات الاثنتا عشرة الأكثر تجربة، بيانات من حسابك الحقيقي"
-                    : "Twelve most attempted categories, sourced from your account"], 4);
-                WriteRow(w, 3, [""]);
-                WriteRow(w, 4, [rightToLeft ? "الفئة" : "Category",
-                    rightToLeft ? "محلولة" : "Solved",
-                    rightToLeft ? "أخطاء للمراجعة" : "Notebook errors",
-                    rightToLeft ? "محاولات صحيحة" : "Correct attempts",
-                    rightToLeft ? "محاولات خاطئة" : "Incorrect attempts",
-                    rightToLeft ? "تمت تجربتها" : "Attempted"], 2);
-                var index = 5;
-                foreach (var category in chartRows)
-                {
-                    WriteRow(w, index++, [
-                        rightToLeft ? category.CategoryNameAr : category.CategoryNameEn,
-                        category.SolvedProblems, category.ErrorNotebookProblems,
-                        category.CorrectAttempts, category.IncorrectAttempts,
-                        category.AttemptedProblems], index % 2 == 0 ? 3 : 0);
-                }
-                w.WriteEndElement();
-                w.WriteStartElement("mergeCells", Spreadsheet);
-                foreach (var range in new[] { "A1:F1", "A2:F2" })
-                {
-                    w.WriteStartElement("mergeCell", Spreadsheet);
-                    w.WriteAttributeString("ref", range);
-                    w.WriteEndElement();
-                }
-                w.WriteEndElement();
-                if (showCharts)
-                {
-                    w.WriteStartElement("drawing", Spreadsheet);
-                    w.WriteAttributeString("r", "id", OfficeRelations, "rId1");
-                    w.WriteEndElement();
-                }
-                w.WriteEndElement();
-            });
-            if (showCharts)
-            {
-                XmlPart(archive, "xl/worksheets/_rels/sheet2.xml.rels", w =>
-                {
-                    w.WriteStartElement("Relationships", PackageRelations);
-                    Relationship(w, "rId1", OfficeRelations + "/drawing",
-                        "../drawings/drawing1.xml");
-                    w.WriteEndElement();
-                });
-                XmlPart(archive, "xl/drawings/drawing1.xml", w =>
-                {
-                    w.WriteStartElement("xdr", "wsDr", SpreadsheetDrawingNs);
-                    WriteChartAnchor(w, 2, "Solved and review", 7, 3, 21, 23, "rId1");
-                    WriteChartAnchor(w, 3, "Correct and incorrect", 7, 25, 21, 45, "rId2");
-                    WriteBrandImageAnchor(w, 4, 17, 0, 17, 3, "rId3");
-                    w.WriteEndElement();
-                });
-                XmlPart(archive, "xl/drawings/_rels/drawing1.xml.rels", w =>
-                {
-                    w.WriteStartElement("Relationships", PackageRelations);
-                    Relationship(w, "rId1", OfficeRelations + "/chart", "../charts/chart1.xml");
-                    Relationship(w, "rId2", OfficeRelations + "/chart", "../charts/chart2.xml");
-                    Relationship(w, "rId3", OfficeRelations + "/image", "../media/image1.png");
-                    w.WriteEndElement();
-                });
-                XmlPart(archive, "xl/charts/chart1.xml", w => WriteCategoryChart(w,
-                    rightToLeft ? "المسائل المحلولة والأخطاء" : "Solved problems and review errors",
-                    chartsSheetName, chartRows, rightToLeft,
-                    rightToLeft ? "محلولة" : "Solved", "B",
-                    rightToLeft ? "تحتاج مراجعة" : "Needs review", "C",
-                    "7C3AED", "EC4899", 104486, 104487));
-                XmlPart(archive, "xl/charts/chart2.xml", w => WriteCategoryChart(w,
-                    rightToLeft ? "المحاولات الصحيحة والخاطئة" : "Correct and incorrect attempts",
-                    chartsSheetName, chartRows, rightToLeft,
-                    rightToLeft ? "صحيحة" : "Correct", "D",
-                    rightToLeft ? "خاطئة" : "Incorrect", "E",
-                    "0D9488", "E59A1A", 204486, 204487));
+                area.Style.Fill.BackgroundColor = row % 2 == 1 ? Light : XLColor.White;
+                area.Style.Border.BottomBorder = XLBorderStyleValues.Hair;
+                area.Style.Border.BottomBorderColor = Border;
+                area.Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
             }
-            XmlPart(archive, "xl/worksheets/_rels/sheet1.xml.rels", w =>
-            {
-                w.WriteStartElement("Relationships", PackageRelations);
-                Relationship(w, "rId1", OfficeRelations + "/drawing", "../drawings/drawing2.xml");
-                w.WriteEndElement();
-            });
-            XmlPart(archive, "xl/drawings/drawing2.xml", w =>
-            {
-                w.WriteStartElement("xdr", "wsDr", SpreadsheetDrawingNs);
-                WriteBrandImageAnchor(w, 2, 0, 0, 0, 3, "rId1");
-                w.WriteEndElement();
-            });
-            XmlPart(archive, "xl/drawings/_rels/drawing2.xml.rels", w =>
-            {
-                w.WriteStartElement("Relationships", PackageRelations);
-                Relationship(w, "rId1", OfficeRelations + "/image", "../media/image1.png");
-                w.WriteEndElement();
-            });
-            var imageEntry = archive.CreateEntry("xl/media/image1.png", CompressionLevel.Optimal);
-            using (var stream = imageEntry.Open())
-                stream.Write(brandPng, 0, brandPng.Length);
-            XmlPart(archive, "xl/styles.xml", w => WriteStyles(w));
+            sheet.Row(row).Height = 28;
+            row++;
         }
-
-        return memory.ToArray();
-    }
-
-    private static void WriteBrandImageAnchor(XmlWriter w, int shapeId,
-        int startCol, int startRow, int endCol, int endRow, string relationshipId)
-    {
-        // The canonical mark is square: 60 px wide x approximately three
-        // default-height Excel rows. Do not stretch it across multiple columns
-        // (the previous anchor rendered it as a flattened horizontal strip).
-        const int logoWidthEmu = 60 * 9525;
-        w.WriteStartElement("xdr", "twoCellAnchor", SpreadsheetDrawingNs);
-        foreach (var (element, col, row) in new[]
-            { ("from", startCol, startRow), ("to", endCol, endRow) })
+        if (top.Length > 0)
         {
-            w.WriteStartElement("xdr", element, SpreadsheetDrawingNs);
-            w.WriteElementString("xdr", "col", SpreadsheetDrawingNs,
-                col.ToString(CultureInfo.InvariantCulture));
-            w.WriteElementString("xdr", "colOff", SpreadsheetDrawingNs,
-                (element == "to" ? logoWidthEmu : 0).ToString(CultureInfo.InvariantCulture));
-            w.WriteElementString("xdr", "row", SpreadsheetDrawingNs,
-                row.ToString(CultureInfo.InvariantCulture));
-            w.WriteElementString("xdr", "rowOff", SpreadsheetDrawingNs, "0");
-            w.WriteEndElement();
+            sheet.Range(9, 2, row - 1, 2).AddConditionalFormat().DataBar(Purple);
+            sheet.Range(9, 3, row - 1, 3).AddConditionalFormat().DataBar(Pink);
+            sheet.Range(9, 6, row - 1, 6).AddConditionalFormat().DataBar(Purple);
+            sheet.Range(9, 7, row - 1, 7).AddConditionalFormat().DataBar(Pink);
         }
-        w.WriteStartElement("xdr", "pic", SpreadsheetDrawingNs);
-        w.WriteStartElement("xdr", "nvPicPr", SpreadsheetDrawingNs);
-        w.WriteStartElement("xdr", "cNvPr", SpreadsheetDrawingNs);
-        w.WriteAttributeString("id", shapeId.ToString(CultureInfo.InvariantCulture));
-        w.WriteAttributeString("name", "MathWorld approved logo");
-        w.WriteAttributeString("descr", "MathWorld original brand mark");
-        w.WriteEndElement();
-        w.WriteStartElement("xdr", "cNvPicPr", SpreadsheetDrawingNs);
-        w.WriteStartElement("a", "picLocks", DrawingNs);
-        w.WriteAttributeString("noChangeAspect", "1");
-        w.WriteEndElement();
-        w.WriteEndElement();
-        w.WriteEndElement();
-        w.WriteStartElement("xdr", "blipFill", SpreadsheetDrawingNs);
-        w.WriteStartElement("a", "blip", DrawingNs);
-        w.WriteAttributeString("r", "embed", OfficeRelations, relationshipId);
-        w.WriteEndElement();
-        w.WriteStartElement("a", "stretch", DrawingNs);
-        w.WriteStartElement("a", "fillRect", DrawingNs);
-        w.WriteEndElement();
-        w.WriteEndElement();
-        w.WriteEndElement();
-        w.WriteStartElement("xdr", "spPr", SpreadsheetDrawingNs);
-        w.WriteStartElement("a", "prstGeom", DrawingNs);
-        w.WriteAttributeString("prst", "rect");
-        w.WriteStartElement("a", "avLst", DrawingNs);
-        w.WriteEndElement();
-        w.WriteEndElement();
-        w.WriteEndElement();
-        w.WriteEndElement();
-        w.WriteStartElement("xdr", "clientData", SpreadsheetDrawingNs);
-        w.WriteEndElement();
-        w.WriteEndElement();
-    }
-
-    private static void WriteChartAnchor(XmlWriter w, int shapeId, string shapeName,
-        int startCol, int startRow, int endCol, int endRow, string relationshipId)
-    {
-        w.WriteStartElement("xdr", "twoCellAnchor", SpreadsheetDrawingNs);
-        foreach (var (element, col, row) in new[]
-            { ("from", startCol, startRow), ("to", endCol, endRow) })
+        else
         {
-            w.WriteStartElement("xdr", element, SpreadsheetDrawingNs);
-            foreach (var (part, number) in new[]
-                { ("col", col), ("colOff", 0), ("row", row), ("rowOff", 0) })
-            {
-                w.WriteElementString("xdr", part, SpreadsheetDrawingNs,
-                    number.ToString(CultureInfo.InvariantCulture));
-            }
-            w.WriteEndElement();
+            sheet.Cell(9, 1).Value = ar ? "لا توجد بيانات بعد" : "No data yet";
         }
-        w.WriteStartElement("xdr", "graphicFrame", SpreadsheetDrawingNs);
-        w.WriteAttributeString("macro", "");
-        w.WriteStartElement("xdr", "nvGraphicFramePr", SpreadsheetDrawingNs);
-        w.WriteStartElement("xdr", "cNvPr", SpreadsheetDrawingNs);
-        w.WriteAttributeString("id", shapeId.ToString(CultureInfo.InvariantCulture));
-        w.WriteAttributeString("name", shapeName);
-        w.WriteEndElement();
-        w.WriteStartElement("xdr", "cNvGraphicFramePr", SpreadsheetDrawingNs);
-        w.WriteEndElement();
-        w.WriteEndElement();
-        w.WriteStartElement("xdr", "xfrm", SpreadsheetDrawingNs);
-        w.WriteStartElement("a", "off", DrawingNs);
-        w.WriteAttributeString("x", "0"); w.WriteAttributeString("y", "0");
-        w.WriteEndElement();
-        w.WriteStartElement("a", "ext", DrawingNs);
-        w.WriteAttributeString("cx", "0"); w.WriteAttributeString("cy", "0");
-        w.WriteEndElement();
-        w.WriteEndElement();
-        w.WriteStartElement("a", "graphic", DrawingNs);
-        w.WriteStartElement("a", "graphicData", DrawingNs);
-        w.WriteAttributeString("uri", ChartNs);
-        w.WriteStartElement("c", "chart", ChartNs);
-        w.WriteAttributeString("xmlns", "r", null, OfficeRelations);
-        w.WriteAttributeString("r", "id", OfficeRelations, relationshipId);
-        w.WriteEndElement();
-        w.WriteEndElement();
-        w.WriteEndElement();
-        w.WriteEndElement();
-        w.WriteStartElement("xdr", "clientData", SpreadsheetDrawingNs);
-        w.WriteEndElement();
-        w.WriteEndElement();
-    }
-
-    private static void ChartValue(XmlWriter w, string name, string value)
-    {
-        w.WriteStartElement("c", name, ChartNs);
-        w.WriteAttributeString("val", value);
-        w.WriteEndElement();
-    }
-
-    private static void ChartText(XmlWriter w, string text)
-    {
-        w.WriteStartElement("c", "title", ChartNs);
-        w.WriteStartElement("c", "tx", ChartNs);
-        w.WriteStartElement("c", "rich", ChartNs);
-        w.WriteStartElement("a", "bodyPr", DrawingNs); w.WriteEndElement();
-        w.WriteStartElement("a", "lstStyle", DrawingNs); w.WriteEndElement();
-        w.WriteStartElement("a", "p", DrawingNs);
-        w.WriteStartElement("a", "r", DrawingNs);
-        w.WriteStartElement("a", "t", DrawingNs);
-        w.WriteString(text);
-        w.WriteEndElement();
-        w.WriteEndElement();
-        w.WriteEndElement();
-        w.WriteEndElement();
-        w.WriteEndElement();
-        w.WriteEndElement();
-    }
-
-    private static void WriteSeries(XmlWriter w, int index, string label,
-        string color, string sheet, IReadOnlyList<string> categories,
-        IReadOnlyList<int> numbers, string valueCol)
-    {
-        w.WriteStartElement("c", "ser", ChartNs);
-        ChartValue(w, "idx", index.ToString(CultureInfo.InvariantCulture));
-        ChartValue(w, "order", index.ToString(CultureInfo.InvariantCulture));
-        w.WriteStartElement("c", "tx", ChartNs);
-        w.WriteElementString("c", "v", ChartNs, label);
-        w.WriteEndElement();
-        w.WriteStartElement("c", "spPr", ChartNs);
-        w.WriteStartElement("a", "solidFill", DrawingNs);
-        w.WriteStartElement("a", "srgbClr", DrawingNs);
-        w.WriteAttributeString("val", color);
-        w.WriteEndElement(); w.WriteEndElement(); w.WriteEndElement();
-        w.WriteStartElement("c", "cat", ChartNs);
-        w.WriteStartElement("c", "strRef", ChartNs);
-        w.WriteElementString("c", "f", ChartNs,
-            "'" + sheet.Replace("'", "''") + "'!$A$5:$A$" + (categories.Count + 4));
-        w.WriteStartElement("c", "strCache", ChartNs);
-        ChartValue(w, "ptCount", categories.Count.ToString(CultureInfo.InvariantCulture));
-        for (var i = 0; i < categories.Count; i++)
-        {
-            w.WriteStartElement("c", "pt", ChartNs);
-            w.WriteAttributeString("idx", i.ToString(CultureInfo.InvariantCulture));
-            w.WriteElementString("c", "v", ChartNs, categories[i]);
-            w.WriteEndElement();
-        }
-        w.WriteEndElement(); w.WriteEndElement(); w.WriteEndElement();
-        w.WriteStartElement("c", "val", ChartNs);
-        w.WriteStartElement("c", "numRef", ChartNs);
-        w.WriteElementString("c", "f", ChartNs,
-            "'" + sheet.Replace("'", "''") + "'!$" + valueCol +
-            "$5:$" + valueCol + "$" + (numbers.Count + 4));
-        w.WriteStartElement("c", "numCache", ChartNs);
-        w.WriteElementString("c", "formatCode", ChartNs, "0");
-        ChartValue(w, "ptCount", numbers.Count.ToString(CultureInfo.InvariantCulture));
-        for (var i = 0; i < numbers.Count; i++)
-        {
-            w.WriteStartElement("c", "pt", ChartNs);
-            w.WriteAttributeString("idx", i.ToString(CultureInfo.InvariantCulture));
-            w.WriteElementString("c", "v", ChartNs,
-                numbers[i].ToString(CultureInfo.InvariantCulture));
-            w.WriteEndElement();
-        }
-        w.WriteEndElement(); w.WriteEndElement(); w.WriteEndElement();
-        w.WriteEndElement();
-    }
-
-    private static void WriteCategoryChart(XmlWriter w, string title,
-        string sheetName, IReadOnlyList<StudentPremiumAnalyticsController.CategoryStatistics> categories,
-        bool rightToLeft, string label1, string col1,
-        string label2, string col2, string color1, string color2,
-        int categoryAxisId, int valueAxisId)
-    {
-        w.WriteStartElement("c", "chartSpace", ChartNs);
-        w.WriteAttributeString("xmlns", "a", null, DrawingNs);
-        w.WriteStartElement("c", "chart", ChartNs);
-        ChartText(w, title);
-        ChartValue(w, "autoTitleDeleted", "0");
-        w.WriteStartElement("c", "plotArea", ChartNs);
-        w.WriteStartElement("c", "layout", ChartNs); w.WriteEndElement();
-        w.WriteStartElement("c", "barChart", ChartNs);
-        ChartValue(w, "barDir", "bar");
-        ChartValue(w, "grouping", "clustered");
-        ChartValue(w, "varyColors", "0");
-        var names = categories.Select(x => rightToLeft ? x.CategoryNameAr : x.CategoryNameEn).ToArray();
-        WriteSeries(w, 0, label1, color1, sheetName, names,
-            categories.Select(x => col1 == "B" ? x.SolvedProblems : x.CorrectAttempts).ToArray(),
-            col1);
-        WriteSeries(w, 1, label2, color2, sheetName, names,
-            categories.Select(x => col2 == "C" ? x.ErrorNotebookProblems : x.IncorrectAttempts).ToArray(),
-            col2);
-        ChartValue(w, "gapWidth", "80");
-        ChartValue(w, "axId", categoryAxisId.ToString(CultureInfo.InvariantCulture));
-        ChartValue(w, "axId", valueAxisId.ToString(CultureInfo.InvariantCulture));
-        w.WriteEndElement();
-        w.WriteStartElement("c", "catAx", ChartNs);
-        ChartValue(w, "axId", categoryAxisId.ToString(CultureInfo.InvariantCulture));
-        w.WriteStartElement("c", "scaling", ChartNs);
-        ChartValue(w, "orientation", "minMax");
-        w.WriteEndElement();
-        ChartValue(w, "axPos", "l");
-        ChartValue(w, "tickLblPos", "nextTo");
-        ChartValue(w, "crossAx", valueAxisId.ToString(CultureInfo.InvariantCulture));
-        ChartValue(w, "crosses", "autoZero");
-        w.WriteEndElement();
-        w.WriteStartElement("c", "valAx", ChartNs);
-        ChartValue(w, "axId", valueAxisId.ToString(CultureInfo.InvariantCulture));
-        w.WriteStartElement("c", "scaling", ChartNs);
-        ChartValue(w, "orientation", "minMax");
-        w.WriteEndElement();
-        ChartValue(w, "axPos", "b");
-        w.WriteStartElement("c", "numFmt", ChartNs);
-        w.WriteAttributeString("formatCode", "0");
-        w.WriteAttributeString("sourceLinked", "0");
-        w.WriteEndElement();
-        ChartValue(w, "tickLblPos", "nextTo");
-        ChartValue(w, "crossAx", categoryAxisId.ToString(CultureInfo.InvariantCulture));
-        ChartValue(w, "crosses", "autoZero");
-        w.WriteEndElement();
-        w.WriteEndElement();
-        w.WriteStartElement("c", "legend", ChartNs);
-        ChartValue(w, "legendPos", "b");
-        w.WriteStartElement("c", "layout", ChartNs); w.WriteEndElement();
-        w.WriteEndElement();
-        ChartValue(w, "plotVisOnly", "1");
-        w.WriteEndElement();
-        w.WriteEndElement();
-    }
-
-    private static void XmlPart(ZipArchive archive, string name, Action<XmlWriter> write)
-    {
-        var entry = archive.CreateEntry(name, CompressionLevel.Optimal);
-        using var stream = entry.Open();
-        using var writer = XmlWriter.Create(stream, new XmlWriterSettings
-        {
-            Encoding = new UTF8Encoding(false), CloseOutput = false,
-            ConformanceLevel = ConformanceLevel.Document
-        });
-        writer.WriteStartDocument();
-        write(writer);
-        writer.WriteEndDocument();
-    }
-
-    private static void Override(XmlWriter writer, string name, string contentType)
-    {
-        writer.WriteStartElement("Override", ContentTypes);
-        writer.WriteAttributeString("PartName", name);
-        writer.WriteAttributeString("ContentType", contentType);
-        writer.WriteEndElement();
-    }
-
-    private static void Relationship(XmlWriter writer, string id, string type, string target)
-    {
-        writer.WriteStartElement("Relationship", PackageRelations);
-        writer.WriteAttributeString("Id", id);
-        writer.WriteAttributeString("Type", type);
-        writer.WriteAttributeString("Target", target);
-        writer.WriteEndElement();
-    }
-
-    private static void WriteRow(XmlWriter writer, int number, IReadOnlyList<object> values,
-        int style = 0)
-    {
-        writer.WriteStartElement("row", Spreadsheet);
-        writer.WriteAttributeString("r", number.ToString(CultureInfo.InvariantCulture));
-        if (number is 1 or 2 or 4 or 5 or 6)
-        {
-            writer.WriteAttributeString("ht", number switch
-            {
-                1 => "38", 2 => "26", 6 => "50", _ => "29"
-            });
-            writer.WriteAttributeString("customHeight", "1");
-        }
-        for (var index = 0; index < values.Count; index++)
-        {
-            var value = values[index];
-            writer.WriteStartElement("c", Spreadsheet);
-            writer.WriteAttributeString("r", Column(index) + number.ToString(CultureInfo.InvariantCulture));
-            if (style != 0) writer.WriteAttributeString("s", style.ToString(CultureInfo.InvariantCulture));
-            if (value is string text)
-            {
-                writer.WriteAttributeString("t", "inlineStr");
-                writer.WriteStartElement("is", Spreadsheet);
-                writer.WriteStartElement("t", Spreadsheet);
-                writer.WriteAttributeString("xml", "space",
-                    "http://www.w3.org/XML/1998/namespace", "preserve");
-                // Excel cannot represent XML 1.0 control characters in cells.
-                writer.WriteString(new string(text.Where(XmlConvert.IsXmlChar).ToArray()));
-                writer.WriteEndElement();
-                writer.WriteEndElement();
-            }
-            else if (value is IFormattable numeric)
-            {
-                writer.WriteStartElement("v", Spreadsheet);
-                writer.WriteString(numeric.ToString(null, CultureInfo.InvariantCulture));
-                writer.WriteEndElement();
-            }
-            writer.WriteEndElement();
-        }
-        writer.WriteEndElement();
-    }
-
-    private static void DataBar(XmlWriter w, string address, string color, int priority)
-    {
-        w.WriteStartElement("conditionalFormatting", Spreadsheet);
-        w.WriteAttributeString("sqref", address);
-        w.WriteStartElement("cfRule", Spreadsheet);
-        w.WriteAttributeString("type", "dataBar");
-        w.WriteAttributeString("priority", priority.ToString(CultureInfo.InvariantCulture));
-        w.WriteStartElement("dataBar", Spreadsheet);
-        foreach (var type in new[] { "min", "max" })
-        {
-            w.WriteStartElement("cfvo", Spreadsheet);
-            w.WriteAttributeString("type", type);
-            w.WriteEndElement();
-        }
-        w.WriteStartElement("color", Spreadsheet);
-        w.WriteAttributeString("rgb", color);
-        w.WriteEndElement();
-        w.WriteEndElement();
-        w.WriteEndElement();
-        w.WriteEndElement();
-    }
-
-    private static void WriteStyles(XmlWriter w)
-    {
-        w.WriteStartElement("styleSheet", Spreadsheet);
-        w.WriteStartElement("fonts", Spreadsheet);
-        w.WriteAttributeString("count", "4");
-        foreach (var (bold, size, color) in new[] {
-            (false, "11", "FF332745"),
-            (true, "18", "FFFFFFFF"),
-            (true, "11", "FFFFFFFF"),
-            (true, "11", "FF6321BD") })
-        {
-            w.WriteStartElement("font", Spreadsheet);
-            if (bold) { w.WriteStartElement("b", Spreadsheet); w.WriteEndElement(); }
-            w.WriteStartElement("sz", Spreadsheet); w.WriteAttributeString("val", size); w.WriteEndElement();
-            w.WriteStartElement("color", Spreadsheet); w.WriteAttributeString("rgb", color); w.WriteEndElement();
-            w.WriteEndElement();
-        }
-        w.WriteEndElement();
-
-        w.WriteStartElement("fills", Spreadsheet);
-        w.WriteAttributeString("count", "4");
-        foreach (var (pattern, color) in new[] {
-            ("none", ""), ("gray125", ""), ("solid", "FF6D28D9"),
-            ("solid", "FFF2EAFC") })
-        {
-            w.WriteStartElement("fill", Spreadsheet);
-            w.WriteStartElement("patternFill", Spreadsheet);
-            w.WriteAttributeString("patternType", pattern);
-            if (color.Length > 0)
-            {
-                w.WriteStartElement("fgColor", Spreadsheet); w.WriteAttributeString("rgb", color); w.WriteEndElement();
-                w.WriteStartElement("bgColor", Spreadsheet); w.WriteAttributeString("indexed", "64"); w.WriteEndElement();
-            }
-            w.WriteEndElement();
-            w.WriteEndElement();
-        }
-        w.WriteEndElement();
-        w.WriteStartElement("borders", Spreadsheet);
-        w.WriteAttributeString("count", "1");
-        w.WriteStartElement("border", Spreadsheet); w.WriteEndElement();
-        w.WriteEndElement();
-        w.WriteStartElement("cellStyleXfs", Spreadsheet);
-        w.WriteAttributeString("count", "1");
-        w.WriteStartElement("xf", Spreadsheet); w.WriteAttributeString("numFmtId", "0");
-        w.WriteAttributeString("fontId", "0"); w.WriteAttributeString("fillId", "0");
-        w.WriteAttributeString("borderId", "0"); w.WriteEndElement();
-        w.WriteEndElement();
-        w.WriteStartElement("cellXfs", Spreadsheet); w.WriteAttributeString("count", "5");
-        var cellStyles = new[] {
-            ("0", "0"), ("1", "2"), ("2", "2"), ("0", "3"), ("3", "3") };
-        for (var i = 0; i < cellStyles.Length; i++)
-        {
-            var (font, fill) = cellStyles[i];
-            w.WriteStartElement("xf", Spreadsheet);
-            w.WriteAttributeString("numFmtId", "0");
-            w.WriteAttributeString("fontId", font); w.WriteAttributeString("fillId", fill);
-            w.WriteAttributeString("borderId", "0");
-            w.WriteAttributeString("xfId", "0");
-            w.WriteAttributeString("applyFont", "1"); w.WriteAttributeString("applyFill", "1");
-            if (i is 1 or 2)
-            {
-                w.WriteStartElement("alignment", Spreadsheet);
-                w.WriteAttributeString("vertical", "center");
-                if (i == 2)
-                {
-                    w.WriteAttributeString("wrapText", "1");
-                    w.WriteAttributeString("horizontal", "center");
-                }
-                w.WriteEndElement();
-            }
-            w.WriteEndElement();
-        }
-        w.WriteEndElement();
-        w.WriteEndElement();
-    }
-
-    private static string Column(int index)
-    {
-        var name = "";
-        for (var value = index + 1; value > 0; value = (value - 1) / 26)
-            name = (char)('A' + (value - 1) % 26) + name;
-        return name;
+        sheet.SheetView.FreezeRows(8);
+        sheet.PageSetup.PageOrientation = XLPageOrientation.Landscape;
+        sheet.PageSetup.FitToPages(1, 0);
     }
 }
