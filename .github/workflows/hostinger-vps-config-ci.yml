@@ -51,7 +51,7 @@ jobs:
           docker run --rm \
             --env MATHWORLD_DOMAIN=mathworld.example.com \
             -v "$PWD/deploy/hostinger/Caddyfile:/etc/caddy/Caddyfile:ro" \
-            caddy:2-alpine validate --config /etc/caddy/Caddyfile
+            caddy:2-alpine caddy validate --config /etc/caddy/Caddyfile
 
       - name: Syntax check backup and read-only benchmark
         run: |
