@@ -1,0 +1,27 @@
+{
+  "batch": "primary-short-clarity-20261123",
+  "changes": [
+    {
+      "problemId": 422,
+      "questionAr": "أي علاقة صحيحة بين $0.6$ و$\\frac35$؟",
+      "questionEn": "Which comparison of $0.6$ and $\\frac35$ is correct?",
+      "beforeAr": "نحوّل $\\frac35$ إلى عدد عشري بالقسمة: $3\\div5=0.6$، إذن العددان متساويان.",
+      "beforeEn": "Dividing 3 by 5 gives 0.6, so both values are equal.",
+      "afterAr": "المبدأ المستخدم: لمقارنة كسر بعدد عشري نحول الاثنين إلى تمثيل عددي واحد. نحسب قيمة الكسر بالقسمة: 3 ÷ 5 = 0.6. العدد الآخر يساوي 0.6 أيضاً، لذلك العلاقة الصحيحة 0.6 = 3/5. التحقق: 0.6 × 5 = 3.",
+      "afterEn": "Rule used: Compare a fraction with a decimal by converting both to the same representation. Divide 3 by 5 to obtain 0.6. Since the other value is also 0.6, the correct comparison is 0.6 = 3/5. Check: 0.6 × 5 = 3.",
+      "correctOptionId": 1677,
+      "correctOptionLatex": "0.6=\\frac35"
+    },
+    {
+      "problemId": 476,
+      "questionAr": "في صف مؤلف من 48 طالباً شارك 12 في مسابقة. ما نسبة المشاركين؟",
+      "questionEn": "Twelve of 48 pupils in a class entered a competition. What percentage entered?",
+      "beforeAr": "النسبة $\\frac{12}{48}=\\frac14=0.25$؛ أي $25\\%$.",
+      "beforeEn": "The proportion is $\\frac{12}{48}=\\frac14=0.25$, or $25\\%$.",
+      "afterAr": "القانون المستخدم: نسبة المشاركين المئوية = عدد المشاركين ÷ العدد الكلي × 100%. لدينا 12 مشاركاً من 48 طالباً؛ نحسب 12 ÷ 48 = 1/4 = 0.25، ثم 0.25 × 100% = 25%. التحقق: ربع 48 = 12 طالباً.",
+      "afterEn": "Rule used: Participation percentage = participating pupils ÷ total pupils × 100%. With 12 out of 48, calculate 12 ÷ 48 = 1/4 = 0.25. Then 0.25 × 100% = 25%. Check: one quarter of 48 is 12 pupils.",
+      "correctOptionId": 1894,
+      "correctOptionLatex": "25\\%"
+    }
+  ]
+}
