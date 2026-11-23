@@ -131,6 +131,10 @@ for t in DATA["topics"]:
         assert q["templateFamilyKey"]=="wave4-depth-"+key
         assert 1<=q["difficultyLevel"]<=5
         assert q["pisaProcess"] in ("formulate","employ","interpret_evaluate")
+        assert q["detailedSolutionAr"].startswith("القانون المستخدم: "), key
+        assert "خطوات الحل:" in q["detailedSolutionAr"], key
+        assert q["detailedSolutionEn"].startswith("Rule used: "), key
+        assert "Solution steps:" in q["detailedSolutionEn"], key
         for lang in ("Ar","En"):
             prompt=q["questionText"+lang].strip()
             explanation=q["detailedSolution"+lang].strip()
