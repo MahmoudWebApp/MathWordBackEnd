@@ -105,7 +105,6 @@ namespace MathWorldAPI.Controllers
                 result.Id);
             await _audit.TryRecordAsync(result.Id, "Registered");
 
-
             return StatusCode(
                 StatusCodes.Status201Created,
                 LanguageHelper.SuccessResponse(
@@ -161,7 +160,6 @@ namespace MathWorldAPI.Controllers
                 "User {UserId} logged in successfully.",
                 result.Id);
             await _audit.TryRecordAsync(result.Id, "LoggedIn");
-
 
             return Ok(
                 LanguageHelper.SuccessResponse(
