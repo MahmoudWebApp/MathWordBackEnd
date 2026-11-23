@@ -1,0 +1,958 @@
+{
+  "databaseSnapshot": "2026-11-23",
+  "method": "Case-fold English text; replace numeric literals with #; normalize whitespace; group by stage, category and skeleton; retain only families with >=3 occurrences. Heuristic similarity, not correctness failure.",
+  "publishedProblemCount": 601,
+  "unpublishedDraftCountAtAudit": 172,
+  "numericTemplateFamilyCount": 63,
+  "problemsInFamilies": 315,
+  "excessNumericVariantsBeyondOnePerFamily": 252,
+  "noAutomaticDeletion": true,
+  "learnerHistoryMustBePreserved": true,
+  "families": [
+    {
+      "stageId": 1,
+      "categoryId": 1,
+      "categoryAr": "الجمع والطرح والمسائل الحسابية",
+      "categoryEn": "Addition, Subtraction & Word Problems",
+      "normalizedPattern": "calculate (#+#)-#.",
+      "variantCount": 5,
+      "problemIds": [
+        69,
+        84,
+        99,
+        114,
+        129
+      ]
+    },
+    {
+      "stageId": 1,
+      "categoryId": 2,
+      "categoryAr": "التفكير الجبري المبكر",
+      "categoryEn": "Early Algebraic Thinking",
+      "normalizedPattern": "if x=#, evaluate \\(#x-#\\).",
+      "variantCount": 5,
+      "problemIds": [
+        154,
+        166,
+        178,
+        190,
+        202
+      ]
+    },
+    {
+      "stageId": 1,
+      "categoryId": 2,
+      "categoryAr": "التفكير الجبري المبكر",
+      "categoryEn": "Early Algebraic Thinking",
+      "normalizedPattern": "sequence #, #, #, #; find the fifth term.",
+      "variantCount": 5,
+      "problemIds": [
+        153,
+        165,
+        177,
+        189,
+        201
+      ]
+    },
+    {
+      "stageId": 1,
+      "categoryId": 2,
+      "categoryAr": "التفكير الجبري المبكر",
+      "categoryEn": "Early Algebraic Thinking",
+      "normalizedPattern": "solve \\(#x+#=#\\).",
+      "variantCount": 5,
+      "problemIds": [
+        152,
+        164,
+        176,
+        188,
+        200
+      ]
+    },
+    {
+      "stageId": 1,
+      "categoryId": 2,
+      "categoryAr": "التفكير الجبري المبكر",
+      "categoryEn": "Early Algebraic Thinking",
+      "normalizedPattern": "solve x+#=#.",
+      "variantCount": 5,
+      "problemIds": [
+        70,
+        85,
+        100,
+        115,
+        130
+      ]
+    },
+    {
+      "stageId": 1,
+      "categoryId": 3,
+      "categoryAr": "الهندسة والقياس",
+      "categoryEn": "Geometry & Measurement",
+      "normalizedPattern": "a rectangle is # cm by # cm. find its area in square centimetres.",
+      "variantCount": 5,
+      "problemIds": [
+        71,
+        86,
+        101,
+        116,
+        131
+      ]
+    },
+    {
+      "stageId": 1,
+      "categoryId": 3,
+      "categoryAr": "الهندسة والقياس",
+      "categoryEn": "Geometry & Measurement",
+      "normalizedPattern": "convert # metres to centimetres.",
+      "variantCount": 5,
+      "problemIds": [
+        157,
+        169,
+        181,
+        193,
+        205
+      ]
+    },
+    {
+      "stageId": 1,
+      "categoryId": 3,
+      "categoryAr": "الهندسة والقياس",
+      "categoryEn": "Geometry & Measurement",
+      "normalizedPattern": "find the perimeter of a # cm by # cm rectangle.",
+      "variantCount": 5,
+      "problemIds": [
+        155,
+        167,
+        179,
+        191,
+        203
+      ]
+    },
+    {
+      "stageId": 1,
+      "categoryId": 3,
+      "categoryAr": "الهندسة والقياس",
+      "categoryEn": "Geometry & Measurement",
+      "normalizedPattern": "two angles of a triangle are #° and #°. find the third.",
+      "variantCount": 5,
+      "problemIds": [
+        156,
+        168,
+        180,
+        192,
+        204
+      ]
+    },
+    {
+      "stageId": 1,
+      "categoryId": 4,
+      "categoryAr": "البيانات والاحتمالات",
+      "categoryEn": "Data & Basic Probability",
+      "normalizedPattern": "a bag has # red and # blue balls. find the probability of red.",
+      "variantCount": 5,
+      "problemIds": [
+        159,
+        171,
+        183,
+        195,
+        207
+      ]
+    },
+    {
+      "stageId": 1,
+      "categoryId": 4,
+      "categoryAr": "البيانات والاحتمالات",
+      "categoryEn": "Data & Basic Probability",
+      "normalizedPattern": "find the arithmetic mean of #, #, and #.",
+      "variantCount": 5,
+      "problemIds": [
+        72,
+        87,
+        102,
+        117,
+        132
+      ]
+    },
+    {
+      "stageId": 1,
+      "categoryId": 4,
+      "categoryAr": "البيانات والاحتمالات",
+      "categoryEn": "Data & Basic Probability",
+      "normalizedPattern": "find the mode: #, #, #, #, #.",
+      "variantCount": 5,
+      "problemIds": [
+        158,
+        170,
+        182,
+        194,
+        206
+      ]
+    },
+    {
+      "stageId": 1,
+      "categoryId": 4,
+      "categoryAr": "البيانات والاحتمالات",
+      "categoryEn": "Data & Basic Probability",
+      "normalizedPattern": "what is the median of ordered values #, #, #, #, #?",
+      "variantCount": 5,
+      "problemIds": [
+        160,
+        172,
+        184,
+        196,
+        208
+      ]
+    },
+    {
+      "stageId": 1,
+      "categoryId": 33,
+      "categoryAr": "الضرب والقسمة",
+      "categoryEn": "Multiplication & Division",
+      "normalizedPattern": "calculate # divided by #.",
+      "variantCount": 5,
+      "problemIds": [
+        150,
+        162,
+        174,
+        186,
+        198
+      ]
+    },
+    {
+      "stageId": 1,
+      "categoryId": 33,
+      "categoryAr": "الضرب والقسمة",
+      "categoryEn": "Multiplication & Division",
+      "normalizedPattern": "compute # × #.",
+      "variantCount": 5,
+      "problemIds": [
+        149,
+        161,
+        173,
+        185,
+        197
+      ]
+    },
+    {
+      "stageId": 1,
+      "categoryId": 33,
+      "categoryAr": "الضرب والقسمة",
+      "categoryEn": "Multiplication & Division",
+      "normalizedPattern": "each pen costs # units. what do # pens cost?",
+      "variantCount": 5,
+      "problemIds": [
+        151,
+        163,
+        175,
+        187,
+        199
+      ]
+    },
+    {
+      "stageId": 2,
+      "categoryId": 5,
+      "categoryAr": "نظرية الأعداد والأسس",
+      "categoryEn": "Number Theory & Exponents",
+      "normalizedPattern": "find gcd(#,#).",
+      "variantCount": 5,
+      "problemIds": [
+        209,
+        221,
+        233,
+        245,
+        257
+      ]
+    },
+    {
+      "stageId": 2,
+      "categoryId": 5,
+      "categoryAr": "نظرية الأعداد والأسس",
+      "categoryEn": "Number Theory & Exponents",
+      "normalizedPattern": "find the least common multiple of # and #.",
+      "variantCount": 5,
+      "problemIds": [
+        211,
+        223,
+        235,
+        247,
+        259
+      ]
+    },
+    {
+      "stageId": 2,
+      "categoryId": 5,
+      "categoryAr": "نظرية الأعداد والأسس",
+      "categoryEn": "Number Theory & Exponents",
+      "normalizedPattern": "simplify \\(\\frac{#^{#}}{#^{#}}\\).",
+      "variantCount": 5,
+      "problemIds": [
+        210,
+        222,
+        234,
+        246,
+        258
+      ]
+    },
+    {
+      "stageId": 2,
+      "categoryId": 5,
+      "categoryAr": "نظرية الأعداد والأسس",
+      "categoryEn": "Number Theory & Exponents",
+      "normalizedPattern": "write \\(#^{#}\\times#^#\\) as a single power of #.",
+      "variantCount": 5,
+      "problemIds": [
+        73,
+        88,
+        103,
+        118,
+        133
+      ]
+    },
+    {
+      "stageId": 2,
+      "categoryId": 6,
+      "categoryAr": "الجبر والدوال",
+      "categoryEn": "Algebra & Functions",
+      "normalizedPattern": "find the slope between (#,#) and (#,#).",
+      "variantCount": 5,
+      "problemIds": [
+        213,
+        225,
+        237,
+        249,
+        261
+      ]
+    },
+    {
+      "stageId": 2,
+      "categoryId": 6,
+      "categoryAr": "الجبر والدوال",
+      "categoryEn": "Algebra & Functions",
+      "normalizedPattern": "given \\(f(x)=#x+#\\), solve f(x)=#.",
+      "variantCount": 5,
+      "problemIds": [
+        212,
+        224,
+        236,
+        248,
+        260
+      ]
+    },
+    {
+      "stageId": 2,
+      "categoryId": 6,
+      "categoryAr": "الجبر والدوال",
+      "categoryEn": "Algebra & Functions",
+      "normalizedPattern": "given \\(g(x)=#x^#+#\\), find g(#).",
+      "variantCount": 5,
+      "problemIds": [
+        214,
+        226,
+        238,
+        250,
+        262
+      ]
+    },
+    {
+      "stageId": 2,
+      "categoryId": 6,
+      "categoryAr": "الجبر والدوال",
+      "categoryEn": "Algebra & Functions",
+      "normalizedPattern": "if \\(f(x)=#x+#\\), find \\(f(#)\\).",
+      "variantCount": 5,
+      "problemIds": [
+        74,
+        89,
+        104,
+        119,
+        134
+      ]
+    },
+    {
+      "stageId": 2,
+      "categoryId": 7,
+      "categoryAr": "النسب والتناسب",
+      "categoryEn": "Ratios & Proportions",
+      "normalizedPattern": "a store discounts #% from a price of #. find the discount amount.",
+      "variantCount": 5,
+      "problemIds": [
+        215,
+        227,
+        239,
+        251,
+        263
+      ]
+    },
+    {
+      "stageId": 2,
+      "categoryId": 7,
+      "categoryAr": "النسب والتناسب",
+      "categoryEn": "Ratios & Proportions",
+      "normalizedPattern": "if # increases by #%, what is the new price?",
+      "variantCount": 5,
+      "problemIds": [
+        217,
+        229,
+        241,
+        253,
+        265
+      ]
+    },
+    {
+      "stageId": 2,
+      "categoryId": 7,
+      "categoryAr": "النسب والتناسب",
+      "categoryEn": "Ratios & Proportions",
+      "normalizedPattern": "if three notebooks cost #, how much do five cost at the same price per notebook?",
+      "variantCount": 5,
+      "problemIds": [
+        75,
+        90,
+        105,
+        120,
+        135
+      ]
+    },
+    {
+      "stageId": 2,
+      "categoryId": 7,
+      "categoryAr": "النسب والتناسب",
+      "categoryEn": "Ratios & Proportions",
+      "normalizedPattern": "map scale: # cm represents # km. what distance is # cm?",
+      "variantCount": 5,
+      "problemIds": [
+        216,
+        228,
+        240,
+        252,
+        264
+      ]
+    },
+    {
+      "stageId": 2,
+      "categoryId": 8,
+      "categoryAr": "الزوايا والقياس الهندسي",
+      "categoryEn": "Angles & Geometric Measurement",
+      "normalizedPattern": "find the sum of interior angles of a polygon with # sides.",
+      "variantCount": 5,
+      "problemIds": [
+        218,
+        230,
+        242,
+        254,
+        266
+      ]
+    },
+    {
+      "stageId": 2,
+      "categoryId": 34,
+      "categoryAr": "المثلثات والتشابه وفيثاغورس",
+      "categoryEn": "Triangles, Similarity & Pythagoras",
+      "normalizedPattern": "a right triangle has hypotenuse # and one leg #. find its other leg.",
+      "variantCount": 5,
+      "problemIds": [
+        219,
+        231,
+        243,
+        255,
+        267
+      ]
+    },
+    {
+      "stageId": 2,
+      "categoryId": 34,
+      "categoryAr": "المثلثات والتشابه وفيثاغورس",
+      "categoryEn": "Triangles, Similarity & Pythagoras",
+      "normalizedPattern": "a right triangle has legs # and #. find the hypotenuse.",
+      "variantCount": 5,
+      "problemIds": [
+        76,
+        91,
+        106,
+        121,
+        136
+      ]
+    },
+    {
+      "stageId": 2,
+      "categoryId": 34,
+      "categoryAr": "المثلثات والتشابه وفيثاغورس",
+      "categoryEn": "Triangles, Similarity & Pythagoras",
+      "normalizedPattern": "similar triangles: a side is # with scale factor #. find the corresponding side.",
+      "variantCount": 5,
+      "problemIds": [
+        220,
+        232,
+        244,
+        256,
+        268
+      ]
+    },
+    {
+      "stageId": 3,
+      "categoryId": 9,
+      "categoryAr": "الجبر المتقدم",
+      "categoryEn": "Advanced Algebra",
+      "normalizedPattern": "compute the discriminant of \\(x^#+#x+#=#\\).",
+      "variantCount": 5,
+      "problemIds": [
+        270,
+        282,
+        294,
+        306,
+        318
+      ]
+    },
+    {
+      "stageId": 3,
+      "categoryId": 9,
+      "categoryAr": "الجبر المتقدم",
+      "categoryEn": "Advanced Algebra",
+      "normalizedPattern": "factor \\(x^#+#x+#\\).",
+      "variantCount": 5,
+      "problemIds": [
+        271,
+        283,
+        295,
+        307,
+        319
+      ]
+    },
+    {
+      "stageId": 3,
+      "categoryId": 9,
+      "categoryAr": "الجبر المتقدم",
+      "categoryEn": "Advanced Algebra",
+      "normalizedPattern": "find the sum of the roots of \\((x-#)(x-#)=#\\).",
+      "variantCount": 5,
+      "problemIds": [
+        77,
+        92,
+        107,
+        122,
+        137
+      ]
+    },
+    {
+      "stageId": 3,
+      "categoryId": 9,
+      "categoryAr": "الجبر المتقدم",
+      "categoryEn": "Advanced Algebra",
+      "normalizedPattern": "what is the product of the roots of \\(x^#-#x+#=#\\)?",
+      "variantCount": 5,
+      "problemIds": [
+        269,
+        281,
+        293,
+        305,
+        317
+      ]
+    },
+    {
+      "stageId": 3,
+      "categoryId": 10,
+      "categoryAr": "حساب المثلثات",
+      "categoryEn": "Trigonometry",
+      "normalizedPattern": "find the exact sine of angle #°.",
+      "variantCount": 5,
+      "problemIds": [
+        274,
+        286,
+        298,
+        310,
+        322
+      ]
+    },
+    {
+      "stageId": 3,
+      "categoryId": 10,
+      "categoryAr": "حساب المثلثات",
+      "categoryEn": "Trigonometry",
+      "normalizedPattern": "in a right triangle opposite θ is #, hypotenuse #, adjacent #. find \\(\\sin\\theta\\).",
+      "variantCount": 5,
+      "problemIds": [
+        78,
+        93,
+        108,
+        123,
+        138
+      ]
+    },
+    {
+      "stageId": 3,
+      "categoryId": 10,
+      "categoryAr": "حساب المثلثات",
+      "categoryEn": "Trigonometry",
+      "normalizedPattern": "right triangle: adjacent to θ is #, hypotenuse #. find cos θ.",
+      "variantCount": 5,
+      "problemIds": [
+        272,
+        284,
+        296,
+        308,
+        320
+      ]
+    },
+    {
+      "stageId": 3,
+      "categoryId": 10,
+      "categoryAr": "حساب المثلثات",
+      "categoryEn": "Trigonometry",
+      "normalizedPattern": "right triangle: opposite θ is #, adjacent #. find tan θ.",
+      "variantCount": 5,
+      "problemIds": [
+        273,
+        285,
+        297,
+        309,
+        321
+      ]
+    },
+    {
+      "stageId": 3,
+      "categoryId": 11,
+      "categoryAr": "التفاضل والتكامل",
+      "categoryEn": "Calculus",
+      "normalizedPattern": "compute \\(\\int #x^{#}\\,dx\\).",
+      "variantCount": 5,
+      "problemIds": [
+        276,
+        288,
+        300,
+        312,
+        324
+      ]
+    },
+    {
+      "stageId": 3,
+      "categoryId": 11,
+      "categoryAr": "التفاضل والتكامل",
+      "categoryEn": "Calculus",
+      "normalizedPattern": "evaluate \\(\\int_#^{#} #t\\,dt\\).",
+      "variantCount": 5,
+      "problemIds": [
+        277,
+        289,
+        301,
+        313,
+        325
+      ]
+    },
+    {
+      "stageId": 3,
+      "categoryId": 11,
+      "categoryAr": "التفاضل والتكامل",
+      "categoryEn": "Calculus",
+      "normalizedPattern": "find f'(#) for \\(f(x)=#x^{#}\\).",
+      "variantCount": 5,
+      "problemIds": [
+        275,
+        287,
+        299,
+        311,
+        323
+      ]
+    },
+    {
+      "stageId": 3,
+      "categoryId": 11,
+      "categoryAr": "التفاضل والتكامل",
+      "categoryEn": "Calculus",
+      "normalizedPattern": "given \\(f(x)=#x^#+#x\\), compute \\(f'(#)\\).",
+      "variantCount": 5,
+      "problemIds": [
+        79,
+        94,
+        109,
+        124,
+        139
+      ]
+    },
+    {
+      "stageId": 3,
+      "categoryId": 12,
+      "categoryAr": "الاحتمالات والتوافيق",
+      "categoryEn": "Probability & Combinatorics",
+      "normalizedPattern": "how many unordered pairs can be selected from # students?",
+      "variantCount": 5,
+      "problemIds": [
+        278,
+        290,
+        302,
+        314,
+        326
+      ]
+    },
+    {
+      "stageId": 3,
+      "categoryId": 12,
+      "categoryAr": "الاحتمالات والتوافيق",
+      "categoryEn": "Probability & Combinatorics",
+      "normalizedPattern": "toss a fair coin # times; probability of heads on all tosses?",
+      "variantCount": 5,
+      "problemIds": [
+        279,
+        291,
+        303,
+        315,
+        327
+      ]
+    },
+    {
+      "stageId": 3,
+      "categoryId": 12,
+      "categoryAr": "الاحتمالات والتوافيق",
+      "categoryEn": "Probability & Combinatorics",
+      "normalizedPattern": "toss a fair coin # times. what is the probability of exactly two heads?",
+      "variantCount": 5,
+      "problemIds": [
+        80,
+        95,
+        110,
+        125,
+        140
+      ]
+    },
+    {
+      "stageId": 3,
+      "categoryId": 35,
+      "categoryAr": "الإحصاء الوصفي",
+      "categoryEn": "Descriptive Statistics",
+      "normalizedPattern": "value # appears # times and # appears # times. find the mean.",
+      "variantCount": 5,
+      "problemIds": [
+        280,
+        292,
+        304,
+        316,
+        328
+      ]
+    },
+    {
+      "stageId": 4,
+      "categoryId": 13,
+      "categoryAr": "التفاضل متعدد المتغيرات",
+      "categoryEn": "Multivariable Calculus",
+      "normalizedPattern": "find gradient of \\(f(x,y)=x^#+y^#\\) at (#,#).",
+      "variantCount": 5,
+      "problemIds": [
+        330,
+        342,
+        354,
+        366,
+        378
+      ]
+    },
+    {
+      "stageId": 4,
+      "categoryId": 13,
+      "categoryAr": "التفاضل متعدد المتغيرات",
+      "categoryEn": "Multivariable Calculus",
+      "normalizedPattern": "for \\(f(x,y)=#x^#y+#y^#\\), evaluate \\(\\partial f/\\partial x\\) at \\((#,#)\\).",
+      "variantCount": 5,
+      "problemIds": [
+        81,
+        96,
+        111,
+        126,
+        141
+      ]
+    },
+    {
+      "stageId": 4,
+      "categoryId": 13,
+      "categoryAr": "التفاضل متعدد المتغيرات",
+      "categoryEn": "Multivariable Calculus",
+      "normalizedPattern": "for \\(f(x,y)=x^#+#y^#\\), find directional derivative at (#,#) in positive x-direction.",
+      "variantCount": 5,
+      "problemIds": [
+        331,
+        343,
+        355,
+        367,
+        379
+      ]
+    },
+    {
+      "stageId": 4,
+      "categoryId": 13,
+      "categoryAr": "التفاضل متعدد المتغيرات",
+      "categoryEn": "Multivariable Calculus",
+      "normalizedPattern": "given \\(f(x,y)=#x^#y+#y^#\\), evaluate \\(\\partial f/\\partial y\\) at (#,#).",
+      "variantCount": 5,
+      "problemIds": [
+        329,
+        341,
+        353,
+        365,
+        377
+      ]
+    },
+    {
+      "stageId": 4,
+      "categoryId": 14,
+      "categoryAr": "الجبر الخطي",
+      "categoryEn": "Linear Algebra",
+      "normalizedPattern": "compute the determinant of \\(\\begin{pmatrix}#&#\\\\#&#\\end{pmatrix}\\).",
+      "variantCount": 5,
+      "problemIds": [
+        82,
+        97,
+        112,
+        127,
+        142
+      ]
+    },
+    {
+      "stageId": 4,
+      "categoryId": 14,
+      "categoryAr": "الجبر الخطي",
+      "categoryEn": "Linear Algebra",
+      "normalizedPattern": "find determinant of \\(\\begin{pmatrix}#&#\\\\#&#\\end{pmatrix}\\).",
+      "variantCount": 5,
+      "problemIds": [
+        334,
+        346,
+        358,
+        370,
+        382
+      ]
+    },
+    {
+      "stageId": 4,
+      "categoryId": 14,
+      "categoryAr": "الجبر الخطي",
+      "categoryEn": "Linear Algebra",
+      "normalizedPattern": "find trace of \\(\\begin{pmatrix}#&#\\\\#&#\\end{pmatrix}\\).",
+      "variantCount": 5,
+      "problemIds": [
+        332,
+        344,
+        356,
+        368,
+        380
+      ]
+    },
+    {
+      "stageId": 4,
+      "categoryId": 14,
+      "categoryAr": "الجبر الخطي",
+      "categoryEn": "Linear Algebra",
+      "normalizedPattern": "multiply vector (#,#) by scalar #.",
+      "variantCount": 5,
+      "problemIds": [
+        333,
+        345,
+        357,
+        369,
+        381
+      ]
+    },
+    {
+      "stageId": 4,
+      "categoryId": 15,
+      "categoryAr": "المعادلات التفاضلية",
+      "categoryEn": "Differential Equations",
+      "normalizedPattern": "given \\(y''=#\\), \\(y'(#)=#\\), \\(y(#)=#\\), find \\(y(#)\\).",
+      "variantCount": 5,
+      "problemIds": [
+        336,
+        348,
+        360,
+        372,
+        384
+      ]
+    },
+    {
+      "stageId": 4,
+      "categoryId": 15,
+      "categoryAr": "المعادلات التفاضلية",
+      "categoryEn": "Differential Equations",
+      "normalizedPattern": "given \\(y'=#\\), \\(y(#)=#\\), find \\(y(#)\\).",
+      "variantCount": 5,
+      "problemIds": [
+        335,
+        347,
+        359,
+        371,
+        383
+      ]
+    },
+    {
+      "stageId": 4,
+      "categoryId": 15,
+      "categoryAr": "المعادلات التفاضلية",
+      "categoryEn": "Differential Equations",
+      "normalizedPattern": "given \\(y'=#x\\), \\(y(#)=#\\), find \\(y(#)\\).",
+      "variantCount": 5,
+      "problemIds": [
+        337,
+        349,
+        361,
+        373,
+        385
+      ]
+    },
+    {
+      "stageId": 4,
+      "categoryId": 15,
+      "categoryAr": "المعادلات التفاضلية",
+      "categoryEn": "Differential Equations",
+      "normalizedPattern": "solve \\(y'=#y\\) with \\(y(#)=#\\).",
+      "variantCount": 5,
+      "problemIds": [
+        83,
+        98,
+        113,
+        128,
+        143
+      ]
+    },
+    {
+      "stageId": 4,
+      "categoryId": 16,
+      "categoryAr": "النهايات والاستمرارية",
+      "categoryEn": "Limits & Continuity",
+      "normalizedPattern": "for f(#)=-# and f(#)=#, what sufficient condition guarantees a root in (#,#) by the intermediate value theorem?",
+      "variantCount": 5,
+      "problemIds": [
+        340,
+        352,
+        364,
+        376,
+        388
+      ]
+    },
+    {
+      "stageId": 4,
+      "categoryId": 36,
+      "categoryAr": "المتتاليات والتقارب",
+      "categoryEn": "Sequences & Convergence",
+      "normalizedPattern": "find limit of \\(a_n=\\frac{#}{n+#}\\) as n tends to infinity.",
+      "variantCount": 5,
+      "problemIds": [
+        338,
+        350,
+        362,
+        374,
+        386
+      ]
+    },
+    {
+      "stageId": 4,
+      "categoryId": 36,
+      "categoryAr": "المتتاليات والتقارب",
+      "categoryEn": "Sequences & Convergence",
+      "normalizedPattern": "find the limit of \\(a_n=(\\frac{#}{#})^n\\) as n tends to infinity.",
+      "variantCount": 5,
+      "problemIds": [
+        339,
+        351,
+        363,
+        375,
+        387
+      ]
+    }
+  ]
+}
