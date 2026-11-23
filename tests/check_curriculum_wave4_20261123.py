@@ -121,6 +121,10 @@ for topic in DATA["topics"]:
         counts[item["primarySkillKey"]] += 1
         assert 1 <= item["difficultyLevel"] <= 5
         assert item["pisaProcess"] in ("formulate","employ","interpret_evaluate")
+        assert item["detailedSolutionAr"].startswith("القانون المستخدم: "), key
+        assert "خطوات الحل:" in item["detailedSolutionAr"], key
+        assert item["detailedSolutionEn"].startswith("Rule used: "), key
+        assert "Solution steps:" in item["detailedSolutionEn"], key
         for lang in ("Ar","En"):
             question=item["questionText"+lang].strip()
             assert len(question) >= 25 and len(item["detailedSolution"+lang].strip()) >= 35,slug
