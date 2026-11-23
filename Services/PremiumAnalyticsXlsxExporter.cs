@@ -637,6 +637,14 @@ public static class PremiumAnalyticsXlsxExporter
     {
         writer.WriteStartElement("row", Spreadsheet);
         writer.WriteAttributeString("r", number.ToString(CultureInfo.InvariantCulture));
+        if (number is 1 or 2 or 4 or 5 or 6)
+        {
+            writer.WriteAttributeString("ht", number switch
+            {
+                1 => "38", 2 => "26", 6 => "50", _ => "29"
+            });
+            writer.WriteAttributeString("customHeight", "1");
+        }
         for (var index = 0; index < values.Count; index++)
         {
             var value = values[index];
@@ -736,15 +744,28 @@ public static class PremiumAnalyticsXlsxExporter
         w.WriteAttributeString("borderId", "0"); w.WriteEndElement();
         w.WriteEndElement();
         w.WriteStartElement("cellXfs", Spreadsheet); w.WriteAttributeString("count", "5");
-        foreach (var (font, fill) in new[] {
-            ("0", "0"), ("1", "2"), ("2", "2"), ("0", "3"), ("3", "3") })
+        var cellStyles = new[] {
+            ("0", "0"), ("1", "2"), ("2", "2"), ("0", "3"), ("3", "3") };
+        for (var i = 0; i < cellStyles.Length; i++)
         {
+            var (font, fill) = cellStyles[i];
             w.WriteStartElement("xf", Spreadsheet);
             w.WriteAttributeString("numFmtId", "0");
             w.WriteAttributeString("fontId", font); w.WriteAttributeString("fillId", fill);
             w.WriteAttributeString("borderId", "0");
             w.WriteAttributeString("xfId", "0");
             w.WriteAttributeString("applyFont", "1"); w.WriteAttributeString("applyFill", "1");
+            if (i is 1 or 2)
+            {
+                w.WriteStartElement("alignment", Spreadsheet);
+                w.WriteAttributeString("vertical", "center");
+                if (i == 2)
+                {
+                    w.WriteAttributeString("wrapText", "1");
+                    w.WriteAttributeString("horizontal", "center");
+                }
+                w.WriteEndElement();
+            }
             w.WriteEndElement();
         }
         w.WriteEndElement();
