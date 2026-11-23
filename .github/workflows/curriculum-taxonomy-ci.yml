@@ -41,6 +41,10 @@ on:
       - 'content/editorial/secondary-logarithm-breadth-20261123.json'
       - 'scripts/apply_secondary_logarithm_breadth_drafts_20261123.sql'
       - 'tests/check_secondary_logarithm_breadth_drafts_20261123.py'
+      - 'docs/review-data/published-template-diversity-20261123.json'
+      - 'scripts/audit_published_problem_variety_20261123.sql'
+      - 'tests/check_published_template_diversity_baseline_20261123.py'
+      - 'tests/check_all_draft_numeric_variety_20261123.py'
       - 'tests/check_university_ode_laws_20261123.py'
       - 'tests/check_university_final_brief_explanations_20261123.py'
       - 'tests/check_university_multivariable_linear_laws_20261123.py'
@@ -148,6 +152,10 @@ jobs:
         run: python3 tests/check_university_multivariable_linear_laws_20261123.py
       - name: Verify three final university explanation clarity laws
         run: python3 tests/check_university_final_brief_explanations_20261123.py
+      - name: Protect the published numeric-template variety baseline
+        run: python3 tests/check_published_template_diversity_baseline_20261123.py
+      - name: Check 172 unpublished draft questions avoid repeated numeric templates
+        run: python3 tests/check_all_draft_numeric_variety_20261123.py
       - name: Verify 12 varied bilingual logarithm questions and exact math answers
         run: python3 tests/check_secondary_logarithm_breadth_drafts_20261123.py
       - name: Verify all remaining 40 upper-secondary and university draft laws
