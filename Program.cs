@@ -507,8 +507,18 @@ var app = builder.Build();
 // 12. Apply migrations when explicitly enabled
 // ============================================================================
 
-if (app.Configuration.GetValue<bool>(
-        "Database:ApplyMigrationsOnStartup"))
+// A one-off migration job for Docker Compose can run the exact same EF Core
+// migrations and exit BEFORE listening for traffic or bootstrapping users.
+var migrationOnly = app.Configuration.GetValue<bool>("Database:MigrationOnly");
+var applyMigrationsOnStartup = app.Configuration.GetValue<bool>(
+    "Database:ApplyMigrationsOnStartup");
+if (migrationOnly && !applyMigrationsOnStartup)
+{
+    throw new InvalidOperationException(
+        "Database:MigrationOnly requires Database:ApplyMigrationsOnStartup=true.");
+}
+
+if (applyMigrationsOnStartup)
 {
     using var migrationScope =
         app.Services.CreateScope();
@@ -522,6 +532,12 @@ if (app.Configuration.GetValue<bool>(
 
         Console.WriteLine(
             "Database migrated successfully!");
+
+        if (migrationOnly)
+        {
+            Console.WriteLine("Migration-only job completed. Exiting without serving requests.");
+            return;
+        }
     }
     catch (Exception exception)
     {
