@@ -1,0 +1,102 @@
+{
+  "stageId": 4,
+  "status": "editorial_draft_unpublished",
+  "note": "Advanced university objectives are staged for review; each is associated with existing questions, but publication requires mathematical accuracy validation.",
+  "objectives": [
+    {
+      "id": 57,
+      "descriptionAr": "يحسب مشتقات جزئية بتثبيت المتغيرات الأخرى ويحدد مجال الدالة.",
+      "descriptionEn": "Compute partial derivatives by holding other variables fixed and checking the domain."
+    },
+    {
+      "id": 58,
+      "descriptionAr": "يقيم تكاملاً مزدوجاً على مجال معطى مع ضبط ترتيب التكامل وحدوده.",
+      "descriptionEn": "Evaluate double integrals over specified regions with correct limits and order."
+    },
+    {
+      "id": 59,
+      "descriptionAr": "يكوّن متجه التدرج من المشتقات الجزئية ويفسر اتجاه الزيادة الأسرع.",
+      "descriptionEn": "Construct the gradient from partial derivatives and interpret steepest increase."
+    },
+    {
+      "id": 60,
+      "descriptionAr": "يحسب المشتقة الاتجاهية من جداء التدرج مع متجه اتجاه موحّد.",
+      "descriptionEn": "Compute directional derivatives as a gradient dot product with a unit direction."
+    },
+    {
+      "id": 61,
+      "descriptionAr": "يحسب محدد مصفوفة مربعة ويستخدمه في التحقق من القابلية للعكس عند اللزوم.",
+      "descriptionEn": "Evaluate square-matrix determinants and infer invertibility when appropriate."
+    },
+    {
+      "id": 62,
+      "descriptionAr": "يفحص استقلال مجموعة متجهات باستخدام تراكيب خطية أو رتبة مصفوفة.",
+      "descriptionEn": "Test vector-set independence through linear combinations or matrix rank."
+    },
+    {
+      "id": 63,
+      "descriptionAr": "يحسب الجداء القياسي لمتجهين ويفسره بالنسبة للزاوية والتعامد.",
+      "descriptionEn": "Compute vector dot products and relate the result to angle and orthogonality."
+    },
+    {
+      "id": 64,
+      "descriptionAr": "يجمع عناصر القطر الرئيسي لمصفوفة مربعة ليحدد أثرها.",
+      "descriptionEn": "Calculate the trace of a square matrix as the sum of diagonal entries."
+    },
+    {
+      "id": 65,
+      "descriptionAr": "يضرب كل مركبة متجه بعدد ثابت ويفسر أثر الإشارة والمقدار.",
+      "descriptionEn": "Scale each vector component and interpret changes in magnitude and direction."
+    },
+    {
+      "id": 66,
+      "descriptionAr": "يحل معادلة تفاضلية أولية من نوع تغير يتناسب مع المقدار ويطبق شرط البداية.",
+      "descriptionEn": "Solve basic exponential-growth/decay ODEs and apply given initial conditions."
+    },
+    {
+      "id": 67,
+      "descriptionAr": "يحدد رتبة المعادلة التفاضلية من أعلى مشتقة ظاهرة فيها.",
+      "descriptionEn": "Identify the order of a differential equation from its highest derivative."
+    },
+    {
+      "id": 68,
+      "descriptionAr": "يحصل على حل معادلة تفاضلية قابلة للتكامل ويختبره بالتعويض.",
+      "descriptionEn": "Integrate a solvable differential equation and verify by substitution."
+    },
+    {
+      "id": 69,
+      "descriptionAr": "يوظف شرطَي البداية لإيجاد ثوابت حل معادلة تفاضلية من الرتبة الثانية.",
+      "descriptionEn": "Use two initial conditions to determine constants in a second-order ODE solution."
+    },
+    {
+      "id": 70,
+      "descriptionAr": "يقوّم نهاية دالة بتحليل سلوكها قرب القيمة ويتحقق من شروط التعويض أو التحليل.",
+      "descriptionEn": "Evaluate a function limit by analysing nearby behaviour and valid algebraic simplification."
+    },
+    {
+      "id": 71,
+      "descriptionAr": "يميز بين استمرارية الدالة وقابلية اشتقاقها ويفسر الحالات الاستثنائية.",
+      "descriptionEn": "Distinguish continuity from differentiability and explain counterexamples."
+    },
+    {
+      "id": 72,
+      "descriptionAr": "يحدد سلوك حدود متتالية عند ازدياد رقم الحد ويفحص وجود نهايتها.",
+      "descriptionEn": "Analyse terms of a sequence as the index grows and establish any limit."
+    },
+    {
+      "id": 73,
+      "descriptionAr": "يستخدم نظرية القيمة الوسيطة ضمن شروط الاستمرارية لإثبات وجود قيمة.",
+      "descriptionEn": "Apply the intermediate value theorem under continuity assumptions to establish existence."
+    },
+    {
+      "id": 74,
+      "descriptionAr": "يفحص رتابة متتالية وحدودها ويطبق مبدأ تقارب المتتالية الرتيبة المحدودة.",
+      "descriptionEn": "Check monotonicity and boundedness to apply the monotone convergence principle."
+    },
+    {
+      "id": 75,
+      "descriptionAr": "يختار اختباراً مناسباً لتقارب سلسلة عددية ويميّز السلسلة عن المتتالية.",
+      "descriptionEn": "Choose and justify an appropriate series-convergence test and distinguish series from sequences."
+    }
+  ]
+}
