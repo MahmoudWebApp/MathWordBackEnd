@@ -1,0 +1,465 @@
+{
+  "topicKey": "p-measure-units",
+  "stageId": 1,
+  "questionCount": 12,
+  "status": "Reviewed mathematically; unpublished pending explicit administrator editorial approval",
+  "changesToProduction": false,
+  "questions": [
+    {
+      "id": 95,
+      "contentKey": "mw-wave2-p-measure-units-rope-combine",
+      "topicProposalId": 9,
+      "skillKey": "length",
+      "templateKey": "p-measure-units-rope-combine",
+      "difficulty": 2,
+      "pisaProcess": "employ",
+      "objectiveAr": "تفسير الأطوال وجمعها ومقارنتها في سياقات عملية",
+      "objectiveEn": "Interpret, add, and compare lengths in everyday contexts",
+      "questionAr": "حبل طوله 235 سم وصلناه بحبل آخر طوله 85 سم. كم صار الطول الكلي بالسنتيمتر؟",
+      "questionEn": "A 235 cm rope is joined to an 85 cm rope. What is the total length in centimeters?",
+      "solutionAr": "نجمع الطولين بنفس الوحدة: 235 + 85 = 320 سم.",
+      "solutionEn": "Both lengths are in centimeters: 235 + 85 = 320 cm.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "310"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": true,
+          "LatexCode": "320"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "300"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "420"
+        }
+      ],
+      "independentCorrectAnswer": "320"
+    },
+    {
+      "id": 96,
+      "contentKey": "mw-wave2-p-measure-units-ribbon-difference",
+      "topicProposalId": 9,
+      "skillKey": "length",
+      "templateKey": "p-measure-units-ribbon-difference",
+      "difficulty": 2,
+      "pisaProcess": "interpret_evaluate",
+      "objectiveAr": "تفسير الأطوال وجمعها ومقارنتها في سياقات عملية",
+      "objectiveEn": "Interpret, add, and compare lengths in everyday contexts",
+      "questionAr": "شريطان طولاهما 1.4 متر و135 سم. كم يزيد طول الأول بالسنتيمتر؟",
+      "questionEn": "Two ribbons measure 1.4 meters and 135 cm. How many centimeters longer is the first?",
+      "solutionAr": "نحوّل 1.4 متر إلى 140 سم، ثم 140 - 135 = 5 سم.",
+      "solutionEn": "Convert 1.4 meters to 140 cm; the difference is 140 - 135 = 5 cm.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": true,
+          "LatexCode": "5"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "15"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "35"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "50"
+        }
+      ],
+      "independentCorrectAnswer": "5"
+    },
+    {
+      "id": 97,
+      "contentKey": "mw-wave2-p-measure-units-rope-segments",
+      "topicProposalId": 9,
+      "skillKey": "length",
+      "templateKey": "p-measure-units-rope-segments",
+      "difficulty": 3,
+      "pisaProcess": "formulate",
+      "objectiveAr": "تفسير الأطوال وجمعها ومقارنتها في سياقات عملية",
+      "objectiveEn": "Interpret, add, and compare lengths in everyday contexts",
+      "questionAr": "من حبل طوله 12 متراً نريد قطعاً طول كل منها 75 سم، دون هدر. كم قطعة نحصل؟",
+      "questionEn": "A 12-meter rope is cut into 75 cm pieces with no waste. How many pieces are made?",
+      "solutionAr": "12 متراً تساوي 1200 سم، وعدد القطع 1200 ÷ 75 = 16.",
+      "solutionEn": "12 meters is 1200 cm; divide 1200 by 75 to obtain 16 pieces.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "12"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "18"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "16"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "24"
+        }
+      ],
+      "independentCorrectAnswer": "16"
+    },
+    {
+      "id": 98,
+      "contentKey": "mw-wave2-p-measure-units-rice-left",
+      "topicProposalId": 9,
+      "skillKey": "mass",
+      "templateKey": "p-measure-units-rice-left",
+      "difficulty": 2,
+      "pisaProcess": "formulate",
+      "objectiveAr": "حل مسائل الكتلة بالغرام والكيلوغرام",
+      "objectiveEn": "Solve problems with kilograms and grams",
+      "questionAr": "كيس أرز وزنه 2 كغ و750 غ. استُخدم منه 900 غ. كم غراماً تبقى؟",
+      "questionEn": "A bag has 2 kg 750 g of rice. After using 900 g, how many grams remain?",
+      "solutionAr": "نحوّل الكتلة إلى غرامات: 2750 - 900 = 1850 غراماً.",
+      "solutionEn": "Convert to grams: 2750 - 900 = 1850 g.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "1950"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": true,
+          "LatexCode": "1850"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "1750"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "900"
+        }
+      ],
+      "independentCorrectAnswer": "1850"
+    },
+    {
+      "id": 99,
+      "contentKey": "mw-wave2-p-measure-units-mass-packets",
+      "topicProposalId": 9,
+      "skillKey": "mass",
+      "templateKey": "p-measure-units-mass-packets",
+      "difficulty": 2,
+      "pisaProcess": "formulate",
+      "objectiveAr": "حل مسائل الكتلة بالغرام والكيلوغرام",
+      "objectiveEn": "Solve problems with kilograms and grams",
+      "questionAr": "لدينا 1.5 كغ من المكسرات، نعبئها في أكياس وزن كل منها 250 غ. كم كيساً كاملاً؟",
+      "questionEn": "We pack 1.5 kg of nuts into 250 g bags. How many full bags can we make?",
+      "solutionAr": "1.5 كغ = 1500 غ، ثم 1500 ÷ 250 = 6 أكياس.",
+      "solutionEn": "1.5 kg = 1500 g, then 1500 ÷ 250 = 6 full bags.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "4"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "5"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "8"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": true,
+          "LatexCode": "6"
+        }
+      ],
+      "independentCorrectAnswer": "6"
+    },
+    {
+      "id": 100,
+      "contentKey": "mw-wave2-p-measure-units-fill-cups",
+      "topicProposalId": 9,
+      "skillKey": "capacity",
+      "templateKey": "p-measure-units-fill-cups",
+      "difficulty": 1,
+      "pisaProcess": "employ",
+      "objectiveAr": "استخدام اللتر والمليلتر في مسائل السعة",
+      "objectiveEn": "Use liters and milliliters in capacity problems",
+      "questionAr": "زجاجة فيها 2 لتر ماء. كم كوباً سعة 250 مل يمكن ملؤه بالكامل؟",
+      "questionEn": "A bottle contains 2 liters of water. How many 250 mL cups can it completely fill?",
+      "solutionAr": "2 لتر = 2000 مل، و2000 ÷ 250 = 8 أكواب.",
+      "solutionEn": "2 liters = 2000 mL; 2000 ÷ 250 = 8 cups.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "6"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": true,
+          "LatexCode": "8"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "10"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "12"
+        }
+      ],
+      "independentCorrectAnswer": "8"
+    },
+    {
+      "id": 101,
+      "contentKey": "mw-wave2-p-measure-units-juice-after-pour",
+      "topicProposalId": 9,
+      "skillKey": "capacity",
+      "templateKey": "p-measure-units-juice-after-pour",
+      "difficulty": 2,
+      "pisaProcess": "employ",
+      "objectiveAr": "استخدام اللتر والمليلتر في مسائل السعة",
+      "objectiveEn": "Use liters and milliliters in capacity problems",
+      "questionAr": "وعاء يحوي 2 لتر عصير، صببنا منه 350 مل. كم مل بقي في الوعاء؟",
+      "questionEn": "A container has 2 liters of juice. After pouring 350 mL, how much remains in mL?",
+      "solutionAr": "نحوّل 2 لتر إلى 2000 مل، ثم نطرح 350 فيتبقى 1650 مل.",
+      "solutionEn": "Convert 2 liters to 2000 mL and subtract 350 to get 1650 mL.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "1350"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "1750"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "1650"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "2350"
+        }
+      ],
+      "independentCorrectAnswer": "1650"
+    },
+    {
+      "id": 102,
+      "contentKey": "mw-wave2-p-measure-units-mixed-juice",
+      "topicProposalId": 9,
+      "skillKey": "capacity",
+      "templateKey": "p-measure-units-mixed-juice",
+      "difficulty": 2,
+      "pisaProcess": "formulate",
+      "objectiveAr": "استخدام اللتر والمليلتر في مسائل السعة",
+      "objectiveEn": "Use liters and milliliters in capacity problems",
+      "questionAr": "مزجنا 750 مل ماء مع 0.8 لتر عصير. كم مل يبلغ حجم الخليط؟",
+      "questionEn": "We combine 750 mL water with 0.8 liters of juice. What is the total in mL?",
+      "solutionAr": "0.8 لتر = 800 مل، والمجموع 750 + 800 = 1550 مل.",
+      "solutionEn": "0.8 liters is 800 mL, so 750 + 800 = 1550 mL.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": true,
+          "LatexCode": "1550"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "1500"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "830"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "1750"
+        }
+      ],
+      "independentCorrectAnswer": "1550"
+    },
+    {
+      "id": 103,
+      "contentKey": "mw-wave2-p-measure-units-train-arrival",
+      "topicProposalId": 9,
+      "skillKey": "time",
+      "templateKey": "p-measure-units-train-arrival",
+      "difficulty": 2,
+      "pisaProcess": "employ",
+      "objectiveAr": "قراءة الساعة وحساب الوقت المنقضي",
+      "objectiveEn": "Read times and calculate elapsed time",
+      "questionAr": "غادر قطار الساعة 09:45 واستغرقت الرحلة ساعة و35 دقيقة. ما وقت الوصول؟",
+      "questionEn": "A train leaves at 09:45 and travels for 1 hour 35 minutes. When does it arrive?",
+      "solutionAr": "نضيف ساعة إلى 09:45 فتصبح 10:45، ثم 35 دقيقة فتصبح 11:20.",
+      "solutionEn": "Add 1 hour to 09:45 to reach 10:45; adding 35 minutes gives 11:20.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "\\text{10:20}"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "\\text{11:10}"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "\\text{11:20}"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "\\text{11:40}"
+        }
+      ],
+      "independentCorrectAnswer": "\\text{11:20}"
+    },
+    {
+      "id": 104,
+      "contentKey": "mw-wave2-p-measure-units-class-duration",
+      "topicProposalId": 9,
+      "skillKey": "time",
+      "templateKey": "p-measure-units-class-duration",
+      "difficulty": 2,
+      "pisaProcess": "interpret_evaluate",
+      "objectiveAr": "قراءة الساعة وحساب الوقت المنقضي",
+      "objectiveEn": "Read times and calculate elapsed time",
+      "questionAr": "بدأ نشاط الساعة 14:10 وانتهى الساعة 15:05. كم دقيقة استمر؟",
+      "questionEn": "An activity starts at 14:10 and ends at 15:05. How many minutes does it last?",
+      "solutionAr": "من 14:10 إلى 15:00 خمسون دقيقة، وإلى 15:05 خمس دقائق أخرى؛ المجموع 55.",
+      "solutionEn": "From 14:10 to 15:00 is 50 minutes, plus 5 minutes to 15:05: 55 total.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "45"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "50"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "65"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": true,
+          "LatexCode": "55"
+        }
+      ],
+      "independentCorrectAnswer": "55"
+    },
+    {
+      "id": 105,
+      "contentKey": "mw-wave2-p-measure-units-kilometres-to-metres",
+      "topicProposalId": 9,
+      "skillKey": "metric-conversion",
+      "templateKey": "p-measure-units-kilometres-to-metres",
+      "difficulty": 2,
+      "pisaProcess": "employ",
+      "objectiveAr": "التحويل بين وحدات الطول والكتلة والسعة",
+      "objectiveEn": "Convert between standard metric units",
+      "questionAr": "طول مضمار 3.25 كيلومتر. كم متراً يساوي ذلك؟",
+      "questionEn": "A running course is 3.25 kilometers long. How many meters is that?",
+      "solutionAr": "كل كيلومتر 1000 متر، لذا 3.25 × 1000 = 3250 متر.",
+      "solutionEn": "Each kilometer is 1000 meters, so 3.25 × 1000 = 3250 meters.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "325"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": true,
+          "LatexCode": "3250"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": false,
+          "LatexCode": "32500"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "30025"
+        }
+      ],
+      "independentCorrectAnswer": "3250"
+    },
+    {
+      "id": 106,
+      "contentKey": "mw-wave2-p-measure-units-centimetres-to-millimetres",
+      "topicProposalId": 9,
+      "skillKey": "metric-conversion",
+      "templateKey": "p-measure-units-centimetres-to-millimetres",
+      "difficulty": 1,
+      "pisaProcess": "employ",
+      "objectiveAr": "التحويل بين وحدات الطول والكتلة والسعة",
+      "objectiveEn": "Convert between standard metric units",
+      "questionAr": "ما طول 18 سنتيمتراً بالمليمتر؟",
+      "questionEn": "How many millimeters are in 18 centimeters?",
+      "solutionAr": "السنتيمتر يساوي 10 مليمترات، إذن 18 × 10 = 180 مليمتر.",
+      "solutionEn": "There are 10 millimeters in one centimeter, so 18 × 10 = 180 millimeters.",
+      "options": [
+        {
+          "Order": 1,
+          "IsCorrect": false,
+          "LatexCode": "18"
+        },
+        {
+          "Order": 2,
+          "IsCorrect": false,
+          "LatexCode": "1800"
+        },
+        {
+          "Order": 3,
+          "IsCorrect": true,
+          "LatexCode": "180"
+        },
+        {
+          "Order": 4,
+          "IsCorrect": false,
+          "LatexCode": "108"
+        }
+      ],
+      "independentCorrectAnswer": "180"
+    }
+  ]
+}
