@@ -2,19 +2,19 @@
 
 ## Scope and publication gate
 
-This adds **24 bilingual, mathematically checked editorial drafts**. Nothing in this branch
+This adds **56 bilingual, mathematically checked editorial drafts** in two complementary batches (24 initial questions + 32 deeper questions). Nothing in this branch
 automatically publishes a learner question or category. The student-facing baseline remains
 **24 categories / 601 questions** until separate educator approval and a staged release.
 
 | Stage | Canonical key | Editorial work | Items | Skill coverage |
 |---|---|---|---:|---|
-| Primary | `p-number-sense` | Extend an existing **Draft proposal** | 6 | place value, comparisons, rounding, counting |
-| Lower secondary | `m-probability` | New **Draft proposal** | 6 | sample space, compound events, frequency |
-| Upper secondary | `s-vectors` | New **Draft proposal** | 6 | components, magnitude, dot product |
-| University | `u-optimization` | New **Draft proposal** | 6 | unconstrained/constrained optima, convexity |
+| Primary | `p-number-sense` | Extend an existing **Draft proposal** | 14 | place value, comparisons, rounding, counting |
+| Lower secondary | `m-probability` | New **Draft proposal** | 14 | sample space, compound events, frequency |
+| Upper secondary | `s-vectors` | New **Draft proposal** | 14 | components, magnitude, dot product |
+| University | `u-optimization` | New **Draft proposal** | 14 | unconstrained/constrained optima, convexity |
 
 These are **starter batches**, not complete categories. They should not go public with
-six questions simply to inflate the category count. Add pedagogically diverse conceptual,
+fourteen questions simply to inflate the category count. Add pedagogically diverse conceptual,
 reasoning, visual, word-problem, diagnostic and advanced items after review. The curriculum
 catalogue has no fixed number-of-categories quota.
 
@@ -32,18 +32,39 @@ catalogue has no fixed number-of-categories quota.
 Run:
 ```bash
 python3 tests/check_curriculum_wave4_20261123.py
+python3 tests/check_curriculum_wave4_depth_20261123.py
 python3 scripts/generate_curriculum_wave4_draft_sql.py --check
+python3 scripts/generate_curriculum_wave4_depth_sql.py --check
 ```
 
 After bilingual educator review, a reviewer can inspect the generated SQL with:
 ```bash
 python3 scripts/generate_curriculum_wave4_draft_sql.py > /tmp/wave4_draft.sql
+python3 scripts/generate_curriculum_wave4_depth_sql.py > /tmp/wave4_depth_draft.sql
 ```
-The generated script inserts only `CurriculumTopicProposals` and
-`CurriculumDraftItems` as `Draft`. It is idempotent, transactional and guards
-topic stage and publication status. SQL generation never writes to a database.
+The first script inserts only `CurriculumTopicProposals` and `CurriculumDraftItems` as `Draft`.
+The second inserts only `CurriculumDraftItems`, matching the four existing unpublished
+proposals. Both are idempotent, transactional and guard topic stage/publication status. SQL generation never writes to a database.
 **Do not execute it in production without reviewing the live schema and existing
 topic statuses.**
+
+## Verified editorial staging status — 23 November 2026
+
+- The **56** new manuscripts are present in the `CurriculumDraftItems` table, all with `EditorialStatus='Draft'` (14 per subject).
+- `p-number-sense` has **22** total draft items (8 earlier manuscripts plus 14 new). Each of the other three topics has 14.
+- Editorial staging now has **15 topic proposals and 214 draft/content-review records**, including previously published-status editorial records.
+- The student-facing bank remains unchanged: **601 Problems and 24 Categories**. We did not modify individual accounts, attempts, premium access, or category permissions.
+- Post-staging SQL audit found **zero missing 4-option lists, zero items with a non-unique correct answer, and zero direct Arabic templates matching the live bank after normalizing numerals**. This is a **structural comparison only**; near-semantic duplicates and educational suitability require human review.
+- GitHub Actions curriculum checks, the backend build check and the PostgreSQL integrity check passed on the new-questions branch.
+- These draft-only writes do **not** deploy to Render or Vercel and do not make new topics visible to students.
+
+## Content-quality growth still required
+
+1. Expand every proposed topic with varied representation types and diagnostic misconceptions, not just changed values.
+2. Inspect the **252 arithmetic-variant extras** identified by the 22 November bank audit; preserve useful fluency practice but don't count each as a distinct skill.
+3. Review the 52-topic reference catalogue against the 24 published categories; publish new coherent categories only after proper content breadth.
+4. Safely split broad existing categories where educational concepts differ, without changing historical student attempt ownership, progress, or the two-category Free selection.
+5. Obtain independent bilingual mathematics/educator review and review new icons in both RTL/LTR web/Flutter before publication.
 
 ## Publication checklist (not completed)
 
