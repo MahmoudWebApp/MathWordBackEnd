@@ -1,5 +1,13 @@
 # MathWorld — question-bank and solution-method review tracker
 
+## Additional independent editorial draft review — 36 university questions (23 November 2026)
+
+- Mathematically checked **36** still-unpublished university draft questions: **8 Mathematical Statistics (proposal 8)**, **12 Numerical Analysis (proposal 12)** and **16 Optimization (proposal 15)**.
+- Bilingual source snapshots and independent math oracles: `docs/review-data/university-36-independent-drafts-20261123.json`, `tests/check_reviewed_university_36_drafts_20261123.py`. Covers confidence intervals and statistical errors, Newton/bisection/quadrature/Jacobi, convexity, Hessian and constrained optima. Adaptive curriculum, backend build and PostgreSQL CI checks passed.
+- No published question or student records were changed; **no drafts were published or approved**. Draft validation progress **144 of 160**, with **16 remaining** in topic proposals **1-4** (four each), already existing published-topic proposals but the individual draft questions themselves are still Draft.
+- Publishing is blocked on administrator editorial approval, concept variety, lesson skills and category icon validation even once all draft math answers pass.
+
+
 ## Additional independent editorial draft review — 36 upper-secondary questions (23 November 2026)
 
 - All **36** still-unpublished secondary-stage draft items received independent source/answer checks: **8 Exponential Functions (proposal 7)**, **12 Analytic Geometry (proposal 11)** and **16 Vectors (proposal 14)**.
