@@ -1,7 +1,7 @@
 {
   "stageId": 3,
-  "status": "editorial_draft_unpublished",
-  "note": "Draft learning outcomes require bilingual educational approval and checking published questions before IsPublished may change.",
+  "status": "published_in_live_mathworld_20261123",
+  "note": "Bilingual objectives reviewed for mathematical meaning, exact skill/category mapping and >=5 linked published questions per skill; not a claim of external accreditation. Live content was published with exact-match transactional SQL; do not rerun the script.",
   "objectives": [
     {
       "id": 41,
