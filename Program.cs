@@ -83,6 +83,20 @@ pooledConnection.MaxPoolSize = Math.Min(pooledConnection.MaxPoolSize, 15);
 pooledConnection.MinPoolSize = Math.Min(
     pooledConnection.MinPoolSize, pooledConnection.MaxPoolSize);
 
+// Render is a persistent ASP.NET Core host. Supabase recommends its session
+// pooler (port 5432) rather than the transaction pooler (6543) for long-lived
+// Npgsql clients. Keep the configured host, user, password, SSL and pool limits.
+// Only rewrite the port for Supabase's shared pooler; leave other databases
+// and local/test connection strings unchanged. The setting allows rollback
+// without changing database credentials if a provider issue is discovered.
+if (builder.Configuration.GetValue("Database:PreferSupabaseSessionPooler", true) &&
+    pooledConnection.Port == 6543 &&
+    pooledConnection.Host.EndsWith(".pooler.supabase.com",
+        StringComparison.OrdinalIgnoreCase))
+{
+    pooledConnection.Port = 5432;
+}
+
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
     options.UseNpgsql(pooledConnection.ConnectionString);
