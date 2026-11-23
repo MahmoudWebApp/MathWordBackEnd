@@ -1,5 +1,21 @@
 # MathWorld — question-bank and solution-method review tracker
 
+## Latest VERIFIED live publication — 172 former drafts now visible to students (23 November 2026)
+
+**Owner authorized publication in conversation.** This section supersedes EVERY preceding Draft-count snapshot below.
+
+- **773 student-visible `Problems`**: 601 prior questions remain in place plus **172 published this release**, with **688 new `QuestionOptions`**.
+- **35 categories**: 24 previously published categories untouched, **11 distinct new categories** in the correct learning stages. Exactly **8 primary, 9 middle, 9 secondary, 9 university** categories. Every category has at least one actual problem.
+- **140 published `CurriculumSkills`**: 94 pre-existing skills plus **46 new stage- and category-specific bilingual skills**, each newly published problem linked to exactly one published primary skill (total 773 primary links).
+- **Zero remaining DraftItems**. All **15 `CurriculumTopicProposals` are Published** and all **234 editorial item metadata rows** have Published status, including 62 metadata entries previously connected to preexisting student-visible questions. Do not count 234 as extra published questions.
+- Fresh database readback: by stage **191 primary / 180 middle / 202 secondary / 200 university** problems; **172/172** new problems each have four choices, exactly one correct, one primary skill link, and intact LaTeX math delimiters in their displayed title. Existing Free-category selections were not altered.
+- With no saved Free-category overrides, the same preexisting first two categories remain Free per stage: primary IDs **1,2**; middle **5,6**; secondary **9,10**; university **13,14**. New categories append at order 7 or later. Premium-gating and full authenticated learner E2E require separate product QA.
+- Source of truth: [backend PR #144](https://github.com/MahmoudWebApp/MathWordBackEnd/pull/144), merged commit `c76647873d6b61082f86e841b1ce5a22573bb891`, all **four** CI checks passed, source-locked one-shot transaction and **production rollback-only full dress rehearsal** passed. Applied transaction once. Final backend Render deploy on that commit is **live**.
+- All eleven original topic icons were published on the official Vercel domain from [web PR #106](https://github.com/MahmoudWebApp/MathWorldFrontend/pull/106), production deployment `3e9baf970e666e7f993e34a5109460f242da79fe` is **READY**. New category URLs point to those exact icon assets; previous central logo was never replaced.
+- Historical published numeric-template repeat audit still flags **63 families covering 315 examples**. Those are similarity hints, not incorrect solutions, and we did NOT remove/rewrite the old 601 problem rows or erase learner attempts, solved status, accounts, subscriptions or mistakes. Prefer new conceptually varied content in future batches.
+- **Still to independently verify on real clients**: authenticated student/admin flows, API performance with 773 live problems, public skill modals, Google OAuth web and Android, Premium gating, challenges, reports, leaderboards and signed APK device install. Do not describe these tests as completed simply because GitHub CI, Vercel and Render deployments succeeded. Hostinger migration remains postponed.
+
+
 ## Published numerical repetition and all-draft novelty gate — 23 November 2026 (latest)
 
 - Source-controlled exact published IDs and normalized English question templates for **63 families / 315 published questions / 252 additional numerical variants**. By stage: primary 16 families / 80 questions; middle 16 / 80; secondary 16 / 80; university 15 / 75. These are pedagogical **similarity risks**, not evidence of wrong math or user data.
