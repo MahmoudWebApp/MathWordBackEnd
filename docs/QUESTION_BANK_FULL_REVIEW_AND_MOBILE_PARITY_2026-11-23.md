@@ -78,6 +78,8 @@ The 4 remaining proposal records concern already-published topics; they are not 
 - Existing 19 published skills (IDs 93–109,112–113) received improved bilingual descriptions with an exact-match, 19-row transactional assertion; their published status was already true.
 - Original before-state snapshots, revised objective JSON and guarded one-time SQL scripts are versioned in `content/editorial/` and `scripts/`. Do not rerun one-time scripts.
 - Live post-update verification: **94 skills, 94 published, 24 represented categories, zero category-stage mismatch and zero descriptions equal to their titles.**
+- Important API gate: `GET /api/curriculum/stages/{stageId}/skills` also requires `CurriculumDomains.IsPublished = true`. Four legitimate math domains (geometry-measurement, calculus-analysis, linear-algebra, differential-equations) initially remained unpublished, masking **36 skills / 10 categories** even after skill publication. Reviewed their bilingual descriptions and used a guarded four-row transaction to publish them.
+- Follow-up SQL using the **exact backend API filter** verified **94 visible skills across 24 categories and 4 stages**, not merely 94 rows with `CurriculumSkills.IsPublished=true`.
 - This metadata describes learning targets; it is not an endorsement from Common Core, Cambridge, OECD, or a claim that all 601 solutions were fully reviewed.
 
 ## Reproducible read-only SQL
