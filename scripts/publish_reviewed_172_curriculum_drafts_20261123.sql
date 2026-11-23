@@ -224,9 +224,9 @@ BEGIN
   ) THEN RAISE EXCEPTION 'Publication resulted in an empty category'; END IF;
   IF EXISTS (
     SELECT 1 FROM public."CurriculumProblemSkills" l
-    JOIN public."CurriculumSkills" s ON s."Id"=l."SkillId"
+    JOIN public."CurriculumSkills" cs ON cs."Id"=l."SkillId"
     JOIN public."Problems" p ON p."Id"=l."ProblemId"
-    WHERE s."CategoryId"<>p."CategoryId" OR s."StageId"<>p."StageId" OR NOT s."IsPublished"
+    WHERE cs."CategoryId"<>p."CategoryId" OR cs."StageId"<>p."StageId" OR NOT cs."IsPublished"
   ) THEN RAISE EXCEPTION 'Published skill and problem stage/category mapping is inconsistent'; END IF;
   IF (SELECT count(DISTINCT "ProblemId") FROM public."CurriculumProblemSkills" WHERE "IsPrimary")<>773
   THEN RAISE EXCEPTION 'Not every published question has a primary skill'; END IF;
