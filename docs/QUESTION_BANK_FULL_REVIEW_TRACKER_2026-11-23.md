@@ -1,6 +1,8 @@
 # MathWorld — question-bank and solution-method review tracker
 **23 November 2026 · read-only live DB baseline + unpublished content proposals**
 
+> **Verified subsequent production update (23 November 2026, after this baseline):** Supabase now holds **601 published questions**, **24 categories**, **94/94 published bilingual skills covering all 24 categories**, and **222 unpublished draft items**. The older 19-published/160-draft counts below are historical snapshots, not current state. Nine geometry explanation-only revisions (problem IDs **8, 9, 39, 55, 156, 157, 613, 614, 615**) were applied from `scripts/apply_nine_reviewed_geometry_solution_laws_20261123.sql` using exact prior-state, correct-answer and stage/category guards; readback matched **9/9** updated Arabic/English texts and **9/9** original correct answer IDs. Problem 616 had already been corrected in the independent geometry set (IDs 116, 179, 616), giving **12 distinct student-facing worked solutions revised**. The remaining **589/601** solutions have **not** been fully reviewed or certified. No attempt, access, subscription, option or question text was changed. The source 10-item JSON remains an *editorial snapshot*, not a script to overwrite the already-corrected problem 616.
+
 ## The live baseline (verified against Supabase, not guessed)
 
 | Stage | Published categories | Published questions | Arabic explanation under 55 chars | English explanation under 55 chars |
