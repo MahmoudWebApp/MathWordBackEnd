@@ -837,7 +837,7 @@
           "titleEn": "Stationary point location",
           "questionTextAr": "أوجد قيمة x التي تحقق f'(x)=0 للدالة f(x)=x^2-6x+5.",
           "questionTextEn": "Find x where f'(x)=0 for f(x)=x^2-6x+5.",
-          "detailedSolutionAr": "المشتقة 2x-6، وبحل 2x-6=0 نجد x=3.",
+          "detailedSolutionAr": "نشتق فنحصل على 2x-6، ومن حل المعادلة 2x-6=0 نجد x=3؛ وهي نقطة قيمة صغرى للدالة.",
           "detailedSolutionEn": "Differentiate: f'(x)=2x-6. Setting it to zero gives x=3.",
           "options": [
             {
