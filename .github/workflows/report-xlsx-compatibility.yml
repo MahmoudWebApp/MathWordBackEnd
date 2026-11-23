@@ -1,0 +1,57 @@
+name: Verify MathWorld XLSX report compatibility
+
+on:
+  push:
+    branches: [fix/report-xlsx-compatibility-20261123]
+    paths:
+      - .github/workflows/report-xlsx-compatibility.yml
+  pull_request:
+    paths:
+      - Services/PremiumAnalyticsXlsxExporter.cs
+      - MathWorldAPI.csproj
+      - assets/branding/mathworld-report-mark.png
+      - tests/MathWorld.PolicySmoke/Program.cs
+      - .github/workflows/report-xlsx-compatibility.yml
+
+permissions:
+  contents: read
+
+jobs:
+  xlsx:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+      - name: Generate authentic report workbook from synthetic test data
+        shell: bash
+        env:
+          MATHWORLD_XLSX_SAMPLE_PATH: ci-artifacts/mathworld-synthetic-premium-report.xlsx
+        run: |
+          mkdir -p ci-artifacts
+          dotnet run --project tests/MathWorld.PolicySmoke/MathWorld.PolicySmoke.csproj --configuration Release
+      - name: Check XLSX ZIP and XML integrity
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import zipfile
+          import xml.etree.ElementTree as ET
+          p = 'ci-artifacts/mathworld-synthetic-premium-report.xlsx'
+          with zipfile.ZipFile(p) as z:
+              assert z.testzip() is None, 'Broken archive/CRC'
+              assert len(z.namelist()) == len(set(z.namelist())), 'Duplicate ZIP paths'
+              for name in z.namelist():
+                  if name.endswith(('.xml', '.rels')):
+                      ET.fromstring(z.read(name))
+              assert 'xl/media/image1.png' in z.namelist()
+              assert z.read('xl/media/image1.png')[:8] == b'\x89PNG\r\n\x1a\n'
+          print('PASS: independent ZIP CRC and XML parsing of actual XLSX binary')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mathworld-report-xlsx-fixture
+          path: ci-artifacts/mathworld-synthetic-premium-report.xlsx
+          retention-days: 7
+          if-no-files-found: error
