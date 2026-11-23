@@ -81,6 +81,9 @@ public static class PremiumAnalyticsXlsxExporter
     {
         // The official logo stays within the colored banner in RTL/LTR.
         sheet.Range("A1:K2").Style.Fill.BackgroundColor = Navy;
+        // Keep the original purple mark legible against a light icon tile.
+        // The rest of the report header stays a professional navy.
+        sheet.Range("A1:A2").Style.Fill.BackgroundColor = Light;
         sheet.Range("B1:K2").Merge();
         var titleRange = sheet.Range("B1:K2");
         titleRange.Value = title;
