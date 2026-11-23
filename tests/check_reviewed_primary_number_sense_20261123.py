@@ -40,10 +40,11 @@ assert len({r['contentKey'] for r in rows})==len(rows)
 assert len({r['questionEn'].strip().lower() for r in rows})==len(rows)
 assert len({r['templateFamilyKey'] for r in rows})==len(rows)
 def normalized(value):
- value=value.replace(',','').replace(' ','')
+ value=value.replace(' ','')
  if value.startswith('(') and value.endswith(')'):
   a,b=value[1:-1].split(',')
   return (int(a),int(b))
+ value=value.replace(',','')
  try:return int(value)
  except ValueError:return value
 for r in rows:
