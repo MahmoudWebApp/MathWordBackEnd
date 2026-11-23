@@ -13,7 +13,7 @@
 
 - All 601 questions have one mapped primary skill, four options and one correct option per the earlier structural bank audit. This does **not** certify the mathematics of all answers.
 - There are **94 learning skills attached to 24 real Categories**; **19 public** and **75 unpublished**. The public API must never leak unpublished editorial objectives. All 19 currently public objectives have an Arabic and English *description identical to their title*, so fuller descriptions need review.
-- There are **152 existing Draft question records**, **11 topic proposals with Draft status** in Supabase. No new live Categories or Problems were inserted by this work.
+- Starting baseline was **152 Draft question records** and **11 draft topic proposals**. On 23 November, eight independently checked wave-five records were staged transactionally as `CurriculumDraftItems.EditorialStatus='Draft'`; **now 160 unpublished drafts**. No new public Categories or Problems were inserted.
 - The earlier numeric-structure audit identified **252 additional digit-only variants** grouped in repeated question templates; these are **review indicators**, not automatically removable duplicates or independent evidence of mastery.
 
 ## Immediate change sets (not live question mutations)
@@ -26,7 +26,7 @@ IDs 8, 9, 39, 55, 156, 157, 613, 614, 615, 616. Each stores old Arabic/English e
 - Lower secondary: conditional probability after an even die roll; exactly-one-six ordered pairs.
 - Upper secondary: inverse vector norm with sign constraint; dot product distributivity.
 - University: boundary minimum on a constrained domain; coupled quadratic global minimum using Hessian.
-Every item includes one matching primary skill, specific bilingual learning objectives, an applicable mathematical rule, worked steps and four distinct answer choices. Mathematical oracles and cross-wave exact question checks are in `tests/check_curriculum_wave5_reasoning_20261123.py`. **These eight are only in version-controlled draft JSON, not yet in the live 152-record DraftItems table.**
+Every item includes one matching primary skill, specific bilingual learning objectives, an applicable mathematical rule, worked steps and four distinct answer choices. Mathematical oracles and cross-wave exact question checks are in `tests/check_curriculum_wave5_reasoning_20261123.py`. **The eight are now stored in Supabase as Draft-only `CurriculumDraftItems` (two records per topic), using a guarded idempotent transaction; they are not student-visible.**
 
 **First bilingual learning-objective descriptions — 11 editorial proposals:** `content/editorial/primary-skill-description-review-20261123.json` improves three primary Addition/Subtraction skills, five Geometry/Measurement skills, and three Multiplication/Division skills. Each records the immutable SkillId, StageId, CategoryId, StableKey and current bilingual description for comparison, with proposed teachable objectives. All eleven currently have `IsPublished=false`; these are **not** public until reviewed and explicitly approved. The scope and non-publication conditions are enforced in the wave-five test.
 
@@ -70,9 +70,9 @@ To publish a coherent new category: educator validates all questions, distractor
 ## Remaining work, explicitly not closed
 
 - Independently verify and revise **all 601** published worked explanations. The 10 draft revisions are a **first reviewed batch**, not evidence that the other 591 were completed.
-- Human/editorial verification of 152 staged drafts, 11 proposals, eight newly authored local drafts, and skill descriptions/standard mappings; publish only approved categories/questions and skills.
+- Human/editorial verification of 160 staged drafts (including eight newly authored wave-five items), 11 proposals, and skill descriptions/standard mappings; publish only approved categories/questions and skills.
 - Semantic near-duplicate checks against the published DB and academic correctness beyond syntactic/answer-oracle checks, including 252 numeric-template variants.
 - Full production API verification and acceptance tests in a real browser and signed Android build after controlled content publication.
 - Continue expanding category depth based on the per-skill coverage audit (80 skills previously had fewer than eight distinct questions, none fewer than five), not by forcing a quota.
 
-No live database schema, `Categories`, `Problems`, `CurriculumSkills.IsPublished`, attempts or subscriptions were changed by these code/editorial files.
+The only live data write in this wave inserted eight unpublished `CurriculumDraftItems` after CI checks and exact live-text overlap screening. Post-write verification: **601 published Problems, 24 published Categories, 160 DraftItems, eight wave-five DraftItems, 19 published skills**. No schema, public `Categories`/`Problems`, `CurriculumSkills.IsPublished`, attempts, progress, subscriptions or Free-category access were changed.
