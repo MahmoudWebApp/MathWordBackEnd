@@ -570,6 +570,12 @@ namespace MathWorldAPI.Controllers
             var language =
                 LanguageHelper.GetLanguageFromRequest(Request);
 
+            // A new student may not have chosen a stage yet. Do not access
+            // the nullable effective stage or query unrelated solved problems.
+            if (!activeStageId.HasValue)
+                return Ok(LanguageHelper.SuccessResponse(
+                    new List<ProblemPreviewDto>(), "Success", language));
+
             var allowedCategories = await HttpContext.RequestServices
                 .GetRequiredService<ProblemCategoryAccessService>()
                 .GetAllowedCategoryIdsAsync(User, HttpContext.RequestAborted);

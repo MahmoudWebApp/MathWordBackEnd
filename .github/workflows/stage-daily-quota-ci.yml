@@ -4,7 +4,6 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - feature/stage-daily-quota-v1
       - feature/premium-entitlement-foundation
   pull_request:
     paths:

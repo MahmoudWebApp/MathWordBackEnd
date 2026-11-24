@@ -1,9 +1,6 @@
 name: Admin segregation and stage analytics PostgreSQL tests
 
 on:
-  push:
-    branches:
-      - feature/admin-separation-analytics-v1
   pull_request:
     paths:
       - 'Program.cs'

@@ -91,8 +91,8 @@ pooledConnection.MinPoolSize = Math.Min(
 // without changing database credentials if a provider issue is discovered.
 if (builder.Configuration.GetValue("Database:PreferSupabaseSessionPooler", true) &&
     pooledConnection.Port == 6543 &&
-    pooledConnection.Host.EndsWith(".pooler.supabase.com",
-        StringComparison.OrdinalIgnoreCase))
+    pooledConnection.Host?.EndsWith(".pooler.supabase.com",
+        StringComparison.OrdinalIgnoreCase) == true)
 {
     pooledConnection.Port = 5432;
 }
@@ -175,8 +175,12 @@ builder.Services
         {
             OnAuthenticationFailed = context =>
             {
-                Console.WriteLine(
-                    $"JWT authentication failed: {context.Exception.Message}");
+                // Do not log raw JWT validation exception details or token data.
+                context.HttpContext.RequestServices
+                    .GetRequiredService<ILogger<Program>>()
+                    .LogWarning(
+                        "JWT authentication failed ({FailureType}).",
+                        context.Exception.GetType().Name);
 
                 return Task.CompletedTask;
             },
