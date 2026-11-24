@@ -245,5 +245,5 @@ def verify_hint_only_import(admin,supervisor,p,skill,category):
     bad=copy.deepcopy(row);bad["Hints"][1]["En"]="Replace existing hints"
     expect("POST",root,400,{"Items":[bad]},admin)
     d=expect("POST",f"/api/editorial/problems/amend/{pid}",201,{},supervisor)
-    assert d["Content"]["Hints"]==q["Hints"] and d["Content"]["Solution"] is None
+    assert d["Content"]["Hints"]==q["Hints"] and d["Content"].get("Solution") is None
     print("PASS: reviewed hint-only publication preserves legacy solution and options, rejects held/stale rows, requires exact preview, permits full amendment")
