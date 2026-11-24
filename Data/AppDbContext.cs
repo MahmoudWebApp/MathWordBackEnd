@@ -49,6 +49,8 @@ namespace MathWorldAPI.Data
         public DbSet<PasswordResetGrant> PasswordResetGrants => Set<PasswordResetGrant>();
         public DbSet<EmailOutboxItem> EmailOutbox => Set<EmailOutboxItem>();
 
+        public DbSet<LearningSession> LearningSessions => Set<LearningSession>();
+        public DbSet<LearningSessionAttempt> LearningSessionAttempts => Set<LearningSessionAttempt>();
         public DbSet<LearningTrack> LearningTracks => Set<LearningTrack>();
         public DbSet<LearningTrackCategory> LearningTrackCategories => Set<LearningTrackCategory>();
         public DbSet<LearningTrackSkill> LearningTrackSkills => Set<LearningTrackSkill>();
@@ -113,6 +115,32 @@ namespace MathWorldAPI.Data
             ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<LearningSession>(e =>
+            {
+                e.Property(x => x.Id).ValueGeneratedNever();
+                e.Property(x => x.Kind).HasMaxLength(12).IsRequired();
+                e.Property(x => x.ScopeKey).HasMaxLength(100).IsRequired();
+                e.Property(x => x.QuestionsJson).IsRequired();
+                e.HasIndex(x => new { x.UserId, x.StartRequestId }).IsUnique();
+                e.HasIndex(x => new { x.UserId, x.ScopeKey }).IsUnique()
+                    .HasFilter("\"Kind\" = 'daily' OR \"CompletedAtUtc\" IS NULL");
+                e.HasOne<AppUser>().WithMany().HasForeignKey(x => x.UserId).OnDelete(DeleteBehavior.Cascade);
+                e.ToTable(t =>
+                {
+                    t.HasCheckConstraint("CK_LearningSessions_Kind", "\"Kind\" IN ('practice','daily')");
+                    t.HasCheckConstraint("CK_LearningSessions_Progress", "\"Total\" BETWEEN 5 AND 10 AND \"Completed\" BETWEEN 0 AND \"Total\" AND ((\"Completed\" = \"Total\") = (\"CompletedAtUtc\" IS NOT NULL)) AND (\"Kind\" <> 'daily' OR (\"Total\" = 5 AND \"CategoryId\" IS NULL))");
+                });
+            });
+            modelBuilder.Entity<LearningSessionAttempt>(e =>
+            {
+                e.HasKey(x => new { x.SessionId, x.RequestId });
+                e.HasIndex(x => new { x.SessionId, x.Position, x.AttemptNumber }).IsUnique();
+                e.HasIndex(x => new { x.SessionId, x.Position }).IsUnique().HasFilter("\"IsCorrect\"");
+                e.HasOne<LearningSession>().WithMany().HasForeignKey(x => x.SessionId).OnDelete(DeleteBehavior.Cascade);
+                e.ToTable(t => t.HasCheckConstraint("CK_LearningSessionAttempts_Position", "\"Position\" BETWEEN 0 AND 9 AND \"AttemptNumber\" > 0 AND \"ProblemId\" > 0 AND \"SelectedOptionId\" > 0"));
+            });
+
 
             modelBuilder.Entity<LearningTrack>(e =>
             {

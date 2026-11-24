@@ -22,6 +22,48 @@ namespace MathWorldAPI.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("MathWorldAPI.Models.LearningSession", b =>
+                {
+                    b.Property<Guid>("Id").HasColumnType("uuid");
+                    b.Property<int>("UserId").HasColumnType("integer");
+                    b.Property<int>("StageId").HasColumnType("integer");
+                    b.Property<int?>("TrackId").HasColumnType("integer");
+                    b.Property<int?>("CategoryId").HasColumnType("integer");
+                    b.Property<string>("Kind").IsRequired().HasMaxLength(12).HasColumnType("character varying(12)");
+                    b.Property<string>("ScopeKey").IsRequired().HasMaxLength(100).HasColumnType("character varying(100)");
+                    b.Property<Guid>("StartRequestId").HasColumnType("uuid");
+                    b.Property<string>("QuestionsJson").IsRequired().HasColumnType("text");
+                    b.Property<int>("Total").HasColumnType("integer");
+                    b.Property<int>("Completed").HasColumnType("integer");
+                    b.Property<DateTime>("CreatedAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<DateTime?>("CompletedAtUtc").HasColumnType("timestamp with time zone");
+                    b.HasKey("Id");
+                    b.HasIndex("UserId", "StartRequestId").IsUnique();
+                    b.HasIndex("UserId", "ScopeKey").IsUnique().HasFilter("\"Kind\" = 'daily' OR \"CompletedAtUtc\" IS NULL");
+                    b.ToTable("LearningSessions", t =>
+                    {
+                        t.HasCheckConstraint("CK_LearningSessions_Kind", "\"Kind\" IN ('practice','daily')");
+                        t.HasCheckConstraint("CK_LearningSessions_Progress", "\"Total\" BETWEEN 5 AND 10 AND \"Completed\" BETWEEN 0 AND \"Total\" AND ((\"Completed\" = \"Total\") = (\"CompletedAtUtc\" IS NOT NULL)) AND (\"Kind\" <> 'daily' OR (\"Total\" = 5 AND \"CategoryId\" IS NULL))");
+                    });
+                });
+            modelBuilder.Entity("MathWorldAPI.Models.LearningSessionAttempt", b =>
+                {
+                    b.Property<Guid>("SessionId").HasColumnType("uuid");
+                    b.Property<Guid>("RequestId").HasColumnType("uuid");
+                    b.Property<int>("Position").HasColumnType("integer");
+                    b.Property<int>("ProblemId").HasColumnType("integer");
+                    b.Property<int>("SelectedOptionId").HasColumnType("integer");
+                    b.Property<string>("SelectedOptionText").IsRequired().HasColumnType("text");
+                    b.Property<bool>("IsCorrect").HasColumnType("boolean");
+                    b.Property<int>("AttemptNumber").HasColumnType("integer");
+                    b.Property<DateTime>("SubmittedAtUtc").HasColumnType("timestamp with time zone");
+                    b.HasKey("SessionId", "RequestId");
+                    b.HasIndex("SessionId", "Position", "AttemptNumber").IsUnique();
+                    b.HasIndex("SessionId", "Position").IsUnique().HasFilter("\"IsCorrect\"");
+                    b.ToTable("LearningSessionAttempts", t => t.HasCheckConstraint("CK_LearningSessionAttempts_Position", "\"Position\" BETWEEN 0 AND 9 AND \"AttemptNumber\" > 0 AND \"ProblemId\" > 0 AND \"SelectedOptionId\" > 0"));
+                });
+
+
             modelBuilder.Entity("MathWorldAPI.Models.LearningTrack", b =>
                 {
                     b.Property<int>("Id").ValueGeneratedOnAdd().HasColumnType("integer");
@@ -1601,6 +1643,17 @@ namespace MathWorldAPI.Migrations
                 {
                     b.HasOne("MathWorldAPI.Models.LearningTrack", null).WithMany()
                         .HasForeignKey("CurrentTrackId").OnDelete(DeleteBehavior.Restrict);
+                });
+
+            modelBuilder.Entity("MathWorldAPI.Models.LearningSession", b =>
+                {
+                    b.HasOne("MathWorldAPI.Models.AppUser", null).WithMany()
+                        .HasForeignKey("UserId").OnDelete(DeleteBehavior.Cascade).IsRequired();
+                });
+            modelBuilder.Entity("MathWorldAPI.Models.LearningSessionAttempt", b =>
+                {
+                    b.HasOne("MathWorldAPI.Models.LearningSession", null).WithMany()
+                        .HasForeignKey("SessionId").OnDelete(DeleteBehavior.Cascade).IsRequired();
                 });
 
 #pragma warning restore 612, 618
