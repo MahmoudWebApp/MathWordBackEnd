@@ -35,7 +35,7 @@ public sealed class AdminEmailOutboxController(AppDbContext db, IConfiguration c
         var recoveryKeyConfigured=new RecoveryTokenCodec(config).IsConfigured;
         var adminVerified=string.Equals(config["MathWorldRecovery:VerifiedAdminEmail"]?.Trim(),admin.Email,StringComparison.OrdinalIgnoreCase);
         var adminAllowed=transport.IsTestMode&&transport.AllowsRecipient(admin.Email);
-        var limit=Math.Clamp(config.GetValue("MathWorldEmail:DailyAttemptLimit",100),10,150);
+        var limit=transport.AttemptLimit;
         // Match the test endpoint's admission rules so readiness is not misleading
         // during its per-admin cooldown or when the daily sample quota is exhausted.
         var testItems=db.EmailOutbox.AsNoTracking().Where(x=>x.TemplateKey=="test"||x.TemplateKey.StartsWith("test:"));
@@ -57,7 +57,7 @@ public sealed class AdminEmailOutboxController(AppDbContext db, IConfiguration c
         if(transport.IsTestMode&&testDailyLimit)missing.Add("DailyTestLimitReached");
         if(transport.IsTestMode&&attempts>=limit*3/4)missing.Add("TestAttemptBudgetReserved");
         // Never expose recipient, message body, provider ID, grant ID or secrets.
-        return Ok(new { IsConfigured = transport.IsConfigured, IsTestMode = transport.IsTestMode,
+        return Ok(new { Provider = transport.Provider is "brevo" or "resend" ? transport.Provider : "invalid", IsConfigured = transport.IsConfigured, IsTestMode = transport.IsTestMode,
             IsWorkerEnabled = workerEnabled, RecoveryEnabled = recovery.Enabled,
             Readiness = new { Missing = missing, CanQueueAdminTest=transport.IsConfigured&&workerEnabled&&adminAllowed&&attempts<limit*3/4&&!testCooldown&&!testDailyLimit,
                 AdminRecoveryConfigured=recovery.Enabled&&workerEnabled&&adminVerified&&transport.AllowsRecipient(admin.Email),
