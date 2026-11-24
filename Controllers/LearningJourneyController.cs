@@ -74,6 +74,7 @@ namespace MathWorldAPI.Controllers
             if (user.CurrentStageId != stage.Id)
             {
                 user.CurrentStageId = stage.Id;
+                user.CurrentTrackId = null;
                 await _context.SaveChangesAsync(cancellationToken);
             }
 

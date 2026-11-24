@@ -1,0 +1,5 @@
+# Learning tracks: additive rollout
+- Four existing stages and their IDs remain unchanged. Twelve school grades (6/3/3), plus five initial university courses, are seeded unpublished; additional university courses can be added by editorial administration.
+- Track/category, track/skill and track/problem are many-to-many join tables. A problem shared across tracks is still one problem ID and one learner progress history. CurrentTrackId is nullable, no grade inferred for any existing learner.
+- Stage-wide Free access remains exactly the existing configured two categories. Track filters may narrow but never grant access. Publication must verify reviewed mappings, valid category/skill stage consistency, at least one real accessible problem and Free coverage; no public empty track.
+- Legacy reads remain stage-based until web and Flutter track-aware contracts and content mappings are ready. Do not activate in production before both clients support track selection and scope. No data migration assigns existing problems without review.

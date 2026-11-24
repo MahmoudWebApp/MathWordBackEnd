@@ -147,7 +147,10 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."__EFMigrationsHistory"' | grep -qx 29
+          psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."__EFMigrationsHistory"' | grep -qx 30
+          psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."LearningTracks" WHERE NOT "IsPublished"' | grep -qx 17
+          psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."Users" WHERE "CurrentTrackId" IS NOT NULL' | grep -qx 0
+          psql -X -v ON_ERROR_STOP=1 -Atc "SELECT count(*) FROM pg_class c JOIN pg_namespace n ON n.oid=c.relnamespace WHERE n.nspname='public' AND c.relname IN ('LearningTracks','LearningTrackCategories','LearningTrackSkills','LearningTrackProblems') AND c.relrowsecurity AND NOT has_table_privilege('anon',c.oid,'SELECT,INSERT,UPDATE,DELETE') AND NOT has_table_privilege('authenticated',c.oid,'SELECT,INSERT,UPDATE,DELETE')" | grep -qx 4
           psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."Users" WHERE "StaffPermissions" <> 0 OR "StaffSetupPending"' | grep -qx 0
           psql -X -v ON_ERROR_STOP=1 -Atc "SELECT count(*) FROM pg_class c JOIN pg_namespace n ON n.oid=c.relnamespace WHERE n.nspname='public' AND c.relname IN ('PasswordResetGrants','EmailOutbox') AND c.relrowsecurity AND NOT has_table_privilege('anon',c.oid,'SELECT,INSERT,UPDATE,DELETE') AND NOT has_table_privilege('authenticated',c.oid,'SELECT,INSERT,UPDATE,DELETE')" | grep -qx 2
           psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."PlatformBrandSettings" WHERE "Id"=1 AND "Revision"=0' | grep -qx 1

@@ -49,6 +49,11 @@ namespace MathWorldAPI.Data
         public DbSet<PasswordResetGrant> PasswordResetGrants => Set<PasswordResetGrant>();
         public DbSet<EmailOutboxItem> EmailOutbox => Set<EmailOutboxItem>();
 
+        public DbSet<LearningTrack> LearningTracks => Set<LearningTrack>();
+        public DbSet<LearningTrackCategory> LearningTrackCategories => Set<LearningTrackCategory>();
+        public DbSet<LearningTrackSkill> LearningTrackSkills => Set<LearningTrackSkill>();
+        public DbSet<LearningTrackProblem> LearningTrackProblems => Set<LearningTrackProblem>();
+
         public DbSet<AppUser> Users =>
             Set<AppUser>();
 
@@ -108,6 +113,36 @@ namespace MathWorldAPI.Data
             ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<LearningTrack>(e =>
+            {
+                e.HasIndex(x => new { x.StageId, x.Code }).IsUnique();
+                e.HasIndex(x => new { x.StageId, x.IsPublished, x.SortOrder });
+                e.Property(x => x.Code).HasMaxLength(80).IsRequired();
+                e.Property(x => x.Kind).HasMaxLength(12).IsRequired();
+                e.HasOne<EducationalStage>().WithMany().HasForeignKey(x => x.StageId).OnDelete(DeleteBehavior.Restrict);
+                e.ToTable(t => t.HasCheckConstraint("CK_LearningTracks_Kind", "\"Kind\" IN ('grade','course')"));
+            });
+            modelBuilder.Entity<LearningTrackCategory>(e =>
+            {
+                e.HasKey(x => new { x.TrackId, x.CategoryId });
+                e.HasOne<LearningTrack>().WithMany().HasForeignKey(x => x.TrackId).OnDelete(DeleteBehavior.Cascade);
+                e.HasOne<Category>().WithMany().HasForeignKey(x => x.CategoryId).OnDelete(DeleteBehavior.Cascade);
+            });
+            modelBuilder.Entity<LearningTrackSkill>(e =>
+            {
+                e.HasKey(x => new { x.TrackId, x.SkillId });
+                e.HasOne<LearningTrack>().WithMany().HasForeignKey(x => x.TrackId).OnDelete(DeleteBehavior.Cascade);
+                e.HasOne<CurriculumSkill>().WithMany().HasForeignKey(x => x.SkillId).OnDelete(DeleteBehavior.Cascade);
+            });
+            modelBuilder.Entity<LearningTrackProblem>(e =>
+            {
+                e.HasKey(x => new { x.TrackId, x.ProblemId });
+                e.HasOne<LearningTrack>().WithMany().HasForeignKey(x => x.TrackId).OnDelete(DeleteBehavior.Cascade);
+                e.HasOne<MathProblem>().WithMany().HasForeignKey(x => x.ProblemId).OnDelete(DeleteBehavior.Cascade);
+            });
+            modelBuilder.Entity<AppUser>().HasOne<LearningTrack>().WithMany()
+                .HasForeignKey(x => x.CurrentTrackId).OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<AppUser>().Property(x => x.StaffPermissions).HasDefaultValue(0);
             modelBuilder.Entity<AppUser>().Property(x => x.StaffSetupPending).HasDefaultValue(false);
             modelBuilder.Entity<PasswordResetGrant>().Property(x => x.IsInvitation).HasDefaultValue(false);

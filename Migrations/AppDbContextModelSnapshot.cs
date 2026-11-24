@@ -22,6 +22,51 @@ namespace MathWorldAPI.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("MathWorldAPI.Models.LearningTrack", b =>
+                {
+                    b.Property<int>("Id").ValueGeneratedOnAdd().HasColumnType("integer");
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                    b.Property<int>("StageId").HasColumnType("integer");
+                    b.Property<string>("Code").IsRequired().HasMaxLength(80).HasColumnType("character varying(80)");
+                    b.Property<string>("Kind").IsRequired().HasMaxLength(12).HasColumnType("character varying(12)");
+                    b.Property<string>("NameAr").IsRequired().HasColumnType("text");
+                    b.Property<string>("NameEn").IsRequired().HasColumnType("text");
+                    b.Property<string>("DescriptionAr").IsRequired().HasColumnType("text");
+                    b.Property<string>("DescriptionEn").IsRequired().HasColumnType("text");
+                    b.Property<int>("SortOrder").HasColumnType("integer");
+                    b.Property<int>("Revision").HasColumnType("integer");
+                    b.Property<bool>("IsPublished").HasColumnType("boolean");
+                    b.HasKey("Id");
+                    b.HasIndex("StageId", "Code").IsUnique();
+                    b.HasIndex("StageId", "IsPublished", "SortOrder");
+                    b.ToTable("LearningTracks", t => t.HasCheckConstraint("CK_LearningTracks_Kind", "\"Kind\" IN ('grade','course')"));
+                });
+            modelBuilder.Entity("MathWorldAPI.Models.LearningTrackCategory", b =>
+                {
+                    b.Property<int>("TrackId").HasColumnType("integer");
+                    b.Property<int>("CategoryId").HasColumnType("integer");
+                    b.HasKey("TrackId", "CategoryId");
+                    b.HasIndex("CategoryId");
+                    b.ToTable("LearningTrackCategories");
+                });
+            modelBuilder.Entity("MathWorldAPI.Models.LearningTrackSkill", b =>
+                {
+                    b.Property<int>("TrackId").HasColumnType("integer");
+                    b.Property<int>("SkillId").HasColumnType("integer");
+                    b.HasKey("TrackId", "SkillId");
+                    b.HasIndex("SkillId");
+                    b.ToTable("LearningTrackSkills");
+                });
+            modelBuilder.Entity("MathWorldAPI.Models.LearningTrackProblem", b =>
+                {
+                    b.Property<int>("TrackId").HasColumnType("integer");
+                    b.Property<int>("ProblemId").HasColumnType("integer");
+                    b.HasKey("TrackId", "ProblemId");
+                    b.HasIndex("ProblemId");
+                    b.ToTable("LearningTrackProblems");
+                });
+
+
             modelBuilder.Entity("MathWorldAPI.Models.PasswordResetGrant", b =>
                 {
                     b.Property<Guid>("Id").HasColumnType("uuid");
@@ -412,6 +457,7 @@ namespace MathWorldAPI.Migrations
 
                     b.Property<int?>("CurrentStageId")
                         .HasColumnType("integer");
+                    b.Property<int?>("CurrentTrackId").HasColumnType("integer");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
@@ -467,6 +513,7 @@ namespace MathWorldAPI.Migrations
                         .IsUnique();
 
                     b.HasIndex("CurrentStageId");
+                    b.HasIndex("CurrentTrackId");
 
                     b.ToTable("Users");
                 });
@@ -1506,6 +1553,38 @@ namespace MathWorldAPI.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("MathWorldAPI.Models.LearningTrack", b =>
+                {
+                    b.HasOne("MathWorldAPI.Models.EducationalStage", null).WithMany()
+                        .HasForeignKey("StageId").OnDelete(DeleteBehavior.Restrict).IsRequired();
+                });
+            modelBuilder.Entity("MathWorldAPI.Models.LearningTrackCategory", b =>
+                {
+                    b.HasOne("MathWorldAPI.Models.LearningTrack", null).WithMany()
+                        .HasForeignKey("TrackId").OnDelete(DeleteBehavior.Cascade).IsRequired();
+                    b.HasOne("MathWorldAPI.Models.Category", null).WithMany()
+                        .HasForeignKey("CategoryId").OnDelete(DeleteBehavior.Cascade).IsRequired();
+                });
+            modelBuilder.Entity("MathWorldAPI.Models.LearningTrackSkill", b =>
+                {
+                    b.HasOne("MathWorldAPI.Models.LearningTrack", null).WithMany()
+                        .HasForeignKey("TrackId").OnDelete(DeleteBehavior.Cascade).IsRequired();
+                    b.HasOne("MathWorldAPI.Models.CurriculumSkill", null).WithMany()
+                        .HasForeignKey("SkillId").OnDelete(DeleteBehavior.Cascade).IsRequired();
+                });
+            modelBuilder.Entity("MathWorldAPI.Models.LearningTrackProblem", b =>
+                {
+                    b.HasOne("MathWorldAPI.Models.LearningTrack", null).WithMany()
+                        .HasForeignKey("TrackId").OnDelete(DeleteBehavior.Cascade).IsRequired();
+                    b.HasOne("MathWorldAPI.Models.MathProblem", null).WithMany()
+                        .HasForeignKey("ProblemId").OnDelete(DeleteBehavior.Cascade).IsRequired();
+                });
+            modelBuilder.Entity("MathWorldAPI.Models.AppUser", b =>
+                {
+                    b.HasOne("MathWorldAPI.Models.LearningTrack", null).WithMany()
+                        .HasForeignKey("CurrentTrackId").OnDelete(DeleteBehavior.Restrict);
                 });
 
 #pragma warning restore 612, 618
