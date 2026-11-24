@@ -20,6 +20,8 @@ public sealed class EditorialProblemsController(AppDbContext db,IConfiguration c
 {
     public sealed record SaveInput(int Revision,WizardProblem Content);
     public sealed record ActionInput(int Revision,string Note="",bool Confirm=false);
+    public sealed record ImportRow(string ContentKey,string PrimarySkillKey,string[] ProposedTrackCodes,WizardProblem Content);
+    public sealed record ImportInput(ImportRow[] Items,bool Confirm=false);
     private int ActorId=>int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
     private bool Admin=>User.IsInRole(AccountRolePolicy.LegacyAdmin);
 
@@ -99,7 +101,7 @@ public sealed class EditorialProblemsController(AppDbContext db,IConfiguration c
         var q=db.Problems.AsNoTracking().Where(p=>(stageId==null||p.StageId==stageId)&&(categoryId==null||p.CategoryId==categoryId));
         var items=await q.OrderBy(p=>p.StageId).ThenBy(p=>p.CategoryId).ThenBy(p=>p.Id).Skip((page-1)*30).Take(30)
             .Select(p=>new{p.Id,p.StageId,p.CategoryId,p.TitleAr,p.TitleEn,HasStructuredSolution=p.EditorialDetailsJson!=null,
-                HasOpenReview=db.CurriculumDraftItems.Any(d=>d.SourceProblemId==p.Id&&d.EditorialStatus!="Published")}).ToListAsync(ct);
+                HasOpenReview=db.CurriculumDraftItems.Any(d=>d.SourceProblemId==p.Id&&d.EditorialStatus!="Published"&&d.EditorialStatus!="Withdrawn")}).ToListAsync(ct);
         return Ok(new{Total=await q.CountAsync(ct),Items=items});
     }
     [HttpPost("amend/{problemId:int}")]
@@ -110,7 +112,7 @@ public sealed class EditorialProblemsController(AppDbContext db,IConfiguration c
         await ProblemTransactionLocks.LockQuestionForAdminMutationAsync(db,problemId,ct);
         var p=await db.Problems.AsNoTracking().Include(x=>x.Options).SingleOrDefaultAsync(x=>x.Id==problemId,ct);
         if(p is null)return NotFound();
-        if(await db.CurriculumDraftItems.AnyAsync(x=>x.SourceProblemId==problemId&&x.EditorialStatus!="Published",ct))
+        if(await db.CurriculumDraftItems.AnyAsync(x=>x.SourceProblemId==problemId&&x.EditorialStatus!="Published"&&x.EditorialStatus!="Withdrawn",ct))
             return Conflict(new{Message="AmendmentAlreadyOpen"});
         var skills=await db.CurriculumProblemSkills.Where(x=>x.ProblemId==problemId).ToListAsync(ct);
         var tracks=await db.LearningTrackProblems.Where(x=>x.ProblemId==problemId).Select(x=>x.TrackId).ToArrayAsync(ct);
@@ -138,6 +140,79 @@ public sealed class EditorialProblemsController(AppDbContext db,IConfiguration c
         Save(d,content,WizardProblemContract.Serialize(content),ActorId);
         db.CurriculumDraftItems.Add(d);await db.SaveChangesAsync(ct);Audit(d,"EditorialAmendmentCreated");
         await db.SaveChangesAsync(ct);await tx.CommitAsync(ct);return StatusCode(201,View(d));
+    }
+    // Preview first, then confirm. Only Admin can import a prepared content batch;
+    // it creates Draft rows, never live questions. Resolve stable keys on this DB.
+    [HttpPost("import")]
+    [RequestSizeLimit(2_000_000)]
+    public async Task<IActionResult> Import(ImportInput input,CancellationToken ct)
+    {
+        if(!Admin)return Forbid();
+        if(input.Items is null||input.Items.Length is <1 or >50||
+            input.Items.Any(x=>x is null||!WizardProblemContract.Text(x.ContentKey,100)||
+                !System.Text.RegularExpressions.Regex.IsMatch(x.ContentKey,"^[a-z0-9][a-z0-9-]{0,99}$")||
+                !WizardProblemContract.Text(x.PrimarySkillKey,160)||x.Content is null||x.ProposedTrackCodes is null||
+                x.ProposedTrackCodes.Length is <1 or >50||x.ProposedTrackCodes.Any(c=>!WizardProblemContract.Text(c,80))||
+                x.ProposedTrackCodes.Distinct().Count()!=x.ProposedTrackCodes.Length)||
+            input.Items.Select(x=>x.ContentKey).Distinct().Count()!=input.Items.Length)return BadRequest(new{Message="InvalidEditorialBatch"});
+        await using var tx=await db.Database.BeginTransactionAsync(ct);
+        if(await Actor(0,true,ct) is null)return Forbid();
+        // Serialize with publication and other imports. Recheck at confirmation.
+        await db.Database.SqlQuery<int>($"SELECT 1 AS \"Value\" FROM pg_advisory_xact_lock({-987654319})").SingleAsync(ct);
+        var results=new List<object>();var drafts=new List<CurriculumDraftItem>();var failed=false;
+        var seenAr=new HashSet<string>();var seenEn=new HashSet<string>();
+        foreach(var row in input.Items)
+        {
+            var existing=await db.CurriculumDraftItems.AsNoTracking().SingleOrDefaultAsync(d=>d.ContentKey==row.ContentKey,ct);
+            if(existing is not null)
+            {
+                // Do not overwrite an existing draft, including published/withdrawn.
+                results.Add(new{row.ContentKey,Status="AlreadyExists",DraftId=(long?)existing.Id,Errors=Array.Empty<string>()});
+                continue;
+            }
+            var errors=new List<string>();
+            var skill=await db.CurriculumSkills.AsNoTracking().SingleOrDefaultAsync(k=>k.StableKey==row.PrimarySkillKey&&k.IsPublished&&k.Domain.IsPublished,ct);
+            if(skill is null)errors.Add("SkillNotFound");
+            var p=row.Content;
+            if(skill is not null)
+            {
+                if(p.StageId!=skill.StageId||p.CategoryId!=skill.CategoryId|| (p.SecondarySkillIds?.Length??0)>0)
+                    errors.Add("ImportClassificationMismatch");
+                var ids=await db.LearningTracks.Where(t=>t.StageId==skill.StageId&&row.ProposedTrackCodes.Contains(t.Code)).Select(t=>t.Id).ToArrayAsync(ct);
+                if(ids.Length!=row.ProposedTrackCodes.Length)errors.Add("TrackStageMismatch");
+                p=p with{PrimarySkillId=skill.Id,TrackIds=ids};
+                var draft=new CurriculumDraftItem{OwnerUserId=ActorId,ContentKey=row.ContentKey,PrimarySkillKey=row.PrimarySkillKey,EditorialStatus="Draft"};
+                if(errors.Count==0)errors.AddRange(await Validate(p,ct,draft));
+                var ar=WizardProblemContract.Normalize(p.Question?.Ar);var en=WizardProblemContract.Normalize(p.Question?.En);
+                if(!seenAr.Add(ar)||!seenEn.Add(en))errors.Add("QuestionAlreadyExistsInBatch");
+                // Check unfinished wizard drafts too, not just live Problems.
+                if(p.Question is not null && await db.CurriculumDraftItems.AnyAsync(d=>d.WizardJson!=null&&d.EditorialStatus!="Withdrawn"&&
+                    (d.QuestionTextAr==p.Question!.Ar||d.QuestionTextEn==p.Question!.En),ct))errors.Add("QuestionAlreadyExistsInDraft");
+                var json=WizardProblemContract.Serialize(p);
+                if(json.Length>180000)errors.Add("DraftTooLarge");
+                if(errors.Count==0){Save(draft,p,json,ActorId);drafts.Add(draft);}
+            }
+            if(errors.Count>0)failed=true;
+            results.Add(new{row.ContentKey,Status=errors.Count==0?"Ready":"Invalid",DraftId=(long?)null,Errors=errors.ToArray()});
+        }
+        if(failed)return BadRequest(new{Message="EditorialBatchInvalid",Items=results});
+        if(!input.Confirm)return Ok(new{Created=0,Ready=drafts.Count,Items=results});
+        db.CurriculumDraftItems.AddRange(drafts);await db.SaveChangesAsync(ct);
+        foreach(var d in drafts)Audit(d,"EditorialDraftImported");
+        await db.SaveChangesAsync(ct);await tx.CommitAsync(ct);
+        return Ok(new{Created=drafts.Count,Items=results,DraftIds=drafts.Select(d=>d.Id).ToArray()});
+    }
+    [HttpPost("{id:long}/withdraw")]
+    public async Task<IActionResult> Withdraw(long id,ActionInput input,CancellationToken ct)
+    {
+        if(!WizardProblemContract.Text(input.Note,2000))return BadRequest(new{Message="ReviewNoteRequired"});
+        await using var tx=await db.Database.BeginTransactionAsync(ct);
+        if(await Actor(AccountRolePolicy.EditDrafts,true,ct) is null)return Forbid();
+        var d=await Lock(id,ct);if(d is null)return NotFound();
+        if(d.Revision!=input.Revision||d.Revision==int.MaxValue||
+            (d.EditorialStatus is not ("Draft" or "NeedsChanges") && !(Admin&&d.EditorialStatus is ("PendingReview" or "Approved"))))return Conflict();
+        d.EditorialStatus="Withdrawn";d.Revision++;d.ReviewNote=input.Note.Trim();
+        Audit(d,"EditorialDraftWithdrawn");await db.SaveChangesAsync(ct);await tx.CommitAsync(ct);return Ok(View(d));
     }
     [HttpPost]
     public async Task<IActionResult> Create(SaveInput input,CancellationToken ct)

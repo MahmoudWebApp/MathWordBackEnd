@@ -53,6 +53,7 @@ def verify_wizard(admin,supervisor,sid):
     expect("DELETE",f"/api/admin/problems/{pid}",409,token=admin)
     verify_solve(admin,pid,stage,category)
     verify_amendment(admin,supervisor,pid)
+    verify_import(admin,supervisor,p,track)
     print("PASS: partial draft, ownership, revision, review return, approval, exactly-once publication and track/skill linkage")
     return did
 
@@ -130,3 +131,25 @@ def verify_amendment(admin,supervisor,pid):
     assert sql(f'SELECT string_agg("Id"::text,\',\' ORDER BY "Id") FROM "QuestionOptions" WHERE "ProblemId"={pid}')==before
     assert sql(f'SELECT COUNT(*) FROM "ProblemAttempts" WHERE "ProblemId"={pid}')==attempts
     print("PASS: reviewed amendment keeps problem and option IDs, attempt history and count")
+
+def verify_import(admin,supervisor,p,track):
+    import copy
+    root="/api/editorial/problems/import"
+    new=copy.deepcopy(p)
+    new["Question"]={"Ar":"ما ناتج 12 + 10 في اختبار استيراد المسودة؟","En":"What is 12 + 10 in the draft import fixture?"}
+    code=sql(f'SELECT "Code" FROM "LearningTracks" WHERE "Id"={track}')
+    row={"ContentKey":"ci-wizard-import-one","PrimarySkillKey":"ci-wizard-skill","ProposedTrackCodes":[code],"Content":new}
+    before=sql('SELECT COUNT(*) FROM "Problems"')
+    expect("POST",root,403,{"Items":[row],"Confirm":False},supervisor)
+    preview=expect("POST",root,200,{"Items":[row],"Confirm":False},admin)
+    assert preview["Created"]==0 and preview["Ready"]==1
+    assert sql("""SELECT COUNT(*) FROM "CurriculumDraftItems" WHERE "ContentKey"='ci-wizard-import-one'""")=="0"
+    saved=expect("POST",root,200,{"Items":[row],"Confirm":True},admin)
+    assert saved["Created"]==1
+    assert expect("POST",root,200,{"Items":[row],"Confirm":True},admin)["Created"]==0
+    did=saved["DraftIds"][0]
+    d=expect("GET",f"/api/editorial/problems/{did}",200,token=admin)
+    assert d["Status"]=="Draft" and d["Content"]["TrackIds"]==[track]
+    withdrawn=expect("POST",f"/api/editorial/problems/{did}/withdraw",200,{"Revision":0,"Note":"Test withdrawal"},admin)
+    assert withdrawn["Status"]=="Withdrawn" and sql('SELECT COUNT(*) FROM "Problems"')==before
+    print("PASS: Admin-only preview/confirm import, stable-key resolution, idempotent draft creation and withdrawal")
