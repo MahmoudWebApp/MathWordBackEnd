@@ -57,11 +57,22 @@ public sealed class LearningCertificatesController(AppDbContext db,IConfiguratio
             !await skills.AnyAsync(s=>!links.Any(x=>x.SkillId==s.Id),ct);
         if(track!=null&&!input.CategoryId.HasValue)
             completeCatalog=completeCatalog&&!await db.LearningTrackCategories.AnyAsync(x=>x.TrackId==track.Id&&!scope.Any(p=>p.CategoryId==x.CategoryId),ct);
-        var solved=await scope.CountAsync(p=>db.PermanentProblemAchievements.Any(a=>a.UserId==student.Id&&a.ProblemId==p.Id),ct);
+        var scopedTrack=input.TrackId??0;
+        var ordinary=db.ProblemAttempts.AsNoTracking().Where(a=>a.UserId==student.Id&&a.PracticeScopeId==scopedTrack);
+        var guided=from a in db.LearningSessionAttempts.AsNoTracking()
+            join session in db.LearningSessions.AsNoTracking() on a.SessionId equals session.Id
+            where session.UserId==student.Id&&session.StageId==input.StageId&&session.TrackId==input.TrackId
+            select a;
+        // An overlapping question solved in another track is lifetime credit,
+        // but not proof of completion of this particular track.
+        var solved=input.TrackId.HasValue
+            ?await scope.CountAsync(p=>ordinary.Any(a=>a.ProblemId==p.Id&&a.IsCorrect)||guided.Any(a=>a.ProblemId==p.Id&&a.IsCorrect),ct)
+            :await scope.CountAsync(p=>db.PermanentProblemAchievements.Any(a=>a.UserId==student.Id&&a.ProblemId==p.Id),ct);
         // Require independently successful evidence per skill. A correct retry
         // or hint-assisted solve can count for completion but not independence.
         var independent=await links.Where(link=>
-            db.ProblemAttempts.Any(a=>a.UserId==student.Id&&a.ProblemId==link.ProblemId&&a.IsCorrect&&a.IsOfficial&&a.AttemptNumber==1&&!a.UsedHint)||
+            ordinary.Any(a=>a.ProblemId==link.ProblemId&&a.IsCorrect&&a.IsOfficial&&!a.UsedHint&&
+                !ordinary.Any(previous=>previous.ProblemId==a.ProblemId&&previous.AttemptNumber<a.AttemptNumber))||
             (from a in db.LearningSessionAttempts
              join session in db.LearningSessions on a.SessionId equals session.Id
              where session.UserId==student.Id&&session.StageId==input.StageId&&session.TrackId==input.TrackId&&

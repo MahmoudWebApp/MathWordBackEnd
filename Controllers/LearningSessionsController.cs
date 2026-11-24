@@ -74,8 +74,24 @@ public sealed class LearningSessionsController(AppDbContext db, IConfiguration c
             .SingleOrDefaultAsync(p=>p.Id==reference.Id,ct);
         return problem is not null&&Fingerprint(problem)==reference.Fingerprint?problem:null;
     }
+    // Legacy questions without reviewed difficulty remain unclassified.
+    private static int? ReviewedDifficulty(string? json)
+    {
+        if(string.IsNullOrWhiteSpace(json))return null;
+        try
+        {
+            using var parsed=JsonDocument.Parse(json);
+            if(parsed.RootElement.ValueKind==JsonValueKind.Object&&
+                parsed.RootElement.TryGetProperty("DifficultyLevel",out var value)&&
+                value.ValueKind==JsonValueKind.Number&&value.TryGetInt32(out var level)&&level is >=1 and <=5)
+                return level;
+        }
+        catch(JsonException) { }
+        return null;
+    }
     private static object PublicQuestion(MathProblem p)=>new{
         p.Id,p.CategoryId,p.TitleAr,p.TitleEn,p.QuestionTextAr,p.QuestionTextEn,
+        DifficultyLevel=ReviewedDifficulty(p.EditorialDetailsJson),
         Options=p.Options.OrderBy(o=>o.Order).ThenBy(o=>o.Id).Select(o=>new{o.Id,o.LatexCode,o.Order}).ToArray()
     };
     private async Task<IActionResult> ViewSession(LearningSession session,Scope scope,DateTime now,CancellationToken ct)
@@ -145,6 +161,12 @@ public sealed class LearningSessionsController(AppDbContext db, IConfiguration c
         var loaded=await Eligible(scope,input.CategoryId).Where(p=>ids.Contains(p.Id)).Include(p=>p.Options).ToListAsync(ct);
         if(loaded.Count!=ids.Length)return Conflict(new{Message="SessionContentUnavailable"});
         var byId=loaded.ToDictionary(p=>p.Id);
+        // Preserve the chosen category/unsolved mix. Practice progresses from
+        // reviewed easier to harder questions; unknown difficulty is placed
+        // after the graded sequence without inventing a level. Daily retains
+        // its deterministic daily ordering.
+        if(input.Kind=="practice")
+            ids=ids.OrderBy(id=>ReviewedDifficulty(byId[id].EditorialDetailsJson)??int.MaxValue).ToArray();
         var session=new LearningSession{Id=Guid.NewGuid(),UserId=scope.UserId,StageId=scope.StageId,TrackId=scope.TrackId,
             CategoryId=input.CategoryId,Kind=input.Kind,ScopeKey=key,StartRequestId=input.RequestId,
             QuestionsJson=JsonSerializer.Serialize(ids.Select(id=>new QuestionRef(id,Fingerprint(byId[id])))),

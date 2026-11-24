@@ -94,6 +94,14 @@ def verify_tracks(admin, student, uid, stage1, stage2):
     assert not wrong["IsCorrect"]
     assert expect("GET",f"/api/users/journey?stageId={stage1}",200,token=student)["SolvedProblems"]==0
     assert len(expect("GET","/api/users/error-notebook",200,token=student))==1
+    sql(f"""UPDATE "Users" SET "SubscriptionType"='Premium',"PremiumExpiresAtUtc"=NULL WHERE "Id"={uid}""")
+    old_report=expect("GET",f"/api/users/premium-analytics?trackId={tid}",200,token=student)
+    new_report=expect("GET",f"/api/users/premium-analytics?trackId={oid}",200,token=student)
+    assert sum(c["ErrorNotebookProblems"] for c in old_report["Categories"])==0
+    assert sum(c["ErrorNotebookProblems"] for c in new_report["Categories"])==1
+    eligibility=expect("GET",f"/api/users/certificates/eligibility?stageId={stage1}&trackId={oid}&categoryId={category}",200,token=student)
+    assert eligibility["SolvedProblems"]==0 and eligibility["IndependentSkills"]==0
+    sql(f"""UPDATE "Users" SET "SubscriptionType"='Free' WHERE "Id"={uid}""")
     expect("POST","/api/users/practice/reset",409,{"StageId":stage1,"TrackId":tid},student)
     expect("PUT","/api/users/learning-track",200,{"TrackId":tid},student)
     assert expect("GET",f"/api/users/learning-tracks/{tid}/progress",200,token=student)["Solved"]==1

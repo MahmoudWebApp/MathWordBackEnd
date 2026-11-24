@@ -289,8 +289,14 @@ public sealed class StudentPremiumAnalyticsController : ControllerBase
             .Union(credits.Select(a=>new{a.ProblemId,a.StageId,a.CategoryId})).Union(legacy)
             .GroupBy(a=>new{a.StageId,a.CategoryId}).Select(g=>new{g.Key.StageId,g.Key.CategoryId,Count=g.Count()})
             .ToListAsync(ct);
-        var errors=await _db.UserProgresses.AsNoTracking().Where(p=>p.UserId==userId&&p.IsInErrorNotebook&&!p.IsErrorNotebookArchived&&scope.Any(q=>q.Id==p.ProblemId))
-            .GroupBy(p=>new{p.Problem.StageId,p.Problem.CategoryId})
+        // Notebook state is current rather than historical. In a specific
+        // track use only its cycle; all-scope reports count distinct questions
+        // with an outstanding error in any cycle, never duplicate a question.
+        var errors=await _db.UserProgresses.IgnoreQueryFilters().AsNoTracking()
+            .Where(p=>p.UserId==userId&&p.IsInErrorNotebook&&!p.IsErrorNotebookArchived&&
+                (!filter.TrackId.HasValue||p.PracticeScopeId==filter.TrackId)&&scope.Any(q=>q.Id==p.ProblemId))
+            .Select(p=>new{p.ProblemId,p.Problem.StageId,p.Problem.CategoryId}).Distinct()
+            .GroupBy(p=>new{p.StageId,p.CategoryId})
             .Select(g=>new{g.Key.StageId,g.Key.CategoryId,Count=g.Count()}).ToListAsync(ct);
         var categories=await _db.Categories.AsNoTracking().Select(c=>new{c.Id,c.StageId,c.NameAr,c.NameEn,
             StageAr=c.Stage.NameAr,StageEn=c.Stage.NameEn}).ToListAsync(ct);
