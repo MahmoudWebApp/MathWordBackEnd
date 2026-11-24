@@ -81,6 +81,22 @@ namespace MathWorldAPI.Middleware
                         stopwatch.Elapsed.TotalMilliseconds,
                         context.TraceIdentifier);
                 }
+                // Server-sent event responses intentionally stay open while
+                // the client is connected. Their full connection lifetime is
+                // not an indication of slow API request processing.
+                else if (statusCode >= 200 &&
+                         statusCode < 300 &&
+                         context.Response.ContentType?.StartsWith(
+                             "text/event-stream",
+                             StringComparison.OrdinalIgnoreCase) == true)
+                {
+                    _logger.LogDebug(
+                        "HTTP event stream {Method} {Route} closed after {ElapsedMs:F1}ms. CorrelationId={CorrelationId}",
+                        context.Request.Method,
+                        route,
+                        stopwatch.Elapsed.TotalMilliseconds,
+                        context.TraceIdentifier);
+                }
                 else if (stopwatch.Elapsed.TotalMilliseconds >=
                          _slowRequestThresholdMs)
                 {
