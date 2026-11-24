@@ -1,0 +1,2847 @@
+{
+  "Version": 1,
+  "Status": "ReadOnlyEnglishStemOracleNotEditorialApproval",
+  "Date": "2026-11-24",
+  "Method": "Exact normalized English prompt family matching; independent numerical formula and limited LaTeX numeric equivalence; unsupported answers and other options require manual review. No assessment of translation, written solutions or grade mapping.",
+  "Counts": {
+    "MARKED_ANSWER_MATCHES": 285,
+    "MANUAL_REVIEW": 30
+  },
+  "Results": [
+    {
+      "id": 69,
+      "pattern": "Calculate (#+#)-#.",
+      "formula": "addition/subtraction",
+      "expected": 22,
+      "stored": "22",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 70,
+      "pattern": "Solve x+#=#.",
+      "formula": "inverse addition",
+      "expected": 5,
+      "stored": "5",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 71,
+      "pattern": "A rectangle is # cm by # cm. Find its area in square centimetres.",
+      "formula": "area",
+      "expected": 18,
+      "stored": "18",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 72,
+      "pattern": "Find the arithmetic mean of #, #, and #.",
+      "formula": "mean",
+      "expected": 8,
+      "stored": "8",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 84,
+      "pattern": "Calculate (#+#)-#.",
+      "formula": "addition/subtraction",
+      "expected": 28,
+      "stored": "28",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 85,
+      "pattern": "Solve x+#=#.",
+      "formula": "inverse addition",
+      "expected": 7,
+      "stored": "7",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 86,
+      "pattern": "A rectangle is # cm by # cm. Find its area in square centimetres.",
+      "formula": "area",
+      "expected": 28,
+      "stored": "28",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 87,
+      "pattern": "Find the arithmetic mean of #, #, and #.",
+      "formula": "mean",
+      "expected": 10,
+      "stored": "10",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 99,
+      "pattern": "Calculate (#+#)-#.",
+      "formula": "addition/subtraction",
+      "expected": 34,
+      "stored": "34",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 100,
+      "pattern": "Solve x+#=#.",
+      "formula": "inverse addition",
+      "expected": 9,
+      "stored": "9",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 101,
+      "pattern": "A rectangle is # cm by # cm. Find its area in square centimetres.",
+      "formula": "area",
+      "expected": 40,
+      "stored": "40",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 102,
+      "pattern": "Find the arithmetic mean of #, #, and #.",
+      "formula": "mean",
+      "expected": 12,
+      "stored": "12",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 114,
+      "pattern": "Calculate (#+#)-#.",
+      "formula": "addition/subtraction",
+      "expected": 40,
+      "stored": "40",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 115,
+      "pattern": "Solve x+#=#.",
+      "formula": "inverse addition",
+      "expected": 11,
+      "stored": "11",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 116,
+      "pattern": "A rectangle is # cm by # cm. Find its area in square centimetres.",
+      "formula": "area",
+      "expected": 54,
+      "stored": "54",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 117,
+      "pattern": "Find the arithmetic mean of #, #, and #.",
+      "formula": "mean",
+      "expected": 14,
+      "stored": "14",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 129,
+      "pattern": "Calculate (#+#)-#.",
+      "formula": "addition/subtraction",
+      "expected": 46,
+      "stored": "46",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 130,
+      "pattern": "Solve x+#=#.",
+      "formula": "inverse addition",
+      "expected": 13,
+      "stored": "13",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 131,
+      "pattern": "A rectangle is # cm by # cm. Find its area in square centimetres.",
+      "formula": "area",
+      "expected": 70,
+      "stored": "70",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 132,
+      "pattern": "Find the arithmetic mean of #, #, and #.",
+      "formula": "mean",
+      "expected": 16,
+      "stored": "16",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 149,
+      "pattern": "Compute # × #.",
+      "formula": "multiplication",
+      "expected": 48,
+      "stored": "48",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 150,
+      "pattern": "Calculate # divided by #.",
+      "formula": "division",
+      "expected": 12,
+      "stored": "12",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 151,
+      "pattern": "Each pen costs # units. What do # pens cost?",
+      "formula": "unit cost",
+      "expected": 28,
+      "stored": "28",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 152,
+      "pattern": "Solve \\(#x+#=#\\).",
+      "formula": "linear equation",
+      "expected": 3,
+      "stored": "3",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 153,
+      "pattern": "Sequence #, #, #, #; find the fifth term.",
+      "formula": "arithmetic progression",
+      "expected": 14,
+      "stored": "14",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 154,
+      "pattern": "If x=#, evaluate \\(#x-#\\).",
+      "formula": "substitution",
+      "expected": 7,
+      "stored": "7",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 155,
+      "pattern": "Find the perimeter of a # cm by # cm rectangle.",
+      "formula": "perimeter",
+      "expected": 22,
+      "stored": "22",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 156,
+      "pattern": "Two angles of a triangle are #° and #°. Find the third.",
+      "formula": "triangle angle sum",
+      "expected": 70,
+      "stored": "70",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 157,
+      "pattern": "Convert # metres to centimetres.",
+      "formula": "m to cm",
+      "expected": 200,
+      "stored": "200",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 158,
+      "pattern": "Find the mode: #, #, #, #, #.",
+      "formula": "mode",
+      "expected": 3,
+      "stored": "3",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 159,
+      "pattern": "A bag has # red and # blue balls. Find the probability of red.",
+      "formula": "probability",
+      "expected": 0.14285714285714285,
+      "stored": "\\frac{1}{7}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 160,
+      "pattern": "What is the median of ordered values #, #, #, #, #?",
+      "formula": "median",
+      "expected": 10,
+      "stored": "10",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 161,
+      "pattern": "Compute # × #.",
+      "formula": "multiplication",
+      "expected": 75,
+      "stored": "75",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 162,
+      "pattern": "Calculate # divided by #.",
+      "formula": "division",
+      "expected": 14,
+      "stored": "14",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 163,
+      "pattern": "Each pen costs # units. What do # pens cost?",
+      "formula": "unit cost",
+      "expected": 40,
+      "stored": "40",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 164,
+      "pattern": "Solve \\(#x+#=#\\).",
+      "formula": "linear equation",
+      "expected": 4,
+      "stored": "4",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 165,
+      "pattern": "Sequence #, #, #, #; find the fifth term.",
+      "formula": "arithmetic progression",
+      "expected": 19,
+      "stored": "19",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 166,
+      "pattern": "If x=#, evaluate \\(#x-#\\).",
+      "formula": "substitution",
+      "expected": 8,
+      "stored": "8",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 167,
+      "pattern": "Find the perimeter of a # cm by # cm rectangle.",
+      "formula": "perimeter",
+      "expected": 26,
+      "stored": "26",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 168,
+      "pattern": "Two angles of a triangle are #° and #°. Find the third.",
+      "formula": "triangle angle sum",
+      "expected": 60,
+      "stored": "60",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 169,
+      "pattern": "Convert # metres to centimetres.",
+      "formula": "m to cm",
+      "expected": 300,
+      "stored": "300",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 170,
+      "pattern": "Find the mode: #, #, #, #, #.",
+      "formula": "mode",
+      "expected": 4,
+      "stored": "4",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 171,
+      "pattern": "A bag has # red and # blue balls. Find the probability of red.",
+      "formula": "probability",
+      "expected": 0.2222222222222222,
+      "stored": "\\frac{2}{9}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 172,
+      "pattern": "What is the median of ordered values #, #, #, #, #?",
+      "formula": "median",
+      "expected": 13,
+      "stored": "13",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 173,
+      "pattern": "Compute # × #.",
+      "formula": "multiplication",
+      "expected": 108,
+      "stored": "108",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 174,
+      "pattern": "Calculate # divided by #.",
+      "formula": "division",
+      "expected": 16,
+      "stored": "16",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 175,
+      "pattern": "Each pen costs # units. What do # pens cost?",
+      "formula": "unit cost",
+      "expected": 54,
+      "stored": "54",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 176,
+      "pattern": "Solve \\(#x+#=#\\).",
+      "formula": "linear equation",
+      "expected": 5,
+      "stored": "5",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 177,
+      "pattern": "Sequence #, #, #, #; find the fifth term.",
+      "formula": "arithmetic progression",
+      "expected": 24,
+      "stored": "24",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 178,
+      "pattern": "If x=#, evaluate \\(#x-#\\).",
+      "formula": "substitution",
+      "expected": 9,
+      "stored": "9",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 179,
+      "pattern": "Find the perimeter of a # cm by # cm rectangle.",
+      "formula": "perimeter",
+      "expected": 30,
+      "stored": "30",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 180,
+      "pattern": "Two angles of a triangle are #° and #°. Find the third.",
+      "formula": "triangle angle sum",
+      "expected": 50,
+      "stored": "50",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 181,
+      "pattern": "Convert # metres to centimetres.",
+      "formula": "m to cm",
+      "expected": 400,
+      "stored": "400",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 182,
+      "pattern": "Find the mode: #, #, #, #, #.",
+      "formula": "mode",
+      "expected": 5,
+      "stored": "5",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 183,
+      "pattern": "A bag has # red and # blue balls. Find the probability of red.",
+      "formula": "probability",
+      "expected": 0.2727272727272727,
+      "stored": "\\frac{3}{11}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 184,
+      "pattern": "What is the median of ordered values #, #, #, #, #?",
+      "formula": "median",
+      "expected": 16,
+      "stored": "16",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 185,
+      "pattern": "Compute # × #.",
+      "formula": "multiplication",
+      "expected": 147,
+      "stored": "147",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 186,
+      "pattern": "Calculate # divided by #.",
+      "formula": "division",
+      "expected": 18,
+      "stored": "18",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 187,
+      "pattern": "Each pen costs # units. What do # pens cost?",
+      "formula": "unit cost",
+      "expected": 70,
+      "stored": "70",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 188,
+      "pattern": "Solve \\(#x+#=#\\).",
+      "formula": "linear equation",
+      "expected": 6,
+      "stored": "6",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 189,
+      "pattern": "Sequence #, #, #, #; find the fifth term.",
+      "formula": "arithmetic progression",
+      "expected": 29,
+      "stored": "29",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 190,
+      "pattern": "If x=#, evaluate \\(#x-#\\).",
+      "formula": "substitution",
+      "expected": 10,
+      "stored": "10",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 191,
+      "pattern": "Find the perimeter of a # cm by # cm rectangle.",
+      "formula": "perimeter",
+      "expected": 34,
+      "stored": "34",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 192,
+      "pattern": "Two angles of a triangle are #° and #°. Find the third.",
+      "formula": "triangle angle sum",
+      "expected": 40,
+      "stored": "40",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 193,
+      "pattern": "Convert # metres to centimetres.",
+      "formula": "m to cm",
+      "expected": 500,
+      "stored": "500",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 194,
+      "pattern": "Find the mode: #, #, #, #, #.",
+      "formula": "mode",
+      "expected": 6,
+      "stored": "6",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 195,
+      "pattern": "A bag has # red and # blue balls. Find the probability of red.",
+      "formula": "probability",
+      "expected": 0.3076923076923077,
+      "stored": "\\frac{4}{13}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 196,
+      "pattern": "What is the median of ordered values #, #, #, #, #?",
+      "formula": "median",
+      "expected": 19,
+      "stored": "19",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 197,
+      "pattern": "Compute # × #.",
+      "formula": "multiplication",
+      "expected": 192,
+      "stored": "192",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 198,
+      "pattern": "Calculate # divided by #.",
+      "formula": "division",
+      "expected": 20,
+      "stored": "20",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 199,
+      "pattern": "Each pen costs # units. What do # pens cost?",
+      "formula": "unit cost",
+      "expected": 88,
+      "stored": "88",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 200,
+      "pattern": "Solve \\(#x+#=#\\).",
+      "formula": "linear equation",
+      "expected": 7,
+      "stored": "7",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 201,
+      "pattern": "Sequence #, #, #, #; find the fifth term.",
+      "formula": "arithmetic progression",
+      "expected": 34,
+      "stored": "34",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 202,
+      "pattern": "If x=#, evaluate \\(#x-#\\).",
+      "formula": "substitution",
+      "expected": 11,
+      "stored": "11",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 203,
+      "pattern": "Find the perimeter of a # cm by # cm rectangle.",
+      "formula": "perimeter",
+      "expected": 38,
+      "stored": "38",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 204,
+      "pattern": "Two angles of a triangle are #° and #°. Find the third.",
+      "formula": "triangle angle sum",
+      "expected": 30,
+      "stored": "30",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 205,
+      "pattern": "Convert # metres to centimetres.",
+      "formula": "m to cm",
+      "expected": 600,
+      "stored": "600",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 206,
+      "pattern": "Find the mode: #, #, #, #, #.",
+      "formula": "mode",
+      "expected": 7,
+      "stored": "7",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 207,
+      "pattern": "A bag has # red and # blue balls. Find the probability of red.",
+      "formula": "probability",
+      "expected": 0.3333333333333333,
+      "stored": "\\frac{5}{15}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 208,
+      "pattern": "What is the median of ordered values #, #, #, #, #?",
+      "formula": "median",
+      "expected": 22,
+      "stored": "22",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 73,
+      "pattern": "Write \\(#^{#}\\times#^#\\) as a single power of #.",
+      "formula": "powers",
+      "expected": 32,
+      "stored": "2^{5}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 74,
+      "pattern": "If \\(f(x)=#x+#\\), find \\(f(#)\\).",
+      "formula": "substitution",
+      "expected": 7,
+      "stored": "7",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 75,
+      "pattern": "If three notebooks cost #, how much do five cost at the same price per notebook?",
+      "formula": "unit rate",
+      "expected": 20,
+      "stored": "20",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 76,
+      "pattern": "A right triangle has legs # and #. Find the hypotenuse.",
+      "formula": "Pythagoras",
+      "expected": 5,
+      "stored": "5",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 88,
+      "pattern": "Write \\(#^{#}\\times#^#\\) as a single power of #.",
+      "formula": "powers",
+      "expected": 64,
+      "stored": "2^{6}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 89,
+      "pattern": "If \\(f(x)=#x+#\\), find \\(f(#)\\).",
+      "formula": "substitution",
+      "expected": 13,
+      "stored": "13",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 90,
+      "pattern": "If three notebooks cost #, how much do five cost at the same price per notebook?",
+      "formula": "unit rate",
+      "expected": 25,
+      "stored": "25",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 91,
+      "pattern": "A right triangle has legs # and #. Find the hypotenuse.",
+      "formula": "Pythagoras",
+      "expected": 10,
+      "stored": "10",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 103,
+      "pattern": "Write \\(#^{#}\\times#^#\\) as a single power of #.",
+      "formula": "powers",
+      "expected": 128,
+      "stored": "2^{7}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 104,
+      "pattern": "If \\(f(x)=#x+#\\), find \\(f(#)\\).",
+      "formula": "substitution",
+      "expected": 21,
+      "stored": "21",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 105,
+      "pattern": "If three notebooks cost #, how much do five cost at the same price per notebook?",
+      "formula": "unit rate",
+      "expected": 30,
+      "stored": "30",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 106,
+      "pattern": "A right triangle has legs # and #. Find the hypotenuse.",
+      "formula": "Pythagoras",
+      "expected": 15,
+      "stored": "15",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 118,
+      "pattern": "Write \\(#^{#}\\times#^#\\) as a single power of #.",
+      "formula": "powers",
+      "expected": 256,
+      "stored": "2^{8}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 119,
+      "pattern": "If \\(f(x)=#x+#\\), find \\(f(#)\\).",
+      "formula": "substitution",
+      "expected": 31,
+      "stored": "31",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 120,
+      "pattern": "If three notebooks cost #, how much do five cost at the same price per notebook?",
+      "formula": "unit rate",
+      "expected": 35,
+      "stored": "35",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 121,
+      "pattern": "A right triangle has legs # and #. Find the hypotenuse.",
+      "formula": "Pythagoras",
+      "expected": 20,
+      "stored": "20",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 133,
+      "pattern": "Write \\(#^{#}\\times#^#\\) as a single power of #.",
+      "formula": "powers",
+      "expected": 512,
+      "stored": "2^{9}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 134,
+      "pattern": "If \\(f(x)=#x+#\\), find \\(f(#)\\).",
+      "formula": "substitution",
+      "expected": 43,
+      "stored": "43",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 135,
+      "pattern": "If three notebooks cost #, how much do five cost at the same price per notebook?",
+      "formula": "unit rate",
+      "expected": 40,
+      "stored": "40",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 136,
+      "pattern": "A right triangle has legs # and #. Find the hypotenuse.",
+      "formula": "Pythagoras",
+      "expected": 25,
+      "stored": "25",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 209,
+      "pattern": "Find gcd(#,#).",
+      "formula": "gcd",
+      "expected": 2,
+      "stored": "2",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 210,
+      "pattern": "Simplify \\(\\frac{#^{#}}{#^{#}}\\).",
+      "formula": "quotient of powers",
+      "expected": 4,
+      "stored": "2^{2}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 211,
+      "pattern": "Find the least common multiple of # and #.",
+      "formula": "lcm",
+      "expected": 40,
+      "stored": "40",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 212,
+      "pattern": "Given \\(f(x)=#x+#\\), solve f(x)=#.",
+      "formula": "linear inverse",
+      "expected": 3,
+      "stored": "3",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 213,
+      "pattern": "Find the slope between (#,#) and (#,#).",
+      "formula": "slope",
+      "expected": 2,
+      "stored": "2",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 214,
+      "pattern": "Given \\(g(x)=#x^#+#\\), find g(#).",
+      "formula": "polynomial substitution",
+      "expected": 11,
+      "stored": "11",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 215,
+      "pattern": "A store discounts #% from a price of #. Find the discount amount.",
+      "formula": "percentage",
+      "expected": 10,
+      "stored": "10",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 216,
+      "pattern": "Map scale: # cm represents # km. What distance is # cm?",
+      "formula": "map scale",
+      "expected": 6,
+      "stored": "6",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 217,
+      "pattern": "If # increases by #%, what is the new price?",
+      "formula": "percentage increase",
+      "expected": 50,
+      "stored": "50",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 218,
+      "pattern": "Find the sum of interior angles of a polygon with # sides.",
+      "formula": "polygon angle sum",
+      "expected": 540,
+      "stored": "540",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 219,
+      "pattern": "A right triangle has hypotenuse # and one leg #. Find its other leg.",
+      "formula": "Pythagoras",
+      "expected": 4,
+      "stored": "4",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 220,
+      "pattern": "Similar triangles: a side is # with scale factor #. Find the corresponding side.",
+      "formula": "similarity",
+      "expected": 6,
+      "stored": "6",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 221,
+      "pattern": "Find gcd(#,#).",
+      "formula": "gcd",
+      "expected": 3,
+      "stored": "3",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 222,
+      "pattern": "Simplify \\(\\frac{#^{#}}{#^{#}}\\).",
+      "formula": "quotient of powers",
+      "expected": 9,
+      "stored": "3^{2}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 223,
+      "pattern": "Find the least common multiple of # and #.",
+      "formula": "lcm",
+      "expected": 60,
+      "stored": "60",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 224,
+      "pattern": "Given \\(f(x)=#x+#\\), solve f(x)=#.",
+      "formula": "linear inverse",
+      "expected": 4,
+      "stored": "4",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 225,
+      "pattern": "Find the slope between (#,#) and (#,#).",
+      "formula": "slope",
+      "expected": 3,
+      "stored": "3",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 226,
+      "pattern": "Given \\(g(x)=#x^#+#\\), find g(#).",
+      "formula": "polynomial substitution",
+      "expected": 31,
+      "stored": "31",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 227,
+      "pattern": "A store discounts #% from a price of #. Find the discount amount.",
+      "formula": "percentage",
+      "expected": 24,
+      "stored": "24",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 228,
+      "pattern": "Map scale: # cm represents # km. What distance is # cm?",
+      "formula": "map scale",
+      "expected": 12,
+      "stored": "12",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 229,
+      "pattern": "If # increases by #%, what is the new price?",
+      "formula": "percentage increase",
+      "expected": 75,
+      "stored": "75",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 230,
+      "pattern": "Find the sum of interior angles of a polygon with # sides.",
+      "formula": "polygon angle sum",
+      "expected": 720,
+      "stored": "720",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 231,
+      "pattern": "A right triangle has hypotenuse # and one leg #. Find its other leg.",
+      "formula": "Pythagoras",
+      "expected": 12,
+      "stored": "12",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 232,
+      "pattern": "Similar triangles: a side is # with scale factor #. Find the corresponding side.",
+      "formula": "similarity",
+      "expected": 12,
+      "stored": "12",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 233,
+      "pattern": "Find gcd(#,#).",
+      "formula": "gcd",
+      "expected": 4,
+      "stored": "4",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 234,
+      "pattern": "Simplify \\(\\frac{#^{#}}{#^{#}}\\).",
+      "formula": "quotient of powers",
+      "expected": 16,
+      "stored": "4^{2}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 235,
+      "pattern": "Find the least common multiple of # and #.",
+      "formula": "lcm",
+      "expected": 80,
+      "stored": "80",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 236,
+      "pattern": "Given \\(f(x)=#x+#\\), solve f(x)=#.",
+      "formula": "linear inverse",
+      "expected": 5,
+      "stored": "5",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 237,
+      "pattern": "Find the slope between (#,#) and (#,#).",
+      "formula": "slope",
+      "expected": 4,
+      "stored": "4",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 238,
+      "pattern": "Given \\(g(x)=#x^#+#\\), find g(#).",
+      "formula": "polynomial substitution",
+      "expected": 69,
+      "stored": "69",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 239,
+      "pattern": "A store discounts #% from a price of #. Find the discount amount.",
+      "formula": "percentage",
+      "expected": 35,
+      "stored": "35",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 240,
+      "pattern": "Map scale: # cm represents # km. What distance is # cm?",
+      "formula": "map scale",
+      "expected": 20,
+      "stored": "20",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 241,
+      "pattern": "If # increases by #%, what is the new price?",
+      "formula": "percentage increase",
+      "expected": 100,
+      "stored": "100",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 242,
+      "pattern": "Find the sum of interior angles of a polygon with # sides.",
+      "formula": "polygon angle sum",
+      "expected": 900,
+      "stored": "900",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 243,
+      "pattern": "A right triangle has hypotenuse # and one leg #. Find its other leg.",
+      "formula": "Pythagoras",
+      "expected": 15,
+      "stored": "15",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 244,
+      "pattern": "Similar triangles: a side is # with scale factor #. Find the corresponding side.",
+      "formula": "similarity",
+      "expected": 20,
+      "stored": "20",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 245,
+      "pattern": "Find gcd(#,#).",
+      "formula": "gcd",
+      "expected": 5,
+      "stored": "5",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 246,
+      "pattern": "Simplify \\(\\frac{#^{#}}{#^{#}}\\).",
+      "formula": "quotient of powers",
+      "expected": 25,
+      "stored": "5^{2}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 247,
+      "pattern": "Find the least common multiple of # and #.",
+      "formula": "lcm",
+      "expected": 100,
+      "stored": "100",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 248,
+      "pattern": "Given \\(f(x)=#x+#\\), solve f(x)=#.",
+      "formula": "linear inverse",
+      "expected": 6,
+      "stored": "6",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 249,
+      "pattern": "Find the slope between (#,#) and (#,#).",
+      "formula": "slope",
+      "expected": 5,
+      "stored": "5",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 250,
+      "pattern": "Given \\(g(x)=#x^#+#\\), find g(#).",
+      "formula": "polynomial substitution",
+      "expected": 131,
+      "stored": "131",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 251,
+      "pattern": "A store discounts #% from a price of #. Find the discount amount.",
+      "formula": "percentage",
+      "expected": 64,
+      "stored": "64",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 252,
+      "pattern": "Map scale: # cm represents # km. What distance is # cm?",
+      "formula": "map scale",
+      "expected": 30,
+      "stored": "30",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 253,
+      "pattern": "If # increases by #%, what is the new price?",
+      "formula": "percentage increase",
+      "expected": 125,
+      "stored": "125",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 254,
+      "pattern": "Find the sum of interior angles of a polygon with # sides.",
+      "formula": "polygon angle sum",
+      "expected": 1080,
+      "stored": "1080",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 255,
+      "pattern": "A right triangle has hypotenuse # and one leg #. Find its other leg.",
+      "formula": "Pythagoras",
+      "expected": 24,
+      "stored": "24",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 256,
+      "pattern": "Similar triangles: a side is # with scale factor #. Find the corresponding side.",
+      "formula": "similarity",
+      "expected": 30,
+      "stored": "30",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 257,
+      "pattern": "Find gcd(#,#).",
+      "formula": "gcd",
+      "expected": 6,
+      "stored": "6",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 258,
+      "pattern": "Simplify \\(\\frac{#^{#}}{#^{#}}\\).",
+      "formula": "quotient of powers",
+      "expected": 36,
+      "stored": "6^{2}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 259,
+      "pattern": "Find the least common multiple of # and #.",
+      "formula": "lcm",
+      "expected": 120,
+      "stored": "120",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 260,
+      "pattern": "Given \\(f(x)=#x+#\\), solve f(x)=#.",
+      "formula": "linear inverse",
+      "expected": 7,
+      "stored": "7",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 261,
+      "pattern": "Find the slope between (#,#) and (#,#).",
+      "formula": "slope",
+      "expected": 6,
+      "stored": "6",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 262,
+      "pattern": "Given \\(g(x)=#x^#+#\\), find g(#).",
+      "formula": "polynomial substitution",
+      "expected": 223,
+      "stored": "223",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 263,
+      "pattern": "A store discounts #% from a price of #. Find the discount amount.",
+      "formula": "percentage",
+      "expected": 90,
+      "stored": "90",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 264,
+      "pattern": "Map scale: # cm represents # km. What distance is # cm?",
+      "formula": "map scale",
+      "expected": 42,
+      "stored": "42",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 265,
+      "pattern": "If # increases by #%, what is the new price?",
+      "formula": "percentage increase",
+      "expected": 150,
+      "stored": "150",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 266,
+      "pattern": "Find the sum of interior angles of a polygon with # sides.",
+      "formula": "polygon angle sum",
+      "expected": 1260,
+      "stored": "1260",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 267,
+      "pattern": "A right triangle has hypotenuse # and one leg #. Find its other leg.",
+      "formula": "Pythagoras",
+      "expected": 40,
+      "stored": "40",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 268,
+      "pattern": "Similar triangles: a side is # with scale factor #. Find the corresponding side.",
+      "formula": "similarity",
+      "expected": 42,
+      "stored": "42",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 77,
+      "pattern": "Find the sum of the roots of \\((x-#)(x-#)=#\\).",
+      "formula": "Vieta sum",
+      "expected": 7,
+      "stored": "7",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 78,
+      "pattern": "In a right triangle opposite θ is #, hypotenuse #, adjacent #. Find \\(\\sin\\theta\\).",
+      "formula": "sine ratio",
+      "expected": 0.6,
+      "stored": "\\frac{3}{5}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 79,
+      "pattern": "Given \\(f(x)=#x^#+#x\\), compute \\(f'(#)\\).",
+      "formula": "power derivative",
+      "expected": 7,
+      "stored": "7",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 80,
+      "pattern": "Toss a fair coin # times. What is the probability of exactly two heads?",
+      "formula": "binomial",
+      "expected": 0.375,
+      "stored": "\\frac{6}{16}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 92,
+      "pattern": "Find the sum of the roots of \\((x-#)(x-#)=#\\).",
+      "formula": "Vieta sum",
+      "expected": 9,
+      "stored": "9",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 93,
+      "pattern": "In a right triangle opposite θ is #, hypotenuse #, adjacent #. Find \\(\\sin\\theta\\).",
+      "formula": "sine ratio",
+      "expected": 0.38461538461538464,
+      "stored": "\\frac{5}{13}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 94,
+      "pattern": "Given \\(f(x)=#x^#+#x\\), compute \\(f'(#)\\).",
+      "formula": "power derivative",
+      "expected": 16,
+      "stored": "16",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 95,
+      "pattern": "Toss a fair coin # times. What is the probability of exactly two heads?",
+      "formula": "binomial",
+      "expected": 0.3125,
+      "stored": "\\frac{10}{32}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 107,
+      "pattern": "Find the sum of the roots of \\((x-#)(x-#)=#\\).",
+      "formula": "Vieta sum",
+      "expected": 11,
+      "stored": "11",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 108,
+      "pattern": "In a right triangle opposite θ is #, hypotenuse #, adjacent #. Find \\(\\sin\\theta\\).",
+      "formula": "sine ratio",
+      "expected": 0.47058823529411764,
+      "stored": "\\frac{8}{17}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 109,
+      "pattern": "Given \\(f(x)=#x^#+#x\\), compute \\(f'(#)\\).",
+      "formula": "power derivative",
+      "expected": 29,
+      "stored": "29",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 110,
+      "pattern": "Toss a fair coin # times. What is the probability of exactly two heads?",
+      "formula": "binomial",
+      "expected": 0.234375,
+      "stored": "\\frac{15}{64}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 122,
+      "pattern": "Find the sum of the roots of \\((x-#)(x-#)=#\\).",
+      "formula": "Vieta sum",
+      "expected": 13,
+      "stored": "13",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 123,
+      "pattern": "In a right triangle opposite θ is #, hypotenuse #, adjacent #. Find \\(\\sin\\theta\\).",
+      "formula": "sine ratio",
+      "expected": 0.28,
+      "stored": "\\frac{7}{25}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 124,
+      "pattern": "Given \\(f(x)=#x^#+#x\\), compute \\(f'(#)\\).",
+      "formula": "power derivative",
+      "expected": 46,
+      "stored": "46",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 125,
+      "pattern": "Toss a fair coin # times. What is the probability of exactly two heads?",
+      "formula": "binomial",
+      "expected": 0.1640625,
+      "stored": "\\frac{21}{128}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 137,
+      "pattern": "Find the sum of the roots of \\((x-#)(x-#)=#\\).",
+      "formula": "Vieta sum",
+      "expected": 15,
+      "stored": "15",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 138,
+      "pattern": "In a right triangle opposite θ is #, hypotenuse #, adjacent #. Find \\(\\sin\\theta\\).",
+      "formula": "sine ratio",
+      "expected": 0.21951219512195122,
+      "stored": "\\frac{9}{41}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 139,
+      "pattern": "Given \\(f(x)=#x^#+#x\\), compute \\(f'(#)\\).",
+      "formula": "power derivative",
+      "expected": 67,
+      "stored": "67",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 140,
+      "pattern": "Toss a fair coin # times. What is the probability of exactly two heads?",
+      "formula": "binomial",
+      "expected": 0.109375,
+      "stored": "\\frac{28}{256}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 269,
+      "pattern": "What is the product of the roots of \\(x^#-#x+#=#\\)?",
+      "formula": "Vieta product",
+      "expected": 10,
+      "stored": "10",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 270,
+      "pattern": "Compute the discriminant of \\(x^#+#x+#=#\\).",
+      "formula": "discriminant",
+      "expected": -8,
+      "stored": "-8",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 271,
+      "pattern": "Factor \\(x^#+#x+#\\).",
+      "formula": null,
+      "expected": null,
+      "stored": "(x+2)(x+3)",
+      "status": "MANUAL_REVIEW",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 272,
+      "pattern": "Right triangle: adjacent to θ is #, hypotenuse #. Find cos θ.",
+      "formula": "cosine ratio",
+      "expected": 0.8,
+      "stored": "\\frac{4}{5}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 273,
+      "pattern": "Right triangle: opposite θ is #, adjacent #. Find tan θ.",
+      "formula": "tangent ratio",
+      "expected": 0.75,
+      "stored": "\\frac{3}{4}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 274,
+      "pattern": "Find the exact sine of angle #°.",
+      "formula": "sine",
+      "expected": 0,
+      "stored": "0",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 275,
+      "pattern": "Find f'(#) for \\(f(x)=#x^{#}\\).",
+      "formula": "power derivative",
+      "expected": 36,
+      "stored": "36",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 276,
+      "pattern": "Compute \\(\\int #x^{#}\\,dx\\).",
+      "formula": null,
+      "expected": null,
+      "stored": "2x^{2}+C",
+      "status": "MANUAL_REVIEW",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 277,
+      "pattern": "Evaluate \\(\\int_#^{#} #t\\,dt\\).",
+      "formula": "definite integral",
+      "expected": 18,
+      "stored": "18",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 278,
+      "pattern": "How many unordered pairs can be selected from # students?",
+      "formula": "combinations",
+      "expected": 6,
+      "stored": "6",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 279,
+      "pattern": "Toss a fair coin # times; probability of heads on all tosses?",
+      "formula": "independent probability",
+      "expected": 0.25,
+      "stored": "\\frac{1}{4}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 280,
+      "pattern": "Value # appears # times and # appears # times. Find the mean.",
+      "formula": "weighted mean",
+      "expected": 5,
+      "stored": "5",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 281,
+      "pattern": "What is the product of the roots of \\(x^#-#x+#=#\\)?",
+      "formula": "Vieta product",
+      "expected": 18,
+      "stored": "18",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 282,
+      "pattern": "Compute the discriminant of \\(x^#+#x+#=#\\).",
+      "formula": "discriminant",
+      "expected": -7,
+      "stored": "-7",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 283,
+      "pattern": "Factor \\(x^#+#x+#\\).",
+      "formula": null,
+      "expected": null,
+      "stored": "(x+3)(x+4)",
+      "status": "MANUAL_REVIEW",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 284,
+      "pattern": "Right triangle: adjacent to θ is #, hypotenuse #. Find cos θ.",
+      "formula": "cosine ratio",
+      "expected": 0.9230769230769231,
+      "stored": "\\frac{12}{13}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 285,
+      "pattern": "Right triangle: opposite θ is #, adjacent #. Find tan θ.",
+      "formula": "tangent ratio",
+      "expected": 0.4166666666666667,
+      "stored": "\\frac{5}{12}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 286,
+      "pattern": "Find the exact sine of angle #°.",
+      "formula": "sine",
+      "expected": 0.49999999999999994,
+      "stored": "\\frac{1}{2}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 287,
+      "pattern": "Find f'(#) for \\(f(x)=#x^{#}\\).",
+      "formula": "power derivative",
+      "expected": 432,
+      "stored": "432",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 288,
+      "pattern": "Compute \\(\\int #x^{#}\\,dx\\).",
+      "formula": null,
+      "expected": null,
+      "stored": "3x^{3}+C",
+      "status": "MANUAL_REVIEW",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 289,
+      "pattern": "Evaluate \\(\\int_#^{#} #t\\,dt\\).",
+      "formula": "definite integral",
+      "expected": 48,
+      "stored": "48",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 290,
+      "pattern": "How many unordered pairs can be selected from # students?",
+      "formula": "combinations",
+      "expected": 10,
+      "stored": "10",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 291,
+      "pattern": "Toss a fair coin # times; probability of heads on all tosses?",
+      "formula": "independent probability",
+      "expected": 0.125,
+      "stored": "\\frac{1}{8}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 292,
+      "pattern": "Value # appears # times and # appears # times. Find the mean.",
+      "formula": "weighted mean",
+      "expected": 6,
+      "stored": "6",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 293,
+      "pattern": "What is the product of the roots of \\(x^#-#x+#=#\\)?",
+      "formula": "Vieta product",
+      "expected": 28,
+      "stored": "28",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 294,
+      "pattern": "Compute the discriminant of \\(x^#+#x+#=#\\).",
+      "formula": "discriminant",
+      "expected": -4,
+      "stored": "-4",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 295,
+      "pattern": "Factor \\(x^#+#x+#\\).",
+      "formula": null,
+      "expected": null,
+      "stored": "(x+4)(x+5)",
+      "status": "MANUAL_REVIEW",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 296,
+      "pattern": "Right triangle: adjacent to θ is #, hypotenuse #. Find cos θ.",
+      "formula": "cosine ratio",
+      "expected": 0.8823529411764706,
+      "stored": "\\frac{15}{17}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 297,
+      "pattern": "Right triangle: opposite θ is #, adjacent #. Find tan θ.",
+      "formula": "tangent ratio",
+      "expected": 0.5333333333333333,
+      "stored": "\\frac{8}{15}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 298,
+      "pattern": "Find the exact sine of angle #°.",
+      "formula": "sine",
+      "expected": 0.7071067811865475,
+      "stored": "\\frac{\\sqrt{2}}{2}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 299,
+      "pattern": "Find f'(#) for \\(f(x)=#x^{#}\\).",
+      "formula": "power derivative",
+      "expected": 6400,
+      "stored": "6400",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 300,
+      "pattern": "Compute \\(\\int #x^{#}\\,dx\\).",
+      "formula": null,
+      "expected": null,
+      "stored": "4x^{4}+C",
+      "status": "MANUAL_REVIEW",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 301,
+      "pattern": "Evaluate \\(\\int_#^{#} #t\\,dt\\).",
+      "formula": "definite integral",
+      "expected": 100,
+      "stored": "100",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 302,
+      "pattern": "How many unordered pairs can be selected from # students?",
+      "formula": "combinations",
+      "expected": 15,
+      "stored": "15",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 303,
+      "pattern": "Toss a fair coin # times; probability of heads on all tosses?",
+      "formula": "independent probability",
+      "expected": 0.0625,
+      "stored": "\\frac{1}{16}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 304,
+      "pattern": "Value # appears # times and # appears # times. Find the mean.",
+      "formula": "weighted mean",
+      "expected": 7,
+      "stored": "7",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 305,
+      "pattern": "What is the product of the roots of \\(x^#-#x+#=#\\)?",
+      "formula": "Vieta product",
+      "expected": 40,
+      "stored": "40",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 306,
+      "pattern": "Compute the discriminant of \\(x^#+#x+#=#\\).",
+      "formula": "discriminant",
+      "expected": 1,
+      "stored": "1",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 307,
+      "pattern": "Factor \\(x^#+#x+#\\).",
+      "formula": null,
+      "expected": null,
+      "stored": "(x+5)(x+6)",
+      "status": "MANUAL_REVIEW",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 308,
+      "pattern": "Right triangle: adjacent to θ is #, hypotenuse #. Find cos θ.",
+      "formula": "cosine ratio",
+      "expected": 0.96,
+      "stored": "\\frac{24}{25}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 309,
+      "pattern": "Right triangle: opposite θ is #, adjacent #. Find tan θ.",
+      "formula": "tangent ratio",
+      "expected": 0.2916666666666667,
+      "stored": "\\frac{7}{24}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 310,
+      "pattern": "Find the exact sine of angle #°.",
+      "formula": "sine",
+      "expected": 0.8660254037844386,
+      "stored": "\\frac{\\sqrt{3}}{2}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 311,
+      "pattern": "Find f'(#) for \\(f(x)=#x^{#}\\).",
+      "formula": "power derivative",
+      "expected": 112500,
+      "stored": "112500",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 312,
+      "pattern": "Compute \\(\\int #x^{#}\\,dx\\).",
+      "formula": null,
+      "expected": null,
+      "stored": "5x^{5}+C",
+      "status": "MANUAL_REVIEW",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 313,
+      "pattern": "Evaluate \\(\\int_#^{#} #t\\,dt\\).",
+      "formula": "definite integral",
+      "expected": 180,
+      "stored": "180",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 314,
+      "pattern": "How many unordered pairs can be selected from # students?",
+      "formula": "combinations",
+      "expected": 21,
+      "stored": "21",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 315,
+      "pattern": "Toss a fair coin # times; probability of heads on all tosses?",
+      "formula": "independent probability",
+      "expected": 0.03125,
+      "stored": "\\frac{1}{32}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 316,
+      "pattern": "Value # appears # times and # appears # times. Find the mean.",
+      "formula": "weighted mean",
+      "expected": 8,
+      "stored": "8",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 317,
+      "pattern": "What is the product of the roots of \\(x^#-#x+#=#\\)?",
+      "formula": "Vieta product",
+      "expected": 54,
+      "stored": "54",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 318,
+      "pattern": "Compute the discriminant of \\(x^#+#x+#=#\\).",
+      "formula": "discriminant",
+      "expected": 8,
+      "stored": "8",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 319,
+      "pattern": "Factor \\(x^#+#x+#\\).",
+      "formula": null,
+      "expected": null,
+      "stored": "(x+6)(x+7)",
+      "status": "MANUAL_REVIEW",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 320,
+      "pattern": "Right triangle: adjacent to θ is #, hypotenuse #. Find cos θ.",
+      "formula": "cosine ratio",
+      "expected": 0.975609756097561,
+      "stored": "\\frac{40}{41}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 321,
+      "pattern": "Right triangle: opposite θ is #, adjacent #. Find tan θ.",
+      "formula": "tangent ratio",
+      "expected": 0.225,
+      "stored": "\\frac{9}{40}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 322,
+      "pattern": "Find the exact sine of angle #°.",
+      "formula": "sine",
+      "expected": 1,
+      "stored": "1",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 323,
+      "pattern": "Find f'(#) for \\(f(x)=#x^{#}\\).",
+      "formula": "power derivative",
+      "expected": 2286144,
+      "stored": "2286144",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 324,
+      "pattern": "Compute \\(\\int #x^{#}\\,dx\\).",
+      "formula": null,
+      "expected": null,
+      "stored": "6x^{6}+C",
+      "status": "MANUAL_REVIEW",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 325,
+      "pattern": "Evaluate \\(\\int_#^{#} #t\\,dt\\).",
+      "formula": "definite integral",
+      "expected": 294,
+      "stored": "294",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 326,
+      "pattern": "How many unordered pairs can be selected from # students?",
+      "formula": "combinations",
+      "expected": 28,
+      "stored": "28",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 327,
+      "pattern": "Toss a fair coin # times; probability of heads on all tosses?",
+      "formula": "independent probability",
+      "expected": 0.015625,
+      "stored": "\\frac{1}{64}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 328,
+      "pattern": "Value # appears # times and # appears # times. Find the mean.",
+      "formula": "weighted mean",
+      "expected": 9,
+      "stored": "9",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 81,
+      "pattern": "For \\(f(x,y)=#x^#y+#y^#\\), evaluate \\(\\partial f/\\partial x\\) at \\((#,#)\\).",
+      "formula": "partial derivative",
+      "expected": 8,
+      "stored": "8",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 82,
+      "pattern": "Compute the determinant of \\(\\begin{pmatrix}#&#\\\\#&#\\end{pmatrix}\\).",
+      "formula": "determinant",
+      "expected": 6,
+      "stored": "6",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 83,
+      "pattern": "Solve \\(y'=#y\\) with \\(y(#)=#\\).",
+      "formula": null,
+      "expected": null,
+      "stored": "2e^{1x}",
+      "status": "MANUAL_REVIEW",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 96,
+      "pattern": "For \\(f(x,y)=#x^#y+#y^#\\), evaluate \\(\\partial f/\\partial x\\) at \\((#,#)\\).",
+      "formula": "partial derivative",
+      "expected": 36,
+      "stored": "36",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 97,
+      "pattern": "Compute the determinant of \\(\\begin{pmatrix}#&#\\\\#&#\\end{pmatrix}\\).",
+      "formula": "determinant",
+      "expected": 11,
+      "stored": "11",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 98,
+      "pattern": "Solve \\(y'=#y\\) with \\(y(#)=#\\).",
+      "formula": null,
+      "expected": null,
+      "stored": "3e^{2x}",
+      "status": "MANUAL_REVIEW",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 111,
+      "pattern": "For \\(f(x,y)=#x^#y+#y^#\\), evaluate \\(\\partial f/\\partial x\\) at \\((#,#)\\).",
+      "formula": "partial derivative",
+      "expected": 96,
+      "stored": "96",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 112,
+      "pattern": "Compute the determinant of \\(\\begin{pmatrix}#&#\\\\#&#\\end{pmatrix}\\).",
+      "formula": "determinant",
+      "expected": 18,
+      "stored": "18",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 113,
+      "pattern": "Solve \\(y'=#y\\) with \\(y(#)=#\\).",
+      "formula": null,
+      "expected": null,
+      "stored": "4e^{3x}",
+      "status": "MANUAL_REVIEW",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 126,
+      "pattern": "For \\(f(x,y)=#x^#y+#y^#\\), evaluate \\(\\partial f/\\partial x\\) at \\((#,#)\\).",
+      "formula": "partial derivative",
+      "expected": 200,
+      "stored": "200",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 127,
+      "pattern": "Compute the determinant of \\(\\begin{pmatrix}#&#\\\\#&#\\end{pmatrix}\\).",
+      "formula": "determinant",
+      "expected": 27,
+      "stored": "27",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 128,
+      "pattern": "Solve \\(y'=#y\\) with \\(y(#)=#\\).",
+      "formula": null,
+      "expected": null,
+      "stored": "5e^{4x}",
+      "status": "MANUAL_REVIEW",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 141,
+      "pattern": "For \\(f(x,y)=#x^#y+#y^#\\), evaluate \\(\\partial f/\\partial x\\) at \\((#,#)\\).",
+      "formula": "partial derivative",
+      "expected": 360,
+      "stored": "360",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 142,
+      "pattern": "Compute the determinant of \\(\\begin{pmatrix}#&#\\\\#&#\\end{pmatrix}\\).",
+      "formula": "determinant",
+      "expected": 38,
+      "stored": "38",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 143,
+      "pattern": "Solve \\(y'=#y\\) with \\(y(#)=#\\).",
+      "formula": null,
+      "expected": null,
+      "stored": "6e^{5x}",
+      "status": "MANUAL_REVIEW",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 329,
+      "pattern": "Given \\(f(x,y)=#x^#y+#y^#\\), evaluate \\(\\partial f/\\partial y\\) at (#,#).",
+      "formula": "partial derivative",
+      "expected": 14,
+      "stored": "14",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 330,
+      "pattern": "Find gradient of \\(f(x,y)=x^#+y^#\\) at (#,#).",
+      "formula": null,
+      "expected": null,
+      "stored": "(4,6)",
+      "status": "MANUAL_REVIEW",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 331,
+      "pattern": "For \\(f(x,y)=x^#+#y^#\\), find directional derivative at (#,#) in positive x-direction.",
+      "formula": "directional derivative",
+      "expected": 2,
+      "stored": "2",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 332,
+      "pattern": "Find trace of \\(\\begin{pmatrix}#&#\\\\#&#\\end{pmatrix}\\).",
+      "formula": "trace",
+      "expected": 6,
+      "stored": "6",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 333,
+      "pattern": "Multiply vector (#,#) by scalar #.",
+      "formula": null,
+      "expected": null,
+      "stored": "(6,8)",
+      "status": "MANUAL_REVIEW",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 334,
+      "pattern": "Find determinant of \\(\\begin{pmatrix}#&#\\\\#&#\\end{pmatrix}\\).",
+      "formula": "determinant",
+      "expected": 10,
+      "stored": "10",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 335,
+      "pattern": "Given \\(y'=#\\), \\(y(#)=#\\), find \\(y(#)\\).",
+      "formula": "constant derivative",
+      "expected": 14,
+      "stored": "14",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 336,
+      "pattern": "Given \\(y''=#\\), \\(y'(#)=#\\), \\(y(#)=#\\), find \\(y(#)\\).",
+      "formula": "second derivative IVP",
+      "expected": 9,
+      "stored": "9",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 337,
+      "pattern": "Given \\(y'=#x\\), \\(y(#)=#\\), find \\(y(#)\\).",
+      "formula": "integration IVP",
+      "expected": 11,
+      "stored": "11",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 338,
+      "pattern": "Find limit of \\(a_n=\\frac{#}{n+#}\\) as n tends to infinity.",
+      "formula": "sequence limit",
+      "expected": 0,
+      "stored": "0",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 339,
+      "pattern": "Find the limit of \\(a_n=(\\frac{#}{#})^n\\) as n tends to infinity.",
+      "formula": "geometric limit",
+      "expected": 0,
+      "stored": "0",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 340,
+      "pattern": "For f(#)=-# and f(#)=#, what sufficient condition guarantees a root in (#,#) by the intermediate value theorem?",
+      "formula": null,
+      "expected": null,
+      "stored": "\\text{الدالة متصلة على [0,1] (Continuous on [0,1])}",
+      "status": "MANUAL_REVIEW",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 341,
+      "pattern": "Given \\(f(x,y)=#x^#y+#y^#\\), evaluate \\(\\partial f/\\partial y\\) at (#,#).",
+      "formula": "partial derivative",
+      "expected": 43,
+      "stored": "43",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 342,
+      "pattern": "Find gradient of \\(f(x,y)=x^#+y^#\\) at (#,#).",
+      "formula": null,
+      "expected": null,
+      "stored": "(6,8)",
+      "status": "MANUAL_REVIEW",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 343,
+      "pattern": "For \\(f(x,y)=x^#+#y^#\\), find directional derivative at (#,#) in positive x-direction.",
+      "formula": "directional derivative",
+      "expected": 4,
+      "stored": "4",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 344,
+      "pattern": "Find trace of \\(\\begin{pmatrix}#&#\\\\#&#\\end{pmatrix}\\).",
+      "formula": "trace",
+      "expected": 8,
+      "stored": "8",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 345,
+      "pattern": "Multiply vector (#,#) by scalar #.",
+      "formula": null,
+      "expected": null,
+      "stored": "(12,15)",
+      "status": "MANUAL_REVIEW",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 346,
+      "pattern": "Find determinant of \\(\\begin{pmatrix}#&#\\\\#&#\\end{pmatrix}\\).",
+      "formula": "determinant",
+      "expected": 18,
+      "stored": "18",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 347,
+      "pattern": "Given \\(y'=#\\), \\(y(#)=#\\), find \\(y(#)\\).",
+      "formula": "constant derivative",
+      "expected": 23,
+      "stored": "23",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 348,
+      "pattern": "Given \\(y''=#\\), \\(y'(#)=#\\), \\(y(#)=#\\), find \\(y(#)\\).",
+      "formula": "second derivative IVP",
+      "expected": 16,
+      "stored": "16",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 349,
+      "pattern": "Given \\(y'=#x\\), \\(y(#)=#\\), find \\(y(#)\\).",
+      "formula": "integration IVP",
+      "expected": 31,
+      "stored": "31",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 350,
+      "pattern": "Find limit of \\(a_n=\\frac{#}{n+#}\\) as n tends to infinity.",
+      "formula": "sequence limit",
+      "expected": 0,
+      "stored": "0",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 351,
+      "pattern": "Find the limit of \\(a_n=(\\frac{#}{#})^n\\) as n tends to infinity.",
+      "formula": "geometric limit",
+      "expected": 0,
+      "stored": "0",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 352,
+      "pattern": "For f(#)=-# and f(#)=#, what sufficient condition guarantees a root in (#,#) by the intermediate value theorem?",
+      "formula": null,
+      "expected": null,
+      "stored": "\\text{الدالة متصلة على [0,1] (Continuous on [0,1])}",
+      "status": "MANUAL_REVIEW",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 353,
+      "pattern": "Given \\(f(x,y)=#x^#y+#y^#\\), evaluate \\(\\partial f/\\partial y\\) at (#,#).",
+      "formula": "partial derivative",
+      "expected": 94,
+      "stored": "94",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 354,
+      "pattern": "Find gradient of \\(f(x,y)=x^#+y^#\\) at (#,#).",
+      "formula": null,
+      "expected": null,
+      "stored": "(8,10)",
+      "status": "MANUAL_REVIEW",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 355,
+      "pattern": "For \\(f(x,y)=x^#+#y^#\\), find directional derivative at (#,#) in positive x-direction.",
+      "formula": "directional derivative",
+      "expected": 6,
+      "stored": "6",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 356,
+      "pattern": "Find trace of \\(\\begin{pmatrix}#&#\\\\#&#\\end{pmatrix}\\).",
+      "formula": "trace",
+      "expected": 10,
+      "stored": "10",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 357,
+      "pattern": "Multiply vector (#,#) by scalar #.",
+      "formula": null,
+      "expected": null,
+      "stored": "(20,24)",
+      "status": "MANUAL_REVIEW",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 358,
+      "pattern": "Find determinant of \\(\\begin{pmatrix}#&#\\\\#&#\\end{pmatrix}\\).",
+      "formula": "determinant",
+      "expected": 28,
+      "stored": "28",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 359,
+      "pattern": "Given \\(y'=#\\), \\(y(#)=#\\), find \\(y(#)\\).",
+      "formula": "constant derivative",
+      "expected": 34,
+      "stored": "34",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 360,
+      "pattern": "Given \\(y''=#\\), \\(y'(#)=#\\), \\(y(#)=#\\), find \\(y(#)\\).",
+      "formula": "second derivative IVP",
+      "expected": 25,
+      "stored": "25",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 361,
+      "pattern": "Given \\(y'=#x\\), \\(y(#)=#\\), find \\(y(#)\\).",
+      "formula": "integration IVP",
+      "expected": 69,
+      "stored": "69",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 362,
+      "pattern": "Find limit of \\(a_n=\\frac{#}{n+#}\\) as n tends to infinity.",
+      "formula": "sequence limit",
+      "expected": 0,
+      "stored": "0",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 363,
+      "pattern": "Find the limit of \\(a_n=(\\frac{#}{#})^n\\) as n tends to infinity.",
+      "formula": "geometric limit",
+      "expected": 0,
+      "stored": "0",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 364,
+      "pattern": "For f(#)=-# and f(#)=#, what sufficient condition guarantees a root in (#,#) by the intermediate value theorem?",
+      "formula": null,
+      "expected": null,
+      "stored": "\\text{الدالة متصلة على [0,1] (Continuous on [0,1])}",
+      "status": "MANUAL_REVIEW",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 365,
+      "pattern": "Given \\(f(x,y)=#x^#y+#y^#\\), evaluate \\(\\partial f/\\partial y\\) at (#,#).",
+      "formula": "partial derivative",
+      "expected": 173,
+      "stored": "173",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 366,
+      "pattern": "Find gradient of \\(f(x,y)=x^#+y^#\\) at (#,#).",
+      "formula": null,
+      "expected": null,
+      "stored": "(10,12)",
+      "status": "MANUAL_REVIEW",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 367,
+      "pattern": "For \\(f(x,y)=x^#+#y^#\\), find directional derivative at (#,#) in positive x-direction.",
+      "formula": "directional derivative",
+      "expected": 8,
+      "stored": "8",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 368,
+      "pattern": "Find trace of \\(\\begin{pmatrix}#&#\\\\#&#\\end{pmatrix}\\).",
+      "formula": "trace",
+      "expected": 12,
+      "stored": "12",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 369,
+      "pattern": "Multiply vector (#,#) by scalar #.",
+      "formula": null,
+      "expected": null,
+      "stored": "(30,35)",
+      "status": "MANUAL_REVIEW",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 370,
+      "pattern": "Find determinant of \\(\\begin{pmatrix}#&#\\\\#&#\\end{pmatrix}\\).",
+      "formula": "determinant",
+      "expected": 40,
+      "stored": "40",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 371,
+      "pattern": "Given \\(y'=#\\), \\(y(#)=#\\), find \\(y(#)\\).",
+      "formula": "constant derivative",
+      "expected": 47,
+      "stored": "47",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 372,
+      "pattern": "Given \\(y''=#\\), \\(y'(#)=#\\), \\(y(#)=#\\), find \\(y(#)\\).",
+      "formula": "second derivative IVP",
+      "expected": 36,
+      "stored": "36",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 373,
+      "pattern": "Given \\(y'=#x\\), \\(y(#)=#\\), find \\(y(#)\\).",
+      "formula": "integration IVP",
+      "expected": 131,
+      "stored": "131",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 374,
+      "pattern": "Find limit of \\(a_n=\\frac{#}{n+#}\\) as n tends to infinity.",
+      "formula": "sequence limit",
+      "expected": 0,
+      "stored": "0",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 375,
+      "pattern": "Find the limit of \\(a_n=(\\frac{#}{#})^n\\) as n tends to infinity.",
+      "formula": "geometric limit",
+      "expected": 0,
+      "stored": "0",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 376,
+      "pattern": "For f(#)=-# and f(#)=#, what sufficient condition guarantees a root in (#,#) by the intermediate value theorem?",
+      "formula": null,
+      "expected": null,
+      "stored": "\\text{الدالة متصلة على [0,1] (Continuous on [0,1])}",
+      "status": "MANUAL_REVIEW",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 377,
+      "pattern": "Given \\(f(x,y)=#x^#y+#y^#\\), evaluate \\(\\partial f/\\partial y\\) at (#,#).",
+      "formula": "partial derivative",
+      "expected": 286,
+      "stored": "286",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 378,
+      "pattern": "Find gradient of \\(f(x,y)=x^#+y^#\\) at (#,#).",
+      "formula": null,
+      "expected": null,
+      "stored": "(12,14)",
+      "status": "MANUAL_REVIEW",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 379,
+      "pattern": "For \\(f(x,y)=x^#+#y^#\\), find directional derivative at (#,#) in positive x-direction.",
+      "formula": "directional derivative",
+      "expected": 10,
+      "stored": "10",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 380,
+      "pattern": "Find trace of \\(\\begin{pmatrix}#&#\\\\#&#\\end{pmatrix}\\).",
+      "formula": "trace",
+      "expected": 14,
+      "stored": "14",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 381,
+      "pattern": "Multiply vector (#,#) by scalar #.",
+      "formula": null,
+      "expected": null,
+      "stored": "(42,48)",
+      "status": "MANUAL_REVIEW",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 382,
+      "pattern": "Find determinant of \\(\\begin{pmatrix}#&#\\\\#&#\\end{pmatrix}\\).",
+      "formula": "determinant",
+      "expected": 54,
+      "stored": "54",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 383,
+      "pattern": "Given \\(y'=#\\), \\(y(#)=#\\), find \\(y(#)\\).",
+      "formula": "constant derivative",
+      "expected": 62,
+      "stored": "62",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 384,
+      "pattern": "Given \\(y''=#\\), \\(y'(#)=#\\), \\(y(#)=#\\), find \\(y(#)\\).",
+      "formula": "second derivative IVP",
+      "expected": 49,
+      "stored": "49",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 385,
+      "pattern": "Given \\(y'=#x\\), \\(y(#)=#\\), find \\(y(#)\\).",
+      "formula": "integration IVP",
+      "expected": 223,
+      "stored": "223",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 386,
+      "pattern": "Find limit of \\(a_n=\\frac{#}{n+#}\\) as n tends to infinity.",
+      "formula": "sequence limit",
+      "expected": 0,
+      "stored": "0",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 387,
+      "pattern": "Find the limit of \\(a_n=(\\frac{#}{#})^n\\) as n tends to infinity.",
+      "formula": "geometric limit",
+      "expected": 0,
+      "stored": "0",
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": []
+    },
+    {
+      "id": 388,
+      "pattern": "For f(#)=-# and f(#)=#, what sufficient condition guarantees a root in (#,#) by the intermediate value theorem?",
+      "formula": null,
+      "expected": null,
+      "stored": "\\text{الدالة متصلة على [0,1] (Continuous on [0,1])}",
+      "status": "MANUAL_REVIEW",
+      "equivalentDistractors": []
+    }
+  ]
+}
