@@ -2738,6 +2738,3480 @@
           "En": "An integer with an even square is even."
         }
       ]
+    },
+    {
+      "problemId": 78,
+      "primarySkillKey": "secondary-right-triangle-trig-ratios",
+      "question": {
+        "Ar": "مثلث قائم: الضلع المقابل للزاوية θ يساوي 3 والوتر 5 والمجاور 4. أوجد \\(\\sin\\theta\\).",
+        "En": "In a right triangle opposite θ is 3, hypotenuse 5, adjacent 4. Find \\(\\sin\\theta\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد الضلع المقابل للزاوية والوتر في المثلث القائم.",
+          "En": "Identify the side opposite the angle and the hypotenuse."
+        },
+        {
+          "Ar": "جيب الزاوية يساوي طول المقابل مقسوماً على طول الوتر؛ بسّط الكسر إن أمكن.",
+          "En": "Sine equals opposite over hypotenuse; simplify the fraction if possible."
+        }
+      ]
+    },
+    {
+      "problemId": 93,
+      "primarySkillKey": "secondary-right-triangle-trig-ratios",
+      "question": {
+        "Ar": "مثلث قائم: الضلع المقابل للزاوية θ يساوي 5 والوتر 13 والمجاور 12. أوجد \\(\\sin\\theta\\).",
+        "En": "In a right triangle opposite θ is 5, hypotenuse 13, adjacent 12. Find \\(\\sin\\theta\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد الضلع المقابل للزاوية والوتر في المثلث القائم.",
+          "En": "Identify the side opposite the angle and the hypotenuse."
+        },
+        {
+          "Ar": "جيب الزاوية يساوي طول المقابل مقسوماً على طول الوتر؛ بسّط الكسر إن أمكن.",
+          "En": "Sine equals opposite over hypotenuse; simplify the fraction if possible."
+        }
+      ]
+    },
+    {
+      "problemId": 108,
+      "primarySkillKey": "secondary-right-triangle-trig-ratios",
+      "question": {
+        "Ar": "مثلث قائم: الضلع المقابل للزاوية θ يساوي 8 والوتر 17 والمجاور 15. أوجد \\(\\sin\\theta\\).",
+        "En": "In a right triangle opposite θ is 8, hypotenuse 17, adjacent 15. Find \\(\\sin\\theta\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد الضلع المقابل للزاوية والوتر في المثلث القائم.",
+          "En": "Identify the side opposite the angle and the hypotenuse."
+        },
+        {
+          "Ar": "جيب الزاوية يساوي طول المقابل مقسوماً على طول الوتر؛ بسّط الكسر إن أمكن.",
+          "En": "Sine equals opposite over hypotenuse; simplify the fraction if possible."
+        }
+      ]
+    },
+    {
+      "problemId": 123,
+      "primarySkillKey": "secondary-right-triangle-trig-ratios",
+      "question": {
+        "Ar": "مثلث قائم: الضلع المقابل للزاوية θ يساوي 7 والوتر 25 والمجاور 24. أوجد \\(\\sin\\theta\\).",
+        "En": "In a right triangle opposite θ is 7, hypotenuse 25, adjacent 24. Find \\(\\sin\\theta\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد الضلع المقابل للزاوية والوتر في المثلث القائم.",
+          "En": "Identify the side opposite the angle and the hypotenuse."
+        },
+        {
+          "Ar": "جيب الزاوية يساوي طول المقابل مقسوماً على طول الوتر؛ بسّط الكسر إن أمكن.",
+          "En": "Sine equals opposite over hypotenuse; simplify the fraction if possible."
+        }
+      ]
+    },
+    {
+      "problemId": 138,
+      "primarySkillKey": "secondary-right-triangle-trig-ratios",
+      "question": {
+        "Ar": "مثلث قائم: الضلع المقابل للزاوية θ يساوي 9 والوتر 41 والمجاور 40. أوجد \\(\\sin\\theta\\).",
+        "En": "In a right triangle opposite θ is 9, hypotenuse 41, adjacent 40. Find \\(\\sin\\theta\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد الضلع المقابل للزاوية والوتر في المثلث القائم.",
+          "En": "Identify the side opposite the angle and the hypotenuse."
+        },
+        {
+          "Ar": "جيب الزاوية يساوي طول المقابل مقسوماً على طول الوتر؛ بسّط الكسر إن أمكن.",
+          "En": "Sine equals opposite over hypotenuse; simplify the fraction if possible."
+        }
+      ]
+    },
+    {
+      "problemId": 272,
+      "primarySkillKey": "secondary-right-triangle-trig-ratios",
+      "question": {
+        "Ar": "مجاور الزاوية θ في مثلث قائم 4 والوتر 5، أوجد \\(\\cos\\theta\\).",
+        "En": "Right triangle: adjacent to θ is 4, hypotenuse 5. Find cos θ."
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد المجاور للزاوية والوتر؛ الوتر يقابل الزاوية القائمة.",
+          "En": "Identify the adjacent leg and hypotenuse; the hypotenuse is opposite the right angle."
+        },
+        {
+          "Ar": "جيب تمام الزاوية يساوي طول المجاور مقسوماً على طول الوتر.",
+          "En": "Cosine equals adjacent over hypotenuse."
+        }
+      ]
+    },
+    {
+      "problemId": 284,
+      "primarySkillKey": "secondary-right-triangle-trig-ratios",
+      "question": {
+        "Ar": "مجاور الزاوية θ في مثلث قائم 12 والوتر 13، أوجد \\(\\cos\\theta\\).",
+        "En": "Right triangle: adjacent to θ is 12, hypotenuse 13. Find cos θ."
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد المجاور للزاوية والوتر؛ الوتر يقابل الزاوية القائمة.",
+          "En": "Identify the adjacent leg and hypotenuse; the hypotenuse is opposite the right angle."
+        },
+        {
+          "Ar": "جيب تمام الزاوية يساوي طول المجاور مقسوماً على طول الوتر.",
+          "En": "Cosine equals adjacent over hypotenuse."
+        }
+      ]
+    },
+    {
+      "problemId": 296,
+      "primarySkillKey": "secondary-right-triangle-trig-ratios",
+      "question": {
+        "Ar": "مجاور الزاوية θ في مثلث قائم 15 والوتر 17، أوجد \\(\\cos\\theta\\).",
+        "En": "Right triangle: adjacent to θ is 15, hypotenuse 17. Find cos θ."
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد المجاور للزاوية والوتر؛ الوتر يقابل الزاوية القائمة.",
+          "En": "Identify the adjacent leg and hypotenuse; the hypotenuse is opposite the right angle."
+        },
+        {
+          "Ar": "جيب تمام الزاوية يساوي طول المجاور مقسوماً على طول الوتر.",
+          "En": "Cosine equals adjacent over hypotenuse."
+        }
+      ]
+    },
+    {
+      "problemId": 308,
+      "primarySkillKey": "secondary-right-triangle-trig-ratios",
+      "question": {
+        "Ar": "مجاور الزاوية θ في مثلث قائم 24 والوتر 25، أوجد \\(\\cos\\theta\\).",
+        "En": "Right triangle: adjacent to θ is 24, hypotenuse 25. Find cos θ."
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد المجاور للزاوية والوتر؛ الوتر يقابل الزاوية القائمة.",
+          "En": "Identify the adjacent leg and hypotenuse; the hypotenuse is opposite the right angle."
+        },
+        {
+          "Ar": "جيب تمام الزاوية يساوي طول المجاور مقسوماً على طول الوتر.",
+          "En": "Cosine equals adjacent over hypotenuse."
+        }
+      ]
+    },
+    {
+      "problemId": 320,
+      "primarySkillKey": "secondary-right-triangle-trig-ratios",
+      "question": {
+        "Ar": "مجاور الزاوية θ في مثلث قائم 40 والوتر 41، أوجد \\(\\cos\\theta\\).",
+        "En": "Right triangle: adjacent to θ is 40, hypotenuse 41. Find cos θ."
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد المجاور للزاوية والوتر؛ الوتر يقابل الزاوية القائمة.",
+          "En": "Identify the adjacent leg and hypotenuse; the hypotenuse is opposite the right angle."
+        },
+        {
+          "Ar": "جيب تمام الزاوية يساوي طول المجاور مقسوماً على طول الوتر.",
+          "En": "Cosine equals adjacent over hypotenuse."
+        }
+      ]
+    },
+    {
+      "problemId": 273,
+      "primarySkillKey": "secondary-right-triangle-trig-ratios",
+      "question": {
+        "Ar": "مقابل الزاوية θ 3 والمجاور 4 في مثلث قائم، أوجد \\(\\tan\\theta\\).",
+        "En": "Right triangle: opposite θ is 3, adjacent 4. Find tan θ."
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد الضلعين القائمين بالنسبة إلى الزاوية المعطاة.",
+          "En": "Identify the two legs relative to the given angle."
+        },
+        {
+          "Ar": "ظل الزاوية يساوي المقابل على المجاور، ولا يدخل الوتر في هذه النسبة.",
+          "En": "Tangent equals opposite over adjacent; the hypotenuse is not used."
+        }
+      ]
+    },
+    {
+      "problemId": 285,
+      "primarySkillKey": "secondary-right-triangle-trig-ratios",
+      "question": {
+        "Ar": "مقابل الزاوية θ 5 والمجاور 12 في مثلث قائم، أوجد \\(\\tan\\theta\\).",
+        "En": "Right triangle: opposite θ is 5, adjacent 12. Find tan θ."
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد الضلعين القائمين بالنسبة إلى الزاوية المعطاة.",
+          "En": "Identify the two legs relative to the given angle."
+        },
+        {
+          "Ar": "ظل الزاوية يساوي المقابل على المجاور، ولا يدخل الوتر في هذه النسبة.",
+          "En": "Tangent equals opposite over adjacent; the hypotenuse is not used."
+        }
+      ]
+    },
+    {
+      "problemId": 297,
+      "primarySkillKey": "secondary-right-triangle-trig-ratios",
+      "question": {
+        "Ar": "مقابل الزاوية θ 8 والمجاور 15 في مثلث قائم، أوجد \\(\\tan\\theta\\).",
+        "En": "Right triangle: opposite θ is 8, adjacent 15. Find tan θ."
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد الضلعين القائمين بالنسبة إلى الزاوية المعطاة.",
+          "En": "Identify the two legs relative to the given angle."
+        },
+        {
+          "Ar": "ظل الزاوية يساوي المقابل على المجاور، ولا يدخل الوتر في هذه النسبة.",
+          "En": "Tangent equals opposite over adjacent; the hypotenuse is not used."
+        }
+      ]
+    },
+    {
+      "problemId": 309,
+      "primarySkillKey": "secondary-right-triangle-trig-ratios",
+      "question": {
+        "Ar": "مقابل الزاوية θ 7 والمجاور 24 في مثلث قائم، أوجد \\(\\tan\\theta\\).",
+        "En": "Right triangle: opposite θ is 7, adjacent 24. Find tan θ."
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد الضلعين القائمين بالنسبة إلى الزاوية المعطاة.",
+          "En": "Identify the two legs relative to the given angle."
+        },
+        {
+          "Ar": "ظل الزاوية يساوي المقابل على المجاور، ولا يدخل الوتر في هذه النسبة.",
+          "En": "Tangent equals opposite over adjacent; the hypotenuse is not used."
+        }
+      ]
+    },
+    {
+      "problemId": 321,
+      "primarySkillKey": "secondary-right-triangle-trig-ratios",
+      "question": {
+        "Ar": "مقابل الزاوية θ 9 والمجاور 40 في مثلث قائم، أوجد \\(\\tan\\theta\\).",
+        "En": "Right triangle: opposite θ is 9, adjacent 40. Find tan θ."
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد الضلعين القائمين بالنسبة إلى الزاوية المعطاة.",
+          "En": "Identify the two legs relative to the given angle."
+        },
+        {
+          "Ar": "ظل الزاوية يساوي المقابل على المجاور، ولا يدخل الوتر في هذه النسبة.",
+          "En": "Tangent equals opposite over adjacent; the hypotenuse is not used."
+        }
+      ]
+    },
+    {
+      "problemId": 44,
+      "primarySkillKey": "middle-pythagorean-theorem",
+      "question": {
+        "Ar": "مثلث قائم ضلعاه القائمان 6 سم و8 سم؛ ما طول الوتر؟",
+        "En": "A right triangle has legs of 6 cm and 8 cm. How long is its hypotenuse?"
+      },
+      "Hints": [
+        {
+          "Ar": "الوتر هو الضلع المقابل للزاوية القائمة.",
+          "En": "The hypotenuse is opposite the right angle."
+        },
+        {
+          "Ar": "ربّع طولي الضلعين القائمين واجمع المربعين ثم خذ الجذر الموجب.",
+          "En": "Square both legs, add the squares, then take the positive square root."
+        }
+      ]
+    },
+    {
+      "problemId": 76,
+      "primarySkillKey": "middle-pythagorean-theorem",
+      "question": {
+        "Ar": "مثلث قائم ضلعا قائمته 3 و4. أوجد الوتر.",
+        "En": "A right triangle has legs 3 and 4. Find the hypotenuse."
+      },
+      "Hints": [
+        {
+          "Ar": "الوتر هو الضلع المقابل للزاوية القائمة.",
+          "En": "The hypotenuse is opposite the right angle."
+        },
+        {
+          "Ar": "ربّع طولي الضلعين القائمين واجمع المربعين ثم خذ الجذر الموجب.",
+          "En": "Square both legs, add the squares, then take the positive square root."
+        }
+      ]
+    },
+    {
+      "problemId": 91,
+      "primarySkillKey": "middle-pythagorean-theorem",
+      "question": {
+        "Ar": "مثلث قائم ضلعا قائمته 6 و8. أوجد الوتر.",
+        "En": "A right triangle has legs 6 and 8. Find the hypotenuse."
+      },
+      "Hints": [
+        {
+          "Ar": "الوتر هو الضلع المقابل للزاوية القائمة.",
+          "En": "The hypotenuse is opposite the right angle."
+        },
+        {
+          "Ar": "ربّع طولي الضلعين القائمين واجمع المربعين ثم خذ الجذر الموجب.",
+          "En": "Square both legs, add the squares, then take the positive square root."
+        }
+      ]
+    },
+    {
+      "problemId": 106,
+      "primarySkillKey": "middle-pythagorean-theorem",
+      "question": {
+        "Ar": "مثلث قائم ضلعا قائمته 9 و12. أوجد الوتر.",
+        "En": "A right triangle has legs 9 and 12. Find the hypotenuse."
+      },
+      "Hints": [
+        {
+          "Ar": "الوتر هو الضلع المقابل للزاوية القائمة.",
+          "En": "The hypotenuse is opposite the right angle."
+        },
+        {
+          "Ar": "ربّع طولي الضلعين القائمين واجمع المربعين ثم خذ الجذر الموجب.",
+          "En": "Square both legs, add the squares, then take the positive square root."
+        }
+      ]
+    },
+    {
+      "problemId": 121,
+      "primarySkillKey": "middle-pythagorean-theorem",
+      "question": {
+        "Ar": "مثلث قائم ضلعا قائمته 12 و16. أوجد الوتر.",
+        "En": "A right triangle has legs 12 and 16. Find the hypotenuse."
+      },
+      "Hints": [
+        {
+          "Ar": "الوتر هو الضلع المقابل للزاوية القائمة.",
+          "En": "The hypotenuse is opposite the right angle."
+        },
+        {
+          "Ar": "ربّع طولي الضلعين القائمين واجمع المربعين ثم خذ الجذر الموجب.",
+          "En": "Square both legs, add the squares, then take the positive square root."
+        }
+      ]
+    },
+    {
+      "problemId": 136,
+      "primarySkillKey": "middle-pythagorean-theorem",
+      "question": {
+        "Ar": "مثلث قائم ضلعا قائمته 15 و20. أوجد الوتر.",
+        "En": "A right triangle has legs 15 and 20. Find the hypotenuse."
+      },
+      "Hints": [
+        {
+          "Ar": "الوتر هو الضلع المقابل للزاوية القائمة.",
+          "En": "The hypotenuse is opposite the right angle."
+        },
+        {
+          "Ar": "ربّع طولي الضلعين القائمين واجمع المربعين ثم خذ الجذر الموجب.",
+          "En": "Square both legs, add the squares, then take the positive square root."
+        }
+      ]
+    },
+    {
+      "problemId": 219,
+      "primarySkillKey": "middle-pythagorean-theorem",
+      "question": {
+        "Ar": "وتر مثلث قائم 5، وأحد ضلعيه 3. ما الضلع الثاني؟",
+        "En": "A right triangle has hypotenuse 5 and one leg 3. Find its other leg."
+      },
+      "Hints": [
+        {
+          "Ar": "في متطابقة فيثاغورس يساوي مربع الوتر مجموع مربعي الضلعين.",
+          "En": "By the Pythagorean theorem the hypotenuse squared equals the sum of the squared legs."
+        },
+        {
+          "Ar": "اطرح مربع الضلع المعلوم من مربع الوتر ثم خذ الجذر الموجب.",
+          "En": "Subtract the known leg's square from the hypotenuse's square, then take the positive root."
+        }
+      ]
+    },
+    {
+      "problemId": 231,
+      "primarySkillKey": "middle-pythagorean-theorem",
+      "question": {
+        "Ar": "وتر مثلث قائم 13، وأحد ضلعيه 5. ما الضلع الثاني؟",
+        "En": "A right triangle has hypotenuse 13 and one leg 5. Find its other leg."
+      },
+      "Hints": [
+        {
+          "Ar": "في متطابقة فيثاغورس يساوي مربع الوتر مجموع مربعي الضلعين.",
+          "En": "By the Pythagorean theorem the hypotenuse squared equals the sum of the squared legs."
+        },
+        {
+          "Ar": "اطرح مربع الضلع المعلوم من مربع الوتر ثم خذ الجذر الموجب.",
+          "En": "Subtract the known leg's square from the hypotenuse's square, then take the positive root."
+        }
+      ]
+    },
+    {
+      "problemId": 243,
+      "primarySkillKey": "middle-pythagorean-theorem",
+      "question": {
+        "Ar": "وتر مثلث قائم 17، وأحد ضلعيه 8. ما الضلع الثاني؟",
+        "En": "A right triangle has hypotenuse 17 and one leg 8. Find its other leg."
+      },
+      "Hints": [
+        {
+          "Ar": "في متطابقة فيثاغورس يساوي مربع الوتر مجموع مربعي الضلعين.",
+          "En": "By the Pythagorean theorem the hypotenuse squared equals the sum of the squared legs."
+        },
+        {
+          "Ar": "اطرح مربع الضلع المعلوم من مربع الوتر ثم خذ الجذر الموجب.",
+          "En": "Subtract the known leg's square from the hypotenuse's square, then take the positive root."
+        }
+      ]
+    },
+    {
+      "problemId": 255,
+      "primarySkillKey": "middle-pythagorean-theorem",
+      "question": {
+        "Ar": "وتر مثلث قائم 25، وأحد ضلعيه 7. ما الضلع الثاني؟",
+        "En": "A right triangle has hypotenuse 25 and one leg 7. Find its other leg."
+      },
+      "Hints": [
+        {
+          "Ar": "في متطابقة فيثاغورس يساوي مربع الوتر مجموع مربعي الضلعين.",
+          "En": "By the Pythagorean theorem the hypotenuse squared equals the sum of the squared legs."
+        },
+        {
+          "Ar": "اطرح مربع الضلع المعلوم من مربع الوتر ثم خذ الجذر الموجب.",
+          "En": "Subtract the known leg's square from the hypotenuse's square, then take the positive root."
+        }
+      ]
+    },
+    {
+      "problemId": 267,
+      "primarySkillKey": "middle-pythagorean-theorem",
+      "question": {
+        "Ar": "وتر مثلث قائم 41، وأحد ضلعيه 9. ما الضلع الثاني؟",
+        "En": "A right triangle has hypotenuse 41 and one leg 9. Find its other leg."
+      },
+      "Hints": [
+        {
+          "Ar": "في متطابقة فيثاغورس يساوي مربع الوتر مجموع مربعي الضلعين.",
+          "En": "By the Pythagorean theorem the hypotenuse squared equals the sum of the squared legs."
+        },
+        {
+          "Ar": "اطرح مربع الضلع المعلوم من مربع الوتر ثم خذ الجذر الموجب.",
+          "En": "Subtract the known leg's square from the hypotenuse's square, then take the positive root."
+        }
+      ]
+    },
+    {
+      "problemId": 857,
+      "primarySkillKey": "middle-pythagorean-theorem",
+      "question": {
+        "Ar": "كم المسافة بين النقطتين (1،2) و(7،10) على المستوى الإحداثي؟",
+        "En": "Find the distance between (1,2) and (7,10) in the coordinate plane."
+      },
+      "Hints": [
+        {
+          "Ar": "ارسم مثلثاً قائماً يصل بين النقطتين بمحاذاة المحورين.",
+          "En": "Construct a right triangle joining the points along the coordinate axes."
+        },
+        {
+          "Ar": "احسب فرق الإحداثيين السينيين وفرق الصاديين، ثم جذر مجموع مربعيهما.",
+          "En": "Find both coordinate differences and take the square root of their squared sum."
+        }
+      ]
+    },
+    {
+      "problemId": 47,
+      "primarySkillKey": "secondary-polynomial-derivatives",
+      "question": {
+        "Ar": "أوجد مشتقة f(x) = 5x² - 4x.",
+        "En": "Find the derivative of f(x) = 5x² - 4x."
+      },
+      "Hints": [
+        {
+          "Ar": "اشتق كل حد جبري على حدة.",
+          "En": "Differentiate each algebraic term separately."
+        },
+        {
+          "Ar": "استخدم قاعدة القوى: اضرب المعامل في الأس وأنقص الأس واحداً؛ مشتقة الحد الخطي هي معامله.",
+          "En": "Use the power rule: multiply coefficient by exponent and reduce the exponent by one; the derivative of a linear term is its coefficient."
+        }
+      ]
+    },
+    {
+      "problemId": 79,
+      "primarySkillKey": "secondary-polynomial-derivatives",
+      "question": {
+        "Ar": "إذا كانت \\(f(x)=2x^2+3x\\)، احسب \\(f'(1)\\).",
+        "En": "Given \\(f(x)=2x^2+3x\\), compute \\(f'(1)\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "احسب صيغة المشتقة أولاً، ولا تعوّض قيمة x قبل الاشتقاق.",
+          "En": "Find the derivative formula first; do not substitute x before differentiating."
+        },
+        {
+          "Ar": "طبّق قاعدة القوى على كل حد، ثم عوّض قيمة x المطلوبة في المشتقة.",
+          "En": "Apply the power rule term by term, then substitute the requested x into the derivative."
+        }
+      ]
+    },
+    {
+      "problemId": 94,
+      "primarySkillKey": "secondary-polynomial-derivatives",
+      "question": {
+        "Ar": "إذا كانت \\(f(x)=3x^2+4x\\)، احسب \\(f'(2)\\).",
+        "En": "Given \\(f(x)=3x^2+4x\\), compute \\(f'(2)\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "احسب صيغة المشتقة أولاً، ولا تعوّض قيمة x قبل الاشتقاق.",
+          "En": "Find the derivative formula first; do not substitute x before differentiating."
+        },
+        {
+          "Ar": "طبّق قاعدة القوى على كل حد، ثم عوّض قيمة x المطلوبة في المشتقة.",
+          "En": "Apply the power rule term by term, then substitute the requested x into the derivative."
+        }
+      ]
+    },
+    {
+      "problemId": 109,
+      "primarySkillKey": "secondary-polynomial-derivatives",
+      "question": {
+        "Ar": "إذا كانت \\(f(x)=4x^2+5x\\)، احسب \\(f'(3)\\).",
+        "En": "Given \\(f(x)=4x^2+5x\\), compute \\(f'(3)\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "احسب صيغة المشتقة أولاً، ولا تعوّض قيمة x قبل الاشتقاق.",
+          "En": "Find the derivative formula first; do not substitute x before differentiating."
+        },
+        {
+          "Ar": "طبّق قاعدة القوى على كل حد، ثم عوّض قيمة x المطلوبة في المشتقة.",
+          "En": "Apply the power rule term by term, then substitute the requested x into the derivative."
+        }
+      ]
+    },
+    {
+      "problemId": 124,
+      "primarySkillKey": "secondary-polynomial-derivatives",
+      "question": {
+        "Ar": "إذا كانت \\(f(x)=5x^2+6x\\)، احسب \\(f'(4)\\).",
+        "En": "Given \\(f(x)=5x^2+6x\\), compute \\(f'(4)\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "احسب صيغة المشتقة أولاً، ولا تعوّض قيمة x قبل الاشتقاق.",
+          "En": "Find the derivative formula first; do not substitute x before differentiating."
+        },
+        {
+          "Ar": "طبّق قاعدة القوى على كل حد، ثم عوّض قيمة x المطلوبة في المشتقة.",
+          "En": "Apply the power rule term by term, then substitute the requested x into the derivative."
+        }
+      ]
+    },
+    {
+      "problemId": 139,
+      "primarySkillKey": "secondary-polynomial-derivatives",
+      "question": {
+        "Ar": "إذا كانت \\(f(x)=6x^2+7x\\)، احسب \\(f'(5)\\).",
+        "En": "Given \\(f(x)=6x^2+7x\\), compute \\(f'(5)\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "احسب صيغة المشتقة أولاً، ولا تعوّض قيمة x قبل الاشتقاق.",
+          "En": "Find the derivative formula first; do not substitute x before differentiating."
+        },
+        {
+          "Ar": "طبّق قاعدة القوى على كل حد، ثم عوّض قيمة x المطلوبة في المشتقة.",
+          "En": "Apply the power rule term by term, then substitute the requested x into the derivative."
+        }
+      ]
+    },
+    {
+      "problemId": 859,
+      "primarySkillKey": "secondary-polynomial-derivatives",
+      "question": {
+        "Ar": "لتكن f(x)=2x³−4x. ما قيمة f'(3)؟",
+        "En": "Let f(x)=2x³−4x. What is f'(3)?"
+      },
+      "Hints": [
+        {
+          "Ar": "احسب صيغة المشتقة أولاً، ولا تعوّض قيمة x قبل الاشتقاق.",
+          "En": "Find the derivative formula first; do not substitute x before differentiating."
+        },
+        {
+          "Ar": "طبّق قاعدة القوى على كل حد، ثم عوّض قيمة x المطلوبة في المشتقة.",
+          "En": "Apply the power rule term by term, then substitute the requested x into the derivative."
+        }
+      ]
+    },
+    {
+      "problemId": 275,
+      "primarySkillKey": "secondary-polynomial-derivatives",
+      "question": {
+        "Ar": "أوجد \\(f'(2)\\) للدالة \\(f(x)=3x^{3}\\).",
+        "En": "Find f'(2) for \\(f(x)=3x^{3}\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "هذه دالة على صورة ثابت مضروب في قوة لـx.",
+          "En": "This function is a constant times a power of x."
+        },
+        {
+          "Ar": "اضرب الثابت في الأس وأنقص الأس واحداً، ثم احسب المشتقة عند القيمة المعطاة.",
+          "En": "Multiply the coefficient by the exponent, reduce the exponent by one, then evaluate at the given point."
+        }
+      ]
+    },
+    {
+      "problemId": 287,
+      "primarySkillKey": "secondary-polynomial-derivatives",
+      "question": {
+        "Ar": "أوجد \\(f'(3)\\) للدالة \\(f(x)=4x^{4}\\).",
+        "En": "Find f'(3) for \\(f(x)=4x^{4}\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "هذه دالة على صورة ثابت مضروب في قوة لـx.",
+          "En": "This function is a constant times a power of x."
+        },
+        {
+          "Ar": "اضرب الثابت في الأس وأنقص الأس واحداً، ثم احسب المشتقة عند القيمة المعطاة.",
+          "En": "Multiply the coefficient by the exponent, reduce the exponent by one, then evaluate at the given point."
+        }
+      ]
+    },
+    {
+      "problemId": 299,
+      "primarySkillKey": "secondary-polynomial-derivatives",
+      "question": {
+        "Ar": "أوجد \\(f'(4)\\) للدالة \\(f(x)=5x^{5}\\).",
+        "En": "Find f'(4) for \\(f(x)=5x^{5}\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "هذه دالة على صورة ثابت مضروب في قوة لـx.",
+          "En": "This function is a constant times a power of x."
+        },
+        {
+          "Ar": "اضرب الثابت في الأس وأنقص الأس واحداً، ثم احسب المشتقة عند القيمة المعطاة.",
+          "En": "Multiply the coefficient by the exponent, reduce the exponent by one, then evaluate at the given point."
+        }
+      ]
+    },
+    {
+      "problemId": 311,
+      "primarySkillKey": "secondary-polynomial-derivatives",
+      "question": {
+        "Ar": "أوجد \\(f'(5)\\) للدالة \\(f(x)=6x^{6}\\).",
+        "En": "Find f'(5) for \\(f(x)=6x^{6}\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "هذه دالة على صورة ثابت مضروب في قوة لـx.",
+          "En": "This function is a constant times a power of x."
+        },
+        {
+          "Ar": "اضرب الثابت في الأس وأنقص الأس واحداً، ثم احسب المشتقة عند القيمة المعطاة.",
+          "En": "Multiply the coefficient by the exponent, reduce the exponent by one, then evaluate at the given point."
+        }
+      ]
+    },
+    {
+      "problemId": 323,
+      "primarySkillKey": "secondary-polynomial-derivatives",
+      "question": {
+        "Ar": "أوجد \\(f'(6)\\) للدالة \\(f(x)=7x^{7}\\).",
+        "En": "Find f'(6) for \\(f(x)=7x^{7}\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "هذه دالة على صورة ثابت مضروب في قوة لـx.",
+          "En": "This function is a constant times a power of x."
+        },
+        {
+          "Ar": "اضرب الثابت في الأس وأنقص الأس واحداً، ثم احسب المشتقة عند القيمة المعطاة.",
+          "En": "Multiply the coefficient by the exponent, reduce the exponent by one, then evaluate at the given point."
+        }
+      ]
+    },
+    {
+      "problemId": 30,
+      "primarySkillKey": "university-matrix-determinants",
+      "question": {
+        "Ar": "أوجد محدد (Determinant) المصفوفة $A = \\begin{pmatrix} 2 & 3 \\\\ 1 & 4 \\end{pmatrix}$.",
+        "En": "Find the determinant of the matrix $A = \\begin{pmatrix} 2 & 3 \\\\ 1 & 4 \\end{pmatrix}$."
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد عناصر المصفوفة 2×2 بحسب الصف والعمود.",
+          "En": "Identify the four matrix entries by row and column."
+        },
+        {
+          "Ar": "اضرب عنصري القطر الرئيسي واطرح حاصل ضرب عنصري القطر الآخر.",
+          "En": "Multiply the main diagonal entries and subtract the product of the other diagonal entries."
+        }
+      ]
+    },
+    {
+      "problemId": 50,
+      "primarySkillKey": "university-matrix-determinants",
+      "question": {
+        "Ar": "ما محدد المصفوفة ذات الصفين (2,1) و(3,4)؟",
+        "En": "Find the determinant of the 2x2 matrix with rows (2,1) and (3,4)."
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد عناصر المصفوفة 2×2 بحسب الصف والعمود.",
+          "En": "Identify the four matrix entries by row and column."
+        },
+        {
+          "Ar": "اضرب عنصري القطر الرئيسي واطرح حاصل ضرب عنصري القطر الآخر.",
+          "En": "Multiply the main diagonal entries and subtract the product of the other diagonal entries."
+        }
+      ]
+    },
+    {
+      "problemId": 82,
+      "primarySkillKey": "university-matrix-determinants",
+      "question": {
+        "Ar": "احسب محدد المصفوفة \\(\\begin{pmatrix}2&1\\\\2&4\\end{pmatrix}\\).",
+        "En": "Compute the determinant of \\(\\begin{pmatrix}2&1\\\\2&4\\end{pmatrix}\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد عناصر المصفوفة 2×2 بحسب الصف والعمود.",
+          "En": "Identify the four matrix entries by row and column."
+        },
+        {
+          "Ar": "اضرب عنصري القطر الرئيسي واطرح حاصل ضرب عنصري القطر الآخر.",
+          "En": "Multiply the main diagonal entries and subtract the product of the other diagonal entries."
+        }
+      ]
+    },
+    {
+      "problemId": 97,
+      "primarySkillKey": "university-matrix-determinants",
+      "question": {
+        "Ar": "احسب محدد المصفوفة \\(\\begin{pmatrix}3&2\\\\2&5\\end{pmatrix}\\).",
+        "En": "Compute the determinant of \\(\\begin{pmatrix}3&2\\\\2&5\\end{pmatrix}\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد عناصر المصفوفة 2×2 بحسب الصف والعمود.",
+          "En": "Identify the four matrix entries by row and column."
+        },
+        {
+          "Ar": "اضرب عنصري القطر الرئيسي واطرح حاصل ضرب عنصري القطر الآخر.",
+          "En": "Multiply the main diagonal entries and subtract the product of the other diagonal entries."
+        }
+      ]
+    },
+    {
+      "problemId": 112,
+      "primarySkillKey": "university-matrix-determinants",
+      "question": {
+        "Ar": "احسب محدد المصفوفة \\(\\begin{pmatrix}4&3\\\\2&6\\end{pmatrix}\\).",
+        "En": "Compute the determinant of \\(\\begin{pmatrix}4&3\\\\2&6\\end{pmatrix}\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد عناصر المصفوفة 2×2 بحسب الصف والعمود.",
+          "En": "Identify the four matrix entries by row and column."
+        },
+        {
+          "Ar": "اضرب عنصري القطر الرئيسي واطرح حاصل ضرب عنصري القطر الآخر.",
+          "En": "Multiply the main diagonal entries and subtract the product of the other diagonal entries."
+        }
+      ]
+    },
+    {
+      "problemId": 127,
+      "primarySkillKey": "university-matrix-determinants",
+      "question": {
+        "Ar": "احسب محدد المصفوفة \\(\\begin{pmatrix}5&4\\\\2&7\\end{pmatrix}\\).",
+        "En": "Compute the determinant of \\(\\begin{pmatrix}5&4\\\\2&7\\end{pmatrix}\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد عناصر المصفوفة 2×2 بحسب الصف والعمود.",
+          "En": "Identify the four matrix entries by row and column."
+        },
+        {
+          "Ar": "اضرب عنصري القطر الرئيسي واطرح حاصل ضرب عنصري القطر الآخر.",
+          "En": "Multiply the main diagonal entries and subtract the product of the other diagonal entries."
+        }
+      ]
+    },
+    {
+      "problemId": 142,
+      "primarySkillKey": "university-matrix-determinants",
+      "question": {
+        "Ar": "احسب محدد المصفوفة \\(\\begin{pmatrix}6&5\\\\2&8\\end{pmatrix}\\).",
+        "En": "Compute the determinant of \\(\\begin{pmatrix}6&5\\\\2&8\\end{pmatrix}\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد عناصر المصفوفة 2×2 بحسب الصف والعمود.",
+          "En": "Identify the four matrix entries by row and column."
+        },
+        {
+          "Ar": "اضرب عنصري القطر الرئيسي واطرح حاصل ضرب عنصري القطر الآخر.",
+          "En": "Multiply the main diagonal entries and subtract the product of the other diagonal entries."
+        }
+      ]
+    },
+    {
+      "problemId": 334,
+      "primarySkillKey": "university-matrix-determinants",
+      "question": {
+        "Ar": "ما محدد \\(\\begin{pmatrix}2&3\\\\0&5\\end{pmatrix}\\)؟",
+        "En": "Find determinant of \\(\\begin{pmatrix}2&3\\\\0&5\\end{pmatrix}\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "لاحظ أن العنصر تحت القطر الرئيسي يساوي صفراً.",
+          "En": "Notice the zero entry below the main diagonal."
+        },
+        {
+          "Ar": "محدد المصفوفة المثلثية يساوي حاصل ضرب عناصر قطرها الرئيسي.",
+          "En": "A triangular matrix's determinant equals the product of its main diagonal entries."
+        }
+      ]
+    },
+    {
+      "problemId": 346,
+      "primarySkillKey": "university-matrix-determinants",
+      "question": {
+        "Ar": "ما محدد \\(\\begin{pmatrix}3&4\\\\0&6\\end{pmatrix}\\)؟",
+        "En": "Find determinant of \\(\\begin{pmatrix}3&4\\\\0&6\\end{pmatrix}\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "لاحظ أن العنصر تحت القطر الرئيسي يساوي صفراً.",
+          "En": "Notice the zero entry below the main diagonal."
+        },
+        {
+          "Ar": "محدد المصفوفة المثلثية يساوي حاصل ضرب عناصر قطرها الرئيسي.",
+          "En": "A triangular matrix's determinant equals the product of its main diagonal entries."
+        }
+      ]
+    },
+    {
+      "problemId": 358,
+      "primarySkillKey": "university-matrix-determinants",
+      "question": {
+        "Ar": "ما محدد \\(\\begin{pmatrix}4&5\\\\0&7\\end{pmatrix}\\)؟",
+        "En": "Find determinant of \\(\\begin{pmatrix}4&5\\\\0&7\\end{pmatrix}\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "لاحظ أن العنصر تحت القطر الرئيسي يساوي صفراً.",
+          "En": "Notice the zero entry below the main diagonal."
+        },
+        {
+          "Ar": "محدد المصفوفة المثلثية يساوي حاصل ضرب عناصر قطرها الرئيسي.",
+          "En": "A triangular matrix's determinant equals the product of its main diagonal entries."
+        }
+      ]
+    },
+    {
+      "problemId": 370,
+      "primarySkillKey": "university-matrix-determinants",
+      "question": {
+        "Ar": "ما محدد \\(\\begin{pmatrix}5&6\\\\0&8\\end{pmatrix}\\)؟",
+        "En": "Find determinant of \\(\\begin{pmatrix}5&6\\\\0&8\\end{pmatrix}\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "لاحظ أن العنصر تحت القطر الرئيسي يساوي صفراً.",
+          "En": "Notice the zero entry below the main diagonal."
+        },
+        {
+          "Ar": "محدد المصفوفة المثلثية يساوي حاصل ضرب عناصر قطرها الرئيسي.",
+          "En": "A triangular matrix's determinant equals the product of its main diagonal entries."
+        }
+      ]
+    },
+    {
+      "problemId": 382,
+      "primarySkillKey": "university-matrix-determinants",
+      "question": {
+        "Ar": "ما محدد \\(\\begin{pmatrix}6&7\\\\0&9\\end{pmatrix}\\)؟",
+        "En": "Find determinant of \\(\\begin{pmatrix}6&7\\\\0&9\\end{pmatrix}\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "لاحظ أن العنصر تحت القطر الرئيسي يساوي صفراً.",
+          "En": "Notice the zero entry below the main diagonal."
+        },
+        {
+          "Ar": "محدد المصفوفة المثلثية يساوي حاصل ضرب عناصر قطرها الرئيسي.",
+          "En": "A triangular matrix's determinant equals the product of its main diagonal entries."
+        }
+      ]
+    },
+    {
+      "problemId": 52,
+      "primarySkillKey": "university-sequence-limits",
+      "question": {
+        "Ar": "ما نهاية المتتالية 1/n عندما n تؤول إلى ما لا نهاية؟",
+        "En": "What is the limit of the sequence 1/n as n tends to infinity?"
+      },
+      "Hints": [
+        {
+          "Ar": "راقب البسط والمقام مع ازدياد n بلا حد.",
+          "En": "Examine numerator and denominator as n grows without bound."
+        },
+        {
+          "Ar": "البسط ثابت والمقام يتزايد؛ قارن حجم الكسر عند قيم n كبيرة.",
+          "En": "The numerator is constant while the denominator grows; consider the fraction at large n."
+        }
+      ]
+    },
+    {
+      "problemId": 146,
+      "primarySkillKey": "university-sequence-limits",
+      "question": {
+        "Ar": "أوجد نهاية المتتالية \\(a_n=\\frac{3}{n}\\) عندما \\(n\\to\\infty\\).",
+        "En": "Find the limit of \\(a_n=\\frac{3}{n}\\) as \\(n\\to\\infty\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "راقب البسط والمقام مع ازدياد n بلا حد.",
+          "En": "Examine numerator and denominator as n grows without bound."
+        },
+        {
+          "Ar": "البسط ثابت والمقام يتزايد؛ قارن حجم الكسر عند قيم n كبيرة.",
+          "En": "The numerator is constant while the denominator grows; consider the fraction at large n."
+        }
+      ]
+    },
+    {
+      "problemId": 338,
+      "primarySkillKey": "university-sequence-limits",
+      "question": {
+        "Ar": "أوجد نهاية \\(a_n=\\frac{2}{n+1}\\) عندما \\(n\\to\\infty\\).",
+        "En": "Find limit of \\(a_n=\\frac{2}{n+1}\\) as n tends to infinity."
+      },
+      "Hints": [
+        {
+          "Ar": "راقب البسط والمقام مع ازدياد n بلا حد.",
+          "En": "Examine numerator and denominator as n grows without bound."
+        },
+        {
+          "Ar": "البسط ثابت والمقام يتزايد؛ قارن حجم الكسر عند قيم n كبيرة.",
+          "En": "The numerator is constant while the denominator grows; consider the fraction at large n."
+        }
+      ]
+    },
+    {
+      "problemId": 350,
+      "primarySkillKey": "university-sequence-limits",
+      "question": {
+        "Ar": "أوجد نهاية \\(a_n=\\frac{3}{n+1}\\) عندما \\(n\\to\\infty\\).",
+        "En": "Find limit of \\(a_n=\\frac{3}{n+1}\\) as n tends to infinity."
+      },
+      "Hints": [
+        {
+          "Ar": "راقب البسط والمقام مع ازدياد n بلا حد.",
+          "En": "Examine numerator and denominator as n grows without bound."
+        },
+        {
+          "Ar": "البسط ثابت والمقام يتزايد؛ قارن حجم الكسر عند قيم n كبيرة.",
+          "En": "The numerator is constant while the denominator grows; consider the fraction at large n."
+        }
+      ]
+    },
+    {
+      "problemId": 362,
+      "primarySkillKey": "university-sequence-limits",
+      "question": {
+        "Ar": "أوجد نهاية \\(a_n=\\frac{4}{n+1}\\) عندما \\(n\\to\\infty\\).",
+        "En": "Find limit of \\(a_n=\\frac{4}{n+1}\\) as n tends to infinity."
+      },
+      "Hints": [
+        {
+          "Ar": "راقب البسط والمقام مع ازدياد n بلا حد.",
+          "En": "Examine numerator and denominator as n grows without bound."
+        },
+        {
+          "Ar": "البسط ثابت والمقام يتزايد؛ قارن حجم الكسر عند قيم n كبيرة.",
+          "En": "The numerator is constant while the denominator grows; consider the fraction at large n."
+        }
+      ]
+    },
+    {
+      "problemId": 374,
+      "primarySkillKey": "university-sequence-limits",
+      "question": {
+        "Ar": "أوجد نهاية \\(a_n=\\frac{5}{n+1}\\) عندما \\(n\\to\\infty\\).",
+        "En": "Find limit of \\(a_n=\\frac{5}{n+1}\\) as n tends to infinity."
+      },
+      "Hints": [
+        {
+          "Ar": "راقب البسط والمقام مع ازدياد n بلا حد.",
+          "En": "Examine numerator and denominator as n grows without bound."
+        },
+        {
+          "Ar": "البسط ثابت والمقام يتزايد؛ قارن حجم الكسر عند قيم n كبيرة.",
+          "En": "The numerator is constant while the denominator grows; consider the fraction at large n."
+        }
+      ]
+    },
+    {
+      "problemId": 386,
+      "primarySkillKey": "university-sequence-limits",
+      "question": {
+        "Ar": "أوجد نهاية \\(a_n=\\frac{6}{n+1}\\) عندما \\(n\\to\\infty\\).",
+        "En": "Find limit of \\(a_n=\\frac{6}{n+1}\\) as n tends to infinity."
+      },
+      "Hints": [
+        {
+          "Ar": "راقب البسط والمقام مع ازدياد n بلا حد.",
+          "En": "Examine numerator and denominator as n grows without bound."
+        },
+        {
+          "Ar": "البسط ثابت والمقام يتزايد؛ قارن حجم الكسر عند قيم n كبيرة.",
+          "En": "The numerator is constant while the denominator grows; consider the fraction at large n."
+        }
+      ]
+    },
+    {
+      "problemId": 339,
+      "primarySkillKey": "university-sequence-limits",
+      "question": {
+        "Ar": "ما نهاية \\(a_n=(\\frac{1}{2})^n\\) عندما \\(n\\to\\infty\\)؟",
+        "En": "Find the limit of \\(a_n=(\\frac{1}{2})^n\\) as n tends to infinity."
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد أساس القوة وقارنه بالصفر والواحد.",
+          "En": "Identify the power's base and compare it with zero and one."
+        },
+        {
+          "Ar": "تكرار الضرب في عدد موجب أصغر من 1 يجعل مقدار الحدود يتناقص؛ استخدم قانون نهاية المتتالية الهندسية.",
+          "En": "Repeated multiplication by a positive number below 1 decreases the terms; use the geometric-sequence limit rule."
+        }
+      ]
+    },
+    {
+      "problemId": 351,
+      "primarySkillKey": "university-sequence-limits",
+      "question": {
+        "Ar": "ما نهاية \\(a_n=(\\frac{1}{3})^n\\) عندما \\(n\\to\\infty\\)؟",
+        "En": "Find the limit of \\(a_n=(\\frac{1}{3})^n\\) as n tends to infinity."
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد أساس القوة وقارنه بالصفر والواحد.",
+          "En": "Identify the power's base and compare it with zero and one."
+        },
+        {
+          "Ar": "تكرار الضرب في عدد موجب أصغر من 1 يجعل مقدار الحدود يتناقص؛ استخدم قانون نهاية المتتالية الهندسية.",
+          "En": "Repeated multiplication by a positive number below 1 decreases the terms; use the geometric-sequence limit rule."
+        }
+      ]
+    },
+    {
+      "problemId": 363,
+      "primarySkillKey": "university-sequence-limits",
+      "question": {
+        "Ar": "ما نهاية \\(a_n=(\\frac{1}{4})^n\\) عندما \\(n\\to\\infty\\)؟",
+        "En": "Find the limit of \\(a_n=(\\frac{1}{4})^n\\) as n tends to infinity."
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد أساس القوة وقارنه بالصفر والواحد.",
+          "En": "Identify the power's base and compare it with zero and one."
+        },
+        {
+          "Ar": "تكرار الضرب في عدد موجب أصغر من 1 يجعل مقدار الحدود يتناقص؛ استخدم قانون نهاية المتتالية الهندسية.",
+          "En": "Repeated multiplication by a positive number below 1 decreases the terms; use the geometric-sequence limit rule."
+        }
+      ]
+    },
+    {
+      "problemId": 375,
+      "primarySkillKey": "university-sequence-limits",
+      "question": {
+        "Ar": "ما نهاية \\(a_n=(\\frac{1}{5})^n\\) عندما \\(n\\to\\infty\\)؟",
+        "En": "Find the limit of \\(a_n=(\\frac{1}{5})^n\\) as n tends to infinity."
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد أساس القوة وقارنه بالصفر والواحد.",
+          "En": "Identify the power's base and compare it with zero and one."
+        },
+        {
+          "Ar": "تكرار الضرب في عدد موجب أصغر من 1 يجعل مقدار الحدود يتناقص؛ استخدم قانون نهاية المتتالية الهندسية.",
+          "En": "Repeated multiplication by a positive number below 1 decreases the terms; use the geometric-sequence limit rule."
+        }
+      ]
+    },
+    {
+      "problemId": 387,
+      "primarySkillKey": "university-sequence-limits",
+      "question": {
+        "Ar": "ما نهاية \\(a_n=(\\frac{1}{6})^n\\) عندما \\(n\\to\\infty\\)؟",
+        "En": "Find the limit of \\(a_n=(\\frac{1}{6})^n\\) as n tends to infinity."
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد أساس القوة وقارنه بالصفر والواحد.",
+          "En": "Identify the power's base and compare it with zero and one."
+        },
+        {
+          "Ar": "تكرار الضرب في عدد موجب أصغر من 1 يجعل مقدار الحدود يتناقص؛ استخدم قانون نهاية المتتالية الهندسية.",
+          "En": "Repeated multiplication by a positive number below 1 decreases the terms; use the geometric-sequence limit rule."
+        }
+      ]
+    },
+    {
+      "problemId": 49,
+      "primarySkillKey": "university-partial-derivatives",
+      "question": {
+        "Ar": "إذا كانت f(x,y) = x²y + 3y، فما قيمة المشتقة الجزئية بالنسبة إلى x عند (2,1)؟",
+        "En": "For f(x,y) = x²y + 3y, evaluate the partial derivative with respect to x at (2,1)."
+      },
+      "Hints": [
+        {
+          "Ar": "عند الاشتقاق بالنسبة إلى x تعامل مع y على أنه ثابت.",
+          "En": "Treat y as a constant when differentiating in x."
+        },
+        {
+          "Ar": "اشتق حدود x بقاعدة القوى، والحدود التي تحتوي y فقط مشتقتها صفر؛ ثم عوّض إحداثيي النقطة.",
+          "En": "Apply the power rule to x terms, set y-only derivatives to zero, then substitute the point."
+        }
+      ]
+    },
+    {
+      "problemId": 81,
+      "primarySkillKey": "university-partial-derivatives",
+      "question": {
+        "Ar": "إذا كانت \\(f(x,y)=2x^2y+1y^2\\)، أوجد \\(\\partial f/\\partial x\\) عند \\((2,1)\\).",
+        "En": "For \\(f(x,y)=2x^2y+1y^2\\), evaluate \\(\\partial f/\\partial x\\) at \\((2,1)\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "عند الاشتقاق بالنسبة إلى x تعامل مع y على أنه ثابت.",
+          "En": "Treat y as a constant when differentiating in x."
+        },
+        {
+          "Ar": "اشتق حدود x بقاعدة القوى، والحدود التي تحتوي y فقط مشتقتها صفر؛ ثم عوّض إحداثيي النقطة.",
+          "En": "Apply the power rule to x terms, set y-only derivatives to zero, then substitute the point."
+        }
+      ]
+    },
+    {
+      "problemId": 96,
+      "primarySkillKey": "university-partial-derivatives",
+      "question": {
+        "Ar": "إذا كانت \\(f(x,y)=3x^2y+2y^2\\)، أوجد \\(\\partial f/\\partial x\\) عند \\((3,2)\\).",
+        "En": "For \\(f(x,y)=3x^2y+2y^2\\), evaluate \\(\\partial f/\\partial x\\) at \\((3,2)\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "عند الاشتقاق بالنسبة إلى x تعامل مع y على أنه ثابت.",
+          "En": "Treat y as a constant when differentiating in x."
+        },
+        {
+          "Ar": "اشتق حدود x بقاعدة القوى، والحدود التي تحتوي y فقط مشتقتها صفر؛ ثم عوّض إحداثيي النقطة.",
+          "En": "Apply the power rule to x terms, set y-only derivatives to zero, then substitute the point."
+        }
+      ]
+    },
+    {
+      "problemId": 111,
+      "primarySkillKey": "university-partial-derivatives",
+      "question": {
+        "Ar": "إذا كانت \\(f(x,y)=4x^2y+3y^2\\)، أوجد \\(\\partial f/\\partial x\\) عند \\((4,3)\\).",
+        "En": "For \\(f(x,y)=4x^2y+3y^2\\), evaluate \\(\\partial f/\\partial x\\) at \\((4,3)\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "عند الاشتقاق بالنسبة إلى x تعامل مع y على أنه ثابت.",
+          "En": "Treat y as a constant when differentiating in x."
+        },
+        {
+          "Ar": "اشتق حدود x بقاعدة القوى، والحدود التي تحتوي y فقط مشتقتها صفر؛ ثم عوّض إحداثيي النقطة.",
+          "En": "Apply the power rule to x terms, set y-only derivatives to zero, then substitute the point."
+        }
+      ]
+    },
+    {
+      "problemId": 126,
+      "primarySkillKey": "university-partial-derivatives",
+      "question": {
+        "Ar": "إذا كانت \\(f(x,y)=5x^2y+4y^2\\)، أوجد \\(\\partial f/\\partial x\\) عند \\((5,4)\\).",
+        "En": "For \\(f(x,y)=5x^2y+4y^2\\), evaluate \\(\\partial f/\\partial x\\) at \\((5,4)\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "عند الاشتقاق بالنسبة إلى x تعامل مع y على أنه ثابت.",
+          "En": "Treat y as a constant when differentiating in x."
+        },
+        {
+          "Ar": "اشتق حدود x بقاعدة القوى، والحدود التي تحتوي y فقط مشتقتها صفر؛ ثم عوّض إحداثيي النقطة.",
+          "En": "Apply the power rule to x terms, set y-only derivatives to zero, then substitute the point."
+        }
+      ]
+    },
+    {
+      "problemId": 141,
+      "primarySkillKey": "university-partial-derivatives",
+      "question": {
+        "Ar": "إذا كانت \\(f(x,y)=6x^2y+5y^2\\)، أوجد \\(\\partial f/\\partial x\\) عند \\((6,5)\\).",
+        "En": "For \\(f(x,y)=6x^2y+5y^2\\), evaluate \\(\\partial f/\\partial x\\) at \\((6,5)\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "عند الاشتقاق بالنسبة إلى x تعامل مع y على أنه ثابت.",
+          "En": "Treat y as a constant when differentiating in x."
+        },
+        {
+          "Ar": "اشتق حدود x بقاعدة القوى، والحدود التي تحتوي y فقط مشتقتها صفر؛ ثم عوّض إحداثيي النقطة.",
+          "En": "Apply the power rule to x terms, set y-only derivatives to zero, then substitute the point."
+        }
+      ]
+    },
+    {
+      "problemId": 329,
+      "primarySkillKey": "university-partial-derivatives",
+      "question": {
+        "Ar": "إذا \\(f(x,y)=2x^2y+1y^2\\)، أوجد \\(\\partial f/\\partial y\\) عند (2،3).",
+        "En": "Given \\(f(x,y)=2x^2y+1y^2\\), evaluate \\(\\partial f/\\partial y\\) at (2,3)."
+      },
+      "Hints": [
+        {
+          "Ar": "عند الاشتقاق بالنسبة إلى y تعامل مع x على أنه ثابت.",
+          "En": "Treat x as constant when differentiating in y."
+        },
+        {
+          "Ar": "اشتق الحدود الخطية والتربيعية في y، ثم عوّض قيم x وy المعطاتين.",
+          "En": "Differentiate linear and quadratic y terms, then substitute the given x and y."
+        }
+      ]
+    },
+    {
+      "problemId": 341,
+      "primarySkillKey": "university-partial-derivatives",
+      "question": {
+        "Ar": "إذا \\(f(x,y)=3x^2y+2y^2\\)، أوجد \\(\\partial f/\\partial y\\) عند (3،4).",
+        "En": "Given \\(f(x,y)=3x^2y+2y^2\\), evaluate \\(\\partial f/\\partial y\\) at (3,4)."
+      },
+      "Hints": [
+        {
+          "Ar": "عند الاشتقاق بالنسبة إلى y تعامل مع x على أنه ثابت.",
+          "En": "Treat x as constant when differentiating in y."
+        },
+        {
+          "Ar": "اشتق الحدود الخطية والتربيعية في y، ثم عوّض قيم x وy المعطاتين.",
+          "En": "Differentiate linear and quadratic y terms, then substitute the given x and y."
+        }
+      ]
+    },
+    {
+      "problemId": 353,
+      "primarySkillKey": "university-partial-derivatives",
+      "question": {
+        "Ar": "إذا \\(f(x,y)=4x^2y+3y^2\\)، أوجد \\(\\partial f/\\partial y\\) عند (4،5).",
+        "En": "Given \\(f(x,y)=4x^2y+3y^2\\), evaluate \\(\\partial f/\\partial y\\) at (4,5)."
+      },
+      "Hints": [
+        {
+          "Ar": "عند الاشتقاق بالنسبة إلى y تعامل مع x على أنه ثابت.",
+          "En": "Treat x as constant when differentiating in y."
+        },
+        {
+          "Ar": "اشتق الحدود الخطية والتربيعية في y، ثم عوّض قيم x وy المعطاتين.",
+          "En": "Differentiate linear and quadratic y terms, then substitute the given x and y."
+        }
+      ]
+    },
+    {
+      "problemId": 365,
+      "primarySkillKey": "university-partial-derivatives",
+      "question": {
+        "Ar": "إذا \\(f(x,y)=5x^2y+4y^2\\)، أوجد \\(\\partial f/\\partial y\\) عند (5،6).",
+        "En": "Given \\(f(x,y)=5x^2y+4y^2\\), evaluate \\(\\partial f/\\partial y\\) at (5,6)."
+      },
+      "Hints": [
+        {
+          "Ar": "عند الاشتقاق بالنسبة إلى y تعامل مع x على أنه ثابت.",
+          "En": "Treat x as constant when differentiating in y."
+        },
+        {
+          "Ar": "اشتق الحدود الخطية والتربيعية في y، ثم عوّض قيم x وy المعطاتين.",
+          "En": "Differentiate linear and quadratic y terms, then substitute the given x and y."
+        }
+      ]
+    },
+    {
+      "problemId": 377,
+      "primarySkillKey": "university-partial-derivatives",
+      "question": {
+        "Ar": "إذا \\(f(x,y)=6x^2y+5y^2\\)، أوجد \\(\\partial f/\\partial y\\) عند (6،7).",
+        "En": "Given \\(f(x,y)=6x^2y+5y^2\\), evaluate \\(\\partial f/\\partial y\\) at (6,7)."
+      },
+      "Hints": [
+        {
+          "Ar": "عند الاشتقاق بالنسبة إلى y تعامل مع x على أنه ثابت.",
+          "En": "Treat x as constant when differentiating in y."
+        },
+        {
+          "Ar": "اشتق الحدود الخطية والتربيعية في y، ثم عوّض قيم x وy المعطاتين.",
+          "En": "Differentiate linear and quadratic y terms, then substitute the given x and y."
+        }
+      ]
+    },
+    {
+      "problemId": 51,
+      "primarySkillKey": "university-integrating-ode",
+      "question": {
+        "Ar": "ما الحل العام للمعادلة التفاضلية dy/dx = 2x؟",
+        "En": "What is the general solution of the differential equation dy/dx = 2x?"
+      },
+      "Hints": [
+        {
+          "Ar": "المعادلة تعطي مشتقة y بدلالة x فقط.",
+          "En": "The equation gives y's derivative in terms of x alone."
+        },
+        {
+          "Ar": "كامل الطرف الأيمن بالنسبة إلى x وأضف ثابت تكامل اعتباطياً.",
+          "En": "Integrate the right-hand side in x and add an arbitrary integration constant."
+        }
+      ]
+    },
+    {
+      "problemId": 335,
+      "primarySkillKey": "university-integrating-ode",
+      "question": {
+        "Ar": "إذا \\(y'=3\\) و\\(y(0)=2\\)، أوجد \\(y(4)\\).",
+        "En": "Given \\(y'=3\\), \\(y(0)=2\\), find \\(y(4)\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "مشتقة y ثابتة؛ إذن y دالة خطية في x.",
+          "En": "The derivative is constant, so y is linear in x."
+        },
+        {
+          "Ar": "كامل الثابت للحصول على حد خطي، واستعمل y(0) لتحديد ثابت التكامل قبل التعويض.",
+          "En": "Integrate the constant into a linear term, use y(0) to determine the integration constant, then evaluate."
+        }
+      ]
+    },
+    {
+      "problemId": 347,
+      "primarySkillKey": "university-integrating-ode",
+      "question": {
+        "Ar": "إذا \\(y'=4\\) و\\(y(0)=3\\)، أوجد \\(y(5)\\).",
+        "En": "Given \\(y'=4\\), \\(y(0)=3\\), find \\(y(5)\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "مشتقة y ثابتة؛ إذن y دالة خطية في x.",
+          "En": "The derivative is constant, so y is linear in x."
+        },
+        {
+          "Ar": "كامل الثابت للحصول على حد خطي، واستعمل y(0) لتحديد ثابت التكامل قبل التعويض.",
+          "En": "Integrate the constant into a linear term, use y(0) to determine the integration constant, then evaluate."
+        }
+      ]
+    },
+    {
+      "problemId": 359,
+      "primarySkillKey": "university-integrating-ode",
+      "question": {
+        "Ar": "إذا \\(y'=5\\) و\\(y(0)=4\\)، أوجد \\(y(6)\\).",
+        "En": "Given \\(y'=5\\), \\(y(0)=4\\), find \\(y(6)\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "مشتقة y ثابتة؛ إذن y دالة خطية في x.",
+          "En": "The derivative is constant, so y is linear in x."
+        },
+        {
+          "Ar": "كامل الثابت للحصول على حد خطي، واستعمل y(0) لتحديد ثابت التكامل قبل التعويض.",
+          "En": "Integrate the constant into a linear term, use y(0) to determine the integration constant, then evaluate."
+        }
+      ]
+    },
+    {
+      "problemId": 371,
+      "primarySkillKey": "university-integrating-ode",
+      "question": {
+        "Ar": "إذا \\(y'=6\\) و\\(y(0)=5\\)، أوجد \\(y(7)\\).",
+        "En": "Given \\(y'=6\\), \\(y(0)=5\\), find \\(y(7)\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "مشتقة y ثابتة؛ إذن y دالة خطية في x.",
+          "En": "The derivative is constant, so y is linear in x."
+        },
+        {
+          "Ar": "كامل الثابت للحصول على حد خطي، واستعمل y(0) لتحديد ثابت التكامل قبل التعويض.",
+          "En": "Integrate the constant into a linear term, use y(0) to determine the integration constant, then evaluate."
+        }
+      ]
+    },
+    {
+      "problemId": 383,
+      "primarySkillKey": "university-integrating-ode",
+      "question": {
+        "Ar": "إذا \\(y'=7\\) و\\(y(0)=6\\)، أوجد \\(y(8)\\).",
+        "En": "Given \\(y'=7\\), \\(y(0)=6\\), find \\(y(8)\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "مشتقة y ثابتة؛ إذن y دالة خطية في x.",
+          "En": "The derivative is constant, so y is linear in x."
+        },
+        {
+          "Ar": "كامل الثابت للحصول على حد خطي، واستعمل y(0) لتحديد ثابت التكامل قبل التعويض.",
+          "En": "Integrate the constant into a linear term, use y(0) to determine the integration constant, then evaluate."
+        }
+      ]
+    },
+    {
+      "problemId": 337,
+      "primarySkillKey": "university-integrating-ode",
+      "question": {
+        "Ar": "إذا \\(y'=4x\\) و\\(y(0)=3\\)، أوجد \\(y(2)\\).",
+        "En": "Given \\(y'=4x\\), \\(y(0)=3\\), find \\(y(2)\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "كامل مشتقة y باستخدام قاعدة القوى.",
+          "En": "Integrate y's derivative using the power rule."
+        },
+        {
+          "Ar": "تكامل حد من صورة kx يساوي kx²/2 مع ثابت؛ حدّد الثابت من الشرط الابتدائي ثم عوّض.",
+          "En": "Integrating kx gives kx²/2 plus a constant; find the constant from the initial condition, then evaluate."
+        }
+      ]
+    },
+    {
+      "problemId": 349,
+      "primarySkillKey": "university-integrating-ode",
+      "question": {
+        "Ar": "إذا \\(y'=6x\\) و\\(y(0)=4\\)، أوجد \\(y(3)\\).",
+        "En": "Given \\(y'=6x\\), \\(y(0)=4\\), find \\(y(3)\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "كامل مشتقة y باستخدام قاعدة القوى.",
+          "En": "Integrate y's derivative using the power rule."
+        },
+        {
+          "Ar": "تكامل حد من صورة kx يساوي kx²/2 مع ثابت؛ حدّد الثابت من الشرط الابتدائي ثم عوّض.",
+          "En": "Integrating kx gives kx²/2 plus a constant; find the constant from the initial condition, then evaluate."
+        }
+      ]
+    },
+    {
+      "problemId": 361,
+      "primarySkillKey": "university-integrating-ode",
+      "question": {
+        "Ar": "إذا \\(y'=8x\\) و\\(y(0)=5\\)، أوجد \\(y(4)\\).",
+        "En": "Given \\(y'=8x\\), \\(y(0)=5\\), find \\(y(4)\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "كامل مشتقة y باستخدام قاعدة القوى.",
+          "En": "Integrate y's derivative using the power rule."
+        },
+        {
+          "Ar": "تكامل حد من صورة kx يساوي kx²/2 مع ثابت؛ حدّد الثابت من الشرط الابتدائي ثم عوّض.",
+          "En": "Integrating kx gives kx²/2 plus a constant; find the constant from the initial condition, then evaluate."
+        }
+      ]
+    },
+    {
+      "problemId": 373,
+      "primarySkillKey": "university-integrating-ode",
+      "question": {
+        "Ar": "إذا \\(y'=10x\\) و\\(y(0)=6\\)، أوجد \\(y(5)\\).",
+        "En": "Given \\(y'=10x\\), \\(y(0)=6\\), find \\(y(5)\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "كامل مشتقة y باستخدام قاعدة القوى.",
+          "En": "Integrate y's derivative using the power rule."
+        },
+        {
+          "Ar": "تكامل حد من صورة kx يساوي kx²/2 مع ثابت؛ حدّد الثابت من الشرط الابتدائي ثم عوّض.",
+          "En": "Integrating kx gives kx²/2 plus a constant; find the constant from the initial condition, then evaluate."
+        }
+      ]
+    },
+    {
+      "problemId": 385,
+      "primarySkillKey": "university-integrating-ode",
+      "question": {
+        "Ar": "إذا \\(y'=12x\\) و\\(y(0)=7\\)، أوجد \\(y(6)\\).",
+        "En": "Given \\(y'=12x\\), \\(y(0)=7\\), find \\(y(6)\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "كامل مشتقة y باستخدام قاعدة القوى.",
+          "En": "Integrate y's derivative using the power rule."
+        },
+        {
+          "Ar": "تكامل حد من صورة kx يساوي kx²/2 مع ثابت؛ حدّد الثابت من الشرط الابتدائي ثم عوّض.",
+          "En": "Integrating kx gives kx²/2 plus a constant; find the constant from the initial condition, then evaluate."
+        }
+      ]
+    },
+    {
+      "problemId": 73,
+      "primarySkillKey": "middle-exponent-laws",
+      "question": {
+        "Ar": "بسّط \\(2^{3}\\times2^2\\) على صورة قوة للعدد 2.",
+        "En": "Write \\(2^{3}\\times2^2\\) as a single power of 2."
+      },
+      "Hints": [
+        {
+          "Ar": "لاحظ أن القوتين لهما الأساس نفسه.",
+          "En": "Notice that the powers have the same base."
+        },
+        {
+          "Ar": "عند ضرب قوتين لهما الأساس نفسه، أبقِ الأساس واجمع الأسّين.",
+          "En": "When multiplying powers with the same base, retain the base and add the exponents."
+        }
+      ]
+    },
+    {
+      "problemId": 88,
+      "primarySkillKey": "middle-exponent-laws",
+      "question": {
+        "Ar": "بسّط \\(2^{4}\\times2^2\\) على صورة قوة للعدد 2.",
+        "En": "Write \\(2^{4}\\times2^2\\) as a single power of 2."
+      },
+      "Hints": [
+        {
+          "Ar": "لاحظ أن القوتين لهما الأساس نفسه.",
+          "En": "Notice that the powers have the same base."
+        },
+        {
+          "Ar": "عند ضرب قوتين لهما الأساس نفسه، أبقِ الأساس واجمع الأسّين.",
+          "En": "When multiplying powers with the same base, retain the base and add the exponents."
+        }
+      ]
+    },
+    {
+      "problemId": 103,
+      "primarySkillKey": "middle-exponent-laws",
+      "question": {
+        "Ar": "بسّط \\(2^{5}\\times2^2\\) على صورة قوة للعدد 2.",
+        "En": "Write \\(2^{5}\\times2^2\\) as a single power of 2."
+      },
+      "Hints": [
+        {
+          "Ar": "لاحظ أن القوتين لهما الأساس نفسه.",
+          "En": "Notice that the powers have the same base."
+        },
+        {
+          "Ar": "عند ضرب قوتين لهما الأساس نفسه، أبقِ الأساس واجمع الأسّين.",
+          "En": "When multiplying powers with the same base, retain the base and add the exponents."
+        }
+      ]
+    },
+    {
+      "problemId": 118,
+      "primarySkillKey": "middle-exponent-laws",
+      "question": {
+        "Ar": "بسّط \\(2^{6}\\times2^2\\) على صورة قوة للعدد 2.",
+        "En": "Write \\(2^{6}\\times2^2\\) as a single power of 2."
+      },
+      "Hints": [
+        {
+          "Ar": "لاحظ أن القوتين لهما الأساس نفسه.",
+          "En": "Notice that the powers have the same base."
+        },
+        {
+          "Ar": "عند ضرب قوتين لهما الأساس نفسه، أبقِ الأساس واجمع الأسّين.",
+          "En": "When multiplying powers with the same base, retain the base and add the exponents."
+        }
+      ]
+    },
+    {
+      "problemId": 133,
+      "primarySkillKey": "middle-exponent-laws",
+      "question": {
+        "Ar": "بسّط \\(2^{7}\\times2^2\\) على صورة قوة للعدد 2.",
+        "En": "Write \\(2^{7}\\times2^2\\) as a single power of 2."
+      },
+      "Hints": [
+        {
+          "Ar": "لاحظ أن القوتين لهما الأساس نفسه.",
+          "En": "Notice that the powers have the same base."
+        },
+        {
+          "Ar": "عند ضرب قوتين لهما الأساس نفسه، أبقِ الأساس واجمع الأسّين.",
+          "En": "When multiplying powers with the same base, retain the base and add the exponents."
+        }
+      ]
+    },
+    {
+      "problemId": 210,
+      "primarySkillKey": "middle-exponent-laws",
+      "question": {
+        "Ar": "بسّط \\(\\frac{2^{5}}{2^{3}}\\).",
+        "En": "Simplify \\(\\frac{2^{5}}{2^{3}}\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "لاحظ أن البسط والمقام قوتان للأساس غير الصفري نفسه.",
+          "En": "The numerator and denominator are powers of the same nonzero base."
+        },
+        {
+          "Ar": "عند القسمة، أبقِ الأساس واطرح أس المقام من أس البسط ثم بسّط.",
+          "En": "When dividing, retain the base and subtract the denominator exponent from the numerator exponent, then simplify."
+        }
+      ]
+    },
+    {
+      "problemId": 222,
+      "primarySkillKey": "middle-exponent-laws",
+      "question": {
+        "Ar": "بسّط \\(\\frac{3^{6}}{3^{4}}\\).",
+        "En": "Simplify \\(\\frac{3^{6}}{3^{4}}\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "لاحظ أن البسط والمقام قوتان للأساس غير الصفري نفسه.",
+          "En": "The numerator and denominator are powers of the same nonzero base."
+        },
+        {
+          "Ar": "عند القسمة، أبقِ الأساس واطرح أس المقام من أس البسط ثم بسّط.",
+          "En": "When dividing, retain the base and subtract the denominator exponent from the numerator exponent, then simplify."
+        }
+      ]
+    },
+    {
+      "problemId": 234,
+      "primarySkillKey": "middle-exponent-laws",
+      "question": {
+        "Ar": "بسّط \\(\\frac{4^{7}}{4^{5}}\\).",
+        "En": "Simplify \\(\\frac{4^{7}}{4^{5}}\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "لاحظ أن البسط والمقام قوتان للأساس غير الصفري نفسه.",
+          "En": "The numerator and denominator are powers of the same nonzero base."
+        },
+        {
+          "Ar": "عند القسمة، أبقِ الأساس واطرح أس المقام من أس البسط ثم بسّط.",
+          "En": "When dividing, retain the base and subtract the denominator exponent from the numerator exponent, then simplify."
+        }
+      ]
+    },
+    {
+      "problemId": 246,
+      "primarySkillKey": "middle-exponent-laws",
+      "question": {
+        "Ar": "بسّط \\(\\frac{5^{8}}{5^{6}}\\).",
+        "En": "Simplify \\(\\frac{5^{8}}{5^{6}}\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "لاحظ أن البسط والمقام قوتان للأساس غير الصفري نفسه.",
+          "En": "The numerator and denominator are powers of the same nonzero base."
+        },
+        {
+          "Ar": "عند القسمة، أبقِ الأساس واطرح أس المقام من أس البسط ثم بسّط.",
+          "En": "When dividing, retain the base and subtract the denominator exponent from the numerator exponent, then simplify."
+        }
+      ]
+    },
+    {
+      "problemId": 258,
+      "primarySkillKey": "middle-exponent-laws",
+      "question": {
+        "Ar": "بسّط \\(\\frac{6^{9}}{6^{7}}\\).",
+        "En": "Simplify \\(\\frac{6^{9}}{6^{7}}\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "لاحظ أن البسط والمقام قوتان للأساس غير الصفري نفسه.",
+          "En": "The numerator and denominator are powers of the same nonzero base."
+        },
+        {
+          "Ar": "عند القسمة، أبقِ الأساس واطرح أس المقام من أس البسط ثم بسّط.",
+          "En": "When dividing, retain the base and subtract the denominator exponent from the numerator exponent, then simplify."
+        }
+      ]
+    },
+    {
+      "problemId": 77,
+      "primarySkillKey": "secondary-vieta-roots",
+      "question": {
+        "Ar": "ما مجموع جذري المعادلة \\((x-2)(x-5)=0\\)؟",
+        "En": "Find the sum of the roots of \\((x-2)(x-5)=0\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "استعمل خاصية حاصل الضرب الصفري لتحديد الجذرين.",
+          "En": "Use the zero-product property to find the two roots."
+        },
+        {
+          "Ar": "ساوِ كل عامل بالصفر، ثم اجمع الجذرين الناتجين.",
+          "En": "Set each factor equal to zero, then add the resulting roots."
+        }
+      ]
+    },
+    {
+      "problemId": 92,
+      "primarySkillKey": "secondary-vieta-roots",
+      "question": {
+        "Ar": "ما مجموع جذري المعادلة \\((x-3)(x-6)=0\\)؟",
+        "En": "Find the sum of the roots of \\((x-3)(x-6)=0\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "استعمل خاصية حاصل الضرب الصفري لتحديد الجذرين.",
+          "En": "Use the zero-product property to find the two roots."
+        },
+        {
+          "Ar": "ساوِ كل عامل بالصفر، ثم اجمع الجذرين الناتجين.",
+          "En": "Set each factor equal to zero, then add the resulting roots."
+        }
+      ]
+    },
+    {
+      "problemId": 107,
+      "primarySkillKey": "secondary-vieta-roots",
+      "question": {
+        "Ar": "ما مجموع جذري المعادلة \\((x-4)(x-7)=0\\)؟",
+        "En": "Find the sum of the roots of \\((x-4)(x-7)=0\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "استعمل خاصية حاصل الضرب الصفري لتحديد الجذرين.",
+          "En": "Use the zero-product property to find the two roots."
+        },
+        {
+          "Ar": "ساوِ كل عامل بالصفر، ثم اجمع الجذرين الناتجين.",
+          "En": "Set each factor equal to zero, then add the resulting roots."
+        }
+      ]
+    },
+    {
+      "problemId": 122,
+      "primarySkillKey": "secondary-vieta-roots",
+      "question": {
+        "Ar": "ما مجموع جذري المعادلة \\((x-5)(x-8)=0\\)؟",
+        "En": "Find the sum of the roots of \\((x-5)(x-8)=0\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "استعمل خاصية حاصل الضرب الصفري لتحديد الجذرين.",
+          "En": "Use the zero-product property to find the two roots."
+        },
+        {
+          "Ar": "ساوِ كل عامل بالصفر، ثم اجمع الجذرين الناتجين.",
+          "En": "Set each factor equal to zero, then add the resulting roots."
+        }
+      ]
+    },
+    {
+      "problemId": 137,
+      "primarySkillKey": "secondary-vieta-roots",
+      "question": {
+        "Ar": "ما مجموع جذري المعادلة \\((x-6)(x-9)=0\\)؟",
+        "En": "Find the sum of the roots of \\((x-6)(x-9)=0\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "استعمل خاصية حاصل الضرب الصفري لتحديد الجذرين.",
+          "En": "Use the zero-product property to find the two roots."
+        },
+        {
+          "Ar": "ساوِ كل عامل بالصفر، ثم اجمع الجذرين الناتجين.",
+          "En": "Set each factor equal to zero, then add the resulting roots."
+        }
+      ]
+    },
+    {
+      "problemId": 269,
+      "primarySkillKey": "secondary-vieta-roots",
+      "question": {
+        "Ar": "ما حاصل ضرب جذري \\(x^2-7x+10=0\\)؟",
+        "En": "What is the product of the roots of \\(x^2-7x+10=0\\)?"
+      },
+      "Hints": [
+        {
+          "Ar": "اكتب المعادلة على الصورة العامة ax²+bx+c=0.",
+          "En": "Identify a, b, and c in ax²+bx+c=0."
+        },
+        {
+          "Ar": "حسب علاقات فييت، حاصل ضرب الجذرين يساوي c/a، وليس −b/a.",
+          "En": "By Vieta's formulas, the product of the roots is c/a, not −b/a."
+        }
+      ]
+    },
+    {
+      "problemId": 281,
+      "primarySkillKey": "secondary-vieta-roots",
+      "question": {
+        "Ar": "ما حاصل ضرب جذري \\(x^2-9x+18=0\\)؟",
+        "En": "What is the product of the roots of \\(x^2-9x+18=0\\)?"
+      },
+      "Hints": [
+        {
+          "Ar": "اكتب المعادلة على الصورة العامة ax²+bx+c=0.",
+          "En": "Identify a, b, and c in ax²+bx+c=0."
+        },
+        {
+          "Ar": "حسب علاقات فييت، حاصل ضرب الجذرين يساوي c/a، وليس −b/a.",
+          "En": "By Vieta's formulas, the product of the roots is c/a, not −b/a."
+        }
+      ]
+    },
+    {
+      "problemId": 293,
+      "primarySkillKey": "secondary-vieta-roots",
+      "question": {
+        "Ar": "ما حاصل ضرب جذري \\(x^2-11x+28=0\\)؟",
+        "En": "What is the product of the roots of \\(x^2-11x+28=0\\)?"
+      },
+      "Hints": [
+        {
+          "Ar": "اكتب المعادلة على الصورة العامة ax²+bx+c=0.",
+          "En": "Identify a, b, and c in ax²+bx+c=0."
+        },
+        {
+          "Ar": "حسب علاقات فييت، حاصل ضرب الجذرين يساوي c/a، وليس −b/a.",
+          "En": "By Vieta's formulas, the product of the roots is c/a, not −b/a."
+        }
+      ]
+    },
+    {
+      "problemId": 305,
+      "primarySkillKey": "secondary-vieta-roots",
+      "question": {
+        "Ar": "ما حاصل ضرب جذري \\(x^2-13x+40=0\\)؟",
+        "En": "What is the product of the roots of \\(x^2-13x+40=0\\)?"
+      },
+      "Hints": [
+        {
+          "Ar": "اكتب المعادلة على الصورة العامة ax²+bx+c=0.",
+          "En": "Identify a, b, and c in ax²+bx+c=0."
+        },
+        {
+          "Ar": "حسب علاقات فييت، حاصل ضرب الجذرين يساوي c/a، وليس −b/a.",
+          "En": "By Vieta's formulas, the product of the roots is c/a, not −b/a."
+        }
+      ]
+    },
+    {
+      "problemId": 317,
+      "primarySkillKey": "secondary-vieta-roots",
+      "question": {
+        "Ar": "ما حاصل ضرب جذري \\(x^2-15x+54=0\\)؟",
+        "En": "What is the product of the roots of \\(x^2-15x+54=0\\)?"
+      },
+      "Hints": [
+        {
+          "Ar": "اكتب المعادلة على الصورة العامة ax²+bx+c=0.",
+          "En": "Identify a, b, and c in ax²+bx+c=0."
+        },
+        {
+          "Ar": "حسب علاقات فييت، حاصل ضرب الجذرين يساوي c/a، وليس −b/a.",
+          "En": "By Vieta's formulas, the product of the roots is c/a, not −b/a."
+        }
+      ]
+    },
+    {
+      "problemId": 53,
+      "primarySkillKey": "primary-multiplication",
+      "question": {
+        "Ar": "كم يساوي 9 × 6؟",
+        "En": "What is 9 multiplied by 6?"
+      },
+      "Hints": [
+        {
+          "Ar": "الضرب يعني جمع مجموعات متساوية.",
+          "En": "Multiplication means adding equal groups."
+        },
+        {
+          "Ar": "فكّك أحد العاملين إلى أعداد يسهل ضربها، ثم اجمع حاصل الضرب الجزئي.",
+          "En": "Break a factor into easier parts, multiply each part, and add the partial products."
+        }
+      ]
+    },
+    {
+      "problemId": 149,
+      "primarySkillKey": "primary-multiplication",
+      "question": {
+        "Ar": "احسب 12 × 4.",
+        "En": "Compute 12 × 4."
+      },
+      "Hints": [
+        {
+          "Ar": "الضرب يعني جمع مجموعات متساوية.",
+          "En": "Multiplication means adding equal groups."
+        },
+        {
+          "Ar": "فكّك أحد العاملين إلى أعداد يسهل ضربها، ثم اجمع حاصل الضرب الجزئي.",
+          "En": "Break a factor into easier parts, multiply each part, and add the partial products."
+        }
+      ]
+    },
+    {
+      "problemId": 161,
+      "primarySkillKey": "primary-multiplication",
+      "question": {
+        "Ar": "احسب 15 × 5.",
+        "En": "Compute 15 × 5."
+      },
+      "Hints": [
+        {
+          "Ar": "الضرب يعني جمع مجموعات متساوية.",
+          "En": "Multiplication means adding equal groups."
+        },
+        {
+          "Ar": "فكّك أحد العاملين إلى أعداد يسهل ضربها، ثم اجمع حاصل الضرب الجزئي.",
+          "En": "Break a factor into easier parts, multiply each part, and add the partial products."
+        }
+      ]
+    },
+    {
+      "problemId": 173,
+      "primarySkillKey": "primary-multiplication",
+      "question": {
+        "Ar": "احسب 18 × 6.",
+        "En": "Compute 18 × 6."
+      },
+      "Hints": [
+        {
+          "Ar": "الضرب يعني جمع مجموعات متساوية.",
+          "En": "Multiplication means adding equal groups."
+        },
+        {
+          "Ar": "فكّك أحد العاملين إلى أعداد يسهل ضربها، ثم اجمع حاصل الضرب الجزئي.",
+          "En": "Break a factor into easier parts, multiply each part, and add the partial products."
+        }
+      ]
+    },
+    {
+      "problemId": 185,
+      "primarySkillKey": "primary-multiplication",
+      "question": {
+        "Ar": "احسب 21 × 7.",
+        "En": "Compute 21 × 7."
+      },
+      "Hints": [
+        {
+          "Ar": "الضرب يعني جمع مجموعات متساوية.",
+          "En": "Multiplication means adding equal groups."
+        },
+        {
+          "Ar": "فكّك أحد العاملين إلى أعداد يسهل ضربها، ثم اجمع حاصل الضرب الجزئي.",
+          "En": "Break a factor into easier parts, multiply each part, and add the partial products."
+        }
+      ]
+    },
+    {
+      "problemId": 197,
+      "primarySkillKey": "primary-multiplication",
+      "question": {
+        "Ar": "احسب 24 × 8.",
+        "En": "Compute 24 × 8."
+      },
+      "Hints": [
+        {
+          "Ar": "الضرب يعني جمع مجموعات متساوية.",
+          "En": "Multiplication means adding equal groups."
+        },
+        {
+          "Ar": "فكّك أحد العاملين إلى أعداد يسهل ضربها، ثم اجمع حاصل الضرب الجزئي.",
+          "En": "Break a factor into easier parts, multiply each part, and add the partial products."
+        }
+      ]
+    },
+    {
+      "problemId": 854,
+      "primarySkillKey": "primary-multiplication",
+      "question": {
+        "Ar": "استخدم حقيقة أن 25 = 100÷4 لحساب 48 × 25.",
+        "En": "Use 25 = 100÷4 to calculate 48 × 25."
+      },
+      "Hints": [
+        {
+          "Ar": "استبدل 25 بالتعبير المعطى 100÷4.",
+          "En": "Replace 25 with the given expression 100÷4."
+        },
+        {
+          "Ar": "اقسم 48 على 4 أولاً، ثم اضرب الناتج في 100.",
+          "En": "Divide 48 by 4 first, then multiply by 100."
+        }
+      ]
+    },
+    {
+      "problemId": 151,
+      "primarySkillKey": "primary-multiplicative-word-problems",
+      "question": {
+        "Ar": "ثمن القلم 7 وحدات. كم ثمن 4 أقلام؟",
+        "En": "Each pen costs 7 units. What do 4 pens cost?"
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد ثمن القلم الواحد وعدد الأقلام.",
+          "En": "Identify the price per pen and the number of pens."
+        },
+        {
+          "Ar": "الثمن الكلي يساوي ثمن القلم الواحد مضروباً في عدد الأقلام.",
+          "En": "Total cost equals unit price times quantity."
+        }
+      ]
+    },
+    {
+      "problemId": 163,
+      "primarySkillKey": "primary-multiplicative-word-problems",
+      "question": {
+        "Ar": "ثمن القلم 8 وحدات. كم ثمن 5 أقلام؟",
+        "En": "Each pen costs 8 units. What do 5 pens cost?"
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد ثمن القلم الواحد وعدد الأقلام.",
+          "En": "Identify the price per pen and the number of pens."
+        },
+        {
+          "Ar": "الثمن الكلي يساوي ثمن القلم الواحد مضروباً في عدد الأقلام.",
+          "En": "Total cost equals unit price times quantity."
+        }
+      ]
+    },
+    {
+      "problemId": 175,
+      "primarySkillKey": "primary-multiplicative-word-problems",
+      "question": {
+        "Ar": "ثمن القلم 9 وحدات. كم ثمن 6 أقلام؟",
+        "En": "Each pen costs 9 units. What do 6 pens cost?"
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد ثمن القلم الواحد وعدد الأقلام.",
+          "En": "Identify the price per pen and the number of pens."
+        },
+        {
+          "Ar": "الثمن الكلي يساوي ثمن القلم الواحد مضروباً في عدد الأقلام.",
+          "En": "Total cost equals unit price times quantity."
+        }
+      ]
+    },
+    {
+      "problemId": 187,
+      "primarySkillKey": "primary-multiplicative-word-problems",
+      "question": {
+        "Ar": "ثمن القلم 10 وحدات. كم ثمن 7 أقلام؟",
+        "En": "Each pen costs 10 units. What do 7 pens cost?"
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد ثمن القلم الواحد وعدد الأقلام.",
+          "En": "Identify the price per pen and the number of pens."
+        },
+        {
+          "Ar": "الثمن الكلي يساوي ثمن القلم الواحد مضروباً في عدد الأقلام.",
+          "En": "Total cost equals unit price times quantity."
+        }
+      ]
+    },
+    {
+      "problemId": 199,
+      "primarySkillKey": "primary-multiplicative-word-problems",
+      "question": {
+        "Ar": "ثمن القلم 11 وحدات. كم ثمن 8 أقلام؟",
+        "En": "Each pen costs 11 units. What do 8 pens cost?"
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد ثمن القلم الواحد وعدد الأقلام.",
+          "En": "Identify the price per pen and the number of pens."
+        },
+        {
+          "Ar": "الثمن الكلي يساوي ثمن القلم الواحد مضروباً في عدد الأقلام.",
+          "En": "Total cost equals unit price times quantity."
+        }
+      ]
+    },
+    {
+      "problemId": 852,
+      "primarySkillKey": "primary-multiplicative-word-problems",
+      "question": {
+        "Ar": "يريد 145 طالباً الذهاب في رحلة، وتستوعب الحافلة الواحدة 38 طالباً. كم حافلة نحتاج على الأقل؟",
+        "En": "145 pupils need transport. Each bus can hold 38. What is the minimum number of buses required?"
+      },
+      "Hints": [
+        {
+          "Ar": "اقسم عدد الطلاب على عدد المقاعد في الحافلة الواحدة.",
+          "En": "Divide the pupil count by the capacity of one bus."
+        },
+        {
+          "Ar": "إذا بقي طلاب بعد ملء الحافلات، يلزم إضافة حافلة كاملة للباقي.",
+          "En": "If pupils remain after filling whole buses, add one additional bus."
+        }
+      ]
+    },
+    {
+      "problemId": 853,
+      "primarySkillKey": "primary-multiplicative-word-problems",
+      "question": {
+        "Ar": "اشترت مدرسة 18 علبة أقلام في كل علبة 12 قلماً، ثم وزّعت 35 قلماً. كم قلماً بقي؟",
+        "En": "A school bought 18 boxes of pencils with 12 pencils each, then distributed 35 pencils. How many remain?"
+      },
+      "Hints": [
+        {
+          "Ar": "احسب أولاً العدد الكلي للأقلام في جميع العلب.",
+          "En": "First find the total pencils in all boxes."
+        },
+        {
+          "Ar": "اضرب عدد العلب في عدد الأقلام في العلبة، ثم اطرح الموزّع.",
+          "En": "Multiply boxes by pencils per box, then subtract the number distributed."
+        }
+      ]
+    },
+    {
+      "problemId": 63,
+      "primarySkillKey": "secondary-indefinite-integrals",
+      "question": {
+        "Ar": "أوجد التكامل غير المحدد للدالة 6x² بالنسبة إلى x.",
+        "En": "Find the indefinite integral of 6x² with respect to x."
+      },
+      "Hints": [
+        {
+          "Ar": "استخدم قاعدة تكامل القوى للحد الجبري.",
+          "En": "Use the integration power rule for the algebraic term."
+        },
+        {
+          "Ar": "زد الأس واحداً واقسم المعامل على الأس الجديد، ولا تنسَ ثابت التكامل C.",
+          "En": "Increase the exponent by one, divide the coefficient by the new exponent, and include C."
+        }
+      ]
+    },
+    {
+      "problemId": 276,
+      "primarySkillKey": "secondary-indefinite-integrals",
+      "question": {
+        "Ar": "احسب \\(\\int 4x^{1}\\,dx\\).",
+        "En": "Compute \\(\\int 4x^{1}\\,dx\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "استخدم قاعدة تكامل القوى للحد الجبري.",
+          "En": "Use the integration power rule for the algebraic term."
+        },
+        {
+          "Ar": "زد الأس واحداً واقسم المعامل على الأس الجديد، ولا تنسَ ثابت التكامل C.",
+          "En": "Increase the exponent by one, divide the coefficient by the new exponent, and include C."
+        }
+      ]
+    },
+    {
+      "problemId": 288,
+      "primarySkillKey": "secondary-indefinite-integrals",
+      "question": {
+        "Ar": "احسب \\(\\int 9x^{2}\\,dx\\).",
+        "En": "Compute \\(\\int 9x^{2}\\,dx\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "استخدم قاعدة تكامل القوى للحد الجبري.",
+          "En": "Use the integration power rule for the algebraic term."
+        },
+        {
+          "Ar": "زد الأس واحداً واقسم المعامل على الأس الجديد، ولا تنسَ ثابت التكامل C.",
+          "En": "Increase the exponent by one, divide the coefficient by the new exponent, and include C."
+        }
+      ]
+    },
+    {
+      "problemId": 300,
+      "primarySkillKey": "secondary-indefinite-integrals",
+      "question": {
+        "Ar": "احسب \\(\\int 16x^{3}\\,dx\\).",
+        "En": "Compute \\(\\int 16x^{3}\\,dx\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "استخدم قاعدة تكامل القوى للحد الجبري.",
+          "En": "Use the integration power rule for the algebraic term."
+        },
+        {
+          "Ar": "زد الأس واحداً واقسم المعامل على الأس الجديد، ولا تنسَ ثابت التكامل C.",
+          "En": "Increase the exponent by one, divide the coefficient by the new exponent, and include C."
+        }
+      ]
+    },
+    {
+      "problemId": 312,
+      "primarySkillKey": "secondary-indefinite-integrals",
+      "question": {
+        "Ar": "احسب \\(\\int 25x^{4}\\,dx\\).",
+        "En": "Compute \\(\\int 25x^{4}\\,dx\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "استخدم قاعدة تكامل القوى للحد الجبري.",
+          "En": "Use the integration power rule for the algebraic term."
+        },
+        {
+          "Ar": "زد الأس واحداً واقسم المعامل على الأس الجديد، ولا تنسَ ثابت التكامل C.",
+          "En": "Increase the exponent by one, divide the coefficient by the new exponent, and include C."
+        }
+      ]
+    },
+    {
+      "problemId": 324,
+      "primarySkillKey": "secondary-indefinite-integrals",
+      "question": {
+        "Ar": "احسب \\(\\int 36x^{5}\\,dx\\).",
+        "En": "Compute \\(\\int 36x^{5}\\,dx\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "استخدم قاعدة تكامل القوى للحد الجبري.",
+          "En": "Use the integration power rule for the algebraic term."
+        },
+        {
+          "Ar": "زد الأس واحداً واقسم المعامل على الأس الجديد، ولا تنسَ ثابت التكامل C.",
+          "En": "Increase the exponent by one, divide the coefficient by the new exponent, and include C."
+        }
+      ]
+    },
+    {
+      "problemId": 861,
+      "primarySkillKey": "secondary-indefinite-integrals",
+      "question": {
+        "Ar": "احسب التكامل غير المحدد ∫(6x²−4x)dx.",
+        "En": "Compute the indefinite integral ∫(6x²−4x) dx."
+      },
+      "Hints": [
+        {
+          "Ar": "قسّم التكامل إلى تكامل الحدين.",
+          "En": "Split the integral into two termwise integrals."
+        },
+        {
+          "Ar": "طبّق قاعدة القوى على كل حد مع الحفاظ على الإشارة، ثم أضف ثابت التكامل.",
+          "En": "Apply the power rule to each term, retain its sign, then add the integration constant."
+        }
+      ]
+    },
+    {
+      "problemId": 67,
+      "primarySkillKey": "university-exponential-ode",
+      "question": {
+        "Ar": "حل المسألة الابتدائية y' = y مع y(0) = 2.",
+        "En": "Solve the initial-value problem y' = y with y(0) = 2."
+      },
+      "Hints": [
+        {
+          "Ar": "المعادلة من الشكل y'=ky ذي معامل ثابت k.",
+          "En": "The equation has the form y'=ky with constant k."
+        },
+        {
+          "Ar": "الحل العام هو Ae^(kx)؛ استخدم y(0) لتحديد A.",
+          "En": "The general solution is Ae^(kx); use y(0) to determine A."
+        }
+      ]
+    },
+    {
+      "problemId": 83,
+      "primarySkillKey": "university-exponential-ode",
+      "question": {
+        "Ar": "حل المعادلة التفاضلية \\(y'=1y\\) مع الشرط \\(y(0)=2\\).",
+        "En": "Solve \\(y'=1y\\) with \\(y(0)=2\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "المعادلة من الشكل y'=ky ذي معامل ثابت k.",
+          "En": "The equation has the form y'=ky with constant k."
+        },
+        {
+          "Ar": "الحل العام هو Ae^(kx)؛ استخدم y(0) لتحديد A.",
+          "En": "The general solution is Ae^(kx); use y(0) to determine A."
+        }
+      ]
+    },
+    {
+      "problemId": 98,
+      "primarySkillKey": "university-exponential-ode",
+      "question": {
+        "Ar": "حل المعادلة التفاضلية \\(y'=2y\\) مع الشرط \\(y(0)=3\\).",
+        "En": "Solve \\(y'=2y\\) with \\(y(0)=3\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "المعادلة من الشكل y'=ky ذي معامل ثابت k.",
+          "En": "The equation has the form y'=ky with constant k."
+        },
+        {
+          "Ar": "الحل العام هو Ae^(kx)؛ استخدم y(0) لتحديد A.",
+          "En": "The general solution is Ae^(kx); use y(0) to determine A."
+        }
+      ]
+    },
+    {
+      "problemId": 113,
+      "primarySkillKey": "university-exponential-ode",
+      "question": {
+        "Ar": "حل المعادلة التفاضلية \\(y'=3y\\) مع الشرط \\(y(0)=4\\).",
+        "En": "Solve \\(y'=3y\\) with \\(y(0)=4\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "المعادلة من الشكل y'=ky ذي معامل ثابت k.",
+          "En": "The equation has the form y'=ky with constant k."
+        },
+        {
+          "Ar": "الحل العام هو Ae^(kx)؛ استخدم y(0) لتحديد A.",
+          "En": "The general solution is Ae^(kx); use y(0) to determine A."
+        }
+      ]
+    },
+    {
+      "problemId": 128,
+      "primarySkillKey": "university-exponential-ode",
+      "question": {
+        "Ar": "حل المعادلة التفاضلية \\(y'=4y\\) مع الشرط \\(y(0)=5\\).",
+        "En": "Solve \\(y'=4y\\) with \\(y(0)=5\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "المعادلة من الشكل y'=ky ذي معامل ثابت k.",
+          "En": "The equation has the form y'=ky with constant k."
+        },
+        {
+          "Ar": "الحل العام هو Ae^(kx)؛ استخدم y(0) لتحديد A.",
+          "En": "The general solution is Ae^(kx); use y(0) to determine A."
+        }
+      ]
+    },
+    {
+      "problemId": 143,
+      "primarySkillKey": "university-exponential-ode",
+      "question": {
+        "Ar": "حل المعادلة التفاضلية \\(y'=5y\\) مع الشرط \\(y(0)=6\\).",
+        "En": "Solve \\(y'=5y\\) with \\(y(0)=6\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "المعادلة من الشكل y'=ky ذي معامل ثابت k.",
+          "En": "The equation has the form y'=ky with constant k."
+        },
+        {
+          "Ar": "الحل العام هو Ae^(kx)؛ استخدم y(0) لتحديد A.",
+          "En": "The general solution is Ae^(kx); use y(0) to determine A."
+        }
+      ]
+    },
+    {
+      "problemId": 864,
+      "primarySkillKey": "university-exponential-ode",
+      "question": {
+        "Ar": "إذا كان y'=2y وy(0)=3، فما y(1)؟",
+        "En": "For y'=2y and y(0)=3, what is y(1)?"
+      },
+      "Hints": [
+        {
+          "Ar": "اكتب الحل العام للمعادلة y'=2y على صورة أسية.",
+          "En": "Write the general solution of y'=2y in exponential form."
+        },
+        {
+          "Ar": "حدّد المعامل من y(0)=3، ثم عوّض x=1 في الحل.",
+          "En": "Determine the coefficient from y(0)=3, then evaluate the solution at x=1."
+        }
+      ]
+    },
+    {
+      "problemId": 9,
+      "primarySkillKey": "primary-rectangle-area",
+      "question": {
+        "Ar": "مستطيل طوله $8$ متر وعرضه $3$ متر. ما مساحته؟",
+        "En": "A rectangle has length $8$ m and width $3$ m. What is its area?"
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد الطول والعرض من المعطيات.",
+          "En": "Identify the given length and width."
+        },
+        {
+          "Ar": "اضرب الطول في العرض، واكتب المساحة بوحدة مربعة لا وحدة طول.",
+          "En": "Multiply length by width and use square units, not length units."
+        }
+      ]
+    },
+    {
+      "problemId": 71,
+      "primarySkillKey": "primary-rectangle-area",
+      "question": {
+        "Ar": "مستطيل طوله 6 سم وعرضه 3 سم. ما مساحته بالسم المربع؟",
+        "En": "A rectangle is 6 cm by 3 cm. Find its area in square centimetres."
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد الطول والعرض من المعطيات.",
+          "En": "Identify the given length and width."
+        },
+        {
+          "Ar": "اضرب الطول في العرض، واكتب المساحة بوحدة مربعة لا وحدة طول.",
+          "En": "Multiply length by width and use square units, not length units."
+        }
+      ]
+    },
+    {
+      "problemId": 86,
+      "primarySkillKey": "primary-rectangle-area",
+      "question": {
+        "Ar": "مستطيل طوله 7 سم وعرضه 4 سم. ما مساحته بالسم المربع؟",
+        "En": "A rectangle is 7 cm by 4 cm. Find its area in square centimetres."
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد الطول والعرض من المعطيات.",
+          "En": "Identify the given length and width."
+        },
+        {
+          "Ar": "اضرب الطول في العرض، واكتب المساحة بوحدة مربعة لا وحدة طول.",
+          "En": "Multiply length by width and use square units, not length units."
+        }
+      ]
+    },
+    {
+      "problemId": 101,
+      "primarySkillKey": "primary-rectangle-area",
+      "question": {
+        "Ar": "مستطيل طوله 8 سم وعرضه 5 سم. ما مساحته بالسم المربع؟",
+        "En": "A rectangle is 8 cm by 5 cm. Find its area in square centimetres."
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد الطول والعرض من المعطيات.",
+          "En": "Identify the given length and width."
+        },
+        {
+          "Ar": "اضرب الطول في العرض، واكتب المساحة بوحدة مربعة لا وحدة طول.",
+          "En": "Multiply length by width and use square units, not length units."
+        }
+      ]
+    },
+    {
+      "problemId": 131,
+      "primarySkillKey": "primary-rectangle-area",
+      "question": {
+        "Ar": "مستطيل طوله 10 سم وعرضه 7 سم. ما مساحته بالسم المربع؟",
+        "En": "A rectangle is 10 cm by 7 cm. Find its area in square centimetres."
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد الطول والعرض من المعطيات.",
+          "En": "Identify the given length and width."
+        },
+        {
+          "Ar": "اضرب الطول في العرض، واكتب المساحة بوحدة مربعة لا وحدة طول.",
+          "En": "Multiply length by width and use square units, not length units."
+        }
+      ]
+    },
+    {
+      "problemId": 152,
+      "primarySkillKey": "primary-two-step-equations",
+      "question": {
+        "Ar": "حل المعادلة \\(2x+4=10\\).",
+        "En": "Solve \\(2x+4=10\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "اعزل الحد الذي يحتوي x باستخدام العملية العكسية للجمع.",
+          "En": "Isolate the x term using the inverse of addition."
+        },
+        {
+          "Ar": "اطرح الحد الثابت من الطرفين ثم اقسم الطرفين على معامل x.",
+          "En": "Subtract the constant from both sides, then divide both sides by the coefficient of x."
+        }
+      ]
+    },
+    {
+      "problemId": 164,
+      "primarySkillKey": "primary-two-step-equations",
+      "question": {
+        "Ar": "حل المعادلة \\(3x+5=17\\).",
+        "En": "Solve \\(3x+5=17\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "اعزل الحد الذي يحتوي x باستخدام العملية العكسية للجمع.",
+          "En": "Isolate the x term using the inverse of addition."
+        },
+        {
+          "Ar": "اطرح الحد الثابت من الطرفين ثم اقسم الطرفين على معامل x.",
+          "En": "Subtract the constant from both sides, then divide both sides by the coefficient of x."
+        }
+      ]
+    },
+    {
+      "problemId": 176,
+      "primarySkillKey": "primary-two-step-equations",
+      "question": {
+        "Ar": "حل المعادلة \\(4x+6=26\\).",
+        "En": "Solve \\(4x+6=26\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "اعزل الحد الذي يحتوي x باستخدام العملية العكسية للجمع.",
+          "En": "Isolate the x term using the inverse of addition."
+        },
+        {
+          "Ar": "اطرح الحد الثابت من الطرفين ثم اقسم الطرفين على معامل x.",
+          "En": "Subtract the constant from both sides, then divide both sides by the coefficient of x."
+        }
+      ]
+    },
+    {
+      "problemId": 188,
+      "primarySkillKey": "primary-two-step-equations",
+      "question": {
+        "Ar": "حل المعادلة \\(5x+7=37\\).",
+        "En": "Solve \\(5x+7=37\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "اعزل الحد الذي يحتوي x باستخدام العملية العكسية للجمع.",
+          "En": "Isolate the x term using the inverse of addition."
+        },
+        {
+          "Ar": "اطرح الحد الثابت من الطرفين ثم اقسم الطرفين على معامل x.",
+          "En": "Subtract the constant from both sides, then divide both sides by the coefficient of x."
+        }
+      ]
+    },
+    {
+      "problemId": 200,
+      "primarySkillKey": "primary-two-step-equations",
+      "question": {
+        "Ar": "حل المعادلة \\(6x+8=50\\).",
+        "En": "Solve \\(6x+8=50\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "اعزل الحد الذي يحتوي x باستخدام العملية العكسية للجمع.",
+          "En": "Isolate the x term using the inverse of addition."
+        },
+        {
+          "Ar": "اطرح الحد الثابت من الطرفين ثم اقسم الطرفين على معامل x.",
+          "En": "Subtract the constant from both sides, then divide both sides by the coefficient of x."
+        }
+      ]
+    },
+    {
+      "problemId": 156,
+      "primarySkillKey": "primary-triangle-angle-sum",
+      "question": {
+        "Ar": "زاويتا مثلث هما 50° و60°، ما الثالثة؟",
+        "En": "Two angles of a triangle are 50° and 60°. Find the third."
+      },
+      "Hints": [
+        {
+          "Ar": "تذكّر أن مجموع زوايا المثلث الداخلية 180 درجة.",
+          "En": "Recall that a triangle's interior angles sum to 180 degrees."
+        },
+        {
+          "Ar": "اجمع قياسي الزاويتين المعطاتين ثم اطرح المجموع من 180.",
+          "En": "Add the two given angles, then subtract their sum from 180."
+        }
+      ]
+    },
+    {
+      "problemId": 168,
+      "primarySkillKey": "primary-triangle-angle-sum",
+      "question": {
+        "Ar": "زاويتا مثلث هما 57° و63°، ما الثالثة؟",
+        "En": "Two angles of a triangle are 57° and 63°. Find the third."
+      },
+      "Hints": [
+        {
+          "Ar": "تذكّر أن مجموع زوايا المثلث الداخلية 180 درجة.",
+          "En": "Recall that a triangle's interior angles sum to 180 degrees."
+        },
+        {
+          "Ar": "اجمع قياسي الزاويتين المعطاتين ثم اطرح المجموع من 180.",
+          "En": "Add the two given angles, then subtract their sum from 180."
+        }
+      ]
+    },
+    {
+      "problemId": 180,
+      "primarySkillKey": "primary-triangle-angle-sum",
+      "question": {
+        "Ar": "زاويتا مثلث هما 64° و66°، ما الثالثة؟",
+        "En": "Two angles of a triangle are 64° and 66°. Find the third."
+      },
+      "Hints": [
+        {
+          "Ar": "تذكّر أن مجموع زوايا المثلث الداخلية 180 درجة.",
+          "En": "Recall that a triangle's interior angles sum to 180 degrees."
+        },
+        {
+          "Ar": "اجمع قياسي الزاويتين المعطاتين ثم اطرح المجموع من 180.",
+          "En": "Add the two given angles, then subtract their sum from 180."
+        }
+      ]
+    },
+    {
+      "problemId": 192,
+      "primarySkillKey": "primary-triangle-angle-sum",
+      "question": {
+        "Ar": "زاويتا مثلث هما 71° و69°، ما الثالثة؟",
+        "En": "Two angles of a triangle are 71° and 69°. Find the third."
+      },
+      "Hints": [
+        {
+          "Ar": "تذكّر أن مجموع زوايا المثلث الداخلية 180 درجة.",
+          "En": "Recall that a triangle's interior angles sum to 180 degrees."
+        },
+        {
+          "Ar": "اجمع قياسي الزاويتين المعطاتين ثم اطرح المجموع من 180.",
+          "En": "Add the two given angles, then subtract their sum from 180."
+        }
+      ]
+    },
+    {
+      "problemId": 204,
+      "primarySkillKey": "primary-triangle-angle-sum",
+      "question": {
+        "Ar": "زاويتا مثلث هما 78° و72°، ما الثالثة؟",
+        "En": "Two angles of a triangle are 78° and 72°. Find the third."
+      },
+      "Hints": [
+        {
+          "Ar": "تذكّر أن مجموع زوايا المثلث الداخلية 180 درجة.",
+          "En": "Recall that a triangle's interior angles sum to 180 degrees."
+        },
+        {
+          "Ar": "اجمع قياسي الزاويتين المعطاتين ثم اطرح المجموع من 180.",
+          "En": "Add the two given angles, then subtract their sum from 180."
+        }
+      ]
+    },
+    {
+      "problemId": 157,
+      "primarySkillKey": "primary-unit-conversions",
+      "question": {
+        "Ar": "حوّل 2 متر إلى سنتيمترات.",
+        "En": "Convert 2 metres to centimetres."
+      },
+      "Hints": [
+        {
+          "Ar": "المتر الواحد يساوي 100 سنتيمتر.",
+          "En": "One meter equals 100 centimeters."
+        },
+        {
+          "Ar": "للتحويل من المتر إلى السنتيمتر اضرب العدد في 100.",
+          "En": "To convert meters to centimeters, multiply by 100."
+        }
+      ]
+    },
+    {
+      "problemId": 169,
+      "primarySkillKey": "primary-unit-conversions",
+      "question": {
+        "Ar": "حوّل 3 متر إلى سنتيمترات.",
+        "En": "Convert 3 metres to centimetres."
+      },
+      "Hints": [
+        {
+          "Ar": "المتر الواحد يساوي 100 سنتيمتر.",
+          "En": "One meter equals 100 centimeters."
+        },
+        {
+          "Ar": "للتحويل من المتر إلى السنتيمتر اضرب العدد في 100.",
+          "En": "To convert meters to centimeters, multiply by 100."
+        }
+      ]
+    },
+    {
+      "problemId": 181,
+      "primarySkillKey": "primary-unit-conversions",
+      "question": {
+        "Ar": "حوّل 4 متر إلى سنتيمترات.",
+        "En": "Convert 4 metres to centimetres."
+      },
+      "Hints": [
+        {
+          "Ar": "المتر الواحد يساوي 100 سنتيمتر.",
+          "En": "One meter equals 100 centimeters."
+        },
+        {
+          "Ar": "للتحويل من المتر إلى السنتيمتر اضرب العدد في 100.",
+          "En": "To convert meters to centimeters, multiply by 100."
+        }
+      ]
+    },
+    {
+      "problemId": 193,
+      "primarySkillKey": "primary-unit-conversions",
+      "question": {
+        "Ar": "حوّل 5 متر إلى سنتيمترات.",
+        "En": "Convert 5 metres to centimetres."
+      },
+      "Hints": [
+        {
+          "Ar": "المتر الواحد يساوي 100 سنتيمتر.",
+          "En": "One meter equals 100 centimeters."
+        },
+        {
+          "Ar": "للتحويل من المتر إلى السنتيمتر اضرب العدد في 100.",
+          "En": "To convert meters to centimeters, multiply by 100."
+        }
+      ]
+    },
+    {
+      "problemId": 205,
+      "primarySkillKey": "primary-unit-conversions",
+      "question": {
+        "Ar": "حوّل 6 متر إلى سنتيمترات.",
+        "En": "Convert 6 metres to centimetres."
+      },
+      "Hints": [
+        {
+          "Ar": "المتر الواحد يساوي 100 سنتيمتر.",
+          "En": "One meter equals 100 centimeters."
+        },
+        {
+          "Ar": "للتحويل من المتر إلى السنتيمتر اضرب العدد في 100.",
+          "En": "To convert meters to centimeters, multiply by 100."
+        }
+      ]
+    },
+    {
+      "problemId": 158,
+      "primarySkillKey": "primary-mode",
+      "question": {
+        "Ar": "ما المنوال: 3، 9، 3، 4، 3؟",
+        "En": "Find the mode: 3, 9, 3, 4, 3."
+      },
+      "Hints": [
+        {
+          "Ar": "المنوال مرتبط بتكرار القيم وليس بترتيبها.",
+          "En": "Mode concerns frequencies, not order."
+        },
+        {
+          "Ar": "احسب عدد مرات ظهور كل قيمة واختر الأكثر تكراراً.",
+          "En": "Count each value's occurrences and select the most frequent."
+        }
+      ]
+    },
+    {
+      "problemId": 170,
+      "primarySkillKey": "primary-mode",
+      "question": {
+        "Ar": "ما المنوال: 4، 11، 4، 5، 4؟",
+        "En": "Find the mode: 4, 11, 4, 5, 4."
+      },
+      "Hints": [
+        {
+          "Ar": "المنوال مرتبط بتكرار القيم وليس بترتيبها.",
+          "En": "Mode concerns frequencies, not order."
+        },
+        {
+          "Ar": "احسب عدد مرات ظهور كل قيمة واختر الأكثر تكراراً.",
+          "En": "Count each value's occurrences and select the most frequent."
+        }
+      ]
+    },
+    {
+      "problemId": 182,
+      "primarySkillKey": "primary-mode",
+      "question": {
+        "Ar": "ما المنوال: 5، 13، 5، 6، 5؟",
+        "En": "Find the mode: 5, 13, 5, 6, 5."
+      },
+      "Hints": [
+        {
+          "Ar": "المنوال مرتبط بتكرار القيم وليس بترتيبها.",
+          "En": "Mode concerns frequencies, not order."
+        },
+        {
+          "Ar": "احسب عدد مرات ظهور كل قيمة واختر الأكثر تكراراً.",
+          "En": "Count each value's occurrences and select the most frequent."
+        }
+      ]
+    },
+    {
+      "problemId": 194,
+      "primarySkillKey": "primary-mode",
+      "question": {
+        "Ar": "ما المنوال: 6، 15، 6، 7، 6؟",
+        "En": "Find the mode: 6, 15, 6, 7, 6."
+      },
+      "Hints": [
+        {
+          "Ar": "المنوال مرتبط بتكرار القيم وليس بترتيبها.",
+          "En": "Mode concerns frequencies, not order."
+        },
+        {
+          "Ar": "احسب عدد مرات ظهور كل قيمة واختر الأكثر تكراراً.",
+          "En": "Count each value's occurrences and select the most frequent."
+        }
+      ]
+    },
+    {
+      "problemId": 206,
+      "primarySkillKey": "primary-mode",
+      "question": {
+        "Ar": "ما المنوال: 7، 17، 7، 8، 7؟",
+        "En": "Find the mode: 7, 17, 7, 8, 7."
+      },
+      "Hints": [
+        {
+          "Ar": "المنوال مرتبط بتكرار القيم وليس بترتيبها.",
+          "En": "Mode concerns frequencies, not order."
+        },
+        {
+          "Ar": "احسب عدد مرات ظهور كل قيمة واختر الأكثر تكراراً.",
+          "En": "Count each value's occurrences and select the most frequent."
+        }
+      ]
+    },
+    {
+      "problemId": 160,
+      "primarySkillKey": "primary-median",
+      "question": {
+        "Ar": "ما وسيط القيم المرتبة 6، 9، 10، 13، 17؟",
+        "En": "What is the median of ordered values 6, 9, 10, 13, 17?"
+      },
+      "Hints": [
+        {
+          "Ar": "القيم مرتبة وفيها خمس مشاهدات.",
+          "En": "The values are ordered and there are five observations."
+        },
+        {
+          "Ar": "استبعد قيمتين من كل طرف؛ القيمة الباقية في الوسط هي الوسيط.",
+          "En": "Remove two values from each end; the remaining middle value is the median."
+        }
+      ]
+    },
+    {
+      "problemId": 172,
+      "primarySkillKey": "primary-median",
+      "question": {
+        "Ar": "ما وسيط القيم المرتبة 9، 12، 13، 16، 20؟",
+        "En": "What is the median of ordered values 9, 12, 13, 16, 20?"
+      },
+      "Hints": [
+        {
+          "Ar": "القيم مرتبة وفيها خمس مشاهدات.",
+          "En": "The values are ordered and there are five observations."
+        },
+        {
+          "Ar": "استبعد قيمتين من كل طرف؛ القيمة الباقية في الوسط هي الوسيط.",
+          "En": "Remove two values from each end; the remaining middle value is the median."
+        }
+      ]
+    },
+    {
+      "problemId": 184,
+      "primarySkillKey": "primary-median",
+      "question": {
+        "Ar": "ما وسيط القيم المرتبة 12، 15، 16، 19، 23؟",
+        "En": "What is the median of ordered values 12, 15, 16, 19, 23?"
+      },
+      "Hints": [
+        {
+          "Ar": "القيم مرتبة وفيها خمس مشاهدات.",
+          "En": "The values are ordered and there are five observations."
+        },
+        {
+          "Ar": "استبعد قيمتين من كل طرف؛ القيمة الباقية في الوسط هي الوسيط.",
+          "En": "Remove two values from each end; the remaining middle value is the median."
+        }
+      ]
+    },
+    {
+      "problemId": 196,
+      "primarySkillKey": "primary-median",
+      "question": {
+        "Ar": "ما وسيط القيم المرتبة 15، 18، 19، 22، 26؟",
+        "En": "What is the median of ordered values 15, 18, 19, 22, 26?"
+      },
+      "Hints": [
+        {
+          "Ar": "القيم مرتبة وفيها خمس مشاهدات.",
+          "En": "The values are ordered and there are five observations."
+        },
+        {
+          "Ar": "استبعد قيمتين من كل طرف؛ القيمة الباقية في الوسط هي الوسيط.",
+          "En": "Remove two values from each end; the remaining middle value is the median."
+        }
+      ]
+    },
+    {
+      "problemId": 208,
+      "primarySkillKey": "primary-median",
+      "question": {
+        "Ar": "ما وسيط القيم المرتبة 18، 21، 22، 25، 29؟",
+        "En": "What is the median of ordered values 18, 21, 22, 25, 29?"
+      },
+      "Hints": [
+        {
+          "Ar": "القيم مرتبة وفيها خمس مشاهدات.",
+          "En": "The values are ordered and there are five observations."
+        },
+        {
+          "Ar": "استبعد قيمتين من كل طرف؛ القيمة الباقية في الوسط هي الوسيط.",
+          "En": "Remove two values from each end; the remaining middle value is the median."
+        }
+      ]
+    },
+    {
+      "problemId": 65,
+      "primarySkillKey": "university-gradient",
+      "question": {
+        "Ar": "إذا كانت f(x,y) = x² + y²، فما متجه التدرج عند النقطة (1,2)؟",
+        "En": "For f(x,y) = x² + y², what is its gradient at (1,2)?"
+      },
+      "Hints": [
+        {
+          "Ar": "التدرج متجه يتكون من المشتقات الجزئية بالنسبة إلى x وy.",
+          "En": "The gradient is a vector of partial derivatives in x and y."
+        },
+        {
+          "Ar": "اشتق x²+y² بالنسبة إلى كل متغير على حدة، ثم عوّض النقطة في المركبتين.",
+          "En": "Differentiate x²+y² with respect to each variable separately, then evaluate both components at the point."
+        }
+      ]
+    },
+    {
+      "problemId": 330,
+      "primarySkillKey": "university-gradient",
+      "question": {
+        "Ar": "ما تدرج \\(f(x,y)=x^2+y^2\\) عند النقطة (2،3)؟",
+        "En": "Find gradient of \\(f(x,y)=x^2+y^2\\) at (2,3)."
+      },
+      "Hints": [
+        {
+          "Ar": "التدرج متجه يتكون من المشتقات الجزئية بالنسبة إلى x وy.",
+          "En": "The gradient is a vector of partial derivatives in x and y."
+        },
+        {
+          "Ar": "اشتق x²+y² بالنسبة إلى كل متغير على حدة، ثم عوّض النقطة في المركبتين.",
+          "En": "Differentiate x²+y² with respect to each variable separately, then evaluate both components at the point."
+        }
+      ]
+    },
+    {
+      "problemId": 342,
+      "primarySkillKey": "university-gradient",
+      "question": {
+        "Ar": "ما تدرج \\(f(x,y)=x^2+y^2\\) عند النقطة (3،4)؟",
+        "En": "Find gradient of \\(f(x,y)=x^2+y^2\\) at (3,4)."
+      },
+      "Hints": [
+        {
+          "Ar": "التدرج متجه يتكون من المشتقات الجزئية بالنسبة إلى x وy.",
+          "En": "The gradient is a vector of partial derivatives in x and y."
+        },
+        {
+          "Ar": "اشتق x²+y² بالنسبة إلى كل متغير على حدة، ثم عوّض النقطة في المركبتين.",
+          "En": "Differentiate x²+y² with respect to each variable separately, then evaluate both components at the point."
+        }
+      ]
+    },
+    {
+      "problemId": 354,
+      "primarySkillKey": "university-gradient",
+      "question": {
+        "Ar": "ما تدرج \\(f(x,y)=x^2+y^2\\) عند النقطة (4،5)؟",
+        "En": "Find gradient of \\(f(x,y)=x^2+y^2\\) at (4,5)."
+      },
+      "Hints": [
+        {
+          "Ar": "التدرج متجه يتكون من المشتقات الجزئية بالنسبة إلى x وy.",
+          "En": "The gradient is a vector of partial derivatives in x and y."
+        },
+        {
+          "Ar": "اشتق x²+y² بالنسبة إلى كل متغير على حدة، ثم عوّض النقطة في المركبتين.",
+          "En": "Differentiate x²+y² with respect to each variable separately, then evaluate both components at the point."
+        }
+      ]
+    },
+    {
+      "problemId": 366,
+      "primarySkillKey": "university-gradient",
+      "question": {
+        "Ar": "ما تدرج \\(f(x,y)=x^2+y^2\\) عند النقطة (5،6)؟",
+        "En": "Find gradient of \\(f(x,y)=x^2+y^2\\) at (5,6)."
+      },
+      "Hints": [
+        {
+          "Ar": "التدرج متجه يتكون من المشتقات الجزئية بالنسبة إلى x وy.",
+          "En": "The gradient is a vector of partial derivatives in x and y."
+        },
+        {
+          "Ar": "اشتق x²+y² بالنسبة إلى كل متغير على حدة، ثم عوّض النقطة في المركبتين.",
+          "En": "Differentiate x²+y² with respect to each variable separately, then evaluate both components at the point."
+        }
+      ]
+    },
+    {
+      "problemId": 378,
+      "primarySkillKey": "university-gradient",
+      "question": {
+        "Ar": "ما تدرج \\(f(x,y)=x^2+y^2\\) عند النقطة (6،7)؟",
+        "En": "Find gradient of \\(f(x,y)=x^2+y^2\\) at (6,7)."
+      },
+      "Hints": [
+        {
+          "Ar": "التدرج متجه يتكون من المشتقات الجزئية بالنسبة إلى x وy.",
+          "En": "The gradient is a vector of partial derivatives in x and y."
+        },
+        {
+          "Ar": "اشتق x²+y² بالنسبة إلى كل متغير على حدة، ثم عوّض النقطة في المركبتين.",
+          "En": "Differentiate x²+y² with respect to each variable separately, then evaluate both components at the point."
+        }
+      ]
+    },
+    {
+      "problemId": 59,
+      "primarySkillKey": "middle-unit-rates",
+      "question": {
+        "Ar": "ثمن أربعة أقلام 12، فكم ثمن سبعة أقلام بالسعر نفسه؟",
+        "En": "Four identical pens cost 12 units. How much do seven cost at the same rate?"
+      },
+      "Hints": [
+        {
+          "Ar": "احسب ثمن قطعة واحدة أولاً.",
+          "En": "Find the price of one item first."
+        },
+        {
+          "Ar": "اقسم الثمن المعلوم على العدد المعلوم ثم اضرب سعر الوحدة في العدد المطلوب.",
+          "En": "Divide the known cost by the known quantity, then multiply the unit rate by the requested quantity."
+        }
+      ]
+    },
+    {
+      "problemId": 75,
+      "primarySkillKey": "middle-unit-rates",
+      "question": {
+        "Ar": "إذا كان ثمن 3 دفاتر 12، فما ثمن 5 دفاتر بالسعر نفسه؟",
+        "En": "If three notebooks cost 12, how much do five cost at the same price per notebook?"
+      },
+      "Hints": [
+        {
+          "Ar": "احسب ثمن قطعة واحدة أولاً.",
+          "En": "Find the price of one item first."
+        },
+        {
+          "Ar": "اقسم الثمن المعلوم على العدد المعلوم ثم اضرب سعر الوحدة في العدد المطلوب.",
+          "En": "Divide the known cost by the known quantity, then multiply the unit rate by the requested quantity."
+        }
+      ]
+    },
+    {
+      "problemId": 90,
+      "primarySkillKey": "middle-unit-rates",
+      "question": {
+        "Ar": "إذا كان ثمن 3 دفاتر 15، فما ثمن 5 دفاتر بالسعر نفسه؟",
+        "En": "If three notebooks cost 15, how much do five cost at the same price per notebook?"
+      },
+      "Hints": [
+        {
+          "Ar": "احسب ثمن قطعة واحدة أولاً.",
+          "En": "Find the price of one item first."
+        },
+        {
+          "Ar": "اقسم الثمن المعلوم على العدد المعلوم ثم اضرب سعر الوحدة في العدد المطلوب.",
+          "En": "Divide the known cost by the known quantity, then multiply the unit rate by the requested quantity."
+        }
+      ]
+    },
+    {
+      "problemId": 105,
+      "primarySkillKey": "middle-unit-rates",
+      "question": {
+        "Ar": "إذا كان ثمن 3 دفاتر 18، فما ثمن 5 دفاتر بالسعر نفسه؟",
+        "En": "If three notebooks cost 18, how much do five cost at the same price per notebook?"
+      },
+      "Hints": [
+        {
+          "Ar": "احسب ثمن قطعة واحدة أولاً.",
+          "En": "Find the price of one item first."
+        },
+        {
+          "Ar": "اقسم الثمن المعلوم على العدد المعلوم ثم اضرب سعر الوحدة في العدد المطلوب.",
+          "En": "Divide the known cost by the known quantity, then multiply the unit rate by the requested quantity."
+        }
+      ]
+    },
+    {
+      "problemId": 120,
+      "primarySkillKey": "middle-unit-rates",
+      "question": {
+        "Ar": "إذا كان ثمن 3 دفاتر 21، فما ثمن 5 دفاتر بالسعر نفسه؟",
+        "En": "If three notebooks cost 21, how much do five cost at the same price per notebook?"
+      },
+      "Hints": [
+        {
+          "Ar": "احسب ثمن قطعة واحدة أولاً.",
+          "En": "Find the price of one item first."
+        },
+        {
+          "Ar": "اقسم الثمن المعلوم على العدد المعلوم ثم اضرب سعر الوحدة في العدد المطلوب.",
+          "En": "Divide the known cost by the known quantity, then multiply the unit rate by the requested quantity."
+        }
+      ]
+    },
+    {
+      "problemId": 135,
+      "primarySkillKey": "middle-unit-rates",
+      "question": {
+        "Ar": "إذا كان ثمن 3 دفاتر 24، فما ثمن 5 دفاتر بالسعر نفسه؟",
+        "En": "If three notebooks cost 24, how much do five cost at the same price per notebook?"
+      },
+      "Hints": [
+        {
+          "Ar": "احسب ثمن قطعة واحدة أولاً.",
+          "En": "Find the price of one item first."
+        },
+        {
+          "Ar": "اقسم الثمن المعلوم على العدد المعلوم ثم اضرب سعر الوحدة في العدد المطلوب.",
+          "En": "Divide the known cost by the known quantity, then multiply the unit rate by the requested quantity."
+        }
+      ]
+    },
+    {
+      "problemId": 42,
+      "primarySkillKey": "middle-quadratic-function-evaluation",
+      "question": {
+        "Ar": "إذا كانت f(x) = x² - 3، فأوجد f(4).",
+        "En": "If f(x) = x² - 3, find f(4)."
+      },
+      "Hints": [
+        {
+          "Ar": "استبدل x بالقيمة المطلوبة في تعريف الدالة.",
+          "En": "Substitute the requested x in the function definition."
+        },
+        {
+          "Ar": "احسب القوة التربيعية أولاً ثم الضرب، وبعده الجمع أو الطرح.",
+          "En": "Evaluate the square first, then multiplication, followed by addition or subtraction."
+        }
+      ]
+    },
+    {
+      "problemId": 214,
+      "primarySkillKey": "middle-quadratic-function-evaluation",
+      "question": {
+        "Ar": "إذا كانت \\(g(x)=2x^2+3\\)، أوجد \\(g(2)\\).",
+        "En": "Given \\(g(x)=2x^2+3\\), find g(2)."
+      },
+      "Hints": [
+        {
+          "Ar": "استبدل x بالقيمة المطلوبة في تعريف الدالة.",
+          "En": "Substitute the requested x in the function definition."
+        },
+        {
+          "Ar": "احسب القوة التربيعية أولاً ثم الضرب، وبعده الجمع أو الطرح.",
+          "En": "Evaluate the square first, then multiplication, followed by addition or subtraction."
+        }
+      ]
+    },
+    {
+      "problemId": 226,
+      "primarySkillKey": "middle-quadratic-function-evaluation",
+      "question": {
+        "Ar": "إذا كانت \\(g(x)=3x^2+4\\)، أوجد \\(g(3)\\).",
+        "En": "Given \\(g(x)=3x^2+4\\), find g(3)."
+      },
+      "Hints": [
+        {
+          "Ar": "استبدل x بالقيمة المطلوبة في تعريف الدالة.",
+          "En": "Substitute the requested x in the function definition."
+        },
+        {
+          "Ar": "احسب القوة التربيعية أولاً ثم الضرب، وبعده الجمع أو الطرح.",
+          "En": "Evaluate the square first, then multiplication, followed by addition or subtraction."
+        }
+      ]
+    },
+    {
+      "problemId": 238,
+      "primarySkillKey": "middle-quadratic-function-evaluation",
+      "question": {
+        "Ar": "إذا كانت \\(g(x)=4x^2+5\\)، أوجد \\(g(4)\\).",
+        "En": "Given \\(g(x)=4x^2+5\\), find g(4)."
+      },
+      "Hints": [
+        {
+          "Ar": "استبدل x بالقيمة المطلوبة في تعريف الدالة.",
+          "En": "Substitute the requested x in the function definition."
+        },
+        {
+          "Ar": "احسب القوة التربيعية أولاً ثم الضرب، وبعده الجمع أو الطرح.",
+          "En": "Evaluate the square first, then multiplication, followed by addition or subtraction."
+        }
+      ]
+    },
+    {
+      "problemId": 250,
+      "primarySkillKey": "middle-quadratic-function-evaluation",
+      "question": {
+        "Ar": "إذا كانت \\(g(x)=5x^2+6\\)، أوجد \\(g(5)\\).",
+        "En": "Given \\(g(x)=5x^2+6\\), find g(5)."
+      },
+      "Hints": [
+        {
+          "Ar": "استبدل x بالقيمة المطلوبة في تعريف الدالة.",
+          "En": "Substitute the requested x in the function definition."
+        },
+        {
+          "Ar": "احسب القوة التربيعية أولاً ثم الضرب، وبعده الجمع أو الطرح.",
+          "En": "Evaluate the square first, then multiplication, followed by addition or subtraction."
+        }
+      ]
+    },
+    {
+      "problemId": 262,
+      "primarySkillKey": "middle-quadratic-function-evaluation",
+      "question": {
+        "Ar": "إذا كانت \\(g(x)=6x^2+7\\)، أوجد \\(g(6)\\).",
+        "En": "Given \\(g(x)=6x^2+7\\), find g(6)."
+      },
+      "Hints": [
+        {
+          "Ar": "استبدل x بالقيمة المطلوبة في تعريف الدالة.",
+          "En": "Substitute the requested x in the function definition."
+        },
+        {
+          "Ar": "احسب القوة التربيعية أولاً ثم الضرب، وبعده الجمع أو الطرح.",
+          "En": "Evaluate the square first, then multiplication, followed by addition or subtraction."
+        }
+      ]
+    },
+    {
+      "problemId": 57,
+      "primarySkillKey": "middle-gcd",
+      "question": {
+        "Ar": "ما القاسم المشترك الأكبر للعددين 48 و60؟",
+        "En": "What is the greatest common divisor of 48 and 60?"
+      },
+      "Hints": [
+        {
+          "Ar": "القاسم المشترك يجب أن يقسم العددين دون باقٍ.",
+          "En": "A common divisor must divide both numbers exactly."
+        },
+        {
+          "Ar": "اكتب قواسم العددين أو استخدم خوارزمية إقليدس، ثم اختر أكبر قاسم مشترك.",
+          "En": "List both sets of divisors or use Euclid's algorithm to find the greatest common divisor."
+        }
+      ]
+    },
+    {
+      "problemId": 209,
+      "primarySkillKey": "middle-gcd",
+      "question": {
+        "Ar": "أوجد القاسم المشترك الأكبر لـ6 و10.",
+        "En": "Find gcd(6,10)."
+      },
+      "Hints": [
+        {
+          "Ar": "القاسم المشترك يجب أن يقسم العددين دون باقٍ.",
+          "En": "A common divisor must divide both numbers exactly."
+        },
+        {
+          "Ar": "اكتب قواسم العددين أو استخدم خوارزمية إقليدس، ثم اختر أكبر قاسم مشترك.",
+          "En": "List both sets of divisors or use Euclid's algorithm to find the greatest common divisor."
+        }
+      ]
+    },
+    {
+      "problemId": 221,
+      "primarySkillKey": "middle-gcd",
+      "question": {
+        "Ar": "أوجد القاسم المشترك الأكبر لـ9 و15.",
+        "En": "Find gcd(9,15)."
+      },
+      "Hints": [
+        {
+          "Ar": "القاسم المشترك يجب أن يقسم العددين دون باقٍ.",
+          "En": "A common divisor must divide both numbers exactly."
+        },
+        {
+          "Ar": "اكتب قواسم العددين أو استخدم خوارزمية إقليدس، ثم اختر أكبر قاسم مشترك.",
+          "En": "List both sets of divisors or use Euclid's algorithm to find the greatest common divisor."
+        }
+      ]
+    },
+    {
+      "problemId": 233,
+      "primarySkillKey": "middle-gcd",
+      "question": {
+        "Ar": "أوجد القاسم المشترك الأكبر لـ12 و20.",
+        "En": "Find gcd(12,20)."
+      },
+      "Hints": [
+        {
+          "Ar": "القاسم المشترك يجب أن يقسم العددين دون باقٍ.",
+          "En": "A common divisor must divide both numbers exactly."
+        },
+        {
+          "Ar": "اكتب قواسم العددين أو استخدم خوارزمية إقليدس، ثم اختر أكبر قاسم مشترك.",
+          "En": "List both sets of divisors or use Euclid's algorithm to find the greatest common divisor."
+        }
+      ]
+    },
+    {
+      "problemId": 245,
+      "primarySkillKey": "middle-gcd",
+      "question": {
+        "Ar": "أوجد القاسم المشترك الأكبر لـ15 و25.",
+        "En": "Find gcd(15,25)."
+      },
+      "Hints": [
+        {
+          "Ar": "القاسم المشترك يجب أن يقسم العددين دون باقٍ.",
+          "En": "A common divisor must divide both numbers exactly."
+        },
+        {
+          "Ar": "اكتب قواسم العددين أو استخدم خوارزمية إقليدس، ثم اختر أكبر قاسم مشترك.",
+          "En": "List both sets of divisors or use Euclid's algorithm to find the greatest common divisor."
+        }
+      ]
+    },
+    {
+      "problemId": 257,
+      "primarySkillKey": "middle-gcd",
+      "question": {
+        "Ar": "أوجد القاسم المشترك الأكبر لـ18 و30.",
+        "En": "Find gcd(18,30)."
+      },
+      "Hints": [
+        {
+          "Ar": "القاسم المشترك يجب أن يقسم العددين دون باقٍ.",
+          "En": "A common divisor must divide both numbers exactly."
+        },
+        {
+          "Ar": "اكتب قواسم العددين أو استخدم خوارزمية إقليدس، ثم اختر أكبر قاسم مشترك.",
+          "En": "List both sets of divisors or use Euclid's algorithm to find the greatest common divisor."
+        }
+      ]
+    },
+    {
+      "problemId": 277,
+      "primarySkillKey": "secondary-definite-integrals",
+      "question": {
+        "Ar": "احسب \\(\\int_0^{3} 4t\\,dt\\).",
+        "En": "Evaluate \\(\\int_0^{3} 4t\\,dt\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "أوجد دالة أصلية للتعبير باستخدام قاعدة تكامل القوى.",
+          "En": "Find an antiderivative using the integration power rule."
+        },
+        {
+          "Ar": "عوّض الحد الأعلى في الدالة الأصلية ثم اطرح قيمتها عند الحد الأدنى.",
+          "En": "Evaluate the antiderivative at the upper bound and subtract its value at the lower bound."
+        }
+      ]
+    },
+    {
+      "problemId": 289,
+      "primarySkillKey": "secondary-definite-integrals",
+      "question": {
+        "Ar": "احسب \\(\\int_0^{4} 6t\\,dt\\).",
+        "En": "Evaluate \\(\\int_0^{4} 6t\\,dt\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "أوجد دالة أصلية للتعبير باستخدام قاعدة تكامل القوى.",
+          "En": "Find an antiderivative using the integration power rule."
+        },
+        {
+          "Ar": "عوّض الحد الأعلى في الدالة الأصلية ثم اطرح قيمتها عند الحد الأدنى.",
+          "En": "Evaluate the antiderivative at the upper bound and subtract its value at the lower bound."
+        }
+      ]
+    },
+    {
+      "problemId": 301,
+      "primarySkillKey": "secondary-definite-integrals",
+      "question": {
+        "Ar": "احسب \\(\\int_0^{5} 8t\\,dt\\).",
+        "En": "Evaluate \\(\\int_0^{5} 8t\\,dt\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "أوجد دالة أصلية للتعبير باستخدام قاعدة تكامل القوى.",
+          "En": "Find an antiderivative using the integration power rule."
+        },
+        {
+          "Ar": "عوّض الحد الأعلى في الدالة الأصلية ثم اطرح قيمتها عند الحد الأدنى.",
+          "En": "Evaluate the antiderivative at the upper bound and subtract its value at the lower bound."
+        }
+      ]
+    },
+    {
+      "problemId": 313,
+      "primarySkillKey": "secondary-definite-integrals",
+      "question": {
+        "Ar": "احسب \\(\\int_0^{6} 10t\\,dt\\).",
+        "En": "Evaluate \\(\\int_0^{6} 10t\\,dt\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "أوجد دالة أصلية للتعبير باستخدام قاعدة تكامل القوى.",
+          "En": "Find an antiderivative using the integration power rule."
+        },
+        {
+          "Ar": "عوّض الحد الأعلى في الدالة الأصلية ثم اطرح قيمتها عند الحد الأدنى.",
+          "En": "Evaluate the antiderivative at the upper bound and subtract its value at the lower bound."
+        }
+      ]
+    },
+    {
+      "problemId": 325,
+      "primarySkillKey": "secondary-definite-integrals",
+      "question": {
+        "Ar": "احسب \\(\\int_0^{7} 12t\\,dt\\).",
+        "En": "Evaluate \\(\\int_0^{7} 12t\\,dt\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "أوجد دالة أصلية للتعبير باستخدام قاعدة تكامل القوى.",
+          "En": "Find an antiderivative using the integration power rule."
+        },
+        {
+          "Ar": "عوّض الحد الأعلى في الدالة الأصلية ثم اطرح قيمتها عند الحد الأدنى.",
+          "En": "Evaluate the antiderivative at the upper bound and subtract its value at the lower bound."
+        }
+      ]
+    },
+    {
+      "problemId": 862,
+      "primarySkillKey": "secondary-definite-integrals",
+      "question": {
+        "Ar": "ما قيمة التكامل المحدد من 0 إلى 2 للدالة 3x²+1؟",
+        "En": "Evaluate the definite integral of 3x²+1 from x=0 to x=2."
+      },
+      "Hints": [
+        {
+          "Ar": "أوجد دالة أصلية للتعبير باستخدام قاعدة تكامل القوى.",
+          "En": "Find an antiderivative using the integration power rule."
+        },
+        {
+          "Ar": "عوّض الحد الأعلى في الدالة الأصلية ثم اطرح قيمتها عند الحد الأدنى.",
+          "En": "Evaluate the antiderivative at the upper bound and subtract its value at the lower bound."
+        }
+      ]
     }
   ]
 }

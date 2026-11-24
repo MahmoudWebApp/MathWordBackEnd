@@ -5,7 +5,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 items = json.loads((ROOT / "content/editorial/g1-existing-hint-candidates-20261124.json").read_text(encoding="utf-8"))["items"]
 ids = [row["problemId"] for row in items]
-assert len(ids) == len(set(ids)) == 152
+assert len(ids) == len(set(ids)) == 345
 assert {row["problemId"] for row in items if row.get("taxonomyReviewPending")} == {1566, 1578}
 assert {23,145,340,352,364,376,388,512,800,818,851}.issubset(ids)
 assert not {10,20}.intersection(ids), "Do not attach new hints to unresolved wording revisions"
@@ -18,7 +18,7 @@ for row in items:
         hints = [h[lang].strip() for h in row["Hints"]]
         assert all(0 < len(h) <= 1000 for h in hints)
         assert hints[0] != hints[1]
-print("PASS: 152 source-bound bilingual hint pairs; 2 taxonomy-held; no unresolved wording imports")
+print("PASS: 345 source-bound bilingual hint pairs; 2 taxonomy-held; no unresolved wording imports")
 
 # Every new law-review hint is bound to both independently retained source manifests.
 primary=json.loads((ROOT/"content/editorial/g1-primary-grade-placement-20261124.json").read_text(encoding="utf-8"))["Items"]
@@ -54,3 +54,15 @@ for r in wave03:
     assert by_id[i]["question"]==r["Content"]["Question"]
     assert by_id[i]["primarySkillKey"]==r["PrimarySkillKey"]
 print("PASS: all 56 adequate-review questions and 20 wave-three amendments have canonical hints")
+
+# Reviewed family expansion: explicit source IDs only, no automatic category-wide assignment.
+family_ids = {"secondary-right-triangle-trig-ratios":[78,93,108,123,138,272,284,296,308,320,273,285,297,309,321],"middle-pythagorean-theorem":[44,76,91,106,121,136,219,231,243,255,267,857],"secondary-polynomial-derivatives":[47,79,94,109,124,139,859,275,287,299,311,323],"university-matrix-determinants":[30,50,82,97,112,127,142,334,346,358,370,382],"university-sequence-limits":[52,146,338,350,362,374,386,339,351,363,375,387],"university-partial-derivatives":[49,81,96,111,126,141,329,341,353,365,377],"university-integrating-ode":[51,335,347,359,371,383,337,349,361,373,385],"middle-exponent-laws":[73,88,103,118,133,210,222,234,246,258],"secondary-vieta-roots":[77,92,107,122,137,269,281,293,305,317],"primary-multiplication":[53,149,161,173,185,197,854],"primary-multiplicative-word-problems":[151,163,175,187,199,852,853],"secondary-indefinite-integrals":[63,276,288,300,312,324,861],"university-exponential-ode":[67,83,98,113,128,143,864],"primary-rectangle-area":[9,71,86,101,131],"primary-two-step-equations":[152,164,176,188,200],"primary-triangle-angle-sum":[156,168,180,192,204],"primary-unit-conversions":[157,169,181,193,205],"primary-mode":[158,170,182,194,206],"primary-median":[160,172,184,196,208],"university-gradient":[65,330,342,354,366,378],"middle-unit-rates":[59,75,90,105,120,135],"middle-quadratic-function-evaluation":[42,214,226,238,250,262],"middle-gcd":[57,209,221,233,245,257],"secondary-definite-integrals":[277,289,301,313,325,862]}
+assert sum(len(v) for v in family_ids.values())==193
+assert len({i for ids in family_ids.values() for i in ids})==193
+for skill, ids in family_ids.items():
+    for i in ids:
+        r=by_id[i]; s=source[i]
+        assert r["primarySkillKey"]==s["StableKey"]==skill
+        assert not s.get("RequiresWordingReview") and not s.get("SkillReview")
+        assert r["question"]=={"Ar":s["ExpectedQuestionAr"],"En":s["ExpectedQuestionEn"]}
+print("PASS: 193 explicitly reviewed family hints source-bound")
