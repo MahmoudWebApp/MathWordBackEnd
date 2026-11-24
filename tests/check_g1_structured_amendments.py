@@ -926,3 +926,89 @@ for row in thirteenth["Items"]:
         assert all(parse(sol["Result"][lang])==expected for lang in ("Ar","En")),i
     assert 1<=len(sol["Steps"])<=20 and all(pair(s) for s in sol["Steps"])
 print("PASS: 60 wave-13 university questions; independent calculation and source guards")
+
+
+# Wave 14: additional university variants, exact finite counting,
+# truth tables, linear independence, integration and convergence.
+fourteenth=load("g1-structured-amendments-wave14-20261124.json")
+fourteenth_ids={r["ProblemId"] for r in fourteenth["Items"]}
+assert fourteenth["Status"]==wave["Status"]
+assert len(fourteenth_ids)==len(fourteenth["Items"])==60
+assert not fourteenth_ids.intersection(wave_ids|fourth_ids|fifth_ids|sixth_ids|seventh_ids|eighth_ids|ninth_ids|tenth_ids|eleventh_ids|twelfth_ids|thirteenth_ids|{r["ProblemId"] for r in d["Items"]})
+def independent_fourteenth(row):
+    i=row["ProblemId"]; q=row["Content"]["Question"]["En"]; k=row["PrimarySkillKey"]
+    def norm(s): return s.strip("$").replace(" ","")
+    def number(s):
+        s=norm(s)
+        if s.startswith(r"\text") or s.endswith(r"\infty"): return s
+        return rational(s)
+    if i<=388:
+        if k=="university-intermediate-value-theorem":
+            return r"\text{الدالة متصلة على [0,1] (Continuous on [0,1])}",str
+        return independent_thirteenth(row)
+    if i in (445,446):
+        from itertools import product
+        pairs=list(product((False,True),repeat=2))
+        imp=lambda a,b:not a or b
+        funcs={
+            r"Q\Rightarrow P":lambda p,q:imp(q,p),
+            r"\neg P\Rightarrow\neg Q":lambda p,q:imp(not p,not q),
+            r"P\land Q":lambda p,q:p and q,
+            r"\neg Q\Rightarrow\neg P":lambda p,q:imp(not q,not p),
+            r"\neg P\lor\neg Q":lambda p,q:not p or not q,
+            r"\neg P\land\neg Q":lambda p,q:not p and not q,
+            r"P\lor Q":lambda p,q:p or q,
+            r"P\land\neg Q":lambda p,q:p and not q
+        }
+        fn=imp if i==445 else lambda p,q:not(p and q)
+        return tuple(fn(p,q) for p,q in pairs),lambda s:tuple(funcs[s.strip("$")](p,q) for p,q in pairs)
+    if i==780:
+        def order(s):
+            s=norm(s)
+            if "y^{(4)}" in s:return 4
+            if "y'''" in s:return 3
+            if "y''" in s:return 2
+            if "y'" in s:return 1
+            raise AssertionError(s)
+        return 4,order
+    if i in (488,492,782,783):
+        return {488:r"\text{صحيحة (True)}",492:r"\text{نعم (Yes)}",782:r"\text{تتباعد (Diverges)}",783:r"\text{تتقارب شرطياً (Conditionally convergent)}"}[i],str
+    from itertools import combinations, permutations
+    numeric={
+        444:len(list(combinations(range(7),2))),
+        447:sum([2,2,2,2])//2,
+        448:3,449:ceil(Fraction(13,12)),450:9-1,
+        489:len([x for x in combinations(range(6),3) if 0 in x]),
+        490:len({n%4 for n in range(-8,9)}),
+        491:len(list(combinations(range(5),2))),
+        647:Fraction(12,3),650:2,652:2,654:0,
+        656:next(x for x in range(20) if x==Fraction(x+6,2)),
+        713:3*Fraction(2**2,2)+2*Fraction(3**2,2),
+        716:Fraction(1,2)-Fraction(1,2),
+        718:0,719:Fraction(2,1),779:1,
+        788:len(list(permutations(range(1,5))))
+    }
+    return numeric[i],number
+for row in fourteenth["Items"]:
+    i=row["ProblemId"]; c=row["Content"]; g,p=placements[i]
+    assert row["Status"]=="StructuredAmendmentCandidateNotImported"
+    assert row["PrimarySkillKey"]==p["StableKey"] and row["ProposedTrackCode"]==g["Code"]
+    assert c["StageId"]==g["StageId"]==4 and c["CategoryId"]==p["CategoryId"] and c["PrimarySkillId"]==p["PrimarySkillId"]
+    assert c["Question"]=={"Ar":p["ExpectedQuestionAr"],"En":p["ExpectedQuestionEn"]}
+    assert pair(row["ExpectedLegacySolution"]) and pair(c["Title"])
+    assert len(row["ExpectedOptionIds"])==len(set(row["ExpectedOptionIds"]))==4
+    opts=c["Options"]; assert len(opts)==4 and sum(o["IsCorrect"] for o in opts)==1
+    expected,parse=independent_fourteenth(row)
+    values=[parse(o["LatexCode"]) for o in opts]
+    assert all(o["IsCorrect"]==(v==expected) for v,o in zip(values,opts)),i
+    assert all(o["ErrorType"] and pair(o["Reason"]) for o in opts if not o["IsCorrect"])
+    assert len(c["Hints"])==2 and all(pair(h) for h in c["Hints"])
+    assert all(c["Hints"][0][k]!=c["Hints"][1][k] for k in ("Ar","En"))
+    sol=c["Solution"]
+    assert sol["FormulaLatex"] and not sol["FormulaLatex"].startswith("$")
+    assert all(pair(sol[k]) for k in ("Idea","Substitution","Result","Unit","Verification","CommonError"))
+    labels={364:"Continuity on [0,1]",376:"Continuity on [0,1]",388:"Continuity on [0,1]",488:"True",492:"Yes, necessarily",782:"Diverges",783:"Conditionally convergent"}
+    if i in labels: assert sol["Result"]["En"]==labels[i]
+    else: assert all(parse(sol["Result"][lang])==expected for lang in ("Ar","En")),i
+    assert 1<=len(sol["Steps"])<=20 and all(pair(s) for s in sol["Steps"])
+print("PASS: 60 wave-14 university questions, counting and truth-table checks")
