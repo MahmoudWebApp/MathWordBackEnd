@@ -57,6 +57,9 @@ namespace MathWorldAPI.Controllers
                 return StatusCode(StatusCodes.Status403Forbidden,
                     new { Message = "CategoryLocked" });
 
+            if(!await HttpContext.RequestServices.GetRequiredService<LearningTrackService>()
+                .CanPracticeAsync(User,problemId,cancellationToken))
+                return StatusCode(403,new{Message="CurrentTrackOnly"});
             var language = LanguageHelper.GetLanguageFromRequest(Request);
             var correctOptionId = await _db.QuestionOptions
                 .AsNoTracking().Where(o => o.ProblemId == problemId && o.IsCorrect)

@@ -534,6 +534,14 @@ namespace MathWorldAPI.Controllers
                         stageId.Value);
             }
 
+            var trackService=HttpContext.RequestServices.GetRequiredService<LearningTrackService>();
+            var activeTrack=await trackService.ActiveForStudentAsync(User,HttpContext.RequestAborted);
+            if(activeTrack is not null)
+            {
+                var scope=trackService.ValidProblems(activeTrack.Id);
+                query=query.Where(p=>scope.Any(q=>q.Id==p.Id));
+            }
+
             // Filter by server-owned progress BEFORE Count/Skip/Take.
             // Filtering only visible cards would strand unsolved questions
             // on later pages and produce misleading empty screens.
@@ -770,6 +778,10 @@ namespace MathWorldAPI.Controllers
                 problem.StageId, problem.CategoryId, HttpContext.RequestAborted))
                 return StatusCode(StatusCodes.Status403Forbidden,
                     new { Message = "CategoryLocked" });
+
+            if(!await HttpContext.RequestServices.GetRequiredService<LearningTrackService>()
+                .CanPracticeAsync(User,problem.Id,HttpContext.RequestAborted))
+                return StatusCode(403,new{Message="CurrentTrackOnly"});
 
             var categoryIcon =
                 _imgBbStorage.GetFullUrl(
@@ -1101,6 +1113,10 @@ namespace MathWorldAPI.Controllers
                     LanguageHelper.ErrorResponse<object>(
                         "CategoryLocked", language, StatusCodes.Status403Forbidden));
 
+            if(!await HttpContext.RequestServices.GetRequiredService<LearningTrackService>()
+                .CanPracticeAsync(User,problem.Id,cancellationToken))
+                return StatusCode(403,new{Message="CurrentTrackOnly"});
+
             return Ok(LanguageHelper.SuccessResponse(new
             {
                 ProblemId = problem.Id,
@@ -1202,6 +1218,10 @@ namespace MathWorldAPI.Controllers
                 problem.StageId, problem.CategoryId, HttpContext.RequestAborted))
                 return StatusCode(StatusCodes.Status403Forbidden,
                     new { Message = "CategoryLocked" });
+
+            if(!await HttpContext.RequestServices.GetRequiredService<LearningTrackService>()
+                .CanPracticeAsync(User,problem.Id,HttpContext.RequestAborted))
+                return StatusCode(403,new{Message="CurrentTrackOnly"});
 
             var selectedOption =
                 problem.Options

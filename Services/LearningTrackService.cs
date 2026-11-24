@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using MathWorldAPI.Data;
 using MathWorldAPI.Models;
 using Microsoft.EntityFrameworkCore;
@@ -17,6 +18,21 @@ public sealed class LearningTrackService(AppDbContext db, IConfiguration config,
     {
         if(!Enabled || !stageId.HasValue || !trackId.HasValue)return null;
         return await VisibleTracks().SingleOrDefaultAsync(t=>t.StageId==stageId && t.Id==trackId,ct);
+    }
+
+    public async Task<LearningTrack?> ActiveForStudentAsync(ClaimsPrincipal principal,CancellationToken ct)
+    {
+        if(!Enabled || !principal.IsInRole("Student") ||
+            !int.TryParse(principal.FindFirstValue(ClaimTypes.NameIdentifier),out var id))return null;
+        var selected=await db.Users.AsNoTracking().Where(u=>u.Id==id&&u.IsActive&&u.Role=="Student")
+            .Select(u=>new{u.CurrentStageId,u.CurrentTrackId}).SingleOrDefaultAsync(ct);
+        return selected is null?null:await ActiveAsync(selected.CurrentStageId,selected.CurrentTrackId,ct);
+    }
+
+    public async Task<bool> CanPracticeAsync(ClaimsPrincipal principal,int problemId,CancellationToken ct)
+    {
+        var track=await ActiveForStudentAsync(principal,ct);
+        return track is null || await ValidProblems(track.Id).AnyAsync(p=>p.Id==problemId,ct);
     }
 
     // Recheck original stage/category and published primary skill every time.

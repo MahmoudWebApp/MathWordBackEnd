@@ -498,6 +498,10 @@ namespace MathWorldAPI.Controllers
                 .GetRequiredService<ProblemCategoryAccessService>()
                 .GetAllowedCategoryIdsAsync(User, HttpContext.RequestAborted);
 
+            var tracks=HttpContext.RequestServices.GetRequiredService<LearningTrackService>();
+            var track=await tracks.ActiveForStudentAsync(User,HttpContext.RequestAborted);
+            var scopedProblems=track is null?_context.Problems.AsNoTracking():tracks.ValidProblems(track.Id);
+
             var favorites =
                 await _context.UserProgresses
                     .AsNoTracking()
@@ -507,6 +511,7 @@ namespace MathWorldAPI.Controllers
                         progress.Problem.Category.StageId == progress.Problem.StageId &&
                         progress.UserId == userId &&
                         progress.Problem.StageId == activeStageId.Value &&
+                        scopedProblems.Any(p=>p.Id==progress.ProblemId) &&
                         progress.IsFavorite)
                     .OrderByDescending(progress =>
                         progress.LastAttemptAt)
@@ -587,6 +592,10 @@ namespace MathWorldAPI.Controllers
                 .GetRequiredService<ProblemCategoryAccessService>()
                 .GetAllowedCategoryIdsAsync(User, HttpContext.RequestAborted);
 
+            var tracks=HttpContext.RequestServices.GetRequiredService<LearningTrackService>();
+            var track=await tracks.ActiveForStudentAsync(User,HttpContext.RequestAborted);
+            var scopedProblems=track is null?_context.Problems.AsNoTracking():tracks.ValidProblems(track.Id);
+
             var solved =
                 await _context.UserProgresses
                     .AsNoTracking()
@@ -596,6 +605,7 @@ namespace MathWorldAPI.Controllers
                         progress.Problem.Category.StageId == progress.Problem.StageId &&
                         progress.UserId == userId &&
                         progress.Problem.StageId == activeStageId.Value &&
+                        scopedProblems.Any(p=>p.Id==progress.ProblemId) &&
                         progress.IsSolved)
                     .OrderByDescending(progress =>
                         progress.SolvedAt)
@@ -659,9 +669,9 @@ namespace MathWorldAPI.Controllers
             var userId =
                 GetUserId();
 
-            // The notebook retains attempts across educational stages.
-            // Its items are still restricted to categories currently
-            // accessible through the Free/Premium entitlement policy.
+            // Keep the underlying notebook across all stages and tracks.
+            // A selected track narrows its active view without deleting errors.
+            // Existing stage-only behavior stays unchanged when tracks are disabled.
             var language =
                 LanguageHelper.GetLanguageFromRequest(
                     Request);
@@ -679,6 +689,13 @@ namespace MathWorldAPI.Controllers
                         progress.Problem.Category.StageId == progress.Problem.StageId &&
                         progress.UserId == userId &&
                         progress.IsInErrorNotebook);
+
+            var tracks=HttpContext.RequestServices.GetRequiredService<LearningTrackService>();
+            var track=await tracks.ActiveForStudentAsync(User,HttpContext.RequestAborted);
+            var scopedProblems=track is null?_context.Problems.AsNoTracking():tracks.ValidProblems(track.Id);
+
+            if(track is not null)
+                query=query.Where(p=>scopedProblems.Any(q=>q.Id==p.ProblemId));
 
             if (!includeArchived)
             {

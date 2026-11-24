@@ -43,6 +43,13 @@ def verify_tracks(admin, student, uid, stage1, stage2):
     assert expect("GET",f"/api/users/learning-tracks/{tid}/progress",200,token=student)["Solved"]==0
     journey=expect("GET",f"/api/users/journey?stageId={stage1}",200,token=student)
     assert journey["TrackId"]==tid and journey["TotalProblems"]==1
+    scoped=expect("GET",f"/api/problems/search?stageId={stage1}",200,token=student)
+    assert scoped["Total"]==1 and scoped["Results"][0]["Id"]==pid
+    outside=sql(f'SELECT "Id" FROM "Problems" WHERE "StageId"={stage1} AND "CategoryId"={category} AND "Id"<>{pid} LIMIT 1')
+    if outside:
+        expect("GET",f"/api/problems/{outside}",403,token=student)
+        expect("POST","/api/problems/submit",403,{"ProblemId":int(outside),"SelectedOptionId":1,"TimeSpentSeconds":1},student)
+        expect("GET",f"/api/problems/{outside}/diagram",403,token=student)
     expect("POST","/api/users/practice/reset",409,{"StageId":stage1},student)
     expect("GET","/api/users/learning-tracks/continue",403,token=student)
     # Disposable fixture only: verify Premium's scoped resume, challenge and
