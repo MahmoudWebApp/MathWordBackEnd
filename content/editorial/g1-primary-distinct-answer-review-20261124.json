@@ -1,0 +1,1122 @@
+{
+  "Version": 1,
+  "Status": "ReadOnlyAnswerReviewNotEditorialApproval",
+  "Date": "2026-11-24",
+  "Counts": {
+    "MARKED_ANSWER_MATCHES": 109,
+    "CORRECT_UNDER_ARITHMETIC_PATTERN": 1,
+    "CORRECT_IF_FAIR_COIN_ASSUMED": 1
+  },
+  "Results": [
+    {
+      "id": 3,
+      "question": "Ahmed has $12$ apples, and he gave $5$ apples to his friend. How many apples are left with Ahmed?",
+      "expected": 7,
+      "marked": "7",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "7"
+      ]
+    },
+    {
+      "id": 5,
+      "question": "What is the result of $7 \\times 8$?",
+      "expected": 56,
+      "marked": "56",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "56"
+      ]
+    },
+    {
+      "id": 6,
+      "question": "If $x + 7 = 15$, what is the value of $x$?",
+      "expected": 8,
+      "marked": "8",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "8"
+      ]
+    },
+    {
+      "id": 7,
+      "question": "Complete the following pattern: $2, 4, 6, 8, ?$",
+      "expected": 10,
+      "marked": "10",
+      "status": "CORRECT_UNDER_ARITHMETIC_PATTERN",
+      "matchingOptions": [
+        "10"
+      ]
+    },
+    {
+      "id": 8,
+      "question": "A square has a side length of $5$ cm. What is its perimeter?",
+      "expected": 20,
+      "marked": "20 \\text{ cm}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "20 \\text{ cm}"
+      ]
+    },
+    {
+      "id": 9,
+      "question": "A rectangle has length $8$ m and width $3$ m. What is its area?",
+      "expected": 24,
+      "marked": "24 \\text{ m}^2",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "24 \\text{ m}^2"
+      ]
+    },
+    {
+      "id": 10,
+      "question": "If you toss a coin once, what is the probability of getting a Head?",
+      "expected": 0.5,
+      "marked": "\\frac{1}{2}",
+      "status": "CORRECT_IF_FAIR_COIN_ASSUMED",
+      "matchingOptions": [
+        "\\frac{1}{2}"
+      ]
+    },
+    {
+      "id": 11,
+      "question": "Find the median of the following numbers: $3, 7, 9, 5, 4$",
+      "expected": 5,
+      "marked": "5",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "5"
+      ]
+    },
+    {
+      "id": 36,
+      "question": "What is the result of $25 + 17$?",
+      "expected": 42,
+      "marked": "42",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "42"
+      ]
+    },
+    {
+      "id": 37,
+      "question": "What is 84 - 29?",
+      "expected": 55,
+      "marked": "55",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "55"
+      ]
+    },
+    {
+      "id": 38,
+      "question": "If x + 9 = 23, what is x?",
+      "expected": 14,
+      "marked": "14",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "14"
+      ]
+    },
+    {
+      "id": 39,
+      "question": "A rectangle is 8 cm long and 5 cm wide. What is its perimeter?",
+      "expected": 26,
+      "marked": "26",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "26"
+      ]
+    },
+    {
+      "id": 40,
+      "question": "What is the mean of 4, 6, 8, and 10?",
+      "expected": 7,
+      "marked": "7",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "7"
+      ]
+    },
+    {
+      "id": 53,
+      "question": "What is 9 multiplied by 6?",
+      "expected": 54,
+      "marked": "54",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "54"
+      ]
+    },
+    {
+      "id": 54,
+      "question": "If 4x = 36, what is x?",
+      "expected": 9,
+      "marked": "9",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "9"
+      ]
+    },
+    {
+      "id": 55,
+      "question": "A triangle has a 10 cm base and a 6 cm height. What is its area?",
+      "expected": 30,
+      "marked": "30",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "30"
+      ]
+    },
+    {
+      "id": 56,
+      "question": "When rolling a fair six-sided die, what is the probability of an even number?",
+      "expected": 0.5,
+      "marked": "\\frac{1}{2}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\frac{1}{2}"
+      ]
+    },
+    {
+      "id": 420,
+      "question": "Compute $\\frac14+\\frac38$.",
+      "expected": 0.625,
+      "marked": "\\frac58",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\frac58"
+      ]
+    },
+    {
+      "id": 421,
+      "question": "Which fraction is equivalent to $\\frac{3}{4}$ with denominator 12?",
+      "expected": "Rule-based comparison of choices",
+      "marked": "\\frac{9}{12}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\frac{9}{12}"
+      ]
+    },
+    {
+      "id": 422,
+      "question": "Which comparison of $0.6$ and $\\frac35$ is correct?",
+      "expected": "Rule-based comparison of choices",
+      "marked": "0.6=\\frac35",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "0.6=\\frac35"
+      ]
+    },
+    {
+      "id": 423,
+      "question": "A library has 36 books. Two-thirds are science books. How many science books are there?",
+      "expected": 24,
+      "marked": "24",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "24"
+      ]
+    },
+    {
+      "id": 424,
+      "question": "A pie is cut into 8 equal pieces and 3 pieces are eaten. What fraction was eaten?",
+      "expected": 0.375,
+      "marked": "\\frac{3}{8}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\frac{3}{8}"
+      ]
+    },
+    {
+      "id": 425,
+      "question": "Compute $1\\frac12+\\frac34$.",
+      "expected": 2.25,
+      "marked": "2\\frac14",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "2\\frac14"
+      ]
+    },
+    {
+      "id": 426,
+      "question": "In a school group of 80 pupils, 25% entered a competition. How many entered?",
+      "expected": 20,
+      "marked": "20",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "20"
+      ]
+    },
+    {
+      "id": 427,
+      "question": "Round $4.786$ to the nearest hundredth.",
+      "expected": 4.79,
+      "marked": "4.79",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "4.79"
+      ]
+    },
+    {
+      "id": 428,
+      "question": "Write $\\frac7{20}$ as a decimal.",
+      "expected": 0.35,
+      "marked": "0.35",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "0.35"
+      ]
+    },
+    {
+      "id": 472,
+      "question": "Which comparison between $\\frac25$ and $\\frac38$ is correct?",
+      "expected": "Rule-based comparison of choices",
+      "marked": "\\frac25>\\frac38",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\frac25>\\frac38"
+      ]
+    },
+    {
+      "id": 473,
+      "question": "Which of these fractions is **not** equal to $\\frac12$?",
+      "expected": "Rule-based comparison of choices",
+      "marked": "\\frac4{10}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\frac4{10}"
+      ]
+    },
+    {
+      "id": 474,
+      "question": "Compute $\\frac56-\\frac14$.",
+      "expected": 0.5833333333333334,
+      "marked": "\\frac7{12}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\frac7{12}"
+      ]
+    },
+    {
+      "id": 475,
+      "question": "Which digit is in the hundredths place of $0.407$?",
+      "expected": 0,
+      "marked": "0",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "0"
+      ]
+    },
+    {
+      "id": 476,
+      "question": "Twelve of 48 pupils in a class entered a competition. What percentage entered?",
+      "expected": 0.25,
+      "marked": "25\\%",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "25\\%"
+      ]
+    },
+    {
+      "id": 477,
+      "question": "The interval from 0 to 1 on a number line is divided into 8 equal parts. Which fraction marks the fifth tick after zero?",
+      "expected": 0.625,
+      "marked": "\\frac58",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\frac58"
+      ]
+    },
+    {
+      "id": 503,
+      "question": "Which comparison between $\\frac56$ and $\\frac79$ is correct?",
+      "expected": "Rule-based comparison of choices",
+      "marked": "\\frac56>\\frac79",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\frac56>\\frac79"
+      ]
+    },
+    {
+      "id": 504,
+      "question": "Which is greater, $\\frac79$ or $\\frac7{11}$?",
+      "expected": 0.7777777777777778,
+      "marked": "\\frac79",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\frac79"
+      ]
+    },
+    {
+      "id": 505,
+      "question": "Which fraction is closest to 1?",
+      "expected": "Rule-based comparison of choices",
+      "marked": "\\frac{11}{12}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\frac{11}{12}"
+      ]
+    },
+    {
+      "id": 506,
+      "question": "Which fraction lies strictly between $\\frac13$ and $\\frac12$?",
+      "expected": "Rule-based comparison of choices",
+      "marked": "\\frac5{12}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\frac5{12}"
+      ]
+    },
+    {
+      "id": 507,
+      "question": "In class A, 3 of 8 pupils cycle to school. In class B, 4 of 10 cycle. Which class has the larger fraction of cyclists?",
+      "expected": "Rule-based comparison of choices",
+      "marked": "\\text{الصف ب (Class B)}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\text{الصف ب (Class B)}"
+      ]
+    },
+    {
+      "id": 609,
+      "question": "Calculate 275 + 168.",
+      "expected": 443,
+      "marked": "443",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "443"
+      ]
+    },
+    {
+      "id": 610,
+      "question": "What must be added to 486 to obtain 725?",
+      "expected": 239,
+      "marked": "239",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "239"
+      ]
+    },
+    {
+      "id": 611,
+      "question": "Estimate 198 + 306 by rounding each number to the nearest hundred before adding.",
+      "expected": 500,
+      "marked": "500",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "500"
+      ]
+    },
+    {
+      "id": 612,
+      "question": "A bus has 38 adults and 27 children. Another 16 passengers board. How many passengers are now on the bus?",
+      "expected": 81,
+      "marked": "81",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "81"
+      ]
+    },
+    {
+      "id": 613,
+      "question": "A triangle has area 42 cm² and base 12 cm. What is its height in centimeters?",
+      "expected": 7,
+      "marked": "7",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "7"
+      ]
+    },
+    {
+      "id": 614,
+      "question": "A right triangle has perpendicular sides of lengths 9 cm and 8 cm. What is its area in cm²?",
+      "expected": 36,
+      "marked": "36",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "36"
+      ]
+    },
+    {
+      "id": 615,
+      "question": "A triangle has a base of 14 cm, a perpendicular height of 5 cm, and another side of 12 cm. What is its area in cm²?",
+      "expected": 35,
+      "marked": "35",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "35"
+      ]
+    },
+    {
+      "id": 616,
+      "question": "A 10 cm by 6 cm rectangle is split into two triangles by a diagonal. What is the area of either triangle in cm²?",
+      "expected": 30,
+      "marked": "30",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "30"
+      ]
+    },
+    {
+      "id": 617,
+      "question": "What is 10% of 340?",
+      "expected": 34,
+      "marked": "34",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "34"
+      ]
+    },
+    {
+      "id": 618,
+      "question": "A pupil knows that 10% of 260 is 26. What is 5% of the same amount?",
+      "expected": 13,
+      "marked": "13",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "13"
+      ]
+    },
+    {
+      "id": 619,
+      "question": "30 out of 120 pupils chose mathematics. What percentage is that?",
+      "expected": 0.25,
+      "marked": "25%",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "25%"
+      ]
+    },
+    {
+      "id": 620,
+      "question": "A bag costs 80 units of currency. With a 25% discount, what is the **discount amount**?",
+      "expected": 20,
+      "marked": "20",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "20"
+      ]
+    },
+    {
+      "id": 689,
+      "question": "54 balls are distributed equally across 6 boxes. If each box holds x balls, what is x?",
+      "expected": 9,
+      "marked": "9",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "9"
+      ]
+    },
+    {
+      "id": 690,
+      "question": "Which value of k satisfies 7k = 91?",
+      "expected": 13,
+      "marked": "13",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "13"
+      ]
+    },
+    {
+      "id": 691,
+      "question": "72 tiles are arranged in 8 equal rows. How many tiles are in each row?",
+      "expected": 9,
+      "marked": "9",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "9"
+      ]
+    },
+    {
+      "id": 692,
+      "question": "If x ÷ 5 = 12, what is x?",
+      "expected": 60,
+      "marked": "60",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "60"
+      ]
+    },
+    {
+      "id": 693,
+      "question": "Complete the equivalent fraction: 3/5 = x/20. Find x.",
+      "expected": 12,
+      "marked": "12",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "12"
+      ]
+    },
+    {
+      "id": 694,
+      "question": "What is the simplest form of 14/21?",
+      "expected": "Rule-based comparison of choices",
+      "marked": "\\frac23",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\frac23"
+      ]
+    },
+    {
+      "id": 695,
+      "question": "Which fraction is exactly equal to the decimal 0.75?",
+      "expected": 0.75,
+      "marked": "\\frac34",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\frac34"
+      ]
+    },
+    {
+      "id": 696,
+      "question": "A pupil says 2/3 and 3/4 are equivalent because 1 was added to both numerator and denominator. Which comparison is correct?",
+      "expected": "Rule-based comparison of choices",
+      "marked": "\\frac23<\\frac34",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\frac23<\\frac34"
+      ]
+    },
+    {
+      "id": 761,
+      "question": "A tank initially holds 425 liters of water. After some water is used, 178 liters remain. How many liters were used?",
+      "expected": 247,
+      "marked": "247",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "247"
+      ]
+    },
+    {
+      "id": 762,
+      "question": "Layla collected 650 stickers and Samer collected 487. How many more stickers does Layla have?",
+      "expected": 163,
+      "marked": "163",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "163"
+      ]
+    },
+    {
+      "id": 763,
+      "question": "After 38 cards were removed from a box, 95 remained. How many cards were in the box originally?",
+      "expected": 133,
+      "marked": "133",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "133"
+      ]
+    },
+    {
+      "id": 764,
+      "question": "Calculate 503 − 287, paying attention to regrouping through the zero tens digit.",
+      "expected": 216,
+      "marked": "216",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "216"
+      ]
+    },
+    {
+      "id": 817,
+      "question": "A rectangle is divided into 12 equal cells and 9 are shaded. What fraction of the rectangle is shaded, in simplest form?",
+      "expected": "Rule-based comparison of choices",
+      "marked": "\\frac{3}{4}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\frac{3}{4}"
+      ]
+    },
+    {
+      "id": 818,
+      "question": "Two identical bars each contain 8 equal segments. All of the first bar and 3 segments of the second are colored. Which improper fraction represents the total colored amount?",
+      "expected": 1.375,
+      "marked": "\\frac{11}{8}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\frac{11}{8}"
+      ]
+    },
+    {
+      "id": 819,
+      "question": "Mariam took half the juice from a bottle containing 3/4 liter. How many liters did she take?",
+      "expected": 0.375,
+      "marked": "\\frac{3}{8}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\frac{3}{8}"
+      ]
+    },
+    {
+      "id": 820,
+      "question": "A 2/3-kilogram portion of fruit is divided equally among four children. How many kilograms does each child receive?",
+      "expected": 0.16666666666666666,
+      "marked": "\\frac{1}{6}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\frac{1}{6}"
+      ]
+    },
+    {
+      "id": 821,
+      "question": "Which decimal represents 8 ones, 3 tenths, and 6 hundredths?",
+      "expected": 8.360000000000001,
+      "marked": "8.36",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "8.36"
+      ]
+    },
+    {
+      "id": 822,
+      "question": "What is 0.47 multiplied by 10? Use decimal place value to find the answer.",
+      "expected": 4.699999999999999,
+      "marked": "4.7",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "4.7"
+      ]
+    },
+    {
+      "id": 851,
+      "question": "A teacher shares 96 pencils equally among 7 students. How many pencils does each student receive, and how many are left?",
+      "expected": "Rule-based comparison of choices",
+      "marked": "\\text{لكل طالب 13، والباقي 5 (13 each, 5 left)}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\text{لكل طالب 13، والباقي 5 (13 each, 5 left)}"
+      ]
+    },
+    {
+      "id": 852,
+      "question": "145 pupils need transport. Each bus can hold 38. What is the minimum number of buses required?",
+      "expected": 4,
+      "marked": "4",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "4"
+      ]
+    },
+    {
+      "id": 853,
+      "question": "A school bought 18 boxes of pencils with 12 pencils each, then distributed 35 pencils. How many remain?",
+      "expected": 181,
+      "marked": "181",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "181"
+      ]
+    },
+    {
+      "id": 854,
+      "question": "Use 25 = 100÷4 to calculate 48 × 25.",
+      "expected": 1200,
+      "marked": "1200",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "1200"
+      ]
+    },
+    {
+      "id": 1555,
+      "question": "In 462,915, what is the value of the digit 6?",
+      "expected": 60000,
+      "marked": "60,000",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "60,000"
+      ]
+    },
+    {
+      "id": 1556,
+      "question": "Which number equals 70,000 + 500 + 40 + 3?",
+      "expected": 70543,
+      "marked": "70,543",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "70,543"
+      ]
+    },
+    {
+      "id": 1557,
+      "question": "Choose the correct comparison symbol: 58,209 □ 58,290.",
+      "expected": "Rule-based comparison of choices",
+      "marked": "<",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "<"
+      ]
+    },
+    {
+      "id": 1558,
+      "question": "Round 37,648 to the nearest hundred.",
+      "expected": 37600,
+      "marked": "37,600",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "37,600"
+      ]
+    },
+    {
+      "id": 1559,
+      "question": "Round 9,650 to the nearest thousand.",
+      "expected": 10000,
+      "marked": "10,000",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "10,000"
+      ]
+    },
+    {
+      "id": 1560,
+      "question": "Estimate 392 + 614 by rounding each number to the nearest hundred.",
+      "expected": 1000,
+      "marked": "1,000",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "1,000"
+      ]
+    },
+    {
+      "id": 1561,
+      "question": "Estimate 1,508 − 692 by rounding each number to the nearest hundred.",
+      "expected": 800,
+      "marked": "800",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "800"
+      ]
+    },
+    {
+      "id": 1562,
+      "question": "What is the total value of forty groups of one hundred?",
+      "expected": 4000,
+      "marked": "4,000",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "4,000"
+      ]
+    },
+    {
+      "id": 1587,
+      "question": "A 235 cm rope is joined to an 85 cm rope. What is the total length in centimeters?",
+      "expected": 320,
+      "marked": "320",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "320"
+      ]
+    },
+    {
+      "id": 1588,
+      "question": "Two ribbons measure 1.4 meters and 135 cm. How many centimeters longer is the first?",
+      "expected": 5,
+      "marked": "5",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "5"
+      ]
+    },
+    {
+      "id": 1589,
+      "question": "A 12-meter rope is cut into 75 cm pieces with no waste. How many pieces are made?",
+      "expected": 16,
+      "marked": "16",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "16"
+      ]
+    },
+    {
+      "id": 1590,
+      "question": "A bag has 2 kg 750 g of rice. After using 900 g, how many grams remain?",
+      "expected": 1850,
+      "marked": "1850",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "1850"
+      ]
+    },
+    {
+      "id": 1591,
+      "question": "We pack 1.5 kg of nuts into 250 g bags. How many full bags can we make?",
+      "expected": 6,
+      "marked": "6",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "6"
+      ]
+    },
+    {
+      "id": 1592,
+      "question": "A bottle contains 2 liters of water. How many 250 mL cups can it completely fill?",
+      "expected": 8,
+      "marked": "8",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "8"
+      ]
+    },
+    {
+      "id": 1593,
+      "question": "A container has 2 liters of juice. After pouring 350 mL, how much remains in mL?",
+      "expected": 1650,
+      "marked": "1650",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "1650"
+      ]
+    },
+    {
+      "id": 1594,
+      "question": "We combine 750 mL water with 0.8 liters of juice. What is the total in mL?",
+      "expected": 1550,
+      "marked": "1550",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "1550"
+      ]
+    },
+    {
+      "id": 1595,
+      "question": "A train leaves at 09:45 and travels for 1 hour 35 minutes. When does it arrive?",
+      "expected": "Rule-based comparison of choices",
+      "marked": "\\text{11:20}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\text{11:20}"
+      ]
+    },
+    {
+      "id": 1596,
+      "question": "An activity starts at 14:10 and ends at 15:05. How many minutes does it last?",
+      "expected": 55,
+      "marked": "55",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "55"
+      ]
+    },
+    {
+      "id": 1597,
+      "question": "A running course is 3.25 kilometers long. How many meters is that?",
+      "expected": 3250,
+      "marked": "3250",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "3250"
+      ]
+    },
+    {
+      "id": 1598,
+      "question": "How many millimeters are in 18 centimeters?",
+      "expected": 180,
+      "marked": "180",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "180"
+      ]
+    },
+    {
+      "id": 1635,
+      "question": "Find $\\frac34+\\frac18$ in simplest form.",
+      "expected": "Rule-based comparison of choices",
+      "marked": "\\frac78",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\frac78"
+      ]
+    },
+    {
+      "id": 1636,
+      "question": "Calculate $\\frac56-\\frac13$ in simplest form.",
+      "expected": "Rule-based comparison of choices",
+      "marked": "\\frac12",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\frac12"
+      ]
+    },
+    {
+      "id": 1637,
+      "question": "A box holds 18 balls. Two-thirds are blue. How many are blue?",
+      "expected": 12,
+      "marked": "12",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "12"
+      ]
+    },
+    {
+      "id": 1638,
+      "question": "Find $1\\frac14+2\\frac12$ as an improper fraction.",
+      "expected": "Rule-based comparison of choices",
+      "marked": "\\frac{15}4",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\frac{15}4"
+      ]
+    },
+    {
+      "id": 1651,
+      "question": "In the number 57,304, what is the place value of digit 7?",
+      "expected": 7000,
+      "marked": "7000",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "7000"
+      ]
+    },
+    {
+      "id": 1652,
+      "question": "Which is greatest: 4,096, 4,609, 4,690, or 4,906?",
+      "expected": 4906,
+      "marked": "4906",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "4906"
+      ]
+    },
+    {
+      "id": 1653,
+      "question": "Round 3,867 to the nearest hundred using the tens digit.",
+      "expected": 3900,
+      "marked": "3900",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "3900"
+      ]
+    },
+    {
+      "id": 1654,
+      "question": "A counter starts at 1,250 and increases by 25 each step. What does it show after three steps?",
+      "expected": 1325,
+      "marked": "1325",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "1325"
+      ]
+    },
+    {
+      "id": 1655,
+      "question": "Estimate 198 + 304 by first rounding each number to the nearest hundred.",
+      "expected": 500,
+      "marked": "500",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "500"
+      ]
+    },
+    {
+      "id": 1656,
+      "question": "Which number has four thousands, three hundreds, two tens, and seven ones?",
+      "expected": 4327,
+      "marked": "4327",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "4327"
+      ]
+    },
+    {
+      "id": 1675,
+      "question": "If the digit 4 moves from the hundreds place to the thousands place, by what factor does its place value increase?",
+      "expected": 10,
+      "marked": "10",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "10"
+      ]
+    },
+    {
+      "id": 1676,
+      "question": "Which number represents six thousands, four tens and nine ones, with zero hundreds?",
+      "expected": 6049,
+      "marked": "6049",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "6049"
+      ]
+    },
+    {
+      "id": 1677,
+      "question": "On a number line, two marks are at 340 and 360. What number is exactly halfway between them?",
+      "expected": 350,
+      "marked": "350",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "350"
+      ]
+    },
+    {
+      "id": 1678,
+      "question": "Which of these numbers rounds to 4,600 to the nearest hundred using the usual half-up rule?",
+      "expected": "Rule-based comparison of choices",
+      "marked": "4563",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "4563"
+      ]
+    },
+    {
+      "id": 1679,
+      "question": "A club has 1,500 units of currency and buys supplies costing 490, 390 and 610. How much is left?",
+      "expected": 10,
+      "marked": "10",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "10"
+      ]
+    },
+    {
+      "id": 1680,
+      "question": "There are 36 pencils. Make as many complete bundles of ten as possible. How many bundles and loose pencils remain?",
+      "expected": "Rule-based comparison of choices",
+      "marked": "(3,6)",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "(3,6)"
+      ]
+    },
+    {
+      "id": 1681,
+      "question": "What is the smallest four-digit number with 6 in the hundreds place and 8 in the ones place?",
+      "expected": 1608,
+      "marked": "1608",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "1608"
+      ]
+    },
+    {
+      "id": 1682,
+      "question": "How many multiples of ten lie strictly between 365 and 390, excluding both endpoints?",
+      "expected": 2,
+      "marked": "2",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "2"
+      ]
+    },
+    {
+      "id": 1707,
+      "question": "How many integers from 200 through 299 have 4 in the tens place?",
+      "expected": 10,
+      "marked": "10",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "10"
+      ]
+    },
+    {
+      "id": 1708,
+      "question": "A counter starts at 6,005 and decreases by 90. What is the new value?",
+      "expected": 5915,
+      "marked": "5915",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "5915"
+      ]
+    }
+  ]
+}
