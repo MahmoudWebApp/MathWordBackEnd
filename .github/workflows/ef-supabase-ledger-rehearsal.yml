@@ -147,7 +147,9 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."__EFMigrationsHistory"' | grep -qx 39
+          psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."__EFMigrationsHistory"' | grep -qx 40
+          psql -X -v ON_ERROR_STOP=1 -Atc "SELECT COUNT(*) FROM public.\"__EFMigrationsHistory\" WHERE \"MigrationId\"='20261125110000_AddPremiumExpiryNoticeMarker'" | grep -qx 1
+          psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."Users" WHERE "PremiumExpiryNotifiedAtUtc" IS NOT NULL' | grep -qx 0
           psql -X -v ON_ERROR_STOP=1 -Atc "SELECT COUNT(*) FROM public.\"__EFMigrationsHistory\" WHERE \"MigrationId\"='20261125100000_AddOptionalEmailPreferences'" | grep -qx 1
           psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."Users" WHERE "VerifiedNotificationEmail" IS NOT NULL OR "EmailNotificationLocale" IS NOT NULL OR "EmailLearningUpdates" OR "EmailSubscriptionUpdates" OR "EmailImportantAnnouncements"' | grep -qx 0
           psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."UserProgresses" WHERE "HintsRevealed"<>0' | grep -qx 0

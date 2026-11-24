@@ -25,10 +25,12 @@ public sealed class PremiumAccessCodesController : ControllerBase
 {
     private readonly AppDbContext _db;
     private readonly NotificationStreamBroker _stream;
-    public PremiumAccessCodesController(AppDbContext db, NotificationStreamBroker stream)
+    private readonly RecoveryEmailQueue _emailQueue;
+    public PremiumAccessCodesController(AppDbContext db, NotificationStreamBroker stream, RecoveryEmailQueue emailQueue)
     {
         _db = db;
         _stream = stream;
+        _emailQueue = emailQueue;
     }
 
     public sealed class CreateCodeRequest
@@ -217,6 +219,7 @@ public sealed class PremiumAccessCodesController : ControllerBase
             CreatedAtUtc = now
         });
 
+        _emailQueue.AddOptionalNotice(user,previousType=="Premium"&&previousExpiry.HasValue&&previousExpiry>now?"premium-renewed":"premium-granted",now);
         await _db.SaveChangesAsync(ct);
         await tx.CommitAsync(ct);
         _stream.Notify(user.Id);

@@ -27,6 +27,7 @@ namespace MathWorldAPI.Models
         [JsonIgnore] public bool EmailSubscriptionUpdates { get; set; }
         [JsonIgnore] public bool EmailImportantAnnouncements { get; set; }
         [JsonIgnore] public string? EmailNotificationLocale { get; set; }
+        [JsonIgnore] public DateTime? PremiumExpiryNotifiedAtUtc { get; set; }
 
         [JsonIgnore]
         public List<UserProgress> UserProgresses { get; set; } = new();

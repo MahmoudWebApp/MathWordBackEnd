@@ -597,6 +597,7 @@ namespace MathWorldAPI.Migrations
                     b.Property<bool>("StaffSetupPending").ValueGeneratedOnAdd().HasColumnType("boolean").HasDefaultValue(false);
                     b.Property<string>("VerifiedNotificationEmail").HasMaxLength(256).HasColumnType("character varying(256)");
                     b.Property<string>("EmailNotificationLocale").HasMaxLength(2).HasColumnType("character varying(2)");
+                    b.Property<DateTime?>("PremiumExpiryNotifiedAtUtc").HasColumnType("timestamp with time zone");
                     b.Property<bool>("EmailLearningUpdates").ValueGeneratedOnAdd().HasColumnType("boolean").HasDefaultValue(false);
                     b.Property<bool>("EmailSubscriptionUpdates").ValueGeneratedOnAdd().HasColumnType("boolean").HasDefaultValue(false);
                     b.Property<bool>("EmailImportantAnnouncements").ValueGeneratedOnAdd().HasColumnType("boolean").HasDefaultValue(false);

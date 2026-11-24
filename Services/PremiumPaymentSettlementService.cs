@@ -14,10 +14,12 @@ public sealed class PremiumPaymentSettlementService
 {
     private readonly AppDbContext _db;
     private readonly NotificationStreamBroker _stream;
-    public PremiumPaymentSettlementService(AppDbContext db, NotificationStreamBroker stream)
+    private readonly RecoveryEmailQueue _emailQueue;
+    public PremiumPaymentSettlementService(AppDbContext db, NotificationStreamBroker stream, RecoveryEmailQueue emailQueue)
     {
         _db = db;
         _stream = stream;
+        _emailQueue = emailQueue;
     }
 
     // A verified receipt is SERVER-ONLY evidence. Client POST bodies are not evidence.
@@ -147,6 +149,7 @@ public sealed class PremiumPaymentSettlementService
         if (student is null) return new Result(Outcome.StudentUnavailable, order.Id);
 
         var now = DateTime.UtcNow;
+        var wasActive=PremiumEntitlement.IsActive(student,now);
         // Do not replace a previously granted indefinite Premium subscription.
         DateTime? expires = student.PremiumExpiresAtUtc;
         if (!(PremiumEntitlement.IsActive(student, now) && expires is null))
@@ -181,6 +184,7 @@ public sealed class PremiumPaymentSettlementService
             CreatedAtUtc = now
         });
 
+        _emailQueue.AddOptionalNotice(student,wasActive?"premium-renewed":"premium-granted",now);
         await _db.SaveChangesAsync(ct);
         await tx.CommitAsync(ct);
         _stream.Notify(student.Id);
