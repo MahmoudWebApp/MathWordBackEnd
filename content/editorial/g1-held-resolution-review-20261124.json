@@ -1,0 +1,2143 @@
+{
+  "Status": "ReviewedProposalsNotApplied",
+  "Notes": [
+    "All 41 held records independently recomputed and matched to the exact currently marked answer, ordered live option IDs/text/flags, source prompt and skill. Review recommendations only; no question versions or skill changes performed. Preserve historical answers and access. No direct import of this file."
+  ],
+  "Counts": {
+    "VersionOptionLocalizationPreserveHistory": 1,
+    "VersionWordingPreserveHistory": 25,
+    "RetainExistingSkill": 5,
+    "RetainAsApplication": 2,
+    "ProposeNewSkillSameCategory": 4,
+    "ReassignPrimaryWithinCategory": 1,
+    "RetainAsPrerequisite": 2,
+    "ProposeCategoryTransfer": 1
+  },
+  "Items": [
+    {
+      "ProblemId": 7,
+      "Status": "ReviewedProposalNotApplied",
+      "Action": "VersionWordingPreserveHistory",
+      "ExpectedStageId": 1,
+      "ExpectedCategoryId": 2,
+      "ExpectedPrimarySkillId": 8,
+      "ExpectedPrimarySkillKey": "primary-number-patterns",
+      "ExpectedQuestion": {
+        "Ar": "أكمل النمط التالي: $2, 4, 6, 8, ?$",
+        "En": "Complete the following pattern: $2, 4, 6, 8, ?$"
+      },
+      "ExpectedOptions": [
+        [
+          17,
+          "10",
+          true
+        ],
+        [
+          18,
+          "9",
+          false
+        ],
+        [
+          19,
+          "12",
+          false
+        ],
+        [
+          20,
+          "11",
+          false
+        ]
+      ],
+      "ExpectedCorrectOption": "10",
+      "IndependentMathCheck": "Arithmetic sequence with common difference 2: 8+2=10.",
+      "ProposedQuestion": {
+        "Ar": "أكمل المتتالية الحسابية التالية: $2, 4, 6, 8, ?$",
+        "En": "Complete the following arithmetic sequence: $2, 4, 6, 8, ?$"
+      },
+      "ProposedSkillId": null,
+      "ResolutionNote": "The proposed wording makes the mathematical model explicit. Require versioned review; keep original stem, options, and student history intact.",
+      "Hints": [
+        {
+          "Ar": "بعد تحديد أن المتتالية حسابية، ابحث عن الفرق بين كل حدين متتاليين.",
+          "En": "Once the sequence is specified as arithmetic, find the difference between successive terms."
+        },
+        {
+          "Ar": "أضف الفرق المشترك إلى آخر حد معطى.",
+          "En": "Add the common difference to the last given term."
+        }
+      ]
+    },
+    {
+      "ProblemId": 10,
+      "Status": "ReviewedProposalNotApplied",
+      "Action": "VersionWordingPreserveHistory",
+      "ExpectedStageId": 1,
+      "ExpectedCategoryId": 4,
+      "ExpectedPrimarySkillId": 17,
+      "ExpectedPrimarySkillKey": "primary-simple-probability",
+      "ExpectedQuestion": {
+        "Ar": "إذا ألقيت قطعة نقدية مرة واحدة، ما احتمال ظهور وجه الصورة (Head)؟",
+        "En": "If you toss a coin once, what is the probability of getting a Head?"
+      },
+      "ExpectedOptions": [
+        [
+          29,
+          "\\frac{1}{2}",
+          true
+        ],
+        [
+          30,
+          "\\frac{1}{4}",
+          false
+        ],
+        [
+          31,
+          "1",
+          false
+        ],
+        [
+          32,
+          "\\frac{1}{3}",
+          false
+        ]
+      ],
+      "ExpectedCorrectOption": "\\frac{1}{2}",
+      "IndependentMathCheck": "Fair coin: one favorable face out of two equally likely faces.",
+      "ProposedQuestion": {
+        "Ar": "إذا ألقيت قطعة نقدية عادلة مرة واحدة، ما احتمال ظهور وجه الصورة (Head)؟",
+        "En": "If you toss a fair coin once, what is the probability of getting a head?"
+      },
+      "ProposedSkillId": null,
+      "ResolutionNote": "The proposed wording makes the mathematical model explicit. Require versioned review; keep original stem, options, and student history intact.",
+      "Hints": [
+        {
+          "Ar": "بعد النص على عدالة القطعة، يكون وجهاها متساويي الاحتمال.",
+          "En": "Once fairness is specified, the two coin faces are equally likely."
+        },
+        {
+          "Ar": "اقسم عدد النتائج المطلوبة على عدد النتائج الممكنة.",
+          "En": "Divide the favorable outcome count by the possible outcome count."
+        }
+      ]
+    },
+    {
+      "ProblemId": 20,
+      "Status": "ReviewedProposalNotApplied",
+      "Action": "VersionOptionLocalizationPreserveHistory",
+      "ExpectedStageId": 3,
+      "ExpectedCategoryId": 9,
+      "ExpectedPrimarySkillId": 41,
+      "ExpectedPrimarySkillKey": "secondary-quadratic-roots",
+      "ExpectedQuestion": {
+        "Ar": "حل المعادلة التربيعية: $x^2 - 5x + 6 = 0$",
+        "En": "Solve the quadratic equation: $x^2 - 5x + 6 = 0$"
+      },
+      "ExpectedOptions": [
+        [
+          69,
+          "x = 2 \\text{ or } x = 3",
+          true
+        ],
+        [
+          70,
+          "x = 1 \\text{ or } x = 6",
+          false
+        ],
+        [
+          71,
+          "x = -2 \\text{ or } x = -3",
+          false
+        ],
+        [
+          72,
+          "x = 5 \\text{ or } x = 1",
+          false
+        ]
+      ],
+      "ExpectedCorrectOption": "x = 2 \\text{ or } x = 3",
+      "IndependentMathCheck": "x²−5x+6=(x−2)(x−3).",
+      "ProposedQuestion": null,
+      "ProposedSkillId": null,
+      "ResolutionNote": "Localize the historical correct-option label only in a versioned revision; retain its mathematical root set and original option IDs/history.",
+      "Hints": [
+        {
+          "Ar": "حاول تحليل كثير الحدود التربيعي إلى حاصل ضرب عاملين.",
+          "En": "Try factoring the quadratic into a product of two factors."
+        },
+        {
+          "Ar": "ابحث عن عددين مجموعهما معامل x وحاصل ضربهما الحد الثابت، ثم ساوِ كل عامل بالصفر.",
+          "En": "Find two integers summing to the x coefficient and multiplying to the constant; set each factor to zero."
+        }
+      ]
+    },
+    {
+      "ProblemId": 26,
+      "Status": "ReviewedProposalNotApplied",
+      "Action": "VersionWordingPreserveHistory",
+      "ExpectedStageId": 3,
+      "ExpectedCategoryId": 12,
+      "ExpectedPrimarySkillId": 52,
+      "ExpectedPrimarySkillKey": "secondary-two-dice-probability",
+      "ExpectedQuestion": {
+        "Ar": "إذا ألقينا حجري نرد متوازنين، ما احتمال الحصول على مجموع $7$؟",
+        "En": "If we roll two fair dice, what is the probability of getting a sum of $7$?"
+      },
+      "ExpectedOptions": [
+        [
+          93,
+          "\\frac{1}{6}",
+          true
+        ],
+        [
+          94,
+          "\\frac{1}{12}",
+          false
+        ],
+        [
+          95,
+          "\\frac{1}{4}",
+          false
+        ],
+        [
+          96,
+          "\\frac{1}{3}",
+          false
+        ]
+      ],
+      "ExpectedCorrectOption": "\\frac{1}{6}",
+      "IndependentMathCheck": "Independent fair six-sided dice: six ordered pairs sum to 7, so 6/36.",
+      "ProposedQuestion": {
+        "Ar": "إذا ألقينا حجري نرد عادلين سداسيي الأوجه بشكل مستقل، ما احتمال الحصول على مجموع $7$؟",
+        "En": "If we roll two independent fair six-sided dice, what is the probability of getting a sum of $7$?"
+      },
+      "ProposedSkillId": null,
+      "ResolutionNote": "The proposed wording makes the mathematical model explicit. Require versioned review; keep original stem, options, and student history intact.",
+      "Hints": [
+        {
+          "Ar": "بعد تحديد نردين سداسيين عادلين مستقلين، استخدم الأزواج المرتبة للوجهين.",
+          "En": "Once independent fair six-sided dice are specified, use ordered face pairs."
+        },
+        {
+          "Ar": "عدّ الأزواج التي تحقق المجموع المطلوب واقسم على 36.",
+          "En": "Count the pairs with the requested sum and divide by 36."
+        }
+      ]
+    },
+    {
+      "ProblemId": 64,
+      "Status": "ReviewedProposalNotApplied",
+      "Action": "VersionWordingPreserveHistory",
+      "ExpectedStageId": 3,
+      "ExpectedCategoryId": 12,
+      "ExpectedPrimarySkillId": 55,
+      "ExpectedPrimarySkillKey": "secondary-coin-toss-probability",
+      "ExpectedQuestion": {
+        "Ar": "نرمي قطعة نقد عادلة ثلاث مرات. ما احتمال ظهور الصورة في كل الرميات؟",
+        "En": "A fair coin is tossed three times. What is the probability of heads on every toss?"
+      },
+      "ExpectedOptions": [
+        [
+          245,
+          "\\frac{1}{8}",
+          true
+        ],
+        [
+          246,
+          "\\frac{1}{4}",
+          false
+        ],
+        [
+          247,
+          "\\frac{3}{8}",
+          false
+        ],
+        [
+          248,
+          "\\frac{1}{2}",
+          false
+        ]
+      ],
+      "ExpectedCorrectOption": "\\frac{1}{8}",
+      "IndependentMathCheck": "Three independent fair tosses: (1/2)^3.",
+      "ProposedQuestion": {
+        "Ar": "نرمي قطعة نقد عادلة ثلاث مرات مستقلة. ما احتمال ظهور الصورة في كل الرميات؟",
+        "En": "A fair coin is tossed three times independently. What is the probability of heads on every toss?"
+      },
+      "ProposedSkillId": null,
+      "ResolutionNote": "The proposed wording makes the mathematical model explicit. Require versioned review; keep original stem, options, and student history intact.",
+      "Hints": [
+        {
+          "Ar": "بعد اعتماد استقلال الرميات، احتمال الصورة في الرمية الواحدة يساوي النصف.",
+          "En": "Once toss independence is specified, each head has probability one half."
+        },
+        {
+          "Ar": "اضرب احتمال الصورة في كل واحدة من الرميات الثلاث.",
+          "En": "Multiply the head probabilities over the three tosses."
+        }
+      ]
+    },
+    {
+      "ProblemId": 80,
+      "Status": "ReviewedProposalNotApplied",
+      "Action": "VersionWordingPreserveHistory",
+      "ExpectedStageId": 3,
+      "ExpectedCategoryId": 12,
+      "ExpectedPrimarySkillId": 55,
+      "ExpectedPrimarySkillKey": "secondary-coin-toss-probability",
+      "ExpectedQuestion": {
+        "Ar": "نرمي قطعة نقد عادلة 4 مرات. ما احتمال ظهور الصورة مرتين بالضبط؟",
+        "En": "Toss a fair coin 4 times. What is the probability of exactly two heads?"
+      },
+      "ExpectedOptions": [
+        [
+          309,
+          "\\frac{6}{16}",
+          true
+        ],
+        [
+          310,
+          "\\frac{1}{16}",
+          false
+        ],
+        [
+          311,
+          "\\frac{4}{16}",
+          false
+        ],
+        [
+          312,
+          "\\frac{5}{16}",
+          false
+        ]
+      ],
+      "ExpectedCorrectOption": "\\frac{6}{16}",
+      "IndependentMathCheck": "Independent fair tosses: choose exactly two head positions in 4 trials; C(4,2)/2^4.",
+      "ProposedQuestion": {
+        "Ar": "نرمي قطعة نقد عادلة بشكل مستقل 4 مرات. ما احتمال ظهور الصورة مرتين بالضبط؟",
+        "En": "Independently toss a fair coin 4 times. What is the probability of exactly two heads?"
+      },
+      "ProposedSkillId": null,
+      "ResolutionNote": "The proposed wording makes the mathematical model explicit. Require versioned review; keep original stem, options, and student history intact.",
+      "Hints": [
+        {
+          "Ar": "افترض استقلال الرميات وعدالة القطعة بعد اعتماد الصياغة.",
+          "En": "After wording approval, assume independent fair tosses."
+        },
+        {
+          "Ar": "عدّ مواضع ظهور الصورة مرتين باستخدام التوافيق واضرب في احتمال كل تسلسل.",
+          "En": "Choose two head positions using combinations and multiply by the probability of one sequence."
+        }
+      ]
+    },
+    {
+      "ProblemId": 95,
+      "Status": "ReviewedProposalNotApplied",
+      "Action": "VersionWordingPreserveHistory",
+      "ExpectedStageId": 3,
+      "ExpectedCategoryId": 12,
+      "ExpectedPrimarySkillId": 55,
+      "ExpectedPrimarySkillKey": "secondary-coin-toss-probability",
+      "ExpectedQuestion": {
+        "Ar": "نرمي قطعة نقد عادلة 5 مرات. ما احتمال ظهور الصورة مرتين بالضبط؟",
+        "En": "Toss a fair coin 5 times. What is the probability of exactly two heads?"
+      },
+      "ExpectedOptions": [
+        [
+          369,
+          "\\frac{1}{32}",
+          false
+        ],
+        [
+          370,
+          "\\frac{5}{32}",
+          false
+        ],
+        [
+          371,
+          "\\frac{6}{32}",
+          false
+        ],
+        [
+          372,
+          "\\frac{10}{32}",
+          true
+        ]
+      ],
+      "ExpectedCorrectOption": "\\frac{10}{32}",
+      "IndependentMathCheck": "Independent fair tosses: choose exactly two head positions in 5 trials; C(5,2)/2^5.",
+      "ProposedQuestion": {
+        "Ar": "نرمي قطعة نقد عادلة بشكل مستقل 5 مرات. ما احتمال ظهور الصورة مرتين بالضبط؟",
+        "En": "Independently toss a fair coin 5 times. What is the probability of exactly two heads?"
+      },
+      "ProposedSkillId": null,
+      "ResolutionNote": "The proposed wording makes the mathematical model explicit. Require versioned review; keep original stem, options, and student history intact.",
+      "Hints": [
+        {
+          "Ar": "افترض استقلال الرميات وعدالة القطعة بعد اعتماد الصياغة.",
+          "En": "After wording approval, assume independent fair tosses."
+        },
+        {
+          "Ar": "عدّ مواضع ظهور الصورة مرتين باستخدام التوافيق واضرب في احتمال كل تسلسل.",
+          "En": "Choose two head positions using combinations and multiply by the probability of one sequence."
+        }
+      ]
+    },
+    {
+      "ProblemId": 110,
+      "Status": "ReviewedProposalNotApplied",
+      "Action": "VersionWordingPreserveHistory",
+      "ExpectedStageId": 3,
+      "ExpectedCategoryId": 12,
+      "ExpectedPrimarySkillId": 55,
+      "ExpectedPrimarySkillKey": "secondary-coin-toss-probability",
+      "ExpectedQuestion": {
+        "Ar": "نرمي قطعة نقد عادلة 6 مرات. ما احتمال ظهور الصورة مرتين بالضبط؟",
+        "En": "Toss a fair coin 6 times. What is the probability of exactly two heads?"
+      },
+      "ExpectedOptions": [
+        [
+          429,
+          "\\frac{6}{64}",
+          false
+        ],
+        [
+          430,
+          "\\frac{7}{64}",
+          false
+        ],
+        [
+          431,
+          "\\frac{15}{64}",
+          true
+        ],
+        [
+          432,
+          "\\frac{1}{64}",
+          false
+        ]
+      ],
+      "ExpectedCorrectOption": "\\frac{15}{64}",
+      "IndependentMathCheck": "Independent fair tosses: choose exactly two head positions in 6 trials; C(6,2)/2^6.",
+      "ProposedQuestion": {
+        "Ar": "نرمي قطعة نقد عادلة بشكل مستقل 6 مرات. ما احتمال ظهور الصورة مرتين بالضبط؟",
+        "En": "Independently toss a fair coin 6 times. What is the probability of exactly two heads?"
+      },
+      "ProposedSkillId": null,
+      "ResolutionNote": "The proposed wording makes the mathematical model explicit. Require versioned review; keep original stem, options, and student history intact.",
+      "Hints": [
+        {
+          "Ar": "افترض استقلال الرميات وعدالة القطعة بعد اعتماد الصياغة.",
+          "En": "After wording approval, assume independent fair tosses."
+        },
+        {
+          "Ar": "عدّ مواضع ظهور الصورة مرتين باستخدام التوافيق واضرب في احتمال كل تسلسل.",
+          "En": "Choose two head positions using combinations and multiply by the probability of one sequence."
+        }
+      ]
+    },
+    {
+      "ProblemId": 125,
+      "Status": "ReviewedProposalNotApplied",
+      "Action": "VersionWordingPreserveHistory",
+      "ExpectedStageId": 3,
+      "ExpectedCategoryId": 12,
+      "ExpectedPrimarySkillId": 55,
+      "ExpectedPrimarySkillKey": "secondary-coin-toss-probability",
+      "ExpectedQuestion": {
+        "Ar": "نرمي قطعة نقد عادلة 7 مرات. ما احتمال ظهور الصورة مرتين بالضبط؟",
+        "En": "Toss a fair coin 7 times. What is the probability of exactly two heads?"
+      },
+      "ExpectedOptions": [
+        [
+          489,
+          "\\frac{8}{128}",
+          false
+        ],
+        [
+          490,
+          "\\frac{21}{128}",
+          true
+        ],
+        [
+          491,
+          "\\frac{1}{128}",
+          false
+        ],
+        [
+          492,
+          "\\frac{7}{128}",
+          false
+        ]
+      ],
+      "ExpectedCorrectOption": "\\frac{21}{128}",
+      "IndependentMathCheck": "Independent fair tosses: choose exactly two head positions in 7 trials; C(7,2)/2^7.",
+      "ProposedQuestion": {
+        "Ar": "نرمي قطعة نقد عادلة بشكل مستقل 7 مرات. ما احتمال ظهور الصورة مرتين بالضبط؟",
+        "En": "Independently toss a fair coin 7 times. What is the probability of exactly two heads?"
+      },
+      "ProposedSkillId": null,
+      "ResolutionNote": "The proposed wording makes the mathematical model explicit. Require versioned review; keep original stem, options, and student history intact.",
+      "Hints": [
+        {
+          "Ar": "افترض استقلال الرميات وعدالة القطعة بعد اعتماد الصياغة.",
+          "En": "After wording approval, assume independent fair tosses."
+        },
+        {
+          "Ar": "عدّ مواضع ظهور الصورة مرتين باستخدام التوافيق واضرب في احتمال كل تسلسل.",
+          "En": "Choose two head positions using combinations and multiply by the probability of one sequence."
+        }
+      ]
+    },
+    {
+      "ProblemId": 140,
+      "Status": "ReviewedProposalNotApplied",
+      "Action": "VersionWordingPreserveHistory",
+      "ExpectedStageId": 3,
+      "ExpectedCategoryId": 12,
+      "ExpectedPrimarySkillId": 55,
+      "ExpectedPrimarySkillKey": "secondary-coin-toss-probability",
+      "ExpectedQuestion": {
+        "Ar": "نرمي قطعة نقد عادلة 8 مرات. ما احتمال ظهور الصورة مرتين بالضبط؟",
+        "En": "Toss a fair coin 8 times. What is the probability of exactly two heads?"
+      },
+      "ExpectedOptions": [
+        [
+          549,
+          "\\frac{28}{256}",
+          true
+        ],
+        [
+          550,
+          "\\frac{1}{256}",
+          false
+        ],
+        [
+          551,
+          "\\frac{8}{256}",
+          false
+        ],
+        [
+          552,
+          "\\frac{9}{256}",
+          false
+        ]
+      ],
+      "ExpectedCorrectOption": "\\frac{28}{256}",
+      "IndependentMathCheck": "Independent fair tosses: choose exactly two head positions in 8 trials; C(8,2)/2^8.",
+      "ProposedQuestion": {
+        "Ar": "نرمي قطعة نقد عادلة بشكل مستقل 8 مرات. ما احتمال ظهور الصورة مرتين بالضبط؟",
+        "En": "Independently toss a fair coin 8 times. What is the probability of exactly two heads?"
+      },
+      "ProposedSkillId": null,
+      "ResolutionNote": "The proposed wording makes the mathematical model explicit. Require versioned review; keep original stem, options, and student history intact.",
+      "Hints": [
+        {
+          "Ar": "افترض استقلال الرميات وعدالة القطعة بعد اعتماد الصياغة.",
+          "En": "After wording approval, assume independent fair tosses."
+        },
+        {
+          "Ar": "عدّ مواضع ظهور الصورة مرتين باستخدام التوافيق واضرب في احتمال كل تسلسل.",
+          "En": "Choose two head positions using combinations and multiply by the probability of one sequence."
+        }
+      ]
+    },
+    {
+      "ProblemId": 212,
+      "Status": "ReviewedProposalNotApplied",
+      "Action": "RetainExistingSkill",
+      "ExpectedStageId": 2,
+      "ExpectedCategoryId": 6,
+      "ExpectedPrimarySkillId": 28,
+      "ExpectedPrimarySkillKey": "middle-inverse-function-evaluation",
+      "ExpectedQuestion": {
+        "Ar": "لتكن \\(f(x)=2x+5\\)، إذا كانت \\(f(x)=11\\) فأوجد x.",
+        "En": "Given \\(f(x)=2x+5\\), solve f(x)=11."
+      },
+      "ExpectedOptions": [
+        [
+          837,
+          "1",
+          false
+        ],
+        [
+          838,
+          "3",
+          true
+        ],
+        [
+          839,
+          "4",
+          false
+        ],
+        [
+          840,
+          "6",
+          false
+        ]
+      ],
+      "ExpectedCorrectOption": "3",
+      "IndependentMathCheck": "Solve 2x+5=11; x=(11−5)/2.",
+      "ProposedQuestion": null,
+      "ProposedSkillId": null,
+      "ResolutionNote": "Current published skill name is Finding inputs from function values, which exactly matches this task; no inverse-formula requirement.",
+      "Hints": [
+        {
+          "Ar": "ساوِ التعبير المعطى للدالة بقيمتها المطلوبة.",
+          "En": "Set the given function expression equal to the requested value."
+        },
+        {
+          "Ar": "اطرح الحد الثابت من الطرفين ثم اقسم على معامل x.",
+          "En": "Subtract the constant from both sides, then divide by the x coefficient."
+        }
+      ]
+    },
+    {
+      "ProblemId": 224,
+      "Status": "ReviewedProposalNotApplied",
+      "Action": "RetainExistingSkill",
+      "ExpectedStageId": 2,
+      "ExpectedCategoryId": 6,
+      "ExpectedPrimarySkillId": 28,
+      "ExpectedPrimarySkillKey": "middle-inverse-function-evaluation",
+      "ExpectedQuestion": {
+        "Ar": "لتكن \\(f(x)=3x+6\\)، إذا كانت \\(f(x)=18\\) فأوجد x.",
+        "En": "Given \\(f(x)=3x+6\\), solve f(x)=18."
+      },
+      "ExpectedOptions": [
+        [
+          885,
+          "4",
+          true
+        ],
+        [
+          886,
+          "5",
+          false
+        ],
+        [
+          887,
+          "7",
+          false
+        ],
+        [
+          888,
+          "2",
+          false
+        ]
+      ],
+      "ExpectedCorrectOption": "4",
+      "IndependentMathCheck": "Solve 3x+6=18; x=(18−6)/3.",
+      "ProposedQuestion": null,
+      "ProposedSkillId": null,
+      "ResolutionNote": "Current published skill name is Finding inputs from function values; solving f(x)=given value is a direct match.",
+      "Hints": [
+        {
+          "Ar": "ساوِ التعبير المعطى للدالة بقيمتها المطلوبة.",
+          "En": "Set the given function expression equal to the requested value."
+        },
+        {
+          "Ar": "اطرح الحد الثابت من الطرفين ثم اقسم على معامل x.",
+          "En": "Subtract the constant from both sides, then divide by the x coefficient."
+        }
+      ]
+    },
+    {
+      "ProblemId": 236,
+      "Status": "ReviewedProposalNotApplied",
+      "Action": "RetainExistingSkill",
+      "ExpectedStageId": 2,
+      "ExpectedCategoryId": 6,
+      "ExpectedPrimarySkillId": 28,
+      "ExpectedPrimarySkillKey": "middle-inverse-function-evaluation",
+      "ExpectedQuestion": {
+        "Ar": "لتكن \\(f(x)=4x+7\\)، إذا كانت \\(f(x)=27\\) فأوجد x.",
+        "En": "Given \\(f(x)=4x+7\\), solve f(x)=27."
+      },
+      "ExpectedOptions": [
+        [
+          933,
+          "6",
+          false
+        ],
+        [
+          934,
+          "8",
+          false
+        ],
+        [
+          935,
+          "3",
+          false
+        ],
+        [
+          936,
+          "5",
+          true
+        ]
+      ],
+      "ExpectedCorrectOption": "5",
+      "IndependentMathCheck": "Solve 4x+7=27; x=(27−7)/4.",
+      "ProposedQuestion": null,
+      "ProposedSkillId": null,
+      "ResolutionNote": "Current published skill name is Finding inputs from function values; direct match.",
+      "Hints": [
+        {
+          "Ar": "ساوِ التعبير المعطى للدالة بقيمتها المطلوبة.",
+          "En": "Set the given function expression equal to the requested value."
+        },
+        {
+          "Ar": "اطرح الحد الثابت من الطرفين ثم اقسم على معامل x.",
+          "En": "Subtract the constant from both sides, then divide by the x coefficient."
+        }
+      ]
+    },
+    {
+      "ProblemId": 248,
+      "Status": "ReviewedProposalNotApplied",
+      "Action": "RetainExistingSkill",
+      "ExpectedStageId": 2,
+      "ExpectedCategoryId": 6,
+      "ExpectedPrimarySkillId": 28,
+      "ExpectedPrimarySkillKey": "middle-inverse-function-evaluation",
+      "ExpectedQuestion": {
+        "Ar": "لتكن \\(f(x)=5x+8\\)، إذا كانت \\(f(x)=38\\) فأوجد x.",
+        "En": "Given \\(f(x)=5x+8\\), solve f(x)=38."
+      },
+      "ExpectedOptions": [
+        [
+          981,
+          "9",
+          false
+        ],
+        [
+          982,
+          "4",
+          false
+        ],
+        [
+          983,
+          "6",
+          true
+        ],
+        [
+          984,
+          "7",
+          false
+        ]
+      ],
+      "ExpectedCorrectOption": "6",
+      "IndependentMathCheck": "Solve 5x+8=38; x=(38−8)/5.",
+      "ProposedQuestion": null,
+      "ProposedSkillId": null,
+      "ResolutionNote": "Current published skill name is Finding inputs from function values; direct match.",
+      "Hints": [
+        {
+          "Ar": "ساوِ التعبير المعطى للدالة بقيمتها المطلوبة.",
+          "En": "Set the given function expression equal to the requested value."
+        },
+        {
+          "Ar": "اطرح الحد الثابت من الطرفين ثم اقسم على معامل x.",
+          "En": "Subtract the constant from both sides, then divide by the x coefficient."
+        }
+      ]
+    },
+    {
+      "ProblemId": 260,
+      "Status": "ReviewedProposalNotApplied",
+      "Action": "RetainExistingSkill",
+      "ExpectedStageId": 2,
+      "ExpectedCategoryId": 6,
+      "ExpectedPrimarySkillId": 28,
+      "ExpectedPrimarySkillKey": "middle-inverse-function-evaluation",
+      "ExpectedQuestion": {
+        "Ar": "لتكن \\(f(x)=6x+9\\)، إذا كانت \\(f(x)=51\\) فأوجد x.",
+        "En": "Given \\(f(x)=6x+9\\), solve f(x)=51."
+      },
+      "ExpectedOptions": [
+        [
+          1029,
+          "5",
+          false
+        ],
+        [
+          1030,
+          "7",
+          true
+        ],
+        [
+          1031,
+          "8",
+          false
+        ],
+        [
+          1032,
+          "10",
+          false
+        ]
+      ],
+      "ExpectedCorrectOption": "7",
+      "IndependentMathCheck": "Solve 6x+9=51; x=(51−9)/6.",
+      "ProposedQuestion": null,
+      "ProposedSkillId": null,
+      "ResolutionNote": "Current published skill name is Finding inputs from function values; direct match.",
+      "Hints": [
+        {
+          "Ar": "ساوِ التعبير المعطى للدالة بقيمتها المطلوبة.",
+          "En": "Set the given function expression equal to the requested value."
+        },
+        {
+          "Ar": "اطرح الحد الثابت من الطرفين ثم اقسم على معامل x.",
+          "En": "Subtract the constant from both sides, then divide by the x coefficient."
+        }
+      ]
+    },
+    {
+      "ProblemId": 279,
+      "Status": "ReviewedProposalNotApplied",
+      "Action": "VersionWordingPreserveHistory",
+      "ExpectedStageId": 3,
+      "ExpectedCategoryId": 12,
+      "ExpectedPrimarySkillId": 55,
+      "ExpectedPrimarySkillKey": "secondary-coin-toss-probability",
+      "ExpectedQuestion": {
+        "Ar": "نرمي قطعة نقد عادلة 2 مرات؛ ما احتمال الصورة في كل الرميات؟",
+        "En": "Toss a fair coin 2 times; probability of heads on all tosses?"
+      },
+      "ExpectedOptions": [
+        [
+          1105,
+          "\\frac{1}{5}",
+          false
+        ],
+        [
+          1106,
+          "\\frac{3}{4}",
+          false
+        ],
+        [
+          1107,
+          "\\frac{1}{4}",
+          true
+        ],
+        [
+          1108,
+          "\\frac{1}{2}",
+          false
+        ]
+      ],
+      "ExpectedCorrectOption": "\\frac{1}{4}",
+      "IndependentMathCheck": "Independent fair tosses: (1/2)^2.",
+      "ProposedQuestion": {
+        "Ar": "نرمي قطعة نقد عادلة بشكل مستقل 2 مرات؛ ما احتمال الصورة في كل الرميات؟",
+        "En": "Independently toss a fair coin 2 times; probability of heads on all tosses?"
+      },
+      "ProposedSkillId": null,
+      "ResolutionNote": "The proposed wording makes the mathematical model explicit. Require versioned review; keep original stem, options, and student history intact.",
+      "Hints": [
+        {
+          "Ar": "بعد اعتماد استقلال الرميات، احتمال الصورة في كل رمية هو النصف.",
+          "En": "Once independence is explicit, each head has probability one half."
+        },
+        {
+          "Ar": "اضرب احتمالات ظهور الصورة في كل الرميات المستقلة.",
+          "En": "Multiply the probabilities of heads across independent tosses."
+        }
+      ]
+    },
+    {
+      "ProblemId": 291,
+      "Status": "ReviewedProposalNotApplied",
+      "Action": "VersionWordingPreserveHistory",
+      "ExpectedStageId": 3,
+      "ExpectedCategoryId": 12,
+      "ExpectedPrimarySkillId": 55,
+      "ExpectedPrimarySkillKey": "secondary-coin-toss-probability",
+      "ExpectedQuestion": {
+        "Ar": "نرمي قطعة نقد عادلة 3 مرات؛ ما احتمال الصورة في كل الرميات؟",
+        "En": "Toss a fair coin 3 times; probability of heads on all tosses?"
+      },
+      "ExpectedOptions": [
+        [
+          1153,
+          "\\frac{3}{8}",
+          false
+        ],
+        [
+          1154,
+          "\\frac{1}{8}",
+          true
+        ],
+        [
+          1155,
+          "\\frac{1}{4}",
+          false
+        ],
+        [
+          1156,
+          "\\frac{1}{9}",
+          false
+        ]
+      ],
+      "ExpectedCorrectOption": "\\frac{1}{8}",
+      "IndependentMathCheck": "Independent fair tosses: (1/2)^3.",
+      "ProposedQuestion": {
+        "Ar": "نرمي قطعة نقد عادلة بشكل مستقل 3 مرات؛ ما احتمال الصورة في كل الرميات؟",
+        "En": "Independently toss a fair coin 3 times; probability of heads on all tosses?"
+      },
+      "ProposedSkillId": null,
+      "ResolutionNote": "The proposed wording makes the mathematical model explicit. Require versioned review; keep original stem, options, and student history intact.",
+      "Hints": [
+        {
+          "Ar": "بعد اعتماد استقلال الرميات، احتمال الصورة في كل رمية هو النصف.",
+          "En": "Once independence is explicit, each head has probability one half."
+        },
+        {
+          "Ar": "اضرب احتمالات ظهور الصورة في كل الرميات المستقلة.",
+          "En": "Multiply the probabilities of heads across independent tosses."
+        }
+      ]
+    },
+    {
+      "ProblemId": 303,
+      "Status": "ReviewedProposalNotApplied",
+      "Action": "VersionWordingPreserveHistory",
+      "ExpectedStageId": 3,
+      "ExpectedCategoryId": 12,
+      "ExpectedPrimarySkillId": 55,
+      "ExpectedPrimarySkillKey": "secondary-coin-toss-probability",
+      "ExpectedQuestion": {
+        "Ar": "نرمي قطعة نقد عادلة 4 مرات؛ ما احتمال الصورة في كل الرميات؟",
+        "En": "Toss a fair coin 4 times; probability of heads on all tosses?"
+      },
+      "ExpectedOptions": [
+        [
+          1201,
+          "\\frac{1}{16}",
+          true
+        ],
+        [
+          1202,
+          "\\frac{1}{8}",
+          false
+        ],
+        [
+          1203,
+          "\\frac{1}{17}",
+          false
+        ],
+        [
+          1204,
+          "\\frac{3}{16}",
+          false
+        ]
+      ],
+      "ExpectedCorrectOption": "\\frac{1}{16}",
+      "IndependentMathCheck": "Independent fair tosses: (1/2)^4.",
+      "ProposedQuestion": {
+        "Ar": "نرمي قطعة نقد عادلة بشكل مستقل 4 مرات؛ ما احتمال الصورة في كل الرميات؟",
+        "En": "Independently toss a fair coin 4 times; probability of heads on all tosses?"
+      },
+      "ProposedSkillId": null,
+      "ResolutionNote": "The proposed wording makes the mathematical model explicit. Require versioned review; keep original stem, options, and student history intact.",
+      "Hints": [
+        {
+          "Ar": "بعد اعتماد استقلال الرميات، احتمال الصورة في كل رمية هو النصف.",
+          "En": "Once independence is explicit, each head has probability one half."
+        },
+        {
+          "Ar": "اضرب احتمالات ظهور الصورة في كل الرميات المستقلة.",
+          "En": "Multiply the probabilities of heads across independent tosses."
+        }
+      ]
+    },
+    {
+      "ProblemId": 315,
+      "Status": "ReviewedProposalNotApplied",
+      "Action": "VersionWordingPreserveHistory",
+      "ExpectedStageId": 3,
+      "ExpectedCategoryId": 12,
+      "ExpectedPrimarySkillId": 55,
+      "ExpectedPrimarySkillKey": "secondary-coin-toss-probability",
+      "ExpectedQuestion": {
+        "Ar": "نرمي قطعة نقد عادلة 5 مرات؛ ما احتمال الصورة في كل الرميات؟",
+        "En": "Toss a fair coin 5 times; probability of heads on all tosses?"
+      },
+      "ExpectedOptions": [
+        [
+          1249,
+          "\\frac{1}{16}",
+          false
+        ],
+        [
+          1250,
+          "\\frac{1}{33}",
+          false
+        ],
+        [
+          1251,
+          "\\frac{3}{32}",
+          false
+        ],
+        [
+          1252,
+          "\\frac{1}{32}",
+          true
+        ]
+      ],
+      "ExpectedCorrectOption": "\\frac{1}{32}",
+      "IndependentMathCheck": "Independent fair tosses: (1/2)^5.",
+      "ProposedQuestion": {
+        "Ar": "نرمي قطعة نقد عادلة بشكل مستقل 5 مرات؛ ما احتمال الصورة في كل الرميات؟",
+        "En": "Independently toss a fair coin 5 times; probability of heads on all tosses?"
+      },
+      "ProposedSkillId": null,
+      "ResolutionNote": "The proposed wording makes the mathematical model explicit. Require versioned review; keep original stem, options, and student history intact.",
+      "Hints": [
+        {
+          "Ar": "بعد اعتماد استقلال الرميات، احتمال الصورة في كل رمية هو النصف.",
+          "En": "Once independence is explicit, each head has probability one half."
+        },
+        {
+          "Ar": "اضرب احتمالات ظهور الصورة في كل الرميات المستقلة.",
+          "En": "Multiply the probabilities of heads across independent tosses."
+        }
+      ]
+    },
+    {
+      "ProblemId": 327,
+      "Status": "ReviewedProposalNotApplied",
+      "Action": "VersionWordingPreserveHistory",
+      "ExpectedStageId": 3,
+      "ExpectedCategoryId": 12,
+      "ExpectedPrimarySkillId": 55,
+      "ExpectedPrimarySkillKey": "secondary-coin-toss-probability",
+      "ExpectedQuestion": {
+        "Ar": "نرمي قطعة نقد عادلة 6 مرات؛ ما احتمال الصورة في كل الرميات؟",
+        "En": "Toss a fair coin 6 times; probability of heads on all tosses?"
+      },
+      "ExpectedOptions": [
+        [
+          1297,
+          "\\frac{1}{65}",
+          false
+        ],
+        [
+          1298,
+          "\\frac{3}{64}",
+          false
+        ],
+        [
+          1299,
+          "\\frac{1}{64}",
+          true
+        ],
+        [
+          1300,
+          "\\frac{1}{32}",
+          false
+        ]
+      ],
+      "ExpectedCorrectOption": "\\frac{1}{64}",
+      "IndependentMathCheck": "Independent fair tosses: (1/2)^6.",
+      "ProposedQuestion": {
+        "Ar": "نرمي قطعة نقد عادلة بشكل مستقل 6 مرات؛ ما احتمال الصورة في كل الرميات؟",
+        "En": "Independently toss a fair coin 6 times; probability of heads on all tosses?"
+      },
+      "ProposedSkillId": null,
+      "ResolutionNote": "The proposed wording makes the mathematical model explicit. Require versioned review; keep original stem, options, and student history intact.",
+      "Hints": [
+        {
+          "Ar": "بعد اعتماد استقلال الرميات، احتمال الصورة في كل رمية هو النصف.",
+          "En": "Once independence is explicit, each head has probability one half."
+        },
+        {
+          "Ar": "اضرب احتمالات ظهور الصورة في كل الرميات المستقلة.",
+          "En": "Multiply the probabilities of heads across independent tosses."
+        }
+      ]
+    },
+    {
+      "ProblemId": 649,
+      "Status": "ReviewedProposalNotApplied",
+      "Action": "ReassignPrimaryWithinCategory",
+      "ExpectedStageId": 4,
+      "ExpectedCategoryId": 14,
+      "ExpectedPrimarySkillId": 62,
+      "ExpectedPrimarySkillKey": "university-linear-independence",
+      "ExpectedQuestion": {
+        "Ar": "ما محدد المصفوفة التي عموداها (1، 2) و(3، 7)؟",
+        "En": "What is the determinant of the matrix with columns (1, 2) and (3, 7)?"
+      },
+      "ExpectedOptions": [
+        [
+          2585,
+          "0",
+          false
+        ],
+        [
+          2586,
+          "1",
+          true
+        ],
+        [
+          2587,
+          "5",
+          false
+        ],
+        [
+          2588,
+          "13",
+          false
+        ]
+      ],
+      "ExpectedCorrectOption": "1",
+      "IndependentMathCheck": "det([[1,3],[2,7]])=7−6=1.",
+      "ProposedQuestion": null,
+      "ProposedSkillId": 61,
+      "ResolutionNote": "Existing matrix determinant skill 61 belongs to the same stage and category; reassign primary only through reviewed taxonomy operation.",
+      "Hints": [
+        {
+          "Ar": "رتّب مركبات العمودين في مصفوفة 2×2 دون تبديلها.",
+          "En": "Arrange the two columns in a 2×2 matrix without swapping them."
+        },
+        {
+          "Ar": "احسب حاصل ضرب عناصر القطر الرئيسي ناقص حاصل ضرب عناصر القطر الآخر.",
+          "En": "Subtract the other diagonal product from the main diagonal product."
+        }
+      ]
+    },
+    {
+      "ProblemId": 705,
+      "Status": "ReviewedProposalNotApplied",
+      "Action": "VersionWordingPreserveHistory",
+      "ExpectedStageId": 3,
+      "ExpectedCategoryId": 12,
+      "ExpectedPrimarySkillId": 52,
+      "ExpectedPrimarySkillKey": "secondary-two-dice-probability",
+      "ExpectedQuestion": {
+        "Ar": "نرمي نردين عادلين. ما احتمال أن يكون مجموع الوجهين 8؟",
+        "En": "Two fair six-sided dice are rolled. What is the probability that their sum is 8?"
+      },
+      "ExpectedOptions": [
+        [
+          2765,
+          "\\frac4{36}",
+          false
+        ],
+        [
+          2766,
+          "\\frac5{36}",
+          true
+        ],
+        [
+          2767,
+          "\\frac6{36}",
+          false
+        ],
+        [
+          2768,
+          "\\frac8{36}",
+          false
+        ]
+      ],
+      "ExpectedCorrectOption": "\\frac5{36}",
+      "IndependentMathCheck": "Five ordered pairs sum to 8 among 36 equally likely independent outcomes.",
+      "ProposedQuestion": {
+        "Ar": "نرمي حجرَي نرد عادلين سداسيي الأوجه بشكل مستقل. ما احتمال أن يكون مجموع الوجهين 8؟",
+        "En": "Two independent fair six-sided dice are rolled. What is the probability that their sum is 8?"
+      },
+      "ProposedSkillId": null,
+      "ResolutionNote": "The proposed wording makes the mathematical model explicit. Require versioned review; keep original stem, options, and student history intact.",
+      "Hints": [
+        {
+          "Ar": "بعد تحديد نردين سداسيين عادلين مستقلين، استخدم الأزواج المرتبة للوجهين.",
+          "En": "Once independent fair six-sided dice are specified, use ordered face pairs."
+        },
+        {
+          "Ar": "عدّ الأزواج التي تحقق المجموع المطلوب واقسم على 36.",
+          "En": "Count the pairs with the requested sum and divide by 36."
+        }
+      ]
+    },
+    {
+      "ProblemId": 706,
+      "Status": "ReviewedProposalNotApplied",
+      "Action": "VersionWordingPreserveHistory",
+      "ExpectedStageId": 3,
+      "ExpectedCategoryId": 12,
+      "ExpectedPrimarySkillId": 52,
+      "ExpectedPrimarySkillKey": "secondary-two-dice-probability",
+      "ExpectedQuestion": {
+        "Ar": "ما احتمال ظهور عدد زوجي على كل من نردين عادلين؟",
+        "En": "What is the probability that both of two fair dice show even numbers?"
+      },
+      "ExpectedOptions": [
+        [
+          2769,
+          "\\frac16",
+          false
+        ],
+        [
+          2770,
+          "\\frac14",
+          true
+        ],
+        [
+          2771,
+          "\\frac12",
+          false
+        ],
+        [
+          2772,
+          "\\frac34",
+          false
+        ]
+      ],
+      "ExpectedCorrectOption": "\\frac14",
+      "IndependentMathCheck": "Independent rolls: (3/6)^2=1/4.",
+      "ProposedQuestion": {
+        "Ar": "ما احتمال ظهور عدد زوجي على كل من حجرَي نرد عادلين سداسيي الأوجه يُرميان بشكل مستقل؟",
+        "En": "What is the probability that both of two independent fair six-sided dice show even numbers?"
+      },
+      "ProposedSkillId": null,
+      "ResolutionNote": "The proposed wording makes the mathematical model explicit. Require versioned review; keep original stem, options, and student history intact.",
+      "Hints": [
+        {
+          "Ar": "بعد تحديد استقلال النردين، احسب احتمال الوجه الزوجي لنرد واحد.",
+          "En": "With independence specified, find the probability of an even face on one die."
+        },
+        {
+          "Ar": "اضرب احتمال الزوجية للنرد الأول في احتمالها للنرد الثاني.",
+          "En": "Multiply the even-face probabilities of the two dice."
+        }
+      ]
+    },
+    {
+      "ProblemId": 707,
+      "Status": "ReviewedProposalNotApplied",
+      "Action": "VersionWordingPreserveHistory",
+      "ExpectedStageId": 3,
+      "ExpectedCategoryId": 12,
+      "ExpectedPrimarySkillId": 52,
+      "ExpectedPrimarySkillKey": "secondary-two-dice-probability",
+      "ExpectedQuestion": {
+        "Ar": "إذا رُمِي نردان عادلان، فما احتمال ظهور العدد 6 على أحدهما على الأقل؟",
+        "En": "When two fair dice are rolled, what is the probability of at least one six?"
+      },
+      "ExpectedOptions": [
+        [
+          2773,
+          "\\frac1{36}",
+          false
+        ],
+        [
+          2774,
+          "\\frac6{36}",
+          false
+        ],
+        [
+          2775,
+          "\\frac{11}{36}",
+          true
+        ],
+        [
+          2776,
+          "\\frac{12}{36}",
+          false
+        ]
+      ],
+      "ExpectedCorrectOption": "\\frac{11}{36}",
+      "IndependentMathCheck": "Independent rolls: 1−(5/6)^2=11/36.",
+      "ProposedQuestion": {
+        "Ar": "إذا رُمِي حجرا نرد عادلان سداسيا الأوجه بشكل مستقل، فما احتمال ظهور العدد 6 على أحدهما على الأقل؟",
+        "En": "When two independent fair six-sided dice are rolled, what is the probability of at least one six?"
+      },
+      "ProposedSkillId": null,
+      "ResolutionNote": "The proposed wording makes the mathematical model explicit. Require versioned review; keep original stem, options, and student history intact.",
+      "Hints": [
+        {
+          "Ar": "بعد تحديد استقلال النردين، فكّر بالحدث المتمم لظهور ستة مرة على الأقل.",
+          "En": "With independence specified, consider the complement of at least one six."
+        },
+        {
+          "Ar": "احسب احتمال عدم ظهور ستة على كلا النردين، ثم اطرحه من واحد.",
+          "En": "Find the probability of no six on either die, then subtract it from one."
+        }
+      ]
+    },
+    {
+      "ProblemId": 708,
+      "Status": "ReviewedProposalNotApplied",
+      "Action": "VersionWordingPreserveHistory",
+      "ExpectedStageId": 3,
+      "ExpectedCategoryId": 12,
+      "ExpectedPrimarySkillId": 52,
+      "ExpectedPrimarySkillKey": "secondary-two-dice-probability",
+      "ExpectedQuestion": {
+        "Ar": "عند رمي نردين عادلين، ما احتمال أن يكون حاصل ضرب العددين زوجياً؟",
+        "En": "When two fair dice are rolled, what is the probability the product of their numbers is even?"
+      },
+      "ExpectedOptions": [
+        [
+          2777,
+          "\\frac14",
+          false
+        ],
+        [
+          2778,
+          "\\frac12",
+          false
+        ],
+        [
+          2779,
+          "\\frac23",
+          false
+        ],
+        [
+          2780,
+          "\\frac34",
+          true
+        ]
+      ],
+      "ExpectedCorrectOption": "\\frac34",
+      "IndependentMathCheck": "Independent rolls: 1−(3/6)^2=3/4.",
+      "ProposedQuestion": {
+        "Ar": "عند رمي حجرَي نرد عادلين سداسيي الأوجه بشكل مستقل، ما احتمال أن يكون حاصل ضرب العددين زوجياً؟",
+        "En": "When two independent fair six-sided dice are rolled, what is the probability that the product of their numbers is even?"
+      },
+      "ProposedSkillId": null,
+      "ResolutionNote": "The proposed wording makes the mathematical model explicit. Require versioned review; keep original stem, options, and student history intact.",
+      "Hints": [
+        {
+          "Ar": "بعد تحديد استقلال النردين، حاصل الضرب فردي فقط إذا كان العددان فرديين.",
+          "En": "With independence specified, the product is odd only if both numbers are odd."
+        },
+        {
+          "Ar": "احسب احتمال فردية العددين ثم استخدم احتمال المتممة.",
+          "En": "Find the probability that both are odd, then use the complement."
+        }
+      ]
+    },
+    {
+      "ProblemId": 768,
+      "Status": "ReviewedProposalNotApplied",
+      "Action": "RetainAsApplication",
+      "ExpectedStageId": 2,
+      "ExpectedCategoryId": 5,
+      "ExpectedPrimarySkillId": 23,
+      "ExpectedPrimarySkillKey": "middle-evaluate-powers",
+      "ExpectedQuestion": {
+        "Ar": "صندوق مكعب طول حرفه 3 سم. ما حجمه بالسم³؟",
+        "En": "A cube-shaped box has an edge length of 3 cm. What is its volume in cm³?"
+      },
+      "ExpectedOptions": [
+        [
+          3061,
+          "9",
+          false
+        ],
+        [
+          3062,
+          "18",
+          false
+        ],
+        [
+          3063,
+          "27",
+          true
+        ],
+        [
+          3064,
+          "81",
+          false
+        ]
+      ],
+      "ExpectedCorrectOption": "27",
+      "IndependentMathCheck": "Cube volume 3³=27 cm³.",
+      "ProposedQuestion": null,
+      "ProposedSkillId": null,
+      "ResolutionNote": "Cube volume is a meaningful application of evaluating powers. Retain existing category; optionally add geometry skill after a compatible stage/category skill is approved.",
+      "Hints": [
+        {
+          "Ar": "حجم المكعب يساوي حاصل ضرب أبعاده الثلاثة المتساوية.",
+          "En": "A cube's volume is the product of its three equal dimensions."
+        },
+        {
+          "Ar": "ارفع طول الحرف للقوة الثالثة واستخدم الوحدة المكعبة.",
+          "En": "Raise the edge length to the third power and use cubic units."
+        }
+      ]
+    },
+    {
+      "ProblemId": 1566,
+      "Status": "ReviewedProposalNotApplied",
+      "Action": "ProposeNewSkillSameCategory",
+      "ExpectedStageId": 2,
+      "ExpectedCategoryId": 83,
+      "ExpectedPrimarySkillId": 307,
+      "ExpectedPrimarySkillKey": "absolute-value",
+      "ExpectedQuestion": {
+        "Ar": "رتّب الأعداد −8، −2، 4، 0 تصاعدياً.",
+        "En": "Order −8, −2, 4, 0 from least to greatest."
+      },
+      "ExpectedOptions": [
+        [
+          6253,
+          "-2<-8<0<4",
+          false
+        ],
+        [
+          6254,
+          "-8<-2<0<4",
+          true
+        ],
+        [
+          6255,
+          "4<0<-2<-8",
+          false
+        ],
+        [
+          6256,
+          "-8<0<-2<4",
+          false
+        ]
+      ],
+      "ExpectedCorrectOption": "-8<-2<0<4",
+      "IndependentMathCheck": "Increasing signed numbers along the real number line.",
+      "ProposedQuestion": null,
+      "ProposedSkillId": null,
+      "ResolutionNote": "Add ordering signed integers on the number line within the current signed-number category; absolute value alone is not the target.",
+      "Hints": [
+        {
+          "Ar": "تخيّل مواضع الأعداد على خط الأعداد، واقرأ من اليسار إلى اليمين.",
+          "En": "Place the numbers on a number line and read from left to right."
+        },
+        {
+          "Ar": "رتّب السوالب أولاً. أي العددين السالبين يقع أبعد إلى يسار الصفر؟",
+          "En": "Order the negative numbers first. Which of the two lies farther to the left of zero?"
+        }
+      ]
+    },
+    {
+      "ProblemId": 1578,
+      "Status": "ReviewedProposalNotApplied",
+      "Action": "ProposeCategoryTransfer",
+      "ExpectedStageId": 3,
+      "ExpectedCategoryId": 86,
+      "ExpectedPrimarySkillId": 316,
+      "ExpectedPrimarySkillKey": "model-interpretation",
+      "ExpectedQuestion": {
+        "Ar": "ما صيغة الحد العام للمتتالية 2، 6، 18، 54، مع بدء الترقيم من n=1؟",
+        "En": "Which formula gives the sequence 2, 6, 18, 54 starting at n=1?"
+      },
+      "ExpectedOptions": [
+        [
+          6301,
+          "a_n=2+3(n-1)",
+          false
+        ],
+        [
+          6302,
+          "a_n=2\\cdot3^{n-1}",
+          true
+        ],
+        [
+          6303,
+          "a_n=3n",
+          false
+        ],
+        [
+          6304,
+          "a_n=2\\cdot2^{n-1}",
+          false
+        ]
+      ],
+      "ExpectedCorrectOption": "a_n=2\\cdot3^{n-1}",
+      "IndependentMathCheck": "First term 2; common ratio 3; a_n=2·3^(n−1).",
+      "ProposedQuestion": null,
+      "ProposedSkillId": 103,
+      "ResolutionNote": "The exact matching skill is geometric sequences 103 (same stage but different category). Do not move until category access, prior progress and track mapping effects are checked.",
+      "Hints": [
+        {
+          "Ar": "قارن كل حد بالحد السابق بالقسمة.",
+          "En": "Compare each term with the preceding term by division."
+        },
+        {
+          "Ar": "تتبّع عدد مرات تطبيق النسبة المشتركة بين الحد الأول والحد ذي الرتبة $n$.",
+          "En": "Count how many times the common ratio is applied between the first term and term $n$."
+        }
+      ]
+    },
+    {
+      "ProblemId": 1579,
+      "Status": "ReviewedProposalNotApplied",
+      "Action": "ProposeNewSkillSameCategory",
+      "ExpectedStageId": 4,
+      "ExpectedCategoryId": 89,
+      "ExpectedPrimarySkillId": 319,
+      "ExpectedPrimarySkillKey": "sampling-distribution",
+      "ExpectedQuestion": {
+        "Ar": "في مجتمع متوسطه 70 وانحرافه المعياري 6، ما الدرجة المعيارية للقيمة 82؟",
+        "En": "For a population with mean 70 and standard deviation 6, find the z-score of 82."
+      },
+      "ExpectedOptions": [
+        [
+          6305,
+          "1",
+          false
+        ],
+        [
+          6306,
+          "2",
+          true
+        ],
+        [
+          6307,
+          "3",
+          false
+        ],
+        [
+          6308,
+          "−2",
+          false
+        ]
+      ],
+      "ExpectedCorrectOption": "2",
+      "IndependentMathCheck": "z=(82−70)/6=2.",
+      "ProposedQuestion": null,
+      "ProposedSkillId": null,
+      "ResolutionNote": "Add standardization and z-scores within the existing university statistical-inference category. No exact existing skill found.",
+      "Hints": [
+        {
+          "Ar": "الدرجة المعيارية تقيس بعد القيمة عن المتوسط بوحدات الانحراف المعياري.",
+          "En": "A z-score measures distance from the mean in standard deviations."
+        },
+        {
+          "Ar": "اطرح المتوسط من القيمة واقسم الفرق على الانحراف المعياري.",
+          "En": "Subtract the mean from the value and divide by the standard deviation."
+        }
+      ]
+    },
+    {
+      "ProblemId": 1580,
+      "Status": "ReviewedProposalNotApplied",
+      "Action": "VersionWordingPreserveHistory",
+      "ExpectedStageId": 4,
+      "ExpectedCategoryId": 89,
+      "ExpectedPrimarySkillId": 319,
+      "ExpectedPrimarySkillKey": "sampling-distribution",
+      "ExpectedQuestion": {
+        "Ar": "إذا كان σ=15 وحجم العينة n=25، فما الخطأ المعياري للمتوسط؟",
+        "En": "If population σ=15 and sample size n=25, what is the standard error of the sample mean?"
+      },
+      "ExpectedOptions": [
+        [
+          6309,
+          "5",
+          false
+        ],
+        [
+          6310,
+          "0.6",
+          false
+        ],
+        [
+          6311,
+          "3",
+          true
+        ],
+        [
+          6312,
+          "15",
+          false
+        ]
+      ],
+      "ExpectedCorrectOption": "3",
+      "IndependentMathCheck": "Independent observations: 15/√25=3.",
+      "ProposedQuestion": {
+        "Ar": "إذا كان الانحراف المعياري للمجتمع $\\sigma=15$ وحجم عينة من مشاهدات مستقلة $n=25$، فما الخطأ المعياري لمتوسط العينة؟",
+        "En": "If the population standard deviation is $\\sigma=15$ and a sample of independent observations has size $n=25$, what is the standard error of the sample mean?"
+      },
+      "ProposedSkillId": null,
+      "ResolutionNote": "The proposed wording makes the mathematical model explicit. Require versioned review; keep original stem, options, and student history intact.",
+      "Hints": [
+        {
+          "Ar": "بعد اعتماد استقلال المشاهدات، استخدم قانون الخطأ المعياري لمتوسط العينة.",
+          "En": "With independent observations specified, use the standard error of the sample mean."
+        },
+        {
+          "Ar": "اقسم الانحراف المعياري للمجتمع على الجذر التربيعي لحجم العينة.",
+          "En": "Divide the population standard deviation by the square root of sample size."
+        }
+      ]
+    },
+    {
+      "ProblemId": 1581,
+      "Status": "ReviewedProposalNotApplied",
+      "Action": "ProposeNewSkillSameCategory",
+      "ExpectedStageId": 4,
+      "ExpectedCategoryId": 89,
+      "ExpectedPrimarySkillId": 319,
+      "ExpectedPrimarySkillKey": "sampling-distribution",
+      "ExpectedQuestion": {
+        "Ar": "نجح 18 طالباً من عينة حجمها 30. ما النسبة المشاهدة للنجاح؟",
+        "En": "18 out of 30 sampled students passed. What is the observed success proportion?"
+      },
+      "ExpectedOptions": [
+        [
+          6313,
+          "0.18",
+          false
+        ],
+        [
+          6314,
+          "0.3",
+          false
+        ],
+        [
+          6315,
+          "0.6",
+          true
+        ],
+        [
+          6316,
+          "0.8",
+          false
+        ]
+      ],
+      "ExpectedCorrectOption": "0.6",
+      "IndependentMathCheck": "Observed proportion 18/30=0.6.",
+      "ProposedQuestion": null,
+      "ProposedSkillId": null,
+      "ResolutionNote": "Add sample proportions and descriptive estimators within the current university statistics category. No exact existing skill found.",
+      "Hints": [
+        {
+          "Ar": "النسبة المشاهدة هي جزء من العينة، وليست متوسطاً لمجتمع كامل.",
+          "En": "The observed proportion describes a part of the sample, not a population mean."
+        },
+        {
+          "Ar": "اقسم عدد الناجحين على العدد الكلي للعينة.",
+          "En": "Divide successes by total sample size."
+        }
+      ]
+    },
+    {
+      "ProblemId": 1582,
+      "Status": "ReviewedProposalNotApplied",
+      "Action": "VersionWordingPreserveHistory",
+      "ExpectedStageId": 4,
+      "ExpectedCategoryId": 89,
+      "ExpectedPrimarySkillId": 317,
+      "ExpectedPrimarySkillKey": "confidence-intervals",
+      "ExpectedQuestion": {
+        "Ar": "متوسط عينة 100، والانحراف المعياري للمجتمع 10، وحجم العينة 100. بافتراض النموذج الطبيعي، ما فترة الثقة 95% باستخدام z=1.96؟",
+        "En": "The sample mean is 100, population σ=10, n=100. Using the normal approximation and z=1.96, find the 95% confidence interval."
+      },
+      "ExpectedOptions": [
+        [
+          6317,
+          "[90,110]",
+          false
+        ],
+        [
+          6318,
+          "[98.04,101.96]",
+          true
+        ],
+        [
+          6319,
+          "[99.04,100.96]",
+          false
+        ],
+        [
+          6320,
+          "[96,104]",
+          false
+        ]
+      ],
+      "ExpectedCorrectOption": "[98.04,101.96]",
+      "IndependentMathCheck": "Known σ and independent sample, normal approximation: 100±1.96·10/√100.",
+      "ProposedQuestion": {
+        "Ar": "متوسط عينة عشوائية مستقلة 100، والانحراف المعياري المعلوم للمجتمع 10، وحجم العينة 100. باستخدام التقريب الطبيعي و$z=1.96$، ما فترة الثقة 95% لمتوسط المجتمع؟",
+        "En": "The mean of an independent random sample is 100, the known population standard deviation is 10, and the sample size is 100. Using the normal approximation and $z=1.96$, find the 95% confidence interval for the population mean."
+      },
+      "ProposedSkillId": null,
+      "ResolutionNote": "The proposed wording makes the mathematical model explicit. Require versioned review; keep original stem, options, and student history intact.",
+      "Hints": [
+        {
+          "Ar": "بعد اعتماد شروط فترة الثقة الطبيعية، احسب الخطأ المعياري σ/√n.",
+          "En": "After the normal-interval conditions are specified, find σ/√n."
+        },
+        {
+          "Ar": "اضربه في القيمة الحرجة واطرح الهامش من متوسط العينة وأضفه إليه.",
+          "En": "Multiply by the critical value, then subtract and add the margin to the sample mean."
+        }
+      ]
+    },
+    {
+      "ProblemId": 1583,
+      "Status": "ReviewedProposalNotApplied",
+      "Action": "VersionWordingPreserveHistory",
+      "ExpectedStageId": 4,
+      "ExpectedCategoryId": 89,
+      "ExpectedPrimarySkillId": 317,
+      "ExpectedPrimarySkillKey": "confidence-intervals",
+      "ExpectedQuestion": {
+        "Ar": "عند σ=8 وn=64 وz=1.96، ما هامش الخطأ لفترة ثقة طبيعية؟",
+        "En": "For σ=8, n=64, and z=1.96, what is the normal confidence-interval margin of error?"
+      },
+      "ExpectedOptions": [
+        [
+          6321,
+          "0.98",
+          false
+        ],
+        [
+          6322,
+          "1.96",
+          true
+        ],
+        [
+          6323,
+          "8",
+          false
+        ],
+        [
+          6324,
+          "15.68",
+          false
+        ]
+      ],
+      "ExpectedCorrectOption": "1.96",
+      "IndependentMathCheck": "1.96·8/√64=1.96.",
+      "ProposedQuestion": {
+        "Ar": "لعينة من مشاهدات مستقلة مع انحراف معياري معلوم للمجتمع $\\sigma=8$ وحجم عينة $n=64$ وقيمة حرجة $z=1.96$، ما هامش الخطأ لفترة الثقة الطبيعية لمتوسط المجتمع؟",
+        "En": "For a sample of independent observations with known population standard deviation $\\sigma=8$, sample size $n=64$, and critical value $z=1.96$, what is the margin of error of the normal confidence interval for the population mean?"
+      },
+      "ProposedSkillId": null,
+      "ResolutionNote": "The proposed wording makes the mathematical model explicit. Require versioned review; keep original stem, options, and student history intact.",
+      "Hints": [
+        {
+          "Ar": "بعد تحديد شروط فترة الثقة، احسب الخطأ المعياري للمتوسط.",
+          "En": "Once the interval conditions are specified, compute the mean's standard error."
+        },
+        {
+          "Ar": "هامش الخطأ يساوي القيمة الحرجة مضروبة في σ/√n.",
+          "En": "Margin of error is the critical value times σ/√n."
+        }
+      ]
+    },
+    {
+      "ProblemId": 1584,
+      "Status": "ReviewedProposalNotApplied",
+      "Action": "VersionWordingPreserveHistory",
+      "ExpectedStageId": 4,
+      "ExpectedCategoryId": 89,
+      "ExpectedPrimarySkillId": 317,
+      "ExpectedPrimarySkillKey": "confidence-intervals",
+      "ExpectedQuestion": {
+        "Ar": "مع ثبات الانحراف المعياري ومستوى الثقة، إذا ضُرب حجم العينة في 4، فبأي عامل يُضرب عرض فترة الثقة؟",
+        "En": "With fixed standard deviation and confidence level, if the sample size is multiplied by 4, what factor multiplies the confidence-interval width?"
+      },
+      "ExpectedOptions": [
+        [
+          6325,
+          "2",
+          false
+        ],
+        [
+          6326,
+          "1",
+          false
+        ],
+        [
+          6327,
+          "1/2",
+          true
+        ],
+        [
+          6328,
+          "1/4",
+          false
+        ]
+      ],
+      "ExpectedCorrectOption": "1/2",
+      "IndependentMathCheck": "Width proportional to 1/√n; replacing n by 4n halves it.",
+      "ProposedQuestion": {
+        "Ar": "لفترة ثقة طبيعية لمتوسط المجتمع باستخدام عينة من مشاهدات مستقلة، ومع ثبات الانحراف المعياري المعلوم ومستوى الثقة، إذا ضُرب حجم العينة في 4، فبأي عامل يُضرب عرض الفترة؟",
+        "En": "For a normal confidence interval for a population mean using independent observations, with known population standard deviation and confidence level fixed, if the sample size is multiplied by 4, what factor multiplies the interval width?"
+      },
+      "ProposedSkillId": null,
+      "ResolutionNote": "The proposed wording makes the mathematical model explicit. Require versioned review; keep original stem, options, and student history intact.",
+      "Hints": [
+        {
+          "Ar": "في النموذج المحدد، عرض الفترة يتناسب عكسياً مع الجذر التربيعي لحجم العينة.",
+          "En": "In the specified model, interval width is inversely proportional to the square root of sample size."
+        },
+        {
+          "Ar": "قارن 1/√(4n) مع 1/√n عند ثبات بقية المعاملات.",
+          "En": "Compare 1/√(4n) with 1/√n while keeping the other factors fixed."
+        }
+      ]
+    },
+    {
+      "ProblemId": 1633,
+      "Status": "ReviewedProposalNotApplied",
+      "Action": "RetainAsPrerequisite",
+      "ExpectedStageId": 4,
+      "ExpectedCategoryId": 90,
+      "ExpectedPrimarySkillId": 332,
+      "ExpectedPrimarySkillKey": "linear-systems",
+      "ExpectedQuestion": {
+        "Ar": "باستخدام الحذف، حل النظام $2x+y=7$ و$x-y=2$. ما قيمة $x$؟",
+        "En": "Use elimination to solve $2x+y=7$ and $x-y=2$. What is $x$?"
+      },
+      "ExpectedOptions": [
+        [
+          6521,
+          "2",
+          false
+        ],
+        [
+          6522,
+          "4",
+          false
+        ],
+        [
+          6523,
+          "1",
+          false
+        ],
+        [
+          6524,
+          "3",
+          true
+        ]
+      ],
+      "ExpectedCorrectOption": "3",
+      "IndependentMathCheck": "Add equations: 3x=9, hence x=3.",
+      "ProposedQuestion": null,
+      "ProposedSkillId": null,
+      "ResolutionNote": "Exact elimination is a prerequisite for numerical linear systems. Keep category and identify it as a prerequisite rather than count it as numerical-method mastery.",
+      "Hints": [
+        {
+          "Ar": "لاحظ أن معاملي y في المعادلتين متعاكسان.",
+          "En": "Notice the two y coefficients are opposites."
+        },
+        {
+          "Ar": "اجمع المعادلتين لإلغاء y ثم حل المعادلة الناتجة في x.",
+          "En": "Add the equations to eliminate y, then solve for x."
+        }
+      ]
+    },
+    {
+      "ProblemId": 1659,
+      "Status": "ReviewedProposalNotApplied",
+      "Action": "VersionWordingPreserveHistory",
+      "ExpectedStageId": 2,
+      "ExpectedCategoryId": 85,
+      "ExpectedPrimarySkillId": 337,
+      "ExpectedPrimarySkillKey": "simple-compound-events",
+      "ExpectedQuestion": {
+        "Ar": "قرص من أربعة أقسام متساوية أحدها أزرق، ومعه قطعة نقود عادلة. ما احتمال ظهور الأزرق ووجه الصورة معاً؟",
+        "En": "A spinner has four equal sectors, one blue. A fair coin is flipped. What is the chance of blue and heads together?"
+      },
+      "ExpectedOptions": [
+        [
+          6625,
+          "\\frac{1}{8}",
+          true
+        ],
+        [
+          6626,
+          "\\frac{1}{4}",
+          false
+        ],
+        [
+          6627,
+          "\\frac{1}{6}",
+          false
+        ],
+        [
+          6628,
+          "\\frac{1}{2}",
+          false
+        ]
+      ],
+      "ExpectedCorrectOption": "\\frac{1}{8}",
+      "IndependentMathCheck": "Independent spinner and coin: (1/4)(1/2).",
+      "ProposedQuestion": {
+        "Ar": "ندير قرصاً عادلاً من أربعة أقسام متساوية أحدها أزرق، ونرمي قطعة نقود عادلة بشكل مستقل عن دوران القرص. ما احتمال ظهور الأزرق ووجه الصورة معاً؟",
+        "En": "A fair spinner has four equal sectors, one blue. A fair coin is flipped independently of the spin. What is the chance of blue and heads together?"
+      },
+      "ProposedSkillId": null,
+      "ResolutionNote": "The proposed wording makes the mathematical model explicit. Require versioned review; keep original stem, options, and student history intact.",
+      "Hints": [
+        {
+          "Ar": "بعد اعتماد الاستقلال، احسب احتمال كل حدث منفرداً.",
+          "En": "Once independence is specified, find each event's probability separately."
+        },
+        {
+          "Ar": "اضرب احتمال الأزرق في احتمال الصورة.",
+          "En": "Multiply the blue probability by the head probability."
+        }
+      ]
+    },
+    {
+      "ProblemId": 1687,
+      "Status": "ReviewedProposalNotApplied",
+      "Action": "VersionWordingPreserveHistory",
+      "ExpectedStageId": 2,
+      "ExpectedCategoryId": 85,
+      "ExpectedPrimarySkillId": 337,
+      "ExpectedPrimarySkillKey": "simple-compound-events",
+      "ExpectedQuestion": {
+        "Ar": "كيس يحوي 3 كرات حمراء و2 زرقاء. نسحب كرة ونعيدها ثم نسحب ثانية. ما احتمال ظهور الأزرق مرتين؟",
+        "En": "A bag holds three red and two blue balls. A ball is drawn, replaced, then another drawn. What is the chance of blue twice?"
+      },
+      "ExpectedOptions": [
+        [
+          6737,
+          "\\frac{2}{25}",
+          false
+        ],
+        [
+          6738,
+          "\\frac{4}{25}",
+          true
+        ],
+        [
+          6739,
+          "\\frac{2}{5}",
+          false
+        ],
+        [
+          6740,
+          "\\frac{1}{5}",
+          false
+        ]
+      ],
+      "ExpectedCorrectOption": "\\frac{4}{25}",
+      "IndependentMathCheck": "Uniform independent draws with replacement: (2/5)^2.",
+      "ProposedQuestion": {
+        "Ar": "كيس يحوي 3 كرات حمراء و2 زرقاء. نسحب كرة عشوائياً بفرص متساوية ثم نعيدها، ونسحب ثانية بالطريقة نفسها بشكل مستقل. ما احتمال ظهور الأزرق مرتين؟",
+        "En": "A bag holds three red and two blue balls. A ball is drawn uniformly at random, replaced, and a second ball is drawn uniformly and independently. What is the chance of blue twice?"
+      },
+      "ProposedSkillId": null,
+      "ResolutionNote": "The proposed wording makes the mathematical model explicit. Require versioned review; keep original stem, options, and student history intact.",
+      "Hints": [
+        {
+          "Ar": "بعد اعتماد السحب المستقل المنتظم، الإرجاع يعيد الكيس إلى حالته الأولى.",
+          "En": "Once uniform independent draws are specified, replacement restores the original bag."
+        },
+        {
+          "Ar": "احسب احتمال الأزرق في سحبة واحدة واضربه في نفسه.",
+          "En": "Find the blue probability for one draw and multiply it by itself."
+        }
+      ]
+    },
+    {
+      "ProblemId": 1688,
+      "Status": "ReviewedProposalNotApplied",
+      "Action": "VersionWordingPreserveHistory",
+      "ExpectedStageId": 2,
+      "ExpectedCategoryId": 85,
+      "ExpectedPrimarySkillId": 336,
+      "ExpectedPrimarySkillKey": "sample-spaces",
+      "ExpectedQuestion": {
+        "Ar": "نرمي قطعتين نقديتين عادلتين. ما احتمال ظهور وجه الصورة مرة واحدة بالضبط؟",
+        "En": "Two fair coins are tossed. What is the probability of obtaining exactly one head?"
+      },
+      "ExpectedOptions": [
+        [
+          6741,
+          "\\frac{1}{4}",
+          false
+        ],
+        [
+          6742,
+          "\\frac{1}{3}",
+          false
+        ],
+        [
+          6743,
+          "\\frac{1}{2}",
+          true
+        ],
+        [
+          6744,
+          "\\frac{3}{4}",
+          false
+        ]
+      ],
+      "ExpectedCorrectOption": "\\frac{1}{2}",
+      "IndependentMathCheck": "Independent fair coins: HT and TH among four outcomes.",
+      "ProposedQuestion": {
+        "Ar": "نرمي قطعتين نقديتين عادلتين بشكل مستقل. ما احتمال ظهور وجه الصورة مرة واحدة بالضبط؟",
+        "En": "Two independent fair coins are tossed. What is the probability of obtaining exactly one head?"
+      },
+      "ProposedSkillId": null,
+      "ResolutionNote": "The proposed wording makes the mathematical model explicit. Require versioned review; keep original stem, options, and student history intact.",
+      "Hints": [
+        {
+          "Ar": "بعد تحديد استقلال القطعتين، اكتب الأزواج المرتبة المتساوية الاحتمال.",
+          "En": "With independence specified, list the equally likely ordered outcomes."
+        },
+        {
+          "Ar": "عدّ الأزواج التي تحوي صورة واحدة بالضبط ثم اقسم على العدد الكلي.",
+          "En": "Count pairs with exactly one head and divide by the total."
+        }
+      ]
+    },
+    {
+      "ProblemId": 1696,
+      "Status": "ReviewedProposalNotApplied",
+      "Action": "RetainAsApplication",
+      "ExpectedStageId": 3,
+      "ExpectedCategoryId": 87,
+      "ExpectedPrimarySkillId": 340,
+      "ExpectedPrimarySkillKey": "vector-components",
+      "ExpectedQuestion": {
+        "Ar": "متجهان من رأس مثلث هما (3,0) و(0,4). ما مساحة هذا المثلث بوحدات المساحة؟",
+        "En": "Two side vectors from one vertex of a triangle are (3,0) and (0,4). What is the triangle's area?"
+      },
+      "ExpectedOptions": [
+        [
+          6773,
+          "6",
+          true
+        ],
+        [
+          6774,
+          "7",
+          false
+        ],
+        [
+          6775,
+          "12",
+          false
+        ],
+        [
+          6776,
+          "24",
+          false
+        ]
+      ],
+      "ExpectedCorrectOption": "6",
+      "IndependentMathCheck": "Perpendicular legs of lengths 3 and 4: 3·4/2=6.",
+      "ProposedQuestion": null,
+      "ProposedSkillId": null,
+      "ResolutionNote": "Perpendicular side vectors and their lengths produce triangle area; retain vector category and propose geometry area as a secondary objective, not a category change.",
+      "Hints": [
+        {
+          "Ar": "لاحظ أن المتجهين متعامدان ويمكن اتخاذ طوليْهما قاعدة وارتفاعاً.",
+          "En": "Notice the vectors are perpendicular, so their lengths can be base and height."
+        },
+        {
+          "Ar": "اضرب طولي المتجهين واقسم على اثنين لإيجاد المساحة.",
+          "En": "Multiply their lengths and divide by two for the triangle area."
+        }
+      ]
+    },
+    {
+      "ProblemId": 1698,
+      "Status": "ReviewedProposalNotApplied",
+      "Action": "ProposeNewSkillSameCategory",
+      "ExpectedStageId": 3,
+      "ExpectedCategoryId": 87,
+      "ExpectedPrimarySkillId": 340,
+      "ExpectedPrimarySkillKey": "vector-components",
+      "ExpectedQuestion": {
+        "Ar": "متوازي أضلاع ضلعاه المتجاوران ممثلان بالمتجهين (2,1) و(1,3). ما مساحته؟",
+        "En": "A parallelogram has adjacent side vectors (2,1) and (1,3). What is its area?"
+      },
+      "ExpectedOptions": [
+        [
+          6781,
+          "3",
+          false
+        ],
+        [
+          6782,
+          "4",
+          false
+        ],
+        [
+          6783,
+          "5",
+          true
+        ],
+        [
+          6784,
+          "7",
+          false
+        ]
+      ],
+      "ExpectedCorrectOption": "5",
+      "IndependentMathCheck": "Absolute determinant |2·3−1·1|=5.",
+      "ProposedQuestion": null,
+      "ProposedSkillId": null,
+      "ResolutionNote": "Add a secondary-stage vector-area/determinant-area skill within the existing vector category; the university determinant skill is not stage-compatible.",
+      "Hints": [
+        {
+          "Ar": "ضع متجهي الضلعين كعمودين في مصفوفة من الرتبة الثانية.",
+          "En": "Place the two side vectors as columns of a 2×2 matrix."
+        },
+        {
+          "Ar": "احسب القيمة المطلقة للمحدد للحصول على المساحة.",
+          "En": "Find the absolute determinant to obtain the area."
+        }
+      ]
+    },
+    {
+      "ProblemId": 1703,
+      "Status": "ReviewedProposalNotApplied",
+      "Action": "RetainAsPrerequisite",
+      "ExpectedStageId": 4,
+      "ExpectedCategoryId": 91,
+      "ExpectedPrimarySkillId": 343,
+      "ExpectedPrimarySkillKey": "unconstrained-optimization",
+      "ExpectedQuestion": {
+        "Ar": "إذا كانت f(x,y)=x²+2y²، فما قيمة متجه التدرج ∇f عند النقطة (1,-1)؟",
+        "En": "If f(x,y)=x²+2y², what is the gradient vector ∇f at (1,-1)?"
+      },
+      "ExpectedOptions": [
+        [
+          6801,
+          "(2,-4)",
+          true
+        ],
+        [
+          6802,
+          "(2,4)",
+          false
+        ],
+        [
+          6803,
+          "(-2,4)",
+          false
+        ],
+        [
+          6804,
+          "(1,-2)",
+          false
+        ]
+      ],
+      "ExpectedCorrectOption": "(2,-4)",
+      "IndependentMathCheck": "Gradient (2x,4y), evaluated at (1,−1).",
+      "ProposedQuestion": null,
+      "ProposedSkillId": 59,
+      "ResolutionNote": "Gradient evaluation is a prerequisite for unconstrained optimization. Keep category and propose gradient skill 59 as a secondary objective only if cross-category links are supported.",
+      "Hints": [
+        {
+          "Ar": "التدرج متجه المشتقات الجزئية الأولى.",
+          "En": "The gradient is the vector of first partial derivatives."
+        },
+        {
+          "Ar": "اشتق بالنسبة إلى x ثم y، وعوّض إحداثيي النقطة في كل مركبة.",
+          "En": "Differentiate in x and y, then evaluate both components at the point."
+        }
+      ]
+    }
+  ]
+}
