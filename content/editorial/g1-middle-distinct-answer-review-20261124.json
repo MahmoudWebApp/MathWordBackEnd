@@ -1,0 +1,1111 @@
+{
+  "Version": 1,
+  "Status": "ReadOnlyAnswerReviewNotEditorialApproval",
+  "Date": "2026-11-24",
+  "Counts": {
+    "MARKED_ANSWER_MATCHES": 97,
+    "MATCHES_STANDARD_INDEPENDENCE_ASSUMPTION": 3
+  },
+  "Results": [
+    {
+      "id": 12,
+      "question": "Simplify the expression: $2^3 \\times 2^4$",
+      "expected": 128,
+      "marked": "2^7",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "2^7"
+      ],
+      "note": null
+    },
+    {
+      "id": 13,
+      "question": "What is the greatest common divisor (GCD) of $24$ and $36$?",
+      "expected": 12,
+      "marked": "12",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "12"
+      ],
+      "note": null
+    },
+    {
+      "id": 14,
+      "question": "Solve the equation: $3x - 5 = 16$",
+      "expected": 7,
+      "marked": "x = 7",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "x = 7"
+      ],
+      "note": null
+    },
+    {
+      "id": 15,
+      "question": "If $f(x) = 2x + 3$, find the value of $f(4)$.",
+      "expected": 11,
+      "marked": "11",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "11"
+      ],
+      "note": null
+    },
+    {
+      "id": 16,
+      "question": "If the ratio of male to female students is $3:5$, and there are $150$ male students, how many female students are there?",
+      "expected": 250,
+      "marked": "250",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "250"
+      ],
+      "note": null
+    },
+    {
+      "id": 17,
+      "question": "If a train travels $240$ km in $3$ hours, what is its average speed?",
+      "expected": 80,
+      "marked": "80 \\text{ km/h}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "80 \\text{ km/h}"
+      ],
+      "note": null
+    },
+    {
+      "id": 18,
+      "question": "In triangle $ABC$, angle $A = 50^\\circ$ and angle $B = 60^\\circ$. What is the measure of angle $C$?",
+      "expected": 70,
+      "marked": "70^\\circ",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "70^\\circ"
+      ],
+      "note": null
+    },
+    {
+      "id": 19,
+      "question": "Find the area of a circle with radius $7$ cm. (Use $\\pi = \\frac{22}{7}$)",
+      "expected": 154,
+      "marked": "154 \\text{ cm}^2",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "154 \\text{ cm}^2"
+      ],
+      "note": null
+    },
+    {
+      "id": 41,
+      "question": "What is 2 raised to the fifth power?",
+      "expected": 32,
+      "marked": "32",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "32"
+      ],
+      "note": null
+    },
+    {
+      "id": 42,
+      "question": "If f(x) = x² - 3, find f(4).",
+      "expected": 13,
+      "marked": "13",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "13"
+      ],
+      "note": null
+    },
+    {
+      "id": 43,
+      "question": "The ratio of apples to oranges is 2:3, and there are 45 fruits. How many apples?",
+      "expected": 18,
+      "marked": "18",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "18"
+      ],
+      "note": null
+    },
+    {
+      "id": 44,
+      "question": "A right triangle has legs of 6 cm and 8 cm. How long is its hypotenuse?",
+      "expected": 10,
+      "marked": "10",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "10"
+      ],
+      "note": null
+    },
+    {
+      "id": 57,
+      "question": "What is the greatest common divisor of 48 and 60?",
+      "expected": 12,
+      "marked": "12",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "12"
+      ],
+      "note": null
+    },
+    {
+      "id": 58,
+      "question": "Solve the equation 2x + 7 = 19.",
+      "expected": 6,
+      "marked": "6",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "6"
+      ],
+      "note": null
+    },
+    {
+      "id": 59,
+      "question": "Four identical pens cost 12 units. How much do seven cost at the same rate?",
+      "expected": 21,
+      "marked": "21",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "21"
+      ],
+      "note": null
+    },
+    {
+      "id": 60,
+      "question": "Two vertically opposite angles are formed by intersecting lines. One is 117°. What is the other?",
+      "expected": 117,
+      "marked": "117",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "117"
+      ],
+      "note": null
+    },
+    {
+      "id": 429,
+      "question": "A chart shows 8 pupils walk, 12 cycle and 10 take a bus. What is the total?",
+      "expected": 30,
+      "marked": "30",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "30"
+      ],
+      "note": null
+    },
+    {
+      "id": 430,
+      "question": "For the sorted data 2, 4, 6, 8, 10, 12, 14, find the IQR using medians of the two halves excluding the overall median.",
+      "expected": 8,
+      "marked": "8",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "8"
+      ],
+      "note": null
+    },
+    {
+      "id": 431,
+      "question": "If 3 is added to every observation in a data set, how does its mean change?",
+      "expected": 3,
+      "marked": "+3",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "+3"
+      ],
+      "note": null
+    },
+    {
+      "id": 432,
+      "question": "What is the median of the sorted values 1, 4, 7, 9, 12?",
+      "expected": 7,
+      "marked": "7",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "7"
+      ],
+      "note": null
+    },
+    {
+      "id": 433,
+      "question": "Find the range of the values 3, 4, 6, 9, 20.",
+      "expected": 17,
+      "marked": "17",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "17"
+      ],
+      "note": null
+    },
+    {
+      "id": 434,
+      "question": "In a survey with 20 responses, 5 select one option. What is the relative frequency as a percentage?",
+      "expected": 0.25,
+      "marked": "25\\%",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "25\\%"
+      ],
+      "note": null
+    },
+    {
+      "id": 435,
+      "question": "In a data set, 2 appears three times and 7 appears twice. What is the mean?",
+      "expected": 4,
+      "marked": "4",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "4"
+      ],
+      "note": null
+    },
+    {
+      "id": 478,
+      "question": "Find the median of the values 2, 9, 4, 12, 7, 5.",
+      "expected": 6,
+      "marked": "6",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "6"
+      ],
+      "note": null
+    },
+    {
+      "id": 479,
+      "question": "If the largest value in 4, 5, 6, 7, 50 is replaced by 500, which statistic remains unchanged?",
+      "expected": "Rule-based comparison of choices",
+      "marked": "\\text{الوسيط (Median)}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\text{الوسيط (Median)}"
+      ],
+      "note": null
+    },
+    {
+      "id": 480,
+      "question": "Class A has 15 girls and 12 boys; Class B has 10 girls and 18 boys. Which class has the higher proportion of girls?",
+      "expected": "Rule-based comparison of choices",
+      "marked": "\\text{الصف أ (Class A)}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\text{الصف أ (Class A)}"
+      ],
+      "note": null
+    },
+    {
+      "id": 481,
+      "question": "What is the mode of 1, 1, 2, 3, 3, 3, 9?",
+      "expected": 3,
+      "marked": "3",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "3"
+      ],
+      "note": null
+    },
+    {
+      "id": 482,
+      "question": "If 5 is added to every value in a dataset, what happens to the range?",
+      "expected": "Rule-based comparison of choices",
+      "marked": "\\text{لا يتغير (Unchanged)}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\text{لا يتغير (Unchanged)}"
+      ],
+      "note": null
+    },
+    {
+      "id": 621,
+      "question": "Solve 4(x − 3) = 28.",
+      "expected": 10,
+      "marked": "10",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "10"
+      ],
+      "note": null
+    },
+    {
+      "id": 622,
+      "question": "Find x from 2x + 5 = 3x − 8.",
+      "expected": 13,
+      "marked": "13",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "13"
+      ],
+      "note": null
+    },
+    {
+      "id": 623,
+      "question": "Solve (x + 6) ÷ 3 = 9.",
+      "expected": 21,
+      "marked": "21",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "21"
+      ],
+      "note": null
+    },
+    {
+      "id": 624,
+      "question": "Three equally priced notebooks plus 5 units for delivery cost 41 units in total. How much does one notebook cost?",
+      "expected": 12,
+      "marked": "12",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "12"
+      ],
+      "note": null
+    },
+    {
+      "id": 625,
+      "question": "What is the area of a circle of radius 5 cm, expressed in terms of π?",
+      "expected": "Rule-based comparison of choices",
+      "marked": "25\\pi",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "25\\pi"
+      ],
+      "note": null
+    },
+    {
+      "id": 626,
+      "question": "A circle's diameter is 18 cm. What is its area in terms of π?",
+      "expected": "Rule-based comparison of choices",
+      "marked": "81\\pi",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "81\\pi"
+      ],
+      "note": null
+    },
+    {
+      "id": 627,
+      "question": "A semicircle has radius 6 cm. What is its area in terms of π?",
+      "expected": "Rule-based comparison of choices",
+      "marked": "18\\pi",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "18\\pi"
+      ],
+      "note": null
+    },
+    {
+      "id": 628,
+      "question": "A circle's area is 64π cm². What is its radius in centimeters?",
+      "expected": 8,
+      "marked": "8",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "8"
+      ],
+      "note": null
+    },
+    {
+      "id": 629,
+      "question": "Blue to green balls are in the ratio 2 : 7, with 45 balls total. How many are blue?",
+      "expected": 10,
+      "marked": "10",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "10"
+      ],
+      "note": null
+    },
+    {
+      "id": 630,
+      "question": "Arabic to English books have ratio 5 : 3. If there are 35 Arabic books, how many English books are there?",
+      "expected": 21,
+      "marked": "21",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "21"
+      ],
+      "note": null
+    },
+    {
+      "id": 631,
+      "question": "Yellow to blue coloring pencils have a 4 : 9 ratio. If there are 36 blue pencils, how many yellow?",
+      "expected": 16,
+      "marked": "16",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "16"
+      ],
+      "note": null
+    },
+    {
+      "id": 632,
+      "question": "A recipe uses 3 cups of rice for every 5 cups of water. How many cups of water are needed for 12 cups of rice?",
+      "expected": 20,
+      "marked": "20",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "20"
+      ],
+      "note": null
+    },
+    {
+      "id": 697,
+      "question": "The apex angle of an isosceles triangle is 40°. What is each base angle?",
+      "expected": 70,
+      "marked": "70",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "70"
+      ],
+      "note": null
+    },
+    {
+      "id": 698,
+      "question": "An exterior angle of a triangle is 125°, and one remote interior angle is 45°. What is the other remote interior angle?",
+      "expected": 80,
+      "marked": "80",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "80"
+      ],
+      "note": null
+    },
+    {
+      "id": 699,
+      "question": "In a right triangle, one acute angle is 35°. What is the other acute angle?",
+      "expected": 55,
+      "marked": "55",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "55"
+      ],
+      "note": null
+    },
+    {
+      "id": 700,
+      "question": "A triangle's angles are in the ratio 1 : 2 : 3. How many degrees is its largest angle?",
+      "expected": 90,
+      "marked": "90",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "90"
+      ],
+      "note": null
+    },
+    {
+      "id": 701,
+      "question": "Vertically opposite angles measure (x + 20)° and (3x − 40)°. Find x.",
+      "expected": 30,
+      "marked": "30",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "30"
+      ],
+      "note": null
+    },
+    {
+      "id": 702,
+      "question": "Two vertically opposite angles measure (2x + 5)° and (x + 35)°. What is the measure of either angle?",
+      "expected": 65,
+      "marked": "65",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "65"
+      ],
+      "note": null
+    },
+    {
+      "id": 703,
+      "question": "The sum of two vertically opposite angles is 146°. What is the measure of each?",
+      "expected": 73,
+      "marked": "73",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "73"
+      ],
+      "note": null
+    },
+    {
+      "id": 704,
+      "question": "Two straight lines intersect and one of the four angles measures 65°. How many of the four angles measure 65°?",
+      "expected": 2,
+      "marked": "2",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "2"
+      ],
+      "note": null
+    },
+    {
+      "id": 765,
+      "question": "What is the value of (−4)³?",
+      "expected": -64,
+      "marked": "-64",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "-64"
+      ],
+      "note": null
+    },
+    {
+      "id": 766,
+      "question": "What is 17 to the power zero?",
+      "expected": 1,
+      "marked": "1",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "1"
+      ],
+      "note": null
+    },
+    {
+      "id": 767,
+      "question": "Evaluate 2^(-3) and express the result as a simplified fraction.",
+      "expected": 0.125,
+      "marked": "\\frac18",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\frac18"
+      ],
+      "note": null
+    },
+    {
+      "id": 768,
+      "question": "A cube-shaped box has an edge length of 3 cm. What is its volume in cm³?",
+      "expected": 27,
+      "marked": "27",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "27"
+      ],
+      "note": null
+    },
+    {
+      "id": 823,
+      "question": "In a book pictograph, each star represents 4 books. Group A has six stars and group B has three stars. How many more books does group A have?",
+      "expected": 12,
+      "marked": "12",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "12"
+      ],
+      "note": null
+    },
+    {
+      "id": 824,
+      "question": "A line chart shows four successive values: 14, 23, 19, and 31. What is the largest increase between consecutive points?",
+      "expected": 12,
+      "marked": "12",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "12"
+      ],
+      "note": null
+    },
+    {
+      "id": 825,
+      "question": "The data values 2, 4, and 6 have a mean of 4. What is their mean absolute deviation?",
+      "expected": 1.3333333333333333,
+      "marked": "\\frac{4}{3}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\frac{4}{3}"
+      ],
+      "note": null
+    },
+    {
+      "id": 826,
+      "question": "For data set A, Q1 = 6 and Q3 = 18. For data set B, Q1 = 9 and Q3 = 15. By how much does A's interquartile range exceed B's?",
+      "expected": 6,
+      "marked": "6",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "6"
+      ],
+      "note": null
+    },
+    {
+      "id": 855,
+      "question": "Two similar triangles have perimeters 18 and 30 cm. If a side of the smaller is 6 cm, what is the corresponding side of the larger?",
+      "expected": 10,
+      "marked": "10",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "10"
+      ],
+      "note": null
+    },
+    {
+      "id": 856,
+      "question": "All side lengths of a triangle are multiplied by 3 to make a similar triangle. By what factor does its area change?",
+      "expected": 9,
+      "marked": "9",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "9"
+      ],
+      "note": null
+    },
+    {
+      "id": 857,
+      "question": "Find the distance between (1,2) and (7,10) in the coordinate plane.",
+      "expected": 10,
+      "marked": "10",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "10"
+      ],
+      "note": null
+    },
+    {
+      "id": 858,
+      "question": "A triangle has side lengths 8, 15, and 17 cm. How is it classified by its angles?",
+      "expected": "Rule-based comparison of choices",
+      "marked": "\\text{مثلث قائم (Right triangle)}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\text{مثلث قائم (Right triangle)}"
+      ],
+      "note": null
+    },
+    {
+      "id": 1563,
+      "question": "The temperature was −7°C and rose by 12°C. What is it now?",
+      "expected": 5,
+      "marked": "5",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "5"
+      ],
+      "note": null
+    },
+    {
+      "id": 1564,
+      "question": "Evaluate −4 − (−9).",
+      "expected": 5,
+      "marked": "5",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "5"
+      ],
+      "note": null
+    },
+    {
+      "id": 1565,
+      "question": "Evaluate (−3)×(−8).",
+      "expected": 24,
+      "marked": "24",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "24"
+      ],
+      "note": null
+    },
+    {
+      "id": 1566,
+      "question": "Order −8, −2, 4, 0 from least to greatest.",
+      "expected": "Rule-based comparison of choices",
+      "marked": "-8<-2<0<4",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "-8<-2<0<4"
+      ],
+      "note": null
+    },
+    {
+      "id": 1567,
+      "question": "Evaluate |−13| − |5|.",
+      "expected": 8,
+      "marked": "8",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "8"
+      ],
+      "note": null
+    },
+    {
+      "id": 1568,
+      "question": "Evaluate −3/4 + 1/2.",
+      "expected": -0.25,
+      "marked": "−1/4",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "−1/4"
+      ],
+      "note": null
+    },
+    {
+      "id": 1569,
+      "question": "Evaluate −5/6 − 1/3.",
+      "expected": -1.1666666666666667,
+      "marked": "−7/6",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "−7/6"
+      ],
+      "note": null
+    },
+    {
+      "id": 1570,
+      "question": "What is −2.5 + 1.75?",
+      "expected": -0.75,
+      "marked": "−0.75",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "−0.75"
+      ],
+      "note": null
+    },
+    {
+      "id": 1599,
+      "question": "Solve the inequality $x+5<12$.",
+      "expected": "Rule-based comparison of choices",
+      "marked": "x<7",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "x<7"
+      ],
+      "note": null
+    },
+    {
+      "id": 1600,
+      "question": "Find all real values satisfying the inequality $3x-4\\ge11$.",
+      "expected": "Rule-based comparison of choices",
+      "marked": "x\\ge5",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "x\\ge5"
+      ],
+      "note": null
+    },
+    {
+      "id": 1601,
+      "question": "Find the solution set of the linear inequality $-2x+6<10$, considering the sign.",
+      "expected": "Rule-based comparison of choices",
+      "marked": "x>-2",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "x>-2"
+      ],
+      "note": null
+    },
+    {
+      "id": 1602,
+      "question": "Determine all real values satisfying the inequality $5-x\\le2$.",
+      "expected": "Rule-based comparison of choices",
+      "marked": "x\\ge3",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "x\\ge3"
+      ],
+      "note": null
+    },
+    {
+      "id": 1603,
+      "question": "A number line has an open circle at -3 and is shaded to the right. Which inequality is represented?",
+      "expected": "Rule-based comparison of choices",
+      "marked": "x>-3",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "x>-3"
+      ],
+      "note": null
+    },
+    {
+      "id": 1604,
+      "question": "A number line shows a filled circle at 4 with shading to the left. Which inequality describes it?",
+      "expected": "Rule-based comparison of choices",
+      "marked": "x\\le4",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "x\\le4"
+      ],
+      "note": null
+    },
+    {
+      "id": 1605,
+      "question": "How many integers satisfy $-2<x\\le2$?",
+      "expected": 4,
+      "marked": "4",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "4"
+      ],
+      "note": null
+    },
+    {
+      "id": 1606,
+      "question": "What is the sum of integers satisfying $-2\\le x<3$?",
+      "expected": 0,
+      "marked": "0",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "0"
+      ],
+      "note": null
+    },
+    {
+      "id": 1607,
+      "question": "A taxi charges a fixed 4 units plus 2 per kilometer. With a budget of 18, what is the largest whole number of kilometers?",
+      "expected": 7,
+      "marked": "7",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "7"
+      ],
+      "note": null
+    },
+    {
+      "id": 1608,
+      "question": "A student has 56 points and needs at least 75. Each additional correct answer adds 5. What is the minimum number needed?",
+      "expected": 4,
+      "marked": "4",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "4"
+      ],
+      "note": null
+    },
+    {
+      "id": 1609,
+      "question": "A shipment has a 20 kg limit. The box weighs 3 kg and each item 2 kg. What is the most items it can carry?",
+      "expected": 8,
+      "marked": "8",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "8"
+      ],
+      "note": null
+    },
+    {
+      "id": 1610,
+      "question": "Which inequality expresses 'the temperature is at most -5' using $T$?",
+      "expected": "Rule-based comparison of choices",
+      "marked": "T\\le-5",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "T\\le-5"
+      ],
+      "note": null
+    },
+    {
+      "id": 1639,
+      "question": "Find the mean of 4, 7, 7, and 10.",
+      "expected": 7,
+      "marked": "7",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "7"
+      ],
+      "note": null
+    },
+    {
+      "id": 1640,
+      "question": "Find the median of sorted data 2, 5, 8, 12, 20.",
+      "expected": 8,
+      "marked": "8",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "8"
+      ],
+      "note": null
+    },
+    {
+      "id": 1641,
+      "question": "Find the mode of 3, 5, 5, 5, 8, 8.",
+      "expected": 5,
+      "marked": "5",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "5"
+      ],
+      "note": null
+    },
+    {
+      "id": 1642,
+      "question": "Values 4, 5, 6, 7, 8 have mean 6. If 8 is replaced by 28, find the new mean.",
+      "expected": 10,
+      "marked": "10",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "10"
+      ],
+      "note": null
+    },
+    {
+      "id": 1657,
+      "question": "An equal-section spinner has 3 red, 2 blue and 1 green section. What is the probability of not landing on blue?",
+      "expected": 0.6666666666666666,
+      "marked": "\\frac{2}{3}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\frac{2}{3}"
+      ],
+      "note": null
+    },
+    {
+      "id": 1658,
+      "question": "A bag has 2 red and 3 blue balls. Two are drawn without replacement. What is the probability both are red?",
+      "expected": 0.1,
+      "marked": "\\frac{1}{10}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\frac{1}{10}"
+      ],
+      "note": null
+    },
+    {
+      "id": 1659,
+      "question": "A spinner has four equal sectors, one blue. A fair coin is flipped. What is the chance of blue and heads together?",
+      "expected": 0.125,
+      "marked": "\\frac{1}{8}",
+      "status": "MATCHES_STANDARD_INDEPENDENCE_ASSUMPTION",
+      "matchingOptions": [
+        "\\frac{1}{8}"
+      ],
+      "note": "Requires independent coin and spinner outcomes"
+    },
+    {
+      "id": 1660,
+      "question": "A device passed 18 of 60 observed tests. What is its observed relative frequency of success?",
+      "expected": 0.3,
+      "marked": "\\frac{3}{10}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\frac{3}{10}"
+      ],
+      "note": null
+    },
+    {
+      "id": 1661,
+      "question": "Blue appeared in 24 of 80 spinner trials. What was the observed percentage of blue outcomes?",
+      "expected": 0.3,
+      "marked": "30\\%",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "30\\%"
+      ],
+      "note": null
+    },
+    {
+      "id": 1662,
+      "question": "A student has 3 distinct shirts and 2 distinct pairs of trousers. How many one-shirt, one-pair outfits are possible?",
+      "expected": 6,
+      "marked": "6",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "6"
+      ],
+      "note": null
+    },
+    {
+      "id": 1683,
+      "question": "Two distinguishable coins are tossed. How many ordered outcomes are in the sample space?",
+      "expected": 4,
+      "marked": "4",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "4"
+      ],
+      "note": null
+    },
+    {
+      "id": 1684,
+      "question": "Two distinguishable fair dice are rolled. What is the probability that the sum of the two faces is seven?",
+      "expected": 0.16666666666666666,
+      "marked": "\\frac{1}{6}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\frac{1}{6}"
+      ],
+      "note": null
+    },
+    {
+      "id": 1685,
+      "question": "An equal five-sector spinner has one red sector. It is spun three independent times. What is the chance no spin is red?",
+      "expected": 0.5120000000000001,
+      "marked": "\\frac{64}{125}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\frac{64}{125}"
+      ],
+      "note": null
+    },
+    {
+      "id": 1686,
+      "question": "One group succeeded 15 times in 50 trials, another 18 times in 60 trials. What is the percentage-point difference?",
+      "expected": 0,
+      "marked": "0",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "0"
+      ],
+      "note": null
+    },
+    {
+      "id": 1687,
+      "question": "A bag holds three red and two blue balls. A ball is drawn, replaced, then another drawn. What is the chance of blue twice?",
+      "expected": 0.16000000000000003,
+      "marked": "\\frac{4}{25}",
+      "status": "MATCHES_STANDARD_INDEPENDENCE_ASSUMPTION",
+      "matchingOptions": [
+        "\\frac{4}{25}"
+      ],
+      "note": "Requires uniform random draws with replacement"
+    },
+    {
+      "id": 1688,
+      "question": "Two fair coins are tossed. What is the probability of obtaining exactly one head?",
+      "expected": 0.5,
+      "marked": "\\frac{1}{2}",
+      "status": "MATCHES_STANDARD_INDEPENDENCE_ASSUMPTION",
+      "matchingOptions": [
+        "\\frac{1}{2}"
+      ],
+      "note": "Requires independent fair coin outcomes"
+    },
+    {
+      "id": 1689,
+      "question": "A trip plan chooses 1 of 3 transport modes, 1 of 2 meals, and 1 of 2 activities. How many distinct plans exist?",
+      "expected": 12,
+      "marked": "12",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "12"
+      ],
+      "note": null
+    },
+    {
+      "id": 1690,
+      "question": "An integer from 1 through 10 is selected uniformly. What is the probability it is even or divisible by five?",
+      "expected": 0.6,
+      "marked": "\\frac{3}{5}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\frac{3}{5}"
+      ],
+      "note": null
+    },
+    {
+      "id": 1709,
+      "question": "A fair die is rolled and the outcome is known to be even. What is the chance it exceeds 3?",
+      "expected": 0.6666666666666666,
+      "marked": "\\frac{2}{3}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\frac{2}{3}"
+      ],
+      "note": null
+    },
+    {
+      "id": 1710,
+      "question": "Two distinguishable dice are rolled. How many ordered outcomes have a six on exactly one die?",
+      "expected": 10,
+      "marked": "10",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "10"
+      ],
+      "note": null
+    }
+  ]
+}
