@@ -7,3 +7,7 @@ Endpoint: POST /api/editorial/problems/hints/import
 Payload: Items (ProblemId, PrimarySkillKey, Question, Hints, TaxonomyReviewPending), Confirm=false. Re-submit the same Items with Confirm=true, PreviewToken from preview, and ReviewNote after review. For already applied rows, obtain a new preview; existing metadata is never overwritten by this route. The preview token binds the actor, current source fingerprint, primary skill and exact hints. The audit event records only actor and problem ID, not review note or content. The client must retain the review note in its editorial record.
 
 No production database write was performed in preparing this change.
+
+## Deterministic offline preparation
+
+Run `python3 scripts/prepare_g1_publication_batches.py --output private-g1-preview` from the backend repository root. Keep the output private: the amendment files contain answers and explanations. This generates 14 hint-only preview payloads for 660 problems, two structured amendment preview payloads for 72 problems, and a list of the 41 excluded problem IDs. All payloads use Confirm=false; the script never connects to the server. The structured amendment payloads go to /api/editorial/problems/amend/import (draft creation only after review and confirmation). Hint-only payloads go to /api/editorial/problems/hints/import. Review and approve each response separately using an authenticated Admin session; do not copy a preview token from a different batch. The route must be deployed and CI green first.

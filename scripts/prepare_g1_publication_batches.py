@@ -1,0 +1,72 @@
+#!/usr/bin/env python3
+"""Build offline preview payloads; no network, credentials, approval or database writes."""
+import argparse
+import json
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1] / "content" / "editorial"
+
+def load(root, name):
+    return json.loads((root / name).read_text(encoding="utf-8"))
+
+def prepare(root=ROOT):
+    canonical = load(root, "g1-existing-hint-candidates-20261124.json")["items"]
+    separate = load(root, "g1-hint-held-review-20261124.json")
+    if separate["status"] != "HeldNotImportable":
+        raise ValueError("Invalid held inventory")
+    all_hints = canonical + separate["items"]
+    by_id = {r["problemId"]: r for r in all_hints}
+    if len(all_hints) != 773 or len(by_id) != 773:
+        raise ValueError("Incomplete or duplicate hint inventory")
+    if any(r.get("taxonomyReviewPending") is not True for r in separate["items"]):
+        raise ValueError("Unblocked separate hold")
+    held = {r["problemId"] for r in all_hints if r.get("taxonomyReviewPending")}
+    if len(held) != 41:
+        raise ValueError("Unexpected hold count")
+    full = []
+    for wave in (1, 2, 3):
+        manifest = load(root, f"g1-structured-amendments-wave{wave:02d}-20261124.json")
+        if manifest["Status"] != "NotImportedNotPublished":
+            raise ValueError("Unexpected amendment status")
+        full += manifest["Items"]
+    reserved = {r["ProblemId"] for r in full}
+    if len(full) != 72 or len(reserved) != 72 or reserved & held:
+        raise ValueError("Invalid full-amendment inventory")
+    for r in full:
+        h = by_id[r["ProblemId"]]
+        if (r["Status"] != "StructuredAmendmentCandidateNotImported"
+            or r["Content"]["Hints"] != h["Hints"]
+            or r["Content"]["Question"] != h["question"]
+            or r["PrimarySkillKey"] != h["primarySkillKey"]):
+            raise ValueError("Amendment/hint conflict")
+    only = []
+    for i, h in sorted(by_id.items()):
+        if i in held or i in reserved:
+            continue
+        if len(h["Hints"]) != 2:
+            raise ValueError("Expected two hints")
+        only.append({"ProblemId": i, "PrimarySkillKey": h["primarySkillKey"],
+                     "Question": h["question"], "Hints": h["Hints"],
+                     "TaxonomyReviewPending": False})
+    if len(only) != 660:
+        raise ValueError("Unexpected hint-only count")
+    def batches(rows):
+        return [{"Items": rows[i:i+50], "Confirm": False} for i in range(0,len(rows),50)]
+    return batches(only), batches(sorted(full, key=lambda r:r["ProblemId"])), sorted(held)
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--output", type=Path, required=True,
+                        help="New directory for private preview JSON; do not serve publicly")
+    args = parser.parse_args()
+    hints, amendments, held = prepare()
+    args.output.mkdir(parents=True, exist_ok=False)
+    for prefix, batches in (("hints",hints),("amendments",amendments)):
+        for n, payload in enumerate(batches,1):
+            (args.output/f"{prefix}-{n:02d}.json").write_text(
+                json.dumps(payload,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+    (args.output/"held-ids.json").write_text(json.dumps(held)+"\n",encoding="utf-8")
+    print("14 hint-only + 2 amendment preview payloads; 41 excluded; no network requests.")
+
+if __name__ == "__main__":
+    main()
