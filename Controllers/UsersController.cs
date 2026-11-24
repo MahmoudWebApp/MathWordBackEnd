@@ -816,7 +816,7 @@ namespace MathWorldAPI.Controllers
             await _context.Database.SqlQuery<int>($"SELECT 1 AS \"Value\" FROM pg_advisory_xact_lock({-987654320}, {userId})").SingleAsync(HttpContext.RequestAborted);
             var practiceScope=await TrackPractice.CurrentAsync(_context,HttpContext,HttpContext.RequestAborted);
             var progress =
-                await TrackPractice.For(_context,practiceScope)
+                await TrackPractice.For(_context,practiceScope).AsTracking()
                     .FirstOrDefaultAsync(progressItem =>
                         progressItem.UserId == userId &&
                         progressItem.ProblemId == problemId &&

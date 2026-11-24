@@ -1268,7 +1268,7 @@ namespace MathWorldAPI.Controllers
 
             var practiceScope=await TrackPractice.CurrentAsync(_context,HttpContext,HttpContext.RequestAborted);
             var progress =
-                await TrackPractice.For(_context,practiceScope)
+                await TrackPractice.For(_context,practiceScope).AsTracking()
                     .FirstOrDefaultAsync(progressItem =>
                         progressItem.UserId ==
                         userId.Value &&

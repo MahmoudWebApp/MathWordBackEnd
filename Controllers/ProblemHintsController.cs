@@ -40,7 +40,7 @@ public sealed class ProblemHintsController(AppDbContext db,ProblemCategoryAccess
         if(!await access.CanReadProblemAsync(User,problem.StageId,problem.CategoryId,ct)||
             !await tracks.CanPracticeAsync(User,problemId,ct))return StatusCode(403,new{Message="ProblemLocked"});
         var practiceScope=await TrackPractice.CurrentAsync(db,HttpContext,ct);
-        var progress=await TrackPractice.For(db,practiceScope).SingleOrDefaultAsync(p=>p.UserId==id&&p.ProblemId==problemId,ct);
+        var progress=await TrackPractice.For(db,practiceScope).AsTracking().SingleOrDefaultAsync(p=>p.UserId==id&&p.ProblemId==problemId,ct);
         if(progress?.IsSolved==true)return Conflict(new{Message="AlreadySolved"});
         BilingualText[]? hints=null;
         if(problem.EditorialDetailsJson is not null)

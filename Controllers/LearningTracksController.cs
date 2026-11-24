@@ -141,6 +141,6 @@ public sealed class LearningTracksController(AppDbContext db,LearningTrackServic
             Solved=lookup.GetValueOrDefault(c.CategoryId)?.Solved??0,Attempted=lookup.GetValueOrDefault(c.CategoryId)?.Attempted??0,
             Mastered=lookup.GetValueOrDefault(c.CategoryId)?.Mastered??0}).ToList();
         var total=inventory.Sum(c=>c.Total);var solved=categories.Sum(c=>c.Solved);
-        return Ok(new{TrackId=id,t.StageId,ProblemsCount=total,Solved=solved,CompletionPercent=total==0?0:Math.Round(100.0*solved/total,1),Categories=categories});
+        return Ok(new{TrackId=id,t.StageId,TrackPracticeIsolationEnabled=TrackPractice.Enabled(HttpContext.RequestServices.GetRequiredService<IConfiguration>()),ProblemsCount=total,Solved=solved,CompletionPercent=total==0?0:Math.Round(100.0*solved/total,1),Categories=categories});
     }
 }

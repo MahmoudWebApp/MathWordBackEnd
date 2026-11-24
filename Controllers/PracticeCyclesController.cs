@@ -86,33 +86,39 @@ public sealed class PracticeCyclesController : ControllerBase
         if (request.CategoryId.HasValue)
             scope = scope.Where(p => p.Problem.CategoryId == request.CategoryId.Value);
 
-        var rows = await scope.ToListAsync(ct);
+        var rows = await scope.AsNoTracking().Select(p=>new{p.Id,p.ProblemId,p.IsSolved,p.Attempts}).ToListAsync(ct);
         var solvedIds = rows.Where(p => p.IsSolved).Select(p => p.ProblemId).ToArray();
         var attemptedCount = rows.Count(p => p.Attempts > 0);
 
-        foreach (var progress in rows)
+        // Update only the selected cycle rows in SQL under the learner lock.
+        // Explicit tracking is not necessary and no global favorite/audit
+        // column is touched. The transaction rolls everything back on failure.
+        var rowIds=rows.Select(p=>p.Id).ToArray();
+        if(rowIds.Length>0)
         {
-            // Favorites remain favorites. The audit is an independent table,
-            // so old answer submissions are never deleted.
-            progress.IsSolved = false;
-            progress.IsCorrect = false;
-            progress.SelectedOptionId = 0;
-            progress.Attempts = 0;
-            progress.HintsRevealed = 0;
-            progress.TimeSpentSeconds = 0;
-            progress.SolvedAt = null;
-            progress.FirstAttemptCorrect = null;
-            progress.FirstSelectedOptionId = null;
-            progress.FirstAttemptAt = null;
-            progress.BestTimeSeconds = null;
-            progress.TotalTimeSpentSeconds = 0;
-            progress.CorrectAttempts = 0;
-            progress.IncorrectAttempts = 0;
-            progress.MasteryStatus = MasteryStatuses.New;
-            progress.IsInErrorNotebook = false;
-            progress.IsErrorNotebookArchived = false;
-            progress.NextReviewAt = null;
-            progress.ConsecutiveCorrectReviews = 0;
+            var changed=await TrackPractice.For(_db,practiceScope)
+                .Where(p=>p.UserId==userId&&rowIds.Contains(p.Id))
+                .ExecuteUpdateAsync(set=>set
+                    .SetProperty(p=>p.IsSolved,false)
+                    .SetProperty(p=>p.IsCorrect,false)
+                    .SetProperty(p=>p.SelectedOptionId,0)
+                    .SetProperty(p=>p.Attempts,0)
+                    .SetProperty(p=>p.HintsRevealed,0)
+                    .SetProperty(p=>p.TimeSpentSeconds,0)
+                    .SetProperty(p=>p.SolvedAt,(DateTime?)null)
+                    .SetProperty(p=>p.FirstAttemptCorrect,(bool?)null)
+                    .SetProperty(p=>p.FirstSelectedOptionId,(int?)null)
+                    .SetProperty(p=>p.FirstAttemptAt,(DateTime?)null)
+                    .SetProperty(p=>p.BestTimeSeconds,(int?)null)
+                    .SetProperty(p=>p.TotalTimeSpentSeconds,0L)
+                    .SetProperty(p=>p.CorrectAttempts,0)
+                    .SetProperty(p=>p.IncorrectAttempts,0)
+                    .SetProperty(p=>p.MasteryStatus,MasteryStatuses.New)
+                    .SetProperty(p=>p.IsInErrorNotebook,false)
+                    .SetProperty(p=>p.IsErrorNotebookArchived,false)
+                    .SetProperty(p=>p.NextReviewAt,(DateTime?)null)
+                    .SetProperty(p=>p.ConsecutiveCorrectReviews,0),ct);
+            if(changed!=rowIds.Length)throw new DbUpdateConcurrencyException("Practice cycle rows changed during reset.");
         }
 
         // SolvedCount tracks currently solved users, not number of attempts.
@@ -123,7 +129,6 @@ public sealed class PracticeCyclesController : ControllerBase
                     p => p.SolvedCount > 0 ? p.SolvedCount - 1 : 0), ct);
 
         var preservedFavorites=await _db.UserProgresses.CountAsync(p=>p.UserId==userId&&p.IsFavorite&&eligible.Any(q=>q.Id==p.ProblemId)&&(!request.CategoryId.HasValue||p.Problem.CategoryId==request.CategoryId),ct);
-        await _db.SaveChangesAsync(ct);
         await transaction.CommitAsync(ct);
 
         return Ok(new
