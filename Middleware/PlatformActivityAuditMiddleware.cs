@@ -66,6 +66,9 @@ public sealed class PlatformActivityAuditMiddleware
         if (method is not ("POST" or "PUT" or "PATCH" or "DELETE")) return;
 
         var urlPath = context.Request.Path.Value ?? "";
+        // Brand changes already persist an atomic domain-specific audit event.
+        if (urlPath.Equals("/api/admin/platform/brand", StringComparison.OrdinalIgnoreCase))
+            return;
         // Categories are edited under /api/categories (legacy controller),
         // not /api/admin/categories. Admin creations/updates/deletions must
         // still appear in the same audit trail as modern admin endpoints.

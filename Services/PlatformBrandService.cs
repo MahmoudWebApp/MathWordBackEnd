@@ -128,7 +128,9 @@ public sealed class PlatformBrandService(AppDbContext db, IConfiguration config)
     public async Task<PlatformBrandView> ReadAsync(bool admin, CancellationToken ct)
     {
         var row = await db.PlatformBrandSettings.AsNoTracking().SingleOrDefaultAsync(x => x.Id == 1, ct);
-        var profile = row is null ? Defaults() : JsonSerializer.Deserialize<PlatformBrandProfile>(row.SettingsJson);
+        PlatformBrandProfile? profile;
+        try { profile = row is null ? Defaults() : JsonSerializer.Deserialize<PlatformBrandProfile>(row.SettingsJson); }
+        catch (JsonException) { profile = Defaults(); }
         profile = Validate(profile, OfficialOrigin) ? Normalize(profile!) : Defaults();
         if (!admin) profile = profile with { SocialLinks = profile.SocialLinks.Where(x => x.IsEnabled).ToArray() };
         return new PlatformBrandView(row?.Revision ?? 0, OfficialOrigin, profile);

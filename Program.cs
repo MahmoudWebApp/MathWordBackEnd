@@ -119,6 +119,7 @@ builder.Services.AddHostedService<LearnerPresenceCleanupService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<AccountPasswordService>();
 builder.Services.AddScoped<PlatformBrandService>();
+builder.Services.AddScoped<ITransactionalEmailSender, SmtpTransactionalEmailSender>();
 builder.Services.AddScoped<ISocialAuthService, SocialAuthService>();
 builder.Services.AddScoped<IMeiliSearchService, MeiliSearchService>();
 builder.Services.AddScoped<AdminBootstrapper>();

@@ -60,6 +60,33 @@ def main():
     expect("GET", "/api/admin/learners", 200, token=new_admin)
     assert expect("GET", protected, 200, token=new_admin)["UnreadCount"] == 1
     print("PASS: password changes, atomic concurrency, legacy and versioned JWT revocation, admin continuity.")
+    public_route = "/api/platform/brand"
+    admin_route = "/api/admin/platform/brand"
+    initial = expect("GET", public_route, 200)
+    assert initial["Profile"]["SocialLinks"] == [] and initial["Profile"].get("SupportEmail") is None
+    expect("GET", admin_route, 401)
+    expect("GET", admin_route, 403, token=replacement)
+    profile = initial["Profile"]
+    profile["SocialLinks"] = [{"Platform":"test","LabelAr":"اختبار","LabelEn":"Test","Url":"",
+                               "IsEnabled":False,"DisplayOrder":0}]
+    payload = {"Revision":initial["Revision"],"Profile":profile}
+    expect("PUT", admin_route, 403, payload, replacement)
+    invalid = {**profile,"LogoUrl":"https://evil.example/logo.png"}
+    expect("PUT", admin_route, 400, {"Revision":initial["Revision"],"Profile":invalid}, new_admin)
+    saved = expect("PUT", admin_route, 200, payload, new_admin)
+    assert saved["Revision"] == initial["Revision"] + 1
+    assert len(saved["Profile"]["SocialLinks"]) == 1
+    assert expect("GET", public_route, 200)["Profile"]["SocialLinks"] == []
+    expect("PUT", admin_route, 409, payload, new_admin)
+    preview = "/api/admin/platform/email-preview"
+    expect("GET", preview, 401)
+    expect("GET", preview, 403, token=replacement)
+    for lang, direction in (("ar", "rtl"), ("en", "ltr")):
+        message = expect("GET", preview + "?language=" + lang + "&template=password-changed", 200, token=new_admin)
+        assert 'dir="' + direction + '"' in message["Html"]
+        assert message["PlainText"] and message["Subject"]
+    expect("GET", preview + "?template=unknown", 400, token=new_admin)
+    print("PASS: shared brand settings, private admin edit, disabled links hidden, revision conflicts and bilingual email preview.")
 
 if __name__ == "__main__":
     main()

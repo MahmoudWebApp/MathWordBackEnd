@@ -52,6 +52,33 @@ Assert(!AccountPasswordService.IsValidNewPassword("valid-length\0bad"), "Control
 Assert(AccountPasswordService.IsValidNewPassword(new string('ش', 36)), "Exact 72-byte boundary accepted.");
 Console.WriteLine("PASS: password length and BCrypt byte-boundary policy.");
 
+var brandOrigin = PlatformBrandService.DefaultOrigin;
+var sampleBrand = new PlatformBrandProfile
+{
+    LogoUrl = brandOrigin + "/mathworld-mark-transparent-v3.png",
+    SocialLinks = new[] {
+        new PlatformSocialLink { Platform = "test", LabelAr = "اختبار", LabelEn = "Test", Url = "", IsEnabled = false }
+    }
+};
+Assert(PlatformBrandService.Validate(sampleBrand, brandOrigin), "Disabled empty social links are allowed.");
+Assert(!PlatformBrandService.Validate(sampleBrand with { LogoUrl = "https://evil.example/logo.png" }, brandOrigin), "External logo rejected.");
+Assert(!PlatformBrandService.IsSafeHttpsUrl("javascript:alert(1)"), "Unsafe URI scheme rejected.");
+Assert(!PlatformBrandService.IsSafeHttpsUrl("https://trusted.example@evil.example/"), "URI userinfo rejected.");
+var mail = MathWorldEmailLayout.Render(new PlatformBrandView(0, brandOrigin, sampleBrand), "ar",
+    "عنوان <script>", "نص <img>", "تابع", brandOrigin + "/ar/login");
+Assert(mail.Html.Contains("dir=\"rtl\"") && mail.Html.Contains("&lt;script&gt;") &&
+       !mail.Html.Contains("<script>") && !mail.Html.Contains("href=\"\"") &&
+       mail.PlainText.Contains(brandOrigin + "/ar/login"), "Safe RTL email layout and plain-text fallback.");
+var enMail = MathWorldEmailLayout.Render(new PlatformBrandView(0, brandOrigin, sampleBrand), "en", "Title", "Message");
+Assert(enMail.Html.Contains("dir=\"ltr\""), "English layout must be LTR.");
+try
+{
+    MathWorldEmailLayout.Render(new PlatformBrandView(0, brandOrigin, sampleBrand), "en", "Title", "Body", "Open", "https://evil.example/reset");
+    throw new InvalidOperationException("External reset link accepted.");
+}
+catch (ArgumentException) { }
+Console.WriteLine("PASS: centralized brand validation, safe bilingual email layout and official action links.");
+
 // A different numeric substitution must trigger review as the same
 // template family, while stage and topic boundaries remain distinct.
 var familyOne = CurriculumContentQuality.FamilyKey(

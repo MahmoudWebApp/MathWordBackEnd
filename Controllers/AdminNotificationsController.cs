@@ -1,5 +1,4 @@
 using System.Security.Claims;
-using System.Net;
 using System.Net.Mail;
 using MathWorldAPI.Data;
 using MathWorldAPI.DTOs;
@@ -20,13 +19,15 @@ public sealed class AdminNotificationsController : ControllerBase
 {
     private readonly AppDbContext _db;
     private readonly NotificationStreamBroker _stream;
-    private readonly IConfiguration _configuration;
+    private readonly ITransactionalEmailSender _email;
+    private readonly PlatformBrandService _brand;
     public AdminNotificationsController(AppDbContext db, NotificationStreamBroker stream,
-        IConfiguration configuration)
+        ITransactionalEmailSender email, PlatformBrandService brand)
     {
         _db = db;
         _stream = stream;
-        _configuration = configuration;
+        _email = email;
+        _brand = brand;
     }
 
     public sealed class SendLearnerNoticeRequest
@@ -141,7 +142,7 @@ public sealed class AdminNotificationsController : ControllerBase
     public async Task<IActionResult> EmailStatus(CancellationToken ct)
     {
         if (!await AuthorizedAdmin(ct)) return Forbid();
-        return Ok(new { IsConfigured = ReadMailSettings() is not null });
+        return Ok(new { IsConfigured = _email.IsConfigured });
     }
 
     /// <summary>
@@ -159,8 +160,7 @@ public sealed class AdminNotificationsController : ControllerBase
             !ValidText(request.BodyAr, 1000) || !ValidText(request.BodyEn, 1000))
             return BadRequest(new { Message = "InvalidNotification" });
 
-        var settings = ReadMailSettings();
-        if (settings is null)
+        if (!_email.IsConfigured)
             return StatusCode(StatusCodes.Status503ServiceUnavailable,
                 new { Message = "EmailNotConfigured" });
 
@@ -169,68 +169,26 @@ public sealed class AdminNotificationsController : ControllerBase
             .Select(u => new { u.Id, u.Email }).FirstOrDefaultAsync(ct);
         if (student is null) return NotFound(new { Message = "LearnerNotFound" });
 
-        MailAddress recipient;
-        try { recipient = new MailAddress(student.Email); }
-        catch (FormatException) { return BadRequest(new { Message = "LearnerEmailInvalid" }); }
-        try
+        if (!MailAddress.TryCreate(student.Email, out _))
+            return BadRequest(new { Message = "LearnerEmailInvalid" });
+        var brand = await _brand.ReadAsync(false, ct);
+        var rendered = MathWorldEmailLayout.Render(brand,
+            LanguageHelper.GetLanguageFromRequest(Request),
+            request.TitleAr.Trim() + " | " + request.TitleEn.Trim(),
+            request.BodyAr.Trim() + "\n\n--- English ---\n" + request.BodyEn.Trim());
+        var outcome = await _email.SendAsync(student.Email, rendered, ct);
+        return outcome switch
         {
-            using var message = new MailMessage
-            {
-                From = new MailAddress(settings.From, "MathWorld"),
-                Subject = SanitizeSubject(request.TitleAr) + " | " +
-                          SanitizeSubject(request.TitleEn),
-                Body = request.BodyAr.Trim() + Environment.NewLine +
-                       Environment.NewLine + "--- MathWorld / English ---" +
-                       Environment.NewLine + request.BodyEn.Trim(),
-                IsBodyHtml = false
-            };
-            message.To.Add(recipient);
-            using var client = new SmtpClient(settings.Host, settings.Port)
-            {
-                Credentials = new NetworkCredential(settings.User, settings.Password),
-                EnableSsl = true,
-                DeliveryMethod = SmtpDeliveryMethod.Network,
-                Timeout = 15000
-            };
-            await client.SendMailAsync(message, ct);
-            return Ok(new { EmailSent = true, UserId = student.Id });
-        }
-        catch (Exception ex) when (ex is SmtpException or InvalidOperationException or
-                                   System.IO.IOException)
-        {
-            // Never return SMTP credentials, server details or recipient email.
-            return StatusCode(StatusCodes.Status502BadGateway,
-                new { Message = "EmailDeliveryFailed" });
-        }
+            EmailSendResult.Sent => Ok(new { EmailSent = true, UserId = student.Id }),
+            EmailSendResult.NotConfigured => StatusCode(503, new { Message = "EmailNotConfigured" }),
+            _ => StatusCode(502, new { Message = "EmailDeliveryFailed" })
+        };
     }
 
     private async Task<bool> AuthorizedAdmin(CancellationToken ct) =>
         int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out var adminId) &&
         await _db.Users.AsNoTracking().AnyAsync(
             u => u.Id == adminId && u.Role == "Admin" && u.IsActive, ct);
-
-    private sealed record MailSettings(string Host, int Port, string From,
-        string User, string Password);
-
-    private MailSettings? ReadMailSettings()
-    {
-        var host = _configuration["MathWorldEmail:Host"]?.Trim();
-        var from = _configuration["MathWorldEmail:From"]?.Trim();
-        var user = _configuration["MathWorldEmail:User"]?.Trim();
-        var password = _configuration["MathWorldEmail:Password"];
-        if (string.IsNullOrWhiteSpace(host) || string.IsNullOrWhiteSpace(from) ||
-            string.IsNullOrWhiteSpace(user) || string.IsNullOrWhiteSpace(password))
-            return null;
-        if (!int.TryParse(_configuration["MathWorldEmail:Port"] ?? "587", out var port) ||
-            port < 1 || port > 65535)
-            return null;
-        try { _ = new MailAddress(from); }
-        catch (FormatException) { return null; }
-        return new MailSettings(host, port, from, user, password);
-    }
-
-    private static string SanitizeSubject(string value) =>
-        value.Trim().Replace('\r', ' ').Replace('\n', ' ');
 
     private static bool ValidText(string? value, int max) =>
         !string.IsNullOrWhiteSpace(value) && value.Trim().Length <= max;
