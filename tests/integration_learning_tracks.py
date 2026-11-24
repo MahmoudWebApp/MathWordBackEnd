@@ -11,6 +11,11 @@ def verify_tracks(admin, student, uid, stage1, stage2):
     assert expect("GET",f"/api/stages/{stage1}/tracks",200)["Items"]==[]
     assert expect("GET","/api/users/learning-track",200,token=student).get("TrackId") is None
     expect("GET",root,403,token=student)
+    expect("POST",root+"/reviewed-draft-batch",403,{"Confirm":False},student)
+    expect("POST",root+"/reviewed-draft-batch",400,{"Confirm":True},admin)
+    # The production manifest is not valid against this disposable fixture.
+    expect("POST",root+"/reviewed-draft-batch",409,{"Confirm":False},admin)
+    assert sql(\'SELECT COUNT(*) FROM "LearningTrackProblems"\')=="0"
     t=next(x["Track"] for x in all_tracks if x["Track"]["StageId"]==stage1)
     tid=t["Id"]
     expect("PUT",f"{root}/{tid}/publication",409,{"Revision":0,"Publish":True},admin)

@@ -70,6 +70,9 @@ public sealed class LearningTrackService(AppDbContext db, IConfiguration config,
         return db.LearningTracks.AsNoTracking().Where(t=>t.IsPublished&&links.Any(l=>l.TrackId==t.Id));
     }
 
+    public async Task<int[]> GetFreeCategoryIdsForPlacementAsync(int stageId,CancellationToken ct)
+        => (await access.GetFreeCategoryIdsAsync(stageId,ct)).ToArray();
+
     public async Task<TrackCoverage> CoverageAsync(int id,int stageId,CancellationToken ct)
     {
         var free=await access.GetFreeCategoryIdsAsync(stageId,ct);

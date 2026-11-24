@@ -29,3 +29,6 @@ Admin-only POST `/api/editorial/problems/amend/import` accepts at most 50 eligib
 
 ## Development/demo release exception — 2026-11-24
 The owner explicitly accepted proceeding without an independent backup/restore for the current demo/development environment. This waives step 2 for this release only; no backup is claimed. It does not authorize destructive schema changes, losing history, exposing credentials, or skipping CI/compatibility checks. Reinstate the backup gate before real student data or production launch.
+
+## Reviewed track draft batch — 24 November 2026
+All 773 source stems, stage/category, primary skill ID/stable key and publication status matched the live DB read-only. The fixed package contains 717 source-matched candidates across 17 existing track identities; 30 wording/skill holds and 26 remaining candidates for two proposed identities are excluded (56 distinct). Admin-only preview and explicit revision-bound confirm; transaction locks tracks, rechecks source, refuses nonempty divergent or published mappings; no deletion, no publication, no entitlement change. Three existing university courses still have zero Free coverage; two proposed courses are not created. Grade 1 has only two non-held candidates and requires expansion. Draft mapping is not independent curriculum approval. 
