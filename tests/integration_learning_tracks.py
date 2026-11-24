@@ -15,7 +15,7 @@ def verify_tracks(admin, student, uid, stage1, stage2):
     expect("POST",root+"/reviewed-draft-batch",400,{"Confirm":True},admin)
     # The production manifest is not valid against this disposable fixture.
     expect("POST",root+"/reviewed-draft-batch",409,{"Confirm":False},admin)
-    assert sql(\'SELECT COUNT(*) FROM "LearningTrackProblems"\')=="0"
+    assert sql('SELECT COUNT(*) FROM "LearningTrackProblems"')=="0"
     t=next(x["Track"] for x in all_tracks if x["Track"]["StageId"]==stage1)
     tid=t["Id"]
     expect("PUT",f"{root}/{tid}/publication",409,{"Revision":0,"Publish":True},admin)
