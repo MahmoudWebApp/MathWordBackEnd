@@ -2,6 +2,204 @@
   "status": "Editorial candidates",
   "items": [
     {
+      "problemId": 23,
+      "primarySkillKey": "secondary-pythagorean-trig-identity",
+      "question": {
+        "Ar": "احسب القيمة الدقيقة لـ $\\sin^2(45^\\circ)+\\cos^2(45^\\circ)$.",
+        "En": "Evaluate $\\sin^2(45^\\circ)+\\cos^2(45^\\circ)$ exactly."
+      },
+      "Hints": [
+        {
+          "Ar": "ابدأ بإيجاد القيمتين الدقيقتين للجيب وجيب التمام عند الزاوية المعطاة.",
+          "En": "Start with the exact sine and cosine of the given angle."
+        },
+        {
+          "Ar": "ربّع كل قيمة مثلثية على حدة ثم اجمع المربعين، لا القيمتين الأصليتين.",
+          "En": "Square each trigonometric value separately before adding."
+        }
+      ]
+    },
+    {
+      "problemId": 145,
+      "primarySkillKey": "university-differentiability-continuity",
+      "question": {
+        "Ar": "إذا كانت f قابلة للاشتقاق عند x=1، فما النتيجة اللازمة؟",
+        "En": "If f is differentiable at x=1, what must hold?"
+      },
+      "Hints": [
+        {
+          "Ar": "فكّر في تعريف المشتقة باستخدام نهاية خارج القسمة.",
+          "En": "Think of the derivative as a limit of a difference quotient."
+        },
+        {
+          "Ar": "اكتب الفرق f(1+h)−f(1) على صورة حاصل ضرب h في خارج القسمة؛ ماذا يحدث عندما h يقترب من الصفر؟",
+          "En": "Express f(1+h)−f(1) as h times the difference quotient. What happens as h approaches zero?"
+        }
+      ]
+    },
+    {
+      "problemId": 340,
+      "primarySkillKey": "university-intermediate-value-theorem",
+      "question": {
+        "Ar": "لدالة f تحقق f(0)=-2 وf(1)=3، ما الشرط الكافي لضمان وجود جذر في (0,1) بنظرية القيمة الوسيطة؟",
+        "En": "For f(0)=-2 and f(1)=3, what sufficient condition guarantees a root in (0,1) by the intermediate value theorem?"
+      },
+      "Hints": [
+        {
+          "Ar": "قارن إشارتَي قيم الدالة عند طرفي الفترة.",
+          "En": "Compare the signs of the function values at the endpoints."
+        },
+        {
+          "Ar": "ما الشرط الذي يمنع الدالة من القفز فوق قيمة الصفر عند الانتقال بين الطرفين؟",
+          "En": "What condition prevents the function from jumping over zero between the endpoints?"
+        }
+      ]
+    },
+    {
+      "problemId": 352,
+      "primarySkillKey": "university-intermediate-value-theorem",
+      "question": {
+        "Ar": "لدالة f تحقق f(0)=-3 وf(1)=4، ما الشرط الكافي لضمان وجود جذر في (0,1) بنظرية القيمة الوسيطة؟",
+        "En": "For f(0)=-3 and f(1)=4, what sufficient condition guarantees a root in (0,1) by the intermediate value theorem?"
+      },
+      "Hints": [
+        {
+          "Ar": "حدد أين يقع الصفر بالنسبة إلى قيمتي الدالة عند الطرفين.",
+          "En": "Locate zero relative to the two endpoint values."
+        },
+        {
+          "Ar": "استرجع فرضيات مبرهنة القيمة الوسيطة على الفترة المغلقة قبل تطبيقها.",
+          "En": "Recall the hypotheses of the intermediate value theorem on a closed interval before applying it."
+        }
+      ]
+    },
+    {
+      "problemId": 364,
+      "primarySkillKey": "university-intermediate-value-theorem",
+      "question": {
+        "Ar": "لدالة f تحقق f(0)=-4 وf(1)=5، ما الشرط الكافي لضمان وجود جذر في (0,1) بنظرية القيمة الوسيطة؟",
+        "En": "For f(0)=-4 and f(1)=5, what sufficient condition guarantees a root in (0,1) by the intermediate value theorem?"
+      },
+      "Hints": [
+        {
+          "Ar": "اختلاف الإشارتين وحده لا يكفي إذا سُمح بوجود قفزة داخل الفترة.",
+          "En": "Opposite signs alone do not suffice if a jump is allowed inside the interval."
+        },
+        {
+          "Ar": "فكّر في الخاصية المطلوبة على كامل الفترة، لا عند أحد طرفيها فقط.",
+          "En": "Consider the property required throughout the interval, rather than at just one endpoint."
+        }
+      ]
+    },
+    {
+      "problemId": 376,
+      "primarySkillKey": "university-intermediate-value-theorem",
+      "question": {
+        "Ar": "لدالة f تحقق f(0)=-5 وf(1)=6، ما الشرط الكافي لضمان وجود جذر في (0,1) بنظرية القيمة الوسيطة؟",
+        "En": "For f(0)=-5 and f(1)=6, what sufficient condition guarantees a root in (0,1) by the intermediate value theorem?"
+      },
+      "Hints": [
+        {
+          "Ar": "تأمل القيمة التي نريد أن تبلغها الدالة بين قيمتي الطرفين.",
+          "En": "Consider the value the function must attain between the endpoint values."
+        },
+        {
+          "Ar": "تحتاج مبرهنة القيمة الوسيطة إلى فرضية تخص الفترة كلها، وليس مجرد قابلية الاشتقاق عند نقطة.",
+          "En": "The intermediate value theorem needs a hypothesis on the whole interval, not just differentiability at one point."
+        }
+      ]
+    },
+    {
+      "problemId": 388,
+      "primarySkillKey": "university-intermediate-value-theorem",
+      "question": {
+        "Ar": "لدالة f تحقق f(0)=-6 وf(1)=7، ما الشرط الكافي لضمان وجود جذر في (0,1) بنظرية القيمة الوسيطة؟",
+        "En": "For f(0)=-6 and f(1)=7, what sufficient condition guarantees a root in (0,1) by the intermediate value theorem?"
+      },
+      "Hints": [
+        {
+          "Ar": "تحقق أن الصفر يقع بين قيمتي الدالة المعطاتين.",
+          "En": "Check that zero lies between the two given function values."
+        },
+        {
+          "Ar": "تخيّل منحنى ينتقل بين الطرفين دون قفزات؛ أي فرضية رياضية تجعل هذه الحجة صحيحة؟",
+          "En": "Imagine a curve joining the endpoints without jumps; which mathematical hypothesis makes this reasoning valid?"
+        }
+      ]
+    },
+    {
+      "problemId": 512,
+      "primarySkillKey": "s-sequences-series-series-convergence",
+      "question": {
+        "Ar": "لماذا لا تتقارب المتسلسلة التوافقية $1+\\frac12+\\frac13+\\frac14+\\cdots$؟",
+        "En": "Why does the harmonic series $1+\\frac12+\\frac13+\\frac14+\\cdots$ diverge?"
+      },
+      "Hints": [
+        {
+          "Ar": "جرّب تجميع حدود المتسلسلة في مجموعات يتضاعف عدد حدودها.",
+          "En": "Try grouping the terms into blocks of doubling length."
+        },
+        {
+          "Ar": "في كل مجموعة قارن جميع الحدود بأصغر حد فيها، ثم اضرب ذلك الحد بعدد الحدود.",
+          "En": "In each block, compare all terms with its smallest term, then multiply by the number of terms."
+        }
+      ]
+    },
+    {
+      "problemId": 800,
+      "primarySkillKey": "university-differentiability-continuity",
+      "question": {
+        "Ar": "ما الوصف الصحيح للدالة f(x)=x^(2/3) عند x=0، حيث الجذر التكعيبي الحقيقي؟",
+        "En": "How is the real-valued function f(x)=x^(2/3) classified at x=0 (using real cube roots)?"
+      },
+      "Hints": [
+        {
+          "Ar": "افحص نهاية الدالة عند الصفر أولاً، ثم افحص وجود المشتقة بشكل مستقل.",
+          "En": "First examine the function's limit at zero, then check differentiability separately."
+        },
+        {
+          "Ar": "استعمل خارج القسمة عند الصفر واختبر سلوكه عندما يقترب h من الصفر من الجهتين.",
+          "En": "Use the difference quotient at zero and examine its behavior as h approaches zero from both sides."
+        }
+      ]
+    },
+    {
+      "problemId": 818,
+      "primarySkillKey": "p-fractions-decimals-fraction-models",
+      "question": {
+        "Ar": "لدينا شريطان متساويان، كل شريط مقسّم إلى 8 أجزاء متساوية. لُوّن الشريط الأول كله و3 أجزاء من الثاني. ما الكسر غير الفعلي الذي يمثّل مجموع الأجزاء الملوّنة؟",
+        "En": "Two identical bars each contain 8 equal segments. All of the first bar and 3 segments of the second are colored. Which improper fraction represents the total colored amount?"
+      },
+      "Hints": [
+        {
+          "Ar": "اعتبر طول شريط واحد وحدة كاملة وحدد قيمة الجزء الواحد منها.",
+          "En": "Treat one full bar as a unit and identify the fraction represented by one segment."
+        },
+        {
+          "Ar": "عبّر عن كل الأجزاء الملوّنة بأثمان، ثم اجمع البسطين مع إبقاء المقام.",
+          "En": "Express the colored parts in eighths, then add the numerators while keeping the denominator."
+        }
+      ]
+    },
+    {
+      "problemId": 851,
+      "primarySkillKey": "primary-division",
+      "question": {
+        "Ar": "يريد معلّم توزيع 96 قلماً بالتساوي على 7 طلاب. كم قلماً يأخذ كل طالب وكم قلماً يبقى؟",
+        "En": "A teacher shares 96 pencils equally among 7 students. How many pencils does each student receive, and how many are left?"
+      },
+      "Hints": [
+        {
+          "Ar": "ابحث عن أكبر مضاعف للعدد 7 لا يتجاوز عدد الأقلام.",
+          "En": "Find the greatest multiple of seven that does not exceed the number of pencils."
+        },
+        {
+          "Ar": "بعد تحديد عدد الأقلام الموزعة، اطرحه من العدد الكلي وتحقق أن الباقي أصغر من عدد الطلاب.",
+          "En": "After determining how many pencils are distributed, subtract that from the total and check that the remainder is smaller than the number of students."
+        }
+      ]
+    },
+    {
       "problemId": 1560,
       "primarySkillKey": "estimation",
       "question": {
