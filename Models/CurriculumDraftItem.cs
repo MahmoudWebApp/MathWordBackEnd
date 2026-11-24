@@ -7,8 +7,18 @@ namespace MathWorldAPI.Models;
 public sealed class CurriculumDraftItem
 {
     public long Id { get; set; }
-    public int TopicProposalId { get; set; }
-    public CurriculumTopicProposal TopicProposal { get; set; } = null!;
+    public int? TopicProposalId { get; set; }
+    public CurriculumTopicProposal? TopicProposal { get; set; }
+    public string? WizardJson { get; set; }
+    public int? OwnerUserId { get; set; }
+    public int? LastEditorUserId { get; set; }
+    public int Revision { get; set; }
+    public DateTime? SubmittedAtUtc { get; set; }
+    public DateTime? ReviewedAtUtc { get; set; }
+    public int? ReviewedByUserId { get; set; }
+    public string? ReviewNote { get; set; }
+    public DateTime? PublishedAtUtc { get; set; }
+    public int? PublishedProblemId { get; set; }
     public string ContentKey { get; set; } = string.Empty;
     public string PrimarySkillKey { get; set; } = string.Empty;
     public string TemplateFamilyKey { get; set; } = string.Empty;

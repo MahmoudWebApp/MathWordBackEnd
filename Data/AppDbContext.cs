@@ -173,6 +173,8 @@ namespace MathWorldAPI.Data
             modelBuilder.Entity<CurriculumDraftItem>(e =>
             {
                 e.HasIndex(x => x.ContentKey).IsUnique();
+                e.HasIndex(x => new { x.OwnerUserId, x.EditorialStatus });
+                e.Property(x => x.Revision).HasDefaultValue(0);
                 e.HasIndex(x => new { x.TopicProposalId, x.EditorialStatus });
                 e.HasIndex(x => new { x.TopicProposalId, x.TemplateFamilyKey });
                 e.Property(x => x.ContentKey).HasMaxLength(120).IsRequired();

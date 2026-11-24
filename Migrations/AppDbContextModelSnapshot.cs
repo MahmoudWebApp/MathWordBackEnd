@@ -123,7 +123,17 @@ namespace MathWorldAPI.Migrations
                 {
                     b.Property<long>("Id").ValueGeneratedOnAdd().HasColumnType("bigint");
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
-                    b.Property<int>("TopicProposalId").HasColumnType("integer");
+                    b.Property<int?>("TopicProposalId").HasColumnType("integer");
+                    b.Property<string>("WizardJson").HasColumnType("text");
+                    b.Property<int?>("OwnerUserId").HasColumnType("integer");
+                    b.Property<int?>("LastEditorUserId").HasColumnType("integer");
+                    b.Property<int>("Revision").ValueGeneratedOnAdd().HasColumnType("integer").HasDefaultValue(0);
+                    b.Property<DateTime?>("SubmittedAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<DateTime?>("ReviewedAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<int?>("ReviewedByUserId").HasColumnType("integer");
+                    b.Property<string>("ReviewNote").HasColumnType("text");
+                    b.Property<DateTime?>("PublishedAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<int?>("PublishedProblemId").HasColumnType("integer");
                     b.Property<string>("ContentKey").IsRequired().HasMaxLength(120).HasColumnType("character varying(120)");
                     b.Property<string>("PrimarySkillKey").IsRequired().HasMaxLength(120).HasColumnType("character varying(120)");
                     b.Property<string>("TemplateFamilyKey").IsRequired().HasMaxLength(160).HasColumnType("character varying(160)");
@@ -139,6 +149,7 @@ namespace MathWorldAPI.Migrations
                     b.Property<string>("EditorialStatus").IsRequired().HasMaxLength(24).HasColumnType("character varying(24)");
                     b.HasKey("Id");
                     b.HasIndex("ContentKey").IsUnique();
+                    b.HasIndex("OwnerUserId", "EditorialStatus");
                     b.HasIndex("TopicProposalId", "EditorialStatus");
                     b.HasIndex("TopicProposalId", "TemplateFamilyKey");
                     b.ToTable("CurriculumDraftItems", t =>
@@ -862,6 +873,8 @@ namespace MathWorldAPI.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<string>("EditorialDetailsJson").HasColumnType("text");
+
                     b.Property<int>("Points")
                         .HasColumnType("integer");
 
@@ -1299,8 +1312,7 @@ namespace MathWorldAPI.Migrations
                     b.HasOne("MathWorldAPI.Models.CurriculumTopicProposal", "TopicProposal")
                         .WithMany()
                         .HasForeignKey("TopicProposalId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Cascade);
                     b.Navigation("TopicProposal");
                 });
 
