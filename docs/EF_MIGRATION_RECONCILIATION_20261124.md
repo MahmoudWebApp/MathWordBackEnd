@@ -78,6 +78,21 @@ A separate **read-only** query using the Supabase migration-ledger interface fou
 
 The Supabase project currently reports **zero development branches**, so there is no pre-existing isolated branch to serve as a restore/rehearsal environment. Creating one may incur usage charges and does not automatically copy production data; do not create it automatically. The user database was **not modified** during this check.
 
+## Verified semantic differences between migration systems
+
+Inspected the actual SQL stored in `supabase_migrations.schema_migrations.statements` and reopened all five EF Core `Migrations/*.cs` files on `main` (read-only on the live DB). **These differences are proven from the source scripts**, rather than inferred from migration names:
+
+| Area | Supabase migration | Corresponding EF `Up()` | Consequence |
+| --- | --- | --- | --- |
+| Stage/category descriptions | Adds bilingual columns **and conditionally fills initial descriptions** for four stages and the initial sixteen categories | Adds the same four columns but **does not seed descriptions** | A fresh EF-only installation can lack the public descriptions that already exist on the Supabase-managed installation |
+| Curriculum taxonomy access control | Separate `secure_curriculum_taxonomy_20261121` enables RLS on five core taxonomy tables and revokes direct `anon/authenticated` access to them; another migration adds the category index | `20261121220000_CurriculumTaxonomy` defines the tables and category index but **does not enable RLS or revoke API-role access on the five taxonomy tables** | Fresh EF-only database setup would not reproduce the existing taxonomy security configuration; assess Data API exposure and add a reviewed equivalent hardening step before release |
+| Topic proposals / private drafts | Table/index creation, RLS and revoke grants | Conditional table/index creation, enables RLS and conditionally revokes grants where roles exist | Broad design agrees; full schema checks still required |
+| Normalized-question uniqueness | Two unique functional indexes on Arabic/English question text per stage | Same functional unique indexes using MD5 and normalized whitespace | Broad design agrees; verify actual expression definitions rather than treating index names as proof |
+
+**Never equate the Supabase migration ledger with EF Core history.** The databases can have the same objects while startup readiness still detects pending EF migrations. Do not backfill `__EFMigrationsHistory`, replay historical migrations, or change DDL on production until an isolated restore and precise schema/data equivalence review is complete.
+
+Suggested safe next step: a **version-controlled, additive security migration** for future EF-managed installations, paired with a documented data-only seed strategy, after deciding the single schema migration authority. Do **not** rewrite already-shipped migration history in an uncontrolled environment.
+
 ## Safe reconciliation gate
 
 1. **Freeze writes to the target during the controlled change window** and save the actual application commit, applied migration list, schema dump, and a restorable backup. Test restore on a separate database. Do not copy production secrets into GitHub or test artifacts.
