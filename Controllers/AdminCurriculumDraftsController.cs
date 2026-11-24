@@ -131,7 +131,10 @@ public sealed class AdminCurriculumDraftsController : ControllerBase
     {
         var adminId = await ActiveAdminId(ct);
         if (adminId is null) return Forbid();
-        var note = request?.Note?.Trim() ?? "";
+        if (request is null)
+            return BadRequest(new { Message = "InvalidReviewRequest" });
+
+        var note = request.Note?.Trim() ?? "";
         if (note.Length is < 10 or > 1000)
             return BadRequest(new { Message = "ReviewNoteRequired10To1000" });
 
