@@ -1,0 +1,2923 @@
+{
+  "Version": 1,
+  "Status": "ReviewQueueNotApprovedNotImported",
+  "Date": "2026-11-24",
+  "Notes": [
+    "Provisional skill-level curriculum placement, not proof of specific grade alignment. Each problem ID is a review candidate, not an approved mapping; do not submit this file to mapping API.",
+    "Keep old stage access and Free category IDs unchanged. Never map unrelated mathematics to an otherwise locked course simply to pass publication.",
+    "Numerical analysis and optimization are proposed additional course identities; not created.",
+    "Grades 1–2 require especially careful review of arithmetic magnitude, reading level and representation. Curriculum reference alignment and prerequisite checks remain required."
+  ],
+  "FreeCategoryIds": {
+    "1": [
+      1,
+      2
+    ],
+    "2": [
+      5,
+      6
+    ],
+    "3": [
+      9,
+      10
+    ],
+    "4": [
+      13,
+      14
+    ]
+  },
+  "Tracks": [
+    {
+      "Code": "grade-1",
+      "StageId": 1,
+      "IsExistingDraftIdentity": true,
+      "CandidateSkills": 7,
+      "CandidateProblems": 37,
+      "CandidateFreeProblems": 17,
+      "FreeCoverageBlocked": false,
+      "RequiresProblemLevelReview": true
+    },
+    {
+      "Code": "grade-2",
+      "StageId": 1,
+      "IsExistingDraftIdentity": true,
+      "CandidateSkills": 10,
+      "CandidateProblems": 49,
+      "CandidateFreeProblems": 24,
+      "FreeCoverageBlocked": false,
+      "RequiresProblemLevelReview": true
+    },
+    {
+      "Code": "grade-3",
+      "StageId": 1,
+      "IsExistingDraftIdentity": true,
+      "CandidateSkills": 20,
+      "CandidateProblems": 103,
+      "CandidateFreeProblems": 23,
+      "FreeCoverageBlocked": false,
+      "RequiresProblemLevelReview": true
+    },
+    {
+      "Code": "grade-4",
+      "StageId": 1,
+      "IsExistingDraftIdentity": true,
+      "CandidateSkills": 20,
+      "CandidateProblems": 103,
+      "CandidateFreeProblems": 10,
+      "FreeCoverageBlocked": false,
+      "RequiresProblemLevelReview": true
+    },
+    {
+      "Code": "grade-5",
+      "StageId": 1,
+      "IsExistingDraftIdentity": true,
+      "CandidateSkills": 16,
+      "CandidateProblems": 80,
+      "CandidateFreeProblems": 5,
+      "FreeCoverageBlocked": false,
+      "RequiresProblemLevelReview": true
+    },
+    {
+      "Code": "grade-6",
+      "StageId": 1,
+      "IsExistingDraftIdentity": true,
+      "CandidateSkills": 11,
+      "CandidateProblems": 59,
+      "CandidateFreeProblems": 10,
+      "FreeCoverageBlocked": false,
+      "RequiresProblemLevelReview": true
+    },
+    {
+      "Code": "grade-7",
+      "StageId": 2,
+      "IsExistingDraftIdentity": true,
+      "CandidateSkills": 20,
+      "CandidateProblems": 94,
+      "CandidateFreeProblems": 23,
+      "FreeCoverageBlocked": false,
+      "RequiresProblemLevelReview": true
+    },
+    {
+      "Code": "grade-8",
+      "StageId": 2,
+      "IsExistingDraftIdentity": true,
+      "CandidateSkills": 30,
+      "CandidateProblems": 166,
+      "CandidateFreeProblems": 45,
+      "FreeCoverageBlocked": false,
+      "RequiresProblemLevelReview": true
+    },
+    {
+      "Code": "grade-9",
+      "StageId": 2,
+      "IsExistingDraftIdentity": true,
+      "CandidateSkills": 14,
+      "CandidateProblems": 91,
+      "CandidateFreeProblems": 39,
+      "FreeCoverageBlocked": false,
+      "RequiresProblemLevelReview": true
+    },
+    {
+      "Code": "grade-10",
+      "StageId": 3,
+      "IsExistingDraftIdentity": true,
+      "CandidateSkills": 14,
+      "CandidateProblems": 97,
+      "CandidateFreeProblems": 49,
+      "FreeCoverageBlocked": false,
+      "RequiresProblemLevelReview": true
+    },
+    {
+      "Code": "grade-11",
+      "StageId": 3,
+      "IsExistingDraftIdentity": true,
+      "CandidateSkills": 29,
+      "CandidateProblems": 171,
+      "CandidateFreeProblems": 55,
+      "FreeCoverageBlocked": false,
+      "RequiresProblemLevelReview": true
+    },
+    {
+      "Code": "grade-12",
+      "StageId": 3,
+      "IsExistingDraftIdentity": true,
+      "CandidateSkills": 21,
+      "CandidateProblems": 105,
+      "CandidateFreeProblems": 11,
+      "FreeCoverageBlocked": false,
+      "RequiresProblemLevelReview": true
+    },
+    {
+      "Code": "calculus",
+      "StageId": 4,
+      "IsExistingDraftIdentity": true,
+      "CandidateSkills": 10,
+      "CandidateProblems": 68,
+      "CandidateFreeProblems": 28,
+      "FreeCoverageBlocked": false,
+      "RequiresProblemLevelReview": true
+    },
+    {
+      "Code": "linear-algebra",
+      "StageId": 4,
+      "IsExistingDraftIdentity": true,
+      "CandidateSkills": 5,
+      "CandidateProblems": 32,
+      "CandidateFreeProblems": 32,
+      "FreeCoverageBlocked": false,
+      "RequiresProblemLevelReview": true
+    },
+    {
+      "Code": "differential-equations",
+      "StageId": 4,
+      "IsExistingDraftIdentity": true,
+      "CandidateSkills": 4,
+      "CandidateProblems": 32,
+      "CandidateFreeProblems": 0,
+      "FreeCoverageBlocked": true,
+      "RequiresProblemLevelReview": true
+    },
+    {
+      "Code": "probability-statistics",
+      "StageId": 4,
+      "IsExistingDraftIdentity": true,
+      "CandidateSkills": 3,
+      "CandidateProblems": 8,
+      "CandidateFreeProblems": 0,
+      "FreeCoverageBlocked": true,
+      "RequiresProblemLevelReview": true
+    },
+    {
+      "Code": "discrete-mathematics",
+      "StageId": 4,
+      "IsExistingDraftIdentity": true,
+      "CandidateSkills": 6,
+      "CandidateProblems": 32,
+      "CandidateFreeProblems": 0,
+      "FreeCoverageBlocked": true,
+      "RequiresProblemLevelReview": true
+    },
+    {
+      "Code": "numerical-analysis",
+      "StageId": 4,
+      "IsExistingDraftIdentity": false,
+      "CandidateSkills": 4,
+      "CandidateProblems": 12,
+      "CandidateFreeProblems": 0,
+      "FreeCoverageBlocked": true,
+      "RequiresProblemLevelReview": true
+    },
+    {
+      "Code": "mathematical-optimization",
+      "StageId": 4,
+      "IsExistingDraftIdentity": false,
+      "CandidateSkills": 3,
+      "CandidateProblems": 16,
+      "CandidateFreeProblems": 0,
+      "FreeCoverageBlocked": true,
+      "RequiresProblemLevelReview": true
+    }
+  ],
+  "Skills": [
+    {
+      "SkillId": 1,
+      "StableKey": "primary-addition",
+      "StageId": 1,
+      "CategoryId": 1,
+      "SkillNameEn": "Whole-number addition",
+      "ProposedTrackCodes": [
+        "grade-1",
+        "grade-2"
+      ],
+      "ProblemIdsForIndividualReview": [
+        36,
+        609,
+        610,
+        611,
+        612
+      ],
+      "FreeCategory": true
+    },
+    {
+      "SkillId": 2,
+      "StableKey": "primary-subtraction",
+      "StageId": 1,
+      "CategoryId": 1,
+      "SkillNameEn": "Whole-number subtraction",
+      "ProposedTrackCodes": [
+        "grade-1",
+        "grade-2"
+      ],
+      "ProblemIdsForIndividualReview": [
+        3,
+        37,
+        761,
+        762,
+        763,
+        764
+      ],
+      "FreeCategory": true
+    },
+    {
+      "SkillId": 3,
+      "StableKey": "primary-multistep-arithmetic",
+      "StageId": 1,
+      "CategoryId": 1,
+      "SkillNameEn": "Multi-step arithmetic",
+      "ProposedTrackCodes": [
+        "grade-3",
+        "grade-4"
+      ],
+      "ProblemIdsForIndividualReview": [
+        69,
+        84,
+        99,
+        114,
+        129
+      ],
+      "FreeCategory": true
+    },
+    {
+      "SkillId": 4,
+      "StableKey": "primary-multiplication",
+      "StageId": 1,
+      "CategoryId": 33,
+      "SkillNameEn": "Multiplication",
+      "ProposedTrackCodes": [
+        "grade-3",
+        "grade-4"
+      ],
+      "ProblemIdsForIndividualReview": [
+        5,
+        53,
+        149,
+        161,
+        173,
+        185,
+        197,
+        854
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 5,
+      "StableKey": "primary-division",
+      "StageId": 1,
+      "CategoryId": 33,
+      "SkillNameEn": "Division",
+      "ProposedTrackCodes": [
+        "grade-3",
+        "grade-4"
+      ],
+      "ProblemIdsForIndividualReview": [
+        150,
+        162,
+        174,
+        186,
+        198,
+        851
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 6,
+      "StableKey": "primary-multiplicative-word-problems",
+      "StageId": 1,
+      "CategoryId": 33,
+      "SkillNameEn": "Multiplicative word problems",
+      "ProposedTrackCodes": [
+        "grade-3",
+        "grade-4"
+      ],
+      "ProblemIdsForIndividualReview": [
+        151,
+        163,
+        175,
+        187,
+        199,
+        852,
+        853
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 7,
+      "StableKey": "primary-one-step-additive-equations",
+      "StageId": 1,
+      "CategoryId": 2,
+      "SkillNameEn": "One-step additive equations",
+      "ProposedTrackCodes": [
+        "grade-2",
+        "grade-3"
+      ],
+      "ProblemIdsForIndividualReview": [
+        6,
+        38,
+        70,
+        85,
+        100,
+        115,
+        130
+      ],
+      "FreeCategory": true
+    },
+    {
+      "SkillId": 8,
+      "StableKey": "primary-number-patterns",
+      "StageId": 1,
+      "CategoryId": 2,
+      "SkillNameEn": "Number patterns and sequences",
+      "ProposedTrackCodes": [
+        "grade-1",
+        "grade-2",
+        "grade-3"
+      ],
+      "ProblemIdsForIndividualReview": [
+        7,
+        153,
+        165,
+        177,
+        189,
+        201
+      ],
+      "FreeCategory": true
+    },
+    {
+      "SkillId": 9,
+      "StableKey": "primary-one-step-multiplicative-equations",
+      "StageId": 1,
+      "CategoryId": 2,
+      "SkillNameEn": "One-step multiplicative equations",
+      "ProposedTrackCodes": [
+        "grade-3",
+        "grade-4"
+      ],
+      "ProblemIdsForIndividualReview": [
+        54,
+        689,
+        690,
+        691,
+        692
+      ],
+      "FreeCategory": true
+    },
+    {
+      "SkillId": 10,
+      "StableKey": "primary-two-step-equations",
+      "StageId": 1,
+      "CategoryId": 2,
+      "SkillNameEn": "Two-step linear equations",
+      "ProposedTrackCodes": [
+        "grade-6"
+      ],
+      "ProblemIdsForIndividualReview": [
+        152,
+        164,
+        176,
+        188,
+        200
+      ],
+      "FreeCategory": true
+    },
+    {
+      "SkillId": 11,
+      "StableKey": "primary-substitution",
+      "StageId": 1,
+      "CategoryId": 2,
+      "SkillNameEn": "Substitution in algebraic expressions",
+      "ProposedTrackCodes": [
+        "grade-5",
+        "grade-6"
+      ],
+      "ProblemIdsForIndividualReview": [
+        154,
+        166,
+        178,
+        190,
+        202
+      ],
+      "FreeCategory": true
+    },
+    {
+      "SkillId": 12,
+      "StableKey": "primary-perimeter",
+      "StageId": 1,
+      "CategoryId": 3,
+      "SkillNameEn": "Perimeter calculations",
+      "ProposedTrackCodes": [
+        "grade-3",
+        "grade-4"
+      ],
+      "ProblemIdsForIndividualReview": [
+        8,
+        39,
+        155,
+        167,
+        179,
+        191,
+        203
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 13,
+      "StableKey": "primary-rectangle-area",
+      "StageId": 1,
+      "CategoryId": 3,
+      "SkillNameEn": "Area of rectangles",
+      "ProposedTrackCodes": [
+        "grade-3",
+        "grade-4"
+      ],
+      "ProblemIdsForIndividualReview": [
+        9,
+        71,
+        86,
+        101,
+        116,
+        131
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 14,
+      "StableKey": "primary-triangle-area",
+      "StageId": 1,
+      "CategoryId": 3,
+      "SkillNameEn": "Area of triangles",
+      "ProposedTrackCodes": [
+        "grade-5",
+        "grade-6"
+      ],
+      "ProblemIdsForIndividualReview": [
+        55,
+        613,
+        614,
+        615,
+        616
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 15,
+      "StableKey": "primary-triangle-angle-sum",
+      "StageId": 1,
+      "CategoryId": 3,
+      "SkillNameEn": "Angles in triangles",
+      "ProposedTrackCodes": [
+        "grade-5",
+        "grade-6"
+      ],
+      "ProblemIdsForIndividualReview": [
+        156,
+        168,
+        180,
+        192,
+        204
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 16,
+      "StableKey": "primary-unit-conversions",
+      "StageId": 1,
+      "CategoryId": 3,
+      "SkillNameEn": "Length-unit conversions",
+      "ProposedTrackCodes": [
+        "grade-3",
+        "grade-4",
+        "grade-5"
+      ],
+      "ProblemIdsForIndividualReview": [
+        157,
+        169,
+        181,
+        193,
+        205
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 17,
+      "StableKey": "primary-simple-probability",
+      "StageId": 1,
+      "CategoryId": 4,
+      "SkillNameEn": "Simple probability",
+      "ProposedTrackCodes": [
+        "grade-5",
+        "grade-6"
+      ],
+      "ProblemIdsForIndividualReview": [
+        10,
+        56,
+        159,
+        171,
+        183,
+        195,
+        207
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 18,
+      "StableKey": "primary-median",
+      "StageId": 1,
+      "CategoryId": 4,
+      "SkillNameEn": "Median",
+      "ProposedTrackCodes": [
+        "grade-5",
+        "grade-6"
+      ],
+      "ProblemIdsForIndividualReview": [
+        11,
+        160,
+        172,
+        184,
+        196,
+        208
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 19,
+      "StableKey": "primary-arithmetic-mean",
+      "StageId": 1,
+      "CategoryId": 4,
+      "SkillNameEn": "Arithmetic mean",
+      "ProposedTrackCodes": [
+        "grade-5",
+        "grade-6"
+      ],
+      "ProblemIdsForIndividualReview": [
+        40,
+        72,
+        87,
+        102,
+        117,
+        132
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 20,
+      "StableKey": "primary-mode",
+      "StageId": 1,
+      "CategoryId": 4,
+      "SkillNameEn": "Mode",
+      "ProposedTrackCodes": [
+        "grade-4",
+        "grade-5",
+        "grade-6"
+      ],
+      "ProblemIdsForIndividualReview": [
+        158,
+        170,
+        182,
+        194,
+        206
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 93,
+      "StableKey": "p-fractions-decimals-basic-percentages",
+      "StageId": 1,
+      "CategoryId": 21,
+      "SkillNameEn": "Basic Percentages",
+      "ProposedTrackCodes": [
+        "grade-5",
+        "grade-6"
+      ],
+      "ProblemIdsForIndividualReview": [
+        426,
+        476,
+        617,
+        618,
+        619,
+        620
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 94,
+      "StableKey": "p-fractions-decimals-decimal-place-value",
+      "StageId": 1,
+      "CategoryId": 21,
+      "SkillNameEn": "Decimal Place Value",
+      "ProposedTrackCodes": [
+        "grade-4",
+        "grade-5"
+      ],
+      "ProblemIdsForIndividualReview": [
+        422,
+        427,
+        428,
+        475,
+        821,
+        822
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 95,
+      "StableKey": "p-fractions-decimals-fraction-operations",
+      "StageId": 1,
+      "CategoryId": 21,
+      "SkillNameEn": "Fraction Operations",
+      "ProposedTrackCodes": [
+        "grade-5",
+        "grade-6"
+      ],
+      "ProblemIdsForIndividualReview": [
+        420,
+        425,
+        474,
+        819,
+        820
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 96,
+      "StableKey": "p-fractions-decimals-equivalence",
+      "StageId": 1,
+      "CategoryId": 21,
+      "SkillNameEn": "Equivalent Fractions",
+      "ProposedTrackCodes": [
+        "grade-3",
+        "grade-4"
+      ],
+      "ProblemIdsForIndividualReview": [
+        421,
+        473,
+        693,
+        694,
+        695,
+        696
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 97,
+      "StableKey": "p-fractions-decimals-fraction-models",
+      "StageId": 1,
+      "CategoryId": 21,
+      "SkillNameEn": "Fraction Models",
+      "ProposedTrackCodes": [
+        "grade-3",
+        "grade-4"
+      ],
+      "ProblemIdsForIndividualReview": [
+        423,
+        424,
+        477,
+        817,
+        818
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 112,
+      "StableKey": "p-fractions-decimals-fraction-comparisons",
+      "StageId": 1,
+      "CategoryId": 21,
+      "SkillNameEn": "Fraction Comparisons",
+      "ProposedTrackCodes": [
+        "grade-4",
+        "grade-5"
+      ],
+      "ProblemIdsForIndividualReview": [
+        472,
+        503,
+        504,
+        505,
+        506,
+        507
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 298,
+      "StableKey": "fraction-operations",
+      "StageId": 1,
+      "CategoryId": 21,
+      "SkillNameEn": "Fraction operations",
+      "ProposedTrackCodes": [
+        "grade-5",
+        "grade-6"
+      ],
+      "ProblemIdsForIndividualReview": [
+        1635,
+        1636,
+        1637,
+        1638
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 302,
+      "StableKey": "counting",
+      "StageId": 1,
+      "CategoryId": 81,
+      "SkillNameEn": "Counting patterns",
+      "ProposedTrackCodes": [
+        "grade-1",
+        "grade-2"
+      ],
+      "ProblemIdsForIndividualReview": [
+        1654,
+        1680,
+        1682,
+        1707
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 303,
+      "StableKey": "estimation",
+      "StageId": 1,
+      "CategoryId": 81,
+      "SkillNameEn": "Estimating results",
+      "ProposedTrackCodes": [
+        "grade-3",
+        "grade-4"
+      ],
+      "ProblemIdsForIndividualReview": [
+        1560,
+        1561
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 304,
+      "StableKey": "number-comparison",
+      "StageId": 1,
+      "CategoryId": 81,
+      "SkillNameEn": "Number comparison",
+      "ProposedTrackCodes": [
+        "grade-1",
+        "grade-2",
+        "grade-3"
+      ],
+      "ProblemIdsForIndividualReview": [
+        1652,
+        1677,
+        1679
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 305,
+      "StableKey": "place-value",
+      "StageId": 1,
+      "CategoryId": 81,
+      "SkillNameEn": "Place value",
+      "ProposedTrackCodes": [
+        "grade-1",
+        "grade-2",
+        "grade-3",
+        "grade-4"
+      ],
+      "ProblemIdsForIndividualReview": [
+        1555,
+        1556,
+        1557,
+        1562,
+        1651,
+        1656,
+        1675,
+        1676,
+        1681,
+        1708
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 306,
+      "StableKey": "rounding",
+      "StageId": 1,
+      "CategoryId": 81,
+      "SkillNameEn": "Rounding numbers",
+      "ProposedTrackCodes": [
+        "grade-3",
+        "grade-4",
+        "grade-5"
+      ],
+      "ProblemIdsForIndividualReview": [
+        1558,
+        1559,
+        1653,
+        1655,
+        1678
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 320,
+      "StableKey": "capacity",
+      "StageId": 1,
+      "CategoryId": 82,
+      "SkillNameEn": "Measuring capacity",
+      "ProposedTrackCodes": [
+        "grade-2",
+        "grade-3",
+        "grade-4"
+      ],
+      "ProblemIdsForIndividualReview": [
+        1592,
+        1593,
+        1594
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 321,
+      "StableKey": "length",
+      "StageId": 1,
+      "CategoryId": 82,
+      "SkillNameEn": "Measuring length",
+      "ProposedTrackCodes": [
+        "grade-1",
+        "grade-2",
+        "grade-3"
+      ],
+      "ProblemIdsForIndividualReview": [
+        1587,
+        1588,
+        1589
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 322,
+      "StableKey": "mass",
+      "StageId": 1,
+      "CategoryId": 82,
+      "SkillNameEn": "Measuring mass",
+      "ProposedTrackCodes": [
+        "grade-3",
+        "grade-4"
+      ],
+      "ProblemIdsForIndividualReview": [
+        1590,
+        1591
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 323,
+      "StableKey": "metric-conversion",
+      "StageId": 1,
+      "CategoryId": 82,
+      "SkillNameEn": "Metric unit conversion",
+      "ProposedTrackCodes": [
+        "grade-4",
+        "grade-5"
+      ],
+      "ProblemIdsForIndividualReview": [
+        1597,
+        1598
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 324,
+      "StableKey": "time",
+      "StageId": 1,
+      "CategoryId": 82,
+      "SkillNameEn": "Time measurement",
+      "ProposedTrackCodes": [
+        "grade-2",
+        "grade-3",
+        "grade-4",
+        "grade-5"
+      ],
+      "ProblemIdsForIndividualReview": [
+        1595,
+        1596
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 21,
+      "StableKey": "middle-exponent-laws",
+      "StageId": 2,
+      "CategoryId": 5,
+      "SkillNameEn": "Exponent laws",
+      "ProposedTrackCodes": [
+        "grade-8",
+        "grade-9"
+      ],
+      "ProblemIdsForIndividualReview": [
+        12,
+        73,
+        88,
+        103,
+        118,
+        133,
+        210,
+        222,
+        234,
+        246,
+        258
+      ],
+      "FreeCategory": true
+    },
+    {
+      "SkillId": 22,
+      "StableKey": "middle-gcd",
+      "StageId": 2,
+      "CategoryId": 5,
+      "SkillNameEn": "Greatest common divisor",
+      "ProposedTrackCodes": [
+        "grade-7",
+        "grade-8"
+      ],
+      "ProblemIdsForIndividualReview": [
+        13,
+        57,
+        209,
+        221,
+        233,
+        245,
+        257
+      ],
+      "FreeCategory": true
+    },
+    {
+      "SkillId": 23,
+      "StableKey": "middle-evaluate-powers",
+      "StageId": 2,
+      "CategoryId": 5,
+      "SkillNameEn": "Evaluating powers",
+      "ProposedTrackCodes": [
+        "grade-7",
+        "grade-8"
+      ],
+      "ProblemIdsForIndividualReview": [
+        41,
+        765,
+        766,
+        767,
+        768
+      ],
+      "FreeCategory": true
+    },
+    {
+      "SkillId": 24,
+      "StableKey": "middle-lcm",
+      "StageId": 2,
+      "CategoryId": 5,
+      "SkillNameEn": "Least common multiple",
+      "ProposedTrackCodes": [
+        "grade-7",
+        "grade-8"
+      ],
+      "ProblemIdsForIndividualReview": [
+        211,
+        223,
+        235,
+        247,
+        259
+      ],
+      "FreeCategory": true
+    },
+    {
+      "SkillId": 25,
+      "StableKey": "middle-linear-equations",
+      "StageId": 2,
+      "CategoryId": 6,
+      "SkillNameEn": "Linear equations",
+      "ProposedTrackCodes": [
+        "grade-7",
+        "grade-8",
+        "grade-9"
+      ],
+      "ProblemIdsForIndividualReview": [
+        14,
+        58,
+        621,
+        622,
+        623,
+        624
+      ],
+      "FreeCategory": true
+    },
+    {
+      "SkillId": 26,
+      "StableKey": "middle-linear-function-evaluation",
+      "StageId": 2,
+      "CategoryId": 6,
+      "SkillNameEn": "Evaluating linear functions",
+      "ProposedTrackCodes": [
+        "grade-8",
+        "grade-9"
+      ],
+      "ProblemIdsForIndividualReview": [
+        15,
+        74,
+        89,
+        104,
+        119,
+        134
+      ],
+      "FreeCategory": true
+    },
+    {
+      "SkillId": 27,
+      "StableKey": "middle-quadratic-function-evaluation",
+      "StageId": 2,
+      "CategoryId": 6,
+      "SkillNameEn": "Evaluating quadratic functions",
+      "ProposedTrackCodes": [
+        "grade-9"
+      ],
+      "ProblemIdsForIndividualReview": [
+        42,
+        214,
+        226,
+        238,
+        250,
+        262
+      ],
+      "FreeCategory": true
+    },
+    {
+      "SkillId": 28,
+      "StableKey": "middle-inverse-function-evaluation",
+      "StageId": 2,
+      "CategoryId": 6,
+      "SkillNameEn": "Finding inputs from function values",
+      "ProposedTrackCodes": [
+        "grade-9"
+      ],
+      "ProblemIdsForIndividualReview": [
+        212,
+        224,
+        236,
+        248,
+        260
+      ],
+      "FreeCategory": true
+    },
+    {
+      "SkillId": 29,
+      "StableKey": "middle-slope",
+      "StageId": 2,
+      "CategoryId": 6,
+      "SkillNameEn": "Slope of a line",
+      "ProposedTrackCodes": [
+        "grade-8",
+        "grade-9"
+      ],
+      "ProblemIdsForIndividualReview": [
+        213,
+        225,
+        237,
+        249,
+        261
+      ],
+      "FreeCategory": true
+    },
+    {
+      "SkillId": 30,
+      "StableKey": "middle-ratios",
+      "StageId": 2,
+      "CategoryId": 7,
+      "SkillNameEn": "Ratios and proportional quantities",
+      "ProposedTrackCodes": [
+        "grade-7",
+        "grade-8"
+      ],
+      "ProblemIdsForIndividualReview": [
+        16,
+        43,
+        629,
+        630,
+        631,
+        632
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 31,
+      "StableKey": "middle-unit-rates",
+      "StageId": 2,
+      "CategoryId": 7,
+      "SkillNameEn": "Unit rates and proportional pricing",
+      "ProposedTrackCodes": [
+        "grade-7",
+        "grade-8"
+      ],
+      "ProblemIdsForIndividualReview": [
+        17,
+        59,
+        75,
+        90,
+        105,
+        120,
+        135
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 32,
+      "StableKey": "middle-percent-discounts",
+      "StageId": 2,
+      "CategoryId": 7,
+      "SkillNameEn": "Percentage discounts",
+      "ProposedTrackCodes": [
+        "grade-7",
+        "grade-8"
+      ],
+      "ProblemIdsForIndividualReview": [
+        215,
+        227,
+        239,
+        251,
+        263
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 33,
+      "StableKey": "middle-map-scale",
+      "StageId": 2,
+      "CategoryId": 7,
+      "SkillNameEn": "Map scales",
+      "ProposedTrackCodes": [
+        "grade-8"
+      ],
+      "ProblemIdsForIndividualReview": [
+        216,
+        228,
+        240,
+        252,
+        264
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 34,
+      "StableKey": "middle-percent-increase",
+      "StageId": 2,
+      "CategoryId": 7,
+      "SkillNameEn": "Percentage increase",
+      "ProposedTrackCodes": [
+        "grade-8",
+        "grade-9"
+      ],
+      "ProblemIdsForIndividualReview": [
+        217,
+        229,
+        241,
+        253,
+        265
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 35,
+      "StableKey": "middle-triangle-angles",
+      "StageId": 2,
+      "CategoryId": 8,
+      "SkillNameEn": "Triangle angle sum",
+      "ProposedTrackCodes": [
+        "grade-7",
+        "grade-8"
+      ],
+      "ProblemIdsForIndividualReview": [
+        18,
+        697,
+        698,
+        699,
+        700
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 36,
+      "StableKey": "middle-circle-area",
+      "StageId": 2,
+      "CategoryId": 8,
+      "SkillNameEn": "Area of circles",
+      "ProposedTrackCodes": [
+        "grade-7",
+        "grade-8"
+      ],
+      "ProblemIdsForIndividualReview": [
+        19,
+        625,
+        626,
+        627,
+        628
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 37,
+      "StableKey": "middle-pythagorean-theorem",
+      "StageId": 2,
+      "CategoryId": 34,
+      "SkillNameEn": "Pythagorean theorem",
+      "ProposedTrackCodes": [
+        "grade-8",
+        "grade-9"
+      ],
+      "ProblemIdsForIndividualReview": [
+        44,
+        76,
+        91,
+        106,
+        121,
+        136,
+        219,
+        231,
+        243,
+        255,
+        267,
+        857,
+        858
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 38,
+      "StableKey": "middle-vertical-angles",
+      "StageId": 2,
+      "CategoryId": 8,
+      "SkillNameEn": "Vertically opposite angles",
+      "ProposedTrackCodes": [
+        "grade-7",
+        "grade-8"
+      ],
+      "ProblemIdsForIndividualReview": [
+        60,
+        701,
+        702,
+        703,
+        704
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 39,
+      "StableKey": "middle-polygon-angles",
+      "StageId": 2,
+      "CategoryId": 8,
+      "SkillNameEn": "Angles in polygons",
+      "ProposedTrackCodes": [
+        "grade-8",
+        "grade-9"
+      ],
+      "ProblemIdsForIndividualReview": [
+        218,
+        230,
+        242,
+        254,
+        266
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 40,
+      "StableKey": "middle-similar-triangles",
+      "StageId": 2,
+      "CategoryId": 34,
+      "SkillNameEn": "Similar triangles",
+      "ProposedTrackCodes": [
+        "grade-8",
+        "grade-9"
+      ],
+      "ProblemIdsForIndividualReview": [
+        220,
+        232,
+        244,
+        256,
+        268,
+        855,
+        856
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 98,
+      "StableKey": "m-statistics-distributions",
+      "StageId": 2,
+      "CategoryId": 22,
+      "SkillNameEn": "Data Spread and Distributions",
+      "ProposedTrackCodes": [
+        "grade-8",
+        "grade-9"
+      ],
+      "ProblemIdsForIndividualReview": [
+        430,
+        433,
+        479,
+        482,
+        825,
+        826
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 99,
+      "StableKey": "m-statistics-summary-measures",
+      "StageId": 2,
+      "CategoryId": 22,
+      "SkillNameEn": "Summary Statistics",
+      "ProposedTrackCodes": [
+        "grade-7",
+        "grade-8"
+      ],
+      "ProblemIdsForIndividualReview": [
+        431,
+        432,
+        435,
+        478,
+        481
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 100,
+      "StableKey": "m-statistics-charts",
+      "StageId": 2,
+      "CategoryId": 22,
+      "SkillNameEn": "Charts and Data Displays",
+      "ProposedTrackCodes": [
+        "grade-7",
+        "grade-8"
+      ],
+      "ProblemIdsForIndividualReview": [
+        429,
+        434,
+        480,
+        823,
+        824
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 299,
+      "StableKey": "summary-measures",
+      "StageId": 2,
+      "CategoryId": 22,
+      "SkillNameEn": "Summary measures",
+      "ProposedTrackCodes": [
+        "grade-8",
+        "grade-9"
+      ],
+      "ProblemIdsForIndividualReview": [
+        1639,
+        1640,
+        1641,
+        1642
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 307,
+      "StableKey": "absolute-value",
+      "StageId": 2,
+      "CategoryId": 83,
+      "SkillNameEn": "Absolute value",
+      "ProposedTrackCodes": [
+        "grade-7",
+        "grade-8"
+      ],
+      "ProblemIdsForIndividualReview": [
+        1566,
+        1567
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 308,
+      "StableKey": "rational-arithmetic",
+      "StageId": 2,
+      "CategoryId": 83,
+      "SkillNameEn": "Rational-number arithmetic",
+      "ProposedTrackCodes": [
+        "grade-7",
+        "grade-8"
+      ],
+      "ProblemIdsForIndividualReview": [
+        1568,
+        1569,
+        1570
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 309,
+      "StableKey": "signed-operations",
+      "StageId": 2,
+      "CategoryId": 83,
+      "SkillNameEn": "Signed integer operations",
+      "ProposedTrackCodes": [
+        "grade-7"
+      ],
+      "ProblemIdsForIndividualReview": [
+        1563,
+        1564,
+        1565
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 325,
+      "StableKey": "inequality-contexts",
+      "StageId": 2,
+      "CategoryId": 84,
+      "SkillNameEn": "Inequality word problems",
+      "ProposedTrackCodes": [
+        "grade-7",
+        "grade-8"
+      ],
+      "ProblemIdsForIndividualReview": [
+        1607,
+        1608,
+        1609,
+        1610
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 326,
+      "StableKey": "number-line-solutions",
+      "StageId": 2,
+      "CategoryId": 84,
+      "SkillNameEn": "Inequality solution sets on a number line",
+      "ProposedTrackCodes": [
+        "grade-7",
+        "grade-8"
+      ],
+      "ProblemIdsForIndividualReview": [
+        1603,
+        1604,
+        1605,
+        1606
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 327,
+      "StableKey": "solve-linear-inequalities",
+      "StageId": 2,
+      "CategoryId": 84,
+      "SkillNameEn": "Solving linear inequalities",
+      "ProposedTrackCodes": [
+        "grade-7",
+        "grade-8",
+        "grade-9"
+      ],
+      "ProblemIdsForIndividualReview": [
+        1599,
+        1600,
+        1601,
+        1602
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 335,
+      "StableKey": "frequency",
+      "StageId": 2,
+      "CategoryId": 85,
+      "SkillNameEn": "Experimental probability",
+      "ProposedTrackCodes": [
+        "grade-7",
+        "grade-8"
+      ],
+      "ProblemIdsForIndividualReview": [
+        1660,
+        1661,
+        1686
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 336,
+      "StableKey": "sample-spaces",
+      "StageId": 2,
+      "CategoryId": 85,
+      "SkillNameEn": "Sample spaces",
+      "ProposedTrackCodes": [
+        "grade-7",
+        "grade-8"
+      ],
+      "ProblemIdsForIndividualReview": [
+        1662,
+        1683,
+        1688,
+        1689,
+        1710
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 337,
+      "StableKey": "simple-compound-events",
+      "StageId": 2,
+      "CategoryId": 85,
+      "SkillNameEn": "Simple and compound events",
+      "ProposedTrackCodes": [
+        "grade-8",
+        "grade-9"
+      ],
+      "ProblemIdsForIndividualReview": [
+        1657,
+        1658,
+        1659,
+        1684,
+        1685,
+        1687,
+        1690,
+        1709
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 41,
+      "StableKey": "secondary-quadratic-roots",
+      "StageId": 3,
+      "CategoryId": 9,
+      "SkillNameEn": "Roots of quadratic equations",
+      "ProposedTrackCodes": [
+        "grade-10",
+        "grade-11"
+      ],
+      "ProblemIdsForIndividualReview": [
+        20,
+        45,
+        769,
+        770,
+        771,
+        772
+      ],
+      "FreeCategory": true
+    },
+    {
+      "SkillId": 42,
+      "StableKey": "secondary-logarithm-evaluation",
+      "StageId": 3,
+      "CategoryId": 9,
+      "SkillNameEn": "Evaluating logarithms",
+      "ProposedTrackCodes": [
+        "grade-11",
+        "grade-12"
+      ],
+      "ProblemIdsForIndividualReview": [
+        21,
+        61,
+        637,
+        638,
+        639,
+        640
+      ],
+      "FreeCategory": true
+    },
+    {
+      "SkillId": 43,
+      "StableKey": "secondary-vieta-roots",
+      "StageId": 3,
+      "CategoryId": 9,
+      "SkillNameEn": "Sums and products of roots",
+      "ProposedTrackCodes": [
+        "grade-10",
+        "grade-11"
+      ],
+      "ProblemIdsForIndividualReview": [
+        77,
+        92,
+        107,
+        122,
+        137,
+        269,
+        281,
+        293,
+        305,
+        317
+      ],
+      "FreeCategory": true
+    },
+    {
+      "SkillId": 44,
+      "StableKey": "secondary-discriminant",
+      "StageId": 3,
+      "CategoryId": 9,
+      "SkillNameEn": "Quadratic discriminant",
+      "ProposedTrackCodes": [
+        "grade-10",
+        "grade-11"
+      ],
+      "ProblemIdsForIndividualReview": [
+        270,
+        282,
+        294,
+        306,
+        318
+      ],
+      "FreeCategory": true
+    },
+    {
+      "SkillId": 45,
+      "StableKey": "secondary-factor-quadratics",
+      "StageId": 3,
+      "CategoryId": 9,
+      "SkillNameEn": "Factoring quadratics",
+      "ProposedTrackCodes": [
+        "grade-10"
+      ],
+      "ProblemIdsForIndividualReview": [
+        271,
+        283,
+        295,
+        307,
+        319
+      ],
+      "FreeCategory": true
+    },
+    {
+      "SkillId": 46,
+      "StableKey": "secondary-trigonometric-special-angles",
+      "StageId": 3,
+      "CategoryId": 10,
+      "SkillNameEn": "Trigonometric values at special angles",
+      "ProposedTrackCodes": [
+        "grade-10",
+        "grade-11"
+      ],
+      "ProblemIdsForIndividualReview": [
+        22,
+        46,
+        62,
+        274,
+        286,
+        298,
+        310,
+        322
+      ],
+      "FreeCategory": true
+    },
+    {
+      "SkillId": 47,
+      "StableKey": "secondary-pythagorean-trig-identity",
+      "StageId": 3,
+      "CategoryId": 10,
+      "SkillNameEn": "Basic trigonometric identities",
+      "ProposedTrackCodes": [
+        "grade-11",
+        "grade-12"
+      ],
+      "ProblemIdsForIndividualReview": [
+        23,
+        633,
+        634,
+        635,
+        636
+      ],
+      "FreeCategory": true
+    },
+    {
+      "SkillId": 48,
+      "StableKey": "secondary-right-triangle-trig-ratios",
+      "StageId": 3,
+      "CategoryId": 10,
+      "SkillNameEn": "Trigonometric ratios in right triangles",
+      "ProposedTrackCodes": [
+        "grade-10",
+        "grade-11"
+      ],
+      "ProblemIdsForIndividualReview": [
+        78,
+        93,
+        108,
+        123,
+        138,
+        272,
+        273,
+        284,
+        285,
+        296,
+        297,
+        308,
+        309,
+        320,
+        321
+      ],
+      "FreeCategory": true
+    },
+    {
+      "SkillId": 49,
+      "StableKey": "secondary-polynomial-derivatives",
+      "StageId": 3,
+      "CategoryId": 11,
+      "SkillNameEn": "Derivatives of polynomials",
+      "ProposedTrackCodes": [
+        "grade-11",
+        "grade-12"
+      ],
+      "ProblemIdsForIndividualReview": [
+        24,
+        47,
+        79,
+        94,
+        109,
+        124,
+        139,
+        275,
+        287,
+        299,
+        311,
+        323,
+        859,
+        860
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 50,
+      "StableKey": "secondary-indefinite-integrals",
+      "StageId": 3,
+      "CategoryId": 11,
+      "SkillNameEn": "Indefinite integrals",
+      "ProposedTrackCodes": [
+        "grade-12"
+      ],
+      "ProblemIdsForIndividualReview": [
+        25,
+        63,
+        276,
+        288,
+        300,
+        312,
+        324,
+        861
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 51,
+      "StableKey": "secondary-definite-integrals",
+      "StageId": 3,
+      "CategoryId": 11,
+      "SkillNameEn": "Definite integrals",
+      "ProposedTrackCodes": [
+        "grade-12"
+      ],
+      "ProblemIdsForIndividualReview": [
+        277,
+        289,
+        301,
+        313,
+        325,
+        862
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 52,
+      "StableKey": "secondary-two-dice-probability",
+      "StageId": 3,
+      "CategoryId": 12,
+      "SkillNameEn": "Two-dice probability",
+      "ProposedTrackCodes": [
+        "grade-10",
+        "grade-11"
+      ],
+      "ProblemIdsForIndividualReview": [
+        26,
+        705,
+        706,
+        707,
+        708
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 53,
+      "StableKey": "secondary-arithmetic-mean",
+      "StageId": 3,
+      "CategoryId": 35,
+      "SkillNameEn": "Arithmetic mean of data",
+      "ProposedTrackCodes": [
+        "grade-10",
+        "grade-11"
+      ],
+      "ProblemIdsForIndividualReview": [
+        27,
+        280,
+        292,
+        304,
+        316,
+        328
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 54,
+      "StableKey": "secondary-population-variance",
+      "StageId": 3,
+      "CategoryId": 35,
+      "SkillNameEn": "Population variance",
+      "ProposedTrackCodes": [
+        "grade-11",
+        "grade-12"
+      ],
+      "ProblemIdsForIndividualReview": [
+        48,
+        641,
+        642,
+        643,
+        644
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 55,
+      "StableKey": "secondary-coin-toss-probability",
+      "StageId": 3,
+      "CategoryId": 12,
+      "SkillNameEn": "Coin-toss probability",
+      "ProposedTrackCodes": [
+        "grade-10",
+        "grade-11"
+      ],
+      "ProblemIdsForIndividualReview": [
+        64,
+        80,
+        95,
+        110,
+        125,
+        140,
+        279,
+        291,
+        303,
+        315,
+        327
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 56,
+      "StableKey": "secondary-combinations",
+      "StageId": 3,
+      "CategoryId": 12,
+      "SkillNameEn": "Combinations and selections",
+      "ProposedTrackCodes": [
+        "grade-11",
+        "grade-12"
+      ],
+      "ProblemIdsForIndividualReview": [
+        278,
+        290,
+        302,
+        314,
+        326
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 101,
+      "StableKey": "s-sequences-series-series-sums",
+      "StageId": 3,
+      "CategoryId": 23,
+      "SkillNameEn": "Series Sums",
+      "ProposedTrackCodes": [
+        "grade-11",
+        "grade-12"
+      ],
+      "ProblemIdsForIndividualReview": [
+        440,
+        441,
+        442,
+        486,
+        829,
+        830
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 102,
+      "StableKey": "s-sequences-series-recurrence-relations",
+      "StageId": 3,
+      "CategoryId": 23,
+      "SkillNameEn": "Recurrence Relations",
+      "ProposedTrackCodes": [
+        "grade-11",
+        "grade-12"
+      ],
+      "ProblemIdsForIndividualReview": [
+        443,
+        485,
+        773,
+        774,
+        775,
+        776
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 103,
+      "StableKey": "s-sequences-series-geometric-sequences",
+      "StageId": 3,
+      "CategoryId": 23,
+      "SkillNameEn": "Geometric Sequences",
+      "ProposedTrackCodes": [
+        "grade-10",
+        "grade-11"
+      ],
+      "ProblemIdsForIndividualReview": [
+        437,
+        484,
+        709,
+        710,
+        711,
+        712
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 104,
+      "StableKey": "s-sequences-series-arithmetic-sequences",
+      "StageId": 3,
+      "CategoryId": 23,
+      "SkillNameEn": "Arithmetic Sequences",
+      "ProposedTrackCodes": [
+        "grade-10",
+        "grade-11"
+      ],
+      "ProblemIdsForIndividualReview": [
+        436,
+        438,
+        439,
+        483,
+        827,
+        828
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 113,
+      "StableKey": "s-sequences-series-series-convergence",
+      "StageId": 3,
+      "CategoryId": 23,
+      "SkillNameEn": "Series Convergence and Divergence",
+      "ProposedTrackCodes": [
+        "grade-12"
+      ],
+      "ProblemIdsForIndividualReview": [
+        487,
+        508,
+        509,
+        510,
+        511,
+        512
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 300,
+      "StableKey": "series-convergence",
+      "StageId": 3,
+      "CategoryId": 23,
+      "SkillNameEn": "Series convergence",
+      "ProposedTrackCodes": [
+        "grade-12"
+      ],
+      "ProblemIdsForIndividualReview": [
+        1643,
+        1644,
+        1645,
+        1646
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 310,
+      "StableKey": "decay-half-life",
+      "StageId": 3,
+      "CategoryId": 86,
+      "SkillNameEn": "Decay and half-life",
+      "ProposedTrackCodes": [
+        "grade-11",
+        "grade-12"
+      ],
+      "ProblemIdsForIndividualReview": [
+        1574,
+        1575,
+        1576
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 311,
+      "StableKey": "growth-models",
+      "StageId": 3,
+      "CategoryId": 86,
+      "SkillNameEn": "Exponential growth models",
+      "ProposedTrackCodes": [
+        "grade-11",
+        "grade-12"
+      ],
+      "ProblemIdsForIndividualReview": [
+        1571,
+        1572,
+        1573
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 312,
+      "StableKey": "logarithm-domain",
+      "StageId": 3,
+      "CategoryId": 86,
+      "SkillNameEn": "Logarithmic function domain",
+      "ProposedTrackCodes": [
+        "grade-11",
+        "grade-12"
+      ],
+      "ProblemIdsForIndividualReview": [
+        1722
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 313,
+      "StableKey": "logarithm-inverse-and-equations",
+      "StageId": 3,
+      "CategoryId": 86,
+      "SkillNameEn": "Inverse exponentials and logarithmic equations",
+      "ProposedTrackCodes": [
+        "grade-11",
+        "grade-12"
+      ],
+      "ProblemIdsForIndividualReview": [
+        1715,
+        1719,
+        1720,
+        1723
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 314,
+      "StableKey": "logarithm-modeling",
+      "StageId": 3,
+      "CategoryId": 86,
+      "SkillNameEn": "Logarithmic models",
+      "ProposedTrackCodes": [
+        "grade-12"
+      ],
+      "ProblemIdsForIndividualReview": [
+        1724,
+        1725
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 315,
+      "StableKey": "logarithm-properties",
+      "StageId": 3,
+      "CategoryId": 86,
+      "SkillNameEn": "Logarithm laws",
+      "ProposedTrackCodes": [
+        "grade-11",
+        "grade-12"
+      ],
+      "ProblemIdsForIndividualReview": [
+        1716,
+        1717,
+        1718,
+        1721,
+        1726
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 316,
+      "StableKey": "model-interpretation",
+      "StageId": 3,
+      "CategoryId": 86,
+      "SkillNameEn": "Interpreting exponential models",
+      "ProposedTrackCodes": [
+        "grade-11",
+        "grade-12"
+      ],
+      "ProblemIdsForIndividualReview": [
+        1577,
+        1578
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 328,
+      "StableKey": "circles",
+      "StageId": 3,
+      "CategoryId": 88,
+      "SkillNameEn": "Equations of circles",
+      "ProposedTrackCodes": [
+        "grade-11",
+        "grade-12"
+      ],
+      "ProblemIdsForIndividualReview": [
+        1615,
+        1616,
+        1617,
+        1618
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 329,
+      "StableKey": "coordinate-lines",
+      "StageId": 3,
+      "CategoryId": 88,
+      "SkillNameEn": "Coordinate lines",
+      "ProposedTrackCodes": [
+        "grade-10",
+        "grade-11"
+      ],
+      "ProblemIdsForIndividualReview": [
+        1611,
+        1612,
+        1613,
+        1614
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 330,
+      "StableKey": "loci",
+      "StageId": 3,
+      "CategoryId": 88,
+      "SkillNameEn": "Geometric loci",
+      "ProposedTrackCodes": [
+        "grade-11",
+        "grade-12"
+      ],
+      "ProblemIdsForIndividualReview": [
+        1619,
+        1620,
+        1621,
+        1622
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 338,
+      "StableKey": "dot-product",
+      "StageId": 3,
+      "CategoryId": 87,
+      "SkillNameEn": "Dot product",
+      "ProposedTrackCodes": [
+        "grade-11",
+        "grade-12"
+      ],
+      "ProblemIdsForIndividualReview": [
+        1667,
+        1668,
+        1693,
+        1694,
+        1695,
+        1712
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 339,
+      "StableKey": "magnitude",
+      "StageId": 3,
+      "CategoryId": 87,
+      "SkillNameEn": "Vector magnitude",
+      "ProposedTrackCodes": [
+        "grade-10",
+        "grade-11"
+      ],
+      "ProblemIdsForIndividualReview": [
+        1665,
+        1666,
+        1692,
+        1697,
+        1711
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 340,
+      "StableKey": "vector-components",
+      "StageId": 3,
+      "CategoryId": 87,
+      "SkillNameEn": "Vector components",
+      "ProposedTrackCodes": [
+        "grade-10",
+        "grade-11"
+      ],
+      "ProblemIdsForIndividualReview": [
+        1663,
+        1664,
+        1691,
+        1696,
+        1698
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 57,
+      "StableKey": "university-partial-derivatives",
+      "StageId": 4,
+      "CategoryId": 13,
+      "SkillNameEn": "Partial derivatives",
+      "ProposedTrackCodes": [
+        "calculus"
+      ],
+      "ProblemIdsForIndividualReview": [
+        28,
+        49,
+        81,
+        96,
+        111,
+        126,
+        141,
+        329,
+        341,
+        353,
+        365,
+        377
+      ],
+      "FreeCategory": true
+    },
+    {
+      "SkillId": 58,
+      "StableKey": "university-double-integrals",
+      "StageId": 4,
+      "CategoryId": 13,
+      "SkillNameEn": "Double integrals",
+      "ProposedTrackCodes": [
+        "calculus"
+      ],
+      "ProblemIdsForIndividualReview": [
+        29,
+        713,
+        714,
+        715,
+        716
+      ],
+      "FreeCategory": true
+    },
+    {
+      "SkillId": 59,
+      "StableKey": "university-gradient",
+      "StageId": 4,
+      "CategoryId": 13,
+      "SkillNameEn": "Gradient vectors",
+      "ProposedTrackCodes": [
+        "calculus"
+      ],
+      "ProblemIdsForIndividualReview": [
+        65,
+        330,
+        342,
+        354,
+        366,
+        378
+      ],
+      "FreeCategory": true
+    },
+    {
+      "SkillId": 60,
+      "StableKey": "university-directional-derivative",
+      "StageId": 4,
+      "CategoryId": 13,
+      "SkillNameEn": "Directional derivatives",
+      "ProposedTrackCodes": [
+        "calculus"
+      ],
+      "ProblemIdsForIndividualReview": [
+        331,
+        343,
+        355,
+        367,
+        379
+      ],
+      "FreeCategory": true
+    },
+    {
+      "SkillId": 61,
+      "StableKey": "university-matrix-determinants",
+      "StageId": 4,
+      "CategoryId": 14,
+      "SkillNameEn": "Matrix determinants",
+      "ProposedTrackCodes": [
+        "linear-algebra"
+      ],
+      "ProblemIdsForIndividualReview": [
+        30,
+        50,
+        82,
+        97,
+        112,
+        127,
+        142,
+        334,
+        346,
+        358,
+        370,
+        382
+      ],
+      "FreeCategory": true
+    },
+    {
+      "SkillId": 62,
+      "StableKey": "university-linear-independence",
+      "StageId": 4,
+      "CategoryId": 14,
+      "SkillNameEn": "Linear independence",
+      "ProposedTrackCodes": [
+        "linear-algebra"
+      ],
+      "ProblemIdsForIndividualReview": [
+        31,
+        649,
+        650,
+        651,
+        652
+      ],
+      "FreeCategory": true
+    },
+    {
+      "SkillId": 63,
+      "StableKey": "university-dot-product",
+      "StageId": 4,
+      "CategoryId": 14,
+      "SkillNameEn": "Dot product",
+      "ProposedTrackCodes": [
+        "linear-algebra"
+      ],
+      "ProblemIdsForIndividualReview": [
+        66,
+        645,
+        646,
+        647,
+        648
+      ],
+      "FreeCategory": true
+    },
+    {
+      "SkillId": 64,
+      "StableKey": "university-matrix-trace",
+      "StageId": 4,
+      "CategoryId": 14,
+      "SkillNameEn": "Matrix trace",
+      "ProposedTrackCodes": [
+        "linear-algebra"
+      ],
+      "ProblemIdsForIndividualReview": [
+        332,
+        344,
+        356,
+        368,
+        380
+      ],
+      "FreeCategory": true
+    },
+    {
+      "SkillId": 65,
+      "StableKey": "university-vector-scaling",
+      "StageId": 4,
+      "CategoryId": 14,
+      "SkillNameEn": "Scalar multiplication of vectors",
+      "ProposedTrackCodes": [
+        "linear-algebra"
+      ],
+      "ProblemIdsForIndividualReview": [
+        333,
+        345,
+        357,
+        369,
+        381
+      ],
+      "FreeCategory": true
+    },
+    {
+      "SkillId": 66,
+      "StableKey": "university-exponential-ode",
+      "StageId": 4,
+      "CategoryId": 15,
+      "SkillNameEn": "Exponential first-order ODEs",
+      "ProposedTrackCodes": [
+        "differential-equations"
+      ],
+      "ProblemIdsForIndividualReview": [
+        32,
+        67,
+        83,
+        98,
+        113,
+        128,
+        143,
+        864
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 67,
+      "StableKey": "university-ode-order",
+      "StageId": 4,
+      "CategoryId": 15,
+      "SkillNameEn": "Order of differential equations",
+      "ProposedTrackCodes": [
+        "differential-equations"
+      ],
+      "ProblemIdsForIndividualReview": [
+        33,
+        777,
+        778,
+        779,
+        780
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 68,
+      "StableKey": "university-integrating-ode",
+      "StageId": 4,
+      "CategoryId": 15,
+      "SkillNameEn": "Solving ODEs by integration",
+      "ProposedTrackCodes": [
+        "differential-equations"
+      ],
+      "ProblemIdsForIndividualReview": [
+        51,
+        335,
+        337,
+        347,
+        349,
+        359,
+        361,
+        371,
+        373,
+        383,
+        385,
+        863,
+        866
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 69,
+      "StableKey": "university-second-order-ivp",
+      "StageId": 4,
+      "CategoryId": 15,
+      "SkillNameEn": "Second-order initial-value problems",
+      "ProposedTrackCodes": [
+        "differential-equations"
+      ],
+      "ProblemIdsForIndividualReview": [
+        336,
+        348,
+        360,
+        372,
+        384,
+        865
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 70,
+      "StableKey": "university-function-limits",
+      "StageId": 4,
+      "CategoryId": 16,
+      "SkillNameEn": "Limits of functions",
+      "ProposedTrackCodes": [
+        "calculus"
+      ],
+      "ProblemIdsForIndividualReview": [
+        34,
+        717,
+        718,
+        719,
+        720
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 71,
+      "StableKey": "university-differentiability-continuity",
+      "StageId": 4,
+      "CategoryId": 16,
+      "SkillNameEn": "Differentiability and continuity",
+      "ProposedTrackCodes": [
+        "calculus"
+      ],
+      "ProblemIdsForIndividualReview": [
+        35,
+        145,
+        797,
+        798,
+        799,
+        800
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 72,
+      "StableKey": "university-sequence-limits",
+      "StageId": 4,
+      "CategoryId": 36,
+      "SkillNameEn": "Limits of sequences",
+      "ProposedTrackCodes": [
+        "calculus"
+      ],
+      "ProblemIdsForIndividualReview": [
+        52,
+        146,
+        338,
+        339,
+        350,
+        351,
+        362,
+        363,
+        374,
+        375,
+        386,
+        387
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 73,
+      "StableKey": "university-intermediate-value-theorem",
+      "StageId": 4,
+      "CategoryId": 16,
+      "SkillNameEn": "Intermediate value theorem",
+      "ProposedTrackCodes": [
+        "calculus"
+      ],
+      "ProblemIdsForIndividualReview": [
+        68,
+        144,
+        340,
+        352,
+        364,
+        376,
+        388
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 74,
+      "StableKey": "university-monotone-convergence",
+      "StageId": 4,
+      "CategoryId": 36,
+      "SkillNameEn": "Monotone sequence convergence",
+      "ProposedTrackCodes": [
+        "calculus"
+      ],
+      "ProblemIdsForIndividualReview": [
+        147,
+        653,
+        654,
+        655,
+        656
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 75,
+      "StableKey": "university-series-convergence",
+      "StageId": 4,
+      "CategoryId": 36,
+      "SkillNameEn": "Convergence of series",
+      "ProposedTrackCodes": [
+        "calculus"
+      ],
+      "ProblemIdsForIndividualReview": [
+        148,
+        781,
+        782,
+        783,
+        784
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 105,
+      "StableKey": "u-discrete-math-graphs",
+      "StageId": 4,
+      "CategoryId": 24,
+      "SkillNameEn": "Graph Theory",
+      "ProposedTrackCodes": [
+        "discrete-mathematics"
+      ],
+      "ProblemIdsForIndividualReview": [
+        447,
+        450,
+        491,
+        831,
+        832
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 106,
+      "StableKey": "u-discrete-math-combinatorics",
+      "StageId": 4,
+      "CategoryId": 24,
+      "SkillNameEn": "Combinatorics",
+      "ProposedTrackCodes": [
+        "discrete-mathematics"
+      ],
+      "ProblemIdsForIndividualReview": [
+        444,
+        489,
+        785,
+        786,
+        787,
+        788
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 107,
+      "StableKey": "u-discrete-math-relations",
+      "StageId": 4,
+      "CategoryId": 24,
+      "SkillNameEn": "Relations and Equivalence",
+      "ProposedTrackCodes": [
+        "discrete-mathematics"
+      ],
+      "ProblemIdsForIndividualReview": [
+        448,
+        490,
+        793,
+        794,
+        795,
+        796
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 108,
+      "StableKey": "u-discrete-math-proofs",
+      "StageId": 4,
+      "CategoryId": 24,
+      "SkillNameEn": "Proof Principles",
+      "ProposedTrackCodes": [
+        "discrete-mathematics"
+      ],
+      "ProblemIdsForIndividualReview": [
+        449,
+        492,
+        789,
+        790,
+        791,
+        792
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 109,
+      "StableKey": "u-discrete-math-logic",
+      "StageId": 4,
+      "CategoryId": 24,
+      "SkillNameEn": "Mathematical Logic",
+      "ProposedTrackCodes": [
+        "discrete-mathematics"
+      ],
+      "ProblemIdsForIndividualReview": [
+        445,
+        446,
+        488,
+        833,
+        834
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 301,
+      "StableKey": "logic",
+      "StageId": 4,
+      "CategoryId": 24,
+      "SkillNameEn": "Mathematical logic",
+      "ProposedTrackCodes": [
+        "discrete-mathematics"
+      ],
+      "ProblemIdsForIndividualReview": [
+        1647,
+        1648,
+        1649,
+        1650
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 317,
+      "StableKey": "confidence-intervals",
+      "StageId": 4,
+      "CategoryId": 89,
+      "SkillNameEn": "Confidence intervals",
+      "ProposedTrackCodes": [
+        "probability-statistics"
+      ],
+      "ProblemIdsForIndividualReview": [
+        1582,
+        1583,
+        1584
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 318,
+      "StableKey": "hypothesis-testing",
+      "StageId": 4,
+      "CategoryId": 89,
+      "SkillNameEn": "Hypothesis testing",
+      "ProposedTrackCodes": [
+        "probability-statistics"
+      ],
+      "ProblemIdsForIndividualReview": [
+        1585,
+        1586
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 319,
+      "StableKey": "sampling-distribution",
+      "StageId": 4,
+      "CategoryId": 89,
+      "SkillNameEn": "Sampling distributions",
+      "ProposedTrackCodes": [
+        "probability-statistics"
+      ],
+      "ProblemIdsForIndividualReview": [
+        1579,
+        1580,
+        1581
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 331,
+      "StableKey": "error-analysis",
+      "StageId": 4,
+      "CategoryId": 90,
+      "SkillNameEn": "Numerical error analysis",
+      "ProposedTrackCodes": [
+        "numerical-analysis"
+      ],
+      "ProblemIdsForIndividualReview": [
+        1629,
+        1630,
+        1631
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 332,
+      "StableKey": "linear-systems",
+      "StageId": 4,
+      "CategoryId": 90,
+      "SkillNameEn": "Numerical linear systems",
+      "ProposedTrackCodes": [
+        "numerical-analysis"
+      ],
+      "ProblemIdsForIndividualReview": [
+        1632,
+        1633,
+        1634
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 333,
+      "StableKey": "numerical-integration",
+      "StageId": 4,
+      "CategoryId": 90,
+      "SkillNameEn": "Numerical integration",
+      "ProposedTrackCodes": [
+        "numerical-analysis"
+      ],
+      "ProblemIdsForIndividualReview": [
+        1626,
+        1627,
+        1628
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 334,
+      "StableKey": "root-finding",
+      "StageId": 4,
+      "CategoryId": 90,
+      "SkillNameEn": "Numerical root finding",
+      "ProposedTrackCodes": [
+        "numerical-analysis"
+      ],
+      "ProblemIdsForIndividualReview": [
+        1623,
+        1624,
+        1625
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 341,
+      "StableKey": "constrained-optimization",
+      "StageId": 4,
+      "CategoryId": 91,
+      "SkillNameEn": "Constrained optimization",
+      "ProposedTrackCodes": [
+        "mathematical-optimization"
+      ],
+      "ProblemIdsForIndividualReview": [
+        1671,
+        1672,
+        1702,
+        1705,
+        1713
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 342,
+      "StableKey": "convexity",
+      "StageId": 4,
+      "CategoryId": 91,
+      "SkillNameEn": "Convexity and curvature",
+      "ProposedTrackCodes": [
+        "mathematical-optimization"
+      ],
+      "ProblemIdsForIndividualReview": [
+        1673,
+        1674,
+        1700,
+        1704,
+        1706
+      ],
+      "FreeCategory": false
+    },
+    {
+      "SkillId": 343,
+      "StableKey": "unconstrained-optimization",
+      "StageId": 4,
+      "CategoryId": 91,
+      "SkillNameEn": "Unconstrained optimization",
+      "ProposedTrackCodes": [
+        "mathematical-optimization"
+      ],
+      "ProblemIdsForIndividualReview": [
+        1669,
+        1670,
+        1699,
+        1701,
+        1703,
+        1714
+      ],
+      "FreeCategory": false
+    }
+  ]
+}
