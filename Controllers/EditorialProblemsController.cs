@@ -141,6 +141,93 @@ public sealed class EditorialProblemsController(AppDbContext db,IConfiguration c
         db.CurriculumDraftItems.Add(d);await db.SaveChangesAsync(ct);Audit(d,"EditorialAmendmentCreated");
         await db.SaveChangesAsync(ct);await tx.CommitAsync(ct);return StatusCode(201,View(d));
     }
+    public sealed record AmendmentImportRow(int ProblemId,int[] ExpectedOptionIds,BilingualText ExpectedLegacySolution,
+        string PrimarySkillKey,WizardProblem Content,string Status);
+    public sealed record AmendmentImportInput(AmendmentImportRow[] Items,bool Confirm=false);
+    // Prepared improvements for existing problems only. Preview and confirm
+    // never update live questions, change classification, or approve a draft.
+    [HttpPost("amend/import")]
+    [RequestSizeLimit(2_000_000)]
+    public async Task<IActionResult> ImportAmendments(AmendmentImportInput input,CancellationToken ct)
+    {
+        if(!Admin)return Forbid();
+        if(input.Items is null||input.Items.Length is <1 or >50||
+            input.Items.Any(r=>r is null||r.ProblemId<=0||r.Status!="StructuredAmendmentCandidateNotImported"||
+                r.ExpectedOptionIds is not {Length:4}||r.ExpectedOptionIds.Any(i=>i<=0)||
+                r.ExpectedOptionIds.Distinct().Count()!=4||r.ExpectedLegacySolution is null||
+                !WizardProblemContract.Text(r.PrimarySkillKey,160)||r.Content is null)||
+            input.Items.Select(r=>r.ProblemId).Distinct().Count()!=input.Items.Length)
+            return BadRequest(new{Message="InvalidAmendmentBatch"});
+        await using var tx=await db.Database.BeginTransactionAsync(ct);
+        if(await Actor(0,true,ct) is null)return Forbid();
+        // Lock order matches publication; ascending problem IDs avoid cross-batch deadlocks.
+        await db.Database.SqlQuery<int>($"SELECT 1 AS \"Value\" FROM pg_advisory_xact_lock({-987654319})").SingleAsync(ct);
+        var drafts=new List<CurriculumDraftItem>();
+        var results=new List<object>();var failed=false;
+        foreach(var row in input.Items.OrderBy(r=>r.ProblemId))
+        {
+            var errors=new List<string>();long? existingId=null;var already=false;
+            await ProblemTransactionLocks.LockQuestionForAdminMutationAsync(db,row.ProblemId,ct);
+            var p=await db.Problems.AsNoTracking().Include(x=>x.Options).SingleOrDefaultAsync(x=>x.Id==row.ProblemId,ct);
+            if(p is null)errors.Add("ProblemNotFound");
+            else
+            {
+                var options=p.Options.OrderBy(o=>o.Order).ThenBy(o=>o.Id).ToArray();
+                if(!SameQuestion(p,row.Content)||row.Content.Title?.Ar!=p.TitleAr||row.Content.Title?.En!=p.TitleEn||
+                    !options.Select(o=>o.Id).SequenceEqual(row.ExpectedOptionIds)||
+                    row.ExpectedLegacySolution.Ar!=p.DetailedSolutionAr||row.ExpectedLegacySolution.En!=p.DetailedSolutionEn)
+                    errors.Add("AmendmentSourceChanged");
+                if(p.EditorialDetailsJson is not null)errors.Add("ExistingStructuredContentRequiresManualMerge");
+                var skills=await db.CurriculumProblemSkills.AsNoTracking().Where(x=>x.ProblemId==p.Id).ToListAsync(ct);
+                var primary=skills.SingleOrDefault(x=>x.IsPrimary)?.SkillId??0;
+                var key=await db.CurriculumSkills.AsNoTracking().Where(x=>x.Id==primary&&x.IsPublished&&x.Domain.IsPublished)
+                    .Select(x=>x.StableKey).SingleOrDefaultAsync(ct);
+                if(primary<=0||row.Content.PrimarySkillId!=primary||key!=row.PrimarySkillKey)errors.Add("AmendmentSkillChanged");
+                var trackIds=await db.LearningTrackProblems.Where(x=>x.ProblemId==p.Id).Select(x=>x.TrackId).OrderBy(x=>x).ToArrayAsync(ct);
+                // The candidate cannot assign an unapproved track or remove existing skills.
+                var content=row.Content with{PrimarySkillId=primary,SecondarySkillIds=skills.Where(x=>!x.IsPrimary).Select(x=>x.SkillId).OrderBy(x=>x).ToArray(),
+                    TrackIds=trackIds,DifficultyLevel=1};
+                // A legacy question may not yet have a mapped track. Validate all
+                // other content now; normal submit validation still requires a real track.
+                errors.AddRange(WizardProblemContract.Validate(trackIds.Length==0?content with{TrackIds=new[]{1}}:content));
+                var json=WizardProblemContract.Serialize(content);
+                if(json.Length>180000)errors.Add("DraftTooLarge");
+                var existing=await db.CurriculumDraftItems.AsNoTracking().SingleOrDefaultAsync(x=>x.SourceProblemId==p.Id&&
+                    x.EditorialStatus!="Published"&&x.EditorialStatus!="Withdrawn",ct);
+                if(existing is not null)
+                {
+                    existingId=existing.Id;
+                    // A retry of the exact unedited import is harmless. Do not replace
+                    // independently created drafts, revisions, or review decisions.
+                    already=existing.ContentKey=="g1-amend-"+p.Id&&existing.EditorialStatus=="Draft"&&
+                        existing.Revision==0&&existing.SourceFingerprint==Fingerprint(p)&&existing.WizardJson==json;
+                    if(!already)errors.Add("AmendmentAlreadyOpen");
+                }
+                if(errors.Count==0&&!already)
+                {
+                    var contentKey="g1-amend-"+p.Id;
+                    if(await db.CurriculumDraftItems.AnyAsync(x=>x.ContentKey==contentKey,ct))errors.Add("AmendmentKeyAlreadyUsed");
+                    else
+                    {
+                        var d=new CurriculumDraftItem{OwnerUserId=ActorId,ContentKey=contentKey,PrimarySkillKey=key!,
+                            EditorialStatus="Draft",SourceProblemId=p.Id,SourceFingerprint=Fingerprint(p),
+                            DetailedSolutionAr=p.DetailedSolutionAr,DetailedSolutionEn=p.DetailedSolutionEn};
+                        Save(d,content,json,ActorId);drafts.Add(d);
+                    }
+                }
+            }
+            if(errors.Count>0)failed=true;
+            results.Add(new{row.ProblemId,Status=errors.Count>0?"Invalid":already?"AlreadyExists":"Ready",
+                DraftId=existingId,Errors=errors.Distinct().ToArray()});
+        }
+        if(failed)return BadRequest(new{Message="AmendmentBatchInvalid",Items=results});
+        if(!input.Confirm)return Ok(new{Created=0,Ready=drafts.Count,Items=results});
+        db.CurriculumDraftItems.AddRange(drafts);await db.SaveChangesAsync(ct);
+        foreach(var d in drafts)Audit(d,"EditorialAmendmentImported");
+        await db.SaveChangesAsync(ct);await tx.CommitAsync(ct);
+        return Ok(new{Created=drafts.Count,Items=results,DraftIds=drafts.Select(x=>x.Id).ToArray()});
+    }
+
     // Preview first, then confirm. Only Admin can import a prepared content batch;
     // it creates Draft rows, never live questions. Resolve stable keys on this DB.
     [HttpPost("import")]

@@ -54,6 +54,7 @@ def verify_wizard(admin,supervisor,sid):
     verify_solve(admin,pid,stage,category)
     verify_amendment(admin,supervisor,pid)
     verify_import(admin,supervisor,p,track)
+    verify_amendment_import(admin,supervisor,p,track,skill,category)
     from integration_editorial_gap_wave import verify_gap_wave
     verify_gap_wave(admin)
     print("PASS: partial draft, ownership, revision, review return, approval, exactly-once publication and track/skill linkage")
@@ -155,3 +156,42 @@ def verify_import(admin,supervisor,p,track):
     withdrawn=expect("POST",f"/api/editorial/problems/{did}/withdraw",200,{"Revision":0,"Note":"Test withdrawal"},admin)
     assert withdrawn["Status"]=="Withdrawn" and sql('SELECT COUNT(*) FROM "Problems"')==before
     print("PASS: Admin-only preview/confirm import, stable-key resolution, idempotent draft creation and withdrawal")
+
+def verify_amendment_import(admin,supervisor,p,track,skill,category):
+    import copy
+    root="/api/editorial/problems/amend/import"
+    q=copy.deepcopy(p)
+    q["Title"]={"Ar":"اختبار استيراد تعديل","En":"Amendment import fixture"}
+    q["Question"]={"Ar":"احسب 14+8 في اختبار التعديل","En":"Calculate 14+8 in the amendment import fixture"}
+    old_ar="نجمع 14 و8 فنحصل على 22."
+    old_en="Add 14 and 8 to obtain 22."
+    problem=expect("POST","/api/admin/problems",201,{
+        "TitleAr":q["Title"]["Ar"],"TitleEn":q["Title"]["En"],
+        "QuestionTextAr":q["Question"]["Ar"],"QuestionTextEn":q["Question"]["En"],
+        "DetailedSolutionAr":old_ar,"DetailedSolutionEn":old_en,
+        "StageId":q["StageId"],"CategoryId":category,"Points":q["Points"],
+        "Options":[{"LatexCode":o["LatexCode"],"IsCorrect":o["IsCorrect"],"Order":i+1} for i,o in enumerate(q["Options"])]},admin)
+    pid=problem["Id"]
+    sql(f'INSERT INTO "CurriculumProblemSkills" ("ProblemId","SkillId","IsPrimary") VALUES ({pid},{skill},true)')
+    option_ids=[int(i) for i in sql(f'SELECT "Id" FROM "QuestionOptions" WHERE "ProblemId"={pid} ORDER BY "Order","Id"').splitlines()]
+    row={"ProblemId":pid,"ExpectedOptionIds":option_ids,"ExpectedLegacySolution":{"Ar":old_ar,"En":old_en},
+         "PrimarySkillKey":"ci-wizard-skill","Content":q,"Status":"StructuredAmendmentCandidateNotImported"}
+    before=sql('SELECT COUNT(*) FROM "Problems"')
+    expect("POST",root,403,{"Items":[row]},supervisor)
+    bad=copy.deepcopy(row);bad["ExpectedOptionIds"].reverse()
+    expect("POST",root,400,{"Items":[bad],"Confirm":True},admin)
+    bad=copy.deepcopy(row);bad["Status"]="HeldStructuredCandidateNotImportable"
+    expect("POST",root,400,{"Items":[bad],"Confirm":True},admin)
+    preview=expect("POST",root,200,{"Items":[row]},admin)
+    assert preview["Created"]==0 and preview["Ready"]==1
+    assert sql(f'SELECT COUNT(*) FROM "CurriculumDraftItems" WHERE "SourceProblemId"={pid}')=="0"
+    saved=expect("POST",root,200,{"Items":[row],"Confirm":True},admin)
+    assert saved["Created"]==1
+    did=saved["DraftIds"][0]
+    assert expect("POST",root,200,{"Items":[row],"Confirm":True},admin)["Created"]==0
+    d=expect("GET",f"/api/editorial/problems/{did}",200,token=admin)
+    assert d["Content"]["TrackIds"]==[] and d["Content"]["PrimarySkillId"]==skill
+    expect("POST",f"/api/editorial/problems/{did}/submit",400,{"Revision":0},admin)
+    assert sql('SELECT COUNT(*) FROM "Problems"')==before
+    assert sql(f'SELECT "DetailedSolutionEn" FROM "Problems" WHERE "Id"={pid}')==old_en
+    print("PASS: guarded batch amendment preview/confirm, held rejection, no track override, idempotency, no live changes")
