@@ -26,3 +26,6 @@ Final review: legacy daily fallback now counts correct answers only and rejects 
 
 ## Structured amendment batch operation
 Admin-only POST `/api/editorial/problems/amend/import` accepts at most 50 eligible source-guarded rows from the two structured candidate manifests. Preview `Confirm:false`, then confirm exactly the same batch. Rechecks bilingual source, ordered option IDs and text/flags, existing primary skill and legacy solution; rejects held rows and existing independently edited/structured drafts. Creates only draft rows, keeps classification from live data, and does not assign proposed tracks. Exact untouched retries are idempotent. Existing submit/review/publish gates remain mandatory. The 52 eligible rows can be imported in two batches after backend deployment; four held rows remain blocked. No live import has been performed.
+
+## Development/demo release exception — 2026-11-24
+The owner explicitly accepted proceeding without an independent backup/restore for the current demo/development environment. This waives step 2 for this release only; no backup is claimed. It does not authorize destructive schema changes, losing history, exposing credentials, or skipping CI/compatibility checks. Reinstate the backup gate before real student data or production launch.

@@ -172,6 +172,13 @@ def verify_amendment_import(admin,supervisor,p,track,skill,category):
         "StageId":q["StageId"],"CategoryId":category,"Points":q["Points"],
         "Options":[{"LatexCode":o["LatexCode"],"IsCorrect":o["IsCorrect"],"Order":i+1} for i,o in enumerate(q["Options"])]},admin)
     pid=problem["Id"]
+    # Legacy create derives titles from question text, not the input Title.
+    # Import deliberately checks the actual persisted source title.
+    import json
+    q["Title"]=json.loads(sql(f"""SELECT json_build_object('Ar',"TitleAr",'En',"TitleEn") FROM "Problems" WHERE "Id"={pid}"""))
+    q["Solution"]["Steps"]=[{"Ar":"اجمع 14 و8","En":"Add 14 and 8"}]
+    q["Solution"]["Substitution"]={"Ar":"14 + 8","En":"14 + 8"}
+    q["Solution"]["Verification"]={"Ar":"22 - 8 = 14","En":"22 - 8 = 14"}
     sql(f'INSERT INTO "CurriculumProblemSkills" ("ProblemId","SkillId","IsPrimary") VALUES ({pid},{skill},true)')
     option_ids=[int(i) for i in sql(f'SELECT "Id" FROM "QuestionOptions" WHERE "ProblemId"={pid} ORDER BY "Order","Id"').splitlines()]
     row={"ProblemId":pid,"ExpectedOptionIds":option_ids,"ExpectedLegacySolution":{"Ar":old_ar,"En":old_en},
