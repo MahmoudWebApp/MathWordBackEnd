@@ -1,0 +1,4365 @@
+{
+  "Version": 1,
+  "Status": "NotImportedNotPublished",
+  "Notes": [
+    "40 middle-stage existing questions; source-matched rules, worked answers, progressive hints and option-specific feedback. No changes to learner records or live database."
+  ],
+  "Items": [
+    {
+      "ProblemId": 13,
+      "ExpectedOptionIds": [
+        41,
+        42,
+        43,
+        44
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "عوامل 24: $1, 2, 3, 4, 6, 8, 12, 24$. عوامل 36: $1, 2, 3, 4, 6, 9, 12, 18, 36$. العوامل المشتركة: $1, 2, 3, 4, 6, 12$. القاسم المشترك الأكبر = $12$.",
+        "En": "Factors of 24: $1, 2, 3, 4, 6, 8, 12, 24$. Factors of 36: $1, 2, 3, 4, 6, 9, 12, 18, 36$. Common factors: $1, 2, 3, 4, 6, 12$. GCD = $12$."
+      },
+      "ProposedTrackCode": "grade-7",
+      "PrimarySkillKey": "middle-gcd",
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 5,
+        "PrimarySkillId": 22,
+        "Points": 10,
+        "Title": {
+          "Ar": "ما القاسم المشترك الأكبر (GCD) للعددين $24$ و $36$؟",
+          "En": "What is the greatest common divisor (GCD) of $24$ and $36$?"
+        },
+        "Question": {
+          "Ar": "ما القاسم المشترك الأكبر (GCD) للعددين $24$ و $36$؟",
+          "En": "What is the greatest common divisor (GCD) of $24$ and $36$?"
+        },
+        "Options": [
+          {
+            "LatexCode": "12",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "6",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "6 قاسم مشترك لكنه أصغر من القاسم المشترك الأكبر 12.",
+              "En": "6 is common but smaller than the greatest common divisor 12."
+            }
+          },
+          {
+            "LatexCode": "8",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "8 لا يقسم العددين معاً دون باقٍ.",
+              "En": "8 does not divide both numbers without remainder."
+            }
+          },
+          {
+            "LatexCode": "24",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "24 لا يقسم العددين معاً دون باقٍ.",
+              "En": "24 does not divide both numbers without remainder."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "ابحث عن قواسم العددين المشتركة.",
+            "En": "Look for divisors shared by both numbers."
+          },
+          {
+            "Ar": "جرّب قسمة الأكبر على الأصغر وتابع باستخدام الباقي.",
+            "En": "Divide the larger by the smaller and continue with the remainder."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "القاسم المشترك الأكبر هو أكبر عدد موجب يقسم العددين دون باقٍ؛ نستعمل خوارزمية إقليدس.",
+            "En": "The greatest common divisor is the largest positive divisor of both numbers; use Euclid's algorithm."
+          },
+          "FormulaLatex": "\\gcd(a,b)=\\gcd(b,a\\bmod b)",
+          "Steps": [
+            {
+              "Ar": "اقسم الأكبر على الأصغر، ثم كرر القسمة باستعمال المقسوم عليه والباقي حتى يصبح الباقي صفراً.",
+              "En": "Divide the larger by the smaller; repeat using the divisor and remainder until the remainder is zero."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$36=1\\times24+12,\\quad 24=2\\times12+0$",
+            "En": "$36=1\\times24+12,\\quad 24=2\\times12+0$"
+          },
+          "Result": {
+            "Ar": "$12$",
+            "En": "$12$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "$24\\div12=2,\\quad 36\\div12=3$",
+            "En": "$24\\div12=2,\\quad 36\\div12=3$"
+          },
+          "CommonError": {
+            "Ar": "القاسم المشترك ليس بالضرورة أكبر العددين أو أحدهما.",
+            "En": "The GCD is not necessarily the larger number or one of the given numbers."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 16,
+      "ExpectedOptionIds": [
+        53,
+        54,
+        55,
+        56
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "النسبة $3:5$ تعني أن لكل 3 طلاب 5 طالبات. عدد الطالبات = $\\frac{5}{3} \\times 150 = 250$ طالبة.",
+        "En": "The ratio $3:5$ means for every 3 males there are 5 females. Number of females = $\\frac{5}{3} \\times 150 = 250$."
+      },
+      "ProposedTrackCode": "grade-7",
+      "PrimarySkillKey": "middle-ratios",
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 7,
+        "PrimarySkillId": 30,
+        "Points": 10,
+        "Title": {
+          "Ar": "إذا كانت النسبة بين طلاب وطالبات هي $3:5$، وكان عدد الطلاب $150$، فما عدد الطالبات؟",
+          "En": "If the ratio of male to female students is $3:5$, and there are $150$ male students, how many female"
+        },
+        "Question": {
+          "Ar": "إذا كانت النسبة بين طلاب وطالبات هي $3:5$، وكان عدد الطلاب $150$، فما عدد الطالبات؟",
+          "En": "If the ratio of male to female students is $3:5$, and there are $150$ male students, how many female students are there?"
+        },
+        "Options": [
+          {
+            "LatexCode": "250",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "90",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "النسبة 150:90 لا تكافئ 3:5 لأن حاصلَي الضرب التبادلي غير متساويين.",
+              "En": "The ratio 150:90 is not equivalent to 3:5 because the cross products differ."
+            }
+          },
+          {
+            "LatexCode": "200",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "النسبة 150:200 لا تكافئ 3:5 لأن حاصلَي الضرب التبادلي غير متساويين.",
+              "En": "The ratio 150:200 is not equivalent to 3:5 because the cross products differ."
+            }
+          },
+          {
+            "LatexCode": "300",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "النسبة 150:300 لا تكافئ 3:5 لأن حاصلَي الضرب التبادلي غير متساويين.",
+              "En": "The ratio 150:300 is not equivalent to 3:5 because the cross products differ."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "كل حد من النسبة يمثل عدداً من الأجزاء المتساوية.",
+            "En": "Each ratio term represents a count of equal parts."
+          },
+          {
+            "Ar": "احسب قيمة الجزء الواحد من عدد الطلاب، ثم استعمل عدد أجزاء الطالبات.",
+            "En": "Find one part from the male count, then use the female ratio term."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "النسب المتكافئة تنتج من ضرب طرفي النسبة في العامل نفسه.",
+            "En": "Equivalent ratios scale both terms by the same factor."
+          },
+          "FormulaLatex": "\\frac{m}{f}=\\frac ab\\Rightarrow f=\\frac{mb}{a}",
+          "Steps": [
+            {
+              "Ar": "اقسم عدد الطلاب 150 على 3 لمعرفة قيمة جزء واحد، ثم اضرب في 5.",
+              "En": "Divide the 150 male students by 3 to find one part, then multiply by 5."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$\\frac{150}{3}\\times5=250$",
+            "En": "$\\frac{150}{3}\\times5=250$"
+          },
+          "Result": {
+            "Ar": "$250$",
+            "En": "$250$"
+          },
+          "Unit": {
+            "Ar": "طالبة",
+            "En": "female students"
+          },
+          "Verification": {
+            "Ar": "$\\frac{150}{250}=\\frac{3}{5}$",
+            "En": "$\\frac{150}{250}=\\frac{3}{5}$"
+          },
+          "CommonError": {
+            "Ar": "لا تعكس نسبة الطلاب إلى الطالبات.",
+            "En": "Do not reverse the male-to-female ratio."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 17,
+      "ExpectedOptionIds": [
+        57,
+        58,
+        59,
+        60
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "السرعة المتوسطة = $\\frac{\\text{المسافة}}{\\text{الزمن}} = \\frac{240}{3} = 80$ كم/ساعة.",
+        "En": "Average speed = $\\frac{\\text{distance}}{\\text{time}} = \\frac{240}{3} = 80$ km/h."
+      },
+      "ProposedTrackCode": "grade-7",
+      "PrimarySkillKey": "middle-unit-rates",
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 7,
+        "PrimarySkillId": 31,
+        "Points": 10,
+        "Title": {
+          "Ar": "إذا قطع قطار مسافة $240$ كم في $3$ ساعات، فما سرعته المتوسطة؟",
+          "En": "If a train travels $240$ km in $3$ hours, what is its average speed?"
+        },
+        "Question": {
+          "Ar": "إذا قطع قطار مسافة $240$ كم في $3$ ساعات، فما سرعته المتوسطة؟",
+          "En": "If a train travels $240$ km in $3$ hours, what is its average speed?"
+        },
+        "Options": [
+          {
+            "LatexCode": "80 \\text{ km/h}",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "120 \\text{ km/h}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "سرعة 120 خلال 3 ساعات تعطي 360 كم لا 240.",
+              "En": "A speed of 120 over 3 hours gives 360 km, not 240."
+            }
+          },
+          {
+            "LatexCode": "60 \\text{ km/h}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "سرعة 60 خلال 3 ساعات تعطي 180 كم لا 240.",
+              "En": "A speed of 60 over 3 hours gives 180 km, not 240."
+            }
+          },
+          {
+            "LatexCode": "72 \\text{ km/h}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "سرعة 72 خلال 3 ساعات تعطي 216 كم لا 240.",
+              "En": "A speed of 72 over 3 hours gives 216 km, not 240."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "استعمل العلاقة بين المسافة والزمن والسرعة.",
+            "En": "Use the relationship between distance, time and speed."
+          },
+          {
+            "Ar": "اقسم المسافة الكلية على عدد الساعات.",
+            "En": "Divide total distance by the hours."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "السرعة المتوسطة تساوي المسافة الكلية مقسومة على الزمن الكلي.",
+            "En": "Average speed equals total distance divided by total time."
+          },
+          "FormulaLatex": "v=\\frac dt",
+          "Steps": [
+            {
+              "Ar": "اقسم المسافة بالكيلومترات على الزمن بالساعات.",
+              "En": "Divide the distance in kilometers by time in hours."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$\\frac{240}{3}=80$",
+            "En": "$\\frac{240}{3}=80$"
+          },
+          "Result": {
+            "Ar": "$80$",
+            "En": "$80$"
+          },
+          "Unit": {
+            "Ar": "كم/ساعة",
+            "En": "km/h"
+          },
+          "Verification": {
+            "Ar": "$80\\times3=240$",
+            "En": "$80\\times3=240$"
+          },
+          "CommonError": {
+            "Ar": "انتبه لترتيب القسمة وللوحدات.",
+            "En": "Keep the division order and units consistent."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 18,
+      "ExpectedOptionIds": [
+        61,
+        62,
+        63,
+        64
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "مجموع زوايا المثلث $= 180^\\circ$. إذاً $C = 180^\\circ - (50^\\circ + 60^\\circ) = 180^\\circ - 110^\\circ = 70^\\circ$.",
+        "En": "Sum of angles in a triangle $= 180^\\circ$. So $C = 180^\\circ - (50^\\circ + 60^\\circ) = 180^\\circ - 110^\\circ = 70^\\circ$."
+      },
+      "ProposedTrackCode": "grade-7",
+      "PrimarySkillKey": "middle-triangle-angles",
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 8,
+        "PrimarySkillId": 35,
+        "Points": 10,
+        "Title": {
+          "Ar": "في مثلث $ABC$، قياس الزاوية $A$ يساوي $50^\\circ$ وقياس الزاوية $B$ يساوي $60^\\circ$.",
+          "En": "In triangle $ABC$, angle $A = 50^\\circ$ and angle $B = 60^\\circ$."
+        },
+        "Question": {
+          "Ar": "في مثلث $ABC$، قياس الزاوية $A$ يساوي $50^\\circ$ وقياس الزاوية $B$ يساوي $60^\\circ$. ما قياس الزاوية $C$؟",
+          "En": "In triangle $ABC$, angle $A = 50^\\circ$ and angle $B = 60^\\circ$. What is the measure of angle $C$?"
+        },
+        "Options": [
+          {
+            "LatexCode": "70^\\circ",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "80^\\circ",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "مجموع الزوايا مع 80 هو 190 وليس 180.",
+              "En": "With 80, the angles sum to 190, not 180."
+            }
+          },
+          {
+            "LatexCode": "60^\\circ",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "مجموع الزوايا مع 60 هو 170 وليس 180.",
+              "En": "With 60, the angles sum to 170, not 180."
+            }
+          },
+          {
+            "LatexCode": "50^\\circ",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "مجموع الزوايا مع 50 هو 160 وليس 180.",
+              "En": "With 50, the angles sum to 160, not 180."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "تذكر مجموع زوايا المثلث.",
+            "En": "Recall the sum of triangle angles."
+          },
+          {
+            "Ar": "اطرح مجموع الزاويتين المعطاتين من المجموع الكلي.",
+            "En": "Subtract the given angles' sum from the total."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "مجموع الزوايا الداخلية للمثلث المستوي 180 درجة.",
+            "En": "A plane triangle's interior angles sum to 180 degrees."
+          },
+          "FormulaLatex": "A+B+C=180^\\circ",
+          "Steps": [
+            {
+              "Ar": "اجمع الزاويتين المعطاتين واطرح المجموع من 180 درجة.",
+              "En": "Add the two given angles and subtract their sum from 180 degrees."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$180-(50+60)=70$",
+            "En": "$180-(50+60)=70$"
+          },
+          "Result": {
+            "Ar": "$70$",
+            "En": "$70$"
+          },
+          "Unit": {
+            "Ar": "درجة",
+            "En": "degrees"
+          },
+          "Verification": {
+            "Ar": "$50+60+70=180$",
+            "En": "$50+60+70=180$"
+          },
+          "CommonError": {
+            "Ar": "لا تستعمل 360 درجة للمثلث.",
+            "En": "Do not use 360 degrees for a triangle."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 19,
+      "ExpectedOptionIds": [
+        65,
+        66,
+        67,
+        68
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "مساحة الدائرة $= \\pi r^2 = \\frac{22}{7} \\times 7^2 = \\frac{22}{7} \\times 49 = 22 \\times 7 = 154$ سم².",
+        "En": "Area of circle $= \\pi r^2 = \\frac{22}{7} \\times 7^2 = \\frac{22}{7} \\times 49 = 22 \\times 7 = 154$ cm²."
+      },
+      "ProposedTrackCode": "grade-7",
+      "PrimarySkillKey": "middle-circle-area",
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 8,
+        "PrimarySkillId": 36,
+        "Points": 10,
+        "Title": {
+          "Ar": "أوجد مساحة دائرة نصف قطرها $7$ سم.",
+          "En": "Find the area of a circle with radius $7$ cm."
+        },
+        "Question": {
+          "Ar": "أوجد مساحة دائرة نصف قطرها $7$ سم. (استخدم $\\pi = \\frac{22}{7}$)",
+          "En": "Find the area of a circle with radius $7$ cm. (Use $\\pi = \\frac{22}{7}$)"
+        },
+        "Options": [
+          {
+            "LatexCode": "154 \\text{ cm}^2",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "144 \\text{ cm}^2",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "المساحة 144 لا تساوي 49 مضروباً في 22/7.",
+              "En": "An area of 144 is not 49 multiplied by 22/7."
+            }
+          },
+          {
+            "LatexCode": "164 \\text{ cm}^2",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "المساحة 164 لا تساوي 49 مضروباً في 22/7.",
+              "En": "An area of 164 is not 49 multiplied by 22/7."
+            }
+          },
+          {
+            "LatexCode": "124 \\text{ cm}^2",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "المساحة 124 لا تساوي 49 مضروباً في 22/7.",
+              "En": "An area of 124 is not 49 multiplied by 22/7."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "استعمل قانون مساحة الدائرة، لا محيطها.",
+            "En": "Use the circle-area formula, not circumference."
+          },
+          {
+            "Ar": "ربّع نصف القطر واضرب في قيمة باي المحددة.",
+            "En": "Square the radius and multiply by the specified pi."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "مساحة الدائرة تساوي ثابت باي مضروباً في مربع نصف القطر.",
+            "En": "Circle area equals pi times the radius squared."
+          },
+          "FormulaLatex": "A=\\pi r^2",
+          "Steps": [
+            {
+              "Ar": "ربّع نصف القطر.",
+              "En": "Square the radius."
+            },
+            {
+              "Ar": "اضرب في القيمة التقريبية لباي المعطاة في السؤال.",
+              "En": "Multiply by the supplied approximation of pi."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$A=\\frac{22}{7}\\times7^2=154$",
+            "En": "$A=\\frac{22}{7}\\times7^2=154$"
+          },
+          "Result": {
+            "Ar": "$154$",
+            "En": "$154$"
+          },
+          "Unit": {
+            "Ar": "سم²",
+            "En": "cm²"
+          },
+          "Verification": {
+            "Ar": "$154\\div49=\\frac{22}{7}$",
+            "En": "$154\\div49=\\frac{22}{7}$"
+          },
+          "CommonError": {
+            "Ar": "المساحة تختلف عن المحيط؛ لا تستعمل قانون 2πr.",
+            "En": "Area differs from circumference; do not use 2πr."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 41,
+      "ExpectedOptionIds": [
+        153,
+        154,
+        155,
+        156
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "قانون الأسس: أ^ن يعني ضرب العدد أ في نفسه ن مرات عندما يكون ن عدداً صحيحاً موجباً. إذن 2⁵ = 2 × 2 × 2 × 2 × 2. نحسب بالتدرج: 2 × 2 = 4، ثم 4 × 2 = 8، ثم 8 × 2 = 16، وأخيراً 16 × 2 = 32. النتيجة 32.",
+        "En": "Exponent rule: For a positive integer n, a^n is the product of n factors equal to a. Thus 2⁵ = 2 × 2 × 2 × 2 × 2. Calculate stepwise: 2 × 2 = 4, then 8, then 16 and finally 32. Answer: 32."
+      },
+      "ProposedTrackCode": "grade-7",
+      "PrimarySkillKey": "middle-evaluate-powers",
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 5,
+        "PrimarySkillId": 23,
+        "Points": 10,
+        "Title": {
+          "Ar": "ما قيمة 2 أس 5؟",
+          "En": "What is 2 raised to the fifth power?"
+        },
+        "Question": {
+          "Ar": "ما قيمة 2 أس 5؟",
+          "En": "What is 2 raised to the fifth power?"
+        },
+        "Options": [
+          {
+            "LatexCode": "32",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "10",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "10 ينتج من ضرب الأساس في الأس، لا رفعه للقوة.",
+              "En": "10 multiplies base by exponent instead of exponentiating."
+            }
+          },
+          {
+            "LatexCode": "16",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "16 لا يمثل حاصل ضرب خمسة عوامل من 2.",
+              "En": "16 is not the product of five factors of 2."
+            }
+          },
+          {
+            "LatexCode": "64",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "64 لا يمثل حاصل ضرب خمسة عوامل من 2.",
+              "En": "64 is not the product of five factors of 2."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "القوة تعني تكرار الضرب.",
+            "En": "A power represents repeated multiplication."
+          },
+          {
+            "Ar": "اكتب الأساس خمس مرات كعوامل منفصلة.",
+            "En": "Write the base five times as separate factors."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "الأس يحدد عدد مرات ظهور الأساس كعامل في الضرب.",
+            "En": "The exponent counts repeated factors of the base."
+          },
+          "FormulaLatex": "a^n=\\underbrace{a\\cdot a\\cdots a}_{n\\text{ factors}}",
+          "Steps": [
+            {
+              "Ar": "اكتب العدد 2 خمسة عوامل واضربها.",
+              "En": "Write five factors of 2 and multiply."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$2^5=2\\times2\\times2\\times2\\times2=32$",
+            "En": "$2^5=2\\times2\\times2\\times2\\times2=32$"
+          },
+          "Result": {
+            "Ar": "$32$",
+            "En": "$32$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "$2^4\\times2=32$",
+            "En": "$2^4\\times2=32$"
+          },
+          "CommonError": {
+            "Ar": "الأس ليس ضرب الأساس في الأس.",
+            "En": "Exponentiation is not base times exponent."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 42,
+      "ExpectedOptionIds": [
+        157,
+        158,
+        159,
+        160
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "المبدأ المستخدم: قيمة الدالة f(4) تعني تعويض س = 4 في قاعدة الدالة قبل إجراء العمليات. لدينا f(x) = x² − 3، لذا f(4) = 4² − 3. نحسب الأس أولاً: 4² = 16، ثم 16 − 3 = 13. النتيجة 13.",
+        "En": "Rule used: Evaluate f(4) by substituting x = 4 into the function before applying order of operations. Given f(x) = x² − 3, we obtain f(4) = 4² − 3 = 16 − 3 = 13. The exponent is evaluated before subtraction."
+      },
+      "ProposedTrackCode": "grade-9",
+      "PrimarySkillKey": "middle-quadratic-function-evaluation",
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 6,
+        "PrimarySkillId": 27,
+        "Points": 10,
+        "Title": {
+          "Ar": "إذا كانت f(x) = x² - 3، فأوجد f(4).",
+          "En": "If f(x) = x² - 3, find f(4)."
+        },
+        "Question": {
+          "Ar": "إذا كانت f(x) = x² - 3، فأوجد f(4).",
+          "En": "If f(x) = x² - 3, find f(4)."
+        },
+        "Options": [
+          {
+            "LatexCode": "11",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "بعد عزل الحد التربيعي من 11 نحصل على 14 لا 16.",
+              "En": "Removing the constant from 11 gives 14, not 16."
+            }
+          },
+          {
+            "LatexCode": "13",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "19",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "بعد عزل الحد التربيعي من 19 نحصل على 22 لا 16.",
+              "En": "Removing the constant from 19 gives 22, not 16."
+            }
+          },
+          {
+            "LatexCode": "5",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "بعد عزل الحد التربيعي من 5 نحصل على 8 لا 16.",
+              "En": "Removing the constant from 5 gives 8, not 16."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "عوّض العدد المعطى في الدالة.",
+            "En": "Substitute the given input into the function."
+          },
+          {
+            "Ar": "احسب مربع المدخل أولاً، ثم أكمل الضرب والجمع أو الطرح.",
+            "En": "Square the input first, then complete multiplication and addition or subtraction."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نعوض قيمة المدخل في الدالة التربيعية، ونحسب القوة قبل الضرب والجمع.",
+            "En": "Substitute the input in the quadratic function, evaluating the power before multiplication and addition."
+          },
+          "FormulaLatex": "f(t)=at^2+c",
+          "Steps": [
+            {
+              "Ar": "ضع 4 مكان المتغير واحسب مربعه ثم بقية التعبير.",
+              "En": "Replace the variable with 4, square it, then evaluate the remaining expression."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$1\\times4^2-3=13$",
+            "En": "$1\\times4^2-3=13$"
+          },
+          "Result": {
+            "Ar": "$13$",
+            "En": "$13$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "$13+3=16$",
+            "En": "$13+3=16$"
+          },
+          "CommonError": {
+            "Ar": "لا تخلط بين التربيع والضرب في اثنين.",
+            "En": "Do not confuse squaring with multiplying by two."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 44,
+      "ExpectedOptionIds": [
+        165,
+        166,
+        167,
+        168
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "قانون فيثاغورس في المثلث القائم: مربع الوتر يساوي مجموع مربعي الضلعين القائمين، ج² = أ² + ب². طولا الضلعين القائمين 6 و8 سم. بالتعويض: ج² = 6² + 8² = 36 + 64 = 100، لذا الوتر ج = √100 = 10 سم. نأخذ الجذر الموجب لأن الطول لا يكون سالباً.",
+        "En": "Pythagorean theorem: In a right triangle, the hypotenuse squared equals the sum of squares of the legs, c² = a² + b². For legs 6 cm and 8 cm, c² = 6² + 8² = 36 + 64 = 100. Therefore c = √100 = 10 cm, taking the positive length."
+      },
+      "ProposedTrackCode": "grade-8",
+      "PrimarySkillKey": "middle-pythagorean-theorem",
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 34,
+        "PrimarySkillId": 37,
+        "Points": 10,
+        "Title": {
+          "Ar": "مثلث قائم ضلعاه القائمان 6 سم و8 سم؛ ما طول الوتر؟",
+          "En": "A right triangle has legs of 6 cm and 8 cm. How long is its hypotenuse?"
+        },
+        "Question": {
+          "Ar": "مثلث قائم ضلعاه القائمان 6 سم و8 سم؛ ما طول الوتر؟",
+          "En": "A right triangle has legs of 6 cm and 8 cm. How long is its hypotenuse?"
+        },
+        "Options": [
+          {
+            "LatexCode": "12",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "مربع 12 هو 144 وليس مجموع المربعين 100.",
+              "En": "The square of 12 is 144, not the required sum 100."
+            }
+          },
+          {
+            "LatexCode": "14",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "مربع 14 هو 196 وليس مجموع المربعين 100.",
+              "En": "The square of 14 is 196, not the required sum 100."
+            }
+          },
+          {
+            "LatexCode": "9",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "مربع 9 هو 81 وليس مجموع المربعين 100.",
+              "En": "The square of 9 is 81, not the required sum 100."
+            }
+          },
+          {
+            "LatexCode": "10",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "استعمل نظرية فيثاغورس في المثلث القائم.",
+            "En": "Use Pythagoras' theorem for the right triangle."
+          },
+          {
+            "Ar": "اجمع مربعي ضلعي القائمة ثم خذ الجذر التربيعي.",
+            "En": "Add the squares of the legs, then take the square root."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نظرية فيثاغورس: مربع الوتر يساوي مجموع مربعي ضلعي القائمة.",
+            "En": "Pythagoras' theorem: the square of the hypotenuse equals the sum of the squares of the legs."
+          },
+          "FormulaLatex": "c^2=a^2+b^2\\Rightarrow c=\\sqrt{a^2+b^2}",
+          "Steps": [
+            {
+              "Ar": "احسب مربع كل ضلع قائم واجمعهما.",
+              "En": "Square each leg and add the results."
+            },
+            {
+              "Ar": "خذ الجذر التربيعي الموجب للمجموع.",
+              "En": "Take the positive square root of the sum."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$c=\\sqrt{6^2+8^2}=\\sqrt{100}=10$",
+            "En": "$c=\\sqrt{6^2+8^2}=\\sqrt{100}=10$"
+          },
+          "Result": {
+            "Ar": "$10$",
+            "En": "$10$"
+          },
+          "Unit": {
+            "Ar": "سم",
+            "En": "cm"
+          },
+          "Verification": {
+            "Ar": "$10^2=100$",
+            "En": "$10^2=100$"
+          },
+          "CommonError": {
+            "Ar": "لا تجمع طولي الضلعين مباشرة، ولا تنس الجذر.",
+            "En": "Do not add the leg lengths directly or forget the square root."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 57,
+      "ExpectedOptionIds": [
+        217,
+        218,
+        219,
+        220
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: القاسم المشترك الأكبر هو أكبر عدد صحيح موجب يقسم العددين دون باقٍ. نستخدم خوارزمية إقليدس: 60 = 48 × 1 + 12، ثم 48 = 12 × 4 + 0. آخر باقٍ غير صفري هو 12؛ إذن القاسم المشترك الأكبر للعددين 48 و60 يساوي 12.",
+        "En": "Rule used: The greatest common divisor (GCD) is the largest positive integer dividing both numbers. Euclidean algorithm: 60 = 48 × 1 + 12, then 48 = 12 × 4 + 0. The last nonzero remainder is 12, so gcd(48, 60) = 12."
+      },
+      "ProposedTrackCode": "grade-7",
+      "PrimarySkillKey": "middle-gcd",
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 5,
+        "PrimarySkillId": 22,
+        "Points": 10,
+        "Title": {
+          "Ar": "ما القاسم المشترك الأكبر للعددين 48 و60؟",
+          "En": "What is the greatest common divisor of 48 and 60?"
+        },
+        "Question": {
+          "Ar": "ما القاسم المشترك الأكبر للعددين 48 و60؟",
+          "En": "What is the greatest common divisor of 48 and 60?"
+        },
+        "Options": [
+          {
+            "LatexCode": "6",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "6 قاسم مشترك لكنه أصغر من القاسم المشترك الأكبر 12.",
+              "En": "6 is common but smaller than the greatest common divisor 12."
+            }
+          },
+          {
+            "LatexCode": "12",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "24",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "24 لا يقسم العددين معاً دون باقٍ.",
+              "En": "24 does not divide both numbers without remainder."
+            }
+          },
+          {
+            "LatexCode": "4",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "4 قاسم مشترك لكنه أصغر من القاسم المشترك الأكبر 12.",
+              "En": "4 is common but smaller than the greatest common divisor 12."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "ابحث عن قواسم العددين المشتركة.",
+            "En": "Look for divisors shared by both numbers."
+          },
+          {
+            "Ar": "جرّب قسمة الأكبر على الأصغر وتابع باستخدام الباقي.",
+            "En": "Divide the larger by the smaller and continue with the remainder."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "القاسم المشترك الأكبر هو أكبر عدد موجب يقسم العددين دون باقٍ؛ نستعمل خوارزمية إقليدس.",
+            "En": "The greatest common divisor is the largest positive divisor of both numbers; use Euclid's algorithm."
+          },
+          "FormulaLatex": "\\gcd(a,b)=\\gcd(b,a\\bmod b)",
+          "Steps": [
+            {
+              "Ar": "اقسم الأكبر على الأصغر، ثم كرر القسمة باستعمال المقسوم عليه والباقي حتى يصبح الباقي صفراً.",
+              "En": "Divide the larger by the smaller; repeat using the divisor and remainder until the remainder is zero."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$60=1\\times48+12,\\quad 48=4\\times12+0$",
+            "En": "$60=1\\times48+12,\\quad 48=4\\times12+0$"
+          },
+          "Result": {
+            "Ar": "$12$",
+            "En": "$12$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "$48\\div12=4,\\quad 60\\div12=5$",
+            "En": "$48\\div12=4,\\quad 60\\div12=5$"
+          },
+          "CommonError": {
+            "Ar": "القاسم المشترك ليس بالضرورة أكبر العددين أو أحدهما.",
+            "En": "The GCD is not necessarily the larger number or one of the given numbers."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 58,
+      "ExpectedOptionIds": [
+        221,
+        222,
+        223,
+        224
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "المبدأ المستخدم: لعزل المتغير في معادلة خطية نستخدم العمليات العكسية بالتساوي على طرفي المعادلة. من 2س + 7 = 19 نطرح 7 فنحصل على 2س = 12، ثم نقسم على 2: س = 6. التحقق بالتعويض: 2 × 6 + 7 = 19.",
+        "En": "Rule used: Solve a linear equation with inverse operations applied equally to both sides. From 2x + 7 = 19, subtract 7 to get 2x = 12, then divide by 2: x = 6. Check: 2 × 6 + 7 = 19."
+      },
+      "ProposedTrackCode": "grade-7",
+      "PrimarySkillKey": "middle-linear-equations",
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 6,
+        "PrimarySkillId": 25,
+        "Points": 10,
+        "Title": {
+          "Ar": "حل المعادلة 2x + 7 = 19.",
+          "En": "Solve the equation 2x + 7 = 19."
+        },
+        "Question": {
+          "Ar": "حل المعادلة 2x + 7 = 19.",
+          "En": "Solve the equation 2x + 7 = 19."
+        },
+        "Options": [
+          {
+            "LatexCode": "12",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "التعويض بـ12 يعطي 31 بدلاً من 19.",
+              "En": "Substituting 12 gives 31 instead of 19."
+            }
+          },
+          {
+            "LatexCode": "13",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "التعويض بـ13 يعطي 33 بدلاً من 19.",
+              "En": "Substituting 13 gives 33 instead of 19."
+            }
+          },
+          {
+            "LatexCode": "6",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "5",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "التعويض بـ5 يعطي 17 بدلاً من 19.",
+              "En": "Substituting 5 gives 17 instead of 19."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "ابدأ بعزل الحد الذي يحتوي على المجهول.",
+            "En": "Start by isolating the variable term."
+          },
+          {
+            "Ar": "اطرح الحد الثابت من الطرفين ثم اقسم على المعامل.",
+            "En": "Subtract the constant from both sides, then divide by the coefficient."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نعزل المجهول باستعمال العمليات العكسية على طرفي المعادلة.",
+            "En": "Isolate the variable using inverse operations on both sides."
+          },
+          "FormulaLatex": "ax+b=c\\Rightarrow x=\\frac{c-b}{a}\\quad(a\\ne0)",
+          "Steps": [
+            {
+              "Ar": "اطرح 7 من الطرفين.",
+              "En": "Subtract 7 from both sides."
+            },
+            {
+              "Ar": "اقسم الطرفين على 2.",
+              "En": "Divide both sides by 2."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$2x=12\\Rightarrow x=6$",
+            "En": "$2x=12\\Rightarrow x=6$"
+          },
+          "Result": {
+            "Ar": "$6$",
+            "En": "$6$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "$2\\times6+7=19$",
+            "En": "$2\\times6+7=19$"
+          },
+          "CommonError": {
+            "Ar": "لا تغير طرفاً دون الآخر.",
+            "En": "Do not change just one side."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 59,
+      "ExpectedOptionIds": [
+        225,
+        226,
+        227,
+        228
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: عند ثبات سعر الوحدة، الكلفة الكلية = عدد القطع × سعر القطعة الواحدة. تكلفة أربعة أقلام هي 12 وحدة، إذن سعر القلم = 12 ÷ 4 = 3 وحدات. تكلفة سبعة أقلام = 7 × 3 = 21 وحدة. التحقق: 21 ÷ 7 = 3، وهو سعر القلم نفسه.",
+        "En": "Rule used: With a constant unit price, total cost = quantity × unit price. Four pens cost 12 units, so each costs 12 ÷ 4 = 3 units. Seven pens cost 7 × 3 = 21 units. Check: 21 ÷ 7 = 3 units per pen."
+      },
+      "ProposedTrackCode": "grade-7",
+      "PrimarySkillKey": "middle-unit-rates",
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 7,
+        "PrimarySkillId": 31,
+        "Points": 10,
+        "Title": {
+          "Ar": "ثمن أربعة أقلام 12، فكم ثمن سبعة أقلام بالسعر نفسه؟",
+          "En": "Four identical pens cost 12 units. How much do seven cost at the same rate?"
+        },
+        "Question": {
+          "Ar": "ثمن أربعة أقلام 12، فكم ثمن سبعة أقلام بالسعر نفسه؟",
+          "En": "Four identical pens cost 12 units. How much do seven cost at the same rate?"
+        },
+        "Options": [
+          {
+            "LatexCode": "28",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "السعر 28 لا يعطي سعر الوحدة الثابت 3 عند قسمته على 7.",
+              "En": "Dividing 28 by 7 does not give the fixed unit price 3."
+            }
+          },
+          {
+            "LatexCode": "18",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "السعر 18 لا يعطي سعر الوحدة الثابت 3 عند قسمته على 7.",
+              "En": "Dividing 18 by 7 does not give the fixed unit price 3."
+            }
+          },
+          {
+            "LatexCode": "24",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "السعر 24 لا يعطي سعر الوحدة الثابت 3 عند قسمته على 7.",
+              "En": "Dividing 24 by 7 does not give the fixed unit price 3."
+            }
+          },
+          {
+            "LatexCode": "21",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "أوجد أولاً سعر القطعة الواحدة.",
+            "En": "Find the price of one item first."
+          },
+          {
+            "Ar": "اقسم السعر المعطى على عدد القطع ثم اضرب في العدد المطلوب.",
+            "En": "Divide the given cost by its quantity, then multiply by the desired quantity."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نحسب سعر الوحدة ثم نضربه في الكمية المطلوبة، ما دام السعر ثابتاً.",
+            "En": "Calculate unit price, then multiply by the target quantity at the same rate."
+          },
+          "FormulaLatex": "C_2=\\frac{C_1}{q_1}q_2",
+          "Steps": [
+            {
+              "Ar": "اقسم 12 على 4 ثم اضرب سعر الوحدة في 7.",
+              "En": "Divide 12 by 4, then multiply the unit price by 7."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$\\frac{12}{4}\\times7=21$",
+            "En": "$\\frac{12}{4}\\times7=21$"
+          },
+          "Result": {
+            "Ar": "$21$",
+            "En": "$21$"
+          },
+          "Unit": {
+            "Ar": "وحدة نقدية",
+            "En": "currency units"
+          },
+          "Verification": {
+            "Ar": "$\\frac{21}{7}=\\frac{12}{4}$",
+            "En": "$\\frac{21}{7}=\\frac{12}{4}$"
+          },
+          "CommonError": {
+            "Ar": "انتبه لترتيب القسمة وللوحدات.",
+            "En": "Keep the division order and units consistent."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 60,
+      "ExpectedOptionIds": [
+        229,
+        230,
+        231,
+        232
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "المبدأ الهندسي: الزوايا المتقابلة بالرأس متساوية عند تقاطع مستقيمين. إذا كانت إحدى الزاويتين 117°، فالزاوية المقابلة لها تساوي 117° أيضاً. أما الزاوية المجاورة فهي مكملة لها وقياسها 180° − 117° = 63°، وليست المطلوبة.",
+        "En": "Geometry principle: Vertically opposite angles formed by intersecting straight lines are equal. An angle opposite a 117° angle also measures 117°. An adjacent angle is supplementary, 180° − 117° = 63°, but that is not the requested angle."
+      },
+      "ProposedTrackCode": "grade-7",
+      "PrimarySkillKey": "middle-vertical-angles",
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 8,
+        "PrimarySkillId": 38,
+        "Points": 10,
+        "Title": {
+          "Ar": "زاويتان متقابلتان بالرأس، قياس إحداهما 117°. ما قياس الأخرى؟",
+          "En": "Two vertically opposite angles are formed by intersecting lines. One is 117°. What is the other?"
+        },
+        "Question": {
+          "Ar": "زاويتان متقابلتان بالرأس، قياس إحداهما 117°. ما قياس الأخرى؟",
+          "En": "Two vertically opposite angles are formed by intersecting lines. One is 117°. What is the other?"
+        },
+        "Options": [
+          {
+            "LatexCode": "117",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "63",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "63 قياس الزاوية المجاورة المكملة، لا المقابلة بالرأس.",
+              "En": "63 is the adjacent supplementary angle, not the vertical angle."
+            }
+          },
+          {
+            "LatexCode": "90",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "90 لا يساوي قياس الزاوية المقابلة المعطى.",
+              "En": "90 is not equal to the given vertically opposite angle."
+            }
+          },
+          {
+            "LatexCode": "73",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "73 لا يساوي قياس الزاوية المقابلة المعطى.",
+              "En": "73 is not equal to the given vertically opposite angle."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "ميز بين الزوايا المتجاورة والمتقابلة بالرأس.",
+            "En": "Distinguish adjacent angles from vertically opposite ones."
+          },
+          {
+            "Ar": "استخدم خاصية الزوايا الناتجة عن تقاطع مستقيمين.",
+            "En": "Use the property of angles formed by intersecting lines."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "الزاويتان المتقابلتان بالرأس عند تقاطع مستقيمين متساويتان.",
+            "En": "Vertically opposite angles formed by intersecting lines are equal."
+          },
+          "FormulaLatex": "\\angle A=\\angle C",
+          "Steps": [
+            {
+              "Ar": "حدد الزاوية المقابلة للرأس، لا المجاورة، واستعمل تساوي القياسين.",
+              "En": "Identify the vertically opposite angle, not an adjacent angle, and use equality."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$\\angle C=117^\\circ$",
+            "En": "$\\angle C=117^\\circ$"
+          },
+          "Result": {
+            "Ar": "$117$",
+            "En": "$117$"
+          },
+          "Unit": {
+            "Ar": "درجة",
+            "En": "degrees"
+          },
+          "Verification": {
+            "Ar": "$180-(180-117)=117$",
+            "En": "$180-(180-117)=117$"
+          },
+          "CommonError": {
+            "Ar": "المتكاملتان زاويتان متجاورتان على مستقيم، لا المتقابلتان بالرأس.",
+            "En": "A linear pair is supplementary, not vertically opposite angles."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 73,
+      "ExpectedOptionIds": [
+        281,
+        282,
+        283,
+        284
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "قانون الأسس: عند ضرب قوتين لهما الأساس نفسه، نجمع الأسين ونُبقي الأساس كما هو: أ^م × أ^ن = أ^(م + ن). في هذه المسألة الأساس 2، وبالتالي 2^3 × 2² = 2^(3 + 2) = 2^5. المطلوب كتابتها كقوة واحدة، لذلك لا نحتاج إلى حساب القيمة العشرية.",
+        "En": "Exponent law: When multiplying powers with the same base, add the exponents and keep the base: a^m × a^n = a^(m+n). Here the common base is 2, so 2^3 × 2² = 2^(3 + 2) = 2^5. The question asks for one power rather than its numerical evaluation."
+      },
+      "ProposedTrackCode": "grade-8",
+      "PrimarySkillKey": "middle-exponent-laws",
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 5,
+        "PrimarySkillId": 21,
+        "Points": 10,
+        "Title": {
+          "Ar": "بسّط \\(2^{3}\\times2^2\\) على صورة قوة للعدد 2.",
+          "En": "Write \\(2^{3}\\times2^2\\) as a single power of 2."
+        },
+        "Question": {
+          "Ar": "بسّط \\(2^{3}\\times2^2\\) على صورة قوة للعدد 2.",
+          "En": "Write \\(2^{3}\\times2^2\\) as a single power of 2."
+        },
+        "Options": [
+          {
+            "LatexCode": "2^{4}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "الأس 4 لا يساوي مجموع الأسين 3 و2.",
+              "En": "Exponent 4 is not the sum of exponents 3 and 2."
+            }
+          },
+          {
+            "LatexCode": "2^{6}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "الأس 6 لا يساوي مجموع الأسين 3 و2.",
+              "En": "Exponent 6 is not the sum of exponents 3 and 2."
+            }
+          },
+          {
+            "LatexCode": "2^{7}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "الأس 7 لا يساوي مجموع الأسين 3 و2.",
+              "En": "Exponent 7 is not the sum of exponents 3 and 2."
+            }
+          },
+          {
+            "LatexCode": "2^{5}",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "لاحظ أن الأساس نفسه في القوتين.",
+            "En": "Notice the common base in the two powers."
+          },
+          {
+            "Ar": "استخدم قاعدة ضرب القوى ذات الأساس نفسه.",
+            "En": "Use the product rule for powers of the same base."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "عند ضرب قوتين لهما الأساس نفسه نجمع الأسس.",
+            "En": "When multiplying powers with the same base, add the exponents."
+          },
+          "FormulaLatex": "a^ma^n=a^{m+n}",
+          "Steps": [
+            {
+              "Ar": "احتفظ بالأساس واجمع الأسين.",
+              "En": "Keep the base and add the exponents."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$2^{3}\\times2^{2}=2^{3+2}=2^{5}$",
+            "En": "$2^{3}\\times2^{2}=2^{3+2}=2^{5}$"
+          },
+          "Result": {
+            "Ar": "$2^{5}$",
+            "En": "$2^{5}$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "$8\\times4=32$",
+            "En": "$8\\times4=32$"
+          },
+          "CommonError": {
+            "Ar": "لا تغير الأساس أو تستعمل العملية على الأسس دون مراعاة نوعها.",
+            "En": "Do not change the base or use an exponent operation unrelated to the original operation."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 74,
+      "ExpectedOptionIds": [
+        285,
+        286,
+        287,
+        288
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "المبدأ المستخدم: لإيجاد قيمة دالة خطية نعوّض عن المتغير س بقيمة المدخل ثم ننفذ الضرب قبل الجمع. قاعدة الدالة f(س) = 2س + 3، والمدخل 2. إذن f(2) = 2 × 2 + 3 = 4 + 3 = 7.",
+        "En": "Rule used: Evaluate a linear function by replacing x with the input and multiplying before adding. For f(x) = 2x + 3 at input 2, calculate f(2) = 2 × 2 + 3 = 4 + 3 = 7."
+      },
+      "ProposedTrackCode": "grade-8",
+      "PrimarySkillKey": "middle-linear-function-evaluation",
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 6,
+        "PrimarySkillId": 26,
+        "Points": 10,
+        "Title": {
+          "Ar": "إذا كانت \\(f(x)=2x+3\\)، أوجد \\(f(2)\\).",
+          "En": "If \\(f(x)=2x+3\\), find \\(f(2)\\)."
+        },
+        "Question": {
+          "Ar": "إذا كانت \\(f(x)=2x+3\\)، أوجد \\(f(2)\\).",
+          "En": "If \\(f(x)=2x+3\\), find \\(f(2)\\)."
+        },
+        "Options": [
+          {
+            "LatexCode": "10",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "طرح 3 من 10 يعطي 7 لا 4.",
+              "En": "Subtracting 3 from 10 gives 7, not 4."
+            }
+          },
+          {
+            "LatexCode": "5",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "طرح 3 من 5 يعطي 2 لا 4.",
+              "En": "Subtracting 3 from 5 gives 2, not 4."
+            }
+          },
+          {
+            "LatexCode": "7",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "8",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "طرح 3 من 8 يعطي 5 لا 4.",
+              "En": "Subtracting 3 from 8 gives 5, not 4."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "عوّض المدخل مكان المتغير.",
+            "En": "Substitute the input for the variable."
+          },
+          {
+            "Ar": "احسب الحد الضربي قبل إضافة الثابت.",
+            "En": "Evaluate the product term before adding the constant."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نعوض المدخل في الدالة الخطية ونطبق ترتيب العمليات.",
+            "En": "Substitute the input into the linear function and follow order of operations."
+          },
+          "FormulaLatex": "f(t)=at+b",
+          "Steps": [
+            {
+              "Ar": "ضع 2 مكان المتغير، اضرب في 2 ثم أضف 3.",
+              "En": "Replace the variable by 2, multiply by 2, then add 3."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$f(2)=2\\times2+3=7$",
+            "En": "$f(2)=2\\times2+3=7$"
+          },
+          "Result": {
+            "Ar": "$7$",
+            "En": "$7$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "$7-3=4$",
+            "En": "$7-3=4$"
+          },
+          "CommonError": {
+            "Ar": "لا تجمع الثابت قبل الضرب.",
+            "En": "Do not add the constant before multiplying."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 75,
+      "ExpectedOptionIds": [
+        289,
+        290,
+        291,
+        292
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: عند ثبات سعر الوحدة، الثمن الكلي = عدد الدفاتر × سعر الدفتر الواحد. إذا كان ثمن 3 دفاتر 12 وحدة، فسعر الواحد = 12 ÷ 3 = 4 وحدات. بالتعويض في طلب 5 دفاتر: 5 × 4 = 20 وحدة.",
+        "En": "Rule used: With a constant unit rate, total cost = number of notebooks × price per notebook. Three notebooks cost 12 units, so one costs 12 ÷ 3 = 4. For five notebooks, total cost = 5 × 4 = 20 units."
+      },
+      "ProposedTrackCode": "grade-7",
+      "PrimarySkillKey": "middle-unit-rates",
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 7,
+        "PrimarySkillId": 31,
+        "Points": 10,
+        "Title": {
+          "Ar": "إذا كان ثمن 3 دفاتر 12، فما ثمن 5 دفاتر بالسعر نفسه؟",
+          "En": "If three notebooks cost 12, how much do five cost at the same price per notebook?"
+        },
+        "Question": {
+          "Ar": "إذا كان ثمن 3 دفاتر 12، فما ثمن 5 دفاتر بالسعر نفسه؟",
+          "En": "If three notebooks cost 12, how much do five cost at the same price per notebook?"
+        },
+        "Options": [
+          {
+            "LatexCode": "18",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "السعر 18 لا يعطي سعر الوحدة الثابت 4 عند قسمته على 5.",
+              "En": "Dividing 18 by 5 does not give the fixed unit price 4."
+            }
+          },
+          {
+            "LatexCode": "20",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "21",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "السعر 21 لا يعطي سعر الوحدة الثابت 4 عند قسمته على 5.",
+              "En": "Dividing 21 by 5 does not give the fixed unit price 4."
+            }
+          },
+          {
+            "LatexCode": "23",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "السعر 23 لا يعطي سعر الوحدة الثابت 4 عند قسمته على 5.",
+              "En": "Dividing 23 by 5 does not give the fixed unit price 4."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "أوجد أولاً سعر القطعة الواحدة.",
+            "En": "Find the price of one item first."
+          },
+          {
+            "Ar": "اقسم السعر المعطى على عدد القطع ثم اضرب في العدد المطلوب.",
+            "En": "Divide the given cost by its quantity, then multiply by the desired quantity."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نحسب سعر الوحدة ثم نضربه في الكمية المطلوبة، ما دام السعر ثابتاً.",
+            "En": "Calculate unit price, then multiply by the target quantity at the same rate."
+          },
+          "FormulaLatex": "C_2=\\frac{C_1}{q_1}q_2",
+          "Steps": [
+            {
+              "Ar": "اقسم 12 على 3 ثم اضرب سعر الوحدة في 5.",
+              "En": "Divide 12 by 3, then multiply the unit price by 5."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$\\frac{12}{3}\\times5=20$",
+            "En": "$\\frac{12}{3}\\times5=20$"
+          },
+          "Result": {
+            "Ar": "$20$",
+            "En": "$20$"
+          },
+          "Unit": {
+            "Ar": "وحدة نقدية",
+            "En": "currency units"
+          },
+          "Verification": {
+            "Ar": "$\\frac{20}{5}=\\frac{12}{3}$",
+            "En": "$\\frac{20}{5}=\\frac{12}{3}$"
+          },
+          "CommonError": {
+            "Ar": "انتبه لترتيب القسمة وللوحدات.",
+            "En": "Keep the division order and units consistent."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 76,
+      "ExpectedOptionIds": [
+        293,
+        294,
+        295,
+        296
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: نظرية فيثاغورس للمثلث القائم: مربع الوتر = مربع الضلع القائم الأول + مربع الثاني. الضلعان 3 و4؛ بالتعويض: ج² = 3² + 4² = 9 + 16 = 25. نأخذ الجذر التربيعي الموجب: ج = √25 = 5.",
+        "En": "Rule used: Pythagorean theorem for a right triangle: hypotenuse² = leg₁² + leg₂². Given legs 3 and 4, c² = 3² + 4² = 9 + 16 = 25. The hypotenuse is positive, so c = √25 = 5."
+      },
+      "ProposedTrackCode": "grade-8",
+      "PrimarySkillKey": "middle-pythagorean-theorem",
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 34,
+        "PrimarySkillId": 37,
+        "Points": 10,
+        "Title": {
+          "Ar": "مثلث قائم ضلعا قائمته 3 و4. أوجد الوتر.",
+          "En": "A right triangle has legs 3 and 4. Find the hypotenuse."
+        },
+        "Question": {
+          "Ar": "مثلث قائم ضلعا قائمته 3 و4. أوجد الوتر.",
+          "En": "A right triangle has legs 3 and 4. Find the hypotenuse."
+        },
+        "Options": [
+          {
+            "LatexCode": "5",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "6",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "مربع 6 هو 36 وليس مجموع المربعين 25.",
+              "En": "The square of 6 is 36, not the required sum 25."
+            }
+          },
+          {
+            "LatexCode": "7",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "مربع 7 هو 49 وليس مجموع المربعين 25.",
+              "En": "The square of 7 is 49, not the required sum 25."
+            }
+          },
+          {
+            "LatexCode": "8",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "مربع 8 هو 64 وليس مجموع المربعين 25.",
+              "En": "The square of 8 is 64, not the required sum 25."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "استعمل نظرية فيثاغورس في المثلث القائم.",
+            "En": "Use Pythagoras' theorem for the right triangle."
+          },
+          {
+            "Ar": "اجمع مربعي ضلعي القائمة ثم خذ الجذر التربيعي.",
+            "En": "Add the squares of the legs, then take the square root."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نظرية فيثاغورس: مربع الوتر يساوي مجموع مربعي ضلعي القائمة.",
+            "En": "Pythagoras' theorem: the square of the hypotenuse equals the sum of the squares of the legs."
+          },
+          "FormulaLatex": "c^2=a^2+b^2\\Rightarrow c=\\sqrt{a^2+b^2}",
+          "Steps": [
+            {
+              "Ar": "احسب مربع كل ضلع قائم واجمعهما.",
+              "En": "Square each leg and add the results."
+            },
+            {
+              "Ar": "خذ الجذر التربيعي الموجب للمجموع.",
+              "En": "Take the positive square root of the sum."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$c=\\sqrt{3^2+4^2}=\\sqrt{25}=5$",
+            "En": "$c=\\sqrt{3^2+4^2}=\\sqrt{25}=5$"
+          },
+          "Result": {
+            "Ar": "$5$",
+            "En": "$5$"
+          },
+          "Unit": {
+            "Ar": "وحدة طول",
+            "En": "length units"
+          },
+          "Verification": {
+            "Ar": "$5^2=25$",
+            "En": "$5^2=25$"
+          },
+          "CommonError": {
+            "Ar": "لا تجمع طولي الضلعين مباشرة، ولا تنس الجذر.",
+            "En": "Do not add the leg lengths directly or forget the square root."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 88,
+      "ExpectedOptionIds": [
+        341,
+        342,
+        343,
+        344
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "قانون الأسس: عند ضرب قوتين لهما الأساس نفسه، نجمع الأسين ونُبقي الأساس كما هو: أ^م × أ^ن = أ^(م + ن). في هذه المسألة الأساس 2، وبالتالي 2^4 × 2² = 2^(4 + 2) = 2^6. المطلوب كتابتها كقوة واحدة، لذلك لا نحتاج إلى حساب القيمة العشرية.",
+        "En": "Exponent law: When multiplying powers with the same base, add the exponents and keep the base: a^m × a^n = a^(m+n). Here the common base is 2, so 2^4 × 2² = 2^(4 + 2) = 2^6. The question asks for one power rather than its numerical evaluation."
+      },
+      "ProposedTrackCode": "grade-8",
+      "PrimarySkillKey": "middle-exponent-laws",
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 5,
+        "PrimarySkillId": 21,
+        "Points": 10,
+        "Title": {
+          "Ar": "بسّط \\(2^{4}\\times2^2\\) على صورة قوة للعدد 2.",
+          "En": "Write \\(2^{4}\\times2^2\\) as a single power of 2."
+        },
+        "Question": {
+          "Ar": "بسّط \\(2^{4}\\times2^2\\) على صورة قوة للعدد 2.",
+          "En": "Write \\(2^{4}\\times2^2\\) as a single power of 2."
+        },
+        "Options": [
+          {
+            "LatexCode": "2^{7}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "الأس 7 لا يساوي مجموع الأسين 4 و2.",
+              "En": "Exponent 7 is not the sum of exponents 4 and 2."
+            }
+          },
+          {
+            "LatexCode": "2^{8}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "الأس 8 لا يساوي مجموع الأسين 4 و2.",
+              "En": "Exponent 8 is not the sum of exponents 4 and 2."
+            }
+          },
+          {
+            "LatexCode": "2^{6}",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "2^{5}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "الأس 5 لا يساوي مجموع الأسين 4 و2.",
+              "En": "Exponent 5 is not the sum of exponents 4 and 2."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "لاحظ أن الأساس نفسه في القوتين.",
+            "En": "Notice the common base in the two powers."
+          },
+          {
+            "Ar": "استخدم قاعدة ضرب القوى ذات الأساس نفسه.",
+            "En": "Use the product rule for powers of the same base."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "عند ضرب قوتين لهما الأساس نفسه نجمع الأسس.",
+            "En": "When multiplying powers with the same base, add the exponents."
+          },
+          "FormulaLatex": "a^ma^n=a^{m+n}",
+          "Steps": [
+            {
+              "Ar": "احتفظ بالأساس واجمع الأسين.",
+              "En": "Keep the base and add the exponents."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$2^{4}\\times2^{2}=2^{4+2}=2^{6}$",
+            "En": "$2^{4}\\times2^{2}=2^{4+2}=2^{6}$"
+          },
+          "Result": {
+            "Ar": "$2^{6}$",
+            "En": "$2^{6}$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "$16\\times4=64$",
+            "En": "$16\\times4=64$"
+          },
+          "CommonError": {
+            "Ar": "لا تغير الأساس أو تستعمل العملية على الأسس دون مراعاة نوعها.",
+            "En": "Do not change the base or use an exponent operation unrelated to the original operation."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 89,
+      "ExpectedOptionIds": [
+        345,
+        346,
+        347,
+        348
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "المبدأ المستخدم: لإيجاد قيمة دالة خطية نعوّض عن المتغير س بقيمة المدخل ثم ننفذ الضرب قبل الجمع. قاعدة الدالة f(س) = 3س + 4، والمدخل 3. إذن f(3) = 3 × 3 + 4 = 9 + 4 = 13.",
+        "En": "Rule used: Evaluate a linear function by replacing x with the input and multiplying before adding. For f(x) = 3x + 4 at input 3, calculate f(3) = 3 × 3 + 4 = 9 + 4 = 13."
+      },
+      "ProposedTrackCode": "grade-8",
+      "PrimarySkillKey": "middle-linear-function-evaluation",
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 6,
+        "PrimarySkillId": 26,
+        "Points": 10,
+        "Title": {
+          "Ar": "إذا كانت \\(f(x)=3x+4\\)، أوجد \\(f(3)\\).",
+          "En": "If \\(f(x)=3x+4\\), find \\(f(3)\\)."
+        },
+        "Question": {
+          "Ar": "إذا كانت \\(f(x)=3x+4\\)، أوجد \\(f(3)\\).",
+          "En": "If \\(f(x)=3x+4\\), find \\(f(3)\\)."
+        },
+        "Options": [
+          {
+            "LatexCode": "11",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "طرح 4 من 11 يعطي 7 لا 9.",
+              "En": "Subtracting 4 from 11 gives 7, not 9."
+            }
+          },
+          {
+            "LatexCode": "13",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "14",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "طرح 4 من 14 يعطي 10 لا 9.",
+              "En": "Subtracting 4 from 14 gives 10, not 9."
+            }
+          },
+          {
+            "LatexCode": "16",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "طرح 4 من 16 يعطي 12 لا 9.",
+              "En": "Subtracting 4 from 16 gives 12, not 9."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "عوّض المدخل مكان المتغير.",
+            "En": "Substitute the input for the variable."
+          },
+          {
+            "Ar": "احسب الحد الضربي قبل إضافة الثابت.",
+            "En": "Evaluate the product term before adding the constant."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نعوض المدخل في الدالة الخطية ونطبق ترتيب العمليات.",
+            "En": "Substitute the input into the linear function and follow order of operations."
+          },
+          "FormulaLatex": "f(t)=at+b",
+          "Steps": [
+            {
+              "Ar": "ضع 3 مكان المتغير، اضرب في 3 ثم أضف 4.",
+              "En": "Replace the variable by 3, multiply by 3, then add 4."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$f(3)=3\\times3+4=13$",
+            "En": "$f(3)=3\\times3+4=13$"
+          },
+          "Result": {
+            "Ar": "$13$",
+            "En": "$13$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "$13-4=9$",
+            "En": "$13-4=9$"
+          },
+          "CommonError": {
+            "Ar": "لا تجمع الثابت قبل الضرب.",
+            "En": "Do not add the constant before multiplying."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 90,
+      "ExpectedOptionIds": [
+        349,
+        350,
+        351,
+        352
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: عند ثبات سعر الوحدة، الثمن الكلي = عدد الدفاتر × سعر الدفتر الواحد. إذا كان ثمن 3 دفاتر 15 وحدة، فسعر الواحد = 15 ÷ 3 = 5 وحدات. بالتعويض في طلب 5 دفاتر: 5 × 5 = 25 وحدة.",
+        "En": "Rule used: With a constant unit rate, total cost = number of notebooks × price per notebook. Three notebooks cost 15 units, so one costs 15 ÷ 3 = 5. For five notebooks, total cost = 5 × 5 = 25 units."
+      },
+      "ProposedTrackCode": "grade-7",
+      "PrimarySkillKey": "middle-unit-rates",
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 7,
+        "PrimarySkillId": 31,
+        "Points": 10,
+        "Title": {
+          "Ar": "إذا كان ثمن 3 دفاتر 15، فما ثمن 5 دفاتر بالسعر نفسه؟",
+          "En": "If three notebooks cost 15, how much do five cost at the same price per notebook?"
+        },
+        "Question": {
+          "Ar": "إذا كان ثمن 3 دفاتر 15، فما ثمن 5 دفاتر بالسعر نفسه؟",
+          "En": "If three notebooks cost 15, how much do five cost at the same price per notebook?"
+        },
+        "Options": [
+          {
+            "LatexCode": "25",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "26",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "السعر 26 لا يعطي سعر الوحدة الثابت 5 عند قسمته على 5.",
+              "En": "Dividing 26 by 5 does not give the fixed unit price 5."
+            }
+          },
+          {
+            "LatexCode": "28",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "السعر 28 لا يعطي سعر الوحدة الثابت 5 عند قسمته على 5.",
+              "En": "Dividing 28 by 5 does not give the fixed unit price 5."
+            }
+          },
+          {
+            "LatexCode": "23",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "السعر 23 لا يعطي سعر الوحدة الثابت 5 عند قسمته على 5.",
+              "En": "Dividing 23 by 5 does not give the fixed unit price 5."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "أوجد أولاً سعر القطعة الواحدة.",
+            "En": "Find the price of one item first."
+          },
+          {
+            "Ar": "اقسم السعر المعطى على عدد القطع ثم اضرب في العدد المطلوب.",
+            "En": "Divide the given cost by its quantity, then multiply by the desired quantity."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نحسب سعر الوحدة ثم نضربه في الكمية المطلوبة، ما دام السعر ثابتاً.",
+            "En": "Calculate unit price, then multiply by the target quantity at the same rate."
+          },
+          "FormulaLatex": "C_2=\\frac{C_1}{q_1}q_2",
+          "Steps": [
+            {
+              "Ar": "اقسم 15 على 3 ثم اضرب سعر الوحدة في 5.",
+              "En": "Divide 15 by 3, then multiply the unit price by 5."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$\\frac{15}{3}\\times5=25$",
+            "En": "$\\frac{15}{3}\\times5=25$"
+          },
+          "Result": {
+            "Ar": "$25$",
+            "En": "$25$"
+          },
+          "Unit": {
+            "Ar": "وحدة نقدية",
+            "En": "currency units"
+          },
+          "Verification": {
+            "Ar": "$\\frac{25}{5}=\\frac{15}{3}$",
+            "En": "$\\frac{25}{5}=\\frac{15}{3}$"
+          },
+          "CommonError": {
+            "Ar": "انتبه لترتيب القسمة وللوحدات.",
+            "En": "Keep the division order and units consistent."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 91,
+      "ExpectedOptionIds": [
+        353,
+        354,
+        355,
+        356
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: نظرية فيثاغورس للمثلث القائم: مربع الوتر = مربع الضلع القائم الأول + مربع الثاني. الضلعان 6 و8؛ بالتعويض: ج² = 6² + 8² = 36 + 64 = 100. نأخذ الجذر التربيعي الموجب: ج = √100 = 10.",
+        "En": "Rule used: Pythagorean theorem for a right triangle: hypotenuse² = leg₁² + leg₂². Given legs 6 and 8, c² = 6² + 8² = 36 + 64 = 100. The hypotenuse is positive, so c = √100 = 10."
+      },
+      "ProposedTrackCode": "grade-8",
+      "PrimarySkillKey": "middle-pythagorean-theorem",
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 34,
+        "PrimarySkillId": 37,
+        "Points": 10,
+        "Title": {
+          "Ar": "مثلث قائم ضلعا قائمته 6 و8. أوجد الوتر.",
+          "En": "A right triangle has legs 6 and 8. Find the hypotenuse."
+        },
+        "Question": {
+          "Ar": "مثلث قائم ضلعا قائمته 6 و8. أوجد الوتر.",
+          "En": "A right triangle has legs 6 and 8. Find the hypotenuse."
+        },
+        "Options": [
+          {
+            "LatexCode": "12",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "مربع 12 هو 144 وليس مجموع المربعين 100.",
+              "En": "The square of 12 is 144, not the required sum 100."
+            }
+          },
+          {
+            "LatexCode": "14",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "مربع 14 هو 196 وليس مجموع المربعين 100.",
+              "En": "The square of 14 is 196, not the required sum 100."
+            }
+          },
+          {
+            "LatexCode": "16",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "مربع 16 هو 256 وليس مجموع المربعين 100.",
+              "En": "The square of 16 is 256, not the required sum 100."
+            }
+          },
+          {
+            "LatexCode": "10",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "استعمل نظرية فيثاغورس في المثلث القائم.",
+            "En": "Use Pythagoras' theorem for the right triangle."
+          },
+          {
+            "Ar": "اجمع مربعي ضلعي القائمة ثم خذ الجذر التربيعي.",
+            "En": "Add the squares of the legs, then take the square root."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نظرية فيثاغورس: مربع الوتر يساوي مجموع مربعي ضلعي القائمة.",
+            "En": "Pythagoras' theorem: the square of the hypotenuse equals the sum of the squares of the legs."
+          },
+          "FormulaLatex": "c^2=a^2+b^2\\Rightarrow c=\\sqrt{a^2+b^2}",
+          "Steps": [
+            {
+              "Ar": "احسب مربع كل ضلع قائم واجمعهما.",
+              "En": "Square each leg and add the results."
+            },
+            {
+              "Ar": "خذ الجذر التربيعي الموجب للمجموع.",
+              "En": "Take the positive square root of the sum."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$c=\\sqrt{6^2+8^2}=\\sqrt{100}=10$",
+            "En": "$c=\\sqrt{6^2+8^2}=\\sqrt{100}=10$"
+          },
+          "Result": {
+            "Ar": "$10$",
+            "En": "$10$"
+          },
+          "Unit": {
+            "Ar": "وحدة طول",
+            "En": "length units"
+          },
+          "Verification": {
+            "Ar": "$10^2=100$",
+            "En": "$10^2=100$"
+          },
+          "CommonError": {
+            "Ar": "لا تجمع طولي الضلعين مباشرة، ولا تنس الجذر.",
+            "En": "Do not add the leg lengths directly or forget the square root."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 103,
+      "ExpectedOptionIds": [
+        401,
+        402,
+        403,
+        404
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "قانون الأسس: عند ضرب قوتين لهما الأساس نفسه، نجمع الأسين ونُبقي الأساس كما هو: أ^م × أ^ن = أ^(م + ن). في هذه المسألة الأساس 2، وبالتالي 2^5 × 2² = 2^(5 + 2) = 2^7. المطلوب كتابتها كقوة واحدة، لذلك لا نحتاج إلى حساب القيمة العشرية.",
+        "En": "Exponent law: When multiplying powers with the same base, add the exponents and keep the base: a^m × a^n = a^(m+n). Here the common base is 2, so 2^5 × 2² = 2^(5 + 2) = 2^7. The question asks for one power rather than its numerical evaluation."
+      },
+      "ProposedTrackCode": "grade-8",
+      "PrimarySkillKey": "middle-exponent-laws",
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 5,
+        "PrimarySkillId": 21,
+        "Points": 10,
+        "Title": {
+          "Ar": "بسّط \\(2^{5}\\times2^2\\) على صورة قوة للعدد 2.",
+          "En": "Write \\(2^{5}\\times2^2\\) as a single power of 2."
+        },
+        "Question": {
+          "Ar": "بسّط \\(2^{5}\\times2^2\\) على صورة قوة للعدد 2.",
+          "En": "Write \\(2^{5}\\times2^2\\) as a single power of 2."
+        },
+        "Options": [
+          {
+            "LatexCode": "2^{9}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "الأس 9 لا يساوي مجموع الأسين 5 و2.",
+              "En": "Exponent 9 is not the sum of exponents 5 and 2."
+            }
+          },
+          {
+            "LatexCode": "2^{7}",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "2^{6}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "الأس 6 لا يساوي مجموع الأسين 5 و2.",
+              "En": "Exponent 6 is not the sum of exponents 5 and 2."
+            }
+          },
+          {
+            "LatexCode": "2^{8}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "الأس 8 لا يساوي مجموع الأسين 5 و2.",
+              "En": "Exponent 8 is not the sum of exponents 5 and 2."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "لاحظ أن الأساس نفسه في القوتين.",
+            "En": "Notice the common base in the two powers."
+          },
+          {
+            "Ar": "استخدم قاعدة ضرب القوى ذات الأساس نفسه.",
+            "En": "Use the product rule for powers of the same base."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "عند ضرب قوتين لهما الأساس نفسه نجمع الأسس.",
+            "En": "When multiplying powers with the same base, add the exponents."
+          },
+          "FormulaLatex": "a^ma^n=a^{m+n}",
+          "Steps": [
+            {
+              "Ar": "احتفظ بالأساس واجمع الأسين.",
+              "En": "Keep the base and add the exponents."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$2^{5}\\times2^{2}=2^{5+2}=2^{7}$",
+            "En": "$2^{5}\\times2^{2}=2^{5+2}=2^{7}$"
+          },
+          "Result": {
+            "Ar": "$2^{7}$",
+            "En": "$2^{7}$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "$32\\times4=128$",
+            "En": "$32\\times4=128$"
+          },
+          "CommonError": {
+            "Ar": "لا تغير الأساس أو تستعمل العملية على الأسس دون مراعاة نوعها.",
+            "En": "Do not change the base or use an exponent operation unrelated to the original operation."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 104,
+      "ExpectedOptionIds": [
+        405,
+        406,
+        407,
+        408
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "المبدأ المستخدم: لإيجاد قيمة دالة خطية نعوّض عن المتغير س بقيمة المدخل ثم ننفذ الضرب قبل الجمع. قاعدة الدالة f(س) = 4س + 5، والمدخل 4. إذن f(4) = 4 × 4 + 5 = 16 + 5 = 21.",
+        "En": "Rule used: Evaluate a linear function by replacing x with the input and multiplying before adding. For f(x) = 4x + 5 at input 4, calculate f(4) = 4 × 4 + 5 = 16 + 5 = 21."
+      },
+      "ProposedTrackCode": "grade-8",
+      "PrimarySkillKey": "middle-linear-function-evaluation",
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 6,
+        "PrimarySkillId": 26,
+        "Points": 10,
+        "Title": {
+          "Ar": "إذا كانت \\(f(x)=4x+5\\)، أوجد \\(f(4)\\).",
+          "En": "If \\(f(x)=4x+5\\), find \\(f(4)\\)."
+        },
+        "Question": {
+          "Ar": "إذا كانت \\(f(x)=4x+5\\)، أوجد \\(f(4)\\).",
+          "En": "If \\(f(x)=4x+5\\), find \\(f(4)\\)."
+        },
+        "Options": [
+          {
+            "LatexCode": "21",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "22",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "طرح 5 من 22 يعطي 17 لا 16.",
+              "En": "Subtracting 5 from 22 gives 17, not 16."
+            }
+          },
+          {
+            "LatexCode": "24",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "طرح 5 من 24 يعطي 19 لا 16.",
+              "En": "Subtracting 5 from 24 gives 19, not 16."
+            }
+          },
+          {
+            "LatexCode": "19",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "طرح 5 من 19 يعطي 14 لا 16.",
+              "En": "Subtracting 5 from 19 gives 14, not 16."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "عوّض المدخل مكان المتغير.",
+            "En": "Substitute the input for the variable."
+          },
+          {
+            "Ar": "احسب الحد الضربي قبل إضافة الثابت.",
+            "En": "Evaluate the product term before adding the constant."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نعوض المدخل في الدالة الخطية ونطبق ترتيب العمليات.",
+            "En": "Substitute the input into the linear function and follow order of operations."
+          },
+          "FormulaLatex": "f(t)=at+b",
+          "Steps": [
+            {
+              "Ar": "ضع 4 مكان المتغير، اضرب في 4 ثم أضف 5.",
+              "En": "Replace the variable by 4, multiply by 4, then add 5."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$f(4)=4\\times4+5=21$",
+            "En": "$f(4)=4\\times4+5=21$"
+          },
+          "Result": {
+            "Ar": "$21$",
+            "En": "$21$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "$21-5=16$",
+            "En": "$21-5=16$"
+          },
+          "CommonError": {
+            "Ar": "لا تجمع الثابت قبل الضرب.",
+            "En": "Do not add the constant before multiplying."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 105,
+      "ExpectedOptionIds": [
+        409,
+        410,
+        411,
+        412
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: عند ثبات سعر الوحدة، الثمن الكلي = عدد الدفاتر × سعر الدفتر الواحد. إذا كان ثمن 3 دفاتر 18 وحدة، فسعر الواحد = 18 ÷ 3 = 6 وحدات. بالتعويض في طلب 5 دفاتر: 5 × 6 = 30 وحدة.",
+        "En": "Rule used: With a constant unit rate, total cost = number of notebooks × price per notebook. Three notebooks cost 18 units, so one costs 18 ÷ 3 = 6. For five notebooks, total cost = 5 × 6 = 30 units."
+      },
+      "ProposedTrackCode": "grade-7",
+      "PrimarySkillKey": "middle-unit-rates",
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 7,
+        "PrimarySkillId": 31,
+        "Points": 10,
+        "Title": {
+          "Ar": "إذا كان ثمن 3 دفاتر 18، فما ثمن 5 دفاتر بالسعر نفسه؟",
+          "En": "If three notebooks cost 18, how much do five cost at the same price per notebook?"
+        },
+        "Question": {
+          "Ar": "إذا كان ثمن 3 دفاتر 18، فما ثمن 5 دفاتر بالسعر نفسه؟",
+          "En": "If three notebooks cost 18, how much do five cost at the same price per notebook?"
+        },
+        "Options": [
+          {
+            "LatexCode": "31",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "السعر 31 لا يعطي سعر الوحدة الثابت 6 عند قسمته على 5.",
+              "En": "Dividing 31 by 5 does not give the fixed unit price 6."
+            }
+          },
+          {
+            "LatexCode": "33",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "السعر 33 لا يعطي سعر الوحدة الثابت 6 عند قسمته على 5.",
+              "En": "Dividing 33 by 5 does not give the fixed unit price 6."
+            }
+          },
+          {
+            "LatexCode": "28",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "السعر 28 لا يعطي سعر الوحدة الثابت 6 عند قسمته على 5.",
+              "En": "Dividing 28 by 5 does not give the fixed unit price 6."
+            }
+          },
+          {
+            "LatexCode": "30",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "أوجد أولاً سعر القطعة الواحدة.",
+            "En": "Find the price of one item first."
+          },
+          {
+            "Ar": "اقسم السعر المعطى على عدد القطع ثم اضرب في العدد المطلوب.",
+            "En": "Divide the given cost by its quantity, then multiply by the desired quantity."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نحسب سعر الوحدة ثم نضربه في الكمية المطلوبة، ما دام السعر ثابتاً.",
+            "En": "Calculate unit price, then multiply by the target quantity at the same rate."
+          },
+          "FormulaLatex": "C_2=\\frac{C_1}{q_1}q_2",
+          "Steps": [
+            {
+              "Ar": "اقسم 18 على 3 ثم اضرب سعر الوحدة في 5.",
+              "En": "Divide 18 by 3, then multiply the unit price by 5."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$\\frac{18}{3}\\times5=30$",
+            "En": "$\\frac{18}{3}\\times5=30$"
+          },
+          "Result": {
+            "Ar": "$30$",
+            "En": "$30$"
+          },
+          "Unit": {
+            "Ar": "وحدة نقدية",
+            "En": "currency units"
+          },
+          "Verification": {
+            "Ar": "$\\frac{30}{5}=\\frac{18}{3}$",
+            "En": "$\\frac{30}{5}=\\frac{18}{3}$"
+          },
+          "CommonError": {
+            "Ar": "انتبه لترتيب القسمة وللوحدات.",
+            "En": "Keep the division order and units consistent."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 106,
+      "ExpectedOptionIds": [
+        413,
+        414,
+        415,
+        416
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: نظرية فيثاغورس للمثلث القائم: مربع الوتر = مربع الضلع القائم الأول + مربع الثاني. الضلعان 9 و12؛ بالتعويض: ج² = 9² + 12² = 81 + 144 = 225. نأخذ الجذر التربيعي الموجب: ج = √225 = 15.",
+        "En": "Rule used: Pythagorean theorem for a right triangle: hypotenuse² = leg₁² + leg₂². Given legs 9 and 12, c² = 9² + 12² = 81 + 144 = 225. The hypotenuse is positive, so c = √225 = 15."
+      },
+      "ProposedTrackCode": "grade-8",
+      "PrimarySkillKey": "middle-pythagorean-theorem",
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 34,
+        "PrimarySkillId": 37,
+        "Points": 10,
+        "Title": {
+          "Ar": "مثلث قائم ضلعا قائمته 9 و12. أوجد الوتر.",
+          "En": "A right triangle has legs 9 and 12. Find the hypotenuse."
+        },
+        "Question": {
+          "Ar": "مثلث قائم ضلعا قائمته 9 و12. أوجد الوتر.",
+          "En": "A right triangle has legs 9 and 12. Find the hypotenuse."
+        },
+        "Options": [
+          {
+            "LatexCode": "21",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "مربع 21 هو 441 وليس مجموع المربعين 225.",
+              "En": "The square of 21 is 441, not the required sum 225."
+            }
+          },
+          {
+            "LatexCode": "24",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "مربع 24 هو 576 وليس مجموع المربعين 225.",
+              "En": "The square of 24 is 576, not the required sum 225."
+            }
+          },
+          {
+            "LatexCode": "15",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "18",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "مربع 18 هو 324 وليس مجموع المربعين 225.",
+              "En": "The square of 18 is 324, not the required sum 225."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "استعمل نظرية فيثاغورس في المثلث القائم.",
+            "En": "Use Pythagoras' theorem for the right triangle."
+          },
+          {
+            "Ar": "اجمع مربعي ضلعي القائمة ثم خذ الجذر التربيعي.",
+            "En": "Add the squares of the legs, then take the square root."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نظرية فيثاغورس: مربع الوتر يساوي مجموع مربعي ضلعي القائمة.",
+            "En": "Pythagoras' theorem: the square of the hypotenuse equals the sum of the squares of the legs."
+          },
+          "FormulaLatex": "c^2=a^2+b^2\\Rightarrow c=\\sqrt{a^2+b^2}",
+          "Steps": [
+            {
+              "Ar": "احسب مربع كل ضلع قائم واجمعهما.",
+              "En": "Square each leg and add the results."
+            },
+            {
+              "Ar": "خذ الجذر التربيعي الموجب للمجموع.",
+              "En": "Take the positive square root of the sum."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$c=\\sqrt{9^2+12^2}=\\sqrt{225}=15$",
+            "En": "$c=\\sqrt{9^2+12^2}=\\sqrt{225}=15$"
+          },
+          "Result": {
+            "Ar": "$15$",
+            "En": "$15$"
+          },
+          "Unit": {
+            "Ar": "وحدة طول",
+            "En": "length units"
+          },
+          "Verification": {
+            "Ar": "$15^2=225$",
+            "En": "$15^2=225$"
+          },
+          "CommonError": {
+            "Ar": "لا تجمع طولي الضلعين مباشرة، ولا تنس الجذر.",
+            "En": "Do not add the leg lengths directly or forget the square root."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 118,
+      "ExpectedOptionIds": [
+        461,
+        462,
+        463,
+        464
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "قانون الأسس: عند ضرب قوتين لهما الأساس نفسه، نجمع الأسين ونُبقي الأساس كما هو: أ^م × أ^ن = أ^(م + ن). في هذه المسألة الأساس 2، وبالتالي 2^6 × 2² = 2^(6 + 2) = 2^8. المطلوب كتابتها كقوة واحدة، لذلك لا نحتاج إلى حساب القيمة العشرية.",
+        "En": "Exponent law: When multiplying powers with the same base, add the exponents and keep the base: a^m × a^n = a^(m+n). Here the common base is 2, so 2^6 × 2² = 2^(6 + 2) = 2^8. The question asks for one power rather than its numerical evaluation."
+      },
+      "ProposedTrackCode": "grade-8",
+      "PrimarySkillKey": "middle-exponent-laws",
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 5,
+        "PrimarySkillId": 21,
+        "Points": 10,
+        "Title": {
+          "Ar": "بسّط \\(2^{6}\\times2^2\\) على صورة قوة للعدد 2.",
+          "En": "Write \\(2^{6}\\times2^2\\) as a single power of 2."
+        },
+        "Question": {
+          "Ar": "بسّط \\(2^{6}\\times2^2\\) على صورة قوة للعدد 2.",
+          "En": "Write \\(2^{6}\\times2^2\\) as a single power of 2."
+        },
+        "Options": [
+          {
+            "LatexCode": "2^{8}",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "2^{7}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "الأس 7 لا يساوي مجموع الأسين 6 و2.",
+              "En": "Exponent 7 is not the sum of exponents 6 and 2."
+            }
+          },
+          {
+            "LatexCode": "2^{9}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "الأس 9 لا يساوي مجموع الأسين 6 و2.",
+              "En": "Exponent 9 is not the sum of exponents 6 and 2."
+            }
+          },
+          {
+            "LatexCode": "2^{10}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "الأس 10 لا يساوي مجموع الأسين 6 و2.",
+              "En": "Exponent 10 is not the sum of exponents 6 and 2."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "لاحظ أن الأساس نفسه في القوتين.",
+            "En": "Notice the common base in the two powers."
+          },
+          {
+            "Ar": "استخدم قاعدة ضرب القوى ذات الأساس نفسه.",
+            "En": "Use the product rule for powers of the same base."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "عند ضرب قوتين لهما الأساس نفسه نجمع الأسس.",
+            "En": "When multiplying powers with the same base, add the exponents."
+          },
+          "FormulaLatex": "a^ma^n=a^{m+n}",
+          "Steps": [
+            {
+              "Ar": "احتفظ بالأساس واجمع الأسين.",
+              "En": "Keep the base and add the exponents."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$2^{6}\\times2^{2}=2^{6+2}=2^{8}$",
+            "En": "$2^{6}\\times2^{2}=2^{6+2}=2^{8}$"
+          },
+          "Result": {
+            "Ar": "$2^{8}$",
+            "En": "$2^{8}$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "$64\\times4=256$",
+            "En": "$64\\times4=256$"
+          },
+          "CommonError": {
+            "Ar": "لا تغير الأساس أو تستعمل العملية على الأسس دون مراعاة نوعها.",
+            "En": "Do not change the base or use an exponent operation unrelated to the original operation."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 119,
+      "ExpectedOptionIds": [
+        465,
+        466,
+        467,
+        468
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "المبدأ المستخدم: لإيجاد قيمة دالة خطية نعوّض عن المتغير س بقيمة المدخل ثم ننفذ الضرب قبل الجمع. قاعدة الدالة f(س) = 5س + 6، والمدخل 5. إذن f(5) = 5 × 5 + 6 = 25 + 6 = 31.",
+        "En": "Rule used: Evaluate a linear function by replacing x with the input and multiplying before adding. For f(x) = 5x + 6 at input 5, calculate f(5) = 5 × 5 + 6 = 25 + 6 = 31."
+      },
+      "ProposedTrackCode": "grade-8",
+      "PrimarySkillKey": "middle-linear-function-evaluation",
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 6,
+        "PrimarySkillId": 26,
+        "Points": 10,
+        "Title": {
+          "Ar": "إذا كانت \\(f(x)=5x+6\\)، أوجد \\(f(5)\\).",
+          "En": "If \\(f(x)=5x+6\\), find \\(f(5)\\)."
+        },
+        "Question": {
+          "Ar": "إذا كانت \\(f(x)=5x+6\\)، أوجد \\(f(5)\\).",
+          "En": "If \\(f(x)=5x+6\\), find \\(f(5)\\)."
+        },
+        "Options": [
+          {
+            "LatexCode": "32",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "طرح 6 من 32 يعطي 26 لا 25.",
+              "En": "Subtracting 6 from 32 gives 26, not 25."
+            }
+          },
+          {
+            "LatexCode": "34",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "طرح 6 من 34 يعطي 28 لا 25.",
+              "En": "Subtracting 6 from 34 gives 28, not 25."
+            }
+          },
+          {
+            "LatexCode": "29",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "طرح 6 من 29 يعطي 23 لا 25.",
+              "En": "Subtracting 6 from 29 gives 23, not 25."
+            }
+          },
+          {
+            "LatexCode": "31",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "عوّض المدخل مكان المتغير.",
+            "En": "Substitute the input for the variable."
+          },
+          {
+            "Ar": "احسب الحد الضربي قبل إضافة الثابت.",
+            "En": "Evaluate the product term before adding the constant."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نعوض المدخل في الدالة الخطية ونطبق ترتيب العمليات.",
+            "En": "Substitute the input into the linear function and follow order of operations."
+          },
+          "FormulaLatex": "f(t)=at+b",
+          "Steps": [
+            {
+              "Ar": "ضع 5 مكان المتغير، اضرب في 5 ثم أضف 6.",
+              "En": "Replace the variable by 5, multiply by 5, then add 6."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$f(5)=5\\times5+6=31$",
+            "En": "$f(5)=5\\times5+6=31$"
+          },
+          "Result": {
+            "Ar": "$31$",
+            "En": "$31$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "$31-6=25$",
+            "En": "$31-6=25$"
+          },
+          "CommonError": {
+            "Ar": "لا تجمع الثابت قبل الضرب.",
+            "En": "Do not add the constant before multiplying."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 120,
+      "ExpectedOptionIds": [
+        469,
+        470,
+        471,
+        472
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: عند ثبات سعر الوحدة، الثمن الكلي = عدد الدفاتر × سعر الدفتر الواحد. إذا كان ثمن 3 دفاتر 21 وحدة، فسعر الواحد = 21 ÷ 3 = 7 وحدات. بالتعويض في طلب 5 دفاتر: 5 × 7 = 35 وحدة.",
+        "En": "Rule used: With a constant unit rate, total cost = number of notebooks × price per notebook. Three notebooks cost 21 units, so one costs 21 ÷ 3 = 7. For five notebooks, total cost = 5 × 7 = 35 units."
+      },
+      "ProposedTrackCode": "grade-7",
+      "PrimarySkillKey": "middle-unit-rates",
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 7,
+        "PrimarySkillId": 31,
+        "Points": 10,
+        "Title": {
+          "Ar": "إذا كان ثمن 3 دفاتر 21، فما ثمن 5 دفاتر بالسعر نفسه؟",
+          "En": "If three notebooks cost 21, how much do five cost at the same price per notebook?"
+        },
+        "Question": {
+          "Ar": "إذا كان ثمن 3 دفاتر 21، فما ثمن 5 دفاتر بالسعر نفسه؟",
+          "En": "If three notebooks cost 21, how much do five cost at the same price per notebook?"
+        },
+        "Options": [
+          {
+            "LatexCode": "38",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "السعر 38 لا يعطي سعر الوحدة الثابت 7 عند قسمته على 5.",
+              "En": "Dividing 38 by 5 does not give the fixed unit price 7."
+            }
+          },
+          {
+            "LatexCode": "33",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "السعر 33 لا يعطي سعر الوحدة الثابت 7 عند قسمته على 5.",
+              "En": "Dividing 33 by 5 does not give the fixed unit price 7."
+            }
+          },
+          {
+            "LatexCode": "35",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "36",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "السعر 36 لا يعطي سعر الوحدة الثابت 7 عند قسمته على 5.",
+              "En": "Dividing 36 by 5 does not give the fixed unit price 7."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "أوجد أولاً سعر القطعة الواحدة.",
+            "En": "Find the price of one item first."
+          },
+          {
+            "Ar": "اقسم السعر المعطى على عدد القطع ثم اضرب في العدد المطلوب.",
+            "En": "Divide the given cost by its quantity, then multiply by the desired quantity."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نحسب سعر الوحدة ثم نضربه في الكمية المطلوبة، ما دام السعر ثابتاً.",
+            "En": "Calculate unit price, then multiply by the target quantity at the same rate."
+          },
+          "FormulaLatex": "C_2=\\frac{C_1}{q_1}q_2",
+          "Steps": [
+            {
+              "Ar": "اقسم 21 على 3 ثم اضرب سعر الوحدة في 5.",
+              "En": "Divide 21 by 3, then multiply the unit price by 5."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$\\frac{21}{3}\\times5=35$",
+            "En": "$\\frac{21}{3}\\times5=35$"
+          },
+          "Result": {
+            "Ar": "$35$",
+            "En": "$35$"
+          },
+          "Unit": {
+            "Ar": "وحدة نقدية",
+            "En": "currency units"
+          },
+          "Verification": {
+            "Ar": "$\\frac{35}{5}=\\frac{21}{3}$",
+            "En": "$\\frac{35}{5}=\\frac{21}{3}$"
+          },
+          "CommonError": {
+            "Ar": "انتبه لترتيب القسمة وللوحدات.",
+            "En": "Keep the division order and units consistent."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 121,
+      "ExpectedOptionIds": [
+        473,
+        474,
+        475,
+        476
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: نظرية فيثاغورس للمثلث القائم: مربع الوتر = مربع الضلع القائم الأول + مربع الثاني. الضلعان 12 و16؛ بالتعويض: ج² = 12² + 16² = 144 + 256 = 400. نأخذ الجذر التربيعي الموجب: ج = √400 = 20.",
+        "En": "Rule used: Pythagorean theorem for a right triangle: hypotenuse² = leg₁² + leg₂². Given legs 12 and 16, c² = 12² + 16² = 144 + 256 = 400. The hypotenuse is positive, so c = √400 = 20."
+      },
+      "ProposedTrackCode": "grade-8",
+      "PrimarySkillKey": "middle-pythagorean-theorem",
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 34,
+        "PrimarySkillId": 37,
+        "Points": 10,
+        "Title": {
+          "Ar": "مثلث قائم ضلعا قائمته 12 و16. أوجد الوتر.",
+          "En": "A right triangle has legs 12 and 16. Find the hypotenuse."
+        },
+        "Question": {
+          "Ar": "مثلث قائم ضلعا قائمته 12 و16. أوجد الوتر.",
+          "En": "A right triangle has legs 12 and 16. Find the hypotenuse."
+        },
+        "Options": [
+          {
+            "LatexCode": "32",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "مربع 32 هو 1024 وليس مجموع المربعين 400.",
+              "En": "The square of 32 is 1024, not the required sum 400."
+            }
+          },
+          {
+            "LatexCode": "20",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "24",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "مربع 24 هو 576 وليس مجموع المربعين 400.",
+              "En": "The square of 24 is 576, not the required sum 400."
+            }
+          },
+          {
+            "LatexCode": "28",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "مربع 28 هو 784 وليس مجموع المربعين 400.",
+              "En": "The square of 28 is 784, not the required sum 400."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "استعمل نظرية فيثاغورس في المثلث القائم.",
+            "En": "Use Pythagoras' theorem for the right triangle."
+          },
+          {
+            "Ar": "اجمع مربعي ضلعي القائمة ثم خذ الجذر التربيعي.",
+            "En": "Add the squares of the legs, then take the square root."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نظرية فيثاغورس: مربع الوتر يساوي مجموع مربعي ضلعي القائمة.",
+            "En": "Pythagoras' theorem: the square of the hypotenuse equals the sum of the squares of the legs."
+          },
+          "FormulaLatex": "c^2=a^2+b^2\\Rightarrow c=\\sqrt{a^2+b^2}",
+          "Steps": [
+            {
+              "Ar": "احسب مربع كل ضلع قائم واجمعهما.",
+              "En": "Square each leg and add the results."
+            },
+            {
+              "Ar": "خذ الجذر التربيعي الموجب للمجموع.",
+              "En": "Take the positive square root of the sum."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$c=\\sqrt{12^2+16^2}=\\sqrt{400}=20$",
+            "En": "$c=\\sqrt{12^2+16^2}=\\sqrt{400}=20$"
+          },
+          "Result": {
+            "Ar": "$20$",
+            "En": "$20$"
+          },
+          "Unit": {
+            "Ar": "وحدة طول",
+            "En": "length units"
+          },
+          "Verification": {
+            "Ar": "$20^2=400$",
+            "En": "$20^2=400$"
+          },
+          "CommonError": {
+            "Ar": "لا تجمع طولي الضلعين مباشرة، ولا تنس الجذر.",
+            "En": "Do not add the leg lengths directly or forget the square root."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 133,
+      "ExpectedOptionIds": [
+        521,
+        522,
+        523,
+        524
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "قانون الأسس: عند ضرب قوتين لهما الأساس نفسه، نجمع الأسين ونُبقي الأساس كما هو: أ^م × أ^ن = أ^(م + ن). في هذه المسألة الأساس 2، وبالتالي 2^7 × 2² = 2^(7 + 2) = 2^9. المطلوب كتابتها كقوة واحدة، لذلك لا نحتاج إلى حساب القيمة العشرية.",
+        "En": "Exponent law: When multiplying powers with the same base, add the exponents and keep the base: a^m × a^n = a^(m+n). Here the common base is 2, so 2^7 × 2² = 2^(7 + 2) = 2^9. The question asks for one power rather than its numerical evaluation."
+      },
+      "ProposedTrackCode": "grade-8",
+      "PrimarySkillKey": "middle-exponent-laws",
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 5,
+        "PrimarySkillId": 21,
+        "Points": 10,
+        "Title": {
+          "Ar": "بسّط \\(2^{7}\\times2^2\\) على صورة قوة للعدد 2.",
+          "En": "Write \\(2^{7}\\times2^2\\) as a single power of 2."
+        },
+        "Question": {
+          "Ar": "بسّط \\(2^{7}\\times2^2\\) على صورة قوة للعدد 2.",
+          "En": "Write \\(2^{7}\\times2^2\\) as a single power of 2."
+        },
+        "Options": [
+          {
+            "LatexCode": "2^{8}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "الأس 8 لا يساوي مجموع الأسين 7 و2.",
+              "En": "Exponent 8 is not the sum of exponents 7 and 2."
+            }
+          },
+          {
+            "LatexCode": "2^{10}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "الأس 10 لا يساوي مجموع الأسين 7 و2.",
+              "En": "Exponent 10 is not the sum of exponents 7 and 2."
+            }
+          },
+          {
+            "LatexCode": "2^{11}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "الأس 11 لا يساوي مجموع الأسين 7 و2.",
+              "En": "Exponent 11 is not the sum of exponents 7 and 2."
+            }
+          },
+          {
+            "LatexCode": "2^{9}",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "لاحظ أن الأساس نفسه في القوتين.",
+            "En": "Notice the common base in the two powers."
+          },
+          {
+            "Ar": "استخدم قاعدة ضرب القوى ذات الأساس نفسه.",
+            "En": "Use the product rule for powers of the same base."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "عند ضرب قوتين لهما الأساس نفسه نجمع الأسس.",
+            "En": "When multiplying powers with the same base, add the exponents."
+          },
+          "FormulaLatex": "a^ma^n=a^{m+n}",
+          "Steps": [
+            {
+              "Ar": "احتفظ بالأساس واجمع الأسين.",
+              "En": "Keep the base and add the exponents."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$2^{7}\\times2^{2}=2^{7+2}=2^{9}$",
+            "En": "$2^{7}\\times2^{2}=2^{7+2}=2^{9}$"
+          },
+          "Result": {
+            "Ar": "$2^{9}$",
+            "En": "$2^{9}$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "$128\\times4=512$",
+            "En": "$128\\times4=512$"
+          },
+          "CommonError": {
+            "Ar": "لا تغير الأساس أو تستعمل العملية على الأسس دون مراعاة نوعها.",
+            "En": "Do not change the base or use an exponent operation unrelated to the original operation."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 134,
+      "ExpectedOptionIds": [
+        525,
+        526,
+        527,
+        528
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "المبدأ المستخدم: لإيجاد قيمة دالة خطية نعوّض عن المتغير س بقيمة المدخل ثم ننفذ الضرب قبل الجمع. قاعدة الدالة f(س) = 6س + 7، والمدخل 6. إذن f(6) = 6 × 6 + 7 = 36 + 7 = 43.",
+        "En": "Rule used: Evaluate a linear function by replacing x with the input and multiplying before adding. For f(x) = 6x + 7 at input 6, calculate f(6) = 6 × 6 + 7 = 36 + 7 = 43."
+      },
+      "ProposedTrackCode": "grade-8",
+      "PrimarySkillKey": "middle-linear-function-evaluation",
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 6,
+        "PrimarySkillId": 26,
+        "Points": 10,
+        "Title": {
+          "Ar": "إذا كانت \\(f(x)=6x+7\\)، أوجد \\(f(6)\\).",
+          "En": "If \\(f(x)=6x+7\\), find \\(f(6)\\)."
+        },
+        "Question": {
+          "Ar": "إذا كانت \\(f(x)=6x+7\\)، أوجد \\(f(6)\\).",
+          "En": "If \\(f(x)=6x+7\\), find \\(f(6)\\)."
+        },
+        "Options": [
+          {
+            "LatexCode": "46",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "طرح 7 من 46 يعطي 39 لا 36.",
+              "En": "Subtracting 7 from 46 gives 39, not 36."
+            }
+          },
+          {
+            "LatexCode": "41",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "طرح 7 من 41 يعطي 34 لا 36.",
+              "En": "Subtracting 7 from 41 gives 34, not 36."
+            }
+          },
+          {
+            "LatexCode": "43",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "44",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "طرح 7 من 44 يعطي 37 لا 36.",
+              "En": "Subtracting 7 from 44 gives 37, not 36."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "عوّض المدخل مكان المتغير.",
+            "En": "Substitute the input for the variable."
+          },
+          {
+            "Ar": "احسب الحد الضربي قبل إضافة الثابت.",
+            "En": "Evaluate the product term before adding the constant."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نعوض المدخل في الدالة الخطية ونطبق ترتيب العمليات.",
+            "En": "Substitute the input into the linear function and follow order of operations."
+          },
+          "FormulaLatex": "f(t)=at+b",
+          "Steps": [
+            {
+              "Ar": "ضع 6 مكان المتغير، اضرب في 6 ثم أضف 7.",
+              "En": "Replace the variable by 6, multiply by 6, then add 7."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$f(6)=6\\times6+7=43$",
+            "En": "$f(6)=6\\times6+7=43$"
+          },
+          "Result": {
+            "Ar": "$43$",
+            "En": "$43$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "$43-7=36$",
+            "En": "$43-7=36$"
+          },
+          "CommonError": {
+            "Ar": "لا تجمع الثابت قبل الضرب.",
+            "En": "Do not add the constant before multiplying."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 135,
+      "ExpectedOptionIds": [
+        529,
+        530,
+        531,
+        532
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: عند ثبات سعر الوحدة، الثمن الكلي = عدد الدفاتر × سعر الدفتر الواحد. إذا كان ثمن 3 دفاتر 24 وحدة، فسعر الواحد = 24 ÷ 3 = 8 وحدات. بالتعويض في طلب 5 دفاتر: 5 × 8 = 40 وحدة.",
+        "En": "Rule used: With a constant unit rate, total cost = number of notebooks × price per notebook. Three notebooks cost 24 units, so one costs 24 ÷ 3 = 8. For five notebooks, total cost = 5 × 8 = 40 units."
+      },
+      "ProposedTrackCode": "grade-7",
+      "PrimarySkillKey": "middle-unit-rates",
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 7,
+        "PrimarySkillId": 31,
+        "Points": 10,
+        "Title": {
+          "Ar": "إذا كان ثمن 3 دفاتر 24، فما ثمن 5 دفاتر بالسعر نفسه؟",
+          "En": "If three notebooks cost 24, how much do five cost at the same price per notebook?"
+        },
+        "Question": {
+          "Ar": "إذا كان ثمن 3 دفاتر 24، فما ثمن 5 دفاتر بالسعر نفسه؟",
+          "En": "If three notebooks cost 24, how much do five cost at the same price per notebook?"
+        },
+        "Options": [
+          {
+            "LatexCode": "38",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "السعر 38 لا يعطي سعر الوحدة الثابت 8 عند قسمته على 5.",
+              "En": "Dividing 38 by 5 does not give the fixed unit price 8."
+            }
+          },
+          {
+            "LatexCode": "40",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "41",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "السعر 41 لا يعطي سعر الوحدة الثابت 8 عند قسمته على 5.",
+              "En": "Dividing 41 by 5 does not give the fixed unit price 8."
+            }
+          },
+          {
+            "LatexCode": "43",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "السعر 43 لا يعطي سعر الوحدة الثابت 8 عند قسمته على 5.",
+              "En": "Dividing 43 by 5 does not give the fixed unit price 8."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "أوجد أولاً سعر القطعة الواحدة.",
+            "En": "Find the price of one item first."
+          },
+          {
+            "Ar": "اقسم السعر المعطى على عدد القطع ثم اضرب في العدد المطلوب.",
+            "En": "Divide the given cost by its quantity, then multiply by the desired quantity."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نحسب سعر الوحدة ثم نضربه في الكمية المطلوبة، ما دام السعر ثابتاً.",
+            "En": "Calculate unit price, then multiply by the target quantity at the same rate."
+          },
+          "FormulaLatex": "C_2=\\frac{C_1}{q_1}q_2",
+          "Steps": [
+            {
+              "Ar": "اقسم 24 على 3 ثم اضرب سعر الوحدة في 5.",
+              "En": "Divide 24 by 3, then multiply the unit price by 5."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$\\frac{24}{3}\\times5=40$",
+            "En": "$\\frac{24}{3}\\times5=40$"
+          },
+          "Result": {
+            "Ar": "$40$",
+            "En": "$40$"
+          },
+          "Unit": {
+            "Ar": "وحدة نقدية",
+            "En": "currency units"
+          },
+          "Verification": {
+            "Ar": "$\\frac{40}{5}=\\frac{24}{3}$",
+            "En": "$\\frac{40}{5}=\\frac{24}{3}$"
+          },
+          "CommonError": {
+            "Ar": "انتبه لترتيب القسمة وللوحدات.",
+            "En": "Keep the division order and units consistent."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 136,
+      "ExpectedOptionIds": [
+        533,
+        534,
+        535,
+        536
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: نظرية فيثاغورس للمثلث القائم: مربع الوتر = مربع الضلع القائم الأول + مربع الثاني. الضلعان 15 و20؛ بالتعويض: ج² = 15² + 20² = 225 + 400 = 625. نأخذ الجذر التربيعي الموجب: ج = √625 = 25.",
+        "En": "Rule used: Pythagorean theorem for a right triangle: hypotenuse² = leg₁² + leg₂². Given legs 15 and 20, c² = 15² + 20² = 225 + 400 = 625. The hypotenuse is positive, so c = √625 = 25."
+      },
+      "ProposedTrackCode": "grade-8",
+      "PrimarySkillKey": "middle-pythagorean-theorem",
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 34,
+        "PrimarySkillId": 37,
+        "Points": 10,
+        "Title": {
+          "Ar": "مثلث قائم ضلعا قائمته 15 و20. أوجد الوتر.",
+          "En": "A right triangle has legs 15 and 20. Find the hypotenuse."
+        },
+        "Question": {
+          "Ar": "مثلث قائم ضلعا قائمته 15 و20. أوجد الوتر.",
+          "En": "A right triangle has legs 15 and 20. Find the hypotenuse."
+        },
+        "Options": [
+          {
+            "LatexCode": "25",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "30",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "مربع 30 هو 900 وليس مجموع المربعين 625.",
+              "En": "The square of 30 is 900, not the required sum 625."
+            }
+          },
+          {
+            "LatexCode": "35",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "مربع 35 هو 1225 وليس مجموع المربعين 625.",
+              "En": "The square of 35 is 1225, not the required sum 625."
+            }
+          },
+          {
+            "LatexCode": "40",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "مربع 40 هو 1600 وليس مجموع المربعين 625.",
+              "En": "The square of 40 is 1600, not the required sum 625."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "استعمل نظرية فيثاغورس في المثلث القائم.",
+            "En": "Use Pythagoras' theorem for the right triangle."
+          },
+          {
+            "Ar": "اجمع مربعي ضلعي القائمة ثم خذ الجذر التربيعي.",
+            "En": "Add the squares of the legs, then take the square root."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نظرية فيثاغورس: مربع الوتر يساوي مجموع مربعي ضلعي القائمة.",
+            "En": "Pythagoras' theorem: the square of the hypotenuse equals the sum of the squares of the legs."
+          },
+          "FormulaLatex": "c^2=a^2+b^2\\Rightarrow c=\\sqrt{a^2+b^2}",
+          "Steps": [
+            {
+              "Ar": "احسب مربع كل ضلع قائم واجمعهما.",
+              "En": "Square each leg and add the results."
+            },
+            {
+              "Ar": "خذ الجذر التربيعي الموجب للمجموع.",
+              "En": "Take the positive square root of the sum."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$c=\\sqrt{15^2+20^2}=\\sqrt{625}=25$",
+            "En": "$c=\\sqrt{15^2+20^2}=\\sqrt{625}=25$"
+          },
+          "Result": {
+            "Ar": "$25$",
+            "En": "$25$"
+          },
+          "Unit": {
+            "Ar": "وحدة طول",
+            "En": "length units"
+          },
+          "Verification": {
+            "Ar": "$25^2=625$",
+            "En": "$25^2=625$"
+          },
+          "CommonError": {
+            "Ar": "لا تجمع طولي الضلعين مباشرة، ولا تنس الجذر.",
+            "En": "Do not add the leg lengths directly or forget the square root."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 209,
+      "ExpectedOptionIds": [
+        825,
+        826,
+        827,
+        828
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "المبدأ المستخدم: القاسم المشترك الأكبر للعددين (3 × 2) و(5 × 2) هو 2 لأن 3 و5 لا قاسم مشترك بينهما غير 1. نكتب 6 = 3 × 2 و10 = 5 × 2. الجزء المشترك الأكبر هو 2، ولذلك gcd(6, 10) = 2.",
+        "En": "Rule used: If two numbers are 3 × 2 and 5 × 2, then gcd = 2 because 3 and 5 are coprime. Factor 6 = 3 × 2 and 10 = 5 × 2; the largest shared factor is 2. Thus gcd(6, 10) = 2."
+      },
+      "ProposedTrackCode": "grade-7",
+      "PrimarySkillKey": "middle-gcd",
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 5,
+        "PrimarySkillId": 22,
+        "Points": 10,
+        "Title": {
+          "Ar": "أوجد القاسم المشترك الأكبر لـ6 و10.",
+          "En": "Find gcd(6,10)."
+        },
+        "Question": {
+          "Ar": "أوجد القاسم المشترك الأكبر لـ6 و10.",
+          "En": "Find gcd(6,10)."
+        },
+        "Options": [
+          {
+            "LatexCode": "5",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "5 لا يقسم العددين معاً دون باقٍ.",
+              "En": "5 does not divide both numbers without remainder."
+            }
+          },
+          {
+            "LatexCode": "0",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "الصفر ليس قاسماً موجباً ولا يمكن القسمة عليه.",
+              "En": "Zero is not a positive divisor and division by zero is undefined."
+            }
+          },
+          {
+            "LatexCode": "2",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "3",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "3 لا يقسم العددين معاً دون باقٍ.",
+              "En": "3 does not divide both numbers without remainder."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "ابحث عن قواسم العددين المشتركة.",
+            "En": "Look for divisors shared by both numbers."
+          },
+          {
+            "Ar": "جرّب قسمة الأكبر على الأصغر وتابع باستخدام الباقي.",
+            "En": "Divide the larger by the smaller and continue with the remainder."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "القاسم المشترك الأكبر هو أكبر عدد موجب يقسم العددين دون باقٍ؛ نستعمل خوارزمية إقليدس.",
+            "En": "The greatest common divisor is the largest positive divisor of both numbers; use Euclid's algorithm."
+          },
+          "FormulaLatex": "\\gcd(a,b)=\\gcd(b,a\\bmod b)",
+          "Steps": [
+            {
+              "Ar": "اقسم الأكبر على الأصغر، ثم كرر القسمة باستعمال المقسوم عليه والباقي حتى يصبح الباقي صفراً.",
+              "En": "Divide the larger by the smaller; repeat using the divisor and remainder until the remainder is zero."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$10=1\\times6+4,\\quad 6=1\\times4+2,\\quad 4=2\\times2+0$",
+            "En": "$10=1\\times6+4,\\quad 6=1\\times4+2,\\quad 4=2\\times2+0$"
+          },
+          "Result": {
+            "Ar": "$2$",
+            "En": "$2$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "$6\\div2=3,\\quad 10\\div2=5$",
+            "En": "$6\\div2=3,\\quad 10\\div2=5$"
+          },
+          "CommonError": {
+            "Ar": "القاسم المشترك ليس بالضرورة أكبر العددين أو أحدهما.",
+            "En": "The GCD is not necessarily the larger number or one of the given numbers."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 210,
+      "ExpectedOptionIds": [
+        829,
+        830,
+        831,
+        832
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "قانون قسمة الأسس المتشابهة: أ^ن ÷ أ^م = أ^(ن − م) عندما يكون أ غير صفري. هنا الأساس 2 نفسه في البسط والمقام، لذلك 2^5 ÷ 2^3 = 2^(5 − 3) = 2^2. نحافظ على صورة القوة لأن المطلوب تبسيط العبارة الأسية.",
+        "En": "Quotient law of exponents: a^n ÷ a^m = a^(n−m) for nonzero a. Both numerator and denominator use base 2, so 2^5 ÷ 2^3 = 2^(5 − 3) = 2^2. The simplified result remains in exponent form."
+      },
+      "ProposedTrackCode": "grade-8",
+      "PrimarySkillKey": "middle-exponent-laws",
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 5,
+        "PrimarySkillId": 21,
+        "Points": 10,
+        "Title": {
+          "Ar": "بسّط \\(\\frac{2^{5}}{2^{3}}\\).",
+          "En": "Simplify \\(\\frac{2^{5}}{2^{3}}\\)."
+        },
+        "Question": {
+          "Ar": "بسّط \\(\\frac{2^{5}}{2^{3}}\\).",
+          "En": "Simplify \\(\\frac{2^{5}}{2^{3}}\\)."
+        },
+        "Options": [
+          {
+            "LatexCode": "2^{4}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "الأس 4 لا يساوي فرق الأسين 5 و3.",
+              "En": "Exponent 4 is not the difference of exponents 5 and 3."
+            }
+          },
+          {
+            "LatexCode": "2^{2}",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "2^{1}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "الأس 1 لا يساوي فرق الأسين 5 و3.",
+              "En": "Exponent 1 is not the difference of exponents 5 and 3."
+            }
+          },
+          {
+            "LatexCode": "2^{3}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "الأس 3 لا يساوي فرق الأسين 5 و3.",
+              "En": "Exponent 3 is not the difference of exponents 5 and 3."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "الأساس مشترك وغير صفري.",
+            "En": "The common base is nonzero."
+          },
+          {
+            "Ar": "اطرح أس المقام من أس البسط.",
+            "En": "Subtract the denominator exponent from the numerator exponent."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "عند قسمة قوتين لهما الأساس نفسه نطرح الأسس.",
+            "En": "When dividing powers of the same nonzero base, subtract the exponents."
+          },
+          "FormulaLatex": "\\frac{a^m}{a^n}=a^{m-n}\\quad(a\\ne0)",
+          "Steps": [
+            {
+              "Ar": "احتفظ بالأساس واطرح أس المقام من أس البسط.",
+              "En": "Keep the base and subtract the denominator exponent from the numerator exponent."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$\\frac{2^{5}}{2^{3}}=2^{5-3}=2^{2}$",
+            "En": "$\\frac{2^{5}}{2^{3}}=2^{5-3}=2^{2}$"
+          },
+          "Result": {
+            "Ar": "$2^{2}$",
+            "En": "$2^{2}$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "$2^{2}\\times2^{3}=2^{5}$",
+            "En": "$2^{2}\\times2^{3}=2^{5}$"
+          },
+          "CommonError": {
+            "Ar": "لا تغير الأساس أو تستعمل العملية على الأسس دون مراعاة نوعها.",
+            "En": "Do not change the base or use an exponent operation unrelated to the original operation."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 211,
+      "ExpectedOptionIds": [
+        833,
+        834,
+        835,
+        836
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: المضاعف المشترك الأصغر للعددين = حاصل ضربهما ÷ القاسم المشترك الأكبر لهما. العددان 8 و10، والقاسم المشترك الأكبر = 2، لأنهما 2 × 4 و2 × 5. بالتعويض: LCM = (8 × 10) ÷ 2 = 40. هذا أصغر عدد موجب يقبل القسمة على العددين.",
+        "En": "Rule used: Least common multiple = product of the numbers ÷ their greatest common divisor. For 8 and 10, the GCD is 2, because the numbers are 2×4 and 2×5. Therefore LCM = (8 × 10) ÷ 2 = 40, the smallest positive multiple shared by both."
+      },
+      "ProposedTrackCode": "grade-7",
+      "PrimarySkillKey": "middle-lcm",
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 5,
+        "PrimarySkillId": 24,
+        "Points": 10,
+        "Title": {
+          "Ar": "أوجد المضاعف المشترك الأصغر للعددين 8 و10.",
+          "En": "Find the least common multiple of 8 and 10."
+        },
+        "Question": {
+          "Ar": "أوجد المضاعف المشترك الأصغر للعددين 8 و10.",
+          "En": "Find the least common multiple of 8 and 10."
+        },
+        "Options": [
+          {
+            "LatexCode": "40",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "41",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "41 لا يقبل القسمة على العددين معاً دون باقٍ.",
+              "En": "41 is not divisible by both numbers without remainder."
+            }
+          },
+          {
+            "LatexCode": "43",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "43 لا يقبل القسمة على العددين معاً دون باقٍ.",
+              "En": "43 is not divisible by both numbers without remainder."
+            }
+          },
+          {
+            "LatexCode": "38",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "38 لا يقبل القسمة على العددين معاً دون باقٍ.",
+              "En": "38 is not divisible by both numbers without remainder."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "ابحث عن عدد موجب يقبل القسمة على العددين.",
+            "En": "Find a positive number divisible by both numbers."
+          },
+          {
+            "Ar": "اكتب مضاعفات العددين حتى تجد أول مضاعف مشترك.",
+            "En": "List multiples of both numbers until the first common one appears."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "المضاعف المشترك الأصغر هو أصغر مضاعف موجب للعددين.",
+            "En": "The least common multiple is the smallest positive multiple of both numbers."
+          },
+          "FormulaLatex": "\\operatorname{lcm}(a,b)=\\frac{|ab|}{\\gcd(a,b)}",
+          "Steps": [
+            {
+              "Ar": "حدد القاسم المشترك الأكبر ثم اقسم حاصل ضرب العددين عليه.",
+              "En": "Find the GCD, then divide their product by it."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$\\frac{8\\times10}{2}=40$",
+            "En": "$\\frac{8\\times10}{2}=40$"
+          },
+          "Result": {
+            "Ar": "$40$",
+            "En": "$40$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "$40\\div8=5,\\quad40\\div10=4$",
+            "En": "$40\\div8=5,\\quad40\\div10=4$"
+          },
+          "CommonError": {
+            "Ar": "لا تخلط المضاعف المشترك بالقاسم المشترك.",
+            "En": "Do not confuse the common multiple with the common divisor."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 212,
+      "ExpectedOptionIds": [
+        837,
+        838,
+        839,
+        840
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "المبدأ المستخدم: حل f(س) = 11 يعني إيجاد المدخل الذي يجعل الدالة تساوي 11. لدينا f(س) = 2س + 5؛ نحل 2س + 5 = 11. نطرح 5: 2س = 6، ثم نقسم على 2: س = 6 ÷ 2 = 3. التحقق: 2 × 3 + 5 = 11.",
+        "En": "Rule used: Solving f(x) = 11 finds the input producing that output. With f(x) = 2x + 5, set 2x + 5 = 11. Subtract 5: 2x = 6, then divide by 2: x = 6 ÷ 2 = 3. Check: 2 × 3 + 5 = 11."
+      },
+      "ProposedTrackCode": "grade-9",
+      "PrimarySkillKey": "middle-inverse-function-evaluation",
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 6,
+        "PrimarySkillId": 28,
+        "Points": 10,
+        "Title": {
+          "Ar": "لتكن \\(f(x)=2x+5\\)، إذا كانت \\(f(x)=11\\) فأوجد x.",
+          "En": "Given \\(f(x)=2x+5\\), solve f(x)=11."
+        },
+        "Question": {
+          "Ar": "لتكن \\(f(x)=2x+5\\)، إذا كانت \\(f(x)=11\\) فأوجد x.",
+          "En": "Given \\(f(x)=2x+5\\), solve f(x)=11."
+        },
+        "Options": [
+          {
+            "LatexCode": "1",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "قيمة الدالة عند 1 هي 7 لا 11.",
+              "En": "The function at 1 equals 7, not 11."
+            }
+          },
+          {
+            "LatexCode": "3",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "4",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "قيمة الدالة عند 4 هي 13 لا 11.",
+              "En": "The function at 4 equals 13, not 11."
+            }
+          },
+          {
+            "LatexCode": "6",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "قيمة الدالة عند 6 هي 17 لا 11.",
+              "En": "The function at 6 equals 17, not 11."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "ابدأ بكتابة معادلة تساوي الدالة بالقيمة المعطاة.",
+            "En": "Start by equating the function expression with the given output."
+          },
+          {
+            "Ar": "أزل الثابت ثم اقسم على معامل المتغير.",
+            "En": "Remove the constant, then divide by the variable coefficient."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "إيجاد المدخل من قيمة الدالة: نساوي التعبير بالمخرج ونحل المعادلة الخطية.",
+            "En": "Finding an input from a function value: set the expression equal to the output and solve the linear equation."
+          },
+          "FormulaLatex": "f(x)=ax+b=y\\Rightarrow x=\\frac{y-b}{a}\\quad(a\\ne0)",
+          "Steps": [
+            {
+              "Ar": "ساوِ التعبير بالقيمة 11 واطرح 5 من الطرفين.",
+              "En": "Set the expression equal to 11 and subtract 5 from both sides."
+            },
+            {
+              "Ar": "اقسم الطرفين على 2.",
+              "En": "Divide both sides by 2."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$x=\\frac{11-5}{2}=3$",
+            "En": "$x=\\frac{11-5}{2}=3$"
+          },
+          "Result": {
+            "Ar": "$3$",
+            "En": "$3$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "$2\\times3+5=11$",
+            "En": "$2\\times3+5=11$"
+          },
+          "CommonError": {
+            "Ar": "المطلوب المدخل وليس قيمة الدالة المعطاة.",
+            "En": "The requested quantity is the input, not the given output."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 213,
+      "ExpectedOptionIds": [
+        841,
+        842,
+        843,
+        844
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "قانون ميل المستقيم بين نقطتين: م = (ص₂ − ص₁) ÷ (س₂ − س₁)، بشرط اختلاف الإحداثيين السينيين. بين (1،4) و(4،10) يكون التغير الرأسي = 10 − 4 = 6، والتغير الأفقي = 4 − 1 = 3. بالتعويض: الميل = 6 ÷ 3 = 2.",
+        "En": "Slope formula: m = (y₂ − y₁)/(x₂ − x₁) for points with different x-coordinates. Between (1, 4) and (4, 10), the rise is 10 − 4 = 6, and the run is 4 − 1 = 3. Thus m = 6 ÷ 3 = 2."
+      },
+      "ProposedTrackCode": "grade-8",
+      "PrimarySkillKey": "middle-slope",
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 6,
+        "PrimarySkillId": 29,
+        "Points": 10,
+        "Title": {
+          "Ar": "ما ميل المستقيم المار بالنقطتين (1،4) و(4،10)؟",
+          "En": "Find the slope between (1,4) and (4,10)."
+        },
+        "Question": {
+          "Ar": "ما ميل المستقيم المار بالنقطتين (1،4) و(4،10)؟",
+          "En": "Find the slope between (1,4) and (4,10)."
+        },
+        "Options": [
+          {
+            "LatexCode": "2",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "3",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "ميل 3 يعني تغيراً رأسياً 9 وليس 6.",
+              "En": "A slope of 3 implies a vertical change of 9, not 6."
+            }
+          },
+          {
+            "LatexCode": "5",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "ميل 5 يعني تغيراً رأسياً 15 وليس 6.",
+              "En": "A slope of 5 implies a vertical change of 15, not 6."
+            }
+          },
+          {
+            "LatexCode": "0",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "ميل 0 يعني تغيراً رأسياً 0 وليس 6.",
+              "En": "A slope of 0 implies a vertical change of 0, not 6."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "الميل يقارن التغير الرأسي بالتغير الأفقي.",
+            "En": "Slope compares vertical and horizontal changes."
+          },
+          {
+            "Ar": "اطرح الإحداثيين بالترتيب نفسه في البسط والمقام.",
+            "En": "Subtract coordinates in the same order in numerator and denominator."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "ميل المستقيم نسبة التغير الرأسي إلى التغير الأفقي.",
+            "En": "Slope is the ratio of vertical change to horizontal change."
+          },
+          "FormulaLatex": "m=\\frac{y_2-y_1}{x_2-x_1}\\quad(x_2\\ne x_1)",
+          "Steps": [
+            {
+              "Ar": "اطرح الإحداثيين الصاديين ثم اقسم على فرق الإحداثيين السينيين بالترتيب نفسه.",
+              "En": "Subtract the y-coordinates, then divide by the x-coordinate difference in the same order."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$m=\\frac{10-4}{4-1}=2$",
+            "En": "$m=\\frac{10-4}{4-1}=2$"
+          },
+          "Result": {
+            "Ar": "$2$",
+            "En": "$2$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "$2\\times(4-1)=6$",
+            "En": "$2\\times(4-1)=6$"
+          },
+          "CommonError": {
+            "Ar": "لا تعكس البسط والمقام أو ترتيب النقطتين في أحد الفرقين.",
+            "En": "Do not swap numerator and denominator or reverse only one coordinate difference."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 214,
+      "ExpectedOptionIds": [
+        845,
+        846,
+        847,
+        848
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "المبدأ المستخدم: عند حساب دالة تربيعية نبدأ بالتعويض ثم الأس، وبعده الضرب وأخيراً الجمع. للدالة g(س) = 2س² + 3 عند س = 2: ‏g(2) = 2 × 2² + 3 = 2 × 4 + 3 = 8 + 3 = 11.",
+        "En": "Rule used: For a quadratic function, substitute first, evaluate the exponent, multiply, then add. With g(x) = 2x² + 3 and x = 2, g(2) = 2 × 2² + 3 = 2 × 4 + 3 = 8 + 3 = 11."
+      },
+      "ProposedTrackCode": "grade-9",
+      "PrimarySkillKey": "middle-quadratic-function-evaluation",
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 6,
+        "PrimarySkillId": 27,
+        "Points": 10,
+        "Title": {
+          "Ar": "إذا كانت \\(g(x)=2x^2+3\\)، أوجد \\(g(2)\\).",
+          "En": "Given \\(g(x)=2x^2+3\\), find g(2)."
+        },
+        "Question": {
+          "Ar": "إذا كانت \\(g(x)=2x^2+3\\)، أوجد \\(g(2)\\).",
+          "En": "Given \\(g(x)=2x^2+3\\), find g(2)."
+        },
+        "Options": [
+          {
+            "LatexCode": "12",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "بعد عزل الحد التربيعي من 12 نحصل على 9 لا 8.",
+              "En": "Removing the constant from 12 gives 9, not 8."
+            }
+          },
+          {
+            "LatexCode": "14",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "بعد عزل الحد التربيعي من 14 نحصل على 11 لا 8.",
+              "En": "Removing the constant from 14 gives 11, not 8."
+            }
+          },
+          {
+            "LatexCode": "9",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "بعد عزل الحد التربيعي من 9 نحصل على 6 لا 8.",
+              "En": "Removing the constant from 9 gives 6, not 8."
+            }
+          },
+          {
+            "LatexCode": "11",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "عوّض العدد المعطى في الدالة.",
+            "En": "Substitute the given input into the function."
+          },
+          {
+            "Ar": "احسب مربع المدخل أولاً، ثم أكمل الضرب والجمع أو الطرح.",
+            "En": "Square the input first, then complete multiplication and addition or subtraction."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نعوض قيمة المدخل في الدالة التربيعية، ونحسب القوة قبل الضرب والجمع.",
+            "En": "Substitute the input in the quadratic function, evaluating the power before multiplication and addition."
+          },
+          "FormulaLatex": "f(t)=at^2+c",
+          "Steps": [
+            {
+              "Ar": "ضع 2 مكان المتغير واحسب مربعه ثم بقية التعبير.",
+              "En": "Replace the variable with 2, square it, then evaluate the remaining expression."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$2\\times2^2+3=11$",
+            "En": "$2\\times2^2+3=11$"
+          },
+          "Result": {
+            "Ar": "$11$",
+            "En": "$11$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "$11-3=8$",
+            "En": "$11-3=8$"
+          },
+          "CommonError": {
+            "Ar": "لا تخلط بين التربيع والضرب في اثنين.",
+            "En": "Do not confuse squaring with multiplying by two."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 215,
+      "ExpectedOptionIds": [
+        849,
+        850,
+        851,
+        852
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: مبلغ الخصم = السعر الأصلي × نسبة الخصم المئوية ÷ 100. السعر 100 وحدة والنسبة 10%، لذا الخصم = 100 × 10 ÷ 100 = 10 وحدة. السؤال يطلب قيمة الخصم فقط، وليس السعر بعد الخصم.",
+        "En": "Rule used: Discount amount = original price × discount percentage ÷ 100. Given 100 units and 10%, substitute: discount = 100 × 10 ÷ 100 = 10 units. The question asks for the discount amount, not the final sale price."
+      },
+      "ProposedTrackCode": "grade-7",
+      "PrimarySkillKey": "middle-percent-discounts",
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 7,
+        "PrimarySkillId": 32,
+        "Points": 10,
+        "Title": {
+          "Ar": "خصم متجر 10% من ثمن 100، ما قيمة الخصم؟",
+          "En": "A store discounts 10% from a price of 100. Find the discount amount."
+        },
+        "Question": {
+          "Ar": "خصم متجر 10% من ثمن 100، ما قيمة الخصم؟",
+          "En": "A store discounts 10% from a price of 100. Find the discount amount."
+        },
+        "Options": [
+          {
+            "LatexCode": "10",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "11",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "11 لا يمثل 10% من السعر 100.",
+              "En": "11 does not represent 10% of 100."
+            }
+          },
+          {
+            "LatexCode": "13",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "13 لا يمثل 10% من السعر 100.",
+              "En": "13 does not represent 10% of 100."
+            }
+          },
+          {
+            "LatexCode": "8",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "8 لا يمثل 10% من السعر 100.",
+              "En": "8 does not represent 10% of 100."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "النسبة المئوية تعني أجزاء من مئة.",
+            "En": "Percent means parts out of a hundred."
+          },
+          {
+            "Ar": "اضرب السعر الأصلي في معدل الخصم المكتوب ككسر.",
+            "En": "Multiply the original price by the discount rate as a fraction."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "قيمة الخصم تساوي السعر الأصلي مضروباً في النسبة المئوية بعد قسمتها على مئة.",
+            "En": "Discount amount equals the original price times the percentage rate divided by 100."
+          },
+          "FormulaLatex": "D=P\\frac{r}{100}",
+          "Steps": [
+            {
+              "Ar": "حوّل النسبة إلى كسر من مئة ثم اضرب في السعر.",
+              "En": "Convert the percentage to a fraction over 100 and multiply by the price."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$100\\times\\frac{10}{100}=10$",
+            "En": "$100\\times\\frac{10}{100}=10$"
+          },
+          "Result": {
+            "Ar": "$10$",
+            "En": "$10$"
+          },
+          "Unit": {
+            "Ar": "وحدة نقدية",
+            "En": "currency units"
+          },
+          "Verification": {
+            "Ar": "$\\frac{10}{100}\\times100=10$",
+            "En": "$\\frac{10}{100}\\times100=10$"
+          },
+          "CommonError": {
+            "Ar": "قيمة الخصم ليست السعر بعد الخصم.",
+            "En": "The discount is not the final price."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 216,
+      "ExpectedOptionIds": [
+        853,
+        854,
+        855,
+        856
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: المسافة الحقيقية = المسافة على الخريطة × قيمة مقياس الرسم لكل سنتيمتر. كل 1 سم يمثل 2 كم، والمسافة المرسومة 3 سم. بالتعويض: 3 × 2 = 6 كيلومتراً.",
+        "En": "Rule used: Actual distance = map distance × real distance represented by one centimetre. Each map centimetre means 2 km, and the measured map distance is 3 cm. Hence 3 × 2 = 6 km."
+      },
+      "ProposedTrackCode": "grade-8",
+      "PrimarySkillKey": "middle-map-scale",
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 7,
+        "PrimarySkillId": 33,
+        "Points": 10,
+        "Title": {
+          "Ar": "مقياس خريطة: 1 سم يمثل 2 كم. كم يمثل 3 سم؟",
+          "En": "Map scale: 1 cm represents 2 km. What distance is 3 cm?"
+        },
+        "Question": {
+          "Ar": "مقياس خريطة: 1 سم يمثل 2 كم. كم يمثل 3 سم؟",
+          "En": "Map scale: 1 cm represents 2 km. What distance is 3 cm?"
+        },
+        "Options": [
+          {
+            "LatexCode": "7",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "المسافة 7 كم لا تحافظ على المقياس المعطى.",
+              "En": "A distance of 7 km does not preserve the given scale."
+            }
+          },
+          {
+            "LatexCode": "9",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "المسافة 9 كم لا تحافظ على المقياس المعطى.",
+              "En": "A distance of 9 km does not preserve the given scale."
+            }
+          },
+          {
+            "LatexCode": "4",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "المسافة 4 كم لا تحافظ على المقياس المعطى.",
+              "En": "A distance of 4 km does not preserve the given scale."
+            }
+          },
+          {
+            "LatexCode": "6",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "كل سنتيمتر يمثل المسافة الحقيقية نفسها.",
+            "En": "Each centimeter represents the same real distance."
+          },
+          {
+            "Ar": "اضرب المسافة التي يمثلها سنتيمتر واحد في عدد السنتيمترات المطلوبة.",
+            "En": "Multiply the real distance per centimeter by the map distance."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "المسافة الحقيقية تتناسب طردياً مع المسافة على الخريطة عند ثبات المقياس.",
+            "En": "Real distance is directly proportional to map distance at a fixed scale."
+          },
+          "FormulaLatex": "D=\\frac{d}{d_0}D_0",
+          "Steps": [
+            {
+              "Ar": "حدد المسافة الحقيقية لكل سنتيمتر ثم اضرب في طول المسافة على الخريطة.",
+              "En": "Find the real distance per centimeter, then multiply by the map length."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$\\frac{2}{1}\\times3=6$",
+            "En": "$\\frac{2}{1}\\times3=6$"
+          },
+          "Result": {
+            "Ar": "$6$",
+            "En": "$6$"
+          },
+          "Unit": {
+            "Ar": "كم",
+            "En": "km"
+          },
+          "Verification": {
+            "Ar": "$\\frac{6}{3}=\\frac{2}{1}$",
+            "En": "$\\frac{6}{3}=\\frac{2}{1}$"
+          },
+          "CommonError": {
+            "Ar": "لا تخلط بين وحدتي المسافة على الخريطة والحقيقية.",
+            "En": "Do not confuse map and real-world distance units."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    }
+  ]
+}
