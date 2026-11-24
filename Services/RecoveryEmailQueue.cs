@@ -74,7 +74,9 @@ public sealed class RecoveryEmailQueue(AppDbContext db, IConfiguration config, B
 {
     public void AddSecurityNotice(AppUser user, string templateKey, string locale, DateTime now)
     {
-        if (!transport.AllowsRecipient(user.Email)) return;
+        if (!transport.AllowsRecipient(user.Email) ||
+            (!config.GetValue<bool>("MathWorldEmail:OutboxEnabled") &&
+             !(transport.IsTestMode && config.GetValue<bool>("MathWorldRecovery:AllowOfflineTestQueue")))) return;
         db.EmailOutbox.Add(new EmailOutboxItem
         {
             Id = Guid.NewGuid(), UserId = user.Id, Recipient = user.Email,

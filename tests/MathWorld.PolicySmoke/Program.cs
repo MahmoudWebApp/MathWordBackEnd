@@ -9,6 +9,7 @@ using MathWorldAPI.Services;
 using MathWorldAPI.Middleware;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Configuration;
 
 static void Assert(bool condition, string message)
 {
@@ -88,6 +89,25 @@ Assert(RecoveryTokenCodec.Hash(new string('a', 64))?.Length == 64, "Canonical re
 Assert(RecoveryTokenCodec.Hash(new string('A', 64)) is null &&
        RecoveryTokenCodec.Hash("invalid") is null, "Noncanonical tokens rejected.");
 Console.WriteLine("PASS: recovery token format and digest policy.");
+
+var recoveryConfig=new ConfigurationBuilder().AddInMemoryCollection(new Dictionary<string,string?>{
+    ["MathWorldRecovery:Enabled"]="true",
+    ["MathWorldRecovery:TokenKey"]=Convert.ToBase64String(new byte[32]),
+    ["MathWorldEmail:Brevo:Enabled"]="true",
+    ["MathWorldEmail:Brevo:ApiKey"]="test-only",
+    ["MathWorldEmail:Brevo:From"]="ci@example.test",
+    ["MathWorldEmail:Brevo:Mode"]="test"
+}).Build();
+var recoveryTransport=new BrevoEmailTransport(recoveryConfig,null!);
+var recoveryService=new PasswordRecoveryService(null!,recoveryConfig,recoveryTransport,null!,null!);
+Assert(recoveryService.Enabled&&!recoveryService.CanIssue,"No worker means no new recovery grants by default.");
+recoveryConfig["MathWorldRecovery:AllowOfflineTestQueue"]="true";
+Assert(recoveryService.CanIssue,"Explicit test-only offline queue is available to isolated CI.");
+recoveryConfig["MathWorldEmail:Brevo:Mode"]="live";
+Assert(!recoveryService.CanIssue,"Offline test flag cannot enable live grants.");
+recoveryConfig["MathWorldEmail:OutboxEnabled"]="true";
+Assert(recoveryService.CanIssue,"Configured live worker allows issuance.");
+Console.WriteLine("PASS: recovery issuance is fail-closed without worker; offline bypass restricted to test mode.");
 
 // A different numeric substitution must trigger review as the same
 // template family, while stage and topic boundaries remain distinct.

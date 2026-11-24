@@ -18,6 +18,9 @@ public sealed class AdminEmailOutboxController(AppDbContext db, IConfiguration c
     [HttpGet]
     public async Task<IActionResult> Status(CancellationToken ct)
     {
+        if (!int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier),out var id)) return Unauthorized();
+        var admin=await db.Users.AsNoTracking().SingleOrDefaultAsync(u=>u.Id==id&&u.IsActive&&u.Role==AccountRolePolicy.LegacyAdmin,ct);
+        if(admin is null)return Forbid();
         var cutoff = DateTime.UtcNow.Date.AddDays(-1);
         var recent = await db.EmailOutbox.AsNoTracking().Where(x => x.CreatedAtUtc >= cutoff)
             .GroupBy(x => x.State).Select(g => new { State = g.Key, Count = g.Count() }).ToListAsync(ct);
@@ -26,9 +29,6 @@ public sealed class AdminEmailOutboxController(AppDbContext db, IConfiguration c
         var items = await db.EmailOutbox.AsNoTracking().OrderByDescending(x => x.CreatedAtUtc).Take(50)
             .Select(x => new { x.Id, x.TemplateKey, x.Locale, x.State, x.Attempts,
                 x.CreatedAtUtc, x.NextRetryAtUtc, x.LastErrorCode }).ToListAsync(ct);
-        if (!int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier),out var id)) return Unauthorized();
-        var admin=await db.Users.AsNoTracking().SingleOrDefaultAsync(u=>u.Id==id&&u.IsActive&&u.Role==AccountRolePolicy.LegacyAdmin,ct);
-        if(admin is null)return Forbid();
         var workerEnabled=config.GetValue<bool>("MathWorldEmail:OutboxEnabled");
         var recoveryRequested=config.GetValue<bool>("MathWorldRecovery:Enabled");
         var recoveryKeyConfigured=new RecoveryTokenCodec(config).IsConfigured;
@@ -75,6 +75,12 @@ public sealed class AdminEmailOutboxController(AppDbContext db, IConfiguration c
         var now = DateTime.UtcNow;
         await using var tx = await db.Database.BeginTransactionAsync(ct);
         await db.Database.ExecuteSqlRawAsync("SELECT pg_advisory_xact_lock(7240162028)", ct);
+        // Enforce the same reserve as the worker, not merely a disabled UI button.
+        await db.Database.ExecuteSqlRawAsync("SELECT pg_advisory_xact_lock(7240162027)", ct);
+        var cap=Math.Clamp(config.GetValue("MathWorldEmail:DailyAttemptLimit",100),10,150);
+        var used=await db.EmailOutbox.Where(x=>x.CreatedAtUtc>=now.Date.AddDays(-1))
+            .SumAsync(x=>(int?)x.Attempts,ct)??0;
+        if(used>=cap*3/4)return StatusCode(429,new{Message="EmailTestLimit"});
         if (await db.EmailOutbox.AnyAsync(x => (x.TemplateKey == "test"||x.TemplateKey.StartsWith("test:")) && x.UserId == id &&
             x.CreatedAtUtc > now.AddMinutes(-5), ct) ||
             await db.EmailOutbox.CountAsync(x => (x.TemplateKey == "test"||x.TemplateKey.StartsWith("test:")) && x.CreatedAtUtc >= now.Date, ct) >= 5)

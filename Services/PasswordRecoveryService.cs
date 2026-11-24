@@ -37,6 +37,11 @@ public sealed class PasswordRecoveryService(AppDbContext db, IConfiguration conf
 {
     private readonly RecoveryTokenCodec codec = new(config);
     public bool Enabled => config.GetValue<bool>("MathWorldRecovery:Enabled") && codec.IsConfigured && transport.IsConfigured;
+    // A configured provider is not sufficient to issue a new short-lived link.
+    // Offline inspection of pending grants is an explicit CI-only test-mode
+    // capability; it must never enable issuance in live mode.
+    public bool CanIssue => Enabled && (config.GetValue<bool>("MathWorldEmail:OutboxEnabled") ||
+        (transport.IsTestMode && config.GetValue<bool>("MathWorldRecovery:AllowOfflineTestQueue")));
     private bool Eligible(AppUser user)
     {
         if (!user.IsActive || user.TokenVersion == int.MaxValue ||
@@ -50,7 +55,7 @@ public sealed class PasswordRecoveryService(AppDbContext db, IConfiguration conf
 
     public async Task RequestAsync(string email, string locale, CancellationToken ct)
     {
-        if (!Enabled || !MailAddress.TryCreate(email.Trim(), out var address) ||
+        if (!CanIssue || !MailAddress.TryCreate(email.Trim(), out var address) ||
             !string.Equals(address.Address, email.Trim(), StringComparison.OrdinalIgnoreCase)) return;
         var normalized = address.Address.ToLowerInvariant();
         var candidates = await db.Users.AsNoTracking().Where(x => x.Email.ToLower() == normalized).Take(2).ToListAsync(ct);

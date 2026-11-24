@@ -99,7 +99,7 @@ public sealed class AdminSupervisorsController(AppDbContext db, IConfiguration c
     public async Task<IActionResult> Invite(int id,InviteRequest request,CancellationToken ct)
     {
         if(request.Language is not ("ar" or "en")) return BadRequest();
-        if(!recovery.Enabled)
+        if(!recovery.CanIssue)
             return StatusCode(503,new {Message="EmailNotConfigured"});
         await using var tx=await db.Database.BeginTransactionAsync(ct);
         await db.Users.Where(x=>x.Id==id && x.Role==AccountRolePolicy.Supervisor)
