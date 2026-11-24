@@ -2,10 +2,9 @@
   "Version": 1,
   "Status": "ReadOnlyEnglishStemOracleNotEditorialApproval",
   "Date": "2026-11-24",
-  "Method": "Exact normalized English prompt family matching; independent numerical formula and limited LaTeX numeric equivalence; unsupported answers and other options require manual review. No assessment of translation, written solutions or grade mapping.",
+  "Method": "Exact normalized English prompt family matching; independent numerical formula and limited LaTeX numeric equivalence; unsupported answers and other options require manual review. No assessment of translation, written solutions or grade mapping. Follow-up: exact factor expansion, differentiation of antiderivatives, exponential initial-value conditions, componentwise vector and gradient evaluation, and IVT conditions for all 30 remaining repeated-template items; all four options checked on those 30.",
   "Counts": {
-    "MARKED_ANSWER_MATCHES": 285,
-    "MANUAL_REVIEW": 30
+    "MARKED_ANSWER_MATCHES": 315
   },
   "Results": [
     {
@@ -1649,11 +1648,17 @@
     {
       "id": 271,
       "pattern": "Factor \\(x^#+#x+#\\).",
-      "formula": null,
-      "expected": null,
+      "formula": "Expand both factors; coefficients must equal x²+b x+c",
+      "expected": [
+        5,
+        6
+      ],
       "stored": "(x+2)(x+3)",
-      "status": "MANUAL_REVIEW",
-      "equivalentDistractors": []
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": [],
+      "AllFourOptionsChecked": true,
+      "EnglishSolutionReview": "Consistent with independently derived result",
+      "ArabicSolutionReview": "Not reviewed in this pass"
     },
     {
       "id": 272,
@@ -1694,11 +1699,17 @@
     {
       "id": 276,
       "pattern": "Compute \\(\\int #x^{#}\\,dx\\).",
-      "formula": null,
-      "expected": null,
+      "formula": "Differentiate option k*x^m+C; derivative coefficients are k*m,m-1",
+      "expected": [
+        4,
+        1
+      ],
       "stored": "2x^{2}+C",
-      "status": "MANUAL_REVIEW",
-      "equivalentDistractors": []
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": [],
+      "AllFourOptionsChecked": true,
+      "EnglishSolutionReview": "Consistent with independently derived result",
+      "ArabicSolutionReview": "Not reviewed in this pass"
     },
     {
       "id": 277,
@@ -1757,11 +1768,17 @@
     {
       "id": 283,
       "pattern": "Factor \\(x^#+#x+#\\).",
-      "formula": null,
-      "expected": null,
+      "formula": "Expand both factors; coefficients must equal x²+b x+c",
+      "expected": [
+        7,
+        12
+      ],
       "stored": "(x+3)(x+4)",
-      "status": "MANUAL_REVIEW",
-      "equivalentDistractors": []
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": [],
+      "AllFourOptionsChecked": true,
+      "EnglishSolutionReview": "Consistent with independently derived result",
+      "ArabicSolutionReview": "Not reviewed in this pass"
     },
     {
       "id": 284,
@@ -1802,11 +1819,17 @@
     {
       "id": 288,
       "pattern": "Compute \\(\\int #x^{#}\\,dx\\).",
-      "formula": null,
-      "expected": null,
+      "formula": "Differentiate option k*x^m+C; derivative coefficients are k*m,m-1",
+      "expected": [
+        9,
+        2
+      ],
       "stored": "3x^{3}+C",
-      "status": "MANUAL_REVIEW",
-      "equivalentDistractors": []
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": [],
+      "AllFourOptionsChecked": true,
+      "EnglishSolutionReview": "Consistent with independently derived result",
+      "ArabicSolutionReview": "Not reviewed in this pass"
     },
     {
       "id": 289,
@@ -1865,11 +1888,17 @@
     {
       "id": 295,
       "pattern": "Factor \\(x^#+#x+#\\).",
-      "formula": null,
-      "expected": null,
+      "formula": "Expand both factors; coefficients must equal x²+b x+c",
+      "expected": [
+        9,
+        20
+      ],
       "stored": "(x+4)(x+5)",
-      "status": "MANUAL_REVIEW",
-      "equivalentDistractors": []
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": [],
+      "AllFourOptionsChecked": true,
+      "EnglishSolutionReview": "Consistent with independently derived result",
+      "ArabicSolutionReview": "Not reviewed in this pass"
     },
     {
       "id": 296,
@@ -1910,11 +1939,17 @@
     {
       "id": 300,
       "pattern": "Compute \\(\\int #x^{#}\\,dx\\).",
-      "formula": null,
-      "expected": null,
+      "formula": "Differentiate option k*x^m+C; derivative coefficients are k*m,m-1",
+      "expected": [
+        16,
+        3
+      ],
       "stored": "4x^{4}+C",
-      "status": "MANUAL_REVIEW",
-      "equivalentDistractors": []
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": [],
+      "AllFourOptionsChecked": true,
+      "EnglishSolutionReview": "Consistent with independently derived result",
+      "ArabicSolutionReview": "Not reviewed in this pass"
     },
     {
       "id": 301,
@@ -1973,11 +2008,17 @@
     {
       "id": 307,
       "pattern": "Factor \\(x^#+#x+#\\).",
-      "formula": null,
-      "expected": null,
+      "formula": "Expand both factors; coefficients must equal x²+b x+c",
+      "expected": [
+        11,
+        30
+      ],
       "stored": "(x+5)(x+6)",
-      "status": "MANUAL_REVIEW",
-      "equivalentDistractors": []
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": [],
+      "AllFourOptionsChecked": true,
+      "EnglishSolutionReview": "Consistent with independently derived result",
+      "ArabicSolutionReview": "Not reviewed in this pass"
     },
     {
       "id": 308,
@@ -2018,11 +2059,17 @@
     {
       "id": 312,
       "pattern": "Compute \\(\\int #x^{#}\\,dx\\).",
-      "formula": null,
-      "expected": null,
+      "formula": "Differentiate option k*x^m+C; derivative coefficients are k*m,m-1",
+      "expected": [
+        25,
+        4
+      ],
       "stored": "5x^{5}+C",
-      "status": "MANUAL_REVIEW",
-      "equivalentDistractors": []
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": [],
+      "AllFourOptionsChecked": true,
+      "EnglishSolutionReview": "Consistent with independently derived result",
+      "ArabicSolutionReview": "Not reviewed in this pass"
     },
     {
       "id": 313,
@@ -2081,11 +2128,17 @@
     {
       "id": 319,
       "pattern": "Factor \\(x^#+#x+#\\).",
-      "formula": null,
-      "expected": null,
+      "formula": "Expand both factors; coefficients must equal x²+b x+c",
+      "expected": [
+        13,
+        42
+      ],
       "stored": "(x+6)(x+7)",
-      "status": "MANUAL_REVIEW",
-      "equivalentDistractors": []
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": [],
+      "AllFourOptionsChecked": true,
+      "EnglishSolutionReview": "Consistent with independently derived result",
+      "ArabicSolutionReview": "Not reviewed in this pass"
     },
     {
       "id": 320,
@@ -2126,11 +2179,17 @@
     {
       "id": 324,
       "pattern": "Compute \\(\\int #x^{#}\\,dx\\).",
-      "formula": null,
-      "expected": null,
+      "formula": "Differentiate option k*x^m+C; derivative coefficients are k*m,m-1",
+      "expected": [
+        36,
+        5
+      ],
       "stored": "6x^{6}+C",
-      "status": "MANUAL_REVIEW",
-      "equivalentDistractors": []
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": [],
+      "AllFourOptionsChecked": true,
+      "EnglishSolutionReview": "Consistent with independently derived result",
+      "ArabicSolutionReview": "Not reviewed in this pass"
     },
     {
       "id": 325,
@@ -2189,11 +2248,17 @@
     {
       "id": 83,
       "pattern": "Solve \\(y'=#y\\) with \\(y(#)=#\\).",
-      "formula": null,
-      "expected": null,
+      "formula": "Exponential IVP: value at zero and derivative multiplier must match; nonzero linear alternatives cannot satisfy y'=ky for all x",
+      "expected": [
+        2,
+        1
+      ],
       "stored": "2e^{1x}",
-      "status": "MANUAL_REVIEW",
-      "equivalentDistractors": []
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": [],
+      "AllFourOptionsChecked": true,
+      "EnglishSolutionReview": "Consistent with independently derived result",
+      "ArabicSolutionReview": "Not reviewed in this pass"
     },
     {
       "id": 96,
@@ -2216,11 +2281,17 @@
     {
       "id": 98,
       "pattern": "Solve \\(y'=#y\\) with \\(y(#)=#\\).",
-      "formula": null,
-      "expected": null,
+      "formula": "Exponential IVP: value at zero and derivative multiplier must match; nonzero linear alternatives cannot satisfy y'=ky for all x",
+      "expected": [
+        3,
+        2
+      ],
       "stored": "3e^{2x}",
-      "status": "MANUAL_REVIEW",
-      "equivalentDistractors": []
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": [],
+      "AllFourOptionsChecked": true,
+      "EnglishSolutionReview": "Consistent with independently derived result",
+      "ArabicSolutionReview": "Not reviewed in this pass"
     },
     {
       "id": 111,
@@ -2243,11 +2314,17 @@
     {
       "id": 113,
       "pattern": "Solve \\(y'=#y\\) with \\(y(#)=#\\).",
-      "formula": null,
-      "expected": null,
+      "formula": "Exponential IVP: value at zero and derivative multiplier must match; nonzero linear alternatives cannot satisfy y'=ky for all x",
+      "expected": [
+        4,
+        3
+      ],
       "stored": "4e^{3x}",
-      "status": "MANUAL_REVIEW",
-      "equivalentDistractors": []
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": [],
+      "AllFourOptionsChecked": true,
+      "EnglishSolutionReview": "Consistent with independently derived result",
+      "ArabicSolutionReview": "Not reviewed in this pass"
     },
     {
       "id": 126,
@@ -2270,11 +2347,17 @@
     {
       "id": 128,
       "pattern": "Solve \\(y'=#y\\) with \\(y(#)=#\\).",
-      "formula": null,
-      "expected": null,
+      "formula": "Exponential IVP: value at zero and derivative multiplier must match; nonzero linear alternatives cannot satisfy y'=ky for all x",
+      "expected": [
+        5,
+        4
+      ],
       "stored": "5e^{4x}",
-      "status": "MANUAL_REVIEW",
-      "equivalentDistractors": []
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": [],
+      "AllFourOptionsChecked": true,
+      "EnglishSolutionReview": "Consistent with independently derived result",
+      "ArabicSolutionReview": "Not reviewed in this pass"
     },
     {
       "id": 141,
@@ -2297,11 +2380,17 @@
     {
       "id": 143,
       "pattern": "Solve \\(y'=#y\\) with \\(y(#)=#\\).",
-      "formula": null,
-      "expected": null,
+      "formula": "Exponential IVP: value at zero and derivative multiplier must match; nonzero linear alternatives cannot satisfy y'=ky for all x",
+      "expected": [
+        6,
+        5
+      ],
       "stored": "6e^{5x}",
-      "status": "MANUAL_REVIEW",
-      "equivalentDistractors": []
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": [],
+      "AllFourOptionsChecked": true,
+      "EnglishSolutionReview": "Consistent with independently derived result",
+      "ArabicSolutionReview": "Not reviewed in this pass"
     },
     {
       "id": 329,
@@ -2315,11 +2404,17 @@
     {
       "id": 330,
       "pattern": "Find gradient of \\(f(x,y)=x^#+y^#\\) at (#,#).",
-      "formula": null,
-      "expected": null,
+      "formula": "Differentiate x and y separately, evaluate both components",
+      "expected": [
+        4,
+        6
+      ],
       "stored": "(4,6)",
-      "status": "MANUAL_REVIEW",
-      "equivalentDistractors": []
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": [],
+      "AllFourOptionsChecked": true,
+      "EnglishSolutionReview": "Consistent with independently derived result",
+      "ArabicSolutionReview": "Not reviewed in this pass"
     },
     {
       "id": 331,
@@ -2342,11 +2437,17 @@
     {
       "id": 333,
       "pattern": "Multiply vector (#,#) by scalar #.",
-      "formula": null,
-      "expected": null,
+      "formula": "Multiply each component by scalar",
+      "expected": [
+        6,
+        8
+      ],
       "stored": "(6,8)",
-      "status": "MANUAL_REVIEW",
-      "equivalentDistractors": []
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": [],
+      "AllFourOptionsChecked": true,
+      "EnglishSolutionReview": "Consistent with independently derived result",
+      "ArabicSolutionReview": "Not reviewed in this pass"
     },
     {
       "id": 334,
@@ -2405,11 +2506,18 @@
     {
       "id": 340,
       "pattern": "For f(#)=-# and f(#)=#, what sufficient condition guarantees a root in (#,#) by the intermediate value theorem?",
-      "formula": null,
-      "expected": null,
+      "formula": "Continuity on the closed interval plus strict opposite endpoint signs guarantees an interior zero by IVT",
+      "expected": [
+        "continuous",
+        0,
+        1
+      ],
       "stored": "\\text{الدالة متصلة على [0,1] (Continuous on [0,1])}",
-      "status": "MANUAL_REVIEW",
-      "equivalentDistractors": []
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": [],
+      "AllFourOptionsChecked": true,
+      "EnglishSolutionReview": "Consistent with independently derived result",
+      "ArabicSolutionReview": "Not reviewed in this pass"
     },
     {
       "id": 341,
@@ -2423,11 +2531,17 @@
     {
       "id": 342,
       "pattern": "Find gradient of \\(f(x,y)=x^#+y^#\\) at (#,#).",
-      "formula": null,
-      "expected": null,
+      "formula": "Differentiate x and y separately, evaluate both components",
+      "expected": [
+        6,
+        8
+      ],
       "stored": "(6,8)",
-      "status": "MANUAL_REVIEW",
-      "equivalentDistractors": []
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": [],
+      "AllFourOptionsChecked": true,
+      "EnglishSolutionReview": "Consistent with independently derived result",
+      "ArabicSolutionReview": "Not reviewed in this pass"
     },
     {
       "id": 343,
@@ -2450,11 +2564,17 @@
     {
       "id": 345,
       "pattern": "Multiply vector (#,#) by scalar #.",
-      "formula": null,
-      "expected": null,
+      "formula": "Multiply each component by scalar",
+      "expected": [
+        12,
+        15
+      ],
       "stored": "(12,15)",
-      "status": "MANUAL_REVIEW",
-      "equivalentDistractors": []
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": [],
+      "AllFourOptionsChecked": true,
+      "EnglishSolutionReview": "Consistent with independently derived result",
+      "ArabicSolutionReview": "Not reviewed in this pass"
     },
     {
       "id": 346,
@@ -2513,11 +2633,18 @@
     {
       "id": 352,
       "pattern": "For f(#)=-# and f(#)=#, what sufficient condition guarantees a root in (#,#) by the intermediate value theorem?",
-      "formula": null,
-      "expected": null,
+      "formula": "Continuity on the closed interval plus strict opposite endpoint signs guarantees an interior zero by IVT",
+      "expected": [
+        "continuous",
+        0,
+        1
+      ],
       "stored": "\\text{الدالة متصلة على [0,1] (Continuous on [0,1])}",
-      "status": "MANUAL_REVIEW",
-      "equivalentDistractors": []
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": [],
+      "AllFourOptionsChecked": true,
+      "EnglishSolutionReview": "Consistent with independently derived result",
+      "ArabicSolutionReview": "Not reviewed in this pass"
     },
     {
       "id": 353,
@@ -2531,11 +2658,17 @@
     {
       "id": 354,
       "pattern": "Find gradient of \\(f(x,y)=x^#+y^#\\) at (#,#).",
-      "formula": null,
-      "expected": null,
+      "formula": "Differentiate x and y separately, evaluate both components",
+      "expected": [
+        8,
+        10
+      ],
       "stored": "(8,10)",
-      "status": "MANUAL_REVIEW",
-      "equivalentDistractors": []
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": [],
+      "AllFourOptionsChecked": true,
+      "EnglishSolutionReview": "Consistent with independently derived result",
+      "ArabicSolutionReview": "Not reviewed in this pass"
     },
     {
       "id": 355,
@@ -2558,11 +2691,17 @@
     {
       "id": 357,
       "pattern": "Multiply vector (#,#) by scalar #.",
-      "formula": null,
-      "expected": null,
+      "formula": "Multiply each component by scalar",
+      "expected": [
+        20,
+        24
+      ],
       "stored": "(20,24)",
-      "status": "MANUAL_REVIEW",
-      "equivalentDistractors": []
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": [],
+      "AllFourOptionsChecked": true,
+      "EnglishSolutionReview": "Consistent with independently derived result",
+      "ArabicSolutionReview": "Not reviewed in this pass"
     },
     {
       "id": 358,
@@ -2621,11 +2760,18 @@
     {
       "id": 364,
       "pattern": "For f(#)=-# and f(#)=#, what sufficient condition guarantees a root in (#,#) by the intermediate value theorem?",
-      "formula": null,
-      "expected": null,
+      "formula": "Continuity on the closed interval plus strict opposite endpoint signs guarantees an interior zero by IVT",
+      "expected": [
+        "continuous",
+        0,
+        1
+      ],
       "stored": "\\text{الدالة متصلة على [0,1] (Continuous on [0,1])}",
-      "status": "MANUAL_REVIEW",
-      "equivalentDistractors": []
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": [],
+      "AllFourOptionsChecked": true,
+      "EnglishSolutionReview": "Consistent with independently derived result",
+      "ArabicSolutionReview": "Not reviewed in this pass"
     },
     {
       "id": 365,
@@ -2639,11 +2785,17 @@
     {
       "id": 366,
       "pattern": "Find gradient of \\(f(x,y)=x^#+y^#\\) at (#,#).",
-      "formula": null,
-      "expected": null,
+      "formula": "Differentiate x and y separately, evaluate both components",
+      "expected": [
+        10,
+        12
+      ],
       "stored": "(10,12)",
-      "status": "MANUAL_REVIEW",
-      "equivalentDistractors": []
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": [],
+      "AllFourOptionsChecked": true,
+      "EnglishSolutionReview": "Consistent with independently derived result",
+      "ArabicSolutionReview": "Not reviewed in this pass"
     },
     {
       "id": 367,
@@ -2666,11 +2818,17 @@
     {
       "id": 369,
       "pattern": "Multiply vector (#,#) by scalar #.",
-      "formula": null,
-      "expected": null,
+      "formula": "Multiply each component by scalar",
+      "expected": [
+        30,
+        35
+      ],
       "stored": "(30,35)",
-      "status": "MANUAL_REVIEW",
-      "equivalentDistractors": []
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": [],
+      "AllFourOptionsChecked": true,
+      "EnglishSolutionReview": "Consistent with independently derived result",
+      "ArabicSolutionReview": "Not reviewed in this pass"
     },
     {
       "id": 370,
@@ -2729,11 +2887,18 @@
     {
       "id": 376,
       "pattern": "For f(#)=-# and f(#)=#, what sufficient condition guarantees a root in (#,#) by the intermediate value theorem?",
-      "formula": null,
-      "expected": null,
+      "formula": "Continuity on the closed interval plus strict opposite endpoint signs guarantees an interior zero by IVT",
+      "expected": [
+        "continuous",
+        0,
+        1
+      ],
       "stored": "\\text{الدالة متصلة على [0,1] (Continuous on [0,1])}",
-      "status": "MANUAL_REVIEW",
-      "equivalentDistractors": []
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": [],
+      "AllFourOptionsChecked": true,
+      "EnglishSolutionReview": "Consistent with independently derived result",
+      "ArabicSolutionReview": "Not reviewed in this pass"
     },
     {
       "id": 377,
@@ -2747,11 +2912,17 @@
     {
       "id": 378,
       "pattern": "Find gradient of \\(f(x,y)=x^#+y^#\\) at (#,#).",
-      "formula": null,
-      "expected": null,
+      "formula": "Differentiate x and y separately, evaluate both components",
+      "expected": [
+        12,
+        14
+      ],
       "stored": "(12,14)",
-      "status": "MANUAL_REVIEW",
-      "equivalentDistractors": []
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": [],
+      "AllFourOptionsChecked": true,
+      "EnglishSolutionReview": "Consistent with independently derived result",
+      "ArabicSolutionReview": "Not reviewed in this pass"
     },
     {
       "id": 379,
@@ -2774,11 +2945,17 @@
     {
       "id": 381,
       "pattern": "Multiply vector (#,#) by scalar #.",
-      "formula": null,
-      "expected": null,
+      "formula": "Multiply each component by scalar",
+      "expected": [
+        42,
+        48
+      ],
       "stored": "(42,48)",
-      "status": "MANUAL_REVIEW",
-      "equivalentDistractors": []
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": [],
+      "AllFourOptionsChecked": true,
+      "EnglishSolutionReview": "Consistent with independently derived result",
+      "ArabicSolutionReview": "Not reviewed in this pass"
     },
     {
       "id": 382,
@@ -2837,11 +3014,18 @@
     {
       "id": 388,
       "pattern": "For f(#)=-# and f(#)=#, what sufficient condition guarantees a root in (#,#) by the intermediate value theorem?",
-      "formula": null,
-      "expected": null,
+      "formula": "Continuity on the closed interval plus strict opposite endpoint signs guarantees an interior zero by IVT",
+      "expected": [
+        "continuous",
+        0,
+        1
+      ],
       "stored": "\\text{الدالة متصلة على [0,1] (Continuous on [0,1])}",
-      "status": "MANUAL_REVIEW",
-      "equivalentDistractors": []
+      "status": "MARKED_ANSWER_MATCHES",
+      "equivalentDistractors": [],
+      "AllFourOptionsChecked": true,
+      "EnglishSolutionReview": "Consistent with independently derived result",
+      "ArabicSolutionReview": "Not reviewed in this pass"
     }
   ]
 }
