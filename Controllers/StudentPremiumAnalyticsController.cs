@@ -41,6 +41,13 @@ public sealed class StudentPremiumAnalyticsController : ControllerBase
         public int? FilterCategoryId { get; init; }
         public int? FilterTrackId { get; init; }
         public int? WindowDays { get; init; }
+        public DateTime? WindowStartUtc { get; init; }
+        public string? FilterStageNameAr { get; init; }
+        public string? FilterStageNameEn { get; init; }
+        public string? FilterCategoryNameAr { get; init; }
+        public string? FilterCategoryNameEn { get; init; }
+        public string? FilterTrackNameAr { get; init; }
+        public string? FilterTrackNameEn { get; init; }
     }
 
     public sealed record ReportFilter(int? StageId=null,int? CategoryId=null,int? TrackId=null,int? Days=null);
@@ -250,7 +257,8 @@ public sealed class StudentPremiumAnalyticsController : ControllerBase
     // Guided attempts have no measured duration; do not invent one.
     private async Task<StudentAnalyticsReport> BuildLifetimeReport(int userId,ReportFilter filter,CancellationToken ct)
     {
-        var cutoff=filter.Days.HasValue?DateTime.UtcNow.Date.AddDays(1-filter.Days.Value):(DateTime?)null;
+        var generated=DateTime.UtcNow;
+        var cutoff=filter.Days.HasValue?generated.Date.AddDays(1-filter.Days.Value):(DateTime?)null;
         var scope=_db.Problems.AsNoTracking().Where(p=>(!filter.StageId.HasValue||p.StageId==filter.StageId)&&
             (!filter.CategoryId.HasValue||p.CategoryId==filter.CategoryId));
         if(filter.TrackId.HasValue)
@@ -324,11 +332,19 @@ public sealed class StudentPremiumAnalyticsController : ControllerBase
                 a?.Attempts??0,a?.Correct??0,a?.Incorrect??0,e?.First??0,e?.Points??0,a?.Seconds??0));
         }
         rows=rows.OrderBy(x=>x.StageId).ThenBy(x=>x.CategoryId).ToList();
-        return new StudentAnalyticsReport(DateTime.UtcNow,rows.Sum(x=>x.AttemptedProblems),rows.Sum(x=>x.SolvedProblems),
+        var stageName=filter.StageId.HasValue?await _db.EducationalStages.AsNoTracking()
+            .Where(s=>s.Id==filter.StageId).Select(s=>new{s.NameAr,s.NameEn}).SingleOrDefaultAsync(ct):null;
+        var categoryName=categories.FirstOrDefault(s=>s.Id==filter.CategoryId);
+        var trackName=filter.TrackId.HasValue?await _db.LearningTracks.AsNoTracking()
+            .Where(s=>s.Id==filter.TrackId).Select(s=>new{s.NameAr,s.NameEn}).SingleOrDefaultAsync(ct):null;
+        return new StudentAnalyticsReport(generated,rows.Sum(x=>x.AttemptedProblems),rows.Sum(x=>x.SolvedProblems),
             rows.Sum(x=>x.Attempts),rows.Sum(x=>x.CorrectAttempts),rows.Sum(x=>x.IncorrectAttempts),rows.Sum(x=>x.FirstTryCorrect),
             rows.Sum(x=>x.AwardedPoints),rows.Sum(x=>x.TimeSpentSeconds),rows)
         {ScoreBasis="PermanentAchievements",GuidedAttempts=await guided.CountAsync(ct),GuidedTimeMeasured=false,
-            FilterStageId=filter.StageId,FilterCategoryId=filter.CategoryId,FilterTrackId=filter.TrackId,WindowDays=filter.Days};
+            FilterStageId=filter.StageId,FilterCategoryId=filter.CategoryId,FilterTrackId=filter.TrackId,WindowDays=filter.Days,WindowStartUtc=cutoff,
+            FilterStageNameAr=stageName?.NameAr,FilterStageNameEn=stageName?.NameEn,
+            FilterCategoryNameAr=categoryName?.NameAr,FilterCategoryNameEn=categoryName?.NameEn,
+            FilterTrackNameAr=trackName?.NameAr,FilterTrackNameEn=trackName?.NameEn};
     }
 
     private static string Csv(string? input)

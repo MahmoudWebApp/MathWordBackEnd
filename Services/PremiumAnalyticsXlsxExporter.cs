@@ -252,9 +252,25 @@ public static class PremiumAnalyticsXlsxExporter
         }
         // A single table with an in-place filter and no floating chart objects.
         sheet.Range(12, 1, Math.Max(12, row - 1), 11).SetAutoFilter();
+        WriteContext(sheet,row+2,report,ar);
         sheet.SheetView.FreezeRows(12);
         sheet.PageSetup.PageOrientation = XLPageOrientation.Landscape;
         sheet.PageSetup.FitToPages(1, 0);
+    }
+
+    private static void WriteContext(IXLWorksheet sheet,int row,
+        StudentPremiumAnalyticsController.StudentAnalyticsReport report,bool ar)
+    {
+        foreach(var line in PremiumAnalyticsReportContext.Lines(report,ar))
+        {
+            var area=sheet.Range(row,1,row,11).Merge();
+            area.FirstCell().Value=line;
+            area.Style.Fill.BackgroundColor=Light;
+            area.Style.Font.FontColor=Ink;
+            area.Style.Alignment.WrapText=true;
+            area.Style.Alignment.Horizontal=ar?XLAlignmentHorizontalValues.Right:XLAlignmentHorizontalValues.Left;
+            sheet.Row(row++).Height=30;
+        }
     }
 
     private static void FormatBodyRow(IXLWorksheet sheet, int row, XLColor background)
@@ -368,6 +384,7 @@ public static class PremiumAnalyticsXlsxExporter
         {
             sheet.Cell(9, 1).Value = ar ? "لا توجد بيانات بعد" : "No data yet";
         }
+        WriteContext(sheet,Math.Max(row,10)+2,report,ar);
         sheet.SheetView.FreezeRows(8);
         sheet.PageSetup.PageOrientation = XLPageOrientation.Landscape;
         sheet.PageSetup.FitToPages(1, 0);

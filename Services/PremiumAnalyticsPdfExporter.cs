@@ -91,6 +91,11 @@ public static class PremiumAnalyticsPdfExporter
                 root.Column(column =>
                 {
                     column.Spacing(13);
+                    column.Item().Border(1).BorderColor(Border).Padding(9).Column(context=>{
+                        context.Spacing(2);
+                        foreach(var line in PremiumAnalyticsReportContext.Lines(report,ar))
+                            context.Item().Text(line).FontSize(9);
+                    });
                     column.Item().Background(Light).Border(1).BorderColor(Border)
                         .Padding(10).Row(row =>
                         {
@@ -172,8 +177,6 @@ public static class PremiumAnalyticsPdfExporter
                             AddCell(table, item.AwardedPoints.ToString(CultureInfo.InvariantCulture));
                         }
                     });
-                    if(report.ScoreBasis=="PermanentAchievements")
-                        column.Item().Text(ar?"الإنجازات والنقاط دائمة؛ دفتر الأخطاء يعرض حالة التدريب الحالية. زمن الجلسات الموجهة غير مقاس.":"Achievements and points are lifetime credits; the error notebook is current. Guided-session time is not measured.").FontSize(8);
                     column.Item().Text(ar
                         ? "جميع الأرقام مأخوذة من تقدّم الطالب الفعلي. ولا تُعرض معرّفات داخلية."
                         : "All figures come from your actual recorded progress. Internal IDs are omitted.")

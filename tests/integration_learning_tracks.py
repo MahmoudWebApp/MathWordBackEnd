@@ -1,5 +1,5 @@
 """Track mapping integration, invoked inside the existing disposable journey suite."""
-import os, subprocess
+import os, subprocess, io, zipfile, urllib.request
 from integration_learning_journey import expect, BASE
 def sql(q):
     assert BASE.startswith(("http://127.0.0.1:","http://localhost:"))
@@ -106,6 +106,19 @@ def verify_tracks(admin, student, uid, stage1, stage2):
     assert new_report["Attempts"]==1 and new_report["CorrectAttempts"]==0 and new_report["IncorrectAttempts"]==1
     assert old_report["SolvedProblems"]==1 and new_report["SolvedProblems"]==0
     assert old_report["AwardedPoints"]>0 and new_report["AwardedPoints"]==0
+    filtered=expect("GET",f"/api/users/premium-analytics?trackId={tid}&days=7",200,token=student)
+    assert filtered["FilterTrackNameEn"]=="Grade fixture" and filtered["WindowDays"]==7
+    assert filtered["WindowStartUtc"] and filtered["FilterTrackId"]==tid
+    # Verify the actual downloaded workbook carries the selected track and
+    # measurement caveats, not just the JSON endpoint.
+    request=urllib.request.Request(BASE+f"/api/users/premium-analytics/export.xlsx?trackId={tid}&days=7&lang=en",
+        headers={"Authorization":"Bearer "+student})
+    with urllib.request.urlopen(request,timeout=30) as response:
+        archive=response.read()
+    with zipfile.ZipFile(io.BytesIO(archive)) as book:
+        xml=book.read("xl/sharedStrings.xml").decode()
+        assert "Grade fixture" in xml and "Period (UTC)" in xml
+        assert "Guided-session attempts" in xml and "current state" in xml
     eligibility=expect("GET",f"/api/users/certificates/eligibility?stageId={stage1}&trackId={oid}&categoryId={category}",200,token=student)
     assert eligibility["SolvedProblems"]==0 and eligibility["IndependentSkills"]==0
     sql(f"""UPDATE "Users" SET "SubscriptionType"='Free' WHERE "Id"={uid}""")
