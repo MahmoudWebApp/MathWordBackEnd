@@ -42,7 +42,7 @@ def verify_tracks(admin, student, uid, stage1, stage2):
     assert expect("GET","/api/users/learning-track",200,token=student)["TrackId"]==tid
     assert expect("GET",f"/api/users/learning-tracks/{tid}/progress",200,token=student)["Solved"]==0
     journey=expect("GET",f"/api/users/journey?stageId={stage1}",200,token=student)
-    assert journey["TrackId"]==tid and journey["TotalProblems"]==1
+    assert journey["TrackId"]==tid and journey["TotalProblems"]==1 and journey["TrackPracticeIsolationEnabled"]
     scoped=expect("GET",f"/api/problems/search?stageId={stage1}",200,token=student)
     assert scoped["Total"]==1 and scoped["Results"][0]["Id"]==pid
     outside=sql(f'SELECT "Id" FROM "Problems" WHERE "StageId"={stage1} AND "CategoryId"={category} AND "Id"<>{pid} LIMIT 1')
@@ -79,8 +79,30 @@ def verify_tracks(admin, student, uid, stage1, stage2):
     expect("PUT",f"{root}/{oid}/publication",200,{"Revision":1,"Publish":True},admin)
     expect("PUT","/api/users/learning-track",200,{"TrackId":oid},student)
     expect("GET",practice,403,token=student)
+    assert expect("GET",f"/api/users/learning-tracks/{oid}/progress",200,token=student)["Solved"]==0
+    expect("POST","/api/users/favorite/toggle",200,{"ProblemId":pid,"IsFavorite":True},student)
+    wrong_option=next(x["Id"] for x in detail["Options"] if not x["IsCorrect"])
+    wrong=expect("POST","/api/problems/submit",200,{"ProblemId":pid,"SelectedOptionId":wrong_option,"TimeSpentSeconds":3},student)
+    assert not wrong["IsCorrect"]
+    assert expect("GET",f"/api/users/journey?stageId={stage1}",200,token=student)["SolvedProblems"]==0
+    assert len(expect("GET","/api/users/error-notebook",200,token=student))==1
+    expect("POST","/api/users/practice/reset",409,{"StageId":stage1,"TrackId":tid},student)
+    expect("PUT","/api/users/learning-track",200,{"TrackId":tid},student)
+    assert expect("GET",f"/api/users/learning-tracks/{tid}/progress",200,token=student)["Solved"]==1
+    assert expect("GET","/api/users/error-notebook",200,token=student)==[]
+    assert expect("GET",f"/api/users/favorite/check/{pid}",200,token=student)["IsFavorite"]
+    changed=expect("POST","/api/users/practice/reset",200,{"StageId":stage1,"TrackId":tid,"CategoryId":category},student)
+    assert changed["ResetSolved"]==1 and changed["PreservedFavorites"]==1
+    assert expect("GET",practice,200,token=student)["Items"][0]["IsSolved"] is False
+    expect("PUT","/api/users/learning-track",200,{"TrackId":oid},student)
+    assert len(expect("GET","/api/users/error-notebook",200,token=student))==1
+    again=expect("POST","/api/problems/submit",200,{"ProblemId":pid,"SelectedOptionId":option,"TimeSpentSeconds":4},student)
+    assert again["IsCorrect"] and again["PointsEarned"]==0
+    assert expect("GET","/api/users/error-notebook",200,token=student)==[]
+    assert expect("GET",f"/api/users/learning-tracks/{tid}/progress",200,token=student)["Solved"]==0
     assert expect("GET",f"/api/users/learning-tracks/{oid}/progress",200,token=student)["Solved"]==1
-    assert sql(f'SELECT COUNT(*) FROM "UserProgresses" WHERE "UserId"={uid} AND "ProblemId"={pid}')=="1"
+    assert sql(f'SELECT COUNT(*) FROM "UserProgresses" WHERE "UserId"={uid} AND "ProblemId"={pid}')=="3"
+    assert sql(f'SELECT COUNT(DISTINCT "PracticeScopeId") FROM "ProblemAttempts" WHERE "UserId"={uid} AND "ProblemId"={pid}')=="2"
     expect("PUT",f"{root}/{oid}/publication",200,{"Revision":2,"Publish":False},admin)
     expect("PUT","/api/users/learning-track",200,{"TrackId":tid},student)
     expect("PUT","/api/users/learning-stage",200,{"StageId":stage2},student)

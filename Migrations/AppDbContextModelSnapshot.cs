@@ -1060,7 +1060,8 @@ namespace MathWorldAPI.Migrations
 
                     b.HasIndex("UserId", "SubmittedAt");
 
-                    b.ToTable("ProblemAttempts");
+                    b.Property<int>("PracticeScopeId").ValueGeneratedOnAdd().HasColumnType("integer").HasDefaultValue(0);
+                    b.ToTable("ProblemAttempts",t=>t.HasCheckConstraint("CK_ProblemAttempts_PracticeScope","\"PracticeScopeId\" >= 0"));
                 });
 
             modelBuilder.Entity("MathWorldAPI.Models.ProblemDiagram", b =>
@@ -1304,10 +1305,12 @@ namespace MathWorldAPI.Migrations
 
                     b.HasIndex("UserId", "NextReviewAt");
 
+                    b.Property<int>("PracticeScopeId").ValueGeneratedOnAdd().HasColumnType("integer").HasDefaultValue(0);
                     b.HasIndex("UserId", "ProblemId")
-                        .IsUnique();
+                        .IsUnique().HasFilter("\"PracticeScopeId\" = 0");
+                    b.HasIndex("UserId","ProblemId","PracticeScopeId").IsUnique();
 
-                    b.ToTable("UserProgresses");
+                    b.ToTable("UserProgresses",t=>t.HasCheckConstraint("CK_UserProgresses_PracticeScope","\"PracticeScopeId\" >= 0 AND (\"PracticeScopeId\" = 0 OR NOT \"IsFavorite\")"));
                 });
 
             modelBuilder.Entity("MathWorldAPI.Models.CurriculumDraftBatch", b =>

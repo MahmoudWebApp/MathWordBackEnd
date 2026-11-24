@@ -39,7 +39,8 @@ public sealed class ProblemHintsController(AppDbContext db,ProblemCategoryAccess
         if(problem is null)return NotFound();
         if(!await access.CanReadProblemAsync(User,problem.StageId,problem.CategoryId,ct)||
             !await tracks.CanPracticeAsync(User,problemId,ct))return StatusCode(403,new{Message="ProblemLocked"});
-        var progress=await db.UserProgresses.SingleOrDefaultAsync(p=>p.UserId==id&&p.ProblemId==problemId,ct);
+        var practiceScope=await TrackPractice.CurrentAsync(db,HttpContext,ct);
+        var progress=await TrackPractice.For(db,practiceScope).SingleOrDefaultAsync(p=>p.UserId==id&&p.ProblemId==problemId,ct);
         if(progress?.IsSolved==true)return Conflict(new{Message="AlreadySolved"});
         BilingualText[]? hints=null;
         if(problem.EditorialDetailsJson is not null)
@@ -56,7 +57,7 @@ public sealed class ProblemHintsController(AppDbContext db,ProblemCategoryAccess
             if(level.Value>revealed+1)return Conflict(new{Message="RevealPreviousHintFirst"});
             if(level.Value>revealed)
             {
-                if(progress is null){progress=new UserProgress{UserId=id,ProblemId=problemId};db.UserProgresses.Add(progress);}
+                if(progress is null){progress=new UserProgress{UserId=id,ProblemId=problemId,PracticeScopeId=practiceScope};db.UserProgresses.Add(progress);}
                 progress.HintsRevealed=level.Value;revealed=level.Value;
                 db.PlatformActivityEvents.Add(new PlatformActivityEvent{ActorUserId=id,ActorRole="Student",
                     Action="ProblemHint"+revealed,Resource="Problem",ResourceId=problemId.ToString(),

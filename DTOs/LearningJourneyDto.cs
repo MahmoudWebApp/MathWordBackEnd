@@ -39,6 +39,7 @@ namespace MathWorldAPI.DTOs
         public int? TrackId { get; set; }
         public bool LearningSessionsEnabled { get; set; }
         public bool CertificatesEnabled { get; set; }
+        public bool TrackPracticeIsolationEnabled { get; set; }
         public string NameAr { get; set; } = string.Empty;
         public string NameEn { get; set; } = string.Empty;
         public int TotalProblems { get; set; }

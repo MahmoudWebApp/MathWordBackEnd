@@ -134,7 +134,8 @@ namespace MathWorldAPI.Controllers
                 .ToDictionaryAsync(x => x.CategoryId, x => x.Count,
                     cancellationToken);
 
-            var progress = await _context.UserProgresses.AsNoTracking()
+            var practiceScope=TrackPractice.Scope(HttpContext.RequestServices.GetRequiredService<IConfiguration>(),track?.Id);
+            var progress = await TrackPractice.For(_context,practiceScope).AsNoTracking()
                 .Where(p => p.UserId == userId && scoped.Any(q=>q.Id==p.ProblemId))
                 .GroupBy(p => p.Problem.CategoryId)
                 .Select(g => new
@@ -194,6 +195,7 @@ namespace MathWorldAPI.Controllers
                 StageId = stage.Id,
                 TrackId = track?.Id,
                 LearningSessionsEnabled = HttpContext.RequestServices.GetRequiredService<IConfiguration>().GetValue<bool>("LearningSessions:Enabled"),
+                TrackPracticeIsolationEnabled = TrackPractice.Enabled(HttpContext.RequestServices.GetRequiredService<IConfiguration>()),
                 CertificatesEnabled = HttpContext.RequestServices.GetRequiredService<IConfiguration>().GetValue<bool>("Certificates:Enabled"),
                 NameAr = track?.NameAr ?? stage.NameAr,
                 NameEn = track?.NameEn ?? stage.NameEn,

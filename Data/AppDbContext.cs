@@ -583,6 +583,13 @@ namespace MathWorldAPI.Data
                 .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<UserProgress>().Property(p=>p.HintsRevealed).HasDefaultValue(0);
+            // Older consumers deliberately retain the legacy stage projection.
+            // Scoped learning endpoints explicitly select a track cycle.
+            modelBuilder.Entity<UserProgress>().HasQueryFilter(p=>p.PracticeScopeId==0);
+            modelBuilder.Entity<UserProgress>().Property(p=>p.PracticeScopeId).HasDefaultValue(0);
+            modelBuilder.Entity<UserProgress>().ToTable(t=>t.HasCheckConstraint("CK_UserProgresses_PracticeScope","\"PracticeScopeId\" >= 0 AND (\"PracticeScopeId\" = 0 OR NOT \"IsFavorite\")"));
+            modelBuilder.Entity<ProblemAttempt>().Property(p=>p.PracticeScopeId).HasDefaultValue(0);
+            modelBuilder.Entity<ProblemAttempt>().ToTable(t=>t.HasCheckConstraint("CK_ProblemAttempts_PracticeScope","\"PracticeScopeId\" >= 0"));
             modelBuilder.Entity<UserProgress>()
                 .Property(progress => progress.MasteryStatus)
                 .HasMaxLength(32)
@@ -667,7 +674,10 @@ namespace MathWorldAPI.Data
                     progress.UserId,
                     progress.ProblemId
                 })
-                .IsUnique();
+                .IsUnique().HasFilter("\"PracticeScopeId\" = 0");
+
+            modelBuilder.Entity<UserProgress>()
+                .HasIndex(p=>new{p.UserId,p.ProblemId,p.PracticeScopeId}).IsUnique();
 
             modelBuilder.Entity<UserProgress>()
                 .HasIndex(progress => new

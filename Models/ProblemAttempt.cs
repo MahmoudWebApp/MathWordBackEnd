@@ -10,6 +10,7 @@ namespace MathWorldAPI.Models
 
         public int UserId { get; set; }
         public int ProblemId { get; set; }
+        public int PracticeScopeId { get; set; }
 
         // Option IDs and text are stored as snapshots so history remains valid
         // even when an administrator updates the current problem options.

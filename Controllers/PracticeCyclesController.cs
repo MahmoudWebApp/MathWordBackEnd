@@ -25,6 +25,7 @@ public sealed class PracticeCyclesController : ControllerBase
     {
         public int StageId { get; set; }
         public int? CategoryId { get; set; }
+        public int? TrackId { get; set; }
     }
 
     [HttpPost("reset")]
@@ -36,7 +37,7 @@ public sealed class PracticeCyclesController : ControllerBase
             || userId <= 0) return Unauthorized();
 
         if (request is null || request.StageId <= 0 ||
-            (request.CategoryId.HasValue && request.CategoryId.Value <= 0))
+            (request.CategoryId.HasValue && request.CategoryId.Value <= 0) || request.TrackId is <=0)
             return BadRequest(new { Message = "InvalidPracticeScope" });
 
         var learner = await _db.Users.AsNoTracking()
@@ -69,12 +70,19 @@ public sealed class PracticeCyclesController : ControllerBase
         var latestStage=await LegacyLearningStage.EffectiveIdAsync(_db,latest.CurrentStageId,ct);
         if(!latest.IsActive||latest.Role!="Student"||latestStage!=request.StageId)
             return StatusCode(403,new{Message="CurrentStageOnly"});
-        if(await tracks.ActiveAsync(latest.CurrentStageId,latest.CurrentTrackId,ct) is not null)
-            return Conflict(new { Message = "TrackPracticeCycleRequired" });
-        var scope = _db.UserProgresses
+        var track=await tracks.ActiveAsync(latest.CurrentStageId,latest.CurrentTrackId,ct);
+        var enabled=TrackPractice.Enabled(HttpContext.RequestServices.GetRequiredService<IConfiguration>());
+        if(track!=null&&!enabled)return Conflict(new { Message = "TrackPracticeCycleRequired" });
+        if(request.TrackId!=track?.Id||(tracks.Enabled&&latest.CurrentTrackId.HasValue&&track==null))
+            return Conflict(new{Message="PracticeScopeChanged"});
+        var practiceScope=TrackPractice.Scope(HttpContext.RequestServices.GetRequiredService<IConfiguration>(),track?.Id);
+        var eligible=track==null?_db.Problems.AsNoTracking().Where(p=>p.StageId==request.StageId&&p.Category.StageId==request.StageId):tracks.ValidProblems(track.Id);
+        if(request.CategoryId.HasValue&&!await eligible.AnyAsync(p=>p.CategoryId==request.CategoryId,ct))
+            return NotFound(new{Message="CategoryNotInScope"});
+        var scope = TrackPractice.For(_db,practiceScope)
             .Where(p => p.UserId == userId &&
                 p.Problem.StageId == request.StageId &&
-                p.Problem.Category.StageId == request.StageId);
+                p.Problem.Category.StageId == request.StageId && eligible.Any(q=>q.Id==p.ProblemId));
         if (request.CategoryId.HasValue)
             scope = scope.Where(p => p.Problem.CategoryId == request.CategoryId.Value);
 
@@ -110,10 +118,11 @@ public sealed class PracticeCyclesController : ControllerBase
         // SolvedCount tracks currently solved users, not number of attempts.
         // Repeated resets followed by re-solves never inflate it.
         if (solvedIds.Length > 0)
-            await _db.Problems.Where(p => solvedIds.Contains(p.Id))
+            await _db.Problems.Where(p => solvedIds.Contains(p.Id)&&!_db.UserProgresses.IgnoreQueryFilters().Any(x=>x.UserId==userId&&x.ProblemId==p.Id&&x.PracticeScopeId!=practiceScope&&x.IsSolved))
                 .ExecuteUpdateAsync(set => set.SetProperty(p => p.SolvedCount,
                     p => p.SolvedCount > 0 ? p.SolvedCount - 1 : 0), ct);
 
+        var preservedFavorites=await _db.UserProgresses.CountAsync(p=>p.UserId==userId&&p.IsFavorite&&eligible.Any(q=>q.Id==p.ProblemId)&&(!request.CategoryId.HasValue||p.Problem.CategoryId==request.CategoryId),ct);
         await _db.SaveChangesAsync(ct);
         await transaction.CommitAsync(ct);
 
@@ -121,9 +130,10 @@ public sealed class PracticeCyclesController : ControllerBase
         {
             request.StageId,
             request.CategoryId,
+            request.TrackId,
             ResetProblems = attemptedCount,
             ResetSolved = solvedIds.Length,
-            PreservedFavorites = rows.Count(p => p.IsFavorite),
+            PreservedFavorites = preservedFavorites,
             // Immutable attempts retained for admin audit but not visible in
             // the learner-facing simplified practice UI.
             PracticeCycleReset = true

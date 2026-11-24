@@ -65,15 +65,17 @@ public sealed class DailyChallengeController : ControllerBase
         // the challenge screen unless an explicit mistake review is requested.
         // The first-attempt timestamp keeps today's selection stable even after
         // a question is answered later on the same UTC day.
-        var attemptedBeforeToday = await _db.UserProgresses.AsNoTracking()
+        var tracks=HttpContext.RequestServices.GetRequiredService<LearningTrackService>();
+        var track=await tracks.ActiveAsync(targetStage,learner.CurrentTrackId,ct);
+        var practiceScope=TrackPractice.Scope(HttpContext.RequestServices.GetRequiredService<IConfiguration>(),track?.Id);
+        var scopedProgress=TrackPractice.For(_db,practiceScope);
+        var attemptedBeforeToday = await scopedProgress.AsNoTracking()
             .Where(p => p.UserId == userId &&
                 ((p.Attempts > 0 &&
                     (p.FirstAttemptAt ?? p.LastAttemptAt) < day) ||
                  (p.IsSolved && p.SolvedAt.HasValue && p.SolvedAt.Value < day)))
             .Select(p => p.ProblemId).ToListAsync(ct);
 
-        var tracks=HttpContext.RequestServices.GetRequiredService<LearningTrackService>();
-        var track=await tracks.ActiveAsync(targetStage,learner.CurrentTrackId,ct);
         var scoped=track is null?_db.Problems.AsNoTracking():tracks.ValidProblems(track.Id);
         var eligible = await scoped
             .Where(p => p.StageId == targetStage.Value &&
@@ -107,13 +109,13 @@ public sealed class DailyChallengeController : ControllerBase
         // whether right or wrong. The UI then advances to the next question.
         // The correct count is independent and is shown in the result screen.
         // Ignore prior audit rows after a voluntary practice cycle reset.
-        var activeAttempts = await _db.UserProgresses.AsNoTracking()
+        var activeAttempts = await scopedProgress.AsNoTracking()
             .Where(p => p.UserId == userId && p.Attempts > 0 &&
                 ids.Contains(p.ProblemId))
             .Select(p => p.ProblemId).ToListAsync(ct);
         var activeIds = activeAttempts.ToHashSet();
         var answersToday = await _db.ProblemAttempts.AsNoTracking()
-            .Where(p => p.UserId == userId && ids.Contains(p.ProblemId) &&
+            .Where(p => p.UserId == userId && p.PracticeScopeId==practiceScope && ids.Contains(p.ProblemId) &&
                 p.SubmittedAt >= day && p.SubmittedAt < nextDay)
             .GroupBy(p => p.ProblemId)
             .Select(g => new { ProblemId = g.Key,

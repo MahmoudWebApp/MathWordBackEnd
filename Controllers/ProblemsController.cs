@@ -542,6 +542,8 @@ namespace MathWorldAPI.Controllers
                 query=query.Where(p=>scope.Any(q=>q.Id==p.Id));
             }
 
+            var practiceScope=TrackPractice.Scope(HttpContext.RequestServices.GetRequiredService<IConfiguration>(),activeTrack?.Id);
+            var scopedProgress=TrackPractice.For(_context,practiceScope);
             // Filter by server-owned progress BEFORE Count/Skip/Take.
             // Filtering only visible cards would strand unsolved questions
             // on later pages and produce misleading empty screens.
@@ -554,7 +556,7 @@ namespace MathWorldAPI.Controllers
                         "Unauthorized", language,
                         StatusCodes.Status401Unauthorized));
 
-                query = query.Where(problem => !_context.UserProgresses.Any(progress =>
+                query = query.Where(problem => !scopedProgress.Any(progress =>
                     progress.UserId == authenticatedStudent.Value &&
                     progress.ProblemId == problem.Id && progress.IsSolved));
             }
@@ -574,7 +576,7 @@ namespace MathWorldAPI.Controllers
                 ? GetUserId()
                 : null;
             var orderedQuery = viewerId.HasValue
-                ? query.OrderBy(problem => _context.UserProgresses.Any(progress =>
+                ? query.OrderBy(problem => scopedProgress.Any(progress =>
                       progress.UserId == viewerId.Value &&
                       progress.ProblemId == problem.Id && progress.IsSolved))
                     .ThenByDescending(problem => problem.Id)
@@ -590,11 +592,11 @@ namespace MathWorldAPI.Controllers
                         new ProblemPreviewDto
                         {
                             IsSolved = viewerId.HasValue &&
-                                _context.UserProgresses.Any(progress =>
+                                scopedProgress.Any(progress =>
                                     progress.UserId == viewerId.Value &&
                                     progress.ProblemId == problem.Id && progress.IsSolved),
                             HasAttempted = viewerId.HasValue &&
-                                _context.UserProgresses.Any(progress =>
+                                scopedProgress.Any(progress =>
                                     progress.UserId == viewerId.Value &&
                                     progress.ProblemId == problem.Id && progress.Attempts > 0),
                             Id =
@@ -851,8 +853,9 @@ namespace MathWorldAPI.Controllers
 
             if (userId.HasValue)
             {
+                var practiceScope=await TrackPractice.CurrentAsync(_context,HttpContext,HttpContext.RequestAborted);
                 var progress =
-                    await _context.UserProgresses
+                    await TrackPractice.For(_context,practiceScope)
                         .AsNoTracking()
                         .FirstOrDefaultAsync(progressItem =>
                             progressItem.UserId ==
@@ -938,8 +941,7 @@ namespace MathWorldAPI.Controllers
                                 correctOptionId,
 
                             IsFavorite =
-                                progress?.IsFavorite
-                                ?? false,
+                                await _context.UserProgresses.AsNoTracking().AnyAsync(p=>p.UserId==userId.Value&&p.ProblemId==id&&p.IsFavorite),
 
                             AttemptCount =
                                 progress?.Attempts
@@ -1119,7 +1121,8 @@ namespace MathWorldAPI.Controllers
                 .CanPracticeAsync(User,problem.Id,cancellationToken))
                 return StatusCode(403,new{Message="CurrentTrackOnly"});
 
-            if (!await _context.UserProgresses.AsNoTracking().AnyAsync(p=>p.UserId==userId.Value&&p.ProblemId==id&&p.IsSolved&&p.IsCorrect&&p.Attempts>0,cancellationToken))
+            var practiceScope=await TrackPractice.CurrentAsync(_context,HttpContext,cancellationToken);
+            if (!await TrackPractice.For(_context,practiceScope).AsNoTracking().AnyAsync(p=>p.UserId==userId.Value&&p.ProblemId==id&&p.IsSolved&&p.IsCorrect&&p.Attempts>0,cancellationToken))
                 return StatusCode(403,new{Message="SolveBeforeSolution"});
             return Ok(LanguageHelper.SuccessResponse(new
             {
@@ -1263,8 +1266,9 @@ namespace MathWorldAPI.Controllers
                         StatusCodes.Status500InternalServerError));
             }
 
+            var practiceScope=await TrackPractice.CurrentAsync(_context,HttpContext,HttpContext.RequestAborted);
             var progress =
-                await _context.UserProgresses
+                await TrackPractice.For(_context,practiceScope)
                     .FirstOrDefaultAsync(progressItem =>
                         progressItem.UserId ==
                         userId.Value &&
@@ -1301,6 +1305,7 @@ namespace MathWorldAPI.Controllers
 
                         ProblemId =
                             dto.ProblemId,
+                        PracticeScopeId=practiceScope,
 
                         IsFavorite =
                             false,
@@ -1419,6 +1424,7 @@ namespace MathWorldAPI.Controllers
 
                     ProblemId =
                         problem.Id,
+                    PracticeScopeId=practiceScope,
 
                     SelectedOptionId =
                         selectedOption.Id,
@@ -1463,7 +1469,8 @@ namespace MathWorldAPI.Controllers
 
             // Different students may solve the same problem simultaneously.
             // Update directly in SQL to avoid losing count increments.
-            if (isCorrect && !wasSolved)
+            if (isCorrect && !wasSolved &&
+                !await _context.UserProgresses.IgnoreQueryFilters().AnyAsync(p=>p.UserId==userId.Value&&p.ProblemId==problem.Id&&p.PracticeScopeId!=practiceScope&&p.IsSolved,HttpContext.RequestAborted))
             {
                 var affected = await _context.Problems
                     .Where(item => item.Id == problem.Id)

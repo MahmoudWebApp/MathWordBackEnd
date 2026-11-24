@@ -105,7 +105,7 @@ namespace MathWorldAPI.Controllers
 
             // Official awarded points come from immutable attempt snapshots.
             // Never reaward points based on the current problem point value.
-            var progress = await _db.UserProgresses.AsNoTracking()
+            var progress = await TrackPractice.For(_db,TrackPractice.Scope(HttpContext.RequestServices.GetRequiredService<IConfiguration>(),track?.Id)).AsNoTracking()
                 .Where(p => p.UserId == userId && scope.Any(q=>q.Id==p.ProblemId))
                 .GroupBy(p => p.Problem.CategoryId)
                 .Select(g => new

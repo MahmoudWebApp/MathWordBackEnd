@@ -93,9 +93,10 @@ public sealed class LearningTracksController(AppDbContext db,LearningTrackServic
         var valid=tracks.ValidProblems(id).Where(p=>p.CategoryId==categoryId);
         var total=await valid.CountAsync(ct);
         if(total==0)return NotFound();
+        var scopedProgress=TrackPractice.For(db,TrackPractice.Scope(HttpContext.RequestServices.GetRequiredService<IConfiguration>(),id));
         var items=await valid.OrderBy(p=>p.Id).Skip((page-1)*50).Take(50)
             .Select(p=>new{p.Id,p.CategoryId,p.TitleAr,p.TitleEn,p.Points,
-                IsSolved=db.UserProgresses.Any(x=>x.UserId==uid&&x.ProblemId==p.Id&&x.IsSolved)})
+                IsSolved=scopedProgress.Any(x=>x.UserId==uid&&x.ProblemId==p.Id&&x.IsSolved)})
             .ToListAsync(ct);
         return Ok(new{TrackId=id,CategoryId=categoryId,Total=total,Page=page,PageSize=50,Items=items});
     }
@@ -112,8 +113,9 @@ public sealed class LearningTracksController(AppDbContext db,LearningTrackServic
         var allowed=await access.GetAllowedCategoryIdsAsync(User,ct)??new List<int>();
         // Continue with new, unattempted material; mistakes are handled by the
         // existing error notebook, not presented as new questions.
+        var scopedProgress=TrackPractice.For(db,TrackPractice.Scope(HttpContext.RequestServices.GetRequiredService<IConfiguration>(),track.Id));
         var next=await tracks.ValidProblems(track.Id).Where(p=>allowed.Contains(p.CategoryId)&&
-            !db.UserProgresses.Any(up=>up.UserId==uid&&up.ProblemId==p.Id&&(up.IsSolved||up.Attempts>0)))
+            !scopedProgress.Any(up=>up.UserId==uid&&up.ProblemId==p.Id&&(up.IsSolved||up.Attempts>0)))
             .OrderBy(p=>p.Category.Order).ThenBy(p=>p.Id)
             .Select(p=>new{p.Id,p.CategoryId,p.TitleAr,p.TitleEn}).FirstOrDefaultAsync(ct);
         return Ok(new{TrackId=track.Id,Problem=next});
@@ -131,7 +133,7 @@ public sealed class LearningTracksController(AppDbContext db,LearningTrackServic
         var valid=tracks.ValidProblems(id);
         var inventory=await valid.GroupBy(p=>p.CategoryId)
             .Select(g=>new{CategoryId=g.Key,Total=g.Count()}).ToListAsync(ct);
-        var progress=await db.UserProgresses.AsNoTracking().Where(p=>p.UserId==uid&&valid.Any(v=>v.Id==p.ProblemId))
+        var progress=await TrackPractice.For(db,TrackPractice.Scope(HttpContext.RequestServices.GetRequiredService<IConfiguration>(),id)).AsNoTracking().Where(p=>p.UserId==uid&&valid.Any(v=>v.Id==p.ProblemId))
             .GroupBy(p=>p.Problem.CategoryId).Select(g=>new{CategoryId=g.Key,Solved=g.Count(p=>p.IsSolved),
                 Attempted=g.Count(p=>p.Attempts>0),Mastered=g.Count(p=>p.MasteryStatus==MasteryStatuses.Mastered)}).ToListAsync(ct);
         var lookup=progress.ToDictionary(p=>p.CategoryId);
