@@ -30,6 +30,7 @@ def verify_certificates(admin,learner,other,stage):
     issued=expect("POST",ROOT+"/issue",200,scope,other)
     assert issued["Kind"]=="category" and issued["TotalProblems"]==5 and len(issued["VerificationCode"])==32
     assert expect("POST",ROOT+"/issue",200,scope,other)==issued
+    assert sql('SELECT COUNT(*) FROM "UserNotifications" WHERE "TargetPath"=\'/dashboard/certificates\'')=="1"
     assert expect("GET",ROOT,200,token=other)["Items"]==[issued]
     verify="/api/certificates/verify/"+issued["VerificationCode"]
     public=expect("GET",verify,200)

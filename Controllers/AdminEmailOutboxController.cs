@@ -53,18 +53,19 @@ public sealed class AdminEmailOutboxController(AppDbContext db, IConfiguration c
             Readiness = new { Missing = missing, CanQueueAdminTest=transport.IsConfigured&&workerEnabled&&adminAllowed&&attempts<limit*3/4,
                 AdminRecoveryConfigured=recovery.Enabled&&workerEnabled&&adminVerified&&transport.AllowsRecipient(admin.Email),
                 ProviderConnectionVerified=false, InboxDeliveryVerified=false },
+            TestTemplates=EmailTemplateSamples.Keys,
             AttemptLimit = limit,
             ReservedAttempts = attempts, Counts = recent, Items = items });
     }
 
-    public sealed record TestRequest(string Language = "ar");
+    public sealed record TestRequest(string Language = "ar",string Template="test");
 
     [HttpPost("test")]
     public async Task<IActionResult> Test(TestRequest request, CancellationToken ct)
     {
         if (!transport.IsTestMode || !transport.IsConfigured || !config.GetValue<bool>("MathWorldEmail:OutboxEnabled"))
             return StatusCode(503, new { Message = "EmailTestUnavailable" });
-        if (request.Language is not ("ar" or "en")) return BadRequest();
+        if (request.Language is not ("ar" or "en")||!EmailTemplateSamples.Contains(request.Template)) return BadRequest();
         if (!int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out var id)) return Unauthorized();
         var admin = await db.Users.AsNoTracking().SingleOrDefaultAsync(x => x.Id == id &&
             x.IsActive && x.Role == AccountRolePolicy.LegacyAdmin, ct);
@@ -74,12 +75,12 @@ public sealed class AdminEmailOutboxController(AppDbContext db, IConfiguration c
         var now = DateTime.UtcNow;
         await using var tx = await db.Database.BeginTransactionAsync(ct);
         await db.Database.ExecuteSqlRawAsync("SELECT pg_advisory_xact_lock(7240162028)", ct);
-        if (await db.EmailOutbox.AnyAsync(x => x.TemplateKey == "test" && x.UserId == id &&
+        if (await db.EmailOutbox.AnyAsync(x => (x.TemplateKey == "test"||x.TemplateKey.StartsWith("test:")) && x.UserId == id &&
             x.CreatedAtUtc > now.AddMinutes(-5), ct) ||
-            await db.EmailOutbox.CountAsync(x => x.TemplateKey == "test" && x.CreatedAtUtc >= now.Date, ct) >= 5)
+            await db.EmailOutbox.CountAsync(x => (x.TemplateKey == "test"||x.TemplateKey.StartsWith("test:")) && x.CreatedAtUtc >= now.Date, ct) >= 5)
             return StatusCode(429, new { Message = "EmailTestLimit" });
         db.EmailOutbox.Add(new EmailOutboxItem { Id = Guid.NewGuid(), UserId = id,
-            Recipient = admin.Email, Locale = request.Language, TemplateKey = "test", State = "Pending",
+            Recipient = admin.Email, Locale = request.Language, TemplateKey = "test:"+request.Template, State = "Pending",
             CreatedAtUtc = now, NextRetryAtUtc = now, ExpiresAtUtc = now.AddMinutes(15) });
         await db.SaveChangesAsync(ct);
         await tx.CommitAsync(ct);

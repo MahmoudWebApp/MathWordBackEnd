@@ -214,14 +214,13 @@ public sealed class RecoveryEmailWorker(IServiceScopeFactory scopes, IConfigurat
                 ar ? "تم تغيير كلمة مرور حسابك. إذا لم تكن أنت، تواصل مع الدعم." :
                     "Your account password changed. If this was not you, contact support.");
         }
-        else if (item.TemplateKey == "test")
+        else if (item.TemplateKey == "test"||item.TemplateKey.StartsWith("test:",StringComparison.Ordinal))
         {
-            // Test-only messages cannot be replayed after switching to live mode.
+            // A queued sample cannot be replayed after switching to live mode.
             if (!transport.IsTestMode) return new("Cancelled", ErrorCode: "TestModeRequired");
-            email = MathWorldEmailLayout.Render(brand, item.Locale,
-                ar ? "رسالة اختبار MathWorld" : "MathWorld test email",
-                ar ? "هذه رسالة تجريبية من إعدادات الإدارة، ولا تحتوي أي رابط لاستعادة حساب." :
-                    "This is a test email from administration settings, with no account recovery link.");
+            var key=item.TemplateKey=="test"?"test":item.TemplateKey[5..];
+            if(!EmailTemplateSamples.Contains(key))return new("Cancelled",ErrorCode:"UnknownTemplate");
+            email=EmailTemplateSamples.Render(brand,item.Locale,key,true);
         }
         else return new("Cancelled", ErrorCode: "UnknownTemplate");
         return await transport.SendAsync(item, email, ct);

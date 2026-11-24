@@ -15,7 +15,7 @@ namespace MathWorldAPI.Controllers;
 [Authorize(Roles="Student")]
 [Route("api/users/certificates")]
 [ResponseCache(NoStore=true,Location=ResponseCacheLocation.None)]
-public sealed class LearningCertificatesController(AppDbContext db,IConfiguration config,LearningTrackService tracks):ControllerBase
+public sealed class LearningCertificatesController(AppDbContext db,IConfiguration config,LearningTrackService tracks,NotificationStreamBroker stream):ControllerBase
 {
     private bool Enabled=>config.GetValue<bool>("Certificates:Enabled");
     private bool IssuanceEnabled=>Enabled&&config.GetValue<bool>("Certificates:IssuanceEnabled")&&config.GetValue<bool>("LearningSessions:Enabled");
@@ -135,10 +135,15 @@ public sealed class LearningCertificatesController(AppDbContext db,IConfiguratio
                 TitleAr=data.TitleAr,TitleEn=data.TitleEn,VerificationCode=Convert.ToHexString(RandomNumberGenerator.GetBytes(16)).ToLowerInvariant(),
                 PolicyVersion=1,TotalProblems=data.TotalProblems,RequiredSkills=data.RequiredSkills,IssuedAtUtc=now};
             db.LearningCertificates.Add(record);
+            db.UserNotifications.Add(new UserNotification{UserId=student.Id,Type="achievement",
+                TitleAr="شهادتك التعليمية جاهزة",TitleEn="Your learning certificate is ready",
+                BodyAr="يمكنك عرض الشهادة وتنزيلها من قسم شهاداتي.",BodyEn="View and download the certificate in My learning certificates.",
+                TargetPath="/dashboard/certificates",CreatedAtUtc=now});
             db.PlatformActivityEvents.Add(new PlatformActivityEvent{ActorUserId=student.Id,ActorRole="Student",Action="CertificateIssued",
                 Resource="LearningCertificate",ResourceId=record.Id.ToString("D"),Origin="api",CreatedAtUtc=now});
             await db.SaveChangesAsync(ct);
             await tx.CommitAsync(ct);
+            stream.Notify(student.Id);
             return Ok(PrivateView(record));
         }
         catch(PostgresException e) when(e.SqlState is "40001" or "23505"){return Conflict(new{Message="CertificateRetry"});}

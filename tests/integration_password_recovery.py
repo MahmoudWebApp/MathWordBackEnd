@@ -81,7 +81,19 @@ def main():
     assert readiness["ProviderConnectionVerified"] is False and readiness["InboxDeliveryVerified"] is False
     assert "ci-dummy-never-send" not in str(outbox) and "ci-admin@mathworld.test" not in str(outbox)
     assert outbox["Items"] and all(not any(k in row for k in ("Recipient","ResetGrantId","ProviderMessageId","TokenHash")) for row in outbox["Items"])
-    expect("POST",outbox_route+"/test",503,{"Language":"ar"},admin_token)
+    expected_templates={"test","password-reset","password-changed","supervisor-invite","welcome","premium-granted","premium-renewed","premium-expired","announcement","certificate-issued"}
+    assert set(outbox["TestTemplates"])==expected_templates
+    preview="/api/admin/platform/email-preview"
+    expect("GET",preview,403,token=student_token)
+    for key in expected_templates:
+        for language in ("ar","en"):
+            message=expect("GET",f"{preview}?template={key}&language={language}",200,token=admin_token)
+            assert message["Subject"] and message["PlainText"] and "MathWorld" in message["Html"]
+            assert ('dir="rtl"' if language=="ar" else 'dir="ltr"') in message["Html"]
+            assert "#token=" not in message["Html"] and "#token=" not in message["PlainText"]
+            assert ("معاينة" if language=="ar" else "[PREVIEW]") in message["Subject"]
+    expect("GET",preview+"?template=unapproved",400,token=admin_token)
+    expect("POST",outbox_route+"/test",503,{"Language":"ar","Template":"certificate-issued"},admin_token)
     # Expiration is checked atomically even if a reset link was valid earlier.
     sql("""UPDATE "PasswordResetGrants" SET "CreatedAtUtc"=NOW()-INTERVAL '5 minutes' WHERE "Email"='recovery-ci@mathworld.test'""")
     expect("POST",route,202,{"Email":EMAIL})
