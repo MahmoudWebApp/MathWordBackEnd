@@ -120,6 +120,7 @@ builder.Services.AddHostedService<LearnerPresenceCleanupService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<AccountPasswordService>();
 builder.Services.AddScoped<PasswordRecoveryService>();
+builder.Services.AddScoped<EmailVerificationService>();
 builder.Services.AddScoped<RecoveryEmailQueue>();
 builder.Services.AddScoped<BrevoEmailTransport>();
 builder.Services.AddHttpClient("BrevoTransactional", client => { client.Timeout = TimeSpan.FromSeconds(15); })
@@ -307,6 +308,11 @@ builder.Services.AddRateLimiter(options =>
                 PermitLimit = 8, Window = TimeSpan.FromMinutes(1), QueueLimit = 0,
                 AutoReplenishment = true
             }));
+
+    options.AddPolicy("email-verification", context =>
+        RateLimitPartition.GetFixedWindowLimiter(
+            context.Connection.RemoteIpAddress?.ToString() ?? "unknown",
+            _=>new FixedWindowRateLimiterOptions{PermitLimit=8,Window=TimeSpan.FromMinutes(1),QueueLimit=0,AutoReplenishment=true}));
 
     // Limits answer submission by authenticated user ID.
     options.AddPolicy("answers", httpContext =>

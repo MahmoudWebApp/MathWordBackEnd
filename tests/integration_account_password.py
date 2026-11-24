@@ -91,6 +91,27 @@ def main():
         assert message["PlainText"] and message["Subject"]
     expect("GET", preview + "?template=unknown", 400, token=new_admin)
     print("PASS: shared brand settings, private admin edit, disabled links hidden, revision conflicts and bilingual email preview.")
+    # Independent verification is not a password reset or a login.
+    from integration_password_recovery import sql,KEY
+    request="/api/auth/email-verification/request"
+    confirm="/api/auth/email-verification/confirm"
+    expect("POST",request,401,{"Language":"en"})
+    expect("POST",request,202,{"Language":"en"},replacement)
+    expect("POST",request,429,{"Language":"en"},replacement)
+    grant=sql(f"""SELECT "Id"::text||'|'||"TokenHash" FROM "EmailVerificationGrants" WHERE "Email"='{email}'""")
+    gid,digest=grant.split("|")
+    verify=hmac.new(KEY,("MathWorld/email-verification/v1/"+gid.replace("-","")).encode(),hashlib.sha256).hexdigest()
+    assert hashlib.sha256(verify.encode()).hexdigest()==digest
+    assert verify!=hmac.new(KEY,("MathWorld/password-reset/v1/"+gid.replace("-","")).encode(),hashlib.sha256).hexdigest()
+    assert sql(f"""SELECT COUNT(*) FROM "EmailOutbox" WHERE "Id"='{gid}' AND "TemplateKey"='welcome' AND "State"='Pending'""")=="1"
+    expect("POST",confirm,400,{"Token":"0"*64})
+    with concurrent.futures.ThreadPoolExecutor(max_workers=2) as pool:
+        statuses=list(pool.map(lambda _: api("POST",confirm,{"Token":verify})[0],range(2)))
+    assert sorted(statuses)==[200,400],statuses
+    assert expect("GET",preferences,200,token=replacement)["EmailVerified"]
+    expect("POST",confirm,400,{"Token":verify})
+    assert expect("GET",protected,200,token=replacement)["UnreadCount"]==1
+    print("PASS: separate hash-only mailbox verification, cooldown, atomic one-time proof, JWT unchanged.")
 
 if __name__ == "__main__":
     main()

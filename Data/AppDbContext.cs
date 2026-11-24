@@ -46,6 +46,7 @@ namespace MathWorldAPI.Data
 
         public DbSet<PlatformBrandSettings> PlatformBrandSettings => Set<PlatformBrandSettings>();
 
+        public DbSet<EmailVerificationGrant> EmailVerificationGrants => Set<EmailVerificationGrant>();
         public DbSet<PasswordResetGrant> PasswordResetGrants => Set<PasswordResetGrant>();
         public DbSet<EmailOutboxItem> EmailOutbox => Set<EmailOutboxItem>();
 
@@ -208,6 +209,14 @@ namespace MathWorldAPI.Data
             modelBuilder.Entity<AppUser>().Property(x => x.EmailImportantAnnouncements).HasDefaultValue(false);
             modelBuilder.Entity<PasswordResetGrant>().Property(x => x.IsInvitation).HasDefaultValue(false);
 
+            modelBuilder.Entity<EmailVerificationGrant>(e =>
+            {
+                e.Property(x=>x.Id).ValueGeneratedNever();
+                e.HasIndex(x=>x.TokenHash).IsUnique();
+                e.HasIndex(x=>new{x.UserId,x.CreatedAtUtc});
+                e.HasIndex(x=>x.CreatedAtUtc);
+                e.HasOne<AppUser>().WithMany().HasForeignKey(x=>x.UserId).OnDelete(DeleteBehavior.Cascade);
+            });
             modelBuilder.Entity<PasswordResetGrant>(e =>
             {
                 e.Property(x => x.Id).ValueGeneratedNever();

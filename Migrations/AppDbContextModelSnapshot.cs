@@ -149,6 +149,23 @@ namespace MathWorldAPI.Migrations
                 });
 
 
+            modelBuilder.Entity("MathWorldAPI.Models.EmailVerificationGrant", b =>
+                {
+                    b.Property<Guid>("Id").HasColumnType("uuid");
+                    b.Property<int>("UserId").HasColumnType("integer");
+                    b.Property<string>("TokenHash").IsRequired().HasColumnType("text");
+                    b.Property<string>("Email").IsRequired().HasColumnType("text");
+                    b.Property<int>("TokenVersion").HasColumnType("integer");
+                    b.Property<DateTime>("CreatedAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<DateTime>("ExpiresAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<DateTime?>("ConsumedAtUtc").HasColumnType("timestamp with time zone");
+                    b.HasKey("Id");
+                    b.HasIndex("TokenHash").IsUnique();
+                    b.HasIndex("UserId","CreatedAtUtc");
+                    b.HasIndex("CreatedAtUtc");
+                    b.ToTable("EmailVerificationGrants");
+                });
+
             modelBuilder.Entity("MathWorldAPI.Models.PasswordResetGrant", b =>
                 {
                     b.Property<Guid>("Id").HasColumnType("uuid");
@@ -1644,6 +1661,11 @@ namespace MathWorldAPI.Migrations
 
                     b.Navigation("UserProgresses");
                 });
+            modelBuilder.Entity("MathWorldAPI.Models.EmailVerificationGrant", b =>
+                {
+                    b.HasOne("MathWorldAPI.Models.AppUser", null).WithMany().HasForeignKey("UserId").OnDelete(DeleteBehavior.Cascade).IsRequired();
+                });
+
             modelBuilder.Entity("MathWorldAPI.Models.PasswordResetGrant", b =>
                 {
                     b.HasOne("MathWorldAPI.Models.AppUser", null)

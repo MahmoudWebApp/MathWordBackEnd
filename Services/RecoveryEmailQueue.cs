@@ -224,6 +224,22 @@ public sealed class RecoveryEmailWorker(IServiceScopeFactory scopes, IConfigurat
                         "Use this link before it expires within 20 minutes. Ignore this email if you did not request it."),
                 ar ? "تعيين كلمة المرور" : "Reset password", url);
         }
+        else if(item.TemplateKey=="welcome")
+        {
+            var verification=sp.GetRequiredService<EmailVerificationService>();
+            var grant=await db.EmailVerificationGrants.AsNoTracking().SingleOrDefaultAsync(x=>x.Id==item.Id&&
+                x.UserId==user.Id&&x.Email==user.Email&&x.TokenVersion==user.TokenVersion&&x.ConsumedAtUtc==null&&x.ExpiresAtUtc>DateTime.UtcNow,ct);
+            var codec=new RecoveryTokenCodec(config);
+            if(!verification.Enabled||grant==null||user.Role!="Student"||OptionalEmailPolicy.HasVerifiedAddress(user)||!codec.IsConfigured)
+                return new("Cancelled",ErrorCode:"VerificationGrantInvalid");
+            var secret=codec.DeriveEmailVerification(grant.Id);
+            if(RecoveryTokenCodec.Hash(secret)!=grant.TokenHash)return new("Cancelled",ErrorCode:"RecoveryKeyRotated");
+            var url=brand.WebsiteUrl+"/"+item.Locale+"/verify-email#token="+secret;
+            email=MathWorldEmailLayout.Render(brand,item.Locale,ar?"أهلاً بك في MathWorld — تأكيد البريد":"Welcome to MathWorld — verify your email",
+                ar?"أكّد بريد حسابك خلال 20 دقيقة. لن يغيّر هذا الإجراء كلمة مرورك أو يسجّل دخولك. تجاهل الرسالة إذا لم تطلبها."
+                :"Verify your account email within 20 minutes. This will not change your password or sign you in. Ignore this email if you did not request it.",
+                ar?"تأكيد البريد":"Verify email",url);
+        }
         else if (item.TemplateKey == "password-changed")
         {
             email = MathWorldEmailLayout.Render(brand, item.Locale,

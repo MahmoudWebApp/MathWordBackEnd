@@ -21,9 +21,11 @@ public sealed class RecoveryTokenCodec(IConfiguration config)
     // Random grant identifier plus domain-separated HMAC. The bearer secret
     // can be rederived only with the independent server-side secret, not
     // from database rows. Only its SHA-256 digest is stored.
-    public string Derive(Guid id) => Convert.ToHexString(HMACSHA256.HashData(
+    public string Derive(Guid id)=>DeriveFor("password-reset",id);
+    public string DeriveEmailVerification(Guid id)=>DeriveFor("email-verification",id);
+    private string DeriveFor(string purpose,Guid id) => Convert.ToHexString(HMACSHA256.HashData(
         Key ?? throw new InvalidOperationException("Recovery key is not configured."),
-        Encoding.UTF8.GetBytes("MathWorld/password-reset/v1/" + id.ToString("N")))).ToLowerInvariant();
+        Encoding.UTF8.GetBytes("MathWorld/"+purpose+"/v1/" + id.ToString("N")))).ToLowerInvariant();
     public static string? Hash(string? token)
     {
         if (token is null || token.Length != 64 ||

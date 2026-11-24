@@ -12,12 +12,13 @@ namespace MathWorldAPI.Controllers;
 [Authorize(Roles="Student")]
 [Route("api/users/email-preferences")]
 [ResponseCache(NoStore=true,Location=ResponseCacheLocation.None)]
-public sealed class EmailPreferencesController(AppDbContext db,IConfiguration config,BrevoEmailTransport transport):ControllerBase
+public sealed class EmailPreferencesController(AppDbContext db,IConfiguration config,BrevoEmailTransport transport,EmailVerificationService verification):ControllerBase
 {
     private int UserId=>int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier),out var id)?id:0;
     private IQueryable<AppUser> Mine()=>db.Users.Where(x=>x.Id==UserId&&x.IsActive&&x.Role=="Student");
     private object View(AppUser u)=>new {
         EmailVerified=OptionalEmailPolicy.HasVerifiedAddress(u),
+        VerificationAvailable=verification.Available(u),
         OptionalDeliveryEnabled=config.GetValue<bool>("MathWorldEmail:OptionalEventsEnabled")&&
             config.GetValue<bool>("MathWorldEmail:OutboxEnabled")&&transport.AllowsRecipient(u.Email),
         u.EmailLearningUpdates,u.EmailSubscriptionUpdates,u.EmailImportantAnnouncements,
