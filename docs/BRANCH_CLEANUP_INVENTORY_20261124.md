@@ -28,6 +28,39 @@ Fifteen *selected* branches were compared to `main` with GitHub's compare API. `
 
 **Interim finding:** 3/15 sampled branches have zero unique commits; 12/15 have additional commits, so mass deletion would be unsafe. No write operation is needed to classify them.
 
+## Follow-up comparison — additional 24 branches
+
+Additional comparisons were made against `main` using the same non-destructive GitHub compare endpoint. These results are **snapshots**, not approval to delete unreviewed branches.
+
+| Repository | Branch | Ahead | Behind | Disposition |
+|---|---|---:|---:|---|
+| Backend | `feature/admin-learner-subscription-speed-20261123` | 0 | 86 | Candidate after references check |
+| Backend | `feature/sitewide-api-latency-20261123` | 0 | 86 | Candidate after references check |
+| Backend | `feature/daily-challenge-guided-flow-20261123` | 0 | 85 | Candidate after references check |
+| Backend | `feat/student-practice-cycles-20261122` | 20 | 100 | Keep and inspect 7 files |
+| Backend | `feat/admin-annual-premium-batch-20261122` | 7 | 101 | Keep and inspect 7 files |
+| Backend | `fix/analytics-export-language-pdf-20261123` | 14 | 41 | Keep and inspect 10+ files |
+| Backend | `feature/curriculum-wave4-20261123` | 0 | 71 | Candidate after references check |
+| Backend | `feature/split-broad-curriculum-topics-20261121` | 1 | 118 | Keep and inspect SQL |
+| Next.js | `feature/admin-ux-premium-performance-20261123` | 0 | 15 | Candidate after references check |
+| Next.js | `feature/sitewide-web-request-efficiency-20261123` | 5 | 50 | Keep and inspect 4 files |
+| Next.js | `feature/category-skills-and-compact-stats-20261123` | 7 | 3 | Keep and inspect 6 files |
+| Next.js | `fix/mobile-navbar-auth-loading-20261123` | 2 | 5 | Keep and inspect 2 files |
+| Next.js | `fix/analytics-export-ui-language-20261123` | 5 | 8 | Keep and inspect 2 files |
+| Next.js | `fix/admin-email-and-readable-rankings-20261122` | 7 | 51 | Keep and inspect 6 files |
+| Next.js | `feature/public-pages-curriculum-ux-20261121` | 38 | 62 | Keep and inspect multi-file differences |
+| Next.js | `fix/curriculum-published-editorial-state-20261121` | 2 | 65 | Keep and inspect 2 files |
+| Flutter | `fix/mobile-challenge-card-ux-20261123` | 0 | 5 | Candidate after references check |
+| Flutter | `fix/reset-confirmation-copy-20261123` | 1 | 3 | Keep and inspect 1 file |
+| Flutter | `feature/category-skills-parity-20261123` | 7 | 2 | Keep and inspect 7 files |
+| Flutter | `fix/category-skills-dialog-bounded-layout-20261123` | 2 | 1 | Keep and inspect 1 file |
+| Flutter | `fix/latex-rtl-problem-rendering-20261121` | 3 | 31 | Keep and inspect 3 files |
+| Flutter | `feat/hide-solved-resume-20261121` | 2 | 30 | Keep and inspect 5 files |
+| Flutter | `fix/real-student-names-20261122` | 3 | 16 | Keep and inspect 3 files |
+| Flutter | `feature/approved-external-launcher-icon-20261122` | 8 | 25 | Keep and inspect 5 files |
+
+**Cumulative sampled:** 39/323 names individually compared; 8 had `ahead_by=0`, while 31 had unique commits. **No branches deleted.** Do not equate unique commit history with a non-merged feature; inspect patch equivalence and PR history first.
+
 ## Required before pruning any branch
 
 1. List **all branches** and fetch the current default-branch HEAD (do not assume it has stayed unchanged since this snapshot).
