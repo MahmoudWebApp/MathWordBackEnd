@@ -5,7 +5,20 @@ on:
     paths:
       - 'Program.cs'
       - 'Controllers/LearningJourneyController.cs'
+      - 'Controllers/LearningTracksController.cs'
+      - 'Controllers/AdminLearningTracksController.cs'
+      - 'Services/LearningTrackService.cs'
+      - 'tests/integration_learning_tracks.py'
       - 'Controllers/DailyChallengeController.cs'
+      - 'Controllers/LearningSessionsController.cs'
+      - 'Services/TrackPractice.cs'
+      - 'Controllers/PracticeCyclesController.cs'
+      - 'Controllers/ProblemsController.cs'
+      - 'Controllers/ProblemHintsController.cs'
+      - 'Controllers/UsersController.cs'
+      - 'Controllers/LearningCertificatesController.cs'
+      - 'tests/integration_learning_certificates.py'
+      - 'tests/integration_learning_sessions.py'
       - 'Models/**'
       - 'DTOs/**'
       - 'Data/**'
@@ -55,6 +68,13 @@ jobs:
           BootstrapAdmin__Password: CI_TEST_ADMIN_PASSWORD_12345
           BootstrapAdmin__FullName: CI Administrator
           Database__ApplyMigrationsOnStartup: 'true'
+          LearningTracks__Enabled: 'true'
+          LearningSessions__Enabled: 'true'
+          PracticeCycles__TrackIsolationEnabled: 'true'
+          Certificates__Enabled: 'true'
+          Certificates__IssuanceEnabled: 'true'
+          # This one disposable suite deliberately submits many consecutive fixture answers.
+          RateLimits__AnswerTokensPerMinute: '60'
         run: |
           set -euo pipefail
           dotnet run --no-build --no-launch-profile -c Release --project MathWorldAPI.csproj > /tmp/mathworld-journey.log 2>&1 &

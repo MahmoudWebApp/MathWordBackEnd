@@ -43,7 +43,7 @@ public sealed class AdminActivityAuditController : ControllerBase
             return Forbid();
 
         if (days is not (7 or 30 or 90 or 180) ||
-            (role is not null && role is not ("Admin" or "Student")) ||
+            (role is not null && role is not ("Admin" or "Student" or "Supervisor")) ||
             actorId is <= 0 ||
             (action is not null && (action.Length is < 1 or > 64 ||
                 action.Any(c => !char.IsAsciiLetterOrDigit(c)))))
@@ -135,6 +135,8 @@ public sealed class AdminActivityAuditController : ControllerBase
                 .Select(x => x.ActorUserId).Distinct().CountAsync(ct),
             UniqueAdmins = await events.Where(x => x.ActorRole == "Admin")
                 .Select(x => x.ActorUserId).Distinct().CountAsync(ct),
+            UniqueSupervisors = await events.Where(x => x.ActorRole == "Supervisor")
+                .Select(x => x.ActorUserId).Distinct().CountAsync(ct),
             ByAction = byAction
         }, "Success", LanguageHelper.GetLanguageFromRequest(Request)));
     }
@@ -150,7 +152,7 @@ public sealed class AdminActivityAuditController : ControllerBase
                 x => x.Id == callerId && x.IsActive && x.Role == "Admin", ct))
             return Forbid();
         if (page is < 1 or > 50000 || days is not (7 or 30 or 90 or 180) ||
-            (role is not null && role != "Admin" && role != "Student") ||
+            (role is not null && role != "Admin" && role != "Student" && role != "Supervisor") ||
             userId is <= 0 || actorId is <= 0 ||
             (action is not null && (action.Length is < 1 or > 64 ||
                 action.Any(c => !char.IsAsciiLetterOrDigit(c)))))

@@ -48,7 +48,8 @@ namespace MathWorldAPI.Controllers
                 PremiumExpiresAtUtc = isPremium ? user.PremiumExpiresAtUtc : null,
                 DailyNewProblemsLimit = (int?)null, // Legacy client compatibility: no daily cap.
                 FreeCategoriesPerStage = CategoryAccessPolicy.DefaultFreeCategoriesPerStage,
-                CanRevealSolutionBeforeAnswer = isPremium,
+                CanRevealSolutionBeforeAnswer = false, // Legacy clients must not offer early solution preview.
+                CanUseProgressiveHints = isPremium,
                 CanExportAnalytics = isPremium,
                 AdsEligible = !isPremium && _features.AdsEnabled
             }, "Success", LanguageHelper.GetLanguageFromRequest(Request)));

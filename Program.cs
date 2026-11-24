@@ -109,6 +109,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 // Cache non-personal, aggregated public statistics briefly to reduce DB round trips.
 builder.Services.AddMemoryCache();
 builder.Services.AddScoped<ProblemCategoryAccessService>();
+builder.Services.AddScoped<LearningTrackService>();
 builder.Services.AddScoped<PlatformActivityAuditWriter>();
 // Lightweight SSE invalidation; per-process only, with polling as fallback.
 builder.Services.AddSingleton<NotificationStreamBroker>();
@@ -117,6 +118,18 @@ builder.Services.AddScoped<PremiumPaymentSettlementService>();
 // Privacy-minimal learner presence: expire stale sessions hourly.
 builder.Services.AddHostedService<LearnerPresenceCleanupService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<AccountPasswordService>();
+builder.Services.AddScoped<PasswordRecoveryService>();
+builder.Services.AddScoped<EmailVerificationService>();
+builder.Services.AddScoped<RegistrationWelcomeService>();
+builder.Services.AddScoped<RecoveryEmailQueue>();
+builder.Services.AddScoped<BrevoEmailTransport>();
+builder.Services.AddHttpClient("BrevoTransactional", client => { client.Timeout = TimeSpan.FromSeconds(15); })
+    .ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler { AllowAutoRedirect = false });
+builder.Services.AddHostedService<RecoveryEmailWorker>();
+builder.Services.AddHostedService<PremiumExpiryNoticeWorker>();
+builder.Services.AddScoped<PlatformBrandService>();
+builder.Services.AddScoped<ITransactionalEmailSender, SmtpTransactionalEmailSender>();
 builder.Services.AddScoped<ISocialAuthService, SocialAuthService>();
 builder.Services.AddScoped<IMeiliSearchService, MeiliSearchService>();
 builder.Services.AddScoped<AdminBootstrapper>();
@@ -194,9 +207,17 @@ builder.Services
                 var role = context.Principal?
                     .FindFirstValue(ClaimTypes.Role);
                 if (!int.TryParse(rawId, out var userId) || userId <= 0 ||
-                    (role != "Admin" && role != "Student"))
+                    !AccountRolePolicy.IsSupportedSessionRole(role))
                 {
                     context.Fail("InvalidSessionIdentity");
+                    return;
+                }
+
+                if (!SessionVersionPolicy.TryReadVersion(
+                    context.Principal!.FindAll(SessionVersionPolicy.ClaimName).Select(claim => claim.Value),
+                    out var tokenVersion))
+                {
+                    context.Fail("InvalidSessionVersion");
                     return;
                 }
 
@@ -204,10 +225,10 @@ builder.Services
                     .GetRequiredService<AppDbContext>();
                 var active = await database.Users.AsNoTracking().AnyAsync(
                     user => user.Id == userId && user.IsActive &&
-                        user.Role == role,
+                        user.Role == role && user.TokenVersion == tokenVersion && !user.StaffSetupPending,
                     context.HttpContext.RequestAborted);
                 if (!active)
-                    context.Fail("AccountInactiveOrRoleChanged");
+                    context.Fail("AccountInactiveOrSessionRevoked");
             }
         };
     });
@@ -220,11 +241,11 @@ builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy(
         "AdminOnly",
-        policy => policy.RequireRole("Admin"));
+        policy => policy.RequireRole(AccountRolePolicy.LegacyAdmin));
 
     options.AddPolicy(
         "StudentOnly",
-        policy => policy.RequireRole("Student"));
+        policy => policy.RequireRole(AccountRolePolicy.Student));
 });
 
 // ============================================================================
@@ -253,6 +274,46 @@ builder.Services.AddRateLimiter(options =>
                 AutoReplenishment = true
             });
     });
+
+    // Limit current-password verification independently of login/registration.
+    options.AddPolicy("account-password", httpContext =>
+    {
+        var identity = httpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+        var key = identity is null
+            ? "ip:" + (httpContext.Connection.RemoteIpAddress?.ToString() ?? "unknown")
+            : "user:" + identity;
+        return RateLimitPartition.GetFixedWindowLimiter(key,
+            _ => new FixedWindowRateLimiterOptions
+            {
+                PermitLimit = 5,
+                Window = TimeSpan.FromMinutes(1),
+                QueueLimit = 0,
+                AutoReplenishment = true
+            });
+    });
+
+    options.AddPolicy("password-recovery", context =>
+        RateLimitPartition.GetFixedWindowLimiter(
+            context.Connection.RemoteIpAddress?.ToString() ?? "unknown",
+            _ => new FixedWindowRateLimiterOptions
+            {
+                PermitLimit = 8, Window = TimeSpan.FromMinutes(1), QueueLimit = 0,
+                AutoReplenishment = true
+            }));
+
+    options.AddPolicy("password-reset", context =>
+        RateLimitPartition.GetFixedWindowLimiter(
+            context.Connection.RemoteIpAddress?.ToString() ?? "unknown",
+            _ => new FixedWindowRateLimiterOptions
+            {
+                PermitLimit = 8, Window = TimeSpan.FromMinutes(1), QueueLimit = 0,
+                AutoReplenishment = true
+            }));
+
+    options.AddPolicy("email-verification", context =>
+        RateLimitPartition.GetFixedWindowLimiter(
+            context.Connection.RemoteIpAddress?.ToString() ?? "unknown",
+            _=>new FixedWindowRateLimiterOptions{PermitLimit=8,Window=TimeSpan.FromMinutes(1),QueueLimit=0,AutoReplenishment=true}));
 
     // Limits answer submission by authenticated user ID.
     options.AddPolicy("answers", httpContext =>
@@ -620,6 +681,11 @@ app.UseStaticFiles();
 app.UseMiddleware<LanguageMiddleware>();
 
 app.UseAuthentication();
+
+// Supervisors are denied by default, including legacy generic [Authorize]
+// endpoints. New staff endpoints must explicitly opt in, then check permission
+// and ownership themselves. Existing Admin/Student contracts stay unchanged.
+app.UseMiddleware<SupervisorBoundaryMiddleware>();
 
 // Rate limiting runs after authentication so it can use the user ID.
 app.UseRateLimiter();

@@ -26,13 +26,15 @@ public sealed class ExplicitSessionEventsController : ControllerBase
         _audit = audit;
     }
 
+    [SupervisorEndpoint]
     [HttpPost("sign-out")]
     public async Task<IActionResult> SignOut(CancellationToken ct)
     {
         if (!int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out var id) || id <= 0)
             return Unauthorized();
         var user = await _db.Users.AsNoTracking().AnyAsync(u =>
-            u.Id == id && u.IsActive && (u.Role == "Admin" || u.Role == "Student"), ct);
+            u.Id == id && u.IsActive && !u.StaffSetupPending &&
+            (u.Role == "Admin" || u.Role == "Student" || u.Role == AccountRolePolicy.Supervisor), ct);
         if (!user) return Unauthorized();
 
         await _audit.TryRecordAsync(id, "ExplicitSignOut", "api", ct);

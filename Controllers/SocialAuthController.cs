@@ -61,7 +61,7 @@ namespace MathWorldAPI.Controllers
             AuthResponseDto? result;
             try
             {
-                result = await _socialAuthService.GoogleLoginAsync(dto);
+                result = await _socialAuthService.GoogleLoginAsync(dto,language);
             }
             catch (SocialAccountLinkRequiredException)
             {

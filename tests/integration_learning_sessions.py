@@ -1,0 +1,176 @@
+"""Exercise independent sessions only against the disposable journey API."""
+from uuid import uuid4
+from integration_learning_journey import expect, call
+
+ROOT = "/api/users/learning-sessions"
+
+def verify_sessions(admin, learner, other, stage):
+    expect("PUT", "/api/users/learning-stage", 200, {"StageId": stage}, learner)
+    expect("PUT", "/api/users/learning-stage", 200, {"StageId": stage}, other)
+    # Real accessible, distinct seed questions; no guessed production IDs.
+    for n in range(40, 50):
+        expect("POST", "/api/admin/problems", 201, {
+            "StageId": stage, "CategoryId": 5, "Points": 10,
+            "QuestionTextAr": f"اختبار الجلسة: ما نتيجة {n} + 1؟",
+            "QuestionTextEn": f"Session fixture: what is {n} + 1?",
+            "DetailedSolutionAr": f"نجمع 1 إلى {n} فنحصل على {n+1}.",
+            "DetailedSolutionEn": f"Add one to {n} to get {n+1}.",
+            "Options": [{"LatexCode": str(v), "IsCorrect": v==n+1, "Order": i}
+                        for i,v in enumerate(range(n,n+4),1)]
+        },admin)
+    start={"RequestId":str(uuid4()),"Kind":"daily","Count":5}
+    expect("POST",ROOT+"/start",401,start)
+    expect("POST",ROOT+"/start",403,start,admin)
+    s=expect("POST",ROOT+"/start",200,start,other)
+    assert s["Total"]==5 and s["Completed"]==0 and not s["IsComplete"]
+    sid=s["Id"];path=f"{ROOT}/{sid}"
+    assert expect("POST",ROOT+"/start",200,start,other)["Id"]==sid
+    assert expect("POST",ROOT+"/start",200,dict(start,RequestId=str(uuid4())),other)["Id"]==sid
+    expect("GET",path,404,token=learner)
+    expect("GET",path,403,token=admin)
+    initial=expect("GET",ROOT+"/current?kind=daily",200,token=other)
+    assert initial["Id"]==sid and initial["CurrentQuestion"]["Id"]==s["CurrentQuestion"]["Id"]
+    before_achievements=expect("GET",ROOT+"/achievements",200,token=other)
+    assert before_achievements["CompletedDailyChallenges"]==0
+    q=s["CurrentQuestion"]
+    assert all("IsCorrect" not in o for o in q["Options"])
+    assert "DetailedSolutionAr" not in q and "CorrectOptionId" not in q
+    info=expect("GET",f"/api/problems/{q['Id']}",200,token=admin)
+    bad=next(o["Id"] for o in info["Options"] if not o["IsCorrect"])
+    # Legacy fixture has no reviewed hints; absence must not invent one.
+    hint={"Position":0,"ProblemId":q["Id"],"Level":1}
+    expect("POST",path+"/hints",404,hint,learner)
+    assert not expect("POST",path+"/hints",200,hint,other)["Available"]
+    good=next(o["Id"] for o in info["Options"] if o["IsCorrect"])
+    # Ordinary solving must never advance an independent daily session.
+    ordinary=expect("POST","/api/problems/submit",200,{
+        "ProblemId":q["Id"],"SelectedOptionId":good,"TimeSpentSeconds":3},other)
+    assert ordinary["IsCorrect"]
+    assert expect("GET",path,200,token=other)["Completed"]==0
+    baseline=expect("GET","/api/users/journey",200,token=other)
+    wrong={"RequestId":str(uuid4()),"Position":0,"ProblemId":q["Id"],"SelectedOptionId":bad}
+    w=expect("POST",path+"/answer",200,wrong,other)
+    assert w["Completed"]==0 and not w["IsCorrect"] and w["AttemptNumber"]==1
+    assert w.get("CorrectOptionId") is None and w.get("DetailedSolutionAr") is None
+    assert expect("POST",path+"/answer",200,wrong,other)["AttemptNumber"]==1
+    expect("POST",path+"/answer",409,dict(wrong,SelectedOptionId=good),other)
+    expect("POST",path+"/answer",409,dict(wrong,RequestId=str(uuid4()),Position=1),other)
+    assert expect("GET",path,200,token=other)["Completed"]==0
+    # A correct answer advances exactly one, while the original question
+    # remains in its attempt ledger. Replays cannot advance again.
+    first=dict(wrong,RequestId=str(uuid4()),SelectedOptionId=good)
+    a=expect("POST",path+"/answer",200,first,other)
+    assert a["IsCorrect"] and not a["FirstAttemptCorrect"] and a["Completed"]==1
+    assert a["CorrectOptionId"]==good and a["DetailedSolutionEn"]
+    assert a["PointsEarned"]==0 # already earned in ordinary solving
+    assert expect("POST",path+"/answer",200,first,other)["Completed"]==1
+    expect("POST",path+"/answer",409,dict(first,RequestId=str(uuid4())),other)
+    for pos in range(1,5):
+        current=expect("GET",path,200,token=other)
+        q=current["CurrentQuestion"]
+        info=expect("GET",f"/api/problems/{q['Id']}",200,token=admin)
+        correct=next(o["Id"] for o in info["Options"] if o["IsCorrect"])
+        a=expect("POST",path+"/answer",200,{"RequestId":str(uuid4()),"Position":pos,
+             "ProblemId":q["Id"],"SelectedOptionId":correct},other)
+        assert a["Completed"]==pos+1 and a["FirstAttemptCorrect"]
+    finished=expect("GET",path,200,token=other)
+    assert finished["IsComplete"] and finished["Completed"]==5 and finished.get("CurrentQuestion") is None
+    assert expect("POST",ROOT+"/start",200,dict(start,RequestId=str(uuid4())),other)["Id"]==sid
+    achievements=expect("GET",ROOT+"/achievements",200,token=other)
+    assert achievements["CompletedDailyChallenges"]==1 and achievements["CorrectSessionAnswers"]==5
+    assert achievements["IndependentFirstCorrect"]==4 and achievements["UniqueSolvedProblems"]==5
+    assert achievements["AssistedCorrect"]==0
+    assert achievements["PermanentSolvedProblems"]>=5 and achievements["PermanentPoints"]>=0
+    assert {b["Key"] for b in achievements["Badges"]}=={"first-daily","persistence"}
+    assert expect("GET",ROOT+"/achievements",200,token=other)==achievements
+    assert expect("GET",ROOT+"/achievements",200,token=learner)["CompletedDailyChallenges"]==0
+    after=expect("GET","/api/users/journey",200,token=other)
+    assert after["TotalPoints"]==baseline["TotalPoints"] and after["SolvedProblems"]==baseline["SolvedProblems"]
+    assert after["PermanentSolvedProblems"]>=5 and after["PermanentPoints"]>=baseline["PermanentPoints"]
+    assert after["PermanentSolvedProblems"]==sum(c["PermanentSolvedProblems"] for c in after["Categories"])
+    leaderboard=expect("GET","/api/users/leaderboard?period=all",200,token=other)
+    assert leaderboard["ScoreBasis"]=="PermanentAchievements"
+    mine=next(e for e in leaderboard["Entries"] if e["IsCurrentUser"])
+    assert mine["SolvedProblems"]==after["PermanentSolvedProblems"]
+    assert mine["Points"]==after["PermanentPoints"]
+    assert after["LearningSessionsEnabled"] is True
+    analytics=expect("GET","/api/users/premium-analytics",200,token=other)
+    assert analytics["ScoreBasis"]=="PermanentAchievements"
+    assert analytics["GuidedAttempts"]==6 and analytics["GuidedTimeMeasured"] is False
+    assert analytics["SolvedProblems"]==achievements["PermanentSolvedProblems"]
+    assert analytics["AwardedPoints"]==achievements["PermanentPoints"]
+    assert analytics["AttemptedProblems"]>=analytics["SolvedProblems"]
+    assert analytics["Attempts"]==analytics["CorrectAttempts"]+analytics["IncorrectAttempts"]
+    scoped=expect("GET",f"/api/users/premium-analytics?stageId={stage}&categoryId=5&days=7",200,token=other)
+    assert scoped["FilterStageId"]==stage and scoped["FilterCategoryId"]==5 and scoped["WindowDays"]==7
+    assert all(c["StageId"]==stage and c["CategoryId"]==5 for c in scoped["Categories"])
+    assert scoped["GuidedAttempts"]<=analytics["GuidedAttempts"]
+    expect("GET","/api/users/premium-analytics?days=0",400,token=other)
+    expect("GET","/api/users/premium-analytics?trackId=999999",404,token=other)
+    expect("GET","/api/users/premium-analytics/export.pdf?days=999",400,token=other)
+    old_badges=expect("GET","/api/users/achievements",200,token=other)
+    assert old_badges["UniqueSolved"]==mine["SolvedProblems"]
+    assert old_badges["ScoreBasis"]=="PermanentAchievements"
+    admin_rank=expect("GET",f"/api/admin/stages/{stage}/leaderboard?period=all",200,token=admin)
+    assert admin_rank["ScoreBasis"]=="PermanentAchievements"
+    assert any(x["SolvedProblems"]==mine["SolvedProblems"] and x["Points"]==mine["Points"] for x in admin_rank["Entries"])
+    overview=expect("GET","/api/admin/engagement/overview?days=30",200,token=admin)
+    assert overview["ScoreBasis"]=="PermanentAchievements" and overview["SuccessfulSolves"]>=mine["SolvedProblems"]
+    stage_report=expect("GET",f"/api/admin/engagement/stages/{stage}?days=30",200,token=admin)
+    assert stage_report["ScoreBasis"]=="PermanentAchievements"
+    assert any(x["Solved"]==mine["SolvedProblems"] and x["Points"]==mine["Points"] for x in stage_report["TopStudents"])
+    assert sum(x["AttemptsInWindow"] for x in stage_report["Categories"])>=7
+    expect("GET","/api/admin/engagement/overview",403,token=other)
+    # A legacy stage reset is still distinct from session restart, but must
+    # never erase lifetime credit or change lifetime ranking.
+    expect("POST","/api/users/practice/reset",200,{"StageId":stage},other)
+    reset=expect("GET","/api/users/journey",200,token=other)
+    assert reset["SolvedProblems"]==0 and reset["PermanentPoints"]==after["PermanentPoints"]
+    after_analytics=expect("GET","/api/users/premium-analytics",200,token=other)
+    for field in ("AttemptedProblems","SolvedProblems","Attempts","CorrectAttempts","IncorrectAttempts","AwardedPoints","FirstTryCorrect"):
+        assert after_analytics[field]==analytics[field],field
+    rank=expect("GET","/api/users/leaderboard?period=all",200,token=other)
+    row=next(e for e in rank["Entries"] if e["IsCurrentUser"])
+    assert row["Points"]==mine["Points"] and row["SolvedProblems"]==mine["SolvedProblems"]
+    assert expect("GET","/api/users/achievements",200,token=other)==old_badges
+    stage_reset=expect("GET",f"/api/admin/engagement/stages/{stage}?days=30",200,token=admin)
+    assert stage_reset["TopStudents"]==stage_report["TopStudents"]
+    assert expect("GET",ROOT+"/achievements",200,token=other)==achievements
+    # Switch stage: today's daily session is not replaced. Restore on return.
+    expect("PUT","/api/users/learning-stage",200,{"StageId":1},other)
+    expect("POST",ROOT+"/start",409,dict(start,RequestId=str(uuid4())),other)
+    expect("PUT","/api/users/learning-stage",200,{"StageId":stage},other)
+    assert expect("GET",path,200,token=other)["Completed"]==5
+    p=expect("POST",ROOT+"/start",200,{"RequestId":str(uuid4()),"Kind":"practice","Count":5,"CategoryId":5},learner)
+    assert p["Id"]!=sid and p["Completed"]==0
+    assert expect("GET",ROOT+"/current?kind=practice&categoryId=5",200,token=learner)["Id"]==p["Id"]
+    old=expect("GET",ROOT+"/achievements",200,token=learner)
+    abandoned=expect("POST",ROOT+"/"+p["Id"]+"/abandon",200,token=learner)
+    assert abandoned["AbandonedAtUtc"]
+    assert expect("POST",ROOT+"/"+p["Id"]+"/abandon",200,token=learner)==abandoned
+    expect("GET",ROOT+"/"+p["Id"],409,token=learner)
+    expect("GET",ROOT+"/current?kind=practice&categoryId=5",404,token=learner)
+    replacement=expect("POST",ROOT+"/start",200,{"RequestId":str(uuid4()),"Kind":"practice","Count":5,"CategoryId":5},learner)
+    assert replacement["Id"]!=p["Id"] and replacement["Completed"]==0
+    whole=expect("POST",ROOT+"/start",200,{"RequestId":str(uuid4()),"Kind":"practice","Count":5},learner)
+    preview=expect("GET",ROOT+"/restart-scope?categoryId=5",200,token=learner)
+    assert preview["SessionIds"]==[replacement["Id"]]
+    bad=dict(preview,SessionIds=[whole["Id"]])
+    expect("POST",ROOT+"/restart-scope",409,bad,learner)
+    result=expect("POST",ROOT+"/restart-scope",200,preview,learner)
+    assert result["AbandonedSessionIds"]==[replacement["Id"]]
+    assert expect("GET",ROOT+"/current?kind=practice",200,token=learner)["Id"]==whole["Id"]
+    new_category=expect("POST",ROOT+"/start",200,{"RequestId":str(uuid4()),"Kind":"practice","Count":5,"CategoryId":5},learner)
+    assert expect("POST",ROOT+"/restart-scope",200,preview,learner)==result
+    assert expect("GET",ROOT+"/current?kind=practice&categoryId=5",200,token=learner)["Id"]==new_category["Id"]
+    all_preview=expect("GET",ROOT+"/restart-scope",200,token=learner)
+    assert set(all_preview["SessionIds"])=={whole["Id"],new_category["Id"]}
+    expect("POST",ROOT+"/restart-scope",200,all_preview,learner)
+    expect("GET",ROOT+"/current?kind=practice",404,token=learner)
+    expect("GET",ROOT+"/current?kind=practice&categoryId=5",404,token=learner)
+    assert expect("GET",ROOT+"/achievements",200,token=learner)==old
+    expect("POST",path+"/abandon",409,token=other)
+    expect("POST",ROOT+"/start",400,{"RequestId":str(uuid4()),"Kind":"practice","Count":11},learner)
+    assert expect("GET",path,200,token=other)["Completed"]==5
+    assert expect("GET",ROOT+"/achievements",200,token=other)==achievements
+    print("PASS: independent 5-question session, owner isolation, correct-only advance, replay, daily uniqueness and practice separation")

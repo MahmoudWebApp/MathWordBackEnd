@@ -8,6 +8,7 @@
         public int SelectedOptionId { get; set; } = 0;
         public bool IsFavorite { get; set; } = false;
         public int Attempts { get; set; } = 0;
+        public int HintsRevealed { get; set; }
         public int TimeSpentSeconds { get; set; } = 0;
         public DateTime? SolvedAt { get; set; }
         public DateTime LastAttemptAt { get; set; } = DateTime.UtcNow;
@@ -86,6 +87,8 @@
 
         public int UserId { get; set; }
         public int ProblemId { get; set; }
+        // Zero denotes the original stage-wide practice cycle and global favorites.
+        public int PracticeScopeId { get; set; }
 
         public AppUser User { get; set; } = null!;
         public MathProblem Problem { get; set; } = null!;

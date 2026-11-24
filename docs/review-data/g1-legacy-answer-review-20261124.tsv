@@ -1,0 +1,92 @@
+problem_id	content_sha256	expected_choice	reason
+3	d89844ac0f9335d773dab743b44b9f04267a0748e9774330803f87db06e49f52	1	12 − 5 = 7 apples.
+5	8ac8fc60d34a2c5a35492bd64c8cde6ec1fbd50450ca3e0eae80d70eca695214	1	7 × 8 = 56.
+6	f6d3d7bf03c0045dc0322d5ab4ebdb62a80b29366f58f719b5c5f4010203f417	1	15 − 7 = 8.
+7	9231d7eee542aedbbd37ef2447292cac80bdd1ee5bac2047ef59fe37f1317903	1	The displayed arithmetic progression adds 2 to 8.
+8	310e71497e8158fb62ad8f0399d232e4d9f421b909e368d444a5537fcb6ae799	1	Four sides of 5 cm give 20 cm.
+9	62c906c8b7f9f08c84747beefddab0b08a0c8f535dda250fbc56668a3db07d12	1	8 m × 3 m gives 24 square meters.
+10	409ad83f1d5af0e249eff15d82b08c53c21e5d85d21b0dbbc188567ebf137564	1	One head among two equiprobable outcomes. Add the fair-coin assumption.
+11	9f65654385571da66b0ab7c0e924255c47d81f7181518eef1e53c1c7d222d32f	1	The ordered list is 3, 4, 5, 7, 9.
+12	d4679c5a41a97983400b655cca68d03ee850bbbce7fc3bae0714d095f15710eb	1	Add exponents 3 and 4 on the common base.
+13	7e054a7cd6aca938a5f915bec8c23e61643da2adfa12a619fc37cd42b05bad21	1	24 = 2 × 12 and 36 = 3 × 12, with coprime quotients.
+14	a3f89d2994b757b1854d014e007b331ed056a18e3e241f0799d7400c6b03a934	1	3x = 21, hence x = 7.
+15	e35278f522f48ed6fdcece4562470c30570a5c3e80f59314e8d6b1ea22c27667	1	2 × 4 + 3 = 11.
+16	cc539f6a356ba09b44da63a8a97e4db1abbeff1d3be0419b46adf476a5a276ed	1	150 × 5/3 = 250.
+17	d7eeecd46ab42c628f00a10ddd59b545734c2c2017a821e1e888e359a8028352	1	240 km divided by 3 hours gives 80 km/h.
+18	5abaf0d5ed381dceef243b1fae31054b1c85c7294523600aa16cc16246dbfc07	1	180 − 50 − 60 = 70 degrees.
+19	b768e18c0b95464dd6f561b1c5f3090b8af8e73f7f6bf15464125c49967feda3	1	(22/7) × 7² = 154 square centimeters.
+20	f2fbf81b2340cc01bcdec15634ff778e837004436a0bee4071dfcf5ba85b8015	1	The polynomial factors as (x−2)(x−3).
+21	a83b028d8cecc8e3f5a6dc54426bc61474db08627acde5edafa6d76ee10c5c72	1	2⁵ = 32.
+22	94aed86025c3737e655e17ac8d50f8af70901f5e9656d9d4d8716973e6a60896	1	The side opposite 30° is half the hypotenuse.
+23	0c6d0986191cd58cf447b60c67b19ad7712d3714a4ef46fa4520bc050999b20e	1	The two squared terms are each 1/2. Remove the disclosed result from the prompt.
+24	ffc5693b9bd282a14067e764b8d0466cce5112cb6ab4878ffa28118583b8f2a4	1	Power rule term by term gives 3x² + 4x − 5.
+25	2a95427bcba2ca0de31b801db439b7f791423b87dd88efbcfd7bc18d4a317ce7	1	Differentiating x² + 3x + C gives 2x + 3.
+26	ea7f982db2662ae3470411498692cbd456c1121fa55f29065f51cc4a24e39872	1	Six ordered pairs with sum seven out of 36 equiprobable pairs.
+27	f03345905bb551b309aa7e81d9192afc054788da179c87590d0b8455bd441143	1	60 divided by five equals 12.
+28	161f6ba942247848cb288201c6dcb8a84d54c9d9871ce94c064901e8ccc2bb4c	1	Holding y fixed gives 2xy + 3y² + cos(x).
+29	43982653802661d235cc58da15e4874452e3fc8e66a1d562ba5dd52f2ac4a325	1	The product of the one-dimensional integrals is (1/2) × 2 = 1.
+30	8c229aba2b2c672d644b33fca8ad39eb6bd04ba4e4462e182717216aa9039a1d	1	2 × 4 − 3 × 1 = 5.
+31	f5e0252c196a5bea1fbc33cad130bd69e57880251673d6b98871c7b6cd99c2d5	1	The second vector is twice the first.
+32	3df0cabed1b7e0c365399422bddfb8df7b6f92a9b098a836b5be1b14922b0c14	1	The exponential family A exp(3x) includes the zero solution.
+33	e9a9379840fc64e69020efa9b3829a48ece4615293f4c6d7510e7ef4772efa0a	1	The highest derivative is the second.
+34	c07adb076cfd05f8a99c1d6e266c9b68366564b926c09df6f6da5be55fd97b40	1	Cancel x−2 before substituting into x+2.
+35	93f24c18e1a81981f7bb6664956af65730f95a2b3cceb77618dfe7301c65948a	1	The one-sided slopes are −1 and +1.
+36	82877d6a2b4c6cfc63c39491d185ef28f2d49c75ce82c1b9ab6da45009601253	1	25 + 17 = 42.
+37	4591687b6ccf7bdebb7130a2fb8e36de1b4d2239f4ddf06b9f9399d29b8834f9	1	84 − 29 = 55.
+38	80b71f11279c49efc195d907a00d85c142de9709d0c3ee5df030fa4d14b634cc	2	23 − 9 = 14.
+39	025f0bdd0781f21e226e292d705d056eafb3a4b4ab0a74ee945162cf8108d56f	3	2 × (8 + 5) = 26.
+40	f3a9681fd757e769befac8a1a0def24363a513956e8c2aadf4a10db5c20d1a0e	4	28 divided by four equals 7.
+41	c320dd76860707edd2dff0c75ec06097612d2d87b1ad9caf3506dc34751ad022	1	2⁵ = 32.
+42	b9677978040fc55ffa734161b34e436be88613fc3697313717c2a204d94449d9	2	4² − 3 = 13.
+43	a882ebc5245d241e252909f427397532cbff3c9815621b18eda090d3c31d3cde	3	Two of five equal shares of 45 gives 18.
+44	1602ac556e0e5e37742b2edd3b456160d6ebff75dae742a754f0b6bfd1da43bc	4	6² + 8² = 100, so the hypotenuse is 10.
+45	c56894ea9d9690df0d2cc10047c050e8037fa0e14c051f05588211bbcb4f77c8	1	The factors x−3 and x−4 give roots 3 and 4.
+46	262176e0f4c821df0a091edb98be54c118d6ca7c9b4cd948a25170fa1f6280a3	2	The adjacent-to-hypotenuse ratio for 60° is 1/2.
+47	90897bfc8610c91fadad6112e9e970b35675ea889ddd4ccb0e3b794583731b5d	3	Termwise differentiation gives 10x − 4.
+48	8767a6aac37e9c362b2f60d1b399dd9e2cd6ec93faa2ae57ee9b08a240ee699c	4	Squared deviations from 3 sum to 4. Divide by the population size 4.
+49	230b947bf9ac0e416897db02af62bd53dfc4a24b6f37e867a219ac58df74dc92	1	The partial is 2xy, equal to 4 at (2,1).
+50	d1c7aad0c9796fbd7c5d3ad1462148eea91818004a1a7e49d34f4f80b050475c	2	2 × 4 − 1 × 3 = 5.
+51	ba32ac1ee27656fed26e35966d5ff7072bb7d7491e39c33108a9497751b7280f	3	The derivative of x² + C is 2x.
+52	813b7698b68b5bfb252507bbc36a3c0afafeb9c94e196418a222b45ff1484285	4	The reciprocal of a positive integer tends to zero as the integer increases.
+53	783e6b4319fa80f261b9e4a782b1e374dd4e919725b8bb1916cff21c8b607750	2	9 × 6 = 54.
+54	ad9e84c3d6b5c13d89654a756e6afac1b8b238a136bdf9cc9b42bff08c88c73f	3	36 divided by four equals 9.
+55	43deb389c12ce111f3164b3138512518365c9f1c0797b02e868eea974ccb2442	4	Half the base times the height gives 30.
+56	c26b7473b12f8161d029e10f8b3cf0f8a1e4dea4ed7d4d76518946e39f0a3b8f	1	Three even faces out of six give 1/2.
+57	4555ca886cfd4de3c64a8c9c78e3c0215a47b070341354f6a6bce89be6ac6c2e	2	60 − 48 = 12, which divides both.
+58	0b2086e1be866d237f3059da5fd3e9b66872c7e62e2db06bbc3168f81a03d09b	3	(19 − 7)/2 = 6.
+59	4d063a60ab93a1f8280eb9dfab77cab31c4de5a98ad1acf9a716b4a6316e63f2	4	Seven times the unit price of 3 gives 21.
+60	8dd045861c30117f3c507132350ebad96e55fb46f3fa82bf524a5bd224aba6fa	1	Vertically opposite angles are equal, giving 117 degrees.
+61	c9161c094b5d14e0efe818dc56c5e1962ebea47d6fbbf9fa98520204751a8c2e	2	3⁴ = 81.
+62	65767b3a5b6a715ccf37f045b17d2257cd32d4e90ab5c01931e3815dcd53b845	3	The two legs of an isosceles right triangle are equal.
+63	5b68603dc835a7518fb04252f1d4db292648c9096002a6bff303efb955c83768	4	Differentiating 2x³ + C recovers 6x².
+64	9b79db83ff382b27e2637a417d7bcdcac9ff39ac1d406c16900ce10454adf068	1	Three independent factors of 1/2 give 1/8.
+65	b7bfe29f7cdd76a40f2acb00b9964935810ea79e56772c01905fc823f7e53282	2	The gradient is (2x,2y) and at (1,2) it is (2,4).
+66	714d2c323bd4db59a9d40f6f402c92ef58b4ab29636cbe66c70088f2f40faf62	3	1 × 3 + 2 × 4 = 11.
+67	eef12b45c97d83a67068a18bcc2add2a7b0b155a763fd13394fc05939e356599	4	The exponential coefficient must equal the initial value 2.
+68	5d6ae1e6a329b24a200724d92907d4cfd19f4a405e3dcc8c57190b0fdf334c15	1	Continuity and strictly opposite endpoint signs give an interior zero.
+144	c01e21f5a58ac5982a9943bb4144ffdf08d761348b0421078fb03b7e008dd115	1	The intermediate value theorem guarantees a zero strictly between 0 and 2.
+145	e35c2021e1d17955ce6902c047940501e90edcf27e8467676153be535154312e	4	Differentiability implies continuity at the same point.
+146	30b5efc8073eabe66f02e42850e07ccf619cf808ea968e5f7c59bf407c74c488	3	A fixed numerator divided by n tends to zero.
+147	b40bee8aa22db469a8d8ca1158c07e2236cf42da7cfc827a167c66336e22c29a	2	The bounded monotone convergence theorem applies on the real line.
+148	8be878483786fb74893aacbc7096d5f829e86e5bd6ea97aa836eff3d13f14963	1	The p-series with exponent 2 converges. The other listed series diverge.
+479	79a81d48dcefa9a0f1ebc78d500f68b3facbdfe9e4332f9d32eac5937d254811	2	The third ordered observation stays 6.
+480	52dda8181b9482c1a001c216a24635f655f953a59ac62c30e20f0367d8091755	1	15/27 is larger than 10/28.
+482	c42299349a44613cdf1e882ac65fd113d83b6a3f6f173ccc75dc745b6ce0f7eb	3	The additive shift cancels in maximum minus minimum.
+487	4075ffe57802d9c37fd07880212f58ad6791c8def3daf8671602fb62948e8f2f	2	The partial sums grow without bound because the positive terms double.
+488	ab231169a11eba85ec00c91915cde028f0119ddcd7b5ee34289fe8559114f052	1	A conditional with false antecedent is true in classical logic.
+492	c78636335b40125e38bcda3d843b8fcc0f51582caa9b238d9ddbf99760e10d63	1	Three choices from the complementary pairs {1,4} and {2,3} include a full pair.
+504	5f0f224e23e16c422f98332c5a430f9578c3700ed794b0bfe4ea84afea05826b	1	With equal positive numerators, denominator 9 gives the greater fraction.
+507	bb5853e724b9127b8922cec92a6d40d5fcdfaa520d605bcde60564e1e9a18574	2	4/10 is greater than 3/8.
+510	4473e7253980ba29b9566c81ea06ff0446830801c9fe60463aa61b88f487bc8c	3	The partial sums alternate between 1 and 0.
+511	d6b072f7bce42170d56f22ef3d5ffb5fb74cc9fa6b7fb1cec931f6281092f6d4	3	The terms do not tend to zero.
+512	cb45196841f3dc5404a45496dd1fb63172e1b314d328e21ff349356061ac284a	0	No exact answer. For example, 1/3 + 1/4 = 7/12. Each full dyadic block contributes at least one half.
+641	a58cd6cc3daf8a9fde688cd4f489fd5e4970057299a8eb3ea7bc750fb2c42bb9	1	Squared deviations from 3 sum to eight. Population variance is 8/3.
+782	225c1908287f95a7e073f122b3547f0a6ae6a34b9493da92049ccaa405b86a15	2	The harmonic series diverges by grouping into dyadic blocks.
+783	45ed8b53ef7281721a33cb4c3d6426389f0dfe5eb38c3078682c09c4b68bde42	3	The alternating series converges and its absolute series diverges.
+789	22352a1ec111d8bbea846881910507d288e9e3d005cc813c58b9d848a4aed53d	1	The contrapositive is that an odd n has an odd square.
+791	39443193e5feb01eb5764ca24bdce8b9efbb2d9b81cf3e0f9d7261042cd29a96	1	Both numerator and denominator must be even, contradicting lowest terms.
+796	85f61abb810313eea89967552661ff473b39862cc7184fd1cd6134d4533d4e54	3	Divisibility is reflexive, antisymmetric and transitive on positive integers. Two and three are incomparable.
+798	7dc3790bd2e2dc818a7abe52f6c8843a73618ec8ff9c329e6ef773b19645ae7d	2	The difference quotient at zero is |h| and tends to zero.
+800	bdb6bf5eb04d834f148f4e3b91365b6b33df33758c21d12f339917d95fcd4bb0	1	The difference quotient at zero is sign(h)/|h|^(1/3), with no finite limit. The function itself tends to zero.
+817	a382d4365811160a853e31f306f34cbdfc9bf2b742a89d5a5ba93102af21cf78	1	9/12 reduces to 3/4.
+858	95c71aacbb79f7ac0c7c36deaaf890d285fbfa2398eca68d61b86e9400c8fd86	1	8² + 15² = 17², so the triangle is right.

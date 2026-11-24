@@ -165,6 +165,7 @@ public static class PremiumAnalyticsXlsxExporter
                       "المجربة", "الخاطئة", "صحيحة أول مرة", "الوقت (ثانية)", "الدقة %" }
             : new[] { "Solved", "Attempts", "Correct", "Points", "Review errors",
                       "Attempted", "Incorrect", "First-try correct", "Time (seconds)", "Accuracy %" };
+        if(report.ScoreBasis=="PermanentAchievements")labels[8]=ar?"وقت التدريب العادي":"Ordinary time";
         var values = new[]
         {
             report.SolvedProblems, report.Attempts, report.CorrectAttempts,
@@ -186,6 +187,7 @@ public static class PremiumAnalyticsXlsxExporter
         sheet.Row(11).Height = 17;
 
         var headers = Headers(ar);
+        if(report.ScoreBasis=="PermanentAchievements")headers[10]=ar?"وقت التدريب العادي (ثانية)":"Ordinary practice time (seconds)";
         for (var i = 0; i < headers.Length; i++)
             sheet.Cell(12, i + 1).Value = headers[i];
         var heading = sheet.Range(12, 1, 12, 11);
@@ -250,9 +252,25 @@ public static class PremiumAnalyticsXlsxExporter
         }
         // A single table with an in-place filter and no floating chart objects.
         sheet.Range(12, 1, Math.Max(12, row - 1), 11).SetAutoFilter();
+        WriteContext(sheet,row+2,report,ar);
         sheet.SheetView.FreezeRows(12);
         sheet.PageSetup.PageOrientation = XLPageOrientation.Landscape;
         sheet.PageSetup.FitToPages(1, 0);
+    }
+
+    private static void WriteContext(IXLWorksheet sheet,int row,
+        StudentPremiumAnalyticsController.StudentAnalyticsReport report,bool ar)
+    {
+        foreach(var line in PremiumAnalyticsReportContext.Lines(report,ar))
+        {
+            var area=sheet.Range(row,1,row,11).Merge();
+            area.FirstCell().Value=line;
+            area.Style.Fill.BackgroundColor=Light;
+            area.Style.Font.FontColor=Ink;
+            area.Style.Alignment.WrapText=true;
+            area.Style.Alignment.Horizontal=ar?XLAlignmentHorizontalValues.Right:XLAlignmentHorizontalValues.Left;
+            sheet.Row(row++).Height=30;
+        }
     }
 
     private static void FormatBodyRow(IXLWorksheet sheet, int row, XLColor background)
@@ -366,6 +384,7 @@ public static class PremiumAnalyticsXlsxExporter
         {
             sheet.Cell(9, 1).Value = ar ? "لا توجد بيانات بعد" : "No data yet";
         }
+        WriteContext(sheet,Math.Max(row,10)+2,report,ar);
         sheet.SheetView.FreezeRows(8);
         sheet.PageSetup.PageOrientation = XLPageOrientation.Landscape;
         sheet.PageSetup.FitToPages(1, 0);

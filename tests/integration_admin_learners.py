@@ -175,9 +175,8 @@ def main():
         assert csv_bytes[:3] == bytes((239, 187, 191)), csv_bytes[:12]
         assert b"Category,Total Problems" in csv_bytes
     assert api("GET", f"/api/problems/{locked_problem}", token=learner1)[0] == 200
-    solution = expect("GET", preview, 200, token=learner1)
-    assert solution["ProblemId"] == locked_problem
-    assert solution["CorrectOptionId"] is not None, solution
+    expect("GET", preview, 403, token=learner1)
+    expect("GET", f"/api/problems/{locked_problem}/premium-solution", 403, token=learner1)
     # Repeating a grant is safe. Revocation must take effect immediately.
     assert expect("PUT", subscription_route, 200,
                   {"SubscriptionType": "Premium", "Reason": "CI subscription check"}, admin)["SubscriptionType"] == "Premium"
@@ -216,6 +215,7 @@ def main():
     details_after = expect("GET", f"/api/admin/learners/{first['Id']}", 200,
                            token=admin)
     expiry_before = details_after["Learner"]["PremiumExpiresAtUtc"]
+    assert expiry_before == next(p["EndAtUtc"] for p in granted["Periods"] if p["LearnerId"]==first["Id"])
     assert details_after["Learner"]["SubscriptionType"] == "Premium", details_after
     assert expiry_before, details_after
     import datetime
@@ -235,6 +235,17 @@ def main():
                      200, token=admin)
     assert any(h["Reason"] == "AdminAnnualPremiumRenewal"
                for h in history["Records"]), history
+    assert expiry_after == renewed["Periods"][0]["EndAtUtc"]
+    assert any(h["Reason"]=="AdminAnnualPremiumRenewal" and h["PreviousExpiresAtUtc"]==expiry_before and h["NewExpiresAtUtc"]==expiry_after for h in history["Records"])
+    for include in ("true","false"):
+        directory=expect("GET",f"/api/admin/learners?subscription=Premium&includeActivity={include}",200,token=admin)
+        assert next(u for u in directory["Learners"] if u["Id"]==first["Id"])["PremiumExpiresAtUtc"]==expiry_after
+    assert expect("GET","/api/users/subscription",200,token=learner1)["PremiumExpiresAtUtc"]==expiry_after
+    # Legacy indefinite grants are not shortened by annual renewal.
+    expect("PUT",subscription_route,200,{"SubscriptionType":"Premium","Reason":"CI indefinite access"},admin)
+    indefinite=expect("POST",annual,200,{"LearnerIds":[first["Id"]]},admin)
+    assert indefinite["Updated"]==0 and indefinite["SkippedIndefiniteIds"]==[first["Id"]]
+    assert expect("GET",f"/api/admin/learners/{first['Id']}",200,token=admin)["Learner"].get("PremiumExpiresAtUtc") is None
     for learner_id in selected:
         expect("PUT", f"/api/admin/learners/{learner_id}/subscription", 200,
                {"SubscriptionType": "Free", "Reason": "Reset CI annual access"}, admin)

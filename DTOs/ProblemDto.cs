@@ -135,6 +135,8 @@ namespace MathWorldAPI.DTOs
     /// </summary>
     public class ProblemForStudentDto
     {
+        public int? PracticeScopeId { get; set; }
+        public object? SolutionStructure { get; set; }
         /// <summary>
         /// Gets or sets the problem ID.
         /// </summary>
@@ -364,6 +366,7 @@ namespace MathWorldAPI.DTOs
     /// </summary>
     public class SubmitAnswerDto
     {
+        public int? PracticeScopeId { get; set; }
         /// <summary>
         /// Gets or sets the problem ID.
         /// </summary>
@@ -396,6 +399,8 @@ namespace MathWorldAPI.DTOs
     /// </summary>
     public class AnswerResultDto
     {
+        public object? SolutionStructure { get; set; }
+        public bool UsedHint { get; set; }
         /// <summary>
         /// Gets or sets whether the submitted answer is correct.
         /// </summary>

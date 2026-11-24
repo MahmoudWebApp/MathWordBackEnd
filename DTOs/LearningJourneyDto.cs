@@ -26,6 +26,8 @@ namespace MathWorldAPI.DTOs
         public int TotalProblems { get; set; }
         public int AttemptedProblems { get; set; }
         public int SolvedProblems { get; set; }
+        public int PermanentSolvedProblems { get; set; }
+        public long PermanentPoints { get; set; }
         public int FirstTryCorrect { get; set; }
         public int MasteredProblems { get; set; }
         public int CompletionPercent { get; set; }
@@ -34,11 +36,17 @@ namespace MathWorldAPI.DTOs
     public sealed class LearningJourneyDto
     {
         public int StageId { get; set; }
+        public int? TrackId { get; set; }
+        public bool LearningSessionsEnabled { get; set; }
+        public bool CertificatesEnabled { get; set; }
+        public bool TrackPracticeIsolationEnabled { get; set; }
         public string NameAr { get; set; } = string.Empty;
         public string NameEn { get; set; } = string.Empty;
         public int TotalProblems { get; set; }
         public int AttemptedProblems { get; set; }
         public int SolvedProblems { get; set; }
+        public int PermanentSolvedProblems { get; set; }
+        public long PermanentPoints { get; set; }
         public int FirstTryCorrect { get; set; }
         public int MasteredProblems { get; set; }
         public int TotalPoints { get; set; }

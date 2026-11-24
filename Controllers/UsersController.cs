@@ -80,15 +80,21 @@ namespace MathWorldAPI.Controllers
                 .GetRequiredService<ProblemCategoryAccessService>()
                 .GetAllowedCategoryIdsAsync(User, HttpContext.RequestAborted);
 
+            var tracks=HttpContext.RequestServices.GetRequiredService<LearningTrackService>();
+            var activeTrack=await tracks.ActiveAsync(activeStageId,user.CurrentTrackId,HttpContext.RequestAborted);
+            var scopedProblems=activeTrack is null ? _context.Problems.AsNoTracking() : tracks.ValidProblems(activeTrack.Id);
             // Consolidated stage-scoped counters: one DB query rather than
             // five remote trips. Keep original access and progress rules.
-            var progressCounts = await _context.UserProgresses
+            var practiceScope=TrackPractice.Scope(HttpContext.RequestServices.GetRequiredService<IConfiguration>(),activeTrack?.Id);
+            var scopedProgress=TrackPractice.For(_context,practiceScope);
+            var progressCounts = await scopedProgress
                 .AsNoTracking()
                 .Where(progress =>
                     progress.UserId == userId &&
                     (allowedCategories == null ||
                      allowedCategories.Contains(progress.Problem.CategoryId)) &&
                     progress.Problem.Category.StageId == progress.Problem.StageId &&
+                        scopedProblems.Any(p=>p.Id==progress.ProblemId) &&
                     (!activeStageId.HasValue ||
                      progress.Problem.StageId == activeStageId.Value))
                 .GroupBy(_ => 1)
@@ -105,7 +111,7 @@ namespace MathWorldAPI.Controllers
                 .FirstOrDefaultAsync();
 
             var solvedCount = progressCounts?.SolvedCount ?? 0;
-            var favoriteCount = progressCounts?.FavoriteCount ?? 0;
+            var favoriteCount = await _context.UserProgresses.CountAsync(p=>p.UserId==userId&&p.IsFavorite&&scopedProblems.Any(q=>q.Id==p.ProblemId)&&(!activeStageId.HasValue||p.Problem.StageId==activeStageId)&&(allowedCategories==null||allowedCategories.Contains(p.Problem.CategoryId)));
             var totalAttempted = progressCounts?.TotalAttempted ?? 0;
             var officialCorrectCount = progressCounts?.OfficialCorrect ?? 0;
             var totalPoints = progressCounts?.TotalPoints ?? 0;
@@ -115,7 +121,7 @@ namespace MathWorldAPI.Controllers
                 : 0;
 
             var recentSolvedData =
-                await _context.UserProgresses
+                await scopedProgress
                     .Include(progress =>
                         progress.Problem)
                     .ThenInclude(problem =>
@@ -130,6 +136,7 @@ namespace MathWorldAPI.Controllers
                         (allowedCategories == null ||
                          allowedCategories.Contains(progress.Problem.CategoryId)) &&
                         progress.Problem.Category.StageId == progress.Problem.StageId &&
+                        scopedProblems.Any(p=>p.Id==progress.ProblemId) &&
                         (!activeStageId.HasValue ||
                          progress.Problem.StageId == activeStageId.Value) &&
                         progress.IsSolved)
@@ -154,6 +161,7 @@ namespace MathWorldAPI.Controllers
                         (allowedCategories == null ||
                          allowedCategories.Contains(progress.Problem.CategoryId)) &&
                         progress.Problem.Category.StageId == progress.Problem.StageId &&
+                        scopedProblems.Any(p=>p.Id==progress.ProblemId) &&
                         (!activeStageId.HasValue ||
                          progress.Problem.StageId == activeStageId.Value) &&
                         progress.IsFavorite)
@@ -162,6 +170,7 @@ namespace MathWorldAPI.Controllers
                     .Take(5)
                     .ToListAsync();
 
+            var favoriteState=await scopedProgress.Where(p=>p.UserId==userId&&recentFavoritesData.Select(f=>f.ProblemId).ToArray().Contains(p.ProblemId)).AsNoTracking().ToDictionaryAsync(p=>p.ProblemId);
             var dashboard =
                 new UserDashboardDto
                 {
@@ -200,8 +209,8 @@ namespace MathWorldAPI.Controllers
                                 MapToProblemPreview(
                                     progress.Problem,
                                     language,
-                                    progress.IsSolved,
-                                    progress.Attempts > 0))
+                                    favoriteState.GetValueOrDefault(progress.ProblemId)?.IsSolved==true,
+                                    (favoriteState.GetValueOrDefault(progress.ProblemId)?.Attempts??0)>0))
                             .ToList(),
 
                     RecentActivities =
@@ -240,6 +249,7 @@ namespace MathWorldAPI.Controllers
         /// <summary>
         /// Gets the current authenticated user profile.
         /// </summary>
+        [MathWorldAPI.Services.SupervisorEndpoint]
         [HttpGet("profile")]
         [ProducesResponseType(
             typeof(ApiResponse<UserProfileDto>),
@@ -411,7 +421,7 @@ namespace MathWorldAPI.Controllers
                     _context.UserProgresses.Add(progress);
                 }
                 else if (!targetValue &&
-                         progress.Attempts == 0)
+                         progress.Attempts == 0 && progress.HintsRevealed==0)
                 {
                     // Remove empty favorite-only records completely.
                     _context.UserProgresses.Remove(progress);
@@ -491,6 +501,11 @@ namespace MathWorldAPI.Controllers
                 .GetRequiredService<ProblemCategoryAccessService>()
                 .GetAllowedCategoryIdsAsync(User, HttpContext.RequestAborted);
 
+            var tracks=HttpContext.RequestServices.GetRequiredService<LearningTrackService>();
+            var track=await tracks.ActiveForStudentAsync(User,HttpContext.RequestAborted);
+            var scopedProblems=track is null?_context.Problems.AsNoTracking():tracks.ValidProblems(track.Id);
+
+            var scopedProgress=TrackPractice.For(_context,TrackPractice.Scope(HttpContext.RequestServices.GetRequiredService<IConfiguration>(),track?.Id));
             var favorites =
                 await _context.UserProgresses
                     .AsNoTracking()
@@ -500,6 +515,7 @@ namespace MathWorldAPI.Controllers
                         progress.Problem.Category.StageId == progress.Problem.StageId &&
                         progress.UserId == userId &&
                         progress.Problem.StageId == activeStageId.Value &&
+                        scopedProblems.Any(p=>p.Id==progress.ProblemId) &&
                         progress.IsFavorite)
                     .OrderByDescending(progress =>
                         progress.LastAttemptAt)
@@ -534,8 +550,8 @@ namespace MathWorldAPI.Controllers
                                 progress.Problem.ViewsCount,
 
                             RequiresLogin = true,
-                            IsSolved = progress.IsSolved,
-                            HasAttempted = progress.Attempts > 0
+                            IsSolved = scopedProgress.Any(p=>p.UserId==userId&&p.ProblemId==progress.ProblemId&&p.IsSolved),
+                            HasAttempted = scopedProgress.Any(p=>p.UserId==userId&&p.ProblemId==progress.ProblemId&&p.Attempts>0)
                         })
                     .ToListAsync();
 
@@ -580,8 +596,12 @@ namespace MathWorldAPI.Controllers
                 .GetRequiredService<ProblemCategoryAccessService>()
                 .GetAllowedCategoryIdsAsync(User, HttpContext.RequestAborted);
 
+            var tracks=HttpContext.RequestServices.GetRequiredService<LearningTrackService>();
+            var track=await tracks.ActiveForStudentAsync(User,HttpContext.RequestAborted);
+            var scopedProblems=track is null?_context.Problems.AsNoTracking():tracks.ValidProblems(track.Id);
+
             var solved =
-                await _context.UserProgresses
+                await TrackPractice.For(_context,TrackPractice.Scope(HttpContext.RequestServices.GetRequiredService<IConfiguration>(),track?.Id))
                     .AsNoTracking()
                     .Where(progress =>
                         (allowedCategories == null ||
@@ -589,6 +609,7 @@ namespace MathWorldAPI.Controllers
                         progress.Problem.Category.StageId == progress.Problem.StageId &&
                         progress.UserId == userId &&
                         progress.Problem.StageId == activeStageId.Value &&
+                        scopedProblems.Any(p=>p.Id==progress.ProblemId) &&
                         progress.IsSolved)
                     .OrderByDescending(progress =>
                         progress.SolvedAt)
@@ -652,9 +673,9 @@ namespace MathWorldAPI.Controllers
             var userId =
                 GetUserId();
 
-            // The notebook retains attempts across educational stages.
-            // Its items are still restricted to categories currently
-            // accessible through the Free/Premium entitlement policy.
+            // Keep the underlying notebook across all stages and tracks.
+            // A selected track narrows its active view without deleting errors.
+            // Existing stage-only behavior stays unchanged when tracks are disabled.
             var language =
                 LanguageHelper.GetLanguageFromRequest(
                     Request);
@@ -663,8 +684,9 @@ namespace MathWorldAPI.Controllers
                 .GetRequiredService<ProblemCategoryAccessService>()
                 .GetAllowedCategoryIdsAsync(User, HttpContext.RequestAborted);
 
+            var practiceScope=await TrackPractice.CurrentAsync(_context,HttpContext,HttpContext.RequestAborted);
             var query =
-                _context.UserProgresses
+                TrackPractice.For(_context,practiceScope)
                     .AsNoTracking()
                     .Where(progress =>
                         (allowedCategories == null ||
@@ -672,6 +694,13 @@ namespace MathWorldAPI.Controllers
                         progress.Problem.Category.StageId == progress.Problem.StageId &&
                         progress.UserId == userId &&
                         progress.IsInErrorNotebook);
+
+            var tracks=HttpContext.RequestServices.GetRequiredService<LearningTrackService>();
+            var track=await tracks.ActiveForStudentAsync(User,HttpContext.RequestAborted);
+            var scopedProblems=track is null?_context.Problems.AsNoTracking():tracks.ValidProblems(track.Id);
+
+            if(track is not null)
+                query=query.Where(p=>scopedProblems.Any(q=>q.Id==p.ProblemId));
 
             if (!includeArchived)
             {
@@ -783,8 +812,11 @@ namespace MathWorldAPI.Controllers
                 return StatusCode(StatusCodes.Status403Forbidden,
                     new { Message = "CategoryLocked" });
 
+            await using var cycleTx=await _context.Database.BeginTransactionAsync(HttpContext.RequestAborted);
+            await _context.Database.SqlQuery<int>($"SELECT 1 AS \"Value\" FROM pg_advisory_xact_lock({-987654320}, {userId})").SingleAsync(HttpContext.RequestAborted);
+            var practiceScope=await TrackPractice.CurrentAsync(_context,HttpContext,HttpContext.RequestAborted);
             var progress =
-                await _context.UserProgresses
+                await TrackPractice.For(_context,practiceScope).AsTracking()
                     .FirstOrDefaultAsync(progressItem =>
                         progressItem.UserId == userId &&
                         progressItem.ProblemId == problemId &&
@@ -804,6 +836,7 @@ namespace MathWorldAPI.Controllers
                 dto.IsArchived;
 
             await _context.SaveChangesAsync();
+            await cycleTx.CommitAsync(HttpContext.RequestAborted);
 
             var messageKey =
                 dto.IsArchived

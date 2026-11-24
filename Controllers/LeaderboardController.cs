@@ -69,26 +69,37 @@ namespace MathWorldAPI.Controllers
             if (stage == null)
                 return NotFound(Error("StageNotFound", 404));
 
-            var today = DateTime.UtcNow.Date;
+            var usePermanent=HttpContext.RequestServices.GetRequiredService<IConfiguration>()
+                .GetValue<bool>("LearningSessions:Enabled");
+            var now=DateTime.UtcNow;
+            var today = now.Date;
             DateTime? since = period switch
             {
-                "weekly" => today.AddDays(-(((int)today.DayOfWeek + 6) % 7)),
-                "monthly" => new DateTime(today.Year, today.Month, 1, 0, 0, 0,
-                    DateTimeKind.Utc),
+                "weekly" => usePermanent?now.AddDays(-7):today.AddDays(-(((int)today.DayOfWeek + 6) % 7)),
+                "monthly" => usePermanent?now.AddDays(-30):new DateTime(today.Year, today.Month, 1, 0, 0, 0,DateTimeKind.Utc),
                 _ => null
             };
 
             // Keep learners with solved history after stage changes, but don't
             // manufacture a ranking position for people with zero solves.
             var members = _db.Users.AsNoTracking().Where(u => u.Role == "Student" &&
-                (u.CurrentStageId == stageId ||
-                 _db.UserProgresses.Any(p => p.UserId == u.Id &&
-                     p.IsSolved && p.Problem.StageId == stageId)));
-
-            var solved = _db.UserProgresses.AsNoTracking().Where(p =>
-                p.IsSolved && p.Problem.StageId == stageId);
+                (!usePermanent || u.IsActive));
+            var ordinary = _db.UserProgresses.AsNoTracking().Where(p =>
+                p.IsSolved && p.Problem.StageId == stageId)
+                .Select(p=>new{p.UserId,Points=(long)p.Problem.Points,EarnedAt=p.SolvedAt,
+                    FirstTry=p.FirstAttemptCorrect==true});
+            var permanent = _db.PermanentProblemAchievements.AsNoTracking().Where(a=>a.StageId==stageId)
+                .Select(a=>new{a.UserId,Points=(long)a.Points,EarnedAt=(DateTime?)a.EarnedAtUtc,
+                    FirstTry=_db.ProblemAttempts.Any(p=>p.UserId==a.UserId&&p.ProblemId==a.ProblemId&&p.IsCorrect&&
+                        p.IsOfficial&&p.AttemptNumber==1&&!p.UsedHint&&p.SubmittedAt==a.EarnedAtUtc) ||
+                        (from answer in _db.LearningSessionAttempts
+                         join session in _db.LearningSessions on answer.SessionId equals session.Id
+                         where session.UserId==a.UserId&&answer.ProblemId==a.ProblemId&&answer.IsCorrect&&
+                             answer.AttemptNumber==1&&!answer.UsedHint&&answer.SubmittedAtUtc==a.EarnedAtUtc
+                         select answer).Any()});
+            var solved=usePermanent?permanent:ordinary;
             if (since.HasValue)
-                solved = solved.Where(p => p.SolvedAt >= since.Value);
+                solved = solved.Where(p => p.EarnedAt >= since.Value);
 
             var scores = members.Select(u => new
             {
@@ -96,9 +107,9 @@ namespace MathWorldAPI.Controllers
                 FullName = u.FullName,
                 SolvedProblems = solved.Count(p => p.UserId == u.Id),
                 Points = solved.Where(p => p.UserId == u.Id)
-                    .Sum(p => (int?)p.Problem.Points) ?? 0,
+                    .Sum(p => (long?)p.Points) ?? 0,
                 FirstTryCorrect = solved.Count(p =>
-                    p.UserId == u.Id && p.FirstAttemptCorrect == true)
+                    p.UserId == u.Id && p.FirstTry)
             });
 
             var ranked = scores.Where(x => x.SolvedProblems > 0);
@@ -142,6 +153,7 @@ namespace MathWorldAPI.Controllers
                 NameAr = stage.NameAr,
                 NameEn = stage.NameEn,
                 Period = period,
+                ScoreBasis = usePermanent ? "PermanentAchievements" : "ActiveProgress",
                 Page = page,
                 PageSize = pageSize,
                 TotalLearners = total,

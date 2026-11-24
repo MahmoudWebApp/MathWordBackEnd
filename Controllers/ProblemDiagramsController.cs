@@ -32,6 +32,9 @@ namespace MathWorldAPI.Controllers
                 .GetRequiredService<ProblemCategoryAccessService>();
             if (!await access.CanReadProblemAsync(User, problem.StageId, problem.CategoryId, cancellationToken))
                 return StatusCode(403, new { Message = "CategoryLocked" });
+            if(!await HttpContext.RequestServices.GetRequiredService<LearningTrackService>()
+                .CanPracticeAsync(User,problemId,cancellationToken))
+                return StatusCode(403,new{Message="CurrentTrackOnly"});
 
             var record = await _db.ProblemDiagrams.AsNoTracking()
                 .Where(x => x.ProblemId == problemId)

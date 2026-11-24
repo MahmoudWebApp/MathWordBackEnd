@@ -1,0 +1,3167 @@
+{
+  "Version": 1,
+  "Status": "DeskReviewNotImportedNotPublished",
+  "Notes": [
+    "Review of actual Arabic and English question/solution text and previously verified marked answer. Exact source guards include all option IDs/text/flags. Historical evidence reconciliation separately matched 464 published explanation records and 172 former draft records; no new pedagogical review of those 636 claimed. This manifest does not certify rendering, all symbolic distractors or national curriculum approval."
+  ],
+  "Counts": {
+    "SolutionClarityCandidate": 20,
+    "AssumptionOrWordingHold": 5,
+    "ExistingExplanationAdequateInDeskReview": 56
+  },
+  "Items": [
+    {
+      "ProblemId": 5,
+      "StageId": 1,
+      "Question": {
+        "Ar": "ما ناتج ضرب $7 \\times 8$؟",
+        "En": "What is the result of $7 \\times 8$?"
+      },
+      "ExpectedSolution": {
+        "Ar": "ناتج ضرب $7 \\times 8 = 56$. يمكن حساب ذلك بجمع الرقم 7 ثماني مرات: $7+7+7+7+7+7+7+7 = 56$.",
+        "En": "The result of $7 \\times 8 = 56$. This can be calculated by adding 7 eight times: $7+7+7+7+7+7+7+7 = 56$."
+      },
+      "ExpectedOptions": [
+        [
+          9,
+          "56",
+          true
+        ],
+        [
+          10,
+          "54",
+          false
+        ],
+        [
+          11,
+          "58",
+          false
+        ],
+        [
+          12,
+          "49",
+          false
+        ]
+      ],
+      "ReviewNote": "Repeated addition verifies 7×8=56.",
+      "Disposition": "SolutionClarityCandidate",
+      "HoldReason": null,
+      "ProposedSolution": {
+        "Ar": "الضرب جمع متكرر لعدد من المجموعات المتساوية.\n\nناتج ضرب $7 \\times 8 = 56$. يمكن حساب ذلك بجمع الرقم 7 ثماني مرات: $7+7+7+7+7+7+7+7 = 56$.",
+        "En": "Multiplication represents repeated addition of equal groups.\n\nThe result of $7 \\times 8 = 56$. This can be calculated by adding 7 eight times: $7+7+7+7+7+7+7+7 = 56$."
+      }
+    },
+    {
+      "ProblemId": 7,
+      "StageId": 1,
+      "Question": {
+        "Ar": "أكمل النمط التالي: $2, 4, 6, 8, ?$",
+        "En": "Complete the following pattern: $2, 4, 6, 8, ?$"
+      },
+      "ExpectedSolution": {
+        "Ar": "النمط يزيد بمقدار 2 في كل مرة: $2+2=4$، $4+2=6$، $6+2=8$، $8+2=10$. العدد التالي هو $10$.",
+        "En": "The pattern increases by 2 each time: $2+2=4$, $4+2=6$, $6+2=8$, $8+2=10$. The next number is $10$."
+      },
+      "ExpectedOptions": [
+        [
+          17,
+          "10",
+          true
+        ],
+        [
+          18,
+          "9",
+          false
+        ],
+        [
+          19,
+          "12",
+          false
+        ],
+        [
+          20,
+          "11",
+          false
+        ]
+      ],
+      "ReviewNote": "Constant difference 2 gives 10, conditional on the intended arithmetic pattern.",
+      "Disposition": "AssumptionOrWordingHold",
+      "HoldReason": "Assumption: intended constant-step pattern; stem clarification pending.",
+      "ProposedSolution": {
+        "Ar": "قاعدة النمط الحسابي: إذا كان الفرق ثابتاً نضيفه إلى الحد السابق.\n\nالنمط يزيد بمقدار 2 في كل مرة: $2+2=4$، $4+2=6$، $6+2=8$، $8+2=10$. العدد التالي هو $10$.",
+        "En": "Arithmetic pattern rule: add the common difference to the preceding term.\n\nThe pattern increases by 2 each time: $2+2=4$, $4+2=6$, $6+2=8$, $8+2=10$. The next number is $10$."
+      }
+    },
+    {
+      "ProblemId": 10,
+      "StageId": 1,
+      "Question": {
+        "Ar": "إذا ألقيت قطعة نقدية مرة واحدة، ما احتمال ظهور وجه الصورة (Head)؟",
+        "En": "If you toss a coin once, what is the probability of getting a Head?"
+      },
+      "ExpectedSolution": {
+        "Ar": "عدد النواتج الممكنة = 2 (صورة أو كتابة). عدد النواتج المطلوبة = 1 (صورة). الاحتمال = $\\frac{1}{2}$.",
+        "En": "Number of possible outcomes = 2 (Head or Tail). Number of favorable outcomes = 1 (Head). Probability = $\\frac{1}{2}$."
+      },
+      "ExpectedOptions": [
+        [
+          29,
+          "\\frac{1}{2}",
+          true
+        ],
+        [
+          30,
+          "\\frac{1}{4}",
+          false
+        ],
+        [
+          31,
+          "1",
+          false
+        ],
+        [
+          32,
+          "\\frac{1}{3}",
+          false
+        ]
+      ],
+      "ReviewNote": "One favorable out of two equally likely outcomes only for a fair coin.",
+      "Disposition": "AssumptionOrWordingHold",
+      "HoldReason": "Historical stem requires fair-coin assumption; no in-place stem changes.",
+      "ProposedSolution": {
+        "Ar": "قانون الاحتمال في النواتج المتساوية الإمكان: عدد النواتج المواتية مقسوماً على عدد النواتج الكلية. نفترض أن القطعة عادلة.\n\nعدد النواتج الممكنة = 2 (صورة أو كتابة). عدد النواتج المطلوبة = 1 (صورة). الاحتمال = $\\frac{1}{2}$.",
+        "En": "For equally likely outcomes, probability is favorable outcomes divided by total outcomes. Assume a fair coin.\n\nNumber of possible outcomes = 2 (Head or Tail). Number of favorable outcomes = 1 (Head). Probability = $\\frac{1}{2}$."
+      }
+    },
+    {
+      "ProblemId": 116,
+      "StageId": 1,
+      "Question": {
+        "Ar": "مستطيل طوله 9 سم وعرضه 6 سم. ما مساحته بالسم المربع؟",
+        "En": "A rectangle is 9 cm by 6 cm. Find its area in square centimetres."
+      },
+      "ExpectedSolution": {
+        "Ar": "القانون المستخدم: مساحة المستطيل = الطول × العرض.\nالمعطيات: الطول = 9 سم، العرض = 6 سم.\nالتعويض: المساحة = 9 × 6 = 54.\nالإجابة النهائية: 54 سم²، لأن المساحة تُقاس بوحدات مربعة.",
+        "En": "Rule used: Rectangle area = length × width.\nGiven: length = 9 cm and width = 6 cm.\nSubstitute: area = 9 × 6 = 54.\nFinal answer: 54 cm², because area is measured in square units."
+      },
+      "ExpectedOptions": [
+        [
+          453,
+          "57",
+          false
+        ],
+        [
+          454,
+          "52",
+          false
+        ],
+        [
+          455,
+          "54",
+          true
+        ],
+        [
+          456,
+          "55",
+          false
+        ]
+      ],
+      "ReviewNote": "9×6=54 cm²; explicit area law and unit already adequate.",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    },
+    {
+      "ProblemId": 154,
+      "StageId": 1,
+      "Question": {
+        "Ar": "إذا كان $x=5$، فما قيمة التعبير $2x-3$؟",
+        "En": "If x=5, evaluate \\(2x-3\\)."
+      },
+      "ExpectedSolution": {
+        "Ar": "نعوّض $x=5$ في التعبير $2x-3$، ثم نضرب أولاً: $2\\times5=10$، ونطرح 3، فنحصل على $10-3=7$.",
+        "En": "Substitute $x=5$ into $2x-3$. Multiply first: $2\\times5=10$, then subtract 3, giving $10-3=7$."
+      },
+      "ExpectedOptions": [
+        [
+          605,
+          "8",
+          false
+        ],
+        [
+          606,
+          "10",
+          false
+        ],
+        [
+          607,
+          "5",
+          false
+        ],
+        [
+          608,
+          "7",
+          true
+        ]
+      ],
+      "ReviewNote": "2×5−3=7.",
+      "Disposition": "SolutionClarityCandidate",
+      "HoldReason": null,
+      "ProposedSolution": {
+        "Ar": "قاعدة التعويض وترتيب العمليات: نعوّض قيمة المجهول وننفّذ الضرب قبل الطرح.\n\nنعوّض $x=5$ في التعبير $2x-3$، ثم نضرب أولاً: $2\\times5=10$، ونطرح 3، فنحصل على $10-3=7$.",
+        "En": "Substitution and order of operations: replace the variable, then multiply before subtracting.\n\nSubstitute $x=5$ into $2x-3$. Multiply first: $2\\times5=10$, then subtract 3, giving $10-3=7$."
+      }
+    },
+    {
+      "ProblemId": 166,
+      "StageId": 1,
+      "Question": {
+        "Ar": "إذا كان $x=6$، فما قيمة التعبير $2x-4$؟",
+        "En": "If x=6, evaluate \\(2x-4\\)."
+      },
+      "ExpectedSolution": {
+        "Ar": "نعوّض $x=6$ في التعبير $2x-4$، ثم نضرب أولاً: $2\\times6=12$، ونطرح 4، فنحصل على $12-4=8$.",
+        "En": "Substitute $x=6$ into $2x-4$. Multiply first: $2\\times6=12$, then subtract 4, giving $12-4=8$."
+      },
+      "ExpectedOptions": [
+        [
+          653,
+          "11",
+          false
+        ],
+        [
+          654,
+          "6",
+          false
+        ],
+        [
+          655,
+          "8",
+          true
+        ],
+        [
+          656,
+          "9",
+          false
+        ]
+      ],
+      "ReviewNote": "2×6−4=8.",
+      "Disposition": "SolutionClarityCandidate",
+      "HoldReason": null,
+      "ProposedSolution": {
+        "Ar": "قاعدة التعويض وترتيب العمليات: نعوّض قيمة المجهول وننفّذ الضرب قبل الطرح.\n\nنعوّض $x=6$ في التعبير $2x-4$، ثم نضرب أولاً: $2\\times6=12$، ونطرح 4، فنحصل على $12-4=8$.",
+        "En": "Substitution and order of operations: replace the variable, then multiply before subtracting.\n\nSubstitute $x=6$ into $2x-4$. Multiply first: $2\\times6=12$, then subtract 4, giving $12-4=8$."
+      }
+    },
+    {
+      "ProblemId": 178,
+      "StageId": 1,
+      "Question": {
+        "Ar": "إذا كان $x=7$، فما قيمة التعبير $2x-5$؟",
+        "En": "If x=7, evaluate \\(2x-5\\)."
+      },
+      "ExpectedSolution": {
+        "Ar": "نعوّض $x=7$ في التعبير $2x-5$، ثم نضرب أولاً: $2\\times7=14$، ونطرح 5، فنحصل على $14-5=9$.",
+        "En": "Substitute $x=7$ into $2x-5$. Multiply first: $2\\times7=14$, then subtract 5, giving $14-5=9$."
+      },
+      "ExpectedOptions": [
+        [
+          701,
+          "7",
+          false
+        ],
+        [
+          702,
+          "9",
+          true
+        ],
+        [
+          703,
+          "10",
+          false
+        ],
+        [
+          704,
+          "12",
+          false
+        ]
+      ],
+      "ReviewNote": "2×7−5=9.",
+      "Disposition": "SolutionClarityCandidate",
+      "HoldReason": null,
+      "ProposedSolution": {
+        "Ar": "قاعدة التعويض وترتيب العمليات: نعوّض قيمة المجهول وننفّذ الضرب قبل الطرح.\n\nنعوّض $x=7$ في التعبير $2x-5$، ثم نضرب أولاً: $2\\times7=14$، ونطرح 5، فنحصل على $14-5=9$.",
+        "En": "Substitution and order of operations: replace the variable, then multiply before subtracting.\n\nSubstitute $x=7$ into $2x-5$. Multiply first: $2\\times7=14$, then subtract 5, giving $14-5=9$."
+      }
+    },
+    {
+      "ProblemId": 179,
+      "StageId": 1,
+      "Question": {
+        "Ar": "ما محيط مستطيل طوله 9 سم وعرضه 6 سم؟",
+        "En": "Find the perimeter of a 9 cm by 6 cm rectangle."
+      },
+      "ExpectedSolution": {
+        "Ar": "القانون المستخدم: محيط المستطيل = 2 × (الطول + العرض).\nالمعطيات: الطول = 9 سم، العرض = 6 سم.\nالتعويض: المحيط = 2 × (9 + 6) = 2 × 15 = 30.\nالإجابة النهائية: 30 سم. المحيط طول الحدود الخارجية، لذلك وحدته سم وليست سم².",
+        "En": "Rule used: Rectangle perimeter = 2 × (length + width).\nGiven: length = 9 cm and width = 6 cm.\nSubstitute: perimeter = 2 × (9 + 6) = 2 × 15 = 30.\nFinal answer: 30 cm. Perimeter is a length, so the unit is cm, not cm²."
+      },
+      "ExpectedOptions": [
+        [
+          705,
+          "33",
+          false
+        ],
+        [
+          706,
+          "28",
+          false
+        ],
+        [
+          707,
+          "30",
+          true
+        ],
+        [
+          708,
+          "31",
+          false
+        ]
+      ],
+      "ReviewNote": "2(9+6)=30 cm; explicit perimeter rule and unit.",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    },
+    {
+      "ProblemId": 190,
+      "StageId": 1,
+      "Question": {
+        "Ar": "إذا كان $x=8$، فما قيمة التعبير $2x-6$؟",
+        "En": "If x=8, evaluate \\(2x-6\\)."
+      },
+      "ExpectedSolution": {
+        "Ar": "نعوّض $x=8$ في التعبير $2x-6$، ثم نضرب أولاً: $2\\times8=16$، ونطرح 6، فنحصل على $16-6=10$.",
+        "En": "Substitute $x=8$ into $2x-6$. Multiply first: $2\\times8=16$, then subtract 6, giving $16-6=10$."
+      },
+      "ExpectedOptions": [
+        [
+          749,
+          "10",
+          true
+        ],
+        [
+          750,
+          "11",
+          false
+        ],
+        [
+          751,
+          "13",
+          false
+        ],
+        [
+          752,
+          "8",
+          false
+        ]
+      ],
+      "ReviewNote": "2×8−6=10.",
+      "Disposition": "SolutionClarityCandidate",
+      "HoldReason": null,
+      "ProposedSolution": {
+        "Ar": "قاعدة التعويض وترتيب العمليات: نعوّض قيمة المجهول وننفّذ الضرب قبل الطرح.\n\nنعوّض $x=8$ في التعبير $2x-6$، ثم نضرب أولاً: $2\\times8=16$، ونطرح 6، فنحصل على $16-6=10$.",
+        "En": "Substitution and order of operations: replace the variable, then multiply before subtracting.\n\nSubstitute $x=8$ into $2x-6$. Multiply first: $2\\times8=16$, then subtract 6, giving $16-6=10$."
+      }
+    },
+    {
+      "ProblemId": 202,
+      "StageId": 1,
+      "Question": {
+        "Ar": "إذا كان $x=9$، فما قيمة التعبير $2x-7$؟",
+        "En": "If x=9, evaluate \\(2x-7\\)."
+      },
+      "ExpectedSolution": {
+        "Ar": "نعوّض $x=9$ في التعبير $2x-7$، ثم نضرب أولاً: $2\\times9=18$، ونطرح 7، فنحصل على $18-7=11$.",
+        "En": "Substitute $x=9$ into $2x-7$. Multiply first: $2\\times9=18$, then subtract 7, giving $18-7=11$."
+      },
+      "ExpectedOptions": [
+        [
+          797,
+          "12",
+          false
+        ],
+        [
+          798,
+          "14",
+          false
+        ],
+        [
+          799,
+          "9",
+          false
+        ],
+        [
+          800,
+          "11",
+          true
+        ]
+      ],
+      "ReviewNote": "2×9−7=11.",
+      "Disposition": "SolutionClarityCandidate",
+      "HoldReason": null,
+      "ProposedSolution": {
+        "Ar": "قاعدة التعويض وترتيب العمليات: نعوّض قيمة المجهول وننفّذ الضرب قبل الطرح.\n\nنعوّض $x=9$ في التعبير $2x-7$، ثم نضرب أولاً: $2\\times9=18$، ونطرح 7، فنحصل على $18-7=11$.",
+        "En": "Substitution and order of operations: replace the variable, then multiply before subtracting.\n\nSubstitute $x=9$ into $2x-7$. Multiply first: $2\\times9=18$, then subtract 7, giving $18-7=11$."
+      }
+    },
+    {
+      "ProblemId": 425,
+      "StageId": 1,
+      "Question": {
+        "Ar": "احسب $1\\frac12+\\frac34$.",
+        "En": "Compute $1\\frac12+\\frac34$."
+      },
+      "ExpectedSolution": {
+        "Ar": "نحوّل العدد الكسري إلى أرباع: $1\\frac12=\\frac64$، ثم $ \\frac64+\\frac34=\\frac94=2\\frac14 $.",
+        "En": "Convert the mixed number into quarters: $1\\frac12=\\frac64$. Then $ \\frac64+\\frac34=\\frac94=2\\frac14 $."
+      },
+      "ExpectedOptions": [
+        [
+          1689,
+          "2\\frac14",
+          true
+        ],
+        [
+          1690,
+          "1\\frac14",
+          false
+        ],
+        [
+          1691,
+          "2\\frac34",
+          false
+        ],
+        [
+          1692,
+          "1\\frac34",
+          false
+        ]
+      ],
+      "ReviewNote": "6/4+3/4=9/4=2 1/4.",
+      "Disposition": "SolutionClarityCandidate",
+      "HoldReason": null,
+      "ProposedSolution": {
+        "Ar": "قانون جمع الكسور: نوحّد المقامات، ثم نجمع البسطين ونبقي المقام.\n\nنحوّل العدد الكسري إلى أرباع: $1\\frac12=\\frac64$، ثم $ \\frac64+\\frac34=\\frac94=2\\frac14 $.",
+        "En": "Fraction addition rule: express both terms with a common denominator, then add numerators and keep the denominator.\n\nConvert the mixed number into quarters: $1\\frac12=\\frac64$. Then $ \\frac64+\\frac34=\\frac94=2\\frac14 $."
+      }
+    },
+    {
+      "ProblemId": 472,
+      "StageId": 1,
+      "Question": {
+        "Ar": "أي علاقة صحيحة بين $\\frac25$ و$\\frac38$؟",
+        "En": "Which comparison between $\\frac25$ and $\\frac38$ is correct?"
+      },
+      "ExpectedSolution": {
+        "Ar": "بالمقام المشترك 40 نحصل على $\\frac25=\\frac{16}{40}$ و$\\frac38=\\frac{15}{40}$؛ لذلك الأول أكبر.",
+        "En": "Using denominator 40, $\\frac25=\\frac{16}{40}$ and $\\frac38=\\frac{15}{40}$, so the first fraction is larger."
+      },
+      "ExpectedOptions": [
+        [
+          1877,
+          "\\frac25<\\frac38",
+          false
+        ],
+        [
+          1878,
+          "\\frac25>\\frac38",
+          true
+        ],
+        [
+          1879,
+          "\\frac25=\\frac38",
+          false
+        ],
+        [
+          1880,
+          "\\frac25=0.25",
+          false
+        ]
+      ],
+      "ReviewNote": "16/40 > 15/40.",
+      "Disposition": "SolutionClarityCandidate",
+      "HoldReason": null,
+      "ProposedSolution": {
+        "Ar": "عند تساوي المقامين الموجبين، يكون الكسر ذو البسط الأكبر هو الأكبر.\n\nبالمقام المشترك 40 نحصل على $\\frac25=\\frac{16}{40}$ و$\\frac38=\\frac{15}{40}$؛ لذلك الأول أكبر.",
+        "En": "For equal positive denominators, the larger numerator gives the larger fraction.\n\nUsing denominator 40, $\\frac25=\\frac{16}{40}$ and $\\frac38=\\frac{15}{40}$, so the first fraction is larger."
+      }
+    },
+    {
+      "ProblemId": 474,
+      "StageId": 1,
+      "Question": {
+        "Ar": "احسب $\\frac56-\\frac14$.",
+        "En": "Compute $\\frac56-\\frac14$."
+      },
+      "ExpectedSolution": {
+        "Ar": "المضاعف المشترك الأصغر للمقامين 12؛ $\\frac56=\\frac{10}{12}$ و$\\frac14=\\frac3{12}$، والفرق $\\frac7{12}$.",
+        "En": "The least common denominator is 12. $\\frac56=\\frac{10}{12}$ and $\\frac14=\\frac3{12}$, so the difference is $\\frac7{12}$."
+      },
+      "ExpectedOptions": [
+        [
+          1885,
+          "\\frac49",
+          false
+        ],
+        [
+          1886,
+          "\\frac7{12}",
+          true
+        ],
+        [
+          1887,
+          "\\frac12",
+          false
+        ],
+        [
+          1888,
+          "\\frac3{12}",
+          false
+        ]
+      ],
+      "ReviewNote": "10/12−3/12=7/12.",
+      "Disposition": "SolutionClarityCandidate",
+      "HoldReason": null,
+      "ProposedSolution": {
+        "Ar": "قانون طرح الكسور: نطرح البسطين بعد توحيد المقامين ونبقي المقام المشترك.\n\nالمضاعف المشترك الأصغر للمقامين 12؛ $\\frac56=\\frac{10}{12}$ و$\\frac14=\\frac3{12}$، والفرق $\\frac7{12}$.",
+        "En": "Fraction subtraction rule: use a common denominator, then subtract numerators and keep that denominator.\n\nThe least common denominator is 12. $\\frac56=\\frac{10}{12}$ and $\\frac14=\\frac3{12}$, so the difference is $\\frac7{12}$."
+      }
+    },
+    {
+      "ProblemId": 475,
+      "StageId": 1,
+      "Question": {
+        "Ar": "ما الرقم في منزلة الأجزاء من المئة للعدد $0.407$؟",
+        "En": "Which digit is in the hundredths place of $0.407$?"
+      },
+      "ExpectedSolution": {
+        "Ar": "المنازل بعد الفاصلة هي: الأعشار 4، والأجزاء من المئة 0، والأجزاء من الألف 7؛ لذلك الجواب 0.",
+        "En": "After the decimal point: 4 is in tenths, 0 in hundredths, and 7 in thousandths. The hundredths digit is 0."
+      },
+      "ExpectedOptions": [
+        [
+          1889,
+          "4",
+          false
+        ],
+        [
+          1890,
+          "7",
+          false
+        ],
+        [
+          1891,
+          "0",
+          true
+        ],
+        [
+          1892,
+          "40",
+          false
+        ]
+      ],
+      "ReviewNote": "Hundredths position is second after decimal point; zero is correct.",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    },
+    {
+      "ProblemId": 504,
+      "StageId": 1,
+      "Question": {
+        "Ar": "أيهما أكبر: $\\frac79$ أم $\\frac7{11}$؟",
+        "En": "Which is greater, $\\frac79$ or $\\frac7{11}$?"
+      },
+      "ExpectedSolution": {
+        "Ar": "مع البسط نفسه، تقسيم الواحد إلى 9 أجزاء يعطي جزءاً أكبر من تقسيمه إلى 11 جزءاً؛ لذلك $\\frac79>\\frac7{11}$.",
+        "En": "With the same numerator, ninths are larger units than elevenths, so $\\frac79>\\frac7{11}$."
+      },
+      "ExpectedOptions": [
+        [
+          2005,
+          "\\frac79",
+          true
+        ],
+        [
+          2006,
+          "\\frac7{11}",
+          false
+        ],
+        [
+          2007,
+          "\\text{متساويان (Both equal)}",
+          false
+        ],
+        [
+          2008,
+          "\\text{المعطيات غير كافية (Insufficient info)}",
+          false
+        ]
+      ],
+      "ReviewNote": "Equal positive numerator: smaller positive denominator means larger fraction.",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    },
+    {
+      "ProblemId": 505,
+      "StageId": 1,
+      "Question": {
+        "Ar": "أي الكُسور التالية أقرب إلى العدد 1؟",
+        "En": "Which fraction is closest to 1?"
+      },
+      "ExpectedSolution": {
+        "Ar": "الفروق عن الواحد هي: $1-\\frac9{10}=\\frac1{10}$ و$1-\\frac{13}{16}=\\frac3{16}$ و$1-\\frac78=\\frac18$ و$1-\\frac{11}{12}=\\frac1{12}$. أصغر فرق هو $\\frac1{12}$، لذلك الجواب $\\frac{11}{12}$.",
+        "En": "Distances from 1 are $\\frac1{10}$, $\\frac3{16}$, $\\frac18$ and $\\frac1{12}$. The smallest is $\\frac1{12}$, hence $\\frac{11}{12}$ is closest."
+      },
+      "ExpectedOptions": [
+        [
+          2009,
+          "\\frac9{10}",
+          false
+        ],
+        [
+          2010,
+          "\\frac{13}{16}",
+          false
+        ],
+        [
+          2011,
+          "\\frac78",
+          false
+        ],
+        [
+          2012,
+          "\\frac{11}{12}",
+          true
+        ]
+      ],
+      "ReviewNote": "Distances 1/10,3/16,1/8,1/12; 1/12 is smallest.",
+      "Disposition": "SolutionClarityCandidate",
+      "HoldReason": null,
+      "ProposedSolution": {
+        "Ar": "نقارن المسافات إلى 1 باستخدام القيمة المطلقة $|1-f|$؛ الأصغر مسافة هو الأقرب.\n\nالفروق عن الواحد هي: $1-\\frac9{10}=\\frac1{10}$ و$1-\\frac{13}{16}=\\frac3{16}$ و$1-\\frac78=\\frac18$ و$1-\\frac{11}{12}=\\frac1{12}$. أصغر فرق هو $\\frac1{12}$، لذلك الجواب $\\frac{11}{12}$.",
+        "En": "Compare distances to 1 using $|1-f|$; the smallest distance is closest.\n\nDistances from 1 are $\\frac1{10}$, $\\frac3{16}$, $\\frac18$ and $\\frac1{12}$. The smallest is $\\frac1{12}$, hence $\\frac{11}{12}$ is closest."
+      }
+    },
+    {
+      "ProblemId": 506,
+      "StageId": 1,
+      "Question": {
+        "Ar": "أي كسر يقع بين $\\frac13$ و$\\frac12$ دون أن يساوي أيّاً منهما؟",
+        "En": "Which fraction lies strictly between $\\frac13$ and $\\frac12$?"
+      },
+      "ExpectedSolution": {
+        "Ar": "نحوّل إلى مقام 12: $\\frac13=\\frac4{12}$ و$\\frac12=\\frac6{12}$. إذن $\\frac5{12}$ بينهما.",
+        "En": "With denominator 12: $\\frac13=\\frac4{12}$ and $\\frac12=\\frac6{12}$. The fraction $\\frac5{12}$ lies between them."
+      },
+      "ExpectedOptions": [
+        [
+          2013,
+          "\\frac14",
+          false
+        ],
+        [
+          2014,
+          "\\frac5{12}",
+          true
+        ],
+        [
+          2015,
+          "\\frac35",
+          false
+        ],
+        [
+          2016,
+          "\\frac12",
+          false
+        ]
+      ],
+      "ReviewNote": "4/12<5/12<6/12.",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    },
+    {
+      "ProblemId": 507,
+      "StageId": 1,
+      "Question": {
+        "Ar": "في الصف الأول يأتي 3 من أصل 8 طلاب بالدراجة، وفي الصف الثاني يأتي 4 من أصل 10. أي صف فيه نسبة أكبر من راكبي الدراجات؟",
+        "En": "In class A, 3 of 8 pupils cycle to school. In class B, 4 of 10 cycle. Which class has the larger fraction of cyclists?"
+      },
+      "ExpectedSolution": {
+        "Ar": "نقارن $\\frac38$ و$\\frac4{10}$: $3\\times10=30$ و$4\\times8=32$، إذن $\\frac4{10}$ أكبر، أي الصف الثاني.",
+        "En": "Compare $\\frac38$ and $\\frac4{10}$: $3\\times10=30$ and $4\\times8=32$. Class B has the larger fraction."
+      },
+      "ExpectedOptions": [
+        [
+          2017,
+          "\\text{الصف أ (Class A)}",
+          false
+        ],
+        [
+          2018,
+          "\\text{الصف ب (Class B)}",
+          true
+        ],
+        [
+          2019,
+          "\\text{النسب متساوية (Equal shares)}",
+          false
+        ],
+        [
+          2020,
+          "\\text{لا يمكن المقارنة (Cannot compare)}",
+          false
+        ]
+      ],
+      "ReviewNote": "3/8=0.375,4/10=0.4; class B.",
+      "Disposition": "SolutionClarityCandidate",
+      "HoldReason": null,
+      "ProposedSolution": {
+        "Ar": "قاعدة الضرب التبادلي للمقارنة: إذا كان المقامان موجبين نقارن حاصلَي الضرب التبادلي.\n\nنقارن $\\frac38$ و$\\frac4{10}$: $3\\times10=30$ و$4\\times8=32$، إذن $\\frac4{10}$ أكبر، أي الصف الثاني.",
+        "En": "Cross-multiplication comparison rule: for positive denominators, compare the cross products.\n\nCompare $\\frac38$ and $\\frac4{10}$: $3\\times10=30$ and $4\\times8=32$. Class B has the larger fraction."
+      }
+    },
+    {
+      "ProblemId": 616,
+      "StageId": 1,
+      "Question": {
+        "Ar": "مستطيل أبعاده 10 سم و6 سم، قُسم بقطر إلى مثلثين. ما مساحة أحد المثلثين بالسم²؟",
+        "En": "A 10 cm by 6 cm rectangle is split into two triangles by a diagonal. What is the area of either triangle in cm²?"
+      },
+      "ExpectedSolution": {
+        "Ar": "القانون المستخدم: مساحة المثلث = (القاعدة × الارتفاع) ÷ 2.\nالمبدأ الهندسي: قطر المستطيل يقسمه إلى مثلثين متطابقين ومتساويين في المساحة.\nالمعطيات: القاعدة = 10 سم والارتفاع العمودي = 6 سم.\nالتعويض: مساحة أحد المثلثين = (10 × 6) ÷ 2 = 60 ÷ 2 = 30.\nالإجابة النهائية: 30 سم².",
+        "En": "Rule used: Triangle area = (base × perpendicular height) ÷ 2.\nGeometric principle: A rectangle's diagonal divides it into two congruent triangles of equal area.\nGiven: base = 10 cm and perpendicular height = 6 cm.\nSubstitute: area of either triangle = (10 × 6) ÷ 2 = 60 ÷ 2 = 30.\nFinal answer: 30 cm²."
+      },
+      "ExpectedOptions": [
+        [
+          2453,
+          "16",
+          false
+        ],
+        [
+          2454,
+          "30",
+          true
+        ],
+        [
+          2455,
+          "32",
+          false
+        ],
+        [
+          2456,
+          "60",
+          false
+        ]
+      ],
+      "ReviewNote": "Half the rectangle area gives 30 cm²; congruent halves correct.",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    },
+    {
+      "ProblemId": 818,
+      "StageId": 1,
+      "Question": {
+        "Ar": "لدينا شريطان متساويان، كل شريط مقسّم إلى 8 أجزاء متساوية. لُوّن الشريط الأول كله و3 أجزاء من الثاني. ما الكسر غير الفعلي الذي يمثّل مجموع الأجزاء الملوّنة؟",
+        "En": "Two identical bars each contain 8 equal segments. All of the first bar and 3 segments of the second are colored. Which improper fraction represents the total colored amount?"
+      },
+      "ExpectedSolution": {
+        "Ar": "المبدأ المستخدم: عند جمع كسور ذات مقام واحد نجمع البسطين ونبقي المقام نفسه. الشريط الأول كامل، أي 8/8، ومن الثاني 3/8؛ لذلك المجموع = 8/8 + 3/8 = 11/8، أي أحد عشر ثُمناً، وهو أكبر من شريط واحد كامل.",
+        "En": "Rule used: Add like fractions by adding numerators while keeping the denominator. One full bar is 8/8; three segments of the next bar are 3/8. Hence 8/8 + 3/8 = 11/8, or eleven eighths."
+      },
+      "ExpectedOptions": [
+        [
+          3261,
+          "\\frac{3}{8}",
+          false
+        ],
+        [
+          3262,
+          "\\frac{11}{8}",
+          true
+        ],
+        [
+          3263,
+          "\\frac{8}{11}",
+          false
+        ],
+        [
+          3264,
+          "\\frac{5}{8}",
+          false
+        ]
+      ],
+      "ReviewNote": "8/8+3/8=11/8; previously corrected stem and explicit rule.",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    },
+    {
+      "ProblemId": 13,
+      "StageId": 2,
+      "Question": {
+        "Ar": "ما القاسم المشترك الأكبر (GCD) للعددين $24$ و $36$؟",
+        "En": "What is the greatest common divisor (GCD) of $24$ and $36$?"
+      },
+      "ExpectedSolution": {
+        "Ar": "عوامل 24: $1, 2, 3, 4, 6, 8, 12, 24$. عوامل 36: $1, 2, 3, 4, 6, 9, 12, 18, 36$. العوامل المشتركة: $1, 2, 3, 4, 6, 12$. القاسم المشترك الأكبر = $12$.",
+        "En": "Factors of 24: $1, 2, 3, 4, 6, 8, 12, 24$. Factors of 36: $1, 2, 3, 4, 6, 9, 12, 18, 36$. Common factors: $1, 2, 3, 4, 6, 12$. GCD = $12$."
+      },
+      "ExpectedOptions": [
+        [
+          41,
+          "12",
+          true
+        ],
+        [
+          42,
+          "6",
+          false
+        ],
+        [
+          43,
+          "8",
+          false
+        ],
+        [
+          44,
+          "24",
+          false
+        ]
+      ],
+      "ReviewNote": "Common factors listed correctly; maximum 12.",
+      "Disposition": "SolutionClarityCandidate",
+      "HoldReason": null,
+      "ProposedSolution": {
+        "Ar": "القاسم المشترك الأكبر هو أكبر عدد صحيح موجب يقسم العددين دون باقٍ.\n\nعوامل 24: $1, 2, 3, 4, 6, 8, 12, 24$. عوامل 36: $1, 2, 3, 4, 6, 9, 12, 18, 36$. العوامل المشتركة: $1, 2, 3, 4, 6, 12$. القاسم المشترك الأكبر = $12$.",
+        "En": "The greatest common divisor is the largest positive integer dividing both numbers exactly.\n\nFactors of 24: $1, 2, 3, 4, 6, 8, 12, 24$. Factors of 36: $1, 2, 3, 4, 6, 9, 12, 18, 36$. Common factors: $1, 2, 3, 4, 6, 12$. GCD = $12$."
+      }
+    },
+    {
+      "ProblemId": 16,
+      "StageId": 2,
+      "Question": {
+        "Ar": "إذا كانت النسبة بين طلاب وطالبات هي $3:5$، وكان عدد الطلاب $150$، فما عدد الطالبات؟",
+        "En": "If the ratio of male to female students is $3:5$, and there are $150$ male students, how many female students are there?"
+      },
+      "ExpectedSolution": {
+        "Ar": "النسبة $3:5$ تعني أن لكل 3 طلاب 5 طالبات. عدد الطالبات = $\\frac{5}{3} \\times 150 = 250$ طالبة.",
+        "En": "The ratio $3:5$ means for every 3 males there are 5 females. Number of females = $\\frac{5}{3} \\times 150 = 250$."
+      },
+      "ExpectedOptions": [
+        [
+          53,
+          "250",
+          true
+        ],
+        [
+          54,
+          "90",
+          false
+        ],
+        [
+          55,
+          "200",
+          false
+        ],
+        [
+          56,
+          "300",
+          false
+        ]
+      ],
+      "ReviewNote": "150×5/3=250; ratio orientation correct.",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    },
+    {
+      "ProblemId": 17,
+      "StageId": 2,
+      "Question": {
+        "Ar": "إذا قطع قطار مسافة $240$ كم في $3$ ساعات، فما سرعته المتوسطة؟",
+        "En": "If a train travels $240$ km in $3$ hours, what is its average speed?"
+      },
+      "ExpectedSolution": {
+        "Ar": "السرعة المتوسطة = $\\frac{\\text{المسافة}}{\\text{الزمن}} = \\frac{240}{3} = 80$ كم/ساعة.",
+        "En": "Average speed = $\\frac{\\text{distance}}{\\text{time}} = \\frac{240}{3} = 80$ km/h."
+      },
+      "ExpectedOptions": [
+        [
+          57,
+          "80 \\text{ km/h}",
+          true
+        ],
+        [
+          58,
+          "120 \\text{ km/h}",
+          false
+        ],
+        [
+          59,
+          "60 \\text{ km/h}",
+          false
+        ],
+        [
+          60,
+          "72 \\text{ km/h}",
+          false
+        ]
+      ],
+      "ReviewNote": "240/3=80 km/h; explicit distance/time formula.",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    },
+    {
+      "ProblemId": 18,
+      "StageId": 2,
+      "Question": {
+        "Ar": "في مثلث $ABC$، قياس الزاوية $A$ يساوي $50^\\circ$ وقياس الزاوية $B$ يساوي $60^\\circ$. ما قياس الزاوية $C$؟",
+        "En": "In triangle $ABC$, angle $A = 50^\\circ$ and angle $B = 60^\\circ$. What is the measure of angle $C$?"
+      },
+      "ExpectedSolution": {
+        "Ar": "مجموع زوايا المثلث $= 180^\\circ$. إذاً $C = 180^\\circ - (50^\\circ + 60^\\circ) = 180^\\circ - 110^\\circ = 70^\\circ$.",
+        "En": "Sum of angles in a triangle $= 180^\\circ$. So $C = 180^\\circ - (50^\\circ + 60^\\circ) = 180^\\circ - 110^\\circ = 70^\\circ$."
+      },
+      "ExpectedOptions": [
+        [
+          61,
+          "70^\\circ",
+          true
+        ],
+        [
+          62,
+          "80^\\circ",
+          false
+        ],
+        [
+          63,
+          "60^\\circ",
+          false
+        ],
+        [
+          64,
+          "50^\\circ",
+          false
+        ]
+      ],
+      "ReviewNote": "180−50−60=70 degrees; Euclidean triangle angle sum.",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    },
+    {
+      "ProblemId": 19,
+      "StageId": 2,
+      "Question": {
+        "Ar": "أوجد مساحة دائرة نصف قطرها $7$ سم. (استخدم $\\pi = \\frac{22}{7}$)",
+        "En": "Find the area of a circle with radius $7$ cm. (Use $\\pi = \\frac{22}{7}$)"
+      },
+      "ExpectedSolution": {
+        "Ar": "مساحة الدائرة $= \\pi r^2 = \\frac{22}{7} \\times 7^2 = \\frac{22}{7} \\times 49 = 22 \\times 7 = 154$ سم².",
+        "En": "Area of circle $= \\pi r^2 = \\frac{22}{7} \\times 7^2 = \\frac{22}{7} \\times 49 = 22 \\times 7 = 154$ cm²."
+      },
+      "ExpectedOptions": [
+        [
+          65,
+          "154 \\text{ cm}^2",
+          true
+        ],
+        [
+          66,
+          "144 \\text{ cm}^2",
+          false
+        ],
+        [
+          67,
+          "164 \\text{ cm}^2",
+          false
+        ],
+        [
+          68,
+          "124 \\text{ cm}^2",
+          false
+        ]
+      ],
+      "ReviewNote": "Specified approximation π=22/7 gives 154 cm².",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    },
+    {
+      "ProblemId": 23,
+      "StageId": 3,
+      "Question": {
+        "Ar": "احسب القيمة الدقيقة لـ $\\sin^2(45^\\circ)+\\cos^2(45^\\circ)$.",
+        "En": "Evaluate $\\sin^2(45^\\circ)+\\cos^2(45^\\circ)$ exactly."
+      },
+      "ExpectedSolution": {
+        "Ar": "$\\sin 45^\\circ = \\frac{\\sqrt{2}}{2}$، $\\cos 45^\\circ = \\frac{\\sqrt{2}}{2}$. إذاً $\\sin^2 45^\\circ + \\cos^2 45^\\circ = (\\frac{\\sqrt{2}}{2})^2 + (\\frac{\\sqrt{2}}{2})^2 = \\frac{2}{4} + \\frac{2}{4} = \\frac{4}{4} = 1$.",
+        "En": "$\\sin 45^\\circ = \\frac{\\sqrt{2}}{2}$, $\\cos 45^\\circ = \\frac{\\sqrt{2}}{2}$. So $\\sin^2 45^\\circ + \\cos^2 45^\\circ = (\\frac{\\sqrt{2}}{2})^2 + (\\frac{\\sqrt{2}}{2})^2 = \\frac{2}{4} + \\frac{2}{4} = \\frac{4}{4} = 1$."
+      },
+      "ExpectedOptions": [
+        [
+          81,
+          "1",
+          true
+        ],
+        [
+          82,
+          "0",
+          false
+        ],
+        [
+          83,
+          "2",
+          false
+        ],
+        [
+          84,
+          "\\frac{1}{2}",
+          false
+        ]
+      ],
+      "ReviewNote": "Each squared trig value is 1/2; identity gives 1.",
+      "Disposition": "SolutionClarityCandidate",
+      "HoldReason": null,
+      "ProposedSolution": {
+        "Ar": "المتطابقة المثلثية الأساسية: $\\sin^2\\theta+\\cos^2\\theta=1$.\n\n$\\sin 45^\\circ = \\frac{\\sqrt{2}}{2}$، $\\cos 45^\\circ = \\frac{\\sqrt{2}}{2}$. إذاً $\\sin^2 45^\\circ + \\cos^2 45^\\circ = (\\frac{\\sqrt{2}}{2})^2 + (\\frac{\\sqrt{2}}{2})^2 = \\frac{2}{4} + \\frac{2}{4} = \\frac{4}{4} = 1$.",
+        "En": "Fundamental trigonometric identity: $\\sin^2\\theta+\\cos^2\\theta=1$.\n\n$\\sin 45^\\circ = \\frac{\\sqrt{2}}{2}$, $\\cos 45^\\circ = \\frac{\\sqrt{2}}{2}$. So $\\sin^2 45^\\circ + \\cos^2 45^\\circ = (\\frac{\\sqrt{2}}{2})^2 + (\\frac{\\sqrt{2}}{2})^2 = \\frac{2}{4} + \\frac{2}{4} = \\frac{4}{4} = 1$."
+      }
+    },
+    {
+      "ProblemId": 24,
+      "StageId": 3,
+      "Question": {
+        "Ar": "أوجد المشتقة للدالة $f(x) = x^3 + 2x^2 - 5x + 1$.",
+        "En": "Find the derivative of the function $f(x) = x^3 + 2x^2 - 5x + 1$."
+      },
+      "ExpectedSolution": {
+        "Ar": "$f'(x) = 3x^2 + 4x - 5$. باستخدام قاعدة القوة لكل حد: مشتقة $x^3$ هي $3x^2$، ومشتقة $2x^2$ هي $4x$، ومشتقة $-5x$ هي $-5$، ومشتقة الثابت $1$ هي $0$.",
+        "En": "$f'(x) = 3x^2 + 4x - 5$. Using the power rule for each term: derivative of $x^3$ is $3x^2$, derivative of $2x^2$ is $4x$, derivative of $-5x$ is $-5$, and derivative of constant $1$ is $0$."
+      },
+      "ExpectedOptions": [
+        [
+          85,
+          "3x^2 + 4x - 5",
+          true
+        ],
+        [
+          86,
+          "3x^2 + 2x - 5",
+          false
+        ],
+        [
+          87,
+          "x^2 + 4x - 5",
+          false
+        ],
+        [
+          88,
+          "3x^2 + 4x + 5",
+          false
+        ]
+      ],
+      "ReviewNote": "Power rule term by term gives 3x²+4x−5.",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    },
+    {
+      "ProblemId": 25,
+      "StageId": 3,
+      "Question": {
+        "Ar": "أوجد التكامل $\\int (2x + 3) \\, dx$.",
+        "En": "Find the integral $\\int (2x + 3) \\, dx$."
+      },
+      "ExpectedSolution": {
+        "Ar": "$\\int 2x \\, dx = x^2$ و $\\int 3 \\, dx = 3x$. إذاً $\\int (2x + 3) \\, dx = x^2 + 3x + C$.",
+        "En": "$\\int 2x \\, dx = x^2$ and $\\int 3 \\, dx = 3x$. So $\\int (2x + 3) \\, dx = x^2 + 3x + C$."
+      },
+      "ExpectedOptions": [
+        [
+          89,
+          "x^2 + 3x + C",
+          true
+        ],
+        [
+          90,
+          "2x^2 + 3x + C",
+          false
+        ],
+        [
+          91,
+          "x^2 + 3 + C",
+          false
+        ],
+        [
+          92,
+          "x^2 + 6x + C",
+          false
+        ]
+      ],
+      "ReviewNote": "Antiderivative x²+3x+C; derivative recovers integrand.",
+      "Disposition": "SolutionClarityCandidate",
+      "HoldReason": null,
+      "ProposedSolution": {
+        "Ar": "قانون خطية التكامل وقاعدة القوى: $\\int x^n\\,dx=x^{n+1}/(n+1)+C$ عندما $n\\ne-1$.\n\n$\\int 2x \\, dx = x^2$ و $\\int 3 \\, dx = 3x$. إذاً $\\int (2x + 3) \\, dx = x^2 + 3x + C$.",
+        "En": "Linearity and power integration: $\\int x^n\\,dx=x^{n+1}/(n+1)+C$ for $n\\ne-1$.\n\n$\\int 2x \\, dx = x^2$ and $\\int 3 \\, dx = 3x$. So $\\int (2x + 3) \\, dx = x^2 + 3x + C$."
+      }
+    },
+    {
+      "ProblemId": 26,
+      "StageId": 3,
+      "Question": {
+        "Ar": "إذا ألقينا حجري نرد متوازنين، ما احتمال الحصول على مجموع $7$؟",
+        "En": "If we roll two fair dice, what is the probability of getting a sum of $7$?"
+      },
+      "ExpectedSolution": {
+        "Ar": "عدد النواتج الممكنة $= 6 \\times 6 = 36$. النواتج التي مجموعها 7: $(1,6), (2,5), (3,4), (4,3), (5,2), (6,1)$ أي $6$ نواتج. الاحتمال $= \\frac{6}{36} = \\frac{1}{6}$.",
+        "En": "Total outcomes $= 6 \\times 6 = 36$. Outcomes with sum 7: $(1,6), (2,5), (3,4), (4,3), (5,2), (6,1)$ i.e. $6$ outcomes. Probability $= \\frac{6}{36} = \\frac{1}{6}$."
+      },
+      "ExpectedOptions": [
+        [
+          93,
+          "\\frac{1}{6}",
+          true
+        ],
+        [
+          94,
+          "\\frac{1}{12}",
+          false
+        ],
+        [
+          95,
+          "\\frac{1}{4}",
+          false
+        ],
+        [
+          96,
+          "\\frac{1}{3}",
+          false
+        ]
+      ],
+      "ReviewNote": "Six ordered pairs of 36, assuming independence.",
+      "Disposition": "AssumptionOrWordingHold",
+      "HoldReason": "Independent-roll wording requires review.",
+      "ProposedSolution": {
+        "Ar": "قانون الاحتمال للنواتج المتساوية الإمكان: نفترض استقلال رمي الحجرين ليكون عدد الأزواج المتساوية الاحتمال 36.\n\nعدد النواتج الممكنة $= 6 \\times 6 = 36$. النواتج التي مجموعها 7: $(1,6), (2,5), (3,4), (4,3), (5,2), (6,1)$ أي $6$ نواتج. الاحتمال $= \\frac{6}{36} = \\frac{1}{6}$.",
+        "En": "Equally likely outcomes rule: assume independent rolls so the 36 ordered pairs are equally likely.\n\nTotal outcomes $= 6 \\times 6 = 36$. Outcomes with sum 7: $(1,6), (2,5), (3,4), (4,3), (5,2), (6,1)$ i.e. $6$ outcomes. Probability $= \\frac{6}{36} = \\frac{1}{6}$."
+      }
+    },
+    {
+      "ProblemId": 278,
+      "StageId": 3,
+      "Question": {
+        "Ar": "كم طريقة لاختيار طالبين من 4 طلاب دون ترتيب؟",
+        "En": "How many unordered pairs can be selected from 4 students?"
+      },
+      "ExpectedSolution": {
+        "Ar": "الاختيار دون ترتيب يُحسب بالتوافيق؛ نختار طالبين من 4، لذا $\\binom{4}{2}=\\frac{4\\times3}{2}=6$ طريقة.",
+        "En": "Because order does not matter, use combinations: choosing two students from 4 gives $\\binom{4}{2}=\\frac{4\\times3}{2}=6$ ways."
+      },
+      "ExpectedOptions": [
+        [
+          1101,
+          "7",
+          false
+        ],
+        [
+          1102,
+          "9",
+          false
+        ],
+        [
+          1103,
+          "4",
+          false
+        ],
+        [
+          1104,
+          "6",
+          true
+        ]
+      ],
+      "ReviewNote": "C(4,2)=6; unordered pairs rule correct.",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    },
+    {
+      "ProblemId": 290,
+      "StageId": 3,
+      "Question": {
+        "Ar": "كم طريقة لاختيار طالبين من 5 طلاب دون ترتيب؟",
+        "En": "How many unordered pairs can be selected from 5 students?"
+      },
+      "ExpectedSolution": {
+        "Ar": "الاختيار دون ترتيب يُحسب بالتوافيق؛ نختار طالبين من 5، لذا $\\binom{5}{2}=\\frac{5\\times4}{2}=10$ طريقة.",
+        "En": "Because order does not matter, use combinations: choosing two students from 5 gives $\\binom{5}{2}=\\frac{5\\times4}{2}=10$ ways."
+      },
+      "ExpectedOptions": [
+        [
+          1149,
+          "13",
+          false
+        ],
+        [
+          1150,
+          "8",
+          false
+        ],
+        [
+          1151,
+          "10",
+          true
+        ],
+        [
+          1152,
+          "11",
+          false
+        ]
+      ],
+      "ReviewNote": "C(5,2)=10; unordered pairs rule correct.",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    },
+    {
+      "ProblemId": 302,
+      "StageId": 3,
+      "Question": {
+        "Ar": "كم طريقة لاختيار طالبين من 6 طلاب دون ترتيب؟",
+        "En": "How many unordered pairs can be selected from 6 students?"
+      },
+      "ExpectedSolution": {
+        "Ar": "الاختيار دون ترتيب يُحسب بالتوافيق؛ نختار طالبين من 6، لذا $\\binom{6}{2}=\\frac{6\\times5}{2}=15$ طريقة.",
+        "En": "Because order does not matter, use combinations: choosing two students from 6 gives $\\binom{6}{2}=\\frac{6\\times5}{2}=15$ ways."
+      },
+      "ExpectedOptions": [
+        [
+          1197,
+          "13",
+          false
+        ],
+        [
+          1198,
+          "15",
+          true
+        ],
+        [
+          1199,
+          "16",
+          false
+        ],
+        [
+          1200,
+          "18",
+          false
+        ]
+      ],
+      "ReviewNote": "C(6,2)=15; unordered pairs rule correct.",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    },
+    {
+      "ProblemId": 314,
+      "StageId": 3,
+      "Question": {
+        "Ar": "كم طريقة لاختيار طالبين من 7 طلاب دون ترتيب؟",
+        "En": "How many unordered pairs can be selected from 7 students?"
+      },
+      "ExpectedSolution": {
+        "Ar": "الاختيار دون ترتيب يُحسب بالتوافيق؛ نختار طالبين من 7، لذا $\\binom{7}{2}=\\frac{7\\times6}{2}=21$ طريقة.",
+        "En": "Because order does not matter, use combinations: choosing two students from 7 gives $\\binom{7}{2}=\\frac{7\\times6}{2}=21$ ways."
+      },
+      "ExpectedOptions": [
+        [
+          1245,
+          "21",
+          true
+        ],
+        [
+          1246,
+          "22",
+          false
+        ],
+        [
+          1247,
+          "24",
+          false
+        ],
+        [
+          1248,
+          "19",
+          false
+        ]
+      ],
+      "ReviewNote": "C(7,2)=21; unordered pairs rule correct.",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    },
+    {
+      "ProblemId": 326,
+      "StageId": 3,
+      "Question": {
+        "Ar": "كم طريقة لاختيار طالبين من 8 طلاب دون ترتيب؟",
+        "En": "How many unordered pairs can be selected from 8 students?"
+      },
+      "ExpectedSolution": {
+        "Ar": "الاختيار دون ترتيب يُحسب بالتوافيق؛ نختار طالبين من 8، لذا $\\binom{8}{2}=\\frac{8\\times7}{2}=28$ طريقة.",
+        "En": "Because order does not matter, use combinations: choosing two students from 8 gives $\\binom{8}{2}=\\frac{8\\times7}{2}=28$ ways."
+      },
+      "ExpectedOptions": [
+        [
+          1293,
+          "29",
+          false
+        ],
+        [
+          1294,
+          "31",
+          false
+        ],
+        [
+          1295,
+          "26",
+          false
+        ],
+        [
+          1296,
+          "28",
+          true
+        ]
+      ],
+      "ReviewNote": "C(8,2)=28; unordered pairs rule correct.",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    },
+    {
+      "ProblemId": 430,
+      "StageId": 2,
+      "Question": {
+        "Ar": "للبيانات المرتبة 2، 4، 6، 8، 10، 12، 14، احسب المدى الربيعي باستخدام وسيطي النصفين بعد استبعاد الوسيط العام.",
+        "En": "For the sorted data 2, 4, 6, 8, 10, 12, 14, find the IQR using medians of the two halves excluding the overall median."
+      },
+      "ExpectedSolution": {
+        "Ar": "الوسيط العام 8. في النصف الأدنى $Q_1=4$ وفي الأعلى $Q_3=12$، لذا $IQR=Q_3-Q_1=8$.",
+        "En": "Exclude the overall median 8. The lower-half median is $Q_1=4$ and upper-half median is $Q_3=12$. Thus $IQR=8$."
+      },
+      "ExpectedOptions": [
+        [
+          1709,
+          "12",
+          false
+        ],
+        [
+          1710,
+          "8",
+          true
+        ],
+        [
+          1711,
+          "6",
+          false
+        ],
+        [
+          1712,
+          "10",
+          false
+        ]
+      ],
+      "ReviewNote": "Q1=4,Q3=12; IQR=8. Arabic excludes median by described halves; English explicit.",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    },
+    {
+      "ProblemId": 437,
+      "StageId": 3,
+      "Question": {
+        "Ar": "متتالية هندسية حدها الأول 3 ونسبتها المشتركة 2. ما الحد الخامس؟",
+        "En": "A geometric sequence has first term 3 and common ratio 2. What is its fifth term?"
+      },
+      "ExpectedSolution": {
+        "Ar": "هذه متتالية هندسية حدها الأول $a_1=3$ ونسبتها المشتركة $r=2$. قانون الحد العام $a_n=a_1r^{n-1}$، ولذلك $a_5=3\\times2^4=48$.",
+        "En": "This is a geometric sequence with first term $a_1=3$ and common ratio $r=2$. Using $a_n=a_1r^{n-1}$ gives $a_5=3\\times2^4=48$."
+      },
+      "ExpectedOptions": [
+        [
+          1737,
+          "96",
+          false
+        ],
+        [
+          1738,
+          "32",
+          false
+        ],
+        [
+          1739,
+          "48",
+          true
+        ],
+        [
+          1740,
+          "24",
+          false
+        ]
+      ],
+      "ReviewNote": "3×2⁴=48; geometric term formula correct.",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    },
+    {
+      "ProblemId": 439,
+      "StageId": 3,
+      "Question": {
+        "Ar": "متتالية حسابية حدها الأول 4 وفرقها المشترك 3. أوجد الحد العاشر.",
+        "En": "An arithmetic sequence has first term 4 and common difference 3. Find the tenth term."
+      },
+      "ExpectedSolution": {
+        "Ar": "نستخدم قانون المتتالية الحسابية $a_n=a_1+(n-1)d$. لدينا $a_1=4$ و$d=3$، لذا $a_{10}=4+9\\times3=31$.",
+        "En": "Use the arithmetic progression formula $a_n=a_1+(n-1)d$. With $a_1=4$ and $d=3$, $a_{10}=4+9\\times3=31$."
+      },
+      "ExpectedOptions": [
+        [
+          1745,
+          "30",
+          false
+        ],
+        [
+          1746,
+          "34",
+          false
+        ],
+        [
+          1747,
+          "27",
+          false
+        ],
+        [
+          1748,
+          "31",
+          true
+        ]
+      ],
+      "ReviewNote": "4+9×3=31; arithmetic term formula correct.",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    },
+    {
+      "ProblemId": 480,
+      "StageId": 2,
+      "Question": {
+        "Ar": "في الصف أ 15 طالبة و12 طالباً، وفي الصف ب 10 طالبات و18 طالباً. أي الصفين لديه نسبة أعلى من الطالبات؟",
+        "En": "Class A has 15 girls and 12 boys; Class B has 10 girls and 18 boys. Which class has the higher proportion of girls?"
+      },
+      "ExpectedSolution": {
+        "Ar": "نسبة الطالبات في أ هي $15/27\\approx55.6\\%$، وفي ب $10/28\\approx35.7\\%$؛ النسبة أعلى في أ.",
+        "En": "The proportions are $15/27\\approx55.6\\%$ in A and $10/28\\approx35.7\\%$ in B, so A has the higher proportion."
+      },
+      "ExpectedOptions": [
+        [
+          1909,
+          "\\text{الصف أ (Class A)}",
+          true
+        ],
+        [
+          1910,
+          "\\text{الصف ب (Class B)}",
+          false
+        ],
+        [
+          1911,
+          "\\text{النسب متساوية (Equal proportions)}",
+          false
+        ],
+        [
+          1912,
+          "\\text{لا يمكن التحديد (Cannot determine)}",
+          false
+        ]
+      ],
+      "ReviewNote": "15/27>10/28; rounded percentages correct.",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    },
+    {
+      "ProblemId": 486,
+      "StageId": 3,
+      "Question": {
+        "Ar": "ما مجموع أول 12 عدداً فردياً موجباً، من 1 حتى 23؟",
+        "En": "What is the sum of the first 12 positive odd integers, from 1 to 23?"
+      },
+      "ExpectedSolution": {
+        "Ar": "مجموع أول $n$ عدد فردي يساوي $n^2$، لذا $12^2=144$. ويمكن التحقق بصيغة المتسلسلة الحسابية.",
+        "En": "The sum of the first $n$ odd integers is $n^2$, giving $12^2=144$. It also follows from the arithmetic series formula."
+      },
+      "ExpectedOptions": [
+        [
+          1933,
+          "121",
+          false
+        ],
+        [
+          1934,
+          "132",
+          false
+        ],
+        [
+          1935,
+          "144",
+          true
+        ],
+        [
+          1936,
+          "169",
+          false
+        ]
+      ],
+      "ReviewNote": "12²=144; identity correct.",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    },
+    {
+      "ProblemId": 487,
+      "StageId": 3,
+      "Question": {
+        "Ar": "ماذا يحدث لمجاميع المتسلسلة $2+4+8+16+\\cdots$؟",
+        "En": "What happens to the partial sums of the series $2+4+8+16+\\cdots$?"
+      },
+      "ExpectedSolution": {
+        "Ar": "النسبة المشتركة 2 وتزيد الحدود باستمرار، لذلك لا تتقارب المجاميع الجزئية إلى عدد منتهٍ بل تؤول إلى $+\\infty$.",
+        "En": "The common ratio is 2, so the positive partial sums grow without bound and diverge to $+\\infty$."
+      },
+      "ExpectedOptions": [
+        [
+          1937,
+          "\\text{يتقارب إلى 4 (Converges to 4)}",
+          false
+        ],
+        [
+          1938,
+          "\\text{يتباعد إلى ما لا نهاية (+infinity)}",
+          true
+        ],
+        [
+          1939,
+          "\\text{يتقارب إلى 2 (Converges to 2)}",
+          false
+        ],
+        [
+          1940,
+          "\\text{يتذبذب (Oscillates)}",
+          false
+        ]
+      ],
+      "ReviewNote": "Positive geometric partial sums double plus 2; unbounded.",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    },
+    {
+      "ProblemId": 28,
+      "StageId": 4,
+      "Question": {
+        "Ar": "أوجد المشتقة الجزئية $\\frac{\\partial f}{\\partial x}$ للدالة $f(x,y) = x^2 y + 3xy^2 + \\sin x$.",
+        "En": "Find the partial derivative $\\frac{\\partial f}{\\partial x}$ of the function $f(x,y) = x^2 y + 3xy^2 + \\sin x$."
+      },
+      "ExpectedSolution": {
+        "Ar": "عند الاشتقاق الجزئي بالنسبة لـ $x$، نعتبر $y$ ثابتاً: $\\frac{\\partial f}{\\partial x} = 2xy + 3y^2 + \\cos x$.",
+        "En": "When taking partial derivative with respect to $x$, treat $y$ as constant: $\\frac{\\partial f}{\\partial x} = 2xy + 3y^2 + \\cos x$."
+      },
+      "ExpectedOptions": [
+        [
+          101,
+          "2xy + 3y^2 + \\cos x",
+          true
+        ],
+        [
+          102,
+          "x^2 + 6xy + \\cos x",
+          false
+        ],
+        [
+          103,
+          "2xy + 6xy^2 - \\cos x",
+          false
+        ],
+        [
+          104,
+          "2x + 3y^2 + \\cos x",
+          false
+        ]
+      ],
+      "ReviewNote": "Partial derivative treating y constant gives 2xy+3y²+cos x.",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    },
+    {
+      "ProblemId": 29,
+      "StageId": 4,
+      "Question": {
+        "Ar": "أوجد التكامل المزدوج $\\iint_R xy \\, dA$ على المنطقة المستطيلة $R: 0 \\le x \\le 1, 0 \\le y \\le 2$.",
+        "En": "Find the double integral $\\iint_R xy \\, dA$ over the rectangular region $R: 0 \\le x \\le 1, 0 \\le y \\le 2$."
+      },
+      "ExpectedSolution": {
+        "Ar": "نفك التكامل على المنطقة المستطيلة: $\\int_0^1\\int_0^2 xy\\,dy\\,dx$. أولاً بالتكامل بالنسبة إلى $y$ نحصل على $\\int_0^1 2x\\,dx$، ثم نحسب $[x^2]_0^1=1$. إذن قيمة التكامل المزدوج هي $1$.",
+        "En": "Integrate over the rectangle as $\\int_0^1\\int_0^2 xy\\,dy\\,dx$. Integrating in $y$ gives $\\int_0^1 2x\\,dx$; integrating in $x$ yields $[x^2]_0^1=1$. Therefore, the double integral is $1$."
+      },
+      "ExpectedOptions": [
+        [
+          105,
+          "1",
+          true
+        ],
+        [
+          106,
+          "2",
+          false
+        ],
+        [
+          107,
+          "\\frac{1}{2}",
+          false
+        ],
+        [
+          108,
+          "\\frac{3}{2}",
+          false
+        ]
+      ],
+      "ReviewNote": "Inner integral ∫xy dy=2x, outer integral 1.",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    },
+    {
+      "ProblemId": 31,
+      "StageId": 4,
+      "Question": {
+        "Ar": "هل المتجهان $v_1 = (1, 2)$ و $v_2 = (2, 4)$ مستقلان خطياً؟",
+        "En": "Are the vectors $v_1 = (1, 2)$ and $v_2 = (2, 4)$ linearly independent?"
+      },
+      "ExpectedSolution": {
+        "Ar": "المتجهان غير مستقلين خطياً لأن $v_2 = 2 \\cdot v_1$، أي أنهما مضاعفان لبعضهما. الجواب: لا.",
+        "En": "The vectors are not linearly independent because $v_2 = 2 \\cdot v_1$, meaning they are scalar multiples of each other. Answer: No."
+      },
+      "ExpectedOptions": [
+        [
+          113,
+          "\\text{لا (No)}",
+          true
+        ],
+        [
+          114,
+          "\\text{نعم (Yes)}",
+          false
+        ],
+        [
+          115,
+          "\\text{يعتمد على المجال (Depends on field)}",
+          false
+        ],
+        [
+          116,
+          "\\text{غير معرّف (Undefined)}",
+          false
+        ]
+      ],
+      "ReviewNote": "v₂=2v₁; dependence verified.",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    },
+    {
+      "ProblemId": 32,
+      "StageId": 4,
+      "Question": {
+        "Ar": "حل المعادلة التفاضلية: $\\frac{dy}{dx} = 3y$.",
+        "En": "Solve the differential equation: $\\frac{dy}{dx} = 3y$."
+      },
+      "ExpectedSolution": {
+        "Ar": "نحل المعادلة $y'=3y$ بالفصل عندما $y\\ne0$: لدينا $\\frac{dy}{y}=3\\,dx$، ثم بالتكامل $\\ln|y|=3x+C$. وبأخذ الأس نحصل على $|y|=e^Ce^{3x}$، فنضم الإشارة في ثابت حقيقي $A$ ونكتب $y=Ae^{3x}$. كما أن $A=0$ يعطي الحل الصفري، إذن $A\\in\\mathbb R$.",
+        "En": "For $y\\ne0$, separate variables: $\\frac{dy}{y}=3\\,dx$, so $\\ln|y|=3x+C$ and $|y|=e^Ce^{3x}$. Absorb the sign into a real constant $A$ to obtain $y=Ae^{3x}$. The zero solution is also included by allowing $A=0$; thus $A\\in\\mathbb R$."
+      },
+      "ExpectedOptions": [
+        [
+          117,
+          "y = A e^{3x}",
+          true
+        ],
+        [
+          118,
+          "y = A e^{x}",
+          false
+        ],
+        [
+          119,
+          "y = 3x + C",
+          false
+        ],
+        [
+          120,
+          "y = A e^{-3x}",
+          false
+        ]
+      ],
+      "ReviewNote": "Separation on nonzero branches plus zero solution; general solution Ae^(3x).",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    },
+    {
+      "ProblemId": 33,
+      "StageId": 4,
+      "Question": {
+        "Ar": "ما رتبة المعادلة التفاضلية $y'' + 2y' + y = 0$؟",
+        "En": "What is the order of the differential equation $y'' + 2y' + y = 0$?"
+      },
+      "ExpectedSolution": {
+        "Ar": "رتبة المعادلة التفاضلية هي أعلى مشتقة موجودة. هنا $y''$ هي المشتقة الثانية، إذاً الرتبة = 2.",
+        "En": "The order of a differential equation is the highest derivative present. Here $y''$ is the second derivative, so the order = 2."
+      },
+      "ExpectedOptions": [
+        [
+          121,
+          "2",
+          true
+        ],
+        [
+          122,
+          "1",
+          false
+        ],
+        [
+          123,
+          "3",
+          false
+        ],
+        [
+          124,
+          "0",
+          false
+        ]
+      ],
+      "ReviewNote": "Highest derivative y'' means order 2.",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    },
+    {
+      "ProblemId": 34,
+      "StageId": 4,
+      "Question": {
+        "Ar": "أوجد النهاية: $\\lim_{x \\to 2} \\frac{x^2 - 4}{x - 2}$.",
+        "En": "Find the limit: $\\lim_{x \\to 2} \\frac{x^2 - 4}{x - 2}$."
+      },
+      "ExpectedSolution": {
+        "Ar": "بالتحليل: $\\frac{x^2 - 4}{x - 2} = \\frac{(x-2)(x+2)}{x-2} = x+2$ (لـ $x \\neq 2$). إذاً $\\lim_{x \\to 2} (x+2) = 4$.",
+        "En": "By factoring: $\\frac{x^2 - 4}{x - 2} = \\frac{(x-2)(x+2)}{x-2} = x+2$ (for $x \\neq 2$). Therefore $\\lim_{x \\to 2} (x+2) = 4$."
+      },
+      "ExpectedOptions": [
+        [
+          125,
+          "4",
+          true
+        ],
+        [
+          126,
+          "2",
+          false
+        ],
+        [
+          127,
+          "0",
+          false
+        ],
+        [
+          128,
+          "\\text{غير موجودة (Does not exist)}",
+          false
+        ]
+      ],
+      "ReviewNote": "Factor x²−4; cancel for x≠2; limit 4.",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    },
+    {
+      "ProblemId": 35,
+      "StageId": 4,
+      "Question": {
+        "Ar": "هل الدالة $f(x) = |x|$ قابلة للاشتقاق عند $x = 0$؟",
+        "En": "Is the function $f(x) = |x|$ differentiable at $x = 0$?"
+      },
+      "ExpectedSolution": {
+        "Ar": "النهاية من اليمين للمشتقة $= 1$ ومن اليسار $= -1$، وهما غير متساويتين. لذلك الدالة غير قابلة للاشتقاق عند $x = 0$.",
+        "En": "The right-hand limit of the derivative $= 1$ and the left-hand limit $= -1$, which are not equal. Therefore the function is not differentiable at $x = 0$."
+      },
+      "ExpectedOptions": [
+        [
+          129,
+          "\\text{لا (No)}",
+          true
+        ],
+        [
+          130,
+          "\\text{نعم (Yes)}",
+          false
+        ],
+        [
+          131,
+          "\\text{فقط من اليمين (Right only)}",
+          false
+        ],
+        [
+          132,
+          "\\text{فقط من اليسار (Left only)}",
+          false
+        ]
+      ],
+      "ReviewNote": "Correct answer; replace one-sided derivative-limit shortcut with exact one-sided difference quotients.",
+      "Disposition": "SolutionClarityCandidate",
+      "HoldReason": null,
+      "ProposedSolution": {
+        "Ar": "تعريف المشتقة عند الصفر: $f'(0)=\\lim_{h\\to0}\\frac{|h|-0}{h}$ إذا وُجدت النهاية. عندما $h>0$ تكون النسبة 1، وعندما $h<0$ تكون −1. النهايتان الجانبيتان مختلفتان، لذلك لا توجد مشتقة عند الصفر.",
+        "En": "Derivative definition at zero: $f'(0)=\\lim_{h\\to0}\\frac{|h|-0}{h}$ if the limit exists. For $h>0$ the quotient equals 1; for $h<0$ it equals −1. The one-sided limits disagree, so the derivative at zero does not exist."
+      }
+    },
+    {
+      "ProblemId": 448,
+      "StageId": 4,
+      "Question": {
+        "Ar": "على الأعداد الصحيحة، عرّف $a\\sim b$ إذا كان $a-b$ من مضاعفات 3. كم خاصية من خواص الانعكاسية والتناظر والتعدي تحققها هذه العلاقة؟",
+        "En": "On integers, define $a\\sim b$ when $a-b$ is divisible by 3. How many of reflexivity, symmetry and transitivity does this relation satisfy?"
+      },
+      "ExpectedSolution": {
+        "Ar": "تتحقق الانعكاسية لأن $a-a=0$، والتناظر لأن عكس مضاعف 3 يبقى مضاعفاً له، والتعدي لأن مجموع مضاعفين للعدد 3 من مضاعفاته أيضاً. إذن تتحقق الخصائص الثلاث.",
+        "En": "Reflexivity holds because $a-a=0$. Symmetry holds because negating a multiple of 3 preserves divisibility. Transitivity holds because sums of multiples of 3 remain multiples of 3. All three properties hold."
+      },
+      "ExpectedOptions": [
+        [
+          1781,
+          "0",
+          false
+        ],
+        [
+          1782,
+          "1",
+          false
+        ],
+        [
+          1783,
+          "2",
+          false
+        ],
+        [
+          1784,
+          "3",
+          true
+        ]
+      ],
+      "ReviewNote": "Divisibility by 3 of difference is reflexive, symmetric, transitive.",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    },
+    {
+      "ProblemId": 508,
+      "StageId": 3,
+      "Question": {
+        "Ar": "ما مجموع المتسلسلة اللانهائية $1-\\frac12+\\frac14-\\frac18+\\cdots$؟",
+        "En": "What is the sum of $1-\\frac12+\\frac14-\\frac18+\\cdots$?"
+      },
+      "ExpectedSolution": {
+        "Ar": "متسلسلة هندسية حدها الأول 1 ونسبتها $-\\frac12$ وقيمة النسبة المطلقة أقل من 1، إذن $S=\\frac1{1-(-1/2)}=\\frac23$.",
+        "En": "This is geometric with first term 1 and ratio $-\\frac12$, whose absolute value is below 1. Thus $S=\\frac1{1-(-1/2)}=\\frac23$."
+      },
+      "ExpectedOptions": [
+        [
+          2021,
+          "\\frac12",
+          false
+        ],
+        [
+          2022,
+          "\\frac23",
+          true
+        ],
+        [
+          2023,
+          "\\frac32",
+          false
+        ],
+        [
+          2024,
+          "1",
+          false
+        ]
+      ],
+      "ReviewNote": "r=−1/2 and |r|<1; sum 2/3.",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    },
+    {
+      "ProblemId": 510,
+      "StageId": 3,
+      "Question": {
+        "Ar": "هل تتقارب المتسلسلة $1-1+1-1+\\cdots$ بالمعنى المعتاد للمجموع اللانهائي؟",
+        "En": "Does the series $1-1+1-1+\\cdots$ converge in the usual sense of an infinite sum?"
+      },
+      "ExpectedSolution": {
+        "Ar": "المجاميع الجزئية تتناوب بين 1 و0 بلا نهاية ثابتة؛ لذلك المتسلسلة لا تتقارب بالمعنى المعتاد.",
+        "En": "Its partial sums alternate between 1 and 0, with no unique limit. Thus it does not converge in the usual sense."
+      },
+      "ExpectedOptions": [
+        [
+          2029,
+          "\\text{يتقارب إلى 0 (Converges to 0)}",
+          false
+        ],
+        [
+          2030,
+          "\\text{يتقارب إلى نصف (Converges to 1/2)}",
+          false
+        ],
+        [
+          2031,
+          "\\text{لا يتقارب (Does not converge)}",
+          true
+        ],
+        [
+          2032,
+          "\\text{يتقارب إلى 1 (Converges to 1)}",
+          false
+        ]
+      ],
+      "ReviewNote": "Partial sums 1,0 alternate; no ordinary convergence.",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    },
+    {
+      "ProblemId": 511,
+      "StageId": 3,
+      "Question": {
+        "Ar": "ما حكم تقارب المتسلسلة $1-2+4-8+16-\\cdots$؟",
+        "En": "Does the series $1-2+4-8+16-\\cdots$ converge?"
+      },
+      "ExpectedSolution": {
+        "Ar": "حدود المتسلسلة لا تقترب من الصفر بل تتزايد قيمها المطلقة؛ وبما أن اقتراب الحدود للصفر شرط ضروري للتقارب فإن المتسلسلة متباعدة.",
+        "En": "Its terms do not approach zero; their absolute values grow. Since convergence requires terms to tend to zero, the series diverges."
+      },
+      "ExpectedOptions": [
+        [
+          2033,
+          "\\text{يتقارب إلى سالب ثلث (Converges to -1/3)}",
+          false
+        ],
+        [
+          2034,
+          "\\text{يتقارب إلى 0 (Converges to 0)}",
+          false
+        ],
+        [
+          2035,
+          "\\text{يتباعد (Diverges)}",
+          true
+        ],
+        [
+          2036,
+          "\\text{يتقارب إلى 1 (Converges to 1)}",
+          false
+        ]
+      ],
+      "ReviewNote": "Terms fail necessary zero-limit condition; divergence.",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    },
+    {
+      "ProblemId": 512,
+      "StageId": 3,
+      "Question": {
+        "Ar": "لماذا لا تتقارب المتسلسلة التوافقية $1+\\frac12+\\frac13+\\frac14+\\cdots$؟",
+        "En": "Why does the harmonic series $1+\\frac12+\\frac13+\\frac14+\\cdots$ diverge?"
+      },
+      "ExpectedSolution": {
+        "Ar": "نجمّع حدوداً بعدد مضاعف: $\\frac13+\\frac14\\ge\\frac12$، ثم $\\frac15+\\cdots+\\frac18\\ge\\frac12$، وكل مجموعة تالية تساهم بما لا يقل عن النصف. لذلك المجاميع الجزئية تكبر بلا حد.",
+        "En": "Group terms in blocks of doubling length: $\\frac13+\\frac14\\ge\\frac12$, then $\\frac15+\\cdots+\\frac18\\ge\\frac12$, and so on. Infinitely many blocks add at least one half, so partial sums are unbounded."
+      },
+      "ExpectedOptions": [
+        [
+          2037,
+          "\\text{الحدود إلى صفر إذن تتقارب (Terms to zero, converge)}",
+          false
+        ],
+        [
+          2038,
+          "\\text{كل كتلة مضاعفة تضيف نصفاً على الأقل (Each block adds at least 1/2)}",
+          true
+        ],
+        [
+          2039,
+          "\\text{كل الحدود نسبية إذن تتقارب (All rational, converge)}",
+          false
+        ],
+        [
+          2040,
+          "\\text{الحدود المتناوبة تتلاشى (Alternation cancels)}",
+          false
+        ]
+      ],
+      "ReviewNote": "Dyadic blocks each add at least 1/2; corrected choice matches proof.",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    },
+    {
+      "ProblemId": 633,
+      "StageId": 3,
+      "Question": {
+        "Ar": "إذا كانت θ زاوية حادة وsin(θ) = 3/5، فما cos(θ)؟",
+        "En": "If θ is an acute angle and sin(θ) = 3/5, what is cos(θ)?"
+      },
+      "ExpectedSolution": {
+        "Ar": "من sin²(θ) + cos²(θ) = 1 نحصل على cos²(θ) = 1 − 9/25 = 16/25. نأخذ الجذر الموجب لأن θ حادة: cos(θ) = 4/5.",
+        "En": "Since sin² θ + cos² θ = 1, cos² θ = 1 − 9/25 = 16/25. The angle is acute, so cos θ = 4/5."
+      },
+      "ExpectedOptions": [
+        [
+          2521,
+          "\\frac35",
+          false
+        ],
+        [
+          2522,
+          "\\frac45",
+          true
+        ],
+        [
+          2523,
+          "\\frac{16}{25}",
+          false
+        ],
+        [
+          2524,
+          "-\\frac45",
+          false
+        ]
+      ],
+      "ReviewNote": "cos²=16/25; positive root due to acute angle.",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    },
+    {
+      "ProblemId": 639,
+      "StageId": 3,
+      "Question": {
+        "Ar": "احسب log₃(81) − log₃(3).",
+        "En": "Calculate log base 3 of 81 minus log base 3 of 3."
+      },
+      "ExpectedSolution": {
+        "Ar": "لأن 81 = 3⁴ و3 = 3¹، فإن الفرق 4 − 1 = 3. ويمكن أيضاً استخدام log₃(81/3) = log₃(27).",
+        "En": "Since 81 = 3^4 and 3 = 3^1, the difference is 4 − 1 = 3. Equivalently log₃(81/3) = log₃(27)."
+      },
+      "ExpectedOptions": [
+        [
+          2545,
+          "1",
+          false
+        ],
+        [
+          2546,
+          "2",
+          false
+        ],
+        [
+          2547,
+          "3",
+          true
+        ],
+        [
+          2548,
+          "4",
+          false
+        ]
+      ],
+      "ReviewNote": "log₃81−log₃3=4−1=3; valid quotient law.",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    },
+    {
+      "ProblemId": 641,
+      "StageId": 3,
+      "Question": {
+        "Ar": "ما تباين المجتمع للقيم 1، 3، 5؟",
+        "En": "What is the population variance of the values 1, 3, 5?"
+      },
+      "ExpectedSolution": {
+        "Ar": "المتوسط 3، ومجموع مربعات الفروق (−2)² + 0² + 2² = 8. نقسم على حجم المجتمع 3 فنحصل على 8/3.",
+        "En": "The mean is 3. Squared deviations add to 4 + 0 + 4 = 8; divide by population size 3 to get 8/3."
+      },
+      "ExpectedOptions": [
+        [
+          2553,
+          "\\frac83",
+          true
+        ],
+        [
+          2554,
+          "4",
+          false
+        ],
+        [
+          2555,
+          "8",
+          false
+        ],
+        [
+          2556,
+          "\\frac{8}{6}",
+          false
+        ]
+      ],
+      "ReviewNote": "Mean 3, sum of squared deviations 8; population variance 8/3.",
+      "Disposition": "SolutionClarityCandidate",
+      "HoldReason": null,
+      "ProposedSolution": {
+        "Ar": "قانون تباين المجتمع: $\\sigma^2=\\frac1N\\sum_{i=1}^{N}(x_i-\\mu)^2$.\n\nالمتوسط 3، ومجموع مربعات الفروق (−2)² + 0² + 2² = 8. نقسم على حجم المجتمع 3 فنحصل على 8/3.",
+        "En": "Population variance formula: $\\sigma^2=\\frac1N\\sum_{i=1}^{N}(x_i-\\mu)^2$.\n\nThe mean is 3. Squared deviations add to 4 + 0 + 4 = 8; divide by population size 3 to get 8/3."
+      }
+    },
+    {
+      "ProblemId": 644,
+      "StageId": 3,
+      "Question": {
+        "Ar": "تباين المجتمع للقيم 1، 2، 3 يساوي 2/3. إذا ضربنا كل قيمة في 3، فما تباين القيم الجديدة؟",
+        "En": "The population variance of 1, 2, 3 is 2/3. If every value is multiplied by 3, what is the new variance?"
+      },
+      "ExpectedSolution": {
+        "Ar": "عند ضرب البيانات في 3 تتضاعف الفروق ثلاث مرات ومربعاتها تسع مرات؛ التباين الجديد = 9 × 2/3 = 6.",
+        "En": "Scaling every value by 3 multiplies each squared deviation by 9. New variance = 9 × 2/3 = 6."
+      },
+      "ExpectedOptions": [
+        [
+          2565,
+          "2",
+          false
+        ],
+        [
+          2566,
+          "3",
+          false
+        ],
+        [
+          2567,
+          "6",
+          true
+        ],
+        [
+          2568,
+          "18",
+          false
+        ]
+      ],
+      "ReviewNote": "Variance scales by 3², so 6.",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    },
+    {
+      "ProblemId": 650,
+      "StageId": 4,
+      "Question": {
+        "Ar": "ما بُعد الفضاء المولّد بالمتجهين (1، 0، 1) و(0، 1، 1) في R³؟",
+        "En": "What is the dimension of the span of (1, 0, 1) and (0, 1, 1) in R³?"
+      },
+      "ExpectedSolution": {
+        "Ar": "المتجهان غير متناسبين، ولا يمكن كتابة أحدهما كمضاعف للآخر؛ إذن مستقلان وبُعد فضائهما المولّد 2.",
+        "En": "Neither vector is a scalar multiple of the other, so they are independent and their span has dimension 2."
+      },
+      "ExpectedOptions": [
+        [
+          2589,
+          "0",
+          false
+        ],
+        [
+          2590,
+          "1",
+          false
+        ],
+        [
+          2591,
+          "2",
+          true
+        ],
+        [
+          2592,
+          "3",
+          false
+        ]
+      ],
+      "ReviewNote": "Two nonzero nonproportional vectors in R³ have span dimension 2.",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    },
+    {
+      "ProblemId": 705,
+      "StageId": 3,
+      "Question": {
+        "Ar": "نرمي نردين عادلين. ما احتمال أن يكون مجموع الوجهين 8؟",
+        "En": "Two fair six-sided dice are rolled. What is the probability that their sum is 8?"
+      },
+      "ExpectedSolution": {
+        "Ar": "الحالات المواتية المرتبة: (2,6)، (3,5)، (4,4)، (5,3)، (6,2)، وعددها 5 من 36؛ إذن 5/36.",
+        "En": "Five ordered outcomes yield 8: (2,6),(3,5),(4,4),(5,3),(6,2), out of 36 equally likely outcomes."
+      },
+      "ExpectedOptions": [
+        [
+          2765,
+          "\\frac4{36}",
+          false
+        ],
+        [
+          2766,
+          "\\frac5{36}",
+          true
+        ],
+        [
+          2767,
+          "\\frac6{36}",
+          false
+        ],
+        [
+          2768,
+          "\\frac8{36}",
+          false
+        ]
+      ],
+      "ReviewNote": "Five ordered pairs sum to 8, assuming independence.",
+      "Disposition": "AssumptionOrWordingHold",
+      "HoldReason": "Independent-roll wording requires review.",
+      "ProposedSolution": {
+        "Ar": "نفترض استقلال الرميتين حتى تكون الأزواج الـ36 متساوية الاحتمال.\n\nالحالات المواتية المرتبة: (2,6)، (3,5)، (4,4)، (5,3)، (6,2)، وعددها 5 من 36؛ إذن 5/36.",
+        "En": "Assume independent rolls so all 36 ordered pairs are equally likely.\n\nFive ordered outcomes yield 8: (2,6),(3,5),(4,4),(5,3),(6,2), out of 36 equally likely outcomes."
+      }
+    },
+    {
+      "ProblemId": 708,
+      "StageId": 3,
+      "Question": {
+        "Ar": "عند رمي نردين عادلين، ما احتمال أن يكون حاصل ضرب العددين زوجياً؟",
+        "En": "When two fair dice are rolled, what is the probability the product of their numbers is even?"
+      },
+      "ExpectedSolution": {
+        "Ar": "يكون الجداء فردياً فقط إذا كان العددان فرديين؛ احتمال ذلك (3/6)² = 1/4، ومنه احتمال الجداء الزوجي = 3/4.",
+        "En": "The product is odd only if both faces are odd, probability 1/4. Thus the chance of an even product is 3/4."
+      },
+      "ExpectedOptions": [
+        [
+          2777,
+          "\\frac14",
+          false
+        ],
+        [
+          2778,
+          "\\frac12",
+          false
+        ],
+        [
+          2779,
+          "\\frac23",
+          false
+        ],
+        [
+          2780,
+          "\\frac34",
+          true
+        ]
+      ],
+      "ReviewNote": "Odd product only when both odd; under independence complement gives 3/4.",
+      "Disposition": "AssumptionOrWordingHold",
+      "HoldReason": "Independent-roll wording requires review.",
+      "ProposedSolution": {
+        "Ar": "قانون المتمم $P(A)=1-P(A^c)$؛ نفترض استقلال الرميتين لحساب احتمال ظهور عددين فرديين.\n\nيكون الجداء فردياً فقط إذا كان العددان فرديين؛ احتمال ذلك (3/6)² = 1/4، ومنه احتمال الجداء الزوجي = 3/4.",
+        "En": "Complement rule $P(A)=1-P(A^c)$; assume independent rolls when multiplying the odd-face probabilities.\n\nThe product is odd only if both faces are odd, probability 1/4. Thus the chance of an even product is 3/4."
+      }
+    },
+    {
+      "ProblemId": 771,
+      "StageId": 3,
+      "Question": {
+        "Ar": "مساحة مستطيل 48 سم² وطوله يزيد عن عرضه بمقدار 2 سم. كم عرضه بالسنتيمتر؟",
+        "En": "A rectangle has area 48 cm² and its length is 2 cm more than its width. Find its width in centimeters."
+      },
+      "ExpectedSolution": {
+        "Ar": "ليكن العرض x والطول x+2. عندئذ x(x+2)=48 أي (x+8)(x−6)=0، فنرفض الجذر السالب −8 ونأخذ x=6.",
+        "En": "Let width be x, length x+2. Then x(x+2)=48, so (x+8)(x−6)=0. Reject negative width −8; x=6."
+      },
+      "ExpectedOptions": [
+        [
+          3073,
+          "4",
+          false
+        ],
+        [
+          3074,
+          "6",
+          true
+        ],
+        [
+          3075,
+          "8",
+          false
+        ],
+        [
+          3076,
+          "10",
+          false
+        ]
+      ],
+      "ReviewNote": "x²+2x−48=(x+8)(x−6), positive width 6.",
+      "Disposition": "SolutionClarityCandidate",
+      "HoldReason": null,
+      "ProposedSolution": {
+        "Ar": "قانون مساحة المستطيل $A=lw$؛ نحل المعادلة الناتجة ونرفض الطول السالب.\n\nليكن العرض x والطول x+2. عندئذ x(x+2)=48 أي (x+8)(x−6)=0، فنرفض الجذر السالب −8 ونأخذ x=6.",
+        "En": "Rectangle area formula $A=lw$; solve the resulting equation and reject a negative length.\n\nLet width be x, length x+2. Then x(x+2)=48, so (x+8)(x−6)=0. Reject negative width −8; x=6."
+      }
+    },
+    {
+      "ProblemId": 652,
+      "StageId": 4,
+      "Question": {
+        "Ar": "في R² لدينا المتجهات (1، 2) و(3، 6) و(0، 1). ما أكبر عدد يمكن اختياره منها بحيث تكون مستقلة خطياً؟",
+        "En": "In R² consider (1, 2), (3, 6), and (0, 1). What is the largest number of linearly independent vectors among them?"
+      },
+      "ExpectedSolution": {
+        "Ar": "المتجه الثاني ثلاثة أضعاف الأول، أما الأول والثالث فمستقلان؛ لذلك العدد الأكبر 2، ولا يمكن وجود ثلاثة متجهات مستقلة في R².",
+        "En": "The second vector is three times the first. The first and third are independent, so the maximum number is 2; three vectors cannot be independent in R²."
+      },
+      "ExpectedOptions": [
+        [
+          2597,
+          "0",
+          false
+        ],
+        [
+          2598,
+          "1",
+          false
+        ],
+        [
+          2599,
+          "2",
+          true
+        ],
+        [
+          2600,
+          "3",
+          false
+        ]
+      ],
+      "ReviewNote": "Second is multiple of first; first/third determinant 1; maximum 2 in R².",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    },
+    {
+      "ProblemId": 654,
+      "StageId": 4,
+      "Question": {
+        "Ar": "لـ n ≥ 1، اعتبر aₙ = (1/2)ⁿ. ما نهايتها؟",
+        "En": "For n ≥ 1 let aₙ = (1/2)ⁿ. What is its limit?"
+      },
+      "ExpectedSolution": {
+        "Ar": "بما أن النسبة 1/2 بين صفر وواحد، فإن حدود المتتالية موجبة ومتناقصة وتقترب من صفر.",
+        "En": "Because the ratio 1/2 is between 0 and 1, terms stay positive, decrease, and tend to zero."
+      },
+      "ExpectedOptions": [
+        [
+          2605,
+          "0",
+          true
+        ],
+        [
+          2606,
+          "\\frac12",
+          false
+        ],
+        [
+          2607,
+          "1",
+          false
+        ],
+        [
+          2608,
+          "\\infty",
+          false
+        ]
+      ],
+      "ReviewNote": "Geometric sequence with |r|<1 tends to 0.",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    },
+    {
+      "ProblemId": 656,
+      "StageId": 4,
+      "Question": {
+        "Ar": "متتالية تبدأ بـ a₁ = 2، ثم aₙ₊₁ = (aₙ + 6)/2. إذا كانت متزايدة ومحدودة، فما نهايتها؟",
+        "En": "A sequence starts at a₁ = 2 and satisfies aₙ₊₁ = (aₙ + 6)/2. Assuming it is increasing and bounded, what is its limit?"
+      },
+      "ExpectedSolution": {
+        "Ar": "إذا كانت النهاية L، فبالمرور للنهاية: L = (L + 6)/2، إذن 2L = L + 6 ومنه L = 6. وفعلاً 2، 4، 5، 5.5… متزايدة ومحدودة بـ6.",
+        "En": "Let the limit be L. Then L = (L + 6)/2, giving L = 6. The terms 2, 4, 5, 5.5, ... increase and remain below 6."
+      },
+      "ExpectedOptions": [
+        [
+          2613,
+          "2",
+          false
+        ],
+        [
+          2614,
+          "4",
+          false
+        ],
+        [
+          2615,
+          "6",
+          true
+        ],
+        [
+          2616,
+          "12",
+          false
+        ]
+      ],
+      "ReviewNote": "Assumed monotone bounded gives finite L; continuity of affine recurrence gives L=6.",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    },
+    {
+      "ProblemId": 713,
+      "StageId": 4,
+      "Question": {
+        "Ar": "أوجد التكامل المزدوج للدالة f(x,y)=x+y على المستطيل 0 ≤ x ≤ 2 و0 ≤ y ≤ 3.",
+        "En": "Evaluate the double integral of f(x,y)=x+y over 0 ≤ x ≤ 2 and 0 ≤ y ≤ 3."
+      },
+      "ExpectedSolution": {
+        "Ar": "بالتكامل بالنسبة إلى y نحصل على 3x + 9/2. ثم بالتكامل من 0 إلى 2 بالنسبة إلى x نحصل على 6 + 9 = 15.",
+        "En": "Integrate with respect to y to obtain 3x + 9/2. Integrating from x=0 to x=2 gives 6 + 9 = 15."
+      },
+      "ExpectedOptions": [
+        [
+          2797,
+          "9",
+          false
+        ],
+        [
+          2798,
+          "12",
+          false
+        ],
+        [
+          2799,
+          "15",
+          true
+        ],
+        [
+          2800,
+          "18",
+          false
+        ]
+      ],
+      "ReviewNote": "Inner integral 3x+9/2, outer gives 15.",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    },
+    {
+      "ProblemId": 716,
+      "StageId": 4,
+      "Question": {
+        "Ar": "ما قيمة التكامل المزدوج لـ (x−y) على المربع 0 ≤ x ≤ 1 و0 ≤ y ≤ 1؟",
+        "En": "What is the double integral of (x−y) over the square 0 ≤ x ≤ 1, 0 ≤ y ≤ 1?"
+      },
+      "ExpectedSolution": {
+        "Ar": "المنطقة متناظرة عند تبادل x وy، والدالة تتغير إشارتها؛ لذا التكامل صفر. وبالحساب: 1/2 − 1/2 = 0.",
+        "En": "Swapping x and y leaves the square unchanged but reverses the integrand's sign, so the integral is zero. Directly: 1/2 − 1/2 = 0."
+      },
+      "ExpectedOptions": [
+        [
+          2853,
+          "-1",
+          false
+        ],
+        [
+          2854,
+          "0",
+          true
+        ],
+        [
+          2855,
+          "\\frac12",
+          false
+        ],
+        [
+          2856,
+          "1",
+          false
+        ]
+      ],
+      "ReviewNote": "Symmetry or separate integrals give 0.",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    },
+    {
+      "ProblemId": 718,
+      "StageId": 4,
+      "Question": {
+        "Ar": "ما نهاية (1−cos x)/x عندما x → 0 بالراديان؟",
+        "En": "What is lim (1−cos x)/x as x → 0 in radians?"
+      },
+      "ExpectedSolution": {
+        "Ar": "باستخدام 1−cos x = 2sin²(x/2) أو التوسع المحلي، يكون البسط من رتبة x²، لذا النسبة تقترب من 0.",
+        "En": "Using 1−cos x = 2sin²(x/2), the numerator is order x² near zero, so the quotient tends to 0."
+      },
+      "ExpectedOptions": [
+        [
+          2861,
+          "-1",
+          false
+        ],
+        [
+          2862,
+          "0",
+          true
+        ],
+        [
+          2863,
+          "\\frac12",
+          false
+        ],
+        [
+          2864,
+          "1",
+          false
+        ]
+      ],
+      "ReviewNote": "Identity 1−cos x=2sin²(x/2); quotient O(x) tends to 0.",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    },
+    {
+      "ProblemId": 719,
+      "StageId": 4,
+      "Question": {
+        "Ar": "أوجد نهاية (2x²+1)/(x²−3) عندما x → +∞.",
+        "En": "Find the limit of (2x²+1)/(x²−3) as x → +∞."
+      },
+      "ExpectedSolution": {
+        "Ar": "نقسم البسط والمقام على x² لنحصل على (2+1/x²)/(1−3/x²). عندما x يذهب إلى اللانهاية تصبح النسبة 2.",
+        "En": "Divide numerator and denominator by x²: (2+1/x²)/(1−3/x²). The vanishing terms leave 2."
+      },
+      "ExpectedOptions": [
+        [
+          2865,
+          "0",
+          false
+        ],
+        [
+          2866,
+          "1",
+          false
+        ],
+        [
+          2867,
+          "2",
+          true
+        ],
+        [
+          2868,
+          "\\infty",
+          false
+        ]
+      ],
+      "ReviewNote": "Divide by x²; limit 2.",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    },
+    {
+      "ProblemId": 779,
+      "StageId": 4,
+      "Question": {
+        "Ar": "ما رتبة المعادلة dy/dx = y⁵ + x؟",
+        "En": "What is the order of dy/dx = y^5 + x?"
+      },
+      "ExpectedSolution": {
+        "Ar": "تظهر المشتقة الأولى فقط dy/dx. الأس 5 على الدالة y وليس على ترتيب المشتقة؛ فالرتبة 1.",
+        "En": "Only the first derivative dy/dx appears. The exponent 5 on y is not a derivative order; the ODE is first order."
+      },
+      "ExpectedOptions": [
+        [
+          3105,
+          "1",
+          true
+        ],
+        [
+          3106,
+          "2",
+          false
+        ],
+        [
+          3107,
+          "5",
+          false
+        ],
+        [
+          3108,
+          "6",
+          false
+        ]
+      ],
+      "ReviewNote": "First derivative only; power of y does not affect order.",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    },
+    {
+      "ProblemId": 780,
+      "StageId": 4,
+      "Question": {
+        "Ar": "أي المعادلات التالية رتبتها الرابعة؟",
+        "En": "Which of the following differential equations has order four?"
+      },
+      "ExpectedSolution": {
+        "Ar": "المعادلة y^(4)+y=0 تحوي المشتقة الرابعة، بينما باقي الخيارات أعلى مشتقة فيها من الرتبة الأولى إلى الثالثة.",
+        "En": "The equation with y^(4) explicitly contains a fourth derivative. The others contain derivatives no higher than third order."
+      },
+      "ExpectedOptions": [
+        [
+          3109,
+          "y''+y^4=0",
+          false
+        ],
+        [
+          3110,
+          "(y')^4+y=0",
+          false
+        ],
+        [
+          3111,
+          "y^{(4)}+y=0",
+          true
+        ],
+        [
+          3112,
+          "y'''+y=0",
+          false
+        ]
+      ],
+      "ReviewNote": "Fourth derivative is highest in the marked equation; other choices previously answer-reviewed.",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    },
+    {
+      "ProblemId": 782,
+      "StageId": 4,
+      "Question": {
+        "Ar": "ما مصير المتسلسلة ∑ من n=1 إلى ∞ لـ 1/n؟",
+        "En": "Does the series ∑ from n=1 to ∞ of 1/n converge or diverge?"
+      },
+      "ExpectedSolution": {
+        "Ar": "المتسلسلة التوافقية متباعدة، رغم أن حدودها تؤول إلى الصفر. ويمكن إثبات ذلك بتجميع الحدود في مجموعات تتجاوز كل منها 1/2.",
+        "En": "The harmonic series diverges even though its terms tend to zero. Grouping terms in dyadic blocks gives sums at least 1/2 repeatedly."
+      },
+      "ExpectedOptions": [
+        [
+          3117,
+          "\\text{تتقارب مطلقاً (Absolutely convergent)}",
+          false
+        ],
+        [
+          3118,
+          "\\text{تتباعد (Diverges)}",
+          true
+        ],
+        [
+          3119,
+          "\\text{تتقارب إلى 1 (Converges to 1)}",
+          false
+        ],
+        [
+          3120,
+          "\\text{تتقارب إلى 0 (Converges to 0)}",
+          false
+        ]
+      ],
+      "ReviewNote": "Harmonic divergence proof correct; align Arabic/English lower-bound wording.",
+      "Disposition": "SolutionClarityCandidate",
+      "HoldReason": null,
+      "ProposedSolution": {
+        "Ar": "قاعدة التجميع: في الكتلة من $2^{k-1}+1$ إلى $2^k$ يوجد $2^{k-1}$ حدّاً، وكل حد لا يقل عن $1/2^k$. لذلك تضيف كل كتلة نصفاً على الأقل. عدد الكتل غير محدود، فتتباعد المجاميع الجزئية رغم أن $1/n\\to0$.",
+        "En": "Grouping rule: the block from $2^{k-1}+1$ to $2^k$ contains $2^{k-1}$ terms, each at least $1/2^k$. Each block adds at least one half. Infinitely many such blocks make partial sums unbounded, even though $1/n\\to0$."
+      }
+    },
+    {
+      "ProblemId": 783,
+      "StageId": 4,
+      "Question": {
+        "Ar": "ما تصنيف المتسلسلة ∑ من n=1 إلى ∞ لـ (−1)^(n+1)/n؟",
+        "En": "Classify the series ∑ from n=1 to ∞ of (−1)^(n+1)/n."
+      },
+      "ExpectedSolution": {
+        "Ar": "تتقارب بقاعدة لايبنتز لأن 1/n موجبة متناقصة إلى الصفر. لكن مجموع القيم المطلقة هو المتسلسلة التوافقية المتباعدة؛ لذلك التقارب شرطي.",
+        "En": "The alternating-series test guarantees convergence because 1/n decreases to zero. The absolute-value series is harmonic and diverges, so convergence is conditional."
+      },
+      "ExpectedOptions": [
+        [
+          3121,
+          "\\text{تتباعد (Diverges)}",
+          false
+        ],
+        [
+          3122,
+          "\\text{تتقارب مطلقاً (Absolutely convergent)}",
+          false
+        ],
+        [
+          3123,
+          "\\text{تتقارب شرطياً (Conditionally convergent)}",
+          true
+        ],
+        [
+          3124,
+          "\\text{حدودها منتهية (Finite terms)}",
+          false
+        ]
+      ],
+      "ReviewNote": "Alternating-series test gives convergence; harmonic absolute series diverges.",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    },
+    {
+      "ProblemId": 788,
+      "StageId": 4,
+      "Question": {
+        "Ar": "كم ترتيباً لجلوس 5 أشخاص مختلفين حول طاولة دائرية إذا اعتُبرت الترتيبات المتطابقة بالدوران واحدة؟",
+        "En": "How many arrangements of 5 distinct people around a circular table are there if rotations count as the same arrangement?"
+      },
+      "ExpectedSolution": {
+        "Ar": "نثبّت مكان شخص واحد لإزالة الدورانات المتكافئة، ثم نرتّب الأربعة الباقين بـ 4!=24.",
+        "En": "Fix one person's position to remove rotational duplicates; permute the remaining four in 4!=24 ways."
+      },
+      "ExpectedOptions": [
+        [
+          3141,
+          "5",
+          false
+        ],
+        [
+          3142,
+          "20",
+          false
+        ],
+        [
+          3143,
+          "24",
+          true
+        ],
+        [
+          3144,
+          "120",
+          false
+        ]
+      ],
+      "ReviewNote": "Fix one position; 4!=24 under rotation equivalence.",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    },
+    {
+      "ProblemId": 791,
+      "StageId": 4,
+      "Question": {
+        "Ar": "في برهان أن √2 عدد غير نسبي نفترض √2=a/b حيث a وb عددان صحيحان متباينان أولياً. ما التناقض الذي يصل إليه البرهان؟",
+        "En": "In the proof that sqrt(2) is irrational, suppose sqrt(2)=a/b with a,b integers in lowest terms. What contradiction follows?"
+      },
+      "ExpectedSolution": {
+        "Ar": "من a²=2b² نستنتج أن a زوجي، وبالتالي b زوجي أيضاً؛ وهذا يناقض كون الكسر في أبسط صورة.",
+        "En": "From a²=2b², a must be even; substituting shows b is even too. This contradicts that a/b was in lowest terms."
+      },
+      "ExpectedOptions": [
+        [
+          3153,
+          "\\text{a وb زوجيان (Both even)}",
+          true
+        ],
+        [
+          3154,
+          "\\text{a وb فرديان (Both odd)}",
+          false
+        ],
+        [
+          3155,
+          "\\text{a=0 وb=1}",
+          false
+        ],
+        [
+          3156,
+          "\\text{a وb متساويان (Equal)}",
+          false
+        ]
+      ],
+      "ReviewNote": "Correct contradiction; spell out why b is even.",
+      "Disposition": "SolutionClarityCandidate",
+      "HoldReason": null,
+      "ProposedSolution": {
+        "Ar": "برهان بالخلف: افترض $\\sqrt2=a/b$ في أبسط صورة مع $b\\ne0$. بالتربيع $a^2=2b^2$، فيكون $a$ زوجياً، فنكتب $a=2k$. عند التعويض $4k^2=2b^2$ أي $b^2=2k^2$، فيكون $b$ زوجياً أيضاً. إذن يشترك العددان في العامل 2، وهو تناقض مع أبسط صورة.",
+        "En": "Proof by contradiction: assume $\\sqrt2=a/b$ in lowest terms with $b\\ne0$. Squaring gives $a^2=2b^2$, so $a$ is even; write $a=2k$. Substitution gives $4k^2=2b^2$, hence $b^2=2k^2$, so $b$ is even too. Both share factor 2, contradicting lowest terms."
+      }
+    },
+    {
+      "ProblemId": 792,
+      "StageId": 4,
+      "Question": {
+        "Ar": "أي عدد يُعدّ مثالاً مضاداً للعبارة «كل عدد أولي فردي»؟",
+        "En": "Which number is a counterexample to the claim 'every prime number is odd'?"
+      },
+      "ExpectedSolution": {
+        "Ar": "العدد 2 أولي لأنه لا يقبل القسمة إلا على 1 ونفسه، لكنه زوجي. يكفي مثال واحد لنقض التعميم.",
+        "En": "The number 2 is prime and even, disproving the universal claim with a single counterexample."
+      },
+      "ExpectedOptions": [
+        [
+          3157,
+          "1",
+          false
+        ],
+        [
+          3158,
+          "2",
+          true
+        ],
+        [
+          3159,
+          "9",
+          false
+        ],
+        [
+          3160,
+          "15",
+          false
+        ]
+      ],
+      "ReviewNote": "2 is prime and even, valid counterexample.",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    },
+    {
+      "ProblemId": 793,
+      "StageId": 4,
+      "Question": {
+        "Ar": "في مجموعة الأعداد الحقيقية، علاقة aRb إذا وفقط إذا a≤b. كم خاصية من الانعكاس والتماثل والتعدي تحققها؟",
+        "En": "On real numbers, define aRb iff a≤b. How many of reflexivity, symmetry and transitivity does it satisfy?"
+      },
+      "ExpectedSolution": {
+        "Ar": "العلاقة انعكاسية لأن a≤a، ومتعدية لأن a≤b وb≤c ينتج عنهما a≤c. لكنها ليست تماثلية عموماً؛ فالعدد 2 ليس ≤1 رغم 1≤2. المجموع 2.",
+        "En": "The relation is reflexive and transitive. It is not symmetric because 1≤2 but 2≤1 is false; exactly 2 properties hold."
+      },
+      "ExpectedOptions": [
+        [
+          3161,
+          "0",
+          false
+        ],
+        [
+          3162,
+          "1",
+          false
+        ],
+        [
+          3163,
+          "2",
+          true
+        ],
+        [
+          3164,
+          "3",
+          false
+        ]
+      ],
+      "ReviewNote": "≤ reflexive, transitive, not symmetric; exactly two.",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    },
+    {
+      "ProblemId": 794,
+      "StageId": 4,
+      "Question": {
+        "Ar": "على المجموعة {1,2,3} عرّف R بالأزواج (1,1)، (2,2)، (3,3)، (1,2)، (2,1). كم صنف تكافؤ؟",
+        "En": "On {1,2,3}, let R contain (1,1),(2,2),(3,3),(1,2),(2,1). How many equivalence classes are there?"
+      },
+      "ExpectedSolution": {
+        "Ar": "العنصران 1 و2 متكافئان، بينما 3 متكافئ مع نفسه فقط؛ الأصناف {1,2} و{3}، أي صنفان.",
+        "En": "Elements 1 and 2 are equivalent, while 3 is related only to itself. The classes are {1,2} and {3}, so there are 2."
+      },
+      "ExpectedOptions": [
+        [
+          3165,
+          "1",
+          false
+        ],
+        [
+          3166,
+          "2",
+          true
+        ],
+        [
+          3167,
+          "3",
+          false
+        ],
+        [
+          3168,
+          "5",
+          false
+        ]
+      ],
+      "ReviewNote": "Relation is equivalence; classes {1,2} and {3}.",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    },
+    {
+      "ProblemId": 796,
+      "StageId": 4,
+      "Question": {
+        "Ar": "عرّف على الأعداد الصحيحة الموجبة aRb عندما يقسم a العدد b. ما تصنيف العلاقة؟",
+        "En": "On positive integers, define aRb iff a divides b. Which classification is correct?"
+      },
+      "ExpectedSolution": {
+        "Ar": "القسمة انعكاسية ومتعدية ومضادة للتماثل على الموجبات، فهي ترتيب جزئي. ليست ترتيباً كلياً لأن 2 لا يقسم 3 ولا 3 يقسم 2.",
+        "En": "Divisibility is reflexive, transitive and antisymmetric on positive integers, so it is a partial order. It is not total because 2 and 3 are incomparable."
+      },
+      "ExpectedOptions": [
+        [
+          3173,
+          "\\text{علاقة تكافؤ (Equivalence)}",
+          false
+        ],
+        [
+          3174,
+          "\\text{ترتيب كلي (Total order)}",
+          false
+        ],
+        [
+          3175,
+          "\\text{ترتيب جزئي غير كلي (Partial, not total)}",
+          true
+        ],
+        [
+          3176,
+          "\\text{ليست ترتيباً جزئياً ولا تكافؤاً (Neither)}",
+          false
+        ]
+      ],
+      "ReviewNote": "Divisibility on positive integers partial not total; 2,3 incomparable.",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    },
+    {
+      "ProblemId": 798,
+      "StageId": 4,
+      "Question": {
+        "Ar": "ما قيمة مشتقة f(x)=x|x| عند x=0؟",
+        "En": "What is f'(0) when f(x)=x|x|?"
+      },
+      "ExpectedSolution": {
+        "Ar": "حسب تعريف المشتقة f'(0)=lim[h→0](h|h|−0)/h=lim[h→0]|h|=0. فهي قابلة للاشتقاق عند الصفر رغم وجود قيمة مطلقة.",
+        "En": "From the derivative definition, f'(0)=lim(h|h|)/h=lim |h|=0, so the function is differentiable at zero."
+      },
+      "ExpectedOptions": [
+        [
+          3181,
+          "-1",
+          false
+        ],
+        [
+          3182,
+          "0",
+          true
+        ],
+        [
+          3183,
+          "1",
+          false
+        ],
+        [
+          3184,
+          "\\text{غير موجودة (Does not exist)}",
+          false
+        ]
+      ],
+      "ReviewNote": "Difference quotient |h| tends to zero; derivative 0.",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    },
+    {
+      "ProblemId": 799,
+      "StageId": 4,
+      "Question": {
+        "Ar": "لتكن f(x)=ax إذا x≤1، وf(x)=x²+1 إذا x>1. ما قيمة a التي تجعل f قابلة للاشتقاق عند x=1؟",
+        "En": "Let f(x)=ax for x≤1 and f(x)=x²+1 for x>1. Which a makes f differentiable at x=1?"
+      },
+      "ExpectedSolution": {
+        "Ar": "للاتصال يجب أن a=1²+1=2. وعندها المشتقة اليسرى a=2 واليمنى 2x عند x=1 تساوي 2؛ الشرطان متحققان.",
+        "En": "Continuity requires a=1²+1=2. Then the left derivative is a=2 and the right derivative is 2x=2 at x=1, so differentiability follows."
+      },
+      "ExpectedOptions": [
+        [
+          3185,
+          "0",
+          false
+        ],
+        [
+          3186,
+          "1",
+          false
+        ],
+        [
+          3187,
+          "2",
+          true
+        ],
+        [
+          3188,
+          "4",
+          false
+        ]
+      ],
+      "ReviewNote": "Continuity and one-sided derivatives both force a=2.",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    },
+    {
+      "ProblemId": 800,
+      "StageId": 4,
+      "Question": {
+        "Ar": "ما الوصف الصحيح للدالة f(x)=x^(2/3) عند x=0، حيث الجذر التكعيبي الحقيقي؟",
+        "En": "How is the real-valued function f(x)=x^(2/3) classified at x=0 (using real cube roots)?"
+      },
+      "ExpectedSolution": {
+        "Ar": "الدالة متصلة عند الصفر لأن x^(2/3) يقترب من الصفر. لكن خارج الصفر مشتقتها (2/3)x^(−1/3) غير محدودة قرب الصفر، فلا توجد مشتقة منتهية عنده.",
+        "En": "The function is continuous because x^(2/3)→0. Its derivative away from zero is (2/3)x^(−1/3), unbounded near zero, so it is not differentiable there."
+      },
+      "ExpectedOptions": [
+        [
+          3189,
+          "\\text{متصلة وغير قابلة للاشتقاق (Continuous, not differentiable)}",
+          true
+        ],
+        [
+          3190,
+          "\\text{قابلة للاشتقاق وغير متصلة (Differentiable, discontinuous)}",
+          false
+        ],
+        [
+          3191,
+          "\\text{متصلة وقابلة للاشتقاق (Continuous and differentiable)}",
+          false
+        ],
+        [
+          3192,
+          "\\text{غير متصلة وغير قابلة للاشتقاق (Neither)}",
+          false
+        ]
+      ],
+      "ReviewNote": "Correct classification; direct difference quotient avoids inferring differentiability from derivative behavior alone.",
+      "Disposition": "SolutionClarityCandidate",
+      "HoldReason": null,
+      "ProposedSolution": {
+        "Ar": "الاتصال: $f(x)=|x|^{2/3}\\to0=f(0)$. نختبر المشتقة بالتعريف: $\\frac{f(h)-f(0)}h=\\frac{|h|^{2/3}}h$. عندما $h>0$ تساوي $h^{-1/3}$ وتؤول إلى $+\\infty$، وعندما $h<0$ تساوي $-|h|^{-1/3}$ وتؤول إلى $-\\infty$. إذن لا توجد مشتقة منتهية عند الصفر.",
+        "En": "Continuity: $f(x)=|x|^{2/3}\\to0=f(0)$. Test the derivative directly: $\\frac{f(h)-f(0)}h=\\frac{|h|^{2/3}}h$. For $h>0$ it equals $h^{-1/3}$ and tends to $+\\infty$; for $h<0$ it equals $-|h|^{-1/3}$ and tends to $-\\infty$. No finite derivative exists at zero."
+      }
+    },
+    {
+      "ProblemId": 866,
+      "StageId": 4,
+      "Question": {
+        "Ar": "تحقق y المعادلة y'+y=2 مع y(0)=0. ما y(ln 2)؟",
+        "En": "A function satisfies y'+y=2 and y(0)=0. Find y(ln 2)."
+      },
+      "ExpectedSolution": {
+        "Ar": "بضرب المعادلة في e^x نحصل على (e^x y)'=2e^x. بالتكامل y=2+Ce^(−x)، ومن شرط البداية C=−2؛ عند x=ln2 نجد y=2−2×(1/2)=1.",
+        "En": "Multiplying by e^x gives (e^x y)'=2e^x. Thus y=2+Ce^(−x). Since y(0)=0, C=−2, and y(ln2)=2−2/2=1."
+      },
+      "ExpectedOptions": [
+        [
+          3393,
+          "0",
+          false
+        ],
+        [
+          3394,
+          "1",
+          true
+        ],
+        [
+          3395,
+          "2",
+          false
+        ],
+        [
+          3396,
+          "4",
+          false
+        ]
+      ],
+      "ReviewNote": "Integrating factor e^x gives y=2−2e^(−x); y(ln2)=1.",
+      "Disposition": "ExistingExplanationAdequateInDeskReview",
+      "HoldReason": null,
+      "ProposedSolution": null
+    }
+  ]
+}

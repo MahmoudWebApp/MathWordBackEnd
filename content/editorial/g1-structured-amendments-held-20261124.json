@@ -1,0 +1,461 @@
+{
+  "Version": 1,
+  "Status": "HeldNotImportable",
+  "Notes": [
+    "Complete mathematical content prepared, but separate release holds are intentional. Do not change status to bypass review. Original stems and option IDs/text are preserved."
+  ],
+  "Items": [
+    {
+      "ProblemId": 20,
+      "ExpectedOptionIds": [
+        69,
+        70,
+        71,
+        72
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "بالتحليل: $(x - 2)(x - 3) = 0$. إذاً $x = 2$ أو $x = 3$.",
+        "En": "By factoring: $(x - 2)(x - 3) = 0$. So $x = 2$ or $x = 3$."
+      },
+      "ProposedTrackCode": "grade-10",
+      "PrimarySkillKey": "secondary-quadratic-roots",
+      "Status": "HeldStructuredCandidateNotImportable",
+      "HoldReason": "Historical option localization; preserve original option text and IDs until versioning is approved. Mathematical root set unchanged.",
+      "Content": {
+        "StageId": 3,
+        "CategoryId": 9,
+        "PrimarySkillId": 41,
+        "Points": 10,
+        "Title": {
+          "Ar": "حل المعادلة التربيعية: $x^2 - 5x + 6 = 0$",
+          "En": "Solve the quadratic equation: $x^2 - 5x + 6 = 0$"
+        },
+        "Question": {
+          "Ar": "حل المعادلة التربيعية: $x^2 - 5x + 6 = 0$",
+          "En": "Solve the quadratic equation: $x^2 - 5x + 6 = 0$"
+        },
+        "Options": [
+          {
+            "LatexCode": "x = 2 \\text{ or } x = 3",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "x = 1 \\text{ or } x = 6",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "1 و6 حاصل ضربهما 6 لكن مجموعهما 7 لا 5.",
+              "En": "1 and 6 have product 6 but sum 7, not 5."
+            }
+          },
+          {
+            "LatexCode": "x = -2 \\text{ or } x = -3",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "−2 و−3 مجموعهما −5 وليس 5.",
+              "En": "−2 and −3 sum to −5, not 5."
+            }
+          },
+          {
+            "LatexCode": "x = 5 \\text{ or } x = 1",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "5 و1 مجموعهما 6 وحاصل ضربهما 5، فلا يطابقان المعادلة.",
+              "En": "5 and 1 sum to 6 and multiply to 5, so they do not match the equation."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "استخدم التحليل إلى عاملين خطيين.",
+            "En": "Try factoring into two linear factors."
+          },
+          {
+            "Ar": "ابحث عن عددين حاصل ضربهما الحد الثابت ومجموعهما سالب معامل x.",
+            "En": "Look for two numbers whose product is the constant and sum is the negative x coefficient."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "قاعدة التحليل وخاصية حاصل الضرب الصفري: إذا كان $(x-r)(x-s)=0$ فإن $x=r$ أو $x=s$. العددان 2 و3 مجموعهما 5 وحاصل ضربهما 6.",
+            "En": "Factoring and zero-product rule: if $(x-r)(x-s)=0$, then $x=r$ or $x=s$. The numbers 2 and 3 sum to 5 and multiply to 6."
+          },
+          "FormulaLatex": "(x-r)(x-s)=0\\iff x=r\\text{ or }x=s",
+          "Steps": [
+            {
+              "Ar": "ابحث عن عددين حاصل ضربهما 6 ومجموعهما 5.",
+              "En": "Find two numbers with product 6 and sum 5."
+            },
+            {
+              "Ar": "حلّل كثير الحدود ثم ساوِ كل عامل بالصفر.",
+              "En": "Factor the polynomial, then set each factor equal to zero."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$(x-2)(x-3)=0$",
+            "En": "$(x-2)(x-3)=0$"
+          },
+          "Result": {
+            "Ar": "مجموعة الحل $\\{2,3\\}$.",
+            "En": "Solution set $\\{2,3\\}$."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "$2^2-5(2)+6=0$ و$3^2-5(3)+6=0$.",
+            "En": "$2^2-5(2)+6=0$ and $3^2-5(3)+6=0$."
+          },
+          "CommonError": {
+            "Ar": "لا تستخدم حاصل الضرب وحده؛ يجب مطابقة مجموع الجذرين أيضاً.",
+            "En": "Do not use the product alone; the root sum must match as well."
+          }
+        }
+      }
+    },
+    {
+      "ProblemId": 649,
+      "ExpectedOptionIds": [
+        2585,
+        2586,
+        2587,
+        2588
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "المصفوفة [[1,3],[2,7]]، ومحددها 1 × 7 − 3 × 2 = 1؛ إذن العمودان مستقلان خطياً.",
+        "En": "The matrix is [[1,3],[2,7]]. Its determinant is 1 × 7 − 3 × 2 = 1, so its columns are independent."
+      },
+      "ProposedTrackCode": "linear-algebra",
+      "PrimarySkillKey": "university-linear-independence",
+      "Status": "HeldStructuredCandidateNotImportable",
+      "HoldReason": "Determinant computation proposed as primary skill 61 instead of current skill 62; retain current skill and history pending taxonomy decision.",
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 14,
+        "PrimarySkillId": 62,
+        "Points": 10,
+        "Title": {
+          "Ar": "استخدام محدد مصفوفة عمودين للتحقق من الاستقلال",
+          "En": "Use a 2-by-2 determinant to assess independence"
+        },
+        "Question": {
+          "Ar": "ما محدد المصفوفة التي عموداها (1، 2) و(3، 7)؟",
+          "En": "What is the determinant of the matrix with columns (1, 2) and (3, 7)?"
+        },
+        "Options": [
+          {
+            "LatexCode": "0",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "7 و6 غير متساويين؛ الفرق ليس صفراً.",
+              "En": "7 and 6 are unequal; their difference is not zero."
+            }
+          },
+          {
+            "LatexCode": "1",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "5",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "5 لا يساوي 7−6.",
+              "En": "5 does not equal 7−6."
+            }
+          },
+          {
+            "LatexCode": "13",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "13 ناتج الجمع بدلاً من الطرح.",
+              "En": "13 adds rather than subtracts the products."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "رتّب العددين في كل عمود كما أعطاهما السؤال.",
+            "En": "Keep the two entries of each column in their stated order."
+          },
+          {
+            "Ar": "تذكّر قاعدة المحدد لمصفوفة من الرتبة الثانية.",
+            "En": "Recall the determinant rule for a two-by-two matrix."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "قانون محدد مصفوفة من الرتبة الثانية: $\\det\\begin{pmatrix}a&b\\\\c&d\\end{pmatrix}=ad-bc$.",
+            "En": "Two-by-two determinant formula: $\\det\\begin{pmatrix}a&b\\\\c&d\\end{pmatrix}=ad-bc$."
+          },
+          "FormulaLatex": "\\det\\begin{pmatrix}a&b\\\\c&d\\end{pmatrix}=ad-bc",
+          "Steps": [
+            {
+              "Ar": "اكتب العمودين في موضعيهما لتكوين المصفوفة.",
+              "En": "Place the two columns in their given positions."
+            },
+            {
+              "Ar": "اضرب عناصر القطر الرئيسي واطرح حاصل ضرب القطر الآخر.",
+              "En": "Multiply the main diagonal entries and subtract the other diagonal product."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$1(7)-3(2)=7-6$",
+            "En": "$1(7)-3(2)=7-6$"
+          },
+          "Result": {
+            "Ar": "$1$",
+            "En": "$1$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "المحدد غير صفري، وهو ما يثبت استقلال العمودين في هذه المصفوفة.",
+            "En": "The nonzero determinant establishes independence of the two columns."
+          },
+          "CommonError": {
+            "Ar": "لا تجمع حاصلَي ضرب القطرين؛ المطلوب الفرق.",
+            "En": "Do not add the diagonal products; take their difference."
+          }
+        }
+      }
+    },
+    {
+      "ProblemId": 706,
+      "ExpectedOptionIds": [
+        2769,
+        2770,
+        2771,
+        2772
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "لكل نرد 3 أعداد زوجية من أصل 6. باستقلالهما: (3/6) × (3/6) = 1/4.",
+        "En": "Each die has three even faces out of six. By independence, (3/6) × (3/6) = 1/4."
+      },
+      "ProposedTrackCode": "grade-10",
+      "PrimarySkillKey": "secondary-two-dice-probability",
+      "Status": "HeldStructuredCandidateNotImportable",
+      "HoldReason": "Fair dice alone do not imply independent rolls. Candidate solution explicitly conditional; approve revised stem before student-visible publication.",
+      "Content": {
+        "StageId": 3,
+        "CategoryId": 12,
+        "PrimarySkillId": 52,
+        "Points": 10,
+        "Title": {
+          "Ar": "حساب احتمال حدثين مستقلين عند رمي نردين",
+          "En": "Use independence for both dice showing even numbers"
+        },
+        "Question": {
+          "Ar": "ما احتمال ظهور عدد زوجي على كل من نردين عادلين؟",
+          "En": "What is the probability that both of two fair dice show even numbers?"
+        },
+        "Options": [
+          {
+            "LatexCode": "\\frac16",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "1/6 احتمال وجه محدد على نرد واحد.",
+              "En": "1/6 is the probability of one specified face on one die."
+            }
+          },
+          {
+            "LatexCode": "\\frac14",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "\\frac12",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "1/2 احتمال الزوجية في رمية واحدة.",
+              "En": "1/2 is the even-face probability on one die."
+            }
+          },
+          {
+            "LatexCode": "\\frac34",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "3/4 احتمال ظهور عدد زوجي على نرد واحد على الأقل في النموذج المستقل.",
+              "En": "3/4 is the probability of at least one even face under independence."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "عدّ الأوجه الزوجية على نرد واحد.",
+            "En": "Count the even faces on one die."
+          },
+          {
+            "Ar": "إذا افترضنا استقلال الرميتين، كيف نحسب احتمال وقوع الحدثين معاً؟",
+            "En": "Assuming independence, how do we find the probability that both events occur?"
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "قانون ضرب الاحتمالات للأحداث المستقلة: $P(A\\cap B)=P(A)P(B)$. نفترض استقلال رمي حجرَي النرد.",
+            "En": "Multiplication rule for independent events: $P(A\\cap B)=P(A)P(B)$. Assume independent dice rolls."
+          },
+          "FormulaLatex": "P(A\\cap B)=P(A)P(B)\\quad\\text{if independent}",
+          "Steps": [
+            {
+              "Ar": "لكل نرد ثلاثة أوجه زوجية من ستة.",
+              "En": "Each die has three even faces out of six."
+            },
+            {
+              "Ar": "بافتراض استقلال الرميتين، اضرب الاحتمالين.",
+              "En": "Assuming independent rolls, multiply the two probabilities."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$(3/6)(3/6)$",
+            "En": "$(3/6)(3/6)$"
+          },
+          "Result": {
+            "Ar": "$1/4$ بشرط الاستقلال.",
+            "En": "$1/4$, assuming independence."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "في النموذج المستقل توجد 9 نتائج مناسبة من 36 زوجاً متساوي الاحتمال.",
+            "En": "In the independent model there are 9 favorable outcomes among 36 equally likely pairs."
+          },
+          "CommonError": {
+            "Ar": "عدالة كل نرد لا تكفي وحدها لإثبات استقلالهما.",
+            "En": "Fairness of each die alone does not establish independence."
+          }
+        }
+      }
+    },
+    {
+      "ProblemId": 707,
+      "ExpectedOptionIds": [
+        2773,
+        2774,
+        2775,
+        2776
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "احتمال عدم ظهور 6 في أي نرد = (5/6)² = 25/36؛ إذن المطلوب 1 − 25/36 = 11/36.",
+        "En": "Neither die shows six with probability (5/6)^2 = 25/36. The complement has probability 11/36."
+      },
+      "ProposedTrackCode": "grade-10",
+      "PrimarySkillKey": "secondary-two-dice-probability",
+      "Status": "HeldStructuredCandidateNotImportable",
+      "HoldReason": "Same independence assumption; approve explicit independent-roll wording before student-visible publication.",
+      "Content": {
+        "StageId": 3,
+        "CategoryId": 12,
+        "PrimarySkillId": 52,
+        "Points": 10,
+        "Title": {
+          "Ar": "استخدام الحدث المتمم في الاحتمالات",
+          "En": "Use a complement to find at-least-one probability"
+        },
+        "Question": {
+          "Ar": "إذا رُمِي نردان عادلان، فما احتمال ظهور العدد 6 على أحدهما على الأقل؟",
+          "En": "When two fair dice are rolled, what is the probability of at least one six?"
+        },
+        "Options": [
+          {
+            "LatexCode": "\\frac1{36}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "1/36 احتمال ظهور ستتين معاً.",
+              "En": "1/36 is the probability of two sixes."
+            }
+          },
+          {
+            "LatexCode": "\\frac6{36}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "6/36 يحسب ظهور 6 على نرد محدد فقط.",
+              "En": "6/36 counts a six on one specified die only."
+            }
+          },
+          {
+            "LatexCode": "\\frac{11}{36}",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "\\frac{12}{36}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "12/36 يعدّ الزوج (6،6) مرتين.",
+              "En": "12/36 counts the pair (6,6) twice."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "ما الحدث الذي يعني عدم تحقق المطلوب إطلاقاً؟",
+            "En": "What event means the desired outcome never occurs?"
+          },
+          {
+            "Ar": "في النموذج المستقل احسب احتمال عدم ظهور 6 في الرميتين ثم استخدم المتمم.",
+            "En": "In the independent model, calculate the probability of no six on either roll, then use the complement."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "قاعدة المتمم: $P(A)=1-P(A^c)$، ونستخدم حاصل ضرب الاحتمالات عند استقلال حجرَي النرد.",
+            "En": "Complement rule: $P(A)=1-P(A^c)$, using the product rule for independent dice."
+          },
+          "FormulaLatex": "P(A)=1-P(A^c),\\quad P(A^c)=(5/6)^2\\ \\text{if independent}",
+          "Steps": [
+            {
+              "Ar": "استخدم متمم الحدث: لا يظهر العدد 6 على أي نرد.",
+              "En": "Use the complement: neither die shows six."
+            },
+            {
+              "Ar": "بافتراض استقلال الرميتين، اضرب احتمالي عدم ظهور 6 ثم اطرح الناتج من الواحد.",
+              "En": "Assuming independence, multiply the no-six probabilities and subtract from one."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$1-(5/6)^2=1-25/36$",
+            "En": "$1-(5/6)^2=1-25/36$"
+          },
+          "Result": {
+            "Ar": "$11/36$ بشرط الاستقلال.",
+            "En": "$11/36$, assuming independence."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "في النموذج المستقل توجد 6 أزواج يظهر فيها 6 أولاً و6 ثانياً؛ نطرح الزوج المشترك مرة واحدة: 11.",
+            "En": "In the independent model, six pairs have a first six and six have a second six; subtract the common pair once: 11."
+          },
+          "CommonError": {
+            "Ar": "لا تعدّ الزوج (6،6) مرتين، ولا تفترض الاستقلال من العدالة وحدها.",
+            "En": "Do not count (6,6) twice or infer independence from fairness alone."
+          }
+        }
+      }
+    }
+  ]
+}

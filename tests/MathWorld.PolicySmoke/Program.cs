@@ -9,11 +9,105 @@ using MathWorldAPI.Services;
 using MathWorldAPI.Middleware;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Configuration;
 
 static void Assert(bool condition, string message)
 {
     if (!condition) throw new InvalidOperationException(message);
 }
+
+// R1 account foundation: the legacy role wire contract must remain stable
+// until all clients, endpoints and persisted permissions are ready.
+Assert(AccountRolePolicy.IsSupportedSessionRole("Admin") &&
+       AccountRolePolicy.IsSupportedSessionRole("Student"),
+    "Existing Admin and Student sessions must remain supported.");
+foreach (var unsupportedRole in new string?[] { null, "", "admin", "SuperAdmin", "Owner", " Admin" })
+    Assert(!AccountRolePolicy.IsSupportedSessionRole(unsupportedRole),
+        "Unmigrated or malformed roles must fail closed.");
+Assert(AccountRolePolicy.NormalizeExistingRegistrationRole("Admin") == "Admin" &&
+       AccountRolePolicy.NormalizeExistingRegistrationRole("admin") == "Admin",
+    "Existing trusted Admin creation behavior must remain unchanged.");
+foreach (var requestedRole in new[] { "Student", "Supervisor", "SuperAdmin", "Owner", "" })
+    Assert(AccountRolePolicy.NormalizeExistingRegistrationRole(requestedRole) == "Student",
+        "New or unknown roles must not elevate existing registration.");
+Assert(AccountRolePolicy.IsSupportedSessionRole("Supervisor"), "Managed supervisor role recognized.");
+Assert(AccountRolePolicy.ValidStaffPermissions(0) && AccountRolePolicy.ValidStaffPermissions(1) &&
+       AccountRolePolicy.ValidStaffPermissions(3) && !AccountRolePolicy.ValidStaffPermissions(2) &&
+       !AccountRolePolicy.ValidStaffPermissions(4) && !AccountRolePolicy.ValidStaffPermissions(-1),
+       "Only edit and submit permissions are allowed; submit requires edit.");
+Console.WriteLine("PASS: existing roles and bounded staff permissions.");
+
+// Missing legacy claims map to version zero only. The database comparison
+// then rejects old tokens as soon as the stored account version increases.
+Assert(SessionVersionPolicy.TryReadVersion(Array.Empty<string>(), out var legacyVersion) &&
+       legacyVersion == 0, "Legacy sessions must retain version zero during migration.");
+Assert(SessionVersionPolicy.TryReadVersion(new[] { "1" }, out var currentVersion) &&
+       currentVersion == 1, "Explicit version must be read correctly.");
+foreach (var invalid in new[] { "", "-1", "+1", "01", " 1", "1 ", "2147483648", "bad" })
+    Assert(!SessionVersionPolicy.TryReadVersion(new[] { invalid }, out _),
+        "Malformed session version must be rejected.");
+Assert(!SessionVersionPolicy.TryReadVersion(new[] { "1", "1" }, out _),
+    "Duplicate session version claims must fail closed.");
+Assert(SessionVersionPolicy.FormatVersion(42) == "42", "Version claim must be canonical.");
+Console.WriteLine("PASS: versioned session claim compatibility and validation.");
+
+Assert(AccountPasswordService.IsValidNewPassword("A-long-password-123"), "Long password accepted.");
+Assert(!AccountPasswordService.IsValidNewPassword("too-short"), "Short password rejected.");
+Assert(!AccountPasswordService.IsValidNewPassword(new string('ش', 37)), "BCrypt byte boundary must be enforced.");
+Assert(!AccountPasswordService.IsValidNewPassword("valid-length\0bad"), "Control characters rejected.");
+Assert(AccountPasswordService.IsValidNewPassword(new string('ش', 36)), "Exact 72-byte boundary accepted.");
+Console.WriteLine("PASS: password length and BCrypt byte-boundary policy.");
+
+var brandOrigin = PlatformBrandService.DefaultOrigin;
+var sampleBrand = new PlatformBrandProfile
+{
+    LogoUrl = brandOrigin + "/mathworld-mark-transparent-v3.png",
+    SocialLinks = new[] {
+        new PlatformSocialLink { Platform = "test", LabelAr = "اختبار", LabelEn = "Test", Url = "", IsEnabled = false }
+    }
+};
+Assert(PlatformBrandService.Validate(sampleBrand, brandOrigin), "Disabled empty social links are allowed.");
+Assert(!PlatformBrandService.Validate(sampleBrand with { LogoUrl = "https://evil.example/logo.png" }, brandOrigin), "External logo rejected.");
+Assert(!PlatformBrandService.IsSafeHttpsUrl("javascript:alert(1)"), "Unsafe URI scheme rejected.");
+Assert(!PlatformBrandService.IsSafeHttpsUrl("https://trusted.example@evil.example/"), "URI userinfo rejected.");
+var mail = MathWorldEmailLayout.Render(new PlatformBrandView(0, brandOrigin, sampleBrand), "ar",
+    "عنوان <script>", "نص <img>", "تابع", brandOrigin + "/ar/login");
+Assert(mail.Html.Contains("dir=\"rtl\"") && mail.Html.Contains("&lt;script&gt;") &&
+       !mail.Html.Contains("<script>") && !mail.Html.Contains("href=\"\"") &&
+       mail.PlainText.Contains(brandOrigin + "/ar/login"), "Safe RTL email layout and plain-text fallback.");
+var enMail = MathWorldEmailLayout.Render(new PlatformBrandView(0, brandOrigin, sampleBrand), "en", "Title", "Message");
+Assert(enMail.Html.Contains("dir=\"ltr\""), "English layout must be LTR.");
+try
+{
+    MathWorldEmailLayout.Render(new PlatformBrandView(0, brandOrigin, sampleBrand), "en", "Title", "Body", "Open", "https://evil.example/reset");
+    throw new InvalidOperationException("External reset link accepted.");
+}
+catch (ArgumentException) { }
+Console.WriteLine("PASS: centralized brand validation, safe bilingual email layout and official action links.");
+
+Assert(RecoveryTokenCodec.Hash(new string('a', 64))?.Length == 64, "Canonical recovery hash.");
+Assert(RecoveryTokenCodec.Hash(new string('A', 64)) is null &&
+       RecoveryTokenCodec.Hash("invalid") is null, "Noncanonical tokens rejected.");
+Console.WriteLine("PASS: recovery token format and digest policy.");
+
+var recoveryConfig=new ConfigurationBuilder().AddInMemoryCollection(new Dictionary<string,string?>{
+    ["MathWorldRecovery:Enabled"]="true",
+    ["MathWorldRecovery:TokenKey"]=Convert.ToBase64String(new byte[32]),
+    ["MathWorldEmail:Brevo:Enabled"]="true",
+    ["MathWorldEmail:Brevo:ApiKey"]="test-only",
+    ["MathWorldEmail:Brevo:From"]="ci@example.test",
+    ["MathWorldEmail:Brevo:Mode"]="test"
+}).Build();
+var recoveryTransport=new BrevoEmailTransport(recoveryConfig,null!);
+var recoveryService=new PasswordRecoveryService(null!,recoveryConfig,recoveryTransport,null!,null!);
+Assert(recoveryService.Enabled&&!recoveryService.CanIssue,"No worker means no new recovery grants by default.");
+recoveryConfig["MathWorldRecovery:AllowOfflineTestQueue"]="true";
+Assert(recoveryService.CanIssue,"Explicit test-only offline queue is available to isolated CI.");
+recoveryConfig["MathWorldEmail:Brevo:Mode"]="live";
+Assert(!recoveryService.CanIssue,"Offline test flag cannot enable live grants.");
+recoveryConfig["MathWorldEmail:OutboxEnabled"]="true";
+Assert(recoveryService.CanIssue,"Configured live worker allows issuance.");
+Console.WriteLine("PASS: recovery issuance is fail-closed without worker; offline bypass restricted to test mode.");
 
 // A different numeric substitution must trigger review as the same
 // template family, while stage and topic boundaries remain distinct.

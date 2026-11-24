@@ -1,0 +1,158 @@
+"""Track mapping integration, invoked inside the existing disposable journey suite."""
+import os, subprocess, io, zipfile, urllib.request
+from integration_learning_journey import expect, BASE
+def sql(q):
+    assert BASE.startswith(("http://127.0.0.1:","http://localhost:"))
+    return subprocess.check_output(["psql","-X","-h","127.0.0.1","-U","postgres","-d","mathworld_ci","-v","ON_ERROR_STOP=1","-Atc",q],env={**os.environ,"PGPASSWORD":"ci_only_password"},text=True).strip()
+def verify_tracks(admin, student, uid, stage1, stage2):
+    root="/api/admin/learning-tracks"
+    all_tracks=expect("GET",root,200,token=admin)["Items"]
+    assert len(all_tracks)==17 and all(not x["Track"]["IsPublished"] for x in all_tracks)
+    assert expect("GET",f"/api/stages/{stage1}/tracks",200)["Items"]==[]
+    assert expect("GET","/api/users/learning-track",200,token=student).get("TrackId") is None
+    expect("GET",root,403,token=student)
+    t=next(x["Track"] for x in all_tracks if x["Track"]["StageId"]==stage1)
+    tid=t["Id"]
+    expect("PUT",f"{root}/{tid}/publication",409,{"Revision":0,"Publish":True},admin)
+    expect("GET",f"/api/learning-tracks/{tid}",404)
+    expect("PUT","/api/users/learning-track",404,{"TrackId":tid},student)
+    # Test-only explicit content linkage, never a production inference.
+    category=expect("GET",f"/api/stages/{stage1}/free-categories",200)["FreeCategoryIds"][0]
+    problem=expect("POST","/api/admin/problems",201,{
+        "TitleAr":"اختبار الصف","TitleEn":"Grade fixture","QuestionTextAr":"ما نتيجة 1 + 1؟",
+        "QuestionTextEn":"What is 1 + 1?","DetailedSolutionAr":"الجمع: 1 + 1 = 2",
+        "DetailedSolutionEn":"Addition: 1 + 1 = 2","StageId":stage1,"CategoryId":category,"Points":10,
+        "Options":[{"LatexCode":str(i),"IsCorrect":i==2,"Order":i} for i in range(1,5)]},admin)
+    pid=problem["Id"]
+    domain=int(sql("""INSERT INTO "CurriculumDomains" ("StableKey","NameAr","NameEn","DescriptionAr","DescriptionEn","SortOrder","IsPublished") VALUES ('ci-track-domain','اختبار','Test','','',0,true) RETURNING "Id" """).splitlines()[0])
+    skill=int(sql(f"""INSERT INTO "CurriculumSkills" ("StableKey","DomainId","StageId","CategoryId","NameAr","NameEn","DescriptionAr","DescriptionEn","SortOrder","IsPublished") VALUES ('ci-track-skill',{domain},{stage1},{category},'جمع','Addition','','',0,true) RETURNING "Id" """).splitlines()[0])
+    sql(f'INSERT INTO "CurriculumProblemSkills" ("ProblemId","SkillId","IsPrimary") VALUES ({pid},{skill},true)')
+    wrong=int(sql(f'SELECT "Id" FROM "Categories" WHERE "StageId"={stage2} LIMIT 1'))
+    expect("PUT",f"{root}/{tid}/mapping",400,{"Revision":0,"CategoryIds":[wrong],"SkillIds":[skill],"ProblemIds":[pid]},admin)
+    mapped=expect("PUT",f"{root}/{tid}/mapping",200,{"Revision":0,"CategoryIds":[category],"SkillIds":[skill],"ProblemIds":[pid]},admin)
+    assert mapped["Revision"]==1
+    expect("PUT",f"{root}/{tid}/metadata",409,{"Revision":0,"NameAr":"اختبار","NameEn":"Test"},admin)
+    expect("PUT",f"{root}/{tid}/metadata",200,{"Revision":1,"NameAr":"الصف التجريبي","NameEn":"Grade fixture","SortOrder":1},admin)
+    expect("PUT",f"{root}/{tid}/publication",200,{"Revision":2,"Publish":True},admin)
+    assert len(expect("GET",f"/api/stages/{stage1}/tracks",200)["Items"])==1
+    detail=expect("GET",f"/api/learning-tracks/{tid}",200)
+    assert detail["Categories"][0]["IsFree"] and detail["Categories"][0]["ProblemsCount"]==1
+    assert all(set(x)<={"Id","CategoryId","TitleAr","TitleEn"} for x in detail["Examples"])
+    expect("PUT","/api/users/learning-track",200,{"TrackId":tid},student)
+    assert expect("GET","/api/users/learning-track",200,token=student)["TrackId"]==tid
+    assert expect("GET",f"/api/users/learning-tracks/{tid}/progress",200,token=student)["Solved"]==0
+    journey=expect("GET",f"/api/users/journey?stageId={stage1}",200,token=student)
+    assert journey["TrackId"]==tid and journey["TotalProblems"]==1 and journey["TrackPracticeIsolationEnabled"]
+    scoped=expect("GET",f"/api/problems/search?stageId={stage1}",200,token=student)
+    assert scoped["Total"]==1 and scoped["Results"][0]["Id"]==pid
+    outside=sql(f'SELECT "Id" FROM "Problems" WHERE "StageId"={stage1} AND "CategoryId"={category} AND "Id"<>{pid} LIMIT 1')
+    if outside:
+        expect("GET",f"/api/problems/{outside}",403,token=student)
+        expect("POST","/api/problems/submit",403,{"ProblemId":int(outside),"SelectedOptionId":1,"TimeSpentSeconds":1},student)
+        expect("GET",f"/api/problems/{outside}/diagram",403,token=student)
+    expect("POST","/api/users/practice/reset",409,{"StageId":stage1},student)
+    expect("GET","/api/users/learning-tracks/continue",403,token=student)
+    # Disposable fixture only: verify Premium's scoped resume, challenge and
+    # report do not return unrelated problems in the same stage.
+    sql(f"""UPDATE "Users" SET "SubscriptionType"='Premium',"PremiumExpiresAtUtc"=NULL WHERE "Id"={uid}""")
+    resume=expect("GET","/api/users/learning-tracks/continue",200,token=student)
+    assert resume["TrackId"]==tid and resume["Problem"]["Id"]==pid
+    expect("GET",f"/api/problems/{pid}/hints?practiceScopeId=0",409,token=student)
+    expect("POST",f"/api/problems/{pid}/hints",409,{"Level":1,"PracticeScopeId":0},student)
+    expect("GET",f"/api/problems/{pid}/hints?practiceScopeId={tid}",200,token=student)
+    challenge=expect("GET","/api/users/daily-challenge",200,token=student)
+    assert challenge["TrackId"]==tid and [p["Id"] for p in challenge["Problems"]]==[pid]
+    report=expect("GET",f"/api/users/premium-report?stageId={stage1}",200,token=student)
+    assert report["TrackId"]==tid and report["TotalProblems"]==1
+    historical=expect("GET",f"/api/users/journey?stageId={stage2}",200,token=student)
+    assert historical.get("TrackId") is None and historical["StageId"]==stage2
+    sql(f"""UPDATE "Users" SET "SubscriptionType"='Free' WHERE "Id"={uid}""")
+    practice=f"/api/users/learning-tracks/{tid}/categories/{category}/problems"
+    assert expect("GET",practice,200,token=student)["Items"][0]["Id"]==pid
+    detail=expect("GET",f"/api/problems/{pid}",200,token=admin)
+    option=next(x["Id"] for x in detail["Options"] if x["IsCorrect"])
+    assert expect("GET",f"/api/problems/{pid}",200,token=student)["PracticeScopeId"]==tid
+    expect("POST","/api/problems/submit",409,{"ProblemId":pid,"SelectedOptionId":option,"TimeSpentSeconds":4},student)
+    expect("POST","/api/problems/submit",200,{"ProblemId":pid,"SelectedOptionId":option,"TimeSpentSeconds":4,"PracticeScopeId":tid},student)
+    assert expect("GET",practice,200,token=student)["Items"][0]["IsSolved"]
+    assert expect("GET",f"/api/users/learning-tracks/{tid}/progress",200,token=student)["Solved"]==1
+    assert expect("GET",f"/api/users/journey?stageId={stage1}",200,token=student)["SolvedProblems"]==1
+    assert expect("GET","/api/users/dashboard",200,token=student)["SolvedProblemsCount"]==1
+    other=next(x["Track"] for x in all_tracks if x["Track"]["StageId"]==stage1 and x["Track"]["Id"]!=tid)
+    oid=other["Id"]
+    expect("PUT",f"{root}/{oid}/mapping",200,{"Revision":0,"CategoryIds":[category],"SkillIds":[skill],"ProblemIds":[pid]},admin)
+    expect("PUT",f"{root}/{oid}/publication",200,{"Revision":1,"Publish":True},admin)
+    public_tracks=expect("GET",f"/api/stages/{stage1}/tracks",200)["Items"]
+    assert {x["Id"] for x in public_tracks}=={tid,oid}
+    assert all(x["ProblemsCount"]==x["CategoriesCount"]==x["SkillsCount"]==x["FreeProblemsCount"]==1 for x in public_tracks)
+    expect("PUT","/api/users/learning-track",200,{"TrackId":oid},student)
+    expect("GET",practice,403,token=student)
+    assert expect("GET",f"/api/users/learning-tracks/{oid}/progress",200,token=student)["Solved"]==0
+    expect("POST","/api/users/favorite/toggle",200,{"ProblemId":pid,"IsFavorite":True},student)
+    wrong_option=next(x["Id"] for x in detail["Options"] if not x["IsCorrect"])
+    assert expect("GET",f"/api/problems/{pid}",200,token=student)["PracticeScopeId"]==oid
+    expect("POST","/api/problems/submit",409,{"ProblemId":pid,"SelectedOptionId":wrong_option,"TimeSpentSeconds":3,"PracticeScopeId":tid},student)
+    expect("POST","/api/problems/submit",409,{"ProblemId":pid,"SelectedOptionId":wrong_option,"TimeSpentSeconds":3,"PracticeScopeId":0},student)
+    wrong=expect("POST","/api/problems/submit",200,{"ProblemId":pid,"SelectedOptionId":wrong_option,"TimeSpentSeconds":3,"PracticeScopeId":oid},student)
+    assert not wrong["IsCorrect"]
+    assert expect("GET",f"/api/users/journey?stageId={stage1}",200,token=student)["SolvedProblems"]==0
+    assert len(expect("GET","/api/users/error-notebook",200,token=student))==1
+    sql(f"""UPDATE "Users" SET "SubscriptionType"='Premium',"PremiumExpiresAtUtc"=NULL WHERE "Id"={uid}""")
+    old_report=expect("GET",f"/api/users/premium-analytics?trackId={tid}",200,token=student)
+    new_report=expect("GET",f"/api/users/premium-analytics?trackId={oid}",200,token=student)
+    assert sum(c["ErrorNotebookProblems"] for c in old_report["Categories"])==0
+    assert sum(c["ErrorNotebookProblems"] for c in new_report["Categories"])==1
+    assert old_report["Attempts"]==1 and old_report["CorrectAttempts"]==1 and old_report["IncorrectAttempts"]==0
+    assert new_report["Attempts"]==1 and new_report["CorrectAttempts"]==0 and new_report["IncorrectAttempts"]==1
+    assert old_report["SolvedProblems"]==1 and new_report["SolvedProblems"]==0
+    assert old_report["AwardedPoints"]>0 and new_report["AwardedPoints"]==0
+    filtered=expect("GET",f"/api/users/premium-analytics?trackId={tid}&days=7",200,token=student)
+    assert filtered["FilterTrackNameEn"]=="Grade fixture" and filtered["WindowDays"]==7
+    assert filtered["WindowStartUtc"] and filtered["FilterTrackId"]==tid
+    # Verify the actual downloaded workbook carries the selected track and
+    # measurement caveats, not just the JSON endpoint.
+    request=urllib.request.Request(BASE+f"/api/users/premium-analytics/export.xlsx?trackId={tid}&days=7&lang=en",
+        headers={"Authorization":"Bearer "+student})
+    with urllib.request.urlopen(request,timeout=30) as response:
+        archive=response.read()
+    with zipfile.ZipFile(io.BytesIO(archive)) as book:
+        xml=book.read("xl/sharedStrings.xml").decode()
+        assert "Grade fixture" in xml and "Period (UTC)" in xml
+        assert "Guided-session attempts" in xml and "current state" in xml
+    eligibility=expect("GET",f"/api/users/certificates/eligibility?stageId={stage1}&trackId={oid}&categoryId={category}",200,token=student)
+    assert eligibility["SolvedProblems"]==0 and eligibility["IndependentSkills"]==0
+    sql(f"""UPDATE "Users" SET "SubscriptionType"='Free' WHERE "Id"={uid}""")
+    expect("POST","/api/users/practice/reset",409,{"StageId":stage1,"TrackId":tid},student)
+    expect("PUT","/api/users/learning-track",200,{"TrackId":tid},student)
+    assert expect("GET",f"/api/users/learning-tracks/{tid}/progress",200,token=student)["Solved"]==1
+    assert expect("GET","/api/users/error-notebook",200,token=student)==[]
+    assert expect("GET",f"/api/users/favorite/check/{pid}",200,token=student)["IsFavorite"]
+    changed=expect("POST","/api/users/practice/reset",200,{"StageId":stage1,"TrackId":tid,"CategoryId":category},student)
+    assert changed["ResetSolved"]==1 and changed["PreservedFavorites"]==1
+    assert expect("GET",practice,200,token=student)["Items"][0]["IsSolved"] is False
+    expect("PUT","/api/users/learning-track",200,{"TrackId":oid},student)
+    assert len(expect("GET","/api/users/error-notebook",200,token=student))==1
+    again=expect("POST","/api/problems/submit",200,{"ProblemId":pid,"SelectedOptionId":option,"TimeSpentSeconds":4,"PracticeScopeId":oid},student)
+    assert again["IsCorrect"] and again["PointsEarned"]==0
+    assert expect("GET","/api/users/error-notebook",200,token=student)==[]
+    assert expect("GET",f"/api/users/learning-tracks/{tid}/progress",200,token=student)["Solved"]==0
+    assert expect("GET",f"/api/users/learning-tracks/{oid}/progress",200,token=student)["Solved"]==1
+    assert sql(f'SELECT COUNT(*) FROM "UserProgresses" WHERE "UserId"={uid} AND "ProblemId"={pid}')=="3"
+    assert sql(f'SELECT COUNT(DISTINCT "PracticeScopeId") FROM "ProblemAttempts" WHERE "UserId"={uid} AND "ProblemId"={pid}')=="2"
+    expect("PUT",f"{root}/{oid}/publication",200,{"Revision":2,"Publish":False},admin)
+    expect("PUT","/api/users/learning-track",200,{"TrackId":tid},student)
+    expect("PUT","/api/users/learning-stage",200,{"StageId":stage2},student)
+    assert expect("GET","/api/users/learning-track",200,token=student).get("TrackId") is None
+    expect("PUT","/api/users/learning-track",200,{"TrackId":tid},student)
+    expect("PUT",f"{root}/{tid}/mapping",409,{"Revision":3,"CategoryIds":[],"SkillIds":[],"ProblemIds":[]},admin)
+    expect("PUT",f"{root}/{tid}/publication",200,{"Revision":3,"Publish":False},admin)
+    assert expect("GET",f"/api/stages/{stage1}/tracks",200)["Items"]==[]
+    assert expect("GET","/api/users/learning-track",200,token=student).get("TrackId") is None
+    # Keep journey suite's original stage and fixture assumptions.
+    expect("PUT","/api/users/learning-stage",200,{"StageId":stage2},student)
+    expect("PUT","/api/users/learning-stage",200,{"StageId":stage1},student)
+    # Disposable fixture cleanup only; the permanent ledger intentionally
+    # survives removal of mutable progress and catalog objects.
+    assert sql(f'SELECT COUNT(*) FROM "PermanentProblemAchievements" WHERE "UserId"={uid} AND "ProblemId"={pid}')=="1"
+    sql(f'DELETE FROM "PermanentProblemAchievements" WHERE "UserId"={uid} AND "ProblemId"={pid}; DELETE FROM "ProblemAttempts" WHERE "ProblemId"={pid}; DELETE FROM "UserProgresses" WHERE "ProblemId"={pid}; DELETE FROM "Problems" WHERE "Id"={pid}; DELETE FROM "CurriculumSkills" WHERE "Id"={skill}; DELETE FROM "CurriculumDomains" WHERE "Id"={domain}')
+    print("PASS: 17 unpublished tracks, validated mapping, no empty public tracks, original stage Free policy, selection and legacy stage switch")

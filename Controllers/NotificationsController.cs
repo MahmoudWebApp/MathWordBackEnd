@@ -27,8 +27,14 @@ public sealed class NotificationsController : ControllerBase
     {
         if (!int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out var userId) || userId <= 0)
             return null;
+        var role = User.FindFirstValue(ClaimTypes.Role);
+        if (!AccountRolePolicy.IsSupportedSessionRole(role) ||
+            !SessionVersionPolicy.TryReadVersion(
+                User.FindAll(SessionVersionPolicy.ClaimName).Select(x => x.Value), out var version))
+            return null;
         return await _db.Users.AsNoTracking().AnyAsync(
-            x => x.Id == userId && x.IsActive, ct) ? userId : null;
+            x => x.Id == userId && x.IsActive && x.Role == role && x.TokenVersion == version,
+            ct) ? userId : null;
     }
 
     /// <summary>

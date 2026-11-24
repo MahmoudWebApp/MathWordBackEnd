@@ -11,6 +11,8 @@ namespace MathWorldAPI.Models
         public string QuestionTextAr { get; set; } = string.Empty;
         public string QuestionTextEn { get; set; } = string.Empty;
       
+        [System.Text.Json.Serialization.JsonIgnore]
+        public string? EditorialDetailsJson { get; set; }
         public string? YoutubeSolutionUrl { get; set; }
         public string DetailedSolutionAr { get; set; } = string.Empty;
         public string DetailedSolutionEn { get; set; } = string.Empty;

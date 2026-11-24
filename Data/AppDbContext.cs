@@ -44,6 +44,21 @@ namespace MathWorldAPI.Data
         public DbSet<PlatformActivityEvent> PlatformActivityEvents => Set<PlatformActivityEvent>();
         public DbSet<LearnerPresence> LearnerPresences => Set<LearnerPresence>();
 
+        public DbSet<PlatformBrandSettings> PlatformBrandSettings => Set<PlatformBrandSettings>();
+
+        public DbSet<EmailVerificationGrant> EmailVerificationGrants => Set<EmailVerificationGrant>();
+        public DbSet<PasswordResetGrant> PasswordResetGrants => Set<PasswordResetGrant>();
+        public DbSet<EmailOutboxItem> EmailOutbox => Set<EmailOutboxItem>();
+
+        public DbSet<LearningCertificate> LearningCertificates => Set<LearningCertificate>();
+        public DbSet<PermanentProblemAchievement> PermanentProblemAchievements => Set<PermanentProblemAchievement>();
+        public DbSet<LearningSession> LearningSessions => Set<LearningSession>();
+        public DbSet<LearningSessionAttempt> LearningSessionAttempts => Set<LearningSessionAttempt>();
+        public DbSet<LearningTrack> LearningTracks => Set<LearningTrack>();
+        public DbSet<LearningTrackCategory> LearningTrackCategories => Set<LearningTrackCategory>();
+        public DbSet<LearningTrackSkill> LearningTrackSkills => Set<LearningTrackSkill>();
+        public DbSet<LearningTrackProblem> LearningTrackProblems => Set<LearningTrackProblem>();
+
         public DbSet<AppUser> Users =>
             Set<AppUser>();
 
@@ -104,9 +119,132 @@ namespace MathWorldAPI.Data
         {
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.Entity<LearningCertificate>(e =>
+            {
+                e.Property(x => x.Id).ValueGeneratedNever();
+                e.Property(x => x.ScopeKey).HasMaxLength(100).IsRequired();
+                e.Property(x => x.Kind).HasMaxLength(12).IsRequired();
+                e.Property(x => x.StudentName).HasMaxLength(300).IsRequired();
+                e.Property(x => x.TitleAr).HasMaxLength(500).IsRequired();
+                e.Property(x => x.TitleEn).HasMaxLength(500).IsRequired();
+                e.Property(x => x.VerificationCode).HasMaxLength(32).IsRequired();
+                e.HasIndex(x => new { x.UserId, x.ScopeKey }).IsUnique();
+                e.HasIndex(x => x.VerificationCode).IsUnique();
+                e.HasOne<AppUser>().WithMany().HasForeignKey(x => x.UserId).OnDelete(DeleteBehavior.Cascade);
+                e.ToTable(t => t.HasCheckConstraint("CK_LearningCertificates_Scope", "\"Kind\" IN ('category','grade','course') AND \"PolicyVersion\" > 0 AND \"TotalProblems\" >= 5 AND \"RequiredSkills\" > 0 AND ((\"Kind\" = 'category' AND \"CategoryId\" IS NOT NULL) OR (\"Kind\" <> 'category' AND \"CategoryId\" IS NULL AND \"TrackId\" IS NOT NULL))"));
+            });
+            modelBuilder.Entity<PermanentProblemAchievement>(e =>
+            {
+                e.HasKey(x => new { x.UserId, x.ProblemId });
+                e.HasIndex(x => new { x.UserId, x.StageId, x.CategoryId });
+                e.HasOne<AppUser>().WithMany().HasForeignKey(x => x.UserId).OnDelete(DeleteBehavior.Cascade);
+                e.ToTable(t => t.HasCheckConstraint("CK_PermanentProblemAchievements_Points", "\"Points\" >= 0"));
+            });
+            modelBuilder.Entity<LearningSession>(e =>
+            {
+                e.Property(x => x.Id).ValueGeneratedNever();
+                e.Property(x => x.Kind).HasMaxLength(12).IsRequired();
+                e.Property(x => x.ScopeKey).HasMaxLength(100).IsRequired();
+                e.Property(x => x.QuestionsJson).IsRequired();
+                e.Property(x => x.HintsRevealed).HasDefaultValue(0);
+                e.HasIndex(x => new { x.UserId, x.StartRequestId }).IsUnique();
+                e.HasIndex(x => new { x.UserId, x.ScopeKey }).IsUnique()
+                    .HasFilter("\"Kind\" = 'daily' OR (\"CompletedAtUtc\" IS NULL AND \"AbandonedAtUtc\" IS NULL)");
+                e.HasOne<AppUser>().WithMany().HasForeignKey(x => x.UserId).OnDelete(DeleteBehavior.Cascade);
+                e.ToTable(t =>
+                {
+                    t.HasCheckConstraint("CK_LearningSessions_Abandoned", "\"AbandonedAtUtc\" IS NULL OR (\"Kind\" = 'practice' AND \"CompletedAtUtc\" IS NULL AND \"HintsRevealed\" = 0)");
+                    t.HasCheckConstraint("CK_LearningSessions_Hints", "\"HintsRevealed\" BETWEEN 0 AND 2 AND (\"CompletedAtUtc\" IS NULL OR \"HintsRevealed\" = 0)");
+                    t.HasCheckConstraint("CK_LearningSessions_Kind", "\"Kind\" IN ('practice','daily')");
+                    t.HasCheckConstraint("CK_LearningSessions_Progress", "\"Total\" BETWEEN 5 AND 10 AND \"Completed\" BETWEEN 0 AND \"Total\" AND ((\"Completed\" = \"Total\") = (\"CompletedAtUtc\" IS NOT NULL)) AND (\"Kind\" <> 'daily' OR (\"Total\" = 5 AND \"CategoryId\" IS NULL))");
+                });
+            });
+            modelBuilder.Entity<LearningSessionAttempt>(e =>
+            {
+                e.HasKey(x => new { x.SessionId, x.RequestId });
+                e.Property(x => x.UsedHint).HasDefaultValue(false);
+                e.Property(x => x.PointsEarned).HasDefaultValue(0);
+                e.HasIndex(x => new { x.SessionId, x.Position, x.AttemptNumber }).IsUnique();
+                e.HasIndex(x => new { x.SessionId, x.Position }).IsUnique().HasFilter("\"IsCorrect\"");
+                e.HasOne<LearningSession>().WithMany().HasForeignKey(x => x.SessionId).OnDelete(DeleteBehavior.Cascade);
+                e.ToTable(t => t.HasCheckConstraint("CK_LearningSessionAttempts_Position", "\"Position\" BETWEEN 0 AND 9 AND \"AttemptNumber\" > 0 AND \"ProblemId\" > 0 AND \"SelectedOptionId\" > 0"));
+            });
+
+
+            modelBuilder.Entity<LearningTrack>(e =>
+            {
+                e.HasIndex(x => new { x.StageId, x.Code }).IsUnique();
+                e.HasIndex(x => new { x.StageId, x.IsPublished, x.SortOrder });
+                e.Property(x => x.Code).HasMaxLength(80).IsRequired();
+                e.Property(x => x.Kind).HasMaxLength(12).IsRequired();
+                e.HasOne<EducationalStage>().WithMany().HasForeignKey(x => x.StageId).OnDelete(DeleteBehavior.Restrict);
+                e.ToTable(t => t.HasCheckConstraint("CK_LearningTracks_Kind", "\"Kind\" IN ('grade','course')"));
+            });
+            modelBuilder.Entity<LearningTrackCategory>(e =>
+            {
+                e.HasKey(x => new { x.TrackId, x.CategoryId });
+                e.HasOne<LearningTrack>().WithMany().HasForeignKey(x => x.TrackId).OnDelete(DeleteBehavior.Cascade);
+                e.HasOne<Category>().WithMany().HasForeignKey(x => x.CategoryId).OnDelete(DeleteBehavior.Cascade);
+            });
+            modelBuilder.Entity<LearningTrackSkill>(e =>
+            {
+                e.HasKey(x => new { x.TrackId, x.SkillId });
+                e.HasOne<LearningTrack>().WithMany().HasForeignKey(x => x.TrackId).OnDelete(DeleteBehavior.Cascade);
+                e.HasOne<CurriculumSkill>().WithMany().HasForeignKey(x => x.SkillId).OnDelete(DeleteBehavior.Cascade);
+            });
+            modelBuilder.Entity<LearningTrackProblem>(e =>
+            {
+                e.HasKey(x => new { x.TrackId, x.ProblemId });
+                e.HasOne<LearningTrack>().WithMany().HasForeignKey(x => x.TrackId).OnDelete(DeleteBehavior.Cascade);
+                e.HasOne<MathProblem>().WithMany().HasForeignKey(x => x.ProblemId).OnDelete(DeleteBehavior.Cascade);
+            });
+            modelBuilder.Entity<AppUser>().HasOne<LearningTrack>().WithMany()
+                .HasForeignKey(x => x.CurrentTrackId).OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<AppUser>().Property(x => x.StaffPermissions).HasDefaultValue(0);
+            modelBuilder.Entity<AppUser>().Property(x => x.StaffSetupPending).HasDefaultValue(false);
+            modelBuilder.Entity<AppUser>().Property(x => x.VerifiedNotificationEmail).HasMaxLength(256);
+            modelBuilder.Entity<AppUser>().Property(x => x.EmailNotificationLocale).HasMaxLength(2);
+            modelBuilder.Entity<AppUser>().Property(x => x.EmailLearningUpdates).HasDefaultValue(false);
+            modelBuilder.Entity<AppUser>().Property(x => x.EmailSubscriptionUpdates).HasDefaultValue(false);
+            modelBuilder.Entity<AppUser>().Property(x => x.EmailImportantAnnouncements).HasDefaultValue(false);
+            modelBuilder.Entity<PasswordResetGrant>().Property(x => x.IsInvitation).HasDefaultValue(false);
+
+            modelBuilder.Entity<EmailVerificationGrant>(e =>
+            {
+                e.Property(x=>x.Id).ValueGeneratedNever();
+                e.HasIndex(x=>x.TokenHash).IsUnique();
+                e.HasIndex(x=>new{x.UserId,x.CreatedAtUtc});
+                e.HasIndex(x=>x.CreatedAtUtc);
+                e.HasOne<AppUser>().WithMany().HasForeignKey(x=>x.UserId).OnDelete(DeleteBehavior.Cascade);
+            });
+            modelBuilder.Entity<PasswordResetGrant>(e =>
+            {
+                e.Property(x => x.Id).ValueGeneratedNever();
+                e.HasIndex(x => x.TokenHash).IsUnique();
+                e.HasIndex(x => new { x.UserId, x.CreatedAtUtc });
+                e.HasOne<AppUser>().WithMany().HasForeignKey(x => x.UserId).OnDelete(DeleteBehavior.Cascade);
+            });
+            modelBuilder.Entity<EmailOutboxItem>(e =>
+            {
+                e.Property(x => x.Id).ValueGeneratedNever();
+                e.HasIndex(x => new { x.State, x.NextRetryAtUtc });
+                e.HasIndex(x => x.CreatedAtUtc);
+                e.HasOne<AppUser>().WithMany().HasForeignKey(x => x.UserId).OnDelete(DeleteBehavior.Cascade);
+            });
+
+            modelBuilder.Entity<PlatformBrandSettings>(entity =>
+            {
+                entity.HasKey(x => x.Id);
+                entity.Property(x => x.Id).ValueGeneratedNever();
+                entity.Property(x => x.SettingsJson).HasColumnType("jsonb").IsRequired();
+                entity.ToTable(t => t.HasCheckConstraint("CK_PlatformBrandSettings_Singleton", "\"Id\" = 1"));
+            });
+
             modelBuilder.Entity<CurriculumDraftItem>(e =>
             {
                 e.HasIndex(x => x.ContentKey).IsUnique();
+                e.HasIndex(x => new { x.OwnerUserId, x.EditorialStatus });
+                e.Property(x => x.Revision).HasDefaultValue(0);
                 e.HasIndex(x => new { x.TopicProposalId, x.EditorialStatus });
                 e.HasIndex(x => new { x.TopicProposalId, x.TemplateFamilyKey });
                 e.Property(x => x.ContentKey).HasMaxLength(120).IsRequired();
@@ -362,6 +500,11 @@ namespace MathWorldAPI.Data
                 .IsRequired();
 
             modelBuilder.Entity<AppUser>()
+                .Property(user => user.TokenVersion)
+                .IsConcurrencyToken()
+                .HasDefaultValue(0);
+
+            modelBuilder.Entity<AppUser>()
                 .Property(user => user.Role)
                 .HasMaxLength(32)
                 .IsRequired();
@@ -453,6 +596,14 @@ namespace MathWorldAPI.Data
                 .HasForeignKey(progress => progress.ProblemId)
                 .OnDelete(DeleteBehavior.Cascade);
 
+            modelBuilder.Entity<UserProgress>().Property(p=>p.HintsRevealed).HasDefaultValue(0);
+            // Older consumers deliberately retain the legacy stage projection.
+            // Scoped learning endpoints explicitly select a track cycle.
+            modelBuilder.Entity<UserProgress>().HasQueryFilter(p=>p.PracticeScopeId==0);
+            modelBuilder.Entity<UserProgress>().Property(p=>p.PracticeScopeId).HasDefaultValue(0);
+            modelBuilder.Entity<UserProgress>().ToTable(t=>t.HasCheckConstraint("CK_UserProgresses_PracticeScope","\"PracticeScopeId\" >= 0 AND (\"PracticeScopeId\" = 0 OR NOT \"IsFavorite\")"));
+            modelBuilder.Entity<ProblemAttempt>().Property(p=>p.PracticeScopeId).HasDefaultValue(0);
+            modelBuilder.Entity<ProblemAttempt>().ToTable(t=>t.HasCheckConstraint("CK_ProblemAttempts_PracticeScope","\"PracticeScopeId\" >= 0"));
             modelBuilder.Entity<UserProgress>()
                 .Property(progress => progress.MasteryStatus)
                 .HasMaxLength(32)
@@ -537,7 +688,10 @@ namespace MathWorldAPI.Data
                     progress.UserId,
                     progress.ProblemId
                 })
-                .IsUnique();
+                .IsUnique().HasFilter("\"PracticeScopeId\" = 0");
+
+            modelBuilder.Entity<UserProgress>()
+                .HasIndex(p=>new{p.UserId,p.ProblemId,p.PracticeScopeId}).IsUnique();
 
             modelBuilder.Entity<UserProgress>()
                 .HasIndex(progress => new

@@ -1,0 +1,1174 @@
+{
+  "Version": 1,
+  "Status": "DraftCandidatesNotPublished",
+  "Baseline": {
+    "Problems": 773,
+    "Categories": 35,
+    "PublishedSkills": 140,
+    "UnderThreePrimarySkills": 9
+  },
+  "Notes": [
+    "Track codes are proposals for editorial review; resolve to actual IDs only on approved import.",
+    "No production writes. These new questions supplement the audited skill counts. Mathematical checks verify the answers, not pedagogical or curriculum approval.",
+    "All candidates require review through the same Wizard. Do not auto-publish."
+  ],
+  "Items": [
+    {
+      "ContentKey": "g1-gap-01-estimation",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "grade-4"
+      ],
+      "PrimarySkillKey": "estimation",
+      "Check": {
+        "type": "round_product",
+        "a": 48,
+        "b": 21,
+        "expected": "1000"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 81,
+        "PrimarySkillId": 303,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "تقدير تكلفة إجمالية",
+          "En": "Estimate a total cost"
+        },
+        "Question": {
+          "Ar": "سعر الدفتر 48 وحدة نقدية. نحتاج إلى 21 دفتراً. قدّر التكلفة بتقريب كل عدد إلى أقرب عشرة ثم الضرب.",
+          "En": "A notebook costs 48 currency units. We need 21 notebooks. Estimate the cost by rounding each number to the nearest ten, then multiplying."
+        },
+        "Options": [
+          {
+            "LatexCode": "1000",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "800",
+            "IsCorrect": false,
+            "ErrorType": "rounding",
+            "Reason": {
+              "Ar": "تقريب 48 إلى 40 غير صحيح.",
+              "En": "Rounding 48 to 40 is incorrect."
+            }
+          },
+          {
+            "LatexCode": "70",
+            "IsCorrect": false,
+            "ErrorType": "operation",
+            "Reason": {
+              "Ar": "جمع العددين المقربين بدلاً من ضربهما.",
+              "En": "The rounded numbers were added rather than multiplied."
+            }
+          },
+          {
+            "LatexCode": "1008",
+            "IsCorrect": false,
+            "ErrorType": "exact",
+            "Reason": {
+              "Ar": "هذه نتيجة الضرب الدقيق لا التقريب.",
+              "En": "This is the exact product, not the rounded estimate."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "قرّب العددين أولاً إلى أقرب عشرة.",
+            "En": "Round both numbers to the nearest ten first."
+          },
+          {
+            "Ar": "انظر إلى رقم الآحاد لتحديد العشرة الأقرب لكل عدد.",
+            "En": "Use each ones digit to identify the nearest ten."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "تقدير حاصل الضرب يتم بضرب العددين بعد التقريب.",
+            "En": "Estimate a product by multiplying the rounded factors."
+          },
+          "FormulaLatex": "\\widehat P=\\operatorname{round}_{10}(a)\\operatorname{round}_{10}(b)",
+          "Steps": [
+            {
+              "Ar": "48 أقرب إلى 50 من 40.",
+              "En": "48 is closer to 50 than to 40."
+            },
+            {
+              "Ar": "21 أقرب إلى 20 من 30، ثم نضرب العددين المقربين.",
+              "En": "21 is closer to 20 than 30; multiply the rounded factors."
+            }
+          ],
+          "Substitution": {
+            "Ar": "50 × 20 = 1000",
+            "En": "50 × 20 = 1000"
+          },
+          "Result": {
+            "Ar": "1000",
+            "En": "1000"
+          },
+          "Unit": {
+            "Ar": "وحدة نقدية تقريباً",
+            "En": "currency units approximately"
+          },
+          "Verification": {
+            "Ar": "الحاصل الدقيق 1008، والتقدير قريب منه.",
+            "En": "The exact product is 1008, close to the estimate."
+          },
+          "CommonError": {
+            "Ar": "لا تضرب القيم الأصلية عندما يطلب السؤال التقريب أولاً.",
+            "En": "Do not multiply the original values when rounding first is requested."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "g1-gap-01-mass",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "grade-4"
+      ],
+      "PrimarySkillKey": "mass",
+      "Check": {
+        "type": "mass_diff",
+        "grams": 1200,
+        "other": 980,
+        "expected": "220"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 82,
+        "PrimarySkillId": 322,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "مقارنة كتل مختلفة الوحدات",
+          "En": "Compare masses in different units"
+        },
+        "Question": {
+          "Ar": "كتلة حقيبة 1.2 كغ، وكتلة حقيبة أخرى 980 غ. كم غراماً تزيد كتلة الحقيبة الأولى على الثانية؟",
+          "En": "One bag has a mass of 1.2 kg and another has a mass of 980 g. By how many grams is the first bag heavier?"
+        },
+        "Options": [
+          {
+            "LatexCode": "2180",
+            "IsCorrect": false,
+            "ErrorType": "addition",
+            "Reason": {
+              "Ar": "جمعت الكتلتين بدلاً من إيجاد الفرق.",
+              "En": "Added both masses instead of finding the difference."
+            }
+          },
+          {
+            "LatexCode": "220",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "-220",
+            "IsCorrect": false,
+            "ErrorType": "subtraction-order",
+            "Reason": {
+              "Ar": "طُرحت الأولى من الثانية بدلاً من العكس.",
+              "En": "Subtracted the first mass from the second."
+            }
+          },
+          {
+            "LatexCode": "200",
+            "IsCorrect": false,
+            "ErrorType": "rounding",
+            "Reason": {
+              "Ar": "قُرّبت 980 غ إلى 1000 غ دون طلب، فأصبح الفرق 200 غ.",
+              "En": "Rounded 980 g to 1000 g unnecessarily, yielding 200 g."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "حوّل الكتلتين إلى الغرام قبل المقارنة.",
+            "En": "Convert both masses to grams before comparing."
+          },
+          {
+            "Ar": "الكيلوغرام يساوي ألف غرام؛ ثم اطرح الكتلة الأصغر من الأكبر.",
+            "En": "A kilogram equals one thousand grams; then subtract the smaller mass from the larger."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نستخدم وحدة واحدة ثم نحسب الفرق.",
+            "En": "Use a common unit, then calculate the difference."
+          },
+          "FormulaLatex": "\\Delta m=1000m_{kg}-m_g",
+          "Steps": [
+            {
+              "Ar": "1.2 كغ = 1200 غ.",
+              "En": "1.2 kg = 1200 g."
+            },
+            {
+              "Ar": "نطرح 980 من 1200.",
+              "En": "Subtract 980 from 1200."
+            }
+          ],
+          "Substitution": {
+            "Ar": "1200 − 980 = 220",
+            "En": "1200 − 980 = 220"
+          },
+          "Result": {
+            "Ar": "220",
+            "En": "220"
+          },
+          "Unit": {
+            "Ar": "غرام",
+            "En": "g"
+          },
+          "Verification": {
+            "Ar": "980 + 220 = 1200 غ.",
+            "En": "980 + 220 = 1200 g."
+          },
+          "CommonError": {
+            "Ar": "لا تطرح الكيلوغرامات من الغرامات مباشرة.",
+            "En": "Do not subtract kilograms directly from grams."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "g1-gap-01-metric-conversion",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "grade-5"
+      ],
+      "PrimarySkillKey": "metric-conversion",
+      "Check": {
+        "type": "metric_reverse",
+        "meters": 4750,
+        "expected": "4.75"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 82,
+        "PrimarySkillId": 323,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "تحويل المتر إلى الكيلومتر",
+          "En": "Convert meters to kilometers"
+        },
+        "Question": {
+          "Ar": "قطع متسابق مسافة 4750 متراً. كم كيلومتراً قطع؟",
+          "En": "A runner covers 4750 meters. How many kilometers is this?"
+        },
+        "Options": [
+          {
+            "LatexCode": "47.5",
+            "IsCorrect": false,
+            "ErrorType": "factor",
+            "Reason": {
+              "Ar": "القسمة على 100 بدلاً من 1000.",
+              "En": "Divided by 100 instead of 1000."
+            }
+          },
+          {
+            "LatexCode": "0.475",
+            "IsCorrect": false,
+            "ErrorType": "factor",
+            "Reason": {
+              "Ar": "القسمة على 10000.",
+              "En": "Divided by 10000."
+            }
+          },
+          {
+            "LatexCode": "4.75",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "4750000",
+            "IsCorrect": false,
+            "ErrorType": "direction",
+            "Reason": {
+              "Ar": "الضرب في 1000 بدلاً من القسمة.",
+              "En": "Multiplied by 1000 instead of dividing."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "الكيلومتر وحدة أكبر من المتر.",
+            "En": "A kilometer is a larger unit than a meter."
+          },
+          {
+            "Ar": "عند الانتقال من المتر إلى الكيلومتر اقسم على عدد الأمتار في الكيلومتر.",
+            "En": "To convert meters to kilometers, divide by the number of meters per kilometer."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "كل 1000 متر تساوي كيلومتراً واحداً.",
+            "En": "Every 1000 meters equals one kilometer."
+          },
+          "FormulaLatex": "d_{km}=\\frac{d_m}{1000}",
+          "Steps": [
+            {
+              "Ar": "نحدد عامل التحويل 1000.",
+              "En": "Identify the conversion factor 1000."
+            },
+            {
+              "Ar": "نقسم المسافة المعطاة على 1000.",
+              "En": "Divide the given distance by 1000."
+            }
+          ],
+          "Substitution": {
+            "Ar": "4750 ÷ 1000 = 4.75",
+            "En": "4750 ÷ 1000 = 4.75"
+          },
+          "Result": {
+            "Ar": "4.75",
+            "En": "4.75"
+          },
+          "Unit": {
+            "Ar": "كم",
+            "En": "km"
+          },
+          "Verification": {
+            "Ar": "4.75 × 1000 = 4750 متر.",
+            "En": "4.75 × 1000 = 4750 m."
+          },
+          "CommonError": {
+            "Ar": "التحويل إلى وحدة أكبر يُصغّر القيمة العددية.",
+            "En": "Converting to a larger unit reduces the numerical value."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "g1-gap-01-time",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "grade-5"
+      ],
+      "PrimarySkillKey": "time",
+      "Check": {
+        "type": "overnight",
+        "start": 1420,
+        "end": 15,
+        "expected": "35"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 82,
+        "PrimarySkillId": 324,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "حساب مدة عبر منتصف الليل",
+          "En": "Elapsed time across midnight"
+        },
+        "Question": {
+          "Ar": "بدأ تسجيل الساعة 23:40 وانتهى الساعة 00:15 في اليوم التالي. كم دقيقة استمر؟",
+          "En": "A recording starts at 23:40 and ends at 00:15 the next day. How many minutes does it last?"
+        },
+        "Options": [
+          {
+            "LatexCode": "25",
+            "IsCorrect": false,
+            "ErrorType": "minute-borrow",
+            "Reason": {
+              "Ar": "طرح الدقائق بطريقة لا تراعي عبور الساعة.",
+              "En": "Subtracted minute values without accounting for the hour boundary."
+            }
+          },
+          {
+            "LatexCode": "15",
+            "IsCorrect": false,
+            "ErrorType": "missing-part",
+            "Reason": {
+              "Ar": "حُسب الجزء بعد منتصف الليل فقط.",
+              "En": "Counted only the part after midnight."
+            }
+          },
+          {
+            "LatexCode": "55",
+            "IsCorrect": false,
+            "ErrorType": "addition",
+            "Reason": {
+              "Ar": "جُمعت قيمتا الدقائق من الوقتين.",
+              "En": "Added the minute readings of the two times."
+            }
+          },
+          {
+            "LatexCode": "35",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "قسّم الفترة إلى جزء قبل منتصف الليل وآخر بعده.",
+            "En": "Split the interval into a part before midnight and a part after it."
+          },
+          {
+            "Ar": "احسب الدقائق المتبقية من 23:40 إلى 24:00 أولاً.",
+            "En": "First calculate the minutes remaining from 23:40 to 24:00."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نجمع المدة قبل منتصف الليل والمدة بعده.",
+            "En": "Add the elapsed minutes before and after midnight."
+          },
+          "FormulaLatex": "T=(1440-t_{start})+t_{end}",
+          "Steps": [
+            {
+              "Ar": "من 23:40 إلى 24:00 عشرون دقيقة.",
+              "En": "23:40 to 24:00 is twenty minutes."
+            },
+            {
+              "Ar": "من 00:00 إلى 00:15 خمس عشرة دقيقة.",
+              "En": "00:00 to 00:15 is fifteen minutes."
+            }
+          ],
+          "Substitution": {
+            "Ar": "20 + 15 = 35",
+            "En": "20 + 15 = 35"
+          },
+          "Result": {
+            "Ar": "35",
+            "En": "35"
+          },
+          "Unit": {
+            "Ar": "دقيقة",
+            "En": "minutes"
+          },
+          "Verification": {
+            "Ar": "إضافة 35 دقيقة إلى 23:40 تعطينا 00:15 في اليوم التالي.",
+            "En": "Adding 35 minutes to 23:40 gives 00:15 the next day."
+          },
+          "CommonError": {
+            "Ar": "لا تعامل وقت اليوم التالي على أنه أسبق من بداية التسجيل.",
+            "En": "Do not treat the next day's time as earlier than the start."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "g1-gap-01-absolute-value",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "grade-7"
+      ],
+      "PrimarySkillKey": "absolute-value",
+      "Check": {
+        "type": "abs_diff",
+        "a": -6,
+        "b": 3,
+        "expected": "9"
+      },
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 83,
+        "PrimarySkillId": 307,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "المسافة على خط الأعداد",
+          "En": "Distance on the number line"
+        },
+        "Question": {
+          "Ar": "ما المسافة بين النقطتين −6 و3 على خط الأعداد؟",
+          "En": "What is the distance between −6 and 3 on the number line?"
+        },
+        "Options": [
+          {
+            "LatexCode": "9",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "-9",
+            "IsCorrect": false,
+            "ErrorType": "negative-distance",
+            "Reason": {
+              "Ar": "المسافة لا تكون سالبة.",
+              "En": "Distance cannot be negative."
+            }
+          },
+          {
+            "LatexCode": "6",
+            "IsCorrect": false,
+            "ErrorType": "one-endpoint",
+            "Reason": {
+              "Ar": "حسبت المسافة من −6 إلى الصفر فقط.",
+              "En": "Measured only from −6 to zero."
+            }
+          },
+          {
+            "LatexCode": "3",
+            "IsCorrect": false,
+            "ErrorType": "sum",
+            "Reason": {
+              "Ar": "جمعت القيم الموقعة بدلاً من حساب المسافة.",
+              "En": "Combined signed values instead of measuring distance."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "المسافة بين نقطتين تساوي القيمة المطلقة للفرق.",
+            "En": "The distance between two points is the absolute value of their difference."
+          },
+          {
+            "Ar": "اطرح العدد السالب من العدد الموجب قبل أخذ القيمة المطلقة.",
+            "En": "Subtract the negative number from the positive number before taking the absolute value."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "القيمة المطلقة للفرق تقيس المسافة غير السالبة.",
+            "En": "The absolute difference measures a nonnegative distance."
+          },
+          "FormulaLatex": "d=|a-b|",
+          "Steps": [
+            {
+              "Ar": "نختار الفرق 3 − (−6).",
+              "En": "Choose the difference 3 − (−6)."
+            },
+            {
+              "Ar": "طرح عدد سالب يكافئ جمع مقابله.",
+              "En": "Subtracting a negative is equivalent to adding its opposite."
+            }
+          ],
+          "Substitution": {
+            "Ar": "|3 − (−6)| = |9| = 9",
+            "En": "|3 − (−6)| = |9| = 9"
+          },
+          "Result": {
+            "Ar": "9",
+            "En": "9"
+          },
+          "Unit": {
+            "Ar": "وحدات على خط الأعداد",
+            "En": "number-line units"
+          },
+          "Verification": {
+            "Ar": "من −6 إلى 0 ست وحدات، ثم إلى 3 ثلاث وحدات؛ المجموع 9.",
+            "En": "From −6 to 0 is six units, then three units to 3; total nine."
+          },
+          "CommonError": {
+            "Ar": "لا تخلط المسافة بالفرق الموقّع.",
+            "En": "Do not confuse distance with a signed difference."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "g1-gap-01-logarithm-domain",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "grade-11"
+      ],
+      "PrimarySkillKey": "logarithm-domain",
+      "Check": {
+        "type": "interval_intersection",
+        "lo": -1,
+        "hi": 7,
+        "expected": "(-1,7)"
+      },
+      "Content": {
+        "StageId": 3,
+        "CategoryId": 86,
+        "PrimarySkillId": 312,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "مجال مجموع لوغاريتمين",
+          "En": "Domain of a sum of logarithms"
+        },
+        "Question": {
+          "Ar": "حدد المجال الحقيقي للدالة $f(x)=\\log_2(x+1)+\\log_2(7-x)$.",
+          "En": "Find the real domain of $f(x)=\\log_2(x+1)+\\log_2(7-x)$."
+        },
+        "Options": [
+          {
+            "LatexCode": "[-1,7]",
+            "IsCorrect": false,
+            "ErrorType": "boundary",
+            "Reason": {
+              "Ar": "اللوغاريتم غير معرف عند الصفر.",
+              "En": "A logarithm is undefined at zero."
+            }
+          },
+          {
+            "LatexCode": "(-1,7)",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "(-\\infty,7)",
+            "IsCorrect": false,
+            "ErrorType": "missing-condition",
+            "Reason": {
+              "Ar": "تحقق شرط اللوغاريتم الثاني فقط.",
+              "En": "Checked only the second logarithm."
+            }
+          },
+          {
+            "LatexCode": "(-1,\\infty)",
+            "IsCorrect": false,
+            "ErrorType": "missing-condition",
+            "Reason": {
+              "Ar": "تحقق شرط اللوغاريتم الأول فقط.",
+              "En": "Checked only the first logarithm."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "يجب أن يكون مدخل كل لوغاريتم موجباً تماماً.",
+            "En": "Each logarithm's argument must be strictly positive."
+          },
+          {
+            "Ar": "حل المتباينتين بشكل مستقل ثم خذ تقاطعهما.",
+            "En": "Solve the two inequalities separately and intersect their solutions."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "مجال المجموع هو تقاطع مجالي الحدين.",
+            "En": "The domain of the sum is the intersection of both domains."
+          },
+          "FormulaLatex": "\\operatorname{dom}(f)=\\{x:x+1>0\\}\\cap\\{x:7-x>0\\}",
+          "Steps": [
+            {
+              "Ar": "من x + 1 > 0 نحصل على x > −1.",
+              "En": "From x + 1 > 0 obtain x > −1."
+            },
+            {
+              "Ar": "من 7 − x > 0 نحصل على x < 7.",
+              "En": "From 7 − x > 0 obtain x < 7."
+            }
+          ],
+          "Substitution": {
+            "Ar": "x > −1 وx < 7",
+            "En": "x > −1 and x < 7"
+          },
+          "Result": {
+            "Ar": "(-1,7)",
+            "En": "(-1,7)"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة",
+            "En": "unitless"
+          },
+          "Verification": {
+            "Ar": "عند x=0 المدخلان موجبان، وعند الطرفين ينعدم أحد المدخلين.",
+            "En": "At x=0 both arguments are positive; at either endpoint one is zero."
+          },
+          "CommonError": {
+            "Ar": "استخدم التقاطع لا الاتحاد، واستبعد نقاط الصفر.",
+            "En": "Use intersection, not union, and exclude zero arguments."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "g1-gap-01-logarithm-domain-quadratic",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "grade-12"
+      ],
+      "PrimarySkillKey": "logarithm-domain",
+      "Check": {
+        "type": "quadratic_outside",
+        "lo": -3,
+        "hi": 2,
+        "expected": "(-\\infty,-3)\\cup(2,\\infty)"
+      },
+      "Content": {
+        "StageId": 3,
+        "CategoryId": 86,
+        "PrimarySkillId": 312,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 4,
+        "Points": 10,
+        "Title": {
+          "Ar": "مجال لوغاريتم حاصل ضرب",
+          "En": "Domain of a logarithm of a product"
+        },
+        "Question": {
+          "Ar": "حدد المجال الحقيقي للدالة $g(x)=\\ln((x-2)(x+3))$.",
+          "En": "Find the real domain of $g(x)=\\ln((x-2)(x+3))$."
+        },
+        "Options": [
+          {
+            "LatexCode": "(-3,2)",
+            "IsCorrect": false,
+            "ErrorType": "sign",
+            "Reason": {
+              "Ar": "حاصل الضرب سالب بين الجذرين.",
+              "En": "The product is negative between the roots."
+            }
+          },
+          {
+            "LatexCode": "[-3,2]",
+            "IsCorrect": false,
+            "ErrorType": "boundary-sign",
+            "Reason": {
+              "Ar": "الجداء سالب في الداخل وصفر عند الطرفين.",
+              "En": "The product is negative inside and zero at endpoints."
+            }
+          },
+          {
+            "LatexCode": "(-\\infty,-3)\\cup(2,\\infty)",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "(2,\\infty)",
+            "IsCorrect": false,
+            "ErrorType": "missing-branch",
+            "Reason": {
+              "Ar": "أُهمل المجال الذي يكون فيه العاملان سالبين.",
+              "En": "Omitted the region where both factors are negative."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "لا يشترط أن يكون كل عامل موجباً؛ المطلوب أن يكون حاصل الضرب موجباً.",
+            "En": "The factors need not both be positive; their product must be positive."
+          },
+          {
+            "Ar": "حدد جذري حاصل الضرب ثم اختبر الإشارة في الفترات الثلاث.",
+            "En": "Locate the roots and test the sign in the three intervals."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "مدخل اللوغاريتم الطبيعي يجب أن يكون موجباً، وحاصل ضرب عاملين يكون موجباً عندما تتطابق إشارتاهما.",
+            "En": "The natural logarithm requires a positive argument; a product is positive when its factors have the same sign."
+          },
+          "FormulaLatex": "\\ln A\\;\\text{defined if}\\; A>0",
+          "Steps": [
+            {
+              "Ar": "الجذران هما −3 و2.",
+              "En": "The roots are −3 and 2."
+            },
+            {
+              "Ar": "الإشارة موجبة خارج الجذرين وسالبة بينهما.",
+              "En": "The product is positive outside the roots and negative between them."
+            }
+          ],
+          "Substitution": {
+            "Ar": "(x−2)(x+3)>0",
+            "En": "(x−2)(x+3)>0"
+          },
+          "Result": {
+            "Ar": "$(-\\infty,-3)\\cup(2,\\infty)$",
+            "En": "$(-\\infty,-3)\\cup(2,\\infty)$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة",
+            "En": "unitless"
+          },
+          "Verification": {
+            "Ar": "عند x=−4 وx=3 المدخل موجب؛ عند x=0 سالب، وعند الجذرين صفر.",
+            "En": "At x=−4 and x=3 the argument is positive; at x=0 negative, and at the roots zero."
+          },
+          "CommonError": {
+            "Ar": "لا تفرض موجباً لكل عامل؛ الإشارتان السالبتان تعطيان جداء موجباً.",
+            "En": "Do not require both factors to be positive; two negatives give a positive product."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "g1-gap-01-logarithm-modeling",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "grade-12"
+      ],
+      "PrimarySkillKey": "logarithm-modeling",
+      "Check": {
+        "type": "log_inverse",
+        "level": 20,
+        "expected": "100"
+      },
+      "Content": {
+        "StageId": 3,
+        "CategoryId": 86,
+        "PrimarySkillId": 314,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "استنتاج نسبة من مستوى لوغاريتمي",
+          "En": "Infer a ratio from a logarithmic level"
+        },
+        "Question": {
+          "Ar": "يعطى توهين القدرة بالديسيبل بالعلاقة $A=10\\log_{10}(P_{in}/P_{out})$. إذا كان $A=20$ dB، فما النسبة $P_{in}/P_{out}$؟",
+          "En": "Power attenuation in decibels is given by $A=10\\log_{10}(P_{in}/P_{out})$. If $A=20$ dB, what is the ratio $P_{in}/P_{out}$?"
+        },
+        "Options": [
+          {
+            "LatexCode": "2",
+            "IsCorrect": false,
+            "ErrorType": "log-value",
+            "Reason": {
+              "Ar": "حُسب اللوغاريتم دون عكسه.",
+              "En": "Computed the logarithm without inverting it."
+            }
+          },
+          {
+            "LatexCode": "20",
+            "IsCorrect": false,
+            "ErrorType": "original-level",
+            "Reason": {
+              "Ar": "اعتُبر مستوى الديسيبل هو النسبة نفسها.",
+              "En": "Treated the decibel level as the ratio itself."
+            }
+          },
+          {
+            "LatexCode": "1000",
+            "IsCorrect": false,
+            "ErrorType": "exponent",
+            "Reason": {
+              "Ar": "استُخدم أس غير مطابق للمستوى.",
+              "En": "Used an exponent inconsistent with the level."
+            }
+          },
+          {
+            "LatexCode": "100",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "اعزل اللوغاريتم بقسمة الطرفين على 10.",
+            "En": "Isolate the logarithm by dividing both sides by 10."
+          },
+          {
+            "Ar": "حوّل المعادلة اللوغاريتمية إلى صورة أسية بالأساس 10.",
+            "En": "Convert the logarithmic equation to exponential form with base 10."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نعكس اللوغاريتم العشري باستعمال قوة للعدد 10.",
+            "En": "Invert the base-10 logarithm with a power of 10."
+          },
+          "FormulaLatex": "R=10^{A/10}",
+          "Steps": [
+            {
+              "Ar": "نرمز إلى النسبة بـ R، وهي موجبة.",
+              "En": "Let R denote the positive ratio."
+            },
+            {
+              "Ar": "20 = 10 log₁₀R، ومنه log₁₀R = 2.",
+              "En": "20 = 10 log₁₀R, so log₁₀R = 2."
+            }
+          ],
+          "Substitution": {
+            "Ar": "R = 10² = 100",
+            "En": "R = 10² = 100"
+          },
+          "Result": {
+            "Ar": "100",
+            "En": "100"
+          },
+          "Unit": {
+            "Ar": "نسبة بلا وحدة",
+            "En": "dimensionless ratio"
+          },
+          "Verification": {
+            "Ar": "10 log₁₀(100) = 20 dB.",
+            "En": "10 log₁₀(100) = 20 dB."
+          },
+          "CommonError": {
+            "Ar": "النسبة ليست قيمة اللوغاريتم ولا قيمة الديسيبل.",
+            "En": "The ratio is neither the logarithm nor the decibel level."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "g1-gap-01-model-interpretation",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "grade-11"
+      ],
+      "PrimarySkillKey": "model-interpretation",
+      "Check": {
+        "type": "compound_factor",
+        "factor": 0.8,
+        "periods": 2,
+        "expected": "0.64"
+      },
+      "Content": {
+        "StageId": 3,
+        "CategoryId": 86,
+        "PrimarySkillId": 316,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "تغير نموذج أسي خلال فترتين",
+          "En": "Two-period change in an exponential model"
+        },
+        "Question": {
+          "Ar": "لدينا $N(t)=900(0.8)^t$. ما النسبة $N(t+2)/N(t)$؟",
+          "En": "Given $N(t)=900(0.8)^t$, what is the ratio $N(t+2)/N(t)$?"
+        },
+        "Options": [
+          {
+            "LatexCode": "0.64",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "0.6",
+            "IsCorrect": false,
+            "ErrorType": "linear-decay",
+            "Reason": {
+              "Ar": "طُرح انخفاض 20% مرتين من القيمة الأصلية خطياً.",
+              "En": "Subtracted the 20% decrease twice as if linear."
+            }
+          },
+          {
+            "LatexCode": "1.6",
+            "IsCorrect": false,
+            "ErrorType": "factor-addition",
+            "Reason": {
+              "Ar": "جُمع عامل الفترتين بدلاً من ضربهما.",
+              "En": "Added the period factors instead of multiplying them."
+            }
+          },
+          {
+            "LatexCode": "0.8",
+            "IsCorrect": false,
+            "ErrorType": "single-period",
+            "Reason": {
+              "Ar": "استُخدم عامل فترة واحدة فقط.",
+              "En": "Used only the one-period factor."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "اكتب الكمية عند الزمن t+2 ثم اقسمها على الكمية عند t.",
+            "En": "Write the quantity at t+2, then divide by the quantity at t."
+          },
+          {
+            "Ar": "استخدم قانون قسمة القوى ذات الأساس نفسه.",
+            "En": "Use the quotient rule for powers with the same base."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "عامل التغير عبر فترتين هو مربع عامل الفترة الواحدة.",
+            "En": "The change factor over two periods is the square of the one-period factor."
+          },
+          "FormulaLatex": "\\frac{N(t+2)}{N(t)}=b^2",
+          "Steps": [
+            {
+              "Ar": "تلغى القيمة الابتدائية 900 عند القسمة.",
+              "En": "The initial value 900 cancels in the quotient."
+            },
+            {
+              "Ar": "نطرح الأسين: (t+2)−t=2.",
+              "En": "Subtract the exponents: (t+2)−t=2."
+            }
+          ],
+          "Substitution": {
+            "Ar": "0.8² = 0.64",
+            "En": "0.8² = 0.64"
+          },
+          "Result": {
+            "Ar": "0.64",
+            "En": "0.64"
+          },
+          "Unit": {
+            "Ar": "نسبة بلا وحدة",
+            "En": "dimensionless ratio"
+          },
+          "Verification": {
+            "Ar": "عند t=0، 576÷900=0.64.",
+            "En": "At t=0, 576÷900=0.64."
+          },
+          "CommonError": {
+            "Ar": "النمو أو التناقص الأسي تراكمي وليس خطياً.",
+            "En": "Exponential growth or decay compounds; it is not linear."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "g1-gap-01-hypothesis-testing",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "probability-statistics"
+      ],
+      "PrimarySkillKey": "hypothesis-testing",
+      "Check": {
+        "type": "complement",
+        "beta": 0.15,
+        "expected": "0.85"
+      },
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 89,
+        "PrimarySkillId": 318,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "قوة الاختبار الإحصائي",
+          "En": "Statistical test power"
+        },
+        "Question": {
+          "Ar": "عند قيمة محددة للمعلمة تحت الفرضية البديلة، احتمال الخطأ من النوع الثاني يساوي 0.15. ما قوة الاختبار عند تلك القيمة؟",
+          "En": "At a specified parameter value under the alternative hypothesis, the probability of a Type II error is 0.15. What is the test power at that value?"
+        },
+        "Options": [
+          {
+            "LatexCode": "0.15",
+            "IsCorrect": false,
+            "ErrorType": "confusion-beta",
+            "Reason": {
+              "Ar": "هذه قيمة احتمال الخطأ من النوع الثاني، لا القوة.",
+              "En": "This is the Type II error probability, not power."
+            }
+          },
+          {
+            "LatexCode": "0.85",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "1.15",
+            "IsCorrect": false,
+            "ErrorType": "complement",
+            "Reason": {
+              "Ar": "جمعت الاحتمال إلى الواحد بدلاً من طرحه.",
+              "En": "Added the probability to one rather than subtracting it."
+            }
+          },
+          {
+            "LatexCode": "0.05",
+            "IsCorrect": false,
+            "ErrorType": "alpha-confusion",
+            "Reason": {
+              "Ar": "افترضت مستوى دلالة غير معطى.",
+              "En": "Assumed an unspecified significance level."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "قوة الاختبار هي احتمال رفض الفرضية الصفرية عندما تكون البديلة صحيحة عند القيمة المحددة.",
+            "En": "Power is the probability of rejecting the null under the specified alternative."
+          },
+          {
+            "Ar": "احتمال الخطأ من النوع الثاني هو متمم قوة الاختبار عند القيمة نفسها.",
+            "En": "The Type II error probability is the complement of power at the same parameter value."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "قوة الاختبار عند بديل محدد تساوي متمم احتمال الخطأ من النوع الثاني.",
+            "En": "Power at a specified alternative equals the complement of the Type II error probability."
+          },
+          "FormulaLatex": "\\operatorname{Power}=1-\\beta",
+          "Steps": [
+            {
+              "Ar": "المعطى هو β = 0.15.",
+              "En": "The given value is β = 0.15."
+            },
+            {
+              "Ar": "نطرح β من الواحد.",
+              "En": "Subtract β from one."
+            }
+          ],
+          "Substitution": {
+            "Ar": "1 − 0.15 = 0.85",
+            "En": "1 − 0.15 = 0.85"
+          },
+          "Result": {
+            "Ar": "0.85",
+            "En": "0.85"
+          },
+          "Unit": {
+            "Ar": "احتمال (85%)",
+            "En": "probability (85%)"
+          },
+          "Verification": {
+            "Ar": "0.15 + 0.85 = 1.",
+            "En": "0.15 + 0.85 = 1."
+          },
+          "CommonError": {
+            "Ar": "لا تخلط بين β واحتمال الخطأ من النوع الأول α.",
+            "En": "Do not confuse β with the Type I error probability α."
+          }
+        }
+      }
+    }
+  ]
+}

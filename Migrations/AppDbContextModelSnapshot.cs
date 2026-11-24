@@ -22,11 +22,219 @@ namespace MathWorldAPI.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("MathWorldAPI.Models.LearningCertificate", b =>
+                {
+                    b.Property<Guid>("Id").HasColumnType("uuid");
+                    b.Property<int>("UserId").HasColumnType("integer");
+                    b.Property<int>("StageId").HasColumnType("integer");
+                    b.Property<int?>("TrackId").HasColumnType("integer");
+                    b.Property<int?>("CategoryId").HasColumnType("integer");
+                    b.Property<string>("ScopeKey").IsRequired().HasMaxLength(100).HasColumnType("character varying(100)");
+                    b.Property<string>("Kind").IsRequired().HasMaxLength(12).HasColumnType("character varying(12)");
+                    b.Property<string>("StudentName").IsRequired().HasMaxLength(300).HasColumnType("character varying(300)");
+                    b.Property<string>("TitleAr").IsRequired().HasMaxLength(500).HasColumnType("character varying(500)");
+                    b.Property<string>("TitleEn").IsRequired().HasMaxLength(500).HasColumnType("character varying(500)");
+                    b.Property<string>("VerificationCode").IsRequired().HasMaxLength(32).HasColumnType("character varying(32)");
+                    b.Property<int>("PolicyVersion").HasColumnType("integer");
+                    b.Property<int>("TotalProblems").HasColumnType("integer");
+                    b.Property<int>("RequiredSkills").HasColumnType("integer");
+                    b.Property<DateTime>("IssuedAtUtc").HasColumnType("timestamp with time zone");
+                    b.HasKey("Id");
+                    b.HasIndex("UserId", "ScopeKey").IsUnique();
+                    b.HasIndex("VerificationCode").IsUnique();
+                    b.ToTable("LearningCertificates", t=>t.HasCheckConstraint("CK_LearningCertificates_Scope", "\"Kind\" IN ('category','grade','course') AND \"PolicyVersion\" > 0 AND \"TotalProblems\" >= 5 AND \"RequiredSkills\" > 0 AND ((\"Kind\" = 'category' AND \"CategoryId\" IS NOT NULL) OR (\"Kind\" <> 'category' AND \"CategoryId\" IS NULL AND \"TrackId\" IS NOT NULL))"));
+                });
+            modelBuilder.Entity("MathWorldAPI.Models.PermanentProblemAchievement", b =>
+                {
+                    b.Property<int>("UserId").HasColumnType("integer");
+                    b.Property<int>("ProblemId").HasColumnType("integer");
+                    b.Property<int>("StageId").HasColumnType("integer");
+                    b.Property<int>("CategoryId").HasColumnType("integer");
+                    b.Property<int>("Points").HasColumnType("integer");
+                    b.Property<DateTime>("EarnedAtUtc").HasColumnType("timestamp with time zone");
+                    b.HasKey("UserId", "ProblemId");
+                    b.HasIndex("UserId", "StageId", "CategoryId");
+                    b.ToTable("PermanentProblemAchievements", t => t.HasCheckConstraint("CK_PermanentProblemAchievements_Points", "\"Points\" >= 0"));
+                });
+            modelBuilder.Entity("MathWorldAPI.Models.LearningSession", b =>
+                {
+                    b.Property<Guid>("Id").HasColumnType("uuid");
+                    b.Property<int>("UserId").HasColumnType("integer");
+                    b.Property<int>("StageId").HasColumnType("integer");
+                    b.Property<int?>("TrackId").HasColumnType("integer");
+                    b.Property<int?>("CategoryId").HasColumnType("integer");
+                    b.Property<string>("Kind").IsRequired().HasMaxLength(12).HasColumnType("character varying(12)");
+                    b.Property<string>("ScopeKey").IsRequired().HasMaxLength(100).HasColumnType("character varying(100)");
+                    b.Property<Guid>("StartRequestId").HasColumnType("uuid");
+                    b.Property<string>("QuestionsJson").IsRequired().HasColumnType("text");
+                    b.Property<int>("Total").HasColumnType("integer");
+                    b.Property<int>("Completed").HasColumnType("integer");
+                    b.Property<int>("HintsRevealed").ValueGeneratedOnAdd().HasColumnType("integer").HasDefaultValue(0);
+                    b.Property<DateTime>("CreatedAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<DateTime?>("CompletedAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<DateTime?>("AbandonedAtUtc").HasColumnType("timestamp with time zone");
+                    b.HasKey("Id");
+                    b.HasIndex("UserId", "StartRequestId").IsUnique();
+                    b.HasIndex("UserId", "ScopeKey").IsUnique().HasFilter("\"Kind\" = 'daily' OR (\"CompletedAtUtc\" IS NULL AND \"AbandonedAtUtc\" IS NULL)");
+                    b.ToTable("LearningSessions", t =>
+                    {
+                        t.HasCheckConstraint("CK_LearningSessions_Abandoned", "\"AbandonedAtUtc\" IS NULL OR (\"Kind\" = 'practice' AND \"CompletedAtUtc\" IS NULL AND \"HintsRevealed\" = 0)");
+                        t.HasCheckConstraint("CK_LearningSessions_Hints", "\"HintsRevealed\" BETWEEN 0 AND 2 AND (\"CompletedAtUtc\" IS NULL OR \"HintsRevealed\" = 0)");
+                        t.HasCheckConstraint("CK_LearningSessions_Kind", "\"Kind\" IN ('practice','daily')");
+                        t.HasCheckConstraint("CK_LearningSessions_Progress", "\"Total\" BETWEEN 5 AND 10 AND \"Completed\" BETWEEN 0 AND \"Total\" AND ((\"Completed\" = \"Total\") = (\"CompletedAtUtc\" IS NOT NULL)) AND (\"Kind\" <> 'daily' OR (\"Total\" = 5 AND \"CategoryId\" IS NULL))");
+                    });
+                });
+            modelBuilder.Entity("MathWorldAPI.Models.LearningSessionAttempt", b =>
+                {
+                    b.Property<Guid>("SessionId").HasColumnType("uuid");
+                    b.Property<Guid>("RequestId").HasColumnType("uuid");
+                    b.Property<int>("Position").HasColumnType("integer");
+                    b.Property<int>("ProblemId").HasColumnType("integer");
+                    b.Property<int>("SelectedOptionId").HasColumnType("integer");
+                    b.Property<string>("SelectedOptionText").IsRequired().HasColumnType("text");
+                    b.Property<bool>("IsCorrect").HasColumnType("boolean");
+                    b.Property<int>("AttemptNumber").HasColumnType("integer");
+                    b.Property<bool>("UsedHint").ValueGeneratedOnAdd().HasColumnType("boolean").HasDefaultValue(false);
+                    b.Property<int>("PointsEarned").ValueGeneratedOnAdd().HasColumnType("integer").HasDefaultValue(0);
+                    b.Property<DateTime>("SubmittedAtUtc").HasColumnType("timestamp with time zone");
+                    b.HasKey("SessionId", "RequestId");
+                    b.HasIndex("SessionId", "Position", "AttemptNumber").IsUnique();
+                    b.HasIndex("SessionId", "Position").IsUnique().HasFilter("\"IsCorrect\"");
+                    b.ToTable("LearningSessionAttempts", t => t.HasCheckConstraint("CK_LearningSessionAttempts_Position", "\"Position\" BETWEEN 0 AND 9 AND \"AttemptNumber\" > 0 AND \"ProblemId\" > 0 AND \"SelectedOptionId\" > 0"));
+                });
+
+
+            modelBuilder.Entity("MathWorldAPI.Models.LearningTrack", b =>
+                {
+                    b.Property<int>("Id").ValueGeneratedOnAdd().HasColumnType("integer");
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                    b.Property<int>("StageId").HasColumnType("integer");
+                    b.Property<string>("Code").IsRequired().HasMaxLength(80).HasColumnType("character varying(80)");
+                    b.Property<string>("Kind").IsRequired().HasMaxLength(12).HasColumnType("character varying(12)");
+                    b.Property<string>("NameAr").IsRequired().HasColumnType("text");
+                    b.Property<string>("NameEn").IsRequired().HasColumnType("text");
+                    b.Property<string>("DescriptionAr").IsRequired().HasColumnType("text");
+                    b.Property<string>("DescriptionEn").IsRequired().HasColumnType("text");
+                    b.Property<int>("SortOrder").HasColumnType("integer");
+                    b.Property<int>("Revision").HasColumnType("integer");
+                    b.Property<bool>("IsPublished").HasColumnType("boolean");
+                    b.HasKey("Id");
+                    b.HasIndex("StageId", "Code").IsUnique();
+                    b.HasIndex("StageId", "IsPublished", "SortOrder");
+                    b.ToTable("LearningTracks", t => t.HasCheckConstraint("CK_LearningTracks_Kind", "\"Kind\" IN ('grade','course')"));
+                });
+            modelBuilder.Entity("MathWorldAPI.Models.LearningTrackCategory", b =>
+                {
+                    b.Property<int>("TrackId").HasColumnType("integer");
+                    b.Property<int>("CategoryId").HasColumnType("integer");
+                    b.HasKey("TrackId", "CategoryId");
+                    b.HasIndex("CategoryId");
+                    b.ToTable("LearningTrackCategories");
+                });
+            modelBuilder.Entity("MathWorldAPI.Models.LearningTrackSkill", b =>
+                {
+                    b.Property<int>("TrackId").HasColumnType("integer");
+                    b.Property<int>("SkillId").HasColumnType("integer");
+                    b.HasKey("TrackId", "SkillId");
+                    b.HasIndex("SkillId");
+                    b.ToTable("LearningTrackSkills");
+                });
+            modelBuilder.Entity("MathWorldAPI.Models.LearningTrackProblem", b =>
+                {
+                    b.Property<int>("TrackId").HasColumnType("integer");
+                    b.Property<int>("ProblemId").HasColumnType("integer");
+                    b.HasKey("TrackId", "ProblemId");
+                    b.HasIndex("ProblemId");
+                    b.ToTable("LearningTrackProblems");
+                });
+
+
+            modelBuilder.Entity("MathWorldAPI.Models.EmailVerificationGrant", b =>
+                {
+                    b.Property<Guid>("Id").HasColumnType("uuid");
+                    b.Property<int>("UserId").HasColumnType("integer");
+                    b.Property<string>("TokenHash").IsRequired().HasColumnType("text");
+                    b.Property<string>("Email").IsRequired().HasColumnType("text");
+                    b.Property<int>("TokenVersion").HasColumnType("integer");
+                    b.Property<DateTime>("CreatedAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<DateTime>("ExpiresAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<DateTime?>("ConsumedAtUtc").HasColumnType("timestamp with time zone");
+                    b.HasKey("Id");
+                    b.HasIndex("TokenHash").IsUnique();
+                    b.HasIndex("UserId","CreatedAtUtc");
+                    b.HasIndex("CreatedAtUtc");
+                    b.ToTable("EmailVerificationGrants");
+                });
+
+            modelBuilder.Entity("MathWorldAPI.Models.PasswordResetGrant", b =>
+                {
+                    b.Property<Guid>("Id").HasColumnType("uuid");
+                    b.Property<int>("UserId").HasColumnType("integer");
+                    b.Property<string>("TokenHash").IsRequired().HasColumnType("text");
+                    b.Property<string>("Email").IsRequired().HasColumnType("text");
+                    b.Property<string>("Role").IsRequired().HasColumnType("text");
+                    b.Property<bool>("IsInvitation").ValueGeneratedOnAdd().HasColumnType("boolean").HasDefaultValue(false);
+                    b.Property<int>("TokenVersion").HasColumnType("integer");
+                    b.Property<DateTime>("CreatedAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<DateTime>("ExpiresAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<DateTime?>("ConsumedAtUtc").HasColumnType("timestamp with time zone");
+                    b.HasKey("Id");
+                    b.HasIndex("TokenHash").IsUnique();
+                    b.HasIndex("UserId", "CreatedAtUtc");
+                    b.ToTable("PasswordResetGrants");
+                });
+
+            modelBuilder.Entity("MathWorldAPI.Models.EmailOutboxItem", b =>
+                {
+                    b.Property<Guid>("Id").HasColumnType("uuid");
+                    b.Property<int>("UserId").HasColumnType("integer");
+                    b.Property<Guid?>("ResetGrantId").HasColumnType("uuid");
+                    b.Property<string>("Recipient").IsRequired().HasColumnType("text");
+                    b.Property<string>("TemplateKey").IsRequired().HasColumnType("text");
+                    b.Property<string>("Locale").IsRequired().HasColumnType("text");
+                    b.Property<string>("State").IsRequired().HasColumnType("text");
+                    b.Property<int>("Attempts").HasColumnType("integer");
+                    b.Property<DateTime>("CreatedAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<DateTime>("ExpiresAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<DateTime>("NextRetryAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<Guid?>("LeaseId").HasColumnType("uuid");
+                    b.Property<string>("ProviderMessageId").HasColumnType("text");
+                    b.Property<string>("LastErrorCode").HasColumnType("text");
+                    b.HasKey("Id");
+                    b.HasIndex("UserId");
+                    b.HasIndex("CreatedAtUtc");
+                    b.HasIndex("State", "NextRetryAtUtc");
+                    b.ToTable("EmailOutbox");
+                });
+
+
+            modelBuilder.Entity("MathWorldAPI.Models.PlatformBrandSettings", b =>
+                {
+                    b.Property<int>("Id").HasColumnType("integer");
+                    b.Property<int>("Revision").HasColumnType("integer");
+                    b.Property<string>("SettingsJson").IsRequired().HasColumnType("jsonb");
+                    b.HasKey("Id");
+                    b.ToTable("PlatformBrandSettings", t =>
+                        t.HasCheckConstraint("CK_PlatformBrandSettings_Singleton", "\"Id\" = 1"));
+                });
+
             modelBuilder.Entity("MathWorldAPI.Models.CurriculumDraftItem", b =>
                 {
                     b.Property<long>("Id").ValueGeneratedOnAdd().HasColumnType("bigint");
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
-                    b.Property<int>("TopicProposalId").HasColumnType("integer");
+                    b.Property<int?>("TopicProposalId").HasColumnType("integer");
+                    b.Property<string>("WizardJson").HasColumnType("text");
+                    b.Property<int?>("OwnerUserId").HasColumnType("integer");
+                    b.Property<int?>("LastEditorUserId").HasColumnType("integer");
+                    b.Property<int>("Revision").ValueGeneratedOnAdd().HasColumnType("integer").HasDefaultValue(0);
+                    b.Property<DateTime?>("SubmittedAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<DateTime?>("ReviewedAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<int?>("ReviewedByUserId").HasColumnType("integer");
+                    b.Property<string>("ReviewNote").HasColumnType("text");
+                    b.Property<DateTime?>("PublishedAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<int?>("SourceProblemId").HasColumnType("integer");
+                    b.Property<string>("SourceFingerprint").HasColumnType("text");
+                    b.Property<int?>("PublishedProblemId").HasColumnType("integer");
                     b.Property<string>("ContentKey").IsRequired().HasMaxLength(120).HasColumnType("character varying(120)");
                     b.Property<string>("PrimarySkillKey").IsRequired().HasMaxLength(120).HasColumnType("character varying(120)");
                     b.Property<string>("TemplateFamilyKey").IsRequired().HasMaxLength(160).HasColumnType("character varying(160)");
@@ -42,6 +250,7 @@ namespace MathWorldAPI.Migrations
                     b.Property<string>("EditorialStatus").IsRequired().HasMaxLength(24).HasColumnType("character varying(24)");
                     b.HasKey("Id");
                     b.HasIndex("ContentKey").IsUnique();
+                    b.HasIndex("OwnerUserId", "EditorialStatus");
                     b.HasIndex("TopicProposalId", "EditorialStatus");
                     b.HasIndex("TopicProposalId", "TemplateFamilyKey");
                     b.ToTable("CurriculumDraftItems", t =>
@@ -360,6 +569,7 @@ namespace MathWorldAPI.Migrations
 
                     b.Property<int?>("CurrentStageId")
                         .HasColumnType("integer");
+                    b.Property<int?>("CurrentTrackId").HasColumnType("integer");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
@@ -400,12 +610,28 @@ namespace MathWorldAPI.Migrations
                         .HasMaxLength(32)
                         .HasColumnType("character varying(32)");
 
+                    b.Property<int>("StaffPermissions").ValueGeneratedOnAdd().HasColumnType("integer").HasDefaultValue(0);
+                    b.Property<bool>("StaffSetupPending").ValueGeneratedOnAdd().HasColumnType("boolean").HasDefaultValue(false);
+                    b.Property<string>("VerifiedNotificationEmail").HasMaxLength(256).HasColumnType("character varying(256)");
+                    b.Property<string>("EmailNotificationLocale").HasMaxLength(2).HasColumnType("character varying(2)");
+                    b.Property<DateTime?>("PremiumExpiryNotifiedAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<bool>("EmailLearningUpdates").ValueGeneratedOnAdd().HasColumnType("boolean").HasDefaultValue(false);
+                    b.Property<bool>("EmailSubscriptionUpdates").ValueGeneratedOnAdd().HasColumnType("boolean").HasDefaultValue(false);
+                    b.Property<bool>("EmailImportantAnnouncements").ValueGeneratedOnAdd().HasColumnType("boolean").HasDefaultValue(false);
+
+                    b.Property<int>("TokenVersion")
+                        .IsConcurrencyToken()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasDefaultValue(0);
+
                     b.HasKey("Id");
 
                     b.HasIndex("Email")
                         .IsUnique();
 
                     b.HasIndex("CurrentStageId");
+                    b.HasIndex("CurrentTrackId");
 
                     b.ToTable("Users");
                 });
@@ -754,6 +980,8 @@ namespace MathWorldAPI.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<string>("EditorialDetailsJson").HasColumnType("text");
+
                     b.Property<int>("Points")
                         .HasColumnType("integer");
 
@@ -855,7 +1083,8 @@ namespace MathWorldAPI.Migrations
 
                     b.HasIndex("UserId", "SubmittedAt");
 
-                    b.ToTable("ProblemAttempts");
+                    b.Property<int>("PracticeScopeId").ValueGeneratedOnAdd().HasColumnType("integer").HasDefaultValue(0);
+                    b.ToTable("ProblemAttempts",t=>t.HasCheckConstraint("CK_ProblemAttempts_PracticeScope","\"PracticeScopeId\" >= 0"));
                 });
 
             modelBuilder.Entity("MathWorldAPI.Models.ProblemDiagram", b =>
@@ -1040,6 +1269,8 @@ namespace MathWorldAPI.Migrations
                     b.Property<int?>("FirstSelectedOptionId")
                         .HasColumnType("integer");
 
+                    b.Property<int>("HintsRevealed").ValueGeneratedOnAdd().HasColumnType("integer").HasDefaultValue(0);
+
                     b.Property<int>("IncorrectAttempts")
                         .HasColumnType("integer");
 
@@ -1097,10 +1328,12 @@ namespace MathWorldAPI.Migrations
 
                     b.HasIndex("UserId", "NextReviewAt");
 
+                    b.Property<int>("PracticeScopeId").ValueGeneratedOnAdd().HasColumnType("integer").HasDefaultValue(0);
                     b.HasIndex("UserId", "ProblemId")
-                        .IsUnique();
+                        .IsUnique().HasFilter("\"PracticeScopeId\" = 0");
+                    b.HasIndex("UserId","ProblemId","PracticeScopeId").IsUnique();
 
-                    b.ToTable("UserProgresses");
+                    b.ToTable("UserProgresses",t=>t.HasCheckConstraint("CK_UserProgresses_PracticeScope","\"PracticeScopeId\" >= 0 AND (\"PracticeScopeId\" = 0 OR NOT \"IsFavorite\")"));
                 });
 
             modelBuilder.Entity("MathWorldAPI.Models.CurriculumDraftBatch", b =>
@@ -1191,8 +1424,7 @@ namespace MathWorldAPI.Migrations
                     b.HasOne("MathWorldAPI.Models.CurriculumTopicProposal", "TopicProposal")
                         .WithMany()
                         .HasForeignKey("TopicProposalId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Cascade);
                     b.Navigation("TopicProposal");
                 });
 
@@ -1429,6 +1661,82 @@ namespace MathWorldAPI.Migrations
 
                     b.Navigation("UserProgresses");
                 });
+            modelBuilder.Entity("MathWorldAPI.Models.EmailVerificationGrant", b =>
+                {
+                    b.HasOne("MathWorldAPI.Models.AppUser", null).WithMany().HasForeignKey("UserId").OnDelete(DeleteBehavior.Cascade).IsRequired();
+                });
+
+            modelBuilder.Entity("MathWorldAPI.Models.PasswordResetGrant", b =>
+                {
+                    b.HasOne("MathWorldAPI.Models.AppUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("MathWorldAPI.Models.EmailOutboxItem", b =>
+                {
+                    b.HasOne("MathWorldAPI.Models.AppUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("MathWorldAPI.Models.LearningTrack", b =>
+                {
+                    b.HasOne("MathWorldAPI.Models.EducationalStage", null).WithMany()
+                        .HasForeignKey("StageId").OnDelete(DeleteBehavior.Restrict).IsRequired();
+                });
+            modelBuilder.Entity("MathWorldAPI.Models.LearningTrackCategory", b =>
+                {
+                    b.HasOne("MathWorldAPI.Models.LearningTrack", null).WithMany()
+                        .HasForeignKey("TrackId").OnDelete(DeleteBehavior.Cascade).IsRequired();
+                    b.HasOne("MathWorldAPI.Models.Category", null).WithMany()
+                        .HasForeignKey("CategoryId").OnDelete(DeleteBehavior.Cascade).IsRequired();
+                });
+            modelBuilder.Entity("MathWorldAPI.Models.LearningTrackSkill", b =>
+                {
+                    b.HasOne("MathWorldAPI.Models.LearningTrack", null).WithMany()
+                        .HasForeignKey("TrackId").OnDelete(DeleteBehavior.Cascade).IsRequired();
+                    b.HasOne("MathWorldAPI.Models.CurriculumSkill", null).WithMany()
+                        .HasForeignKey("SkillId").OnDelete(DeleteBehavior.Cascade).IsRequired();
+                });
+            modelBuilder.Entity("MathWorldAPI.Models.LearningTrackProblem", b =>
+                {
+                    b.HasOne("MathWorldAPI.Models.LearningTrack", null).WithMany()
+                        .HasForeignKey("TrackId").OnDelete(DeleteBehavior.Cascade).IsRequired();
+                    b.HasOne("MathWorldAPI.Models.MathProblem", null).WithMany()
+                        .HasForeignKey("ProblemId").OnDelete(DeleteBehavior.Cascade).IsRequired();
+                });
+            modelBuilder.Entity("MathWorldAPI.Models.AppUser", b =>
+                {
+                    b.HasOne("MathWorldAPI.Models.LearningTrack", null).WithMany()
+                        .HasForeignKey("CurrentTrackId").OnDelete(DeleteBehavior.Restrict);
+                });
+
+            modelBuilder.Entity("MathWorldAPI.Models.LearningCertificate", b =>
+                {
+                    b.HasOne("MathWorldAPI.Models.AppUser", null).WithMany()
+                        .HasForeignKey("UserId").OnDelete(DeleteBehavior.Cascade).IsRequired();
+                });
+            modelBuilder.Entity("MathWorldAPI.Models.PermanentProblemAchievement", b =>
+                {
+                    b.HasOne("MathWorldAPI.Models.AppUser", null).WithMany()
+                        .HasForeignKey("UserId").OnDelete(DeleteBehavior.Cascade).IsRequired();
+                });
+            modelBuilder.Entity("MathWorldAPI.Models.LearningSession", b =>
+                {
+                    b.HasOne("MathWorldAPI.Models.AppUser", null).WithMany()
+                        .HasForeignKey("UserId").OnDelete(DeleteBehavior.Cascade).IsRequired();
+                });
+            modelBuilder.Entity("MathWorldAPI.Models.LearningSessionAttempt", b =>
+                {
+                    b.HasOne("MathWorldAPI.Models.LearningSession", null).WithMany()
+                        .HasForeignKey("SessionId").OnDelete(DeleteBehavior.Cascade).IsRequired();
+                });
+
 #pragma warning restore 612, 618
         }
     }

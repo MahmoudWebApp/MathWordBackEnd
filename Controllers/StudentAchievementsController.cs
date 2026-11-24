@@ -46,9 +46,14 @@ public sealed class StudentAchievementsController : ControllerBase
         // Progress badges describe the CURRENT stage, never answers earned in
         // another stage. Changing stage keeps the underlying history intact.
         var stageId = student.CurrentStageId ?? 1;
-        var solvedByStage = await _db.UserProgresses.AsNoTracking()
-            .Where(p => p.UserId == userId && p.IsSolved)
-            .GroupBy(p => p.Problem.StageId)
+        var permanentEnabled=HttpContext.RequestServices.GetRequiredService<IConfiguration>()
+            .GetValue<bool>("LearningSessions:Enabled");
+        var activeStages=_db.UserProgresses.AsNoTracking().Where(p=>p.UserId==userId&&p.IsSolved)
+            .Select(p=>p.Problem.StageId);
+        var permanentStages=_db.PermanentProblemAchievements.AsNoTracking().Where(p=>p.UserId==userId)
+            .Select(p=>p.StageId);
+        var solvedByStage = await (permanentEnabled?permanentStages:activeStages)
+            .GroupBy(p => p)
             .Select(g => new { StageId = g.Key, Solved = g.Count() })
             .ToListAsync(ct);
         var solved = solvedByStage.FirstOrDefault(x => x.StageId == stageId)?.Solved ?? 0;
@@ -84,6 +89,7 @@ public sealed class StudentAchievementsController : ControllerBase
         {
             StageId = stageId,
             UniqueSolved = solved,
+            ScoreBasis = permanentEnabled ? "PermanentAchievements" : "ActiveProgress",
             EarnedCount = badges.Count(b => b.Earned),
             TotalBadges = badges.Count,
             NextMilestone = next?.Key == "all_stages_explorer" ? (int?)null : next?.RequiredSolved,

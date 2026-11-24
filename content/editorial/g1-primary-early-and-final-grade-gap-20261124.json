@@ -1,0 +1,1373 @@
+{
+  "Version": 1,
+  "Status": "DraftCandidatesNotPublished",
+  "Notes": [
+    "Targeted grade 1 and 6 coverage identified by individual primary-grade placement. Bilingual wizard import rows; no direct database write, no approval or publication. Grade placement is provisional."
+  ],
+  "Items": [
+    {
+      "ContentKey": "g1-grade-gap-join-two-groups",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "grade-1"
+      ],
+      "PrimarySkillKey": "primary-addition",
+      "Check": {
+        "expected": "13"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 1,
+        "PrimarySkillId": 1,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 1,
+        "Points": 10,
+        "Title": {
+          "Ar": "جمع مجموعتين",
+          "En": "Join two groups"
+        },
+        "Question": {
+          "Ar": "في رف 7 كتب، ثم وُضعت فيه 6 كتب أخرى. كم كتاباً أصبح في الرف؟",
+          "En": "A shelf has 7 books. Then 6 more books are added. How many books are on the shelf now?"
+        },
+        "Options": [
+          {
+            "LatexCode": "12",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "لم تُحسب إحدى الإضافات.",
+              "En": "One added book was omitted."
+            }
+          },
+          {
+            "LatexCode": "13",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "1",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "طُرح 6 من 7.",
+              "En": "Subtracts 6 from 7."
+            }
+          },
+          {
+            "LatexCode": "14",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "أضيفت خطوة زائدة.",
+              "En": "One extra step was counted."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "هل ازداد العدد أم نقص؟",
+            "En": "Did the number increase or decrease?"
+          },
+          {
+            "Ar": "ابدأ من 7 وعدّ ست خطوات إلى الأمام.",
+            "En": "Start at 7 and count forward six steps."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نجمع عدد الكتب الموجودة والجديدة.",
+            "En": "Add the original and new books."
+          },
+          "FormulaLatex": "a+b",
+          "Steps": [
+            {
+              "Ar": "نبدأ بالعدد 7.",
+              "En": "Start with 7."
+            },
+            {
+              "Ar": "نضيف 6 كتب.",
+              "En": "Add 6 books."
+            }
+          ],
+          "Substitution": {
+            "Ar": "7+6=13",
+            "En": "7+6=13"
+          },
+          "Result": {
+            "Ar": "13",
+            "En": "13"
+          },
+          "Unit": {
+            "Ar": "كتاباً",
+            "En": "books"
+          },
+          "Verification": {
+            "Ar": "إذا أزلنا الكتب الستة نعود إلى 7.",
+            "En": "Removing the six new books returns us to 7."
+          },
+          "CommonError": {
+            "Ar": "لا تحسب الفرق؛ المطلوب مجموع الكتب.",
+            "En": "Do not subtract; the total is required."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "g1-grade-gap-remaining-balloons",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "grade-1"
+      ],
+      "PrimarySkillKey": "primary-subtraction",
+      "Check": {
+        "expected": "8"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 1,
+        "PrimarySkillId": 2,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 1,
+        "Points": 10,
+        "Title": {
+          "Ar": "عدد البالونات المتبقية",
+          "En": "Balloons remaining"
+        },
+        "Question": {
+          "Ar": "لدى طفل 14 بالوناً، أعطى منها 6 لصديقه. كم بالوناً بقي معه؟",
+          "En": "A child has 14 balloons and gives 6 to a friend. How many balloons remain?"
+        },
+        "Options": [
+          {
+            "LatexCode": "20",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "جمع العددين.",
+              "En": "Adds the two numbers."
+            }
+          },
+          {
+            "LatexCode": "9",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "طرح خمسة فقط.",
+              "En": "Subtracts only five."
+            }
+          },
+          {
+            "LatexCode": "8",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "6",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا العدد المعطى.",
+              "En": "This is the amount given away."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "هل المطلوب عدد البالونات المعطاة أم المتبقية؟",
+            "En": "Are we finding the balloons given away or the balloons left?"
+          },
+          {
+            "Ar": "ابدأ من 14 وعدّ ست خطوات إلى الخلف.",
+            "En": "Start at 14 and count backward six steps."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نطرح ما خرج من العدد الكلي.",
+            "En": "Subtract the amount given away from the total."
+          },
+          "FormulaLatex": "a-b",
+          "Steps": [
+            {
+              "Ar": "العدد الأول 14.",
+              "En": "The starting number is 14."
+            },
+            {
+              "Ar": "ننقص منه 6.",
+              "En": "Take away 6."
+            }
+          ],
+          "Substitution": {
+            "Ar": "14-6=8",
+            "En": "14-6=8"
+          },
+          "Result": {
+            "Ar": "8",
+            "En": "8"
+          },
+          "Unit": {
+            "Ar": "بالونات",
+            "En": "balloons"
+          },
+          "Verification": {
+            "Ar": "نجمع 8 و6 فنحصل على 14.",
+            "En": "Adding 8 and 6 returns 14."
+          },
+          "CommonError": {
+            "Ar": "لا تجمع عند البحث عن الباقي.",
+            "En": "Do not add when finding what remains."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "g1-grade-gap-missing-addend-box",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "grade-1"
+      ],
+      "PrimarySkillKey": "primary-one-step-additive-equations",
+      "Check": {
+        "expected": "4"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 2,
+        "PrimarySkillId": 7,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 1,
+        "Points": 10,
+        "Title": {
+          "Ar": "العدد المفقود",
+          "En": "Missing number"
+        },
+        "Question": {
+          "Ar": "ما العدد الذي نضعه في المربع ليصبح $6+\\square=10$ صحيحاً؟",
+          "En": "Which number belongs in the box to make $6+\\square=10$ true?"
+        },
+        "Options": [
+          {
+            "LatexCode": "16",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "جمع المجموع والجزء.",
+              "En": "Adds the total and the known part."
+            }
+          },
+          {
+            "LatexCode": "6",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "أعاد الجزء المعروف.",
+              "En": "Repeats the known part."
+            }
+          },
+          {
+            "LatexCode": "10",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "اختار المجموع.",
+              "En": "Chooses the total."
+            }
+          },
+          {
+            "LatexCode": "4",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "ابدأ من العدد 6.",
+            "En": "Start at 6."
+          },
+          {
+            "Ar": "احسب عدد الخطوات اللازمة للوصول إلى 10.",
+            "En": "Count the steps needed to reach 10."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نبحث عن الجزء المفقود من المجموع.",
+            "En": "Find the missing part of the total."
+          },
+          "FormulaLatex": "a+\\square=b\\Rightarrow\\square=b-a",
+          "Steps": [
+            {
+              "Ar": "المجموع المطلوب 10.",
+              "En": "The required total is 10."
+            },
+            {
+              "Ar": "نطرح الجزء المعلوم 6.",
+              "En": "Subtract the known part 6."
+            }
+          ],
+          "Substitution": {
+            "Ar": "10-6=4",
+            "En": "10-6=4"
+          },
+          "Result": {
+            "Ar": "4",
+            "En": "4"
+          },
+          "Unit": {
+            "Ar": "عدد",
+            "En": "number"
+          },
+          "Verification": {
+            "Ar": "6+4=10",
+            "En": "6+4=10"
+          },
+          "CommonError": {
+            "Ar": "المربع ليس المجموع كله.",
+            "En": "The box is not the whole total."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "g1-grade-gap-skip-count-five",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "grade-1"
+      ],
+      "PrimarySkillKey": "primary-number-patterns",
+      "Check": {
+        "expected": "20"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 2,
+        "PrimarySkillId": 8,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 1,
+        "Points": 10,
+        "Title": {
+          "Ar": "نمط القفز بخمسة",
+          "En": "Count by fives"
+        },
+        "Question": {
+          "Ar": "يزداد النمط بمقدار 5 كل مرة: 5، 10، 15، □، 25. ما العدد المفقود؟",
+          "En": "The pattern increases by 5 each time: 5, 10, 15, box, 25. What is the missing number?"
+        },
+        "Options": [
+          {
+            "LatexCode": "16",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "زاد واحداً فقط.",
+              "En": "Adds only one."
+            }
+          },
+          {
+            "LatexCode": "20",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "25",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "تجاوز الحد المفقود.",
+              "En": "Skips the missing term."
+            }
+          },
+          {
+            "LatexCode": "19",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "زاد أربعة فقط.",
+              "En": "Adds only four."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "لاحظ الفرق بين أول عددين.",
+            "En": "Notice the difference between the first two numbers."
+          },
+          {
+            "Ar": "أضف مقدار الزيادة إلى 15.",
+            "En": "Add the step size to 15."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نضيف مقدار الزيادة نفسه إلى الحد السابق.",
+            "En": "Add the same step to the preceding term."
+          },
+          "FormulaLatex": "a_{n+1}=a_n+5",
+          "Steps": [
+            {
+              "Ar": "الزيادة ثابتة وتساوي 5.",
+              "En": "The fixed step is 5."
+            },
+            {
+              "Ar": "نضيفها إلى 15.",
+              "En": "Add it to 15."
+            }
+          ],
+          "Substitution": {
+            "Ar": "15+5=20",
+            "En": "15+5=20"
+          },
+          "Result": {
+            "Ar": "20",
+            "En": "20"
+          },
+          "Unit": {
+            "Ar": "عدد",
+            "En": "number"
+          },
+          "Verification": {
+            "Ar": "20+5=25",
+            "En": "20+5=25"
+          },
+          "CommonError": {
+            "Ar": "لا تعدّ بواحد في نمط زيادته خمسة.",
+            "En": "Do not count by ones in a five-step pattern."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "g1-grade-gap-tens-and-ones",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "grade-1"
+      ],
+      "PrimarySkillKey": "place-value",
+      "Check": {
+        "expected": "24"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 81,
+        "PrimarySkillId": 305,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 1,
+        "Points": 10,
+        "Title": {
+          "Ar": "عشرات وآحاد",
+          "En": "Tens and ones"
+        },
+        "Question": {
+          "Ar": "أي عدد يمثّل عشرتين و4 آحاد؟",
+          "En": "What number represents 2 tens and 4 ones?"
+        },
+        "Options": [
+          {
+            "LatexCode": "6",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "جمع الرقمين دون قيمة منزلية.",
+              "En": "Adds digits without place value."
+            }
+          },
+          {
+            "LatexCode": "42",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "بدّل المنزلتين.",
+              "En": "Reverses the places."
+            }
+          },
+          {
+            "LatexCode": "24",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "20",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "نسي الآحاد.",
+              "En": "Omits the ones."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "كم وحدة توجد في عشرة واحدة؟",
+            "En": "How many ones make one ten?"
+          },
+          {
+            "Ar": "كوّن العشرات أولاً ثم أضف الآحاد.",
+            "En": "Build the tens first, then add the ones."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "كل عشرة تتكون من عشر وحدات.",
+            "En": "Each ten represents ten ones."
+          },
+          "FormulaLatex": "N=10t+u",
+          "Steps": [
+            {
+              "Ar": "عشرتان تساويان 20.",
+              "En": "Two tens equal 20."
+            },
+            {
+              "Ar": "نضيف 4 آحاد.",
+              "En": "Add four ones."
+            }
+          ],
+          "Substitution": {
+            "Ar": "20+4=24",
+            "En": "20+4=24"
+          },
+          "Result": {
+            "Ar": "24",
+            "En": "24"
+          },
+          "Unit": {
+            "Ar": "عدد",
+            "En": "number"
+          },
+          "Verification": {
+            "Ar": "العدد 24 فيه 2 في منزلة العشرات و4 في الآحاد.",
+            "En": "24 has 2 in the tens place and 4 in the ones place."
+          },
+          "CommonError": {
+            "Ar": "لا تبدّل منزلة العشرات والآحاد.",
+            "En": "Do not swap tens and ones."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "g1-grade-gap-compare-three-numbers",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "grade-1"
+      ],
+      "PrimarySkillKey": "number-comparison",
+      "Check": {
+        "expected": "32"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 81,
+        "PrimarySkillId": 304,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 1,
+        "Points": 10,
+        "Title": {
+          "Ar": "العدد الأكبر",
+          "En": "Largest number"
+        },
+        "Question": {
+          "Ar": "أي هذه الأعداد أكبر: 29، 32، 23، 30؟",
+          "En": "Which number is greatest: 29, 32, 23, 30?"
+        },
+        "Options": [
+          {
+            "LatexCode": "29",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "نظر إلى الآحاد فقط.",
+              "En": "Looks only at the ones digit."
+            }
+          },
+          {
+            "LatexCode": "32",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "23",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "اختار رقماً أصغر في العشرات.",
+              "En": "Chooses fewer tens."
+            }
+          },
+          {
+            "LatexCode": "30",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "لم يقارن الآحاد بعد تساوي العشرات.",
+              "En": "Stops after comparing the tens."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "انظر إلى رقم العشرات أولاً.",
+            "En": "Look at the tens digit first."
+          },
+          {
+            "Ar": "قارن آحاد العددين اللذين فيهما ثلاث عشرات.",
+            "En": "Compare the ones in the two numbers with three tens."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نقارن العشرات أولاً ثم الآحاد عند تساوي العشرات.",
+            "En": "Compare tens first, then ones when tens are equal."
+          },
+          "FormulaLatex": "N=10t+u",
+          "Steps": [
+            {
+              "Ar": "32 و30 فيهما ثلاث عشرات.",
+              "En": "32 and 30 both have three tens."
+            },
+            {
+              "Ar": "آحاد 32 أكبر من آحاد 30.",
+              "En": "32 has more ones than 30."
+            }
+          ],
+          "Substitution": {
+            "Ar": "32>30>29>23",
+            "En": "32>30>29>23"
+          },
+          "Result": {
+            "Ar": "32",
+            "En": "32"
+          },
+          "Unit": {
+            "Ar": "عدد",
+            "En": "number"
+          },
+          "Verification": {
+            "Ar": "32 أكبر من كل عدد آخر في الخيارات.",
+            "En": "32 is larger than every other choice."
+          },
+          "CommonError": {
+            "Ar": "لا تقارن الآحاد وحدها.",
+            "En": "Do not compare only the ones digits."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "g1-grade-gap-count-backwards",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "grade-1"
+      ],
+      "PrimarySkillKey": "counting",
+      "Check": {
+        "expected": "18"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 81,
+        "PrimarySkillId": 302,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 1,
+        "Points": 10,
+        "Title": {
+          "Ar": "العد إلى الخلف",
+          "En": "Count backward"
+        },
+        "Question": {
+          "Ar": "ابدأ من 20 وعدّ إلى الخلف خطوتين، بإنقاص 1 في كل خطوة. إلى أي عدد تصل؟",
+          "En": "Start at 20 and count backward 2 steps, subtracting 1 at each step. Which number do you reach?"
+        },
+        "Options": [
+          {
+            "LatexCode": "22",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "عدّ إلى الأمام.",
+              "En": "Counts forward."
+            }
+          },
+          {
+            "LatexCode": "19",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "نفّذ خطوة واحدة فقط.",
+              "En": "Takes only one step."
+            }
+          },
+          {
+            "LatexCode": "17",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "نفّذ ثلاث خطوات.",
+              "En": "Takes three steps."
+            }
+          },
+          {
+            "LatexCode": "18",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "هل يتحرك العد نحو الأعداد الأكبر أم الأصغر؟",
+            "En": "Does backward counting move toward larger or smaller numbers?"
+          },
+          {
+            "Ar": "أنقص واحداً ثم أنقص واحداً مرة أخرى.",
+            "En": "Subtract one, then subtract one again."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "كل خطوة إلى الخلف تنقص العدد واحداً.",
+            "En": "Each backward step decreases the number by one."
+          },
+          "FormulaLatex": "N=a-k",
+          "Steps": [
+            {
+              "Ar": "الخطوة الأولى إلى 19.",
+              "En": "The first step reaches 19."
+            },
+            {
+              "Ar": "الخطوة الثانية إلى 18.",
+              "En": "The second step reaches 18."
+            }
+          ],
+          "Substitution": {
+            "Ar": "20-2=18",
+            "En": "20-2=18"
+          },
+          "Result": {
+            "Ar": "18",
+            "En": "18"
+          },
+          "Unit": {
+            "Ar": "عدد",
+            "En": "number"
+          },
+          "Verification": {
+            "Ar": "18+2=20",
+            "En": "18+2=20"
+          },
+          "CommonError": {
+            "Ar": "لا تحسب العدد الذي بدأت منه كخطوة.",
+            "En": "Do not count the starting number as a step."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "g1-grade-gap-measure-short-ribbon",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "grade-1"
+      ],
+      "PrimarySkillKey": "length",
+      "Check": {
+        "expected": "6"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 82,
+        "PrimarySkillId": 321,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 1,
+        "Points": 10,
+        "Title": {
+          "Ar": "فرق الطول",
+          "En": "Length difference"
+        },
+        "Question": {
+          "Ar": "طول شريط أحمر 18 سم وطول شريط أزرق 12 سم. بكم سنتيمتراً يزيد طول الأحمر؟",
+          "En": "A red ribbon is 18 cm long and a blue ribbon is 12 cm long. How many centimeters longer is the red ribbon?"
+        },
+        "Options": [
+          {
+            "LatexCode": "30",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "جمع الطولين.",
+              "En": "Adds both lengths."
+            }
+          },
+          {
+            "LatexCode": "12",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "اختار طول الشريط الأقصر.",
+              "En": "Chooses the shorter length."
+            }
+          },
+          {
+            "LatexCode": "6",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "18",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "اختار طول الشريط الأطول.",
+              "En": "Chooses the longer length."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "أي الشريطين أطول؟",
+            "En": "Which ribbon is longer?"
+          },
+          {
+            "Ar": "احسب الفرق بين الطولين بالسنتيمتر.",
+            "En": "Find the difference between the two lengths in centimeters."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نطرح الطول الأقصر من الأطول بعد التأكد من أن الوحدة نفسها.",
+            "En": "Subtract the shorter length from the longer one, using the same unit."
+          },
+          "FormulaLatex": "d=L_1-L_2",
+          "Steps": [
+            {
+              "Ar": "الطولان بالسنتيمتر.",
+              "En": "Both lengths use centimeters."
+            },
+            {
+              "Ar": "نطرح 12 من 18.",
+              "En": "Subtract 12 from 18."
+            }
+          ],
+          "Substitution": {
+            "Ar": "18-12=6",
+            "En": "18-12=6"
+          },
+          "Result": {
+            "Ar": "6",
+            "En": "6"
+          },
+          "Unit": {
+            "Ar": "سم",
+            "En": "cm"
+          },
+          "Verification": {
+            "Ar": "12+6=18",
+            "En": "12+6=18"
+          },
+          "CommonError": {
+            "Ar": "المطلوب الفرق لا مجموع الطولين.",
+            "En": "The difference, not the combined length, is required."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "g1-grade-gap-reverse-percentage",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "grade-6"
+      ],
+      "PrimarySkillKey": "p-fractions-decimals-basic-percentages",
+      "Check": {
+        "expected": "60"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 21,
+        "PrimarySkillId": 93,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "إيجاد الكمية الأصلية",
+          "En": "Find the original amount"
+        },
+        "Question": {
+          "Ar": "في مكتبة، تمثّل 18 قصة نسبة 30% من جميع القصص. كم عدد القصص كلها؟",
+          "En": "In a library, 18 stories represent 30% of all the stories. How many stories are there in total?"
+        },
+        "Options": [
+          {
+            "LatexCode": "6",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "استخدم قسمة خاطئة للنسبة.",
+              "En": "Uses an incorrect percentage divisor."
+            }
+          },
+          {
+            "LatexCode": "48",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "أضاف 30 إلى الجزء.",
+              "En": "Adds 30 to the part."
+            }
+          },
+          {
+            "LatexCode": "60",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "54",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "ضرب الجزء بثلاثة بدلاً من عكس النسبة.",
+              "En": "Multiplies the part by three rather than inverting the proportion."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "حوّل 30% إلى عدد عشري.",
+            "En": "Convert 30% to a decimal."
+          },
+          {
+            "Ar": "الجزء يساوي النسبة مضروبة في الكل؛ اعكس العملية.",
+            "En": "The part is the proportion times the whole; invert the operation."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نقسم الجزء على النسبة المكتوبة كعدد عشري.",
+            "En": "Divide the part by the decimal proportion."
+          },
+          "FormulaLatex": "T=\\frac{P}{r}",
+          "Steps": [
+            {
+              "Ar": "30%=0.30",
+              "En": "30%=0.30"
+            },
+            {
+              "Ar": "نقسم 18 على 0.30.",
+              "En": "Divide 18 by 0.30."
+            }
+          ],
+          "Substitution": {
+            "Ar": "18/0.30=60",
+            "En": "18/0.30=60"
+          },
+          "Result": {
+            "Ar": "60",
+            "En": "60"
+          },
+          "Unit": {
+            "Ar": "قصة",
+            "En": "stories"
+          },
+          "Verification": {
+            "Ar": "30% من 60 تساوي 18.",
+            "En": "30% of 60 equals 18."
+          },
+          "CommonError": {
+            "Ar": "لا تحسب 30% من 18؛ العدد 18 هو الجزء.",
+            "En": "Do not calculate 30% of 18; 18 is already the part."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "g1-grade-gap-two-step-notebooks",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "grade-6"
+      ],
+      "PrimarySkillKey": "primary-two-step-equations",
+      "Check": {
+        "expected": "8"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 2,
+        "PrimarySkillId": 10,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "معادلة من موقف حياتي",
+          "En": "Equation from a situation"
+        },
+        "Question": {
+          "Ar": "اشترى طالب 4 دفاتر متساوية السعر ودفع 6 وحدات للتوصيل. المجموع 38 وحدة. ما سعر الدفتر الواحد؟",
+          "En": "A student buys 4 notebooks of equal price and pays 6 units for delivery. The total is 38 units. What is the price of one notebook?"
+        },
+        "Options": [
+          {
+            "LatexCode": "11",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "أضاف رسوم التوصيل بدلاً من طرحها.",
+              "En": "Adds delivery rather than subtracting it."
+            }
+          },
+          {
+            "LatexCode": "8",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "32",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "طرح الرسوم ولم يقسم.",
+              "En": "Subtracts delivery without dividing."
+            }
+          },
+          {
+            "LatexCode": "9.5",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "قسم المجموع مباشرة.",
+              "En": "Divides the total directly."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "اكتب المبلغ الكلي على صورة أربعة أسعار متساوية ورسوم توصيل.",
+            "En": "Write the total as four equal prices plus delivery."
+          },
+          {
+            "Ar": "اطرح رسوم التوصيل أولاً ثم اقسم على عدد الدفاتر.",
+            "En": "Subtract delivery first, then divide by the number of notebooks."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نمثل سعر الدفتر بمجهول ونفصل تكلفة التوصيل.",
+            "En": "Represent the price by an unknown and remove the delivery fee."
+          },
+          "FormulaLatex": "nx+d=T\\Rightarrow x=\\frac{T-d}{n}",
+          "Steps": [
+            {
+              "Ar": "نكتب 4x+6=38.",
+              "En": "Write 4x+6=38."
+            },
+            {
+              "Ar": "بعد الطرح يصبح 4x=32.",
+              "En": "Subtract to get 4x=32."
+            },
+            {
+              "Ar": "نقسم على 4.",
+              "En": "Divide by 4."
+            }
+          ],
+          "Substitution": {
+            "Ar": "(38-6)/4=8",
+            "En": "(38-6)/4=8"
+          },
+          "Result": {
+            "Ar": "8",
+            "En": "8"
+          },
+          "Unit": {
+            "Ar": "وحدات نقدية",
+            "En": "currency units"
+          },
+          "Verification": {
+            "Ar": "4×8+6=38",
+            "En": "4×8+6=38"
+          },
+          "CommonError": {
+            "Ar": "لا تقسّم المبلغ الكلي قبل إزالة رسوم التوصيل.",
+            "En": "Do not divide the total before removing delivery."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "g1-grade-gap-fraction-of-remainder",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "grade-6"
+      ],
+      "PrimarySkillKey": "fraction-operations",
+      "Check": {
+        "expected": "12"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 21,
+        "PrimarySkillId": 298,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 4,
+        "Points": 10,
+        "Title": {
+          "Ar": "كسر من الكمية المتبقية",
+          "En": "Fraction of a remainder"
+        },
+        "Question": {
+          "Ar": "مع طفل 24 بطاقة. أعطى ربعها لصديق، ثم أعطى ثلث الباقي لصديق آخر. كم بطاقة بقيت معه؟",
+          "En": "A child has 24 cards, gives one quarter to a friend, then gives one third of the remainder to another friend. How many cards are left?"
+        },
+        "Options": [
+          {
+            "LatexCode": "10",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "طرح ربع وثلث العدد الأصلي.",
+              "En": "Subtracts a quarter and a third of the original."
+            }
+          },
+          {
+            "LatexCode": "18",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "توقف بعد التوزيع الأول.",
+              "En": "Stops after the first distribution."
+            }
+          },
+          {
+            "LatexCode": "6",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "اختار ما أعطي في التوزيع الثاني.",
+              "En": "Chooses the second amount given away."
+            }
+          },
+          {
+            "LatexCode": "12",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "احسب ربع العدد الأصلي ثم اطرحه.",
+            "En": "Find one quarter of the original amount and subtract it."
+          },
+          {
+            "Ar": "احسب ثلث العدد المتبقي فقط، ثم اطرحه منه.",
+            "En": "Find one third of the remaining amount, then subtract it."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نحسب الباقي بعد كل توزيع، والثاني يعتمد على الباقي لا العدد الأصلي.",
+            "En": "Find the remainder after each distribution; the second uses the remainder, not the original total."
+          },
+          "FormulaLatex": "R=N(1-\\frac14)(1-\\frac13)",
+          "Steps": [
+            {
+              "Ar": "ربع 24 يساوي 6، والباقي 18.",
+              "En": "One quarter of 24 is 6, leaving 18."
+            },
+            {
+              "Ar": "ثلث 18 يساوي 6.",
+              "En": "One third of 18 is 6."
+            },
+            {
+              "Ar": "الباقي 18−6.",
+              "En": "The remainder is 18−6."
+            }
+          ],
+          "Substitution": {
+            "Ar": "24(3/4)(2/3)=12",
+            "En": "24(3/4)(2/3)=12"
+          },
+          "Result": {
+            "Ar": "12",
+            "En": "12"
+          },
+          "Unit": {
+            "Ar": "بطاقة",
+            "En": "cards"
+          },
+          "Verification": {
+            "Ar": "6+6+12=24",
+            "En": "6+6+12=24"
+          },
+          "CommonError": {
+            "Ar": "لا تحسب الثلث من 24 بعد توزيع الربع.",
+            "En": "Do not take one third of 24 after giving away the quarter."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "g1-grade-gap-triangle-base-from-area",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "grade-6"
+      ],
+      "PrimarySkillKey": "primary-triangle-area",
+      "Check": {
+        "expected": "10"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 3,
+        "PrimarySkillId": 14,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "إيجاد قاعدة المثلث",
+          "En": "Find a triangle base"
+        },
+        "Question": {
+          "Ar": "مساحة مثلث 45 سم مربعاً، وارتفاعه العمودي على القاعدة 9 سم. ما طول القاعدة بالسنتيمتر؟",
+          "En": "A triangle has area 45 square centimeters and perpendicular height 9 cm. What is its base length in centimeters?"
+        },
+        "Options": [
+          {
+            "LatexCode": "5",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "قسم المساحة على الارتفاع دون مضاعفة.",
+              "En": "Divides area by height without doubling."
+            }
+          },
+          {
+            "LatexCode": "90",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "ضاعف المساحة دون قسمة.",
+              "En": "Doubles area without dividing."
+            }
+          },
+          {
+            "LatexCode": "10",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "9",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "اختار الارتفاع نفسه.",
+              "En": "Chooses the height itself."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "تذكّر أن مساحة المثلث نصف حاصل ضرب القاعدة والارتفاع.",
+            "En": "Recall that triangle area is half the product of base and height."
+          },
+          {
+            "Ar": "ضاعف المساحة ثم اقسمها على الارتفاع.",
+            "En": "Double the area, then divide by the height."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نعكس قانون مساحة المثلث لإيجاد القاعدة.",
+            "En": "Rearrange the triangle area formula to find the base."
+          },
+          "FormulaLatex": "A=\\frac{bh}{2}\\Rightarrow b=\\frac{2A}{h}",
+          "Steps": [
+            {
+              "Ar": "نضاعف المساحة 45 فنحصل على 90.",
+              "En": "Double 45 to obtain 90."
+            },
+            {
+              "Ar": "نقسم 90 على 9.",
+              "En": "Divide 90 by 9."
+            }
+          ],
+          "Substitution": {
+            "Ar": "2×45/9=10",
+            "En": "2×45/9=10"
+          },
+          "Result": {
+            "Ar": "10",
+            "En": "10"
+          },
+          "Unit": {
+            "Ar": "سم",
+            "En": "cm"
+          },
+          "Verification": {
+            "Ar": "نصف 10×9 يساوي 45 سم مربعاً.",
+            "En": "Half of 10×9 equals 45 square centimeters."
+          },
+          "CommonError": {
+            "Ar": "لا تنسَ عامل النصف في مساحة المثلث.",
+            "En": "Remember the factor of one half in the triangle area."
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+# Targeted primary-grade gap drafts
+
+12 bilingual, distinct question candidates: eight for grade 1 and four for grade 6. All use existing primary skills and categories, named/formula-based worked solutions, two progressive hints, unique answer choices and specific distractor explanations. Four grade 1 and one grade 6 drafts are in existing Free categories; no Free gates changed. Grade 1/6 totals would become 11/18 if approved and published with the provisional placements. Still not sufficient for a full curriculum, no publication or database change. Independent prompt-based tests are added to CI, not yet verified.

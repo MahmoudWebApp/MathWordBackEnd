@@ -5,6 +5,16 @@ on:
     paths:
       - 'content/catalog/**'
       - 'content/editorial/**'
+      - 'content/batches/mathworld-2026-11-20-*'
+      - 'tests/check_numeric_family_answers.py'
+      - 'tests/check_g1_gap_waves.py'
+      - 'tests/check_g1_track_review_queue.py'
+      - 'tests/check_g1_primary_grade_placement.py'
+      - 'tests/check_g1_remaining_track_placement.py'
+      - 'tests/check_g1_primary_grade_gap.py'
+      - 'tests/check_g1_full_answer_review_inventory.py'
+      - 'tests/check_g1_short_solution_candidates.py'
+      - 'tests/check_g1_hint_candidates.py'
       - 'content/batches/mathworld-adaptive-v2-*'
       - 'content/batches/mathworld-reasoning-extension-*'
       - 'content/batches/mathworld-fractions-series-depth-*'
@@ -96,6 +106,30 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
+      - name: Recompute answers for 315 recurring problems from the question text
+        run: python3 tests/check_numeric_family_answers.py
+      - name: Independently recompute the 21 G1 gap candidate answers
+        run: python3 tests/check_g1_gap_waves.py
+      - name: Validate all 773 review-queue IDs and provisional track access gates
+        run: python3 tests/check_g1_track_review_queue.py
+      - name: Verify primary question-level grade mapping proposals
+        run: python3 tests/check_g1_primary_grade_placement.py
+      - name: Reconcile complete problem-level track proposals
+        run: python3 tests/check_g1_remaining_track_placement.py
+      - name: Recompute grade 1 and 6 gap draft answers
+        run: python3 tests/check_g1_primary_grade_gap.py
+      - name: Reconcile recorded answer review with all 773 catalog IDs
+        run: python3 tests/check_g1_full_answer_review_inventory.py
+      - name: Validate 56 source-bound bilingual solution-only candidates
+        run: python3 tests/check_g1_short_solution_candidates.py
+      - name: Validate structured amendment proposals and draft-only payload preparation
+        run: |
+          python3 tests/check_g1_structured_amendments.py
+          python3 tests/check_g1_amendment_payload.py
+          python3 tests/check_g1_held_amendments.py
+          python3 tests/check_g1_remaining_long_solutions.py
+      - name: Validate source-bound bilingual hint proposals
+        run: python3 tests/check_g1_hint_candidates.py
       - name: Validate bilingual subjects, skill keys and historical problem mapping
         run: python3 tests/check_curriculum_taxonomy.py
       - name: Check 32 new skill-aligned problems and independent answers

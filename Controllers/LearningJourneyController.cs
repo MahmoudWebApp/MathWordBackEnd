@@ -66,6 +66,8 @@ namespace MathWorldAPI.Controllers
             if (stage == null)
                 return NotFound(Error<LearningStageDto>("StageNotFound", 404));
 
+            await using var tx=await _context.Database.BeginTransactionAsync(cancellationToken);
+            await _context.Database.SqlQuery<int>($"SELECT 1 AS \"Value\" FROM pg_advisory_xact_lock({-987654320}, {UserId()})").SingleAsync(cancellationToken);
             var user = await _context.Users.FirstOrDefaultAsync(
                 u => u.Id == UserId() && u.Role == "Student" && u.IsActive, cancellationToken);
             if (user == null)
@@ -74,9 +76,11 @@ namespace MathWorldAPI.Controllers
             if (user.CurrentStageId != stage.Id)
             {
                 user.CurrentStageId = stage.Id;
+                user.CurrentTrackId = null;
                 await _context.SaveChangesAsync(cancellationToken);
             }
 
+            await tx.CommitAsync(cancellationToken);
             return Ok(Success(new LearningStageDto
             {
                 StageId = stage.Id,
@@ -109,7 +113,14 @@ namespace MathWorldAPI.Controllers
             if (stage == null)
                 return NotFound(Error<LearningJourneyDto>("StageNotFound", 404));
 
-            var categories = await _context.Categories.AsNoTracking()
+            var tracks = HttpContext.RequestServices.GetRequiredService<LearningTrackService>();
+            var track = await tracks.ActiveAsync(stage.Id,user.CurrentTrackId,cancellationToken);
+            var scoped = track is null
+                ? _context.Problems.AsNoTracking().Where(p=>p.StageId==stage.Id&&p.Category.StageId==stage.Id)
+                : tracks.ValidProblems(track.Id);
+            var categoriesQuery = _context.Categories.AsNoTracking().Where(c=>c.StageId==stage.Id);
+            if(track is not null) categoriesQuery=categoriesQuery.Where(c=>scoped.Any(p=>p.CategoryId==c.Id));
+            var categories = await categoriesQuery
                 .Where(c => c.StageId == stage.Id)
                 .OrderBy(c => c.Order)
                 .Select(c => new { c.Id, c.NameAr, c.NameEn })
@@ -117,16 +128,15 @@ namespace MathWorldAPI.Controllers
 
             // Count inventory separately: progress records can also be created
             // just for favorites without any submitted attempts.
-            var inventory = await _context.Problems.AsNoTracking()
-                .Where(p => p.StageId == stage.Id && p.Category.StageId == stage.Id)
+            var inventory = await scoped
                 .GroupBy(p => p.CategoryId)
                 .Select(g => new { CategoryId = g.Key, Count = g.Count() })
                 .ToDictionaryAsync(x => x.CategoryId, x => x.Count,
                     cancellationToken);
 
-            var progress = await _context.UserProgresses.AsNoTracking()
-                .Where(p => p.UserId == userId && p.Problem.StageId == stage.Id &&
-                    p.Problem.Category.StageId == stage.Id)
+            var practiceScope=TrackPractice.Scope(HttpContext.RequestServices.GetRequiredService<IConfiguration>(),track?.Id);
+            var progress = await TrackPractice.For(_context,practiceScope).AsNoTracking()
+                .Where(p => p.UserId == userId && scoped.Any(q=>q.Id==p.ProblemId))
                 .GroupBy(p => p.Problem.CategoryId)
                 .Select(g => new
                 {
@@ -141,6 +151,15 @@ namespace MathWorldAPI.Controllers
                 .ToListAsync(cancellationToken);
             var progressByCategory = progress.ToDictionary(p => p.CategoryId);
 
+            // Lifetime credit is separate from the mutable practice cycle.
+            // Scope by current catalog membership, never sum ordinary and
+            // session solves (the ledger contains exactly one row per problem).
+            var permanent = await _context.PermanentProblemAchievements.AsNoTracking()
+                .Where(p => p.UserId == userId && scoped.Any(q=>q.Id==p.ProblemId))
+                .GroupBy(p=>p.CategoryId)
+                .Select(g=>new{CategoryId=g.Key,Solved=g.Count(),Points=g.Sum(p=>(long)p.Points)})
+                .ToDictionaryAsync(x=>x.CategoryId,cancellationToken);
+
             var access = HttpContext.RequestServices
                 .GetRequiredService<ProblemCategoryAccessService>();
             var allowed = await access.GetAllowedCategoryIdsAsync(User, cancellationToken);
@@ -149,6 +168,7 @@ namespace MathWorldAPI.Controllers
             {
                 inventory.TryGetValue(category.Id, out var total);
                 progressByCategory.TryGetValue(category.Id, out var stats);
+                permanent.TryGetValue(category.Id,out var lifetime);
                 var solved = stats?.Solved ?? 0;
                 return new StageCategoryProgressDto
                 {
@@ -159,6 +179,8 @@ namespace MathWorldAPI.Controllers
                     TotalProblems = total,
                     AttemptedProblems = stats?.Attempted ?? 0,
                     SolvedProblems = solved,
+                    PermanentSolvedProblems = lifetime?.Solved ?? 0,
+                    PermanentPoints = lifetime?.Points ?? 0,
                     FirstTryCorrect = stats?.FirstTry ?? 0,
                     MasteredProblems = stats?.Mastered ?? 0,
                     CompletionPercent = total == 0 ? 0 :
@@ -171,14 +193,20 @@ namespace MathWorldAPI.Controllers
             return Ok(Success(new LearningJourneyDto
             {
                 StageId = stage.Id,
-                NameAr = stage.NameAr,
-                NameEn = stage.NameEn,
+                TrackId = track?.Id,
+                LearningSessionsEnabled = HttpContext.RequestServices.GetRequiredService<IConfiguration>().GetValue<bool>("LearningSessions:Enabled"),
+                TrackPracticeIsolationEnabled = TrackPractice.Enabled(HttpContext.RequestServices.GetRequiredService<IConfiguration>()),
+                CertificatesEnabled = HttpContext.RequestServices.GetRequiredService<IConfiguration>().GetValue<bool>("Certificates:Enabled"),
+                NameAr = track?.NameAr ?? stage.NameAr,
+                NameEn = track?.NameEn ?? stage.NameEn,
                 TotalProblems = total,
                 AttemptedProblems = categoryProgress.Sum(c => c.AttemptedProblems),
                 SolvedProblems = solvedTotal,
                 FirstTryCorrect = categoryProgress.Sum(c => c.FirstTryCorrect),
                 MasteredProblems = categoryProgress.Sum(c => c.MasteredProblems),
                 TotalPoints = progress.Sum(p => p.Points),
+                PermanentSolvedProblems = categoryProgress.Sum(c=>c.PermanentSolvedProblems),
+                PermanentPoints = categoryProgress.Sum(c=>c.PermanentPoints),
                 CompletionPercent = total == 0 ? 0 :
                     (int)Math.Round(100.0 * solvedTotal / total),
                 Categories = categoryProgress

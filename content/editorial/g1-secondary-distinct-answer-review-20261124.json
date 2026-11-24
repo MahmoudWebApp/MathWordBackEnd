@@ -1,0 +1,1353 @@
+{
+  "Version": 1,
+  "Status": "ReadOnlyAnswerReviewNotEditorialApproval",
+  "Date": "2026-11-24",
+  "Counts": {
+    "MARKED_ANSWER_MATCHES": 116,
+    "MATCHES_STANDARD_INDEPENDENCE_ASSUMPTION": 6
+  },
+  "Results": [
+    {
+      "id": 20,
+      "question": "Solve the quadratic equation: $x^2 - 5x + 6 = 0$",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "x = 2 \\text{ or } x = 3",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "x = 2 \\text{ or } x = 3"
+      ],
+      "note": null
+    },
+    {
+      "id": 21,
+      "question": "Find the value of $\\log_2 32$.",
+      "expected": 5,
+      "marked": "5",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "5"
+      ],
+      "note": null
+    },
+    {
+      "id": 22,
+      "question": "What is the value of $\\sin 30^\\circ$?",
+      "expected": 0.49999999999999994,
+      "marked": "\\frac{1}{2}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\frac{1}{2}"
+      ],
+      "note": null
+    },
+    {
+      "id": 23,
+      "question": "Evaluate $\\sin^2(45^\\circ)+\\cos^2(45^\\circ)$ exactly.",
+      "expected": 1,
+      "marked": "1",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "1"
+      ],
+      "note": null
+    },
+    {
+      "id": 24,
+      "question": "Find the derivative of the function $f(x) = x^3 + 2x^2 - 5x + 1$.",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "3x^2 + 4x - 5",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "3x^2 + 4x - 5"
+      ],
+      "note": null
+    },
+    {
+      "id": 25,
+      "question": "Find the integral $\\int (2x + 3) \\, dx$.",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "x^2 + 3x + C",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "x^2 + 3x + C"
+      ],
+      "note": null
+    },
+    {
+      "id": 26,
+      "question": "If we roll two fair dice, what is the probability of getting a sum of $7$?",
+      "expected": 0.16666666666666666,
+      "marked": "\\frac{1}{6}",
+      "status": "MATCHES_STANDARD_INDEPENDENCE_ASSUMPTION",
+      "matchingOptions": [
+        "\\frac{1}{6}"
+      ],
+      "note": "Independent dice assumed"
+    },
+    {
+      "id": 27,
+      "question": "Find the arithmetic mean of the numbers: $5, 8, 12, 15, 20$.",
+      "expected": 12,
+      "marked": "12",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "12"
+      ],
+      "note": null
+    },
+    {
+      "id": 45,
+      "question": "What are the roots of x² - 7x + 12 = 0?",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "(3,4)",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "(3,4)"
+      ],
+      "note": null
+    },
+    {
+      "id": 46,
+      "question": "What is cos(60°)?",
+      "expected": 0.5000000000000001,
+      "marked": "\\frac{1}{2}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\frac{1}{2}"
+      ],
+      "note": null
+    },
+    {
+      "id": 47,
+      "question": "Find the derivative of f(x) = 5x² - 4x.",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "10x-4",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "10x-4"
+      ],
+      "note": null
+    },
+    {
+      "id": 48,
+      "question": "What is the population variance of 2, 2, 4, and 4?",
+      "expected": 1,
+      "marked": "1",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "1"
+      ],
+      "note": null
+    },
+    {
+      "id": 61,
+      "question": "Evaluate log base 3 of 81.",
+      "expected": 4,
+      "marked": "4",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "4"
+      ],
+      "note": null
+    },
+    {
+      "id": 62,
+      "question": "What is tan(45°)?",
+      "expected": 0.9999999999999999,
+      "marked": "1",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "1"
+      ],
+      "note": null
+    },
+    {
+      "id": 63,
+      "question": "Find the indefinite integral of 6x² with respect to x.",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "2x^{3}+C",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "2x^{3}+C"
+      ],
+      "note": null
+    },
+    {
+      "id": 64,
+      "question": "A fair coin is tossed three times. What is the probability of heads on every toss?",
+      "expected": 0.125,
+      "marked": "\\frac{1}{8}",
+      "status": "MATCHES_STANDARD_INDEPENDENCE_ASSUMPTION",
+      "matchingOptions": [
+        "\\frac{1}{8}"
+      ],
+      "note": "Independent coin tosses assumed"
+    },
+    {
+      "id": 436,
+      "question": "The arithmetic sequence is $5,9,13,17,\\ldots$. Which formula gives $a_n$ starting at $n=1$?",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "4n+1",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "4n+1"
+      ],
+      "note": null
+    },
+    {
+      "id": 437,
+      "question": "A geometric sequence has first term 3 and common ratio 2. What is its fifth term?",
+      "expected": 48,
+      "marked": "48",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "48"
+      ],
+      "note": null
+    },
+    {
+      "id": 438,
+      "question": "In an arithmetic sequence, $a_3=11$ and $a_7=27$. Find the common difference.",
+      "expected": 4,
+      "marked": "4",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "4"
+      ],
+      "note": null
+    },
+    {
+      "id": 439,
+      "question": "An arithmetic sequence has first term 4 and common difference 3. Find the tenth term.",
+      "expected": 31,
+      "marked": "31",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "31"
+      ],
+      "note": null
+    },
+    {
+      "id": 440,
+      "question": "Find the sum of the six terms 2, 5, 8, 11, 14, 17.",
+      "expected": 57,
+      "marked": "57",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "57"
+      ],
+      "note": null
+    },
+    {
+      "id": 441,
+      "question": "Compute $1+2+4+8+16$.",
+      "expected": 31,
+      "marked": "31",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "31"
+      ],
+      "note": null
+    },
+    {
+      "id": 442,
+      "question": "Find the sum of the infinite geometric series $4+2+1+\\frac12+\\cdots$.",
+      "expected": 8,
+      "marked": "8",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "8"
+      ],
+      "note": null
+    },
+    {
+      "id": 443,
+      "question": "If $a_1=2$ and $a_{n+1}=2a_n+1$, find $a_3$.",
+      "expected": 11,
+      "marked": "11",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "11"
+      ],
+      "note": null
+    },
+    {
+      "id": 483,
+      "question": "In an arithmetic sequence, $a_5=23$ and the common difference $d=4$. Find the first term.",
+      "expected": 7,
+      "marked": "7",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "7"
+      ],
+      "note": null
+    },
+    {
+      "id": 484,
+      "question": "The first term of a geometric sequence is 2 and its common ratio is $-3$. Find the fourth term.",
+      "expected": -54,
+      "marked": "-54",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "-54"
+      ],
+      "note": null
+    },
+    {
+      "id": 485,
+      "question": "If $a_1=1$ and $a_{n+1}=a_n+2n$ for $n\\ge1$, what is $a_4$?",
+      "expected": 13,
+      "marked": "13",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "13"
+      ],
+      "note": null
+    },
+    {
+      "id": 486,
+      "question": "What is the sum of the first 12 positive odd integers, from 1 to 23?",
+      "expected": 144,
+      "marked": "144",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "144"
+      ],
+      "note": null
+    },
+    {
+      "id": 487,
+      "question": "What happens to the partial sums of the series $2+4+8+16+\\cdots$?",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "\\text{يتباعد إلى ما لا نهاية (+infinity)}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\text{يتباعد إلى ما لا نهاية (+infinity)}"
+      ],
+      "note": null
+    },
+    {
+      "id": 508,
+      "question": "What is the sum of $1-\\frac12+\\frac14-\\frac18+\\cdots$?",
+      "expected": 0.6666666666666666,
+      "marked": "\\frac23",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\frac23"
+      ],
+      "note": null
+    },
+    {
+      "id": 509,
+      "question": "Compute the infinite sum $6+2+\\frac23+\\frac29+\\cdots$.",
+      "expected": 8.999999999999998,
+      "marked": "9",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "9"
+      ],
+      "note": null
+    },
+    {
+      "id": 510,
+      "question": "Does the series $1-1+1-1+\\cdots$ converge in the usual sense of an infinite sum?",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "\\text{لا يتقارب (Does not converge)}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\text{لا يتقارب (Does not converge)}"
+      ],
+      "note": null
+    },
+    {
+      "id": 511,
+      "question": "Does the series $1-2+4-8+16-\\cdots$ converge?",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "\\text{يتباعد (Diverges)}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\text{يتباعد (Diverges)}"
+      ],
+      "note": null
+    },
+    {
+      "id": 512,
+      "question": "Why does the harmonic series $1+\\frac12+\\frac13+\\frac14+\\cdots$ diverge?",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "\\text{كل كتلة مضاعفة تضيف نصفاً على الأقل (Each block adds at least 1/2)}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\text{كل كتلة مضاعفة تضيف نصفاً على الأقل (Each block adds at least 1/2)}"
+      ],
+      "note": null
+    },
+    {
+      "id": 633,
+      "question": "If θ is an acute angle and sin(θ) = 3/5, what is cos(θ)?",
+      "expected": 0.8,
+      "marked": "\\frac45",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\frac45"
+      ],
+      "note": null
+    },
+    {
+      "id": 634,
+      "question": "If θ is acute and cos(θ) = 5/13, find sin(θ).",
+      "expected": 0.9230769230769231,
+      "marked": "\\frac{12}{13}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\frac{12}{13}"
+      ],
+      "note": null
+    },
+    {
+      "id": 635,
+      "question": "For an acute angle θ, tan(θ) = 3/4. What is sin(θ)?",
+      "expected": 0.6,
+      "marked": "\\frac35",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\frac35"
+      ],
+      "note": null
+    },
+    {
+      "id": 636,
+      "question": "θ lies in quadrant II and sin(θ) = 4/5. What is cos(θ)?",
+      "expected": -0.5999999999999999,
+      "marked": "-\\frac35",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "-\\frac35"
+      ],
+      "note": null
+    },
+    {
+      "id": 637,
+      "question": "Evaluate log base 5 of 1/125.",
+      "expected": -3.0000000000000004,
+      "marked": "-3",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "-3"
+      ],
+      "note": null
+    },
+    {
+      "id": 638,
+      "question": "What is log base 4 of 2?",
+      "expected": 0.5,
+      "marked": "\\frac12",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\frac12"
+      ],
+      "note": null
+    },
+    {
+      "id": 639,
+      "question": "Calculate log base 3 of 81 minus log base 3 of 3.",
+      "expected": 3,
+      "marked": "3",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "3"
+      ],
+      "note": null
+    },
+    {
+      "id": 640,
+      "question": "If log base 2 of x equals 5, what is x?",
+      "expected": 32,
+      "marked": "32",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "32"
+      ],
+      "note": null
+    },
+    {
+      "id": 641,
+      "question": "What is the population variance of the values 1, 3, 5?",
+      "expected": 2.6666666666666665,
+      "marked": "\\frac83",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\frac83"
+      ],
+      "note": null
+    },
+    {
+      "id": 642,
+      "question": "Find the population variance of 2, 4, 6, 8.",
+      "expected": 5,
+      "marked": "5",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "5"
+      ],
+      "note": null
+    },
+    {
+      "id": 643,
+      "question": "What is the population variance of 7, 7, 7, 7?",
+      "expected": 0,
+      "marked": "0",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "0"
+      ],
+      "note": null
+    },
+    {
+      "id": 644,
+      "question": "The population variance of 1, 2, 3 is 2/3. If every value is multiplied by 3, what is the new variance?",
+      "expected": 6,
+      "marked": "6",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "6"
+      ],
+      "note": null
+    },
+    {
+      "id": 705,
+      "question": "Two fair six-sided dice are rolled. What is the probability that their sum is 8?",
+      "expected": 0.1388888888888889,
+      "marked": "\\frac5{36}",
+      "status": "MATCHES_STANDARD_INDEPENDENCE_ASSUMPTION",
+      "matchingOptions": [
+        "\\frac5{36}"
+      ],
+      "note": "Independent dice assumed"
+    },
+    {
+      "id": 706,
+      "question": "What is the probability that both of two fair dice show even numbers?",
+      "expected": 0.25,
+      "marked": "\\frac14",
+      "status": "MATCHES_STANDARD_INDEPENDENCE_ASSUMPTION",
+      "matchingOptions": [
+        "\\frac14"
+      ],
+      "note": "Independent dice assumed"
+    },
+    {
+      "id": 707,
+      "question": "When two fair dice are rolled, what is the probability of at least one six?",
+      "expected": 0.30555555555555547,
+      "marked": "\\frac{11}{36}",
+      "status": "MATCHES_STANDARD_INDEPENDENCE_ASSUMPTION",
+      "matchingOptions": [
+        "\\frac{11}{36}"
+      ],
+      "note": "Independent dice assumed"
+    },
+    {
+      "id": 708,
+      "question": "When two fair dice are rolled, what is the probability the product of their numbers is even?",
+      "expected": 0.75,
+      "marked": "\\frac34",
+      "status": "MATCHES_STANDARD_INDEPENDENCE_ASSUMPTION",
+      "matchingOptions": [
+        "\\frac34"
+      ],
+      "note": "Independent dice assumed"
+    },
+    {
+      "id": 709,
+      "question": "A geometric sequence begins 2, 6, 18, 54, ... . What is its common ratio?",
+      "expected": 3,
+      "marked": "3",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "3"
+      ],
+      "note": null
+    },
+    {
+      "id": 710,
+      "question": "In a geometric sequence the second term is 6 and the fourth is 54. Its common ratio is positive. What is the ratio?",
+      "expected": 3,
+      "marked": "3",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "3"
+      ],
+      "note": null
+    },
+    {
+      "id": 711,
+      "question": "What positive number x makes 4, x, 36 consecutive terms of a geometric sequence?",
+      "expected": 12,
+      "marked": "12",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "12"
+      ],
+      "note": null
+    },
+    {
+      "id": 712,
+      "question": "A geometric sequence begins 48, 24, 12, 6, ... . What is the index of its first term less than 10?",
+      "expected": 4,
+      "marked": "4",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "4"
+      ],
+      "note": null
+    },
+    {
+      "id": 769,
+      "question": "Find the real root of x² − 10x + 25 = 0.",
+      "expected": 5,
+      "marked": "5",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "5"
+      ],
+      "note": null
+    },
+    {
+      "id": 770,
+      "question": "What are the roots of 2x² − 7x + 3 = 0?",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "\\{3,\\frac12\\}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\{3,\\frac12\\}"
+      ],
+      "note": null
+    },
+    {
+      "id": 771,
+      "question": "A rectangle has area 48 cm² and its length is 2 cm more than its width. Find its width in centimeters.",
+      "expected": 6,
+      "marked": "6",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "6"
+      ],
+      "note": null
+    },
+    {
+      "id": 772,
+      "question": "How many real roots does x² + 4x + 8 = 0 have?",
+      "expected": 0,
+      "marked": "0",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "0"
+      ],
+      "note": null
+    },
+    {
+      "id": 773,
+      "question": "A sequence starts with a₁=7 and satisfies aₙ₊₁=aₙ−3. What is a₅?",
+      "expected": -5,
+      "marked": "-5",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "-5"
+      ],
+      "note": null
+    },
+    {
+      "id": 774,
+      "question": "Let a₁=1, a₂=2 and aₙ₊₂=aₙ₊₁+aₙ for n≥1. What is a₅?",
+      "expected": 8,
+      "marked": "8",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "8"
+      ],
+      "note": null
+    },
+    {
+      "id": 775,
+      "question": "If a₁=1 and aₙ₊₁=aₙ²+1, what is a₄?",
+      "expected": 26,
+      "marked": "26",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "26"
+      ],
+      "note": null
+    },
+    {
+      "id": 776,
+      "question": "For a₁=2 and aₙ₊₁=3aₙ, what is the **index of the first term** greater than 100?",
+      "expected": 5,
+      "marked": "5",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "5"
+      ],
+      "note": null
+    },
+    {
+      "id": 827,
+      "question": "Complete this five-term arithmetic sequence: 4, ___, ___, ___, 20. Which three terms are missing in order?",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "8,\\ 12,\\ 16",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "8,\\ 12,\\ 16"
+      ],
+      "note": null
+    },
+    {
+      "id": 828,
+      "question": "An arithmetic sequence starts at 5 with common difference 3. At which term index does the value 47 occur?",
+      "expected": 15,
+      "marked": "15",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "15"
+      ],
+      "note": null
+    },
+    {
+      "id": 829,
+      "question": "Evaluate the alternating sum 1 − 2 + 3 − 4 + ⋯ + 19 − 20.",
+      "expected": -10,
+      "marked": "-10",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "-10"
+      ],
+      "note": null
+    },
+    {
+      "id": 830,
+      "question": "Find the sum (1 − 1/2) + (1/2 − 1/3) + (1/3 − 1/4) + (1/4 − 1/5).",
+      "expected": 0.8,
+      "marked": "\\frac{4}{5}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\frac{4}{5}"
+      ],
+      "note": null
+    },
+    {
+      "id": 859,
+      "question": "Let f(x)=2x³−4x. What is f'(3)?",
+      "expected": 50,
+      "marked": "50",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "50"
+      ],
+      "note": null
+    },
+    {
+      "id": 860,
+      "question": "Find the tangent line to f(x)=x³−x at x=2.",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "y=11x-16",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "y=11x-16"
+      ],
+      "note": null
+    },
+    {
+      "id": 861,
+      "question": "Compute the indefinite integral ∫(6x²−4x) dx.",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "2x^3-2x^2+C",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "2x^3-2x^2+C"
+      ],
+      "note": null
+    },
+    {
+      "id": 862,
+      "question": "Evaluate the definite integral of 3x²+1 from x=0 to x=2.",
+      "expected": 10,
+      "marked": "10",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "10"
+      ],
+      "note": null
+    },
+    {
+      "id": 1571,
+      "question": "A colony has P(t)=250×(1.2)^t. Find P(2).",
+      "expected": 360,
+      "marked": "360",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "360"
+      ],
+      "note": null
+    },
+    {
+      "id": 1572,
+      "question": "A culture starts with 80 bacteria and doubles each hour. How many after 3 hours?",
+      "expected": 640,
+      "marked": "640",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "640"
+      ],
+      "note": null
+    },
+    {
+      "id": 1573,
+      "question": "An amount of 2,000 grows by 10% each year. What is it after two years?",
+      "expected": 2420.0000000000005,
+      "marked": "2,420",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "2,420"
+      ],
+      "note": null
+    },
+    {
+      "id": 1574,
+      "question": "How much remains of 1,200 after 10% decay each year for two years?",
+      "expected": 972.0000000000001,
+      "marked": "972",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "972"
+      ],
+      "note": null
+    },
+    {
+      "id": 1575,
+      "question": "A 640 g sample has a half-life of 4 hours. After how many hours will it reach 80 g?",
+      "expected": 12,
+      "marked": "12",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "12"
+      ],
+      "note": null
+    },
+    {
+      "id": 1576,
+      "question": "For Q(t)=200×(0.7)^t, what percent is lost each period?",
+      "expected": 0.30000000000000004,
+      "marked": "30%",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "30%"
+      ],
+      "note": null
+    },
+    {
+      "id": 1577,
+      "question": "What is the growth rate per period for N(t)=450×(1.03)^t?",
+      "expected": 0.030000000000000027,
+      "marked": "3%",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "3%"
+      ],
+      "note": null
+    },
+    {
+      "id": 1578,
+      "question": "Which formula gives the sequence 2, 6, 18, 54 starting at n=1?",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "a_n=2\\cdot3^{n-1}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "a_n=2\\cdot3^{n-1}"
+      ],
+      "note": null
+    },
+    {
+      "id": 1611,
+      "question": "What is the slope of the line passing through (1,2) and (5,10)?",
+      "expected": 2,
+      "marked": "2",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "2"
+      ],
+      "note": null
+    },
+    {
+      "id": 1612,
+      "question": "Find the midpoint of the segment joining (2,6) and (8,0).",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "(5,3)",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "(5,3)"
+      ],
+      "note": null
+    },
+    {
+      "id": 1613,
+      "question": "Find the distance between (0,0) and (6,8).",
+      "expected": 10,
+      "marked": "10",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "10"
+      ],
+      "note": null
+    },
+    {
+      "id": 1614,
+      "question": "A line has slope -2 and y-intercept 3. Which equation represents it?",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "y=-2x+3",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "y=-2x+3"
+      ],
+      "note": null
+    },
+    {
+      "id": 1615,
+      "question": "What is the radius of the circle $x^2+y^2=49$?",
+      "expected": 7,
+      "marked": "7",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "7"
+      ],
+      "note": null
+    },
+    {
+      "id": 1616,
+      "question": "Which equation describes a circle centered at (2,-3) with radius 4?",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "(x-2)^2+(y+3)^2=16",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "(x-2)^2+(y+3)^2=16"
+      ],
+      "note": null
+    },
+    {
+      "id": 1617,
+      "question": "A circle has diameter endpoints (-2,0) and (4,0). Which is its equation?",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "(x-1)^2+y^2=9",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "(x-1)^2+y^2=9"
+      ],
+      "note": null
+    },
+    {
+      "id": 1618,
+      "question": "Which point lies on $x^2+y^2=25$?",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "(3,4)",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "(3,4)"
+      ],
+      "note": null
+    },
+    {
+      "id": 1619,
+      "question": "Find the locus of points equidistant from (0,0) and (4,0).",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "x=2",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "x=2"
+      ],
+      "note": null
+    },
+    {
+      "id": 1620,
+      "question": "Find the line midway between $y=1$ and $y=7$, equidistant from both.",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "y=4",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "y=4"
+      ],
+      "note": null
+    },
+    {
+      "id": 1621,
+      "question": "Which equation describes all points at distance 3 from (1,2)?",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "(x-1)^2+(y-2)^2=9",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "(x-1)^2+(y-2)^2=9"
+      ],
+      "note": null
+    },
+    {
+      "id": 1622,
+      "question": "A vertical segment joins (0,-2) and (0,6). What is its perpendicular bisector?",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "y=2",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "y=2"
+      ],
+      "note": null
+    },
+    {
+      "id": 1643,
+      "question": "Find the infinite sum $3+\\frac32+\\frac34+\\cdots$.",
+      "expected": 6,
+      "marked": "6",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "6"
+      ],
+      "note": null
+    },
+    {
+      "id": 1644,
+      "question": "The series $\\sum_{n=0}^{\\infty}(1.1)^n$ diverges. Which ratio condition explains why?",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "|r|>1",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "|r|>1"
+      ],
+      "note": null
+    },
+    {
+      "id": 1645,
+      "question": "Evaluate $\\sum_{n=0}^{\\infty}(-\\frac12)^n$.",
+      "expected": 0.6666666666666666,
+      "marked": "\\frac23",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\frac23"
+      ],
+      "note": null
+    },
+    {
+      "id": 1646,
+      "question": "Why does the series $\\sum_{n=1}^{\\infty}2$ diverge?",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "\\lim_{n\\to\\infty}a_n=2",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\lim_{n\\to\\infty}a_n=2"
+      ],
+      "note": null
+    },
+    {
+      "id": 1663,
+      "question": "A=(2,-1) and B=(-1,5). What are the components of displacement vector AB?",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "(-3,6)",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "(-3,6)"
+      ],
+      "note": null
+    },
+    {
+      "id": 1664,
+      "question": "If u=(2,-3) and v=(-5,4), what is u+v?",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "(-3,1)",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "(-3,1)"
+      ],
+      "note": null
+    },
+    {
+      "id": 1665,
+      "question": "What is the Euclidean magnitude of the vector (5,12)?",
+      "expected": 13,
+      "marked": "13",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "13"
+      ],
+      "note": null
+    },
+    {
+      "id": 1666,
+      "question": "A vector has components (-6,8). Find its magnitude using the vector norm formula.",
+      "expected": 10,
+      "marked": "10",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "10"
+      ],
+      "note": null
+    },
+    {
+      "id": 1667,
+      "question": "Compute the dot product of (2,-1) and (4,3).",
+      "expected": 5,
+      "marked": "5",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "5"
+      ],
+      "note": null
+    },
+    {
+      "id": 1668,
+      "question": "Vectors (3,2) and (x,-6) are perpendicular. What value of x makes their dot product zero?",
+      "expected": 4,
+      "marked": "4",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "4"
+      ],
+      "note": null
+    },
+    {
+      "id": 1691,
+      "question": "For u=(4,-2) and v=(-1,3), what are the components of 2u−v?",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "(9,-7)",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "(9,-7)"
+      ],
+      "note": null
+    },
+    {
+      "id": 1692,
+      "question": "What is the unit vector in the direction of (3,4) under the Euclidean norm?",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "(\\frac{3}{5},\\frac{4}{5})",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "(\\frac{3}{5},\\frac{4}{5})"
+      ],
+      "note": null
+    },
+    {
+      "id": 1693,
+      "question": "What is the smaller angle, in radians, between the vectors (1,0) and (1,1)?",
+      "expected": 0.7853981633974484,
+      "marked": "\\frac{\\pi}{4}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\frac{\\pi}{4}"
+      ],
+      "note": null
+    },
+    {
+      "id": 1694,
+      "question": "For a=(1,-2) and b=(-2,1), what is their dot product, indicating that the angle between them is obtuse?",
+      "expected": -4,
+      "marked": "-4",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "-4"
+      ],
+      "note": null
+    },
+    {
+      "id": 1695,
+      "question": "What is the signed scalar projection of (3,4) onto the direction of (1,0)?",
+      "expected": 3,
+      "marked": "3",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "3"
+      ],
+      "note": null
+    },
+    {
+      "id": 1696,
+      "question": "Two side vectors from one vertex of a triangle are (3,0) and (0,4). What is the triangle's area?",
+      "expected": 6,
+      "marked": "6",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "6"
+      ],
+      "note": null
+    },
+    {
+      "id": 1697,
+      "question": "Find the straight-line distance between A(1,2) and B(7,10) in the Cartesian plane.",
+      "expected": 10,
+      "marked": "10",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "10"
+      ],
+      "note": null
+    },
+    {
+      "id": 1698,
+      "question": "A parallelogram has adjacent side vectors (2,1) and (1,3). What is its area?",
+      "expected": 5,
+      "marked": "5",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "5"
+      ],
+      "note": null
+    },
+    {
+      "id": 1711,
+      "question": "A plane vector is (a,4), its length is 5, and a is negative. Find a.",
+      "expected": -3,
+      "marked": "-3",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "-3"
+      ],
+      "note": null
+    },
+    {
+      "id": 1712,
+      "question": "If u=(1,2), v=(3,0), and w=(−1,1), compute u·(v+w).",
+      "expected": 4,
+      "marked": "4",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "4"
+      ],
+      "note": null
+    },
+    {
+      "id": 1715,
+      "question": "Solve $3^x=243$ using the inverse relationship between exponents and logarithms.",
+      "expected": 4.999999999999999,
+      "marked": "5",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "5"
+      ],
+      "note": null
+    },
+    {
+      "id": 1716,
+      "question": "Evaluate $\\log_2(8\\times16)$ using the logarithm product law.",
+      "expected": 7,
+      "marked": "7",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "7"
+      ],
+      "note": null
+    },
+    {
+      "id": 1717,
+      "question": "Evaluate $\\log_3(243/9)$ using the logarithm quotient rule.",
+      "expected": 3,
+      "marked": "3",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "3"
+      ],
+      "note": null
+    },
+    {
+      "id": 1718,
+      "question": "Find $\\log_5(25^3)$ using the logarithm power property.",
+      "expected": 6.000000000000001,
+      "marked": "6",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "6"
+      ],
+      "note": null
+    },
+    {
+      "id": 1719,
+      "question": "Solve $\\log_2(x-1)=4$ and check the logarithm's domain.",
+      "expected": 17,
+      "marked": "17",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "17"
+      ],
+      "note": null
+    },
+    {
+      "id": 1720,
+      "question": "Solve $\\log_3(x-2)+\\log_3 x=1$ and explain any excluded root.",
+      "expected": 3,
+      "marked": "3",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "3"
+      ],
+      "note": null
+    },
+    {
+      "id": 1721,
+      "question": "Find the exact value of $\\log_4 8$ using change of base.",
+      "expected": 1.5,
+      "marked": "\\frac{3}{2}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\frac{3}{2}"
+      ],
+      "note": null
+    },
+    {
+      "id": 1722,
+      "question": "What is the real-number domain of $f(x)=\\log_2(x-5)$?",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "x>5",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "x>5"
+      ],
+      "note": null
+    },
+    {
+      "id": 1723,
+      "question": "Evaluate $\\log_{1/2}8$ and explain the sign of the result.",
+      "expected": -3,
+      "marked": "-3",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "-3"
+      ],
+      "note": null
+    },
+    {
+      "id": 1724,
+      "question": "Sound intensity level is $L=10\\log_{10}(I/I_0)$ decibels. If $I=1000I_0$, what is $L$?",
+      "expected": 29.999999999999996,
+      "marked": "30",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "30"
+      ],
+      "note": null
+    },
+    {
+      "id": 1725,
+      "question": "The pH model is $pH=-\\log_{10}[H^+]$ for molar hydrogen-ion concentration. If $[H^+]=10^{-4}$, find pH.",
+      "expected": 3.999999999999999,
+      "marked": "4",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "4"
+      ],
+      "note": null
+    },
+    {
+      "id": 1726,
+      "question": "Given $\\log_2 3=a$, express $\\log_2 24$ in terms of $a$.",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "a+3",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "a+3"
+      ],
+      "note": null
+    }
+  ]
+}

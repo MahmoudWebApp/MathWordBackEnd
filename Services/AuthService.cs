@@ -225,7 +225,7 @@ namespace MathWorldAPI.Services
                     "InvalidCredentials");
             }
 
-            if (!user.IsActive)
+            if (!user.IsActive || user.StaffSetupPending)
             {
                 _logger.LogWarning(
                     "Login rejected because user {UserId} is deactivated.",
@@ -271,7 +271,16 @@ namespace MathWorldAPI.Services
             user.LastLoginAt =
                 DateTime.UtcNow;
 
-            await _context.SaveChangesAsync();
+            // Do not overwrite a password hash or issue a current session
+            // when a concurrent credential change has revoked this version.
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                return (null, "InvalidCredentials");
+            }
 
             _logger.LogInformation(
                 "User {UserId} logged in successfully.",
@@ -372,6 +381,11 @@ namespace MathWorldAPI.Services
                     new(
                         "SubscriptionType",
                         user.SubscriptionType),
+
+                    new(
+                        SessionVersionPolicy.ClaimName,
+                        SessionVersionPolicy.FormatVersion(user.TokenVersion),
+                        ClaimValueTypes.Integer32),
 
                     new(
                         JwtRegisteredClaimNames.Jti,
@@ -488,12 +502,7 @@ namespace MathWorldAPI.Services
         private static string NormalizeRole(
             string role)
         {
-            return string.Equals(
-                    role,
-                    "Admin",
-                    StringComparison.OrdinalIgnoreCase)
-                ? "Admin"
-                : "Student";
+            return AccountRolePolicy.NormalizeExistingRegistrationRole(role);
         }
     }
 }

@@ -65,14 +65,21 @@ public sealed class DailyChallengeController : ControllerBase
         // the challenge screen unless an explicit mistake review is requested.
         // The first-attempt timestamp keeps today's selection stable even after
         // a question is answered later on the same UTC day.
-        var attemptedBeforeToday = await _db.UserProgresses.AsNoTracking()
+        var tracks=HttpContext.RequestServices.GetRequiredService<LearningTrackService>();
+        var track=await tracks.ActiveAsync(targetStage,learner.CurrentTrackId,ct);
+        if(tracks.Enabled&&learner.CurrentTrackId.HasValue&&track is null)
+            return Conflict(new{Message="LearningTrackUnavailable"});
+        var practiceScope=TrackPractice.Scope(HttpContext.RequestServices.GetRequiredService<IConfiguration>(),track?.Id);
+        var scopedProgress=TrackPractice.For(_db,practiceScope);
+        var attemptedBeforeToday = await scopedProgress.AsNoTracking()
             .Where(p => p.UserId == userId &&
                 ((p.Attempts > 0 &&
                     (p.FirstAttemptAt ?? p.LastAttemptAt) < day) ||
                  (p.IsSolved && p.SolvedAt.HasValue && p.SolvedAt.Value < day)))
             .Select(p => p.ProblemId).ToListAsync(ct);
 
-        var eligible = await _db.Problems.AsNoTracking()
+        var scoped=track is null?_db.Problems.AsNoTracking():tracks.ValidProblems(track.Id);
+        var eligible = await scoped
             .Where(p => p.StageId == targetStage.Value &&
                 p.Category.StageId == targetStage.Value &&
                 allowed.Contains(p.CategoryId) &&
@@ -100,24 +107,22 @@ public sealed class DailyChallengeController : ControllerBase
             .ToList();
         var ids = selected.Select(p => p.Id).ToArray();
 
-        // Each daily question counts once as soon as an answer is submitted,
-        // whether right or wrong. The UI then advances to the next question.
-        // The correct count is independent and is shown in the result screen.
+        // Legacy fallback selection uses ordinary practice records. It is
+        // not an independent session (LearningSessions handles that contract).
+        // Only a correct response completes a question, including on resume.
         // Ignore prior audit rows after a voluntary practice cycle reset.
-        var activeAttempts = await _db.UserProgresses.AsNoTracking()
+        var activeAttempts = await scopedProgress.AsNoTracking()
             .Where(p => p.UserId == userId && p.Attempts > 0 &&
                 ids.Contains(p.ProblemId))
             .Select(p => p.ProblemId).ToListAsync(ct);
         var activeIds = activeAttempts.ToHashSet();
         var answersToday = await _db.ProblemAttempts.AsNoTracking()
-            .Where(p => p.UserId == userId && ids.Contains(p.ProblemId) &&
+            .Where(p => p.UserId == userId && p.PracticeScopeId==practiceScope && ids.Contains(p.ProblemId) &&
                 p.SubmittedAt >= day && p.SubmittedAt < nextDay)
             .GroupBy(p => p.ProblemId)
             .Select(g => new { ProblemId = g.Key,
                 IsCorrect = g.Any(p => p.IsCorrect) })
             .ToListAsync(ct);
-        var answeredIds = answersToday.Where(p => activeIds.Contains(p.ProblemId))
-            .Select(p => p.ProblemId).ToHashSet();
         var correctIds = answersToday.Where(p => p.IsCorrect &&
             activeIds.Contains(p.ProblemId))
             .Select(p => p.ProblemId).ToHashSet();
@@ -126,13 +131,14 @@ public sealed class DailyChallengeController : ControllerBase
         {
             DateUtc = day.ToString("yyyy-MM-dd"),
             StageId = targetStage.Value,
+            TrackId = track?.Id,
             Total = selected.Count,
-            Completed = selected.Count(p => answeredIds.Contains(p.Id)),
+            Completed = selected.Count(p => correctIds.Contains(p.Id)),
             Correct = selected.Count(p => correctIds.Contains(p.Id)),
             Problems = selected.Select(p => new
             {
                 p.Id, p.CategoryId, p.TitleAr, p.TitleEn, p.Points,
-                IsAnswered = answeredIds.Contains(p.Id),
+                IsAnswered = correctIds.Contains(p.Id),
                 IsSolved = correctIds.Contains(p.Id)
             }).ToList()
         });

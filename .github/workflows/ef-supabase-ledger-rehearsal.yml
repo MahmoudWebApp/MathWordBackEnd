@@ -147,7 +147,30 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."__EFMigrationsHistory"' | grep -qx 25
+          psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."__EFMigrationsHistory"' | grep -qx 41
+          psql -X -v ON_ERROR_STOP=1 -Atc "SELECT COUNT(*) FROM public.\"__EFMigrationsHistory\" WHERE \"MigrationId\"='20261125120000_AddEmailVerificationGrants'" | grep -qx 1
+          psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."EmailVerificationGrants"' | grep -qx 0
+          psql -X -v ON_ERROR_STOP=1 -Atc "SELECT count(*) FROM pg_class c JOIN pg_namespace n ON n.oid=c.relnamespace WHERE n.nspname='public' AND c.relname='EmailVerificationGrants' AND c.relrowsecurity AND NOT has_table_privilege('anon',c.oid,'SELECT,INSERT,UPDATE,DELETE') AND NOT has_table_privilege('authenticated',c.oid,'SELECT,INSERT,UPDATE,DELETE')" | grep -qx 1
+          psql -X -v ON_ERROR_STOP=1 -Atc "SELECT COUNT(*) FROM public.\"__EFMigrationsHistory\" WHERE \"MigrationId\"='20261125110000_AddPremiumExpiryNoticeMarker'" | grep -qx 1
+          psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."Users" WHERE "PremiumExpiryNotifiedAtUtc" IS NOT NULL' | grep -qx 0
+          psql -X -v ON_ERROR_STOP=1 -Atc "SELECT COUNT(*) FROM public.\"__EFMigrationsHistory\" WHERE \"MigrationId\"='20261125100000_AddOptionalEmailPreferences'" | grep -qx 1
+          psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."Users" WHERE "VerifiedNotificationEmail" IS NOT NULL OR "EmailNotificationLocale" IS NOT NULL OR "EmailLearningUpdates" OR "EmailSubscriptionUpdates" OR "EmailImportantAnnouncements"' | grep -qx 0
+          psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."UserProgresses" WHERE "HintsRevealed"<>0' | grep -qx 0
+          psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."UserProgresses" WHERE "PracticeScopeId"<>0' | grep -qx 0
+          psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."ProblemAttempts" WHERE "PracticeScopeId"<>0' | grep -qx 0
+          psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."LearningSessions"' | grep -qx 0
+          psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."LearningSessionAttempts"' | grep -qx 0
+          psql -X -v ON_ERROR_STOP=1 -Atc "SELECT count(*) FROM pg_class c JOIN pg_namespace n ON n.oid=c.relnamespace WHERE n.nspname='public' AND c.relname IN ('LearningSessions','LearningSessionAttempts','PermanentProblemAchievements','LearningCertificates') AND c.relrowsecurity AND NOT has_table_privilege('anon',c.oid,'SELECT,INSERT,UPDATE,DELETE') AND NOT has_table_privilege('authenticated',c.oid,'SELECT,INSERT,UPDATE,DELETE')" | grep -qx 4
+          psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."CurriculumDraftItems" WHERE "WizardJson" IS NOT NULL OR "OwnerUserId" IS NOT NULL' | grep -qx 0
+          psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."LearningTracks" WHERE NOT "IsPublished"' | grep -qx 17
+          psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."Users" WHERE "CurrentTrackId" IS NOT NULL' | grep -qx 0
+          psql -X -v ON_ERROR_STOP=1 -Atc "SELECT count(*) FROM pg_class c JOIN pg_namespace n ON n.oid=c.relnamespace WHERE n.nspname='public' AND c.relname IN ('LearningTracks','LearningTrackCategories','LearningTrackSkills','LearningTrackProblems') AND c.relrowsecurity AND NOT has_table_privilege('anon',c.oid,'SELECT,INSERT,UPDATE,DELETE') AND NOT has_table_privilege('authenticated',c.oid,'SELECT,INSERT,UPDATE,DELETE')" | grep -qx 4
+          psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."Users" WHERE "StaffPermissions" <> 0 OR "StaffSetupPending"' | grep -qx 0
+          psql -X -v ON_ERROR_STOP=1 -Atc "SELECT count(*) FROM pg_class c JOIN pg_namespace n ON n.oid=c.relnamespace WHERE n.nspname='public' AND c.relname IN ('PasswordResetGrants','EmailOutbox') AND c.relrowsecurity AND NOT has_table_privilege('anon',c.oid,'SELECT,INSERT,UPDATE,DELETE') AND NOT has_table_privilege('authenticated',c.oid,'SELECT,INSERT,UPDATE,DELETE')" | grep -qx 2
+          psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."PlatformBrandSettings" WHERE "Id"=1 AND "Revision"=0' | grep -qx 1
+          psql -X -v ON_ERROR_STOP=1 -Atc "SELECT count(*) FROM pg_class c JOIN pg_namespace n ON n.oid=c.relnamespace WHERE n.nspname='public' AND c.relname='PlatformBrandSettings' AND c.relrowsecurity AND NOT has_table_privilege('anon',c.oid,'SELECT,INSERT,UPDATE,DELETE') AND NOT has_table_privilege('authenticated',c.oid,'SELECT,INSERT,UPDATE,DELETE')" | grep -qx 1
+          psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."Users" WHERE "TokenVersion" IS NULL OR "TokenVersion" <> 0' | grep -qx 0
+          psql -X -v ON_ERROR_STOP=1 -Atc "SELECT COUNT(*) FROM public.\"__EFMigrationsHistory\" WHERE \"MigrationId\"='20261124220000_AddAccountTokenVersion'" | grep -qx 1
           psql -X -v ON_ERROR_STOP=1 -Atc "SELECT COUNT(*) FROM public.\"__EFMigrationsHistory\" WHERE \"MigrationId\"='20261124213000_SecureCurriculumTaxonomyEfParity'" | grep -qx 1
           test "$(psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."Users"')" = "$(cat /tmp/mw-ledger-users-before)"
           test "$(psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."Categories"')" = "$(cat /tmp/mw-ledger-categories-before)"
