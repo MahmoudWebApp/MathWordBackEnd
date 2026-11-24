@@ -135,7 +135,7 @@ namespace MathWorldAPI.Services
                     return null;
                 }
 
-                if (!user.IsActive)
+                if (!user.IsActive || user.StaffSetupPending || user.Role == AccountRolePolicy.Supervisor)
                 {
                     _logger.LogWarning(
                         "Google login rejected because user {UserId} is inactive.",

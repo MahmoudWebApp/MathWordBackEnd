@@ -85,7 +85,7 @@ public sealed class AdminSupervisorsController(AppDbContext db, IConfiguration c
     public async Task<IActionResult> Invite(int id,InviteRequest request,CancellationToken ct)
     {
         if(request.Language is not ("ar" or "en")) return BadRequest();
-        if(!recovery.Enabled || !config.GetValue<bool>("MathWorldEmail:OutboxEnabled"))
+        if(!recovery.Enabled)
             return StatusCode(503,new {Message="EmailNotConfigured"});
         await using var tx=await db.Database.BeginTransactionAsync(ct);
         await db.Users.Where(x=>x.Id==id && x.Role==AccountRolePolicy.Supervisor)
@@ -109,6 +109,6 @@ public sealed class AdminSupervisorsController(AppDbContext db, IConfiguration c
             CreatedAtUtc=now,NextRetryAtUtc=now,ExpiresAtUtc=grant.ExpiresAtUtc});
         Audit(id,"SupervisorInvited");
         await db.SaveChangesAsync(ct); await tx.CommitAsync(ct);
-        return Accepted(new {Queued=true});
+        return Accepted(new {Queued=true, WorkerEnabled=config.GetValue<bool>("MathWorldEmail:OutboxEnabled")});
     }
 }
