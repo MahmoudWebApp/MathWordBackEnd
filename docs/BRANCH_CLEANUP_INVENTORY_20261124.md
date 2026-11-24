@@ -1,101 +1,89 @@
-# MathWorld — safe Git branch cleanup inventory
+# MathWorld — full branch comparison audit
 
-**Read-only comparison snapshot, 2026-11-24. No branches deleted.**
+**Dated snapshot:** 2026-11-24. Compared all three linked GitHub repositories against their current `main` commit using the read-only compare API. No refs or branches were deleted.
 
-## Scope
+## Complete comparison results
 
-GitHub branch inventory returned **323** branch names across the three maintained repositories: backend **143**, Next.js **106**, Flutter **74**. This includes `main`, feature/release/repair branches, and the current review branches. Branch names and totals are a timestamped inventory, not proof that each branch is obsolete.
+| Repository | All branches including main | Non-main compared | Ahead=0 | Ahead>0 |
+| --- | ---: | ---: | ---: | ---: |
+| Backend | 143 | 142 | 18 | 124 |
+| Next.js | 106 | 105 | 16 | 89 |
+| Flutter | 74 | 73 | 11 | 62 |
+| **All** | **323** | **320** | **45** | **275** |
 
-Fifteen *selected* branches were compared to `main` with GitHub's compare API. `ahead_by = 0` proves that these branches contain no additional commits relative to `main` under the comparison; `ahead_by > 0` needs inspection even when equivalent changes might have been squash-merged under different commits.
+- `ahead_by=0`: branch tip has **no commits that are not reachable from `main`** (potential pruning candidate, subject to references/protections/deployment checks).
+- `ahead_by>0`: distinct commit history; **not necessarily unported code**, because squash/cherry-pick merges can yield equivalent files with different SHA. Needs patch comparison and requirement checks before pruning.
+- The checked `main` baseline can change after merges; rerun before any branch deletion. **Do not automatically prune based only on this report.**
 
-| Repository | Branch | Ahead | Behind | Decision |
-| --- | --- | ---: | ---: | --- |
-| Backend | `release/requests-frozen-20261123` | 0 | 44 | Candidate for eventual pruning after reference check |
-| Backend | `release/publish-reviewed-172-curriculum-items-20261123` | 9 | 2 | KEEP / review 5 changed files |
-| Backend | `security/archive-rls-execute-grants-20261118` | 1 | 150 | KEEP / review 1 changed file |
-| Backend | `audit/complete-primary-fractions-laws-20261123` | 5 | 30 | KEEP / review 5 changed files |
-| Backend | `audit/complete-middle-number-theory-algebra-laws-20261123` | 5 | 26 | KEEP / review 5 changed files |
-| Next.js | `release/requests-frozen-20261123` | 0 | 10 | Candidate for eventual pruning after reference check |
-| Next.js | `release/mathworld-web-final-20261122` | 12 | 52 | KEEP / review 12 changed files |
-| Next.js | `feat/approved-11-curriculum-category-icons-20261123` | 14 | 1 | KEEP / review 13 changed files |
-| Next.js | `feat/admin-visible-student-activity-20261118` | 1 | 102 | KEEP / review 1 changed file |
-| Next.js | `feat/student-practice-flow-20261122` | 10 | 54 | KEEP / review 9 changed files |
-| Flutter | `release/requests-frozen-20261123` | 0 | 4 | Candidate for eventual pruning after reference check |
-| Flutter | `release/android-podium-no-views-20261122` | 5 | 17 | KEEP / review 5 changed files |
-| Flutter | `feat/flutter-simple-practice-20261122` | 10 | 19 | KEEP / review 9 changed files |
-| Flutter | `docs/approved-launcher-release-20261122` | 1 | 23 | KEEP / review 1 changed file |
-| Flutter | `feat/branded-premium-pdf-charts-20261122` | 2 | 18 | KEEP / review 1 changed file |
+## 45 zero-ahead branch candidates (verify references before removal)
 
-**Interim finding:** 3/15 sampled branches have zero unique commits; 12/15 have additional commits, so mass deletion would be unsafe. No write operation is needed to classify them.
+### Backend — 18 candidate branches
 
-## Follow-up comparison — additional 24 branches
+- `docs/mathworld-student-journey-premium-roadmap`
+- `feature/admin-activity-insights-20261113`
+- `feature/admin-learner-insights-v1`
+- `feature/admin-learner-subscription-speed-20261123`
+- `feature/admin-separation-analytics-v1`
+- `feature/current-stage-dashboard-context-v1`
+- `feature/curriculum-wave4-20261123`
+- `feature/daily-challenge-guided-flow-20261123`
+- `feature/point-ledger-stage-rankings-v1`
+- `feature/security-observability-sprint1`
+- `feature/sitewide-api-latency-20261123`
+- `feature/social-login-safe-account-linking`
+- `feature/stage-daily-quota-v1`
+- `feature/student-learning-stage-journey-v1`
+- `fix/problem-history-current-main-20261113`
+- `fix/readiness-detect-pending-db-migrations`
+- `fix/restore-backend-before-ledger-migration`
+- `release/requests-frozen-20261123`
 
-Additional comparisons were made against `main` using the same non-destructive GitHub compare endpoint. These results are **snapshots**, not approval to delete unreviewed branches.
+### Next.js — 16 candidate branches
 
-| Repository | Branch | Ahead | Behind | Disposition |
-|---|---|---:|---:|---|
-| Backend | `feature/admin-learner-subscription-speed-20261123` | 0 | 86 | Candidate after references check |
-| Backend | `feature/sitewide-api-latency-20261123` | 0 | 86 | Candidate after references check |
-| Backend | `feature/daily-challenge-guided-flow-20261123` | 0 | 85 | Candidate after references check |
-| Backend | `feat/student-practice-cycles-20261122` | 20 | 100 | Keep and inspect 7 files |
-| Backend | `feat/admin-annual-premium-batch-20261122` | 7 | 101 | Keep and inspect 7 files |
-| Backend | `fix/analytics-export-language-pdf-20261123` | 14 | 41 | Keep and inspect 10+ files |
-| Backend | `feature/curriculum-wave4-20261123` | 0 | 71 | Candidate after references check |
-| Backend | `feature/split-broad-curriculum-topics-20261121` | 1 | 118 | Keep and inspect SQL |
-| Next.js | `feature/admin-ux-premium-performance-20261123` | 0 | 15 | Candidate after references check |
-| Next.js | `feature/sitewide-web-request-efficiency-20261123` | 5 | 50 | Keep and inspect 4 files |
-| Next.js | `feature/category-skills-and-compact-stats-20261123` | 7 | 3 | Keep and inspect 6 files |
-| Next.js | `fix/mobile-navbar-auth-loading-20261123` | 2 | 5 | Keep and inspect 2 files |
-| Next.js | `fix/analytics-export-ui-language-20261123` | 5 | 8 | Keep and inspect 2 files |
-| Next.js | `fix/admin-email-and-readable-rankings-20261122` | 7 | 51 | Keep and inspect 6 files |
-| Next.js | `feature/public-pages-curriculum-ux-20261121` | 38 | 62 | Keep and inspect multi-file differences |
-| Next.js | `fix/curriculum-published-editorial-state-20261121` | 2 | 65 | Keep and inspect 2 files |
-| Flutter | `fix/mobile-challenge-card-ux-20261123` | 0 | 5 | Candidate after references check |
-| Flutter | `fix/reset-confirmation-copy-20261123` | 1 | 3 | Keep and inspect 1 file |
-| Flutter | `feature/category-skills-parity-20261123` | 7 | 2 | Keep and inspect 7 files |
-| Flutter | `fix/category-skills-dialog-bounded-layout-20261123` | 2 | 1 | Keep and inspect 1 file |
-| Flutter | `fix/latex-rtl-problem-rendering-20261121` | 3 | 31 | Keep and inspect 3 files |
-| Flutter | `feat/hide-solved-resume-20261121` | 2 | 30 | Keep and inspect 5 files |
-| Flutter | `fix/real-student-names-20261122` | 3 | 16 | Keep and inspect 3 files |
-| Flutter | `feature/approved-external-launcher-icon-20261122` | 8 | 25 | Keep and inspect 5 files |
+- `feature/admin-activity-dashboard-rtl-v1`
+- `feature/admin-control-center-stage-analytics-v1`
+- `feature/admin-dashboard-navigation-cleanup-v1`
+- `feature/admin-learner-insights-web-v1`
+- `feature/admin-ux-premium-performance-20261123`
+- `feature/mathworld-brand-logo-v2`
+- `feature/mathworld-calm-ui-v1`
+- `feature/rtl-sitewide-analytics-main-20261113`
+- `feature/selected-stage-student-parity-v1`
+- `feature/social-login-web-v1`
+- `feature/stage-daily-quota-web-v1`
+- `feature/stage-leaderboards-web-v1`
+- `feature/student-learning-stage-journey-web-v1`
+- `fix/hide-leaderboard-until-api-live`
+- `fix/transparent-navbar-logo-v3`
+- `release/requests-frozen-20261123`
 
-**Cumulative sampled:** 39/323 names individually compared; 8 had `ahead_by=0`, while 31 had unique commits. **No branches deleted.** Do not equate unique commit history with a non-merged feature; inspect patch equivalence and PR history first.
+### Flutter — 11 candidate branches
 
-## Completed Flutter branch-head audit
+- `feature/mathworld-brand-logo-v2`
+- `feature/mathworld-calm-ui-v1`
+- `feature/social-google-mobile-auth-v1`
+- `feature/stage-focused-mobile-parity-v1`
+- `feature/stage-leaderboard-flutter-v1`
+- `feature/student-learning-stage-journey-flutter-v1`
+- `fix/calm-dark-theme-rtl-v1`
+- `fix/gate-stage-leaderboard-until-api-live`
+- `fix/rtl-directional-icons-v1`
+- `fix/mobile-challenge-card-ux-20261123`
+- `release/requests-frozen-20261123`
 
-**Recheck against Flutter `main` on 2026-11-24:** all **73 non-`main` Flutter branch names** were compared with GitHub's `compare_commits` API; **11 had `ahead_by = 0`**, and the remaining **62 had additional commits** relative to `main`. Branch names below are *pruning candidates only*, not approved for deletion:
+## Preserve and inspect rather than delete
 
-| Flutter branch with 0 unique commits | Interpretation |
-| --- | --- |
-| `feature/mathworld-brand-logo-v2` | Fully behind current main |
-| `feature/mathworld-calm-ui-v1` | Fully behind current main |
-| `feature/social-google-mobile-auth-v1` | Fully behind current main |
-| `feature/stage-focused-mobile-parity-v1` | Fully behind current main |
-| `feature/stage-leaderboard-flutter-v1` | Fully behind current main |
-| `feature/student-learning-stage-journey-flutter-v1` | Fully behind current main |
-| `fix/calm-dark-theme-rtl-v1` | Fully behind current main |
-| `fix/gate-stage-leaderboard-until-api-live` | Fully behind current main |
-| `fix/rtl-directional-icons-v1` | Fully behind current main |
-| `fix/mobile-challenge-card-ux-20261123` | Fully behind current main |
-| `release/requests-frozen-20261123` | Fully behind current main |
+- **Backend:** older content/audit branches can hold independently reviewed solution laws and unpublished files; some integration branches have hundreds of unique commits. Inspect changed-file patches and whether content was already imported before deleting or cherry-picking.
+- **Next.js:** larger integration branches (e.g. `integration/premium-web-reconcile-20261118` and `feature/premium-entitlements-client`) have very divergent histories. Review source patches against current UI and the *active* requirements, not the historical branch name.
+- **Flutter:** `integration/premium-mobile-reconcile-20261118` and `feature/premium-entitlements-client` each show 250+ unique commits; preserve until patch-by-patch assessment. The already merged PR #76 source branch can retain different commit history due to squash; treat it as merged only after checking tree equivalence.
+- Active review branches **must not be pruned:** backend `chore/safe-cleanup-auth-migrations-20261124` ([PR #146](https://github.com/MahmoudWebApp/MathWordBackEnd/pull/146)), web `chore/clean-single-pnpm-lockfile-20261124` ([PR #107](https://github.com/MahmoudWebApp/MathWorldFrontend/pull/107)). Flutter [PR #76](https://github.com/MahmoudWebApp/mathworld-mobile/pull/76) was merged; its branch still requires release/reference and patch-equivalence confirmation before removal.
 
-**Preservation notes:** `feature/premium-entitlements-client` and `integration/premium-mobile-reconcile-20261118` have 250+ unique commits each and large diffs; do **not** delete or cherry-pick them wholesale. The branch `chore/cleanup-mobile-docs-env-20261124` still has distinct commit history after squash-merging PR #76; inspect patch equivalence before pruning it. Other nonzero branches contain potentially relevant branding, reporting, curriculum and UX changes. None are classified as safe to delete without a reference, PR, deployment and patch-equivalence review.
+## Safe removal checklist (NOT executed)
 
-**No Git refs were deleted.** This completion result supersedes the earlier Flutter-only sampled-branch counts; backend and frontend remain partially audited.
+1. Fetch the newest `main`, branch protections, open PR references, deployment sources, build workflow references and pending release tags. Refresh the comparison.
+2. Check all changed files and full diff for any nonzero-ahead branch. Preserve work for the current requirements even when the branch name sounds obsolete.
+3. For zero-ahead candidates, confirm no protected/ref-dependent workflow, open PR or release is using the ref. Stage a rollback/reference tag if the repository's retention policy requires it.
+4. Delete only branches approved after these checks. Git history, student progress, database records and live deployments are **out of scope** for this inventory. Do not delete `main`.
+5. Check GitHub Actions and Render/Vercel after any approved merge. No live deployment or database mutation was made by this audit.
 
-## Required before pruning any branch
-
-1. List **all branches** and fetch the current default-branch HEAD (do not assume it has stayed unchanged since this snapshot).
-2. Check whether a branch is protected, targeted by open PRs, used by deploys/Actions, or referenced by a pending release.
-3. Compare branch to current `main`, and inspect full per-file patch plus related PR. With squash merges, confirm *patch equivalence*, not just `ahead_by`.
-4. Preserve any branch with unported requirements, unmerged fixes, security work, deployment dependencies, or uncertain ownership. Update the active MathWorld issue #17 with the classification.
-5. Prune only verified disposable branches after a backup/reference tag if necessary; do not prune `main` or the three active cleanup PR branches. GitHub branch deletion is intentionally **not executed** by this audit.
-6. Revalidate essential CI and the production deployment revision after any merge. No production writes or automatic deployment during branch inventory.
-
-## Current active cleanup PRs
-
-- [Backend #146](https://github.com/MahmoudWebApp/MathWordBackEnd/pull/146) — authentication logging and read-only EF migration report
-- [Next.js #107](https://github.com/MahmoudWebApp/MathWorldFrontend/pull/107) — pnpm-only lockfile hygiene
-- [Flutter #76](https://github.com/MahmoudWebApp/mathworld-mobile/pull/76) — README and local environment ignore rules
-
-**Status:** sample classified; **308 other branches not individually compared in this audit**, so comprehensive branch pruning remains open.
+**Audit state:** **320/320 non-main branches compared**, with 45 candidates for additional reference checks and 275 branches that need commit/patch review before any removal. **Zero deletions**.
