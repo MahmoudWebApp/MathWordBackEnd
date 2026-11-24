@@ -31,9 +31,9 @@ public sealed class AccountPasswordController(AccountPasswordService passwords) 
             !SessionVersionPolicy.TryReadVersion(
                 User.FindAll(SessionVersionPolicy.ClaimName).Select(x => x.Value), out var version))
             return Unauthorized();
-        var result = await passwords.ChangeAsync(userId, role!, version,
-            request.CurrentPassword, request.NewPassword, request.ConfirmPassword, ct);
         var language = LanguageHelper.GetLanguageFromRequest(Request);
+        var result = await passwords.ChangeAsync(userId, role!, version,
+            request.CurrentPassword, request.NewPassword, request.ConfirmPassword, language, ct);
         if (result == AccountPasswordService.ChangeResult.Changed)
             return Ok(LanguageHelper.SuccessResponse(
                 new { RequiresSignIn = true }, "PasswordChanged", language));

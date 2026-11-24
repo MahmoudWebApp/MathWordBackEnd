@@ -16,7 +16,7 @@ public sealed class AccountPasswordService(AppDbContext db, NotificationStreamBr
         Encoding.UTF8.GetByteCount(password) <= 72;
 
     public async Task<ChangeResult> ChangeAsync(int userId, string role, int expectedVersion,
-        string currentPassword, string newPassword, string confirmation, CancellationToken ct)
+        string currentPassword, string newPassword, string confirmation, string locale, CancellationToken ct)
     {
         if (!AccountRolePolicy.IsSupportedSessionRole(role) || userId <= 0)
             return ChangeResult.SessionChanged;
@@ -60,7 +60,7 @@ public sealed class AccountPasswordService(AppDbContext db, NotificationStreamBr
             CreatedAtUtc = now
         });
         // Old recovery links are invalidated by the new TokenVersion.
-        emailQueue.AddSecurityNotice(user, "password-changed", now);
+        emailQueue.AddSecurityNotice(user, "password-changed", locale, now);
         await db.SaveChangesAsync(ct);
         await transaction.CommitAsync(ct);
         stream.Notify(userId);

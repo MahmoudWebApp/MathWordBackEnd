@@ -31,13 +31,14 @@ public sealed class PasswordRecoveryController(PasswordRecoveryService recovery)
     }
 
     [HttpPost("reset-password")]
+    [EnableRateLimiting("password-reset")]
     public async Task<IActionResult> Reset(ResetRequest request, CancellationToken ct)
     {
         var language = LanguageHelper.GetLanguageFromRequest(Request);
         if (!AccountPasswordService.IsValidNewPassword(request.NewPassword) ||
             !string.Equals(request.NewPassword, request.ConfirmPassword, StringComparison.Ordinal))
             return BadRequest(LanguageHelper.ErrorResponse<object>("InvalidNewPassword", language));
-        if (!await recovery.ResetAsync(request.Token, request.NewPassword, ct))
+        if (!await recovery.ResetAsync(request.Token, request.NewPassword, language, ct))
             return BadRequest(LanguageHelper.ErrorResponse<object>("InvalidResetToken", language));
         return Ok(LanguageHelper.SuccessResponse(new { RequiresSignIn = true }, "PasswordResetSuccess", language));
     }

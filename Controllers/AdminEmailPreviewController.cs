@@ -38,6 +38,7 @@ public sealed class AdminEmailPreviewController(PlatformBrandService brand) : Co
         };
         if (sample.Item1.Length == 0) return BadRequest(new { Message = "UnknownEmailTemplate" });
         return Ok(MathWorldEmailLayout.Render(settings, language, sample.Item1, sample.Item2,
-            ar ? "زيارة المنصة" : "Visit MathWorld", settings.WebsiteUrl + "/" + language));
+            template == "password-reset" ? (ar ? "تعيين كلمة المرور" : "Reset password") : (ar ? "زيارة المنصة" : "Visit MathWorld"),
+            settings.WebsiteUrl + "/" + language + (template == "password-reset" ? "/reset-password" : "")));
     }
 }

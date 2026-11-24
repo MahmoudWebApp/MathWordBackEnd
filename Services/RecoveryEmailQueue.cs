@@ -16,6 +16,7 @@ public sealed class BrevoEmailTransport(IConfiguration config, IHttpClientFactor
 {
     private string? Read(string name) => config["MathWorldEmail:Brevo:" + name]?.Trim();
     private string Mode => Read("Mode") ?? "test";
+    public bool IsTestMode => Mode == "test";
     public bool IsConfigured => config.GetValue<bool>("MathWorldEmail:Brevo:Enabled") &&
         !string.IsNullOrWhiteSpace(Read("ApiKey")) &&
         MailAddress.TryCreate(Read("From"), out _) && Mode is "test" or "live";
@@ -68,13 +69,13 @@ public sealed class BrevoEmailTransport(IConfiguration config, IHttpClientFactor
 
 public sealed class RecoveryEmailQueue(AppDbContext db, IConfiguration config, BrevoEmailTransport transport)
 {
-    public void AddSecurityNotice(AppUser user, string templateKey, DateTime now)
+    public void AddSecurityNotice(AppUser user, string templateKey, string locale, DateTime now)
     {
         if (!transport.AllowsRecipient(user.Email)) return;
         db.EmailOutbox.Add(new EmailOutboxItem
         {
             Id = Guid.NewGuid(), UserId = user.Id, Recipient = user.Email,
-            TemplateKey = templateKey, Locale = "ar", State = "Pending",
+            TemplateKey = templateKey, Locale = locale == "en" ? "en" : "ar", State = "Pending",
             CreatedAtUtc = now, NextRetryAtUtc = now, ExpiresAtUtc = now.AddHours(12)
         });
     }
@@ -203,6 +204,15 @@ public sealed class RecoveryEmailWorker(IServiceScopeFactory scopes, IConfigurat
                 ar ? "تم تغيير كلمة المرور" : "Password changed",
                 ar ? "تم تغيير كلمة مرور حسابك. إذا لم تكن أنت، تواصل مع الدعم." :
                     "Your account password changed. If this was not you, contact support.");
+        }
+        else if (item.TemplateKey == "test")
+        {
+            // Test-only messages cannot be replayed after switching to live mode.
+            if (!transport.IsTestMode) return new("Cancelled", ErrorCode: "TestModeRequired");
+            email = MathWorldEmailLayout.Render(brand, item.Locale,
+                ar ? "رسالة اختبار MathWorld" : "MathWorld test email",
+                ar ? "هذه رسالة تجريبية من إعدادات الإدارة، ولا تحتوي أي رابط لاستعادة حساب." :
+                    "This is a test email from administration settings, with no account recovery link.");
         }
         else return new("Cancelled", ErrorCode: "UnknownTemplate");
         return await transport.SendAsync(item, email, ct);

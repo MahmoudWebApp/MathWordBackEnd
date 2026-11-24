@@ -89,7 +89,7 @@ public sealed class PasswordRecoveryService(AppDbContext db, IConfiguration conf
         await tx.CommitAsync(ct);
     }
 
-    public async Task<bool> ResetAsync(string token, string password, CancellationToken ct)
+    public async Task<bool> ResetAsync(string token, string password, string locale, CancellationToken ct)
     {
         var hash = RecoveryTokenCodec.Hash(token);
         if (!Enabled || hash is null) return false;
@@ -121,7 +121,7 @@ public sealed class PasswordRecoveryService(AppDbContext db, IConfiguration conf
             TitleAr = "استعادة كلمة المرور", TitleEn = "Password reset",
             BodyAr = "تم تعيين كلمة مرور جديدة. إذا لم تكن أنت، تواصل مع الدعم.",
             BodyEn = "Your password was reset. If this was not you, contact support.", CreatedAtUtc = now });
-        queue.AddSecurityNotice(user, "password-changed", now);
+        queue.AddSecurityNotice(user, "password-changed", locale, now);
         await db.SaveChangesAsync(ct);
         await tx.CommitAsync(ct);
         stream.Notify(user.Id);

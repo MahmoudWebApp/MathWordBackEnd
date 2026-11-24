@@ -297,6 +297,15 @@ builder.Services.AddRateLimiter(options =>
                 AutoReplenishment = true
             }));
 
+    options.AddPolicy("password-reset", context =>
+        RateLimitPartition.GetFixedWindowLimiter(
+            context.Connection.RemoteIpAddress?.ToString() ?? "unknown",
+            _ => new FixedWindowRateLimiterOptions
+            {
+                PermitLimit = 8, Window = TimeSpan.FromMinutes(1), QueueLimit = 0,
+                AutoReplenishment = true
+            }));
+
     // Limits answer submission by authenticated user ID.
     options.AddPolicy("answers", httpContext =>
     {

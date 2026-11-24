@@ -61,6 +61,33 @@ def main():
     assert status==200
     expect("GET","/api/notifications/v2/unread-count",200,token=token_of(result["Data"]))
     assert sql("""SELECT COUNT(*) FROM "EmailOutbox" WHERE "Recipient"='recovery-ci@mathworld.test' AND "TemplateKey"='password-changed'""")=="1"
-    print("PASS: generic forgot response, cooldown, hashed grant, queue, concurrent single-use reset and session revocation")
+    student_token=token_of(result["Data"])
+    outbox_route="/api/admin/platform/email-outbox"
+    expect("GET",outbox_route,401)
+    expect("GET",outbox_route,403,token=student_token)
+    admin_email="ci-admin@mathworld.test"
+    expect("POST",route,202,{"Email":admin_email})
+    admin_secret=grant_token(admin_email)
+    expect("POST",reset_route,200,reset(admin_secret,"CI_RESET_ADMIN_PASSWORD_123456"))
+    status,result=auth_retry("POST","/api/auth/login",{"Email":admin_email,"Password":"CI_RESET_ADMIN_PASSWORD_123456"})
+    assert status==200
+    admin_token=token_of(result["Data"])
+    outbox=expect("GET",outbox_route,200,token=admin_token)
+    assert outbox["IsConfigured"] and outbox["IsTestMode"] and not outbox["IsWorkerEnabled"]
+    assert outbox["Items"] and all(not any(k in row for k in ("Recipient","ResetGrantId","ProviderMessageId","TokenHash")) for row in outbox["Items"])
+    expect("POST",outbox_route+"/test",503,{"Language":"ar"},admin_token)
+    # Expiration is checked atomically even if a reset link was valid earlier.
+    sql("""UPDATE "PasswordResetGrants" SET "CreatedAtUtc"=NOW()-INTERVAL '5 minutes' WHERE "Email"='recovery-ci@mathworld.test'""")
+    expect("POST",route,202,{"Email":EMAIL})
+    expired=grant_token(EMAIL)
+    sql("""UPDATE "PasswordResetGrants" SET "ExpiresAtUtc"=NOW()-INTERVAL '1 minute' WHERE "Email"='recovery-ci@mathworld.test' AND "ConsumedAtUtc" IS NULL""")
+    expect("POST",reset_route,400,reset(expired))
+    # An inactive account still gets the identical public response.
+    sql("""UPDATE "Users" SET "IsActive"=false WHERE "Email"='recovery-ci@mathworld.test'""")
+    sql("""UPDATE "PasswordResetGrants" SET "CreatedAtUtc"=NOW()-INTERVAL '5 minutes' WHERE "Email"='recovery-ci@mathworld.test'""")
+    before=sql("""SELECT COUNT(*) FROM "PasswordResetGrants" WHERE "Email"='recovery-ci@mathworld.test'""")
+    expect("POST",route,202,{"Email":EMAIL})
+    assert sql("""SELECT COUNT(*) FROM "PasswordResetGrants" WHERE "Email"='recovery-ci@mathworld.test'""")==before
+    print("PASS: generic forgot, cooldown, hash-only grant, queue, single-use reset, admin recovery, expiration, disabled account, and protected outbox status")
 if __name__=="__main__":
     main()
