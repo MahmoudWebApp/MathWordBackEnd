@@ -2,6 +2,96 @@
   "status": "Editorial candidates",
   "items": [
     {
+      "problemId": 6,
+      "primarySkillKey": "primary-one-step-additive-equations",
+      "question": {
+        "Ar": "إذا كان $x + 7 = 15$، فما قيمة $x$؟",
+        "En": "If $x + 7 = 15$, what is the value of $x$?"
+      },
+      "Hints": [
+        {
+          "Ar": "ما العملية العكسية للجمع؟",
+          "En": "What operation reverses addition?"
+        },
+        {
+          "Ar": "اطرح العدد المضاف من طرفي المعادلة لتبقى متوازنة.",
+          "En": "Subtract the added number from both sides to keep the equation balanced."
+        }
+      ]
+    },
+    {
+      "problemId": 11,
+      "primarySkillKey": "primary-median",
+      "question": {
+        "Ar": "أوجد الوسيط (Median) للأعداد التالية: $3, 7, 9, 5, 4$",
+        "En": "Find the median of the following numbers: $3, 7, 9, 5, 4$"
+      },
+      "Hints": [
+        {
+          "Ar": "رتّب القيم تصاعدياً قبل اختيار الوسيط.",
+          "En": "Sort the values in ascending order before choosing the median."
+        },
+        {
+          "Ar": "عدّ القيم وحدّد موقع القيمة الوسطى دون جمع القيم.",
+          "En": "Count the values and locate the middle position without adding the values."
+        }
+      ]
+    },
+    {
+      "problemId": 12,
+      "primarySkillKey": "middle-exponent-laws",
+      "question": {
+        "Ar": "بسّط التعبير: $2^3 \\times 2^4$",
+        "En": "Simplify the expression: $2^3 \\times 2^4$"
+      },
+      "Hints": [
+        {
+          "Ar": "لاحظ أن أساس القوتين واحد.",
+          "En": "Notice that both powers share a base."
+        },
+        {
+          "Ar": "عند ضرب قوتين بالأساس نفسه نجمع الأسين، ثم نحسب القوة.",
+          "En": "When multiplying powers with the same base, add the exponents and evaluate."
+        }
+      ]
+    },
+    {
+      "problemId": 14,
+      "primarySkillKey": "middle-linear-equations",
+      "question": {
+        "Ar": "حل المعادلة: $3x - 5 = 16$",
+        "En": "Solve the equation: $3x - 5 = 16$"
+      },
+      "Hints": [
+        {
+          "Ar": "اعزل الحد الذي يحوي المجهول أولاً.",
+          "En": "Isolate the term containing the unknown first."
+        },
+        {
+          "Ar": "أضف خمسة للطرفين ثم اقسم كليهما على معامل المجهول.",
+          "En": "Add five to both sides, then divide both by the coefficient."
+        }
+      ]
+    },
+    {
+      "problemId": 15,
+      "primarySkillKey": "middle-linear-function-evaluation",
+      "question": {
+        "Ar": "إذا كانت $f(x) = 2x + 3$، فأوجد قيمة $f(4)$.",
+        "En": "If $f(x) = 2x + 3$, find the value of $f(4)$."
+      },
+      "Hints": [
+        {
+          "Ar": "ما القيمة التي يجب أن تحل محل المتغير؟",
+          "En": "What value should replace the variable?"
+        },
+        {
+          "Ar": "عوّض القيمة في الحد الخطي واحسب الضرب قبل الجمع.",
+          "En": "Substitute into the linear term and multiply before adding."
+        }
+      ]
+    },
+    {
       "problemId": 23,
       "primarySkillKey": "secondary-pythagorean-trig-identity",
       "question": {
@@ -20,6 +110,42 @@
       ]
     },
     {
+      "problemId": 27,
+      "primarySkillKey": "secondary-arithmetic-mean",
+      "question": {
+        "Ar": "أوجد الوسط الحسابي للأعداد: $5, 8, 12, 15, 20$.",
+        "En": "Find the arithmetic mean of the numbers: $5, 8, 12, 15, 20$."
+      },
+      "Hints": [
+        {
+          "Ar": "المتوسط الحسابي يحتاج إلى مجموع القيم وعددها.",
+          "En": "The arithmetic mean needs the sum and count of the values."
+        },
+        {
+          "Ar": "اجمع القيم الخمس ثم اقسم المجموع على عددها.",
+          "En": "Add the five values, then divide by their count."
+        }
+      ]
+    },
+    {
+      "problemId": 43,
+      "primarySkillKey": "middle-ratios",
+      "question": {
+        "Ar": "نسبة التفاح إلى البرتقال 2 إلى 3، ومجموع الثمار 45. كم تفاحة؟",
+        "En": "The ratio of apples to oranges is 2:3, and there are 45 fruits. How many apples?"
+      },
+      "Hints": [
+        {
+          "Ar": "اجمع جزأي النسبة لإيجاد عدد الحصص الكلي.",
+          "En": "Add the ratio parts to find the total number of shares."
+        },
+        {
+          "Ar": "اقسم عدد الثمار على مجموع الحصص ثم خذ حصة التفاح.",
+          "En": "Divide the fruit total by all shares, then take the apple share."
+        }
+      ]
+    },
+    {
       "problemId": 145,
       "primarySkillKey": "university-differentiability-continuity",
       "question": {
@@ -34,6 +160,42 @@
         {
           "Ar": "اكتب الفرق f(1+h)−f(1) على صورة حاصل ضرب h في خارج القسمة؛ ماذا يحدث عندما h يقترب من الصفر؟",
           "En": "Express f(1+h)−f(1) as h times the difference quotient. What happens as h approaches zero?"
+        }
+      ]
+    },
+    {
+      "problemId": 147,
+      "primarySkillKey": "university-monotone-convergence",
+      "question": {
+        "Ar": "متتالية حقيقية رتيبة ومحدودة. أي عبارة صحيحة دائماً؟",
+        "En": "A real sequence is monotone and bounded. Which statement always holds?"
+      },
+      "Hints": [
+        {
+          "Ar": "اربط رتابة المتتالية بوجود حد علوي أو سفلي.",
+          "En": "Connect monotonicity with an upper or lower bound."
+        },
+        {
+          "Ar": "تذكّر مبرهنة التقارب الرتيب للمتتاليات الحقيقية.",
+          "En": "Recall the monotone convergence theorem for real sequences."
+        }
+      ]
+    },
+    {
+      "problemId": 148,
+      "primarySkillKey": "university-series-convergence",
+      "question": {
+        "Ar": "أي متسلسلة مما يلي متقاربة؟",
+        "En": "Which of the following series converges?"
+      },
+      "Hints": [
+        {
+          "Ar": "صنّف المتسلسلات قبل تطبيق اختبار التقارب.",
+          "En": "Classify the series before applying a convergence test."
+        },
+        {
+          "Ar": "للمتسلسلة من الشكل واحد على قوة العدد الطبيعي، قارن الأس بواحد.",
+          "En": "For a series of reciprocals of natural-number powers, compare the exponent with one."
         }
       ]
     },
@@ -128,6 +290,132 @@
       ]
     },
     {
+      "problemId": 420,
+      "primarySkillKey": "p-fractions-decimals-fraction-operations",
+      "question": {
+        "Ar": "احسب $\\frac14+\\frac38$.",
+        "En": "Compute $\\frac14+\\frac38$."
+      },
+      "Hints": [
+        {
+          "Ar": "هل المقامان متساويان؟",
+          "En": "Are the denominators equal?"
+        },
+        {
+          "Ar": "حوّل الكسر الأول إلى أثمان ثم اجمع البسطين.",
+          "En": "Convert the first fraction into eighths, then add the numerators."
+        }
+      ]
+    },
+    {
+      "problemId": 421,
+      "primarySkillKey": "p-fractions-decimals-equivalence",
+      "question": {
+        "Ar": "ما الكسر المكافئ لـ $\\frac{3}{4}$ عندما يكون المقام 12؟",
+        "En": "Which fraction is equivalent to $\\frac{3}{4}$ with denominator 12?"
+      },
+      "Hints": [
+        {
+          "Ar": "كيف يصبح المقام أربعة مساويًا لاثني عشر؟",
+          "En": "How can the denominator four become twelve?"
+        },
+        {
+          "Ar": "اضرب البسط والمقام بالمعامل نفسه.",
+          "En": "Multiply numerator and denominator by the same factor."
+        }
+      ]
+    },
+    {
+      "problemId": 428,
+      "primarySkillKey": "p-fractions-decimals-decimal-place-value",
+      "question": {
+        "Ar": "اكتب $\\frac7{20}$ على صورة عدد عشري.",
+        "En": "Write $\\frac7{20}$ as a decimal."
+      },
+      "Hints": [
+        {
+          "Ar": "حاول تحويل المقام إلى مئة.",
+          "En": "Try changing the denominator to one hundred."
+        },
+        {
+          "Ar": "وسّع الكسر بالمعامل نفسه ثم اقرأ البسط بوصفه أجزاء من مئة.",
+          "En": "Scale both parts equally, then read the numerator as hundredths."
+        }
+      ]
+    },
+    {
+      "problemId": 473,
+      "primarySkillKey": "p-fractions-decimals-equivalence",
+      "question": {
+        "Ar": "أي كسر من الكسور الآتية **لا** يساوي $\\frac12$؟",
+        "En": "Which of these fractions is **not** equal to $\\frac12$?"
+      },
+      "Hints": [
+        {
+          "Ar": "ابحث عن الكسر المختلف، لا الكسور المتكافئة.",
+          "En": "Look for the different fraction, not the equivalent ones."
+        },
+        {
+          "Ar": "قارن ضعف بسط كل خيار بمقامه.",
+          "En": "Compare twice each option's numerator with its denominator."
+        }
+      ]
+    },
+    {
+      "problemId": 478,
+      "primarySkillKey": "m-statistics-summary-measures",
+      "question": {
+        "Ar": "احسب وسيط القيم: 2، 9، 4، 12، 7، 5.",
+        "En": "Find the median of the values 2, 9, 4, 12, 7, 5."
+      },
+      "Hints": [
+        {
+          "Ar": "رتّب البيانات من الأصغر إلى الأكبر.",
+          "En": "Sort the data from smallest to largest."
+        },
+        {
+          "Ar": "عدد القيم زوجي؛ احسب متوسط القيمتين في المنتصف.",
+          "En": "There are an even number of values; average the two middle ones."
+        }
+      ]
+    },
+    {
+      "problemId": 484,
+      "primarySkillKey": "s-sequences-series-geometric-sequences",
+      "question": {
+        "Ar": "في متتالية هندسية حدها الأول 2 ونسبتها المشتركة $-3$، احسب الحد الرابع.",
+        "En": "The first term of a geometric sequence is 2 and its common ratio is $-3$. Find the fourth term."
+      },
+      "Hints": [
+        {
+          "Ar": "تحتاج إلى الحد الأول والأساس وموقع الحد المطلوب.",
+          "En": "Use the first term, common ratio and requested term index."
+        },
+        {
+          "Ar": "استخدم الأس الذي يساوي موقع الحد ناقص واحد وانتبه لإشارة الأساس السالب.",
+          "En": "Use an exponent one less than the index and watch the negative ratio's sign."
+        }
+      ]
+    },
+    {
+      "problemId": 503,
+      "primarySkillKey": "p-fractions-decimals-fraction-comparisons",
+      "question": {
+        "Ar": "أي مقارنة صحيحة بين $\\frac56$ و$\\frac79$؟",
+        "En": "Which comparison between $\\frac56$ and $\\frac79$ is correct?"
+      },
+      "Hints": [
+        {
+          "Ar": "يمكن المقارنة دون تحويل إلى عدد عشري.",
+          "En": "You can compare without converting to decimals."
+        },
+        {
+          "Ar": "اضرب بسط كل كسر في مقام الكسر الآخر وقارن الناتجين.",
+          "En": "Cross-multiply the numerators and denominators, then compare the products."
+        }
+      ]
+    },
+    {
       "problemId": 512,
       "primarySkillKey": "s-sequences-series-series-convergence",
       "question": {
@@ -142,6 +430,510 @@
         {
           "Ar": "في كل مجموعة قارن جميع الحدود بأصغر حد فيها، ثم اضرب ذلك الحد بعدد الحدود.",
           "En": "In each block, compare all terms with its smallest term, then multiply by the number of terms."
+        }
+      ]
+    },
+    {
+      "problemId": 634,
+      "primarySkillKey": "secondary-pythagorean-trig-identity",
+      "question": {
+        "Ar": "إذا كانت θ حادة وcos(θ) = 5/13، فكم sin(θ)؟",
+        "En": "If θ is acute and cos(θ) = 5/13, find sin(θ)."
+      },
+      "Hints": [
+        {
+          "Ar": "استخدم العلاقة بين مربعي الجيب وجيب التمام.",
+          "En": "Use the identity connecting squared sine and cosine."
+        },
+        {
+          "Ar": "اطرح مربع جيب التمام من الواحد واختر الجذر الموافق للزاوية الحادة.",
+          "En": "Subtract cosine squared from one and choose the root for an acute angle."
+        }
+      ]
+    },
+    {
+      "problemId": 635,
+      "primarySkillKey": "secondary-pythagorean-trig-identity",
+      "question": {
+        "Ar": "زاوية حادة θ تحقق tan(θ) = 3/4. ما قيمة sin(θ)؟",
+        "En": "For an acute angle θ, tan(θ) = 3/4. What is sin(θ)?"
+      },
+      "Hints": [
+        {
+          "Ar": "مثّل الظل بنسبة المقابل إلى المجاور في مثلث قائم.",
+          "En": "Represent tangent as opposite over adjacent in a right triangle."
+        },
+        {
+          "Ar": "أوجد الوتر بفيثاغورس ثم كوّن نسبة المقابل إلى الوتر.",
+          "En": "Find the hypotenuse using Pythagoras, then form opposite over hypotenuse."
+        }
+      ]
+    },
+    {
+      "problemId": 636,
+      "primarySkillKey": "secondary-pythagorean-trig-identity",
+      "question": {
+        "Ar": "إذا كانت θ في الربع الثاني وsin(θ) = 4/5، فما cos(θ)؟",
+        "En": "θ lies in quadrant II and sin(θ) = 4/5. What is cos(θ)?"
+      },
+      "Hints": [
+        {
+          "Ar": "احسب مقدار جيب التمام باستخدام المتطابقة المثلثية.",
+          "En": "Find the cosine magnitude using the trigonometric identity."
+        },
+        {
+          "Ar": "بعد استخراج الجذر حدّد إشارته من الربع الثاني.",
+          "En": "After taking the square root, choose its sign using quadrant II."
+        }
+      ]
+    },
+    {
+      "problemId": 638,
+      "primarySkillKey": "secondary-logarithm-evaluation",
+      "question": {
+        "Ar": "ما قيمة log₄(2)؟",
+        "En": "What is log base 4 of 2?"
+      },
+      "Hints": [
+        {
+          "Ar": "حوّل اللوغاريتم إلى معادلة أسية.",
+          "En": "Rewrite the logarithm as an exponential equation."
+        },
+        {
+          "Ar": "اسأل: لأي أس تكون القوة ذات الأساس أربعة مساوية للعدد اثنين؟",
+          "En": "Ask which exponent on base four gives two."
+        }
+      ]
+    },
+    {
+      "problemId": 642,
+      "primarySkillKey": "secondary-population-variance",
+      "question": {
+        "Ar": "احسب تباين المجتمع للقيم 2، 4، 6، 8.",
+        "En": "Find the population variance of 2, 4, 6, 8."
+      },
+      "Hints": [
+        {
+          "Ar": "احسب متوسط المجتمع أولاً.",
+          "En": "Calculate the population mean first."
+        },
+        {
+          "Ar": "ربّع فروق القيم عن المتوسط واجمعها واقسم على عدد القيم لا عددها ناقص واحد.",
+          "En": "Square deviations from the mean, sum them, and divide by the population size, not one less."
+        }
+      ]
+    },
+    {
+      "problemId": 643,
+      "primarySkillKey": "secondary-population-variance",
+      "question": {
+        "Ar": "ما تباين المجتمع للقيم 7، 7، 7، 7؟",
+        "En": "What is the population variance of 7, 7, 7, 7?"
+      },
+      "Hints": [
+        {
+          "Ar": "قارن كل قيمة بالمتوسط الحسابي.",
+          "En": "Compare each observation with the arithmetic mean."
+        },
+        {
+          "Ar": "طبّق قانون التباين على مربعات هذه الفروق.",
+          "En": "Apply the variance formula to the squared deviations."
+        }
+      ]
+    },
+    {
+      "problemId": 645,
+      "primarySkillKey": "university-dot-product",
+      "question": {
+        "Ar": "ما الضرب النقطي للمتجهين (2, −3) و(3، 2)؟",
+        "En": "What is the dot product of vectors (2, −3) and (3, 2)?"
+      },
+      "Hints": [
+        {
+          "Ar": "زاوج المركبات المناظرة للمتجهين.",
+          "En": "Pair corresponding vector components."
+        },
+        {
+          "Ar": "اضرب المركبات المناظرة واجمع الناتجين مع مراعاة الإشارات.",
+          "En": "Multiply corresponding components and add the products, keeping their signs."
+        }
+      ]
+    },
+    {
+      "problemId": 646,
+      "primarySkillKey": "university-dot-product",
+      "question": {
+        "Ar": "احسب الضرب النقطي (1، 2، −1) · (4، 0، 5).",
+        "En": "Compute the dot product (1, 2, −1) · (4, 0, 5)."
+      },
+      "Hints": [
+        {
+          "Ar": "لا تجمع المركبات قبل ضربها.",
+          "En": "Do not add the components before multiplying."
+        },
+        {
+          "Ar": "احسب ثلاثة نواتج ضرب للمركبات المناظرة ثم اجمعها.",
+          "En": "Compute three corresponding component products, then sum them."
+        }
+      ]
+    },
+    {
+      "problemId": 648,
+      "primarySkillKey": "university-dot-product",
+      "question": {
+        "Ar": "ما قيمة cos(θ) بين المتجهين (1، 0) و(1، √3)؟",
+        "En": "What is cos θ between vectors (1, 0) and (1, √3)?"
+      },
+      "Hints": [
+        {
+          "Ar": "تحتاج إلى الضرب النقطي وطولي المتجهين.",
+          "En": "You need the dot product and both vector norms."
+        },
+        {
+          "Ar": "اقسم الضرب النقطي على حاصل ضرب الطولين.",
+          "En": "Divide the dot product by the product of the two norms."
+        }
+      ]
+    },
+    {
+      "problemId": 651,
+      "primarySkillKey": "university-linear-independence",
+      "question": {
+        "Ar": "ما رتبة المصفوفة التي عموداها (2، 4) و(5، 10)؟",
+        "En": "What is the rank of the matrix with columns (2, 4) and (5, 10)?"
+      },
+      "Hints": [
+        {
+          "Ar": "تحقق هل أحد العمودين مضاعف للآخر.",
+          "En": "Check whether one column is a scalar multiple of the other."
+        },
+        {
+          "Ar": "حدّد عدد الأعمدة المستقلة خطياً، وتحقق من وجود عمود غير صفري.",
+          "En": "Determine the number of independent columns, checking that a nonzero column exists."
+        }
+      ]
+    },
+    {
+      "problemId": 653,
+      "primarySkillKey": "university-monotone-convergence",
+      "question": {
+        "Ar": "متتالية aₙ = 1 − 1/n للأعداد الطبيعية n ≥ 1. ما نهايتها؟",
+        "En": "For n ≥ 1, aₙ = 1 − 1/n. What is its limit?"
+      },
+      "Hints": [
+        {
+          "Ar": "افصل الحد الثابت عن الحد الذي يتغير مع العدد الطبيعي.",
+          "En": "Separate the constant from the term that varies with the natural number."
+        },
+        {
+          "Ar": "استخدم نهاية مقلوب العدد الطبيعي عند اللانهاية ثم قانون نهاية الفرق.",
+          "En": "Use the reciprocal's limit at infinity, then the difference rule."
+        }
+      ]
+    },
+    {
+      "problemId": 655,
+      "primarySkillKey": "university-monotone-convergence",
+      "question": {
+        "Ar": "لتكن aₙ = 1/2 + 1/4 + ⋯ + 1/2ⁿ. ما نهاية aₙ عند n → ∞؟",
+        "En": "Let aₙ = 1/2 + 1/4 + ⋯ + 1/2ⁿ. What is lim aₙ as n → ∞?"
+      },
+      "Hints": [
+        {
+          "Ar": "اعتبر التعبير مجموعاً هندسياً جزئياً.",
+          "En": "Treat the expression as a finite geometric sum."
+        },
+        {
+          "Ar": "اكتب صيغة المجموع الجزئي ثم خذ النهاية عندما يزداد عدد الحدود بلا حد.",
+          "En": "Write the partial sum formula, then take its limit as the number of terms grows."
+        }
+      ]
+    },
+    {
+      "problemId": 711,
+      "primarySkillKey": "s-sequences-series-geometric-sequences",
+      "question": {
+        "Ar": "ما العدد الموجب الذي يجعل 4، x، 36 حدوداً متتالية في متتالية هندسية؟",
+        "En": "What positive number x makes 4, x, 36 consecutive terms of a geometric sequence?"
+      },
+      "Hints": [
+        {
+          "Ar": "اكتب النسبة بين الحدين الأول والثاني وبين الثاني والثالث.",
+          "En": "Write the ratios of the second to first and third to second terms."
+        },
+        {
+          "Ar": "ساوِ النسبتين واضرب تبادلياً مع مراعاة أن الحد المطلوب موجب.",
+          "En": "Equate the ratios and cross-multiply, remembering that the requested term is positive."
+        }
+      ]
+    },
+    {
+      "problemId": 712,
+      "primarySkillKey": "s-sequences-series-geometric-sequences",
+      "question": {
+        "Ar": "متتالية هندسية تبدأ 48، 24، 12، 6، ... . ما رقم أول حد أصغر من 10؟",
+        "En": "A geometric sequence begins 48, 24, 12, 6, ... . What is the index of its first term less than 10?"
+      },
+      "Hints": [
+        {
+          "Ar": "تابع المتتالية باستخدام النسبة المشتركة.",
+          "En": "Follow the sequence using its common ratio."
+        },
+        {
+          "Ar": "تحقق من شرط أصغر من عشرة بالترتيب بدءاً من الحد الأول.",
+          "En": "Check the strict less-than-ten condition in order from the first term."
+        }
+      ]
+    },
+    {
+      "problemId": 714,
+      "primarySkillKey": "university-double-integrals",
+      "question": {
+        "Ar": "احسب التكامل المزدوج للدالة 1 على المنطقة x ≥ 0 وy ≥ 0 وx+y ≤ 1.",
+        "En": "Find the double integral of 1 over the region x ≥ 0, y ≥ 0, x+y ≤ 1."
+      },
+      "Hints": [
+        {
+          "Ar": "ارسم حدود المنطقة على المستوي الإحداثي.",
+          "En": "Sketch the region's boundaries on the coordinate plane."
+        },
+        {
+          "Ar": "تكامل الدالة الثابتة واحد يعطي مساحة المنطقة؛ حدّد شكلها الهندسي.",
+          "En": "The integral of the constant one gives the region's area; identify its shape."
+        }
+      ]
+    },
+    {
+      "problemId": 715,
+      "primarySkillKey": "university-double-integrals",
+      "question": {
+        "Ar": "احسب التكامل المزدوج لـ x² على المنطقة 0 ≤ x ≤ 1 و0 ≤ y ≤ 2.",
+        "En": "Calculate the double integral of x² over the region 0 ≤ x ≤ 1 and 0 ≤ y ≤ 2."
+      },
+      "Hints": [
+        {
+          "Ar": "المنطقة مستطيلة والدالة لا تعتمد على المتغير الثاني.",
+          "En": "The region is rectangular and the integrand does not depend on the second variable."
+        },
+        {
+          "Ar": "كامل بالنسبة إلى المتغير الثاني أولاً ثم طبّق قاعدة القوى على التكامل المتبقي.",
+          "En": "Integrate with respect to the second variable first, then apply the power rule."
+        }
+      ]
+    },
+    {
+      "problemId": 717,
+      "primarySkillKey": "university-function-limits",
+      "question": {
+        "Ar": "احسب النهاية عندما x يقترب من 0 للتعبير sin(3x)/x، مع قياس الزوايا بالراديان.",
+        "En": "Evaluate lim as x → 0 of sin(3x)/x, with angles measured in radians."
+      },
+      "Hints": [
+        {
+          "Ar": "تذكّر النهاية الأساسية لنسبة الجيب إلى زاويته بالراديان.",
+          "En": "Recall the fundamental sine-over-angle limit in radians."
+        },
+        {
+          "Ar": "اضرب واقسم بالمعامل داخل الجيب حتى يظهر التعبير القياسي.",
+          "En": "Multiply and divide by the coefficient inside the sine to obtain the standard form."
+        }
+      ]
+    },
+    {
+      "problemId": 720,
+      "primarySkillKey": "university-function-limits",
+      "question": {
+        "Ar": "احسب نهاية (e^(2x)−1)/x عندما x → 0.",
+        "En": "Evaluate lim (e^(2x)−1)/x as x → 0."
+      },
+      "Hints": [
+        {
+          "Ar": "ابحث عن صيغة النهاية الأسية الأساسية.",
+          "En": "Look for the fundamental exponential limit form."
+        },
+        {
+          "Ar": "أعد كتابة الكسر بحيث يكون المقام مساوياً للأس الموجود في البسط مع إخراج المعامل المناسب.",
+          "En": "Rewrite so the denominator matches the exponent, accounting for the outside coefficient."
+        }
+      ]
+    },
+    {
+      "problemId": 772,
+      "primarySkillKey": "secondary-quadratic-roots",
+      "question": {
+        "Ar": "كم جذر حقيقي للمعادلة x² + 4x + 8 = 0؟",
+        "En": "How many real roots does x² + 4x + 8 = 0 have?"
+      },
+      "Hints": [
+        {
+          "Ar": "استخرج معاملات المعادلة التربيعية.",
+          "En": "Identify the quadratic coefficients."
+        },
+        {
+          "Ar": "احسب المميز وقارن إشارته بالصفر لتحديد عدد الجذور الحقيقية.",
+          "En": "Calculate the discriminant and compare its sign with zero."
+        }
+      ]
+    },
+    {
+      "problemId": 777,
+      "primarySkillKey": "university-ode-order",
+      "question": {
+        "Ar": "ما رتبة المعادلة التفاضلية y''' + 4y' + y = 0؟",
+        "En": "What is the order of the differential equation y''' + 4y' + y = 0?"
+      },
+      "Hints": [
+        {
+          "Ar": "لا تعتمد على عدد الحدود أو معاملاتها.",
+          "En": "Do not use the number of terms or their coefficients."
+        },
+        {
+          "Ar": "حدّد أعلى مشتقة ظاهرة في المعادلة.",
+          "En": "Identify the highest derivative appearing in the equation."
+        }
+      ]
+    },
+    {
+      "problemId": 778,
+      "primarySkillKey": "university-ode-order",
+      "question": {
+        "Ar": "في المعادلة (y'')⁴ + y = 0، ما **الرتبة** وليس درجة أعلى مشتقة؟",
+        "En": "For (y'')^4 + y = 0, what is the **order** of this equation, not the power of its highest derivative?"
+      },
+      "Hints": [
+        {
+          "Ar": "ميّز بين رتبة المشتقة والقوة التي ترفع إليها.",
+          "En": "Distinguish derivative order from the power applied to it."
+        },
+        {
+          "Ar": "عدّ مرات الاشتقاق التي يرمز إليها الحد ذو أعلى مشتقة.",
+          "En": "Count the differentiations represented by the highest derivative."
+        }
+      ]
+    },
+    {
+      "problemId": 781,
+      "primarySkillKey": "university-series-convergence",
+      "question": {
+        "Ar": "احسب مجموع المتسلسلة اللانهائية ∑ من n=0 إلى ∞ لـ (3/5)ⁿ.",
+        "En": "Evaluate the infinite series ∑ from n=0 to ∞ of (3/5)^n."
+      },
+      "Hints": [
+        {
+          "Ar": "تحقق هل القيمة المطلقة للنسبة أصغر من واحد.",
+          "En": "Check whether the magnitude of the ratio is below one."
+        },
+        {
+          "Ar": "استعمل قانون المجموع الهندسي اللانهائي مع الانتباه إلى بداية الفهرس من الصفر.",
+          "En": "Use the infinite geometric sum formula, noting that indexing starts at zero."
+        }
+      ]
+    },
+    {
+      "problemId": 784,
+      "primarySkillKey": "university-series-convergence",
+      "question": {
+        "Ar": "ما مجموع المتسلسلة ∑ من n=1 إلى ∞ لـ 1/[n(n+1)]؟",
+        "En": "What is ∑ from n=1 to ∞ of 1/[n(n+1)]?"
+      },
+      "Hints": [
+        {
+          "Ar": "حاول تفكيك الكسر إلى فرق كسرين أبسط.",
+          "En": "Try decomposing the fraction into a difference of simpler fractions."
+        },
+        {
+          "Ar": "اكتب مجموعاً جزئياً ولاحظ اختزال الحدود الداخلية قبل أخذ النهاية.",
+          "En": "Write a finite partial sum and cancel interior terms before taking the limit."
+        }
+      ]
+    },
+    {
+      "problemId": 785,
+      "primarySkillKey": "u-discrete-math-combinatorics",
+      "question": {
+        "Ar": "كم ترتيباً مختلفاً لحروف كلمة LEVEL الإنكليزية؟",
+        "En": "How many distinct arrangements of the five letters in LEVEL are there?"
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد الحروف المتكررة وعدد مرات كل تكرار.",
+          "En": "Identify the repeated letters and their multiplicities."
+        },
+        {
+          "Ar": "ابدأ بمضروب عدد الحروف واقسم على مضروبات تكرارات الحروف.",
+          "En": "Start with the factorial of the letter count and divide by factorials of repeated multiplicities."
+        }
+      ]
+    },
+    {
+      "problemId": 786,
+      "primarySkillKey": "u-discrete-math-combinatorics",
+      "question": {
+        "Ar": "لدينا 5 طالبات و4 طلاب. كم طريقة لاختيار لجنة من ثلاثة أشخاص فيها طالبتان وطالب واحد بالضبط؟",
+        "En": "From 5 women and 4 men, in how many ways can we choose a three-person committee with exactly 2 women and 1 man?"
+      },
+      "Hints": [
+        {
+          "Ar": "قسّم اختيار اللجنة إلى اختيار من كل مجموعة.",
+          "En": "Split committee selection into a choice from each group."
+        },
+        {
+          "Ar": "استخدم التوافيق لا التباديل لكل مجموعة ثم اضرب عدد الطرق.",
+          "En": "Use combinations rather than permutations for each group, then multiply the counts."
+        }
+      ]
+    },
+    {
+      "problemId": 787,
+      "primarySkillKey": "u-discrete-math-combinatorics",
+      "question": {
+        "Ar": "كم رمزاً مكوناً من ثلاثة أرقام مختلفة يمكن تكوينه من الأرقام 1، 2، 3، 4، 5؟",
+        "En": "How many three-digit codes with distinct digits can be made from 1,2,3,4,5?"
+      },
+      "Hints": [
+        {
+          "Ar": "فكّر في عدد الخيارات المتاحة لكل خانة.",
+          "En": "Think about the available choices for each position."
+        },
+        {
+          "Ar": "بعد اختيار رقم لا تعدّه متاحاً للخانة التالية، واضرب أعداد الخيارات.",
+          "En": "After choosing a digit, exclude it from the next position and multiply the choice counts."
+        }
+      ]
+    },
+    {
+      "problemId": 789,
+      "primarySkillKey": "u-discrete-math-proofs",
+      "question": {
+        "Ar": "لإثبات: إذا كان n² زوجياً فإن n زوجي، ما العبارة التي تكفي لإثباتها بالمقابل المنطقي؟",
+        "En": "To prove 'if n² is even, then n is even', which contrapositive statement can be proved instead?"
+      },
+      "Hints": [
+        {
+          "Ar": "العكس النقيض يبدّل طرفي الشرط وينفيهما.",
+          "En": "A contrapositive reverses and negates both sides of an implication."
+        },
+        {
+          "Ar": "ابدأ بنفي نتيجة العبارة الأصلية وحدّد ما يجب إثبات نفيه.",
+          "En": "Begin by negating the original conclusion and determine what must be negated next."
+        }
+      ]
+    },
+    {
+      "problemId": 790,
+      "primarySkillKey": "u-discrete-math-proofs",
+      "question": {
+        "Ar": "نفترض أن مجموع أول n عدد فردي موجب يساوي n². ما الحد الذي نضيفه للحصول على مجموع أول (n+1) عدد فردي؟",
+        "En": "Assume the sum of the first n positive odd integers is n². What next term must be added for the sum of the first n+1 odd integers?"
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد نمط الأعداد الفردية المتتالية.",
+          "En": "Identify the pattern of consecutive odd integers."
+        },
+        {
+          "Ar": "قارن مجموع أول عدد من الحدود بالمجموع المفترض للحدود بعد إضافة حد واحد.",
+          "En": "Compare the sum of the first terms with the proposed sum after adding one term."
         }
       ]
     },
@@ -182,6 +974,42 @@
       ]
     },
     {
+      "problemId": 821,
+      "primarySkillKey": "p-fractions-decimals-decimal-place-value",
+      "question": {
+        "Ar": "أي عدد عشري يساوي 8 وحدات و3 أعشار و6 أجزاء من مئة؟",
+        "En": "Which decimal represents 8 ones, 3 tenths, and 6 hundredths?"
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد موقع الآحاد والأعشار وأجزاء المئة.",
+          "En": "Identify the ones, tenths and hundredths positions."
+        },
+        {
+          "Ar": "ضع الآحاد يسار الفاصلة ثم الأعشار وأجزاء المئة بالترتيب.",
+          "En": "Place the ones left of the decimal point, followed by the tenths and hundredths."
+        }
+      ]
+    },
+    {
+      "problemId": 829,
+      "primarySkillKey": "s-sequences-series-series-sums",
+      "question": {
+        "Ar": "احسب مجموع الأعداد المتناوبة: 1 − 2 + 3 − 4 + ⋯ + 19 − 20.",
+        "En": "Evaluate the alternating sum 1 − 2 + 3 − 4 + ⋯ + 19 − 20."
+      },
+      "Hints": [
+        {
+          "Ar": "قسّم المجموع إلى أزواج من الحدود المتتالية.",
+          "En": "Group the sum into consecutive pairs."
+        },
+        {
+          "Ar": "احسب قيمة الزوج الواحد وعدد الأزواج ثم استخدم الضرب.",
+          "En": "Find the contribution of one pair and the number of pairs, then multiply."
+        }
+      ]
+    },
+    {
       "problemId": 851,
       "primarySkillKey": "primary-division",
       "question": {
@@ -196,6 +1024,114 @@
         {
           "Ar": "بعد تحديد عدد الأقلام الموزعة، اطرحه من العدد الكلي وتحقق أن الباقي أصغر من عدد الطلاب.",
           "En": "After determining how many pencils are distributed, subtract that from the total and check that the remainder is smaller than the number of students."
+        }
+      ]
+    },
+    {
+      "problemId": 855,
+      "primarySkillKey": "middle-similar-triangles",
+      "question": {
+        "Ar": "محيطا مثلثين متشابهين 18 سم و30 سم. إذا كان ضلع في المثلث الأصغر 6 سم، فكم طول نظيره في الأكبر؟",
+        "En": "Two similar triangles have perimeters 18 and 30 cm. If a side of the smaller is 6 cm, what is the corresponding side of the larger?"
+      },
+      "Hints": [
+        {
+          "Ar": "نسبة المحيطين في المثلثين المتشابهين تساوي نسبة الأضلاع المتناظرة.",
+          "En": "The perimeter ratio equals the corresponding side ratio in similar triangles."
+        },
+        {
+          "Ar": "استخرج معامل التكبير من المحيطين واضرب به طول الضلع المعطى.",
+          "En": "Find the scale factor from the perimeters and multiply the given side by it."
+        }
+      ]
+    },
+    {
+      "problemId": 856,
+      "primarySkillKey": "middle-similar-triangles",
+      "question": {
+        "Ar": "ضُربت جميع أطوال مثلث في 3 لتكوين مثلث مشابه. كم مرة تصبح مساحته؟",
+        "En": "All side lengths of a triangle are multiplied by 3 to make a similar triangle. By what factor does its area change?"
+      },
+      "Hints": [
+        {
+          "Ar": "فكّر في تأثير التكبير على القاعدة والارتفاع معاً.",
+          "En": "Think about how scaling affects both base and height."
+        },
+        {
+          "Ar": "يتكرر معامل الطول مرتين في قانون المساحة.",
+          "En": "The length scale factor occurs twice in the area formula."
+        }
+      ]
+    },
+    {
+      "problemId": 858,
+      "primarySkillKey": "middle-pythagorean-theorem",
+      "question": {
+        "Ar": "مثلث أطوال أضلاعه 8 سم و15 سم و17 سم. ما نوعه وفق الزوايا؟",
+        "En": "A triangle has side lengths 8, 15, and 17 cm. How is it classified by its angles?"
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد أطول ضلع أولاً.",
+          "En": "Identify the longest side first."
+        },
+        {
+          "Ar": "قارن مربع أطول ضلع بمجموع مربعي الضلعين الآخرين باستخدام عكس فيثاغورس.",
+          "En": "Compare the longest side squared with the sum of the other two squares."
+        }
+      ]
+    },
+    {
+      "problemId": 860,
+      "primarySkillKey": "secondary-polynomial-derivatives",
+      "question": {
+        "Ar": "أوجد معادلة مماس الدالة f(x)=x³−x عند x=2.",
+        "En": "Find the tangent line to f(x)=x³−x at x=2."
+      },
+      "Hints": [
+        {
+          "Ar": "يحتاج المماس إلى نقطة وميل.",
+          "En": "A tangent line needs a point and a slope."
+        },
+        {
+          "Ar": "أوجد قيمة الدالة والمشتقة عند النقطة المعطاة ثم استخدم صيغة النقطة والميل.",
+          "En": "Evaluate the function and derivative at the given point, then use point-slope form."
+        }
+      ]
+    },
+    {
+      "problemId": 863,
+      "primarySkillKey": "university-integrating-ode",
+      "question": {
+        "Ar": "تحقق الدالة y المعادلة y'=3x² وy(0)=4. ما قيمة y(2)؟",
+        "En": "A function y satisfies y'=3x² and y(0)=4. What is y(2)?"
+      },
+      "Hints": [
+        {
+          "Ar": "استرجع الدالة من مشتقتها بالتكامل.",
+          "En": "Recover the function from its derivative by integration."
+        },
+        {
+          "Ar": "استخدم الشرط الابتدائي لتعيين ثابت التكامل قبل التعويض بالقيمة المطلوبة.",
+          "En": "Use the initial condition to determine the integration constant before evaluating."
+        }
+      ]
+    },
+    {
+      "problemId": 865,
+      "primarySkillKey": "university-second-order-ivp",
+      "question": {
+        "Ar": "حل y''+y=0 مع y(0)=0 وy'(0)=2. ما قيمة y(π/2)؟",
+        "En": "Solve y''+y=0 with y(0)=0 and y'(0)=2. What is y(π/2)?"
+      },
+      "Hints": [
+        {
+          "Ar": "اكتب المعادلة المميزة للمعادلة التفاضلية.",
+          "En": "Write the characteristic equation of the differential equation."
+        },
+        {
+          "Ar": "استعمل الحل المثلثي العام ثم طبّق شرطي الدالة ومشتقتها عند الصفر.",
+          "En": "Use the general trigonometric solution, then apply both initial conditions at zero."
         }
       ]
     },

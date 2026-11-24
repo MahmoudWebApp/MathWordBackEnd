@@ -82,3 +82,6 @@ Eleven additional bilingual hint pairs are bound to the current production stems
 
 ## Depth wave 03
 Nine additional draft candidates target the same nine underrepresented primary skills using mixed-unit geometry, maximum capacity, strict inequalities, rational logarithm domains, elapsed net time, pH change, compounded loss and hypothesis-test decisions. Together the three manifests contain 21 original candidates, each with bilingual text, distractor explanations, two hints and structured solution. The independent prompt-based test and disposable batch-import rehearsal now cover all 21. These are candidate drafts, not a guarantee of full bank review; no live data or track publication is changed.
+
+## Law-review hint expansion
+52 additional independently authored progressive bilingual hint pairs for source-matched short-solution candidates (both placement and law manifests agree on exact Arabic/English stems). The total is 80 pairs (160 hints). No final numerical answer is deliberately supplied. IDs 20, 649, 706 and 707 were withheld for unresolved option/skill/wording concerns. Existing taxonomy holds remain. Candidates are unpublished; no claim of UI rendering or full-bank hint coverage. The static contract checks each new source binding.
