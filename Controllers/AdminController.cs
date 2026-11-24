@@ -584,6 +584,9 @@ namespace MathWorldAPI.Controllers
                 .FirstOrDefaultAsync(item =>
                     item.Id == id);
 
+            if (problem?.EditorialDetailsJson is not null)
+                return Conflict(new { Message = "ReviewedEditorialMutationRequired" });
+
             if (problem == null)
             {
                 return NotFound(
@@ -785,6 +788,9 @@ namespace MathWorldAPI.Controllers
                 await _context.Problems
                     .FirstOrDefaultAsync(item =>
                         item.Id == id);
+
+            if (problem?.EditorialDetailsJson is not null)
+                return Conflict(new { Message = "ReviewedEditorialMutationRequired" });
 
             if (problem == null)
             {

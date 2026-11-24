@@ -50,6 +50,7 @@ def verify_wizard(admin,supervisor,sid):
     expect("POST",path+"/publish",409,{"Revision":7,"Confirm":True},admin)
     assert int(sql('SELECT COUNT(*) FROM "Problems"'))==int(count)+1
     assert sql(f"""SELECT COUNT(*) FROM "PlatformActivityEvents" WHERE "Resource"='EditorialProblem' AND "ResourceId"='{did}'""")=="8"
+    expect("DELETE",f"/api/admin/problems/{pid}",409,token=admin)
     verify_solve(admin,pid,stage,category)
     print("PASS: partial draft, ownership, revision, review return, approval, exactly-once publication and track/skill linkage")
     return did
