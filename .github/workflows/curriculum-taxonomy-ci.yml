@@ -9,6 +9,8 @@ on:
       - 'tests/check_numeric_family_answers.py'
       - 'tests/check_g1_gap_waves.py'
       - 'tests/check_g1_track_review_queue.py'
+      - 'tests/check_g1_full_answer_review_inventory.py'
+      - 'tests/check_g1_short_solution_candidates.py'
       - 'tests/check_g1_hint_candidates.py'
       - 'content/batches/mathworld-adaptive-v2-*'
       - 'content/batches/mathworld-reasoning-extension-*'
@@ -107,6 +109,10 @@ jobs:
         run: python3 tests/check_g1_gap_waves.py
       - name: Validate all 773 review-queue IDs and provisional track access gates
         run: python3 tests/check_g1_track_review_queue.py
+      - name: Reconcile recorded answer review with all 773 catalog IDs
+        run: python3 tests/check_g1_full_answer_review_inventory.py
+      - name: Validate 56 source-bound bilingual solution-only candidates
+        run: python3 tests/check_g1_short_solution_candidates.py
       - name: Validate source-bound bilingual hint proposals
         run: python3 tests/check_g1_hint_candidates.py
       - name: Validate bilingual subjects, skill keys and historical problem mapping
