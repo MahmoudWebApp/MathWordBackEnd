@@ -721,3 +721,111 @@ for row in eleventh["Items"]:
         assert all(parse(sol["Result"][lang])==expected for lang in ("Ar","En")),i
     assert 1<=len(sol["Steps"])<=20 and all(pair(s) for s in sol["Steps"])
 print("PASS: 62 wave-11 secondary-school questions, mathematical and source-preservation checks")
+
+
+# Wave 12: growth/decay, analytic geometry, vectors and logarithms.
+twelfth=load("g1-structured-amendments-wave12-20261124.json")
+twelfth_ids={r["ProblemId"] for r in twelfth["Items"]}
+assert twelfth["Status"]==wave["Status"]
+assert len(twelfth_ids)==len(twelfth["Items"])==49
+assert not twelfth_ids.intersection(wave_ids|fourth_ids|fifth_ids|sixth_ids|seventh_ids|eighth_ids|ninth_ids|tenth_ids|eleventh_ids|{r["ProblemId"] for r in d["Items"]})
+assert 20 not in twelfth_ids
+def independent_twelfth(i):
+    def num(s):
+        s=s.strip("$").replace(",","")
+        sign=-1 if s.startswith("-") else 1
+        return sign*rational(s.removeprefix("-"))
+    def norm(s): return s.strip("$").replace(" ","")
+    def coordinates(s):
+        return tuple(num(part) for part in norm(s).strip("()").split(","))
+    numeric={
+        1571:250*Fraction(6,5)**2,1572:80*2**3,1573:2000*Fraction(11,10)**2,
+        1574:1200*Fraction(9,10)**2,1575:4*next(n for n in range(20) if Fraction(640,2**n)==80),
+        1576:100*(1-Fraction(7,10)),1577:100*(Fraction(103,100)-1),
+        1611:Fraction(10-2,5-1),1613:isqrt(6**2+8**2),1615:isqrt(49),
+        1643:Fraction(3,1)/(1-Fraction(1,2)),1645:1/(1+Fraction(1,2)),
+        1665:isqrt(5**2+12**2),1666:isqrt((-6)**2+8**2),
+        1667:2*4+(-1)*3,1668:Fraction(2*6,3),1694:1*(-2)+(-2)*1,
+        1695:Fraction(3*1+4*0,1),1697:isqrt((7-1)**2+(10-2)**2),
+        1711:-isqrt(25-16),1712:1*(3-1)+2*(0+1),
+        1715:next(n for n in range(20) if 3**n==243),
+        1716:next(n for n in range(20) if 2**n==8*16),
+        1717:next(n for n in range(20) if 3**n==243//9),
+        1718:next(n for n in range(20) if 5**n==25**3),
+        1719:1+2**4,
+        1720:next(n for n in range(3,20) if n*(n-2)==3),
+        1721:Fraction(3,2),1723:next(n for n in range(-10,10) if Fraction(1,2)**n==8),
+        1724:10*next(n for n in range(10) if 10**n==1000),1725:-(-4)
+    }
+    if i in numeric:
+        if i==1615:
+            return numeric[i],lambda s: ("sqrt",int(s[5:])) if s.startswith(r"\sqrt") else num(s)
+        return numeric[i],num
+    vectors={
+        1612:(Fraction(2+8,2),Fraction(6+0,2)),
+        1663:(-1-2,5-(-1)),1664:(2-5,-3+4),
+        1691:(2*4-(-1),2*(-2)-3),1692:(Fraction(3,5),Fraction(4,5))
+    }
+    if i in vectors: return vectors[i],coordinates
+    if i==1618:
+        # Only one of the listed points is at squared distance 25.
+        return 25,lambda s:sum(v*v for v in coordinates(s))
+    if i==1693:
+        # Angles are positive fractions of pi; the known cosine is sqrt(2)/2.
+        def pi_fraction(s):
+            a,b="1",re.fullmatch(r"\\frac\{\\pi\}\{(\d+)\}",norm(s))[1]
+            return Fraction(int(a),int(b))
+        return Fraction(1,4),pi_fraction
+    if i in (1614,1616,1617,1621):
+        # Compare canonical coefficients of the equation to the derived
+        # slope/intercept or centre and squared radius.
+        if i==1614:
+            def line(s):
+                m=re.fullmatch(r"y=(-?\d+)x([+-]\d+)",norm(s))
+                return int(m[1]),int(m[2])
+            return (-2,3),line
+        def circle(s):
+            s=norm(s)
+            m=re.fullmatch(r"(?:\(x([+-]\d+)\)|x)\^2\+(?:\(y([+-]\d+)\)|y)\^2=(\d+)",s)
+            assert m,s
+            return -int(m[1] or 0),-int(m[2] or 0),int(m[3])
+        return {1616:(2,-3,4**2),1617:(1,0,3**2),1621:(1,2,3**2)}[i],circle
+    if i in (1619,1620,1622):
+        return {1619:"x=2",1620:f"y={(1+7)//2}",1622:f"y={(-2+6)//2}"}[i],norm
+    if i==1644:
+        assert abs(Fraction(11,10))>1
+        return "|r|>1",norm
+    if i==1646:
+        return r"\lim_{n\to\infty}a_n=2",norm
+    if i==1722:
+        from operator import gt,ge,lt
+        points=range(-2,10)
+        def parse(s):
+            m=re.fullmatch(r"x(\\ge|>|<)(\d+)",norm(s))
+            op={r"\ge":ge,">":gt,"<":lt}[m[1]]
+            return tuple(op(x,int(m[2])) for x in points)
+        return tuple(x-5>0 for x in points),parse
+    if i==1726: return "a+3",norm
+    raise AssertionError(i)
+for row in twelfth["Items"]:
+    i=row["ProblemId"]; c=row["Content"]; g,p=placements[i]
+    assert row["Status"]=="StructuredAmendmentCandidateNotImported"
+    assert row["PrimarySkillKey"]==p["StableKey"] and row["ProposedTrackCode"]==g["Code"]
+    assert c["StageId"]==g["StageId"]==3 and c["CategoryId"]==p["CategoryId"] and c["PrimarySkillId"]==p["PrimarySkillId"]
+    assert c["Question"]=={"Ar":p["ExpectedQuestionAr"],"En":p["ExpectedQuestionEn"]}
+    assert pair(row["ExpectedLegacySolution"]) and pair(c["Title"])
+    assert len(row["ExpectedOptionIds"])==len(set(row["ExpectedOptionIds"]))==4
+    opts=c["Options"]; assert len(opts)==4 and sum(o["IsCorrect"] for o in opts)==1
+    expected,parse=independent_twelfth(i)
+    values=[parse(o["LatexCode"]) for o in opts]
+    assert len(set(values))==4,i
+    assert all(o["IsCorrect"]==(v==expected) for v,o in zip(values,opts)),i
+    assert all(o["ErrorType"] and pair(o["Reason"]) for o in opts if not o["IsCorrect"])
+    assert len(c["Hints"])==2 and all(pair(h) for h in c["Hints"])
+    assert all(c["Hints"][0][k]!=c["Hints"][1][k] for k in ("Ar","En"))
+    sol=c["Solution"]
+    assert sol["FormulaLatex"] and not sol["FormulaLatex"].startswith("$")
+    assert all(pair(sol[k]) for k in ("Idea","Substitution","Result","Unit","Verification","CommonError"))
+    assert all(parse(sol["Result"][lang])==expected for lang in ("Ar","En")),i
+    assert 1<=len(sol["Steps"])<=20 and all(pair(s) for s in sol["Steps"])
+print("PASS: 49 wave-12 secondary questions; exact arithmetic and geometry, vector, log and source guards")
