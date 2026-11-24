@@ -1,0 +1,116 @@
+name: EF-only taxonomy security parity
+
+on:
+  pull_request:
+    paths:
+      - 'Migrations/**'
+      - '.github/workflows/ef-taxonomy-security-ci.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  verify-taxonomy-rls:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: ci_only_password
+          POSTGRES_DB: mathworld_ci
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres -d mathworld_ci"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 20
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+
+      - name: Create Supabase-like API roles in disposable CI database
+        env:
+          PGPASSWORD: ci_only_password
+        run: |
+          psql -h 127.0.0.1 -U postgres -d mathworld_ci -v ON_ERROR_STOP=1 \
+            -c 'CREATE ROLE anon NOLOGIN; CREATE ROLE authenticated NOLOGIN;'
+
+      - name: Build backend
+        run: dotnet build MathWorldAPI.csproj -c Release
+
+      - name: Migrate throwaway DB and verify five protected taxonomy tables
+        shell: bash
+        env:
+          ASPNETCORE_ENVIRONMENT: Production
+          ASPNETCORE_URLS: http://127.0.0.1:5058
+          ConnectionStrings__DefaultConnection: Host=127.0.0.1;Port=5432;Database=mathworld_ci;Username=postgres;Password=ci_only_password
+          Jwt__Key: ci_only_test_signing_key_never_use_in_production_0123456789
+          Jwt__Issuer: MathWorld-CI
+          Jwt__Audience: MathWorld-CI
+          Meilisearch__Enabled: 'false'
+          BootstrapAdmin__Enabled: 'false'
+          Database__ApplyMigrationsOnStartup: 'true'
+          PGPASSWORD: ci_only_password
+        run: |
+          set -euo pipefail
+          dotnet run --no-launch-profile --no-build -c Release --project MathWorldAPI.csproj > /tmp/ef-taxonomy.log 2>&1 &
+          api_pid=$!
+          trap 'kill "$api_pid" 2>/dev/null || true' EXIT
+          ready=0
+          for i in $(seq 1 75); do
+            status="$(curl -sS --max-time 3 -o /tmp/ef-taxonomy-ready.json -w '%{http_code}' http://127.0.0.1:5058/health/ready 2>/dev/null || true)"
+            if test "$status" = "200"; then ready=1; break; fi
+            if ! kill -0 "$api_pid" 2>/dev/null; then break; fi
+            sleep 1
+          done
+          if test "$ready" -ne 1; then
+            echo "A fresh EF-only schema did not become ready" >&2
+            tail -n 80 /tmp/ef-taxonomy.log
+            exit 1
+          fi
+
+          psql -h 127.0.0.1 -U postgres -d mathworld_ci -v ON_ERROR_STOP=1 <<'SQL'
+          DO $verify_taxonomy$
+          DECLARE
+              total_secure integer;
+              migration_count integer;
+          BEGIN
+              SELECT count(*) INTO total_secure
+              FROM pg_class c
+              JOIN pg_namespace n ON n.oid = c.relnamespace
+              WHERE n.nspname = 'public'
+                AND c.relname IN (
+                  'CurriculumDomains',
+                  'CurriculumSkills',
+                  'CurriculumSkillStandards',
+                  'CurriculumSkillPrerequisites',
+                  'CurriculumProblemSkills')
+                AND c.relrowsecurity
+                AND NOT has_table_privilege('anon', c.oid, 'SELECT')
+                AND NOT has_table_privilege('authenticated', c.oid, 'SELECT');
+
+              IF total_secure <> 5 THEN
+                  RAISE EXCEPTION 'Expected five secured taxonomy tables, found %', total_secure;
+              END IF;
+
+              SELECT count(*) INTO migration_count
+              FROM public."__EFMigrationsHistory"
+              WHERE "MigrationId" = '20261124213000_SecureCurriculumTaxonomyEfParity';
+
+              IF migration_count <> 1 THEN
+                  RAISE EXCEPTION 'EF taxonomy security migration not applied exactly once';
+              END IF;
+          END $verify_taxonomy$;
+          SQL
+          echo "PASS: fresh EF schema has RLS and denied API-role read access for all five taxonomy tables"
+
+      - name: Show limited logs on failure
+        if: failure()
+        run: |
+          test ! -f /tmp/ef-taxonomy.log || tail -n 60 /tmp/ef-taxonomy.log
