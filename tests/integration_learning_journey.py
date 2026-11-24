@@ -410,6 +410,8 @@ def main():
     assert call("GET", "/api/users/journey")[0] == 401
     from integration_learning_sessions import verify_sessions
     verify_sessions(admin_token, token, stage_token, stage2)
+    from integration_learning_certificates import verify_certificates
+    verify_certificates(admin_token, token, stage_token, stage2)
     print("PASS: onboarding, invalid stage, progress and points, stage switching, old history, auth")
 
 

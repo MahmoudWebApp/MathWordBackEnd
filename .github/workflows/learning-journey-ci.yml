@@ -11,6 +11,8 @@ on:
       - 'tests/integration_learning_tracks.py'
       - 'Controllers/DailyChallengeController.cs'
       - 'Controllers/LearningSessionsController.cs'
+      - 'Controllers/LearningCertificatesController.cs'
+      - 'tests/integration_learning_certificates.py'
       - 'tests/integration_learning_sessions.py'
       - 'Models/**'
       - 'DTOs/**'
@@ -63,6 +65,8 @@ jobs:
           Database__ApplyMigrationsOnStartup: 'true'
           LearningTracks__Enabled: 'true'
           LearningSessions__Enabled: 'true'
+          Certificates__Enabled: 'true'
+          Certificates__IssuanceEnabled: 'true'
         run: |
           set -euo pipefail
           dotnet run --no-build --no-launch-profile -c Release --project MathWorldAPI.csproj > /tmp/mathworld-journey.log 2>&1 &

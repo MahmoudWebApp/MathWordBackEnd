@@ -147,11 +147,11 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."__EFMigrationsHistory"' | grep -qx 36
+          psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."__EFMigrationsHistory"' | grep -qx 37
           psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."UserProgresses" WHERE "HintsRevealed"<>0' | grep -qx 0
           psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."LearningSessions"' | grep -qx 0
           psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."LearningSessionAttempts"' | grep -qx 0
-          psql -X -v ON_ERROR_STOP=1 -Atc "SELECT count(*) FROM pg_class c JOIN pg_namespace n ON n.oid=c.relnamespace WHERE n.nspname='public' AND c.relname IN ('LearningSessions','LearningSessionAttempts','PermanentProblemAchievements') AND c.relrowsecurity AND NOT has_table_privilege('anon',c.oid,'SELECT,INSERT,UPDATE,DELETE') AND NOT has_table_privilege('authenticated',c.oid,'SELECT,INSERT,UPDATE,DELETE')" | grep -qx 3
+          psql -X -v ON_ERROR_STOP=1 -Atc "SELECT count(*) FROM pg_class c JOIN pg_namespace n ON n.oid=c.relnamespace WHERE n.nspname='public' AND c.relname IN ('LearningSessions','LearningSessionAttempts','PermanentProblemAchievements','LearningCertificates') AND c.relrowsecurity AND NOT has_table_privilege('anon',c.oid,'SELECT,INSERT,UPDATE,DELETE') AND NOT has_table_privilege('authenticated',c.oid,'SELECT,INSERT,UPDATE,DELETE')" | grep -qx 4
           psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."CurriculumDraftItems" WHERE "WizardJson" IS NOT NULL OR "OwnerUserId" IS NOT NULL' | grep -qx 0
           psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."LearningTracks" WHERE NOT "IsPublished"' | grep -qx 17
           psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."Users" WHERE "CurrentTrackId" IS NOT NULL' | grep -qx 0

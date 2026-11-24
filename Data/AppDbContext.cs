@@ -49,6 +49,7 @@ namespace MathWorldAPI.Data
         public DbSet<PasswordResetGrant> PasswordResetGrants => Set<PasswordResetGrant>();
         public DbSet<EmailOutboxItem> EmailOutbox => Set<EmailOutboxItem>();
 
+        public DbSet<LearningCertificate> LearningCertificates => Set<LearningCertificate>();
         public DbSet<PermanentProblemAchievement> PermanentProblemAchievements => Set<PermanentProblemAchievement>();
         public DbSet<LearningSession> LearningSessions => Set<LearningSession>();
         public DbSet<LearningSessionAttempt> LearningSessionAttempts => Set<LearningSessionAttempt>();
@@ -117,6 +118,20 @@ namespace MathWorldAPI.Data
         {
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.Entity<LearningCertificate>(e =>
+            {
+                e.Property(x => x.Id).ValueGeneratedNever();
+                e.Property(x => x.ScopeKey).HasMaxLength(100).IsRequired();
+                e.Property(x => x.Kind).HasMaxLength(12).IsRequired();
+                e.Property(x => x.StudentName).HasMaxLength(300).IsRequired();
+                e.Property(x => x.TitleAr).HasMaxLength(500).IsRequired();
+                e.Property(x => x.TitleEn).HasMaxLength(500).IsRequired();
+                e.Property(x => x.VerificationCode).HasMaxLength(32).IsRequired();
+                e.HasIndex(x => new { x.UserId, x.ScopeKey }).IsUnique();
+                e.HasIndex(x => x.VerificationCode).IsUnique();
+                e.HasOne<AppUser>().WithMany().HasForeignKey(x => x.UserId).OnDelete(DeleteBehavior.Cascade);
+                e.ToTable(t => t.HasCheckConstraint("CK_LearningCertificates_Scope", "\"Kind\" IN ('category','grade','course') AND \"PolicyVersion\" > 0 AND \"TotalProblems\" >= 5 AND \"RequiredSkills\" > 0 AND ((\"Kind\" = 'category' AND \"CategoryId\" IS NOT NULL) OR (\"Kind\" <> 'category' AND \"CategoryId\" IS NULL AND \"TrackId\" IS NOT NULL))"));
+            });
             modelBuilder.Entity<PermanentProblemAchievement>(e =>
             {
                 e.HasKey(x => new { x.UserId, x.ProblemId });

@@ -22,6 +22,28 @@ namespace MathWorldAPI.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("MathWorldAPI.Models.LearningCertificate", b =>
+                {
+                    b.Property<Guid>("Id").HasColumnType("uuid");
+                    b.Property<int>("UserId").HasColumnType("integer");
+                    b.Property<int>("StageId").HasColumnType("integer");
+                    b.Property<int?>("TrackId").HasColumnType("integer");
+                    b.Property<int?>("CategoryId").HasColumnType("integer");
+                    b.Property<string>("ScopeKey").IsRequired().HasMaxLength(100).HasColumnType("character varying(100)");
+                    b.Property<string>("Kind").IsRequired().HasMaxLength(12).HasColumnType("character varying(12)");
+                    b.Property<string>("StudentName").IsRequired().HasMaxLength(300).HasColumnType("character varying(300)");
+                    b.Property<string>("TitleAr").IsRequired().HasMaxLength(500).HasColumnType("character varying(500)");
+                    b.Property<string>("TitleEn").IsRequired().HasMaxLength(500).HasColumnType("character varying(500)");
+                    b.Property<string>("VerificationCode").IsRequired().HasMaxLength(32).HasColumnType("character varying(32)");
+                    b.Property<int>("PolicyVersion").HasColumnType("integer");
+                    b.Property<int>("TotalProblems").HasColumnType("integer");
+                    b.Property<int>("RequiredSkills").HasColumnType("integer");
+                    b.Property<DateTime>("IssuedAtUtc").HasColumnType("timestamp with time zone");
+                    b.HasKey("Id");
+                    b.HasIndex("UserId", "ScopeKey").IsUnique();
+                    b.HasIndex("VerificationCode").IsUnique();
+                    b.ToTable("LearningCertificates", t=>t.HasCheckConstraint("CK_LearningCertificates_Scope", "\"Kind\" IN ('category','grade','course') AND \"PolicyVersion\" > 0 AND \"TotalProblems\" >= 5 AND \"RequiredSkills\" > 0 AND ((\"Kind\" = 'category' AND \"CategoryId\" IS NOT NULL) OR (\"Kind\" <> 'category' AND \"CategoryId\" IS NULL AND \"TrackId\" IS NOT NULL))"));
+                });
             modelBuilder.Entity("MathWorldAPI.Models.PermanentProblemAchievement", b =>
                 {
                     b.Property<int>("UserId").HasColumnType("integer");
@@ -1663,6 +1685,11 @@ namespace MathWorldAPI.Migrations
                         .HasForeignKey("CurrentTrackId").OnDelete(DeleteBehavior.Restrict);
                 });
 
+            modelBuilder.Entity("MathWorldAPI.Models.LearningCertificate", b =>
+                {
+                    b.HasOne("MathWorldAPI.Models.AppUser", null).WithMany()
+                        .HasForeignKey("UserId").OnDelete(DeleteBehavior.Cascade).IsRequired();
+                });
             modelBuilder.Entity("MathWorldAPI.Models.PermanentProblemAchievement", b =>
                 {
                     b.HasOne("MathWorldAPI.Models.AppUser", null).WithMany()

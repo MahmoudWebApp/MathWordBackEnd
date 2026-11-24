@@ -194,6 +194,38 @@ public static class PremiumAnalyticsPdfExporter
         return document.GeneratePdf();
     }
 
+
+    public static byte[] CreateCertificate(MathWorldAPI.Models.LearningCertificate certificate,bool ar)
+    {
+        _ = Initialized.Value;
+        using var stream=typeof(PremiumAnalyticsPdfExporter).Assembly.GetManifestResourceStream("MathWorld.Brand.Logo.png")
+            ?? throw new InvalidOperationException("MathWorld approved report logo missing");
+        using var buffer=new MemoryStream();stream.CopyTo(buffer);
+        var logo=buffer.ToArray();
+        var c=certificate;
+        return Document.Create(document=>document.Page(page=>{
+            page.Size(PageSizes.A4.Landscape());page.Margin(36);page.PageColor(Colors.White);
+            page.DefaultTextStyle(t=>t.FontFamily("IBM Plex Sans Arabic").FontColor(Navy).FontSize(15));
+            var root=page.Content();
+            root=ar?root.ContentFromRightToLeft():root.ContentFromLeftToRight();
+            root.Border(2).BorderColor(Teal).Padding(24).Column(col=>{
+                col.Spacing(12);
+                col.Item().AlignCenter().Width(60).Height(60).Image(logo);
+                col.Item().AlignCenter().Text("MathWorld").FontSize(25).Bold().FontColor(Teal);
+                col.Item().AlignCenter().Text(ar?"شهادة إكمال وإتقان":"Certificate of completion and mastery").FontSize(27).Bold();
+                col.Item().AlignCenter().Text(ar?"تُمنح هذه الشهادة إلى":"This certificate is awarded to").FontSize(13);
+                col.Item().AlignCenter().Text(c.StudentName).FontSize(25).SemiBold();
+                col.Item().AlignCenter().Text(ar?c.TitleAr:c.TitleEn).FontSize(20).SemiBold().FontColor(Teal);
+                col.Item().AlignCenter().Text(ar?$"أكمل {c.TotalProblems} مسألة وأثبت الحل المستقل في {c.RequiredSkills} مهارة.":$"Completed {c.TotalProblems} problems and demonstrated independent solving in {c.RequiredSkills} skills.");
+                col.Item().AlignCenter().Text(ar?"تاريخ الإصدار (UTC)":"Issued (UTC)").FontSize(11);
+                col.Item().AlignCenter().Text(c.IssuedAtUtc.ToString("yyyy-MM-dd",CultureInfo.InvariantCulture)).SemiBold();
+                col.Item().PaddingTop(6).BorderTop(1).BorderColor(Border).PaddingTop(8).AlignCenter().Text(ar?"رمز التحقق من الشهادة":"Certificate verification code").FontSize(11);
+                col.Item().ContentFromLeftToRight().AlignCenter().Text(c.VerificationCode).FontSize(12).SemiBold();
+                col.Item().AlignCenter().Text(ar?"شهادة إنجاز تعليمية من MathWorld، وليست اعتماداً أكاديمياً رسمياً.":"A MathWorld learning achievement, not a formal academic accreditation.").FontSize(9);
+            });
+        })).GeneratePdf();
+    }
+
     private static void Metric(IContainer container, string label, object value, string accent)
     {
         container.Column(column =>
