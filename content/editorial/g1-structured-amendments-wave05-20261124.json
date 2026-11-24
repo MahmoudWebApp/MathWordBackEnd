@@ -3074,8 +3074,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الجزء 27 لا يحقق النسبة المطلوبة من الكمية الكلية.",
-              "En": "A part of 27 does not give the required share of the total."
+              "Ar": "العدد 27 من 36 لا يحقق نسبة الثلثين؛ الضرب التبادلي يعطي 81 مقابل 72.",
+              "En": "27 out of 36 is not two thirds: cross multiplication gives 81 versus 72."
             }
           },
           {
@@ -3089,8 +3089,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الجزء 18 لا يحقق النسبة المطلوبة من الكمية الكلية.",
-              "En": "A part of 18 does not give the required share of the total."
+              "Ar": "العدد 18 من 36 لا يحقق نسبة الثلثين؛ الضرب التبادلي يعطي 54 مقابل 72.",
+              "En": "18 out of 36 is not two thirds: cross multiplication gives 54 versus 72."
             }
           },
           {
@@ -3098,8 +3098,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الجزء 12 لا يحقق النسبة المطلوبة من الكمية الكلية.",
-              "En": "A part of 12 does not give the required share of the total."
+              "Ar": "12 يمثل ثلث الكتب فقط؛ المطلوب ثلثاها.",
+              "En": "12 is one third of the books; the question requires two thirds."
             }
           }
         ],
@@ -3406,8 +3406,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الجزء 15 لا يحقق النسبة المطلوبة من الكمية الكلية.",
-              "En": "A part of 15 does not give the required share of the total."
+              "Ar": "15 من 80 يساوي 18.75%، وليس 25%.",
+              "En": "15 of 80 represents 18.75%, not 25%."
             }
           },
           {
@@ -3421,8 +3421,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الجزء 25 لا يحقق النسبة المطلوبة من الكمية الكلية.",
-              "En": "A part of 25 does not give the required share of the total."
+              "Ar": "25 من 80 يساوي 31.25%، وليس 25%.",
+              "En": "25 of 80 represents 31.25%, not 25%."
             }
           },
           {
@@ -3430,8 +3430,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الجزء 40 لا يحقق النسبة المطلوبة من الكمية الكلية.",
-              "En": "A part of 40 does not give the required share of the total."
+              "Ar": "40 من 80 يساوي 50%، وليس 25%.",
+              "En": "40 of 80 represents 50%, not 25%."
             }
           }
         ],
@@ -3885,8 +3885,8 @@
             "En": "Count places starting immediately after the decimal point."
           },
           {
-            "Ar": "الأجزاء من مئة هي المنزلة الثانية، حتى لو كان رقمها صفراً.",
-            "En": "Hundredths is the second place, even if its digit is zero."
+            "Ar": "حدد الرقم الثاني بعد الفاصلة العشرية، دون تجاوز أي منزلة.",
+            "En": "Locate the second digit after the decimal point without skipping any place."
           }
         ],
         "Solution": {
@@ -4101,8 +4101,8 @@
             "En": "Each tick represents one equal part of the interval."
           },
           {
-            "Ar": "عد خمس خطوات بعد الصفر واجعل عدد التقسيمات مقاماً.",
-            "En": "Count five steps after zero and use the number of divisions as denominator."
+            "Ar": "استعمل رقم العلامة المطلوبة في البسط وعدد الأجزاء المتساوية في المقام.",
+            "En": "Use the requested tick number as numerator and the count of equal divisions as denominator."
           }
         ],
         "Solution": {
@@ -4425,8 +4425,8 @@
             "En": "Between here excludes both endpoints."
           },
           {
-            "Ar": "حوّل الحدين إلى مقام 12، ثم تحقق من الخيار الواقع بينهما.",
-            "En": "Express both bounds with denominator 12, then test the choice between them."
+            "Ar": "اكتب الحدين بمقام مشترك ثم اختبر كل خيار بالمتباينتين الصارمتين.",
+            "En": "Write the bounds with a common denominator, then test each choice against both strict inequalities."
           }
         ],
         "Solution": {
@@ -4554,7 +4554,7 @@
             "En": "$3\\times10=30<4\\times8=32$"
           },
           "Result": {
-            "Ar": "الصف ب",
+            "Ar": "الصف الثاني (ب)",
             "En": "Class B"
           },
           "Unit": {
@@ -5621,8 +5621,8 @@
             "En": "Five percent is half of ten percent."
           },
           {
-            "Ar": "استفد من قيمة عشرة بالمئة المعطاة وخذ نصفها.",
-            "En": "Use the given ten-percent amount and halve it."
+            "Ar": "اقسم المقدار المعطى لعشرة بالمئة على اثنين.",
+            "En": "Divide the given ten-percent amount by two."
           }
         ],
         "Solution": {
