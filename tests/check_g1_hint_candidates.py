@@ -5,7 +5,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 items = json.loads((ROOT / "content/editorial/g1-existing-hint-candidates-20261124.json").read_text(encoding="utf-8"))["items"]
 ids = [row["problemId"] for row in items]
-assert len(ids) == len(set(ids)) == 653
+assert len(ids) == len(set(ids)) == 734
 assert {row["problemId"] for row in items if row.get("taxonomyReviewPending")} == {1566, 1578}
 assert {23,145,340,352,364,376,388,512,800,818,851}.issubset(ids)
 assert not {10,20}.intersection(ids), "Do not attach new hints to unresolved wording revisions"
@@ -18,7 +18,7 @@ for row in items:
         hints = [h[lang].strip() for h in row["Hints"]]
         assert all(0 < len(h) <= 1000 for h in hints)
         assert hints[0] != hints[1]
-print("PASS: 653 source-bound bilingual hint pairs; 2 taxonomy-held; no unresolved wording imports")
+print("PASS: 734 source-bound bilingual hint pairs; 2 taxonomy-held; no unresolved wording imports")
 
 # Every new law-review hint is bound to both independently retained source manifests.
 primary=json.loads((ROOT/"content/editorial/g1-primary-grade-placement-20261124.json").read_text(encoding="utf-8"))["Items"]
@@ -81,9 +81,9 @@ for skill, ids in family_ids_2.items():
 print("PASS: 147 additional explicitly reviewed family hints source-bound")
 
 # Third extension: explicit reviewed IDs and exact source snapshots.
-family_ids_3 = {"middle-similar-triangles":[220,232,244,256,268],"m-statistics-distributions":[433,479,482,825,826],"secondary-discriminant":[270,282,294,306,318],"secondary-factor-quadratics":[271,283,295,307,319],"secondary-arithmetic-mean":[280,292,304,316,328],"s-sequences-series-arithmetic-sequences":[436,438,483,827,828],"magnitude":[1665,1666,1692,1697,1711],"logarithm-properties":[1716,1717,1718,1721,1726],"university-directional-derivative":[331,343,355,367,379],"university-matrix-trace":[332,344,356,368,380],"university-vector-scaling":[333,345,357,369,381],"university-second-order-ivp":[336,348,360,372,384],"u-discrete-math-logic":[445,446,488,833,834],"u-discrete-math-graphs":[447,450,491,831,832],"unconstrained-optimization":[1669,1670,1699,1701,1714],"constrained-optimization":[1671,1672,1702,1705,1713],"convexity":[1673,1674,1700,1704,1706],"primary-triangle-area":[55,614,615,613],"p-fractions-decimals-fraction-models":[423,424,477,817],"p-fractions-decimals-equivalence":[693,694,695,696],"fraction-operations":[1635,1636,1637,1638],"counting":[1654,1680,1682,1707],"middle-evaluate-powers":[41,765,766,767],"m-statistics-charts":[429,434,823,824],"m-statistics-summary-measures":[431,432,435,481],"middle-circle-area":[625,626,627,628],"middle-ratios":[629,630,631,632],"middle-triangle-angles":[697,698,699,700],"solve-linear-inequalities":[1599,1600,1601,1602],"number-line-solutions":[1603,1604,1605,1606],"inequality-contexts":[1607,1608,1609,1610],"summary-measures":[1639,1640,1641,1642],"sample-spaces":[1662,1689,1683,1710],"secondary-quadratic-roots":[20,45,769,770],"secondary-logarithm-evaluation":[21,61,637,640],"s-sequences-series-series-sums":[440,441,442,830]}
-assert sum(len(v) for v in family_ids_3.values())==161
-assert len({i for ids in family_ids_3.values() for i in ids})==161
+family_ids_3 = {"middle-similar-triangles":[220,232,244,256,268],"m-statistics-distributions":[433,479,482,825,826],"secondary-discriminant":[270,282,294,306,318],"secondary-factor-quadratics":[271,283,295,307,319],"secondary-arithmetic-mean":[280,292,304,316,328],"s-sequences-series-arithmetic-sequences":[436,438,483,827,828],"magnitude":[1665,1666,1692,1697,1711],"logarithm-properties":[1716,1717,1718,1721,1726],"university-directional-derivative":[331,343,355,367,379],"university-matrix-trace":[332,344,356,368,380],"university-vector-scaling":[333,345,357,369,381],"university-second-order-ivp":[336,348,360,372,384],"u-discrete-math-logic":[445,446,488,833,834],"u-discrete-math-graphs":[447,450,491,831,832],"unconstrained-optimization":[1669,1670,1699,1701,1714],"constrained-optimization":[1671,1672,1702,1705,1713],"convexity":[1673,1674,1700,1704,1706],"primary-triangle-area":[55,614,615,613],"p-fractions-decimals-fraction-models":[423,424,477,817],"p-fractions-decimals-equivalence":[693,694,695,696],"fraction-operations":[1635,1636,1637,1638],"counting":[1654,1680,1682,1707],"middle-evaluate-powers":[41,765,766,767],"m-statistics-charts":[429,434,823,824],"m-statistics-summary-measures":[431,432,435,481],"middle-circle-area":[625,626,627,628],"middle-ratios":[629,630,631,632],"middle-triangle-angles":[697,698,699,700],"solve-linear-inequalities":[1599,1600,1601,1602],"number-line-solutions":[1603,1604,1605,1606],"inequality-contexts":[1607,1608,1609,1610],"summary-measures":[1639,1640,1641,1642],"sample-spaces":[1662,1689,1683,1710],"secondary-quadratic-roots":[45,769,770],"secondary-logarithm-evaluation":[21,61,637,640],"s-sequences-series-series-sums":[440,441,442,830]}
+assert sum(len(v) for v in family_ids_3.values())==160
+assert len({i for ids in family_ids_3.values() for i in ids})==160
 assert not {i for ids in family_ids_3.values() for i in ids}.intersection({i for family in (family_ids, family_ids_2) for ids in family.values() for i in ids})
 for skill, ids in family_ids_3.items():
     for i in ids:
@@ -91,4 +91,29 @@ for skill, ids in family_ids_3.items():
         assert r["primarySkillKey"]==s["StableKey"]==skill
         assert not s.get("RequiresWordingReview") and not s.get("SkillReview")
         assert r["question"]=={"Ar":s["ExpectedQuestionAr"],"En":s["ExpectedQuestionEn"]}
-print("PASS: 161 additional explicitly reviewed family hints source-bound")
+print("PASS: 160 additional explicitly reviewed family hints source-bound")
+
+# Final eligible extension and explicit held inventory.
+family_ids_4 = {"p-fractions-decimals-decimal-place-value":[422,427,822],"p-fractions-decimals-fraction-operations":[819,820],"length":[1587,1588,1589],"capacity":[1592,1593,1594],"number-comparison":[1652,1677,1679],"signed-operations":[1563,1564,1565],"rational-arithmetic":[1568,1569,1570],"frequency":[1660,1661,1686],"secondary-population-variance":[48],"s-sequences-series-series-convergence":[509],"s-sequences-series-geometric-sequences":[709,710],"growth-models":[1571,1572,1573],"decay-half-life":[1574,1575,1576],"coordinate-lines":[1611,1612,1613,1614],"circles":[1615,1616,1617,1618],"loci":[1619,1622,1620,1621],"series-convergence":[1643,1645,1644,1646],"vector-components":[1663,1664,1691],"logarithm-inverse-and-equations":[1715,1719,1720,1723],"university-dot-product":[66,647],"university-intermediate-value-theorem":[68,144],"u-discrete-math-combinatorics":[444,489],"u-discrete-math-proofs":[449,492],"u-discrete-math-relations":[490,795],"university-differentiability-continuity":[797],"root-finding":[1623,1624,1625],"numerical-integration":[1626,1627,1628],"error-analysis":[1629,1630,1631],"linear-systems":[1632,1634],"logic":[1647,1648,1649,1650]}
+assert sum(len(v) for v in family_ids_4.values())==82
+assert len({i for ids in family_ids_4.values() for i in ids})==82
+assert not {i for ids in family_ids_4.values() for i in ids}.intersection({i for family in (family_ids, family_ids_2, family_ids_3) for ids in family.values() for i in ids})
+for skill, group in family_ids_4.items():
+    for i in group:
+        r=by_id[i]; s=source[i]
+        assert r["primarySkillKey"]==s["StableKey"]==skill
+        assert not s.get("RequiresWordingReview") and not s.get("SkillReview")
+        assert r["question"]=={"Ar":s["ExpectedQuestionAr"],"En":s["ExpectedQuestionEn"]}
+held_file=json.loads((ROOT/"content/editorial/g1-hint-held-review-20261124.json").read_text(encoding="utf-8"))
+assert held_file["status"]=="HeldNotImportable"
+held=held_file["items"]
+assert len(held)==len({r["problemId"] for r in held})==39
+assert not set(ids).intersection({r["problemId"] for r in held})
+assert set(ids)|{r["problemId"] for r in held}==set(source)
+assert len(source)==773
+for r in held:
+    s=source[r["problemId"]]
+    assert r["taxonomyReviewPending"] is True and r["HoldReason"].strip()
+    assert r["primarySkillKey"]==s["StableKey"]
+    assert r["question"]=={"Ar":s["ExpectedQuestionAr"],"En":s["ExpectedQuestionEn"]}
+print("PASS: complete 773-item coverage inventory: 732 eligible hint pairs, 2 in-file taxonomy holds, 39 separately held; no publication")
