@@ -19,3 +19,5 @@ All three changesets are on their existing feature PRs (backend #148, web #109, 
 
 ## Current live DB read-only checks
 27 public tables: RLS enabled on all; no direct anon/authenticated table privileges. The historical private snapshot schema (10 tables) has no anon/authenticated schema usage or table privileges, and is not an independent backup. Security advisor INFO notices about RLS without client policies are expected for server-only tables; do not add client access merely to clear a lint. Performance advisory INFO notices about unused indexes and historical snapshot PKs are not evidence of live query bottlenecks; do not remove indexes without workload evidence.
+
+Track-filtered lifetime analytics now attribute attempts to their recorded ordinary PracticeScopeId or guided session TrackId, and permanent credits only to the actual earning scope (matching award timestamp). Unknown legacy attribution stays in all/stage summaries. Overlapping-track test checks correct/incorrect counts and no duplicate credit. This is still subject to CI acceptance.

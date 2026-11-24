@@ -102,6 +102,10 @@ def verify_tracks(admin, student, uid, stage1, stage2):
     new_report=expect("GET",f"/api/users/premium-analytics?trackId={oid}",200,token=student)
     assert sum(c["ErrorNotebookProblems"] for c in old_report["Categories"])==0
     assert sum(c["ErrorNotebookProblems"] for c in new_report["Categories"])==1
+    assert old_report["Attempts"]==1 and old_report["CorrectAttempts"]==1 and old_report["IncorrectAttempts"]==0
+    assert new_report["Attempts"]==1 and new_report["CorrectAttempts"]==0 and new_report["IncorrectAttempts"]==1
+    assert old_report["SolvedProblems"]==1 and new_report["SolvedProblems"]==0
+    assert old_report["AwardedPoints"]>0 and new_report["AwardedPoints"]==0
     eligibility=expect("GET",f"/api/users/certificates/eligibility?stageId={stage1}&trackId={oid}&categoryId={category}",200,token=student)
     assert eligibility["SolvedProblems"]==0 and eligibility["IndependentSkills"]==0
     sql(f"""UPDATE "Users" SET "SubscriptionType"='Free' WHERE "Id"={uid}""")

@@ -258,13 +258,17 @@ public sealed class StudentPremiumAnalyticsController : ControllerBase
             var valid=HttpContext.RequestServices.GetRequiredService<LearningTrackService>().ValidProblems(filter.TrackId.Value);
             scope=scope.Where(p=>valid.Any(v=>v.Id==p.Id));
         }
+        // Actual track activity must be attributed to the stored scope,
+        // not inferred from shared membership of a question in several tracks.
         var ordinary=_db.ProblemAttempts.AsNoTracking().Where(a=>a.UserId==userId&&
+            (!filter.TrackId.HasValue||a.PracticeScopeId==filter.TrackId.Value)&&
             (!cutoff.HasValue||a.SubmittedAt>=cutoff)&&scope.Any(p=>p.Id==a.ProblemId))
             .Select(a=>new{a.ProblemId,a.Problem.StageId,a.Problem.CategoryId,a.IsCorrect,Seconds=(long)a.TimeSpentSeconds});
         var guided=from a in _db.LearningSessionAttempts.AsNoTracking()
                    join s in _db.LearningSessions.AsNoTracking() on a.SessionId equals s.Id
                    join p in _db.Problems.AsNoTracking() on a.ProblemId equals p.Id
                    where s.UserId==userId&&s.StageId==p.StageId&&p.Category.StageId==s.StageId&&
+                       (!filter.TrackId.HasValue||s.TrackId==filter.TrackId)&&
                        (!cutoff.HasValue||a.SubmittedAtUtc>=cutoff)&&scope.Any(q=>q.Id==a.ProblemId)
                    select new{a.ProblemId,s.StageId,p.CategoryId,a.IsCorrect,Seconds=0L};
         var answers=ordinary.Concat(guided);
@@ -273,7 +277,14 @@ public sealed class StudentPremiumAnalyticsController : ControllerBase
                 Incorrect=g.Count(a=>!a.IsCorrect),Seconds=g.Sum(a=>a.Seconds)}).ToListAsync(ct);
         var credits=_db.PermanentProblemAchievements.AsNoTracking().Where(a=>a.UserId==userId&&
             (!cutoff.HasValue||a.EarnedAtUtc>=cutoff)&&(!filter.StageId.HasValue||a.StageId==filter.StageId)&&
-            (!filter.CategoryId.HasValue||a.CategoryId==filter.CategoryId)&&(!filter.TrackId.HasValue||scope.Any(p=>p.Id==a.ProblemId)));
+            (!filter.CategoryId.HasValue||a.CategoryId==filter.CategoryId)&&(!filter.TrackId.HasValue||
+                (scope.Any(p=>p.Id==a.ProblemId)&&
+                 (_db.ProblemAttempts.Any(p=>p.UserId==a.UserId&&p.ProblemId==a.ProblemId&&p.PracticeScopeId==filter.TrackId.Value&&
+                     p.IsCorrect&&p.SubmittedAt==a.EarnedAtUtc)||
+                  (from sa in _db.LearningSessionAttempts
+                   join session in _db.LearningSessions on sa.SessionId equals session.Id
+                   where session.UserId==a.UserId&&session.TrackId==filter.TrackId&&sa.ProblemId==a.ProblemId&&
+                         sa.IsCorrect&&sa.SubmittedAtUtc==a.EarnedAtUtc select sa).Any()))));
         var earned=await credits.GroupBy(a=>new{a.StageId,a.CategoryId}).Select(g=>new{
             g.Key.StageId,g.Key.CategoryId,Solved=g.Count(),Points=g.Sum(a=>a.Points),
             First=g.Count(a=>_db.ProblemAttempts.Any(p=>p.UserId==userId&&p.ProblemId==a.ProblemId&&p.IsCorrect&&
@@ -283,7 +294,8 @@ public sealed class StudentPremiumAnalyticsController : ControllerBase
                  where session.UserId==userId&&sa.ProblemId==a.ProblemId&&sa.IsCorrect&&sa.AttemptNumber==1&&
                      !sa.UsedHint&&sa.SubmittedAtUtc==a.EarnedAtUtc select sa).Any())
         }).ToListAsync(ct);
-        var legacy=_db.UserProgresses.AsNoTracking().Where(p=>p.UserId==userId&&p.Attempts>0&&!cutoff.HasValue&&scope.Any(q=>q.Id==p.ProblemId))
+        var legacy=_db.UserProgresses.IgnoreQueryFilters().AsNoTracking().Where(p=>p.UserId==userId&&p.Attempts>0&&!cutoff.HasValue&&
+            (!filter.TrackId.HasValue||p.PracticeScopeId==filter.TrackId.Value)&&scope.Any(q=>q.Id==p.ProblemId))
             .Select(p=>new{p.ProblemId,p.Problem.StageId,p.Problem.CategoryId});
         var attempted=await answers.Select(a=>new{a.ProblemId,a.StageId,a.CategoryId})
             .Union(credits.Select(a=>new{a.ProblemId,a.StageId,a.CategoryId})).Union(legacy)
