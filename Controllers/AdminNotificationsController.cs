@@ -1,5 +1,4 @@
 using System.Security.Claims;
-using System.Net.Mail;
 using MathWorldAPI.Data;
 using MathWorldAPI.DTOs;
 using MathWorldAPI.Helpers;
@@ -19,16 +18,11 @@ public sealed class AdminNotificationsController : ControllerBase
 {
     private readonly AppDbContext _db;
     private readonly NotificationStreamBroker _stream;
-    private readonly ITransactionalEmailSender _email;
-    private readonly PlatformBrandService _brand;
     private readonly RecoveryEmailQueue _queue;
-    public AdminNotificationsController(AppDbContext db, NotificationStreamBroker stream,
-        ITransactionalEmailSender email, PlatformBrandService brand, RecoveryEmailQueue queue)
+    public AdminNotificationsController(AppDbContext db, NotificationStreamBroker stream, RecoveryEmailQueue queue)
     {
         _db = db;
         _stream = stream;
-        _email = email;
-        _brand = brand;
         _queue = queue;
     }
 
@@ -146,47 +140,37 @@ public sealed class AdminNotificationsController : ControllerBase
     public async Task<IActionResult> EmailStatus(CancellationToken ct)
     {
         if (!await AuthorizedAdmin(ct)) return Forbid();
-        return Ok(new { IsConfigured = _email.IsConfigured });
+        return Ok(new { IsConfigured = _queue.OptionalDeliveryConfigured });
     }
 
     /// <summary>
-    /// Explicit, single-student email only. No SMTP configuration means
-    /// no email attempt, no success claim, no surprise bulk delivery.
-    /// In-app notifications remain a separate backward-compatible action.
+    /// Preserve the single-learner route, but use the same consent-aware
+    /// outbox as all optional messages. Store the actual content in the
+    /// private inbox; the generic email links back to the platform.
+    /// No synchronous SMTP send or delivery-success assertion remains.
     /// </summary>
     [HttpPost("email/learners/{learnerId:int}")]
     public async Task<IActionResult> SendEmailToLearner(int learnerId,
         [FromBody] SendLearnerNoticeRequest request, CancellationToken ct)
     {
-        if (!await AuthorizedAdmin(ct)) return Forbid();
-        if (learnerId <= 0 || request == null ||
-            !ValidText(request.TitleAr, 160) || !ValidText(request.TitleEn, 160) ||
-            !ValidText(request.BodyAr, 1000) || !ValidText(request.BodyEn, 1000))
-            return BadRequest(new { Message = "InvalidNotification" });
-
-        if (!_email.IsConfigured)
-            return StatusCode(StatusCodes.Status503ServiceUnavailable,
-                new { Message = "EmailNotConfigured" });
-
-        var student = await _db.Users.AsNoTracking()
-            .Where(u => u.Id == learnerId && u.Role == "Student" && u.IsActive)
-            .Select(u => new { u.Id, u.Email }).FirstOrDefaultAsync(ct);
-        if (student is null) return NotFound(new { Message = "LearnerNotFound" });
-
-        if (!MailAddress.TryCreate(student.Email, out _))
-            return BadRequest(new { Message = "LearnerEmailInvalid" });
-        var brand = await _brand.ReadAsync(false, ct);
-        var rendered = MathWorldEmailLayout.Render(brand,
-            LanguageHelper.GetLanguageFromRequest(Request),
-            request.TitleAr.Trim() + " | " + request.TitleEn.Trim(),
-            request.BodyAr.Trim() + "\n\n--- English ---\n" + request.BodyEn.Trim());
-        var outcome = await _email.SendAsync(student.Email, rendered, ct);
-        return outcome switch
-        {
-            EmailSendResult.Sent => Ok(new { EmailSent = true, UserId = student.Id }),
-            EmailSendResult.NotConfigured => StatusCode(503, new { Message = "EmailNotConfigured" }),
-            _ => StatusCode(502, new { Message = "EmailDeliveryFailed" })
-        };
+        if(!await AuthorizedAdmin(ct))return Forbid();
+        if(learnerId<=0||request==null||!ValidText(request.TitleAr,160)||!ValidText(request.TitleEn,160)||
+            !ValidText(request.BodyAr,1000)||!ValidText(request.BodyEn,1000)||!ValidPath(request.TargetPath))
+            return BadRequest(new{Message="InvalidNotification"});
+        var student=await _db.Users.AsNoTracking().SingleOrDefaultAsync(u=>u.Id==learnerId&&u.Role=="Student"&&u.IsActive,ct);
+        if(student==null)return NotFound(new{Message="LearnerNotFound"});
+        if(!OptionalEmailPolicy.Allows(student,"announcement"))
+            return Conflict(new{Message="LearnerEmailConsentRequired"});
+        var now=DateTime.UtcNow;
+        if(!_queue.AddOptionalNotice(student,"announcement",now))
+            return StatusCode(503,new{Message="EmailNotConfigured"});
+        var notice=new UserNotification{UserId=learnerId,Type="admin",TitleAr=request.TitleAr.Trim(),
+            TitleEn=request.TitleEn.Trim(),BodyAr=request.BodyAr.Trim(),BodyEn=request.BodyEn.Trim(),
+            TargetPath=string.IsNullOrWhiteSpace(request.TargetPath)?null:request.TargetPath.Trim(),CreatedAtUtc=now};
+        _db.UserNotifications.Add(notice);
+        await _db.SaveChangesAsync(ct);
+        _stream.Notify(learnerId);
+        return Accepted(new{Queued=true,EmailSent=false,UserId=learnerId,NoticeId=notice.Id});
     }
 
     private async Task<bool> AuthorizedAdmin(CancellationToken ct) =>

@@ -92,13 +92,20 @@ def main():
         return int(sql(f"""SELECT COUNT(*) FROM "EmailOutbox" WHERE "UserId"={uid} AND "TemplateKey"='{key}' AND "State"='Pending' AND "Locale"='en'"""))
     expect("POST",f"/api/admin/notifications/learners/{uid}",200,notice,admin_token)
     assert queued("announcement")==1
+    manual=f"/api/admin/notifications/email/learners/{uid}"
+    expect("POST",manual,403,notice,student_token)
+    manual_result=expect("POST",manual,202,notice,admin_token)
+    assert manual_result["Queued"] and not manual_result["EmailSent"] and manual_result["NoticeId"]>0
+    assert queued("announcement")==2
     code=expect("POST","/api/admin/premium-codes",200,{"Label":"CI gift","PremiumDays":30,"ExpiresInDays":1},admin_token)["Code"]
     expect("POST","/api/users/premium-codes/redeem",200,{"Code":code},student_token)
     expect("POST","/api/users/premium-codes/redeem",400,{"Code":code},student_token)
     assert queued("premium-granted")==1
     expect("PUT",preferences,200,{**prefs,"EmailLearningUpdates":False,"EmailSubscriptionUpdates":False,"EmailImportantAnnouncements":False},student_token)
     expect("POST",f"/api/admin/notifications/learners/{uid}",200,notice,admin_token)
-    assert queued("announcement")==1
+    assert queued("announcement")==2
+    expect("POST",manual,409,notice,admin_token)
+    assert queued("announcement")==2
     outbox=expect("GET",outbox_route,200,token=admin_token)
     assert outbox["IsConfigured"] and outbox["IsTestMode"] and not outbox["IsWorkerEnabled"]
     readiness=outbox["Readiness"]

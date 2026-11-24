@@ -87,17 +87,20 @@ public sealed class RecoveryEmailQueue(AppDbContext db, IConfiguration config, B
 
     // The event and its queue item are saved in the caller's transaction.
     // No actual delivery or provider call takes place here.
-    public void AddOptionalNotice(AppUser user,string templateKey,DateTime now)
+    public bool OptionalDeliveryConfigured=>config.GetValue<bool>("MathWorldEmail:OptionalEventsEnabled")&&
+        config.GetValue<bool>("MathWorldEmail:OutboxEnabled")&&transport.IsConfigured;
+    public bool AddOptionalNotice(AppUser user,string templateKey,DateTime now)
     {
         var offlineTest=transport.IsTestMode&&config.GetValue<bool>("MathWorldEmail:AllowOfflineOptionalTestQueue");
         if(!config.GetValue<bool>("MathWorldEmail:OptionalEventsEnabled")||
             (!config.GetValue<bool>("MathWorldEmail:OutboxEnabled")&&!offlineTest)||
-            !OptionalEmailPolicy.Allows(user,templateKey)||!transport.AllowsRecipient(user.Email))return;
+            !OptionalEmailPolicy.Allows(user,templateKey)||!transport.AllowsRecipient(user.Email))return false;
         db.EmailOutbox.Add(new EmailOutboxItem{
             Id=Guid.NewGuid(),UserId=user.Id,Recipient=user.Email,TemplateKey=templateKey,
             Locale=user.EmailNotificationLocale=="en"?"en":"ar",State="Pending",
             CreatedAtUtc=now,NextRetryAtUtc=now,ExpiresAtUtc=now.AddHours(12)
         });
+        return true;
     }
 
     public async Task<EmailOutboxItem?> ClaimAsync(CancellationToken ct)
