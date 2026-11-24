@@ -127,6 +127,7 @@ jobs:
           python3 tests/check_g1_structured_amendments.py
           python3 tests/check_g1_amendment_payload.py
           python3 tests/check_g1_held_amendments.py
+          python3 tests/check_g1_remaining_long_solutions.py
       - name: Validate source-bound bilingual hint proposals
         run: python3 tests/check_g1_hint_candidates.py
       - name: Validate bilingual subjects, skill keys and historical problem mapping
