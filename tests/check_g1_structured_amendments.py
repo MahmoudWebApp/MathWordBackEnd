@@ -524,3 +524,96 @@ for row in ninth["Items"]:
         assert all(parse(sol["Result"][lang])==expected for lang in ("Ar","En")),i
     assert 1<=len(sol["Steps"])<=20 and all(pair(s) for s in sol["Steps"])
 print("PASS: 75 wave-09 middle-school questions, independent arithmetic and inequality-set checks")
+
+
+# Wave 10: independent exact secondary-school oracles, including
+# symbolic polynomial coefficients and special-angle values.
+tenth=load("g1-structured-amendments-wave10-20261124.json")
+tenth_ids={r["ProblemId"] for r in tenth["Items"]}
+assert tenth["Status"]==wave["Status"]
+assert len(tenth_ids)==len(tenth["Items"])==58
+assert not tenth_ids.intersection(wave_ids|fourth_ids|fifth_ids|sixth_ids|seventh_ids|eighth_ids|ninth_ids|{r["ProblemId"] for r in d["Items"]})
+assert not tenth_ids.intersection({80,95,110,125,140,279,291})
+def independent_tenth(row):
+    i=row["ProblemId"]; c=row["Content"]; q=c["Question"]["En"]; k=row["PrimarySkillKey"]
+    v=[int(x) for x in re.findall(r"\d+",q)]
+    def norm(s): return s.strip("$").replace(" ","")
+    if k=="secondary-logarithm-evaluation":
+        base,arg=v
+        return next(n for n in range(30) if base**n==arg),rational
+    if k=="secondary-trigonometric-special-angles":
+        # Canonical values represented as (sign, squared magnitude).
+        def angle_value(s):
+            s=norm(s)
+            m=re.fullmatch(r"\\frac\{\\sqrt\{(\d+)\}\}\{(\d+)\}",s)
+            if m: return 1,Fraction(int(m[1]),int(m[2])**2)
+            z=rational(s)
+            return (int(z>0)-int(z<0),z*z)
+        val={21:None,22:(1,Fraction(1,4)),46:(1,Fraction(1,4)),62:(1,Fraction(1)),274:(0,Fraction(0)),286:(1,Fraction(1,4)),298:(1,Fraction(1,2))}
+        return val[i],angle_value
+    if k=="secondary-pythagorean-trig-identity":
+        return Fraction(1,2)+Fraction(1,2),rational
+    if k=="secondary-polynomial-derivatives":
+        if i in (24,47):
+            return {24:"3x^2+4x-5",47:"10x-4"}[i],norm
+        if i>=275:
+            arg,a,n=v
+            return a*n*arg**(n-1),rational
+        a,n,b,arg=v
+        return a*n*arg**(n-1)+b,rational
+    if k=="secondary-indefinite-integrals":
+        if i==25: return "x^2+3x+C",norm
+        if i==63: return "2x^{3}+C",norm
+        a,n=v
+        return f"{a//(n+1)}x^{{{n+1}}}+C",norm
+    if k=="secondary-quadratic-roots":
+        def pair_root(s):
+            return tuple(sorted(map(int,re.fullmatch(r"\((-?\d+),(-?\d+)\)",norm(s)).groups())))
+        roots=tuple(t for t in range(-20,21) if t*t-7*t+12==0)
+        return roots,pair_root
+    if k=="secondary-population-variance":
+        x=v; avg=Fraction(sum(x),len(x))
+        return sum((t-avg)**2 for t in x)/len(x),rational
+    if k=="secondary-vieta-roots":
+        return sum(v) if i<200 else v[-2],rational
+    if k=="secondary-right-triangle-trig-ratios":
+        return Fraction(v[0],v[1]),rational
+    if k=="secondary-discriminant":
+        return v[1]**2-4*v[2],rational
+    if k=="secondary-factor-quadratics":
+        def expanded(s):
+            a,b=map(int,re.fullmatch(r"\(x([+-]\d+)\)\(x([+-]\d+)\)",norm(s)).groups())
+            return a+b,a*b
+        return (v[1],v[2]),expanded
+    if k=="secondary-definite-integrals":
+        lo,hi,a=v
+        return Fraction(a*(hi**2-lo**2),2),rational
+    if k=="secondary-combinations":
+        from itertools import combinations
+        return len(list(combinations(range(v[0]),2))),rational
+    if k=="secondary-arithmetic-mean":
+        a,n,b,m=v
+        return Fraction(a*n+b*m,n+m),rational
+    raise AssertionError(k)
+for row in tenth["Items"]:
+    i=row["ProblemId"]; c=row["Content"]; g,p=placements[i]
+    assert row["Status"]=="StructuredAmendmentCandidateNotImported"
+    assert row["PrimarySkillKey"]==p["StableKey"] and row["ProposedTrackCode"]==g["Code"]
+    assert c["StageId"]==g["StageId"]==3 and c["CategoryId"]==p["CategoryId"] and c["PrimarySkillId"]==p["PrimarySkillId"]
+    assert c["Question"]=={"Ar":p["ExpectedQuestionAr"],"En":p["ExpectedQuestionEn"]}
+    assert pair(row["ExpectedLegacySolution"]) and pair(c["Title"])
+    assert len(row["ExpectedOptionIds"])==len(set(row["ExpectedOptionIds"]))==4
+    opts=c["Options"]; assert len(opts)==4 and sum(o["IsCorrect"] for o in opts)==1
+    expected,parse=independent_tenth(row)
+    values=[parse(o["LatexCode"]) for o in opts]
+    assert len(set(values))==4,i
+    assert all(o["IsCorrect"]==(v==expected) for v,o in zip(values,opts)),i
+    assert all(o["ErrorType"] and pair(o["Reason"]) for o in opts if not o["IsCorrect"])
+    assert len(c["Hints"])==2 and all(pair(h) for h in c["Hints"])
+    assert all(c["Hints"][0][k]!=c["Hints"][1][k] for k in ("Ar","En"))
+    sol=c["Solution"]
+    assert sol["FormulaLatex"] and not sol["FormulaLatex"].startswith("$")
+    assert all(pair(sol[k]) for k in ("Idea","Substitution","Result","Unit","Verification","CommonError"))
+    assert all(parse(sol["Result"][lang])==expected for lang in ("Ar","En")),i
+    assert 1<=len(sol["Steps"])<=20 and all(pair(s) for s in sol["Steps"])
+print("PASS: 58 wave-10 secondary-school questions, exact oracles and source guards")
