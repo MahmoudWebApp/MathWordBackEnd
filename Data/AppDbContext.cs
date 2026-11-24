@@ -44,6 +44,8 @@ namespace MathWorldAPI.Data
         public DbSet<PlatformActivityEvent> PlatformActivityEvents => Set<PlatformActivityEvent>();
         public DbSet<LearnerPresence> LearnerPresences => Set<LearnerPresence>();
 
+        public DbSet<PlatformBrandSettings> PlatformBrandSettings => Set<PlatformBrandSettings>();
+
         public DbSet<AppUser> Users =>
             Set<AppUser>();
 
@@ -103,6 +105,14 @@ namespace MathWorldAPI.Data
             ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<PlatformBrandSettings>(entity =>
+            {
+                entity.HasKey(x => x.Id);
+                entity.Property(x => x.Id).ValueGeneratedNever();
+                entity.Property(x => x.SettingsJson).HasColumnType("jsonb").IsRequired();
+                entity.ToTable(t => t.HasCheckConstraint("CK_PlatformBrandSettings_Singleton", "\"Id\" = 1"));
+            });
 
             modelBuilder.Entity<CurriculumDraftItem>(e =>
             {

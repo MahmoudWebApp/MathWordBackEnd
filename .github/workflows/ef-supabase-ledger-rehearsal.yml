@@ -147,7 +147,9 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."__EFMigrationsHistory"' | grep -qx 26
+          psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."__EFMigrationsHistory"' | grep -qx 27
+          psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."PlatformBrandSettings" WHERE "Id"=1 AND "Revision"=0' | grep -qx 1
+          psql -X -v ON_ERROR_STOP=1 -Atc "SELECT count(*) FROM pg_class c JOIN pg_namespace n ON n.oid=c.relnamespace WHERE n.nspname='public' AND c.relname='PlatformBrandSettings' AND c.relrowsecurity AND NOT has_table_privilege('anon',c.oid,'SELECT,INSERT,UPDATE,DELETE') AND NOT has_table_privilege('authenticated',c.oid,'SELECT,INSERT,UPDATE,DELETE')" | grep -qx 1
           psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."Users" WHERE "TokenVersion" IS NULL OR "TokenVersion" <> 0' | grep -qx 0
           psql -X -v ON_ERROR_STOP=1 -Atc "SELECT COUNT(*) FROM public.\"__EFMigrationsHistory\" WHERE \"MigrationId\"='20261124220000_AddAccountTokenVersion'" | grep -qx 1
           psql -X -v ON_ERROR_STOP=1 -Atc "SELECT COUNT(*) FROM public.\"__EFMigrationsHistory\" WHERE \"MigrationId\"='20261124213000_SecureCurriculumTaxonomyEfParity'" | grep -qx 1

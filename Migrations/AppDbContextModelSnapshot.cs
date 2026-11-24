@@ -22,6 +22,16 @@ namespace MathWorldAPI.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("MathWorldAPI.Models.PlatformBrandSettings", b =>
+                {
+                    b.Property<int>("Id").HasColumnType("integer");
+                    b.Property<int>("Revision").HasColumnType("integer");
+                    b.Property<string>("SettingsJson").IsRequired().HasColumnType("jsonb");
+                    b.HasKey("Id");
+                    b.ToTable("PlatformBrandSettings", t =>
+                        t.HasCheckConstraint("CK_PlatformBrandSettings_Singleton", "\"Id\" = 1"));
+                });
+
             modelBuilder.Entity("MathWorldAPI.Models.CurriculumDraftItem", b =>
                 {
                     b.Property<long>("Id").ValueGeneratedOnAdd().HasColumnType("bigint");
