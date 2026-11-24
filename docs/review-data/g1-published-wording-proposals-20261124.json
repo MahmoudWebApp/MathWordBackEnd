@@ -1,0 +1,353 @@
+{
+  "status": "proposed-for-editorial-review",
+  "scope": "Reviewed wording for existing published items. Source option IDs reference historical records. Any change to a stem or choice requires a reviewed version that preserves previous attempts.",
+  "items": [
+    {
+      "problemId": 10,
+      "kind": "question",
+      "rationale": "The key uses equiprobable outcomes. State the modeling assumption.",
+      "suggested": {
+        "ar": "إذا رميت قطعة نقدية عادلة مرة واحدة، فما احتمال ظهور الصورة؟",
+        "en": "A fair coin is tossed once. What is the probability of heads?"
+      },
+      "sourceSha256": "409ad83f1d5af0e249eff15d82b08c53c21e5d85d21b0dbbc188567ebf137564",
+      "blocksAnswerAcceptance": false
+    },
+    {
+      "problemId": 20,
+      "kind": "options",
+      "rationale": "Use the same mathematical notation in both locales for each root set.",
+      "choices": [
+        {
+          "optionId": 69,
+          "suggested": {
+            "ar": "\\{2,3\\}",
+            "en": "\\{2,3\\}"
+          }
+        },
+        {
+          "optionId": 70,
+          "suggested": {
+            "ar": "\\{1,6\\}",
+            "en": "\\{1,6\\}"
+          }
+        },
+        {
+          "optionId": 71,
+          "suggested": {
+            "ar": "\\{-2,-3\\}",
+            "en": "\\{-2,-3\\}"
+          }
+        },
+        {
+          "optionId": 72,
+          "suggested": {
+            "ar": "\\{5,1\\}",
+            "en": "\\{5,1\\}"
+          }
+        }
+      ],
+      "sourceSha256": "f2fbf81b2340cc01bcdec15634ff778e837004436a0bee4071dfcf5ba85b8015",
+      "blocksAnswerAcceptance": false
+    },
+    {
+      "problemId": 23,
+      "kind": "question",
+      "rationale": "The multiple-choice stem gives away the numerical result. A substitution at one angle tests evaluation of the expression.",
+      "suggested": {
+        "ar": "احسب القيمة الدقيقة لـ $\\sin^2(45^\\circ)+\\cos^2(45^\\circ)$.",
+        "en": "Evaluate $\\sin^2(45^\\circ)+\\cos^2(45^\\circ)$ exactly."
+      },
+      "sourceSha256": "0c6d0986191cd58cf447b60c67b19ad7712d3714a4ef46fa4520bc050999b20e",
+      "blocksAnswerAcceptance": false
+    },
+    {
+      "problemId": 145,
+      "kind": "options",
+      "rationale": "Both prose choices need Arabic as well as English.",
+      "choices": [
+        {
+          "optionId": 571,
+          "suggested": {
+            "ar": "للدالة قيمة عظمى محلية عند 1",
+            "en": "The function has a local maximum at 1"
+          }
+        },
+        {
+          "optionId": 572,
+          "suggested": {
+            "ar": "الدالة متصلة عند 1",
+            "en": "The function is continuous at 1"
+          }
+        }
+      ],
+      "sourceSha256": "e35c2021e1d17955ce6902c047940501e90edcf27e8467676153be535154312e",
+      "blocksAnswerAcceptance": false
+    },
+    {
+      "problemId": 340,
+      "kind": "options",
+      "rationale": "All four prose choices in this IVT variant currently appear in English in Arabic practice.",
+      "choices": [
+        {
+          "optionId": 1349,
+          "suggested": {
+            "ar": "الدالة قابلة للاشتقاق عند 1 فقط",
+            "en": "The function is differentiable only at 1"
+          }
+        },
+        {
+          "optionId": 1350,
+          "suggested": {
+            "ar": "الدالة متصلة على [0,1]",
+            "en": "The function is continuous on [0,1]"
+          }
+        },
+        {
+          "optionId": 1351,
+          "suggested": {
+            "ar": "الدالة معرّفة عند 0 فقط",
+            "en": "The function is defined only at 0"
+          }
+        },
+        {
+          "optionId": 1352,
+          "suggested": {
+            "ar": "قيمة الدالة عند 0 منتهية",
+            "en": "The function has a finite value at 0"
+          }
+        }
+      ],
+      "sourceSha256": "27c65ce18f0e75b0b8f112f06ab4b4572e999a7a148274b30b7462835adbb703",
+      "blocksAnswerAcceptance": false
+    },
+    {
+      "problemId": 352,
+      "kind": "options",
+      "rationale": "All four prose choices in this IVT variant currently appear in English in Arabic practice.",
+      "choices": [
+        {
+          "optionId": 1397,
+          "suggested": {
+            "ar": "الدالة متصلة على [0,1]",
+            "en": "The function is continuous on [0,1]"
+          }
+        },
+        {
+          "optionId": 1398,
+          "suggested": {
+            "ar": "الدالة معرّفة عند 0 فقط",
+            "en": "The function is defined only at 0"
+          }
+        },
+        {
+          "optionId": 1399,
+          "suggested": {
+            "ar": "قيمة الدالة عند 0 منتهية",
+            "en": "The function has a finite value at 0"
+          }
+        },
+        {
+          "optionId": 1400,
+          "suggested": {
+            "ar": "الدالة قابلة للاشتقاق عند 1 فقط",
+            "en": "The function is differentiable only at 1"
+          }
+        }
+      ],
+      "sourceSha256": "7573a4c315a21e8d15cd0589a4a1612ccad5f750c3b653a035ff80ac8e82d063",
+      "blocksAnswerAcceptance": false
+    },
+    {
+      "problemId": 364,
+      "kind": "options",
+      "rationale": "All four prose choices in this IVT variant currently appear in English in Arabic practice.",
+      "choices": [
+        {
+          "optionId": 1445,
+          "suggested": {
+            "ar": "الدالة معرّفة عند 0 فقط",
+            "en": "The function is defined only at 0"
+          }
+        },
+        {
+          "optionId": 1446,
+          "suggested": {
+            "ar": "قيمة الدالة عند 0 منتهية",
+            "en": "The function has a finite value at 0"
+          }
+        },
+        {
+          "optionId": 1447,
+          "suggested": {
+            "ar": "الدالة قابلة للاشتقاق عند 1 فقط",
+            "en": "The function is differentiable only at 1"
+          }
+        },
+        {
+          "optionId": 1448,
+          "suggested": {
+            "ar": "الدالة متصلة على [0,1]",
+            "en": "The function is continuous on [0,1]"
+          }
+        }
+      ],
+      "sourceSha256": "5b93b4427d1ed9d297955e5eccc744a0341cdc94d27c252a1bd171310c02ff47",
+      "blocksAnswerAcceptance": false
+    },
+    {
+      "problemId": 376,
+      "kind": "options",
+      "rationale": "All four prose choices in this IVT variant currently appear in English in Arabic practice.",
+      "choices": [
+        {
+          "optionId": 1493,
+          "suggested": {
+            "ar": "قيمة الدالة عند 0 منتهية",
+            "en": "The function has a finite value at 0"
+          }
+        },
+        {
+          "optionId": 1494,
+          "suggested": {
+            "ar": "الدالة قابلة للاشتقاق عند 1 فقط",
+            "en": "The function is differentiable only at 1"
+          }
+        },
+        {
+          "optionId": 1495,
+          "suggested": {
+            "ar": "الدالة متصلة على [0,1]",
+            "en": "The function is continuous on [0,1]"
+          }
+        },
+        {
+          "optionId": 1496,
+          "suggested": {
+            "ar": "الدالة معرّفة عند 0 فقط",
+            "en": "The function is defined only at 0"
+          }
+        }
+      ],
+      "sourceSha256": "0b5eec62369aaf1e52008ba5c57514e3f1bb88022059939ecfee980d360867cc",
+      "blocksAnswerAcceptance": false
+    },
+    {
+      "problemId": 388,
+      "kind": "options",
+      "rationale": "All four prose choices in this IVT variant currently appear in English in Arabic practice.",
+      "choices": [
+        {
+          "optionId": 1541,
+          "suggested": {
+            "ar": "الدالة قابلة للاشتقاق عند 1 فقط",
+            "en": "The function is differentiable only at 1"
+          }
+        },
+        {
+          "optionId": 1542,
+          "suggested": {
+            "ar": "الدالة متصلة على [0,1]",
+            "en": "The function is continuous on [0,1]"
+          }
+        },
+        {
+          "optionId": 1543,
+          "suggested": {
+            "ar": "الدالة معرّفة عند 0 فقط",
+            "en": "The function is defined only at 0"
+          }
+        },
+        {
+          "optionId": 1544,
+          "suggested": {
+            "ar": "قيمة الدالة عند 0 منتهية",
+            "en": "The function has a finite value at 0"
+          }
+        }
+      ],
+      "sourceSha256": "08fb3f13a5fcf738feff0de0509ca674443df984b957296c6ff969521c75abc3",
+      "blocksAnswerAcceptance": false
+    },
+    {
+      "problemId": 512,
+      "kind": "options",
+      "rationale": "The keyed choice states equality. The block 1/3 + 1/4 equals 7/12. For all k ≥ 0, the block from 2^k+1 through 2^(k+1) has 2^k terms, each at least 1/2^(k+1).",
+      "choices": [
+        {
+          "optionId": 2038,
+          "suggested": {
+            "ar": "إذا جُمعت الحدود في مجموعات متتالية بأطوال 1، 2، 4، 8، … بعد الحد الأول، أسهمت كل مجموعة بنصف على الأقل، فكانت المجاميع الجزئية غير محدودة.",
+            "en": "After the first term, group successive terms in blocks of lengths 1, 2, 4, 8, … . Each block contributes at least one half, so the partial sums are unbounded."
+          }
+        }
+      ],
+      "sourceSha256": "cb45196841f3dc5404a45496dd1fb63172e1b314d328e21ff349356061ac284a",
+      "blocksAnswerAcceptance": true
+    },
+    {
+      "problemId": 800,
+      "kind": "options",
+      "rationale": "Two Arabic distractors currently describe the same property. The gloss “Both” conflicts with its Arabic description.",
+      "choices": [
+        {
+          "optionId": 3191,
+          "suggested": {
+            "ar": "متصلة وقابلة للاشتقاق",
+            "en": "Continuous and differentiable"
+          }
+        }
+      ],
+      "sourceSha256": "bdb6bf5eb04d834f148f4e3b91365b6b33df33758c21d12f339917d95fcd4bb0",
+      "blocksAnswerAcceptance": false
+    },
+    {
+      "problemId": 818,
+      "kind": "question",
+      "rationale": "There are 11 eighths. Their total length in units of one full bar is 11/8, which is the keyed choice.",
+      "suggested": {
+        "ar": "شريطان متساويا الطول مقسّمان إلى أثمان متساوية. لُوّن الشريط الأول كله وثلاثة أثمان الشريط الثاني. ما مجموع الطول الملوّن إذا كان طول الشريط الواحد هو وحدة القياس؟",
+        "en": "Two identical bars are each divided into eight equal parts. The entire first bar and three parts of the second bar are colored. What is the total colored length in units of one whole bar?"
+      },
+      "sourceSha256": "f0a3673932d602e67d1e157631cf673ba204f614a0f006ac4283ef6d01cb51f4",
+      "blocksAnswerAcceptance": true
+    },
+    {
+      "problemId": 851,
+      "kind": "options",
+      "rationale": "All four division-with-remainder statements are English-only in the Arabic exercise.",
+      "choices": [
+        {
+          "optionId": 3397,
+          "suggested": {
+            "ar": "لكل طالب 12، والباقي 12",
+            "en": "12 per student, 12 left over"
+          }
+        },
+        {
+          "optionId": 3398,
+          "suggested": {
+            "ar": "لكل طالب 13، والباقي 5",
+            "en": "13 per student, 5 left over"
+          }
+        },
+        {
+          "optionId": 3399,
+          "suggested": {
+            "ar": "لكل طالب 14، والباقي 2",
+            "en": "14 per student, 2 left over"
+          }
+        },
+        {
+          "optionId": 3400,
+          "suggested": {
+            "ar": "لكل طالب 13، والباقي 4",
+            "en": "13 per student, 4 left over"
+          }
+        }
+      ],
+      "sourceSha256": "8aa2f6482e5499c6bdb2c7fcc8e67adbe27db7c34d5c6a8354cf5fffff935d3b",
+      "blocksAnswerAcceptance": false
+    }
+  ]
+}

@@ -1,0 +1,313 @@
+{
+  "status": "Editorial candidates",
+  "items": [
+    {
+      "problemId": 1560,
+      "primarySkillKey": "estimation",
+      "question": {
+        "Ar": "لتقدير 392 + 614 بالتقريب إلى أقرب مئة لكل عدد، ما الناتج؟",
+        "En": "Estimate 392 + 614 by rounding each number to the nearest hundred."
+      },
+      "Hints": [
+        {
+          "Ar": "قرّب كل عدد قبل إجراء عملية الجمع.",
+          "En": "Round each addend before doing the addition."
+        },
+        {
+          "Ar": "حدد المئتين اللتين يقع بينهما كل عدد، ثم استخدم رقم العشرات لاختيار الأقرب.",
+          "En": "For each addend, identify its two neighboring hundreds and use the tens digit to choose the nearer one."
+        }
+      ]
+    },
+    {
+      "problemId": 1561,
+      "primarySkillKey": "estimation",
+      "question": {
+        "Ar": "قدّر 1,508 − 692 بتقريب كل عدد لأقرب مئة.",
+        "En": "Estimate 1,508 − 692 by rounding each number to the nearest hundred."
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد إلى أي مئة يقترب كل عدد على حدة.",
+          "En": "Find the nearest hundred for each number separately."
+        },
+        {
+          "Ar": "بعد التقريب اكتب العددين بوحدة المئات، ثم اطرح عدد المئات الأصغر من الأكبر.",
+          "En": "After rounding, express each number in hundreds and subtract the smaller count from the larger."
+        }
+      ]
+    },
+    {
+      "problemId": 1566,
+      "primarySkillKey": "absolute-value",
+      "question": {
+        "Ar": "رتّب الأعداد −8، −2، 4، 0 تصاعدياً.",
+        "En": "Order −8, −2, 4, 0 from least to greatest."
+      },
+      "Hints": [
+        {
+          "Ar": "تخيّل مواضع الأعداد على خط الأعداد، واقرأ من اليسار إلى اليمين.",
+          "En": "Place the numbers on a number line and read from left to right."
+        },
+        {
+          "Ar": "رتّب السوالب أولاً. أي العددين السالبين يقع أبعد إلى يسار الصفر؟",
+          "En": "Order the negative numbers first. Which of the two lies farther to the left of zero?"
+        }
+      ],
+      "taxonomyReviewPending": true
+    },
+    {
+      "problemId": 1567,
+      "primarySkillKey": "absolute-value",
+      "question": {
+        "Ar": "احسب |−13| − |5|.",
+        "En": "Evaluate |−13| − |5|."
+      },
+      "Hints": [
+        {
+          "Ar": "القيمة المطلقة تقيس المسافة إلى الصفر.",
+          "En": "Absolute value measures distance from zero."
+        },
+        {
+          "Ar": "أوجد المسافتين كلّاً على حدة، ثم نفّذ الطرح خارج علامتي القيمة المطلقة بالترتيب المعطى.",
+          "En": "Find both distances separately, then perform the subtraction outside the absolute-value signs in the given order."
+        }
+      ]
+    },
+    {
+      "problemId": 1577,
+      "primarySkillKey": "model-interpretation",
+      "question": {
+        "Ar": "ما نسبة النمو لكل فترة في N(t)=450×(1.03)^t؟",
+        "En": "What is the growth rate per period for N(t)=450×(1.03)^t?"
+      },
+      "Hints": [
+        {
+          "Ar": "ابحث عن العامل الذي يضرب الكمية عند زيادة الزمن فترة واحدة.",
+          "En": "Identify the factor by which the quantity is multiplied each period."
+        },
+        {
+          "Ar": "اكتب عامل النمو على الصورة $1+r$، ثم حوّل $r$ من عدد عشري إلى نسبة مئوية.",
+          "En": "Write the growth factor as $1+r$, then convert $r$ from a decimal to a percentage."
+        }
+      ]
+    },
+    {
+      "problemId": 1578,
+      "primarySkillKey": "model-interpretation",
+      "question": {
+        "Ar": "ما صيغة الحد العام للمتتالية 2، 6، 18، 54، مع بدء الترقيم من n=1؟",
+        "En": "Which formula gives the sequence 2, 6, 18, 54 starting at n=1?"
+      },
+      "Hints": [
+        {
+          "Ar": "قارن كل حد بالحد السابق بالقسمة.",
+          "En": "Compare each term with the preceding term by division."
+        },
+        {
+          "Ar": "تتبّع عدد مرات تطبيق النسبة المشتركة بين الحد الأول والحد ذي الرتبة $n$.",
+          "En": "Count how many times the common ratio is applied between the first term and term $n$."
+        }
+      ],
+      "taxonomyReviewPending": true
+    },
+    {
+      "problemId": 1585,
+      "primarySkillKey": "hypothesis-testing",
+      "question": {
+        "Ar": "عندما p=0.02 ومستوى الدلالة α=0.05، أي مقارنة تبرر رفض الفرضية الصفرية؟",
+        "En": "When p=0.02 and significance level α=0.05, which inequality justifies rejecting the null hypothesis?"
+      },
+      "Hints": [
+        {
+          "Ar": "قارن قيمة $p$ بعتبة الدلالة المحددة قبل الاختبار.",
+          "En": "Compare the p-value with the significance threshold set before the test."
+        },
+        {
+          "Ar": "اكتب العددين بوحدة الأجزاء من مئة، ثم اختر إشارة المقارنة التي تصف ترتيبهما.",
+          "En": "Express both decimals in hundredths, then choose the comparison sign that describes their order."
+        }
+      ]
+    },
+    {
+      "problemId": 1586,
+      "primarySkillKey": "hypothesis-testing",
+      "question": {
+        "Ar": "أي رمز يشير عادةً إلى احتمال الخطأ من النوع الأول، أي رفض فرضية صفرية صحيحة؟",
+        "En": "Which symbol conventionally denotes the probability of a Type I error: rejecting a true null hypothesis?"
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد نوع الخطأ من قرار الاختبار والحالة الفعلية للفرضية الصفرية.",
+          "En": "Identify the error from the test decision and the actual truth of the null hypothesis."
+        },
+        {
+          "Ar": "تذكّر الرمز المستخدم لمستوى الدلالة المحدد قبل جمع البيانات.",
+          "En": "Recall the symbol for the significance level chosen before data collection."
+        }
+      ]
+    },
+    {
+      "problemId": 1590,
+      "primarySkillKey": "mass",
+      "question": {
+        "Ar": "كيس أرز وزنه 2 كغ و750 غ. استُخدم منه 900 غ. كم غراماً تبقى؟",
+        "En": "A bag has 2 kg 750 g of rice. After using 900 g, how many grams remain?"
+      },
+      "Hints": [
+        {
+          "Ar": "وحّد وحدة قياس كتلة الكيس والكمية المستخدمة قبل الطرح.",
+          "En": "Express the mass in the bag and the amount used in the same unit before subtracting."
+        },
+        {
+          "Ar": "حوّل جزء الكيلوغرامات إلى غرامات وأضف إليه الغرامات المذكورة، ثم اطرح الكمية المستخدمة.",
+          "En": "Convert the kilograms to grams, add the stated grams, then subtract what was used."
+        }
+      ]
+    },
+    {
+      "problemId": 1591,
+      "primarySkillKey": "mass",
+      "question": {
+        "Ar": "لدينا 1.5 كغ من المكسرات، نعبئها في أكياس وزن كل منها 250 غ. كم كيساً كاملاً؟",
+        "En": "We pack 1.5 kg of nuts into 250 g bags. How many full bags can we make?"
+      },
+      "Hints": [
+        {
+          "Ar": "فكّر في عدد حصص متساوية يمكن تكوينها من الكتلة الكلية.",
+          "En": "Think of the total mass as a number of equal portions."
+        },
+        {
+          "Ar": "حوّل الكتلة الكلية إلى غرامات، ثم اقسمها على كتلة كيس واحد بالغرام.",
+          "En": "Convert the total mass to grams and divide by the mass of one bag in grams."
+        }
+      ]
+    },
+    {
+      "problemId": 1595,
+      "primarySkillKey": "time",
+      "question": {
+        "Ar": "غادر قطار الساعة 09:45 واستغرقت الرحلة ساعة و35 دقيقة. ما وقت الوصول؟",
+        "En": "A train leaves at 09:45 and travels for 1 hour 35 minutes. When does it arrive?"
+      },
+      "Hints": [
+        {
+          "Ar": "يمكن إضافة الساعات والدقائق على مرحلتين.",
+          "En": "You can add the hours and minutes in two stages."
+        },
+        {
+          "Ar": "بعد إضافة الساعة، احسب كم دقيقة تفصل وقتك الجديد عن تمام الساعة التالية، ثم أضف ما تبقّى من الدقائق.",
+          "En": "After adding the hour, work out how many minutes reach the next hour and add the remaining minutes."
+        }
+      ]
+    },
+    {
+      "problemId": 1596,
+      "primarySkillKey": "time",
+      "question": {
+        "Ar": "بدأ نشاط الساعة 14:10 وانتهى الساعة 15:05. كم دقيقة استمر؟",
+        "En": "An activity starts at 14:10 and ends at 15:05. How many minutes does it last?"
+      },
+      "Hints": [
+        {
+          "Ar": "ارسم خطاً زمنياً وضع عليه وقت البداية ووقت النهاية.",
+          "En": "Mark the start and end times on a timeline."
+        },
+        {
+          "Ar": "قسّم الفترة عند تمام الساعة التي تقع بين الوقتين، ثم اجمع مدّتي الجزأين.",
+          "En": "Split the interval at the whole hour between the two times and add the lengths of the two parts."
+        }
+      ]
+    },
+    {
+      "problemId": 1597,
+      "primarySkillKey": "metric-conversion",
+      "question": {
+        "Ar": "طول مضمار 3.25 كيلومتر. كم متراً يساوي ذلك؟",
+        "En": "A running course is 3.25 kilometers long. How many meters is that?"
+      },
+      "Hints": [
+        {
+          "Ar": "وحدة المتر أصغر من وحدة الكيلومتر. فكّر كيف يتغيّر العدد عند استخدام الوحدة الأصغر.",
+          "En": "A meter is smaller than a kilometer. Think about what happens to the number when using the smaller unit."
+        },
+        {
+          "Ar": "فكّك المسافة إلى كيلومترات كاملة وجزء من كيلومتر، ثم حوّل الجزأين إلى أمتار واجمعهما.",
+          "En": "Separate the whole kilometers from the fractional kilometer, convert both parts to meters, then add."
+        }
+      ]
+    },
+    {
+      "problemId": 1598,
+      "primarySkillKey": "metric-conversion",
+      "question": {
+        "Ar": "ما طول 18 سنتيمتراً بالمليمتر؟",
+        "En": "How many millimeters are in 18 centimeters?"
+      },
+      "Hints": [
+        {
+          "Ar": "تخيّل المسافات بين العلامات على مسطرة مترية.",
+          "En": "Picture the spacing of the marks on a metric ruler."
+        },
+        {
+          "Ar": "احسب عدد الفواصل المليمترية في سنتيمتر واحد، ثم كرّر هذا العدد لكل سنتيمتر في السؤال.",
+          "En": "Count the millimeter intervals in one centimeter, then use that count for each centimeter in the question."
+        }
+      ]
+    },
+    {
+      "problemId": 1722,
+      "primarySkillKey": "logarithm-domain",
+      "question": {
+        "Ar": "ما مجال الدالة $f(x)=\\log_2(x-5)$ على الأعداد الحقيقية؟",
+        "En": "What is the real-number domain of $f(x)=\\log_2(x-5)$?"
+      },
+      "Hints": [
+        {
+          "Ar": "في اللوغاريتم الحقيقي، الشرط على المدخل داخل اللوغاريتم.",
+          "En": "For a real logarithm, the restriction applies to its argument."
+        },
+        {
+          "Ar": "اكتب شرط الإيجابية الصارمة للمدخل، ثم اعزل المتغيّر مع الانتباه إلى نقطة الحد.",
+          "En": "Write the strict positivity condition for the argument, then isolate the variable and check the boundary."
+        }
+      ]
+    },
+    {
+      "problemId": 1724,
+      "primarySkillKey": "logarithm-modeling",
+      "question": {
+        "Ar": "يُعرّف مستوى شدة الصوت بالديسيبل بـ $L=10\\log_{10}(I/I_0)$. إذا كانت الشدة $I=1000I_0$، فما المستوى $L$ بالديسيبل؟",
+        "En": "Sound intensity level is $L=10\\log_{10}(I/I_0)$ decibels. If $I=1000I_0$, what is $L$?"
+      },
+      "Hints": [
+        {
+          "Ar": "ابدأ بإيجاد نسبة الشدة إلى الشدة المرجعية، كما تظهر داخل اللوغاريتم.",
+          "En": "Start with the ratio of the intensity to its reference value inside the logarithm."
+        },
+        {
+          "Ar": "اكتب النسبة كقوة للعدد عشرة، واستعمل تعريف اللوغاريتم ثم المعامل خارجَه.",
+          "En": "Express the ratio as a power of ten, use the definition of the logarithm, then apply the factor outside it."
+        }
+      ]
+    },
+    {
+      "problemId": 1725,
+      "primarySkillKey": "logarithm-modeling",
+      "question": {
+        "Ar": "يُحسب الأس الهيدروجيني بالعلاقة $pH=-\\log_{10}[H^+]$ عندما يُعبّر التركيز عن تركيز مولاري. إذا كان $[H^+]=10^{-4}$، فما قيمة $pH$؟",
+        "En": "The pH model is $pH=-\\log_{10}[H^+]$ for molar hydrogen-ion concentration. If $[H^+]=10^{-4}$, find pH."
+      },
+      "Hints": [
+        {
+          "Ar": "افصل بين حساب اللوغاريتم وتطبيق الإشارة التي تسبقه.",
+          "En": "Separate evaluating the logarithm from applying the sign in front of it."
+        },
+        {
+          "Ar": "عندما يكون المدخل قوة للأساس عشرة، استخرج الأس أولاً واحتفظ بإشارته في خطوة التعويض.",
+          "En": "When the argument is a power of ten, identify the exponent first and retain its sign during substitution."
+        }
+      ]
+    }
+  ]
+}
