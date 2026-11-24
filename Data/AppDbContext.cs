@@ -49,6 +49,7 @@ namespace MathWorldAPI.Data
         public DbSet<PasswordResetGrant> PasswordResetGrants => Set<PasswordResetGrant>();
         public DbSet<EmailOutboxItem> EmailOutbox => Set<EmailOutboxItem>();
 
+        public DbSet<PermanentProblemAchievement> PermanentProblemAchievements => Set<PermanentProblemAchievement>();
         public DbSet<LearningSession> LearningSessions => Set<LearningSession>();
         public DbSet<LearningSessionAttempt> LearningSessionAttempts => Set<LearningSessionAttempt>();
         public DbSet<LearningTrack> LearningTracks => Set<LearningTrack>();
@@ -116,6 +117,13 @@ namespace MathWorldAPI.Data
         {
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.Entity<PermanentProblemAchievement>(e =>
+            {
+                e.HasKey(x => new { x.UserId, x.ProblemId });
+                e.HasIndex(x => new { x.UserId, x.StageId, x.CategoryId });
+                e.HasOne<AppUser>().WithMany().HasForeignKey(x => x.UserId).OnDelete(DeleteBehavior.Cascade);
+                e.ToTable(t => t.HasCheckConstraint("CK_PermanentProblemAchievements_Points", "\"Points\" >= 0"));
+            });
             modelBuilder.Entity<LearningSession>(e =>
             {
                 e.Property(x => x.Id).ValueGeneratedNever();
@@ -125,10 +133,11 @@ namespace MathWorldAPI.Data
                 e.Property(x => x.HintsRevealed).HasDefaultValue(0);
                 e.HasIndex(x => new { x.UserId, x.StartRequestId }).IsUnique();
                 e.HasIndex(x => new { x.UserId, x.ScopeKey }).IsUnique()
-                    .HasFilter("\"Kind\" = 'daily' OR \"CompletedAtUtc\" IS NULL");
+                    .HasFilter("\"Kind\" = 'daily' OR (\"CompletedAtUtc\" IS NULL AND \"AbandonedAtUtc\" IS NULL)");
                 e.HasOne<AppUser>().WithMany().HasForeignKey(x => x.UserId).OnDelete(DeleteBehavior.Cascade);
                 e.ToTable(t =>
                 {
+                    t.HasCheckConstraint("CK_LearningSessions_Abandoned", "\"AbandonedAtUtc\" IS NULL OR (\"Kind\" = 'practice' AND \"CompletedAtUtc\" IS NULL AND \"HintsRevealed\" = 0)");
                     t.HasCheckConstraint("CK_LearningSessions_Hints", "\"HintsRevealed\" BETWEEN 0 AND 2 AND (\"CompletedAtUtc\" IS NULL OR \"HintsRevealed\" = 0)");
                     t.HasCheckConstraint("CK_LearningSessions_Kind", "\"Kind\" IN ('practice','daily')");
                     t.HasCheckConstraint("CK_LearningSessions_Progress", "\"Total\" BETWEEN 5 AND 10 AND \"Completed\" BETWEEN 0 AND \"Total\" AND ((\"Completed\" = \"Total\") = (\"CompletedAtUtc\" IS NOT NULL)) AND (\"Kind\" <> 'daily' OR (\"Total\" = 5 AND \"CategoryId\" IS NULL))");
@@ -138,6 +147,7 @@ namespace MathWorldAPI.Data
             {
                 e.HasKey(x => new { x.SessionId, x.RequestId });
                 e.Property(x => x.UsedHint).HasDefaultValue(false);
+                e.Property(x => x.PointsEarned).HasDefaultValue(0);
                 e.HasIndex(x => new { x.SessionId, x.Position, x.AttemptNumber }).IsUnique();
                 e.HasIndex(x => new { x.SessionId, x.Position }).IsUnique().HasFilter("\"IsCorrect\"");
                 e.HasOne<LearningSession>().WithMany().HasForeignKey(x => x.SessionId).OnDelete(DeleteBehavior.Cascade);

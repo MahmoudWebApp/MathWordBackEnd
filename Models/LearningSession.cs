@@ -18,6 +18,7 @@ public sealed class LearningSession
     public int HintsRevealed { get; set; }
     public DateTime CreatedAtUtc { get; set; }
     public DateTime? CompletedAtUtc { get; set; }
+    public DateTime? AbandonedAtUtc { get; set; }
 }
 
 public sealed class LearningSessionAttempt
@@ -31,5 +32,17 @@ public sealed class LearningSessionAttempt
     public bool IsCorrect { get; set; }
     public int AttemptNumber { get; set; }
     public bool UsedHint { get; set; }
+    public int PointsEarned { get; set; }
     public DateTime SubmittedAtUtc { get; set; }
+}
+
+// One lifetime achievement per learner/problem, shared by both answer flows.
+public sealed class PermanentProblemAchievement
+{
+    public int UserId { get; set; }
+    public int ProblemId { get; set; }
+    public int StageId { get; set; }
+    public int CategoryId { get; set; }
+    public int Points { get; set; }
+    public DateTime EarnedAtUtc { get; set; }
 }

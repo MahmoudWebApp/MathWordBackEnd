@@ -62,6 +62,7 @@ def verify_sessions(admin, learner, other, stage):
     a=expect("POST",path+"/answer",200,first,other)
     assert a["IsCorrect"] and not a["FirstAttemptCorrect"] and a["Completed"]==1
     assert a["CorrectOptionId"]==good and a["DetailedSolutionEn"]
+    assert a["PointsEarned"]==0 # already earned in ordinary solving
     assert expect("POST",path+"/answer",200,first,other)["Completed"]==1
     expect("POST",path+"/answer",409,dict(first,RequestId=str(uuid4())),other)
     for pos in range(1,5):
@@ -79,6 +80,7 @@ def verify_sessions(admin, learner, other, stage):
     assert achievements["CompletedDailyChallenges"]==1 and achievements["CorrectSessionAnswers"]==5
     assert achievements["IndependentFirstCorrect"]==4 and achievements["UniqueSolvedProblems"]==5
     assert achievements["AssistedCorrect"]==0
+    assert achievements["PermanentSolvedProblems"]>=5 and achievements["PermanentPoints"]>=0
     assert {b["Key"] for b in achievements["Badges"]}=={"first-daily","persistence"}
     assert expect("GET",ROOT+"/achievements",200,token=other)==achievements
     assert expect("GET",ROOT+"/achievements",200,token=learner)["CompletedDailyChallenges"]==0
@@ -92,6 +94,16 @@ def verify_sessions(admin, learner, other, stage):
     p=expect("POST",ROOT+"/start",200,{"RequestId":str(uuid4()),"Kind":"practice","Count":5,"CategoryId":5},learner)
     assert p["Id"]!=sid and p["Completed"]==0
     assert expect("GET",ROOT+"/current?kind=practice&categoryId=5",200,token=learner)["Id"]==p["Id"]
+    old=expect("GET",ROOT+"/achievements",200,token=learner)
+    abandoned=expect("POST",ROOT+"/"+p["Id"]+"/abandon",200,token=learner)
+    assert abandoned["AbandonedAtUtc"]
+    assert expect("POST",ROOT+"/"+p["Id"]+"/abandon",200,token=learner)==abandoned
+    expect("GET",ROOT+"/"+p["Id"],409,token=learner)
+    expect("GET",ROOT+"/current?kind=practice&categoryId=5",404,token=learner)
+    replacement=expect("POST",ROOT+"/start",200,{"RequestId":str(uuid4()),"Kind":"practice","Count":5,"CategoryId":5},learner)
+    assert replacement["Id"]!=p["Id"] and replacement["Completed"]==0
+    assert expect("GET",ROOT+"/achievements",200,token=learner)==old
+    expect("POST",path+"/abandon",409,token=other)
     expect("POST",ROOT+"/start",400,{"RequestId":str(uuid4()),"Kind":"practice","Count":11},learner)
     assert expect("GET",path,200,token=other)["Completed"]==5
     assert expect("GET",ROOT+"/achievements",200,token=other)==achievements

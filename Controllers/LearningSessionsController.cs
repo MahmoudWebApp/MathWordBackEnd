@@ -79,6 +79,7 @@ public sealed class LearningSessionsController(AppDbContext db, IConfiguration c
     };
     private async Task<IActionResult> ViewSession(LearningSession session,Scope scope,DateTime now,CancellationToken ct)
     {
+        if(session.AbandonedAtUtc.HasValue)return Conflict(new{Message="SessionAbandoned"});
         if(!SameScope(session,scope))return Conflict(new{Message="SessionScopeChanged"});
         if(!CurrentDay(session,now))return Conflict(new{Message="DailySessionExpired"});
         if(session.CategoryId.HasValue&&!scope.Allowed.Contains(session.CategoryId.Value))
@@ -123,7 +124,7 @@ public sealed class LearningSessionsController(AppDbContext db, IConfiguration c
             return await ViewSession(replay,scope,now,ct);
         }
         var active=await db.LearningSessions.AsNoTracking().SingleOrDefaultAsync(s=>s.UserId==scope.UserId&&s.ScopeKey==key&&
-            (s.Kind=="daily"||s.CompletedAtUtc==null),ct);
+            (s.Kind=="daily"||(s.CompletedAtUtc==null&&s.AbandonedAtUtc==null)),ct);
         if(active is not null)return await ViewSession(active,scope,now,ct);
 
         var candidates=await Eligible(scope,input.CategoryId).Select(p=>new{p.Id,p.CategoryId}).ToListAsync(ct);
@@ -163,7 +164,7 @@ public sealed class LearningSessionsController(AppDbContext db, IConfiguration c
         var now=DateTime.UtcNow;
         var key=Key(kind,scope.StageId,scope.TrackId,categoryId,now);
         var session=await db.LearningSessions.AsNoTracking().SingleOrDefaultAsync(s=>s.UserId==scope.UserId&&s.ScopeKey==key&&
-            (s.Kind=="daily"||s.CompletedAtUtc==null),ct);
+            (s.Kind=="daily"||(s.CompletedAtUtc==null&&s.AbandonedAtUtc==null)),ct);
         return session is null?NotFound(new{Message="NoLearningSession"}):await ViewSession(session,scope,now,ct);
     }
 
@@ -206,6 +207,7 @@ public sealed class LearningSessionsController(AppDbContext db, IConfiguration c
         var previous=await db.LearningSessionAttempts.AsNoTracking().SingleOrDefaultAsync(a=>a.SessionId==id&&a.RequestId==input.RequestId,ct);
         if(previous is not null&&(previous.Position!=input.Position||previous.ProblemId!=input.ProblemId||previous.SelectedOptionId!=input.SelectedOptionId))
             return Conflict(new{Message="SessionRequestConflict"});
+        if(session.AbandonedAtUtc.HasValue)return Conflict(new{Message="SessionAbandoned"});
         if(previous is null&&(session.CompletedAtUtc.HasValue||input.Position!=session.Completed))
             return Conflict(new{Message="SessionQuestionMismatch"});
         var p=await LoadQuestion(scope,session,refs[input.Position],ct);
@@ -224,12 +226,41 @@ public sealed class LearningSessionsController(AppDbContext db, IConfiguration c
         // never enter this branch a second time or alter session completion.
         if(attempt.IsCorrect)
         {
+            attempt.PointsEarned=await PermanentAchievementLedger.AwardAsync(db,UserId,p,now,ct);
             session.Completed++;
             session.HintsRevealed=0;
             if(session.Completed==session.Total)session.CompletedAtUtc=now;
         }
         await db.SaveChangesAsync(ct);await tx.CommitAsync(ct);
         return AnswerView(session,attempt,p);
+    }
+
+    // Explicit restart of the selected practice session only. Preserve
+    // attempts, earned achievements, favorites and today's challenge.
+    [HttpPost("{id:guid}/abandon")]
+    public async Task<IActionResult> Abandon(Guid id,CancellationToken ct)
+    {
+        if(!Enabled)return NotFound();
+        await using var tx=await db.Database.BeginTransactionAsync(ct);
+        await LockLearner(UserId,ct);
+        var session=await db.LearningSessions.SingleOrDefaultAsync(s=>s.Id==id&&s.UserId==UserId,ct);
+        if(session is null)return NotFound();
+        var (scope,error)=await Resolve(session.Kind,ct);
+        if(scope is null)return error!;
+        if(!SameScope(session,scope))return Conflict(new{Message="SessionScopeChanged"});
+        if(session.Kind!="practice"||session.CompletedAtUtc.HasValue)
+            return Conflict(new{Message="CannotAbandonSession"});
+        if(!session.AbandonedAtUtc.HasValue)
+        {
+            session.AbandonedAtUtc=DateTime.UtcNow;
+            session.HintsRevealed=0;
+            db.PlatformActivityEvents.Add(new PlatformActivityEvent{ActorUserId=UserId,ActorRole="Student",
+                Action="PracticeSessionAbandoned",Resource="LearningSession",ResourceId=id.ToString("D"),
+                Origin="api",CreatedAtUtc=session.AbandonedAtUtc.Value});
+            await db.SaveChangesAsync(ct);
+        }
+        await tx.CommitAsync(ct);
+        return Ok(new{session.Id,session.AbandonedAtUtc});
     }
 
     [HttpPost("{id:guid}/hints")]
@@ -253,7 +284,7 @@ public sealed class LearningSessionsController(AppDbContext db, IConfiguration c
         if(scope is null)return error!;
         if(!scope.Premium)return StatusCode(403,new{Message="PremiumRequired"});
         var now=DateTime.UtcNow;
-        if(!SameScope(session,scope)||!CurrentDay(session,now)||session.CompletedAtUtc.HasValue||session.Completed!=input.Position)
+        if(!SameScope(session,scope)||!CurrentDay(session,now)||session.CompletedAtUtc.HasValue||session.AbandonedAtUtc.HasValue||session.Completed!=input.Position)
             return Conflict(new{Message="SessionQuestionMismatch"});
         var p=await LoadQuestion(scope,session,refs[input.Position],ct);
         if(p is null)return Conflict(new{Message="SessionContentUnavailable"});
@@ -311,7 +342,10 @@ public sealed class LearningSessionsController(AppDbContext db, IConfiguration c
         if(days.Length>=7)badges.Add(new{Key="seven-daily-days",TitleAr="سبعة أيام من التحدي",TitleEn="Seven challenge days",
             EarnedAtUtc=dailyDates.First(x=>x.Date==days[6])});
         if(persistence.HasValue)badges.Add(new{Key="persistence",TitleAr="المثابرة",TitleEn="Persistence",EarnedAtUtc=persistence.Value});
-        return Ok(new{CompletedPracticeSessions=await completed.CountAsync(x=>x.Kind=="practice",ct),
+        var permanent=db.PermanentProblemAchievements.AsNoTracking().Where(x=>x.UserId==UserId);
+        return Ok(new{PermanentSolvedProblems=await permanent.CountAsync(ct),
+            PermanentPoints=await permanent.SumAsync(x=>(long)x.Points,ct),
+            CompletedPracticeSessions=await completed.CountAsync(x=>x.Kind=="practice",ct),
             CompletedDailyChallenges=days.Length,CorrectSessionAnswers=await correct.CountAsync(ct),
             UniqueSolvedProblems=await correct.Select(a=>a.ProblemId).Distinct().CountAsync(ct),
             IndependentFirstCorrect=independent,AssistedCorrect=assisted,Badges=badges});
@@ -319,7 +353,7 @@ public sealed class LearningSessionsController(AppDbContext db, IConfiguration c
 
     private IActionResult AnswerView(LearningSession s,LearningSessionAttempt a,MathProblem p)=>Ok(new{
         SessionId=s.Id,a.Position,a.ProblemId,a.RequestId,a.IsCorrect,a.AttemptNumber,
-        FirstAttemptCorrect=a.IsCorrect&&a.AttemptNumber==1,a.UsedHint,
+        FirstAttemptCorrect=a.IsCorrect&&a.AttemptNumber==1,a.UsedHint,a.PointsEarned,
         IndependentFirstCorrect=a.IsCorrect&&a.AttemptNumber==1&&!a.UsedHint,s.Completed,s.Total,
         IsComplete=s.Completed==s.Total,
         CorrectOptionId=a.IsCorrect?(int?)a.SelectedOptionId:null,

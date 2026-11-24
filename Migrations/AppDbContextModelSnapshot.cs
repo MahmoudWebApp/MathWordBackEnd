@@ -22,6 +22,18 @@ namespace MathWorldAPI.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("MathWorldAPI.Models.PermanentProblemAchievement", b =>
+                {
+                    b.Property<int>("UserId").HasColumnType("integer");
+                    b.Property<int>("ProblemId").HasColumnType("integer");
+                    b.Property<int>("StageId").HasColumnType("integer");
+                    b.Property<int>("CategoryId").HasColumnType("integer");
+                    b.Property<int>("Points").HasColumnType("integer");
+                    b.Property<DateTime>("EarnedAtUtc").HasColumnType("timestamp with time zone");
+                    b.HasKey("UserId", "ProblemId");
+                    b.HasIndex("UserId", "StageId", "CategoryId");
+                    b.ToTable("PermanentProblemAchievements", t => t.HasCheckConstraint("CK_PermanentProblemAchievements_Points", "\"Points\" >= 0"));
+                });
             modelBuilder.Entity("MathWorldAPI.Models.LearningSession", b =>
                 {
                     b.Property<Guid>("Id").HasColumnType("uuid");
@@ -38,11 +50,13 @@ namespace MathWorldAPI.Migrations
                     b.Property<int>("HintsRevealed").ValueGeneratedOnAdd().HasColumnType("integer").HasDefaultValue(0);
                     b.Property<DateTime>("CreatedAtUtc").HasColumnType("timestamp with time zone");
                     b.Property<DateTime?>("CompletedAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<DateTime?>("AbandonedAtUtc").HasColumnType("timestamp with time zone");
                     b.HasKey("Id");
                     b.HasIndex("UserId", "StartRequestId").IsUnique();
-                    b.HasIndex("UserId", "ScopeKey").IsUnique().HasFilter("\"Kind\" = 'daily' OR \"CompletedAtUtc\" IS NULL");
+                    b.HasIndex("UserId", "ScopeKey").IsUnique().HasFilter("\"Kind\" = 'daily' OR (\"CompletedAtUtc\" IS NULL AND \"AbandonedAtUtc\" IS NULL)");
                     b.ToTable("LearningSessions", t =>
                     {
+                        t.HasCheckConstraint("CK_LearningSessions_Abandoned", "\"AbandonedAtUtc\" IS NULL OR (\"Kind\" = 'practice' AND \"CompletedAtUtc\" IS NULL AND \"HintsRevealed\" = 0)");
                         t.HasCheckConstraint("CK_LearningSessions_Hints", "\"HintsRevealed\" BETWEEN 0 AND 2 AND (\"CompletedAtUtc\" IS NULL OR \"HintsRevealed\" = 0)");
                         t.HasCheckConstraint("CK_LearningSessions_Kind", "\"Kind\" IN ('practice','daily')");
                         t.HasCheckConstraint("CK_LearningSessions_Progress", "\"Total\" BETWEEN 5 AND 10 AND \"Completed\" BETWEEN 0 AND \"Total\" AND ((\"Completed\" = \"Total\") = (\"CompletedAtUtc\" IS NOT NULL)) AND (\"Kind\" <> 'daily' OR (\"Total\" = 5 AND \"CategoryId\" IS NULL))");
@@ -59,6 +73,7 @@ namespace MathWorldAPI.Migrations
                     b.Property<bool>("IsCorrect").HasColumnType("boolean");
                     b.Property<int>("AttemptNumber").HasColumnType("integer");
                     b.Property<bool>("UsedHint").ValueGeneratedOnAdd().HasColumnType("boolean").HasDefaultValue(false);
+                    b.Property<int>("PointsEarned").ValueGeneratedOnAdd().HasColumnType("integer").HasDefaultValue(0);
                     b.Property<DateTime>("SubmittedAtUtc").HasColumnType("timestamp with time zone");
                     b.HasKey("SessionId", "RequestId");
                     b.HasIndex("SessionId", "Position", "AttemptNumber").IsUnique();
@@ -1648,6 +1663,11 @@ namespace MathWorldAPI.Migrations
                         .HasForeignKey("CurrentTrackId").OnDelete(DeleteBehavior.Restrict);
                 });
 
+            modelBuilder.Entity("MathWorldAPI.Models.PermanentProblemAchievement", b =>
+                {
+                    b.HasOne("MathWorldAPI.Models.AppUser", null).WithMany()
+                        .HasForeignKey("UserId").OnDelete(DeleteBehavior.Cascade).IsRequired();
+                });
             modelBuilder.Entity("MathWorldAPI.Models.LearningSession", b =>
                 {
                     b.HasOne("MathWorldAPI.Models.AppUser", null).WithMany()

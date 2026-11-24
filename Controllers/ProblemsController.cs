@@ -1341,9 +1341,9 @@ namespace MathWorldAPI.Controllers
                 (!progress.NextReviewAt.HasValue ||
                  progress.NextReviewAt.Value <= now);
 
-            var previouslyAwarded = isCorrect && await _context.ProblemAttempts.AnyAsync(
-                a=>a.UserId==userId.Value&&a.ProblemId==dto.ProblemId&&a.PointsEarned>0,HttpContext.RequestAborted);
-            var pointsEarned = isCorrect && !wasSolved && !previouslyAwarded ? problem.Points : 0;
+            var pointsEarned = isCorrect && !wasSolved
+                ? await PermanentAchievementLedger.AwardAsync(_context,userId.Value,problem,now,HttpContext.RequestAborted)
+                : 0;
 
             if (isOfficialAttempt)
             {
