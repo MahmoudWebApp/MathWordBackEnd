@@ -547,6 +547,8 @@ def independent_tenth(row):
             s=norm(s)
             m=re.fullmatch(r"\\frac\{\\sqrt\{(\d+)\}\}\{(\d+)\}",s)
             if m: return 1,Fraction(int(m[1]),int(m[2])**2)
+            m=re.fullmatch(r"\\sqrt\{(\d+)\}",s)
+            if m: return 1,Fraction(int(m[1]))
             z=rational(s)
             return (int(z>0)-int(z<0),z*z)
         val={21:None,22:(1,Fraction(1,4)),46:(1,Fraction(1,4)),62:(1,Fraction(1)),274:(0,Fraction(0)),286:(1,Fraction(1,4)),298:(1,Fraction(1,2))}
