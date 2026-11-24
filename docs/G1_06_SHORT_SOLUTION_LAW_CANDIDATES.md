@@ -10,3 +10,5 @@ Read-only source audit: all 773 problems contain both Arabic and English solutio
 | 4 | 24 |
 
 Further checks: keyword scans do not prove rule completeness or translation accuracy; examine the remaining longer solutions and diagrams. Live database unchanged.
+
+Second editorial pass: all 56 proposed bilingual explanations individually inspected against their stated prompts and worked derivations. Clarified formula domain/denominator conditions, similarity terminology, explicit sequence limit notation, positive-term monotonicity, and contrapositive terminology in 11 source-bound proposals (420, 821, 12, 43, 855, 856, 712, 653, 655, 786, 789). No expected question, option, or historical solution guard changed. Remaining: rendered math, independent review of other 717 longer solutions and actual approved amendment publication.

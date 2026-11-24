@@ -89,8 +89,9 @@ public sealed class RecoveryEmailQueue(AppDbContext db, IConfiguration config, B
     // No actual delivery or provider call takes place here.
     public void AddOptionalNotice(AppUser user,string templateKey,DateTime now)
     {
+        var offlineTest=transport.IsTestMode&&config.GetValue<bool>("MathWorldEmail:AllowOfflineOptionalTestQueue");
         if(!config.GetValue<bool>("MathWorldEmail:OptionalEventsEnabled")||
-            !config.GetValue<bool>("MathWorldEmail:OutboxEnabled")||
+            (!config.GetValue<bool>("MathWorldEmail:OutboxEnabled")&&!offlineTest)||
             !OptionalEmailPolicy.Allows(user,templateKey)||!transport.AllowsRecipient(user.Email))return;
         db.EmailOutbox.Add(new EmailOutboxItem{
             Id=Guid.NewGuid(),UserId=user.Id,Recipient=user.Email,TemplateKey=templateKey,

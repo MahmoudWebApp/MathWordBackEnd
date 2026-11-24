@@ -4,7 +4,8 @@
   "Date": "2026-11-24",
   "Notes": [
     "Source-bound bilingual solution-only changes. No question/options/points changes. Revalidate exact source and approved editorial permissions before applying; preserve history and do not silently overwrite later edits.",
-    "Short solution does not imply an incorrect solution. These candidates add the underlying named rule and retain the existing worked result."
+    "Short solution does not imply an incorrect solution. These candidates add the underlying named rule and retain the existing worked result.",
+    "Second editorial pass checked all 56 proposed explanations for mathematical rule and bilingual consistency; clarified formula conditions and terminology in 11 items. Exact original source guards and existing derivations remain unchanged. No rendering or publication claimed."
   ],
   "Items": [
     {
@@ -40,8 +41,8 @@
       "ExpectedCorrectOption": "\\frac58",
       "ExpectedSolutionAr": "نحوّل الربع إلى أثمان: $\\frac14=\\frac28$، ثم $\\frac28+\\frac38=\\frac58$.",
       "ExpectedSolutionEn": "Convert quarters to eighths: $\\frac14=\\frac28$, then add to get $\\frac58$.",
-      "ProposedSolutionAr": "قانون جمع الكسور المتجانسة: $a/d+b/d=(a+b)/d$. نوحّد المقامات أولاً.\n\nنحوّل الربع إلى أثمان: $\\frac14=\\frac28$، ثم $\\frac28+\\frac38=\\frac58$.",
-      "ProposedSolutionEn": "Common-denominator rule: $a/d+b/d=(a+b)/d$. First use equal denominators.\n\nConvert quarters to eighths: $\\frac14=\\frac28$, then add to get $\\frac58$.",
+      "ProposedSolutionAr": "قانون جمع الكسور المتجانسة: $a/d+b/d=(a+b)/d$ عندما $d\\ne0$. نوحّد المقامات أولاً.\n\nنحوّل الربع إلى أثمان: $\\frac14=\\frac28$، ثم $\\frac28+\\frac38=\\frac58$.",
+      "ProposedSolutionEn": "Common-denominator rule: $a/d+b/d=(a+b)/d$ for $d\\ne0$. First use equal denominators.\n\nConvert quarters to eighths: $\\frac14=\\frac28$, then add to get $\\frac58$.",
       "ObservedAttemptCount": 0,
       "Status": "CandidateSolutionOnlyNotApplied",
       "ExpectedQuestionAr": "احسب $\\frac14+\\frac38$."
@@ -105,7 +106,7 @@
       "ExpectedCorrectOption": "8.36",
       "ExpectedSolutionAr": "8 + 0.3 + 0.06 = 8.36؛ رقم الأعشار 3 ورقم الأجزاء من مئة 6.",
       "ExpectedSolutionEn": "8 + 0.3 + 0.06 = 8.36; 3 is in the tenths place and 6 in the hundredths place.",
-      "ProposedSolutionAr": "قانون القيمة المنزلية: $N=u+t/10+h/100$ حيث $u$ الآحاد و$t$ الأعشار و$h$ أجزاء المئة.\n\n8 + 0.3 + 0.06 = 8.36؛ رقم الأعشار 3 ورقم الأجزاء من مئة 6.",
+      "ProposedSolutionAr": "قانون القيمة المكانية: $N=u+t/10+h/100$ حيث $u$ الآحاد و$t$ الأعشار و$h$ أجزاء المئة.\n\n8 + 0.3 + 0.06 = 8.36؛ رقم الأعشار 3 ورقم الأجزاء من مئة 6.",
       "ProposedSolutionEn": "Place-value formula: $N=u+t/10+h/100$, where $u$ is ones, $t$ tenths and $h$ hundredths.\n\n8 + 0.3 + 0.06 = 8.36; 3 is in the tenths place and 6 in the hundredths place.",
       "ObservedAttemptCount": 0,
       "Status": "CandidateSolutionOnlyNotApplied",
@@ -118,8 +119,8 @@
       "ExpectedCorrectOption": "2^7",
       "ExpectedSolutionAr": "عند ضرب الأساسات المتشابهة، نجمع الأسس: $2^3 \\times 2^4 = 2^{3+4} = 2^7 = 128$.",
       "ExpectedSolutionEn": "When multiplying like bases, we add the exponents: $2^3 \\times 2^4 = 2^{3+4} = 2^7 = 128$.",
-      "ProposedSolutionAr": "قانون ضرب القوى ذات الأساس نفسه: $a^m a^n=a^{m+n}$.\n\nعند ضرب الأساسات المتشابهة، نجمع الأسس: $2^3 \\times 2^4 = 2^{3+4} = 2^7 = 128$.",
-      "ProposedSolutionEn": "Product-of-powers law: $a^m a^n=a^{m+n}$.\n\nWhen multiplying like bases, we add the exponents: $2^3 \\times 2^4 = 2^{3+4} = 2^7 = 128$.",
+      "ProposedSolutionAr": "قانون ضرب القوى ذات الأساس الموجب نفسه: $a^m a^n=a^{m+n}$ عندما $a>0$.\n\nعند ضرب الأساسات المتشابهة، نجمع الأسس: $2^3 \\times 2^4 = 2^{3+4} = 2^7 = 128$.",
+      "ProposedSolutionEn": "Product-of-powers law for a positive common base: $a^m a^n=a^{m+n}$ for $a>0$.\n\nWhen multiplying like bases, we add the exponents: $2^3 \\times 2^4 = 2^{3+4} = 2^7 = 128$.",
       "ObservedAttemptCount": 0,
       "Status": "CandidateSolutionOnlyNotApplied",
       "ExpectedQuestionAr": "بسّط التعبير: $2^3 \\times 2^4$"
@@ -157,8 +158,8 @@
       "ExpectedCorrectOption": "18",
       "ExpectedSolutionAr": "عدد الأجزاء 2 + 3 = 5؛ قيمة الجزء 45 ÷ 5 = 9، وعدد التفاح 2 × 9 = 18.",
       "ExpectedSolutionEn": "There are 5 equal parts; each is 45 / 5 = 9. Apples = 2 × 9 = 18.",
-      "ProposedSolutionAr": "قانون تقسيم كمية بنسبة $a:b$: الجزء الأول يساوي $Ta/(a+b)$ حيث $T$ المجموع.\n\nعدد الأجزاء 2 + 3 = 5؛ قيمة الجزء 45 ÷ 5 = 9، وعدد التفاح 2 × 9 = 18.",
-      "ProposedSolutionEn": "Ratio allocation formula: for total $T$ and ratio $a:b$, the first share is $Ta/(a+b)$.\n\nThere are 5 equal parts; each is 45 / 5 = 9. Apples = 2 × 9 = 18.",
+      "ProposedSolutionAr": "قانون تقسيم كمية بنسبة $a:b$: الجزء الأول يساوي $Ta/(a+b)$ حيث $T$ المجموع و$a,b>0$.\n\nعدد الأجزاء 2 + 3 = 5؛ قيمة الجزء 45 ÷ 5 = 9، وعدد التفاح 2 × 9 = 18.",
+      "ProposedSolutionEn": "Ratio allocation formula: for total $T$ and positive shares $a,b$, the first share is $Ta/(a+b)$.\n\nThere are 5 equal parts; each is 45 / 5 = 9. Apples = 2 × 9 = 18.",
       "ObservedAttemptCount": 0,
       "Status": "CandidateSolutionOnlyNotApplied",
       "ExpectedQuestionAr": "نسبة التفاح إلى البرتقال 2 إلى 3، ومجموع الثمار 45. كم تفاحة؟"
@@ -183,8 +184,8 @@
       "ExpectedCorrectOption": "10",
       "ExpectedSolutionAr": "معامل التشابه = 30÷18 = 5/3؛ الضلع الأكبر = 6×5/3 = 10 سم.",
       "ExpectedSolutionEn": "The scale factor is 30/18 = 5/3, so the corresponding side is 6×5/3 = 10 cm.",
-      "ProposedSolutionAr": "خاصية التشابه: نسبة المحيطين تساوي نسبة الأضلاع المتناظرة، $k=P_2/P_1=l_2/l_1$.\n\nمعامل التشابه = 30÷18 = 5/3؛ الضلع الأكبر = 6×5/3 = 10 سم.",
-      "ProposedSolutionEn": "Similarity rule: the perimeter ratio equals the ratio of corresponding sides, $k=P_2/P_1=l_2/l_1$.\n\nThe scale factor is 30/18 = 5/3, so the corresponding side is 6×5/3 = 10 cm.",
+      "ProposedSolutionAr": "خاصية التشابه: نسبة المحيطين تساوي نسبة الأضلاع المتناظرة، $k=P_2/P_1=l_2/l_1$. المطلوب طول الضلع المناظر في المثلث الأكبر، وليس بالضرورة أطول أضلاعه.\n\nمعامل التشابه = 30÷18 = 5/3؛ الضلع الأكبر = 6×5/3 = 10 سم.",
+      "ProposedSolutionEn": "Similarity rule: the perimeter ratio equals the ratio of corresponding sides, $k=P_2/P_1=l_2/l_1$. We seek the corresponding side of the larger triangle, not necessarily its longest side.\n\nThe scale factor is 30/18 = 5/3, so the corresponding side is 6×5/3 = 10 cm.",
       "ObservedAttemptCount": 0,
       "Status": "CandidateSolutionOnlyNotApplied",
       "ExpectedQuestionAr": "محيطا مثلثين متشابهين 18 سم و30 سم. إذا كان ضلع في المثلث الأصغر 6 سم، فكم طول نظيره في الأكبر؟"
@@ -196,8 +197,8 @@
       "ExpectedCorrectOption": "9",
       "ExpectedSolutionAr": "المساحة تتغير بمربع معامل الطول؛ 3²=9، فتصير تسعة أضعاف.",
       "ExpectedSolutionEn": "Area scales by the square of the length factor: 3² = 9.",
-      "ProposedSolutionAr": "قانون التشابه للمساحات: إذا تضاعفت الأطوال بمعامل $k$ فإن $A_2=k^2 A_1$.\n\nالمساحة تتغير بمربع معامل الطول؛ 3²=9، فتصير تسعة أضعاف.",
-      "ProposedSolutionEn": "Area scaling law: multiplying all lengths by $k$ gives $A_2=k^2 A_1$.\n\nArea scales by the square of the length factor: 3² = 9.",
+      "ProposedSolutionAr": "قانون التشابه للمساحات: إذا ضُربت الأطوال في معامل $k>0$ فإن $A_2=k^2 A_1$.\n\nالمساحة تتغير بمربع معامل الطول؛ 3²=9، فتصير تسعة أضعاف.",
+      "ProposedSolutionEn": "Area scaling law: multiplying all lengths by $k>0$ gives $A_2=k^2 A_1$.\n\nArea scales by the square of the length factor: 3² = 9.",
       "ObservedAttemptCount": 0,
       "Status": "CandidateSolutionOnlyNotApplied",
       "ExpectedQuestionAr": "ضُربت جميع أطوال مثلث في 3 لتكوين مثلث مشابه. كم مرة تصبح مساحته؟"
@@ -378,8 +379,8 @@
       "ExpectedCorrectOption": "4",
       "ExpectedSolutionAr": "الحد الثالث 12 ليس أصغر من 10، والحد الرابع 6 أصغر من 10، لذا الرقم 4.",
       "ExpectedSolutionEn": "The third term 12 is not below 10; the fourth term 6 is, so the first qualifying index is 4.",
-      "ProposedSolutionAr": "قانون المتتالية الهندسية: $a_n=48(1/2)^{n-1}$. الحدود تتناقص لأن المعامل بين صفر وواحد.\n\nالحد الثالث 12 ليس أصغر من 10، والحد الرابع 6 أصغر من 10، لذا الرقم 4.",
-      "ProposedSolutionEn": "Geometric sequence formula: $a_n=48(1/2)^{n-1}$. Terms decrease because the ratio is between zero and one.\n\nThe third term 12 is not below 10; the fourth term 6 is, so the first qualifying index is 4.",
+      "ProposedSolutionAr": "قانون المتتالية الهندسية: $a_n=48(1/2)^{n-1}$. الحدود تتناقص لأن الحد الأول موجب والنسبة المشتركة بين صفر وواحد.\n\nالحد الثالث 12 ليس أصغر من 10، والحد الرابع 6 أصغر من 10، لذا الرقم 4.",
+      "ProposedSolutionEn": "Geometric sequence formula: $a_n=48(1/2)^{n-1}$. The positive first term and a ratio between zero and one make the terms decrease.\n\nThe third term 12 is not below 10; the fourth term 6 is, so the first qualifying index is 4.",
       "ObservedAttemptCount": 0,
       "Status": "CandidateSolutionOnlyNotApplied",
       "ExpectedQuestionAr": "متتالية هندسية تبدأ 48، 24، 12، 6، ... . ما رقم أول حد أصغر من 10؟"
@@ -521,8 +522,8 @@
       "ExpectedCorrectOption": "1",
       "ExpectedSolutionAr": "كلما كبر n صغر 1/n نحو الصفر، وتزداد aₙ نحو 1 من الأسفل. لذا نهايتها 1.",
       "ExpectedSolutionEn": "As n increases, 1/n decreases to zero. Thus aₙ increases toward 1 from below.",
-      "ProposedSolutionAr": "قانون نهايات الفرق: $\\lim(1-1/n)=1-\\lim(1/n)$، ومع $n\\to\\infty$ يكون $1/n\\to0$.\n\nكلما كبر n صغر 1/n نحو الصفر، وتزداد aₙ نحو 1 من الأسفل. لذا نهايتها 1.",
-      "ProposedSolutionEn": "Difference limit rule: $\\lim(1-1/n)=1-\\lim(1/n)$; as $n\\to\\infty$, $1/n\\to0$.\n\nAs n increases, 1/n decreases to zero. Thus aₙ increases toward 1 from below.",
+      "ProposedSolutionAr": "قانون نهاية الفرق: $\\lim_{n\\to\\infty}(1-1/n)=1-\\lim_{n\\to\\infty}(1/n)$، و$1/n\\to0$.\n\nكلما كبر n صغر 1/n نحو الصفر، وتزداد aₙ نحو 1 من الأسفل. لذا نهايتها 1.",
+      "ProposedSolutionEn": "Difference limit rule: $\\lim_{n\\to\\infty}(1-1/n)=1-\\lim_{n\\to\\infty}(1/n)$; the reciprocal tends to zero.\n\nAs n increases, 1/n decreases to zero. Thus aₙ increases toward 1 from below.",
       "ObservedAttemptCount": 0,
       "Status": "CandidateSolutionOnlyNotApplied",
       "ExpectedQuestionAr": "متتالية aₙ = 1 − 1/n للأعداد الطبيعية n ≥ 1. ما نهايتها؟"
@@ -534,8 +535,8 @@
       "ExpectedCorrectOption": "1",
       "ExpectedSolutionAr": "المجموع الجزئي لمتسلسلة هندسية = 1 − (1/2)ⁿ. وهو متزايد وأصغر من 1 ونهايته 1.",
       "ExpectedSolutionEn": "The partial geometric sum is 1 − (1/2)ⁿ. It increases, stays below 1 and tends to 1.",
-      "ProposedSolutionAr": "قانون مجموع المتتالية الهندسية المنتهي: $S_n=a(1-r^n)/(1-r)$، هنا $a=r=1/2$.\n\nالمجموع الجزئي لمتسلسلة هندسية = 1 − (1/2)ⁿ. وهو متزايد وأصغر من 1 ونهايته 1.",
-      "ProposedSolutionEn": "Finite geometric sum: $S_n=a(1-r^n)/(1-r)$, with $a=r=1/2$.\n\nThe partial geometric sum is 1 − (1/2)ⁿ. It increases, stays below 1 and tends to 1.",
+      "ProposedSolutionAr": "قانون المجموع الهندسي المنتهي: $S_n=a(1-r^n)/(1-r)$ عندما $r\\ne1$، وهنا $a=r=1/2$.\n\nالمجموع الجزئي لمتسلسلة هندسية = 1 − (1/2)ⁿ. وهو متزايد وأصغر من 1 ونهايته 1.",
+      "ProposedSolutionEn": "Finite geometric sum: $S_n=a(1-r^n)/(1-r)$ for $r\\ne1$, with $a=r=1/2$.\n\nThe partial geometric sum is 1 − (1/2)ⁿ. It increases, stays below 1 and tends to 1.",
       "ObservedAttemptCount": 0,
       "Status": "CandidateSolutionOnlyNotApplied",
       "ExpectedQuestionAr": "لتكن aₙ = 1/2 + 1/4 + ⋯ + 1/2ⁿ. ما نهاية aₙ عند n → ∞؟"
@@ -664,8 +665,8 @@
       "ExpectedCorrectOption": "40",
       "ExpectedSolutionAr": "نختار طالبتين بـ C(5,2)=10 وواحداً من أربعة طلاب بـ C(4,1)=4، ونضرب: 40.",
       "ExpectedSolutionEn": "Choose two women in C(5,2)=10 ways and one man in C(4,1)=4 ways. Product: 40.",
-      "ProposedSolutionAr": "قانون التوافيق: $\\binom nk=n!/(k!(n-k)!)$، ومبدأ الضرب للاختيارات المستقلة.\n\nنختار امرأتين من خمس بـ C(5,2)=10 طرق، ورجلاً من أربعة بـ C(4,1)=4 طرق. نضرب العددين فنحصل على 40 لجنة.",
-      "ProposedSolutionEn": "Combination formula: $\\binom nk=n!/(k!(n-k)!)$, and multiplication principle for separate selections.\n\nChoose two women in C(5,2)=10 ways and one man in C(4,1)=4 ways. Product: 40.",
+      "ProposedSolutionAr": "قانون التوافيق: $\\binom nk=n!/(k!(n-k)!)$، ومبدأ الضرب لاختيار مجموعتين منفصلتين دون ترتيب.\n\nنختار امرأتين من خمس بـ C(5,2)=10 طرق، ورجلاً من أربعة بـ C(4,1)=4 طرق. نضرب العددين فنحصل على 40 لجنة.",
+      "ProposedSolutionEn": "Combination formula: $\\binom nk=n!/(k!(n-k)!)$, and the multiplication principle for separate unordered selections.\n\nChoose two women in C(5,2)=10 ways and one man in C(4,1)=4 ways. Product: 40.",
       "ObservedAttemptCount": 0,
       "Status": "CandidateSolutionOnlyNotApplied",
       "ExpectedQuestionAr": "لدينا 5 طالبات و4 طلاب. كم طريقة لاختيار لجنة من ثلاثة أشخاص فيها طالبتان وطالب واحد بالضبط؟"
@@ -690,7 +691,7 @@
       "ExpectedCorrectOption": "\\text{إذا كان n فردياً فمربعه فردي (Odd n, odd square)}",
       "ExpectedSolutionAr": "مقابل P⇒Q هو نفي Q⇒نفي P. إذن يكفي إثبات أن n الفردي مربعه فردي.",
       "ExpectedSolutionEn": "The contrapositive of P⇒Q is not-Q⇒not-P. Thus show that an odd n has an odd square.",
-      "ProposedSolutionAr": "قانون المقابلة المنطقية: $P\\Rightarrow Q$ تكافئ $\\neg Q\\Rightarrow\\neg P$. إذا كان $n=2k+1$ فمربعه $4k(k+1)+1$ فردي.\n\nمقابل P⇒Q هو نفي Q⇒نفي P. إذن يكفي إثبات أن n الفردي مربعه فردي.",
+      "ProposedSolutionAr": "قانون العكس النقيض: $P\\Rightarrow Q$ يكافئ $\\neg Q\\Rightarrow\\neg P$. إذا كان $n=2k+1$ فمربعه $4k(k+1)+1$ فردي.\n\nمقابل P⇒Q هو نفي Q⇒نفي P. إذن يكفي إثبات أن n الفردي مربعه فردي.",
       "ProposedSolutionEn": "Contrapositive equivalence: $P\\Rightarrow Q$ is equivalent to $\\neg Q\\Rightarrow\\neg P$. If $n=2k+1$, its square $4k(k+1)+1$ is odd.\n\nThe contrapositive of P⇒Q is not-Q⇒not-P. Thus show that an odd n has an odd square.",
       "ObservedAttemptCount": 0,
       "Status": "CandidateSolutionOnlyNotApplied",

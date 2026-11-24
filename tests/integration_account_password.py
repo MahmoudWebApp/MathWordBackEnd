@@ -30,6 +30,10 @@ def main():
     token = token_of(expect("POST", "/api/auth/register", 201, {
         "FullName": "CI Password", "Email": email, "Password": old, "StageId": 1
     }))
+    preferences="/api/users/email-preferences"
+    initial=expect("GET",preferences,200,token=token)
+    assert not initial["EmailVerified"] and not initial["OptionalDeliveryEnabled"]
+    expect("PUT",preferences,409,{"EmailLearningUpdates":True,"EmailSubscriptionUpdates":False,"EmailImportantAnnouncements":False,"Locale":"en"},token)
     legacy = legacy_token(token)
     expect("GET", protected, 200, token=legacy)
     admin = token_of(expect("POST", "/api/auth/login", 200,

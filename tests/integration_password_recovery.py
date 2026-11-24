@@ -83,6 +83,22 @@ def main():
     status,result=auth_retry("POST","/api/auth/login",{"Email":admin_email,"Password":"CI_RESET_ADMIN_PASSWORD_123456"})
     assert status==200
     admin_token=token_of(result["Data"])
+    # Verify actual event-to-outbox writes on disposable PostgreSQL, with
+    # provider calls disabled and an explicit test-only queue flag.
+    uid=int(sql(f"""SELECT "Id" FROM "Users" WHERE "Email"='{EMAIL}'"""))
+    expect("PUT",preferences,200,{**prefs,"EmailImportantAnnouncements":True},student_token)
+    notice={"TitleAr":"اختبار","TitleEn":"Test","BodyAr":"إشعار اختباري","BodyEn":"Test notice","TargetPath":"/dashboard"}
+    def queued(key):
+        return int(sql(f"""SELECT COUNT(*) FROM "EmailOutbox" WHERE "UserId"={uid} AND "TemplateKey"='{key}' AND "State"='Pending' AND "Locale"='en'"""))
+    expect("POST",f"/api/admin/notifications/learners/{uid}",200,notice,admin_token)
+    assert queued("announcement")==1
+    code=expect("POST","/api/admin/premium-codes",200,{"Label":"CI gift","PremiumDays":30,"ExpiresInDays":1},admin_token)["Code"]
+    expect("POST","/api/users/premium-codes/redeem",200,{"Code":code},student_token)
+    expect("POST","/api/users/premium-codes/redeem",400,{"Code":code},student_token)
+    assert queued("premium-granted")==1
+    expect("PUT",preferences,200,{**prefs,"EmailLearningUpdates":False,"EmailSubscriptionUpdates":False,"EmailImportantAnnouncements":False},student_token)
+    expect("POST",f"/api/admin/notifications/learners/{uid}",200,notice,admin_token)
+    assert queued("announcement")==1
     outbox=expect("GET",outbox_route,200,token=admin_token)
     assert outbox["IsConfigured"] and outbox["IsTestMode"] and not outbox["IsWorkerEnabled"]
     readiness=outbox["Readiness"]
