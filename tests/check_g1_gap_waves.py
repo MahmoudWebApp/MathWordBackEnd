@@ -7,7 +7,7 @@ import re
 
 ROOT = Path(__file__).resolve().parents[1]
 FOLDER = ROOT / "content/editorial"
-ITEMS = [i for wave in (1, 2)
+ITEMS = [i for wave in (1, 2, 3)
          for i in json.loads((FOLDER / f"g1-gap-wave-{wave:02d}-20261124.json").read_text(encoding="utf-8"))["Items"]]
 
 # Match full English stems, extract operands, and calculate rather than
@@ -36,6 +36,15 @@ RULES = [
      lambda a,d: "\\{"+",".join(map(str,sorted([int(a)-int(d),int(a)+int(d)])))+"\\}"),
     (r"A subscriber count follows \$N\(t\)=(\d+)\(([\d.]+)\)\^\{t/(\d+)\}\$, where t is in months\. What is the percentage increase over three months\?",
      lambda a,b,p: 100*(F(b)**(3//int(p))-1) if 3%int(p)==0 else None),
+    (r"Estimate the difference between (\d+) and (\d+) by rounding each number to the nearest hundred before subtracting\.",lambda a,b: ((int(a)+50)//100-(int(b)+50)//100)*100),
+    (r"Each box has a mass of (\d+) g\. What is the maximum number of boxes that can be carried without exceeding (\d+) kg\?",lambda a,b: int(b)*1000//int(a)),
+    (r"A rectangle has length ([\d.]+) m and width (\d+) cm\. What is its perimeter in centimeters\?",lambda a,b: 2*(F(a)*100+int(b))),
+    (r"A workshop starts at (\d+):(\d+) and ends at (\d+):(\d+), with a (\d+)-minute break\. How many minutes of work were completed excluding the break\?",lambda h,m,j,n,b: (int(j)-int(h))*60+int(n)-int(m)-int(b)),
+    (r"Solve the inequality \$\|x\+(\d+)\|<(\d+)\$ over the real numbers\.",lambda a,b:f"({-int(a)-int(b)},{-int(a)+int(b)})"),
+    (r"Find the real domain of \$f\(x\)=\\ln\\left\(\\frac\{x-(\d+)\}\{x\+(\d+)\}\\right\)\$\.",lambda a,b:rf"(-\infty,{-int(b)})\cup({int(a)},\infty)"),
+    (r"If \$\\mathrm\{pH\}=-\\log_\{10\} H\$ and pH decreases from (\d+) to (\d+), what is the ratio of final to initial H\?",lambda a,b:10**(int(a)-int(b))),
+    (r"The model \$Q\(t\)=(\d+)\(([\d.]+)\)\^t\$ gives a quantity after t years\. What percentage of the initial quantity is lost after two years\? Enter the percentage as a number without the percent sign\.",lambda a,b:100*(1-F(b)**2)),
+    (r"In a hypothesis test, the p-value is ([\d.]+) and the prespecified significance level is ([\d.]+)\. Which decision is correct under the p-value rule\?",lambda p,a:r"\text{Fail to reject }H_0" if F(p)>F(a) else r"\text{Reject }H_0"),
 ]
 
 def canonical(value):
@@ -55,10 +64,10 @@ def solve(prompt):
 def pair(value):
     assert all(isinstance(value[k],str) and value[k].strip() for k in ("Ar","En")), value
 
-assert len(ITEMS)==12 and len({i["ContentKey"] for i in ITEMS})==12
+assert len(ITEMS)==21 and len({i["ContentKey"] for i in ITEMS})==21
 assert Counter(i["PrimarySkillKey"] for i in ITEMS)=={
-    "estimation":1,"mass":1,"metric-conversion":1,"time":1,"absolute-value":2,
-    "logarithm-domain":2,"logarithm-modeling":1,"model-interpretation":2,"hypothesis-testing":1}
+    "estimation":2,"mass":2,"metric-conversion":2,"time":2,"absolute-value":3,
+    "logarithm-domain":3,"logarithm-modeling":2,"model-interpretation":3,"hypothesis-testing":2}
 for lang in ("Ar","En"):
     assert len({" ".join(i["Content"]["Question"][lang].lower().split()) for i in ITEMS})==len(ITEMS)
 for item in ITEMS:
@@ -84,5 +93,8 @@ for item in ITEMS:
     for step in s["Steps"]:pair(step)
     for field in ("Idea","Substitution","Result","Unit","Verification","CommonError"):pair(s[field])
     for lang in ("Ar","En"):
-        assert canonical(s["Result"][lang])==expected
-print("PASS: 12 independent prompt-based answers; bilingual structured solutions, hints and distractors; candidates remain drafts")
+        if item["ContentKey"]=="g1-depth-03-hypothesis-decision" and lang=="Ar":
+            assert s["Result"][lang]==r"$\text{لا نرفض }H_0$"
+        else:
+            assert canonical(s["Result"][lang])==expected
+print("PASS: 21 independent prompt-based answers; bilingual structured solutions, hints and distractors; candidates remain drafts")

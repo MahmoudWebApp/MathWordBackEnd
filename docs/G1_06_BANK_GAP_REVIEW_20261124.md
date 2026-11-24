@@ -79,3 +79,6 @@ The combined 12-candidate import rehearsal remains atomic, idempotent and draft-
 
 ## Consolidated hint preparation
 Eleven additional bilingual hint pairs are bound to the current production stems and primary skill keys of the eleven corrected problems. The combined file now has 28 candidate pairs (56 hints), including the original 17. Two original rows remain taxonomy-held (1566 and 1578); 10 and 20 remain outside the new hint batch until wording can be versioned. These are editorial candidates, not published student hints. The existing source snapshot checker verifies exact question and skill match; the new static check validates the candidate inventory and bilingual shape. No direct production hint writes, no new schema changes.
+
+## Depth wave 03
+Nine additional draft candidates target the same nine underrepresented primary skills using mixed-unit geometry, maximum capacity, strict inequalities, rational logarithm domains, elapsed net time, pH change, compounded loss and hypothesis-test decisions. Together the three manifests contain 21 original candidates, each with bilingual text, distractor explanations, two hints and structured solution. The independent prompt-based test and disposable batch-import rehearsal now cover all 21. These are candidate drafts, not a guarantee of full bank review; no live data or track publication is changed.

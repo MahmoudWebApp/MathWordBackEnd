@@ -1,0 +1,1027 @@
+{
+  "Version": 1,
+  "Status": "DraftCandidatesNotPublished",
+  "Notes": [
+    "Distinct reasoning tasks; proposed track codes require review. No production publication.",
+    "Each question has four options, two reviewed-candidate hints, and bilingual structured solution."
+  ],
+  "Items": [
+    {
+      "ContentKey": "g1-depth-03-estimate-difference",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "grade-4"
+      ],
+      "PrimarySkillKey": "estimation",
+      "Check": {
+        "expected": "600"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 81,
+        "PrimarySkillId": 303,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "تقدير الفرق بين عددين",
+          "En": "Estimate a difference"
+        },
+        "Question": {
+          "Ar": "قدّر الفرق بين 783 و246 بتقريب كل منهما إلى أقرب مئة قبل الطرح.",
+          "En": "Estimate the difference between 783 and 246 by rounding each number to the nearest hundred before subtracting."
+        },
+        "Options": [
+          {
+            "LatexCode": "500",
+            "IsCorrect": false,
+            "ErrorType": "misconception-0",
+            "Reason": {
+              "Ar": "قُرّب العدد الأول إلى 700 بدلاً من 800.",
+              "En": "The first number was rounded to 700 instead of 800."
+            }
+          },
+          {
+            "LatexCode": "600",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "540",
+            "IsCorrect": false,
+            "ErrorType": "misconception-2",
+            "Reason": {
+              "Ar": "هذا تقريب للفرق بعد الطرح إلى أقرب عشرة، وليس الطريقة المطلوبة.",
+              "En": "This rounds the difference to tens after subtraction, not the requested method."
+            }
+          },
+          {
+            "LatexCode": "1000",
+            "IsCorrect": false,
+            "ErrorType": "misconception-3",
+            "Reason": {
+              "Ar": "جُمعت القيم المقربة بدلاً من طرحها.",
+              "En": "The rounded values were added rather than subtracted."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "حدد المئة الأقرب لكل عدد على حدة.",
+            "En": "Identify the nearest hundred for each number separately."
+          },
+          {
+            "Ar": "انظر إلى رقم العشرات؛ إذا كان خمسة أو أكثر فقرّب إلى المئة الأعلى.",
+            "En": "Inspect the tens digit; round up when it is five or more."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نطرح التقديرين بدلاً من العددين الأصليين.",
+            "En": "Subtract the two rounded estimates instead of the original numbers."
+          },
+          "FormulaLatex": "\\widehat D=\\operatorname{round}_{100}(a)-\\operatorname{round}_{100}(b)",
+          "Steps": [
+            {
+              "Ar": "783 أقرب إلى 800.",
+              "En": "783 is closer to 800."
+            },
+            {
+              "Ar": "246 أقرب إلى 200.",
+              "En": "246 is closer to 200."
+            }
+          ],
+          "Substitution": {
+            "Ar": "800 − 200 = 600",
+            "En": "800 − 200 = 600"
+          },
+          "Result": {
+            "Ar": "600",
+            "En": "600"
+          },
+          "Unit": {
+            "Ar": "تقريباً",
+            "En": "approximately"
+          },
+          "Verification": {
+            "Ar": "الفرق الدقيق 537؛ تقديرنا يختلف عنه بمقدار 63.",
+            "En": "The exact difference is 537; the estimate differs by 63."
+          },
+          "CommonError": {
+            "Ar": "لا تقرّب الفرق بعد الطرح إذا طُلب تقريب العددين أولاً.",
+            "En": "Do not round after subtracting when asked to round both numbers first."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "g1-depth-03-mass-capacity",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "grade-4"
+      ],
+      "PrimarySkillKey": "mass",
+      "Check": {
+        "expected": "5"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 82,
+        "PrimarySkillId": 322,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "كتلة الصناديق والحمولة",
+          "En": "Boxes and load limit"
+        },
+        "Question": {
+          "Ar": "كتلة كل صندوق 750 غراماً. ما أكبر عدد من الصناديق يمكن حمله دون تجاوز 4 كيلوغرامات؟",
+          "En": "Each box has a mass of 750 g. What is the maximum number of boxes that can be carried without exceeding 4 kg?"
+        },
+        "Options": [
+          {
+            "LatexCode": "4",
+            "IsCorrect": false,
+            "ErrorType": "misconception-0",
+            "Reason": {
+              "Ar": "استُخدم رقم الكيلوغرامات نفسه كعدد للصناديق.",
+              "En": "Used the kilogram value itself as the number of boxes."
+            }
+          },
+          {
+            "LatexCode": "6",
+            "IsCorrect": false,
+            "ErrorType": "misconception-1",
+            "Reason": {
+              "Ar": "ستة صناديق تتجاوز الحد المسموح.",
+              "En": "Six boxes exceed the limit."
+            }
+          },
+          {
+            "LatexCode": "5",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "7",
+            "IsCorrect": false,
+            "ErrorType": "misconception-3",
+            "Reason": {
+              "Ar": "سبعة صناديق تتجاوز الحد المسموح.",
+              "En": "Seven boxes exceed the limit."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "حوّل الحد الأقصى للكتلة إلى غرامات.",
+            "En": "Convert the load limit to grams."
+          },
+          {
+            "Ar": "اقسم الحد على كتلة صندوق واحد واختر أكبر عدد صحيح لا يتجاوز الناتج.",
+            "En": "Divide the limit by one box's mass and choose the greatest integer not exceeding the quotient."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "عدد الصناديق عدد صحيح وتجب مراعاة حد الحمولة.",
+            "En": "The box count is an integer constrained by the load limit."
+          },
+          "FormulaLatex": "n=\\left\\lfloor\\frac{M}{m}\\right\\rfloor",
+          "Steps": [
+            {
+              "Ar": "4 كيلوغرامات تساوي 4000 غرام.",
+              "En": "4 kg equals 4000 g."
+            },
+            {
+              "Ar": "نقسم 4000 على 750 ونأخذ الجزء الصحيح.",
+              "En": "Divide 4000 by 750 and take the integer part."
+            }
+          ],
+          "Substitution": {
+            "Ar": "4000 ÷ 750 = 5 والباقي 250",
+            "En": "4000 ÷ 750 = 5 remainder 250"
+          },
+          "Result": {
+            "Ar": "5",
+            "En": "5"
+          },
+          "Unit": {
+            "Ar": "صناديق",
+            "En": "boxes"
+          },
+          "Verification": {
+            "Ar": "5 × 750 = 3750، بينما 6 × 750 = 4500 > 4000.",
+            "En": "5 × 750 = 3750, while 6 × 750 = 4500 > 4000."
+          },
+          "CommonError": {
+            "Ar": "لا تقرّب العدد إلى الأعلى عند وجود حد أقصى.",
+            "En": "Do not round upward when there is a maximum load."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "g1-depth-03-metric-perimeter",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "grade-5"
+      ],
+      "PrimarySkillKey": "metric-conversion",
+      "Check": {
+        "expected": "610"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 82,
+        "PrimarySkillId": 323,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "محيط بوحدتين مختلفتين",
+          "En": "Perimeter in mixed units"
+        },
+        "Question": {
+          "Ar": "مستطيل طوله 2.4 متر وعرضه 65 سنتيمتراً. ما محيطه بالسنتيمتر؟",
+          "En": "A rectangle has length 2.4 m and width 65 cm. What is its perimeter in centimeters?"
+        },
+        "Options": [
+          {
+            "LatexCode": "305",
+            "IsCorrect": false,
+            "ErrorType": "misconception-0",
+            "Reason": {
+              "Ar": "جُمع الطول والعرض دون مضاعفتهما.",
+              "En": "Added length and width without doubling."
+            }
+          },
+          {
+            "LatexCode": "530",
+            "IsCorrect": false,
+            "ErrorType": "misconception-1",
+            "Reason": {
+              "Ar": "حُوّل الطول إلى 200 سم فأُهمل الجزء العشري.",
+              "En": "Converted length to 200 cm, ignoring the decimal part."
+            }
+          },
+          {
+            "LatexCode": "480",
+            "IsCorrect": false,
+            "ErrorType": "misconception-2",
+            "Reason": {
+              "Ar": "حُسب ضعف الطول وحده.",
+              "En": "Doubled only the length."
+            }
+          },
+          {
+            "LatexCode": "610",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "وحّد وحدة الطول والعرض قبل الحساب.",
+            "En": "Convert both dimensions to the same unit first."
+          },
+          {
+            "Ar": "للمستطيل ضلعان من كل طول؛ المحيط يساوي ضعف مجموع البعدين.",
+            "En": "A rectangle has two sides of each length; perimeter is twice their sum."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "المحيط مجموع أطوال الأضلاع الأربعة.",
+            "En": "Perimeter is the sum of the four side lengths."
+          },
+          "FormulaLatex": "P=2(l+w)",
+          "Steps": [
+            {
+              "Ar": "2.4 متر تساوي 240 سم.",
+              "En": "2.4 m equals 240 cm."
+            },
+            {
+              "Ar": "نجمع 240 و65 ثم نضاعف المجموع.",
+              "En": "Add 240 and 65 and double the sum."
+            }
+          ],
+          "Substitution": {
+            "Ar": "2 × (240 + 65) = 610",
+            "En": "2 × (240 + 65) = 610"
+          },
+          "Result": {
+            "Ar": "610",
+            "En": "610"
+          },
+          "Unit": {
+            "Ar": "سم",
+            "En": "cm"
+          },
+          "Verification": {
+            "Ar": "240 + 65 + 240 + 65 = 610.",
+            "En": "240 + 65 + 240 + 65 = 610."
+          },
+          "CommonError": {
+            "Ar": "لا تجمع أمتاراً وسنتيمترات قبل التحويل.",
+            "En": "Do not add meters and centimeters before conversion."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "g1-depth-03-time-break",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "grade-5"
+      ],
+      "PrimarySkillKey": "time",
+      "Check": {
+        "expected": "140"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 82,
+        "PrimarySkillId": 324,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "مدة العمل الصافية",
+          "En": "Net work duration"
+        },
+        "Question": {
+          "Ar": "بدأت ورشة عند الساعة 09:35 وانتهت عند 12:20، وتخللتها استراحة مدتها 25 دقيقة. كم دقيقة استغرق العمل دون الاستراحة؟",
+          "En": "A workshop starts at 09:35 and ends at 12:20, with a 25-minute break. How many minutes of work were completed excluding the break?"
+        },
+        "Options": [
+          {
+            "LatexCode": "140",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "165",
+            "IsCorrect": false,
+            "ErrorType": "misconception-1",
+            "Reason": {
+              "Ar": "لم تُطرح مدة الاستراحة.",
+              "En": "The break was not subtracted."
+            }
+          },
+          {
+            "LatexCode": "190",
+            "IsCorrect": false,
+            "ErrorType": "misconception-2",
+            "Reason": {
+              "Ar": "أضيفت مدة الاستراحة بدلاً من طرحها.",
+              "En": "Added the break instead of subtracting it."
+            }
+          },
+          {
+            "LatexCode": "115",
+            "IsCorrect": false,
+            "ErrorType": "misconception-3",
+            "Reason": {
+              "Ar": "طُرحت الاستراحة مرتين.",
+              "En": "Subtracted the break twice."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "حوّل وقت البداية والنهاية إلى دقائق منذ منتصف الليل.",
+            "En": "Convert start and end times to minutes since midnight."
+          },
+          {
+            "Ar": "اطرح وقت البداية من النهاية ثم اطرح الاستراحة مرة واحدة.",
+            "En": "Subtract start from end, then subtract the break once."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "الوقت الصافي هو المدة الكلية ناقص الاستراحة.",
+            "En": "Net time equals the full elapsed time minus the break."
+          },
+          "FormulaLatex": "T=(60h_2+m_2)-(60h_1+m_1)-b",
+          "Steps": [
+            {
+              "Ar": "وقت البداية 575 دقيقة ووقت النهاية 740 دقيقة.",
+              "En": "Start is 575 minutes and end is 740 minutes."
+            },
+            {
+              "Ar": "المدة الكلية 165 دقيقة، نطرح منها 25.",
+              "En": "Elapsed time is 165 minutes; subtract 25."
+            }
+          ],
+          "Substitution": {
+            "Ar": "740 − 575 − 25 = 140",
+            "En": "740 − 575 − 25 = 140"
+          },
+          "Result": {
+            "Ar": "140",
+            "En": "140"
+          },
+          "Unit": {
+            "Ar": "دقيقة",
+            "En": "minutes"
+          },
+          "Verification": {
+            "Ar": "140 + 25 = 165 دقيقة، أي ساعتان و45 دقيقة.",
+            "En": "140 + 25 = 165 minutes, or 2 hours 45 minutes."
+          },
+          "CommonError": {
+            "Ar": "لا تعامل الساعة كأنها مئة دقيقة.",
+            "En": "Do not treat an hour as one hundred minutes."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "g1-depth-03-absolute-interval",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "grade-7"
+      ],
+      "PrimarySkillKey": "absolute-value",
+      "Check": {
+        "expected": "(-7,3)"
+      },
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 83,
+        "PrimarySkillId": 307,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "مجال ضمن مسافة",
+          "En": "Within a distance"
+        },
+        "Question": {
+          "Ar": "حل المتباينة $|x+2|<5$ على الأعداد الحقيقية.",
+          "En": "Solve the inequality $|x+2|<5$ over the real numbers."
+        },
+        "Options": [
+          {
+            "LatexCode": "(-3,7)",
+            "IsCorrect": false,
+            "ErrorType": "misconception-0",
+            "Reason": {
+              "Ar": "أُخذ مركز الفترة +2 بدلاً من −2.",
+              "En": "Used +2 rather than −2 as the interval center."
+            }
+          },
+          {
+            "LatexCode": "(-7,3)",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "[-7,3]",
+            "IsCorrect": false,
+            "ErrorType": "misconception-2",
+            "Reason": {
+              "Ar": "أُدرج الطرفان رغم أن المتباينة صارمة.",
+              "En": "Included endpoints despite the strict inequality."
+            }
+          },
+          {
+            "LatexCode": "(-\\infty,-7)\\cup(3,\\infty)",
+            "IsCorrect": false,
+            "ErrorType": "misconception-3",
+            "Reason": {
+              "Ar": "حُلّت متباينة أكبر من بدلاً من أصغر من.",
+              "En": "Solved the greater-than inequality instead."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "القيمة المطلقة تمثل مسافة عن مركز.",
+            "En": "Absolute value represents distance from a center."
+          },
+          {
+            "Ar": "حوّل المتباينة إلى حدين سالب وموجب ثم اعزل x.",
+            "En": "Rewrite as a two-sided inequality, then isolate x."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نبحث عن جميع النقاط التي تبعد أقل من 5 عن −2.",
+            "En": "Find all points less than 5 units from −2."
+          },
+          "FormulaLatex": "|u|<a\\iff -a<u<a\\quad(a>0)",
+          "Steps": [
+            {
+              "Ar": "نكتب −5 < x + 2 < 5.",
+              "En": "Write −5 < x + 2 < 5."
+            },
+            {
+              "Ar": "نطرح 2 من الحدود الثلاثة.",
+              "En": "Subtract 2 from all three parts."
+            }
+          ],
+          "Substitution": {
+            "Ar": "−7 < x < 3",
+            "En": "−7 < x < 3"
+          },
+          "Result": {
+            "Ar": "(-7,3)",
+            "En": "(-7,3)"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة",
+            "En": "unitless"
+          },
+          "Verification": {
+            "Ar": "المركز −2 يحقق المتباينة والطرفان يعطيان 5 فلا يدخلان.",
+            "En": "The center −2 satisfies it; both endpoints give 5 and are excluded."
+          },
+          "CommonError": {
+            "Ar": "لا تُغلق الفترة عند علامة أصغر من الصارمة.",
+            "En": "Do not include endpoints for a strict inequality."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "g1-depth-03-log-rational-domain",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "grade-11"
+      ],
+      "PrimarySkillKey": "logarithm-domain",
+      "Check": {
+        "expected": "(-\\infty,-1)\\cup(3,\\infty)"
+      },
+      "Content": {
+        "StageId": 3,
+        "CategoryId": 86,
+        "PrimarySkillId": 312,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "مجال لوغاريتم نسبة",
+          "En": "Domain of a logarithmic ratio"
+        },
+        "Question": {
+          "Ar": "أوجد المجال الحقيقي للدالة $f(x)=\\ln\\left(\\frac{x-3}{x+1}\\right)$.",
+          "En": "Find the real domain of $f(x)=\\ln\\left(\\frac{x-3}{x+1}\\right)$."
+        },
+        "Options": [
+          {
+            "LatexCode": "(-1,3)",
+            "IsCorrect": false,
+            "ErrorType": "misconception-0",
+            "Reason": {
+              "Ar": "النسبة سالبة داخل الفترة بين الجذرين.",
+              "En": "The ratio is negative between the critical values."
+            }
+          },
+          {
+            "LatexCode": "(3,\\infty)",
+            "IsCorrect": false,
+            "ErrorType": "misconception-1",
+            "Reason": {
+              "Ar": "أُهملت حالة البسط والمقام السالبين معاً.",
+              "En": "Omitted the case where both numerator and denominator are negative."
+            }
+          },
+          {
+            "LatexCode": "(-\\infty,-1)\\cup(3,\\infty)",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "[-1,3]",
+            "IsCorrect": false,
+            "ErrorType": "misconception-3",
+            "Reason": {
+              "Ar": "أُدرج الصفر والقيمة غير المعرفة.",
+              "En": "Included zero and an undefined value."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "يشترط أن يكون مدخل اللوغاريتم موجباً تماماً.",
+            "En": "A logarithm requires a strictly positive argument."
+          },
+          {
+            "Ar": "افحص إشارة البسط والمقام في الفترات التي تحددها −1 و3.",
+            "En": "Check numerator and denominator signs in the intervals determined by −1 and 3."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "تكون النسبة موجبة إذا اتفقت إشارتا البسط والمقام.",
+            "En": "The ratio is positive when numerator and denominator have the same sign."
+          },
+          "FormulaLatex": "\\ln(u)\\in\\mathbb R\\iff u>0",
+          "Steps": [
+            {
+              "Ar": "نستبعد x = −1 وx = 3.",
+              "En": "Exclude x = −1 and x = 3."
+            },
+            {
+              "Ar": "كلا الحدين سالب عندما x < −1، وموجب عندما x > 3.",
+              "En": "Both terms are negative for x < −1 and positive for x > 3."
+            }
+          ],
+          "Substitution": {
+            "Ar": "x < −1 أو x > 3",
+            "En": "x < −1 or x > 3"
+          },
+          "Result": {
+            "Ar": "(-\\infty,-1)\\cup(3,\\infty)",
+            "En": "(-\\infty,-1)\\cup(3,\\infty)"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة",
+            "En": "unitless"
+          },
+          "Verification": {
+            "Ar": "عند x = −2 أو 4 تكون النسبة موجبة؛ عند x = 0 سالبة.",
+            "En": "At x = −2 or 4 the ratio is positive; at x = 0 it is negative."
+          },
+          "CommonError": {
+            "Ar": "لا تفرض إيجابية البسط والمقام كلّاً على حدة.",
+            "En": "Do not require numerator and denominator to be individually positive."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "g1-depth-03-ph-change",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "grade-12"
+      ],
+      "PrimarySkillKey": "logarithm-modeling",
+      "Check": {
+        "expected": "100"
+      },
+      "Content": {
+        "StageId": 3,
+        "CategoryId": 86,
+        "PrimarySkillId": 314,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "تغير تركيز أيونات الهيدروجين",
+          "En": "Hydrogen ion concentration change"
+        },
+        "Question": {
+          "Ar": "إذا كان $\\mathrm{pH}=-\\log_{10} H$ وانخفضت قيمة pH من 6 إلى 4، فما نسبة التركيز النهائي H إلى التركيز الأولي؟",
+          "En": "If $\\mathrm{pH}=-\\log_{10} H$ and pH decreases from 6 to 4, what is the ratio of final to initial H?"
+        },
+        "Options": [
+          {
+            "LatexCode": "0.01",
+            "IsCorrect": false,
+            "ErrorType": "misconception-0",
+            "Reason": {
+              "Ar": "عُكست نسبة التركيز النهائي إلى الأولي.",
+              "En": "Reversed the final-to-initial concentration ratio."
+            }
+          },
+          {
+            "LatexCode": "2",
+            "IsCorrect": false,
+            "ErrorType": "misconception-1",
+            "Reason": {
+              "Ar": "استُخدم فرق pH مباشرة دون الأس.",
+              "En": "Used the pH difference directly without exponentiation."
+            }
+          },
+          {
+            "LatexCode": "10",
+            "IsCorrect": false,
+            "ErrorType": "misconception-2",
+            "Reason": {
+              "Ar": "عامل تغير وحدة واحدة لا وحدتين.",
+              "En": "Used the factor for a change of one unit, not two."
+            }
+          },
+          {
+            "LatexCode": "100",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "اعزل H باستخدام الأساس 10.",
+            "En": "Isolate H using base 10."
+          },
+          {
+            "Ar": "عند قسمة قوتين لهما الأساس نفسه نطرح الأسين.",
+            "En": "Subtract exponents when dividing powers of the same base."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "المقياس اللوغاريتمي يحول الفرق إلى نسبة ضرب.",
+            "En": "A logarithmic scale converts differences into multiplicative ratios."
+          },
+          "FormulaLatex": "H=10^{-\\mathrm{pH}}",
+          "Steps": [
+            {
+              "Ar": "التركيز الأولي 10 أس −6 والنهائي 10 أس −4.",
+              "En": "Initial H is 10 to the −6; final H is 10 to the −4."
+            },
+            {
+              "Ar": "نقسم التركيز النهائي على الأولي.",
+              "En": "Divide final concentration by initial concentration."
+            }
+          ],
+          "Substitution": {
+            "Ar": "10^(−4) ÷ 10^(−6) = 10^2",
+            "En": "10^(−4) ÷ 10^(−6) = 10^2"
+          },
+          "Result": {
+            "Ar": "100",
+            "En": "100"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة",
+            "En": "unitless"
+          },
+          "Verification": {
+            "Ar": "التركيز يزداد عندما تنخفض pH؛ النسبة أكبر من 1.",
+            "En": "Concentration increases as pH decreases; the ratio exceeds 1."
+          },
+          "CommonError": {
+            "Ar": "انتبه إلى الإشارة السالبة في تعريف pH.",
+            "En": "Mind the negative sign in the pH definition."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "g1-depth-03-decay-interpret",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "grade-11"
+      ],
+      "PrimarySkillKey": "model-interpretation",
+      "Check": {
+        "expected": "43.75"
+      },
+      "Content": {
+        "StageId": 3,
+        "CategoryId": 86,
+        "PrimarySkillId": 316,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "تفسير تناقص كمية",
+          "En": "Interpret exponential decay"
+        },
+        "Question": {
+          "Ar": "تمثل $Q(t)=800(0.75)^t$ كمية بعد t سنوات. ما النسبة المئوية للكمية التي فُقدت بعد سنتين؟ أدخل النسبة المئوية عدداً دون إشارة %.",
+          "En": "The model $Q(t)=800(0.75)^t$ gives a quantity after t years. What percentage of the initial quantity is lost after two years? Enter the percentage as a number without the percent sign."
+        },
+        "Options": [
+          {
+            "LatexCode": "43.75",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "56.25",
+            "IsCorrect": false,
+            "ErrorType": "misconception-1",
+            "Reason": {
+              "Ar": "هذه النسبة المتبقية لا المفقودة.",
+              "En": "This is the remaining percentage, not the lost percentage."
+            }
+          },
+          {
+            "LatexCode": "50",
+            "IsCorrect": false,
+            "ErrorType": "misconception-2",
+            "Reason": {
+              "Ar": "جُمعت نسبتا الفقد السنويتان بدلاً من التركيب.",
+              "En": "Added the two annual loss rates instead of compounding."
+            }
+          },
+          {
+            "LatexCode": "25",
+            "IsCorrect": false,
+            "ErrorType": "misconception-3",
+            "Reason": {
+              "Ar": "هذا الفقد خلال سنة واحدة فقط.",
+              "En": "This is the loss over just one year."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "احسب نسبة الكمية المتبقية بعد سنتين.",
+            "En": "Calculate the fraction remaining after two years."
+          },
+          {
+            "Ar": "اطرح النسبة المتبقية من الواحد ثم اضرب بمئة.",
+            "En": "Subtract the remaining fraction from one and multiply by one hundred."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "التناقص الأسي يُطبق على الكمية المتبقية في كل فترة.",
+            "En": "Exponential decay acts on the remaining quantity each period."
+          },
+          "FormulaLatex": "L=100(1-r^t)",
+          "Steps": [
+            {
+              "Ar": "معامل البقاء في سنتين 0.75 × 0.75 = 0.5625.",
+              "En": "The two-year retention factor is 0.75 × 0.75 = 0.5625."
+            },
+            {
+              "Ar": "نسبة الفقد هي 1 − 0.5625.",
+              "En": "The lost fraction is 1 − 0.5625."
+            }
+          ],
+          "Substitution": {
+            "Ar": "100 × (1 − 0.5625) = 43.75",
+            "En": "100 × (1 − 0.5625) = 43.75"
+          },
+          "Result": {
+            "Ar": "43.75",
+            "En": "43.75"
+          },
+          "Unit": {
+            "Ar": "بالمئة",
+            "En": "percent"
+          },
+          "Verification": {
+            "Ar": "الكمية الباقية 450 من 800؛ المفقودة 350، أي 43.75%.",
+            "En": "450 of 800 remains; 350 is lost, or 43.75%."
+          },
+          "CommonError": {
+            "Ar": "لا تجمع معدلات الفقد المتتالية كما لو كانت ثابتة على الأصل.",
+            "En": "Do not add successive loss rates as if each applied to the original amount."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "g1-depth-03-hypothesis-decision",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "probability-statistics"
+      ],
+      "PrimarySkillKey": "hypothesis-testing",
+      "Check": {
+        "expected": "\\text{Fail to reject }H_0"
+      },
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 89,
+        "PrimarySkillId": 318,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "قرار الاختبار الإحصائي",
+          "En": "Statistical test decision"
+        },
+        "Question": {
+          "Ar": "في اختبار فرضية، القيمة الاحتمالية p تساوي 0.032 ومستوى الدلالة 0.01 محدد مسبقاً. أي قرار صحيح وفق قاعدة القيمة الاحتمالية؟",
+          "En": "In a hypothesis test, the p-value is 0.032 and the prespecified significance level is 0.01. Which decision is correct under the p-value rule?"
+        },
+        "Options": [
+          {
+            "LatexCode": "\\text{Reject }H_0",
+            "IsCorrect": false,
+            "ErrorType": "misconception-0",
+            "Reason": {
+              "Ar": "القيمة الاحتمالية أكبر من مستوى الدلالة المحدد.",
+              "En": "The p-value exceeds the specified significance level."
+            }
+          },
+          {
+            "LatexCode": "\\text{Accept }H_0\\text{ as proven}",
+            "IsCorrect": false,
+            "ErrorType": "misconception-1",
+            "Reason": {
+              "Ar": "عدم الرفض لا يثبت صحة الفرضية الصفرية.",
+              "En": "Failing to reject does not prove the null hypothesis."
+            }
+          },
+          {
+            "LatexCode": "\\text{Fail to reject }H_0",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "\\text{Change }\\alpha\\text{ to }0.05",
+            "IsCorrect": false,
+            "ErrorType": "misconception-3",
+            "Reason": {
+              "Ar": "لا يجوز تغيير مستوى الدلالة بعد رؤية النتيجة لتغيير القرار.",
+              "En": "Do not change the significance level after observing the result to alter the decision."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "قارن القيمة الاحتمالية بمستوى الدلالة المحدد مسبقاً.",
+            "En": "Compare the p-value to the prespecified significance level."
+          },
+          {
+            "Ar": "الرفض يتطلب قيمة احتمالية لا تتجاوز مستوى الدلالة.",
+            "En": "Rejection requires the p-value not to exceed the significance level."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "القرار يعتمد على المقارنة لا على إثبات صحة الفرضية.",
+            "En": "The decision depends on the comparison, not proof of the hypothesis."
+          },
+          "FormulaLatex": "p\\leq\\alpha\\Rightarrow\\text{reject }H_0",
+          "Steps": [
+            {
+              "Ar": "نقارن 0.032 مع 0.01.",
+              "En": "Compare 0.032 with 0.01."
+            },
+            {
+              "Ar": "0.032 أكبر من 0.01، فلا تتوافر دلالة وفق المستوى المحدد.",
+              "En": "0.032 exceeds 0.01, so significance is not established at that level."
+            }
+          ],
+          "Substitution": {
+            "Ar": "0.032 > 0.01",
+            "En": "0.032 > 0.01"
+          },
+          "Result": {
+            "Ar": "$\\text{لا نرفض }H_0$",
+            "En": "$\\text{Fail to reject }H_0$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة",
+            "En": "unitless"
+          },
+          "Verification": {
+            "Ar": "القرار لا يستلزم أن الفرضية الصفرية صحيحة.",
+            "En": "The decision does not establish that the null hypothesis is true."
+          },
+          "CommonError": {
+            "Ar": "لا تخلط عدم الرفض بإثبات الفرضية الصفرية.",
+            "En": "Do not confuse failure to reject with proving the null hypothesis."
+          }
+        }
+      }
+    }
+  ]
+}
