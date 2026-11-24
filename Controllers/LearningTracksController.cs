@@ -66,12 +66,15 @@ public sealed class LearningTracksController(AppDbContext db,LearningTrackServic
     {
         if(!tracks.Enabled)return Conflict(new{Message="TracksDisabled"});
         var uid=int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
+        await using var tx=await db.Database.BeginTransactionAsync(ct);
+        await db.Database.SqlQuery<int>($"SELECT 1 AS \"Value\" FROM pg_advisory_xact_lock({-987654320}, {uid})").SingleAsync(ct);
         var t=await tracks.VisibleTracks().SingleOrDefaultAsync(x=>x.Id==input.TrackId,ct);
         if(t is null)return NotFound();
         // Atomic stage + track selection; no progress is modified.
         var n=await db.Users.Where(x=>x.Id==uid&&x.IsActive&&x.Role=="Student")
             .ExecuteUpdateAsync(x=>x.SetProperty(u=>u.CurrentStageId,t.StageId).SetProperty(u=>u.CurrentTrackId,t.Id),ct);
         if(n!=1)return Unauthorized();
+        await tx.CommitAsync(ct);
         return Ok(new{Enabled=true,StageId=t.StageId,TrackId=t.Id});
     }
     [Authorize(Roles="Student")]
@@ -85,6 +88,8 @@ public sealed class LearningTracksController(AppDbContext db,LearningTrackServic
         var allowed=await access.GetAllowedCategoryIdsAsync(User,ct)??new List<int>();
         if(!allowed.Contains(categoryId))return StatusCode(403,new{Message="CategoryLocked"});
         var uid=int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
+        if(!await db.Users.AsNoTracking().AnyAsync(u=>u.Id==uid&&u.IsActive&&u.Role=="Student"&&u.CurrentStageId==t.StageId&&u.CurrentTrackId==id,ct))
+            return StatusCode(403,new{Message="CurrentTrackOnly"});
         var valid=tracks.ValidProblems(id).Where(p=>p.CategoryId==categoryId);
         var total=await valid.CountAsync(ct);
         if(total==0)return NotFound();

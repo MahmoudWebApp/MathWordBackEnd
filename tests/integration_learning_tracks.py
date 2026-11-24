@@ -45,6 +45,18 @@ def verify_tracks(admin, student, uid, stage1, stage2):
     assert journey["TrackId"]==tid and journey["TotalProblems"]==1
     expect("POST","/api/users/practice/reset",409,{"StageId":stage1},student)
     expect("GET","/api/users/learning-tracks/continue",403,token=student)
+    # Disposable fixture only: verify Premium's scoped resume, challenge and
+    # report do not return unrelated problems in the same stage.
+    sql(f"""UPDATE "Users" SET "SubscriptionType"='Premium',"PremiumExpiresAtUtc"=NULL WHERE "Id"={uid}""")
+    resume=expect("GET","/api/users/learning-tracks/continue",200,token=student)
+    assert resume["TrackId"]==tid and resume["Problem"]["Id"]==pid
+    challenge=expect("GET","/api/users/daily-challenge",200,token=student)
+    assert challenge["TrackId"]==tid and [p["Id"] for p in challenge["Problems"]]==[pid]
+    report=expect("GET",f"/api/users/premium-report?stageId={stage1}",200,token=student)
+    assert report["TrackId"]==tid and report["TotalProblems"]==1
+    historical=expect("GET",f"/api/users/journey?stageId={stage2}",200,token=student)
+    assert historical.get("TrackId") is None and historical["StageId"]==stage2
+    sql(f"""UPDATE "Users" SET "SubscriptionType"='Free' WHERE "Id"={uid}""")
     practice=f"/api/users/learning-tracks/{tid}/categories/{category}/problems"
     assert expect("GET",practice,200,token=student)["Items"][0]["Id"]==pid
     detail=expect("GET",f"/api/problems/{pid}",200,token=admin)
@@ -59,6 +71,7 @@ def verify_tracks(admin, student, uid, stage1, stage2):
     expect("PUT",f"{root}/{oid}/mapping",200,{"Revision":0,"CategoryIds":[category],"SkillIds":[skill],"ProblemIds":[pid]},admin)
     expect("PUT",f"{root}/{oid}/publication",200,{"Revision":1,"Publish":True},admin)
     expect("PUT","/api/users/learning-track",200,{"TrackId":oid},student)
+    expect("GET",practice,403,token=student)
     assert expect("GET",f"/api/users/learning-tracks/{oid}/progress",200,token=student)["Solved"]==1
     assert sql(f'SELECT COUNT(*) FROM "UserProgresses" WHERE "UserId"={uid} AND "ProblemId"={pid}')=="1"
     expect("PUT",f"{root}/{oid}/publication",200,{"Revision":2,"Publish":False},admin)

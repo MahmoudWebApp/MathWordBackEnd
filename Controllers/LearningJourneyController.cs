@@ -66,6 +66,8 @@ namespace MathWorldAPI.Controllers
             if (stage == null)
                 return NotFound(Error<LearningStageDto>("StageNotFound", 404));
 
+            await using var tx=await _context.Database.BeginTransactionAsync(cancellationToken);
+            await _context.Database.SqlQuery<int>($"SELECT 1 AS \"Value\" FROM pg_advisory_xact_lock({-987654320}, {UserId()})").SingleAsync(cancellationToken);
             var user = await _context.Users.FirstOrDefaultAsync(
                 u => u.Id == UserId() && u.Role == "Student" && u.IsActive, cancellationToken);
             if (user == null)
@@ -78,6 +80,7 @@ namespace MathWorldAPI.Controllers
                 await _context.SaveChangesAsync(cancellationToken);
             }
 
+            await tx.CommitAsync(cancellationToken);
             return Ok(Success(new LearningStageDto
             {
                 StageId = stage.Id,

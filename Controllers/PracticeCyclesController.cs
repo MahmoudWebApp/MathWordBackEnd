@@ -66,7 +66,10 @@ public sealed class PracticeCyclesController : ControllerBase
         // accidentally reset the whole stage (including other tracks).
         var tracks=HttpContext.RequestServices.GetRequiredService<LearningTrackService>();
         var latest=await _db.Users.AsNoTracking().SingleAsync(u=>u.Id==userId,ct);
-        if(tracks.Enabled && latest.CurrentTrackId.HasValue)
+        var latestStage=await LegacyLearningStage.EffectiveIdAsync(_db,latest.CurrentStageId,ct);
+        if(!latest.IsActive||latest.Role!="Student"||latestStage!=request.StageId)
+            return StatusCode(403,new{Message="CurrentStageOnly"});
+        if(await tracks.ActiveAsync(latest.CurrentStageId,latest.CurrentTrackId,ct) is not null)
             return Conflict(new { Message = "TrackPracticeCycleRequired" });
         var scope = _db.UserProgresses
             .Where(p => p.UserId == userId &&
