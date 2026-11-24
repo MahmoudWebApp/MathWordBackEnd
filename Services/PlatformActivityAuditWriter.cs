@@ -27,10 +27,10 @@ public sealed class PlatformActivityAuditWriter
             var role = await _db.Users.AsNoTracking()
                 .Where(u => u.Id == actorId)
                 .Select(u => u.Role).SingleOrDefaultAsync(ct);
-            if (role is not ("Admin" or "Student")) return;
+            if (!AccountRolePolicy.IsSupportedSessionRole(role)) return;
             _db.PlatformActivityEvents.Add(new PlatformActivityEvent
             {
-                ActorUserId = actorId, ActorRole = role, Action = action,
+                ActorUserId = actorId, ActorRole = role!, Action = action,
                 Resource = "Authentication", Origin = origin,
                 CreatedAtUtc = DateTime.UtcNow
             });

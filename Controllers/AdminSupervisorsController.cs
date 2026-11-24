@@ -35,6 +35,20 @@ public sealed class AdminSupervisorsController(AppDbContext db, IConfiguration c
                 x.StaffSetupPending, Permissions=x.StaffPermissions, Revision=x.TokenVersion,x.CreatedAt,x.LastLoginAt }).ToListAsync(ct) });
     }
 
+    [HttpGet("{id:int}/activity")]
+    public async Task<IActionResult> Activity(int id, [FromQuery] int page=1, CancellationToken ct=default)
+    {
+        if (page is < 1 or > 10000) return BadRequest();
+        if (!await db.Users.AsNoTracking().AnyAsync(x=>x.Id==id && x.Role==AccountRolePolicy.Supervisor,ct)) return NotFound();
+        var target=id.ToString();
+        var query=db.PlatformActivityEvents.AsNoTracking().Where(x=>
+            (x.ActorUserId==id && x.ActorRole==AccountRolePolicy.Supervisor) ||
+            (x.ActorRole==AccountRolePolicy.LegacyAdmin && x.Resource=="Supervisor" && x.ResourceId==target));
+        return Ok(new {Total=await query.CountAsync(ct),Items=await query.OrderByDescending(x=>x.CreatedAtUtc)
+            .ThenByDescending(x=>x.Id).Skip((page-1)*30).Take(30)
+            .Select(x=>new {x.Id,x.ActorRole,x.Action,x.Resource,x.CreatedAtUtc}).ToListAsync(ct)});
+    }
+
     private void Audit(int targetId, string action) => db.PlatformActivityEvents.Add(new PlatformActivityEvent
     {
         ActorUserId=AdminId, ActorRole=AccountRolePolicy.LegacyAdmin, Action=action, Resource="Supervisor",

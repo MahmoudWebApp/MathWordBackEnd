@@ -63,5 +63,8 @@ def main():
     status,result=login(EMAIL,PWD)
     assert status==401
     expect("GET",ROUTE,200,token=admin)
+    history=expect("GET",f"{ROUTE}/{sid}/activity",200,token=admin)
+    actions={x["Action"] for x in history["Items"]}
+    assert {"SupervisorCreated","SupervisorInvited","SupervisorInvitationAccepted","LoggedIn","SupervisorPermissionsChanged"}<=actions, actions
     print("PASS: managed staff invitation, password setup, supervisor endpoint boundary, permission revocation and disable")
 if __name__=="__main__": main()

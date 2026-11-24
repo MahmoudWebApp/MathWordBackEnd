@@ -1,10 +1,9 @@
 namespace MathWorldAPI.Services;
 
 /// <summary>
-/// Canonical role values for the existing authentication contract.
-/// R1 deliberately does not enable new administrative roles until
-/// persisted permissions, endpoint authorization and client compatibility
-/// can be released together.
+/// Canonical role values. Legacy Admin remains the super administrator.
+/// Supervisor has explicit bounded draft permissions and an independent
+/// deny-by-default endpoint boundary.
 /// </summary>
 public static class AccountRolePolicy
 {
