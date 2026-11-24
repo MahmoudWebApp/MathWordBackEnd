@@ -122,6 +122,7 @@ jobs:
         run: python3 tests/check_g1_full_answer_review_inventory.py
       - name: Validate 56 source-bound bilingual solution-only candidates
         run: python3 tests/check_g1_short_solution_candidates.py
+          python3 tests/check_g1_structured_amendments.py
       - name: Validate source-bound bilingual hint proposals
         run: python3 tests/check_g1_hint_candidates.py
       - name: Validate bilingual subjects, skill keys and historical problem mapping

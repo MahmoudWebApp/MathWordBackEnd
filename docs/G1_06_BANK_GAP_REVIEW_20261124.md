@@ -85,3 +85,6 @@ Nine additional draft candidates target the same nine underrepresented primary s
 
 ## Law-review hint expansion
 52 additional independently authored progressive bilingual hint pairs for source-matched short-solution candidates (both placement and law manifests agree on exact Arabic/English stems). The total is 80 pairs (160 hints). No final numerical answer is deliberately supplied. IDs 20, 649, 706 and 707 were withheld for unresolved option/skill/wording concerns. Existing taxonomy holds remain. Candidates are unpublished; no claim of UI rendering or full-bank hint coverage. The static contract checks each new source binding.
+
+## Structured amendment wave 01
+Sixteen individually authored wizard-ready content proposals based on the 56 law candidates and 80 hint pairs. Each has a bilingual mathematical idea, formula, ordered steps, substitution, result, unit, verification, common error and three option-specific explanations. All four option IDs, exact prompts, titles, points and source solutions are retained from a read-only production query. The proposed track code is not published or approved; preserve existing difficulty, tracks and secondary skills when creating the actual amendment. No draft import or student-visible change yet. CI validates the manifest against existing source files.

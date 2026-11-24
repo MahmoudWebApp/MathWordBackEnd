@@ -1,0 +1,1797 @@
+{
+  "Version": 1,
+  "Status": "NotImportedNotPublished",
+  "Notes": [
+    "Read-only source checked against actual production questions, original solutions and all four option IDs. Proposed track is not an approved mapping. Existing title, points, question and options must not change. Preserve existing secondary skills, tracks and difficulty from amendment draft; resolve proposed track only after review. No automatic publication. Reasons describe why choices fail, not claims about actual student misconceptions."
+  ],
+  "Items": [
+    {
+      "ProblemId": 6,
+      "ExpectedOptionIds": [
+        13,
+        14,
+        15,
+        16
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "لإيجاد قيمة $x$، نطرح 7 من طرفي المعادلة: $x = 15 - 7 = 8$.",
+        "En": "To find the value of $x$, we subtract 7 from both sides: $x = 15 - 7 = 8$."
+      },
+      "ProposedTrackCode": "grade-3",
+      "PrimarySkillKey": "primary-one-step-additive-equations",
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 2,
+        "PrimarySkillId": 7,
+        "Points": 10,
+        "Title": {
+          "Ar": "إذا كان $x + 7 = 15$، فما قيمة $x$؟",
+          "En": "If $x + 7 = 15$, what is the value of $x$?"
+        },
+        "Question": {
+          "Ar": "إذا كان $x + 7 = 15$، فما قيمة $x$؟",
+          "En": "If $x + 7 = 15$, what is the value of $x$?"
+        },
+        "Options": [
+          {
+            "LatexCode": "8",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "22",
+            "IsCorrect": false,
+            "ErrorType": "inverse-operation",
+            "Reason": {
+              "Ar": "جمع 15 و7 يعطي 22 ولا يحقق المعادلة.",
+              "En": "Adding 15 and 7 gives 22, which does not satisfy the equation."
+            }
+          },
+          {
+            "LatexCode": "7",
+            "IsCorrect": false,
+            "ErrorType": "substitution-error",
+            "Reason": {
+              "Ar": "العدد 7 هو الحد المضاف؛ تعويضه يعطي 14 لا 15.",
+              "En": "7 is the added term; substituting it gives 14, not 15."
+            }
+          },
+          {
+            "LatexCode": "9",
+            "IsCorrect": false,
+            "ErrorType": "arithmetic-error",
+            "Reason": {
+              "Ar": "تعويض 9 يعطي 16 وليس 15.",
+              "En": "Substituting 9 gives 16, not 15."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "ما العملية العكسية للجمع؟",
+            "En": "What operation reverses addition?"
+          },
+          {
+            "Ar": "اطرح العدد المضاف من طرفي المعادلة لتبقى متوازنة.",
+            "En": "Subtract the added number from both sides to keep the equation balanced."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "قاعدة توازن المعادلة: إذا كان $x+a=b$ فإن $x=b-a$.",
+            "En": "Equation balance rule: if $x+a=b$, then $x=b-a$."
+          },
+          "FormulaLatex": "x+a=b\\Rightarrow x=b-a",
+          "Steps": [
+            {
+              "Ar": "نطرح 7 من الطرفين لعزل المجهول.",
+              "En": "Subtract 7 from both sides to isolate the unknown."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$x=15-7$",
+            "En": "$x=15-7$"
+          },
+          "Result": {
+            "Ar": "$x=8$",
+            "En": "$x=8$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "$8+7=15$، إذن المعادلة محققة.",
+            "En": "$8+7=15$, so the equation holds."
+          },
+          "CommonError": {
+            "Ar": "جمع 7 بدلاً من طرحها يخل بتوازن المعادلة.",
+            "En": "Adding 7 instead of subtracting it does not isolate x."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 11,
+      "ExpectedOptionIds": [
+        33,
+        34,
+        35,
+        36
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "نرتب الأعداد تصاعدياً: $3, 4, 5, 7, 9$. الوسيط هو العدد الذي يتوسطها وهو $5$.",
+        "En": "Arrange the numbers in ascending order: $3, 4, 5, 7, 9$. The median is the middle number, which is $5$."
+      },
+      "ProposedTrackCode": "grade-5",
+      "PrimarySkillKey": "primary-median",
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 4,
+        "PrimarySkillId": 18,
+        "Points": 10,
+        "Title": {
+          "Ar": "أوجد الوسيط (Median) للأعداد التالية: $3, 7, 9, 5, 4$",
+          "En": "Find the median of the following numbers: $3, 7, 9, 5, 4$"
+        },
+        "Question": {
+          "Ar": "أوجد الوسيط (Median) للأعداد التالية: $3, 7, 9, 5, 4$",
+          "En": "Find the median of the following numbers: $3, 7, 9, 5, 4$"
+        },
+        "Options": [
+          {
+            "LatexCode": "5",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "7",
+            "IsCorrect": false,
+            "ErrorType": "position-error",
+            "Reason": {
+              "Ar": "7 في الموقع الرابع بعد الترتيب.",
+              "En": "7 is fourth after sorting."
+            }
+          },
+          {
+            "LatexCode": "4",
+            "IsCorrect": false,
+            "ErrorType": "position-error",
+            "Reason": {
+              "Ar": "4 في الموقع الثاني بعد الترتيب.",
+              "En": "4 is second after sorting."
+            }
+          },
+          {
+            "LatexCode": "9",
+            "IsCorrect": false,
+            "ErrorType": "unsorted-middle",
+            "Reason": {
+              "Ar": "9 هي القيمة الوسطى في الترتيب الأصلي فقط.",
+              "En": "9 is the middle value only in the original unsorted list."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "رتّب القيم تصاعدياً قبل اختيار الوسيط.",
+            "En": "Sort the values in ascending order before choosing the median."
+          },
+          {
+            "Ar": "عدّ القيم وحدّد موقع القيمة الوسطى دون جمع القيم.",
+            "En": "Count the values and locate the middle position without adding the values."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "تعريف الوسيط: بعد ترتيب $n$ من القيم، إذا كان عددها فردياً فالوسيط في الموقع $(n+1)/2$. هنا الموقع الثالث.",
+            "En": "Median rule: sort the $n$ observations. For odd $n$, use position $(n+1)/2$, here the third."
+          },
+          "FormulaLatex": "\\operatorname{Med}=x_{(n+1)/2}\\quad(n\\text{ odd})",
+          "Steps": [
+            {
+              "Ar": "رتّب الأعداد: 3، 4، 5، 7، 9.",
+              "En": "Sort the data: 3, 4, 5, 7, 9."
+            },
+            {
+              "Ar": "عددها 5؛ حدد موقع الوسط.",
+              "En": "There are five observations; locate the middle."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$(5+1)/2=3$",
+            "En": "$(5+1)/2=3$"
+          },
+          "Result": {
+            "Ar": "القيمة الثالثة 5.",
+            "En": "The third value is 5."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "يوجد عددان أصغر من 5 وعددان أكبر منها.",
+            "En": "Two values lie below 5 and two above it."
+          },
+          "CommonError": {
+            "Ar": "لا تختَر قيمة من القائمة قبل ترتيبها.",
+            "En": "Do not choose a position before sorting."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 12,
+      "ExpectedOptionIds": [
+        37,
+        38,
+        39,
+        40
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "عند ضرب الأساسات المتشابهة، نجمع الأسس: $2^3 \\times 2^4 = 2^{3+4} = 2^7 = 128$.",
+        "En": "When multiplying like bases, we add the exponents: $2^3 \\times 2^4 = 2^{3+4} = 2^7 = 128$."
+      },
+      "ProposedTrackCode": "grade-8",
+      "PrimarySkillKey": "middle-exponent-laws",
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 5,
+        "PrimarySkillId": 21,
+        "Points": 10,
+        "Title": {
+          "Ar": "بسّط التعبير: $2^3 \\times 2^4$",
+          "En": "Simplify the expression: $2^3 \\times 2^4$"
+        },
+        "Question": {
+          "Ar": "بسّط التعبير: $2^3 \\times 2^4$",
+          "En": "Simplify the expression: $2^3 \\times 2^4$"
+        },
+        "Options": [
+          {
+            "LatexCode": "2^7",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "2^{12}",
+            "IsCorrect": false,
+            "ErrorType": "multiply-exponents",
+            "Reason": {
+              "Ar": "2^12 ناتج ضرب الأسين بدلاً من جمعهما.",
+              "En": "2^12 multiplies the exponents instead of adding them."
+            }
+          },
+          {
+            "LatexCode": "4^7",
+            "IsCorrect": false,
+            "ErrorType": "changed-base",
+            "Reason": {
+              "Ar": "4^7 يغيّر الأساس مع أن الأساس المشترك 2.",
+              "En": "4^7 changes the common base from 2."
+            }
+          },
+          {
+            "LatexCode": "2^8",
+            "IsCorrect": false,
+            "ErrorType": "exponent-error",
+            "Reason": {
+              "Ar": "3+4 يساوي 7 وليس 8.",
+              "En": "3+4 is 7, not 8."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "لاحظ أن أساس القوتين واحد.",
+            "En": "Notice that both powers share a base."
+          },
+          {
+            "Ar": "عند ضرب قوتين بالأساس نفسه نجمع الأسين، ثم نحسب القوة.",
+            "En": "When multiplying powers with the same base, add the exponents and evaluate."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "قانون ضرب القوى ذات الأساس الموجب نفسه: $a^m a^n=a^{m+n}$ عندما $a>0$.",
+            "En": "Product-of-powers law for a positive common base: $a^m a^n=a^{m+n}$ for $a>0$."
+          },
+          "FormulaLatex": "a^m a^n=a^{m+n}\\quad(a>0)",
+          "Steps": [
+            {
+              "Ar": "الأساس مشترك ويساوي 2.",
+              "En": "Both powers have base 2."
+            },
+            {
+              "Ar": "اجمع الأسين وأبق الأساس.",
+              "En": "Add the exponents and keep the base."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$2^{3+4}$",
+            "En": "$2^{3+4}$"
+          },
+          "Result": {
+            "Ar": "$2^7=128$",
+            "En": "$2^7=128$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "$8\\times16=128$",
+            "En": "$8\\times16=128$"
+          },
+          "CommonError": {
+            "Ar": "نضرب الأسس عند رفع قوة لقوة، لا عند ضرب قوتين بالأساس نفسه.",
+            "En": "Multiply exponents for a power of a power, not for this product."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 14,
+      "ExpectedOptionIds": [
+        45,
+        46,
+        47,
+        48
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "نضيف 5 إلى طرفي المعادلة: $3x = 21$. ثم نقسم الطرفين على 3: $x = 7$.",
+        "En": "Add 5 to both sides: $3x = 21$. Then divide both sides by 3: $x = 7$."
+      },
+      "ProposedTrackCode": "grade-7",
+      "PrimarySkillKey": "middle-linear-equations",
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 6,
+        "PrimarySkillId": 25,
+        "Points": 10,
+        "Title": {
+          "Ar": "حل المعادلة: $3x - 5 = 16$",
+          "En": "Solve the equation: $3x - 5 = 16$"
+        },
+        "Question": {
+          "Ar": "حل المعادلة: $3x - 5 = 16$",
+          "En": "Solve the equation: $3x - 5 = 16$"
+        },
+        "Options": [
+          {
+            "LatexCode": "x = 7",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "x = 5",
+            "IsCorrect": false,
+            "ErrorType": "substitution-error",
+            "Reason": {
+              "Ar": "عند x=5 يصبح الطرف الأيسر 10.",
+              "En": "At x=5 the left side is 10."
+            }
+          },
+          {
+            "LatexCode": "x = 11",
+            "IsCorrect": false,
+            "ErrorType": "substitution-error",
+            "Reason": {
+              "Ar": "عند x=11 يصبح الطرف الأيسر 28.",
+              "En": "At x=11 the left side is 28."
+            }
+          },
+          {
+            "LatexCode": "x = 9",
+            "IsCorrect": false,
+            "ErrorType": "substitution-error",
+            "Reason": {
+              "Ar": "عند x=9 يصبح الطرف الأيسر 22.",
+              "En": "At x=9 the left side is 22."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "اعزل الحد الذي يحوي المجهول أولاً.",
+            "En": "Isolate the term containing the unknown first."
+          },
+          {
+            "Ar": "أضف خمسة للطرفين ثم اقسم كليهما على معامل المجهول.",
+            "En": "Add five to both sides, then divide both by the coefficient."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "قاعدة حل المعادلة الخطية: $ax+b=c$ يعطي $x=(c-b)/a$ إذا كان $a\\ne0$.",
+            "En": "Linear equation rule: $ax+b=c$ gives $x=(c-b)/a$ for $a\\ne0$."
+          },
+          "FormulaLatex": "ax+b=c\\Rightarrow x=\\frac{c-b}{a},\\quad a\\ne0",
+          "Steps": [
+            {
+              "Ar": "أضف 5 للطرفين.",
+              "En": "Add 5 to both sides."
+            },
+            {
+              "Ar": "اقسم الطرفين على 3.",
+              "En": "Divide both sides by 3."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$3x=21,\\quad x=21/3$",
+            "En": "$3x=21,\\quad x=21/3$"
+          },
+          "Result": {
+            "Ar": "$x=7$",
+            "En": "$x=7$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "$3(7)-5=16$",
+            "En": "$3(7)-5=16$"
+          },
+          "CommonError": {
+            "Ar": "لا تغيّر إشارة الحد دون إجراء العملية على الطرفين.",
+            "En": "Do not move a term without balancing both sides."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 15,
+      "ExpectedOptionIds": [
+        49,
+        50,
+        51,
+        52
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "نعوض $x = 4$ في الدالة: $f(4) = 2(4) + 3 = 8 + 3 = 11$.",
+        "En": "Substitute $x = 4$ into the function: $f(4) = 2(4) + 3 = 8 + 3 = 11$."
+      },
+      "ProposedTrackCode": "grade-8",
+      "PrimarySkillKey": "middle-linear-function-evaluation",
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 6,
+        "PrimarySkillId": 26,
+        "Points": 10,
+        "Title": {
+          "Ar": "إذا كانت $f(x) = 2x + 3$، فأوجد قيمة $f(4)$.",
+          "En": "If $f(x) = 2x + 3$, find the value of $f(4)$."
+        },
+        "Question": {
+          "Ar": "إذا كانت $f(x) = 2x + 3$، فأوجد قيمة $f(4)$.",
+          "En": "If $f(x) = 2x + 3$, find the value of $f(4)$."
+        },
+        "Options": [
+          {
+            "LatexCode": "11",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "10",
+            "IsCorrect": false,
+            "ErrorType": "arithmetic-error",
+            "Reason": {
+              "Ar": "10 لا يساوي 8+3.",
+              "En": "10 is not 8+3."
+            }
+          },
+          {
+            "LatexCode": "8",
+            "IsCorrect": false,
+            "ErrorType": "omitted-constant",
+            "Reason": {
+              "Ar": "8 هو حاصل الضرب فقط دون إضافة 3.",
+              "En": "8 is only the product, omitting 3."
+            }
+          },
+          {
+            "LatexCode": "13",
+            "IsCorrect": false,
+            "ErrorType": "arithmetic-error",
+            "Reason": {
+              "Ar": "13 لا يساوي 8+3.",
+              "En": "13 is not 8+3."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "ما القيمة التي يجب أن تحل محل المتغير؟",
+            "En": "What value should replace the variable?"
+          },
+          {
+            "Ar": "عوّض القيمة في الحد الخطي واحسب الضرب قبل الجمع.",
+            "En": "Substitute into the linear term and multiply before adding."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "قاعدة التعويض: في الدالة $f(x)=ax+b$ يكون $f(t)=at+b$.",
+            "En": "Substitution rule: for $f(x)=ax+b$, evaluate $f(t)=at+b$."
+          },
+          "FormulaLatex": "f(t)=at+b\\quad\\text{if }f(x)=ax+b",
+          "Steps": [
+            {
+              "Ar": "ضع 4 مكان x.",
+              "En": "Replace x with 4."
+            },
+            {
+              "Ar": "نفّذ الضرب قبل الجمع.",
+              "En": "Multiply before adding."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$f(4)=2(4)+3=8+3$",
+            "En": "$f(4)=2(4)+3=8+3$"
+          },
+          "Result": {
+            "Ar": "$11$",
+            "En": "$11$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "الحد الخطي 8 والثابت 3؛ المجموع 11.",
+            "En": "The linear term is 8 and the constant 3; their sum is 11."
+          },
+          "CommonError": {
+            "Ar": "لا تهمل الحد الثابت.",
+            "En": "Do not omit the constant term."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 43,
+      "ExpectedOptionIds": [
+        161,
+        162,
+        163,
+        164
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "عدد الأجزاء 2 + 3 = 5؛ قيمة الجزء 45 ÷ 5 = 9، وعدد التفاح 2 × 9 = 18.",
+        "En": "There are 5 equal parts; each is 45 / 5 = 9. Apples = 2 × 9 = 18."
+      },
+      "ProposedTrackCode": "grade-7",
+      "PrimarySkillKey": "middle-ratios",
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 7,
+        "PrimarySkillId": 30,
+        "Points": 10,
+        "Title": {
+          "Ar": "نسبة التفاح إلى البرتقال 2 إلى 3، ومجموع الثمار 45. كم تفاحة؟",
+          "En": "The ratio of apples to oranges is 2:3, and there are 45 fruits. How many apples?"
+        },
+        "Question": {
+          "Ar": "نسبة التفاح إلى البرتقال 2 إلى 3، ومجموع الثمار 45. كم تفاحة؟",
+          "En": "The ratio of apples to oranges is 2:3, and there are 45 fruits. How many apples?"
+        },
+        "Options": [
+          {
+            "LatexCode": "27",
+            "IsCorrect": false,
+            "ErrorType": "wrong-share",
+            "Reason": {
+              "Ar": "27 هو عدد البرتقال (ثلاث حصص).",
+              "En": "27 is the orange count (three shares)."
+            }
+          },
+          {
+            "LatexCode": "15",
+            "IsCorrect": false,
+            "ErrorType": "ratio-error",
+            "Reason": {
+              "Ar": "15 تفاحة تترك 30 برتقالة؛ النسبة 1:2.",
+              "En": "15 apples leave 30 oranges, a 1:2 ratio."
+            }
+          },
+          {
+            "LatexCode": "18",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "30",
+            "IsCorrect": false,
+            "ErrorType": "ratio-error",
+            "Reason": {
+              "Ar": "30 تفاحة تترك 15 برتقالة؛ النسبة 2:1.",
+              "En": "30 apples leave 15 oranges, a 2:1 ratio."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "اجمع جزأي النسبة لإيجاد عدد الحصص الكلي.",
+            "En": "Add the ratio parts to find the total number of shares."
+          },
+          {
+            "Ar": "اقسم عدد الثمار على مجموع الحصص ثم خذ حصة التفاح.",
+            "En": "Divide the fruit total by all shares, then take the apple share."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "قانون تقسيم كمية بنسبة $a:b$: الجزء الأول يساوي $Ta/(a+b)$ حيث $T$ المجموع و$a,b>0$.",
+            "En": "Ratio allocation formula: for total $T$ and positive shares $a,b$, the first share is $Ta/(a+b)$."
+          },
+          "FormulaLatex": "A=\\frac{Ta}{a+b},\\quad a,b>0",
+          "Steps": [
+            {
+              "Ar": "مجموع أجزاء النسبة 2+3=5.",
+              "En": "The ratio contains 2+3=5 shares."
+            },
+            {
+              "Ar": "اقسم 45 على 5 ثم خذ حصتين للتفاح.",
+              "En": "Divide 45 by 5, then take two shares for apples."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$45/5=9,\\quad2\\times9$",
+            "En": "$45/5=9,\\quad2\\times9$"
+          },
+          "Result": {
+            "Ar": "18 تفاحة",
+            "En": "18 apples"
+          },
+          "Unit": {
+            "Ar": "تفاحة",
+            "En": "apples"
+          },
+          "Verification": {
+            "Ar": "البرتقال 27؛ والمجموع 45 والنسبة 18:27 تساوي 2:3.",
+            "En": "Oranges total 27; the sum is 45 and 18:27 reduces to 2:3."
+          },
+          "CommonError": {
+            "Ar": "لا تخلط حصة التفاح بحصة البرتقال.",
+            "En": "Do not confuse the apple share with the orange share."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 420,
+      "ExpectedOptionIds": [
+        1669,
+        1670,
+        1671,
+        1672
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "نحوّل الربع إلى أثمان: $\\frac14=\\frac28$، ثم $\\frac28+\\frac38=\\frac58$.",
+        "En": "Convert quarters to eighths: $\\frac14=\\frac28$, then add to get $\\frac58$."
+      },
+      "ProposedTrackCode": "grade-5",
+      "PrimarySkillKey": "p-fractions-decimals-fraction-operations",
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 21,
+        "PrimarySkillId": 95,
+        "Points": 10,
+        "Title": {
+          "Ar": "جمع كسور مختلفة المقامات باستخدام مقام مشترك",
+          "En": "Add unlike fractions using a common denominator"
+        },
+        "Question": {
+          "Ar": "احسب $\\frac14+\\frac38$.",
+          "En": "Compute $\\frac14+\\frac38$."
+        },
+        "Options": [
+          {
+            "LatexCode": "\\frac4{12}",
+            "IsCorrect": false,
+            "ErrorType": "add-denominators",
+            "Reason": {
+              "Ar": "جمع البسطين والمقامين مباشرة يعطي 4/12 وهو غير صحيح.",
+              "En": "Adding numerators and denominators directly gives 4/12, which is invalid."
+            }
+          },
+          {
+            "LatexCode": "\\frac78",
+            "IsCorrect": false,
+            "ErrorType": "numerator-error",
+            "Reason": {
+              "Ar": "7/8 لا يساوي مجموع البسطين 2 و3 بعد توحيد المقام.",
+              "En": "7/8 does not use the sum of the converted numerators 2 and 3."
+            }
+          },
+          {
+            "LatexCode": "\\frac58",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "\\frac48",
+            "IsCorrect": false,
+            "ErrorType": "missing-conversion",
+            "Reason": {
+              "Ar": "4/8 يجمع 1 و3 دون تحويل الربع إلى 2/8.",
+              "En": "4/8 adds 1 and 3 without converting the quarter."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "هل المقامان متساويان؟",
+            "En": "Are the denominators equal?"
+          },
+          {
+            "Ar": "حوّل الكسر الأول إلى أثمان ثم اجمع البسطين.",
+            "En": "Convert the first fraction into eighths, then add the numerators."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "قانون جمع الكسور المتجانسة: $a/d+b/d=(a+b)/d$ عندما $d\\ne0$. نوحّد المقامات أولاً.",
+            "En": "Common-denominator rule: $a/d+b/d=(a+b)/d$ for $d\\ne0$. First use equal denominators."
+          },
+          "FormulaLatex": "\\frac{a}{d}+\\frac{b}{d}=\\frac{a+b}{d},\\quad d\\ne0",
+          "Steps": [
+            {
+              "Ar": "المقام المشترك 8؛ نحول الربع إلى أثمان.",
+              "En": "Use common denominator 8; convert the quarter into eighths."
+            },
+            {
+              "Ar": "نجمع البسطين ونبقي المقام.",
+              "En": "Add numerators, retaining the denominator."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$\\frac14=\\frac28$، ثم $\\frac28+\\frac38$",
+            "En": "$\\frac14=\\frac28$, then $\\frac28+\\frac38$"
+          },
+          "Result": {
+            "Ar": "$\\frac58$",
+            "En": "$\\frac58$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "$0.25+0.375=0.625=5/8$",
+            "En": "$0.25+0.375=0.625=5/8$"
+          },
+          "CommonError": {
+            "Ar": "لا نجمع المقامين عند جمع الكسور.",
+            "En": "Do not add denominators when adding fractions."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 421,
+      "ExpectedOptionIds": [
+        1673,
+        1674,
+        1675,
+        1676
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "نضرب البسط والمقام في 3: $\\frac{3\\times3}{4\\times3}=\\frac{9}{12}$.",
+        "En": "Multiply numerator and denominator by 3: $\\frac{3\\times3}{4\\times3}=\\frac{9}{12}$."
+      },
+      "ProposedTrackCode": "grade-4",
+      "PrimarySkillKey": "p-fractions-decimals-equivalence",
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 21,
+        "PrimarySkillId": 96,
+        "Points": 10,
+        "Title": {
+          "Ar": "إيجاد كسر مكافئ بمقام محدد",
+          "En": "Find an equivalent fraction with a specified denominator"
+        },
+        "Question": {
+          "Ar": "ما الكسر المكافئ لـ $\\frac{3}{4}$ عندما يكون المقام 12؟",
+          "En": "Which fraction is equivalent to $\\frac{3}{4}$ with denominator 12?"
+        },
+        "Options": [
+          {
+            "LatexCode": "\\frac{6}{12}",
+            "IsCorrect": false,
+            "ErrorType": "scale-mismatch",
+            "Reason": {
+              "Ar": "6/12 يساوي النصف، لا ثلاثة أرباع.",
+              "En": "6/12 equals one half, not three quarters."
+            }
+          },
+          {
+            "LatexCode": "\\frac{3}{12}",
+            "IsCorrect": false,
+            "ErrorType": "denominator-only",
+            "Reason": {
+              "Ar": "3/12 يغيّر المقام دون البسط.",
+              "En": "3/12 changes the denominator but not the numerator."
+            }
+          },
+          {
+            "LatexCode": "\\frac{12}{9}",
+            "IsCorrect": false,
+            "ErrorType": "inversion",
+            "Reason": {
+              "Ar": "12/9 مقامه ليس 12 وقيمته أكبر من واحد.",
+              "En": "12/9 has the wrong denominator and is greater than one."
+            }
+          },
+          {
+            "LatexCode": "\\frac{9}{12}",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "كيف يصبح المقام أربعة مساويًا لاثني عشر؟",
+            "En": "How can the denominator four become twelve?"
+          },
+          {
+            "Ar": "اضرب البسط والمقام بالمعامل نفسه.",
+            "En": "Multiply numerator and denominator by the same factor."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "خاصية الكسور المتكافئة: $a/b=ka/kb$ عندما $b,k\\ne0$. للحصول على المقام 12 نختار $k=12/4=3$.",
+            "En": "Equivalent fractions: $a/b=ka/kb$ for nonzero $b,k$. Choose $k=12/4=3$ to obtain denominator 12."
+          },
+          "FormulaLatex": "\\frac{a}{b}=\\frac{ka}{kb},\\quad b,k\\ne0",
+          "Steps": [
+            {
+              "Ar": "حدد معامل تغيير المقام: 12 ÷ 4.",
+              "En": "Find the denominator scale factor: 12 ÷ 4."
+            },
+            {
+              "Ar": "اضرب البسط والمقام بالمعامل نفسه.",
+              "En": "Multiply numerator and denominator by that factor."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$k=3,\\quad \\frac{3\\times3}{4\\times3}$",
+            "En": "$k=3,\\quad \\frac{3\\times3}{4\\times3}$"
+          },
+          "Result": {
+            "Ar": "$\\frac9{12}$",
+            "En": "$\\frac9{12}$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "$9\\times4=12\\times3=36$",
+            "En": "$9\\times4=12\\times3=36$"
+          },
+          "CommonError": {
+            "Ar": "تغيير المقام وحده يغيّر قيمة الكسر.",
+            "En": "Changing only the denominator changes the fraction."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 428,
+      "ExpectedOptionIds": [
+        1701,
+        1702,
+        1703,
+        1704
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "نضرب البسط والمقام في 5: $\\frac7{20}=\\frac{35}{100}=0.35$.",
+        "En": "Multiply top and bottom by 5: $\\frac7{20}=\\frac{35}{100}=0.35$."
+      },
+      "ProposedTrackCode": "grade-5",
+      "PrimarySkillKey": "p-fractions-decimals-decimal-place-value",
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 21,
+        "PrimarySkillId": 94,
+        "Points": 10,
+        "Title": {
+          "Ar": "تحويل كسر مقامه عشرون إلى عدد عشري",
+          "En": "Convert a fraction with denominator twenty to a decimal"
+        },
+        "Question": {
+          "Ar": "اكتب $\\frac7{20}$ على صورة عدد عشري.",
+          "En": "Write $\\frac7{20}$ as a decimal."
+        },
+        "Options": [
+          {
+            "LatexCode": "0.7",
+            "IsCorrect": false,
+            "ErrorType": "place-value",
+            "Reason": {
+              "Ar": "0.7 مضروباً في 20 يساوي 14 لا 7.",
+              "En": "0.7 times 20 equals 14, not 7."
+            }
+          },
+          {
+            "LatexCode": "0.14",
+            "IsCorrect": false,
+            "ErrorType": "conversion-error",
+            "Reason": {
+              "Ar": "0.14 مضروباً في 20 يساوي 2.8.",
+              "En": "0.14 times 20 equals 2.8."
+            }
+          },
+          {
+            "LatexCode": "0.035",
+            "IsCorrect": false,
+            "ErrorType": "place-value",
+            "Reason": {
+              "Ar": "0.035 يساوي 35 جزءاً من ألف، لا من مئة.",
+              "En": "0.035 is 35 thousandths, not hundredths."
+            }
+          },
+          {
+            "LatexCode": "0.35",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "حاول تحويل المقام إلى مئة.",
+            "En": "Try changing the denominator to one hundred."
+          },
+          {
+            "Ar": "وسّع الكسر بالمعامل نفسه ثم اقرأ البسط بوصفه أجزاء من مئة.",
+            "En": "Scale both parts equally, then read the numerator as hundredths."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "قاعدة التمثيل العشري: الكسر ذو المقام 100 يعبّر عن أجزاء من مئة؛ يمكن توسيع الكسر دون تغيير قيمته.",
+            "En": "Decimal place-value rule: a denominator of 100 represents hundredths. Scale both parts of the fraction equally."
+          },
+          "FormulaLatex": "\\frac{7}{20}=\\frac{7\\cdot5}{20\\cdot5}",
+          "Steps": [
+            {
+              "Ar": "وسّع المقام 20 إلى 100 بضربه في 5.",
+              "En": "Scale denominator 20 to 100 by multiplying by 5."
+            },
+            {
+              "Ar": "وسّع البسط بالعامل ذاته واقرأ أجزاء المئة.",
+              "En": "Scale the numerator by the same factor and read hundredths."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$7\\times5=35$، أي $35/100$.",
+            "En": "$7\\times5=35$, giving $35/100$."
+          },
+          "Result": {
+            "Ar": "$0.35$",
+            "En": "$0.35$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "$0.35\\times20=7$",
+            "En": "$0.35\\times20=7$"
+          },
+          "CommonError": {
+            "Ar": "انتبه إلى موضع الفاصلة العشرية.",
+            "En": "Keep track of the decimal point."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 473,
+      "ExpectedOptionIds": [
+        1881,
+        1882,
+        1883,
+        1884
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "$\\frac24=\\frac36=\\frac5{10}=\\frac12$، لكن $\\frac4{10}=0.4$ فلا يساوي النصف.",
+        "En": "$\\frac24=\\frac36=\\frac5{10}=\\frac12$, but $\\frac4{10}=0.4$, so it is not one half."
+      },
+      "ProposedTrackCode": "grade-4",
+      "PrimarySkillKey": "p-fractions-decimals-equivalence",
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 21,
+        "PrimarySkillId": 96,
+        "Points": 10,
+        "Title": {
+          "Ar": "تمييز الكسر غير المكافئ للنصف من مجموعة كسور",
+          "En": "Identify a fraction not equivalent to one half"
+        },
+        "Question": {
+          "Ar": "أي كسر من الكسور الآتية **لا** يساوي $\\frac12$؟",
+          "En": "Which of these fractions is **not** equal to $\\frac12$?"
+        },
+        "Options": [
+          {
+            "LatexCode": "\\frac24",
+            "IsCorrect": false,
+            "ErrorType": "negated-question",
+            "Reason": {
+              "Ar": "2/4 يساوي النصف تماماً.",
+              "En": "2/4 is exactly one half."
+            }
+          },
+          {
+            "LatexCode": "\\frac4{10}",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "\\frac36",
+            "IsCorrect": false,
+            "ErrorType": "negated-question",
+            "Reason": {
+              "Ar": "3/6 يساوي النصف تماماً.",
+              "En": "3/6 is exactly one half."
+            }
+          },
+          {
+            "LatexCode": "\\frac5{10}",
+            "IsCorrect": false,
+            "ErrorType": "negated-question",
+            "Reason": {
+              "Ar": "5/10 يساوي النصف تماماً.",
+              "En": "5/10 is exactly one half."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "ابحث عن الكسر المختلف، لا الكسور المتكافئة.",
+            "En": "Look for the different fraction, not the equivalent ones."
+          },
+          {
+            "Ar": "قارن ضعف بسط كل خيار بمقامه.",
+            "En": "Compare twice each option's numerator with its denominator."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "قاعدة التكافؤ: $a/b=1/2$ إذا وفقط إذا $2a=b$ عندما $b\\ne0$.",
+            "En": "Equivalence rule: $a/b=1/2$ exactly when $2a=b$, for nonzero $b$."
+          },
+          "FormulaLatex": "\\frac{a}{b}=\\frac12\\Leftrightarrow 2a=b,\\quad b\\ne0",
+          "Steps": [
+            {
+              "Ar": "اختبر كل كسر بمضاعفة بسطه ومقارنته بمقامه.",
+              "En": "Test each fraction by doubling its numerator and comparing with its denominator."
+            },
+            {
+              "Ar": "اختر الكسر الذي لا يحقق المساواة.",
+              "En": "Select the fraction that fails the equality."
+            }
+          ],
+          "Substitution": {
+            "Ar": "2×2=4، 2×3=6، 2×5=10، لكن 2×4=8 وليس 10.",
+            "En": "2×2=4, 2×3=6, 2×5=10, but 2×4=8, not 10."
+          },
+          "Result": {
+            "Ar": "$\\frac4{10}$",
+            "En": "$\\frac4{10}$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "$4/10=0.4$ وليس $0.5$.",
+            "En": "$4/10=0.4$, not $0.5$."
+          },
+          "CommonError": {
+            "Ar": "اقرأ كلمة لا: المطلوب غير المكافئ.",
+            "En": "Read NOT: choose the non-equivalent fraction."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 478,
+      "ExpectedOptionIds": [
+        1901,
+        1902,
+        1903,
+        1904
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "نرتبها: 2، 4، 5، 7، 9، 12. الوسيط متوسط القيمتين الثالثة والرابعة: $(5+7)/2=6$.",
+        "En": "Sort: 2, 4, 5, 7, 9, 12. The middle two values are 5 and 7, so the median is $(5+7)/2=6$."
+      },
+      "ProposedTrackCode": "grade-7",
+      "PrimarySkillKey": "m-statistics-summary-measures",
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 22,
+        "PrimarySkillId": 99,
+        "Points": 10,
+        "Title": {
+          "Ar": "حساب الوسيط لقيم غير مرتبة بعدد زوجي",
+          "En": "Find the median of an even-sized unsorted set"
+        },
+        "Question": {
+          "Ar": "احسب وسيط القيم: 2، 9، 4، 12، 7، 5.",
+          "En": "Find the median of the values 2, 9, 4, 12, 7, 5."
+        },
+        "Options": [
+          {
+            "LatexCode": "5",
+            "IsCorrect": false,
+            "ErrorType": "lower-middle",
+            "Reason": {
+              "Ar": "5 هي القيمة الوسطى السفلى فقط.",
+              "En": "5 is only the lower middle observation."
+            }
+          },
+          {
+            "LatexCode": "6",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "7",
+            "IsCorrect": false,
+            "ErrorType": "upper-middle",
+            "Reason": {
+              "Ar": "7 هي القيمة الوسطى العليا فقط.",
+              "En": "7 is only the upper middle observation."
+            }
+          },
+          {
+            "LatexCode": "9",
+            "IsCorrect": false,
+            "ErrorType": "position-error",
+            "Reason": {
+              "Ar": "9 في الموقع الخامس بعد الترتيب.",
+              "En": "9 is fifth in the sorted list."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "رتّب البيانات من الأصغر إلى الأكبر.",
+            "En": "Sort the data from smallest to largest."
+          },
+          {
+            "Ar": "عدد القيم زوجي؛ احسب متوسط القيمتين في المنتصف.",
+            "En": "There are an even number of values; average the two middle ones."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "تعريف الوسيط لعدد زوجي من القيم المرتبة: متوسط القيمتين في الموقعين $n/2$ و$n/2+1$.",
+            "En": "Median rule for even-sized sorted data: average the values at positions $n/2$ and $n/2+1$."
+          },
+          "FormulaLatex": "\\operatorname{Med}=\\frac{x_{n/2}+x_{n/2+1}}{2}\\quad(n\\text{ even})",
+          "Steps": [
+            {
+              "Ar": "رتب: 2، 4، 5، 7، 9، 12.",
+              "En": "Sort: 2, 4, 5, 7, 9, 12."
+            },
+            {
+              "Ar": "حدد القيمتين في الموقعين الثالث والرابع.",
+              "En": "Locate the third and fourth values."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$(5+7)/2$",
+            "En": "$(5+7)/2$"
+          },
+          "Result": {
+            "Ar": "$6$",
+            "En": "$6$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "6 يقع في منتصف 5 و7 وله ثلاث قيم أدنى وثلاث أعلى.",
+            "En": "6 is midway between 5 and 7, with three values below and three above."
+          },
+          "CommonError": {
+            "Ar": "لا تختر واحدة من القيمتين الوسطيتين فقط.",
+            "En": "Do not choose just one of the two middle values."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 503,
+      "ExpectedOptionIds": [
+        2001,
+        2002,
+        2003,
+        2004
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "بالضرب التبادلي: $5\\times9=45$ و$7\\times6=42$، لذا $\\frac56>\\frac79$.",
+        "En": "Cross-multiply: $5\\times9=45$ and $7\\times6=42$. Since $45>42$, we have $\\frac56>\\frac79$."
+      },
+      "ProposedTrackCode": "grade-5",
+      "PrimarySkillKey": "p-fractions-decimals-fraction-comparisons",
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 21,
+        "PrimarySkillId": 112,
+        "Points": 10,
+        "Title": {
+          "Ar": "مقارنة كسرين باستخدام الضرب التبادلي",
+          "En": "Compare fractions by cross-multiplication"
+        },
+        "Question": {
+          "Ar": "أي مقارنة صحيحة بين $\\frac56$ و$\\frac79$؟",
+          "En": "Which comparison between $\\frac56$ and $\\frac79$ is correct?"
+        },
+        "Options": [
+          {
+            "LatexCode": "\\frac56<\\frac79",
+            "IsCorrect": false,
+            "ErrorType": "reversed-comparison",
+            "Reason": {
+              "Ar": "45 أكبر من 42 وليس أصغر.",
+              "En": "45 exceeds 42, rather than being less."
+            }
+          },
+          {
+            "LatexCode": "\\frac56>\\frac79",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "\\frac56=\\frac79",
+            "IsCorrect": false,
+            "ErrorType": "false-equivalence",
+            "Reason": {
+              "Ar": "45 و42 مختلفان، فلا تساوي.",
+              "En": "45 and 42 differ, so equality is false."
+            }
+          },
+          {
+            "LatexCode": "\\frac56=\\frac69",
+            "IsCorrect": false,
+            "ErrorType": "false-equivalence",
+            "Reason": {
+              "Ar": "5/6 يساوي 15/18 بينما 6/9 يساوي 12/18.",
+              "En": "5/6 is 15/18 while 6/9 is 12/18."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "يمكن المقارنة دون تحويل إلى عدد عشري.",
+            "En": "You can compare without converting to decimals."
+          },
+          {
+            "Ar": "اضرب بسط كل كسر في مقام الكسر الآخر وقارن الناتجين.",
+            "En": "Cross-multiply the numerators and denominators, then compare the products."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "قاعدة مقارنة الكسور ذات المقامات الموجبة: $a/b>c/d$ إذا وفقط إذا $ad>bc$.",
+            "En": "Fraction comparison rule for positive denominators: $a/b>c/d$ exactly when $ad>bc$."
+          },
+          "FormulaLatex": "\\frac{a}{b}>\\frac{c}{d}\\Leftrightarrow ad>bc,\\quad b,d>0",
+          "Steps": [
+            {
+              "Ar": "المقامات موجبة؛ استخدم الضرب التبادلي.",
+              "En": "The denominators are positive; cross-multiply."
+            },
+            {
+              "Ar": "قارن الناتجين بالترتيب نفسه.",
+              "En": "Compare the products in the same order."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$5\\times9=45,\\quad7\\times6=42$",
+            "En": "$5\\times9=45,\\quad7\\times6=42$"
+          },
+          "Result": {
+            "Ar": "$\\frac56>\\frac79$",
+            "En": "$\\frac56>\\frac79$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "$5/6=15/18$ و$7/9=14/18$.",
+            "En": "$5/6=15/18$ and $7/9=14/18$."
+          },
+          "CommonError": {
+            "Ar": "لا تقارن البسطين وحدهما عند اختلاف المقامات.",
+            "En": "Do not compare numerators alone when denominators differ."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 821,
+      "ExpectedOptionIds": [
+        3273,
+        3274,
+        3275,
+        3276
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "8 + 0.3 + 0.06 = 8.36؛ رقم الأعشار 3 ورقم الأجزاء من مئة 6.",
+        "En": "8 + 0.3 + 0.06 = 8.36; 3 is in the tenths place and 6 in the hundredths place."
+      },
+      "ProposedTrackCode": "grade-5",
+      "PrimarySkillKey": "p-fractions-decimals-decimal-place-value",
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 21,
+        "PrimarySkillId": 94,
+        "Points": 10,
+        "Title": {
+          "Ar": "قراءة العدد العشري من مجموع القيم المكانية",
+          "En": "Compose a decimal from expanded place values"
+        },
+        "Question": {
+          "Ar": "أي عدد عشري يساوي 8 وحدات و3 أعشار و6 أجزاء من مئة؟",
+          "En": "Which decimal represents 8 ones, 3 tenths, and 6 hundredths?"
+        },
+        "Options": [
+          {
+            "LatexCode": "8.36",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "8.63",
+            "IsCorrect": false,
+            "ErrorType": "swapped-digits",
+            "Reason": {
+              "Ar": "8.63 يضع 6 في الأعشار و3 في أجزاء المئة.",
+              "En": "8.63 places 6 in tenths and 3 in hundredths."
+            }
+          },
+          {
+            "LatexCode": "8.306",
+            "IsCorrect": false,
+            "ErrorType": "place-value",
+            "Reason": {
+              "Ar": "8.306 يضع 6 في أجزاء الألف.",
+              "En": "8.306 places 6 in thousandths."
+            }
+          },
+          {
+            "LatexCode": "83.6",
+            "IsCorrect": false,
+            "ErrorType": "decimal-shift",
+            "Reason": {
+              "Ar": "83.6 يغيّر قيمة الآحاد والأعشار.",
+              "En": "83.6 changes the whole-number and decimal positions."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "حدّد موقع الآحاد والأعشار وأجزاء المئة.",
+            "En": "Identify the ones, tenths and hundredths positions."
+          },
+          {
+            "Ar": "ضع الآحاد يسار الفاصلة ثم الأعشار وأجزاء المئة بالترتيب.",
+            "En": "Place the ones left of the decimal point, followed by the tenths and hundredths."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "قانون القيمة المكانية: $N=u+t/10+h/100$ حيث $u$ الآحاد و$t$ الأعشار و$h$ أجزاء المئة.",
+            "En": "Place-value formula: $N=u+t/10+h/100$, where $u$ is ones, $t$ tenths and $h$ hundredths."
+          },
+          "FormulaLatex": "N=u+\\frac{t}{10}+\\frac{h}{100}",
+          "Steps": [
+            {
+              "Ar": "ضع 8 في خانة الآحاد.",
+              "En": "Place 8 in the ones position."
+            },
+            {
+              "Ar": "ضع 3 في الأعشار و6 في أجزاء المئة.",
+              "En": "Place 3 in the tenths and 6 in the hundredths."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$8+0.3+0.06$",
+            "En": "$8+0.3+0.06$"
+          },
+          "Result": {
+            "Ar": "$8.36$",
+            "En": "$8.36$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "الخانات إلى يمين الفاصلة هي 3 ثم 6.",
+            "En": "The digits immediately to the right of the point are 3 then 6."
+          },
+          "CommonError": {
+            "Ar": "لا تبدّل خانتي الأعشار وأجزاء المئة.",
+            "En": "Do not swap the tenths and hundredths."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 855,
+      "ExpectedOptionIds": [
+        3413,
+        3414,
+        3415,
+        3416
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "معامل التشابه = 30÷18 = 5/3؛ الضلع الأكبر = 6×5/3 = 10 سم.",
+        "En": "The scale factor is 30/18 = 5/3, so the corresponding side is 6×5/3 = 10 cm."
+      },
+      "ProposedTrackCode": "grade-9",
+      "PrimarySkillKey": "middle-similar-triangles",
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 34,
+        "PrimarySkillId": 40,
+        "Points": 10,
+        "Title": {
+          "Ar": "استعمال نسبة محيطي مثلثين متشابهين لإيجاد ضلع",
+          "En": "Use similar-triangle perimeter ratios to find a side"
+        },
+        "Question": {
+          "Ar": "محيطا مثلثين متشابهين 18 سم و30 سم. إذا كان ضلع في المثلث الأصغر 6 سم، فكم طول نظيره في الأكبر؟",
+          "En": "Two similar triangles have perimeters 18 and 30 cm. If a side of the smaller is 6 cm, what is the corresponding side of the larger?"
+        },
+        "Options": [
+          {
+            "LatexCode": "8",
+            "IsCorrect": false,
+            "ErrorType": "scale-error",
+            "Reason": {
+              "Ar": "8/6 لا يساوي 30/18.",
+              "En": "8/6 does not equal 30/18."
+            }
+          },
+          {
+            "LatexCode": "9",
+            "IsCorrect": false,
+            "ErrorType": "scale-error",
+            "Reason": {
+              "Ar": "9/6 لا يساوي 30/18.",
+              "En": "9/6 does not equal 30/18."
+            }
+          },
+          {
+            "LatexCode": "10",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "12",
+            "IsCorrect": false,
+            "ErrorType": "scale-error",
+            "Reason": {
+              "Ar": "12/6 يساوي 2، وليس 5/3.",
+              "En": "12/6 is 2, not 5/3."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "نسبة المحيطين في المثلثين المتشابهين تساوي نسبة الأضلاع المتناظرة.",
+            "En": "The perimeter ratio equals the corresponding side ratio in similar triangles."
+          },
+          {
+            "Ar": "استخرج معامل التكبير من المحيطين واضرب به طول الضلع المعطى.",
+            "En": "Find the scale factor from the perimeters and multiply the given side by it."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "خاصية التشابه: نسبة المحيطين تساوي نسبة الأضلاع المتناظرة، $k=P_2/P_1=l_2/l_1$. المطلوب طول الضلع المناظر في المثلث الأكبر، وليس بالضرورة أطول أضلاعه.",
+            "En": "Similarity rule: the perimeter ratio equals the ratio of corresponding sides, $k=P_2/P_1=l_2/l_1$. We seek the corresponding side of the larger triangle, not necessarily its longest side."
+          },
+          "FormulaLatex": "k=\\frac{P_2}{P_1}=\\frac{l_2}{l_1}",
+          "Steps": [
+            {
+              "Ar": "استخرج معامل التشابه من نسبة المحيطين.",
+              "En": "Find the similarity factor from the perimeters."
+            },
+            {
+              "Ar": "اضرب الضلع المناظر الأصغر بالمعامل.",
+              "En": "Multiply the smaller corresponding side by that factor."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$k=30/18=5/3,\\quad l_2=6(5/3)$",
+            "En": "$k=30/18=5/3,\\quad l_2=6(5/3)$"
+          },
+          "Result": {
+            "Ar": "$10$",
+            "En": "$10$"
+          },
+          "Unit": {
+            "Ar": "سم",
+            "En": "cm"
+          },
+          "Verification": {
+            "Ar": "$10/6=30/18=5/3$",
+            "En": "$10/6=30/18=5/3$"
+          },
+          "CommonError": {
+            "Ar": "نسبة المحيطين هي المعامل الخطي وليست نسبة المساحتين.",
+            "En": "The perimeter ratio is a linear scale, not an area ratio."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 856,
+      "ExpectedOptionIds": [
+        3417,
+        3418,
+        3419,
+        3420
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "المساحة تتغير بمربع معامل الطول؛ 3²=9، فتصير تسعة أضعاف.",
+        "En": "Area scales by the square of the length factor: 3² = 9."
+      },
+      "ProposedTrackCode": "grade-9",
+      "PrimarySkillKey": "middle-similar-triangles",
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 34,
+        "PrimarySkillId": 40,
+        "Points": 10,
+        "Title": {
+          "Ar": "تمييز نسبة المساحات عن نسبة الأطوال في التشابه",
+          "En": "Distinguish area scale from length scale"
+        },
+        "Question": {
+          "Ar": "ضُربت جميع أطوال مثلث في 3 لتكوين مثلث مشابه. كم مرة تصبح مساحته؟",
+          "En": "All side lengths of a triangle are multiplied by 3 to make a similar triangle. By what factor does its area change?"
+        },
+        "Options": [
+          {
+            "LatexCode": "3",
+            "IsCorrect": false,
+            "ErrorType": "linear-scale",
+            "Reason": {
+              "Ar": "3 هو معامل الأطوال فقط.",
+              "En": "3 is only the linear scale factor."
+            }
+          },
+          {
+            "LatexCode": "6",
+            "IsCorrect": false,
+            "ErrorType": "double-not-square",
+            "Reason": {
+              "Ar": "6 ينتج عن مضاعفة 3 لا تربيعه.",
+              "En": "6 doubles 3 rather than squaring it."
+            }
+          },
+          {
+            "LatexCode": "9",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "12",
+            "IsCorrect": false,
+            "ErrorType": "scale-error",
+            "Reason": {
+              "Ar": "12 لا يساوي مربع 3.",
+              "En": "12 is not the square of 3."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "فكّر في تأثير التكبير على القاعدة والارتفاع معاً.",
+            "En": "Think about how scaling affects both base and height."
+          },
+          {
+            "Ar": "يتكرر معامل الطول مرتين في قانون المساحة.",
+            "En": "The length scale factor occurs twice in the area formula."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "قانون التشابه للمساحات: إذا ضُربت الأطوال في معامل $k>0$ فإن $A_2=k^2 A_1$.",
+            "En": "Area scaling law: multiplying all lengths by $k>0$ gives $A_2=k^2 A_1$."
+          },
+          "FormulaLatex": "A_2=k^2 A_1\\quad(k>0)",
+          "Steps": [
+            {
+              "Ar": "كل من القاعدة والارتفاع يُضرب في 3.",
+              "En": "Both base and height scale by 3."
+            },
+            {
+              "Ar": "اضرب معاملي الطول في قانون المساحة.",
+              "En": "Multiply the two scale factors in the area formula."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$A_2/A_1=3\\times3$",
+            "En": "$A_2/A_1=3\\times3$"
+          },
+          "Result": {
+            "Ar": "9 أضعاف",
+            "En": "9 times"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "مساحة المثلث نصف حاصل ضرب القاعدة والارتفاع؛ لذلك يظهر المعامل مرتين.",
+            "En": "Triangle area is half the base-height product, so the scale appears twice."
+          },
+          "CommonError": {
+            "Ar": "معامل المساحة مربع معامل الأطوال.",
+            "En": "The area scale is the square of the length scale."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 858,
+      "ExpectedOptionIds": [
+        3425,
+        3426,
+        3427,
+        3428
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "لأن 8²+15² = 64+225 =289 =17²، فالمثلث قائم الزاوية وفق عكس فيثاغورس.",
+        "En": "Since 8²+15² = 289 = 17², the triangle is right-angled by the converse of Pythagoras."
+      },
+      "ProposedTrackCode": "grade-9",
+      "PrimarySkillKey": "middle-pythagorean-theorem",
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 34,
+        "PrimarySkillId": 37,
+        "Points": 10,
+        "Title": {
+          "Ar": "التحقق من كون مثلث قائم الزاوية باستخدام عكس فيثاغورس",
+          "En": "Use the converse of Pythagoras to classify a triangle"
+        },
+        "Question": {
+          "Ar": "مثلث أطوال أضلاعه 8 سم و15 سم و17 سم. ما نوعه وفق الزوايا؟",
+          "En": "A triangle has side lengths 8, 15, and 17 cm. How is it classified by its angles?"
+        },
+        "Options": [
+          {
+            "LatexCode": "\\text{مثلث قائم (Right triangle)}",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "\\text{مثلث حاد (Acute triangle)}",
+            "IsCorrect": false,
+            "ErrorType": "angle-classification",
+            "Reason": {
+              "Ar": "المثلث الحاد يتطلب أن يكون مربع الأطول أصغر من مجموع المربعين.",
+              "En": "An acute triangle requires the longest square to be less than the sum."
+            }
+          },
+          {
+            "LatexCode": "\\text{مثلث منفرج (Obtuse triangle)}",
+            "IsCorrect": false,
+            "ErrorType": "angle-classification",
+            "Reason": {
+              "Ar": "المنفرج يتطلب أن يكون مربع الأطول أكبر من مجموع المربعين.",
+              "En": "An obtuse triangle requires the longest square to exceed the sum."
+            }
+          },
+          {
+            "LatexCode": "\\text{ليس مثلثاً (Not a triangle)}",
+            "IsCorrect": false,
+            "ErrorType": "triangle-inequality",
+            "Reason": {
+              "Ar": "8+15=23>17، لذا الأضلاع تكوّن مثلثاً.",
+              "En": "8+15=23>17, so the sides form a triangle."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "حدّد أطول ضلع أولاً.",
+            "En": "Identify the longest side first."
+          },
+          {
+            "Ar": "قارن مربع أطول ضلع بمجموع مربعي الضلعين الآخرين باستخدام عكس فيثاغورس.",
+            "En": "Compare the longest side squared with the sum of the other two squares."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "عكس نظرية فيثاغورس: إذا كان أكبر ضلع $c$ وحقق $a^2+b^2=c^2$ فإن المثلث قائم.",
+            "En": "Converse of Pythagoras: if the longest side $c$ satisfies $a^2+b^2=c^2$, the triangle is right-angled."
+          },
+          "FormulaLatex": "a^2+b^2=c^2\\Rightarrow\\text{right triangle}",
+          "Steps": [
+            {
+              "Ar": "تحقق أولاً أن 8+15>17؛ ثم اختر 17 كأطول ضلع.",
+              "En": "First check 8+15>17, then take 17 as the longest side."
+            },
+            {
+              "Ar": "قارن مجموع مربعي الضلعين الأصغر بمربع الأطول.",
+              "En": "Compare the sum of the shorter sides' squares with the longest side squared."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$8^2+15^2=64+225=289=17^2$",
+            "En": "$8^2+15^2=64+225=289=17^2$"
+          },
+          "Result": {
+            "Ar": "مثلث قائم الزاوية.",
+            "En": "Right triangle."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "تتحقق مساواة عكس فيثاغورس تماماً.",
+            "En": "The converse Pythagorean equality holds exactly."
+          },
+          "CommonError": {
+            "Ar": "استخدم مربع أطول ضلع لا أي ضلع تختاره.",
+            "En": "Use the longest side squared, not an arbitrary side."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    }
+  ]
+}
