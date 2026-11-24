@@ -105,6 +105,8 @@ def main():
         "Password": "CI_TEST_ADMIN_PASSWORD_12345"
     })
     admin_token = admin_login["Token"]
+    from integration_learning_tracks import verify_tracks
+    verify_tracks(admin_token, token, registered["Id"], stage1, stage2)
 
     # Real guided-flow regression against the disposable PostgreSQL API:
     # a wrong first answer must count as completed in today's challenge,

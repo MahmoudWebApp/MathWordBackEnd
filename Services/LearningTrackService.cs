@@ -1,0 +1,69 @@
+using MathWorldAPI.Data;
+using MathWorldAPI.Models;
+using Microsoft.EntityFrameworkCore;
+
+namespace MathWorldAPI.Services;
+
+public sealed record TrackCoverage(int Categories,int Skills,int Problems,int FreeProblems);
+public sealed record TrackMapping(int[] CategoryIds,int[] SkillIds,int[] ProblemIds);
+
+public sealed class LearningTrackService(AppDbContext db, IConfiguration config, ProblemCategoryAccessService access)
+{
+    public bool Enabled => config.GetValue<bool>("LearningTracks:Enabled");
+
+    // Recheck original stage/category and published primary skill every time.
+    // Old content changes cannot make an invalid mapping visible to students.
+    public IQueryable<MathProblem> ValidProblems(int trackId) =>
+        from link in db.LearningTrackProblems.AsNoTracking()
+        join track in db.LearningTracks on link.TrackId equals track.Id
+        join problem in db.Problems on link.ProblemId equals problem.Id
+        where track.Id == trackId && problem.StageId == track.StageId &&
+            problem.Category.StageId == track.StageId &&
+            db.LearningTrackCategories.Any(c => c.TrackId == track.Id && c.CategoryId == problem.CategoryId) &&
+            db.CurriculumProblemSkills.Any(ps => ps.ProblemId == problem.Id && ps.IsPrimary &&
+                ps.Skill.IsPublished && ps.Skill.Domain.IsPublished &&
+                ps.Skill.StageId == track.StageId && ps.Skill.CategoryId == problem.CategoryId &&
+                db.LearningTrackSkills.Any(ls => ls.TrackId == track.Id && ls.SkillId == ps.SkillId))
+        select problem;
+
+    public IQueryable<LearningTrack> VisibleTracks() => db.LearningTracks.AsNoTracking()
+        .Where(t => t.IsPublished && db.LearningTrackProblems.Any(lp => lp.TrackId == t.Id &&
+            db.Problems.Any(p => p.Id == lp.ProblemId && p.StageId == t.StageId &&
+                p.Category.StageId == t.StageId &&
+                db.LearningTrackCategories.Any(c => c.TrackId == t.Id && c.CategoryId == p.CategoryId) &&
+                db.CurriculumProblemSkills.Any(ps => ps.ProblemId == p.Id && ps.IsPrimary &&
+                    ps.Skill.IsPublished && ps.Skill.Domain.IsPublished &&
+                    ps.Skill.StageId == t.StageId && ps.Skill.CategoryId == p.CategoryId &&
+                    db.LearningTrackSkills.Any(ls => ls.TrackId == t.Id && ls.SkillId == ps.SkillId)))));
+
+    public async Task<TrackCoverage> CoverageAsync(int id,int stageId,CancellationToken ct)
+    {
+        var free=await access.GetFreeCategoryIdsAsync(stageId,ct);
+        var valid=ValidProblems(id);
+        var categories=await valid.Select(p=>p.CategoryId).Distinct().CountAsync(ct);
+        var skills=await db.CurriculumProblemSkills.AsNoTracking()
+            .Where(ps=>ps.IsPrimary && valid.Any(p=>p.Id==ps.ProblemId))
+            .Select(ps=>ps.SkillId).Distinct().CountAsync(ct);
+        var problems=await valid.CountAsync(ct);
+        var freeProblems=await valid.CountAsync(p=>free.Contains(p.CategoryId),ct);
+        return new(categories,skills,problems,freeProblems);
+    }
+
+    public async Task<string?> ValidateMappingAsync(int stageId,TrackMapping mapping,CancellationToken ct)
+    {
+        var c=mapping.CategoryIds; var s=mapping.SkillIds; var p=mapping.ProblemIds;
+        if(c is null || s is null || p is null || c.Length>300 || s.Length>2000 || p.Length>10000 ||
+            c.Any(x=>x<=0)||s.Any(x=>x<=0)||p.Any(x=>x<=0) ||
+            c.Distinct().Count()!=c.Length || s.Distinct().Count()!=s.Length || p.Distinct().Count()!=p.Length)
+            return "InvalidMapping";
+        if(await db.Categories.CountAsync(x=>c.Contains(x.Id)&&x.StageId==stageId,ct)!=c.Length)
+            return "CategoryStageMismatch";
+        if(await db.CurriculumSkills.CountAsync(x=>s.Contains(x.Id)&&x.StageId==stageId&&c.Contains(x.CategoryId),ct)!=s.Length)
+            return "SkillCategoryMismatch";
+        if(await db.Problems.CountAsync(x=>p.Contains(x.Id)&&x.StageId==stageId&&x.Category.StageId==stageId&&c.Contains(x.CategoryId)&&
+            db.CurriculumProblemSkills.Any(ps=>ps.ProblemId==x.Id&&ps.IsPrimary&&s.Contains(ps.SkillId)&&
+                ps.Skill.StageId==stageId&&ps.Skill.CategoryId==x.CategoryId),ct)!=p.Length)
+            return "ProblemPrimarySkillMismatch";
+        return null;
+    }
+}

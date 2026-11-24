@@ -5,6 +5,10 @@ on:
     paths:
       - 'Program.cs'
       - 'Controllers/LearningJourneyController.cs'
+      - 'Controllers/LearningTracksController.cs'
+      - 'Controllers/AdminLearningTracksController.cs'
+      - 'Services/LearningTrackService.cs'
+      - 'tests/integration_learning_tracks.py'
       - 'Controllers/DailyChallengeController.cs'
       - 'Models/**'
       - 'DTOs/**'
@@ -55,6 +59,7 @@ jobs:
           BootstrapAdmin__Password: CI_TEST_ADMIN_PASSWORD_12345
           BootstrapAdmin__FullName: CI Administrator
           Database__ApplyMigrationsOnStartup: 'true'
+          LearningTracks__Enabled: 'true'
         run: |
           set -euo pipefail
           dotnet run --no-build --no-launch-profile -c Release --project MathWorldAPI.csproj > /tmp/mathworld-journey.log 2>&1 &
