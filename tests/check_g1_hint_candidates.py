@@ -4,11 +4,11 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 items = json.loads((ROOT / "content/editorial/g1-existing-hint-candidates-20261124.json").read_text(encoding="utf-8"))["items"]
-ids = [row["problemId"] for row in items]
-assert len(ids) == len(set(ids)) == 734
+canonical_ids = [row["problemId"] for row in items]
+assert len(canonical_ids) == len(set(canonical_ids)) == 734
 assert {row["problemId"] for row in items if row.get("taxonomyReviewPending")} == {1566, 1578}
-assert {23,145,340,352,364,376,388,512,800,818,851}.issubset(ids)
-assert not {10,20}.intersection(ids), "Do not attach new hints to unresolved wording revisions"
+assert {23,145,340,352,364,376,388,512,800,818,851}.issubset(canonical_ids)
+assert not {10,20}.intersection(canonical_ids), "Do not attach new hints to unresolved wording revisions"
 for row in items:
     assert row["primarySkillKey"].strip()
     assert isinstance(row["problemId"], int) and row["problemId"] > 0
@@ -108,8 +108,8 @@ held_file=json.loads((ROOT/"content/editorial/g1-hint-held-review-20261124.json"
 assert held_file["status"]=="HeldNotImportable"
 held=held_file["items"]
 assert len(held)==len({r["problemId"] for r in held})==39
-assert not set(ids).intersection({r["problemId"] for r in held})
-assert set(ids)|{r["problemId"] for r in held}==set(source)
+assert not set(canonical_ids).intersection({r["problemId"] for r in held})
+assert set(canonical_ids)|{r["problemId"] for r in held}==set(source)
 assert len(source)==773
 for r in held:
     s=source[r["problemId"]]
