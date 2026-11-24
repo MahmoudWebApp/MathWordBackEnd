@@ -172,6 +172,8 @@ public static class PremiumAnalyticsPdfExporter
                             AddCell(table, item.AwardedPoints.ToString(CultureInfo.InvariantCulture));
                         }
                     });
+                    if(report.ScoreBasis=="PermanentAchievements")
+                        column.Item().Text(ar?"الإنجازات والنقاط دائمة؛ دفتر الأخطاء يعرض حالة التدريب الحالية. زمن الجلسات الموجهة غير مقاس.":"Achievements and points are lifetime credits; the error notebook is current. Guided-session time is not measured.").FontSize(8);
                     column.Item().Text(ar
                         ? "جميع الأرقام مأخوذة من تقدّم الطالب الفعلي. ولا تُعرض معرّفات داخلية."
                         : "All figures come from your actual recorded progress. Internal IDs are omitted.")

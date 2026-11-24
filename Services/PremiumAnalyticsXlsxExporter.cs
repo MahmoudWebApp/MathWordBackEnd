@@ -165,6 +165,7 @@ public static class PremiumAnalyticsXlsxExporter
                       "المجربة", "الخاطئة", "صحيحة أول مرة", "الوقت (ثانية)", "الدقة %" }
             : new[] { "Solved", "Attempts", "Correct", "Points", "Review errors",
                       "Attempted", "Incorrect", "First-try correct", "Time (seconds)", "Accuracy %" };
+        if(report.ScoreBasis=="PermanentAchievements")labels[8]=ar?"وقت التدريب العادي":"Ordinary time";
         var values = new[]
         {
             report.SolvedProblems, report.Attempts, report.CorrectAttempts,
@@ -186,6 +187,7 @@ public static class PremiumAnalyticsXlsxExporter
         sheet.Row(11).Height = 17;
 
         var headers = Headers(ar);
+        if(report.ScoreBasis=="PermanentAchievements")headers[10]=ar?"وقت التدريب العادي (ثانية)":"Ordinary practice time (seconds)";
         for (var i = 0; i < headers.Length; i++)
             sheet.Cell(12, i + 1).Value = headers[i];
         var heading = sheet.Range(12, 1, 12, 11);

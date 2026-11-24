@@ -94,6 +94,13 @@ def verify_sessions(admin, learner, other, stage):
     assert mine["SolvedProblems"]==after["PermanentSolvedProblems"]
     assert mine["Points"]==after["PermanentPoints"]
     assert after["LearningSessionsEnabled"] is True
+    analytics=expect("GET","/api/users/premium-analytics",200,token=other)
+    assert analytics["ScoreBasis"]=="PermanentAchievements"
+    assert analytics["GuidedAttempts"]==6 and analytics["GuidedTimeMeasured"] is False
+    assert analytics["SolvedProblems"]==achievements["PermanentSolvedProblems"]
+    assert analytics["AwardedPoints"]==achievements["PermanentPoints"]
+    assert analytics["AttemptedProblems"]>=analytics["SolvedProblems"]
+    assert analytics["Attempts"]==analytics["CorrectAttempts"]+analytics["IncorrectAttempts"]
     old_badges=expect("GET","/api/users/achievements",200,token=other)
     assert old_badges["UniqueSolved"]==mine["SolvedProblems"]
     assert old_badges["ScoreBasis"]=="PermanentAchievements"
@@ -112,6 +119,9 @@ def verify_sessions(admin, learner, other, stage):
     expect("POST","/api/users/practice/reset",200,{"StageId":stage},other)
     reset=expect("GET","/api/users/journey",200,token=other)
     assert reset["SolvedProblems"]==0 and reset["PermanentPoints"]==after["PermanentPoints"]
+    after_analytics=expect("GET","/api/users/premium-analytics",200,token=other)
+    for field in ("AttemptedProblems","SolvedProblems","Attempts","CorrectAttempts","IncorrectAttempts","AwardedPoints","FirstTryCorrect"):
+        assert after_analytics[field]==analytics[field],field
     rank=expect("GET","/api/users/leaderboard?period=all",200,token=other)
     row=next(e for e in rank["Entries"] if e["IsCurrentUser"])
     assert row["Points"]==mine["Points"] and row["SolvedProblems"]==mine["SolvedProblems"]

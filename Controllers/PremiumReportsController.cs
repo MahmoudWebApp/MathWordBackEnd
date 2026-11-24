@@ -124,6 +124,11 @@ namespace MathWorldAPI.Controllers
                     Points = g.Sum(a => a.PointsEarned) })
                 .ToListAsync(cancellationToken);
 
+            if(HttpContext.RequestServices.GetRequiredService<IConfiguration>().GetValue<bool>("LearningSessions:Enabled"))
+                attempts=await _db.PermanentProblemAchievements.AsNoTracking()
+                    .Where(a=>a.UserId==userId&&scope.Any(q=>q.Id==a.ProblemId))
+                    .GroupBy(a=>a.CategoryId).Select(g=>new{CategoryId=g.Key,Points=g.Sum(a=>a.Points)}).ToListAsync(cancellationToken);
+
             var localizedArabic =
                 LanguageHelper.GetLanguageFromRequest(Request) != "en";
             var rows = categories.Select(c =>

@@ -32,7 +32,12 @@ public sealed class StudentPremiumAnalyticsController : ControllerBase
         DateTime GeneratedAtUtc, int AttemptedProblems, int SolvedProblems,
         int Attempts, int CorrectAttempts, int IncorrectAttempts,
         int FirstTryCorrect, int AwardedPoints, long TimeSpentSeconds,
-        IReadOnlyList<CategoryStatistics> Categories);
+        IReadOnlyList<CategoryStatistics> Categories)
+    {
+        public string ScoreBasis { get; init; } = "ActiveProgress";
+        public bool GuidedTimeMeasured { get; init; }
+        public int GuidedAttempts { get; init; }
+    }
 
     [HttpGet]
     [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
@@ -56,9 +61,10 @@ public sealed class StudentPremiumAnalyticsController : ControllerBase
         var ar = lang == "ar";
         var report = await BuildReport(userId.Id!.Value, ct);
         var csv = new StringBuilder();
+        var lifetime=report.ScoreBasis=="PermanentAchievements";
         csv.AppendLine(ar
-            ? "المرحلة,الفئة,المسائل المجربة,المسائل المحلولة,دفتر الأخطاء,عدد المحاولات,الإجابات الصحيحة,الإجابات الخاطئة,صحيحة من أول مرة,النقاط,الوقت بالثواني"
-            : "Stage,Category,Attempted problems,Solved problems,Error notebook,Attempts,Correct attempts,Incorrect attempts,Correct on first try,Points,Time (seconds)");
+            ? "المرحلة,الفئة,المسائل المجربة,المسائل المحلولة,دفتر الأخطاء,عدد المحاولات,الإجابات الصحيحة,الإجابات الخاطئة,صحيحة من أول مرة,النقاط,"+(lifetime?"وقت التدريب العادي (ثانية)":"الوقت بالثواني")
+            : "Stage,Category,Attempted problems,Solved problems,Error notebook,Attempts,Correct attempts,Incorrect attempts,Correct on first try,Points,"+(lifetime?"Ordinary practice time (seconds)":"Time (seconds)"));
 
         foreach (var row in report.Categories)
         {
@@ -144,6 +150,8 @@ public sealed class StudentPremiumAnalyticsController : ControllerBase
 
     private async Task<StudentAnalyticsReport> BuildReport(int userId, CancellationToken ct)
     {
+        if(HttpContext.RequestServices.GetRequiredService<IConfiguration>().GetValue<bool>("LearningSessions:Enabled"))
+            return await BuildLifetimeReport(userId,ct);
         // Group on PostgreSQL to avoid returning a student's entire attempt log.
         var attempts = await _db.ProblemAttempts.AsNoTracking()
             .Where(x => x.UserId == userId)
@@ -203,6 +211,61 @@ public sealed class StudentPremiumAnalyticsController : ControllerBase
             rows.Sum(x => x.AwardedPoints),
             rows.Sum(x => x.TimeSpentSeconds),
             rows);
+    }
+
+    // Single report builder for the JSON, CSV, XLSX and PDF endpoints.
+    // Distinguish lifetime unique credits from current error-notebook state.
+    // Guided attempts have no measured duration; do not invent one.
+    private async Task<StudentAnalyticsReport> BuildLifetimeReport(int userId,CancellationToken ct)
+    {
+        var ordinary=_db.ProblemAttempts.AsNoTracking().Where(a=>a.UserId==userId)
+            .Select(a=>new{a.ProblemId,a.Problem.StageId,a.Problem.CategoryId,a.IsCorrect,Seconds=(long)a.TimeSpentSeconds});
+        var guided=from a in _db.LearningSessionAttempts.AsNoTracking()
+                   join s in _db.LearningSessions.AsNoTracking() on a.SessionId equals s.Id
+                   join p in _db.Problems.AsNoTracking() on a.ProblemId equals p.Id
+                   where s.UserId==userId&&s.StageId==p.StageId&&p.Category.StageId==s.StageId
+                   select new{a.ProblemId,s.StageId,p.CategoryId,a.IsCorrect,Seconds=0L};
+        var answers=ordinary.Concat(guided);
+        var attempts=await answers.GroupBy(a=>new{a.StageId,a.CategoryId})
+            .Select(g=>new{g.Key.StageId,g.Key.CategoryId,Attempts=g.Count(),Correct=g.Count(a=>a.IsCorrect),
+                Incorrect=g.Count(a=>!a.IsCorrect),Seconds=g.Sum(a=>a.Seconds)}).ToListAsync(ct);
+        var credits=_db.PermanentProblemAchievements.AsNoTracking().Where(a=>a.UserId==userId);
+        var earned=await credits.GroupBy(a=>new{a.StageId,a.CategoryId}).Select(g=>new{
+            g.Key.StageId,g.Key.CategoryId,Solved=g.Count(),Points=g.Sum(a=>a.Points),
+            First=g.Count(a=>_db.ProblemAttempts.Any(p=>p.UserId==userId&&p.ProblemId==a.ProblemId&&p.IsCorrect&&
+                p.IsOfficial&&p.AttemptNumber==1&&!p.UsedHint&&p.SubmittedAt==a.EarnedAtUtc)||
+                (from sa in _db.LearningSessionAttempts
+                 join session in _db.LearningSessions on sa.SessionId equals session.Id
+                 where session.UserId==userId&&sa.ProblemId==a.ProblemId&&sa.IsCorrect&&sa.AttemptNumber==1&&
+                     !sa.UsedHint&&sa.SubmittedAtUtc==a.EarnedAtUtc select sa).Any())
+        }).ToListAsync(ct);
+        var legacy=_db.UserProgresses.AsNoTracking().Where(p=>p.UserId==userId&&p.Attempts>0)
+            .Select(p=>new{p.ProblemId,p.Problem.StageId,p.Problem.CategoryId});
+        var attempted=await answers.Select(a=>new{a.ProblemId,a.StageId,a.CategoryId})
+            .Union(credits.Select(a=>new{a.ProblemId,a.StageId,a.CategoryId})).Union(legacy)
+            .GroupBy(a=>new{a.StageId,a.CategoryId}).Select(g=>new{g.Key.StageId,g.Key.CategoryId,Count=g.Count()})
+            .ToListAsync(ct);
+        var errors=await _db.UserProgresses.AsNoTracking().Where(p=>p.UserId==userId&&p.IsInErrorNotebook&&!p.IsErrorNotebookArchived)
+            .GroupBy(p=>new{p.Problem.StageId,p.Problem.CategoryId})
+            .Select(g=>new{g.Key.StageId,g.Key.CategoryId,Count=g.Count()}).ToListAsync(ct);
+        var categories=await _db.Categories.AsNoTracking().Select(c=>new{c.Id,c.StageId,c.NameAr,c.NameEn,
+            StageAr=c.Stage.NameAr,StageEn=c.Stage.NameEn}).ToListAsync(ct);
+        var rows=new List<CategoryStatistics>();
+        foreach(var c in categories)
+        {
+            var a=attempts.FirstOrDefault(x=>x.StageId==c.StageId&&x.CategoryId==c.Id);
+            var e=earned.FirstOrDefault(x=>x.StageId==c.StageId&&x.CategoryId==c.Id);
+            var n=attempted.FirstOrDefault(x=>x.StageId==c.StageId&&x.CategoryId==c.Id);
+            var review=errors.FirstOrDefault(x=>x.StageId==c.StageId&&x.CategoryId==c.Id);
+            if(a==null&&e==null&&n==null&&review==null)continue;
+            rows.Add(new(c.StageId,c.Id,c.StageAr,c.StageEn,c.NameAr,c.NameEn,n?.Count??0,e?.Solved??0,review?.Count??0,
+                a?.Attempts??0,a?.Correct??0,a?.Incorrect??0,e?.First??0,e?.Points??0,a?.Seconds??0));
+        }
+        rows=rows.OrderBy(x=>x.StageId).ThenBy(x=>x.CategoryId).ToList();
+        return new StudentAnalyticsReport(DateTime.UtcNow,rows.Sum(x=>x.AttemptedProblems),rows.Sum(x=>x.SolvedProblems),
+            rows.Sum(x=>x.Attempts),rows.Sum(x=>x.CorrectAttempts),rows.Sum(x=>x.IncorrectAttempts),rows.Sum(x=>x.FirstTryCorrect),
+            rows.Sum(x=>x.AwardedPoints),rows.Sum(x=>x.TimeSpentSeconds),rows)
+        {ScoreBasis="PermanentAchievements",GuidedAttempts=await guided.CountAsync(ct),GuidedTimeMeasured=false};
     }
 
     private static string Csv(string? input)
