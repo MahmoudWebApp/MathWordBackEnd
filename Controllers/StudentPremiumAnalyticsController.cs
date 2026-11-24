@@ -37,20 +37,28 @@ public sealed class StudentPremiumAnalyticsController : ControllerBase
         public string ScoreBasis { get; init; } = "ActiveProgress";
         public bool GuidedTimeMeasured { get; init; }
         public int GuidedAttempts { get; init; }
+        public int? FilterStageId { get; init; }
+        public int? FilterCategoryId { get; init; }
+        public int? FilterTrackId { get; init; }
+        public int? WindowDays { get; init; }
     }
+
+    public sealed record ReportFilter(int? StageId=null,int? CategoryId=null,int? TrackId=null,int? Days=null);
 
     [HttpGet]
     [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
-    public async Task<IActionResult> Get(CancellationToken ct)
+    public async Task<IActionResult> Get([FromQuery] ReportFilter filter,CancellationToken ct)
     {
         var userId = await PremiumStudentId(ct);
         if (userId.Status is not null) return userId.Status;
-        return Ok(await BuildReport(userId.Id!.Value, ct));
+        var invalid=await ValidateFilter(filter,ct);
+        if(invalid!=null)return invalid;
+        return Ok(await BuildReport(userId.Id!.Value, filter, ct));
     }
 
     [HttpGet("export.csv")]
     [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
-    public async Task<IActionResult> ExportCsv([FromQuery] string lang = "ar",
+    public async Task<IActionResult> ExportCsv([FromQuery] ReportFilter filter,[FromQuery] string lang = "ar",
         CancellationToken ct = default)
     {
         if (lang != "ar" && lang != "en")
@@ -59,7 +67,9 @@ public sealed class StudentPremiumAnalyticsController : ControllerBase
         if (userId.Status is not null) return userId.Status;
 
         var ar = lang == "ar";
-        var report = await BuildReport(userId.Id!.Value, ct);
+        var invalid=await ValidateFilter(filter,ct);
+        if(invalid!=null)return invalid;
+        var report = await BuildReport(userId.Id!.Value, filter, ct);
         var csv = new StringBuilder();
         var lifetime=report.ScoreBasis=="PermanentAchievements";
         csv.AppendLine(ar
@@ -97,7 +107,7 @@ public sealed class StudentPremiumAnalyticsController : ControllerBase
     /// </summary>
     [HttpGet("export.xlsx")]
     [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
-    public async Task<IActionResult> ExportXlsx([FromQuery] string lang = "ar",
+    public async Task<IActionResult> ExportXlsx([FromQuery] ReportFilter filter,[FromQuery] string lang = "ar",
         CancellationToken ct = default)
     {
         if (lang != "ar" && lang != "en")
@@ -105,7 +115,9 @@ public sealed class StudentPremiumAnalyticsController : ControllerBase
         var userId = await PremiumStudentId(ct);
         if (userId.Status is not null) return userId.Status;
 
-        var report = await BuildReport(userId.Id!.Value, ct);
+        var invalid=await ValidateFilter(filter,ct);
+        if(invalid!=null)return invalid;
+        var report = await BuildReport(userId.Id!.Value, filter, ct);
         var bytes = PremiumAnalyticsXlsxExporter.Create(report, lang == "ar");
         Response.Headers.CacheControl = "no-store";
         Response.Headers["X-Content-Type-Options"] = "nosniff";
@@ -120,7 +132,7 @@ public sealed class StudentPremiumAnalyticsController : ControllerBase
     /// </summary>
     [HttpGet("export.pdf")]
     [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
-    public async Task<IActionResult> ExportPdf([FromQuery] string lang = "ar",
+    public async Task<IActionResult> ExportPdf([FromQuery] ReportFilter filter,[FromQuery] string lang = "ar",
         CancellationToken ct = default)
     {
         if (lang != "ar" && lang != "en")
@@ -128,7 +140,9 @@ public sealed class StudentPremiumAnalyticsController : ControllerBase
         var userId = await PremiumStudentId(ct);
         if (userId.Status is not null) return userId.Status;
 
-        var report = await BuildReport(userId.Id!.Value, ct);
+        var invalid=await ValidateFilter(filter,ct);
+        if(invalid!=null)return invalid;
+        var report = await BuildReport(userId.Id!.Value, filter, ct);
         var bytes = PremiumAnalyticsPdfExporter.Create(report, lang == "ar");
         Response.Headers.CacheControl = "no-store";
         Response.Headers["X-Content-Type-Options"] = "nosniff";
@@ -148,10 +162,28 @@ public sealed class StudentPremiumAnalyticsController : ControllerBase
         return (id, null);
     }
 
-    private async Task<StudentAnalyticsReport> BuildReport(int userId, CancellationToken ct)
+    private bool LifetimeEnabled=>HttpContext.RequestServices.GetRequiredService<IConfiguration>().GetValue<bool>("LearningSessions:Enabled");
+    private async Task<IActionResult?> ValidateFilter(ReportFilter f,CancellationToken ct)
+    {
+        if(f.StageId is <=0||f.CategoryId is <=0||f.TrackId is <=0||f.Days is <1 or >365)
+            return BadRequest(new{Message="InvalidReportFilter"});
+        if(f.StageId==null&&f.CategoryId==null&&f.TrackId==null&&f.Days==null)return null;
+        if(!LifetimeEnabled)return Conflict(new{Message="ReportFiltersUnavailable"});
+        if(f.StageId.HasValue&&!await _db.EducationalStages.AnyAsync(s=>s.Id==f.StageId,ct))return NotFound();
+        if(f.CategoryId.HasValue&&!await _db.Categories.AnyAsync(c=>c.Id==f.CategoryId&&(!f.StageId.HasValue||c.StageId==f.StageId),ct))return NotFound();
+        if(f.TrackId.HasValue)
+        {
+            var tracks=HttpContext.RequestServices.GetRequiredService<LearningTrackService>();
+            if(!tracks.Enabled||!await tracks.VisibleTracks().AnyAsync(t=>t.Id==f.TrackId&&(!f.StageId.HasValue||t.StageId==f.StageId),ct))return NotFound();
+            if(f.CategoryId.HasValue&&!await tracks.ValidProblems(f.TrackId.Value).AnyAsync(p=>p.CategoryId==f.CategoryId,ct))return NotFound();
+        }
+        return null;
+    }
+
+    private async Task<StudentAnalyticsReport> BuildReport(int userId, ReportFilter filter,CancellationToken ct)
     {
         if(HttpContext.RequestServices.GetRequiredService<IConfiguration>().GetValue<bool>("LearningSessions:Enabled"))
-            return await BuildLifetimeReport(userId,ct);
+            return await BuildLifetimeReport(userId,filter,ct);
         // Group on PostgreSQL to avoid returning a student's entire attempt log.
         var attempts = await _db.ProblemAttempts.AsNoTracking()
             .Where(x => x.UserId == userId)
@@ -216,20 +248,32 @@ public sealed class StudentPremiumAnalyticsController : ControllerBase
     // Single report builder for the JSON, CSV, XLSX and PDF endpoints.
     // Distinguish lifetime unique credits from current error-notebook state.
     // Guided attempts have no measured duration; do not invent one.
-    private async Task<StudentAnalyticsReport> BuildLifetimeReport(int userId,CancellationToken ct)
+    private async Task<StudentAnalyticsReport> BuildLifetimeReport(int userId,ReportFilter filter,CancellationToken ct)
     {
-        var ordinary=_db.ProblemAttempts.AsNoTracking().Where(a=>a.UserId==userId)
+        var cutoff=filter.Days.HasValue?DateTime.UtcNow.Date.AddDays(1-filter.Days.Value):(DateTime?)null;
+        var scope=_db.Problems.AsNoTracking().Where(p=>(!filter.StageId.HasValue||p.StageId==filter.StageId)&&
+            (!filter.CategoryId.HasValue||p.CategoryId==filter.CategoryId));
+        if(filter.TrackId.HasValue)
+        {
+            var valid=HttpContext.RequestServices.GetRequiredService<LearningTrackService>().ValidProblems(filter.TrackId.Value);
+            scope=scope.Where(p=>valid.Any(v=>v.Id==p.Id));
+        }
+        var ordinary=_db.ProblemAttempts.AsNoTracking().Where(a=>a.UserId==userId&&
+            (!cutoff.HasValue||a.SubmittedAt>=cutoff)&&scope.Any(p=>p.Id==a.ProblemId))
             .Select(a=>new{a.ProblemId,a.Problem.StageId,a.Problem.CategoryId,a.IsCorrect,Seconds=(long)a.TimeSpentSeconds});
         var guided=from a in _db.LearningSessionAttempts.AsNoTracking()
                    join s in _db.LearningSessions.AsNoTracking() on a.SessionId equals s.Id
                    join p in _db.Problems.AsNoTracking() on a.ProblemId equals p.Id
-                   where s.UserId==userId&&s.StageId==p.StageId&&p.Category.StageId==s.StageId
+                   where s.UserId==userId&&s.StageId==p.StageId&&p.Category.StageId==s.StageId&&
+                       (!cutoff.HasValue||a.SubmittedAtUtc>=cutoff)&&scope.Any(q=>q.Id==a.ProblemId)
                    select new{a.ProblemId,s.StageId,p.CategoryId,a.IsCorrect,Seconds=0L};
         var answers=ordinary.Concat(guided);
         var attempts=await answers.GroupBy(a=>new{a.StageId,a.CategoryId})
             .Select(g=>new{g.Key.StageId,g.Key.CategoryId,Attempts=g.Count(),Correct=g.Count(a=>a.IsCorrect),
                 Incorrect=g.Count(a=>!a.IsCorrect),Seconds=g.Sum(a=>a.Seconds)}).ToListAsync(ct);
-        var credits=_db.PermanentProblemAchievements.AsNoTracking().Where(a=>a.UserId==userId);
+        var credits=_db.PermanentProblemAchievements.AsNoTracking().Where(a=>a.UserId==userId&&
+            (!cutoff.HasValue||a.EarnedAtUtc>=cutoff)&&(!filter.StageId.HasValue||a.StageId==filter.StageId)&&
+            (!filter.CategoryId.HasValue||a.CategoryId==filter.CategoryId)&&(!filter.TrackId.HasValue||scope.Any(p=>p.Id==a.ProblemId)));
         var earned=await credits.GroupBy(a=>new{a.StageId,a.CategoryId}).Select(g=>new{
             g.Key.StageId,g.Key.CategoryId,Solved=g.Count(),Points=g.Sum(a=>a.Points),
             First=g.Count(a=>_db.ProblemAttempts.Any(p=>p.UserId==userId&&p.ProblemId==a.ProblemId&&p.IsCorrect&&
@@ -239,13 +283,13 @@ public sealed class StudentPremiumAnalyticsController : ControllerBase
                  where session.UserId==userId&&sa.ProblemId==a.ProblemId&&sa.IsCorrect&&sa.AttemptNumber==1&&
                      !sa.UsedHint&&sa.SubmittedAtUtc==a.EarnedAtUtc select sa).Any())
         }).ToListAsync(ct);
-        var legacy=_db.UserProgresses.AsNoTracking().Where(p=>p.UserId==userId&&p.Attempts>0)
+        var legacy=_db.UserProgresses.AsNoTracking().Where(p=>p.UserId==userId&&p.Attempts>0&&!cutoff.HasValue&&scope.Any(q=>q.Id==p.ProblemId))
             .Select(p=>new{p.ProblemId,p.Problem.StageId,p.Problem.CategoryId});
         var attempted=await answers.Select(a=>new{a.ProblemId,a.StageId,a.CategoryId})
             .Union(credits.Select(a=>new{a.ProblemId,a.StageId,a.CategoryId})).Union(legacy)
             .GroupBy(a=>new{a.StageId,a.CategoryId}).Select(g=>new{g.Key.StageId,g.Key.CategoryId,Count=g.Count()})
             .ToListAsync(ct);
-        var errors=await _db.UserProgresses.AsNoTracking().Where(p=>p.UserId==userId&&p.IsInErrorNotebook&&!p.IsErrorNotebookArchived)
+        var errors=await _db.UserProgresses.AsNoTracking().Where(p=>p.UserId==userId&&p.IsInErrorNotebook&&!p.IsErrorNotebookArchived&&scope.Any(q=>q.Id==p.ProblemId))
             .GroupBy(p=>new{p.Problem.StageId,p.Problem.CategoryId})
             .Select(g=>new{g.Key.StageId,g.Key.CategoryId,Count=g.Count()}).ToListAsync(ct);
         var categories=await _db.Categories.AsNoTracking().Select(c=>new{c.Id,c.StageId,c.NameAr,c.NameEn,
@@ -265,7 +309,8 @@ public sealed class StudentPremiumAnalyticsController : ControllerBase
         return new StudentAnalyticsReport(DateTime.UtcNow,rows.Sum(x=>x.AttemptedProblems),rows.Sum(x=>x.SolvedProblems),
             rows.Sum(x=>x.Attempts),rows.Sum(x=>x.CorrectAttempts),rows.Sum(x=>x.IncorrectAttempts),rows.Sum(x=>x.FirstTryCorrect),
             rows.Sum(x=>x.AwardedPoints),rows.Sum(x=>x.TimeSpentSeconds),rows)
-        {ScoreBasis="PermanentAchievements",GuidedAttempts=await guided.CountAsync(ct),GuidedTimeMeasured=false};
+        {ScoreBasis="PermanentAchievements",GuidedAttempts=await guided.CountAsync(ct),GuidedTimeMeasured=false,
+            FilterStageId=filter.StageId,FilterCategoryId=filter.CategoryId,FilterTrackId=filter.TrackId,WindowDays=filter.Days};
     }
 
     private static string Csv(string? input)

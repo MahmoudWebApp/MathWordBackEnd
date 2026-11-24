@@ -65,6 +65,8 @@ namespace MathWorldAPI.Controllers
                 return BadRequest(new { Message = "LearnerNotFoundOrInactive" });
 
             var now = DateTime.UtcNow;
+            // Match PostgreSQL's timestamp precision in the response and audit.
+            now = new DateTime(now.Ticks - now.Ticks % 10, DateTimeKind.Utc);
             var updatedIds = new List<int>();
             var periods = new List<object>();
             var skippedIndefiniteIds = new List<int>();

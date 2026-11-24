@@ -101,6 +101,13 @@ def verify_sessions(admin, learner, other, stage):
     assert analytics["AwardedPoints"]==achievements["PermanentPoints"]
     assert analytics["AttemptedProblems"]>=analytics["SolvedProblems"]
     assert analytics["Attempts"]==analytics["CorrectAttempts"]+analytics["IncorrectAttempts"]
+    scoped=expect("GET",f"/api/users/premium-analytics?stageId={stage}&categoryId=5&days=7",200,token=other)
+    assert scoped["FilterStageId"]==stage and scoped["FilterCategoryId"]==5 and scoped["WindowDays"]==7
+    assert all(c["StageId"]==stage and c["CategoryId"]==5 for c in scoped["Categories"])
+    assert scoped["GuidedAttempts"]<=analytics["GuidedAttempts"]
+    expect("GET","/api/users/premium-analytics?days=0",400,token=other)
+    expect("GET","/api/users/premium-analytics?trackId=999999",404,token=other)
+    expect("GET","/api/users/premium-analytics/export.pdf?days=999",400,token=other)
     old_badges=expect("GET","/api/users/achievements",200,token=other)
     assert old_badges["UniqueSolved"]==mine["SolvedProblems"]
     assert old_badges["ScoreBasis"]=="PermanentAchievements"
