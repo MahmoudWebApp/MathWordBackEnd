@@ -1,0 +1,2173 @@
+{
+  "Version": 1,
+  "Status": "NotImportedNotPublished",
+  "Notes": [
+    "Source-matched primary school wave; individually checked marked answers and bilingual rule/steps; reviewed proposals only. Existing question and option IDs unchanged. Actual import and rendering require separate acceptance."
+  ],
+  "Items": [
+    {
+      "ProblemId": 3,
+      "ExpectedOptionIds": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "المبدأ: الجزء الباقي = الكل − الجزء المعطى. كان لدى أحمد 12 تفاحة وأعطى 5. بالتعويض: 12 − 5 = 7 تفاحات. التحقق: 7 + 5 = 12.",
+        "En": "Rule: Remaining quantity = original total − amount given away. Ahmed had 12 apples and gave away 5. Compute 12 − 5 = 7 apples; check: 7 + 5 = 12."
+      },
+      "ProposedTrackCode": "grade-1",
+      "PrimarySkillKey": "primary-subtraction",
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 1,
+        "PrimarySkillId": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "إذا كان مع أحمد $12$ تفاحة، وأعطى صديقه $5$ تفاحات.",
+          "En": "Ahmed has $12$ apples, and he gave $5$ apples to his friend."
+        },
+        "Question": {
+          "Ar": "إذا كان مع أحمد $12$ تفاحة، وأعطى صديقه $5$ تفاحات. كم تفاحة بقيت مع أحمد؟",
+          "En": "Ahmed has $12$ apples, and he gave $5$ apples to his friend. How many apples are left with Ahmed?"
+        },
+        "Options": [
+          {
+            "LatexCode": "7",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "5",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "لو كان الباقي 5 لكان العدد الأصلي 5+5=10، وليس 12.",
+              "En": "A remainder of 5 would imply an original amount of 5+5=10, not 12."
+            }
+          },
+          {
+            "LatexCode": "8",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "لو كان الباقي 8 لكان العدد الأصلي 8+5=13، وليس 12.",
+              "En": "A remainder of 8 would imply an original amount of 8+5=13, not 12."
+            }
+          },
+          {
+            "LatexCode": "6",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "لو كان الباقي 6 لكان العدد الأصلي 6+5=11، وليس 12.",
+              "En": "A remainder of 6 would imply an original amount of 6+5=11, not 12."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "عندما نعطي جزءاً من مجموعة، هل نحتاج الجمع أم الطرح؟",
+            "En": "When part of a collection is given away, should you add or subtract?"
+          },
+          {
+            "Ar": "اطرح عدد التفاحات المعطاة من العدد الذي كان مع أحمد في البداية.",
+            "En": "Subtract the apples given away from Ahmed's original number."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "قاعدة الطرح: الجزء الباقي يساوي الكل ناقص الجزء المزال.",
+            "En": "Subtraction rule: the remainder equals the original quantity minus the removed part."
+          },
+          "FormulaLatex": "R=T-G",
+          "Steps": [
+            {
+              "Ar": "حدد العدد الكلي والعدد المطروح، ثم اطرح الثاني من الأول.",
+              "En": "Identify the original amount and the removed amount, then subtract the second from the first."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$12-5=7$",
+            "En": "$12-5=7$"
+          },
+          "Result": {
+            "Ar": "$7$",
+            "En": "$7$"
+          },
+          "Unit": {
+            "Ar": "تفاحة",
+            "En": "apples"
+          },
+          "Verification": {
+            "Ar": "التحقق بالجمع: 7+5=12.",
+            "En": "Check by addition: 7+5=12."
+          },
+          "CommonError": {
+            "Ar": "لا تخلط بين العدد المعطى والعدد الباقي.",
+            "En": "Do not confuse the removed amount with the remaining amount."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 5,
+      "ExpectedOptionIds": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "ناتج ضرب $7 \\times 8 = 56$. يمكن حساب ذلك بجمع الرقم 7 ثماني مرات: $7+7+7+7+7+7+7+7 = 56$.",
+        "En": "The result of $7 \\times 8 = 56$. This can be calculated by adding 7 eight times: $7+7+7+7+7+7+7+7 = 56$."
+      },
+      "ProposedTrackCode": "grade-3",
+      "PrimarySkillKey": "primary-multiplication",
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 33,
+        "PrimarySkillId": 4,
+        "Points": 10,
+        "Title": {
+          "Ar": "ما ناتج ضرب $7 \\times 8$؟",
+          "En": "What is the result of $7 \\times 8$?"
+        },
+        "Question": {
+          "Ar": "ما ناتج ضرب $7 \\times 8$؟",
+          "En": "What is the result of $7 \\times 8$?"
+        },
+        "Options": [
+          {
+            "LatexCode": "56",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "54",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "54 لا يساوي مجموع 8 مجموعات من 7؛ حاصل ضرب العاملين هو 56.",
+              "En": "54 is not the sum of 8 groups of 7; their product is 56."
+            }
+          },
+          {
+            "LatexCode": "58",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "58 لا يساوي مجموع 8 مجموعات من 7؛ حاصل ضرب العاملين هو 56.",
+              "En": "58 is not the sum of 8 groups of 7; their product is 56."
+            }
+          },
+          {
+            "LatexCode": "49",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "49 لا يساوي مجموع 8 مجموعات من 7؛ حاصل ضرب العاملين هو 56.",
+              "En": "49 is not the sum of 8 groups of 7; their product is 56."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "فكر في الضرب على أنه مجموع مجموعات متساوية.",
+            "En": "Think of multiplication as adding equal groups."
+          },
+          {
+            "Ar": "اجمع سبع وحدات في كل واحدة من ثماني مجموعات.",
+            "En": "Add seven units in each of eight groups."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "الضرب هو جمع مجموعات متساوية؛ ويمكن استخدام خاصية التوزيع لتسهيل الحساب.",
+            "En": "Multiplication combines equal groups; the distributive property can simplify the calculation."
+          },
+          "FormulaLatex": "ab=\\underbrace{a+\\cdots+a}_{b\\text{ terms}}",
+          "Steps": [
+            {
+              "Ar": "كوّن ثماني مجموعات، في كل مجموعة سبع وحدات، واجمعها.",
+              "En": "Form eight groups of seven units and add them."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$7\\times8=56$",
+            "En": "$7\\times8=56$"
+          },
+          "Result": {
+            "Ar": "$56$",
+            "En": "$56$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "بقسمة حاصل الضرب على 8 نحصل على 7: 56\\div8=7.",
+            "En": "Divide the product by 8 to recover 7: 56 ÷ 8 = 7."
+          },
+          "CommonError": {
+            "Ar": "تأكد من عدد المجموعات ولا تستبدل أحد العاملين بالعدد المجاور.",
+            "En": "Keep the number of groups fixed; do not substitute a neighboring factor."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 8,
+      "ExpectedOptionIds": [
+        21,
+        22,
+        23,
+        24
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: محيط المربع = 4 × طول الضلع. طول الضلع 5 سم، لذا نعوّض: 4 × 5 = 20 سم. النتيجة: محيط المربع 20 سم لأن للمربع أربعة أضلاع متساوية.",
+        "En": "Rule used: Perimeter of a square = 4 × side length. Substitute the 5 cm side: 4 × 5 = 20 cm. The perimeter is 20 cm because the square has four equal sides."
+      },
+      "ProposedTrackCode": "grade-3",
+      "PrimarySkillKey": "primary-perimeter",
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 3,
+        "PrimarySkillId": 12,
+        "Points": 10,
+        "Title": {
+          "Ar": "مربع طول ضلعه $5$ سم.",
+          "En": "A square has a side length of $5$ cm."
+        },
+        "Question": {
+          "Ar": "مربع طول ضلعه $5$ سم. ما محيطه؟",
+          "En": "A square has a side length of $5$ cm. What is its perimeter?"
+        },
+        "Options": [
+          {
+            "LatexCode": "20 \\text{ cm}",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "25 \\text{ cm}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "المحيط 25 سم لا يطابق مجموع الأضلاع الذي يساوي 20 سم.",
+              "En": "25 cm does not equal the sum of the side lengths, 20 cm."
+            }
+          },
+          {
+            "LatexCode": "10 \\text{ cm}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "المحيط 10 سم لا يطابق مجموع الأضلاع الذي يساوي 20 سم.",
+              "En": "10 cm does not equal the sum of the side lengths, 20 cm."
+            }
+          },
+          {
+            "LatexCode": "15 \\text{ cm}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "المحيط 15 سم لا يطابق مجموع الأضلاع الذي يساوي 20 سم.",
+              "En": "15 cm does not equal the sum of the side lengths, 20 cm."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "المحيط هو مجموع أطوال الأضلاع.",
+            "En": "Perimeter is the sum of the side lengths."
+          },
+          {
+            "Ar": "للمربع أربعة أضلاع متساوية؛ استخدم طول الضلع مع العدد أربعة.",
+            "En": "A square has four equal sides; use the side length and the number four."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "محيط المربع هو مجموع أطوال أضلاعه الأربعة المتساوية.",
+            "En": "The perimeter of a square is the sum of its four equal sides."
+          },
+          "FormulaLatex": "P=4s",
+          "Steps": [
+            {
+              "Ar": "اضرب طول الضلع في عدد الأضلاع.",
+              "En": "Multiply the side length by the number of sides."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$4\\times5=20$",
+            "En": "$4\\times5=20$"
+          },
+          "Result": {
+            "Ar": "$20$",
+            "En": "$20$"
+          },
+          "Unit": {
+            "Ar": "سم",
+            "En": "cm"
+          },
+          "Verification": {
+            "Ar": "جمع الأطوال: 5+5+5+5=20.",
+            "En": "Sum the side lengths: 5+5+5+5=20."
+          },
+          "CommonError": {
+            "Ar": "المحيط طول الحدود وليس مساحة السطح.",
+            "En": "Perimeter measures the boundary, not the area."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 9,
+      "ExpectedOptionIds": [
+        25,
+        26,
+        27,
+        28
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: مساحة المستطيل = الطول × العرض. المعطيات: الطول 8 م والعرض 3 م. بالتعويض: 8 × 3 = 24. النتيجة: 24 م²؛ لأن المساحة تُقاس بوحدات مربعة.",
+        "En": "Rule used: Area of a rectangle = length × width. The dimensions are 8 m and 3 m. Substitution gives 8 × 3 = 24. Final area = 24 m²; area is measured in square units."
+      },
+      "ProposedTrackCode": "grade-3",
+      "PrimarySkillKey": "primary-rectangle-area",
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 3,
+        "PrimarySkillId": 13,
+        "Points": 10,
+        "Title": {
+          "Ar": "مستطيل طوله $8$ متر وعرضه $3$ متر.",
+          "En": "A rectangle has length $8$ m and width $3$ m."
+        },
+        "Question": {
+          "Ar": "مستطيل طوله $8$ متر وعرضه $3$ متر. ما مساحته؟",
+          "En": "A rectangle has length $8$ m and width $3$ m. What is its area?"
+        },
+        "Options": [
+          {
+            "LatexCode": "24 \\text{ m}^2",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "22 \\text{ m}^2",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "المساحة 22 لا تحقق حاصل ضرب البعدين 8×3=24.",
+              "En": "An area of 22 does not satisfy the dimension product 8×3=24."
+            }
+          },
+          {
+            "LatexCode": "11 \\text{ m}^2",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "المساحة 11 لا تحقق حاصل ضرب البعدين 8×3=24.",
+              "En": "An area of 11 does not satisfy the dimension product 8×3=24."
+            }
+          },
+          {
+            "LatexCode": "30 \\text{ m}^2",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "المساحة 30 لا تحقق حاصل ضرب البعدين 8×3=24.",
+              "En": "An area of 30 does not satisfy the dimension product 8×3=24."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "المساحة تقيس عدد الوحدات المربعة داخل الشكل.",
+            "En": "Area measures the square units inside a shape."
+          },
+          {
+            "Ar": "استخدم حاصل ضرب البعدين المتعامدين للمستطيل، لا مجموعهما.",
+            "En": "Use the product of the rectangle's two perpendicular dimensions, not their sum."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "مساحة المستطيل حاصل ضرب الطول في العرض.",
+            "En": "Rectangle area is length multiplied by width."
+          },
+          "FormulaLatex": "A=lw",
+          "Steps": [
+            {
+              "Ar": "اضرب الطول في العرض بعد توحيد وحدة القياس.",
+              "En": "Multiply the length by the width using the same measurement unit."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$8\\times3=24$",
+            "En": "$8\\times3=24$"
+          },
+          "Result": {
+            "Ar": "$24$",
+            "En": "$24$"
+          },
+          "Unit": {
+            "Ar": "م²",
+            "En": "m²"
+          },
+          "Verification": {
+            "Ar": "المساحة مقسومة على العرض تعطي الطول: 24÷3=8.",
+            "En": "Area divided by width gives length: 24÷3=8."
+          },
+          "CommonError": {
+            "Ar": "لا تستبدل المساحة بجمع الأضلاع أو المحيط؛ استخدم وحدة مربعة.",
+            "En": "Do not use the sum of the sides or perimeter; use square units."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 36,
+      "ExpectedOptionIds": [
+        133,
+        134,
+        135,
+        136
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون: الجمع بالقيمة المكانية مع حمل العشرات. في 25 + 17: نجمع الآحاد 5 + 7 = 12، فنكتب 2 ونحمل عشرة. ثم نجمع العشرات 2 + 1 + 1 المحمول = 4. الناتج 42.",
+        "En": "Rule: Add by place value with carrying. For 25 + 17, add ones 5 + 7 = 12: write 2 and carry 1 ten. Add tens 2 + 1 + 1 = 4. The sum is 42."
+      },
+      "ProposedTrackCode": "grade-2",
+      "PrimarySkillKey": "primary-addition",
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 1,
+        "PrimarySkillId": 1,
+        "Points": 10,
+        "Title": {
+          "Ar": "ما ناتج جمع $25 + 17$؟",
+          "En": "What is the result of $25 + 17$?"
+        },
+        "Question": {
+          "Ar": "ما ناتج جمع $25 + 17$؟",
+          "En": "What is the result of $25 + 17$?"
+        },
+        "Options": [
+          {
+            "LatexCode": "42",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "32",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "إذا كان المجموع 32 فطرحه منه 17 يعطينا 15 بدلاً من 25.",
+              "En": "Subtracting 17 from a proposed sum of 32 gives 15, not 25."
+            }
+          },
+          {
+            "LatexCode": "52",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "إذا كان المجموع 52 فطرحه منه 17 يعطينا 35 بدلاً من 25.",
+              "En": "Subtracting 17 from a proposed sum of 52 gives 35, not 25."
+            }
+          },
+          {
+            "LatexCode": "41",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "إذا كان المجموع 41 فطرحه منه 17 يعطينا 24 بدلاً من 25.",
+              "En": "Subtracting 17 from a proposed sum of 41 gives 24, not 25."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "اجمع باستخدام الآحاد والعشرات.",
+            "En": "Add by ones and tens."
+          },
+          {
+            "Ar": "اجمع 5 و7 أولاً؛ انتبه لحمل عشرة إلى منزلة العشرات.",
+            "En": "Add 5 and 7 first; remember to carry a ten."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "قاعدة القيمة المكانية: نجمع الآحاد ثم العشرات مع إعادة التجميع عند تجاوز تسعة آحاد.",
+            "En": "Place-value addition: add ones and tens, regrouping when the ones sum exceeds nine."
+          },
+          "FormulaLatex": "25+17=(20+10)+(5+7)",
+          "Steps": [
+            {
+              "Ar": "اجمع الآحاد 5 و7؛ أعد تجميع عشرة منها إلى منزلة العشرات.",
+              "En": "Add the ones 5 and 7; regroup ten of them into the tens place."
+            },
+            {
+              "Ar": "اجمع العشرات الأصلية والعشرة المحمولة، ثم أضف الآحاد المتبقية.",
+              "En": "Combine the original tens with the regrouped ten, then add the remaining ones."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$30+12=42$",
+            "En": "$30+12=42$"
+          },
+          "Result": {
+            "Ar": "$42$",
+            "En": "$42$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "42-17=25.",
+            "En": "42-17=25."
+          },
+          "CommonError": {
+            "Ar": "نسيان العشرة المحمولة ينقص الناتج بمقدار عشرة.",
+            "En": "Forgetting the regrouped ten reduces the result by ten."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 37,
+      "ExpectedOptionIds": [
+        137,
+        138,
+        139,
+        140
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "المبدأ: نفكك العدد المطروح بحسب منازله. في 84 − 29 نفكك 29 إلى 20 و9. أولاً 84 − 20 = 64، ثم 64 − 9 = 55. التحقق: 55 + 29 = 84.",
+        "En": "Rule: Decompose the subtrahend by place value. To find 84 − 29, first subtract 20 from 84 to get 64, then 9 to get 55. Check: 55 + 29 = 84."
+      },
+      "ProposedTrackCode": "grade-2",
+      "PrimarySkillKey": "primary-subtraction",
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 1,
+        "PrimarySkillId": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "كم يساوي 84 - 29؟",
+          "En": "What is 84 - 29?"
+        },
+        "Question": {
+          "Ar": "كم يساوي 84 - 29؟",
+          "En": "What is 84 - 29?"
+        },
+        "Options": [
+          {
+            "LatexCode": "55",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "54",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "لو كان الباقي 54 لكان العدد الأصلي 54+29=83، وليس 84.",
+              "En": "A remainder of 54 would imply an original amount of 54+29=83, not 84."
+            }
+          },
+          {
+            "LatexCode": "65",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "لو كان الباقي 65 لكان العدد الأصلي 65+29=94، وليس 84.",
+              "En": "A remainder of 65 would imply an original amount of 65+29=94, not 84."
+            }
+          },
+          {
+            "LatexCode": "45",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "لو كان الباقي 45 لكان العدد الأصلي 45+29=74، وليس 84.",
+              "En": "A remainder of 45 would imply an original amount of 45+29=74, not 84."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "يمكن تسهيل الطرح بتجزئة العدد المطروح إلى عشرات وآحاد.",
+            "En": "Break the number being subtracted into tens and ones."
+          },
+          {
+            "Ar": "اطرح 20 أولاً، ثم اطرح الآحاد المتبقية من الناتج الوسيط.",
+            "En": "Subtract 20 first, then subtract the remaining ones from the intermediate result."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "قاعدة الطرح: الجزء الباقي يساوي الكل ناقص الجزء المزال.",
+            "En": "Subtraction rule: the remainder equals the original quantity minus the removed part."
+          },
+          "FormulaLatex": "R=T-G",
+          "Steps": [
+            {
+              "Ar": "حدد العدد الكلي والعدد المطروح، ثم اطرح الثاني من الأول.",
+              "En": "Identify the original amount and the removed amount, then subtract the second from the first."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$84-29=55$",
+            "En": "$84-29=55$"
+          },
+          "Result": {
+            "Ar": "$55$",
+            "En": "$55$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "التحقق بالجمع: 55+29=84.",
+            "En": "Check by addition: 55+29=84."
+          },
+          "CommonError": {
+            "Ar": "لا تخلط بين العدد المعطى والعدد الباقي.",
+            "En": "Do not confuse the removed amount with the remaining amount."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 38,
+      "ExpectedOptionIds": [
+        141,
+        142,
+        143,
+        144
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "المبدأ المستخدم: الطرح هو العملية العكسية للجمع؛ لعزل المجهول نطرح 9 من طرفي المعادلة. في س + 9 = 23 نحسب س = 23 − 9 = 14. التحقق بالتعويض: 14 + 9 = 23، إذن الحل صحيح.",
+        "En": "Rule used: Subtraction reverses addition. To isolate the unknown in x + 9 = 23, subtract 9 from both sides: x = 23 − 9 = 14. Check by substitution: 14 + 9 = 23."
+      },
+      "ProposedTrackCode": "grade-3",
+      "PrimarySkillKey": "primary-one-step-additive-equations",
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 2,
+        "PrimarySkillId": 7,
+        "Points": 10,
+        "Title": {
+          "Ar": "إذا كان x + 9 = 23، فما قيمة x؟",
+          "En": "If x + 9 = 23, what is x?"
+        },
+        "Question": {
+          "Ar": "إذا كان x + 9 = 23، فما قيمة x؟",
+          "En": "If x + 9 = 23, what is x?"
+        },
+        "Options": [
+          {
+            "LatexCode": "12",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "عند التعويض بـ12 يصبح الطرف الأيسر 21، وليس 23.",
+              "En": "Substituting 12 gives 21 on the left, not 23."
+            }
+          },
+          {
+            "LatexCode": "14",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "16",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "عند التعويض بـ16 يصبح الطرف الأيسر 25، وليس 23.",
+              "En": "Substituting 16 gives 25 on the left, not 23."
+            }
+          },
+          {
+            "LatexCode": "32",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "عند التعويض بـ32 يصبح الطرف الأيسر 41، وليس 23.",
+              "En": "Substituting 32 gives 41 on the left, not 23."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "ما العملية العكسية للجمع؟",
+            "En": "Which operation reverses addition?"
+          },
+          {
+            "Ar": "اطرح الحد المضاف من الطرفين لكي يبقى المجهول وحده.",
+            "En": "Subtract the added term from both sides to isolate the unknown."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "مبدأ توازن المعادلة: نطرح العدد نفسه من الطرفين لعزل المجهول.",
+            "En": "Equation balance: subtract the same number from both sides to isolate the unknown."
+          },
+          "FormulaLatex": "x+a=b\\Rightarrow x=b-a",
+          "Steps": [
+            {
+              "Ar": "اطرح 9 من طرفي المعادلة.",
+              "En": "Subtract 9 from both sides."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$x=23-9=14$",
+            "En": "$x=23-9=14$"
+          },
+          "Result": {
+            "Ar": "$14$",
+            "En": "$14$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "14+9=23.",
+            "En": "14+9=23."
+          },
+          "CommonError": {
+            "Ar": "لا تجمع الحد المضاف مرة أخرى، بل اطرحه من الطرفين.",
+            "En": "Do not add the added term again; subtract it from both sides."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 39,
+      "ExpectedOptionIds": [
+        145,
+        146,
+        147,
+        148
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: محيط المستطيل = 2 × (الطول + العرض). المعطيات: 8 سم و5 سم. نجمع أولاً: 8 + 5 = 13 سم، ثم نضرب في 2: 2 × 13 = 26 سم. النتيجة 26 سم؛ المحيط طول حدود الشكل.",
+        "En": "Rule used: Rectangle perimeter = 2 × (length + width). Dimensions are 8 cm and 5 cm. First sum: 8 + 5 = 13 cm, then double: 2 × 13 = 26 cm. The perimeter is 26 cm, the distance around the rectangle."
+      },
+      "ProposedTrackCode": "grade-3",
+      "PrimarySkillKey": "primary-perimeter",
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 3,
+        "PrimarySkillId": 12,
+        "Points": 10,
+        "Title": {
+          "Ar": "مستطيل طوله 8 سم وعرضه 5 سم؛ ما محيطه؟",
+          "En": "A rectangle is 8 cm long and 5 cm wide. What is its perimeter?"
+        },
+        "Question": {
+          "Ar": "مستطيل طوله 8 سم وعرضه 5 سم؛ ما محيطه؟",
+          "En": "A rectangle is 8 cm long and 5 cm wide. What is its perimeter?"
+        },
+        "Options": [
+          {
+            "LatexCode": "13",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "المحيط 13 سم لا يطابق مجموع الأضلاع الذي يساوي 26 سم.",
+              "En": "13 cm does not equal the sum of the side lengths, 26 cm."
+            }
+          },
+          {
+            "LatexCode": "40",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "المحيط 40 سم لا يطابق مجموع الأضلاع الذي يساوي 26 سم.",
+              "En": "40 cm does not equal the sum of the side lengths, 26 cm."
+            }
+          },
+          {
+            "LatexCode": "26",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "20",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "المحيط 20 سم لا يطابق مجموع الأضلاع الذي يساوي 26 سم.",
+              "En": "20 cm does not equal the sum of the side lengths, 26 cm."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "المحيط يجمع أطوال الحدود الأربعة.",
+            "En": "Perimeter adds the four boundary lengths."
+          },
+          {
+            "Ar": "في المستطيل يتكرر الطول مرتين ويتكرر العرض مرتين.",
+            "En": "The length occurs twice and the width occurs twice."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "محيط المستطيل يساوي مجموع ضلعين طويلين وضلعين قصيرين.",
+            "En": "A rectangle's perimeter is the sum of two lengths and two widths."
+          },
+          "FormulaLatex": "P=2(l+w)",
+          "Steps": [
+            {
+              "Ar": "اجمع الطول والعرض، ثم ضاعف المجموع.",
+              "En": "Add the length and width, then double the sum."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$2(8+5)=26$",
+            "En": "$2(8+5)=26$"
+          },
+          "Result": {
+            "Ar": "$26$",
+            "En": "$26$"
+          },
+          "Unit": {
+            "Ar": "سم",
+            "En": "cm"
+          },
+          "Verification": {
+            "Ar": "جمع الأضلاع: 8+5+8+5=26.",
+            "En": "Add all sides: 8+5+8+5=26."
+          },
+          "CommonError": {
+            "Ar": "المحيط طول الحدود وليس مساحة السطح.",
+            "En": "Perimeter measures the boundary, not the area."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 40,
+      "ExpectedOptionIds": [
+        149,
+        150,
+        151,
+        152
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: المتوسط الحسابي = مجموع القيم ÷ عددها. القيم هي 4 و6 و8 و10؛ مجموعها = 4 + 6 + 8 + 10 = 28، وعددها 4. بالتعويض: المتوسط = 28 ÷ 4 = 7.",
+        "En": "Rule used: Arithmetic mean = sum of values ÷ number of values. Add 4 + 6 + 8 + 10 = 28. There are 4 values, so the mean is 28 ÷ 4 = 7."
+      },
+      "ProposedTrackCode": "grade-5",
+      "PrimarySkillKey": "primary-arithmetic-mean",
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 4,
+        "PrimarySkillId": 19,
+        "Points": 10,
+        "Title": {
+          "Ar": "ما المتوسط الحسابي للأعداد 4 و6 و8 و10؟",
+          "En": "What is the mean of 4, 6, 8, and 10?"
+        },
+        "Question": {
+          "Ar": "ما المتوسط الحسابي للأعداد 4 و6 و8 و10؟",
+          "En": "What is the mean of 4, 6, 8, and 10?"
+        },
+        "Options": [
+          {
+            "LatexCode": "8",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "لو كان المتوسط 8 لكان المجموع 8×4=32، بينما المجموع 28.",
+              "En": "If the mean were 8, the total would be 8×4=32, whereas the total is 28."
+            }
+          },
+          {
+            "LatexCode": "6",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "لو كان المتوسط 6 لكان المجموع 6×4=24، بينما المجموع 28.",
+              "En": "If the mean were 6, the total would be 6×4=24, whereas the total is 28."
+            }
+          },
+          {
+            "LatexCode": "9",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "لو كان المتوسط 9 لكان المجموع 9×4=36، بينما المجموع 28.",
+              "En": "If the mean were 9, the total would be 9×4=36, whereas the total is 28."
+            }
+          },
+          {
+            "LatexCode": "7",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "المتوسط يعتمد على مجموع القيم وعددها.",
+            "En": "The mean depends on the sum and count of the values."
+          },
+          {
+            "Ar": "اجمع القيم المعطاة ثم اقسم المجموع على 4.",
+            "En": "Add the given values and divide the sum by 4."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "المتوسط الحسابي يساوي مجموع القيم مقسوماً على عددها.",
+            "En": "The arithmetic mean equals the sum of the values divided by their count."
+          },
+          "FormulaLatex": "\\bar{x}=\\frac{\\sum_{i=1}^{n}x_i}{n}",
+          "Steps": [
+            {
+              "Ar": "اجمع جميع القيم المعطاة، ثم اقسم المجموع على عددها.",
+              "En": "Add all the given values, then divide by how many there are."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$\\frac{4+6+8+10}{4}=\\frac{28}{4}=7$",
+            "En": "$\\frac{4+6+8+10}{4}=\\frac{28}{4}=7$"
+          },
+          "Result": {
+            "Ar": "$7$",
+            "En": "$7$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "المتوسط مضروباً في عدد القيم يعيد المجموع: 7×4=28.",
+            "En": "Mean times count recovers the total: 7×4=28."
+          },
+          "CommonError": {
+            "Ar": "لا تختَر إحدى القيم مباشرة أو تقسم على أكبر قيمة.",
+            "En": "Do not pick a value directly or divide by the largest observation."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 53,
+      "ExpectedOptionIds": [
+        201,
+        202,
+        203,
+        204
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "المبدأ المستخدم: يمكن الاستفادة من حقيقة أن 9 = 10 − 1. بالتوزيع: 9 × 6 = (10 − 1) × 6 = 60 − 6 = 54. إذن ناتج ضرب 9 في 6 هو 54.",
+        "En": "Rule used: Apply the distributive property with 9 = 10 − 1. Compute 9 × 6 = (10 − 1) × 6 = 60 − 6 = 54. Thus the product is 54."
+      },
+      "ProposedTrackCode": "grade-3",
+      "PrimarySkillKey": "primary-multiplication",
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 33,
+        "PrimarySkillId": 4,
+        "Points": 10,
+        "Title": {
+          "Ar": "كم يساوي 9 × 6؟",
+          "En": "What is 9 multiplied by 6?"
+        },
+        "Question": {
+          "Ar": "كم يساوي 9 × 6؟",
+          "En": "What is 9 multiplied by 6?"
+        },
+        "Options": [
+          {
+            "LatexCode": "45",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "45 لا يساوي مجموع 6 مجموعات من 9؛ حاصل ضرب العاملين هو 54.",
+              "En": "45 is not the sum of 6 groups of 9; their product is 54."
+            }
+          },
+          {
+            "LatexCode": "54",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "63",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "63 لا يساوي مجموع 6 مجموعات من 9؛ حاصل ضرب العاملين هو 54.",
+              "En": "63 is not the sum of 6 groups of 9; their product is 54."
+            }
+          },
+          {
+            "LatexCode": "56",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "56 لا يساوي مجموع 6 مجموعات من 9؛ حاصل ضرب العاملين هو 54.",
+              "En": "56 is not the sum of 6 groups of 9; their product is 54."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "استخدم خاصية التوزيع مع عدد قريب يسهل ضربه.",
+            "En": "Use the distributive property with a nearby easy-to-multiply number."
+          },
+          {
+            "Ar": "اكتب 9 على صورة 10 ناقص 1، ثم وزّع الضرب.",
+            "En": "Write 9 as 10 minus 1, then distribute."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "الضرب هو جمع مجموعات متساوية؛ ويمكن استخدام خاصية التوزيع لتسهيل الحساب.",
+            "En": "Multiplication combines equal groups; the distributive property can simplify the calculation."
+          },
+          "FormulaLatex": "(10-1)b=10b-b",
+          "Steps": [
+            {
+              "Ar": "فكك العدد 9 إلى 10 ناقص 1، ثم وزّع الضرب على الفرق.",
+              "En": "Write 9 as 10 minus 1 and distribute the multiplication over the difference."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$(10-1)\\times6=60-6=54$",
+            "En": "$(10-1)\\times6=60-6=54$"
+          },
+          "Result": {
+            "Ar": "$54$",
+            "En": "$54$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "بقسمة حاصل الضرب على 6 نحصل على 9: 54\\div6=9.",
+            "En": "Divide the product by 6 to recover 9: 54 ÷ 6 = 9."
+          },
+          "CommonError": {
+            "Ar": "تأكد من عدد المجموعات ولا تستبدل أحد العاملين بالعدد المجاور.",
+            "En": "Keep the number of groups fixed; do not substitute a neighboring factor."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 54,
+      "ExpectedOptionIds": [
+        205,
+        206,
+        207,
+        208
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "المبدأ المستخدم: القسمة هي العملية العكسية للضرب؛ نعزل المجهول بقسمة الطرفين على 4. إذا كان 4س = 36، إذن س = 36 ÷ 4 = 9. التحقق: 4 × 9 = 36.",
+        "En": "Rule used: Division reverses multiplication. For 4x = 36, divide both sides by 4: x = 36 ÷ 4 = 9. Check: 4 × 9 = 36."
+      },
+      "ProposedTrackCode": "grade-3",
+      "PrimarySkillKey": "primary-one-step-multiplicative-equations",
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 2,
+        "PrimarySkillId": 9,
+        "Points": 10,
+        "Title": {
+          "Ar": "إذا كان 4x = 36، فما قيمة x؟",
+          "En": "If 4x = 36, what is x?"
+        },
+        "Question": {
+          "Ar": "إذا كان 4x = 36، فما قيمة x؟",
+          "En": "If 4x = 36, what is x?"
+        },
+        "Options": [
+          {
+            "LatexCode": "8",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "عند التعويض بـ8 يصبح الطرف الأيسر 32، وليس 36.",
+              "En": "Substituting 8 gives 32 on the left, not 36."
+            }
+          },
+          {
+            "LatexCode": "12",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "عند التعويض بـ12 يصبح الطرف الأيسر 48، وليس 36.",
+              "En": "Substituting 12 gives 48 on the left, not 36."
+            }
+          },
+          {
+            "LatexCode": "9",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "32",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "عند التعويض بـ32 يصبح الطرف الأيسر 128، وليس 36.",
+              "En": "Substituting 32 gives 128 on the left, not 36."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "ما العملية العكسية للضرب؟",
+            "En": "Which operation reverses multiplication?"
+          },
+          {
+            "Ar": "اقسم طرفي المعادلة على معامل المجهول.",
+            "En": "Divide both sides by the coefficient of the unknown."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "مبدأ توازن المعادلة: نقسم الطرفين على معامل المجهول غير الصفري.",
+            "En": "Equation balance: divide both sides by the nonzero coefficient of the unknown."
+          },
+          "FormulaLatex": "ax=b\\Rightarrow x=\\frac{b}{a}\\quad(a\\ne0)",
+          "Steps": [
+            {
+              "Ar": "اقسم طرفي المعادلة على 4.",
+              "En": "Divide both sides by 4."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$x=\\frac{36}{4}=9$",
+            "En": "$x=\\frac{36}{4}=9$"
+          },
+          "Result": {
+            "Ar": "$9$",
+            "En": "$9$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "4×9=36.",
+            "En": "4×9=36."
+          },
+          "CommonError": {
+            "Ar": "لا تطرح المعامل؛ العملية العكسية للضرب هي القسمة.",
+            "En": "Do not subtract the coefficient; division reverses multiplication."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 55,
+      "ExpectedOptionIds": [
+        209,
+        210,
+        211,
+        212
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: مساحة المثلث = (القاعدة × الارتفاع العمودي) ÷ 2. نعوّض القاعدة 10 سم والارتفاع 6 سم: (10 × 6) ÷ 2 = 60 ÷ 2 = 30 سم². النتيجة 30 سم²، ونستخدم الارتفاع العمودي على القاعدة.",
+        "En": "Rule used: Triangle area = (base × perpendicular height) ÷ 2. Substitute base 10 cm and height 6 cm: (10 × 6) ÷ 2 = 60 ÷ 2 = 30 cm². The answer is 30 cm²; the height must be perpendicular to the base."
+      },
+      "ProposedTrackCode": "grade-5",
+      "PrimarySkillKey": "primary-triangle-area",
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 3,
+        "PrimarySkillId": 14,
+        "Points": 10,
+        "Title": {
+          "Ar": "مثلث قاعدته 10 سم وارتفاعه 6 سم، ما مساحته؟",
+          "En": "A triangle has a 10 cm base and a 6 cm height. What is its area?"
+        },
+        "Question": {
+          "Ar": "مثلث قاعدته 10 سم وارتفاعه 6 سم، ما مساحته؟",
+          "En": "A triangle has a 10 cm base and a 6 cm height. What is its area?"
+        },
+        "Options": [
+          {
+            "LatexCode": "60",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "إذا كانت المساحة 60 فضعفها 120، لكن حاصل ضرب القاعدة والارتفاع 60.",
+              "En": "If the area were 60, doubling it would give 120; the base-height product is 60."
+            }
+          },
+          {
+            "LatexCode": "16",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "إذا كانت المساحة 16 فضعفها 32، لكن حاصل ضرب القاعدة والارتفاع 60.",
+              "En": "If the area were 16, doubling it would give 32; the base-height product is 60."
+            }
+          },
+          {
+            "LatexCode": "20",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "إذا كانت المساحة 20 فضعفها 40، لكن حاصل ضرب القاعدة والارتفاع 60.",
+              "En": "If the area were 20, doubling it would give 40; the base-height product is 60."
+            }
+          },
+          {
+            "LatexCode": "30",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "تخيل مستطيلاً له قاعدة المثلث وارتفاعه؛ ما العلاقة بين المساحتين؟",
+            "En": "Imagine a rectangle with the triangle's base and height; how are their areas related?"
+          },
+          {
+            "Ar": "اضرب القاعدة في الارتفاع ثم خذ نصف حاصل الضرب.",
+            "En": "Multiply the base by the height, then take half the product."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "مساحة المثلث نصف حاصل ضرب القاعدة في ارتفاعها العمودي.",
+            "En": "A triangle's area is half the product of its base and perpendicular height."
+          },
+          "FormulaLatex": "A=\\frac{bh}{2}",
+          "Steps": [
+            {
+              "Ar": "اضرب القاعدة في الارتفاع العمودي ثم اقسم حاصل الضرب على اثنين.",
+              "En": "Multiply the base by its perpendicular height and halve the product."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$\\frac{10\\times6}{2}=30$",
+            "En": "$\\frac{10\\times6}{2}=30$"
+          },
+          "Result": {
+            "Ar": "$30$",
+            "En": "$30$"
+          },
+          "Unit": {
+            "Ar": "سم²",
+            "En": "cm²"
+          },
+          "Verification": {
+            "Ar": "ضعف المساحة يساوي مساحة مستطيل بالقاعدة والارتفاع نفسيهما: 2×30=60.",
+            "En": "Twice the area is the area of a rectangle with the same base and height: 2×30=60."
+          },
+          "CommonError": {
+            "Ar": "لا تنس القسمة على اثنين، واستخدم الارتفاع العمودي لا الضلع المائل.",
+            "En": "Do not forget to halve the product or substitute a slanted side for perpendicular height."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 56,
+      "ExpectedOptionIds": [
+        213,
+        214,
+        215,
+        216
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: الاحتمال = عدد النواتج المناسبة ÷ عدد النواتج الممكنة بالتساوي. حجر النرد العادل له 6 أوجه، والزوجية منها 2 و4 و6؛ إذن عدد النواتج المناسبة 3. بالتعويض: الاحتمال = 3 ÷ 6 = 1/2.",
+        "En": "Rule used: Probability = favorable outcomes ÷ equally likely possible outcomes. A fair die has 6 faces; the even ones are 2, 4, and 6. Thus there are 3 favorable outcomes, so P(even) = 3/6 = 1/2."
+      },
+      "ProposedTrackCode": "grade-5",
+      "PrimarySkillKey": "primary-simple-probability",
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 4,
+        "PrimarySkillId": 17,
+        "Points": 10,
+        "Title": {
+          "Ar": "عند رمي نرد عادل، ما احتمال الحصول على عدد زوجي؟",
+          "En": "When rolling a fair six-sided die, what is the probability of an even number?"
+        },
+        "Question": {
+          "Ar": "عند رمي نرد عادل، ما احتمال الحصول على عدد زوجي؟",
+          "En": "When rolling a fair six-sided die, what is the probability of an even number?"
+        },
+        "Options": [
+          {
+            "LatexCode": "\\frac{1}{2}",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "\\frac{1}{3}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الكسر يمثل 2 من ستة أوجه، بينما هناك ثلاثة أوجه زوجية.",
+              "En": "This fraction represents 2 of six faces, whereas there are three even faces."
+            }
+          },
+          {
+            "LatexCode": "\\frac{1}{6}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الكسر يمثل 1 من ستة أوجه، بينما هناك ثلاثة أوجه زوجية.",
+              "En": "This fraction represents 1 of six faces, whereas there are three even faces."
+            }
+          },
+          {
+            "LatexCode": "\\frac{2}{3}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الكسر يمثل 4 من ستة أوجه، بينما هناك ثلاثة أوجه زوجية.",
+              "En": "This fraction represents 4 of six faces, whereas there are three even faces."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "في نرد عادل تكون فرص جميع الأوجه متساوية.",
+            "En": "In a fair die, every face is equally likely."
+          },
+          {
+            "Ar": "عد الأوجه الزوجية وقارن عددها بعدد جميع الأوجه.",
+            "En": "Count the even faces and compare their count with all faces."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "عند تساوي فرص النواتج، احتمال الحدث هو عدد نواتجه الملائمة مقسوماً على عدد النواتج الكلي.",
+            "En": "For equally likely outcomes, event probability is favorable outcomes divided by total outcomes."
+          },
+          "FormulaLatex": "P(E)=\\frac{|E|}{|\\Omega|}",
+          "Steps": [
+            {
+              "Ar": "حدد الأوجه الزوجية: 2 و4 و6، ثم اقسم عددها على عدد الأوجه الستة.",
+              "En": "Identify the even faces: 2, 4 and 6, then divide their count by all six faces."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$\\frac{3}{6}=\\frac12$",
+            "En": "$\\frac{3}{6}=\\frac12$"
+          },
+          "Result": {
+            "Ar": "$\\frac12$",
+            "En": "$\\frac12$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "عدد الأوجه الزوجية يساوي عدد الأوجه الفردية؛ احتمالا الحدثين المتنافيين مجموعهما واحد.",
+            "En": "There are equally many even and odd faces; these complementary events have probabilities summing to one."
+          },
+          "CommonError": {
+            "Ar": "لا تعد وجهاً واحداً فقط؛ احسب جميع الأوجه الزوجية.",
+            "En": "Do not count just one face; include every even face."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 69,
+      "ExpectedOptionIds": [
+        265,
+        266,
+        267,
+        268
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "قاعدة ترتيب العمليات: نحسب ما داخل الأقواس أولاً. في (17 + 9) − 4 نجمع 17 + 9 = 26، ثم نطرح 4: 26 − 4 = 22. إذن الناتج 22.",
+        "En": "Order-of-operations rule: Evaluate parentheses first. In (17 + 9) − 4, add 17 + 9 = 26, then compute 26 − 4 = 22. The result is 22."
+      },
+      "ProposedTrackCode": "grade-2",
+      "PrimarySkillKey": "primary-multistep-arithmetic",
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 1,
+        "PrimarySkillId": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "احسب (17+9)-4.",
+          "En": "Calculate (17+9)-4."
+        },
+        "Question": {
+          "Ar": "احسب (17+9)-4.",
+          "En": "Calculate (17+9)-4."
+        },
+        "Options": [
+          {
+            "LatexCode": "23",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "إضافة 4 إلى 23 تعطي 27، لا المجموع داخل القوس 26.",
+              "En": "Adding 4 to 23 gives 27, not the parenthesized sum 26."
+            }
+          },
+          {
+            "LatexCode": "25",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "إضافة 4 إلى 25 تعطي 29، لا المجموع داخل القوس 26.",
+              "En": "Adding 4 to 25 gives 29, not the parenthesized sum 26."
+            }
+          },
+          {
+            "LatexCode": "20",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "إضافة 4 إلى 20 تعطي 24، لا المجموع داخل القوس 26.",
+              "En": "Adding 4 to 20 gives 24, not the parenthesized sum 26."
+            }
+          },
+          {
+            "LatexCode": "22",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "ابدأ بما داخل الأقواس.",
+            "En": "Start with the expression inside parentheses."
+          },
+          {
+            "Ar": "بعد إيجاد مجموع العددين داخل القوس، اطرح العدد الموجود خارجه.",
+            "En": "Once the two numbers inside the parentheses are added, subtract the outside number."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "قاعدة ترتيب العمليات: نحسب ما داخل الأقواس قبل العملية خارجها.",
+            "En": "Order of operations: evaluate the expression inside parentheses before the outside operation."
+          },
+          "FormulaLatex": "(a+b)-c",
+          "Steps": [
+            {
+              "Ar": "اجمع الحدين داخل القوس أولاً، ثم اطرح الحد الخارجي من المجموع.",
+              "En": "Add the terms in parentheses first, then subtract the outside term from the sum."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$(17+9)-4=26-4=22$",
+            "En": "$(17+9)-4=26-4=22$"
+          },
+          "Result": {
+            "Ar": "$22$",
+            "En": "$22$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "22+4=26.",
+            "En": "22+4=26."
+          },
+          "CommonError": {
+            "Ar": "انتبه إلى إشارة الطرح خارج القوس.",
+            "En": "Pay attention to the subtraction sign outside the parentheses."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 70,
+      "ExpectedOptionIds": [
+        269,
+        270,
+        271,
+        272
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "المبدأ المستخدم: الطرح هو العملية العكسية للجمع؛ لعزل المجهول نطرح 7 من طرفي المعادلة. في س + 7 = 12 نحسب س = 12 − 7 = 5. التحقق بالتعويض: 5 + 7 = 12، إذن الحل صحيح.",
+        "En": "Rule used: Subtraction reverses addition. To isolate the unknown in x + 7 = 12, subtract 7 from both sides: x = 12 − 7 = 5. Check by substitution: 5 + 7 = 12."
+      },
+      "ProposedTrackCode": "grade-3",
+      "PrimarySkillKey": "primary-one-step-additive-equations",
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 2,
+        "PrimarySkillId": 7,
+        "Points": 10,
+        "Title": {
+          "Ar": "حل المعادلة س+7=12.",
+          "En": "Solve x+7=12."
+        },
+        "Question": {
+          "Ar": "حل المعادلة س+7=12.",
+          "En": "Solve x+7=12."
+        },
+        "Options": [
+          {
+            "LatexCode": "8",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "عند التعويض بـ8 يصبح الطرف الأيسر 15، وليس 12.",
+              "En": "Substituting 8 gives 15 on the left, not 12."
+            }
+          },
+          {
+            "LatexCode": "3",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "عند التعويض بـ3 يصبح الطرف الأيسر 10، وليس 12.",
+              "En": "Substituting 3 gives 10 on the left, not 12."
+            }
+          },
+          {
+            "LatexCode": "5",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "6",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "عند التعويض بـ6 يصبح الطرف الأيسر 13، وليس 12.",
+              "En": "Substituting 6 gives 13 on the left, not 12."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "ما العملية العكسية للجمع؟",
+            "En": "Which operation reverses addition?"
+          },
+          {
+            "Ar": "اطرح الحد المضاف من الطرفين لكي يبقى المجهول وحده.",
+            "En": "Subtract the added term from both sides to isolate the unknown."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "مبدأ توازن المعادلة: نطرح العدد نفسه من الطرفين لعزل المجهول.",
+            "En": "Equation balance: subtract the same number from both sides to isolate the unknown."
+          },
+          "FormulaLatex": "x+a=b\\Rightarrow x=b-a",
+          "Steps": [
+            {
+              "Ar": "اطرح 7 من طرفي المعادلة.",
+              "En": "Subtract 7 from both sides."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$x=12-7=5$",
+            "En": "$x=12-7=5$"
+          },
+          "Result": {
+            "Ar": "$5$",
+            "En": "$5$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "5+7=12.",
+            "En": "5+7=12."
+          },
+          "CommonError": {
+            "Ar": "لا تجمع الحد المضاف مرة أخرى، بل اطرحه من الطرفين.",
+            "En": "Do not add the added term again; subtract it from both sides."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 71,
+      "ExpectedOptionIds": [
+        273,
+        274,
+        275,
+        276
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: مساحة المستطيل = الطول × العرض. طول المستطيل 6 سم وعرضه 3 سم؛ بالتعويض: المساحة = 6 × 3 = 18 سم². نستخدم وحدة مربعة لأن المساحة تقيس السطح داخل الشكل.",
+        "En": "Rule used: Rectangle area = length × width. The rectangle measures 6 cm by 3 cm. Substitute: 6 × 3 = 18 cm². Area uses square units because it measures the surface inside the figure."
+      },
+      "ProposedTrackCode": "grade-3",
+      "PrimarySkillKey": "primary-rectangle-area",
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 3,
+        "PrimarySkillId": 13,
+        "Points": 10,
+        "Title": {
+          "Ar": "مستطيل طوله 6 سم وعرضه 3 سم. ما مساحته بالسم المربع؟",
+          "En": "A rectangle is 6 cm by 3 cm. Find its area in square centimetres."
+        },
+        "Question": {
+          "Ar": "مستطيل طوله 6 سم وعرضه 3 سم. ما مساحته بالسم المربع؟",
+          "En": "A rectangle is 6 cm by 3 cm. Find its area in square centimetres."
+        },
+        "Options": [
+          {
+            "LatexCode": "16",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "المساحة 16 لا تحقق حاصل ضرب البعدين 6×3=18.",
+              "En": "An area of 16 does not satisfy the dimension product 6×3=18."
+            }
+          },
+          {
+            "LatexCode": "18",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "19",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "المساحة 19 لا تحقق حاصل ضرب البعدين 6×3=18.",
+              "En": "An area of 19 does not satisfy the dimension product 6×3=18."
+            }
+          },
+          {
+            "LatexCode": "21",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "المساحة 21 لا تحقق حاصل ضرب البعدين 6×3=18.",
+              "En": "An area of 21 does not satisfy the dimension product 6×3=18."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "المساحة تقيس عدد الوحدات المربعة داخل الشكل.",
+            "En": "Area measures the square units inside a shape."
+          },
+          {
+            "Ar": "استخدم حاصل ضرب البعدين المتعامدين للمستطيل، لا مجموعهما.",
+            "En": "Use the product of the rectangle's two perpendicular dimensions, not their sum."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "مساحة المستطيل حاصل ضرب الطول في العرض.",
+            "En": "Rectangle area is length multiplied by width."
+          },
+          "FormulaLatex": "A=lw",
+          "Steps": [
+            {
+              "Ar": "اضرب الطول في العرض بعد توحيد وحدة القياس.",
+              "En": "Multiply the length by the width using the same measurement unit."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$6\\times3=18$",
+            "En": "$6\\times3=18$"
+          },
+          "Result": {
+            "Ar": "$18$",
+            "En": "$18$"
+          },
+          "Unit": {
+            "Ar": "سم²",
+            "En": "cm²"
+          },
+          "Verification": {
+            "Ar": "المساحة مقسومة على العرض تعطي الطول: 18÷3=6.",
+            "En": "Area divided by width gives length: 18÷3=6."
+          },
+          "CommonError": {
+            "Ar": "لا تستبدل المساحة بجمع الأضلاع أو المحيط؛ استخدم وحدة مربعة.",
+            "En": "Do not use the sum of the sides or perimeter; use square units."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 72,
+      "ExpectedOptionIds": [
+        277,
+        278,
+        279,
+        280
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: المتوسط الحسابي = مجموع البيانات ÷ عدد القيم. نضيف 5 + 8 + 11 = 24، ولدينا 3 قيم. بالتعويض: المتوسط = 24 ÷ 3 = 8. هذا العدد يمثّل القيمة المتوسطة حسابياً للمجموعة.",
+        "En": "Rule used: Arithmetic mean = total sum ÷ number of observations. Add 5 + 8 + 11 = 24. Since there are 3 values, the mean is 24 ÷ 3 = 8."
+      },
+      "ProposedTrackCode": "grade-5",
+      "PrimarySkillKey": "primary-arithmetic-mean",
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 4,
+        "PrimarySkillId": 19,
+        "Points": 10,
+        "Title": {
+          "Ar": "أوجد المتوسط الحسابي للقيم 5 و8 و11.",
+          "En": "Find the arithmetic mean of 5, 8, and 11."
+        },
+        "Question": {
+          "Ar": "أوجد المتوسط الحسابي للقيم 5 و8 و11.",
+          "En": "Find the arithmetic mean of 5, 8, and 11."
+        },
+        "Options": [
+          {
+            "LatexCode": "8",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "9",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "لو كان المتوسط 9 لكان المجموع 9×3=27، بينما المجموع 24.",
+              "En": "If the mean were 9, the total would be 9×3=27, whereas the total is 24."
+            }
+          },
+          {
+            "LatexCode": "11",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "لو كان المتوسط 11 لكان المجموع 11×3=33، بينما المجموع 24.",
+              "En": "If the mean were 11, the total would be 11×3=33, whereas the total is 24."
+            }
+          },
+          {
+            "LatexCode": "6",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "لو كان المتوسط 6 لكان المجموع 6×3=18، بينما المجموع 24.",
+              "En": "If the mean were 6, the total would be 6×3=18, whereas the total is 24."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "المتوسط يعتمد على مجموع القيم وعددها.",
+            "En": "The mean depends on the sum and count of the values."
+          },
+          {
+            "Ar": "اجمع القيم المعطاة ثم اقسم المجموع على 3.",
+            "En": "Add the given values and divide the sum by 3."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "المتوسط الحسابي يساوي مجموع القيم مقسوماً على عددها.",
+            "En": "The arithmetic mean equals the sum of the values divided by their count."
+          },
+          "FormulaLatex": "\\bar{x}=\\frac{\\sum_{i=1}^{n}x_i}{n}",
+          "Steps": [
+            {
+              "Ar": "اجمع جميع القيم المعطاة، ثم اقسم المجموع على عددها.",
+              "En": "Add all the given values, then divide by how many there are."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$\\frac{5+8+11}{3}=\\frac{24}{3}=8$",
+            "En": "$\\frac{5+8+11}{3}=\\frac{24}{3}=8$"
+          },
+          "Result": {
+            "Ar": "$8$",
+            "En": "$8$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "المتوسط مضروباً في عدد القيم يعيد المجموع: 8×3=24.",
+            "En": "Mean times count recovers the total: 8×3=24."
+          },
+          "CommonError": {
+            "Ar": "لا تختَر إحدى القيم مباشرة أو تقسم على أكبر قيمة.",
+            "En": "Do not pick a value directly or divide by the largest observation."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 84,
+      "ExpectedOptionIds": [
+        325,
+        326,
+        327,
+        328
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "قاعدة ترتيب العمليات: الجمع داخل القوس قبل الطرح الخارجي. نحسب 21 + 12 = 33 أولاً، ثم 33 − 5 = 28. التحقق: 28 + 5 = 33.",
+        "En": "Order-of-operations rule: Add inside parentheses before the outside subtraction. First 21 + 12 = 33, then 33 − 5 = 28. Check: 28 + 5 = 33."
+      },
+      "ProposedTrackCode": "grade-2",
+      "PrimarySkillKey": "primary-multistep-arithmetic",
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 1,
+        "PrimarySkillId": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "احسب (21+12)-5.",
+          "En": "Calculate (21+12)-5."
+        },
+        "Question": {
+          "Ar": "احسب (21+12)-5.",
+          "En": "Calculate (21+12)-5."
+        },
+        "Options": [
+          {
+            "LatexCode": "31",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "إضافة 5 إلى 31 تعطي 36، لا المجموع داخل القوس 33.",
+              "En": "Adding 5 to 31 gives 36, not the parenthesized sum 33."
+            }
+          },
+          {
+            "LatexCode": "26",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "إضافة 5 إلى 26 تعطي 31، لا المجموع داخل القوس 33.",
+              "En": "Adding 5 to 26 gives 31, not the parenthesized sum 33."
+            }
+          },
+          {
+            "LatexCode": "28",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "29",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "إضافة 5 إلى 29 تعطي 34، لا المجموع داخل القوس 33.",
+              "En": "Adding 5 to 29 gives 34, not the parenthesized sum 33."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "ابدأ بما داخل الأقواس.",
+            "En": "Start with the expression inside parentheses."
+          },
+          {
+            "Ar": "بعد إيجاد مجموع العددين داخل القوس، اطرح العدد الموجود خارجه.",
+            "En": "Once the two numbers inside the parentheses are added, subtract the outside number."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "قاعدة ترتيب العمليات: نحسب ما داخل الأقواس قبل العملية خارجها.",
+            "En": "Order of operations: evaluate the expression inside parentheses before the outside operation."
+          },
+          "FormulaLatex": "(a+b)-c",
+          "Steps": [
+            {
+              "Ar": "اجمع الحدين داخل القوس أولاً، ثم اطرح الحد الخارجي من المجموع.",
+              "En": "Add the terms in parentheses first, then subtract the outside term from the sum."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$(21+12)-5=33-5=28$",
+            "En": "$(21+12)-5=33-5=28$"
+          },
+          "Result": {
+            "Ar": "$28$",
+            "En": "$28$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "28+5=33.",
+            "En": "28+5=33."
+          },
+          "CommonError": {
+            "Ar": "انتبه إلى إشارة الطرح خارج القوس.",
+            "En": "Pay attention to the subtraction sign outside the parentheses."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 85,
+      "ExpectedOptionIds": [
+        329,
+        330,
+        331,
+        332
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "المبدأ المستخدم: الطرح هو العملية العكسية للجمع؛ لعزل المجهول نطرح 8 من طرفي المعادلة. في س + 8 = 15 نحسب س = 15 − 8 = 7. التحقق بالتعويض: 7 + 8 = 15، إذن الحل صحيح.",
+        "En": "Rule used: Subtraction reverses addition. To isolate the unknown in x + 8 = 15, subtract 8 from both sides: x = 15 − 8 = 7. Check by substitution: 7 + 8 = 15."
+      },
+      "ProposedTrackCode": "grade-3",
+      "PrimarySkillKey": "primary-one-step-additive-equations",
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 2,
+        "PrimarySkillId": 7,
+        "Points": 10,
+        "Title": {
+          "Ar": "حل المعادلة س+8=15.",
+          "En": "Solve x+8=15."
+        },
+        "Question": {
+          "Ar": "حل المعادلة س+8=15.",
+          "En": "Solve x+8=15."
+        },
+        "Options": [
+          {
+            "LatexCode": "5",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "عند التعويض بـ5 يصبح الطرف الأيسر 13، وليس 15.",
+              "En": "Substituting 5 gives 13 on the left, not 15."
+            }
+          },
+          {
+            "LatexCode": "7",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "8",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "عند التعويض بـ8 يصبح الطرف الأيسر 16، وليس 15.",
+              "En": "Substituting 8 gives 16 on the left, not 15."
+            }
+          },
+          {
+            "LatexCode": "10",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "عند التعويض بـ10 يصبح الطرف الأيسر 18، وليس 15.",
+              "En": "Substituting 10 gives 18 on the left, not 15."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "ما العملية العكسية للجمع؟",
+            "En": "Which operation reverses addition?"
+          },
+          {
+            "Ar": "اطرح الحد المضاف من الطرفين لكي يبقى المجهول وحده.",
+            "En": "Subtract the added term from both sides to isolate the unknown."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "مبدأ توازن المعادلة: نطرح العدد نفسه من الطرفين لعزل المجهول.",
+            "En": "Equation balance: subtract the same number from both sides to isolate the unknown."
+          },
+          "FormulaLatex": "x+a=b\\Rightarrow x=b-a",
+          "Steps": [
+            {
+              "Ar": "اطرح 8 من طرفي المعادلة.",
+              "En": "Subtract 8 from both sides."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$x=15-8=7$",
+            "En": "$x=15-8=7$"
+          },
+          "Result": {
+            "Ar": "$7$",
+            "En": "$7$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "7+8=15.",
+            "En": "7+8=15."
+          },
+          "CommonError": {
+            "Ar": "لا تجمع الحد المضاف مرة أخرى، بل اطرحه من الطرفين.",
+            "En": "Do not add the added term again; subtract it from both sides."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 86,
+      "ExpectedOptionIds": [
+        333,
+        334,
+        335,
+        336
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: مساحة المستطيل = الطول × العرض. طول المستطيل 7 سم وعرضه 4 سم؛ بالتعويض: المساحة = 7 × 4 = 28 سم². نستخدم وحدة مربعة لأن المساحة تقيس السطح داخل الشكل.",
+        "En": "Rule used: Rectangle area = length × width. The rectangle measures 7 cm by 4 cm. Substitute: 7 × 4 = 28 cm². Area uses square units because it measures the surface inside the figure."
+      },
+      "ProposedTrackCode": "grade-3",
+      "PrimarySkillKey": "primary-rectangle-area",
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 3,
+        "PrimarySkillId": 13,
+        "Points": 10,
+        "Title": {
+          "Ar": "مستطيل طوله 7 سم وعرضه 4 سم. ما مساحته بالسم المربع؟",
+          "En": "A rectangle is 7 cm by 4 cm. Find its area in square centimetres."
+        },
+        "Question": {
+          "Ar": "مستطيل طوله 7 سم وعرضه 4 سم. ما مساحته بالسم المربع؟",
+          "En": "A rectangle is 7 cm by 4 cm. Find its area in square centimetres."
+        },
+        "Options": [
+          {
+            "LatexCode": "28",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "29",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "المساحة 29 لا تحقق حاصل ضرب البعدين 7×4=28.",
+              "En": "An area of 29 does not satisfy the dimension product 7×4=28."
+            }
+          },
+          {
+            "LatexCode": "31",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "المساحة 31 لا تحقق حاصل ضرب البعدين 7×4=28.",
+              "En": "An area of 31 does not satisfy the dimension product 7×4=28."
+            }
+          },
+          {
+            "LatexCode": "26",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "المساحة 26 لا تحقق حاصل ضرب البعدين 7×4=28.",
+              "En": "An area of 26 does not satisfy the dimension product 7×4=28."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "المساحة تقيس عدد الوحدات المربعة داخل الشكل.",
+            "En": "Area measures the square units inside a shape."
+          },
+          {
+            "Ar": "استخدم حاصل ضرب البعدين المتعامدين للمستطيل، لا مجموعهما.",
+            "En": "Use the product of the rectangle's two perpendicular dimensions, not their sum."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "مساحة المستطيل حاصل ضرب الطول في العرض.",
+            "En": "Rectangle area is length multiplied by width."
+          },
+          "FormulaLatex": "A=lw",
+          "Steps": [
+            {
+              "Ar": "اضرب الطول في العرض بعد توحيد وحدة القياس.",
+              "En": "Multiply the length by the width using the same measurement unit."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$7\\times4=28$",
+            "En": "$7\\times4=28$"
+          },
+          "Result": {
+            "Ar": "$28$",
+            "En": "$28$"
+          },
+          "Unit": {
+            "Ar": "سم²",
+            "En": "cm²"
+          },
+          "Verification": {
+            "Ar": "المساحة مقسومة على العرض تعطي الطول: 28÷4=7.",
+            "En": "Area divided by width gives length: 28÷4=7."
+          },
+          "CommonError": {
+            "Ar": "لا تستبدل المساحة بجمع الأضلاع أو المحيط؛ استخدم وحدة مربعة.",
+            "En": "Do not use the sum of the sides or perimeter; use square units."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    }
+  ]
+}
