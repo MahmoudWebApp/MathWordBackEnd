@@ -1442,6 +1442,1302 @@
           "En": "When the argument is a power of ten, identify the exponent first and retain its sign during substitution."
         }
       ]
+    },
+    {
+      "problemId": 116,
+      "primarySkillKey": "primary-rectangle-area",
+      "question": {
+        "Ar": "مستطيل طوله 9 سم وعرضه 6 سم. ما مساحته بالسم المربع؟",
+        "En": "A rectangle is 9 cm by 6 cm. Find its area in square centimetres."
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد الطول والعرض من المعطيات.",
+          "En": "Identify the length and width."
+        },
+        {
+          "Ar": "مساحة المستطيل حاصل ضرب الطول في العرض، بوحدة مربعة.",
+          "En": "Rectangle area is length times width, in square units."
+        }
+      ]
+    },
+    {
+      "problemId": 179,
+      "primarySkillKey": "primary-perimeter",
+      "question": {
+        "Ar": "ما محيط مستطيل طوله 9 سم وعرضه 6 سم؟",
+        "En": "Find the perimeter of a 9 cm by 6 cm rectangle."
+      },
+      "Hints": [
+        {
+          "Ar": "المحيط هو مجموع أطوال حدود الشكل.",
+          "En": "Perimeter is the sum of the boundary lengths."
+        },
+        {
+          "Ar": "اجمع الطول والعرض ثم ضاعف المجموع.",
+          "En": "Add length and width, then double the sum."
+        }
+      ]
+    },
+    {
+      "problemId": 475,
+      "primarySkillKey": "p-fractions-decimals-decimal-place-value",
+      "question": {
+        "Ar": "ما الرقم في منزلة الأجزاء من المئة للعدد $0.407$؟",
+        "En": "Which digit is in the hundredths place of $0.407$?"
+      },
+      "Hints": [
+        {
+          "Ar": "ابدأ من أول رقم يمين الفاصلة العشرية.",
+          "En": "Start with the first digit to the right of the decimal point."
+        },
+        {
+          "Ar": "ترتيب المنازل: الأعشار ثم أجزاء المئة ثم أجزاء الألف.",
+          "En": "The places are tenths, hundredths, then thousandths."
+        }
+      ]
+    },
+    {
+      "problemId": 504,
+      "primarySkillKey": "p-fractions-decimals-fraction-comparisons",
+      "question": {
+        "Ar": "أيهما أكبر: $\\frac79$ أم $\\frac7{11}$؟",
+        "En": "Which is greater, $\\frac79$ or $\\frac7{11}$?"
+      },
+      "Hints": [
+        {
+          "Ar": "لاحظ أن البسطين متساويان.",
+          "En": "Notice that the numerators are equal."
+        },
+        {
+          "Ar": "عندما يكون البسط الموجب نفسه، تكون أجزاء الكل أكبر عند المقام الأصغر.",
+          "En": "With equal positive numerators, smaller denominators mean larger pieces."
+        }
+      ]
+    },
+    {
+      "problemId": 506,
+      "primarySkillKey": "p-fractions-decimals-fraction-comparisons",
+      "question": {
+        "Ar": "أي كسر يقع بين $\\frac13$ و$\\frac12$ دون أن يساوي أيّاً منهما؟",
+        "En": "Which fraction lies strictly between $\\frac13$ and $\\frac12$?"
+      },
+      "Hints": [
+        {
+          "Ar": "استخدم مقاماً مشتركاً للطرفين والخيارات.",
+          "En": "Use a common denominator for the bounds and choices."
+        },
+        {
+          "Ar": "حوّل 1/3 و1/2 إلى أجزاء من 12 وابحث عن بسط بين البسطين حصراً.",
+          "En": "Convert 1/3 and 1/2 to twelfths; look for a numerator strictly between theirs."
+        }
+      ]
+    },
+    {
+      "problemId": 616,
+      "primarySkillKey": "primary-triangle-area",
+      "question": {
+        "Ar": "مستطيل أبعاده 10 سم و6 سم، قُسم بقطر إلى مثلثين. ما مساحة أحد المثلثين بالسم²؟",
+        "En": "A 10 cm by 6 cm rectangle is split into two triangles by a diagonal. What is the area of either triangle in cm²?"
+      },
+      "Hints": [
+        {
+          "Ar": "القطر يقسم المستطيل إلى مثلثين متساويي المساحة.",
+          "En": "A diagonal splits the rectangle into two equal-area triangles."
+        },
+        {
+          "Ar": "احسب مساحة المستطيل ثم اقسمها على اثنين.",
+          "En": "Find the rectangle's area, then halve it."
+        }
+      ]
+    },
+    {
+      "problemId": 16,
+      "primarySkillKey": "middle-ratios",
+      "question": {
+        "Ar": "إذا كانت النسبة بين طلاب وطالبات هي $3:5$، وكان عدد الطلاب $150$، فما عدد الطالبات؟",
+        "En": "If the ratio of male to female students is $3:5$, and there are $150$ male students, how many female students are there?"
+      },
+      "Hints": [
+        {
+          "Ar": "تعامل مع النسبة 3:5 كعدد من الحصص المتساوية.",
+          "En": "Treat the ratio 3:5 as equal-sized shares."
+        },
+        {
+          "Ar": "اقسم عدد الذكور على 3 لمعرفة قيمة الحصة، ثم اضربها في 5.",
+          "En": "Divide the male count by 3 to find one share, then multiply by 5."
+        }
+      ]
+    },
+    {
+      "problemId": 17,
+      "primarySkillKey": "middle-unit-rates",
+      "question": {
+        "Ar": "إذا قطع قطار مسافة $240$ كم في $3$ ساعات، فما سرعته المتوسطة؟",
+        "En": "If a train travels $240$ km in $3$ hours, what is its average speed?"
+      },
+      "Hints": [
+        {
+          "Ar": "السرعة المتوسطة تقيس المسافة لكل وحدة زمن.",
+          "En": "Average speed measures distance per unit time."
+        },
+        {
+          "Ar": "اقسم المسافة بالكيلومترات على الزمن بالساعات.",
+          "En": "Divide the distance in kilometers by the time in hours."
+        }
+      ]
+    },
+    {
+      "problemId": 18,
+      "primarySkillKey": "middle-triangle-angles",
+      "question": {
+        "Ar": "في مثلث $ABC$، قياس الزاوية $A$ يساوي $50^\\circ$ وقياس الزاوية $B$ يساوي $60^\\circ$. ما قياس الزاوية $C$؟",
+        "En": "In triangle $ABC$, angle $A = 50^\\circ$ and angle $B = 60^\\circ$. What is the measure of angle $C$?"
+      },
+      "Hints": [
+        {
+          "Ar": "تذكّر مجموع الزوايا الداخلية للمثلث.",
+          "En": "Recall the sum of a triangle's interior angles."
+        },
+        {
+          "Ar": "اطرح مجموع الزاويتين المعطاتين من 180 درجة.",
+          "En": "Subtract the two known angles' sum from 180 degrees."
+        }
+      ]
+    },
+    {
+      "problemId": 19,
+      "primarySkillKey": "middle-circle-area",
+      "question": {
+        "Ar": "أوجد مساحة دائرة نصف قطرها $7$ سم. (استخدم $\\pi = \\frac{22}{7}$)",
+        "En": "Find the area of a circle with radius $7$ cm. (Use $\\pi = \\frac{22}{7}$)"
+      },
+      "Hints": [
+        {
+          "Ar": "ميّز بين قانون المساحة وقانون المحيط.",
+          "En": "Distinguish the area formula from the circumference formula."
+        },
+        {
+          "Ar": "استخدم π مضروباً في مربع نصف القطر، مع قيمة π المعطاة.",
+          "En": "Use π times the squared radius, with the given value of π."
+        }
+      ]
+    },
+    {
+      "problemId": 24,
+      "primarySkillKey": "secondary-polynomial-derivatives",
+      "question": {
+        "Ar": "أوجد المشتقة للدالة $f(x) = x^3 + 2x^2 - 5x + 1$.",
+        "En": "Find the derivative of the function $f(x) = x^3 + 2x^2 - 5x + 1$."
+      },
+      "Hints": [
+        {
+          "Ar": "اشتق كل حد من كثير الحدود على حدة.",
+          "En": "Differentiate each polynomial term separately."
+        },
+        {
+          "Ar": "اضرب المعامل في الأس ثم أنقص الأس واحداً؛ مشتقة الثابت صفر.",
+          "En": "Multiply the coefficient by the exponent, reduce the exponent by one; constants differentiate to zero."
+        }
+      ]
+    },
+    {
+      "problemId": 278,
+      "primarySkillKey": "secondary-combinations",
+      "question": {
+        "Ar": "كم طريقة لاختيار طالبين من 4 طلاب دون ترتيب؟",
+        "En": "How many unordered pairs can be selected from 4 students?"
+      },
+      "Hints": [
+        {
+          "Ar": "ترتيب الطالبين لا يغير الزوج المختار.",
+          "En": "Changing the students' order does not change the pair."
+        },
+        {
+          "Ar": "اضرب عدد الطلاب في العدد الذي يقل عنه بواحد، ثم اقسم على اثنين لإزالة التكرار.",
+          "En": "Multiply the number of students by one less, then divide by two to remove double counting."
+        }
+      ]
+    },
+    {
+      "problemId": 290,
+      "primarySkillKey": "secondary-combinations",
+      "question": {
+        "Ar": "كم طريقة لاختيار طالبين من 5 طلاب دون ترتيب؟",
+        "En": "How many unordered pairs can be selected from 5 students?"
+      },
+      "Hints": [
+        {
+          "Ar": "ترتيب الطالبين لا يغير الزوج المختار.",
+          "En": "Changing the students' order does not change the pair."
+        },
+        {
+          "Ar": "اضرب عدد الطلاب في العدد الذي يقل عنه بواحد، ثم اقسم على اثنين لإزالة التكرار.",
+          "En": "Multiply the number of students by one less, then divide by two to remove double counting."
+        }
+      ]
+    },
+    {
+      "problemId": 302,
+      "primarySkillKey": "secondary-combinations",
+      "question": {
+        "Ar": "كم طريقة لاختيار طالبين من 6 طلاب دون ترتيب؟",
+        "En": "How many unordered pairs can be selected from 6 students?"
+      },
+      "Hints": [
+        {
+          "Ar": "ترتيب الطالبين لا يغير الزوج المختار.",
+          "En": "Changing the students' order does not change the pair."
+        },
+        {
+          "Ar": "اضرب عدد الطلاب في العدد الذي يقل عنه بواحد، ثم اقسم على اثنين لإزالة التكرار.",
+          "En": "Multiply the number of students by one less, then divide by two to remove double counting."
+        }
+      ]
+    },
+    {
+      "problemId": 314,
+      "primarySkillKey": "secondary-combinations",
+      "question": {
+        "Ar": "كم طريقة لاختيار طالبين من 7 طلاب دون ترتيب؟",
+        "En": "How many unordered pairs can be selected from 7 students?"
+      },
+      "Hints": [
+        {
+          "Ar": "ترتيب الطالبين لا يغير الزوج المختار.",
+          "En": "Changing the students' order does not change the pair."
+        },
+        {
+          "Ar": "اضرب عدد الطلاب في العدد الذي يقل عنه بواحد، ثم اقسم على اثنين لإزالة التكرار.",
+          "En": "Multiply the number of students by one less, then divide by two to remove double counting."
+        }
+      ]
+    },
+    {
+      "problemId": 326,
+      "primarySkillKey": "secondary-combinations",
+      "question": {
+        "Ar": "كم طريقة لاختيار طالبين من 8 طلاب دون ترتيب؟",
+        "En": "How many unordered pairs can be selected from 8 students?"
+      },
+      "Hints": [
+        {
+          "Ar": "ترتيب الطالبين لا يغير الزوج المختار.",
+          "En": "Changing the students' order does not change the pair."
+        },
+        {
+          "Ar": "اضرب عدد الطلاب في العدد الذي يقل عنه بواحد، ثم اقسم على اثنين لإزالة التكرار.",
+          "En": "Multiply the number of students by one less, then divide by two to remove double counting."
+        }
+      ]
+    },
+    {
+      "problemId": 430,
+      "primarySkillKey": "m-statistics-distributions",
+      "question": {
+        "Ar": "للبيانات المرتبة 2، 4، 6، 8، 10، 12، 14، احسب المدى الربيعي باستخدام وسيطي النصفين بعد استبعاد الوسيط العام.",
+        "En": "For the sorted data 2, 4, 6, 8, 10, 12, 14, find the IQR using medians of the two halves excluding the overall median."
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد الوسيط الكلي واستبعده كما يطلب السؤال.",
+          "En": "Identify and exclude the overall median as specified."
+        },
+        {
+          "Ar": "احسب وسيط النصف الأعلى ووسيط النصف الأدنى، ثم اطرح الثاني من الأول.",
+          "En": "Find the upper-half and lower-half medians, then subtract the latter from the former."
+        }
+      ]
+    },
+    {
+      "problemId": 437,
+      "primarySkillKey": "s-sequences-series-geometric-sequences",
+      "question": {
+        "Ar": "متتالية هندسية حدها الأول 3 ونسبتها المشتركة 2. ما الحد الخامس؟",
+        "En": "A geometric sequence has first term 3 and common ratio 2. What is its fifth term?"
+      },
+      "Hints": [
+        {
+          "Ar": "في المتتالية الهندسية يتكرر الضرب في النسبة نفسها.",
+          "En": "In a geometric sequence, the same ratio is multiplied repeatedly."
+        },
+        {
+          "Ar": "للوصول من الحد الأول إلى الخامس نستخدم النسبة أربع مرات.",
+          "En": "To reach the fifth term from the first, apply the ratio four times."
+        }
+      ]
+    },
+    {
+      "problemId": 439,
+      "primarySkillKey": "s-sequences-series-arithmetic-sequences",
+      "question": {
+        "Ar": "متتالية حسابية حدها الأول 4 وفرقها المشترك 3. أوجد الحد العاشر.",
+        "En": "An arithmetic sequence has first term 4 and common difference 3. Find the tenth term."
+      },
+      "Hints": [
+        {
+          "Ar": "في المتتالية الحسابية يضاف الفرق نفسه في كل خطوة.",
+          "En": "An arithmetic sequence adds the same difference at each step."
+        },
+        {
+          "Ar": "بين الحد الأول والعاشر تسع خطوات متساوية.",
+          "En": "There are nine equal steps between the first and tenth terms."
+        }
+      ]
+    },
+    {
+      "problemId": 480,
+      "primarySkillKey": "m-statistics-charts",
+      "question": {
+        "Ar": "في الصف أ 15 طالبة و12 طالباً، وفي الصف ب 10 طالبات و18 طالباً. أي الصفين لديه نسبة أعلى من الطالبات؟",
+        "En": "Class A has 15 girls and 12 boys; Class B has 10 girls and 18 boys. Which class has the higher proportion of girls?"
+      },
+      "Hints": [
+        {
+          "Ar": "لا تقارن عدد البنات وحده؛ احسب إجمالي الطلاب في كل صف.",
+          "En": "Do not compare girls' counts alone; find each class total."
+        },
+        {
+          "Ar": "اقسم عدد البنات على إجمالي الصف نفسه وقارن الكسرين.",
+          "En": "Divide each girls' count by its own class total, then compare fractions."
+        }
+      ]
+    },
+    {
+      "problemId": 486,
+      "primarySkillKey": "s-sequences-series-series-sums",
+      "question": {
+        "Ar": "ما مجموع أول 12 عدداً فردياً موجباً، من 1 حتى 23؟",
+        "En": "What is the sum of the first 12 positive odd integers, from 1 to 23?"
+      },
+      "Hints": [
+        {
+          "Ar": "الأعداد الفردية المتتالية تشكل متتالية حسابية.",
+          "En": "Consecutive odd numbers form an arithmetic sequence."
+        },
+        {
+          "Ar": "استخدم عدد الحدود مضروباً في متوسط الحد الأول والأخير.",
+          "En": "Use the number of terms times the average of the first and last terms."
+        }
+      ]
+    },
+    {
+      "problemId": 487,
+      "primarySkillKey": "s-sequences-series-series-convergence",
+      "question": {
+        "Ar": "ماذا يحدث لمجاميع المتسلسلة $2+4+8+16+\\cdots$؟",
+        "En": "What happens to the partial sums of the series $2+4+8+16+\\cdots$?"
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد النسبة المشتركة بين حدين متتاليين.",
+          "En": "Identify the common ratio of consecutive terms."
+        },
+        {
+          "Ar": "افحص هل الحدود الموجبة تؤول إلى الصفر وهل المجاميع الجزئية تبقى محدودة.",
+          "En": "Check whether the positive terms tend to zero and whether partial sums stay bounded."
+        }
+      ]
+    },
+    {
+      "problemId": 28,
+      "primarySkillKey": "university-partial-derivatives",
+      "question": {
+        "Ar": "أوجد المشتقة الجزئية $\\frac{\\partial f}{\\partial x}$ للدالة $f(x,y) = x^2 y + 3xy^2 + \\sin x$.",
+        "En": "Find the partial derivative $\\frac{\\partial f}{\\partial x}$ of the function $f(x,y) = x^2 y + 3xy^2 + \\sin x$."
+      },
+      "Hints": [
+        {
+          "Ar": "عند الاشتقاق الجزئي بالنسبة إلى x اعتبر y ثابتاً.",
+          "En": "Treat y as constant when differentiating with respect to x."
+        },
+        {
+          "Ar": "طبّق قاعدة القوى على الحدين الجبريين وقاعدة مشتقة الجيب على الحد الأخير.",
+          "En": "Apply the power rule to the algebraic terms and the sine derivative to the last term."
+        }
+      ]
+    },
+    {
+      "problemId": 29,
+      "primarySkillKey": "university-double-integrals",
+      "question": {
+        "Ar": "أوجد التكامل المزدوج $\\iint_R xy \\, dA$ على المنطقة المستطيلة $R: 0 \\le x \\le 1, 0 \\le y \\le 2$.",
+        "En": "Find the double integral $\\iint_R xy \\, dA$ over the rectangular region $R: 0 \\le x \\le 1, 0 \\le y \\le 2$."
+      },
+      "Hints": [
+        {
+          "Ar": "اكتب التكامل المزدوج كتكاملين متتاليين ضمن حدود المستطيل.",
+          "En": "Write the double integral as iterated integrals over the rectangle."
+        },
+        {
+          "Ar": "ابدأ بالتكامل بالنسبة إلى y مع اعتبار x ثابتاً، ثم كَمّل بالنسبة إلى x.",
+          "En": "Integrate with respect to y holding x constant, then integrate in x."
+        }
+      ]
+    },
+    {
+      "problemId": 31,
+      "primarySkillKey": "university-linear-independence",
+      "question": {
+        "Ar": "هل المتجهان $v_1 = (1, 2)$ و $v_2 = (2, 4)$ مستقلان خطياً؟",
+        "En": "Are the vectors $v_1 = (1, 2)$ and $v_2 = (2, 4)$ linearly independent?"
+      },
+      "Hints": [
+        {
+          "Ar": "افحص العلاقة بين المركبات المتناظرة للمتجهين.",
+          "En": "Compare corresponding vector components."
+        },
+        {
+          "Ar": "هل يمكن الحصول على المتجه الثاني بضرب الأول في ثابت واحد؟",
+          "En": "Can the second vector be obtained by multiplying the first by a single scalar?"
+        }
+      ]
+    },
+    {
+      "problemId": 32,
+      "primarySkillKey": "university-exponential-ode",
+      "question": {
+        "Ar": "حل المعادلة التفاضلية: $\\frac{dy}{dx} = 3y$.",
+        "En": "Solve the differential equation: $\\frac{dy}{dx} = 3y$."
+      },
+      "Hints": [
+        {
+          "Ar": "جرّب فصل المتغيرين عندما تكون y غير صفرية.",
+          "En": "Try separating variables when y is nonzero."
+        },
+        {
+          "Ar": "كامل dy/y و3dx ثم استخدم الأس؛ افحص الحل الصفري أيضاً.",
+          "En": "Integrate dy/y and 3dx, exponentiate, and check the zero solution."
+        }
+      ]
+    },
+    {
+      "problemId": 33,
+      "primarySkillKey": "university-ode-order",
+      "question": {
+        "Ar": "ما رتبة المعادلة التفاضلية $y'' + 2y' + y = 0$؟",
+        "En": "What is the order of the differential equation $y'' + 2y' + y = 0$?"
+      },
+      "Hints": [
+        {
+          "Ar": "رتبة المعادلة تتعلق بالمشتقات لا بالمعاملات.",
+          "En": "ODE order concerns derivatives, not coefficients."
+        },
+        {
+          "Ar": "ابحث عن المشتقة ذات أكبر عدد من علامات الاشتقاق.",
+          "En": "Find the derivative with the greatest number of differentiation marks."
+        }
+      ]
+    },
+    {
+      "problemId": 34,
+      "primarySkillKey": "university-function-limits",
+      "question": {
+        "Ar": "أوجد النهاية: $\\lim_{x \\to 2} \\frac{x^2 - 4}{x - 2}$.",
+        "En": "Find the limit: $\\lim_{x \\to 2} \\frac{x^2 - 4}{x - 2}$."
+      },
+      "Hints": [
+        {
+          "Ar": "التعويض المباشر يعطي صيغة غير معينة، لذا بسّط أولاً.",
+          "En": "Direct substitution gives an indeterminate form, so simplify first."
+        },
+        {
+          "Ar": "حلّل البسط كفرق مربعين واختصر العامل المشترك عندما x لا يساوي 2.",
+          "En": "Factor the numerator as a difference of squares and cancel the common factor for x not equal to 2."
+        }
+      ]
+    },
+    {
+      "problemId": 448,
+      "primarySkillKey": "u-discrete-math-relations",
+      "question": {
+        "Ar": "على الأعداد الصحيحة، عرّف $a\\sim b$ إذا كان $a-b$ من مضاعفات 3. كم خاصية من خواص الانعكاسية والتناظر والتعدي تحققها هذه العلاقة؟",
+        "En": "On integers, define $a\\sim b$ when $a-b$ is divisible by 3. How many of reflexivity, symmetry and transitivity does this relation satisfy?"
+      },
+      "Hints": [
+        {
+          "Ar": "افحص خصائص الانعكاس والتناظر والتعدي بشكل مستقل.",
+          "En": "Test reflexivity, symmetry, and transitivity separately."
+        },
+        {
+          "Ar": "لاحظ أثر الصفر والسالب والجمع على مضاعفات العدد 3.",
+          "En": "Consider zero, negatives, and sums of multiples of 3."
+        }
+      ]
+    },
+    {
+      "problemId": 508,
+      "primarySkillKey": "s-sequences-series-series-convergence",
+      "question": {
+        "Ar": "ما مجموع المتسلسلة اللانهائية $1-\\frac12+\\frac14-\\frac18+\\cdots$؟",
+        "En": "What is the sum of $1-\\frac12+\\frac14-\\frac18+\\cdots$?"
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد الحد الأول والنسبة بين حدين متتاليين.",
+          "En": "Identify the first term and common ratio."
+        },
+        {
+          "Ar": "تحقق أن القيمة المطلقة للنسبة أقل من 1 ثم استخدم مجموع المتسلسلة الهندسية اللانهائية.",
+          "En": "Check that the absolute ratio is below 1, then use the infinite geometric sum formula."
+        }
+      ]
+    },
+    {
+      "problemId": 510,
+      "primarySkillKey": "s-sequences-series-series-convergence",
+      "question": {
+        "Ar": "هل تتقارب المتسلسلة $1-1+1-1+\\cdots$ بالمعنى المعتاد للمجموع اللانهائي؟",
+        "En": "Does the series $1-1+1-1+\\cdots$ converge in the usual sense of an infinite sum?"
+      },
+      "Hints": [
+        {
+          "Ar": "التقارب المعتاد يعني وجود نهاية للمجاميع الجزئية.",
+          "En": "Ordinary convergence requires a limit of partial sums."
+        },
+        {
+          "Ar": "اكتب المجاميع الجزئية الأولى وافحص إن كانت تستقر نحو قيمة واحدة.",
+          "En": "Write the first few partial sums and check if they approach one value."
+        }
+      ]
+    },
+    {
+      "problemId": 511,
+      "primarySkillKey": "s-sequences-series-series-convergence",
+      "question": {
+        "Ar": "ما حكم تقارب المتسلسلة $1-2+4-8+16-\\cdots$؟",
+        "En": "Does the series $1-2+4-8+16-\\cdots$ converge?"
+      },
+      "Hints": [
+        {
+          "Ar": "ابدأ بفحص الحد العام قبل محاولة جمع المتسلسلة.",
+          "En": "Examine the general term before attempting to sum the series."
+        },
+        {
+          "Ar": "شرط لازم للتقارب أن تؤول الحدود إلى الصفر.",
+          "En": "A necessary condition for convergence is that terms tend to zero."
+        }
+      ]
+    },
+    {
+      "problemId": 633,
+      "primarySkillKey": "secondary-pythagorean-trig-identity",
+      "question": {
+        "Ar": "إذا كانت θ زاوية حادة وsin(θ) = 3/5، فما cos(θ)؟",
+        "En": "If θ is an acute angle and sin(θ) = 3/5, what is cos(θ)?"
+      },
+      "Hints": [
+        {
+          "Ar": "استخدم المتطابقة التي تربط مربعي الجيب وجيب التمام.",
+          "En": "Use the identity relating squared sine and cosine."
+        },
+        {
+          "Ar": "أوجد مربع جيب التمام ثم اختر إشارة الجذر المناسبة لزاوية حادة.",
+          "En": "Find cosine squared, then choose the root sign appropriate for an acute angle."
+        }
+      ]
+    },
+    {
+      "problemId": 639,
+      "primarySkillKey": "secondary-logarithm-evaluation",
+      "question": {
+        "Ar": "احسب log₃(81) − log₃(3).",
+        "En": "Calculate log base 3 of 81 minus log base 3 of 3."
+      },
+      "Hints": [
+        {
+          "Ar": "اكتب 81 و3 على صورة قوى للأساس 3.",
+          "En": "Express 81 and 3 as powers of base 3."
+        },
+        {
+          "Ar": "لوغاريتم قوة للأساس نفسه يساوي الأس؛ اطرح القيمتين.",
+          "En": "The logarithm of a power of its own base equals the exponent; subtract the two values."
+        }
+      ]
+    },
+    {
+      "problemId": 644,
+      "primarySkillKey": "secondary-population-variance",
+      "question": {
+        "Ar": "تباين المجتمع للقيم 1، 2، 3 يساوي 2/3. إذا ضربنا كل قيمة في 3، فما تباين القيم الجديدة؟",
+        "En": "The population variance of 1, 2, 3 is 2/3. If every value is multiplied by 3, what is the new variance?"
+      },
+      "Hints": [
+        {
+          "Ar": "عند ضرب القيم في ثابت يتغير المتوسط بالثابت نفسه.",
+          "En": "Scaling values by a constant scales their mean by the same constant."
+        },
+        {
+          "Ar": "الفروق عن المتوسط تتضاعف بالثابت، ومربعات الفروق بمربعه.",
+          "En": "Deviations scale by the constant and squared deviations by its square."
+        }
+      ]
+    },
+    {
+      "problemId": 650,
+      "primarySkillKey": "university-linear-independence",
+      "question": {
+        "Ar": "ما بُعد الفضاء المولّد بالمتجهين (1، 0، 1) و(0، 1، 1) في R³؟",
+        "En": "What is the dimension of the span of (1, 0, 1) and (0, 1, 1) in R³?"
+      },
+      "Hints": [
+        {
+          "Ar": "بعد الفضاء المولّد يساوي عدد متجهات أساسه المستقلة.",
+          "En": "The span dimension equals the number of independent basis vectors."
+        },
+        {
+          "Ar": "افحص هل أحد المتجهين مضاعف عددي للآخر.",
+          "En": "Check whether one vector is a scalar multiple of the other."
+        }
+      ]
+    },
+    {
+      "problemId": 652,
+      "primarySkillKey": "university-linear-independence",
+      "question": {
+        "Ar": "في R² لدينا المتجهات (1، 2) و(3، 6) و(0، 1). ما أكبر عدد يمكن اختياره منها بحيث تكون مستقلة خطياً؟",
+        "En": "In R² consider (1, 2), (3, 6), and (0, 1). What is the largest number of linearly independent vectors among them?"
+      },
+      "Hints": [
+        {
+          "Ar": "لا يمكن أن يزيد عدد المتجهات المستقلة على بعد الفضاء.",
+          "En": "The number of independent vectors cannot exceed the ambient dimension."
+        },
+        {
+          "Ar": "افحص علاقة المتجهين الأول والثاني، ثم قارن الأول والثالث.",
+          "En": "Examine the first two vectors' relationship, then compare the first and third."
+        }
+      ]
+    },
+    {
+      "problemId": 654,
+      "primarySkillKey": "university-monotone-convergence",
+      "question": {
+        "Ar": "لـ n ≥ 1، اعتبر aₙ = (1/2)ⁿ. ما نهايتها؟",
+        "En": "For n ≥ 1 let aₙ = (1/2)ⁿ. What is its limit?"
+      },
+      "Hints": [
+        {
+          "Ar": "القيمة المطلقة للأساس أصغر من الواحد.",
+          "En": "The absolute value of the base is less than one."
+        },
+        {
+          "Ar": "افحص أثر تكرار الضرب في 1/2 على مقدار الحد.",
+          "En": "Consider what repeated multiplication by 1/2 does to the term's magnitude."
+        }
+      ]
+    },
+    {
+      "problemId": 656,
+      "primarySkillKey": "university-monotone-convergence",
+      "question": {
+        "Ar": "متتالية تبدأ بـ a₁ = 2، ثم aₙ₊₁ = (aₙ + 6)/2. إذا كانت متزايدة ومحدودة، فما نهايتها؟",
+        "En": "A sequence starts at a₁ = 2 and satisfies aₙ₊₁ = (aₙ + 6)/2. Assuming it is increasing and bounded, what is its limit?"
+      },
+      "Hints": [
+        {
+          "Ar": "الافتراضان في السؤال يضمنان وجود نهاية.",
+          "En": "The two assumptions in the question guarantee existence of a limit."
+        },
+        {
+          "Ar": "سمِّ النهاية L وعوّضها مكان الحدين المتتاليين في علاقة التراجع.",
+          "En": "Call the limit L and substitute it for both consecutive terms in the recurrence."
+        }
+      ]
+    },
+    {
+      "problemId": 713,
+      "primarySkillKey": "university-double-integrals",
+      "question": {
+        "Ar": "أوجد التكامل المزدوج للدالة f(x,y)=x+y على المستطيل 0 ≤ x ≤ 2 و0 ≤ y ≤ 3.",
+        "En": "Evaluate the double integral of f(x,y)=x+y over 0 ≤ x ≤ 2 and 0 ≤ y ≤ 3."
+      },
+      "Hints": [
+        {
+          "Ar": "اكتب التكامل على المستطيل بالتكامل أولاً بالنسبة إلى y.",
+          "En": "Set up the rectangular integral by integrating in y first."
+        },
+        {
+          "Ar": "اعتبر x ثابتاً في التكامل الداخلي، ثم طبّق الحدود وكَمّل في x.",
+          "En": "Treat x as constant in the inner integral, apply the bounds, then integrate in x."
+        }
+      ]
+    },
+    {
+      "problemId": 716,
+      "primarySkillKey": "university-double-integrals",
+      "question": {
+        "Ar": "ما قيمة التكامل المزدوج لـ (x−y) على المربع 0 ≤ x ≤ 1 و0 ≤ y ≤ 1؟",
+        "En": "What is the double integral of (x−y) over the square 0 ≤ x ≤ 1, 0 ≤ y ≤ 1?"
+      },
+      "Hints": [
+        {
+          "Ar": "المجال مربع متناظر عند تبديل x وy.",
+          "En": "The square is symmetric when x and y are exchanged."
+        },
+        {
+          "Ar": "لاحظ كيف تتغير إشارة x−y عند تبديل المتغيرين.",
+          "En": "Notice how the sign of x−y changes when the variables are exchanged."
+        }
+      ]
+    },
+    {
+      "problemId": 718,
+      "primarySkillKey": "university-function-limits",
+      "question": {
+        "Ar": "ما نهاية (1−cos x)/x عندما x → 0 بالراديان؟",
+        "En": "What is lim (1−cos x)/x as x → 0 in radians?"
+      },
+      "Hints": [
+        {
+          "Ar": "استخدم متطابقة نصف الزاوية للبسط.",
+          "En": "Use the half-angle identity for the numerator."
+        },
+        {
+          "Ar": "اكتب 1−cos x على صورة 2sin²(x/2) واستخدم النهاية الأساسية sin t/t.",
+          "En": "Rewrite 1−cos x as 2sin²(x/2) and use the standard sin t/t limit."
+        }
+      ]
+    },
+    {
+      "problemId": 719,
+      "primarySkillKey": "university-function-limits",
+      "question": {
+        "Ar": "أوجد نهاية (2x²+1)/(x²−3) عندما x → +∞.",
+        "En": "Find the limit of (2x²+1)/(x²−3) as x → +∞."
+      },
+      "Hints": [
+        {
+          "Ar": "قارن أعلى درجة في البسط والمقام.",
+          "En": "Compare the highest powers in numerator and denominator."
+        },
+        {
+          "Ar": "اقسم كل حد على x² ثم افحص الحدود التي تتلاشى عند اللانهاية.",
+          "En": "Divide every term by x², then identify terms that vanish at infinity."
+        }
+      ]
+    },
+    {
+      "problemId": 779,
+      "primarySkillKey": "university-ode-order",
+      "question": {
+        "Ar": "ما رتبة المعادلة dy/dx = y⁵ + x؟",
+        "En": "What is the order of dy/dx = y^5 + x?"
+      },
+      "Hints": [
+        {
+          "Ar": "ميّز بين أس الدالة ورتبة مشتقتها.",
+          "En": "Distinguish a function's power from its derivative order."
+        },
+        {
+          "Ar": "ابحث عن أعلى مشتقة تظهر فعلاً؛ قوة y لا تمثل رتبة اشتقاق.",
+          "En": "Look for the highest derivative actually present; a power of y is not a derivative order."
+        }
+      ]
+    },
+    {
+      "problemId": 780,
+      "primarySkillKey": "university-ode-order",
+      "question": {
+        "Ar": "أي المعادلات التالية رتبتها الرابعة؟",
+        "En": "Which of the following differential equations has order four?"
+      },
+      "Hints": [
+        {
+          "Ar": "رتبة المعادلة هي رتبة أعلى مشتقة فيها.",
+          "En": "The order is the order of the highest derivative present."
+        },
+        {
+          "Ar": "الرمز y^(4) عندما يكون 4 بين قوسين علويين يدل على المشتقة الرابعة، بخلاف قوة المشتقة الأولى.",
+          "En": "The notation y^{(4)} denotes the fourth derivative, unlike the fourth power of y'."
+        }
+      ]
+    },
+    {
+      "problemId": 783,
+      "primarySkillKey": "university-series-convergence",
+      "question": {
+        "Ar": "ما تصنيف المتسلسلة ∑ من n=1 إلى ∞ لـ (−1)^(n+1)/n؟",
+        "En": "Classify the series ∑ from n=1 to ∞ of (−1)^(n+1)/n."
+      },
+      "Hints": [
+        {
+          "Ar": "افحص المتسلسلة المتناوبة والمتسلسلة المطلقة كلتيهما.",
+          "En": "Examine both the alternating series and its absolute-value series."
+        },
+        {
+          "Ar": "اختبر تناقص 1/n نحو الصفر، ثم قارن سلسلة القيم المطلقة بالمتسلسلة التوافقية.",
+          "En": "Check whether 1/n decreases to zero, then compare the absolute series to the harmonic series."
+        }
+      ]
+    },
+    {
+      "problemId": 788,
+      "primarySkillKey": "u-discrete-math-combinatorics",
+      "question": {
+        "Ar": "كم ترتيباً لجلوس 5 أشخاص مختلفين حول طاولة دائرية إذا اعتُبرت الترتيبات المتطابقة بالدوران واحدة؟",
+        "En": "How many arrangements of 5 distinct people around a circular table are there if rotations count as the same arrangement?"
+      },
+      "Hints": [
+        {
+          "Ar": "الدورانات لا تُعد ترتيبات مختلفة في هذه المسألة.",
+          "En": "Rotations are not distinct arrangements in this problem."
+        },
+        {
+          "Ar": "ثبّت موضع شخص واحد ثم رتّب الأشخاص الباقين.",
+          "En": "Fix one person's seat and permute the remaining people."
+        }
+      ]
+    },
+    {
+      "problemId": 792,
+      "primarySkillKey": "u-discrete-math-proofs",
+      "question": {
+        "Ar": "أي عدد يُعدّ مثالاً مضاداً للعبارة «كل عدد أولي فردي»؟",
+        "En": "Which number is a counterexample to the claim 'every prime number is odd'?"
+      },
+      "Hints": [
+        {
+          "Ar": "لنقض عبارة عامة يكفي إيجاد حالة واحدة مخالفة.",
+          "En": "A single counterexample disproves a universal statement."
+        },
+        {
+          "Ar": "ابحث عن عدد أولي لا يحقق شرط الفردية؛ تذكّر تعريف العدد الأولي.",
+          "En": "Look for a prime that is not odd; recall the definition of a prime."
+        }
+      ]
+    },
+    {
+      "problemId": 793,
+      "primarySkillKey": "u-discrete-math-relations",
+      "question": {
+        "Ar": "في مجموعة الأعداد الحقيقية، علاقة aRb إذا وفقط إذا a≤b. كم خاصية من الانعكاس والتماثل والتعدي تحققها؟",
+        "En": "On real numbers, define aRb iff a≤b. How many of reflexivity, symmetry and transitivity does it satisfy?"
+      },
+      "Hints": [
+        {
+          "Ar": "اختبر الانعكاس والتناظر والتعدي كلّاً على حدة.",
+          "En": "Test reflexivity, symmetry, and transitivity separately."
+        },
+        {
+          "Ar": "افحص a≤a، ثم جرّب عكس علاقة بين عددين مختلفين، ثم سلسلتين من عدم المساواة.",
+          "En": "Check a≤a, reverse an inequality between distinct numbers, then chain two inequalities."
+        }
+      ]
+    },
+    {
+      "problemId": 794,
+      "primarySkillKey": "u-discrete-math-relations",
+      "question": {
+        "Ar": "على المجموعة {1,2,3} عرّف R بالأزواج (1,1)، (2,2)، (3,3)، (1,2)، (2,1). كم صنف تكافؤ؟",
+        "En": "On {1,2,3}, let R contain (1,1),(2,2),(3,3),(1,2),(2,1). How many equivalence classes are there?"
+      },
+      "Hints": [
+        {
+          "Ar": "فئة التكافؤ تجمع العناصر المرتبطة بالعنصر نفسه.",
+          "En": "An equivalence class groups elements related to one another."
+        },
+        {
+          "Ar": "افحص الزوجين (1,2) و(2,1)، ثم انظر إلى ارتباطات العنصر الثالث.",
+          "En": "Inspect (1,2) and (2,1), then examine the third element's relationships."
+        }
+      ]
+    },
+    {
+      "problemId": 796,
+      "primarySkillKey": "u-discrete-math-relations",
+      "question": {
+        "Ar": "عرّف على الأعداد الصحيحة الموجبة aRb عندما يقسم a العدد b. ما تصنيف العلاقة؟",
+        "En": "On positive integers, define aRb iff a divides b. Which classification is correct?"
+      },
+      "Hints": [
+        {
+          "Ar": "افحص الانعكاس والتعدي والتضاد في التناظر لعلاقة القسمة.",
+          "En": "Check reflexivity, transitivity, and antisymmetry for divisibility."
+        },
+        {
+          "Ar": "لتحديد إن كان الترتيب كلياً، جرّب عددين موجبين لا يقسم أحدهما الآخر.",
+          "En": "To test totality, try two positive integers neither of which divides the other."
+        }
+      ]
+    },
+    {
+      "problemId": 798,
+      "primarySkillKey": "university-differentiability-continuity",
+      "question": {
+        "Ar": "ما قيمة مشتقة f(x)=x|x| عند x=0؟",
+        "En": "What is f'(0) when f(x)=x|x|?"
+      },
+      "Hints": [
+        {
+          "Ar": "ابدأ بتعريف المشتقة عند الصفر بدلاً من الاشتقاق على أجزاء.",
+          "En": "Start with the derivative definition at zero rather than differentiating piecewise."
+        },
+        {
+          "Ar": "بسّط خارج الفرق h|h|/h عندما h غير صفر، ثم احسب نهايته.",
+          "En": "Simplify h|h|/h for nonzero h, then take its limit."
+        }
+      ]
+    },
+    {
+      "problemId": 799,
+      "primarySkillKey": "university-differentiability-continuity",
+      "question": {
+        "Ar": "لتكن f(x)=ax إذا x≤1، وf(x)=x²+1 إذا x>1. ما قيمة a التي تجعل f قابلة للاشتقاق عند x=1؟",
+        "En": "Let f(x)=ax for x≤1 and f(x)=x²+1 for x>1. Which a makes f differentiable at x=1?"
+      },
+      "Hints": [
+        {
+          "Ar": "قابلية الاشتقاق عند نقطة الوصل تتطلب الاتصال أولاً.",
+          "En": "Differentiability at a joining point first requires continuity."
+        },
+        {
+          "Ar": "ساوِ قيمتي الفرعين عند 1 ثم افحص تساوي المشتقتين الجانبيتين.",
+          "En": "Match the branch values at 1, then check equality of one-sided derivatives."
+        }
+      ]
+    },
+    {
+      "problemId": 866,
+      "primarySkillKey": "university-integrating-ode",
+      "question": {
+        "Ar": "تحقق y المعادلة y'+y=2 مع y(0)=0. ما y(ln 2)؟",
+        "En": "A function satisfies y'+y=2 and y(0)=0. Find y(ln 2)."
+      },
+      "Hints": [
+        {
+          "Ar": "هذه معادلة تفاضلية خطية من الرتبة الأولى.",
+          "En": "This is a first-order linear ODE."
+        },
+        {
+          "Ar": "اضرب الطرفين في عامل التكامل e^x ثم كامل وطبّق الشرط الابتدائي قبل التعويض.",
+          "En": "Multiply by the integrating factor e^x, integrate, and apply the initial condition before substituting."
+        }
+      ]
+    },
+    {
+      "problemId": 5,
+      "primarySkillKey": "primary-multiplication",
+      "question": {
+        "Ar": "ما ناتج ضرب $7 \\times 8$؟",
+        "En": "What is the result of $7 \\times 8$?"
+      },
+      "Hints": [
+        {
+          "Ar": "تخيّل مجموعات متساوية.",
+          "En": "Imagine equal groups."
+        },
+        {
+          "Ar": "اجمع 7 ثماني مرات.",
+          "En": "Add 7 eight times."
+        }
+      ]
+    },
+    {
+      "problemId": 154,
+      "primarySkillKey": "primary-substitution",
+      "question": {
+        "Ar": "إذا كان $x=5$، فما قيمة التعبير $2x-3$؟",
+        "En": "If x=5, evaluate \\(2x-3\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "استبدل الحرف بالقيمة المعطاة.",
+          "En": "Replace the variable with the given value."
+        },
+        {
+          "Ar": "اضرب في 2 قبل طرح الثابت.",
+          "En": "Multiply by 2 before subtracting the constant."
+        }
+      ]
+    },
+    {
+      "problemId": 166,
+      "primarySkillKey": "primary-substitution",
+      "question": {
+        "Ar": "إذا كان $x=6$، فما قيمة التعبير $2x-4$؟",
+        "En": "If x=6, evaluate \\(2x-4\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "استبدل الحرف بالقيمة المعطاة.",
+          "En": "Replace the variable with the given value."
+        },
+        {
+          "Ar": "اضرب في 2 قبل طرح الثابت.",
+          "En": "Multiply by 2 before subtracting the constant."
+        }
+      ]
+    },
+    {
+      "problemId": 178,
+      "primarySkillKey": "primary-substitution",
+      "question": {
+        "Ar": "إذا كان $x=7$، فما قيمة التعبير $2x-5$؟",
+        "En": "If x=7, evaluate \\(2x-5\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "استبدل الحرف بالقيمة المعطاة.",
+          "En": "Replace the variable with the given value."
+        },
+        {
+          "Ar": "اضرب في 2 قبل طرح الثابت.",
+          "En": "Multiply by 2 before subtracting the constant."
+        }
+      ]
+    },
+    {
+      "problemId": 190,
+      "primarySkillKey": "primary-substitution",
+      "question": {
+        "Ar": "إذا كان $x=8$، فما قيمة التعبير $2x-6$؟",
+        "En": "If x=8, evaluate \\(2x-6\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "استبدل الحرف بالقيمة المعطاة.",
+          "En": "Replace the variable with the given value."
+        },
+        {
+          "Ar": "اضرب في 2 قبل طرح الثابت.",
+          "En": "Multiply by 2 before subtracting the constant."
+        }
+      ]
+    },
+    {
+      "problemId": 202,
+      "primarySkillKey": "primary-substitution",
+      "question": {
+        "Ar": "إذا كان $x=9$، فما قيمة التعبير $2x-7$؟",
+        "En": "If x=9, evaluate \\(2x-7\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "استبدل الحرف بالقيمة المعطاة.",
+          "En": "Replace the variable with the given value."
+        },
+        {
+          "Ar": "اضرب في 2 قبل طرح الثابت.",
+          "En": "Multiply by 2 before subtracting the constant."
+        }
+      ]
+    },
+    {
+      "problemId": 425,
+      "primarySkillKey": "p-fractions-decimals-fraction-operations",
+      "question": {
+        "Ar": "احسب $1\\frac12+\\frac34$.",
+        "En": "Compute $1\\frac12+\\frac34$."
+      },
+      "Hints": [
+        {
+          "Ar": "حوّل العدد الكسري إلى كسر غير فعلي.",
+          "En": "Convert the mixed number to an improper fraction."
+        },
+        {
+          "Ar": "استخدم المقام 4.",
+          "En": "Use denominator 4."
+        }
+      ]
+    },
+    {
+      "problemId": 472,
+      "primarySkillKey": "p-fractions-decimals-fraction-comparisons",
+      "question": {
+        "Ar": "أي علاقة صحيحة بين $\\frac25$ و$\\frac38$؟",
+        "En": "Which comparison between $\\frac25$ and $\\frac38$ is correct?"
+      },
+      "Hints": [
+        {
+          "Ar": "ابحث عن مقام مشترك لـ5 و8.",
+          "En": "Find a common denominator of 5 and 8."
+        },
+        {
+          "Ar": "حوّل الكسرين إلى أجزاء من 40.",
+          "En": "Convert both fractions to fortieths."
+        }
+      ]
+    },
+    {
+      "problemId": 474,
+      "primarySkillKey": "p-fractions-decimals-fraction-operations",
+      "question": {
+        "Ar": "احسب $\\frac56-\\frac14$.",
+        "En": "Compute $\\frac56-\\frac14$."
+      },
+      "Hints": [
+        {
+          "Ar": "ابحث عن المضاعف المشترك الأصغر لـ6 و4.",
+          "En": "Find the least common multiple of 6 and 4."
+        },
+        {
+          "Ar": "اكتب الكسرين بالمقام 12.",
+          "En": "Write both fractions over 12."
+        }
+      ]
+    },
+    {
+      "problemId": 505,
+      "primarySkillKey": "p-fractions-decimals-fraction-comparisons",
+      "question": {
+        "Ar": "أي الكُسور التالية أقرب إلى العدد 1؟",
+        "En": "Which fraction is closest to 1?"
+      },
+      "Hints": [
+        {
+          "Ar": "احسب ما ينقص كل كسر ليصبح واحداً.",
+          "En": "Find how much each fraction needs to reach one."
+        },
+        {
+          "Ar": "قارن الفروق الموجبة.",
+          "En": "Compare the positive differences."
+        }
+      ]
+    },
+    {
+      "problemId": 507,
+      "primarySkillKey": "p-fractions-decimals-fraction-comparisons",
+      "question": {
+        "Ar": "في الصف الأول يأتي 3 من أصل 8 طلاب بالدراجة، وفي الصف الثاني يأتي 4 من أصل 10. أي صف فيه نسبة أكبر من راكبي الدراجات؟",
+        "En": "In class A, 3 of 8 pupils cycle to school. In class B, 4 of 10 cycle. Which class has the larger fraction of cyclists?"
+      },
+      "Hints": [
+        {
+          "Ar": "اكتب نسبة راكبي الدراجات في كل صف.",
+          "En": "Write each class's cycling share."
+        },
+        {
+          "Ar": "قارن حاصلَي ضرب 3 في 10 و4 في 8.",
+          "En": "Compare 3 times 10 and 4 times 8."
+        }
+      ]
+    },
+    {
+      "problemId": 13,
+      "primarySkillKey": "middle-gcd",
+      "question": {
+        "Ar": "ما القاسم المشترك الأكبر (GCD) للعددين $24$ و $36$؟",
+        "En": "What is the greatest common divisor (GCD) of $24$ and $36$?"
+      },
+      "Hints": [
+        {
+          "Ar": "اكتب قواسم العددين.",
+          "En": "List both numbers' divisors."
+        },
+        {
+          "Ar": "اختر أكبر قاسم مشترك.",
+          "En": "Choose the largest common divisor."
+        }
+      ]
+    },
+    {
+      "problemId": 25,
+      "primarySkillKey": "secondary-indefinite-integrals",
+      "question": {
+        "Ar": "أوجد التكامل $\\int (2x + 3) \\, dx$.",
+        "En": "Find the integral $\\int (2x + 3) \\, dx$."
+      },
+      "Hints": [
+        {
+          "Ar": "افصل التكامل إلى حد خطي وحد ثابت.",
+          "En": "Split the integral into a linear and constant term."
+        },
+        {
+          "Ar": "ارفع الأس واحداً واقسم على الأس الجديد.",
+          "En": "Raise the power by one and divide by the new power."
+        }
+      ]
+    },
+    {
+      "problemId": 35,
+      "primarySkillKey": "university-differentiability-continuity",
+      "question": {
+        "Ar": "هل الدالة $f(x) = |x|$ قابلة للاشتقاق عند $x = 0$؟",
+        "En": "Is the function $f(x) = |x|$ differentiable at $x = 0$?"
+      },
+      "Hints": [
+        {
+          "Ar": "ابدأ بتعريف المشتقة عند الصفر.",
+          "En": "Start with the derivative definition at zero."
+        },
+        {
+          "Ar": "افحص إشارة h في |h|/h.",
+          "En": "Examine the sign of h in |h|/h."
+        }
+      ]
+    },
+    {
+      "problemId": 641,
+      "primarySkillKey": "secondary-population-variance",
+      "question": {
+        "Ar": "ما تباين المجتمع للقيم 1، 3، 5؟",
+        "En": "What is the population variance of the values 1, 3, 5?"
+      },
+      "Hints": [
+        {
+          "Ar": "احسب المتوسط أولاً.",
+          "En": "Find the mean first."
+        },
+        {
+          "Ar": "ربّع الفروق ثم اقسم مجموعها على 3.",
+          "En": "Square deviations and divide their sum by 3."
+        }
+      ]
+    },
+    {
+      "problemId": 771,
+      "primarySkillKey": "secondary-quadratic-roots",
+      "question": {
+        "Ar": "مساحة مستطيل 48 سم² وطوله يزيد عن عرضه بمقدار 2 سم. كم عرضه بالسنتيمتر؟",
+        "En": "A rectangle has area 48 cm² and its length is 2 cm more than its width. Find its width in centimeters."
+      },
+      "Hints": [
+        {
+          "Ar": "سمِّ العرض x وعبّر عن الطول.",
+          "En": "Call width x and express the length."
+        },
+        {
+          "Ar": "اضرب العرض بالطول وساوِ الناتج بالمساحة.",
+          "En": "Multiply width and length and equate to area."
+        }
+      ]
+    },
+    {
+      "problemId": 782,
+      "primarySkillKey": "university-series-convergence",
+      "question": {
+        "Ar": "ما مصير المتسلسلة ∑ من n=1 إلى ∞ لـ 1/n؟",
+        "En": "Does the series ∑ from n=1 to ∞ of 1/n converge or diverge?"
+      },
+      "Hints": [
+        {
+          "Ar": "اقتراب الحدود من الصفر شرط ضروري لا كافٍ.",
+          "En": "Terms tending to zero is necessary, not sufficient."
+        },
+        {
+          "Ar": "قسّم الحدود إلى كتل بأحجام تتضاعف.",
+          "En": "Partition terms into blocks of doubling size."
+        }
+      ]
+    },
+    {
+      "problemId": 791,
+      "primarySkillKey": "u-discrete-math-proofs",
+      "question": {
+        "Ar": "في برهان أن √2 عدد غير نسبي نفترض √2=a/b حيث a وb عددان صحيحان متباينان أولياً. ما التناقض الذي يصل إليه البرهان؟",
+        "En": "In the proof that sqrt(2) is irrational, suppose sqrt(2)=a/b with a,b integers in lowest terms. What contradiction follows?"
+      },
+      "Hints": [
+        {
+          "Ar": "ربّع المساواة المفترضة.",
+          "En": "Square the assumed equality."
+        },
+        {
+          "Ar": "إذا كان مربع الصحيح زوجياً فالعدد زوجي.",
+          "En": "An integer with an even square is even."
+        }
+      ]
     }
   ]
 }

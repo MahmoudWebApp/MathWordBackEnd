@@ -5,7 +5,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 items = json.loads((ROOT / "content/editorial/g1-existing-hint-candidates-20261124.json").read_text(encoding="utf-8"))["items"]
 ids = [row["problemId"] for row in items]
-assert len(ids) == len(set(ids)) == 80
+assert len(ids) == len(set(ids)) == 152
 assert {row["problemId"] for row in items if row.get("taxonomyReviewPending")} == {1566, 1578}
 assert {23,145,340,352,364,376,388,512,800,818,851}.issubset(ids)
 assert not {10,20}.intersection(ids), "Do not attach new hints to unresolved wording revisions"
@@ -18,7 +18,7 @@ for row in items:
         hints = [h[lang].strip() for h in row["Hints"]]
         assert all(0 < len(h) <= 1000 for h in hints)
         assert hints[0] != hints[1]
-print("PASS: 80 source-bound bilingual hint pairs; 2 taxonomy-held; no unresolved wording imports")
+print("PASS: 152 source-bound bilingual hint pairs; 2 taxonomy-held; no unresolved wording imports")
 
 # Every new law-review hint is bound to both independently retained source manifests.
 primary=json.loads((ROOT/"content/editorial/g1-primary-grade-placement-20261124.json").read_text(encoding="utf-8"))["Items"]
@@ -37,3 +37,20 @@ for item in items:
         assert item["question"][lang]==p["ExpectedQuestion"+lang]==l["ExpectedQuestion"+lang]
     assert not p.get("SkillReview") and not p.get("RequiresWordingReview")
 print("PASS: all new hints have matching source and law evidence")
+
+# Wave 03 and the previously adequate explanations share one canonical hint inventory.
+long_review=json.loads((ROOT/"content/editorial/g1-remaining-long-solution-review-20261124.json").read_text(encoding="utf-8"))["Items"]
+wave03=json.loads((ROOT/"content/editorial/g1-structured-amendments-wave03-20261124.json").read_text(encoding="utf-8"))["Items"]
+by_id={r["problemId"]:r for r in items}
+adequate={r["ProblemId"]:r for r in long_review if r["Disposition"]=="ExistingExplanationAdequateInDeskReview"}
+assert len(adequate)==56
+for i,r in adequate.items():
+    assert by_id[i]["question"]==r["Question"]
+    assert by_id[i]["primarySkillKey"]==source[i]["StableKey"]
+    assert not source[i].get("SkillReview") and not source[i].get("RequiresWordingReview")
+for r in wave03:
+    i=r["ProblemId"]
+    assert by_id[i]["Hints"]==r["Content"]["Hints"]
+    assert by_id[i]["question"]==r["Content"]["Question"]
+    assert by_id[i]["primarySkillKey"]==r["PrimarySkillKey"]
+print("PASS: all 56 adequate-review questions and 20 wave-three amendments have canonical hints")

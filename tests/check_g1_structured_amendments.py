@@ -29,3 +29,27 @@ for row in d["Items"]:
     assert 1<=len(sol["Steps"])<=20 and all(pair(s) for s in sol["Steps"])
     assert pair(c["Title"]) and c["Points"]>0 and c["PrimarySkillId"]>0
 print("PASS: 52 complete structured amendment proposals, source-bound; no automatic publication")
+
+# Third wave is distinct from the short-solution and held candidates.
+third=load("g1-structured-amendments-wave03-20261124.json")
+review={r["ProblemId"]:r for r in load("g1-remaining-long-solution-review-20261124.json")["Items"] if r["Disposition"]=="SolutionClarityCandidate"}
+held={r["ProblemId"] for r in load("g1-structured-amendments-held-20261124.json")["Items"]}
+assert third["Status"]=="NotImportedNotPublished"
+assert len(third["Items"])==len({r["ProblemId"] for r in third["Items"]})==20
+assert {r["ProblemId"] for r in third["Items"]}==set(review)
+assert not set(review).intersection({r["ProblemId"] for r in d["Items"]}|held)
+for row in third["Items"]:
+    i=row["ProblemId"]; c=row["Content"]; original=review[i]; sol=c["Solution"]
+    assert row["Status"]=="StructuredAmendmentCandidateNotImported"
+    assert c["Question"]==original["Question"]
+    assert row["ExpectedLegacySolution"]==original["ExpectedSolution"]
+    assert [[oid,o["LatexCode"],o["IsCorrect"]] for oid,o in zip(row["ExpectedOptionIds"],c["Options"])]==original["ExpectedOptions"]
+    assert len(row["ExpectedOptionIds"])==len(set(row["ExpectedOptionIds"]))==len(c["Options"])==4
+    assert sum(o["IsCorrect"] for o in c["Options"])==1
+    assert all(o["ErrorType"] and pair(o["Reason"]) for o in c["Options"] if not o["IsCorrect"])
+    assert c["Hints"]==hints[i]["Hints"] and len(c["Hints"])==2 and all(pair(h) for h in c["Hints"])
+    assert sol["FormulaLatex"] and not sol["FormulaLatex"].startswith("$")
+    assert all(pair(sol[k]) for k in ("Idea","Substitution","Result","Unit","Verification","CommonError"))
+    assert 1<=len(sol["Steps"])<=20 and all(pair(s) for s in sol["Steps"])
+    assert pair(c["Title"]) and c["Points"]>0 and c["PrimarySkillId"]>0
+print("PASS: 72 complete eligible structured amendments; 4 held separately; no publication")
