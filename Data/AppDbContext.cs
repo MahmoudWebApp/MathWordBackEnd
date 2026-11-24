@@ -122,12 +122,14 @@ namespace MathWorldAPI.Data
                 e.Property(x => x.Kind).HasMaxLength(12).IsRequired();
                 e.Property(x => x.ScopeKey).HasMaxLength(100).IsRequired();
                 e.Property(x => x.QuestionsJson).IsRequired();
+                e.Property(x => x.HintsRevealed).HasDefaultValue(0);
                 e.HasIndex(x => new { x.UserId, x.StartRequestId }).IsUnique();
                 e.HasIndex(x => new { x.UserId, x.ScopeKey }).IsUnique()
                     .HasFilter("\"Kind\" = 'daily' OR \"CompletedAtUtc\" IS NULL");
                 e.HasOne<AppUser>().WithMany().HasForeignKey(x => x.UserId).OnDelete(DeleteBehavior.Cascade);
                 e.ToTable(t =>
                 {
+                    t.HasCheckConstraint("CK_LearningSessions_Hints", "\"HintsRevealed\" BETWEEN 0 AND 2 AND (\"CompletedAtUtc\" IS NULL OR \"HintsRevealed\" = 0)");
                     t.HasCheckConstraint("CK_LearningSessions_Kind", "\"Kind\" IN ('practice','daily')");
                     t.HasCheckConstraint("CK_LearningSessions_Progress", "\"Total\" BETWEEN 5 AND 10 AND \"Completed\" BETWEEN 0 AND \"Total\" AND ((\"Completed\" = \"Total\") = (\"CompletedAtUtc\" IS NOT NULL)) AND (\"Kind\" <> 'daily' OR (\"Total\" = 5 AND \"CategoryId\" IS NULL))");
                 });
@@ -135,6 +137,7 @@ namespace MathWorldAPI.Data
             modelBuilder.Entity<LearningSessionAttempt>(e =>
             {
                 e.HasKey(x => new { x.SessionId, x.RequestId });
+                e.Property(x => x.UsedHint).HasDefaultValue(false);
                 e.HasIndex(x => new { x.SessionId, x.Position, x.AttemptNumber }).IsUnique();
                 e.HasIndex(x => new { x.SessionId, x.Position }).IsUnique().HasFilter("\"IsCorrect\"");
                 e.HasOne<LearningSession>().WithMany().HasForeignKey(x => x.SessionId).OnDelete(DeleteBehavior.Cascade);

@@ -15,6 +15,7 @@ public sealed class LearningSession
     public string QuestionsJson { get; set; } = "";
     public int Total { get; set; }
     public int Completed { get; set; }
+    public int HintsRevealed { get; set; }
     public DateTime CreatedAtUtc { get; set; }
     public DateTime? CompletedAtUtc { get; set; }
 }
@@ -29,5 +30,6 @@ public sealed class LearningSessionAttempt
     public string SelectedOptionText { get; set; } = "";
     public bool IsCorrect { get; set; }
     public int AttemptNumber { get; set; }
+    public bool UsedHint { get; set; }
     public DateTime SubmittedAtUtc { get; set; }
 }

@@ -3,6 +3,8 @@ using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text.Json;
 using MathWorldAPI.Data;
+using MathWorldAPI.Helpers;
+using Microsoft.AspNetCore.RateLimiting;
 using MathWorldAPI.Models;
 using MathWorldAPI.Services;
 using Microsoft.AspNetCore.Authorization;
@@ -22,8 +24,9 @@ public sealed class LearningSessionsController(AppDbContext db, IConfiguration c
 {
     public sealed record StartInput(Guid RequestId,string Kind,int Count=5,int? CategoryId=null);
     public sealed record AnswerInput(Guid RequestId,int Position,int ProblemId,int SelectedOptionId);
+    public sealed record HintInput(int Position,int ProblemId,int Level);
     public sealed record QuestionRef(int Id,string Fingerprint);
-    private sealed record Scope(int UserId,int StageId,int? TrackId,List<int> Allowed);
+    private sealed record Scope(int UserId,int StageId,int? TrackId,List<int> Allowed,bool Premium);
     private bool Enabled => config.GetValue<bool>("LearningSessions:Enabled");
     private int UserId => int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier),out var id)?id:0;
     private static bool ValidKind(string? kind)=>kind is "practice" or "daily";
@@ -55,7 +58,7 @@ public sealed class LearningSessionsController(AppDbContext db, IConfiguration c
             return (null,Conflict(new{Message="LearningTrackUnavailable"}));
         var allowed=await access.GetAllowedCategoryIdsAsync(User,ct);
         if(allowed is null)return (null,Forbid());
-        return (new Scope(learner.Id,stage,track?.Id,allowed),null);
+        return (new Scope(learner.Id,stage,track?.Id,allowed,PremiumEntitlement.IsActive(learner)),null);
     }
     private IQueryable<MathProblem> Eligible(Scope scope,int? category)
     {
@@ -91,7 +94,9 @@ public sealed class LearningSessionsController(AppDbContext db, IConfiguration c
         }
         return Ok(new{session.Id,session.Kind,session.StageId,session.TrackId,session.CategoryId,
             session.Total,session.Completed,session.CreatedAtUtc,session.CompletedAtUtc,
-            IsComplete=session.Completed==session.Total,CurrentQuestion=current});
+            IsComplete=session.Completed==session.Total,CurrentQuestion=current,
+            CanUseHints=scope.Premium&&session.Completed<session.Total,
+            HintsRevealed=scope.Premium?session.HintsRevealed:0});
     }
 
     [HttpPost("start")]
@@ -213,25 +218,113 @@ public sealed class LearningSessionsController(AppDbContext db, IConfiguration c
         if(number==int.MaxValue)return Conflict(new{Message="SessionAttemptLimit"});
         var attempt=new LearningSessionAttempt{SessionId=id,RequestId=input.RequestId,Position=input.Position,
             ProblemId=p.Id,SelectedOptionId=option.Id,SelectedOptionText=option.LatexCode,
-            IsCorrect=option.IsCorrect,AttemptNumber=number+1,SubmittedAtUtc=now};
+            IsCorrect=option.IsCorrect,AttemptNumber=number+1,UsedHint=session.HintsRevealed>0,SubmittedAtUtc=now};
         db.LearningSessionAttempts.Add(attempt);
         // Only a correct answer advances. Replays or normal problem submits
         // never enter this branch a second time or alter session completion.
         if(attempt.IsCorrect)
         {
             session.Completed++;
+            session.HintsRevealed=0;
             if(session.Completed==session.Total)session.CompletedAtUtc=now;
         }
         await db.SaveChangesAsync(ct);await tx.CommitAsync(ct);
         return AnswerView(session,attempt,p);
     }
 
+    [HttpPost("{id:guid}/hints")]
+    [EnableRateLimiting("solution-preview")]
+    public async Task<IActionResult> Hint(Guid id,HintInput input,CancellationToken ct)
+    {
+        if(!Enabled)return NotFound();
+        if(input.Position is <0 or >9||input.ProblemId<=0||input.Level is <0 or >2)
+            return BadRequest(new{Message="InvalidHintLevel"});
+        var owned=await db.LearningSessions.AsNoTracking().SingleOrDefaultAsync(s=>s.Id==id&&s.UserId==UserId,ct);
+        if(owned is null)return NotFound();
+        var refs=Questions(owned);
+        if(input.Position>=refs.Length||refs[input.Position].Id!=input.ProblemId)
+            return Conflict(new{Message="SessionQuestionMismatch"});
+        await using var tx=await db.Database.BeginTransactionAsync(ct);
+        await ProblemTransactionLocks.LockQuestionForAnswerAsync(db,input.ProblemId,ct);
+        await LockLearner(UserId,ct);
+        var session=await db.LearningSessions.SingleOrDefaultAsync(s=>s.Id==id&&s.UserId==UserId,ct);
+        if(session is null)return NotFound();
+        var (scope,error)=await Resolve(session.Kind,ct);
+        if(scope is null)return error!;
+        if(!scope.Premium)return StatusCode(403,new{Message="PremiumRequired"});
+        var now=DateTime.UtcNow;
+        if(!SameScope(session,scope)||!CurrentDay(session,now)||session.CompletedAtUtc.HasValue||session.Completed!=input.Position)
+            return Conflict(new{Message="SessionQuestionMismatch"});
+        var p=await LoadQuestion(scope,session,refs[input.Position],ct);
+        if(p is null)return Conflict(new{Message="SessionContentUnavailable"});
+        BilingualText[]? hints=null;
+        if(p.EditorialDetailsJson is not null)
+        {
+            using var json=JsonDocument.Parse(p.EditorialDetailsJson);
+            if(json.RootElement.TryGetProperty("Hints",out var value))
+                hints=value.Deserialize<BilingualText[]>();
+        }
+        if(hints is null||hints.Length!=2||hints.Any(h=>!WizardProblemContract.Pair(h,1000)))
+            return Ok(new{Available=false,RevealedCount=0,Hints=Array.Empty<object>()});
+        if(input.Level>session.HintsRevealed+1)
+            return Conflict(new{Message="RevealPreviousHintFirst"});
+        if(input.Level>session.HintsRevealed)
+        {
+            session.HintsRevealed=input.Level;
+            db.PlatformActivityEvents.Add(new PlatformActivityEvent{ActorUserId=UserId,ActorRole="Student",
+                Action="SessionHint"+input.Level,Resource="LearningSession",
+                ResourceId=FormattableString.Invariant($"{id:D}:{input.Position}"),Origin="api",CreatedAtUtc=now});
+            await db.SaveChangesAsync(ct);
+        }
+        await tx.CommitAsync(ct);
+        var ar=LanguageHelper.GetLanguageFromRequest(Request)!="en";
+        return Ok(new{Available=true,RevealedCount=session.HintsRevealed,
+            Hints=hints.Take(session.HintsRevealed).Select((h,i)=>new{Level=i+1,Text=ar?h.Ar:h.En}).ToArray()});
+    }
+
+    // Permanent achievements are derived from immutable correct-attempt
+    // evidence and completed session rows, not mutable active-stage progress.
+    // No bonus points are minted; each badge key is emitted at most once.
+    [HttpGet("achievements")]
+    public async Task<IActionResult> Achievements(CancellationToken ct)
+    {
+        if(!Enabled)return NotFound();
+        if(!await db.Users.AsNoTracking().AnyAsync(u=>u.Id==UserId&&u.IsActive&&u.Role=="Student",ct))
+            return Unauthorized();
+        var owned=db.LearningSessions.AsNoTracking().Where(x=>x.UserId==UserId);
+        var completed=owned.Where(x=>x.CompletedAtUtc!=null);
+        var dailyDates=await completed.Where(x=>x.Kind=="daily").OrderBy(x=>x.CompletedAtUtc)
+            .Select(x=>x.CompletedAtUtc!.Value).ToListAsync(ct);
+        var days=dailyDates.Select(x=>x.Date).Distinct().ToArray();
+        var practice=await completed.Where(x=>x.Kind=="practice").OrderBy(x=>x.CompletedAtUtc)
+            .Select(x=>x.CompletedAtUtc).FirstOrDefaultAsync(ct);
+        var attempts=from a in db.LearningSessionAttempts.AsNoTracking()
+                     join session in owned on a.SessionId equals session.Id select a;
+        var correct=attempts.Where(a=>a.IsCorrect);
+        var independent=await correct.CountAsync(a=>a.AttemptNumber==1&&!a.UsedHint,ct);
+        var assisted=await correct.CountAsync(a=>a.UsedHint,ct);
+        var persistence=await correct.Where(a=>a.AttemptNumber>1).OrderBy(a=>a.SubmittedAtUtc)
+            .Select(a=>(DateTime?)a.SubmittedAtUtc).FirstOrDefaultAsync(ct);
+        var badges=new List<object>();
+        if(practice.HasValue)badges.Add(new{Key="first-practice",TitleAr="بداية التدريب",TitleEn="First practice",EarnedAtUtc=practice.Value});
+        if(days.Length>0)badges.Add(new{Key="first-daily",TitleAr="أول تحدٍ",TitleEn="First daily challenge",EarnedAtUtc=dailyDates[0]});
+        if(days.Length>=7)badges.Add(new{Key="seven-daily-days",TitleAr="سبعة أيام من التحدي",TitleEn="Seven challenge days",
+            EarnedAtUtc=dailyDates.First(x=>x.Date==days[6])});
+        if(persistence.HasValue)badges.Add(new{Key="persistence",TitleAr="المثابرة",TitleEn="Persistence",EarnedAtUtc=persistence.Value});
+        return Ok(new{CompletedPracticeSessions=await completed.CountAsync(x=>x.Kind=="practice",ct),
+            CompletedDailyChallenges=days.Length,CorrectSessionAnswers=await correct.CountAsync(ct),
+            UniqueSolvedProblems=await correct.Select(a=>a.ProblemId).Distinct().CountAsync(ct),
+            IndependentFirstCorrect=independent,AssistedCorrect=assisted,Badges=badges});
+    }
+
     private IActionResult AnswerView(LearningSession s,LearningSessionAttempt a,MathProblem p)=>Ok(new{
         SessionId=s.Id,a.Position,a.ProblemId,a.RequestId,a.IsCorrect,a.AttemptNumber,
-        FirstAttemptCorrect=a.IsCorrect&&a.AttemptNumber==1,s.Completed,s.Total,
+        FirstAttemptCorrect=a.IsCorrect&&a.AttemptNumber==1,a.UsedHint,
+        IndependentFirstCorrect=a.IsCorrect&&a.AttemptNumber==1&&!a.UsedHint,s.Completed,s.Total,
         IsComplete=s.Completed==s.Total,
         CorrectOptionId=a.IsCorrect?(int?)a.SelectedOptionId:null,
         DetailedSolutionAr=a.IsCorrect?p.DetailedSolutionAr:null,
-        DetailedSolutionEn=a.IsCorrect?p.DetailedSolutionEn:null
+        DetailedSolutionEn=a.IsCorrect?p.DetailedSolutionEn:null,
+        SolutionStructure=a.IsCorrect?WizardProblemContract.LocalizedSolution(p.EditorialDetailsJson,LanguageHelper.GetLanguageFromRequest(Request)):null
     });
 }

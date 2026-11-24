@@ -30,11 +30,17 @@ def verify_sessions(admin, learner, other, stage):
     expect("GET",path,403,token=admin)
     initial=expect("GET",ROOT+"/current?kind=daily",200,token=other)
     assert initial["Id"]==sid and initial["CurrentQuestion"]["Id"]==s["CurrentQuestion"]["Id"]
+    before_achievements=expect("GET",ROOT+"/achievements",200,token=other)
+    assert before_achievements["CompletedDailyChallenges"]==0
     q=s["CurrentQuestion"]
     assert all("IsCorrect" not in o for o in q["Options"])
     assert "DetailedSolutionAr" not in q and "CorrectOptionId" not in q
     info=expect("GET",f"/api/problems/{q['Id']}",200,token=admin)
     bad=next(o["Id"] for o in info["Options"] if not o["IsCorrect"])
+    # Legacy fixture has no reviewed hints; absence must not invent one.
+    hint={"Position":0,"ProblemId":q["Id"],"Level":1}
+    expect("POST",path+"/hints",404,hint,learner)
+    assert not expect("POST",path+"/hints",200,hint,other)["Available"]
     good=next(o["Id"] for o in info["Options"] if o["IsCorrect"])
     # Ordinary solving must never advance an independent daily session.
     ordinary=expect("POST","/api/problems/submit",200,{
@@ -69,6 +75,13 @@ def verify_sessions(admin, learner, other, stage):
     finished=expect("GET",path,200,token=other)
     assert finished["IsComplete"] and finished["Completed"]==5 and finished.get("CurrentQuestion") is None
     assert expect("POST",ROOT+"/start",200,dict(start,RequestId=str(uuid4())),other)["Id"]==sid
+    achievements=expect("GET",ROOT+"/achievements",200,token=other)
+    assert achievements["CompletedDailyChallenges"]==1 and achievements["CorrectSessionAnswers"]==5
+    assert achievements["IndependentFirstCorrect"]==4 and achievements["UniqueSolvedProblems"]==5
+    assert achievements["AssistedCorrect"]==0
+    assert {b["Key"] for b in achievements["Badges"]}=={"first-daily","persistence"}
+    assert expect("GET",ROOT+"/achievements",200,token=other)==achievements
+    assert expect("GET",ROOT+"/achievements",200,token=learner)["CompletedDailyChallenges"]==0
     after=expect("GET","/api/users/journey",200,token=other)
     assert after["TotalPoints"]==baseline["TotalPoints"] and after["SolvedProblems"]==baseline["SolvedProblems"]
     # Switch stage: today's daily session is not replaced. Restore on return.
@@ -81,4 +94,5 @@ def verify_sessions(admin, learner, other, stage):
     assert expect("GET",ROOT+"/current?kind=practice&categoryId=5",200,token=learner)["Id"]==p["Id"]
     expect("POST",ROOT+"/start",400,{"RequestId":str(uuid4()),"Kind":"practice","Count":11},learner)
     assert expect("GET",path,200,token=other)["Completed"]==5
+    assert expect("GET",ROOT+"/achievements",200,token=other)==achievements
     print("PASS: independent 5-question session, owner isolation, correct-only advance, replay, daily uniqueness and practice separation")

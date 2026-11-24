@@ -35,6 +35,7 @@ namespace MathWorldAPI.Migrations
                     b.Property<string>("QuestionsJson").IsRequired().HasColumnType("text");
                     b.Property<int>("Total").HasColumnType("integer");
                     b.Property<int>("Completed").HasColumnType("integer");
+                    b.Property<int>("HintsRevealed").ValueGeneratedOnAdd().HasColumnType("integer").HasDefaultValue(0);
                     b.Property<DateTime>("CreatedAtUtc").HasColumnType("timestamp with time zone");
                     b.Property<DateTime?>("CompletedAtUtc").HasColumnType("timestamp with time zone");
                     b.HasKey("Id");
@@ -42,6 +43,7 @@ namespace MathWorldAPI.Migrations
                     b.HasIndex("UserId", "ScopeKey").IsUnique().HasFilter("\"Kind\" = 'daily' OR \"CompletedAtUtc\" IS NULL");
                     b.ToTable("LearningSessions", t =>
                     {
+                        t.HasCheckConstraint("CK_LearningSessions_Hints", "\"HintsRevealed\" BETWEEN 0 AND 2 AND (\"CompletedAtUtc\" IS NULL OR \"HintsRevealed\" = 0)");
                         t.HasCheckConstraint("CK_LearningSessions_Kind", "\"Kind\" IN ('practice','daily')");
                         t.HasCheckConstraint("CK_LearningSessions_Progress", "\"Total\" BETWEEN 5 AND 10 AND \"Completed\" BETWEEN 0 AND \"Total\" AND ((\"Completed\" = \"Total\") = (\"CompletedAtUtc\" IS NOT NULL)) AND (\"Kind\" <> 'daily' OR (\"Total\" = 5 AND \"CategoryId\" IS NULL))");
                     });
@@ -56,6 +58,7 @@ namespace MathWorldAPI.Migrations
                     b.Property<string>("SelectedOptionText").IsRequired().HasColumnType("text");
                     b.Property<bool>("IsCorrect").HasColumnType("boolean");
                     b.Property<int>("AttemptNumber").HasColumnType("integer");
+                    b.Property<bool>("UsedHint").ValueGeneratedOnAdd().HasColumnType("boolean").HasDefaultValue(false);
                     b.Property<DateTime>("SubmittedAtUtc").HasColumnType("timestamp with time zone");
                     b.HasKey("SessionId", "RequestId");
                     b.HasIndex("SessionId", "Position", "AttemptNumber").IsUnique();

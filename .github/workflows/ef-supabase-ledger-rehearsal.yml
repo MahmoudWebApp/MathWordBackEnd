@@ -147,7 +147,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."__EFMigrationsHistory"' | grep -qx 34
+          psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."__EFMigrationsHistory"' | grep -qx 35
           psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."UserProgresses" WHERE "HintsRevealed"<>0' | grep -qx 0
           psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."LearningSessions"' | grep -qx 0
           psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."LearningSessionAttempts"' | grep -qx 0
