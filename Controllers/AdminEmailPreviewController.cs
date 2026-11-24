@@ -24,6 +24,10 @@ public sealed class AdminEmailPreviewController(PlatformBrandService brand) : Co
                 ar ? "تم تغيير كلمة المرور" : "Password changed",
                 ar ? "تم تغيير كلمة مرور حسابك. إذا لم تكن أنت، تواصل مع الدعم." :
                     "Your account password was changed. If this was not you, contact support."),
+            "password-reset" => (
+                ar ? "استعادة كلمة المرور" : "Reset your password",
+                ar ? "استخدم الرابط خلال 20 دقيقة. تجاهل الرسالة إذا لم تطلب الاستعادة." :
+                    "Use the link within 20 minutes. Ignore this email if you did not request a reset."),
             "welcome" => (
                 ar ? "أهلاً بك في MathWorld" : "Welcome to MathWorld",
                 ar ? "ابدأ رحلتك التعليمية واختر المرحلة المناسبة." : "Start your learning journey and choose your educational stage."),

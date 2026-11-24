@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 namespace MathWorldAPI.Services;
 
 /// <summary>Authenticated password changes; version, audit and notice commit together.</summary>
-public sealed class AccountPasswordService(AppDbContext db, NotificationStreamBroker stream)
+public sealed class AccountPasswordService(AppDbContext db, NotificationStreamBroker stream, RecoveryEmailQueue emailQueue)
 {
     public enum ChangeResult { Changed, InvalidCurrentPassword, InvalidNewPassword, PasswordMustDiffer, SessionChanged }
 
@@ -59,6 +59,8 @@ public sealed class AccountPasswordService(AppDbContext db, NotificationStreamBr
             BodyEn = "Your account password was changed. If this was not you, contact support.",
             CreatedAtUtc = now
         });
+        // Old recovery links are invalidated by the new TokenVersion.
+        emailQueue.AddSecurityNotice(user, "password-changed", now);
         await db.SaveChangesAsync(ct);
         await transaction.CommitAsync(ct);
         stream.Notify(userId);

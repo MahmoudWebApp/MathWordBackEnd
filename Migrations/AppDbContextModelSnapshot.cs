@@ -22,6 +22,47 @@ namespace MathWorldAPI.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("MathWorldAPI.Models.PasswordResetGrant", b =>
+                {
+                    b.Property<Guid>("Id").HasColumnType("uuid");
+                    b.Property<int>("UserId").HasColumnType("integer");
+                    b.Property<string>("TokenHash").IsRequired().HasColumnType("text");
+                    b.Property<string>("Email").IsRequired().HasColumnType("text");
+                    b.Property<string>("Role").IsRequired().HasColumnType("text");
+                    b.Property<int>("TokenVersion").HasColumnType("integer");
+                    b.Property<DateTime>("CreatedAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<DateTime>("ExpiresAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<DateTime?>("ConsumedAtUtc").HasColumnType("timestamp with time zone");
+                    b.HasKey("Id");
+                    b.HasIndex("TokenHash").IsUnique();
+                    b.HasIndex("UserId", "CreatedAtUtc");
+                    b.ToTable("PasswordResetGrants");
+                });
+
+            modelBuilder.Entity("MathWorldAPI.Models.EmailOutboxItem", b =>
+                {
+                    b.Property<Guid>("Id").HasColumnType("uuid");
+                    b.Property<int>("UserId").HasColumnType("integer");
+                    b.Property<Guid?>("ResetGrantId").HasColumnType("uuid");
+                    b.Property<string>("Recipient").IsRequired().HasColumnType("text");
+                    b.Property<string>("TemplateKey").IsRequired().HasColumnType("text");
+                    b.Property<string>("Locale").IsRequired().HasColumnType("text");
+                    b.Property<string>("State").IsRequired().HasColumnType("text");
+                    b.Property<int>("Attempts").HasColumnType("integer");
+                    b.Property<DateTime>("CreatedAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<DateTime>("ExpiresAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<DateTime>("NextRetryAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<Guid?>("LeaseId").HasColumnType("uuid");
+                    b.Property<string>("ProviderMessageId").HasColumnType("text");
+                    b.Property<string>("LastErrorCode").HasColumnType("text");
+                    b.HasKey("Id");
+                    b.HasIndex("UserId");
+                    b.HasIndex("CreatedAtUtc");
+                    b.HasIndex("State", "NextRetryAtUtc");
+                    b.ToTable("EmailOutbox");
+                });
+
+
             modelBuilder.Entity("MathWorldAPI.Models.PlatformBrandSettings", b =>
                 {
                     b.Property<int>("Id").HasColumnType("integer");
@@ -1445,6 +1486,24 @@ namespace MathWorldAPI.Migrations
 
                     b.Navigation("UserProgresses");
                 });
+            modelBuilder.Entity("MathWorldAPI.Models.PasswordResetGrant", b =>
+                {
+                    b.HasOne("MathWorldAPI.Models.AppUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("MathWorldAPI.Models.EmailOutboxItem", b =>
+                {
+                    b.HasOne("MathWorldAPI.Models.AppUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
 #pragma warning restore 612, 618
         }
     }

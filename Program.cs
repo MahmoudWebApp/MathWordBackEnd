@@ -118,6 +118,12 @@ builder.Services.AddScoped<PremiumPaymentSettlementService>();
 builder.Services.AddHostedService<LearnerPresenceCleanupService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<AccountPasswordService>();
+builder.Services.AddScoped<PasswordRecoveryService>();
+builder.Services.AddScoped<RecoveryEmailQueue>();
+builder.Services.AddScoped<BrevoEmailTransport>();
+builder.Services.AddHttpClient("BrevoTransactional", client => { client.Timeout = TimeSpan.FromSeconds(15); })
+    .ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler { AllowAutoRedirect = false });
+builder.Services.AddHostedService<RecoveryEmailWorker>();
 builder.Services.AddScoped<PlatformBrandService>();
 builder.Services.AddScoped<ITransactionalEmailSender, SmtpTransactionalEmailSender>();
 builder.Services.AddScoped<ISocialAuthService, SocialAuthService>();
@@ -281,6 +287,15 @@ builder.Services.AddRateLimiter(options =>
                 AutoReplenishment = true
             });
     });
+
+    options.AddPolicy("password-recovery", context =>
+        RateLimitPartition.GetFixedWindowLimiter(
+            context.Connection.RemoteIpAddress?.ToString() ?? "unknown",
+            _ => new FixedWindowRateLimiterOptions
+            {
+                PermitLimit = 8, Window = TimeSpan.FromMinutes(1), QueueLimit = 0,
+                AutoReplenishment = true
+            }));
 
     // Limits answer submission by authenticated user ID.
     options.AddPolicy("answers", httpContext =>
