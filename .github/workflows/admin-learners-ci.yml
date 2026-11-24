@@ -1,9 +1,6 @@
 name: Admin learner insights PostgreSQL integration tests
 
 on:
-  push:
-    branches:
-      - feature/admin-learner-insights-v1
   pull_request:
     paths:
       - 'Program.cs'
