@@ -57,6 +57,9 @@ def verify_tracks(admin, student, uid, stage1, stage2):
     sql(f"""UPDATE "Users" SET "SubscriptionType"='Premium',"PremiumExpiresAtUtc"=NULL WHERE "Id"={uid}""")
     resume=expect("GET","/api/users/learning-tracks/continue",200,token=student)
     assert resume["TrackId"]==tid and resume["Problem"]["Id"]==pid
+    expect("GET",f"/api/problems/{pid}/hints?practiceScopeId=0",409,token=student)
+    expect("POST",f"/api/problems/{pid}/hints",409,{"Level":1,"PracticeScopeId":0},student)
+    expect("GET",f"/api/problems/{pid}/hints?practiceScopeId={tid}",200,token=student)
     challenge=expect("GET","/api/users/daily-challenge",200,token=student)
     assert challenge["TrackId"]==tid and [p["Id"] for p in challenge["Problems"]]==[pid]
     report=expect("GET",f"/api/users/premium-report?stageId={stage1}",200,token=student)
@@ -68,7 +71,9 @@ def verify_tracks(admin, student, uid, stage1, stage2):
     assert expect("GET",practice,200,token=student)["Items"][0]["Id"]==pid
     detail=expect("GET",f"/api/problems/{pid}",200,token=admin)
     option=next(x["Id"] for x in detail["Options"] if x["IsCorrect"])
-    expect("POST","/api/problems/submit",200,{"ProblemId":pid,"SelectedOptionId":option,"TimeSpentSeconds":4},student)
+    assert expect("GET",f"/api/problems/{pid}",200,token=student)["PracticeScopeId"]==tid
+    expect("POST","/api/problems/submit",409,{"ProblemId":pid,"SelectedOptionId":option,"TimeSpentSeconds":4},student)
+    expect("POST","/api/problems/submit",200,{"ProblemId":pid,"SelectedOptionId":option,"TimeSpentSeconds":4,"PracticeScopeId":tid},student)
     assert expect("GET",practice,200,token=student)["Items"][0]["IsSolved"]
     assert expect("GET",f"/api/users/learning-tracks/{tid}/progress",200,token=student)["Solved"]==1
     assert expect("GET",f"/api/users/journey?stageId={stage1}",200,token=student)["SolvedProblems"]==1
@@ -82,7 +87,10 @@ def verify_tracks(admin, student, uid, stage1, stage2):
     assert expect("GET",f"/api/users/learning-tracks/{oid}/progress",200,token=student)["Solved"]==0
     expect("POST","/api/users/favorite/toggle",200,{"ProblemId":pid,"IsFavorite":True},student)
     wrong_option=next(x["Id"] for x in detail["Options"] if not x["IsCorrect"])
-    wrong=expect("POST","/api/problems/submit",200,{"ProblemId":pid,"SelectedOptionId":wrong_option,"TimeSpentSeconds":3},student)
+    assert expect("GET",f"/api/problems/{pid}",200,token=student)["PracticeScopeId"]==oid
+    expect("POST","/api/problems/submit",409,{"ProblemId":pid,"SelectedOptionId":wrong_option,"TimeSpentSeconds":3,"PracticeScopeId":tid},student)
+    expect("POST","/api/problems/submit",409,{"ProblemId":pid,"SelectedOptionId":wrong_option,"TimeSpentSeconds":3,"PracticeScopeId":0},student)
+    wrong=expect("POST","/api/problems/submit",200,{"ProblemId":pid,"SelectedOptionId":wrong_option,"TimeSpentSeconds":3,"PracticeScopeId":oid},student)
     assert not wrong["IsCorrect"]
     assert expect("GET",f"/api/users/journey?stageId={stage1}",200,token=student)["SolvedProblems"]==0
     assert len(expect("GET","/api/users/error-notebook",200,token=student))==1
@@ -96,7 +104,7 @@ def verify_tracks(admin, student, uid, stage1, stage2):
     assert expect("GET",practice,200,token=student)["Items"][0]["IsSolved"] is False
     expect("PUT","/api/users/learning-track",200,{"TrackId":oid},student)
     assert len(expect("GET","/api/users/error-notebook",200,token=student))==1
-    again=expect("POST","/api/problems/submit",200,{"ProblemId":pid,"SelectedOptionId":option,"TimeSpentSeconds":4},student)
+    again=expect("POST","/api/problems/submit",200,{"ProblemId":pid,"SelectedOptionId":option,"TimeSpentSeconds":4,"PracticeScopeId":oid},student)
     assert again["IsCorrect"] and again["PointsEarned"]==0
     assert expect("GET","/api/users/error-notebook",200,token=student)==[]
     assert expect("GET",f"/api/users/learning-tracks/{tid}/progress",200,token=student)["Solved"]==0

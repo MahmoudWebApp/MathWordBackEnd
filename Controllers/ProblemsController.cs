@@ -885,6 +885,7 @@ namespace MathWorldAPI.Controllers
                     LanguageHelper.SuccessResponse(
                         new ProblemForStudentDto
                         {
+                            PracticeScopeId=TrackPractice.Enabled(HttpContext.RequestServices.GetRequiredService<IConfiguration>())?practiceScope:null,
                             Id =
                                 problem.Id,
 
@@ -1267,6 +1268,9 @@ namespace MathWorldAPI.Controllers
             }
 
             var practiceScope=await TrackPractice.CurrentAsync(_context,HttpContext,HttpContext.RequestAborted);
+            if(TrackPractice.Enabled(HttpContext.RequestServices.GetRequiredService<IConfiguration>())&&
+                (dto.PracticeScopeId.HasValue?dto.PracticeScopeId.Value!=practiceScope:practiceScope!=0))
+                return Conflict(new{Message="PracticeScopeChanged"});
             var progress =
                 await TrackPractice.For(_context,practiceScope).AsTracking()
                     .FirstOrDefaultAsync(progressItem =>

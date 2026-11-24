@@ -16,14 +16,14 @@ namespace MathWorldAPI.Controllers;
 [ResponseCache(NoStore=true,Location=ResponseCacheLocation.None)]
 public sealed class ProblemHintsController(AppDbContext db,ProblemCategoryAccessService access,LearningTrackService tracks):ControllerBase
 {
-    public sealed record HintRequest(int Level);
+    public sealed record HintRequest(int Level,int? PracticeScopeId=null);
     [HttpGet]
-    public Task<IActionResult> Status(int problemId,CancellationToken ct)=>Handle(problemId,null,ct);
+    public Task<IActionResult> Status(int problemId,[FromQuery]int? practiceScopeId,CancellationToken ct)=>Handle(problemId,null,practiceScopeId,ct);
     [HttpPost]
     [EnableRateLimiting("solution-preview")]
-    public Task<IActionResult> Reveal(int problemId,HintRequest request,CancellationToken ct)=>Handle(problemId,request.Level,ct);
+    public Task<IActionResult> Reveal(int problemId,HintRequest request,CancellationToken ct)=>Handle(problemId,request.Level,request.PracticeScopeId,ct);
 
-    private async Task<IActionResult> Handle(int problemId,int? level,CancellationToken ct)
+    private async Task<IActionResult> Handle(int problemId,int? level,int? expectedScope,CancellationToken ct)
     {
         if(!int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier),out var id))return Unauthorized();
         if(level.HasValue&&level.Value is not (1 or 2))return BadRequest(new{Message="InvalidHintLevel"});
@@ -40,6 +40,9 @@ public sealed class ProblemHintsController(AppDbContext db,ProblemCategoryAccess
         if(!await access.CanReadProblemAsync(User,problem.StageId,problem.CategoryId,ct)||
             !await tracks.CanPracticeAsync(User,problemId,ct))return StatusCode(403,new{Message="ProblemLocked"});
         var practiceScope=await TrackPractice.CurrentAsync(db,HttpContext,ct);
+        if(TrackPractice.Enabled(HttpContext.RequestServices.GetRequiredService<IConfiguration>())&&
+            (expectedScope.HasValue?expectedScope.Value!=practiceScope:practiceScope!=0))
+            return Conflict(new{Message="PracticeScopeChanged"});
         var progress=await TrackPractice.For(db,practiceScope).AsTracking().SingleOrDefaultAsync(p=>p.UserId==id&&p.ProblemId==problemId,ct);
         if(progress?.IsSolved==true)return Conflict(new{Message="AlreadySolved"});
         BilingualText[]? hints=null;
