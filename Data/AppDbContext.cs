@@ -362,6 +362,10 @@ namespace MathWorldAPI.Data
                 .IsRequired();
 
             modelBuilder.Entity<AppUser>()
+                .Property(user => user.TokenVersion)
+                .HasDefaultValue(0);
+
+            modelBuilder.Entity<AppUser>()
                 .Property(user => user.Role)
                 .HasMaxLength(32)
                 .IsRequired();

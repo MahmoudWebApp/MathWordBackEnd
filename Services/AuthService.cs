@@ -374,6 +374,11 @@ namespace MathWorldAPI.Services
                         user.SubscriptionType),
 
                     new(
+                        SessionVersionPolicy.ClaimName,
+                        SessionVersionPolicy.FormatVersion(user.TokenVersion),
+                        ClaimValueTypes.Integer32),
+
+                    new(
                         JwtRegisteredClaimNames.Jti,
                         Guid.NewGuid().ToString("N"))
                 };

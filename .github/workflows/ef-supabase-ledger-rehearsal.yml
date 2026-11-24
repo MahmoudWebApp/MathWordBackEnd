@@ -147,7 +147,9 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."__EFMigrationsHistory"' | grep -qx 25
+          psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."__EFMigrationsHistory"' | grep -qx 26
+          psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."Users" WHERE "TokenVersion" IS NULL OR "TokenVersion" <> 0' | grep -qx 0
+          psql -X -v ON_ERROR_STOP=1 -Atc "SELECT COUNT(*) FROM public.\"__EFMigrationsHistory\" WHERE \"MigrationId\"='20261124220000_AddAccountTokenVersion'" | grep -qx 1
           psql -X -v ON_ERROR_STOP=1 -Atc "SELECT COUNT(*) FROM public.\"__EFMigrationsHistory\" WHERE \"MigrationId\"='20261124213000_SecureCurriculumTaxonomyEfParity'" | grep -qx 1
           test "$(psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."Users"')" = "$(cat /tmp/mw-ledger-users-before)"
           test "$(psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."Categories"')" = "$(cat /tmp/mw-ledger-categories-before)"

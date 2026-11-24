@@ -31,6 +31,20 @@ foreach (var requestedRole in new[] { "Student", "Supervisor", "SuperAdmin", "Ow
         "New or unknown roles must not elevate existing registration.");
 Console.WriteLine("PASS: legacy account role compatibility and fail-closed unmigrated roles.");
 
+// Missing legacy claims map to version zero only. The database comparison
+// then rejects old tokens as soon as the stored account version increases.
+Assert(SessionVersionPolicy.TryReadVersion(Array.Empty<string>(), out var legacyVersion) &&
+       legacyVersion == 0, "Legacy sessions must retain version zero during migration.");
+Assert(SessionVersionPolicy.TryReadVersion(new[] { "1" }, out var currentVersion) &&
+       currentVersion == 1, "Explicit version must be read correctly.");
+foreach (var invalid in new[] { "", "-1", "+1", "01", " 1", "1 ", "2147483648", "bad" })
+    Assert(!SessionVersionPolicy.TryReadVersion(new[] { invalid }, out _),
+        "Malformed session version must be rejected.");
+Assert(!SessionVersionPolicy.TryReadVersion(new[] { "1", "1" }, out _),
+    "Duplicate session version claims must fail closed.");
+Assert(SessionVersionPolicy.FormatVersion(42) == "42", "Version claim must be canonical.");
+Console.WriteLine("PASS: versioned session claim compatibility and validation.");
+
 // A different numeric substitution must trigger review as the same
 // template family, while stage and topic boundaries remain distinct.
 var familyOne = CurriculumContentQuality.FamilyKey(

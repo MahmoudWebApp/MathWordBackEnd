@@ -200,14 +200,22 @@ builder.Services
                     return;
                 }
 
+                if (!SessionVersionPolicy.TryReadVersion(
+                    context.Principal!.FindAll(SessionVersionPolicy.ClaimName).Select(claim => claim.Value),
+                    out var tokenVersion))
+                {
+                    context.Fail("InvalidSessionVersion");
+                    return;
+                }
+
                 var database = context.HttpContext.RequestServices
                     .GetRequiredService<AppDbContext>();
                 var active = await database.Users.AsNoTracking().AnyAsync(
                     user => user.Id == userId && user.IsActive &&
-                        user.Role == role,
+                        user.Role == role && user.TokenVersion == tokenVersion,
                     context.HttpContext.RequestAborted);
                 if (!active)
-                    context.Fail("AccountInactiveOrRoleChanged");
+                    context.Fail("AccountInactiveOrSessionRevoked");
             }
         };
     });

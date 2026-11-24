@@ -16,6 +16,10 @@ namespace MathWorldAPI.Models
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public bool IsActive { get; set; } = true;
 
+        // Increment atomically when credentials or privileges are revoked.
+        [JsonIgnore]
+        public int TokenVersion { get; set; }
+
         [JsonIgnore]
         public List<UserProgress> UserProgresses { get; set; } = new();
 
