@@ -64,8 +64,30 @@ def expected_from_prompt(q, key):
         assert "fair six-sided die" in q and "even" in q
         return Fraction(sum(i%2==0 for i in range(1,7)),6)
     if key=="primary-multistep-arithmetic": return values[0]+values[1]-values[2]
+    if key=="primary-division": return Fraction(values[0],values[1])
+    if key=="primary-multiplicative-word-problems": return values[0]*values[1]
+    if key=="primary-two-step-equations": return Fraction(values[2]-values[1],values[0])
+    if key=="primary-substitution": return values[1]*values[0]-values[2]
+    if key=="primary-triangle-angle-sum": return 180-sum(values)
+    if key=="primary-unit-conversions":
+        assert "metres to centimetres" in q
+        return values[0]*100
+    if key=="primary-mode":
+        from collections import Counter
+        ranked=Counter(values).most_common()
+        assert ranked[0][1]>ranked[1][1]
+        return ranked[0][0]
+    if key=="primary-median":
+        assert len(values)%2==1
+        return sorted(values)[len(values)//2]
     raise AssertionError(key)
-for row in wave["Items"]:
+fourth=load("g1-structured-amendments-wave04-20261124.json")
+assert fourth["Status"]==wave["Status"]
+fourth_ids={r["ProblemId"] for r in fourth["Items"]}
+assert len(fourth_ids)==len(fourth["Items"])==36
+assert not fourth_ids.intersection(wave_ids|set(hints)|{r["ProblemId"] for r in d["Items"]})
+assert not fourth_ids.intersection({153,159,165,171})
+for row in wave["Items"]+fourth["Items"]:
     c=row["Content"]; g,p=placements[row["ProblemId"]]
     assert row["Status"]=="StructuredAmendmentCandidateNotImported"
     assert row["PrimarySkillKey"]==p["StableKey"]
@@ -89,4 +111,4 @@ for row in wave["Items"]:
     assert all(pair(sol[k]) for k in ("Idea","Substitution","Result","Unit","Verification","CommonError"))
     assert all(numeric_choice(sol["Result"][lang].strip("$"))==expected for lang in ("Ar","En"))
     assert 1<=len(sol["Steps"])<=20 and all(pair(s) for s in sol["Steps"])
-print("PASS: 20 additional primary proposals, independently recomputed options, source-matched placement, full bilingual solution and progressive hints")
+print("PASS: 56 additional primary proposals, independently recomputed options, source-matched placement, full bilingual solution and progressive hints")
