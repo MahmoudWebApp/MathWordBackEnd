@@ -21,6 +21,8 @@ public sealed class AdminLearningTracksController(AppDbContext db,LearningTrackS
         [StringLength(1500)] string DescriptionAr="",[StringLength(1500)] string DescriptionEn="",int SortOrder=0);
     public sealed record MappingInput(int Revision, int[] CategoryIds,int[] SkillIds,int[] ProblemIds);
     public sealed record PublishInput(int Revision,bool Publish);
+    public sealed record MetadataInput(int Revision,[Required,StringLength(150)] string NameAr,[Required,StringLength(150)] string NameEn,
+        [StringLength(1500)] string DescriptionAr="",[StringLength(1500)] string DescriptionEn="",int SortOrder=0);
     private int ActorId=>int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
 
     private void Audit(int id,string action)=>db.PlatformActivityEvents.Add(new PlatformActivityEvent{
@@ -79,6 +81,21 @@ public sealed class AdminLearningTracksController(AppDbContext db,LearningTrackS
         try{await db.SaveChangesAsync(ct);}catch(DbUpdateException e)when(e.InnerException is Npgsql.PostgresException {SqlState:"23505"}){return Conflict();}
         Audit(t.Id,"LearningTrackCreated");await db.SaveChangesAsync(ct);await tx.CommitAsync(ct);
         return StatusCode(201,t);
+    }
+
+    [HttpPut("{id:int}/metadata")]
+    public async Task<IActionResult> Metadata(int id,MetadataInput input,CancellationToken ct)
+    {
+        if(input.Revision is <0 or int.MaxValue || string.IsNullOrWhiteSpace(input.NameAr) ||
+           string.IsNullOrWhiteSpace(input.NameEn) || input.SortOrder is <0 or >10000)return BadRequest();
+        await using var tx=await db.Database.BeginTransactionAsync(ct);
+        var t=await db.LearningTracks.FromSqlInterpolated($@"SELECT * FROM ""LearningTracks"" WHERE ""Id""={id} FOR UPDATE").SingleOrDefaultAsync(ct);
+        if(t is null)return NotFound();
+        if(t.Revision!=input.Revision)return Conflict(new{Message="TrackChanged"});
+        t.NameAr=input.NameAr.Trim();t.NameEn=input.NameEn.Trim();t.DescriptionAr=input.DescriptionAr??"";
+        t.DescriptionEn=input.DescriptionEn??"";t.SortOrder=input.SortOrder;t.Revision++;
+        Audit(id,"LearningTrackMetadataUpdated");await db.SaveChangesAsync(ct);await tx.CommitAsync(ct);
+        return Ok(new{t.Revision});
     }
 
     [HttpPut("{id:int}/mapping")]

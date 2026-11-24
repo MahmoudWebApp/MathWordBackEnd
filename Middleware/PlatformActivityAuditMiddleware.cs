@@ -68,7 +68,8 @@ public sealed class PlatformActivityAuditMiddleware
         var urlPath = context.Request.Path.Value ?? "";
         // Brand changes already persist an atomic domain-specific audit event.
         if (urlPath.Equals("/api/admin/platform/brand", StringComparison.OrdinalIgnoreCase) ||
-            urlPath.StartsWith("/api/admin/supervisors", StringComparison.OrdinalIgnoreCase))
+            urlPath.StartsWith("/api/admin/supervisors", StringComparison.OrdinalIgnoreCase) ||
+            urlPath.StartsWith("/api/admin/learning-tracks", StringComparison.OrdinalIgnoreCase))
             return;
         // Categories are edited under /api/categories (legacy controller),
         // not /api/admin/categories. Admin creations/updates/deletions must

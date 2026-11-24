@@ -75,6 +75,27 @@ public sealed class LearningTracksController(AppDbContext db,LearningTrackServic
         return Ok(new{Enabled=true,StageId=t.StageId,TrackId=t.Id});
     }
     [Authorize(Roles="Student")]
+    [HttpGet("api/users/learning-tracks/{id:int}/categories/{categoryId:int}/problems")]
+    public async Task<IActionResult> PracticeCatalog(int id,int categoryId,[FromQuery]int page=1,CancellationToken ct=default)
+    {
+        if(!tracks.Enabled)return NotFound();
+        if(page is <1 or >10000)return BadRequest();
+        var t=await tracks.VisibleTracks().SingleOrDefaultAsync(x=>x.Id==id,ct);
+        if(t is null)return NotFound();
+        var allowed=await access.GetAllowedCategoryIdsAsync(User,ct)??new List<int>();
+        if(!allowed.Contains(categoryId))return StatusCode(403,new{Message="CategoryLocked"});
+        var uid=int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
+        var valid=tracks.ValidProblems(id).Where(p=>p.CategoryId==categoryId);
+        var total=await valid.CountAsync(ct);
+        if(total==0)return NotFound();
+        var items=await valid.OrderBy(p=>p.Id).Skip((page-1)*50).Take(50)
+            .Select(p=>new{p.Id,p.CategoryId,p.TitleAr,p.TitleEn,p.Points,
+                IsSolved=db.UserProgresses.Any(x=>x.UserId==uid&&x.ProblemId==p.Id&&x.IsSolved)})
+            .ToListAsync(ct);
+        return Ok(new{TrackId=id,CategoryId=categoryId,Total=total,Page=page,PageSize=50,Items=items});
+    }
+
+    [Authorize(Roles="Student")]
     [HttpGet("api/users/learning-tracks/{id:int}/progress")]
     public async Task<IActionResult> Progress(int id,CancellationToken ct)
     {

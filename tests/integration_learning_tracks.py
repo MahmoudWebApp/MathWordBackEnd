@@ -31,7 +31,9 @@ def verify_tracks(admin, student, uid, stage1, stage2):
     expect("PUT",f"{root}/{tid}/mapping",400,{"Revision":0,"CategoryIds":[wrong],"SkillIds":[skill],"ProblemIds":[pid]},admin)
     mapped=expect("PUT",f"{root}/{tid}/mapping",200,{"Revision":0,"CategoryIds":[category],"SkillIds":[skill],"ProblemIds":[pid]},admin)
     assert mapped["Revision"]==1
-    expect("PUT",f"{root}/{tid}/publication",200,{"Revision":1,"Publish":True},admin)
+    expect("PUT",f"{root}/{tid}/metadata",409,{"Revision":0,"NameAr":"اختبار","NameEn":"Test"},admin)
+    expect("PUT",f"{root}/{tid}/metadata",200,{"Revision":1,"NameAr":"الصف التجريبي","NameEn":"Grade fixture","SortOrder":1},admin)
+    expect("PUT",f"{root}/{tid}/publication",200,{"Revision":2,"Publish":True},admin)
     assert len(expect("GET",f"/api/stages/{stage1}/tracks",200)["Items"])==1
     detail=expect("GET",f"/api/learning-tracks/{tid}",200)
     assert detail["Categories"][0]["IsFree"] and detail["Categories"][0]["ProblemsCount"]==1
@@ -39,15 +41,31 @@ def verify_tracks(admin, student, uid, stage1, stage2):
     expect("PUT","/api/users/learning-track",200,{"TrackId":tid},student)
     assert expect("GET","/api/users/learning-track",200,token=student)["TrackId"]==tid
     assert expect("GET",f"/api/users/learning-tracks/{tid}/progress",200,token=student)["Solved"]==0
+    practice=f"/api/users/learning-tracks/{tid}/categories/{category}/problems"
+    assert expect("GET",practice,200,token=student)["Items"][0]["Id"]==pid
+    detail=expect("GET",f"/api/problems/{pid}",200,token=admin)
+    option=next(x["Id"] for x in detail["Options"] if x["IsCorrect"])
+    expect("POST","/api/problems/submit",200,{"ProblemId":pid,"SelectedOptionId":option,"TimeSpentSeconds":4},student)
+    assert expect("GET",practice,200,token=student)["Items"][0]["IsSolved"]
+    assert expect("GET",f"/api/users/learning-tracks/{tid}/progress",200,token=student)["Solved"]==1
+    other=next(x["Track"] for x in all_tracks if x["Track"]["StageId"]==stage1 and x["Track"]["Id"]!=tid)
+    oid=other["Id"]
+    expect("PUT",f"{root}/{oid}/mapping",200,{"Revision":0,"CategoryIds":[category],"SkillIds":[skill],"ProblemIds":[pid]},admin)
+    expect("PUT",f"{root}/{oid}/publication",200,{"Revision":1,"Publish":True},admin)
+    expect("PUT","/api/users/learning-track",200,{"TrackId":oid},student)
+    assert expect("GET",f"/api/users/learning-tracks/{oid}/progress",200,token=student)["Solved"]==1
+    assert sql(f'SELECT COUNT(*) FROM "UserProgresses" WHERE "UserId"={uid} AND "ProblemId"={pid}')=="1"
+    expect("PUT",f"{root}/{oid}/publication",200,{"Revision":2,"Publish":False},admin)
+    expect("PUT","/api/users/learning-track",200,{"TrackId":tid},student)
     expect("PUT","/api/users/learning-stage",200,{"StageId":stage2},student)
     assert expect("GET","/api/users/learning-track",200,token=student).get("TrackId") is None
     expect("PUT","/api/users/learning-track",200,{"TrackId":tid},student)
-    expect("PUT",f"{root}/{tid}/mapping",409,{"Revision":2,"CategoryIds":[],"SkillIds":[],"ProblemIds":[]},admin)
-    expect("PUT",f"{root}/{tid}/publication",200,{"Revision":2,"Publish":False},admin)
+    expect("PUT",f"{root}/{tid}/mapping",409,{"Revision":3,"CategoryIds":[],"SkillIds":[],"ProblemIds":[]},admin)
+    expect("PUT",f"{root}/{tid}/publication",200,{"Revision":3,"Publish":False},admin)
     assert expect("GET",f"/api/stages/{stage1}/tracks",200)["Items"]==[]
     assert expect("GET","/api/users/learning-track",200,token=student).get("TrackId") is None
     # Keep journey suite's original stage and fixture assumptions.
     expect("PUT","/api/users/learning-stage",200,{"StageId":stage2},student)
     expect("PUT","/api/users/learning-stage",200,{"StageId":stage1},student)
-    sql(f'DELETE FROM "Problems" WHERE "Id"={pid}; DELETE FROM "CurriculumSkills" WHERE "Id"={skill}; DELETE FROM "CurriculumDomains" WHERE "Id"={domain}')
+    sql(f'DELETE FROM "ProblemAttempts" WHERE "ProblemId"={pid}; DELETE FROM "UserProgresses" WHERE "ProblemId"={pid}; DELETE FROM "Problems" WHERE "Id"={pid}; DELETE FROM "CurriculumSkills" WHERE "Id"={skill}; DELETE FROM "CurriculumDomains" WHERE "Id"={domain}')
     print("PASS: 17 unpublished tracks, validated mapping, no empty public tracks, original stage Free policy, selection and legacy stage switch")
