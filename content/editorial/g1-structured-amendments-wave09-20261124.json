@@ -89,8 +89,8 @@
               "En": "Subtract the squared lengths in the correct order and take the positive root."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $\\sqrt{41^2-9^2}=\\sqrt{1600}=40$.",
+              "En": "Substitution and calculation give $\\sqrt{41^2-9^2}=\\sqrt{1600}=40$."
             }
           ],
           "Substitution": {
@@ -201,8 +201,8 @@
               "En": "Multiply the original length by the scale factor."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $7\\times6=42$.",
+              "En": "Substitution and calculation give $7\\times6=42$."
             }
           ],
           "Substitution": {
@@ -313,8 +313,8 @@
               "En": "Add all three categories."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $8+12+10=30$.",
+              "En": "Substitution and calculation give $8+12+10=30$."
             }
           ],
           "Substitution": {
@@ -425,8 +425,8 @@
               "En": "Find the median of each half, then subtract the lower quartile from the upper."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $Q_1=4,\\quad Q_3=12,\\quad IQR=12-4=8$.",
+              "En": "Substitution and calculation give $Q_1=4,\\quad Q_3=12,\\quad IQR=12-4=8$."
             }
           ],
           "Substitution": {
@@ -537,8 +537,8 @@
               "En": "Express the new mean using the shifted sum."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $\\frac{\\sum x_i+3n}{n}=\\bar{x}+3$.",
+              "En": "Substitution and calculation give $\\frac{\\sum x_i+3n}{n}=\\bar{x}+3$."
             }
           ],
           "Substitution": {
@@ -649,8 +649,8 @@
               "En": "Find the middle position and read its value."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $(5+1)/2=3,\\quad x_3=7$.",
+              "En": "Substitution and calculation give $(5+1)/2=3,\\quad x_3=7$."
             }
           ],
           "Substitution": {
@@ -761,8 +761,8 @@
               "En": "Subtract the minimum from the maximum."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $20-3=17$.",
+              "En": "Substitution and calculation give $20-3=17$."
             }
           ],
           "Substitution": {
@@ -873,8 +873,8 @@
               "En": "Divide by the total and convert to a percentage."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $\\frac5{20}\\times100\\%=25\\%$.",
+              "En": "Substitution and calculation give $\\frac5{20}\\times100\\%=25\\%$."
             }
           ],
           "Substitution": {
@@ -985,8 +985,8 @@
               "En": "Multiply each value by its frequency, sum, then divide by total frequency."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $\\frac{3\\times2+2\\times7}{3+2}=\\frac{20}{5}=4$.",
+              "En": "Substitution and calculation give $\\frac{3\\times2+2\\times7}{3+2}=\\frac{20}{5}=4$."
             }
           ],
           "Substitution": {
@@ -1097,8 +1097,8 @@
               "En": "Compare the middle position and the effect of changing the maximum on the statistics."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $(4,5,6,7,50)\\to(4,5,6,7,500),\\quad M=6$.",
+              "En": "Substitution and calculation give $(4,5,6,7,50)\\to(4,5,6,7,500),\\quad M=6$."
             }
           ],
           "Substitution": {
@@ -1209,8 +1209,8 @@
               "En": "Find each class total and compare the fractions of girls."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $\\frac{15}{27}>\\frac{10}{28}$.",
+              "En": "Substitution and calculation give $\\frac{15}{27}>\\frac{10}{28}$."
             }
           ],
           "Substitution": {
@@ -1321,8 +1321,8 @@
               "En": "Count occurrences of each value."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $f(1)=2,\\ f(2)=1,\\ f(3)=3,\\ f(9)=1$.",
+              "En": "Substitution and calculation give $f(1)=2,\\ f(2)=1,\\ f(3)=3,\\ f(9)=1$."
             }
           ],
           "Substitution": {
@@ -1433,8 +1433,8 @@
               "En": "Write the difference between the shifted extremes and simplify."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $(x_{\\max}+5)-(x_{\\min}+5)=x_{\\max}-x_{\\min}$.",
+              "En": "Substitution and calculation give $(x_{\\max}+5)-(x_{\\min}+5)=x_{\\max}-x_{\\min}$."
             }
           ],
           "Substitution": {
@@ -1545,8 +1545,8 @@
               "En": "Divide both sides by 4, then add 3."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $4(x-3)=28\\Rightarrow x-3=7\\Rightarrow x=10$.",
+              "En": "Substitution and calculation give $4(x-3)=28\\Rightarrow x-3=7\\Rightarrow x=10$."
             }
           ],
           "Substitution": {
@@ -1657,8 +1657,8 @@
               "En": "Subtract 2x from both sides, then add 8."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $5=x-8\\Rightarrow x=13$.",
+              "En": "Substitution and calculation give $5=x-8\\Rightarrow x=13$."
             }
           ],
           "Substitution": {
@@ -1769,8 +1769,8 @@
               "En": "Multiply both sides by 3, then subtract 6."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $x+6=27\\Rightarrow x=21$.",
+              "En": "Substitution and calculation give $x+6=27\\Rightarrow x=21$."
             }
           ],
           "Substitution": {
@@ -1881,8 +1881,8 @@
               "En": "Subtract delivery from the total and divide the remainder by the number of notebooks."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $3x=36\\Rightarrow x=12$.",
+              "En": "Substitution and calculation give $3x=36\\Rightarrow x=12$."
             }
           ],
           "Substitution": {
@@ -1993,8 +1993,8 @@
               "En": "Square the radius and leave pi symbolic."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $A=\\pi\\times5^2=25\\pi$.",
+              "En": "Substitution and calculation give $A=\\pi\\times5^2=25\\pi$."
             }
           ],
           "Substitution": {
@@ -2095,7 +2095,7 @@
         ],
         "Solution": {
           "Idea": {
-            "Ar": "نصف القطر نصف القطر الكامل (القطر)، ثم نطبق قانون المساحة.",
+            "Ar": "نصف القطر يساوي نصف طول القطر، ثم نطبق قانون المساحة.",
             "En": "The radius is half the diameter; then apply the area formula."
           },
           "FormulaLatex": "r=d/2,\\quad A=\\pi r^2",
@@ -2105,8 +2105,8 @@
               "En": "Halve the diameter before squaring the radius."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $r=18/2=9,\\quad A=\\pi\\times9^2=81\\pi$.",
+              "En": "Substitution and calculation give $r=18/2=9,\\quad A=\\pi\\times9^2=81\\pi$."
             }
           ],
           "Substitution": {
@@ -2217,8 +2217,8 @@
               "En": "Square the radius, multiply by pi, then halve."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $\\pi\\times6^2/2=18\\pi$.",
+              "En": "Substitution and calculation give $\\pi\\times6^2/2=18\\pi$."
             }
           ],
           "Substitution": {
@@ -2329,8 +2329,8 @@
               "En": "Divide area by pi and take the positive square root."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $r^2=64\\Rightarrow r=8$.",
+              "En": "Substitution and calculation give $r^2=64\\Rightarrow r=8$."
             }
           ],
           "Substitution": {
@@ -2441,8 +2441,8 @@
               "En": "Divide the total by the total parts, then multiply by the blue parts."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $45\\frac{2}{2+7}=10$.",
+              "En": "Substitution and calculation give $45\\frac{2}{2+7}=10$."
             }
           ],
           "Substitution": {
@@ -2553,8 +2553,8 @@
               "En": "Find one part from the Arabic count, then multiply by the English parts."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $35/5=7,\\quad 7\\times3=21$.",
+              "En": "Substitution and calculation give $35/5=7,\\quad 7\\times3=21$."
             }
           ],
           "Substitution": {
@@ -2665,8 +2665,8 @@
               "En": "Divide the blue count by its parts and multiply by the yellow parts."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $36/9=4,\\quad4\\times4=16$.",
+              "En": "Substitution and calculation give $36/9=4,\\quad4\\times4=16$."
             }
           ],
           "Substitution": {
@@ -2777,8 +2777,8 @@
               "En": "Find the scaling factor for rice and apply it to water."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $12/3=4,\\quad4\\times5=20$.",
+              "En": "Substitution and calculation give $12/3=4,\\quad4\\times5=20$."
             }
           ],
           "Substitution": {
@@ -2889,8 +2889,8 @@
               "En": "Subtract the apex angle from the total and split the remainder equally."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $(180-40)/2=70$.",
+              "En": "Substitution and calculation give $(180-40)/2=70$."
             }
           ],
           "Substitution": {
@@ -3001,8 +3001,8 @@
               "En": "Subtract the known remote interior angle from the exterior angle."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $125-45=80$.",
+              "En": "Substitution and calculation give $125-45=80$."
             }
           ],
           "Substitution": {
@@ -3113,8 +3113,8 @@
               "En": "Subtract the known acute angle from the acute-angle sum."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $90-35=55$.",
+              "En": "Substitution and calculation give $90-35=55$."
             }
           ],
           "Substitution": {
@@ -3225,8 +3225,8 @@
               "En": "Find one part and multiply by the largest ratio term."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $180/(1+2+3)=30,\\quad3\\times30=90$.",
+              "En": "Substitution and calculation give $180/(1+2+3)=30,\\quad3\\times30=90$."
             }
           ],
           "Substitution": {
@@ -3337,8 +3337,8 @@
               "En": "Set the expressions equal, then collect variable terms."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $60=2x\\Rightarrow x=30$.",
+              "En": "Substitution and calculation give $60=2x\\Rightarrow x=30$."
             }
           ],
           "Substitution": {
@@ -3449,8 +3449,8 @@
               "En": "Solve the equality and substitute into either expression."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $x=30,\\quad2(30)+5=65$.",
+              "En": "Substitution and calculation give $x=30,\\quad2(30)+5=65$."
             }
           ],
           "Substitution": {
@@ -3561,8 +3561,8 @@
               "En": "Divide their sum by two."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $146/2=73$.",
+              "En": "Substitution and calculation give $146/2=73$."
             }
           ],
           "Substitution": {
@@ -3663,7 +3663,7 @@
         ],
         "Solution": {
           "Idea": {
-            "Ar": "عند تقاطع مستقيمين تتساوى الزوايا المتقابلة، وتتتامل المتجاورة.",
+            "Ar": "عند تقاطع مستقيمين تتساوى الزوايا المتقابلة، ويكون مجموع قياسي كل زاويتين متجاورتين 180 درجة.",
             "En": "When lines intersect, vertical angles are equal and adjacent angles supplementary."
           },
           "FormulaLatex": "A=C,\\quad A+B=180^\\circ",
@@ -3673,8 +3673,8 @@
               "En": "Find the adjacent measures, then count angles equal to the given angle."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $180-65=115$.",
+              "En": "Substitution and calculation give $180-65=115$."
             }
           ],
           "Substitution": {
@@ -3785,8 +3785,8 @@
               "En": "Multiply the negative factor three times and apply sign rules."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $(-4)(-4)(-4)=-64$.",
+              "En": "Substitution and calculation give $(-4)(-4)(-4)=-64$."
             }
           ],
           "Substitution": {
@@ -3897,8 +3897,8 @@
               "En": "Consider dividing two equal powers of base 17."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $17^0=17^1/17^1=1$.",
+              "En": "Substitution and calculation give $17^0=17^1/17^1=1$."
             }
           ],
           "Substitution": {
@@ -4009,8 +4009,8 @@
               "En": "Rewrite as the reciprocal of a positive power, then evaluate the denominator."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $2^{-3}=1/2^3=1/8$.",
+              "En": "Substitution and calculation give $2^{-3}=1/2^3=1/8$."
             }
           ],
           "Substitution": {
@@ -4121,8 +4121,8 @@
               "En": "Subtract the star counts, then multiply by the value per star."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $4(6-3)=12$.",
+              "En": "Substitution and calculation give $4(6-3)=12$."
             }
           ],
           "Substitution": {
@@ -4233,8 +4233,8 @@
               "En": "Calculate successive differences and select the largest positive increase."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $23-14=9,\\quad19-23=-4,\\quad31-19=12$.",
+              "En": "Substitution and calculation give $23-14=9,\\quad19-23=-4,\\quad31-19=12$."
             }
           ],
           "Substitution": {
@@ -4345,8 +4345,8 @@
               "En": "Take absolute differences and average them."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $\\frac{|2-4|+|4-4|+|6-4|}{3}=\\frac43$.",
+              "En": "Substitution and calculation give $\\frac{|2-4|+|4-4|+|6-4|}{3}=\\frac43$."
             }
           ],
           "Substitution": {
@@ -4457,8 +4457,8 @@
               "En": "Compute the within-group differences before subtracting the IQRs."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $(18-6)-(15-9)=12-6=6$.",
+              "En": "Substitution and calculation give $(18-6)-(15-9)=12-6=6$."
             }
           ],
           "Substitution": {
@@ -4569,8 +4569,8 @@
               "En": "Square both coordinate differences, add them, then take the positive root."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $d=\\sqrt{(7-1)^2+(10-2)^2}=\\sqrt{100}=10$.",
+              "En": "Substitution and calculation give $d=\\sqrt{(7-1)^2+(10-2)^2}=\\sqrt{100}=10$."
             }
           ],
           "Substitution": {
@@ -4681,8 +4681,8 @@
               "En": "Start at the negative temperature and add the rise."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $-7+12=5$.",
+              "En": "Substitution and calculation give $-7+12=5$."
             }
           ],
           "Substitution": {
@@ -4793,8 +4793,8 @@
               "En": "Turn subtraction of a negative into positive addition, then calculate."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $-4-(-9)=-4+9=5$.",
+              "En": "Substitution and calculation give $-4-(-9)=-4+9=5$."
             }
           ],
           "Substitution": {
@@ -4905,8 +4905,8 @@
               "En": "Determine the sign first, then multiply the absolute values."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $(-3)(-8)=3\\times8=24$.",
+              "En": "Substitution and calculation give $(-3)(-8)=3\\times8=24$."
             }
           ],
           "Substitution": {
@@ -5017,8 +5017,8 @@
               "En": "Replace each absolute value with its distance from zero, then subtract."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $|-13|-|5|=13-5=8$.",
+              "En": "Substitution and calculation give $|-13|-|5|=13-5=8$."
             }
           ],
           "Substitution": {
@@ -5129,8 +5129,8 @@
               "En": "Convert the half to fourths, then add the signed numerators."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $-3/4+2/4=-1/4$.",
+              "En": "Substitution and calculation give $-3/4+2/4=-1/4$."
             }
           ],
           "Substitution": {
@@ -5241,8 +5241,8 @@
               "En": "Subtract the second numerator from the negative numerator over the common denominator."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $-5/6-2/6=-7/6$.",
+              "En": "Substitution and calculation give $-5/6-2/6=-7/6$."
             }
           ],
           "Substitution": {
@@ -5353,8 +5353,8 @@
               "En": "Align decimal places and subtract the smaller magnitude from the larger."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $-2.50+1.75=-0.75$.",
+              "En": "Substitution and calculation give $-2.50+1.75=-0.75$."
             }
           ],
           "Substitution": {
@@ -5414,8 +5414,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الخيار $x<17$ لا يحقق العلاقة الناتجة من المعطيات: $x+5<12\\Rightarrow x<7$.",
-              "En": "The option $x<17$ does not satisfy the relation obtained from the given data: $x+5<12\\Rightarrow x<7$."
+              "Ar": "يضم الحل المقترح 10، لكن 10+5=15 وليس أقل من 12.",
+              "En": "The proposed set includes 10, but 10+5=15 is not below 12."
             }
           },
           {
@@ -5429,8 +5429,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الخيار $x>7$ لا يحقق العلاقة الناتجة من المعطيات: $x+5<12\\Rightarrow x<7$.",
-              "En": "The option $x>7$ does not satisfy the relation obtained from the given data: $x+5<12\\Rightarrow x<7$."
+              "Ar": "يستبعد الصفر رغم أن 0+5<12.",
+              "En": "It excludes zero even though 0+5<12."
             }
           },
           {
@@ -5438,8 +5438,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الخيار $x\\le7$ لا يحقق العلاقة الناتجة من المعطيات: $x+5<12\\Rightarrow x<7$.",
-              "En": "The option $x\\le7$ does not satisfy the relation obtained from the given data: $x+5<12\\Rightarrow x<7$."
+              "Ar": "يشمل 7 رغم أن 7+5=12، والمتباينة صارمة.",
+              "En": "It includes 7 even though 7+5=12 and the inequality is strict."
             }
           }
         ],
@@ -5465,8 +5465,8 @@
               "En": "Subtract 5 from both sides without reversing the sign."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $x+5<12\\Rightarrow x<7$.",
+              "En": "Substitution and calculation give $x+5<12\\Rightarrow x<7$."
             }
           ],
           "Substitution": {
@@ -5532,8 +5532,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الخيار $x>5$ لا يحقق العلاقة الناتجة من المعطيات: $3x\\ge15\\Rightarrow x\\ge5$.",
-              "En": "The option $x>5$ does not satisfy the relation obtained from the given data: $3x\\ge15\\Rightarrow x\\ge5$."
+              "Ar": "يستبعد الحد 5 رغم أن 3×5−4=11 يحقق المساواة.",
+              "En": "It excludes 5 even though 3×5−4=11 satisfies equality."
             }
           },
           {
@@ -5541,8 +5541,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الخيار $x\\le5$ لا يحقق العلاقة الناتجة من المعطيات: $3x\\ge15\\Rightarrow x\\ge5$.",
-              "En": "The option $x\\le5$ does not satisfy the relation obtained from the given data: $3x\\ge15\\Rightarrow x\\ge5$."
+              "Ar": "يشمل الصفر رغم أن 3×0−4=−4 لا يحقق الشرط.",
+              "En": "It includes zero, but 3×0−4=−4 fails the condition."
             }
           },
           {
@@ -5550,8 +5550,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الخيار $x\\ge7$ لا يحقق العلاقة الناتجة من المعطيات: $3x\\ge15\\Rightarrow x\\ge5$.",
-              "En": "The option $x\\ge7$ does not satisfy the relation obtained from the given data: $3x\\ge15\\Rightarrow x\\ge5$."
+              "Ar": "يستبعد 6 رغم أن 3×6−4=14 يحقق الشرط.",
+              "En": "It excludes 6 even though 3×6−4=14 satisfies the condition."
             }
           }
         ],
@@ -5577,8 +5577,8 @@
               "En": "Add 4 to both sides, then divide by the positive coefficient."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $3x\\ge15\\Rightarrow x\\ge5$.",
+              "En": "Substitution and calculation give $3x\\ge15\\Rightarrow x\\ge5$."
             }
           ],
           "Substitution": {
@@ -5638,8 +5638,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الخيار $x<-2$ لا يحقق العلاقة الناتجة من المعطيات: $-2x<4\\Rightarrow x>-2$.",
-              "En": "The option $x<-2$ does not satisfy the relation obtained from the given data: $-2x<4\\Rightarrow x>-2$."
+              "Ar": "يشمل −3، لكن −2×(−3)+6=12 لا يحقق الشرط.",
+              "En": "It includes −3, but −2×(−3)+6=12 fails the condition."
             }
           },
           {
@@ -5647,8 +5647,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الخيار $x\\le-2$ لا يحقق العلاقة الناتجة من المعطيات: $-2x<4\\Rightarrow x>-2$.",
-              "En": "The option $x\\le-2$ does not satisfy the relation obtained from the given data: $-2x<4\\Rightarrow x>-2$."
+              "Ar": "يشمل −2، وعندها القيمة 10 وليست أصغر من 10.",
+              "En": "It includes −2, where the expression equals 10 rather than being below it."
             }
           },
           {
@@ -5662,8 +5662,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الخيار $x\\ge-2$ لا يحقق العلاقة الناتجة من المعطيات: $-2x<4\\Rightarrow x>-2$.",
-              "En": "The option $x\\ge-2$ does not satisfy the relation obtained from the given data: $-2x<4\\Rightarrow x>-2$."
+              "Ar": "يضيف نقطة الحد −2 رغم أن المساواة غير مسموحة.",
+              "En": "It adds boundary −2 even though equality is not allowed."
             }
           }
         ],
@@ -5689,8 +5689,8 @@
               "En": "Subtract 6, then divide by the negative coefficient and reverse the sign."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $-2x<4\\Rightarrow x>-2$.",
+              "En": "Substitution and calculation give $-2x<4\\Rightarrow x>-2$."
             }
           ],
           "Substitution": {
@@ -5750,8 +5750,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الخيار $x\\le3$ لا يحقق العلاقة الناتجة من المعطيات: $-x\\le-3\\Rightarrow x\\ge3$.",
-              "En": "The option $x\\le3$ does not satisfy the relation obtained from the given data: $-x\\le-3\\Rightarrow x\\ge3$."
+              "Ar": "يشمل 0، لكن 5−0=5 أكبر من 2.",
+              "En": "It includes zero, but 5−0=5 is above 2."
             }
           },
           {
@@ -5759,8 +5759,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الخيار $x>3$ لا يحقق العلاقة الناتجة من المعطيات: $-x\\le-3\\Rightarrow x\\ge3$.",
-              "En": "The option $x>3$ does not satisfy the relation obtained from the given data: $-x\\le-3\\Rightarrow x\\ge3$."
+              "Ar": "يستبعد 3 رغم أن 5−3=2 يحقق المساواة.",
+              "En": "It excludes 3 even though 5−3=2 satisfies equality."
             }
           },
           {
@@ -5768,8 +5768,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الخيار $x<-3$ لا يحقق العلاقة الناتجة من المعطيات: $-x\\le-3\\Rightarrow x\\ge3$.",
-              "En": "The option $x<-3$ does not satisfy the relation obtained from the given data: $-x\\le-3\\Rightarrow x\\ge3$."
+              "Ar": "يشمل −4، لكن 5−(−4)=9 يتجاوز 2.",
+              "En": "It includes −4, but 5−(−4)=9 exceeds 2."
             }
           },
           {
@@ -5801,8 +5801,8 @@
               "En": "Subtract 5 from both sides, then multiply by negative one and reverse the sign."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $-x\\le-3\\Rightarrow x\\ge3$.",
+              "En": "Substitution and calculation give $-x\\le-3\\Rightarrow x\\ge3$."
             }
           ],
           "Substitution": {
@@ -5868,8 +5868,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الخيار $x\\ge-3$ لا يحقق العلاقة الناتجة من المعطيات: $(-3,\\infty)\\Rightarrow x>-3$.",
-              "En": "The option $x\\ge-3$ does not satisfy the relation obtained from the given data: $(-3,\\infty)\\Rightarrow x>-3$."
+              "Ar": "يشمل نقطة −3 المفتوحة.",
+              "En": "It includes the open boundary −3."
             }
           },
           {
@@ -5877,8 +5877,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الخيار $x<-3$ لا يحقق العلاقة الناتجة من المعطيات: $(-3,\\infty)\\Rightarrow x>-3$.",
-              "En": "The option $x<-3$ does not satisfy the relation obtained from the given data: $(-3,\\infty)\\Rightarrow x>-3$."
+              "Ar": "يمثل التظليل إلى اليسار لا اليمين.",
+              "En": "It represents left shading rather than right shading."
             }
           },
           {
@@ -5886,8 +5886,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الخيار $x\\le-3$ لا يحقق العلاقة الناتجة من المعطيات: $(-3,\\infty)\\Rightarrow x>-3$.",
-              "En": "The option $x\\le-3$ does not satisfy the relation obtained from the given data: $(-3,\\infty)\\Rightarrow x>-3$."
+              "Ar": "يعكس اتجاه التظليل ويضم نقطة الحد المفتوحة.",
+              "En": "It reverses shading and includes the open boundary."
             }
           }
         ],
@@ -5913,8 +5913,8 @@
               "En": "Match shading direction to the comparison and exclude the boundary."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $(-3,\\infty)\\Rightarrow x>-3$.",
+              "En": "Substitution and calculation give $(-3,\\infty)\\Rightarrow x>-3$."
             }
           ],
           "Substitution": {
@@ -5974,8 +5974,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الخيار $x<4$ لا يحقق العلاقة الناتجة من المعطيات: $(-\\infty,4]\\Rightarrow x\\le4$.",
-              "En": "The option $x<4$ does not satisfy the relation obtained from the given data: $(-\\infty,4]\\Rightarrow x\\le4$."
+              "Ar": "يستبعد 4 رغم أن الدائرة مغلقة.",
+              "En": "It excludes 4 despite the filled circle."
             }
           },
           {
@@ -5989,8 +5989,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الخيار $x\\ge4$ لا يحقق العلاقة الناتجة من المعطيات: $(-\\infty,4]\\Rightarrow x\\le4$.",
-              "En": "The option $x\\ge4$ does not satisfy the relation obtained from the given data: $(-\\infty,4]\\Rightarrow x\\le4$."
+              "Ar": "يعطي القيم إلى اليمين، بينما التظليل إلى اليسار.",
+              "En": "It gives values to the right, but shading is to the left."
             }
           },
           {
@@ -5998,8 +5998,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الخيار $x>4$ لا يحقق العلاقة الناتجة من المعطيات: $(-\\infty,4]\\Rightarrow x\\le4$.",
-              "En": "The option $x>4$ does not satisfy the relation obtained from the given data: $(-\\infty,4]\\Rightarrow x\\le4$."
+              "Ar": "يعكس الاتجاه ويستبعد الحد المسموح.",
+              "En": "It reverses direction and excludes the included boundary."
             }
           }
         ],
@@ -6025,8 +6025,8 @@
               "En": "Choose a comparison that includes the boundary and extends left."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $(-\\infty,4]\\Rightarrow x\\le4$.",
+              "En": "Substitution and calculation give $(-\\infty,4]\\Rightarrow x\\le4$."
             }
           ],
           "Substitution": {
@@ -6137,8 +6137,8 @@
               "En": "Start at the first integer after the lower bound and stop at the allowed upper bound."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $\\{-1,0,1,2\\}$.",
+              "En": "Substitution and calculation give $\\{-1,0,1,2\\}$."
             }
           ],
           "Substitution": {
@@ -6249,8 +6249,8 @@
               "En": "List integers from the included lower bound up to but not including the upper bound, then add."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $(-2)+(-1)+0+1+2=0$.",
+              "En": "Substitution and calculation give $(-2)+(-1)+0+1+2=0$."
             }
           ],
           "Substitution": {
@@ -6361,8 +6361,8 @@
               "En": "Write the cost inequality and find the greatest allowed integer."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $2k\\le14\\Rightarrow k\\le7$.",
+              "En": "Substitution and calculation give $2k\\le14\\Rightarrow k\\le7$."
             }
           ],
           "Substitution": {
@@ -6473,8 +6473,8 @@
               "En": "Divide by points per correct answer and round up to an integer."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $5n\\ge19\\Rightarrow n\\ge3.8\\Rightarrow n_{\\min}=4$.",
+              "En": "Substitution and calculation give $5n\\ge19\\Rightarrow n\\ge3.8\\Rightarrow n_{\\min}=4$."
             }
           ],
           "Substitution": {
@@ -6585,8 +6585,8 @@
               "En": "Divide the available weight by item weight and take the largest allowed integer."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $2n\\le17\\Rightarrow n\\le8.5\\Rightarrow n_{\\max}=8$.",
+              "En": "Substitution and calculation give $2n\\le17\\Rightarrow n\\le8.5\\Rightarrow n_{\\max}=8$."
             }
           ],
           "Substitution": {
@@ -6646,8 +6646,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الخيار $T\\ge-5$ لا يحقق العلاقة الناتجة من المعطيات: $T\\in(-\\infty,-5]$.",
-              "En": "The option $T\\ge-5$ does not satisfy the relation obtained from the given data: $T\\in(-\\infty,-5]$."
+              "Ar": "يعني على الأقل −5، وهو حد أدنى لا أعلى.",
+              "En": "It means at least −5, a lower rather than upper bound."
             }
           },
           {
@@ -6655,8 +6655,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الخيار $T>-5$ لا يحقق العلاقة الناتجة من المعطيات: $T\\in(-\\infty,-5]$.",
-              "En": "The option $T>-5$ does not satisfy the relation obtained from the given data: $T\\in(-\\infty,-5]$."
+              "Ar": "يستبعد الحد ويأخذ القيم الأكبر خلاف المطلوب.",
+              "En": "It excludes the bound and takes larger values instead."
             }
           },
           {
@@ -6664,8 +6664,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الخيار $T<-5$ لا يحقق العلاقة الناتجة من المعطيات: $T\\in(-\\infty,-5]$.",
-              "En": "The option $T<-5$ does not satisfy the relation obtained from the given data: $T\\in(-\\infty,-5]$."
+              "Ar": "يستبعد −5 رغم أن عبارة على الأكثر تسمح بالمساواة.",
+              "En": "It excludes −5 even though at most includes equality."
             }
           },
           {
@@ -6697,8 +6697,8 @@
               "En": "Choose the comparison allowing the bound and every smaller value."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $T\\in(-\\infty,-5]$.",
+              "En": "Substitution and calculation give $T\\in(-\\infty,-5]$."
             }
           ],
           "Substitution": {
@@ -6809,8 +6809,8 @@
               "En": "Divide by the number of values, counting repeated observations."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $(4+7+7+10)/4=28/4=7$.",
+              "En": "Substitution and calculation give $(4+7+7+10)/4=28/4=7$."
             }
           ],
           "Substitution": {
@@ -6921,8 +6921,8 @@
               "En": "Calculate the middle rank and read that value."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $(5+1)/2=3,\\quad x_3=8$.",
+              "En": "Substitution and calculation give $(5+1)/2=3,\\quad x_3=8$."
             }
           ],
           "Substitution": {
@@ -7033,8 +7033,8 @@
               "En": "Compare frequencies and select the value with the highest frequency."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $f(3)=1,\\ f(5)=3,\\ f(8)=2$.",
+              "En": "Substitution and calculation give $f(3)=1,\\ f(5)=3,\\ f(8)=2$."
             }
           ],
           "Substitution": {
@@ -7145,8 +7145,8 @@
               "En": "Divide the change in total by the count and add to the old mean."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $6+(28-8)/5=10$.",
+              "En": "Substitution and calculation give $6+(28-8)/5=10$."
             }
           ],
           "Substitution": {
@@ -7257,8 +7257,8 @@
               "En": "Count all sectors, then use the complement of blue."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $1-2/6=4/6=2/3$.",
+              "En": "Substitution and calculation give $1-2/6=4/6=2/3$."
             }
           ],
           "Substitution": {
@@ -7369,8 +7369,8 @@
               "En": "Form the success-to-total fraction and simplify."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $18/60=3/10$.",
+              "En": "Substitution and calculation give $18/60=3/10$."
             }
           ],
           "Substitution": {
@@ -7481,8 +7481,8 @@
               "En": "Divide blue occurrences by trials and convert to a percentage."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $24/80\\times100\\%=30\\%$.",
+              "En": "Substitution and calculation give $24/80\\times100\\%=30\\%$."
             }
           ],
           "Substitution": {
@@ -7593,8 +7593,8 @@
               "En": "Multiply shirt choices by trousers choices."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $3\\times2=6$.",
+              "En": "Substitution and calculation give $3\\times2=6$."
             }
           ],
           "Substitution": {
@@ -7705,8 +7705,8 @@
               "En": "Count options per coin or make a two-by-two table."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $\\Omega=\\{HH,HT,TH,TT\\}$.",
+              "En": "Substitution and calculation give $\\Omega=\\{HH,HT,TH,TT\\}$."
             }
           ],
           "Substitution": {
@@ -7817,8 +7817,8 @@
               "En": "Multiply the single-spin non-red probability three times."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $(4/5)^3=64/125$.",
+              "En": "Substitution and calculation give $(4/5)^3=64/125$."
             }
           ],
           "Substitution": {
@@ -7929,8 +7929,8 @@
               "En": "Calculate both rates and subtract the smaller from the larger."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $100|15/50-18/60|=100|0.30-0.30|=0$.",
+              "En": "Substitution and calculation give $100|15/50-18/60|=100|0.30-0.30|=0$."
             }
           ],
           "Substitution": {
@@ -8041,8 +8041,8 @@
               "En": "Multiply all three choice counts."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $3\\times2\\times2=12$.",
+              "En": "Substitution and calculation give $3\\times2\\times2=12$."
             }
           ],
           "Substitution": {
@@ -8153,8 +8153,8 @@
               "En": "Add the two event counts and subtract their overlap."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $(5+2-1)/10=6/10=3/5$.",
+              "En": "Substitution and calculation give $(5+2-1)/10=6/10=3/5$."
             }
           ],
           "Substitution": {
@@ -8265,8 +8265,8 @@
               "En": "Count even faces exceeding 3 and compare with all even faces."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $\\Omega_B=\\{2,4,6\\},\\quad A\\cap B=\\{4,6\\},\\quad P=2/3$.",
+              "En": "Substitution and calculation give $\\Omega_B=\\{2,4,6\\},\\quad A\\cap B=\\{4,6\\},\\quad P=2/3$."
             }
           ],
           "Substitution": {
@@ -8377,8 +8377,8 @@
               "En": "Count non-six choices for the other die in each case, then add the cases."
             },
             {
-              "Ar": "نفّذ الحساب وتحقق من النتيجة باستعمال المعطيات الأصلية.",
-              "En": "Carry out the calculation and verify it against the original information."
+              "Ar": "بالتعويض والحساب نحصل على $5+5=10$.",
+              "En": "Substitution and calculation give $5+5=10$."
             }
           ],
           "Substitution": {
