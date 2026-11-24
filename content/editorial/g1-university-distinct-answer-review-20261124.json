@@ -1,0 +1,1386 @@
+{
+  "Version": 1,
+  "Status": "ReadOnlyAnswerReviewNotEditorialApproval",
+  "Date": "2026-11-24",
+  "Counts": {
+    "MARKED_ANSWER_MATCHES": 121,
+    "MATCHES_STANDARD_SAMPLING_ASSUMPTION": 4
+  },
+  "Results": [
+    {
+      "id": 28,
+      "question": "Find the partial derivative $\\frac{\\partial f}{\\partial x}$ of the function $f(x,y) = x^2 y + 3xy^2 + \\sin x$.",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "2xy + 3y^2 + \\cos x",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "2xy + 3y^2 + \\cos x"
+      ],
+      "note": null
+    },
+    {
+      "id": 29,
+      "question": "Find the double integral $\\iint_R xy \\, dA$ over the rectangular region $R: 0 \\le x \\le 1, 0 \\le y \\le 2$.",
+      "expected": 1,
+      "marked": "1",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "1"
+      ],
+      "note": null
+    },
+    {
+      "id": 30,
+      "question": "Find the determinant of the matrix $A = \\begin{pmatrix} 2 & 3 \\\\ 1 & 4 \\end{pmatrix}$.",
+      "expected": 5,
+      "marked": "5",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "5"
+      ],
+      "note": null
+    },
+    {
+      "id": 31,
+      "question": "Are the vectors $v_1 = (1, 2)$ and $v_2 = (2, 4)$ linearly independent?",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "\\text{لا (No)}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\text{لا (No)}"
+      ],
+      "note": null
+    },
+    {
+      "id": 32,
+      "question": "Solve the differential equation: $\\frac{dy}{dx} = 3y$.",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "y = A e^{3x}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "y = A e^{3x}"
+      ],
+      "note": null
+    },
+    {
+      "id": 33,
+      "question": "What is the order of the differential equation $y'' + 2y' + y = 0$?",
+      "expected": 2,
+      "marked": "2",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "2"
+      ],
+      "note": null
+    },
+    {
+      "id": 34,
+      "question": "Find the limit: $\\lim_{x \\to 2} \\frac{x^2 - 4}{x - 2}$.",
+      "expected": 4,
+      "marked": "4",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "4"
+      ],
+      "note": null
+    },
+    {
+      "id": 35,
+      "question": "Is the function $f(x) = |x|$ differentiable at $x = 0$?",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "\\text{لا (No)}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\text{لا (No)}"
+      ],
+      "note": null
+    },
+    {
+      "id": 49,
+      "question": "For f(x,y) = x²y + 3y, evaluate the partial derivative with respect to x at (2,1).",
+      "expected": 4,
+      "marked": "4",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "4"
+      ],
+      "note": null
+    },
+    {
+      "id": 50,
+      "question": "Find the determinant of the 2x2 matrix with rows (2,1) and (3,4).",
+      "expected": 5,
+      "marked": "5",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "5"
+      ],
+      "note": null
+    },
+    {
+      "id": 51,
+      "question": "What is the general solution of the differential equation dy/dx = 2x?",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "y=x^{2}+C",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "y=x^{2}+C"
+      ],
+      "note": null
+    },
+    {
+      "id": 52,
+      "question": "What is the limit of the sequence 1/n as n tends to infinity?",
+      "expected": 0,
+      "marked": "0",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "0"
+      ],
+      "note": null
+    },
+    {
+      "id": 65,
+      "question": "For f(x,y) = x² + y², what is its gradient at (1,2)?",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "(2,4)",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "(2,4)"
+      ],
+      "note": null
+    },
+    {
+      "id": 66,
+      "question": "What is the dot product of vectors (1,2) and (3,4)?",
+      "expected": 11,
+      "marked": "11",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "11"
+      ],
+      "note": null
+    },
+    {
+      "id": 67,
+      "question": "Solve the initial-value problem y' = y with y(0) = 2.",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "y=2e^{x}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "y=2e^{x}"
+      ],
+      "note": null
+    },
+    {
+      "id": 68,
+      "question": "A continuous function f on [0,1] satisfies f(0)=-2 and f(1)=1. What does the intermediate value theorem guarantee?",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "\\exists c\\in(0,1):f(c)=0",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\exists c\\in(0,1):f(c)=0"
+      ],
+      "note": null
+    },
+    {
+      "id": 144,
+      "question": "f is continuous on [0,2], f(0)=-3 and f(2)=2. Which statement is guaranteed?",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "\\exists c\\in(0,2):f(c)=0",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\exists c\\in(0,2):f(c)=0"
+      ],
+      "note": null
+    },
+    {
+      "id": 145,
+      "question": "If f is differentiable at x=1, what must hold?",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "\\text{الدالة متصلة عند 1 (Continuous at 1)}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\text{الدالة متصلة عند 1 (Continuous at 1)}"
+      ],
+      "note": null
+    },
+    {
+      "id": 146,
+      "question": "Find the limit of \\(a_n=\\frac{3}{n}\\) as \\(n\\to\\infty\\).",
+      "expected": 0,
+      "marked": "0",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "0"
+      ],
+      "note": null
+    },
+    {
+      "id": 147,
+      "question": "A real sequence is monotone and bounded. Which statement always holds?",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "\\text{تتقارب (Converges)}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\text{تتقارب (Converges)}"
+      ],
+      "note": null
+    },
+    {
+      "id": 148,
+      "question": "Which of the following series converges?",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "\\sum_{n=1}^{\\infty}\\frac{1}{n^2}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\sum_{n=1}^{\\infty}\\frac{1}{n^2}"
+      ],
+      "note": null
+    },
+    {
+      "id": 444,
+      "question": "How many unordered ways can two people be selected from seven?",
+      "expected": 21,
+      "marked": "21",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "21"
+      ],
+      "note": null
+    },
+    {
+      "id": 445,
+      "question": "Which statement is logically equivalent to $P\\Rightarrow Q$?",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "\\neg Q\\Rightarrow\\neg P",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\neg Q\\Rightarrow\\neg P"
+      ],
+      "note": null
+    },
+    {
+      "id": 446,
+      "question": "Which logical expression is equivalent to $\\neg(P\\land Q)$?",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "\\neg P\\lor\\neg Q",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\neg P\\lor\\neg Q"
+      ],
+      "note": null
+    },
+    {
+      "id": 447,
+      "question": "An undirected graph has vertex degrees $2,2,2,2$. How many edges does it have?",
+      "expected": 4,
+      "marked": "4",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "4"
+      ],
+      "note": null
+    },
+    {
+      "id": 448,
+      "question": "On integers, define $a\\sim b$ when $a-b$ is divisible by 3. How many of reflexivity, symmetry and transitivity does this relation satisfy?",
+      "expected": 3,
+      "marked": "3",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "3"
+      ],
+      "note": null
+    },
+    {
+      "id": 449,
+      "question": "Thirteen objects are placed into twelve boxes. What is the minimum number guaranteed to occur in at least one box?",
+      "expected": 2,
+      "marked": "2",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "2"
+      ],
+      "note": null
+    },
+    {
+      "id": 450,
+      "question": "A connected acyclic tree has 9 vertices. How many edges does it have?",
+      "expected": 8,
+      "marked": "8",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "8"
+      ],
+      "note": null
+    },
+    {
+      "id": 488,
+      "question": "If $P$ is false and $Q$ is true, what is the truth value of $P\\Rightarrow Q$?",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "\\text{صحيحة (True)}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\text{صحيحة (True)}"
+      ],
+      "note": null
+    },
+    {
+      "id": 489,
+      "question": "How many three-person groups can be chosen from six people if a designated person must be included?",
+      "expected": 10,
+      "marked": "10",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "10"
+      ],
+      "note": null
+    },
+    {
+      "id": 490,
+      "question": "On the integers, define $a\\sim b$ when $a-b$ is divisible by 4. How many distinct equivalence classes are there?",
+      "expected": 4,
+      "marked": "4",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "4"
+      ],
+      "note": null
+    },
+    {
+      "id": 491,
+      "question": "What is the maximum number of edges in a simple undirected graph with five vertices?",
+      "expected": 10,
+      "marked": "10",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "10"
+      ],
+      "note": null
+    },
+    {
+      "id": 492,
+      "question": "Three distinct numbers are chosen from $\\{1,2,3,4\\}$. Must two of them add up to 5?",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "\\text{نعم (Yes)}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\text{نعم (Yes)}"
+      ],
+      "note": null
+    },
+    {
+      "id": 645,
+      "question": "What is the dot product of vectors (2, −3) and (3, 2)?",
+      "expected": 0,
+      "marked": "0",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "0"
+      ],
+      "note": null
+    },
+    {
+      "id": 646,
+      "question": "Compute the dot product (1, 2, −1) · (4, 0, 5).",
+      "expected": -1,
+      "marked": "-1",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "-1"
+      ],
+      "note": null
+    },
+    {
+      "id": 647,
+      "question": "Vectors (k, 2) and (3, −6) are perpendicular. What is k?",
+      "expected": 4,
+      "marked": "4",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "4"
+      ],
+      "note": null
+    },
+    {
+      "id": 648,
+      "question": "What is cos θ between vectors (1, 0) and (1, √3)?",
+      "expected": 0.5,
+      "marked": "\\frac12",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\frac12"
+      ],
+      "note": null
+    },
+    {
+      "id": 649,
+      "question": "What is the determinant of the matrix with columns (1, 2) and (3, 7)?",
+      "expected": 1,
+      "marked": "1",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "1"
+      ],
+      "note": null
+    },
+    {
+      "id": 650,
+      "question": "What is the dimension of the span of (1, 0, 1) and (0, 1, 1) in R³?",
+      "expected": 2,
+      "marked": "2",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "2"
+      ],
+      "note": null
+    },
+    {
+      "id": 651,
+      "question": "What is the rank of the matrix with columns (2, 4) and (5, 10)?",
+      "expected": 1,
+      "marked": "1",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "1"
+      ],
+      "note": null
+    },
+    {
+      "id": 652,
+      "question": "In R² consider (1, 2), (3, 6), and (0, 1). What is the largest number of linearly independent vectors among them?",
+      "expected": 2,
+      "marked": "2",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "2"
+      ],
+      "note": null
+    },
+    {
+      "id": 653,
+      "question": "For n ≥ 1, aₙ = 1 − 1/n. What is its limit?",
+      "expected": 1,
+      "marked": "1",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "1"
+      ],
+      "note": null
+    },
+    {
+      "id": 654,
+      "question": "For n ≥ 1 let aₙ = (1/2)ⁿ. What is its limit?",
+      "expected": 0,
+      "marked": "0",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "0"
+      ],
+      "note": null
+    },
+    {
+      "id": 655,
+      "question": "Let aₙ = 1/2 + 1/4 + ⋯ + 1/2ⁿ. What is lim aₙ as n → ∞?",
+      "expected": 1,
+      "marked": "1",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "1"
+      ],
+      "note": null
+    },
+    {
+      "id": 656,
+      "question": "A sequence starts at a₁ = 2 and satisfies aₙ₊₁ = (aₙ + 6)/2. Assuming it is increasing and bounded, what is its limit?",
+      "expected": 6,
+      "marked": "6",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "6"
+      ],
+      "note": null
+    },
+    {
+      "id": 713,
+      "question": "Evaluate the double integral of f(x,y)=x+y over 0 ≤ x ≤ 2 and 0 ≤ y ≤ 3.",
+      "expected": 15,
+      "marked": "15",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "15"
+      ],
+      "note": null
+    },
+    {
+      "id": 714,
+      "question": "Find the double integral of 1 over the region x ≥ 0, y ≥ 0, x+y ≤ 1.",
+      "expected": 0.5,
+      "marked": "\\frac12",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\frac12"
+      ],
+      "note": null
+    },
+    {
+      "id": 715,
+      "question": "Calculate the double integral of x² over the region 0 ≤ x ≤ 1 and 0 ≤ y ≤ 2.",
+      "expected": 0.6666666666666666,
+      "marked": "\\frac23",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\frac23"
+      ],
+      "note": null
+    },
+    {
+      "id": 716,
+      "question": "What is the double integral of (x−y) over the square 0 ≤ x ≤ 1, 0 ≤ y ≤ 1?",
+      "expected": 0,
+      "marked": "0",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "0"
+      ],
+      "note": null
+    },
+    {
+      "id": 717,
+      "question": "Evaluate lim as x → 0 of sin(3x)/x, with angles measured in radians.",
+      "expected": 3,
+      "marked": "3",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "3"
+      ],
+      "note": null
+    },
+    {
+      "id": 718,
+      "question": "What is lim (1−cos x)/x as x → 0 in radians?",
+      "expected": 0,
+      "marked": "0",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "0"
+      ],
+      "note": null
+    },
+    {
+      "id": 719,
+      "question": "Find the limit of (2x²+1)/(x²−3) as x → +∞.",
+      "expected": 2,
+      "marked": "2",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "2"
+      ],
+      "note": null
+    },
+    {
+      "id": 720,
+      "question": "Evaluate lim (e^(2x)−1)/x as x → 0.",
+      "expected": 2,
+      "marked": "2",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "2"
+      ],
+      "note": null
+    },
+    {
+      "id": 777,
+      "question": "What is the order of the differential equation y''' + 4y' + y = 0?",
+      "expected": 3,
+      "marked": "3",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "3"
+      ],
+      "note": null
+    },
+    {
+      "id": 778,
+      "question": "For (y'')^4 + y = 0, what is the **order** of this equation, not the power of its highest derivative?",
+      "expected": 2,
+      "marked": "2",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "2"
+      ],
+      "note": null
+    },
+    {
+      "id": 779,
+      "question": "What is the order of dy/dx = y^5 + x?",
+      "expected": 1,
+      "marked": "1",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "1"
+      ],
+      "note": null
+    },
+    {
+      "id": 780,
+      "question": "Which of the following differential equations has order four?",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "y^{(4)}+y=0",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "y^{(4)}+y=0"
+      ],
+      "note": null
+    },
+    {
+      "id": 781,
+      "question": "Evaluate the infinite series ∑ from n=0 to ∞ of (3/5)^n.",
+      "expected": 2.5,
+      "marked": "\\frac52",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\frac52"
+      ],
+      "note": null
+    },
+    {
+      "id": 782,
+      "question": "Does the series ∑ from n=1 to ∞ of 1/n converge or diverge?",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "\\text{تتباعد (Diverges)}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\text{تتباعد (Diverges)}"
+      ],
+      "note": null
+    },
+    {
+      "id": 783,
+      "question": "Classify the series ∑ from n=1 to ∞ of (−1)^(n+1)/n.",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "\\text{تتقارب شرطياً (Conditionally convergent)}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\text{تتقارب شرطياً (Conditionally convergent)}"
+      ],
+      "note": null
+    },
+    {
+      "id": 784,
+      "question": "What is ∑ from n=1 to ∞ of 1/[n(n+1)]?",
+      "expected": 1,
+      "marked": "1",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "1"
+      ],
+      "note": null
+    },
+    {
+      "id": 785,
+      "question": "How many distinct arrangements of the five letters in LEVEL are there?",
+      "expected": 30,
+      "marked": "30",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "30"
+      ],
+      "note": null
+    },
+    {
+      "id": 786,
+      "question": "From 5 women and 4 men, in how many ways can we choose a three-person committee with exactly 2 women and 1 man?",
+      "expected": 40,
+      "marked": "40",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "40"
+      ],
+      "note": null
+    },
+    {
+      "id": 787,
+      "question": "How many three-digit codes with distinct digits can be made from 1,2,3,4,5?",
+      "expected": 60,
+      "marked": "60",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "60"
+      ],
+      "note": null
+    },
+    {
+      "id": 788,
+      "question": "How many arrangements of 5 distinct people around a circular table are there if rotations count as the same arrangement?",
+      "expected": 24,
+      "marked": "24",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "24"
+      ],
+      "note": null
+    },
+    {
+      "id": 789,
+      "question": "To prove 'if n² is even, then n is even', which contrapositive statement can be proved instead?",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "\\text{إذا كان n فردياً فمربعه فردي (Odd n, odd square)}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\text{إذا كان n فردياً فمربعه فردي (Odd n, odd square)}"
+      ],
+      "note": null
+    },
+    {
+      "id": 790,
+      "question": "Assume the sum of the first n positive odd integers is n². What next term must be added for the sum of the first n+1 odd integers?",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "2n+1",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "2n+1"
+      ],
+      "note": null
+    },
+    {
+      "id": 791,
+      "question": "In the proof that sqrt(2) is irrational, suppose sqrt(2)=a/b with a,b integers in lowest terms. What contradiction follows?",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "\\text{a وb زوجيان (Both even)}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\text{a وb زوجيان (Both even)}"
+      ],
+      "note": null
+    },
+    {
+      "id": 792,
+      "question": "Which number is a counterexample to the claim 'every prime number is odd'?",
+      "expected": 2,
+      "marked": "2",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "2"
+      ],
+      "note": null
+    },
+    {
+      "id": 793,
+      "question": "On real numbers, define aRb iff a≤b. How many of reflexivity, symmetry and transitivity does it satisfy?",
+      "expected": 2,
+      "marked": "2",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "2"
+      ],
+      "note": null
+    },
+    {
+      "id": 794,
+      "question": "On {1,2,3}, let R contain (1,1),(2,2),(3,3),(1,2),(2,1). How many equivalence classes are there?",
+      "expected": 2,
+      "marked": "2",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "2"
+      ],
+      "note": null
+    },
+    {
+      "id": 795,
+      "question": "A relation on {1,2,3} contains exactly (1,2) and (2,3). Which extra pair is needed for transitivity?",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "(1,3)",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "(1,3)"
+      ],
+      "note": null
+    },
+    {
+      "id": 796,
+      "question": "On positive integers, define aRb iff a divides b. Which classification is correct?",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "\\text{ترتيب جزئي غير كلي (Partial, not total)}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\text{ترتيب جزئي غير كلي (Partial, not total)}"
+      ],
+      "note": null
+    },
+    {
+      "id": 797,
+      "question": "Let f(x)=kx+1 for x<2, and f(x)=x² for x≥2. Which k makes f continuous at x=2?",
+      "expected": 1.5,
+      "marked": "\\frac32",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\frac32"
+      ],
+      "note": null
+    },
+    {
+      "id": 798,
+      "question": "What is f'(0) when f(x)=x|x|?",
+      "expected": 0,
+      "marked": "0",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "0"
+      ],
+      "note": null
+    },
+    {
+      "id": 799,
+      "question": "Let f(x)=ax for x≤1 and f(x)=x²+1 for x>1. Which a makes f differentiable at x=1?",
+      "expected": 2,
+      "marked": "2",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "2"
+      ],
+      "note": null
+    },
+    {
+      "id": 800,
+      "question": "How is the real-valued function f(x)=x^(2/3) classified at x=0 (using real cube roots)?",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "\\text{متصلة وغير قابلة للاشتقاق (Continuous, not differentiable)}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\text{متصلة وغير قابلة للاشتقاق (Continuous, not differentiable)}"
+      ],
+      "note": null
+    },
+    {
+      "id": 831,
+      "question": "In the complete bipartite graph K₂,₃, every vertex in the first group connects to every vertex in the second. How many edges are there?",
+      "expected": 6,
+      "marked": "6",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "6"
+      ],
+      "note": null
+    },
+    {
+      "id": 832,
+      "question": "What is the minimum number of colors needed to color the vertices of a 5-cycle so adjacent vertices have different colors?",
+      "expected": 3,
+      "marked": "3",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "3"
+      ],
+      "note": null
+    },
+    {
+      "id": 833,
+      "question": "Among the four possible truth assignments for P and Q, in how many is the biconditional P ↔ Q true?",
+      "expected": 2,
+      "marked": "2",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "2"
+      ],
+      "note": null
+    },
+    {
+      "id": 834,
+      "question": "Simplify the logical expression P ∧ (P ∨ Q) using Boolean algebra.",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "P",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "P"
+      ],
+      "note": null
+    },
+    {
+      "id": 863,
+      "question": "A function y satisfies y'=3x² and y(0)=4. What is y(2)?",
+      "expected": 12,
+      "marked": "12",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "12"
+      ],
+      "note": null
+    },
+    {
+      "id": 864,
+      "question": "For y'=2y and y(0)=3, what is y(1)?",
+      "expected": 22.16716829679195,
+      "marked": "3e^2",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "3e^2"
+      ],
+      "note": null
+    },
+    {
+      "id": 865,
+      "question": "Solve y''+y=0 with y(0)=0 and y'(0)=2. What is y(π/2)?",
+      "expected": 2,
+      "marked": "2",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "2"
+      ],
+      "note": null
+    },
+    {
+      "id": 866,
+      "question": "A function satisfies y'+y=2 and y(0)=0. Find y(ln 2).",
+      "expected": 1,
+      "marked": "1",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "1"
+      ],
+      "note": null
+    },
+    {
+      "id": 1579,
+      "question": "For a population with mean 70 and standard deviation 6, find the z-score of 82.",
+      "expected": 2,
+      "marked": "2",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "2"
+      ],
+      "note": null
+    },
+    {
+      "id": 1580,
+      "question": "If population σ=15 and sample size n=25, what is the standard error of the sample mean?",
+      "expected": 3,
+      "marked": "3",
+      "status": "MATCHES_STANDARD_SAMPLING_ASSUMPTION",
+      "matchingOptions": [
+        "3"
+      ],
+      "note": "Standard error formula assumes independent observations with common population variance (or negligible finite population correction)"
+    },
+    {
+      "id": 1581,
+      "question": "18 out of 30 sampled students passed. What is the observed success proportion?",
+      "expected": 0.6,
+      "marked": "0.6",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "0.6"
+      ],
+      "note": null
+    },
+    {
+      "id": 1582,
+      "question": "The sample mean is 100, population σ=10, n=100. Using the normal approximation and z=1.96, find the 95% confidence interval.",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "[98.04,101.96]",
+      "status": "MATCHES_STANDARD_SAMPLING_ASSUMPTION",
+      "matchingOptions": [
+        "[98.04,101.96]"
+      ],
+      "note": "Normal approximation uses independent observations and known population standard deviation"
+    },
+    {
+      "id": 1583,
+      "question": "For σ=8, n=64, and z=1.96, what is the normal confidence-interval margin of error?",
+      "expected": 1.96,
+      "marked": "1.96",
+      "status": "MATCHES_STANDARD_SAMPLING_ASSUMPTION",
+      "matchingOptions": [
+        "1.96"
+      ],
+      "note": "Usual independent-sample normal confidence interval assumptions"
+    },
+    {
+      "id": 1584,
+      "question": "With fixed standard deviation and confidence level, if the sample size is multiplied by 4, what factor multiplies the confidence-interval width?",
+      "expected": 0.5,
+      "marked": "1/2",
+      "status": "MATCHES_STANDARD_SAMPLING_ASSUMPTION",
+      "matchingOptions": [
+        "1/2"
+      ],
+      "note": "Usual independent-sample standard error proportional to 1/sqrt(n)"
+    },
+    {
+      "id": 1585,
+      "question": "When p=0.02 and significance level α=0.05, which inequality justifies rejecting the null hypothesis?",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "p<\\alpha",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "p<\\alpha"
+      ],
+      "note": null
+    },
+    {
+      "id": 1586,
+      "question": "Which symbol conventionally denotes the probability of a Type I error: rejecting a true null hypothesis?",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "\\alpha",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\alpha"
+      ],
+      "note": null
+    },
+    {
+      "id": 1623,
+      "question": "Using bisection to find a zero of $f(x)=x^2-2$ on [1,2], what is the first midpoint?",
+      "expected": 1.5,
+      "marked": "1.5",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "1.5"
+      ],
+      "note": null
+    },
+    {
+      "id": 1624,
+      "question": "Start bisection for $f(x)=x^2-4$ on [1,3]. What first midpoint makes $f(x)=0$?",
+      "expected": 2,
+      "marked": "2",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "2"
+      ],
+      "note": null
+    },
+    {
+      "id": 1625,
+      "question": "For $f(x)=x^2-9$ with $x_0=4$, compute the first Newton iterate $x_1$.",
+      "expected": 3.125,
+      "marked": "3.125",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "3.125"
+      ],
+      "note": null
+    },
+    {
+      "id": 1626,
+      "question": "Approximate the integral of $f(x)=x^2$ from 0 to 2 by the trapezoidal rule using one panel.",
+      "expected": 4,
+      "marked": "4",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "4"
+      ],
+      "note": null
+    },
+    {
+      "id": 1627,
+      "question": "Approximate the integral of $f(x)=x^2$ from 0 to 2 using the one-panel midpoint rule.",
+      "expected": 2,
+      "marked": "2",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "2"
+      ],
+      "note": null
+    },
+    {
+      "id": 1628,
+      "question": "Use Simpson's 1/3 rule with two equal subintervals to integrate $f(x)=x^2$ from 0 to 2.",
+      "expected": 2.6666666666666665,
+      "marked": "\\frac{8}{3}",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\frac{8}{3}"
+      ],
+      "note": null
+    },
+    {
+      "id": 1629,
+      "question": "An exact value is 10 and its approximation is 9.7. What is the absolute error?",
+      "expected": 0.3000000000000007,
+      "marked": "0.3",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "0.3"
+      ],
+      "note": null
+    },
+    {
+      "id": 1630,
+      "question": "If the exact value is 50 and the approximation is 49, what is the percentage relative error?",
+      "expected": 0.02,
+      "marked": "2\\%",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "2\\%"
+      ],
+      "note": null
+    },
+    {
+      "id": 1631,
+      "question": "When rounding a measurement to the nearest hundredth, what is the maximum absolute rounding error?",
+      "expected": 0.005,
+      "marked": "0.005",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "0.005"
+      ],
+      "note": null
+    },
+    {
+      "id": 1632,
+      "question": "For $4x+y=9$ and $x+3y=7$, start from $x_0=y_0=0$. What is the first Jacobi iterate $(x_1,y_1)$?",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "(\\frac94,\\frac73)",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "(\\frac94,\\frac73)"
+      ],
+      "note": null
+    },
+    {
+      "id": 1633,
+      "question": "Use elimination to solve $2x+y=7$ and $x-y=2$. What is $x$?",
+      "expected": 3,
+      "marked": "3",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "3"
+      ],
+      "note": null
+    },
+    {
+      "id": 1634,
+      "question": "For $A=diag(2,3)$, $b=(4,9)$ and approximate solution $x=(2,2)$, find the infinity norm of residual $r=b-Ax$.",
+      "expected": 3,
+      "marked": "3",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "3"
+      ],
+      "note": null
+    },
+    {
+      "id": 1647,
+      "question": "What is the logical negation of $\\forall x\\,P(x)$?",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "\\exists x\\,\\neg P(x)",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\exists x\\,\\neg P(x)"
+      ],
+      "note": null
+    },
+    {
+      "id": 1648,
+      "question": "When is $P\\Rightarrow Q$ false?",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "P=1,\\,Q=0",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "P=1,\\,Q=0"
+      ],
+      "note": null
+    },
+    {
+      "id": 1649,
+      "question": "What is the contrapositive of $P\\Rightarrow Q$?",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "\\neg Q\\Rightarrow\\neg P",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\neg Q\\Rightarrow\\neg P"
+      ],
+      "note": null
+    },
+    {
+      "id": 1650,
+      "question": "Which expression is equivalent to $\\neg(P\\land Q)$?",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "\\neg P\\lor\\neg Q",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "\\neg P\\lor\\neg Q"
+      ],
+      "note": null
+    },
+    {
+      "id": 1669,
+      "question": "For f(x)=(x-3)^2+2 over all real x, what is its minimum value?",
+      "expected": 2,
+      "marked": "2",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "2"
+      ],
+      "note": null
+    },
+    {
+      "id": 1670,
+      "question": "Find x where f'(x)=0 for f(x)=x^2-6x+5.",
+      "expected": 3,
+      "marked": "3",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "3"
+      ],
+      "note": null
+    },
+    {
+      "id": 1671,
+      "question": "Minimize x²+y² subject to x+y=6 for real x and y. Which pair gives the minimum?",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "(3,3)",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "(3,3)"
+      ],
+      "note": null
+    },
+    {
+      "id": 1672,
+      "question": "For nonnegative x and y with x+y=10, what is the greatest possible value of xy?",
+      "expected": 25,
+      "marked": "25",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "25"
+      ],
+      "note": null
+    },
+    {
+      "id": 1673,
+      "question": "For f(x)=x⁴+3x², what is f''(1)?",
+      "expected": 18,
+      "marked": "18",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "18"
+      ],
+      "note": null
+    },
+    {
+      "id": 1674,
+      "question": "For f(x,y)=x²+2y², what is the smallest eigenvalue of its Hessian?",
+      "expected": 2,
+      "marked": "2",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "2"
+      ],
+      "note": null
+    },
+    {
+      "id": 1699,
+      "question": "What is the global minimum value of f(x)=x²−4x+1 over the real numbers?",
+      "expected": -3,
+      "marked": "-3",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "-3"
+      ],
+      "note": null
+    },
+    {
+      "id": 1700,
+      "question": "For f(x)=x³ over real numbers, on which interval is its second derivative positive?",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "x>0",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "x>0"
+      ],
+      "note": null
+    },
+    {
+      "id": 1701,
+      "question": "For f(x)=−(x−1)²+9 on the closed interval [0,4], what is its maximum value?",
+      "expected": 9,
+      "marked": "9",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "9"
+      ],
+      "note": null
+    },
+    {
+      "id": 1702,
+      "question": "Subject to x²+y²=2 for real x and y, what is the maximum possible value of x+y?",
+      "expected": 2.0000000000000004,
+      "marked": "2",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "2"
+      ],
+      "note": null
+    },
+    {
+      "id": 1703,
+      "question": "If f(x,y)=x²+2y², what is the gradient vector ∇f at (1,-1)?",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "(2,-4)",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "(2,-4)"
+      ],
+      "note": null
+    },
+    {
+      "id": 1704,
+      "question": "For f(x,y)=2x²+xy+3y², what is the determinant of its constant Hessian matrix?",
+      "expected": 23,
+      "marked": "23",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "23"
+      ],
+      "note": null
+    },
+    {
+      "id": 1705,
+      "question": "Minimize x²+y² subject to 2x+y=10 for real x and y. What is the minimum objective value?",
+      "expected": 20,
+      "marked": "20",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "20"
+      ],
+      "note": null
+    },
+    {
+      "id": 1706,
+      "question": "For f(x)=(a−1)x² with real parameter a, which necessary and sufficient condition makes f convex on the entire real line?",
+      "expected": "Explicit symbolic/theorem check",
+      "marked": "a\\ge1",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "a\\ge1"
+      ],
+      "note": null
+    },
+    {
+      "id": 1713,
+      "question": "For f(x)=(x+2)²+5 restricted to x≥0, what is the minimum value?",
+      "expected": 9,
+      "marked": "9",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "9"
+      ],
+      "note": null
+    },
+    {
+      "id": 1714,
+      "question": "For f(x,y)=x²+2xy+3y²−4x−8y, find its global minimum value over all real x and y.",
+      "expected": -6,
+      "marked": "-6",
+      "status": "MARKED_ANSWER_MATCHES",
+      "matchingOptions": [
+        "-6"
+      ],
+      "note": null
+    }
+  ]
+}
