@@ -1,7 +1,7 @@
 {
   "status": "HeldNotImportable",
   "notes": [
-    "39 separate held records, including 10 additional independence wording cases, and problem 20 historical options. Existing two taxonomy-held rows remain blocked in the canonical file. No publication or DB writes. Held rows without hints require a later content decision."
+    "39 separately held records with complete bilingual hint drafts, including 10 additional independence wording cases and problem 20 historical options. Every row remains blocked via taxonomyReviewPending. Existing two taxonomy-held rows remain blocked in the canonical file. No publication or DB writes."
   ],
   "items": [
     {
@@ -36,7 +36,17 @@
       "ProposedQuestion": {
         "Ar": "أكمل المتتالية الحسابية التالية: $2, 4, 6, 8, ?$",
         "En": "Complete the following arithmetic sequence: $2, 4, 6, 8, ?$"
-      }
+      },
+      "Hints": [
+        {
+          "Ar": "بعد تحديد أن المتتالية حسابية، ابحث عن الفرق بين كل حدين متتاليين.",
+          "En": "Once the sequence is specified as arithmetic, find the difference between successive terms."
+        },
+        {
+          "Ar": "أضف الفرق المشترك إلى آخر حد معطى.",
+          "En": "Add the common difference to the last given term."
+        }
+      ]
     },
     {
       "problemId": 10,
@@ -50,7 +60,17 @@
       "ProposedQuestion": {
         "Ar": "إذا ألقيت قطعة نقدية عادلة مرة واحدة، ما احتمال ظهور وجه الصورة (Head)؟",
         "En": "If you toss a fair coin once, what is the probability of getting a head?"
-      }
+      },
+      "Hints": [
+        {
+          "Ar": "بعد النص على عدالة القطعة، يكون وجهاها متساويي الاحتمال.",
+          "En": "Once fairness is specified, the two coin faces are equally likely."
+        },
+        {
+          "Ar": "اقسم عدد النتائج المطلوبة على عدد النتائج الممكنة.",
+          "En": "Divide the favorable outcome count by the possible outcome count."
+        }
+      ]
     },
     {
       "problemId": 212,
@@ -60,7 +80,17 @@
         "En": "Given \\(f(x)=2x+5\\), solve f(x)=11."
       },
       "taxonomyReviewPending": true,
-      "HoldReason": "Solving a linear equation from a function value, not evaluating an inverse formula; review label."
+      "HoldReason": "Solving a linear equation from a function value, not evaluating an inverse formula; review label.",
+      "Hints": [
+        {
+          "Ar": "ساوِ التعبير المعطى للدالة بقيمتها المطلوبة.",
+          "En": "Set the given function expression equal to the requested value."
+        },
+        {
+          "Ar": "اطرح الحد الثابت من الطرفين ثم اقسم على معامل x.",
+          "En": "Subtract the constant from both sides, then divide by the x coefficient."
+        }
+      ]
     },
     {
       "problemId": 224,
@@ -70,7 +100,17 @@
         "En": "Given \\(f(x)=3x+6\\), solve f(x)=18."
       },
       "taxonomyReviewPending": true,
-      "HoldReason": "Solving a linear equation from a function value, not evaluating an inverse formula; review label."
+      "HoldReason": "Solving a linear equation from a function value, not evaluating an inverse formula; review label.",
+      "Hints": [
+        {
+          "Ar": "ساوِ التعبير المعطى للدالة بقيمتها المطلوبة.",
+          "En": "Set the given function expression equal to the requested value."
+        },
+        {
+          "Ar": "اطرح الحد الثابت من الطرفين ثم اقسم على معامل x.",
+          "En": "Subtract the constant from both sides, then divide by the x coefficient."
+        }
+      ]
     },
     {
       "problemId": 236,
@@ -80,7 +120,17 @@
         "En": "Given \\(f(x)=4x+7\\), solve f(x)=27."
       },
       "taxonomyReviewPending": true,
-      "HoldReason": "Solving a linear equation from a function value, not evaluating an inverse formula; review label."
+      "HoldReason": "Solving a linear equation from a function value, not evaluating an inverse formula; review label.",
+      "Hints": [
+        {
+          "Ar": "ساوِ التعبير المعطى للدالة بقيمتها المطلوبة.",
+          "En": "Set the given function expression equal to the requested value."
+        },
+        {
+          "Ar": "اطرح الحد الثابت من الطرفين ثم اقسم على معامل x.",
+          "En": "Subtract the constant from both sides, then divide by the x coefficient."
+        }
+      ]
     },
     {
       "problemId": 248,
@@ -90,7 +140,17 @@
         "En": "Given \\(f(x)=5x+8\\), solve f(x)=38."
       },
       "taxonomyReviewPending": true,
-      "HoldReason": "Solving a linear equation from a function value, not evaluating an inverse formula; review label."
+      "HoldReason": "Solving a linear equation from a function value, not evaluating an inverse formula; review label.",
+      "Hints": [
+        {
+          "Ar": "ساوِ التعبير المعطى للدالة بقيمتها المطلوبة.",
+          "En": "Set the given function expression equal to the requested value."
+        },
+        {
+          "Ar": "اطرح الحد الثابت من الطرفين ثم اقسم على معامل x.",
+          "En": "Subtract the constant from both sides, then divide by the x coefficient."
+        }
+      ]
     },
     {
       "problemId": 260,
@@ -100,7 +160,17 @@
         "En": "Given \\(f(x)=6x+9\\), solve f(x)=51."
       },
       "taxonomyReviewPending": true,
-      "HoldReason": "Solving a linear equation from a function value, not evaluating an inverse formula; review label."
+      "HoldReason": "Solving a linear equation from a function value, not evaluating an inverse formula; review label.",
+      "Hints": [
+        {
+          "Ar": "ساوِ التعبير المعطى للدالة بقيمتها المطلوبة.",
+          "En": "Set the given function expression equal to the requested value."
+        },
+        {
+          "Ar": "اطرح الحد الثابت من الطرفين ثم اقسم على معامل x.",
+          "En": "Subtract the constant from both sides, then divide by the x coefficient."
+        }
+      ]
     },
     {
       "problemId": 768,
@@ -110,7 +180,17 @@
         "En": "A cube-shaped box has an edge length of 3 cm. What is its volume in cm³?"
       },
       "taxonomyReviewPending": true,
-      "HoldReason": "Cube volume rather than general power evaluation; consider geometry volume skill, or retain as application with secondary geometry skill."
+      "HoldReason": "Cube volume rather than general power evaluation; consider geometry volume skill, or retain as application with secondary geometry skill.",
+      "Hints": [
+        {
+          "Ar": "حجم المكعب يساوي حاصل ضرب أبعاده الثلاثة المتساوية.",
+          "En": "A cube's volume is the product of its three equal dimensions."
+        },
+        {
+          "Ar": "ارفع طول الحرف للقوة الثالثة واستخدم الوحدة المكعبة.",
+          "En": "Raise the edge length to the third power and use cubic units."
+        }
+      ]
     },
     {
       "problemId": 1659,
@@ -124,7 +204,17 @@
       "ProposedQuestion": {
         "Ar": "ندير قرصاً عادلاً من أربعة أقسام متساوية أحدها أزرق، ونرمي قطعة نقود عادلة بشكل مستقل عن دوران القرص. ما احتمال ظهور الأزرق ووجه الصورة معاً؟",
         "En": "A fair spinner has four equal sectors, one blue. A fair coin is flipped independently of the spin. What is the chance of blue and heads together?"
-      }
+      },
+      "Hints": [
+        {
+          "Ar": "بعد اعتماد الاستقلال، احسب احتمال كل حدث منفرداً.",
+          "En": "Once independence is specified, find each event's probability separately."
+        },
+        {
+          "Ar": "اضرب احتمال الأزرق في احتمال الصورة.",
+          "En": "Multiply the blue probability by the head probability."
+        }
+      ]
     },
     {
       "problemId": 1687,
@@ -138,7 +228,17 @@
       "ProposedQuestion": {
         "Ar": "كيس يحوي 3 كرات حمراء و2 زرقاء. نسحب كرة عشوائياً بفرص متساوية ثم نعيدها، ونسحب ثانية بالطريقة نفسها بشكل مستقل. ما احتمال ظهور الأزرق مرتين؟",
         "En": "A bag holds three red and two blue balls. A ball is drawn uniformly at random, replaced, and a second ball is drawn uniformly and independently. What is the chance of blue twice?"
-      }
+      },
+      "Hints": [
+        {
+          "Ar": "بعد اعتماد السحب المستقل المنتظم، الإرجاع يعيد الكيس إلى حالته الأولى.",
+          "En": "Once uniform independent draws are specified, replacement restores the original bag."
+        },
+        {
+          "Ar": "احسب احتمال الأزرق في سحبة واحدة واضربه في نفسه.",
+          "En": "Find the blue probability for one draw and multiply it by itself."
+        }
+      ]
     },
     {
       "problemId": 1688,
@@ -152,7 +252,17 @@
       "ProposedQuestion": {
         "Ar": "نرمي قطعتين نقديتين عادلتين بشكل مستقل. ما احتمال ظهور وجه الصورة مرة واحدة بالضبط؟",
         "En": "Two independent fair coins are tossed. What is the probability of obtaining exactly one head?"
-      }
+      },
+      "Hints": [
+        {
+          "Ar": "بعد تحديد استقلال القطعتين، اكتب الأزواج المرتبة المتساوية الاحتمال.",
+          "En": "With independence specified, list the equally likely ordered outcomes."
+        },
+        {
+          "Ar": "عدّ الأزواج التي تحوي صورة واحدة بالضبط ثم اقسم على العدد الكلي.",
+          "En": "Count pairs with exactly one head and divide by the total."
+        }
+      ]
     },
     {
       "problemId": 26,
@@ -166,7 +276,17 @@
       "ProposedQuestion": {
         "Ar": "إذا ألقينا حجري نرد عادلين سداسيي الأوجه بشكل مستقل، ما احتمال الحصول على مجموع $7$؟",
         "En": "If we roll two independent fair six-sided dice, what is the probability of getting a sum of $7$?"
-      }
+      },
+      "Hints": [
+        {
+          "Ar": "بعد تحديد نردين سداسيين عادلين مستقلين، استخدم الأزواج المرتبة للوجهين.",
+          "En": "Once independent fair six-sided dice are specified, use ordered face pairs."
+        },
+        {
+          "Ar": "عدّ الأزواج التي تحقق المجموع المطلوب واقسم على 36.",
+          "En": "Count the pairs with the requested sum and divide by 36."
+        }
+      ]
     },
     {
       "problemId": 64,
@@ -180,7 +300,17 @@
       "ProposedQuestion": {
         "Ar": "نرمي قطعة نقد عادلة ثلاث مرات مستقلة. ما احتمال ظهور الصورة في كل الرميات؟",
         "En": "A fair coin is tossed three times independently. What is the probability of heads on every toss?"
-      }
+      },
+      "Hints": [
+        {
+          "Ar": "بعد اعتماد استقلال الرميات، احتمال الصورة في الرمية الواحدة يساوي النصف.",
+          "En": "Once toss independence is specified, each head has probability one half."
+        },
+        {
+          "Ar": "اضرب احتمال الصورة في كل واحدة من الرميات الثلاث.",
+          "En": "Multiply the head probabilities over the three tosses."
+        }
+      ]
     },
     {
       "problemId": 80,
@@ -434,7 +564,17 @@
       "ProposedQuestion": {
         "Ar": "نرمي حجرَي نرد عادلين سداسيي الأوجه بشكل مستقل. ما احتمال أن يكون مجموع الوجهين 8؟",
         "En": "Two independent fair six-sided dice are rolled. What is the probability that their sum is 8?"
-      }
+      },
+      "Hints": [
+        {
+          "Ar": "بعد تحديد نردين سداسيين عادلين مستقلين، استخدم الأزواج المرتبة للوجهين.",
+          "En": "Once independent fair six-sided dice are specified, use ordered face pairs."
+        },
+        {
+          "Ar": "عدّ الأزواج التي تحقق المجموع المطلوب واقسم على 36.",
+          "En": "Count the pairs with the requested sum and divide by 36."
+        }
+      ]
     },
     {
       "problemId": 706,
@@ -448,7 +588,17 @@
       "ProposedQuestion": {
         "Ar": "ما احتمال ظهور عدد زوجي على كل من حجرَي نرد عادلين سداسيي الأوجه يُرميان بشكل مستقل؟",
         "En": "What is the probability that both of two independent fair six-sided dice show even numbers?"
-      }
+      },
+      "Hints": [
+        {
+          "Ar": "بعد تحديد استقلال النردين، احسب احتمال الوجه الزوجي لنرد واحد.",
+          "En": "With independence specified, find the probability of an even face on one die."
+        },
+        {
+          "Ar": "اضرب احتمال الزوجية للنرد الأول في احتمالها للنرد الثاني.",
+          "En": "Multiply the even-face probabilities of the two dice."
+        }
+      ]
     },
     {
       "problemId": 707,
@@ -462,7 +612,17 @@
       "ProposedQuestion": {
         "Ar": "إذا رُمِي حجرا نرد عادلان سداسيا الأوجه بشكل مستقل، فما احتمال ظهور العدد 6 على أحدهما على الأقل؟",
         "En": "When two independent fair six-sided dice are rolled, what is the probability of at least one six?"
-      }
+      },
+      "Hints": [
+        {
+          "Ar": "بعد تحديد استقلال النردين، فكّر بالحدث المتمم لظهور ستة مرة على الأقل.",
+          "En": "With independence specified, consider the complement of at least one six."
+        },
+        {
+          "Ar": "احسب احتمال عدم ظهور ستة على كلا النردين، ثم اطرحه من واحد.",
+          "En": "Find the probability of no six on either die, then subtract it from one."
+        }
+      ]
     },
     {
       "problemId": 708,
@@ -476,7 +636,17 @@
       "ProposedQuestion": {
         "Ar": "عند رمي حجرَي نرد عادلين سداسيي الأوجه بشكل مستقل، ما احتمال أن يكون حاصل ضرب العددين زوجياً؟",
         "En": "When two independent fair six-sided dice are rolled, what is the probability that the product of their numbers is even?"
-      }
+      },
+      "Hints": [
+        {
+          "Ar": "بعد تحديد استقلال النردين، حاصل الضرب فردي فقط إذا كان العددان فرديين.",
+          "En": "With independence specified, the product is odd only if both numbers are odd."
+        },
+        {
+          "Ar": "احسب احتمال فردية العددين ثم استخدم احتمال المتممة.",
+          "En": "Find the probability that both are odd, then use the complement."
+        }
+      ]
     },
     {
       "problemId": 1696,
@@ -486,7 +656,17 @@
         "En": "Two side vectors from one vertex of a triangle are (3,0) and (0,4). What is the triangle's area?"
       },
       "taxonomyReviewPending": true,
-      "HoldReason": "Triangle area from perpendicular vectors; vector-geometry application, review secondary skill."
+      "HoldReason": "Triangle area from perpendicular vectors; vector-geometry application, review secondary skill.",
+      "Hints": [
+        {
+          "Ar": "لاحظ أن المتجهين متعامدان ويمكن اتخاذ طوليْهما قاعدة وارتفاعاً.",
+          "En": "Notice the vectors are perpendicular, so their lengths can be base and height."
+        },
+        {
+          "Ar": "اضرب طولي المتجهين واقسم على اثنين لإيجاد المساحة.",
+          "En": "Multiply their lengths and divide by two for the triangle area."
+        }
+      ]
     },
     {
       "problemId": 1698,
@@ -496,7 +676,17 @@
         "En": "A parallelogram has adjacent side vectors (2,1) and (1,3). What is its area?"
       },
       "taxonomyReviewPending": true,
-      "HoldReason": "Parallelogram area via determinant rather than components alone; review primary skill."
+      "HoldReason": "Parallelogram area via determinant rather than components alone; review primary skill.",
+      "Hints": [
+        {
+          "Ar": "ضع متجهي الضلعين كعمودين في مصفوفة من الرتبة الثانية.",
+          "En": "Place the two side vectors as columns of a 2×2 matrix."
+        },
+        {
+          "Ar": "احسب القيمة المطلقة للمحدد للحصول على المساحة.",
+          "En": "Find the absolute determinant to obtain the area."
+        }
+      ]
     },
     {
       "problemId": 649,
@@ -506,7 +696,17 @@
         "En": "What is the determinant of the matrix with columns (1, 2) and (3, 7)?"
       },
       "taxonomyReviewPending": true,
-      "HoldReason": "Determinant computation; proposed determinant skill 61 instead of independence skill 62."
+      "HoldReason": "Determinant computation; proposed determinant skill 61 instead of independence skill 62.",
+      "Hints": [
+        {
+          "Ar": "رتّب مركبات العمودين في مصفوفة 2×2 دون تبديلها.",
+          "En": "Arrange the two columns in a 2×2 matrix without swapping them."
+        },
+        {
+          "Ar": "احسب حاصل ضرب عناصر القطر الرئيسي ناقص حاصل ضرب عناصر القطر الآخر.",
+          "En": "Subtract the other diagonal product from the main diagonal product."
+        }
+      ]
     },
     {
       "problemId": 1579,
@@ -516,7 +716,17 @@
         "En": "For a population with mean 70 and standard deviation 6, find the z-score of 82."
       },
       "taxonomyReviewPending": true,
-      "HoldReason": "Standardization/z-score, not sampling-distribution calculation; review a dedicated skill."
+      "HoldReason": "Standardization/z-score, not sampling-distribution calculation; review a dedicated skill.",
+      "Hints": [
+        {
+          "Ar": "الدرجة المعيارية تقيس بعد القيمة عن المتوسط بوحدات الانحراف المعياري.",
+          "En": "A z-score measures distance from the mean in standard deviations."
+        },
+        {
+          "Ar": "اطرح المتوسط من القيمة واقسم الفرق على الانحراف المعياري.",
+          "En": "Subtract the mean from the value and divide by the standard deviation."
+        }
+      ]
     },
     {
       "problemId": 1580,
@@ -530,7 +740,17 @@
       "ProposedQuestion": {
         "Ar": "إذا كان الانحراف المعياري للمجتمع $\\sigma=15$ وحجم عينة من مشاهدات مستقلة $n=25$، فما الخطأ المعياري لمتوسط العينة؟",
         "En": "If the population standard deviation is $\\sigma=15$ and a sample of independent observations has size $n=25$, what is the standard error of the sample mean?"
-      }
+      },
+      "Hints": [
+        {
+          "Ar": "بعد اعتماد استقلال المشاهدات، استخدم قانون الخطأ المعياري لمتوسط العينة.",
+          "En": "With independent observations specified, use the standard error of the sample mean."
+        },
+        {
+          "Ar": "اقسم الانحراف المعياري للمجتمع على الجذر التربيعي لحجم العينة.",
+          "En": "Divide the population standard deviation by the square root of sample size."
+        }
+      ]
     },
     {
       "problemId": 1581,
@@ -540,7 +760,17 @@
         "En": "18 out of 30 sampled students passed. What is the observed success proportion?"
       },
       "taxonomyReviewPending": true,
-      "HoldReason": "Observed sample proportion, not sampling-distribution calculation; review a dedicated skill."
+      "HoldReason": "Observed sample proportion, not sampling-distribution calculation; review a dedicated skill.",
+      "Hints": [
+        {
+          "Ar": "النسبة المشاهدة هي جزء من العينة، وليست متوسطاً لمجتمع كامل.",
+          "En": "The observed proportion describes a part of the sample, not a population mean."
+        },
+        {
+          "Ar": "اقسم عدد الناجحين على العدد الكلي للعينة.",
+          "En": "Divide successes by total sample size."
+        }
+      ]
     },
     {
       "problemId": 1582,
@@ -554,7 +784,17 @@
       "ProposedQuestion": {
         "Ar": "متوسط عينة عشوائية مستقلة 100، والانحراف المعياري المعلوم للمجتمع 10، وحجم العينة 100. باستخدام التقريب الطبيعي و$z=1.96$، ما فترة الثقة 95% لمتوسط المجتمع؟",
         "En": "The mean of an independent random sample is 100, the known population standard deviation is 10, and the sample size is 100. Using the normal approximation and $z=1.96$, find the 95% confidence interval for the population mean."
-      }
+      },
+      "Hints": [
+        {
+          "Ar": "بعد اعتماد شروط فترة الثقة الطبيعية، احسب الخطأ المعياري σ/√n.",
+          "En": "After the normal-interval conditions are specified, find σ/√n."
+        },
+        {
+          "Ar": "اضربه في القيمة الحرجة واطرح الهامش من متوسط العينة وأضفه إليه.",
+          "En": "Multiply by the critical value, then subtract and add the margin to the sample mean."
+        }
+      ]
     },
     {
       "problemId": 1583,
@@ -568,7 +808,17 @@
       "ProposedQuestion": {
         "Ar": "لعينة من مشاهدات مستقلة مع انحراف معياري معلوم للمجتمع $\\sigma=8$ وحجم عينة $n=64$ وقيمة حرجة $z=1.96$، ما هامش الخطأ لفترة الثقة الطبيعية لمتوسط المجتمع؟",
         "En": "For a sample of independent observations with known population standard deviation $\\sigma=8$, sample size $n=64$, and critical value $z=1.96$, what is the margin of error of the normal confidence interval for the population mean?"
-      }
+      },
+      "Hints": [
+        {
+          "Ar": "بعد تحديد شروط فترة الثقة، احسب الخطأ المعياري للمتوسط.",
+          "En": "Once the interval conditions are specified, compute the mean's standard error."
+        },
+        {
+          "Ar": "هامش الخطأ يساوي القيمة الحرجة مضروبة في σ/√n.",
+          "En": "Margin of error is the critical value times σ/√n."
+        }
+      ]
     },
     {
       "problemId": 1584,
@@ -582,7 +832,17 @@
       "ProposedQuestion": {
         "Ar": "لفترة ثقة طبيعية لمتوسط المجتمع باستخدام عينة من مشاهدات مستقلة، ومع ثبات الانحراف المعياري المعلوم ومستوى الثقة، إذا ضُرب حجم العينة في 4، فبأي عامل يُضرب عرض الفترة؟",
         "En": "For a normal confidence interval for a population mean using independent observations, with known population standard deviation and confidence level fixed, if the sample size is multiplied by 4, what factor multiplies the interval width?"
-      }
+      },
+      "Hints": [
+        {
+          "Ar": "في النموذج المحدد، عرض الفترة يتناسب عكسياً مع الجذر التربيعي لحجم العينة.",
+          "En": "In the specified model, interval width is inversely proportional to the square root of sample size."
+        },
+        {
+          "Ar": "قارن 1/√(4n) مع 1/√n عند ثبات بقية المعاملات.",
+          "En": "Compare 1/√(4n) with 1/√n while keeping the other factors fixed."
+        }
+      ]
     },
     {
       "problemId": 1633,
@@ -592,7 +852,17 @@
         "En": "Use elimination to solve $2x+y=7$ and $x-y=2$. What is $x$?"
       },
       "taxonomyReviewPending": true,
-      "HoldReason": "Exact elimination is a linear-systems prerequisite rather than a numerical approximation; retain as prerequisite or secondary placement."
+      "HoldReason": "Exact elimination is a linear-systems prerequisite rather than a numerical approximation; retain as prerequisite or secondary placement.",
+      "Hints": [
+        {
+          "Ar": "لاحظ أن معاملي y في المعادلتين متعاكسان.",
+          "En": "Notice the two y coefficients are opposites."
+        },
+        {
+          "Ar": "اجمع المعادلتين لإلغاء y ثم حل المعادلة الناتجة في x.",
+          "En": "Add the equations to eliminate y, then solve for x."
+        }
+      ]
     },
     {
       "problemId": 1703,
@@ -602,7 +872,17 @@
         "En": "If f(x,y)=x²+2y², what is the gradient vector ∇f at (1,-1)?"
       },
       "taxonomyReviewPending": true,
-      "HoldReason": "Gradient computation without finding an extremum; optimization prerequisite, possible calculus secondary placement."
+      "HoldReason": "Gradient computation without finding an extremum; optimization prerequisite, possible calculus secondary placement.",
+      "Hints": [
+        {
+          "Ar": "التدرج متجه المشتقات الجزئية الأولى.",
+          "En": "The gradient is the vector of first partial derivatives."
+        },
+        {
+          "Ar": "اشتق بالنسبة إلى x ثم y، وعوّض إحداثيي النقطة في كل مركبة.",
+          "En": "Differentiate in x and y, then evaluate both components at the point."
+        }
+      ]
     }
   ]
 }

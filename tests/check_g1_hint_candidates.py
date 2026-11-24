@@ -114,6 +114,10 @@ assert len(source)==773
 for r in held:
     s=source[r["problemId"]]
     assert r["taxonomyReviewPending"] is True and r["HoldReason"].strip()
+    assert len(r["Hints"])==2
+    for lang in ("Ar","En"):
+        values=[h[lang].strip() for h in r["Hints"]]
+        assert all(0<len(v)<=1000 for v in values) and values[0]!=values[1]
     assert r["primarySkillKey"]==s["StableKey"]
     assert r["question"]=={"Ar":s["ExpectedQuestionAr"],"En":s["ExpectedQuestionEn"]}
-print("PASS: complete 773-item coverage inventory: 732 eligible hint pairs, 2 in-file taxonomy holds, 39 separately held; no publication")
+print("PASS: complete 773-item coverage inventory: 732 eligible hint pairs, 2 in-file taxonomy holds, 39 separately held with hints; no publication")
