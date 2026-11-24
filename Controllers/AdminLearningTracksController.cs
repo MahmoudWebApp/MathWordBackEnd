@@ -146,6 +146,7 @@ public sealed class AdminLearningTracksController(AppDbContext db,LearningTrackS
         // This package defines one provisional baseline placement per question.
         if(proposalIds.Distinct().Count()!=proposalIds.Length)return BadRequest(new{Message="InvalidMapping"});
         if(input.Confirm&&(input.Revisions is null||input.Revisions.Length!=proposal.Tracks.Length||
+            input.Revisions.Any(x=>x is null||x.Id<=0||x.Revision<0)||
             input.Revisions.Select(x=>x.Id).Distinct().Count()!=input.Revisions.Length))return BadRequest(new{Message="TrackBatchRevisionRequired"});
         // Keep the existing publication rule and all learner history untouched.
         // Lock track rows in stable order; use one serializable transaction so a
