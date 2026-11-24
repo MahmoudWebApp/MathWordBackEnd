@@ -17,7 +17,9 @@ fifth=json.loads((root/"content/editorial/g1-structured-amendments-wave05-202611
 manifest["Items"]+=fifth["Items"]
 sixth=json.loads((root/"content/editorial/g1-structured-amendments-wave06-20261124.json").read_text(encoding="utf-8"))
 manifest["Items"]+=sixth["Items"]
-assert len(manifest["Items"])==len({r["ProblemId"] for r in manifest["Items"]})==221
+seventh=json.loads((root/"content/editorial/g1-structured-amendments-wave07-20261124.json").read_text(encoding="utf-8"))
+manifest["Items"]+=seventh["Items"]
+assert len(manifest["Items"])==len({r["ProblemId"] for r in manifest["Items"]})==261
 for row in manifest["Items"]:
     content=copy.deepcopy(row["Content"])
     content["TrackIds"]=[101];content["SecondarySkillIds"]=[999];content["DifficultyLevel"]=3
@@ -49,4 +51,4 @@ for row in manifest["Items"]:
         try: module.prepare(manifest,bad)
         except ValueError: pass
         else: raise AssertionError("Unsafe amendment accepted")
-print("PASS: 221 draft payloads preserve classification and immutable sources; reject stale/edited drafts")
+print("PASS: 261 draft payloads preserve classification and immutable sources; reject stale/edited drafts")
