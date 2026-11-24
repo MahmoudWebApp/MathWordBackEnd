@@ -19,6 +19,8 @@ namespace MathWorldAPI.Models
         // Increment atomically when credentials or privileges are revoked.
         [JsonIgnore]
         public int TokenVersion { get; set; }
+        [JsonIgnore] public int StaffPermissions { get; set; }
+        [JsonIgnore] public bool StaffSetupPending { get; set; }
 
         [JsonIgnore]
         public List<UserProgress> UserProgresses { get; set; } = new();

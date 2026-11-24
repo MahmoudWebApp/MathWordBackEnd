@@ -54,14 +54,14 @@ public sealed class PasswordRecoveryService(AppDbContext db, IConfiguration conf
             !string.Equals(address.Address, email.Trim(), StringComparison.OrdinalIgnoreCase)) return;
         var normalized = address.Address.ToLowerInvariant();
         var candidates = await db.Users.AsNoTracking().Where(x => x.Email.ToLower() == normalized).Take(2).ToListAsync(ct);
-        if (candidates.Count != 1 || !Eligible(candidates[0])) return;
+        if (candidates.Count != 1 || !Eligible(candidates[0]) || candidates[0].StaffSetupPending) return;
         var id = candidates[0].Id;
         await using var tx = await db.Database.BeginTransactionAsync(ct);
         // Lock the account before reading issuance state; change/reset uses
         // the same row lock. Never issue two concurrent links for one account.
         await db.Users.Where(x => x.Id == id).ExecuteUpdateAsync(s => s.SetProperty(x => x.TokenVersion, x => x.TokenVersion), ct);
         var user = await db.Users.AsNoTracking().SingleOrDefaultAsync(x => x.Id == id, ct);
-        if (user is null || !Eligible(user) || !string.Equals(user.Email, normalized, StringComparison.OrdinalIgnoreCase) ||
+        if (user is null || !Eligible(user) || user.StaffSetupPending || !string.Equals(user.Email, normalized, StringComparison.OrdinalIgnoreCase) ||
             await db.SocialLogins.AnyAsync(x => x.UserId == id, ct)) return;
         var now = DateTime.UtcNow;
         if (await db.PasswordResetGrants.AnyAsync(x => x.UserId == id && x.CreatedAtUtc > now.AddMinutes(-2), ct)) return;
@@ -99,13 +99,17 @@ public sealed class PasswordRecoveryService(AppDbContext db, IConfiguration conf
         if (grant is null || grant.TokenVersion == int.MaxValue) return false;
         var user = await db.Users.AsNoTracking().SingleOrDefaultAsync(x => x.Id == grant.UserId, ct);
         if (user is null || !Eligible(user) || user.Role != grant.Role || user.Email != grant.Email ||
-            user.TokenVersion != grant.TokenVersion || await db.SocialLogins.AnyAsync(x => x.UserId == user.Id, ct)) return false;
+            user.TokenVersion != grant.TokenVersion || user.StaffSetupPending != grant.IsInvitation ||
+            (grant.IsInvitation && user.Role != AccountRolePolicy.Supervisor) ||
+            await db.SocialLogins.AnyAsync(x => x.UserId == user.Id, ct)) return false;
         var newHash = BCrypt.Net.BCrypt.HashPassword(password, 12);
         await using var tx = await db.Database.BeginTransactionAsync(ct);
         var updated = await db.Users.Where(x => x.Id == grant.UserId && x.IsActive &&
                 x.Role == grant.Role && x.Email == grant.Email && x.TokenVersion == grant.TokenVersion &&
+                x.StaffSetupPending == grant.IsInvitation &&
                 !db.SocialLogins.Any(link => link.UserId == x.Id))
             .ExecuteUpdateAsync(s => s.SetProperty(x => x.PasswordHash, newHash)
+                .SetProperty(x => x.StaffSetupPending, false)
                 .SetProperty(x => x.TokenVersion, x => x.TokenVersion + 1), ct);
         if (updated != 1) return false;
         now = DateTime.UtcNow;
@@ -116,7 +120,7 @@ public sealed class PasswordRecoveryService(AppDbContext db, IConfiguration conf
         await db.PasswordResetGrants.Where(x => x.UserId == user.Id && x.ConsumedAtUtc == null)
             .ExecuteUpdateAsync(s => s.SetProperty(x => x.ConsumedAtUtc, now), ct);
         db.PlatformActivityEvents.Add(new PlatformActivityEvent { ActorUserId = user.Id, ActorRole = user.Role,
-            Action = "PasswordReset", Resource = "Authentication", CreatedAtUtc = now, Origin = "api" });
+            Action = grant.IsInvitation ? "SupervisorInvitationAccepted" : "PasswordReset", Resource = "Authentication", CreatedAtUtc = now, Origin = "api" });
         db.UserNotifications.Add(new UserNotification { UserId = user.Id, Type = "security",
             TitleAr = "استعادة كلمة المرور", TitleEn = "Password reset",
             BodyAr = "تم تعيين كلمة مرور جديدة. إذا لم تكن أنت، تواصل مع الدعم.",

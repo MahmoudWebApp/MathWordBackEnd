@@ -221,7 +221,7 @@ builder.Services
                     .GetRequiredService<AppDbContext>();
                 var active = await database.Users.AsNoTracking().AnyAsync(
                     user => user.Id == userId && user.IsActive &&
-                        user.Role == role && user.TokenVersion == tokenVersion,
+                        user.Role == role && user.TokenVersion == tokenVersion && !user.StaffSetupPending,
                     context.HttpContext.RequestAborted);
                 if (!active)
                     context.Fail("AccountInactiveOrSessionRevoked");
@@ -672,6 +672,11 @@ app.UseStaticFiles();
 app.UseMiddleware<LanguageMiddleware>();
 
 app.UseAuthentication();
+
+// Supervisors are denied by default, including legacy generic [Authorize]
+// endpoints. New staff endpoints must explicitly opt in, then check permission
+// and ownership themselves. Existing Admin/Student contracts stay unchanged.
+app.UseMiddleware<SupervisorBoundaryMiddleware>();
 
 // Rate limiting runs after authentication so it can use the user ID.
 app.UseRateLimiter();

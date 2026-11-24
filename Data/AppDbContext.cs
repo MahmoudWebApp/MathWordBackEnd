@@ -108,6 +108,9 @@ namespace MathWorldAPI.Data
             ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<AppUser>().Property(x => x.StaffPermissions).HasDefaultValue(0);
+            modelBuilder.Entity<AppUser>().Property(x => x.StaffSetupPending).HasDefaultValue(false);
+            modelBuilder.Entity<PasswordResetGrant>().Property(x => x.IsInvitation).HasDefaultValue(false);
 
             modelBuilder.Entity<PasswordResetGrant>(e =>
             {

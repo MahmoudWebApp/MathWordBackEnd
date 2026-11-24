@@ -240,6 +240,7 @@ namespace MathWorldAPI.Controllers
         /// <summary>
         /// Gets the current authenticated user profile.
         /// </summary>
+        [MathWorldAPI.Services.SupervisorEndpoint]
         [HttpGet("profile")]
         [ProducesResponseType(
             typeof(ApiResponse<UserProfileDto>),

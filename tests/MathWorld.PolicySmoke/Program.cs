@@ -20,7 +20,7 @@ static void Assert(bool condition, string message)
 Assert(AccountRolePolicy.IsSupportedSessionRole("Admin") &&
        AccountRolePolicy.IsSupportedSessionRole("Student"),
     "Existing Admin and Student sessions must remain supported.");
-foreach (var unsupportedRole in new string?[] { null, "", "admin", "SuperAdmin", "Supervisor", "Owner", " Admin" })
+foreach (var unsupportedRole in new string?[] { null, "", "admin", "SuperAdmin", "Owner", " Admin" })
     Assert(!AccountRolePolicy.IsSupportedSessionRole(unsupportedRole),
         "Unmigrated or malformed roles must fail closed.");
 Assert(AccountRolePolicy.NormalizeExistingRegistrationRole("Admin") == "Admin" &&
@@ -29,7 +29,12 @@ Assert(AccountRolePolicy.NormalizeExistingRegistrationRole("Admin") == "Admin" &
 foreach (var requestedRole in new[] { "Student", "Supervisor", "SuperAdmin", "Owner", "" })
     Assert(AccountRolePolicy.NormalizeExistingRegistrationRole(requestedRole) == "Student",
         "New or unknown roles must not elevate existing registration.");
-Console.WriteLine("PASS: legacy account role compatibility and fail-closed unmigrated roles.");
+Assert(AccountRolePolicy.IsSupportedSessionRole("Supervisor"), "Managed supervisor role recognized.");
+Assert(AccountRolePolicy.ValidStaffPermissions(0) && AccountRolePolicy.ValidStaffPermissions(1) &&
+       AccountRolePolicy.ValidStaffPermissions(3) && !AccountRolePolicy.ValidStaffPermissions(2) &&
+       !AccountRolePolicy.ValidStaffPermissions(4) && !AccountRolePolicy.ValidStaffPermissions(-1),
+       "Only edit and submit permissions are allowed; submit requires edit.");
+Console.WriteLine("PASS: existing roles and bounded staff permissions.");
 
 // Missing legacy claims map to version zero only. The database comparison
 // then rejects old tokens as soon as the stored account version increases.

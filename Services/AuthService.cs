@@ -225,7 +225,7 @@ namespace MathWorldAPI.Services
                     "InvalidCredentials");
             }
 
-            if (!user.IsActive)
+            if (!user.IsActive || user.StaffSetupPending)
             {
                 _logger.LogWarning(
                     "Login rejected because user {UserId} is deactivated.",

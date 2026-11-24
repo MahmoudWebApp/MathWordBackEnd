@@ -101,8 +101,8 @@ public sealed class RecoveryEmailQueue(AppDbContext db, IConfiguration config, B
         if (used >= cap) { await tx.CommitAsync(ct); return null; }
         var item = await db.EmailOutbox.AsNoTracking()
             .Where(x => x.State == "Pending" && x.NextRetryAtUtc <= now && x.ExpiresAtUtc > now &&
-                x.Attempts < 3 && (used < cap * 3 / 4 || x.TemplateKey == "password-reset"))
-            .OrderByDescending(x => x.TemplateKey == "password-reset")
+                x.Attempts < 3 && (used < cap * 3 / 4 || (x.TemplateKey == "password-reset" || x.TemplateKey == "supervisor-invite")))
+            .OrderByDescending(x => (x.TemplateKey == "password-reset" || x.TemplateKey == "supervisor-invite"))
             .ThenBy(x => x.CreatedAtUtc).FirstOrDefaultAsync(ct);
         if (item is null) { await tx.CommitAsync(ct); return null; }
         var lease = Guid.NewGuid();
@@ -178,12 +178,14 @@ public sealed class RecoveryEmailWorker(IServiceScopeFactory scopes, IConfigurat
         var brand = await sp.GetRequiredService<PlatformBrandService>().ReadAsync(false, ct);
         var ar = item.Locale == "ar";
         TransactionalEmail email;
-        if (item.TemplateKey == "password-reset")
+        if (item.TemplateKey is "password-reset" or "supervisor-invite")
         {
             var grant = await db.PasswordResetGrants.AsNoTracking().SingleOrDefaultAsync(x => x.Id == item.ResetGrantId &&
                 x.UserId == user.Id && x.Email == user.Email && x.Role == user.Role &&
                 x.TokenVersion == user.TokenVersion && x.ConsumedAtUtc == null && x.ExpiresAtUtc > DateTime.UtcNow, ct);
-            if (grant is null || await db.SocialLogins.AnyAsync(x => x.UserId == user.Id, ct))
+            if (grant is null || grant.IsInvitation != (item.TemplateKey == "supervisor-invite") ||
+                user.StaffSetupPending != grant.IsInvitation ||
+                await db.SocialLogins.AnyAsync(x => x.UserId == user.Id, ct))
                 return new("Cancelled", ErrorCode: "RecoveryGrantInvalid");
             var codec = new RecoveryTokenCodec(config);
             if (!codec.IsConfigured) return new("Cancelled", ErrorCode: "RecoveryKeyUnavailable");
@@ -193,9 +195,13 @@ public sealed class RecoveryEmailWorker(IServiceScopeFactory scopes, IConfigurat
             // or Referer. The reset page removes it from browser history.
             var url = brand.WebsiteUrl + "/" + item.Locale + "/reset-password#token=" + secret;
             email = MathWorldEmailLayout.Render(brand, item.Locale,
-                ar ? "استعادة كلمة المرور" : "Reset your password",
-                ar ? "استخدم الرابط قبل انتهاء صلاحيته خلال 20 دقيقة. إذا لم تطلب الاستعادة فتجاهل الرسالة." :
-                    "Use this link before it expires within 20 minutes. Ignore this email if you did not request it.",
+                grant.IsInvitation ? (ar ? "دعوة للانضمام كمشرف" : "Supervisor invitation") :
+                    (ar ? "استعادة كلمة المرور" : "Reset your password"),
+                grant.IsInvitation ?
+                    (ar ? "دعاك مسؤول المنصة لتعيين كلمة مرور حساب المشرف. استخدم الرابط خلال 20 دقيقة." :
+                        "The platform administrator invited you to set your supervisor password. Use the link within 20 minutes.") :
+                    (ar ? "استخدم الرابط قبل انتهاء صلاحيته خلال 20 دقيقة. إذا لم تطلب الاستعادة فتجاهل الرسالة." :
+                        "Use this link before it expires within 20 minutes. Ignore this email if you did not request it."),
                 ar ? "تعيين كلمة المرور" : "Reset password", url);
         }
         else if (item.TemplateKey == "password-changed")

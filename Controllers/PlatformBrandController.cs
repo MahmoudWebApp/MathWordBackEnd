@@ -9,6 +9,7 @@ namespace MathWorldAPI.Controllers;
 public sealed class PlatformBrandController(PlatformBrandService brand) : ControllerBase
 {
     [AllowAnonymous]
+    [SupervisorEndpoint]
     [HttpGet("api/platform/brand")]
     [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
     public Task<PlatformBrandView> Public(CancellationToken ct) => brand.ReadAsync(false, ct);

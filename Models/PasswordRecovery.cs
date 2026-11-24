@@ -3,6 +3,7 @@ namespace MathWorldAPI.Models;
 // No plaintext reset secret or rendered email body is persisted.
 public sealed class PasswordResetGrant
 {
+    public bool IsInvitation { get; set; }
     public Guid Id { get; set; }
     public int UserId { get; set; }
     public string TokenHash { get; set; } = "";

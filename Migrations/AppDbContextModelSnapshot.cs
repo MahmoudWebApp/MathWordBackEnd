@@ -29,6 +29,7 @@ namespace MathWorldAPI.Migrations
                     b.Property<string>("TokenHash").IsRequired().HasColumnType("text");
                     b.Property<string>("Email").IsRequired().HasColumnType("text");
                     b.Property<string>("Role").IsRequired().HasColumnType("text");
+                    b.Property<bool>("IsInvitation").ValueGeneratedOnAdd().HasColumnType("boolean").HasDefaultValue(false);
                     b.Property<int>("TokenVersion").HasColumnType("integer");
                     b.Property<DateTime>("CreatedAtUtc").HasColumnType("timestamp with time zone");
                     b.Property<DateTime>("ExpiresAtUtc").HasColumnType("timestamp with time zone");
@@ -450,6 +451,9 @@ namespace MathWorldAPI.Migrations
                         .IsRequired()
                         .HasMaxLength(32)
                         .HasColumnType("character varying(32)");
+
+                    b.Property<int>("StaffPermissions").ValueGeneratedOnAdd().HasColumnType("integer").HasDefaultValue(0);
+                    b.Property<bool>("StaffSetupPending").ValueGeneratedOnAdd().HasColumnType("boolean").HasDefaultValue(false);
 
                     b.Property<int>("TokenVersion")
                         .IsConcurrencyToken()

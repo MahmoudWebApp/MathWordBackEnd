@@ -21,6 +21,7 @@ public sealed class AccountPasswordController(AccountPasswordService passwords) 
         [Required, StringLength(128)] public string ConfirmPassword { get; set; } = "";
     }
 
+    [SupervisorEndpoint]
     [HttpPost("change-password")]
     [EnableRateLimiting("account-password")]
     public async Task<IActionResult> Change([FromBody] ChangePasswordRequest request, CancellationToken ct)
