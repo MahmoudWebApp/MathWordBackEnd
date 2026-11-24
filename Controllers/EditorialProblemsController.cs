@@ -70,7 +70,7 @@ public sealed class EditorialProblemsController(AppDbContext db,IConfiguration c
         var q=Own().AsNoTracking();
         var items=await q.OrderByDescending(x=>x.Id).Skip((page-1)*30).Take(30)
             .Select(x=>new{x.Id,x.OwnerUserId,x.Revision,Status=x.EditorialStatus,x.QuestionTextAr,x.QuestionTextEn,x.ReviewNote,x.PublishedProblemId,x.SourceProblemId}).ToListAsync(ct);
-        return Ok(new{Total=await q.CountAsync(ct),Items=items.Select(p=>new{p.Id,p.StageId,p.CategoryId,p.TitleAr,p.TitleEn,HasStructuredSolution=WizardProblemContract.HasStructuredSolution(p.EditorialDetailsJson),p.HasOpenReview})});
+        return Ok(new{Total=await q.CountAsync(ct),Items=items});
     }
     [HttpGet("{id:long}")]
     public async Task<IActionResult> Detail(long id,CancellationToken ct)
@@ -102,7 +102,7 @@ public sealed class EditorialProblemsController(AppDbContext db,IConfiguration c
         var items=await q.OrderBy(p=>p.StageId).ThenBy(p=>p.CategoryId).ThenBy(p=>p.Id).Skip((page-1)*30).Take(30)
             .Select(p=>new{p.Id,p.StageId,p.CategoryId,p.TitleAr,p.TitleEn,p.EditorialDetailsJson,
                 HasOpenReview=db.CurriculumDraftItems.Any(d=>d.SourceProblemId==p.Id&&d.EditorialStatus!="Published"&&d.EditorialStatus!="Withdrawn")}).ToListAsync(ct);
-        return Ok(new{Total=await q.CountAsync(ct),Items=items});
+        return Ok(new{Total=await q.CountAsync(ct),Items=items.Select(p=>new{p.Id,p.StageId,p.CategoryId,p.TitleAr,p.TitleEn,HasStructuredSolution=WizardProblemContract.HasStructuredSolution(p.EditorialDetailsJson),p.HasOpenReview})});
     }
     [HttpPost("amend/{problemId:int}")]
     public async Task<IActionResult> Amend(int problemId,CancellationToken ct)
