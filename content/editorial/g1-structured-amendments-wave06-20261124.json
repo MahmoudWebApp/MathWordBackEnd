@@ -82,7 +82,7 @@
             "Ar": "تبسيط الكسر بقسمة البسط والمقام على قاسم مشترك غير صفري.",
             "En": "Reduce a fraction by dividing numerator and denominator by the same nonzero common factor."
           },
-          "FormulaLatex": "\\frac{a}{b}=\\frac{a/d}{b/d}",
+          "FormulaLatex": "\\frac ab=\\frac{a/d}{b/d}\\quad(b,d\\ne0)",
           "Steps": [
             {
               "Ar": "أوجد القاسم المشترك الأكبر للعددين 14 و21 ثم اقسمهما عليه.",
@@ -2998,7 +2998,7 @@
             "Ar": "عدد الأكياس الكاملة يساوي الجزء الصحيح من الكمية الكلية على سعة الكيس.",
             "En": "The full bag count is the integer part of total mass divided by bag capacity."
           },
-          "FormulaLatex": "n=\\frac{1000m_{kg}}{s_g}",
+          "FormulaLatex": "n=\\left\\lfloor\\frac{1000m_{\\mathrm{kg}}}{s_{\\mathrm g}}\\right\\rfloor",
           "Steps": [
             {
               "Ar": "حوّل 1.5 كغ إلى 1500 غرام ثم اقسم على 250؛ القسمة تامة.",
@@ -3106,7 +3106,7 @@
             "Ar": "اللتر يساوي 1000 مل، وعدد الأكواب يساوي الحجم الكلي على سعة الكوب.",
             "En": "One liter equals 1000 mL; cup count is total volume divided by cup capacity."
           },
-          "FormulaLatex": "n=\\frac{1000V_L}{c_{mL}}",
+          "FormulaLatex": "n=\\left\\lfloor\\frac{1000V_{\\mathrm L}}{c_{\\mathrm{mL}}}\\right\\rfloor",
           "Steps": [
             {
               "Ar": "حوّل 2 لتر إلى 2000 مل ثم اقسم على 250.",
@@ -3450,8 +3450,8 @@
             "En": "arrival time"
           },
           "Verification": {
-            "Ar": "$11{:}20-09{:}45=1{:}35$",
-            "En": "$11{:}20-09{:}45=1{:}35$"
+            "Ar": "من 09:45 إلى 10:45 ساعة، ومن 10:45 إلى 11:20 خمس وثلاثون دقيقة.",
+            "En": "09:45 to 10:45 is one hour, and 10:45 to 11:20 is 35 minutes."
           },
           "CommonError": {
             "Ar": "لا تتعامل مع الدقائق كأن الساعة 100 دقيقة.",
@@ -3862,7 +3862,7 @@
             "Ar": "نجمع الكسور بعد توحيد المقامات.",
             "En": "Add fractions after finding a common denominator."
           },
-          "FormulaLatex": "\\frac ab+\\frac cd=\\frac{ad+bc}{bd}",
+          "FormulaLatex": "\\frac ab+\\frac cd=\\frac{ad+bc}{bd}\\quad(bd\\ne0)",
           "Steps": [
             {
               "Ar": "حوّل 3/4 إلى 6/8 ثم أضف 1/8.",
@@ -3970,7 +3970,7 @@
             "Ar": "نطرح الكسور بعد توحيد المقامات ثم نبسّط.",
             "En": "Subtract fractions using a common denominator, then simplify."
           },
-          "FormulaLatex": "\\frac ab-\\frac cd=\\frac{ad-bc}{bd}",
+          "FormulaLatex": "\\frac ab-\\frac cd=\\frac{ad-bc}{bd}\\quad(bd\\ne0)",
           "Steps": [
             {
               "Ar": "حوّل الثلث إلى سدسين، ثم اطرح من خمسة أسداس واختصر.",
@@ -5689,8 +5689,8 @@
             "En": "Fix hundreds and tens first."
           },
           {
-            "Ar": "عد كل قيم الآحاد الممكنة بما فيها الصفر.",
-            "En": "Count every possible ones digit including zero."
+            "Ar": "ابدأ بأول عدد يحقق الشرط، وعد الأعداد المتتالية حتى تتغير منزلة العشرات.",
+            "En": "Start at the first matching number and count consecutive values until the tens digit changes."
           }
         ],
         "Solution": {
