@@ -88,6 +88,12 @@ def verify_sessions(admin, learner, other, stage):
     assert after["TotalPoints"]==baseline["TotalPoints"] and after["SolvedProblems"]==baseline["SolvedProblems"]
     assert after["PermanentSolvedProblems"]>=5 and after["PermanentPoints"]>=baseline["PermanentPoints"]
     assert after["PermanentSolvedProblems"]==sum(c["PermanentSolvedProblems"] for c in after["Categories"])
+    leaderboard=expect("GET","/api/users/leaderboard?period=all",200,token=other)
+    assert leaderboard["ScoreBasis"]=="PermanentAchievements"
+    mine=next(e for e in leaderboard["Entries"] if e["IsCurrentUser"])
+    assert mine["SolvedProblems"]==after["PermanentSolvedProblems"]
+    assert mine["Points"]==after["PermanentPoints"]
+    assert after["LearningSessionsEnabled"] is True
     # Switch stage: today's daily session is not replaced. Restore on return.
     expect("PUT","/api/users/learning-stage",200,{"StageId":1},other)
     expect("POST",ROOT+"/start",409,dict(start,RequestId=str(uuid4())),other)

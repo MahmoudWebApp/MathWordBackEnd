@@ -193,6 +193,7 @@ namespace MathWorldAPI.Controllers
             {
                 StageId = stage.Id,
                 TrackId = track?.Id,
+                LearningSessionsEnabled = HttpContext.RequestServices.GetRequiredService<IConfiguration>().GetValue<bool>("LearningSessions:Enabled"),
                 NameAr = track?.NameAr ?? stage.NameAr,
                 NameEn = track?.NameEn ?? stage.NameEn,
                 TotalProblems = total,

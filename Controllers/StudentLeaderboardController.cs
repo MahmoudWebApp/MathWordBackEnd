@@ -69,13 +69,31 @@ public sealed class StudentLeaderboardController : ControllerBase
         // disappear entirely from the leaderboard.
         // A progress row represents one user/problem (no repeat inflation).
         // Scope by the problem's stage, not the student's current selection.
-        var query = _db.UserProgresses.AsNoTracking()
+        var legacy = _db.UserProgresses.AsNoTracking()
             .Where(p => p.Problem.StageId == stage.Id &&
                 p.Problem.Category.StageId == stage.Id &&
                 p.User.Role == "Student" && p.User.IsActive &&
-                p.IsSolved);
+                p.IsSolved)
+            .Select(p=>new{p.UserId,Points=(long)p.Problem.Points,EarnedAt=p.SolvedAt,
+                FirstTry=p.FirstAttemptCorrect==true});
+        var permanent = from a in _db.PermanentProblemAchievements.AsNoTracking()
+                        join u in _db.Users.AsNoTracking() on a.UserId equals u.Id
+                        where a.StageId==stage.Id && u.IsActive && u.Role=="Student"
+                        select new {a.UserId,Points=(long)a.Points,EarnedAt=(DateTime?)a.EarnedAtUtc,
+                            FirstTry=_db.ProblemAttempts.Any(p=>p.UserId==a.UserId&&p.ProblemId==a.ProblemId&&
+                                p.IsCorrect&&p.IsOfficial&&p.AttemptNumber==1&&!p.UsedHint&&p.SubmittedAt==a.EarnedAtUtc) ||
+                                (from answer in _db.LearningSessionAttempts
+                                 join session in _db.LearningSessions on answer.SessionId equals session.Id
+                                 where session.UserId==a.UserId&&answer.ProblemId==a.ProblemId&&answer.IsCorrect&&
+                                     answer.AttemptNumber==1&&!answer.UsedHint&&answer.SubmittedAtUtc==a.EarnedAtUtc
+                                 select answer).Any()};
+        // The legacy dashboard is retained until both new clients are ready.
+        // Once enabled, historical first-earn credits remain after any reset.
+        var usePermanent=HttpContext.RequestServices.GetRequiredService<IConfiguration>()
+            .GetValue<bool>("LearningSessions:Enabled");
+        var query=usePermanent?permanent:legacy;
         if (cutoff is not null)
-            query = query.Where(p => p.SolvedAt >= cutoff.Value);
+            query = query.Where(p => p.EarnedAt >= cutoff.Value);
 
         // Keep ranking and pagination in PostgreSQL. Loading every learner into
         // memory made even a 20-row page increasingly slow as the platform grew.
@@ -84,8 +102,8 @@ public sealed class StudentLeaderboardController : ControllerBase
             {
                 UserId = g.Key,
                 SolvedProblems = g.Count(),
-                Points = g.Sum(p => p.Problem.Points),
-                FirstTryCorrect = g.Count(p => p.FirstAttemptCorrect == true)
+                Points = g.Sum(p => p.Points),
+                FirstTryCorrect = g.Count(p => p.FirstTry)
             })
             .Where(x => x.SolvedProblems > 0);
 
@@ -148,6 +166,7 @@ public sealed class StudentLeaderboardController : ControllerBase
             PageSize = pageSize,
             TotalLearners = totalLearners,
             StageParticipants = stageParticipants,
+            ScoreBasis = usePermanent ? "PermanentAchievements" : "ActiveProgress",
             MyRank = myRank,
             Entries = entries
         });
