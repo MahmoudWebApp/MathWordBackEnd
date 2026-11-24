@@ -419,3 +419,108 @@ for row in eighth["Items"]:
     assert all(parse(sol["Result"][lang])==expected for lang in ("Ar","En")),i
     assert 1<=len(sol["Steps"])<=20 and all(pair(s) for s in sol["Steps"])
 print("PASS: 50 wave-08 questions, independent exact answers and complete bilingual structured content")
+
+
+# Wave 09: individually evaluated middle-school geometry, statistics,
+# rational arithmetic, inequalities, counting and probability.
+ninth=load("g1-structured-amendments-wave09-20261124.json")
+ninth_ids={r["ProblemId"] for r in ninth["Items"]}
+assert ninth["Status"]==wave["Status"]
+assert len(ninth_ids)==len(ninth["Items"])==75
+assert not ninth_ids.intersection(wave_ids|fourth_ids|fifth_ids|sixth_ids|seventh_ids|eighth_ids|{r["ProblemId"] for r in d["Items"]})
+assert not ninth_ids.intersection({1658,1684})
+from statistics import mean, median, multimode
+from math import ceil, floor
+def independent_ninth(i):
+    numeric={
+        267:isqrt(41**2-9**2),268:7*6,429:sum([8,12,10]),
+        430:median([10,12,14])-median([2,4,6]),431:mean([4+3,8+3])-mean([4,8]),
+        432:median([1,4,7,9,12]),433:max([3,4,6,9,20])-min([3,4,6,9,20]),
+        434:100*Fraction(5,20),435:mean([2,2,2,7,7]),481:multimode([1,1,2,3,3,3,9])[0],
+        621:28//4+3,622:(5+8)//(3-2),623:9*3-6,624:(41-5)//3,
+        625:5**2,626:(18//2)**2,627:Fraction(6**2,2),628:isqrt(64),
+        629:Fraction(45*2,9),630:Fraction(35*3,5),631:Fraction(36*4,9),632:Fraction(12*5,3),
+        697:Fraction(180-40,2),698:125-45,699:90-35,700:180*Fraction(3,6),
+        701:Fraction(20+40,3-1),702:2*(35-5)+5,703:Fraction(146,2),
+        704:[65,180-65,65,180-65].count(65),
+        765:(-4)**3,766:17**0,767:Fraction(1,2**3),
+        823:4*(6-3),824:max(b-a for a,b in zip([14,23,19],[23,19,31])),
+        825:Fraction(sum(abs(x-4) for x in [2,4,6]),3),826:(18-6)-(15-9),
+        857:isqrt((7-1)**2+(10-2)**2),1563:-7+12,1564:-4-(-9),
+        1565:(-3)*(-8),1567:abs(-13)-abs(5),1568:Fraction(-3,4)+Fraction(1,2),
+        1569:Fraction(-5,6)-Fraction(1,3),1570:Fraction("-2.5")+Fraction("1.75"),
+        1605:sum(-2<x<=2 for x in range(-3,4)),1606:sum(x for x in range(-3,4) if -2<=x<3),
+        1607:floor(Fraction(18-4,2)),1608:ceil(Fraction(75-56,5)),1609:floor(Fraction(20-3,2)),
+        1639:mean([4,7,7,10]),1640:median([2,5,8,12,20]),1641:multimode([3,5,5,5,8,8])[0],
+        1642:mean([4,5,6,7,28]),1657:1-Fraction(2,6),1660:Fraction(18,60),1661:100*Fraction(24,80),
+        1662:3*2,1683:len([(a,b) for a in "HT" for b in "HT"]),
+        1685:Fraction(4,5)**3,1686:100*abs(Fraction(15,50)-Fraction(18,60)),
+        1689:3*2*2,1690:Fraction(sum(x%2==0 or x%5==0 for x in range(1,11)),10),
+        1709:Fraction(sum(x>3 for x in [2,4,6]),3),
+        1710:sum((a==6)!=(b==6) for a in range(1,7) for b in range(1,7))
+    }
+    if i in numeric:
+        expected=numeric[i]
+        def parse(s):
+            s=s.strip("$").replace("−","-")
+            if i in (625,626,627):
+                assert s.endswith(r"\pi")
+                s=s[:-3]
+            return rational(s)
+        return expected,parse
+    if i==479:
+        assert median([4,5,6,7,50])==median([4,5,6,7,500])
+        return r"\text{الوسيط (Median)}",str
+    if i==480:
+        assert Fraction(15,27)>Fraction(10,28)
+        return r"\text{الصف أ (Class A)}",str
+    if i==482:
+        assert (31+5)-(7+5)==31-7
+        return r"\text{لا يتغير (Unchanged)}",str
+    # Compare solution sets on integer and half-integer samples, including
+    # the boundary, to distinguish strict and non-strict inequalities.
+    tests={
+        1599:lambda x:x+5<12,
+        1600:lambda x:3*x-4>=11,
+        1601:lambda x:-2*x+6<10,
+        1602:lambda x:5-x<=2,
+        1603:lambda x:x>-3,
+        1604:lambda x:x<=4,
+        1610:lambda x:x<=-5,
+    }
+    from operator import lt, le, gt, ge
+    points=[Fraction(x,2) for x in range(-40,41)]
+    def parse(s):
+        m=re.fullmatch(r"[xT](\\le|\\ge|<|>)(-?\d+)",s.strip("$"))
+        assert m,s
+        op={r"\le":le,r"\ge":ge,"<":lt,">":gt}[m[1]]
+        return tuple(op(x,int(m[2])) for x in points)
+    return tuple(tests[i](x) for x in points),parse
+for row in ninth["Items"]:
+    i=row["ProblemId"]; c=row["Content"]; g,p=placements[i]
+    assert row["Status"]=="StructuredAmendmentCandidateNotImported"
+    assert row["PrimarySkillKey"]==p["StableKey"] and row["ProposedTrackCode"]==g["Code"]
+    assert c["StageId"]==g["StageId"]==2 and c["CategoryId"]==p["CategoryId"] and c["PrimarySkillId"]==p["PrimarySkillId"]
+    assert c["Question"]=={"Ar":p["ExpectedQuestionAr"],"En":p["ExpectedQuestionEn"]}
+    assert pair(row["ExpectedLegacySolution"]) and pair(c["Title"])
+    assert len(row["ExpectedOptionIds"])==len(set(row["ExpectedOptionIds"]))==4
+    opts=c["Options"]; assert len(opts)==4 and sum(o["IsCorrect"] for o in opts)==1
+    expected,parse=independent_ninth(i)
+    if i==431: # Multiplication is a transformation, not a numeric shift.
+        values=[o["LatexCode"] if o["LatexCode"]==r"\times3" else parse(o["LatexCode"]) for o in opts]
+    else:
+        values=[parse(o["LatexCode"]) for o in opts]
+    assert len(set(values))==4,i
+    assert all(o["IsCorrect"]==(v==expected) for v,o in zip(values,opts)),i
+    assert all(o["ErrorType"] and pair(o["Reason"]) for o in opts if not o["IsCorrect"])
+    assert len(c["Hints"])==2 and all(pair(h) for h in c["Hints"])
+    assert all(c["Hints"][0][k]!=c["Hints"][1][k] for k in ("Ar","En"))
+    sol=c["Solution"]
+    assert sol["FormulaLatex"] and not sol["FormulaLatex"].startswith("$")
+    assert all(pair(sol[k]) for k in ("Idea","Substitution","Result","Unit","Verification","CommonError"))
+    if i in (479,480,482):
+        assert sol["Result"]["En"]=={479:"Median",480:"Class A",482:"Unchanged"}[i]
+    else:
+        assert all(parse(sol["Result"][lang])==expected for lang in ("Ar","En")),i
+    assert 1<=len(sol["Steps"])<=20 and all(pair(s) for s in sol["Steps"])
+print("PASS: 75 wave-09 middle-school questions, independent arithmetic and inequality-set checks")
