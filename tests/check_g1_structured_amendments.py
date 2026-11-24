@@ -369,3 +369,53 @@ for row in seventh["Items"]:
     assert all(parse(sol["Result"][lang])==expected for lang in ("Ar","En")),i
     assert 1<=len(sol["Steps"])<=20 and all(pair(s) for s in sol["Steps"])
 print("PASS: 40 middle-school wave-07 questions, independent exact math, source binding, bilingual laws and hints")
+
+
+# Wave 08: independent middle-school answer verification, including
+# inverse Pythagoras and base-preserving exponent division.
+eighth=load("g1-structured-amendments-wave08-20261124.json")
+assert eighth["Status"]==wave["Status"]
+eighth_ids={r["ProblemId"] for r in eighth["Items"]}
+assert len(eighth_ids)==len(eighth["Items"])==50
+assert not eighth_ids.intersection(wave_ids|fourth_ids|fifth_ids|sixth_ids|seventh_ids|{r["ProblemId"] for r in d["Items"]})
+def independent_eighth(row):
+    c=row["Content"]; q=c["Question"]["En"]; k=row["PrimarySkillKey"]
+    v=[int(x) for x in re.findall(r"\d+",q)]
+    if k=="middle-percent-increase": return Fraction(v[0]*(100+v[1]),100)
+    if k=="middle-polygon-angles": return (v[0]-2)*180
+    if k=="middle-pythagorean-theorem":
+        s=v[0]**2-v[1]**2; h=isqrt(s); assert h*h==s
+        return h
+    if k=="middle-similar-triangles": return v[0]*v[1]
+    if k=="middle-exponent-laws": 
+        assert v[0]==v[2]
+        return v[0],v[1]-v[3]
+    if k=="middle-quadratic-function-evaluation": return v[0]*v[3]**2+v[2]
+    return independent_seventh(row)
+for row in eighth["Items"]:
+    i=row["ProblemId"]; c=row["Content"]; g,p=placements[i]
+    assert row["Status"]=="StructuredAmendmentCandidateNotImported"
+    assert row["PrimarySkillKey"]==p["StableKey"] and row["ProposedTrackCode"]==g["Code"]
+    assert c["StageId"]==g["StageId"]==2 and c["CategoryId"]==p["CategoryId"] and c["PrimarySkillId"]==p["PrimarySkillId"]
+    assert c["Question"]=={"Ar":p["ExpectedQuestionAr"],"En":p["ExpectedQuestionEn"]}
+    assert pair(row["ExpectedLegacySolution"]) and pair(c["Title"])
+    assert len(row["ExpectedOptionIds"])==len(set(row["ExpectedOptionIds"]))==4
+    opts=c["Options"]; assert len(opts)==4 and sum(o["IsCorrect"] for o in opts)==1
+    expected=independent_eighth(row)
+    def parse(s):
+        s=s.strip("$")
+        if row["PrimarySkillKey"]=="middle-exponent-laws":
+            return tuple(map(int,re.fullmatch(r"(\d+)\^\{(\d+)\}",s).groups()))
+        return Fraction(s)
+    values=[parse(o["LatexCode"]) for o in opts]
+    assert len(set(values))==4
+    assert all(o["IsCorrect"]==(v==expected) for v,o in zip(values,opts)),i
+    assert all(o["ErrorType"] and pair(o["Reason"]) for o in opts if not o["IsCorrect"])
+    assert len(c["Hints"])==2 and all(pair(h) for h in c["Hints"])
+    assert all(c["Hints"][0][k]!=c["Hints"][1][k] for k in ("Ar","En"))
+    sol=c["Solution"]
+    assert sol["FormulaLatex"] and not sol["FormulaLatex"].startswith("$")
+    assert all(pair(sol[k]) for k in ("Idea","Substitution","Result","Unit","Verification","CommonError"))
+    assert all(parse(sol["Result"][lang])==expected for lang in ("Ar","En")),i
+    assert 1<=len(sol["Steps"])<=20 and all(pair(s) for s in sol["Steps"])
+print("PASS: 50 wave-08 questions, independent exact answers and complete bilingual structured content")
