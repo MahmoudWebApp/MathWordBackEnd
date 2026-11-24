@@ -138,7 +138,13 @@ public sealed class AdminLearningTracksController(AppDbContext db,LearningTrackS
     public async Task<IActionResult> ReviewedDraftBatch(DraftBatchRequest input,CancellationToken ct)
     {
         var proposal=LoadDraftPlacement();
-        if(proposal.Version!=1||proposal.Status!="ReviewedSourceMatchedDraftProposal")return BadRequest();
+        if(proposal.Version!=1||proposal.Status!="ReviewedSourceMatchedDraftProposal"||
+            proposal.Tracks.Length==0||proposal.Tracks.Any(g=>g.Rows.Length==0)||
+            proposal.Tracks.Select(g=>(g.StageId,g.Code)).Distinct().Count()!=proposal.Tracks.Length)
+            return BadRequest(new{Message="InvalidMapping"});
+        var proposalIds=proposal.Tracks.SelectMany(g=>g.Rows).Select(r=>r.ProblemId).ToArray();
+        // This package defines one provisional baseline placement per question.
+        if(proposalIds.Distinct().Count()!=proposalIds.Length)return BadRequest(new{Message="InvalidMapping"});
         if(input.Confirm&&(input.Revisions is null||input.Revisions.Length!=proposal.Tracks.Length||
             input.Revisions.Select(x=>x.Id).Distinct().Count()!=input.Revisions.Length))return BadRequest(new{Message="TrackBatchRevisionRequired"});
         // Keep the existing publication rule and all learner history untouched.
@@ -150,6 +156,22 @@ public sealed class AdminLearningTracksController(AppDbContext db,LearningTrackS
             var tracks=await db.LearningTracks.FromSqlRaw("SELECT * FROM \"LearningTracks\" ORDER BY \"Id\" FOR UPDATE").ToListAsync(ct);
             var output=new List<DraftBatchItem>();
             var pending=new List<(LearningTrack Track,TrackMapping Mapping)>();
+            // Fetch shared source and current mappings once per batch, rather than
+            // repeating database round trips for each track while holding locks.
+            var sourceRows=await (from p in db.Problems.AsNoTracking()
+                join ps in db.CurriculumProblemSkills.AsNoTracking() on p.Id equals ps.ProblemId
+                where proposalIds.Contains(p.Id)&&ps.IsPrimary&&p.Category.StageId==p.StageId&&
+                    ps.Skill.StageId==p.StageId&&ps.Skill.CategoryId==p.CategoryId&&ps.Skill.IsPublished&&ps.Skill.Domain.IsPublished
+                select new {p.Id,p.StageId,p.CategoryId,p.QuestionTextAr,p.QuestionTextEn,ps.SkillId,ps.Skill.StableKey}).ToListAsync(ct);
+            var sourceById=sourceRows.ToLookup(s=>s.Id);
+            var trackIds=tracks.Select(t=>t.Id).ToArray();
+            var categoriesByTrack=(await db.LearningTrackCategories.AsNoTracking().Where(x=>trackIds.Contains(x.TrackId)).ToListAsync(ct))
+                .ToLookup(x=>x.TrackId,x=>x.CategoryId);
+            var skillsByTrack=(await db.LearningTrackSkills.AsNoTracking().Where(x=>trackIds.Contains(x.TrackId)).ToListAsync(ct))
+                .ToLookup(x=>x.TrackId,x=>x.SkillId);
+            var problemsByTrack=(await db.LearningTrackProblems.AsNoTracking().Where(x=>trackIds.Contains(x.TrackId)).ToListAsync(ct))
+                .ToLookup(x=>x.TrackId,x=>x.ProblemId);
+            var freeByStage=new Dictionary<int,int[]>();
             foreach(var placement in proposal.Tracks.OrderBy(g=>g.StageId).ThenBy(g=>g.Code))
             {
                 var track=tracks.SingleOrDefault(t=>t.StageId==placement.StageId&&t.Code==placement.Code);
@@ -158,27 +180,29 @@ public sealed class AdminLearningTracksController(AppDbContext db,LearningTrackS
                     return Conflict(new{Message="TrackChanged",placement.Code});
                 if(track.IsPublished||track.Revision==int.MaxValue)return Conflict(new{Message="UnpublishOrRefreshTrack",placement.Code});
                 var ids=placement.Rows.Select(x=>x.ProblemId).ToArray();
-                if(ids.Length==0||ids.Distinct().Count()!=ids.Length)return BadRequest(new{Message="InvalidMapping"});
-                var sources=await (from p in db.Problems.AsNoTracking()
-                    join ps in db.CurriculumProblemSkills.AsNoTracking() on p.Id equals ps.ProblemId
-                    where ids.Contains(p.Id)&&ps.IsPrimary&&p.StageId==placement.StageId&&p.Category.StageId==placement.StageId&&
-                        ps.Skill.StageId==placement.StageId&&ps.Skill.CategoryId==p.CategoryId&&ps.Skill.IsPublished&&ps.Skill.Domain.IsPublished
-                    select new {p.Id,p.CategoryId,p.QuestionTextAr,p.QuestionTextEn,ps.SkillId,ps.Skill.StableKey}).ToListAsync(ct);
-                var changed=placement.Rows.Where(row=>!sources.Any(s=>s.Id==row.ProblemId&&s.CategoryId==row.CategoryId&&
-                    s.SkillId==row.PrimarySkillId&&s.StableKey==row.StableKey&&s.QuestionTextAr==row.ExpectedQuestionAr&&
-                    s.QuestionTextEn==row.ExpectedQuestionEn)).Select(row=>row.ProblemId).ToArray();
-                if(changed.Length>0||sources.Count!=ids.Length)
+                var changed=placement.Rows.Where(row=>
+                {
+                    var matches=sourceById[row.ProblemId];
+                    return matches.Count()!=1||!matches.Any(s=>s.StageId==placement.StageId&&s.CategoryId==row.CategoryId&&
+                        s.SkillId==row.PrimarySkillId&&s.StableKey==row.StableKey&&s.QuestionTextAr==row.ExpectedQuestionAr&&
+                        s.QuestionTextEn==row.ExpectedQuestionEn);
+                }).Select(row=>row.ProblemId).ToArray();
+                if(changed.Length>0)
                     return Conflict(new{Message="TrackBatchSourceChanged",placement.Code,ProblemIds=changed});
                 var map=new TrackMapping(placement.Rows.Select(x=>x.CategoryId).Distinct().Order().ToArray(),
                     placement.Rows.Select(x=>x.PrimarySkillId).Distinct().Order().ToArray(),ids.Order().ToArray());
-                var oldC=await db.LearningTrackCategories.Where(x=>x.TrackId==track.Id).Select(x=>x.CategoryId).ToArrayAsync(ct);
-                var oldS=await db.LearningTrackSkills.Where(x=>x.TrackId==track.Id).Select(x=>x.SkillId).ToArrayAsync(ct);
-                var oldP=await db.LearningTrackProblems.Where(x=>x.TrackId==track.Id).Select(x=>x.ProblemId).ToArrayAsync(ct);
+                var oldC=categoriesByTrack[track.Id].ToArray();
+                var oldS=skillsByTrack[track.Id].ToArray();
+                var oldP=problemsByTrack[track.Id].ToArray();
                 var same=oldC.Order().SequenceEqual(map.CategoryIds)&&oldS.Order().SequenceEqual(map.SkillIds)&&oldP.Order().SequenceEqual(map.ProblemIds);
                 if(!same&&(oldC.Length!=0||oldS.Length!=0||oldP.Length!=0))
                     return Conflict(new{Message="TrackBatchExistingMapping",placement.Code});
                 // Use the same current Free policy as the normal track catalog.
-                var free=await service.GetFreeCategoryIdsForPlacementAsync(placement.StageId,ct);
+                if(!freeByStage.TryGetValue(placement.StageId,out var free))
+                {
+                    free=await service.GetFreeCategoryIdsForPlacementAsync(placement.StageId,ct);
+                    freeByStage.Add(placement.StageId,free);
+                }
                 output.Add(new(track.Id,track.Revision,track.Code,track.StageId,ids.Length,
                     placement.Rows.Count(x=>free.Contains(x.CategoryId)),same?"AlreadyMapped":"Ready"));
                 if(!same)pending.Add((track,map));
