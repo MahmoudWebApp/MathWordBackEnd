@@ -14,8 +14,12 @@ EDITORIAL = "/api/editorial/problems"
 
 
 def verify_gap_wave(admin):
-    items = json.loads(MANIFEST.read_text(encoding="utf-8"))["Items"]
-    assert len(items) == 10 and len({r["PrimarySkillKey"] for r in items}) == 9
+    wave_one = json.loads(MANIFEST.read_text(encoding="utf-8"))["Items"]
+    wave_two = json.loads(MANIFEST.with_name("g1-gap-wave-02-20261124.json").read_text(encoding="utf-8"))["Items"]
+    assert len(wave_one) == 10 and len(wave_two) == 2
+    items = wave_one + wave_two
+    assert len({r["ContentKey"] for r in items}) == 12
+    assert len({r["PrimarySkillKey"] for r in items}) == 9
     sql(CATALOG.read_text(encoding="utf-8"))
     before_problems = sql('SELECT count(*) FROM "Problems"')
     before_drafts = int(sql('SELECT count(*) FROM "CurriculumDraftItems"'))
@@ -55,4 +59,4 @@ def verify_gap_wave(admin):
         assert review["Status"] == "PendingReview" and review.get("PublishedProblemId") is None
 
     assert sql('SELECT count(*) FROM "Problems"') == before_problems
-    print("PASS: real gap wave, 10 bilingual drafts / 9 skills, atomic import, replay, review queue, no publication")
+    print("PASS: real gap wave, 12 bilingual drafts / 9 skills, atomic import, replay, review queue, no publication")

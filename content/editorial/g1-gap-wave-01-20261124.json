@@ -187,12 +187,12 @@
             }
           },
           {
-            "LatexCode": "100",
+            "LatexCode": "200",
             "IsCorrect": false,
             "ErrorType": "rounding",
             "Reason": {
-              "Ar": "قُرّبت الكتلة الثانية دون طلب.",
-              "En": "Rounded the second mass without being asked."
+              "Ar": "قُرّبت 980 غ إلى 1000 غ دون طلب، فأصبح الفرق 200 غ.",
+              "En": "Rounded 980 g to 1000 g unnecessarily, yielding 200 g."
             }
           }
         ],

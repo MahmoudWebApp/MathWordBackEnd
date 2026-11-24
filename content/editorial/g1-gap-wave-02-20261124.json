@@ -1,0 +1,243 @@
+{
+  "Version": 1,
+  "Status": "DraftCandidatesNotPublished",
+  "Notes": [
+    "Two additional skill-depth candidates protect coverage if the historical mappings of problems 1566 and 1578 are later corrected. Both are valuable even without reclassification.",
+    "Do not change the source problem classifications or publish automatically. Resolve track IDs through the approved editorial importer."
+  ],
+  "Items": [
+    {
+      "ContentKey": "g1-gap-02-absolute-value-equation",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "grade-7"
+      ],
+      "PrimarySkillKey": "absolute-value",
+      "Check": {
+        "type": "absolute_equation",
+        "center": 4,
+        "distance": 7,
+        "expected": "\\{-3,11\\}"
+      },
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 83,
+        "PrimarySkillId": 307,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "نقطتان على مسافة محددة",
+          "En": "Two points at a specified distance"
+        },
+        "Question": {
+          "Ar": "أي مجموعة تمثل جميع حلول المعادلة $|x-4|=7$؟",
+          "En": "Which set contains all solutions of $|x-4|=7$?"
+        },
+        "Options": [
+          {
+            "LatexCode": "\\{-7,7\\}",
+            "IsCorrect": false,
+            "ErrorType": "center-ignored",
+            "Reason": {
+              "Ar": "تم التعامل مع المسافة كما لو كانت من الصفر.",
+              "En": "Treated the distance as if measured from zero."
+            }
+          },
+          {
+            "LatexCode": "\\{-3,11\\}",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "\\{3,11\\}",
+            "IsCorrect": false,
+            "ErrorType": "negative-branch",
+            "Reason": {
+              "Ar": "أُخطئ في إشارة ناتج 4 − 7.",
+              "En": "Used the wrong sign for 4 − 7."
+            }
+          },
+          {
+            "LatexCode": "\\{11\\}",
+            "IsCorrect": false,
+            "ErrorType": "missing-branch",
+            "Reason": {
+              "Ar": "أُهمل الحل الواقع يسار العدد 4.",
+              "En": "Omitted the solution to the left of 4."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "القيمة المطلقة للفرق تمثل مسافة على خط الأعداد.",
+            "En": "The absolute difference represents distance on the number line."
+          },
+          {
+            "Ar": "ابحث عن نقطتين على جانبي العدد 4 وعلى المسافة نفسها منه.",
+            "En": "Look for points on opposite sides of 4 at the same distance from it."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "إذا كانت المسافة موجبة، توجد نقطتان على جانبي مركزها.",
+            "En": "For a positive distance, there are two points on opposite sides of the center."
+          },
+          "FormulaLatex": "|x-a|=d\\quad\\Longrightarrow\\quad x=a\\pm d\\quad(d>0)",
+          "Steps": [
+            {
+              "Ar": "إما أن يكون x − 4 = 7 أو x − 4 = −7.",
+              "En": "Either x − 4 = 7 or x − 4 = −7."
+            },
+            {
+              "Ar": "نضيف 4 إلى طرفي كل معادلة.",
+              "En": "Add 4 to both sides of each equation."
+            }
+          ],
+          "Substitution": {
+            "Ar": "x = 4 + 7 = 11 أو x = 4 − 7 = −3",
+            "En": "x = 4 + 7 = 11 or x = 4 − 7 = −3"
+          },
+          "Result": {
+            "Ar": "$\\{-3,11\\}$",
+            "En": "$\\{-3,11\\}$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة",
+            "En": "unitless"
+          },
+          "Verification": {
+            "Ar": "كل من |−3 − 4| و|11 − 4| يساوي 7.",
+            "En": "Both |−3 − 4| and |11 − 4| equal 7."
+          },
+          "CommonError": {
+            "Ar": "لا تكتفِ بالحالة الموجبة؛ افحص الحالتين.",
+            "En": "Do not keep only the positive case; check both branches."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "g1-gap-02-exponential-time-scale",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "grade-11"
+      ],
+      "PrimarySkillKey": "model-interpretation",
+      "Check": {
+        "type": "scaled_period_growth_percent",
+        "base": 1.04,
+        "months": 3,
+        "period": 3,
+        "expected": "4"
+      },
+      "Content": {
+        "StageId": 3,
+        "CategoryId": 86,
+        "PrimarySkillId": 316,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "تفسير زمن النمو الأسي",
+          "En": "Interpret an exponential time scale"
+        },
+        "Question": {
+          "Ar": "يعطى عدد المشتركين بالنموذج $N(t)=250(1.04)^{t/3}$ حيث t بالأشهر. ما نسبة الزيادة المئوية خلال ثلاثة أشهر؟",
+          "En": "A subscriber count follows $N(t)=250(1.04)^{t/3}$, where t is in months. What is the percentage increase over three months?"
+        },
+        "Options": [
+          {
+            "LatexCode": "12",
+            "IsCorrect": false,
+            "ErrorType": "period-confusion",
+            "Reason": {
+              "Ar": "عوملت نسبة 4% على أنها زيادة شهرية وجُمعت ثلاث مرات.",
+              "En": "Treated 4% as a monthly rate and added it three times."
+            }
+          },
+          {
+            "LatexCode": "1.04",
+            "IsCorrect": false,
+            "ErrorType": "factor-as-percent",
+            "Reason": {
+              "Ar": "عامل النمو ليس النسبة المئوية للزيادة.",
+              "En": "The growth factor is not the percentage increase."
+            }
+          },
+          {
+            "LatexCode": "4",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "0.04",
+            "IsCorrect": false,
+            "ErrorType": "decimal-as-percent",
+            "Reason": {
+              "Ar": "هذه نسبة الزيادة العشرية قبل الضرب في 100.",
+              "En": "This is the decimal increase before multiplying by 100."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "حدد مقدار تغير الأس عندما تمر ثلاثة أشهر.",
+            "En": "Find how much the exponent changes when three months pass."
+          },
+          {
+            "Ar": "اقسم العدد بعد الفترة على العدد قبلها، ثم حوّل الزيادة النسبية إلى نسبة مئوية.",
+            "En": "Divide the later quantity by the earlier one, then express the relative increase as a percentage."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "يمثل الأس t/3 عدد الفترات التي طول كل منها ثلاثة أشهر.",
+            "En": "The exponent t/3 counts three-month periods."
+          },
+          "FormulaLatex": "r_{\\%}=100\\left(\\frac{N(t+3)}{N(t)}-1\\right)",
+          "Steps": [
+            {
+              "Ar": "يزداد الأس بمقدار (t+3)/3 − t/3 = 1.",
+              "En": "The exponent increases by (t+3)/3 − t/3 = 1."
+            },
+            {
+              "Ar": "عامل النمو للفترة هو 1.04، ونطرح منه الواحد ثم نحوله إلى نسبة مئوية.",
+              "En": "The period growth factor is 1.04; subtract one and convert to a percentage."
+            }
+          ],
+          "Substitution": {
+            "Ar": "100 × (1.04 − 1) = 4",
+            "En": "100 × (1.04 − 1) = 4"
+          },
+          "Result": {
+            "Ar": "4",
+            "En": "4"
+          },
+          "Unit": {
+            "Ar": "بالمئة",
+            "En": "percent"
+          },
+          "Verification": {
+            "Ar": "من الشهر 0 إلى الشهر 3، يزداد العدد من 250 إلى 260، أي 10/250 = 0.04.",
+            "En": "From month 0 to month 3, the count increases from 250 to 260, so 10/250 = 0.04."
+          },
+          "CommonError": {
+            "Ar": "لا تفسر عامل النمو على أنه عامل شهري؛ انتبه إلى وحدة الأس.",
+            "En": "Do not interpret the growth factor as monthly; check the exponent's time scale."
+          }
+        }
+      }
+    }
+  ]
+}

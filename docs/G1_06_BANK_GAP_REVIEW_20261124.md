@@ -66,3 +66,12 @@ The original snapshot evidence above is retained. Eleven proposed problem correc
 The snapshot checker recognizes only the exact verified after-edit fingerprints and unchanged key positions, while retaining its original pre-edit evidence. The IVT recomputation recognizes the reviewed bilingual wording of the same mathematical condition. This is not evidence of browser/Flutter rendering, full snapshot test execution, or completed review of all solutions and hints.
 
 The nine underrepresented skills still need ten additional distinct problems in total to reach three primary questions each; candidate publication remains a separate reviewed operation.
+
+
+## Candidate gap-wave follow-up
+
+Compared the original ten candidates against the 17 primary questions in the nine underrepresented skills and checked normalized exact stems against all published questions in the corresponding stages, in both languages: no matches. The mass question's distractor 100 was inconsistent with its stated rounding mistake; replaced it with 200, keeping 220 as the correct key. Added two independently authored candidates in wave 02: a two-branch absolute-value equation and an exponential time-scale interpretation question. The two supplemental stems also have no normalized exact published matches. This is not a semantic uniqueness guarantee.
+
+The additional depth protects coverage if the historical primary classification for 1566 (ordering signed integers) or 1578 (geometric sequence) is subsequently changed. The current amendment endpoint intentionally prohibits changing a published stem/option set or removing existing primary skills: these history-preserving revisions need a separate reviewed version/retirement design. Do not modify existing attempts or force the classifications through SQL. IDs 10 and 20 are likewise pending that design.
+
+The combined 12-candidate import rehearsal remains atomic, idempotent and draft-only; production publication and track resolution require the coordinated release and editorial approval. The separate prompt-based checker independently recalculates every key and checks both languages' structured results, distractors and hints.

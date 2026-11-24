@@ -7,6 +7,7 @@ on:
       - 'content/editorial/**'
       - 'content/batches/mathworld-2026-11-20-*'
       - 'tests/check_numeric_family_answers.py'
+      - 'tests/check_g1_gap_waves.py'
       - 'content/batches/mathworld-adaptive-v2-*'
       - 'content/batches/mathworld-reasoning-extension-*'
       - 'content/batches/mathworld-fractions-series-depth-*'
@@ -100,6 +101,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: Recompute answers for 315 recurring problems from the question text
         run: python3 tests/check_numeric_family_answers.py
+      - name: Independently recompute the 12 G1 gap candidate answers
+        run: python3 tests/check_g1_gap_waves.py
       - name: Validate bilingual subjects, skill keys and historical problem mapping
         run: python3 tests/check_curriculum_taxonomy.py
       - name: Check 32 new skill-aligned problems and independent answers
