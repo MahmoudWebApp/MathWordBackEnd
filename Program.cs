@@ -91,8 +91,8 @@ pooledConnection.MinPoolSize = Math.Min(
 // without changing database credentials if a provider issue is discovered.
 if (builder.Configuration.GetValue("Database:PreferSupabaseSessionPooler", true) &&
     pooledConnection.Port == 6543 &&
-    pooledConnection.Host.EndsWith(".pooler.supabase.com",
-        StringComparison.OrdinalIgnoreCase))
+    pooledConnection.Host?.EndsWith(".pooler.supabase.com",
+        StringComparison.OrdinalIgnoreCase) == true)
 {
     pooledConnection.Port = 5432;
 }
