@@ -1,0 +1,191 @@
+name: EF upgrade from Supabase curriculum ledger snapshot
+
+on:
+  pull_request:
+    paths:
+      - 'Migrations/**'
+      - 'tests/fixtures/supabase-curriculum-ledger/**'
+      - '.github/workflows/ef-supabase-ledger-rehearsal.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  reconcile-isolated-schema:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: ci_only_password
+          POSTGRES_DB: mathworld_ledger_ci
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres -d mathworld_ledger_ci"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 20
+    env:
+      ASPNETCORE_ENVIRONMENT: Production
+      ConnectionStrings__DefaultConnection: Host=127.0.0.1;Port=5432;Database=mathworld_ledger_ci;Username=postgres;Password=ci_only_password
+      Jwt__Key: ci_only_test_signing_key_never_use_in_production_0123456789
+      Jwt__Issuer: MathWorld-CI
+      Jwt__Audience: MathWorld-CI
+      Meilisearch__Enabled: 'false'
+      BootstrapAdmin__Enabled: 'true'
+      BootstrapAdmin__Email: ci-admin@mathworld.test
+      BootstrapAdmin__Password: CI_TEST_ADMIN_PASSWORD_12345
+      BootstrapAdmin__FullName: CI Administrator
+      Database__ApplyMigrationsOnStartup: 'true'
+      PGHOST: 127.0.0.1
+      PGPORT: '5432'
+      PGUSER: postgres
+      PGPASSWORD: ci_only_password
+      PGDATABASE: mathworld_ledger_ci
+    steps:
+      - name: Checkout pre-curriculum EF baseline (19 migrations)
+        uses: actions/checkout@v4
+        with:
+          ref: f17f4fdd6775c68365a83cace8981b6c24fb8179
+          path: baseline
+          persist-credentials: false
+
+      - name: Checkout candidate with restored Supabase migration fixture
+        uses: actions/checkout@v4
+        with:
+          path: candidate
+          persist-credentials: false
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+
+      - name: Create Supabase-like API roles on disposable database
+        run: |
+          psql -X -v ON_ERROR_STOP=1 -c 'CREATE ROLE anon NOLOGIN; CREATE ROLE authenticated NOLOGIN;'
+
+      - name: Build baseline
+        working-directory: baseline
+        run: dotnet build MathWorldAPI.csproj -c Release
+
+      - name: Apply baseline EF migrations through 2026-11-17
+        working-directory: baseline
+        shell: bash
+        env:
+          ASPNETCORE_URLS: http://127.0.0.1:5091
+        run: |
+          set -euo pipefail
+          dotnet run --no-build --no-launch-profile -c Release --project MathWorldAPI.csproj > /tmp/mw-ledger-baseline.log 2>&1 &
+          echo "$!" > /tmp/mw-ledger-baseline.pid
+          ready=0
+          for i in $(seq 1 85); do
+            http="$(curl -sS --max-time 3 -o /dev/null -w '%{http_code}' http://127.0.0.1:5091/health/ready 2>/dev/null || true)"
+            if test "$http" = "200"; then ready=1; break; fi
+            if ! kill -0 "$(cat /tmp/mw-ledger-baseline.pid)" 2>/dev/null; then break; fi
+            sleep 2
+          done
+          if test "$ready" -ne 1; then
+            tail -n 90 /tmp/mw-ledger-baseline.log
+            exit 1
+          fi
+          psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."__EFMigrationsHistory"' | grep -qx 19
+          psql -X -v ON_ERROR_STOP=1 -Atc "SELECT COUNT(*) FROM public.\"__EFMigrationsHistory\" WHERE \"MigrationId\"='20261117210000_AddStudentNotifications'" | grep -qx 1
+          echo "PASS: exact pre-curriculum EF baseline applied"
+
+      - name: Stop baseline API
+        run: |
+          kill "$(cat /tmp/mw-ledger-baseline.pid)" 2>/dev/null || true
+          sleep 2
+
+      - name: Replay the seven historical Supabase curriculum migrations in isolation
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(find candidate/tests/fixtures/supabase-curriculum-ledger -name '*.sql' | wc -l)" -eq 7
+          for sql in candidate/tests/fixtures/supabase-curriculum-ledger/*.sql; do
+            echo "Applying fixture: $(basename "$sql")"
+            psql -X -v ON_ERROR_STOP=1 -f "$sql" >/tmp/mw-ledger-psql.out
+          done
+          psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."__EFMigrationsHistory"' | grep -qx 19
+          psql -X -v ON_ERROR_STOP=1 -Atc "SELECT COUNT(*) FROM public.\"CurriculumSkills\"" | grep -Eq '^[0-9]+$'
+          psql -X -v ON_ERROR_STOP=1 -Atc "SELECT COUNT(*) FROM public.\"CurriculumDraftItems\"" | grep -Eq '^[0-9]+$'
+          psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."Users"' > /tmp/mw-ledger-users-before
+          psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."Categories"' > /tmp/mw-ledger-categories-before
+          psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."Problems"' > /tmp/mw-ledger-problems-before
+          echo "PASS: Supabase curriculum objects exist, while EF still knows only 19 migrations"
+
+      - name: Build candidate backend
+        working-directory: candidate
+        run: dotnet build MathWorldAPI.csproj -c Release
+
+      - name: Apply pending EF migrations on Supabase-like schema snapshot
+        working-directory: candidate
+        shell: bash
+        env:
+          ASPNETCORE_URLS: http://127.0.0.1:5092
+        run: |
+          set -euo pipefail
+          dotnet run --no-build --no-launch-profile -c Release --project MathWorldAPI.csproj > /tmp/mw-ledger-candidate.log 2>&1 &
+          echo "$!" > /tmp/mw-ledger-candidate.pid
+          ready=0
+          for i in $(seq 1 85); do
+            http="$(curl -sS --max-time 3 -o /dev/null -w '%{http_code}' http://127.0.0.1:5092/health/ready 2>/dev/null || true)"
+            if test "$http" = "200"; then ready=1; break; fi
+            if ! kill -0 "$(cat /tmp/mw-ledger-candidate.pid)" 2>/dev/null; then break; fi
+            sleep 2
+          done
+          if test "$ready" -ne 1; then
+            tail -n 110 /tmp/mw-ledger-candidate.log
+            exit 1
+          fi
+
+      - name: Verify reconciliation and no loss of baseline data
+        shell: bash
+        run: |
+          set -euo pipefail
+          psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."__EFMigrationsHistory"' | grep -qx 25
+          psql -X -v ON_ERROR_STOP=1 -Atc "SELECT COUNT(*) FROM public.\"__EFMigrationsHistory\" WHERE \"MigrationId\"='20261124213000_SecureCurriculumTaxonomyEfParity'" | grep -qx 1
+          test "$(psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."Users"')" = "$(cat /tmp/mw-ledger-users-before)"
+          test "$(psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."Categories"')" = "$(cat /tmp/mw-ledger-categories-before)"
+          test "$(psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."Problems"')" = "$(cat /tmp/mw-ledger-problems-before)"
+          psql -X -v ON_ERROR_STOP=1 <<'SQL'
+          DO $verify$
+          DECLARE
+            secured integer;
+          BEGIN
+            SELECT count(*) INTO secured
+            FROM pg_class c JOIN pg_namespace n ON n.oid=c.relnamespace
+            WHERE n.nspname='public' AND c.relname IN (
+              'CurriculumDomains', 'CurriculumSkills',
+              'CurriculumSkillStandards', 'CurriculumSkillPrerequisites',
+              'CurriculumProblemSkills') AND c.relrowsecurity
+              AND NOT has_table_privilege('anon', c.oid, 'SELECT, INSERT, UPDATE, DELETE')
+              AND NOT has_table_privilege('authenticated', c.oid, 'SELECT, INSERT, UPDATE, DELETE');
+            IF secured <> 5 THEN
+              RAISE EXCEPTION 'Expected five restricted taxonomy tables after EF reconciliation, found %', secured;
+            END IF;
+          END $verify$;
+          SQL
+          echo "PASS: Supabase-first + EF reconciliation succeeds without losing seeded test records"
+
+      - name: Safe error diagnostics
+        if: failure()
+        shell: bash
+        run: |
+          for file in /tmp/mw-ledger-baseline.log /tmp/mw-ledger-candidate.log; do
+            if test -f "$file"; then
+              grep -E 'Unhandled exception|fail:|error:|Database migration|relation.*exists|already exists' "$file" | tail -n 65 || true
+            fi
+          done
+
+      - name: Shut down isolated API processes
+        if: always()
+        shell: bash
+        run: |
+          for f in /tmp/mw-ledger-baseline.pid /tmp/mw-ledger-candidate.pid; do
+            if test -f "$f"; then kill "$(cat "$f")" 2>/dev/null || true; fi
+          done
