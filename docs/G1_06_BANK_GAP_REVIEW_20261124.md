@@ -93,3 +93,6 @@ Offline preparation helper: `scripts/prepare_g1_amendment_payload.py` takes a fr
 
 ## Structured amendment wave 02
 36 additional individually written source-bound structured solutions, with 108 option-specific explanations, 72 reviewed hints, rule/steps/substitution/result/verification/common error, in Arabic and English. Combined waves: 52 of 56 short-solution candidates. Held 20, 649, 706, 707 for wording/skill/assumption resolution. No source ID, options, student progress, track or production row modified. Candidate tests now cover all 52. Rendering, actual import and review remain separate gates.
+
+## Four held short solutions
+Prepared full bilingual structured solutions, eight hints and twelve distractor explanations for 20, 649, 706 and 707 in a separate non-importable manifest. All 56 short solutions now have complete content proposals; only 52 are eligible for the existing draft preparation path. #20 requires history-safe option localization, #649 taxonomy approval, #706/#707 explicit independence wording. The held file cannot pass the existing payload status guard. No live changes.
