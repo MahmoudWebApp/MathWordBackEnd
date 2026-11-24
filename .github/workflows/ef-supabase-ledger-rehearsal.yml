@@ -147,7 +147,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."__EFMigrationsHistory"' | grep -qx 31
+          psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."__EFMigrationsHistory"' | grep -qx 32
+          psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."UserProgresses" WHERE "HintsRevealed"<>0' | grep -qx 0
           psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."CurriculumDraftItems" WHERE "WizardJson" IS NOT NULL OR "OwnerUserId" IS NOT NULL' | grep -qx 0
           psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."LearningTracks" WHERE NOT "IsPublished"' | grep -qx 17
           psql -X -v ON_ERROR_STOP=1 -Atc 'SELECT COUNT(*) FROM public."Users" WHERE "CurrentTrackId" IS NOT NULL' | grep -qx 0

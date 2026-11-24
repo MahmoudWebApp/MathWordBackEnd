@@ -175,9 +175,8 @@ def main():
         assert csv_bytes[:3] == bytes((239, 187, 191)), csv_bytes[:12]
         assert b"Category,Total Problems" in csv_bytes
     assert api("GET", f"/api/problems/{locked_problem}", token=learner1)[0] == 200
-    solution = expect("GET", preview, 200, token=learner1)
-    assert solution["ProblemId"] == locked_problem
-    assert solution["CorrectOptionId"] is not None, solution
+    expect("GET", preview, 403, token=learner1)
+    expect("GET", f"/api/problems/{locked_problem}/premium-solution", 403, token=learner1)
     # Repeating a grant is safe. Revocation must take effect immediately.
     assert expect("PUT", subscription_route, 200,
                   {"SubscriptionType": "Premium", "Reason": "CI subscription check"}, admin)["SubscriptionType"] == "Premium"

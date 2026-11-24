@@ -396,6 +396,7 @@ namespace MathWorldAPI.DTOs
     /// </summary>
     public class AnswerResultDto
     {
+        public bool UsedHint { get; set; }
         /// <summary>
         /// Gets or sets whether the submitted answer is correct.
         /// </summary>

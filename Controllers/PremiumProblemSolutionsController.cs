@@ -10,8 +10,7 @@ using Microsoft.EntityFrameworkCore;
 namespace MathWorldAPI.Controllers
 {
     /// <summary>
-    /// Premium-only early solution preview. Free learners can still receive
-    /// solutions through the existing post-answer flow.
+    /// Compatibility route: never reveal a solution before a correct answer.
     /// </summary>
     [ApiController]
     [Route("api/problems")]
@@ -60,6 +59,8 @@ namespace MathWorldAPI.Controllers
             if(!await HttpContext.RequestServices.GetRequiredService<LearningTrackService>()
                 .CanPracticeAsync(User,problemId,cancellationToken))
                 return StatusCode(403,new{Message="CurrentTrackOnly"});
+            if (!await _db.UserProgresses.AsNoTracking().AnyAsync(p=>p.UserId==userId&&p.ProblemId==problemId&&p.IsSolved&&p.IsCorrect&&p.Attempts>0,cancellationToken))
+                return StatusCode(403,new{Message="SolveBeforeSolution"});
             var language = LanguageHelper.GetLanguageFromRequest(Request);
             var correctOptionId = await _db.QuestionOptions
                 .AsNoTracking().Where(o => o.ProblemId == problemId && o.IsCorrect)

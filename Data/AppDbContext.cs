@@ -526,6 +526,7 @@ namespace MathWorldAPI.Data
                 .HasForeignKey(progress => progress.ProblemId)
                 .OnDelete(DeleteBehavior.Cascade);
 
+            modelBuilder.Entity<UserProgress>().Property(p=>p.HintsRevealed).HasDefaultValue(0);
             modelBuilder.Entity<UserProgress>()
                 .Property(progress => progress.MasteryStatus)
                 .HasMaxLength(32)

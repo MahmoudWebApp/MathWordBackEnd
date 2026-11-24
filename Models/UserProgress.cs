@@ -8,6 +8,7 @@
         public int SelectedOptionId { get; set; } = 0;
         public bool IsFavorite { get; set; } = false;
         public int Attempts { get; set; } = 0;
+        public int HintsRevealed { get; set; }
         public int TimeSpentSeconds { get; set; } = 0;
         public DateTime? SolvedAt { get; set; }
         public DateTime LastAttemptAt { get; set; } = DateTime.UtcNow;

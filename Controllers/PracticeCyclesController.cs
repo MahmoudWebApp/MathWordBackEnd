@@ -90,6 +90,7 @@ public sealed class PracticeCyclesController : ControllerBase
             progress.IsCorrect = false;
             progress.SelectedOptionId = 0;
             progress.Attempts = 0;
+            progress.HintsRevealed = 0;
             progress.TimeSpentSeconds = 0;
             progress.SolvedAt = null;
             progress.FirstAttemptCorrect = null;

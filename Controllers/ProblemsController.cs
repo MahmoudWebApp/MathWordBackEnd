@@ -867,8 +867,8 @@ namespace MathWorldAPI.Controllers
 
                 // The correct answer and solution remain hidden after an incorrect attempt.
                 var canRevealAnswer =
-                    hasAttempted &&
-                    progress!.IsCorrect;
+                    hasAttempted && progress!.IsSolved &&
+                    progress.IsCorrect;
 
                 var correctOptionId =
                     canRevealAnswer
@@ -1060,7 +1060,7 @@ namespace MathWorldAPI.Controllers
         }
 
         /// <summary>
-        /// Allows a Premium student to request the solution before submitting.
+        /// Compatibility route for Premium; a correct solve is always required.
         /// No entitlement is read from the client; it is always checked in
         /// the database to support immediate Admin changes.
         /// </summary>
@@ -1117,6 +1117,8 @@ namespace MathWorldAPI.Controllers
                 .CanPracticeAsync(User,problem.Id,cancellationToken))
                 return StatusCode(403,new{Message="CurrentTrackOnly"});
 
+            if (!await _context.UserProgresses.AsNoTracking().AnyAsync(p=>p.UserId==userId.Value&&p.ProblemId==id&&p.IsSolved&&p.IsCorrect&&p.Attempts>0,cancellationToken))
+                return StatusCode(403,new{Message="SolveBeforeSolution"});
             return Ok(LanguageHelper.SuccessResponse(new
             {
                 ProblemId = problem.Id,
@@ -1337,11 +1339,9 @@ namespace MathWorldAPI.Controllers
                 (!progress.NextReviewAt.HasValue ||
                  progress.NextReviewAt.Value <= now);
 
-            var pointsEarned =
-                isCorrect &&
-                !wasSolved
-                    ? problem.Points
-                    : 0;
+            var previouslyAwarded = isCorrect && await _context.ProblemAttempts.AnyAsync(
+                a=>a.UserId==userId.Value&&a.ProblemId==dto.ProblemId&&a.PointsEarned>0,HttpContext.RequestAborted);
+            var pointsEarned = isCorrect && !wasSolved && !previouslyAwarded ? problem.Points : 0;
 
             if (isOfficialAttempt)
             {
@@ -1446,7 +1446,7 @@ namespace MathWorldAPI.Controllers
                         pointsEarned,
 
                     UsedHint =
-                        false,
+                        progress.HintsRevealed > 0,
 
                     StartedAt =
                         now.AddSeconds(
@@ -1565,6 +1565,7 @@ namespace MathWorldAPI.Controllers
                         AttemptNumber =
                             attempt.AttemptNumber,
 
+                        UsedHint = attempt.UsedHint,
                         IsOfficialAttempt =
                             attempt.IsOfficial,
 

@@ -1161,6 +1161,8 @@ namespace MathWorldAPI.Migrations
                     b.Property<int?>("FirstSelectedOptionId")
                         .HasColumnType("integer");
 
+                    b.Property<int>("HintsRevealed").ValueGeneratedOnAdd().HasColumnType("integer").HasDefaultValue(0);
+
                     b.Property<int>("IncorrectAttempts")
                         .HasColumnType("integer");
 
