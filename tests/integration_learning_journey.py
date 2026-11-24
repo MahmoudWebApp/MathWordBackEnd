@@ -147,14 +147,22 @@ def main():
     assert [p["Id"] for p in guided_after_wrong["Problems"]] == [
         p["Id"] for p in guided["Problems"]
     ], "Daily selection must stay fixed when the first answer is wrong"
-    assert guided_after_wrong["Completed"] == 1, guided_after_wrong
+    assert guided_after_wrong["Completed"] == 0, guided_after_wrong
     assert guided_after_wrong["Correct"] == 0, guided_after_wrong
-    assert guided_after_wrong["Problems"][0]["IsAnswered"] is True
+    assert guided_after_wrong["Problems"][0]["IsAnswered"] is False
     assert guided_after_wrong["Problems"][0]["IsSolved"] is False
-    # Previously wrong question is not a new question when resuming.
     remaining = [p for p in guided_after_wrong["Problems"]
                  if not p["IsAnswered"]]
-    assert first_id not in {p["Id"] for p in remaining}
+    assert remaining[0]["Id"] == first_id
+    correct_option = next(o["Id"] for o in first_details["Options"] if o["IsCorrect"])
+    retry = expect("POST", "/api/problems/submit", 200, {
+        "ProblemId": first_id, "SelectedOptionId": correct_option,
+        "TimeSpentSeconds": 3,
+    }, stage_token)
+    assert retry["IsCorrect"] is True
+    after_retry = expect("GET", "/api/users/daily-challenge", 200, token=stage_token)
+    assert after_retry["Completed"] == 1 and after_retry["Correct"] == 1
+    assert after_retry["Problems"][0]["IsAnswered"] is True
 
     create = {
         "QuestionTextAr": "ما قيمة 1 + 1 ؟",
