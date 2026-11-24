@@ -154,3 +154,17 @@ assert {t["Code"] for t in readiness if "DraftIdentityMissingInSnapshot" in t["R
 assert all(t["PublicationBlocked"] for t in readiness)
 assert {i for t in readiness for i in t["HeldProblemIds"]}==set(blocked)
 print("PASS: 59 draft-only candidates, 19 track readiness records, five access gates, no publication")
+
+from prepare_g1_track_mapping import prepare_mapping
+mapping,identities=prepare_mapping()
+tracks=mapping["Tracks"]
+assert len(tracks)==19
+assert sum(t["ProblemCount"] for t in tracks)==732
+assert {i for t in tracks for i in t["ProblemIds"]}==hint_ids|full_ids
+assert {i for t in tracks for i in t["ExcludedHeldIds"]}==set(blocked)
+assert all(not t["PublicationApproved"] and t["ProblemCount"] and t["SkillIds"] and t["CategoryIds"] for t in tracks)
+assert {t["Code"] for t in tracks if t["FreeCoverageBlocked"]}=={
+    "differential-equations","probability-statistics","discrete-mathematics","numerical-analysis","mathematical-optimization"}
+assert {t["Code"] for t in identities}=={"numerical-analysis","mathematical-optimization"}
+assert all(t["StageId"]==4 and t["Kind"]=="course" for t in identities)
+print("PASS: 19 source-bound mapping proposals with 732 eligible IDs, 41 held excluded, two draft identities; no publication")
