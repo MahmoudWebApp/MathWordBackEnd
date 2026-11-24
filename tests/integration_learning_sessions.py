@@ -94,6 +94,19 @@ def verify_sessions(admin, learner, other, stage):
     assert mine["SolvedProblems"]==after["PermanentSolvedProblems"]
     assert mine["Points"]==after["PermanentPoints"]
     assert after["LearningSessionsEnabled"] is True
+    old_badges=expect("GET","/api/users/achievements",200,token=other)
+    assert old_badges["UniqueSolved"]==mine["SolvedProblems"]
+    assert old_badges["ScoreBasis"]=="PermanentAchievements"
+    admin_rank=expect("GET",f"/api/admin/stages/{stage}/leaderboard?period=all",200,token=admin)
+    assert admin_rank["ScoreBasis"]=="PermanentAchievements"
+    assert any(x["SolvedProblems"]==mine["SolvedProblems"] and x["Points"]==mine["Points"] for x in admin_rank["Entries"])
+    overview=expect("GET","/api/admin/engagement/overview?days=30",200,token=admin)
+    assert overview["ScoreBasis"]=="PermanentAchievements" and overview["SuccessfulSolves"]>=mine["SolvedProblems"]
+    stage_report=expect("GET",f"/api/admin/engagement/stages/{stage}?days=30",200,token=admin)
+    assert stage_report["ScoreBasis"]=="PermanentAchievements"
+    assert any(x["Solved"]==mine["SolvedProblems"] and x["Points"]==mine["Points"] for x in stage_report["TopStudents"])
+    assert sum(x["AttemptsInWindow"] for x in stage_report["Categories"])>=7
+    expect("GET","/api/admin/engagement/overview",403,token=other)
     # A legacy stage reset is still distinct from session restart, but must
     # never erase lifetime credit or change lifetime ranking.
     expect("POST","/api/users/practice/reset",200,{"StageId":stage},other)
@@ -102,6 +115,9 @@ def verify_sessions(admin, learner, other, stage):
     rank=expect("GET","/api/users/leaderboard?period=all",200,token=other)
     row=next(e for e in rank["Entries"] if e["IsCurrentUser"])
     assert row["Points"]==mine["Points"] and row["SolvedProblems"]==mine["SolvedProblems"]
+    assert expect("GET","/api/users/achievements",200,token=other)==old_badges
+    stage_reset=expect("GET",f"/api/admin/engagement/stages/{stage}?days=30",200,token=admin)
+    assert stage_reset["TopStudents"]==stage_report["TopStudents"]
     assert expect("GET",ROOT+"/achievements",200,token=other)==achievements
     # Switch stage: today's daily session is not replaced. Restore on return.
     expect("PUT","/api/users/learning-stage",200,{"StageId":1},other)

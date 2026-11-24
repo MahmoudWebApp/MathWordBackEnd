@@ -10,6 +10,7 @@ namespace MathWorldAPI.DTOs
         public string NameAr { get; set; } = string.Empty;
         public string NameEn { get; set; } = string.Empty;
         public string Period { get; set; } = "all";
+        public string ScoreBasis { get; set; } = "ActiveProgress";
         public int Page { get; set; }
         public int PageSize { get; set; }
         public int TotalLearners { get; set; }
@@ -24,7 +25,7 @@ namespace MathWorldAPI.DTOs
         // Only populated on the Admin endpoint. Never expose learner identifiers publicly.
         public int? UserId { get; set; }
         public int SolvedProblems { get; set; }
-        public int Points { get; set; }
+        public long Points { get; set; }
         public int FirstTryCorrect { get; set; }
         public bool IsCurrentUser { get; set; }
     }

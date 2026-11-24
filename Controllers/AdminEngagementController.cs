@@ -30,6 +30,8 @@ public sealed class AdminEngagementController : ControllerBase
 
     private static DateTime Cutoff(int days) => DateTime.UtcNow.Date.AddDays(1 - days);
     private static DateTime PresenceCutoff() => DateTime.UtcNow.AddMinutes(-5);
+    private bool PermanentEnabled => HttpContext.RequestServices.GetRequiredService<IConfiguration>()
+        .GetValue<bool>("LearningSessions:Enabled");
 
     [HttpGet("overview")]
     public async Task<IActionResult> Overview([FromQuery] int days = 30, CancellationToken ct = default)
@@ -54,9 +56,16 @@ public sealed class AdminEngagementController : ControllerBase
             .ToDictionaryAsync(x => x.StageId, x => x.Count, ct);
 
         var learners = _db.Users.AsNoTracking().Where(x => x.Role == "Student");
-        var attempts = _db.ProblemAttempts.AsNoTracking()
+        var ordinary = _db.ProblemAttempts.AsNoTracking()
             .Where(x => x.User.Role == "Student" && x.SubmittedAt >= start &&
-                x.Problem.Category.StageId == x.Problem.StageId);
+                x.Problem.Category.StageId == x.Problem.StageId)
+            .Select(x=>new{x.UserId,StageId=x.Problem.StageId,x.SubmittedAt});
+        var guided = from answer in _db.LearningSessionAttempts.AsNoTracking()
+                     join session in _db.LearningSessions.AsNoTracking() on answer.SessionId equals session.Id
+                     join student in learners on session.UserId equals student.Id
+                     where answer.SubmittedAtUtc>=start
+                     select new{session.UserId,session.StageId,SubmittedAt=answer.SubmittedAtUtc};
+        var attempts = PermanentEnabled ? ordinary.Concat(guided) : ordinary;
         var counts = await attempts.GroupBy(x => 1).Select(g => new
         {
             Active = g.Select(x => x.UserId).Distinct().Count()
@@ -66,13 +75,19 @@ public sealed class AdminEngagementController : ControllerBase
         // correct retry after an incorrect official attempt. Counting only
         // IsOfficial && IsCorrect hides those genuine successes, while
         // counting every correct attempt inflates repeated practice.
-        var newlySolved = _db.UserProgresses.AsNoTracking()
+        var ordinarySolved = _db.UserProgresses.AsNoTracking()
             .Where(p => p.User.Role == "Student" && p.IsSolved &&
                 p.SolvedAt >= start &&
-                p.Problem.Category.StageId == p.Problem.StageId);
+                p.Problem.Category.StageId == p.Problem.StageId)
+            .Select(p=>new{p.UserId,StageId=p.Problem.StageId,p.ProblemId});
+        var permanentSolved = from credit in _db.PermanentProblemAchievements.AsNoTracking()
+                              join student in learners on credit.UserId equals student.Id
+                              where credit.EarnedAtUtc>=start
+                              select new{credit.UserId,credit.StageId,credit.ProblemId};
+        var newlySolved = PermanentEnabled ? permanentSolved : ordinarySolved;
         var successfulSolves = await newlySolved.CountAsync(ct);
         var solvedByStage = await newlySolved
-            .GroupBy(p => p.Problem.StageId)
+            .GroupBy(p => p.StageId)
             .Select(g => new { StageId = g.Key, Count = g.Count() })
             .ToDictionaryAsync(x => x.StageId, x => x.Count, ct);
 
@@ -97,7 +112,7 @@ public sealed class AdminEngagementController : ControllerBase
         var stages = await _db.EducationalStages.AsNoTracking()
             .OrderBy(s => s.Order).ThenBy(s => s.Id)
             .Select(s => new { s.Id, s.NameAr, s.NameEn }).ToListAsync(ct);
-        var stageActivity = await attempts.GroupBy(a => a.Problem.StageId)
+        var stageActivity = await attempts.GroupBy(a => a.StageId)
             .Select(g => new
             {
                 StageId = g.Key,
@@ -113,6 +128,7 @@ public sealed class AdminEngagementController : ControllerBase
         return Ok(LanguageHelper.SuccessResponse(new
         {
             GeneratedAtUtc = DateTime.UtcNow, WindowDays = days,
+            ScoreBasis = PermanentEnabled ? "PermanentAchievements" : "ActiveProgress",
             TotalStudents = await learners.CountAsync(ct),
             NewStudents = await learners.CountAsync(u => u.CreatedAt >= start, ct),
             ActiveSolvers = counts?.Active ?? 0, SuccessfulSolves = successfulSolves,
@@ -148,10 +164,19 @@ public sealed class AdminEngagementController : ControllerBase
         var categories = await _db.Categories.AsNoTracking().Where(c => c.StageId == stageId)
             .OrderBy(c => c.Order).ThenBy(c => c.Id)
             .Select(c => new { c.Id, c.NameAr, c.NameEn }).ToListAsync(ct);
-        var activity = await _db.ProblemAttempts.AsNoTracking()
+        var ordinaryActivity = _db.ProblemAttempts.AsNoTracking()
             .Where(a => a.User.Role == "Student" && a.Problem.StageId == stageId &&
                 a.Problem.Category.StageId == stageId && a.SubmittedAt >= start)
-            .GroupBy(a => a.Problem.CategoryId)
+            .Select(a=>new{a.UserId,CategoryId=a.Problem.CategoryId});
+        var sessionActivity = from answer in _db.LearningSessionAttempts.AsNoTracking()
+                              join session in _db.LearningSessions.AsNoTracking() on answer.SessionId equals session.Id
+                              join student in _db.Users.AsNoTracking() on session.UserId equals student.Id
+                              join problem in _db.Problems.AsNoTracking() on answer.ProblemId equals problem.Id
+                              where student.Role=="Student" && session.StageId==stageId &&
+                                  problem.StageId==stageId && problem.Category.StageId==stageId && answer.SubmittedAtUtc>=start
+                              select new{session.UserId,problem.CategoryId};
+        var activity = await (PermanentEnabled?ordinaryActivity.Concat(sessionActivity):ordinaryActivity)
+            .GroupBy(a => a.CategoryId)
             .Select(g => new
             {
                 CategoryId = g.Key, Attempts = g.Count(),
@@ -161,39 +186,46 @@ public sealed class AdminEngagementController : ControllerBase
         // All-time unique solved questions, not answer correctness percentages.
         // First aggregate by learner/category on PostgreSQL; only compact
         // aggregated rows are transferred to the application.
-        var solvedByLearner = await _db.UserProgresses.AsNoTracking()
+        var ordinarySolved = _db.UserProgresses.AsNoTracking()
             .Where(p => p.IsSolved && p.User.Role == "Student" &&
                 p.Problem.StageId == stageId && p.Problem.Category.StageId == stageId)
-            .GroupBy(p => new { p.Problem.CategoryId, p.UserId, p.User.FullName })
+            .Select(p=>new{CategoryId=p.Problem.CategoryId,p.UserId,p.User.FullName,Points=(long)p.Problem.Points});
+        var permanentSolved = from credit in _db.PermanentProblemAchievements.AsNoTracking()
+                              join student in _db.Users.AsNoTracking() on credit.UserId equals student.Id
+                              where credit.StageId==stageId && student.Role=="Student" && student.IsActive
+                              select new{credit.CategoryId,credit.UserId,student.FullName,Points=(long)credit.Points};
+        var solvedByLearner = await (PermanentEnabled?permanentSolved:ordinarySolved)
+            .GroupBy(p => new { p.CategoryId, p.UserId, p.FullName })
             .Select(g => new
             {
-                g.Key.CategoryId, g.Key.UserId, g.Key.FullName, Solved = g.Count()
+                g.Key.CategoryId, g.Key.UserId, g.Key.FullName, Solved = g.Count(), Points=g.Sum(p=>p.Points)
             }).ToListAsync(ct);
         var activityByCategory = activity.ToDictionary(x => x.CategoryId);
         var leaderboard = solvedByLearner.GroupBy(x => x.UserId)
             .Select(g => new
             {
                 UserId = g.Key, FullName = g.First().FullName,
-                Solved = g.Sum(x => x.Solved)
+                Solved = g.Sum(x => x.Solved), Points=g.Sum(x=>x.Points)
             })
-            .OrderByDescending(x => x.Solved).ThenBy(x => x.UserId)
+            .OrderByDescending(x => x.Solved).ThenByDescending(x=>x.Points).ThenBy(x => x.UserId)
             .Take(20).Select((x, index) => new
             {
-                Rank = index + 1, x.UserId, x.FullName, x.Solved
+                Rank = index + 1, x.UserId, x.FullName, x.Solved,x.Points
             }).ToArray();
 
         return Ok(LanguageHelper.SuccessResponse(new
         {
             StageId = stage.Id, stage.NameAr, stage.NameEn, WindowDays = days,
+            ScoreBasis = PermanentEnabled ? "PermanentAchievements" : "ActiveProgress",
             TopStudents = leaderboard,
             Categories = categories.Select(c =>
             {
                 activityByCategory.TryGetValue(c.Id, out var a);
                 var ranked = solvedByLearner.Where(x => x.CategoryId == c.Id)
-                    .OrderByDescending(x => x.Solved).ThenBy(x => x.UserId)
+                    .OrderByDescending(x => x.Solved).ThenByDescending(x=>x.Points).ThenBy(x => x.UserId)
                     .Take(5).Select((x, index) => new
                     {
-                        Rank = index + 1, x.UserId, x.FullName, x.Solved
+                        Rank = index + 1, x.UserId, x.FullName, x.Solved,x.Points
                     }).ToArray();
                 return new
                 {
@@ -236,8 +268,13 @@ public sealed class AdminEngagementController : ControllerBase
             .Select(u => new { u.Id, u.FullName, u.CreatedAt, u.LastLoginAt,
                 u.CurrentStageId, u.IsActive }).ToListAsync(ct);
         var ids = entries.Select(x => x.Id).ToArray();
-        var attemptStats = await _db.ProblemAttempts.AsNoTracking()
-            .Where(a => ids.Contains(a.UserId))
+        var ordinaryAttempts = _db.ProblemAttempts.AsNoTracking()
+            .Where(a => ids.Contains(a.UserId)).Select(a=>new{a.UserId,a.SubmittedAt});
+        var sessionAttempts = from answer in _db.LearningSessionAttempts.AsNoTracking()
+                              join session in _db.LearningSessions.AsNoTracking() on answer.SessionId equals session.Id
+                              where ids.Contains(session.UserId)
+                              select new{session.UserId,SubmittedAt=answer.SubmittedAtUtc};
+        var attemptStats = await (PermanentEnabled?ordinaryAttempts.Concat(sessionAttempts):ordinaryAttempts)
             .GroupBy(a => a.UserId)
             .Select(g => new { UserId = g.Key, LastPracticeAt = g.Max(a => a.SubmittedAt),
                 Attempts = g.Count() }).ToListAsync(ct);
