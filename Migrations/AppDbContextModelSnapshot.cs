@@ -133,6 +133,8 @@ namespace MathWorldAPI.Migrations
                     b.Property<int?>("ReviewedByUserId").HasColumnType("integer");
                     b.Property<string>("ReviewNote").HasColumnType("text");
                     b.Property<DateTime?>("PublishedAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<int?>("SourceProblemId").HasColumnType("integer");
+                    b.Property<string>("SourceFingerprint").HasColumnType("text");
                     b.Property<int?>("PublishedProblemId").HasColumnType("integer");
                     b.Property<string>("ContentKey").IsRequired().HasMaxLength(120).HasColumnType("character varying(120)");
                     b.Property<string>("PrimarySkillKey").IsRequired().HasMaxLength(120).HasColumnType("character varying(120)");

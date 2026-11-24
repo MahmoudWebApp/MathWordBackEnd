@@ -19,6 +19,8 @@ public sealed class CurriculumDraftItem
     public string? ReviewNote { get; set; }
     public DateTime? PublishedAtUtc { get; set; }
     public int? PublishedProblemId { get; set; }
+    public int? SourceProblemId { get; set; }
+    public string? SourceFingerprint { get; set; }
     public string ContentKey { get; set; } = string.Empty;
     public string PrimarySkillKey { get; set; } = string.Empty;
     public string TemplateFamilyKey { get; set; } = string.Empty;

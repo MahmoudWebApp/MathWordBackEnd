@@ -52,6 +52,7 @@ def verify_wizard(admin,supervisor,sid):
     assert sql(f"""SELECT COUNT(*) FROM "PlatformActivityEvents" WHERE "Resource"='EditorialProblem' AND "ResourceId"='{did}'""")=="8"
     expect("DELETE",f"/api/admin/problems/{pid}",409,token=admin)
     verify_solve(admin,pid,stage,category)
+    verify_amendment(admin,supervisor,pid)
     print("PASS: partial draft, ownership, revision, review return, approval, exactly-once publication and track/skill linkage")
     return did
 
@@ -105,3 +106,27 @@ def verify_solve(admin,pid,stage,category):
     sql(f"""UPDATE "Users" SET "SubscriptionType"='Free' WHERE "Id"={uid}""")
     expect("GET",root+"/hints",403,token=student)
     print("PASS: no early answer, ordered/idempotent hints, recorded assistance, correct-only structure, reset hides answers and prevents repeat points")
+
+def verify_amendment(admin,supervisor,pid):
+    root="/api/editorial/problems"
+    before=sql(f'SELECT string_agg("Id"::text,\',\' ORDER BY "Id") FROM "QuestionOptions" WHERE "ProblemId"={pid}')
+    attempts=sql(f'SELECT COUNT(*) FROM "ProblemAttempts" WHERE "ProblemId"={pid}')
+    count=sql('SELECT COUNT(*) FROM "Problems"')
+    d=expect("POST",f"{root}/amend/{pid}",201,{},supervisor)
+    assert d["SourceProblemId"]==pid and d["Content"]["Solution"]["FormulaLatex"]=="a+b"
+    expect("POST",f"{root}/amend/{pid}",409,{},admin)
+    path=f"{root}/{d['Id']}"
+    p=d["Content"]
+    old=p["Question"]["En"];p["Question"]["En"]="Changed question"
+    expect("PUT",path,200,{"Revision":0,"Content":p},supervisor)
+    expect("POST",path+"/submit",400,{"Revision":1},supervisor)
+    p["Question"]["En"]=old;p["Solution"]["Verification"]["En"]="Subtract 9 from 22 to verify 13."
+    expect("PUT",path,200,{"Revision":1,"Content":p},supervisor)
+    expect("POST",path+"/submit",200,{"Revision":2},supervisor)
+    expect("POST",path+"/review",200,{"Revision":3,"Confirm":True,"Note":"Reviewed explanation"},admin)
+    result=expect("POST",path+"/publish",200,{"Revision":4,"Confirm":True},admin)
+    assert result["PublishedProblemId"]==pid and result["Status"]=="Published"
+    assert sql('SELECT COUNT(*) FROM "Problems"')==count
+    assert sql(f'SELECT string_agg("Id"::text,\',\' ORDER BY "Id") FROM "QuestionOptions" WHERE "ProblemId"={pid}')==before
+    assert sql(f'SELECT COUNT(*) FROM "ProblemAttempts" WHERE "ProblemId"={pid}')==attempts
+    print("PASS: reviewed amendment keeps problem and option IDs, attempt history and count")

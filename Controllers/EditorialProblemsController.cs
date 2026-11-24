@@ -1,5 +1,7 @@
 using System.Security.Claims;
 using System.Text.Json;
+using System.Security.Cryptography;
+using System.Text;
 using MathWorldAPI.Data;
 using MathWorldAPI.Models;
 using MathWorldAPI.Services;
@@ -40,6 +42,7 @@ public sealed class EditorialProblemsController(AppDbContext db,IConfiguration c
         ResourceId=d.Id.ToString(),Origin="api",CreatedAtUtc=DateTime.UtcNow});
     private static object View(CurriculumDraftItem d)=>new{d.Id,d.OwnerUserId,d.LastEditorUserId,d.Revision,
         Status=d.EditorialStatus,d.SubmittedAtUtc,d.ReviewedAtUtc,d.ReviewedByUserId,d.ReviewNote,d.PublishedAtUtc,d.PublishedProblemId,
+        d.SourceProblemId, LegacySolutionAr=d.SourceProblemId.HasValue?d.DetailedSolutionAr:null, LegacySolutionEn=d.SourceProblemId.HasValue?d.DetailedSolutionEn:null,
         Content=WizardProblemContract.Read(d.WizardJson!)};
     private static void Save(CurriculumDraftItem d,WizardProblem p,string json,int actor)
     {
@@ -64,7 +67,7 @@ public sealed class EditorialProblemsController(AppDbContext db,IConfiguration c
         if(page is <1 or >10000)return BadRequest();
         var q=Own().AsNoTracking();
         var items=await q.OrderByDescending(x=>x.Id).Skip((page-1)*30).Take(30)
-            .Select(x=>new{x.Id,x.OwnerUserId,x.Revision,Status=x.EditorialStatus,x.QuestionTextAr,x.QuestionTextEn,x.ReviewNote,x.PublishedProblemId}).ToListAsync(ct);
+            .Select(x=>new{x.Id,x.OwnerUserId,x.Revision,Status=x.EditorialStatus,x.QuestionTextAr,x.QuestionTextEn,x.ReviewNote,x.PublishedProblemId,x.SourceProblemId}).ToListAsync(ct);
         return Ok(new{Total=await q.CountAsync(ct),Items=items});
     }
     [HttpGet("{id:long}")]
@@ -73,6 +76,68 @@ public sealed class EditorialProblemsController(AppDbContext db,IConfiguration c
         if(await Actor(AccountRolePolicy.EditDrafts,false,ct) is null)return Forbid();
         var d=await Own().AsNoTracking().SingleOrDefaultAsync(x=>x.Id==id,ct);
         return d is null?NotFound():Ok(View(d));
+    }
+    // Hash immutable question data and current editorial material, never learner counters.
+    private static string Fingerprint(MathProblem p)=>Convert.ToHexString(SHA256.HashData(Encoding.UTF8.GetBytes(
+        JsonSerializer.Serialize(new{p.Id,p.StageId,p.CategoryId,p.Points,p.TitleAr,p.TitleEn,p.QuestionTextAr,p.QuestionTextEn,
+            p.DetailedSolutionAr,p.DetailedSolutionEn,p.YoutubeSolutionUrl,p.EditorialDetailsJson,
+            Options=p.Options.OrderBy(o=>o.Order).ThenBy(o=>o.Id).Select(o=>new{o.Id,o.Order,o.LatexCode,o.IsCorrect})}))));
+    private static bool SameQuestion(MathProblem source,WizardProblem p)
+    {
+        var options=source.Options.OrderBy(o=>o.Order).ThenBy(o=>o.Id).ToArray();
+        return p.StageId==source.StageId&&p.CategoryId==source.CategoryId&&p.Points==source.Points&&
+            p.Question?.Ar==source.QuestionTextAr&&p.Question?.En==source.QuestionTextEn&&
+            p.Options is {Length:4}&&options.Length==4&&p.Options.Select((o,i)=>o is not null&&
+                o.LatexCode==options[i].LatexCode&&o.IsCorrect==options[i].IsCorrect).All(x=>x);
+    }
+
+    [HttpGet("bank")]
+    public async Task<IActionResult> Bank([FromQuery]int page=1,[FromQuery]int? stageId=null,[FromQuery]int? categoryId=null,CancellationToken ct=default)
+    {
+        if(await Actor(AccountRolePolicy.EditDrafts,false,ct) is null)return Forbid();
+        if(page is <1 or >10000)return BadRequest();
+        var q=db.Problems.AsNoTracking().Where(p=>(stageId==null||p.StageId==stageId)&&(categoryId==null||p.CategoryId==categoryId));
+        var items=await q.OrderBy(p=>p.StageId).ThenBy(p=>p.CategoryId).ThenBy(p=>p.Id).Skip((page-1)*30).Take(30)
+            .Select(p=>new{p.Id,p.StageId,p.CategoryId,p.TitleAr,p.TitleEn,HasStructuredSolution=p.EditorialDetailsJson!=null,
+                HasOpenReview=db.CurriculumDraftItems.Any(d=>d.SourceProblemId==p.Id&&d.EditorialStatus!="Published")}).ToListAsync(ct);
+        return Ok(new{Total=await q.CountAsync(ct),Items=items});
+    }
+    [HttpPost("amend/{problemId:int}")]
+    public async Task<IActionResult> Amend(int problemId,CancellationToken ct)
+    {
+        await using var tx=await db.Database.BeginTransactionAsync(ct);
+        if(await Actor(AccountRolePolicy.EditDrafts,true,ct) is null)return Forbid();
+        await ProblemTransactionLocks.LockQuestionForAdminMutationAsync(db,problemId,ct);
+        var p=await db.Problems.AsNoTracking().Include(x=>x.Options).SingleOrDefaultAsync(x=>x.Id==problemId,ct);
+        if(p is null)return NotFound();
+        if(await db.CurriculumDraftItems.AnyAsync(x=>x.SourceProblemId==problemId&&x.EditorialStatus!="Published",ct))
+            return Conflict(new{Message="AmendmentAlreadyOpen"});
+        var skills=await db.CurriculumProblemSkills.Where(x=>x.ProblemId==problemId).ToListAsync(ct);
+        var tracks=await db.LearningTrackProblems.Where(x=>x.ProblemId==problemId).Select(x=>x.TrackId).ToArrayAsync(ct);
+        var options=p.Options.OrderBy(o=>o.Order).ThenBy(o=>o.Id).Select(o=>new WizardOption(o.LatexCode,o.IsCorrect)).ToArray();
+        var content=new WizardProblem(StageId:p.StageId,CategoryId:p.CategoryId,Points:p.Points,
+            PrimarySkillId:skills.SingleOrDefault(x=>x.IsPrimary)?.SkillId??0,SecondarySkillIds:skills.Where(x=>!x.IsPrimary).Select(x=>x.SkillId).ToArray(),
+            TrackIds:tracks,Title:new(p.TitleAr,p.TitleEn),Question:new(p.QuestionTextAr,p.QuestionTextEn),Options:options);
+        if(p.EditorialDetailsJson is not null)
+        {
+            using var doc=JsonDocument.Parse(p.EditorialDetailsJson);var root=doc.RootElement;
+            var hints=root.TryGetProperty("Hints",out var h)?h.Deserialize<BilingualText[]>():null;
+            var solution=root.TryGetProperty("Solution",out var sol)?sol.Deserialize<WizardSolution>():null;
+            if(root.TryGetProperty("Distractors",out var ds)&&ds.ValueKind==JsonValueKind.Array)
+            {
+                var details=ds.EnumerateArray().ToArray();
+                if(details.Length==options.Length)options=options.Select((o,i)=>o with {
+                    ErrorType=details[i].GetProperty("ErrorType").GetString()??"",
+                    Reason=details[i].GetProperty("Reason").Deserialize<BilingualText>()
+                }).ToArray();
+            }
+            content=content with{Hints=hints,Solution=solution,Options=options,DifficultyLevel=root.TryGetProperty("DifficultyLevel",out var difficulty)?difficulty.GetInt32():1};
+        }
+        var d=new CurriculumDraftItem{OwnerUserId=ActorId,ContentKey="amend-"+Guid.NewGuid().ToString("N"),EditorialStatus="Draft",
+            SourceProblemId=p.Id,SourceFingerprint=Fingerprint(p),DetailedSolutionAr=p.DetailedSolutionAr,DetailedSolutionEn=p.DetailedSolutionEn};
+        Save(d,content,WizardProblemContract.Serialize(content),ActorId);
+        db.CurriculumDraftItems.Add(d);await db.SaveChangesAsync(ct);Audit(d,"EditorialAmendmentCreated");
+        await db.SaveChangesAsync(ct);await tx.CommitAsync(ct);return StatusCode(201,View(d));
     }
     [HttpPost]
     public async Task<IActionResult> Create(SaveInput input,CancellationToken ct)
@@ -101,16 +166,26 @@ public sealed class EditorialProblemsController(AppDbContext db,IConfiguration c
         Save(d,input.Content,json,ActorId);d.Revision++;
         Audit(d,"EditorialDraftUpdated");await db.SaveChangesAsync(ct);await tx.CommitAsync(ct);return Ok(View(d));
     }
-    private async Task<List<string>> Validate(WizardProblem p,CancellationToken ct)
+    private async Task<List<string>> Validate(WizardProblem p,CancellationToken ct,CurriculumDraftItem d)
     {
         var errors=WizardProblemContract.Validate(p);if(errors.Count>0)return errors;
         var skills=new[]{p.PrimarySkillId}.Concat(p.SecondarySkillIds??Array.Empty<int>()).ToArray();
         if(!await db.Categories.AnyAsync(c=>c.Id==p.CategoryId&&c.StageId==p.StageId,ct))errors.Add("CategoryStageMismatch");
         if(await db.CurriculumSkills.CountAsync(s=>skills.Contains(s.Id)&&s.StageId==p.StageId&&s.CategoryId==p.CategoryId&&s.IsPublished&&s.Domain.IsPublished,ct)!=skills.Length)errors.Add("SkillCategoryMismatch");
         if(await db.LearningTracks.CountAsync(t=>p.TrackIds!.Contains(t.Id)&&t.StageId==p.StageId,ct)!=p.TrackIds!.Length)errors.Add("TrackStageMismatch");
-        var existing=await db.Problems.AsNoTracking().Where(x=>x.StageId==p.StageId).Select(x=>new{x.QuestionTextAr,x.QuestionTextEn}).ToListAsync(ct);
+        var existing=await db.Problems.AsNoTracking().Where(x=>x.StageId==p.StageId&&x.Id!=d.SourceProblemId).Select(x=>new{x.QuestionTextAr,x.QuestionTextEn}).ToListAsync(ct);
         if(existing.Any(x=>WizardProblemContract.Normalize(x.QuestionTextAr)==WizardProblemContract.Normalize(p.Question!.Ar)||
             WizardProblemContract.Normalize(x.QuestionTextEn)==WizardProblemContract.Normalize(p.Question!.En)))errors.Add("QuestionAlreadyExists");
+        if(d.SourceProblemId.HasValue)
+        {
+            var source=await db.Problems.AsNoTracking().Include(x=>x.Options).SingleOrDefaultAsync(x=>x.Id==d.SourceProblemId,ct);
+            if(source is null||Fingerprint(source)!=d.SourceFingerprint)errors.Add("AmendmentSourceChanged");
+            else if(!SameQuestion(source,p))errors.Add("AmendmentQuestionImmutable");
+            var existingTracks=await db.LearningTrackProblems.Where(x=>x.ProblemId==d.SourceProblemId).Select(x=>x.TrackId).ToArrayAsync(ct);
+            if(existingTracks.Any(x=>!p.TrackIds!.Contains(x)))errors.Add("AmendmentTrackRemoval");
+            var existingSkills=await db.CurriculumProblemSkills.Where(x=>x.ProblemId==d.SourceProblemId).ToListAsync(ct);
+            if(existingSkills.Any(x=>x.IsPrimary?x.SkillId!=p.PrimarySkillId:!skills.Contains(x.SkillId)))errors.Add("AmendmentSkillRemoval");
+        }
         return errors;
     }
     [HttpPost("{id:long}/submit")]
@@ -120,7 +195,7 @@ public sealed class EditorialProblemsController(AppDbContext db,IConfiguration c
         if(await Actor(AccountRolePolicy.SubmitDrafts,true,ct) is null)return Forbid();
         var d=await Lock(id,ct);if(d is null)return NotFound();
         if(d.Revision!=input.Revision||d.Revision==int.MaxValue||d.EditorialStatus is not ("Draft" or "NeedsChanges"))return Conflict();
-        var errors=await Validate(WizardProblemContract.Read(d.WizardJson!),ct);
+        var errors=await Validate(WizardProblemContract.Read(d.WizardJson!),ct,d);
         if(errors.Count>0)return BadRequest(new{Message="EditorialValidationFailed",Errors=errors});
         d.EditorialStatus="PendingReview";d.SubmittedAtUtc=DateTime.UtcNow;d.Revision++;
         Audit(d,"EditorialDraftSubmitted");await db.SaveChangesAsync(ct);await tx.CommitAsync(ct);return Ok(View(d));
@@ -136,7 +211,7 @@ public sealed class EditorialProblemsController(AppDbContext db,IConfiguration c
         if(d.Revision!=input.Revision||d.Revision==int.MaxValue||d.EditorialStatus is not ("PendingReview" or "Approved"))return Conflict();
         if(input.Confirm)
         {
-            var errors=await Validate(WizardProblemContract.Read(d.WizardJson!),ct);
+            var errors=await Validate(WizardProblemContract.Read(d.WizardJson!),ct,d);
             if(errors.Count>0)return Conflict(new{Message="EditorialValidationFailed",Errors=errors});
         }
         d.EditorialStatus=input.Confirm?"Approved":"NeedsChanges";d.ReviewedAtUtc=DateTime.UtcNow;
@@ -155,31 +230,48 @@ public sealed class EditorialProblemsController(AppDbContext db,IConfiguration c
         var d=await Lock(id,ct);if(d is null)return NotFound();
         if(d.Revision!=input.Revision||d.Revision==int.MaxValue||d.EditorialStatus!="Approved"||d.PublishedProblemId.HasValue)return Conflict();
         var p=WizardProblemContract.Read(d.WizardJson!);
-        var errors=await Validate(p,ct);if(errors.Count>0)return Conflict(new{Message="EditorialValidationFailed",Errors=errors});
+        if(d.SourceProblemId.HasValue)
+            await ProblemTransactionLocks.LockQuestionForAdminMutationAsync(db,d.SourceProblemId.Value,ct);
+        var errors=await Validate(p,ct,d);if(errors.Count>0)return Conflict(new{Message="EditorialValidationFailed",Errors=errors});
         // Lock target track revisions before adding links. Existing published tracks remain valid.
         var trackIds=p.TrackIds!.Order().ToArray();
         var tracks=await db.LearningTracks.FromSqlInterpolated($@"SELECT * FROM ""LearningTracks"" WHERE ""Id""=ANY({trackIds}) ORDER BY ""Id"" FOR UPDATE").ToListAsync(ct);
         if(tracks.Count!=trackIds.Length||tracks.Any(t=>t.StageId!=p.StageId||t.Revision==int.MaxValue))return Conflict();
         var flatAr=WizardProblemContract.FlatSolution(p.Solution!,true);var flatEn=WizardProblemContract.FlatSolution(p.Solution!,false);
         if(flatAr.Length>12000||flatEn.Length>12000)return Conflict(new{Message="SolutionTooLong"});
-        var problem=new MathProblem{StageId=p.StageId,CategoryId=p.CategoryId,Points=p.Points,
+        var metadata=JsonSerializer.Serialize(new{p.DifficultyLevel,p.Hints,p.Solution,
+            Distractors=p.Options!.Select((o,i)=>new{o.ErrorType,o.Reason,Order=i+1}).ToArray()});
+        MathProblem problem;
+        if(d.SourceProblemId.HasValue)
+        {
+            problem=await db.Problems.Include(x=>x.Options).SingleAsync(x=>x.Id==d.SourceProblemId,ct);
+            if(Fingerprint(problem)!=d.SourceFingerprint||!SameQuestion(problem,p))return Conflict(new{Message="AmendmentSourceChanged"});
+            problem.TitleAr=p.Title!.Ar.Trim();problem.TitleEn=p.Title.En.Trim();
+            problem.DetailedSolutionAr=flatAr;problem.DetailedSolutionEn=flatEn;problem.EditorialDetailsJson=metadata;
+        }
+        else
+        {
+            problem=new MathProblem{StageId=p.StageId,CategoryId=p.CategoryId,Points=p.Points,
             TitleAr=p.Title!.Ar.Trim(),TitleEn=p.Title.En.Trim(),QuestionTextAr=p.Question!.Ar.Trim(),QuestionTextEn=p.Question.En.Trim(),
             DetailedSolutionAr=flatAr,DetailedSolutionEn=flatEn,
-            EditorialDetailsJson=JsonSerializer.Serialize(new{p.DifficultyLevel,p.Hints,p.Solution,
-                Distractors=p.Options!.Select((o,i)=>new{o.ErrorType,o.Reason,Order=i+1}).ToArray()}),
+            EditorialDetailsJson=metadata,
             Options=p.Options!.Select((o,i)=>new QuestionOption{LatexCode=o.LatexCode.Trim(),IsCorrect=o.IsCorrect,Order=i+1}).ToList()};
-        db.Problems.Add(problem);await db.SaveChangesAsync(ct);
+            db.Problems.Add(problem);await db.SaveChangesAsync(ct);
+        }
         var skillIds=new[]{p.PrimarySkillId}.Concat(p.SecondarySkillIds??Array.Empty<int>()).ToArray();
-        db.CurriculumProblemSkills.AddRange(skillIds.Select(x=>new CurriculumProblemSkill{ProblemId=problem.Id,SkillId=x,IsPrimary=x==p.PrimarySkillId}));
+        var previousSkills=await db.CurriculumProblemSkills.Where(x=>x.ProblemId==problem.Id).Select(x=>x.SkillId).ToArrayAsync(ct);
+        db.CurriculumProblemSkills.AddRange(skillIds.Where(x=>!previousSkills.Contains(x)).Select(x=>new CurriculumProblemSkill{ProblemId=problem.Id,SkillId=x,IsPrimary=x==p.PrimarySkillId}));
         foreach(var t in tracks)
         {
             if(!await db.LearningTrackCategories.AnyAsync(x=>x.TrackId==t.Id&&x.CategoryId==p.CategoryId,ct))
                 db.LearningTrackCategories.Add(new LearningTrackCategory{TrackId=t.Id,CategoryId=p.CategoryId});
             var linked=await db.LearningTrackSkills.Where(x=>x.TrackId==t.Id&&skillIds.Contains(x.SkillId)).Select(x=>x.SkillId).ToListAsync(ct);
             db.LearningTrackSkills.AddRange(skillIds.Where(x=>!linked.Contains(x)).Select(x=>new LearningTrackSkill{TrackId=t.Id,SkillId=x}));
-            db.LearningTrackProblems.Add(new LearningTrackProblem{TrackId=t.Id,ProblemId=problem.Id});t.Revision++;
+            if(!await db.LearningTrackProblems.AnyAsync(x=>x.TrackId==t.Id&&x.ProblemId==problem.Id,ct))
+                db.LearningTrackProblems.Add(new LearningTrackProblem{TrackId=t.Id,ProblemId=problem.Id});
+            t.Revision++;
         }
         d.PublishedProblemId=problem.Id;d.PublishedAtUtc=DateTime.UtcNow;d.EditorialStatus="Published";d.Revision++;
-        Audit(d,"EditorialDraftPublished");await db.SaveChangesAsync(ct);await tx.CommitAsync(ct);return Ok(View(d));
+        Audit(d,d.SourceProblemId.HasValue?"EditorialAmendmentPublished":"EditorialDraftPublished");await db.SaveChangesAsync(ct);await tx.CommitAsync(ct);return Ok(View(d));
     }
 }
