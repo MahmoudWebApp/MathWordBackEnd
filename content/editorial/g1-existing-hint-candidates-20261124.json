@@ -6212,6 +6212,2652 @@
           "En": "Evaluate the antiderivative at the upper bound and subtract its value at the lower bound."
         }
       ]
+    },
+    {
+      "problemId": 1555,
+      "primarySkillKey": "place-value",
+      "question": {
+        "Ar": "في العدد 462,915، ما قيمة الرقم 6؟",
+        "En": "In 462,915, what is the value of the digit 6?"
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد موضع الرقم المطلوب بدءاً من الآحاد.",
+          "En": "Locate the requested digit starting from the ones place."
+        },
+        {
+          "Ar": "اضرب الرقم في قيمة منزلته، مع التمييز بين اسم المنزلة وقيمتها.",
+          "En": "Multiply the digit by its place value; distinguish the place name from its numerical value."
+        }
+      ]
+    },
+    {
+      "problemId": 1651,
+      "primarySkillKey": "place-value",
+      "question": {
+        "Ar": "في العدد 57,304 ما القيمة المكانية للرقم 7؟",
+        "En": "In the number 57,304, what is the place value of digit 7?"
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد موضع الرقم المطلوب بدءاً من الآحاد.",
+          "En": "Locate the requested digit starting from the ones place."
+        },
+        {
+          "Ar": "اضرب الرقم في قيمة منزلته، مع التمييز بين اسم المنزلة وقيمتها.",
+          "En": "Multiply the digit by its place value; distinguish the place name from its numerical value."
+        }
+      ]
+    },
+    {
+      "problemId": 1556,
+      "primarySkillKey": "place-value",
+      "question": {
+        "Ar": "ما العدد الناتج من 70,000 + 500 + 40 + 3؟",
+        "En": "Which number equals 70,000 + 500 + 40 + 3?"
+      },
+      "Hints": [
+        {
+          "Ar": "رتّب المنازل من الأكبر إلى الأصغر.",
+          "En": "Arrange the places from largest to smallest."
+        },
+        {
+          "Ar": "اجمع قيم المنازل، واكتب صفراً في المنزلة التي لا تحتوي قيمة.",
+          "En": "Add the place values and put zero in any empty place."
+        }
+      ]
+    },
+    {
+      "problemId": 1656,
+      "primarySkillKey": "place-value",
+      "question": {
+        "Ar": "ما العدد المكوّن من 4 آلاف و3 مئات و2 عشرات و7 آحاد؟",
+        "En": "Which number has four thousands, three hundreds, two tens, and seven ones?"
+      },
+      "Hints": [
+        {
+          "Ar": "رتّب المنازل من الأكبر إلى الأصغر.",
+          "En": "Arrange the places from largest to smallest."
+        },
+        {
+          "Ar": "اجمع قيم المنازل، واكتب صفراً في المنزلة التي لا تحتوي قيمة.",
+          "En": "Add the place values and put zero in any empty place."
+        }
+      ]
+    },
+    {
+      "problemId": 1676,
+      "primarySkillKey": "place-value",
+      "question": {
+        "Ar": "ما العدد الذي يساوي ستة آلاف وأربع عشرات وتسعة آحاد، دون إضافة مئات؟",
+        "En": "Which number represents six thousands, four tens and nine ones, with zero hundreds?"
+      },
+      "Hints": [
+        {
+          "Ar": "رتّب المنازل من الأكبر إلى الأصغر.",
+          "En": "Arrange the places from largest to smallest."
+        },
+        {
+          "Ar": "اجمع قيم المنازل، واكتب صفراً في المنزلة التي لا تحتوي قيمة.",
+          "En": "Add the place values and put zero in any empty place."
+        }
+      ]
+    },
+    {
+      "problemId": 1557,
+      "primarySkillKey": "place-value",
+      "question": {
+        "Ar": "اختر الرمز الصحيح الذي يملأ المربع: 58,209 □ 58,290.",
+        "En": "Choose the correct comparison symbol: 58,209 □ 58,290."
+      },
+      "Hints": [
+        {
+          "Ar": "قارن العددين من أقصى اليسار.",
+          "En": "Compare the numbers from the leftmost digit."
+        },
+        {
+          "Ar": "عند أول منزلة مختلفة، العدد ذو الرقم الأكبر هو الأكبر.",
+          "En": "At the first differing place, the number with the larger digit is greater."
+        }
+      ]
+    },
+    {
+      "problemId": 1562,
+      "primarySkillKey": "place-value",
+      "question": {
+        "Ar": "كم يساوي أربعون مجموعة من مئة؟",
+        "En": "What is the total value of forty groups of one hundred?"
+      },
+      "Hints": [
+        {
+          "Ar": "كل مجموعة تحتوي مئة واحدة.",
+          "En": "Each group contains one hundred."
+        },
+        {
+          "Ar": "اضرب عدد المجموعات في 100.",
+          "En": "Multiply the number of groups by 100."
+        }
+      ]
+    },
+    {
+      "problemId": 1675,
+      "primarySkillKey": "place-value",
+      "question": {
+        "Ar": "إذا انتقل الرقم 4 من منزلة المئات إلى منزلة الآلاف، كم مرة تصبح قيمته المكانية أكبر؟",
+        "En": "If the digit 4 moves from the hundreds place to the thousands place, by what factor does its place value increase?"
+      },
+      "Hints": [
+        {
+          "Ar": "الآلاف تقع منزلة واحدة إلى يسار المئات.",
+          "En": "Thousands are one place to the left of hundreds."
+        },
+        {
+          "Ar": "قارن قيمة الرقم نفسه في المنزلتين بالقسمة.",
+          "En": "Compare the same digit's values in the two places by division."
+        }
+      ]
+    },
+    {
+      "problemId": 1681,
+      "primarySkillKey": "place-value",
+      "question": {
+        "Ar": "ما أصغر عدد مكوّن من أربعة أرقام يكون فيه الرقم 6 في المئات والرقم 8 في الآحاد؟",
+        "En": "What is the smallest four-digit number with 6 in the hundreds place and 8 in the ones place?"
+      },
+      "Hints": [
+        {
+          "Ar": "حافظ على الرقمين المحددين في منزلتي المئات والآحاد.",
+          "En": "Keep the specified digits in the hundreds and ones places."
+        },
+        {
+          "Ar": "اختر أصغر رقم يسمح بعدد من أربع خانات في الآلاف، وأصغر رقم ممكن في العشرات.",
+          "En": "Choose the smallest thousands digit that allows four digits, and the smallest possible tens digit."
+        }
+      ]
+    },
+    {
+      "problemId": 1708,
+      "primarySkillKey": "place-value",
+      "question": {
+        "Ar": "بدأ عدّاد عند 6,005 ثم نقص 90. ما العدد الجديد؟",
+        "En": "A counter starts at 6,005 and decreases by 90. What is the new value?"
+      },
+      "Hints": [
+        {
+          "Ar": "انخفاض العداد يعني إجراء عملية طرح.",
+          "En": "A decreasing counter requires subtraction."
+        },
+        {
+          "Ar": "اطرح 90 من القيمة الابتدائية، مع إعادة التجميع عبر منزلة المئات عند الحاجة.",
+          "En": "Subtract 90 from the initial value, regrouping across hundreds if needed."
+        }
+      ]
+    },
+    {
+      "problemId": 22,
+      "primarySkillKey": "secondary-trigonometric-special-angles",
+      "question": {
+        "Ar": "ما قيمة $\\sin 30^\\circ$؟",
+        "En": "What is the value of $\\sin 30^\\circ$?"
+      },
+      "Hints": [
+        {
+          "Ar": "استخدم مثلثاً قائماً خاصاً أو دائرة الوحدة.",
+          "En": "Use a special right triangle or the unit circle."
+        },
+        {
+          "Ar": "في دائرة الوحدة يساوي الجيب الإحداثي الصادي؛ استعن بقيم الزوايا الخاصة الدقيقة.",
+          "En": "On the unit circle sine is the y-coordinate; use exact special-angle values."
+        }
+      ]
+    },
+    {
+      "problemId": 286,
+      "primarySkillKey": "secondary-trigonometric-special-angles",
+      "question": {
+        "Ar": "ما القيمة الدقيقة لجيب الزاوية 30°؟",
+        "En": "Find the exact sine of angle 30°."
+      },
+      "Hints": [
+        {
+          "Ar": "استخدم مثلثاً قائماً خاصاً أو دائرة الوحدة.",
+          "En": "Use a special right triangle or the unit circle."
+        },
+        {
+          "Ar": "في دائرة الوحدة يساوي الجيب الإحداثي الصادي؛ استعن بقيم الزوايا الخاصة الدقيقة.",
+          "En": "On the unit circle sine is the y-coordinate; use exact special-angle values."
+        }
+      ]
+    },
+    {
+      "problemId": 310,
+      "primarySkillKey": "secondary-trigonometric-special-angles",
+      "question": {
+        "Ar": "ما القيمة الدقيقة لجيب الزاوية 60°؟",
+        "En": "Find the exact sine of angle 60°."
+      },
+      "Hints": [
+        {
+          "Ar": "استخدم مثلثاً قائماً خاصاً أو دائرة الوحدة.",
+          "En": "Use a special right triangle or the unit circle."
+        },
+        {
+          "Ar": "في دائرة الوحدة يساوي الجيب الإحداثي الصادي؛ استعن بقيم الزوايا الخاصة الدقيقة.",
+          "En": "On the unit circle sine is the y-coordinate; use exact special-angle values."
+        }
+      ]
+    },
+    {
+      "problemId": 298,
+      "primarySkillKey": "secondary-trigonometric-special-angles",
+      "question": {
+        "Ar": "ما القيمة الدقيقة لجيب الزاوية 45°؟",
+        "En": "Find the exact sine of angle 45°."
+      },
+      "Hints": [
+        {
+          "Ar": "استخدم مثلثاً قائماً خاصاً أو دائرة الوحدة.",
+          "En": "Use a special right triangle or the unit circle."
+        },
+        {
+          "Ar": "في دائرة الوحدة يساوي الجيب الإحداثي الصادي؛ استعن بقيم الزوايا الخاصة الدقيقة.",
+          "En": "On the unit circle sine is the y-coordinate; use exact special-angle values."
+        }
+      ]
+    },
+    {
+      "problemId": 46,
+      "primarySkillKey": "secondary-trigonometric-special-angles",
+      "question": {
+        "Ar": "ما قيمة cos(60°)؟",
+        "En": "What is cos(60°)?"
+      },
+      "Hints": [
+        {
+          "Ar": "جيب التمام يمثل الإحداثي السيني على دائرة الوحدة.",
+          "En": "Cosine is the x-coordinate on the unit circle."
+        },
+        {
+          "Ar": "استخدم علاقة الزاويتين المتتامتين أو نسب مثلث 30–60–90.",
+          "En": "Use complementary-angle identities or the 30–60–90 triangle ratios."
+        }
+      ]
+    },
+    {
+      "problemId": 62,
+      "primarySkillKey": "secondary-trigonometric-special-angles",
+      "question": {
+        "Ar": "ما قيمة tan(45°)؟",
+        "En": "What is tan(45°)?"
+      },
+      "Hints": [
+        {
+          "Ar": "تخيّل مثلثاً قائماً متساوي الساقين.",
+          "En": "Imagine an isosceles right triangle."
+        },
+        {
+          "Ar": "ظل الزاوية هو المقابل مقسوماً على المجاور؛ قارن طولي الساقين.",
+          "En": "Tangent is opposite over adjacent; compare the lengths of the two legs."
+        }
+      ]
+    },
+    {
+      "problemId": 274,
+      "primarySkillKey": "secondary-trigonometric-special-angles",
+      "question": {
+        "Ar": "ما القيمة الدقيقة لجيب الزاوية 0°؟",
+        "En": "Find the exact sine of angle 0°."
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد موضع الزاوية على دائرة الوحدة انطلاقاً من المحور السيني الموجب.",
+          "En": "Locate the angle on the unit circle starting from the positive x-axis."
+        },
+        {
+          "Ar": "اقرأ الإحداثي الصادي للنقطة المقابلة للزاوية.",
+          "En": "Read the y-coordinate of the corresponding point."
+        }
+      ]
+    },
+    {
+      "problemId": 322,
+      "primarySkillKey": "secondary-trigonometric-special-angles",
+      "question": {
+        "Ar": "ما القيمة الدقيقة لجيب الزاوية 90°؟",
+        "En": "Find the exact sine of angle 90°."
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد موضع الزاوية على دائرة الوحدة انطلاقاً من المحور السيني الموجب.",
+          "En": "Locate the angle on the unit circle starting from the positive x-axis."
+        },
+        {
+          "Ar": "اقرأ الإحداثي الصادي للنقطة المقابلة للزاوية.",
+          "En": "Read the y-coordinate of the corresponding point."
+        }
+      ]
+    },
+    {
+      "problemId": 3,
+      "primarySkillKey": "primary-subtraction",
+      "question": {
+        "Ar": "إذا كان مع أحمد $12$ تفاحة، وأعطى صديقه $5$ تفاحات. كم تفاحة بقيت مع أحمد؟",
+        "En": "Ahmed has $12$ apples, and he gave $5$ apples to his friend. How many apples are left with Ahmed?"
+      },
+      "Hints": [
+        {
+          "Ar": "الطرح يحسب الباقي أو الفرق.",
+          "En": "Subtraction finds the remainder or difference."
+        },
+        {
+          "Ar": "اطرح العدد الثاني من الأول، وأعد التجميع إذا لزم.",
+          "En": "Subtract the second number from the first, regrouping if needed."
+        }
+      ]
+    },
+    {
+      "problemId": 37,
+      "primarySkillKey": "primary-subtraction",
+      "question": {
+        "Ar": "كم يساوي 84 - 29؟",
+        "En": "What is 84 - 29?"
+      },
+      "Hints": [
+        {
+          "Ar": "الطرح يحسب الباقي أو الفرق.",
+          "En": "Subtraction finds the remainder or difference."
+        },
+        {
+          "Ar": "اطرح العدد الثاني من الأول، وأعد التجميع إذا لزم.",
+          "En": "Subtract the second number from the first, regrouping if needed."
+        }
+      ]
+    },
+    {
+      "problemId": 761,
+      "primarySkillKey": "primary-subtraction",
+      "question": {
+        "Ar": "خزان فيه 425 لتراً من الماء. بقي فيه 178 لتراً بعد استخدام بعض الماء. كم لتراً استُخدم؟",
+        "En": "A tank initially holds 425 liters of water. After some water is used, 178 liters remain. How many liters were used?"
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد الكمية الأكبر والأصغر.",
+          "En": "Identify the larger and smaller quantities."
+        },
+        {
+          "Ar": "اطرح الكمية الأصغر من الأكبر لإيجاد الفرق.",
+          "En": "Subtract the smaller amount from the larger to find the difference."
+        }
+      ]
+    },
+    {
+      "problemId": 762,
+      "primarySkillKey": "primary-subtraction",
+      "question": {
+        "Ar": "جمعت ليلى 650 ملصقاً، وجمع سامر 487 ملصقاً. بكم ملصقاً تزيد مجموعة ليلى؟",
+        "En": "Layla collected 650 stickers and Samer collected 487. How many more stickers does Layla have?"
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد الكمية الأكبر والأصغر.",
+          "En": "Identify the larger and smaller quantities."
+        },
+        {
+          "Ar": "اطرح الكمية الأصغر من الأكبر لإيجاد الفرق.",
+          "En": "Subtract the smaller amount from the larger to find the difference."
+        }
+      ]
+    },
+    {
+      "problemId": 763,
+      "primarySkillKey": "primary-subtraction",
+      "question": {
+        "Ar": "بعد سحب 38 بطاقة من صندوق بقيت 95 بطاقة. كم بطاقة كانت في الصندوق قبل السحب؟",
+        "En": "After 38 cards were removed from a box, 95 remained. How many cards were in the box originally?"
+      },
+      "Hints": [
+        {
+          "Ar": "العدد الأصلي يتضمن الباقي والبطاقات التي أُزيلت.",
+          "En": "The original count includes the remaining and removed cards."
+        },
+        {
+          "Ar": "أعد البطاقات المُزالة إلى الباقي باستخدام الجمع.",
+          "En": "Add the removed cards back to the remaining count."
+        }
+      ]
+    },
+    {
+      "problemId": 764,
+      "primarySkillKey": "primary-subtraction",
+      "question": {
+        "Ar": "احسب 503 − 287 مع الانتباه إلى الاستلاف من المئات.",
+        "En": "Calculate 503 − 287, paying attention to regrouping through the zero tens digit."
+      },
+      "Hints": [
+        {
+          "Ar": "رتّب الأعداد بحسب الآحاد والعشرات والمئات.",
+          "En": "Align ones, tens, and hundreds."
+        },
+        {
+          "Ar": "إذا تعذر الاستلاف من العشرات الصفرية، أعد التجميع من المئات ثم العشرات.",
+          "En": "If the tens digit is zero, regroup from hundreds and then tens."
+        }
+      ]
+    },
+    {
+      "problemId": 8,
+      "primarySkillKey": "primary-perimeter",
+      "question": {
+        "Ar": "مربع طول ضلعه $5$ سم. ما محيطه؟",
+        "En": "A square has a side length of $5$ cm. What is its perimeter?"
+      },
+      "Hints": [
+        {
+          "Ar": "أضلاع المربع الأربعة متساوية.",
+          "En": "All four sides of a square are equal."
+        },
+        {
+          "Ar": "اضرب طول الضلع الواحد في أربعة، واستخدم وحدة طول.",
+          "En": "Multiply one side length by four and use a length unit."
+        }
+      ]
+    },
+    {
+      "problemId": 39,
+      "primarySkillKey": "primary-perimeter",
+      "question": {
+        "Ar": "مستطيل طوله 8 سم وعرضه 5 سم؛ ما محيطه؟",
+        "En": "A rectangle is 8 cm long and 5 cm wide. What is its perimeter?"
+      },
+      "Hints": [
+        {
+          "Ar": "المحيط مجموع أطوال حدود المستطيل.",
+          "En": "Perimeter is the sum of the rectangle's boundary lengths."
+        },
+        {
+          "Ar": "اجمع الطول والعرض واضرب المجموع في اثنين.",
+          "En": "Add length and width and multiply the sum by two."
+        }
+      ]
+    },
+    {
+      "problemId": 155,
+      "primarySkillKey": "primary-perimeter",
+      "question": {
+        "Ar": "ما محيط مستطيل طوله 7 سم وعرضه 4 سم؟",
+        "En": "Find the perimeter of a 7 cm by 4 cm rectangle."
+      },
+      "Hints": [
+        {
+          "Ar": "المحيط مجموع أطوال حدود المستطيل.",
+          "En": "Perimeter is the sum of the rectangle's boundary lengths."
+        },
+        {
+          "Ar": "اجمع الطول والعرض واضرب المجموع في اثنين.",
+          "En": "Add length and width and multiply the sum by two."
+        }
+      ]
+    },
+    {
+      "problemId": 167,
+      "primarySkillKey": "primary-perimeter",
+      "question": {
+        "Ar": "ما محيط مستطيل طوله 8 سم وعرضه 5 سم؟",
+        "En": "Find the perimeter of a 8 cm by 5 cm rectangle."
+      },
+      "Hints": [
+        {
+          "Ar": "المحيط مجموع أطوال حدود المستطيل.",
+          "En": "Perimeter is the sum of the rectangle's boundary lengths."
+        },
+        {
+          "Ar": "اجمع الطول والعرض واضرب المجموع في اثنين.",
+          "En": "Add length and width and multiply the sum by two."
+        }
+      ]
+    },
+    {
+      "problemId": 191,
+      "primarySkillKey": "primary-perimeter",
+      "question": {
+        "Ar": "ما محيط مستطيل طوله 10 سم وعرضه 7 سم؟",
+        "En": "Find the perimeter of a 10 cm by 7 cm rectangle."
+      },
+      "Hints": [
+        {
+          "Ar": "المحيط مجموع أطوال حدود المستطيل.",
+          "En": "Perimeter is the sum of the rectangle's boundary lengths."
+        },
+        {
+          "Ar": "اجمع الطول والعرض واضرب المجموع في اثنين.",
+          "En": "Add length and width and multiply the sum by two."
+        }
+      ]
+    },
+    {
+      "problemId": 203,
+      "primarySkillKey": "primary-perimeter",
+      "question": {
+        "Ar": "ما محيط مستطيل طوله 11 سم وعرضه 8 سم؟",
+        "En": "Find the perimeter of a 11 cm by 8 cm rectangle."
+      },
+      "Hints": [
+        {
+          "Ar": "المحيط مجموع أطوال حدود المستطيل.",
+          "En": "Perimeter is the sum of the rectangle's boundary lengths."
+        },
+        {
+          "Ar": "اجمع الطول والعرض واضرب المجموع في اثنين.",
+          "En": "Add length and width and multiply the sum by two."
+        }
+      ]
+    },
+    {
+      "problemId": 38,
+      "primarySkillKey": "primary-one-step-additive-equations",
+      "question": {
+        "Ar": "إذا كان x + 9 = 23، فما قيمة x؟",
+        "En": "If x + 9 = 23, what is x?"
+      },
+      "Hints": [
+        {
+          "Ar": "عزل المجهول يحتاج إلى العملية العكسية للجمع.",
+          "En": "Isolating the unknown requires the inverse of addition."
+        },
+        {
+          "Ar": "اطرح العدد المضاف من طرفي المعادلة بالتساوي.",
+          "En": "Subtract the added number from both sides equally."
+        }
+      ]
+    },
+    {
+      "problemId": 70,
+      "primarySkillKey": "primary-one-step-additive-equations",
+      "question": {
+        "Ar": "حل المعادلة س+7=12.",
+        "En": "Solve x+7=12."
+      },
+      "Hints": [
+        {
+          "Ar": "عزل المجهول يحتاج إلى العملية العكسية للجمع.",
+          "En": "Isolating the unknown requires the inverse of addition."
+        },
+        {
+          "Ar": "اطرح العدد المضاف من طرفي المعادلة بالتساوي.",
+          "En": "Subtract the added number from both sides equally."
+        }
+      ]
+    },
+    {
+      "problemId": 85,
+      "primarySkillKey": "primary-one-step-additive-equations",
+      "question": {
+        "Ar": "حل المعادلة س+8=15.",
+        "En": "Solve x+8=15."
+      },
+      "Hints": [
+        {
+          "Ar": "عزل المجهول يحتاج إلى العملية العكسية للجمع.",
+          "En": "Isolating the unknown requires the inverse of addition."
+        },
+        {
+          "Ar": "اطرح العدد المضاف من طرفي المعادلة بالتساوي.",
+          "En": "Subtract the added number from both sides equally."
+        }
+      ]
+    },
+    {
+      "problemId": 100,
+      "primarySkillKey": "primary-one-step-additive-equations",
+      "question": {
+        "Ar": "حل المعادلة س+9=18.",
+        "En": "Solve x+9=18."
+      },
+      "Hints": [
+        {
+          "Ar": "عزل المجهول يحتاج إلى العملية العكسية للجمع.",
+          "En": "Isolating the unknown requires the inverse of addition."
+        },
+        {
+          "Ar": "اطرح العدد المضاف من طرفي المعادلة بالتساوي.",
+          "En": "Subtract the added number from both sides equally."
+        }
+      ]
+    },
+    {
+      "problemId": 115,
+      "primarySkillKey": "primary-one-step-additive-equations",
+      "question": {
+        "Ar": "حل المعادلة س+10=21.",
+        "En": "Solve x+10=21."
+      },
+      "Hints": [
+        {
+          "Ar": "عزل المجهول يحتاج إلى العملية العكسية للجمع.",
+          "En": "Isolating the unknown requires the inverse of addition."
+        },
+        {
+          "Ar": "اطرح العدد المضاف من طرفي المعادلة بالتساوي.",
+          "En": "Subtract the added number from both sides equally."
+        }
+      ]
+    },
+    {
+      "problemId": 130,
+      "primarySkillKey": "primary-one-step-additive-equations",
+      "question": {
+        "Ar": "حل المعادلة س+11=24.",
+        "En": "Solve x+11=24."
+      },
+      "Hints": [
+        {
+          "Ar": "عزل المجهول يحتاج إلى العملية العكسية للجمع.",
+          "En": "Isolating the unknown requires the inverse of addition."
+        },
+        {
+          "Ar": "اطرح العدد المضاف من طرفي المعادلة بالتساوي.",
+          "En": "Subtract the added number from both sides equally."
+        }
+      ]
+    },
+    {
+      "problemId": 40,
+      "primarySkillKey": "primary-arithmetic-mean",
+      "question": {
+        "Ar": "ما المتوسط الحسابي للأعداد 4 و6 و8 و10؟",
+        "En": "What is the mean of 4, 6, 8, and 10?"
+      },
+      "Hints": [
+        {
+          "Ar": "المتوسط يوزع مجموع القيم بالتساوي.",
+          "En": "The mean distributes the total evenly."
+        },
+        {
+          "Ar": "اجمع القيم ثم اقسم المجموع على عددها.",
+          "En": "Add the values, then divide by their count."
+        }
+      ]
+    },
+    {
+      "problemId": 72,
+      "primarySkillKey": "primary-arithmetic-mean",
+      "question": {
+        "Ar": "أوجد المتوسط الحسابي للقيم 5 و8 و11.",
+        "En": "Find the arithmetic mean of 5, 8, and 11."
+      },
+      "Hints": [
+        {
+          "Ar": "المتوسط يوزع مجموع القيم بالتساوي.",
+          "En": "The mean distributes the total evenly."
+        },
+        {
+          "Ar": "اجمع القيم ثم اقسم المجموع على عددها.",
+          "En": "Add the values, then divide by their count."
+        }
+      ]
+    },
+    {
+      "problemId": 87,
+      "primarySkillKey": "primary-arithmetic-mean",
+      "question": {
+        "Ar": "أوجد المتوسط الحسابي للقيم 7 و10 و13.",
+        "En": "Find the arithmetic mean of 7, 10, and 13."
+      },
+      "Hints": [
+        {
+          "Ar": "المتوسط يوزع مجموع القيم بالتساوي.",
+          "En": "The mean distributes the total evenly."
+        },
+        {
+          "Ar": "اجمع القيم ثم اقسم المجموع على عددها.",
+          "En": "Add the values, then divide by their count."
+        }
+      ]
+    },
+    {
+      "problemId": 102,
+      "primarySkillKey": "primary-arithmetic-mean",
+      "question": {
+        "Ar": "أوجد المتوسط الحسابي للقيم 9 و12 و15.",
+        "En": "Find the arithmetic mean of 9, 12, and 15."
+      },
+      "Hints": [
+        {
+          "Ar": "المتوسط يوزع مجموع القيم بالتساوي.",
+          "En": "The mean distributes the total evenly."
+        },
+        {
+          "Ar": "اجمع القيم ثم اقسم المجموع على عددها.",
+          "En": "Add the values, then divide by their count."
+        }
+      ]
+    },
+    {
+      "problemId": 117,
+      "primarySkillKey": "primary-arithmetic-mean",
+      "question": {
+        "Ar": "أوجد المتوسط الحسابي للقيم 11 و14 و17.",
+        "En": "Find the arithmetic mean of 11, 14, and 17."
+      },
+      "Hints": [
+        {
+          "Ar": "المتوسط يوزع مجموع القيم بالتساوي.",
+          "En": "The mean distributes the total evenly."
+        },
+        {
+          "Ar": "اجمع القيم ثم اقسم المجموع على عددها.",
+          "En": "Add the values, then divide by their count."
+        }
+      ]
+    },
+    {
+      "problemId": 132,
+      "primarySkillKey": "primary-arithmetic-mean",
+      "question": {
+        "Ar": "أوجد المتوسط الحسابي للقيم 13 و16 و19.",
+        "En": "Find the arithmetic mean of 13, 16, and 19."
+      },
+      "Hints": [
+        {
+          "Ar": "المتوسط يوزع مجموع القيم بالتساوي.",
+          "En": "The mean distributes the total evenly."
+        },
+        {
+          "Ar": "اجمع القيم ثم اقسم المجموع على عددها.",
+          "En": "Add the values, then divide by their count."
+        }
+      ]
+    },
+    {
+      "problemId": 56,
+      "primarySkillKey": "primary-simple-probability",
+      "question": {
+        "Ar": "عند رمي نرد عادل، ما احتمال الحصول على عدد زوجي؟",
+        "En": "When rolling a fair six-sided die, what is the probability of an even number?"
+      },
+      "Hints": [
+        {
+          "Ar": "اكتب النتائج الست الممكنة لرمي النرد.",
+          "En": "List the six possible die outcomes."
+        },
+        {
+          "Ar": "عدّ النتائج الزوجية واقسم عددها على عدد النتائج الممكنة.",
+          "En": "Count even outcomes and divide by the total number of possible outcomes."
+        }
+      ]
+    },
+    {
+      "problemId": 159,
+      "primarySkillKey": "primary-simple-probability",
+      "question": {
+        "Ar": "في كيس 1 كرات حمراء و6 زرقاء. ما احتمال سحب حمراء؟",
+        "En": "A bag has 1 red and 6 blue balls. Find the probability of red."
+      },
+      "Hints": [
+        {
+          "Ar": "احسب عدد الكرات الكلي من اللونين.",
+          "En": "Find the total number of balls of both colors."
+        },
+        {
+          "Ar": "عند السحب العشوائي المتساوي الاحتمال، اقسم عدد الحمراء على العدد الكلي.",
+          "En": "For an equally likely random draw, divide the red count by the total."
+        }
+      ]
+    },
+    {
+      "problemId": 171,
+      "primarySkillKey": "primary-simple-probability",
+      "question": {
+        "Ar": "في كيس 2 كرات حمراء و7 زرقاء. ما احتمال سحب حمراء؟",
+        "En": "A bag has 2 red and 7 blue balls. Find the probability of red."
+      },
+      "Hints": [
+        {
+          "Ar": "احسب عدد الكرات الكلي من اللونين.",
+          "En": "Find the total number of balls of both colors."
+        },
+        {
+          "Ar": "عند السحب العشوائي المتساوي الاحتمال، اقسم عدد الحمراء على العدد الكلي.",
+          "En": "For an equally likely random draw, divide the red count by the total."
+        }
+      ]
+    },
+    {
+      "problemId": 183,
+      "primarySkillKey": "primary-simple-probability",
+      "question": {
+        "Ar": "في كيس 3 كرات حمراء و8 زرقاء. ما احتمال سحب حمراء؟",
+        "En": "A bag has 3 red and 8 blue balls. Find the probability of red."
+      },
+      "Hints": [
+        {
+          "Ar": "احسب عدد الكرات الكلي من اللونين.",
+          "En": "Find the total number of balls of both colors."
+        },
+        {
+          "Ar": "عند السحب العشوائي المتساوي الاحتمال، اقسم عدد الحمراء على العدد الكلي.",
+          "En": "For an equally likely random draw, divide the red count by the total."
+        }
+      ]
+    },
+    {
+      "problemId": 195,
+      "primarySkillKey": "primary-simple-probability",
+      "question": {
+        "Ar": "في كيس 4 كرات حمراء و9 زرقاء. ما احتمال سحب حمراء؟",
+        "En": "A bag has 4 red and 9 blue balls. Find the probability of red."
+      },
+      "Hints": [
+        {
+          "Ar": "احسب عدد الكرات الكلي من اللونين.",
+          "En": "Find the total number of balls of both colors."
+        },
+        {
+          "Ar": "عند السحب العشوائي المتساوي الاحتمال، اقسم عدد الحمراء على العدد الكلي.",
+          "En": "For an equally likely random draw, divide the red count by the total."
+        }
+      ]
+    },
+    {
+      "problemId": 207,
+      "primarySkillKey": "primary-simple-probability",
+      "question": {
+        "Ar": "في كيس 5 كرات حمراء و10 زرقاء. ما احتمال سحب حمراء؟",
+        "En": "A bag has 5 red and 10 blue balls. Find the probability of red."
+      },
+      "Hints": [
+        {
+          "Ar": "احسب عدد الكرات الكلي من اللونين.",
+          "En": "Find the total number of balls of both colors."
+        },
+        {
+          "Ar": "عند السحب العشوائي المتساوي الاحتمال، اقسم عدد الحمراء على العدد الكلي.",
+          "En": "For an equally likely random draw, divide the red count by the total."
+        }
+      ]
+    },
+    {
+      "problemId": 426,
+      "primarySkillKey": "p-fractions-decimals-basic-percentages",
+      "question": {
+        "Ar": "في صف 80 تلميذاً، شارك 25% منهم في مسابقة. كم تلميذاً شارك؟",
+        "En": "In a school group of 80 pupils, 25% entered a competition. How many entered?"
+      },
+      "Hints": [
+        {
+          "Ar": "حوّل النسبة المئوية إلى كسر مقامه 100.",
+          "En": "Convert the percentage to a fraction over 100."
+        },
+        {
+          "Ar": "اضرب النسبة في الكمية الأصلية؛ المطلوب هو الجزء نفسه.",
+          "En": "Multiply the rate by the original quantity; the requested value is the part itself."
+        }
+      ]
+    },
+    {
+      "problemId": 617,
+      "primarySkillKey": "p-fractions-decimals-basic-percentages",
+      "question": {
+        "Ar": "كم تساوي 10% من 340؟",
+        "En": "What is 10% of 340?"
+      },
+      "Hints": [
+        {
+          "Ar": "حوّل النسبة المئوية إلى كسر مقامه 100.",
+          "En": "Convert the percentage to a fraction over 100."
+        },
+        {
+          "Ar": "اضرب النسبة في الكمية الأصلية؛ المطلوب هو الجزء نفسه.",
+          "En": "Multiply the rate by the original quantity; the requested value is the part itself."
+        }
+      ]
+    },
+    {
+      "problemId": 620,
+      "primarySkillKey": "p-fractions-decimals-basic-percentages",
+      "question": {
+        "Ar": "سعر حقيبة 80 وحدة نقدية. إذا كان الخصم 25%، فما **قيمة الخصم**؟",
+        "En": "A bag costs 80 units of currency. With a 25% discount, what is the **discount amount**?"
+      },
+      "Hints": [
+        {
+          "Ar": "حوّل النسبة المئوية إلى كسر مقامه 100.",
+          "En": "Convert the percentage to a fraction over 100."
+        },
+        {
+          "Ar": "اضرب النسبة في الكمية الأصلية؛ المطلوب هو الجزء نفسه.",
+          "En": "Multiply the rate by the original quantity; the requested value is the part itself."
+        }
+      ]
+    },
+    {
+      "problemId": 476,
+      "primarySkillKey": "p-fractions-decimals-basic-percentages",
+      "question": {
+        "Ar": "في صف مؤلف من 48 طالباً شارك 12 في مسابقة. ما نسبة المشاركين؟",
+        "En": "Twelve of 48 pupils in a class entered a competition. What percentage entered?"
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد عدد المشاركين والعدد الكلي.",
+          "En": "Identify the participating count and the total."
+        },
+        {
+          "Ar": "اقسم الجزء على الكل واضرب الناتج في 100 لتحويله إلى نسبة مئوية.",
+          "En": "Divide the part by the whole and multiply by 100."
+        }
+      ]
+    },
+    {
+      "problemId": 619,
+      "primarySkillKey": "p-fractions-decimals-basic-percentages",
+      "question": {
+        "Ar": "اختار 30 طالباً الرياضيات من بين 120 طالباً. ما نسبتهم المئوية؟",
+        "En": "30 out of 120 pupils chose mathematics. What percentage is that?"
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد عدد المشاركين والعدد الكلي.",
+          "En": "Identify the participating count and the total."
+        },
+        {
+          "Ar": "اقسم الجزء على الكل واضرب الناتج في 100 لتحويله إلى نسبة مئوية.",
+          "En": "Divide the part by the whole and multiply by 100."
+        }
+      ]
+    },
+    {
+      "problemId": 618,
+      "primarySkillKey": "p-fractions-decimals-basic-percentages",
+      "question": {
+        "Ar": "يعرف طالب أن 10% من العدد 260 تساوي 26. فكم تساوي 5% من العدد نفسه؟",
+        "En": "A pupil knows that 10% of 260 is 26. What is 5% of the same amount?"
+      },
+      "Hints": [
+        {
+          "Ar": "قارن 5% مع 10% من الكمية نفسها.",
+          "En": "Compare 5% and 10% of the same quantity."
+        },
+        {
+          "Ar": "النسبة المطلوبة نصف النسبة المعطاة؛ اقسم القيمة المعطاة على اثنين.",
+          "En": "The requested rate is half the given rate; halve the given amount."
+        }
+      ]
+    },
+    {
+      "problemId": 1657,
+      "primarySkillKey": "simple-compound-events",
+      "question": {
+        "Ar": "قرص به 3 أقسام حمراء وقسمان أزرقان وقسم أخضر واحد، وكل الأقسام متساوية. ما احتمال عدم توقف المؤشر عند الأزرق؟",
+        "En": "An equal-section spinner has 3 red, 2 blue and 1 green section. What is the probability of not landing on blue?"
+      },
+      "Hints": [
+        {
+          "Ar": "الأقسام متساوية الاحتمال؛ عدّها جميعاً.",
+          "En": "The sectors are equally likely; count them all."
+        },
+        {
+          "Ar": "استخدم احتمال المتممة: واحد ناقص احتمال اللون الأزرق.",
+          "En": "Use the complement: one minus the probability of blue."
+        }
+      ]
+    },
+    {
+      "problemId": 1658,
+      "primarySkillKey": "simple-compound-events",
+      "question": {
+        "Ar": "كيس فيه كرتان حمراوان وثلاث زرقاء. نسحب كرتين تباعاً دون إرجاع. ما احتمال أن تكونا حمراوين؟",
+        "En": "A bag has 2 red and 3 blue balls. Two are drawn without replacement. What is the probability both are red?"
+      },
+      "Hints": [
+        {
+          "Ar": "السحب دون إرجاع يغيّر محتويات الكيس بعد السحبة الأولى.",
+          "En": "Drawing without replacement changes the bag after the first draw."
+        },
+        {
+          "Ar": "اضرب احتمال الحمراء أولاً في احتمال الحمراء ثانية بعد إزالة كرة حمراء واحدة.",
+          "En": "Multiply the first red probability by the second after one red ball has been removed."
+        }
+      ]
+    },
+    {
+      "problemId": 1684,
+      "primarySkillKey": "simple-compound-events",
+      "question": {
+        "Ar": "إذا رمينا حجرَي نرد عادلين مميزين، فما احتمال أن يكون مجموع العددين الظاهرين سبعة؟",
+        "En": "Two distinguishable fair dice are rolled. What is the probability that the sum of the two faces is seven?"
+      },
+      "Hints": [
+        {
+          "Ar": "لكل نرد ست نتائج، والزوج المرتب يميز نتيجة النرد الأول والثاني.",
+          "En": "Each die has six outcomes, and ordered pairs distinguish the dice."
+        },
+        {
+          "Ar": "عدّ الأزواج التي مجموعها سبعة واقسم على عدد الأزواج الممكنة.",
+          "En": "Count pairs summing to seven and divide by all possible ordered pairs."
+        }
+      ]
+    },
+    {
+      "problemId": 1685,
+      "primarySkillKey": "simple-compound-events",
+      "question": {
+        "Ar": "قرص فيه خمسة أقسام متساوية أحدها أحمر. نديره ثلاث مرات مستقلة. ما احتمال ألّا يظهر الأحمر في أي منها؟",
+        "En": "An equal five-sector spinner has one red sector. It is spun three independent times. What is the chance no spin is red?"
+      },
+      "Hints": [
+        {
+          "Ar": "احتمال عدم الأحمر في دورة واحدة هو احتمال المتممة.",
+          "En": "The chance of no red on one spin is the complement."
+        },
+        {
+          "Ar": "بسبب استقلال الدورات اضرب احتمال عدم الأحمر في نفسه ثلاث مرات.",
+          "En": "Because spins are independent, multiply the no-red probability three times."
+        }
+      ]
+    },
+    {
+      "problemId": 1690,
+      "primarySkillKey": "simple-compound-events",
+      "question": {
+        "Ar": "نختار عشوائياً عدداً صحيحاً من 1 إلى 10 باحتمالات متساوية. ما احتمال أن يكون زوجياً أو مضاعفاً للخمسة؟",
+        "En": "An integer from 1 through 10 is selected uniformly. What is the probability it is even or divisible by five?"
+      },
+      "Hints": [
+        {
+          "Ar": "اكتب الأعداد الزوجية ومضاعفات الخمسة ضمن المجال.",
+          "En": "List even numbers and multiples of five in the range."
+        },
+        {
+          "Ar": "اجمع المجموعتين دون تكرار العناصر المشتركة، ثم اقسم العدد على 10.",
+          "En": "Take their union without duplicates, then divide its size by 10."
+        }
+      ]
+    },
+    {
+      "problemId": 1709,
+      "primarySkillKey": "simple-compound-events",
+      "question": {
+        "Ar": "رُمِي حجر نرد عادل وعُلم أن الناتج زوجي. ما احتمال أن يكون أكبر من 3؟",
+        "En": "A fair die is rolled and the outcome is known to be even. What is the chance it exceeds 3?"
+      },
+      "Hints": [
+        {
+          "Ar": "المعلومة المعطاة تقيد فضاء العينة بالنتائج الزوجية فقط.",
+          "En": "The given information restricts the sample space to even outcomes."
+        },
+        {
+          "Ar": "عدّ النتائج الأكبر من ثلاثة ضمن النتائج الزوجية واقسم على عدد النتائج الزوجية.",
+          "En": "Count outcomes above three among the even outcomes and divide by the even count."
+        }
+      ]
+    },
+    {
+      "problemId": 443,
+      "primarySkillKey": "s-sequences-series-recurrence-relations",
+      "question": {
+        "Ar": "إذا $a_1=2$ و$a_{n+1}=2a_n+1$، أوجد $a_3$.",
+        "En": "If $a_1=2$ and $a_{n+1}=2a_n+1$, find $a_3$."
+      },
+      "Hints": [
+        {
+          "Ar": "ابدأ بالحد الأول واستخدم علاقة التراجع خطوة بخطوة.",
+          "En": "Start at the first term and apply the recurrence one step at a time."
+        },
+        {
+          "Ar": "احسب الحد التالي من السابق، مع استخدام رقم الحد الحالي إذا ظهر n في العلاقة، وتوقف عند الفهرس المطلوب.",
+          "En": "Compute each next term from the previous one, using its index if n appears, and stop at the requested index."
+        }
+      ]
+    },
+    {
+      "problemId": 485,
+      "primarySkillKey": "s-sequences-series-recurrence-relations",
+      "question": {
+        "Ar": "إذا كان $a_1=1$ و$a_{n+1}=a_n+2n$ لكل $n\\ge1$، فما $a_4$؟",
+        "En": "If $a_1=1$ and $a_{n+1}=a_n+2n$ for $n\\ge1$, what is $a_4$?"
+      },
+      "Hints": [
+        {
+          "Ar": "ابدأ بالحد الأول واستخدم علاقة التراجع خطوة بخطوة.",
+          "En": "Start at the first term and apply the recurrence one step at a time."
+        },
+        {
+          "Ar": "احسب الحد التالي من السابق، مع استخدام رقم الحد الحالي إذا ظهر n في العلاقة، وتوقف عند الفهرس المطلوب.",
+          "En": "Compute each next term from the previous one, using its index if n appears, and stop at the requested index."
+        }
+      ]
+    },
+    {
+      "problemId": 773,
+      "primarySkillKey": "s-sequences-series-recurrence-relations",
+      "question": {
+        "Ar": "متتالية تبدأ بـ a₁=7 وتحقق aₙ₊₁=aₙ−3. ما a₅؟",
+        "En": "A sequence starts with a₁=7 and satisfies aₙ₊₁=aₙ−3. What is a₅?"
+      },
+      "Hints": [
+        {
+          "Ar": "ابدأ بالحد الأول واستخدم علاقة التراجع خطوة بخطوة.",
+          "En": "Start at the first term and apply the recurrence one step at a time."
+        },
+        {
+          "Ar": "احسب الحد التالي من السابق، مع استخدام رقم الحد الحالي إذا ظهر n في العلاقة، وتوقف عند الفهرس المطلوب.",
+          "En": "Compute each next term from the previous one, using its index if n appears, and stop at the requested index."
+        }
+      ]
+    },
+    {
+      "problemId": 775,
+      "primarySkillKey": "s-sequences-series-recurrence-relations",
+      "question": {
+        "Ar": "إذا كانت a₁=1 وaₙ₊₁=aₙ²+1، فما قيمة a₄؟",
+        "En": "If a₁=1 and aₙ₊₁=aₙ²+1, what is a₄?"
+      },
+      "Hints": [
+        {
+          "Ar": "ابدأ بالحد الأول واستخدم علاقة التراجع خطوة بخطوة.",
+          "En": "Start at the first term and apply the recurrence one step at a time."
+        },
+        {
+          "Ar": "احسب الحد التالي من السابق، مع استخدام رقم الحد الحالي إذا ظهر n في العلاقة، وتوقف عند الفهرس المطلوب.",
+          "En": "Compute each next term from the previous one, using its index if n appears, and stop at the requested index."
+        }
+      ]
+    },
+    {
+      "problemId": 774,
+      "primarySkillKey": "s-sequences-series-recurrence-relations",
+      "question": {
+        "Ar": "لدينا a₁=1 وa₂=2 ولكل n≥1: ‏aₙ₊₂=aₙ₊₁+aₙ. ما قيمة a₅؟",
+        "En": "Let a₁=1, a₂=2 and aₙ₊₂=aₙ₊₁+aₙ for n≥1. What is a₅?"
+      },
+      "Hints": [
+        {
+          "Ar": "هذه العلاقة تحتاج إلى الحدين السابقين معاً.",
+          "En": "This recurrence needs both preceding terms."
+        },
+        {
+          "Ar": "اجمع الحدين المتتاليين لإيجاد الحد التالي حتى تصل إلى الخامس.",
+          "En": "Add the two preceding terms to obtain each next term until the fifth."
+        }
+      ]
+    },
+    {
+      "problemId": 776,
+      "primarySkillKey": "s-sequences-series-recurrence-relations",
+      "question": {
+        "Ar": "إذا كانت a₁=2 وaₙ₊₁=3aₙ، فما **رقم أول حد** أكبر من 100؟",
+        "En": "For a₁=2 and aₙ₊₁=3aₙ, what is the **index of the first term** greater than 100?"
+      },
+      "Hints": [
+        {
+          "Ar": "ابدأ بالحد الأول واضرب في ثلاثة عند كل انتقال.",
+          "En": "Start at the first term and multiply by three at each transition."
+        },
+        {
+          "Ar": "توقف عند أول حد يتجاوز 100 تماماً؛ المطلوب رقم ذلك الحد لا قيمته.",
+          "En": "Stop at the first term strictly greater than 100; report its index rather than its value."
+        }
+      ]
+    },
+    {
+      "problemId": 1667,
+      "primarySkillKey": "dot-product",
+      "question": {
+        "Ar": "احسب الضرب القياسي للمتجهين (2,-1) و(4,3).",
+        "En": "Compute the dot product of (2,-1) and (4,3)."
+      },
+      "Hints": [
+        {
+          "Ar": "اضرب المركبات المتناظرة في المتجهين.",
+          "En": "Multiply corresponding vector components."
+        },
+        {
+          "Ar": "اجمع حاصلَي الضرب مع الانتباه للإشارات.",
+          "En": "Add the two products, keeping their signs."
+        }
+      ]
+    },
+    {
+      "problemId": 1694,
+      "primarySkillKey": "dot-product",
+      "question": {
+        "Ar": "للمتجهين a=(1,-2) وb=(-2,1)، ما قيمة ضربهما القياسي التي تدل على أن الزاوية بينهما منفرجة؟",
+        "En": "For a=(1,-2) and b=(-2,1), what is their dot product, indicating that the angle between them is obtuse?"
+      },
+      "Hints": [
+        {
+          "Ar": "اضرب المركبات المتناظرة في المتجهين.",
+          "En": "Multiply corresponding vector components."
+        },
+        {
+          "Ar": "اجمع حاصلَي الضرب مع الانتباه للإشارات.",
+          "En": "Add the two products, keeping their signs."
+        }
+      ]
+    },
+    {
+      "problemId": 1668,
+      "primarySkillKey": "dot-product",
+      "question": {
+        "Ar": "متجهان (3,2) و(x,-6) متعامدان. ما قيمة x التي تجعل ضربهما القياسي صفراً؟",
+        "En": "Vectors (3,2) and (x,-6) are perpendicular. What value of x makes their dot product zero?"
+      },
+      "Hints": [
+        {
+          "Ar": "تعامد متجهين غير صفريين يعني أن جداءهما السلمي يساوي صفراً.",
+          "En": "Two nonzero perpendicular vectors have zero dot product."
+        },
+        {
+          "Ar": "اكتب الجداء السلمي بدلالة x وساوِه بالصفر ثم حل المعادلة.",
+          "En": "Write the dot product in terms of x, set it to zero, and solve."
+        }
+      ]
+    },
+    {
+      "problemId": 1693,
+      "primarySkillKey": "dot-product",
+      "question": {
+        "Ar": "كم قياس الزاوية الأصغر بين المتجهين (1,0) و(1,1) بوحدة الراديان؟",
+        "En": "What is the smaller angle, in radians, between the vectors (1,0) and (1,1)?"
+      },
+      "Hints": [
+        {
+          "Ar": "استخدم العلاقة بين الجداء السلمي وطولي المتجهين وجيب تمام الزاوية.",
+          "En": "Use the relation between the dot product, vector norms, and cosine of the angle."
+        },
+        {
+          "Ar": "اقسم الجداء السلمي على حاصل ضرب الطولين ثم أوجد معكوس جيب التمام بالراديان.",
+          "En": "Divide the dot product by the product of the norms, then take arccos in radians."
+        }
+      ]
+    },
+    {
+      "problemId": 1695,
+      "primarySkillKey": "dot-product",
+      "question": {
+        "Ar": "ما مقدار الإسقاط القياسي الموقع للمتجه (3,4) على اتجاه المتجه (1,0)؟",
+        "En": "What is the signed scalar projection of (3,4) onto the direction of (1,0)?"
+      },
+      "Hints": [
+        {
+          "Ar": "الإسقاط السلمي الموقّع يعتمد على اتجاه متجه الوحدة.",
+          "En": "Signed scalar projection uses a unit direction vector."
+        },
+        {
+          "Ar": "اقسم الجداء السلمي مع متجه الاتجاه على طول متجه الاتجاه.",
+          "En": "Divide the dot product with the direction vector by its norm."
+        }
+      ]
+    },
+    {
+      "problemId": 1712,
+      "primarySkillKey": "dot-product",
+      "question": {
+        "Ar": "إذا كان u=(1,2) وv=(3,0) وw=(−1,1)، فما قيمة u·(v+w)؟",
+        "En": "If u=(1,2), v=(3,0), and w=(−1,1), compute u·(v+w)."
+      },
+      "Hints": [
+        {
+          "Ar": "يمكن جمع المتجهين داخل القوس أولاً.",
+          "En": "You can add the two vectors inside the parentheses first."
+        },
+        {
+          "Ar": "اجمع مركبات v وw ثم احسب الجداء السلمي مع u.",
+          "En": "Add corresponding components of v and w, then take the dot product with u."
+        }
+      ]
+    },
+    {
+      "problemId": 36,
+      "primarySkillKey": "primary-addition",
+      "question": {
+        "Ar": "ما ناتج جمع $25 + 17$؟",
+        "En": "What is the result of $25 + 17$?"
+      },
+      "Hints": [
+        {
+          "Ar": "رتّب الأعداد بحسب المنازل.",
+          "En": "Align the numbers by place value."
+        },
+        {
+          "Ar": "اجمع الآحاد ثم العشرات ثم المئات إن وجدت، مع الحمل عند الحاجة.",
+          "En": "Add ones, then tens, then hundreds if present, carrying as needed."
+        }
+      ]
+    },
+    {
+      "problemId": 609,
+      "primarySkillKey": "primary-addition",
+      "question": {
+        "Ar": "احسب 275 + 168.",
+        "En": "Calculate 275 + 168."
+      },
+      "Hints": [
+        {
+          "Ar": "رتّب الأعداد بحسب المنازل.",
+          "En": "Align the numbers by place value."
+        },
+        {
+          "Ar": "اجمع الآحاد ثم العشرات ثم المئات إن وجدت، مع الحمل عند الحاجة.",
+          "En": "Add ones, then tens, then hundreds if present, carrying as needed."
+        }
+      ]
+    },
+    {
+      "problemId": 610,
+      "primarySkillKey": "primary-addition",
+      "question": {
+        "Ar": "أي عدد نضيفه إلى 486 لنحصل على 725؟",
+        "En": "What must be added to 486 to obtain 725?"
+      },
+      "Hints": [
+        {
+          "Ar": "اكتب معادلة جمع يكون أحد طرفيها مجهولاً.",
+          "En": "Write an addition equation with one unknown addend."
+        },
+        {
+          "Ar": "أوجد العدد المفقود بطرح العدد المعطى من المجموع.",
+          "En": "Find the missing addend by subtracting the known addend from the total."
+        }
+      ]
+    },
+    {
+      "problemId": 611,
+      "primarySkillKey": "primary-addition",
+      "question": {
+        "Ar": "قدّر مجموع 198 + 306 بتقريب كل عدد إلى أقرب مئة قبل الجمع.",
+        "En": "Estimate 198 + 306 by rounding each number to the nearest hundred before adding."
+      },
+      "Hints": [
+        {
+          "Ar": "المطلوب تقدير وليس جمعاً دقيقاً.",
+          "En": "The task asks for an estimate rather than an exact sum."
+        },
+        {
+          "Ar": "قرّب كل عدد إلى أقرب مئة بشكل مستقل، ثم اجمع العددين المقربين.",
+          "En": "Round each number independently to the nearest hundred, then add the rounded values."
+        }
+      ]
+    },
+    {
+      "problemId": 612,
+      "primarySkillKey": "primary-addition",
+      "question": {
+        "Ar": "في الحافلة 38 بالغاً و27 طفلاً. صعد 16 راكباً آخر. كم راكباً صار في الحافلة؟",
+        "En": "A bus has 38 adults and 27 children. Another 16 passengers board. How many passengers are now on the bus?"
+      },
+      "Hints": [
+        {
+          "Ar": "احسب العدد الموجود في الحافلة قبل صعود الركاب الجدد.",
+          "En": "Find the number already on the bus before new passengers board."
+        },
+        {
+          "Ar": "اجمع البالغين والأطفال ثم أضف عدد الركاب الذين صعدوا.",
+          "En": "Add adults and children, then add the boarding passengers."
+        }
+      ]
+    },
+    {
+      "problemId": 54,
+      "primarySkillKey": "primary-one-step-multiplicative-equations",
+      "question": {
+        "Ar": "إذا كان 4x = 36، فما قيمة x؟",
+        "En": "If 4x = 36, what is x?"
+      },
+      "Hints": [
+        {
+          "Ar": "اكتب حاصل ضرب عدد المجموعات في عدد العناصر بكل مجموعة.",
+          "En": "Write the product of group count and items per group."
+        },
+        {
+          "Ar": "اقسم العدد الكلي على العامل المعروف لتجد العامل المجهول.",
+          "En": "Divide the total by the known factor to find the unknown."
+        }
+      ]
+    },
+    {
+      "problemId": 689,
+      "primarySkillKey": "primary-one-step-multiplicative-equations",
+      "question": {
+        "Ar": "وُزّعت 54 كرة بالتساوي على 6 صناديق. إذا كان في كل صندوق x كرة، فما قيمة x؟",
+        "En": "54 balls are distributed equally across 6 boxes. If each box holds x balls, what is x?"
+      },
+      "Hints": [
+        {
+          "Ar": "اكتب حاصل ضرب عدد المجموعات في عدد العناصر بكل مجموعة.",
+          "En": "Write the product of group count and items per group."
+        },
+        {
+          "Ar": "اقسم العدد الكلي على العامل المعروف لتجد العامل المجهول.",
+          "En": "Divide the total by the known factor to find the unknown."
+        }
+      ]
+    },
+    {
+      "problemId": 690,
+      "primarySkillKey": "primary-one-step-multiplicative-equations",
+      "question": {
+        "Ar": "أي قيمة للمتغير k تحقق 7k = 91؟",
+        "En": "Which value of k satisfies 7k = 91?"
+      },
+      "Hints": [
+        {
+          "Ar": "اكتب حاصل ضرب عدد المجموعات في عدد العناصر بكل مجموعة.",
+          "En": "Write the product of group count and items per group."
+        },
+        {
+          "Ar": "اقسم العدد الكلي على العامل المعروف لتجد العامل المجهول.",
+          "En": "Divide the total by the known factor to find the unknown."
+        }
+      ]
+    },
+    {
+      "problemId": 691,
+      "primarySkillKey": "primary-one-step-multiplicative-equations",
+      "question": {
+        "Ar": "رتّبت 72 بلاطة في 8 صفوف متساوية. ما عدد البلاطات في كل صف؟",
+        "En": "72 tiles are arranged in 8 equal rows. How many tiles are in each row?"
+      },
+      "Hints": [
+        {
+          "Ar": "اكتب حاصل ضرب عدد المجموعات في عدد العناصر بكل مجموعة.",
+          "En": "Write the product of group count and items per group."
+        },
+        {
+          "Ar": "اقسم العدد الكلي على العامل المعروف لتجد العامل المجهول.",
+          "En": "Divide the total by the known factor to find the unknown."
+        }
+      ]
+    },
+    {
+      "problemId": 692,
+      "primarySkillKey": "primary-one-step-multiplicative-equations",
+      "question": {
+        "Ar": "إذا كان x ÷ 5 = 12، فما قيمة x؟",
+        "En": "If x ÷ 5 = 12, what is x?"
+      },
+      "Hints": [
+        {
+          "Ar": "العملية العكسية للقسمة هي الضرب.",
+          "En": "Multiplication reverses division."
+        },
+        {
+          "Ar": "اضرب طرفي المعادلة في المقسوم عليه لعزل x.",
+          "En": "Multiply both sides by the divisor to isolate x."
+        }
+      ]
+    },
+    {
+      "problemId": 69,
+      "primarySkillKey": "primary-multistep-arithmetic",
+      "question": {
+        "Ar": "احسب (17+9)-4.",
+        "En": "Calculate (17+9)-4."
+      },
+      "Hints": [
+        {
+          "Ar": "ترتيب العمليات يبدأ بما داخل الأقواس.",
+          "En": "Order of operations begins inside parentheses."
+        },
+        {
+          "Ar": "احسب الجمع داخل القوس أولاً، ثم اطرح العدد الأخير.",
+          "En": "Add inside the parentheses first, then subtract the last number."
+        }
+      ]
+    },
+    {
+      "problemId": 84,
+      "primarySkillKey": "primary-multistep-arithmetic",
+      "question": {
+        "Ar": "احسب (21+12)-5.",
+        "En": "Calculate (21+12)-5."
+      },
+      "Hints": [
+        {
+          "Ar": "ترتيب العمليات يبدأ بما داخل الأقواس.",
+          "En": "Order of operations begins inside parentheses."
+        },
+        {
+          "Ar": "احسب الجمع داخل القوس أولاً، ثم اطرح العدد الأخير.",
+          "En": "Add inside the parentheses first, then subtract the last number."
+        }
+      ]
+    },
+    {
+      "problemId": 99,
+      "primarySkillKey": "primary-multistep-arithmetic",
+      "question": {
+        "Ar": "احسب (25+15)-6.",
+        "En": "Calculate (25+15)-6."
+      },
+      "Hints": [
+        {
+          "Ar": "ترتيب العمليات يبدأ بما داخل الأقواس.",
+          "En": "Order of operations begins inside parentheses."
+        },
+        {
+          "Ar": "احسب الجمع داخل القوس أولاً، ثم اطرح العدد الأخير.",
+          "En": "Add inside the parentheses first, then subtract the last number."
+        }
+      ]
+    },
+    {
+      "problemId": 114,
+      "primarySkillKey": "primary-multistep-arithmetic",
+      "question": {
+        "Ar": "احسب (29+18)-7.",
+        "En": "Calculate (29+18)-7."
+      },
+      "Hints": [
+        {
+          "Ar": "ترتيب العمليات يبدأ بما داخل الأقواس.",
+          "En": "Order of operations begins inside parentheses."
+        },
+        {
+          "Ar": "احسب الجمع داخل القوس أولاً، ثم اطرح العدد الأخير.",
+          "En": "Add inside the parentheses first, then subtract the last number."
+        }
+      ]
+    },
+    {
+      "problemId": 129,
+      "primarySkillKey": "primary-multistep-arithmetic",
+      "question": {
+        "Ar": "احسب (33+21)-8.",
+        "En": "Calculate (33+21)-8."
+      },
+      "Hints": [
+        {
+          "Ar": "ترتيب العمليات يبدأ بما داخل الأقواس.",
+          "En": "Order of operations begins inside parentheses."
+        },
+        {
+          "Ar": "احسب الجمع داخل القوس أولاً، ثم اطرح العدد الأخير.",
+          "En": "Add inside the parentheses first, then subtract the last number."
+        }
+      ]
+    },
+    {
+      "problemId": 150,
+      "primarySkillKey": "primary-division",
+      "question": {
+        "Ar": "احسب 36 ÷ 3.",
+        "En": "Calculate 36 divided by 3."
+      },
+      "Hints": [
+        {
+          "Ar": "فكّر في القسمة على أنها توزيع إلى مجموعات متساوية.",
+          "En": "Think of division as sharing into equal groups."
+        },
+        {
+          "Ar": "ابحث عن العدد الذي إذا ضربته في المقسوم عليه أعطاك المقسوم.",
+          "En": "Find the number that gives the dividend when multiplied by the divisor."
+        }
+      ]
+    },
+    {
+      "problemId": 162,
+      "primarySkillKey": "primary-division",
+      "question": {
+        "Ar": "احسب 56 ÷ 4.",
+        "En": "Calculate 56 divided by 4."
+      },
+      "Hints": [
+        {
+          "Ar": "فكّر في القسمة على أنها توزيع إلى مجموعات متساوية.",
+          "En": "Think of division as sharing into equal groups."
+        },
+        {
+          "Ar": "ابحث عن العدد الذي إذا ضربته في المقسوم عليه أعطاك المقسوم.",
+          "En": "Find the number that gives the dividend when multiplied by the divisor."
+        }
+      ]
+    },
+    {
+      "problemId": 174,
+      "primarySkillKey": "primary-division",
+      "question": {
+        "Ar": "احسب 80 ÷ 5.",
+        "En": "Calculate 80 divided by 5."
+      },
+      "Hints": [
+        {
+          "Ar": "فكّر في القسمة على أنها توزيع إلى مجموعات متساوية.",
+          "En": "Think of division as sharing into equal groups."
+        },
+        {
+          "Ar": "ابحث عن العدد الذي إذا ضربته في المقسوم عليه أعطاك المقسوم.",
+          "En": "Find the number that gives the dividend when multiplied by the divisor."
+        }
+      ]
+    },
+    {
+      "problemId": 186,
+      "primarySkillKey": "primary-division",
+      "question": {
+        "Ar": "احسب 108 ÷ 6.",
+        "En": "Calculate 108 divided by 6."
+      },
+      "Hints": [
+        {
+          "Ar": "فكّر في القسمة على أنها توزيع إلى مجموعات متساوية.",
+          "En": "Think of division as sharing into equal groups."
+        },
+        {
+          "Ar": "ابحث عن العدد الذي إذا ضربته في المقسوم عليه أعطاك المقسوم.",
+          "En": "Find the number that gives the dividend when multiplied by the divisor."
+        }
+      ]
+    },
+    {
+      "problemId": 198,
+      "primarySkillKey": "primary-division",
+      "question": {
+        "Ar": "احسب 140 ÷ 7.",
+        "En": "Calculate 140 divided by 7."
+      },
+      "Hints": [
+        {
+          "Ar": "فكّر في القسمة على أنها توزيع إلى مجموعات متساوية.",
+          "En": "Think of division as sharing into equal groups."
+        },
+        {
+          "Ar": "ابحث عن العدد الذي إذا ضربته في المقسوم عليه أعطاك المقسوم.",
+          "En": "Find the number that gives the dividend when multiplied by the divisor."
+        }
+      ]
+    },
+    {
+      "problemId": 153,
+      "primarySkillKey": "primary-number-patterns",
+      "question": {
+        "Ar": "المتتالية 2، 5، 8، 11؛ ما الحد الخامس؟",
+        "En": "Sequence 2, 5, 8, 11; find the fifth term."
+      },
+      "Hints": [
+        {
+          "Ar": "احسب الفرق بين كل حدين متتاليين.",
+          "En": "Find the difference between consecutive terms."
+        },
+        {
+          "Ar": "إذا كان الفرق ثابتاً فأضفه إلى الحد الرابع لإيجاد الخامس.",
+          "En": "If the difference is constant, add it to the fourth term to find the fifth."
+        }
+      ]
+    },
+    {
+      "problemId": 165,
+      "primarySkillKey": "primary-number-patterns",
+      "question": {
+        "Ar": "المتتالية 3، 7، 11، 15؛ ما الحد الخامس؟",
+        "En": "Sequence 3, 7, 11, 15; find the fifth term."
+      },
+      "Hints": [
+        {
+          "Ar": "احسب الفرق بين كل حدين متتاليين.",
+          "En": "Find the difference between consecutive terms."
+        },
+        {
+          "Ar": "إذا كان الفرق ثابتاً فأضفه إلى الحد الرابع لإيجاد الخامس.",
+          "En": "If the difference is constant, add it to the fourth term to find the fifth."
+        }
+      ]
+    },
+    {
+      "problemId": 177,
+      "primarySkillKey": "primary-number-patterns",
+      "question": {
+        "Ar": "المتتالية 4، 9، 14، 19؛ ما الحد الخامس؟",
+        "En": "Sequence 4, 9, 14, 19; find the fifth term."
+      },
+      "Hints": [
+        {
+          "Ar": "احسب الفرق بين كل حدين متتاليين.",
+          "En": "Find the difference between consecutive terms."
+        },
+        {
+          "Ar": "إذا كان الفرق ثابتاً فأضفه إلى الحد الرابع لإيجاد الخامس.",
+          "En": "If the difference is constant, add it to the fourth term to find the fifth."
+        }
+      ]
+    },
+    {
+      "problemId": 189,
+      "primarySkillKey": "primary-number-patterns",
+      "question": {
+        "Ar": "المتتالية 5، 11، 17، 23؛ ما الحد الخامس؟",
+        "En": "Sequence 5, 11, 17, 23; find the fifth term."
+      },
+      "Hints": [
+        {
+          "Ar": "احسب الفرق بين كل حدين متتاليين.",
+          "En": "Find the difference between consecutive terms."
+        },
+        {
+          "Ar": "إذا كان الفرق ثابتاً فأضفه إلى الحد الرابع لإيجاد الخامس.",
+          "En": "If the difference is constant, add it to the fourth term to find the fifth."
+        }
+      ]
+    },
+    {
+      "problemId": 201,
+      "primarySkillKey": "primary-number-patterns",
+      "question": {
+        "Ar": "المتتالية 6، 13، 20، 27؛ ما الحد الخامس؟",
+        "En": "Sequence 6, 13, 20, 27; find the fifth term."
+      },
+      "Hints": [
+        {
+          "Ar": "احسب الفرق بين كل حدين متتاليين.",
+          "En": "Find the difference between consecutive terms."
+        },
+        {
+          "Ar": "إذا كان الفرق ثابتاً فأضفه إلى الحد الرابع لإيجاد الخامس.",
+          "En": "If the difference is constant, add it to the fourth term to find the fifth."
+        }
+      ]
+    },
+    {
+      "problemId": 1558,
+      "primarySkillKey": "rounding",
+      "question": {
+        "Ar": "قرّب العدد 37,648 إلى أقرب مئة.",
+        "En": "Round 37,648 to the nearest hundred."
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد منزلة المئات وانظر إلى الرقم في العشرات.",
+          "En": "Locate the hundreds place and inspect the tens digit."
+        },
+        {
+          "Ar": "إذا كانت العشرات 5 أو أكثر قرّب للأعلى، وإلا للأسفل، وصفّر المنازل الأصغر.",
+          "En": "Round up if the tens digit is at least five; otherwise round down, zeroing smaller places."
+        }
+      ]
+    },
+    {
+      "problemId": 1653,
+      "primarySkillKey": "rounding",
+      "question": {
+        "Ar": "قرّب العدد 3,867 إلى أقرب مئة، مع مراعاة منزلة العشرات.",
+        "En": "Round 3,867 to the nearest hundred using the tens digit."
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد منزلة المئات وانظر إلى الرقم في العشرات.",
+          "En": "Locate the hundreds place and inspect the tens digit."
+        },
+        {
+          "Ar": "إذا كانت العشرات 5 أو أكثر قرّب للأعلى، وإلا للأسفل، وصفّر المنازل الأصغر.",
+          "En": "Round up if the tens digit is at least five; otherwise round down, zeroing smaller places."
+        }
+      ]
+    },
+    {
+      "problemId": 1559,
+      "primarySkillKey": "rounding",
+      "question": {
+        "Ar": "قرّب 9,650 إلى أقرب ألف.",
+        "En": "Round 9,650 to the nearest thousand."
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد منزلة الآلاف والرقم الذي يليها يميناً.",
+          "En": "Locate the thousands place and the digit immediately to its right."
+        },
+        {
+          "Ar": "استعمل رقم المئات لتحديد التقريب للأعلى أو للأسفل.",
+          "En": "Use the hundreds digit to decide whether to round up or down."
+        }
+      ]
+    },
+    {
+      "problemId": 1655,
+      "primarySkillKey": "rounding",
+      "question": {
+        "Ar": "قدّر ناتج جمع 198 و304 بتقريب كل عدد إلى أقرب مئة أولاً.",
+        "En": "Estimate 198 + 304 by first rounding each number to the nearest hundred."
+      },
+      "Hints": [
+        {
+          "Ar": "قرّب كل عدد منفرداً قبل إجراء الجمع.",
+          "En": "Round each number separately before adding."
+        },
+        {
+          "Ar": "استخدم رقم العشرات لتقريب كل عدد إلى أقرب مئة ثم اجمع.",
+          "En": "Use the tens digit to round each to the nearest hundred, then add."
+        }
+      ]
+    },
+    {
+      "problemId": 1678,
+      "primarySkillKey": "rounding",
+      "question": {
+        "Ar": "أي عدد من الخيارات التالية يصبح 4600 عند تقريبه لأقرب مئة بالطريقة المعتادة؟",
+        "En": "Which of these numbers rounds to 4,600 to the nearest hundred using the usual half-up rule?"
+      },
+      "Hints": [
+        {
+          "Ar": "ابحث عن مجال الأعداد التي تبعد أقل من خمسين عن 4600، مع مراعاة الحدود.",
+          "En": "Find the range within fifty of 4600, taking care at the boundaries."
+        },
+        {
+          "Ar": "وفق قاعدة النصف للأعلى يدخل الحد الأدنى 4550 ولا يدخل الحد الأعلى 4650.",
+          "En": "Under half-up rounding the lower endpoint 4550 is included and the upper endpoint 4650 is excluded."
+        }
+      ]
+    },
+    {
+      "problemId": 58,
+      "primarySkillKey": "middle-linear-equations",
+      "question": {
+        "Ar": "حل المعادلة 2x + 7 = 19.",
+        "En": "Solve the equation 2x + 7 = 19."
+      },
+      "Hints": [
+        {
+          "Ar": "مثّل المجهول بمتغير واعزل الحد الذي يحتويه.",
+          "En": "Represent the unknown by a variable and isolate its term."
+        },
+        {
+          "Ar": "اطرح التكلفة أو العدد الثابت أولاً، ثم اقسم على معامل المتغير.",
+          "En": "Subtract the fixed amount first, then divide by the variable's coefficient."
+        }
+      ]
+    },
+    {
+      "problemId": 624,
+      "primarySkillKey": "middle-linear-equations",
+      "question": {
+        "Ar": "ثمن 3 دفاتر متساوية السعر مع رسوم توصيل 5 وحدات هو 41 وحدة. ما ثمن الدفتر الواحد؟",
+        "En": "Three equally priced notebooks plus 5 units for delivery cost 41 units in total. How much does one notebook cost?"
+      },
+      "Hints": [
+        {
+          "Ar": "مثّل المجهول بمتغير واعزل الحد الذي يحتويه.",
+          "En": "Represent the unknown by a variable and isolate its term."
+        },
+        {
+          "Ar": "اطرح التكلفة أو العدد الثابت أولاً، ثم اقسم على معامل المتغير.",
+          "En": "Subtract the fixed amount first, then divide by the variable's coefficient."
+        }
+      ]
+    },
+    {
+      "problemId": 621,
+      "primarySkillKey": "middle-linear-equations",
+      "question": {
+        "Ar": "حل المعادلة: 4(x − 3) = 28.",
+        "En": "Solve 4(x − 3) = 28."
+      },
+      "Hints": [
+        {
+          "Ar": "المعامل 4 يضرب كامل ما داخل القوس.",
+          "En": "The coefficient 4 multiplies the entire parenthesis."
+        },
+        {
+          "Ar": "اقسم الطرفين على 4 ثم أضف 3 للطرفين.",
+          "En": "Divide both sides by 4, then add 3 to both sides."
+        }
+      ]
+    },
+    {
+      "problemId": 622,
+      "primarySkillKey": "middle-linear-equations",
+      "question": {
+        "Ar": "أوجد x من المعادلة: 2x + 5 = 3x − 8.",
+        "En": "Find x from 2x + 5 = 3x − 8."
+      },
+      "Hints": [
+        {
+          "Ar": "اجمع الحدود التي تحتوي x في طرف والثوابت في الطرف الآخر.",
+          "En": "Collect x terms on one side and constants on the other."
+        },
+        {
+          "Ar": "اطرح نفس المقدار من الطرفين في كل خطوة حتى تعزل x.",
+          "En": "Subtract the same quantity from both sides at each step until x is isolated."
+        }
+      ]
+    },
+    {
+      "problemId": 623,
+      "primarySkillKey": "middle-linear-equations",
+      "question": {
+        "Ar": "حل: (x + 6) ÷ 3 = 9.",
+        "En": "Solve (x + 6) ÷ 3 = 9."
+      },
+      "Hints": [
+        {
+          "Ar": "ألغِ القسمة باستخدام العملية العكسية.",
+          "En": "Undo division using its inverse."
+        },
+        {
+          "Ar": "اضرب الطرفين في 3 ثم اطرح 6 من الطرفين.",
+          "En": "Multiply both sides by 3, then subtract 6 from both sides."
+        }
+      ]
+    },
+    {
+      "problemId": 60,
+      "primarySkillKey": "middle-vertical-angles",
+      "question": {
+        "Ar": "زاويتان متقابلتان بالرأس، قياس إحداهما 117°. ما قياس الأخرى؟",
+        "En": "Two vertically opposite angles are formed by intersecting lines. One is 117°. What is the other?"
+      },
+      "Hints": [
+        {
+          "Ar": "تتكون الزوايا المتقابلة بالرأس عند تقاطع مستقيمين.",
+          "En": "Vertical angles occur where two lines intersect."
+        },
+        {
+          "Ar": "الزاويتان المتقابلتان بالرأس متساويتان في القياس.",
+          "En": "Vertical angles have equal measures."
+        }
+      ]
+    },
+    {
+      "problemId": 701,
+      "primarySkillKey": "middle-vertical-angles",
+      "question": {
+        "Ar": "زاويتان متقابلتان بالرأس قياساهما (x + 20)° و(3x − 40)°. ما x؟",
+        "En": "Vertically opposite angles measure (x + 20)° and (3x − 40)°. Find x."
+      },
+      "Hints": [
+        {
+          "Ar": "الزاويتان المتقابلتان بالرأس متساويتان.",
+          "En": "Vertical angles are equal."
+        },
+        {
+          "Ar": "ساوِ التعبيرين الجبريين وحل المعادلة؛ عوّض في التعبير إن كان المطلوب قياس الزاوية.",
+          "En": "Set the expressions equal and solve; substitute back if the angle measure is requested."
+        }
+      ]
+    },
+    {
+      "problemId": 702,
+      "primarySkillKey": "middle-vertical-angles",
+      "question": {
+        "Ar": "زاويتان متقابلتان بالرأس قياساهما (2x + 5)° و(x + 35)°. ما قياس **إحداهما**؟",
+        "En": "Two vertically opposite angles measure (2x + 5)° and (x + 35)°. What is the measure of either angle?"
+      },
+      "Hints": [
+        {
+          "Ar": "الزاويتان المتقابلتان بالرأس متساويتان.",
+          "En": "Vertical angles are equal."
+        },
+        {
+          "Ar": "ساوِ التعبيرين الجبريين وحل المعادلة؛ عوّض في التعبير إن كان المطلوب قياس الزاوية.",
+          "En": "Set the expressions equal and solve; substitute back if the angle measure is requested."
+        }
+      ]
+    },
+    {
+      "problemId": 703,
+      "primarySkillKey": "middle-vertical-angles",
+      "question": {
+        "Ar": "مجموع قياسي زاويتين متقابلتين بالرأس 146°. كم قياس كل منهما؟",
+        "En": "The sum of two vertically opposite angles is 146°. What is the measure of each?"
+      },
+      "Hints": [
+        {
+          "Ar": "الزاويتان متساويتان بسبب التقابل بالرأس.",
+          "En": "The two vertical angles are equal."
+        },
+        {
+          "Ar": "اقسم مجموعهما على اثنين لإيجاد قياس كل منهما.",
+          "En": "Divide their total by two to find each angle."
+        }
+      ]
+    },
+    {
+      "problemId": 704,
+      "primarySkillKey": "middle-vertical-angles",
+      "question": {
+        "Ar": "يتقاطع خطان مستقيمان وتتشكل زاوية قياسها 65°. كم زاوية من الزوايا الأربع تساوي 65°؟",
+        "En": "Two straight lines intersect and one of the four angles measures 65°. How many of the four angles measure 65°?"
+      },
+      "Hints": [
+        {
+          "Ar": "الزاوية المقابلة بالرأس تساوي الزاوية المعطاة.",
+          "En": "The vertically opposite angle equals the given angle."
+        },
+        {
+          "Ar": "الزاويتان المجاورتان مكملتان للزاوية المعطاة؛ قارن قياسهما بها قبل العد.",
+          "En": "Adjacent angles supplement the given angle; compare their measures before counting."
+        }
+      ]
+    },
+    {
+      "problemId": 74,
+      "primarySkillKey": "middle-linear-function-evaluation",
+      "question": {
+        "Ar": "إذا كانت \\(f(x)=2x+3\\)، أوجد \\(f(2)\\).",
+        "En": "If \\(f(x)=2x+3\\), find \\(f(2)\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "عوّض القيمة المطلوبة مكان x في تعريف الدالة.",
+          "En": "Substitute the requested value for x in the function definition."
+        },
+        {
+          "Ar": "نفّذ الضرب أولاً ثم أضف الحد الثابت.",
+          "En": "Multiply first, then add the constant term."
+        }
+      ]
+    },
+    {
+      "problemId": 89,
+      "primarySkillKey": "middle-linear-function-evaluation",
+      "question": {
+        "Ar": "إذا كانت \\(f(x)=3x+4\\)، أوجد \\(f(3)\\).",
+        "En": "If \\(f(x)=3x+4\\), find \\(f(3)\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "عوّض القيمة المطلوبة مكان x في تعريف الدالة.",
+          "En": "Substitute the requested value for x in the function definition."
+        },
+        {
+          "Ar": "نفّذ الضرب أولاً ثم أضف الحد الثابت.",
+          "En": "Multiply first, then add the constant term."
+        }
+      ]
+    },
+    {
+      "problemId": 104,
+      "primarySkillKey": "middle-linear-function-evaluation",
+      "question": {
+        "Ar": "إذا كانت \\(f(x)=4x+5\\)، أوجد \\(f(4)\\).",
+        "En": "If \\(f(x)=4x+5\\), find \\(f(4)\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "عوّض القيمة المطلوبة مكان x في تعريف الدالة.",
+          "En": "Substitute the requested value for x in the function definition."
+        },
+        {
+          "Ar": "نفّذ الضرب أولاً ثم أضف الحد الثابت.",
+          "En": "Multiply first, then add the constant term."
+        }
+      ]
+    },
+    {
+      "problemId": 119,
+      "primarySkillKey": "middle-linear-function-evaluation",
+      "question": {
+        "Ar": "إذا كانت \\(f(x)=5x+6\\)، أوجد \\(f(5)\\).",
+        "En": "If \\(f(x)=5x+6\\), find \\(f(5)\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "عوّض القيمة المطلوبة مكان x في تعريف الدالة.",
+          "En": "Substitute the requested value for x in the function definition."
+        },
+        {
+          "Ar": "نفّذ الضرب أولاً ثم أضف الحد الثابت.",
+          "En": "Multiply first, then add the constant term."
+        }
+      ]
+    },
+    {
+      "problemId": 134,
+      "primarySkillKey": "middle-linear-function-evaluation",
+      "question": {
+        "Ar": "إذا كانت \\(f(x)=6x+7\\)، أوجد \\(f(6)\\).",
+        "En": "If \\(f(x)=6x+7\\), find \\(f(6)\\)."
+      },
+      "Hints": [
+        {
+          "Ar": "عوّض القيمة المطلوبة مكان x في تعريف الدالة.",
+          "En": "Substitute the requested value for x in the function definition."
+        },
+        {
+          "Ar": "نفّذ الضرب أولاً ثم أضف الحد الثابت.",
+          "En": "Multiply first, then add the constant term."
+        }
+      ]
+    },
+    {
+      "problemId": 211,
+      "primarySkillKey": "middle-lcm",
+      "question": {
+        "Ar": "أوجد المضاعف المشترك الأصغر للعددين 8 و10.",
+        "En": "Find the least common multiple of 8 and 10."
+      },
+      "Hints": [
+        {
+          "Ar": "المضاعف المشترك يجب أن يقبل القسمة على العددين.",
+          "En": "A common multiple must be divisible by both numbers."
+        },
+        {
+          "Ar": "اكتب مضاعفات العددين حتى تجد أول مضاعف موجب مشترك.",
+          "En": "List multiples of both numbers until you find the first positive common multiple."
+        }
+      ]
+    },
+    {
+      "problemId": 223,
+      "primarySkillKey": "middle-lcm",
+      "question": {
+        "Ar": "أوجد المضاعف المشترك الأصغر للعددين 12 و15.",
+        "En": "Find the least common multiple of 12 and 15."
+      },
+      "Hints": [
+        {
+          "Ar": "المضاعف المشترك يجب أن يقبل القسمة على العددين.",
+          "En": "A common multiple must be divisible by both numbers."
+        },
+        {
+          "Ar": "اكتب مضاعفات العددين حتى تجد أول مضاعف موجب مشترك.",
+          "En": "List multiples of both numbers until you find the first positive common multiple."
+        }
+      ]
+    },
+    {
+      "problemId": 235,
+      "primarySkillKey": "middle-lcm",
+      "question": {
+        "Ar": "أوجد المضاعف المشترك الأصغر للعددين 16 و20.",
+        "En": "Find the least common multiple of 16 and 20."
+      },
+      "Hints": [
+        {
+          "Ar": "المضاعف المشترك يجب أن يقبل القسمة على العددين.",
+          "En": "A common multiple must be divisible by both numbers."
+        },
+        {
+          "Ar": "اكتب مضاعفات العددين حتى تجد أول مضاعف موجب مشترك.",
+          "En": "List multiples of both numbers until you find the first positive common multiple."
+        }
+      ]
+    },
+    {
+      "problemId": 247,
+      "primarySkillKey": "middle-lcm",
+      "question": {
+        "Ar": "أوجد المضاعف المشترك الأصغر للعددين 20 و25.",
+        "En": "Find the least common multiple of 20 and 25."
+      },
+      "Hints": [
+        {
+          "Ar": "المضاعف المشترك يجب أن يقبل القسمة على العددين.",
+          "En": "A common multiple must be divisible by both numbers."
+        },
+        {
+          "Ar": "اكتب مضاعفات العددين حتى تجد أول مضاعف موجب مشترك.",
+          "En": "List multiples of both numbers until you find the first positive common multiple."
+        }
+      ]
+    },
+    {
+      "problemId": 259,
+      "primarySkillKey": "middle-lcm",
+      "question": {
+        "Ar": "أوجد المضاعف المشترك الأصغر للعددين 24 و30.",
+        "En": "Find the least common multiple of 24 and 30."
+      },
+      "Hints": [
+        {
+          "Ar": "المضاعف المشترك يجب أن يقبل القسمة على العددين.",
+          "En": "A common multiple must be divisible by both numbers."
+        },
+        {
+          "Ar": "اكتب مضاعفات العددين حتى تجد أول مضاعف موجب مشترك.",
+          "En": "List multiples of both numbers until you find the first positive common multiple."
+        }
+      ]
+    },
+    {
+      "problemId": 213,
+      "primarySkillKey": "middle-slope",
+      "question": {
+        "Ar": "ما ميل المستقيم المار بالنقطتين (1،4) و(4،10)؟",
+        "En": "Find the slope between (1,4) and (4,10)."
+      },
+      "Hints": [
+        {
+          "Ar": "الميل هو مقدار التغير الصادي لكل تغير سيني.",
+          "En": "Slope is vertical change per horizontal change."
+        },
+        {
+          "Ar": "اطرح الإحداثيين الصاديين واقسم الفرق على فرق الإحداثيين السينيين بالترتيب نفسه.",
+          "En": "Subtract the y-coordinates and divide by the x-coordinate difference in the same order."
+        }
+      ]
+    },
+    {
+      "problemId": 225,
+      "primarySkillKey": "middle-slope",
+      "question": {
+        "Ar": "ما ميل المستقيم المار بالنقطتين (2،5) و(6،17)؟",
+        "En": "Find the slope between (2,5) and (6,17)."
+      },
+      "Hints": [
+        {
+          "Ar": "الميل هو مقدار التغير الصادي لكل تغير سيني.",
+          "En": "Slope is vertical change per horizontal change."
+        },
+        {
+          "Ar": "اطرح الإحداثيين الصاديين واقسم الفرق على فرق الإحداثيين السينيين بالترتيب نفسه.",
+          "En": "Subtract the y-coordinates and divide by the x-coordinate difference in the same order."
+        }
+      ]
+    },
+    {
+      "problemId": 237,
+      "primarySkillKey": "middle-slope",
+      "question": {
+        "Ar": "ما ميل المستقيم المار بالنقطتين (3،6) و(8،26)؟",
+        "En": "Find the slope between (3,6) and (8,26)."
+      },
+      "Hints": [
+        {
+          "Ar": "الميل هو مقدار التغير الصادي لكل تغير سيني.",
+          "En": "Slope is vertical change per horizontal change."
+        },
+        {
+          "Ar": "اطرح الإحداثيين الصاديين واقسم الفرق على فرق الإحداثيين السينيين بالترتيب نفسه.",
+          "En": "Subtract the y-coordinates and divide by the x-coordinate difference in the same order."
+        }
+      ]
+    },
+    {
+      "problemId": 249,
+      "primarySkillKey": "middle-slope",
+      "question": {
+        "Ar": "ما ميل المستقيم المار بالنقطتين (4،7) و(10،37)؟",
+        "En": "Find the slope between (4,7) and (10,37)."
+      },
+      "Hints": [
+        {
+          "Ar": "الميل هو مقدار التغير الصادي لكل تغير سيني.",
+          "En": "Slope is vertical change per horizontal change."
+        },
+        {
+          "Ar": "اطرح الإحداثيين الصاديين واقسم الفرق على فرق الإحداثيين السينيين بالترتيب نفسه.",
+          "En": "Subtract the y-coordinates and divide by the x-coordinate difference in the same order."
+        }
+      ]
+    },
+    {
+      "problemId": 261,
+      "primarySkillKey": "middle-slope",
+      "question": {
+        "Ar": "ما ميل المستقيم المار بالنقطتين (5،8) و(12،50)؟",
+        "En": "Find the slope between (5,8) and (12,50)."
+      },
+      "Hints": [
+        {
+          "Ar": "الميل هو مقدار التغير الصادي لكل تغير سيني.",
+          "En": "Slope is vertical change per horizontal change."
+        },
+        {
+          "Ar": "اطرح الإحداثيين الصاديين واقسم الفرق على فرق الإحداثيين السينيين بالترتيب نفسه.",
+          "En": "Subtract the y-coordinates and divide by the x-coordinate difference in the same order."
+        }
+      ]
+    },
+    {
+      "problemId": 215,
+      "primarySkillKey": "middle-percent-discounts",
+      "question": {
+        "Ar": "خصم متجر 10% من ثمن 100، ما قيمة الخصم؟",
+        "En": "A store discounts 10% from a price of 100. Find the discount amount."
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد السعر الأصلي ونسبة الخصم.",
+          "En": "Identify the original price and discount rate."
+        },
+        {
+          "Ar": "اضرب السعر في النسبة مقسومة على 100؛ المطلوب مبلغ الخصم لا السعر النهائي.",
+          "En": "Multiply the price by the rate divided by 100; report the discount, not the final price."
+        }
+      ]
+    },
+    {
+      "problemId": 227,
+      "primarySkillKey": "middle-percent-discounts",
+      "question": {
+        "Ar": "خصم متجر 20% من ثمن 120، ما قيمة الخصم؟",
+        "En": "A store discounts 20% from a price of 120. Find the discount amount."
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد السعر الأصلي ونسبة الخصم.",
+          "En": "Identify the original price and discount rate."
+        },
+        {
+          "Ar": "اضرب السعر في النسبة مقسومة على 100؛ المطلوب مبلغ الخصم لا السعر النهائي.",
+          "En": "Multiply the price by the rate divided by 100; report the discount, not the final price."
+        }
+      ]
+    },
+    {
+      "problemId": 239,
+      "primarySkillKey": "middle-percent-discounts",
+      "question": {
+        "Ar": "خصم متجر 25% من ثمن 140، ما قيمة الخصم؟",
+        "En": "A store discounts 25% from a price of 140. Find the discount amount."
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد السعر الأصلي ونسبة الخصم.",
+          "En": "Identify the original price and discount rate."
+        },
+        {
+          "Ar": "اضرب السعر في النسبة مقسومة على 100؛ المطلوب مبلغ الخصم لا السعر النهائي.",
+          "En": "Multiply the price by the rate divided by 100; report the discount, not the final price."
+        }
+      ]
+    },
+    {
+      "problemId": 251,
+      "primarySkillKey": "middle-percent-discounts",
+      "question": {
+        "Ar": "خصم متجر 40% من ثمن 160، ما قيمة الخصم؟",
+        "En": "A store discounts 40% from a price of 160. Find the discount amount."
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد السعر الأصلي ونسبة الخصم.",
+          "En": "Identify the original price and discount rate."
+        },
+        {
+          "Ar": "اضرب السعر في النسبة مقسومة على 100؛ المطلوب مبلغ الخصم لا السعر النهائي.",
+          "En": "Multiply the price by the rate divided by 100; report the discount, not the final price."
+        }
+      ]
+    },
+    {
+      "problemId": 263,
+      "primarySkillKey": "middle-percent-discounts",
+      "question": {
+        "Ar": "خصم متجر 50% من ثمن 180، ما قيمة الخصم؟",
+        "En": "A store discounts 50% from a price of 180. Find the discount amount."
+      },
+      "Hints": [
+        {
+          "Ar": "حدّد السعر الأصلي ونسبة الخصم.",
+          "En": "Identify the original price and discount rate."
+        },
+        {
+          "Ar": "اضرب السعر في النسبة مقسومة على 100؛ المطلوب مبلغ الخصم لا السعر النهائي.",
+          "En": "Multiply the price by the rate divided by 100; report the discount, not the final price."
+        }
+      ]
+    },
+    {
+      "problemId": 216,
+      "primarySkillKey": "middle-map-scale",
+      "question": {
+        "Ar": "مقياس خريطة: 1 سم يمثل 2 كم. كم يمثل 3 سم؟",
+        "En": "Map scale: 1 cm represents 2 km. What distance is 3 cm?"
+      },
+      "Hints": [
+        {
+          "Ar": "المقياس يحدد المسافة الحقيقية لكل سنتيمتر على الخريطة.",
+          "En": "The scale gives the real distance for each map centimeter."
+        },
+        {
+          "Ar": "اضرب عدد السنتيمترات في عدد الكيلومترات التي يمثلها السنتيمتر الواحد.",
+          "En": "Multiply the map centimeters by the kilometers represented by one centimeter."
+        }
+      ]
+    },
+    {
+      "problemId": 228,
+      "primarySkillKey": "middle-map-scale",
+      "question": {
+        "Ar": "مقياس خريطة: 1 سم يمثل 3 كم. كم يمثل 4 سم؟",
+        "En": "Map scale: 1 cm represents 3 km. What distance is 4 cm?"
+      },
+      "Hints": [
+        {
+          "Ar": "المقياس يحدد المسافة الحقيقية لكل سنتيمتر على الخريطة.",
+          "En": "The scale gives the real distance for each map centimeter."
+        },
+        {
+          "Ar": "اضرب عدد السنتيمترات في عدد الكيلومترات التي يمثلها السنتيمتر الواحد.",
+          "En": "Multiply the map centimeters by the kilometers represented by one centimeter."
+        }
+      ]
+    },
+    {
+      "problemId": 240,
+      "primarySkillKey": "middle-map-scale",
+      "question": {
+        "Ar": "مقياس خريطة: 1 سم يمثل 4 كم. كم يمثل 5 سم؟",
+        "En": "Map scale: 1 cm represents 4 km. What distance is 5 cm?"
+      },
+      "Hints": [
+        {
+          "Ar": "المقياس يحدد المسافة الحقيقية لكل سنتيمتر على الخريطة.",
+          "En": "The scale gives the real distance for each map centimeter."
+        },
+        {
+          "Ar": "اضرب عدد السنتيمترات في عدد الكيلومترات التي يمثلها السنتيمتر الواحد.",
+          "En": "Multiply the map centimeters by the kilometers represented by one centimeter."
+        }
+      ]
+    },
+    {
+      "problemId": 252,
+      "primarySkillKey": "middle-map-scale",
+      "question": {
+        "Ar": "مقياس خريطة: 1 سم يمثل 5 كم. كم يمثل 6 سم؟",
+        "En": "Map scale: 1 cm represents 5 km. What distance is 6 cm?"
+      },
+      "Hints": [
+        {
+          "Ar": "المقياس يحدد المسافة الحقيقية لكل سنتيمتر على الخريطة.",
+          "En": "The scale gives the real distance for each map centimeter."
+        },
+        {
+          "Ar": "اضرب عدد السنتيمترات في عدد الكيلومترات التي يمثلها السنتيمتر الواحد.",
+          "En": "Multiply the map centimeters by the kilometers represented by one centimeter."
+        }
+      ]
+    },
+    {
+      "problemId": 264,
+      "primarySkillKey": "middle-map-scale",
+      "question": {
+        "Ar": "مقياس خريطة: 1 سم يمثل 6 كم. كم يمثل 7 سم؟",
+        "En": "Map scale: 1 cm represents 6 km. What distance is 7 cm?"
+      },
+      "Hints": [
+        {
+          "Ar": "المقياس يحدد المسافة الحقيقية لكل سنتيمتر على الخريطة.",
+          "En": "The scale gives the real distance for each map centimeter."
+        },
+        {
+          "Ar": "اضرب عدد السنتيمترات في عدد الكيلومترات التي يمثلها السنتيمتر الواحد.",
+          "En": "Multiply the map centimeters by the kilometers represented by one centimeter."
+        }
+      ]
+    },
+    {
+      "problemId": 217,
+      "primarySkillKey": "middle-percent-increase",
+      "question": {
+        "Ar": "إذا ارتفع سعر 40 بنسبة 25%، فما السعر الجديد؟",
+        "En": "If 40 increases by 25%, what is the new price?"
+      },
+      "Hints": [
+        {
+          "Ar": "احسب مقدار الزيادة من القيمة الأصلية.",
+          "En": "Find the increase from the original value."
+        },
+        {
+          "Ar": "اضرب الأصل في 25/100 ثم أضف الزيادة إلى الأصل.",
+          "En": "Multiply the original by 25/100, then add the increase back."
+        }
+      ]
+    },
+    {
+      "problemId": 229,
+      "primarySkillKey": "middle-percent-increase",
+      "question": {
+        "Ar": "إذا ارتفع سعر 60 بنسبة 25%، فما السعر الجديد؟",
+        "En": "If 60 increases by 25%, what is the new price?"
+      },
+      "Hints": [
+        {
+          "Ar": "احسب مقدار الزيادة من القيمة الأصلية.",
+          "En": "Find the increase from the original value."
+        },
+        {
+          "Ar": "اضرب الأصل في 25/100 ثم أضف الزيادة إلى الأصل.",
+          "En": "Multiply the original by 25/100, then add the increase back."
+        }
+      ]
+    },
+    {
+      "problemId": 241,
+      "primarySkillKey": "middle-percent-increase",
+      "question": {
+        "Ar": "إذا ارتفع سعر 80 بنسبة 25%، فما السعر الجديد؟",
+        "En": "If 80 increases by 25%, what is the new price?"
+      },
+      "Hints": [
+        {
+          "Ar": "احسب مقدار الزيادة من القيمة الأصلية.",
+          "En": "Find the increase from the original value."
+        },
+        {
+          "Ar": "اضرب الأصل في 25/100 ثم أضف الزيادة إلى الأصل.",
+          "En": "Multiply the original by 25/100, then add the increase back."
+        }
+      ]
+    },
+    {
+      "problemId": 253,
+      "primarySkillKey": "middle-percent-increase",
+      "question": {
+        "Ar": "إذا ارتفع سعر 100 بنسبة 25%، فما السعر الجديد؟",
+        "En": "If 100 increases by 25%, what is the new price?"
+      },
+      "Hints": [
+        {
+          "Ar": "احسب مقدار الزيادة من القيمة الأصلية.",
+          "En": "Find the increase from the original value."
+        },
+        {
+          "Ar": "اضرب الأصل في 25/100 ثم أضف الزيادة إلى الأصل.",
+          "En": "Multiply the original by 25/100, then add the increase back."
+        }
+      ]
+    },
+    {
+      "problemId": 265,
+      "primarySkillKey": "middle-percent-increase",
+      "question": {
+        "Ar": "إذا ارتفع سعر 120 بنسبة 25%، فما السعر الجديد؟",
+        "En": "If 120 increases by 25%, what is the new price?"
+      },
+      "Hints": [
+        {
+          "Ar": "احسب مقدار الزيادة من القيمة الأصلية.",
+          "En": "Find the increase from the original value."
+        },
+        {
+          "Ar": "اضرب الأصل في 25/100 ثم أضف الزيادة إلى الأصل.",
+          "En": "Multiply the original by 25/100, then add the increase back."
+        }
+      ]
+    },
+    {
+      "problemId": 218,
+      "primarySkillKey": "middle-polygon-angles",
+      "question": {
+        "Ar": "ما مجموع الزوايا الداخلية لمضلع عدد أضلاعه 5؟",
+        "En": "Find the sum of interior angles of a polygon with 5 sides."
+      },
+      "Hints": [
+        {
+          "Ar": "قسّم المضلع من أحد رؤوسه إلى مثلثات.",
+          "En": "Divide the polygon into triangles from one vertex."
+        },
+        {
+          "Ar": "عدد المثلثات أقل من عدد الأضلاع باثنين؛ اضربه في 180 درجة.",
+          "En": "The triangle count is two less than the side count; multiply it by 180 degrees."
+        }
+      ]
+    },
+    {
+      "problemId": 230,
+      "primarySkillKey": "middle-polygon-angles",
+      "question": {
+        "Ar": "ما مجموع الزوايا الداخلية لمضلع عدد أضلاعه 6؟",
+        "En": "Find the sum of interior angles of a polygon with 6 sides."
+      },
+      "Hints": [
+        {
+          "Ar": "قسّم المضلع من أحد رؤوسه إلى مثلثات.",
+          "En": "Divide the polygon into triangles from one vertex."
+        },
+        {
+          "Ar": "عدد المثلثات أقل من عدد الأضلاع باثنين؛ اضربه في 180 درجة.",
+          "En": "The triangle count is two less than the side count; multiply it by 180 degrees."
+        }
+      ]
+    },
+    {
+      "problemId": 242,
+      "primarySkillKey": "middle-polygon-angles",
+      "question": {
+        "Ar": "ما مجموع الزوايا الداخلية لمضلع عدد أضلاعه 7؟",
+        "En": "Find the sum of interior angles of a polygon with 7 sides."
+      },
+      "Hints": [
+        {
+          "Ar": "قسّم المضلع من أحد رؤوسه إلى مثلثات.",
+          "En": "Divide the polygon into triangles from one vertex."
+        },
+        {
+          "Ar": "عدد المثلثات أقل من عدد الأضلاع باثنين؛ اضربه في 180 درجة.",
+          "En": "The triangle count is two less than the side count; multiply it by 180 degrees."
+        }
+      ]
+    },
+    {
+      "problemId": 254,
+      "primarySkillKey": "middle-polygon-angles",
+      "question": {
+        "Ar": "ما مجموع الزوايا الداخلية لمضلع عدد أضلاعه 8؟",
+        "En": "Find the sum of interior angles of a polygon with 8 sides."
+      },
+      "Hints": [
+        {
+          "Ar": "قسّم المضلع من أحد رؤوسه إلى مثلثات.",
+          "En": "Divide the polygon into triangles from one vertex."
+        },
+        {
+          "Ar": "عدد المثلثات أقل من عدد الأضلاع باثنين؛ اضربه في 180 درجة.",
+          "En": "The triangle count is two less than the side count; multiply it by 180 degrees."
+        }
+      ]
+    },
+    {
+      "problemId": 266,
+      "primarySkillKey": "middle-polygon-angles",
+      "question": {
+        "Ar": "ما مجموع الزوايا الداخلية لمضلع عدد أضلاعه 9؟",
+        "En": "Find the sum of interior angles of a polygon with 9 sides."
+      },
+      "Hints": [
+        {
+          "Ar": "قسّم المضلع من أحد رؤوسه إلى مثلثات.",
+          "En": "Divide the polygon into triangles from one vertex."
+        },
+        {
+          "Ar": "عدد المثلثات أقل من عدد الأضلاع باثنين؛ اضربه في 180 درجة.",
+          "En": "The triangle count is two less than the side count; multiply it by 180 degrees."
+        }
+      ]
     }
   ]
 }

@@ -5,7 +5,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 items = json.loads((ROOT / "content/editorial/g1-existing-hint-candidates-20261124.json").read_text(encoding="utf-8"))["items"]
 ids = [row["problemId"] for row in items]
-assert len(ids) == len(set(ids)) == 345
+assert len(ids) == len(set(ids)) == 492
 assert {row["problemId"] for row in items if row.get("taxonomyReviewPending")} == {1566, 1578}
 assert {23,145,340,352,364,376,388,512,800,818,851}.issubset(ids)
 assert not {10,20}.intersection(ids), "Do not attach new hints to unresolved wording revisions"
@@ -18,7 +18,7 @@ for row in items:
         hints = [h[lang].strip() for h in row["Hints"]]
         assert all(0 < len(h) <= 1000 for h in hints)
         assert hints[0] != hints[1]
-print("PASS: 345 source-bound bilingual hint pairs; 2 taxonomy-held; no unresolved wording imports")
+print("PASS: 492 source-bound bilingual hint pairs; 2 taxonomy-held; no unresolved wording imports")
 
 # Every new law-review hint is bound to both independently retained source manifests.
 primary=json.loads((ROOT/"content/editorial/g1-primary-grade-placement-20261124.json").read_text(encoding="utf-8"))["Items"]
@@ -66,3 +66,16 @@ for skill, ids in family_ids.items():
         assert not s.get("RequiresWordingReview") and not s.get("SkillReview")
         assert r["question"]=={"Ar":s["ExpectedQuestionAr"],"En":s["ExpectedQuestionEn"]}
 print("PASS: 193 explicitly reviewed family hints source-bound")
+
+# Further reviewed, source-bound families; no category-wide implicit assignment.
+family_ids_2 = {"place-value":[1555,1651,1556,1656,1676,1557,1562,1675,1681,1708],"secondary-trigonometric-special-angles":[22,286,310,298,46,62,274,322],"primary-subtraction":[3,37,761,762,763,764],"primary-perimeter":[8,39,155,167,191,203],"primary-one-step-additive-equations":[38,70,85,100,115,130],"primary-arithmetic-mean":[40,72,87,102,117,132],"primary-simple-probability":[56,159,171,183,195,207],"p-fractions-decimals-basic-percentages":[426,617,620,476,619,618],"simple-compound-events":[1657,1658,1684,1685,1690,1709],"s-sequences-series-recurrence-relations":[443,485,773,775,774,776],"dot-product":[1667,1694,1668,1693,1695,1712],"primary-addition":[36,609,610,611,612],"primary-one-step-multiplicative-equations":[54,689,690,691,692],"primary-multistep-arithmetic":[69,84,99,114,129],"primary-division":[150,162,174,186,198],"primary-number-patterns":[153,165,177,189,201],"rounding":[1558,1653,1559,1655,1678],"middle-linear-equations":[58,624,621,622,623],"middle-vertical-angles":[60,701,702,703,704],"middle-linear-function-evaluation":[74,89,104,119,134],"middle-lcm":[211,223,235,247,259],"middle-slope":[213,225,237,249,261],"middle-percent-discounts":[215,227,239,251,263],"middle-map-scale":[216,228,240,252,264],"middle-percent-increase":[217,229,241,253,265],"middle-polygon-angles":[218,230,242,254,266]}
+assert sum(len(v) for v in family_ids_2.values())==147
+assert len({i for ids in family_ids_2.values() for i in ids})==147
+assert not {i for ids in family_ids_2.values() for i in ids}.intersection({i for ids in family_ids.values() for i in ids})
+for skill, ids in family_ids_2.items():
+    for i in ids:
+        r=by_id[i]; s=source[i]
+        assert r["primarySkillKey"]==s["StableKey"]==skill
+        assert not s.get("RequiresWordingReview") and not s.get("SkillReview")
+        assert r["question"]=={"Ar":s["ExpectedQuestionAr"],"En":s["ExpectedQuestionEn"]}
+print("PASS: 147 additional explicitly reviewed family hints source-bound")
