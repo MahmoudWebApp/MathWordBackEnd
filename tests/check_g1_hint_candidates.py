@@ -136,3 +136,21 @@ assert not hint_ids.intersection(full_ids) and not (hint_ids|full_ids).intersect
 assert hint_ids|full_ids|set(blocked)==set(source)
 assert all(b["Confirm"] is False for b in hint_batches+full_batches)
 print("PASS: 16 disjoint preview-only batches cover 732 eligible problems; all 41 held excluded")
+
+# New questions are not existing amendments and never auto-published.
+from prepare_g1_new_content import prepare_new
+new_existing,new_deferred,readiness=prepare_new()
+assert [len(b["Items"]) for b in new_existing]==[50,1]
+assert [len(b["Items"]) for b in new_deferred]==[8]
+assert all(b["Confirm"] is False for b in new_existing+new_deferred)
+all_new=[r for b in new_existing+new_deferred for r in b["Items"]]
+assert len({r["ContentKey"] for r in all_new})==59
+assert all(not r["Content"]["TrackIds"] for r in all_new)
+assert len(readiness)==19 and sum(t["ExistingProblemCount"] for t in readiness)==773
+assert sum(t["ProposedNewAssignments"] for t in readiness)==59
+assert {t["Code"] for t in readiness if "NoFreeCategoryOverlap" in t["Reasons"]}=={
+    "differential-equations","probability-statistics","discrete-mathematics","numerical-analysis","mathematical-optimization"}
+assert {t["Code"] for t in readiness if "DraftIdentityMissingInSnapshot" in t["Reasons"]}=={"numerical-analysis","mathematical-optimization"}
+assert all(t["PublicationBlocked"] for t in readiness)
+assert {i for t in readiness for i in t["HeldProblemIds"]}==set(blocked)
+print("PASS: 59 draft-only candidates, 19 track readiness records, five access gates, no publication")

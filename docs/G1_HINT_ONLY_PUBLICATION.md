@@ -11,3 +11,9 @@ No production database write was performed in preparing this change.
 ## Deterministic offline preparation
 
 Run `python3 scripts/prepare_g1_publication_batches.py --output private-g1-preview` from the backend repository root. Keep the output private: the amendment files contain answers and explanations. This generates 14 hint-only preview payloads for 660 problems, two structured amendment preview payloads for 72 problems, and a list of the 41 excluded problem IDs. All payloads use Confirm=false; the script never connects to the server. The structured amendment payloads go to /api/editorial/problems/amend/import (draft creation only after review and confirmation). Hint-only payloads go to /api/editorial/problems/hints/import. Review and approve each response separately using an authenticated Admin session; do not copy a preview token from a different batch. The route must be deployed and CI green first.
+
+## New question preparation and track readiness
+
+Run `python3 scripts/prepare_g1_new_content.py --output private-g1-new-preview`.
+This generates two draft-only import preview batches (50 + 1 candidates) for track identities present in the reviewed snapshot, and a separate blocked batch of 8 questions targeting the two missing draft identities (numerical analysis and mathematical optimization). Recheck actual track IDs and states before import. No requests are sent. The blocked batch must not be submitted until these identities exist as reviewed draft tracks.
+The 19-track readiness report reconciles the 773 existing problems, 59 new draft assignments and 41 held existing problems. Five university courses still lack Free-category overlap; no access policy change is authorized by this report. A reviewed placement and publication operation remain mandatory. These are private admin files, not public question bank downloads.
