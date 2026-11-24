@@ -61,7 +61,8 @@ public sealed class PasswordRecoveryService(AppDbContext db, IConfiguration conf
         // the same row lock. Never issue two concurrent links for one account.
         await db.Users.Where(x => x.Id == id).ExecuteUpdateAsync(s => s.SetProperty(x => x.TokenVersion, x => x.TokenVersion), ct);
         var user = await db.Users.AsNoTracking().SingleOrDefaultAsync(x => x.Id == id, ct);
-        if (user is null || !Eligible(user) || !string.Equals(user.Email, normalized, StringComparison.OrdinalIgnoreCase)) return;
+        if (user is null || !Eligible(user) || !string.Equals(user.Email, normalized, StringComparison.OrdinalIgnoreCase) ||
+            await db.SocialLogins.AnyAsync(x => x.UserId == id, ct)) return;
         var now = DateTime.UtcNow;
         if (await db.PasswordResetGrants.AnyAsync(x => x.UserId == id && x.CreatedAtUtc > now.AddMinutes(-2), ct)) return;
         // Shared daily reservation cap across instances. Recovery is given
@@ -98,11 +99,12 @@ public sealed class PasswordRecoveryService(AppDbContext db, IConfiguration conf
         if (grant is null || grant.TokenVersion == int.MaxValue) return false;
         var user = await db.Users.AsNoTracking().SingleOrDefaultAsync(x => x.Id == grant.UserId, ct);
         if (user is null || !Eligible(user) || user.Role != grant.Role || user.Email != grant.Email ||
-            user.TokenVersion != grant.TokenVersion) return false;
+            user.TokenVersion != grant.TokenVersion || await db.SocialLogins.AnyAsync(x => x.UserId == user.Id, ct)) return false;
         var newHash = BCrypt.Net.BCrypt.HashPassword(password, 12);
         await using var tx = await db.Database.BeginTransactionAsync(ct);
         var updated = await db.Users.Where(x => x.Id == grant.UserId && x.IsActive &&
-                x.Role == grant.Role && x.Email == grant.Email && x.TokenVersion == grant.TokenVersion)
+                x.Role == grant.Role && x.Email == grant.Email && x.TokenVersion == grant.TokenVersion &&
+                !db.SocialLogins.Any(link => link.UserId == x.Id))
             .ExecuteUpdateAsync(s => s.SetProperty(x => x.PasswordHash, newHash)
                 .SetProperty(x => x.TokenVersion, x => x.TokenVersion + 1), ct);
         if (updated != 1) return false;

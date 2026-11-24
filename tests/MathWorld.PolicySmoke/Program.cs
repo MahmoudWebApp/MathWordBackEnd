@@ -79,6 +79,11 @@ try
 catch (ArgumentException) { }
 Console.WriteLine("PASS: centralized brand validation, safe bilingual email layout and official action links.");
 
+Assert(RecoveryTokenCodec.Hash(new string('a', 64))?.Length == 64, "Canonical recovery hash.");
+Assert(RecoveryTokenCodec.Hash(new string('A', 64)) is null &&
+       RecoveryTokenCodec.Hash("invalid") is null, "Noncanonical tokens rejected.");
+Console.WriteLine("PASS: recovery token format and digest policy.");
+
 // A different numeric substitution must trigger review as the same
 // template family, while stage and topic boundaries remain distinct.
 var familyOne = CurriculumContentQuality.FamilyKey(
