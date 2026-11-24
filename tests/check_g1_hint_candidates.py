@@ -5,7 +5,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 items = json.loads((ROOT / "content/editorial/g1-existing-hint-candidates-20261124.json").read_text(encoding="utf-8"))["items"]
 ids = [row["problemId"] for row in items]
-assert len(ids) == len(set(ids)) == 492
+assert len(ids) == len(set(ids)) == 653
 assert {row["problemId"] for row in items if row.get("taxonomyReviewPending")} == {1566, 1578}
 assert {23,145,340,352,364,376,388,512,800,818,851}.issubset(ids)
 assert not {10,20}.intersection(ids), "Do not attach new hints to unresolved wording revisions"
@@ -18,7 +18,7 @@ for row in items:
         hints = [h[lang].strip() for h in row["Hints"]]
         assert all(0 < len(h) <= 1000 for h in hints)
         assert hints[0] != hints[1]
-print("PASS: 492 source-bound bilingual hint pairs; 2 taxonomy-held; no unresolved wording imports")
+print("PASS: 653 source-bound bilingual hint pairs; 2 taxonomy-held; no unresolved wording imports")
 
 # Every new law-review hint is bound to both independently retained source manifests.
 primary=json.loads((ROOT/"content/editorial/g1-primary-grade-placement-20261124.json").read_text(encoding="utf-8"))["Items"]
@@ -79,3 +79,16 @@ for skill, ids in family_ids_2.items():
         assert not s.get("RequiresWordingReview") and not s.get("SkillReview")
         assert r["question"]=={"Ar":s["ExpectedQuestionAr"],"En":s["ExpectedQuestionEn"]}
 print("PASS: 147 additional explicitly reviewed family hints source-bound")
+
+# Third extension: explicit reviewed IDs and exact source snapshots.
+family_ids_3 = {"middle-similar-triangles":[220,232,244,256,268],"m-statistics-distributions":[433,479,482,825,826],"secondary-discriminant":[270,282,294,306,318],"secondary-factor-quadratics":[271,283,295,307,319],"secondary-arithmetic-mean":[280,292,304,316,328],"s-sequences-series-arithmetic-sequences":[436,438,483,827,828],"magnitude":[1665,1666,1692,1697,1711],"logarithm-properties":[1716,1717,1718,1721,1726],"university-directional-derivative":[331,343,355,367,379],"university-matrix-trace":[332,344,356,368,380],"university-vector-scaling":[333,345,357,369,381],"university-second-order-ivp":[336,348,360,372,384],"u-discrete-math-logic":[445,446,488,833,834],"u-discrete-math-graphs":[447,450,491,831,832],"unconstrained-optimization":[1669,1670,1699,1701,1714],"constrained-optimization":[1671,1672,1702,1705,1713],"convexity":[1673,1674,1700,1704,1706],"primary-triangle-area":[55,614,615,613],"p-fractions-decimals-fraction-models":[423,424,477,817],"p-fractions-decimals-equivalence":[693,694,695,696],"fraction-operations":[1635,1636,1637,1638],"counting":[1654,1680,1682,1707],"middle-evaluate-powers":[41,765,766,767],"m-statistics-charts":[429,434,823,824],"m-statistics-summary-measures":[431,432,435,481],"middle-circle-area":[625,626,627,628],"middle-ratios":[629,630,631,632],"middle-triangle-angles":[697,698,699,700],"solve-linear-inequalities":[1599,1600,1601,1602],"number-line-solutions":[1603,1604,1605,1606],"inequality-contexts":[1607,1608,1609,1610],"summary-measures":[1639,1640,1641,1642],"sample-spaces":[1662,1689,1683,1710],"secondary-quadratic-roots":[20,45,769,770],"secondary-logarithm-evaluation":[21,61,637,640],"s-sequences-series-series-sums":[440,441,442,830]}
+assert sum(len(v) for v in family_ids_3.values())==161
+assert len({i for ids in family_ids_3.values() for i in ids})==161
+assert not {i for ids in family_ids_3.values() for i in ids}.intersection({i for family in (family_ids, family_ids_2) for ids in family.values() for i in ids})
+for skill, ids in family_ids_3.items():
+    for i in ids:
+        r=by_id[i]; s=source[i]
+        assert r["primarySkillKey"]==s["StableKey"]==skill
+        assert not s.get("RequiresWordingReview") and not s.get("SkillReview")
+        assert r["question"]=={"Ar":s["ExpectedQuestionAr"],"En":s["ExpectedQuestionEn"]}
+print("PASS: 161 additional explicitly reviewed family hints source-bound")
