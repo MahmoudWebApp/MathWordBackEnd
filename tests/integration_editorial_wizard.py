@@ -54,6 +54,8 @@ def verify_wizard(admin,supervisor,sid):
     verify_solve(admin,pid,stage,category)
     verify_amendment(admin,supervisor,pid)
     verify_import(admin,supervisor,p,track)
+    from integration_editorial_gap_wave import verify_gap_wave
+    verify_gap_wave(admin)
     print("PASS: partial draft, ownership, revision, review return, approval, exactly-once publication and track/skill linkage")
     return did
 
