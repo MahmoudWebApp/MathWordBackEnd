@@ -170,8 +170,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "49 لا يساوي مجموع 8 مجموعات من 7؛ حاصل ضرب العاملين هو 56.",
-              "En": "49 is not the sum of 8 groups of 7; their product is 56."
+              "Ar": "العدد 49 هو حاصل ضرب 7 في 7، لكن المطلوب ثماني مجموعات لا سبع.",
+              "En": "49 equals 7 times 7, but the question requires eight groups, not seven."
             }
           }
         ],
@@ -198,8 +198,8 @@
             }
           ],
           "Substitution": {
-            "Ar": "$7\\times8=56$",
-            "En": "$7\\times8=56$"
+            "Ar": "$7+7+7+7+7+7+7+7=56$",
+            "En": "$7+7+7+7+7+7+7+7=56$"
           },
           "Result": {
             "Ar": "$56$",
@@ -210,7 +210,7 @@
             "En": "Dimensionless"
           },
           "Verification": {
-            "Ar": "بقسمة حاصل الضرب على 8 نحصل على 7: 56\\div8=7.",
+            "Ar": "بقسمة حاصل الضرب على 8 نحصل على 7: 56÷8=7.",
             "En": "Divide the product by 8 to recover 7: 56 ÷ 8 = 7."
           },
           "CommonError": {
@@ -260,8 +260,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "المحيط 25 سم لا يطابق مجموع الأضلاع الذي يساوي 20 سم.",
-              "En": "25 cm does not equal the sum of the side lengths, 20 cm."
+              "Ar": "25 هو ناتج ضرب طول الضلع في نفسه، أي المساحة بالسنتيمتر المربع، لا المحيط.",
+              "En": "25 is the side length squared, the area in square centimeters, not the perimeter."
             }
           },
           {
@@ -368,8 +368,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "المساحة 22 لا تحقق حاصل ضرب البعدين 8×3=24.",
-              "En": "An area of 22 does not satisfy the dimension product 8×3=24."
+              "Ar": "22 هو محيط المستطيل بالمتر، لا مساحته بالمتر المربع.",
+              "En": "22 is the perimeter in meters, not the area in square meters."
             }
           },
           {
@@ -377,8 +377,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "المساحة 11 لا تحقق حاصل ضرب البعدين 8×3=24.",
-              "En": "An area of 11 does not satisfy the dimension product 8×3=24."
+              "Ar": "11 هو مجموع الطول والعرض، وليس حاصل ضربهما المطلوب للمساحة.",
+              "En": "11 is the sum of the length and width, not the product required for area."
             }
           },
           {
@@ -476,8 +476,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "إذا كان المجموع 32 فطرحه منه 17 يعطينا 15 بدلاً من 25.",
-              "En": "Subtracting 17 from a proposed sum of 32 gives 15, not 25."
+              "Ar": "جمع العشرات دون العشرة المحمولة من الآحاد يعطي 32 بدلاً من المجموع الصحيح.",
+              "En": "Adding the tens without the ten regrouped from the ones produces 32 instead of the correct total."
             }
           },
           {
@@ -514,7 +514,7 @@
             "Ar": "قاعدة القيمة المكانية: نجمع الآحاد ثم العشرات مع إعادة التجميع عند تجاوز تسعة آحاد.",
             "En": "Place-value addition: add ones and tens, regrouping when the ones sum exceeds nine."
           },
-          "FormulaLatex": "25+17=(20+10)+(5+7)",
+          "FormulaLatex": "(10a+b)+(10c+d)=10(a+c)+(b+d)",
           "Steps": [
             {
               "Ar": "اجمع الآحاد 5 و7؛ أعد تجميع عشرة منها إلى منزلة العشرات.",
@@ -798,8 +798,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "المحيط 13 سم لا يطابق مجموع الأضلاع الذي يساوي 26 سم.",
-              "En": "13 cm does not equal the sum of the side lengths, 26 cm."
+              "Ar": "13 هو مجموع الطول والعرض مرة واحدة فقط؛ المحيط يشمل كلًا منهما مرتين.",
+              "En": "13 adds length and width once; the perimeter includes each twice."
             }
           },
           {
@@ -807,8 +807,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "المحيط 40 سم لا يطابق مجموع الأضلاع الذي يساوي 26 سم.",
-              "En": "40 cm does not equal the sum of the side lengths, 26 cm."
+              "Ar": "40 حاصل ضرب الطول في العرض، أي مساحة المستطيل بالسم² لا محيطه.",
+              "En": "40 is length times width, the area in cm² rather than the perimeter."
             }
           },
           {
@@ -1078,7 +1078,7 @@
             "En": "Dimensionless"
           },
           "Verification": {
-            "Ar": "بقسمة حاصل الضرب على 6 نحصل على 9: 54\\div6=9.",
+            "Ar": "بقسمة حاصل الضرب على 6 نحصل على 9: 54÷6=9.",
             "En": "Divide the product by 6 to recover 9: 54 ÷ 6 = 9."
           },
           "CommonError": {
@@ -1230,8 +1230,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "إذا كانت المساحة 60 فضعفها 120، لكن حاصل ضرب القاعدة والارتفاع 60.",
-              "En": "If the area were 60, doubling it would give 120; the base-height product is 60."
+              "Ar": "60 هو حاصل ضرب القاعدة والارتفاع قبل القسمة على اثنين؛ يمثل مساحة المستطيل المقابل.",
+              "En": "60 is the base-height product before halving, the area of the corresponding rectangle."
             }
           },
           {
@@ -1390,12 +1390,12 @@
             }
           ],
           "Substitution": {
-            "Ar": "$\\frac{3}{6}=\\frac12$",
-            "En": "$\\frac{3}{6}=\\frac12$"
+            "Ar": "$\\frac{3}{6}=\\frac{1}{2}$",
+            "En": "$\\frac{3}{6}=\\frac{1}{2}$"
           },
           "Result": {
-            "Ar": "$\\frac12$",
-            "En": "$\\frac12$"
+            "Ar": "$\\frac{1}{2}$",
+            "En": "$\\frac{1}{2}$"
           },
           "Unit": {
             "Ar": "بلا وحدة قياس",
