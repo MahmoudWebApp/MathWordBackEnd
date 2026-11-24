@@ -829,3 +829,100 @@ for row in twelfth["Items"]:
     assert all(parse(sol["Result"][lang])==expected for lang in ("Ar","En")),i
     assert 1<=len(sol["Steps"])<=20 and all(pair(s) for s in sol["Steps"])
 print("PASS: 49 wave-12 secondary questions; exact arithmetic and geometry, vector, log and source guards")
+
+
+# Wave 13: independent university-stage calculations and theorem checks.
+thirteenth=load("g1-structured-amendments-wave13-20261124.json")
+thirteenth_ids={r["ProblemId"] for r in thirteenth["Items"]}
+assert thirteenth["Status"]==wave["Status"]
+assert len(thirteenth_ids)==len(thirteenth["Items"])==60
+assert not thirteenth_ids.intersection(wave_ids|fourth_ids|fifth_ids|sixth_ids|seventh_ids|eighth_ids|ninth_ids|tenth_ids|eleventh_ids|twelfth_ids|{r["ProblemId"] for r in d["Items"]})
+def independent_thirteenth(row):
+    i=row["ProblemId"]; q=row["Content"]["Question"]["En"]; k=row["PrimarySkillKey"]
+    def norm(s): return s.strip("$").replace(" ","")
+    def point(s): return tuple(map(int,re.fullmatch(r"\((-?\d+),(-?\d+)\)",norm(s)).groups()))
+    def number(s):
+        s=norm(s)
+        if s.startswith(r"\text") or s.endswith(r"\infty"): return s
+        return rational(s)
+    if k=="university-matrix-determinants":
+        a,b,c,d=map(int,re.findall(r"\d+",q)[-4:])
+        return a*d-b*c,number
+    if k=="university-matrix-trace":
+        a,b,c,d=map(int,re.findall(r"\d+",q))
+        return a+d,number
+    if k=="university-partial-derivatives":
+        if i==28: return r"2xy+3y^2+\cosx",norm
+        if i==49: return 2*2*1,number
+        a,n,b,m,x,y=map(int,re.findall(r"\d+",q))
+        if i<329: return a*n*x**(n-1)*y,number
+        return a*x**n+b*m*y**(m-1),number
+    if k=="university-gradient":
+        x,y=map(int,re.findall(r"\d+",q)[-2:])
+        return (2*x,2*y),point
+    if k=="university-directional-derivative":
+        x,y=map(int,re.findall(r"\d+",q)[-2:])
+        return 2*x,number
+    if k=="university-vector-scaling":
+        a,b,c=map(int,re.findall(r"\d+",q))
+        return (a*c,b*c),point
+    if k=="university-dot-product":
+        a,b,c,d=map(int,re.findall(r"\d+",q))
+        return a*c+b*d,number
+    if k=="university-exponential-ode":
+        if i==32: return "y=Ae^{3x}",norm
+        rate,c=(1,2) if i==67 else (int(re.findall(r"\d+",q)[0]),int(re.findall(r"\d+",q)[-1]))
+        def ode(s):
+            s=norm(s).removeprefix("y=")
+            m=re.fullmatch(r"(\d*)e\^\{(-?\d*)x\}",s)
+            if not m: return s
+            exponent=int(m[2]) if m[2] not in ("","-") else (-1 if m[2]=="-" else 1)
+            return int(m[1] or 1),exponent
+        return (c,rate),ode
+    if k=="university-sequence-limits":
+        return 0,number
+    if k=="university-integrating-ode":
+        if i==51: return "y=x^{2}+C",norm
+        a,zero,c,t=map(int,re.findall(r"\d+",q))
+        assert zero==0
+        return c+(Fraction(a,2)*t*t if "x" in q else a*t),number
+    if k=="university-second-order-ivp":
+        z,z1,k,z2,c,t=map(int,re.findall(r"\d+",q))
+        assert z==z1==z2==0
+        return k*t+c,number
+    if i==29: return Fraction(1**2,2)*Fraction(2**2,2),number
+    if i==33: return 2,number
+    if i==34: return 2+2,number
+    if i in (31,35): return r"\text{لا (No)}",str
+    if i in (68,144):
+        return {68:r"\exists c\in(0,1):f(c)=0",144:r"\exists c\in(0,2):f(c)=0"}[i],str
+    if i==145: return r"\text{الدالة متصلة عند 1 (Continuous at 1)}",str
+    if i in (340,352): return r"\text{الدالة متصلة على [0,1] (Continuous on [0,1])}",str
+    raise AssertionError(i)
+for row in thirteenth["Items"]:
+    i=row["ProblemId"]; c=row["Content"]; g,p=placements[i]
+    assert row["Status"]=="StructuredAmendmentCandidateNotImported"
+    assert row["PrimarySkillKey"]==p["StableKey"] and row["ProposedTrackCode"]==g["Code"]
+    assert c["StageId"]==g["StageId"]==4 and c["CategoryId"]==p["CategoryId"] and c["PrimarySkillId"]==p["PrimarySkillId"]
+    assert c["Question"]=={"Ar":p["ExpectedQuestionAr"],"En":p["ExpectedQuestionEn"]}
+    assert pair(row["ExpectedLegacySolution"]) and pair(c["Title"])
+    assert len(row["ExpectedOptionIds"])==len(set(row["ExpectedOptionIds"]))==4
+    opts=c["Options"]; assert len(opts)==4 and sum(o["IsCorrect"] for o in opts)==1
+    expected,parse=independent_thirteenth(row)
+    values=[parse(o["LatexCode"]) for o in opts]
+    assert len(set(values))==4,i
+    assert all(o["IsCorrect"]==(v==expected) for v,o in zip(values,opts)),i
+    assert all(o["ErrorType"] and pair(o["Reason"]) for o in opts if not o["IsCorrect"])
+    assert len(c["Hints"])==2 and all(pair(h) for h in c["Hints"])
+    assert all(c["Hints"][0][k]!=c["Hints"][1][k] for k in ("Ar","En"))
+    sol=c["Solution"]
+    assert sol["FormulaLatex"] and not sol["FormulaLatex"].startswith("$")
+    assert all(pair(sol[k]) for k in ("Idea","Substitution","Result","Unit","Verification","CommonError"))
+    if i in (31,35,145,340,352):
+        assert sol["Result"]["En"]=={31:"Linearly dependent",35:"Not differentiable at zero",145:"Continuous at 1",340:"Continuity on [0,1]",352:"Continuity on [0,1]"}[i]
+    elif i in (68,144):
+        assert all(sol["Result"][lang].strip("$")==expected for lang in ("Ar","En"))
+    else:
+        assert all(parse(sol["Result"][lang])==expected for lang in ("Ar","En")),i
+    assert 1<=len(sol["Steps"])<=20 and all(pair(s) for s in sol["Steps"])
+print("PASS: 60 wave-13 university questions; independent calculation and source guards")
