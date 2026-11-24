@@ -26,6 +26,8 @@ namespace MathWorldAPI.DTOs
         public int TotalProblems { get; set; }
         public int AttemptedProblems { get; set; }
         public int SolvedProblems { get; set; }
+        public int PermanentSolvedProblems { get; set; }
+        public long PermanentPoints { get; set; }
         public int FirstTryCorrect { get; set; }
         public int MasteredProblems { get; set; }
         public int CompletionPercent { get; set; }
@@ -40,6 +42,8 @@ namespace MathWorldAPI.DTOs
         public int TotalProblems { get; set; }
         public int AttemptedProblems { get; set; }
         public int SolvedProblems { get; set; }
+        public int PermanentSolvedProblems { get; set; }
+        public long PermanentPoints { get; set; }
         public int FirstTryCorrect { get; set; }
         public int MasteredProblems { get; set; }
         public int TotalPoints { get; set; }

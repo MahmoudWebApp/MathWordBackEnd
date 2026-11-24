@@ -1484,10 +1484,11 @@ namespace MathWorldAPI.Controllers
             // and committed atomically with the attempt. The learner-wide
             // advisory lock above guarantees milestone uniqueness.
             var createdMilestoneNotice = false;
-            if (isCorrect && !wasSolved)
+            if (_context.ChangeTracker.Entries<PermanentProblemAchievement>().Any(e =>
+                e.State == EntityState.Added && e.Entity.UserId == userId.Value))
             {
-                var solvedBefore = await _context.UserProgresses.AsNoTracking()
-                    .CountAsync(p => p.UserId == userId.Value && p.IsSolved,
+                var solvedBefore = await _context.PermanentProblemAchievements.AsNoTracking()
+                    .CountAsync(p => p.UserId == userId.Value,
                         HttpContext.RequestAborted);
                 var solvedNow = solvedBefore + 1;
                 if (new[] { 1, 10, 25, 50, 100, 250, 500, 1000 }.Contains(solvedNow))

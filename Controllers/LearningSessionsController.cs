@@ -25,6 +25,7 @@ public sealed class LearningSessionsController(AppDbContext db, IConfiguration c
     public sealed record StartInput(Guid RequestId,string Kind,int Count=5,int? CategoryId=null);
     public sealed record AnswerInput(Guid RequestId,int Position,int ProblemId,int SelectedOptionId);
     public sealed record HintInput(int Position,int ProblemId,int Level);
+    public sealed record RestartScopeInput(int StageId,int? TrackId,int? CategoryId,Guid[] SessionIds);
     public sealed record QuestionRef(int Id,string Fingerprint);
     private sealed record Scope(int UserId,int StageId,int? TrackId,List<int> Allowed,bool Premium);
     private bool Enabled => config.GetValue<bool>("LearningSessions:Enabled");
@@ -235,6 +236,80 @@ public sealed class LearningSessionsController(AppDbContext db, IConfiguration c
         return AnswerView(session,attempt,p);
     }
 
+    // PostgreSQL stores timestamps at microsecond precision. Return the same
+    // exact timestamp on the first request and an idempotent replay.
+    private static DateTime DatabaseUtcNow()
+    {
+        var now=DateTime.UtcNow;
+        return new DateTime(now.Ticks-now.Ticks%10,DateTimeKind.Utc);
+    }
+
+    private IQueryable<LearningSession> PracticeScope(Scope scope,int? categoryId) =>
+        db.LearningSessions.Where(s=>s.UserId==scope.UserId&&s.StageId==scope.StageId&&
+            s.TrackId==scope.TrackId&&s.Kind=="practice"&&
+            (!categoryId.HasValue||s.CategoryId==categoryId.Value));
+
+    // Preview and restart use the same explicit scope, and the confirmation
+    // carries exact session IDs. A delayed retry cannot abandon a new session.
+    [HttpGet("restart-scope")]
+    public async Task<IActionResult> PreviewRestartScope([FromQuery]int? categoryId,CancellationToken ct)
+    {
+        if(!Enabled)return NotFound();
+        if(categoryId.HasValue&&categoryId.Value<=0)return BadRequest(new{Message="InvalidPracticeScope"});
+        var (scope,error)=await Resolve("practice",ct);
+        if(scope is null)return error!;
+        if(categoryId.HasValue&&!await Eligible(scope,categoryId).AnyAsync(ct))
+            return StatusCode(403,new{Message="CategoryLocked"});
+        var ids=await PracticeScope(scope,categoryId).AsNoTracking()
+            .Where(s=>s.CompletedAtUtc==null&&s.AbandonedAtUtc==null)
+            .OrderBy(s=>s.Id).Select(s=>s.Id).ToArrayAsync(ct);
+        return Ok(new{scope.StageId,scope.TrackId,CategoryId=categoryId,SessionIds=ids});
+    }
+
+    [HttpPost("restart-scope")]
+    public async Task<IActionResult> RestartScope(RestartScopeInput input,CancellationToken ct)
+    {
+        if(!Enabled)return NotFound();
+        if(input.StageId<=0||(input.TrackId.HasValue&&input.TrackId.Value<=0)||
+            (input.CategoryId.HasValue&&input.CategoryId.Value<=0)||input.SessionIds is null||
+            input.SessionIds.Length>500||input.SessionIds.Any(x=>x==Guid.Empty)||
+            input.SessionIds.Distinct().Count()!=input.SessionIds.Length)
+            return BadRequest(new{Message="InvalidPracticeScope"});
+        await using var tx=await db.Database.BeginTransactionAsync(ct);
+        await LockLearner(UserId,ct);
+        var (scope,error)=await Resolve("practice",ct);
+        if(scope is null)return error!;
+        if(scope.StageId!=input.StageId||scope.TrackId!=input.TrackId)
+            return Conflict(new{Message="SessionScopeChanged"});
+        if(input.CategoryId.HasValue&&!await Eligible(scope,input.CategoryId).AnyAsync(ct))
+            return StatusCode(403,new{Message="CategoryLocked"});
+        var query=PracticeScope(scope,input.CategoryId);
+        var targets=await query.Where(s=>input.SessionIds.Contains(s.Id)).ToListAsync(ct);
+        if(targets.Count!=input.SessionIds.Length||targets.Any(s=>s.CompletedAtUtc.HasValue))
+            return Conflict(new{Message="RestartScopeChanged"});
+        var pending=targets.Where(s=>!s.AbandonedAtUtc.HasValue).ToList();
+        if(pending.Count>0)
+        {
+            var active=await query.AsNoTracking().Where(s=>s.CompletedAtUtc==null&&s.AbandonedAtUtc==null)
+                .Select(s=>s.Id).ToArrayAsync(ct);
+            if(!active.ToHashSet().SetEquals(pending.Select(s=>s.Id)))
+                return Conflict(new{Message="RestartScopeChanged"});
+            var now=DatabaseUtcNow();
+            foreach(var session in pending)
+            {
+                session.AbandonedAtUtc=now;
+                session.HintsRevealed=0;
+                db.PlatformActivityEvents.Add(new PlatformActivityEvent{ActorUserId=UserId,ActorRole="Student",
+                    Action="PracticeSessionAbandoned",Resource="LearningSession",ResourceId=session.Id.ToString("D"),
+                    Origin="api",CreatedAtUtc=now});
+            }
+            await db.SaveChangesAsync(ct);
+        }
+        await tx.CommitAsync(ct);
+        return Ok(new{scope.StageId,scope.TrackId,input.CategoryId,
+            AbandonedSessionIds=targets.Select(s=>s.Id).OrderBy(x=>x).ToArray()});
+    }
+
     // Explicit restart of the selected practice session only. Preserve
     // attempts, earned achievements, favorites and today's challenge.
     [HttpPost("{id:guid}/abandon")]
@@ -252,7 +327,7 @@ public sealed class LearningSessionsController(AppDbContext db, IConfiguration c
             return Conflict(new{Message="CannotAbandonSession"});
         if(!session.AbandonedAtUtc.HasValue)
         {
-            session.AbandonedAtUtc=DateTime.UtcNow;
+            session.AbandonedAtUtc=DatabaseUtcNow();
             session.HintsRevealed=0;
             db.PlatformActivityEvents.Add(new PlatformActivityEvent{ActorUserId=UserId,ActorRole="Student",
                 Action="PracticeSessionAbandoned",Resource="LearningSession",ResourceId=id.ToString("D"),

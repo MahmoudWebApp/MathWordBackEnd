@@ -150,6 +150,15 @@ namespace MathWorldAPI.Controllers
                 .ToListAsync(cancellationToken);
             var progressByCategory = progress.ToDictionary(p => p.CategoryId);
 
+            // Lifetime credit is separate from the mutable practice cycle.
+            // Scope by current catalog membership, never sum ordinary and
+            // session solves (the ledger contains exactly one row per problem).
+            var permanent = await _context.PermanentProblemAchievements.AsNoTracking()
+                .Where(p => p.UserId == userId && scoped.Any(q=>q.Id==p.ProblemId))
+                .GroupBy(p=>p.CategoryId)
+                .Select(g=>new{CategoryId=g.Key,Solved=g.Count(),Points=g.Sum(p=>(long)p.Points)})
+                .ToDictionaryAsync(x=>x.CategoryId,cancellationToken);
+
             var access = HttpContext.RequestServices
                 .GetRequiredService<ProblemCategoryAccessService>();
             var allowed = await access.GetAllowedCategoryIdsAsync(User, cancellationToken);
@@ -158,6 +167,7 @@ namespace MathWorldAPI.Controllers
             {
                 inventory.TryGetValue(category.Id, out var total);
                 progressByCategory.TryGetValue(category.Id, out var stats);
+                permanent.TryGetValue(category.Id,out var lifetime);
                 var solved = stats?.Solved ?? 0;
                 return new StageCategoryProgressDto
                 {
@@ -168,6 +178,8 @@ namespace MathWorldAPI.Controllers
                     TotalProblems = total,
                     AttemptedProblems = stats?.Attempted ?? 0,
                     SolvedProblems = solved,
+                    PermanentSolvedProblems = lifetime?.Solved ?? 0,
+                    PermanentPoints = lifetime?.Points ?? 0,
                     FirstTryCorrect = stats?.FirstTry ?? 0,
                     MasteredProblems = stats?.Mastered ?? 0,
                     CompletionPercent = total == 0 ? 0 :
@@ -189,6 +201,8 @@ namespace MathWorldAPI.Controllers
                 FirstTryCorrect = categoryProgress.Sum(c => c.FirstTryCorrect),
                 MasteredProblems = categoryProgress.Sum(c => c.MasteredProblems),
                 TotalPoints = progress.Sum(p => p.Points),
+                PermanentSolvedProblems = categoryProgress.Sum(c=>c.PermanentSolvedProblems),
+                PermanentPoints = categoryProgress.Sum(c=>c.PermanentPoints),
                 CompletionPercent = total == 0 ? 0 :
                     (int)Math.Round(100.0 * solvedTotal / total),
                 Categories = categoryProgress

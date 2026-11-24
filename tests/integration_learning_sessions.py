@@ -86,6 +86,8 @@ def verify_sessions(admin, learner, other, stage):
     assert expect("GET",ROOT+"/achievements",200,token=learner)["CompletedDailyChallenges"]==0
     after=expect("GET","/api/users/journey",200,token=other)
     assert after["TotalPoints"]==baseline["TotalPoints"] and after["SolvedProblems"]==baseline["SolvedProblems"]
+    assert after["PermanentSolvedProblems"]>=5 and after["PermanentPoints"]>=baseline["PermanentPoints"]
+    assert after["PermanentSolvedProblems"]==sum(c["PermanentSolvedProblems"] for c in after["Categories"])
     # Switch stage: today's daily session is not replaced. Restore on return.
     expect("PUT","/api/users/learning-stage",200,{"StageId":1},other)
     expect("POST",ROOT+"/start",409,dict(start,RequestId=str(uuid4())),other)
@@ -102,6 +104,22 @@ def verify_sessions(admin, learner, other, stage):
     expect("GET",ROOT+"/current?kind=practice&categoryId=5",404,token=learner)
     replacement=expect("POST",ROOT+"/start",200,{"RequestId":str(uuid4()),"Kind":"practice","Count":5,"CategoryId":5},learner)
     assert replacement["Id"]!=p["Id"] and replacement["Completed"]==0
+    whole=expect("POST",ROOT+"/start",200,{"RequestId":str(uuid4()),"Kind":"practice","Count":5},learner)
+    preview=expect("GET",ROOT+"/restart-scope?categoryId=5",200,token=learner)
+    assert preview["SessionIds"]==[replacement["Id"]]
+    bad=dict(preview,SessionIds=[whole["Id"]])
+    expect("POST",ROOT+"/restart-scope",409,bad,learner)
+    result=expect("POST",ROOT+"/restart-scope",200,preview,learner)
+    assert result["AbandonedSessionIds"]==[replacement["Id"]]
+    assert expect("GET",ROOT+"/current?kind=practice",200,token=learner)["Id"]==whole["Id"]
+    new_category=expect("POST",ROOT+"/start",200,{"RequestId":str(uuid4()),"Kind":"practice","Count":5,"CategoryId":5},learner)
+    assert expect("POST",ROOT+"/restart-scope",200,preview,learner)==result
+    assert expect("GET",ROOT+"/current?kind=practice&categoryId=5",200,token=learner)["Id"]==new_category["Id"]
+    all_preview=expect("GET",ROOT+"/restart-scope",200,token=learner)
+    assert set(all_preview["SessionIds"])=={whole["Id"],new_category["Id"]}
+    expect("POST",ROOT+"/restart-scope",200,all_preview,learner)
+    expect("GET",ROOT+"/current?kind=practice",404,token=learner)
+    expect("GET",ROOT+"/current?kind=practice&categoryId=5",404,token=learner)
     assert expect("GET",ROOT+"/achievements",200,token=learner)==old
     expect("POST",path+"/abandon",409,token=other)
     expect("POST",ROOT+"/start",400,{"RequestId":str(uuid4()),"Kind":"practice","Count":11},learner)
