@@ -619,3 +619,105 @@ for row in tenth["Items"]:
     assert all(parse(sol["Result"][lang])==expected for lang in ("Ar","En")),i
     assert 1<=len(sol["Steps"])<=20 and all(pair(s) for s in sol["Steps"])
 print("PASS: 58 wave-10 secondary-school questions, exact oracles and source guards")
+
+
+# Wave 11: explicit independent calculations for sequence, series and
+# secondary-school variants; symbolic options are compared by expansion.
+eleventh=load("g1-structured-amendments-wave11-20261124.json")
+eleventh_ids={r["ProblemId"] for r in eleventh["Items"]}
+assert eleventh["Status"]==wave["Status"]
+assert len(eleventh_ids)==len(eleventh["Items"])==62
+assert not eleventh_ids.intersection(wave_ids|fourth_ids|fifth_ids|sixth_ids|seventh_ids|eighth_ids|ninth_ids|tenth_ids|{r["ProblemId"] for r in d["Items"]})
+assert not eleventh_ids.intersection({303,315,327})
+def independent_eleventh(row):
+    i=row["ProblemId"]; c=row["Content"]; q=c["Question"]["En"]; k=row["PrimarySkillKey"]
+    v=[int(x) for x in re.findall(r"\d+",q)]
+    def norm(s): return s.strip("$").replace(" ","")
+    if i in (302,314,326,304,316,328,305,317,306,318,307,319,308,309,320,321,311,323,312,324,313,325):
+        return independent_tenth(row)
+    if i in (310,322):
+        def trig(s):
+            s=norm(s)
+            m=re.fullmatch(r"\\frac\{\\sqrt\{(\d+)\}\}\{(\d+)\}",s)
+            if m: return Fraction(int(m[1]),int(m[2])**2)
+            return rational(s)**2
+        return Fraction(3,4) if i==310 else Fraction(1),trig
+    if i==436:
+        def terms(s):
+            m=re.fullmatch(r"(\d*)n([+-]\d+)",norm(s))
+            a,b=int(m[1] or 1),int(m[2])
+            return tuple(a*n+b for n in range(1,5))
+        return (5,9,13,17),terms
+    if i==770:
+        def roots(s):
+            parts=norm(s).removeprefix(r"\{").removesuffix(r"\}").split(",")
+            vals=[]
+            for part in parts:
+                sign=-1 if part.startswith("-") else 1
+                vals.append(sign*rational(part.removeprefix("-")))
+            return tuple(sorted(vals))
+        roots_expected=tuple(sorted(x for x in [Fraction(n,2) for n in range(-10,11)] if 2*x*x-7*x+3==0))
+        return roots_expected,roots
+    if i==827:
+        def gaps(s): return tuple(map(int,re.findall(r"\d+",s)))
+        d=Fraction(20-4,4)
+        return tuple(4+d*n for n in (1,2,3)),gaps
+    if i==861:
+        # Differentiate the polynomial represented by each option.
+        def derivative(s):
+            s=norm(s)
+            assert s.endswith("+C")
+            terms=re.findall(r"([+-]?\d+)x(?:\^(\d+))?",s[:-2])
+            return tuple(sorted((int(p or 1)-1,int(a)*int(p or 1)) for a,p in terms))
+        return ((1,-4),(2,6)),derivative
+    if i in (487,510,511,512):
+        return {487:r"\text{يتباعد إلى ما لا نهاية (+infinity)}",510:r"\text{لا يتقارب (Does not converge)}",511:r"\text{يتباعد (Diverges)}",512:r"\text{كل كتلة مضاعفة تضيف نصفاً على الأقل (Each block adds at least 1/2)}"}[i],str
+    def signed_rational(s):
+        s=s.strip("$")
+        return (-1 if s.startswith("-") else 1)*rational(s.removeprefix("-"))
+    numeric={
+        437:3*2**4,438:Fraction(27-11,7-3),439:4+9*3,
+        440:sum(range(2,18,3)),441:sum(2**n for n in range(5)),
+        442:Fraction(4,1)/(1-Fraction(1,2)),443:2*(2*2+1)+1,
+        483:23-4*4,485:1+sum(2*n for n in range(1,4)),
+        486:sum(range(1,24,2)),508:Fraction(1,1)/(1+Fraction(1,2)),
+        509:Fraction(6,1)/(1-Fraction(1,3)),633:Fraction(isqrt(25-9),5),
+        637:next(n for n in range(-10,1) if Fraction(5)**n==Fraction(1,125)),
+        639:4-1,640:2**5,641:Fraction(sum((n-3)**2 for n in (1,3,5)),3),
+        644:9*Fraction(2,3),709:Fraction(6,2),710:isqrt(54//6),
+        769:next(n for n in range(-10,11) if n*n-10*n+25==0),
+        771:next(n for n in range(1,49) if n*(n+2)==48),
+        773:7-4*3,774:8,775:((1**2+1)**2+1)**2+1,
+        776:next(n for n in range(1,20) if 2*3**(n-1)>100),
+        828:1+Fraction(47-5,3),
+        830:sum(Fraction(1,k)-Fraction(1,k+1) for k in range(1,5)),
+        859:2*3*3**2-4,862:2**3+2
+    }
+    if i==442:
+        return numeric[i],lambda s:s if s==r"\infty" else signed_rational(s)
+    return numeric[i],signed_rational
+for row in eleventh["Items"]:
+    i=row["ProblemId"]; c=row["Content"]; g,p=placements[i]
+    assert row["Status"]=="StructuredAmendmentCandidateNotImported"
+    assert row["PrimarySkillKey"]==p["StableKey"] and row["ProposedTrackCode"]==g["Code"]
+    assert c["StageId"]==g["StageId"]==3 and c["CategoryId"]==p["CategoryId"] and c["PrimarySkillId"]==p["PrimarySkillId"]
+    assert c["Question"]=={"Ar":p["ExpectedQuestionAr"],"En":p["ExpectedQuestionEn"]}
+    assert pair(row["ExpectedLegacySolution"]) and pair(c["Title"])
+    assert len(row["ExpectedOptionIds"])==len(set(row["ExpectedOptionIds"]))==4
+    opts=c["Options"]; assert len(opts)==4 and sum(o["IsCorrect"] for o in opts)==1
+    expected,parse=independent_eleventh(row)
+    values=[parse(o["LatexCode"]) for o in opts]
+    assert len(set(values))==4,i
+    assert all(o["IsCorrect"]==(v==expected) for v,o in zip(values,opts)),i
+    assert all(o["ErrorType"] and pair(o["Reason"]) for o in opts if not o["IsCorrect"])
+    assert len(c["Hints"])==2 and all(pair(h) for h in c["Hints"])
+    assert all(c["Hints"][0][k]!=c["Hints"][1][k] for k in ("Ar","En"))
+    sol=c["Solution"]
+    assert sol["FormulaLatex"] and not sol["FormulaLatex"].startswith("$")
+    assert all(pair(sol[k]) for k in ("Idea","Substitution","Result","Unit","Verification","CommonError"))
+    if i in (487,510,511,512):
+        assert sol["Result"]["En"]=={487:"Diverges to positive infinity",510:"Does not converge",511:"Diverges",512:"Each doubling block adds at least one half"}[i]
+    else:
+        assert all(parse(sol["Result"][lang])==expected for lang in ("Ar","En")),i
+    assert 1<=len(sol["Steps"])<=20 and all(pair(s) for s in sol["Steps"])
+print("PASS: 62 wave-11 secondary-school questions, mathematical and source-preservation checks")
