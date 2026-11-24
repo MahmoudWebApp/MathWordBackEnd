@@ -216,3 +216,85 @@ for row in fifth["Items"]:
         assert sol["Result"]["En"]=="Class B" and "ب" in sol["Result"]["Ar"]
     assert 1<=len(sol["Steps"])<=20 and all(pair(s) for s in sol["Steps"])
 print("PASS: 59 wave-05 questions, exact rational/comparison oracles, source guards and complete bilingual content")
+
+
+# Wave 06: exact arithmetic, place value, comparisons, units, time and
+# division-with-remainder checks. Expected values below are independent
+# arithmetic expressions, not values extracted from the proposed answer.
+sixth=load("g1-structured-amendments-wave06-20261124.json")
+assert sixth["Status"]==wave["Status"]
+sixth_ids={r["ProblemId"] for r in sixth["Items"]}
+assert len(sixth_ids)==len(sixth["Items"])==54
+assert not sixth_ids.intersection(wave_ids|fourth_ids|fifth_ids|{r["ProblemId"] for r in d["Items"]})
+assert not sixth_ids.intersection({818,1679})
+def nearest(n,m): return ((n+m//2)//m)*m
+def independent_sixth(i,opts):
+    expected={
+        694:Fraction(14,21),695:Fraction(75,100),761:425-178,762:650-487,763:95+38,764:503-287,
+        817:Fraction(9,12),819:Fraction(3,4)/2,820:Fraction(2,3)/4,822:Fraction(47,100)*10,
+        852:(145+38-1)//38,853:18*12-35,854:48*100//4,1555:6*10**4,
+        1556:70000+500+40+3,1558:nearest(37648,100),1559:nearest(9650,1000),
+        1560:nearest(392,100)+nearest(614,100),1561:nearest(1508,100)-nearest(692,100),1562:40*100,
+        1587:235+85,1588:Fraction(14,10)*100-135,1589:12*100//75,1590:2*1000+750-900,
+        1591:Fraction(15,10)*1000//250,1592:2*1000//250,1593:2*1000-350,1594:750+Fraction(8,10)*1000,
+        1596:(15*60+5)-(14*60+10),1597:Fraction(325,100)*1000,1598:18*10,
+        1635:Fraction(3,4)+Fraction(1,8),1636:Fraction(5,6)-Fraction(1,3),1637:18*Fraction(2,3),
+        1638:1+Fraction(1,4)+2+Fraction(1,2),1651:7*1000,1652:max(4096,4609,4690,4906),
+        1653:nearest(3867,100),1654:1250+3*25,1655:nearest(198,100)+nearest(304,100),
+        1656:4*1000+3*100+2*10+7,1675:4000//400,1676:6*1000+4*10+9,1677:Fraction(340+360,2),
+        1681:min(n for n in range(1000,10000) if n//100%10==6 and n%10==8),
+        1682:sum(n%10==0 for n in range(366,390)),1707:sum(n//10%10==4 for n in range(200,300)),1708:6005-90,
+    }
+    if i==696:
+        valid=[]
+        for o in opts:
+            a,op,b=re.fullmatch(r"(.+?)([<>=])(.+)",o["LatexCode"]).groups()
+            a,b=rational(a),rational(b)
+            if {"<":a<b,">":a>b,"=":a==b}[op]:valid.append(o["LatexCode"])
+        assert len(valid)==1
+        return valid[0],lambda s:s
+    if i==1557:
+        a,b=58209,58290
+        return "<" if a<b else ">" if a>b else "=",lambda s:s
+    if i==851:
+        def pair_choice(s):
+            a,b=re.search(r"(\d+) each, (\d+) left",s).groups()
+            return int(a),int(b)
+        return divmod(96,7),pair_choice
+    if i==1595:
+        t=9*60+45+60+35
+        return divmod(t,60),lambda s:tuple(map(int,re.search(r"(\d+):(\d+)",s).groups()))
+    if i==1680:
+        return divmod(36,10),lambda s:tuple(map(int,re.fullmatch(r"\((\d+),(\d+)\)",s).groups()))
+    if i==1678:
+        candidates=[int(o["LatexCode"]) for o in opts if nearest(int(o["LatexCode"]),100)==4600]
+        assert len(candidates)==1
+        return candidates[0],int
+    return expected[i],lambda s:rational(s.replace(",",""))
+for row in sixth["Items"]:
+    i=row["ProblemId"]; c=row["Content"]; g,p=placements[i]
+    assert row["Status"]=="StructuredAmendmentCandidateNotImported"
+    assert row["PrimarySkillKey"]==p["StableKey"] and row["ProposedTrackCode"]==g["Code"]
+    assert c["StageId"]==g["StageId"]==1 and c["CategoryId"]==p["CategoryId"] and c["PrimarySkillId"]==p["PrimarySkillId"]
+    assert c["Question"]=={"Ar":p["ExpectedQuestionAr"],"En":p["ExpectedQuestionEn"]}
+    assert pair(row["ExpectedLegacySolution"]) and pair(c["Title"])
+    assert len(row["ExpectedOptionIds"])==len(set(row["ExpectedOptionIds"]))==4
+    opts=c["Options"]; assert len(opts)==4 and sum(o["IsCorrect"] for o in opts)==1
+    expected,parse=independent_sixth(i,opts)
+    values=[parse(o["LatexCode"]) for o in opts]
+    assert len(set(values))==4
+    assert all(o["IsCorrect"]==(v==expected) for v,o in zip(values,opts)),i
+    assert all(o["ErrorType"] and pair(o["Reason"]) for o in opts if not o["IsCorrect"])
+    assert len(c["Hints"])==2 and all(pair(h) for h in c["Hints"])
+    assert all(c["Hints"][0][k]!=c["Hints"][1][k] for k in ("Ar","En"))
+    sol=c["Solution"]
+    assert sol["FormulaLatex"] and not sol["FormulaLatex"].startswith("$")
+    assert all(pair(sol[k]) for k in ("Idea","Substitution","Result","Unit","Verification","CommonError"))
+    if i in (851,1680):
+        assert all(tuple(map(int,re.fullmatch(r"\((\d+),(\d+)\)",sol["Result"][lang].strip("$")).groups()))==expected for lang in ("Ar","En"))
+    elif i==1557:
+        assert all("<" in sol["Result"][lang] for lang in ("Ar","En"))
+    else:
+        assert all(parse(sol["Result"][lang].strip("$"))==expected for lang in ("Ar","En")),i
+    assert 1<=len(sol["Steps"])<=20 and all(pair(s) for s in sol["Steps"])
+print("PASS: 54 wave-06 problems, independent exact math and bilingual source-guarded content")
