@@ -82,6 +82,9 @@ def verify_tracks(admin, student, uid, stage1, stage2):
     oid=other["Id"]
     expect("PUT",f"{root}/{oid}/mapping",200,{"Revision":0,"CategoryIds":[category],"SkillIds":[skill],"ProblemIds":[pid]},admin)
     expect("PUT",f"{root}/{oid}/publication",200,{"Revision":1,"Publish":True},admin)
+    public_tracks=expect("GET",f"/api/stages/{stage1}/tracks",200)["Items"]
+    assert {x["Id"] for x in public_tracks}=={tid,oid}
+    assert all(x["ProblemsCount"]==x["CategoriesCount"]==x["SkillsCount"]==x["FreeProblemsCount"]==1 for x in public_tracks)
     expect("PUT","/api/users/learning-track",200,{"TrackId":oid},student)
     expect("GET",practice,403,token=student)
     assert expect("GET",f"/api/users/learning-tracks/{oid}/progress",200,token=student)["Solved"]==0

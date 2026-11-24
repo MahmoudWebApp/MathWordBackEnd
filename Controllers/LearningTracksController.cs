@@ -20,9 +20,21 @@ public sealed class LearningTracksController(AppDbContext db,LearningTrackServic
         var items=tracks.Enabled?await tracks.VisibleTracks().Where(t=>t.StageId==stageId)
             .OrderBy(t=>t.SortOrder).ThenBy(t=>t.Id).ToListAsync(ct):new List<LearningTrack>();
         var result=new List<object>();
+        if(items.Count==0)return Ok(new{Enabled=tracks.Enabled,Items=result});
+        // One grouped coverage query for all visible tracks, with one shared
+        // Free category snapshot. Avoid four SQL queries per track.
+        var ids=items.Select(t=>t.Id).ToArray();
+        var free=await access.GetFreeCategoryIdsAsync(stageId,ct);
+        var totals=await tracks.ValidLinks().Where(l=>ids.Contains(l.TrackId))
+            .GroupBy(l=>l.TrackId).Select(g=>new{
+                TrackId=g.Key,Problems=g.Select(x=>x.ProblemId).Distinct().Count(),
+                Categories=g.Select(x=>x.CategoryId).Distinct().Count(),
+                Skills=g.Select(x=>x.SkillId).Distinct().Count(),
+                FreeProblems=g.Where(x=>free.Contains(x.CategoryId)).Select(x=>x.ProblemId).Distinct().Count()
+            }).ToDictionaryAsync(x=>x.TrackId,ct);
         foreach(var t in items)
         {
-            var coverage=await tracks.CoverageAsync(t.Id,t.StageId,ct);
+            if(!totals.TryGetValue(t.Id,out var coverage)||coverage.Problems==0)continue;
             result.Add(new{t.Id,t.StageId,t.Code,t.Kind,t.NameAr,t.NameEn,t.DescriptionAr,t.DescriptionEn,t.SortOrder,
                 ProblemsCount=coverage.Problems,CategoriesCount=coverage.Categories,SkillsCount=coverage.Skills,FreeProblemsCount=coverage.FreeProblems});
         }
