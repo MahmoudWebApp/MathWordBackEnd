@@ -7,6 +7,8 @@ using MathWorldAPI.Models;
 using System.Text.Json;
 using MathWorldAPI.Services;
 using MathWorldAPI.Middleware;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
 
 static void Assert(bool condition, string message)
 {
@@ -335,3 +337,80 @@ using var reopenedStream = streamBroker.TrySubscribe(1042);
 Assert(reopenedStream is not null,
     "Disposing a listener must release the concurrent connection slot.");
 Console.WriteLine("PASS: notification stream isolation, per-account connection caps and release.");
+
+// Long-lived notification streams must not be reported as slow API processing.
+var telemetryLog = new RecordingTelemetryLogger();
+var telemetryOptions = new Microsoft.Extensions.Configuration.ConfigurationBuilder()
+    .AddInMemoryCollection(new Dictionary<string, string?>
+    {
+        ["Monitoring:SlowRequestThresholdMs"] = "1"
+    })
+    .Build();
+
+var sseTelemetry = new RequestTelemetryMiddleware(
+    async http =>
+    {
+        await Task.Delay(12);
+        http.Response.StatusCode = StatusCodes.Status200OK;
+        http.Response.ContentType = "text/event-stream; charset=utf-8";
+    },
+    telemetryLog,
+    telemetryOptions);
+await sseTelemetry.InvokeAsync(new DefaultHttpContext());
+Assert(telemetryLog.Levels.Contains(LogLevel.Debug) &&
+       !telemetryLog.Levels.Contains(LogLevel.Warning),
+    "A healthy long-lived SSE response must not trigger slow-request warnings.");
+
+telemetryLog.Levels.Clear();
+var ordinaryTelemetry = new RequestTelemetryMiddleware(
+    async http =>
+    {
+        await Task.Delay(12);
+        http.Response.StatusCode = StatusCodes.Status200OK;
+        http.Response.ContentType = "application/json";
+    },
+    telemetryLog,
+    telemetryOptions);
+await ordinaryTelemetry.InvokeAsync(new DefaultHttpContext());
+Assert(telemetryLog.Levels.Contains(LogLevel.Warning),
+    "Genuinely slow ordinary HTTP requests must still trigger warnings.");
+
+telemetryLog.Levels.Clear();
+var errorTelemetry = new RequestTelemetryMiddleware(
+    async http =>
+    {
+        await Task.Delay(12);
+        http.Response.StatusCode = StatusCodes.Status503ServiceUnavailable;
+        http.Response.ContentType = "text/event-stream";
+    },
+    telemetryLog,
+    telemetryOptions);
+await errorTelemetry.InvokeAsync(new DefaultHttpContext());
+Assert(telemetryLog.Levels.Contains(LogLevel.Error),
+    "SSE endpoint server errors must remain error-level telemetry.");
+Console.WriteLine("PASS: SSE lifetime excluded from slow API warnings; ordinary slowness and server errors retained.");
+
+internal sealed class RecordingTelemetryLogger : ILogger<RequestTelemetryMiddleware>
+{
+    public List<LogLevel> Levels { get; } = new();
+
+    public bool IsEnabled(LogLevel logLevel) => true;
+
+    public IDisposable BeginScope<TState>(TState state) where TState : notnull
+        => new TelemetryLogScope();
+
+    public void Log<TState>(
+        LogLevel logLevel,
+        EventId eventId,
+        TState state,
+        Exception? exception,
+        Func<TState, Exception?, string> formatter)
+    {
+        Levels.Add(logLevel);
+    }
+
+    private sealed class TelemetryLogScope : IDisposable
+    {
+        public void Dispose() { }
+    }
+}
