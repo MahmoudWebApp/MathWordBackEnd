@@ -22,7 +22,7 @@ namespace MathWorldAPI.Services
         /// otherwise null.
         /// </returns>
         Task<AuthResponseDto?> GoogleLoginAsync(
-            SocialLoginDto dto);
+            SocialLoginDto dto,string locale="ar");
 
         Task<bool> LinkGoogleAsync(int userId, SocialLoginDto dto);
     }

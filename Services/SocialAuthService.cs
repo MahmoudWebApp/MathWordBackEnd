@@ -26,6 +26,7 @@ namespace MathWorldAPI.Services
         private readonly IConfiguration _configuration;
         private readonly IAuthService _authService;
         private readonly ILogger<SocialAuthService> _logger;
+        private readonly RegistrationWelcomeService _welcome;
 
         /// <summary>
         /// Initializes a new instance of the SocialAuthService.
@@ -46,12 +47,14 @@ namespace MathWorldAPI.Services
             AppDbContext context,
             IConfiguration configuration,
             IAuthService authService,
-            ILogger<SocialAuthService> logger)
+            ILogger<SocialAuthService> logger,
+            RegistrationWelcomeService welcome)
         {
             _context = context;
             _configuration = configuration;
             _authService = authService;
             _logger = logger;
+            _welcome = welcome;
 
             Console.WriteLine(
                 "SocialAuthService initialized successfully.");
@@ -68,7 +71,7 @@ namespace MathWorldAPI.Services
         /// otherwise null.
         /// </returns>
         public async Task<AuthResponseDto?> GoogleLoginAsync(
-            SocialLoginDto dto)
+            SocialLoginDto dto,string locale="ar")
         {
             ArgumentNullException.ThrowIfNull(dto);
 
@@ -122,7 +125,7 @@ namespace MathWorldAPI.Services
                     await _context.Database.BeginTransactionAsync();
 
                 // Step 2: Find an existing user or create a new user.
-                var user =
+                var (user,created) =
                     await FindOrCreateUserFromSocial(
                         provider: "Google",
                         providerId: googleUser.GoogleId,
@@ -158,6 +161,7 @@ namespace MathWorldAPI.Services
 
                 await _context.SaveChangesAsync();
                 await transaction.CommitAsync();
+                if(created)await _welcome.QueueForNewStudentAsync(user.Id,locale);
 
                 _logger.LogInformation(
                     "Google login succeeded for user {UserId}.",
@@ -330,7 +334,7 @@ namespace MathWorldAPI.Services
         /// <returns>
         /// Existing or newly created application user.
         /// </returns>
-        private async Task<AppUser?> FindOrCreateUserFromSocial(
+        private async Task<(AppUser? User,bool Created)> FindOrCreateUserFromSocial(
             string provider,
             string providerId,
             string email,
@@ -371,7 +375,7 @@ namespace MathWorldAPI.Services
                         profilePicture.Trim();
                 }
 
-                return linkedUser;
+                return (linkedUser,false);
             }
 
             // An unlinked social provider MUST NOT claim an existing MathWorld
@@ -382,7 +386,7 @@ namespace MathWorldAPI.Services
                 _logger.LogWarning(
                     "Unlinked {Provider} identity has no usable email.",
                     normalizedProvider);
-                return null;
+                return (null,false);
             }
 
             var normalizedEmail = NormalizeEmail(email);
@@ -445,7 +449,7 @@ namespace MathWorldAPI.Services
             Console.WriteLine(
                 $"New social user created. Provider: {normalizedProvider}, UserId: {user.Id}");
 
-            return user;
+            return (user,true);
         }
 
         /// <summary>

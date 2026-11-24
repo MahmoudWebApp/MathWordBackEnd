@@ -34,6 +34,9 @@ def main():
     initial=expect("GET",preferences,200,token=token)
     assert not initial["EmailVerified"] and not initial["OptionalDeliveryEnabled"]
     expect("PUT",preferences,409,{"EmailLearningUpdates":True,"EmailSubscriptionUpdates":False,"EmailImportantAnnouncements":False,"Locale":"en"},token)
+    from integration_password_recovery import sql
+    assert sql(f"""SELECT COUNT(*) FROM "EmailVerificationGrants" WHERE "Email"='{email}'""")=="1"
+    assert sql(f"""SELECT COUNT(*) FROM "EmailOutbox" WHERE "Recipient"='{email}' AND "TemplateKey"='welcome' AND "State"='Pending'""")=="1"
     legacy = legacy_token(token)
     expect("GET", protected, 200, token=legacy)
     admin = token_of(expect("POST", "/api/auth/login", 200,
@@ -96,9 +99,12 @@ def main():
     request="/api/auth/email-verification/request"
     confirm="/api/auth/email-verification/confirm"
     expect("POST",request,401,{"Language":"en"})
+    # The registration grant predates the password change and must not
+    # verify the changed account. Age it beyond the resend cooldown.
+    sql(f"""UPDATE "EmailVerificationGrants" SET "CreatedAtUtc"=NOW()-INTERVAL '3 minutes' WHERE "Email"='{email}'""")
     expect("POST",request,202,{"Language":"en"},replacement)
     expect("POST",request,429,{"Language":"en"},replacement)
-    grant=sql(f"""SELECT "Id"::text||'|'||"TokenHash" FROM "EmailVerificationGrants" WHERE "Email"='{email}'""")
+    grant=sql(f"""SELECT "Id"::text||'|'||"TokenHash" FROM "EmailVerificationGrants" WHERE "Email"='{email}' AND "ConsumedAtUtc" IS NULL""")
     gid,digest=grant.split("|")
     verify=hmac.new(KEY,("MathWorld/email-verification/v1/"+gid.replace("-","")).encode(),hashlib.sha256).hexdigest()
     assert hashlib.sha256(verify.encode()).hexdigest()==digest

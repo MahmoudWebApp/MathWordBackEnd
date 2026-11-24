@@ -121,6 +121,7 @@ builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<AccountPasswordService>();
 builder.Services.AddScoped<PasswordRecoveryService>();
 builder.Services.AddScoped<EmailVerificationService>();
+builder.Services.AddScoped<RegistrationWelcomeService>();
 builder.Services.AddScoped<RecoveryEmailQueue>();
 builder.Services.AddScoped<BrevoEmailTransport>();
 builder.Services.AddHttpClient("BrevoTransactional", client => { client.Timeout = TimeSpan.FromSeconds(15); })

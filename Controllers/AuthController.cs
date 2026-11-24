@@ -23,6 +23,7 @@ namespace MathWorldAPI.Controllers
         private readonly AppDbContext _db;
         private readonly ILogger<AuthController> _logger;
         private readonly PlatformActivityAuditWriter _audit;
+        private readonly RegistrationWelcomeService _welcome;
 
         /// <summary>
         /// Initializes a new instance of the AuthController.
@@ -37,12 +38,14 @@ namespace MathWorldAPI.Controllers
             IAuthService authService,
             AppDbContext db,
             ILogger<AuthController> logger,
-            PlatformActivityAuditWriter audit)
+            PlatformActivityAuditWriter audit,
+            RegistrationWelcomeService welcome)
         {
             _authService = authService;
             _db = db;
             _logger = logger;
             _audit = audit;
+            _welcome = welcome;
         }
 
         /// <summary>
@@ -104,6 +107,7 @@ namespace MathWorldAPI.Controllers
                 "User {UserId} registered successfully.",
                 result.Id);
             await _audit.TryRecordAsync(result.Id, "Registered");
+            await _welcome.QueueForNewStudentAsync(result.Id,language);
 
             return StatusCode(
                 StatusCodes.Status201Created,
