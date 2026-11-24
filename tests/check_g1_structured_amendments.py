@@ -170,7 +170,9 @@ def independent_fifth(row):
     if i==427: return Fraction(Decimal(re.search(r"\d+\.\d+",q)[0]).quantize(Decimal("0.01"),rounding=ROUND_HALF_UP)),False
     if i==474: return Fraction(5,6)-Fraction(1,4),False
     if i==475: return int(re.search(r"\d+\.(\d+)",q)[1][1]),False
-    if i==476: return Fraction(vals[0]*100,vals[1]),False
+    if i==476:
+        assert q.startswith("Twelve of ") and len(vals)==1
+        return Fraction(12*100,vals[0]),False
     if i==477: return Fraction(5,vals[-1]),False
     if i in (609,612): return sum(vals),False
     if i==610: return vals[1]-vals[0],False
