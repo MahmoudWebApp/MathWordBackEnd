@@ -4,10 +4,13 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]/"content"/"editorial"
 def load(name): return json.loads((ROOT/name).read_text(encoding="utf-8"))
 d=load("g1-structured-amendments-wave01-20261124.json")
+second=load("g1-structured-amendments-wave02-20261124.json")
+assert second["Status"]==d["Status"]
+d["Items"]+=second["Items"]
 laws={r["ProblemId"]:r for r in load("g1-short-solution-law-candidates-20261124.json")["Items"]}
 hints={r["problemId"]:r for r in load("g1-existing-hint-candidates-20261124.json")["items"]}
 assert d["Status"]=="NotImportedNotPublished"
-assert len(d["Items"])==len({r["ProblemId"] for r in d["Items"]})==16
+assert len(d["Items"])==len({r["ProblemId"] for r in d["Items"]})==52
 def pair(x): return all(isinstance(x.get(k),str) and x[k].strip() for k in ("Ar","En"))
 for row in d["Items"]:
     i=row["ProblemId"]; c=row["Content"]; l=laws[i]; h=hints[i]
@@ -25,4 +28,4 @@ for row in d["Items"]:
     assert all(pair(sol[k]) for k in ("Idea","Substitution","Result","Unit","Verification","CommonError"))
     assert 1<=len(sol["Steps"])<=20 and all(pair(s) for s in sol["Steps"])
     assert pair(c["Title"]) and c["Points"]>0 and c["PrimarySkillId"]>0
-print("PASS: 16 complete structured amendment proposals, source-bound; no automatic publication")
+print("PASS: 52 complete structured amendment proposals, source-bound; no automatic publication")

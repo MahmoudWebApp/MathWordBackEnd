@@ -7,6 +7,9 @@ root=Path(__file__).resolve().parents[1]
 spec=importlib.util.spec_from_file_location("prepare",root/"scripts/prepare_g1_amendment_payload.py")
 module=importlib.util.module_from_spec(spec); spec.loader.exec_module(module)
 manifest=json.loads((root/"content/editorial/g1-structured-amendments-wave01-20261124.json").read_text(encoding="utf-8"))
+second=json.loads((root/"content/editorial/g1-structured-amendments-wave02-20261124.json").read_text(encoding="utf-8"))
+manifest["Items"]+=second["Items"]
+assert len(manifest["Items"])==52
 for row in manifest["Items"]:
     content=copy.deepcopy(row["Content"])
     content["TrackIds"]=[101];content["SecondarySkillIds"]=[999];content["DifficultyLevel"]=3
@@ -38,4 +41,4 @@ for row in manifest["Items"]:
         try: module.prepare(manifest,bad)
         except ValueError: pass
         else: raise AssertionError("Unsafe amendment accepted")
-print("PASS: 16 draft payloads preserve classification and immutable sources; reject stale/edited drafts")
+print("PASS: 52 draft payloads preserve classification and immutable sources; reject stale/edited drafts")
