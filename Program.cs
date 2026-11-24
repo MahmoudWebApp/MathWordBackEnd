@@ -175,8 +175,12 @@ builder.Services
         {
             OnAuthenticationFailed = context =>
             {
-                Console.WriteLine(
-                    $"JWT authentication failed: {context.Exception.Message}");
+                // Do not log raw JWT validation exception details or token data.
+                context.HttpContext.RequestServices
+                    .GetRequiredService<ILogger<Program>>()
+                    .LogWarning(
+                        "JWT authentication failed ({FailureType}).",
+                        context.Exception.GetType().Name);
 
                 return Task.CompletedTask;
             },
