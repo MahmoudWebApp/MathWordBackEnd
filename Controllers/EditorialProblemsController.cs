@@ -100,9 +100,9 @@ public sealed class EditorialProblemsController(AppDbContext db,IConfiguration c
         if(page is <1 or >10000)return BadRequest();
         var q=db.Problems.AsNoTracking().Where(p=>(stageId==null||p.StageId==stageId)&&(categoryId==null||p.CategoryId==categoryId));
         var items=await q.OrderBy(p=>p.StageId).ThenBy(p=>p.CategoryId).ThenBy(p=>p.Id).Skip((page-1)*30).Take(30)
-            .Select(p=>new{p.Id,p.StageId,p.CategoryId,p.TitleAr,p.TitleEn,HasStructuredSolution=p.EditorialDetailsJson!=null,
+            .Select(p=>new{p.Id,p.StageId,p.CategoryId,p.TitleAr,p.TitleEn,p.EditorialDetailsJson,
                 HasOpenReview=db.CurriculumDraftItems.Any(d=>d.SourceProblemId==p.Id&&d.EditorialStatus!="Published"&&d.EditorialStatus!="Withdrawn")}).ToListAsync(ct);
-        return Ok(new{Total=await q.CountAsync(ct),Items=items});
+        return Ok(new{Total=await q.CountAsync(ct),Items=items.Select(p=>new{p.Id,p.StageId,p.CategoryId,p.TitleAr,p.TitleEn,HasStructuredSolution=WizardProblemContract.HasStructuredSolution(p.EditorialDetailsJson),p.HasOpenReview})});
     }
     [HttpPost("amend/{problemId:int}")]
     public async Task<IActionResult> Amend(int problemId,CancellationToken ct)
@@ -144,6 +144,77 @@ public sealed class EditorialProblemsController(AppDbContext db,IConfiguration c
     public sealed record AmendmentImportRow(int ProblemId,int[] ExpectedOptionIds,BilingualText ExpectedLegacySolution,
         string PrimarySkillKey,WizardProblem Content,string Status);
     public sealed record AmendmentImportInput(AmendmentImportRow[] Items,bool Confirm=false);
+
+    public sealed record HintImportRow(int ProblemId,string PrimarySkillKey,BilingualText Question,
+        BilingualText[] Hints,bool TaxonomyReviewPending=false);
+    public sealed record HintImportInput(HintImportRow[] Items,bool Confirm=false,string PreviewToken="",string ReviewNote="");
+    // Hints-only publication is independent of the full structured solution workflow.
+    // Admin must review the exact payload and previewed source fingerprint before applying.
+    [HttpPost("hints/import")]
+    [RequestSizeLimit(2_000_000)]
+    public async Task<IActionResult> ImportReviewedHints(HintImportInput input,CancellationToken ct)
+    {
+        if(!Admin)return Forbid();
+        if(input.Items is null||input.Items.Length is <1 or >50||
+            input.Items.Any(r=>r is null||r.ProblemId<=0||r.TaxonomyReviewPending||
+                !WizardProblemContract.Text(r.PrimarySkillKey,160)||!WizardProblemContract.Pair(r.Question,5000)||
+                r.Hints is not {Length:2}||r.Hints.Any(h=>!WizardProblemContract.Pair(h,1000))||
+                WizardProblemContract.Normalize(r.Hints[0].Ar)==WizardProblemContract.Normalize(r.Hints[1].Ar)||
+                WizardProblemContract.Normalize(r.Hints[0].En)==WizardProblemContract.Normalize(r.Hints[1].En))||
+            input.Items.Select(r=>r.ProblemId).Distinct().Count()!=input.Items.Length||
+            (input.Confirm&&(!WizardProblemContract.Text(input.PreviewToken,64)||input.PreviewToken.Length!=64||
+                !WizardProblemContract.Text(input.ReviewNote,2000))))
+            return BadRequest(new{Message="InvalidHintBatch"});
+        await using var tx=await db.Database.BeginTransactionAsync(ct);
+        if(await Actor(0,true,ct) is null)return Forbid();
+        await db.Database.SqlQuery<int>($"SELECT 1 AS \"Value\" FROM pg_advisory_xact_lock({-987654319})").SingleAsync(ct);
+        var changes=new List<(MathProblem Problem,string Metadata)>();
+        var results=new List<object>();var sources=new List<object>();var failed=false;
+        foreach(var row in input.Items.OrderBy(r=>r.ProblemId))
+        {
+            await ProblemTransactionLocks.LockQuestionForAdminMutationAsync(db,row.ProblemId,ct);
+            var problem=await db.Problems.Include(p=>p.Options).SingleOrDefaultAsync(p=>p.Id==row.ProblemId,ct);
+            var errors=new List<string>();var already=false;
+            if(problem is null)errors.Add("ProblemNotFound");
+            else
+            {
+                if(problem.QuestionTextAr!=row.Question.Ar||problem.QuestionTextEn!=row.Question.En)
+                    errors.Add("HintSourceChanged");
+                var primary=await db.CurriculumProblemSkills.AsNoTracking().Where(s=>s.ProblemId==problem.Id&&s.IsPrimary)
+                    .Select(s=>s.SkillId).ToArrayAsync(ct);
+                var key=primary.Length==1?await db.CurriculumSkills.AsNoTracking()
+                    .Where(s=>s.Id==primary[0]&&s.IsPublished&&s.Domain.IsPublished).Select(s=>s.StableKey).SingleOrDefaultAsync(ct):null;
+                if(key!=row.PrimarySkillKey)errors.Add("HintSkillChanged");
+                if(await db.CurriculumDraftItems.AnyAsync(d=>d.SourceProblemId==problem.Id&&
+                    d.EditorialStatus!="Published"&&d.EditorialStatus!="Withdrawn",ct))errors.Add("AmendmentAlreadyOpen");
+                if(problem.Options.Count!=4||problem.Options.Count(o=>o.IsCorrect)!=1||
+                    problem.Options.Select(o=>WizardProblemContract.Normalize(o.LatexCode)).Distinct().Count()!=4)
+                    errors.Add("InvalidSourceOptions");
+                var metadata=JsonSerializer.Serialize(new{Kind="ReviewedHintsOnly",row.Hints});
+                already=problem.EditorialDetailsJson==metadata;
+                if(problem.EditorialDetailsJson is not null&&!already)errors.Add("ExistingEditorialContentRequiresReview");
+                sources.Add(new{row.ProblemId,Fingerprint=Fingerprint(problem),PrimarySkillId=primary.Length==1?primary[0]:0,row.PrimarySkillKey,row.Hints});
+                if(errors.Count==0&&!already)changes.Add((problem,metadata));
+            }
+            if(errors.Count>0)failed=true;
+            results.Add(new{row.ProblemId,Status=errors.Count>0?"Invalid":already?"AlreadyExists":"Ready",Errors=errors.ToArray()});
+        }
+        if(failed)return BadRequest(new{Message="HintBatchInvalid",Items=results});
+        var token=Convert.ToHexString(SHA256.HashData(Encoding.UTF8.GetBytes(JsonSerializer.Serialize(new{ActorId,Sources=sources}))));
+        if(!input.Confirm)return Ok(new{Applied=0,Ready=changes.Count,PreviewToken=token,Items=results});
+        if(!string.Equals(token,input.PreviewToken,StringComparison.Ordinal))
+            return Conflict(new{Message="HintPreviewChanged"});
+        foreach(var (problem,metadata) in changes)
+        {
+            problem.EditorialDetailsJson=metadata;
+            db.PlatformActivityEvents.Add(new PlatformActivityEvent{ActorUserId=ActorId,ActorRole="Admin",
+                Action="ReviewedProblemHintsPublished",Resource="Problem",ResourceId=problem.Id.ToString(),
+                Origin="api",CreatedAtUtc=DateTime.UtcNow});
+        }
+        await db.SaveChangesAsync(ct);await tx.CommitAsync(ct);
+        return Ok(new{Applied=changes.Count,Ready=0,Items=results});
+    }
+
     // Prepared improvements for existing problems only. Preview and confirm
     // never update live questions, change classification, or approve a draft.
     [HttpPost("amend/import")]
@@ -177,7 +248,7 @@ public sealed class EditorialProblemsController(AppDbContext db,IConfiguration c
                     !options.Select(o=>o.Id).SequenceEqual(row.ExpectedOptionIds)||
                     row.ExpectedLegacySolution.Ar!=p.DetailedSolutionAr||row.ExpectedLegacySolution.En!=p.DetailedSolutionEn)
                     errors.Add("AmendmentSourceChanged");
-                if(p.EditorialDetailsJson is not null)errors.Add("ExistingStructuredContentRequiresManualMerge");
+                if(p.EditorialDetailsJson is not null&&!WizardProblemContract.IsHintsOnly(p.EditorialDetailsJson))errors.Add("ExistingStructuredContentRequiresManualMerge");
                 var skills=await db.CurriculumProblemSkills.AsNoTracking().Where(x=>x.ProblemId==p.Id).ToListAsync(ct);
                 var primary=skills.SingleOrDefault(x=>x.IsPrimary)?.SkillId??0;
                 var key=await db.CurriculumSkills.AsNoTracking().Where(x=>x.Id==primary&&x.IsPublished&&x.Domain.IsPublished)

@@ -1,0 +1,1381 @@
+{
+  "Version": 1,
+  "Status": "ReviewedCandidateNotImported",
+  "Notes": [
+    "12 original university course-depth candidates; exact normalized bilingual stems checked against existing 773 and prior 47 candidates. No publication, entitlement changes or live database edits. Course identities and access policy remain subject to review."
+  ],
+  "Items": [
+    {
+      "ContentKey": "g1-university-depth-independent-means",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "probability-statistics"
+      ],
+      "PrimarySkillKey": "sampling-distribution",
+      "Check": {
+        "expected": "5"
+      },
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 89,
+        "PrimarySkillId": 319,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "فرق متوسطين مستقلين",
+          "En": "Difference of independent means"
+        },
+        "Question": {
+          "Ar": "متوسطا عينتين مستقلتين لهما خطآن معياريان 3 و4، على الترتيب. ما الخطأ المعياري لفرق المتوسطين؟",
+          "En": "Two independent sample means have standard errors 3 and 4, respectively. What is the standard error of their difference?"
+        },
+        "Options": [
+          {
+            "LatexCode": "1",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "يطرح الخطأين.",
+              "En": "Subtracts standard errors."
+            }
+          },
+          {
+            "LatexCode": "5",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "7",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "يجمع الخطأين مباشرة.",
+              "En": "Adds standard errors directly."
+            }
+          },
+          {
+            "LatexCode": "25",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "يعطي التباين بدلاً من خطئه المعياري.",
+              "En": "Gives variance instead of standard error."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "ما المقدار الذي يتجمع عند استقلال المتغيرين؟",
+            "En": "Which quantity adds for independent variables?"
+          },
+          {
+            "Ar": "ربّع الخطأين ثم اجمع وخذ الجذر.",
+            "En": "Square both errors, add, then take the root."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "عند الاستقلال تتجمع التباينات حتى عند طرح المتغيرين.",
+            "En": "Under independence, variances add even when variables are subtracted."
+          },
+          "FormulaLatex": "SE(\\bar X-\\bar Y)=\\sqrt{SE_X^2+SE_Y^2}",
+          "Steps": [
+            {
+              "Ar": "ربّع الخطأين المعياريين.",
+              "En": "Square both standard errors."
+            },
+            {
+              "Ar": "اجمع التباينين وخذ الجذر.",
+              "En": "Add variances and take the square root."
+            }
+          ],
+          "Substitution": {
+            "Ar": "√(9+16)=5",
+            "En": "√(9+16)=5"
+          },
+          "Result": {
+            "Ar": "5",
+            "En": "5"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة",
+            "En": "Unitless"
+          },
+          "Verification": {
+            "Ar": "مربع 5 يساوي 25، مجموع التباينين.",
+            "En": "The square of 5 equals 25, the variance sum."
+          },
+          "CommonError": {
+            "Ar": "لا تطرح أو تجمع الانحرافات مباشرة.",
+            "En": "Do not directly subtract or add standard deviations."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "g1-university-depth-normal-mean-tail",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "probability-statistics"
+      ],
+      "PrimarySkillKey": "sampling-distribution",
+      "Check": {
+        "expected": "0.1587"
+      },
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 89,
+        "PrimarySkillId": 319,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "احتمال متوسط العينة",
+          "En": "Sample mean probability"
+        },
+        "Question": {
+          "Ar": "مجتمع طبيعي متوسطه 50 وانحرافه المعياري 12. عينة مستقلة حجمها 36. إذا كانت Φ(1)=0.8413، فما احتمال أن يزيد متوسط العينة على 52؟",
+          "En": "A normal population has mean 50 and standard deviation 12. Take an independent sample of size 36. Given Φ(1)=0.8413, what is P(sample mean > 52)?"
+        },
+        "Options": [
+          {
+            "LatexCode": "0.8413",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "يمثل الطرف الأدنى.",
+              "En": "Represents the lower tail."
+            }
+          },
+          {
+            "LatexCode": "0.1587",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "0.5000",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "يفترض أن الحد يساوي المتوسط.",
+              "En": "Assumes the threshold is the mean."
+            }
+          },
+          {
+            "LatexCode": "0.3174",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "يحسب طرفين بدلاً من طرف واحد.",
+              "En": "Counts two tails instead of one."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "احسب الانحراف المعياري لتوزيع المتوسط.",
+            "En": "Find the standard deviation of the sample mean."
+          },
+          {
+            "Ar": "بعد المعيارية، اطرح الاحتمال التراكمي من واحد.",
+            "En": "After standardizing, subtract the CDF value from one."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "متوسط العينة طبيعي بخطأ معياري أصغر من انحراف المجتمع.",
+            "En": "The sample mean is normal with a smaller standard error than the population standard deviation."
+          },
+          "FormulaLatex": "Z=\\frac{\\bar X-\\mu}{\\sigma/\\sqrt{n}}",
+          "Steps": [
+            {
+              "Ar": "احسب الخطأ المعياري 12/6=2.",
+              "En": "Compute the standard error: 12/6=2."
+            },
+            {
+              "Ar": "القيمة المعيارية للحد 52 هي (52−50)/2=1.",
+              "En": "Standardize threshold 52: (52−50)/2=1."
+            },
+            {
+              "Ar": "استخدم المتممة لأن المطلوب الطرف الأعلى.",
+              "En": "Use the complement for the upper tail."
+            }
+          ],
+          "Substitution": {
+            "Ar": "1−0.8413=0.1587",
+            "En": "1−0.8413=0.1587"
+          },
+          "Result": {
+            "Ar": "0.1587",
+            "En": "0.1587"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة",
+            "En": "Unitless"
+          },
+          "Verification": {
+            "Ar": "مجموع احتمالي الطرفين يساوي 1.",
+            "En": "Both tail regions together sum to 1."
+          },
+          "CommonError": {
+            "Ar": "لا تستخدم انحراف المجتمع مباشرة في معيار متوسط العينة.",
+            "En": "Do not use the population standard deviation directly for the sample mean."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "g1-university-depth-ci-recover-center",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "probability-statistics"
+      ],
+      "PrimarySkillKey": "confidence-intervals",
+      "Check": {
+        "expected": "22"
+      },
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 89,
+        "PrimarySkillId": 317,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "مركز فترة الثقة",
+          "En": "Confidence interval center"
+        },
+        "Question": {
+          "Ar": "فترة ثقة متناظرة لمتوسط مجتمع باستخدام النموذج الطبيعي هي [18.2, 25.8]. ما متوسط العينة الذي استُخدم لبنائها؟",
+          "En": "A symmetric normal confidence interval for a population mean is [18.2, 25.8]. What sample mean was used to construct it?"
+        },
+        "Options": [
+          {
+            "LatexCode": "3.8",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا هامش الخطأ.",
+              "En": "This is the margin of error."
+            }
+          },
+          {
+            "LatexCode": "7.6",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا عرض الفترة.",
+              "En": "This is interval width."
+            }
+          },
+          {
+            "LatexCode": "22",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "44",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا مجموع الحدين.",
+              "En": "This is the sum of endpoints."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "الفترة متناظرة حول متوسط العينة.",
+            "En": "The interval is symmetric around the sample mean."
+          },
+          {
+            "Ar": "ابحث عن منتصف الحدين لا الفرق بينهما.",
+            "En": "Find the midpoint, not the difference."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "متوسط العينة يقع في منتصف الفترة المتناظرة.",
+            "En": "The sample mean is the midpoint of a symmetric interval."
+          },
+          "FormulaLatex": "\\bar x=\\frac{L+U}{2}",
+          "Steps": [
+            {
+              "Ar": "اجمع الحدين 18.2 و25.8.",
+              "En": "Add the endpoints 18.2 and 25.8."
+            },
+            {
+              "Ar": "اقسم المجموع على اثنين.",
+              "En": "Divide their sum by two."
+            }
+          ],
+          "Substitution": {
+            "Ar": "(18.2+25.8)/2=22",
+            "En": "(18.2+25.8)/2=22"
+          },
+          "Result": {
+            "Ar": "22",
+            "En": "22"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة",
+            "En": "Unitless"
+          },
+          "Verification": {
+            "Ar": "الحدان يبعدان 3.8 عن المركز.",
+            "En": "Both endpoints are 3.8 away from the center."
+          },
+          "CommonError": {
+            "Ar": "هامش الخطأ ليس مركز الفترة.",
+            "En": "Margin of error is not the interval center."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "g1-university-depth-test-left-tail",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "probability-statistics"
+      ],
+      "PrimarySkillKey": "hypothesis-testing",
+      "Check": {
+        "expected": "\\text{Reject }H_0"
+      },
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 89,
+        "PrimarySkillId": 318,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "اختبار أحادي الطرف",
+          "En": "One-sided test"
+        },
+        "Question": {
+          "Ar": "في اختبار Z أحادي الطرف الأيسر عند مستوى 5%، منطقة الرفض هي Z < −1.645. إذا كانت إحصائية الاختبار −1.9، ما القرار؟",
+          "En": "In a left-tailed Z test at 5%, the rejection region is Z < −1.645. If the test statistic is −1.9, what is the decision?"
+        },
+        "Options": [
+          {
+            "LatexCode": "\\text{Reject }H_0",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "\\text{Fail to reject }H_0",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "يتجاهل وقوع القيمة في منطقة الرفض.",
+              "En": "Ignores that the statistic is in the rejection region."
+            }
+          },
+          {
+            "LatexCode": "\\text{Accept }H_0\\text{ with certainty}",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "الاختبار لا يثبت الفرضية بيقين.",
+              "En": "A test does not establish a hypothesis with certainty."
+            }
+          },
+          {
+            "LatexCode": "\\text{Use a right-tail test}",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "يغير فرضية الاختبار بعد الحساب.",
+              "En": "Changes the test direction after calculation."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "حدد اتجاه منطقة الرفض المعطاة.",
+            "En": "Identify the stated rejection direction."
+          },
+          {
+            "Ar": "قارن العددين السالبين على خط الأعداد.",
+            "En": "Compare the negative numbers on the number line."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نقارن إحصائية الاختبار بمنطقة الرفض المحددة مسبقاً.",
+            "En": "Compare the statistic with the prespecified rejection region."
+          },
+          "FormulaLatex": "Z_{obs}<-1.645",
+          "Steps": [
+            {
+              "Ar": "الإحصائية المرصودة −1.9.",
+              "En": "The observed statistic is −1.9."
+            },
+            {
+              "Ar": "هي أصغر من −1.645، فتقع في منطقة الرفض.",
+              "En": "It is less than −1.645 and lies in the rejection region."
+            }
+          ],
+          "Substitution": {
+            "Ar": "−1.9 < −1.645",
+            "En": "−1.9 < −1.645"
+          },
+          "Result": {
+            "Ar": "نرفض الفرضية الصفرية",
+            "En": "Reject the null hypothesis"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة",
+            "En": "Unitless"
+          },
+          "Verification": {
+            "Ar": "على خط الأعداد −1.9 إلى يسار −1.645.",
+            "En": "On the number line −1.9 is left of −1.645."
+          },
+          "CommonError": {
+            "Ar": "لا تحول الاختبار إلى طرف آخر بعد رؤية البيانات.",
+            "En": "Do not switch tails after seeing the data."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "g1-university-depth-secant-linear",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "numerical-analysis"
+      ],
+      "PrimarySkillKey": "root-finding",
+      "Check": {
+        "expected": "\\frac{11}{5}"
+      },
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 90,
+        "PrimarySkillId": 334,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "خطوة طريقة القاطع",
+          "En": "Secant method step"
+        },
+        "Question": {
+          "Ar": "باستخدام طريقة القاطع للدالة f(x)=x²−5، ومن النقطتين x₀=2 وx₁=3، احسب x₂.",
+          "En": "Apply the secant method to f(x)=x²−5 starting at x₀=2 and x₁=3. Find x₂."
+        },
+        "Options": [
+          {
+            "LatexCode": "\\frac{11}{5}",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "\\frac{13}{5}",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "يطرح مقداراً خاطئاً من التخمين.",
+              "En": "Subtracts an incorrect update."
+            }
+          },
+          {
+            "LatexCode": "\\frac52",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "يستخدم منتصف المجال.",
+              "En": "Uses the interval midpoint."
+            }
+          },
+          {
+            "LatexCode": "\\frac{16}{5}",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "يضيف التصحيح بدلاً من طرحه.",
+              "En": "Adds instead of subtracting the correction."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "احسب قيم الدالة عند النقطتين.",
+            "En": "Evaluate the function at both points."
+          },
+          {
+            "Ar": "طبق صيغة القاطع مستخدماً فرق القيم في المقام.",
+            "En": "Apply the secant formula using the difference of function values in the denominator."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نستخدم ميل القاطع بين النقطتين لتقريب موضع الجذر.",
+            "En": "Use the secant slope between two points to approximate the root."
+          },
+          "FormulaLatex": "x_2=x_1-\\frac{f(x_1)(x_1-x_0)}{f(x_1)-f(x_0)}",
+          "Steps": [
+            {
+              "Ar": "f(2)=−1 وf(3)=4.",
+              "En": "f(2)=−1 and f(3)=4."
+            },
+            {
+              "Ar": "فرق القيم 5 وفرق المدخلات 1.",
+              "En": "The function difference is 5 and input difference is 1."
+            },
+            {
+              "Ar": "اطرح 4/5 من 3.",
+              "En": "Subtract 4/5 from 3."
+            }
+          ],
+          "Substitution": {
+            "Ar": "3−4/5=11/5",
+            "En": "3−4/5=11/5"
+          },
+          "Result": {
+            "Ar": "11/5",
+            "En": "11/5"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة",
+            "En": "Unitless"
+          },
+          "Verification": {
+            "Ar": "المستقيم القاطع y=5x−11 ينعدم عند 11/5.",
+            "En": "The secant line y=5x−11 crosses zero at 11/5."
+          },
+          "CommonError": {
+            "Ar": "لا تستخدم متوسط النقطتين بدلاً من القاطع.",
+            "En": "Do not substitute the midpoint for the secant update."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "g1-university-depth-bisection-bracket",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "numerical-analysis"
+      ],
+      "PrimarySkillKey": "root-finding",
+      "Check": {
+        "expected": "[1,2.5]"
+      },
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 90,
+        "PrimarySkillId": 334,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "تحديث مجال التنصيف",
+          "En": "Bisection bracket update"
+        },
+        "Question": {
+          "Ar": "لدالة متصلة f على [1,4]، لدينا f(1)=−3 وf(4)=6 وf(2.5)=2. أي مجال نحتفظ به في خطوة التنصيف التالية؟",
+          "En": "A continuous function on [1,4] satisfies f(1)=−3, f(4)=6 and f(2.5)=2. Which bracket is retained for the next bisection step?"
+        },
+        "Options": [
+          {
+            "LatexCode": "[2.5,4]",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "طرفاه موجبان.",
+              "En": "Both endpoint values are positive."
+            }
+          },
+          {
+            "LatexCode": "[1,2.5]",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "[1,4]",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "لا يقلص المجال.",
+              "En": "Does not narrow the bracket."
+            }
+          },
+          {
+            "LatexCode": "[2.5,2.5]",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "المنتصف ليس جذراً.",
+              "En": "The midpoint is not a root."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "قارن إشارة المنتصف بإشارتي الطرفين.",
+            "En": "Compare the midpoint sign to both endpoints."
+          },
+          {
+            "Ar": "اختر النصف الذي يحافظ على تغير الإشارة.",
+            "En": "Select the half that preserves a sign change."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نحافظ على مجال يتغير فيه إشارة الدالة.",
+            "En": "Retain a bracket whose endpoints have opposite signs."
+          },
+          "FormulaLatex": "f(a)f(b)<0",
+          "Steps": [
+            {
+              "Ar": "منتصف المجال 2.5 وقيمته موجبة.",
+              "En": "The midpoint is 2.5 with positive function value."
+            },
+            {
+              "Ar": "القيمة عند 1 سالبة؛ إذن نحتفظ بالنصف الأيسر.",
+              "En": "The value at 1 is negative, so keep the left half."
+            }
+          ],
+          "Substitution": {
+            "Ar": "(−3)×2=−6<0",
+            "En": "(−3)×2=−6<0"
+          },
+          "Result": {
+            "Ar": "[1,2.5]",
+            "En": "[1,2.5]"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة",
+            "En": "Unitless"
+          },
+          "Verification": {
+            "Ar": "استمرارية الدالة وتغير الإشارة يضمنان وجود جذر في المجال المحتفظ به.",
+            "En": "Continuity and a sign change guarantee a root in the retained bracket."
+          },
+          "CommonError": {
+            "Ar": "لا تحتفظ بالنصف الذي له إشارتان متماثلتان.",
+            "En": "Do not retain a half with equal endpoint signs."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "g1-university-depth-composite-trapezoid-table",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "numerical-analysis"
+      ],
+      "PrimarySkillKey": "numerical-integration",
+      "Check": {
+        "expected": "11.5"
+      },
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 90,
+        "PrimarySkillId": 333,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "شبه المنحرف المركب من جدول",
+          "En": "Composite trapezoid from tabulated data"
+        },
+        "Question": {
+          "Ar": "قيم دالة عند x=0,1,2,3 هي على الترتيب 2,5,4,3. قرّب تكاملها من 0 إلى 3 بقاعدة شبه المنحرف المركبة.",
+          "En": "Function values at x=0,1,2,3 are 2,5,4,3 respectively. Approximate the integral from 0 to 3 using the composite trapezoidal rule."
+        },
+        "Options": [
+          {
+            "LatexCode": "14",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "يجمع القيم دون أوزان.",
+              "En": "Adds all values without weights."
+            }
+          },
+          {
+            "LatexCode": "11.5",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "9",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "يهمل الطرفين.",
+              "En": "Omits endpoints."
+            }
+          },
+          {
+            "LatexCode": "7",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "ينصف جميع القيم.",
+              "En": "Halves every value."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "ميّز بين نقاط الطرفين والنقاط الداخلية.",
+            "En": "Distinguish endpoints from interior nodes."
+          },
+          {
+            "Ar": "احسب متوسط الطرفين ثم أضف القيم الداخلية واضرب في الخطوة.",
+            "En": "Average the endpoints, add the interior values, and multiply by the step."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "تعطى القيم الداخلية وزناً كاملاً والطرفان نصف وزن.",
+            "En": "Interior nodes receive full weight and endpoints half weight."
+          },
+          "FormulaLatex": "T=h\\left(\\frac{f_0+f_n}{2}+\\sum_{i=1}^{n-1}f_i\\right)",
+          "Steps": [
+            {
+              "Ar": "الخطوة h=1.",
+              "En": "Step size is h=1."
+            },
+            {
+              "Ar": "اجمع 5 و4 مع نصف مجموع الطرفين.",
+              "En": "Add 5 and 4 to half the endpoint sum."
+            }
+          ],
+          "Substitution": {
+            "Ar": "(2+3)/2+5+4=11.5",
+            "En": "(2+3)/2+5+4=11.5"
+          },
+          "Result": {
+            "Ar": "11.5",
+            "En": "11.5"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة",
+            "En": "Unitless"
+          },
+          "Verification": {
+            "Ar": "مجموع مساحات الأشباه الثلاثة 3.5+4.5+3.5=11.5.",
+            "En": "Three trapezoid areas sum to 3.5+4.5+3.5=11.5."
+          },
+          "CommonError": {
+            "Ar": "لا تمنح الطرفين وزناً كاملاً.",
+            "En": "Do not give both endpoints full weight."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "g1-university-depth-gauss-seidel-update",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "numerical-analysis"
+      ],
+      "PrimarySkillKey": "linear-systems",
+      "Check": {
+        "expected": "(3,2)"
+      },
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 90,
+        "PrimarySkillId": 332,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "تحديث غاوس–سايدل",
+          "En": "Gauss–Seidel update"
+        },
+        "Question": {
+          "Ar": "لنظام 3x+y=9 وx+2y=7، ابدأ من x₀=y₀=0. ما الزوج بعد أول دورة غاوس–سايدل مع تحديث x أولاً؟",
+          "En": "For 3x+y=9 and x+2y=7, start at x₀=y₀=0. What is the pair after one Gauss–Seidel sweep updating x first?"
+        },
+        "Options": [
+          {
+            "LatexCode": "(3,3.5)",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "تحديث جاكوبي لا غاوس–سايدل.",
+              "En": "Jacobi, not Gauss–Seidel."
+            }
+          },
+          {
+            "LatexCode": "(3,2)",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "(2,3)",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "يبدل ترتيب المركبتين.",
+              "En": "Swaps components."
+            }
+          },
+          {
+            "LatexCode": "(0,3.5)",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "لا يحدث x.",
+              "En": "Does not update x."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "اعزل x في المعادلة الأولى وy في الثانية.",
+            "En": "Isolate x in the first equation and y in the second."
+          },
+          {
+            "Ar": "عند حساب y استعمل x الجديد.",
+            "En": "Use the new x when computing y."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "تستعمل غاوس–سايدل أحدث قيمة محسوبة فوراً.",
+            "En": "Gauss–Seidel immediately uses the latest computed value."
+          },
+          "FormulaLatex": "x_{k+1}=\\frac{9-y_k}{3},\\quad y_{k+1}=\\frac{7-x_{k+1}}{2}",
+          "Steps": [
+            {
+              "Ar": "احسب x₁ من y₀=0.",
+              "En": "Compute x₁ using y₀=0."
+            },
+            {
+              "Ar": "استعمل x₁ الجديد في معادلة y.",
+              "En": "Use the new x₁ in the equation for y."
+            }
+          ],
+          "Substitution": {
+            "Ar": "x₁=3، y₁=(7−3)/2=2",
+            "En": "x₁=3, y₁=(7−3)/2=2"
+          },
+          "Result": {
+            "Ar": "(3,2)",
+            "En": "(3,2)"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة",
+            "En": "Unitless"
+          },
+          "Verification": {
+            "Ar": "التحديث الثاني يحقق 3+2×2=7.",
+            "En": "The second update satisfies 3+2×2=7."
+          },
+          "CommonError": {
+            "Ar": "استخدام القيم القديمة كلها هو طريقة جاكوبي.",
+            "En": "Using only old values is the Jacobi method."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "g1-university-depth-stationary-classification",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "mathematical-optimization"
+      ],
+      "PrimarySkillKey": "unconstrained-optimization",
+      "Check": {
+        "expected": "\\text{Local maximum}"
+      },
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 91,
+        "PrimarySkillId": 343,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "تمييز نوع النقطة الحرجة",
+          "En": "Classifying a stationary point"
+        },
+        "Question": {
+          "Ar": "للدالة f(x)=x³−3x، ما نوع النقطة الحرجة عند x=−1؟",
+          "En": "For f(x)=x³−3x, what type of stationary point occurs at x=−1?"
+        },
+        "Options": [
+          {
+            "LatexCode": "\\text{Local minimum}",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "يتطلب الاختبار مشتقة ثانية موجبة.",
+              "En": "The test would require a positive second derivative."
+            }
+          },
+          {
+            "LatexCode": "\\text{Local maximum}",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "\\text{Stationary inflection}",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "المشتقة الثانية غير صفرية.",
+              "En": "The second derivative is nonzero."
+            }
+          },
+          {
+            "LatexCode": "\\text{Not stationary}",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "المشتقة الأولى صفر.",
+              "En": "The first derivative is zero."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "تحقق أولاً من انعدام المشتقة الأولى.",
+            "En": "First verify that the first derivative vanishes."
+          },
+          {
+            "Ar": "افحص إشارة المشتقة الثانية عند −1.",
+            "En": "Inspect the second derivative at −1."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "تحدد المشتقة الثانية نوع النقطة الحرجة عندما لا تساوي صفراً.",
+            "En": "The second derivative classifies a stationary point when nonzero."
+          },
+          "FormulaLatex": "f''(x)=6x",
+          "Steps": [
+            {
+              "Ar": "f′(−1)=3(−1)²−3=0.",
+              "En": "f′(−1)=3(−1)²−3=0."
+            },
+            {
+              "Ar": "f″(−1)=−6، أي سالبة.",
+              "En": "f″(−1)=−6, which is negative."
+            }
+          ],
+          "Substitution": {
+            "Ar": "f′(−1)=0، f″(−1)<0",
+            "En": "f′(−1)=0, f″(−1)<0"
+          },
+          "Result": {
+            "Ar": "عظمى محلية",
+            "En": "Local maximum"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة",
+            "En": "Unitless"
+          },
+          "Verification": {
+            "Ar": "يتغير إشارة f′ من الموجب إلى السالب حول −1.",
+            "En": "f′ changes from positive to negative around −1."
+          },
+          "CommonError": {
+            "Ar": "العظمى المحلية ليست بالضرورة عظمى عالمية.",
+            "En": "A local maximum need not be global."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "g1-university-depth-closed-interval-endpoints",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "mathematical-optimization"
+      ],
+      "PrimarySkillKey": "constrained-optimization",
+      "Check": {
+        "expected": "8"
+      },
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 91,
+        "PrimarySkillId": 341,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "مقارنة النقاط الحرجة والطرفية",
+          "En": "Compare critical points and endpoints"
+        },
+        "Question": {
+          "Ar": "ما القيمة العظمى للدالة f(x)=x²−2x على المجال المغلق [0,4]؟",
+          "En": "What is the maximum of f(x)=x²−2x on the closed interval [0,4]?"
+        },
+        "Options": [
+          {
+            "LatexCode": "-1",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذه القيمة الصغرى.",
+              "En": "This is the minimum."
+            }
+          },
+          {
+            "LatexCode": "0",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "يفحص الطرف الأول وحده.",
+              "En": "Checks only the first endpoint."
+            }
+          },
+          {
+            "LatexCode": "8",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "16",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "يهمل الحد الخطي.",
+              "En": "Omits the linear term."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "حدد النقطة الحرجة داخل المجال.",
+            "En": "Find the interior stationary point."
+          },
+          {
+            "Ar": "قارن قيم الدالة عندها وعند الطرفين.",
+            "En": "Compare the function there and at both endpoints."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "على مجال مغلق نفحص النقاط الحرجة وطرفي المجال.",
+            "En": "On a closed interval, check critical points and both endpoints."
+          },
+          "FormulaLatex": "\\max_{x\\in[0,4]} f(x)=\\max\\{f(0),f(1),f(4)\\}",
+          "Steps": [
+            {
+              "Ar": "المشتقة 2x−2 تنعدم عند 1.",
+              "En": "Derivative 2x−2 vanishes at 1."
+            },
+            {
+              "Ar": "القيم عند 0 و1 و4 هي 0 و−1 و8.",
+              "En": "Values at 0, 1 and 4 are 0, −1 and 8."
+            }
+          ],
+          "Substitution": {
+            "Ar": "max(0,−1,8)=8",
+            "En": "max(0,−1,8)=8"
+          },
+          "Result": {
+            "Ar": "8",
+            "En": "8"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة",
+            "En": "Unitless"
+          },
+          "Verification": {
+            "Ar": "الدالة تتناقص حتى 1 ثم تزداد حتى 4.",
+            "En": "The function decreases to 1 and increases to 4."
+          },
+          "CommonError": {
+            "Ar": "لا تفترض أن كل قيمة قصوى تقع عند نقطة حرجة داخلية.",
+            "En": "Do not assume every extremum is at an interior critical point."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "g1-university-depth-circle-linear-objective",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "mathematical-optimization"
+      ],
+      "PrimarySkillKey": "constrained-optimization",
+      "Check": {
+        "expected": "25"
+      },
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 91,
+        "PrimarySkillId": 341,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "تعظيم هدف خطي تحت قيد دائري",
+          "En": "Linear objective on a circle"
+        },
+        "Question": {
+          "Ar": "على الدائرة x²+y²=25، ما القيمة العظمى للتعبير 3x+4y؟",
+          "En": "On the circle x²+y²=25, what is the maximum value of 3x+4y?"
+        },
+        "Options": [
+          {
+            "LatexCode": "5",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "يعطي طول أحد المتجهين فقط.",
+              "En": "Gives just one norm."
+            }
+          },
+          {
+            "LatexCode": "7",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "يجمع المعاملات.",
+              "En": "Adds coefficients."
+            }
+          },
+          {
+            "LatexCode": "25",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "35",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "يفترض أن الإحداثيين كلاهما 5.",
+              "En": "Assumes both coordinates equal 5."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "اكتب التعبير كجداء سلمي لمتجهين.",
+            "En": "Express the objective as a dot product."
+          },
+          {
+            "Ar": "استخدم كوشي–شفارتز وافحص إمكان تحقق المساواة.",
+            "En": "Use Cauchy–Schwarz and check equality attainability."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "تربط متباينة كوشي–شفارتز الجداء السلمي بطولي المتجهين.",
+            "En": "Cauchy–Schwarz bounds a dot product by the product of vector norms."
+          },
+          "FormulaLatex": "3x+4y\\le\\sqrt{3^2+4^2}\\sqrt{x^2+y^2}",
+          "Steps": [
+            {
+              "Ar": "طول المتجه (3,4) هو 5.",
+              "En": "The norm of (3,4) is 5."
+            },
+            {
+              "Ar": "طول المتجه (x,y) هو 5 بسبب القيد.",
+              "En": "The norm of (x,y) is 5 by the constraint."
+            },
+            {
+              "Ar": "تتحقق المساواة الموجبة عندما يتوافق الاتجاهان.",
+              "En": "Positive equality is attained when their directions match."
+            }
+          ],
+          "Substitution": {
+            "Ar": "5×5=25",
+            "En": "5×5=25"
+          },
+          "Result": {
+            "Ar": "25",
+            "En": "25"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة",
+            "En": "Unitless"
+          },
+          "Verification": {
+            "Ar": "النقطة (3,4) تحقق القيد وتعطي 9+16=25.",
+            "En": "The point (3,4) meets the constraint and gives 9+16=25."
+          },
+          "CommonError": {
+            "Ar": "لا تجمع المعاملات أو تعتبر x وy كلاهما نصف القطر.",
+            "En": "Do not add coefficients or set both coordinates to the radius."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "g1-university-depth-convexity-cross-term",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "mathematical-optimization"
+      ],
+      "PrimarySkillKey": "convexity",
+      "Check": {
+        "expected": "|a|\\le2"
+      },
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 91,
+        "PrimarySkillId": 342,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "التحدب مع حد مختلط",
+          "En": "Convexity with a cross term"
+        },
+        "Question": {
+          "Ar": "لتكن f(x,y)=x²+axy+y² حيث a حقيقي. متى تكون f محدبة على R²؟",
+          "En": "Let f(x,y)=x²+axy+y² with real a. When is f convex on R²?"
+        },
+        "Options": [
+          {
+            "LatexCode": "|a|<2",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "يستبعد حالتي التحدب غير الصارم.",
+              "En": "Excludes non-strict convex boundary cases."
+            }
+          },
+          {
+            "LatexCode": "a\\ge2",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "يتضمن قيماً تجعل المحدد سالباً.",
+              "En": "Includes values giving a negative determinant."
+            }
+          },
+          {
+            "LatexCode": "|a|\\le2",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "a=0",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "شرط كافٍ لكنه ليس ضرورياً.",
+              "En": "Sufficient but not necessary."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "احسب مصفوفة هيس الثابتة.",
+            "En": "Compute the constant Hessian."
+          },
+          {
+            "Ar": "اشترط أن تكون القيم الذاتية غير سالبة أو استخدم المحدد والعناصر القطرية.",
+            "En": "Require nonnegative eigenvalues or use determinant and diagonal entries."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "التحدب لدالة تربيعية يكافئ كون هيس موجبة شبه معينة.",
+            "En": "Convexity of a quadratic is equivalent to a positive semidefinite Hessian."
+          },
+          "FormulaLatex": "H=\\begin{pmatrix}2&a\\\\a&2\\end{pmatrix}",
+          "Steps": [
+            {
+              "Ar": "عناصر القطر 2، والعناصر المختلطة a.",
+              "En": "Diagonal entries are 2 and mixed entries are a."
+            },
+            {
+              "Ar": "شرط المحدد غير السالب: 4−a²≥0.",
+              "En": "Require a nonnegative determinant: 4−a²≥0."
+            },
+            {
+              "Ar": "حل المتباينة مع شمول المساواة.",
+              "En": "Solve including equality."
+            }
+          ],
+          "Substitution": {
+            "Ar": "a²≤4 ⇒ |a|≤2",
+            "En": "a²≤4 ⇒ |a|≤2"
+          },
+          "Result": {
+            "Ar": "|a|≤2",
+            "En": "|a|≤2"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة",
+            "En": "Unitless"
+          },
+          "Verification": {
+            "Ar": "قيمتا هيس الذاتيتان 2+a و2−a، وكلاهما غير سالب ضمن الشرط.",
+            "En": "Hessian eigenvalues 2+a and 2−a are both nonnegative under the condition."
+          },
+          "CommonError": {
+            "Ar": "التحدب لا يشترط هيس موجبة تعييناً بشكل صارم.",
+            "En": "Convexity does not require strict positive definiteness."
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,1591 @@
+{
+  "Version": 1,
+  "Status": "ReviewedCandidateNotImported",
+  "Notes": [
+    "14 source-catalog-aligned bilingual original draft candidates; no production changes. Stems checked against 773 current source snapshots and the four existing gap manifests. Independent automated math checks required, as well as educator and bilingual review."
+  ],
+  "Items": [
+    {
+      "ContentKey": "g1-grade-depth-make-ten-two-ways",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "grade-1"
+      ],
+      "PrimarySkillKey": "primary-addition",
+      "Check": {
+        "expected": "2"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 1,
+        "PrimarySkillId": 1,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 1,
+        "Points": 10,
+        "Title": {
+          "Ar": "تكوين العدد عشرة",
+          "En": "Making ten"
+        },
+        "Question": {
+          "Ar": "في صندوق 8 مكعبات حمراء. أي مجموعة مكعبات زرقاء تجعل المجموع 10؟",
+          "En": "A box has 8 red cubes. Which group of blue cubes makes the total 10?"
+        },
+        "Options": [
+          {
+            "LatexCode": "1",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "يصل إلى 9 فقط.",
+              "En": "Only reaches 9."
+            }
+          },
+          {
+            "LatexCode": "2",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "3",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "يتجاوز 10.",
+              "En": "Exceeds 10."
+            }
+          },
+          {
+            "LatexCode": "8",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "يكرر العدد الموجود.",
+              "En": "Repeats the existing count."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "كم ينقص العدد 8 ليصل إلى 10؟",
+            "En": "How far is 8 from 10?"
+          },
+          {
+            "Ar": "عدّ للأمام من 8 إلى 10.",
+            "En": "Count forward from 8 to 10."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نبحث عن الجزء المفقود من مجموع معلوم.",
+            "En": "Find the missing part of a known total."
+          },
+          "FormulaLatex": "8+\\square=10",
+          "Steps": [
+            {
+              "Ar": "ابدأ من 8.",
+              "En": "Start at 8."
+            },
+            {
+              "Ar": "عدّ إلى 10: خطوتان.",
+              "En": "Count up to 10: two steps."
+            }
+          ],
+          "Substitution": {
+            "Ar": "10-8=2",
+            "En": "10-8=2"
+          },
+          "Result": {
+            "Ar": "2",
+            "En": "2"
+          },
+          "Unit": {
+            "Ar": "مكعبان",
+            "En": "cubes"
+          },
+          "Verification": {
+            "Ar": "8+2=10",
+            "En": "8+2=10"
+          },
+          "CommonError": {
+            "Ar": "لا تضف المجموع كله إلى الجزء.",
+            "En": "Do not add the whole total to one part."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "g1-grade-depth-compare-difference",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "grade-1"
+      ],
+      "PrimarySkillKey": "primary-subtraction",
+      "Check": {
+        "expected": "2"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 1,
+        "PrimarySkillId": 2,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 1,
+        "Points": 10,
+        "Title": {
+          "Ar": "الفرق بين مجموعتين",
+          "En": "Compare two groups"
+        },
+        "Question": {
+          "Ar": "لدى ليلى 11 ملصقاً ولدى سامر 9 ملصقات. كم ملصقاً تزيد ملصقات ليلى عن سامر؟",
+          "En": "Layla has 11 stickers and Samer has 9. How many more stickers does Layla have?"
+        },
+        "Options": [
+          {
+            "LatexCode": "20",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا مجموع العددين.",
+              "En": "This adds the counts."
+            }
+          },
+          {
+            "LatexCode": "1",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "نقص خطوة من العد.",
+              "En": "One counting step was omitted."
+            }
+          },
+          {
+            "LatexCode": "2",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "9",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا عدد سامر وليس الفرق.",
+              "En": "This is Samer's count, not the difference."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "أي الطفلين لديه عدد أكبر؟",
+            "En": "Which child has more?"
+          },
+          {
+            "Ar": "اطرح العدد الأصغر من الأكبر.",
+            "En": "Subtract the smaller count from the larger."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نقارن العددين بإيجاد الفرق.",
+            "En": "Compare the counts by finding the difference."
+          },
+          "FormulaLatex": "11-9",
+          "Steps": [
+            {
+              "Ar": "حدد العدد الأكبر 11.",
+              "En": "Identify the larger count, 11."
+            },
+            {
+              "Ar": "احذف منه 9 أو عدّ من 9 إلى 11.",
+              "En": "Subtract 9 or count from 9 to 11."
+            }
+          ],
+          "Substitution": {
+            "Ar": "11-9=2",
+            "En": "11-9=2"
+          },
+          "Result": {
+            "Ar": "2",
+            "En": "2"
+          },
+          "Unit": {
+            "Ar": "ملصقان",
+            "En": "stickers"
+          },
+          "Verification": {
+            "Ar": "9+2=11",
+            "En": "9+2=11"
+          },
+          "CommonError": {
+            "Ar": "لا تجمع العددين لأن المطلوب الفرق.",
+            "En": "Do not add the counts when asked for the difference."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "g1-grade-depth-compare-tens-trap",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "grade-1"
+      ],
+      "PrimarySkillKey": "number-comparison",
+      "Check": {
+        "expected": "47<52"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 81,
+        "PrimarySkillId": 304,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 1,
+        "Points": 10,
+        "Title": {
+          "Ar": "مقارنة العشرات",
+          "En": "Comparing tens"
+        },
+        "Question": {
+          "Ar": "أي عبارة صحيحة عن العددين 47 و 52؟",
+          "En": "Which statement about 47 and 52 is correct?"
+        },
+        "Options": [
+          {
+            "LatexCode": "47>52",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "قارن الآحاد فقط.",
+              "En": "Compares ones only."
+            }
+          },
+          {
+            "LatexCode": "47=52",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "العددان مختلفان.",
+              "En": "The numbers differ."
+            }
+          },
+          {
+            "LatexCode": "47<52",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "47=25",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "عكس ترتيب رقمين لا يحافظ على العدد.",
+              "En": "Reversing digits changes the number."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "ابدأ بمقارنة رقم العشرات.",
+            "En": "Start with the tens digit."
+          },
+          {
+            "Ar": "أربع عشرات أقل من خمس عشرات.",
+            "En": "Compare four tens with five tens."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نقارن العشرات قبل الآحاد.",
+            "En": "Compare tens before ones."
+          },
+          "FormulaLatex": "4<5",
+          "Steps": [
+            {
+              "Ar": "في 47 أربع عشرات.",
+              "En": "47 has four tens."
+            },
+            {
+              "Ar": "في 52 خمس عشرات، لذا هو الأكبر.",
+              "En": "52 has five tens, so it is larger."
+            }
+          ],
+          "Substitution": {
+            "Ar": "47 < 52",
+            "En": "47 < 52"
+          },
+          "Result": {
+            "Ar": "47 أصغر من 52",
+            "En": "47 is less than 52"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة",
+            "En": "Unitless"
+          },
+          "Verification": {
+            "Ar": "47 يقع قبل 52 على خط الأعداد.",
+            "En": "47 comes before 52 on a number line."
+          },
+          "CommonError": {
+            "Ar": "لا تحكم من رقم الآحاد وحده.",
+            "En": "Do not compare only the ones digits."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "g1-grade-depth-regroup-ten",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "grade-1"
+      ],
+      "PrimarySkillKey": "place-value",
+      "Check": {
+        "expected": "3"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 81,
+        "PrimarySkillId": 305,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 1,
+        "Points": 10,
+        "Title": {
+          "Ar": "تجميع الآحاد",
+          "En": "Regrouping ones"
+        },
+        "Question": {
+          "Ar": "لدى طفل عشرة آحاد منفصلة ومجموعتان من عشرة. كم عشرة كاملة لديه بعد تجميع الآحاد؟",
+          "En": "A child has ten loose ones and two groups of ten. How many complete tens after regrouping?"
+        },
+        "Options": [
+          {
+            "LatexCode": "12",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "يجمع الآحاد مع عدد المجموعات.",
+              "En": "Adds loose ones to group count."
+            }
+          },
+          {
+            "LatexCode": "2",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "يهمل تجميع الآحاد.",
+              "En": "Ignores regrouping."
+            }
+          },
+          {
+            "LatexCode": "3",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "30",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "يذكر العدد الكلي لا عدد العشرات.",
+              "En": "Gives the total, not the tens."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "كم عشرة تكوّن عشرة آحاد؟",
+            "En": "How many tens make ten ones?"
+          },
+          {
+            "Ar": "أضف العشرة الجديدة إلى المجموعتين.",
+            "En": "Add the new ten to the two existing groups."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "كل عشرة آحاد تعادل عشرة واحدة.",
+            "En": "Ten ones make one ten."
+          },
+          "FormulaLatex": "10\\text{ ones}=1\\text{ ten}",
+          "Steps": [
+            {
+              "Ar": "حوّل الآحاد العشرة إلى مجموعة واحدة.",
+              "En": "Regroup ten loose ones into one group."
+            },
+            {
+              "Ar": "أضف المجموعة إلى العشرتين.",
+              "En": "Add that group to the two tens."
+            }
+          ],
+          "Substitution": {
+            "Ar": "2+1=3",
+            "En": "2+1=3"
+          },
+          "Result": {
+            "Ar": "3",
+            "En": "3"
+          },
+          "Unit": {
+            "Ar": "عشرات",
+            "En": "tens"
+          },
+          "Verification": {
+            "Ar": "3×10=30، وهو العدد الكلي.",
+            "En": "3×10=30, the total quantity."
+          },
+          "CommonError": {
+            "Ar": "المطلوب عدد العشرات وليس العدد 30.",
+            "En": "The question asks for tens, not the total 30."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "g1-grade-depth-ruler-not-zero",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "grade-1"
+      ],
+      "PrimarySkillKey": "length",
+      "Check": {
+        "expected": "7"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 82,
+        "PrimarySkillId": 321,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 1,
+        "Points": 10,
+        "Title": {
+          "Ar": "القياس من علامة غير صفرية",
+          "En": "Measuring from a nonzero mark"
+        },
+        "Question": {
+          "Ar": "يمتد قلم على مسطرة من علامة 2 سم إلى علامة 9 سم. ما طوله بالسنتيمتر؟",
+          "En": "A pencil spans from the 2 cm mark to the 9 cm mark on a ruler. What is its length in centimeters?"
+        },
+        "Options": [
+          {
+            "LatexCode": "9",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "يقرأ علامة النهاية فقط.",
+              "En": "Reads only the end mark."
+            }
+          },
+          {
+            "LatexCode": "11",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "يجمع العلامتين.",
+              "En": "Adds the marks."
+            }
+          },
+          {
+            "LatexCode": "8",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "يعد العلامات بدلاً من الفواصل.",
+              "En": "Counts marks instead of intervals."
+            }
+          },
+          {
+            "LatexCode": "7",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "القلم لا يبدأ عند الصفر.",
+            "En": "The pencil does not start at zero."
+          },
+          {
+            "Ar": "اطرح علامة البداية من علامة النهاية.",
+            "En": "Subtract the start mark from the end mark."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "الطول هو المسافة بين علامتي البداية والنهاية.",
+            "En": "Length is the distance between the start and end marks."
+          },
+          "FormulaLatex": "L=b-a",
+          "Steps": [
+            {
+              "Ar": "حدد البداية 2 والنهاية 9.",
+              "En": "Locate start 2 and end 9."
+            },
+            {
+              "Ar": "احسب الفرق بينهما.",
+              "En": "Find their difference."
+            }
+          ],
+          "Substitution": {
+            "Ar": "9-2=7",
+            "En": "9-2=7"
+          },
+          "Result": {
+            "Ar": "7",
+            "En": "7"
+          },
+          "Unit": {
+            "Ar": "سم",
+            "En": "cm"
+          },
+          "Verification": {
+            "Ar": "2+7=9",
+            "En": "2+7=9"
+          },
+          "CommonError": {
+            "Ar": "لا تقرأ علامة النهاية وحدها.",
+            "En": "Do not read the end mark alone."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "g1-grade-depth-skip-count-missing-middle",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "grade-1"
+      ],
+      "PrimarySkillKey": "counting",
+      "Check": {
+        "expected": "10"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 81,
+        "PrimarySkillId": 302,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 1,
+        "Points": 10,
+        "Title": {
+          "Ar": "العد بالقفزات",
+          "En": "Skip counting"
+        },
+        "Question": {
+          "Ar": "على خط الأعداد نبدأ عند 4 ونقفز بمقدار 2 في كل مرة. ما العدد بعد ثلاث قفزات؟",
+          "En": "On a number line start at 4 and jump 2 each time. What number is reached after three jumps?"
+        },
+        "Options": [
+          {
+            "LatexCode": "6",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "قفزة واحدة.",
+              "En": "One jump."
+            }
+          },
+          {
+            "LatexCode": "8",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "قفزتان.",
+              "En": "Two jumps."
+            }
+          },
+          {
+            "LatexCode": "10",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "12",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "أربع قفزات.",
+              "En": "Four jumps."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "كل قفزة تزيد العدد اثنين.",
+            "En": "Each jump adds two."
+          },
+          {
+            "Ar": "تتبع ثلاث انتقالات بعد العدد 4.",
+            "En": "Trace three moves after 4."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نضيف مقدار القفزة عند كل انتقال.",
+            "En": "Add the jump size at every move."
+          },
+          "FormulaLatex": "4+2+2+2",
+          "Steps": [
+            {
+              "Ar": "من 4 نصل إلى 6.",
+              "En": "From 4 move to 6."
+            },
+            {
+              "Ar": "ثم إلى 8، ثم إلى 10.",
+              "En": "Then move to 8, then 10."
+            }
+          ],
+          "Substitution": {
+            "Ar": "4+3×2=10",
+            "En": "4+3×2=10"
+          },
+          "Result": {
+            "Ar": "10",
+            "En": "10"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة",
+            "En": "Unitless"
+          },
+          "Verification": {
+            "Ar": "الفرق عن البداية 6، وهو ثلاث قفزات مقدار كل منها 2.",
+            "En": "The difference from the start is 6, or three jumps of 2."
+          },
+          "CommonError": {
+            "Ar": "لا تعد نقطة البداية قفزة.",
+            "En": "Do not count the starting point as a jump."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "g1-grade-depth-missing-mean",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "grade-6"
+      ],
+      "PrimarySkillKey": "primary-arithmetic-mean",
+      "Check": {
+        "expected": "18"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 4,
+        "PrimarySkillId": 19,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "قيمة مفقودة من المتوسط",
+          "En": "Missing value from mean"
+        },
+        "Question": {
+          "Ar": "متوسط أربع درجات هو 15. ثلاث درجات هي 12 و14 و16. ما الدرجة الرابعة؟",
+          "En": "The mean of four scores is 15. Three scores are 12, 14 and 16. What is the fourth?"
+        },
+        "Options": [
+          {
+            "LatexCode": "15",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "يكرر المتوسط.",
+              "En": "Repeats the mean."
+            }
+          },
+          {
+            "LatexCode": "18",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "42",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "مجموع القيم المعروفة.",
+              "En": "Sum of known scores."
+            }
+          },
+          {
+            "LatexCode": "60",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "المجموع الكلي.",
+              "En": "Total of all scores."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "حوّل المتوسط إلى مجموع القيم الأربع.",
+            "En": "Convert the mean into the total of four values."
+          },
+          {
+            "Ar": "اطرح مجموع الدرجات الثلاث المعروفة.",
+            "En": "Subtract the sum of the known scores."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نسترجع المجموع من المتوسط وعدد القيم.",
+            "En": "Recover the total from the mean and count."
+          },
+          "FormulaLatex": "\\bar{x}=\\frac{\\sum x_i}{n}",
+          "Steps": [
+            {
+              "Ar": "المجموع المطلوب 4×15=60.",
+              "En": "Required total is 4×15=60."
+            },
+            {
+              "Ar": "مجموع القيم المعروفة 42.",
+              "En": "Known values sum to 42."
+            }
+          ],
+          "Substitution": {
+            "Ar": "60-42=18",
+            "En": "60-42=18"
+          },
+          "Result": {
+            "Ar": "18",
+            "En": "18"
+          },
+          "Unit": {
+            "Ar": "درجة",
+            "En": "points"
+          },
+          "Verification": {
+            "Ar": "(12+14+16+18)/4=15",
+            "En": "(12+14+16+18)/4=15"
+          },
+          "CommonError": {
+            "Ar": "لا تخلط المتوسط بالمجموع.",
+            "En": "Do not confuse the mean with the total."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "g1-grade-depth-triangle-ratio-two",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "grade-6"
+      ],
+      "PrimarySkillKey": "primary-triangle-angle-sum",
+      "Check": {
+        "expected": "80"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 3,
+        "PrimarySkillId": 15,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "زوايا مرتبطة",
+          "En": "Related triangle angles"
+        },
+        "Question": {
+          "Ar": "في مثلث زاوية قياسها 60°، وزاوية ثانية ضعف الزاوية الثالثة. ما قياس الزاوية الثانية؟",
+          "En": "A triangle has a 60° angle. Its second angle is twice its third. What is the second angle?"
+        },
+        "Options": [
+          {
+            "LatexCode": "40",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذه الزاوية الثالثة.",
+              "En": "This is the third angle."
+            }
+          },
+          {
+            "LatexCode": "60",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "يفترض تساوي الزاويتين.",
+              "En": "Assumes equal remaining angles."
+            }
+          },
+          {
+            "LatexCode": "80",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "120",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "مجموع الزاويتين المتبقيتين.",
+              "En": "Sum of remaining angles."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "اطرح الزاوية المعروفة من 180.",
+            "En": "Subtract the known angle from 180."
+          },
+          {
+            "Ar": "مثّل الزاويتين الباقيتين بحصة وحصتين.",
+            "En": "Represent the other angles as one share and two shares."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "مجموع زوايا المثلث 180 درجة.",
+            "En": "Triangle angles sum to 180 degrees."
+          },
+          "FormulaLatex": "60+2x+x=180",
+          "Steps": [
+            {
+              "Ar": "المتبقي بعد 60 هو 120 درجة.",
+              "En": "After 60, 120 degrees remain."
+            },
+            {
+              "Ar": "قسّم 120 إلى ثلاث حصص متساوية؛ الثانية حصتان.",
+              "En": "Split 120 into three shares; the second angle uses two."
+            }
+          ],
+          "Substitution": {
+            "Ar": "2(120/3)=80",
+            "En": "2(120/3)=80"
+          },
+          "Result": {
+            "Ar": "80",
+            "En": "80"
+          },
+          "Unit": {
+            "Ar": "درجة",
+            "En": "degrees"
+          },
+          "Verification": {
+            "Ar": "60+80+40=180",
+            "En": "60+80+40=180"
+          },
+          "CommonError": {
+            "Ar": "لا تقسم المتبقي إلى زاويتين متساويتين.",
+            "En": "Do not split the remainder into equal angles."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "g1-grade-depth-substitute-perimeter-model",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "grade-6"
+      ],
+      "PrimarySkillKey": "primary-substitution",
+      "Check": {
+        "expected": "26"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 2,
+        "PrimarySkillId": 11,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "التعويض في صيغة",
+          "En": "Substitution in a formula"
+        },
+        "Question": {
+          "Ar": "تكلفة طباعة n صفحة هي 3n+5 وحدات نقدية. ما تكلفة طباعة 7 صفحات؟",
+          "En": "The cost of printing n pages is 3n+5 currency units. What is the cost of printing 7 pages?"
+        },
+        "Options": [
+          {
+            "LatexCode": "21",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "يهمل الرسم الثابت.",
+              "En": "Omits fixed fee."
+            }
+          },
+          {
+            "LatexCode": "26",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "35",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "يضرب الرسم الثابت بعدد الصفحات.",
+              "En": "Multiplies the fixed fee by page count."
+            }
+          },
+          {
+            "LatexCode": "56",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "يجمع 3 و5 قبل الضرب.",
+              "En": "Adds 3 and 5 before multiplication."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "ما قيمة المتغير n؟",
+            "En": "What is the value of n?"
+          },
+          {
+            "Ar": "احسب حاصل الضرب أولاً ثم أضف 5.",
+            "En": "Multiply first, then add 5."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نعوض قيمة المتغير ونلتزم بترتيب العمليات.",
+            "En": "Substitute the variable and follow order of operations."
+          },
+          "FormulaLatex": "C=3n+5",
+          "Steps": [
+            {
+              "Ar": "ضع 7 مكان n.",
+              "En": "Replace n with 7."
+            },
+            {
+              "Ar": "اضرب ثم أضف الرسم الثابت.",
+              "En": "Multiply, then add the fixed charge."
+            }
+          ],
+          "Substitution": {
+            "Ar": "3×7+5=26",
+            "En": "3×7+5=26"
+          },
+          "Result": {
+            "Ar": "26",
+            "En": "26"
+          },
+          "Unit": {
+            "Ar": "وحدة نقدية",
+            "En": "currency units"
+          },
+          "Verification": {
+            "Ar": "تكلفة الصفحات 21 والرسم 5.",
+            "En": "Page cost is 21 and fixed fee is 5."
+          },
+          "CommonError": {
+            "Ar": "الرسم الثابت يُضاف مرة واحدة.",
+            "En": "The fixed fee is added only once."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "g1-grade-depth-probability-complement-one",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "grade-6"
+      ],
+      "PrimarySkillKey": "primary-simple-probability",
+      "Check": {
+        "expected": "\\frac23"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 4,
+        "PrimarySkillId": 17,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "احتمال المتممة",
+          "En": "Complement probability"
+        },
+        "Question": {
+          "Ar": "في كيس 4 كرات خضراء و3 صفراء و5 زرقاء. نسحب كرة عشوائياً بحيث تكون الكرات متساوية الاحتمال. ما احتمال ألا تكون خضراء؟",
+          "En": "A bag contains 4 green, 3 yellow and 5 blue balls. One ball is drawn uniformly at random. What is the probability it is not green?"
+        },
+        "Options": [
+          {
+            "LatexCode": "\\frac13",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "احتمال الخضراء.",
+              "En": "Probability of green."
+            }
+          },
+          {
+            "LatexCode": "\\frac23",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "\\frac5{12}",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "احتمال الأزرق فقط.",
+              "En": "Blue only."
+            }
+          },
+          {
+            "LatexCode": "\\frac34",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "احتمال عدم الأصفر.",
+              "En": "Probability of not yellow."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "ما الألوان التي تحقق الشرط؟",
+            "En": "Which colors satisfy the condition?"
+          },
+          {
+            "Ar": "اجمع عدد الكرات الصفراء والزرقاء واقسم على الكل.",
+            "En": "Add yellow and blue counts and divide by total."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "الكرات غير الخضراء هي الصفراء والزرقاء.",
+            "En": "Non-green balls are yellow or blue."
+          },
+          "FormulaLatex": "P(A^c)=1-P(A)",
+          "Steps": [
+            {
+              "Ar": "العدد الكلي 12.",
+              "En": "Total is 12."
+            },
+            {
+              "Ar": "عدد غير الخضراء 3+5=8.",
+              "En": "Non-green count is 3+5=8."
+            }
+          ],
+          "Substitution": {
+            "Ar": "8/12=2/3",
+            "En": "8/12=2/3"
+          },
+          "Result": {
+            "Ar": "2/3",
+            "En": "2/3"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة",
+            "En": "Unitless"
+          },
+          "Verification": {
+            "Ar": "احتمال الخضراء 4/12، ومجموع الاحتمالين واحد.",
+            "En": "Green probability is 4/12; the probabilities sum to one."
+          },
+          "CommonError": {
+            "Ar": "المطلوب عدم الخضراء وليس الخضراء.",
+            "En": "The event is not green, rather than green."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "g1-grade-depth-slope-from-table",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "grade-9"
+      ],
+      "PrimarySkillKey": "middle-slope",
+      "Check": {
+        "expected": "-2"
+      },
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 6,
+        "PrimarySkillId": 29,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "الميل من جدول",
+          "En": "Slope from a table"
+        },
+        "Question": {
+          "Ar": "لدالة خطية قيمتان: f(2)=7 وf(6)=-1. ما ميل المستقيم؟",
+          "En": "A linear function satisfies f(2)=7 and f(6)=-1. What is its slope?"
+        },
+        "Options": [
+          {
+            "LatexCode": "2",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "يفقد الإشارة السالبة.",
+              "En": "Loses the negative sign."
+            }
+          },
+          {
+            "LatexCode": "-2",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "-8",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "تغير المخرجات وحده.",
+              "En": "Output change only."
+            }
+          },
+          {
+            "LatexCode": "\\frac12",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "يقلب النسبة ويتجاهل الإشارة.",
+              "En": "Inverts the ratio and ignores the sign."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "احسب تغير f من المدخل الأول إلى الثاني.",
+            "En": "Find the change in f from the first input to the second."
+          },
+          {
+            "Ar": "اقسم تغير المخرجات على تغير المدخلات.",
+            "En": "Divide output change by input change."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "الميل هو نسبة تغير المخرجات إلى تغير المدخلات.",
+            "En": "Slope is the ratio of output change to input change."
+          },
+          "FormulaLatex": "m=\\frac{y_2-y_1}{x_2-x_1}",
+          "Steps": [
+            {
+              "Ar": "تغير المخرجات −1−7=−8.",
+              "En": "Output change is −1−7=−8."
+            },
+            {
+              "Ar": "تغير المدخلات 6−2=4.",
+              "En": "Input change is 6−2=4."
+            }
+          ],
+          "Substitution": {
+            "Ar": "−8/4=−2",
+            "En": "−8/4=−2"
+          },
+          "Result": {
+            "Ar": "−2",
+            "En": "−2"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة",
+            "En": "Unitless"
+          },
+          "Verification": {
+            "Ar": "عند زيادة x بمقدار 4 ينقص y بمقدار 8.",
+            "En": "Increasing x by 4 reduces y by 8."
+          },
+          "CommonError": {
+            "Ar": "حافظ على ترتيب الطرح نفسه في البسط والمقام.",
+            "En": "Use the same subtraction order in both differences."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "g1-grade-depth-polygon-exterior",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "grade-9"
+      ],
+      "PrimarySkillKey": "middle-polygon-angles",
+      "Check": {
+        "expected": "15"
+      },
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 8,
+        "PrimarySkillId": 39,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "زاوية خارجية لمضلع منتظم",
+          "En": "Regular polygon exterior angle"
+        },
+        "Question": {
+          "Ar": "مضلع منتظم قياس كل زاوية خارجية فيه 24°. كم عدد أضلاعه؟",
+          "En": "A regular polygon has exterior angles of 24°. How many sides does it have?"
+        },
+        "Options": [
+          {
+            "LatexCode": "12",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "لا يحقق دورة 360.",
+              "En": "Does not produce a full 360° turn."
+            }
+          },
+          {
+            "LatexCode": "15",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "24",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "يخلط قياس الزاوية بعدد الأضلاع.",
+              "En": "Confuses angle measure with side count."
+            }
+          },
+          {
+            "LatexCode": "30",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "يضاعف عدد الأضلاع المطلوب.",
+              "En": "Doubles the required side count."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "كم درجة في دورة كاملة حول المضلع؟",
+            "En": "How many degrees in one full turn around the polygon?"
+          },
+          {
+            "Ar": "اقسم مجموع الزوايا الخارجية على 24.",
+            "En": "Divide the exterior-angle sum by 24."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "مجموع الزوايا الخارجية دورة كاملة.",
+            "En": "Exterior angles sum to a full turn."
+          },
+          "FormulaLatex": "n=\\frac{360}{e}",
+          "Steps": [
+            {
+              "Ar": "مجموع الزوايا الخارجية 360 درجة.",
+              "En": "Exterior angles sum to 360 degrees."
+            },
+            {
+              "Ar": "اقسم المجموع على قياس زاوية واحدة.",
+              "En": "Divide by the measure of one angle."
+            }
+          ],
+          "Substitution": {
+            "Ar": "360/24=15",
+            "En": "360/24=15"
+          },
+          "Result": {
+            "Ar": "15",
+            "En": "15"
+          },
+          "Unit": {
+            "Ar": "ضلعاً",
+            "En": "sides"
+          },
+          "Verification": {
+            "Ar": "15×24=360",
+            "En": "15×24=360"
+          },
+          "CommonError": {
+            "Ar": "لا تستخدم 180 درجة كمجموع للزوايا الخارجية.",
+            "En": "Do not use 180 as the exterior-angle sum."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "g1-grade-depth-exponent-compare-ratio",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "grade-9"
+      ],
+      "PrimarySkillKey": "middle-exponent-laws",
+      "Check": {
+        "expected": "3^4"
+      },
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 5,
+        "PrimarySkillId": 21,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "نسبة قوتين",
+          "En": "Ratio of powers"
+        },
+        "Question": {
+          "Ar": "أي قوة للعدد 3 تساوي $\\frac{3^7\\cdot3^2}{3^5}$؟",
+          "En": "Which power of 3 equals $\\frac{3^7\\cdot3^2}{3^5}$?"
+        },
+        "Options": [
+          {
+            "LatexCode": "3^2",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "يهمل أحد أسس البسط.",
+              "En": "Omits one numerator exponent."
+            }
+          },
+          {
+            "LatexCode": "3^4",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "3^9",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "يهمل المقام.",
+              "En": "Ignores the denominator."
+            }
+          },
+          {
+            "LatexCode": "3^{14}",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "يخلط ضرب الأسس وجمعها.",
+              "En": "Confuses multiplication and addition of exponents."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "وحد البسط في قوة واحدة للأساس 3.",
+            "En": "Combine the numerator into one power of 3."
+          },
+          {
+            "Ar": "اطرح أس المقام من أس البسط.",
+            "En": "Subtract the denominator exponent from the numerator exponent."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نجمع الأسس في الضرب ونطرحها في القسمة للأساس نفسه.",
+            "En": "Add exponents for multiplication and subtract for division with the same base."
+          },
+          "FormulaLatex": "\\frac{a^ma^n}{a^k}=a^{m+n-k}",
+          "Steps": [
+            {
+              "Ar": "البسط له الأس 7+2.",
+              "En": "Numerator exponent is 7+2."
+            },
+            {
+              "Ar": "اطرح أس المقام 5.",
+              "En": "Subtract denominator exponent 5."
+            }
+          ],
+          "Substitution": {
+            "Ar": "7+2−5=4",
+            "En": "7+2−5=4"
+          },
+          "Result": {
+            "Ar": "3⁴",
+            "En": "3⁴"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة",
+            "En": "Unitless"
+          },
+          "Verification": {
+            "Ar": "3⁴×3⁵=3⁹=3⁷×3²",
+            "En": "3⁴×3⁵=3⁹=3⁷×3²"
+          },
+          "CommonError": {
+            "Ar": "لا تضرب الأسس عند ضرب قوتين لهما نفس الأساس.",
+            "En": "Do not multiply exponents when multiplying powers of the same base."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "g1-grade-depth-similar-area-inverse",
+      "ReviewStatus": "Draft",
+      "ProposedTrackCodes": [
+        "grade-9"
+      ],
+      "PrimarySkillKey": "middle-similar-triangles",
+      "Check": {
+        "expected": "\\frac52"
+      },
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 34,
+        "PrimarySkillId": 40,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "معامل التشابه من المساحة",
+          "En": "Scale factor from area"
+        },
+        "Question": {
+          "Ar": "مساحة مثلثين متشابهين 16 و100 سم². ما نسبة طول ضلع في الكبير إلى نظيره في الصغير؟",
+          "En": "Two similar triangles have areas 16 and 100 cm². What is the ratio of a larger side to its corresponding smaller side?"
+        },
+        "Options": [
+          {
+            "LatexCode": "\\frac{25}{4}",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "نسبة المساحات دون جذر.",
+              "En": "Area ratio without square root."
+            }
+          },
+          {
+            "LatexCode": "\\frac52",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "\\frac85",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "نسبة غير متوافقة مع المساحتين.",
+              "En": "Ratio inconsistent with the areas."
+            }
+          },
+          {
+            "LatexCode": "\\frac25",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "يعكس ترتيب الكبير والصغير.",
+              "En": "Reverses large and small."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "هل تتغير المساحة بنفس معامل تغير الطول أم مربعه؟",
+            "En": "Does area scale by the length factor or its square?"
+          },
+          {
+            "Ar": "خذ الجذر التربيعي لنسبة المساحتين.",
+            "En": "Take the square root of the area ratio."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نسبة المساحات تساوي مربع معامل تشابه الأطوال.",
+            "En": "Area ratio equals the square of the length scale factor."
+          },
+          "FormulaLatex": "k=\\sqrt{\\frac{A_2}{A_1}}",
+          "Steps": [
+            {
+              "Ar": "احسب نسبة المساحتين الكبير إلى الصغير.",
+              "En": "Find the larger-to-smaller area ratio."
+            },
+            {
+              "Ar": "خذ الجذر الموجب لتحصل على نسبة الأطوال.",
+              "En": "Take its positive square root to obtain the length ratio."
+            }
+          ],
+          "Substitution": {
+            "Ar": "√(100/16)=10/4=5/2",
+            "En": "√(100/16)=10/4=5/2"
+          },
+          "Result": {
+            "Ar": "5/2",
+            "En": "5/2"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة",
+            "En": "Unitless"
+          },
+          "Verification": {
+            "Ar": "(5/2)²=25/4=100/16",
+            "En": "(5/2)²=25/4=100/16"
+          },
+          "CommonError": {
+            "Ar": "لا تستخدم نسبة المساحات مباشرة كنسبة أطوال.",
+            "En": "Do not use the area ratio directly as a length ratio."
+          }
+        }
+      }
+    }
+  ]
+}

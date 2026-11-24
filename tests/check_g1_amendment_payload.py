@@ -9,7 +9,31 @@ module=importlib.util.module_from_spec(spec); spec.loader.exec_module(module)
 manifest=json.loads((root/"content/editorial/g1-structured-amendments-wave01-20261124.json").read_text(encoding="utf-8"))
 second=json.loads((root/"content/editorial/g1-structured-amendments-wave02-20261124.json").read_text(encoding="utf-8"))
 manifest["Items"]+=second["Items"]
-assert len(manifest["Items"])==52
+third=json.loads((root/"content/editorial/g1-structured-amendments-wave03-20261124.json").read_text(encoding="utf-8"))
+manifest["Items"]+=third["Items"]
+fourth=json.loads((root/"content/editorial/g1-structured-amendments-wave04-20261124.json").read_text(encoding="utf-8"))
+manifest["Items"]+=fourth["Items"]
+fifth=json.loads((root/"content/editorial/g1-structured-amendments-wave05-20261124.json").read_text(encoding="utf-8"))
+manifest["Items"]+=fifth["Items"]
+sixth=json.loads((root/"content/editorial/g1-structured-amendments-wave06-20261124.json").read_text(encoding="utf-8"))
+manifest["Items"]+=sixth["Items"]
+seventh=json.loads((root/"content/editorial/g1-structured-amendments-wave07-20261124.json").read_text(encoding="utf-8"))
+manifest["Items"]+=seventh["Items"]
+eighth=json.loads((root/"content/editorial/g1-structured-amendments-wave08-20261124.json").read_text(encoding="utf-8"))
+manifest["Items"]+=eighth["Items"]
+ninth=json.loads((root/"content/editorial/g1-structured-amendments-wave09-20261124.json").read_text(encoding="utf-8"))
+manifest["Items"]+=ninth["Items"]
+tenth=json.loads((root/"content/editorial/g1-structured-amendments-wave10-20261124.json").read_text(encoding="utf-8"))
+manifest["Items"]+=tenth["Items"]
+eleventh=json.loads((root/"content/editorial/g1-structured-amendments-wave11-20261124.json").read_text(encoding="utf-8"))
+manifest["Items"]+=eleventh["Items"]
+twelfth=json.loads((root/"content/editorial/g1-structured-amendments-wave12-20261124.json").read_text(encoding="utf-8"))
+manifest["Items"]+=twelfth["Items"]
+thirteenth=json.loads((root/"content/editorial/g1-structured-amendments-wave13-20261124.json").read_text(encoding="utf-8"))
+manifest["Items"]+=thirteenth["Items"]
+fourteenth=json.loads((root/"content/editorial/g1-structured-amendments-wave14-20261124.json").read_text(encoding="utf-8"))
+manifest["Items"]+=fourteenth["Items"]
+assert len(manifest["Items"])==len({r["ProblemId"] for r in manifest["Items"]})==675
 for row in manifest["Items"]:
     content=copy.deepcopy(row["Content"])
     content["TrackIds"]=[101];content["SecondarySkillIds"]=[999];content["DifficultyLevel"]=3
@@ -41,4 +65,4 @@ for row in manifest["Items"]:
         try: module.prepare(manifest,bad)
         except ValueError: pass
         else: raise AssertionError("Unsafe amendment accepted")
-print("PASS: 52 draft payloads preserve classification and immutable sources; reject stale/edited drafts")
+print("PASS: 675 draft payloads preserve classification and immutable sources; reject stale/edited drafts")

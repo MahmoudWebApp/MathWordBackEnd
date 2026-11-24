@@ -45,6 +45,31 @@ public static class WizardProblemContract
             (FlatSolution(solution!,true).Length>12000||FlatSolution(solution!,false).Length>12000))errors.Add("SolutionTooLong");
         return errors;
     }
+    public static bool IsHintsOnly(string? json)
+    {
+        if(string.IsNullOrWhiteSpace(json))return false;
+        try
+        {
+            using var doc=JsonDocument.Parse(json);
+            var root=doc.RootElement;
+            return root.ValueKind==JsonValueKind.Object&&root.TryGetProperty("Kind",out var kind)&&
+                kind.ValueKind==JsonValueKind.String&&kind.GetString()=="ReviewedHintsOnly"&&
+                root.EnumerateObject().Count()==2&&root.TryGetProperty("Hints",out var hints)&&
+                hints.ValueKind==JsonValueKind.Array&&hints.GetArrayLength()==2;
+        }
+        catch(JsonException){return false;}
+    }
+    public static bool HasStructuredSolution(string? json)
+    {
+        if(string.IsNullOrWhiteSpace(json))return false;
+        try
+        {
+            using var doc=JsonDocument.Parse(json);
+            return doc.RootElement.ValueKind==JsonValueKind.Object&&doc.RootElement.TryGetProperty("Solution",out var solution)&&
+                solution.ValueKind==JsonValueKind.Object;
+        }
+        catch(JsonException){return false;}
+    }
     // Serialize only the localized solution; never hints or distractor metadata.
     public static object? LocalizedSolution(string? json,string language)
     {

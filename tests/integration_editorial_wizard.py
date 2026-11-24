@@ -55,6 +55,7 @@ def verify_wizard(admin,supervisor,sid):
     verify_amendment(admin,supervisor,pid)
     verify_import(admin,supervisor,p,track)
     verify_amendment_import(admin,supervisor,p,track,skill,category)
+    verify_hint_only_import(admin,supervisor,p,skill,category)
     from integration_editorial_gap_wave import verify_gap_wave
     verify_gap_wave(admin)
     print("PASS: partial draft, ownership, revision, review return, approval, exactly-once publication and track/skill linkage")
@@ -202,3 +203,47 @@ def verify_amendment_import(admin,supervisor,p,track,skill,category):
     assert sql('SELECT COUNT(*) FROM "Problems"')==before
     assert sql(f'SELECT "DetailedSolutionEn" FROM "Problems" WHERE "Id"={pid}')==old_en
     print("PASS: guarded batch amendment preview/confirm, held rejection, no track override, idempotency, no live changes")
+
+
+def verify_hint_only_import(admin,supervisor,p,skill,category):
+    import copy
+    root="/api/editorial/problems/hints/import"
+    q=copy.deepcopy(p)
+    q["Question"]={"Ar":"احسب 15+7 في اختبار التلميحات","En":"Calculate 15+7 in the hint-only fixture"}
+    old_ar="نجمع 15 و7 فنحصل على 22."
+    old_en="Add 15 and 7 to obtain 22."
+    problem=expect("POST","/api/admin/problems",201,{
+        "QuestionTextAr":q["Question"]["Ar"],"QuestionTextEn":q["Question"]["En"],
+        "DetailedSolutionAr":old_ar,"DetailedSolutionEn":old_en,
+        "StageId":q["StageId"],"CategoryId":category,"Points":q["Points"],
+        "Options":[{"LatexCode":o["LatexCode"],"IsCorrect":o["IsCorrect"],"Order":i+1} for i,o in enumerate(q["Options"])]},admin)
+    pid=problem["Id"]
+    sql(f'INSERT INTO "CurriculumProblemSkills" ("ProblemId","SkillId","IsPrimary") VALUES ({pid},{skill},true)')
+    options=sql(f'SELECT string_agg("Id"::text,\',\' ORDER BY "Id") FROM "QuestionOptions" WHERE "ProblemId"={pid}')
+    row={"ProblemId":pid,"PrimarySkillKey":"ci-wizard-skill","Question":q["Question"],"Hints":q["Hints"]}
+    expect("POST",root,403,{"Items":[row]},supervisor)
+    bad=copy.deepcopy(row);bad["TaxonomyReviewPending"]=True
+    expect("POST",root,400,{"Items":[bad]},admin)
+    bad=copy.deepcopy(row);bad["Question"]["En"]="Stale question"
+    expect("POST",root,400,{"Items":[bad]},admin)
+    bad=copy.deepcopy(row);bad["Hints"][1]=bad["Hints"][0]
+    expect("POST",root,400,{"Items":[bad]},admin)
+    preview=expect("POST",root,200,{"Items":[row]},admin)
+    assert preview["Applied"]==0 and preview["Ready"]==1
+    assert sql(f'SELECT COUNT(*) FROM "Problems" WHERE "Id"={pid} AND "EditorialDetailsJson" IS NULL')=="1"
+    payload={"Items":[row],"Confirm":True,"ReviewNote":"Reviewed hint-only content","PreviewToken":preview["PreviewToken"]}
+    bad=copy.deepcopy(payload);bad["Items"][0]["Hints"][1]["En"]="Changed after preview"
+    expect("POST",root,409,bad,admin)
+    expect("POST",root,400,{"Items":[row],"Confirm":True},admin)
+    assert expect("POST",root,200,payload,admin)["Applied"]==1
+    assert sql(f'SELECT "DetailedSolutionEn" FROM "Problems" WHERE "Id"={pid}')==old_en
+    assert sql(f'SELECT "DetailedSolutionAr" FROM "Problems" WHERE "Id"={pid}')==old_ar
+    assert sql(f'SELECT string_agg("Id"::text,\',\' ORDER BY "Id") FROM "QuestionOptions" WHERE "ProblemId"={pid}')==options
+    assert sql(f'SELECT COUNT(*) FROM "CurriculumDraftItems" WHERE "SourceProblemId"={pid}')=="0"
+    retry=expect("POST",root,200,{"Items":[row]},admin)
+    assert retry["Ready"]==0 and retry["Items"][0]["Status"]=="AlreadyExists"
+    bad=copy.deepcopy(row);bad["Hints"][1]["En"]="Replace existing hints"
+    expect("POST",root,400,{"Items":[bad]},admin)
+    d=expect("POST",f"/api/editorial/problems/amend/{pid}",201,{},supervisor)
+    assert d["Content"]["Hints"]==q["Hints"] and d["Content"].get("Solution") is None
+    print("PASS: reviewed hint-only publication preserves legacy solution and options, rejects held/stale rows, requires exact preview, permits full amendment")
