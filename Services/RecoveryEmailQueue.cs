@@ -42,6 +42,13 @@ public sealed class BrevoEmailTransport(IConfiguration config, IHttpClientFactor
     public bool AllowsRecipient(string recipient) => IsConfigured &&
         (Mode == "live" || TestRecipients.Contains(recipient, StringComparer.OrdinalIgnoreCase));
 
+    // Only a fixed, token-free admin sample may use the configured demo mailbox
+    // instead of the admin's account address. All account events use AllowsRecipient.
+    public string? AdminSampleRecipient(string adminEmail) =>
+        IsConfigured && IsTestMode
+            ? IsResend ? TestRecipients.Single() : AllowsRecipient(adminEmail) ? adminEmail : null
+            : null;
+
     public async Task<BrevoOutcome> SendAsync(EmailOutboxItem item, TransactionalEmail email, CancellationToken ct)
     {
         if (!AllowsRecipient(item.Recipient)) return new("Cancelled", ErrorCode: "RecipientNotAllowed");
@@ -228,7 +235,12 @@ public sealed class RecoveryEmailWorker(IServiceScopeFactory scopes, IConfigurat
     {
         var db = sp.GetRequiredService<AppDbContext>();
         var user = await db.Users.AsNoTracking().SingleOrDefaultAsync(x => x.Id == item.UserId && x.IsActive, ct);
-        if (user is null || user.Email != item.Recipient || item.ExpiresAtUtc <= DateTime.UtcNow)
+        var isSample = item.TemplateKey == "test" || item.TemplateKey.StartsWith("test:",StringComparison.Ordinal);
+        if (user is null || item.ExpiresAtUtc <= DateTime.UtcNow ||
+            (isSample
+                ? user.Role != AccountRolePolicy.LegacyAdmin || item.ResetGrantId != null ||
+                  !string.Equals(transport.AdminSampleRecipient(user.Email),item.Recipient,StringComparison.OrdinalIgnoreCase)
+                : user.Email != item.Recipient))
             return new("Cancelled", ErrorCode: "AccountOrRecipientChanged");
         var brand = await sp.GetRequiredService<PlatformBrandService>().ReadAsync(false, ct);
         var ar = item.Locale == "ar";

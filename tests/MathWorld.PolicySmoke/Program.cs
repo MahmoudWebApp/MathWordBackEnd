@@ -126,6 +126,9 @@ var fakeProvider = new RecordingEmailClientFactory();
 var resend = new BrevoEmailTransport(resendConfig,fakeProvider);
 Assert(resend.IsConfigured && resend.AttemptLimit==100 && resend.AllowsRecipient("owner@example.test") &&
     !resend.AllowsRecipient("other@example.test"), "Resend single-recipient demo boundary and cap.");
+Assert(resend.AdminSampleRecipient("admin@example.test")=="owner@example.test" &&
+    !resend.AllowsRecipient("admin@example.test"),
+    "Only fixed sample routing can use the separately configured provider owner mailbox.");
 var sampleItem = new EmailOutboxItem { Id=Guid.NewGuid(), Recipient="owner@example.test", TemplateKey="test" };
 var sampleMail = new TransactionalEmail("Sample subject","Sample plain","<p>Sample HTML</p>");
 var result = await resend.SendAsync(sampleItem,sampleMail,CancellationToken.None);
