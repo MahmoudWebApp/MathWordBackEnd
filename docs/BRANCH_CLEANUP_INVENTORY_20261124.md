@@ -61,6 +61,28 @@ Additional comparisons were made against `main` using the same non-destructive G
 
 **Cumulative sampled:** 39/323 names individually compared; 8 had `ahead_by=0`, while 31 had unique commits. **No branches deleted.** Do not equate unique commit history with a non-merged feature; inspect patch equivalence and PR history first.
 
+## Completed Flutter branch-head audit
+
+**Recheck against Flutter `main` on 2026-11-24:** all **73 non-`main` Flutter branch names** were compared with GitHub's `compare_commits` API; **11 had `ahead_by = 0`**, and the remaining **62 had additional commits** relative to `main`. Branch names below are *pruning candidates only*, not approved for deletion:
+
+| Flutter branch with 0 unique commits | Interpretation |
+| --- | --- |
+| `feature/mathworld-brand-logo-v2` | Fully behind current main |
+| `feature/mathworld-calm-ui-v1` | Fully behind current main |
+| `feature/social-google-mobile-auth-v1` | Fully behind current main |
+| `feature/stage-focused-mobile-parity-v1` | Fully behind current main |
+| `feature/stage-leaderboard-flutter-v1` | Fully behind current main |
+| `feature/student-learning-stage-journey-flutter-v1` | Fully behind current main |
+| `fix/calm-dark-theme-rtl-v1` | Fully behind current main |
+| `fix/gate-stage-leaderboard-until-api-live` | Fully behind current main |
+| `fix/rtl-directional-icons-v1` | Fully behind current main |
+| `fix/mobile-challenge-card-ux-20261123` | Fully behind current main |
+| `release/requests-frozen-20261123` | Fully behind current main |
+
+**Preservation notes:** `feature/premium-entitlements-client` and `integration/premium-mobile-reconcile-20261118` have 250+ unique commits each and large diffs; do **not** delete or cherry-pick them wholesale. The branch `chore/cleanup-mobile-docs-env-20261124` still has distinct commit history after squash-merging PR #76; inspect patch equivalence before pruning it. Other nonzero branches contain potentially relevant branding, reporting, curriculum and UX changes. None are classified as safe to delete without a reference, PR, deployment and patch-equivalence review.
+
+**No Git refs were deleted.** This completion result supersedes the earlier Flutter-only sampled-branch counts; backend and frontend remain partially audited.
+
 ## Required before pruning any branch
 
 1. List **all branches** and fetch the current default-branch HEAD (do not assume it has stayed unchanged since this snapshot).
