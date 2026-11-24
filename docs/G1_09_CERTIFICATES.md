@@ -8,3 +8,5 @@ Migration 37 adds private RLS table with revoked API roles. Disposable PostgreSQ
 
 ## Unified report evidence
 With LearningSessions enabled, JSON, CSV, XLSX and PDF share lifetime distinct solved/attempted counts, original points, independently correct first-earn evidence, and both ordinary/guided attempt totals. Current error notebook remains a separate measure. Guided time is explicitly not measured; CSV/XLSX label ordinary practice time, PDF notes limitations. Existing active-cycle premium-report keeps its completion/mastery fields and adopts permanent scoped points. Track/time filters, removed-content historical dimension handling, UI metric labels and full parity remain to be completed before activation. No production changes.
+
+Client capability: journey returns CertificatesEnabled independently of issuance, so former Premium holders can open issued certificates without exposing a dead link on older deployments. Combined disposable journey CI uses its own answer-token budget of 60; production policy is unchanged.

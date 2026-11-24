@@ -8,6 +8,7 @@ def verify_certificates(admin,learner,other,stage):
     expect("GET",ROOT,401)
     expect("GET",ROOT,403,token=admin)
     assert expect("GET",ROOT,200,token=learner)["Items"]==[]
+    assert expect("GET","/api/users/journey",200,token=other)["CertificatesEnabled"] is True
     category=int(sql(f"""INSERT INTO "Categories" ("StageId","NameAr","NameEn","Icon","Order","DescriptionAr","DescriptionEn") VALUES ({stage},'اختبار الشهادة','Certificate fixture','math',999,'','') RETURNING "Id" """).splitlines()[0])
     domain=int(sql("""INSERT INTO "CurriculumDomains" ("StableKey","NameAr","NameEn","DescriptionAr","DescriptionEn","SortOrder","IsPublished") VALUES ('ci-cert-domain','اختبار','Test','','',0,true) RETURNING "Id" """).splitlines()[0])
     skill=int(sql(f"""INSERT INTO "CurriculumSkills" ("StableKey","DomainId","StageId","CategoryId","NameAr","NameEn","DescriptionAr","DescriptionEn","SortOrder","IsPublished") VALUES ('ci-cert-skill',{domain},{stage},{category},'جمع','Addition','','',0,true) RETURNING "Id" """).splitlines()[0])

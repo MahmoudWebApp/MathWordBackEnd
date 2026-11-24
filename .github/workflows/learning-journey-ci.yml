@@ -67,6 +67,8 @@ jobs:
           LearningSessions__Enabled: 'true'
           Certificates__Enabled: 'true'
           Certificates__IssuanceEnabled: 'true'
+          # This one disposable suite deliberately submits many consecutive fixture answers.
+          RateLimits__AnswerTokensPerMinute: '60'
         run: |
           set -euo pipefail
           dotnet run --no-build --no-launch-profile -c Release --project MathWorldAPI.csproj > /tmp/mathworld-journey.log 2>&1 &
