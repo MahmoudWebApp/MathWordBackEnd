@@ -72,7 +72,10 @@ public sealed class DailyChallengeController : ControllerBase
                  (p.IsSolved && p.SolvedAt.HasValue && p.SolvedAt.Value < day)))
             .Select(p => p.ProblemId).ToListAsync(ct);
 
-        var eligible = await _db.Problems.AsNoTracking()
+        var tracks=HttpContext.RequestServices.GetRequiredService<LearningTrackService>();
+        var track=await tracks.ActiveAsync(targetStage,learner.CurrentTrackId,ct);
+        var scoped=track is null?_db.Problems.AsNoTracking():tracks.ValidProblems(track.Id);
+        var eligible = await scoped
             .Where(p => p.StageId == targetStage.Value &&
                 p.Category.StageId == targetStage.Value &&
                 allowed.Contains(p.CategoryId) &&
@@ -126,6 +129,7 @@ public sealed class DailyChallengeController : ControllerBase
         {
             DateUtc = day.ToString("yyyy-MM-dd"),
             StageId = targetStage.Value,
+            TrackId = track?.Id,
             Total = selected.Count,
             Completed = selected.Count(p => answeredIds.Contains(p.Id)),
             Correct = selected.Count(p => correctIds.Contains(p.Id)),

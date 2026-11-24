@@ -110,7 +110,14 @@ namespace MathWorldAPI.Controllers
             if (stage == null)
                 return NotFound(Error<LearningJourneyDto>("StageNotFound", 404));
 
-            var categories = await _context.Categories.AsNoTracking()
+            var tracks = HttpContext.RequestServices.GetRequiredService<LearningTrackService>();
+            var track = await tracks.ActiveAsync(stage.Id,user.CurrentTrackId,cancellationToken);
+            var scoped = track is null
+                ? _context.Problems.AsNoTracking().Where(p=>p.StageId==stage.Id&&p.Category.StageId==stage.Id)
+                : tracks.ValidProblems(track.Id);
+            var categoriesQuery = _context.Categories.AsNoTracking().Where(c=>c.StageId==stage.Id);
+            if(track is not null) categoriesQuery=categoriesQuery.Where(c=>scoped.Any(p=>p.CategoryId==c.Id));
+            var categories = await categoriesQuery
                 .Where(c => c.StageId == stage.Id)
                 .OrderBy(c => c.Order)
                 .Select(c => new { c.Id, c.NameAr, c.NameEn })
@@ -118,16 +125,14 @@ namespace MathWorldAPI.Controllers
 
             // Count inventory separately: progress records can also be created
             // just for favorites without any submitted attempts.
-            var inventory = await _context.Problems.AsNoTracking()
-                .Where(p => p.StageId == stage.Id && p.Category.StageId == stage.Id)
+            var inventory = await scoped
                 .GroupBy(p => p.CategoryId)
                 .Select(g => new { CategoryId = g.Key, Count = g.Count() })
                 .ToDictionaryAsync(x => x.CategoryId, x => x.Count,
                     cancellationToken);
 
             var progress = await _context.UserProgresses.AsNoTracking()
-                .Where(p => p.UserId == userId && p.Problem.StageId == stage.Id &&
-                    p.Problem.Category.StageId == stage.Id)
+                .Where(p => p.UserId == userId && scoped.Any(q=>q.Id==p.ProblemId))
                 .GroupBy(p => p.Problem.CategoryId)
                 .Select(g => new
                 {
@@ -172,8 +177,9 @@ namespace MathWorldAPI.Controllers
             return Ok(Success(new LearningJourneyDto
             {
                 StageId = stage.Id,
-                NameAr = stage.NameAr,
-                NameEn = stage.NameEn,
+                TrackId = track?.Id,
+                NameAr = track?.NameAr ?? stage.NameAr,
+                NameEn = track?.NameEn ?? stage.NameEn,
                 TotalProblems = total,
                 AttemptedProblems = categoryProgress.Sum(c => c.AttemptedProblems),
                 SolvedProblems = solvedTotal,

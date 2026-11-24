@@ -96,6 +96,25 @@ public sealed class LearningTracksController(AppDbContext db,LearningTrackServic
     }
 
     [Authorize(Roles="Student")]
+    [HttpGet("api/users/learning-tracks/continue")]
+    public async Task<IActionResult> Continue(CancellationToken ct)
+    {
+        var uid=int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
+        var user=await db.Users.AsNoTracking().SingleAsync(x=>x.Id==uid,ct);
+        if(!PremiumEntitlement.IsActive(user))return StatusCode(403,new{Message="PremiumRequired"});
+        var track=await tracks.ActiveAsync(user.CurrentStageId,user.CurrentTrackId,ct);
+        if(track is null)return NotFound();
+        var allowed=await access.GetAllowedCategoryIdsAsync(User,ct)??new List<int>();
+        // Continue with new, unattempted material; mistakes are handled by the
+        // existing error notebook, not presented as new questions.
+        var next=await tracks.ValidProblems(track.Id).Where(p=>allowed.Contains(p.CategoryId)&&
+            !db.UserProgresses.Any(up=>up.UserId==uid&&up.ProblemId==p.Id&&(up.IsSolved||up.Attempts>0)))
+            .OrderBy(p=>p.Category.Order).ThenBy(p=>p.Id)
+            .Select(p=>new{p.Id,p.CategoryId,p.TitleAr,p.TitleEn}).FirstOrDefaultAsync(ct);
+        return Ok(new{TrackId=track.Id,Problem=next});
+    }
+
+    [Authorize(Roles="Student")]
     [HttpGet("api/users/learning-tracks/{id:int}/progress")]
     public async Task<IActionResult> Progress(int id,CancellationToken ct)
     {

@@ -60,7 +60,7 @@ namespace MathWorldAPI.Controllers
             var bytes = new UTF8Encoding(true).GetPreamble()
                 .Concat(Encoding.UTF8.GetBytes(csv.ToString())).ToArray();
             return File(bytes, "text/csv; charset=utf-8",
-                $"mathworld-stage-{data.StageId}-progress.csv");
+                data.TrackId.HasValue ? $"mathworld-track-{data.TrackId}-progress.csv" : $"mathworld-stage-{data.StageId}-progress.csv");
         }
 
         private async Task<(PremiumProgressReport? Data, IActionResult? Error)> Build(
@@ -72,7 +72,7 @@ namespace MathWorldAPI.Controllers
 
             var user = await _db.Users.AsNoTracking()
                 .Where(u => u.Id == userId && u.Role == "Student" && u.IsActive)
-                .Select(u => new { u.CurrentStageId, u.SubscriptionType, u.PremiumExpiresAtUtc })
+                .Select(u => new { u.CurrentStageId, u.CurrentTrackId, u.SubscriptionType, u.PremiumExpiresAtUtc })
                 .FirstOrDefaultAsync(cancellationToken);
             if (user == null) return (null, Unauthorized());
             if (!PremiumEntitlement.IsActive(user.SubscriptionType,
@@ -89,19 +89,24 @@ namespace MathWorldAPI.Controllers
                 .FirstOrDefaultAsync(cancellationToken);
             if (stage == null) return (null, NotFound());
 
-            var categories = await _db.Categories.AsNoTracking()
+            var tracks=HttpContext.RequestServices.GetRequiredService<LearningTrackService>();
+            var track=await tracks.ActiveAsync(stage.Id,user.CurrentTrackId,cancellationToken);
+            var scope=track is null?_db.Problems.AsNoTracking().Where(p=>p.StageId==stage.Id):tracks.ValidProblems(track.Id);
+            var categoriesQuery=_db.Categories.AsNoTracking().Where(c=>c.StageId==stage.Id);
+            if(track is not null)categoriesQuery=categoriesQuery.Where(c=>scope.Any(p=>p.CategoryId==c.Id));
+            var categories = await categoriesQuery
                 .Where(c => c.StageId == stage.Id)
                 .OrderBy(c => c.Order).ThenBy(c => c.Id)
                 .Select(c => new
                 {
                     c.Id, c.NameAr, c.NameEn,
-                    TotalProblems = c.Problems.Count()
+                    TotalProblems = scope.Count(p=>p.CategoryId==c.Id)
                 }).ToListAsync(cancellationToken);
 
             // Official awarded points come from immutable attempt snapshots.
             // Never reaward points based on the current problem point value.
             var progress = await _db.UserProgresses.AsNoTracking()
-                .Where(p => p.UserId == userId && p.Problem.StageId == stage.Id)
+                .Where(p => p.UserId == userId && scope.Any(q=>q.Id==p.ProblemId))
                 .GroupBy(p => p.Problem.CategoryId)
                 .Select(g => new
                 {
@@ -112,7 +117,7 @@ namespace MathWorldAPI.Controllers
                     Mastered = g.Count(p => p.MasteryStatus == "Mastered")
                 }).ToListAsync(cancellationToken);
             var attempts = await _db.ProblemAttempts.AsNoTracking()
-                .Where(a => a.UserId == userId && a.Problem.StageId == stage.Id &&
+                .Where(a => a.UserId == userId && scope.Any(q=>q.Id==a.ProblemId) &&
                     a.IsOfficial)
                 .GroupBy(a => a.Problem.CategoryId)
                 .Select(g => new { CategoryId = g.Key,
@@ -146,7 +151,8 @@ namespace MathWorldAPI.Controllers
             return (new PremiumProgressReport
             {
                 StageId = stage.Id,
-                StageName = localizedArabic ? stage.NameAr : stage.NameEn,
+                TrackId = track?.Id,
+                StageName = localizedArabic ? (track?.NameAr??stage.NameAr) : (track?.NameEn??stage.NameEn),
                 TotalProblems = total,
                 AttemptedProblems = rows.Sum(x => x.AttemptedProblems),
                 SolvedProblems = solvedTotal,
@@ -171,6 +177,7 @@ namespace MathWorldAPI.Controllers
         private sealed class PremiumProgressReport
         {
             public int StageId { get; set; }
+            public int? TrackId { get; set; }
             public string StageName { get; set; } = string.Empty;
             public int TotalProblems { get; set; }
             public int AttemptedProblems { get; set; }

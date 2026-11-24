@@ -41,6 +41,10 @@ def verify_tracks(admin, student, uid, stage1, stage2):
     expect("PUT","/api/users/learning-track",200,{"TrackId":tid},student)
     assert expect("GET","/api/users/learning-track",200,token=student)["TrackId"]==tid
     assert expect("GET",f"/api/users/learning-tracks/{tid}/progress",200,token=student)["Solved"]==0
+    journey=expect("GET",f"/api/users/journey?stageId={stage1}",200,token=student)
+    assert journey["TrackId"]==tid and journey["TotalProblems"]==1
+    expect("POST","/api/users/practice/reset",409,{"StageId":stage1},student)
+    expect("GET","/api/users/learning-tracks/continue",403,token=student)
     practice=f"/api/users/learning-tracks/{tid}/categories/{category}/problems"
     assert expect("GET",practice,200,token=student)["Items"][0]["Id"]==pid
     detail=expect("GET",f"/api/problems/{pid}",200,token=admin)
@@ -48,6 +52,8 @@ def verify_tracks(admin, student, uid, stage1, stage2):
     expect("POST","/api/problems/submit",200,{"ProblemId":pid,"SelectedOptionId":option,"TimeSpentSeconds":4},student)
     assert expect("GET",practice,200,token=student)["Items"][0]["IsSolved"]
     assert expect("GET",f"/api/users/learning-tracks/{tid}/progress",200,token=student)["Solved"]==1
+    assert expect("GET",f"/api/users/journey?stageId={stage1}",200,token=student)["SolvedProblems"]==1
+    assert expect("GET","/api/users/dashboard",200,token=student)["SolvedProblemsCount"]==1
     other=next(x["Track"] for x in all_tracks if x["Track"]["StageId"]==stage1 and x["Track"]["Id"]!=tid)
     oid=other["Id"]
     expect("PUT",f"{root}/{oid}/mapping",200,{"Revision":0,"CategoryIds":[category],"SkillIds":[skill],"ProblemIds":[pid]},admin)

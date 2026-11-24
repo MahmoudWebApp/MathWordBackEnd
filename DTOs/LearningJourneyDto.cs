@@ -34,6 +34,7 @@ namespace MathWorldAPI.DTOs
     public sealed class LearningJourneyDto
     {
         public int StageId { get; set; }
+        public int? TrackId { get; set; }
         public string NameAr { get; set; } = string.Empty;
         public string NameEn { get; set; } = string.Empty;
         public int TotalProblems { get; set; }

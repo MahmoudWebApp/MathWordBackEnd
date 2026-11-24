@@ -41,7 +41,7 @@ public sealed class PracticeCyclesController : ControllerBase
 
         var learner = await _db.Users.AsNoTracking()
             .Where(u => u.Id == userId && u.Role == "Student" && u.IsActive)
-            .Select(u => new { u.CurrentStageId }).FirstOrDefaultAsync(ct);
+            .Select(u => new { u.CurrentStageId, u.CurrentTrackId }).FirstOrDefaultAsync(ct);
         if (learner is null) return Unauthorized();
         var activeStage = await LegacyLearningStage.EffectiveIdAsync(
             _db, learner.CurrentStageId, ct);
@@ -61,6 +61,13 @@ public sealed class PracticeCyclesController : ControllerBase
             $"SELECT 1 AS \"Value\" FROM pg_advisory_xact_lock({-987654320}, {userId})")
             .SingleAsync(ct);
 
+        // The legacy reset mutates shared problem progress. Until independent
+        // practice cycles are introduced, never allow a track selection to
+        // accidentally reset the whole stage (including other tracks).
+        var tracks=HttpContext.RequestServices.GetRequiredService<LearningTrackService>();
+        var latest=await _db.Users.AsNoTracking().SingleAsync(u=>u.Id==userId,ct);
+        if(tracks.Enabled && latest.CurrentTrackId.HasValue)
+            return Conflict(new { Message = "TrackPracticeCycleRequired" });
         var scope = _db.UserProgresses
             .Where(p => p.UserId == userId &&
                 p.Problem.StageId == request.StageId &&

@@ -11,6 +11,14 @@ public sealed class LearningTrackService(AppDbContext db, IConfiguration config,
 {
     public bool Enabled => config.GetValue<bool>("LearningTracks:Enabled");
 
+    // Resolve only a currently visible selection, never an arbitrary caller-supplied track.
+    // Historic stage reports retain their original meaning.
+    public async Task<LearningTrack?> ActiveAsync(int? stageId,int? trackId,CancellationToken ct)
+    {
+        if(!Enabled || !stageId.HasValue || !trackId.HasValue)return null;
+        return await VisibleTracks().SingleOrDefaultAsync(t=>t.StageId==stageId && t.Id==trackId,ct);
+    }
+
     // Recheck original stage/category and published primary skill every time.
     // Old content changes cannot make an invalid mapping visible to students.
     public IQueryable<MathProblem> ValidProblems(int trackId) =>

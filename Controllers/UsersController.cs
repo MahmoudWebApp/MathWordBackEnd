@@ -80,6 +80,9 @@ namespace MathWorldAPI.Controllers
                 .GetRequiredService<ProblemCategoryAccessService>()
                 .GetAllowedCategoryIdsAsync(User, HttpContext.RequestAborted);
 
+            var tracks=HttpContext.RequestServices.GetRequiredService<LearningTrackService>();
+            var activeTrack=await tracks.ActiveAsync(activeStageId,user.CurrentTrackId,HttpContext.RequestAborted);
+            var scopedProblems=activeTrack is null ? _context.Problems.AsNoTracking() : tracks.ValidProblems(activeTrack.Id);
             // Consolidated stage-scoped counters: one DB query rather than
             // five remote trips. Keep original access and progress rules.
             var progressCounts = await _context.UserProgresses
@@ -89,6 +92,7 @@ namespace MathWorldAPI.Controllers
                     (allowedCategories == null ||
                      allowedCategories.Contains(progress.Problem.CategoryId)) &&
                     progress.Problem.Category.StageId == progress.Problem.StageId &&
+                        scopedProblems.Any(p=>p.Id==progress.ProblemId) &&
                     (!activeStageId.HasValue ||
                      progress.Problem.StageId == activeStageId.Value))
                 .GroupBy(_ => 1)
@@ -130,6 +134,7 @@ namespace MathWorldAPI.Controllers
                         (allowedCategories == null ||
                          allowedCategories.Contains(progress.Problem.CategoryId)) &&
                         progress.Problem.Category.StageId == progress.Problem.StageId &&
+                        scopedProblems.Any(p=>p.Id==progress.ProblemId) &&
                         (!activeStageId.HasValue ||
                          progress.Problem.StageId == activeStageId.Value) &&
                         progress.IsSolved)
@@ -154,6 +159,7 @@ namespace MathWorldAPI.Controllers
                         (allowedCategories == null ||
                          allowedCategories.Contains(progress.Problem.CategoryId)) &&
                         progress.Problem.Category.StageId == progress.Problem.StageId &&
+                        scopedProblems.Any(p=>p.Id==progress.ProblemId) &&
                         (!activeStageId.HasValue ||
                          progress.Problem.StageId == activeStageId.Value) &&
                         progress.IsFavorite)
