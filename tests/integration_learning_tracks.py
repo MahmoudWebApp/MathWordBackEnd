@@ -59,6 +59,8 @@ def verify_reviewed_batch(admin, student, all_tracks):
         revisions=[{"Id":x["Id"],"Revision":x["Revision"]} for x in preview["Items"]]
         confirm={"Confirm":True,"Revisions":revisions}
         expect("POST",root,403,confirm,student)
+        expect("POST",root,400,{"Confirm":True,"Revisions":[None]+revisions[1:]},admin)
+        expect("POST",root,400,{"Confirm":True,"Revisions":[dict(revisions[0],Revision=-1)]+revisions[1:]},admin)
         stale=[dict(x) for x in revisions]
         stale[0]["Revision"]+=1
         expect("POST",root,409,{"Confirm":True,"Revisions":stale},admin)
