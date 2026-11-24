@@ -92,11 +92,27 @@ jobs:
                   'CurriculumSkillPrerequisites',
                   'CurriculumProblemSkills')
                 AND c.relrowsecurity
-                AND NOT has_table_privilege('anon', c.oid, 'SELECT')
-                AND NOT has_table_privilege('authenticated', c.oid, 'SELECT');
+                AND NOT has_table_privilege('anon', c.oid, 'SELECT, INSERT, UPDATE, DELETE, REFERENCES, TRIGGER')
+                AND NOT has_table_privilege('authenticated', c.oid, 'SELECT, INSERT, UPDATE, DELETE, REFERENCES, TRIGGER');
 
               IF total_secure <> 5 THEN
                   RAISE EXCEPTION 'Expected five secured taxonomy tables, found %', total_secure;
+              END IF;
+
+              IF has_sequence_privilege(
+                     'anon', 'public."CurriculumDomains_Id_seq"', 'USAGE, SELECT, UPDATE')
+                 OR has_sequence_privilege(
+                     'authenticated', 'public."CurriculumDomains_Id_seq"', 'USAGE, SELECT, UPDATE')
+                 OR has_sequence_privilege(
+                     'anon', 'public."CurriculumSkills_Id_seq"', 'USAGE, SELECT, UPDATE')
+                 OR has_sequence_privilege(
+                     'authenticated', 'public."CurriculumSkills_Id_seq"', 'USAGE, SELECT, UPDATE')
+                 OR has_sequence_privilege(
+                     'anon', 'public."CurriculumSkillStandards_Id_seq"', 'USAGE, SELECT, UPDATE')
+                 OR has_sequence_privilege(
+                     'authenticated', 'public."CurriculumSkillStandards_Id_seq"', 'USAGE, SELECT, UPDATE')
+              THEN
+                  RAISE EXCEPTION 'API roles still have taxonomy identity sequence privileges';
               END IF;
 
               SELECT count(*) INTO migration_count
@@ -108,7 +124,7 @@ jobs:
               END IF;
           END $verify_taxonomy$;
           SQL
-          echo "PASS: fresh EF schema has RLS and denied API-role read access for all five taxonomy tables"
+          echo "PASS: fresh EF schema has RLS and denied API-role table and identity-sequence access"
 
       - name: Show limited logs on failure
         if: failure()
