@@ -1,0 +1,2277 @@
+{
+  "Version": 1,
+  "Status": "NotImportedNotPublished",
+  "Notes": [
+    "20 source-matched longer-solution clarity candidates. Exact live bilingual source, legacy solution, ordered option IDs/text/flags, primary skill and points checked read-only. Existing hints retained where present. Track codes provisional; no automatic import or publication. Rendering and editorial approval remain required."
+  ],
+  "Items": [
+    {
+      "ProblemId": 5,
+      "ExpectedOptionIds": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "ناتج ضرب $7 \\times 8 = 56$. يمكن حساب ذلك بجمع الرقم 7 ثماني مرات: $7+7+7+7+7+7+7+7 = 56$.",
+        "En": "The result of $7 \\times 8 = 56$. This can be calculated by adding 7 eight times: $7+7+7+7+7+7+7+7 = 56$."
+      },
+      "ProposedTrackCode": "grade-3",
+      "PrimarySkillKey": "primary-multiplication",
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 33,
+        "PrimarySkillId": 4,
+        "Points": 10,
+        "Title": {
+          "Ar": "ما ناتج ضرب $7 \\times 8$؟",
+          "En": "What is the result of $7 \\times 8$?"
+        },
+        "Question": {
+          "Ar": "ما ناتج ضرب $7 \\times 8$؟",
+          "En": "What is the result of $7 \\times 8$?"
+        },
+        "Options": [
+          {
+            "LatexCode": "56",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "54",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "أقل من مجموع ثماني سبعات بمقدار 2.",
+              "En": "Two less than the sum of eight sevens."
+            }
+          },
+          {
+            "LatexCode": "58",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "أكبر من المجموع بمقدار 2.",
+              "En": "Two more than the sum."
+            }
+          },
+          {
+            "LatexCode": "49",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا حاصل ضرب 7 في 7.",
+              "En": "This is seven times seven."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "تخيّل مجموعات متساوية.",
+            "En": "Imagine equal groups."
+          },
+          {
+            "Ar": "اجمع 7 ثماني مرات.",
+            "En": "Add 7 eight times."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "الضرب جمع متكرر لمجموعات متساوية.",
+            "En": "Multiplication is repeated addition of equal groups."
+          },
+          "FormulaLatex": "a\\times b=\\underbrace{a+\\cdots+a}_{b\\text{ terms}}",
+          "Steps": [
+            {
+              "Ar": "كوّن ثماني مجموعات من سبعة عناصر.",
+              "En": "Form eight groups of seven."
+            },
+            {
+              "Ar": "$7+7+7+7+7+7+7+7=56$",
+              "En": "$7+7+7+7+7+7+7+7=56$"
+            }
+          ],
+          "Substitution": {
+            "Ar": "$7\\times8=56$",
+            "En": "$7\\times8=56$"
+          },
+          "Result": {
+            "Ar": "$56$",
+            "En": "$56$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "$8\\times7=56$",
+            "En": "$8\\times7=56$"
+          },
+          "CommonError": {
+            "Ar": "لا تجمع العاملين بدلاً من الضرب.",
+            "En": "Do not add the factors instead of multiplying."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 154,
+      "ExpectedOptionIds": [
+        605,
+        606,
+        607,
+        608
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "نعوّض $x=5$ في التعبير $2x-3$، ثم نضرب أولاً: $2\\times5=10$، ونطرح 3، فنحصل على $10-3=7$.",
+        "En": "Substitute $x=5$ into $2x-3$. Multiply first: $2\\times5=10$, then subtract 3, giving $10-3=7$."
+      },
+      "ProposedTrackCode": "grade-5",
+      "PrimarySkillKey": "primary-substitution",
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 2,
+        "PrimarySkillId": 11,
+        "Points": 10,
+        "Title": {
+          "Ar": "التعويض في $2x-3$ عند $x=5$",
+          "En": "If x=5, evaluate \\(2x-3\\)."
+        },
+        "Question": {
+          "Ar": "إذا كان $x=5$، فما قيمة التعبير $2x-3$؟",
+          "En": "If x=5, evaluate \\(2x-3\\)."
+        },
+        "Options": [
+          {
+            "LatexCode": "8",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "طرح 3 من 10 يعطي 7 لا 8.",
+              "En": "Subtracting 3 from 10 gives 7, not 8."
+            }
+          },
+          {
+            "LatexCode": "10",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "طرح 3 من 10 يعطي 7 لا 10.",
+              "En": "Subtracting 3 from 10 gives 7, not 10."
+            }
+          },
+          {
+            "LatexCode": "5",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "طرح 3 من 10 يعطي 7 لا 5.",
+              "En": "Subtracting 3 from 10 gives 7, not 5."
+            }
+          },
+          {
+            "LatexCode": "7",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "استبدل الحرف بالقيمة المعطاة.",
+            "En": "Replace the variable with the given value."
+          },
+          {
+            "Ar": "اضرب في 2 قبل طرح الثابت.",
+            "En": "Multiply by 2 before subtracting the constant."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نعوّض المتغير وننفّذ الضرب قبل الطرح.",
+            "En": "Substitute the variable and multiply before subtracting."
+          },
+          "FormulaLatex": "2x-b=2(x)-b",
+          "Steps": [
+            {
+              "Ar": "$x=5$",
+              "En": "$x=5$"
+            },
+            {
+              "Ar": "$2\\times5=10$",
+              "En": "$2\\times5=10$"
+            }
+          ],
+          "Substitution": {
+            "Ar": "$10-3=7$",
+            "En": "$10-3=7$"
+          },
+          "Result": {
+            "Ar": "$7$",
+            "En": "$7$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "$7+3=10=2\\times5$",
+            "En": "$7+3=10=2\\times5$"
+          },
+          "CommonError": {
+            "Ar": "لا تهمل الثابت أو تعكس ترتيب العمليات.",
+            "En": "Do not omit the constant or reverse the order of operations."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 166,
+      "ExpectedOptionIds": [
+        653,
+        654,
+        655,
+        656
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "نعوّض $x=6$ في التعبير $2x-4$، ثم نضرب أولاً: $2\\times6=12$، ونطرح 4، فنحصل على $12-4=8$.",
+        "En": "Substitute $x=6$ into $2x-4$. Multiply first: $2\\times6=12$, then subtract 4, giving $12-4=8$."
+      },
+      "ProposedTrackCode": "grade-5",
+      "PrimarySkillKey": "primary-substitution",
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 2,
+        "PrimarySkillId": 11,
+        "Points": 10,
+        "Title": {
+          "Ar": "التعويض في $2x-4$ عند $x=6$",
+          "En": "If x=6, evaluate \\(2x-4\\)."
+        },
+        "Question": {
+          "Ar": "إذا كان $x=6$، فما قيمة التعبير $2x-4$؟",
+          "En": "If x=6, evaluate \\(2x-4\\)."
+        },
+        "Options": [
+          {
+            "LatexCode": "11",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "طرح 4 من 12 يعطي 8 لا 11.",
+              "En": "Subtracting 4 from 12 gives 8, not 11."
+            }
+          },
+          {
+            "LatexCode": "6",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "طرح 4 من 12 يعطي 8 لا 6.",
+              "En": "Subtracting 4 from 12 gives 8, not 6."
+            }
+          },
+          {
+            "LatexCode": "8",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "9",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "طرح 4 من 12 يعطي 8 لا 9.",
+              "En": "Subtracting 4 from 12 gives 8, not 9."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "استبدل الحرف بالقيمة المعطاة.",
+            "En": "Replace the variable with the given value."
+          },
+          {
+            "Ar": "اضرب في 2 قبل طرح الثابت.",
+            "En": "Multiply by 2 before subtracting the constant."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نعوّض المتغير وننفّذ الضرب قبل الطرح.",
+            "En": "Substitute the variable and multiply before subtracting."
+          },
+          "FormulaLatex": "2x-b=2(x)-b",
+          "Steps": [
+            {
+              "Ar": "$x=6$",
+              "En": "$x=6$"
+            },
+            {
+              "Ar": "$2\\times6=12$",
+              "En": "$2\\times6=12$"
+            }
+          ],
+          "Substitution": {
+            "Ar": "$12-4=8$",
+            "En": "$12-4=8$"
+          },
+          "Result": {
+            "Ar": "$8$",
+            "En": "$8$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "$8+4=12=2\\times6$",
+            "En": "$8+4=12=2\\times6$"
+          },
+          "CommonError": {
+            "Ar": "لا تهمل الثابت أو تعكس ترتيب العمليات.",
+            "En": "Do not omit the constant or reverse the order of operations."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 178,
+      "ExpectedOptionIds": [
+        701,
+        702,
+        703,
+        704
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "نعوّض $x=7$ في التعبير $2x-5$، ثم نضرب أولاً: $2\\times7=14$، ونطرح 5، فنحصل على $14-5=9$.",
+        "En": "Substitute $x=7$ into $2x-5$. Multiply first: $2\\times7=14$, then subtract 5, giving $14-5=9$."
+      },
+      "ProposedTrackCode": "grade-5",
+      "PrimarySkillKey": "primary-substitution",
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 2,
+        "PrimarySkillId": 11,
+        "Points": 10,
+        "Title": {
+          "Ar": "التعويض في $2x-5$ عند $x=7$",
+          "En": "If x=7, evaluate \\(2x-5\\)."
+        },
+        "Question": {
+          "Ar": "إذا كان $x=7$، فما قيمة التعبير $2x-5$؟",
+          "En": "If x=7, evaluate \\(2x-5\\)."
+        },
+        "Options": [
+          {
+            "LatexCode": "7",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "طرح 5 من 14 يعطي 9 لا 7.",
+              "En": "Subtracting 5 from 14 gives 9, not 7."
+            }
+          },
+          {
+            "LatexCode": "9",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "10",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "طرح 5 من 14 يعطي 9 لا 10.",
+              "En": "Subtracting 5 from 14 gives 9, not 10."
+            }
+          },
+          {
+            "LatexCode": "12",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "طرح 5 من 14 يعطي 9 لا 12.",
+              "En": "Subtracting 5 from 14 gives 9, not 12."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "استبدل الحرف بالقيمة المعطاة.",
+            "En": "Replace the variable with the given value."
+          },
+          {
+            "Ar": "اضرب في 2 قبل طرح الثابت.",
+            "En": "Multiply by 2 before subtracting the constant."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نعوّض المتغير وننفّذ الضرب قبل الطرح.",
+            "En": "Substitute the variable and multiply before subtracting."
+          },
+          "FormulaLatex": "2x-b=2(x)-b",
+          "Steps": [
+            {
+              "Ar": "$x=7$",
+              "En": "$x=7$"
+            },
+            {
+              "Ar": "$2\\times7=14$",
+              "En": "$2\\times7=14$"
+            }
+          ],
+          "Substitution": {
+            "Ar": "$14-5=9$",
+            "En": "$14-5=9$"
+          },
+          "Result": {
+            "Ar": "$9$",
+            "En": "$9$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "$9+5=14=2\\times7$",
+            "En": "$9+5=14=2\\times7$"
+          },
+          "CommonError": {
+            "Ar": "لا تهمل الثابت أو تعكس ترتيب العمليات.",
+            "En": "Do not omit the constant or reverse the order of operations."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 190,
+      "ExpectedOptionIds": [
+        749,
+        750,
+        751,
+        752
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "نعوّض $x=8$ في التعبير $2x-6$، ثم نضرب أولاً: $2\\times8=16$، ونطرح 6، فنحصل على $16-6=10$.",
+        "En": "Substitute $x=8$ into $2x-6$. Multiply first: $2\\times8=16$, then subtract 6, giving $16-6=10$."
+      },
+      "ProposedTrackCode": "grade-5",
+      "PrimarySkillKey": "primary-substitution",
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 2,
+        "PrimarySkillId": 11,
+        "Points": 10,
+        "Title": {
+          "Ar": "التعويض في $2x-6$ عند $x=8$",
+          "En": "If x=8, evaluate \\(2x-6\\)."
+        },
+        "Question": {
+          "Ar": "إذا كان $x=8$، فما قيمة التعبير $2x-6$؟",
+          "En": "If x=8, evaluate \\(2x-6\\)."
+        },
+        "Options": [
+          {
+            "LatexCode": "10",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "11",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "طرح 6 من 16 يعطي 10 لا 11.",
+              "En": "Subtracting 6 from 16 gives 10, not 11."
+            }
+          },
+          {
+            "LatexCode": "13",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "طرح 6 من 16 يعطي 10 لا 13.",
+              "En": "Subtracting 6 from 16 gives 10, not 13."
+            }
+          },
+          {
+            "LatexCode": "8",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "طرح 6 من 16 يعطي 10 لا 8.",
+              "En": "Subtracting 6 from 16 gives 10, not 8."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "استبدل الحرف بالقيمة المعطاة.",
+            "En": "Replace the variable with the given value."
+          },
+          {
+            "Ar": "اضرب في 2 قبل طرح الثابت.",
+            "En": "Multiply by 2 before subtracting the constant."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نعوّض المتغير وننفّذ الضرب قبل الطرح.",
+            "En": "Substitute the variable and multiply before subtracting."
+          },
+          "FormulaLatex": "2x-b=2(x)-b",
+          "Steps": [
+            {
+              "Ar": "$x=8$",
+              "En": "$x=8$"
+            },
+            {
+              "Ar": "$2\\times8=16$",
+              "En": "$2\\times8=16$"
+            }
+          ],
+          "Substitution": {
+            "Ar": "$16-6=10$",
+            "En": "$16-6=10$"
+          },
+          "Result": {
+            "Ar": "$10$",
+            "En": "$10$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "$10+6=16=2\\times8$",
+            "En": "$10+6=16=2\\times8$"
+          },
+          "CommonError": {
+            "Ar": "لا تهمل الثابت أو تعكس ترتيب العمليات.",
+            "En": "Do not omit the constant or reverse the order of operations."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 202,
+      "ExpectedOptionIds": [
+        797,
+        798,
+        799,
+        800
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "نعوّض $x=9$ في التعبير $2x-7$، ثم نضرب أولاً: $2\\times9=18$، ونطرح 7، فنحصل على $18-7=11$.",
+        "En": "Substitute $x=9$ into $2x-7$. Multiply first: $2\\times9=18$, then subtract 7, giving $18-7=11$."
+      },
+      "ProposedTrackCode": "grade-5",
+      "PrimarySkillKey": "primary-substitution",
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 2,
+        "PrimarySkillId": 11,
+        "Points": 10,
+        "Title": {
+          "Ar": "التعويض في $2x-7$ عند $x=9$",
+          "En": "If x=9, evaluate \\(2x-7\\)."
+        },
+        "Question": {
+          "Ar": "إذا كان $x=9$، فما قيمة التعبير $2x-7$؟",
+          "En": "If x=9, evaluate \\(2x-7\\)."
+        },
+        "Options": [
+          {
+            "LatexCode": "12",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "طرح 7 من 18 يعطي 11 لا 12.",
+              "En": "Subtracting 7 from 18 gives 11, not 12."
+            }
+          },
+          {
+            "LatexCode": "14",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "طرح 7 من 18 يعطي 11 لا 14.",
+              "En": "Subtracting 7 from 18 gives 11, not 14."
+            }
+          },
+          {
+            "LatexCode": "9",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "طرح 7 من 18 يعطي 11 لا 9.",
+              "En": "Subtracting 7 from 18 gives 11, not 9."
+            }
+          },
+          {
+            "LatexCode": "11",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "استبدل الحرف بالقيمة المعطاة.",
+            "En": "Replace the variable with the given value."
+          },
+          {
+            "Ar": "اضرب في 2 قبل طرح الثابت.",
+            "En": "Multiply by 2 before subtracting the constant."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نعوّض المتغير وننفّذ الضرب قبل الطرح.",
+            "En": "Substitute the variable and multiply before subtracting."
+          },
+          "FormulaLatex": "2x-b=2(x)-b",
+          "Steps": [
+            {
+              "Ar": "$x=9$",
+              "En": "$x=9$"
+            },
+            {
+              "Ar": "$2\\times9=18$",
+              "En": "$2\\times9=18$"
+            }
+          ],
+          "Substitution": {
+            "Ar": "$18-7=11$",
+            "En": "$18-7=11$"
+          },
+          "Result": {
+            "Ar": "$11$",
+            "En": "$11$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "$11+7=18=2\\times9$",
+            "En": "$11+7=18=2\\times9$"
+          },
+          "CommonError": {
+            "Ar": "لا تهمل الثابت أو تعكس ترتيب العمليات.",
+            "En": "Do not omit the constant or reverse the order of operations."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 425,
+      "ExpectedOptionIds": [
+        1689,
+        1690,
+        1691,
+        1692
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "نحوّل العدد الكسري إلى أرباع: $1\\frac12=\\frac64$، ثم $ \\frac64+\\frac34=\\frac94=2\\frac14 $.",
+        "En": "Convert the mixed number into quarters: $1\\frac12=\\frac64$. Then $ \\frac64+\\frac34=\\frac94=2\\frac14 $."
+      },
+      "ProposedTrackCode": "grade-5",
+      "PrimarySkillKey": "p-fractions-decimals-fraction-operations",
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 21,
+        "PrimarySkillId": 95,
+        "Points": 10,
+        "Title": {
+          "Ar": "جمع عدد كسري مع كسر اعتيادي",
+          "En": "Add a mixed number to a fraction"
+        },
+        "Question": {
+          "Ar": "احسب $1\\frac12+\\frac34$.",
+          "En": "Compute $1\\frac12+\\frac34$."
+        },
+        "Options": [
+          {
+            "LatexCode": "2\\frac14",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "1\\frac14",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "يساوي 5/4 لا 9/4.",
+              "En": "Equals 5/4, not 9/4."
+            }
+          },
+          {
+            "LatexCode": "2\\frac34",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "يساوي 11/4 لا 9/4.",
+              "En": "Equals 11/4, not 9/4."
+            }
+          },
+          {
+            "LatexCode": "1\\frac34",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "يساوي 7/4 لا 9/4.",
+              "En": "Equals 7/4, not 9/4."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "حوّل العدد الكسري إلى كسر غير فعلي.",
+            "En": "Convert the mixed number to an improper fraction."
+          },
+          {
+            "Ar": "استخدم المقام 4.",
+            "En": "Use denominator 4."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "جمع الكسور ذات المقام المشترك.",
+            "En": "Addition of fractions with a common denominator."
+          },
+          "FormulaLatex": "\\frac ab+\\frac cd=\\frac{ad+bc}{bd}",
+          "Steps": [
+            {
+              "Ar": "$1\\frac12=\\frac32=\\frac64$",
+              "En": "$1\\frac12=\\frac32=\\frac64$"
+            },
+            {
+              "Ar": "اجمع البسطين وأبق المقام.",
+              "En": "Add numerators and keep the denominator."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$\\frac64+\\frac34=\\frac94$",
+            "En": "$\\frac64+\\frac34=\\frac94$"
+          },
+          "Result": {
+            "Ar": "$2\\frac14$",
+            "En": "$2\\frac14$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "$\\frac94-\\frac34=\\frac64$",
+            "En": "$\\frac94-\\frac34=\\frac64$"
+          },
+          "CommonError": {
+            "Ar": "لا تجمع المقامات.",
+            "En": "Do not add denominators."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 472,
+      "ExpectedOptionIds": [
+        1877,
+        1878,
+        1879,
+        1880
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "بالمقام المشترك 40 نحصل على $\\frac25=\\frac{16}{40}$ و$\\frac38=\\frac{15}{40}$؛ لذلك الأول أكبر.",
+        "En": "Using denominator 40, $\\frac25=\\frac{16}{40}$ and $\\frac38=\\frac{15}{40}$, so the first fraction is larger."
+      },
+      "ProposedTrackCode": "grade-4",
+      "PrimarySkillKey": "p-fractions-decimals-fraction-comparisons",
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 21,
+        "PrimarySkillId": 112,
+        "Points": 10,
+        "Title": {
+          "Ar": "مقارنة كسرين بمقامين مختلفين",
+          "En": "Compare fractions with unlike denominators"
+        },
+        "Question": {
+          "Ar": "أي علاقة صحيحة بين $\\frac25$ و$\\frac38$؟",
+          "En": "Which comparison between $\\frac25$ and $\\frac38$ is correct?"
+        },
+        "Options": [
+          {
+            "LatexCode": "\\frac25<\\frac38",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "16 أكبر من 15 لا أصغر.",
+              "En": "16 is greater than 15, not smaller."
+            }
+          },
+          {
+            "LatexCode": "\\frac25>\\frac38",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "\\frac25=\\frac38",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "البسطان مختلفان بعد توحيد المقام.",
+              "En": "The common-denominator numerators differ."
+            }
+          },
+          {
+            "LatexCode": "\\frac25=0.25",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "2/5 يساوي 0.4.",
+              "En": "2/5 equals 0.4."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "ابحث عن مقام مشترك لـ5 و8.",
+            "En": "Find a common denominator of 5 and 8."
+          },
+          {
+            "Ar": "حوّل الكسرين إلى أجزاء من 40.",
+            "En": "Convert both fractions to fortieths."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "قارن البسطين عند تساوي المقامين الموجبين.",
+            "En": "Compare numerators over equal positive denominators."
+          },
+          "FormulaLatex": "\\frac ab>\\frac cd\\iff ad>bc\\quad(b,d>0)",
+          "Steps": [
+            {
+              "Ar": "$\\frac25=\\frac{16}{40}$",
+              "En": "$\\frac25=\\frac{16}{40}$"
+            },
+            {
+              "Ar": "$\\frac38=\\frac{15}{40}$",
+              "En": "$\\frac38=\\frac{15}{40}$"
+            }
+          ],
+          "Substitution": {
+            "Ar": "$16>15$",
+            "En": "$16>15$"
+          },
+          "Result": {
+            "Ar": "$\\frac25>\\frac38$",
+            "En": "$\\frac25>\\frac38$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "$\\frac25-\\frac38=\\frac1{40}>0$",
+            "En": "$\\frac25-\\frac38=\\frac1{40}>0$"
+          },
+          "CommonError": {
+            "Ar": "لا تقارن المقامين وحدهما.",
+            "En": "Do not compare denominators alone."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 474,
+      "ExpectedOptionIds": [
+        1885,
+        1886,
+        1887,
+        1888
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "المضاعف المشترك الأصغر للمقامين 12؛ $\\frac56=\\frac{10}{12}$ و$\\frac14=\\frac3{12}$، والفرق $\\frac7{12}$.",
+        "En": "The least common denominator is 12. $\\frac56=\\frac{10}{12}$ and $\\frac14=\\frac3{12}$, so the difference is $\\frac7{12}$."
+      },
+      "ProposedTrackCode": "grade-5",
+      "PrimarySkillKey": "p-fractions-decimals-fraction-operations",
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 21,
+        "PrimarySkillId": 95,
+        "Points": 10,
+        "Title": {
+          "Ar": "طرح كسور مختلفة المقامات",
+          "En": "Subtract fractions with different denominators"
+        },
+        "Question": {
+          "Ar": "احسب $\\frac56-\\frac14$.",
+          "En": "Compute $\\frac56-\\frac14$."
+        },
+        "Options": [
+          {
+            "LatexCode": "\\frac49",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "الفرق هو 7/12 لا 4/9.",
+              "En": "The difference is 7/12, not 4/9."
+            }
+          },
+          {
+            "LatexCode": "\\frac7{12}",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "\\frac12",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "يساوي 6/12 لا 7/12.",
+              "En": "Equals 6/12, not 7/12."
+            }
+          },
+          {
+            "LatexCode": "\\frac3{12}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الكسر المطروح، لا الفرق.",
+              "En": "This is the subtrahend, not the difference."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "ابحث عن المضاعف المشترك الأصغر لـ6 و4.",
+            "En": "Find the least common multiple of 6 and 4."
+          },
+          {
+            "Ar": "اكتب الكسرين بالمقام 12.",
+            "En": "Write both fractions over 12."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نطرح البسطين بعد توحيد المقامين.",
+            "En": "Subtract numerators after finding a common denominator."
+          },
+          "FormulaLatex": "\\frac ab-\\frac cd=\\frac{ad-bc}{bd}",
+          "Steps": [
+            {
+              "Ar": "$\\frac56=\\frac{10}{12}$",
+              "En": "$\\frac56=\\frac{10}{12}$"
+            },
+            {
+              "Ar": "$\\frac14=\\frac3{12}$",
+              "En": "$\\frac14=\\frac3{12}$"
+            }
+          ],
+          "Substitution": {
+            "Ar": "$\\frac{10-3}{12}$",
+            "En": "$\\frac{10-3}{12}$"
+          },
+          "Result": {
+            "Ar": "$\\frac7{12}$",
+            "En": "$\\frac7{12}$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "$\\frac7{12}+\\frac14=\\frac56$",
+            "En": "$\\frac7{12}+\\frac14=\\frac56$"
+          },
+          "CommonError": {
+            "Ar": "لا تطرح المقامين.",
+            "En": "Do not subtract denominators."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 505,
+      "ExpectedOptionIds": [
+        2009,
+        2010,
+        2011,
+        2012
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "الفروق عن الواحد هي: $1-\\frac9{10}=\\frac1{10}$ و$1-\\frac{13}{16}=\\frac3{16}$ و$1-\\frac78=\\frac18$ و$1-\\frac{11}{12}=\\frac1{12}$. أصغر فرق هو $\\frac1{12}$، لذلك الجواب $\\frac{11}{12}$.",
+        "En": "Distances from 1 are $\\frac1{10}$, $\\frac3{16}$, $\\frac18$ and $\\frac1{12}$. The smallest is $\\frac1{12}$, hence $\\frac{11}{12}$ is closest."
+      },
+      "ProposedTrackCode": "grade-5",
+      "PrimarySkillKey": "p-fractions-decimals-fraction-comparisons",
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 21,
+        "PrimarySkillId": 112,
+        "Points": 10,
+        "Title": {
+          "Ar": "استخدام المكمل إلى الواحد لمقارنة كسور",
+          "En": "Compare fractions using distance from one"
+        },
+        "Question": {
+          "Ar": "أي الكُسور التالية أقرب إلى العدد 1؟",
+          "En": "Which fraction is closest to 1?"
+        },
+        "Options": [
+          {
+            "LatexCode": "\\frac9{10}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "بعده 1/10 أكبر من 1/12.",
+              "En": "Its distance 1/10 exceeds 1/12."
+            }
+          },
+          {
+            "LatexCode": "\\frac{13}{16}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "بعده 3/16 أكبر من 1/12.",
+              "En": "Its distance 3/16 exceeds 1/12."
+            }
+          },
+          {
+            "LatexCode": "\\frac78",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "بعده 1/8 أكبر من 1/12.",
+              "En": "Its distance 1/8 exceeds 1/12."
+            }
+          },
+          {
+            "LatexCode": "\\frac{11}{12}",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "احسب ما ينقص كل كسر ليصبح واحداً.",
+            "En": "Find how much each fraction needs to reach one."
+          },
+          {
+            "Ar": "قارن الفروق الموجبة.",
+            "En": "Compare the positive differences."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "الأقرب إلى الواحد صاحب أصغر مسافة.",
+            "En": "The closest fraction has the smallest distance to one."
+          },
+          "FormulaLatex": "d=|1-f|",
+          "Steps": [
+            {
+              "Ar": "$1-\\frac9{10}=\\frac1{10}$",
+              "En": "$1-\\frac9{10}=\\frac1{10}$"
+            },
+            {
+              "Ar": "$1-\\frac{13}{16}=\\frac3{16}$",
+              "En": "$1-\\frac{13}{16}=\\frac3{16}$"
+            },
+            {
+              "Ar": "$1-\\frac78=\\frac18$",
+              "En": "$1-\\frac78=\\frac18$"
+            },
+            {
+              "Ar": "$1-\\frac{11}{12}=\\frac1{12}$",
+              "En": "$1-\\frac{11}{12}=\\frac1{12}$"
+            }
+          ],
+          "Substitution": {
+            "Ar": "$\\frac1{12}<\\frac1{10}<\\frac18<\\frac3{16}$",
+            "En": "$\\frac1{12}<\\frac1{10}<\\frac18<\\frac3{16}$"
+          },
+          "Result": {
+            "Ar": "$\\frac{11}{12}$",
+            "En": "$\\frac{11}{12}$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "$\\frac{11}{12}+\\frac1{12}=1$",
+            "En": "$\\frac{11}{12}+\\frac1{12}=1$"
+          },
+          "CommonError": {
+            "Ar": "لا تعتمد على المقام وحده.",
+            "En": "Do not rely on the denominator alone."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 507,
+      "ExpectedOptionIds": [
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "نقارن $\\frac38$ و$\\frac4{10}$: $3\\times10=30$ و$4\\times8=32$، إذن $\\frac4{10}$ أكبر، أي الصف الثاني.",
+        "En": "Compare $\\frac38$ and $\\frac4{10}$: $3\\times10=30$ and $4\\times8=32$. Class B has the larger fraction."
+      },
+      "ProposedTrackCode": "grade-5",
+      "PrimarySkillKey": "p-fractions-decimals-fraction-comparisons",
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 21,
+        "PrimarySkillId": 112,
+        "Points": 10,
+        "Title": {
+          "Ar": "مقارنة نسب المشاركين في مجموعتين مختلفتي الحجم",
+          "En": "Compare fractions of two groups with different sizes"
+        },
+        "Question": {
+          "Ar": "في الصف الأول يأتي 3 من أصل 8 طلاب بالدراجة، وفي الصف الثاني يأتي 4 من أصل 10. أي صف فيه نسبة أكبر من راكبي الدراجات؟",
+          "En": "In class A, 3 of 8 pupils cycle to school. In class B, 4 of 10 cycle. Which class has the larger fraction of cyclists?"
+        },
+        "Options": [
+          {
+            "LatexCode": "\\text{الصف أ (Class A)}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "3/8 أصغر من 4/10.",
+              "En": "3/8 is less than 4/10."
+            }
+          },
+          {
+            "LatexCode": "\\text{الصف ب (Class B)}",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "\\text{النسب متساوية (Equal shares)}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "الضربان التبادليان مختلفان.",
+              "En": "The cross products differ."
+            }
+          },
+          {
+            "LatexCode": "\\text{لا يمكن المقارنة (Cannot compare)}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "يمكن المقارنة بمقام مشترك 40.",
+              "En": "A common denominator of 40 allows comparison."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "اكتب نسبة راكبي الدراجات في كل صف.",
+            "En": "Write each class's cycling share."
+          },
+          {
+            "Ar": "قارن حاصلَي ضرب 3 في 10 و4 في 8.",
+            "En": "Compare 3 times 10 and 4 times 8."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نقارن النسب بالضرب التبادلي.",
+            "En": "Compare proportions by cross multiplication."
+          },
+          "FormulaLatex": "\\frac ab>\\frac cd\\iff ad>bc\\quad(b,d>0)",
+          "Steps": [
+            {
+              "Ar": "$3\\times10=30$",
+              "En": "$3\\times10=30$"
+            },
+            {
+              "Ar": "$4\\times8=32$",
+              "En": "$4\\times8=32$"
+            }
+          ],
+          "Substitution": {
+            "Ar": "$30<32$",
+            "En": "$30<32$"
+          },
+          "Result": {
+            "Ar": "الصف الثاني (ب).",
+            "En": "Class B."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "$\\frac4{10}-\\frac38=\\frac1{40}>0$",
+            "En": "$\\frac4{10}-\\frac38=\\frac1{40}>0$"
+          },
+          "CommonError": {
+            "Ar": "قارن النسب لا الأعداد فقط.",
+            "En": "Compare proportions, not just counts."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 13,
+      "ExpectedOptionIds": [
+        41,
+        42,
+        43,
+        44
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "عوامل 24: $1, 2, 3, 4, 6, 8, 12, 24$. عوامل 36: $1, 2, 3, 4, 6, 9, 12, 18, 36$. العوامل المشتركة: $1, 2, 3, 4, 6, 12$. القاسم المشترك الأكبر = $12$.",
+        "En": "Factors of 24: $1, 2, 3, 4, 6, 8, 12, 24$. Factors of 36: $1, 2, 3, 4, 6, 9, 12, 18, 36$. Common factors: $1, 2, 3, 4, 6, 12$. GCD = $12$."
+      },
+      "ProposedTrackCode": "grade-7",
+      "PrimarySkillKey": "middle-gcd",
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 5,
+        "PrimarySkillId": 22,
+        "Points": 10,
+        "Title": {
+          "Ar": "ما القاسم المشترك الأكبر (GCD) للعددين $24$ و $36$؟",
+          "En": "What is the greatest common divisor (GCD) of $24$ and $36$?"
+        },
+        "Question": {
+          "Ar": "ما القاسم المشترك الأكبر (GCD) للعددين $24$ و $36$؟",
+          "En": "What is the greatest common divisor (GCD) of $24$ and $36$?"
+        },
+        "Options": [
+          {
+            "LatexCode": "12",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "6",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "قاسم مشترك لكنه أصغر من 12.",
+              "En": "Common divisor but smaller than 12."
+            }
+          },
+          {
+            "LatexCode": "8",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "لا يقسم 36.",
+              "En": "Does not divide 36."
+            }
+          },
+          {
+            "LatexCode": "24",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "لا يقسم 36.",
+              "En": "Does not divide 36."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "اكتب قواسم العددين.",
+            "En": "List both numbers' divisors."
+          },
+          {
+            "Ar": "اختر أكبر قاسم مشترك.",
+            "En": "Choose the largest common divisor."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "القاسم المشترك الأكبر أكبر عدد موجب يقسم العددين دون باقٍ.",
+            "En": "The GCD is the largest positive integer dividing both numbers exactly."
+          },
+          "FormulaLatex": "\\gcd(a,b)=\\max\\{d\\in\\mathbb N:d\\mid a,\\ d\\mid b\\}",
+          "Steps": [
+            {
+              "Ar": "قواسم 24: 1، 2، 3، 4، 6، 8، 12، 24.",
+              "En": "Divisors of 24: 1, 2, 3, 4, 6, 8, 12, 24."
+            },
+            {
+              "Ar": "قواسم 36: 1، 2، 3، 4، 6، 9، 12، 18، 36.",
+              "En": "Divisors of 36: 1, 2, 3, 4, 6, 9, 12, 18, 36."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$\\max\\{1,2,3,4,6,12\\}=12$",
+            "En": "$\\max\\{1,2,3,4,6,12\\}=12$"
+          },
+          "Result": {
+            "Ar": "$12$",
+            "En": "$12$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "$24=2\\times12,\\quad36=3\\times12$",
+            "En": "$24=2\\times12,\\quad36=3\\times12$"
+          },
+          "CommonError": {
+            "Ar": "ليس كل قاسم مشترك هو الأكبر.",
+            "En": "Not every common divisor is the greatest."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 23,
+      "ExpectedOptionIds": [
+        81,
+        82,
+        83,
+        84
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "$\\sin 45^\\circ = \\frac{\\sqrt{2}}{2}$، $\\cos 45^\\circ = \\frac{\\sqrt{2}}{2}$. إذاً $\\sin^2 45^\\circ + \\cos^2 45^\\circ = (\\frac{\\sqrt{2}}{2})^2 + (\\frac{\\sqrt{2}}{2})^2 = \\frac{2}{4} + \\frac{2}{4} = \\frac{4}{4} = 1$.",
+        "En": "$\\sin 45^\\circ = \\frac{\\sqrt{2}}{2}$, $\\cos 45^\\circ = \\frac{\\sqrt{2}}{2}$. So $\\sin^2 45^\\circ + \\cos^2 45^\\circ = (\\frac{\\sqrt{2}}{2})^2 + (\\frac{\\sqrt{2}}{2})^2 = \\frac{2}{4} + \\frac{2}{4} = \\frac{4}{4} = 1$."
+      },
+      "ProposedTrackCode": "grade-11",
+      "PrimarySkillKey": "secondary-pythagorean-trig-identity",
+      "Content": {
+        "StageId": 3,
+        "CategoryId": 10,
+        "PrimarySkillId": 47,
+        "Points": 10,
+        "Title": {
+          "Ar": "تحقق من أن $\\sin^2 \\theta + \\cos^2 \\theta = 1$ عن طريق حساب قيمة التعبير عندما $\\theta = 45^\\circ$.",
+          "En": "Verify $\\sin^2\\theta+\\cos^2\\theta=1$ at $\\theta=45^\\circ$"
+        },
+        "Question": {
+          "Ar": "احسب القيمة الدقيقة لـ $\\sin^2(45^\\circ)+\\cos^2(45^\\circ)$.",
+          "En": "Evaluate $\\sin^2(45^\\circ)+\\cos^2(45^\\circ)$ exactly."
+        },
+        "Options": [
+          {
+            "LatexCode": "1",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "0",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "كلا المربعين موجب.",
+              "En": "Both squares are positive."
+            }
+          },
+          {
+            "LatexCode": "2",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "كل مربع نصف وليس واحداً.",
+              "En": "Each square is one half, not one."
+            }
+          },
+          {
+            "LatexCode": "\\frac{1}{2}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا مربع قيمة واحدة فقط.",
+              "En": "This is only one squared value."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "ابدأ بإيجاد القيمتين الدقيقتين للجيب وجيب التمام عند الزاوية المعطاة.",
+            "En": "Start with the exact sine and cosine of the given angle."
+          },
+          {
+            "Ar": "ربّع كل قيمة مثلثية على حدة ثم اجمع المربعين، لا القيمتين الأصليتين.",
+            "En": "Square each trigonometric value separately before adding."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "متطابقة فيثاغورس المثلثية صالحة لكل زاوية حقيقية.",
+            "En": "The Pythagorean trigonometric identity holds for every real angle."
+          },
+          "FormulaLatex": "\\sin^2\\theta+\\cos^2\\theta=1",
+          "Steps": [
+            {
+              "Ar": "$\\sin45^\\circ=\\cos45^\\circ=\\frac{\\sqrt2}{2}$",
+              "En": "$\\sin45^\\circ=\\cos45^\\circ=\\frac{\\sqrt2}{2}$"
+            },
+            {
+              "Ar": "$\\left(\\frac{\\sqrt2}{2}\\right)^2=\\frac12$",
+              "En": "$\\left(\\frac{\\sqrt2}{2}\\right)^2=\\frac12$"
+            }
+          ],
+          "Substitution": {
+            "Ar": "$\\frac12+\\frac12=1$",
+            "En": "$\\frac12+\\frac12=1$"
+          },
+          "Result": {
+            "Ar": "$1$",
+            "En": "$1$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "$\\sin^2\\theta+\\cos^2\\theta=1$",
+            "En": "$\\sin^2\\theta+\\cos^2\\theta=1$"
+          },
+          "CommonError": {
+            "Ar": "ربّع كل قيمة قبل الجمع.",
+            "En": "Square each value before adding."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 25,
+      "ExpectedOptionIds": [
+        89,
+        90,
+        91,
+        92
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "$\\int 2x \\, dx = x^2$ و $\\int 3 \\, dx = 3x$. إذاً $\\int (2x + 3) \\, dx = x^2 + 3x + C$.",
+        "En": "$\\int 2x \\, dx = x^2$ and $\\int 3 \\, dx = 3x$. So $\\int (2x + 3) \\, dx = x^2 + 3x + C$."
+      },
+      "ProposedTrackCode": "grade-12",
+      "PrimarySkillKey": "secondary-indefinite-integrals",
+      "Content": {
+        "StageId": 3,
+        "CategoryId": 11,
+        "PrimarySkillId": 50,
+        "Points": 10,
+        "Title": {
+          "Ar": "أوجد التكامل $\\int (2x + 3) \\, dx$.",
+          "En": "Find the integral $\\int (2x + 3) \\, dx$."
+        },
+        "Question": {
+          "Ar": "أوجد التكامل $\\int (2x + 3) \\, dx$.",
+          "En": "Find the integral $\\int (2x + 3) \\, dx$."
+        },
+        "Options": [
+          {
+            "LatexCode": "x^2 + 3x + C",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "2x^2 + 3x + C",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "مشتقته 4x+3.",
+              "En": "Its derivative is 4x+3."
+            }
+          },
+          {
+            "LatexCode": "x^2 + 3 + C",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "مشتقته 2x.",
+              "En": "Its derivative is 2x."
+            }
+          },
+          {
+            "LatexCode": "x^2 + 6x + C",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "مشتقته 2x+6.",
+              "En": "Its derivative is 2x+6."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "افصل التكامل إلى حد خطي وحد ثابت.",
+            "En": "Split the integral into a linear and constant term."
+          },
+          {
+            "Ar": "ارفع الأس واحداً واقسم على الأس الجديد.",
+            "En": "Raise the power by one and divide by the new power."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "خطية التكامل وقاعدة القوى.",
+            "En": "Integration linearity and the power rule."
+          },
+          "FormulaLatex": "\\int x^n\\,dx=\\frac{x^{n+1}}{n+1}+C\\quad(n\\ne-1)",
+          "Steps": [
+            {
+              "Ar": "$\\int2x\\,dx=x^2+C_1$",
+              "En": "$\\int2x\\,dx=x^2+C_1$"
+            },
+            {
+              "Ar": "$\\int3\\,dx=3x+C_2$",
+              "En": "$\\int3\\,dx=3x+C_2$"
+            }
+          ],
+          "Substitution": {
+            "Ar": "$x^2+3x+(C_1+C_2)$",
+            "En": "$x^2+3x+(C_1+C_2)$"
+          },
+          "Result": {
+            "Ar": "$x^2+3x+C$",
+            "En": "$x^2+3x+C$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "$\\frac{d}{dx}(x^2+3x+C)=2x+3$",
+            "En": "$\\frac{d}{dx}(x^2+3x+C)=2x+3$"
+          },
+          "CommonError": {
+            "Ar": "تكامل الثابت 3 هو 3x ولا تنس ثابت التكامل.",
+            "En": "Integrating 3 gives 3x; retain the integration constant."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 35,
+      "ExpectedOptionIds": [
+        129,
+        130,
+        131,
+        132
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "النهاية من اليمين للمشتقة $= 1$ ومن اليسار $= -1$، وهما غير متساويتين. لذلك الدالة غير قابلة للاشتقاق عند $x = 0$.",
+        "En": "The right-hand limit of the derivative $= 1$ and the left-hand limit $= -1$, which are not equal. Therefore the function is not differentiable at $x = 0$."
+      },
+      "ProposedTrackCode": "calculus",
+      "PrimarySkillKey": "university-differentiability-continuity",
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 16,
+        "PrimarySkillId": 71,
+        "Points": 10,
+        "Title": {
+          "Ar": "هل الدالة $f(x) = |x|$ قابلة للاشتقاق عند $x = 0$؟",
+          "En": "Is the function $f(x) = |x|$ differentiable at $x = 0$?"
+        },
+        "Question": {
+          "Ar": "هل الدالة $f(x) = |x|$ قابلة للاشتقاق عند $x = 0$؟",
+          "En": "Is the function $f(x) = |x|$ differentiable at $x = 0$?"
+        },
+        "Options": [
+          {
+            "LatexCode": "\\text{لا (No)}",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "\\text{نعم (Yes)}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "النهايتان مختلفتان.",
+              "En": "The one-sided limits differ."
+            }
+          },
+          {
+            "LatexCode": "\\text{فقط من اليمين (Right only)}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "المشتقتان الجانبيتان موجودتان بقيمتين مختلفتين.",
+              "En": "Both one-sided derivatives exist with different values."
+            }
+          },
+          {
+            "LatexCode": "\\text{فقط من اليسار (Left only)}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "المشتقتان الجانبيتان موجودتان بقيمتين مختلفتين.",
+              "En": "Both one-sided derivatives exist with different values."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "ابدأ بتعريف المشتقة عند الصفر.",
+            "En": "Start with the derivative definition at zero."
+          },
+          {
+            "Ar": "افحص إشارة h في |h|/h.",
+            "En": "Examine the sign of h in |h|/h."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "توجد المشتقة إذا تساوت نهايتا خارج الفرق وكانتا منتهيتين.",
+            "En": "The derivative exists when one-sided difference-quotient limits agree and are finite."
+          },
+          "FormulaLatex": "f'(0)=\\lim_{h\\to0}\\frac{f(h)-f(0)}h",
+          "Steps": [
+            {
+              "Ar": "$f(0)=0$",
+              "En": "$f(0)=0$"
+            },
+            {
+              "Ar": "$h>0\\Rightarrow |h|/h=1$",
+              "En": "$h>0\\Rightarrow |h|/h=1$"
+            },
+            {
+              "Ar": "$h<0\\Rightarrow |h|/h=-1$",
+              "En": "$h<0\\Rightarrow |h|/h=-1$"
+            }
+          ],
+          "Substitution": {
+            "Ar": "$\\lim_{h\\to0^+}\\frac{|h|}h=1,\\quad\\lim_{h\\to0^-}\\frac{|h|}h=-1$",
+            "En": "$\\lim_{h\\to0^+}\\frac{|h|}h=1,\\quad\\lim_{h\\to0^-}\\frac{|h|}h=-1$"
+          },
+          "Result": {
+            "Ar": "لا، غير قابلة للاشتقاق عند الصفر.",
+            "En": "No, not differentiable at zero."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "النهايتان مختلفتان فلا توجد نهاية ثنائية.",
+            "En": "The limits differ, so no two-sided limit exists."
+          },
+          "CommonError": {
+            "Ar": "الاتصال لا يكفي للاشتقاق.",
+            "En": "Continuity is insufficient for differentiability."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 641,
+      "ExpectedOptionIds": [
+        2553,
+        2554,
+        2555,
+        2556
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "المتوسط 3، ومجموع مربعات الفروق (−2)² + 0² + 2² = 8. نقسم على حجم المجتمع 3 فنحصل على 8/3.",
+        "En": "The mean is 3. Squared deviations add to 4 + 0 + 4 = 8; divide by population size 3 to get 8/3."
+      },
+      "ProposedTrackCode": "grade-11",
+      "PrimarySkillKey": "secondary-population-variance",
+      "Content": {
+        "StageId": 3,
+        "CategoryId": 35,
+        "PrimarySkillId": 54,
+        "Points": 10,
+        "Title": {
+          "Ar": "حساب تباين مجتمع مكوّن من ثلاث قيم",
+          "En": "Calculate population variance for three values"
+        },
+        "Question": {
+          "Ar": "ما تباين المجتمع للقيم 1، 3، 5؟",
+          "En": "What is the population variance of the values 1, 3, 5?"
+        },
+        "Options": [
+          {
+            "LatexCode": "\\frac83",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "4",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذه نتيجة القسمة على 2 لا 3.",
+              "En": "This divides by 2 rather than 3."
+            }
+          },
+          {
+            "LatexCode": "8",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "مجموع المربعات قبل القسمة.",
+              "En": "Sum of squares before division."
+            }
+          },
+          {
+            "LatexCode": "\\frac{8}{6}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "حجم المجتمع 3 لا 6.",
+              "En": "Population size is 3, not 6."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "احسب المتوسط أولاً.",
+            "En": "Find the mean first."
+          },
+          {
+            "Ar": "ربّع الفروق ثم اقسم مجموعها على 3.",
+            "En": "Square deviations and divide their sum by 3."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "تباين المجتمع متوسط مربعات الفروق عن المتوسط.",
+            "En": "Population variance is the mean squared deviation."
+          },
+          "FormulaLatex": "\\sigma^2=\\frac1N\\sum_{i=1}^N(x_i-\\mu)^2",
+          "Steps": [
+            {
+              "Ar": "$\\mu=(1+3+5)/3=3$",
+              "En": "$\\mu=(1+3+5)/3=3$"
+            },
+            {
+              "Ar": "$(-2)^2+0^2+2^2=8$",
+              "En": "$(-2)^2+0^2+2^2=8$"
+            }
+          ],
+          "Substitution": {
+            "Ar": "$\\sigma^2=8/3$",
+            "En": "$\\sigma^2=8/3$"
+          },
+          "Result": {
+            "Ar": "$\\frac83$",
+            "En": "$\\frac83$"
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "$3\\sigma^2=8$",
+            "En": "$3\\sigma^2=8$"
+          },
+          "CommonError": {
+            "Ar": "لا تستخدم مقام العينة.",
+            "En": "Do not use the sample denominator."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 771,
+      "ExpectedOptionIds": [
+        3073,
+        3074,
+        3075,
+        3076
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "ليكن العرض x والطول x+2. عندئذ x(x+2)=48 أي (x+8)(x−6)=0، فنرفض الجذر السالب −8 ونأخذ x=6.",
+        "En": "Let width be x, length x+2. Then x(x+2)=48, so (x+8)(x−6)=0. Reject negative width −8; x=6."
+      },
+      "ProposedTrackCode": "grade-11",
+      "PrimarySkillKey": "secondary-quadratic-roots",
+      "Content": {
+        "StageId": 3,
+        "CategoryId": 9,
+        "PrimarySkillId": 41,
+        "Points": 10,
+        "Title": {
+          "Ar": "اختيار الجذر الموجب في مسألة مساحة مستطيل",
+          "En": "Select the physically meaningful root in an area model"
+        },
+        "Question": {
+          "Ar": "مساحة مستطيل 48 سم² وطوله يزيد عن عرضه بمقدار 2 سم. كم عرضه بالسنتيمتر؟",
+          "En": "A rectangle has area 48 cm² and its length is 2 cm more than its width. Find its width in centimeters."
+        },
+        "Options": [
+          {
+            "LatexCode": "4",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "4×6=24 لا 48.",
+              "En": "4×6=24, not 48."
+            }
+          },
+          {
+            "LatexCode": "6",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "8",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "8×10=80 لا 48.",
+              "En": "8×10=80, not 48."
+            }
+          },
+          {
+            "LatexCode": "10",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "10×12=120 لا 48.",
+              "En": "10×12=120, not 48."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "سمِّ العرض x وعبّر عن الطول.",
+            "En": "Call width x and express the length."
+          },
+          {
+            "Ar": "اضرب العرض بالطول وساوِ الناتج بالمساحة.",
+            "En": "Multiply width and length and equate to area."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "مساحة المستطيل حاصل ضرب الطول في العرض.",
+            "En": "Rectangle area is length times width."
+          },
+          "FormulaLatex": "A=lw",
+          "Steps": [
+            {
+              "Ar": "$x(x+2)=48$",
+              "En": "$x(x+2)=48$"
+            },
+            {
+              "Ar": "$x^2+2x-48=(x+8)(x-6)=0$",
+              "En": "$x^2+2x-48=(x+8)(x-6)=0$"
+            },
+            {
+              "Ar": "ارفض الجذر السالب.",
+              "En": "Reject the negative root."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$x=6\\quad\\text{or}\\quad x=-8$",
+            "En": "$x=6\\quad\\text{or}\\quad x=-8$"
+          },
+          "Result": {
+            "Ar": "$6\\,\\mathrm{cm}$",
+            "En": "$6\\,\\mathrm{cm}$"
+          },
+          "Unit": {
+            "Ar": "سم",
+            "En": "cm"
+          },
+          "Verification": {
+            "Ar": "$6\\times8=48$",
+            "En": "$6\\times8=48$"
+          },
+          "CommonError": {
+            "Ar": "لا تقبل الجذر السالب أو تبدل العرض بالطول.",
+            "En": "Do not accept a negative root or swap width and length."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 782,
+      "ExpectedOptionIds": [
+        3117,
+        3118,
+        3119,
+        3120
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "المتسلسلة التوافقية متباعدة، رغم أن حدودها تؤول إلى الصفر. ويمكن إثبات ذلك بتجميع الحدود في مجموعات تتجاوز كل منها 1/2.",
+        "En": "The harmonic series diverges even though its terms tend to zero. Grouping terms in dyadic blocks gives sums at least 1/2 repeatedly."
+      },
+      "ProposedTrackCode": "calculus",
+      "PrimarySkillKey": "university-series-convergence",
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 36,
+        "PrimarySkillId": 75,
+        "Points": 10,
+        "Title": {
+          "Ar": "استخدام السلوك التجميعي لتحديد تباعد المتسلسلة التوافقية",
+          "En": "Recognize the divergence of the harmonic series"
+        },
+        "Question": {
+          "Ar": "ما مصير المتسلسلة ∑ من n=1 إلى ∞ لـ 1/n؟",
+          "En": "Does the series ∑ from n=1 to ∞ of 1/n converge or diverge?"
+        },
+        "Options": [
+          {
+            "LatexCode": "\\text{تتقارب مطلقاً (Absolutely convergent)}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "مجموع القيم المطلقة غير محدود.",
+              "En": "Absolute-value partial sums are unbounded."
+            }
+          },
+          {
+            "LatexCode": "\\text{تتباعد (Diverges)}",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "\\text{تتقارب إلى 1 (Converges to 1)}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "المجاميع تتجاوز 1 بلا حد.",
+              "En": "Partial sums grow beyond 1 without bound."
+            }
+          },
+          {
+            "LatexCode": "\\text{تتقارب إلى 0 (Converges to 0)}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "الحدود تؤول للصفر لا المجاميع.",
+              "En": "Terms tend to zero, not partial sums."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "اقتراب الحدود من الصفر شرط ضروري لا كافٍ.",
+            "En": "Terms tending to zero is necessary, not sufficient."
+          },
+          {
+            "Ar": "قسّم الحدود إلى كتل بأحجام تتضاعف.",
+            "En": "Partition terms into blocks of doubling size."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "برهان التجميع للمتسلسلة التوافقية.",
+            "En": "Grouping proof for the harmonic series."
+          },
+          "FormulaLatex": "\\sum_{n=2^{k-1}+1}^{2^k}\\frac1n\\ge\\frac12\\quad(k\\ge1)",
+          "Steps": [
+            {
+              "Ar": "الكتلة k فيها $2^{k-1}$ حداً، كل حد لا يقل عن $1/2^k$.",
+              "En": "Block k has $2^{k-1}$ terms, each at least $1/2^k$."
+            },
+            {
+              "Ar": "$2^{k-1}\\cdot2^{-k}=1/2$",
+              "En": "$2^{k-1}\\cdot2^{-k}=1/2$"
+            }
+          ],
+          "Substitution": {
+            "Ar": "$S_{2^m}\\ge1+m/2\\to\\infty$",
+            "En": "$S_{2^m}\\ge1+m/2\\to\\infty$"
+          },
+          "Result": {
+            "Ar": "متباعدة.",
+            "En": "Diverges."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "المجاميع الجزئية متزايدة وغير محدودة.",
+            "En": "Partial sums increase without bound."
+          },
+          "CommonError": {
+            "Ar": "لا تخلط بين نهاية الحد ونهاية المجاميع الجزئية.",
+            "En": "Do not confuse term limits with partial-sum limits."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 791,
+      "ExpectedOptionIds": [
+        3153,
+        3154,
+        3155,
+        3156
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "من a²=2b² نستنتج أن a زوجي، وبالتالي b زوجي أيضاً؛ وهذا يناقض كون الكسر في أبسط صورة.",
+        "En": "From a²=2b², a must be even; substituting shows b is even too. This contradicts that a/b was in lowest terms."
+      },
+      "ProposedTrackCode": "discrete-mathematics",
+      "PrimarySkillKey": "u-discrete-math-proofs",
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 24,
+        "PrimarySkillId": 108,
+        "Points": 10,
+        "Title": {
+          "Ar": "فهم التناقض في برهان لا نسبية الجذر التربيعي لاثنين",
+          "En": "Recognize the contradiction in the irrationality proof of sqrt 2"
+        },
+        "Question": {
+          "Ar": "في برهان أن √2 عدد غير نسبي نفترض √2=a/b حيث a وb عددان صحيحان متباينان أولياً. ما التناقض الذي يصل إليه البرهان؟",
+          "En": "In the proof that sqrt(2) is irrational, suppose sqrt(2)=a/b with a,b integers in lowest terms. What contradiction follows?"
+        },
+        "Options": [
+          {
+            "LatexCode": "\\text{a وb زوجيان (Both even)}",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "\\text{a وb فرديان (Both odd)}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "المساواة تفرض زوجية مربع a.",
+              "En": "The equality forces a squared to be even."
+            }
+          },
+          {
+            "LatexCode": "\\text{a=0 وb=1}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذه النسبة صفر لا جذر 2.",
+              "En": "This ratio is zero, not square root of 2."
+            }
+          },
+          {
+            "LatexCode": "\\text{a وb متساويان (Equal)}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "تساويهما يعطي نسبة 1.",
+              "En": "Equality gives a ratio of 1."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "ربّع المساواة المفترضة.",
+            "En": "Square the assumed equality."
+          },
+          {
+            "Ar": "إذا كان مربع الصحيح زوجياً فالعدد زوجي.",
+            "En": "An integer with an even square is even."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "برهان بالخلف باستخدام زوجية مربع عدد صحيح.",
+            "En": "Proof by contradiction using parity of integer squares."
+          },
+          "FormulaLatex": "a^2=2b^2\\Rightarrow a=2k\\Rightarrow b^2=2k^2",
+          "Steps": [
+            {
+              "Ar": "$a^2=2b^2$",
+              "En": "$a^2=2b^2$"
+            },
+            {
+              "Ar": "اكتب $a=2k$ لعدد صحيح k.",
+              "En": "Write $a=2k$ for integer k."
+            },
+            {
+              "Ar": "$4k^2=2b^2\\Rightarrow b^2=2k^2$",
+              "En": "$4k^2=2b^2\\Rightarrow b^2=2k^2$"
+            },
+            {
+              "Ar": "إذن b زوجي أيضاً.",
+              "En": "Hence b is even too."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$2\\mid a,\\quad2\\mid b$",
+            "En": "$2\\mid a,\\quad2\\mid b$"
+          },
+          "Result": {
+            "Ar": "a وb زوجيان، خلاف فرض أبسط صورة.",
+            "En": "Both a and b are even, contradicting lowest terms."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "العامل المشترك 2 يناقض القاسم المشترك الأكبر 1.",
+            "En": "Common factor 2 contradicts GCD 1."
+          },
+          "CommonError": {
+            "Ar": "برّر الزوجية باستعمال خاصية مربع الصحيح.",
+            "En": "Justify evenness using integer-square parity."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 800,
+      "ExpectedOptionIds": [
+        3189,
+        3190,
+        3191,
+        3192
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "الدالة متصلة عند الصفر لأن x^(2/3) يقترب من الصفر. لكن خارج الصفر مشتقتها (2/3)x^(−1/3) غير محدودة قرب الصفر، فلا توجد مشتقة منتهية عنده.",
+        "En": "The function is continuous because x^(2/3)→0. Its derivative away from zero is (2/3)x^(−1/3), unbounded near zero, so it is not differentiable there."
+      },
+      "ProposedTrackCode": "calculus",
+      "PrimarySkillKey": "university-differentiability-continuity",
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 16,
+        "PrimarySkillId": 71,
+        "Points": 10,
+        "Title": {
+          "Ar": "التمييز بين الاتصال وقابلية الاشتقاق لدالة جذرية",
+          "En": "Distinguish continuity from differentiability for a fractional power"
+        },
+        "Question": {
+          "Ar": "ما الوصف الصحيح للدالة f(x)=x^(2/3) عند x=0، حيث الجذر التكعيبي الحقيقي؟",
+          "En": "How is the real-valued function f(x)=x^(2/3) classified at x=0 (using real cube roots)?"
+        },
+        "Options": [
+          {
+            "LatexCode": "\\text{متصلة وغير قابلة للاشتقاق (Continuous, not differentiable)}",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "\\text{قابلة للاشتقاق وغير متصلة (Differentiable, discontinuous)}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "الدالة متصلة ولا مشتقة لها عند الصفر.",
+              "En": "The function is continuous and not differentiable at zero."
+            }
+          },
+          {
+            "LatexCode": "\\text{متصلة وقابلة للاشتقاق (Continuous and differentiable)}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "خارج الفرق غير محدود.",
+              "En": "The difference quotient is unbounded."
+            }
+          },
+          {
+            "LatexCode": "\\text{غير متصلة وغير قابلة للاشتقاق (Neither)}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "نهاية الدالة عند الصفر تساوي قيمتها.",
+              "En": "The function limit at zero equals its value."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "افحص نهاية الدالة عند الصفر أولاً، ثم افحص وجود المشتقة بشكل مستقل.",
+            "En": "First examine the function's limit at zero, then check differentiability separately."
+          },
+          {
+            "Ar": "استعمل خارج القسمة عند الصفر واختبر سلوكه عندما يقترب h من الصفر من الجهتين.",
+            "En": "Use the difference quotient at zero and examine its behavior as h approaches zero from both sides."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نفحص الاتصال ثم خارج الفرق مباشرة.",
+            "En": "Check continuity, then the difference quotient directly."
+          },
+          "FormulaLatex": "f'(0)=\\lim_{h\\to0}\\frac{|h|^{2/3}}h",
+          "Steps": [
+            {
+              "Ar": "$f(x)=|x|^{2/3}\\to0=f(0)$",
+              "En": "$f(x)=|x|^{2/3}\\to0=f(0)$"
+            },
+            {
+              "Ar": "$h>0\\Rightarrow |h|^{2/3}/h=h^{-1/3}$",
+              "En": "$h>0\\Rightarrow |h|^{2/3}/h=h^{-1/3}$"
+            },
+            {
+              "Ar": "$h<0\\Rightarrow |h|^{2/3}/h=-|h|^{-1/3}$",
+              "En": "$h<0\\Rightarrow |h|^{2/3}/h=-|h|^{-1/3}$"
+            }
+          ],
+          "Substitution": {
+            "Ar": "$\\lim_{h\\to0^+}\\frac{|h|^{2/3}}h=+\\infty,\\quad\\lim_{h\\to0^-}\\frac{|h|^{2/3}}h=-\\infty$",
+            "En": "$\\lim_{h\\to0^+}\\frac{|h|^{2/3}}h=+\\infty,\\quad\\lim_{h\\to0^-}\\frac{|h|^{2/3}}h=-\\infty$"
+          },
+          "Result": {
+            "Ar": "متصلة وغير قابلة للاشتقاق عند الصفر.",
+            "En": "Continuous but not differentiable at zero."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "نهاية الدالة تساوي قيمتها لكن خارج الفرق ليس له نهاية منتهية.",
+            "En": "The function limit equals its value, but the difference quotient has no finite limit."
+          },
+          "CommonError": {
+            "Ar": "الاتصال لا يستلزم الاشتقاق.",
+            "En": "Continuity does not imply differentiability."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    }
+  ]
+}
