@@ -1,9 +1,6 @@
 name: Schema drift readiness guard
 
 on:
-  push:
-    branches:
-      - fix/readiness-detect-pending-db-migrations
   pull_request:
     paths:
       - 'Program.cs'
