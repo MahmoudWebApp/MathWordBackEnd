@@ -117,6 +117,7 @@ builder.Services.AddScoped<PremiumPaymentSettlementService>();
 // Privacy-minimal learner presence: expire stale sessions hourly.
 builder.Services.AddHostedService<LearnerPresenceCleanupService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<AccountPasswordService>();
 builder.Services.AddScoped<ISocialAuthService, SocialAuthService>();
 builder.Services.AddScoped<IMeiliSearchService, MeiliSearchService>();
 builder.Services.AddScoped<AdminBootstrapper>();
@@ -253,6 +254,23 @@ builder.Services.AddRateLimiter(options =>
 
         return RateLimitPartition.GetFixedWindowLimiter(
             partitionKey,
+            _ => new FixedWindowRateLimiterOptions
+            {
+                PermitLimit = 5,
+                Window = TimeSpan.FromMinutes(1),
+                QueueLimit = 0,
+                AutoReplenishment = true
+            });
+    });
+
+    // Limit current-password verification independently of login/registration.
+    options.AddPolicy("account-password", httpContext =>
+    {
+        var identity = httpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+        var key = identity is null
+            ? "ip:" + (httpContext.Connection.RemoteIpAddress?.ToString() ?? "unknown")
+            : "user:" + identity;
+        return RateLimitPartition.GetFixedWindowLimiter(key,
             _ => new FixedWindowRateLimiterOptions
             {
                 PermitLimit = 5,

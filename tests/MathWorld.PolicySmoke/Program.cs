@@ -45,6 +45,13 @@ Assert(!SessionVersionPolicy.TryReadVersion(new[] { "1", "1" }, out _),
 Assert(SessionVersionPolicy.FormatVersion(42) == "42", "Version claim must be canonical.");
 Console.WriteLine("PASS: versioned session claim compatibility and validation.");
 
+Assert(AccountPasswordService.IsValidNewPassword("A-long-password-123"), "Long password accepted.");
+Assert(!AccountPasswordService.IsValidNewPassword("too-short"), "Short password rejected.");
+Assert(!AccountPasswordService.IsValidNewPassword(new string('ش', 37)), "BCrypt byte boundary must be enforced.");
+Assert(!AccountPasswordService.IsValidNewPassword("valid-length\0bad"), "Control characters rejected.");
+Assert(AccountPasswordService.IsValidNewPassword(new string('ش', 36)), "Exact 72-byte boundary accepted.");
+Console.WriteLine("PASS: password length and BCrypt byte-boundary policy.");
+
 // A different numeric substitution must trigger review as the same
 // template family, while stage and topic boundaries remain distinct.
 var familyOne = CurriculumContentQuality.FamilyKey(

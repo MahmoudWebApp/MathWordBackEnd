@@ -271,7 +271,16 @@ namespace MathWorldAPI.Services
             user.LastLoginAt =
                 DateTime.UtcNow;
 
-            await _context.SaveChangesAsync();
+            // Do not overwrite a password hash or issue a current session
+            // when a concurrent credential change has revoked this version.
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                return (null, "InvalidCredentials");
+            }
 
             _logger.LogInformation(
                 "User {UserId} logged in successfully.",

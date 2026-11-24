@@ -363,6 +363,7 @@ namespace MathWorldAPI.Data
 
             modelBuilder.Entity<AppUser>()
                 .Property(user => user.TokenVersion)
+                .IsConcurrencyToken()
                 .HasDefaultValue(0);
 
             modelBuilder.Entity<AppUser>()

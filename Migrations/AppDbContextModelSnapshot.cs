@@ -401,6 +401,7 @@ namespace MathWorldAPI.Migrations
                         .HasColumnType("character varying(32)");
 
                     b.Property<int>("TokenVersion")
+                        .IsConcurrencyToken()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasDefaultValue(0);

@@ -96,6 +96,12 @@ namespace MathWorldAPI.Helpers
                 )
             },
 
+            { "PasswordChanged", ("تم تغيير كلمة المرور. سجّل الدخول مجدداً.", "Password changed. Please sign in again.") },
+            { "InvalidCurrentPassword", ("كلمة المرور الحالية غير صحيحة", "Current password is incorrect") },
+            { "InvalidNewPassword", ("اختر كلمة مرور جديدة من 12 حرفاً على الأقل وبحد أقصى 72 بايت", "Choose a new password with at least 12 characters and no more than 72 UTF-8 bytes") },
+            { "PasswordMustDiffer", ("يجب أن تختلف كلمة المرور الجديدة عن الحالية", "The new password must differ from the current password") },
+            { "SessionChanged", ("تغيّرت جلسة الحساب. سجّل الدخول مجدداً.", "The account session has changed. Sign in again.") },
+
             // ==================== Problem Messages ====================
 
             {
