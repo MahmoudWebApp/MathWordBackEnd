@@ -340,12 +340,8 @@ Console.WriteLine("PASS: notification stream isolation, per-account connection c
 
 // Long-lived notification streams must not be reported as slow API processing.
 var telemetryLog = new RecordingTelemetryLogger();
-var telemetryOptions = new Microsoft.Extensions.Configuration.ConfigurationBuilder()
-    .AddInMemoryCollection(new Dictionary<string, string?>
-    {
-        ["Monitoring:SlowRequestThresholdMs"] = "1"
-    })
-    .Build();
+var telemetryOptions = new Microsoft.Extensions.Configuration.ConfigurationManager();
+telemetryOptions["Monitoring:SlowRequestThresholdMs"] = "1";
 
 var sseTelemetry = new RequestTelemetryMiddleware(
     async http =>
