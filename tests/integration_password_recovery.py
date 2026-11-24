@@ -94,6 +94,27 @@ def main():
             assert ("معاينة" if language=="ar" else "[PREVIEW]") in message["Subject"]
     expect("GET",preview+"?template=unapproved",400,token=admin_token)
     expect("POST",outbox_route+"/test",503,{"Language":"ar","Template":"certificate-issued"},admin_token)
+    # Readiness reports actual sample quota and cooldown even with the worker
+    # disabled. Seed disposable rows only; never call the real provider.
+    import uuid
+    sample_ids = [str(uuid.uuid4()) for _ in range(5)]
+    def add_sample(sample_id):
+        sql(f"""INSERT INTO "EmailOutbox" ("Id","UserId","Recipient","TemplateKey","Locale","State","Attempts","CreatedAtUtc","ExpiresAtUtc","NextRetryAtUtc")
+            SELECT '{sample_id}',"Id","Email",'test:certificate-issued','en','Pending',0,NOW(),NOW()+INTERVAL '15 minutes',NOW()
+            FROM "Users" WHERE "Email"='ci-admin@mathworld.test'""")
+    try:
+        add_sample(sample_ids[0])
+        blocked = expect("GET",outbox_route,200,token=admin_token)["Readiness"]
+        assert "AdminTestCooldown" in blocked["Missing"] and "DailyTestLimitReached" not in blocked["Missing"], blocked
+        assert blocked["CanQueueAdminTest"] is False
+        for sample_id in sample_ids[1:]:
+            add_sample(sample_id)
+        blocked = expect("GET",outbox_route,200,token=admin_token)["Readiness"]
+        assert {"AdminTestCooldown","DailyTestLimitReached"} <= set(blocked["Missing"]), blocked
+        assert blocked["CanQueueAdminTest"] is False
+    finally:
+        quoted_ids = ",".join("'" + value + "'" for value in sample_ids)
+        sql(f'DELETE FROM "EmailOutbox" WHERE "Id" IN ({quoted_ids})')
     # Expiration is checked atomically even if a reset link was valid earlier.
     sql("""UPDATE "PasswordResetGrants" SET "CreatedAtUtc"=NOW()-INTERVAL '5 minutes' WHERE "Email"='recovery-ci@mathworld.test'""")
     expect("POST",route,202,{"Email":EMAIL})
