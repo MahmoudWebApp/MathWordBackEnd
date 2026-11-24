@@ -17,7 +17,8 @@
       "ProposedSolutionAr": "قاعدة توازن المعادلة: إذا كان $x+a=b$ فإن $x=b-a$.\n\nلإيجاد قيمة $x$، نطرح 7 من طرفي المعادلة: $x = 15 - 7 = 8$.",
       "ProposedSolutionEn": "Equation balance rule: if $x+a=b$, then $x=b-a$.\n\nTo find the value of $x$, we subtract 7 from both sides: $x = 15 - 7 = 8$.",
       "ObservedAttemptCount": 1,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "إذا كان $x + 7 = 15$، فما قيمة $x$؟"
     },
     {
       "ProblemId": 11,
@@ -29,7 +30,8 @@
       "ProposedSolutionAr": "تعريف الوسيط: بعد ترتيب $n$ من القيم، إذا كان عددها فردياً فالوسيط في الموقع $(n+1)/2$. هنا الموقع الثالث.\n\nنرتب الأعداد تصاعدياً: $3, 4, 5, 7, 9$. الوسيط هو العدد الذي يتوسطها وهو $5$.",
       "ProposedSolutionEn": "Median rule: sort the $n$ observations. For odd $n$, use position $(n+1)/2$, here the third.\n\nArrange the numbers in ascending order: $3, 4, 5, 7, 9$. The median is the middle number, which is $5$.",
       "ObservedAttemptCount": 2,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "أوجد الوسيط (Median) للأعداد التالية: $3, 7, 9, 5, 4$"
     },
     {
       "ProblemId": 420,
@@ -41,7 +43,8 @@
       "ProposedSolutionAr": "قانون جمع الكسور المتجانسة: $a/d+b/d=(a+b)/d$. نوحّد المقامات أولاً.\n\nنحوّل الربع إلى أثمان: $\\frac14=\\frac28$، ثم $\\frac28+\\frac38=\\frac58$.",
       "ProposedSolutionEn": "Common-denominator rule: $a/d+b/d=(a+b)/d$. First use equal denominators.\n\nConvert quarters to eighths: $\\frac14=\\frac28$, then add to get $\\frac58$.",
       "ObservedAttemptCount": 0,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "احسب $\\frac14+\\frac38$."
     },
     {
       "ProblemId": 421,
@@ -53,7 +56,8 @@
       "ProposedSolutionAr": "خاصية الكسور المتكافئة: $a/b=ka/kb$ عندما $b,k\\ne0$. للحصول على المقام 12 نختار $k=12/4=3$.\n\nنضرب البسط والمقام في 3: $\\frac{3\\times3}{4\\times3}=\\frac{9}{12}$.",
       "ProposedSolutionEn": "Equivalent fractions: $a/b=ka/kb$ for nonzero $b,k$. Choose $k=12/4=3$ to obtain denominator 12.\n\nMultiply numerator and denominator by 3: $\\frac{3\\times3}{4\\times3}=\\frac{9}{12}$.",
       "ObservedAttemptCount": 0,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "ما الكسر المكافئ لـ $\\frac{3}{4}$ عندما يكون المقام 12؟"
     },
     {
       "ProblemId": 428,
@@ -65,7 +69,8 @@
       "ProposedSolutionAr": "قاعدة التمثيل العشري: الكسر ذو المقام 100 يعبّر عن أجزاء من مئة؛ يمكن توسيع الكسر دون تغيير قيمته.\n\nنضرب البسط والمقام في 5: $\\frac7{20}=\\frac{35}{100}=0.35$.",
       "ProposedSolutionEn": "Decimal place-value rule: a denominator of 100 represents hundredths. Scale both parts of the fraction equally.\n\nMultiply top and bottom by 5: $\\frac7{20}=\\frac{35}{100}=0.35$.",
       "ObservedAttemptCount": 0,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "اكتب $\\frac7{20}$ على صورة عدد عشري."
     },
     {
       "ProblemId": 473,
@@ -77,7 +82,8 @@
       "ProposedSolutionAr": "قاعدة التكافؤ: $a/b=1/2$ إذا وفقط إذا $2a=b$ عندما $b\\ne0$.\n\n$\\frac24=\\frac36=\\frac5{10}=\\frac12$، لكن $\\frac4{10}=0.4$ فلا يساوي النصف.",
       "ProposedSolutionEn": "Equivalence rule: $a/b=1/2$ exactly when $2a=b$, for nonzero $b$.\n\n$\\frac24=\\frac36=\\frac5{10}=\\frac12$, but $\\frac4{10}=0.4$, so it is not one half.",
       "ObservedAttemptCount": 0,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "أي كسر من الكسور الآتية **لا** يساوي $\\frac12$؟"
     },
     {
       "ProblemId": 503,
@@ -89,7 +95,8 @@
       "ProposedSolutionAr": "قاعدة مقارنة الكسور ذات المقامات الموجبة: $a/b>c/d$ إذا وفقط إذا $ad>bc$.\n\nبالضرب التبادلي: $5\\times9=45$ و$7\\times6=42$، لذا $\\frac56>\\frac79$.",
       "ProposedSolutionEn": "Fraction comparison rule for positive denominators: $a/b>c/d$ exactly when $ad>bc$.\n\nCross-multiply: $5\\times9=45$ and $7\\times6=42$. Since $45>42$, we have $\\frac56>\\frac79$.",
       "ObservedAttemptCount": 0,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "أي مقارنة صحيحة بين $\\frac56$ و$\\frac79$؟"
     },
     {
       "ProblemId": 821,
@@ -101,7 +108,8 @@
       "ProposedSolutionAr": "قانون القيمة المنزلية: $N=u+t/10+h/100$ حيث $u$ الآحاد و$t$ الأعشار و$h$ أجزاء المئة.\n\n8 + 0.3 + 0.06 = 8.36؛ رقم الأعشار 3 ورقم الأجزاء من مئة 6.",
       "ProposedSolutionEn": "Place-value formula: $N=u+t/10+h/100$, where $u$ is ones, $t$ tenths and $h$ hundredths.\n\n8 + 0.3 + 0.06 = 8.36; 3 is in the tenths place and 6 in the hundredths place.",
       "ObservedAttemptCount": 0,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "أي عدد عشري يساوي 8 وحدات و3 أعشار و6 أجزاء من مئة؟"
     },
     {
       "ProblemId": 12,
@@ -113,7 +121,8 @@
       "ProposedSolutionAr": "قانون ضرب القوى ذات الأساس نفسه: $a^m a^n=a^{m+n}$.\n\nعند ضرب الأساسات المتشابهة، نجمع الأسس: $2^3 \\times 2^4 = 2^{3+4} = 2^7 = 128$.",
       "ProposedSolutionEn": "Product-of-powers law: $a^m a^n=a^{m+n}$.\n\nWhen multiplying like bases, we add the exponents: $2^3 \\times 2^4 = 2^{3+4} = 2^7 = 128$.",
       "ObservedAttemptCount": 0,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "بسّط التعبير: $2^3 \\times 2^4$"
     },
     {
       "ProblemId": 14,
@@ -125,7 +134,8 @@
       "ProposedSolutionAr": "قاعدة حل المعادلة الخطية: $ax+b=c$ يعطي $x=(c-b)/a$ إذا كان $a\\ne0$.\n\nنضيف 5 إلى طرفي المعادلة: $3x = 21$. ثم نقسم الطرفين على 3: $x = 7$.",
       "ProposedSolutionEn": "Linear equation rule: $ax+b=c$ gives $x=(c-b)/a$ for $a\\ne0$.\n\nAdd 5 to both sides: $3x = 21$. Then divide both sides by 3: $x = 7$.",
       "ObservedAttemptCount": 1,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "حل المعادلة: $3x - 5 = 16$"
     },
     {
       "ProblemId": 15,
@@ -137,7 +147,8 @@
       "ProposedSolutionAr": "قاعدة التعويض: في الدالة $f(x)=ax+b$ يكون $f(t)=at+b$.\n\nنعوض $x = 4$ في الدالة: $f(4) = 2(4) + 3 = 8 + 3 = 11$.",
       "ProposedSolutionEn": "Substitution rule: for $f(x)=ax+b$, evaluate $f(t)=at+b$.\n\nSubstitute $x = 4$ into the function: $f(4) = 2(4) + 3 = 8 + 3 = 11$.",
       "ObservedAttemptCount": 2,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "إذا كانت $f(x) = 2x + 3$، فأوجد قيمة $f(4)$."
     },
     {
       "ProblemId": 43,
@@ -149,7 +160,8 @@
       "ProposedSolutionAr": "قانون تقسيم كمية بنسبة $a:b$: الجزء الأول يساوي $Ta/(a+b)$ حيث $T$ المجموع.\n\nعدد الأجزاء 2 + 3 = 5؛ قيمة الجزء 45 ÷ 5 = 9، وعدد التفاح 2 × 9 = 18.",
       "ProposedSolutionEn": "Ratio allocation formula: for total $T$ and ratio $a:b$, the first share is $Ta/(a+b)$.\n\nThere are 5 equal parts; each is 45 / 5 = 9. Apples = 2 × 9 = 18.",
       "ObservedAttemptCount": 0,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "نسبة التفاح إلى البرتقال 2 إلى 3، ومجموع الثمار 45. كم تفاحة؟"
     },
     {
       "ProblemId": 478,
@@ -161,7 +173,8 @@
       "ProposedSolutionAr": "تعريف الوسيط لعدد زوجي من القيم المرتبة: متوسط القيمتين في الموقعين $n/2$ و$n/2+1$.\n\nنرتبها: 2، 4، 5، 7، 9، 12. الوسيط متوسط القيمتين الثالثة والرابعة: $(5+7)/2=6$.",
       "ProposedSolutionEn": "Median rule for even-sized sorted data: average the values at positions $n/2$ and $n/2+1$.\n\nSort: 2, 4, 5, 7, 9, 12. The middle two values are 5 and 7, so the median is $(5+7)/2=6$.",
       "ObservedAttemptCount": 0,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "احسب وسيط القيم: 2، 9، 4، 12، 7، 5."
     },
     {
       "ProblemId": 855,
@@ -173,7 +186,8 @@
       "ProposedSolutionAr": "خاصية التشابه: نسبة المحيطين تساوي نسبة الأضلاع المتناظرة، $k=P_2/P_1=l_2/l_1$.\n\nمعامل التشابه = 30÷18 = 5/3؛ الضلع الأكبر = 6×5/3 = 10 سم.",
       "ProposedSolutionEn": "Similarity rule: the perimeter ratio equals the ratio of corresponding sides, $k=P_2/P_1=l_2/l_1$.\n\nThe scale factor is 30/18 = 5/3, so the corresponding side is 6×5/3 = 10 cm.",
       "ObservedAttemptCount": 0,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "محيطا مثلثين متشابهين 18 سم و30 سم. إذا كان ضلع في المثلث الأصغر 6 سم، فكم طول نظيره في الأكبر؟"
     },
     {
       "ProblemId": 856,
@@ -185,7 +199,8 @@
       "ProposedSolutionAr": "قانون التشابه للمساحات: إذا تضاعفت الأطوال بمعامل $k$ فإن $A_2=k^2 A_1$.\n\nالمساحة تتغير بمربع معامل الطول؛ 3²=9، فتصير تسعة أضعاف.",
       "ProposedSolutionEn": "Area scaling law: multiplying all lengths by $k$ gives $A_2=k^2 A_1$.\n\nArea scales by the square of the length factor: 3² = 9.",
       "ObservedAttemptCount": 0,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "ضُربت جميع أطوال مثلث في 3 لتكوين مثلث مشابه. كم مرة تصبح مساحته؟"
     },
     {
       "ProblemId": 858,
@@ -197,7 +212,8 @@
       "ProposedSolutionAr": "عكس نظرية فيثاغورس: إذا كان أكبر ضلع $c$ وحقق $a^2+b^2=c^2$ فإن المثلث قائم.\n\nلأن 8²+15² = 64+225 =289 =17²، فالمثلث قائم الزاوية وفق عكس فيثاغورس.",
       "ProposedSolutionEn": "Converse of Pythagoras: if the longest side $c$ satisfies $a^2+b^2=c^2$, the triangle is right-angled.\n\nSince 8²+15² = 289 = 17², the triangle is right-angled by the converse of Pythagoras.",
       "ObservedAttemptCount": 0,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "مثلث أطوال أضلاعه 8 سم و15 سم و17 سم. ما نوعه وفق الزوايا؟"
     },
     {
       "ProblemId": 20,
@@ -209,7 +225,8 @@
       "ProposedSolutionAr": "قاعدة التحليل وخاصية حاصل الضرب الصفري: إذا كان $(x-r)(x-s)=0$ فإن $x=r$ أو $x=s$. العددان 2 و3 مجموعهما 5 وحاصل ضربهما 6.\n\nبالتحليل: $(x - 2)(x - 3) = 0$. إذاً $x = 2$ أو $x = 3$.",
       "ProposedSolutionEn": "Factoring and zero-product rule: if $(x-r)(x-s)=0$, then $x=r$ or $x=s$. The numbers 2 and 3 sum to 5 and multiply to 6.\n\nBy factoring: $(x - 2)(x - 3) = 0$. So $x = 2$ or $x = 3$.",
       "ObservedAttemptCount": 4,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "حل المعادلة التربيعية: $x^2 - 5x + 6 = 0$"
     },
     {
       "ProblemId": 27,
@@ -221,7 +238,8 @@
       "ProposedSolutionAr": "قانون المتوسط الحسابي: $\\bar x=(x_1+\\cdots+x_n)/n$. نجمع القيم الخمس ونقسم على عددها.\n\nالوسط الحسابي $= \\frac{5+8+12+15+20}{5} = \\frac{60}{5} = 12$.",
       "ProposedSolutionEn": "Arithmetic mean formula: $\\bar x=(x_1+\\cdots+x_n)/n$. Sum all five values and divide by five.\n\nArithmetic mean $= \\frac{5+8+12+15+20}{5} = \\frac{60}{5} = 12$.",
       "ObservedAttemptCount": 1,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "أوجد الوسط الحسابي للأعداد: $5, 8, 12, 15, 20$."
     },
     {
       "ProblemId": 484,
@@ -233,7 +251,8 @@
       "ProposedSolutionAr": "قانون الحد العام للمتتالية الهندسية: $a_n=a_1r^{n-1}$، مع $a_1=2$ و$r=-3$.\n\nالحد الرابع هو $a_4=2(-3)^3=-54$؛ لأن الأس فردي تبقى الإشارة سالبة.",
       "ProposedSolutionEn": "Geometric sequence formula: $a_n=a_1r^{n-1}$, with $a_1=2$ and $r=-3$.\n\nThe fourth term is $a_4=2(-3)^3=-54$; an odd power preserves the negative sign.",
       "ObservedAttemptCount": 0,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "في متتالية هندسية حدها الأول 2 ونسبتها المشتركة $-3$، احسب الحد الرابع."
     },
     {
       "ProblemId": 634,
@@ -245,7 +264,8 @@
       "ProposedSolutionAr": "متطابقة فيثاغورس المثلثية: $\\sin^2\\theta+\\cos^2\\theta=1$. نأخذ الجذر الموجب في الزاوية الحادة.\n\nsin²(θ) = 1 − 25/169 = 144/169، وبما أن الزاوية حادة فـ sin(θ) = 12/13.",
       "ProposedSolutionEn": "Pythagorean trigonometric identity: $\\sin^2\\theta+\\cos^2\\theta=1$. Take the positive root for an acute angle.\n\nsin² θ = 1 − 25/169 = 144/169. Because θ is acute, sin θ = 12/13.",
       "ObservedAttemptCount": 0,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "إذا كانت θ حادة وcos(θ) = 5/13، فكم sin(θ)؟"
     },
     {
       "ProblemId": 635,
@@ -257,7 +277,8 @@
       "ProposedSolutionAr": "تعريف النسب المثلثية: $\\tan\\theta=o/a$ و$\\sin\\theta=o/h$، والوتر $h=\\sqrt{o^2+a^2}$.\n\nنعد الضلع المقابل 3 والمجاور 4، فيكون الوتر 5 بفيثاغورس. إذن sin(θ) = 3/5.",
       "ProposedSolutionEn": "Trigonometric ratios: $\\tan\\theta=o/a$ and $\\sin\\theta=o/h$, with hypotenuse $h=\\sqrt{o^2+a^2}$.\n\nUse opposite side 3 and adjacent side 4. The hypotenuse is 5, so sin θ = 3/5.",
       "ObservedAttemptCount": 0,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "زاوية حادة θ تحقق tan(θ) = 3/4. ما قيمة sin(θ)؟"
     },
     {
       "ProblemId": 636,
@@ -269,7 +290,8 @@
       "ProposedSolutionAr": "متطابقة فيثاغورس: $\\cos^2\\theta=1-\\sin^2\\theta$؛ تحدد إشارة الجذر من الربع.\n\ncos²(θ) = 1 − 16/25 = 9/25. جيب التمام سالب في الربع الثاني، إذن −3/5.",
       "ProposedSolutionEn": "Pythagorean identity: $\\cos^2\\theta=1-\\sin^2\\theta$; the quadrant determines the root sign.\n\ncos² θ = 9/25. Cosine is negative in quadrant II, so cos θ = −3/5.",
       "ObservedAttemptCount": 0,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "إذا كانت θ في الربع الثاني وsin(θ) = 4/5، فما cos(θ)؟"
     },
     {
       "ProblemId": 638,
@@ -281,7 +303,8 @@
       "ProposedSolutionAr": "تعريف اللوغاريتم: $\\log_b a=x$ إذا وفقط إذا $b^x=a$، حيث $a>0$ و$b>0$ و$b\\ne1$.\n\nنبحث عن العدد x الذي يحقق 4^x = 2؛ وبما أن الجذر التربيعي لـ4 يساوي 2، فإن x = 1/2.",
       "ProposedSolutionEn": "Logarithm definition: $\\log_b a=x$ exactly when $b^x=a$, for $a>0$, $b>0$, $b\\ne1$.\n\nWe seek x with 4^x = 2. Since the square root of 4 is 2, x = 1/2.",
       "ObservedAttemptCount": 0,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "ما قيمة log₄(2)؟"
     },
     {
       "ProblemId": 642,
@@ -293,7 +316,8 @@
       "ProposedSolutionAr": "قانون تباين المجتمع: $\\sigma^2=\\frac{1}{N}\\sum_{i=1}^{N}(x_i-\\mu)^2$، والمقام هنا 4 لا 3.\n\nالمتوسط 5 ومجموع مربعات الفروق 9 + 1 + 1 + 9 = 20. التباين = 20 ÷ 4 = 5.",
       "ProposedSolutionEn": "Population variance formula: $\\sigma^2=\\frac{1}{N}\\sum_{i=1}^{N}(x_i-\\mu)^2$; divide by 4, not 3.\n\nThe mean is 5. The squared deviations total 9 + 1 + 1 + 9 = 20; population variance is 20 ÷ 4 = 5.",
       "ObservedAttemptCount": 0,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "احسب تباين المجتمع للقيم 2، 4، 6، 8."
     },
     {
       "ProblemId": 643,
@@ -305,7 +329,8 @@
       "ProposedSolutionAr": "قانون تباين المجتمع: $\\sigma^2=\\frac{1}{N}\\sum(x_i-\\mu)^2$. انعدام الفروق يعني تبايناً صفرياً.\n\nكل قيمة تساوي المتوسط 7، لذلك كل فرق يساوي صفراً والتباين يساوي 0.",
       "ProposedSolutionEn": "Population variance formula: $\\sigma^2=\\frac{1}{N}\\sum(x_i-\\mu)^2$. Zero deviations give zero variance.\n\nAll values equal their mean 7, so every squared deviation is zero, giving variance 0.",
       "ObservedAttemptCount": 0,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "ما تباين المجتمع للقيم 7، 7، 7، 7؟"
     },
     {
       "ProblemId": 706,
@@ -317,7 +342,8 @@
       "ProposedSolutionAr": "قانون ضرب الاحتمالات للأحداث المستقلة: $P(A\\cap B)=P(A)P(B)$. نفترض استقلال رمي حجرَي النرد.\n\nلكل نرد 3 أعداد زوجية من أصل 6. باستقلالهما: (3/6) × (3/6) = 1/4.",
       "ProposedSolutionEn": "Multiplication rule for independent events: $P(A\\cap B)=P(A)P(B)$. Assume independent dice rolls.\n\nEach die has three even faces out of six. By independence, (3/6) × (3/6) = 1/4.",
       "ObservedAttemptCount": 0,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "ما احتمال ظهور عدد زوجي على كل من نردين عادلين؟"
     },
     {
       "ProblemId": 707,
@@ -329,7 +355,8 @@
       "ProposedSolutionAr": "قاعدة المتمم: $P(A)=1-P(A^c)$، ونستخدم حاصل ضرب الاحتمالات عند استقلال حجرَي النرد.\n\nاحتمال عدم ظهور 6 في أي نرد = (5/6)² = 25/36؛ إذن المطلوب 1 − 25/36 = 11/36.",
       "ProposedSolutionEn": "Complement rule: $P(A)=1-P(A^c)$, using the product rule for independent dice.\n\nNeither die shows six with probability (5/6)^2 = 25/36. The complement has probability 11/36.",
       "ObservedAttemptCount": 0,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "إذا رُمِي نردان عادلان، فما احتمال ظهور العدد 6 على أحدهما على الأقل؟"
     },
     {
       "ProblemId": 711,
@@ -341,7 +368,8 @@
       "ProposedSolutionAr": "خاصية ثلاثة حدود هندسية متتالية: إذا كانت $a,x,b$ وحدودها غير صفرية فإن $x^2=ab$.\n\nالحد الأوسط يحقق x² = 4 × 36 = 144، ومع شرط الإيجابية يكون x = 12.",
       "ProposedSolutionEn": "Three consecutive nonzero geometric terms $a,x,b$ satisfy $x^2=ab$.\n\nThe middle term satisfies x² = 4 × 36 = 144. The positive solution is x = 12.",
       "ObservedAttemptCount": 0,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "ما العدد الموجب الذي يجعل 4، x، 36 حدوداً متتالية في متتالية هندسية؟"
     },
     {
       "ProblemId": 712,
@@ -353,7 +381,8 @@
       "ProposedSolutionAr": "قانون المتتالية الهندسية: $a_n=48(1/2)^{n-1}$. الحدود تتناقص لأن المعامل بين صفر وواحد.\n\nالحد الثالث 12 ليس أصغر من 10، والحد الرابع 6 أصغر من 10، لذا الرقم 4.",
       "ProposedSolutionEn": "Geometric sequence formula: $a_n=48(1/2)^{n-1}$. Terms decrease because the ratio is between zero and one.\n\nThe third term 12 is not below 10; the fourth term 6 is, so the first qualifying index is 4.",
       "ObservedAttemptCount": 0,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "متتالية هندسية تبدأ 48، 24، 12، 6، ... . ما رقم أول حد أصغر من 10؟"
     },
     {
       "ProblemId": 772,
@@ -365,7 +394,8 @@
       "ProposedSolutionAr": "قانون المميز: $\\Delta=b^2-4ac$. للمعادلة التربيعية ذات المعاملات الحقيقية لا جذور حقيقية إذا $\\Delta<0$.\n\nالمميز Δ = 4² − 4×1×8 = −16، وهو سالب، فلا توجد جذور حقيقية.",
       "ProposedSolutionEn": "Discriminant rule: $\\Delta=b^2-4ac$. A real-coefficient quadratic has no real roots when $\\Delta<0$.\n\nThe discriminant is 4² − 4×1×8 = −16 < 0, so there are no real roots.",
       "ObservedAttemptCount": 0,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "كم جذر حقيقي للمعادلة x² + 4x + 8 = 0؟"
     },
     {
       "ProblemId": 829,
@@ -377,7 +407,8 @@
       "ProposedSolutionAr": "خاصية التجميع في الجمع المنتهي: نقسم الحدود إلى أزواج $(2k-1)-2k=-1$ لكل $k=1,\\ldots,10$.\n\nنقرن كل حدين: (1 − 2) + (3 − 4) + ... + (19 − 20)، ولدينا 10 أزواج، مجموع كل زوج −1، فيكون المجموع −10.",
       "ProposedSolutionEn": "Finite sum grouping: pair consecutive terms as $(2k-1)-2k=-1$ for $k=1,\\ldots,10$.\n\nPair consecutive terms: each of the ten pairs equals −1, so the sum is −10.",
       "ObservedAttemptCount": 0,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "احسب مجموع الأعداد المتناوبة: 1 − 2 + 3 − 4 + ⋯ + 19 − 20."
     },
     {
       "ProblemId": 860,
@@ -389,7 +420,8 @@
       "ProposedSolutionAr": "قانون المماس عند $x=a$: $y-f(a)=f'(a)(x-a)$. نشتق باستخدام قاعدة القوة.\n\nf(2)=6، والميل f'(2)=3×2²−1=11. إذن y−6=11(x−2)، أي y=11x−16.",
       "ProposedSolutionEn": "Tangent-line formula at $x=a$: $y-f(a)=f'(a)(x-a)$. Differentiate using the power rule.\n\nf(2)=6 and f'(2)=3(2²)−1=11. Thus y−6=11(x−2), giving y=11x−16.",
       "ObservedAttemptCount": 0,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "أوجد معادلة مماس الدالة f(x)=x³−x عند x=2."
     },
     {
       "ProblemId": 147,
@@ -401,7 +433,8 @@
       "ProposedSolutionAr": "مبرهنة التقارب الرتيب: المتتالية المتزايدة المحدودة من الأعلى تتقارب إلى أصغر حد علوي، والمتناقصة المحدودة من الأسفل إلى أكبر حد سفلي.\n\nحسب مبرهنة تقارب المتتاليات الرتيبة، كل متتالية رتيبة محدودة تتقارب.",
       "ProposedSolutionEn": "Monotone convergence theorem: an increasing sequence bounded above converges to its supremum; a decreasing sequence bounded below converges to its infimum.\n\nBy the monotone convergence theorem, every bounded monotone real sequence converges.",
       "ObservedAttemptCount": 0,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "متتالية حقيقية رتيبة ومحدودة. أي عبارة صحيحة دائماً؟"
     },
     {
       "ProblemId": 148,
@@ -413,7 +446,8 @@
       "ProposedSolutionAr": "معيار متسلسلة القوى العكسية: $\\sum_{n=1}^{\\infty}1/n^p$ تتقارب إذا وفقط إذا $p>1$. هنا $p=2$.\n\nالمتسلسلة من نوع p تتقارب عندما p>1؛ لذلك مجموع 1/n² متقارب.",
       "ProposedSolutionEn": "The p-series test: $\\sum_{n=1}^{\\infty}1/n^p$ converges exactly when $p>1$. Here $p=2$.\n\nA p-series converges for p>1, so the sum of 1/n² converges.",
       "ObservedAttemptCount": 0,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "أي متسلسلة مما يلي متقاربة؟"
     },
     {
       "ProblemId": 645,
@@ -425,7 +459,8 @@
       "ProposedSolutionAr": "قانون الضرب النقطي: $u\\cdot v=\\sum_i u_i v_i$، والمتجهان غير الصفريين متعامدان إذا كانت النتيجة صفراً.\n\nالضرب النقطي 2 × 3 + (−3) × 2 = 6 − 6 = 0، لذا المتجهان متعامدان.",
       "ProposedSolutionEn": "Dot-product formula: $u\\cdot v=\\sum_i u_i v_i$. Nonzero vectors are orthogonal when their dot product is zero.\n\nThe dot product is 2 × 3 + (−3) × 2 = 6 − 6 = 0, so the vectors are orthogonal.",
       "ObservedAttemptCount": 0,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "ما الضرب النقطي للمتجهين (2, −3) و(3، 2)؟"
     },
     {
       "ProblemId": 646,
@@ -437,7 +472,8 @@
       "ProposedSolutionAr": "قانون الضرب النقطي في ثلاثة أبعاد: $u\\cdot v=u_1v_1+u_2v_2+u_3v_3$.\n\nنضرب المركبات المتناظرة ونجمع: 1 × 4 + 2 × 0 + (−1) × 5 = −1.",
       "ProposedSolutionEn": "Three-dimensional dot product: $u\\cdot v=u_1v_1+u_2v_2+u_3v_3$.\n\nMultiply matching components and add: 1 × 4 + 2 × 0 + (−1) × 5 = −1.",
       "ObservedAttemptCount": 0,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "احسب الضرب النقطي (1، 2، −1) · (4، 0، 5)."
     },
     {
       "ProblemId": 648,
@@ -449,7 +485,8 @@
       "ProposedSolutionAr": "قانون جيب تمام الزاوية بين متجهين غير صفريين: $\\cos\\theta=(u\\cdot v)/(\\|u\\|\\|v\\|)$.\n\nالضرب النقطي 1، والطولان 1 و2، لذا cos(θ) = 1 ÷ (1 × 2) = 1/2.",
       "ProposedSolutionEn": "Angle formula for nonzero vectors: $\\cos\\theta=(u\\cdot v)/(\\|u\\|\\|v\\|)$.\n\nThe dot product is 1, and the magnitudes are 1 and 2. Thus cos θ = 1/(1 × 2) = 1/2.",
       "ObservedAttemptCount": 0,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "ما قيمة cos(θ) بين المتجهين (1، 0) و(1، √3)؟"
     },
     {
       "ProblemId": 649,
@@ -461,7 +498,8 @@
       "ProposedSolutionAr": "قانون محدد مصفوفة من الرتبة الثانية: $\\det\\begin{pmatrix}a&b\\\\c&d\\end{pmatrix}=ad-bc$.\n\nالمصفوفة [[1,3],[2,7]]، ومحددها 1 × 7 − 3 × 2 = 1؛ إذن العمودان مستقلان خطياً.",
       "ProposedSolutionEn": "Two-by-two determinant formula: $\\det\\begin{pmatrix}a&b\\\\c&d\\end{pmatrix}=ad-bc$.\n\nThe matrix is [[1,3],[2,7]]. Its determinant is 1 × 7 − 3 × 2 = 1, so its columns are independent.",
       "ObservedAttemptCount": 0,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "ما محدد المصفوفة التي عموداها (1، 2) و(3، 7)؟"
     },
     {
       "ProblemId": 651,
@@ -473,7 +511,8 @@
       "ProposedSolutionAr": "تعريف الرتبة: عدد الأعمدة المستقلة خطياً في أساس فضاء الأعمدة. العمود الأول غير صفري والثاني مضاعف له.\n\nالعمود الثاني يساوي 2.5 مرة الأول؛ لذلك هما معتمدان خطياً، والرتبة 1.",
       "ProposedSolutionEn": "Rank definition: the dimension of the column space. The first column is nonzero and the second is a scalar multiple.\n\nThe second column is 2.5 times the first. The columns are dependent, so the rank is 1.",
       "ObservedAttemptCount": 0,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "ما رتبة المصفوفة التي عموداها (2، 4) و(5، 10)؟"
     },
     {
       "ProblemId": 653,
@@ -485,7 +524,8 @@
       "ProposedSolutionAr": "قانون نهايات الفرق: $\\lim(1-1/n)=1-\\lim(1/n)$، ومع $n\\to\\infty$ يكون $1/n\\to0$.\n\nكلما كبر n صغر 1/n نحو الصفر، وتزداد aₙ نحو 1 من الأسفل. لذا نهايتها 1.",
       "ProposedSolutionEn": "Difference limit rule: $\\lim(1-1/n)=1-\\lim(1/n)$; as $n\\to\\infty$, $1/n\\to0$.\n\nAs n increases, 1/n decreases to zero. Thus aₙ increases toward 1 from below.",
       "ObservedAttemptCount": 0,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "متتالية aₙ = 1 − 1/n للأعداد الطبيعية n ≥ 1. ما نهايتها؟"
     },
     {
       "ProblemId": 655,
@@ -497,7 +537,8 @@
       "ProposedSolutionAr": "قانون مجموع المتتالية الهندسية المنتهي: $S_n=a(1-r^n)/(1-r)$، هنا $a=r=1/2$.\n\nالمجموع الجزئي لمتسلسلة هندسية = 1 − (1/2)ⁿ. وهو متزايد وأصغر من 1 ونهايته 1.",
       "ProposedSolutionEn": "Finite geometric sum: $S_n=a(1-r^n)/(1-r)$, with $a=r=1/2$.\n\nThe partial geometric sum is 1 − (1/2)ⁿ. It increases, stays below 1 and tends to 1.",
       "ObservedAttemptCount": 0,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "لتكن aₙ = 1/2 + 1/4 + ⋯ + 1/2ⁿ. ما نهاية aₙ عند n → ∞؟"
     },
     {
       "ProblemId": 714,
@@ -509,7 +550,8 @@
       "ProposedSolutionAr": "خاصية التكامل المساحي: $\\iint_R 1\\,dA=\\operatorname{Area}(R)$، ومساحة المثلث $bh/2$.\n\nالمنطقة مثلث قائم ساقاه 1 و1، وتكامل 1 يساوي المساحة: (1 × 1)/2 = 1/2.",
       "ProposedSolutionEn": "Area integral identity: $\\iint_R 1\\,dA=\\operatorname{Area}(R)$; triangle area is $bh/2$.\n\nThe region is a right triangle with legs 1 and 1. Integrating 1 gives its area, 1/2.",
       "ObservedAttemptCount": 0,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "احسب التكامل المزدوج للدالة 1 على المنطقة x ≥ 0 وy ≥ 0 وx+y ≤ 1."
     },
     {
       "ProblemId": 715,
@@ -521,7 +563,8 @@
       "ProposedSolutionAr": "قانون التكامل المتكرر على مستطيل: $\\int_0^1\\int_0^2 x^2\\,dy\\,dx$، مع قاعدة القوة $\\int x^2dx=x^3/3+C$.\n\nالتكامل بالنسبة إلى y يعطي 2x²، ثم تكامل 2x² من 0 إلى 1 هو 2/3.",
       "ProposedSolutionEn": "Iterated integral on the rectangle: $\\int_0^1\\int_0^2 x^2\\,dy\\,dx$, using $\\int x^2dx=x^3/3+C$.\n\nIntegrating with respect to y yields 2x². Integrating from x=0 to 1 gives 2/3.",
       "ObservedAttemptCount": 0,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "احسب التكامل المزدوج لـ x² على المنطقة 0 ≤ x ≤ 1 و0 ≤ y ≤ 2."
     },
     {
       "ProblemId": 717,
@@ -533,7 +576,8 @@
       "ProposedSolutionAr": "النهاية المثلثية الأساسية بالراديان: $\\lim_{u\\to0}\\sin(u)/u=1$. نعوّض $u=3x$.\n\nنعيد الكتابة 3 × [sin(3x)/(3x)]، ونستخدم النهاية الأساسية sin(u)/u → 1؛ إذن النهاية 3.",
       "ProposedSolutionEn": "Fundamental trigonometric limit in radians: $\\lim_{u\\to0}\\sin(u)/u=1$. Substitute $u=3x$.\n\nRewrite as 3[sin(3x)/(3x)] and apply lim sin u/u = 1 as u→0, giving 3.",
       "ObservedAttemptCount": 0,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "احسب النهاية عندما x يقترب من 0 للتعبير sin(3x)/x، مع قياس الزوايا بالراديان."
     },
     {
       "ProblemId": 720,
@@ -545,7 +589,8 @@
       "ProposedSolutionAr": "النهاية الأسية الأساسية: $\\lim_{u\\to0}(e^u-1)/u=1$. نعوض $u=2x$.\n\nنكتب 2 × [(e^(2x)−1)/(2x)]، والنهاية الأساسية (e^u−1)/u تساوي 1؛ لذلك النتيجة 2.",
       "ProposedSolutionEn": "Fundamental exponential limit: $\\lim_{u\\to0}(e^u-1)/u=1$. Substitute $u=2x$.\n\nWrite 2[(e^(2x)−1)/(2x)] and use lim (e^u−1)/u = 1. The result is 2.",
       "ObservedAttemptCount": 0,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "احسب نهاية (e^(2x)−1)/x عندما x → 0."
     },
     {
       "ProblemId": 777,
@@ -557,7 +602,8 @@
       "ProposedSolutionAr": "تعريف رتبة المعادلة التفاضلية: أكبر رتبة مشتقة للدالة المجهولة تظهر في المعادلة، لا درجة الحد.\n\nأعلى مشتقة موجودة هي المشتقة الثالثة y'''؛ لذلك رتبة المعادلة 3.",
       "ProposedSolutionEn": "ODE order definition: the highest derivative order of the unknown function appearing in the equation, not the polynomial degree.\n\nThe highest derivative present is y''', the third derivative, so the equation is order 3.",
       "ObservedAttemptCount": 0,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "ما رتبة المعادلة التفاضلية y''' + 4y' + y = 0؟"
     },
     {
       "ProblemId": 778,
@@ -569,7 +615,8 @@
       "ProposedSolutionAr": "تعريف رتبة المعادلة التفاضلية: رتبة أعلى مشتقة موجودة، بصرف النظر عن الأس الذي ترفع إليه.\n\nأعلى مشتقة هي y'' من الرتبة الثانية. رفعها للقوة 4 لا يجعل رتبة المعادلة 4.",
       "ProposedSolutionEn": "ODE order definition: the highest derivative order present, regardless of the power to which it is raised.\n\nThe highest derivative is y'', which is second order. Raising it to power four does not change the order.",
       "ObservedAttemptCount": 0,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "في المعادلة (y'')⁴ + y = 0، ما **الرتبة** وليس درجة أعلى مشتقة؟"
     },
     {
       "ProblemId": 781,
@@ -581,7 +628,8 @@
       "ProposedSolutionAr": "قانون المتسلسلة الهندسية اللانهائية: $\\sum_{n=0}^{\\infty}r^n=1/(1-r)$ إذا $|r|<1$.\n\nمتسلسلة هندسية أساسها r=3/5 وقيمته المطلقة أقل من 1؛ المجموع 1/(1−3/5)=5/2.",
       "ProposedSolutionEn": "Infinite geometric series: $\\sum_{n=0}^{\\infty}r^n=1/(1-r)$ for $|r|<1$.\n\nThe common ratio is 3/5, with magnitude below 1, so its sum is 1/(1−3/5)=5/2.",
       "ObservedAttemptCount": 0,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "احسب مجموع المتسلسلة اللانهائية ∑ من n=0 إلى ∞ لـ (3/5)ⁿ."
     },
     {
       "ProblemId": 784,
@@ -593,7 +641,8 @@
       "ProposedSolutionAr": "قاعدة المتسلسلة التلسكوبية: نحلل كل حد إلى فرق حدين متتاليين ثم نختزل الحدود الداخلية في المجموع الجزئي.\n\nنكتب 1/[n(n+1)] = 1/n − 1/(n+1). المجموع الجزئي إلى N يساوي 1 − 1/(N+1)، ونهايته 1.",
       "ProposedSolutionEn": "Telescoping series method: express each term as a difference of consecutive terms, cancel interior terms in the finite partial sum, then take the limit.\n\nUse 1/[n(n+1)] = 1/n − 1/(n+1). The Nth partial sum is 1−1/(N+1), tending to 1.",
       "ObservedAttemptCount": 0,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "ما مجموع المتسلسلة ∑ من n=1 إلى ∞ لـ 1/[n(n+1)]؟"
     },
     {
       "ProblemId": 785,
@@ -605,7 +654,8 @@
       "ProposedSolutionAr": "قانون التباديل مع التكرار: $n!/(m_1!m_2!\\cdots)$ حيث $m_i$ عدد مرات تكرار كل رمز.\n\nعدد الحروف 5، ويوجد حرف L مرتين وE مرتين. عدد الترتيبات = 5!/(2!×2!)=30.",
       "ProposedSolutionEn": "Permutations with repetitions: $n!/(m_1!m_2!\\cdots)$, with each $m_i$ a symbol's multiplicity.\n\nThere are 5 letters with L repeated twice and E repeated twice: 5!/(2!×2!)=30.",
       "ObservedAttemptCount": 0,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "كم ترتيباً مختلفاً لحروف كلمة LEVEL الإنكليزية؟"
     },
     {
       "ProblemId": 786,
@@ -617,7 +667,8 @@
       "ProposedSolutionAr": "قانون التوافيق: $\\binom nk=n!/(k!(n-k)!)$، ومبدأ الضرب للاختيارات المستقلة.\n\nنختار امرأتين من خمس بـ C(5,2)=10 طرق، ورجلاً من أربعة بـ C(4,1)=4 طرق. نضرب العددين فنحصل على 40 لجنة.",
       "ProposedSolutionEn": "Combination formula: $\\binom nk=n!/(k!(n-k)!)$, and multiplication principle for separate selections.\n\nChoose two women in C(5,2)=10 ways and one man in C(4,1)=4 ways. Product: 40.",
       "ObservedAttemptCount": 0,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "لدينا 5 طالبات و4 طلاب. كم طريقة لاختيار لجنة من ثلاثة أشخاص فيها طالبتان وطالب واحد بالضبط؟"
     },
     {
       "ProblemId": 787,
@@ -629,7 +680,8 @@
       "ProposedSolutionAr": "مبدأ العد الأساسي: نضرب عدد الخيارات في كل مرحلة؛ عدم التكرار ينقص الخيارات المتاحة في كل خانة.\n\nللخانة الأولى 5 اختيارات، ثم 4، ثم 3؛ فيكون العدد 5×4×3=60.",
       "ProposedSolutionEn": "Fundamental counting principle: multiply the number of choices at each step; distinct digits reduce available choices at each step.\n\nThere are 5 choices for the first digit, 4 for the second and 3 for the last: 5×4×3=60.",
       "ObservedAttemptCount": 0,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "كم رمزاً مكوناً من ثلاثة أرقام مختلفة يمكن تكوينه من الأرقام 1، 2، 3، 4، 5؟"
     },
     {
       "ProblemId": 789,
@@ -641,7 +693,8 @@
       "ProposedSolutionAr": "قانون المقابلة المنطقية: $P\\Rightarrow Q$ تكافئ $\\neg Q\\Rightarrow\\neg P$. إذا كان $n=2k+1$ فمربعه $4k(k+1)+1$ فردي.\n\nمقابل P⇒Q هو نفي Q⇒نفي P. إذن يكفي إثبات أن n الفردي مربعه فردي.",
       "ProposedSolutionEn": "Contrapositive equivalence: $P\\Rightarrow Q$ is equivalent to $\\neg Q\\Rightarrow\\neg P$. If $n=2k+1$, its square $4k(k+1)+1$ is odd.\n\nThe contrapositive of P⇒Q is not-Q⇒not-P. Thus show that an odd n has an odd square.",
       "ObservedAttemptCount": 0,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "لإثبات: إذا كان n² زوجياً فإن n زوجي، ما العبارة التي تكفي لإثباتها بالمقابل المنطقي؟"
     },
     {
       "ProblemId": 790,
@@ -653,7 +706,8 @@
       "ProposedSolutionAr": "قاعدة خطوة الاستقراء: الفرق بين مجموعي أول $n+1$ وأول $n$ أعداد فردية هو $(n+1)^2-n^2=2n+1$.\n\nالأعداد الفردية تبدأ بـ1،3،5... والعدد الفردي التالي بعد 2n−1 هو 2n+1. فنحصل على n²+2n+1=(n+1)².",
       "ProposedSolutionEn": "Induction step: the difference between the sums of the first $n+1$ and first $n$ odd integers is $(n+1)^2-n^2=2n+1$.\n\nThe next odd number after 2n−1 is 2n+1. Then n²+(2n+1)=(n+1)².",
       "ObservedAttemptCount": 0,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "نفترض أن مجموع أول n عدد فردي موجب يساوي n². ما الحد الذي نضيفه للحصول على مجموع أول (n+1) عدد فردي؟"
     },
     {
       "ProblemId": 863,
@@ -665,7 +719,8 @@
       "ProposedSolutionAr": "قاعدة التكامل للقوى: $\\int ax^n dx=ax^{n+1}/(n+1)+C$ عندما $n\\ne-1$. نستخدم الشرط الابتدائي لتعيين الثابت.\n\nبالتكامل y=x³+C، ومن y(0)=4 نحصل على C=4. إذن y(2)=8+4=12.",
       "ProposedSolutionEn": "Power integration rule: $\\int ax^n dx=ax^{n+1}/(n+1)+C$ for $n\\ne-1$. Use the initial condition to determine the constant.\n\nIntegrate to y=x³+C; y(0)=4 gives C=4. Hence y(2)=8+4=12.",
       "ObservedAttemptCount": 0,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "تحقق الدالة y المعادلة y'=3x² وy(0)=4. ما قيمة y(2)؟"
     },
     {
       "ProblemId": 865,
@@ -677,7 +732,8 @@
       "ProposedSolutionAr": "حل المعادلة التفاضلية الخطية $y''+y=0$ من المعادلة المميزة $r^2+1=0$، والجذور $r=\\pm i$.\n\nالحل y=Acos x+Bsin x. من y(0)=0 يكون A=0، ومن y'(0)=2 يكون B=2، إذن y(π/2)=2.",
       "ProposedSolutionEn": "For the linear ODE $y''+y=0$, the characteristic equation $r^2+1=0$ has roots $r=\\pm i$.\n\nThe solution is y=A cos x+B sin x. Initial conditions give A=0 and B=2, so y(π/2)=2.",
       "ObservedAttemptCount": 0,
-      "Status": "CandidateSolutionOnlyNotApplied"
+      "Status": "CandidateSolutionOnlyNotApplied",
+      "ExpectedQuestionAr": "حل y''+y=0 مع y(0)=0 وy'(0)=2. ما قيمة y(π/2)؟"
     }
   ]
 }
