@@ -57,3 +57,12 @@ ORDER BY p."Id";
 Run `python3 tests/check_published_answer_snapshot.py bank.jsonl`. Exit 2 identifies known blocking wording defects, exit 1 identifies missing or changed evidence, and exit 0 requires both checks to clear. With the November 24 export the expected exit is 2. The archived numeric-family check exits 0. Keep the live question bank outside Git.
 
 Review evidence is in `docs/review-data/g1-legacy-answer-review-20261124.tsv` and `docs/review-data/g1-published-wording-proposals-20261124.json`. Prospective hints are in `content/editorial/g1-existing-hint-candidates-20261124.json`.
+
+
+## Production wording correction follow-up, 24 November
+
+The original snapshot evidence above is retained. Eleven proposed problem corrections are now applied and read back: 23, 145, 340, 352, 364, 376, 388, 512, 800, 818 and 851. The last nine were guarded by absence of attempts and user progress, with original option-text matching; 512 and 818 were corrected in the preceding pass after checking attempts. Existing IDs and answer flags are unchanged. Problems 10 and 20 remain pending a history-preserving editorial revision (four attempts each; existing progress records also exist). Do not treat them as safe for in-place edits.
+
+The snapshot checker recognizes only the exact verified after-edit fingerprints and unchanged key positions, while retaining its original pre-edit evidence. The IVT recomputation recognizes the reviewed bilingual wording of the same mathematical condition. This is not evidence of browser/Flutter rendering, full snapshot test execution, or completed review of all solutions and hints.
+
+The nine underrepresented skills still need ten additional distinct problems in total to reach three primary questions each; candidate publication remains a separate reviewed operation.

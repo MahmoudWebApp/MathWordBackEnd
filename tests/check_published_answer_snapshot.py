@@ -55,6 +55,24 @@ def digest(row):
     return hashlib.sha256(data.encode()).hexdigest()
 
 
+# Exact post-correction production fingerprints, read back on 2026-11-24.
+# Values pair the full prompt/choice fingerprint with the unchanged one-based key.
+# The frozen source evidence remains intact; unreviewed changes must still fail.
+REVIEWED_CORRECTIONS = {
+    23: ("b04a4767ff770bd890d01b09bd297c4856965aab6844aa8525643d898697775e", 1),
+    145: ("4b921d7b39340e8af9eb886e453e4f155b52eedae4cacb31c8faa0181cf68a44", 4),
+    340: ("70a46b7dbdd029a0ebe4b0d7b1d7ee3777ac08cfa556a1be3593fb396b5591ec", 2),
+    352: ("a1e424661b90590ee841fabecadebdaa766604f2c5f06a77e2353e0b78d3a785", 1),
+    364: ("a50ce9b8e6b1cab12af938e5b44f22983b6dc9d34b49615cc7372f82a6ed85a3", 4),
+    376: ("0e16f525eecb72fefb662d05a04288ba5ff343c044e58a73a678682592b472f1", 3),
+    388: ("bdb535388d650a6e3b5c5b57ec2dde65f4d60aa94f60d524578df4db9ee07279", 2),
+    512: ("f23b8a51cb6d3ef839632154fe1e88b238e684dbdfad1db3451906c95e75ba7e", 2),
+    800: ("76ae2d999e3a3d7b076b12379916a22c3022916ae7381cb7225778691dd2be18", 1),
+    818: ("ec46fe6fffd491f2d607a9e958e49d4e45c832732686ec1627c075cd2679f061", 2),
+    851: ("effac31e08e86490c7d1e468d8cb2817b50a89210755d11ac385cf5879bea5ed", 2),
+}
+
+
 def verify(path):
     prompts, solutions = historical_evidence()
     review_data = ROOT / "docs/review-data"
@@ -98,7 +116,13 @@ def verify(path):
                 else:
                     counts["Source-matched bilingual hint pairs"] += 1
             proposal = by_id.get(pid)
-            if proposal and proposal["sourceSha256"] == digest(row):
+            correction = REVIEWED_CORRECTIONS.get(pid)
+            corrected = (correction is not None
+                         and correction[0] == digest(row)
+                         and opts[correction[1] - 1][1])
+            if corrected:
+                counts["Exact reviewed applied wording corrections"] += 1
+            elif proposal and proposal["sourceSha256"] == digest(row):
                 counts["Published items with wording proposals"] += 1
                 if proposal["blocksAnswerAcceptance"]:
                     held.append(pid)
@@ -109,6 +133,8 @@ def verify(path):
                 problems.append((pid, "Recomputed key differs"))
             elif matched:
                 counts["Recomputed from prompt"] += 1
+            elif corrected:
+                counts["Applied correction key matches independent review"] += 1
             elif (row["a"], row["q"], tuple(sorted(map(tuple, opts)))) in prompts:
                 counts["Both prompts and all flagged choices match archive"] += 1
             elif pid in reviews and reviews[pid]["content_sha256"] == digest(row):

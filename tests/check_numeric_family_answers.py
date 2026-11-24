@@ -27,6 +27,10 @@ def canonical(value):
     if isinstance(value, (int, Fraction)):
         return F(value)
     text = str(value).strip().replace("−", "-")
+    # Reviewed bilingual presentation of the same IVT condition; retain
+    # the original canonical answer for archived content and recomputation.
+    if text == r"\text{الدالة متصلة على [0,1] (Continuous on [0,1])}":
+        return r"f\text{ is continuous on }[0,1]"
     if match := re.fullmatch(r"(-?)\\frac(?:\{(\d+)\}|(\d))(?:\{(\d+)\}|(\d))", text):
         sign, n1, n2, d1, d2 = match.groups()
         if int(d1 or d2):
