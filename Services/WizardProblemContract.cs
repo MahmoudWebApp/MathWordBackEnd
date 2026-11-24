@@ -41,6 +41,8 @@ public static class WizardProblemContract
             solution.Steps is null||solution.Steps.Length is <1 or >20||solution.Steps.Any(x=>!Pair(x,2000))||
             !Pair(solution.Substitution,2000)||!Pair(solution.Result,1000)||!Pair(solution.Unit,200)||
             !Pair(solution.Verification,2000)||!Pair(solution.CommonError,2000))errors.Add("StructuredSolutionRequired");
+        if(!errors.Contains("StructuredSolutionRequired") &&
+            (FlatSolution(solution!,true).Length>12000||FlatSolution(solution!,false).Length>12000))errors.Add("SolutionTooLong");
         return errors;
     }
     public static string FlatSolution(WizardSolution s,bool ar)

@@ -47,6 +47,8 @@ def main():
         expect("GET",path,403,token=supervisor)
     expect("POST","/api/admin/problems",403,{},supervisor)
     expect("POST","/api/problems/submit",403,{},supervisor)
+    from integration_editorial_wizard import verify_wizard
+    draft=verify_wizard(admin,supervisor,sid)
     row=next(x for x in expect("GET",ROUTE,200,token=admin)["Items"] if x["Id"]==sid)
     assert not row["StaffSetupPending"] and row["Permissions"]==3
     rev=row["Revision"]
@@ -58,6 +60,7 @@ def main():
     assert status==200
     token=token_of(result["Data"])
     assert expect("GET","/api/supervisor/permissions",200,token=token)["Permissions"]==1
+    expect("POST",f"/api/editorial/problems/{draft}/submit",403,{"Revision":0},token)
     expect("PUT",f"{ROUTE}/{sid}",200,{"IsActive":False,"Permissions":1,"Revision":rev+1},admin)
     expect("GET","/api/supervisor/permissions",401,token=token)
     status,result=login(EMAIL,PWD)
