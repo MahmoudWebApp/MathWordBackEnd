@@ -21,7 +21,8 @@ public sealed class AdminEmailOutboxController(AppDbContext db, IConfiguration c
         if (!int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier),out var id)) return Unauthorized();
         var admin=await db.Users.AsNoTracking().SingleOrDefaultAsync(u=>u.Id==id&&u.IsActive&&u.Role==AccountRolePolicy.LegacyAdmin,ct);
         if(admin is null)return Forbid();
-        var cutoff = DateTime.UtcNow.Date.AddDays(-1);
+        var now = DateTime.UtcNow;
+        var cutoff = now.Date.AddDays(-1);
         var recent = await db.EmailOutbox.AsNoTracking().Where(x => x.CreatedAtUtc >= cutoff)
             .GroupBy(x => x.State).Select(g => new { State = g.Key, Count = g.Count() }).ToListAsync(ct);
         var attempts = await db.EmailOutbox.AsNoTracking().Where(x => x.CreatedAtUtc >= cutoff)
@@ -35,6 +36,11 @@ public sealed class AdminEmailOutboxController(AppDbContext db, IConfiguration c
         var adminVerified=string.Equals(config["MathWorldRecovery:VerifiedAdminEmail"]?.Trim(),admin.Email,StringComparison.OrdinalIgnoreCase);
         var adminAllowed=transport.IsTestMode&&transport.AllowsRecipient(admin.Email);
         var limit=Math.Clamp(config.GetValue("MathWorldEmail:DailyAttemptLimit",100),10,150);
+        // Match the test endpoint's admission rules so readiness is not misleading
+        // during its per-admin cooldown or when the daily sample quota is exhausted.
+        var testItems=db.EmailOutbox.AsNoTracking().Where(x=>x.TemplateKey=="test"||x.TemplateKey.StartsWith("test:"));
+        var testCooldown=await testItems.AnyAsync(x=>x.UserId==id&&x.CreatedAtUtc>now.AddMinutes(-5),ct);
+        var testDailyLimit=await testItems.CountAsync(x=>x.CreatedAtUtc>=now.Date,ct)>=5;
         // These are only local configuration checks; they do not claim
         // provider authentication, sender verification or inbox delivery.
         var missing=new List<string>();
@@ -47,10 +53,13 @@ public sealed class AdminEmailOutboxController(AppDbContext db, IConfiguration c
         if(!recoveryRequested)missing.Add("RecoveryDisabled");
         if(!recoveryKeyConfigured)missing.Add("RecoveryKeyMissingOrInvalid");
         if(!adminVerified)missing.Add("AdminRecoveryAddressNotVerifiedInConfig");
+        if(transport.IsTestMode&&testCooldown)missing.Add("AdminTestCooldown");
+        if(transport.IsTestMode&&testDailyLimit)missing.Add("DailyTestLimitReached");
+        if(transport.IsTestMode&&attempts>=limit*3/4)missing.Add("TestAttemptBudgetReserved");
         // Never expose recipient, message body, provider ID, grant ID or secrets.
         return Ok(new { IsConfigured = transport.IsConfigured, IsTestMode = transport.IsTestMode,
             IsWorkerEnabled = workerEnabled, RecoveryEnabled = recovery.Enabled,
-            Readiness = new { Missing = missing, CanQueueAdminTest=transport.IsConfigured&&workerEnabled&&adminAllowed&&attempts<limit*3/4,
+            Readiness = new { Missing = missing, CanQueueAdminTest=transport.IsConfigured&&workerEnabled&&adminAllowed&&attempts<limit*3/4&&!testCooldown&&!testDailyLimit,
                 AdminRecoveryConfigured=recovery.Enabled&&workerEnabled&&adminVerified&&transport.AllowsRecipient(admin.Email),
                 ProviderConnectionVerified=false, InboxDeliveryVerified=false },
             TestTemplates=EmailTemplateSamples.Keys,
