@@ -27,7 +27,9 @@ def verify_reviewed_batch(admin, student, all_tracks):
     skill_ids=",".join(map(str,skills))
     categories={row["CategoryId"]:stage for stage,row in rows}
     cat_ids=",".join(map(str,categories))
-    assert len(rows)==717 and len(groups)==17
+    expected_count=len(rows)
+    assert expected_count+manifest["ExcludedCount"]==773 and len(groups)==17
+    assert len({row["ProblemId"] for _,row in rows})==expected_count
     assert sql(f'SELECT COUNT(*) FROM "Problems" WHERE "Id" IN ({ids})')=="0"
     assert sql(f'SELECT COUNT(*) FROM "CurriculumSkills" WHERE "Id" IN ({skill_ids})')=="0"
     assert all(x["Track"]["Revision"]==0 and not x["Track"]["IsPublished"] for x in all_tracks)
@@ -53,7 +55,7 @@ def verify_reviewed_batch(admin, student, all_tracks):
     try:
         preview=expect("POST",root,200,{"Confirm":False},admin)
         assert not preview["Confirmed"] and preview["AppliedTracks"]==0
-        assert len(preview["Items"])==17 and sum(x["Problems"] for x in preview["Items"])==717
+        assert len(preview["Items"])==17 and sum(x["Problems"] for x in preview["Items"])==expected_count
         assert all(x["Status"]=="Ready" for x in preview["Items"])
         assert link_count()==0
         revisions=[{"Id":x["Id"],"Revision":x["Revision"]} for x in preview["Items"]]
@@ -74,7 +76,7 @@ def verify_reviewed_batch(admin, student, all_tracks):
         sql(f'''UPDATE "Problems" SET "QuestionTextEn"={literal(row["ExpectedQuestionEn"])} WHERE "Id"={pid}''')
         saved=expect("POST",root,200,confirm,admin)
         assert saved["Confirmed"] and saved["AppliedTracks"]==17
-        assert link_count()==717
+        assert link_count()==expected_count
         assert int(sql('SELECT COUNT(*) FROM "LearningTrackCategories"'))==sum(len({r["CategoryId"] for r in g["Rows"]}) for g in groups)
         assert int(sql('SELECT COUNT(*) FROM "LearningTrackSkills"'))==sum(len({r["PrimarySkillId"] for r in g["Rows"]}) for g in groups)
         assert sql('SELECT COUNT(*) FROM "LearningTracks" WHERE "IsPublished"')=="0"
@@ -83,9 +85,9 @@ def verify_reviewed_batch(admin, student, all_tracks):
         repeat=expect("POST",root,200,{"Confirm":False},admin)
         assert all(x["Status"]=="AlreadyMapped" for x in repeat["Items"])
         again=expect("POST",root,200,{"Confirm":True,"Revisions":[{"Id":x["Id"],"Revision":x["Revision"]} for x in repeat["Items"]]},admin)
-        assert again["AppliedTracks"]==0 and link_count()==717
+        assert again["AppliedTracks"]==0 and link_count()==expected_count
         assert sql('SELECT COUNT(*) FROM "LearningTracks" WHERE "Revision"=1')=="17"
-        print("PASS: reviewed 717-question batch preview, stale/source rejection, atomic mapping and idempotence; no publication")
+        print(f"PASS: reviewed {expected_count}-question batch preview, stale/source rejection, atomic mapping and idempotence; no publication")
     finally:
         track_ids=",".join(str(x["Track"]["Id"]) for x in all_tracks)
         fixture_sql(f'''BEGIN;
