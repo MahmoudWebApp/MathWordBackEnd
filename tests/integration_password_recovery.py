@@ -62,6 +62,17 @@ def main():
     expect("GET","/api/notifications/v2/unread-count",200,token=token_of(result["Data"]))
     assert sql("""SELECT COUNT(*) FROM "EmailOutbox" WHERE "Recipient"='recovery-ci@mathworld.test' AND "TemplateKey"='password-changed'""")=="1"
     student_token=token_of(result["Data"])
+    preferences="/api/users/email-preferences"
+    initial=expect("GET",preferences,200,token=student_token)
+    assert initial["EmailVerified"] and not initial["OptionalDeliveryEnabled"]
+    assert not any(initial[k] for k in ("EmailLearningUpdates","EmailSubscriptionUpdates","EmailImportantAnnouncements"))
+    prefs={"EmailLearningUpdates":True,"EmailSubscriptionUpdates":True,"EmailImportantAnnouncements":False,"Locale":"en"}
+    updated=expect("PUT",preferences,200,prefs,student_token)
+    assert updated["EmailLearningUpdates"] and updated["EmailSubscriptionUpdates"] and updated["Locale"]=="en"
+    expect("PUT",preferences,400,{**prefs,"Locale":"xx"},student_token)
+    expect("GET",preferences,401)
+    # Opt-out always remains possible; no optional delivery in CI.
+    expect("PUT",preferences,200,{**prefs,"EmailLearningUpdates":False,"EmailSubscriptionUpdates":False},student_token)
     outbox_route="/api/admin/platform/email-outbox"
     expect("GET",outbox_route,401)
     expect("GET",outbox_route,403,token=student_token)

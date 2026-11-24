@@ -21,13 +21,15 @@ public sealed class AdminNotificationsController : ControllerBase
     private readonly NotificationStreamBroker _stream;
     private readonly ITransactionalEmailSender _email;
     private readonly PlatformBrandService _brand;
+    private readonly RecoveryEmailQueue _queue;
     public AdminNotificationsController(AppDbContext db, NotificationStreamBroker stream,
-        ITransactionalEmailSender email, PlatformBrandService brand)
+        ITransactionalEmailSender email, PlatformBrandService brand, RecoveryEmailQueue queue)
     {
         _db = db;
         _stream = stream;
         _email = email;
         _brand = brand;
+        _queue = queue;
     }
 
     public sealed class SendLearnerNoticeRequest
@@ -54,8 +56,9 @@ public sealed class AdminNotificationsController : ControllerBase
             !ValidPath(request.TargetPath))
             return BadRequest(new { Message = "InvalidNotification" });
 
-        if (!await _db.Users.AsNoTracking().AnyAsync(
-            u => u.Id == learnerId && u.Role == "Student" && u.IsActive, ct))
+        var learner = await _db.Users.AsNoTracking().SingleOrDefaultAsync(
+            u => u.Id == learnerId && u.Role == "Student" && u.IsActive, ct);
+        if (learner is null)
             return NotFound(new { Message = "LearnerNotFound" });
 
         var notification = new UserNotification
@@ -71,6 +74,7 @@ public sealed class AdminNotificationsController : ControllerBase
             CreatedAtUtc = DateTime.UtcNow
         };
         _db.UserNotifications.Add(notification);
+        _queue.AddOptionalNotice(learner,"announcement",notification.CreatedAtUtc);
         await _db.SaveChangesAsync(ct);
         _stream.Notify(learnerId);
 

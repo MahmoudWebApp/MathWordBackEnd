@@ -115,6 +115,7 @@ public sealed class PasswordRecoveryService(AppDbContext db, IConfiguration conf
                 !db.SocialLogins.Any(link => link.UserId == x.Id))
             .ExecuteUpdateAsync(s => s.SetProperty(x => x.PasswordHash, newHash)
                 .SetProperty(x => x.StaffSetupPending, false)
+                .SetProperty(x => x.VerifiedNotificationEmail, grant.Email)
                 .SetProperty(x => x.TokenVersion, x => x.TokenVersion + 1), ct);
         if (updated != 1) return false;
         now = DateTime.UtcNow;

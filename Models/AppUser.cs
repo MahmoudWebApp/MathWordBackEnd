@@ -22,6 +22,11 @@ namespace MathWorldAPI.Models
         public int TokenVersion { get; set; }
         [JsonIgnore] public int StaffPermissions { get; set; }
         [JsonIgnore] public bool StaffSetupPending { get; set; }
+        [JsonIgnore] public string? VerifiedNotificationEmail { get; set; }
+        [JsonIgnore] public bool EmailLearningUpdates { get; set; }
+        [JsonIgnore] public bool EmailSubscriptionUpdates { get; set; }
+        [JsonIgnore] public bool EmailImportantAnnouncements { get; set; }
+        [JsonIgnore] public string? EmailNotificationLocale { get; set; }
 
         [JsonIgnore]
         public List<UserProgress> UserProgresses { get; set; } = new();

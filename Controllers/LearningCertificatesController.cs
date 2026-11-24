@@ -15,7 +15,7 @@ namespace MathWorldAPI.Controllers;
 [Authorize(Roles="Student")]
 [Route("api/users/certificates")]
 [ResponseCache(NoStore=true,Location=ResponseCacheLocation.None)]
-public sealed class LearningCertificatesController(AppDbContext db,IConfiguration config,LearningTrackService tracks,NotificationStreamBroker stream):ControllerBase
+public sealed class LearningCertificatesController(AppDbContext db,IConfiguration config,LearningTrackService tracks,NotificationStreamBroker stream,RecoveryEmailQueue emailQueue):ControllerBase
 {
     private bool Enabled=>config.GetValue<bool>("Certificates:Enabled");
     private bool IssuanceEnabled=>Enabled&&config.GetValue<bool>("Certificates:IssuanceEnabled")&&config.GetValue<bool>("LearningSessions:Enabled");
@@ -139,6 +139,7 @@ public sealed class LearningCertificatesController(AppDbContext db,IConfiguratio
                 TitleAr="شهادتك التعليمية جاهزة",TitleEn="Your learning certificate is ready",
                 BodyAr="يمكنك عرض الشهادة وتنزيلها من قسم شهاداتي.",BodyEn="View and download the certificate in My learning certificates.",
                 TargetPath="/dashboard/certificates",CreatedAtUtc=now});
+            emailQueue.AddOptionalNotice(student,"certificate-issued",now);
             db.PlatformActivityEvents.Add(new PlatformActivityEvent{ActorUserId=student.Id,ActorRole="Student",Action="CertificateIssued",
                 Resource="LearningCertificate",ResourceId=record.Id.ToString("D"),Origin="api",CreatedAtUtc=now});
             await db.SaveChangesAsync(ct);

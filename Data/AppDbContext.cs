@@ -201,6 +201,11 @@ namespace MathWorldAPI.Data
                 .HasForeignKey(x => x.CurrentTrackId).OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<AppUser>().Property(x => x.StaffPermissions).HasDefaultValue(0);
             modelBuilder.Entity<AppUser>().Property(x => x.StaffSetupPending).HasDefaultValue(false);
+            modelBuilder.Entity<AppUser>().Property(x => x.VerifiedNotificationEmail).HasMaxLength(256);
+            modelBuilder.Entity<AppUser>().Property(x => x.EmailNotificationLocale).HasMaxLength(2);
+            modelBuilder.Entity<AppUser>().Property(x => x.EmailLearningUpdates).HasDefaultValue(false);
+            modelBuilder.Entity<AppUser>().Property(x => x.EmailSubscriptionUpdates).HasDefaultValue(false);
+            modelBuilder.Entity<AppUser>().Property(x => x.EmailImportantAnnouncements).HasDefaultValue(false);
             modelBuilder.Entity<PasswordResetGrant>().Property(x => x.IsInvitation).HasDefaultValue(false);
 
             modelBuilder.Entity<PasswordResetGrant>(e =>

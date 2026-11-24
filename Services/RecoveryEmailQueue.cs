@@ -85,6 +85,20 @@ public sealed class RecoveryEmailQueue(AppDbContext db, IConfiguration config, B
         });
     }
 
+    // The event and its queue item are saved in the caller's transaction.
+    // No actual delivery or provider call takes place here.
+    public void AddOptionalNotice(AppUser user,string templateKey,DateTime now)
+    {
+        if(!config.GetValue<bool>("MathWorldEmail:OptionalEventsEnabled")||
+            !config.GetValue<bool>("MathWorldEmail:OutboxEnabled")||
+            !OptionalEmailPolicy.Allows(user,templateKey)||!transport.AllowsRecipient(user.Email))return;
+        db.EmailOutbox.Add(new EmailOutboxItem{
+            Id=Guid.NewGuid(),UserId=user.Id,Recipient=user.Email,TemplateKey=templateKey,
+            Locale=user.EmailNotificationLocale=="en"?"en":"ar",State="Pending",
+            CreatedAtUtc=now,NextRetryAtUtc=now,ExpiresAtUtc=now.AddHours(12)
+        });
+    }
+
     public async Task<EmailOutboxItem?> ClaimAsync(CancellationToken ct)
     {
         var now = DateTime.UtcNow;
@@ -223,6 +237,18 @@ public sealed class RecoveryEmailWorker(IServiceScopeFactory scopes, IConfigurat
             var key=item.TemplateKey=="test"?"test":item.TemplateKey[5..];
             if(!EmailTemplateSamples.Contains(key))return new("Cancelled",ErrorCode:"UnknownTemplate");
             email=EmailTemplateSamples.Render(brand,item.Locale,key,true);
+        }
+        else if(item.TemplateKey is "certificate-issued" or "premium-granted" or "premium-renewed" or "premium-expired" or "announcement")
+        {
+            // Re-check current consent and address at delivery; queued rows
+            // cannot override a later opt-out or changed verified identity.
+            if(!config.GetValue<bool>("MathWorldEmail:OptionalEventsEnabled")||!OptionalEmailPolicy.Allows(user,item.TemplateKey))
+                return new("Cancelled",ErrorCode:"OptionalEmailNotAllowed");
+            if((item.TemplateKey is "premium-granted" or "premium-renewed")&&!PremiumEntitlement.IsActive(user))
+                return new("Cancelled",ErrorCode:"SubscriptionChanged");
+            if(item.TemplateKey=="premium-expired"&&PremiumEntitlement.IsActive(user))
+                return new("Cancelled",ErrorCode:"SubscriptionChanged");
+            email=OptionalEmailPolicy.Render(brand,user.EmailNotificationLocale=="en"?"en":"ar",item.TemplateKey);
         }
         else return new("Cancelled", ErrorCode: "UnknownTemplate");
         return await transport.SendAsync(item, email, ct);

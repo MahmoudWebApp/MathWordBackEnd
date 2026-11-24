@@ -17,10 +17,12 @@ namespace MathWorldAPI.Controllers
     {
         private readonly AppDbContext _db;
         private readonly NotificationStreamBroker _stream;
-        public AdminSubscriptionsController(AppDbContext db, NotificationStreamBroker stream)
+        private readonly RecoveryEmailQueue _emailQueue;
+        public AdminSubscriptionsController(AppDbContext db, NotificationStreamBroker stream, RecoveryEmailQueue emailQueue)
         {
             _db = db;
             _stream = stream;
+            _emailQueue = emailQueue;
         }
 
         // One-year admin activation for individual and bulk selection.
@@ -111,6 +113,7 @@ namespace MathWorldAPI.Controllers
                     TargetPath = "/dashboard",
                     CreatedAtUtc = now
                 });
+                _emailQueue.AddOptionalNotice(learner,isActive?"premium-renewed":"premium-granted",now);
                 updatedIds.Add(learner.Id);
                 // The client displays authoritative dates, not an estimated browser clock.
                 periods.Add(new { LearnerId = learner.Id, StartAtUtc = baseDate, EndAtUtc = expiry });
@@ -201,6 +204,8 @@ namespace MathWorldAPI.Controllers
                     TargetPath = "/dashboard",
                     CreatedAtUtc = DateTime.UtcNow
                 });
+                if(type=="Premium")
+                    _emailQueue.AddOptionalNotice(learner,previousType=="Premium"&&(previousExpiry==null||previousExpiry>DateTime.UtcNow)?"premium-renewed":"premium-granted",DateTime.UtcNow);
                 await _db.SaveChangesAsync(cancellationToken);
             }
             await transaction.CommitAsync(cancellationToken);
