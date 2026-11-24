@@ -1,9 +1,6 @@
 name: Stage journey PostgreSQL integration tests
 
 on:
-  push:
-    branches:
-      - feature/student-learning-stage-journey-v1
   pull_request:
     paths:
       - 'Program.cs'
