@@ -45,6 +45,18 @@ public static class WizardProblemContract
             (FlatSolution(solution!,true).Length>12000||FlatSolution(solution!,false).Length>12000))errors.Add("SolutionTooLong");
         return errors;
     }
+    // Serialize only the localized solution; never hints or distractor metadata.
+    public static object? LocalizedSolution(string? json,string language)
+    {
+        if(string.IsNullOrEmpty(json))return null;
+        using var doc=JsonDocument.Parse(json);
+        if(!doc.RootElement.TryGetProperty("Solution",out var node))return null;
+        var s=node.Deserialize<WizardSolution>();
+        if(s is null)return null;
+        string L(BilingualText? p)=>language=="en"?p?.En??"":p?.Ar??"";
+        return new{Idea=L(s.Idea),s.FormulaLatex,Steps=s.Steps?.Select(L).ToArray()??Array.Empty<string>(),
+            Substitution=L(s.Substitution),Result=L(s.Result),Unit=L(s.Unit),Verification=L(s.Verification),CommonError=L(s.CommonError)};
+    }
     public static string FlatSolution(WizardSolution s,bool ar)
     {
         string L(BilingualText? p)=>ar?p?.Ar??"":p?.En??"";

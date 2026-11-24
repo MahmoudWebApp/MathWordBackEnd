@@ -985,6 +985,8 @@ namespace MathWorldAPI.Controllers
                                     ? problem.YoutubeSolutionUrl
                                     : null,
 
+                            SolutionStructure = canRevealAnswer ? WizardProblemContract.LocalizedSolution(problem.EditorialDetailsJson,language) : null,
+
                             // Never expose option correctness to students.
                             Options =
                                 problem.Options
@@ -1565,6 +1567,7 @@ namespace MathWorldAPI.Controllers
                         AttemptNumber =
                             attempt.AttemptNumber,
 
+                        SolutionStructure = isCorrect ? WizardProblemContract.LocalizedSolution(problem.EditorialDetailsJson,language) : null,
                         UsedHint = attempt.UsedHint,
                         IsOfficialAttempt =
                             attempt.IsOfficial,

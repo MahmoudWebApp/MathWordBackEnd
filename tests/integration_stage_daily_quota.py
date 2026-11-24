@@ -205,7 +205,7 @@ def main():
                  WHERE "Email"='learner-ci-502@mathworld.test' AND "Role"='Student'"""
     ], check=True, timeout=20, capture_output=True)
     paid = expect("GET", "/api/users/subscription", 200, token=premium)
-    assert paid["IsPremium"] and paid["CanRevealSolutionBeforeAnswer"], paid
+    assert paid["IsPremium"] and not paid["CanRevealSolutionBeforeAnswer"] and paid["CanUseProgressiveHints"], paid
     assert paid["CanExportAnalytics"] and paid.get("DailyNewProblemsLimit") is None, paid
     assert_unlimited(premium, 1)
     code, _ = api("GET", f"/api/problems/{locked_question[0]}", token=premium)
