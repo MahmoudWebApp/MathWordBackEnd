@@ -20,3 +20,5 @@ Fix abandonment timestamps to PostgreSQL microsecond precision so identical retr
 
 ## Permanent student ranking and capability
 Student leaderboard switches to the lifetime ledger only with LearningSessions enabled, retaining SQL pagination, actual active student names, stage privacy, and rolling windows by original earn date. The first-try tie breaker uses immutable unassisted evidence on the original award timestamp; old rows without verified evidence receive no first-try credit. Journey exposes LearningSessionsEnabled for clients, avoiding guessing rollout readiness. Admin ranking/analytics and full ordinary cycle projection remain separate outstanding work.
+
+CI fixture correction: the disposable track fixture deliberately solves then deletes its test problem; assert its permanent credit exists and explicitly clean only that fixture's ledger row before unrelated unranked-learner assertions. Production history is never removed. Added reset/ranking regression; session selection now prefers problems not yet permanently earned, and session answers use existing answer rate limiting.

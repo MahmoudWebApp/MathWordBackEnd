@@ -93,5 +93,8 @@ def verify_tracks(admin, student, uid, stage1, stage2):
     # Keep journey suite's original stage and fixture assumptions.
     expect("PUT","/api/users/learning-stage",200,{"StageId":stage2},student)
     expect("PUT","/api/users/learning-stage",200,{"StageId":stage1},student)
-    sql(f'DELETE FROM "ProblemAttempts" WHERE "ProblemId"={pid}; DELETE FROM "UserProgresses" WHERE "ProblemId"={pid}; DELETE FROM "Problems" WHERE "Id"={pid}; DELETE FROM "CurriculumSkills" WHERE "Id"={skill}; DELETE FROM "CurriculumDomains" WHERE "Id"={domain}')
+    # Disposable fixture cleanup only; the permanent ledger intentionally
+    # survives removal of mutable progress and catalog objects.
+    assert sql(f'SELECT COUNT(*) FROM "PermanentProblemAchievements" WHERE "UserId"={uid} AND "ProblemId"={pid}')=="1"
+    sql(f'DELETE FROM "PermanentProblemAchievements" WHERE "UserId"={uid} AND "ProblemId"={pid}; DELETE FROM "ProblemAttempts" WHERE "ProblemId"={pid}; DELETE FROM "UserProgresses" WHERE "ProblemId"={pid}; DELETE FROM "Problems" WHERE "Id"={pid}; DELETE FROM "CurriculumSkills" WHERE "Id"={skill}; DELETE FROM "CurriculumDomains" WHERE "Id"={domain}')
     print("PASS: 17 unpublished tracks, validated mapping, no empty public tracks, original stage Free policy, selection and legacy stage switch")

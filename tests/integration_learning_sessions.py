@@ -94,6 +94,15 @@ def verify_sessions(admin, learner, other, stage):
     assert mine["SolvedProblems"]==after["PermanentSolvedProblems"]
     assert mine["Points"]==after["PermanentPoints"]
     assert after["LearningSessionsEnabled"] is True
+    # A legacy stage reset is still distinct from session restart, but must
+    # never erase lifetime credit or change lifetime ranking.
+    expect("POST","/api/users/practice/reset",200,{"StageId":stage},other)
+    reset=expect("GET","/api/users/journey",200,token=other)
+    assert reset["SolvedProblems"]==0 and reset["PermanentPoints"]==after["PermanentPoints"]
+    rank=expect("GET","/api/users/leaderboard?period=all",200,token=other)
+    row=next(e for e in rank["Entries"] if e["IsCurrentUser"])
+    assert row["Points"]==mine["Points"] and row["SolvedProblems"]==mine["SolvedProblems"]
+    assert expect("GET",ROOT+"/achievements",200,token=other)==achievements
     # Switch stage: today's daily session is not replaced. Restore on return.
     expect("PUT","/api/users/learning-stage",200,{"StageId":1},other)
     expect("POST",ROOT+"/start",409,dict(start,RequestId=str(uuid4())),other)

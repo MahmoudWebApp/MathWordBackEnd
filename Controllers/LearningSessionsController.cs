@@ -131,7 +131,7 @@ public sealed class LearningSessionsController(AppDbContext db, IConfiguration c
         var candidates=await Eligible(scope,input.CategoryId).Select(p=>new{p.Id,p.CategoryId}).ToListAsync(ct);
         // Deterministic round-robin across real categories. Prefer never solved
         // questions where possible; existing solves NEVER complete this session.
-        var solved=await db.UserProgresses.AsNoTracking().Where(p=>p.UserId==scope.UserId&&p.IsSolved)
+        var solved=await db.PermanentProblemAchievements.AsNoTracking().Where(p=>p.UserId==scope.UserId&&p.StageId==scope.StageId)
             .Select(p=>p.ProblemId).ToListAsync(ct);
         var done=solved.ToHashSet();
         long seed=(long)scope.UserId*17+now.DayOfYear*31L+(scope.TrackId??scope.StageId)*13L;
@@ -180,6 +180,7 @@ public sealed class LearningSessionsController(AppDbContext db, IConfiguration c
     }
 
     [HttpPost("{id:guid}/answer")]
+    [EnableRateLimiting("answers")]
     public async Task<IActionResult> Answer(Guid id,AnswerInput input,CancellationToken ct)
     {
         if(!Enabled)return NotFound();
