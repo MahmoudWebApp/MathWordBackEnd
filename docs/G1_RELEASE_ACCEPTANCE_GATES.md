@@ -29,3 +29,26 @@ Admin-only POST `/api/editorial/problems/amend/import` accepts at most 50 eligib
 
 ## Development/demo release exception — 2026-11-24
 The owner explicitly accepted proceeding without an independent backup/restore for the current demo/development environment. This waives step 2 for this release only; no backup is claimed. It does not authorize destructive schema changes, losing history, exposing credentials, or skipping CI/compatibility checks. Reinstate the backup gate before real student data or production launch.
+
+## Reviewed track draft batch — 24 November 2026
+All 773 source stems, stage/category, primary skill ID/stable key and publication status matched the live DB read-only. The fixed package contains 717 source-matched candidates across 17 existing track identities; 30 wording/skill holds and 26 remaining candidates for two proposed identities are excluded (56 distinct). Admin-only preview and explicit revision-bound confirm; transaction locks tracks, rechecks source, refuses nonempty divergent or published mappings; no deletion, no publication, no entitlement change. Three existing university courses still have zero Free coverage; two proposed courses are not created. Grade 1 has only two non-held candidates and requires expansion. Draft mapping is not independent curriculum approval. 
+
+## Taxonomy hold resolution and batch integration follow-up — 2026-11-24
+The earlier 717-candidate snapshot is superseded by 722 source-matched candidates in the same 17 draft tracks, with 51 excluded from the fixed package. Five grade-9 questions (#212, #224, #236, #248, #260) are no longer taxonomy-held: skill 28 is currently titled "Finding inputs from function values" / "حل معادلة من قيمة دالة". Its legacy StableKey is intentionally unchanged. Solving f(x)=y for a nonzero linear coefficient is precisely finding an input from a function value. Verified answers 3, 4, 5, 6, 7 respectively; existing bilingual rules and substitutions are correct. Grade 9 now has 24 candidates. No production rows or entitlement settings changed.
+
+The remaining ten taxonomy-review questions were checked again against their actual live prompts, existing skills and answers. All ten marked answers agree with independent calculation; these are explicit editorial placement decisions, not automatic live reclassifications:
+
+| ID | Verified result | Placement recommendation and safeguard |
+|---|---|---|
+| 649 | 1 | Matrix determinant, skill 61 within category 14; independence (62) is a useful secondary concept. Preserve option IDs and history; use approved amendment path. |
+| 768 | 27 cm³ | Cube volume is the requested construct. Propose a dedicated volume skill under a suitable middle-stage geometry category; moving from Free category 5 may alter access, so keep hold pending access-safe decision. |
+| 1566 | −8 < −2 < 0 < 4 | New signed-number ordering/comparison skill under category 83; not merely absolute value. |
+| 1578 | aₙ = 2·3^(n−1) | Geometric sequences, existing skill 103 in category 23, not interpreting models in category 86. Both current categories are outside the current Free pair; still use reviewed category-change flow. |
+| 1579 | z = 2 | New standardization/z-score skill under category 89. |
+| 1581 | 0.6 = 60% | New empirical sample-proportion skill under category 89; use exactly 60% in Arabic, not “approximately”. |
+| 1633 | x = 3 | Exact Gaussian elimination is an appropriate numerical-linear-systems prerequisite (skill 332). No claim that this single exercise assesses numerical error or stability. Track numerical-analysis is not seeded; keep excluded until course setup. |
+| 1696 | 6 square units | New vector determinant/area skill under category 87. Use determinant magnitude divided by two. |
+| 1698 | 5 square units | Same new vector determinant/area skill under category 87. Use determinant magnitude without dividing by two. |
+| 1703 | (2, −4) | Existing gradient skill 59 in category 13 is a cross-topic prerequisite; propose gradient calculation as a dedicated optimization prerequisite in category 91 to avoid silently changing Free access. Course mathematical-optimization is not seeded. |
+
+Do not create duplicate problems to resolve taxonomy holds. New skill names, category reassignment and access effects need the existing editorial/admin review path. The 15 separate wording assumptions still need versioned clarification. The full disposable PostgreSQL batch test now covers exact source fixtures from the embedded manifest, preview without mutation, authorization, malformed/stale revisions, changed stems, confirmation, mapping cardinalities, idempotence and no publication. The test restores its disposable fixtures before the ordinary journey scenarios; never run it against a live database.

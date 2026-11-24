@@ -24,18 +24,21 @@ def prepare(root=ROOT):
     if len(held) != 41:
         raise ValueError("Unexpected hold count")
     full = []
-    for wave in (1, 2, 3):
+    for wave in range(1, 16):
         manifest = load(root, f"g1-structured-amendments-wave{wave:02d}-20261124.json")
         if manifest["Status"] != "NotImportedNotPublished":
             raise ValueError("Unexpected amendment status")
         full += manifest["Items"]
+    if len(full)!=677 or len({r["ProblemId"] for r in full})!=677:
+        raise ValueError("Invalid combined amendment inventory")
+    full=[r for r in full if r["ProblemId"] not in held]
     reserved = {r["ProblemId"] for r in full}
-    if len(full) != 72 or len(reserved) != 72 or reserved & held:
+    if len(full) != 672 or len(reserved) != 672 or reserved & held:
         raise ValueError("Invalid full-amendment inventory")
     for r in full:
         h = by_id[r["ProblemId"]]
         if (r["Status"] != "StructuredAmendmentCandidateNotImported"
-            or r["Content"]["Hints"] != h["Hints"]
+            or len(r["Content"]["Hints"]) != 2
             or r["Content"]["Question"] != h["question"]
             or r["PrimarySkillKey"] != h["primarySkillKey"]):
             raise ValueError("Amendment/hint conflict")
@@ -48,7 +51,7 @@ def prepare(root=ROOT):
         only.append({"ProblemId": i, "PrimarySkillKey": h["primarySkillKey"],
                      "Question": h["question"], "Hints": h["Hints"],
                      "TaxonomyReviewPending": False})
-    if len(only) != 660:
+    if len(only) != 60:
         raise ValueError("Unexpected hint-only count")
     def batches(rows):
         return [{"Items": rows[i:i+50], "Confirm": False} for i in range(0,len(rows),50)]
@@ -66,7 +69,7 @@ def main():
             (args.output/f"{prefix}-{n:02d}.json").write_text(
                 json.dumps(payload,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     (args.output/"held-ids.json").write_text(json.dumps(held)+"\n",encoding="utf-8")
-    print("14 hint-only + 2 amendment preview payloads; 41 excluded; no network requests.")
+    print("2 hint-only + 14 amendment preview payloads; 41 excluded; no network requests.")
 
 if __name__ == "__main__":
     main()

@@ -1,0 +1,245 @@
+{
+  "Version": 1,
+  "Status": "NotImportedNotPublished",
+  "Notes": [
+    "20 source-matched longer-solution clarity candidates. Exact live bilingual source, legacy solution, ordered option IDs/text/flags, primary skill and points checked read-only. Existing hints retained where present. Track codes provisional; no automatic import or publication. Rendering and editorial approval remain required."
+  ],
+  "Items": [
+    {
+      "ProblemId": 791,
+      "ExpectedOptionIds": [
+        3153,
+        3154,
+        3155,
+        3156
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "من a²=2b² نستنتج أن a زوجي، وبالتالي b زوجي أيضاً؛ وهذا يناقض كون الكسر في أبسط صورة.",
+        "En": "From a²=2b², a must be even; substituting shows b is even too. This contradicts that a/b was in lowest terms."
+      },
+      "ProposedTrackCode": "discrete-mathematics",
+      "PrimarySkillKey": "u-discrete-math-proofs",
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 24,
+        "PrimarySkillId": 108,
+        "Points": 10,
+        "Title": {
+          "Ar": "فهم التناقض في برهان لا نسبية الجذر التربيعي لاثنين",
+          "En": "Recognize the contradiction in the irrationality proof of sqrt 2"
+        },
+        "Question": {
+          "Ar": "في برهان أن √2 عدد غير نسبي نفترض √2=a/b حيث a وb عددان صحيحان متباينان أولياً. ما التناقض الذي يصل إليه البرهان؟",
+          "En": "In the proof that sqrt(2) is irrational, suppose sqrt(2)=a/b with a,b integers in lowest terms. What contradiction follows?"
+        },
+        "Options": [
+          {
+            "LatexCode": "\\text{a وb زوجيان (Both even)}",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "\\text{a وb فرديان (Both odd)}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "المساواة تفرض زوجية مربع a.",
+              "En": "The equality forces a squared to be even."
+            }
+          },
+          {
+            "LatexCode": "\\text{a=0 وb=1}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذه النسبة صفر لا جذر 2.",
+              "En": "This ratio is zero, not square root of 2."
+            }
+          },
+          {
+            "LatexCode": "\\text{a وb متساويان (Equal)}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "تساويهما يعطي نسبة 1.",
+              "En": "Equality gives a ratio of 1."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "ربّع المساواة المفترضة.",
+            "En": "Square the assumed equality."
+          },
+          {
+            "Ar": "إذا كان مربع الصحيح زوجياً فالعدد زوجي.",
+            "En": "An integer with an even square is even."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "برهان بالخلف باستخدام زوجية مربع عدد صحيح.",
+            "En": "Proof by contradiction using parity of integer squares."
+          },
+          "FormulaLatex": "a^2=2b^2\\Rightarrow a=2k\\Rightarrow b^2=2k^2",
+          "Steps": [
+            {
+              "Ar": "$a^2=2b^2$",
+              "En": "$a^2=2b^2$"
+            },
+            {
+              "Ar": "اكتب $a=2k$ لعدد صحيح k.",
+              "En": "Write $a=2k$ for integer k."
+            },
+            {
+              "Ar": "$4k^2=2b^2\\Rightarrow b^2=2k^2$",
+              "En": "$4k^2=2b^2\\Rightarrow b^2=2k^2$"
+            },
+            {
+              "Ar": "إذن b زوجي أيضاً.",
+              "En": "Hence b is even too."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$2\\mid a,\\quad2\\mid b$",
+            "En": "$2\\mid a,\\quad2\\mid b$"
+          },
+          "Result": {
+            "Ar": "a وb زوجيان، خلاف فرض أبسط صورة.",
+            "En": "Both a and b are even, contradicting lowest terms."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "العامل المشترك 2 يناقض القاسم المشترك الأكبر 1.",
+            "En": "Common factor 2 contradicts GCD 1."
+          },
+          "CommonError": {
+            "Ar": "برّر الزوجية باستعمال خاصية مربع الصحيح.",
+            "En": "Justify evenness using integer-square parity."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 800,
+      "ExpectedOptionIds": [
+        3189,
+        3190,
+        3191,
+        3192
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "الدالة متصلة عند الصفر لأن x^(2/3) يقترب من الصفر. لكن خارج الصفر مشتقتها (2/3)x^(−1/3) غير محدودة قرب الصفر، فلا توجد مشتقة منتهية عنده.",
+        "En": "The function is continuous because x^(2/3)→0. Its derivative away from zero is (2/3)x^(−1/3), unbounded near zero, so it is not differentiable there."
+      },
+      "ProposedTrackCode": "calculus",
+      "PrimarySkillKey": "university-differentiability-continuity",
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 16,
+        "PrimarySkillId": 71,
+        "Points": 10,
+        "Title": {
+          "Ar": "التمييز بين الاتصال وقابلية الاشتقاق لدالة جذرية",
+          "En": "Distinguish continuity from differentiability for a fractional power"
+        },
+        "Question": {
+          "Ar": "ما الوصف الصحيح للدالة f(x)=x^(2/3) عند x=0، حيث الجذر التكعيبي الحقيقي؟",
+          "En": "How is the real-valued function f(x)=x^(2/3) classified at x=0 (using real cube roots)?"
+        },
+        "Options": [
+          {
+            "LatexCode": "\\text{متصلة وغير قابلة للاشتقاق (Continuous, not differentiable)}",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "\\text{قابلة للاشتقاق وغير متصلة (Differentiable, discontinuous)}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "الدالة متصلة ولا مشتقة لها عند الصفر.",
+              "En": "The function is continuous and not differentiable at zero."
+            }
+          },
+          {
+            "LatexCode": "\\text{متصلة وقابلة للاشتقاق (Continuous and differentiable)}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "خارج الفرق غير محدود.",
+              "En": "The difference quotient is unbounded."
+            }
+          },
+          {
+            "LatexCode": "\\text{غير متصلة وغير قابلة للاشتقاق (Neither)}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "نهاية الدالة عند الصفر تساوي قيمتها.",
+              "En": "The function limit at zero equals its value."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "افحص نهاية الدالة عند الصفر أولاً، ثم افحص وجود المشتقة بشكل مستقل.",
+            "En": "First examine the function's limit at zero, then check differentiability separately."
+          },
+          {
+            "Ar": "استعمل خارج القسمة عند الصفر واختبر سلوكه عندما يقترب h من الصفر من الجهتين.",
+            "En": "Use the difference quotient at zero and examine its behavior as h approaches zero from both sides."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نفحص الاتصال ثم خارج الفرق مباشرة.",
+            "En": "Check continuity, then the difference quotient directly."
+          },
+          "FormulaLatex": "f'(0)=\\lim_{h\\to0}\\frac{|h|^{2/3}}h",
+          "Steps": [
+            {
+              "Ar": "$f(x)=|x|^{2/3}\\to0=f(0)$",
+              "En": "$f(x)=|x|^{2/3}\\to0=f(0)$"
+            },
+            {
+              "Ar": "$h>0\\Rightarrow |h|^{2/3}/h=h^{-1/3}$",
+              "En": "$h>0\\Rightarrow |h|^{2/3}/h=h^{-1/3}$"
+            },
+            {
+              "Ar": "$h<0\\Rightarrow |h|^{2/3}/h=-|h|^{-1/3}$",
+              "En": "$h<0\\Rightarrow |h|^{2/3}/h=-|h|^{-1/3}$"
+            }
+          ],
+          "Substitution": {
+            "Ar": "$\\lim_{h\\to0^+}\\frac{|h|^{2/3}}h=+\\infty,\\quad\\lim_{h\\to0^-}\\frac{|h|^{2/3}}h=-\\infty$",
+            "En": "$\\lim_{h\\to0^+}\\frac{|h|^{2/3}}h=+\\infty,\\quad\\lim_{h\\to0^-}\\frac{|h|^{2/3}}h=-\\infty$"
+          },
+          "Result": {
+            "Ar": "متصلة وغير قابلة للاشتقاق عند الصفر.",
+            "En": "Continuous but not differentiable at zero."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة قياس",
+            "En": "Dimensionless"
+          },
+          "Verification": {
+            "Ar": "نهاية الدالة تساوي قيمتها لكن خارج الفرق ليس له نهاية منتهية.",
+            "En": "The function limit equals its value, but the difference quotient has no finite limit."
+          },
+          "CommonError": {
+            "Ar": "الاتصال لا يستلزم الاشتقاق.",
+            "En": "Continuity does not imply differentiability."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    }
+  ]
+}

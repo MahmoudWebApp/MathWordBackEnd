@@ -40,7 +40,7 @@ print("PASS: all new hints have matching source and law evidence")
 
 # Wave 03 and the previously adequate explanations share one canonical hint inventory.
 long_review=json.loads((ROOT/"content/editorial/g1-remaining-long-solution-review-20261124.json").read_text(encoding="utf-8"))["Items"]
-wave03=json.loads((ROOT/"content/editorial/g1-structured-amendments-wave03-20261124.json").read_text(encoding="utf-8"))["Items"]
+wave03=json.loads((ROOT/"content/editorial/g1-structured-amendments-alternate-clarity-20261124.json").read_text(encoding="utf-8"))["Items"]
 by_id={r["problemId"]:r for r in items}
 adequate={r["ProblemId"]:r for r in long_review if r["Disposition"]=="ExistingExplanationAdequateInDeskReview"}
 assert len(adequate)==56
@@ -127,11 +127,11 @@ import sys
 sys.path.insert(0,str(ROOT/"scripts"))
 from prepare_g1_publication_batches import prepare
 hint_batches, full_batches, blocked = prepare()
-assert [len(b["Items"]) for b in hint_batches]==[50]*13+[10]
-assert [len(b["Items"]) for b in full_batches]==[50,22]
+assert [len(b["Items"]) for b in hint_batches]==[50,10]
+assert [len(b["Items"]) for b in full_batches]==[50]*13+[22]
 hint_ids={r["ProblemId"] for b in hint_batches for r in b["Items"]}
 full_ids={r["ProblemId"] for b in full_batches for r in b["Items"]}
-assert len(hint_ids)==660 and len(full_ids)==72 and len(blocked)==41
+assert len(hint_ids)==60 and len(full_ids)==672 and len(blocked)==41
 assert not hint_ids.intersection(full_ids) and not (hint_ids|full_ids).intersection(blocked)
 assert hint_ids|full_ids|set(blocked)==set(source)
 assert all(b["Confirm"] is False for b in hint_batches+full_batches)

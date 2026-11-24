@@ -14,6 +14,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<EmbeddedResource Include="content/editorial/g1-track-draft-batch-20261124.json" LogicalName="MathWorld.G1.TrackDraftBatch" />
 		<EmbeddedResource Include="assets/branding/mathworld-report-mark.png" LogicalName="MathWorld.Brand.Logo.png" />
 		<EmbeddedResource Include="assets/fonts/IBMPlexSansArabic-Regular.ttf" LogicalName="MathWorld.Brand.PdfArabicRegular.ttf" />
 		<EmbeddedResource Include="assets/fonts/IBMPlexSansArabic-SemiBold.ttf" LogicalName="MathWorld.Brand.PdfArabicSemiBold.ttf" />

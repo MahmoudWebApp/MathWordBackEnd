@@ -1,9 +1,106 @@
 """Track mapping integration, invoked inside the existing disposable journey suite."""
-import os, subprocess, io, zipfile, urllib.request
+import os, subprocess, io, zipfile, urllib.request, json
+from pathlib import Path
 from integration_learning_journey import expect, BASE
 def sql(q):
     assert BASE.startswith(("http://127.0.0.1:","http://localhost:"))
     return subprocess.check_output(["psql","-X","-h","127.0.0.1","-U","postgres","-d","mathworld_ci","-v","ON_ERROR_STOP=1","-Atc",q],env={**os.environ,"PGPASSWORD":"ci_only_password"},text=True).strip()
+def fixture_sql(q):
+    # Large bilingual fixture data exceeds the OS limit for a single argv entry.
+    # Always use the same disposable local DB as sql(), never a deployment URL.
+    assert BASE.startswith(("http://127.0.0.1:","http://localhost:"))
+    subprocess.run(["psql","-X","-h","127.0.0.1","-U","postgres","-d","mathworld_ci","-v","ON_ERROR_STOP=1"],
+        input=q,text=True,check=True,env={**os.environ,"PGPASSWORD":"ci_only_password"},stdout=subprocess.DEVNULL)
+
+def literal(value):
+    return "'" + value.replace("'", "''") + "'"
+
+def verify_reviewed_batch(admin, student, all_tracks):
+    # The migration-only database has no published production bank. Build exact
+    # source-match fixtures from the embedded package, then remove only those
+    # fixture rows. This tests the real endpoint, not a test-only API override.
+    manifest=json.loads((Path(__file__).resolve().parents[1]/"content/editorial/g1-track-draft-batch-20261124.json").read_text(encoding="utf-8"))
+    groups=manifest["Tracks"]
+    rows=[(group["StageId"],row) for group in groups for row in group["Rows"]]
+    ids=",".join(str(row["ProblemId"]) for _,row in rows)
+    skills={row["PrimarySkillId"]:(stage,row["CategoryId"],row["StableKey"]) for stage,row in rows}
+    skill_ids=",".join(map(str,skills))
+    categories={row["CategoryId"]:stage for stage,row in rows}
+    cat_ids=",".join(map(str,categories))
+    expected_count=len(rows)
+    assert expected_count+manifest["ExcludedCount"]==773 and len(groups)==17
+    assert len({row["ProblemId"] for _,row in rows})==expected_count
+    assert sql(f'SELECT COUNT(*) FROM "Problems" WHERE "Id" IN ({ids})')=="0"
+    assert sql(f'SELECT COUNT(*) FROM "CurriculumSkills" WHERE "Id" IN ({skill_ids})')=="0"
+    assert all(x["Track"]["Revision"]==0 and not x["Track"]["IsPublished"] for x in all_tracks)
+    existing={int(x) for x in sql(f'SELECT "Id" FROM "Categories" WHERE "Id" IN ({cat_ids})').splitlines()}
+    added=[(cid,stage) for cid,stage in categories.items() if cid not in existing]
+    assert sql('SELECT COUNT(*) FROM "LearningTrackProblems"')=="0"
+    domain=int(sql("""INSERT INTO "CurriculumDomains" ("StableKey","NameAr","NameEn","IsPublished") VALUES ('ci-reviewed-batch','اختبار','CI fixture',true) RETURNING "Id" """).splitlines()[0])
+    statements=["BEGIN;","SET LOCAL standard_conforming_strings=on;"]
+    for cid,stage in added:
+        statements.append(f'''INSERT INTO "Categories" ("Id","NameAr","NameEn","Icon","Order","StageId","DescriptionAr","DescriptionEn") VALUES ({cid},'اختبار','CI fixture','test',100,{stage},'','');''')
+    for sid,(stage,cid,key) in skills.items():
+        statements.append(f'''INSERT INTO "CurriculumSkills" ("Id","StableKey","DomainId","StageId","CategoryId","NameAr","NameEn","IsPublished") VALUES ({sid},{literal(key)},{domain},{stage},{cid},'اختبار','CI fixture',true);''')
+    for stage,row in rows:
+        pid,cid,sid=row["ProblemId"],row["CategoryId"],row["PrimarySkillId"]
+        ar,en=literal(row["ExpectedQuestionAr"]),literal(row["ExpectedQuestionEn"])
+        statements.append(f'''INSERT INTO "Problems" ("Id","TitleAr","TitleEn","QuestionTextAr","QuestionTextEn","DetailedSolutionAr","DetailedSolutionEn","StageId","CategoryId","Points","ViewsCount","SolvedCount","CreatedAt") VALUES ({pid},'اختبار','CI fixture',{ar},{en},'اختبار','CI fixture',{stage},{cid},10,0,0,now());''')
+        statements.append(f'''INSERT INTO "CurriculumProblemSkills" ("ProblemId","SkillId","IsPrimary") VALUES ({pid},{sid},true);''')
+    statements.append("COMMIT;")
+    fixture_sql("\n".join(statements))
+    root="/api/admin/learning-tracks/reviewed-draft-batch"
+    def link_count():
+        return int(sql('SELECT COUNT(*) FROM "LearningTrackProblems"'))
+    try:
+        preview=expect("POST",root,200,{"Confirm":False},admin)
+        assert not preview["Confirmed"] and preview["AppliedTracks"]==0
+        assert len(preview["Items"])==17 and sum(x["Problems"] for x in preview["Items"])==expected_count
+        assert all(x["Status"]=="Ready" for x in preview["Items"])
+        assert link_count()==0
+        revisions=[{"Id":x["Id"],"Revision":x["Revision"]} for x in preview["Items"]]
+        confirm={"Confirm":True,"Revisions":revisions}
+        expect("POST",root,403,confirm,student)
+        expect("POST",root,400,{"Confirm":True,"Revisions":[None]+revisions[1:]},admin)
+        expect("POST",root,400,{"Confirm":True,"Revisions":[dict(revisions[0],Revision=-1)]+revisions[1:]},admin)
+        stale=[dict(x) for x in revisions]
+        stale[0]["Revision"]+=1
+        expect("POST",root,409,{"Confirm":True,"Revisions":stale},admin)
+        assert link_count()==0
+        # A source changed after preview must abort the whole confirmation.
+        row=rows[0][1]
+        pid=row["ProblemId"]
+        sql(f'''UPDATE "Problems" SET "QuestionTextEn"='changed after preview' WHERE "Id"={pid}''')
+        expect("POST",root,409,confirm,admin)
+        assert link_count()==0
+        sql(f'''UPDATE "Problems" SET "QuestionTextEn"={literal(row["ExpectedQuestionEn"])} WHERE "Id"={pid}''')
+        saved=expect("POST",root,200,confirm,admin)
+        assert saved["Confirmed"] and saved["AppliedTracks"]==17
+        assert link_count()==expected_count
+        assert int(sql('SELECT COUNT(*) FROM "LearningTrackCategories"'))==sum(len({r["CategoryId"] for r in g["Rows"]}) for g in groups)
+        assert int(sql('SELECT COUNT(*) FROM "LearningTrackSkills"'))==sum(len({r["PrimarySkillId"] for r in g["Rows"]}) for g in groups)
+        assert sql('SELECT COUNT(*) FROM "LearningTracks" WHERE "IsPublished"')=="0"
+        assert sql('SELECT COUNT(*) FROM "LearningTracks" WHERE "Revision"=1')=="17"
+        expect("POST",root,409,confirm,admin)
+        repeat=expect("POST",root,200,{"Confirm":False},admin)
+        assert all(x["Status"]=="AlreadyMapped" for x in repeat["Items"])
+        again=expect("POST",root,200,{"Confirm":True,"Revisions":[{"Id":x["Id"],"Revision":x["Revision"]} for x in repeat["Items"]]},admin)
+        assert again["AppliedTracks"]==0 and link_count()==expected_count
+        assert sql('SELECT COUNT(*) FROM "LearningTracks" WHERE "Revision"=1')=="17"
+        print(f"PASS: reviewed {expected_count}-question batch preview, stale/source rejection, atomic mapping and idempotence; no publication")
+    finally:
+        track_ids=",".join(str(x["Track"]["Id"]) for x in all_tracks)
+        fixture_sql(f'''BEGIN;
+DELETE FROM "LearningTrackProblems" WHERE "TrackId" IN ({track_ids});
+DELETE FROM "LearningTrackSkills" WHERE "TrackId" IN ({track_ids});
+DELETE FROM "LearningTrackCategories" WHERE "TrackId" IN ({track_ids});
+UPDATE "LearningTracks" SET "Revision"=0 WHERE "Id" IN ({track_ids}) AND NOT "IsPublished";
+DELETE FROM "PlatformActivityEvents" WHERE "Action"='LearningTrackReviewedDraftMapped' AND "Resource"='LearningTrack';
+DELETE FROM "Problems" WHERE "Id" IN ({ids});
+DELETE FROM "CurriculumSkills" WHERE "Id" IN ({skill_ids});
+DELETE FROM "CurriculumDomains" WHERE "Id"={domain};
+''' + (f'DELETE FROM "Categories" WHERE "Id" IN ({",".join(str(cid) for cid,_ in added)});\n' if added else "") + "COMMIT;")
+
 def verify_tracks(admin, student, uid, stage1, stage2):
     root="/api/admin/learning-tracks"
     all_tracks=expect("GET",root,200,token=admin)["Items"]
@@ -11,6 +108,12 @@ def verify_tracks(admin, student, uid, stage1, stage2):
     assert expect("GET",f"/api/stages/{stage1}/tracks",200)["Items"]==[]
     assert expect("GET","/api/users/learning-track",200,token=student).get("TrackId") is None
     expect("GET",root,403,token=student)
+    expect("POST",root+"/reviewed-draft-batch",403,{"Confirm":False},student)
+    expect("POST",root+"/reviewed-draft-batch",400,{"Confirm":True},admin)
+    # The production manifest is not valid against this disposable fixture.
+    expect("POST",root+"/reviewed-draft-batch",409,{"Confirm":False},admin)
+    assert sql('SELECT COUNT(*) FROM "LearningTrackProblems"')=="0"
+    verify_reviewed_batch(admin, student, all_tracks)
     t=next(x["Track"] for x in all_tracks if x["Track"]["StageId"]==stage1)
     tid=t["Id"]
     expect("PUT",f"{root}/{tid}/publication",409,{"Revision":0,"Publish":True},admin)
@@ -148,6 +251,7 @@ def verify_tracks(admin, student, uid, stage1, stage2):
     expect("PUT",f"{root}/{tid}/publication",200,{"Revision":3,"Publish":False},admin)
     assert expect("GET",f"/api/stages/{stage1}/tracks",200)["Items"]==[]
     assert expect("GET","/api/users/learning-track",200,token=student).get("TrackId") is None
+    verify_premium_only_course(admin,student,uid,stage1,all_tracks)
     # Keep journey suite's original stage and fixture assumptions.
     expect("PUT","/api/users/learning-stage",200,{"StageId":stage2},student)
     expect("PUT","/api/users/learning-stage",200,{"StageId":stage1},student)
@@ -156,7 +260,6 @@ def verify_tracks(admin, student, uid, stage1, stage2):
     assert sql(f'SELECT COUNT(*) FROM "PermanentProblemAchievements" WHERE "UserId"={uid} AND "ProblemId"={pid}')=="1"
     sql(f'DELETE FROM "PermanentProblemAchievements" WHERE "UserId"={uid} AND "ProblemId"={pid}; DELETE FROM "ProblemAttempts" WHERE "ProblemId"={pid}; DELETE FROM "UserProgresses" WHERE "ProblemId"={pid}; DELETE FROM "Problems" WHERE "Id"={pid}; DELETE FROM "CurriculumSkills" WHERE "Id"={skill}; DELETE FROM "CurriculumDomains" WHERE "Id"={domain}')
     print("PASS: 17 unpublished tracks, validated mapping, no empty public tracks, original stage Free policy, selection and legacy stage switch")
-    verify_premium_only_course(admin,student,uid,stage1,all_tracks)
 
 
 def verify_premium_only_course(admin,student,uid,stage1,all_tracks):
