@@ -74,6 +74,12 @@ def main():
     admin_token=token_of(result["Data"])
     outbox=expect("GET",outbox_route,200,token=admin_token)
     assert outbox["IsConfigured"] and outbox["IsTestMode"] and not outbox["IsWorkerEnabled"]
+    readiness=outbox["Readiness"]
+    assert readiness["Missing"]==["WorkerDisabled"], readiness
+    assert readiness["CanQueueAdminTest"] is False
+    assert readiness["AdminRecoveryConfigured"] is False
+    assert readiness["ProviderConnectionVerified"] is False and readiness["InboxDeliveryVerified"] is False
+    assert "ci-dummy-never-send" not in str(outbox) and "ci-admin@mathworld.test" not in str(outbox)
     assert outbox["Items"] and all(not any(k in row for k in ("Recipient","ResetGrantId","ProviderMessageId","TokenHash")) for row in outbox["Items"])
     expect("POST",outbox_route+"/test",503,{"Language":"ar"},admin_token)
     # Expiration is checked atomically even if a reset link was valid earlier.

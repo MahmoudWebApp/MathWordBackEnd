@@ -26,10 +26,34 @@ public sealed class AdminEmailOutboxController(AppDbContext db, IConfiguration c
         var items = await db.EmailOutbox.AsNoTracking().OrderByDescending(x => x.CreatedAtUtc).Take(50)
             .Select(x => new { x.Id, x.TemplateKey, x.Locale, x.State, x.Attempts,
                 x.CreatedAtUtc, x.NextRetryAtUtc, x.LastErrorCode }).ToListAsync(ct);
+        if (!int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier),out var id)) return Unauthorized();
+        var admin=await db.Users.AsNoTracking().SingleOrDefaultAsync(u=>u.Id==id&&u.IsActive&&u.Role==AccountRolePolicy.LegacyAdmin,ct);
+        if(admin is null)return Forbid();
+        var workerEnabled=config.GetValue<bool>("MathWorldEmail:OutboxEnabled");
+        var recoveryRequested=config.GetValue<bool>("MathWorldRecovery:Enabled");
+        var recoveryKeyConfigured=new RecoveryTokenCodec(config).IsConfigured;
+        var adminVerified=string.Equals(config["MathWorldRecovery:VerifiedAdminEmail"]?.Trim(),admin.Email,StringComparison.OrdinalIgnoreCase);
+        var adminAllowed=transport.IsTestMode&&transport.AllowsRecipient(admin.Email);
+        var limit=Math.Clamp(config.GetValue("MathWorldEmail:DailyAttemptLimit",100),10,150);
+        // These are only local configuration checks; they do not claim
+        // provider authentication, sender verification or inbox delivery.
+        var missing=new List<string>();
+        if(!transport.ProviderEnabled)missing.Add("ProviderDisabled");
+        if(!transport.HasApiKey)missing.Add("ApiKeyMissing");
+        if(!transport.HasValidSender)missing.Add("SenderMissingOrInvalid");
+        if(!transport.HasValidMode)missing.Add("ModeInvalid");
+        if(!workerEnabled)missing.Add("WorkerDisabled");
+        if(transport.IsTestMode&&!adminAllowed)missing.Add("AdminTestRecipientUnavailable");
+        if(!recoveryRequested)missing.Add("RecoveryDisabled");
+        if(!recoveryKeyConfigured)missing.Add("RecoveryKeyMissingOrInvalid");
+        if(!adminVerified)missing.Add("AdminRecoveryAddressNotVerifiedInConfig");
         // Never expose recipient, message body, provider ID, grant ID or secrets.
         return Ok(new { IsConfigured = transport.IsConfigured, IsTestMode = transport.IsTestMode,
-            IsWorkerEnabled = config.GetValue<bool>("MathWorldEmail:OutboxEnabled"), RecoveryEnabled = recovery.Enabled,
-            AttemptLimit = Math.Clamp(config.GetValue("MathWorldEmail:DailyAttemptLimit", 100), 10, 150),
+            IsWorkerEnabled = workerEnabled, RecoveryEnabled = recovery.Enabled,
+            Readiness = new { Missing = missing, CanQueueAdminTest=transport.IsConfigured&&workerEnabled&&adminAllowed&&attempts<limit*3/4,
+                AdminRecoveryConfigured=recovery.Enabled&&workerEnabled&&adminVerified&&transport.AllowsRecipient(admin.Email),
+                ProviderConnectionVerified=false, InboxDeliveryVerified=false },
+            AttemptLimit = limit,
             ReservedAttempts = attempts, Counts = recent, Items = items });
     }
 

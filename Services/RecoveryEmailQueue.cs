@@ -17,9 +17,12 @@ public sealed class BrevoEmailTransport(IConfiguration config, IHttpClientFactor
     private string? Read(string name) => config["MathWorldEmail:Brevo:" + name]?.Trim();
     private string Mode => Read("Mode") ?? "test";
     public bool IsTestMode => Mode == "test";
-    public bool IsConfigured => config.GetValue<bool>("MathWorldEmail:Brevo:Enabled") &&
-        !string.IsNullOrWhiteSpace(Read("ApiKey")) &&
-        MailAddress.TryCreate(Read("From"), out _) && Mode is "test" or "live";
+    public bool ProviderEnabled => config.GetValue<bool>("MathWorldEmail:Brevo:Enabled");
+    public bool HasApiKey => !string.IsNullOrWhiteSpace(Read("ApiKey"));
+    public bool HasValidSender => MailAddress.TryCreate(Read("From"), out var sender) &&
+        string.Equals(sender.Address, Read("From"), StringComparison.OrdinalIgnoreCase);
+    public bool HasValidMode => Mode is "test" or "live";
+    public bool IsConfigured => ProviderEnabled && HasApiKey && HasValidSender && HasValidMode;
     public bool AllowsRecipient(string recipient) => IsConfigured &&
         (Mode == "live" || (Read("TestRecipients") ?? "").Split(';', StringSplitOptions.TrimEntries |
             StringSplitOptions.RemoveEmptyEntries).Contains(recipient, StringComparer.OrdinalIgnoreCase));
