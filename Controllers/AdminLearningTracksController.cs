@@ -20,7 +20,7 @@ public sealed class AdminLearningTracksController(AppDbContext db,LearningTrackS
         [Required,StringLength(150)] string NameAr,[Required,StringLength(150)] string NameEn,
         [StringLength(1500)] string DescriptionAr="",[StringLength(1500)] string DescriptionEn="",int SortOrder=0);
     public sealed record MappingInput(int Revision, int[] CategoryIds,int[] SkillIds,int[] ProblemIds);
-    public sealed record PublishInput(int Revision,bool Publish);
+    public sealed record PublishInput(int Revision,bool Publish,bool ConfirmPremiumOnlyCourse=false);
     public sealed record MetadataInput(int Revision,[Required,StringLength(150)] string NameAr,[Required,StringLength(150)] string NameEn,
         [StringLength(1500)] string DescriptionAr="",[StringLength(1500)] string DescriptionEn="",int SortOrder=0);
     private int ActorId=>int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
@@ -126,16 +126,28 @@ public sealed class AdminLearningTracksController(AppDbContext db,LearningTrackS
         var t=await db.LearningTracks.FromSqlInterpolated($@"SELECT * FROM ""LearningTracks"" WHERE ""Id""={id} FOR UPDATE").SingleOrDefaultAsync(ct);
         if(t is null)return NotFound();
         if(t.Revision!=input.Revision)return Conflict(new{Message="TrackChanged"});
+        var premiumOnly=false;
         if(input.Publish)
         {
             var coverage=await service.CoverageAsync(id,t.StageId,ct);
             var mapped=await db.LearningTrackProblems.CountAsync(x=>x.TrackId==id,ct);
             var categories=await db.LearningTrackCategories.CountAsync(x=>x.TrackId==id,ct);
-            if(coverage.Problems==0||coverage.Problems!=mapped||coverage.Categories!=categories||coverage.FreeProblems==0)
+            if(coverage.Problems==0||coverage.Problems!=mapped||coverage.Categories!=categories)
                 return Conflict(new{Message="TrackNotReady",Coverage=coverage});
+            // University courses may have no overlap with the two Free categories.
+            // This is an explicit catalog publication decision, not an entitlement grant.
+            if(coverage.FreeProblems==0)
+            {
+                if(t.StageId!=4||t.Kind!="course")
+                    return Conflict(new{Message="TrackNotReady",Coverage=coverage});
+                if(!input.ConfirmPremiumOnlyCourse)
+                    return Conflict(new{Message="PremiumOnlyCourseConfirmationRequired",Coverage=coverage});
+                premiumOnly=true;
+            }
         }
         t.IsPublished=input.Publish;t.Revision++;
         Audit(id,input.Publish?"LearningTrackPublished":"LearningTrackUnpublished");
+        if(premiumOnly)Audit(id,"PremiumOnlyCoursePublicationConfirmed");
         await db.SaveChangesAsync(ct);await tx.CommitAsync(ct);
         return Ok(new{t.Revision,t.IsPublished});
     }
