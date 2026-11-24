@@ -15,6 +15,22 @@ static void Assert(bool condition, string message)
     if (!condition) throw new InvalidOperationException(message);
 }
 
+// R1 account foundation: the legacy role wire contract must remain stable
+// until all clients, endpoints and persisted permissions are ready.
+Assert(AccountRolePolicy.IsSupportedSessionRole("Admin") &&
+       AccountRolePolicy.IsSupportedSessionRole("Student"),
+    "Existing Admin and Student sessions must remain supported.");
+foreach (var unsupportedRole in new string?[] { null, "", "admin", "SuperAdmin", "Supervisor", "Owner", " Admin" })
+    Assert(!AccountRolePolicy.IsSupportedSessionRole(unsupportedRole),
+        "Unmigrated or malformed roles must fail closed.");
+Assert(AccountRolePolicy.NormalizeExistingRegistrationRole("Admin") == "Admin" &&
+       AccountRolePolicy.NormalizeExistingRegistrationRole("admin") == "Admin",
+    "Existing trusted Admin creation behavior must remain unchanged.");
+foreach (var requestedRole in new[] { "Student", "Supervisor", "SuperAdmin", "Owner", "" })
+    Assert(AccountRolePolicy.NormalizeExistingRegistrationRole(requestedRole) == "Student",
+        "New or unknown roles must not elevate existing registration.");
+Console.WriteLine("PASS: legacy account role compatibility and fail-closed unmigrated roles.");
+
 // A different numeric substitution must trigger review as the same
 // template family, while stage and topic boundaries remain distinct.
 var familyOne = CurriculumContentQuality.FamilyKey(

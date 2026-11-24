@@ -488,12 +488,7 @@ namespace MathWorldAPI.Services
         private static string NormalizeRole(
             string role)
         {
-            return string.Equals(
-                    role,
-                    "Admin",
-                    StringComparison.OrdinalIgnoreCase)
-                ? "Admin"
-                : "Student";
+            return AccountRolePolicy.NormalizeExistingRegistrationRole(role);
         }
     }
 }

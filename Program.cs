@@ -194,7 +194,7 @@ builder.Services
                 var role = context.Principal?
                     .FindFirstValue(ClaimTypes.Role);
                 if (!int.TryParse(rawId, out var userId) || userId <= 0 ||
-                    (role != "Admin" && role != "Student"))
+                    !AccountRolePolicy.IsSupportedSessionRole(role))
                 {
                     context.Fail("InvalidSessionIdentity");
                     return;
@@ -220,11 +220,11 @@ builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy(
         "AdminOnly",
-        policy => policy.RequireRole("Admin"));
+        policy => policy.RequireRole(AccountRolePolicy.LegacyAdmin));
 
     options.AddPolicy(
         "StudentOnly",
-        policy => policy.RequireRole("Student"));
+        policy => policy.RequireRole(AccountRolePolicy.Student));
 });
 
 // ============================================================================
