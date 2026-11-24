@@ -59,6 +59,25 @@ WHERE connamespace = 'public'::regnamespace
 ORDER BY 1, 2;
 ```
 
+## Supabase migration ledger cross-check
+
+A separate **read-only** query using the Supabase migration-ledger interface found eight Supabase schema migration records:
+
+| Supabase migration ID | Supabase migration name | Corresponding EF migration or area (inferred by name/effects; compare SQL before certifying equivalence) |
+| --- | --- | --- |
+| `20261113081151` | `mathworld_add_student_learning_stage_fix_20261113` | Student-stage schema, earlier work |
+| `20261120183534` | `mathworld_bilingual_stage_category_descriptions_20261120` | `20261120193000_BilingualCurriculumDescriptions` |
+| `20261121181652` | `curriculum_taxonomy_20261121` | `20261121220000_CurriculumTaxonomy` |
+| `20261121181720` | `secure_curriculum_taxonomy_20261121` | Taxonomy access/grants and RLS |
+| `20261121183315` | `curriculum_skills_category_index_20261121` | Taxonomy skill/category indexes |
+| `20261121185633` | `curriculum_editorial_topic_proposals_20261121` | `20261121231500_CurriculumTopicProposals` |
+| `20261121185926` | `curriculum_private_draft_items_20261121` | `20261121233000_CurriculumDraftItems` |
+| `20261121205359` | `prevent_duplicate_stage_questions_20261121` | `20261121235500_PreventDuplicateProblemQuestions` |
+
+**Root-cause hypothesis sharpened:** the same conceptual changes were implemented through Supabase migrations, while corresponding later Entity Framework migrations remain unapplied in `__EFMigrationsHistory`. Because the two migration systems use different ledgers and IDs, the current state can remain *physically present but logically pending* to EF. **Matching names are not proof of byte-for-byte DDL equivalence.** Compare migration SQL, defaults, constraints, index functions, RLS/grants, data changes and schema snapshots on an isolated restore before choosing one canonical migration authority or recording any reconciliation.
+
+The Supabase project currently reports **zero development branches**, so there is no pre-existing isolated branch to serve as a restore/rehearsal environment. Creating one may incur usage charges and does not automatically copy production data; do not create it automatically. The user database was **not modified** during this check.
+
 ## Safe reconciliation gate
 
 1. **Freeze writes to the target during the controlled change window** and save the actual application commit, applied migration list, schema dump, and a restorable backup. Test restore on a separate database. Do not copy production secrets into GitHub or test artifacts.
