@@ -16,8 +16,11 @@ namespace MathWorldAPI.Controllers;
 [Authorize(Roles="Admin,Supervisor")]
 [SupervisorEndpoint]
 [ResponseCache(NoStore=true,Location=ResponseCacheLocation.None)]
-public sealed class EditorialProblemsController(AppDbContext db,IConfiguration config):ControllerBase
+public sealed partial class EditorialProblemsController:ControllerBase
 {
+    private readonly AppDbContext db;
+    private readonly IConfiguration config;
+    public EditorialProblemsController(AppDbContext db,IConfiguration config){this.db=db;this.config=config;}
     public sealed record SaveInput(int Revision,WizardProblem Content);
     public sealed record ActionInput(int Revision,string Note="",bool Confirm=false);
     public sealed record ImportRow(string ContentKey,string PrimarySkillKey,string[] ProposedTrackCodes,WizardProblem Content);
@@ -481,6 +484,10 @@ public sealed class EditorialProblemsController(AppDbContext db,IConfiguration c
         {
             var source=await db.Problems.AsNoTracking().Include(x=>x.Options).SingleOrDefaultAsync(x=>x.Id==d.SourceProblemId,ct);
             if(source is null||Fingerprint(source)!=d.SourceFingerprint)errors.Add("AmendmentSourceChanged");
+            else if(IsHeldWording(d))
+            {
+                if(!await ValidHeldWording(source,p,d,ct))errors.Add("HeldWordingChangedOrHistoryExists");
+            }
             else if(!SameQuestion(source,p))errors.Add("AmendmentQuestionImmutable");
             var existingTracks=await db.LearningTrackProblems.Where(x=>x.ProblemId==d.SourceProblemId).Select(x=>x.TrackId).ToArrayAsync(ct);
             if(existingTracks.Any(x=>!p.TrackIds!.Contains(x)))errors.Add("AmendmentTrackRemoval");
@@ -546,7 +553,15 @@ public sealed class EditorialProblemsController(AppDbContext db,IConfiguration c
         if(d.SourceProblemId.HasValue)
         {
             problem=await db.Problems.Include(x=>x.Options).SingleAsync(x=>x.Id==d.SourceProblemId,ct);
-            if(Fingerprint(problem)!=d.SourceFingerprint||!SameQuestion(problem,p))return Conflict(new{Message="AmendmentSourceChanged"});
+            if(Fingerprint(problem)!=d.SourceFingerprint)return Conflict(new{Message="AmendmentSourceChanged"});
+            if(IsHeldWording(d))
+            {
+                if(!await ValidHeldWording(problem,p,d,ct))return Conflict(new{Message="HeldWordingChangedOrHistoryExists"});
+                // Fixed, source-bound wording correction only. Never replace option IDs,
+                // answer flags, category, points, primary skill or historical data.
+                problem.QuestionTextAr=p.Question!.Ar;problem.QuestionTextEn=p.Question.En;
+            }
+            else if(!SameQuestion(problem,p))return Conflict(new{Message="AmendmentSourceChanged"});
             problem.TitleAr=p.Title!.Ar.Trim();problem.TitleEn=p.Title.En.Trim();
             problem.DetailedSolutionAr=flatAr;problem.DetailedSolutionEn=flatEn;problem.EditorialDetailsJson=metadata;
         }

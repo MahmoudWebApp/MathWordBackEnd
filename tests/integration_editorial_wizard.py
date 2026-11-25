@@ -32,7 +32,17 @@ def verify_wizard(admin,supervisor,sid):
     expect("GET",root+"/reviewed-bank/amendments/1",403,token=supervisor)
     expect("GET",root+"/reviewed-bank/amendments/1",401)
     expect("GET",root+"/reviewed-bank/hints/999",404,token=admin)
-    print("PASS: private embedded reviewed catalog, no writes, exact candidate counts")
+    wording=expect("GET",root+"/held-wording",200,token=admin)
+    assert len(wording["Items"])==37 and all(x["ProblemId"] not in ids for x in wording["Items"])
+    assert {7,10,177} <= {x["ProblemId"] for x in wording["Items"]}
+    assert not {20,649,768,1578}&{x["ProblemId"] for x in wording["Items"]}
+    expect("GET",root+"/held-wording",401)
+    expect("GET",root+"/held-wording",403,token=supervisor)
+    expect("POST",root+"/held-wording/import",403,{"ProblemIds":[153]},supervisor)
+    expect("POST",root+"/held-wording/import",400,{"ProblemIds":[20],"Confirm":True},admin)
+    expect("POST",root+"/held-wording/import",400,{"ProblemIds":[153,153],"Confirm":True},admin)
+    assert sql('SELECT COUNT(*) FROM "CurriculumDraftItems"')==before
+    print("PASS: private embedded reviewed catalog, no writes, exact candidate counts; held wording inventory guarded")
     stage=1
     inventory=expect("GET",f"{root}/classification/{stage}",200,token=supervisor)
     category=inventory["Categories"][0]["Id"]
