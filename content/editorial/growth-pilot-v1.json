@@ -1,0 +1,3425 @@
+{
+  "Status": "DraftCandidatesNotPublished",
+  "Items": [
+    {
+      "ContentKey": "growth-v1-grade-1-hidden-part-1",
+      "ReviewStatus": "Draft",
+      "Family": "hidden-part",
+      "PrimarySkillKey": "primary-subtraction",
+      "ProposedTrackCodes": [
+        "grade-1"
+      ],
+      "Check": {
+        "expected": "11"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 1,
+        "PrimarySkillId": 2,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "الجزء المخفي",
+          "En": "Hidden part"
+        },
+        "Question": {
+          "Ar": "في كيس 18 خرزة، منها 7 بيضاء والباقي خضراء. كم خرزة خضراء؟",
+          "En": "A bag holds 18 beads. 7 are white and the rest green. How many are green?"
+        },
+        "Options": [
+          {
+            "LatexCode": "11",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "25",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "جمع الكل والجزء.",
+              "En": "Adds total and part."
+            }
+          },
+          {
+            "LatexCode": "12",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "زاد واحدة.",
+              "En": "Counts one extra."
+            }
+          },
+          {
+            "LatexCode": "7",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "حسب الخرز الأبيض.",
+              "En": "Counts white beads."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "حدد الكل والجزء المعروف.",
+            "En": "Identify total and known part."
+          },
+          {
+            "Ar": "اطرح الجزء المعروف من الكل.",
+            "En": "Subtract the known part from total."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "حدد الكل والجزء المعروف.",
+            "En": "Identify total and known part."
+          },
+          "FormulaLatex": "G=T-W",
+          "Steps": [
+            {
+              "Ar": "الكل 18.",
+              "En": "Total is 18."
+            },
+            {
+              "Ar": "اطرح 7.",
+              "En": "Subtract 7."
+            }
+          ],
+          "Substitution": {
+            "Ar": "18-7=11",
+            "En": "18-7=11"
+          },
+          "Result": {
+            "Ar": "11",
+            "En": "11"
+          },
+          "Unit": {
+            "Ar": "خرزة",
+            "En": "beads"
+          },
+          "Verification": {
+            "Ar": "11+7=18",
+            "En": "11+7=18"
+          },
+          "CommonError": {
+            "Ar": "لا تجمع الكل والجزء.",
+            "En": "Do not add total and part."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v1-grade-1-hidden-part-2",
+      "ReviewStatus": "Draft",
+      "Family": "hidden-part",
+      "PrimarySkillKey": "primary-subtraction",
+      "ProposedTrackCodes": [
+        "grade-1"
+      ],
+      "Check": {
+        "expected": "7"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 1,
+        "PrimarySkillId": 2,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "الجزء المخفي",
+          "En": "Hidden part"
+        },
+        "Question": {
+          "Ar": "في كيس 16 خرزة، منها 9 بيضاء والباقي خضراء. كم خرزة خضراء؟",
+          "En": "A bag holds 16 beads. 9 are white and the rest green. How many are green?"
+        },
+        "Options": [
+          {
+            "LatexCode": "25",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "جمع الكل والجزء.",
+              "En": "Adds total and part."
+            }
+          },
+          {
+            "LatexCode": "7",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "8",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "زاد واحدة.",
+              "En": "Counts one extra."
+            }
+          },
+          {
+            "LatexCode": "9",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "حسب الخرز الأبيض.",
+              "En": "Counts white beads."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "حدد الكل والجزء المعروف.",
+            "En": "Identify total and known part."
+          },
+          {
+            "Ar": "اطرح الجزء المعروف من الكل.",
+            "En": "Subtract the known part from total."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "حدد الكل والجزء المعروف.",
+            "En": "Identify total and known part."
+          },
+          "FormulaLatex": "G=T-W",
+          "Steps": [
+            {
+              "Ar": "الكل 16.",
+              "En": "Total is 16."
+            },
+            {
+              "Ar": "اطرح 9.",
+              "En": "Subtract 9."
+            }
+          ],
+          "Substitution": {
+            "Ar": "16-9=7",
+            "En": "16-9=7"
+          },
+          "Result": {
+            "Ar": "7",
+            "En": "7"
+          },
+          "Unit": {
+            "Ar": "خرزة",
+            "En": "beads"
+          },
+          "Verification": {
+            "Ar": "7+9=16",
+            "En": "7+9=16"
+          },
+          "CommonError": {
+            "Ar": "لا تجمع الكل والجزء.",
+            "En": "Do not add total and part."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v1-grade-1-hidden-part-3",
+      "ReviewStatus": "Draft",
+      "Family": "hidden-part",
+      "PrimarySkillKey": "primary-subtraction",
+      "ProposedTrackCodes": [
+        "grade-1"
+      ],
+      "Check": {
+        "expected": "14"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 1,
+        "PrimarySkillId": 2,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "الجزء المخفي",
+          "En": "Hidden part"
+        },
+        "Question": {
+          "Ar": "في كيس 19 خرزة، منها 5 بيضاء والباقي خضراء. كم خرزة خضراء؟",
+          "En": "A bag holds 19 beads. 5 are white and the rest green. How many are green?"
+        },
+        "Options": [
+          {
+            "LatexCode": "24",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "جمع الكل والجزء.",
+              "En": "Adds total and part."
+            }
+          },
+          {
+            "LatexCode": "15",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "زاد واحدة.",
+              "En": "Counts one extra."
+            }
+          },
+          {
+            "LatexCode": "14",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "5",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "حسب الخرز الأبيض.",
+              "En": "Counts white beads."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "حدد الكل والجزء المعروف.",
+            "En": "Identify total and known part."
+          },
+          {
+            "Ar": "اطرح الجزء المعروف من الكل.",
+            "En": "Subtract the known part from total."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "حدد الكل والجزء المعروف.",
+            "En": "Identify total and known part."
+          },
+          "FormulaLatex": "G=T-W",
+          "Steps": [
+            {
+              "Ar": "الكل 19.",
+              "En": "Total is 19."
+            },
+            {
+              "Ar": "اطرح 5.",
+              "En": "Subtract 5."
+            }
+          ],
+          "Substitution": {
+            "Ar": "19-5=14",
+            "En": "19-5=14"
+          },
+          "Result": {
+            "Ar": "14",
+            "En": "14"
+          },
+          "Unit": {
+            "Ar": "خرزة",
+            "En": "beads"
+          },
+          "Verification": {
+            "Ar": "14+5=19",
+            "En": "14+5=19"
+          },
+          "CommonError": {
+            "Ar": "لا تجمع الكل والجزء.",
+            "En": "Do not add total and part."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v1-grade-2-hidden-sequence-1",
+      "ReviewStatus": "Draft",
+      "Family": "hidden-sequence",
+      "PrimarySkillKey": "counting",
+      "ProposedTrackCodes": [
+        "grade-2"
+      ],
+      "Check": {
+        "expected": "18"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 81,
+        "PrimarySkillId": 302,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "الحد المخفي",
+          "En": "Hidden sequence term"
+        },
+        "Question": {
+          "Ar": "أكمل النمط: 12، 14، 16، ؟، 20.",
+          "En": "Complete the pattern: 12, 14, 16, ?, 20."
+        },
+        "Options": [
+          {
+            "LatexCode": "20",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "اختار الحد التالي.",
+              "En": "Chooses following term."
+            }
+          },
+          {
+            "LatexCode": "17",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "نقص واحداً.",
+              "En": "Subtracts one."
+            }
+          },
+          {
+            "LatexCode": "19",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "زاد واحداً.",
+              "En": "Adds one."
+            }
+          },
+          {
+            "LatexCode": "18",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "قارن الحدود المتتالية.",
+            "En": "Compare successive terms."
+          },
+          {
+            "Ar": "أضف الفرق الثابت إلى الحد الثالث.",
+            "En": "Add the constant difference to the third term."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "قارن الحدود المتتالية.",
+            "En": "Compare successive terms."
+          },
+          "FormulaLatex": "a_{k+1}=a_k+d",
+          "Steps": [
+            {
+              "Ar": "الفرق 2.",
+              "En": "The difference is 2."
+            },
+            {
+              "Ar": "أضف 2 إلى 16.",
+              "En": "Add 2 to 16."
+            }
+          ],
+          "Substitution": {
+            "Ar": "16+2=18",
+            "En": "16+2=18"
+          },
+          "Result": {
+            "Ar": "18",
+            "En": "18"
+          },
+          "Unit": {
+            "Ar": "عدد",
+            "En": "number"
+          },
+          "Verification": {
+            "Ar": "20-18=2",
+            "En": "20-18=2"
+          },
+          "CommonError": {
+            "Ar": "لا تغيّر الفرق في وسط النمط.",
+            "En": "Do not change the increment midway."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v1-grade-2-hidden-sequence-2",
+      "ReviewStatus": "Draft",
+      "Family": "hidden-sequence",
+      "PrimarySkillKey": "counting",
+      "ProposedTrackCodes": [
+        "grade-2"
+      ],
+      "Check": {
+        "expected": "24"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 81,
+        "PrimarySkillId": 302,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "الحد المخفي",
+          "En": "Hidden sequence term"
+        },
+        "Question": {
+          "Ar": "أكمل النمط: 15، 18، 21، ؟، 27.",
+          "En": "Complete the pattern: 15, 18, 21, ?, 27."
+        },
+        "Options": [
+          {
+            "LatexCode": "24",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "27",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "اختار الحد التالي.",
+              "En": "Chooses following term."
+            }
+          },
+          {
+            "LatexCode": "23",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "نقص واحداً.",
+              "En": "Subtracts one."
+            }
+          },
+          {
+            "LatexCode": "25",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "زاد واحداً.",
+              "En": "Adds one."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "قارن الحدود المتتالية.",
+            "En": "Compare successive terms."
+          },
+          {
+            "Ar": "أضف الفرق الثابت إلى الحد الثالث.",
+            "En": "Add the constant difference to the third term."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "قارن الحدود المتتالية.",
+            "En": "Compare successive terms."
+          },
+          "FormulaLatex": "a_{k+1}=a_k+d",
+          "Steps": [
+            {
+              "Ar": "الفرق 3.",
+              "En": "The difference is 3."
+            },
+            {
+              "Ar": "أضف 3 إلى 21.",
+              "En": "Add 3 to 21."
+            }
+          ],
+          "Substitution": {
+            "Ar": "21+3=24",
+            "En": "21+3=24"
+          },
+          "Result": {
+            "Ar": "24",
+            "En": "24"
+          },
+          "Unit": {
+            "Ar": "عدد",
+            "En": "number"
+          },
+          "Verification": {
+            "Ar": "27-24=3",
+            "En": "27-24=3"
+          },
+          "CommonError": {
+            "Ar": "لا تغيّر الفرق في وسط النمط.",
+            "En": "Do not change the increment midway."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v1-grade-2-hidden-sequence-3",
+      "ReviewStatus": "Draft",
+      "Family": "hidden-sequence",
+      "PrimarySkillKey": "counting",
+      "ProposedTrackCodes": [
+        "grade-2"
+      ],
+      "Check": {
+        "expected": "39"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 81,
+        "PrimarySkillId": 302,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "الحد المخفي",
+          "En": "Hidden sequence term"
+        },
+        "Question": {
+          "Ar": "أكمل النمط: 24، 29، 34، ؟، 44.",
+          "En": "Complete the pattern: 24, 29, 34, ?, 44."
+        },
+        "Options": [
+          {
+            "LatexCode": "44",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "اختار الحد التالي.",
+              "En": "Chooses following term."
+            }
+          },
+          {
+            "LatexCode": "39",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "38",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "نقص واحداً.",
+              "En": "Subtracts one."
+            }
+          },
+          {
+            "LatexCode": "40",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "زاد واحداً.",
+              "En": "Adds one."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "قارن الحدود المتتالية.",
+            "En": "Compare successive terms."
+          },
+          {
+            "Ar": "أضف الفرق الثابت إلى الحد الثالث.",
+            "En": "Add the constant difference to the third term."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "قارن الحدود المتتالية.",
+            "En": "Compare successive terms."
+          },
+          "FormulaLatex": "a_{k+1}=a_k+d",
+          "Steps": [
+            {
+              "Ar": "الفرق 5.",
+              "En": "The difference is 5."
+            },
+            {
+              "Ar": "أضف 5 إلى 34.",
+              "En": "Add 5 to 34."
+            }
+          ],
+          "Substitution": {
+            "Ar": "34+5=39",
+            "En": "34+5=39"
+          },
+          "Result": {
+            "Ar": "39",
+            "En": "39"
+          },
+          "Unit": {
+            "Ar": "عدد",
+            "En": "number"
+          },
+          "Verification": {
+            "Ar": "44-39=5",
+            "En": "44-39=5"
+          },
+          "CommonError": {
+            "Ar": "لا تغيّر الفرق في وسط النمط.",
+            "En": "Do not change the increment midway."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v1-grade-2-mixed-length-1",
+      "ReviewStatus": "Draft",
+      "Family": "mixed-length",
+      "PrimarySkillKey": "length",
+      "ProposedTrackCodes": [
+        "grade-2"
+      ],
+      "Check": {
+        "expected": "235"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 82,
+        "PrimarySkillId": 321,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "تحويل طول مركب",
+          "En": "Mixed length conversion"
+        },
+        "Question": {
+          "Ar": "شريط طوله 2 متر و35 سم. كم يبلغ بالسنتيمتر؟",
+          "En": "A ribbon is 2 metres and 35 centimetres long. How long is it in centimetres?"
+        },
+        "Options": [
+          {
+            "LatexCode": "37",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "جمع دون تحويل.",
+              "En": "Adds without converting."
+            }
+          },
+          {
+            "LatexCode": "55",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "استعمل 10 بدل 100.",
+              "En": "Uses 10 instead of 100."
+            }
+          },
+          {
+            "LatexCode": "235",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "200",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "أهمل السنتيمترات.",
+              "En": "Omits centimetres."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "وحّد الوحدة أولاً.",
+            "En": "Use one unit first."
+          },
+          {
+            "Ar": "المتر يساوي 100 سم.",
+            "En": "One metre equals 100 cm."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "وحّد الوحدة أولاً.",
+            "En": "Use one unit first."
+          },
+          "FormulaLatex": "L=100m+c",
+          "Steps": [
+            {
+              "Ar": "حوّل 2 متر إلى 200 سم.",
+              "En": "Convert 2 m to 200 cm."
+            },
+            {
+              "Ar": "أضف 35 سم.",
+              "En": "Add 35 cm."
+            }
+          ],
+          "Substitution": {
+            "Ar": "200+35=235",
+            "En": "200+35=235"
+          },
+          "Result": {
+            "Ar": "235",
+            "En": "235"
+          },
+          "Unit": {
+            "Ar": "سم",
+            "En": "cm"
+          },
+          "Verification": {
+            "Ar": "235-35=2\\times100",
+            "En": "235-35=2\\times100"
+          },
+          "CommonError": {
+            "Ar": "لا تجمع وحدتين مختلفتين.",
+            "En": "Do not add unlike units."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v1-grade-2-mixed-length-2",
+      "ReviewStatus": "Draft",
+      "Family": "mixed-length",
+      "PrimarySkillKey": "length",
+      "ProposedTrackCodes": [
+        "grade-2"
+      ],
+      "Check": {
+        "expected": "318"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 82,
+        "PrimarySkillId": 321,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "تحويل طول مركب",
+          "En": "Mixed length conversion"
+        },
+        "Question": {
+          "Ar": "شريط طوله 3 متر و18 سم. كم يبلغ بالسنتيمتر؟",
+          "En": "A ribbon is 3 metres and 18 centimetres long. How long is it in centimetres?"
+        },
+        "Options": [
+          {
+            "LatexCode": "21",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "جمع دون تحويل.",
+              "En": "Adds without converting."
+            }
+          },
+          {
+            "LatexCode": "48",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "استعمل 10 بدل 100.",
+              "En": "Uses 10 instead of 100."
+            }
+          },
+          {
+            "LatexCode": "300",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "أهمل السنتيمترات.",
+              "En": "Omits centimetres."
+            }
+          },
+          {
+            "LatexCode": "318",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "وحّد الوحدة أولاً.",
+            "En": "Use one unit first."
+          },
+          {
+            "Ar": "المتر يساوي 100 سم.",
+            "En": "One metre equals 100 cm."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "وحّد الوحدة أولاً.",
+            "En": "Use one unit first."
+          },
+          "FormulaLatex": "L=100m+c",
+          "Steps": [
+            {
+              "Ar": "حوّل 3 متر إلى 300 سم.",
+              "En": "Convert 3 m to 300 cm."
+            },
+            {
+              "Ar": "أضف 18 سم.",
+              "En": "Add 18 cm."
+            }
+          ],
+          "Substitution": {
+            "Ar": "300+18=318",
+            "En": "300+18=318"
+          },
+          "Result": {
+            "Ar": "318",
+            "En": "318"
+          },
+          "Unit": {
+            "Ar": "سم",
+            "En": "cm"
+          },
+          "Verification": {
+            "Ar": "318-18=3\\times100",
+            "En": "318-18=3\\times100"
+          },
+          "CommonError": {
+            "Ar": "لا تجمع وحدتين مختلفتين.",
+            "En": "Do not add unlike units."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v1-grade-2-mixed-length-3",
+      "ReviewStatus": "Draft",
+      "Family": "mixed-length",
+      "PrimarySkillKey": "length",
+      "ProposedTrackCodes": [
+        "grade-2"
+      ],
+      "Check": {
+        "expected": "462"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 82,
+        "PrimarySkillId": 321,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "تحويل طول مركب",
+          "En": "Mixed length conversion"
+        },
+        "Question": {
+          "Ar": "شريط طوله 4 متر و62 سم. كم يبلغ بالسنتيمتر؟",
+          "En": "A ribbon is 4 metres and 62 centimetres long. How long is it in centimetres?"
+        },
+        "Options": [
+          {
+            "LatexCode": "462",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "66",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "جمع دون تحويل.",
+              "En": "Adds without converting."
+            }
+          },
+          {
+            "LatexCode": "102",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "استعمل 10 بدل 100.",
+              "En": "Uses 10 instead of 100."
+            }
+          },
+          {
+            "LatexCode": "400",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "أهمل السنتيمترات.",
+              "En": "Omits centimetres."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "وحّد الوحدة أولاً.",
+            "En": "Use one unit first."
+          },
+          {
+            "Ar": "المتر يساوي 100 سم.",
+            "En": "One metre equals 100 cm."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "وحّد الوحدة أولاً.",
+            "En": "Use one unit first."
+          },
+          "FormulaLatex": "L=100m+c",
+          "Steps": [
+            {
+              "Ar": "حوّل 4 متر إلى 400 سم.",
+              "En": "Convert 4 m to 400 cm."
+            },
+            {
+              "Ar": "أضف 62 سم.",
+              "En": "Add 62 cm."
+            }
+          ],
+          "Substitution": {
+            "Ar": "400+62=462",
+            "En": "400+62=462"
+          },
+          "Result": {
+            "Ar": "462",
+            "En": "462"
+          },
+          "Unit": {
+            "Ar": "سم",
+            "En": "cm"
+          },
+          "Verification": {
+            "Ar": "462-62=4\\times100",
+            "En": "462-62=4\\times100"
+          },
+          "CommonError": {
+            "Ar": "لا تجمع وحدتين مختلفتين.",
+            "En": "Do not add unlike units."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v1-grade-2-in-out-1",
+      "ReviewStatus": "Draft",
+      "Family": "in-out",
+      "PrimarySkillKey": "primary-multistep-arithmetic",
+      "ProposedTrackCodes": [
+        "grade-2"
+      ],
+      "Check": {
+        "expected": "36"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 1,
+        "PrimarySkillId": 3,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "تغيّران متتاليان",
+          "En": "Two successive changes"
+        },
+        "Question": {
+          "Ar": "في مكتبة 27 كتاباً. أضيف 18 ثم استعير 9. كم كتاباً بقي؟",
+          "En": "A library has 27 books. 18 are added, then 9 borrowed. How many remain?"
+        },
+        "Options": [
+          {
+            "LatexCode": "54",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "أضاف المستعار.",
+              "En": "Adds borrowed books."
+            }
+          },
+          {
+            "LatexCode": "36",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "45",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "توقف بعد الإضافة.",
+              "En": "Stops after addition."
+            }
+          },
+          {
+            "LatexCode": "18",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "أهمل الكتب الجديدة.",
+              "En": "Omits new books."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "تتبع اتجاه التغير.",
+            "En": "Track the direction of change."
+          },
+          {
+            "Ar": "اجمع أولاً ثم اطرح.",
+            "En": "Add first, then subtract."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "تتبع اتجاه التغير.",
+            "En": "Track the direction of change."
+          },
+          "FormulaLatex": "R=a+b-c",
+          "Steps": [
+            {
+              "Ar": "بعد الإضافة 45.",
+              "En": "After adding, there are 45."
+            },
+            {
+              "Ar": "اطرح 9.",
+              "En": "Subtract 9."
+            }
+          ],
+          "Substitution": {
+            "Ar": "45-9=36",
+            "En": "45-9=36"
+          },
+          "Result": {
+            "Ar": "36",
+            "En": "36"
+          },
+          "Unit": {
+            "Ar": "كتاباً",
+            "En": "books"
+          },
+          "Verification": {
+            "Ar": "36+9=45",
+            "En": "36+9=45"
+          },
+          "CommonError": {
+            "Ar": "الاستعارة تنقص العدد.",
+            "En": "Borrowing reduces the count."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v1-grade-2-in-out-2",
+      "ReviewStatus": "Draft",
+      "Family": "in-out",
+      "PrimarySkillKey": "primary-multistep-arithmetic",
+      "ProposedTrackCodes": [
+        "grade-2"
+      ],
+      "Check": {
+        "expected": "49"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 1,
+        "PrimarySkillId": 3,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "تغيّران متتاليان",
+          "En": "Two successive changes"
+        },
+        "Question": {
+          "Ar": "في مكتبة 36 كتاباً. أضيف 24 ثم استعير 11. كم كتاباً بقي؟",
+          "En": "A library has 36 books. 24 are added, then 11 borrowed. How many remain?"
+        },
+        "Options": [
+          {
+            "LatexCode": "71",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "أضاف المستعار.",
+              "En": "Adds borrowed books."
+            }
+          },
+          {
+            "LatexCode": "60",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "توقف بعد الإضافة.",
+              "En": "Stops after addition."
+            }
+          },
+          {
+            "LatexCode": "49",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "25",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "أهمل الكتب الجديدة.",
+              "En": "Omits new books."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "تتبع اتجاه التغير.",
+            "En": "Track the direction of change."
+          },
+          {
+            "Ar": "اجمع أولاً ثم اطرح.",
+            "En": "Add first, then subtract."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "تتبع اتجاه التغير.",
+            "En": "Track the direction of change."
+          },
+          "FormulaLatex": "R=a+b-c",
+          "Steps": [
+            {
+              "Ar": "بعد الإضافة 60.",
+              "En": "After adding, there are 60."
+            },
+            {
+              "Ar": "اطرح 11.",
+              "En": "Subtract 11."
+            }
+          ],
+          "Substitution": {
+            "Ar": "60-11=49",
+            "En": "60-11=49"
+          },
+          "Result": {
+            "Ar": "49",
+            "En": "49"
+          },
+          "Unit": {
+            "Ar": "كتاباً",
+            "En": "books"
+          },
+          "Verification": {
+            "Ar": "49+11=60",
+            "En": "49+11=60"
+          },
+          "CommonError": {
+            "Ar": "الاستعارة تنقص العدد.",
+            "En": "Borrowing reduces the count."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v1-grade-2-in-out-3",
+      "ReviewStatus": "Draft",
+      "Family": "in-out",
+      "PrimarySkillKey": "primary-multistep-arithmetic",
+      "ProposedTrackCodes": [
+        "grade-2"
+      ],
+      "Check": {
+        "expected": "48"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 1,
+        "PrimarySkillId": 3,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "تغيّران متتاليان",
+          "En": "Two successive changes"
+        },
+        "Question": {
+          "Ar": "في مكتبة 45 كتاباً. أضيف 16 ثم استعير 13. كم كتاباً بقي؟",
+          "En": "A library has 45 books. 16 are added, then 13 borrowed. How many remain?"
+        },
+        "Options": [
+          {
+            "LatexCode": "74",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "أضاف المستعار.",
+              "En": "Adds borrowed books."
+            }
+          },
+          {
+            "LatexCode": "61",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "توقف بعد الإضافة.",
+              "En": "Stops after addition."
+            }
+          },
+          {
+            "LatexCode": "32",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "أهمل الكتب الجديدة.",
+              "En": "Omits new books."
+            }
+          },
+          {
+            "LatexCode": "48",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "تتبع اتجاه التغير.",
+            "En": "Track the direction of change."
+          },
+          {
+            "Ar": "اجمع أولاً ثم اطرح.",
+            "En": "Add first, then subtract."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "تتبع اتجاه التغير.",
+            "En": "Track the direction of change."
+          },
+          "FormulaLatex": "R=a+b-c",
+          "Steps": [
+            {
+              "Ar": "بعد الإضافة 61.",
+              "En": "After adding, there are 61."
+            },
+            {
+              "Ar": "اطرح 13.",
+              "En": "Subtract 13."
+            }
+          ],
+          "Substitution": {
+            "Ar": "61-13=48",
+            "En": "61-13=48"
+          },
+          "Result": {
+            "Ar": "48",
+            "En": "48"
+          },
+          "Unit": {
+            "Ar": "كتاباً",
+            "En": "books"
+          },
+          "Verification": {
+            "Ar": "48+13=61",
+            "En": "48+13=61"
+          },
+          "CommonError": {
+            "Ar": "الاستعارة تنقص العدد.",
+            "En": "Borrowing reduces the count."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v1-grade-3-unknown-addend-1",
+      "ReviewStatus": "Draft",
+      "Family": "unknown-addend",
+      "PrimarySkillKey": "primary-one-step-additive-equations",
+      "ProposedTrackCodes": [
+        "grade-3"
+      ],
+      "Check": {
+        "expected": "25"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 2,
+        "PrimarySkillId": 7,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "إيجاد المجهول",
+          "En": "Find unknown addend"
+        },
+        "Question": {
+          "Ar": "إذا كان x + 17 = 42، فما قيمة x؟",
+          "En": "If x + 17 = 42, what is x?"
+        },
+        "Options": [
+          {
+            "LatexCode": "25",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "59",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "جمع بدلاً من الطرح.",
+              "En": "Adds instead of subtracting."
+            }
+          },
+          {
+            "LatexCode": "42",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "اختار الناتج.",
+              "En": "Chooses total."
+            }
+          },
+          {
+            "LatexCode": "24",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "نقص واحداً.",
+              "En": "Off by one."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "استخدم العملية العكسية.",
+            "En": "Use the inverse operation."
+          },
+          {
+            "Ar": "اطرح 17 من الطرفين.",
+            "En": "Subtract 17 from both sides."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "استخدم العملية العكسية.",
+            "En": "Use the inverse operation."
+          },
+          "FormulaLatex": "x=b-a",
+          "Steps": [
+            {
+              "Ar": "اطرح 17 من الطرفين.",
+              "En": "Subtract 17 on both sides."
+            },
+            {
+              "Ar": "احسب الفرق.",
+              "En": "Compute the difference."
+            }
+          ],
+          "Substitution": {
+            "Ar": "42-17=25",
+            "En": "42-17=25"
+          },
+          "Result": {
+            "Ar": "25",
+            "En": "25"
+          },
+          "Unit": {
+            "Ar": "دون وحدة",
+            "En": "unitless"
+          },
+          "Verification": {
+            "Ar": "25+17=42",
+            "En": "25+17=42"
+          },
+          "CommonError": {
+            "Ar": "نفّذ العملية على الطرفين.",
+            "En": "Apply the operation to both sides."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v1-grade-3-unknown-addend-2",
+      "ReviewStatus": "Draft",
+      "Family": "unknown-addend",
+      "PrimarySkillKey": "primary-one-step-additive-equations",
+      "ProposedTrackCodes": [
+        "grade-3"
+      ],
+      "Check": {
+        "expected": "35"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 2,
+        "PrimarySkillId": 7,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "إيجاد المجهول",
+          "En": "Find unknown addend"
+        },
+        "Question": {
+          "Ar": "إذا كان x + 28 = 63، فما قيمة x؟",
+          "En": "If x + 28 = 63, what is x?"
+        },
+        "Options": [
+          {
+            "LatexCode": "91",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "جمع بدلاً من الطرح.",
+              "En": "Adds instead of subtracting."
+            }
+          },
+          {
+            "LatexCode": "35",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "63",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "اختار الناتج.",
+              "En": "Chooses total."
+            }
+          },
+          {
+            "LatexCode": "34",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "نقص واحداً.",
+              "En": "Off by one."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "استخدم العملية العكسية.",
+            "En": "Use the inverse operation."
+          },
+          {
+            "Ar": "اطرح 28 من الطرفين.",
+            "En": "Subtract 28 from both sides."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "استخدم العملية العكسية.",
+            "En": "Use the inverse operation."
+          },
+          "FormulaLatex": "x=b-a",
+          "Steps": [
+            {
+              "Ar": "اطرح 28 من الطرفين.",
+              "En": "Subtract 28 on both sides."
+            },
+            {
+              "Ar": "احسب الفرق.",
+              "En": "Compute the difference."
+            }
+          ],
+          "Substitution": {
+            "Ar": "63-28=35",
+            "En": "63-28=35"
+          },
+          "Result": {
+            "Ar": "35",
+            "En": "35"
+          },
+          "Unit": {
+            "Ar": "دون وحدة",
+            "En": "unitless"
+          },
+          "Verification": {
+            "Ar": "35+28=63",
+            "En": "35+28=63"
+          },
+          "CommonError": {
+            "Ar": "نفّذ العملية على الطرفين.",
+            "En": "Apply the operation to both sides."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v1-grade-3-unknown-addend-3",
+      "ReviewStatus": "Draft",
+      "Family": "unknown-addend",
+      "PrimarySkillKey": "primary-one-step-additive-equations",
+      "ProposedTrackCodes": [
+        "grade-3"
+      ],
+      "Check": {
+        "expected": "45"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 2,
+        "PrimarySkillId": 7,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "إيجاد المجهول",
+          "En": "Find unknown addend"
+        },
+        "Question": {
+          "Ar": "إذا كان x + 34 = 79، فما قيمة x؟",
+          "En": "If x + 34 = 79, what is x?"
+        },
+        "Options": [
+          {
+            "LatexCode": "113",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "جمع بدلاً من الطرح.",
+              "En": "Adds instead of subtracting."
+            }
+          },
+          {
+            "LatexCode": "79",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "اختار الناتج.",
+              "En": "Chooses total."
+            }
+          },
+          {
+            "LatexCode": "45",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "44",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "نقص واحداً.",
+              "En": "Off by one."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "استخدم العملية العكسية.",
+            "En": "Use the inverse operation."
+          },
+          {
+            "Ar": "اطرح 34 من الطرفين.",
+            "En": "Subtract 34 from both sides."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "استخدم العملية العكسية.",
+            "En": "Use the inverse operation."
+          },
+          "FormulaLatex": "x=b-a",
+          "Steps": [
+            {
+              "Ar": "اطرح 34 من الطرفين.",
+              "En": "Subtract 34 on both sides."
+            },
+            {
+              "Ar": "احسب الفرق.",
+              "En": "Compute the difference."
+            }
+          ],
+          "Substitution": {
+            "Ar": "79-34=45",
+            "En": "79-34=45"
+          },
+          "Result": {
+            "Ar": "45",
+            "En": "45"
+          },
+          "Unit": {
+            "Ar": "دون وحدة",
+            "En": "unitless"
+          },
+          "Verification": {
+            "Ar": "45+34=79",
+            "En": "45+34=79"
+          },
+          "CommonError": {
+            "Ar": "نفّذ العملية على الطرفين.",
+            "En": "Apply the operation to both sides."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v1-grade-3-rectangle-border-1",
+      "ReviewStatus": "Draft",
+      "Family": "rectangle-border",
+      "PrimarySkillKey": "primary-perimeter",
+      "ProposedTrackCodes": [
+        "grade-3"
+      ],
+      "Check": {
+        "expected": "26"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 3,
+        "PrimarySkillId": 12,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "محيط إطار",
+          "En": "Frame perimeter"
+        },
+        "Question": {
+          "Ar": "إطار مستطيل طوله 8 سم وعرضه 5 سم. ما طول شريط يحيط به مرة واحدة؟",
+          "En": "A rectangular frame is 8 cm long and 5 cm wide. How long is a ribbon around it once?"
+        },
+        "Options": [
+          {
+            "LatexCode": "13",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "حسب ضلعين.",
+              "En": "Counts two sides."
+            }
+          },
+          {
+            "LatexCode": "40",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "حسب المساحة.",
+              "En": "Calculates area."
+            }
+          },
+          {
+            "LatexCode": "21",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "أهمل عرضاً.",
+              "En": "Omits one width."
+            }
+          },
+          {
+            "LatexCode": "26",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "المطلوب طول الحدود.",
+            "En": "Find the boundary length."
+          },
+          {
+            "Ar": "اجمع الطول والعرض ثم ضاعف.",
+            "En": "Add length and width then double."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "المطلوب طول الحدود.",
+            "En": "Find the boundary length."
+          },
+          "FormulaLatex": "P=2(l+w)",
+          "Steps": [
+            {
+              "Ar": "مجموع ضلعين 13.",
+              "En": "Two sides total 13."
+            },
+            {
+              "Ar": "ضاعف المجموع.",
+              "En": "Double the sum."
+            }
+          ],
+          "Substitution": {
+            "Ar": "2(8+5)=26",
+            "En": "2(8+5)=26"
+          },
+          "Result": {
+            "Ar": "26",
+            "En": "26"
+          },
+          "Unit": {
+            "Ar": "سم",
+            "En": "cm"
+          },
+          "Verification": {
+            "Ar": "8+5+8+5=26",
+            "En": "8+5+8+5=26"
+          },
+          "CommonError": {
+            "Ar": "المحيط بوحدة طول لا مساحة.",
+            "En": "Perimeter uses length units."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v1-grade-3-rectangle-border-2",
+      "ReviewStatus": "Draft",
+      "Family": "rectangle-border",
+      "PrimarySkillKey": "primary-perimeter",
+      "ProposedTrackCodes": [
+        "grade-3"
+      ],
+      "Check": {
+        "expected": "26"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 3,
+        "PrimarySkillId": 12,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "محيط إطار",
+          "En": "Frame perimeter"
+        },
+        "Question": {
+          "Ar": "إطار مستطيل طوله 9 سم وعرضه 4 سم. ما طول شريط يحيط به مرة واحدة؟",
+          "En": "A rectangular frame is 9 cm long and 4 cm wide. How long is a ribbon around it once?"
+        },
+        "Options": [
+          {
+            "LatexCode": "26",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "13",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "حسب ضلعين.",
+              "En": "Counts two sides."
+            }
+          },
+          {
+            "LatexCode": "36",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "حسب المساحة.",
+              "En": "Calculates area."
+            }
+          },
+          {
+            "LatexCode": "22",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "أهمل عرضاً.",
+              "En": "Omits one width."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "المطلوب طول الحدود.",
+            "En": "Find the boundary length."
+          },
+          {
+            "Ar": "اجمع الطول والعرض ثم ضاعف.",
+            "En": "Add length and width then double."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "المطلوب طول الحدود.",
+            "En": "Find the boundary length."
+          },
+          "FormulaLatex": "P=2(l+w)",
+          "Steps": [
+            {
+              "Ar": "مجموع ضلعين 13.",
+              "En": "Two sides total 13."
+            },
+            {
+              "Ar": "ضاعف المجموع.",
+              "En": "Double the sum."
+            }
+          ],
+          "Substitution": {
+            "Ar": "2(9+4)=26",
+            "En": "2(9+4)=26"
+          },
+          "Result": {
+            "Ar": "26",
+            "En": "26"
+          },
+          "Unit": {
+            "Ar": "سم",
+            "En": "cm"
+          },
+          "Verification": {
+            "Ar": "9+4+9+4=26",
+            "En": "9+4+9+4=26"
+          },
+          "CommonError": {
+            "Ar": "المحيط بوحدة طول لا مساحة.",
+            "En": "Perimeter uses length units."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v1-grade-3-rectangle-border-3",
+      "ReviewStatus": "Draft",
+      "Family": "rectangle-border",
+      "PrimarySkillKey": "primary-perimeter",
+      "ProposedTrackCodes": [
+        "grade-3"
+      ],
+      "Check": {
+        "expected": "28"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 3,
+        "PrimarySkillId": 12,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "محيط إطار",
+          "En": "Frame perimeter"
+        },
+        "Question": {
+          "Ar": "إطار مستطيل طوله 11 سم وعرضه 3 سم. ما طول شريط يحيط به مرة واحدة؟",
+          "En": "A rectangular frame is 11 cm long and 3 cm wide. How long is a ribbon around it once?"
+        },
+        "Options": [
+          {
+            "LatexCode": "14",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "حسب ضلعين.",
+              "En": "Counts two sides."
+            }
+          },
+          {
+            "LatexCode": "28",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "33",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "حسب المساحة.",
+              "En": "Calculates area."
+            }
+          },
+          {
+            "LatexCode": "25",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "أهمل عرضاً.",
+              "En": "Omits one width."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "المطلوب طول الحدود.",
+            "En": "Find the boundary length."
+          },
+          {
+            "Ar": "اجمع الطول والعرض ثم ضاعف.",
+            "En": "Add length and width then double."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "المطلوب طول الحدود.",
+            "En": "Find the boundary length."
+          },
+          "FormulaLatex": "P=2(l+w)",
+          "Steps": [
+            {
+              "Ar": "مجموع ضلعين 14.",
+              "En": "Two sides total 14."
+            },
+            {
+              "Ar": "ضاعف المجموع.",
+              "En": "Double the sum."
+            }
+          ],
+          "Substitution": {
+            "Ar": "2(11+3)=28",
+            "En": "2(11+3)=28"
+          },
+          "Result": {
+            "Ar": "28",
+            "En": "28"
+          },
+          "Unit": {
+            "Ar": "سم",
+            "En": "cm"
+          },
+          "Verification": {
+            "Ar": "11+3+11+3=28",
+            "En": "11+3+11+3=28"
+          },
+          "CommonError": {
+            "Ar": "المحيط بوحدة طول لا مساحة.",
+            "En": "Perimeter uses length units."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v1-grade-3-rectangle-tiles-1",
+      "ReviewStatus": "Draft",
+      "Family": "rectangle-tiles",
+      "PrimarySkillKey": "primary-rectangle-area",
+      "ProposedTrackCodes": [
+        "grade-3"
+      ],
+      "Check": {
+        "expected": "42"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 3,
+        "PrimarySkillId": 13,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "تغطية مستطيل",
+          "En": "Cover a rectangle"
+        },
+        "Question": {
+          "Ar": "لوحة فيها 7 أعمدة و6 صفوف من مربعات ضلعها 1 سم. ما مساحتها بالسنتيمتر المربع؟",
+          "En": "A board has 7 columns and 6 rows of 1 cm squares. What is its area in square centimetres?"
+        },
+        "Options": [
+          {
+            "LatexCode": "13",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "جمع الصفوف والأعمدة.",
+              "En": "Adds rows and columns."
+            }
+          },
+          {
+            "LatexCode": "26",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "حسب المحيط.",
+              "En": "Calculates perimeter."
+            }
+          },
+          {
+            "LatexCode": "42",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "35",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "أهمل صفاً.",
+              "En": "Omits one row."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "المساحة عدد مربعات الوحدة.",
+            "En": "Area counts unit squares."
+          },
+          {
+            "Ar": "اضرب عدد الصفوف في الأعمدة.",
+            "En": "Multiply rows by columns."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "المساحة عدد مربعات الوحدة.",
+            "En": "Area counts unit squares."
+          },
+          "FormulaLatex": "A=l\\times w",
+          "Steps": [
+            {
+              "Ar": "في الصف 7 مربعات.",
+              "En": "Each row has 7 squares."
+            },
+            {
+              "Ar": "عدد الصفوف 6.",
+              "En": "There are 6 rows."
+            }
+          ],
+          "Substitution": {
+            "Ar": "7\\times6=42",
+            "En": "7\\times6=42"
+          },
+          "Result": {
+            "Ar": "42",
+            "En": "42"
+          },
+          "Unit": {
+            "Ar": "سم²",
+            "En": "cm²"
+          },
+          "Verification": {
+            "Ar": "42\\div6=7",
+            "En": "42\\div6=7"
+          },
+          "CommonError": {
+            "Ar": "لا تستخدم قانون المحيط للمساحة.",
+            "En": "Do not use perimeter for area."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v1-grade-3-rectangle-tiles-2",
+      "ReviewStatus": "Draft",
+      "Family": "rectangle-tiles",
+      "PrimarySkillKey": "primary-rectangle-area",
+      "ProposedTrackCodes": [
+        "grade-3"
+      ],
+      "Check": {
+        "expected": "40"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 3,
+        "PrimarySkillId": 13,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "تغطية مستطيل",
+          "En": "Cover a rectangle"
+        },
+        "Question": {
+          "Ar": "لوحة فيها 10 أعمدة و4 صفوف من مربعات ضلعها 1 سم. ما مساحتها بالسنتيمتر المربع؟",
+          "En": "A board has 10 columns and 4 rows of 1 cm squares. What is its area in square centimetres?"
+        },
+        "Options": [
+          {
+            "LatexCode": "14",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "جمع الصفوف والأعمدة.",
+              "En": "Adds rows and columns."
+            }
+          },
+          {
+            "LatexCode": "28",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "حسب المحيط.",
+              "En": "Calculates perimeter."
+            }
+          },
+          {
+            "LatexCode": "30",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "أهمل صفاً.",
+              "En": "Omits one row."
+            }
+          },
+          {
+            "LatexCode": "40",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "المساحة عدد مربعات الوحدة.",
+            "En": "Area counts unit squares."
+          },
+          {
+            "Ar": "اضرب عدد الصفوف في الأعمدة.",
+            "En": "Multiply rows by columns."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "المساحة عدد مربعات الوحدة.",
+            "En": "Area counts unit squares."
+          },
+          "FormulaLatex": "A=l\\times w",
+          "Steps": [
+            {
+              "Ar": "في الصف 10 مربعات.",
+              "En": "Each row has 10 squares."
+            },
+            {
+              "Ar": "عدد الصفوف 4.",
+              "En": "There are 4 rows."
+            }
+          ],
+          "Substitution": {
+            "Ar": "10\\times4=40",
+            "En": "10\\times4=40"
+          },
+          "Result": {
+            "Ar": "40",
+            "En": "40"
+          },
+          "Unit": {
+            "Ar": "سم²",
+            "En": "cm²"
+          },
+          "Verification": {
+            "Ar": "40\\div4=10",
+            "En": "40\\div4=10"
+          },
+          "CommonError": {
+            "Ar": "لا تستخدم قانون المحيط للمساحة.",
+            "En": "Do not use perimeter for area."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v1-grade-3-rectangle-tiles-3",
+      "ReviewStatus": "Draft",
+      "Family": "rectangle-tiles",
+      "PrimarySkillKey": "primary-rectangle-area",
+      "ProposedTrackCodes": [
+        "grade-3"
+      ],
+      "Check": {
+        "expected": "60"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 3,
+        "PrimarySkillId": 13,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "تغطية مستطيل",
+          "En": "Cover a rectangle"
+        },
+        "Question": {
+          "Ar": "لوحة فيها 12 أعمدة و5 صفوف من مربعات ضلعها 1 سم. ما مساحتها بالسنتيمتر المربع؟",
+          "En": "A board has 12 columns and 5 rows of 1 cm squares. What is its area in square centimetres?"
+        },
+        "Options": [
+          {
+            "LatexCode": "60",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "17",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "جمع الصفوف والأعمدة.",
+              "En": "Adds rows and columns."
+            }
+          },
+          {
+            "LatexCode": "34",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "حسب المحيط.",
+              "En": "Calculates perimeter."
+            }
+          },
+          {
+            "LatexCode": "48",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "أهمل صفاً.",
+              "En": "Omits one row."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "المساحة عدد مربعات الوحدة.",
+            "En": "Area counts unit squares."
+          },
+          {
+            "Ar": "اضرب عدد الصفوف في الأعمدة.",
+            "En": "Multiply rows by columns."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "المساحة عدد مربعات الوحدة.",
+            "En": "Area counts unit squares."
+          },
+          "FormulaLatex": "A=l\\times w",
+          "Steps": [
+            {
+              "Ar": "في الصف 12 مربعات.",
+              "En": "Each row has 12 squares."
+            },
+            {
+              "Ar": "عدد الصفوف 5.",
+              "En": "There are 5 rows."
+            }
+          ],
+          "Substitution": {
+            "Ar": "12\\times5=60",
+            "En": "12\\times5=60"
+          },
+          "Result": {
+            "Ar": "60",
+            "En": "60"
+          },
+          "Unit": {
+            "Ar": "سم²",
+            "En": "cm²"
+          },
+          "Verification": {
+            "Ar": "60\\div5=12",
+            "En": "60\\div5=12"
+          },
+          "CommonError": {
+            "Ar": "لا تستخدم قانون المحيط للمساحة.",
+            "En": "Do not use perimeter for area."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v1-grade-3-fraction-set-1",
+      "ReviewStatus": "Draft",
+      "Family": "fraction-set",
+      "PrimarySkillKey": "p-fractions-decimals-fraction-models",
+      "ProposedTrackCodes": [
+        "grade-3"
+      ],
+      "Check": {
+        "expected": "12"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 21,
+        "PrimarySkillId": 97,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "كسر من مجموعة",
+          "En": "Fraction of a set"
+        },
+        "Question": {
+          "Ar": "هناك 20 بطاقة. اختير 3/5 منها. كم بطاقة اختيرت؟",
+          "En": "There are 20 cards. 3/5 are selected. How many are selected?"
+        },
+        "Options": [
+          {
+            "LatexCode": "4",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "حسب جزءاً واحداً.",
+              "En": "Finds only one part."
+            }
+          },
+          {
+            "LatexCode": "12",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "8",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "حسب غير المختار.",
+              "En": "Finds the unselected part."
+            }
+          },
+          {
+            "LatexCode": "20",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "اختار الكل.",
+              "En": "Chooses whole set."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "قسّم المجموعة حسب المقام.",
+            "En": "Divide into groups using denominator."
+          },
+          {
+            "Ar": "خذ عدداً من الأجزاء يساوي البسط.",
+            "En": "Take as many groups as numerator."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "قسّم المجموعة حسب المقام.",
+            "En": "Divide into groups using denominator."
+          },
+          "FormulaLatex": "N=\\frac{a}{b}T",
+          "Steps": [
+            {
+              "Ar": "حجم الجزء 4.",
+              "En": "One group has 4."
+            },
+            {
+              "Ar": "خذ 3 أجزاء.",
+              "En": "Take 3 groups."
+            }
+          ],
+          "Substitution": {
+            "Ar": "4\\times3=12",
+            "En": "4\\times3=12"
+          },
+          "Result": {
+            "Ar": "12",
+            "En": "12"
+          },
+          "Unit": {
+            "Ar": "بطاقة",
+            "En": "cards"
+          },
+          "Verification": {
+            "Ar": "12\\div3=4",
+            "En": "12\\div3=4"
+          },
+          "CommonError": {
+            "Ar": "المقام للتقسيم والبسط للأجزاء المختارة.",
+            "En": "Denominator divides; numerator selects."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v1-grade-3-fraction-set-2",
+      "ReviewStatus": "Draft",
+      "Family": "fraction-set",
+      "PrimarySkillKey": "p-fractions-decimals-fraction-models",
+      "ProposedTrackCodes": [
+        "grade-3"
+      ],
+      "Check": {
+        "expected": "16"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 21,
+        "PrimarySkillId": 97,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "كسر من مجموعة",
+          "En": "Fraction of a set"
+        },
+        "Question": {
+          "Ar": "هناك 24 بطاقة. اختير 4/6 منها. كم بطاقة اختيرت؟",
+          "En": "There are 24 cards. 4/6 are selected. How many are selected?"
+        },
+        "Options": [
+          {
+            "LatexCode": "4",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "حسب جزءاً واحداً.",
+              "En": "Finds only one part."
+            }
+          },
+          {
+            "LatexCode": "8",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "حسب غير المختار.",
+              "En": "Finds the unselected part."
+            }
+          },
+          {
+            "LatexCode": "16",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "24",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "اختار الكل.",
+              "En": "Chooses whole set."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "قسّم المجموعة حسب المقام.",
+            "En": "Divide into groups using denominator."
+          },
+          {
+            "Ar": "خذ عدداً من الأجزاء يساوي البسط.",
+            "En": "Take as many groups as numerator."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "قسّم المجموعة حسب المقام.",
+            "En": "Divide into groups using denominator."
+          },
+          "FormulaLatex": "N=\\frac{a}{b}T",
+          "Steps": [
+            {
+              "Ar": "حجم الجزء 4.",
+              "En": "One group has 4."
+            },
+            {
+              "Ar": "خذ 4 أجزاء.",
+              "En": "Take 4 groups."
+            }
+          ],
+          "Substitution": {
+            "Ar": "4\\times4=16",
+            "En": "4\\times4=16"
+          },
+          "Result": {
+            "Ar": "16",
+            "En": "16"
+          },
+          "Unit": {
+            "Ar": "بطاقة",
+            "En": "cards"
+          },
+          "Verification": {
+            "Ar": "16\\div4=4",
+            "En": "16\\div4=4"
+          },
+          "CommonError": {
+            "Ar": "المقام للتقسيم والبسط للأجزاء المختارة.",
+            "En": "Denominator divides; numerator selects."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v1-grade-3-fraction-set-3",
+      "ReviewStatus": "Draft",
+      "Family": "fraction-set",
+      "PrimarySkillKey": "p-fractions-decimals-fraction-models",
+      "ProposedTrackCodes": [
+        "grade-3"
+      ],
+      "Check": {
+        "expected": "12"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 21,
+        "PrimarySkillId": 97,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "كسر من مجموعة",
+          "En": "Fraction of a set"
+        },
+        "Question": {
+          "Ar": "هناك 28 بطاقة. اختير 3/7 منها. كم بطاقة اختيرت؟",
+          "En": "There are 28 cards. 3/7 are selected. How many are selected?"
+        },
+        "Options": [
+          {
+            "LatexCode": "4",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "حسب جزءاً واحداً.",
+              "En": "Finds only one part."
+            }
+          },
+          {
+            "LatexCode": "16",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "حسب غير المختار.",
+              "En": "Finds the unselected part."
+            }
+          },
+          {
+            "LatexCode": "28",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "اختار الكل.",
+              "En": "Chooses whole set."
+            }
+          },
+          {
+            "LatexCode": "12",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "قسّم المجموعة حسب المقام.",
+            "En": "Divide into groups using denominator."
+          },
+          {
+            "Ar": "خذ عدداً من الأجزاء يساوي البسط.",
+            "En": "Take as many groups as numerator."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "قسّم المجموعة حسب المقام.",
+            "En": "Divide into groups using denominator."
+          },
+          "FormulaLatex": "N=\\frac{a}{b}T",
+          "Steps": [
+            {
+              "Ar": "حجم الجزء 4.",
+              "En": "One group has 4."
+            },
+            {
+              "Ar": "خذ 3 أجزاء.",
+              "En": "Take 3 groups."
+            }
+          ],
+          "Substitution": {
+            "Ar": "4\\times3=12",
+            "En": "4\\times3=12"
+          },
+          "Result": {
+            "Ar": "12",
+            "En": "12"
+          },
+          "Unit": {
+            "Ar": "بطاقة",
+            "En": "cards"
+          },
+          "Verification": {
+            "Ar": "12\\div3=4",
+            "En": "12\\div3=4"
+          },
+          "CommonError": {
+            "Ar": "المقام للتقسيم والبسط للأجزاء المختارة.",
+            "En": "Denominator divides; numerator selects."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v1-grade-3-equal-sharing-1",
+      "ReviewStatus": "Draft",
+      "Family": "equal-sharing",
+      "PrimarySkillKey": "primary-division",
+      "ProposedTrackCodes": [
+        "grade-3"
+      ],
+      "Check": {
+        "expected": "6"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 33,
+        "PrimarySkillId": 5,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "توزيع بالتساوي",
+          "En": "Equal sharing"
+        },
+        "Question": {
+          "Ar": "وزع 42 قلماً بالتساوي على 7 طلاب. كم قلماً لكل طالب؟",
+          "En": "Share 42 pencils equally among 7 students. How many per student?"
+        },
+        "Options": [
+          {
+            "LatexCode": "6",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "7",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "زاد الحصة واحداً.",
+              "En": "One too many per student."
+            }
+          },
+          {
+            "LatexCode": "5",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "نقص الحصة واحداً.",
+              "En": "One too few per student."
+            }
+          },
+          {
+            "LatexCode": "35",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "طرح عدد الطلاب.",
+              "En": "Subtracts number of students."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "حدد العدد الكلي وعدد المجموعات.",
+            "En": "Identify total and group count."
+          },
+          {
+            "Ar": "اقسم الكل على عدد الطلاب.",
+            "En": "Divide total by student count."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "حدد العدد الكلي وعدد المجموعات.",
+            "En": "Identify total and group count."
+          },
+          "FormulaLatex": "q=T\\div g",
+          "Steps": [
+            {
+              "Ar": "اقسم 42 على 7.",
+              "En": "Divide 42 by 7."
+            },
+            {
+              "Ar": "الناتج حصة طالب واحد.",
+              "En": "The result is one student's share."
+            }
+          ],
+          "Substitution": {
+            "Ar": "42\\div7=6",
+            "En": "42\\div7=6"
+          },
+          "Result": {
+            "Ar": "6",
+            "En": "6"
+          },
+          "Unit": {
+            "Ar": "قلم",
+            "En": "pencils"
+          },
+          "Verification": {
+            "Ar": "6\\times7=42",
+            "En": "6\\times7=42"
+          },
+          "CommonError": {
+            "Ar": "لا تخلط عدد المجموعات بحجمها.",
+            "En": "Do not confuse group count with size."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v1-grade-3-equal-sharing-2",
+      "ReviewStatus": "Draft",
+      "Family": "equal-sharing",
+      "PrimarySkillKey": "primary-division",
+      "ProposedTrackCodes": [
+        "grade-3"
+      ],
+      "Check": {
+        "expected": "7"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 33,
+        "PrimarySkillId": 5,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "توزيع بالتساوي",
+          "En": "Equal sharing"
+        },
+        "Question": {
+          "Ar": "وزع 56 قلماً بالتساوي على 8 طلاب. كم قلماً لكل طالب؟",
+          "En": "Share 56 pencils equally among 8 students. How many per student?"
+        },
+        "Options": [
+          {
+            "LatexCode": "8",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "زاد الحصة واحداً.",
+              "En": "One too many per student."
+            }
+          },
+          {
+            "LatexCode": "7",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "6",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "نقص الحصة واحداً.",
+              "En": "One too few per student."
+            }
+          },
+          {
+            "LatexCode": "48",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "طرح عدد الطلاب.",
+              "En": "Subtracts number of students."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "حدد العدد الكلي وعدد المجموعات.",
+            "En": "Identify total and group count."
+          },
+          {
+            "Ar": "اقسم الكل على عدد الطلاب.",
+            "En": "Divide total by student count."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "حدد العدد الكلي وعدد المجموعات.",
+            "En": "Identify total and group count."
+          },
+          "FormulaLatex": "q=T\\div g",
+          "Steps": [
+            {
+              "Ar": "اقسم 56 على 8.",
+              "En": "Divide 56 by 8."
+            },
+            {
+              "Ar": "الناتج حصة طالب واحد.",
+              "En": "The result is one student's share."
+            }
+          ],
+          "Substitution": {
+            "Ar": "56\\div8=7",
+            "En": "56\\div8=7"
+          },
+          "Result": {
+            "Ar": "7",
+            "En": "7"
+          },
+          "Unit": {
+            "Ar": "قلم",
+            "En": "pencils"
+          },
+          "Verification": {
+            "Ar": "7\\times8=56",
+            "En": "7\\times8=56"
+          },
+          "CommonError": {
+            "Ar": "لا تخلط عدد المجموعات بحجمها.",
+            "En": "Do not confuse group count with size."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v1-grade-3-equal-sharing-3",
+      "ReviewStatus": "Draft",
+      "Family": "equal-sharing",
+      "PrimarySkillKey": "primary-division",
+      "ProposedTrackCodes": [
+        "grade-3"
+      ],
+      "Check": {
+        "expected": "9"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 33,
+        "PrimarySkillId": 5,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "توزيع بالتساوي",
+          "En": "Equal sharing"
+        },
+        "Question": {
+          "Ar": "وزع 45 قلماً بالتساوي على 5 طلاب. كم قلماً لكل طالب؟",
+          "En": "Share 45 pencils equally among 5 students. How many per student?"
+        },
+        "Options": [
+          {
+            "LatexCode": "10",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "زاد الحصة واحداً.",
+              "En": "One too many per student."
+            }
+          },
+          {
+            "LatexCode": "8",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "نقص الحصة واحداً.",
+              "En": "One too few per student."
+            }
+          },
+          {
+            "LatexCode": "9",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "40",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "طرح عدد الطلاب.",
+              "En": "Subtracts number of students."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "حدد العدد الكلي وعدد المجموعات.",
+            "En": "Identify total and group count."
+          },
+          {
+            "Ar": "اقسم الكل على عدد الطلاب.",
+            "En": "Divide total by student count."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "حدد العدد الكلي وعدد المجموعات.",
+            "En": "Identify total and group count."
+          },
+          "FormulaLatex": "q=T\\div g",
+          "Steps": [
+            {
+              "Ar": "اقسم 45 على 5.",
+              "En": "Divide 45 by 5."
+            },
+            {
+              "Ar": "الناتج حصة طالب واحد.",
+              "En": "The result is one student's share."
+            }
+          ],
+          "Substitution": {
+            "Ar": "45\\div5=9",
+            "En": "45\\div5=9"
+          },
+          "Result": {
+            "Ar": "9",
+            "En": "9"
+          },
+          "Unit": {
+            "Ar": "قلم",
+            "En": "pencils"
+          },
+          "Verification": {
+            "Ar": "9\\times5=45",
+            "En": "9\\times5=45"
+          },
+          "CommonError": {
+            "Ar": "لا تخلط عدد المجموعات بحجمها.",
+            "En": "Do not confuse group count with size."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v1-grade-3-cross-hour-1",
+      "ReviewStatus": "Draft",
+      "Family": "cross-hour",
+      "PrimarySkillKey": "time",
+      "ProposedTrackCodes": [
+        "grade-3"
+      ],
+      "Check": {
+        "expected": "20"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 82,
+        "PrimarySkillId": 324,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "عبور الساعة",
+          "En": "Crossing the hour"
+        },
+        "Question": {
+          "Ar": "بدأ نشاط الساعة 9:45 واستمر 35 دقيقة. كم دقيقة بعد 10:00 انتهى؟",
+          "En": "An activity starts at 9:45 and lasts 35 minutes. How many minutes after 10:00 does it end?"
+        },
+        "Options": [
+          {
+            "LatexCode": "35",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "اختار المدة كلها.",
+              "En": "Chooses full duration."
+            }
+          },
+          {
+            "LatexCode": "15",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "حسب الوقت حتى الساعة فقط.",
+              "En": "Counts only time to next hour."
+            }
+          },
+          {
+            "LatexCode": "80",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "لم يطرح 60.",
+              "En": "Does not subtract 60."
+            }
+          },
+          {
+            "LatexCode": "20",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "احسب الوقت حتى الساعة التالية.",
+            "En": "Find minutes until next hour."
+          },
+          {
+            "Ar": "اطرحه من مدة النشاط.",
+            "En": "Subtract it from duration."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "احسب الوقت حتى الساعة التالية.",
+            "En": "Find minutes until next hour."
+          },
+          "FormulaLatex": "r=d-(60-m)",
+          "Steps": [
+            {
+              "Ar": "حتى الساعة التالية 15 دقيقة.",
+              "En": "It takes 15 minutes to next hour."
+            },
+            {
+              "Ar": "اطرحها من المدة.",
+              "En": "Subtract those from duration."
+            }
+          ],
+          "Substitution": {
+            "Ar": "35-15=20",
+            "En": "35-15=20"
+          },
+          "Result": {
+            "Ar": "20",
+            "En": "20"
+          },
+          "Unit": {
+            "Ar": "دقيقة",
+            "En": "minutes"
+          },
+          "Verification": {
+            "Ar": "15+20=35",
+            "En": "15+20=35"
+          },
+          "CommonError": {
+            "Ar": "الساعة 60 دقيقة لا 100.",
+            "En": "An hour has 60 minutes, not 100."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v1-grade-3-cross-hour-2",
+      "ReviewStatus": "Draft",
+      "Family": "cross-hour",
+      "PrimarySkillKey": "time",
+      "ProposedTrackCodes": [
+        "grade-3"
+      ],
+      "Check": {
+        "expected": "15"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 82,
+        "PrimarySkillId": 324,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "عبور الساعة",
+          "En": "Crossing the hour"
+        },
+        "Question": {
+          "Ar": "بدأ نشاط الساعة 10:50 واستمر 25 دقيقة. كم دقيقة بعد 11:00 انتهى؟",
+          "En": "An activity starts at 10:50 and lasts 25 minutes. How many minutes after 11:00 does it end?"
+        },
+        "Options": [
+          {
+            "LatexCode": "15",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "25",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "اختار المدة كلها.",
+              "En": "Chooses full duration."
+            }
+          },
+          {
+            "LatexCode": "10",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "حسب الوقت حتى الساعة فقط.",
+              "En": "Counts only time to next hour."
+            }
+          },
+          {
+            "LatexCode": "75",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "لم يطرح 60.",
+              "En": "Does not subtract 60."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "احسب الوقت حتى الساعة التالية.",
+            "En": "Find minutes until next hour."
+          },
+          {
+            "Ar": "اطرحه من مدة النشاط.",
+            "En": "Subtract it from duration."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "احسب الوقت حتى الساعة التالية.",
+            "En": "Find minutes until next hour."
+          },
+          "FormulaLatex": "r=d-(60-m)",
+          "Steps": [
+            {
+              "Ar": "حتى الساعة التالية 10 دقيقة.",
+              "En": "It takes 10 minutes to next hour."
+            },
+            {
+              "Ar": "اطرحها من المدة.",
+              "En": "Subtract those from duration."
+            }
+          ],
+          "Substitution": {
+            "Ar": "25-10=15",
+            "En": "25-10=15"
+          },
+          "Result": {
+            "Ar": "15",
+            "En": "15"
+          },
+          "Unit": {
+            "Ar": "دقيقة",
+            "En": "minutes"
+          },
+          "Verification": {
+            "Ar": "10+15=25",
+            "En": "10+15=25"
+          },
+          "CommonError": {
+            "Ar": "الساعة 60 دقيقة لا 100.",
+            "En": "An hour has 60 minutes, not 100."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v1-grade-3-cross-hour-3",
+      "ReviewStatus": "Draft",
+      "Family": "cross-hour",
+      "PrimarySkillKey": "time",
+      "ProposedTrackCodes": [
+        "grade-3"
+      ],
+      "Check": {
+        "expected": "15"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 82,
+        "PrimarySkillId": 324,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "عبور الساعة",
+          "En": "Crossing the hour"
+        },
+        "Question": {
+          "Ar": "بدأ نشاط الساعة 8:35 واستمر 40 دقيقة. كم دقيقة بعد 9:00 انتهى؟",
+          "En": "An activity starts at 8:35 and lasts 40 minutes. How many minutes after 9:00 does it end?"
+        },
+        "Options": [
+          {
+            "LatexCode": "40",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "اختار المدة كلها.",
+              "En": "Chooses full duration."
+            }
+          },
+          {
+            "LatexCode": "15",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "25",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "حسب الوقت حتى الساعة فقط.",
+              "En": "Counts only time to next hour."
+            }
+          },
+          {
+            "LatexCode": "75",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "لم يطرح 60.",
+              "En": "Does not subtract 60."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "احسب الوقت حتى الساعة التالية.",
+            "En": "Find minutes until next hour."
+          },
+          {
+            "Ar": "اطرحه من مدة النشاط.",
+            "En": "Subtract it from duration."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "احسب الوقت حتى الساعة التالية.",
+            "En": "Find minutes until next hour."
+          },
+          "FormulaLatex": "r=d-(60-m)",
+          "Steps": [
+            {
+              "Ar": "حتى الساعة التالية 25 دقيقة.",
+              "En": "It takes 25 minutes to next hour."
+            },
+            {
+              "Ar": "اطرحها من المدة.",
+              "En": "Subtract those from duration."
+            }
+          ],
+          "Substitution": {
+            "Ar": "40-25=15",
+            "En": "40-25=15"
+          },
+          "Result": {
+            "Ar": "15",
+            "En": "15"
+          },
+          "Unit": {
+            "Ar": "دقيقة",
+            "En": "minutes"
+          },
+          "Verification": {
+            "Ar": "25+15=40",
+            "En": "25+15=40"
+          },
+          "CommonError": {
+            "Ar": "الساعة 60 دقيقة لا 100.",
+            "En": "An hour has 60 minutes, not 100."
+          }
+        }
+      }
+    }
+  ]
+}
