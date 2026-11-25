@@ -22,7 +22,7 @@ public sealed partial class EditorialProblemsController:ControllerBase
     private readonly IConfiguration config;
     public EditorialProblemsController(AppDbContext db,IConfiguration config){this.db=db;this.config=config;}
     public sealed record SaveInput(int Revision,WizardProblem Content);
-    public sealed record ActionInput(int Revision,string Note="",bool Confirm=false);
+    public sealed record ActionInput(int Revision,string Note="",bool Confirm=false,bool DirectApproval=false);
     public sealed record ImportRow(string ContentKey,string PrimarySkillKey,string[] ProposedTrackCodes,WizardProblem Content);
     public sealed record ImportInput(ImportRow[] Items,bool Confirm=false);
     private int ActorId=>int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
@@ -536,7 +536,11 @@ public sealed partial class EditorialProblemsController:ControllerBase
         if(await Actor(0,true,ct) is null)return Forbid();
         await db.Database.SqlQuery<int>($"SELECT 1 AS \"Value\" FROM pg_advisory_xact_lock({-987654319})").SingleAsync(ct);
         var d=await Lock(id,ct);if(d is null)return NotFound();
-        if(d.Revision!=input.Revision||d.Revision==int.MaxValue||d.EditorialStatus!="Approved"||d.PublishedProblemId.HasValue)return Conflict();
+        var direct=input.DirectApproval&&d.EditorialStatus is ("Draft" or "PendingReview" or "NeedsChanges");
+        var submit=direct&&d.EditorialStatus is ("Draft" or "NeedsChanges");
+        var increments=1+(direct?1:0)+(submit?1:0);
+        if(d.Revision!=input.Revision||d.Revision>int.MaxValue-increments||(!direct&&d.EditorialStatus!="Approved")||d.PublishedProblemId.HasValue)return Conflict();
+        if(direct&&!WizardProblemContract.Text(input.Note,2000))return BadRequest(new{Message="ReviewNoteRequired"});
         var p=WizardProblemContract.Read(d.WizardJson!);
         if(d.SourceProblemId.HasValue)
             await ProblemTransactionLocks.LockQuestionForAdminMutationAsync(db,d.SourceProblemId.Value,ct);
@@ -587,6 +591,10 @@ public sealed partial class EditorialProblemsController:ControllerBase
                 db.LearningTrackProblems.Add(new LearningTrackProblem{TrackId=t.Id,ProblemId=problem.Id});
             t.Revision++;
         }
+        // Explicit administrator approval shares the publication transaction.
+        // Any validation, write, or commit failure rolls back every state and audit change.
+        if(submit){d.SubmittedAtUtc=DateTime.UtcNow;d.Revision++;Audit(d,"EditorialDraftSubmitted");}
+        if(direct){d.ReviewedAtUtc=DateTime.UtcNow;d.ReviewedByUserId=ActorId;d.ReviewNote=input.Note.Trim();d.Revision++;Audit(d,"EditorialDraftApproved");}
         d.PublishedProblemId=problem.Id;d.PublishedAtUtc=DateTime.UtcNow;d.EditorialStatus="Published";d.Revision++;
         Audit(d,d.SourceProblemId.HasValue?"EditorialAmendmentPublished":"EditorialDraftPublished");await db.SaveChangesAsync(ct);await tx.CommitAsync(ct);return Ok(View(d));
     }
