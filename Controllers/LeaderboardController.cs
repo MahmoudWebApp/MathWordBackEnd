@@ -32,13 +32,14 @@ namespace MathWorldAPI.Controllers
             if (!int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out var id))
                 return Unauthorized(Error("Unauthorized", 401));
             var user = await _db.Users.AsNoTracking()
-                .FirstOrDefaultAsync(x => x.Id == id && x.Role == "Student",
+                .FirstOrDefaultAsync(x => x.Id == id && x.Role == "Student" && x.IsActive,
                     cancellationToken);
             if (user == null)
                 return NotFound(Error("UserNotFound", 404));
             var chosenStage = stageId ?? user.CurrentStageId;
             if (!chosenStage.HasValue)
                 return Conflict(Error("LearningStageRequired", 409));
+            if(chosenStage != user.CurrentStageId) return Forbid();
             return await Build(chosenStage.Value, period, page, pageSize, id, false,
                 cancellationToken);
         }
@@ -105,6 +106,7 @@ namespace MathWorldAPI.Controllers
             {
                 UserId = u.Id,
                 FullName = u.FullName,
+                u.ShareLeaderboardFullName,
                 SolvedProblems = solved.Count(p => p.UserId == u.Id),
                 Points = solved.Where(p => p.UserId == u.Id)
                     .Sum(p => (long?)p.Points) ?? 0,
@@ -167,7 +169,7 @@ namespace MathWorldAPI.Controllers
                         Rank = rank,
                         UserId = admin ? row.UserId : null,
                         DisplayName = admin ? row.FullName :
-                            self ? (arabic ? "أنت" : "You") :
+                            row.ShareLeaderboardFullName && !string.IsNullOrWhiteSpace(row.FullName) ? row.FullName.Trim() :
                             AbbreviatedName(row.FullName, arabic),
                         SolvedProblems = row.SolvedProblems,
                         Points = row.Points,

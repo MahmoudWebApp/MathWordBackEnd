@@ -52,7 +52,23 @@ def main():
     row=next(x for x in expect("GET",ROUTE,200,token=admin)["Items"] if x["Id"]==sid)
     assert not row["StaffSetupPending"] and row["Permissions"]==3
     rev=row["Revision"]
-    expect("PUT",f"{ROUTE}/{sid}",400,{"IsActive":True,"Permissions":4,"Revision":rev},admin)
+    for invalid in (8,32,-1):
+        expect("PUT",f"{ROUTE}/{sid}",400,{"IsActive":True,"Permissions":invalid,"Revision":rev},admin)
+    expect("GET","/api/supervisor/students",403,token=supervisor)
+    expect("GET","/api/supervisor/reports",403,token=supervisor)
+    expect("PUT",f"{ROUTE}/{sid}",200,{"IsActive":True,"Permissions":28,"Revision":rev},admin)
+    expect("GET","/api/supervisor/permissions",401,token=supervisor)
+    status,result=login(EMAIL,PWD)
+    assert status==200
+    supervisor=token_of(result["Data"])
+    assert expect("GET","/api/supervisor/permissions",200,token=supervisor)["Permissions"]==28
+    students=expect("GET","/api/supervisor/students",200,token=supervisor)
+    assert all("PasswordHash" not in row and "Role" not in row for row in students["Items"])
+    expect("GET","/api/supervisor/reports",200,token=supervisor)
+    if students["Items"]:
+        expect("GET",f'/api/supervisor/students/{students["Items"][0]["Id"]}/activity',200,token=supervisor)
+    expect("GET",ROUTE,403,token=supervisor)
+    rev+=1
     expect("PUT",f"{ROUTE}/{sid}",200,{"IsActive":True,"Permissions":1,"Revision":rev},admin)
     expect("GET","/api/supervisor/permissions",401,token=supervisor)
     expect("PUT",f"{ROUTE}/{sid}",409,{"IsActive":True,"Permissions":3,"Revision":rev},admin)

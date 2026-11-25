@@ -611,6 +611,7 @@ namespace MathWorldAPI.Migrations
                         .HasColumnType("character varying(32)");
 
                     b.Property<int>("StaffPermissions").ValueGeneratedOnAdd().HasColumnType("integer").HasDefaultValue(0);
+                    b.Property<bool>("ShareLeaderboardFullName").ValueGeneratedOnAdd().HasColumnType("boolean").HasDefaultValue(false);
                     b.Property<bool>("StaffSetupPending").ValueGeneratedOnAdd().HasColumnType("boolean").HasDefaultValue(false);
                     b.Property<string>("VerifiedNotificationEmail").HasMaxLength(256).HasColumnType("character varying(256)");
                     b.Property<string>("EmailNotificationLocale").HasMaxLength(2).HasColumnType("character varying(2)");

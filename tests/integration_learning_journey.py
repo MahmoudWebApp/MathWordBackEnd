@@ -254,6 +254,17 @@ def main():
     assert my_rank_row["Points"] == after["TotalPoints"], (
         my_rank_row, after
     )
+    prefs="/api/users/leaderboard-preferences"
+    assert expect("GET",prefs,200,token=token)["ShareLeaderboardFullName"] is False
+    assert call("GET",prefs)[0]==401
+    assert call("PUT",prefs,{"ShareLeaderboardFullName":True},admin_token)[0]==403
+    assert my_rank_row["DisplayName"]=="Learning J."
+    for visible, expected_name in ((True,"Learning Journey Test Learner"),(False,"Learning J.")):
+        assert expect("PUT",prefs,200,{"ShareLeaderboardFullName":visible},token)["ShareLeaderboardFullName"] is visible
+        rows=expect("GET",f"/api/users/leaderboard?stageId={stage1}&period=all",200,token=token)["Entries"]
+        entry=next(e for e in rows if e["IsCurrentUser"])
+        assert entry["DisplayName"]==expected_name, entry
+        assert "Email" not in entry and "FullName" not in entry
     # A newly solved question must appear in all three leaderboard periods,
     # even when this is the only active learner in the stage.
     for period in ("weekly", "monthly"):

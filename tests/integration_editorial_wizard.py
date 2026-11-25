@@ -197,6 +197,21 @@ def verify_import(admin,supervisor,p,track):
     assert d["Status"]=="Draft" and d["Content"]["TrackIds"]==[track]
     withdrawn=expect("POST",f"/api/editorial/problems/{did}/withdraw",200,{"Revision":0,"Note":"Test withdrawal"},admin)
     assert withdrawn["Status"]=="Withdrawn" and sql('SELECT COUNT(*) FROM "Problems"')==before
+    # Direct publish uses the same validation, revision and audit protections.
+    row["ContentKey"]="ci-wizard-direct-publish"
+    row["Content"]["Question"]={"Ar":"احسب 11 + 11 في اختبار النشر المباشر","En":"What is 11 + 11 in the direct publication fixture?"}
+    saved=expect("POST",root,200,{"Items":[row],"Confirm":True},admin)
+    did=saved["DraftIds"][0]
+    path=f"/api/editorial/problems/{did}/publish"
+    expect("POST",path,403,{"Revision":0,"Confirm":True,"DirectApproval":True,"Note":"Reviewed"},supervisor)
+    expect("POST",path,409,{"Revision":0,"Confirm":True},admin)
+    expect("POST",path,400,{"Revision":0,"Confirm":True,"DirectApproval":True},admin)
+    assert sql(f'SELECT "EditorialStatus" FROM "CurriculumDraftItems" WHERE "Id"={did}')=="Draft"
+    published=expect("POST",path,200,{"Revision":0,"Confirm":True,"DirectApproval":True,"Note":"Reviewed direct publication"},admin)
+    assert published["Status"]=="Published" and published["Revision"]==3
+    assert int(sql('SELECT COUNT(*) FROM "Problems"'))==int(before)+1
+    expect("POST",path,409,{"Revision":0,"Confirm":True,"DirectApproval":True,"Note":"Reviewed"},admin)
+    assert int(sql('SELECT COUNT(*) FROM "Problems"'))==int(before)+1
     print("PASS: Admin-only preview/confirm import, stable-key resolution, idempotent draft creation and withdrawal")
 
 def verify_amendment_import(admin,supervisor,p,track,skill,category):
