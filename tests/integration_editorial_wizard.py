@@ -89,7 +89,7 @@ def verify_wizard(admin,supervisor,sid):
     queue=expect("GET",root+"?activeOnly=true",200,token=admin)
     assert all(row["Status"] in ("Draft","NeedsChanges","PendingReview","Approved") for row in queue["Items"])
     assert all(row["Id"]!=did for row in queue["Items"])
-    assert int(queue["Total"])==int(sql("""SELECT COUNT(*) FROM "CurriculumDraftItems" WHERE "EditorialStatus" IN ('Draft','NeedsChanges','PendingReview','Approved')"""))
+    assert int(queue["Total"])==int(sql("""SELECT COUNT(*) FROM "CurriculumDraftItems" WHERE "WizardJson" IS NOT NULL AND "EditorialStatus" IN ('Draft','NeedsChanges','PendingReview','Approved')"""))
     own_queue=expect("GET",root+"?activeOnly=true",200,token=supervisor)
     assert all(row["OwnerUserId"]==sid and row["Status"]!="Published" for row in own_queue["Items"])
     assert published["Status"]=="Published" and sql(f'SELECT COUNT(*) FROM "LearningTrackProblems" WHERE "ProblemId"={pid}')=="1"
