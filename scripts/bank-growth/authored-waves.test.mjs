@@ -7,6 +7,7 @@ import {courseWave} from './course-wave.mjs';
 import {schoolApplicationWave} from './school-application-wave.mjs';
 import {transferWave, transferHolds} from './transfer-wave.mjs';
 import {reasoningExtensionWave} from './reasoning-extension-wave.mjs';
+import {schoolReasoningApplications} from './school-reasoning-applications.mjs';
 
 const inventory = JSON.parse(readFileSync(new URL('./inventory-20261125.json', import.meta.url), 'utf8'));
 
@@ -134,4 +135,35 @@ test('reasoning extension matches independent calculations and existing taxonomy
   assert.deepEqual(validate([...schoolWave(), ...courseWave(), ...schoolApplicationWave(), ...transferWave(), ...rows]), []);
   assert.equal(selectCandidates(rows, inventory).selected.length, rows.length);
   for (const row of rows) assert.equal(row.Check.expected, String(answers[row.Family]), row.ContentKey);
+});
+
+test('school applications use linked grade skills and independently solved answers', () => {
+  const rows = schoolReasoningApplications();
+  const integers = n => Array.from({length: n}, (_, i) => i + 1);
+  const committees = integers(7).flatMap(a => integers(7).filter(b => a < b)
+    .flatMap(b => integers(7).filter(c => b < c).map(c => [a, b, c])));
+  const answers = {
+    'queue-between-children': integers(7).filter(i => 3 < i && i < 7).length,
+    'compare-unit-lengths': 8 * 3 / 4,
+    'fence-with-wall': 2 * (9 + 4) - 9,
+    'tie-mode-extra-observations': integers(6).find(k => 2 + k > 3),
+    'redraw-after-removal': [...'GGGBBB'].filter(x => x === 'G').length / 6,
+    'base-part-area-ratio': 0.5 * 4 * (2 * 54 / 9),
+    'seam-aligned-square-tiles': integers(60).filter(n => 84 % n === 0 && 60 % n === 0).at(-1),
+    'glued-polygon-angle-sum': (5 - 2) * 180 + 180,
+    'inverse-round-trip-calibration': integers(49).find(x => 2 * (2 * x + 3) + 3 === 49),
+    'reciprocal-root-sum': 1 / 0.5 + 1 / 3,
+    'committee-exclude-pair': committees.filter(c => !(c.includes(1) && c.includes(2))).length,
+    'integral-cancellation-signed': integers(13).find(area => 13 - area === 5),
+  };
+  assert.equal(rows.length, 12);
+  assert.equal(new Set(rows.map(row => row.ProposedTrackCodes[0])).size, 12);
+  assert.deepEqual(validate(rows), []);
+  assert.equal(selectCandidates(rows, inventory).selected.length, rows.length);
+  for (const row of rows) {
+    const text = row.Content.Options.find(o => o.IsCorrect).LatexCode;
+    const fraction = /^\\frac\{(\d+)\}\{(\d+)\}$/.exec(text);
+    const actual = fraction ? Number(fraction[1]) / Number(fraction[2]) : Number(text);
+    assert.ok(Math.abs(actual - answers[row.Family]) < 1e-12, row.Family);
+  }
 });
