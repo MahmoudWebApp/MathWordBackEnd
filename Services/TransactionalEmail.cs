@@ -30,18 +30,19 @@ public static class MathWorldEmailLayout
         var description = ar ? p.DescriptionAr : p.DescriptionEn;
         var address = ar ? p.ContactAddressAr : p.ContactAddressEn;
         var direction = ar ? "rtl" : "ltr";
+        var alignment = ar ? "right" : "left";
         var plain = new StringBuilder().AppendLine(name).AppendLine().AppendLine(title).AppendLine(body);
         var html = new StringBuilder()
             .Append($"<!doctype html><html lang=\"{(ar ? "ar" : "en")}\" dir=\"{direction}\"><body style=\"margin:0;background:#f5f3ff;font-family:Arial,sans-serif;color:#1f2937\"><table role=\"presentation\" width=\"100%\"><tr><td align=\"center\"><table role=\"presentation\" width=\"100%\" style=\"max-width:600px;background:#fff;border-radius:12px;overflow:hidden\"><tr><td style=\"padding:24px;background:#f3e8ff;color:#4c1d95;text-align:center\">");
         if (PlatformBrandService.IsSameOrigin(p.LogoUrl, brand.WebsiteUrl))
             html.Append($"<img src=\"{E(p.LogoUrl)}\" alt=\"{E(name)}\" width=\"64\" height=\"64\" style=\"display:block;margin:auto\">");
-        html.Append($"<strong>{E(name)}</strong></td></tr><tr><td style=\"padding:24px\"><h1 style=\"font-size:22px\">{E(title)}</h1><p style=\"line-height:1.7\">{TextBlock(body)}</p>");
+        html.Append($"<strong>{E(name)}</strong></td></tr><tr><td dir=\"{direction}\" align=\"{alignment}\" style=\"padding:24px;direction:{direction};text-align:{alignment}\"><h1 style=\"font-size:22px\">{E(title)}</h1><p style=\"line-height:1.7\">{TextBlock(body)}</p>");
         if (actionUrl is not null)
         {
-            html.Append($"<p><a style=\"display:inline-block;background:#6d28d9;color:#fff;padding:12px 20px;border-radius:8px;text-decoration:none\" href=\"{E(actionUrl)}\">{E(actionLabel)}</a></p><p style=\"font-size:12px;overflow-wrap:anywhere\">{E(actionUrl)}</p>");
+            html.Append($"<p><a style=\"display:inline-block;background:#6d28d9;color:#fff;padding:12px 20px;border-radius:8px;text-decoration:none\" href=\"{E(actionUrl)}\">{E(actionLabel)}</a></p><p dir=\"ltr\" style=\"font-size:12px;overflow-wrap:anywhere;direction:ltr;text-align:{alignment}\">{E(actionUrl)}</p>");
             plain.AppendLine().AppendLine(actionLabel).AppendLine(actionUrl);
         }
-        html.Append($"</td></tr><tr><td style=\"padding:20px;background:#f9fafb;border-top:1px solid #e5e7eb;font-size:13px;line-height:1.6\"><strong>{E(name)}</strong><p>{(ar ? "هذه رسالة من منصة MathWorld." : "This is a message from MathWorld.")}</p>");
+        html.Append($"</td></tr><tr><td dir=\"{direction}\" align=\"{alignment}\" style=\"direction:{direction};text-align:{alignment};padding:20px;background:#f9fafb;border-top:1px solid #e5e7eb;font-size:13px;line-height:1.6\"><strong>{E(name)}</strong><p>{(ar ? "هذه رسالة من منصة MathWorld." : "This is a message from MathWorld.")}</p>");
         plain.AppendLine().AppendLine(name);
         foreach (var value in new[] { description, address, p.Phone, p.SupportEmail })
             if (!string.IsNullOrWhiteSpace(value)) { html.Append($"<div>{E(value)}</div>"); plain.AppendLine(value); }

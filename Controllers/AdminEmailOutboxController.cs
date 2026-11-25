@@ -57,7 +57,8 @@ public sealed class AdminEmailOutboxController(AppDbContext db, IConfiguration c
         if(transport.IsTestMode&&testDailyLimit)missing.Add("DailyTestLimitReached");
         if(transport.IsTestMode&&attempts>=limit*3/4)missing.Add("TestAttemptBudgetReserved");
         // Never expose recipient, message body, provider ID, grant ID or secrets.
-        return Ok(new { IsConfigured = transport.IsConfigured, IsTestMode = transport.IsTestMode,
+        var provider = config["MathWorldEmail:Provider"]?.Trim() ?? "Brevo";
+        return Ok(new { Provider = provider is "Gmail" or "Brevo" ? provider : "Unknown", IsConfigured = transport.IsConfigured, IsTestMode = transport.IsTestMode,
             IsWorkerEnabled = workerEnabled, RecoveryEnabled = recovery.Enabled,
             Readiness = new { Missing = missing, CanQueueAdminTest=transport.IsConfigured&&workerEnabled&&adminAllowed&&attempts<limit*3/4&&!testCooldown&&!testDailyLimit,
                 AdminRecoveryConfigured=recovery.Enabled&&workerEnabled&&adminVerified&&transport.AllowsRecipient(admin.Email),
