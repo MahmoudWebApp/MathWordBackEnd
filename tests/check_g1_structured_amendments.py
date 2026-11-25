@@ -1111,6 +1111,11 @@ def rational(text):
     f=re.fullmatch(r"\\frac(?:\{(-?\d+)\}|(-?\d))(?:\{(\d+)\}|(\d))",s)
     if f: return Fraction(int(f[1] or f[2]),int(f[3] or f[4]))
     if s.endswith(r"\%"): return Fraction(s[:-2])/100
+    radical=re.fullmatch(r"\\sqrt\{(\d+)\}",s)
+    if radical:
+        from math import isqrt
+        n=int(radical[1]);root=isqrt(n)
+        return Fraction(root) if root*root==n else ("irrational-sqrt",n)
     return Fraction(s)
 def check_num(i,expected):
     options=recent[i]["Content"]["Options"]
