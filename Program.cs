@@ -691,6 +691,7 @@ app.UseAuthentication();
 // endpoints. New staff endpoints must explicitly opt in, then check permission
 // and ownership themselves. Existing Admin/Student contracts stay unchanged.
 app.UseMiddleware<SupervisorBoundaryMiddleware>();
+app.UseMiddleware<StudentOnboardingBoundaryMiddleware>();
 
 // Rate limiting runs after authentication so it can use the user ID.
 app.UseRateLimiter();

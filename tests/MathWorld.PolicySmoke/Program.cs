@@ -36,6 +36,15 @@ Assert(AccountRolePolicy.ValidStaffPermissions(0) && AccountRolePolicy.ValidStaf
        !AccountRolePolicy.ValidStaffPermissions(4) && !AccountRolePolicy.ValidStaffPermissions(-1),
        "Only edit and submit permissions are allowed; submit requires edit.");
 Console.WriteLine("PASS: existing roles and bounded staff permissions.");
+Assert(StudentOnboardingPolicy.Next(true,false,true,false,true,false)=="VerifyEmail","Verification first.");
+Assert(StudentOnboardingPolicy.Next(true,true,true,false,true,false)=="SelectStage","Stage before track.");
+Assert(StudentOnboardingPolicy.Next(true,true,true,true,true,false)=="SelectTrack","Track mandatory.");
+Assert(StudentOnboardingPolicy.Next(true,true,true,true,true,true)=="Complete","Complete only after all requirements.");
+Assert(!StudentOnboardingPolicy.Allows("VerifyEmail","PUT","/api/users/learning-track"),"Unverified student cannot select track.");
+Assert(StudentOnboardingPolicy.Allows("VerifyEmail","POST","/api/auth/email-verification/request"),"Resend remains possible.");
+Assert(!StudentOnboardingPolicy.Allows("SelectTrack","POST","/api/users/favorite/toggle"),"Incomplete student cannot practice.");
+Assert(StudentOnboardingPolicy.Allows("SelectTrack","PUT","/api/users/learning-track"),"Track selection remains possible.");
+
 
 // Missing legacy claims map to version zero only. The database comparison
 // then rejects old tokens as soon as the stored account version increases.
