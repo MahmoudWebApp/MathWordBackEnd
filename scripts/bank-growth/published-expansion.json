@@ -148,5 +148,55 @@
     "key": "growth-v9-grade-12-telescoping-tail-from-shift-1",
     "draft": 1054,
     "problem": 1756
+  },
+  {
+    "key": "growth-v7-grade-1-reverse-queue-rank-1",
+    "draft": 1055,
+    "problem": 1757
+  },
+  {
+    "key": "growth-v7-grade-2-compare-after-both-change-1",
+    "draft": 1056,
+    "problem": 1758
+  },
+  {
+    "key": "growth-v7-grade-4-remaining-fraction-same-whole-1",
+    "draft": 1057,
+    "problem": 1759
+  },
+  {
+    "key": "growth-v7-grade-5-area-model-omitted-cell-1",
+    "draft": 1058,
+    "problem": 1760
+  },
+  {
+    "key": "growth-v7-grade-6-successive-percents-new-base-1",
+    "draft": 1059,
+    "problem": 1761
+  },
+  {
+    "key": "growth-v7-grade-7-annulus-area-coefficient-1",
+    "draft": 1060,
+    "problem": 1762
+  },
+  {
+    "key": "growth-v7-grade-8-recover-total-from-relative-frequency-1",
+    "draft": 1061,
+    "problem": 1763
+  },
+  {
+    "key": "growth-v7-grade-9-intersect-two-linear-integer-bounds-1",
+    "draft": 1062,
+    "problem": 1764
+  },
+  {
+    "key": "growth-v7-grade-10-line-intersection-ordinate-1",
+    "draft": 1063,
+    "problem": 1765
+  },
+  {
+    "key": "growth-v7-grade-12-secant-from-tangent-sign-1",
+    "draft": 1064,
+    "problem": 1766
   }
 ]
