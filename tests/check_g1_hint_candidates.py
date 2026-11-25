@@ -128,15 +128,16 @@ sys.path.insert(0,str(ROOT/"scripts"))
 from prepare_g1_publication_batches import prepare
 hint_batches, full_batches, blocked = prepare()
 assert [len(b["Items"]) for b in hint_batches]==[]
-assert [len(b["Items"]) for b in full_batches]==[50]*14+[26]
+assert [len(b["Items"]) for b in full_batches]==[50]*14+[28]
 hint_ids={r["ProblemId"] for b in hint_batches for r in b["Items"]}
 full_ids={r["ProblemId"] for b in full_batches for r in b["Items"]}
-assert len(hint_ids)==0 and len(full_ids)==726 and len(blocked)==47
+assert len(hint_ids)==0 and len(full_ids)==728 and len(blocked)==45
+assert {1566,1581} <= full_ids
 assert {212,224,236,248,260} <= full_ids and set(range(1623,1635)) <= full_ids
 assert not hint_ids.intersection(full_ids) and not (hint_ids|full_ids).intersection(blocked)
 assert hint_ids|full_ids|set(blocked)==set(source)
 assert all(b["Confirm"] is False for b in hint_batches+full_batches)
-print("PASS: 15 disjoint preview-only batches cover 726 eligible problems; all 47 current holds excluded")
+print("PASS: 15 disjoint preview-only batches cover 728 eligible problems; all 45 current holds excluded")
 
 # New questions are not existing amendments and never auto-published.
 from prepare_g1_new_content import prepare_new
@@ -160,7 +161,7 @@ from prepare_g1_track_mapping import prepare_mapping
 mapping,identities=prepare_mapping()
 tracks=mapping["Tracks"]
 assert len(tracks)==19
-assert sum(t["ProblemCount"] for t in tracks)==726
+assert sum(t["ProblemCount"] for t in tracks)==728
 assert {i for t in tracks for i in t["ProblemIds"]}==hint_ids|full_ids
 assert {i for t in tracks for i in t["ExcludedHeldIds"]}==set(blocked)
 assert all(not t["PublicationApproved"] and t["ProblemCount"] and t["SkillIds"] and t["CategoryIds"] for t in tracks)
@@ -168,4 +169,4 @@ assert {t["Code"] for t in tracks if t["FreeCoverageBlocked"]}=={
     "differential-equations","probability-statistics","discrete-mathematics","numerical-analysis","mathematical-optimization"}
 assert {t["Code"] for t in identities}=={"numerical-analysis","mathematical-optimization"}
 assert all(t["StageId"]==4 and t["Kind"]=="course" for t in identities)
-print("PASS: 19 source-bound mapping proposals with 726 eligible IDs, 47 held excluded, two draft identities; no publication")
+print("PASS: 19 source-bound mapping proposals with 728 eligible IDs, 45 held excluded, two draft identities; no publication")

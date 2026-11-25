@@ -158,6 +158,9 @@ public sealed class LearningSessionsController(AppDbContext db, IConfiguration c
             .OrderBy(p=>done.Contains(p.Id)).ThenBy(p=>p.index).ThenBy(p=>Rank(p.CategoryId)).ThenBy(p=>p.Id)
             .Take(input.Count).Select(p=>p.Id).ToArray();
         if(ids.Length!=input.Count)return Conflict(new{Message="InsufficientSessionProblems"});
+        // Synchronize the snapshot with wording/option corrections; writers
+        // check historical sessions under the matching exclusive question lock.
+        foreach(var id in ids.Order())await ProblemTransactionLocks.LockQuestionForAnswerAsync(db,id,ct);
         var loaded=await Eligible(scope,input.CategoryId).Where(p=>ids.Contains(p.Id)).Include(p=>p.Options).ToListAsync(ct);
         if(loaded.Count!=ids.Length)return Conflict(new{Message="SessionContentUnavailable"});
         var byId=loaded.ToDictionary(p=>p.Id);

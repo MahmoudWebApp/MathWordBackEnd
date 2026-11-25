@@ -1,0 +1,231 @@
+{
+  "Status": "NotImportedNotPublished",
+  "ReviewDate": "2026-11-25",
+  "Scope": "Two source-matched taxonomy clearances based on published skill descriptions; no new taxonomy or source changes.",
+  "Items": [
+    {
+      "ProblemId": 1566,
+      "ExpectedOptionIds": [
+        6253,
+        6254,
+        6255,
+        6256
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "المبدأ المستخدم: في خط الأعداد تكون القيمة الأصغر إلى اليسار؛ والأعداد السالبة أصغر من الصفر، والعدد السالب الأكبر قيمةً مطلقة هو الأصغر. لذا −8 أصغر من −2، وكلاهما أقل من 0، بينما 4 موجب. الترتيب من الأصغر إلى الأكبر هو −8 < −2 < 0 < 4.",
+        "En": "Rule used: On the number line, values increase from left to right. Any negative number is below zero, and among negatives the number farther from zero has the smaller value. Thus −8 < −2, both precede 0, and +4 is greatest: −8 < −2 < 0 < 4."
+      },
+      "ProposedTrackCode": "grade-7",
+      "PrimarySkillKey": "absolute-value",
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 83,
+        "PrimarySkillId": 307,
+        "Points": 10,
+        "Title": {
+          "Ar": "رتّب الأعداد −8، −2، 4، 0 تصاعدياً.",
+          "En": "Order −8, −2, 4, 0 from least to greatest."
+        },
+        "Question": {
+          "Ar": "رتّب الأعداد −8، −2، 4، 0 تصاعدياً.",
+          "En": "Order −8, −2, 4, 0 from least to greatest."
+        },
+        "Options": [
+          {
+            "LatexCode": "-2<-8<0<4",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "لا يحقق هذا الخيار القانون أو التحقق التالي: $-2-(-8)=6>0,\\quad0-(-2)=2>0,\\quad4-0=4>0$ القيمة المطلقة الأكبر بين عددين سالبين تعني عدداً أصغر.",
+              "En": "This choice fails the derived rule or check: $-2-(-8)=6>0,\\quad0-(-2)=2>0,\\quad4-0=4>0$ Among negatives, larger absolute magnitude means a smaller number."
+            }
+          },
+          {
+            "LatexCode": "-8<-2<0<4",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "4<0<-2<-8",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "لا يحقق هذا الخيار القانون أو التحقق التالي: $-2-(-8)=6>0,\\quad0-(-2)=2>0,\\quad4-0=4>0$ القيمة المطلقة الأكبر بين عددين سالبين تعني عدداً أصغر.",
+              "En": "This choice fails the derived rule or check: $-2-(-8)=6>0,\\quad0-(-2)=2>0,\\quad4-0=4>0$ Among negatives, larger absolute magnitude means a smaller number."
+            }
+          },
+          {
+            "LatexCode": "-8<0<-2<4",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "لا يحقق هذا الخيار القانون أو التحقق التالي: $-2-(-8)=6>0,\\quad0-(-2)=2>0,\\quad4-0=4>0$ القيمة المطلقة الأكبر بين عددين سالبين تعني عدداً أصغر.",
+              "En": "This choice fails the derived rule or check: $-2-(-8)=6>0,\\quad0-(-2)=2>0,\\quad4-0=4>0$ Among negatives, larger absolute magnitude means a smaller number."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "تخيّل مواضع الأعداد على خط الأعداد، واقرأ من اليسار إلى اليمين.",
+            "En": "Place the numbers on a number line and read from left to right."
+          },
+          {
+            "Ar": "رتّب السوالب أولاً. أي العددين السالبين يقع أبعد إلى يسار الصفر؟",
+            "En": "Order the negative numbers first. Which of the two lies farther to the left of zero?"
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "الأعداد تزداد من اليسار إلى اليمين على خط الأعداد.",
+            "En": "Values increase from left to right on the number line."
+          },
+          "FormulaLatex": "a<b\\iff b-a>0",
+          "Steps": [
+            {
+              "Ar": "$-8<-2$",
+              "En": "$-8<-2$"
+            },
+            {
+              "Ar": "$-2<0<4$",
+              "En": "$-2<0<4$"
+            }
+          ],
+          "Substitution": {
+            "Ar": "$-2<0<4$",
+            "En": "$-2<0<4$"
+          },
+          "Result": {
+            "Ar": "$-8<-2<0<4$",
+            "En": "$-8<-2<0<4$"
+          },
+          "Verification": {
+            "Ar": "$-2-(-8)=6>0,\\quad0-(-2)=2>0,\\quad4-0=4>0$",
+            "En": "$-2-(-8)=6>0,\\quad0-(-2)=2>0,\\quad4-0=4>0$"
+          },
+          "CommonError": {
+            "Ar": "القيمة المطلقة الأكبر بين عددين سالبين تعني عدداً أصغر.",
+            "En": "Among negatives, larger absolute magnitude means a smaller number."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة محددة",
+            "En": "No specified unit"
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 1581,
+      "ExpectedOptionIds": [
+        6313,
+        6314,
+        6315,
+        6316
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: النسبة التجريبية للنجاح = عدد الحالات الناجحة ÷ إجمالي مشاهدات العينة. نجح 18 طالباً من 30؛ إذن النسبة = 18/30، وباختزالها نحصل على 3/5 = 0.6. أي 60% تقريباً من العينة، وهي تقدير رصدي لا تعني ضماناً لنجاح المجتمع كله.",
+        "En": "Rule used: An observed sample proportion is successes divided by total sampled observations. With 18 successes among 30 students, p-hat = 18/30 = 3/5 = 0.6, or 60%. This is an empirical sample statistic rather than a guaranteed population rate."
+      },
+      "ProposedTrackCode": "probability-statistics",
+      "PrimarySkillKey": "sampling-distribution",
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 89,
+        "PrimarySkillId": 319,
+        "Points": 10,
+        "Title": {
+          "Ar": "نجح 18 طالباً من عينة حجمها 30. ما النسبة المشاهدة للنجاح؟",
+          "En": "18 out of 30 sampled students passed. What is the observed success proportion?"
+        },
+        "Question": {
+          "Ar": "نجح 18 طالباً من عينة حجمها 30. ما النسبة المشاهدة للنجاح؟",
+          "En": "18 out of 30 sampled students passed. What is the observed success proportion?"
+        },
+        "Options": [
+          {
+            "LatexCode": "0.18",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "لا يحقق هذا الخيار القانون أو التحقق التالي: $0.6\\cdot30=18$ لا تقسم على عدد الراسبين؛ النسبة تخص العينة وليست ضماناً للمجتمع.",
+              "En": "This choice fails the derived rule or check: $0.6\\cdot30=18$ Do not divide by failures; the proportion describes the sample, not a guaranteed population rate."
+            }
+          },
+          {
+            "LatexCode": "0.3",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "لا يحقق هذا الخيار القانون أو التحقق التالي: $0.6\\cdot30=18$ لا تقسم على عدد الراسبين؛ النسبة تخص العينة وليست ضماناً للمجتمع.",
+              "En": "This choice fails the derived rule or check: $0.6\\cdot30=18$ Do not divide by failures; the proportion describes the sample, not a guaranteed population rate."
+            }
+          },
+          {
+            "LatexCode": "0.6",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "0.8",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "لا يحقق هذا الخيار القانون أو التحقق التالي: $0.6\\cdot30=18$ لا تقسم على عدد الراسبين؛ النسبة تخص العينة وليست ضماناً للمجتمع.",
+              "En": "This choice fails the derived rule or check: $0.6\\cdot30=18$ Do not divide by failures; the proportion describes the sample, not a guaranteed population rate."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "النسبة المشاهدة هي جزء من العينة، وليست متوسطاً لمجتمع كامل.",
+            "En": "The observed proportion describes a part of the sample, not a population mean."
+          },
+          {
+            "Ar": "اقسم عدد الناجحين على العدد الكلي للعينة.",
+            "En": "Divide successes by total sample size."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نسبة النجاح المشاهدة هي عدد النجاحات على حجم العينة.",
+            "En": "Observed sample proportion is successes divided by sample size."
+          },
+          "FormulaLatex": "\\hat p=\\frac{x}{n}",
+          "Steps": [
+            {
+              "Ar": "$\\hat p=18/30=3/5$",
+              "En": "$\\hat p=18/30=3/5$"
+            },
+            {
+              "Ar": "$3/5=0.6=60\\%$",
+              "En": "$3/5=0.6=60\\%$"
+            }
+          ],
+          "Substitution": {
+            "Ar": "$3/5=0.6=60\\%$",
+            "En": "$3/5=0.6=60\\%$"
+          },
+          "Result": {
+            "Ar": "$0.6$",
+            "En": "$0.6$"
+          },
+          "Verification": {
+            "Ar": "$0.6\\cdot30=18$",
+            "En": "$0.6\\cdot30=18$"
+          },
+          "CommonError": {
+            "Ar": "لا تقسم على عدد الراسبين؛ النسبة تخص العينة وليست ضماناً للمجتمع.",
+            "En": "Do not divide by failures; the proportion describes the sample, not a guaranteed population rate."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة محددة",
+            "En": "No specified unit"
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    }
+  ]
+}

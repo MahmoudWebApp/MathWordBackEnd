@@ -79,6 +79,32 @@
       "VerifiedAnswer": 3,
       "ReasonAr": "مهارة الأنظمة الخطية العددية تشمل الحذف صراحةً؛ حل دقيق تمهيدي وليس قياساً لخطأ التقريب.",
       "ReasonEn": "Live skill 332 explicitly includes elimination; exact linear-system prerequisite, not a numerical error exercise."
+    },
+    {
+      "ProblemId": 1566,
+      "CategoryId": 83,
+      "PrimarySkillId": 307,
+      "StableKey": "absolute-value",
+      "ExpectedQuestionAr": "رتّب الأعداد −8، −2، 4، 0 تصاعدياً.",
+      "ExpectedQuestionEn": "Order −8, −2, 4, 0 from least to greatest.",
+      "StageId": 2,
+      "TrackCode": "grade-7",
+      "VerifiedAnswer": "-8<-2<0<4",
+      "ReasonAr": "وصف المهارة الحالي يشمل ترتيب الأعداد ذات الإشارة صراحةً؛ لا حاجة لمهارة مكررة.",
+      "ReasonEn": "Live skill 307 description explicitly includes signed number order; retain current primary skill."
+    },
+    {
+      "ProblemId": 1581,
+      "CategoryId": 89,
+      "PrimarySkillId": 319,
+      "StableKey": "sampling-distribution",
+      "ExpectedQuestionAr": "نجح 18 طالباً من عينة حجمها 30. ما النسبة المشاهدة للنجاح؟",
+      "ExpectedQuestionEn": "18 out of 30 sampled students passed. What is the observed success proportion?",
+      "StageId": 4,
+      "TrackCode": "probability-statistics",
+      "VerifiedAnswer": "0.6",
+      "ReasonAr": "نسبة العينة إحصاء عيني، ووصف المهارة الحالي يشمل حساب إحصاءات العينة.",
+      "ReasonEn": "Observed sample proportion is a sample statistic; live skill 319 explicitly includes calculating sample statistics."
     }
   ]
 }
