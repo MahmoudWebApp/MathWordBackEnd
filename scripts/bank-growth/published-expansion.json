@@ -58,5 +58,35 @@
     "key": "growth-v12-grade-12-integral-cancellation-signed-1",
     "draft": 1035,
     "problem": 1738
+  },
+  {
+    "key": "growth-v11-grade-2-overlap-joined-strip-length-1",
+    "draft": 1037,
+    "problem": 1739
+  },
+  {
+    "key": "growth-v11-grade-7-equal-distance-average-speed-1",
+    "draft": 1038,
+    "problem": 1740
+  },
+  {
+    "key": "growth-v11-grade-8-rectangle-diagonal-compares-opening-1",
+    "draft": 1039,
+    "problem": 1741
+  },
+  {
+    "key": "growth-v11-grade-10-perpendicular-offset-intercept-1",
+    "draft": 1040,
+    "problem": 1742
+  },
+  {
+    "key": "growth-v11-linear-algebra-inverse-compose-determinant-1",
+    "draft": 1041,
+    "problem": 1743
+  },
+  {
+    "key": "growth-v11-numerical-analysis-bisection-retained-endpoint-second-step-1",
+    "draft": 1042,
+    "problem": 1744
   }
 ]
