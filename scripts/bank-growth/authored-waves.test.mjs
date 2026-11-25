@@ -31,3 +31,36 @@ test('school wave uses linked skills and independently checked answers', () => {
   for (const row of rows) assert.equal(row.Check.expected, String(answers[row.Family]), row.ContentKey);
   assert.deepEqual(schoolHolds, ['division-ceiling-capacity', 'affine-population-variance']);
 });
+
+import {courseWave} from './course-wave.mjs';
+
+test('course wave covers seven linked courses and verifies all answers', () => {
+  const rows = courseWave();
+  const f = (x, y) => x * (x + y);
+  const along = t => f(2 + 3 * t / 5, 1 + 4 * t / 5);
+  const determinant = a =>
+    a[0][0] * (a[1][1] * a[2][2] - a[1][2] * a[2][1]) -
+    a[0][1] * (a[1][0] * a[2][2] - a[1][2] * a[2][0]) +
+    a[0][2] * (a[1][0] * a[2][1] - a[1][1] * a[2][0]);
+  const answers = {
+    'oblique-direction-normalization': `\\frac{${Math.round((along(1) - along(-1)) * 5 / 2)}}{5}`,
+    'monotone-sequence-supremum': 7,
+    'relaxation-deviation-half-time': [1, 2].reduce(value => (value + 20) / 2, 44),
+    'initial-curvature-second-order': [0, 4, 8, 14].find(a => a + 4 * (-1) + 3 * 2 === 10),
+    'transitive-closure-extra-pairs': [1, 2, 3, 4]
+      .flatMap(i => [1, 2, 3, 4].filter(j => j - i > 1)).length,
+    'determinant-composed-row-operations': determinant([[0, 9, 0], [1, 0, 0], [0, 18, -2]]),
+    'coefficient-from-linear-dependence': [4, 9, 12, 24].find(a => 2 * a - 8 * 3 === 0),
+    'linear-optimum-two-active-constraints': Math.max(...[[0, 0], [5, 0], [5, 3], [0, 8]].map(([x, y]) => 3 * x + 2 * y)),
+    'convexity-chord-bound': 3 + 2 * ((19 - 3) / 8),
+    'linear-system-residual-correction': (3 * 12 + 14 - (3 * 2 + 3) * 5) / 5,
+    'interval-error-bound-from-rounding': (4.25 + 7.35 - 11.5).toFixed(2),
+    'additional-sample-for-target-precision': [324, 288, 72, 108].find(additional => Math.sqrt(36 + additional) === 18),
+  };
+  assert.equal(rows.length, 12);
+  assert.equal(new Set(rows.map(row => row.Family)).size, rows.length);
+  assert.equal(new Set(rows.map(row => row.ProposedTrackCodes[0])).size, 7);
+  assert.deepEqual(validate([...schoolWave(), ...rows]), []);
+  assert.equal(selectCandidates(rows, inventory).selected.length, rows.length);
+  for (const row of rows) assert.equal(row.Check.expected, String(answers[row.Family]), row.ContentKey);
+});
