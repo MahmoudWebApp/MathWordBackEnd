@@ -258,5 +258,35 @@
     "key": "growth-v8-probability-statistics-additional-sample-for-target-precision-1",
     "draft": 1076,
     "problem": 1778
+  },
+  {
+    "key": "growth-v13-discrete-mathematics-merge-equivalence-blocks-1",
+    "draft": 1077,
+    "problem": 1779
+  },
+  {
+    "key": "growth-v13-calculus-recover-east-slope-1",
+    "draft": 1078,
+    "problem": 1780
+  },
+  {
+    "key": "growth-v13-differential-equations-combine-fundamental-solutions-1",
+    "draft": 1079,
+    "problem": 1781
+  },
+  {
+    "key": "growth-v13-numerical-analysis-eliminate-leading-discretization-error-1",
+    "draft": 1080,
+    "problem": 1782
+  },
+  {
+    "key": "growth-v13-probability-statistics-paired-average-variance-1",
+    "draft": 1081,
+    "problem": 1783
+  },
+  {
+    "key": "growth-v13-mathematical-optimization-minimum-uniform-capacity-relaxation-1",
+    "draft": 1082,
+    "problem": 1784
   }
 ]
