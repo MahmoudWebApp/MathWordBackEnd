@@ -39,7 +39,7 @@ internal sealed class ReviewedBankCatalog
         var clearances=Read("g1-taxonomy-clearances-20261125.json");
         Require(Str(clearances,"Status")=="ReviewedTaxonomyOnlyNoSourceMutation");
         var cleared=Rows(clearances,"Items");
-        Require(cleared.Length==6&&cleared.Select(r=>Id(r,"ProblemId")).ToHashSet().SetEquals(new[]{212,224,236,248,260,1633}));
+        Require(cleared.Length==8&&cleared.Select(r=>Id(r,"ProblemId")).ToHashSet().SetEquals(new[]{212,224,236,248,260,1633,1566,1581}));
         foreach(var row in cleared)
         {
             var id=Id(row,"ProblemId");var original=source[id];
@@ -49,7 +49,7 @@ internal sealed class ReviewedBankCatalog
                 Str(row,"ExpectedQuestionEn")==Str(original.GetProperty("question"),"En"));
             held.Remove(id);
         }
-        Require(held.Count==35);
+        Require(held.Count==33);
         var modelHolds=Read("g1-model-assumption-holds-20261125.json");
         Require(Str(modelHolds,"Status")=="HeldNotImportable");
         var newHolds=Rows(modelHolds,"Items");
@@ -66,17 +66,17 @@ internal sealed class ReviewedBankCatalog
                 !string.IsNullOrWhiteSpace(Str(row.GetProperty("ProposedQuestion"),"En")));
             held.Add(id);
         }
-        Require(held.Count==47);
+        Require(held.Count==45);
         var full=new List<JsonElement>();
-        for(int wave=1;wave<=17;wave++)
+        for(int wave=1;wave<=18;wave++)
         {
             var file=Read($"g1-structured-amendments-wave{wave:00}-20261124.json");
             Require(Str(file,"Status")=="NotImportedNotPublished");
             full.AddRange(Rows(file,"Items"));
         }
-        Require(full.Count==726&&full.Select(r=>Id(r,"ProblemId")).Distinct().Count()==726);
+        Require(full.Count==728&&full.Select(r=>Id(r,"ProblemId")).Distinct().Count()==728);
         var amendments=full.Where(r=>!held.Contains(Id(r,"ProblemId"))).OrderBy(r=>Id(r,"ProblemId")).ToArray();
-        Require(amendments.Length==726);
+        Require(amendments.Length==728);
         foreach(var row in amendments)
         {
             var hint=source[Id(row,"ProblemId")];

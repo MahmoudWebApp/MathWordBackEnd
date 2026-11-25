@@ -34,7 +34,7 @@ def prepare_mapping(root=ROOT):
             "FreeProblems":free,"FreeCoverageBlocked":free==0,
             "ExcludedHeldIds":sorted(held.intersection(track["ProblemIds"])),
             "PublicationApproved":False})
-    if len(tracks)!=19 or seen!=set(source)-held or len(seen)!=726:
+    if len(tracks)!=19 or seen!=set(source)-held or len(seen)!=728:
         raise ValueError("Incomplete mapping")
     # These identities are missing in the source snapshot. Creating them does
     # not publish a track or grant access to a category.
@@ -52,9 +52,9 @@ def main():
     args=ap.parse_args()
     mapping,identities=prepare_mapping()
     args.output.mkdir(parents=True,exist_ok=False)
-    for name,value in (("mapping-proposal-726.json",mapping),("missing-draft-identities.json",identities)):
+    for name,value in (("mapping-proposal-728.json",mapping),("missing-draft-identities.json",identities)):
         (args.output/name).write_text(json.dumps(value,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
-    print("19 mapping proposals, 726 eligible IDs, 47 held excluded; two draft identity payloads. No API requests.")
+    print("19 mapping proposals, 728 eligible IDs, 45 held excluded; two draft identity payloads. No API requests.")
 
 if __name__=="__main__":
     main()

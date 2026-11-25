@@ -1161,3 +1161,17 @@ for p,q in product((False,True),repeat=2):
     assert ((not p) or q)==(q or (not p))
     assert (not(p and q))==((not p) or (not q))
 print("PASS independent finite sample-space, exact rational, coloring and truth-table checks for final proposals")
+
+# The prior held manifest is historical review evidence, not an active hold list.
+w18=load("g1-structured-amendments-wave18-20261124.json")
+assert w18["Status"]=="NotImportedNotPublished"
+assert {r["ProblemId"] for r in w18["Items"]}=={1566,1581}
+for r in w18["Items"]:
+    prior=next(x for x in original_held["Items"] if x["ProblemId"]==r["ProblemId"])
+    assert r["Content"]==prior["Content"] and r["ExpectedOptionIds"]==prior["ExpectedOptionIds"]
+    assert r["ExpectedLegacySolution"]==prior["ExpectedLegacySolution"] and r["PrimarySkillKey"]==prior["PrimarySkillKey"]
+    assert r["Status"]=="StructuredAmendmentCandidateNotImported"
+    assert not r.get("ClassificationProposal") and not r.get("ProposedQuestion")
+assert chosen(1566)=="-8<-2<0<4" and sorted([-8,-2,4,0])==[-8,-2,0,4]
+assert rational(chosen(1581))==Fraction(18,30)
+print("PASS: two additional source-matched taxonomy clearances, no category or skill mutation")
