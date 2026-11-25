@@ -23,6 +23,17 @@ def prepare(root=ROOT):
     held = {r["problemId"] for r in all_hints if r.get("taxonomyReviewPending")}
     if len(held) != 41:
         raise ValueError("Unexpected hold count")
+    clearances = load(root, "g1-taxonomy-clearances-20261125.json")
+    assert clearances["Status"] == "ReviewedTaxonomyOnlyNoSourceMutation"
+    cleared = clearances["Items"]
+    assert len(cleared) == 6 and {r["ProblemId"] for r in cleared} == {212,224,236,248,260,1633}
+    for r in cleared:
+        i = r["ProblemId"]
+        h = by_id[i]
+        if i not in held or h.get("ProposedQuestion") or r["StableKey"] != h["primarySkillKey"] or h["question"] != {"Ar":r["ExpectedQuestionAr"],"En":r["ExpectedQuestionEn"]}:
+            raise ValueError("Invalid taxonomy clearance")
+        held.remove(i)
+    assert len(held) == 35
     full = []
     for wave in range(1, 16):
         manifest = load(root, f"g1-structured-amendments-wave{wave:02d}-20261124.json")
@@ -33,7 +44,7 @@ def prepare(root=ROOT):
         raise ValueError("Invalid combined amendment inventory")
     full=[r for r in full if r["ProblemId"] not in held]
     reserved = {r["ProblemId"] for r in full}
-    if len(full) != 672 or len(reserved) != 672 or reserved & held:
+    if len(full) != 677 or len(reserved) != 677 or reserved & held:
         raise ValueError("Invalid full-amendment inventory")
     for r in full:
         h = by_id[r["ProblemId"]]
@@ -51,7 +62,7 @@ def prepare(root=ROOT):
         only.append({"ProblemId": i, "PrimarySkillKey": h["primarySkillKey"],
                      "Question": h["question"], "Hints": h["Hints"],
                      "TaxonomyReviewPending": False})
-    if len(only) != 60:
+    if len(only) != 61:
         raise ValueError("Unexpected hint-only count")
     def batches(rows):
         return [{"Items": rows[i:i+50], "Confirm": False} for i in range(0,len(rows),50)]
@@ -69,7 +80,7 @@ def main():
             (args.output/f"{prefix}-{n:02d}.json").write_text(
                 json.dumps(payload,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     (args.output/"held-ids.json").write_text(json.dumps(held)+"\n",encoding="utf-8")
-    print("2 hint-only + 14 amendment preview payloads; 41 excluded; no network requests.")
+    print("2 hint-only + 14 amendment preview payloads; 35 excluded; no network requests.")
 
 if __name__ == "__main__":
     main()

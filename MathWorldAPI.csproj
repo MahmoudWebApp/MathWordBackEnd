@@ -14,7 +14,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<EmbeddedResource Include="content/editorial/g1-structured-amendments-wave*-20261124.json;content/editorial/g1-existing-hint-candidates-20261124.json;content/editorial/g1-hint-held-review-20261124.json;content/editorial/g1-gap-wave-0*-20261124.json;content/editorial/g1-primary-early-and-final-grade-gap-20261124.json;content/editorial/g1-grade-depth-wave04-20261125.json;content/editorial/g1-university-depth-wave05-20261125.json" LogicalName="MathWorld.ReviewedBank.%(Filename)%(Extension)" />
+		<EmbeddedResource Include="content/editorial/g1-structured-amendments-wave*-20261124.json;content/editorial/g1-existing-hint-candidates-20261124.json;content/editorial/g1-hint-held-review-20261124.json;content/editorial/g1-taxonomy-clearances-20261125.json;content/editorial/g1-gap-wave-0*-20261124.json;content/editorial/g1-primary-early-and-final-grade-gap-20261124.json;content/editorial/g1-grade-depth-wave04-20261125.json;content/editorial/g1-university-depth-wave05-20261125.json" LogicalName="MathWorld.ReviewedBank.%(Filename)%(Extension)" />
 		<EmbeddedResource Include="content/editorial/g1-track-draft-batch-20261124.json" LogicalName="MathWorld.G1.TrackDraftBatch" />
 		<EmbeddedResource Include="assets/branding/mathworld-report-mark.png" LogicalName="MathWorld.Brand.Logo.png" />
 		<EmbeddedResource Include="assets/fonts/IBMPlexSansArabic-Regular.ttf" LogicalName="MathWorld.Brand.PdfArabicRegular.ttf" />

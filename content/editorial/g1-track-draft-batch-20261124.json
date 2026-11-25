@@ -1,7 +1,7 @@
 {
   "Version": 1,
   "Status": "ReviewedSourceMatchedDraftProposal",
-  "ExcludedCount": 41,
+  "ExcludedCount": 35,
   "Tracks": [
     {
       "StageId": 1,
@@ -2784,12 +2784,28 @@
           "ExpectedQuestionEn": "If f(x) = x² - 3, find f(4)."
         },
         {
+          "ProblemId": 212,
+          "CategoryId": 6,
+          "PrimarySkillId": 28,
+          "StableKey": "middle-inverse-function-evaluation",
+          "ExpectedQuestionAr": "لتكن \\(f(x)=2x+5\\)، إذا كانت \\(f(x)=11\\) فأوجد x.",
+          "ExpectedQuestionEn": "Given \\(f(x)=2x+5\\), solve f(x)=11."
+        },
+        {
           "ProblemId": 214,
           "CategoryId": 6,
           "PrimarySkillId": 27,
           "StableKey": "middle-quadratic-function-evaluation",
           "ExpectedQuestionAr": "إذا كانت \\(g(x)=2x^2+3\\)، أوجد \\(g(2)\\).",
           "ExpectedQuestionEn": "Given \\(g(x)=2x^2+3\\), find g(2)."
+        },
+        {
+          "ProblemId": 224,
+          "CategoryId": 6,
+          "PrimarySkillId": 28,
+          "StableKey": "middle-inverse-function-evaluation",
+          "ExpectedQuestionAr": "لتكن \\(f(x)=3x+6\\)، إذا كانت \\(f(x)=18\\) فأوجد x.",
+          "ExpectedQuestionEn": "Given \\(f(x)=3x+6\\), solve f(x)=18."
         },
         {
           "ProblemId": 226,
@@ -2800,6 +2816,14 @@
           "ExpectedQuestionEn": "Given \\(g(x)=3x^2+4\\), find g(3)."
         },
         {
+          "ProblemId": 236,
+          "CategoryId": 6,
+          "PrimarySkillId": 28,
+          "StableKey": "middle-inverse-function-evaluation",
+          "ExpectedQuestionAr": "لتكن \\(f(x)=4x+7\\)، إذا كانت \\(f(x)=27\\) فأوجد x.",
+          "ExpectedQuestionEn": "Given \\(f(x)=4x+7\\), solve f(x)=27."
+        },
+        {
           "ProblemId": 238,
           "CategoryId": 6,
           "PrimarySkillId": 27,
@@ -2808,12 +2832,28 @@
           "ExpectedQuestionEn": "Given \\(g(x)=4x^2+5\\), find g(4)."
         },
         {
+          "ProblemId": 248,
+          "CategoryId": 6,
+          "PrimarySkillId": 28,
+          "StableKey": "middle-inverse-function-evaluation",
+          "ExpectedQuestionAr": "لتكن \\(f(x)=5x+8\\)، إذا كانت \\(f(x)=38\\) فأوجد x.",
+          "ExpectedQuestionEn": "Given \\(f(x)=5x+8\\), solve f(x)=38."
+        },
+        {
           "ProblemId": 250,
           "CategoryId": 6,
           "PrimarySkillId": 27,
           "StableKey": "middle-quadratic-function-evaluation",
           "ExpectedQuestionAr": "إذا كانت \\(g(x)=5x^2+6\\)، أوجد \\(g(5)\\).",
           "ExpectedQuestionEn": "Given \\(g(x)=5x^2+6\\), find g(5)."
+        },
+        {
+          "ProblemId": 260,
+          "CategoryId": 6,
+          "PrimarySkillId": 28,
+          "StableKey": "middle-inverse-function-evaluation",
+          "ExpectedQuestionAr": "لتكن \\(f(x)=6x+9\\)، إذا كانت \\(f(x)=51\\) فأوجد x.",
+          "ExpectedQuestionEn": "Given \\(f(x)=6x+9\\), solve f(x)=51."
         },
         {
           "ProblemId": 262,
@@ -5836,6 +5876,14 @@
           "StableKey": "linear-systems",
           "ExpectedQuestionAr": "للنظام $4x+y=9$ و$x+3y=7$، نبدأ $x_0=y_0=0$. ما الزوج $(x_1,y_1)$ بطريقة جاكوبي؟",
           "ExpectedQuestionEn": "For $4x+y=9$ and $x+3y=7$, start from $x_0=y_0=0$. What is the first Jacobi iterate $(x_1,y_1)$?"
+        },
+        {
+          "ProblemId": 1633,
+          "CategoryId": 90,
+          "PrimarySkillId": 332,
+          "StableKey": "linear-systems",
+          "ExpectedQuestionAr": "باستخدام الحذف، حل النظام $2x+y=7$ و$x-y=2$. ما قيمة $x$؟",
+          "ExpectedQuestionEn": "Use elimination to solve $2x+y=7$ and $x-y=2$. What is $x$?"
         },
         {
           "ProblemId": 1634,
