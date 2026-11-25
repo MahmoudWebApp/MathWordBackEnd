@@ -1116,6 +1116,8 @@ def rational(text):
         from math import isqrt
         n=int(radical[1]);root=isqrt(n)
         return Fraction(root) if root*root==n else ("irrational-sqrt",n)
+    if s==r"\text{غير موجودة (Does not exist)}":
+        return ("undefined",)
     return Fraction(s)
 def check_num(i,expected):
     options=recent[i]["Content"]["Options"]
