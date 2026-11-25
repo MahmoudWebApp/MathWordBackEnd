@@ -70,7 +70,15 @@ def main():
     public_route = "/api/platform/brand"
     admin_route = "/api/admin/platform/brand"
     initial = expect("GET", public_route, 200)
-    assert initial["Profile"]["SocialLinks"] == [] and initial["Profile"].get("SupportEmail") is None
+    defaults = initial["Profile"]["SocialLinks"]
+    assert [(x["Platform"], x["Url"]) for x in defaults] == [
+        ("YouTube", "https://www.youtube.com/"), ("TikTok", "https://www.tiktok.com/"),
+        ("Facebook", "https://www.facebook.com/"), ("Instagram", "https://www.instagram.com/")]
+    assert all(x["IsEnabled"] for x in defaults)
+    assert initial["Profile"].get("SupportEmail") is None
+    assert expect("GET", admin_route, 200, token=new_admin)["Profile"]["SocialLinks"] == defaults
+    initial_preview = expect("GET", "/api/admin/platform/email-preview?language=en&template=password-changed", 200, token=new_admin)
+    assert all(x["Url"] in initial_preview["Html"] for x in defaults)
     expect("GET", admin_route, 401)
     expect("GET", admin_route, 403, token=replacement)
     profile = initial["Profile"]

@@ -83,6 +83,18 @@ pooledConnection.MaxPoolSize = Math.Min(pooledConnection.MaxPoolSize, 15);
 pooledConnection.MinPoolSize = Math.Min(
     pooledConnection.MinPoolSize, pooledConnection.MaxPoolSize);
 
+// A conservative, configurable connection budget for the temporary shared
+// Supabase instance. Do not keep idle server sessions reserved indefinitely.
+// Other hosts retain their existing connection settings.
+if (pooledConnection.Host?.EndsWith(".pooler.supabase.com", StringComparison.OrdinalIgnoreCase) == true)
+{
+    var budget = Math.Clamp(builder.Configuration.GetValue("Database:SupabaseMaxPoolSize", 5), 1, 15);
+    pooledConnection.MaxPoolSize = Math.Min(pooledConnection.MaxPoolSize, budget);
+    pooledConnection.MinPoolSize = 0;
+    pooledConnection.ConnectionIdleLifetime = 30;
+    pooledConnection.ConnectionPruningInterval = 10;
+}
+
 // Render is a persistent ASP.NET Core host. Supabase recommends its session
 // pooler (port 5432) rather than the transaction pooler (6543) for long-lived
 // Npgsql clients. Keep the configured host, user, password, SSL and pool limits.

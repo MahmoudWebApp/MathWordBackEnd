@@ -67,6 +67,15 @@ public sealed class PlatformBrandService(AppDbContext db, IConfiguration config)
         }
     }
 
+    // Platform homepages are temporary defaults, never invented MathWorld accounts.
+    private static PlatformSocialLink[] DefaultSocialLinks() => new[]
+    {
+        new PlatformSocialLink { Platform="YouTube", LabelAr="يوتيوب", LabelEn="YouTube", Url="https://www.youtube.com/", IsEnabled=true, DisplayOrder=0 },
+        new PlatformSocialLink { Platform="TikTok", LabelAr="تيك توك", LabelEn="TikTok", Url="https://www.tiktok.com/", IsEnabled=true, DisplayOrder=1 },
+        new PlatformSocialLink { Platform="Facebook", LabelAr="فيسبوك", LabelEn="Facebook", Url="https://www.facebook.com/", IsEnabled=true, DisplayOrder=2 },
+        new PlatformSocialLink { Platform="Instagram", LabelAr="إنستغرام", LabelEn="Instagram", Url="https://www.instagram.com/", IsEnabled=true, DisplayOrder=3 }
+    };
+
     private PlatformBrandProfile Defaults() => new()
     {
         LogoUrl = OfficialOrigin + LogoPath,
@@ -132,6 +141,9 @@ public sealed class PlatformBrandService(AppDbContext db, IConfiguration config)
         try { profile = row is null ? Defaults() : JsonSerializer.Deserialize<PlatformBrandProfile>(row.SettingsJson); }
         catch (JsonException) { profile = Defaults(); }
         profile = Validate(profile, OfficialOrigin) ? Normalize(profile!) : Defaults();
+        // Once saved, respect all admin choices, including an intentionally empty list.
+        if ((row?.Revision ?? 0) == 0 && profile.SocialLinks.Count == 0)
+            profile = profile with { SocialLinks = DefaultSocialLinks() };
         if (!admin) profile = profile with { SocialLinks = profile.SocialLinks.Where(x => x.IsEnabled).ToArray() };
         return new PlatformBrandView(row?.Revision ?? 0, OfficialOrigin, profile);
     }
