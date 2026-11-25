@@ -549,6 +549,10 @@ public sealed partial class EditorialProblemsController:ControllerBase
         var trackIds=p.TrackIds!.Order().ToArray();
         var tracks=await db.LearningTracks.FromSqlInterpolated($@"SELECT * FROM ""LearningTracks"" WHERE ""Id""=ANY({trackIds}) ORDER BY ""Id"" FOR UPDATE").ToListAsync(ct);
         if(tracks.Count!=trackIds.Length||tracks.Any(t=>t.StageId!=p.StageId||t.Revision==int.MaxValue))return Conflict();
+        // Recheck scope after taking track locks, before any live content write.
+        if(IsHeldWording(d)&&!await HeldWordingScopeIsSafe(trackIds,p.CategoryId,
+            new[]{p.PrimarySkillId}.Concat(p.SecondarySkillIds??Array.Empty<int>()).ToArray(),ct))
+            return Conflict(new{Message="HeldWordingPublishedScopeChanged"});
         var flatAr=WizardProblemContract.FlatSolution(p.Solution!,true);var flatEn=WizardProblemContract.FlatSolution(p.Solution!,false);
         if(flatAr.Length>12000||flatEn.Length>12000)return Conflict(new{Message="SolutionTooLong"});
         var metadata=JsonSerializer.Serialize(new{p.DifficultyLevel,p.Hints,p.Solution,

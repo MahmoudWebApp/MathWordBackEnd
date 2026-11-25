@@ -52,12 +52,27 @@ public sealed partial class EditorialProblemsController
         var secondary=await db.CurriculumProblemSkills.AsNoTracking().Where(x=>x.ProblemId==source.Id&&!x.IsPrimary)
             .OrderBy(x=>x.SkillId).Select(x=>x.SkillId).ToArrayAsync(ct);
         var current=await db.LearningTrackProblems.AsNoTracking().Where(x=>x.ProblemId==source.Id).Select(x=>x.TrackId).ToArrayAsync(ct);
-        var target=await db.LearningTracks.AsNoTracking().SingleOrDefaultAsync(t=>t.StageId==source.StageId&&t.Code==row.ProposedTrackCode&&!t.IsPublished,ct);
+        var target=await db.LearningTracks.AsNoTracking().SingleOrDefaultAsync(t=>t.StageId==source.StageId&&t.Code==row.ProposedTrackCode,ct);
         if(target is null)return false;
         var tracks=current.Append(target.Id).Distinct().Order().ToArray();
-        // Do not change a published track as part of this special path.
-        if(await db.LearningTracks.AnyAsync(t=>tracks.Contains(t.Id)&&t.IsPublished,ct))return false;
+        // A published track may receive a corrected question only inside its
+        // existing category and skill scope. Never add a category or skill to
+        // a live track through a wording-only operation.
+        if(!await HeldWordingScopeIsSafe(tracks,source.CategoryId,primary.Concat(secondary).ToArray(),ct))return false;
         return WizardProblemContract.Serialize(proposed)==WizardProblemContract.Serialize(ProposedWording(row,tracks,secondary));
+    }
+
+    private async Task<bool> HeldWordingScopeIsSafe(int[] trackIds,int categoryId,int[] skillIds,CancellationToken ct)
+    {
+        var published=await db.LearningTracks.AsNoTracking().Where(t=>trackIds.Contains(t.Id)&&t.IsPublished)
+            .Select(t=>t.Id).ToArrayAsync(ct);
+        if(published.Length==0)return true;
+        var categories=await db.LearningTrackCategories.AsNoTracking()
+            .Where(c=>published.Contains(c.TrackId)&&c.CategoryId==categoryId).Select(c=>c.TrackId).Distinct().CountAsync(ct);
+        if(categories!=published.Length)return false;
+        var skills=await db.LearningTrackSkills.AsNoTracking()
+            .CountAsync(x=>published.Contains(x.TrackId)&&skillIds.Contains(x.SkillId),ct);
+        return skills==published.Length*skillIds.Length;
     }
 
     [HttpGet("held-wording")]
@@ -97,8 +112,8 @@ public sealed partial class EditorialProblemsController
             {
                 var skills=await db.CurriculumProblemSkills.AsNoTracking().Where(x=>x.ProblemId==id).ToListAsync(ct);
                 var existingTracks=await db.LearningTrackProblems.AsNoTracking().Where(x=>x.ProblemId==id).Select(x=>x.TrackId).ToArrayAsync(ct);
-                var target=await db.LearningTracks.AsNoTracking().SingleOrDefaultAsync(t=>t.StageId==p.StageId&&t.Code==row.ProposedTrackCode&&!t.IsPublished,ct);
-                if(target is null)errors.Add("DraftTrackRequired");
+                var target=await db.LearningTracks.AsNoTracking().SingleOrDefaultAsync(t=>t.StageId==p.StageId&&t.Code==row.ProposedTrackCode,ct);
+                if(target is null)errors.Add("TargetTrackRequired");
                 else
                 {
                     var trackIds=existingTracks.Append(target.Id).Distinct().Order().ToArray();

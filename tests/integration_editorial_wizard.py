@@ -353,6 +353,16 @@ def verify_held_wording(admin, package):
         add_session()
         expect("POST",root,400,{"ProblemIds":[pid]},admin)
         clear_session()
+        # Published tracks can receive wording fixes only inside existing scope.
+        if not had_category:
+            sql(f'UPDATE "LearningTracks" SET "IsPublished"=true WHERE "Id"={track}')
+            expect("POST",root,400,{"ProblemIds":[pid]},admin)
+            sql(f'INSERT INTO "LearningTrackCategories" ("TrackId","CategoryId") VALUES ({track},{category})')
+        if not had_skill:
+            sql(f'UPDATE "LearningTracks" SET "IsPublished"=true WHERE "Id"={track}')
+            expect("POST",root,400,{"ProblemIds":[pid]},admin)
+            sql(f'INSERT INTO "LearningTrackSkills" ("TrackId","SkillId") VALUES ({track},{skill})')
+        sql(f'UPDATE "LearningTracks" SET "IsPublished"=true WHERE "Id"={track}')
         preview=expect("POST",root,200,{"ProblemIds":[pid]},admin)
         assert preview["Ready"]==1 and preview["Created"]==0
         assert question()==p["Question"]["En"] and options()==old_options
@@ -376,15 +386,15 @@ def verify_held_wording(admin, package):
         assert published["PublishedProblemId"]==pid and question()==row["ProposedQuestion"]["En"] and options()==old_options
         assert sql(f'SELECT COUNT(*) FROM "Problems" WHERE "Id"={pid} AND "EditorialDetailsJson" IS NOT NULL')=="1"
         assert sql(f'SELECT COUNT(*) FROM "LearningTrackProblems" WHERE "TrackId"={track} AND "ProblemId"={pid}')=="1"
-        assert sql(f'SELECT COUNT(*) FROM "LearningTracks" WHERE "Id"={track} AND "IsPublished"')=="0"
+        assert sql(f'SELECT COUNT(*) FROM "LearningTracks" WHERE "Id"={track} AND "IsPublished"')=="1"
         expect("POST",dpath+"/publish",409,{"Revision":3,"Confirm":True},admin)
-        print("PASS: held wording exact-source preview, draft/review, new session history blocks publication, unchanged option identities and draft-only track")
+        print("PASS: held wording exact-source preview, draft/review, new session history blocks publication, unchanged option identities and published track scope")
     finally:
         clear_session()
         fixture_sql(f"""BEGIN;
 DELETE FROM "CurriculumDraftItems" WHERE "ContentKey"='g1-wording-{pid}';
 DELETE FROM "LearningTrackProblems" WHERE "TrackId"={track} AND "ProblemId"={pid};
 """ + (f'DELETE FROM "LearningTrackSkills" WHERE "TrackId"={track} AND "SkillId"={skill};\n' if not had_skill else "") + (f'DELETE FROM "LearningTrackCategories" WHERE "TrackId"={track} AND "CategoryId"={category};\n' if not had_category else "") + f"""
-UPDATE "LearningTracks" SET "Revision"={rev} WHERE "Id"={track} AND NOT "IsPublished";
+UPDATE "LearningTracks" SET "Revision"={rev},"IsPublished"=false WHERE "Id"={track};
 DELETE FROM "Problems" WHERE "Id"={pid};
 """ + (f'DELETE FROM "CurriculumSkills" WHERE "Id"={skill};\nDELETE FROM "CurriculumDomains" WHERE "Id"={domain};\n' if add_skill else "") + (f'DELETE FROM "Categories" WHERE "Id"={category};\n' if add_category else "")+"COMMIT;")
