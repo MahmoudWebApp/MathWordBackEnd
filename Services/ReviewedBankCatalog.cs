@@ -51,15 +51,15 @@ internal sealed class ReviewedBankCatalog
         }
         Require(held.Count==35);
         var full=new List<JsonElement>();
-        for(int wave=1;wave<=15;wave++)
+        for(int wave=1;wave<=16;wave++)
         {
             var file=Read($"g1-structured-amendments-wave{wave:00}-20261124.json");
             Require(Str(file,"Status")=="NotImportedNotPublished");
             full.AddRange(Rows(file,"Items"));
         }
-        Require(full.Count==677&&full.Select(r=>Id(r,"ProblemId")).Distinct().Count()==677);
+        Require(full.Count==689&&full.Select(r=>Id(r,"ProblemId")).Distinct().Count()==689);
         var amendments=full.Where(r=>!held.Contains(Id(r,"ProblemId"))).OrderBy(r=>Id(r,"ProblemId")).ToArray();
-        Require(amendments.Length==677);
+        Require(amendments.Length==689);
         foreach(var row in amendments)
         {
             var hint=source[Id(row,"ProblemId")];
@@ -74,7 +74,7 @@ internal sealed class ReviewedBankCatalog
             .OrderBy(r=>Id(r,"problemId")).Select(r=>JsonSerializer.SerializeToElement(new{
                 ProblemId=Id(r,"problemId"),PrimarySkillKey=Str(r,"primarySkillKey"),
                 Question=r.GetProperty("question"),Hints=r.GetProperty("Hints"),TaxonomyReviewPending=false})).ToArray();
-        Require(hints.Length==61);
+        Require(hints.Length==49);
         var existing=new List<JsonElement>();var missing=new List<JsonElement>();
         var keys=new HashSet<string>();
         foreach(var name in new[]{"g1-gap-wave-01-20261124.json","g1-gap-wave-02-20261124.json",

@@ -1044,3 +1044,20 @@ assert len(all_rows)==len({r["ProblemId"] for r in all_rows})==677
 assert {r["ProblemId"] for r in all_rows[-2:]}=={791,800}
 assert {r["ProblemId"] for r in all_rows[-2:]}=={r["ProblemId"] for r in third["Items"]}-{r["ProblemId"] for r in all_rows[:-2]}
 print("PASS: 677 unique structured candidates across 15 waves; eligibility checked separately")
+
+# Wave 16: numerical-analysis source-bound structured solutions, all 12 eligible.
+wave16=load("g1-structured-amendments-wave16-20261124.json")
+assert wave16["Status"]=="NotImportedNotPublished"
+assert {r["ProblemId"] for r in wave16["Items"]}==set(range(1623,1635))
+assert not {r["ProblemId"] for r in wave16["Items"]}&{r["ProblemId"] for r in all_rows}
+expected={1623:"1.5",1624:"2",1625:"3.125",1626:"4",1627:"2",1628:r"\frac{8}{3}",1629:"0.3",1630:r"2\%",1631:"0.005",1632:r"(\frac94,\frac73)",1633:"3",1634:"3"}
+for r in wave16["Items"]:
+    c=r["Content"]; sol=c["Solution"]
+    assert r["Status"]=="StructuredAmendmentCandidateNotImported" and r["ProposedTrackCode"]=="numerical-analysis"
+    assert len(c["Options"])==len(set(r["ExpectedOptionIds"]))==4
+    assert [o["LatexCode"] for o in c["Options"] if o["IsCorrect"]]==[expected[r["ProblemId"]]]
+    assert all(pair(o["Reason"]) for o in c["Options"] if not o["IsCorrect"])
+    assert len(c["Hints"])==2 and all(pair(h) for h in c["Hints"])
+    assert sol["FormulaLatex"] and all(pair(sol[k]) for k in ("Idea","Substitution","Result","Unit","Verification","CommonError"))
+    assert 1<=len(sol["Steps"])<=20 and all(pair(s) for s in sol["Steps"])
+print("PASS: wave 16, all 12 numerical analysis questions with structured bilingual solutions")

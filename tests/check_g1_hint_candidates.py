@@ -127,16 +127,16 @@ import sys
 sys.path.insert(0,str(ROOT/"scripts"))
 from prepare_g1_publication_batches import prepare
 hint_batches, full_batches, blocked = prepare()
-assert [len(b["Items"]) for b in hint_batches]==[50,11]
-assert [len(b["Items"]) for b in full_batches]==[50]*13+[27]
+assert [len(b["Items"]) for b in hint_batches]==[49]
+assert [len(b["Items"]) for b in full_batches]==[50]*13+[39]
 hint_ids={r["ProblemId"] for b in hint_batches for r in b["Items"]}
 full_ids={r["ProblemId"] for b in full_batches for r in b["Items"]}
-assert len(hint_ids)==61 and len(full_ids)==677 and len(blocked)==35
-assert {212,224,236,248,260} <= full_ids and 1633 in hint_ids
+assert len(hint_ids)==49 and len(full_ids)==689 and len(blocked)==35
+assert {212,224,236,248,260} <= full_ids and set(range(1623,1635)) <= full_ids
 assert not hint_ids.intersection(full_ids) and not (hint_ids|full_ids).intersection(blocked)
 assert hint_ids|full_ids|set(blocked)==set(source)
 assert all(b["Confirm"] is False for b in hint_batches+full_batches)
-print("PASS: 16 disjoint preview-only batches cover 738 eligible problems; all 35 current holds excluded")
+print("PASS: 15 disjoint preview-only batches cover 738 eligible problems; all 35 current holds excluded")
 
 # New questions are not existing amendments and never auto-published.
 from prepare_g1_new_content import prepare_new

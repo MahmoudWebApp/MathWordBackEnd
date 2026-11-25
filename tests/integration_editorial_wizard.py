@@ -8,7 +8,7 @@ def verify_wizard(admin,supervisor,sid):
     expect("GET",root+"/reviewed-bank",401)
     expect("GET",root+"/reviewed-bank",403,token=supervisor)
     assert catalog["HeldCount"]==35
-    assert len(catalog["Batches"])==19
+    assert len(catalog["Batches"])==18
     counts={}
     ids=set()
     keys=set()
@@ -26,7 +26,7 @@ def verify_wizard(admin,supervisor,sid):
             else:
                 assert row["ContentKey"] not in keys
                 keys.add(row["ContentKey"])
-    assert counts=={"amendments":677,"hints":61,"new-existing":51,"new-missing":8}
+    assert counts=={"amendments":689,"hints":49,"new-existing":51,"new-missing":8}
     assert len(ids)==738 and len(keys)==59
     assert sql('SELECT COUNT(*) FROM "CurriculumDraftItems"')==before
     expect("GET",root+"/reviewed-bank/hints/1",403,token=supervisor)
