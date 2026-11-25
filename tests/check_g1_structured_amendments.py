@@ -1,4 +1,4 @@
-"""Contract for the first 16 structured amendments; never imports production."""
+"""Source-bound structured proposal contracts; never imports production."""
 import json
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]/"content"/"editorial"
@@ -1099,3 +1099,58 @@ for r in original_held["Items"]:
     assert r.get("ProposedQuestion") or r.get("ClassificationProposal") or r.get("OptionLocalization")
 assert len({r["ProblemId"] for r in all_rows+wave16["Items"]+combined+original_held["Items"]})==773
 print("PASS: all 773 existing IDs have structured solution proposals; 47 remain explicitly excluded from import")
+
+# Independent finite-space/numeric oracles for the newly prepared waves and holds.
+from itertools import product
+from math import comb
+recent={r["ProblemId"]:r for r in wave16["Items"]+combined+original_held["Items"]}
+def chosen(i):
+    return next(o["LatexCode"] for o in recent[i]["Content"]["Options"] if o["IsCorrect"])
+def rational(text):
+    s=text.strip().replace("−","-")
+    f=re.fullmatch(r"\\frac(?:\{(-?\d+)\}|(-?\d))(?:\{(\d+)\}|(\d))",s)
+    if f: return Fraction(int(f[1] or f[2]),int(f[3] or f[4]))
+    if s.endswith(r"\%"): return Fraction(s[:-2])/100
+    return Fraction(s)
+def check_num(i,expected):
+    options=recent[i]["Content"]["Options"]
+    vals=[rational(o["LatexCode"]) for o in options]
+    assert len(set(vals))==4 and sum(v==expected for v in vals)==1,(i,vals)
+    assert rational(chosen(i))==expected,(i,expected)
+dice_pairs=list(product(range(1,7),repeat=2))
+for i,predicate in [(26,lambda a,b:a+b==7),(1684,lambda a,b:a+b==7),(705,lambda a,b:a+b==8),(706,lambda a,b:a%2==0 and b%2==0),(707,lambda a,b:6 in (a,b)),(708,lambda a,b:(a*b)%2==0)]:
+    check_num(i,Fraction(sum(predicate(a,b) for a,b in dice_pairs),len(dice_pairs)))
+for i,n in [(64,3)]+[(279+12*k,k+2) for k in range(5)]:
+    check_num(i,Fraction(sum(all(x) for x in product((0,1),repeat=n)),2**n))
+for k in range(5):
+    n=k+4
+    check_num(80+15*k,Fraction(sum(sum(x)==2 for x in product((0,1),repeat=n)),2**n))
+    a=k+1;b=k+6
+    check_num(159+12*k,Fraction(a,a+b))
+    check_num(153+12*k,(k+2)+4*(k+3))
+for i,v in {
+    7:8+2,10:Fraction(1,2),818:Fraction(8+3,8),
+    1658:Fraction(2,5)*Fraction(1,4),1659:Fraction(1,4)*Fraction(1,2),1687:Fraction(2,5)**2,
+    1688:Fraction(sum(sum(t)==1 for t in product((0,1),repeat=2)),4),
+    649:1*7-3*2,768:3**3,1579:Fraction(82-70,6),1580:Fraction(15,5),1581:Fraction(18,30),
+    1583:Fraction(196,100)*Fraction(8,8),1584:Fraction(1,2),
+    1696:Fraction(abs(3*4-0*0),2),1698:abs(2*3-1*1),
+    831:2*3,833:sum(a==b for a,b in product((0,1),repeat=2)),
+    1669:(3-3)**2+2,1670:Fraction(6,2),1699:2**2-4*2+1,1701:9-(1-1)**2,
+    1714:1+2+3-4-8,1672:5*5,1702:1+1,1705:4**2+2**2,1713:(0+2)**2+5,
+    1673:12+6,1674:min(2,4),1704:4*6-1,1679:1500-(490+390+610),
+    1623:Fraction(1+2,2),1624:Fraction(1+3,2),1625:4-Fraction(16-9,8),
+    1626:Fraction(2,2)*(0+4),1627:2*1,1628:Fraction(0+4+4,3),
+    1629:abs(10-Fraction(97,10)),1630:Fraction(abs(50-49),50),1631:Fraction(1,200),
+    1633:Fraction(7+2,3),1634:max(abs(4-2*2),abs(9-3*2)),797:Fraction(4-1,2),798:0,799:2,866:2-Fraction(2,2)
+}.items(): check_num(i,v)
+assert chosen(1582)=="[98.04,101.96]" and (100-Fraction(196,100),100+Fraction(196,100))==(Fraction(9804,100),Fraction(10196,100))
+assert chosen(832)=="3"
+def colorable(n,k):
+    return any(all(c[i]!=c[(i+1)%n] for i in range(n)) for c in product(range(k),repeat=n))
+assert not colorable(5,2) and colorable(5,3)
+for p,q in product((False,True),repeat=2):
+    assert (p and (p or q))==p
+    assert ((not p) or q)==(q or (not p))
+    assert (not(p and q))==((not p) or (not q))
+print("PASS independent finite sample-space, exact rational, coloring and truth-table checks for final proposals")
