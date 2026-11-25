@@ -129,6 +129,8 @@ builder.Services.AddScoped<RecoveryEmailQueue>();
 builder.Services.AddScoped<BrevoEmailTransport>();
 builder.Services.AddHttpClient("BrevoTransactional", client => { client.Timeout = TimeSpan.FromSeconds(15); })
     .ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler { AllowAutoRedirect = false });
+builder.Services.AddHttpClient("GmailTransactional", client => { client.Timeout = TimeSpan.FromSeconds(15); })
+    .ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler { AllowAutoRedirect = false });
 builder.Services.AddHostedService<RecoveryEmailWorker>();
 builder.Services.AddHostedService<PremiumExpiryNoticeWorker>();
 builder.Services.AddScoped<PlatformBrandService>();

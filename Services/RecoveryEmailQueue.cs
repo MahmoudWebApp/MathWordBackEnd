@@ -14,11 +14,15 @@ public sealed record BrevoOutcome(string State, string? MessageId = null, string
 /// Never logs provider bodies, credentials, recipient addresses or reset URLs.</summary>
 public sealed class BrevoEmailTransport(IConfiguration config, IHttpClientFactory clients)
 {
-    private string? Read(string name) => config["MathWorldEmail:Brevo:" + name]?.Trim();
+    private string Provider => config["MathWorldEmail:Provider"]?.Trim() ?? "Brevo";
+    private bool IsGmail => Provider == "Gmail";
+    private string? Read(string name) => config["MathWorldEmail:" + Provider + ":" + name]?.Trim();
     private string Mode => Read("Mode") ?? "test";
     public bool IsTestMode => Mode == "test";
-    public bool ProviderEnabled => config.GetValue<bool>("MathWorldEmail:Brevo:Enabled");
-    public bool HasApiKey => !string.IsNullOrWhiteSpace(Read("ApiKey"));
+    public bool ProviderEnabled => (Provider is "Brevo" or "Gmail") && config.GetValue<bool>("MathWorldEmail:" + Provider + ":Enabled");
+    public bool HasApiKey => IsGmail
+        ? new[]{"ClientId","ClientSecret","RefreshToken"}.All(k=>!string.IsNullOrWhiteSpace(Read(k)))
+        : Provider=="Brevo" && !string.IsNullOrWhiteSpace(Read("ApiKey"));
     public bool HasValidSender => MailAddress.TryCreate(Read("From"), out var sender) &&
         string.Equals(sender.Address, Read("From"), StringComparison.OrdinalIgnoreCase);
     public bool HasValidMode => Mode is "test" or "live";
@@ -30,6 +34,7 @@ public sealed class BrevoEmailTransport(IConfiguration config, IHttpClientFactor
     public async Task<BrevoOutcome> SendAsync(EmailOutboxItem item, TransactionalEmail email, CancellationToken ct)
     {
         if (!AllowsRecipient(item.Recipient)) return new("Cancelled", ErrorCode: "RecipientNotAllowed");
+        if (IsGmail) return await GmailEmailTransport.SendAsync(clients,Read,item,email,ct);
         using var request = new HttpRequestMessage(HttpMethod.Post, "https://api.brevo.com/v3/smtp/email");
         request.Headers.Add("api-key", Read("ApiKey"));
         request.Content = JsonContent.Create(new
