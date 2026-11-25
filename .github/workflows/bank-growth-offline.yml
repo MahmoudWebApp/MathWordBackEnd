@@ -15,5 +15,5 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: node --test scripts/bank-growth/pipeline.test.mjs
+      - run: node --test scripts/bank-growth/*.test.mjs
       - run: node scripts/bank-growth/cli.mjs pilot /tmp/mathworld-candidates
