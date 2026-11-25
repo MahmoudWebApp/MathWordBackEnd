@@ -1,5 +1,14 @@
 # MathWorld bank — Work / ChatGPT handoff
-Updated 2026-11-25. This is a shared handoff, not a scheduler or autonomous agent.
+Updated 2026-11-26. This is a shared handoff, not a scheduler or autonomous agent.
+## Latest continuation checkpoint — 2026-11-26
+- PR 179 checkpoint c5239bccb0104e6704ff3fbf642ea004f92749af incorporates PRs 183/184 (launch coverage planning and priority previews), 185/186 (school and university editorial scope proposals), 187 (V20). The V20 PR passed all three workflows before merging; recheck combined branch CI.
+- Starting from the previous recorded 479 candidates, six V20 items were authored: four remain unreviewed candidates and two are held (compare-two-repair-batches-with-returned-items overlaps live #1758; equal-storage-boxes-after-fixed-damaged-count overlaps two-step equations). Thus the registry-derived handoff total is 485 authored, 58 previously confirmed published, 327 awaiting review, 100 held, subject to live reconciliation. No new production publication was performed by this continuation.
+- Read-only production check: 849 Problems rows, 804 LearningTrackProblems rows. Do not infer net growth from ID gaps. Drafts #400–409 remain Draft; answers for #400–404 were checked (147,18,70,6,10) but math rendering, source signatures, classification and authorized preview still require verification. Do not re-import existing drafts.
+- Interim launch target: five coherent populated categories per track, twenty distinct questions per selected category, without forcing redundant categories. Last read-only priority calculation: 1,231 additional assignments (school 688, university 543), including 33 missing category slots. This is a dated planning result, not unique new question count. Refresh inventory before selection. Retain separate long-term 101 target.
+- `node scripts/bank-growth/launch-coverage.mjs INVENTORY OUT` calculates interim coverage; `node scripts/bank-growth/cli.mjs launch-prepare OUT INVENTORY KNOWN [WAVE...]` generates Confirm=false batches after duplicate checks. Both offline only; existing commands remain.
+- Read `docs/BANK_LAUNCH_SCHOOL_CURRICULUM_GAPS.md` and `docs/BANK_LAUNCH_UNIVERSITY_CURRICULUM_GAPS.md` together with the taxonomy v2 and approved sources. School seven and university 26 gaps are proposals, not approved category records. Cambridge/CCSS grade objectives, PISA reasoning, CUPM course guidance and MSC2020 subject indexing serve distinct purposes. No arbitrary split or empty categories.
+- Production publication is blocked in this chat by the lack of an authenticated admin session. Use the authorized reviewed runner or admin workspace; no direct SQL bypass. Single serial writer, adaptive pacing, fresh preview and post-publication audit. Prioritize reviewing existing 327 candidates and the already staged amendments over generating duplicate variants.
+
 ## Start here
 - Read docs/MASTER_DELIVERY_LEDGER.md and scripts/bank-growth/README.md.
 - PR 178 (feat/bank-university-families, base main): checkpoint 77b7eae35956a78309dc0e0a231f13cd7e2d6dc5, four CI checks green.
