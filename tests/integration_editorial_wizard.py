@@ -43,6 +43,7 @@ def verify_wizard(admin,supervisor,sid):
     expect("POST",root+"/held-wording/import",400,{"ProblemIds":[153,153],"Confirm":True},admin)
     assert sql('SELECT COUNT(*) FROM "CurriculumDraftItems"')==before
     print("PASS: private embedded reviewed catalog, no writes, exact candidate counts; held wording inventory guarded")
+    verify_held_wording(admin,wording)
     stage=1
     inventory=expect("GET",f"{root}/classification/{stage}",200,token=supervisor)
     category=inventory["Categories"][0]["Id"]
@@ -287,3 +288,88 @@ def verify_hint_only_import(admin,supervisor,p,skill,category):
     d=expect("POST",f"/api/editorial/problems/amend/{pid}",201,{},supervisor)
     assert d["Content"]["Hints"]==q["Hints"] and d["Content"].get("Solution") is None
     print("PASS: reviewed hint-only publication preserves legacy solution and options, rejects held/stale rows, requires exact preview, permits full amendment")
+
+def verify_held_wording(admin, package):
+    """Exact fixed source fixture in the disposable integration database only."""
+    import json
+    from integration_learning_tracks import literal, fixture_sql
+    from integration_problem_history import BASE
+    assert BASE.startswith(("http://127.0.0.1:","http://localhost:"))
+    row=next(r for r in package["Items"] if r["ProblemId"]==153)
+    p=row["Content"];pid=row["ProblemId"];skill=p["PrimarySkillId"];category=p["CategoryId"];stage=p["StageId"]
+    track=int(sql(f"""SELECT "Id" FROM "LearningTracks" WHERE "StageId"={stage} AND "Code"={literal(row["ProposedTrackCode"])} AND NOT "IsPublished" """))
+    rev=int(sql(f'SELECT "Revision" FROM "LearningTracks" WHERE "Id"={track}'))
+    assert sql(f'SELECT COUNT(*) FROM "Problems" WHERE "Id"={pid}')=="0"
+    assert sql(f'SELECT COUNT(*) FROM "QuestionOptions" WHERE "Id" IN ({",".join(map(str,row["ExpectedOptionIds"]))})')=="0"
+    add_category=sql(f'SELECT COUNT(*) FROM "Categories" WHERE "Id"={category}')=="0"
+    add_skill=sql(f'SELECT COUNT(*) FROM "CurriculumSkills" WHERE "Id"={skill}')=="0"
+    domain=None
+    if add_category:
+        sql(f"""INSERT INTO "Categories" ("Id","StageId","NameAr","NameEn","Icon","Order","DescriptionAr","DescriptionEn") VALUES ({category},{stage},'اختبار صياغة','Wording fixture','test',100,'','')""")
+    if add_skill:
+        domain=int(sql("""INSERT INTO "CurriculumDomains" ("StableKey","NameAr","NameEn","IsPublished") VALUES ('ci-held-wording','اختبار صياغة','Wording fixture',true) RETURNING "Id" """))
+        sql(f"""INSERT INTO "CurriculumSkills" ("Id","StableKey","DomainId","StageId","CategoryId","NameAr","NameEn","IsPublished") VALUES ({skill},{literal(row["PrimarySkillKey"])},{domain},{stage},{category},'اختبار صياغة','Wording fixture',true)""")
+    else:
+        assert sql(f"""SELECT "StableKey" FROM "CurriculumSkills" WHERE "Id"={skill} AND "CategoryId"={category} AND "StageId"={stage}""")==row["PrimarySkillKey"]
+    had_category=sql(f'SELECT COUNT(*) FROM "LearningTrackCategories" WHERE "TrackId"={track} AND "CategoryId"={category}')=="1"
+    had_skill=sql(f'SELECT COUNT(*) FROM "LearningTrackSkills" WHERE "TrackId"={track} AND "SkillId"={skill}')=="1"
+    original=row["ExpectedLegacySolution"]
+    sql(f"""INSERT INTO "Problems" ("Id","StageId","CategoryId","Points","TitleAr","TitleEn","QuestionTextAr","QuestionTextEn","DetailedSolutionAr","DetailedSolutionEn","ViewsCount","SolvedCount","CreatedAt") VALUES ({pid},{stage},{category},{p["Points"]},{literal(p["Title"]["Ar"])},{literal(p["Title"]["En"])},{literal(p["Question"]["Ar"])},{literal(p["Question"]["En"])},{literal(original["Ar"])},{literal(original["En"])},0,0,now())""")
+    sql(f'INSERT INTO "CurriculumProblemSkills" ("ProblemId","SkillId","IsPrimary") VALUES ({pid},{skill},true)')
+    for order,(oid,o) in enumerate(zip(row["ExpectedOptionIds"],p["Options"]),1):
+        sql(f"""INSERT INTO "QuestionOptions" ("Id","ProblemId","LatexCode","IsCorrect","Order") VALUES ({oid},{pid},{literal(o["LatexCode"])},{str(o["IsCorrect"]).lower()},{order})""")
+    root="/api/editorial/problems/held-wording/import"
+    def question():
+        return sql(f'SELECT "QuestionTextEn" FROM "Problems" WHERE "Id"={pid}')
+    def options():
+        return sql(f"""SELECT string_agg("Id"::text||':'||"LatexCode"||':'||"IsCorrect"::text,',' ORDER BY "Order","Id") FROM "QuestionOptions" WHERE "ProblemId"={pid}""")
+    old_options=options()
+    uid=int(sql("""SELECT "Id" FROM "Users" WHERE "Role"='Student' ORDER BY "Id" LIMIT 1"""))
+    # Session-only reference must also block correction, even without an attempt.
+    session='f2c4f7c0-7115-47b4-8f42-0ae050009153'
+    request='f2c4f7c0-7115-47b4-8f42-0ae050009154'
+    def add_session():
+        snapshot=literal(json.dumps([{"Id":pid,"Fingerprint":"fixture"}]))
+        sql(f"""INSERT INTO "LearningSessions" ("Id","UserId","StageId","Kind","ScopeKey","StartRequestId","QuestionsJson","Total","Completed","HintsRevealed","CreatedAtUtc","AbandonedAtUtc") VALUES ('{session}',{uid},{stage},'practice','ci-wording-history','{request}',{snapshot},1,0,0,now(),now())""")
+    def clear_session():
+        sql(f"""DELETE FROM "LearningSessions" WHERE "Id"='{session}'""")
+    try:
+        assert question()==p["Question"]["En"]
+        add_session()
+        expect("POST",root,400,{"ProblemIds":[pid]},admin)
+        clear_session()
+        preview=expect("POST",root,200,{"ProblemIds":[pid]},admin)
+        assert preview["Ready"]==1 and preview["Created"]==0
+        assert question()==p["Question"]["En"] and options()==old_options
+        saved=expect("POST",root,200,{"ProblemIds":[pid],"Confirm":True},admin)
+        did=saved["DraftIds"][0]
+        assert saved["Created"]==1 and expect("POST",root,200,{"ProblemIds":[pid],"Confirm":True},admin)["Created"]==0
+        dpath=f"/api/editorial/problems/{did}"
+        draft=expect("GET",dpath,200,token=admin)
+        assert draft["Content"]["Question"]==row["ProposedQuestion"]
+        assert question()==p["Question"]["En"] and options()==old_options
+        expect("POST",dpath+"/submit",200,{"Revision":0},admin)
+        expect("POST",dpath+"/review",200,{"Revision":1,"Confirm":True,"Note":"CI reviewed exact wording"},admin)
+        # A session created AFTER approval blocks publication and leaves the
+        # exact source and approved draft intact.
+        add_session()
+        expect("POST",dpath+"/publish",409,{"Revision":2,"Confirm":True},admin)
+        assert question()==p["Question"]["En"] and options()==old_options
+        assert expect("GET",dpath,200,token=admin)["Status"]=="Approved"
+        clear_session()
+        published=expect("POST",dpath+"/publish",200,{"Revision":2,"Confirm":True},admin)
+        assert published["PublishedProblemId"]==pid and question()==row["ProposedQuestion"]["En"] and options()==old_options
+        assert sql(f'SELECT COUNT(*) FROM "Problems" WHERE "Id"={pid} AND "EditorialDetailsJson" IS NOT NULL')=="1"
+        assert sql(f'SELECT COUNT(*) FROM "LearningTrackProblems" WHERE "TrackId"={track} AND "ProblemId"={pid}')=="1"
+        assert sql(f'SELECT COUNT(*) FROM "LearningTracks" WHERE "Id"={track} AND "IsPublished"')=="0"
+        expect("POST",dpath+"/publish",409,{"Revision":3,"Confirm":True},admin)
+        print("PASS: held wording exact-source preview, draft/review, new session history blocks publication, unchanged option identities and draft-only track")
+    finally:
+        clear_session()
+        fixture_sql(f"""BEGIN;
+DELETE FROM "CurriculumDraftItems" WHERE "ContentKey"='g1-wording-{pid}';
+DELETE FROM "LearningTrackProblems" WHERE "TrackId"={track} AND "ProblemId"={pid};
+""" + (f'DELETE FROM "LearningTrackSkills" WHERE "TrackId"={track} AND "SkillId"={skill};\n' if not had_skill else "") + (f'DELETE FROM "LearningTrackCategories" WHERE "TrackId"={track} AND "CategoryId"={category};\n' if not had_category else "") + f"""
+UPDATE "LearningTracks" SET "Revision"={rev} WHERE "Id"={track} AND NOT "IsPublished";
+DELETE FROM "Problems" WHERE "Id"={pid};
+""" + (f'DELETE FROM "CurriculumSkills" WHERE "Id"={skill};\nDELETE FROM "CurriculumDomains" WHERE "Id"={domain};\n' if add_skill else "") + (f'DELETE FROM "Categories" WHERE "Id"={category};\n' if add_category else "")+"COMMIT;")
