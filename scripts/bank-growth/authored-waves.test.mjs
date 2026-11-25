@@ -5,6 +5,7 @@ import {selectCandidates, validate} from './pipeline.mjs';
 import {schoolHolds, schoolWave} from './school-wave.mjs';
 import {courseWave} from './course-wave.mjs';
 import {schoolApplicationWave} from './school-application-wave.mjs';
+import {transferWave, transferHolds} from './transfer-wave.mjs';
 
 const inventory = JSON.parse(readFileSync(new URL('./inventory-20261125.json', import.meta.url), 'utf8'));
 
@@ -89,4 +90,25 @@ test('school application wave adds distinct linked reasoning', () => {
   assert.deepEqual(validate([...schoolWave(), ...courseWave(), ...rows]), []);
   assert.equal(selectCandidates(rows, inventory).selected.length, rows.length);
   for (const row of rows) assert.equal(row.Check.expected, String(answers[row.Family]), row.ContentKey);
+});
+
+test('transfer wave independently checks geometry, gradient, graph feasibility and probability', () => {
+  const rows = transferWave();
+  const intersections = Array.from({length: 21}, (_, i) => i - 10)
+    .filter(y => (5 - 2) ** 2 + (y + 1) ** 2 === 25);
+  const edges = ['AB', 'AC', 'AD', 'BC', 'BE'];
+  const degrees = [...'ABCDE'].map(vertex => edges.filter(edge => edge.includes(vertex)).length);
+  assert.deepEqual(degrees, [3, 3, 2, 1, 1]);
+  const answers = {
+    'circle-vertical-line-chord': intersections[1] - intersections[0],
+    'gradient-normal-level-set': [[1, -1], [4, 2], [2, 1], [4, 4]]
+      .filter(([x, y]) => x - y === 0).map(v => `(${v.join(',')})`)[0],
+    'graph-odd-degrees-parity': degrees[4],
+    'recover-type-two-error-from-power': ((100 - 87) / 100).toFixed(2),
+  };
+  assert.equal(rows.length, 4);
+  assert.deepEqual(validate([...schoolWave(), ...courseWave(), ...schoolApplicationWave(), ...rows]), []);
+  assert.equal(selectCandidates(rows, inventory).selected.length, rows.length);
+  for (const row of rows) assert.equal(row.Check.expected, String(answers[row.Family]), row.ContentKey);
+  assert.deepEqual(transferHolds, ['recover-type-two-error-from-power']);
 });
