@@ -185,6 +185,9 @@ def verify_tracks(admin, student, uid, stage1, stage2):
     expect("POST","/api/problems/submit",409,{"ProblemId":pid,"SelectedOptionId":option,"TimeSpentSeconds":4},student)
     expect("POST","/api/problems/submit",200,{"ProblemId":pid,"SelectedOptionId":option,"TimeSpentSeconds":4,"PracticeScopeId":tid},student)
     assert expect("GET",practice,200,token=student)["Items"][0]["IsSolved"]
+    filtered=expect("GET",practice+"?hideSolved=true",200,token=student)
+    assert filtered["Total"]==0 and filtered["Items"]==[]
+    assert expect("GET",practice+"?hideSolved=false",200,token=student)["Total"]==1
     assert expect("GET",f"/api/users/learning-tracks/{tid}/progress",200,token=student)["Solved"]==1
     assert expect("GET",f"/api/users/journey?stageId={stage1}",200,token=student)["SolvedProblems"]==1
     assert expect("GET","/api/users/dashboard",200,token=student)["SolvedProblemsCount"]==1
