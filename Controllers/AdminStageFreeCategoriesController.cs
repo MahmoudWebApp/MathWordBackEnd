@@ -36,48 +36,6 @@ public sealed class AdminStageFreeCategoriesController : ControllerBase
                 u => u.Id == adminId && u.Role == "Admin" && u.IsActive, ct))
             return Forbid();
 
-        var ids = request?.CategoryIds;
-        if (stageId <= 0 || ids is null || ids.Count != 2 ||
-            ids.Any(id => id <= 0) || ids[0] == ids[1])
-            return BadRequest(new { Message = "ExactlyTwoDistinctFreeCategoriesRequired" });
-
-        if (!await _db.EducationalStages.AsNoTracking()
-                .AnyAsync(stage => stage.Id == stageId, ct))
-            return NotFound(new { Message = "StageNotFound" });
-
-        var categories = await _db.Categories.AsNoTracking()
-            .Where(c => c.StageId == stageId && ids.Contains(c.Id))
-            .ToListAsync(ct);
-        if (categories.Count != 2)
-            return BadRequest(new { Message = "FreeCategoriesMustBelongToStage" });
-
-        // Validate using the same policy used by the learner access service.
-        try
-        {
-            CategoryAccessPolicy.ResolveFreeCategoryIds(categories, ids);
-        }
-        catch (ArgumentException)
-        {
-            return BadRequest(new { Message = "InvalidFreeCategorySelection" });
-        }
-
-        var selection = await _db.StageFreeCategorySelections
-            .FirstOrDefaultAsync(entry => entry.StageId == stageId, ct);
-        if (selection == null)
-        {
-            selection = new StageFreeCategorySelection { StageId = stageId };
-            _db.StageFreeCategorySelections.Add(selection);
-        }
-        selection.FirstCategoryId = ids[0];
-        selection.SecondCategoryId = ids[1];
-        selection.UpdatedByAdminId = adminId;
-        selection.UpdatedAtUtc = DateTime.UtcNow;
-        await _db.SaveChangesAsync(ct);
-
-        return Ok(new
-        {
-            StageId = stageId,
-            FreeCategoryIds = new[] { selection.FirstCategoryId, selection.SecondCategoryId }
-        });
+        return StatusCode(410, new { Message = "FreeCategoriesFollowEditorialOrder" });
     }
 }
