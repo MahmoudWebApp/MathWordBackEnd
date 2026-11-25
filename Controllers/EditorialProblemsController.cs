@@ -52,6 +52,74 @@ public sealed class EditorialProblemsController(AppDbContext db,IConfiguration c
         d.QuestionTextAr=p.Question?.Ar??"";d.QuestionTextEn=p.Question?.En??"";
         d.DifficultyLevel=Math.Clamp(p.DifficultyLevel,1,5);
     }
+    // The immutable, server-embedded package is visible only to active administrators.
+    // The existing import/review routes remain the sole mutation paths.
+    [HttpGet("reviewed-bank")]
+    public async Task<IActionResult> ReviewedBank(CancellationToken ct)
+    {
+        if(!Admin||await Actor(0,false,ct) is null)return Forbid();
+        var catalog=ReviewedBankCatalog.Current;
+        return Ok(new{catalog.HeldCount,PublicationEnabled=config.GetValue<bool>("EditorialWizard:PublicationEnabled"),
+            Batches=catalog.Batches.Select(b=>new{b.Kind,b.Number,Count=b.Items.Length})});
+    }
+
+    [HttpGet("reviewed-bank/{kind}/{number:int}")]
+    public async Task<IActionResult> ReviewedBankBatch(string kind,int number,CancellationToken ct)
+    {
+        if(!Admin||await Actor(0,false,ct) is null)return Forbid();
+        var batch=ReviewedBankCatalog.Current.Batches.SingleOrDefault(b=>b.Kind==kind&&b.Number==number);
+        if(batch is null)return NotFound();
+        // Read current states by fixed package identity, never by arbitrary client-supplied draft IDs.
+        var keys=batch.Kind=="hints"?Array.Empty<string>():batch.Items.Select(row=>
+            batch.Kind=="amendments"?"g1-amend-"+row.GetProperty("ProblemId").GetInt32():
+                row.GetProperty("ContentKey").GetString()!).ToArray();
+        var drafts=await db.CurriculumDraftItems.AsNoTracking().Where(d=>keys.Contains(d.ContentKey)&&d.WizardJson!=null)
+            .Select(d=>new{d.Id,d.ContentKey,d.PrimarySkillKey,d.SourceProblemId,d.Revision,Status=d.EditorialStatus,d.PublishedProblemId,d.WizardJson})
+            .ToListAsync(ct);
+        var trackCodes=(await db.LearningTracks.AsNoTracking().Select(t=>new{t.Id,t.StageId,t.Code}).ToListAsync(ct))
+            .ToDictionary(t=>t.Id,t=>(t.StageId,t.Code));
+        var sourceIds=batch.Kind=="amendments"?batch.Items.Select(r=>r.GetProperty("ProblemId").GetInt32()).ToArray():Array.Empty<int>();
+        var sourceTracks=(await db.LearningTrackProblems.AsNoTracking().Where(x=>sourceIds.Contains(x.ProblemId))
+            .Select(x=>new{x.ProblemId,x.TrackId}).ToListAsync(ct)).ToLookup(x=>x.ProblemId,x=>x.TrackId);
+        var sourceSecondary=(await db.CurriculumProblemSkills.AsNoTracking().Where(x=>sourceIds.Contains(x.ProblemId)&&!x.IsPrimary)
+            .Select(x=>new{x.ProblemId,x.SkillId}).ToListAsync(ct)).ToLookup(x=>x.ProblemId,x=>x.SkillId);
+        string[] Codes(JsonElement row)=>batch.Kind=="amendments"?new[]{row.GetProperty("ProposedTrackCode").GetString()!}:
+            row.GetProperty("ProposedTrackCodes").EnumerateArray().Select(c=>c.GetString()!).ToArray();
+        bool ValidMapping(JsonElement row)
+        {
+            var stage=row.GetProperty("Content").GetProperty("StageId").GetInt32();
+            var codes=Codes(row);
+            if(batch.Kind!="amendments")return codes.All(c=>trackCodes.Values.Any(t=>t.StageId==stage&&t.Code==c));
+            var pid=row.GetProperty("ProblemId").GetInt32();
+            return codes.All(c=>sourceTracks[pid].Any(id=>trackCodes.TryGetValue(id,out var t)&&t.StageId==stage&&t.Code==c));
+        }
+        var missingMappings=batch.Kind=="hints"?0:batch.Items.Count(row=>!ValidMapping(row));
+        var states=drafts.Select(d=>{
+            var row=batch.Items[Array.IndexOf(keys,d.ContentKey)];
+            var expected=row.GetProperty("Content").Deserialize<WizardProblem>()!;
+            var actual=WizardProblemContract.Read(d.WizardJson!);
+            var codes=Codes(row);
+            var actualIds=actual.TrackIds??Array.Empty<int>();
+            var actualCodes=actualIds.Where(trackCodes.ContainsKey)
+                .Select(id=>trackCodes[id]).Where(t=>t.StageId==actual.StageId).Select(t=>t.Code).ToArray();
+            var amendment=batch.Kind=="amendments";
+            var pid=amendment?row.GetProperty("ProblemId").GetInt32():0;
+            var trackMatch=ValidMapping(row)&&codes.All(actualCodes.Contains)&&actualIds.Length==actualCodes.Length&&
+                (amendment?actualIds.Order().SequenceEqual(sourceTracks[pid].Order()):actualCodes.Length==codes.Length);
+            var secondaryMatch=(actual.SecondarySkillIds??Array.Empty<int>()).Order().SequenceEqual(
+                amendment?sourceSecondary[pid].Order():(expected.SecondarySkillIds??Array.Empty<int>()).Order());
+            // Only fields resolved during the validated import may differ from the package.
+            var normalized=actual with{TrackIds=expected.TrackIds,SecondarySkillIds=expected.SecondarySkillIds,
+                DifficultyLevel=amendment?expected.DifficultyLevel:actual.DifficultyLevel};
+            var matches=trackMatch&&secondaryMatch&&(!amendment||actual.DifficultyLevel==1)&&
+                d.PrimarySkillKey==row.GetProperty("PrimarySkillKey").GetString()&&
+                (amendment?d.SourceProblemId==pid:d.SourceProblemId==null)&&
+                WizardProblemContract.Serialize(normalized)==WizardProblemContract.Serialize(expected);
+            return new{d.Id,d.ContentKey,d.Revision,d.Status,d.PublishedProblemId,MatchesCandidate=matches};
+        }).ToArray();
+        return Ok(new{batch.Kind,batch.Number,batch.Items,Drafts=states,MissingMappings=missingMappings});
+    }
+
     [HttpGet("classification/{stageId:int}")]
     public async Task<IActionResult> Classification(int stageId,CancellationToken ct)
     {

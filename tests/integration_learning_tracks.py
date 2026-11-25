@@ -28,7 +28,13 @@ def verify_reviewed_batch(admin, student, all_tracks):
     categories={row["CategoryId"]:stage for stage,row in rows}
     cat_ids=",".join(map(str,categories))
     expected_count=len(rows)
-    assert expected_count+manifest["ExcludedCount"]==773 and len(groups)==17
+    # Explicitly create the two missing identities via the same admin endpoint.
+    new_tracks=[]
+    for code in ('numerical-analysis','mathematical-optimization'):
+        created=expect('POST','/api/admin/learning-tracks',201,{'StageId':4,'Code':code,'Kind':'course','NameAr':'مساق تجريبي','NameEn':code,'SortOrder':99},admin)
+        new_tracks.append({'Track':created})
+    all_tracks=all_tracks+new_tracks
+    assert expected_count+manifest["ExcludedCount"]==773 and len(groups)==19
     assert len({row["ProblemId"] for _,row in rows})==expected_count
     assert sql(f'SELECT COUNT(*) FROM "Problems" WHERE "Id" IN ({ids})')=="0"
     assert sql(f'SELECT COUNT(*) FROM "CurriculumSkills" WHERE "Id" IN ({skill_ids})')=="0"
@@ -55,7 +61,7 @@ def verify_reviewed_batch(admin, student, all_tracks):
     try:
         preview=expect("POST",root,200,{"Confirm":False},admin)
         assert not preview["Confirmed"] and preview["AppliedTracks"]==0
-        assert len(preview["Items"])==17 and sum(x["Problems"] for x in preview["Items"])==expected_count
+        assert len(preview["Items"])==19 and sum(x["Problems"] for x in preview["Items"])==expected_count
         assert all(x["Status"]=="Ready" for x in preview["Items"])
         assert link_count()==0
         revisions=[{"Id":x["Id"],"Revision":x["Revision"]} for x in preview["Items"]]
@@ -75,18 +81,18 @@ def verify_reviewed_batch(admin, student, all_tracks):
         assert link_count()==0
         sql(f'''UPDATE "Problems" SET "QuestionTextEn"={literal(row["ExpectedQuestionEn"])} WHERE "Id"={pid}''')
         saved=expect("POST",root,200,confirm,admin)
-        assert saved["Confirmed"] and saved["AppliedTracks"]==17
+        assert saved["Confirmed"] and saved["AppliedTracks"]==19
         assert link_count()==expected_count
         assert int(sql('SELECT COUNT(*) FROM "LearningTrackCategories"'))==sum(len({r["CategoryId"] for r in g["Rows"]}) for g in groups)
         assert int(sql('SELECT COUNT(*) FROM "LearningTrackSkills"'))==sum(len({r["PrimarySkillId"] for r in g["Rows"]}) for g in groups)
         assert sql('SELECT COUNT(*) FROM "LearningTracks" WHERE "IsPublished"')=="0"
-        assert sql('SELECT COUNT(*) FROM "LearningTracks" WHERE "Revision"=1')=="17"
+        assert sql('SELECT COUNT(*) FROM "LearningTracks" WHERE "Revision"=1')=="19"
         expect("POST",root,409,confirm,admin)
         repeat=expect("POST",root,200,{"Confirm":False},admin)
         assert all(x["Status"]=="AlreadyMapped" for x in repeat["Items"])
         again=expect("POST",root,200,{"Confirm":True,"Revisions":[{"Id":x["Id"],"Revision":x["Revision"]} for x in repeat["Items"]]},admin)
         assert again["AppliedTracks"]==0 and link_count()==expected_count
-        assert sql('SELECT COUNT(*) FROM "LearningTracks" WHERE "Revision"=1')=="17"
+        assert sql('SELECT COUNT(*) FROM "LearningTracks" WHERE "Revision"=1')=="19"
         print(f"PASS: reviewed {expected_count}-question batch preview, stale/source rejection, atomic mapping and idempotence; no publication")
     finally:
         track_ids=",".join(str(x["Track"]["Id"]) for x in all_tracks)
@@ -99,6 +105,7 @@ DELETE FROM "PlatformActivityEvents" WHERE "Action"='LearningTrackReviewedDraftM
 DELETE FROM "Problems" WHERE "Id" IN ({ids});
 DELETE FROM "CurriculumSkills" WHERE "Id" IN ({skill_ids});
 DELETE FROM "CurriculumDomains" WHERE "Id"={domain};
+DELETE FROM "LearningTracks" WHERE "Id" IN ({",".join(str(x["Track"]["Id"]) for x in new_tracks)});
 ''' + (f'DELETE FROM "Categories" WHERE "Id" IN ({",".join(str(cid) for cid,_ in added)});\n' if added else "") + "COMMIT;")
 
 def verify_tracks(admin, student, uid, stage1, stage2):
