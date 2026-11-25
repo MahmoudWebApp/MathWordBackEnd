@@ -47,5 +47,7 @@
   "area-of-triangle-with-equal-perpendicular-legs-from-sum": "The live bank already asks for the area from perpendicular legs. Halving the stated sum only adds a short preprocessing step.",
   "all-inputs-for-two-sided-nonnegative-linear-slacks": "Intersecting two linear bounds repeats the V7 integer-bounds and V16 production-bounds families. The closed real interval and reversed inequality add too little separation for this queue.",
   "recover-cosine-from-tangent-and-quadrant": "V7 already reconstructs secant from tangent and a quadrant. Using the reciprocal function and other signs still tests the same identity reasoning.",
-  "balance-pans-infer-added-two-equal-weights": "Subtracting two masses and halving to isolate one identical object repeats the main reconstruction step of the existing empty-crate mass family."
+  "balance-pans-infer-added-two-equal-weights": "Subtracting two masses and halving to isolate one identical object repeats the main reconstruction step of the existing empty-crate mass family.",
+  "compare-two-repair-batches-with-returned-items": "Live problem 1758 already compares two counts after an increase and decrease, then asks for the difference.",
+  "equal-storage-boxes-after-fixed-damaged-count": "Review overlap with existing two-step equation family (152,164,176,188,200); rearrangement and context alone may not justify another item."
 }
