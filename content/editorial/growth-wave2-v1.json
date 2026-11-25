@@ -1,0 +1,4793 @@
+{
+  "Status": "DraftCandidatesNotPublished",
+  "Items": [
+    {
+      "ContentKey": "growth-v2-grade-4-mode-frequency-1",
+      "ReviewStatus": "Draft",
+      "Family": "mode-frequency",
+      "PrimarySkillKey": "primary-mode",
+      "ProposedTrackCodes": [
+        "grade-4"
+      ],
+      "Check": {
+        "expected": "7"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 4,
+        "PrimarySkillId": 20,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "المنوال من التكرار",
+          "En": "Mode from frequency"
+        },
+        "Question": {
+          "Ar": "ما منوال البيانات 3، 7، 9، 7، 3، 7؟",
+          "En": "Find the mode of 3, 7, 9, 7, 3, 7."
+        },
+        "Options": [
+          {
+            "LatexCode": "7",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "3",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "ظهر مرتين.",
+              "En": "Occurs twice."
+            }
+          },
+          {
+            "LatexCode": "9",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "ظهر مرة واحدة.",
+              "En": "Occurs once."
+            }
+          },
+          {
+            "LatexCode": "6",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا عدد البيانات.",
+              "En": "This is the number of observations."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "المنوال هو القيمة الأكثر تكراراً.",
+            "En": "The mode is the most frequent value."
+          },
+          {
+            "Ar": "عدّ مرات ظهور كل قيمة.",
+            "En": "Count each value's occurrences."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "المنوال هو القيمة الأكثر تكراراً.",
+            "En": "The mode is the most frequent value."
+          },
+          "FormulaLatex": "\\operatorname{mode}=\\arg\\max_x f(x)",
+          "Steps": [
+            {
+              "Ar": "3 مرتان، 7 ثلاث مرات، 9 مرة واحدة.",
+              "En": "3 occurs twice, 7 three times, 9 once."
+            },
+            {
+              "Ar": "أكبر تكرار يساوي ثلاثة.",
+              "En": "The greatest frequency is three."
+            }
+          ],
+          "Substitution": {
+            "Ar": "f(7)=3",
+            "En": "f(7)=3"
+          },
+          "Result": {
+            "Ar": "7",
+            "En": "7"
+          },
+          "Unit": {
+            "Ar": "دون وحدة",
+            "En": "unitless"
+          },
+          "Verification": {
+            "Ar": "تكرار 7 أكبر من بقية القيم.",
+            "En": "7 has the highest frequency."
+          },
+          "CommonError": {
+            "Ar": "لا تختَر أكبر قيمة لمجرد كبرها.",
+            "En": "Do not select the largest value just because it is largest."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v2-grade-4-mode-frequency-2",
+      "ReviewStatus": "Draft",
+      "Family": "mode-frequency",
+      "PrimarySkillKey": "primary-mode",
+      "ProposedTrackCodes": [
+        "grade-4"
+      ],
+      "Check": {
+        "expected": "8"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 4,
+        "PrimarySkillId": 20,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "المنوال من التكرار",
+          "En": "Mode from frequency"
+        },
+        "Question": {
+          "Ar": "ما منوال البيانات 4، 8، 12، 8، 4، 8؟",
+          "En": "Find the mode of 4, 8, 12, 8, 4, 8."
+        },
+        "Options": [
+          {
+            "LatexCode": "4",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "ظهر مرتين.",
+              "En": "Occurs twice."
+            }
+          },
+          {
+            "LatexCode": "8",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "12",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "ظهر مرة واحدة.",
+              "En": "Occurs once."
+            }
+          },
+          {
+            "LatexCode": "6",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا عدد البيانات.",
+              "En": "This is the number of observations."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "المنوال هو القيمة الأكثر تكراراً.",
+            "En": "The mode is the most frequent value."
+          },
+          {
+            "Ar": "عدّ مرات ظهور كل قيمة.",
+            "En": "Count each value's occurrences."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "المنوال هو القيمة الأكثر تكراراً.",
+            "En": "The mode is the most frequent value."
+          },
+          "FormulaLatex": "\\operatorname{mode}=\\arg\\max_x f(x)",
+          "Steps": [
+            {
+              "Ar": "4 مرتان، 8 ثلاث مرات، 12 مرة واحدة.",
+              "En": "4 occurs twice, 8 three times, 12 once."
+            },
+            {
+              "Ar": "أكبر تكرار يساوي ثلاثة.",
+              "En": "The greatest frequency is three."
+            }
+          ],
+          "Substitution": {
+            "Ar": "f(8)=3",
+            "En": "f(8)=3"
+          },
+          "Result": {
+            "Ar": "8",
+            "En": "8"
+          },
+          "Unit": {
+            "Ar": "دون وحدة",
+            "En": "unitless"
+          },
+          "Verification": {
+            "Ar": "تكرار 8 أكبر من بقية القيم.",
+            "En": "8 has the highest frequency."
+          },
+          "CommonError": {
+            "Ar": "لا تختَر أكبر قيمة لمجرد كبرها.",
+            "En": "Do not select the largest value just because it is largest."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v2-grade-4-missing-factor-1",
+      "ReviewStatus": "Draft",
+      "Family": "missing-factor",
+      "PrimarySkillKey": "primary-one-step-multiplicative-equations",
+      "ProposedTrackCodes": [
+        "grade-4"
+      ],
+      "Check": {
+        "expected": "8"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 2,
+        "PrimarySkillId": 9,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "عامل مجهول",
+          "En": "Missing factor"
+        },
+        "Question": {
+          "Ar": "في المعادلة 7x=56، ما قيمة x؟",
+          "En": "In 7x=56, find x."
+        },
+        "Options": [
+          {
+            "LatexCode": "56",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "اختار حاصل الضرب.",
+              "En": "Chooses the product."
+            }
+          },
+          {
+            "LatexCode": "49",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "طرح العامل.",
+              "En": "Subtracts the factor."
+            }
+          },
+          {
+            "LatexCode": "8",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "9",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "زاد واحداً.",
+              "En": "Adds one."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "استعمل عكس الضرب.",
+            "En": "Use the inverse of multiplication."
+          },
+          {
+            "Ar": "اقسم حاصل الضرب على العامل المعروف.",
+            "En": "Divide the product by the known factor."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "استعمل عكس الضرب.",
+            "En": "Use the inverse of multiplication."
+          },
+          "FormulaLatex": "x=p\\div a",
+          "Steps": [
+            {
+              "Ar": "اقسم الطرفين على 7.",
+              "En": "Divide both sides by 7."
+            },
+            {
+              "Ar": "احسب خارج القسمة.",
+              "En": "Compute the quotient."
+            }
+          ],
+          "Substitution": {
+            "Ar": "56\\div7=8",
+            "En": "56\\div7=8"
+          },
+          "Result": {
+            "Ar": "8",
+            "En": "8"
+          },
+          "Unit": {
+            "Ar": "دون وحدة",
+            "En": "unitless"
+          },
+          "Verification": {
+            "Ar": "7\\times8=56",
+            "En": "7\\times8=56"
+          },
+          "CommonError": {
+            "Ar": "لا تطرح العامل من الناتج.",
+            "En": "Do not subtract the factor from the product."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v2-grade-4-missing-factor-2",
+      "ReviewStatus": "Draft",
+      "Family": "missing-factor",
+      "PrimarySkillKey": "primary-one-step-multiplicative-equations",
+      "ProposedTrackCodes": [
+        "grade-4"
+      ],
+      "Check": {
+        "expected": "6"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 2,
+        "PrimarySkillId": 9,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "عامل مجهول",
+          "En": "Missing factor"
+        },
+        "Question": {
+          "Ar": "في المعادلة 9x=54، ما قيمة x؟",
+          "En": "In 9x=54, find x."
+        },
+        "Options": [
+          {
+            "LatexCode": "54",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "اختار حاصل الضرب.",
+              "En": "Chooses the product."
+            }
+          },
+          {
+            "LatexCode": "45",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "طرح العامل.",
+              "En": "Subtracts the factor."
+            }
+          },
+          {
+            "LatexCode": "7",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "زاد واحداً.",
+              "En": "Adds one."
+            }
+          },
+          {
+            "LatexCode": "6",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "استعمل عكس الضرب.",
+            "En": "Use the inverse of multiplication."
+          },
+          {
+            "Ar": "اقسم حاصل الضرب على العامل المعروف.",
+            "En": "Divide the product by the known factor."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "استعمل عكس الضرب.",
+            "En": "Use the inverse of multiplication."
+          },
+          "FormulaLatex": "x=p\\div a",
+          "Steps": [
+            {
+              "Ar": "اقسم الطرفين على 9.",
+              "En": "Divide both sides by 9."
+            },
+            {
+              "Ar": "احسب خارج القسمة.",
+              "En": "Compute the quotient."
+            }
+          ],
+          "Substitution": {
+            "Ar": "54\\div9=6",
+            "En": "54\\div9=6"
+          },
+          "Result": {
+            "Ar": "6",
+            "En": "6"
+          },
+          "Unit": {
+            "Ar": "دون وحدة",
+            "En": "unitless"
+          },
+          "Verification": {
+            "Ar": "9\\times6=54",
+            "En": "9\\times6=54"
+          },
+          "CommonError": {
+            "Ar": "لا تطرح العامل من الناتج.",
+            "En": "Do not subtract the factor from the product."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v2-grade-4-mixed-mass-1",
+      "ReviewStatus": "Draft",
+      "Family": "mixed-mass",
+      "PrimarySkillKey": "mass",
+      "ProposedTrackCodes": [
+        "grade-4"
+      ],
+      "Check": {
+        "expected": "2450"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 82,
+        "PrimarySkillId": 322,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "كتلة مركبة",
+          "En": "Mixed mass"
+        },
+        "Question": {
+          "Ar": "كتلة حقيبة 2 كغ و450 غ. ما كتلتها بالغرام؟",
+          "En": "A bag weighs 2 kg and 450 g. What is its mass in grams?"
+        },
+        "Options": [
+          {
+            "LatexCode": "2450",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "452",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "جمع دون تحويل.",
+              "En": "Adds without conversion."
+            }
+          },
+          {
+            "LatexCode": "650",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "عامل تحويل خاطئ.",
+              "En": "Wrong conversion factor."
+            }
+          },
+          {
+            "LatexCode": "2000",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "أهمل الغرامات.",
+              "En": "Omits grams."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "وحّد وحدات الكتلة.",
+            "En": "Use one mass unit."
+          },
+          {
+            "Ar": "الكيلوغرام يساوي 1000 غرام.",
+            "En": "One kilogram equals 1000 grams."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "وحّد وحدات الكتلة.",
+            "En": "Use one mass unit."
+          },
+          "FormulaLatex": "M=1000k+g",
+          "Steps": [
+            {
+              "Ar": "حوّل 2 كغ إلى 2000 غ.",
+              "En": "Convert 2 kg to 2000 g."
+            },
+            {
+              "Ar": "أضف 450 غ.",
+              "En": "Add 450 g."
+            }
+          ],
+          "Substitution": {
+            "Ar": "2000+450=2450",
+            "En": "2000+450=2450"
+          },
+          "Result": {
+            "Ar": "2450",
+            "En": "2450"
+          },
+          "Unit": {
+            "Ar": "غرام",
+            "En": "g"
+          },
+          "Verification": {
+            "Ar": "الباقي بعد طرح 2000 هو 450.",
+            "En": "Subtracting 2000 leaves 450."
+          },
+          "CommonError": {
+            "Ar": "لا تستخدم 100 في تحويل الكيلوغرام.",
+            "En": "Do not use 100 to convert kilograms."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v2-grade-4-mixed-mass-2",
+      "ReviewStatus": "Draft",
+      "Family": "mixed-mass",
+      "PrimarySkillKey": "mass",
+      "ProposedTrackCodes": [
+        "grade-4"
+      ],
+      "Check": {
+        "expected": "3275"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 82,
+        "PrimarySkillId": 322,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "كتلة مركبة",
+          "En": "Mixed mass"
+        },
+        "Question": {
+          "Ar": "كتلة حقيبة 3 كغ و275 غ. ما كتلتها بالغرام؟",
+          "En": "A bag weighs 3 kg and 275 g. What is its mass in grams?"
+        },
+        "Options": [
+          {
+            "LatexCode": "278",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "جمع دون تحويل.",
+              "En": "Adds without conversion."
+            }
+          },
+          {
+            "LatexCode": "3275",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "575",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "عامل تحويل خاطئ.",
+              "En": "Wrong conversion factor."
+            }
+          },
+          {
+            "LatexCode": "3000",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "أهمل الغرامات.",
+              "En": "Omits grams."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "وحّد وحدات الكتلة.",
+            "En": "Use one mass unit."
+          },
+          {
+            "Ar": "الكيلوغرام يساوي 1000 غرام.",
+            "En": "One kilogram equals 1000 grams."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "وحّد وحدات الكتلة.",
+            "En": "Use one mass unit."
+          },
+          "FormulaLatex": "M=1000k+g",
+          "Steps": [
+            {
+              "Ar": "حوّل 3 كغ إلى 3000 غ.",
+              "En": "Convert 3 kg to 3000 g."
+            },
+            {
+              "Ar": "أضف 275 غ.",
+              "En": "Add 275 g."
+            }
+          ],
+          "Substitution": {
+            "Ar": "3000+275=3275",
+            "En": "3000+275=3275"
+          },
+          "Result": {
+            "Ar": "3275",
+            "En": "3275"
+          },
+          "Unit": {
+            "Ar": "غرام",
+            "En": "g"
+          },
+          "Verification": {
+            "Ar": "الباقي بعد طرح 3000 هو 275.",
+            "En": "Subtracting 3000 leaves 275."
+          },
+          "CommonError": {
+            "Ar": "لا تستخدم 100 في تحويل الكيلوغرام.",
+            "En": "Do not use 100 to convert kilograms."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v2-grade-5-missing-score-mean-1",
+      "ReviewStatus": "Draft",
+      "Family": "missing-score-mean",
+      "PrimarySkillKey": "primary-arithmetic-mean",
+      "ProposedTrackCodes": [
+        "grade-5"
+      ],
+      "Check": {
+        "expected": "12"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 4,
+        "PrimarySkillId": 19,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "قيمة مفقودة من المتوسط",
+          "En": "Missing score from mean"
+        },
+        "Question": {
+          "Ar": "متوسط ثلاث درجات 12. درجتان هما 9 و15. ما الدرجة الثالثة؟",
+          "En": "The mean of three scores is 12. Two scores are 9 and 15. Find the third."
+        },
+        "Options": [
+          {
+            "LatexCode": "36",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "اختار مجموع الدرجات.",
+              "En": "Chooses total."
+            }
+          },
+          {
+            "LatexCode": "24",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "جمع المعروفتين.",
+              "En": "Adds known scores."
+            }
+          },
+          {
+            "LatexCode": "12",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "13",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "خطأ بمقدار واحد.",
+              "En": "Off by one."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "المجموع يساوي المتوسط مضروباً في العدد.",
+            "En": "Total equals mean times count."
+          },
+          {
+            "Ar": "اطرح القيم المعروفة من المجموع.",
+            "En": "Subtract known values from total."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "المجموع يساوي المتوسط مضروباً في العدد.",
+            "En": "Total equals mean times count."
+          },
+          "FormulaLatex": "x=3\\bar{x}-a-b",
+          "Steps": [
+            {
+              "Ar": "المجموع 36.",
+              "En": "The total is 36."
+            },
+            {
+              "Ar": "مجموع المعروفتين 24.",
+              "En": "Known scores total 24."
+            }
+          ],
+          "Substitution": {
+            "Ar": "36-24=12",
+            "En": "36-24=12"
+          },
+          "Result": {
+            "Ar": "12",
+            "En": "12"
+          },
+          "Unit": {
+            "Ar": "دون وحدة",
+            "En": "unitless"
+          },
+          "Verification": {
+            "Ar": "(9+15+12)/3=12",
+            "En": "(9+15+12)/3=12"
+          },
+          "CommonError": {
+            "Ar": "لا تحسب متوسط القيمتين فقط.",
+            "En": "Do not average only the two known values."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v2-grade-5-missing-score-mean-2",
+      "ReviewStatus": "Draft",
+      "Family": "missing-score-mean",
+      "PrimarySkillKey": "primary-arithmetic-mean",
+      "ProposedTrackCodes": [
+        "grade-5"
+      ],
+      "Check": {
+        "expected": "15"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 4,
+        "PrimarySkillId": 19,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "قيمة مفقودة من المتوسط",
+          "En": "Missing score from mean"
+        },
+        "Question": {
+          "Ar": "متوسط ثلاث درجات 14. درجتان هما 11 و16. ما الدرجة الثالثة؟",
+          "En": "The mean of three scores is 14. Two scores are 11 and 16. Find the third."
+        },
+        "Options": [
+          {
+            "LatexCode": "42",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "اختار مجموع الدرجات.",
+              "En": "Chooses total."
+            }
+          },
+          {
+            "LatexCode": "27",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "جمع المعروفتين.",
+              "En": "Adds known scores."
+            }
+          },
+          {
+            "LatexCode": "16",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "خطأ بمقدار واحد.",
+              "En": "Off by one."
+            }
+          },
+          {
+            "LatexCode": "15",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "المجموع يساوي المتوسط مضروباً في العدد.",
+            "En": "Total equals mean times count."
+          },
+          {
+            "Ar": "اطرح القيم المعروفة من المجموع.",
+            "En": "Subtract known values from total."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "المجموع يساوي المتوسط مضروباً في العدد.",
+            "En": "Total equals mean times count."
+          },
+          "FormulaLatex": "x=3\\bar{x}-a-b",
+          "Steps": [
+            {
+              "Ar": "المجموع 42.",
+              "En": "The total is 42."
+            },
+            {
+              "Ar": "مجموع المعروفتين 27.",
+              "En": "Known scores total 27."
+            }
+          ],
+          "Substitution": {
+            "Ar": "42-27=15",
+            "En": "42-27=15"
+          },
+          "Result": {
+            "Ar": "15",
+            "En": "15"
+          },
+          "Unit": {
+            "Ar": "دون وحدة",
+            "En": "unitless"
+          },
+          "Verification": {
+            "Ar": "(11+16+15)/3=14",
+            "En": "(11+16+15)/3=14"
+          },
+          "CommonError": {
+            "Ar": "لا تحسب متوسط القيمتين فقط.",
+            "En": "Do not average only the two known values."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v2-grade-5-triangle-height-1",
+      "ReviewStatus": "Draft",
+      "Family": "triangle-height",
+      "PrimarySkillKey": "primary-triangle-area",
+      "ProposedTrackCodes": [
+        "grade-5"
+      ],
+      "Check": {
+        "expected": "6"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 3,
+        "PrimarySkillId": 14,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "ارتفاع من المساحة",
+          "En": "Height from area"
+        },
+        "Question": {
+          "Ar": "مساحة مثلث 24 سم² وقاعدته 8 سم. ما ارتفاعه؟",
+          "En": "A triangle has area 24 cm² and base 8 cm. Find its height."
+        },
+        "Options": [
+          {
+            "LatexCode": "6",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "3",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "لم يضاعف المساحة.",
+              "En": "Does not double area."
+            }
+          },
+          {
+            "LatexCode": "12",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "ضاعف مرة إضافية.",
+              "En": "Doubles an extra time."
+            }
+          },
+          {
+            "LatexCode": "48",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "حسب ضعف المساحة فقط.",
+              "En": "Stops at twice area."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "مساحة المثلث نصف حاصل ضرب القاعدة والارتفاع.",
+            "En": "Triangle area is half the base times height."
+          },
+          {
+            "Ar": "ضاعف المساحة ثم اقسم على القاعدة.",
+            "En": "Double area then divide by base."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "مساحة المثلث نصف حاصل ضرب القاعدة والارتفاع.",
+            "En": "Triangle area is half the base times height."
+          },
+          "FormulaLatex": "h=\\frac{2A}{b}",
+          "Steps": [
+            {
+              "Ar": "ضاعف المساحة: 48.",
+              "En": "Double the area: 48."
+            },
+            {
+              "Ar": "اقسم على 8.",
+              "En": "Divide by 8."
+            }
+          ],
+          "Substitution": {
+            "Ar": "48\\div8=6",
+            "En": "48\\div8=6"
+          },
+          "Result": {
+            "Ar": "6",
+            "En": "6"
+          },
+          "Unit": {
+            "Ar": "سم",
+            "En": "cm"
+          },
+          "Verification": {
+            "Ar": "\\frac{8\\times6}{2}=24",
+            "En": "\\frac{8\\times6}{2}=24"
+          },
+          "CommonError": {
+            "Ar": "لا تنس عامل النصف في قانون المساحة.",
+            "En": "Do not forget the factor one-half."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v2-grade-5-triangle-height-2",
+      "ReviewStatus": "Draft",
+      "Family": "triangle-height",
+      "PrimarySkillKey": "primary-triangle-area",
+      "ProposedTrackCodes": [
+        "grade-5"
+      ],
+      "Check": {
+        "expected": "8"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 3,
+        "PrimarySkillId": 14,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "ارتفاع من المساحة",
+          "En": "Height from area"
+        },
+        "Question": {
+          "Ar": "مساحة مثلث 40 سم² وقاعدته 10 سم. ما ارتفاعه؟",
+          "En": "A triangle has area 40 cm² and base 10 cm. Find its height."
+        },
+        "Options": [
+          {
+            "LatexCode": "4",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "لم يضاعف المساحة.",
+              "En": "Does not double area."
+            }
+          },
+          {
+            "LatexCode": "8",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "16",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "ضاعف مرة إضافية.",
+              "En": "Doubles an extra time."
+            }
+          },
+          {
+            "LatexCode": "80",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "حسب ضعف المساحة فقط.",
+              "En": "Stops at twice area."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "مساحة المثلث نصف حاصل ضرب القاعدة والارتفاع.",
+            "En": "Triangle area is half the base times height."
+          },
+          {
+            "Ar": "ضاعف المساحة ثم اقسم على القاعدة.",
+            "En": "Double area then divide by base."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "مساحة المثلث نصف حاصل ضرب القاعدة والارتفاع.",
+            "En": "Triangle area is half the base times height."
+          },
+          "FormulaLatex": "h=\\frac{2A}{b}",
+          "Steps": [
+            {
+              "Ar": "ضاعف المساحة: 80.",
+              "En": "Double the area: 80."
+            },
+            {
+              "Ar": "اقسم على 10.",
+              "En": "Divide by 10."
+            }
+          ],
+          "Substitution": {
+            "Ar": "80\\div10=8",
+            "En": "80\\div10=8"
+          },
+          "Result": {
+            "Ar": "8",
+            "En": "8"
+          },
+          "Unit": {
+            "Ar": "سم",
+            "En": "cm"
+          },
+          "Verification": {
+            "Ar": "\\frac{10\\times8}{2}=40",
+            "En": "\\frac{10\\times8}{2}=40"
+          },
+          "CommonError": {
+            "Ar": "لا تنس عامل النصف في قانون المساحة.",
+            "En": "Do not forget the factor one-half."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v2-grade-5-substitution-two-terms-1",
+      "ReviewStatus": "Draft",
+      "Family": "substitution-two-terms",
+      "PrimarySkillKey": "primary-substitution",
+      "ProposedTrackCodes": [
+        "grade-5"
+      ],
+      "Check": {
+        "expected": "31"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 2,
+        "PrimarySkillId": 11,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "تعويض في تعبير",
+          "En": "Substitute in an expression"
+        },
+        "Question": {
+          "Ar": "ما قيمة 4x+3 عندما x=7؟",
+          "En": "Evaluate 4x+3 when x=7."
+        },
+        "Options": [
+          {
+            "LatexCode": "40",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "جمع قبل الضرب.",
+              "En": "Adds before multiplication."
+            }
+          },
+          {
+            "LatexCode": "14",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "جمع بدلاً من الضرب.",
+              "En": "Adds instead of multiplying."
+            }
+          },
+          {
+            "LatexCode": "31",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "28",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "أهمل الحد الثابت.",
+              "En": "Omits the constant."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "استبدل المتغير بقيمته.",
+            "En": "Replace the variable with its value."
+          },
+          {
+            "Ar": "نفّذ الضرب قبل الجمع.",
+            "En": "Multiply before adding."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "استبدل المتغير بقيمته.",
+            "En": "Replace the variable with its value."
+          },
+          "FormulaLatex": "y=ax+b",
+          "Steps": [
+            {
+              "Ar": "عوّض 7 مكان x.",
+              "En": "Substitute 7 for x."
+            },
+            {
+              "Ar": "حاصل الضرب 28.",
+              "En": "The product is 28."
+            }
+          ],
+          "Substitution": {
+            "Ar": "4\\times7+3=31",
+            "En": "4\\times7+3=31"
+          },
+          "Result": {
+            "Ar": "31",
+            "En": "31"
+          },
+          "Unit": {
+            "Ar": "دون وحدة",
+            "En": "unitless"
+          },
+          "Verification": {
+            "Ar": "(31-3)/4=7",
+            "En": "(31-3)/4=7"
+          },
+          "CommonError": {
+            "Ar": "لا تجمع قبل الضرب.",
+            "En": "Do not add before multiplying."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v2-grade-5-substitution-two-terms-2",
+      "ReviewStatus": "Draft",
+      "Family": "substitution-two-terms",
+      "PrimarySkillKey": "primary-substitution",
+      "ProposedTrackCodes": [
+        "grade-5"
+      ],
+      "Check": {
+        "expected": "34"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 2,
+        "PrimarySkillId": 11,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "تعويض في تعبير",
+          "En": "Substitute in an expression"
+        },
+        "Question": {
+          "Ar": "ما قيمة 5x+4 عندما x=6؟",
+          "En": "Evaluate 5x+4 when x=6."
+        },
+        "Options": [
+          {
+            "LatexCode": "50",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "جمع قبل الضرب.",
+              "En": "Adds before multiplication."
+            }
+          },
+          {
+            "LatexCode": "15",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "جمع بدلاً من الضرب.",
+              "En": "Adds instead of multiplying."
+            }
+          },
+          {
+            "LatexCode": "30",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "أهمل الحد الثابت.",
+              "En": "Omits the constant."
+            }
+          },
+          {
+            "LatexCode": "34",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "استبدل المتغير بقيمته.",
+            "En": "Replace the variable with its value."
+          },
+          {
+            "Ar": "نفّذ الضرب قبل الجمع.",
+            "En": "Multiply before adding."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "استبدل المتغير بقيمته.",
+            "En": "Replace the variable with its value."
+          },
+          "FormulaLatex": "y=ax+b",
+          "Steps": [
+            {
+              "Ar": "عوّض 6 مكان x.",
+              "En": "Substitute 6 for x."
+            },
+            {
+              "Ar": "حاصل الضرب 30.",
+              "En": "The product is 30."
+            }
+          ],
+          "Substitution": {
+            "Ar": "5\\times6+4=34",
+            "En": "5\\times6+4=34"
+          },
+          "Result": {
+            "Ar": "34",
+            "En": "34"
+          },
+          "Unit": {
+            "Ar": "دون وحدة",
+            "En": "unitless"
+          },
+          "Verification": {
+            "Ar": "(34-4)/5=6",
+            "En": "(34-4)/5=6"
+          },
+          "CommonError": {
+            "Ar": "لا تجمع قبل الضرب.",
+            "En": "Do not add before multiplying."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v2-grade-6-percent-of-total-1",
+      "ReviewStatus": "Draft",
+      "Family": "percent-of-total",
+      "PrimarySkillKey": "p-fractions-decimals-basic-percentages",
+      "ProposedTrackCodes": [
+        "grade-6"
+      ],
+      "Check": {
+        "expected": "20"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 21,
+        "PrimarySkillId": 93,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "نسبة من كمية",
+          "En": "Percentage of a quantity"
+        },
+        "Question": {
+          "Ar": "من أصل 80 سؤالاً حل طالب 25%. كم سؤالاً حل؟",
+          "En": "A learner solves 25% of 80 questions. How many are solved?"
+        },
+        "Options": [
+          {
+            "LatexCode": "20",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "55",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "طرح النسبة مباشرة.",
+              "En": "Subtracts percent directly."
+            }
+          },
+          {
+            "LatexCode": "60",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "حسب غير المحلول.",
+              "En": "Finds unsolved questions."
+            }
+          },
+          {
+            "LatexCode": "25",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "اختار النسبة نفسها.",
+              "En": "Chooses the percentage itself."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "النسبة المئوية جزء من مئة.",
+            "En": "A percentage is a part per hundred."
+          },
+          {
+            "Ar": "اضرب الكمية في النسبة ثم اقسم على 100.",
+            "En": "Multiply by the percent and divide by 100."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "النسبة المئوية جزء من مئة.",
+            "En": "A percentage is a part per hundred."
+          },
+          "FormulaLatex": "n=\\frac{p}{100}T",
+          "Steps": [
+            {
+              "Ar": "اضرب 80 في 25.",
+              "En": "Multiply 80 by 25."
+            },
+            {
+              "Ar": "اقسم على 100.",
+              "En": "Divide by 100."
+            }
+          ],
+          "Substitution": {
+            "Ar": "\\frac{80\\times25}{100}=20",
+            "En": "\\frac{80\\times25}{100}=20"
+          },
+          "Result": {
+            "Ar": "20",
+            "En": "20"
+          },
+          "Unit": {
+            "Ar": "سؤالاً",
+            "En": "questions"
+          },
+          "Verification": {
+            "Ar": "100\\times20/80=25",
+            "En": "100\\times20/80=25"
+          },
+          "CommonError": {
+            "Ar": "لا تطرح النسبة مباشرة من الكمية.",
+            "En": "Do not subtract the percentage directly from the quantity."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v2-grade-6-percent-of-total-2",
+      "ReviewStatus": "Draft",
+      "Family": "percent-of-total",
+      "PrimarySkillKey": "p-fractions-decimals-basic-percentages",
+      "ProposedTrackCodes": [
+        "grade-6"
+      ],
+      "Check": {
+        "expected": "60"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 21,
+        "PrimarySkillId": 93,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "نسبة من كمية",
+          "En": "Percentage of a quantity"
+        },
+        "Question": {
+          "Ar": "من أصل 150 سؤالاً حل طالب 40%. كم سؤالاً حل؟",
+          "En": "A learner solves 40% of 150 questions. How many are solved?"
+        },
+        "Options": [
+          {
+            "LatexCode": "110",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "طرح النسبة مباشرة.",
+              "En": "Subtracts percent directly."
+            }
+          },
+          {
+            "LatexCode": "60",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "90",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "حسب غير المحلول.",
+              "En": "Finds unsolved questions."
+            }
+          },
+          {
+            "LatexCode": "40",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "اختار النسبة نفسها.",
+              "En": "Chooses the percentage itself."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "النسبة المئوية جزء من مئة.",
+            "En": "A percentage is a part per hundred."
+          },
+          {
+            "Ar": "اضرب الكمية في النسبة ثم اقسم على 100.",
+            "En": "Multiply by the percent and divide by 100."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "النسبة المئوية جزء من مئة.",
+            "En": "A percentage is a part per hundred."
+          },
+          "FormulaLatex": "n=\\frac{p}{100}T",
+          "Steps": [
+            {
+              "Ar": "اضرب 150 في 40.",
+              "En": "Multiply 150 by 40."
+            },
+            {
+              "Ar": "اقسم على 100.",
+              "En": "Divide by 100."
+            }
+          ],
+          "Substitution": {
+            "Ar": "\\frac{150\\times40}{100}=60",
+            "En": "\\frac{150\\times40}{100}=60"
+          },
+          "Result": {
+            "Ar": "60",
+            "En": "60"
+          },
+          "Unit": {
+            "Ar": "سؤالاً",
+            "En": "questions"
+          },
+          "Verification": {
+            "Ar": "100\\times60/150=40",
+            "En": "100\\times60/150=40"
+          },
+          "CommonError": {
+            "Ar": "لا تطرح النسبة مباشرة من الكمية.",
+            "En": "Do not subtract the percentage directly from the quantity."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v2-grade-6-reverse-two-step-1",
+      "ReviewStatus": "Draft",
+      "Family": "reverse-two-step",
+      "PrimarySkillKey": "primary-two-step-equations",
+      "ProposedTrackCodes": [
+        "grade-6"
+      ],
+      "Check": {
+        "expected": "9"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 2,
+        "PrimarySkillId": 10,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "عكس عمليتين",
+          "En": "Reverse two operations"
+        },
+        "Question": {
+          "Ar": "حل المعادلة 3x+5=32.",
+          "En": "Solve 3x+5=32."
+        },
+        "Options": [
+          {
+            "LatexCode": "27",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "توقف بعد الطرح.",
+              "En": "Stops after subtraction."
+            }
+          },
+          {
+            "LatexCode": "10",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "زاد واحداً.",
+              "En": "Adds one."
+            }
+          },
+          {
+            "LatexCode": "9",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "32",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "اختار الطرف الأيمن.",
+              "En": "Chooses right side."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "اعكس الجمع أولاً.",
+            "En": "Undo addition first."
+          },
+          {
+            "Ar": "ثم اعكس الضرب بالقسمة.",
+            "En": "Then undo multiplication by dividing."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "اعكس الجمع أولاً.",
+            "En": "Undo addition first."
+          },
+          "FormulaLatex": "x=\\frac{c-b}{a}",
+          "Steps": [
+            {
+              "Ar": "اطرح 5 من الطرفين.",
+              "En": "Subtract 5 from both sides."
+            },
+            {
+              "Ar": "اقسم 27 على 3.",
+              "En": "Divide 27 by 3."
+            }
+          ],
+          "Substitution": {
+            "Ar": "\\frac{32-5}{3}=9",
+            "En": "\\frac{32-5}{3}=9"
+          },
+          "Result": {
+            "Ar": "9",
+            "En": "9"
+          },
+          "Unit": {
+            "Ar": "دون وحدة",
+            "En": "unitless"
+          },
+          "Verification": {
+            "Ar": "3\\times9+5=32",
+            "En": "3\\times9+5=32"
+          },
+          "CommonError": {
+            "Ar": "لا تقسم قبل عزل حد المتغير.",
+            "En": "Isolate the variable term before dividing."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v2-grade-6-reverse-two-step-2",
+      "ReviewStatus": "Draft",
+      "Family": "reverse-two-step",
+      "PrimarySkillKey": "primary-two-step-equations",
+      "ProposedTrackCodes": [
+        "grade-6"
+      ],
+      "Check": {
+        "expected": "8"
+      },
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 2,
+        "PrimarySkillId": 10,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "عكس عمليتين",
+          "En": "Reverse two operations"
+        },
+        "Question": {
+          "Ar": "حل المعادلة 4x+7=39.",
+          "En": "Solve 4x+7=39."
+        },
+        "Options": [
+          {
+            "LatexCode": "32",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "توقف بعد الطرح.",
+              "En": "Stops after subtraction."
+            }
+          },
+          {
+            "LatexCode": "9",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "زاد واحداً.",
+              "En": "Adds one."
+            }
+          },
+          {
+            "LatexCode": "39",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "اختار الطرف الأيمن.",
+              "En": "Chooses right side."
+            }
+          },
+          {
+            "LatexCode": "8",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "اعكس الجمع أولاً.",
+            "En": "Undo addition first."
+          },
+          {
+            "Ar": "ثم اعكس الضرب بالقسمة.",
+            "En": "Then undo multiplication by dividing."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "اعكس الجمع أولاً.",
+            "En": "Undo addition first."
+          },
+          "FormulaLatex": "x=\\frac{c-b}{a}",
+          "Steps": [
+            {
+              "Ar": "اطرح 7 من الطرفين.",
+              "En": "Subtract 7 from both sides."
+            },
+            {
+              "Ar": "اقسم 32 على 4.",
+              "En": "Divide 32 by 4."
+            }
+          ],
+          "Substitution": {
+            "Ar": "\\frac{39-7}{4}=8",
+            "En": "\\frac{39-7}{4}=8"
+          },
+          "Result": {
+            "Ar": "8",
+            "En": "8"
+          },
+          "Unit": {
+            "Ar": "دون وحدة",
+            "En": "unitless"
+          },
+          "Verification": {
+            "Ar": "4\\times8+7=39",
+            "En": "4\\times8+7=39"
+          },
+          "CommonError": {
+            "Ar": "لا تقسم قبل عزل حد المتغير.",
+            "En": "Isolate the variable term before dividing."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v2-grade-7-maximum-equal-packs-1",
+      "ReviewStatus": "Draft",
+      "Family": "maximum-equal-packs",
+      "PrimarySkillKey": "middle-gcd",
+      "ProposedTrackCodes": [
+        "grade-7"
+      ],
+      "Check": {
+        "expected": "12"
+      },
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 5,
+        "PrimarySkillId": 22,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "أكبر عدد من الحزم",
+          "En": "Maximum equal packs"
+        },
+        "Question": {
+          "Ar": "لدينا 24 قلماً و36 دفتراً. ما أكبر عدد من الحزم المتماثلة دون بقايا؟",
+          "En": "There are 24 pens and 36 notebooks. What is the greatest number of identical packs without leftovers?"
+        },
+        "Options": [
+          {
+            "LatexCode": "12",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "4",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "قاسم مشترك لكنه ليس الأكبر.",
+              "En": "Common divisor, but not greatest."
+            }
+          },
+          {
+            "LatexCode": "24",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "لا يقسم العددين.",
+              "En": "Does not divide both."
+            }
+          },
+          {
+            "LatexCode": "60",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "جمع الكميتين.",
+              "En": "Adds the counts."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "نحتاج قاسماً مشتركاً للعددين.",
+            "En": "We need a common divisor of both counts."
+          },
+          {
+            "Ar": "اختر أكبر قاسم مشترك.",
+            "En": "Choose the greatest common divisor."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نحتاج قاسماً مشتركاً للعددين.",
+            "En": "We need a common divisor of both counts."
+          },
+          "FormulaLatex": "k=\\gcd(a,b)",
+          "Steps": [
+            {
+              "Ar": "ابحث عن قواسم 24 و36.",
+              "En": "Find common divisors of 24 and 36."
+            },
+            {
+              "Ar": "أكبرها 12.",
+              "En": "The greatest is 12."
+            }
+          ],
+          "Substitution": {
+            "Ar": "\\gcd(24,36)=12",
+            "En": "\\gcd(24,36)=12"
+          },
+          "Result": {
+            "Ar": "12",
+            "En": "12"
+          },
+          "Unit": {
+            "Ar": "حزمة",
+            "En": "packs"
+          },
+          "Verification": {
+            "Ar": "كل حزمة تضم 2 قلماً و3 دفتراً.",
+            "En": "Each pack contains 2 pens and 3 notebooks."
+          },
+          "CommonError": {
+            "Ar": "لا تستخدم المضاعف المشترك الأصغر.",
+            "En": "Do not use the least common multiple."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v2-grade-7-maximum-equal-packs-2",
+      "ReviewStatus": "Draft",
+      "Family": "maximum-equal-packs",
+      "PrimarySkillKey": "middle-gcd",
+      "ProposedTrackCodes": [
+        "grade-7"
+      ],
+      "Check": {
+        "expected": "15"
+      },
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 5,
+        "PrimarySkillId": 22,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "أكبر عدد من الحزم",
+          "En": "Maximum equal packs"
+        },
+        "Question": {
+          "Ar": "لدينا 30 قلماً و45 دفتراً. ما أكبر عدد من الحزم المتماثلة دون بقايا؟",
+          "En": "There are 30 pens and 45 notebooks. What is the greatest number of identical packs without leftovers?"
+        },
+        "Options": [
+          {
+            "LatexCode": "5",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "قاسم مشترك لكنه ليس الأكبر.",
+              "En": "Common divisor, but not greatest."
+            }
+          },
+          {
+            "LatexCode": "15",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "30",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "لا يقسم العددين.",
+              "En": "Does not divide both."
+            }
+          },
+          {
+            "LatexCode": "75",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "جمع الكميتين.",
+              "En": "Adds the counts."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "نحتاج قاسماً مشتركاً للعددين.",
+            "En": "We need a common divisor of both counts."
+          },
+          {
+            "Ar": "اختر أكبر قاسم مشترك.",
+            "En": "Choose the greatest common divisor."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نحتاج قاسماً مشتركاً للعددين.",
+            "En": "We need a common divisor of both counts."
+          },
+          "FormulaLatex": "k=\\gcd(a,b)",
+          "Steps": [
+            {
+              "Ar": "ابحث عن قواسم 30 و45.",
+              "En": "Find common divisors of 30 and 45."
+            },
+            {
+              "Ar": "أكبرها 15.",
+              "En": "The greatest is 15."
+            }
+          ],
+          "Substitution": {
+            "Ar": "\\gcd(30,45)=15",
+            "En": "\\gcd(30,45)=15"
+          },
+          "Result": {
+            "Ar": "15",
+            "En": "15"
+          },
+          "Unit": {
+            "Ar": "حزمة",
+            "En": "packs"
+          },
+          "Verification": {
+            "Ar": "كل حزمة تضم 2 قلماً و3 دفتراً.",
+            "En": "Each pack contains 2 pens and 3 notebooks."
+          },
+          "CommonError": {
+            "Ar": "لا تستخدم المضاعف المشترك الأصغر.",
+            "En": "Do not use the least common multiple."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v2-grade-7-discount-final-1",
+      "ReviewStatus": "Draft",
+      "Family": "discount-final",
+      "PrimarySkillKey": "middle-percent-discounts",
+      "ProposedTrackCodes": [
+        "grade-7"
+      ],
+      "Check": {
+        "expected": "90"
+      },
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 7,
+        "PrimarySkillId": 32,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "السعر بعد الخصم",
+          "En": "Price after discount"
+        },
+        "Question": {
+          "Ar": "سعر سلعة 120 وحدة نقدية، والخصم 25%. ما السعر النهائي؟",
+          "En": "An item costs 120 currency units and is discounted by 25%. What is the final price?"
+        },
+        "Options": [
+          {
+            "LatexCode": "30",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "اختار قيمة الخصم.",
+              "En": "Chooses discount amount."
+            }
+          },
+          {
+            "LatexCode": "95",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "طرح النسبة كعدد.",
+              "En": "Subtracts percent directly."
+            }
+          },
+          {
+            "LatexCode": "90",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "150",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "زاد السعر.",
+              "En": "Increases price."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "احسب قيمة الخصم أولاً.",
+            "En": "Find the discount amount first."
+          },
+          {
+            "Ar": "اطرح الخصم من السعر الأصلي.",
+            "En": "Subtract discount from original price."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "احسب قيمة الخصم أولاً.",
+            "En": "Find the discount amount first."
+          },
+          "FormulaLatex": "F=P(1-d/100)",
+          "Steps": [
+            {
+              "Ar": "الخصم 30.",
+              "En": "The discount is 30."
+            },
+            {
+              "Ar": "اطرحه من 120.",
+              "En": "Subtract it from 120."
+            }
+          ],
+          "Substitution": {
+            "Ar": "120-30=90",
+            "En": "120-30=90"
+          },
+          "Result": {
+            "Ar": "90",
+            "En": "90"
+          },
+          "Unit": {
+            "Ar": "وحدة نقدية",
+            "En": "currency units"
+          },
+          "Verification": {
+            "Ar": "90+30=120",
+            "En": "90+30=120"
+          },
+          "CommonError": {
+            "Ar": "قيمة الخصم ليست السعر النهائي.",
+            "En": "The discount amount is not the final price."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v2-grade-7-discount-final-2",
+      "ReviewStatus": "Draft",
+      "Family": "discount-final",
+      "PrimarySkillKey": "middle-percent-discounts",
+      "ProposedTrackCodes": [
+        "grade-7"
+      ],
+      "Check": {
+        "expected": "128"
+      },
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 7,
+        "PrimarySkillId": 32,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "السعر بعد الخصم",
+          "En": "Price after discount"
+        },
+        "Question": {
+          "Ar": "سعر سلعة 160 وحدة نقدية، والخصم 20%. ما السعر النهائي؟",
+          "En": "An item costs 160 currency units and is discounted by 20%. What is the final price?"
+        },
+        "Options": [
+          {
+            "LatexCode": "32",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "اختار قيمة الخصم.",
+              "En": "Chooses discount amount."
+            }
+          },
+          {
+            "LatexCode": "140",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "طرح النسبة كعدد.",
+              "En": "Subtracts percent directly."
+            }
+          },
+          {
+            "LatexCode": "192",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "زاد السعر.",
+              "En": "Increases price."
+            }
+          },
+          {
+            "LatexCode": "128",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "احسب قيمة الخصم أولاً.",
+            "En": "Find the discount amount first."
+          },
+          {
+            "Ar": "اطرح الخصم من السعر الأصلي.",
+            "En": "Subtract discount from original price."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "احسب قيمة الخصم أولاً.",
+            "En": "Find the discount amount first."
+          },
+          "FormulaLatex": "F=P(1-d/100)",
+          "Steps": [
+            {
+              "Ar": "الخصم 32.",
+              "En": "The discount is 32."
+            },
+            {
+              "Ar": "اطرحه من 160.",
+              "En": "Subtract it from 160."
+            }
+          ],
+          "Substitution": {
+            "Ar": "160-32=128",
+            "En": "160-32=128"
+          },
+          "Result": {
+            "Ar": "128",
+            "En": "128"
+          },
+          "Unit": {
+            "Ar": "وحدة نقدية",
+            "En": "currency units"
+          },
+          "Verification": {
+            "Ar": "128+32=160",
+            "En": "128+32=160"
+          },
+          "CommonError": {
+            "Ar": "قيمة الخصم ليست السعر النهائي.",
+            "En": "The discount amount is not the final price."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v2-grade-7-temperature-change-1",
+      "ReviewStatus": "Draft",
+      "Family": "temperature-change",
+      "PrimarySkillKey": "signed-operations",
+      "ProposedTrackCodes": [
+        "grade-7"
+      ],
+      "Check": {
+        "expected": "-2"
+      },
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 83,
+        "PrimarySkillId": 309,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "تغير درجة الحرارة",
+          "En": "Temperature change"
+        },
+        "Question": {
+          "Ar": "كانت الحرارة -4°م، ارتفعت 9 درجات ثم انخفضت 7. ما الحرارة النهائية؟",
+          "En": "Temperature starts at -4°C, rises by 9, then falls by 7. Find the final temperature."
+        },
+        "Options": [
+          {
+            "LatexCode": "-2",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "12",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "جمع الانخفاض.",
+              "En": "Adds the fall."
+            }
+          },
+          {
+            "LatexCode": "-20",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "طرح الارتفاع.",
+              "En": "Subtracts the rise."
+            }
+          },
+          {
+            "LatexCode": "5",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "أهمل الانخفاض.",
+              "En": "Omits the fall."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "الارتفاع موجب والانخفاض سالب.",
+            "En": "Rise is positive and fall is negative."
+          },
+          {
+            "Ar": "اجمع التغيرات مع درجة البداية.",
+            "En": "Add signed changes to the initial temperature."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "الارتفاع موجب والانخفاض سالب.",
+            "En": "Rise is positive and fall is negative."
+          },
+          "FormulaLatex": "T_f=T_0+a-b",
+          "Steps": [
+            {
+              "Ar": "بعد الارتفاع 5°م.",
+              "En": "After the rise: 5°C."
+            },
+            {
+              "Ar": "اطرح 7.",
+              "En": "Subtract 7."
+            }
+          ],
+          "Substitution": {
+            "Ar": "(-4)+9-7=-2",
+            "En": "(-4)+9-7=-2"
+          },
+          "Result": {
+            "Ar": "-2",
+            "En": "-2"
+          },
+          "Unit": {
+            "Ar": "°م",
+            "En": "°C"
+          },
+          "Verification": {
+            "Ar": "-2+7-9=-4",
+            "En": "-2+7-9=-4"
+          },
+          "CommonError": {
+            "Ar": "حافظ على إشارة كل تغير.",
+            "En": "Keep the sign of each change."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v2-grade-7-temperature-change-2",
+      "ReviewStatus": "Draft",
+      "Family": "temperature-change",
+      "PrimarySkillKey": "signed-operations",
+      "ProposedTrackCodes": [
+        "grade-7"
+      ],
+      "Check": {
+        "expected": "1"
+      },
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 83,
+        "PrimarySkillId": 309,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "تغير درجة الحرارة",
+          "En": "Temperature change"
+        },
+        "Question": {
+          "Ar": "كانت الحرارة -8°م، ارتفعت 13 درجات ثم انخفضت 4. ما الحرارة النهائية؟",
+          "En": "Temperature starts at -8°C, rises by 13, then falls by 4. Find the final temperature."
+        },
+        "Options": [
+          {
+            "LatexCode": "9",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "جمع الانخفاض.",
+              "En": "Adds the fall."
+            }
+          },
+          {
+            "LatexCode": "1",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "-25",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "طرح الارتفاع.",
+              "En": "Subtracts the rise."
+            }
+          },
+          {
+            "LatexCode": "5",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "أهمل الانخفاض.",
+              "En": "Omits the fall."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "الارتفاع موجب والانخفاض سالب.",
+            "En": "Rise is positive and fall is negative."
+          },
+          {
+            "Ar": "اجمع التغيرات مع درجة البداية.",
+            "En": "Add signed changes to the initial temperature."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "الارتفاع موجب والانخفاض سالب.",
+            "En": "Rise is positive and fall is negative."
+          },
+          "FormulaLatex": "T_f=T_0+a-b",
+          "Steps": [
+            {
+              "Ar": "بعد الارتفاع 5°م.",
+              "En": "After the rise: 5°C."
+            },
+            {
+              "Ar": "اطرح 4.",
+              "En": "Subtract 4."
+            }
+          ],
+          "Substitution": {
+            "Ar": "(-8)+13-4=1",
+            "En": "(-8)+13-4=1"
+          },
+          "Result": {
+            "Ar": "1",
+            "En": "1"
+          },
+          "Unit": {
+            "Ar": "°م",
+            "En": "°C"
+          },
+          "Verification": {
+            "Ar": "1+4-13=-8",
+            "En": "1+4-13=-8"
+          },
+          "CommonError": {
+            "Ar": "حافظ على إشارة كل تغير.",
+            "En": "Keep the sign of each change."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v2-grade-8-slope-two-points-1",
+      "ReviewStatus": "Draft",
+      "Family": "slope-two-points",
+      "PrimarySkillKey": "middle-slope",
+      "ProposedTrackCodes": [
+        "grade-8"
+      ],
+      "Check": {
+        "expected": "4"
+      },
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 6,
+        "PrimarySkillId": 29,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "ميل من نقطتين",
+          "En": "Slope from two points"
+        },
+        "Question": {
+          "Ar": "ما ميل المستقيم المار بالنقطتين (2,5) و(5,17)؟",
+          "En": "Find the slope through (2,5) and (5,17)."
+        },
+        "Options": [
+          {
+            "LatexCode": "12",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "حسب تغير y فقط.",
+              "En": "Uses only change in y."
+            }
+          },
+          {
+            "LatexCode": "-4",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "عكس إشارة التغير.",
+              "En": "Reverses sign."
+            }
+          },
+          {
+            "LatexCode": "4",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "7",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "جمع بدلاً من القسمة.",
+              "En": "Adds instead of dividing."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "احسب تغير y وتغير x.",
+            "En": "Find the changes in y and x."
+          },
+          {
+            "Ar": "اقسم تغير y على تغير x.",
+            "En": "Divide the change in y by the change in x."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "احسب تغير y وتغير x.",
+            "En": "Find the changes in y and x."
+          },
+          "FormulaLatex": "m=\\frac{y_2-y_1}{x_2-x_1}",
+          "Steps": [
+            {
+              "Ar": "تغير y يساوي 12.",
+              "En": "Change in y is 12."
+            },
+            {
+              "Ar": "تغير x يساوي 3.",
+              "En": "Change in x is 3."
+            }
+          ],
+          "Substitution": {
+            "Ar": "\\frac{12}{3}=4",
+            "En": "\\frac{12}{3}=4"
+          },
+          "Result": {
+            "Ar": "4",
+            "En": "4"
+          },
+          "Unit": {
+            "Ar": "دون وحدة",
+            "En": "unitless"
+          },
+          "Verification": {
+            "Ar": "4\\times3=12",
+            "En": "4\\times3=12"
+          },
+          "CommonError": {
+            "Ar": "لا تقلب البسط والمقام.",
+            "En": "Do not reverse numerator and denominator."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v2-grade-8-slope-two-points-2",
+      "ReviewStatus": "Draft",
+      "Family": "slope-two-points",
+      "PrimarySkillKey": "middle-slope",
+      "ProposedTrackCodes": [
+        "grade-8"
+      ],
+      "Check": {
+        "expected": "3"
+      },
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 6,
+        "PrimarySkillId": 29,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "ميل من نقطتين",
+          "En": "Slope from two points"
+        },
+        "Question": {
+          "Ar": "ما ميل المستقيم المار بالنقطتين (1,3) و(5,15)؟",
+          "En": "Find the slope through (1,3) and (5,15)."
+        },
+        "Options": [
+          {
+            "LatexCode": "12",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "حسب تغير y فقط.",
+              "En": "Uses only change in y."
+            }
+          },
+          {
+            "LatexCode": "-3",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "عكس إشارة التغير.",
+              "En": "Reverses sign."
+            }
+          },
+          {
+            "LatexCode": "7",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "جمع بدلاً من القسمة.",
+              "En": "Adds instead of dividing."
+            }
+          },
+          {
+            "LatexCode": "3",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "احسب تغير y وتغير x.",
+            "En": "Find the changes in y and x."
+          },
+          {
+            "Ar": "اقسم تغير y على تغير x.",
+            "En": "Divide the change in y by the change in x."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "احسب تغير y وتغير x.",
+            "En": "Find the changes in y and x."
+          },
+          "FormulaLatex": "m=\\frac{y_2-y_1}{x_2-x_1}",
+          "Steps": [
+            {
+              "Ar": "تغير y يساوي 12.",
+              "En": "Change in y is 12."
+            },
+            {
+              "Ar": "تغير x يساوي 4.",
+              "En": "Change in x is 4."
+            }
+          ],
+          "Substitution": {
+            "Ar": "\\frac{12}{4}=3",
+            "En": "\\frac{12}{4}=3"
+          },
+          "Result": {
+            "Ar": "3",
+            "En": "3"
+          },
+          "Unit": {
+            "Ar": "دون وحدة",
+            "En": "unitless"
+          },
+          "Verification": {
+            "Ar": "3\\times4=12",
+            "En": "3\\times4=12"
+          },
+          "CommonError": {
+            "Ar": "لا تقلب البسط والمقام.",
+            "En": "Do not reverse numerator and denominator."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v2-grade-8-missing-leg-1",
+      "ReviewStatus": "Draft",
+      "Family": "missing-leg",
+      "PrimarySkillKey": "middle-pythagorean-theorem",
+      "ProposedTrackCodes": [
+        "grade-8"
+      ],
+      "Check": {
+        "expected": "12"
+      },
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 34,
+        "PrimarySkillId": 37,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "ضلع قائم مفقود",
+          "En": "Missing right-triangle leg"
+        },
+        "Question": {
+          "Ar": "مثلث قائم وتره 13 سم وأحد ضلعيه القائمين 5 سم. أوجد الضلع القائم الآخر.",
+          "En": "A right triangle has hypotenuse 13 cm and one leg 5 cm. Find the other leg."
+        },
+        "Options": [
+          {
+            "LatexCode": "12",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "8",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "طرح الأطوال.",
+              "En": "Subtracts lengths."
+            }
+          },
+          {
+            "LatexCode": "144",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "نسي الجذر.",
+              "En": "Omits square root."
+            }
+          },
+          {
+            "LatexCode": "18",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "جمع الأطوال.",
+              "En": "Adds lengths."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "مربع الوتر يساوي مجموع مربعي الضلعين القائمين.",
+            "En": "The hypotenuse squared equals the sum of squared legs."
+          },
+          {
+            "Ar": "اطرح مربع الضلع المعروف ثم خذ الجذر.",
+            "En": "Subtract the known leg squared, then take the square root."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "مربع الوتر يساوي مجموع مربعي الضلعين القائمين.",
+            "En": "The hypotenuse squared equals the sum of squared legs."
+          },
+          "FormulaLatex": "b=\\sqrt{c^2-a^2}",
+          "Steps": [
+            {
+              "Ar": "فرق المربعين 144.",
+              "En": "Difference of squares is 144."
+            },
+            {
+              "Ar": "خذ الجذر التربيعي الموجب.",
+              "En": "Take the positive square root."
+            }
+          ],
+          "Substitution": {
+            "Ar": "\\sqrt{169-25}=12",
+            "En": "\\sqrt{169-25}=12"
+          },
+          "Result": {
+            "Ar": "12",
+            "En": "12"
+          },
+          "Unit": {
+            "Ar": "سم",
+            "En": "cm"
+          },
+          "Verification": {
+            "Ar": "5^2+12^2=13^2",
+            "En": "5^2+12^2=13^2"
+          },
+          "CommonError": {
+            "Ar": "لا تطرح الأطوال بدلاً من مربعاتها.",
+            "En": "Do not subtract lengths instead of squares."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v2-grade-8-missing-leg-2",
+      "ReviewStatus": "Draft",
+      "Family": "missing-leg",
+      "PrimarySkillKey": "middle-pythagorean-theorem",
+      "ProposedTrackCodes": [
+        "grade-8"
+      ],
+      "Check": {
+        "expected": "15"
+      },
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 34,
+        "PrimarySkillId": 37,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "ضلع قائم مفقود",
+          "En": "Missing right-triangle leg"
+        },
+        "Question": {
+          "Ar": "مثلث قائم وتره 17 سم وأحد ضلعيه القائمين 8 سم. أوجد الضلع القائم الآخر.",
+          "En": "A right triangle has hypotenuse 17 cm and one leg 8 cm. Find the other leg."
+        },
+        "Options": [
+          {
+            "LatexCode": "9",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "طرح الأطوال.",
+              "En": "Subtracts lengths."
+            }
+          },
+          {
+            "LatexCode": "15",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "225",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "نسي الجذر.",
+              "En": "Omits square root."
+            }
+          },
+          {
+            "LatexCode": "25",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "جمع الأطوال.",
+              "En": "Adds lengths."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "مربع الوتر يساوي مجموع مربعي الضلعين القائمين.",
+            "En": "The hypotenuse squared equals the sum of squared legs."
+          },
+          {
+            "Ar": "اطرح مربع الضلع المعروف ثم خذ الجذر.",
+            "En": "Subtract the known leg squared, then take the square root."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "مربع الوتر يساوي مجموع مربعي الضلعين القائمين.",
+            "En": "The hypotenuse squared equals the sum of squared legs."
+          },
+          "FormulaLatex": "b=\\sqrt{c^2-a^2}",
+          "Steps": [
+            {
+              "Ar": "فرق المربعين 225.",
+              "En": "Difference of squares is 225."
+            },
+            {
+              "Ar": "خذ الجذر التربيعي الموجب.",
+              "En": "Take the positive square root."
+            }
+          ],
+          "Substitution": {
+            "Ar": "\\sqrt{289-64}=15",
+            "En": "\\sqrt{289-64}=15"
+          },
+          "Result": {
+            "Ar": "15",
+            "En": "15"
+          },
+          "Unit": {
+            "Ar": "سم",
+            "En": "cm"
+          },
+          "Verification": {
+            "Ar": "8^2+15^2=17^2",
+            "En": "8^2+15^2=17^2"
+          },
+          "CommonError": {
+            "Ar": "لا تطرح الأطوال بدلاً من مربعاتها.",
+            "En": "Do not subtract lengths instead of squares."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v2-grade-9-input-from-output-1",
+      "ReviewStatus": "Draft",
+      "Family": "input-from-output",
+      "PrimarySkillKey": "middle-inverse-function-evaluation",
+      "ProposedTrackCodes": [
+        "grade-9"
+      ],
+      "Check": {
+        "expected": "8"
+      },
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 6,
+        "PrimarySkillId": 28,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "مدخل الدالة",
+          "En": "Input from output"
+        },
+        "Question": {
+          "Ar": "إذا كانت f(x)=4x-3 وكان f(x)=29، فما x؟",
+          "En": "If f(x)=4x-3 and f(x)=29, find x."
+        },
+        "Options": [
+          {
+            "LatexCode": "29",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "اختار المخرج.",
+              "En": "Chooses output."
+            }
+          },
+          {
+            "LatexCode": "32",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "توقف بعد الجمع.",
+              "En": "Stops after adding."
+            }
+          },
+          {
+            "LatexCode": "8",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "9",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "زاد واحداً.",
+              "En": "Adds one."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "ساوِ التعبير بقيمة المخرج.",
+            "En": "Set the expression equal to the output."
+          },
+          {
+            "Ar": "اعكس الطرح ثم الضرب.",
+            "En": "Undo subtraction then multiplication."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "ساوِ التعبير بقيمة المخرج.",
+            "En": "Set the expression equal to the output."
+          },
+          "FormulaLatex": "x=\\frac{y+b}{a}",
+          "Steps": [
+            {
+              "Ar": "أضف 3 إلى المخرج.",
+              "En": "Add 3 to the output."
+            },
+            {
+              "Ar": "اقسم الناتج على 4.",
+              "En": "Divide by 4."
+            }
+          ],
+          "Substitution": {
+            "Ar": "\\frac{29+3}{4}=8",
+            "En": "\\frac{29+3}{4}=8"
+          },
+          "Result": {
+            "Ar": "8",
+            "En": "8"
+          },
+          "Unit": {
+            "Ar": "دون وحدة",
+            "En": "unitless"
+          },
+          "Verification": {
+            "Ar": "4\\times8-3=29",
+            "En": "4\\times8-3=29"
+          },
+          "CommonError": {
+            "Ar": "لا تعوّض المخرج مكان المدخل.",
+            "En": "Do not substitute the output for the input."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v2-grade-9-input-from-output-2",
+      "ReviewStatus": "Draft",
+      "Family": "input-from-output",
+      "PrimarySkillKey": "middle-inverse-function-evaluation",
+      "ProposedTrackCodes": [
+        "grade-9"
+      ],
+      "Check": {
+        "expected": "6"
+      },
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 6,
+        "PrimarySkillId": 28,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "مدخل الدالة",
+          "En": "Input from output"
+        },
+        "Question": {
+          "Ar": "إذا كانت f(x)=5x-7 وكان f(x)=23، فما x؟",
+          "En": "If f(x)=5x-7 and f(x)=23, find x."
+        },
+        "Options": [
+          {
+            "LatexCode": "23",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "اختار المخرج.",
+              "En": "Chooses output."
+            }
+          },
+          {
+            "LatexCode": "30",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "توقف بعد الجمع.",
+              "En": "Stops after adding."
+            }
+          },
+          {
+            "LatexCode": "7",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "زاد واحداً.",
+              "En": "Adds one."
+            }
+          },
+          {
+            "LatexCode": "6",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "ساوِ التعبير بقيمة المخرج.",
+            "En": "Set the expression equal to the output."
+          },
+          {
+            "Ar": "اعكس الطرح ثم الضرب.",
+            "En": "Undo subtraction then multiplication."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "ساوِ التعبير بقيمة المخرج.",
+            "En": "Set the expression equal to the output."
+          },
+          "FormulaLatex": "x=\\frac{y+b}{a}",
+          "Steps": [
+            {
+              "Ar": "أضف 7 إلى المخرج.",
+              "En": "Add 7 to the output."
+            },
+            {
+              "Ar": "اقسم الناتج على 5.",
+              "En": "Divide by 5."
+            }
+          ],
+          "Substitution": {
+            "Ar": "\\frac{23+7}{5}=6",
+            "En": "\\frac{23+7}{5}=6"
+          },
+          "Result": {
+            "Ar": "6",
+            "En": "6"
+          },
+          "Unit": {
+            "Ar": "دون وحدة",
+            "En": "unitless"
+          },
+          "Verification": {
+            "Ar": "5\\times6-7=23",
+            "En": "5\\times6-7=23"
+          },
+          "CommonError": {
+            "Ar": "لا تعوّض المخرج مكان المدخل.",
+            "En": "Do not substitute the output for the input."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v2-grade-9-range-after-outlier-1",
+      "ReviewStatus": "Draft",
+      "Family": "range-after-outlier",
+      "PrimarySkillKey": "m-statistics-distributions",
+      "ProposedTrackCodes": [
+        "grade-9"
+      ],
+      "Check": {
+        "expected": "15"
+      },
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 22,
+        "PrimarySkillId": 98,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "مدى بعد إضافة قيمة",
+          "En": "Range after adding a value"
+        },
+        "Question": {
+          "Ar": "البيانات 4، 7، 12. أضيفت القيمة 19. ما المدى الجديد؟",
+          "En": "Data are 4, 7, 12. The value 19 is added. Find the new range."
+        },
+        "Options": [
+          {
+            "LatexCode": "15",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "8",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "حسب المدى القديم.",
+              "En": "Uses old range."
+            }
+          },
+          {
+            "LatexCode": "19",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "اختار القيمة العظمى.",
+              "En": "Chooses maximum."
+            }
+          },
+          {
+            "LatexCode": "31",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "جمع أكبر قيمتين.",
+              "En": "Adds two largest values."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "المدى هو الفرق بين أكبر وأصغر قيمة.",
+            "En": "Range is maximum minus minimum."
+          },
+          {
+            "Ar": "أعد تحديد القيمتين المتطرفتين بعد الإضافة.",
+            "En": "Identify the new extremes."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "المدى هو الفرق بين أكبر وأصغر قيمة.",
+            "En": "Range is maximum minus minimum."
+          },
+          "FormulaLatex": "R=\\max(x)-\\min(x)",
+          "Steps": [
+            {
+              "Ar": "الصغرى 4 والكبرى 19.",
+              "En": "Minimum is 4, maximum is 19."
+            },
+            {
+              "Ar": "اطرح الصغرى من الكبرى.",
+              "En": "Subtract minimum from maximum."
+            }
+          ],
+          "Substitution": {
+            "Ar": "19-4=15",
+            "En": "19-4=15"
+          },
+          "Result": {
+            "Ar": "15",
+            "En": "15"
+          },
+          "Unit": {
+            "Ar": "دون وحدة",
+            "En": "unitless"
+          },
+          "Verification": {
+            "Ar": "4+15=19",
+            "En": "4+15=19"
+          },
+          "CommonError": {
+            "Ar": "لا تستخدم مجموع القيم.",
+            "En": "Do not use the sum of values."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v2-grade-9-range-after-outlier-2",
+      "ReviewStatus": "Draft",
+      "Family": "range-after-outlier",
+      "PrimarySkillKey": "m-statistics-distributions",
+      "ProposedTrackCodes": [
+        "grade-9"
+      ],
+      "Check": {
+        "expected": "19"
+      },
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 22,
+        "PrimarySkillId": 98,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "مدى بعد إضافة قيمة",
+          "En": "Range after adding a value"
+        },
+        "Question": {
+          "Ar": "البيانات 8، 11، 15. أضيفت القيمة 27. ما المدى الجديد؟",
+          "En": "Data are 8, 11, 15. The value 27 is added. Find the new range."
+        },
+        "Options": [
+          {
+            "LatexCode": "7",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "حسب المدى القديم.",
+              "En": "Uses old range."
+            }
+          },
+          {
+            "LatexCode": "19",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "27",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "اختار القيمة العظمى.",
+              "En": "Chooses maximum."
+            }
+          },
+          {
+            "LatexCode": "42",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "جمع أكبر قيمتين.",
+              "En": "Adds two largest values."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "المدى هو الفرق بين أكبر وأصغر قيمة.",
+            "En": "Range is maximum minus minimum."
+          },
+          {
+            "Ar": "أعد تحديد القيمتين المتطرفتين بعد الإضافة.",
+            "En": "Identify the new extremes."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "المدى هو الفرق بين أكبر وأصغر قيمة.",
+            "En": "Range is maximum minus minimum."
+          },
+          "FormulaLatex": "R=\\max(x)-\\min(x)",
+          "Steps": [
+            {
+              "Ar": "الصغرى 8 والكبرى 27.",
+              "En": "Minimum is 8, maximum is 27."
+            },
+            {
+              "Ar": "اطرح الصغرى من الكبرى.",
+              "En": "Subtract minimum from maximum."
+            }
+          ],
+          "Substitution": {
+            "Ar": "27-8=19",
+            "En": "27-8=19"
+          },
+          "Result": {
+            "Ar": "19",
+            "En": "19"
+          },
+          "Unit": {
+            "Ar": "دون وحدة",
+            "En": "unitless"
+          },
+          "Verification": {
+            "Ar": "8+19=27",
+            "En": "8+19=27"
+          },
+          "CommonError": {
+            "Ar": "لا تستخدم مجموع القيم.",
+            "En": "Do not use the sum of values."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v2-grade-10-quadratic-discriminant-1",
+      "ReviewStatus": "Draft",
+      "Family": "quadratic-discriminant",
+      "PrimarySkillKey": "secondary-discriminant",
+      "ProposedTrackCodes": [
+        "grade-10"
+      ],
+      "Check": {
+        "expected": "25"
+      },
+      "Content": {
+        "StageId": 3,
+        "CategoryId": 9,
+        "PrimarySkillId": 44,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "مميز معادلة تربيعية",
+          "En": "Quadratic discriminant"
+        },
+        "Question": {
+          "Ar": "احسب مميز 2x²+7x+3=0.",
+          "En": "Find the discriminant of 2x²+7x+3=0."
+        },
+        "Options": [
+          {
+            "LatexCode": "73",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "جمع الحدين.",
+              "En": "Adds the terms."
+            }
+          },
+          {
+            "LatexCode": "43",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "أهمل العامل 4.",
+              "En": "Omits factor four."
+            }
+          },
+          {
+            "LatexCode": "25",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "-17",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "لم يربع b.",
+              "En": "Does not square b."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "حدد معاملات المعادلة a,b,c.",
+            "En": "Identify coefficients a,b,c."
+          },
+          {
+            "Ar": "استعمل مربع b ناقص أربعة في a في c.",
+            "En": "Use b squared minus four times a times c."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "حدد معاملات المعادلة a,b,c.",
+            "En": "Identify coefficients a,b,c."
+          },
+          "FormulaLatex": "\\Delta=b^2-4ac",
+          "Steps": [
+            {
+              "Ar": "مربع b هو 49.",
+              "En": "b squared is 49."
+            },
+            {
+              "Ar": "حاصل 4ac هو 24.",
+              "En": "4ac is 24."
+            }
+          ],
+          "Substitution": {
+            "Ar": "7^2-4\\times2\\times3=25",
+            "En": "7^2-4\\times2\\times3=25"
+          },
+          "Result": {
+            "Ar": "25",
+            "En": "25"
+          },
+          "Unit": {
+            "Ar": "دون وحدة",
+            "En": "unitless"
+          },
+          "Verification": {
+            "Ar": "25+24=49",
+            "En": "25+24=49"
+          },
+          "CommonError": {
+            "Ar": "لا تهمل العامل 4.",
+            "En": "Do not omit factor four."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v2-grade-10-quadratic-discriminant-2",
+      "ReviewStatus": "Draft",
+      "Family": "quadratic-discriminant",
+      "PrimarySkillKey": "secondary-discriminant",
+      "ProposedTrackCodes": [
+        "grade-10"
+      ],
+      "Check": {
+        "expected": "40"
+      },
+      "Content": {
+        "StageId": 3,
+        "CategoryId": 9,
+        "PrimarySkillId": 44,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "مميز معادلة تربيعية",
+          "En": "Quadratic discriminant"
+        },
+        "Question": {
+          "Ar": "احسب مميز 3x²+8x+2=0.",
+          "En": "Find the discriminant of 3x²+8x+2=0."
+        },
+        "Options": [
+          {
+            "LatexCode": "88",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "جمع الحدين.",
+              "En": "Adds the terms."
+            }
+          },
+          {
+            "LatexCode": "58",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "أهمل العامل 4.",
+              "En": "Omits factor four."
+            }
+          },
+          {
+            "LatexCode": "-16",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "لم يربع b.",
+              "En": "Does not square b."
+            }
+          },
+          {
+            "LatexCode": "40",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "حدد معاملات المعادلة a,b,c.",
+            "En": "Identify coefficients a,b,c."
+          },
+          {
+            "Ar": "استعمل مربع b ناقص أربعة في a في c.",
+            "En": "Use b squared minus four times a times c."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "حدد معاملات المعادلة a,b,c.",
+            "En": "Identify coefficients a,b,c."
+          },
+          "FormulaLatex": "\\Delta=b^2-4ac",
+          "Steps": [
+            {
+              "Ar": "مربع b هو 64.",
+              "En": "b squared is 64."
+            },
+            {
+              "Ar": "حاصل 4ac هو 24.",
+              "En": "4ac is 24."
+            }
+          ],
+          "Substitution": {
+            "Ar": "8^2-4\\times3\\times2=40",
+            "En": "8^2-4\\times3\\times2=40"
+          },
+          "Result": {
+            "Ar": "40",
+            "En": "40"
+          },
+          "Unit": {
+            "Ar": "دون وحدة",
+            "En": "unitless"
+          },
+          "Verification": {
+            "Ar": "40+24=64",
+            "En": "40+24=64"
+          },
+          "CommonError": {
+            "Ar": "لا تهمل العامل 4.",
+            "En": "Do not omit factor four."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v2-grade-10-vector-length-1",
+      "ReviewStatus": "Draft",
+      "Family": "vector-length",
+      "PrimarySkillKey": "magnitude",
+      "ProposedTrackCodes": [
+        "grade-10"
+      ],
+      "Check": {
+        "expected": "10"
+      },
+      "Content": {
+        "StageId": 3,
+        "CategoryId": 87,
+        "PrimarySkillId": 339,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "طول متجه",
+          "En": "Vector magnitude"
+        },
+        "Question": {
+          "Ar": "ما طول المتجه (-6,8)؟",
+          "En": "Find the magnitude of vector (-6,8)."
+        },
+        "Options": [
+          {
+            "LatexCode": "10",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "2",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "جمع المركبتين.",
+              "En": "Adds components."
+            }
+          },
+          {
+            "LatexCode": "14",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "جمع القيم المطلقة.",
+              "En": "Adds absolute values."
+            }
+          },
+          {
+            "LatexCode": "100",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "نسي الجذر.",
+              "En": "Omits square root."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "اجمع مربعي المركبتين.",
+            "En": "Add the squares of the components."
+          },
+          {
+            "Ar": "خذ الجذر التربيعي.",
+            "En": "Take the square root."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "اجمع مربعي المركبتين.",
+            "En": "Add the squares of the components."
+          },
+          "FormulaLatex": "\\|v\\|=\\sqrt{x^2+y^2}",
+          "Steps": [
+            {
+              "Ar": "مجموع المربعين 100.",
+              "En": "Sum of squares is 100."
+            },
+            {
+              "Ar": "خذ الجذر الموجب.",
+              "En": "Take the positive square root."
+            }
+          ],
+          "Substitution": {
+            "Ar": "\\sqrt{(-6)^2+8^2}=10",
+            "En": "\\sqrt{(-6)^2+8^2}=10"
+          },
+          "Result": {
+            "Ar": "10",
+            "En": "10"
+          },
+          "Unit": {
+            "Ar": "دون وحدة",
+            "En": "unitless"
+          },
+          "Verification": {
+            "Ar": "10^2=100",
+            "En": "10^2=100"
+          },
+          "CommonError": {
+            "Ar": "الطول غير سالب حتى لو كانت المركبة سالبة.",
+            "En": "Magnitude is nonnegative even for a negative component."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v2-grade-10-vector-length-2",
+      "ReviewStatus": "Draft",
+      "Family": "vector-length",
+      "PrimarySkillKey": "magnitude",
+      "ProposedTrackCodes": [
+        "grade-10"
+      ],
+      "Check": {
+        "expected": "15"
+      },
+      "Content": {
+        "StageId": 3,
+        "CategoryId": 87,
+        "PrimarySkillId": 339,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "طول متجه",
+          "En": "Vector magnitude"
+        },
+        "Question": {
+          "Ar": "ما طول المتجه (-9,12)؟",
+          "En": "Find the magnitude of vector (-9,12)."
+        },
+        "Options": [
+          {
+            "LatexCode": "3",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "جمع المركبتين.",
+              "En": "Adds components."
+            }
+          },
+          {
+            "LatexCode": "15",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "21",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "جمع القيم المطلقة.",
+              "En": "Adds absolute values."
+            }
+          },
+          {
+            "LatexCode": "225",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "نسي الجذر.",
+              "En": "Omits square root."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "اجمع مربعي المركبتين.",
+            "En": "Add the squares of the components."
+          },
+          {
+            "Ar": "خذ الجذر التربيعي.",
+            "En": "Take the square root."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "اجمع مربعي المركبتين.",
+            "En": "Add the squares of the components."
+          },
+          "FormulaLatex": "\\|v\\|=\\sqrt{x^2+y^2}",
+          "Steps": [
+            {
+              "Ar": "مجموع المربعين 225.",
+              "En": "Sum of squares is 225."
+            },
+            {
+              "Ar": "خذ الجذر الموجب.",
+              "En": "Take the positive square root."
+            }
+          ],
+          "Substitution": {
+            "Ar": "\\sqrt{(-9)^2+12^2}=15",
+            "En": "\\sqrt{(-9)^2+12^2}=15"
+          },
+          "Result": {
+            "Ar": "15",
+            "En": "15"
+          },
+          "Unit": {
+            "Ar": "دون وحدة",
+            "En": "unitless"
+          },
+          "Verification": {
+            "Ar": "15^2=225",
+            "En": "15^2=225"
+          },
+          "CommonError": {
+            "Ar": "الطول غير سالب حتى لو كانت المركبة سالبة.",
+            "En": "Magnitude is nonnegative even for a negative component."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v2-grade-11-derivative-at-point-1",
+      "ReviewStatus": "Draft",
+      "Family": "derivative-at-point",
+      "PrimarySkillKey": "secondary-polynomial-derivatives",
+      "ProposedTrackCodes": [
+        "grade-11"
+      ],
+      "Check": {
+        "expected": "16"
+      },
+      "Content": {
+        "StageId": 3,
+        "CategoryId": 11,
+        "PrimarySkillId": 49,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "مشتقة عند نقطة",
+          "En": "Derivative at a point"
+        },
+        "Question": {
+          "Ar": "إذا كانت f(x)=3x²+4x+1، احسب f′(2).",
+          "En": "If f(x)=3x²+4x+1, find f′(2)."
+        },
+        "Options": [
+          {
+            "LatexCode": "21",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "حسب الدالة الأصلية.",
+              "En": "Evaluates original function."
+            }
+          },
+          {
+            "LatexCode": "12",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "أهمل مشتقة الحد الخطي.",
+              "En": "Omits linear derivative."
+            }
+          },
+          {
+            "LatexCode": "16",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "10",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "نسي عامل 2.",
+              "En": "Omits factor two."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "طبّق قاعدة القوى على كل حد.",
+            "En": "Apply the power rule to each term."
+          },
+          {
+            "Ar": "عوّض قيمة x بعد الاشتقاق.",
+            "En": "Substitute x after differentiation."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "طبّق قاعدة القوى على كل حد.",
+            "En": "Apply the power rule to each term."
+          },
+          "FormulaLatex": "f'(x)=2ax+b",
+          "Steps": [
+            {
+              "Ar": "المشتقة 6x+4.",
+              "En": "The derivative is 6x+4."
+            },
+            {
+              "Ar": "عوّض x=2.",
+              "En": "Substitute x=2."
+            }
+          ],
+          "Substitution": {
+            "Ar": "6\\times2+4=16",
+            "En": "6\\times2+4=16"
+          },
+          "Result": {
+            "Ar": "16",
+            "En": "16"
+          },
+          "Unit": {
+            "Ar": "دون وحدة",
+            "En": "unitless"
+          },
+          "Verification": {
+            "Ar": "معامل h في f(2+h)-f(2) هو 16.",
+            "En": "The coefficient of h in f(2+h)-f(2) is 16."
+          },
+          "CommonError": {
+            "Ar": "التعويض في الدالة الأصلية ليس اشتقاقاً.",
+            "En": "Evaluating the original function is not differentiation."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v2-grade-11-derivative-at-point-2",
+      "ReviewStatus": "Draft",
+      "Family": "derivative-at-point",
+      "PrimarySkillKey": "secondary-polynomial-derivatives",
+      "ProposedTrackCodes": [
+        "grade-11"
+      ],
+      "Check": {
+        "expected": "19"
+      },
+      "Content": {
+        "StageId": 3,
+        "CategoryId": 11,
+        "PrimarySkillId": 49,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "مشتقة عند نقطة",
+          "En": "Derivative at a point"
+        },
+        "Question": {
+          "Ar": "إذا كانت f(x)=2x²+7x+1، احسب f′(3).",
+          "En": "If f(x)=2x²+7x+1, find f′(3)."
+        },
+        "Options": [
+          {
+            "LatexCode": "40",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "حسب الدالة الأصلية.",
+              "En": "Evaluates original function."
+            }
+          },
+          {
+            "LatexCode": "12",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "أهمل مشتقة الحد الخطي.",
+              "En": "Omits linear derivative."
+            }
+          },
+          {
+            "LatexCode": "13",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "نسي عامل 2.",
+              "En": "Omits factor two."
+            }
+          },
+          {
+            "LatexCode": "19",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "طبّق قاعدة القوى على كل حد.",
+            "En": "Apply the power rule to each term."
+          },
+          {
+            "Ar": "عوّض قيمة x بعد الاشتقاق.",
+            "En": "Substitute x after differentiation."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "طبّق قاعدة القوى على كل حد.",
+            "En": "Apply the power rule to each term."
+          },
+          "FormulaLatex": "f'(x)=2ax+b",
+          "Steps": [
+            {
+              "Ar": "المشتقة 4x+7.",
+              "En": "The derivative is 4x+7."
+            },
+            {
+              "Ar": "عوّض x=3.",
+              "En": "Substitute x=3."
+            }
+          ],
+          "Substitution": {
+            "Ar": "4\\times3+7=19",
+            "En": "4\\times3+7=19"
+          },
+          "Result": {
+            "Ar": "19",
+            "En": "19"
+          },
+          "Unit": {
+            "Ar": "دون وحدة",
+            "En": "unitless"
+          },
+          "Verification": {
+            "Ar": "معامل h في f(3+h)-f(3) هو 19.",
+            "En": "The coefficient of h in f(3+h)-f(3) is 19."
+          },
+          "CommonError": {
+            "Ar": "التعويض في الدالة الأصلية ليس اشتقاقاً.",
+            "En": "Evaluating the original function is not differentiation."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v2-grade-11-integer-logarithm-1",
+      "ReviewStatus": "Draft",
+      "Family": "integer-logarithm",
+      "PrimarySkillKey": "secondary-logarithm-evaluation",
+      "ProposedTrackCodes": [
+        "grade-11"
+      ],
+      "Check": {
+        "expected": "4"
+      },
+      "Content": {
+        "StageId": 3,
+        "CategoryId": 9,
+        "PrimarySkillId": 42,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "لوغاريتم وقوة",
+          "En": "Logarithm and power"
+        },
+        "Question": {
+          "Ar": "احسب لوغاريتم 81 للأساس 3.",
+          "En": "Evaluate the logarithm of 81 with base 3."
+        },
+        "Options": [
+          {
+            "LatexCode": "4",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "27",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "قسم على الأساس.",
+              "En": "Divides by base."
+            }
+          },
+          {
+            "LatexCode": "5",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "زاد الأس واحداً.",
+              "En": "Exponent one too high."
+            }
+          },
+          {
+            "LatexCode": "3",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "أنقص الأس واحداً.",
+              "En": "Exponent one too low."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "حوّل اللوغاريتم إلى معادلة أسية.",
+            "En": "Rewrite the logarithm as an exponential equation."
+          },
+          {
+            "Ar": "ابحث عن الأس الذي يعطي العدد.",
+            "En": "Find the exponent that produces the number."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "حوّل اللوغاريتم إلى معادلة أسية.",
+            "En": "Rewrite the logarithm as an exponential equation."
+          },
+          "FormulaLatex": "\\log_b N=k\\iff b^k=N",
+          "Steps": [
+            {
+              "Ar": "اكتب 3^k=81.",
+              "En": "Write 3^k=81."
+            },
+            {
+              "Ar": "القوة المطلوبة هي 4.",
+              "En": "The required exponent is 4."
+            }
+          ],
+          "Substitution": {
+            "Ar": "\\log_{3}(81)=4",
+            "En": "\\log_{3}(81)=4"
+          },
+          "Result": {
+            "Ar": "4",
+            "En": "4"
+          },
+          "Unit": {
+            "Ar": "دون وحدة",
+            "En": "unitless"
+          },
+          "Verification": {
+            "Ar": "3^{4}=81",
+            "En": "3^{4}=81"
+          },
+          "CommonError": {
+            "Ar": "لا تقسم العدد على الأساس.",
+            "En": "Do not divide the number by the base."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v2-grade-11-integer-logarithm-2",
+      "ReviewStatus": "Draft",
+      "Family": "integer-logarithm",
+      "PrimarySkillKey": "secondary-logarithm-evaluation",
+      "ProposedTrackCodes": [
+        "grade-11"
+      ],
+      "Check": {
+        "expected": "3"
+      },
+      "Content": {
+        "StageId": 3,
+        "CategoryId": 9,
+        "PrimarySkillId": 42,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "لوغاريتم وقوة",
+          "En": "Logarithm and power"
+        },
+        "Question": {
+          "Ar": "احسب لوغاريتم 125 للأساس 5.",
+          "En": "Evaluate the logarithm of 125 with base 5."
+        },
+        "Options": [
+          {
+            "LatexCode": "25",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "قسم على الأساس.",
+              "En": "Divides by base."
+            }
+          },
+          {
+            "LatexCode": "3",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "4",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "زاد الأس واحداً.",
+              "En": "Exponent one too high."
+            }
+          },
+          {
+            "LatexCode": "2",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "أنقص الأس واحداً.",
+              "En": "Exponent one too low."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "حوّل اللوغاريتم إلى معادلة أسية.",
+            "En": "Rewrite the logarithm as an exponential equation."
+          },
+          {
+            "Ar": "ابحث عن الأس الذي يعطي العدد.",
+            "En": "Find the exponent that produces the number."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "حوّل اللوغاريتم إلى معادلة أسية.",
+            "En": "Rewrite the logarithm as an exponential equation."
+          },
+          "FormulaLatex": "\\log_b N=k\\iff b^k=N",
+          "Steps": [
+            {
+              "Ar": "اكتب 5^k=125.",
+              "En": "Write 5^k=125."
+            },
+            {
+              "Ar": "القوة المطلوبة هي 3.",
+              "En": "The required exponent is 3."
+            }
+          ],
+          "Substitution": {
+            "Ar": "\\log_{5}(125)=3",
+            "En": "\\log_{5}(125)=3"
+          },
+          "Result": {
+            "Ar": "3",
+            "En": "3"
+          },
+          "Unit": {
+            "Ar": "دون وحدة",
+            "En": "unitless"
+          },
+          "Verification": {
+            "Ar": "5^{3}=125",
+            "En": "5^{3}=125"
+          },
+          "CommonError": {
+            "Ar": "لا تقسم العدد على الأساس.",
+            "En": "Do not divide the number by the base."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v2-grade-12-definite-linear-1",
+      "ReviewStatus": "Draft",
+      "Family": "definite-linear",
+      "PrimarySkillKey": "secondary-definite-integrals",
+      "ProposedTrackCodes": [
+        "grade-12"
+      ],
+      "Check": {
+        "expected": "39"
+      },
+      "Content": {
+        "StageId": 3,
+        "CategoryId": 11,
+        "PrimarySkillId": 51,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "تكامل محدد لدالة خطية",
+          "En": "Definite integral of linear function"
+        },
+        "Question": {
+          "Ar": "احسب التكامل المحدد للدالة 4x+3 من x=1 إلى x=4.",
+          "En": "Evaluate the definite integral of 4x+3 from x=1 to x=4."
+        },
+        "Options": [
+          {
+            "LatexCode": "44",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "أهمل الحد الأدنى.",
+              "En": "Omits lower endpoint."
+            }
+          },
+          {
+            "LatexCode": "49",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "جمع قيمتي الحدين.",
+              "En": "Adds endpoint values."
+            }
+          },
+          {
+            "LatexCode": "39",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "19",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "حسب قيمة الدالة فقط.",
+              "En": "Evaluates integrand only."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "أوجد دالة أصلية أولاً.",
+            "En": "Find an antiderivative first."
+          },
+          {
+            "Ar": "اطرح قيمتها عند الحد الأدنى من الحد الأعلى.",
+            "En": "Subtract its lower-endpoint value from its upper-endpoint value."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "أوجد دالة أصلية أولاً.",
+            "En": "Find an antiderivative first."
+          },
+          "FormulaLatex": "\\int_l^u (ax+b)dx=[ax^2/2+bx]_l^u",
+          "Steps": [
+            {
+              "Ar": "الدالة الأصلية 2x²+3x.",
+              "En": "An antiderivative is 2x²+3x."
+            },
+            {
+              "Ar": "قيمتا الحدين 44 و5.",
+              "En": "Endpoint values are 44 and 5."
+            }
+          ],
+          "Substitution": {
+            "Ar": "44-5=39",
+            "En": "44-5=39"
+          },
+          "Result": {
+            "Ar": "39",
+            "En": "39"
+          },
+          "Unit": {
+            "Ar": "دون وحدة",
+            "En": "unitless"
+          },
+          "Verification": {
+            "Ar": "مساحة شبه المنحرف: (7+19)\\times3/2=39.",
+            "En": "Trapezoid area: (7+19)\\times3/2=39."
+          },
+          "CommonError": {
+            "Ar": "لا تنس طرح قيمة الحد الأدنى.",
+            "En": "Do not omit the lower endpoint."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v2-grade-12-definite-linear-2",
+      "ReviewStatus": "Draft",
+      "Family": "definite-linear",
+      "PrimarySkillKey": "secondary-definite-integrals",
+      "ProposedTrackCodes": [
+        "grade-12"
+      ],
+      "Check": {
+        "expected": "69"
+      },
+      "Content": {
+        "StageId": 3,
+        "CategoryId": 11,
+        "PrimarySkillId": 51,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 3,
+        "Points": 10,
+        "Title": {
+          "Ar": "تكامل محدد لدالة خطية",
+          "En": "Definite integral of linear function"
+        },
+        "Question": {
+          "Ar": "احسب التكامل المحدد للدالة 6x+2 من x=2 إلى x=5.",
+          "En": "Evaluate the definite integral of 6x+2 from x=2 to x=5."
+        },
+        "Options": [
+          {
+            "LatexCode": "85",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "أهمل الحد الأدنى.",
+              "En": "Omits lower endpoint."
+            }
+          },
+          {
+            "LatexCode": "101",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "جمع قيمتي الحدين.",
+              "En": "Adds endpoint values."
+            }
+          },
+          {
+            "LatexCode": "32",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "حسب قيمة الدالة فقط.",
+              "En": "Evaluates integrand only."
+            }
+          },
+          {
+            "LatexCode": "69",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "أوجد دالة أصلية أولاً.",
+            "En": "Find an antiderivative first."
+          },
+          {
+            "Ar": "اطرح قيمتها عند الحد الأدنى من الحد الأعلى.",
+            "En": "Subtract its lower-endpoint value from its upper-endpoint value."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "أوجد دالة أصلية أولاً.",
+            "En": "Find an antiderivative first."
+          },
+          "FormulaLatex": "\\int_l^u (ax+b)dx=[ax^2/2+bx]_l^u",
+          "Steps": [
+            {
+              "Ar": "الدالة الأصلية 3x²+2x.",
+              "En": "An antiderivative is 3x²+2x."
+            },
+            {
+              "Ar": "قيمتا الحدين 85 و16.",
+              "En": "Endpoint values are 85 and 16."
+            }
+          ],
+          "Substitution": {
+            "Ar": "85-16=69",
+            "En": "85-16=69"
+          },
+          "Result": {
+            "Ar": "69",
+            "En": "69"
+          },
+          "Unit": {
+            "Ar": "دون وحدة",
+            "En": "unitless"
+          },
+          "Verification": {
+            "Ar": "مساحة شبه المنحرف: (14+32)\\times3/2=69.",
+            "En": "Trapezoid area: (14+32)\\times3/2=69."
+          },
+          "CommonError": {
+            "Ar": "لا تنس طرح قيمة الحد الأدنى.",
+            "En": "Do not omit the lower endpoint."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v2-grade-12-signed-dot-product-1",
+      "ReviewStatus": "Draft",
+      "Family": "signed-dot-product",
+      "PrimarySkillKey": "dot-product",
+      "ProposedTrackCodes": [
+        "grade-12"
+      ],
+      "Check": {
+        "expected": "7"
+      },
+      "Content": {
+        "StageId": 3,
+        "CategoryId": 87,
+        "PrimarySkillId": 338,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "جداء نقطي بإشارات",
+          "En": "Signed dot product"
+        },
+        "Question": {
+          "Ar": "احسب الجداء النقطي للمتجهين (3,-4) و(5,2).",
+          "En": "Find the dot product of (3,-4) and (5,2)."
+        },
+        "Options": [
+          {
+            "LatexCode": "7",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "23",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "طرح حاصل الضرب الثاني.",
+              "En": "Subtracts second product."
+            }
+          },
+          {
+            "LatexCode": "-14",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "ضرب مركبات غير متناظرة.",
+              "En": "Multiplies mismatched components."
+            }
+          },
+          {
+            "LatexCode": "15",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "أهمل المركبة الثانية.",
+              "En": "Omits second component."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "اضرب المركبات المتناظرة.",
+            "En": "Multiply corresponding components."
+          },
+          {
+            "Ar": "اجمع حاصلَي الضرب بإشارتيهما.",
+            "En": "Add the two signed products."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "اضرب المركبات المتناظرة.",
+            "En": "Multiply corresponding components."
+          },
+          "FormulaLatex": "u\\cdot v=u_xv_x+u_yv_y",
+          "Steps": [
+            {
+              "Ar": "الجداء الأول 15.",
+              "En": "First product: 15."
+            },
+            {
+              "Ar": "الجداء الثاني -8.",
+              "En": "Second product: -8."
+            }
+          ],
+          "Substitution": {
+            "Ar": "(15)+(-8)=7",
+            "En": "(15)+(-8)=7"
+          },
+          "Result": {
+            "Ar": "7",
+            "En": "7"
+          },
+          "Unit": {
+            "Ar": "دون وحدة",
+            "En": "unitless"
+          },
+          "Verification": {
+            "Ar": "تبديل ترتيب المتجهين يعطي 7.",
+            "En": "Reversing vector order gives 7."
+          },
+          "CommonError": {
+            "Ar": "لا تجمع المركبات قبل ضربها.",
+            "En": "Do not add components before multiplying."
+          }
+        }
+      }
+    },
+    {
+      "ContentKey": "growth-v2-grade-12-signed-dot-product-2",
+      "ReviewStatus": "Draft",
+      "Family": "signed-dot-product",
+      "PrimarySkillKey": "dot-product",
+      "ProposedTrackCodes": [
+        "grade-12"
+      ],
+      "Check": {
+        "expected": "10"
+      },
+      "Content": {
+        "StageId": 3,
+        "CategoryId": 87,
+        "PrimarySkillId": 338,
+        "SecondarySkillIds": [],
+        "TrackIds": [],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "جداء نقطي بإشارات",
+          "En": "Signed dot product"
+        },
+        "Question": {
+          "Ar": "احسب الجداء النقطي للمتجهين (-2,6) و(4,3).",
+          "En": "Find the dot product of (-2,6) and (4,3)."
+        },
+        "Options": [
+          {
+            "LatexCode": "-26",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "طرح حاصل الضرب الثاني.",
+              "En": "Subtracts second product."
+            }
+          },
+          {
+            "LatexCode": "10",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "18",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "ضرب مركبات غير متناظرة.",
+              "En": "Multiplies mismatched components."
+            }
+          },
+          {
+            "LatexCode": "-8",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "أهمل المركبة الثانية.",
+              "En": "Omits second component."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "اضرب المركبات المتناظرة.",
+            "En": "Multiply corresponding components."
+          },
+          {
+            "Ar": "اجمع حاصلَي الضرب بإشارتيهما.",
+            "En": "Add the two signed products."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "اضرب المركبات المتناظرة.",
+            "En": "Multiply corresponding components."
+          },
+          "FormulaLatex": "u\\cdot v=u_xv_x+u_yv_y",
+          "Steps": [
+            {
+              "Ar": "الجداء الأول -8.",
+              "En": "First product: -8."
+            },
+            {
+              "Ar": "الجداء الثاني 18.",
+              "En": "Second product: 18."
+            }
+          ],
+          "Substitution": {
+            "Ar": "(-8)+(18)=10",
+            "En": "(-8)+(18)=10"
+          },
+          "Result": {
+            "Ar": "10",
+            "En": "10"
+          },
+          "Unit": {
+            "Ar": "دون وحدة",
+            "En": "unitless"
+          },
+          "Verification": {
+            "Ar": "تبديل ترتيب المتجهين يعطي 10.",
+            "En": "Reversing vector order gives 10."
+          },
+          "CommonError": {
+            "Ar": "لا تجمع المركبات قبل ضربها.",
+            "En": "Do not add components before multiplying."
+          }
+        }
+      }
+    }
+  ]
+}
