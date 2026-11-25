@@ -83,6 +83,25 @@ try
     throw new InvalidOperationException("External reset link accepted.");
 }
 catch (ArgumentException) { }
+var socialBrand = sampleBrand with { SocialLinks = new[] {
+    new PlatformSocialLink { Platform = "youtube", LabelAr = "يوتيوب", LabelEn = "YouTube", Url = "https://youtube.example/mathworld", IsEnabled = true, DisplayOrder = 2 },
+    new PlatformSocialLink { Platform = "facebook", LabelAr = "فيسبوك", LabelEn = "Facebook", Url = "https://facebook.example/mathworld", IsEnabled = true, DisplayOrder = 1 },
+    new PlatformSocialLink { Platform = "instagram", LabelAr = "انستغرام", LabelEn = "Instagram", Url = "https://disabled.example/hidden", IsEnabled = false },
+    new PlatformSocialLink { Platform = "unsafe", LabelAr = "غير آمن", LabelEn = "Unsafe", Url = "javascript:alert(1)", IsEnabled = true }
+} };
+foreach (var locale in new[] { "ar", "en" })
+{
+    var socialMail = MathWorldEmailLayout.Render(new PlatformBrandView(0, brandOrigin, socialBrand), locale, "Title", "Body");
+    Assert(socialMail.Html.Contains("href=\"https://facebook.example/mathworld\"") &&
+        socialMail.Html.Contains("href=\"https://youtube.example/mathworld\"") &&
+        socialMail.Html.IndexOf("facebook.example", StringComparison.Ordinal) < socialMail.Html.IndexOf("youtube.example", StringComparison.Ordinal) &&
+        socialMail.PlainText.Contains("https://youtube.example/mathworld") &&
+        !socialMail.Html.Contains("disabled.example") && !socialMail.PlainText.Contains("disabled.example") &&
+        !socialMail.Html.Contains("javascript:") && !socialMail.PlainText.Contains("javascript:"),
+        "Only enabled safe social links appear in configured order and plain-text fallback.");
+    Assert(socialMail.Html.Contains(locale == "ar" ? "text-align:right" : "text-align:left"), "Explicit email content alignment.");
+}
+Assert(!mail.Html.Contains("تابعونا على مواقع التواصل الاجتماعي"), "No social heading for empty enabled list.");
 Console.WriteLine("PASS: centralized brand validation, safe bilingual email layout and official action links.");
 
 Assert(RecoveryTokenCodec.Hash(new string('a', 64))?.Length == 64, "Canonical recovery hash.");

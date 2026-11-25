@@ -55,14 +55,37 @@ public static class MathWorldEmailLayout
             (ar ? "الخصوصية" : "Privacy", Localize(p.PrivacyUrl, "privacy")),
             (ar ? "الشروط" : "Terms", p.TermsUrl)
         };
-        links.AddRange(p.SocialLinks.Where(x => x.IsEnabled).OrderBy(x => x.DisplayOrder)
-            .Select(x => (ar ? x.LabelAr : x.LabelEn, (string?)x.Url)));
         foreach (var link in links)
             if (PlatformBrandService.IsSafeHttpsUrl(link.Url))
             {
                 html.Append($"<div><a style=\"color:#5b21b6\" href=\"{E(link.Url)}\">{E(link.Label)}</a></div>");
                 plain.AppendLine($"{link.Label}: {link.Url}");
             }
+        var social = p.SocialLinks.Where(x => x.IsEnabled && PlatformBrandService.IsSafeHttpsUrl(x.Url))
+            .OrderBy(x => x.DisplayOrder).ThenBy(x => x.Platform).ToArray();
+        if (social.Length > 0)
+        {
+            var heading = ar ? "تابعونا على مواقع التواصل الاجتماعي" : "Follow us on social media";
+            html.Append($"<p style=\"margin:18px 0 8px;font-weight:bold\">{E(heading)}</p><div>");
+            plain.AppendLine().AppendLine(heading);
+            foreach (var link in social)
+            {
+                var label = ar ? link.LabelAr : link.LabelEn;
+                // Text-based marks remain visible when mail clients block images.
+                var mark = link.Platform.Trim().ToLowerInvariant() switch
+                {
+                    "facebook" => "f", "instagram" => "◎", "youtube" => "▶",
+                    "tiktok" => "♪", "linkedin" => "in", "twitter" or "x" or "x (twitter)" => "X",
+                    "github" => "GH", "telegram" => "➤", "whatsapp" => "☎", _ => "↗"
+                };
+                html.Append($"<a href=\"{E(link.Url)}\" style=\"display:inline-block;margin:4px;padding:6px 10px;border:1px solid #ddd6fe;border-radius:6px;background:#fff;color:#5b21b6;text-decoration:none\"><span dir=\"ltr\" style=\"display:inline-block;background:#6d28d9;color:#fff;border-radius:4px;min-width:22px;padding:2px;text-align:center;font-weight:bold\">{E(mark)}</span> {E(label)}</a>");
+                plain.AppendLine($"{label}: {link.Url}");
+            }
+            html.Append("</div>");
+        }
+        var copyright = ar ? $"© {DateTime.UtcNow.Year} {name}. جميع الحقوق محفوظة." : $"© {DateTime.UtcNow.Year} {name}. All rights reserved.";
+        html.Append($"<p style=\"margin-top:16px;color:#6b7280;font-size:12px\">{E(copyright)}</p>");
+        plain.AppendLine().AppendLine(copyright);
         html.Append("</td></tr></table></td></tr></table></body></html>");
         return new TransactionalEmail(title.Replace('\r', ' ').Replace('\n', ' '), plain.ToString(), html.ToString());
     }
