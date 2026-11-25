@@ -9,6 +9,7 @@ import {transferWave, transferHolds} from './transfer-wave.mjs';
 import {reasoningExtensionWave} from './reasoning-extension-wave.mjs';
 import {schoolReasoningApplications} from './school-reasoning-applications.mjs';
 
+import {universityApplications} from "./university-applications.mjs";
 const inventory = JSON.parse(readFileSync(new URL('./inventory-20261125.json', import.meta.url), 'utf8'));
 
 test('school wave uses linked skills and independently checked answers', () => {
@@ -165,5 +166,38 @@ test('school applications use linked grade skills and independently solved answe
     const fraction = /^\\frac\{(\d+)\}\{(\d+)\}$/.exec(text);
     const actual = fraction ? Number(fraction[1]) / Number(fraction[2]) : Number(text);
     assert.ok(Math.abs(actual - answers[row.Family]) < 1e-12, row.Family);
+  }
+});
+
+test('V13 university answers and linked placement', () => {
+  const rows = universityApplications();
+  const integers = Array.from({length: 41}, (_, i) => i - 20);
+  const classes = [0, 0, 0, 1, 1, 1, 1];
+  // Covariance matrix of four independent X,Y pairs with alternating signs.
+  let variance = 0;
+  for (let i = 0; i < 8; i++) {
+    for (let j = 0; j < 8; j++) {
+      if ((i >> 1) !== (j >> 1)) continue;
+      const covariance = i !== j ? 8 : i % 2 ? 16 : 9;
+      variance += (-1) ** (i + j) * covariance / 16;
+    }
+  }
+  const answers = {
+    'merge-equivalence-blocks': classes.flatMap(a => classes.filter(b => a !== b)).length,
+    'recover-east-slope': integers.find(x => 3 * x + 4 * 5 === 7 * 5),
+    'combine-fundamental-solutions': integers.find(b => Math.abs(
+      (3 * (Math.cos(2e-6) - 1) + b * Math.sin(2e-6)) / 1e-6 + 8) < 1e-4),
+    'eliminate-leading-discretization-error': integers.find(l => 18 - l === 4 * (15 - l)),
+    'paired-average-variance': variance,
+    'rank-one-area-update': 1 + (2 * 1 + 1 * 2), // determinant lemma
+    'minimum-uniform-capacity-relaxation': Math.min(...integers.filter(x => x >= 0)
+      .map(x => Math.max(0, x - 8, 23 - x - 9))),
+  };
+  assert.equal(rows.length, Object.keys(answers).length);
+  assert.deepEqual(validate(rows), []);
+  assert.equal(selectCandidates(rows, inventory).selected.length, rows.length);
+  for (const row of rows) {
+    const correct = row.Content.Options.find(o => o.IsCorrect);
+    assert.equal(Number(correct.LatexCode), answers[row.Family], row.Family);
   }
 });
