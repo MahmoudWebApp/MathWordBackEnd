@@ -33,13 +33,28 @@ with option_signatures as (
     from "Problems" p
     left join option_signatures o on o."ProblemId" = p."Id"
     left join primary_skills s on s."ProblemId" = p."Id"
+), candidate_drafts as (
+    select d."Id", d."ContentKey", d."SourceProblemId", d."PublishedProblemId",
+        d."EditorialStatus", d."Revision", d."WizardJson"::jsonb as content
+    from "CurriculumDraftItems" d
+    where d."SourceProblemId" is not null or d."ContentKey" like 'g1-%'
+), draft_rows as (
+    select d."Id", jsonb_build_array(
+        d."ContentKey", d."SourceProblemId", d."PublishedProblemId",
+        d."EditorialStatus", d."Revision", d."Id",
+        md5((d.content - array['TrackIds', 'SecondarySkillIds', 'DifficultyLevel'])::text),
+        (d.content ->> 'DifficultyLevel')::int,
+        coalesce((select jsonb_agg(t."Code" order by t."Code") from "LearningTracks" t
+            where d.content -> 'TrackIds' @> to_jsonb(array[t."Id"])), '[]'::jsonb),
+        (select count(*) from "LearningTrackProblems" m
+            where m."ProblemId" = d."SourceProblemId"
+            and not coalesce(d.content -> 'TrackIds' @> to_jsonb(array[m."TrackId"]), false))
+    ) as row
+    from candidate_drafts d
 )
 select jsonb_build_object(
     'p', coalesce((select jsonb_agg(row order by "Id") from problem_rows), '[]'::jsonb),
-    'd', coalesce((select jsonb_agg(jsonb_build_array("ContentKey", "SourceProblemId",
-        "PublishedProblemId", "EditorialStatus", "Revision", "Id") order by "Id")
-        from "CurriculumDraftItems"
-        where "SourceProblemId" is not null or "ContentKey" like 'g1-%'), '[]'::jsonb)
+    'd', coalesce((select jsonb_agg(row order by "Id") from draft_rows), '[]'::jsonb)
 ) as audit;
 
 commit;

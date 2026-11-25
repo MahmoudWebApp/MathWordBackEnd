@@ -21,6 +21,21 @@ def signature(*fields):
     return md5("\x1f".join(parts).encode(), usedforsecurity=False).hexdigest()
 
 
+def draft_digest(content):
+    def pg_order(value):
+        if isinstance(value, list):
+            return [pg_order(item) for item in value]
+        if isinstance(value, dict):
+            # PostgreSQL jsonb orders object keys by byte length, then by byte order.
+            keys = sorted(value, key=lambda key: (len(key.encode()), key.encode()))
+            return {key: pg_order(value[key]) for key in keys}
+        return value
+
+    projection = {key: value for key, value in content.items()
+                  if key not in {"TrackIds", "SecondarySkillIds", "DifficultyLevel"}}
+    return md5(json.dumps(pg_order(projection), ensure_ascii=False).encode(),
+               usedforsecurity=False).hexdigest()
+
 def source_differences(row, live):
     c = row["Content"]
     _, source, legacy, options, skills, _, _, _, _ = live
@@ -75,12 +90,18 @@ def reconcile(audit, inventory, known):
             differences.append("ConflictingOpenDraft")
         if draft and (draft[1] != pid or draft[3] in ("Published", "Withdrawn") and not matching_publication):
             differences.append("ExistingDraftRequiresReview")
+        payload_matches = None if not draft else draft[6] == draft_digest(row["Content"])
+        if draft and not payload_matches:
+            differences.append("StoredDraftContentDiffers")
+        if draft and draft[9]:
+            differences.append("StoredDraftOmitsLiveTrack")
         status = ("ReviewConflict" if differences else "PublishedWithStructuredMetadata"
                   if matching_publication else "OpenDraft" if draft else "NoMatchingDraft")
         amendments.append({
             "ProblemId": pid, "State": status, "DraftId": draft[5] if draft else None,
             "DraftStatus": draft[3] if draft else None, "Revision": draft[4] if draft else None,
-            "HasTrackMapping": bool(live and live[7]), "Differences": differences,
+            "HasTrackMapping": bool(live and live[7]), "DraftContentMatches": payload_matches,
+            "DraftTracks": draft[8] if draft else [], "Differences": differences,
         })
 
     hold_rows = [row for name in ("g1-model-assumption-holds-20261125.json",
@@ -109,11 +130,15 @@ def reconcile(audit, inventory, known):
     for row in (item for name in WAVES for item in load(ROOT, name)["Items"]):
         c = row["Content"]
         required_skill = {"id": c["PrimarySkillId"], "key": row["PrimarySkillKey"]}
-        unlinked = []
+        gaps = {}
         for code in row["ProposedTrackCodes"]:
             slot = slots.get((code, c["CategoryId"]))
-            if not slot or slot["stage"] != c["StageId"] or required_skill not in slot["skills"]:
-                unlinked.append(code)
+            if not slot:
+                gaps[code] = "TrackCategoryLinkMissing"
+            elif slot["stage"] != c["StageId"]:
+                gaps[code] = "TrackStageMismatch"
+            elif required_skill not in slot["skills"]:
+                gaps[code] = "TrackSkillLinkMissing"
         draft = drafts.get(row["ContentKey"])
         new.append({
             "ContentKey": row["ContentKey"],
@@ -121,7 +146,10 @@ def reconcile(audit, inventory, known):
             "ExistingDraftId": draft[5] if draft else None,
             "ExactQuestionMatchLanguages": [lang for lang, values in signatures.items()
                                             if normalized(c["Question"][lang]) in values],
-            "UnlinkedTracks": unlinked,
+            "PlacementGaps": gaps,
+            "DraftContentMatches": None if not draft else draft[6] == draft_digest(c),
+            "DraftPlacementMatches": None if not draft else draft[7:9] == [
+                c["DifficultyLevel"], sorted(row["ProposedTrackCodes"])],
         })
     return {
         "Amendments": amendments, "Holds": holds, "New": new,
@@ -130,13 +158,17 @@ def reconcile(audit, inventory, known):
             "TrackAssignments": sum(r[7] for r in problems.values()),
             "AmendmentStates": dict(Counter(r["State"] for r in amendments)),
             "AmendmentDraftStatuses": dict(Counter(r["DraftStatus"] for r in amendments if r["DraftStatus"])),
+            "AmendmentsMatchingDraftContent": sum(r["DraftContentMatches"] is True for r in amendments),
             "NoMappedTrackAmendments": sum(not r["HasTrackMapping"] for r in amendments),
             "HoldKinds": dict(Counter(r["Kind"] for r in holds)),
             "WordingWithAttemptOrProgress": sum(r["Kind"] == "Wording" and r["HasAttemptOrProgress"] is True
                                                 for r in holds),
             "NewWithExistingKey": sum(r["ExistingDraftId"] is not None for r in new),
             "NewWithExactQuestionMatch": sum(bool(r["ExactQuestionMatchLanguages"]) for r in new),
-            "NewWithUnlinkedTracks": sum(bool(r["UnlinkedTracks"]) for r in new),
+            "NewMatchingDraftContentAndPlacement": sum(r["DraftContentMatches"] is True
+                                                       and r["DraftPlacementMatches"] is True for r in new),
+            "NewWithUnlinkedTracks": sum(bool(r["PlacementGaps"]) for r in new),
+            "NewPlacementGaps": dict(Counter(gap for r in new for gap in r["PlacementGaps"].values())),
             "NewCandidates": len(new),
         },
     }
