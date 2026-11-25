@@ -96,6 +96,7 @@ namespace MathWorldAPI.Helpers
                 )
             },
 
+            { "CaptchaVerificationFailed", ("تعذر التحقق من أنك مستخدم حقيقي. أعد المحاولة.", "Human verification failed. Please try again.") },
             { "PasswordChanged", ("تم تغيير كلمة المرور. سجّل الدخول مجدداً.", "Password changed. Please sign in again.") },
             { "InvalidCurrentPassword", ("كلمة المرور الحالية غير صحيحة", "Current password is incorrect") },
             { "InvalidNewPassword", ("اختر كلمة مرور جديدة من 12 حرفاً على الأقل وبحد أقصى 72 بايت", "Choose a new password with at least 12 characters and no more than 72 UTF-8 bytes") },

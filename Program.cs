@@ -118,6 +118,9 @@ builder.Services.AddScoped<PremiumPaymentSettlementService>();
 // Privacy-minimal learner presence: expire stale sessions hourly.
 builder.Services.AddHostedService<LearnerPresenceCleanupService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddSingleton<AuthCaptchaService>();
+builder.Services.AddHttpClient("AuthCaptcha", client => { client.Timeout = TimeSpan.FromSeconds(5); })
+    .ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler { AllowAutoRedirect = false });
 builder.Services.AddScoped<AccountPasswordService>();
 builder.Services.AddScoped<PasswordRecoveryService>();
 builder.Services.AddScoped<EmailVerificationService>();

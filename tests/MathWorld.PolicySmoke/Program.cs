@@ -480,6 +480,47 @@ Assert(telemetryLog.Levels.Contains(LogLevel.Error),
     "SSE endpoint server errors must remain error-level telemetry.");
 Console.WriteLine("PASS: SSE lifetime excluded from slow API warnings; ordinary slowness and server errors retained.");
 
+// Mock transport: no real CAPTCHA requests or provider credentials in CI.
+var captchaConfig = new ConfigurationBuilder().AddInMemoryCollection(new Dictionary<string,string?>()).Build();
+var captchaFactory = new CaptchaMockFactory();
+var captcha = new AuthCaptchaService(captchaFactory, captchaConfig);
+Assert(await captcha.VerifyAsync("login", null, default) && captchaFactory.Calls == 0, "Disabled guard preserves legacy clients.");
+captchaConfig["MathWorldCaptcha:Enabled"] = "true";
+Assert(!await captcha.VerifyAsync("login", "token", default) && captchaFactory.Calls == 0, "Missing configuration fails closed.");
+captchaConfig["MathWorldCaptcha:SecretKey"] = "test-only";
+captchaConfig["MathWorldCaptcha:Hostname"] = "mathworld.example";
+Assert(!await captcha.VerifyAsync("login", null, default) && !await captcha.VerifyAsync("login", new string('a',2049), default), "Missing or oversized token rejected.");
+Assert(await captcha.VerifyAsync("login", "valid", default), "Valid action and hostname accepted.");
+Assert(!await captcha.VerifyAsync("login", "valid", default) && captchaFactory.Calls == 1, "Local replay rejected before provider call.");
+Assert(!await captcha.VerifyAsync("register", "wrong-action", default), "Wrong action rejected.");
+captchaFactory.Payload = """{"success":true,"hostname":"other.example","action":"login"}""";
+Assert(!await captcha.VerifyAsync("login", "wrong-host", default), "Wrong hostname rejected.");
+captchaFactory.Payload = """{"success":false}""";
+Assert(!await captcha.VerifyAsync("login", "invalid", default), "Provider rejection fails closed.");
+captchaFactory.Payload = "not json";
+Assert(!await captcha.VerifyAsync("login", "bad-json", default), "Malformed provider response fails closed.");
+captchaFactory.Fail = true;
+Assert(!await captcha.VerifyAsync("login", "unavailable", default), "Network failure fails closed.");
+Console.WriteLine("PASS: optional CAPTCHA guard, configuration, token bounds, action/hostname, replay and transport failure.");
+
+internal sealed class CaptchaMockFactory : IHttpClientFactory
+{
+    public int Calls;
+    public bool Fail;
+    public string Payload = """{"success":true,"hostname":"mathworld.example","action":"login"}""";
+    public HttpClient CreateClient(string name) => new(new Handler(this));
+    private sealed class Handler(CaptchaMockFactory owner) : HttpMessageHandler
+    {
+        protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken ct)
+        {
+            owner.Calls++;
+            if (owner.Fail) throw new HttpRequestException("mock failure");
+            return Task.FromResult(new HttpResponseMessage(System.Net.HttpStatusCode.OK)
+            { Content = new StringContent(owner.Payload, System.Text.Encoding.UTF8, "application/json") });
+        }
+    }
+}
+
 internal sealed class RecordingTelemetryLogger : ILogger<RequestTelemetryMiddleware>
 {
     public List<LogLevel> Levels { get; } = new();
