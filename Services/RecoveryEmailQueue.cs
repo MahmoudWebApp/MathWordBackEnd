@@ -14,37 +14,76 @@ public sealed record BrevoOutcome(string State, string? MessageId = null, string
 /// Never logs provider bodies, credentials, recipient addresses or reset URLs.</summary>
 public sealed class BrevoEmailTransport(IConfiguration config, IHttpClientFactory clients)
 {
-    private string? Read(string name) => config["MathWorldEmail:Brevo:" + name]?.Trim();
+    // Provider selection is explicit, with no fallback on failure.
+    // Retain the legacy class name for existing DI callers and Brevo tests.
+    public string Provider => config["MathWorldEmail:Provider"]?.Trim().ToLowerInvariant() ?? "brevo";
+    private bool IsResend => Provider == "resend";
+    private bool KnownProvider => Provider is "brevo" or "resend";
+    private string Prefix => IsResend ? "MathWorldEmail:Resend:" : "MathWorldEmail:Brevo:";
+    private string? Read(string name) => config[Prefix + name]?.Trim();
     private string Mode => Read("Mode") ?? "test";
+    private string[] TestRecipients => (Read("TestRecipients") ?? "").Split(';',
+        StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries);
     public bool IsTestMode => Mode == "test";
-    public bool ProviderEnabled => config.GetValue<bool>("MathWorldEmail:Brevo:Enabled");
-    public bool HasApiKey => !string.IsNullOrWhiteSpace(Read("ApiKey"));
-    public bool HasValidSender => MailAddress.TryCreate(Read("From"), out var sender) &&
-        string.Equals(sender.Address, Read("From"), StringComparison.OrdinalIgnoreCase);
-    public bool HasValidMode => Mode is "test" or "live";
+    public bool ProviderEnabled => KnownProvider && config.GetValue<bool>(Prefix + "Enabled");
+    public bool HasApiKey => KnownProvider && !string.IsNullOrWhiteSpace(Read("ApiKey"));
+    public bool HasValidSender => KnownProvider && MailAddress.TryCreate(Read("From"), out var sender) &&
+        string.Equals(sender.Address, Read("From"), StringComparison.OrdinalIgnoreCase) &&
+        (!IsResend || string.Equals(sender.Address, "onboarding@resend.dev", StringComparison.OrdinalIgnoreCase));
+    // Resend is intentionally limited to the registered account owner in this
+    // demo release. A verified custom domain and live delivery need a later review.
+    public bool HasValidMode => KnownProvider && (IsResend
+        ? IsTestMode && TestRecipients.Length == 1 &&
+          MailAddress.TryCreate(TestRecipients[0], out var recipient) &&
+          string.Equals(recipient.Address, TestRecipients[0], StringComparison.OrdinalIgnoreCase)
+        : Mode is "test" or "live");
     public bool IsConfigured => ProviderEnabled && HasApiKey && HasValidSender && HasValidMode;
+    public int AttemptLimit => Math.Clamp(config.GetValue("MathWorldEmail:DailyAttemptLimit", 100), 10, IsResend ? 100 : 150);
     public bool AllowsRecipient(string recipient) => IsConfigured &&
-        (Mode == "live" || (Read("TestRecipients") ?? "").Split(';', StringSplitOptions.TrimEntries |
-            StringSplitOptions.RemoveEmptyEntries).Contains(recipient, StringComparer.OrdinalIgnoreCase));
+        (Mode == "live" || TestRecipients.Contains(recipient, StringComparer.OrdinalIgnoreCase));
+
+    // Only a fixed, token-free admin sample may use the configured demo mailbox
+    // instead of the admin's account address. All account events use AllowsRecipient.
+    public string? AdminSampleRecipient(string adminEmail) =>
+        IsConfigured && IsTestMode
+            ? IsResend ? TestRecipients.Single() : AllowsRecipient(adminEmail) ? adminEmail : null
+            : null;
 
     public async Task<BrevoOutcome> SendAsync(EmailOutboxItem item, TransactionalEmail email, CancellationToken ct)
     {
         if (!AllowsRecipient(item.Recipient)) return new("Cancelled", ErrorCode: "RecipientNotAllowed");
-        using var request = new HttpRequestMessage(HttpMethod.Post, "https://api.brevo.com/v3/smtp/email");
-        request.Headers.Add("api-key", Read("ApiKey"));
-        request.Content = JsonContent.Create(new
+        using var request = new HttpRequestMessage(HttpMethod.Post,
+            IsResend ? "https://api.resend.com/emails" : "https://api.brevo.com/v3/smtp/email");
+        if (IsResend)
         {
-            sender = new { email = Read("From"), name = "MathWorld" },
-            to = new[] { new { email = item.Recipient } },
-            subject = email.Subject,
-            htmlContent = email.Html,
-            textContent = email.PlainText,
-            headers = new Dictionary<string,string> { ["idempotencyKey"] = item.Id.ToString() },
-            tags = new[] { "mathworld", item.TemplateKey }
-        });
+            request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", Read("ApiKey"));
+            request.Headers.Add("Idempotency-Key", item.Id.ToString());
+            request.Content = JsonContent.Create(new
+            {
+                from = "MathWorld <" + Read("From") + ">",
+                to = new[] { item.Recipient },
+                subject = email.Subject,
+                html = email.Html,
+                text = email.PlainText
+            });
+        }
+        else
+        {
+            request.Headers.Add("api-key", Read("ApiKey"));
+            request.Content = JsonContent.Create(new
+            {
+                sender = new { email = Read("From"), name = "MathWorld" },
+                to = new[] { new { email = item.Recipient } },
+                subject = email.Subject,
+                htmlContent = email.Html,
+                textContent = email.PlainText,
+                headers = new Dictionary<string,string> { ["idempotencyKey"] = item.Id.ToString() },
+                tags = new[] { "mathworld", item.TemplateKey }
+            });
+        }
         try
         {
-            using var response = await clients.CreateClient("BrevoTransactional").SendAsync(request, ct);
+            using var response = await clients.CreateClient(IsResend ? "ResendTransactional" : "BrevoTransactional").SendAsync(request, ct);
             if (response.StatusCode == HttpStatusCode.TooManyRequests)
                 return new("Retry", ErrorCode: "ProviderRateLimited");
             if ((int)response.StatusCode >= 500)
@@ -55,7 +94,7 @@ public sealed class BrevoEmailTransport(IConfiguration config, IHttpClientFactor
             try
             {
                 using var body = JsonDocument.Parse(await response.Content.ReadAsStringAsync(ct));
-                var id = body.RootElement.TryGetProperty("messageId", out var value) && value.ValueKind == JsonValueKind.String
+                var id = body.RootElement.TryGetProperty(IsResend ? "id" : "messageId", out var value) && value.ValueKind == JsonValueKind.String
                     ? value.GetString() : null;
                 return new("Accepted", id is { Length: <= 250 } ? id : null);
             }
@@ -116,7 +155,7 @@ public sealed class RecoveryEmailQueue(AppDbContext db, IConfiguration config, B
                 .SetProperty(x => x.LeaseId, (Guid?)null), ct);
         await db.EmailOutbox.Where(x => x.State == "Pending" && x.ExpiresAtUtc <= now)
             .ExecuteUpdateAsync(s => s.SetProperty(x => x.State, "Expired"), ct);
-        var cap = Math.Clamp(config.GetValue("MathWorldEmail:DailyAttemptLimit", 100), 10, 150);
+        var cap = transport.AttemptLimit;
         // Conservative cap counts attempts on all items created since yesterday
         // because no queued item may survive longer than 12 hours.
         var used = await db.EmailOutbox.Where(x => x.CreatedAtUtc >= now.Date.AddDays(-1))
@@ -196,7 +235,12 @@ public sealed class RecoveryEmailWorker(IServiceScopeFactory scopes, IConfigurat
     {
         var db = sp.GetRequiredService<AppDbContext>();
         var user = await db.Users.AsNoTracking().SingleOrDefaultAsync(x => x.Id == item.UserId && x.IsActive, ct);
-        if (user is null || user.Email != item.Recipient || item.ExpiresAtUtc <= DateTime.UtcNow)
+        var isSample = item.TemplateKey == "test" || item.TemplateKey.StartsWith("test:",StringComparison.Ordinal);
+        if (user is null || item.ExpiresAtUtc <= DateTime.UtcNow ||
+            (isSample
+                ? user.Role != AccountRolePolicy.LegacyAdmin || item.ResetGrantId != null ||
+                  !string.Equals(transport.AdminSampleRecipient(user.Email),item.Recipient,StringComparison.OrdinalIgnoreCase)
+                : user.Email != item.Recipient))
             return new("Cancelled", ErrorCode: "AccountOrRecipientChanged");
         var brand = await sp.GetRequiredService<PlatformBrandService>().ReadAsync(false, ct);
         var ar = item.Locale == "ar";

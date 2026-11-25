@@ -34,8 +34,8 @@ public sealed class AdminEmailOutboxController(AppDbContext db, IConfiguration c
         var recoveryRequested=config.GetValue<bool>("MathWorldRecovery:Enabled");
         var recoveryKeyConfigured=new RecoveryTokenCodec(config).IsConfigured;
         var adminVerified=string.Equals(config["MathWorldRecovery:VerifiedAdminEmail"]?.Trim(),admin.Email,StringComparison.OrdinalIgnoreCase);
-        var adminAllowed=transport.IsTestMode&&transport.AllowsRecipient(admin.Email);
-        var limit=Math.Clamp(config.GetValue("MathWorldEmail:DailyAttemptLimit",100),10,150);
+        var adminAllowed=transport.AdminSampleRecipient(admin.Email) is not null;
+        var limit=transport.AttemptLimit;
         // Match the test endpoint's admission rules so readiness is not misleading
         // during its per-admin cooldown or when the daily sample quota is exhausted.
         var testItems=db.EmailOutbox.AsNoTracking().Where(x=>x.TemplateKey=="test"||x.TemplateKey.StartsWith("test:"));
@@ -57,7 +57,7 @@ public sealed class AdminEmailOutboxController(AppDbContext db, IConfiguration c
         if(transport.IsTestMode&&testDailyLimit)missing.Add("DailyTestLimitReached");
         if(transport.IsTestMode&&attempts>=limit*3/4)missing.Add("TestAttemptBudgetReserved");
         // Never expose recipient, message body, provider ID, grant ID or secrets.
-        return Ok(new { IsConfigured = transport.IsConfigured, IsTestMode = transport.IsTestMode,
+        return Ok(new { Provider = transport.Provider is "brevo" or "resend" ? transport.Provider : "invalid", IsConfigured = transport.IsConfigured, IsTestMode = transport.IsTestMode,
             IsWorkerEnabled = workerEnabled, RecoveryEnabled = recovery.Enabled,
             Readiness = new { Missing = missing, CanQueueAdminTest=transport.IsConfigured&&workerEnabled&&adminAllowed&&attempts<limit*3/4&&!testCooldown&&!testDailyLimit,
                 AdminRecoveryConfigured=recovery.Enabled&&workerEnabled&&adminVerified&&transport.AllowsRecipient(admin.Email),
@@ -78,15 +78,14 @@ public sealed class AdminEmailOutboxController(AppDbContext db, IConfiguration c
         if (!int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out var id)) return Unauthorized();
         var admin = await db.Users.AsNoTracking().SingleOrDefaultAsync(x => x.Id == id &&
             x.IsActive && x.Role == AccountRolePolicy.LegacyAdmin, ct);
-        // A test can go only to this admin's own address, which must also be
-        // explicitly allowed by the deployment configuration.
-        if (admin is null || !transport.AllowsRecipient(admin.Email)) return Forbid();
+        // Fixed sample recipient only; the caller cannot supply an address.
+        if (admin is null || transport.AdminSampleRecipient(admin.Email) is not { } recipient) return Forbid();
         var now = DateTime.UtcNow;
         await using var tx = await db.Database.BeginTransactionAsync(ct);
         await db.Database.ExecuteSqlRawAsync("SELECT pg_advisory_xact_lock(7240162028)", ct);
         // Enforce the same reserve as the worker, not merely a disabled UI button.
         await db.Database.ExecuteSqlRawAsync("SELECT pg_advisory_xact_lock(7240162027)", ct);
-        var cap=Math.Clamp(config.GetValue("MathWorldEmail:DailyAttemptLimit",100),10,150);
+        var cap=transport.AttemptLimit;
         var used=await db.EmailOutbox.Where(x=>x.CreatedAtUtc>=now.Date.AddDays(-1))
             .SumAsync(x=>(int?)x.Attempts,ct)??0;
         if(used>=cap*3/4)return StatusCode(429,new{Message="EmailTestLimit"});
@@ -95,7 +94,7 @@ public sealed class AdminEmailOutboxController(AppDbContext db, IConfiguration c
             await db.EmailOutbox.CountAsync(x => (x.TemplateKey == "test"||x.TemplateKey.StartsWith("test:")) && x.CreatedAtUtc >= now.Date, ct) >= 5)
             return StatusCode(429, new { Message = "EmailTestLimit" });
         db.EmailOutbox.Add(new EmailOutboxItem { Id = Guid.NewGuid(), UserId = id,
-            Recipient = admin.Email, Locale = request.Language, TemplateKey = "test:"+request.Template, State = "Pending",
+            Recipient = recipient, Locale = request.Language, TemplateKey = "test:"+request.Template, State = "Pending",
             CreatedAtUtc = now, NextRetryAtUtc = now, ExpiresAtUtc = now.AddMinutes(15) });
         await db.SaveChangesAsync(ct);
         await tx.CommitAsync(ct);

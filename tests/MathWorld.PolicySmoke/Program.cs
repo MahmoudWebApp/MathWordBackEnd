@@ -109,6 +109,57 @@ recoveryConfig["MathWorldEmail:OutboxEnabled"]="true";
 Assert(recoveryService.CanIssue,"Configured live worker allows issuance.");
 Console.WriteLine("PASS: recovery issuance is fail-closed without worker; offline bypass restricted to test mode.");
 
+// Resend demo transport never sends to arbitrary recipients, even if misconfigured.
+var resendConfig = new ConfigurationBuilder().AddInMemoryCollection(new Dictionary<string,string?> {
+    ["MathWorldEmail:Provider"]="resend",
+    ["MathWorldEmail:Resend:Enabled"]="true",
+    ["MathWorldEmail:Resend:ApiKey"]="ci-dummy",
+    ["MathWorldEmail:Resend:From"]="onboarding@resend.dev",
+    ["MathWorldEmail:Resend:Mode"]="test",
+    ["MathWorldEmail:Resend:TestRecipients"]="owner@example.test",
+    ["MathWorldEmail:DailyAttemptLimit"]="150",
+    ["MathWorldEmail:Brevo:Enabled"]="true",
+    ["MathWorldEmail:Brevo:ApiKey"]="ci-other-provider",
+    ["MathWorldEmail:Brevo:From"]="other@example.test"
+}).Build();
+var fakeProvider = new RecordingEmailClientFactory();
+var resend = new BrevoEmailTransport(resendConfig,fakeProvider);
+Assert(resend.IsConfigured && resend.AttemptLimit==100 && resend.AllowsRecipient("owner@example.test") &&
+    !resend.AllowsRecipient("other@example.test"), "Resend single-recipient demo boundary and cap.");
+Assert(resend.AdminSampleRecipient("admin@example.test")=="owner@example.test" &&
+    !resend.AllowsRecipient("admin@example.test"),
+    "Only fixed sample routing can use the separately configured provider owner mailbox.");
+var sampleItem = new EmailOutboxItem { Id=Guid.NewGuid(), Recipient="owner@example.test", TemplateKey="test" };
+var sampleMail = new TransactionalEmail("Sample subject","Sample plain","<p>Sample HTML</p>");
+var result = await resend.SendAsync(sampleItem,sampleMail,CancellationToken.None);
+Assert(result.State=="Accepted" && result.MessageId=="fake-id" && fakeProvider.Calls==1 &&
+    fakeProvider.Url=="https://api.resend.com/emails" && fakeProvider.Authorization=="Bearer ci-dummy" &&
+    fakeProvider.Idempotency==sampleItem.Id.ToString(), "Resend request and acceptance contract.");
+using(var json=JsonDocument.Parse(fakeProvider.Body!))
+{
+    var j=json.RootElement;
+    Assert(j.GetProperty("from").GetString()=="MathWorld <onboarding@resend.dev>" &&
+        j.GetProperty("to")[0].GetString()=="owner@example.test" &&
+        j.GetProperty("html").GetString()==sampleMail.Html &&
+        j.GetProperty("text").GetString()==sampleMail.PlainText, "Resend payload preserves shared templates.");
+}
+sampleItem.Recipient="other@example.test";
+Assert((await resend.SendAsync(sampleItem,sampleMail,CancellationToken.None)).State=="Cancelled" &&
+    fakeProvider.Calls==1,"Disallowed recipient never reaches HTTP.");
+sampleItem.Recipient="owner@example.test";
+fakeProvider.Status=System.Net.HttpStatusCode.TooManyRequests;
+Assert((await resend.SendAsync(sampleItem,sampleMail,CancellationToken.None)).State=="Retry","Explicit 429 retry.");
+fakeProvider.Status=System.Net.HttpStatusCode.BadGateway;
+Assert((await resend.SendAsync(sampleItem,sampleMail,CancellationToken.None)).State=="Unknown","Ambiguous 5xx not retried.");
+resendConfig["MathWorldEmail:Resend:Mode"]="live";
+Assert(!resend.IsConfigured,"Resend live mode forbidden in demo.");
+resendConfig["MathWorldEmail:Resend:Mode"]="test";
+resendConfig["MathWorldEmail:Resend:TestRecipients"]="owner@example.test;other@example.test";
+Assert(!resend.IsConfigured,"Multiple Resend test addresses forbidden.");
+resendConfig["MathWorldEmail:Provider"]="unknown";
+Assert(!resend.IsConfigured,"Unknown provider fails closed, never falls back to Brevo.");
+Console.WriteLine("PASS: Resend test-only transport, request contract and safe outcomes (no network).");
+
 // A different numeric substitution must trigger review as the same
 // template family, while stage and topic boundaries remain distinct.
 var familyOne = CurriculumContentQuality.FamilyKey(
@@ -502,5 +553,28 @@ internal sealed class RecordingTelemetryLogger : ILogger<RequestTelemetryMiddlew
     private sealed class TelemetryLogScope : IDisposable
     {
         public void Dispose() { }
+    }
+}
+
+internal sealed class RecordingEmailClientFactory : IHttpClientFactory
+{
+    public int Calls { get; private set; }
+    public string? Url { get; private set; }
+    public string? Authorization { get; private set; }
+    public string? Idempotency { get; private set; }
+    public string? Body { get; private set; }
+    public System.Net.HttpStatusCode Status { get; set; } = System.Net.HttpStatusCode.OK;
+    public HttpClient CreateClient(string name) => new(new Handler(this));
+    private sealed class Handler(RecordingEmailClientFactory owner) : HttpMessageHandler
+    {
+        protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request,CancellationToken ct)
+        {
+            owner.Calls++;
+            owner.Url=request.RequestUri?.AbsoluteUri;
+            owner.Authorization=request.Headers.Authorization?.ToString();
+            owner.Idempotency=request.Headers.TryGetValues("Idempotency-Key",out var vals)?vals.Single():null;
+            owner.Body=await request.Content!.ReadAsStringAsync(ct);
+            return new HttpResponseMessage(owner.Status) { Content=new StringContent("{\"id\":\"fake-id\"}") };
+        }
     }
 }
