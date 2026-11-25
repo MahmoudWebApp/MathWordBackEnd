@@ -134,11 +134,13 @@ public sealed partial class EditorialProblemsController:ControllerBase
             Skills=await db.CurriculumSkills.Where(x=>x.StageId==stageId&&x.IsPublished&&x.Domain.IsPublished).OrderBy(x=>x.SortOrder).Select(x=>new{x.Id,x.CategoryId,x.NameAr,x.NameEn}).ToListAsync(ct)});
     }
     [HttpGet]
-    public async Task<IActionResult> List([FromQuery]int page=1,[FromQuery]bool activeOnly=false,CancellationToken ct=default)
+    public async Task<IActionResult> List([FromQuery]int page=1,[FromQuery]bool activeOnly=false,[FromQuery]bool supervisorOnly=false,[FromQuery]bool ownOnly=false,CancellationToken ct=default)
     {
         if(await Actor(AccountRolePolicy.EditDrafts,false,ct) is null)return Forbid();
         if(page is <1 or >10000)return BadRequest();
         var q=Own().AsNoTracking();
+        if(supervisorOnly){if(!Admin)return Forbid();q=q.Where(x=>x.SubmittedAtUtc!=null&&(x.EditorialStatus=="PendingReview"||x.EditorialStatus=="Approved")&&db.Users.Any(u=>u.Id==x.OwnerUserId&&u.Role==AccountRolePolicy.Supervisor));}
+        if(ownOnly)q=q.Where(x=>x.OwnerUserId==ActorId);
         if(activeOnly)q=q.Where(x=>x.EditorialStatus=="Draft"||x.EditorialStatus=="NeedsChanges"||x.EditorialStatus=="PendingReview"||x.EditorialStatus=="Approved");
         var items=await q.OrderByDescending(x=>x.Id).Skip((page-1)*30).Take(30)
             .Select(x=>new{x.Id,x.OwnerUserId,x.Revision,Status=x.EditorialStatus,x.QuestionTextAr,x.QuestionTextEn,x.ReviewNote,x.PublishedProblemId,x.SourceProblemId}).ToListAsync(ct);
@@ -166,15 +168,18 @@ public sealed partial class EditorialProblemsController:ControllerBase
     }
 
     [HttpGet("bank")]
-    public async Task<IActionResult> Bank([FromQuery]int page=1,[FromQuery]int? stageId=null,[FromQuery]int? categoryId=null,CancellationToken ct=default)
+    public async Task<IActionResult> Bank([FromQuery]int page=1,[FromQuery]int? stageId=null,[FromQuery]int? categoryId=null,[FromQuery]int? trackId=null,[FromQuery]string? search=null,CancellationToken ct=default)
     {
         if(await Actor(AccountRolePolicy.EditDrafts,false,ct) is null)return Forbid();
-        if(page is <1 or >10000)return BadRequest();
+        if(page is <1 or >10000||search?.Length>120)return BadRequest();
         var q=db.Problems.AsNoTracking().Where(p=>(stageId==null||p.StageId==stageId)&&(categoryId==null||p.CategoryId==categoryId));
+        if(trackId.HasValue)q=q.Where(p=>db.LearningTrackProblems.Any(t=>t.TrackId==trackId.Value&&t.ProblemId==p.Id));
+        if(!string.IsNullOrWhiteSpace(search)){var term=search.Trim();if(int.TryParse(term.TrimStart('#'),out var id))q=q.Where(p=>p.Id==id||p.TitleAr.Contains(term)||p.TitleEn.Contains(term));else q=q.Where(p=>p.TitleAr.ToLower().Contains(term.ToLower())||p.TitleEn.ToLower().Contains(term.ToLower())||p.QuestionTextAr.ToLower().Contains(term.ToLower())||p.QuestionTextEn.ToLower().Contains(term.ToLower()));}
         var items=await q.OrderBy(p=>p.StageId).ThenBy(p=>p.CategoryId).ThenBy(p=>p.Id).Skip((page-1)*30).Take(30)
             .Select(p=>new{p.Id,p.StageId,p.CategoryId,p.TitleAr,p.TitleEn,p.EditorialDetailsJson,
+                OpenDraftId=db.CurriculumDraftItems.Where(d=>d.WizardJson!=null&&d.SourceProblemId==p.Id&&d.EditorialStatus!="Published"&&d.EditorialStatus!="Withdrawn"&&(Admin||d.OwnerUserId==ActorId)).OrderByDescending(d=>d.Id).Select(d=>(long?)d.Id).FirstOrDefault(),
                 HasOpenReview=db.CurriculumDraftItems.Any(d=>d.SourceProblemId==p.Id&&d.EditorialStatus!="Published"&&d.EditorialStatus!="Withdrawn")}).ToListAsync(ct);
-        return Ok(new{Total=await q.CountAsync(ct),Items=items.Select(p=>new{p.Id,p.StageId,p.CategoryId,p.TitleAr,p.TitleEn,HasStructuredSolution=WizardProblemContract.HasStructuredSolution(p.EditorialDetailsJson),p.HasOpenReview})});
+        return Ok(new{Total=await q.CountAsync(ct),Items=items.Select(p=>new{p.Id,p.StageId,p.CategoryId,p.TitleAr,p.TitleEn,HasStructuredSolution=WizardProblemContract.HasStructuredSolution(p.EditorialDetailsJson),p.HasOpenReview,p.OpenDraftId})});
     }
     [HttpPost("amend/{problemId:int}")]
     public async Task<IActionResult> Amend(int problemId,CancellationToken ct)
