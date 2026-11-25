@@ -12,7 +12,7 @@ namespace MathWorldAPI.Controllers;
 [AllowAnonymous]
 [EnableRateLimiting("password-recovery")]
 [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
-public sealed class PasswordRecoveryController(PasswordRecoveryService recovery) : ControllerBase
+public sealed class PasswordRecoveryController(PasswordRecoveryService recovery, AuthCaptchaService captcha) : ControllerBase
 {
     public sealed record ForgotRequest([Required, StringLength(254)] string Email);
     public sealed record ResetRequest([Required, StringLength(64)] string Token,
@@ -22,6 +22,8 @@ public sealed class PasswordRecoveryController(PasswordRecoveryService recovery)
     public async Task<IActionResult> Forgot(ForgotRequest request, CancellationToken ct)
     {
         var language = LanguageHelper.GetLanguageFromRequest(Request);
+        if (!await captcha.VerifyAsync("forgot-password", Request.Headers[AuthCaptchaService.Header].ToString(), ct))
+            return BadRequest(LanguageHelper.ErrorResponse<object>("CaptchaVerificationFailed", language, 400, new Dictionary<string,List<string>> { ["Captcha"] = ["CaptchaVerificationFailed"] }));
         var start = System.Diagnostics.Stopwatch.StartNew();
         await recovery.RequestAsync(request.Email, language, ct);
         // Avoid an obvious synchronous delivery or lookup timing signal.
@@ -35,6 +37,8 @@ public sealed class PasswordRecoveryController(PasswordRecoveryService recovery)
     public async Task<IActionResult> Reset(ResetRequest request, CancellationToken ct)
     {
         var language = LanguageHelper.GetLanguageFromRequest(Request);
+        if (!await captcha.VerifyAsync("reset-password", Request.Headers[AuthCaptchaService.Header].ToString(), ct))
+            return BadRequest(LanguageHelper.ErrorResponse<object>("CaptchaVerificationFailed", language, 400, new Dictionary<string,List<string>> { ["Captcha"] = ["CaptchaVerificationFailed"] }));
         if (!AccountPasswordService.IsValidNewPassword(request.NewPassword) ||
             !string.Equals(request.NewPassword, request.ConfirmPassword, StringComparison.Ordinal))
             return BadRequest(LanguageHelper.ErrorResponse<object>("InvalidNewPassword", language));

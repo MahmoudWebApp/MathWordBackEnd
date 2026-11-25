@@ -24,6 +24,7 @@ namespace MathWorldAPI.Controllers
         private readonly ILogger<AuthController> _logger;
         private readonly PlatformActivityAuditWriter _audit;
         private readonly RegistrationWelcomeService _welcome;
+        private readonly AuthCaptchaService _captcha;
 
         /// <summary>
         /// Initializes a new instance of the AuthController.
@@ -39,13 +40,14 @@ namespace MathWorldAPI.Controllers
             AppDbContext db,
             ILogger<AuthController> logger,
             PlatformActivityAuditWriter audit,
-            RegistrationWelcomeService welcome)
+            RegistrationWelcomeService welcome, AuthCaptchaService captcha)
         {
             _authService = authService;
             _db = db;
             _logger = logger;
             _audit = audit;
             _welcome = welcome;
+            _captcha = captcha;
         }
 
         /// <summary>
@@ -74,6 +76,9 @@ namespace MathWorldAPI.Controllers
         {
             var language =
                 LanguageHelper.GetLanguageFromRequest(Request);
+
+            if (!await _captcha.VerifyAsync("register", Request.Headers[AuthCaptchaService.Header].FirstOrDefault() ?? dto.CaptchaToken, HttpContext.RequestAborted))
+                return BadRequest(LanguageHelper.ErrorResponse<AuthResponseDto>("CaptchaVerificationFailed", language));
 
             // New accounts can select their stage after registration.
             // If an older client supplies a stage, still validate it strictly.
@@ -143,6 +148,9 @@ namespace MathWorldAPI.Controllers
         {
             var language =
                 LanguageHelper.GetLanguageFromRequest(Request);
+
+            if (!await _captcha.VerifyAsync("login", Request.Headers[AuthCaptchaService.Header].FirstOrDefault() ?? dto.CaptchaToken, HttpContext.RequestAborted))
+                return BadRequest(LanguageHelper.ErrorResponse<AuthResponseDto>("CaptchaVerificationFailed", language));
 
             var (result, errorCode) =
                 await _authService.LoginAsync(dto);
