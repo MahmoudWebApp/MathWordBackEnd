@@ -103,5 +103,50 @@
     "key": "growth-v10-discrete-mathematics-graph-odd-degrees-parity-1",
     "draft": 1045,
     "problem": 1747
+  },
+  {
+    "key": "growth-v9-grade-3-swap-hundreds-tens-difference-1",
+    "draft": 1046,
+    "problem": 1748
+  },
+  {
+    "key": "growth-v9-grade-4-repair-one-addend-in-total-1",
+    "draft": 1047,
+    "problem": 1749
+  },
+  {
+    "key": "growth-v9-grade-5-minimum-budget-rounded-up-1",
+    "draft": 1048,
+    "problem": 1750
+  },
+  {
+    "key": "growth-v9-grade-6-shared-height-area-difference-1",
+    "draft": 1049,
+    "problem": 1751
+  },
+  {
+    "key": "growth-v9-grade-7-chain-ratios-common-middle-1",
+    "draft": 1050,
+    "problem": 1752
+  },
+  {
+    "key": "growth-v9-grade-8-pool-unequal-relative-frequencies-1",
+    "draft": 1051,
+    "problem": 1753
+  },
+  {
+    "key": "growth-v9-grade-9-unordered-two-color-without-replacement-1",
+    "draft": 1052,
+    "problem": 1754
+  },
+  {
+    "key": "growth-v9-grade-11-stationary-seed-for-recurrence-1",
+    "draft": 1053,
+    "problem": 1755
+  },
+  {
+    "key": "growth-v9-grade-12-telescoping-tail-from-shift-1",
+    "draft": 1054,
+    "problem": 1756
   }
 ]
