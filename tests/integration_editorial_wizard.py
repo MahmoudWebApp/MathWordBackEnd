@@ -307,7 +307,7 @@ def verify_held_wording(admin, package):
     if add_category:
         sql(f"""INSERT INTO "Categories" ("Id","StageId","NameAr","NameEn","Icon","Order","DescriptionAr","DescriptionEn") VALUES ({category},{stage},'اختبار صياغة','Wording fixture','test',100,'','')""")
     if add_skill:
-        domain=int(sql("""INSERT INTO "CurriculumDomains" ("StableKey","NameAr","NameEn","IsPublished") VALUES ('ci-held-wording','اختبار صياغة','Wording fixture',true) RETURNING "Id" """))
+        domain=int(sql("""INSERT INTO "CurriculumDomains" ("StableKey","NameAr","NameEn","IsPublished") VALUES ('ci-held-wording','اختبار صياغة','Wording fixture',true) RETURNING "Id" """).splitlines()[0])
         sql(f"""INSERT INTO "CurriculumSkills" ("Id","StableKey","DomainId","StageId","CategoryId","NameAr","NameEn","IsPublished") VALUES ({skill},{literal(row["PrimarySkillKey"])},{domain},{stage},{category},'اختبار صياغة','Wording fixture',true)""")
     else:
         assert sql(f"""SELECT "StableKey" FROM "CurriculumSkills" WHERE "Id"={skill} AND "CategoryId"={category} AND "StageId"={stage}""")==row["PrimarySkillKey"]
