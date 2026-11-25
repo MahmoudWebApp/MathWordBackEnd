@@ -109,6 +109,35 @@ recoveryConfig["MathWorldEmail:OutboxEnabled"]="true";
 Assert(recoveryService.CanIssue,"Configured live worker allows issuance.");
 Console.WriteLine("PASS: recovery issuance is fail-closed without worker; offline bypass restricted to test mode.");
 
+// Gmail sends only through its own explicit configuration, never falls back.
+var gmailConfig=new ConfigurationBuilder().AddInMemoryCollection(new Dictionary<string,string?>{
+    ["MathWorldEmail:Provider"]="Gmail",["MathWorldEmail:Gmail:Enabled"]="true",
+    ["MathWorldEmail:Gmail:ClientId"]="mock-id",["MathWorldEmail:Gmail:ClientSecret"]="mock-secret",
+    ["MathWorldEmail:Gmail:From"]="sender@example.test",["MathWorldEmail:Gmail:Mode"]="test",
+    ["MathWorldEmail:Gmail:TestRecipients"]="recipient@example.test",
+    ["MathWorldEmail:Brevo:Enabled"]="true",["MathWorldEmail:Brevo:ApiKey"]="must-not-fallback"
+}).Build();
+var gmailFactory=new GmailMockFactory();
+var gmailTransport=new BrevoEmailTransport(gmailConfig,gmailFactory);
+var gmailItem=new EmailOutboxItem{Id=Guid.NewGuid(),Recipient="recipient@example.test"};
+Assert(!gmailTransport.IsConfigured,"Missing Gmail refresh token must not fall back.");
+gmailConfig["MathWorldEmail:Gmail:RefreshToken"]="mock-refresh";
+Assert(gmailTransport.IsConfigured&&gmailTransport.AllowsRecipient(gmailItem.Recipient)&&!gmailTransport.AllowsRecipient("other@example.test"),"Gmail test recipient boundary.");
+Assert((await gmailTransport.SendAsync(gmailItem,mail,default)).State=="Accepted"&&gmailFactory.TokenCalls==1&&gmailFactory.SendCalls==1,"Gmail OAuth and MIME send.");
+Assert(gmailFactory.Mime.Contains("From: MathWorld <sender@example.test>")&&gmailFactory.Mime.Contains("To: recipient@example.test")&&gmailFactory.Mime.Contains("multipart/alternative")&&gmailFactory.Mime.Contains("=?UTF-8?B?"),"MIME headers and bilingual subject.");
+Assert(gmailFactory.Mime.Contains(Convert.ToBase64String(Encoding.UTF8.GetBytes(mail.Html),Base64FormattingOptions.InsertLineBreaks)),"HTML body preserved.");
+gmailFactory.TokenStatus=System.Net.HttpStatusCode.BadRequest;
+Assert((await gmailTransport.SendAsync(gmailItem,mail,default)).State=="Failed"&&gmailFactory.SendCalls==1,"Token rejection must not send.");
+gmailFactory.TokenStatus=System.Net.HttpStatusCode.OK;gmailFactory.SendStatus=System.Net.HttpStatusCode.TooManyRequests;
+Assert((await gmailTransport.SendAsync(gmailItem,mail,default)).State=="Retry","Explicit quota rejection uses bounded retry.");
+gmailFactory.SendStatus=System.Net.HttpStatusCode.InternalServerError;
+Assert((await gmailTransport.SendAsync(gmailItem,mail,default)).State=="Unknown","Ambiguous message failure cannot automatically retry.");
+gmailConfig["MathWorldEmail:Gmail:Mode"]="live";
+Assert(gmailTransport.AllowsRecipient("other@example.test"),"Explicit live mode allows different recipients.");
+gmailConfig["MathWorldEmail:Provider"]="unsupported";
+Assert(!gmailTransport.IsConfigured,"Unknown provider fails closed.");
+Console.WriteLine("PASS: Gmail send-only OAuth, explicit recipient policy, MIME and safe delivery outcomes.");
+
 // A different numeric substitution must trigger review as the same
 // template family, while stage and topic boundaries remain distinct.
 var familyOne = CurriculumContentQuality.FamilyKey(
@@ -543,5 +572,34 @@ internal sealed class RecordingTelemetryLogger : ILogger<RequestTelemetryMiddlew
     private sealed class TelemetryLogScope : IDisposable
     {
         public void Dispose() { }
+    }
+}
+
+internal sealed class GmailMockFactory : IHttpClientFactory
+{
+    public int TokenCalls,SendCalls;
+    public System.Net.HttpStatusCode TokenStatus=System.Net.HttpStatusCode.OK,SendStatus=System.Net.HttpStatusCode.OK;
+    public string Mime="";
+    public HttpClient CreateClient(string name)=>name=="GmailTransactional"?new(new Handler(this)):throw new InvalidOperationException("Unexpected provider");
+    private sealed class Handler(GmailMockFactory owner):HttpMessageHandler
+    {
+        protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request,CancellationToken ct)
+        {
+            var uri=request.RequestUri!.AbsoluteUri;
+            var payload=await request.Content!.ReadAsStringAsync(ct);
+            if(uri=="https://oauth2.googleapis.com/token")
+            {
+                owner.TokenCalls++;
+                if(!payload.Contains("grant_type=refresh_token")||!payload.Contains("refresh_token=mock-refresh"))throw new InvalidOperationException("Invalid token request");
+                return new(owner.TokenStatus){Content=new StringContent("""{"access_token":"mock-access"}""")};
+            }
+            if(uri!="https://gmail.googleapis.com/gmail/v1/users/me/messages/send"||request.Headers.Authorization?.Parameter!="mock-access")throw new InvalidOperationException("Unexpected Gmail endpoint or auth");
+            owner.SendCalls++;
+            using var json=JsonDocument.Parse(payload);
+            var raw=json.RootElement.GetProperty("raw").GetString()!.Replace('-','+').Replace('_','/');
+            raw=raw.PadRight((raw.Length+3)/4*4,'=');
+            owner.Mime=Encoding.UTF8.GetString(Convert.FromBase64String(raw));
+            return new(owner.SendStatus){Content=new StringContent("""{"id":"mock-message"}""")};
+        }
     }
 }
