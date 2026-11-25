@@ -1,0 +1,4179 @@
+{
+  "Status": "NotImportedNotPublished",
+  "ReviewDate": "2026-11-25",
+  "Scope": "37 remaining source-matched structured candidates; 12 conditional wording proposals separately held.",
+  "Items": [
+    {
+      "ProblemId": 792,
+      "ExpectedOptionIds": [
+        3157,
+        3158,
+        3159,
+        3160
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "العدد 2 أولي لأنه لا يقبل القسمة إلا على 1 ونفسه، لكنه زوجي. يكفي مثال واحد لنقض التعميم.",
+        "En": "The number 2 is prime and even, disproving the universal claim with a single counterexample."
+      },
+      "ProposedTrackCode": "discrete-mathematics",
+      "PrimarySkillKey": "u-discrete-math-proofs",
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 24,
+        "PrimarySkillId": 108,
+        "Points": 10,
+        "Title": {
+          "Ar": "نقض تعميم رياضي بمثال مضاد واحد",
+          "En": "Disprove a universal claim using a counterexample"
+        },
+        "Question": {
+          "Ar": "أي عدد يُعدّ مثالاً مضاداً للعبارة «كل عدد أولي فردي»؟",
+          "En": "Which number is a counterexample to the claim 'every prime number is odd'?"
+        },
+        "Options": [
+          {
+            "LatexCode": "1",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. العدد الزوجي لا يكون بالضرورة مركباً؛ 2 استثناء. 1 ليس أولياً و9 و15 مركبان؛ 2 هو المثال المطلوب.",
+              "En": "This choice does not match the derived result. An even number need not be composite; 2 is the exception. 1 is not prime and 9 and 15 are composite; 2 is the required counterexample."
+            }
+          },
+          {
+            "LatexCode": "2",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "9",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. العدد الزوجي لا يكون بالضرورة مركباً؛ 2 استثناء. 1 ليس أولياً و9 و15 مركبان؛ 2 هو المثال المطلوب.",
+              "En": "This choice does not match the derived result. An even number need not be composite; 2 is the exception. 1 is not prime and 9 and 15 are composite; 2 is the required counterexample."
+            }
+          },
+          {
+            "LatexCode": "15",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. العدد الزوجي لا يكون بالضرورة مركباً؛ 2 استثناء. 1 ليس أولياً و9 و15 مركبان؛ 2 هو المثال المطلوب.",
+              "En": "This choice does not match the derived result. An even number need not be composite; 2 is the exception. 1 is not prime and 9 and 15 are composite; 2 is the required counterexample."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "لنقض عبارة عامة يكفي إيجاد حالة واحدة مخالفة.",
+            "En": "A single counterexample disproves a universal statement."
+          },
+          {
+            "Ar": "ابحث عن عدد أولي لا يحقق شرط الفردية؛ تذكّر تعريف العدد الأولي.",
+            "En": "Look for a prime that is not odd; recall the definition of a prime."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "يكفي مثال مضاد واحد لنفي ادعاء كلي.",
+            "En": "One counterexample disproves a universal claim."
+          },
+          "FormulaLatex": "(\\exists p:\\operatorname{prime}(p)\\land 2\\mid p)\\Rightarrow\\neg(\\forall p:\\operatorname{prime}(p)\\Rightarrow\\operatorname{odd}(p))",
+          "Steps": [
+            {
+              "Ar": "قواسم 2 الموجبة هي 1 و2 فقط، فهو أولي.",
+              "En": "2 has only positive divisors 1 and 2, so it is prime."
+            },
+            {
+              "Ar": "2 زوجي لأنه يقبل القسمة على 2.",
+              "En": "2 is even because it is divisible by 2."
+            }
+          ],
+          "Result": {
+            "Ar": "$2$",
+            "En": "$2$"
+          },
+          "Verification": {
+            "Ar": "1 ليس أولياً و9 و15 مركبان؛ 2 هو المثال المطلوب.",
+            "En": "1 is not prime and 9 and 15 are composite; 2 is the required counterexample."
+          },
+          "CommonError": {
+            "Ar": "العدد الزوجي لا يكون بالضرورة مركباً؛ 2 استثناء.",
+            "En": "An even number need not be composite; 2 is the exception."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة محددة",
+            "En": "No specified unit"
+          },
+          "Substitution": {
+            "Ar": "2 زوجي لأنه يقبل القسمة على 2.",
+            "En": "2 is even because it is divisible by 2."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 793,
+      "ExpectedOptionIds": [
+        3161,
+        3162,
+        3163,
+        3164
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "العلاقة انعكاسية لأن a≤a، ومتعدية لأن a≤b وb≤c ينتج عنهما a≤c. لكنها ليست تماثلية عموماً؛ فالعدد 2 ليس ≤1 رغم 1≤2. المجموع 2.",
+        "En": "The relation is reflexive and transitive. It is not symmetric because 1≤2 but 2≤1 is false; exactly 2 properties hold."
+      },
+      "ProposedTrackCode": "discrete-mathematics",
+      "PrimarySkillKey": "u-discrete-math-relations",
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 24,
+        "PrimarySkillId": 107,
+        "Points": 10,
+        "Title": {
+          "Ar": "تحليل خصائص علاقة الترتيب غير الصارمة",
+          "En": "Identify relation properties of non-strict order"
+        },
+        "Question": {
+          "Ar": "في مجموعة الأعداد الحقيقية، علاقة aRb إذا وفقط إذا a≤b. كم خاصية من الانعكاس والتماثل والتعدي تحققها؟",
+          "En": "On real numbers, define aRb iff a≤b. How many of reflexivity, symmetry and transitivity does it satisfy?"
+        },
+        "Options": [
+          {
+            "LatexCode": "0",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. التناظر غير ضدّ التناظر؛ لا تحسبهما الخاصية نفسها. اثنتان من ثلاث خصائص، وليست علاقة تكافؤ.",
+              "En": "This choice does not match the derived result. Symmetry and antisymmetry are not the same property. Two of the three properties hold; this is not an equivalence relation."
+            }
+          },
+          {
+            "LatexCode": "1",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. التناظر غير ضدّ التناظر؛ لا تحسبهما الخاصية نفسها. اثنتان من ثلاث خصائص، وليست علاقة تكافؤ.",
+              "En": "This choice does not match the derived result. Symmetry and antisymmetry are not the same property. Two of the three properties hold; this is not an equivalence relation."
+            }
+          },
+          {
+            "LatexCode": "2",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "3",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. التناظر غير ضدّ التناظر؛ لا تحسبهما الخاصية نفسها. اثنتان من ثلاث خصائص، وليست علاقة تكافؤ.",
+              "En": "This choice does not match the derived result. Symmetry and antisymmetry are not the same property. Two of the three properties hold; this is not an equivalence relation."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "اختبر الانعكاس والتناظر والتعدي كلّاً على حدة.",
+            "En": "Test reflexivity, symmetry, and transitivity separately."
+          },
+          {
+            "Ar": "افحص a≤a، ثم جرّب عكس علاقة بين عددين مختلفين، ثم سلسلتين من عدم المساواة.",
+            "En": "Check a≤a, reverse an inequality between distinct numbers, then chain two inequalities."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نفحص الانعكاسية والتناظر والتعدي كلّاً على حدة.",
+            "En": "Check reflexivity, symmetry and transitivity separately."
+          },
+          "FormulaLatex": "a\\le a,\\quad(a\\le b\\land b\\le c)\\Rightarrow a\\le c",
+          "Steps": [
+            {
+              "Ar": "كل عدد أصغر من أو يساوي نفسه، فالانعكاسية صحيحة.",
+              "En": "Every number is at most itself, so reflexivity holds."
+            },
+            {
+              "Ar": "1≤2 ولكن 2≤1 خطأ، فالتناظر لا يتحقق.",
+              "En": "1≤2 but not 2≤1, so symmetry fails."
+            },
+            {
+              "Ar": "من a≤b وb≤c ينتج a≤c، فالتعدي صحيح.",
+              "En": "From a≤b and b≤c follows a≤c, so transitivity holds."
+            }
+          ],
+          "Result": {
+            "Ar": "$2$",
+            "En": "$2$"
+          },
+          "Verification": {
+            "Ar": "اثنتان من ثلاث خصائص، وليست علاقة تكافؤ.",
+            "En": "Two of the three properties hold; this is not an equivalence relation."
+          },
+          "CommonError": {
+            "Ar": "التناظر غير ضدّ التناظر؛ لا تحسبهما الخاصية نفسها.",
+            "En": "Symmetry and antisymmetry are not the same property."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة محددة",
+            "En": "No specified unit"
+          },
+          "Substitution": {
+            "Ar": "من a≤b وb≤c ينتج a≤c، فالتعدي صحيح.",
+            "En": "From a≤b and b≤c follows a≤c, so transitivity holds."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 794,
+      "ExpectedOptionIds": [
+        3165,
+        3166,
+        3167,
+        3168
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "العنصران 1 و2 متكافئان، بينما 3 متكافئ مع نفسه فقط؛ الأصناف {1,2} و{3}، أي صنفان.",
+        "En": "Elements 1 and 2 are equivalent, while 3 is related only to itself. The classes are {1,2} and {3}, so there are 2."
+      },
+      "ProposedTrackCode": "discrete-mathematics",
+      "PrimarySkillKey": "u-discrete-math-relations",
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 24,
+        "PrimarySkillId": 107,
+        "Points": 10,
+        "Title": {
+          "Ar": "تحديد أصناف التكافؤ من علاقة معرفة بالأزواج",
+          "En": "Count equivalence classes from a finite relation"
+        },
+        "Question": {
+          "Ar": "على المجموعة {1,2,3} عرّف R بالأزواج (1,1)، (2,2)، (3,3)، (1,2)، (2,1). كم صنف تكافؤ؟",
+          "En": "On {1,2,3}, let R contain (1,1),(2,2),(3,3),(1,2),(2,1). How many equivalence classes are there?"
+        },
+        "Options": [
+          {
+            "LatexCode": "1",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تعد [1] و[2] فئتين لأنهما متساويتان. الفئتان منفصلتان واتحادهما المجموعة الأصلية كلها.",
+              "En": "This choice does not match the derived result. Do not count [1] and [2] separately; they are equal. The two classes are disjoint and cover the original set."
+            }
+          },
+          {
+            "LatexCode": "2",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "3",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تعد [1] و[2] فئتين لأنهما متساويتان. الفئتان منفصلتان واتحادهما المجموعة الأصلية كلها.",
+              "En": "This choice does not match the derived result. Do not count [1] and [2] separately; they are equal. The two classes are disjoint and cover the original set."
+            }
+          },
+          {
+            "LatexCode": "5",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تعد [1] و[2] فئتين لأنهما متساويتان. الفئتان منفصلتان واتحادهما المجموعة الأصلية كلها.",
+              "En": "This choice does not match the derived result. Do not count [1] and [2] separately; they are equal. The two classes are disjoint and cover the original set."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "فئة التكافؤ تجمع العناصر المرتبطة بالعنصر نفسه.",
+            "En": "An equivalence class groups elements related to one another."
+          },
+          {
+            "Ar": "افحص الزوجين (1,2) و(2,1)، ثم انظر إلى ارتباطات العنصر الثالث.",
+            "En": "Inspect (1,2) and (2,1), then examine the third element's relationships."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "فئات التكافؤ تقسّم المجموعة إلى أجزاء متباينة.",
+            "En": "Equivalence classes partition the set into disjoint subsets."
+          },
+          "FormulaLatex": "[a]=\\{b:aRb\\}",
+          "Steps": [
+            {
+              "Ar": "$[1]=[2]=\\{1,2\\}$",
+              "En": "$[1]=[2]=\\{1,2\\}$"
+            },
+            {
+              "Ar": "$[3]=\\{3\\}$",
+              "En": "$[3]=\\{3\\}$"
+            }
+          ],
+          "Result": {
+            "Ar": "$2$",
+            "En": "$2$"
+          },
+          "Verification": {
+            "Ar": "الفئتان منفصلتان واتحادهما المجموعة الأصلية كلها.",
+            "En": "The two classes are disjoint and cover the original set."
+          },
+          "CommonError": {
+            "Ar": "لا تعد [1] و[2] فئتين لأنهما متساويتان.",
+            "En": "Do not count [1] and [2] separately; they are equal."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة محددة",
+            "En": "No specified unit"
+          },
+          "Substitution": {
+            "Ar": "$[3]=\\{3\\}$",
+            "En": "$[3]=\\{3\\}$"
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 795,
+      "ExpectedOptionIds": [
+        3169,
+        3170,
+        3171,
+        3172
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "قانون تعدّي العلاقة: إذا كان 1R2 وكان 2R3، فلا بد أن يكون 1R3. العلاقة المعطاة تحتوي الزوجين المرتبين (1،2) و(2،3)، لذلك يلزم إضافة الزوج (1،3). هذا تطبيق للتعدي، وليس لمفهوم التناظر.",
+        "En": "Transitivity rule: If 1R2 and 2R3, then 1R3 must hold. As ordered pairs (1,2) and (2,3) are present, pair (1,3) is required to satisfy transitivity. This does not follow from symmetry."
+      },
+      "ProposedTrackCode": "discrete-mathematics",
+      "PrimarySkillKey": "u-discrete-math-relations",
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 24,
+        "PrimarySkillId": 107,
+        "Points": 10,
+        "Title": {
+          "Ar": "استنتاج الزوج اللازم لضمان التعدي",
+          "En": "Find a missing pair required for transitivity"
+        },
+        "Question": {
+          "Ar": "علاقة على {1,2,3} تحتوي الزوجين (1,2) و(2,3) فقط. أي زوج يجب إضافته لتصبح متعدية؟",
+          "En": "A relation on {1,2,3} contains exactly (1,2) and (2,3). Which extra pair is needed for transitivity?"
+        },
+        "Options": [
+          {
+            "LatexCode": "(1,1)",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. الزوج المعكوس يتعلق بالتناظر لا التعدي. إضافة الزوج (1,3) تغلق السلسلة الوحيدة في العلاقة المحددة.",
+              "En": "This choice does not match the derived result. The reverse pair concerns symmetry, not transitivity. Adding (1,3) closes the only two-link chain in this relation."
+            }
+          },
+          {
+            "LatexCode": "(1,3)",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "(2,1)",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. الزوج المعكوس يتعلق بالتناظر لا التعدي. إضافة الزوج (1,3) تغلق السلسلة الوحيدة في العلاقة المحددة.",
+              "En": "This choice does not match the derived result. The reverse pair concerns symmetry, not transitivity. Adding (1,3) closes the only two-link chain in this relation."
+            }
+          },
+          {
+            "LatexCode": "(3,2)",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. الزوج المعكوس يتعلق بالتناظر لا التعدي. إضافة الزوج (1,3) تغلق السلسلة الوحيدة في العلاقة المحددة.",
+              "En": "This choice does not match the derived result. The reverse pair concerns symmetry, not transitivity. Adding (1,3) closes the only two-link chain in this relation."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "التعدي يربط بداية سلسلة من علاقتين بنهايتها.",
+            "En": "Transitivity connects the start of a two-link chain to its end."
+          },
+          {
+            "Ar": "من (1,2) و(2,3) حدّد الزوج الذي يجب أن ينتمي إلى العلاقة.",
+            "En": "From (1,2) and (2,3), identify the required ordered pair."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "التعدي يتطلب إغلاق السلسلة ذات الرابطين.",
+            "En": "Transitivity requires closing a two-link chain."
+          },
+          "FormulaLatex": "(aRb\\land bRc)\\Rightarrow aRc",
+          "Steps": [
+            {
+              "Ar": "$1R2,\\quad2R3$",
+              "En": "$1R2,\\quad2R3$"
+            },
+            {
+              "Ar": "$1R3$",
+              "En": "$1R3$"
+            }
+          ],
+          "Result": {
+            "Ar": "$(1,3)$",
+            "En": "$(1,3)$"
+          },
+          "Verification": {
+            "Ar": "إضافة الزوج (1,3) تغلق السلسلة الوحيدة في العلاقة المحددة.",
+            "En": "Adding (1,3) closes the only two-link chain in this relation."
+          },
+          "CommonError": {
+            "Ar": "الزوج المعكوس يتعلق بالتناظر لا التعدي.",
+            "En": "The reverse pair concerns symmetry, not transitivity."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة محددة",
+            "En": "No specified unit"
+          },
+          "Substitution": {
+            "Ar": "$1R3$",
+            "En": "$1R3$"
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 796,
+      "ExpectedOptionIds": [
+        3173,
+        3174,
+        3175,
+        3176
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القسمة انعكاسية ومتعدية ومضادة للتماثل على الموجبات، فهي ترتيب جزئي. ليست ترتيباً كلياً لأن 2 لا يقسم 3 ولا 3 يقسم 2.",
+        "En": "Divisibility is reflexive, transitive and antisymmetric on positive integers, so it is a partial order. It is not total because 2 and 3 are incomparable."
+      },
+      "ProposedTrackCode": "discrete-mathematics",
+      "PrimarySkillKey": "u-discrete-math-relations",
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 24,
+        "PrimarySkillId": 107,
+        "Points": 10,
+        "Title": {
+          "Ar": "تصنيف علاقة القسمة كترتيب جزئي غير كلي",
+          "En": "Classify divisibility as a partial but not total order"
+        },
+        "Question": {
+          "Ar": "عرّف على الأعداد الصحيحة الموجبة aRb عندما يقسم a العدد b. ما تصنيف العلاقة؟",
+          "En": "On positive integers, define aRb iff a divides b. Which classification is correct?"
+        },
+        "Options": [
+          {
+            "LatexCode": "\\text{علاقة تكافؤ (Equivalence)}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. ليس كل ترتيب جزئي ترتيباً كلياً. العدد 1 يقسم 2 لكن العكس لا يصح؛ العلاقة ليست متناظرة ولا تكافؤاً.",
+              "En": "This choice does not match the derived result. Not every partial order is total. 1 divides 2 but not vice versa; the relation is not symmetric or an equivalence."
+            }
+          },
+          {
+            "LatexCode": "\\text{ترتيب كلي (Total order)}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. ليس كل ترتيب جزئي ترتيباً كلياً. العدد 1 يقسم 2 لكن العكس لا يصح؛ العلاقة ليست متناظرة ولا تكافؤاً.",
+              "En": "This choice does not match the derived result. Not every partial order is total. 1 divides 2 but not vice versa; the relation is not symmetric or an equivalence."
+            }
+          },
+          {
+            "LatexCode": "\\text{ترتيب جزئي غير كلي (Partial, not total)}",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "\\text{ليست ترتيباً جزئياً ولا تكافؤاً (Neither)}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. ليس كل ترتيب جزئي ترتيباً كلياً. العدد 1 يقسم 2 لكن العكس لا يصح؛ العلاقة ليست متناظرة ولا تكافؤاً.",
+              "En": "This choice does not match the derived result. Not every partial order is total. 1 divides 2 but not vice versa; the relation is not symmetric or an equivalence."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "افحص الانعكاس والتعدي والتضاد في التناظر لعلاقة القسمة.",
+            "En": "Check reflexivity, transitivity, and antisymmetry for divisibility."
+          },
+          {
+            "Ar": "لتحديد إن كان الترتيب كلياً، جرّب عددين موجبين لا يقسم أحدهما الآخر.",
+            "En": "To test totality, try two positive integers neither of which divides the other."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "القسمة على الأعداد الصحيحة الموجبة علاقة ترتيب جزئي إذا تحققت الانعكاسية وضد التناظر والتعدي.",
+            "En": "Divisibility on positive integers is a partial order when reflexive, antisymmetric and transitive."
+          },
+          "FormulaLatex": "a\\mid a,\\quad(a\\mid b\\land b\\mid a)\\Rightarrow a=b",
+          "Steps": [
+            {
+              "Ar": "a يقسم نفسه، وإذا قسم a وb كل منهما الآخر فهما متساويان لأنهما موجبان.",
+              "En": "a divides itself; mutual divisibility of positive integers implies equality."
+            },
+            {
+              "Ar": "إذا a يقسم b وb يقسم c فـa يقسم c.",
+              "En": "If a divides b and b divides c, a divides c."
+            },
+            {
+              "Ar": "2 لا يقسم 3 و3 لا يقسم 2.",
+              "En": "Neither 2 nor 3 divides the other."
+            }
+          ],
+          "Result": {
+            "Ar": "ترتيب جزئي غير كلي",
+            "En": "Partial order, not total"
+          },
+          "Verification": {
+            "Ar": "العدد 1 يقسم 2 لكن العكس لا يصح؛ العلاقة ليست متناظرة ولا تكافؤاً.",
+            "En": "1 divides 2 but not vice versa; the relation is not symmetric or an equivalence."
+          },
+          "CommonError": {
+            "Ar": "ليس كل ترتيب جزئي ترتيباً كلياً.",
+            "En": "Not every partial order is total."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة محددة",
+            "En": "No specified unit"
+          },
+          "Substitution": {
+            "Ar": "2 لا يقسم 3 و3 لا يقسم 2.",
+            "En": "Neither 2 nor 3 divides the other."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 797,
+      "ExpectedOptionIds": [
+        3177,
+        3178,
+        3179,
+        3180
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "شرط الاستمرارية عند نقطة الفصل x = 2: النهاية اليسرى تساوي النهاية اليمنى وقيمة الدالة f(2). من الفرع الأيسر lim(x→2⁻)(kx+1) = 2k + 1. ومن الفرع الأيمن f(2) = 2² = 4. لذلك 2k + 1 = 4، ومنها 2k = 3 وk = 3/2. التحقق: 2 × (3/2) + 1 = 4.",
+        "En": "Continuity at x = 2 requires the left-hand limit, right-hand limit, and f(2) to agree. From the first branch the left limit is 2k + 1. From the second branch f(2) = 2² = 4. Set 2k + 1 = 4, giving 2k = 3 and k = 3/2. Check: 2(3/2) + 1 = 4."
+      },
+      "ProposedTrackCode": "calculus",
+      "PrimarySkillKey": "university-differentiability-continuity",
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 16,
+        "PrimarySkillId": 71,
+        "Points": 10,
+        "Title": {
+          "Ar": "ضبط وسيط في دالة مجزأة لضمان الاتصال",
+          "En": "Choose a piecewise function parameter for continuity"
+        },
+        "Question": {
+          "Ar": "لتكن f(x)=kx+1 إذا x<2، وf(x)=x² إذا x≥2. ما قيمة k التي تجعل f متصلة عند x=2؟",
+          "En": "Let f(x)=kx+1 for x<2, and f(x)=x² for x≥2. Which k makes f continuous at x=2?"
+        },
+        "Options": [
+          {
+            "LatexCode": "\\frac12",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تساو المشتقتين؛ المطلوب الاتصال فقط. $2\\cdot\\frac32+1=4$",
+              "En": "This choice does not match the derived result. Do not equate derivatives; only continuity is required. $2\\cdot\\frac32+1=4$"
+            }
+          },
+          {
+            "LatexCode": "1",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تساو المشتقتين؛ المطلوب الاتصال فقط. $2\\cdot\\frac32+1=4$",
+              "En": "This choice does not match the derived result. Do not equate derivatives; only continuity is required. $2\\cdot\\frac32+1=4$"
+            }
+          },
+          {
+            "LatexCode": "\\frac32",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "2",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تساو المشتقتين؛ المطلوب الاتصال فقط. $2\\cdot\\frac32+1=4$",
+              "En": "This choice does not match the derived result. Do not equate derivatives; only continuity is required. $2\\cdot\\frac32+1=4$"
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "الاتصال عند نقطة الوصل يتطلب تساوي النهاية اليسرى وقيمة الدالة.",
+            "En": "Continuity at the joining point requires the left limit to match the function value."
+          },
+          {
+            "Ar": "عوّض x=2 في التعبيرين وساوِ الناتجين لتجد k.",
+            "En": "Substitute x=2 into both expressions, equate them and solve for k."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "الاتصال عند نقطة الفصل يتطلب تساوي النهاية من الجهتين وقيمة الدالة.",
+            "En": "Continuity at the join requires both limits and the function value to agree."
+          },
+          "FormulaLatex": "\\lim_{x\\to2^-}f(x)=f(2)=\\lim_{x\\to2^+}f(x)",
+          "Steps": [
+            {
+              "Ar": "$2k+1=2^2=4$",
+              "En": "$2k+1=2^2=4$"
+            },
+            {
+              "Ar": "$2k=3$",
+              "En": "$2k=3$"
+            }
+          ],
+          "Result": {
+            "Ar": "$\\frac32$",
+            "En": "$\\frac32$"
+          },
+          "Verification": {
+            "Ar": "$2\\cdot\\frac32+1=4$",
+            "En": "$2\\cdot\\frac32+1=4$"
+          },
+          "CommonError": {
+            "Ar": "لا تساو المشتقتين؛ المطلوب الاتصال فقط.",
+            "En": "Do not equate derivatives; only continuity is required."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة محددة",
+            "En": "No specified unit"
+          },
+          "Substitution": {
+            "Ar": "$2k=3$",
+            "En": "$2k=3$"
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 798,
+      "ExpectedOptionIds": [
+        3181,
+        3182,
+        3183,
+        3184
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "حسب تعريف المشتقة f'(0)=lim[h→0](h|h|−0)/h=lim[h→0]|h|=0. فهي قابلة للاشتقاق عند الصفر رغم وجود قيمة مطلقة.",
+        "En": "From the derivative definition, f'(0)=lim(h|h|)/h=lim |h|=0, so the function is differentiable at zero."
+      },
+      "ProposedTrackCode": "calculus",
+      "PrimarySkillKey": "university-differentiability-continuity",
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 16,
+        "PrimarySkillId": 71,
+        "Points": 10,
+        "Title": {
+          "Ar": "تحديد قابلية الاشتقاق عند نقطة لدالة تتضمن قيمة مطلقة",
+          "En": "Differentiate x times absolute x at the origin"
+        },
+        "Question": {
+          "Ar": "ما قيمة مشتقة f(x)=x|x| عند x=0؟",
+          "En": "What is f'(0) when f(x)=x|x|?"
+        },
+        "Options": [
+          {
+            "LatexCode": "-1",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. عدم قابلية |x| للاشتقاق عند صفر لا يعني أن x|x| غير قابل للاشتقاق. من اليمين f=x² ومن اليسار f=−x²، والمشتقتان الجانبيتان عند صفر تساويان صفر.",
+              "En": "This choice does not match the derived result. Nondifferentiability of |x| at zero does not imply the same for x|x|. On the right f=x² and on the left f=−x²; both one-sided derivatives at zero are zero."
+            }
+          },
+          {
+            "LatexCode": "0",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "1",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. عدم قابلية |x| للاشتقاق عند صفر لا يعني أن x|x| غير قابل للاشتقاق. من اليمين f=x² ومن اليسار f=−x²، والمشتقتان الجانبيتان عند صفر تساويان صفر.",
+              "En": "This choice does not match the derived result. Nondifferentiability of |x| at zero does not imply the same for x|x|. On the right f=x² and on the left f=−x²; both one-sided derivatives at zero are zero."
+            }
+          },
+          {
+            "LatexCode": "\\text{غير موجودة (Does not exist)}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. عدم قابلية |x| للاشتقاق عند صفر لا يعني أن x|x| غير قابل للاشتقاق. من اليمين f=x² ومن اليسار f=−x²، والمشتقتان الجانبيتان عند صفر تساويان صفر.",
+              "En": "This choice does not match the derived result. Nondifferentiability of |x| at zero does not imply the same for x|x|. On the right f=x² and on the left f=−x²; both one-sided derivatives at zero are zero."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "ابدأ بتعريف المشتقة عند الصفر بدلاً من الاشتقاق على أجزاء.",
+            "En": "Start with the derivative definition at zero rather than differentiating piecewise."
+          },
+          {
+            "Ar": "بسّط خارج الفرق h|h|/h عندما h غير صفر، ثم احسب نهايته.",
+            "En": "Simplify h|h|/h for nonzero h, then take its limit."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نستخدم تعريف المشتقة عند الصفر لأن القيمة المطلقة تتغير صيغتها.",
+            "En": "Use the derivative definition at zero because the absolute value changes branch."
+          },
+          "FormulaLatex": "f'(0)=\\lim_{h\\to0}\\frac{f(h)-f(0)}h",
+          "Steps": [
+            {
+              "Ar": "$f(0)=0$",
+              "En": "$f(0)=0$"
+            },
+            {
+              "Ar": "$\\frac{h|h|}{h}=|h|\\quad(h\\ne0)$",
+              "En": "$\\frac{h|h|}{h}=|h|\\quad(h\\ne0)$"
+            },
+            {
+              "Ar": "$\\lim_{h\\to0}|h|=0$",
+              "En": "$\\lim_{h\\to0}|h|=0$"
+            }
+          ],
+          "Result": {
+            "Ar": "$0$",
+            "En": "$0$"
+          },
+          "Verification": {
+            "Ar": "من اليمين f=x² ومن اليسار f=−x²، والمشتقتان الجانبيتان عند صفر تساويان صفر.",
+            "En": "On the right f=x² and on the left f=−x²; both one-sided derivatives at zero are zero."
+          },
+          "CommonError": {
+            "Ar": "عدم قابلية |x| للاشتقاق عند صفر لا يعني أن x|x| غير قابل للاشتقاق.",
+            "En": "Nondifferentiability of |x| at zero does not imply the same for x|x|."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة محددة",
+            "En": "No specified unit"
+          },
+          "Substitution": {
+            "Ar": "$\\lim_{h\\to0}|h|=0$",
+            "En": "$\\lim_{h\\to0}|h|=0$"
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 799,
+      "ExpectedOptionIds": [
+        3185,
+        3186,
+        3187,
+        3188
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "للاتصال يجب أن a=1²+1=2. وعندها المشتقة اليسرى a=2 واليمنى 2x عند x=1 تساوي 2؛ الشرطان متحققان.",
+        "En": "Continuity requires a=1²+1=2. Then the left derivative is a=2 and the right derivative is 2x=2 at x=1, so differentiability follows."
+      },
+      "ProposedTrackCode": "calculus",
+      "PrimarySkillKey": "university-differentiability-continuity",
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 16,
+        "PrimarySkillId": 71,
+        "Points": 10,
+        "Title": {
+          "Ar": "ضبط معامل ليكون اتصال الدالة ومشتقاتها متوافقاً",
+          "En": "Choose a piecewise coefficient satisfying value and slope matching"
+        },
+        "Question": {
+          "Ar": "لتكن f(x)=ax إذا x≤1، وf(x)=x²+1 إذا x>1. ما قيمة a التي تجعل f قابلة للاشتقاق عند x=1؟",
+          "En": "Let f(x)=ax for x≤1 and f(x)=x²+1 for x>1. Which a makes f differentiable at x=1?"
+        },
+        "Options": [
+          {
+            "LatexCode": "0",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. تساوي الميل وحده لا يكفي دون الاتصال. القيمة من الجهتين 2 والميل من الجهتين 2؛ الشرطان متحققان.",
+              "En": "This choice does not match the derived result. Matching slopes alone is insufficient without continuity. Both values and both slopes equal 2, satisfying both requirements."
+            }
+          },
+          {
+            "LatexCode": "1",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. تساوي الميل وحده لا يكفي دون الاتصال. القيمة من الجهتين 2 والميل من الجهتين 2؛ الشرطان متحققان.",
+              "En": "This choice does not match the derived result. Matching slopes alone is insufficient without continuity. Both values and both slopes equal 2, satisfying both requirements."
+            }
+          },
+          {
+            "LatexCode": "2",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "4",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. تساوي الميل وحده لا يكفي دون الاتصال. القيمة من الجهتين 2 والميل من الجهتين 2؛ الشرطان متحققان.",
+              "En": "This choice does not match the derived result. Matching slopes alone is insufficient without continuity. Both values and both slopes equal 2, satisfying both requirements."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "قابلية الاشتقاق عند نقطة الوصل تتطلب الاتصال أولاً.",
+            "En": "Differentiability at a joining point first requires continuity."
+          },
+          {
+            "Ar": "ساوِ قيمتي الفرعين عند 1 ثم افحص تساوي المشتقتين الجانبيتين.",
+            "En": "Match the branch values at 1, then check equality of one-sided derivatives."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "الاشتقاق عند نقطة الفصل يتطلب الاتصال وتساوي المشتقتين الجانبيتين.",
+            "En": "Differentiability at a join requires continuity and matching one-sided derivatives."
+          },
+          "FormulaLatex": "f(1)=\\lim_{x\\to1^+}f(x),\\quad f'_-(1)=f'_+(1)",
+          "Steps": [
+            {
+              "Ar": "$a=1^2+1=2$",
+              "En": "$a=1^2+1=2$"
+            },
+            {
+              "Ar": "$f'_-(1)=a=2,\\ f'_+(1)=2\\cdot1=2$",
+              "En": "$f'_-(1)=a=2,\\ f'_+(1)=2\\cdot1=2$"
+            }
+          ],
+          "Result": {
+            "Ar": "$2$",
+            "En": "$2$"
+          },
+          "Verification": {
+            "Ar": "القيمة من الجهتين 2 والميل من الجهتين 2؛ الشرطان متحققان.",
+            "En": "Both values and both slopes equal 2, satisfying both requirements."
+          },
+          "CommonError": {
+            "Ar": "تساوي الميل وحده لا يكفي دون الاتصال.",
+            "En": "Matching slopes alone is insufficient without continuity."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة محددة",
+            "En": "No specified unit"
+          },
+          "Substitution": {
+            "Ar": "$f'_-(1)=a=2,\\ f'_+(1)=2\\cdot1=2$",
+            "En": "$f'_-(1)=a=2,\\ f'_+(1)=2\\cdot1=2$"
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 818,
+      "ExpectedOptionIds": [
+        3261,
+        3262,
+        3263,
+        3264
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "المبدأ المستخدم: عند جمع كسور ذات مقام واحد نجمع البسطين ونبقي المقام نفسه. الشريط الأول كامل، أي 8/8، ومن الثاني 3/8؛ لذلك المجموع = 8/8 + 3/8 = 11/8، أي أحد عشر ثُمناً، وهو أكبر من شريط واحد كامل.",
+        "En": "Rule used: Add like fractions by adding numerators while keeping the denominator. One full bar is 8/8; three segments of the next bar are 3/8. Hence 8/8 + 3/8 = 11/8, or eleven eighths."
+      },
+      "ProposedTrackCode": "grade-5",
+      "PrimarySkillKey": "p-fractions-decimals-fraction-models",
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 21,
+        "PrimarySkillId": 97,
+        "Points": 10,
+        "Title": {
+          "Ar": "تحويل نموذج أجزاء متساوية إلى كسر غير فعلي",
+          "En": "Represent whole units and additional equal parts as an improper fraction"
+        },
+        "Question": {
+          "Ar": "لدينا شريطان متساويان، كل شريط مقسّم إلى 8 أجزاء متساوية. لُوّن الشريط الأول كله و3 أجزاء من الثاني. ما الكسر غير الفعلي الذي يمثّل مجموع الأجزاء الملوّنة؟",
+          "En": "Two identical bars each contain 8 equal segments. All of the first bar and 3 segments of the second are colored. Which improper fraction represents the total colored amount?"
+        },
+        "Options": [
+          {
+            "LatexCode": "\\frac{3}{8}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تجمع المقامين ولا تحسب الأجزاء الملونة في الشريط الثاني وحده. $\\frac{11}8=1+\\frac38$",
+              "En": "This choice does not match the derived result. Do not add denominators or count only the second bar. $\\frac{11}8=1+\\frac38$"
+            }
+          },
+          {
+            "LatexCode": "\\frac{11}{8}",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "\\frac{8}{11}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تجمع المقامين ولا تحسب الأجزاء الملونة في الشريط الثاني وحده. $\\frac{11}8=1+\\frac38$",
+              "En": "This choice does not match the derived result. Do not add denominators or count only the second bar. $\\frac{11}8=1+\\frac38$"
+            }
+          },
+          {
+            "LatexCode": "\\frac{5}{8}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تجمع المقامين ولا تحسب الأجزاء الملونة في الشريط الثاني وحده. $\\frac{11}8=1+\\frac38$",
+              "En": "This choice does not match the derived result. Do not add denominators or count only the second bar. $\\frac{11}8=1+\\frac38$"
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "اعتبر طول شريط واحد وحدة كاملة وحدد قيمة الجزء الواحد منها.",
+            "En": "Treat one full bar as a unit and identify the fraction represented by one segment."
+          },
+          {
+            "Ar": "عبّر عن كل الأجزاء الملوّنة بأثمان، ثم اجمع البسطين مع إبقاء المقام.",
+            "En": "Express the colored parts in eighths, then add the numerators while keeping the denominator."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "عند جمع كسرين لهما المقام نفسه نجمع البسطين، ووحدة القياس شريط كامل.",
+            "En": "For like fractions, add numerators; one whole bar is the unit."
+          },
+          "FormulaLatex": "\\frac a n+\\frac b n=\\frac{a+b}{n}",
+          "Steps": [
+            {
+              "Ar": "$1=\\frac88$",
+              "En": "$1=\\frac88$"
+            },
+            {
+              "Ar": "$\\frac88+\\frac38=\\frac{11}8$",
+              "En": "$\\frac88+\\frac38=\\frac{11}8$"
+            }
+          ],
+          "Result": {
+            "Ar": "$\\frac{11}8$",
+            "En": "$\\frac{11}8$"
+          },
+          "Verification": {
+            "Ar": "$\\frac{11}8=1+\\frac38$",
+            "En": "$\\frac{11}8=1+\\frac38$"
+          },
+          "CommonError": {
+            "Ar": "لا تجمع المقامين ولا تحسب الأجزاء الملونة في الشريط الثاني وحده.",
+            "En": "Do not add denominators or count only the second bar."
+          },
+          "Unit": {
+            "Ar": "شريط كامل كوحدة قياس",
+            "En": "Whole-bar units"
+          },
+          "Substitution": {
+            "Ar": "$\\frac88+\\frac38=\\frac{11}8$",
+            "En": "$\\frac88+\\frac38=\\frac{11}8$"
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 831,
+      "ExpectedOptionIds": [
+        3313,
+        3314,
+        3315,
+        3316
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "قانون الرسم الثنائي الكامل Kₘ,ₙ: كل رأس في المجموعة الأولى يتصل بجميع رؤوس الثانية؛ لذلك عدد الحواف = m × n. في K₂,₃ مجموعتا الرؤوس تحويان 2 و3، فنحسب 2 × 3 = 6 حواف متمايزة.",
+        "En": "Complete bipartite graph rule: K_(m,n) connects every vertex in one group to all vertices in the other, giving m×n edges. For K_(2,3), the groups contain 2 and 3 vertices, so 2×3=6 distinct edges."
+      },
+      "ProposedTrackCode": "discrete-mathematics",
+      "PrimarySkillKey": "u-discrete-math-graphs",
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 24,
+        "PrimarySkillId": 105,
+        "Points": 10,
+        "Title": {
+          "Ar": "حساب عدد حواف الرسم الثنائي الكامل",
+          "En": "Count edges in a complete bipartite graph"
+        },
+        "Question": {
+          "Ar": "في الرسم البياني الثنائي الكامل K₂,₃، كل رأس من المجموعة الأولى متصل بكل رأس من الثانية. كم حافة في الرسم؟",
+          "En": "In the complete bipartite graph K₂,₃, every vertex in the first group connects to every vertex in the second. How many edges are there?"
+        },
+        "Options": [
+          {
+            "LatexCode": "5",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تجمع عدد الرؤوس أو تضف حواف داخل المجموعتين. $2\\cdot3+3\\cdot2=12=2|E|$",
+              "En": "This choice does not match the derived result. Do not add vertex counts or include edges within the parts. $2\\cdot3+3\\cdot2=12=2|E|$"
+            }
+          },
+          {
+            "LatexCode": "9",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تجمع عدد الرؤوس أو تضف حواف داخل المجموعتين. $2\\cdot3+3\\cdot2=12=2|E|$",
+              "En": "This choice does not match the derived result. Do not add vertex counts or include edges within the parts. $2\\cdot3+3\\cdot2=12=2|E|$"
+            }
+          },
+          {
+            "LatexCode": "6",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "10",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تجمع عدد الرؤوس أو تضف حواف داخل المجموعتين. $2\\cdot3+3\\cdot2=12=2|E|$",
+              "En": "This choice does not match the derived result. Do not add vertex counts or include edges within the parts. $2\\cdot3+3\\cdot2=12=2|E|$"
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "في الرسم الثنائي الكامل لا توجد حواف داخل المجموعة نفسها.",
+            "En": "A complete bipartite graph has no edges within either part."
+          },
+          {
+            "Ar": "كل رأس في المجموعة الأولى يتصل بجميع رؤوس الثانية؛ اضرب حجمي المجموعتين.",
+            "En": "Each vertex of the first part connects to every vertex in the second; multiply the part sizes."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "في الرسم الثنائي الكامل كل رأس من المجموعة الأولى متصل بكل رأس من الثانية.",
+            "En": "In a complete bipartite graph each first-part vertex connects to every second-part vertex."
+          },
+          "FormulaLatex": "|E(K_{m,n})|=mn",
+          "Steps": [
+            {
+              "Ar": "$m=2,n=3$",
+              "En": "$m=2,n=3$"
+            },
+            {
+              "Ar": "$2\\cdot3=6$",
+              "En": "$2\\cdot3=6$"
+            }
+          ],
+          "Result": {
+            "Ar": "$6$",
+            "En": "$6$"
+          },
+          "Verification": {
+            "Ar": "$2\\cdot3+3\\cdot2=12=2|E|$",
+            "En": "$2\\cdot3+3\\cdot2=12=2|E|$"
+          },
+          "CommonError": {
+            "Ar": "لا تجمع عدد الرؤوس أو تضف حواف داخل المجموعتين.",
+            "En": "Do not add vertex counts or include edges within the parts."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة محددة",
+            "En": "No specified unit"
+          },
+          "Substitution": {
+            "Ar": "$2\\cdot3=6$",
+            "En": "$2\\cdot3=6$"
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 832,
+      "ExpectedOptionIds": [
+        3317,
+        3318,
+        3319,
+        3320
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "قاعدة تلوين الدورة الفردية: عند السير حول خمسة رؤوس بمحاولة التناوب بين لونين يظهر تعارض عند وصل الرأس الخامس بالأول. لهذا لا تكفي لونان لتلوين دورة طولها 5 من دون تساوي ألوان المتجاورين. ثلاثة ألوان تكفي، إذن العدد اللوني 3.",
+        "En": "Odd-cycle coloring theorem: Alternating two colors around a five-vertex cycle causes a color conflict on the closing edge. A proper coloring of an odd cycle is therefore impossible with two colors, while three suffice; its chromatic number is 3."
+      },
+      "ProposedTrackCode": "discrete-mathematics",
+      "PrimarySkillKey": "u-discrete-math-graphs",
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 24,
+        "PrimarySkillId": 105,
+        "Points": 10,
+        "Title": {
+          "Ar": "تحديد عدد الألوان اللازمة لدورة فردية",
+          "En": "Determine the chromatic number of an odd cycle"
+        },
+        "Question": {
+          "Ar": "ما أقل عدد من الألوان لتلوين رؤوس دورة بسيطة مؤلفة من 5 رؤوس بحيث لا يتجاور رأسان من اللون نفسه؟",
+          "En": "What is the minimum number of colors needed to color the vertices of a 5-cycle so adjacent vertices have different colors?"
+        },
+        "Options": [
+          {
+            "LatexCode": "2",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تنس ضلع إغلاق الدورة. الضلع الأخير C–A صالح أيضاً، لذا ثلاثة ألوان حد أدنى محقق.",
+              "En": "This choice does not match the derived result. Do not forget the closing edge. The closing edge C–A is also valid, so the lower bound of three is attained."
+            }
+          },
+          {
+            "LatexCode": "4",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تنس ضلع إغلاق الدورة. الضلع الأخير C–A صالح أيضاً، لذا ثلاثة ألوان حد أدنى محقق.",
+              "En": "This choice does not match the derived result. Do not forget the closing edge. The closing edge C–A is also valid, so the lower bound of three is attained."
+            }
+          },
+          {
+            "LatexCode": "5",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تنس ضلع إغلاق الدورة. الضلع الأخير C–A صالح أيضاً، لذا ثلاثة ألوان حد أدنى محقق.",
+              "En": "This choice does not match the derived result. Do not forget the closing edge. The closing edge C–A is also valid, so the lower bound of three is attained."
+            }
+          },
+          {
+            "LatexCode": "3",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "جرّب تلوين رؤوس الدورة بالتناوب بلونين.",
+            "En": "Try alternating two colors around the cycle."
+          },
+          {
+            "Ar": "افحص التعارض عند إغلاق دورة فردية، ثم جرّب لوناً إضافياً.",
+            "En": "Check the conflict when an odd cycle closes, then try an additional color."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "الدورة الفردية لا تقبل لونين، لكن ثلاثة ألوان تكفي.",
+            "En": "An odd cycle cannot be two-colored, but three colors suffice."
+          },
+          "FormulaLatex": "\\chi(C_{2k+1})=3\\quad(k\\ge1)",
+          "Steps": [
+            {
+              "Ar": "لو استخدمنا لونين بالتناوب فإن الرأسيْن الأول والخامس سيحملان اللون نفسه وهما متجاوران.",
+              "En": "Alternating two colors gives the same color to vertices 1 and 5, which are adjacent."
+            },
+            {
+              "Ar": "لوّن الرؤوس بالترتيب A,B,A,B,C؛ كل ضلع يصل لونين مختلفين.",
+              "En": "Color the vertices A,B,A,B,C in order; every edge joins different colors."
+            }
+          ],
+          "Result": {
+            "Ar": "$3$",
+            "En": "$3$"
+          },
+          "Verification": {
+            "Ar": "الضلع الأخير C–A صالح أيضاً، لذا ثلاثة ألوان حد أدنى محقق.",
+            "En": "The closing edge C–A is also valid, so the lower bound of three is attained."
+          },
+          "CommonError": {
+            "Ar": "لا تنس ضلع إغلاق الدورة.",
+            "En": "Do not forget the closing edge."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة محددة",
+            "En": "No specified unit"
+          },
+          "Substitution": {
+            "Ar": "لوّن الرؤوس بالترتيب A,B,A,B,C؛ كل ضلع يصل لونين مختلفين.",
+            "En": "Color the vertices A,B,A,B,C in order; every edge joins different colors."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 833,
+      "ExpectedOptionIds": [
+        3321,
+        3322,
+        3323,
+        3324
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "قاعدة التكافؤ الثنائي P ↔ Q: العبارة صادقة حين تتطابق قيمتا الصدق للجزأين. الحالات الممكنة الأربع هي (ص،ص) و(ص،خ) و(خ،ص) و(خ،خ). تتطابق القيمتان في الأولى والرابعة فقط، فيكون عدد الحالات الصادقة 2.",
+        "En": "Biconditional truth rule: P↔Q is true exactly when P and Q share the same truth value. The four assignments are (T,T), (T,F), (F,T), (F,F). Only the first and last agree, so there are 2 true assignments."
+      },
+      "ProposedTrackCode": "discrete-mathematics",
+      "PrimarySkillKey": "u-discrete-math-logic",
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 24,
+        "PrimarySkillId": 109,
+        "Points": 10,
+        "Title": {
+          "Ar": "تمييز صفوف الصدق لعبارة التكافؤ المنطقي",
+          "En": "Count true assignments for a biconditional"
+        },
+        "Question": {
+          "Ar": "عند فحص الحالات الأربع الممكنة لقيمتي P وQ، في كم حالة تكون العبارة P ↔ Q صحيحة؟",
+          "En": "Among the four possible truth assignments for P and Q, in how many is the biconditional P ↔ Q true?"
+        },
+        "Options": [
+          {
+            "LatexCode": "2",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "1",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تخلط بين التكافؤ والشرط P⇒Q. حالتا اختلاف القيم تعطيان خطأ، فيبقى 2 من 4.",
+              "En": "This choice does not match the derived result. Do not confuse biconditional with implication. The two unequal assignments are false, leaving two of four."
+            }
+          },
+          {
+            "LatexCode": "3",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تخلط بين التكافؤ والشرط P⇒Q. حالتا اختلاف القيم تعطيان خطأ، فيبقى 2 من 4.",
+              "En": "This choice does not match the derived result. Do not confuse biconditional with implication. The two unequal assignments are false, leaving two of four."
+            }
+          },
+          {
+            "LatexCode": "4",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تخلط بين التكافؤ والشرط P⇒Q. حالتا اختلاف القيم تعطيان خطأ، فيبقى 2 من 4.",
+              "En": "This choice does not match the derived result. Do not confuse biconditional with implication. The two unequal assignments are false, leaving two of four."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "التكافؤ المنطقي يقارن قيمتي الصدق للعبارتين.",
+            "En": "A biconditional compares the two truth values."
+          },
+          {
+            "Ar": "اكتب الحالات الأربع وعدّ الحالات التي تتساوى فيها قيمتا الصدق.",
+            "En": "List the four assignments and count those with matching truth values."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "التكافؤ المنطقي صحيح عندما تتساوى قيمتا الصدق.",
+            "En": "A biconditional is true when the two truth values agree."
+          },
+          "FormulaLatex": "P\\leftrightarrow Q\\equiv(P\\land Q)\\lor(\\neg P\\land\\neg Q)",
+          "Steps": [
+            {
+              "Ar": "الحالات الأربع: (ص،ص)، (ص،خ)، (خ،ص)، (خ،خ).",
+              "En": "The four assignments are (T,T), (T,F), (F,T), (F,F)."
+            },
+            {
+              "Ar": "الأولى والأخيرة فقط تحققان التكافؤ.",
+              "En": "Only the first and last satisfy the biconditional."
+            }
+          ],
+          "Result": {
+            "Ar": "$2$",
+            "En": "$2$"
+          },
+          "Verification": {
+            "Ar": "حالتا اختلاف القيم تعطيان خطأ، فيبقى 2 من 4.",
+            "En": "The two unequal assignments are false, leaving two of four."
+          },
+          "CommonError": {
+            "Ar": "لا تخلط بين التكافؤ والشرط P⇒Q.",
+            "En": "Do not confuse biconditional with implication."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة محددة",
+            "En": "No specified unit"
+          },
+          "Substitution": {
+            "Ar": "الأولى والأخيرة فقط تحققان التكافؤ.",
+            "En": "Only the first and last satisfy the biconditional."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 834,
+      "ExpectedOptionIds": [
+        3325,
+        3326,
+        3327,
+        3328
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "قانون الامتصاص في المنطق: P ∧ (P ∨ Q) = P. إذا كانت P كاذبة فالاقتران كله كاذب، وإذا كانت P صادقة فإن الفصل P ∨ Q صادق، ويصبح الاقتران صادقاً. النتيجة تساوي P في جميع قيم Q.",
+        "En": "Boolean absorption law: P∧(P∨Q)=P. If P is false, the conjunction is false; if P is true, P∨Q is automatically true, making the conjunction true as well. Hence the whole expression equals P regardless of Q."
+      },
+      "ProposedTrackCode": "discrete-mathematics",
+      "PrimarySkillKey": "u-discrete-math-logic",
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 24,
+        "PrimarySkillId": 109,
+        "Points": 10,
+        "Title": {
+          "Ar": "تبسيط عبارة منطقية باستخدام قانون الامتصاص",
+          "En": "Apply Boolean absorption to simplify a logical expression"
+        },
+        "Question": {
+          "Ar": "بسط العبارة المنطقية P ∧ (P ∨ Q) باستخدام قوانين الجبر المنطقي.",
+          "En": "Simplify the logical expression P ∧ (P ∨ Q) using Boolean algebra."
+        },
+        "Options": [
+          {
+            "LatexCode": "Q",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تحذف P أو تبدل التقاطع باتحاد دون قانون. النتيجة تتبع P في جميع الحالات بغض النظر عن Q.",
+              "En": "This choice does not match the derived result. Do not discard P or swap AND for OR without a valid law. The result follows P in every assignment regardless of Q."
+            }
+          },
+          {
+            "LatexCode": "P",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "P \\land Q",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تحذف P أو تبدل التقاطع باتحاد دون قانون. النتيجة تتبع P في جميع الحالات بغض النظر عن Q.",
+              "En": "This choice does not match the derived result. Do not discard P or swap AND for OR without a valid law. The result follows P in every assignment regardless of Q."
+            }
+          },
+          {
+            "LatexCode": "P \\lor Q",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تحذف P أو تبدل التقاطع باتحاد دون قانون. النتيجة تتبع P في جميع الحالات بغض النظر عن Q.",
+              "En": "This choice does not match the derived result. Do not discard P or swap AND for OR without a valid law. The result follows P in every assignment regardless of Q."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "لاحظ ظهور P خارج القوس وداخله.",
+            "En": "Notice that P appears outside and inside the parentheses."
+          },
+          {
+            "Ar": "استخدم قانون الامتصاص، أو وزّع الاقتران ثم بسّط باستخدام قوانين الجبر المنطقي.",
+            "En": "Use absorption, or distribute the conjunction and simplify using Boolean laws."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "قانون الامتصاص في الجبر البولياني.",
+            "En": "Boolean absorption law."
+          },
+          "FormulaLatex": "P\\land(P\\lor Q)=P",
+          "Steps": [
+            {
+              "Ar": "إذا P خطأ فالتقاطع كله خطأ.",
+              "En": "If P is false the conjunction is false."
+            },
+            {
+              "Ar": "إذا P صحيح فإن P∨Q صحيح، والتقاطع صحيح.",
+              "En": "If P is true, P∨Q is true and the conjunction is true."
+            }
+          ],
+          "Result": {
+            "Ar": "$P$",
+            "En": "$P$"
+          },
+          "Verification": {
+            "Ar": "النتيجة تتبع P في جميع الحالات بغض النظر عن Q.",
+            "En": "The result follows P in every assignment regardless of Q."
+          },
+          "CommonError": {
+            "Ar": "لا تحذف P أو تبدل التقاطع باتحاد دون قانون.",
+            "En": "Do not discard P or swap AND for OR without a valid law."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة محددة",
+            "En": "No specified unit"
+          },
+          "Substitution": {
+            "Ar": "إذا P صحيح فإن P∨Q صحيح، والتقاطع صحيح.",
+            "En": "If P is true, P∨Q is true and the conjunction is true."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 864,
+      "ExpectedOptionIds": [
+        3449,
+        3450,
+        3451,
+        3452
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "قانون المعادلة التفاضلية y′ = ay: حلها العام y = Ce^(ax)، لأن مشتقة Ce^(ax) تساوي aCe^(ax). عند a = 2 يصبح y = Ce^(2x). الشرط الابتدائي y(0) = 3 يعني C = 3، ولذلك y(1) = 3e^(2×1) = 3e². التحقق: y′ = 2y وy(0) = 3.",
+        "En": "Rule: The differential equation y′ = ay has general solution y = Ce^(ax), because its derivative is aCe^(ax). With a = 2, y = Ce^(2x). The initial condition y(0) = 3 gives C = 3. Hence y(1) = 3e^(2×1) = 3e². Check that y′ = 2y and y(0) = 3."
+      },
+      "ProposedTrackCode": "differential-equations",
+      "PrimarySkillKey": "university-exponential-ode",
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 15,
+        "PrimarySkillId": 66,
+        "Points": 10,
+        "Title": {
+          "Ar": "تطبيق حل معادلة تفاضلية أسية على نمو متصل",
+          "En": "Solve an exponential growth initial-value equation"
+        },
+        "Question": {
+          "Ar": "إذا كان y'=2y وy(0)=3، فما y(1)؟",
+          "En": "For y'=2y and y(0)=3, what is y(1)?"
+        },
+        "Options": [
+          {
+            "LatexCode": "3e^2",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "2e^3",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تبدل ثابت البداية ومعامل الأس؛ 3 هو C و2 معامل x. $y'=6e^{2x}=2y,\\quad y(0)=3$",
+              "En": "This choice does not match the derived result. Do not swap the initial constant and exponent coefficient; C=3 and the coefficient is 2. $y'=6e^{2x}=2y,\\quad y(0)=3$"
+            }
+          },
+          {
+            "LatexCode": "3e",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تبدل ثابت البداية ومعامل الأس؛ 3 هو C و2 معامل x. $y'=6e^{2x}=2y,\\quad y(0)=3$",
+              "En": "This choice does not match the derived result. Do not swap the initial constant and exponent coefficient; C=3 and the coefficient is 2. $y'=6e^{2x}=2y,\\quad y(0)=3$"
+            }
+          },
+          {
+            "LatexCode": "6e",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تبدل ثابت البداية ومعامل الأس؛ 3 هو C و2 معامل x. $y'=6e^{2x}=2y,\\quad y(0)=3$",
+              "En": "This choice does not match the derived result. Do not swap the initial constant and exponent coefficient; C=3 and the coefficient is 2. $y'=6e^{2x}=2y,\\quad y(0)=3$"
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "اكتب الحل العام للمعادلة y'=2y على صورة أسية.",
+            "En": "Write the general solution of y'=2y in exponential form."
+          },
+          {
+            "Ar": "حدّد المعامل من y(0)=3، ثم عوّض x=1 في الحل.",
+            "En": "Determine the coefficient from y(0)=3, then evaluate the solution at x=1."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "معادلة النمو الأسي y′=ay حلها y=Ce^(ax).",
+            "En": "The exponential ODE y′=ay has solution y=Ce^(ax)."
+          },
+          "FormulaLatex": "y=Ce^{2x}",
+          "Steps": [
+            {
+              "Ar": "$y(0)=C=3$",
+              "En": "$y(0)=C=3$"
+            },
+            {
+              "Ar": "$y(1)=3e^{2\\cdot1}$",
+              "En": "$y(1)=3e^{2\\cdot1}$"
+            }
+          ],
+          "Result": {
+            "Ar": "$3e^2$",
+            "En": "$3e^2$"
+          },
+          "Verification": {
+            "Ar": "$y'=6e^{2x}=2y,\\quad y(0)=3$",
+            "En": "$y'=6e^{2x}=2y,\\quad y(0)=3$"
+          },
+          "CommonError": {
+            "Ar": "لا تبدل ثابت البداية ومعامل الأس؛ 3 هو C و2 معامل x.",
+            "En": "Do not swap the initial constant and exponent coefficient; C=3 and the coefficient is 2."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة محددة",
+            "En": "No specified unit"
+          },
+          "Substitution": {
+            "Ar": "$y(1)=3e^{2\\cdot1}$",
+            "En": "$y(1)=3e^{2\\cdot1}$"
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 866,
+      "ExpectedOptionIds": [
+        3393,
+        3394,
+        3395,
+        3396
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "بضرب المعادلة في e^x نحصل على (e^x y)'=2e^x. بالتكامل y=2+Ce^(−x)، ومن شرط البداية C=−2؛ عند x=ln2 نجد y=2−2×(1/2)=1.",
+        "En": "Multiplying by e^x gives (e^x y)'=2e^x. Thus y=2+Ce^(−x). Since y(0)=0, C=−2, and y(ln2)=2−2/2=1."
+      },
+      "ProposedTrackCode": "differential-equations",
+      "PrimarySkillKey": "university-integrating-ode",
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 15,
+        "PrimarySkillId": 68,
+        "Points": 10,
+        "Title": {
+          "Ar": "حل معادلة تفاضلية خطية غير متجانسة",
+          "En": "Solve a nonhomogeneous linear ODE using an integrating factor"
+        },
+        "Question": {
+          "Ar": "تحقق y المعادلة y'+y=2 مع y(0)=0. ما y(ln 2)؟",
+          "En": "A function satisfies y'+y=2 and y(0)=0. Find y(ln 2)."
+        },
+        "Options": [
+          {
+            "LatexCode": "0",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تسقط ثابت التكامل ولا تستعمل e^(ln 2) بدل e^(−ln 2). $y'=2e^{-x},\\quad y'+y=2,\\quad y(0)=0$",
+              "En": "This choice does not match the derived result. Do not omit the integration constant or replace e^(−ln 2) with e^(ln 2). $y'=2e^{-x},\\quad y'+y=2,\\quad y(0)=0$"
+            }
+          },
+          {
+            "LatexCode": "1",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "2",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تسقط ثابت التكامل ولا تستعمل e^(ln 2) بدل e^(−ln 2). $y'=2e^{-x},\\quad y'+y=2,\\quad y(0)=0$",
+              "En": "This choice does not match the derived result. Do not omit the integration constant or replace e^(−ln 2) with e^(ln 2). $y'=2e^{-x},\\quad y'+y=2,\\quad y(0)=0$"
+            }
+          },
+          {
+            "LatexCode": "4",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تسقط ثابت التكامل ولا تستعمل e^(ln 2) بدل e^(−ln 2). $y'=2e^{-x},\\quad y'+y=2,\\quad y(0)=0$",
+              "En": "This choice does not match the derived result. Do not omit the integration constant or replace e^(−ln 2) with e^(ln 2). $y'=2e^{-x},\\quad y'+y=2,\\quad y(0)=0$"
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "هذه معادلة تفاضلية خطية من الرتبة الأولى.",
+            "En": "This is a first-order linear ODE."
+          },
+          {
+            "Ar": "اضرب الطرفين في عامل التكامل e^x ثم كامل وطبّق الشرط الابتدائي قبل التعويض.",
+            "En": "Multiply by the integrating factor e^x, integrate, and apply the initial condition before substituting."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نحل المعادلة الخطية من الرتبة الأولى بعامل التكامل.",
+            "En": "Solve the first-order linear ODE using an integrating factor."
+          },
+          "FormulaLatex": "\\mu=e^x,\\quad(e^xy)'=2e^x",
+          "Steps": [
+            {
+              "Ar": "$e^xy=2e^x+C$",
+              "En": "$e^xy=2e^x+C$"
+            },
+            {
+              "Ar": "$y=2+Ce^{-x}$",
+              "En": "$y=2+Ce^{-x}$"
+            },
+            {
+              "Ar": "$y(0)=0\\Rightarrow C=-2$",
+              "En": "$y(0)=0\\Rightarrow C=-2$"
+            },
+            {
+              "Ar": "$y(\\ln2)=2-2e^{-\\ln2}=1$",
+              "En": "$y(\\ln2)=2-2e^{-\\ln2}=1$"
+            }
+          ],
+          "Result": {
+            "Ar": "$1$",
+            "En": "$1$"
+          },
+          "Verification": {
+            "Ar": "$y'=2e^{-x},\\quad y'+y=2,\\quad y(0)=0$",
+            "En": "$y'=2e^{-x},\\quad y'+y=2,\\quad y(0)=0$"
+          },
+          "CommonError": {
+            "Ar": "لا تسقط ثابت التكامل ولا تستعمل e^(ln 2) بدل e^(−ln 2).",
+            "En": "Do not omit the integration constant or replace e^(−ln 2) with e^(ln 2)."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة محددة",
+            "En": "No specified unit"
+          },
+          "Substitution": {
+            "Ar": "$y(\\ln2)=2-2e^{-\\ln2}=1$",
+            "En": "$y(\\ln2)=2-2e^{-\\ln2}=1$"
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 1585,
+      "ExpectedOptionIds": [
+        6329,
+        6330,
+        6331,
+        6332
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: في اختبار الفرضيات نرفض الفرضية الصفرية H₀ إذا كانت قيمة p أقل من أو تساوي مستوى الدلالة المحدد α، وفق قاعدة القرار المعتمدة. هنا p = 0.02 وα = 0.05، وبما أن 0.02 < 0.05 فإن العلاقة الدالة على الرفض هي p < α.",
+        "En": "Rule used: For a standard p-value hypothesis test, reject the null hypothesis when the observed p-value is at or below the chosen significance level α. Here p = 0.02 and α = 0.05; since 0.02 < 0.05, the required inequality is p < α."
+      },
+      "ProposedTrackCode": "probability-statistics",
+      "PrimarySkillKey": "hypothesis-testing",
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 89,
+        "PrimarySkillId": 318,
+        "Points": 10,
+        "Title": {
+          "Ar": "عندما p=0.02 ومستوى الدلالة α=0.05، أي مقارنة تبرر رفض الفرضية الصفرية؟",
+          "En": "When p=0.02 and significance level α=0.05, which inequality justifies rejecting the null hypothesis?"
+        },
+        "Question": {
+          "Ar": "عندما p=0.02 ومستوى الدلالة α=0.05، أي مقارنة تبرر رفض الفرضية الصفرية؟",
+          "En": "When p=0.02 and significance level α=0.05, which inequality justifies rejecting the null hypothesis?"
+        },
+        "Options": [
+          {
+            "LatexCode": "p>\\alpha",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. صغر p لا يعني أن احتمال صحة الفرضية الصفرية يساوي p. $0.05-0.02=0.03>0$",
+              "En": "This choice does not match the derived result. A small p-value is not the probability that the null is true. $0.05-0.02=0.03>0$"
+            }
+          },
+          {
+            "LatexCode": "p<\\alpha",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "p=\\alpha",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. صغر p لا يعني أن احتمال صحة الفرضية الصفرية يساوي p. $0.05-0.02=0.03>0$",
+              "En": "This choice does not match the derived result. A small p-value is not the probability that the null is true. $0.05-0.02=0.03>0$"
+            }
+          },
+          {
+            "LatexCode": "p=1",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. صغر p لا يعني أن احتمال صحة الفرضية الصفرية يساوي p. $0.05-0.02=0.03>0$",
+              "En": "This choice does not match the derived result. A small p-value is not the probability that the null is true. $0.05-0.02=0.03>0$"
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "قارن قيمة $p$ بعتبة الدلالة المحددة قبل الاختبار.",
+            "En": "Compare the p-value with the significance threshold set before the test."
+          },
+          {
+            "Ar": "اكتب العددين بوحدة الأجزاء من مئة، ثم اختر إشارة المقارنة التي تصف ترتيبهما.",
+            "En": "Express both decimals in hundredths, then choose the comparison sign that describes their order."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "في اختبار القيمة الاحتمالية نقارن p بمستوى الدلالة.",
+            "En": "A p-value test compares p with the significance level."
+          },
+          "FormulaLatex": "p\\le\\alpha\\Rightarrow\\text{reject }H_0",
+          "Steps": [
+            {
+              "Ar": "$p=0.02,\\ \\alpha=0.05$",
+              "En": "$p=0.02,\\ \\alpha=0.05$"
+            },
+            {
+              "Ar": "$0.02<0.05$",
+              "En": "$0.02<0.05$"
+            }
+          ],
+          "Result": {
+            "Ar": "$p<\\alpha$",
+            "En": "$p<\\alpha$"
+          },
+          "Verification": {
+            "Ar": "$0.05-0.02=0.03>0$",
+            "En": "$0.05-0.02=0.03>0$"
+          },
+          "CommonError": {
+            "Ar": "صغر p لا يعني أن احتمال صحة الفرضية الصفرية يساوي p.",
+            "En": "A small p-value is not the probability that the null is true."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة محددة",
+            "En": "No specified unit"
+          },
+          "Substitution": {
+            "Ar": "$0.02<0.05$",
+            "En": "$0.02<0.05$"
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 1586,
+      "ExpectedOptionIds": [
+        6333,
+        6334,
+        6335,
+        6336
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "المبدأ المستخدم: خطأ النوع الأول يعني رفض الفرضية الصفرية H₀ رغم أنها صحيحة. في الاختبار المضبوط عند مستوى الدلالة α يرمز α إلى احتمال هذا الخطأ أو حدّه المصمم. لذلك الرمز التقليدي المطلوب هو α، أما β فيستخدم لخطأ النوع الثاني.",
+        "En": "Rule used: A Type I error occurs when we reject a true null hypothesis H₀. The conventional notation for the test's Type I error probability or nominal significance level is α. The symbol β instead denotes the Type II error probability."
+      },
+      "ProposedTrackCode": "probability-statistics",
+      "PrimarySkillKey": "hypothesis-testing",
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 89,
+        "PrimarySkillId": 318,
+        "Points": 10,
+        "Title": {
+          "Ar": "أي رمز يشير عادةً إلى احتمال الخطأ من النوع الأول، أي رفض فرضية صفرية صحيحة؟",
+          "En": "Which symbol conventionally denotes the probability of a Type I error: rejecting a true null hypothe"
+        },
+        "Question": {
+          "Ar": "أي رمز يشير عادةً إلى احتمال الخطأ من النوع الأول، أي رفض فرضية صفرية صحيحة؟",
+          "En": "Which symbol conventionally denotes the probability of a Type I error: rejecting a true null hypothesis?"
+        },
+        "Options": [
+          {
+            "LatexCode": "\\beta",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تخلط بين مستوى الدلالة وقوة الاختبار 1−β. β يرمز لخطأ النوع الثاني: عدم رفض فرضية صفرية خاطئة.",
+              "En": "This choice does not match the derived result. Do not confuse significance with power 1−β. β denotes Type II error: failure to reject a false null."
+            }
+          },
+          {
+            "LatexCode": "1-\\alpha",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تخلط بين مستوى الدلالة وقوة الاختبار 1−β. β يرمز لخطأ النوع الثاني: عدم رفض فرضية صفرية خاطئة.",
+              "En": "This choice does not match the derived result. Do not confuse significance with power 1−β. β denotes Type II error: failure to reject a false null."
+            }
+          },
+          {
+            "LatexCode": "\\alpha",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "1-\\beta",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تخلط بين مستوى الدلالة وقوة الاختبار 1−β. β يرمز لخطأ النوع الثاني: عدم رفض فرضية صفرية خاطئة.",
+              "En": "This choice does not match the derived result. Do not confuse significance with power 1−β. β denotes Type II error: failure to reject a false null."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "حدّد نوع الخطأ من قرار الاختبار والحالة الفعلية للفرضية الصفرية.",
+            "En": "Identify the error from the test decision and the actual truth of the null hypothesis."
+          },
+          {
+            "Ar": "تذكّر الرمز المستخدم لمستوى الدلالة المحدد قبل جمع البيانات.",
+            "En": "Recall the symbol for the significance level chosen before data collection."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "خطأ النوع الأول هو رفض فرضية صفرية صحيحة.",
+            "En": "A Type I error means rejecting a true null."
+          },
+          "FormulaLatex": "\\alpha=P(\\text{reject }H_0\\mid H_0\\text{ true})",
+          "Steps": [
+            {
+              "Ar": "حدد حالة الحقيقة: H₀ صحيحة.",
+              "En": "Identify the true state: H₀ is true."
+            },
+            {
+              "Ar": "حدد القرار الخاطئ: رفض H₀.",
+              "En": "Identify the erroneous decision: reject H₀."
+            }
+          ],
+          "Result": {
+            "Ar": "$\\alpha$",
+            "En": "$\\alpha$"
+          },
+          "Verification": {
+            "Ar": "β يرمز لخطأ النوع الثاني: عدم رفض فرضية صفرية خاطئة.",
+            "En": "β denotes Type II error: failure to reject a false null."
+          },
+          "CommonError": {
+            "Ar": "لا تخلط بين مستوى الدلالة وقوة الاختبار 1−β.",
+            "En": "Do not confuse significance with power 1−β."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة محددة",
+            "En": "No specified unit"
+          },
+          "Substitution": {
+            "Ar": "حدد القرار الخاطئ: رفض H₀.",
+            "En": "Identify the erroneous decision: reject H₀."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 1647,
+      "ExpectedOptionIds": [
+        6577,
+        6578,
+        6579,
+        6580
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: نفي العبارة الكلية يبدّل «لكل» إلى «يوجد» وينفي الخاصية نفسها: ¬(∀س P(س)) ⇔ ∃س ¬P(س). لنفي أن كل س يحقق P لا نحتاج إثبات أن كل القيم تخالفها؛ تكفي قيمة واحدة لا تحقق P. إذن النفي الصحيح هو ∃س ¬P(س).",
+        "En": "Rule used: Quantifier-negation law: ¬(∀x P(x)) is logically equivalent to ∃x ¬P(x). Saying that 'every x satisfies P' is false means there exists at least one counterexample where P(x) is false. Therefore the correct negation is ∃x ¬P(x)."
+      },
+      "ProposedTrackCode": "discrete-mathematics",
+      "PrimarySkillKey": "logic",
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 24,
+        "PrimarySkillId": 301,
+        "Points": 10,
+        "Title": {
+          "Ar": "ما النفي المنطقي لعبارة $\\forall x\\,P(x)$؟",
+          "En": "What is the logical negation of $\\forall x\\,P(x)$?"
+        },
+        "Question": {
+          "Ar": "ما النفي المنطقي لعبارة $\\forall x\\,P(x)$؟",
+          "En": "What is the logical negation of $\\forall x\\,P(x)$?"
+        },
+        "Options": [
+          {
+            "LatexCode": "\\forall x\\,\\neg P(x)",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تُبقِ الكم الكلي عند النفي، ولا تنس نفي المحمول. لو تحقق P لكل x لما وُجد مثال مضاد؛ نفي ذلك هو وجود المثال المضاد.",
+              "En": "This choice does not match the derived result. Do not keep the universal quantifier or forget to negate the predicate. If P held for all x there would be no counterexample; its negation asserts one."
+            }
+          },
+          {
+            "LatexCode": "\\exists x\\,\\neg P(x)",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "\\exists x\\,P(x)",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تُبقِ الكم الكلي عند النفي، ولا تنس نفي المحمول. لو تحقق P لكل x لما وُجد مثال مضاد؛ نفي ذلك هو وجود المثال المضاد.",
+              "En": "This choice does not match the derived result. Do not keep the universal quantifier or forget to negate the predicate. If P held for all x there would be no counterexample; its negation asserts one."
+            }
+          },
+          {
+            "LatexCode": "\\neg\\exists x\\,\\neg P(x)",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تُبقِ الكم الكلي عند النفي، ولا تنس نفي المحمول. لو تحقق P لكل x لما وُجد مثال مضاد؛ نفي ذلك هو وجود المثال المضاد.",
+              "En": "This choice does not match the derived result. Do not keep the universal quantifier or forget to negate the predicate. If P held for all x there would be no counterexample; its negation asserts one."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "نفي التكميم الكلي يحول العبارة إلى تكميم وجودي.",
+            "En": "Negating a universal quantifier changes it to an existential quantifier."
+          },
+          {
+            "Ar": "انقل النفي إلى داخل العبارة مع تبديل نوع المكمم.",
+            "En": "Move negation inside the predicate while switching the quantifier."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نفي الكلي يحول الكم إلى وجودي وينفي المحمول.",
+            "En": "Negating a universal quantifier changes it to existential and negates the predicate."
+          },
+          "FormulaLatex": "\\neg(\\forall x\\,P(x))\\equiv\\exists x\\,\\neg P(x)",
+          "Steps": [
+            {
+              "Ar": "عدم صحة العبارة لكل x يعني وجود x واحد على الأقل لا يحققها.",
+              "En": "Failure for all x means there is at least one x for which the predicate is false."
+            }
+          ],
+          "Result": {
+            "Ar": "$\\exists x\\,\\neg P(x)$",
+            "En": "$\\exists x\\,\\neg P(x)$"
+          },
+          "Verification": {
+            "Ar": "لو تحقق P لكل x لما وُجد مثال مضاد؛ نفي ذلك هو وجود المثال المضاد.",
+            "En": "If P held for all x there would be no counterexample; its negation asserts one."
+          },
+          "CommonError": {
+            "Ar": "لا تُبقِ الكم الكلي عند النفي، ولا تنس نفي المحمول.",
+            "En": "Do not keep the universal quantifier or forget to negate the predicate."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة محددة",
+            "En": "No specified unit"
+          },
+          "Substitution": {
+            "Ar": "عدم صحة العبارة لكل x يعني وجود x واحد على الأقل لا يحققها.",
+            "En": "Failure for all x means there is at least one x for which the predicate is false."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 1648,
+      "ExpectedOptionIds": [
+        6581,
+        6582,
+        6583,
+        6584
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "المبدأ المستخدم: جدول صدق الشرطية P⇒Q؛ تكون الشرطية خاطئة في حالة واحدة فقط، عندما تكون المقدمة P صحيحة (1) والنتيجة Q خاطئة (0). في بقية الحالات تكون الشرطية صحيحة. لذلك الحالة المطلوبة هي P=1 وQ=0، وليست مجرد اختلاف قيمتي العبارتين بأي ترتيب.",
+        "En": "Rule used: Material implication P⇒Q is false only when the antecedent P is true (1) while the consequent Q is false (0). In all other truth assignments the implication is true. Thus the required case is P = 1 and Q = 0, not merely any two different truth values."
+      },
+      "ProposedTrackCode": "discrete-mathematics",
+      "PrimarySkillKey": "logic",
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 24,
+        "PrimarySkillId": 301,
+        "Points": 10,
+        "Title": {
+          "Ar": "متى تكون العبارة $P\\Rightarrow Q$ كاذبة؟",
+          "En": "When is $P\\Rightarrow Q$ false?"
+        },
+        "Question": {
+          "Ar": "متى تكون العبارة $P\\Rightarrow Q$ كاذبة؟",
+          "En": "When is $P\\Rightarrow Q$ false?"
+        },
+        "Options": [
+          {
+            "LatexCode": "P=0,\\,Q=0",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. اختلاف القيم وحده لا يكفي؛ الحالة (0,1) صحيحة. في الحالات الثلاث الأخرى إما أن P خطأ أو Q صحيح، فيصدق الشرط.",
+              "En": "This choice does not match the derived result. Unequal values alone do not suffice; (0,1) is true. In the other three cases either P is false or Q true, so the implication holds."
+            }
+          },
+          {
+            "LatexCode": "P=0,\\,Q=1",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. اختلاف القيم وحده لا يكفي؛ الحالة (0,1) صحيحة. في الحالات الثلاث الأخرى إما أن P خطأ أو Q صحيح، فيصدق الشرط.",
+              "En": "This choice does not match the derived result. Unequal values alone do not suffice; (0,1) is true. In the other three cases either P is false or Q true, so the implication holds."
+            }
+          },
+          {
+            "LatexCode": "P=1,\\,Q=0",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "P=1,\\,Q=1",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. اختلاف القيم وحده لا يكفي؛ الحالة (0,1) صحيحة. في الحالات الثلاث الأخرى إما أن P خطأ أو Q صحيح، فيصدق الشرط.",
+              "En": "This choice does not match the derived result. Unequal values alone do not suffice; (0,1) is true. In the other three cases either P is false or Q true, so the implication holds."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "راجع تعريف الشرط P⇒Q.",
+            "En": "Recall the definition of implication P⇒Q."
+          },
+          {
+            "Ar": "ابحث عن الحالة التي يتحقق فيها الشرط الأول ولا تتحقق النتيجة.",
+            "En": "Find the case where the antecedent holds but the consequent does not."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "الشرط المنطقي مكافئ لنفي المقدم أو تحقق التالي.",
+            "En": "Material implication is equivalent to not-P or Q."
+          },
+          "FormulaLatex": "P\\Rightarrow Q\\equiv\\neg P\\lor Q",
+          "Steps": [
+            {
+              "Ar": "$\\neg P\\lor Q=0\\Rightarrow\\neg P=0,\\ Q=0$",
+              "En": "$\\neg P\\lor Q=0\\Rightarrow\\neg P=0,\\ Q=0$"
+            },
+            {
+              "Ar": "$P=1,\\ Q=0$",
+              "En": "$P=1,\\ Q=0$"
+            }
+          ],
+          "Result": {
+            "Ar": "$P=1,\\ Q=0$",
+            "En": "$P=1,\\ Q=0$"
+          },
+          "Verification": {
+            "Ar": "في الحالات الثلاث الأخرى إما أن P خطأ أو Q صحيح، فيصدق الشرط.",
+            "En": "In the other three cases either P is false or Q true, so the implication holds."
+          },
+          "CommonError": {
+            "Ar": "اختلاف القيم وحده لا يكفي؛ الحالة (0,1) صحيحة.",
+            "En": "Unequal values alone do not suffice; (0,1) is true."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة محددة",
+            "En": "No specified unit"
+          },
+          "Substitution": {
+            "Ar": "$P=1,\\ Q=0$",
+            "En": "$P=1,\\ Q=0$"
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 1649,
+      "ExpectedOptionIds": [
+        6585,
+        6586,
+        6587,
+        6588
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: عكس النقيض لعبارة شرطية P⇒Q ينتج بتبديل موضعي المقدمة والنتيجة ونفي كل منهما؛ فيصبح ¬Q⇒¬P. عكس النقيض مكافئ منطقياً للعبارة الأصلية في جميع حالات جدول الصدق، بخلاف العكس Q⇒P الذي لا يلزم أن يكون مكافئاً. إذن الجواب ¬Q⇒¬P.",
+        "En": "Rule used: The contrapositive of P⇒Q is formed by swapping antecedent and consequent and negating both: ¬Q⇒¬P. This statement has the same truth value as the original implication for every assignment. Do not confuse it with the converse Q⇒P, which is not generally equivalent."
+      },
+      "ProposedTrackCode": "discrete-mathematics",
+      "PrimarySkillKey": "logic",
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 24,
+        "PrimarySkillId": 301,
+        "Points": 10,
+        "Title": {
+          "Ar": "ما العكس النقيض للعبارة $P\\Rightarrow Q$؟",
+          "En": "What is the contrapositive of $P\\Rightarrow Q$?"
+        },
+        "Question": {
+          "Ar": "ما العكس النقيض للعبارة $P\\Rightarrow Q$؟",
+          "En": "What is the contrapositive of $P\\Rightarrow Q$?"
+        },
+        "Options": [
+          {
+            "LatexCode": "\\neg Q\\Rightarrow\\neg P",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "Q\\Rightarrow P",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تخلط المعاكس النقيض بالعكس Q⇒P أو المعكوس ¬P⇒¬Q. التعبيران متماثلان بتبديلية OR، لذلك يتساويان في كل الحالات.",
+              "En": "This choice does not match the derived result. Do not confuse the contrapositive with the converse or inverse. The expressions are identical by commutativity of OR, so agree in every assignment."
+            }
+          },
+          {
+            "LatexCode": "\\neg P\\Rightarrow\\neg Q",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تخلط المعاكس النقيض بالعكس Q⇒P أو المعكوس ¬P⇒¬Q. التعبيران متماثلان بتبديلية OR، لذلك يتساويان في كل الحالات.",
+              "En": "This choice does not match the derived result. Do not confuse the contrapositive with the converse or inverse. The expressions are identical by commutativity of OR, so agree in every assignment."
+            }
+          },
+          {
+            "LatexCode": "P\\Rightarrow\\neg Q",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تخلط المعاكس النقيض بالعكس Q⇒P أو المعكوس ¬P⇒¬Q. التعبيران متماثلان بتبديلية OR، لذلك يتساويان في كل الحالات.",
+              "En": "This choice does not match the derived result. Do not confuse the contrapositive with the converse or inverse. The expressions are identical by commutativity of OR, so agree in every assignment."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "المقابل المعاكس ليس مجرد عكس ترتيب الشرط.",
+            "En": "The contrapositive is not merely the converse."
+          },
+          {
+            "Ar": "بدّل المقدمة والنتيجة وانفِ كلتيهما.",
+            "En": "Swap antecedent and consequent and negate both."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نحصل على المعاكس النقيض بتبديل المقدم والتالي ونفيهما.",
+            "En": "Contraposition swaps antecedent and consequent and negates both."
+          },
+          "FormulaLatex": "(P\\Rightarrow Q)\\equiv(\\neg Q\\Rightarrow\\neg P)",
+          "Steps": [
+            {
+              "Ar": "$P\\Rightarrow Q\\equiv\\neg P\\lor Q$",
+              "En": "$P\\Rightarrow Q\\equiv\\neg P\\lor Q$"
+            },
+            {
+              "Ar": "$\\neg Q\\Rightarrow\\neg P\\equiv Q\\lor\\neg P$",
+              "En": "$\\neg Q\\Rightarrow\\neg P\\equiv Q\\lor\\neg P$"
+            }
+          ],
+          "Result": {
+            "Ar": "$\\neg Q\\Rightarrow\\neg P$",
+            "En": "$\\neg Q\\Rightarrow\\neg P$"
+          },
+          "Verification": {
+            "Ar": "التعبيران متماثلان بتبديلية OR، لذلك يتساويان في كل الحالات.",
+            "En": "The expressions are identical by commutativity of OR, so agree in every assignment."
+          },
+          "CommonError": {
+            "Ar": "لا تخلط المعاكس النقيض بالعكس Q⇒P أو المعكوس ¬P⇒¬Q.",
+            "En": "Do not confuse the contrapositive with the converse or inverse."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة محددة",
+            "En": "No specified unit"
+          },
+          "Substitution": {
+            "Ar": "$\\neg Q\\Rightarrow\\neg P\\equiv Q\\lor\\neg P$",
+            "En": "$\\neg Q\\Rightarrow\\neg P\\equiv Q\\lor\\neg P$"
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 1650,
+      "ExpectedOptionIds": [
+        6589,
+        6590,
+        6591,
+        6592
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: قانون دي مورغان لنفي الاقتران: ¬(P∧Q) ⇔ (¬P∨¬Q). معنى ذلك أن عبارة «ليس صحيحاً أن P وQ معاً» تتحقق عندما تكون واحدة منهما على الأقل خاطئة. نفي الاقتران يحول «و» إلى «أو» بعد نفي كل جزء، فيكون التعبير المكافئ ¬P∨¬Q.",
+        "En": "Rule used: De Morgan's law for a negated conjunction is ¬(P∧Q) ⇔ (¬P∨¬Q). It says that 'not both P and Q' holds when at least one statement is false. Negate each part separately and change AND to OR; the equivalent expression is ¬P∨¬Q."
+      },
+      "ProposedTrackCode": "discrete-mathematics",
+      "PrimarySkillKey": "logic",
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 24,
+        "PrimarySkillId": 301,
+        "Points": 10,
+        "Title": {
+          "Ar": "أي عبارة مكافئة منطقياً لـ $\\neg(P\\land Q)$؟",
+          "En": "Which expression is equivalent to $\\neg(P\\land Q)$?"
+        },
+        "Question": {
+          "Ar": "أي عبارة مكافئة منطقياً لـ $\\neg(P\\land Q)$؟",
+          "En": "Which expression is equivalent to $\\neg(P\\land Q)$?"
+        },
+        "Options": [
+          {
+            "LatexCode": "\\neg P\\land\\neg Q",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. عند توزيع النفي بدّل AND إلى OR ولا تستخدم AND للنفيين. عند P صحيح وQ خطأ يكون الطرفان صحيحين، وعند صدقهما معاً يكونان خطأ.",
+              "En": "This choice does not match the derived result. When distributing negation, change AND to OR, not AND. If P is true and Q false both sides are true; if both true both sides are false."
+            }
+          },
+          {
+            "LatexCode": "P\\lor Q",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. عند توزيع النفي بدّل AND إلى OR ولا تستخدم AND للنفيين. عند P صحيح وQ خطأ يكون الطرفان صحيحين، وعند صدقهما معاً يكونان خطأ.",
+              "En": "This choice does not match the derived result. When distributing negation, change AND to OR, not AND. If P is true and Q false both sides are true; if both true both sides are false."
+            }
+          },
+          {
+            "LatexCode": "P\\land Q",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. عند توزيع النفي بدّل AND إلى OR ولا تستخدم AND للنفيين. عند P صحيح وQ خطأ يكون الطرفان صحيحين، وعند صدقهما معاً يكونان خطأ.",
+              "En": "This choice does not match the derived result. When distributing negation, change AND to OR, not AND. If P is true and Q false both sides are true; if both true both sides are false."
+            }
+          },
+          {
+            "LatexCode": "\\neg P\\lor\\neg Q",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "استخدم قانون دي مورغان لنفي الاقتران.",
+            "En": "Use De Morgan's law for negating conjunction."
+          },
+          {
+            "Ar": "وزّع النفي على الطرفين واستبدل الاقتران بالفصل.",
+            "En": "Negate both operands and replace AND with OR."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "قانون دي مورغان: نفي التقاطع هو اتحاد النفيين.",
+            "En": "De Morgan's law: negation of AND is OR of the negations."
+          },
+          "FormulaLatex": "\\neg(P\\land Q)\\equiv\\neg P\\lor\\neg Q",
+          "Steps": [
+            {
+              "Ar": "الاقتران يكون صحيحاً فقط عند تحقق العبارتين؛ نفيه صحيح حين تخطئ واحدة على الأقل.",
+              "En": "The conjunction is true only when both hold; its negation holds if at least one is false."
+            }
+          ],
+          "Result": {
+            "Ar": "$\\neg P\\lor\\neg Q$",
+            "En": "$\\neg P\\lor\\neg Q$"
+          },
+          "Verification": {
+            "Ar": "عند P صحيح وQ خطأ يكون الطرفان صحيحين، وعند صدقهما معاً يكونان خطأ.",
+            "En": "If P is true and Q false both sides are true; if both true both sides are false."
+          },
+          "CommonError": {
+            "Ar": "عند توزيع النفي بدّل AND إلى OR ولا تستخدم AND للنفيين.",
+            "En": "When distributing negation, change AND to OR, not AND."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة محددة",
+            "En": "No specified unit"
+          },
+          "Substitution": {
+            "Ar": "الاقتران يكون صحيحاً فقط عند تحقق العبارتين؛ نفيه صحيح حين تخطئ واحدة على الأقل.",
+            "En": "The conjunction is true only when both hold; its negation holds if at least one is false."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 1669,
+      "ExpectedOptionIds": [
+        6665,
+        6666,
+        6667,
+        6668
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: قاعدة المربعات: (x−a)² ≥ 0، وتتحقق القيمة الصغرى عند x=a.\n\nخطوات الحل: مربع أي عدد غير سالب، ويصير صفراً عند x=3؛ عندئذ القيمة الصغرى 2.",
+        "En": "Rule used: Square bound: (x−a)² ≥ 0, with equality at x=a.\n\nSolution steps: A square is nonnegative and vanishes at x=3, giving the minimum value 2."
+      },
+      "ProposedTrackCode": "mathematical-optimization",
+      "PrimarySkillKey": "unconstrained-optimization",
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 91,
+        "PrimarySkillId": 343,
+        "Points": 10,
+        "Title": {
+          "Ar": "للدالة f(x)=(x-3)^2+2 على مجموعة الأعداد الحقيقية، ما أصغر قيمة ممكنة لـf؟",
+          "En": "For f(x)=(x-3)^2+2 over all real x, what is its minimum value?"
+        },
+        "Question": {
+          "Ar": "للدالة f(x)=(x-3)^2+2 على مجموعة الأعداد الحقيقية، ما أصغر قيمة ممكنة لـf؟",
+          "En": "For f(x)=(x-3)^2+2 over all real x, what is its minimum value?"
+        },
+        "Options": [
+          {
+            "LatexCode": "-2",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. 3 هو موضع الحد الأدنى وليس قيمته. الحد الأدنى متحقق عند x=3 في المجال الحقيقي كله.",
+              "En": "This choice does not match the derived result. 3 is the minimizing argument, not the minimum value. The lower bound is attained at x=3 in the real domain."
+            }
+          },
+          {
+            "LatexCode": "0",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. 3 هو موضع الحد الأدنى وليس قيمته. الحد الأدنى متحقق عند x=3 في المجال الحقيقي كله.",
+              "En": "This choice does not match the derived result. 3 is the minimizing argument, not the minimum value. The lower bound is attained at x=3 in the real domain."
+            }
+          },
+          {
+            "LatexCode": "2",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "3",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. 3 هو موضع الحد الأدنى وليس قيمته. الحد الأدنى متحقق عند x=3 في المجال الحقيقي كله.",
+              "En": "This choice does not match the derived result. 3 is the minimizing argument, not the minimum value. The lower bound is attained at x=3 in the real domain."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "مربع أي عدد حقيقي غير سالب.",
+            "En": "The square of a real number is nonnegative."
+          },
+          {
+            "Ar": "حدّد متى يصبح الحد المربع صفراً، ثم قيّم الدالة عند تلك النقطة.",
+            "En": "Find when the squared term is zero and evaluate the function there."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "المربع غير سالب ويبلغ الصفر عند مركزه.",
+            "En": "A square is nonnegative and vanishes at its center."
+          },
+          "FormulaLatex": "(x-3)^2+2\\ge2",
+          "Steps": [
+            {
+              "Ar": "$(x-3)^2\\ge0$",
+              "En": "$(x-3)^2\\ge0$"
+            },
+            {
+              "Ar": "$x=3\\Rightarrow f(3)=2$",
+              "En": "$x=3\\Rightarrow f(3)=2$"
+            }
+          ],
+          "Result": {
+            "Ar": "$2$",
+            "En": "$2$"
+          },
+          "Verification": {
+            "Ar": "الحد الأدنى متحقق عند x=3 في المجال الحقيقي كله.",
+            "En": "The lower bound is attained at x=3 in the real domain."
+          },
+          "CommonError": {
+            "Ar": "3 هو موضع الحد الأدنى وليس قيمته.",
+            "En": "3 is the minimizing argument, not the minimum value."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة محددة",
+            "En": "No specified unit"
+          },
+          "Substitution": {
+            "Ar": "$x=3\\Rightarrow f(3)=2$",
+            "En": "$x=3\\Rightarrow f(3)=2$"
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 1670,
+      "ExpectedOptionIds": [
+        6669,
+        6670,
+        6671,
+        6672
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: شرط نقطة الثبات لدالة قابلة للاشتقاق: f'(x)=0.\n\nخطوات الحل: نشتق فنحصل على 2x-6، ومن حل المعادلة 2x-6=0 نجد x=3؛ وهي نقطة قيمة صغرى للدالة.",
+        "En": "Rule used: Stationary-point condition for differentiable f: f'(x)=0.\n\nSolution steps: Differentiate: f'(x)=2x-6. Setting it to zero gives x=3."
+      },
+      "ProposedTrackCode": "mathematical-optimization",
+      "PrimarySkillKey": "unconstrained-optimization",
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 91,
+        "PrimarySkillId": 343,
+        "Points": 10,
+        "Title": {
+          "Ar": "أوجد قيمة x التي تحقق f'(x)=0 للدالة f(x)=x^2-6x+5.",
+          "En": "Find x where f'(x)=0 for f(x)=x^2-6x+5."
+        },
+        "Question": {
+          "Ar": "أوجد قيمة x التي تحقق f'(x)=0 للدالة f(x)=x^2-6x+5.",
+          "En": "Find x where f'(x)=0 for f(x)=x^2-6x+5."
+        },
+        "Options": [
+          {
+            "LatexCode": "-3",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تساو الدالة نفسها بالصفر؛ المطلوب مشتقتها. $f'(3)=6-6=0$",
+              "En": "This choice does not match the derived result. Do not set the function itself to zero; use its derivative. $f'(3)=6-6=0$"
+            }
+          },
+          {
+            "LatexCode": "2",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تساو الدالة نفسها بالصفر؛ المطلوب مشتقتها. $f'(3)=6-6=0$",
+              "En": "This choice does not match the derived result. Do not set the function itself to zero; use its derivative. $f'(3)=6-6=0$"
+            }
+          },
+          {
+            "LatexCode": "3",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "6",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تساو الدالة نفسها بالصفر؛ المطلوب مشتقتها. $f'(3)=6-6=0$",
+              "En": "This choice does not match the derived result. Do not set the function itself to zero; use its derivative. $f'(3)=6-6=0$"
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "احسب المشتقة الأولى للدالة.",
+            "En": "Find the first derivative of the function."
+          },
+          {
+            "Ar": "ساوِ المشتقة بالصفر وحل المعادلة في x.",
+            "En": "Set the derivative equal to zero and solve for x."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "النقطة الساكنة تحقق انعدام المشتقة.",
+            "En": "A stationary point satisfies a zero derivative."
+          },
+          "FormulaLatex": "f'(x)=2x-6=0",
+          "Steps": [
+            {
+              "Ar": "$2x=6$",
+              "En": "$2x=6$"
+            },
+            {
+              "Ar": "$x=3$",
+              "En": "$x=3$"
+            }
+          ],
+          "Result": {
+            "Ar": "$3$",
+            "En": "$3$"
+          },
+          "Verification": {
+            "Ar": "$f'(3)=6-6=0$",
+            "En": "$f'(3)=6-6=0$"
+          },
+          "CommonError": {
+            "Ar": "لا تساو الدالة نفسها بالصفر؛ المطلوب مشتقتها.",
+            "En": "Do not set the function itself to zero; use its derivative."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة محددة",
+            "En": "No specified unit"
+          },
+          "Substitution": {
+            "Ar": "$x=3$",
+            "En": "$x=3$"
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 1671,
+      "ExpectedOptionIds": [
+        6673,
+        6674,
+        6675,
+        6676
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: بالإحلال من القيد x+y=c نكتب y=c−x ونصغّر دالة متغير واحد.\n\nخطوات الحل: من تماثل الدالة أو بإكمال المربع، تتحقق القيمة الأصغر عند x=y=3.",
+        "En": "Rule used: Use the linear constraint x+y=c to substitute y=c−x and minimize a one-variable function.\n\nSolution steps: Substitute y=6-x and complete the square; the minimum occurs at x=y=3."
+      },
+      "ProposedTrackCode": "mathematical-optimization",
+      "PrimarySkillKey": "constrained-optimization",
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 91,
+        "PrimarySkillId": 341,
+        "Points": 10,
+        "Title": {
+          "Ar": "نريد تصغير x^2+y^2 بشرط x+y=6 حيث x وy حقيقيان. ما الزوج الذي يحقق الأصغر؟",
+          "En": "Minimize x²+y² subject to x+y=6 for real x and y. Which pair gives the minimum?"
+        },
+        "Question": {
+          "Ar": "نريد تصغير x^2+y^2 بشرط x+y=6 حيث x وy حقيقيان. ما الزوج الذي يحقق الأصغر؟",
+          "En": "Minimize x²+y² subject to x+y=6 for real x and y. Which pair gives the minimum?"
+        },
+        "Options": [
+          {
+            "LatexCode": "(0,6)",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. يجب تحقيق القيد وتقليل مجموع المربعين معاً. $3+3=6,\\quad3^2+3^2=18$",
+              "En": "This choice does not match the derived result. Both feasibility and minimum sum of squares are required. $3+3=6,\\quad3^2+3^2=18$"
+            }
+          },
+          {
+            "LatexCode": "(2,4)",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. يجب تحقيق القيد وتقليل مجموع المربعين معاً. $3+3=6,\\quad3^2+3^2=18$",
+              "En": "This choice does not match the derived result. Both feasibility and minimum sum of squares are required. $3+3=6,\\quad3^2+3^2=18$"
+            }
+          },
+          {
+            "LatexCode": "(3,3)",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "(6,0)",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. يجب تحقيق القيد وتقليل مجموع المربعين معاً. $3+3=6,\\quad3^2+3^2=18$",
+              "En": "This choice does not match the derived result. Both feasibility and minimum sum of squares are required. $3+3=6,\\quad3^2+3^2=18$"
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "استخدم القيد للتعبير عن y بدلالة x.",
+            "En": "Use the constraint to express y in terms of x."
+          },
+          {
+            "Ar": "عوّض في x²+y² ثم أكمل المربع أو اشتق الدالة ذات المتغير الواحد.",
+            "En": "Substitute into x²+y², then complete the square or differentiate the one-variable function."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نعوض القيد الخطي ثم نكمل المربع.",
+            "En": "Substitute the linear constraint, then complete the square."
+          },
+          "FormulaLatex": "x^2+(6-x)^2=2(x-3)^2+18",
+          "Steps": [
+            {
+              "Ar": "$y=6-x$",
+              "En": "$y=6-x$"
+            },
+            {
+              "Ar": "$x=3\\Rightarrow y=3$",
+              "En": "$x=3\\Rightarrow y=3$"
+            }
+          ],
+          "Result": {
+            "Ar": "$(3,3)$",
+            "En": "$(3,3)$"
+          },
+          "Verification": {
+            "Ar": "$3+3=6,\\quad3^2+3^2=18$",
+            "En": "$3+3=6,\\quad3^2+3^2=18$"
+          },
+          "CommonError": {
+            "Ar": "يجب تحقيق القيد وتقليل مجموع المربعين معاً.",
+            "En": "Both feasibility and minimum sum of squares are required."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة محددة",
+            "En": "No specified unit"
+          },
+          "Substitution": {
+            "Ar": "$x=3\\Rightarrow y=3$",
+            "En": "$x=3\\Rightarrow y=3$"
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 1672,
+      "ExpectedOptionIds": [
+        6677,
+        6678,
+        6679,
+        6680
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: عند x+y=c مع x,y≥0: ‏xy ≤ (c/2)²، والمساواة عندما x=y.\n\nخطوات الحل: يبلغ الجداء قيمته الكبرى عند تساوي العددين x=y=5، وبالتالي xy=25.",
+        "En": "Rule used: For x+y=c and x,y≥0: xy ≤ (c/2)², with equality at x=y.\n\nSolution steps: The product is maximized when x=y=5, so the maximum is 25."
+      },
+      "ProposedTrackCode": "mathematical-optimization",
+      "PrimarySkillKey": "constrained-optimization",
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 91,
+        "PrimarySkillId": 341,
+        "Points": 10,
+        "Title": {
+          "Ar": "إذا كان x وy غير سالبين ومجموعهما 10، فما أكبر قيمة للجداء xy؟",
+          "En": "For nonnegative x and y with x+y=10, what is the greatest possible value of xy?"
+        },
+        "Question": {
+          "Ar": "إذا كان x وy غير سالبين ومجموعهما 10، فما أكبر قيمة للجداء xy؟",
+          "En": "For nonnegative x and y with x+y=10, what is the greatest possible value of xy?"
+        },
+        "Options": [
+          {
+            "LatexCode": "20",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تختَر حاصل ضرب غير محقق بالقيد؛ المساواة تتطلب x=y. $5+5=10,\\quad5\\cdot5=25$",
+              "En": "This choice does not match the derived result. Do not choose an infeasible product; equality requires x=y. $5+5=10,\\quad5\\cdot5=25$"
+            }
+          },
+          {
+            "LatexCode": "24",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تختَر حاصل ضرب غير محقق بالقيد؛ المساواة تتطلب x=y. $5+5=10,\\quad5\\cdot5=25$",
+              "En": "This choice does not match the derived result. Do not choose an infeasible product; equality requires x=y. $5+5=10,\\quad5\\cdot5=25$"
+            }
+          },
+          {
+            "LatexCode": "25",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "50",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تختَر حاصل ضرب غير محقق بالقيد؛ المساواة تتطلب x=y. $5+5=10,\\quad5\\cdot5=25$",
+              "En": "This choice does not match the derived result. Do not choose an infeasible product; equality requires x=y. $5+5=10,\\quad5\\cdot5=25$"
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "عندما يكون مجموع عددين غير سالبين ثابتاً يمكن مقارنة الوسط الحسابي والهندسي.",
+            "En": "For nonnegative numbers of fixed sum, compare arithmetic and geometric means."
+          },
+          {
+            "Ar": "تتحقق المساواة عندما يتساوى العددان؛ أو عوّض y=10−x وابحث عن رأس القطع المكافئ.",
+            "En": "Equality occurs when the numbers match; alternatively substitute y=10−x and find the quadratic vertex."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "عند ثبات مجموع عددين غير سالبين يكون حاصل ضربهما أعظم ما يمكن عند تساويهما.",
+            "En": "For a fixed nonnegative sum, the product is maximal when the terms are equal."
+          },
+          "FormulaLatex": "xy\\le\\left(\\frac{x+y}{2}\\right)^2",
+          "Steps": [
+            {
+              "Ar": "$xy\\le(10/2)^2=25$",
+              "En": "$xy\\le(10/2)^2=25$"
+            },
+            {
+              "Ar": "$x=y=5$",
+              "En": "$x=y=5$"
+            }
+          ],
+          "Result": {
+            "Ar": "$25$",
+            "En": "$25$"
+          },
+          "Verification": {
+            "Ar": "$5+5=10,\\quad5\\cdot5=25$",
+            "En": "$5+5=10,\\quad5\\cdot5=25$"
+          },
+          "CommonError": {
+            "Ar": "لا تختَر حاصل ضرب غير محقق بالقيد؛ المساواة تتطلب x=y.",
+            "En": "Do not choose an infeasible product; equality requires x=y."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة محددة",
+            "En": "No specified unit"
+          },
+          "Substitution": {
+            "Ar": "$x=y=5$",
+            "En": "$x=y=5$"
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 1673,
+      "ExpectedOptionIds": [
+        6681,
+        6682,
+        6683,
+        6684
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: قانون المشتقة الثانية: نشتق f'(x) مرة أخرى للحصول على f''(x).\n\nخطوات الحل: المشتقة الأولى 4x³+6x، والثانية 12x²+6؛ بالتعويض عند 1 نجد 18.",
+        "En": "Rule used: Second derivative: differentiate f'(x) again to obtain f''(x).\n\nSolution steps: First differentiate to 4x³+6x, then to 12x²+6; at x=1 this is 18."
+      },
+      "ProposedTrackCode": "mathematical-optimization",
+      "PrimarySkillKey": "convexity",
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 91,
+        "PrimarySkillId": 342,
+        "Points": 10,
+        "Title": {
+          "Ar": "للدالة f(x)=x^4+3x^2، ما قيمة f''(1)؟",
+          "En": "For f(x)=x⁴+3x², what is f''(1)?"
+        },
+        "Question": {
+          "Ar": "للدالة f(x)=x^4+3x^2، ما قيمة f''(1)؟",
+          "En": "For f(x)=x⁴+3x², what is f''(1)?"
+        },
+        "Options": [
+          {
+            "LatexCode": "12",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تقف عند المشتقة الأولى أو تهمل مشتقة الحد التربيعي. مشتقة 6x هي 6 وليست صفراً؛ مجموع الحدين 18.",
+              "En": "This choice does not match the derived result. Do not stop at the first derivative or omit the quadratic term. The derivative of 6x is 6, not zero; the sum is 18."
+            }
+          },
+          {
+            "LatexCode": "14",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تقف عند المشتقة الأولى أو تهمل مشتقة الحد التربيعي. مشتقة 6x هي 6 وليست صفراً؛ مجموع الحدين 18.",
+              "En": "This choice does not match the derived result. Do not stop at the first derivative or omit the quadratic term. The derivative of 6x is 6, not zero; the sum is 18."
+            }
+          },
+          {
+            "LatexCode": "18",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "24",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تقف عند المشتقة الأولى أو تهمل مشتقة الحد التربيعي. مشتقة 6x هي 6 وليست صفراً؛ مجموع الحدين 18.",
+              "En": "This choice does not match the derived result. Do not stop at the first derivative or omit the quadratic term. The derivative of 6x is 6, not zero; the sum is 18."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "استخدم قاعدة القوى لاشتقاق الحدين.",
+            "En": "Use the power rule on both terms."
+          },
+          {
+            "Ar": "اشتق مرتين ثم عوّض x=1 في المشتقة الثانية.",
+            "En": "Differentiate twice, then substitute x=1 into the second derivative."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نشتق مرتين باستعمال قاعدة القوة.",
+            "En": "Differentiate twice using the power rule."
+          },
+          "FormulaLatex": "\\frac{d}{dx}x^n=nx^{n-1}",
+          "Steps": [
+            {
+              "Ar": "$f'=4x^3+6x$",
+              "En": "$f'=4x^3+6x$"
+            },
+            {
+              "Ar": "$f''=12x^2+6$",
+              "En": "$f''=12x^2+6$"
+            },
+            {
+              "Ar": "$f''(1)=12+6$",
+              "En": "$f''(1)=12+6$"
+            }
+          ],
+          "Result": {
+            "Ar": "$18$",
+            "En": "$18$"
+          },
+          "Verification": {
+            "Ar": "مشتقة 6x هي 6 وليست صفراً؛ مجموع الحدين 18.",
+            "En": "The derivative of 6x is 6, not zero; the sum is 18."
+          },
+          "CommonError": {
+            "Ar": "لا تقف عند المشتقة الأولى أو تهمل مشتقة الحد التربيعي.",
+            "En": "Do not stop at the first derivative or omit the quadratic term."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة محددة",
+            "En": "No specified unit"
+          },
+          "Substitution": {
+            "Ar": "$f''(1)=12+6$",
+            "En": "$f''(1)=12+6$"
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 1674,
+      "ExpectedOptionIds": [
+        6685,
+        6686,
+        6687,
+        6688
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: لمصفوفة هسيان قطرية، القيم الذاتية هي العناصر القطرية نفسها.\n\nخطوات الحل: مصفوفة هسيان قطرية بقيمتي 2 و4؛ القيمة الذاتية الأصغر هي 2، وكلاهما موجبتان.",
+        "En": "Rule used: For a diagonal Hessian, its eigenvalues are its diagonal entries.\n\nSolution steps: The Hessian is diagonal with entries 2 and 4; its smallest eigenvalue is 2, and both are positive."
+      },
+      "ProposedTrackCode": "mathematical-optimization",
+      "PrimarySkillKey": "convexity",
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 91,
+        "PrimarySkillId": 342,
+        "Points": 10,
+        "Title": {
+          "Ar": "لدالة f(x,y)=x^2+2y^2، ما أصغر قيمة ذاتية لمصفوفة هسيان؟",
+          "En": "For f(x,y)=x²+2y², what is the smallest eigenvalue of its Hessian?"
+        },
+        "Question": {
+          "Ar": "لدالة f(x,y)=x^2+2y^2، ما أصغر قيمة ذاتية لمصفوفة هسيان؟",
+          "En": "For f(x,y)=x²+2y², what is the smallest eigenvalue of its Hessian?"
+        },
+        "Options": [
+          {
+            "LatexCode": "1",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تجمع عناصر القطر؛ المطلوب أصغر قيمة ذاتية. القيمتان 2 و4، والأصغر 2.",
+              "En": "This choice does not match the derived result. Do not sum the diagonal; the smallest eigenvalue is requested. The eigenvalues are 2 and 4, the smaller is 2."
+            }
+          },
+          {
+            "LatexCode": "2",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "4",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تجمع عناصر القطر؛ المطلوب أصغر قيمة ذاتية. القيمتان 2 و4، والأصغر 2.",
+              "En": "This choice does not match the derived result. Do not sum the diagonal; the smallest eigenvalue is requested. The eigenvalues are 2 and 4, the smaller is 2."
+            }
+          },
+          {
+            "LatexCode": "6",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تجمع عناصر القطر؛ المطلوب أصغر قيمة ذاتية. القيمتان 2 و4، والأصغر 2.",
+              "En": "This choice does not match the derived result. Do not sum the diagonal; the smallest eigenvalue is requested. The eigenvalues are 2 and 4, the smaller is 2."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "أنشئ مصفوفة هيس من المشتقات الجزئية الثانية.",
+            "En": "Build the Hessian from second partial derivatives."
+          },
+          {
+            "Ar": "لاحظ أنها قطرية لأن المشتقات المختلطة صفر؛ قيمها الذاتية هي عناصر القطر.",
+            "En": "It is diagonal because mixed derivatives vanish; its eigenvalues are the diagonal entries."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "القيم الذاتية لمصفوفة قطرية هي عناصر قطرها.",
+            "En": "Eigenvalues of a diagonal matrix are its diagonal entries."
+          },
+          "FormulaLatex": "H=\\begin{pmatrix}2&0\\\\0&4\\end{pmatrix}",
+          "Steps": [
+            {
+              "Ar": "$f_{xx}=2,\\ f_{yy}=4,\\ f_{xy}=0$",
+              "En": "$f_{xx}=2,\\ f_{yy}=4,\\ f_{xy}=0$"
+            },
+            {
+              "Ar": "$(2-\\lambda)(4-\\lambda)=0$",
+              "En": "$(2-\\lambda)(4-\\lambda)=0$"
+            }
+          ],
+          "Result": {
+            "Ar": "$2$",
+            "En": "$2$"
+          },
+          "Verification": {
+            "Ar": "القيمتان 2 و4، والأصغر 2.",
+            "En": "The eigenvalues are 2 and 4, the smaller is 2."
+          },
+          "CommonError": {
+            "Ar": "لا تجمع عناصر القطر؛ المطلوب أصغر قيمة ذاتية.",
+            "En": "Do not sum the diagonal; the smallest eigenvalue is requested."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة محددة",
+            "En": "No specified unit"
+          },
+          "Substitution": {
+            "Ar": "$(2-\\lambda)(4-\\lambda)=0$",
+            "En": "$(2-\\lambda)(4-\\lambda)=0$"
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 1679,
+      "ExpectedOptionIds": [
+        6705,
+        6706,
+        6707,
+        6708
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: قانون الباقي: الباقي = الميزانية − مجموع المصروفات.\n\nخطوات الحل: نجمع المشتريات: ‏490+390+610=1490، ثم نطرح من الميزانية: ‏1500-1490=10.",
+        "En": "Rule used: Remainder formula: remaining budget = starting budget − total expenses.\n\nSolution steps: The purchases cost 490+390+610=1,490, leaving 1,500−1,490=10 units."
+      },
+      "ProposedTrackCode": "grade-4",
+      "PrimarySkillKey": "number-comparison",
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 81,
+        "PrimarySkillId": 304,
+        "Points": 10,
+        "Title": {
+          "Ar": "مع النادي 1500 ليرة واشترى أدوات بمبالغ 490 و390 و610 ليرات. كم ليرة تبقّت؟",
+          "En": "A club has 1,500 units of currency and buys supplies costing 490, 390 and 610. How much is left?"
+        },
+        "Question": {
+          "Ar": "مع النادي 1500 ليرة واشترى أدوات بمبالغ 490 و390 و610 ليرات. كم ليرة تبقّت؟",
+          "En": "A club has 1,500 units of currency and buys supplies costing 490, 390 and 610. How much is left?"
+        },
+        "Options": [
+          {
+            "LatexCode": "0",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. اجمع المصروفات الثلاثة قبل الطرح، ولا تسقط أحدها. $1490+10=1500$",
+              "En": "This choice does not match the derived result. Add all three expenses before subtracting; omit none. $1490+10=1500$"
+            }
+          },
+          {
+            "LatexCode": "10",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "20",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. اجمع المصروفات الثلاثة قبل الطرح، ولا تسقط أحدها. $1490+10=1500$",
+              "En": "This choice does not match the derived result. Add all three expenses before subtracting; omit none. $1490+10=1500$"
+            }
+          },
+          {
+            "LatexCode": "110",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. اجمع المصروفات الثلاثة قبل الطرح، ولا تسقط أحدها. $1490+10=1500$",
+              "En": "This choice does not match the derived result. Add all three expenses before subtracting; omit none. $1490+10=1500$"
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "احسب تكلفة المشتريات كلها أولاً.",
+            "En": "Find the total purchase cost first."
+          },
+          {
+            "Ar": "اجمع التكاليف الثلاث ثم اطرح المجموع من الرصيد الأصلي.",
+            "En": "Add the three costs, then subtract the sum from the starting balance."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "المتبقي يساوي الميزانية الأصلية ناقص مجموع المصروفات.",
+            "En": "Remaining budget equals initial budget minus total expenses."
+          },
+          "FormulaLatex": "R=B-(c_1+c_2+c_3)",
+          "Steps": [
+            {
+              "Ar": "$490+390+610=1490$",
+              "En": "$490+390+610=1490$"
+            },
+            {
+              "Ar": "$1500-1490=10$",
+              "En": "$1500-1490=10$"
+            }
+          ],
+          "Result": {
+            "Ar": "$10$",
+            "En": "$10$"
+          },
+          "Verification": {
+            "Ar": "$1490+10=1500$",
+            "En": "$1490+10=1500$"
+          },
+          "CommonError": {
+            "Ar": "اجمع المصروفات الثلاثة قبل الطرح، ولا تسقط أحدها.",
+            "En": "Add all three expenses before subtracting; omit none."
+          },
+          "Unit": {
+            "Ar": "وحدة نقدية",
+            "En": "Currency units"
+          },
+          "Substitution": {
+            "Ar": "$1500-1490=10$",
+            "En": "$1500-1490=10$"
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 1699,
+      "ExpectedOptionIds": [
+        6785,
+        6786,
+        6787,
+        6788
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: قاعدة إكمال المربع: (x−a)²≥0، فتكون أدنى قيمة عند انعدام الحد المربّع.\n\nخطوات الحل: نكمل المربع: f(x)=(x−2)²−3، وأصغر قيمة للمربع صفر، لذا القيمة الصغرى −3.",
+        "En": "Rule used: Completing-square principle: (x−a)²≥0, with the minimum when the square vanishes.\n\nSolution steps: Complete the square: f(x)=(x−2)²−3; the square is minimized at zero, giving −3."
+      },
+      "ProposedTrackCode": "mathematical-optimization",
+      "PrimarySkillKey": "unconstrained-optimization",
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 91,
+        "PrimarySkillId": 343,
+        "Points": 10,
+        "Title": {
+          "Ar": "ما القيمة الصغرى للدالة f(x)=x²−4x+1 على مجموعة الأعداد الحقيقية؟",
+          "En": "What is the global minimum value of f(x)=x²−4x+1 over the real numbers?"
+        },
+        "Question": {
+          "Ar": "ما القيمة الصغرى للدالة f(x)=x²−4x+1 على مجموعة الأعداد الحقيقية؟",
+          "En": "What is the global minimum value of f(x)=x²−4x+1 over the real numbers?"
+        },
+        "Options": [
+          {
+            "LatexCode": "-4",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تخلط قيمة الحد الأدنى بموضعه x=2. $f(2)=4-8+1=-3$",
+              "En": "This choice does not match the derived result. Do not confuse the minimum value with its argument x=2. $f(2)=4-8+1=-3$"
+            }
+          },
+          {
+            "LatexCode": "-3",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "0",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تخلط قيمة الحد الأدنى بموضعه x=2. $f(2)=4-8+1=-3$",
+              "En": "This choice does not match the derived result. Do not confuse the minimum value with its argument x=2. $f(2)=4-8+1=-3$"
+            }
+          },
+          {
+            "LatexCode": "1",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تخلط قيمة الحد الأدنى بموضعه x=2. $f(2)=4-8+1=-3$",
+              "En": "This choice does not match the derived result. Do not confuse the minimum value with its argument x=2. $f(2)=4-8+1=-3$"
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "معامل x² موجب، لذا للدالة التربيعية قيمة صغرى عالمية.",
+            "En": "The x² coefficient is positive, so the quadratic has a global minimum."
+          },
+          {
+            "Ar": "أكمل المربع أو أوجد رأس القطع المكافئ ثم احسب قيمة الدالة.",
+            "En": "Complete the square or find the vertex, then evaluate the function."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "إكمال المربع يكشف الحد الأدنى العالمي.",
+            "En": "Completing the square reveals the global minimum."
+          },
+          "FormulaLatex": "x^2-4x+1=(x-2)^2-3",
+          "Steps": [
+            {
+              "Ar": "$x^2-4x+1=x^2-4x+4-3$",
+              "En": "$x^2-4x+1=x^2-4x+4-3$"
+            },
+            {
+              "Ar": "$(x-2)^2\\ge0$",
+              "En": "$(x-2)^2\\ge0$"
+            }
+          ],
+          "Result": {
+            "Ar": "$-3$",
+            "En": "$-3$"
+          },
+          "Verification": {
+            "Ar": "$f(2)=4-8+1=-3$",
+            "En": "$f(2)=4-8+1=-3$"
+          },
+          "CommonError": {
+            "Ar": "لا تخلط قيمة الحد الأدنى بموضعه x=2.",
+            "En": "Do not confuse the minimum value with its argument x=2."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة محددة",
+            "En": "No specified unit"
+          },
+          "Substitution": {
+            "Ar": "$(x-2)^2\\ge0$",
+            "En": "$(x-2)^2\\ge0$"
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 1700,
+      "ExpectedOptionIds": [
+        6789,
+        6790,
+        6791,
+        6792
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: معيار تحدب الدالة القابلة للاشتقاق مرتين: f''(x)≥0 على المجال.\n\nخطوات الحل: المشتقة الثانية تساوي 6x، وهي موجبة فقط عندما x>0، مما يدل على التحدب في هذا المجال.",
+        "En": "Rule used: Twice-differentiable convexity criterion: f''(x)≥0 throughout the interval.\n\nSolution steps: The second derivative is 6x, positive exactly when x>0, which implies convexity there."
+      },
+      "ProposedTrackCode": "mathematical-optimization",
+      "PrimarySkillKey": "convexity",
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 91,
+        "PrimarySkillId": 342,
+        "Points": 10,
+        "Title": {
+          "Ar": "للدالة f(x)=x³ على الأعداد الحقيقية، في أي مجال تكون مشتقتها الثانية موجبة؟",
+          "En": "For f(x)=x³ over real numbers, on which interval is its second derivative positive?"
+        },
+        "Question": {
+          "Ar": "للدالة f(x)=x³ على الأعداد الحقيقية، في أي مجال تكون مشتقتها الثانية موجبة؟",
+          "En": "For f(x)=x³ over real numbers, on which interval is its second derivative positive?"
+        },
+        "Options": [
+          {
+            "LatexCode": "x<0",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. الإيجابية الصارمة تستبعد الصفر. عند 1 القيمة 6 موجبة وعند −1 سالبة وعند صفر تساوي صفر.",
+              "En": "This choice does not match the derived result. Strict positivity excludes zero. At 1 the value is positive, at −1 negative, and at zero it is zero."
+            }
+          },
+          {
+            "LatexCode": "x=0",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. الإيجابية الصارمة تستبعد الصفر. عند 1 القيمة 6 موجبة وعند −1 سالبة وعند صفر تساوي صفر.",
+              "En": "This choice does not match the derived result. Strict positivity excludes zero. At 1 the value is positive, at −1 negative, and at zero it is zero."
+            }
+          },
+          {
+            "LatexCode": "x>0",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "x\\le0",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. الإيجابية الصارمة تستبعد الصفر. عند 1 القيمة 6 موجبة وعند −1 سالبة وعند صفر تساوي صفر.",
+              "En": "This choice does not match the derived result. Strict positivity excludes zero. At 1 the value is positive, at −1 negative, and at zero it is zero."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "أوجد المشتقة الثانية للدالة التكعيبية.",
+            "En": "Find the second derivative of the cubic."
+          },
+          {
+            "Ar": "حل المتباينة التي تجعل المشتقة الثانية أكبر من الصفر.",
+            "En": "Solve the inequality requiring the second derivative to be positive."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نشتق مرتين ثم نحل متراجحة المشتقة الثانية الموجبة.",
+            "En": "Differentiate twice and solve the strict positivity inequality."
+          },
+          "FormulaLatex": "f''(x)=6x>0",
+          "Steps": [
+            {
+              "Ar": "$f'=3x^2$",
+              "En": "$f'=3x^2$"
+            },
+            {
+              "Ar": "$f''=6x$",
+              "En": "$f''=6x$"
+            },
+            {
+              "Ar": "$6x>0\\Rightarrow x>0$",
+              "En": "$6x>0\\Rightarrow x>0$"
+            }
+          ],
+          "Result": {
+            "Ar": "$x>0$",
+            "En": "$x>0$"
+          },
+          "Verification": {
+            "Ar": "عند 1 القيمة 6 موجبة وعند −1 سالبة وعند صفر تساوي صفر.",
+            "En": "At 1 the value is positive, at −1 negative, and at zero it is zero."
+          },
+          "CommonError": {
+            "Ar": "الإيجابية الصارمة تستبعد الصفر.",
+            "En": "Strict positivity excludes zero."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة محددة",
+            "En": "No specified unit"
+          },
+          "Substitution": {
+            "Ar": "$6x>0\\Rightarrow x>0$",
+            "En": "$6x>0\\Rightarrow x>0$"
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 1701,
+      "ExpectedOptionIds": [
+        6793,
+        6794,
+        6795,
+        6796
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: لتعظيم دالة على مجال مغلق، نفحص النقاط الحرجة والأطراف.\n\nخطوات الحل: القيمة الكبرى عند قمة القطع المكافئ x=1 وهي داخل المجال، فنحصل على f(1)=9.",
+        "En": "Rule used: To maximize on a closed interval, check stationary points and endpoints.\n\nSolution steps: The downward-opening parabola reaches its vertex at x=1 inside the interval, where f(1)=9."
+      },
+      "ProposedTrackCode": "mathematical-optimization",
+      "PrimarySkillKey": "unconstrained-optimization",
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 91,
+        "PrimarySkillId": 343,
+        "Points": 10,
+        "Title": {
+          "Ar": "للدالة f(x)=−(x−1)²+9 على المجال المغلق [0,4]، ما أكبر قيمة لها؟",
+          "En": "For f(x)=−(x−1)²+9 on the closed interval [0,4], what is its maximum value?"
+        },
+        "Question": {
+          "Ar": "للدالة f(x)=−(x−1)²+9 على المجال المغلق [0,4]، ما أكبر قيمة لها؟",
+          "En": "For f(x)=−(x−1)²+9 on the closed interval [0,4], what is its maximum value?"
+        },
+        "Options": [
+          {
+            "LatexCode": "5",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تكتف بفحص الطرفين؛ نقطة الرأس داخل المجال. $f(0)=8,\\ f(4)=0,\\ f(1)=9$",
+              "En": "This choice does not match the derived result. Do not check only endpoints; the vertex is inside the interval. $f(0)=8,\\ f(4)=0,\\ f(1)=9$"
+            }
+          },
+          {
+            "LatexCode": "8",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تكتف بفحص الطرفين؛ نقطة الرأس داخل المجال. $f(0)=8,\\ f(4)=0,\\ f(1)=9$",
+              "En": "This choice does not match the derived result. Do not check only endpoints; the vertex is inside the interval. $f(0)=8,\\ f(4)=0,\\ f(1)=9$"
+            }
+          },
+          {
+            "LatexCode": "9",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "10",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تكتف بفحص الطرفين؛ نقطة الرأس داخل المجال. $f(0)=8,\\ f(4)=0,\\ f(1)=9$",
+              "En": "This choice does not match the derived result. Do not check only endpoints; the vertex is inside the interval. $f(0)=8,\\ f(4)=0,\\ f(1)=9$"
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "الدالة على صورة ثابت ناقص مربع.",
+            "En": "The function is a constant minus a square."
+          },
+          {
+            "Ar": "ابحث عن موضع انعدام المربع وتأكد أنه ضمن المجال المغلق قبل حساب القيمة.",
+            "En": "Find where the square vanishes and verify it belongs to the closed interval."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "المربع المطروح غير سالب، والرأس يقع داخل المجال.",
+            "En": "The subtracted square is nonnegative and the vertex lies in the interval."
+          },
+          "FormulaLatex": "9-(x-1)^2\\le9",
+          "Steps": [
+            {
+              "Ar": "$1\\in[0,4]$",
+              "En": "$1\\in[0,4]$"
+            },
+            {
+              "Ar": "$f(1)=9$",
+              "En": "$f(1)=9$"
+            }
+          ],
+          "Result": {
+            "Ar": "$9$",
+            "En": "$9$"
+          },
+          "Verification": {
+            "Ar": "$f(0)=8,\\ f(4)=0,\\ f(1)=9$",
+            "En": "$f(0)=8,\\ f(4)=0,\\ f(1)=9$"
+          },
+          "CommonError": {
+            "Ar": "لا تكتف بفحص الطرفين؛ نقطة الرأس داخل المجال.",
+            "En": "Do not check only endpoints; the vertex is inside the interval."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة محددة",
+            "En": "No specified unit"
+          },
+          "Substitution": {
+            "Ar": "$f(1)=9$",
+            "En": "$f(1)=9$"
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 1702,
+      "ExpectedOptionIds": [
+        6797,
+        6798,
+        6799,
+        6800
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: متباينة كوشي–شفارتز: |a·b|≤|a||b|، مع فحص شرط المساواة.\n\nخطوات الحل: من كوشي–شفارتز: ‏x+y≤√2·√(x²+y²)=2، وتتحقق المساواة عند x=y=1.",
+        "En": "Rule used: Cauchy–Schwarz inequality: |a·b|≤|a||b|, including its equality condition.\n\nSolution steps: By Cauchy–Schwarz, x+y≤√2·√(x²+y²)=2, with equality at x=y=1."
+      },
+      "ProposedTrackCode": "mathematical-optimization",
+      "PrimarySkillKey": "constrained-optimization",
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 91,
+        "PrimarySkillId": 341,
+        "Points": 10,
+        "Title": {
+          "Ar": "على الدائرة x²+y²=2، ما أكبر قيمة ممكنة للمجموع x+y حيث x وy حقيقيان؟",
+          "En": "Subject to x²+y²=2 for real x and y, what is the maximum possible value of x+y?"
+        },
+        "Question": {
+          "Ar": "على الدائرة x²+y²=2، ما أكبر قيمة ممكنة للمجموع x+y حيث x وy حقيقيان؟",
+          "En": "Subject to x²+y²=2 for real x and y, what is the maximum possible value of x+y?"
+        },
+        "Options": [
+          {
+            "LatexCode": "1",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. 4 حد لمربع المجموع، لا للمجموع نفسه. $1^2+1^2=2,\\quad1+1=2$",
+              "En": "This choice does not match the derived result. 4 bounds the squared sum, not the sum. $1^2+1^2=2,\\quad1+1=2$"
+            }
+          },
+          {
+            "LatexCode": "2",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "\\sqrt{2}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. 4 حد لمربع المجموع، لا للمجموع نفسه. $1^2+1^2=2,\\quad1+1=2$",
+              "En": "This choice does not match the derived result. 4 bounds the squared sum, not the sum. $1^2+1^2=2,\\quad1+1=2$"
+            }
+          },
+          {
+            "LatexCode": "4",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. 4 حد لمربع المجموع، لا للمجموع نفسه. $1^2+1^2=2,\\quad1+1=2$",
+              "En": "This choice does not match the derived result. 4 bounds the squared sum, not the sum. $1^2+1^2=2,\\quad1+1=2$"
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "استخدم متباينة كوشي–شفارتز بين المتجهين (x,y) و(1,1).",
+            "En": "Apply Cauchy–Schwarz to vectors (x,y) and (1,1)."
+          },
+          {
+            "Ar": "اربط (x+y)² بمقدار (x²+y²)×2، ثم افحص حالة تحقق المساواة الموجبة.",
+            "En": "Bound (x+y)² by (x²+y²)×2, then check the positive equality case."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نطبق متباينة كوشي–شفارتز على المتجهين (x,y) و(1,1).",
+            "En": "Apply Cauchy–Schwarz to (x,y) and (1,1)."
+          },
+          "FormulaLatex": "(x+y)^2\\le2(x^2+y^2)=4",
+          "Steps": [
+            {
+              "Ar": "$|x+y|\\le2$",
+              "En": "$|x+y|\\le2$"
+            },
+            {
+              "Ar": "$(x,y)=(1,1)$",
+              "En": "$(x,y)=(1,1)$"
+            }
+          ],
+          "Result": {
+            "Ar": "$2$",
+            "En": "$2$"
+          },
+          "Verification": {
+            "Ar": "$1^2+1^2=2,\\quad1+1=2$",
+            "En": "$1^2+1^2=2,\\quad1+1=2$"
+          },
+          "CommonError": {
+            "Ar": "4 حد لمربع المجموع، لا للمجموع نفسه.",
+            "En": "4 bounds the squared sum, not the sum."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة محددة",
+            "En": "No specified unit"
+          },
+          "Substitution": {
+            "Ar": "$(x,y)=(1,1)$",
+            "En": "$(x,y)=(1,1)$"
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 1704,
+      "ExpectedOptionIds": [
+        6805,
+        6806,
+        6807,
+        6808
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: قانون محدد مصفوفة 2×2: det([[a,b],[c,d]])=ad−bc.\n\nخطوات الحل: هسيان يساوي [[4,1],[1,6]]؛ نحسب المحدد 4×6−1×1=23.",
+        "En": "Rule used: 2×2 determinant formula: det([[a,b],[c,d]])=ad−bc.\n\nSolution steps: The Hessian is [[4,1],[1,6]], whose determinant is 4×6−1×1=23."
+      },
+      "ProposedTrackCode": "mathematical-optimization",
+      "PrimarySkillKey": "convexity",
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 91,
+        "PrimarySkillId": 342,
+        "Points": 10,
+        "Title": {
+          "Ar": "للدالة f(x,y)=2x²+xy+3y²، ما قيمة محدد مصفوفة هسيان الثابتة؟",
+          "En": "For f(x,y)=2x²+xy+3y², what is the determinant of its constant Hessian matrix?"
+        },
+        "Question": {
+          "Ar": "للدالة f(x,y)=2x²+xy+3y²، ما قيمة محدد مصفوفة هسيان الثابتة؟",
+          "En": "For f(x,y)=2x²+xy+3y², what is the determinant of its constant Hessian matrix?"
+        },
+        "Options": [
+          {
+            "LatexCode": "11",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تهمل المشتقات المختلطة. المحدد 24 ناقص حاصل ضرب العنصرين غير القطريين 1.",
+              "En": "This choice does not match the derived result. Do not omit the mixed derivatives. The determinant is 24 minus the off-diagonal product 1."
+            }
+          },
+          {
+            "LatexCode": "20",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تهمل المشتقات المختلطة. المحدد 24 ناقص حاصل ضرب العنصرين غير القطريين 1.",
+              "En": "This choice does not match the derived result. Do not omit the mixed derivatives. The determinant is 24 minus the off-diagonal product 1."
+            }
+          },
+          {
+            "LatexCode": "23",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "24",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تهمل المشتقات المختلطة. المحدد 24 ناقص حاصل ضرب العنصرين غير القطريين 1.",
+              "En": "This choice does not match the derived result. Do not omit the mixed derivatives. The determinant is 24 minus the off-diagonal product 1."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "احسب المشتقات الجزئية الثانية المباشرة والمختلطة.",
+            "En": "Compute pure and mixed second partial derivatives."
+          },
+          {
+            "Ar": "رتّبها في مصفوفة هيس 2×2 واحسب محددها بطرح حاصل ضرب القطرين.",
+            "En": "Arrange them in a 2×2 Hessian and compute its determinant as the diagonal-product difference."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نحسب محدد مصفوفة هيس باستعمال قاعدة ad−bc.",
+            "En": "Compute the Hessian determinant using ad−bc."
+          },
+          "FormulaLatex": "H=\\begin{pmatrix}4&1\\\\1&6\\end{pmatrix}",
+          "Steps": [
+            {
+              "Ar": "$f_{xx}=4,\\ f_{yy}=6,\\ f_{xy}=f_{yx}=1$",
+              "En": "$f_{xx}=4,\\ f_{yy}=6,\\ f_{xy}=f_{yx}=1$"
+            },
+            {
+              "Ar": "$\\det H=4\\cdot6-1\\cdot1$",
+              "En": "$\\det H=4\\cdot6-1\\cdot1$"
+            }
+          ],
+          "Result": {
+            "Ar": "$23$",
+            "En": "$23$"
+          },
+          "Verification": {
+            "Ar": "المحدد 24 ناقص حاصل ضرب العنصرين غير القطريين 1.",
+            "En": "The determinant is 24 minus the off-diagonal product 1."
+          },
+          "CommonError": {
+            "Ar": "لا تهمل المشتقات المختلطة.",
+            "En": "Do not omit the mixed derivatives."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة محددة",
+            "En": "No specified unit"
+          },
+          "Substitution": {
+            "Ar": "$\\det H=4\\cdot6-1\\cdot1$",
+            "En": "$\\det H=4\\cdot6-1\\cdot1$"
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 1705,
+      "ExpectedOptionIds": [
+        6809,
+        6810,
+        6811,
+        6812
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: كوشي–شفارتز: (a·x)²≤|a|²|x|²؛ ننقلها إلى حد أدنى للدالة.\n\nخطوات الحل: بمتباينة كوشي: ‏(2x+y)²≤5(x²+y²)، فالقيمة لا تقل عن 100/5=20 وتتحقق عند (4,2).",
+        "En": "Rule used: Cauchy–Schwarz: (a·x)²≤|a|²|x|²; rearrange to bound the objective below.\n\nSolution steps: Cauchy–Schwarz gives (2x+y)²≤5(x²+y²), so the objective is at least 20, attained at (4,2)."
+      },
+      "ProposedTrackCode": "mathematical-optimization",
+      "PrimarySkillKey": "constrained-optimization",
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 91,
+        "PrimarySkillId": 341,
+        "Points": 10,
+        "Title": {
+          "Ar": "نصغّر x²+y² بشرط 2x+y=10 حيث المتغيران حقيقيان. ما أصغر قيمة ممكنة؟",
+          "En": "Minimize x²+y² subject to 2x+y=10 for real x and y. What is the minimum objective value?"
+        },
+        "Question": {
+          "Ar": "نصغّر x²+y² بشرط 2x+y=10 حيث المتغيران حقيقيان. ما أصغر قيمة ممكنة؟",
+          "En": "Minimize x²+y² subject to 2x+y=10 for real x and y. What is the minimum objective value?"
+        },
+        "Options": [
+          {
+            "LatexCode": "16",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا يكفي الحد النظري؛ أثبت وجود نقطة تحقق المساواة والقيد. $2\\cdot4+2=10,\\quad4^2+2^2=20$",
+              "En": "This choice does not match the derived result. A lower bound alone is insufficient; show a feasible equality point. $2\\cdot4+2=10,\\quad4^2+2^2=20$"
+            }
+          },
+          {
+            "LatexCode": "18",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا يكفي الحد النظري؛ أثبت وجود نقطة تحقق المساواة والقيد. $2\\cdot4+2=10,\\quad4^2+2^2=20$",
+              "En": "This choice does not match the derived result. A lower bound alone is insufficient; show a feasible equality point. $2\\cdot4+2=10,\\quad4^2+2^2=20$"
+            }
+          },
+          {
+            "LatexCode": "20",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "25",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا يكفي الحد النظري؛ أثبت وجود نقطة تحقق المساواة والقيد. $2\\cdot4+2=10,\\quad4^2+2^2=20$",
+              "En": "This choice does not match the derived result. A lower bound alone is insufficient; show a feasible equality point. $2\\cdot4+2=10,\\quad4^2+2^2=20$"
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "حل القيد الخطي بالنسبة إلى y.",
+            "En": "Solve the linear constraint for y."
+          },
+          {
+            "Ar": "عوّض في دالة الهدف التربيعية وأوجد نقطة الحد الأدنى ثم قيمتها.",
+            "En": "Substitute into the quadratic objective, find its minimizer and evaluate."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "كوشي–شفارتز تعطي حداً أدنى للقيمة المقيدة.",
+            "En": "Cauchy–Schwarz provides a lower bound for the constrained objective."
+          },
+          "FormulaLatex": "(2x+y)^2\\le5(x^2+y^2)",
+          "Steps": [
+            {
+              "Ar": "$100\\le5(x^2+y^2)$",
+              "En": "$100\\le5(x^2+y^2)$"
+            },
+            {
+              "Ar": "$x^2+y^2\\ge20$",
+              "En": "$x^2+y^2\\ge20$"
+            },
+            {
+              "Ar": "$(x,y)=(4,2)$",
+              "En": "$(x,y)=(4,2)$"
+            }
+          ],
+          "Result": {
+            "Ar": "$20$",
+            "En": "$20$"
+          },
+          "Verification": {
+            "Ar": "$2\\cdot4+2=10,\\quad4^2+2^2=20$",
+            "En": "$2\\cdot4+2=10,\\quad4^2+2^2=20$"
+          },
+          "CommonError": {
+            "Ar": "لا يكفي الحد النظري؛ أثبت وجود نقطة تحقق المساواة والقيد.",
+            "En": "A lower bound alone is insufficient; show a feasible equality point."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة محددة",
+            "En": "No specified unit"
+          },
+          "Substitution": {
+            "Ar": "$(x,y)=(4,2)$",
+            "En": "$(x,y)=(4,2)$"
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 1706,
+      "ExpectedOptionIds": [
+        6813,
+        6814,
+        6815,
+        6816
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: معيار التحدب أحادي المتغير: f''(x)≥0 لكل x في المجال.\n\nخطوات الحل: المشتقة الثانية ثابتة وتساوي 2(a−1)، لذا تكون غير سالبة لكل x إذا وفقط إذا كان a≥1.",
+        "En": "Rule used: One-dimensional convexity condition: f''(x)≥0 for every x in the domain.\n\nSolution steps: Its second derivative is 2(a−1); convexity on all real numbers holds exactly when a≥1."
+      },
+      "ProposedTrackCode": "mathematical-optimization",
+      "PrimarySkillKey": "convexity",
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 91,
+        "PrimarySkillId": 342,
+        "Points": 10,
+        "Title": {
+          "Ar": "للدالة f(x)=(a−1)x² حيث a ثابت حقيقي، ما الشرط اللازم والكافي لتحدب الدالة على كامل خط الأعداد؟",
+          "En": "For f(x)=(a−1)x² with real parameter a, which necessary and sufficient condition makes f convex on t"
+        },
+        "Question": {
+          "Ar": "للدالة f(x)=(a−1)x² حيث a ثابت حقيقي، ما الشرط اللازم والكافي لتحدب الدالة على كامل خط الأعداد؟",
+          "En": "For f(x)=(a−1)x² with real parameter a, which necessary and sufficient condition makes f convex on the entire real line?"
+        },
+        "Options": [
+          {
+            "LatexCode": "a>2",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. التحدب لا يشترط الإيجابية الصارمة؛ حالة المساواة مقبولة. عند a=1 الدالة ثابتة ومحدبة، وعند a<1 تكون المشتقة الثانية سالبة.",
+              "En": "This choice does not match the derived result. Convexity does not require strict positivity; equality is allowed. At a=1 the constant function is convex; for a<1 the second derivative is negative."
+            }
+          },
+          {
+            "LatexCode": "a\\le1",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. التحدب لا يشترط الإيجابية الصارمة؛ حالة المساواة مقبولة. عند a=1 الدالة ثابتة ومحدبة، وعند a<1 تكون المشتقة الثانية سالبة.",
+              "En": "This choice does not match the derived result. Convexity does not require strict positivity; equality is allowed. At a=1 the constant function is convex; for a<1 the second derivative is negative."
+            }
+          },
+          {
+            "LatexCode": "a\\ge1",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "a<0",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. التحدب لا يشترط الإيجابية الصارمة؛ حالة المساواة مقبولة. عند a=1 الدالة ثابتة ومحدبة، وعند a<1 تكون المشتقة الثانية سالبة.",
+              "En": "This choice does not match the derived result. Convexity does not require strict positivity; equality is allowed. At a=1 the constant function is convex; for a<1 the second derivative is negative."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "الدالة القابلة للاشتقاق مرتين محدبة على المستقيم إذا كانت مشتقتها الثانية غير سالبة في كل نقطة.",
+            "En": "A twice differentiable function is convex on the line if its second derivative is nonnegative everywhere."
+          },
+          {
+            "Ar": "اشتق التعبير مرتين وحل شرط عدم سلبية الناتج بدلالة a.",
+            "En": "Differentiate twice and solve the nonnegativity condition in terms of a."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "الدالة القابلة للاشتقاق مرتين محدبة على المستقيم إذا وفقط إذا كانت مشتقتها الثانية غير سالبة.",
+            "En": "A twice differentiable function is convex on the real line iff its second derivative is nonnegative."
+          },
+          "FormulaLatex": "f''(x)=2(a-1)\\ge0",
+          "Steps": [
+            {
+              "Ar": "$a-1\\ge0$",
+              "En": "$a-1\\ge0$"
+            },
+            {
+              "Ar": "$a\\ge1$",
+              "En": "$a\\ge1$"
+            }
+          ],
+          "Result": {
+            "Ar": "$a\\ge1$",
+            "En": "$a\\ge1$"
+          },
+          "Verification": {
+            "Ar": "عند a=1 الدالة ثابتة ومحدبة، وعند a<1 تكون المشتقة الثانية سالبة.",
+            "En": "At a=1 the constant function is convex; for a<1 the second derivative is negative."
+          },
+          "CommonError": {
+            "Ar": "التحدب لا يشترط الإيجابية الصارمة؛ حالة المساواة مقبولة.",
+            "En": "Convexity does not require strict positivity; equality is allowed."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة محددة",
+            "En": "No specified unit"
+          },
+          "Substitution": {
+            "Ar": "$a\\ge1$",
+            "En": "$a\\ge1$"
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 1713,
+      "ExpectedOptionIds": [
+        6841,
+        6842,
+        6843,
+        6844
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: نفحص النقطة الحرجة والحدود المسموحة؛ رأس القطع المكافئ x=−2 خارج المجال.\n\nخطوات الحل: بما أن x≥0، تكون (x+2)² أصغر ما يمكن عند x=0. نحسب f(0)=2²+5=9. إذن الحد الأدنى هو 9.",
+        "En": "Rule used: Constrained minimization checks stationary points and boundary values; the unconstrained vertex x=−2 is infeasible.\n\nSolution steps: On x≥0, (x+2)² is smallest at x=0. Thus f(0)=2²+5=9, the global minimum on the allowed domain."
+      },
+      "ProposedTrackCode": "mathematical-optimization",
+      "PrimarySkillKey": "constrained-optimization",
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 91,
+        "PrimarySkillId": 341,
+        "Points": 10,
+        "Title": {
+          "Ar": "للدالة f(x)=(x+2)²+5 مع القيد x≥0، ما أصغر قيمة ممكنة؟",
+          "En": "For f(x)=(x+2)²+5 restricted to x≥0, what is the minimum value?"
+        },
+        "Question": {
+          "Ar": "للدالة f(x)=(x+2)²+5 مع القيد x≥0، ما أصغر قيمة ممكنة؟",
+          "En": "For f(x)=(x+2)²+5 restricted to x≥0, what is the minimum value?"
+        },
+        "Options": [
+          {
+            "LatexCode": "5",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. 5 حد أدنى غير مقيد ولا يتحقق في المجال المطلوب. $f'(x)=2(x+2)>0\\quad(x\\ge0)$",
+              "En": "This choice does not match the derived result. 5 is the unconstrained minimum and is not attained in the allowed domain. $f'(x)=2(x+2)>0\\quad(x\\ge0)$"
+            }
+          },
+          {
+            "LatexCode": "7",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. 5 حد أدنى غير مقيد ولا يتحقق في المجال المطلوب. $f'(x)=2(x+2)>0\\quad(x\\ge0)$",
+              "En": "This choice does not match the derived result. 5 is the unconstrained minimum and is not attained in the allowed domain. $f'(x)=2(x+2)>0\\quad(x\\ge0)$"
+            }
+          },
+          {
+            "LatexCode": "9",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "13",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. 5 حد أدنى غير مقيد ولا يتحقق في المجال المطلوب. $f'(x)=2(x+2)>0\\quad(x\\ge0)$",
+              "En": "This choice does not match the derived result. 5 is the unconstrained minimum and is not attained in the allowed domain. $f'(x)=2(x+2)>0\\quad(x\\ge0)$"
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "حدّد موضع رأس القطع المكافئ أولاً.",
+            "En": "Find the quadratic vertex first."
+          },
+          {
+            "Ar": "إذا كان الرأس خارج المجال x≥0 فافحص الحد الطرفي الأقرب إليه.",
+            "En": "If the vertex lies outside x≥0, examine the closest boundary point."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "الرأس غير المقيد x=−2 خارج المجال؛ المربع يزداد عندما x≥0.",
+            "En": "The unconstrained vertex −2 is infeasible; the square increases for x≥0."
+          },
+          "FormulaLatex": "x\\ge0\\Rightarrow (x+2)^2\\ge4",
+          "Steps": [
+            {
+              "Ar": "$f(x)\\ge4+5=9$",
+              "En": "$f(x)\\ge4+5=9$"
+            },
+            {
+              "Ar": "$x=0\\Rightarrow f(0)=9$",
+              "En": "$x=0\\Rightarrow f(0)=9$"
+            }
+          ],
+          "Result": {
+            "Ar": "$9$",
+            "En": "$9$"
+          },
+          "Verification": {
+            "Ar": "$f'(x)=2(x+2)>0\\quad(x\\ge0)$",
+            "En": "$f'(x)=2(x+2)>0\\quad(x\\ge0)$"
+          },
+          "CommonError": {
+            "Ar": "5 حد أدنى غير مقيد ولا يتحقق في المجال المطلوب.",
+            "En": "5 is the unconstrained minimum and is not attained in the allowed domain."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة محددة",
+            "En": "No specified unit"
+          },
+          "Substitution": {
+            "Ar": "$x=0\\Rightarrow f(0)=9$",
+            "En": "$x=0\\Rightarrow f(0)=9$"
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 1714,
+      "ExpectedOptionIds": [
+        6845,
+        6846,
+        6847,
+        6848
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: نقاط السكون تحقق ∇f=0، والمصفوفة الهسيّة الموجبة التعريف تثبت أن نقطة السكون حد أدنى كلي.\n\nخطوات الحل: نحل 2x+2y−4=0 و2x+6y−8=0 فنحصل على x=y=1. الهسيّة [[2,2],[2,6]] محددها 8>0 وعنصرها القطري الأول 2>0، فهي موجبة التعريف. بالتعويض f(1,1)=1+2+3−4−8=−6.",
+        "En": "Rule used: Solve ∇f=0; a positive-definite Hessian proves a unique global minimum for a quadratic.\n\nSolution steps: Solve 2x+2y−4=0 and 2x+6y−8=0 to get x=y=1. The Hessian [[2,2],[2,6]] has determinant 8>0 and leading entry 2>0, so it is positive definite. Then f(1,1)=1+2+3−4−8=−6."
+      },
+      "ProposedTrackCode": "mathematical-optimization",
+      "PrimarySkillKey": "unconstrained-optimization",
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 91,
+        "PrimarySkillId": 343,
+        "Points": 10,
+        "Title": {
+          "Ar": "إذا كان f(x,y)=x²+2xy+3y²−4x−8y، فما قيمتها الصغرى على المستوى الحقيقي؟",
+          "En": "For f(x,y)=x²+2xy+3y²−4x−8y, find its global minimum value over all real x and y."
+        },
+        "Question": {
+          "Ar": "إذا كان f(x,y)=x²+2xy+3y²−4x−8y، فما قيمتها الصغرى على المستوى الحقيقي؟",
+          "En": "For f(x,y)=x²+2xy+3y²−4x−8y, find its global minimum value over all real x and y."
+        },
+        "Options": [
+          {
+            "LatexCode": "-8",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. تحقق من أن النقطة حد أدنى عالمي، لا مجرد نقطة ساكنة. $H=\\begin{pmatrix}2&2\\\\2&6\\end{pmatrix},\\quad\\det H=8>0$",
+              "En": "This choice does not match the derived result. Verify a global minimum, not just a stationary point. $H=\\begin{pmatrix}2&2\\\\2&6\\end{pmatrix},\\quad\\det H=8>0$"
+            }
+          },
+          {
+            "LatexCode": "-6",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "-4",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. تحقق من أن النقطة حد أدنى عالمي، لا مجرد نقطة ساكنة. $H=\\begin{pmatrix}2&2\\\\2&6\\end{pmatrix},\\quad\\det H=8>0$",
+              "En": "This choice does not match the derived result. Verify a global minimum, not just a stationary point. $H=\\begin{pmatrix}2&2\\\\2&6\\end{pmatrix},\\quad\\det H=8>0$"
+            }
+          },
+          {
+            "LatexCode": "6",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. تحقق من أن النقطة حد أدنى عالمي، لا مجرد نقطة ساكنة. $H=\\begin{pmatrix}2&2\\\\2&6\\end{pmatrix},\\quad\\det H=8>0$",
+              "En": "This choice does not match the derived result. Verify a global minimum, not just a stationary point. $H=\\begin{pmatrix}2&2\\\\2&6\\end{pmatrix},\\quad\\det H=8>0$"
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "احسب المشتقتين الجزئيتين وساوِهما بالصفر.",
+            "En": "Compute both partial derivatives and set them to zero."
+          },
+          {
+            "Ar": "حل النظام الخطي، وتحقق أن مصفوفة هيس موجبة التعيين قبل حساب قيمة الدالة عند الحل.",
+            "En": "Solve the linear system, check that the Hessian is positive definite, and evaluate the function there."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نكمل مربعين موجبين لتحديد حد أدنى عالمي دون افتراضه.",
+            "En": "Complete two positive squares to establish the global minimum."
+          },
+          "FormulaLatex": "f=(x+y-2)^2+2(y-1)^2-6",
+          "Steps": [
+            {
+              "Ar": "بتوسيع المربعين نحصل على الدالة الأصلية.",
+              "En": "Expanding the squares recovers the original function."
+            },
+            {
+              "Ar": "$y=1,\\ x+y-2=0\\Rightarrow x=1$",
+              "En": "$y=1,\\ x+y-2=0\\Rightarrow x=1$"
+            },
+            {
+              "Ar": "$f(1,1)=-6$",
+              "En": "$f(1,1)=-6$"
+            }
+          ],
+          "Result": {
+            "Ar": "$-6$",
+            "En": "$-6$"
+          },
+          "Verification": {
+            "Ar": "$H=\\begin{pmatrix}2&2\\\\2&6\\end{pmatrix},\\quad\\det H=8>0$",
+            "En": "$H=\\begin{pmatrix}2&2\\\\2&6\\end{pmatrix},\\quad\\det H=8>0$"
+          },
+          "CommonError": {
+            "Ar": "تحقق من أن النقطة حد أدنى عالمي، لا مجرد نقطة ساكنة.",
+            "En": "Verify a global minimum, not just a stationary point."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة محددة",
+            "En": "No specified unit"
+          },
+          "Substitution": {
+            "Ar": "$f(1,1)=-6$",
+            "En": "$f(1,1)=-6$"
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    }
+  ]
+}

@@ -50,16 +50,33 @@ internal sealed class ReviewedBankCatalog
             held.Remove(id);
         }
         Require(held.Count==35);
+        var modelHolds=Read("g1-model-assumption-holds-20261125.json");
+        Require(Str(modelHolds,"Status")=="HeldNotImportable");
+        var newHolds=Rows(modelHolds,"Items");
+        Require(newHolds.Length==12&&newHolds.Select(r=>Id(r,"ProblemId")).Distinct().Count()==12);
+        foreach(var row in newHolds)
+        {
+            var id=Id(row,"ProblemId");
+            var original=source[id];var question=row.GetProperty("Content").GetProperty("Question");
+            Require(!held.Contains(id)&&Str(row,"Status")=="HeldStructuredCandidateNotImportable"&&
+                Str(row,"PrimarySkillKey")==Str(original,"primarySkillKey")&&
+                Str(question,"Ar")==Str(original.GetProperty("question"),"Ar")&&
+                Str(question,"En")==Str(original.GetProperty("question"),"En")&&
+                !string.IsNullOrWhiteSpace(Str(row.GetProperty("ProposedQuestion"),"Ar"))&&
+                !string.IsNullOrWhiteSpace(Str(row.GetProperty("ProposedQuestion"),"En")));
+            held.Add(id);
+        }
+        Require(held.Count==47);
         var full=new List<JsonElement>();
-        for(int wave=1;wave<=16;wave++)
+        for(int wave=1;wave<=17;wave++)
         {
             var file=Read($"g1-structured-amendments-wave{wave:00}-20261124.json");
             Require(Str(file,"Status")=="NotImportedNotPublished");
             full.AddRange(Rows(file,"Items"));
         }
-        Require(full.Count==689&&full.Select(r=>Id(r,"ProblemId")).Distinct().Count()==689);
+        Require(full.Count==726&&full.Select(r=>Id(r,"ProblemId")).Distinct().Count()==726);
         var amendments=full.Where(r=>!held.Contains(Id(r,"ProblemId"))).OrderBy(r=>Id(r,"ProblemId")).ToArray();
-        Require(amendments.Length==689);
+        Require(amendments.Length==726);
         foreach(var row in amendments)
         {
             var hint=source[Id(row,"ProblemId")];
@@ -74,7 +91,7 @@ internal sealed class ReviewedBankCatalog
             .OrderBy(r=>Id(r,"problemId")).Select(r=>JsonSerializer.SerializeToElement(new{
                 ProblemId=Id(r,"problemId"),PrimarySkillKey=Str(r,"primarySkillKey"),
                 Question=r.GetProperty("question"),Hints=r.GetProperty("Hints"),TaxonomyReviewPending=false})).ToArray();
-        Require(hints.Length==49);
+        Require(hints.Length==0);
         var existing=new List<JsonElement>();var missing=new List<JsonElement>();
         var keys=new HashSet<string>();
         foreach(var name in new[]{"g1-gap-wave-01-20261124.json","g1-gap-wave-02-20261124.json",

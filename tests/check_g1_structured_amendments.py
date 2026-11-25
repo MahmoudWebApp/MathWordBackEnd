@@ -1061,3 +1061,23 @@ for r in wave16["Items"]:
     assert sol["FormulaLatex"] and all(pair(sol[k]) for k in ("Idea","Substitution","Result","Unit","Verification","CommonError"))
     assert 1<=len(sol["Steps"])<=20 and all(pair(s) for s in sol["Steps"])
 print("PASS: wave 16, all 12 numerical analysis questions with structured bilingual solutions")
+
+# Wave 17 plus the 12 separate conditional candidates: exact disjoint source coverage.
+w17=load("g1-structured-amendments-wave17-20261124.json")
+model_holds=load("g1-model-assumption-holds-20261125.json")
+assert w17["Status"]=="NotImportedNotPublished" and model_holds["Status"]=="HeldNotImportable"
+assert len(w17["Items"])==37 and len(model_holds["Items"])==12
+combined=w17["Items"]+model_holds["Items"]
+expected={"153":"14","159":"\\frac{1}{7}","165":"19","171":"\\frac{2}{9}","177":"24","183":"\\frac{3}{11}","189":"29","195":"\\frac{4}{13}","201":"34","207":"\\frac{5}{15}","792":"2","793":"2","794":"2","795":"(1,3)","796":"\\text{ترتيب جزئي غير كلي (Partial, not total)}","797":"\\frac32","798":"0","799":"2","818":"\\frac{11}{8}","831":"6","832":"3","833":"2","834":"P","864":"3e^2","866":"1","1585":"p<\\alpha","1586":"\\alpha","1647":"\\exists x\\,\\neg P(x)","1648":"P=1,\\,Q=0","1649":"\\neg Q\\Rightarrow\\neg P","1650":"\\neg P\\lor\\neg Q","1658":"\\frac{1}{10}","1669":"2","1670":"3","1671":"(3,3)","1672":"25","1673":"18","1674":"2","1679":"10","1684":"\\frac{1}{6}","1699":"-3","1700":"x>0","1701":"9","1702":"2","1704":"23","1705":"20","1706":"a\\ge1","1713":"9","1714":"-6"}
+assert {str(r["ProblemId"]) for r in combined}==set(expected)
+assert not {r["ProblemId"] for r in combined}&{r["ProblemId"] for r in all_rows+wave16["Items"]}
+for r in combined:
+    c=r["Content"]; sol=c["Solution"]
+    assert len(c["Options"])==len(set(r["ExpectedOptionIds"]))==4
+    assert [o["LatexCode"] for o in c["Options"] if o["IsCorrect"]]==[expected[str(r["ProblemId"])]]
+    assert all(pair(o["Reason"]) for o in c["Options"] if not o["IsCorrect"])
+    assert len(c["Hints"])==2 and all(pair(h) for h in c["Hints"])
+    assert sol["FormulaLatex"] and all(pair(sol[k]) for k in ("Idea","Substitution","Result","Unit","Verification","CommonError"))
+    assert 1<=len(sol["Steps"])<=20 and all(pair(s) for s in sol["Steps"])
+assert all(r["Status"]=="HeldStructuredCandidateNotImportable" and pair(r["ProposedQuestion"]) for r in model_holds["Items"])
+print("PASS: 49 final hint-only rows now have structured proposals; 12 held for source wording")
