@@ -52,6 +52,25 @@ public sealed class EditorialProblemsController(AppDbContext db,IConfiguration c
         d.QuestionTextAr=p.Question?.Ar??"";d.QuestionTextEn=p.Question?.En??"";
         d.DifficultyLevel=Math.Clamp(p.DifficultyLevel,1,5);
     }
+    // The immutable, server-embedded package is visible only to active administrators.
+    // The existing import/review routes remain the sole mutation paths.
+    [HttpGet("reviewed-bank")]
+    public async Task<IActionResult> ReviewedBank(CancellationToken ct)
+    {
+        if(!Admin||await Actor(0,false,ct) is null)return Forbid();
+        var catalog=ReviewedBankCatalog.Current;
+        return Ok(new{catalog.HeldCount,PublicationEnabled=config.GetValue<bool>("EditorialWizard:PublicationEnabled"),
+            Batches=catalog.Batches.Select(b=>new{b.Kind,b.Number,Count=b.Items.Length})});
+    }
+
+    [HttpGet("reviewed-bank/{kind}/{number:int}")]
+    public async Task<IActionResult> ReviewedBankBatch(string kind,int number,CancellationToken ct)
+    {
+        if(!Admin||await Actor(0,false,ct) is null)return Forbid();
+        var batch=ReviewedBankCatalog.Current.Batches.SingleOrDefault(b=>b.Kind==kind&&b.Number==number);
+        return batch is null?NotFound():Ok(new{batch.Kind,batch.Number,batch.Items});
+    }
+
     [HttpGet("classification/{stageId:int}")]
     public async Task<IActionResult> Classification(int stageId,CancellationToken ct)
     {

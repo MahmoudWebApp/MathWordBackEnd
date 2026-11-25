@@ -3,6 +3,36 @@ from integration_problem_history import expect
 from integration_password_recovery import sql
 def verify_wizard(admin,supervisor,sid):
     root="/api/editorial/problems"
+    # The private fixed package must not be exposed to anonymous users or supervisors.
+    catalog=expect("GET",root+"/reviewed-bank",200,token=admin)
+    expect("GET",root+"/reviewed-bank",401)
+    expect("GET",root+"/reviewed-bank",403,token=supervisor)
+    assert catalog["HeldCount"]==41
+    assert len(catalog["Batches"])==19
+    counts={}
+    ids=set()
+    keys=set()
+    before=sql('SELECT COUNT(*) FROM "CurriculumDraftItems"')
+    for b in catalog["Batches"]:
+        path=f"{root}/reviewed-bank/{b['Kind']}/{b['Number']}"
+        batch=expect("GET",path,200,token=admin)
+        assert len(batch["Items"])==b["Count"]<=50
+        counts[b["Kind"]]=counts.get(b["Kind"],0)+b["Count"]
+        for row in batch["Items"]:
+            if b["Kind"] in ("hints","amendments"):
+                assert row["ProblemId"] not in ids
+                ids.add(row["ProblemId"])
+                assert not row.get("TaxonomyReviewPending")
+            else:
+                assert row["ContentKey"] not in keys
+                keys.add(row["ContentKey"])
+    assert counts=={"amendments":672,"hints":60,"new-existing":51,"new-missing":8}
+    assert len(ids)==732 and len(keys)==59
+    assert sql('SELECT COUNT(*) FROM "CurriculumDraftItems"')==before
+    expect("GET",root+"/reviewed-bank/hints/1",403,token=supervisor)
+    expect("GET",root+"/reviewed-bank/hints/1",401)
+    expect("GET",root+"/reviewed-bank/hints/999",404,token=admin)
+    print("PASS: private embedded reviewed catalog, no writes, exact candidate counts")
     stage=1
     inventory=expect("GET",f"{root}/classification/{stage}",200,token=supervisor)
     category=inventory["Categories"][0]["Id"]
