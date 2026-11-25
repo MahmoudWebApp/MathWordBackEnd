@@ -15,13 +15,31 @@ public sealed class EmailVerificationController(EmailVerificationService verific
 {
     public sealed record RequestInput(string Language="ar");
     public sealed record ConfirmInput([Required,StringLength(64)] string Token);
+    public sealed record ConfirmCodeInput([Required, RegularExpression("^[0-9]{6}$")] string Code);
+
+    [Authorize(Roles = "Student")]
+    [HttpPost("confirm-code")]
+    public async Task<IActionResult> ConfirmCode(ConfirmCodeInput input, CancellationToken ct)
+    {
+        if (!TryGetStudentSession(out var id, out var version)) return Unauthorized();
+        return await verification.ConfirmCodeAsync(id, version, input.Code, ct)
+            ? Ok(new { EmailVerified = true })
+            : BadRequest(new { Message = "InvalidEmailVerificationCode" });
+    }
+
+    private bool TryGetStudentSession(out int id, out int version)
+    {
+        version = 0;
+        return int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out id) && id > 0 &&
+            SessionVersionPolicy.TryReadVersion(User.FindAll(SessionVersionPolicy.ClaimName).Select(x => x.Value), out version);
+    }
+
     [Authorize(Roles="Student")]
     [HttpPost("request")]
     public async Task<IActionResult> RequestLink(RequestInput input,CancellationToken ct)
     {
         if(input.Language is not ("ar" or "en"))return BadRequest(new{Message="InvalidEmailLanguage"});
-        if(!int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier),out var id)||id<=0||
-            !SessionVersionPolicy.TryReadVersion(User.FindAll(SessionVersionPolicy.ClaimName).Select(x=>x.Value),out var version))
+        if (!TryGetStudentSession(out var id, out var version))
             return Unauthorized();
         return (await verification.RequestAsync(id,version,input.Language,ct)) switch {
             EmailVerificationService.RequestResult.Queued=>Accepted(new{Queued=true}),

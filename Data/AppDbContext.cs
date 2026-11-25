@@ -212,6 +212,7 @@ namespace MathWorldAPI.Data
 
             modelBuilder.Entity<EmailVerificationGrant>(e =>
             {
+                e.Property(x => x.FailedCodeAttempts).HasDefaultValue(0);
                 e.Property(x=>x.Id).ValueGeneratedNever();
                 e.HasIndex(x=>x.TokenHash).IsUnique();
                 e.HasIndex(x=>new{x.UserId,x.CreatedAtUtc});

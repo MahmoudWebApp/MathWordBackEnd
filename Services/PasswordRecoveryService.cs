@@ -23,6 +23,13 @@ public sealed class RecoveryTokenCodec(IConfiguration config)
     // from database rows. Only its SHA-256 digest is stored.
     public string Derive(Guid id)=>DeriveFor("password-reset",id);
     public string DeriveEmailVerification(Guid id)=>DeriveFor("email-verification",id);
+    public string DeriveEmailVerificationCode(Guid id)
+    {
+        var digest = Convert.FromHexString(DeriveFor("email-verification-code", id));
+        var number = System.Buffers.Binary.BinaryPrimitives.ReadUInt64BigEndian(digest);
+        return (number % 1_000_000).ToString("D6", System.Globalization.CultureInfo.InvariantCulture);
+    }
+
     private string DeriveFor(string purpose,Guid id) => Convert.ToHexString(HMACSHA256.HashData(
         Key ?? throw new InvalidOperationException("Recovery key is not configured."),
         Encoding.UTF8.GetBytes("MathWorld/"+purpose+"/v1/" + id.ToString("N")))).ToLowerInvariant();

@@ -154,6 +154,7 @@ namespace MathWorldAPI.Migrations
                     b.Property<Guid>("Id").HasColumnType("uuid");
                     b.Property<int>("UserId").HasColumnType("integer");
                     b.Property<string>("TokenHash").IsRequired().HasColumnType("text");
+                    b.Property<int>("FailedCodeAttempts").ValueGeneratedOnAdd().HasColumnType("integer").HasDefaultValue(0);
                     b.Property<string>("Email").IsRequired().HasColumnType("text");
                     b.Property<int>("TokenVersion").HasColumnType("integer");
                     b.Property<DateTime>("CreatedAtUtc").HasColumnType("timestamp with time zone");
