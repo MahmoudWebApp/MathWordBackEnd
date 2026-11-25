@@ -8,6 +8,7 @@ import {schoolApplicationWave} from './school-application-wave.mjs';
 import {transferWave, transferHolds} from './transfer-wave.mjs';
 import {reasoningExtensionWave} from './reasoning-extension-wave.mjs';
 import {schoolReasoningApplications} from './school-reasoning-applications.mjs';
+import {schoolMeasurementReasoning} from './school-measurement-reasoning.mjs';
 
 import {universityApplications} from "./university-applications.mjs";
 const inventory = JSON.parse(readFileSync(new URL('./inventory-20261125.json', import.meta.url), 'utf8'));
@@ -199,5 +200,44 @@ test('V13 university answers and linked placement', () => {
   for (const row of rows) {
     const correct = row.Content.Options.find(o => o.IsCorrect);
     assert.equal(Number(correct.LatexCode), answers[row.Family], row.Family);
+  }
+});
+
+test('V14 authored solutions agree with independent counts and linked placements', () => {
+  const rows = schoolMeasurementReasoning();
+  const marks = Array.from({length: 201}, (_, i) => i - 100);
+  const digits = [0, 4, 7];
+  const cardNumbers = digits.flatMap(a => digits.flatMap(b => digits
+    .filter(c => a > 0 && new Set([a, b, c]).size === 3)
+    .map(c => 100 * a + 10 * b + c)));
+  const bottle = marks.find(m => 17 - 3 * m === 25 - 5 * m);
+  const nearestTen = n => marks.filter(x => x % 10 === 0)
+    .sort((a, b) => Math.abs(a - n) - Math.abs(b - n))[0];
+  const circlePoints = marks.flatMap(x => marks.filter(y =>
+    x * x + y * y === 25 && (x - 6) ** 2 + y * y === 13).map(y => ({x, y})));
+  assert.equal(circlePoints.length, 2);
+  const answers = {
+    'count-unmarked-door-labels': marks.filter(i => i >= 1 && i <= 18 && i % 2 === 1).length,
+    'bell-strike-intervals': Array.from({length: 6}, (_, i) => i * (8 / 2)).at(-1),
+    'smallest-three-digit-card-number': Math.min(...cardNumbers) - 400,
+    'infer-empty-crate-mass': 25 - 5 * bottle,
+    'rounding-order-ticket-count': 2 * nearestTen(46) - nearestTen(92),
+    'triangle-outside-two-inner-bases': 12 * 7 / 2 - 5 * 7 / 2,
+    'equidistant-beacons': marks.find(x => Math.abs(x + 8) === Math.abs(x - 4)),
+    'recover-frequency-from-histogram-density': Array(10).fill(3).reduce((a,b) => a+b)
+      - Array(5).fill(4).reduce((a,b) => a+b),
+    'missing-east-component-closed-route': marks.find(x => 7 - 3 + x === 0),
+    'intersection-of-two-circle-radical-axis': circlePoints[0].x,
+    'compare-pie-sectors-different-totals': 90 / (360 / 24) + 72 / (360 / 30),
+    'quadratic-constant-from-root-separation': marks.find(c => {
+      const roots = marks.filter(x => x * x - 10 * x + c === 0);
+      return roots.length === 2 && roots[1] - roots[0] === 4;
+    }),
+  };
+  assert.deepEqual(validate(rows), []);
+  assert.equal(selectCandidates(rows, inventory).selected.length, rows.length);
+  assert.deepEqual(new Set(rows.map(r => r.Family)), new Set(Object.keys(answers)));
+  for (const row of rows) {
+    assert.equal(Number(row.Content.Options.find(o => o.IsCorrect).LatexCode), answers[row.Family], row.Family);
   }
 });

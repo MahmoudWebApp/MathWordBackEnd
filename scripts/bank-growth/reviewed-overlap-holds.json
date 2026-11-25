@@ -17,5 +17,7 @@
   "increase-final-quantity": "An existing exercise applies a stated percentage increase to recover the new quantity.",
   "arithmetic-sequence-index": "An existing sequence uses the same initial term and common difference and asks for the index of a given term.",
   "bisection-first-midpoint": "An existing bisection exercise already asks for the first midpoint of the initial interval.",
-  "round-nearest-hundred": "The bank already asks for rounding a supplied whole number to the nearest hundred."
+  "round-nearest-hundred": "The bank already asks for rounding a supplied whole number to the nearest hundred.",
+  "triangle-outside-two-inner-bases": "The existing split-base triangle already relies on adding areas at a shared height.",
+  "equidistant-beacons": "The same midpoint reasoning already appears for two number-line marks."
 }
