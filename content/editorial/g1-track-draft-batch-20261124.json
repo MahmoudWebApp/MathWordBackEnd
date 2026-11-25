@@ -1,7 +1,7 @@
 {
   "Version": 1,
   "Status": "ReviewedSourceMatchedDraftProposal",
-  "ExcludedCount": 41,
+  "ExcludedCount": 47,
   "Tracks": [
     {
       "StageId": 1,
@@ -84,46 +84,6 @@
           "StableKey": "primary-multistep-arithmetic",
           "ExpectedQuestionAr": "احسب (33+21)-8.",
           "ExpectedQuestionEn": "Calculate (33+21)-8."
-        },
-        {
-          "ProblemId": 153,
-          "CategoryId": 2,
-          "PrimarySkillId": 8,
-          "StableKey": "primary-number-patterns",
-          "ExpectedQuestionAr": "المتتالية 2، 5، 8، 11؛ ما الحد الخامس؟",
-          "ExpectedQuestionEn": "Sequence 2, 5, 8, 11; find the fifth term."
-        },
-        {
-          "ProblemId": 165,
-          "CategoryId": 2,
-          "PrimarySkillId": 8,
-          "StableKey": "primary-number-patterns",
-          "ExpectedQuestionAr": "المتتالية 3، 7، 11، 15؛ ما الحد الخامس؟",
-          "ExpectedQuestionEn": "Sequence 3, 7, 11, 15; find the fifth term."
-        },
-        {
-          "ProblemId": 177,
-          "CategoryId": 2,
-          "PrimarySkillId": 8,
-          "StableKey": "primary-number-patterns",
-          "ExpectedQuestionAr": "المتتالية 4، 9، 14، 19؛ ما الحد الخامس؟",
-          "ExpectedQuestionEn": "Sequence 4, 9, 14, 19; find the fifth term."
-        },
-        {
-          "ProblemId": 189,
-          "CategoryId": 2,
-          "PrimarySkillId": 8,
-          "StableKey": "primary-number-patterns",
-          "ExpectedQuestionAr": "المتتالية 5، 11، 17، 23؛ ما الحد الخامس؟",
-          "ExpectedQuestionEn": "Sequence 5, 11, 17, 23; find the fifth term."
-        },
-        {
-          "ProblemId": 201,
-          "CategoryId": 2,
-          "PrimarySkillId": 8,
-          "StableKey": "primary-number-patterns",
-          "ExpectedQuestionAr": "المتتالية 6، 13، 20، 27؛ ما الحد الخامس؟",
-          "ExpectedQuestionEn": "Sequence 6, 13, 20, 27; find the fifth term."
         },
         {
           "ProblemId": 609,
@@ -1056,14 +1016,6 @@
           "ExpectedQuestionEn": "Two angles of a triangle are 50° and 60°. Find the third."
         },
         {
-          "ProblemId": 159,
-          "CategoryId": 4,
-          "PrimarySkillId": 17,
-          "StableKey": "primary-simple-probability",
-          "ExpectedQuestionAr": "في كيس 1 كرات حمراء و6 زرقاء. ما احتمال سحب حمراء؟",
-          "ExpectedQuestionEn": "A bag has 1 red and 6 blue balls. Find the probability of red."
-        },
-        {
           "ProblemId": 160,
           "CategoryId": 4,
           "PrimarySkillId": 18,
@@ -1086,14 +1038,6 @@
           "StableKey": "primary-triangle-angle-sum",
           "ExpectedQuestionAr": "زاويتا مثلث هما 57° و63°، ما الثالثة؟",
           "ExpectedQuestionEn": "Two angles of a triangle are 57° and 63°. Find the third."
-        },
-        {
-          "ProblemId": 171,
-          "CategoryId": 4,
-          "PrimarySkillId": 17,
-          "StableKey": "primary-simple-probability",
-          "ExpectedQuestionAr": "في كيس 2 كرات حمراء و7 زرقاء. ما احتمال سحب حمراء؟",
-          "ExpectedQuestionEn": "A bag has 2 red and 7 blue balls. Find the probability of red."
         },
         {
           "ProblemId": 172,
@@ -1120,14 +1064,6 @@
           "ExpectedQuestionEn": "Two angles of a triangle are 64° and 66°. Find the third."
         },
         {
-          "ProblemId": 183,
-          "CategoryId": 4,
-          "PrimarySkillId": 17,
-          "StableKey": "primary-simple-probability",
-          "ExpectedQuestionAr": "في كيس 3 كرات حمراء و8 زرقاء. ما احتمال سحب حمراء؟",
-          "ExpectedQuestionEn": "A bag has 3 red and 8 blue balls. Find the probability of red."
-        },
-        {
           "ProblemId": 184,
           "CategoryId": 4,
           "PrimarySkillId": 18,
@@ -1152,14 +1088,6 @@
           "ExpectedQuestionEn": "Two angles of a triangle are 71° and 69°. Find the third."
         },
         {
-          "ProblemId": 195,
-          "CategoryId": 4,
-          "PrimarySkillId": 17,
-          "StableKey": "primary-simple-probability",
-          "ExpectedQuestionAr": "في كيس 4 كرات حمراء و9 زرقاء. ما احتمال سحب حمراء؟",
-          "ExpectedQuestionEn": "A bag has 4 red and 9 blue balls. Find the probability of red."
-        },
-        {
           "ProblemId": 196,
           "CategoryId": 4,
           "PrimarySkillId": 18,
@@ -1182,14 +1110,6 @@
           "StableKey": "primary-triangle-angle-sum",
           "ExpectedQuestionAr": "زاويتا مثلث هما 78° و72°، ما الثالثة؟",
           "ExpectedQuestionEn": "Two angles of a triangle are 78° and 72°. Find the third."
-        },
-        {
-          "ProblemId": 207,
-          "CategoryId": 4,
-          "PrimarySkillId": 17,
-          "StableKey": "primary-simple-probability",
-          "ExpectedQuestionAr": "في كيس 5 كرات حمراء و10 زرقاء. ما احتمال سحب حمراء؟",
-          "ExpectedQuestionEn": "A bag has 5 red and 10 blue balls. Find the probability of red."
         },
         {
           "ProblemId": 208,
@@ -2746,14 +2666,6 @@
           "ExpectedQuestionEn": "Values 4, 5, 6, 7, 8 have mean 6. If 8 is replaced by 28, find the new mean."
         },
         {
-          "ProblemId": 1684,
-          "CategoryId": 85,
-          "PrimarySkillId": 337,
-          "StableKey": "simple-compound-events",
-          "ExpectedQuestionAr": "إذا رمينا حجرَي نرد عادلين مميزين، فما احتمال أن يكون مجموع العددين الظاهرين سبعة؟",
-          "ExpectedQuestionEn": "Two distinguishable fair dice are rolled. What is the probability that the sum of the two faces is seven?"
-        },
-        {
           "ProblemId": 1686,
           "CategoryId": 85,
           "PrimarySkillId": 335,
@@ -2784,12 +2696,28 @@
           "ExpectedQuestionEn": "If f(x) = x² - 3, find f(4)."
         },
         {
+          "ProblemId": 212,
+          "CategoryId": 6,
+          "PrimarySkillId": 28,
+          "StableKey": "middle-inverse-function-evaluation",
+          "ExpectedQuestionAr": "لتكن \\(f(x)=2x+5\\)، إذا كانت \\(f(x)=11\\) فأوجد x.",
+          "ExpectedQuestionEn": "Given \\(f(x)=2x+5\\), solve f(x)=11."
+        },
+        {
           "ProblemId": 214,
           "CategoryId": 6,
           "PrimarySkillId": 27,
           "StableKey": "middle-quadratic-function-evaluation",
           "ExpectedQuestionAr": "إذا كانت \\(g(x)=2x^2+3\\)، أوجد \\(g(2)\\).",
           "ExpectedQuestionEn": "Given \\(g(x)=2x^2+3\\), find g(2)."
+        },
+        {
+          "ProblemId": 224,
+          "CategoryId": 6,
+          "PrimarySkillId": 28,
+          "StableKey": "middle-inverse-function-evaluation",
+          "ExpectedQuestionAr": "لتكن \\(f(x)=3x+6\\)، إذا كانت \\(f(x)=18\\) فأوجد x.",
+          "ExpectedQuestionEn": "Given \\(f(x)=3x+6\\), solve f(x)=18."
         },
         {
           "ProblemId": 226,
@@ -2800,6 +2728,14 @@
           "ExpectedQuestionEn": "Given \\(g(x)=3x^2+4\\), find g(3)."
         },
         {
+          "ProblemId": 236,
+          "CategoryId": 6,
+          "PrimarySkillId": 28,
+          "StableKey": "middle-inverse-function-evaluation",
+          "ExpectedQuestionAr": "لتكن \\(f(x)=4x+7\\)، إذا كانت \\(f(x)=27\\) فأوجد x.",
+          "ExpectedQuestionEn": "Given \\(f(x)=4x+7\\), solve f(x)=27."
+        },
+        {
           "ProblemId": 238,
           "CategoryId": 6,
           "PrimarySkillId": 27,
@@ -2808,12 +2744,28 @@
           "ExpectedQuestionEn": "Given \\(g(x)=4x^2+5\\), find g(4)."
         },
         {
+          "ProblemId": 248,
+          "CategoryId": 6,
+          "PrimarySkillId": 28,
+          "StableKey": "middle-inverse-function-evaluation",
+          "ExpectedQuestionAr": "لتكن \\(f(x)=5x+8\\)، إذا كانت \\(f(x)=38\\) فأوجد x.",
+          "ExpectedQuestionEn": "Given \\(f(x)=5x+8\\), solve f(x)=38."
+        },
+        {
           "ProblemId": 250,
           "CategoryId": 6,
           "PrimarySkillId": 27,
           "StableKey": "middle-quadratic-function-evaluation",
           "ExpectedQuestionAr": "إذا كانت \\(g(x)=5x^2+6\\)، أوجد \\(g(5)\\).",
           "ExpectedQuestionEn": "Given \\(g(x)=5x^2+6\\), find g(5)."
+        },
+        {
+          "ProblemId": 260,
+          "CategoryId": 6,
+          "PrimarySkillId": 28,
+          "StableKey": "middle-inverse-function-evaluation",
+          "ExpectedQuestionAr": "لتكن \\(f(x)=6x+9\\)، إذا كانت \\(f(x)=51\\) فأوجد x.",
+          "ExpectedQuestionEn": "Given \\(f(x)=6x+9\\), solve f(x)=51."
         },
         {
           "ProblemId": 262,
@@ -2886,14 +2838,6 @@
           "StableKey": "solve-linear-inequalities",
           "ExpectedQuestionAr": "حدد جميع القيم الحقيقية التي تحقق المتباينة $5-x\\le2$.",
           "ExpectedQuestionEn": "Determine all real values satisfying the inequality $5-x\\le2$."
-        },
-        {
-          "ProblemId": 1658,
-          "CategoryId": 85,
-          "PrimarySkillId": 337,
-          "StableKey": "simple-compound-events",
-          "ExpectedQuestionAr": "كيس فيه كرتان حمراوان وثلاث زرقاء. نسحب كرتين تباعاً دون إرجاع. ما احتمال أن تكونا حمراوين؟",
-          "ExpectedQuestionEn": "A bag has 2 red and 3 blue balls. Two are drawn without replacement. What is the probability both are red?"
         },
         {
           "ProblemId": 1685,
@@ -5836,6 +5780,14 @@
           "StableKey": "linear-systems",
           "ExpectedQuestionAr": "للنظام $4x+y=9$ و$x+3y=7$، نبدأ $x_0=y_0=0$. ما الزوج $(x_1,y_1)$ بطريقة جاكوبي؟",
           "ExpectedQuestionEn": "For $4x+y=9$ and $x+3y=7$, start from $x_0=y_0=0$. What is the first Jacobi iterate $(x_1,y_1)$?"
+        },
+        {
+          "ProblemId": 1633,
+          "CategoryId": 90,
+          "PrimarySkillId": 332,
+          "StableKey": "linear-systems",
+          "ExpectedQuestionAr": "باستخدام الحذف، حل النظام $2x+y=7$ و$x-y=2$. ما قيمة $x$؟",
+          "ExpectedQuestionEn": "Use elimination to solve $2x+y=7$ and $x-y=2$. What is $x$?"
         },
         {
           "ProblemId": 1634,

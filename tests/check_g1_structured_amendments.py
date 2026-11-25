@@ -1,4 +1,4 @@
-"""Contract for the first 16 structured amendments; never imports production."""
+"""Source-bound structured proposal contracts; never imports production."""
 import json
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]/"content"/"editorial"
@@ -1044,3 +1044,120 @@ assert len(all_rows)==len({r["ProblemId"] for r in all_rows})==677
 assert {r["ProblemId"] for r in all_rows[-2:]}=={791,800}
 assert {r["ProblemId"] for r in all_rows[-2:]}=={r["ProblemId"] for r in third["Items"]}-{r["ProblemId"] for r in all_rows[:-2]}
 print("PASS: 677 unique structured candidates across 15 waves; eligibility checked separately")
+
+# Wave 16: numerical-analysis source-bound structured solutions, all 12 eligible.
+wave16=load("g1-structured-amendments-wave16-20261124.json")
+assert wave16["Status"]=="NotImportedNotPublished"
+assert {r["ProblemId"] for r in wave16["Items"]}==set(range(1623,1635))
+assert not {r["ProblemId"] for r in wave16["Items"]}&{r["ProblemId"] for r in all_rows}
+expected={1623:"1.5",1624:"2",1625:"3.125",1626:"4",1627:"2",1628:r"\frac{8}{3}",1629:"0.3",1630:r"2\%",1631:"0.005",1632:r"(\frac94,\frac73)",1633:"3",1634:"3"}
+for r in wave16["Items"]:
+    c=r["Content"]; sol=c["Solution"]
+    assert r["Status"]=="StructuredAmendmentCandidateNotImported" and r["ProposedTrackCode"]=="numerical-analysis"
+    assert len(c["Options"])==len(set(r["ExpectedOptionIds"]))==4
+    assert [o["LatexCode"] for o in c["Options"] if o["IsCorrect"]]==[expected[r["ProblemId"]]]
+    assert all(pair(o["Reason"]) for o in c["Options"] if not o["IsCorrect"])
+    assert len(c["Hints"])==2 and all(pair(h) for h in c["Hints"])
+    assert sol["FormulaLatex"] and all(pair(sol[k]) for k in ("Idea","Substitution","Result","Unit","Verification","CommonError"))
+    assert 1<=len(sol["Steps"])<=20 and all(pair(s) for s in sol["Steps"])
+print("PASS: wave 16, all 12 numerical analysis questions with structured bilingual solutions")
+
+# Wave 17 plus the 12 separate conditional candidates: exact disjoint source coverage.
+w17=load("g1-structured-amendments-wave17-20261124.json")
+model_holds=load("g1-model-assumption-holds-20261125.json")
+assert w17["Status"]=="NotImportedNotPublished" and model_holds["Status"]=="HeldNotImportable"
+assert len(w17["Items"])==37 and len(model_holds["Items"])==12
+combined=w17["Items"]+model_holds["Items"]
+expected={"153":"14","159":"\\frac{1}{7}","165":"19","171":"\\frac{2}{9}","177":"24","183":"\\frac{3}{11}","189":"29","195":"\\frac{4}{13}","201":"34","207":"\\frac{5}{15}","792":"2","793":"2","794":"2","795":"(1,3)","796":"\\text{ترتيب جزئي غير كلي (Partial, not total)}","797":"\\frac32","798":"0","799":"2","818":"\\frac{11}{8}","831":"6","832":"3","833":"2","834":"P","864":"3e^2","866":"1","1585":"p<\\alpha","1586":"\\alpha","1647":"\\exists x\\,\\neg P(x)","1648":"P=1,\\,Q=0","1649":"\\neg Q\\Rightarrow\\neg P","1650":"\\neg P\\lor\\neg Q","1658":"\\frac{1}{10}","1669":"2","1670":"3","1671":"(3,3)","1672":"25","1673":"18","1674":"2","1679":"10","1684":"\\frac{1}{6}","1699":"-3","1700":"x>0","1701":"9","1702":"2","1704":"23","1705":"20","1706":"a\\ge1","1713":"9","1714":"-6"}
+assert {str(r["ProblemId"]) for r in combined}==set(expected)
+assert not {r["ProblemId"] for r in combined}&{r["ProblemId"] for r in all_rows+wave16["Items"]}
+for r in combined:
+    c=r["Content"]; sol=c["Solution"]
+    assert len(c["Options"])==len(set(r["ExpectedOptionIds"]))==4
+    assert [o["LatexCode"] for o in c["Options"] if o["IsCorrect"]]==[expected[str(r["ProblemId"])]]
+    assert all(pair(o["Reason"]) for o in c["Options"] if not o["IsCorrect"])
+    assert len(c["Hints"])==2 and all(pair(h) for h in c["Hints"])
+    assert sol["FormulaLatex"] and all(pair(sol[k]) for k in ("Idea","Substitution","Result","Unit","Verification","CommonError"))
+    assert 1<=len(sol["Steps"])<=20 and all(pair(s) for s in sol["Steps"])
+assert all(r["Status"]=="HeldStructuredCandidateNotImportable" and pair(r["ProposedQuestion"]) for r in model_holds["Items"])
+print("PASS: 49 final hint-only rows now have structured proposals; 12 held for source wording")
+
+# Original unresolved hold inventory: reviewed proposals never included in publication payload.
+original_held=load("g1-original-holds-structured-review-20261125.json")
+assert original_held["Status"]=="HeldNotImportable" and len(original_held["Items"])==35
+expected_original={"7":"10","10":"\\frac{1}{2}","20":"x = 2 \\text{ or } x = 3","26":"\\frac{1}{6}","64":"\\frac{1}{8}","80":"\\frac{6}{16}","95":"\\frac{10}{32}","110":"\\frac{15}{64}","125":"\\frac{21}{128}","140":"\\frac{28}{256}","279":"\\frac{1}{4}","291":"\\frac{1}{8}","303":"\\frac{1}{16}","315":"\\frac{1}{32}","327":"\\frac{1}{64}","649":"1","705":"\\frac5{36}","706":"\\frac14","707":"\\frac{11}{36}","708":"\\frac34","768":"27","1566":"-8<-2<0<4","1578":"a_n=2\\cdot3^{n-1}","1579":"2","1580":"3","1581":"0.6","1582":"[98.04,101.96]","1583":"1.96","1584":"1/2","1659":"\\frac{1}{8}","1687":"\\frac{4}{25}","1688":"\\frac{1}{2}","1696":"6","1698":"5","1703":"(2,-4)"}
+assert {str(r["ProblemId"]) for r in original_held["Items"]}==set(expected_original)
+for r in original_held["Items"]:
+    c=r["Content"]; sol=c["Solution"]
+    assert r["Status"]=="HeldStructuredCandidateNotImportable"
+    assert len(c["Options"])==len(set(r["ExpectedOptionIds"]))==4
+    assert [o["LatexCode"] for o in c["Options"] if o["IsCorrect"]]==[expected_original[str(r["ProblemId"])]]
+    assert all(pair(o["Reason"]) for o in c["Options"] if not o["IsCorrect"])
+    assert len(c["Hints"])==2 and all(pair(h) for h in c["Hints"])
+    assert sol["FormulaLatex"] and all(pair(sol[k]) for k in ("Idea","Substitution","Result","Unit","Verification","CommonError"))
+    assert 1<=len(sol["Steps"])<=20 and all(pair(s) for s in sol["Steps"])
+    assert r.get("ProposedQuestion") or r.get("ClassificationProposal") or r.get("OptionLocalization")
+assert len({r["ProblemId"] for r in all_rows+wave16["Items"]+combined+original_held["Items"]})==773
+print("PASS: all 773 existing IDs have structured solution proposals; 47 remain explicitly excluded from import")
+
+# Independent finite-space/numeric oracles for the newly prepared waves and holds.
+from itertools import product
+from math import comb
+recent={r["ProblemId"]:r for r in wave16["Items"]+combined+original_held["Items"]}
+def chosen(i):
+    return next(o["LatexCode"] for o in recent[i]["Content"]["Options"] if o["IsCorrect"])
+def rational(text):
+    s=text.strip().replace("−","-")
+    f=re.fullmatch(r"\\frac(?:\{(-?\d+)\}|(-?\d))(?:\{(\d+)\}|(\d))",s)
+    if f: return Fraction(int(f[1] or f[2]),int(f[3] or f[4]))
+    if s.endswith(r"\%"): return Fraction(s[:-2])/100
+    radical=re.fullmatch(r"\\sqrt\{(\d+)\}",s)
+    if radical:
+        from math import isqrt
+        n=int(radical[1]);root=isqrt(n)
+        return Fraction(root) if root*root==n else ("irrational-sqrt",n)
+    if s==r"\text{غير موجودة (Does not exist)}":
+        return ("undefined",)
+    return Fraction(s)
+def check_num(i,expected):
+    options=recent[i]["Content"]["Options"]
+    vals=[rational(o["LatexCode"]) for o in options]
+    assert len(set(vals))==4 and sum(v==expected for v in vals)==1,(i,vals)
+    assert rational(chosen(i))==expected,(i,expected)
+dice_pairs=list(product(range(1,7),repeat=2))
+for i,predicate in [(26,lambda a,b:a+b==7),(1684,lambda a,b:a+b==7),(705,lambda a,b:a+b==8),(706,lambda a,b:a%2==0 and b%2==0),(707,lambda a,b:6 in (a,b)),(708,lambda a,b:(a*b)%2==0)]:
+    check_num(i,Fraction(sum(predicate(a,b) for a,b in dice_pairs),len(dice_pairs)))
+for i,n in [(64,3)]+[(279+12*k,k+2) for k in range(5)]:
+    check_num(i,Fraction(sum(all(x) for x in product((0,1),repeat=n)),2**n))
+for k in range(5):
+    n=k+4
+    check_num(80+15*k,Fraction(sum(sum(x)==2 for x in product((0,1),repeat=n)),2**n))
+    a=k+1;b=k+6
+    check_num(159+12*k,Fraction(a,a+b))
+    check_num(153+12*k,(k+2)+4*(k+3))
+for i,v in {
+    7:8+2,10:Fraction(1,2),818:Fraction(8+3,8),
+    1658:Fraction(2,5)*Fraction(1,4),1659:Fraction(1,4)*Fraction(1,2),1687:Fraction(2,5)**2,
+    1688:Fraction(sum(sum(t)==1 for t in product((0,1),repeat=2)),4),
+    649:1*7-3*2,768:3**3,1579:Fraction(82-70,6),1580:Fraction(15,5),1581:Fraction(18,30),
+    1583:Fraction(196,100)*Fraction(8,8),1584:Fraction(1,2),
+    1696:Fraction(abs(3*4-0*0),2),1698:abs(2*3-1*1),
+    831:2*3,833:sum(a==b for a,b in product((0,1),repeat=2)),
+    1669:(3-3)**2+2,1670:Fraction(6,2),1699:2**2-4*2+1,1701:9-(1-1)**2,
+    1714:1+2+3-4-8,1672:5*5,1702:1+1,1705:4**2+2**2,1713:(0+2)**2+5,
+    1673:12+6,1674:min(2,4),1704:4*6-1,1679:1500-(490+390+610),
+    1623:Fraction(1+2,2),1624:Fraction(1+3,2),1625:4-Fraction(16-9,8),
+    1626:Fraction(2,2)*(0+4),1627:2*1,1628:Fraction(0+4+4,3),
+    1629:abs(10-Fraction(97,10)),1630:Fraction(abs(50-49),50),1631:Fraction(1,200),
+    1633:Fraction(7+2,3),1634:max(abs(4-2*2),abs(9-3*2)),797:Fraction(4-1,2),798:0,799:2,866:2-Fraction(2,2)
+}.items(): check_num(i,v)
+assert chosen(1582)=="[98.04,101.96]" and (100-Fraction(196,100),100+Fraction(196,100))==(Fraction(9804,100),Fraction(10196,100))
+assert chosen(832)=="3"
+def colorable(n,k):
+    return any(all(c[i]!=c[(i+1)%n] for i in range(n)) for c in product(range(k),repeat=n))
+assert not colorable(5,2) and colorable(5,3)
+for p,q in product((False,True),repeat=2):
+    assert (p and (p or q))==p
+    assert ((not p) or q)==(q or (not p))
+    assert (not(p and q))==((not p) or (not q))
+print("PASS independent finite sample-space, exact rational, coloring and truth-table checks for final proposals")

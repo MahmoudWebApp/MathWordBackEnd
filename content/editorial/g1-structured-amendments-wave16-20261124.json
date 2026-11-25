@@ -1,0 +1,1367 @@
+{
+  "Status": "NotImportedNotPublished",
+  "ReviewDate": "2026-11-25",
+  "Scope": "12 numerical-analysis questions; exact live source and independently checked solutions.",
+  "Items": [
+    {
+      "ProblemId": 1623,
+      "ExpectedOptionIds": [
+        6481,
+        6482,
+        6483,
+        6484
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: طريقة التنصيف تبدأ بفترة تحصر جذراً، وتحسب منتصفها m = (a+b)/2. للفترة [1،2] نحسب m = (1 + 2)/2 = 1.5. لأن f(1) = −1 وf(2) = 2 تتبدل الإشارة بين الطرفين، فيناسب استعمال التنصيف ثم اختبار f(1.5) لتحديد النصف التالي.",
+        "En": "Rule used: Bisection uses a bracket [a,b] and first tests its midpoint m = (a+b)/2. For [1,2], m = (1+2)/2 = 1.5. Here f(1) = −1 and f(2) = 2 have opposite signs, so the bracket is valid and the next step evaluates f(1.5)."
+      },
+      "ProposedTrackCode": "numerical-analysis",
+      "PrimarySkillKey": "root-finding",
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 90,
+        "PrimarySkillId": 334,
+        "Points": 10,
+        "Title": {
+          "Ar": "لإيجاد جذر $f(x)=x^2-2$ بطريقة التنصيف على الفترة [1,2]، ما أول نقطة وسطية؟",
+          "En": "Using bisection to find a zero of $f(x)=x^2-2$ on [1,2], what is the first midpoint?"
+        },
+        "Question": {
+          "Ar": "لإيجاد جذر $f(x)=x^2-2$ بطريقة التنصيف على الفترة [1,2]، ما أول نقطة وسطية؟",
+          "En": "Using bisection to find a zero of $f(x)=x^2-2$ on [1,2], what is the first midpoint?"
+        },
+        "Options": [
+          {
+            "LatexCode": "1",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الحد الأيسر وليس المنتصف.",
+              "En": "This is the left endpoint, not the midpoint."
+            }
+          },
+          {
+            "LatexCode": "1.25",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا منتصف الفترة الفرعية [1,1.5] لا الفترة الأصلية.",
+              "En": "This is the midpoint of [1,1.5], not the original bracket."
+            }
+          },
+          {
+            "LatexCode": "1.5",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "2",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الحد الأيمن.",
+              "En": "This is the right endpoint."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "طريقة التنصيف تبدأ من منتصف المجال المعطى.",
+            "En": "Bisection begins at the midpoint of the given interval."
+          },
+          {
+            "Ar": "اجمع طرفي المجال واقسم على اثنين؛ ويمكن فحص قيمة الدالة عند المنتصف.",
+            "En": "Average the endpoints; evaluate the function there if needed."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "طريقة التنصيف: منتصف فترة تحصر جذراً.",
+            "En": "Bisection: midpoint of a root bracket."
+          },
+          "FormulaLatex": "m=\\frac{a+b}{2}",
+          "Steps": [
+            {
+              "Ar": "$a=1,\\ b=2$",
+              "En": "$a=1,\\ b=2$"
+            },
+            {
+              "Ar": "$m=\\frac{1+2}{2}$",
+              "En": "$m=\\frac{1+2}{2}$"
+            }
+          ],
+          "Substitution": {
+            "Ar": "$m=1.5$",
+            "En": "$m=1.5$"
+          },
+          "Result": {
+            "Ar": "1.5",
+            "En": "1.5"
+          },
+          "Unit": {
+            "Ar": "لا توجد وحدة محددة في السؤال",
+            "En": "No unit specified"
+          },
+          "Verification": {
+            "Ar": "إشارتا f(1)=-1 و f(2)=2 متعاكستان؛ لا يلزم أن يكون المنتصف جذراً.",
+            "En": "f(1)=-1 and f(2)=2 have opposite signs; midpoint need not be the root."
+          },
+          "CommonError": {
+            "Ar": "تحقق من القانون والمعطيات قبل اختيار الإجابة. هذا الحد الأيسر وليس المنتصف.",
+            "En": "Check the rule and givens before selecting the answer. This is the left endpoint, not the midpoint."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 1624,
+      "ExpectedOptionIds": [
+        6485,
+        6486,
+        6487,
+        6488
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: في طريقة التنصيف المنتصف الأول m = (a+b)/2. حدود الفترة [1،3]، لذلك m = (1+3)/2 = 2. نحسب الدالة f(2) = 2² − 4 = 0، وهكذا وجدنا جذراً دقيقاً من أول اختبار للمنتصف، ولا نحتاج متابعة التنصيف.",
+        "En": "Rule used: The first bisection midpoint is m = (a+b)/2. On [1,3], m = (1+3)/2 = 2. Evaluate the function f(2) = 2² − 4 = 0. The first midpoint is already an exact root, so no further bisection is needed."
+      },
+      "ProposedTrackCode": "numerical-analysis",
+      "PrimarySkillKey": "root-finding",
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 90,
+        "PrimarySkillId": 334,
+        "Points": 10,
+        "Title": {
+          "Ar": "نبدأ التنصيف للدالة $f(x)=x^2-4$ على [1,3]. ما قيمة أول نقطة وسطية تحقق $f(x)=0$؟",
+          "En": "Start bisection for $f(x)=x^2-4$ on [1,3]. What first midpoint makes $f(x)=0$?"
+        },
+        "Question": {
+          "Ar": "نبدأ التنصيف للدالة $f(x)=x^2-4$ على [1,3]. ما قيمة أول نقطة وسطية تحقق $f(x)=0$؟",
+          "En": "Start bisection for $f(x)=x^2-4$ on [1,3]. What first midpoint makes $f(x)=0$?"
+        },
+        "Options": [
+          {
+            "LatexCode": "2",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "1.5",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "ليس منتصف [1,3].",
+              "En": "Not the midpoint of [1,3]."
+            }
+          },
+          {
+            "LatexCode": "3",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الحد الأيمن وقيمة الدالة فيه 5.",
+              "En": "This is the right endpoint, where the function equals 5."
+            }
+          },
+          {
+            "LatexCode": "4",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "خارج الفترة وليس جذراً.",
+              "En": "Outside the bracket and not a root."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "طريقة التنصيف تبدأ من منتصف المجال المعطى.",
+            "En": "Bisection begins at the midpoint of the given interval."
+          },
+          {
+            "Ar": "اجمع طرفي المجال واقسم على اثنين؛ ويمكن فحص قيمة الدالة عند المنتصف.",
+            "En": "Average the endpoints; evaluate the function there if needed."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نحسب منتصف الفترة ثم نفحص قيمة الدالة.",
+            "En": "Find the bracket midpoint, then evaluate the function."
+          },
+          "FormulaLatex": "m=\\frac{a+b}{2}",
+          "Steps": [
+            {
+              "Ar": "$m=\\frac{1+3}{2}=2$",
+              "En": "$m=\\frac{1+3}{2}=2$"
+            },
+            {
+              "Ar": "$f(2)=2^2-4=0$",
+              "En": "$f(2)=2^2-4=0$"
+            }
+          ],
+          "Substitution": {
+            "Ar": "$f(2)=0$",
+            "En": "$f(2)=0$"
+          },
+          "Result": {
+            "Ar": "2",
+            "En": "2"
+          },
+          "Unit": {
+            "Ar": "لا توجد وحدة محددة في السؤال",
+            "En": "No unit specified"
+          },
+          "Verification": {
+            "Ar": "القيمة صفر؛ وصلنا إلى جذر دقيق.",
+            "En": "The function value is zero, so this is an exact root."
+          },
+          "CommonError": {
+            "Ar": "تحقق من القانون والمعطيات قبل اختيار الإجابة. ليس منتصف [1,3].",
+            "En": "Check the rule and givens before selecting the answer. Not the midpoint of [1,3]."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 1625,
+      "ExpectedOptionIds": [
+        6489,
+        6490,
+        6491,
+        6492
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: تكرار نيوتن لإيجاد جذر هو x₁ = x₀ − f(x₀)/f′(x₀). للدالة f(x)=x²−9 مشتقتها f′(x)=2x. عند x₀=4 نجد f(4)=16−9=7 وf′(4)=8. إذن x₁=4−7/8=25/8=3.125. المشتقة غير صفرية، لذا خطوة نيوتن معرفة.",
+        "En": "Rule used: Newton's iteration is x₁ = x₀ − f(x₀)/f′(x₀). For f(x) = x² − 9, derivative f′(x) = 2x. At x₀ = 4, f(4) = 7 and f′(4) = 8. Therefore x₁ = 4 − 7/8 = 25/8 = 3.125."
+      },
+      "ProposedTrackCode": "numerical-analysis",
+      "PrimarySkillKey": "root-finding",
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 90,
+        "PrimarySkillId": 334,
+        "Points": 10,
+        "Title": {
+          "Ar": "لدالة $f(x)=x^2-9$ مع $x_0=4$، ما قيمة $x_1$ بطريقة نيوتن؟",
+          "En": "For $f(x)=x^2-9$ with $x_0=4$, compute the first Newton iterate $x_1$."
+        },
+        "Question": {
+          "Ar": "لدالة $f(x)=x^2-9$ مع $x_0=4$، ما قيمة $x_1$ بطريقة نيوتن؟",
+          "En": "For $f(x)=x^2-9$ with $x_0=4$, compute the first Newton iterate $x_1$."
+        },
+        "Options": [
+          {
+            "LatexCode": "3.5",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "طرحت نصفاً بدلاً من 7/8.",
+              "En": "Subtracts one half instead of 7/8."
+            }
+          },
+          {
+            "LatexCode": "3",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الجذر الدقيق، لا ناتج الخطوة الأولى.",
+              "En": "This is the exact root, not the first iterate."
+            }
+          },
+          {
+            "LatexCode": "3.25",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "الطرح 3/4 لا يساوي 7/8.",
+              "En": "Subtracting 3/4 is not subtracting 7/8."
+            }
+          },
+          {
+            "LatexCode": "3.125",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "طريقة نيوتن تحتاج قيمة الدالة ومشتقتها عند التخمين الحالي.",
+            "En": "Newton's method uses the function and derivative at the current guess."
+          },
+          {
+            "Ar": "استخدم x₁=x₀−f(x₀)/f′(x₀) بعد حساب المشتقة.",
+            "En": "Use x₁=x₀−f(x₀)/f′(x₀) after finding the derivative."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "خطوة نيوتن تستعمل قيمة الدالة ومشتقتها عند التخمين الحالي.",
+            "En": "Newton's step uses the function and derivative at the current iterate."
+          },
+          "FormulaLatex": "x_1=x_0-\\frac{f(x_0)}{f'(x_0)}",
+          "Steps": [
+            {
+              "Ar": "$f'(x)=2x$",
+              "En": "$f'(x)=2x$"
+            },
+            {
+              "Ar": "$f(4)=7,\\ f'(4)=8$",
+              "En": "$f(4)=7,\\ f'(4)=8$"
+            },
+            {
+              "Ar": "$x_1=4-\\frac78$",
+              "En": "$x_1=4-\\frac78$"
+            }
+          ],
+          "Substitution": {
+            "Ar": "$x_1=\\frac{25}{8}$",
+            "En": "$x_1=\\frac{25}{8}$"
+          },
+          "Result": {
+            "Ar": "3.125",
+            "En": "3.125"
+          },
+          "Unit": {
+            "Ar": "لا توجد وحدة محددة في السؤال",
+            "En": "No unit specified"
+          },
+          "Verification": {
+            "Ar": "الباقي عند التخمين الجديد 49/64 أصغر من 7؛ ليس الجذر الدقيق بعد.",
+            "En": "The new residual is 49/64, smaller than 7; this is not yet the exact root."
+          },
+          "CommonError": {
+            "Ar": "تحقق من القانون والمعطيات قبل اختيار الإجابة. طرحت نصفاً بدلاً من 7/8.",
+            "En": "Check the rule and givens before selecting the answer. Subtracts one half instead of 7/8."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 1626,
+      "ExpectedOptionIds": [
+        6493,
+        6494,
+        6495,
+        6496
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: قاعدة شبه المنحرف بلوحة واحدة لتقريب التكامل هي T = (b−a)[f(a)+f(b)]/2. لدينا f(x)=x² وحدود التكامل a=0 وb=2. نحسب f(0)=0 وf(2)=4، ثم T=(2−0)(0+4)/2=4. هذه قيمة تقريبية، وليست التكامل الدقيق بالضرورة.",
+        "En": "Rule used: The one-panel trapezoidal approximation is T = (b−a)[f(a)+f(b)]/2. For f(x) = x² on [0,2], f(0) = 0 and f(2) = 4. Thus T = (2−0)(0+4)/2 = 4. This is the rule's approximation, not necessarily the exact integral."
+      },
+      "ProposedTrackCode": "numerical-analysis",
+      "PrimarySkillKey": "numerical-integration",
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 90,
+        "PrimarySkillId": 333,
+        "Points": 10,
+        "Title": {
+          "Ar": "قدّر التكامل من 0 إلى 2 للدالة $f(x)=x^2$ بقاعدة شبه المنحرف باستخدام فترة واحدة.",
+          "En": "Approximate the integral of $f(x)=x^2$ from 0 to 2 by the trapezoidal rule using one panel."
+        },
+        "Question": {
+          "Ar": "قدّر التكامل من 0 إلى 2 للدالة $f(x)=x^2$ بقاعدة شبه المنحرف باستخدام فترة واحدة.",
+          "En": "Approximate the integral of $f(x)=x^2$ from 0 to 2 by the trapezoidal rule using one panel."
+        },
+        "Options": [
+          {
+            "LatexCode": "4",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "2",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذه نتيجة قاعدة المنتصف لا شبه المنحرف.",
+              "En": "This is the midpoint approximation, not the trapezoidal one."
+            }
+          },
+          {
+            "LatexCode": "\\frac83",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذه القيمة الدقيقة، لا تقريب شبه المنحرف.",
+              "En": "This is the exact integral, not the trapezoidal approximation."
+            }
+          },
+          {
+            "LatexCode": "8",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "أُهمل عامل القسمة على اثنين.",
+              "En": "Omits the factor of one half."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "قاعدة شبه المنحرف بلوح واحد تستخدم قيمتي الدالة عند طرفي المجال.",
+            "En": "The one-panel trapezoidal rule uses both endpoint values."
+          },
+          {
+            "Ar": "اضرب عرض المجال في متوسط قيمتي الدالة عند الطرفين.",
+            "En": "Multiply interval width by the average of the endpoint function values."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "قاعدة شبه المنحرف تستخدم متوسط قيمتي الطرفين في عرض الفترة.",
+            "En": "The trapezoidal rule multiplies the average endpoint value by interval width."
+          },
+          "FormulaLatex": "T=\\frac{b-a}{2}[f(a)+f(b)]",
+          "Steps": [
+            {
+              "Ar": "$f(0)=0,\\ f(2)=4$",
+              "En": "$f(0)=0,\\ f(2)=4$"
+            },
+            {
+              "Ar": "$T=\\frac{2}{2}(0+4)$",
+              "En": "$T=\\frac{2}{2}(0+4)$"
+            }
+          ],
+          "Substitution": {
+            "Ar": "$T=4$",
+            "En": "$T=4$"
+          },
+          "Result": {
+            "Ar": "4",
+            "En": "4"
+          },
+          "Unit": {
+            "Ar": "لا توجد وحدة محددة في السؤال",
+            "En": "No unit specified"
+          },
+          "Verification": {
+            "Ar": "الدالة محدبة، لذا التقريب 4 أكبر من التكامل الدقيق 8/3.",
+            "En": "For this convex function, 4 exceeds the exact integral 8/3."
+          },
+          "CommonError": {
+            "Ar": "تحقق من القانون والمعطيات قبل اختيار الإجابة. هذه نتيجة قاعدة المنتصف لا شبه المنحرف.",
+            "En": "Check the rule and givens before selecting the answer. This is the midpoint approximation, not the trapezoidal one."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 1627,
+      "ExpectedOptionIds": [
+        6497,
+        6498,
+        6499,
+        6500
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: قاعدة المنتصف بلوحة واحدة تعطي M = (b−a) × f((a+b)/2). للدالة f(x)=x² على [0،2] نحسب المنتصف (0+2)/2=1، وقيمة الدالة f(1)=1. طول الفترة 2، لذلك M=2×1=2، وهي قيمة التقريب المطلوب.",
+        "En": "Rule used: The single-panel midpoint rule is M = (b−a) f((a+b)/2). On [0,2], the midpoint is 1 and f(1) = 1² = 1. The interval width is 2, so M = 2 × 1 = 2."
+      },
+      "ProposedTrackCode": "numerical-analysis",
+      "PrimarySkillKey": "numerical-integration",
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 90,
+        "PrimarySkillId": 333,
+        "Points": 10,
+        "Title": {
+          "Ar": "قدّر التكامل من 0 إلى 2 للدالة $f(x)=x^2$ بقاعدة المنتصف بفترة واحدة.",
+          "En": "Approximate the integral of $f(x)=x^2$ from 0 to 2 using the one-panel midpoint rule."
+        },
+        "Question": {
+          "Ar": "قدّر التكامل من 0 إلى 2 للدالة $f(x)=x^2$ بقاعدة المنتصف بفترة واحدة.",
+          "En": "Approximate the integral of $f(x)=x^2$ from 0 to 2 using the one-panel midpoint rule."
+        },
+        "Options": [
+          {
+            "LatexCode": "1",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "أُهمل عرض الفترة.",
+              "En": "Omits the interval width."
+            }
+          },
+          {
+            "LatexCode": "2",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "4",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذه نتيجة شبه المنحرف.",
+              "En": "This is the trapezoidal approximation."
+            }
+          },
+          {
+            "LatexCode": "\\frac83",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذه القيمة الدقيقة وليست تقريب المنتصف.",
+              "En": "This is the exact integral, not the midpoint approximation."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "قاعدة المنتصف تستخدم قيمة الدالة في منتصف المجال.",
+            "En": "The midpoint rule uses the function at the interval midpoint."
+          },
+          {
+            "Ar": "احسب منتصف المجال ثم اضرب قيمة الدالة عنده في عرض المجال.",
+            "En": "Find the midpoint, then multiply its function value by interval width."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "قاعدة المنتصف تستخدم ارتفاع الدالة عند منتصف الفترة.",
+            "En": "The midpoint rule uses the function height at the interval midpoint."
+          },
+          "FormulaLatex": "M=(b-a)f\\left(\\frac{a+b}{2}\\right)",
+          "Steps": [
+            {
+              "Ar": "$m=1,\\ f(1)=1$",
+              "En": "$m=1,\\ f(1)=1$"
+            },
+            {
+              "Ar": "$M=(2-0)\\cdot1$",
+              "En": "$M=(2-0)\\cdot1$"
+            }
+          ],
+          "Substitution": {
+            "Ar": "$M=2$",
+            "En": "$M=2$"
+          },
+          "Result": {
+            "Ar": "2",
+            "En": "2"
+          },
+          "Unit": {
+            "Ar": "لا توجد وحدة محددة في السؤال",
+            "En": "No unit specified"
+          },
+          "Verification": {
+            "Ar": "مساحة المستطيل بعرض 2 وارتفاع 1 تساوي 2.",
+            "En": "A rectangle of width 2 and height 1 has area 2."
+          },
+          "CommonError": {
+            "Ar": "تحقق من القانون والمعطيات قبل اختيار الإجابة. أُهمل عرض الفترة.",
+            "En": "Check the rule and givens before selecting the answer. Omits the interval width."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 1628,
+      "ExpectedOptionIds": [
+        6501,
+        6502,
+        6503,
+        6504
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: قاعدة سيمبسون 1/3 لفترتين متساويتين تستخدم S = h/3[f(x₀)+4f(x₁)+f(x₂)]، حيث h=(b−a)/2. على [0،2] يكون h=1 والنقاط 0 و1 و2، وقيم الدالة x² هي 0 و1 و4. بالتعويض S=(1/3)(0+4×1+4)=8/3، وهي دقيقة هنا لأن الدالة تربيعية.",
+        "En": "Rule used: Simpson's 1/3 rule with two equal subintervals is S = h/3[f(x₀)+4f(x₁)+f(x₂)], h=(b−a)/2. For [0,2], h = 1 and f(0)=0, f(1)=1, f(2)=4. Hence S = (1/3)(0+4×1+4) = 8/3, exact for a quadratic."
+      },
+      "ProposedTrackCode": "numerical-analysis",
+      "PrimarySkillKey": "numerical-integration",
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 90,
+        "PrimarySkillId": 333,
+        "Points": 10,
+        "Title": {
+          "Ar": "قدّر التكامل من 0 إلى 2 للدالة $f(x)=x^2$ بقاعدة سمبسون 1/3 باستخدام فترتين فرعيتين متساويتين.",
+          "En": "Use Simpson's 1/3 rule with two equal subintervals to integrate $f(x)=x^2$ from 0 to 2."
+        },
+        "Question": {
+          "Ar": "قدّر التكامل من 0 إلى 2 للدالة $f(x)=x^2$ بقاعدة سمبسون 1/3 باستخدام فترتين فرعيتين متساويتين.",
+          "En": "Use Simpson's 1/3 rule with two equal subintervals to integrate $f(x)=x^2$ from 0 to 2."
+        },
+        "Options": [
+          {
+            "LatexCode": "4",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذه نتيجة شبه المنحرف بفترة واحدة.",
+              "En": "This is the one-panel trapezoidal result."
+            }
+          },
+          {
+            "LatexCode": "2",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذه نتيجة المنتصف بفترة واحدة.",
+              "En": "This is the one-panel midpoint result."
+            }
+          },
+          {
+            "LatexCode": "\\frac43",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "نصف القيمة الصحيحة؛ عرض الخطوة 1 لا 1/2.",
+              "En": "Half the correct value; step width is 1, not 1/2."
+            }
+          },
+          {
+            "LatexCode": "\\frac{8}{3}",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "قسّم المجال إلى جزأين متساويين وحدّد h.",
+            "En": "Split the interval into two equal subintervals and find h."
+          },
+          {
+            "Ar": "استخدم قاعدة سمبسون h/3 مضروباً في مجموع قيم الدالة بأوزان 1 و4 و1.",
+            "En": "Use Simpson's rule: h/3 times the weighted sum with weights 1, 4, 1."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "قاعدة سمبسون تستخدم الأوزان 1، 4، 1 على فترتين متساويتين.",
+            "En": "Simpson's rule uses weights 1, 4, 1 on two equal subintervals."
+          },
+          "FormulaLatex": "S=\\frac{h}{3}[f(x_0)+4f(x_1)+f(x_2)]",
+          "Steps": [
+            {
+              "Ar": "$h=\\frac{2-0}{2}=1$",
+              "En": "$h=\\frac{2-0}{2}=1$"
+            },
+            {
+              "Ar": "$f(0)=0,\\ f(1)=1,\\ f(2)=4$",
+              "En": "$f(0)=0,\\ f(1)=1,\\ f(2)=4$"
+            },
+            {
+              "Ar": "$S=\\frac13(0+4+4)$",
+              "En": "$S=\\frac13(0+4+4)$"
+            }
+          ],
+          "Substitution": {
+            "Ar": "$S=\\frac83$",
+            "En": "$S=\\frac83$"
+          },
+          "Result": {
+            "Ar": "$\\frac83$",
+            "En": "$\\frac83$"
+          },
+          "Unit": {
+            "Ar": "لا توجد وحدة محددة في السؤال",
+            "En": "No unit specified"
+          },
+          "Verification": {
+            "Ar": "التكامل المباشر x³/3 من 0 إلى 2 يعطي 8/3؛ سمبسون دقيقة للتربيعيات.",
+            "En": "Direct integration gives 8/3; Simpson's rule is exact for quadratics."
+          },
+          "CommonError": {
+            "Ar": "تحقق من القانون والمعطيات قبل اختيار الإجابة. هذه نتيجة شبه المنحرف بفترة واحدة.",
+            "En": "Check the rule and givens before selecting the answer. This is the one-panel trapezoidal result."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 1629,
+      "ExpectedOptionIds": [
+        6505,
+        6506,
+        6507,
+        6508
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: الخطأ المطلق = |القيمة الحقيقية − القيمة التقريبية|. القيمة الصحيحة 10 والتقريب 9.7، لذا الخطأ = |10 − 9.7| = |0.3| = 0.3. القيمة المطلقة تجعل الخطأ غير سالب مهما كان اتجاه التقريب.",
+        "En": "Rule used: Absolute error is |exact value − approximate value|. With exact value 10 and approximation 9.7, the error is |10 − 9.7| = |0.3| = 0.3. Absolute value removes the direction of the estimation difference."
+      },
+      "ProposedTrackCode": "numerical-analysis",
+      "PrimarySkillKey": "error-analysis",
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 90,
+        "PrimarySkillId": 331,
+        "Points": 10,
+        "Title": {
+          "Ar": "قيمة دقيقة تساوي 10 وقربناها إلى 9.7. ما الخطأ المطلق؟",
+          "En": "An exact value is 10 and its approximation is 9.7. What is the absolute error?"
+        },
+        "Question": {
+          "Ar": "قيمة دقيقة تساوي 10 وقربناها إلى 9.7. ما الخطأ المطلق؟",
+          "En": "An exact value is 10 and its approximation is 9.7. What is the absolute error?"
+        },
+        "Options": [
+          {
+            "LatexCode": "0.03",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذه نسبة الخطأ لا الخطأ المطلق.",
+              "En": "This is the relative error, not the absolute error."
+            }
+          },
+          {
+            "LatexCode": "3",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "خطأ في موضع الفاصلة العشرية.",
+              "En": "Decimal-place error."
+            }
+          },
+          {
+            "LatexCode": "0.3",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "0.7",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "الفرق بين 10 و9.7 ليس 0.7.",
+              "En": "The difference between 10 and 9.7 is not 0.7."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "الخطأ المطلق يقيس مقدار الفرق دون إشارته.",
+            "En": "Absolute error measures the magnitude of the difference."
+          },
+          {
+            "Ar": "اطرح التقريب من القيمة الدقيقة وخذ القيمة المطلقة.",
+            "En": "Subtract the approximation from the exact value and take the absolute value."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "الخطأ المطلق هو مقدار الفرق عن القيمة الدقيقة.",
+            "En": "Absolute error is the magnitude of the difference from the exact value."
+          },
+          "FormulaLatex": "E_a=|x-\\hat x|",
+          "Steps": [
+            {
+              "Ar": "$E_a=|10-9.7|$",
+              "En": "$E_a=|10-9.7|$"
+            },
+            {
+              "Ar": "$E_a=|0.3|$",
+              "En": "$E_a=|0.3|$"
+            }
+          ],
+          "Substitution": {
+            "Ar": "$E_a=0.3$",
+            "En": "$E_a=0.3$"
+          },
+          "Result": {
+            "Ar": "0.3",
+            "En": "0.3"
+          },
+          "Unit": {
+            "Ar": "وحدة القيمة الأصلية إن وجدت",
+            "En": "Original value unit, if any"
+          },
+          "Verification": {
+            "Ar": "إضافة 0.3 إلى 9.7 تعيد القيمة الدقيقة 10.",
+            "En": "Adding 0.3 to 9.7 recovers the exact value 10."
+          },
+          "CommonError": {
+            "Ar": "تحقق من القانون والمعطيات قبل اختيار الإجابة. هذه نسبة الخطأ لا الخطأ المطلق.",
+            "En": "Check the rule and givens before selecting the answer. This is the relative error, not the absolute error."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 1630,
+      "ExpectedOptionIds": [
+        6509,
+        6510,
+        6511,
+        6512
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: الخطأ النسبي المئوي = (الخطأ المطلق ÷ |القيمة الحقيقية|) × 100%. القيمة الدقيقة 50 والتقريب 49، فالخطأ المطلق |50−49|=1. إذن الخطأ النسبي = 1/50 × 100% = 2%. يجب القسمة على القيمة الحقيقية لا التقريبية.",
+        "En": "Rule used: Percentage relative error = |exact − approximate|/|exact| × 100%. Here |50−49| = 1 and the exact magnitude is 50. Thus relative percentage error = 1/50 × 100% = 2%. The denominator is the exact value."
+      },
+      "ProposedTrackCode": "numerical-analysis",
+      "PrimarySkillKey": "error-analysis",
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 90,
+        "PrimarySkillId": 331,
+        "Points": 10,
+        "Title": {
+          "Ar": "إذا كانت القيمة الدقيقة 50 والتقريب 49، فما الخطأ النسبي بالنسبة المئوية؟",
+          "En": "If the exact value is 50 and the approximation is 49, what is the percentage relative error?"
+        },
+        "Question": {
+          "Ar": "إذا كانت القيمة الدقيقة 50 والتقريب 49، فما الخطأ النسبي بالنسبة المئوية؟",
+          "En": "If the exact value is 50 and the approximation is 49, what is the percentage relative error?"
+        },
+        "Options": [
+          {
+            "LatexCode": "1\\%",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "الخطأ المطلق 1 لا يعني 1%.",
+              "En": "An absolute error of 1 does not mean 1%."
+            }
+          },
+          {
+            "LatexCode": "2\\%",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "5\\%",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "5% من 50 يساوي 2.5، وليس 1.",
+              "En": "5% of 50 is 2.5, not 1."
+            }
+          },
+          {
+            "LatexCode": "0.2\\%",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "0.2% من 50 يساوي 0.1.",
+              "En": "0.2% of 50 is 0.1."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "احسب الخطأ المطلق أولاً.",
+            "En": "Find absolute error first."
+          },
+          {
+            "Ar": "اقسم الخطأ على القيمة المطلقة للقيمة الدقيقة واضرب في 100.",
+            "En": "Divide the error by the magnitude of the exact value and multiply by 100."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نقسم الخطأ المطلق على مقدار القيمة الدقيقة ونحوّل إلى نسبة مئوية.",
+            "En": "Divide the absolute error by the magnitude of the exact value and convert to percent."
+          },
+          "FormulaLatex": "E_r=\\frac{|x-\\hat x|}{|x|}\\cdot100\\%",
+          "Steps": [
+            {
+              "Ar": "$|50-49|=1$",
+              "En": "$|50-49|=1$"
+            },
+            {
+              "Ar": "$E_r=\\frac1{50}\\cdot100\\%$",
+              "En": "$E_r=\\frac1{50}\\cdot100\\%$"
+            }
+          ],
+          "Substitution": {
+            "Ar": "$E_r=2\\%$",
+            "En": "$E_r=2\\%$"
+          },
+          "Result": {
+            "Ar": "2%",
+            "En": "2%"
+          },
+          "Unit": {
+            "Ar": "نسبة مئوية",
+            "En": "Percent"
+          },
+          "Verification": {
+            "Ar": "2% من 50 تساوي 1، وهو مقدار الفرق.",
+            "En": "2% of 50 is 1, the absolute difference."
+          },
+          "CommonError": {
+            "Ar": "تحقق من القانون والمعطيات قبل اختيار الإجابة. الخطأ المطلق 1 لا يعني 1%.",
+            "En": "Check the rule and givens before selecting the answer. An absolute error of 1 does not mean 1%."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 1631,
+      "ExpectedOptionIds": [
+        6513,
+        6514,
+        6515,
+        6516
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: الحد الأعلى للخطأ المطلق عند التقريب لأقرب وحدة قياس يساوي نصف حجم خطوة التقريب. التقريب لأقرب جزء من المئة يعني خطوة مقدارها 0.01. لذلك أقصى خطأ مطلق = 0.01/2 = 0.005. هذا حد للخطأ في حالة التقريب المعتادة.",
+        "En": "Rule used: Rounding to the nearest fixed step introduces a maximum absolute error of half that step. Nearest hundredth means step 0.01, so the maximum rounding error is 0.01/2 = 0.005, assuming ordinary nearest-value rounding."
+      },
+      "ProposedTrackCode": "numerical-analysis",
+      "PrimarySkillKey": "error-analysis",
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 90,
+        "PrimarySkillId": 331,
+        "Points": 10,
+        "Title": {
+          "Ar": "عند تقريب قياس إلى أقرب جزء من مئة، ما الحد الأعلى للخطأ المطلق بسبب التقريب؟",
+          "En": "When rounding a measurement to the nearest hundredth, what is the maximum absolute rounding error?"
+        },
+        "Question": {
+          "Ar": "عند تقريب قياس إلى أقرب جزء من مئة، ما الحد الأعلى للخطأ المطلق بسبب التقريب؟",
+          "En": "When rounding a measurement to the nearest hundredth, what is the maximum absolute rounding error?"
+        },
+        "Options": [
+          {
+            "LatexCode": "0.01",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذه خطوة التقريب كاملة، لا نصفها.",
+              "En": "This is the full rounding increment, not half."
+            }
+          },
+          {
+            "LatexCode": "0.05",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "أكبر من خطوة التقريب نفسها.",
+              "En": "Larger than the rounding increment itself."
+            }
+          },
+          {
+            "LatexCode": "0.001",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذه خطوة الألف، لا نصف خطوة الجزء من مئة.",
+              "En": "This is a thousandth, not half a hundredth."
+            }
+          },
+          {
+            "LatexCode": "0.005",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "أقرب جزء من مئة يعني خطوة تقريب مقدارها 0.01.",
+            "En": "Rounding to the nearest hundredth uses step size 0.01."
+          },
+          {
+            "Ar": "أقصى خطأ مطلق للتقريب إلى الأقرب هو نصف خطوة التقريب.",
+            "En": "The maximum absolute error for rounding to nearest is half the step size."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "أقصى خطأ للتقريب لأقرب مضاعف هو نصف خطوة التقريب.",
+            "En": "The maximum error when rounding to the nearest increment is half the increment."
+          },
+          "FormulaLatex": "E_{\\max}=\\frac{\\Delta}{2}",
+          "Steps": [
+            {
+              "Ar": "$\\Delta=0.01$",
+              "En": "$\\Delta=0.01$"
+            },
+            {
+              "Ar": "$E_{\\max}=\\frac{0.01}{2}$",
+              "En": "$E_{\\max}=\\frac{0.01}{2}$"
+            }
+          ],
+          "Substitution": {
+            "Ar": "$E_{\\max}=0.005$",
+            "En": "$E_{\\max}=0.005$"
+          },
+          "Result": {
+            "Ar": "0.005",
+            "En": "0.005"
+          },
+          "Unit": {
+            "Ar": "وحدة القيمة الأصلية إن وجدت",
+            "En": "Original value unit, if any"
+          },
+          "Verification": {
+            "Ar": "القيمة الواقعة في المنتصف بين 1.23 و1.24 تبعد 0.005 عن كليهما.",
+            "En": "The midpoint between 1.23 and 1.24 is 0.005 from either."
+          },
+          "CommonError": {
+            "Ar": "تحقق من القانون والمعطيات قبل اختيار الإجابة. هذه خطوة التقريب كاملة، لا نصفها.",
+            "En": "Check the rule and givens before selecting the answer. This is the full rounding increment, not half."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 1632,
+      "ExpectedOptionIds": [
+        6517,
+        6518,
+        6519,
+        6520
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: طريقة جاكوبي تعزل كل متغير وتستعمل قيم التكرار السابق لجميع المعادلات بالتزامن. من 4س+ص=9 نجد س=(9−ص)/4، ومن س+3ص=7 نجد ص=(7−س)/3. عند (س₀،ص₀)=(0،0) نحسب س₁=9/4 وص₁=7/3. لا نستخدم س₁ في حساب ص₁ لأن ذلك يصبح غاوس–سايدل.",
+        "En": "Rule used: Jacobi iteration isolates each variable and computes new values using only the previous iteration. Rearrange 4x+y=9 as x=(9−y)/4 and x+3y=7 as y=(7−x)/3. Starting at (x₀,y₀)=(0,0) gives (x₁,y₁)=(9/4,7/3). Do not use x₁ to compute y₁ in Jacobi."
+      },
+      "ProposedTrackCode": "numerical-analysis",
+      "PrimarySkillKey": "linear-systems",
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 90,
+        "PrimarySkillId": 332,
+        "Points": 10,
+        "Title": {
+          "Ar": "للنظام $4x+y=9$ و$x+3y=7$، نبدأ $x_0=y_0=0$. ما الزوج $(x_1,y_1)$ بطريقة جاكوبي؟",
+          "En": "For $4x+y=9$ and $x+3y=7$, start from $x_0=y_0=0$. What is the first Jacobi iterate $(x_1,y_1)$?"
+        },
+        "Question": {
+          "Ar": "للنظام $4x+y=9$ و$x+3y=7$، نبدأ $x_0=y_0=0$. ما الزوج $(x_1,y_1)$ بطريقة جاكوبي؟",
+          "En": "For $4x+y=9$ and $x+3y=7$, start from $x_0=y_0=0$. What is the first Jacobi iterate $(x_1,y_1)$?"
+        },
+        "Options": [
+          {
+            "LatexCode": "(\\frac94,\\frac73)",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "(\\frac73,\\frac94)",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "تبديل ترتيب مركبتي المتجه.",
+              "En": "Swaps the two vector components."
+            }
+          },
+          {
+            "LatexCode": "(9,7)",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "أُهملت معاملات 4 و3.",
+              "En": "Omits the diagonal coefficients 4 and 3."
+            }
+          },
+          {
+            "LatexCode": "(\\frac94,\\frac{19}{12})",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "استعمال x₁ في حساب y₁ هو غاوس-سايدل لا جاكوبي.",
+              "En": "Using x₁ to compute y₁ is Gauss–Seidel, not Jacobi."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "في طريقة جاكوبي اعزل x في المعادلة الأولى وy في الثانية.",
+            "En": "In Jacobi iteration isolate x in the first equation and y in the second."
+          },
+          {
+            "Ar": "احسب المركبتين الجديدتين من القيم الابتدائية القديمة نفسها، لا من قيمة حُدّثت للتو.",
+            "En": "Compute both new components from the same old iterate, not from a freshly updated value."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "في جاكوبي نستعمل قيم الدورة السابقة لحساب كل المركبات الجديدة.",
+            "En": "Jacobi uses only previous-iteration values for every new component."
+          },
+          "FormulaLatex": "x_{k+1}=\\frac{9-y_k}{4},\\quad y_{k+1}=\\frac{7-x_k}{3}",
+          "Steps": [
+            {
+              "Ar": "$x_0=y_0=0$",
+              "En": "$x_0=y_0=0$"
+            },
+            {
+              "Ar": "$x_1=\\frac{9-0}{4},\\ y_1=\\frac{7-0}{3}$",
+              "En": "$x_1=\\frac{9-0}{4},\\ y_1=\\frac{7-0}{3}$"
+            }
+          ],
+          "Substitution": {
+            "Ar": "$(x_1,y_1)=(\\frac94,\\frac73)$",
+            "En": "$(x_1,y_1)=(\\frac94,\\frac73)$"
+          },
+          "Result": {
+            "Ar": "$(\\frac94,\\frac73)$",
+            "En": "$(\\frac94,\\frac73)$"
+          },
+          "Unit": {
+            "Ar": "لا توجد وحدة محددة في السؤال",
+            "En": "No unit specified"
+          },
+          "Verification": {
+            "Ar": "كلا الطرفين استعمل الصفر من الدورة 0، لا المركبة الجديدة.",
+            "En": "Both updates use zero from iteration 0, not a newly computed component."
+          },
+          "CommonError": {
+            "Ar": "تحقق من القانون والمعطيات قبل اختيار الإجابة. تبديل ترتيب مركبتي المتجه.",
+            "En": "Check the rule and givens before selecting the answer. Swaps the two vector components."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 1633,
+      "ExpectedOptionIds": [
+        6521,
+        6522,
+        6523,
+        6524
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "المبدأ المستخدم: طريقة الحذف لحل نظام معادلتين تلغي أحد المجهولين بجمع المعادلتين بعد جعل معامليه متعاكسين. لدينا 2س+ص=7 و س−ص=2؛ بجمعهما يختفي ص فنحصل على 3س=9. نقسم على 3 فتصبح س=3. التحقق في الثانية: ص=1، والأولى 2×3+1=7.",
+        "En": "Rule used: Elimination solves simultaneous equations by adding equations with opposite coefficients for one variable. Add 2x+y=7 and x−y=2: y cancels and 3x=9, hence x=3. Check: y=1 and 2×3+1=7."
+      },
+      "ProposedTrackCode": "numerical-analysis",
+      "PrimarySkillKey": "linear-systems",
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 90,
+        "PrimarySkillId": 332,
+        "Points": 10,
+        "Title": {
+          "Ar": "باستخدام الحذف، حل النظام $2x+y=7$ و$x-y=2$. ما قيمة $x$؟",
+          "En": "Use elimination to solve $2x+y=7$ and $x-y=2$. What is $x$?"
+        },
+        "Question": {
+          "Ar": "باستخدام الحذف، حل النظام $2x+y=7$ و$x-y=2$. ما قيمة $x$؟",
+          "En": "Use elimination to solve $2x+y=7$ and $x-y=2$. What is $x$?"
+        },
+        "Options": [
+          {
+            "LatexCode": "2",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذه قيمة الفرق x−y، لا قيمة x.",
+              "En": "This is the difference x−y, not x."
+            }
+          },
+          {
+            "LatexCode": "4",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "لو كان x=4 يصبح y=2 والطرف الأول 10 لا 7.",
+              "En": "With x=4, y=2 and the first left side is 10, not 7."
+            }
+          },
+          {
+            "LatexCode": "1",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذه قيمة y، لا x.",
+              "En": "This is y, not x."
+            }
+          },
+          {
+            "LatexCode": "3",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "لاحظ أن معاملي y في المعادلتين متعاكسان.",
+            "En": "Notice the two y coefficients are opposites."
+          },
+          {
+            "Ar": "اجمع المعادلتين لإلغاء y ثم حل المعادلة الناتجة في x.",
+            "En": "Add the equations to eliminate y, then solve for x."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نجمع المعادلتين لحذف المتغير ذي المعاملين المتعاكسين.",
+            "En": "Add the equations to eliminate the variable with opposite coefficients."
+          },
+          "FormulaLatex": "(2x+y)+(x-y)=7+2",
+          "Steps": [
+            {
+              "Ar": "$3x=9$",
+              "En": "$3x=9$"
+            },
+            {
+              "Ar": "$x=\\frac93$",
+              "En": "$x=\\frac93$"
+            },
+            {
+              "Ar": "$y=x-2=1$",
+              "En": "$y=x-2=1$"
+            }
+          ],
+          "Substitution": {
+            "Ar": "$x=3$",
+            "En": "$x=3$"
+          },
+          "Result": {
+            "Ar": "3",
+            "En": "3"
+          },
+          "Unit": {
+            "Ar": "لا توجد وحدة محددة في السؤال",
+            "En": "No unit specified"
+          },
+          "Verification": {
+            "Ar": "بالتعويض: 2×3+1=7 و3−1=2.",
+            "En": "Substitution: 2×3+1=7 and 3−1=2."
+          },
+          "CommonError": {
+            "Ar": "تحقق من القانون والمعطيات قبل اختيار الإجابة. هذه قيمة الفرق x−y، لا قيمة x.",
+            "En": "Check the rule and givens before selecting the answer. This is the difference x−y, not x."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    },
+    {
+      "ProblemId": 1634,
+      "ExpectedOptionIds": [
+        6525,
+        6526,
+        6527,
+        6528
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: متجه الباقي في حل نظام خطي هو r = b − A x̂، ومعيار اللانهاية يساوي أكبر قيمة مطلقة بين مركبات الباقي. المصفوفة A قطرية (2،3) والتقريب x̂=(2،2)، لذا Ax̂=(4،6)، ومع b=(4،9) نجد r=(0،3). إذن ||r||∞=max(|0|،|3|)=3.",
+        "En": "Rule used: Residual for an approximate linear-system solution is r = b − Ax̂, and its infinity norm is the largest absolute residual component. With A=diag(2,3), x̂=(2,2), Ax̂=(4,6), and b=(4,9), residual is r=(0,3). Therefore ||r||∞ = max(0,3) = 3."
+      },
+      "ProposedTrackCode": "numerical-analysis",
+      "PrimarySkillKey": "linear-systems",
+      "Content": {
+        "StageId": 4,
+        "CategoryId": 90,
+        "PrimarySkillId": 332,
+        "Points": 10,
+        "Title": {
+          "Ar": "للنظام $A=diag(2,3)$ و$b=(4,9)$، إذا كان التقريب $x=(2,2)$، فما معيار اللانهاية للمتبقي $r=b-Ax$؟",
+          "En": "For $A=diag(2,3)$, $b=(4,9)$ and approximate solution $x=(2,2)$, find the infinity norm of residual "
+        },
+        "Question": {
+          "Ar": "للنظام $A=diag(2,3)$ و$b=(4,9)$، إذا كان التقريب $x=(2,2)$، فما معيار اللانهاية للمتبقي $r=b-Ax$؟",
+          "En": "For $A=diag(2,3)$, $b=(4,9)$ and approximate solution $x=(2,2)$, find the infinity norm of residual $r=b-Ax$."
+        },
+        "Options": [
+          {
+            "LatexCode": "0",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذه المركبة الأولى فقط.",
+              "En": "This is only the first component."
+            }
+          },
+          {
+            "LatexCode": "1",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "لا تساوي أي مقدار من مركبات الباقي.",
+              "En": "This is neither residual component magnitude."
+            }
+          },
+          {
+            "LatexCode": "3",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "9",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "9 مربع المعيار وليس معيار اللانهاية.",
+              "En": "9 is the square of the norm, not the infinity norm."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "المتبقي هو المتجه b−Ax.",
+            "En": "The residual vector is b−Ax."
+          },
+          {
+            "Ar": "احسب مركبتي المتبقي ثم اختر أكبر قيمة مطلقة بينهما.",
+            "En": "Find both residual components and take the largest absolute value."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "الباقي هو b−Ax؛ معيار اللانهاية أكبر مقدار لمركباته.",
+            "En": "The residual is b−Ax; its infinity norm is the largest component magnitude."
+          },
+          "FormulaLatex": "r=b-A\\hat x,\\quad\\|r\\|_\\infty=\\max_i|r_i|",
+          "Steps": [
+            {
+              "Ar": "$A\\hat x=(4,6)$",
+              "En": "$A\\hat x=(4,6)$"
+            },
+            {
+              "Ar": "$r=(4,9)-(4,6)=(0,3)$",
+              "En": "$r=(4,9)-(4,6)=(0,3)$"
+            },
+            {
+              "Ar": "$\\|r\\|_\\infty=\\max(0,3)$",
+              "En": "$\\|r\\|_\\infty=\\max(0,3)$"
+            }
+          ],
+          "Substitution": {
+            "Ar": "$\\|r\\|_\\infty=3$",
+            "En": "$\\|r\\|_\\infty=3$"
+          },
+          "Result": {
+            "Ar": "3",
+            "En": "3"
+          },
+          "Unit": {
+            "Ar": "لا توجد وحدة محددة في السؤال",
+            "En": "No unit specified"
+          },
+          "Verification": {
+            "Ar": "المركبة الأولى صفر والثانية 3؛ نأخذ الأكبر.",
+            "En": "First residual component is zero and the second is 3; take the larger."
+          },
+          "CommonError": {
+            "Ar": "تحقق من القانون والمعطيات قبل اختيار الإجابة. هذه المركبة الأولى فقط.",
+            "En": "Check the rule and givens before selecting the answer. This is only the first component."
+          }
+        }
+      },
+      "Status": "StructuredAmendmentCandidateNotImported"
+    }
+  ]
+}

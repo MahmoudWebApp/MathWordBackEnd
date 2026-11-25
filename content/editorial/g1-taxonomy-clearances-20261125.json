@@ -1,0 +1,84 @@
+{
+  "Status": "ReviewedTaxonomyOnlyNoSourceMutation",
+  "Evidence": "Read-only live skill names/descriptions, questions and marked options checked 2026-11-25. Original hold inventory retained. No wording or option changes.",
+  "Items": [
+    {
+      "ProblemId": 212,
+      "CategoryId": 6,
+      "PrimarySkillId": 28,
+      "StableKey": "middle-inverse-function-evaluation",
+      "ExpectedQuestionAr": "لتكن \\(f(x)=2x+5\\)، إذا كانت \\(f(x)=11\\) فأوجد x.",
+      "ExpectedQuestionEn": "Given \\(f(x)=2x+5\\), solve f(x)=11.",
+      "StageId": 2,
+      "TrackCode": "grade-9",
+      "VerifiedAnswer": 3,
+      "ReasonAr": "اسم المهارة الحالي هو حل معادلة من قيمة دالة؛ طرح الثابت ثم القسمة والتحقق بالتعويض.",
+      "ReasonEn": "Live skill 28 is Finding inputs from function values; subtract the intercept, divide by the nonzero coefficient and check by substitution."
+    },
+    {
+      "ProblemId": 224,
+      "CategoryId": 6,
+      "PrimarySkillId": 28,
+      "StableKey": "middle-inverse-function-evaluation",
+      "ExpectedQuestionAr": "لتكن \\(f(x)=3x+6\\)، إذا كانت \\(f(x)=18\\) فأوجد x.",
+      "ExpectedQuestionEn": "Given \\(f(x)=3x+6\\), solve f(x)=18.",
+      "StageId": 2,
+      "TrackCode": "grade-9",
+      "VerifiedAnswer": 4,
+      "ReasonAr": "اسم المهارة الحالي هو حل معادلة من قيمة دالة؛ طرح الثابت ثم القسمة والتحقق بالتعويض.",
+      "ReasonEn": "Live skill 28 is Finding inputs from function values; subtract the intercept, divide by the nonzero coefficient and check by substitution."
+    },
+    {
+      "ProblemId": 236,
+      "CategoryId": 6,
+      "PrimarySkillId": 28,
+      "StableKey": "middle-inverse-function-evaluation",
+      "ExpectedQuestionAr": "لتكن \\(f(x)=4x+7\\)، إذا كانت \\(f(x)=27\\) فأوجد x.",
+      "ExpectedQuestionEn": "Given \\(f(x)=4x+7\\), solve f(x)=27.",
+      "StageId": 2,
+      "TrackCode": "grade-9",
+      "VerifiedAnswer": 5,
+      "ReasonAr": "اسم المهارة الحالي هو حل معادلة من قيمة دالة؛ طرح الثابت ثم القسمة والتحقق بالتعويض.",
+      "ReasonEn": "Live skill 28 is Finding inputs from function values; subtract the intercept, divide by the nonzero coefficient and check by substitution."
+    },
+    {
+      "ProblemId": 248,
+      "CategoryId": 6,
+      "PrimarySkillId": 28,
+      "StableKey": "middle-inverse-function-evaluation",
+      "ExpectedQuestionAr": "لتكن \\(f(x)=5x+8\\)، إذا كانت \\(f(x)=38\\) فأوجد x.",
+      "ExpectedQuestionEn": "Given \\(f(x)=5x+8\\), solve f(x)=38.",
+      "StageId": 2,
+      "TrackCode": "grade-9",
+      "VerifiedAnswer": 6,
+      "ReasonAr": "اسم المهارة الحالي هو حل معادلة من قيمة دالة؛ طرح الثابت ثم القسمة والتحقق بالتعويض.",
+      "ReasonEn": "Live skill 28 is Finding inputs from function values; subtract the intercept, divide by the nonzero coefficient and check by substitution."
+    },
+    {
+      "ProblemId": 260,
+      "CategoryId": 6,
+      "PrimarySkillId": 28,
+      "StableKey": "middle-inverse-function-evaluation",
+      "ExpectedQuestionAr": "لتكن \\(f(x)=6x+9\\)، إذا كانت \\(f(x)=51\\) فأوجد x.",
+      "ExpectedQuestionEn": "Given \\(f(x)=6x+9\\), solve f(x)=51.",
+      "StageId": 2,
+      "TrackCode": "grade-9",
+      "VerifiedAnswer": 7,
+      "ReasonAr": "اسم المهارة الحالي هو حل معادلة من قيمة دالة؛ طرح الثابت ثم القسمة والتحقق بالتعويض.",
+      "ReasonEn": "Live skill 28 is Finding inputs from function values; subtract the intercept, divide by the nonzero coefficient and check by substitution."
+    },
+    {
+      "ProblemId": 1633,
+      "CategoryId": 90,
+      "PrimarySkillId": 332,
+      "StableKey": "linear-systems",
+      "ExpectedQuestionAr": "باستخدام الحذف، حل النظام $2x+y=7$ و$x-y=2$. ما قيمة $x$؟",
+      "ExpectedQuestionEn": "Use elimination to solve $2x+y=7$ and $x-y=2$. What is $x$?",
+      "StageId": 4,
+      "TrackCode": "numerical-analysis",
+      "VerifiedAnswer": 3,
+      "ReasonAr": "مهارة الأنظمة الخطية العددية تشمل الحذف صراحةً؛ حل دقيق تمهيدي وليس قياساً لخطأ التقريب.",
+      "ReasonEn": "Live skill 332 explicitly includes elimination; exact linear-system prerequisite, not a numerical error exercise."
+    }
+  ]
+}

@@ -1,0 +1,1417 @@
+{
+  "Status": "HeldNotImportable",
+  "Items": [
+    {
+      "ProblemId": 153,
+      "ExpectedOptionIds": [
+        601,
+        602,
+        603,
+        604
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "المبدأ المستخدم: في النمط الحسابي نضيف فرقاً ثابتاً إلى كل حد لنصل إلى الحد التالي. الفرق بين الحدود هو 3؛ من الحد الرابع 11 نضيف 3 فنحصل على الحد الخامس 11 + 3 = 14. ويمكن التحقق: الحد الأول + أربع قفزات = 2 + 4 × 3 = 14.",
+        "En": "Rule used: An arithmetic sequence increases by the same common difference each time. The difference is 3; after the fourth term 11, the fifth is 11 + 3 = 14. Check: first term plus four steps = 2 + 4 × 3 = 14."
+      },
+      "ProposedTrackCode": "grade-2",
+      "PrimarySkillKey": "primary-number-patterns",
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 2,
+        "PrimarySkillId": 8,
+        "Points": 10,
+        "Title": {
+          "Ar": "المتتالية 2، 5، 8، 11؛ ما الحد الخامس؟",
+          "En": "Sequence 2, 5, 8, 11; find the fifth term."
+        },
+        "Question": {
+          "Ar": "المتتالية 2، 5، 8، 11؛ ما الحد الخامس؟",
+          "En": "Sequence 2, 5, 8, 11; find the fifth term."
+        },
+        "Options": [
+          {
+            "LatexCode": "14",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "15",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تستخدم رقم الحد كفرق؛ خمسة حدود فيها أربع خطوات. النمط ليس وحيداً دون تحديد نوع المتتالية. $2+4\\cdot3=14$",
+              "En": "This choice does not match the derived result. Do not use the term index as the difference; five terms contain four steps. A finite prefix alone does not uniquely define a sequence. $2+4\\cdot3=14$"
+            }
+          },
+          {
+            "LatexCode": "17",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تستخدم رقم الحد كفرق؛ خمسة حدود فيها أربع خطوات. النمط ليس وحيداً دون تحديد نوع المتتالية. $2+4\\cdot3=14$",
+              "En": "This choice does not match the derived result. Do not use the term index as the difference; five terms contain four steps. A finite prefix alone does not uniquely define a sequence. $2+4\\cdot3=14$"
+            }
+          },
+          {
+            "LatexCode": "12",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تستخدم رقم الحد كفرق؛ خمسة حدود فيها أربع خطوات. النمط ليس وحيداً دون تحديد نوع المتتالية. $2+4\\cdot3=14$",
+              "En": "This choice does not match the derived result. Do not use the term index as the difference; five terms contain four steps. A finite prefix alone does not uniquely define a sequence. $2+4\\cdot3=14$"
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "احسب الفرق بين كل حدين متتاليين.",
+            "En": "Find the difference between consecutive terms."
+          },
+          {
+            "Ar": "إذا كان الفرق ثابتاً فأضفه إلى الحد الرابع لإيجاد الخامس.",
+            "En": "If the difference is constant, add it to the fourth term to find the fifth."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "بافتراض أنها متتالية حسابية، الفرق بين كل حدين متتاليين ثابت.",
+            "En": "Under the arithmetic-sequence assumption, consecutive differences are constant."
+          },
+          "FormulaLatex": "a_n=a_1+(n-1)d",
+          "Steps": [
+            {
+              "Ar": "$d=5-2=3$",
+              "En": "$d=5-2=3$"
+            },
+            {
+              "Ar": "$a_5=11+3=14$",
+              "En": "$a_5=11+3=14$"
+            }
+          ],
+          "Result": {
+            "Ar": "$14$",
+            "En": "$14$"
+          },
+          "Verification": {
+            "Ar": "$2+4\\cdot3=14$",
+            "En": "$2+4\\cdot3=14$"
+          },
+          "CommonError": {
+            "Ar": "لا تستخدم رقم الحد كفرق؛ خمسة حدود فيها أربع خطوات. النمط ليس وحيداً دون تحديد نوع المتتالية.",
+            "En": "Do not use the term index as the difference; five terms contain four steps. A finite prefix alone does not uniquely define a sequence."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة محددة",
+            "En": "No specified unit"
+          },
+          "Substitution": {
+            "Ar": "$a_5=11+3=14$",
+            "En": "$a_5=11+3=14$"
+          }
+        }
+      },
+      "Status": "HeldStructuredCandidateNotImportable",
+      "ProposedQuestion": {
+        "Ar": "المتتالية الحسابية 2، 5، 8، 11؛ ما الحد الخامس؟",
+        "En": "An arithmetic sequence begins 2, 5, 8, 11. Find the fifth term."
+      },
+      "HoldReason": "Source wording needs explicit model assumption; preserve original IDs, options and attempts."
+    },
+    {
+      "ProblemId": 159,
+      "ExpectedOptionIds": [
+        625,
+        626,
+        627,
+        628
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: احتمال اختيار كرة حمراء = عدد الكرات الحمراء ÷ العدد الكلي للكرات، بافتراض السحب العشوائي المتساوي. لدينا 1 حمراء و6 زرقاء، فيكون المجموع 1 + 6 = 7. بالتعويض: الاحتمال = 1/7.",
+        "En": "Rule used: Probability of red = number of red balls ÷ total number of balls for a uniformly random draw. There are 1 red and 6 blue balls, a total of 1 + 6 = 7. Thus P(red) = 1/7."
+      },
+      "ProposedTrackCode": "grade-5",
+      "PrimarySkillKey": "primary-simple-probability",
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 4,
+        "PrimarySkillId": 17,
+        "Points": 10,
+        "Title": {
+          "Ar": "في كيس 1 كرات حمراء و6 زرقاء. ما احتمال سحب حمراء؟",
+          "En": "A bag has 1 red and 6 blue balls. Find the probability of red."
+        },
+        "Question": {
+          "Ar": "في كيس 1 كرات حمراء و6 زرقاء. ما احتمال سحب حمراء؟",
+          "En": "A bag has 1 red and 6 blue balls. Find the probability of red."
+        },
+        "Options": [
+          {
+            "LatexCode": "\\frac{2}{7}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. المقام يشمل اللونين، والبسط للحمراء فقط؛ يفترض الحساب تكافؤ فرص السحب. $\\frac{1}{7}+\\frac{6}{7}=1$",
+              "En": "This choice does not match the derived result. The denominator includes both colors, the numerator only red; the calculation assumes equal draw probabilities. $\\frac{1}{7}+\\frac{6}{7}=1$"
+            }
+          },
+          {
+            "LatexCode": "\\frac{1}{8}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. المقام يشمل اللونين، والبسط للحمراء فقط؛ يفترض الحساب تكافؤ فرص السحب. $\\frac{1}{7}+\\frac{6}{7}=1$",
+              "En": "This choice does not match the derived result. The denominator includes both colors, the numerator only red; the calculation assumes equal draw probabilities. $\\frac{1}{7}+\\frac{6}{7}=1$"
+            }
+          },
+          {
+            "LatexCode": "\\frac{1}{7}",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "\\frac{6}{7}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. المقام يشمل اللونين، والبسط للحمراء فقط؛ يفترض الحساب تكافؤ فرص السحب. $\\frac{1}{7}+\\frac{6}{7}=1$",
+              "En": "This choice does not match the derived result. The denominator includes both colors, the numerator only red; the calculation assumes equal draw probabilities. $\\frac{1}{7}+\\frac{6}{7}=1$"
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "احسب عدد الكرات الكلي من اللونين.",
+            "En": "Find the total number of balls of both colors."
+          },
+          {
+            "Ar": "عند السحب العشوائي المتساوي الاحتمال، اقسم عدد الحمراء على العدد الكلي.",
+            "En": "For an equally likely random draw, divide the red count by the total."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "في السحب العشوائي متساوي الفرص، نقسم عدد الكرات الحمراء على العدد الكلي.",
+            "En": "For a uniformly random draw, divide red outcomes by all outcomes."
+          },
+          "FormulaLatex": "P(R)=\\frac{r}{r+b}",
+          "Steps": [
+            {
+              "Ar": "$r+b=1+6=7$",
+              "En": "$r+b=1+6=7$"
+            },
+            {
+              "Ar": "$P(R)=\\frac{1}{7}$",
+              "En": "$P(R)=\\frac{1}{7}$"
+            }
+          ],
+          "Result": {
+            "Ar": "$\\frac{1}{7}$",
+            "En": "$\\frac{1}{7}$"
+          },
+          "Verification": {
+            "Ar": "$\\frac{1}{7}+\\frac{6}{7}=1$",
+            "En": "$\\frac{1}{7}+\\frac{6}{7}=1$"
+          },
+          "CommonError": {
+            "Ar": "المقام يشمل اللونين، والبسط للحمراء فقط؛ يفترض الحساب تكافؤ فرص السحب.",
+            "En": "The denominator includes both colors, the numerator only red; the calculation assumes equal draw probabilities."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة محددة",
+            "En": "No specified unit"
+          },
+          "Substitution": {
+            "Ar": "$P(R)=\\frac{1}{7}$",
+            "En": "$P(R)=\\frac{1}{7}$"
+          }
+        }
+      },
+      "Status": "HeldStructuredCandidateNotImportable",
+      "ProposedQuestion": {
+        "Ar": "في كيس عدد الكرات الحمراء 1 والزرقاء 6. نسحب كرة عشوائياً بحيث تتساوى فرص الكرات. ما احتمال سحب حمراء؟",
+        "En": "A bag has 1 red and 6 blue balls. One ball is drawn uniformly at random. Find the probability of red."
+      },
+      "HoldReason": "Source wording needs explicit model assumption; preserve original IDs, options and attempts."
+    },
+    {
+      "ProblemId": 165,
+      "ExpectedOptionIds": [
+        649,
+        650,
+        651,
+        652
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "المبدأ المستخدم: في النمط الحسابي نضيف فرقاً ثابتاً إلى كل حد لنصل إلى الحد التالي. الفرق بين الحدود هو 4؛ من الحد الرابع 15 نضيف 4 فنحصل على الحد الخامس 15 + 4 = 19. ويمكن التحقق: الحد الأول + أربع قفزات = 3 + 4 × 4 = 19.",
+        "En": "Rule used: An arithmetic sequence increases by the same common difference each time. The difference is 4; after the fourth term 15, the fifth is 15 + 4 = 19. Check: first term plus four steps = 3 + 4 × 4 = 19."
+      },
+      "ProposedTrackCode": "grade-2",
+      "PrimarySkillKey": "primary-number-patterns",
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 2,
+        "PrimarySkillId": 8,
+        "Points": 10,
+        "Title": {
+          "Ar": "المتتالية 3، 7، 11، 15؛ ما الحد الخامس؟",
+          "En": "Sequence 3, 7, 11, 15; find the fifth term."
+        },
+        "Question": {
+          "Ar": "المتتالية 3، 7، 11، 15؛ ما الحد الخامس؟",
+          "En": "Sequence 3, 7, 11, 15; find the fifth term."
+        },
+        "Options": [
+          {
+            "LatexCode": "20",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تستخدم رقم الحد كفرق؛ خمسة حدود فيها أربع خطوات. النمط ليس وحيداً دون تحديد نوع المتتالية. $3+4\\cdot4=19$",
+              "En": "This choice does not match the derived result. Do not use the term index as the difference; five terms contain four steps. A finite prefix alone does not uniquely define a sequence. $3+4\\cdot4=19$"
+            }
+          },
+          {
+            "LatexCode": "22",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تستخدم رقم الحد كفرق؛ خمسة حدود فيها أربع خطوات. النمط ليس وحيداً دون تحديد نوع المتتالية. $3+4\\cdot4=19$",
+              "En": "This choice does not match the derived result. Do not use the term index as the difference; five terms contain four steps. A finite prefix alone does not uniquely define a sequence. $3+4\\cdot4=19$"
+            }
+          },
+          {
+            "LatexCode": "17",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تستخدم رقم الحد كفرق؛ خمسة حدود فيها أربع خطوات. النمط ليس وحيداً دون تحديد نوع المتتالية. $3+4\\cdot4=19$",
+              "En": "This choice does not match the derived result. Do not use the term index as the difference; five terms contain four steps. A finite prefix alone does not uniquely define a sequence. $3+4\\cdot4=19$"
+            }
+          },
+          {
+            "LatexCode": "19",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "احسب الفرق بين كل حدين متتاليين.",
+            "En": "Find the difference between consecutive terms."
+          },
+          {
+            "Ar": "إذا كان الفرق ثابتاً فأضفه إلى الحد الرابع لإيجاد الخامس.",
+            "En": "If the difference is constant, add it to the fourth term to find the fifth."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "بافتراض أنها متتالية حسابية، الفرق بين كل حدين متتاليين ثابت.",
+            "En": "Under the arithmetic-sequence assumption, consecutive differences are constant."
+          },
+          "FormulaLatex": "a_n=a_1+(n-1)d",
+          "Steps": [
+            {
+              "Ar": "$d=7-3=4$",
+              "En": "$d=7-3=4$"
+            },
+            {
+              "Ar": "$a_5=15+4=19$",
+              "En": "$a_5=15+4=19$"
+            }
+          ],
+          "Result": {
+            "Ar": "$19$",
+            "En": "$19$"
+          },
+          "Verification": {
+            "Ar": "$3+4\\cdot4=19$",
+            "En": "$3+4\\cdot4=19$"
+          },
+          "CommonError": {
+            "Ar": "لا تستخدم رقم الحد كفرق؛ خمسة حدود فيها أربع خطوات. النمط ليس وحيداً دون تحديد نوع المتتالية.",
+            "En": "Do not use the term index as the difference; five terms contain four steps. A finite prefix alone does not uniquely define a sequence."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة محددة",
+            "En": "No specified unit"
+          },
+          "Substitution": {
+            "Ar": "$a_5=15+4=19$",
+            "En": "$a_5=15+4=19$"
+          }
+        }
+      },
+      "Status": "HeldStructuredCandidateNotImportable",
+      "ProposedQuestion": {
+        "Ar": "المتتالية الحسابية 3، 7، 11، 15؛ ما الحد الخامس؟",
+        "En": "An arithmetic sequence begins 3, 7, 11, 15. Find the fifth term."
+      },
+      "HoldReason": "Source wording needs explicit model assumption; preserve original IDs, options and attempts."
+    },
+    {
+      "ProblemId": 171,
+      "ExpectedOptionIds": [
+        673,
+        674,
+        675,
+        676
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: احتمال اختيار كرة حمراء = عدد الكرات الحمراء ÷ العدد الكلي للكرات، بافتراض السحب العشوائي المتساوي. لدينا 2 حمراء و7 زرقاء، فيكون المجموع 2 + 7 = 9. بالتعويض: الاحتمال = 2/9.",
+        "En": "Rule used: Probability of red = number of red balls ÷ total number of balls for a uniformly random draw. There are 2 red and 7 blue balls, a total of 2 + 7 = 9. Thus P(red) = 2/9."
+      },
+      "ProposedTrackCode": "grade-5",
+      "PrimarySkillKey": "primary-simple-probability",
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 4,
+        "PrimarySkillId": 17,
+        "Points": 10,
+        "Title": {
+          "Ar": "في كيس 2 كرات حمراء و7 زرقاء. ما احتمال سحب حمراء؟",
+          "En": "A bag has 2 red and 7 blue balls. Find the probability of red."
+        },
+        "Question": {
+          "Ar": "في كيس 2 كرات حمراء و7 زرقاء. ما احتمال سحب حمراء؟",
+          "En": "A bag has 2 red and 7 blue balls. Find the probability of red."
+        },
+        "Options": [
+          {
+            "LatexCode": "\\frac{2}{10}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. المقام يشمل اللونين، والبسط للحمراء فقط؛ يفترض الحساب تكافؤ فرص السحب. $\\frac{2}{9}+\\frac{7}{9}=1$",
+              "En": "This choice does not match the derived result. The denominator includes both colors, the numerator only red; the calculation assumes equal draw probabilities. $\\frac{2}{9}+\\frac{7}{9}=1$"
+            }
+          },
+          {
+            "LatexCode": "\\frac{2}{9}",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "\\frac{7}{9}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. المقام يشمل اللونين، والبسط للحمراء فقط؛ يفترض الحساب تكافؤ فرص السحب. $\\frac{2}{9}+\\frac{7}{9}=1$",
+              "En": "This choice does not match the derived result. The denominator includes both colors, the numerator only red; the calculation assumes equal draw probabilities. $\\frac{2}{9}+\\frac{7}{9}=1$"
+            }
+          },
+          {
+            "LatexCode": "\\frac{3}{9}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. المقام يشمل اللونين، والبسط للحمراء فقط؛ يفترض الحساب تكافؤ فرص السحب. $\\frac{2}{9}+\\frac{7}{9}=1$",
+              "En": "This choice does not match the derived result. The denominator includes both colors, the numerator only red; the calculation assumes equal draw probabilities. $\\frac{2}{9}+\\frac{7}{9}=1$"
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "احسب عدد الكرات الكلي من اللونين.",
+            "En": "Find the total number of balls of both colors."
+          },
+          {
+            "Ar": "عند السحب العشوائي المتساوي الاحتمال، اقسم عدد الحمراء على العدد الكلي.",
+            "En": "For an equally likely random draw, divide the red count by the total."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "في السحب العشوائي متساوي الفرص، نقسم عدد الكرات الحمراء على العدد الكلي.",
+            "En": "For a uniformly random draw, divide red outcomes by all outcomes."
+          },
+          "FormulaLatex": "P(R)=\\frac{r}{r+b}",
+          "Steps": [
+            {
+              "Ar": "$r+b=2+7=9$",
+              "En": "$r+b=2+7=9$"
+            },
+            {
+              "Ar": "$P(R)=\\frac{2}{9}$",
+              "En": "$P(R)=\\frac{2}{9}$"
+            }
+          ],
+          "Result": {
+            "Ar": "$\\frac{2}{9}$",
+            "En": "$\\frac{2}{9}$"
+          },
+          "Verification": {
+            "Ar": "$\\frac{2}{9}+\\frac{7}{9}=1$",
+            "En": "$\\frac{2}{9}+\\frac{7}{9}=1$"
+          },
+          "CommonError": {
+            "Ar": "المقام يشمل اللونين، والبسط للحمراء فقط؛ يفترض الحساب تكافؤ فرص السحب.",
+            "En": "The denominator includes both colors, the numerator only red; the calculation assumes equal draw probabilities."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة محددة",
+            "En": "No specified unit"
+          },
+          "Substitution": {
+            "Ar": "$P(R)=\\frac{2}{9}$",
+            "En": "$P(R)=\\frac{2}{9}$"
+          }
+        }
+      },
+      "Status": "HeldStructuredCandidateNotImportable",
+      "ProposedQuestion": {
+        "Ar": "في كيس عدد الكرات الحمراء 2 والزرقاء 7. نسحب كرة عشوائياً بحيث تتساوى فرص الكرات. ما احتمال سحب حمراء؟",
+        "En": "A bag has 2 red and 7 blue balls. One ball is drawn uniformly at random. Find the probability of red."
+      },
+      "HoldReason": "Source wording needs explicit model assumption; preserve original IDs, options and attempts."
+    },
+    {
+      "ProblemId": 177,
+      "ExpectedOptionIds": [
+        697,
+        698,
+        699,
+        700
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "المبدأ المستخدم: في النمط الحسابي نضيف فرقاً ثابتاً إلى كل حد لنصل إلى الحد التالي. الفرق بين الحدود هو 5؛ من الحد الرابع 19 نضيف 5 فنحصل على الحد الخامس 19 + 5 = 24. ويمكن التحقق: الحد الأول + أربع قفزات = 4 + 4 × 5 = 24.",
+        "En": "Rule used: An arithmetic sequence increases by the same common difference each time. The difference is 5; after the fourth term 19, the fifth is 19 + 5 = 24. Check: first term plus four steps = 4 + 4 × 5 = 24."
+      },
+      "ProposedTrackCode": "grade-2",
+      "PrimarySkillKey": "primary-number-patterns",
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 2,
+        "PrimarySkillId": 8,
+        "Points": 10,
+        "Title": {
+          "Ar": "المتتالية 4، 9، 14، 19؛ ما الحد الخامس؟",
+          "En": "Sequence 4, 9, 14, 19; find the fifth term."
+        },
+        "Question": {
+          "Ar": "المتتالية 4، 9، 14، 19؛ ما الحد الخامس؟",
+          "En": "Sequence 4, 9, 14, 19; find the fifth term."
+        },
+        "Options": [
+          {
+            "LatexCode": "27",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تستخدم رقم الحد كفرق؛ خمسة حدود فيها أربع خطوات. النمط ليس وحيداً دون تحديد نوع المتتالية. $4+4\\cdot5=24$",
+              "En": "This choice does not match the derived result. Do not use the term index as the difference; five terms contain four steps. A finite prefix alone does not uniquely define a sequence. $4+4\\cdot5=24$"
+            }
+          },
+          {
+            "LatexCode": "22",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تستخدم رقم الحد كفرق؛ خمسة حدود فيها أربع خطوات. النمط ليس وحيداً دون تحديد نوع المتتالية. $4+4\\cdot5=24$",
+              "En": "This choice does not match the derived result. Do not use the term index as the difference; five terms contain four steps. A finite prefix alone does not uniquely define a sequence. $4+4\\cdot5=24$"
+            }
+          },
+          {
+            "LatexCode": "24",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "25",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تستخدم رقم الحد كفرق؛ خمسة حدود فيها أربع خطوات. النمط ليس وحيداً دون تحديد نوع المتتالية. $4+4\\cdot5=24$",
+              "En": "This choice does not match the derived result. Do not use the term index as the difference; five terms contain four steps. A finite prefix alone does not uniquely define a sequence. $4+4\\cdot5=24$"
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "احسب الفرق بين كل حدين متتاليين.",
+            "En": "Find the difference between consecutive terms."
+          },
+          {
+            "Ar": "إذا كان الفرق ثابتاً فأضفه إلى الحد الرابع لإيجاد الخامس.",
+            "En": "If the difference is constant, add it to the fourth term to find the fifth."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "بافتراض أنها متتالية حسابية، الفرق بين كل حدين متتاليين ثابت.",
+            "En": "Under the arithmetic-sequence assumption, consecutive differences are constant."
+          },
+          "FormulaLatex": "a_n=a_1+(n-1)d",
+          "Steps": [
+            {
+              "Ar": "$d=9-4=5$",
+              "En": "$d=9-4=5$"
+            },
+            {
+              "Ar": "$a_5=19+5=24$",
+              "En": "$a_5=19+5=24$"
+            }
+          ],
+          "Result": {
+            "Ar": "$24$",
+            "En": "$24$"
+          },
+          "Verification": {
+            "Ar": "$4+4\\cdot5=24$",
+            "En": "$4+4\\cdot5=24$"
+          },
+          "CommonError": {
+            "Ar": "لا تستخدم رقم الحد كفرق؛ خمسة حدود فيها أربع خطوات. النمط ليس وحيداً دون تحديد نوع المتتالية.",
+            "En": "Do not use the term index as the difference; five terms contain four steps. A finite prefix alone does not uniquely define a sequence."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة محددة",
+            "En": "No specified unit"
+          },
+          "Substitution": {
+            "Ar": "$a_5=19+5=24$",
+            "En": "$a_5=19+5=24$"
+          }
+        }
+      },
+      "Status": "HeldStructuredCandidateNotImportable",
+      "ProposedQuestion": {
+        "Ar": "المتتالية الحسابية 4، 9، 14، 19؛ ما الحد الخامس؟",
+        "En": "An arithmetic sequence begins 4, 9, 14, 19. Find the fifth term."
+      },
+      "HoldReason": "Source wording needs explicit model assumption; preserve original IDs, options and attempts."
+    },
+    {
+      "ProblemId": 183,
+      "ExpectedOptionIds": [
+        721,
+        722,
+        723,
+        724
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: احتمال اختيار كرة حمراء = عدد الكرات الحمراء ÷ العدد الكلي للكرات، بافتراض السحب العشوائي المتساوي. لدينا 3 حمراء و8 زرقاء، فيكون المجموع 3 + 8 = 11. بالتعويض: الاحتمال = 3/11.",
+        "En": "Rule used: Probability of red = number of red balls ÷ total number of balls for a uniformly random draw. There are 3 red and 8 blue balls, a total of 3 + 8 = 11. Thus P(red) = 3/11."
+      },
+      "ProposedTrackCode": "grade-5",
+      "PrimarySkillKey": "primary-simple-probability",
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 4,
+        "PrimarySkillId": 17,
+        "Points": 10,
+        "Title": {
+          "Ar": "في كيس 3 كرات حمراء و8 زرقاء. ما احتمال سحب حمراء؟",
+          "En": "A bag has 3 red and 8 blue balls. Find the probability of red."
+        },
+        "Question": {
+          "Ar": "في كيس 3 كرات حمراء و8 زرقاء. ما احتمال سحب حمراء؟",
+          "En": "A bag has 3 red and 8 blue balls. Find the probability of red."
+        },
+        "Options": [
+          {
+            "LatexCode": "\\frac{3}{11}",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "\\frac{8}{11}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. المقام يشمل اللونين، والبسط للحمراء فقط؛ يفترض الحساب تكافؤ فرص السحب. $\\frac{3}{11}+\\frac{8}{11}=1$",
+              "En": "This choice does not match the derived result. The denominator includes both colors, the numerator only red; the calculation assumes equal draw probabilities. $\\frac{3}{11}+\\frac{8}{11}=1$"
+            }
+          },
+          {
+            "LatexCode": "\\frac{4}{11}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. المقام يشمل اللونين، والبسط للحمراء فقط؛ يفترض الحساب تكافؤ فرص السحب. $\\frac{3}{11}+\\frac{8}{11}=1$",
+              "En": "This choice does not match the derived result. The denominator includes both colors, the numerator only red; the calculation assumes equal draw probabilities. $\\frac{3}{11}+\\frac{8}{11}=1$"
+            }
+          },
+          {
+            "LatexCode": "\\frac{3}{12}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. المقام يشمل اللونين، والبسط للحمراء فقط؛ يفترض الحساب تكافؤ فرص السحب. $\\frac{3}{11}+\\frac{8}{11}=1$",
+              "En": "This choice does not match the derived result. The denominator includes both colors, the numerator only red; the calculation assumes equal draw probabilities. $\\frac{3}{11}+\\frac{8}{11}=1$"
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "احسب عدد الكرات الكلي من اللونين.",
+            "En": "Find the total number of balls of both colors."
+          },
+          {
+            "Ar": "عند السحب العشوائي المتساوي الاحتمال، اقسم عدد الحمراء على العدد الكلي.",
+            "En": "For an equally likely random draw, divide the red count by the total."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "في السحب العشوائي متساوي الفرص، نقسم عدد الكرات الحمراء على العدد الكلي.",
+            "En": "For a uniformly random draw, divide red outcomes by all outcomes."
+          },
+          "FormulaLatex": "P(R)=\\frac{r}{r+b}",
+          "Steps": [
+            {
+              "Ar": "$r+b=3+8=11$",
+              "En": "$r+b=3+8=11$"
+            },
+            {
+              "Ar": "$P(R)=\\frac{3}{11}$",
+              "En": "$P(R)=\\frac{3}{11}$"
+            }
+          ],
+          "Result": {
+            "Ar": "$\\frac{3}{11}$",
+            "En": "$\\frac{3}{11}$"
+          },
+          "Verification": {
+            "Ar": "$\\frac{3}{11}+\\frac{8}{11}=1$",
+            "En": "$\\frac{3}{11}+\\frac{8}{11}=1$"
+          },
+          "CommonError": {
+            "Ar": "المقام يشمل اللونين، والبسط للحمراء فقط؛ يفترض الحساب تكافؤ فرص السحب.",
+            "En": "The denominator includes both colors, the numerator only red; the calculation assumes equal draw probabilities."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة محددة",
+            "En": "No specified unit"
+          },
+          "Substitution": {
+            "Ar": "$P(R)=\\frac{3}{11}$",
+            "En": "$P(R)=\\frac{3}{11}$"
+          }
+        }
+      },
+      "Status": "HeldStructuredCandidateNotImportable",
+      "ProposedQuestion": {
+        "Ar": "في كيس عدد الكرات الحمراء 3 والزرقاء 8. نسحب كرة عشوائياً بحيث تتساوى فرص الكرات. ما احتمال سحب حمراء؟",
+        "En": "A bag has 3 red and 8 blue balls. One ball is drawn uniformly at random. Find the probability of red."
+      },
+      "HoldReason": "Source wording needs explicit model assumption; preserve original IDs, options and attempts."
+    },
+    {
+      "ProblemId": 189,
+      "ExpectedOptionIds": [
+        745,
+        746,
+        747,
+        748
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "المبدأ المستخدم: في النمط الحسابي نضيف فرقاً ثابتاً إلى كل حد لنصل إلى الحد التالي. الفرق بين الحدود هو 6؛ من الحد الرابع 23 نضيف 6 فنحصل على الحد الخامس 23 + 6 = 29. ويمكن التحقق: الحد الأول + أربع قفزات = 5 + 4 × 6 = 29.",
+        "En": "Rule used: An arithmetic sequence increases by the same common difference each time. The difference is 6; after the fourth term 23, the fifth is 23 + 6 = 29. Check: first term plus four steps = 5 + 4 × 6 = 29."
+      },
+      "ProposedTrackCode": "grade-2",
+      "PrimarySkillKey": "primary-number-patterns",
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 2,
+        "PrimarySkillId": 8,
+        "Points": 10,
+        "Title": {
+          "Ar": "المتتالية 5، 11، 17، 23؛ ما الحد الخامس؟",
+          "En": "Sequence 5, 11, 17, 23; find the fifth term."
+        },
+        "Question": {
+          "Ar": "المتتالية 5، 11، 17، 23؛ ما الحد الخامس؟",
+          "En": "Sequence 5, 11, 17, 23; find the fifth term."
+        },
+        "Options": [
+          {
+            "LatexCode": "27",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تستخدم رقم الحد كفرق؛ خمسة حدود فيها أربع خطوات. النمط ليس وحيداً دون تحديد نوع المتتالية. $5+4\\cdot6=29$",
+              "En": "This choice does not match the derived result. Do not use the term index as the difference; five terms contain four steps. A finite prefix alone does not uniquely define a sequence. $5+4\\cdot6=29$"
+            }
+          },
+          {
+            "LatexCode": "29",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "30",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تستخدم رقم الحد كفرق؛ خمسة حدود فيها أربع خطوات. النمط ليس وحيداً دون تحديد نوع المتتالية. $5+4\\cdot6=29$",
+              "En": "This choice does not match the derived result. Do not use the term index as the difference; five terms contain four steps. A finite prefix alone does not uniquely define a sequence. $5+4\\cdot6=29$"
+            }
+          },
+          {
+            "LatexCode": "32",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تستخدم رقم الحد كفرق؛ خمسة حدود فيها أربع خطوات. النمط ليس وحيداً دون تحديد نوع المتتالية. $5+4\\cdot6=29$",
+              "En": "This choice does not match the derived result. Do not use the term index as the difference; five terms contain four steps. A finite prefix alone does not uniquely define a sequence. $5+4\\cdot6=29$"
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "احسب الفرق بين كل حدين متتاليين.",
+            "En": "Find the difference between consecutive terms."
+          },
+          {
+            "Ar": "إذا كان الفرق ثابتاً فأضفه إلى الحد الرابع لإيجاد الخامس.",
+            "En": "If the difference is constant, add it to the fourth term to find the fifth."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "بافتراض أنها متتالية حسابية، الفرق بين كل حدين متتاليين ثابت.",
+            "En": "Under the arithmetic-sequence assumption, consecutive differences are constant."
+          },
+          "FormulaLatex": "a_n=a_1+(n-1)d",
+          "Steps": [
+            {
+              "Ar": "$d=11-5=6$",
+              "En": "$d=11-5=6$"
+            },
+            {
+              "Ar": "$a_5=23+6=29$",
+              "En": "$a_5=23+6=29$"
+            }
+          ],
+          "Result": {
+            "Ar": "$29$",
+            "En": "$29$"
+          },
+          "Verification": {
+            "Ar": "$5+4\\cdot6=29$",
+            "En": "$5+4\\cdot6=29$"
+          },
+          "CommonError": {
+            "Ar": "لا تستخدم رقم الحد كفرق؛ خمسة حدود فيها أربع خطوات. النمط ليس وحيداً دون تحديد نوع المتتالية.",
+            "En": "Do not use the term index as the difference; five terms contain four steps. A finite prefix alone does not uniquely define a sequence."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة محددة",
+            "En": "No specified unit"
+          },
+          "Substitution": {
+            "Ar": "$a_5=23+6=29$",
+            "En": "$a_5=23+6=29$"
+          }
+        }
+      },
+      "Status": "HeldStructuredCandidateNotImportable",
+      "ProposedQuestion": {
+        "Ar": "المتتالية الحسابية 5، 11، 17، 23؛ ما الحد الخامس؟",
+        "En": "An arithmetic sequence begins 5, 11, 17, 23. Find the fifth term."
+      },
+      "HoldReason": "Source wording needs explicit model assumption; preserve original IDs, options and attempts."
+    },
+    {
+      "ProblemId": 195,
+      "ExpectedOptionIds": [
+        769,
+        770,
+        771,
+        772
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: احتمال اختيار كرة حمراء = عدد الكرات الحمراء ÷ العدد الكلي للكرات، بافتراض السحب العشوائي المتساوي. لدينا 4 حمراء و9 زرقاء، فيكون المجموع 4 + 9 = 13. بالتعويض: الاحتمال = 4/13.",
+        "En": "Rule used: Probability of red = number of red balls ÷ total number of balls for a uniformly random draw. There are 4 red and 9 blue balls, a total of 4 + 9 = 13. Thus P(red) = 4/13."
+      },
+      "ProposedTrackCode": "grade-5",
+      "PrimarySkillKey": "primary-simple-probability",
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 4,
+        "PrimarySkillId": 17,
+        "Points": 10,
+        "Title": {
+          "Ar": "في كيس 4 كرات حمراء و9 زرقاء. ما احتمال سحب حمراء؟",
+          "En": "A bag has 4 red and 9 blue balls. Find the probability of red."
+        },
+        "Question": {
+          "Ar": "في كيس 4 كرات حمراء و9 زرقاء. ما احتمال سحب حمراء؟",
+          "En": "A bag has 4 red and 9 blue balls. Find the probability of red."
+        },
+        "Options": [
+          {
+            "LatexCode": "\\frac{9}{13}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. المقام يشمل اللونين، والبسط للحمراء فقط؛ يفترض الحساب تكافؤ فرص السحب. $\\frac{4}{13}+\\frac{9}{13}=1$",
+              "En": "This choice does not match the derived result. The denominator includes both colors, the numerator only red; the calculation assumes equal draw probabilities. $\\frac{4}{13}+\\frac{9}{13}=1$"
+            }
+          },
+          {
+            "LatexCode": "\\frac{5}{13}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. المقام يشمل اللونين، والبسط للحمراء فقط؛ يفترض الحساب تكافؤ فرص السحب. $\\frac{4}{13}+\\frac{9}{13}=1$",
+              "En": "This choice does not match the derived result. The denominator includes both colors, the numerator only red; the calculation assumes equal draw probabilities. $\\frac{4}{13}+\\frac{9}{13}=1$"
+            }
+          },
+          {
+            "LatexCode": "\\frac{4}{14}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. المقام يشمل اللونين، والبسط للحمراء فقط؛ يفترض الحساب تكافؤ فرص السحب. $\\frac{4}{13}+\\frac{9}{13}=1$",
+              "En": "This choice does not match the derived result. The denominator includes both colors, the numerator only red; the calculation assumes equal draw probabilities. $\\frac{4}{13}+\\frac{9}{13}=1$"
+            }
+          },
+          {
+            "LatexCode": "\\frac{4}{13}",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "احسب عدد الكرات الكلي من اللونين.",
+            "En": "Find the total number of balls of both colors."
+          },
+          {
+            "Ar": "عند السحب العشوائي المتساوي الاحتمال، اقسم عدد الحمراء على العدد الكلي.",
+            "En": "For an equally likely random draw, divide the red count by the total."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "في السحب العشوائي متساوي الفرص، نقسم عدد الكرات الحمراء على العدد الكلي.",
+            "En": "For a uniformly random draw, divide red outcomes by all outcomes."
+          },
+          "FormulaLatex": "P(R)=\\frac{r}{r+b}",
+          "Steps": [
+            {
+              "Ar": "$r+b=4+9=13$",
+              "En": "$r+b=4+9=13$"
+            },
+            {
+              "Ar": "$P(R)=\\frac{4}{13}$",
+              "En": "$P(R)=\\frac{4}{13}$"
+            }
+          ],
+          "Result": {
+            "Ar": "$\\frac{4}{13}$",
+            "En": "$\\frac{4}{13}$"
+          },
+          "Verification": {
+            "Ar": "$\\frac{4}{13}+\\frac{9}{13}=1$",
+            "En": "$\\frac{4}{13}+\\frac{9}{13}=1$"
+          },
+          "CommonError": {
+            "Ar": "المقام يشمل اللونين، والبسط للحمراء فقط؛ يفترض الحساب تكافؤ فرص السحب.",
+            "En": "The denominator includes both colors, the numerator only red; the calculation assumes equal draw probabilities."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة محددة",
+            "En": "No specified unit"
+          },
+          "Substitution": {
+            "Ar": "$P(R)=\\frac{4}{13}$",
+            "En": "$P(R)=\\frac{4}{13}$"
+          }
+        }
+      },
+      "Status": "HeldStructuredCandidateNotImportable",
+      "ProposedQuestion": {
+        "Ar": "في كيس عدد الكرات الحمراء 4 والزرقاء 9. نسحب كرة عشوائياً بحيث تتساوى فرص الكرات. ما احتمال سحب حمراء؟",
+        "En": "A bag has 4 red and 9 blue balls. One ball is drawn uniformly at random. Find the probability of red."
+      },
+      "HoldReason": "Source wording needs explicit model assumption; preserve original IDs, options and attempts."
+    },
+    {
+      "ProblemId": 201,
+      "ExpectedOptionIds": [
+        793,
+        794,
+        795,
+        796
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "المبدأ المستخدم: في النمط الحسابي نضيف فرقاً ثابتاً إلى كل حد لنصل إلى الحد التالي. الفرق بين الحدود هو 7؛ من الحد الرابع 27 نضيف 7 فنحصل على الحد الخامس 27 + 7 = 34. ويمكن التحقق: الحد الأول + أربع قفزات = 6 + 4 × 7 = 34.",
+        "En": "Rule used: An arithmetic sequence increases by the same common difference each time. The difference is 7; after the fourth term 27, the fifth is 27 + 7 = 34. Check: first term plus four steps = 6 + 4 × 7 = 34."
+      },
+      "ProposedTrackCode": "grade-2",
+      "PrimarySkillKey": "primary-number-patterns",
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 2,
+        "PrimarySkillId": 8,
+        "Points": 10,
+        "Title": {
+          "Ar": "المتتالية 6، 13، 20، 27؛ ما الحد الخامس؟",
+          "En": "Sequence 6, 13, 20, 27; find the fifth term."
+        },
+        "Question": {
+          "Ar": "المتتالية 6، 13، 20، 27؛ ما الحد الخامس؟",
+          "En": "Sequence 6, 13, 20, 27; find the fifth term."
+        },
+        "Options": [
+          {
+            "LatexCode": "34",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "35",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تستخدم رقم الحد كفرق؛ خمسة حدود فيها أربع خطوات. النمط ليس وحيداً دون تحديد نوع المتتالية. $6+4\\cdot7=34$",
+              "En": "This choice does not match the derived result. Do not use the term index as the difference; five terms contain four steps. A finite prefix alone does not uniquely define a sequence. $6+4\\cdot7=34$"
+            }
+          },
+          {
+            "LatexCode": "37",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تستخدم رقم الحد كفرق؛ خمسة حدود فيها أربع خطوات. النمط ليس وحيداً دون تحديد نوع المتتالية. $6+4\\cdot7=34$",
+              "En": "This choice does not match the derived result. Do not use the term index as the difference; five terms contain four steps. A finite prefix alone does not uniquely define a sequence. $6+4\\cdot7=34$"
+            }
+          },
+          {
+            "LatexCode": "32",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تستخدم رقم الحد كفرق؛ خمسة حدود فيها أربع خطوات. النمط ليس وحيداً دون تحديد نوع المتتالية. $6+4\\cdot7=34$",
+              "En": "This choice does not match the derived result. Do not use the term index as the difference; five terms contain four steps. A finite prefix alone does not uniquely define a sequence. $6+4\\cdot7=34$"
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "احسب الفرق بين كل حدين متتاليين.",
+            "En": "Find the difference between consecutive terms."
+          },
+          {
+            "Ar": "إذا كان الفرق ثابتاً فأضفه إلى الحد الرابع لإيجاد الخامس.",
+            "En": "If the difference is constant, add it to the fourth term to find the fifth."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "بافتراض أنها متتالية حسابية، الفرق بين كل حدين متتاليين ثابت.",
+            "En": "Under the arithmetic-sequence assumption, consecutive differences are constant."
+          },
+          "FormulaLatex": "a_n=a_1+(n-1)d",
+          "Steps": [
+            {
+              "Ar": "$d=13-6=7$",
+              "En": "$d=13-6=7$"
+            },
+            {
+              "Ar": "$a_5=27+7=34$",
+              "En": "$a_5=27+7=34$"
+            }
+          ],
+          "Result": {
+            "Ar": "$34$",
+            "En": "$34$"
+          },
+          "Verification": {
+            "Ar": "$6+4\\cdot7=34$",
+            "En": "$6+4\\cdot7=34$"
+          },
+          "CommonError": {
+            "Ar": "لا تستخدم رقم الحد كفرق؛ خمسة حدود فيها أربع خطوات. النمط ليس وحيداً دون تحديد نوع المتتالية.",
+            "En": "Do not use the term index as the difference; five terms contain four steps. A finite prefix alone does not uniquely define a sequence."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة محددة",
+            "En": "No specified unit"
+          },
+          "Substitution": {
+            "Ar": "$a_5=27+7=34$",
+            "En": "$a_5=27+7=34$"
+          }
+        }
+      },
+      "Status": "HeldStructuredCandidateNotImportable",
+      "ProposedQuestion": {
+        "Ar": "المتتالية الحسابية 6، 13، 20، 27؛ ما الحد الخامس؟",
+        "En": "An arithmetic sequence begins 6, 13, 20, 27. Find the fifth term."
+      },
+      "HoldReason": "Source wording needs explicit model assumption; preserve original IDs, options and attempts."
+    },
+    {
+      "ProblemId": 207,
+      "ExpectedOptionIds": [
+        817,
+        818,
+        819,
+        820
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: احتمال اختيار كرة حمراء = عدد الكرات الحمراء ÷ العدد الكلي للكرات، بافتراض السحب العشوائي المتساوي. لدينا 5 حمراء و10 زرقاء، فيكون المجموع 5 + 10 = 15. بالتعويض: الاحتمال = 5/15. ويمكن تبسيط الكسر إلى 1/3، وهو مكافئ تماماً لـ5/15.",
+        "En": "Rule used: Probability of red = number of red balls ÷ total number of balls for a uniformly random draw. There are 5 red and 10 blue balls, a total of 5 + 10 = 15. Thus P(red) = 5/15. This is equivalent to 1/3 after simplifying 5/15."
+      },
+      "ProposedTrackCode": "grade-5",
+      "PrimarySkillKey": "primary-simple-probability",
+      "Content": {
+        "StageId": 1,
+        "CategoryId": 4,
+        "PrimarySkillId": 17,
+        "Points": 10,
+        "Title": {
+          "Ar": "في كيس 5 كرات حمراء و10 زرقاء. ما احتمال سحب حمراء؟",
+          "En": "A bag has 5 red and 10 blue balls. Find the probability of red."
+        },
+        "Question": {
+          "Ar": "في كيس 5 كرات حمراء و10 زرقاء. ما احتمال سحب حمراء؟",
+          "En": "A bag has 5 red and 10 blue balls. Find the probability of red."
+        },
+        "Options": [
+          {
+            "LatexCode": "\\frac{6}{15}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. المقام يشمل اللونين، والبسط للحمراء فقط؛ يفترض الحساب تكافؤ فرص السحب. $\\frac{5}{15}+\\frac{10}{15}=1$",
+              "En": "This choice does not match the derived result. The denominator includes both colors, the numerator only red; the calculation assumes equal draw probabilities. $\\frac{5}{15}+\\frac{10}{15}=1$"
+            }
+          },
+          {
+            "LatexCode": "\\frac{5}{16}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. المقام يشمل اللونين، والبسط للحمراء فقط؛ يفترض الحساب تكافؤ فرص السحب. $\\frac{5}{15}+\\frac{10}{15}=1$",
+              "En": "This choice does not match the derived result. The denominator includes both colors, the numerator only red; the calculation assumes equal draw probabilities. $\\frac{5}{15}+\\frac{10}{15}=1$"
+            }
+          },
+          {
+            "LatexCode": "\\frac{5}{15}",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "\\frac{10}{15}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. المقام يشمل اللونين، والبسط للحمراء فقط؛ يفترض الحساب تكافؤ فرص السحب. $\\frac{5}{15}+\\frac{10}{15}=1$",
+              "En": "This choice does not match the derived result. The denominator includes both colors, the numerator only red; the calculation assumes equal draw probabilities. $\\frac{5}{15}+\\frac{10}{15}=1$"
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "احسب عدد الكرات الكلي من اللونين.",
+            "En": "Find the total number of balls of both colors."
+          },
+          {
+            "Ar": "عند السحب العشوائي المتساوي الاحتمال، اقسم عدد الحمراء على العدد الكلي.",
+            "En": "For an equally likely random draw, divide the red count by the total."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "في السحب العشوائي متساوي الفرص، نقسم عدد الكرات الحمراء على العدد الكلي.",
+            "En": "For a uniformly random draw, divide red outcomes by all outcomes."
+          },
+          "FormulaLatex": "P(R)=\\frac{r}{r+b}",
+          "Steps": [
+            {
+              "Ar": "$r+b=5+10=15$",
+              "En": "$r+b=5+10=15$"
+            },
+            {
+              "Ar": "$P(R)=\\frac{5}{15}$",
+              "En": "$P(R)=\\frac{5}{15}$"
+            }
+          ],
+          "Result": {
+            "Ar": "$\\frac{5}{15}=\\frac13$",
+            "En": "$\\frac{5}{15}=\\frac13$"
+          },
+          "Verification": {
+            "Ar": "$\\frac{5}{15}+\\frac{10}{15}=1$",
+            "En": "$\\frac{5}{15}+\\frac{10}{15}=1$"
+          },
+          "CommonError": {
+            "Ar": "المقام يشمل اللونين، والبسط للحمراء فقط؛ يفترض الحساب تكافؤ فرص السحب.",
+            "En": "The denominator includes both colors, the numerator only red; the calculation assumes equal draw probabilities."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة محددة",
+            "En": "No specified unit"
+          },
+          "Substitution": {
+            "Ar": "$P(R)=\\frac{5}{15}$",
+            "En": "$P(R)=\\frac{5}{15}$"
+          }
+        }
+      },
+      "Status": "HeldStructuredCandidateNotImportable",
+      "ProposedQuestion": {
+        "Ar": "في كيس عدد الكرات الحمراء 5 والزرقاء 10. نسحب كرة عشوائياً بحيث تتساوى فرص الكرات. ما احتمال سحب حمراء؟",
+        "En": "A bag has 5 red and 10 blue balls. One ball is drawn uniformly at random. Find the probability of red."
+      },
+      "HoldReason": "Source wording needs explicit model assumption; preserve original IDs, options and attempts."
+    },
+    {
+      "ProblemId": 1658,
+      "ExpectedOptionIds": [
+        6621,
+        6622,
+        6623,
+        6624
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: قانون احتمال حدثين متتابعين: P(A وB) = P(A) × P(B بشرط A).\n\nخطوات الحل: احتمال الأولى حمراء 2/5، والثانية بعد سحبها 1/4؛ الناتج 2/5 × 1/4 = 1/10.",
+        "En": "Rule used: Dependent-event law: P(A and B) = P(A) × P(B given A).\n\nSolution steps: The first red chance is 2/5 and the next is 1/4 after removal: 2/5 × 1/4 = 1/10."
+      },
+      "ProposedTrackCode": "grade-9",
+      "PrimarySkillKey": "simple-compound-events",
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 85,
+        "PrimarySkillId": 337,
+        "Points": 10,
+        "Title": {
+          "Ar": "كيس فيه كرتان حمراوان وثلاث زرقاء. نسحب كرتين تباعاً دون إرجاع. ما احتمال أن تكونا حمراوين؟",
+          "En": "A bag has 2 red and 3 blue balls. Two are drawn without replacement. What is the probability both ar"
+        },
+        "Question": {
+          "Ar": "كيس فيه كرتان حمراوان وثلاث زرقاء. نسحب كرتين تباعاً دون إرجاع. ما احتمال أن تكونا حمراوين؟",
+          "En": "A bag has 2 red and 3 blue balls. Two are drawn without replacement. What is the probability both are red?"
+        },
+        "Options": [
+          {
+            "LatexCode": "\\frac{1}{5}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. بعد سحب الحمراء الأولى ينقص العددان؛ لا تستخدم 2/5 مرة ثانية. $\\frac{\\binom22}{\\binom52}=\\frac1{10}$",
+              "En": "This choice does not match the derived result. After the first red draw both counts decrease; do not reuse 2/5. $\\frac{\\binom22}{\\binom52}=\\frac1{10}$"
+            }
+          },
+          {
+            "LatexCode": "\\frac{2}{5}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. بعد سحب الحمراء الأولى ينقص العددان؛ لا تستخدم 2/5 مرة ثانية. $\\frac{\\binom22}{\\binom52}=\\frac1{10}$",
+              "En": "This choice does not match the derived result. After the first red draw both counts decrease; do not reuse 2/5. $\\frac{\\binom22}{\\binom52}=\\frac1{10}$"
+            }
+          },
+          {
+            "LatexCode": "\\frac{1}{10}",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "\\frac{1}{4}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. بعد سحب الحمراء الأولى ينقص العددان؛ لا تستخدم 2/5 مرة ثانية. $\\frac{\\binom22}{\\binom52}=\\frac1{10}$",
+              "En": "This choice does not match the derived result. After the first red draw both counts decrease; do not reuse 2/5. $\\frac{\\binom22}{\\binom52}=\\frac1{10}$"
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "السحب دون إرجاع يغيّر محتويات الكيس بعد السحبة الأولى.",
+            "En": "Drawing without replacement changes the bag after the first draw."
+          },
+          {
+            "Ar": "اضرب احتمال الحمراء أولاً في احتمال الحمراء ثانية بعد إزالة كرة حمراء واحدة.",
+            "En": "Multiply the first red probability by the second after one red ball has been removed."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "احتمال حدثين تابعين يساوي احتمال الأول مضروباً في احتمال الثاني بشرط الأول؛ السحب عشوائي متساوي الفرص.",
+            "En": "For uniform draws, multiply the first probability by the conditional second probability."
+          },
+          "FormulaLatex": "P(A\\cap B)=P(A)P(B\\mid A)",
+          "Steps": [
+            {
+              "Ar": "$P(A)=\\frac25$",
+              "En": "$P(A)=\\frac25$"
+            },
+            {
+              "Ar": "$P(B\\mid A)=\\frac14$",
+              "En": "$P(B\\mid A)=\\frac14$"
+            },
+            {
+              "Ar": "$\\frac25\\cdot\\frac14=\\frac1{10}$",
+              "En": "$\\frac25\\cdot\\frac14=\\frac1{10}$"
+            }
+          ],
+          "Result": {
+            "Ar": "$\\frac1{10}$",
+            "En": "$\\frac1{10}$"
+          },
+          "Verification": {
+            "Ar": "$\\frac{\\binom22}{\\binom52}=\\frac1{10}$",
+            "En": "$\\frac{\\binom22}{\\binom52}=\\frac1{10}$"
+          },
+          "CommonError": {
+            "Ar": "بعد سحب الحمراء الأولى ينقص العددان؛ لا تستخدم 2/5 مرة ثانية.",
+            "En": "After the first red draw both counts decrease; do not reuse 2/5."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة محددة",
+            "En": "No specified unit"
+          },
+          "Substitution": {
+            "Ar": "$\\frac25\\cdot\\frac14=\\frac1{10}$",
+            "En": "$\\frac25\\cdot\\frac14=\\frac1{10}$"
+          }
+        }
+      },
+      "Status": "HeldStructuredCandidateNotImportable",
+      "ProposedQuestion": {
+        "Ar": "كيس فيه كرتان حمراوان وثلاث زرقاء. نسحب كرتين تباعاً عشوائياً بفرص متساوية من الكرات الباقية ودون إرجاع. ما احتمال أن تكونا حمراوين؟",
+        "En": "A bag has 2 red and 3 blue balls. Two balls are drawn successively, each uniformly from the remaining balls, without replacement. What is the probability both are red?"
+      },
+      "HoldReason": "Source wording needs explicit model assumption; preserve original IDs, options and attempts."
+    },
+    {
+      "ProblemId": 1684,
+      "ExpectedOptionIds": [
+        6725,
+        6726,
+        6727,
+        6728
+      ],
+      "ExpectedLegacySolution": {
+        "Ar": "القانون المستخدم: القانون: الاحتمال = عدد النتائج الملائمة ÷ إجمالي النتائج المرتبة المتساوية الاحتمال.\n\nخطوات الحل: هناك 36 نتيجة مرتبة متساوية الاحتمال وست نتائج مجموعها 7؛ الاحتمال 6/36=1/6.",
+        "En": "Rule used: Probability law = favorable ordered outcomes ÷ all equally likely ordered outcomes.\n\nSolution steps: There are 36 equally likely ordered pairs, and six have sum seven; hence 6/36=1/6."
+      },
+      "ProposedTrackCode": "grade-8",
+      "PrimarySkillKey": "simple-compound-events",
+      "Content": {
+        "StageId": 2,
+        "CategoryId": 85,
+        "PrimarySkillId": 337,
+        "Points": 10,
+        "Title": {
+          "Ar": "إذا رمينا حجرَي نرد عادلين مميزين، فما احتمال أن يكون مجموع العددين الظاهرين سبعة؟",
+          "En": "Two distinguishable fair dice are rolled. What is the probability that the sum of the two faces is s"
+        },
+        "Question": {
+          "Ar": "إذا رمينا حجرَي نرد عادلين مميزين، فما احتمال أن يكون مجموع العددين الظاهرين سبعة؟",
+          "En": "Two distinguishable fair dice are rolled. What is the probability that the sum of the two faces is seven?"
+        },
+        "Options": [
+          {
+            "LatexCode": "\\frac{1}{12}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تعد المجاميع الممكنة كأنها متساوية الاحتمال؛ الاستقلال مطلوب. لكل قيمة للنرد الأول قيمة واحدة مكملة إلى 7، أي ستة أزواج.",
+              "En": "This choice does not match the derived result. Do not count distinct sums as equally likely; independence is required. Each first-die value has one complement to seven, giving six pairs."
+            }
+          },
+          {
+            "LatexCode": "\\frac{1}{9}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تعد المجاميع الممكنة كأنها متساوية الاحتمال؛ الاستقلال مطلوب. لكل قيمة للنرد الأول قيمة واحدة مكملة إلى 7، أي ستة أزواج.",
+              "En": "This choice does not match the derived result. Do not count distinct sums as equally likely; independence is required. Each first-die value has one complement to seven, giving six pairs."
+            }
+          },
+          {
+            "LatexCode": "\\frac{1}{6}",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": null
+          },
+          {
+            "LatexCode": "\\frac{1}{3}",
+            "IsCorrect": false,
+            "ErrorType": "incorrect-option",
+            "Reason": {
+              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تعد المجاميع الممكنة كأنها متساوية الاحتمال؛ الاستقلال مطلوب. لكل قيمة للنرد الأول قيمة واحدة مكملة إلى 7، أي ستة أزواج.",
+              "En": "This choice does not match the derived result. Do not count distinct sums as equally likely; independence is required. Each first-die value has one complement to seven, giving six pairs."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "لكل نرد ست نتائج، والزوج المرتب يميز نتيجة النرد الأول والثاني.",
+            "En": "Each die has six outcomes, and ordered pairs distinguish the dice."
+          },
+          {
+            "Ar": "عدّ الأزواج التي مجموعها سبعة واقسم على عدد الأزواج الممكنة.",
+            "En": "Count pairs summing to seven and divide by all possible ordered pairs."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "عند رمي نردين عادلين مستقلين، نعد الأزواج المرتبة المتساوية الاحتمال.",
+            "En": "For two independent fair dice, count equally likely ordered pairs."
+          },
+          "FormulaLatex": "P(S=7)=\\frac{\\#\\{(i,j):i+j=7\\}}{36}",
+          "Steps": [
+            {
+              "Ar": "$6\\cdot6=36$",
+              "En": "$6\\cdot6=36$"
+            },
+            {
+              "Ar": "$(1,6),(2,5),(3,4),(4,3),(5,2),(6,1)$",
+              "En": "$(1,6),(2,5),(3,4),(4,3),(5,2),(6,1)$"
+            },
+            {
+              "Ar": "$6/36=1/6$",
+              "En": "$6/36=1/6$"
+            }
+          ],
+          "Result": {
+            "Ar": "$\\frac16$",
+            "En": "$\\frac16$"
+          },
+          "Verification": {
+            "Ar": "لكل قيمة للنرد الأول قيمة واحدة مكملة إلى 7، أي ستة أزواج.",
+            "En": "Each first-die value has one complement to seven, giving six pairs."
+          },
+          "CommonError": {
+            "Ar": "لا تعد المجاميع الممكنة كأنها متساوية الاحتمال؛ الاستقلال مطلوب.",
+            "En": "Do not count distinct sums as equally likely; independence is required."
+          },
+          "Unit": {
+            "Ar": "بلا وحدة محددة",
+            "En": "No specified unit"
+          },
+          "Substitution": {
+            "Ar": "$6/36=1/6$",
+            "En": "$6/36=1/6$"
+          }
+        }
+      },
+      "Status": "HeldStructuredCandidateNotImportable",
+      "ProposedQuestion": {
+        "Ar": "إذا رمينا حجرَي نرد عادلين سداسيي الأوجه مميزين بشكل مستقل، فما احتمال أن يكون مجموع العددين الظاهرين سبعة؟",
+        "En": "Two distinguishable fair six-sided dice are rolled independently. What is the probability their sum is seven?"
+      },
+      "HoldReason": "Source wording needs explicit model assumption; preserve original IDs, options and attempts."
+    }
+  ]
+}

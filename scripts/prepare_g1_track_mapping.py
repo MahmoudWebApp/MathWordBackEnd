@@ -8,6 +8,7 @@ from prepare_g1_publication_batches import prepare, ROOT, load
 def prepare_mapping(root=ROOT):
     _, _, blocked = prepare(root)
     held=set(blocked)
+    cleared={r['ProblemId']:r for r in load(root,'g1-taxonomy-clearances-20261125.json')['Items']}
     p=load(root,"g1-primary-grade-placement-20261124.json")
     o=load(root,"g1-remaining-track-placement-20261124.json")
     source={r["ProblemId"]:r for r in p["Items"]+o["Items"]}
@@ -22,7 +23,7 @@ def prepare_mapping(root=ROOT):
             raise ValueError("Empty or overlapping track mapping")
         if any(r["ProposedTrackCode"]!=track["Code"] or r.get("StageId",1)!=track["StageId"] for r in rows):
             raise ValueError("Track source mismatch")
-        if any(r.get("RequiresWordingReview") or r.get("SkillReview") for r in rows):
+        if any(r.get('RequiresWordingReview') or (r.get('SkillReview') and r['ProblemId'] not in cleared) for r in rows):
             raise ValueError("Unresolved source review")
         seen.update(ids)
         free=sum(bool(r["FreeCategory"]) for r in rows)
@@ -33,7 +34,7 @@ def prepare_mapping(root=ROOT):
             "FreeProblems":free,"FreeCoverageBlocked":free==0,
             "ExcludedHeldIds":sorted(held.intersection(track["ProblemIds"])),
             "PublicationApproved":False})
-    if len(tracks)!=19 or seen!=set(source)-held or len(seen)!=732:
+    if len(tracks)!=19 or seen!=set(source)-held or len(seen)!=726:
         raise ValueError("Incomplete mapping")
     # These identities are missing in the source snapshot. Creating them does
     # not publish a track or grant access to a category.
@@ -51,9 +52,9 @@ def main():
     args=ap.parse_args()
     mapping,identities=prepare_mapping()
     args.output.mkdir(parents=True,exist_ok=False)
-    for name,value in (("mapping-proposal-732.json",mapping),("missing-draft-identities.json",identities)):
+    for name,value in (("mapping-proposal-726.json",mapping),("missing-draft-identities.json",identities)):
         (args.output/name).write_text(json.dumps(value,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
-    print("19 mapping proposals, 732 eligible IDs, 41 held excluded; two draft identity payloads. No API requests.")
+    print("19 mapping proposals, 726 eligible IDs, 47 held excluded; two draft identity payloads. No API requests.")
 
 if __name__=="__main__":
     main()
