@@ -15,7 +15,7 @@ public static class StudentOnboardingPolicy
     public static bool Allows(string step,string method,string path)
     {
         path=path.TrimEnd('/').ToLowerInvariant();
-        if(method=="GET" && path is "/api/users/onboarding" or "/api/users/profile" or "/api/platform/brand" or "/api/public/features")return true;
+        if(method=="GET" && path is "/api/users/onboarding" or "/api/users/profile" or "/api/platform/brand" or "/api/config/features")return true;
         if(method=="POST" && path=="/api/users/session/sign-out")return true;
         if(method=="POST" && path is "/api/auth/email-verification/request" or "/api/auth/email-verification/confirm")return true;
         if(step=="VerifyEmail")return false;
