@@ -1,0 +1,19 @@
+name: Offline question bank validation
+on:
+  pull_request:
+    paths:
+      - 'scripts/bank-growth/**'
+      - 'content/editorial/growth-pilot-v1.json'
+      - '.github/workflows/bank-growth-offline.yml'
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test scripts/bank-growth/pipeline.test.mjs
+      - run: node scripts/bank-growth/cli.mjs pilot /tmp/mathworld-candidates
