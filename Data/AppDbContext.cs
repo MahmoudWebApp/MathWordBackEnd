@@ -569,6 +569,9 @@ namespace MathWorldAPI.Data
                 .Property(diagram => diagram.AltTextEn)
                 .HasMaxLength(500).IsRequired();
 
+            // Preserve the existing FK index explicitly: EF's convention otherwise
+            // removes it when the new compound index covers the same leading key.
+            modelBuilder.Entity<MathProblem>().HasIndex(problem => problem.StageId);
             modelBuilder.Entity<MathProblem>()
                 .HasIndex(problem => new { problem.StageId, problem.CategoryId, problem.Id });
 
