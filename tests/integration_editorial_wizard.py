@@ -329,8 +329,8 @@ def verify_held_wording(admin, package):
     session='f2c4f7c0-7115-47b4-8f42-0ae050009153'
     request='f2c4f7c0-7115-47b4-8f42-0ae050009154'
     def add_session():
-        snapshot=literal(json.dumps([{"Id":pid,"Fingerprint":"fixture"}]))
-        sql(f"""INSERT INTO "LearningSessions" ("Id","UserId","StageId","Kind","ScopeKey","StartRequestId","QuestionsJson","Total","Completed","HintsRevealed","CreatedAtUtc","AbandonedAtUtc") VALUES ('{session}',{uid},{stage},'practice','ci-wording-history','{request}',{snapshot},1,0,0,now(),now())""")
+        snapshot=literal(json.dumps([{"Id":q,"Fingerprint":"fixture"} for q in (pid,910001,910002,910003,910004)]))
+        sql(f"""INSERT INTO "LearningSessions" ("Id","UserId","StageId","Kind","ScopeKey","StartRequestId","QuestionsJson","Total","Completed","HintsRevealed","CreatedAtUtc","AbandonedAtUtc") VALUES ('{session}',{uid},{stage},'practice','ci-wording-history','{request}',{snapshot},5,0,0,now(),now())""")
     def clear_session():
         sql(f"""DELETE FROM "LearningSessions" WHERE "Id"='{session}'""")
     try:
