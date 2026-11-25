@@ -198,5 +198,65 @@
     "key": "growth-v7-grade-12-secant-from-tangent-sign-1",
     "draft": 1064,
     "problem": 1766
+  },
+  {
+    "key": "growth-v8-calculus-oblique-direction-normalization-1",
+    "draft": 1065,
+    "problem": 1767
+  },
+  {
+    "key": "growth-v8-calculus-monotone-sequence-supremum-1",
+    "draft": 1066,
+    "problem": 1768
+  },
+  {
+    "key": "growth-v8-differential-equations-relaxation-deviation-half-time-1",
+    "draft": 1067,
+    "problem": 1769
+  },
+  {
+    "key": "growth-v8-differential-equations-initial-curvature-second-order-1",
+    "draft": 1068,
+    "problem": 1770
+  },
+  {
+    "key": "growth-v8-discrete-mathematics-transitive-closure-extra-pairs-1",
+    "draft": 1069,
+    "problem": 1771
+  },
+  {
+    "key": "growth-v8-linear-algebra-determinant-composed-row-operations-1",
+    "draft": 1070,
+    "problem": 1772
+  },
+  {
+    "key": "growth-v8-linear-algebra-coefficient-from-linear-dependence-1",
+    "draft": 1071,
+    "problem": 1773
+  },
+  {
+    "key": "growth-v8-mathematical-optimization-linear-optimum-two-active-constraints-1",
+    "draft": 1072,
+    "problem": 1774
+  },
+  {
+    "key": "growth-v8-mathematical-optimization-convexity-chord-bound-1",
+    "draft": 1073,
+    "problem": 1775
+  },
+  {
+    "key": "growth-v8-numerical-analysis-linear-system-residual-correction-1",
+    "draft": 1074,
+    "problem": 1776
+  },
+  {
+    "key": "growth-v8-numerical-analysis-interval-error-bound-from-rounding-1",
+    "draft": 1075,
+    "problem": 1777
+  },
+  {
+    "key": "growth-v8-probability-statistics-additional-sample-for-target-precision-1",
+    "draft": 1076,
+    "problem": 1778
   }
 ]
