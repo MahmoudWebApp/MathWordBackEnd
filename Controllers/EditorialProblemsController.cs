@@ -68,7 +68,36 @@ public sealed class EditorialProblemsController(AppDbContext db,IConfiguration c
     {
         if(!Admin||await Actor(0,false,ct) is null)return Forbid();
         var batch=ReviewedBankCatalog.Current.Batches.SingleOrDefault(b=>b.Kind==kind&&b.Number==number);
-        return batch is null?NotFound():Ok(new{batch.Kind,batch.Number,batch.Items});
+        if(batch is null)return NotFound();
+        // Read current states by fixed package identity, never by arbitrary client-supplied draft IDs.
+        var keys=batch.Kind=="hints"?Array.Empty<string>():batch.Items.Select(row=>
+            batch.Kind=="amendments"?"g1-amend-"+row.GetProperty("ProblemId").GetInt32():
+                row.GetProperty("ContentKey").GetString()!).ToArray();
+        var drafts=await db.CurriculumDraftItems.AsNoTracking().Where(d=>keys.Contains(d.ContentKey)&&d.WizardJson!=null)
+            .Select(d=>new{d.Id,d.ContentKey,d.PrimarySkillKey,d.SourceProblemId,d.Revision,Status=d.EditorialStatus,d.PublishedProblemId,d.WizardJson})
+            .ToListAsync(ct);
+        var trackCodes=(await db.LearningTracks.AsNoTracking().Select(t=>new{t.Id,t.StageId,t.Code}).ToListAsync(ct))
+            .ToDictionary(t=>t.Id,t=>(t.StageId,t.Code));
+        var states=drafts.Select(d=>{
+            var row=batch.Items[Array.IndexOf(keys,d.ContentKey)];
+            var expected=row.GetProperty("Content").Deserialize<WizardProblem>()!;
+            var actual=WizardProblemContract.Read(d.WizardJson!);
+            var codes=batch.Kind=="amendments"?new[]{row.GetProperty("ProposedTrackCode").GetString()!}:
+                row.GetProperty("ProposedTrackCodes").EnumerateArray().Select(c=>c.GetString()!).ToArray();
+            var actualCodes=(actual.TrackIds??Array.Empty<int>()).Where(trackCodes.ContainsKey)
+                .Select(id=>trackCodes[id]).Where(t=>t.StageId==actual.StageId).Select(t=>t.Code).ToArray();
+            var trackMatch=codes.All(actualCodes.Contains)&&(actual.TrackIds?.Length??0)==actualCodes.Length&&
+                (batch.Kind=="amendments"||actualCodes.Length==codes.Length);
+            // The import resolves track IDs and preserves source secondary skills.
+            // Every educational field, option, hint and solution must still match the candidate.
+            var normalized=actual with{TrackIds=expected.TrackIds,SecondarySkillIds=expected.SecondarySkillIds,
+                DifficultyLevel=batch.Kind=="amendments"?expected.DifficultyLevel:actual.DifficultyLevel};
+            var matches=trackMatch&&d.PrimarySkillKey==row.GetProperty("PrimarySkillKey").GetString()&&
+                (batch.Kind=="amendments"?d.SourceProblemId==row.GetProperty("ProblemId").GetInt32():d.SourceProblemId==null)&&
+                WizardProblemContract.Serialize(normalized)==WizardProblemContract.Serialize(expected);
+            return new{d.Id,d.ContentKey,d.Revision,d.Status,d.PublishedProblemId,MatchesCandidate=matches};
+        }).ToArray();
+        return Ok(new{batch.Kind,batch.Number,batch.Items,Drafts=states});
     }
 
     [HttpGet("classification/{stageId:int}")]
