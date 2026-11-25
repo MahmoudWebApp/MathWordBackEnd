@@ -118,7 +118,14 @@ def main():
     assert hashlib.sha256(verify.encode()).hexdigest()==digest
     assert verify!=hmac.new(KEY,("MathWorld/password-reset/v1/"+gid.replace("-","")).encode(),hashlib.sha256).hexdigest()
     assert sql(f"""SELECT COUNT(*) FROM "EmailOutbox" WHERE "Id"='{gid}' AND "TemplateKey"='welcome' AND "State"='Pending'""")=="1"
-    expect("POST",confirm,400,{"Token":"0"*64})
+    # Verify that a malformed/incorrect code cannot confirm the account.
+    code_route="/api/auth/email-verification/confirm-code"
+    code_bytes=hmac.new(KEY,("MathWorld/email-verification-code/v1/"+gid.replace("-","")).encode(),hashlib.sha256).digest()
+    correct_code=int.from_bytes(code_bytes[:4],"big")%1000000
+    wrong_code=f"{(correct_code+1)%1000000:06d}"
+    expect("POST",code_route,400,{"Code":wrong_code},replacement)
+    attempts=sql(f"""SELECT "FailedCodeAttempts" FROM "EmailVerificationGrants" WHERE "Id"='{gid}'""")
+    assert attempts=="1", attempts
     with concurrent.futures.ThreadPoolExecutor(max_workers=2) as pool:
         statuses=list(pool.map(lambda _: api("POST",confirm,{"Token":verify})[0],range(2)))
     assert sorted(statuses)==[200,400],statuses

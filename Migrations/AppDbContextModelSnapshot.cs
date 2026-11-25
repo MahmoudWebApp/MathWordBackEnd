@@ -156,6 +156,7 @@ namespace MathWorldAPI.Migrations
                     b.Property<string>("TokenHash").IsRequired().HasColumnType("text");
                     b.Property<string>("Email").IsRequired().HasColumnType("text");
                     b.Property<int>("TokenVersion").HasColumnType("integer");
+                    b.Property<int>("FailedCodeAttempts").HasColumnType("integer");
                     b.Property<DateTime>("CreatedAtUtc").HasColumnType("timestamp with time zone");
                     b.Property<DateTime>("ExpiresAtUtc").HasColumnType("timestamp with time zone");
                     b.Property<DateTime?>("ConsumedAtUtc").HasColumnType("timestamp with time zone");

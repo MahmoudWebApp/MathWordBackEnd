@@ -91,7 +91,7 @@ public sealed class LearningTracksController(AppDbContext db,LearningTrackServic
     }
     [Authorize(Roles="Student")]
     [HttpGet("api/users/learning-tracks/{id:int}/categories/{categoryId:int}/problems")]
-    public async Task<IActionResult> PracticeCatalog(int id,int categoryId,[FromQuery]int page=1,CancellationToken ct=default)
+    public async Task<IActionResult> PracticeCatalog(int id,int categoryId,[FromQuery]int page=1,[FromQuery]bool hideSolved=false,CancellationToken ct=default)
     {
         if(!tracks.Enabled)return NotFound();
         if(page is <1 or >10000)return BadRequest();
@@ -103,10 +103,11 @@ public sealed class LearningTracksController(AppDbContext db,LearningTrackServic
         if(!await db.Users.AsNoTracking().AnyAsync(u=>u.Id==uid&&u.IsActive&&u.Role=="Student"&&u.CurrentStageId==t.StageId&&u.CurrentTrackId==id,ct))
             return StatusCode(403,new{Message="CurrentTrackOnly"});
         var valid=tracks.ValidProblems(id).Where(p=>p.CategoryId==categoryId);
-        var total=await valid.CountAsync(ct);
-        if(total==0)return NotFound();
+        if(!await valid.AnyAsync(ct))return NotFound();
         var scopedProgress=TrackPractice.For(db,TrackPractice.Scope(HttpContext.RequestServices.GetRequiredService<IConfiguration>(),id));
-        var items=await valid.OrderBy(p=>p.Id).Skip((page-1)*50).Take(50)
+        if(hideSolved)valid=valid.Where(p=>!scopedProgress.Any(x=>x.UserId==uid&&x.ProblemId==p.Id&&x.IsSolved));
+        var total=await valid.CountAsync(ct);
+        var items=await valid.OrderBy(p=>scopedProgress.Any(x=>x.UserId==uid&&x.ProblemId==p.Id&&x.IsSolved)).ThenBy(p=>p.Id).Skip((page-1)*50).Take(50)
             .Select(p=>new{p.Id,p.CategoryId,p.TitleAr,p.TitleEn,p.Points,
                 IsSolved=scopedProgress.Any(x=>x.UserId==uid&&x.ProblemId==p.Id&&x.IsSolved)})
             .ToListAsync(ct);

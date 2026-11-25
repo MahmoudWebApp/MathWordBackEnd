@@ -31,6 +31,15 @@ public sealed class EmailVerificationController(EmailVerificationService verific
             _=>StatusCode(503,new{Message="EmailVerificationUnavailable"})
         };
     }
+    public sealed record CodeInput([Required,RegularExpression("^[0-9]{6}$")] string Code);
+    [Authorize(Roles="Student")]
+    [HttpPost("confirm-code")]
+    public async Task<IActionResult> ConfirmCode(CodeInput input,CancellationToken ct)
+    {
+        if(!int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier),out var id)||id<=0||
+            !SessionVersionPolicy.TryReadVersion(User.FindAll(SessionVersionPolicy.ClaimName).Select(x=>x.Value),out var version))return Unauthorized();
+        return await verification.ConfirmCodeAsync(id,version,input.Code,ct)?Ok(new{EmailVerified=true}):BadRequest(new{Message="InvalidEmailVerificationCode"});
+    }
     [AllowAnonymous]
     [HttpPost("confirm")]
     public async Task<IActionResult> Confirm(ConfirmInput input,CancellationToken ct)

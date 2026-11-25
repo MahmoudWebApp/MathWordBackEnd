@@ -1,4 +1,6 @@
 using System.Net.Mail;
+using System.Security.Cryptography;
+using System.Text;
 using MathWorldAPI.Data;
 using MathWorldAPI.Models;
 using Microsoft.EntityFrameworkCore;
@@ -45,6 +47,41 @@ public sealed class EmailVerificationService(AppDbContext db,IConfiguration conf
         await db.SaveChangesAsync(ct);
         await tx.CommitAsync(ct);
         return RequestResult.Queued;
+    }
+
+    // Code confirmation requires the authenticated account and current session.
+    // Serialize attempts with resend and link confirmation through the user row.
+    public async Task<bool> ConfirmCodeAsync(int userId,int version,string code,CancellationToken ct)
+    {
+        if(!Enabled||code.Length!=6||code.Any(c=>c<'0'||c>'9'))return false;
+        await using var tx=await db.Database.BeginTransactionAsync(ct);
+        var locked=await db.Users.Where(x=>x.Id==userId&&x.IsActive&&x.Role=="Student"&&x.TokenVersion==version)
+            .ExecuteUpdateAsync(s=>s.SetProperty(x=>x.TokenVersion,x=>x.TokenVersion),ct);
+        if(locked!=1)return false;
+        var user=await db.Users.AsNoTracking().SingleAsync(x=>x.Id==userId,ct);
+        if(OptionalEmailPolicy.HasVerifiedAddress(user))return true;
+        var now=DateTime.UtcNow;
+        var grant=await db.EmailVerificationGrants.AsNoTracking().Where(x=>x.UserId==userId&&x.Email==user.Email&&x.TokenVersion==version&&x.ConsumedAtUtc==null&&x.ExpiresAtUtc>now)
+            .OrderByDescending(x=>x.CreatedAtUtc).FirstOrDefaultAsync(ct);
+        if(grant==null||grant.FailedCodeAttempts>=5||!transport.AllowsRecipient(grant.Email)||
+            RecoveryTokenCodec.Hash(codec.DeriveEmailVerification(grant.Id))!=grant.TokenHash)return false;
+        var matches=CryptographicOperations.FixedTimeEquals(Encoding.ASCII.GetBytes(code),Encoding.ASCII.GetBytes(codec.DeriveEmailVerificationCode(grant.Id)));
+        var active=db.EmailVerificationGrants.Where(x=>x.Id==grant.Id&&x.ConsumedAtUtc==null&&x.ExpiresAtUtc>now&&x.FailedCodeAttempts<5);
+        if(!matches)
+        {
+            var attempts=grant.FailedCodeAttempts+1;
+            if(await active.ExecuteUpdateAsync(s=>s.SetProperty(x=>x.FailedCodeAttempts,attempts),ct)!=1)return false;
+            await tx.CommitAsync(ct);
+            return false;
+        }
+        if(await active.ExecuteUpdateAsync(s=>s.SetProperty(x=>x.ConsumedAtUtc,now),ct)!=1)return false;
+        var changed=await db.Users.Where(x=>x.Id==userId&&x.IsActive&&x.Role=="Student"&&x.Email==grant.Email&&x.TokenVersion==version&&x.VerifiedNotificationEmail!=x.Email)
+            .ExecuteUpdateAsync(s=>s.SetProperty(x=>x.VerifiedNotificationEmail,grant.Email),ct);
+        if(changed!=1)return false;
+        db.PlatformActivityEvents.Add(new PlatformActivityEvent{ActorUserId=userId,ActorRole="Student",Action="EmailVerified",Resource="Authentication",Origin="api",CreatedAtUtc=now});
+        await db.SaveChangesAsync(ct);
+        await tx.CommitAsync(ct);
+        return true;
     }
 
     public async Task<bool> ConfirmAsync(string token,CancellationToken ct)
