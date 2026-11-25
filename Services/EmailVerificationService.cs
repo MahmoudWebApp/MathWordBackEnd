@@ -1,4 +1,6 @@
 using System.Net.Mail;
+using System.Security.Cryptography;
+using System.Text;
 using MathWorldAPI.Data;
 using MathWorldAPI.Models;
 using Microsoft.EntityFrameworkCore;
@@ -8,6 +10,7 @@ namespace MathWorldAPI.Services;
 public sealed class EmailVerificationService(AppDbContext db,IConfiguration config,BrevoEmailTransport transport)
 {
     public enum RequestResult { Queued, AlreadyVerified, NotAvailable, Cooldown, SessionChanged }
+    private const int MaxCodeAttempts = 5;
     private readonly RecoveryTokenCodec codec=new(config);
     public bool Enabled=>config.GetValue<bool>("MathWorldEmail:VerificationEnabled")&&codec.IsConfigured&&transport.IsConfigured;
     private bool WorkerEnabled=>config.GetValue<bool>("MathWorldEmail:OutboxEnabled");
@@ -56,18 +59,58 @@ public sealed class EmailVerificationService(AppDbContext db,IConfiguration conf
             x=>x.TokenHash==hash&&x.ConsumedAtUtc==null&&x.ExpiresAtUtc>now,ct);
         if(grant==null||RecoveryTokenCodec.Hash(codec.DeriveEmailVerification(grant.Id))!=hash||!transport.AllowsRecipient(grant.Email))return false;
         await using var tx=await db.Database.BeginTransactionAsync(ct);
+        if (!await CompleteAsync(grant, ct)) return false;
+        await tx.CommitAsync(ct);
+        return true;
+    }
+
+    public async Task<bool> ConfirmCodeAsync(int userId, int version, string code, CancellationToken ct)
+    {
+        if (!Enabled || code.Length != 6 || code.Any(c => c is < '0' or > '9')) return false;
+
+        await using var tx = await db.Database.BeginTransactionAsync(ct);
+        // Serialize code attempts, resends and account changes for this student.
+        var locked = await db.Users.Where(user => user.Id == userId && user.IsActive &&
+                user.Role == "Student" && user.TokenVersion == version)
+            .ExecuteUpdateAsync(update => update.SetProperty(user => user.TokenVersion, user => user.TokenVersion), ct);
+        if (locked != 1) return false;
+
+        var now = DateTime.UtcNow;
+        var grant = await db.EmailVerificationGrants.AsNoTracking()
+            .SingleOrDefaultAsync(item => item.UserId == userId && item.TokenVersion == version &&
+                item.ConsumedAtUtc == null && item.ExpiresAtUtc > now, ct);
+        if (grant is null || grant.FailedCodeAttempts >= MaxCodeAttempts ||
+            RecoveryTokenCodec.Hash(codec.DeriveEmailVerification(grant.Id)) != grant.TokenHash ||
+            !transport.AllowsRecipient(grant.Email)) return false;
+
+        var expected = codec.DeriveEmailVerificationCode(grant.Id);
+        if (!CryptographicOperations.FixedTimeEquals(Encoding.ASCII.GetBytes(expected), Encoding.ASCII.GetBytes(code)))
+        {
+            await db.EmailVerificationGrants.Where(item => item.Id == grant.Id)
+                .ExecuteUpdateAsync(update => update.SetProperty(item => item.FailedCodeAttempts,
+                    item => item.FailedCodeAttempts + 1), ct);
+            await tx.CommitAsync(ct);
+            return false;
+        }
+
+        if (!await CompleteAsync(grant, ct)) return false;
+        await tx.CommitAsync(ct);
+        return true;
+    }
+
+    private async Task<bool> CompleteAsync(EmailVerificationGrant grant, CancellationToken ct)
+    {
         var changed=await db.Users.Where(x=>x.Id==grant.UserId&&x.Role=="Student"&&x.IsActive&&x.Email==grant.Email&&
                 x.TokenVersion==grant.TokenVersion&&x.VerifiedNotificationEmail!=x.Email)
             .ExecuteUpdateAsync(s=>s.SetProperty(x=>x.VerifiedNotificationEmail,grant.Email),ct);
         if(changed!=1)return false;
-        now=DateTime.UtcNow;
+        var now=DateTime.UtcNow;
         var consumed=await db.EmailVerificationGrants.Where(x=>x.Id==grant.Id&&x.ConsumedAtUtc==null&&x.ExpiresAtUtc>now)
             .ExecuteUpdateAsync(s=>s.SetProperty(x=>x.ConsumedAtUtc,now),ct);
         if(consumed!=1)return false;
         db.PlatformActivityEvents.Add(new PlatformActivityEvent{ActorUserId=grant.UserId,ActorRole="Student",
             Action="EmailVerified",Resource="Authentication",Origin="api",CreatedAtUtc=now});
         await db.SaveChangesAsync(ct);
-        await tx.CommitAsync(ct);
         return true;
     }
 }

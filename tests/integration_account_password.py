@@ -119,8 +119,16 @@ def main():
     assert verify!=hmac.new(KEY,("MathWorld/password-reset/v1/"+gid.replace("-","")).encode(),hashlib.sha256).hexdigest()
     assert sql(f"""SELECT COUNT(*) FROM "EmailOutbox" WHERE "Id"='{gid}' AND "TemplateKey"='welcome' AND "State"='Pending'""")=="1"
     expect("POST",confirm,400,{"Token":"0"*64})
+    code_route = "/api/auth/email-verification/confirm-code"
+    code_digest = hmac.new(KEY, ("MathWorld/email-verification-code/v1/" + gid.replace("-", "")).encode(), hashlib.sha256).digest()
+    code = f"{int.from_bytes(code_digest[:8], 'big') % 1_000_000:06d}"
+    wrong_code = "000000" if code != "000000" else "000001"
+    expect("POST", code_route, 400, {"Code": wrong_code}, replacement)
+    assert sql(f"""SELECT "FailedCodeAttempts" FROM "EmailVerificationGrants" WHERE "Id"='{gid}'""") == "1"
     with concurrent.futures.ThreadPoolExecutor(max_workers=2) as pool:
-        statuses=list(pool.map(lambda _: api("POST",confirm,{"Token":verify})[0],range(2)))
+        link_result = pool.submit(api, "POST", confirm, {"Token": verify})
+        code_result = pool.submit(api, "POST", code_route, {"Code": code}, replacement)
+        statuses = [link_result.result()[0], code_result.result()[0]]
     assert sorted(statuses)==[200,400],statuses
     assert expect("GET",preferences,200,token=replacement)["EmailVerified"]
     expect("POST",confirm,400,{"Token":verify})

@@ -246,10 +246,11 @@ public sealed class RecoveryEmailWorker(IServiceScopeFactory scopes, IConfigurat
                 return new("Cancelled",ErrorCode:"VerificationGrantInvalid");
             var secret=codec.DeriveEmailVerification(grant.Id);
             if(RecoveryTokenCodec.Hash(secret)!=grant.TokenHash)return new("Cancelled",ErrorCode:"RecoveryKeyRotated");
+            var code = codec.DeriveEmailVerificationCode(grant.Id);
             var url=brand.WebsiteUrl+"/"+item.Locale+"/verify-email#token="+secret;
             email=MathWorldEmailLayout.Render(brand,item.Locale,ar?"أهلاً بك في MathWorld — تأكيد البريد":"Welcome to MathWorld — verify your email",
-                ar?"أكّد بريد حسابك خلال 20 دقيقة. لن يغيّر هذا الإجراء كلمة مرورك أو يسجّل دخولك. تجاهل الرسالة إذا لم تطلبها."
-                :"Verify your account email within 20 minutes. This will not change your password or sign you in. Ignore this email if you did not request it.",
+                ar ? $"رمز تفعيل حسابك في تطبيق MathWorld هو {code}. استخدمه خلال 20 دقيقة. إذا لم تطلبه، تجاهل الرسالة."
+                   : $"Your MathWorld app verification code is {code}. Use it within 20 minutes. If you did not request it, ignore this email.",
                 ar?"تأكيد البريد":"Verify email",url);
         }
         else if (item.TemplateKey == "password-changed")

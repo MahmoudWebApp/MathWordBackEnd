@@ -60,8 +60,8 @@ public sealed class LearningTrackService(AppDbContext db, IConfiguration config,
 
     public IQueryable<MathProblem> ValidProblems(int trackId)
     {
-        var links=ValidLinks();
-        return db.Problems.AsNoTracking().Where(p=>links.Any(l=>l.TrackId==trackId&&l.ProblemId==p.Id));
+        var problemIds = ValidLinks().Where(link => link.TrackId == trackId).Select(link => link.ProblemId);
+        return db.Problems.AsNoTracking().Where(problem => problemIds.Contains(problem.Id));
     }
 
     public IQueryable<LearningTrack> VisibleTracks()
