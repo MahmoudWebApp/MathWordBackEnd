@@ -77,7 +77,7 @@ namespace MathWorldAPI.Controllers
             var language =
                 LanguageHelper.GetLanguageFromRequest(Request);
 
-            if (!await _captcha.VerifyAsync("register", Request.Headers[AuthCaptchaService.Header].ToString(), HttpContext.RequestAborted))
+            if (!await _captcha.VerifyAsync("register", Request.Headers[AuthCaptchaService.Header].FirstOrDefault() ?? dto.CaptchaToken, HttpContext.RequestAborted))
                 return BadRequest(LanguageHelper.ErrorResponse<AuthResponseDto>("CaptchaVerificationFailed", language));
 
             // New accounts can select their stage after registration.
@@ -149,7 +149,7 @@ namespace MathWorldAPI.Controllers
             var language =
                 LanguageHelper.GetLanguageFromRequest(Request);
 
-            if (!await _captcha.VerifyAsync("login", Request.Headers[AuthCaptchaService.Header].ToString(), HttpContext.RequestAborted))
+            if (!await _captcha.VerifyAsync("login", Request.Headers[AuthCaptchaService.Header].FirstOrDefault() ?? dto.CaptchaToken, HttpContext.RequestAborted))
                 return BadRequest(LanguageHelper.ErrorResponse<AuthResponseDto>("CaptchaVerificationFailed", language));
 
             var (result, errorCode) =
