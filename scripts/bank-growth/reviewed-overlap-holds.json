@@ -1,0 +1,21 @@
+{
+  "unknown-addend": "The current bank already asks for the missing addend in x + a = b.",
+  "mode-frequency": "An existing exercise asks for the unique mode in a six-value list with unequal frequencies.",
+  "missing-score-mean": "An existing exercise recovers a missing score from the mean and the remaining scores.",
+  "triangle-height": "An existing triangle problem gives area and base and asks for the height.",
+  "reverse-two-step": "The same two-step linear equation is already present with different coefficients.",
+  "slope-two-points": "The same coordinate-pair slope calculation is already present.",
+  "missing-leg": "A live or staged right-triangle problem already asks for a leg from the hypotenuse and the other leg.",
+  "integer-logarithm": "The live/draft comparison includes the exact base-3 logarithm of 81 in different words.",
+  "signed-dot-product": "The current bank already asks for a two-component dot product involving signed coordinates.",
+  "signed-two-by-two-det": "The current bank gives two rows of a 2-by-2 matrix and asks for its determinant.",
+  "capacity-remainder": "An existing exercise converts two litres and subtracts a poured amount in millilitres.",
+  "equivalent-numerator": "An existing exercise asks for a missing numerator with the scaled denominator supplied.",
+  "third-triangle-angle": "An existing exercise gives two interior angles of a triangle and asks for the third.",
+  "decimal-hundredths": "An existing place-value item already asks for the hundredths digit of a decimal.",
+  "triangle-area-direct": "An existing item asks for triangle area from a given base and perpendicular height.",
+  "increase-final-quantity": "An existing exercise applies a stated percentage increase to recover the new quantity.",
+  "arithmetic-sequence-index": "An existing sequence uses the same initial term and common difference and asks for the index of a given term.",
+  "bisection-first-midpoint": "An existing bisection exercise already asks for the first midpoint of the initial interval.",
+  "round-nearest-hundred": "The bank already asks for rounding a supplied whole number to the nearest hundred."
+}
