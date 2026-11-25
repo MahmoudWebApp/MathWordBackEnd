@@ -1081,3 +1081,21 @@ for r in combined:
     assert 1<=len(sol["Steps"])<=20 and all(pair(s) for s in sol["Steps"])
 assert all(r["Status"]=="HeldStructuredCandidateNotImportable" and pair(r["ProposedQuestion"]) for r in model_holds["Items"])
 print("PASS: 49 final hint-only rows now have structured proposals; 12 held for source wording")
+
+# Original unresolved hold inventory: reviewed proposals never included in publication payload.
+original_held=load("g1-original-holds-structured-review-20261125.json")
+assert original_held["Status"]=="HeldNotImportable" and len(original_held["Items"])==35
+expected_original={"7":"10","10":"\\frac{1}{2}","20":"x = 2 \\text{ or } x = 3","26":"\\frac{1}{6}","64":"\\frac{1}{8}","80":"\\frac{6}{16}","95":"\\frac{10}{32}","110":"\\frac{15}{64}","125":"\\frac{21}{128}","140":"\\frac{28}{256}","279":"\\frac{1}{4}","291":"\\frac{1}{8}","303":"\\frac{1}{16}","315":"\\frac{1}{32}","327":"\\frac{1}{64}","649":"1","705":"\\frac5{36}","706":"\\frac14","707":"\\frac{11}{36}","708":"\\frac34","768":"27","1566":"-8<-2<0<4","1578":"a_n=2\\cdot3^{n-1}","1579":"2","1580":"3","1581":"0.6","1582":"[98.04,101.96]","1583":"1.96","1584":"1/2","1659":"\\frac{1}{8}","1687":"\\frac{4}{25}","1688":"\\frac{1}{2}","1696":"6","1698":"5","1703":"(2,-4)"}
+assert {str(r["ProblemId"]) for r in original_held["Items"]}==set(expected_original)
+for r in original_held["Items"]:
+    c=r["Content"]; sol=c["Solution"]
+    assert r["Status"]=="HeldStructuredCandidateNotImportable"
+    assert len(c["Options"])==len(set(r["ExpectedOptionIds"]))==4
+    assert [o["LatexCode"] for o in c["Options"] if o["IsCorrect"]]==[expected_original[str(r["ProblemId"])]]
+    assert all(pair(o["Reason"]) for o in c["Options"] if not o["IsCorrect"])
+    assert len(c["Hints"])==2 and all(pair(h) for h in c["Hints"])
+    assert sol["FormulaLatex"] and all(pair(sol[k]) for k in ("Idea","Substitution","Result","Unit","Verification","CommonError"))
+    assert 1<=len(sol["Steps"])<=20 and all(pair(s) for s in sol["Steps"])
+    assert r.get("ProposedQuestion") or r.get("ClassificationProposal") or r.get("OptionLocalization")
+assert len({r["ProblemId"] for r in all_rows+wave16["Items"]+combined+original_held["Items"]})==773
+print("PASS: all 773 existing IDs have structured solution proposals; 47 remain explicitly excluded from import")
