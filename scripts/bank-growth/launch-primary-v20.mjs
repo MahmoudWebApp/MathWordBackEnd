@@ -284,8 +284,8 @@ const rows = [
       "Unallocated time"
     ],
     "question": [
-      "خُصص ٢/٥ من مدة لقاء للشرح و١/٤ من المدة الأصلية للتدريب. أُلغي نصف مدة التدريب المخصصة، وبقي الشرح كما هو. ما كسر المدة الكلية الذي لم يعد مخصصاً للشرح أو التدريب؟",
-      "Two fifths of a session is allocated to explanation and one quarter of the original duration to practice. Half of the allocated practice time is cancelled, while explanation stays unchanged. What fraction of the whole session is now allocated to neither?"
+      "خُصص ٢/٥ من مدة لقاء للشرح و١/٤ من المدة الأصلية للتدريب. الفترتان لا تتداخلان. أُلغي نصف مدة التدريب المخصصة، وبقي الشرح كما هو. ما كسر المدة الكلية الذي لم يعد مخصصاً للشرح أو التدريب؟",
+      "Two fifths of a session is allocated to explanation and one quarter of the original duration to practice. The two allocations do not overlap. Half of the allocated practice time is cancelled, while explanation stays unchanged. What fraction of the whole session is now allocated to neither?"
     ],
     "hints": [
       [
