@@ -33,7 +33,7 @@ const courses = [
     verify: ["لكل ε > 0 يوجد حد فوق 7 − ε؛ وبالرتابة تبقى الحدود اللاحقة بينه وبين 7.", "For each ε > 0 some term exceeds 7 − ε; monotonicity keeps later terms between that term and 7."],
     wrong: [["0", "افترض أن الانحصار يفرض نهاية صفراً.", "Assumes boundedness forces limit zero."],
       ["8", "اختار حداً علوياً أكبر من الأصغر.", "Uses an upper bound larger than the least upper bound."],
-      ["\\text{undefined}", "أهمل الانحصار من أعلى واستبعد التقارب.", "Ignores the upper bound and rules out convergence."]],
+      ["+\\infty", "افترض أن الرتابة تعني نمواً بلا حد رغم وجود حد علوي.", "Assumes an increasing sequence grows without bound despite its upper bound."]],
   },
   {
     scope: ["differential-equations", 4, 15, 66, "university-exponential-ode"],
