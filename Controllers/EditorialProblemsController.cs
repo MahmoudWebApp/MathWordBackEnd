@@ -78,26 +78,46 @@ public sealed class EditorialProblemsController(AppDbContext db,IConfiguration c
             .ToListAsync(ct);
         var trackCodes=(await db.LearningTracks.AsNoTracking().Select(t=>new{t.Id,t.StageId,t.Code}).ToListAsync(ct))
             .ToDictionary(t=>t.Id,t=>(t.StageId,t.Code));
+        var sourceIds=batch.Kind=="amendments"?batch.Items.Select(r=>r.GetProperty("ProblemId").GetInt32()).ToArray():Array.Empty<int>();
+        var sourceTracks=(await db.LearningTrackProblems.AsNoTracking().Where(x=>sourceIds.Contains(x.ProblemId))
+            .Select(x=>new{x.ProblemId,x.TrackId}).ToListAsync(ct)).ToLookup(x=>x.ProblemId,x=>x.TrackId);
+        var sourceSecondary=(await db.CurriculumProblemSkills.AsNoTracking().Where(x=>sourceIds.Contains(x.ProblemId)&&!x.IsPrimary)
+            .Select(x=>new{x.ProblemId,x.SkillId}).ToListAsync(ct)).ToLookup(x=>x.ProblemId,x=>x.SkillId);
+        string[] Codes(JsonElement row)=>batch.Kind=="amendments"?new[]{row.GetProperty("ProposedTrackCode").GetString()!}:
+            row.GetProperty("ProposedTrackCodes").EnumerateArray().Select(c=>c.GetString()!).ToArray();
+        bool ValidMapping(JsonElement row)
+        {
+            var stage=row.GetProperty("Content").GetProperty("StageId").GetInt32();
+            var codes=Codes(row);
+            if(batch.Kind!="amendments")return codes.All(c=>trackCodes.Values.Any(t=>t.StageId==stage&&t.Code==c));
+            var pid=row.GetProperty("ProblemId").GetInt32();
+            return codes.All(c=>sourceTracks[pid].Any(id=>trackCodes.TryGetValue(id,out var t)&&t.StageId==stage&&t.Code==c));
+        }
+        var missingMappings=batch.Kind=="hints"?0:batch.Items.Count(row=>!ValidMapping(row));
         var states=drafts.Select(d=>{
             var row=batch.Items[Array.IndexOf(keys,d.ContentKey)];
             var expected=row.GetProperty("Content").Deserialize<WizardProblem>()!;
             var actual=WizardProblemContract.Read(d.WizardJson!);
-            var codes=batch.Kind=="amendments"?new[]{row.GetProperty("ProposedTrackCode").GetString()!}:
-                row.GetProperty("ProposedTrackCodes").EnumerateArray().Select(c=>c.GetString()!).ToArray();
-            var actualCodes=(actual.TrackIds??Array.Empty<int>()).Where(trackCodes.ContainsKey)
+            var codes=Codes(row);
+            var actualIds=actual.TrackIds??Array.Empty<int>();
+            var actualCodes=actualIds.Where(trackCodes.ContainsKey)
                 .Select(id=>trackCodes[id]).Where(t=>t.StageId==actual.StageId).Select(t=>t.Code).ToArray();
-            var trackMatch=codes.All(actualCodes.Contains)&&(actual.TrackIds?.Length??0)==actualCodes.Length&&
-                (batch.Kind=="amendments"||actualCodes.Length==codes.Length);
-            // The import resolves track IDs and preserves source secondary skills.
-            // Every educational field, option, hint and solution must still match the candidate.
+            var amendment=batch.Kind=="amendments";
+            var pid=amendment?row.GetProperty("ProblemId").GetInt32():0;
+            var trackMatch=ValidMapping(row)&&codes.All(actualCodes.Contains)&&actualIds.Length==actualCodes.Length&&
+                (amendment?actualIds.Order().SequenceEqual(sourceTracks[pid].Order()):actualCodes.Length==codes.Length);
+            var secondaryMatch=(actual.SecondarySkillIds??Array.Empty<int>()).Order().SequenceEqual(
+                amendment?sourceSecondary[pid].Order():(expected.SecondarySkillIds??Array.Empty<int>()).Order());
+            // Only fields resolved during the validated import may differ from the package.
             var normalized=actual with{TrackIds=expected.TrackIds,SecondarySkillIds=expected.SecondarySkillIds,
-                DifficultyLevel=batch.Kind=="amendments"?expected.DifficultyLevel:actual.DifficultyLevel};
-            var matches=trackMatch&&d.PrimarySkillKey==row.GetProperty("PrimarySkillKey").GetString()&&
-                (batch.Kind=="amendments"?d.SourceProblemId==row.GetProperty("ProblemId").GetInt32():d.SourceProblemId==null)&&
+                DifficultyLevel=amendment?expected.DifficultyLevel:actual.DifficultyLevel};
+            var matches=trackMatch&&secondaryMatch&&(!amendment||actual.DifficultyLevel==1)&&
+                d.PrimarySkillKey==row.GetProperty("PrimarySkillKey").GetString()&&
+                (amendment?d.SourceProblemId==pid:d.SourceProblemId==null)&&
                 WizardProblemContract.Serialize(normalized)==WizardProblemContract.Serialize(expected);
             return new{d.Id,d.ContentKey,d.Revision,d.Status,d.PublishedProblemId,MatchesCandidate=matches};
         }).ToArray();
-        return Ok(new{batch.Kind,batch.Number,batch.Items,Drafts=states});
+        return Ok(new{batch.Kind,batch.Number,batch.Items,Drafts=states,MissingMappings=missingMappings});
     }
 
     [HttpGet("classification/{stageId:int}")]
