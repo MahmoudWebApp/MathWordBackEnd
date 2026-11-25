@@ -88,5 +88,20 @@
     "key": "growth-v11-numerical-analysis-bisection-retained-endpoint-second-step-1",
     "draft": 1042,
     "problem": 1744
+  },
+  {
+    "key": "growth-v10-grade-12-circle-vertical-line-chord-1",
+    "draft": 1043,
+    "problem": 1745
+  },
+  {
+    "key": "growth-v10-calculus-gradient-normal-level-set-1",
+    "draft": 1044,
+    "problem": 1746
+  },
+  {
+    "key": "growth-v10-discrete-mathematics-graph-odd-degrees-parity-1",
+    "draft": 1045,
+    "problem": 1747
   }
 ]
