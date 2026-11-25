@@ -29,6 +29,7 @@ import {v17DWave} from './v17-university.mjs';
 import {authorQueue} from './author-queue.mjs';
 import {reviewQueue} from './review-queue.mjs';
 import {chunkImports} from './batch-runner.mjs';
+import {selectLaunchCandidates} from './launch-coverage.mjs';
 import {linkedReasoningV18} from './linked-reasoning-v18.mjs';
 import {launchReasoningV19} from './launch-reasoning-v19.mjs';
 const [cmd,input,output,...extra]=process.argv.slice(2);
@@ -47,13 +48,13 @@ else if(cmd==='review-queue'&&input&&output&&extra.length===1){
  save(output,reviewQueue(catalog,scoped.selected,known));
 }
 else if(cmd==='queue'&&input&&output){const [max='200',...waves]=extra;save(output,authorQueue(read(input),active([...all(),...waves.flatMap(wave)]),Number(max)));}
-else if(['pilot','prepare','bulk-prepare'].includes(cmd)&&input){
+else if(['pilot','prepare','bulk-prepare','launch-prepare'].includes(cmd)&&input){
  let raw=all(),known=[],inventory;
  if(cmd!=='pilot'){if(!output)throw Error('Inventory required');inventory=read(output);}
- if(cmd==='bulk-prepare'){const [knownPath,...waves]=extra;if(!knownPath)throw Error('Known questions file required');known=read(knownPath);if(!Array.isArray(known)||known.some(q=>typeof q.Ar!=='string'||typeof q.En!=='string'))throw Error('Expected bilingual known-question pairs');raw.push(...waves.flatMap(wave));}
+ if(cmd==='bulk-prepare'||cmd==='launch-prepare'){const [knownPath,...waves]=extra;if(!knownPath)throw Error('Known questions file required');known=read(knownPath);if(!Array.isArray(known)||known.some(q=>typeof q.Ar!=='string'||typeof q.En!=='string'))throw Error('Expected bilingual known-question pairs');raw.push(...waves.flatMap(wave));}
  let rows=active(raw);const held=raw.filter(r=>excluded.has(r.Family)).map(r=>({key:r.ContentKey,reason:'PotentialSemanticOverlap'}));
  const errors=validate(rows,known);if(errors.length)throw Error(JSON.stringify(errors));
- if(inventory){const scoped=selectCandidates(rows,inventory);rows=scoped.selected;held.push(...scoped.held);}
+ if(inventory){const scoped=cmd==='launch-prepare'?selectLaunchCandidates(rows,inventory):selectCandidates(rows,inventory);rows=scoped.selected;held.push(...scoped.held);}
  if(existsSync(input)&&readdirSync(input).length)throw Error('Use a new output directory');
  mkdirSync(input,{recursive:true});
  const batches=chunkImports(rows.map(({Family,Check,ReviewStatus,...r})=>r));
@@ -61,4 +62,4 @@ else if(['pilot','prepare','bulk-prepare'].includes(cmd)&&input){
  save(join(input,'manifest.json'),{CandidateCount:rows.length,BatchCount:batches.length,ReviewStatus:'Unreviewed',Held:held,Keys:rows.map(r=>r.ContentKey)});
  console.log(JSON.stringify({candidates:rows.length,held:held.length,batches:batches.length}));
 }
-else{console.error('Usage: cli.mjs pilot OUT | prepare OUT INVENTORY | bulk-prepare OUT INVENTORY KNOWN [WAVE...] | queue INVENTORY OUT [MAX] [WAVE...] | review-queue INVENTORY OUT KNOWN | plan INVENTORY OUT');process.exitCode=2;}
+else{console.error('Usage: cli.mjs pilot OUT | prepare OUT INVENTORY | bulk-prepare OUT INVENTORY KNOWN [WAVE...] | launch-prepare OUT INVENTORY KNOWN [WAVE...] | queue INVENTORY OUT [MAX] [WAVE...] | review-queue INVENTORY OUT KNOWN | plan INVENTORY OUT');process.exitCode=2;}
