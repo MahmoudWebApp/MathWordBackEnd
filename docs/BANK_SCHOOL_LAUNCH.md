@@ -24,6 +24,12 @@ The read-only inventory contained 831 published problems and 786 track assignmen
 
 The seven missing links reserve 140 assignments. The selected-category published deficit is 708. Selecting only for existing published coverage yields 706, while the table selects categories that close the most gaps with the current queue. The best-case deficit after all 191 selected records pass review and are published is 517. Future authoring, suitable existing-problem links and any revised approvals can reduce it.
 
+## First production publication
+
+The owner authorized direct production publication of three existing grade-1 drafts. A no-write validation pass confirmed their source fingerprints, revision, existing track/category/skill links, bilingual question and solution, correct answer and duplicate checks. A single transaction published draft 985 as problem 1785, draft 990 as problem 1786, and draft 1001 as problem 1787. The production readback confirmed Published revision 3, the Arabic and English stems, four ordered options and answer flags, structured hints and solution, primary skill, grade-1 track assignment, and all three audit events for each draft. No category or skill links were created.
+
+Grade 1 now has seven published assignments across its two linked launch categories. Against the selected launch scope in the table, the outstanding published deficit fell from 708 to 705. The remaining priority queue is 17 staged drafts and 171 growth candidates before refreshing the inventory and comparison pairs. The 517 best-case gap already assumed these three publications. Skip the published drafts on future runs and reconcile the live state before another release.
+
 ## Category decisions
 
 | Grade | Proposed category or decision | Evidence and scope for review |
