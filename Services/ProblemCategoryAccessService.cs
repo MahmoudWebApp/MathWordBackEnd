@@ -12,12 +12,10 @@ namespace MathWorldAPI.Services;
 public sealed class ProblemCategoryAccessService
 {
     private readonly AppDbContext _db;
-    private readonly IConfiguration _configuration;
 
     public ProblemCategoryAccessService(AppDbContext db, IConfiguration configuration)
     {
         _db = db;
-        _configuration = configuration;
     }
 
     public async Task<IReadOnlyList<int>> GetFreeCategoryIdsAsync(
@@ -27,9 +25,7 @@ public sealed class ProblemCategoryAccessService
             .Where(c => c.StageId == stageId)
             .OrderBy(c => c.Order).ThenBy(c => c.Id)
             .ToListAsync(cancellationToken);
-        var saved = await _db.StageFreeCategorySelections.AsNoTracking()
-            .FirstOrDefaultAsync(x => x.StageId == stageId, cancellationToken);
-        return ResolveFreeCategoryIds(stageId, categories, saved);
+        return ResolveFreeCategoryIds(stageId, categories, null);
     }
 
     /// <summary>
@@ -43,66 +39,9 @@ public sealed class ProblemCategoryAccessService
         IEnumerable<Category> categories,
         StageFreeCategorySelection? saved)
     {
-        if (saved != null)
-        {
-            try
-            {
-                return CategoryAccessPolicy.ResolveFreeCategoryIds(categories,
-                    new[] { saved.FirstCategoryId, saved.SecondCategoryId });
-            }
-            catch (ArgumentException)
-            {
-                return Array.Empty<int>();
-            }
-        }
-        var raw = _configuration[$"FreeCategoryAccess:Stages:{stageId}"];
-        List<int>? configured = null;
-        if (raw is not null)
-        {
-            var parts = raw.Split(',', StringSplitOptions.TrimEntries |
-                StringSplitOptions.RemoveEmptyEntries);
-            if (parts.Length != CategoryAccessPolicy.DefaultFreeCategoriesPerStage ||
-                parts.Any(part => !int.TryParse(part, out _)))
-                return Array.Empty<int>(); // Fail closed.
-            configured = parts.Select(int.Parse).ToList();
-        }
-
-        try
-        {
-            return CategoryAccessPolicy.ResolveFreeCategoryIds(categories, configured);
-        }
-        catch (ArgumentException)
-        {
-            return Array.Empty<int>();
-        }
-    }
-
-    /// <summary>
-    /// Reordering categories must not silently replace the two default Free
-    /// categories. Admins can persist the current pair first through the
-    /// dedicated stage configuration endpoint, then reorder freely.
-    /// Persisted/configured selections are independent of editorial order.
-    /// </summary>
-    public async Task<bool> WouldReorderChangeImplicitFreeCategoriesAsync(
-        int stageId, int categoryId, int proposedOrder,
-        CancellationToken cancellationToken = default)
-    {
-        if (await _db.StageFreeCategorySelections.AsNoTracking()
-                .AnyAsync(x => x.StageId == stageId, cancellationToken) ||
-            _configuration[$"FreeCategoryAccess:Stages:{stageId}"] is not null)
-            return false;
-
-        var categories = await _db.Categories.AsNoTracking()
-            .Where(c => c.StageId == stageId)
-            .ToListAsync(cancellationToken);
-        var target = categories.FirstOrDefault(c => c.Id == categoryId);
-        if (target is null || target.Order == proposedOrder)
-            return false;
-
-        var before = CategoryAccessPolicy.ResolveFreeCategoryIds(categories);
-        target.Order = proposedOrder;
-        var after = CategoryAccessPolicy.ResolveFreeCategoryIds(categories);
-        return !before.SequenceEqual(after);
+        // Always the first two by Order, then Id. Legacy saved/configured
+        // selections remain historical records, not entitlement overrides.
+        return CategoryAccessPolicy.ResolveFreeCategoryIds(categories);
     }
 
     /// <summary>
@@ -148,13 +87,10 @@ public sealed class ProblemCategoryAccessService
         var categories = await _db.Categories.AsNoTracking()
             .OrderBy(c => c.StageId).ThenBy(c => c.Order).ThenBy(c => c.Id)
             .ToListAsync(cancellationToken);
-        var savedSelections = await _db.StageFreeCategorySelections.AsNoTracking()
-            .ToDictionaryAsync(s => s.StageId, cancellationToken);
         var allowed = new List<int>();
         foreach (var stage in categories.GroupBy(c => c.StageId))
         {
-            savedSelections.TryGetValue(stage.Key, out var saved);
-            allowed.AddRange(ResolveFreeCategoryIds(stage.Key, stage, saved));
+            allowed.AddRange(ResolveFreeCategoryIds(stage.Key, stage, null));
         }
         return allowed;
     }

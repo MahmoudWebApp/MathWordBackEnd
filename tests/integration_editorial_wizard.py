@@ -76,6 +76,10 @@ def verify_wizard(admin,supervisor,sid):
     expect("POST",path+"/review",403,{"Revision":1,"Confirm":True,"Note":"Reviewed"},supervisor)
     pending=expect("POST",path+"/submit",200,{"Revision":1},supervisor)
     assert pending["Status"]=="PendingReview"
+    review_queue=expect("GET",root+"?activeOnly=true&supervisorReviewOnly=true",200,token=admin)
+    assert any(row["Id"]==did for row in review_queue["Items"])
+    assert all(row["Status"] in ("PendingReview","Approved") and row["OwnerUserId"]!=None for row in review_queue["Items"])
+    expect("GET",root+"?supervisorReviewOnly=true",403,token=supervisor)
     expect("PUT",path,409,{"Revision":2,"Content":p},supervisor)
     expect("POST",path+"/publish",403,{"Revision":2,"Confirm":True},supervisor)
     returned=expect("POST",path+"/review",200,{"Revision":2,"Confirm":False,"Note":"Check the steps"},admin)
@@ -86,9 +90,14 @@ def verify_wizard(admin,supervisor,sid):
     assert approved["Status"]=="Approved" and sql('SELECT COUNT(*) FROM "Problems"')==count
     published=expect("POST",path+"/publish",200,{"Revision":6,"Confirm":True},admin)
     pid=published["PublishedProblemId"]
+    bank=expect("GET",f"{root}/bank?stageId={stage}&categoryId={category}&trackId={track}&search={pid}&status=clear",200,token=admin)
+    assert any(row["Id"]==pid for row in bank["Items"])
+    assert all(row["StageId"]==stage and row["CategoryId"]==category for row in bank["Items"])
+    expect("GET",root+"/bank?status=invalid",400,token=admin)
     queue=expect("GET",root+"?activeOnly=true",200,token=admin)
     assert all(row["Status"] in ("Draft","NeedsChanges","PendingReview","Approved") for row in queue["Items"])
     assert all(row["Id"]!=did for row in queue["Items"])
+    assert all(row["Id"]!=did for row in expect("GET",root+"?supervisorReviewOnly=true",200,token=admin)["Items"])
     assert int(queue["Total"])==int(sql("""SELECT COUNT(*) FROM "CurriculumDraftItems" WHERE "WizardJson" IS NOT NULL AND "EditorialStatus" IN ('Draft','NeedsChanges','PendingReview','Approved')"""))
     own_queue=expect("GET",root+"?activeOnly=true",200,token=supervisor)
     assert all(row["OwnerUserId"]==sid and row["Status"]!="Published" for row in own_queue["Items"])

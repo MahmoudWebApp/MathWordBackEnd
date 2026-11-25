@@ -59,8 +59,6 @@ public sealed class StageCategoryAccessController : ControllerBase
             })
             .ToListAsync(cancellationToken);
 
-        var saved = await _db.StageFreeCategorySelections.AsNoTracking()
-            .FirstOrDefaultAsync(item => item.StageId == stageId, cancellationToken);
         var access = HttpContext.RequestServices
             .GetRequiredService<ProblemCategoryAccessService>();
         var policyCategories = categories.Select(category => new Category
@@ -69,9 +67,9 @@ public sealed class StageCategoryAccessController : ControllerBase
             StageId = stageId,
             Order = category.Order
         });
-        var ids = access.ResolveFreeCategoryIds(stageId, policyCategories, saved);
+        var ids = access.ResolveFreeCategoryIds(stageId, policyCategories, null);
         var freeIds = ids.ToHashSet();
-        var hasSavedSelection = saved is not null;
+        const bool hasSavedSelection = false;
 
         return Ok(new
         {
