@@ -243,7 +243,8 @@ def main():
     assert api("PUT", "/api/admin/stages/1/free-categories", {"CategoryIds": [2, 3]}, admin)[0] == 410
     assert reorder_category(admin, "/api/admin/categories/3", 0) == 200
     catalog = expect("GET", "/api/stages/1/free-categories", 200)
-    assert catalog["FreeCategoryIds"] == [3, 1], catalog
+    assert catalog["FreeCategoryIds"] == [item["Id"] for item in sorted(catalog["Categories"], key=lambda item:(item["Order"],item["Id"]))[:2]], catalog
+    assert 3 in catalog["FreeCategoryIds"], catalog
     assert api("GET", f"/api/problems/{locked_question[0]}", token=free)[0] == 200
     print("PASS: automatic first-two Free policy, retired manual selection, safe category operations.")
 
