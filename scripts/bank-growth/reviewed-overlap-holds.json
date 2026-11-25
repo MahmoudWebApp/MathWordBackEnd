@@ -41,5 +41,11 @@
   "one-sided-exact-test-boundary-count": "Close to V17 two-sided-exact-test-all-same-outcome: both rely on enumerating extreme Bernoulli outcomes under the fair null.",
   "slow-clock-cross-hour": "V15 elapsed-time-opposite-clock-errors already tests correcting a clock that is behind; this variant isolates that substep.",
   "select-safe-estimate-for-stock": "V14 rounding-order-ticket-count already uses separate nearest-ten rounding followed by addition; the extra fixed correction adds little.",
-  "binary-strings-separated-ones-by-gaps": "Same seven positions, three nonadjacent choices and count as V15 choose-nonadjacent-display-spaces."
+  "binary-strings-separated-ones-by-gaps": "Same seven positions, three nonadjacent choices and count as V15 choose-nonadjacent-display-spaces.",
+  "complete-breaks-before-finish-boundary": "Periodic interior-event counting overlaps the bell-strike family and the strict terminal-boundary reasoning in the cooling item.",
+  "compare-formulas-after-swapping-input-roles": "Swapping two differently weighted inputs and comparing the change repeats the reasoning in the hundreds/tens swap family.",
+  "area-of-triangle-with-equal-perpendicular-legs-from-sum": "The live bank already asks for the area from perpendicular legs. Halving the stated sum only adds a short preprocessing step.",
+  "all-inputs-for-two-sided-nonnegative-linear-slacks": "Intersecting two linear bounds repeats the V7 integer-bounds and V16 production-bounds families. The closed real interval and reversed inequality add too little separation for this queue.",
+  "recover-cosine-from-tangent-and-quadrant": "V7 already reconstructs secant from tangent and a quadrant. Using the reciprocal function and other signs still tests the same identity reasoning.",
+  "balance-pans-infer-added-two-equal-weights": "Subtracting two masses and halving to isolate one identical object repeats the main reconstruction step of the existing empty-crate mass family."
 }
