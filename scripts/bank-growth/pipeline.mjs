@@ -63,3 +63,15 @@ export function wave2(){
  family(12,3,87,338,"dot-product","signed-dot-product",2,["جداء نقطي بإشارات","Signed dot product"],[["اضرب المركبات المتناظرة.","Multiply corresponding components."],["اجمع حاصلَي الضرب بإشارتيهما.","Add the two signed products."]],"u\\cdot v=u_xv_x+u_yv_y",["لا تجمع المركبات قبل ضربها.","Do not add components before multiplying."],[[3,-4,5,2],[-2,6,4,3]],(a,b,c,d)=>({n:a*c+b*d,q:[`احسب الجداء النقطي للمتجهين (${a},${b}) و(${c},${d}).`,`Find the dot product of (${a},${b}) and (${c},${d}).`],wrong:[err(a*c-b*d,"طرح حاصل الضرب الثاني.","Subtracts second product."),err(a*d+b*c,"ضرب مركبات غير متناظرة.","Multiplies mismatched components."),err(a*c,"أهمل المركبة الثانية.","Omits second component.")],steps:[[`الجداء الأول ${a*c}.`,`First product: ${a*c}.`],[`الجداء الثاني ${b*d}.`,`Second product: ${b*d}.`]],sub:`(${a*c})+(${b*d})=${a*c+b*d}`,verify:[`تبديل ترتيب المتجهين يعطي ${c*a+d*b}.`,`Reversing vector order gives ${c*a+d*b}.`],ok:a*c+b*d===c*a+d*b}));
  return out;
 }
+
+export function selectCandidates(rows,inventory,target=101){
+ const index=new Map(inventory.filter(x=>x.categoryId!==null).map(x=>[x.track+":"+x.categoryId,{...x,remaining:Math.max(0,target-Number(x.questions))}]));
+ const selected=[],held=[];
+ for(const row of rows){const c=row.Content,t=row.ProposedTrackCodes[0],slot=index.get(t+":"+c.CategoryId);let reason;
+  if(!slot||slot.stage!==c.StageId)reason="UnlinkedTrackCategory";
+  else if(!slot.skills.some(x=>x.id===c.PrimarySkillId&&x.key===row.PrimarySkillKey))reason="UnlinkedSkill";
+  else if(slot.remaining<=0)reason="CategoryTargetReached";
+  if(reason)held.push({key:row.ContentKey,reason});else{slot.remaining--;selected.push(row);}
+ }
+ return {selected,held};
+}

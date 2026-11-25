@@ -1,0 +1,1578 @@
+[
+  {
+    "track": "grade-1",
+    "stage": 1,
+    "categoryId": 1,
+    "categoryAr": "الجمع والطرح والمسائل الحسابية",
+    "categoryEn": "Addition, Subtraction & Word Problems",
+    "questions": 1,
+    "skills": [
+      {
+        "id": 2,
+        "key": "primary-subtraction"
+      }
+    ]
+  },
+  {
+    "track": "grade-1",
+    "stage": 1,
+    "categoryId": 81,
+    "categoryAr": "الأعداد والقيمة المكانية",
+    "categoryEn": "Number Sense & Place Value",
+    "questions": 1,
+    "skills": [
+      {
+        "id": 302,
+        "key": "counting"
+      }
+    ]
+  },
+  {
+    "track": "grade-2",
+    "stage": 1,
+    "categoryId": 1,
+    "categoryAr": "الجمع والطرح والمسائل الحسابية",
+    "categoryEn": "Addition, Subtraction & Word Problems",
+    "questions": 14,
+    "skills": [
+      {
+        "id": 1,
+        "key": "primary-addition"
+      },
+      {
+        "id": 2,
+        "key": "primary-subtraction"
+      },
+      {
+        "id": 3,
+        "key": "primary-multistep-arithmetic"
+      }
+    ]
+  },
+  {
+    "track": "grade-2",
+    "stage": 1,
+    "categoryId": 81,
+    "categoryAr": "الأعداد والقيمة المكانية",
+    "categoryEn": "Number Sense & Place Value",
+    "questions": 2,
+    "skills": [
+      {
+        "id": 302,
+        "key": "counting"
+      }
+    ]
+  },
+  {
+    "track": "grade-2",
+    "stage": 1,
+    "categoryId": 82,
+    "categoryAr": "القياس وتحويل الوحدات",
+    "categoryEn": "Measurement & Units",
+    "questions": 1,
+    "skills": [
+      {
+        "id": 321,
+        "key": "length"
+      }
+    ]
+  },
+  {
+    "track": "grade-3",
+    "stage": 1,
+    "categoryId": 2,
+    "categoryAr": "التفكير الجبري المبكر",
+    "categoryEn": "Early Algebraic Thinking",
+    "questions": 10,
+    "skills": [
+      {
+        "id": 7,
+        "key": "primary-one-step-additive-equations"
+      },
+      {
+        "id": 9,
+        "key": "primary-one-step-multiplicative-equations"
+      }
+    ]
+  },
+  {
+    "track": "grade-3",
+    "stage": 1,
+    "categoryId": 3,
+    "categoryAr": "الهندسة والقياس",
+    "categoryEn": "Geometry & Measurement",
+    "questions": 13,
+    "skills": [
+      {
+        "id": 12,
+        "key": "primary-perimeter"
+      },
+      {
+        "id": 13,
+        "key": "primary-rectangle-area"
+      }
+    ]
+  },
+  {
+    "track": "grade-3",
+    "stage": 1,
+    "categoryId": 21,
+    "categoryAr": "الكسور والأعداد العشرية",
+    "categoryEn": "Fractions & Decimals",
+    "questions": 2,
+    "skills": [
+      {
+        "id": 97,
+        "key": "p-fractions-decimals-fraction-models"
+      }
+    ]
+  },
+  {
+    "track": "grade-3",
+    "stage": 1,
+    "categoryId": 33,
+    "categoryAr": "الضرب والقسمة",
+    "categoryEn": "Multiplication & Division",
+    "questions": 12,
+    "skills": [
+      {
+        "id": 4,
+        "key": "primary-multiplication"
+      },
+      {
+        "id": 5,
+        "key": "primary-division"
+      },
+      {
+        "id": 6,
+        "key": "primary-multiplicative-word-problems"
+      }
+    ]
+  },
+  {
+    "track": "grade-3",
+    "stage": 1,
+    "categoryId": 81,
+    "categoryAr": "الأعداد والقيمة المكانية",
+    "categoryEn": "Number Sense & Place Value",
+    "questions": 3,
+    "skills": [
+      {
+        "id": 304,
+        "key": "number-comparison"
+      },
+      {
+        "id": 305,
+        "key": "place-value"
+      },
+      {
+        "id": 306,
+        "key": "rounding"
+      }
+    ]
+  },
+  {
+    "track": "grade-3",
+    "stage": 1,
+    "categoryId": 82,
+    "categoryAr": "القياس وتحويل الوحدات",
+    "categoryEn": "Measurement & Units",
+    "questions": 1,
+    "skills": [
+      {
+        "id": 324,
+        "key": "time"
+      }
+    ]
+  },
+  {
+    "track": "grade-4",
+    "stage": 1,
+    "categoryId": 1,
+    "categoryAr": "الجمع والطرح والمسائل الحسابية",
+    "categoryEn": "Addition, Subtraction & Word Problems",
+    "questions": 1,
+    "skills": [
+      {
+        "id": 1,
+        "key": "primary-addition"
+      }
+    ]
+  },
+  {
+    "track": "grade-4",
+    "stage": 1,
+    "categoryId": 2,
+    "categoryAr": "التفكير الجبري المبكر",
+    "categoryEn": "Early Algebraic Thinking",
+    "questions": 2,
+    "skills": [
+      {
+        "id": 9,
+        "key": "primary-one-step-multiplicative-equations"
+      }
+    ]
+  },
+  {
+    "track": "grade-4",
+    "stage": 1,
+    "categoryId": 3,
+    "categoryAr": "الهندسة والقياس",
+    "categoryEn": "Geometry & Measurement",
+    "questions": 5,
+    "skills": [
+      {
+        "id": 16,
+        "key": "primary-unit-conversions"
+      }
+    ]
+  },
+  {
+    "track": "grade-4",
+    "stage": 1,
+    "categoryId": 4,
+    "categoryAr": "البيانات والاحتمالات",
+    "categoryEn": "Data & Basic Probability",
+    "questions": 5,
+    "skills": [
+      {
+        "id": 20,
+        "key": "primary-mode"
+      }
+    ]
+  },
+  {
+    "track": "grade-4",
+    "stage": 1,
+    "categoryId": 21,
+    "categoryAr": "الكسور والأعداد العشرية",
+    "categoryEn": "Fractions & Decimals",
+    "questions": 10,
+    "skills": [
+      {
+        "id": 96,
+        "key": "p-fractions-decimals-equivalence"
+      },
+      {
+        "id": 97,
+        "key": "p-fractions-decimals-fraction-models"
+      },
+      {
+        "id": 112,
+        "key": "p-fractions-decimals-fraction-comparisons"
+      },
+      {
+        "id": 298,
+        "key": "fraction-operations"
+      }
+    ]
+  },
+  {
+    "track": "grade-4",
+    "stage": 1,
+    "categoryId": 33,
+    "categoryAr": "الضرب والقسمة",
+    "categoryEn": "Multiplication & Division",
+    "questions": 7,
+    "skills": [
+      {
+        "id": 4,
+        "key": "primary-multiplication"
+      },
+      {
+        "id": 5,
+        "key": "primary-division"
+      },
+      {
+        "id": 6,
+        "key": "primary-multiplicative-word-problems"
+      }
+    ]
+  },
+  {
+    "track": "grade-4",
+    "stage": 1,
+    "categoryId": 81,
+    "categoryAr": "الأعداد والقيمة المكانية",
+    "categoryEn": "Number Sense & Place Value",
+    "questions": 17,
+    "skills": [
+      {
+        "id": 302,
+        "key": "counting"
+      },
+      {
+        "id": 303,
+        "key": "estimation"
+      },
+      {
+        "id": 304,
+        "key": "number-comparison"
+      },
+      {
+        "id": 305,
+        "key": "place-value"
+      },
+      {
+        "id": 306,
+        "key": "rounding"
+      }
+    ]
+  },
+  {
+    "track": "grade-4",
+    "stage": 1,
+    "categoryId": 82,
+    "categoryAr": "القياس وتحويل الوحدات",
+    "categoryEn": "Measurement & Units",
+    "questions": 5,
+    "skills": [
+      {
+        "id": 320,
+        "key": "capacity"
+      },
+      {
+        "id": 322,
+        "key": "mass"
+      },
+      {
+        "id": 323,
+        "key": "metric-conversion"
+      },
+      {
+        "id": 324,
+        "key": "time"
+      }
+    ]
+  },
+  {
+    "track": "grade-5",
+    "stage": 1,
+    "categoryId": 2,
+    "categoryAr": "التفكير الجبري المبكر",
+    "categoryEn": "Early Algebraic Thinking",
+    "questions": 5,
+    "skills": [
+      {
+        "id": 11,
+        "key": "primary-substitution"
+      }
+    ]
+  },
+  {
+    "track": "grade-5",
+    "stage": 1,
+    "categoryId": 3,
+    "categoryAr": "الهندسة والقياس",
+    "categoryEn": "Geometry & Measurement",
+    "questions": 9,
+    "skills": [
+      {
+        "id": 14,
+        "key": "primary-triangle-area"
+      },
+      {
+        "id": 15,
+        "key": "primary-triangle-angle-sum"
+      }
+    ]
+  },
+  {
+    "track": "grade-5",
+    "stage": 1,
+    "categoryId": 4,
+    "categoryAr": "البيانات والاحتمالات",
+    "categoryEn": "Data & Basic Probability",
+    "questions": 13,
+    "skills": [
+      {
+        "id": 17,
+        "key": "primary-simple-probability"
+      },
+      {
+        "id": 18,
+        "key": "primary-median"
+      },
+      {
+        "id": 19,
+        "key": "primary-arithmetic-mean"
+      }
+    ]
+  },
+  {
+    "track": "grade-5",
+    "stage": 1,
+    "categoryId": 21,
+    "categoryAr": "الكسور والأعداد العشرية",
+    "categoryEn": "Fractions & Decimals",
+    "questions": 18,
+    "skills": [
+      {
+        "id": 94,
+        "key": "p-fractions-decimals-decimal-place-value"
+      },
+      {
+        "id": 95,
+        "key": "p-fractions-decimals-fraction-operations"
+      },
+      {
+        "id": 96,
+        "key": "p-fractions-decimals-equivalence"
+      },
+      {
+        "id": 97,
+        "key": "p-fractions-decimals-fraction-models"
+      },
+      {
+        "id": 112,
+        "key": "p-fractions-decimals-fraction-comparisons"
+      },
+      {
+        "id": 298,
+        "key": "fraction-operations"
+      }
+    ]
+  },
+  {
+    "track": "grade-5",
+    "stage": 1,
+    "categoryId": 33,
+    "categoryAr": "الضرب والقسمة",
+    "categoryEn": "Multiplication & Division",
+    "questions": 2,
+    "skills": [
+      {
+        "id": 4,
+        "key": "primary-multiplication"
+      },
+      {
+        "id": 6,
+        "key": "primary-multiplicative-word-problems"
+      }
+    ]
+  },
+  {
+    "track": "grade-5",
+    "stage": 1,
+    "categoryId": 81,
+    "categoryAr": "الأعداد والقيمة المكانية",
+    "categoryEn": "Number Sense & Place Value",
+    "questions": 1,
+    "skills": [
+      {
+        "id": 303,
+        "key": "estimation"
+      }
+    ]
+  },
+  {
+    "track": "grade-5",
+    "stage": 1,
+    "categoryId": 82,
+    "categoryAr": "القياس وتحويل الوحدات",
+    "categoryEn": "Measurement & Units",
+    "questions": 5,
+    "skills": [
+      {
+        "id": 320,
+        "key": "capacity"
+      },
+      {
+        "id": 321,
+        "key": "length"
+      },
+      {
+        "id": 322,
+        "key": "mass"
+      },
+      {
+        "id": 323,
+        "key": "metric-conversion"
+      }
+    ]
+  },
+  {
+    "track": "grade-6",
+    "stage": 1,
+    "categoryId": 2,
+    "categoryAr": "التفكير الجبري المبكر",
+    "categoryEn": "Early Algebraic Thinking",
+    "questions": 5,
+    "skills": [
+      {
+        "id": 10,
+        "key": "primary-two-step-equations"
+      }
+    ]
+  },
+  {
+    "track": "grade-6",
+    "stage": 1,
+    "categoryId": 3,
+    "categoryAr": "الهندسة والقياس",
+    "categoryEn": "Geometry & Measurement",
+    "questions": 1,
+    "skills": [
+      {
+        "id": 14,
+        "key": "primary-triangle-area"
+      }
+    ]
+  },
+  {
+    "track": "grade-6",
+    "stage": 1,
+    "categoryId": 21,
+    "categoryAr": "الكسور والأعداد العشرية",
+    "categoryEn": "Fractions & Decimals",
+    "questions": 8,
+    "skills": [
+      {
+        "id": 93,
+        "key": "p-fractions-decimals-basic-percentages"
+      },
+      {
+        "id": 95,
+        "key": "p-fractions-decimals-fraction-operations"
+      }
+    ]
+  },
+  {
+    "track": "grade-7",
+    "stage": 2,
+    "categoryId": 5,
+    "categoryAr": "نظرية الأعداد والأسس",
+    "categoryEn": "Number Theory & Exponents",
+    "questions": 15,
+    "skills": [
+      {
+        "id": 22,
+        "key": "middle-gcd"
+      },
+      {
+        "id": 23,
+        "key": "middle-evaluate-powers"
+      },
+      {
+        "id": 24,
+        "key": "middle-lcm"
+      }
+    ]
+  },
+  {
+    "track": "grade-7",
+    "stage": 2,
+    "categoryId": 6,
+    "categoryAr": "الجبر والدوال",
+    "categoryEn": "Algebra & Functions",
+    "questions": 3,
+    "skills": [
+      {
+        "id": 25,
+        "key": "middle-linear-equations"
+      }
+    ]
+  },
+  {
+    "track": "grade-7",
+    "stage": 2,
+    "categoryId": 7,
+    "categoryAr": "النسب والتناسب",
+    "categoryEn": "Ratios & Proportions",
+    "questions": 18,
+    "skills": [
+      {
+        "id": 30,
+        "key": "middle-ratios"
+      },
+      {
+        "id": 31,
+        "key": "middle-unit-rates"
+      },
+      {
+        "id": 32,
+        "key": "middle-percent-discounts"
+      }
+    ]
+  },
+  {
+    "track": "grade-7",
+    "stage": 2,
+    "categoryId": 8,
+    "categoryAr": "الزوايا والقياس الهندسي",
+    "categoryEn": "Angles & Geometric Measurement",
+    "questions": 11,
+    "skills": [
+      {
+        "id": 35,
+        "key": "middle-triangle-angles"
+      },
+      {
+        "id": 36,
+        "key": "middle-circle-area"
+      },
+      {
+        "id": 38,
+        "key": "middle-vertical-angles"
+      }
+    ]
+  },
+  {
+    "track": "grade-7",
+    "stage": 2,
+    "categoryId": 22,
+    "categoryAr": "الإحصاء وتحليل البيانات",
+    "categoryEn": "Statistics & Data Analysis",
+    "questions": 12,
+    "skills": [
+      {
+        "id": 98,
+        "key": "m-statistics-distributions"
+      },
+      {
+        "id": 99,
+        "key": "m-statistics-summary-measures"
+      },
+      {
+        "id": 100,
+        "key": "m-statistics-charts"
+      },
+      {
+        "id": 299,
+        "key": "summary-measures"
+      }
+    ]
+  },
+  {
+    "track": "grade-7",
+    "stage": 2,
+    "categoryId": 83,
+    "categoryAr": "الأعداد الصحيحة والنسبية",
+    "categoryEn": "Integers & Rational Numbers",
+    "questions": 8,
+    "skills": [
+      {
+        "id": 307,
+        "key": "absolute-value"
+      },
+      {
+        "id": 308,
+        "key": "rational-arithmetic"
+      },
+      {
+        "id": 309,
+        "key": "signed-operations"
+      }
+    ]
+  },
+  {
+    "track": "grade-7",
+    "stage": 2,
+    "categoryId": 84,
+    "categoryAr": "المتباينات الخطية",
+    "categoryEn": "Linear Inequalities",
+    "questions": 4,
+    "skills": [
+      {
+        "id": 325,
+        "key": "inequality-contexts"
+      },
+      {
+        "id": 326,
+        "key": "number-line-solutions"
+      },
+      {
+        "id": 327,
+        "key": "solve-linear-inequalities"
+      }
+    ]
+  },
+  {
+    "track": "grade-7",
+    "stage": 2,
+    "categoryId": 85,
+    "categoryAr": "الاحتمال والأحداث المركبة",
+    "categoryEn": "Probability & Compound Events",
+    "questions": 5,
+    "skills": [
+      {
+        "id": 335,
+        "key": "frequency"
+      },
+      {
+        "id": 336,
+        "key": "sample-spaces"
+      },
+      {
+        "id": 337,
+        "key": "simple-compound-events"
+      }
+    ]
+  },
+  {
+    "track": "grade-8",
+    "stage": 2,
+    "categoryId": 5,
+    "categoryAr": "نظرية الأعداد والأسس",
+    "categoryEn": "Number Theory & Exponents",
+    "questions": 12,
+    "skills": [
+      {
+        "id": 21,
+        "key": "middle-exponent-laws"
+      },
+      {
+        "id": 23,
+        "key": "middle-evaluate-powers"
+      }
+    ]
+  },
+  {
+    "track": "grade-8",
+    "stage": 2,
+    "categoryId": 6,
+    "categoryAr": "الجبر والدوال",
+    "categoryEn": "Algebra & Functions",
+    "questions": 14,
+    "skills": [
+      {
+        "id": 25,
+        "key": "middle-linear-equations"
+      },
+      {
+        "id": 26,
+        "key": "middle-linear-function-evaluation"
+      },
+      {
+        "id": 29,
+        "key": "middle-slope"
+      }
+    ]
+  },
+  {
+    "track": "grade-8",
+    "stage": 2,
+    "categoryId": 7,
+    "categoryAr": "النسب والتناسب",
+    "categoryEn": "Ratios & Proportions",
+    "questions": 10,
+    "skills": [
+      {
+        "id": 33,
+        "key": "middle-map-scale"
+      },
+      {
+        "id": 34,
+        "key": "middle-percent-increase"
+      }
+    ]
+  },
+  {
+    "track": "grade-8",
+    "stage": 2,
+    "categoryId": 8,
+    "categoryAr": "الزوايا والقياس الهندسي",
+    "categoryEn": "Angles & Geometric Measurement",
+    "questions": 9,
+    "skills": [
+      {
+        "id": 35,
+        "key": "middle-triangle-angles"
+      },
+      {
+        "id": 36,
+        "key": "middle-circle-area"
+      },
+      {
+        "id": 38,
+        "key": "middle-vertical-angles"
+      },
+      {
+        "id": 39,
+        "key": "middle-polygon-angles"
+      }
+    ]
+  },
+  {
+    "track": "grade-8",
+    "stage": 2,
+    "categoryId": 22,
+    "categoryAr": "الإحصاء وتحليل البيانات",
+    "categoryEn": "Statistics & Data Analysis",
+    "questions": 6,
+    "skills": [
+      {
+        "id": 98,
+        "key": "m-statistics-distributions"
+      },
+      {
+        "id": 99,
+        "key": "m-statistics-summary-measures"
+      },
+      {
+        "id": 100,
+        "key": "m-statistics-charts"
+      },
+      {
+        "id": 299,
+        "key": "summary-measures"
+      }
+    ]
+  },
+  {
+    "track": "grade-8",
+    "stage": 2,
+    "categoryId": 34,
+    "categoryAr": "المثلثات والتشابه وفيثاغورس",
+    "categoryEn": "Triangles, Similarity & Pythagoras",
+    "questions": 16,
+    "skills": [
+      {
+        "id": 37,
+        "key": "middle-pythagorean-theorem"
+      },
+      {
+        "id": 40,
+        "key": "middle-similar-triangles"
+      }
+    ]
+  },
+  {
+    "track": "grade-8",
+    "stage": 2,
+    "categoryId": 84,
+    "categoryAr": "المتباينات الخطية",
+    "categoryEn": "Linear Inequalities",
+    "questions": 6,
+    "skills": [
+      {
+        "id": 325,
+        "key": "inequality-contexts"
+      },
+      {
+        "id": 326,
+        "key": "number-line-solutions"
+      },
+      {
+        "id": 327,
+        "key": "solve-linear-inequalities"
+      }
+    ]
+  },
+  {
+    "track": "grade-8",
+    "stage": 2,
+    "categoryId": 85,
+    "categoryAr": "الاحتمال والأحداث المركبة",
+    "categoryEn": "Probability & Compound Events",
+    "questions": 2,
+    "skills": [
+      {
+        "id": 335,
+        "key": "frequency"
+      },
+      {
+        "id": 336,
+        "key": "sample-spaces"
+      }
+    ]
+  },
+  {
+    "track": "grade-9",
+    "stage": 2,
+    "categoryId": 6,
+    "categoryAr": "الجبر والدوال",
+    "categoryEn": "Algebra & Functions",
+    "questions": 11,
+    "skills": [
+      {
+        "id": 27,
+        "key": "middle-quadratic-function-evaluation"
+      },
+      {
+        "id": 28,
+        "key": "middle-inverse-function-evaluation"
+      }
+    ]
+  },
+  {
+    "track": "grade-9",
+    "stage": 2,
+    "categoryId": 22,
+    "categoryAr": "الإحصاء وتحليل البيانات",
+    "categoryEn": "Statistics & Data Analysis",
+    "questions": 2,
+    "skills": [
+      {
+        "id": 98,
+        "key": "m-statistics-distributions"
+      }
+    ]
+  },
+  {
+    "track": "grade-9",
+    "stage": 2,
+    "categoryId": 34,
+    "categoryAr": "المثلثات والتشابه وفيثاغورس",
+    "categoryEn": "Triangles, Similarity & Pythagoras",
+    "questions": 4,
+    "skills": [
+      {
+        "id": 37,
+        "key": "middle-pythagorean-theorem"
+      },
+      {
+        "id": 40,
+        "key": "middle-similar-triangles"
+      }
+    ]
+  },
+  {
+    "track": "grade-9",
+    "stage": 2,
+    "categoryId": 84,
+    "categoryAr": "المتباينات الخطية",
+    "categoryEn": "Linear Inequalities",
+    "questions": 2,
+    "skills": [
+      {
+        "id": 327,
+        "key": "solve-linear-inequalities"
+      }
+    ]
+  },
+  {
+    "track": "grade-9",
+    "stage": 2,
+    "categoryId": 85,
+    "categoryAr": "الاحتمال والأحداث المركبة",
+    "categoryEn": "Probability & Compound Events",
+    "questions": 4,
+    "skills": [
+      {
+        "id": 336,
+        "key": "sample-spaces"
+      },
+      {
+        "id": 337,
+        "key": "simple-compound-events"
+      }
+    ]
+  },
+  {
+    "track": "grade-10",
+    "stage": 3,
+    "categoryId": 9,
+    "categoryAr": "الجبر المتقدم",
+    "categoryEn": "Advanced Algebra",
+    "questions": 22,
+    "skills": [
+      {
+        "id": 41,
+        "key": "secondary-quadratic-roots"
+      },
+      {
+        "id": 43,
+        "key": "secondary-vieta-roots"
+      },
+      {
+        "id": 44,
+        "key": "secondary-discriminant"
+      },
+      {
+        "id": 45,
+        "key": "secondary-factor-quadratics"
+      }
+    ]
+  },
+  {
+    "track": "grade-10",
+    "stage": 3,
+    "categoryId": 10,
+    "categoryAr": "حساب المثلثات",
+    "categoryEn": "Trigonometry",
+    "questions": 23,
+    "skills": [
+      {
+        "id": 46,
+        "key": "secondary-trigonometric-special-angles"
+      },
+      {
+        "id": 48,
+        "key": "secondary-right-triangle-trig-ratios"
+      }
+    ]
+  },
+  {
+    "track": "grade-10",
+    "stage": 3,
+    "categoryId": 23,
+    "categoryAr": "المتتاليات والمتسلسلات",
+    "categoryEn": "Sequences & Series",
+    "questions": 9,
+    "skills": [
+      {
+        "id": 103,
+        "key": "s-sequences-series-geometric-sequences"
+      },
+      {
+        "id": 104,
+        "key": "s-sequences-series-arithmetic-sequences"
+      }
+    ]
+  },
+  {
+    "track": "grade-10",
+    "stage": 3,
+    "categoryId": 35,
+    "categoryAr": "الإحصاء الوصفي",
+    "categoryEn": "Descriptive Statistics",
+    "questions": 6,
+    "skills": [
+      {
+        "id": 53,
+        "key": "secondary-arithmetic-mean"
+      }
+    ]
+  },
+  {
+    "track": "grade-10",
+    "stage": 3,
+    "categoryId": 87,
+    "categoryAr": "المتجهات",
+    "categoryEn": "Vectors",
+    "questions": 7,
+    "skills": [
+      {
+        "id": 339,
+        "key": "magnitude"
+      },
+      {
+        "id": 340,
+        "key": "vector-components"
+      }
+    ]
+  },
+  {
+    "track": "grade-10",
+    "stage": 3,
+    "categoryId": 88,
+    "categoryAr": "الهندسة التحليلية",
+    "categoryEn": "Analytic Geometry",
+    "questions": 4,
+    "skills": [
+      {
+        "id": 329,
+        "key": "coordinate-lines"
+      }
+    ]
+  },
+  {
+    "track": "grade-11",
+    "stage": 3,
+    "categoryId": 9,
+    "categoryAr": "الجبر المتقدم",
+    "categoryEn": "Advanced Algebra",
+    "questions": 9,
+    "skills": [
+      {
+        "id": 41,
+        "key": "secondary-quadratic-roots"
+      },
+      {
+        "id": 42,
+        "key": "secondary-logarithm-evaluation"
+      }
+    ]
+  },
+  {
+    "track": "grade-11",
+    "stage": 3,
+    "categoryId": 10,
+    "categoryAr": "حساب المثلثات",
+    "categoryEn": "Trigonometry",
+    "questions": 4,
+    "skills": [
+      {
+        "id": 47,
+        "key": "secondary-pythagorean-trig-identity"
+      }
+    ]
+  },
+  {
+    "track": "grade-11",
+    "stage": 3,
+    "categoryId": 11,
+    "categoryAr": "التفاضل والتكامل",
+    "categoryEn": "Calculus",
+    "questions": 13,
+    "skills": [
+      {
+        "id": 49,
+        "key": "secondary-polynomial-derivatives"
+      }
+    ]
+  },
+  {
+    "track": "grade-11",
+    "stage": 3,
+    "categoryId": 12,
+    "categoryAr": "الاحتمالات والتوافيق",
+    "categoryEn": "Probability & Combinatorics",
+    "questions": 5,
+    "skills": [
+      {
+        "id": 56,
+        "key": "secondary-combinations"
+      }
+    ]
+  },
+  {
+    "track": "grade-11",
+    "stage": 3,
+    "categoryId": 23,
+    "categoryAr": "المتتاليات والمتسلسلات",
+    "categoryEn": "Sequences & Series",
+    "questions": 11,
+    "skills": [
+      {
+        "id": 101,
+        "key": "s-sequences-series-series-sums"
+      },
+      {
+        "id": 102,
+        "key": "s-sequences-series-recurrence-relations"
+      },
+      {
+        "id": 103,
+        "key": "s-sequences-series-geometric-sequences"
+      }
+    ]
+  },
+  {
+    "track": "grade-11",
+    "stage": 3,
+    "categoryId": 35,
+    "categoryAr": "الإحصاء الوصفي",
+    "categoryEn": "Descriptive Statistics",
+    "questions": 5,
+    "skills": [
+      {
+        "id": 54,
+        "key": "secondary-population-variance"
+      }
+    ]
+  },
+  {
+    "track": "grade-11",
+    "stage": 3,
+    "categoryId": 86,
+    "categoryAr": "الدوال الأسّية واللوغاريتمية",
+    "categoryEn": "Exponential & Logarithmic Functions",
+    "questions": 13,
+    "skills": [
+      {
+        "id": 310,
+        "key": "decay-half-life"
+      },
+      {
+        "id": 311,
+        "key": "growth-models"
+      },
+      {
+        "id": 312,
+        "key": "logarithm-domain"
+      },
+      {
+        "id": 313,
+        "key": "logarithm-inverse-and-equations"
+      },
+      {
+        "id": 315,
+        "key": "logarithm-properties"
+      },
+      {
+        "id": 316,
+        "key": "model-interpretation"
+      }
+    ]
+  },
+  {
+    "track": "grade-11",
+    "stage": 3,
+    "categoryId": 87,
+    "categoryAr": "المتجهات",
+    "categoryEn": "Vectors",
+    "questions": 5,
+    "skills": [
+      {
+        "id": 338,
+        "key": "dot-product"
+      },
+      {
+        "id": 339,
+        "key": "magnitude"
+      }
+    ]
+  },
+  {
+    "track": "grade-11",
+    "stage": 3,
+    "categoryId": 88,
+    "categoryAr": "الهندسة التحليلية",
+    "categoryEn": "Analytic Geometry",
+    "questions": 7,
+    "skills": [
+      {
+        "id": 328,
+        "key": "circles"
+      },
+      {
+        "id": 330,
+        "key": "loci"
+      }
+    ]
+  },
+  {
+    "track": "grade-12",
+    "stage": 3,
+    "categoryId": 10,
+    "categoryAr": "حساب المثلثات",
+    "categoryEn": "Trigonometry",
+    "questions": 1,
+    "skills": [
+      {
+        "id": 47,
+        "key": "secondary-pythagorean-trig-identity"
+      }
+    ]
+  },
+  {
+    "track": "grade-12",
+    "stage": 3,
+    "categoryId": 11,
+    "categoryAr": "التفاضل والتكامل",
+    "categoryEn": "Calculus",
+    "questions": 15,
+    "skills": [
+      {
+        "id": 49,
+        "key": "secondary-polynomial-derivatives"
+      },
+      {
+        "id": 50,
+        "key": "secondary-indefinite-integrals"
+      },
+      {
+        "id": 51,
+        "key": "secondary-definite-integrals"
+      }
+    ]
+  },
+  {
+    "track": "grade-12",
+    "stage": 3,
+    "categoryId": 23,
+    "categoryAr": "المتتاليات والمتسلسلات",
+    "categoryEn": "Sequences & Series",
+    "questions": 14,
+    "skills": [
+      {
+        "id": 101,
+        "key": "s-sequences-series-series-sums"
+      },
+      {
+        "id": 102,
+        "key": "s-sequences-series-recurrence-relations"
+      },
+      {
+        "id": 113,
+        "key": "s-sequences-series-series-convergence"
+      },
+      {
+        "id": 300,
+        "key": "series-convergence"
+      }
+    ]
+  },
+  {
+    "track": "grade-12",
+    "stage": 3,
+    "categoryId": 86,
+    "categoryAr": "الدوال الأسّية واللوغاريتمية",
+    "categoryEn": "Exponential & Logarithmic Functions",
+    "questions": 6,
+    "skills": [
+      {
+        "id": 310,
+        "key": "decay-half-life"
+      },
+      {
+        "id": 313,
+        "key": "logarithm-inverse-and-equations"
+      },
+      {
+        "id": 314,
+        "key": "logarithm-modeling"
+      },
+      {
+        "id": 315,
+        "key": "logarithm-properties"
+      }
+    ]
+  },
+  {
+    "track": "grade-12",
+    "stage": 3,
+    "categoryId": 87,
+    "categoryAr": "المتجهات",
+    "categoryEn": "Vectors",
+    "questions": 2,
+    "skills": [
+      {
+        "id": 338,
+        "key": "dot-product"
+      }
+    ]
+  },
+  {
+    "track": "grade-12",
+    "stage": 3,
+    "categoryId": 88,
+    "categoryAr": "الهندسة التحليلية",
+    "categoryEn": "Analytic Geometry",
+    "questions": 1,
+    "skills": [
+      {
+        "id": 328,
+        "key": "circles"
+      }
+    ]
+  },
+  {
+    "track": "calculus",
+    "stage": 4,
+    "categoryId": 13,
+    "categoryAr": "التفاضل متعدد المتغيرات",
+    "categoryEn": "Multivariable Calculus",
+    "questions": 28,
+    "skills": [
+      {
+        "id": 57,
+        "key": "university-partial-derivatives"
+      },
+      {
+        "id": 58,
+        "key": "university-double-integrals"
+      },
+      {
+        "id": 59,
+        "key": "university-gradient"
+      },
+      {
+        "id": 60,
+        "key": "university-directional-derivative"
+      }
+    ]
+  },
+  {
+    "track": "calculus",
+    "stage": 4,
+    "categoryId": 16,
+    "categoryAr": "النهايات والاستمرارية",
+    "categoryEn": "Limits & Continuity",
+    "questions": 18,
+    "skills": [
+      {
+        "id": 70,
+        "key": "university-function-limits"
+      },
+      {
+        "id": 71,
+        "key": "university-differentiability-continuity"
+      },
+      {
+        "id": 73,
+        "key": "university-intermediate-value-theorem"
+      }
+    ]
+  },
+  {
+    "track": "calculus",
+    "stage": 4,
+    "categoryId": 36,
+    "categoryAr": "المتتاليات والتقارب",
+    "categoryEn": "Sequences & Convergence",
+    "questions": 22,
+    "skills": [
+      {
+        "id": 72,
+        "key": "university-sequence-limits"
+      },
+      {
+        "id": 74,
+        "key": "university-monotone-convergence"
+      },
+      {
+        "id": 75,
+        "key": "university-series-convergence"
+      }
+    ]
+  },
+  {
+    "track": "differential-equations",
+    "stage": 4,
+    "categoryId": 15,
+    "categoryAr": "المعادلات التفاضلية",
+    "categoryEn": "Differential Equations",
+    "questions": 32,
+    "skills": [
+      {
+        "id": 66,
+        "key": "university-exponential-ode"
+      },
+      {
+        "id": 67,
+        "key": "university-ode-order"
+      },
+      {
+        "id": 68,
+        "key": "university-integrating-ode"
+      },
+      {
+        "id": 69,
+        "key": "university-second-order-ivp"
+      }
+    ]
+  },
+  {
+    "track": "discrete-mathematics",
+    "stage": 4,
+    "categoryId": 24,
+    "categoryAr": "المنطق والرياضيات المتقطعة",
+    "categoryEn": "Logic & Discrete Mathematics",
+    "questions": 32,
+    "skills": [
+      {
+        "id": 105,
+        "key": "u-discrete-math-graphs"
+      },
+      {
+        "id": 106,
+        "key": "u-discrete-math-combinatorics"
+      },
+      {
+        "id": 107,
+        "key": "u-discrete-math-relations"
+      },
+      {
+        "id": 108,
+        "key": "u-discrete-math-proofs"
+      },
+      {
+        "id": 109,
+        "key": "u-discrete-math-logic"
+      },
+      {
+        "id": 301,
+        "key": "logic"
+      }
+    ]
+  },
+  {
+    "track": "linear-algebra",
+    "stage": 4,
+    "categoryId": 14,
+    "categoryAr": "الجبر الخطي",
+    "categoryEn": "Linear Algebra",
+    "questions": 31,
+    "skills": [
+      {
+        "id": 61,
+        "key": "university-matrix-determinants"
+      },
+      {
+        "id": 62,
+        "key": "university-linear-independence"
+      },
+      {
+        "id": 63,
+        "key": "university-dot-product"
+      },
+      {
+        "id": 64,
+        "key": "university-matrix-trace"
+      },
+      {
+        "id": 65,
+        "key": "university-vector-scaling"
+      }
+    ]
+  },
+  {
+    "track": "mathematical-optimization",
+    "stage": 4,
+    "categoryId": 91,
+    "categoryAr": "التحسين الرياضي",
+    "categoryEn": "Mathematical Optimization",
+    "questions": 15,
+    "skills": [
+      {
+        "id": 341,
+        "key": "constrained-optimization"
+      },
+      {
+        "id": 342,
+        "key": "convexity"
+      },
+      {
+        "id": 343,
+        "key": "unconstrained-optimization"
+      }
+    ]
+  },
+  {
+    "track": "numerical-analysis",
+    "stage": 4,
+    "categoryId": 90,
+    "categoryAr": "التحليل العددي",
+    "categoryEn": "Numerical Analysis",
+    "questions": 12,
+    "skills": [
+      {
+        "id": 331,
+        "key": "error-analysis"
+      },
+      {
+        "id": 332,
+        "key": "linear-systems"
+      },
+      {
+        "id": 333,
+        "key": "numerical-integration"
+      },
+      {
+        "id": 334,
+        "key": "root-finding"
+      }
+    ]
+  },
+  {
+    "track": "probability-statistics",
+    "stage": 4,
+    "categoryId": 89,
+    "categoryAr": "الإحصاء الرياضي",
+    "categoryEn": "Mathematical Statistics",
+    "questions": 3,
+    "skills": [
+      {
+        "id": 318,
+        "key": "hypothesis-testing"
+      },
+      {
+        "id": 319,
+        "key": "sampling-distribution"
+      }
+    ]
+  }
+]
