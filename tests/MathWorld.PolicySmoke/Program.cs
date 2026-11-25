@@ -33,8 +33,14 @@ foreach (var requestedRole in new[] { "Student", "Supervisor", "SuperAdmin", "Ow
 Assert(AccountRolePolicy.IsSupportedSessionRole("Supervisor"), "Managed supervisor role recognized.");
 Assert(AccountRolePolicy.ValidStaffPermissions(0) && AccountRolePolicy.ValidStaffPermissions(1) &&
        AccountRolePolicy.ValidStaffPermissions(3) && !AccountRolePolicy.ValidStaffPermissions(2) &&
-       !AccountRolePolicy.ValidStaffPermissions(4) && !AccountRolePolicy.ValidStaffPermissions(-1),
-       "Only edit and submit permissions are allowed; submit requires edit.");
+       AccountRolePolicy.ValidStaffPermissions(4) && AccountRolePolicy.ValidStaffPermissions(12) &&
+       AccountRolePolicy.ValidStaffPermissions(31) && !AccountRolePolicy.ValidStaffPermissions(8) &&
+       !AccountRolePolicy.ValidStaffPermissions(32) && !AccountRolePolicy.ValidStaffPermissions(-1),
+       "Explicit staff permission mask; submit requires edit and activity requires student access.");
+Assert(!AccountRolePolicy.HasStaffPermission(3,AccountRolePolicy.ViewStudents),"Default supervisor cannot view students.");
+Assert(AccountRolePolicy.HasStaffPermission(12,AccountRolePolicy.ViewStudentActivity),"Explicit student activity permission.");
+Assert(!AccountRolePolicy.HasStaffPermission(4,AccountRolePolicy.ViewStudentActivity),"Student list alone does not permit activity.");
+Assert(!AccountRolePolicy.HasStaffPermission(3,AccountRolePolicy.ViewReports),"Default supervisor cannot view reports.");
 Console.WriteLine("PASS: existing roles and bounded staff permissions.");
 Assert(StudentOnboardingPolicy.Next(true,false,true,false,true,false)=="VerifyEmail","Verification first.");
 Assert(StudentOnboardingPolicy.Next(true,true,true,false,true,false)=="SelectStage","Stage before track.");
