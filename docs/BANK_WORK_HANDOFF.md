@@ -107,6 +107,9 @@ Based on PR 179 head fbf7bad09d5bc9dd5c1c412454f3c098b1eaacd9, with three GitHub
 
 All 41 local Node tests and 14 G1 checks passed. Pilot and bulk dry runs each produced 312 proposals in seven Confirm=false files, excluding 92 holds. Both stayed within 50 rows and 1.8 MB per file. The live-pair fingerprint matched the prior export. A fresh read-only inventory verified 786 assignments. All 80 track/category and skill rows matched the committed fixture by linkage, while 38 published counts differed; use the fresh inventory for coverage. Linked categories need 7,294 more published assignments, or 6,982 after the 312 pending proposals if approved and published. Including 33 category slots awaiting approved linkage, the total published deficit is 10,627. The 200-family queue still reserves up to 600 hypothetical questions and leaves 6,382 linked assignments uncovered after the reservations. No imports or publications occurred. CI for V18 follows the push.
 
+## School launch target — five categories × 20 published problems
+The [school launch coverage plan](BANK_SCHOOL_LAUNCH.md) is prioritized before the longer-term authoring queue. It selects 20 matching existing drafts and 171 growth proposals that fill the launch gaps. The latter fit in four Confirm=false files. The read-only reconciliation matched and compared all 59 existing G1 drafts, then isolated four semantic holds during the priority pass. The best-case remaining deficit after the 191 review candidates is 517, including 140 for the seven category links. Follow the documented evidence for the first curriculum decisions and start linked grade-1 review in parallel. This checkpoint performed no production mutation.
+
 ## Five-category minimum — school tracks
 The verified 80-row inventory has seven missing school category links. Grades 3, 4, 5 and 7–12 each have at least five populated categories.
 
