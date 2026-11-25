@@ -17,7 +17,7 @@ public static class StudentOnboardingPolicy
         path=path.TrimEnd('/').ToLowerInvariant();
         if(method=="GET" && path is "/api/users/onboarding" or "/api/users/profile" or "/api/platform/brand" or "/api/config/features")return true;
         if(method=="POST" && path=="/api/users/session/sign-out")return true;
-        if(method=="POST" && path is "/api/auth/email-verification/request" or "/api/auth/email-verification/confirm")return true;
+        if(method=="POST" && path is "/api/auth/email-verification/request" or "/api/auth/email-verification/confirm" or "/api/auth/email-verification/confirm-code")return true;
         if(step=="VerifyEmail")return false;
         if(method=="GET" && (path is "/api/stages" or "/api/users/learning-stage" or "/api/users/learning-track" ||
             System.Text.RegularExpressions.Regex.IsMatch(path,@"^/api/stages/[0-9]+/tracks$")))return true;
