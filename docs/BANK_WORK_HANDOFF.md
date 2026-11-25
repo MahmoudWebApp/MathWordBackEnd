@@ -3,7 +3,7 @@ Updated 2026-11-25. This is a shared handoff, not a scheduler or autonomous agen
 ## Start here
 - Read docs/MASTER_DELIVERY_LEDGER.md and scripts/bank-growth/README.md.
 - PR 178 (feat/bank-university-families, base main): checkpoint 77b7eae35956a78309dc0e0a231f13cd7e2d6dc5, four CI checks green.
-- PR 179 (feat/bank-growth-bulk-preparation, base feat/bank-university-families): previous verified head 8ed4ddcd097ace4bbe4201ea2e7c5ec86c25a302, three workflows green. BANK-01 reconciliation a083d65e4506544882cea418a41b53e7d284b08a. V7 school wave 0aa0cf29f2c871ddf0ed22228da30ac6a166b765 passed three GitHub workflows. V8 university wave 944997ae11f5307bc12a36e878f254bec4c64ef5 passed three GitHub workflows. Draft-signature reconciliation d50d310d993e0f9897aafd76d3b8d4ec642a2555. The V9 checkpoint is the PR head introducing school-application-wave.mjs; verify its checks before resuming.
+- PR 179 (feat/bank-growth-bulk-preparation, base feat/bank-university-families): previous verified head 8ed4ddcd097ace4bbe4201ea2e7c5ec86c25a302, three workflows green. BANK-01 reconciliation a083d65e4506544882cea418a41b53e7d284b08a. V7 school wave 0aa0cf29f2c871ddf0ed22228da30ac6a166b765 passed three GitHub workflows. V8 university wave 944997ae11f5307bc12a36e878f254bec4c64ef5 passed three GitHub workflows. Draft-signature reconciliation d50d310d993e0f9897aafd76d3b8d4ec642a2555. V9 school applications 7681c0fab32b176313f0664af59bf9a6f719ad9d passed three GitHub workflows. The subsequent placement review covers the 22 staged classification gaps.
 - Use PR 179 branch for further offline work; re-read actual head and checks before starting. Do not force-push, merge blindly or modify main. Only one authoring session writes the branch at a time.
 ## Current state
 300 authored candidates, 283 active offline candidates, 17 held for potential semantic overlap; none of these counts mean imported or published. 129 named families, not proof of distinct pedagogical ideas. Existing live snapshot: 773 problems, 728 track assignments. Historical coverage goal: 101 published distinct problems per linked track/category, at least five populated categories per track, including 12 school grades and seven university courses; target 11,413 assignments, remaining snapshot deficit 10,685, 33 missing category links. Refresh live inventory before actual import. Do not invent taxonomy.
@@ -21,7 +21,7 @@ All 59 planned new items already exist as Draft by exact key and have a bilingua
 | Grade 12 | 969 | — |
 | Probability and Statistics | 1012 | — |
 
-Draft IDs are Wizard records, not source problem IDs. Thirty-seven drafts have existing links, but still need quality and duplicate review before publishing.
+Draft IDs are Wizard records, not source problem IDs. Thirty-seven drafts have existing links, but still need quality and duplicate review before publishing. The [22-draft placement review](BANK_G1_PLACEMENT_REVIEW_2026-11-25.md) records per-draft answer checks, scope proposals and semantic overlap decisions. Review grade-6 missing-mean #1002 against the active grade-5 family before approval.
 
 All 45 holds still match original source evidence. The full wording history guard blocked problems #7, #10 and #177 at this snapshot. The other 34 wording proposals still need authenticated scope/source validation, and eight option/classification holds stay excluded. Do not clear history or remap stable options.
 
