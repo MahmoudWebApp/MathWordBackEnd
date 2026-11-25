@@ -18,3 +18,5 @@ V6: 24 additional candidates (8 families); 15 V5 candidates held for possible se
 V7: 12 additional authored items across all school grades. Two semantic holds exclude the capacity ceiling and variance scaling items from previews. The 262 active candidates are generated with the existing pilot and prepare commands. See the bank handoff for the read-only reconciliation and verification results.
 
 V8: 12 additional authored items across the seven university courses. The local exact-match dry run uses `bulk-prepare` with fresh known pairs even when there are no external wave files. There are now 274 active offline candidates in six preview-only batches and 17 candidates held for possible semantic overlap.
+
+V9: nine additional authorship-review candidates on linked school skills. The integrated catalog now has 300 authored candidates, 283 active and 17 held. Exact-match validation against current live/draft pairs and both offline preparation paths passed. See the handoff for the latest coverage and review queue.
