@@ -134,11 +134,12 @@ public sealed partial class EditorialProblemsController:ControllerBase
             Skills=await db.CurriculumSkills.Where(x=>x.StageId==stageId&&x.IsPublished&&x.Domain.IsPublished).OrderBy(x=>x.SortOrder).Select(x=>new{x.Id,x.CategoryId,x.NameAr,x.NameEn}).ToListAsync(ct)});
     }
     [HttpGet]
-    public async Task<IActionResult> List([FromQuery]int page=1,CancellationToken ct=default)
+    public async Task<IActionResult> List([FromQuery]int page=1,[FromQuery]bool activeOnly=false,CancellationToken ct=default)
     {
         if(await Actor(AccountRolePolicy.EditDrafts,false,ct) is null)return Forbid();
         if(page is <1 or >10000)return BadRequest();
         var q=Own().AsNoTracking();
+        if(activeOnly)q=q.Where(x=>x.EditorialStatus=="Draft"||x.EditorialStatus=="NeedsChanges"||x.EditorialStatus=="PendingReview"||x.EditorialStatus=="Approved");
         var items=await q.OrderByDescending(x=>x.Id).Skip((page-1)*30).Take(30)
             .Select(x=>new{x.Id,x.OwnerUserId,x.Revision,Status=x.EditorialStatus,x.QuestionTextAr,x.QuestionTextEn,x.ReviewNote,x.PublishedProblemId,x.SourceProblemId}).ToListAsync(ct);
         return Ok(new{Total=await q.CountAsync(ct),Items=items});
