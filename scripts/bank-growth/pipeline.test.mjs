@@ -10,3 +10,6 @@ test('taxonomy and target gating',()=>{const rows=generate();const r=rows[0];con
 
 import {universityWave,solveUniversity} from './university-wave.mjs';
 test('university wave covers seven existing courses',()=>{const r=universityWave();assert.equal(r.length,45);assert.equal(new Set(r.map(x=>x.ProposedTrackCodes[0])).size,7);assert.equal(new Set(r.map(x=>x.Family)).size,15);assert.deepEqual(validate([...generate(),...wave2(),...r]),[]);for(const row of r)assert.equal(String(solveUniversity(row)),row.Check.expected,row.ContentKey);const inventory=JSON.parse(readFileSync(new URL('./inventory-20261125.json',import.meta.url),'utf8'));assert.equal(selectCandidates(r,inventory).selected.length,45);assert.deepEqual(r,universityWave());});
+
+import {depthWave} from './depth-wave.mjs';
+test('depth wave adds 69 bounded candidates on linked skills',()=>{const r=depthWave();assert.equal(r.length,69);assert.deepEqual(r,depthWave());assert.deepEqual(validate([...generate(),...wave2(),...universityWave(),...r]),[]);const inv=JSON.parse(readFileSync(new URL('./inventory-20261125.json',import.meta.url),'utf8'));assert.equal(selectCandidates(r,inv).selected.length,r.length);});
