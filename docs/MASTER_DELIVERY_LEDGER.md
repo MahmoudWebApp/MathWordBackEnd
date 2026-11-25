@@ -1,0 +1,49 @@
+# MathWorld — Master delivery ledger / سجل التطوير المركزي
+Last verified: 2026-11-25. Owner approved this as the single handoff reference. This is a living evidence-based index, not proof of live acceptance or exhaustive recovery of historical conversations.
+
+## Rules for every future session
+- Read this ledger first, then the detailed source for the active item. Latest owner decision overrides conflicting older plans.
+- Never redo implemented work merely because it appears on an old roadmap. Reopen only for a concrete regression, changed requirement or missing acceptance evidence.
+- Update the same row after every actual batch: repository, PR/commit, CI, deployment, live/device acceptance, next action. Code implemented, merged, CI green, deployed and UAT accepted are distinct states.
+- Non-bank work first, question bank last, then final acceptance and coordinated release. Email provider setup remains separately blocked.
+- Batch changes to respect Vercel/Render limits. One official website and one Android app, no additional QA site. No destructive operations, silent data changes, credentials in docs or unreviewed publication.
+- If evidence is missing mark UNKNOWN, not DONE. Preserve old plans as sources, not separate competing checklists.
+
+## Verified checkpoint
+| Component | Evidence / status |
+|---|---|
+| Backend main | [308ff3e](https://github.com/MahmoudWebApp/MathWordBackEnd/commit/308ff3ee2ad8006a9c09dc03e3df71dead2162cf), existing merged baseline; not fresh live acceptance |
+| Web | [PR 113](https://github.com/MahmoudWebApp/MathWorldFrontend/pull/113) merged; 2/2 CI green; main a9132893538a157c00c384e760cda9b9c87ced83; [Vercel production READY](https://vercel.com/mahmouds-projects-0868fac1/math-world-frontend/6FtJgrauW3mH3cJwbRBZzotFDDT1); domain assignment/authenticated UAT not independently checked |
+| Mobile | main 68f7fa1dc5e988c6e225c3c3b8213c52e347d5d4; [PR 80](https://github.com/MahmoudWebApp/mathworld-mobile/pull/80) head df0e7ad: 3/4 CI green, [additional social-auth test APK build](https://github.com/MahmoudWebApp/mathworld-mobile/actions/runs/45545522420) running at last check |
+| Render/Supabase | No new live deployment or database write verified in this checkpoint |
+
+## Delivery ledger — execution order
+| ID | Scope / final decisions | Evidence and current state | Remaining action |
+|---|---|---|---|
+| MW-03 | Student home, resume, stage selection, solved tags/hide solved, error notebook, category/level reset, preserve progress, 5–10-question independent practice; no student attempt history | Backend PRs [85](https://github.com/MahmoudWebApp/MathWordBackEnd/pull/85), [34](https://github.com/MahmoudWebApp/MathWordBackEnd/pull/34), [101](https://github.com/MahmoudWebApp/MathWordBackEnd/pull/101) merged/green; web 113 merged/green, mobile 80 pending | Merge mobile when green; final UAT for resume, scope reset, solved error removal, stage/track changes; do not rewrite |
+| MW-04 | Premium sequential five-question daily challenge, correct-only advancement, real leaderboard, points/badges, verifiable learning certificates | Backend 101, [36](https://github.com/MahmoudWebApp/MathWordBackEnd/pull/36) merged/green; web 113 session recovery/certificate fixes; mobile 80 pending | Verify flags, UTC rollover, no double points, certificate eligibility/issuance/PDF/verification; not accredited academic credentials |
+| MW-07 | Real student/admin analytics and bilingual branded PDF/XLSX, native charts, no views | Backend [104](https://github.com/MahmoudWebApp/MathWordBackEnd/pull/104), [87](https://github.com/MahmoudWebApp/MathWordBackEnd/pull/87), 101 merged; PDF/XLSX and related CI green | Live exports/UI UAT and scope attribution, no rewrite |
+| MW-05 | Admin/superadmin/supervisor roles, learner directory, editor Wizard, draft/review/publish, audit logs/export, social links/branding, notifications | Backend [11](https://github.com/MahmoudWebApp/MathWordBackEnd/pull/11), 101 merged/green for admin separation/analytics. Other individual subfeatures not independently revalidated here | Role/direct API denial and admin tool UAT, only fix verified gaps; bank publishing deferred |
+| MW-06 | Free exactly two admin-selected categories/stage, unlimited practice inside them; Premium all categories, early solutions, analytics, no ads; gifts/discounts, manual grant/expiry, upgrade without prices; Google only, password change/reset/verification | Backend [49](https://github.com/MahmoudWebApp/MathWordBackEnd/pull/49), 101 merged/green for entitlement and revoked accounts; account password CI green on recent branch | Actual free/locked API, expiry, discounts, grants, Google/password UAT; email blocked separately |
+| MW-02 | Grades 1–12 and university courses, stage/track selection, categories/skills/mapping, scope isolation, preserved history | Reviewed batch implementation present on both main branches. Web [110](https://github.com/MahmoudWebApp/MathWorldFrontend/pull/110) closed as superseded, newer main adds Premium-only course confirmation. Backend [150](https://github.com/MahmoudWebApp/MathWordBackEnd/pull/150) open/conflicting; most files identical, several differ | Reconcile differing files before retiring old PR; check live mapping/flags without writes. Publication depends on coverage and review; content gaps belong to MW-10 |
+| MW-01 | Schema, hosting, RLS, migrations and readiness | Prior backend 101 schema-readiness green; historical G1 read-only check: 27 public tables RLS enabled with no direct anon/authenticated table grants | Verify live health/ready, Render SHA and EF/Supabase ledgers; no unnecessary migrations |
+| MW-08 | Web/Flutter parity, AR/EN RTL/LTR, dark/light, logos and launcher, stage colors, count styling, category SVG, skills popup, responsive UI, subtle pattern, SEO, performance, security/CAPTCHA | Existing release closeout records implementation; web current CI green; backend 49 security CI green. Physical-device, live latency, SEO and CAPTCHA UAT not verified here | Targeted acceptance/measurements; no generic redesign or blind optimization |
+| MW-09 | Email verification/reset/notifications; branded header/footer/social links and centralized settings | Backend [149](https://github.com/MahmoudWebApp/MathWordBackEnd/pull/149) restricted Resend demo open, CI green; actual provider delivery not verified. One allowed demo recipient does not meet multi-student delivery | Provider setup/credentials in protected host settings, real receipt and reset/revocation test; Hostinger email later |
+| MW-10 | LAST development task: complete bank, answers/distractors, two progressive hints, law/formula/steps/substitution/verification/units/common errors, bilingual LaTeX/diagrams, skills/difficulty/grade placement, no duplicates | Historical 773 published inventory, not a fresh count. G1 gates: newer 722 mapping candidates/17 draft tracks, 51 excluded. Open [backend 152](https://github.com/MahmoudWebApp/MathWordBackEnd/pull/152) and [web 112](https://github.com/MahmoudWebApp/MathWorldFrontend/pull/112); stated package 672 structured, 60 hint-only, 59 new drafts, 41 holds; no verified import/publication. 832 is a planning goal, not live count | Reconcile source and package, resolve holds/coverage, preview/confirm guarded drafts, explicitly review and publish; preserve question IDs, options/history. Live category/skill counts must be checked |
+| MW-11 | Final integrated UAT and delivery | OPEN; builds alone are not acceptance | Verify backend/web, one signed Android release APK, signing identity, install/update and real Google login, both roles/plans, reports, performance, content and one official website |
+
+## Superseded / deferred
+- Cancelled: 10/day free quota, fixed 10-question group rule, Meta/Facebook login, student views and attempt-history UI. Retain internal attempts/audit/history.
+- Separate launch/business phase: Hostinger VPS/domain, independent backup/restore, electronic payments/prices, ad networks/rewarded unlocks (Premium ad-free), paid marketing and YouTube/TikTok, tutoring, Meilisearch, store launch/iOS as applicable. No automatic activation.
+- Older weekly/monthly tournament, formal exam, FCM/APNs/SMS, admin MFA and creator-calendar proposals require scope reconciliation; do not silently cancel or call complete.
+- Demo-only backup exception approved Nov 24 does not waive independent backup/restore for real launch.
+
+## Detailed source documents (historical unless explicitly current)
+- [G1 acceptance gates](G1_RELEASE_ACCEPTANCE_GATES.md) — current content and release gates, supersedes old candidate counts.
+- [Nov 23 release closeout](RELEASE_CLOSEOUT_2026-11-23.md) — UAT contract, historical issue reconciliation.
+- [Full stack roadmap](MATHWORLD_FULL_STACK_LAUNCH_ROADMAP.md), [admin roadmap](ADMIN_CONTROL_CENTER_ROADMAP.md), [premium roadmap](STUDENT_JOURNEY_PREMIUM_ROADMAP.md), [engagement plan](MATHWORLD_ENGAGEMENT_CHALLENGES_CERTIFICATES_PLAN.md), [growth/SEO plan](MATHWORLD_GROWTH_SEO_CAPTCHA_REWARDED_ACCESS_PLAN.md), [student journey plan](MATHWORLD_STUDENT_JOURNEY_CONTENT_LONGEVITY_PLAN.md).
+- G1 bank, track, independent sessions, certificates, hints and backup documents in this directory are detailed references. Do not repeat their completed tasks.
+- Initial ledger derives from available conversation summaries, repo documents, PRs, CI and Vercel records, not full verbatim history. Append recovered omitted approved requirements with source and evidence.
+
+## Change log
+2026-11-25: central ledger established; web 113 merged/READY, obsolete web 110 closed, mobile 80 awaiting final CI, bank deferred by owner. No data mutation or manual deploy.
