@@ -1,5 +1,37 @@
 # MathWorld bank — Work / ChatGPT handoff
 Updated 2026-11-26. This is a shared handoff, not a scheduler or autonomous agent.
+## Amendment review checkpoint — 2026-11-26
+Read-only mathematical and source-integrity review of existing staged amendments #400–424, all Draft revision 0 at the observed snapshot (not approval or publication). The earlier five and twenty newly reviewed expected answers:
+| Draft | Source | Independent answer |
+|---|---|---|
+| 400 | 185 | 147 |
+| 401 | 186 | 18 |
+| 402 | 187 | 70 |
+| 403 | 188 | 6 |
+| 404 | 190 | 10 |
+| 405 | 191 | 34 |
+| 406 | 192 | 40 |
+| 407 | 193 | 500 |
+| 408 | 194 | 6 |
+| 409 | 196 | 19 |
+| 410 | 197 | 192 |
+| 411 | 198 | 20 |
+| 412 | 199 | 88 |
+| 413 | 200 | 7 |
+| 414 | 202 | 11 |
+| 415 | 203 | 38 |
+| 416 | 204 | 30 |
+| 417 | 205 | 600 |
+| 418 | 206 | 7 |
+| 419 | 208 | 22 |
+| 420 | 209 | 2 |
+| 421 | 210 | 2^2 |
+| 422 | 211 | 40 |
+| 423 | 212 | 3 |
+| 424 | 213 | 2 |
+
+All 25 matched the current live bilingual stems, ordered option values and correct flags, primary skill IDs, track assignments, and linked track skills in a fresh scoped read-only query. All independently computed answers and inspected formulas/substitutions/verification/hints agree mathematically. Existing variants are amendments, not 25 new concepts or questions. Retain existing options and history. **Remaining editorial gates:** #423/source #212 is already flagged in G1_06_COMPLETE_TRACK_PLACEMENT.md for inverse-function vs linear-equation skill wording; do not approve until scope reviewed. Some stored LaTeX commands contain escaped backslashes; verify actual render in both clients rather than assuming normalization or rewriting blindly. For #405–424 the full solution steps, distractor reasons and units were not all re-read in this pass; verify them before authorized approval. Continue next preliminary math/source review from #425; separately finish pending checks on #400–424 and publication from #400 using the existing authenticated admin workflow. No production writes, no new problem count, no reduction in the 568 outstanding amendment count. The automated worker now prioritizes completing review and publication readiness over adding redundant drafts.
+
 ## Latest continuation checkpoint — 2026-11-26
 - PR 179 checkpoint c5239bccb0104e6704ff3fbf642ea004f92749af incorporates PRs 183/184 (launch coverage planning and priority previews), 185/186 (school and university editorial scope proposals), 187 (V20). The V20 PR passed all three workflows before merging; recheck combined branch CI.
 - Starting from the previous recorded 479 candidates, six V20 items were authored: four remain unreviewed candidates and two are held (compare-two-repair-batches-with-returned-items overlaps live #1758; equal-storage-boxes-after-fixed-damaged-count overlaps two-step equations). Thus the registry-derived handoff total is 485 authored, 58 previously confirmed published, 327 awaiting review, 100 held, subject to live reconciliation. No new production publication was performed by this continuation.
