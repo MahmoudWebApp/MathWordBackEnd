@@ -42,6 +42,7 @@ Assert(StudentOnboardingPolicy.Next(true,true,true,true,true,false)=="SelectTrac
 Assert(StudentOnboardingPolicy.Next(true,true,true,true,true,true)=="Complete","Complete only after all requirements.");
 Assert(!StudentOnboardingPolicy.Allows("VerifyEmail","PUT","/api/users/learning-track"),"Unverified student cannot select track.");
 Assert(StudentOnboardingPolicy.Allows("VerifyEmail","POST","/api/auth/email-verification/request"),"Resend remains possible.");
+Assert(StudentOnboardingPolicy.Allows("VerifyEmail","GET","/api/config/features"),"Public client configuration remains accessible during onboarding.");
 Assert(!StudentOnboardingPolicy.Allows("SelectTrack","POST","/api/users/favorite/toggle"),"Incomplete student cannot practice.");
 Assert(StudentOnboardingPolicy.Allows("SelectTrack","PUT","/api/users/learning-track"),"Track selection remains possible.");
 
