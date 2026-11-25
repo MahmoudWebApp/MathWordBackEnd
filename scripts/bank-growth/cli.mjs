@@ -17,9 +17,10 @@ const [cmd,input,output,...extra]=process.argv.slice(2);
 const read=p=>JSON.parse(readFileSync(p,'utf8'));
 const save=(p,x)=>writeFileSync(p,JSON.stringify(x,null,2)+'\n',{flag:'wx'});
 const all=()=>[...generate(),...wave2(),...universityWave(),...depthWave(),...coverageWave(),...reasoningWave(),...schoolWave(),...courseWave(),...schoolApplicationWave(),...transferWave(),...reasoningExtensionWave(),...schoolReasoningApplications()];
+const publishedKeys=new Set(read(new URL('./published-expansion.json',import.meta.url)).map(row=>row.key));
 const excluded=new Set([...heldFamilies,...schoolHolds,...transferHolds]);
 function wave(p){const x=read(p);if(!Array.isArray(x.Items))throw Error('Expected Items in '+p);return x.Items;}
-function active(rows){const errors=validate(rows);if(errors.length)throw Error(JSON.stringify(errors));return rows.filter(r=>!excluded.has(r.Family));}
+function active(rows){const errors=validate(rows);if(errors.length)throw Error(JSON.stringify(errors));return rows.filter(r=>!excluded.has(r.Family)&&!publishedKeys.has(r.ContentKey));}
 if(cmd==='plan'&&input&&output)save(output,plan(read(input)));
 else if(cmd==='queue'&&input&&output){const [max='200',...waves]=extra;save(output,authorQueue(read(input),active([...all(),...waves.flatMap(wave)]),Number(max)));}
 else if(['pilot','prepare','bulk-prepare'].includes(cmd)&&input){
