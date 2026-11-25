@@ -16,6 +16,20 @@ static void Assert(bool condition, string message)
     if (!condition) throw new InvalidOperationException(message);
 }
 
+// A DB outage must not masquerade as a content/revision conflict.
+Assert(GlobalExceptionMiddleware.IsDatabaseUnavailable(
+    new Microsoft.EntityFrameworkCore.DbUpdateException("write outcome unknown",
+        new Npgsql.NpgsqlException("connection lost", new TimeoutException()))),
+    "Wrapped database connection timeouts must be reported as unavailable.");
+Assert(GlobalExceptionMiddleware.IsDatabaseUnavailable(
+    new Npgsql.PostgresException("connection failed","ERROR","ERROR","08006")),
+    "Connection SQLSTATE must be unavailable.");
+Assert(!GlobalExceptionMiddleware.IsDatabaseUnavailable(
+    new Npgsql.PostgresException("duplicate key","ERROR","ERROR","23505")),
+    "Unique constraint violations must not be treated as temporary outages.");
+Assert(!GlobalExceptionMiddleware.IsDatabaseUnavailable(new TimeoutException()),
+    "An unrelated timeout must not be classified as a database outage.");
+
 // R1 account foundation: the legacy role wire contract must remain stable
 // until all clients, endpoints and persisted permissions are ready.
 Assert(AccountRolePolicy.IsSupportedSessionRole("Admin") &&

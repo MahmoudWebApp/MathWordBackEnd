@@ -2,6 +2,7 @@
 
 using MathWorldAPI.Helpers;
 using Microsoft.EntityFrameworkCore;
+using Npgsql;
 
 namespace MathWorldAPI.Middleware
 {
@@ -58,6 +59,25 @@ namespace MathWorldAPI.Middleware
             }
         }
 
+        // Distinguish connection loss from a real optimistic concurrency or
+        // validation conflict. Writes may have succeeded before disconnect;
+        // callers must reconcile persisted state before attempting them again.
+        public static bool IsDatabaseUnavailable(Exception exception)
+        {
+            for (Exception? current = exception; current != null; current = current.InnerException)
+            {
+                if (current is PostgresException pg)
+                {
+                    if (pg.SqlState.StartsWith("08", StringComparison.Ordinal) ||
+                        pg.SqlState is "57P01" or "57P02" or "57P03" or "53300")
+                        return true;
+                }
+                else if (current is NpgsqlException npg && npg.IsTransient)
+                    return true;
+            }
+            return false;
+        }
+
         /// <summary>
         /// Maps an exception to an HTTP response.
         /// </summary>
@@ -71,6 +91,9 @@ namespace MathWorldAPI.Middleware
 
             var statusCode = exception switch
             {
+                _ when IsDatabaseUnavailable(exception) =>
+                    StatusCodes.Status503ServiceUnavailable,
+
                 ArgumentException =>
                     StatusCodes.Status400BadRequest,
 
@@ -113,6 +136,8 @@ namespace MathWorldAPI.Middleware
             context.Response.Clear();
             context.Response.StatusCode = statusCode;
             context.Response.ContentType = "application/json";
+            if (statusCode == StatusCodes.Status503ServiceUnavailable)
+                context.Response.Headers["Retry-After"] = "15";
 
             var response =
                 LanguageHelper.ErrorResponse<object>(
