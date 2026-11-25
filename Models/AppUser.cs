@@ -21,6 +21,7 @@ namespace MathWorldAPI.Models
         [JsonIgnore]
         public int TokenVersion { get; set; }
         [JsonIgnore] public int StaffPermissions { get; set; }
+        [JsonIgnore] public bool ShareLeaderboardFullName { get; set; }
         [JsonIgnore] public bool StaffSetupPending { get; set; }
         [JsonIgnore] public string? VerifiedNotificationEmail { get; set; }
         [JsonIgnore] public bool EmailLearningUpdates { get; set; }

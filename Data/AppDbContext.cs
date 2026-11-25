@@ -201,6 +201,7 @@ namespace MathWorldAPI.Data
             modelBuilder.Entity<AppUser>().HasOne<LearningTrack>().WithMany()
                 .HasForeignKey(x => x.CurrentTrackId).OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<AppUser>().Property(x => x.StaffPermissions).HasDefaultValue(0);
+            modelBuilder.Entity<AppUser>().Property(x => x.ShareLeaderboardFullName).HasDefaultValue(false);
             modelBuilder.Entity<AppUser>().Property(x => x.StaffSetupPending).HasDefaultValue(false);
             modelBuilder.Entity<AppUser>().Property(x => x.VerifiedNotificationEmail).HasMaxLength(256);
             modelBuilder.Entity<AppUser>().Property(x => x.EmailNotificationLocale).HasMaxLength(2);

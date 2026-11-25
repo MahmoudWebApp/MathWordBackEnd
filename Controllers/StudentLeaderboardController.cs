@@ -139,8 +139,9 @@ public sealed class StudentLeaderboardController : ControllerBase
         var ids = pageScores.Select(x => x.UserId).ToList();
         var names = await _db.Users.AsNoTracking()
             .Where(u => ids.Contains(u.Id))
-            .Select(u => new { u.Id, u.FullName })
-            .ToDictionaryAsync(x => x.Id, x => x.FullName, ct);
+            .Select(u => new { u.Id, u.FullName, u.ShareLeaderboardFullName })
+            .ToDictionaryAsync(x => x.Id, x => x.ShareLeaderboardFullName ? x.FullName.Trim() : null, ct);
+        var abbreviated = await _db.Users.AsNoTracking().Where(u=>ids.Contains(u.Id)).Select(u=>new {u.Id,u.FullName}).ToDictionaryAsync(x=>x.Id,x=>x.FullName,ct);
         var arabic = LanguageHelper.GetLanguageFromRequest(Request) != "en";
         var entries = pageScores
             .Select((x, offset) => new
@@ -149,7 +150,7 @@ public sealed class StudentLeaderboardController : ControllerBase
                 // Show the learner's actual saved first name (and optional
                 // family initial), including to the learner themselves.
                 // Highlighting "Your ranking" is a UI badge, not a fake name.
-                DisplayName = AbbreviatedName(names.GetValueOrDefault(x.UserId), arabic),
+                DisplayName = names.GetValueOrDefault(x.UserId) is { Length: > 0 } full ? full : AbbreviatedName(abbreviated.GetValueOrDefault(x.UserId), arabic),
                 x.SolvedProblems,
                 x.Points,
                 x.FirstTryCorrect,
