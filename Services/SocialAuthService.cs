@@ -155,6 +155,12 @@ namespace MathWorldAPI.Services
                     providerId: googleUser.GoogleId,
                     profilePicture: googleUser.Picture);
 
+                // A validated Google identity proves the matching account address.
+                // An existing provider binding may have a different address;
+                // never mark that unrelated MathWorld mailbox as verified.
+                if (user.Role == "Student" && string.Equals(user.Email, NormalizeEmail(googleUser.Email), StringComparison.OrdinalIgnoreCase))
+                    user.VerifiedNotificationEmail = user.Email;
+
                 // Step 4: Update the user login timestamp.
                 user.LastLoginAt =
                     DateTime.UtcNow;
