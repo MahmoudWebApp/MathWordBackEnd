@@ -9,12 +9,13 @@ import {schoolWave, schoolHolds} from './school-wave.mjs';
 import {courseWave} from './course-wave.mjs';
 import {schoolApplicationWave} from './school-application-wave.mjs';
 import {transferWave, transferHolds} from './transfer-wave.mjs';
+import {reasoningExtensionWave} from './reasoning-extension-wave.mjs';
 import {authorQueue} from './author-queue.mjs';
 import {chunkImports} from './batch-runner.mjs';
 const [cmd,input,output,...extra]=process.argv.slice(2);
 const read=p=>JSON.parse(readFileSync(p,'utf8'));
 const save=(p,x)=>writeFileSync(p,JSON.stringify(x,null,2)+'\n',{flag:'wx'});
-const all=()=>[...generate(),...wave2(),...universityWave(),...depthWave(),...coverageWave(),...reasoningWave(),...schoolWave(),...courseWave(),...schoolApplicationWave(),...transferWave()];
+const all=()=>[...generate(),...wave2(),...universityWave(),...depthWave(),...coverageWave(),...reasoningWave(),...schoolWave(),...courseWave(),...schoolApplicationWave(),...transferWave(),...reasoningExtensionWave()];
 const excluded=new Set([...heldFamilies,...schoolHolds,...transferHolds]);
 function wave(p){const x=read(p);if(!Array.isArray(x.Items))throw Error('Expected Items in '+p);return x.Items;}
 function active(rows){const errors=validate(rows);if(errors.length)throw Error(JSON.stringify(errors));return rows.filter(r=>!excluded.has(r.Family));}

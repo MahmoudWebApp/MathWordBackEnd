@@ -6,6 +6,7 @@ import {schoolHolds, schoolWave} from './school-wave.mjs';
 import {courseWave} from './course-wave.mjs';
 import {schoolApplicationWave} from './school-application-wave.mjs';
 import {transferWave, transferHolds} from './transfer-wave.mjs';
+import {reasoningExtensionWave} from './reasoning-extension-wave.mjs';
 
 const inventory = JSON.parse(readFileSync(new URL('./inventory-20261125.json', import.meta.url), 'utf8'));
 
@@ -111,4 +112,26 @@ test('transfer wave independently checks geometry, gradient, graph feasibility a
   assert.equal(selectCandidates(rows, inventory).selected.length, rows.length);
   for (const row of rows) assert.equal(row.Check.expected, String(answers[row.Family]), row.ContentKey);
   assert.deepEqual(transferHolds, ['recover-type-two-error-from-power']);
+});
+
+test('reasoning extension matches independent calculations and existing taxonomy', () => {
+  const rows = reasoningExtensionWave();
+  const root = Math.sqrt(14);
+  const endpoints = [2, 3, 3.5, 4];
+  const answers = {
+    'overlap-joined-strip-length': new Set([
+      ...Array.from({length: 24}, (_, i) => i),
+      ...Array.from({length: 19}, (_, i) => i + 19),
+    ]).size,
+    'equal-distance-average-speed': (12 + 6 + 6) / 3,
+    'rectangle-diagonal-compares-opening': 16 - Math.hypot(9, 12),
+    'perpendicular-offset-intercept': [4, 5, 6, -4].find(b => 3 * (5 - b) / 3 === -1),
+    'inverse-compose-determinant': [3, -3, -48, 8].find(d => -4 * d === 12),
+    'bisection-retained-endpoint-second-step': endpoints.filter(x => x < root).at(-1),
+  };
+  assert.equal(rows.length, 6);
+  assert.equal(new Set(rows.map(row => row.Family)).size, rows.length);
+  assert.deepEqual(validate([...schoolWave(), ...courseWave(), ...schoolApplicationWave(), ...transferWave(), ...rows]), []);
+  assert.equal(selectCandidates(rows, inventory).selected.length, rows.length);
+  for (const row of rows) assert.equal(row.Check.expected, String(answers[row.Family]), row.ContentKey);
 });
