@@ -8,6 +8,7 @@ public sealed class EmailVerificationGrant
     public string Email { get; set; } = "";
     public string TokenHash { get; set; } = "";
     public int TokenVersion { get; set; }
+    public int FailedCodeAttempts { get; set; }
     public DateTime CreatedAtUtc { get; set; }
     public DateTime ExpiresAtUtc { get; set; }
     public DateTime? ConsumedAtUtc { get; set; }
