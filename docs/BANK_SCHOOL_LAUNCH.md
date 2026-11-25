@@ -30,6 +30,12 @@ The owner authorized direct production publication of three existing grade-1 dra
 
 Grade 1 now has seven published assignments across its two linked launch categories. Against the selected launch scope in the table, the outstanding published deficit fell from 708 to 705. The remaining priority queue is 17 staged drafts and 171 growth candidates before refreshing the inventory and comparison pairs. The 517 best-case gap already assumed these three publications. Skip the published drafts on future runs and reconcile the live state before another release.
 
+## Second production publication
+
+Independently recomputed all 17 remaining staged candidates from the initial school queue. Isolated draft 965 (running-course metric conversion) and draft 971 (two-period exponential retention). The no-write check passed for the other 15, all in existing linked categories. A single source-locked SQL transaction published 963→1788, 964→1789, 967→1790, 968→1791, 970→1792, 973→1793, 974→1794, 975→1795, 976→1796, 977→1797, 979→1798, 980→1799, 981→1800, 982→1801, 1009→1802. The post-commit read verified every Published revision, both stems, ordered answers, hints, structured solutions, primary skill, sole intended grade mapping and all three audit events per draft. No taxonomy links were created.
+
+The verified catalog contains 849 problems and 804 track assignments. The school launch has 18 new publications since the initial plan. The outstanding published deficit for the selected coverage scope is 690. If the 171 growth proposals in the initial queue all pass and publish, the remaining deficit will be 519, including 140 assignments reserved for seven unlinked categories. The 20 staged records from the priority queue are closed for this pass: 18 published and two held. Refresh the inventory and compare both languages before selecting the next growth batch.
+
 ## Category decisions
 
 | Grade | Proposed category or decision | Evidence and scope for review |
