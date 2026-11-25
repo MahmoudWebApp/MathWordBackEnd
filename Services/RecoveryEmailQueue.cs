@@ -247,9 +247,10 @@ public sealed class RecoveryEmailWorker(IServiceScopeFactory scopes, IConfigurat
             var secret=codec.DeriveEmailVerification(grant.Id);
             if(RecoveryTokenCodec.Hash(secret)!=grant.TokenHash)return new("Cancelled",ErrorCode:"RecoveryKeyRotated");
             var url=brand.WebsiteUrl+"/"+item.Locale+"/verify-email#token="+secret;
+            var code=codec.DeriveEmailVerificationCode(grant.Id);
             email=MathWorldEmailLayout.Render(brand,item.Locale,ar?"أهلاً بك في MathWorld — تأكيد البريد":"Welcome to MathWorld — verify your email",
-                ar?"أكّد بريد حسابك خلال 20 دقيقة. لن يغيّر هذا الإجراء كلمة مرورك أو يسجّل دخولك. تجاهل الرسالة إذا لم تطلبها."
-                :"Verify your account email within 20 minutes. This will not change your password or sign you in. Ignore this email if you did not request it.",
+                ar?$"رمز تأكيد بريدك: {code}. أدخله في التطبيق خلال 20 دقيقة أو استخدم الرابط أدناه. لا تشارك الرمز مع أي شخص. تجاهل الرسالة إن لم تطلبها."
+                :$"Your email verification code: {code}. Enter it in the app within 20 minutes or use the link below. Never share the code. Ignore this email if you did not request it.",
                 ar?"تأكيد البريد":"Verify email",url);
         }
         else if (item.TemplateKey == "password-changed")
