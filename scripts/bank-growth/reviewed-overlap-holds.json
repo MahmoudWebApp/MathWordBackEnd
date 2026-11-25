@@ -19,5 +19,7 @@
   "bisection-first-midpoint": "An existing bisection exercise already asks for the first midpoint of the initial interval.",
   "round-nearest-hundred": "The bank already asks for rounding a supplied whole number to the nearest hundred.",
   "triangle-outside-two-inner-bases": "The existing split-base triangle already relies on adding areas at a shared height.",
-  "equidistant-beacons": "The same midpoint reasoning already appears for two number-line marks."
+  "equidistant-beacons": "The same midpoint reasoning already appears for two number-line marks.",
+  "minimal-transfer-to-equal-piles": "The live comparison pool already asks for the transfer that equalizes two counts.",
+  "line-height-for-single-parabola-contact": "The bank already asks for the vertical offset of a line that gives one intersection with a parabola."
 }
