@@ -168,6 +168,7 @@ public sealed class RecoveryEmailWorker(IServiceScopeFactory scopes, IConfigurat
     {
         // Default off, even if other SMTP settings are present.
         if (!config.GetValue<bool>("MathWorldEmail:OutboxEnabled")) return;
+        var failedIterations = 0;
         while (!ct.IsCancellationRequested)
         {
             try
@@ -185,14 +186,17 @@ public sealed class RecoveryEmailWorker(IServiceScopeFactory scopes, IConfigurat
                         await queue.CompleteAsync(item, result, CancellationToken.None);
                     }
                 }
+                failedIterations = 0;
             }
             catch (OperationCanceledException) when (ct.IsCancellationRequested) { break; }
             catch (Exception)
             {
                 // Do not log exception messages: external providers may echo message contents.
+                failedIterations = Math.Min(failedIterations + 1, 4);
                 logger.LogWarning("Transactional email queue iteration failed; no automatic replay of ambiguous sends.");
             }
-            await Task.Delay(TimeSpan.FromSeconds(10), ct);
+            // Reduce repeated load on unavailable database/provider; recover the normal interval after a successful iteration.
+            await Task.Delay(TimeSpan.FromSeconds(Math.Min(120, 10 * (1 << failedIterations))), ct);
         }
     }
 
