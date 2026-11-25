@@ -251,6 +251,8 @@ namespace MathWorldAPI.Migrations
                     b.HasKey("Id");
                     b.HasIndex("ContentKey").IsUnique();
                     b.HasIndex("OwnerUserId", "EditorialStatus");
+                    b.HasIndex("SourceProblemId", "EditorialStatus");
+                    b.HasIndex("EditorialStatus", "Id");
                     b.HasIndex("TopicProposalId", "EditorialStatus");
                     b.HasIndex("TopicProposalId", "TemplateFamilyKey");
                     b.ToTable("CurriculumDraftItems", t =>
@@ -1019,6 +1021,7 @@ namespace MathWorldAPI.Migrations
                     b.HasIndex("CategoryId");
 
                     b.HasIndex("StageId");
+                    b.HasIndex("StageId", "CategoryId", "Id");
 
                     b.ToTable("Problems");
                 });

@@ -245,6 +245,8 @@ namespace MathWorldAPI.Data
             {
                 e.HasIndex(x => x.ContentKey).IsUnique();
                 e.HasIndex(x => new { x.OwnerUserId, x.EditorialStatus });
+                e.HasIndex(x => new { x.SourceProblemId, x.EditorialStatus });
+                e.HasIndex(x => new { x.EditorialStatus, x.Id });
                 e.Property(x => x.Revision).HasDefaultValue(0);
                 e.HasIndex(x => new { x.TopicProposalId, x.EditorialStatus });
                 e.HasIndex(x => new { x.TopicProposalId, x.TemplateFamilyKey });
@@ -566,6 +568,9 @@ namespace MathWorldAPI.Data
             modelBuilder.Entity<ProblemDiagram>()
                 .Property(diagram => diagram.AltTextEn)
                 .HasMaxLength(500).IsRequired();
+
+            modelBuilder.Entity<MathProblem>()
+                .HasIndex(problem => new { problem.StageId, problem.CategoryId, problem.Id });
 
             modelBuilder.Entity<MathProblem>()
                 .HasOne(problem => problem.Category)

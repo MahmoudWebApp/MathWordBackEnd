@@ -86,6 +86,12 @@ def verify_wizard(admin,supervisor,sid):
     assert approved["Status"]=="Approved" and sql('SELECT COUNT(*) FROM "Problems"')==count
     published=expect("POST",path+"/publish",200,{"Revision":6,"Confirm":True},admin)
     pid=published["PublishedProblemId"]
+    queue=expect("GET",root+"?activeOnly=true",200,token=admin)
+    assert all(row["Status"] in ("Draft","NeedsChanges","PendingReview","Approved") for row in queue["Items"])
+    assert all(row["Id"]!=did for row in queue["Items"])
+    assert int(queue["Total"])==int(sql("""SELECT COUNT(*) FROM "CurriculumDraftItems" WHERE "EditorialStatus" IN ('Draft','NeedsChanges','PendingReview','Approved')"""))
+    own_queue=expect("GET",root+"?activeOnly=true",200,token=supervisor)
+    assert all(row["OwnerUserId"]==sid and row["Status"]!="Published" for row in own_queue["Items"])
     assert published["Status"]=="Published" and sql(f'SELECT COUNT(*) FROM "LearningTrackProblems" WHERE "ProblemId"={pid}')=="1"
     assert sql(f'SELECT COUNT(*) FROM "CurriculumProblemSkills" WHERE "ProblemId"={pid} AND "IsPrimary"')=="1"
     expect("POST",path+"/publish",409,{"Revision":7,"Confirm":True},admin)
