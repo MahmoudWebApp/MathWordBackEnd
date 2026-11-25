@@ -42,6 +42,8 @@ namespace MathWorldAPI.DTOs
         [Range(1, int.MaxValue)]
         [Description("Optional educational stage ID for compatible older clients.")]
         public int? StageId { get; set; }
+        [StringLength(2048)]
+        public string? CaptchaToken { get; set; }
     }
 
     /// <summary>
@@ -63,6 +65,8 @@ namespace MathWorldAPI.DTOs
         [Required]
         [StringLength(128, MinimumLength = 1)]
         public string Password { get; set; } = string.Empty;
+        [StringLength(2048)]
+        public string? CaptchaToken { get; set; }
     }
 
     /// <summary>
