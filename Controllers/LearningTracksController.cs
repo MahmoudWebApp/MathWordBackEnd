@@ -21,17 +21,21 @@ public sealed class LearningTracksController(AppDbContext db,LearningTrackServic
             .OrderBy(t=>t.SortOrder).ThenBy(t=>t.Id).ToListAsync(ct):new List<LearningTrack>();
         var result=new List<object>();
         if(items.Count==0)return Ok(new{Enabled=tracks.Enabled,Items=result});
-        // One grouped coverage query for all visible tracks, with one shared
-        // Free category snapshot. Avoid four SQL queries per track.
+        // One grouped category coverage query for all tracks; select the first
+        // two populated categories independently for each track.
         var ids=items.Select(t=>t.Id).ToArray();
-        var free=await access.GetFreeCategoryIdsAsync(stageId,ct);
-        var totals=await tracks.ValidLinks().Where(l=>ids.Contains(l.TrackId))
-            .GroupBy(l=>l.TrackId).Select(g=>new{
-                TrackId=g.Key,Problems=g.Select(x=>x.ProblemId).Distinct().Count(),
-                Categories=g.Select(x=>x.CategoryId).Distinct().Count(),
-                Skills=g.Select(x=>x.SkillId).Distinct().Count(),
-                FreeProblems=g.Where(x=>free.Contains(x.CategoryId)).Select(x=>x.ProblemId).Distinct().Count()
-            }).ToDictionaryAsync(x=>x.TrackId,ct);
+        var rows=await (from link in tracks.ValidLinks()
+            join category in db.Categories.AsNoTracking() on link.CategoryId equals category.Id
+            where ids.Contains(link.TrackId)
+            group link by new{link.TrackId,link.CategoryId,category.Order} into g
+            select new{g.Key.TrackId,g.Key.CategoryId,g.Key.Order,
+                Problems=g.Select(x=>x.ProblemId).Distinct().Count(),
+                Skills=g.Select(x=>x.SkillId).Distinct().Count()}).ToListAsync(ct);
+        var totals=rows.GroupBy(row=>row.TrackId).ToDictionary(g=>g.Key,g=>new{
+            Problems=g.Sum(x=>x.Problems), Categories=g.Count(), Skills=g.Sum(x=>x.Skills),
+            FreeProblems=g.OrderBy(x=>x.Order).ThenBy(x=>x.CategoryId)
+                .Take(CategoryAccessPolicy.DefaultFreeCategoriesPerStage).Sum(x=>x.Problems)
+        });
         foreach(var t in items)
         {
             if(!totals.TryGetValue(t.Id,out var coverage)||coverage.Problems==0)continue;
@@ -48,7 +52,7 @@ public sealed class LearningTracksController(AppDbContext db,LearningTrackServic
         var t=await tracks.VisibleTracks().SingleOrDefaultAsync(x=>x.Id==id,ct);
         if(t is null)return NotFound();
         var valid=tracks.ValidProblems(id);
-        var free=await access.GetFreeCategoryIdsAsync(t.StageId,ct);
+        var free=await access.GetTrackFreeCategoryIdsAsync(id,t.StageId,ct:ct);
         var categories=await db.Categories.AsNoTracking().Where(c=>valid.Any(p=>p.CategoryId==c.Id))
             .OrderBy(c=>c.Order).ThenBy(c=>c.Id).Select(c=>new{c.Id,c.NameAr,c.NameEn,c.DescriptionAr,c.DescriptionEn,c.Icon,
                 IsFree=free.Contains(c.Id),ProblemsCount=valid.Count(p=>p.CategoryId==c.Id)}).ToListAsync(ct);

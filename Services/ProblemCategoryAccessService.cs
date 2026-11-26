@@ -12,11 +12,12 @@ namespace MathWorldAPI.Services;
 public sealed class ProblemCategoryAccessService
 {
     private readonly AppDbContext _db;
+    private readonly IConfiguration _configuration;
 
     public ProblemCategoryAccessService(AppDbContext db, IConfiguration configuration)
     {
         _db = db;
-        _ = configuration; // retained constructor compatibility
+        _configuration = configuration;
     }
 
     public async Task<IReadOnlyList<int>> GetFreeCategoryIdsAsync(
@@ -27,6 +28,25 @@ public sealed class ProblemCategoryAccessService
             .OrderBy(c => c.Order).ThenBy(c => c.Id)
             .ToListAsync(cancellationToken);
         return ResolveFreeCategoryIds(stageId, categories, null);
+    }
+
+    // Only categories with valid, published-skill problem mappings qualify.
+    // A selected but invalid/unpublished track must not fall back to stage-wide access.
+    public async Task<IReadOnlyList<int>> GetTrackFreeCategoryIdsAsync(
+        int trackId, int stageId, bool requirePublished = true, CancellationToken ct = default)
+    {
+        var links = LearningTrackService.ValidLinksFor(_db)
+            .Where(link => link.TrackId == trackId);
+        var tracks = _db.LearningTracks.AsNoTracking()
+            .Where(track => track.Id == trackId && track.StageId == stageId &&
+                (!requirePublished || track.IsPublished));
+        return await _db.Categories.AsNoTracking()
+            .Where(category => category.StageId == stageId && tracks.Any() &&
+                links.Any(link => link.CategoryId == category.Id))
+            .OrderBy(category => category.Order).ThenBy(category => category.Id)
+            .Select(category => category.Id)
+            .Take(CategoryAccessPolicy.DefaultFreeCategoriesPerStage)
+            .ToListAsync(ct);
     }
 
     // Legacy selection rows are retained for audit only. The first two
@@ -74,6 +94,13 @@ public sealed class ProblemCategoryAccessService
             if (PremiumEntitlement.IsActive(learner))
                 return await _db.Categories.AsNoTracking()
                     .Select(c => c.Id).ToListAsync(cancellationToken);
+
+            if (_configuration.GetValue<bool>("LearningTracks:Enabled") && learner.CurrentTrackId.HasValue)
+            {
+                if (!learner.CurrentStageId.HasValue) return new List<int>();
+                return (await GetTrackFreeCategoryIdsAsync(learner.CurrentTrackId.Value,
+                    learner.CurrentStageId.Value, ct: cancellationToken)).ToList();
+            }
         }
 
         // Previously: DISTINCT stages + 2 SQL queries for each of four

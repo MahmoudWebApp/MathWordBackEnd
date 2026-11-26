@@ -82,36 +82,44 @@ namespace MathWorldAPI.Controllers
 
             var tracks=HttpContext.RequestServices.GetRequiredService<LearningTrackService>();
             var activeTrack=await tracks.ActiveAsync(activeStageId,user.CurrentTrackId,HttpContext.RequestAborted);
-            var scopedProblems=activeTrack is null ? _context.Problems.AsNoTracking() : tracks.ValidProblems(activeTrack.Id);
-            // Consolidated stage-scoped counters: one DB query rather than
-            // five remote trips. Keep original access and progress rules.
-            var practiceScope=TrackPractice.Scope(HttpContext.RequestServices.GetRequiredService<IConfiguration>(),activeTrack?.Id);
-            var scopedProgress=TrackPractice.For(_context,practiceScope);
+            var ct = HttpContext.RequestAborted;
+            var trackProblemIds = activeTrack is null ? null : await tracks.ValidLinks()
+                .Where(link => link.TrackId == activeTrack.Id)
+                .Select(link => link.ProblemId)
+                .Distinct()
+                .ToArrayAsync(ct);
+            var practiceScope = TrackPractice.Scope(
+                HttpContext.RequestServices.GetRequiredService<IConfiguration>(), activeTrack?.Id);
+
+            // Resolve track membership once so each progress query can use a simple ID filter.
+            IQueryable<UserProgress> DashboardProgress(IQueryable<UserProgress> source)
+            {
+                var query = source.AsNoTracking().Where(progress => progress.UserId == userId);
+                if (trackProblemIds is not null)
+                    query = query.Where(progress => trackProblemIds.Contains(progress.ProblemId));
+                if (activeStageId.HasValue)
+                    query = query.Where(progress => progress.Problem.StageId == activeStageId.Value);
+                if (allowedCategories is not null)
+                    query = query.Where(progress => allowedCategories.Contains(progress.Problem.CategoryId));
+                return query;
+            }
+
+            var scopedProgress = DashboardProgress(TrackPractice.For(_context, practiceScope))
+                .Where(progress => progress.Problem.Category.StageId == progress.Problem.StageId);
+            var favorites = DashboardProgress(_context.UserProgresses).Where(progress => progress.IsFavorite);
             var progressCounts = await scopedProgress
-                .AsNoTracking()
-                .Where(progress =>
-                    progress.UserId == userId &&
-                    (allowedCategories == null ||
-                     allowedCategories.Contains(progress.Problem.CategoryId)) &&
-                    progress.Problem.Category.StageId == progress.Problem.StageId &&
-                        scopedProblems.Any(p=>p.Id==progress.ProblemId) &&
-                    (!activeStageId.HasValue ||
-                     progress.Problem.StageId == activeStageId.Value))
                 .GroupBy(_ => 1)
                 .Select(group => new
                 {
                     SolvedCount = group.Count(progress => progress.IsSolved),
-                    FavoriteCount = group.Count(progress => progress.IsFavorite),
                     TotalAttempted = group.Count(progress => progress.Attempts > 0),
-                    OfficialCorrect = group.Count(progress =>
-                        progress.FirstAttemptCorrect == true),
-                    TotalPoints = group.Where(progress => progress.IsSolved)
-                        .Sum(progress => progress.Problem.Points)
+                    OfficialCorrect = group.Count(progress => progress.FirstAttemptCorrect == true),
+                    TotalPoints = group.Where(progress => progress.IsSolved).Sum(progress => progress.Problem.Points)
                 })
-                .FirstOrDefaultAsync();
+                .FirstOrDefaultAsync(ct);
 
             var solvedCount = progressCounts?.SolvedCount ?? 0;
-            var favoriteCount = await _context.UserProgresses.CountAsync(p=>p.UserId==userId&&p.IsFavorite&&scopedProblems.Any(q=>q.Id==p.ProblemId)&&(!activeStageId.HasValue||p.Problem.StageId==activeStageId)&&(allowedCategories==null||allowedCategories.Contains(p.Problem.CategoryId)));
+            var favoriteCount = await favorites.CountAsync(ct);
             var totalAttempted = progressCounts?.TotalAttempted ?? 0;
             var officialCorrectCount = progressCounts?.OfficialCorrect ?? 0;
             var totalPoints = progressCounts?.TotalPoints ?? 0;
@@ -120,57 +128,27 @@ namespace MathWorldAPI.Controllers
                     officialCorrectCount / (double)totalAttempted * 100)
                 : 0;
 
-            var recentSolvedData =
-                await scopedProgress
-                    .Include(progress =>
-                        progress.Problem)
-                    .ThenInclude(problem =>
-                        problem.Category)
-                    .Include(progress =>
-                        progress.Problem)
-                    .ThenInclude(problem =>
-                        problem.Stage)
-                    .AsNoTracking()
-                    .Where(progress =>
-                        progress.UserId == userId &&
-                        (allowedCategories == null ||
-                         allowedCategories.Contains(progress.Problem.CategoryId)) &&
-                        progress.Problem.Category.StageId == progress.Problem.StageId &&
-                        scopedProblems.Any(p=>p.Id==progress.ProblemId) &&
-                        (!activeStageId.HasValue ||
-                         progress.Problem.StageId == activeStageId.Value) &&
-                        progress.IsSolved)
-                    .OrderByDescending(progress =>
-                        progress.SolvedAt)
-                    .Take(5)
-                    .ToListAsync();
+            var recentSolvedData = await scopedProgress
+                .Where(progress => progress.IsSolved)
+                .Include(progress => progress.Problem).ThenInclude(problem => problem.Category)
+                .Include(progress => progress.Problem).ThenInclude(problem => problem.Stage)
+                .OrderByDescending(progress => progress.SolvedAt)
+                .Take(5)
+                .ToListAsync(ct);
 
-            var recentFavoritesData =
-                await _context.UserProgresses
-                    .Include(progress =>
-                        progress.Problem)
-                    .ThenInclude(problem =>
-                        problem.Category)
-                    .Include(progress =>
-                        progress.Problem)
-                    .ThenInclude(problem =>
-                        problem.Stage)
-                    .AsNoTracking()
-                    .Where(progress =>
-                        progress.UserId == userId &&
-                        (allowedCategories == null ||
-                         allowedCategories.Contains(progress.Problem.CategoryId)) &&
-                        progress.Problem.Category.StageId == progress.Problem.StageId &&
-                        scopedProblems.Any(p=>p.Id==progress.ProblemId) &&
-                        (!activeStageId.HasValue ||
-                         progress.Problem.StageId == activeStageId.Value) &&
-                        progress.IsFavorite)
-                    .OrderByDescending(progress =>
-                        progress.LastAttemptAt)
-                    .Take(5)
-                    .ToListAsync();
+            var recentFavoritesData = await favorites
+                .Where(progress => progress.Problem.Category.StageId == progress.Problem.StageId)
+                .Include(progress => progress.Problem).ThenInclude(problem => problem.Category)
+                .Include(progress => progress.Problem).ThenInclude(problem => problem.Stage)
+                .OrderByDescending(progress => progress.LastAttemptAt)
+                .Take(5)
+                .ToListAsync(ct);
 
-            var favoriteState=await scopedProgress.Where(p=>p.UserId==userId&&recentFavoritesData.Select(f=>f.ProblemId).ToArray().Contains(p.ProblemId)).AsNoTracking().ToDictionaryAsync(p=>p.ProblemId);
+            var favoriteIds = recentFavoritesData.Select(progress => progress.ProblemId).ToArray();
+            var favoriteState = favoriteIds.Length == 0
+                ? new Dictionary<int, UserProgress>()
+                : await scopedProgress.Where(progress => favoriteIds.Contains(progress.ProblemId))
+                    .ToDictionaryAsync(progress => progress.ProblemId, ct);
             var dashboard =
                 new UserDashboardDto
                 {
