@@ -3958,8 +3958,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الخيار $Q\\Rightarrow P$ لا يتوافق مع تطبيق القانون: $\\neg Q\\Rightarrow\\neg P\\equiv Q\\lor\\neg P\\equiv\\neg P\\lor Q$.",
-              "En": "The choice $Q\\Rightarrow P$ disagrees with the rule applied here: $\\neg Q\\Rightarrow\\neg P\\equiv Q\\lor\\neg P\\equiv\\neg P\\lor Q$."
+              "Ar": "إذا كانت P خاطئة وQ صادقة فالشرطية الأصلية صادقة، بينما عكسها خاطئ.",
+              "En": "When P is false and Q is true, the original conditional is true and its converse is false."
             }
           },
           {
@@ -3967,8 +3967,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الخيار $\\neg P\\Rightarrow\\neg Q$ لا يتوافق مع تطبيق القانون: $\\neg Q\\Rightarrow\\neg P\\equiv Q\\lor\\neg P\\equiv\\neg P\\lor Q$.",
-              "En": "The choice $\\neg P\\Rightarrow\\neg Q$ disagrees with the rule applied here: $\\neg Q\\Rightarrow\\neg P\\equiv Q\\lor\\neg P\\equiv\\neg P\\lor Q$."
+              "Ar": "إذا كانت P خاطئة وQ صادقة، كانت مقدمة هذا الخيار صادقة وتاليه خاطئاً، بينما الشرطية الأصلية صادقة.",
+              "En": "When P is false and Q is true, this option has a true antecedent and a false consequent, while the original conditional is true."
             }
           },
           {
@@ -3976,8 +3976,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الخيار $P\\land Q$ لا يتوافق مع تطبيق القانون: $\\neg Q\\Rightarrow\\neg P\\equiv Q\\lor\\neg P\\equiv\\neg P\\lor Q$.",
-              "En": "The choice $P\\land Q$ disagrees with the rule applied here: $\\neg Q\\Rightarrow\\neg P\\equiv Q\\lor\\neg P\\equiv\\neg P\\lor Q$."
+              "Ar": "عندما تكون P وQ كلتاهما خاطئة، يكون اقترانهما خاطئاً وتكون الشرطية الأصلية صادقة.",
+              "En": "When P and Q are both false, their conjunction is false and the original conditional is true."
             }
           },
           {
@@ -4026,8 +4026,8 @@
             "En": "Dimensionless"
           },
           "Verification": {
-            "Ar": "$(P,Q)=(T,F)\\Rightarrow\\text{both false}$",
-            "En": "$(P,Q)=(T,F)\\Rightarrow\\text{both false}$"
+            "Ar": "تكون الشرطية الأصلية ومقابلها المعاكس خاطئتين فقط عندما تكون P صادقة وQ خاطئة، وهما صادقتان في الحالات الثلاث الأخرى.",
+            "En": "The original conditional and its contrapositive are both false only when P is true and Q is false. Both are true in the other three cases."
           },
           "CommonError": {
             "Ar": "لا تخلط العكس بالمقابل المعاكس.",
@@ -4182,8 +4182,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الخيار $6$ لا يتوافق مع تطبيق القانون: $(2+2+2+2)/2=4$.",
-              "En": "The choice $6$ disagrees with the rule applied here: $(2+2+2+2)/2=4$."
+              "Ar": "هذا عدد أزواج الرؤوس الممكنة. الدرجات المعطاة مجموعها 8، ومن ثم يوجد 4 حواف.",
+              "En": "This counts all possible vertex pairs. The given degrees sum to 8, so there are 4 edges."
             }
           },
           {
@@ -4191,8 +4191,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الخيار $8$ لا يتوافق مع تطبيق القانون: $(2+2+2+2)/2=4$.",
-              "En": "The choice $8$ disagrees with the rule applied here: $(2+2+2+2)/2=4$."
+              "Ar": "هذا مجموع الدرجات. لكل حافة طرفان، لذا تُعد كل حافة مرتين في المجموع.",
+              "En": "This is the degree sum. Each edge has two ends, so each edge contributes twice."
             }
           },
           {
@@ -4206,8 +4206,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الخيار $2$ لا يتوافق مع تطبيق القانون: $(2+2+2+2)/2=4$.",
-              "En": "The choice $2$ disagrees with the rule applied here: $(2+2+2+2)/2=4$."
+              "Ar": "هذه درجة رأس واحد. عدد الحواف يُستخرج من مجموع درجات الرؤوس الأربعة.",
+              "En": "This is the degree of one vertex. The edge count uses the sum across all four vertices."
             }
           }
         ],

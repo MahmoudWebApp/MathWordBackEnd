@@ -80,5 +80,6 @@
   "unit-price": "The five existing notebook questions already infer unit price by division, then use it for a new quantity. These variants isolate the existing substep.",
   "circle-radius-from-equation": "A recorded standard-form circle with right side 49 already asks for the positive square root. Translating the center does not change the operation.",
   "handshake-regular-graph": "The reviewed complete-graph family already multiplies vertex count by common degree and halves it. The regular variants supply the degree directly.",
-  "partial-y-holding-x-fixed": "Sources 329, 341, 353, 365 and 377 already evaluate the y partial of the identical ax²y+by² family at a supplied point. This supersedes the previous tentative retention."
+  "partial-y-holding-x-fixed": "Sources 329, 341, 353, 365 and 377 already evaluate the y partial of the identical ax²y+by² family at a supplied point. This supersedes the previous tentative retention.",
+  "complete-graph-edges": "Archived source 491 asks for the maximum edge count of a simple undirected graph, attained by the complete graph. These three repeat the same unordered-pair count with larger vertex totals."
 }

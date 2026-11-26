@@ -492,8 +492,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "يزيد المجموع بمقدار 3 لكل مشاهدة، لا بمقدار مشاهدة واحدة فقط.",
-              "En": "Each observation adds 3 to the total, not 1."
+              "Ar": "إذا كان عدد القيم n، فالمجموع يزيد بمقدار 3n. بعد القسمة على n تكون زيادة المتوسط 3.",
+              "En": "With n observations, the sum increases by 3n. Dividing by n gives an increase of 3 in the mean."
             }
           },
           {

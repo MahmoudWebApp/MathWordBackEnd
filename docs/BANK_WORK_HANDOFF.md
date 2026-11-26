@@ -1,5 +1,41 @@
 # MathWorld bank — Work / ChatGPT handoff
 Updated 2026-11-26. This is a shared handoff, not a scheduler or autonomous agent.
+## Offline editorial checkpoint — 2026-11-26, legacy sources #420–644
+
+Audited 98 archived structured amendments in four disjoint ranges. Together with earlier checkpoints, 293 archived structured amendments and all 327 original expansion candidates have been audited. The 98 source signatures match the archive's bilingual stems and primary skill keys. Independently recomputed every marked answer, checked equivalent numeric options, read both languages and reviewed progressive hints, laws, solution steps, distractor feedback and verification. Compared both normalized stems against the 749-pair repository pool and checked semantic matches by operation and reasoning. Source IDs are legacy problem IDs. The current wizard IDs, revisions and live statuses remain unverified.
+
+| Legacy source IDs in ascending order | Independent answers |
+|---|---|
+| #420–430 | 5/8, 9/12, equality, 24, 3/8, 2¼, 20, 4.79, 0.35, 30, 8 |
+| #431–440 | +3, 7, 17, 25%, 4, 4n+1, 48, 4, 31, 57 |
+| #441–450 | 31, 8, 11, 21, ¬Q ⇒ ¬P, ¬P ∨ ¬Q, 4, 3, 2, 8 |
+| #472–482 | 2/5 > 3/8, 4/10, 7/12, 0, 25%, 5/8, 6, median, class A, 3, unchanged |
+| #483–492 | 7, −54, 13, 144, partial sums tend to +∞, true, 10, 4, 10, yes |
+| #503–512 | 5/6 > 7/9, 7/9, 11/12, 5/12, class B, 2/3, 9, oscillating partial sums, divergent by the term test, each dyadic block adds at least 1/2 |
+| #609–620 | 443, 239, 500, 81, 7, 36, 35, 30, 34, 13, 25%, 20 |
+| #621–632 | 10, 13, 21, 12, 25π, 81π, 18π, 8, 10, 21, 16, 20 |
+| #633–644 | 4/5, 12/13, 3/5, −3/5, −3, 1/2, 3, 32, 8/3, 5, 0, 6 |
+
+Corrected source-bound distractor feedback for #431, #445 and #447 and replaced #445's one-case verification with a complete case argument. Source stems, option strings and answer flags still match the saved signatures. #445 gives distinct converse and inverse syntax with the same truth table, so count them as a single misconception when considering distractor variety. #473 asks for the unique exception and intentionally uses three different representations of 1/2.
+
+Hold 16 source records from publication preparation pending the following resolutions. The 82 other records in the table can proceed to current source and draft reconciliation.
+
+| Legacy source IDs | Hold and resolution |
+|---|---|
+| #429 | The archived stem lists the values as text. Verify a chart is actually provided or reclassify as totaling frequencies. Cambridge 7Ss.03–05 supports representation and interpretation. |
+| #444 | Repeats source #314's exact unordered selection of two from seven. Reconcile both current records and keep a single launch representative. |
+| #479, #480, #482, #487, #488, #492, #504, #507, #510–512 | Verify options containing both languages in shared LaTeX in each runtime locale. In #507 align first/second classroom labels in Arabic with A/B in the options. #480 and #507 use the same proportional-comparison procedure with different contexts. |
+| #614–615 | Review Grade 5 placement for direct application of the triangle area rule. CCSS 6.G.A.1 places this work in Grade 6 and Cambridge 5Gg.02–03 assesses area measurement and composing rectangles. #616 explicitly halves a rectangle and can be approached through its equal parts. |
+| #619 | All four shared option strings use a bare percent sign. Verify rendering and escape the sign if required in the official editor. The source-bound amendment tool checks option strings against the current source. |
+
+Excluded the three expansion variants in the `complete-graph-edges` family from both preparation paths. Source #491 already requires recognizing that a complete simple graph attains the unordered-pair maximum. #447 works from supplied degrees and was kept as its own task. Consider #450 separately from the inverse tree task that asks for vertices given edges.
+
+School placement used the [Cambridge Primary 0096 objectives](https://anancambridge.com/cam/Primary/0096%20Primary%20Mathematics%20Curriculum%20Framework%202020_tcm142-592530%20%281%29.pdf), [Cambridge Lower Secondary 0862 objectives](https://static1.squarespace.com/static/5214ff22e4b06e19d62917ee/t/64d511e7b02f11373c39ddbd/1691685351971/Math%2BCurriculum%2BFramework.pdf) and [CCSS mathematics standards](https://www.thecorestandards.org/assets/CCSSI_Math%20Standards.pdf). CCSS 5.NF.A.1 supports #420, #425 and #474, 6.RP.A.3c supports part-to-whole percentage tasks, and 7.G.B.4 supports circle area. #480 and #507 require forming ratios with different denominators and interpreting the result in context, as described by the [OECD PISA 2022 mathematics framework](https://www.oecd.org/en/publications/pisa-2022-assessment-and-analytical-framework_dfe0bf9c-en/full-report/component-3.html). The [MAA CUPM course guidance](https://maa.org/resource/cupm-guide/) and [MSC2020](https://mathscinet.ams.org/msc/pdfs/classifications2020.pdf) support university scope for propositional logic (03B05), graph reasoning (05C05, 05C07, 05C35), and series convergence (40A05). The discrete problems exercise equivalence, implication, and counting. The series problems distinguish terms, partial sums, convergence conditions and divergence proofs.
+
+The parent ef293d5206a260bf99769c085e28c4053b193802 had three successful PR workflow runs. Local verification passed 50 Node tests, all 14 G1 scripts and 98 independent answer checks. Replayed `launch-coverage` against the archived inventory with a gap of 1,284 assignments including 33 category links. Local `launch-prepare` retained 111 candidates in batches of 50, 50 and 11. Bulk preparation retained 230 in batches of 50, 50, 50, 50 and 30. Every file used `Confirm=false` and was below both the 50-item and 1.8 MB limits. The replay did not use current production inventory. Authored 0, published 0, and made no production requests in this pass.
+
+Continue with source #645. The ranges #389–419, #451–471, #493–502 and #513–608 have neither a structured amendment nor a row in the two original archived hint manifests. Their live status remains open. Source #649 is present in the original hint archive and lacks a wave amendment, so include it in the next audit. Authenticated reconciliation still starts at wizard draft #400 where applicable. Obtain fresh Admin inventory and reconcile live candidate IDs and revisions before preparing official previews or deciding which missing skills need original content. The five-category, 20-per-category launch target is still open.
+
 ## Offline editorial checkpoint — 2026-11-26, original expansion cohort complete and sources #329–388
 
 Parent 97ac0891b3486f58ae194a19de8b2d18eef144aa passed all three GitHub workflows. Recomputed and reviewed the final 80 of the original 327 expansion records and 60 university amendment source records. Checked options for mathematical equivalence, bilingual wording and distractor reasons, progressive hints, laws, steps, units, verification and archived scope. Compared normalized stems against 749 recovered bilingual pairs and used earlier production comparisons and reviewed families for targeted semantic checks. The independent answer check confirms that the four cohorts are disjoint and cover exactly the 327 original keys, including two previously excluded siblings. No new candidate or publication. No fresh authenticated access was available to verify current live inventory or wizard revisions.
