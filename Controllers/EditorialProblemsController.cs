@@ -493,7 +493,8 @@ public sealed partial class EditorialProblemsController:ControllerBase
     {
         var allowManual=Admin&&(d.ContentKey.StartsWith("wizard-",StringComparison.Ordinal)||d.ContentKey.StartsWith("amend-",StringComparison.Ordinal))&&
             await db.Users.AnyAsync(u=>u.Id==d.OwnerUserId&&u.Role==AccountRolePolicy.LegacyAdmin,ct);
-        var errors=WizardProblemContract.Validate(p,allowManual);if(errors.Count>0)return errors;
+        var interactive=d.ContentKey.StartsWith("wizard-",StringComparison.Ordinal)||d.ContentKey.StartsWith("amend-",StringComparison.Ordinal);
+        var errors=WizardProblemContract.Validate(p,allowManual,allowOptionalSolutionFields:interactive);if(errors.Count>0)return errors;
         var skills=new[]{p.PrimarySkillId}.Concat(p.SecondarySkillIds??Array.Empty<int>()).ToArray();
         if(!await db.Categories.AnyAsync(c=>c.Id==p.CategoryId&&c.StageId==p.StageId,ct))errors.Add("CategoryStageMismatch");
         if(await db.CurriculumSkills.CountAsync(s=>skills.Contains(s.Id)&&s.StageId==p.StageId&&s.CategoryId==p.CategoryId&&s.IsPublished&&s.Domain.IsPublished,ct)!=skills.Length)errors.Add("SkillCategoryMismatch");
