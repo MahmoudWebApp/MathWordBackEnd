@@ -62,6 +62,19 @@ def verify_wizard(admin,supervisor,sid):
                    "Substitution":pair("13 + 9","13 + 9"),"Result":pair("22","22"),
                    "Unit":pair("بلا وحدة","Unitless"),"Verification":pair("22 - 9 = 13","22 - 9 = 13"),
                    "CommonError":pair("انتبه للحمل","Remember carrying")}}
+    # Proof-style solution: optional formula, substitution, unit, verification and error.
+    from copy import deepcopy
+    proof=deepcopy(p)
+    proof["Question"]=pair("اختبار حل برهاني دون قانون إلزامي","Proof-style optional-fields fixture")
+    for field in ("Substitution","Unit","Verification","CommonError"):
+        proof["Solution"][field]=pair("","")
+    proof["Solution"]["FormulaLatex"]=""
+    proof_draft=expect("POST",root,201,{"Revision":0,"Content":{}},supervisor)
+    proof_path=f"{root}/{proof_draft['Id']}"
+    expect("PUT",proof_path,200,{"Revision":0,"Content":proof},supervisor)
+    proof_pending=expect("POST",proof_path+"/submit",200,{"Revision":1},supervisor)
+    assert proof_pending["Status"]=="PendingReview"
+    expect("POST",proof_path+"/withdraw",200,{"Revision":2,"Note":"CI proof fixture"},admin)
     count=sql('SELECT COUNT(*) FROM "Problems"')
     other=expect("POST",root,201,{"Revision":0,"Content":{}},admin)
     expect("GET",f"{root}/{other['Id']}",404,token=supervisor)
