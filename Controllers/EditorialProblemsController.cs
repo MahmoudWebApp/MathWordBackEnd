@@ -48,6 +48,7 @@ public sealed partial class EditorialProblemsController:ControllerBase
     private static object View(CurriculumDraftItem d)=>new{d.Id,d.OwnerUserId,d.LastEditorUserId,d.Revision,
         Status=d.EditorialStatus,d.SubmittedAtUtc,d.ReviewedAtUtc,d.ReviewedByUserId,d.ReviewNote,d.PublishedAtUtc,d.PublishedProblemId,
         d.SourceProblemId, LegacySolutionAr=d.SourceProblemId.HasValue?d.DetailedSolutionAr:null, LegacySolutionEn=d.SourceProblemId.HasValue?d.DetailedSolutionEn:null,
+        AllowOptionalSolutionFields=d.ContentKey.StartsWith("wizard-",StringComparison.Ordinal)||d.ContentKey.StartsWith("amend-",StringComparison.Ordinal),
         Content=WizardProblemContract.Read(d.WizardJson!)};
     private static void Save(CurriculumDraftItem d,WizardProblem p,string json,int actor)
     {
