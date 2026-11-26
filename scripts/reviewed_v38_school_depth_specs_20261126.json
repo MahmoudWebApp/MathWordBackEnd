@@ -1,0 +1,1666 @@
+[
+  {
+    "track": 2,
+    "stage": 1,
+    "cat": 81,
+    "skill": 302,
+    "sk": "counting",
+    "family": "skip-count-reverse-find-missing",
+    "title": {
+      "Ar": "عد تنازلي بخطوات ثابتة",
+      "En": "Backward skip counting"
+    },
+    "q": {
+      "Ar": "تبدأ سلسلة الأعداد عند 46 وتنقص 5 في كل خطوة: 46، 41، □، 31. ما العدد المفقود؟",
+      "En": "A sequence begins at 46 and decreases by 5 each step: 46, 41, □, 31. What is the missing number?"
+    },
+    "opts": [
+      "35",
+      "36",
+      "37",
+      "40"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "35 لا يبعد 5 عن 41.",
+        "En": "35 is not five below 41."
+      },
+      null,
+      {
+        "Ar": "37 يبعد 4.",
+        "En": "37 is four below."
+      },
+      {
+        "Ar": "40 يبعد 1.",
+        "En": "40 is one below."
+      }
+    ],
+    "idea": {
+      "Ar": "نطرح مقدار الخطوة الثابت من العدد السابق.",
+      "En": "Subtract the fixed step from the preceding number."
+    },
+    "formula": "41-5=36",
+    "steps": [
+      {
+        "Ar": "$46-5=41$",
+        "En": "$46-5=41$"
+      },
+      {
+        "Ar": "$41-5=36$",
+        "En": "$41-5=36$"
+      }
+    ],
+    "sub": {
+      "Ar": "$41-5=36$",
+      "En": "$41-5=36$"
+    },
+    "result": {
+      "Ar": "$36$",
+      "En": "$36$"
+    },
+    "verify": {
+      "Ar": "$36-5=31$",
+      "En": "$36-5=31$"
+    },
+    "hints": [
+      {
+        "Ar": "لاحظ مقدار النقص.",
+        "En": "Notice the decrease."
+      },
+      {
+        "Ar": "اطرح 5 من 41.",
+        "En": "Subtract 5 from 41."
+      }
+    ],
+    "error": {
+      "Ar": "تحقق من الشرط المطلوب قبل اختيار الناتج.",
+      "En": "Check the requested condition before selecting the result."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 3,
+    "stage": 1,
+    "cat": 81,
+    "skill": 305,
+    "sk": "place-value",
+    "family": "place-value-nonstandard-bundles",
+    "title": {
+      "Ar": "تمثيل غير اعتيادي للمنازل",
+      "En": "Nonstandard place-value bundles"
+    },
+    "q": {
+      "Ar": "يتكون عدد من 5 مئات و13 عشرة و7 آحاد. ما العدد؟",
+      "En": "A number consists of 5 hundreds, 13 tens and 7 ones. What is the number?"
+    },
+    "opts": [
+      "537",
+      "567",
+      "637",
+      "5137"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "537 يحسب ثلاث عشرات فقط.",
+        "En": "537 counts only three tens."
+      },
+      {
+        "Ar": "567 لا يمثل 13 عشرة.",
+        "En": "567 does not represent 13 tens."
+      },
+      null,
+      {
+        "Ar": "5137 يضع الأعداد متجاورة دون جمع قيمها.",
+        "En": "5137 concatenates the counts instead of adding their values."
+      }
+    ],
+    "idea": {
+      "Ar": "نحول كل مجموعة إلى قيمتها ثم نجمع، حتى لو تجاوز عدد العشرات تسعة.",
+      "En": "Convert each group to its value and add, even when there are more than nine tens."
+    },
+    "formula": "500+130+7=637",
+    "steps": [
+      {
+        "Ar": "$13\\cdot10=130$",
+        "En": "$13\\cdot10=130$"
+      },
+      {
+        "Ar": "$500+130+7=637$",
+        "En": "$500+130+7=637$"
+      }
+    ],
+    "sub": {
+      "Ar": "$500+130+7=637$",
+      "En": "$500+130+7=637$"
+    },
+    "result": {
+      "Ar": "$637$",
+      "En": "$637$"
+    },
+    "verify": {
+      "Ar": "$637=600+30+7$",
+      "En": "$637=600+30+7$"
+    },
+    "hints": [
+      {
+        "Ar": "العشرة قيمتها 10.",
+        "En": "Each ten is worth 10."
+      },
+      {
+        "Ar": "حوّل 13 عشرة إلى مئة وثلاث عشرات.",
+        "En": "Regroup 13 tens as one hundred and three tens."
+      }
+    ],
+    "error": {
+      "Ar": "تحقق من الشرط المطلوب قبل اختيار الناتج.",
+      "En": "Check the requested condition before selecting the result."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 3,
+    "stage": 1,
+    "cat": 81,
+    "skill": 304,
+    "sk": "number-comparison",
+    "family": "number-comparison-digit-constraint",
+    "title": {
+      "Ar": "أصغر رقم يحقق مقارنة",
+      "En": "Smallest digit meeting a comparison"
+    },
+    "q": {
+      "Ar": "يمثل □ رقماً من 0 إلى 9. ما أصغر رقم يجعل 4□2 أكبر من 462؟",
+      "En": "□ represents a digit from 0 through 9. What is the smallest digit making 4□2 greater than 462?"
+    },
+    "opts": [
+      "5",
+      "6",
+      "7",
+      "9"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "452 أصغر من 462.",
+        "En": "452 is less than 462."
+      },
+      {
+        "Ar": "462 يساوي العدد المطلوب تجاوزه.",
+        "En": "462 equals the comparison number."
+      },
+      null,
+      {
+        "Ar": "9 يحقق الشرط لكنه ليس الأصغر.",
+        "En": "9 works but is not the smallest."
+      }
+    ],
+    "idea": {
+      "Ar": "عند تساوي المئات والآحاد نحتاج إلى رقم عشرات أكبر.",
+      "En": "When hundreds and ones match, the tens digit must be greater."
+    },
+    "formula": "472>462",
+    "steps": [
+      {
+        "Ar": "الرقم 6 يجعل العددين متساويين.",
+        "En": "Digit 6 makes the numbers equal."
+      },
+      {
+        "Ar": "أصغر رقم أكبر من 6 هو 7.",
+        "En": "The smallest digit greater than six is seven."
+      }
+    ],
+    "sub": {
+      "Ar": "$472>462$",
+      "En": "$472>462$"
+    },
+    "result": {
+      "Ar": "$7$",
+      "En": "$7$"
+    },
+    "verify": {
+      "Ar": "$462=462<472$",
+      "En": "$462=462<472$"
+    },
+    "hints": [
+      {
+        "Ar": "قارن المئات ثم العشرات.",
+        "En": "Compare hundreds, then tens."
+      },
+      {
+        "Ar": "التساوي لا يحقق أكبر من.",
+        "En": "Equality does not satisfy greater than."
+      }
+    ],
+    "error": {
+      "Ar": "تحقق من الشرط المطلوب قبل اختيار الناتج.",
+      "En": "Check the requested condition before selecting the result."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 3,
+    "stage": 1,
+    "cat": 81,
+    "skill": 306,
+    "sk": "rounding",
+    "family": "rounding-largest-number-in-bin",
+    "title": {
+      "Ar": "أكبر عدد له تقريب معين",
+      "En": "Largest number with a given rounding"
+    },
+    "q": {
+      "Ar": "ما أكبر عدد صحيح غير سالب يُقرّب إلى 700 عند التقريب لأقرب مئة، مع تقريب المنتصف للأعلى؟",
+      "En": "What is the greatest nonnegative integer that rounds to 700 to the nearest hundred, with halfway cases rounded up?"
+    },
+    "opts": [
+      "699",
+      "700",
+      "749",
+      "750"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "699 صالح لكنه ليس الأكبر.",
+        "En": "699 works but is not greatest."
+      },
+      {
+        "Ar": "700 صالح لكنه ليس الأكبر.",
+        "En": "700 works but is not greatest."
+      },
+      null,
+      {
+        "Ar": "750 يُقرّب إلى 800.",
+        "En": "750 rounds to 800."
+      }
+    ],
+    "idea": {
+      "Ar": "الأعداد من 650 حتى 749 تُقرّب إلى 700؛ عند 750 يبدأ التقريب إلى 800.",
+      "En": "Integers from 650 through 749 round to 700; at 750 rounding goes to 800."
+    },
+    "formula": "750-1=749",
+    "steps": [
+      {
+        "Ar": "الحد الفاصل الأعلى هو 750.",
+        "En": "The upper rounding boundary is 750."
+      },
+      {
+        "Ar": "نأخذ العدد الصحيح السابق له مباشرة.",
+        "En": "Take the integer immediately below it."
+      }
+    ],
+    "sub": {
+      "Ar": "$750-1=749$",
+      "En": "$750-1=749$"
+    },
+    "result": {
+      "Ar": "$749$",
+      "En": "$749$"
+    },
+    "verify": {
+      "Ar": "$749-700=49<51=800-749$",
+      "En": "$749-700=49<51=800-749$"
+    },
+    "hints": [
+      {
+        "Ar": "حدد منتصف المسافة بين 700 و800.",
+        "En": "Find the midpoint between 700 and 800."
+      },
+      {
+        "Ar": "استبعد المنتصف لأنه يُقرّب للأعلى.",
+        "En": "Exclude the midpoint because it rounds up."
+      }
+    ],
+    "error": {
+      "Ar": "تحقق من الشرط المطلوب قبل اختيار الناتج.",
+      "En": "Check the requested condition before selecting the result."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 5,
+    "stage": 1,
+    "cat": 81,
+    "skill": 303,
+    "sk": "estimation",
+    "family": "estimate-quotient-compatible",
+    "title": {
+      "Ar": "تقدير خارج القسمة",
+      "En": "Estimating a quotient"
+    },
+    "q": {
+      "Ar": "يوجد 397 كتاباً لتوزيعها على 8 رفوف بالتساوي تقريباً. استبدل 397 بأقرب مئة ثم اقسم. كم كتاباً تقريباً لكل رف؟",
+      "En": "There are 397 books to distribute approximately equally among 8 shelves. Replace 397 by its nearest hundred, then divide. About how many books per shelf?"
+    },
+    "opts": [
+      "40",
+      "49",
+      "50",
+      "80"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "40×8=320.",
+        "En": "40×8=320."
+      },
+      {
+        "Ar": "49 ليس خارج قسمة 400 على 8.",
+        "En": "49 is not 400 divided by 8."
+      },
+      null,
+      {
+        "Ar": "80×8=640.",
+        "En": "80×8=640."
+      }
+    ],
+    "idea": {
+      "Ar": "نستعمل عدداً قريباً يسهل قسمته على عدد الرفوف.",
+      "En": "Use a nearby number that is easy to divide by the shelf count."
+    },
+    "formula": "400\\div8=50",
+    "steps": [
+      {
+        "Ar": "$397\\to400$",
+        "En": "$397\\to400$"
+      },
+      {
+        "Ar": "$400/8=50$",
+        "En": "$400/8=50$"
+      }
+    ],
+    "sub": {
+      "Ar": "$400\\div8=50$",
+      "En": "$400\\div8=50$"
+    },
+    "result": {
+      "Ar": "$50$",
+      "En": "$50$"
+    },
+    "verify": {
+      "Ar": "$50\\cdot8=400$",
+      "En": "$50\\cdot8=400$"
+    },
+    "hints": [
+      {
+        "Ar": "قرّب 397 إلى أقرب مئة.",
+        "En": "Round 397 to the nearest hundred."
+      },
+      {
+        "Ar": "اقسم العدد المقرب على 8.",
+        "En": "Divide the rounded number by eight."
+      }
+    ],
+    "error": {
+      "Ar": "تحقق من الشرط المطلوب قبل اختيار الناتج.",
+      "En": "Check the requested condition before selecting the result."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 6,
+    "stage": 1,
+    "cat": 3,
+    "skill": 14,
+    "sk": "primary-triangle-area",
+    "family": "triangle-area-base-increase-fixed-height",
+    "title": {
+      "Ar": "زيادة مساحة مثلث",
+      "En": "Increase in triangle area"
+    },
+    "q": {
+      "Ar": "زاد طول قاعدة مثلث من 8 سم إلى 11 سم وبقي ارتفاعها العمودي 10 سم. بكم زادت مساحته؟",
+      "En": "A triangle's base increases from 8 cm to 11 cm while its perpendicular height remains 10 cm. By how much does the area increase?"
+    },
+    "opts": [
+      "3",
+      "15",
+      "30",
+      "55"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "3 زيادة القاعدة لا المساحة.",
+        "En": "3 is base increase, not area."
+      },
+      null,
+      {
+        "Ar": "30 يهمل النصف.",
+        "En": "30 omits the factor one half."
+      },
+      {
+        "Ar": "55 المساحة الجديدة كاملة.",
+        "En": "55 is the entire new area."
+      }
+    ],
+    "idea": {
+      "Ar": "مع ثبات الارتفاع تكون زيادة المساحة نصف حاصل ضرب زيادة القاعدة في الارتفاع.",
+      "En": "With fixed height, area increase is half the product of base increase and height."
+    },
+    "formula": "\\frac{(11-8)\\cdot10}{2}=15",
+    "steps": [
+      {
+        "Ar": "$11-8=3$",
+        "En": "$11-8=3$"
+      },
+      {
+        "Ar": "$3\\cdot10/2=15$",
+        "En": "$3\\cdot10/2=15$"
+      }
+    ],
+    "sub": {
+      "Ar": "$\\frac{(11-8)\\cdot10}{2}=15$",
+      "En": "$\\frac{(11-8)\\cdot10}{2}=15$"
+    },
+    "result": {
+      "Ar": "$15$",
+      "En": "$15$"
+    },
+    "verify": {
+      "Ar": "$55-40=15$",
+      "En": "$55-40=15$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب زيادة القاعدة فقط.",
+        "En": "Find the base increase."
+      },
+      {
+        "Ar": "استعمل نصف حاصل ضربها في الارتفاع.",
+        "En": "Use half its product with height."
+      }
+    ],
+    "error": {
+      "Ar": "تحقق من الشرط المطلوب قبل اختيار الناتج.",
+      "En": "Check the requested condition before selecting the result."
+    },
+    "unit": {
+      "Ar": "سم²",
+      "En": "cm²"
+    }
+  },
+  {
+    "track": 6,
+    "stage": 1,
+    "cat": 4,
+    "skill": 19,
+    "sk": "primary-arithmetic-mean",
+    "family": "mean-combined-unequal-groups",
+    "title": {
+      "Ar": "متوسط مجموعتين مختلفتي العدد",
+      "En": "Mean of unequal-sized groups"
+    },
+    "q": {
+      "Ar": "ثلاث قراءات متوسطها 4، وقراءتان أخريان متوسطهما 9. ما متوسط القراءات الخمس كلها؟",
+      "En": "Three readings have mean 4 and two other readings have mean 9. What is the mean of all five readings?"
+    },
+    "opts": [
+      "5",
+      "6",
+      "6.5",
+      "13"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "5 عدد القراءات.",
+        "En": "5 is the count."
+      },
+      null,
+      {
+        "Ar": "6.5 متوسط المتوسطين دون أوزانهما.",
+        "En": "6.5 averages the two means without weights."
+      },
+      {
+        "Ar": "13 مجموع المتوسطين.",
+        "En": "13 adds the means."
+      }
+    ],
+    "idea": {
+      "Ar": "نسترجع مجموع كل مجموعة ثم نقسم المجموع الكلي على عدد القراءات الكلي.",
+      "En": "Recover each group total, then divide the combined total by the combined count."
+    },
+    "formula": "\\frac{3\\cdot4+2\\cdot9}{5}=6",
+    "steps": [
+      {
+        "Ar": "$3\\cdot4=12$",
+        "En": "$3\\cdot4=12$"
+      },
+      {
+        "Ar": "$2\\cdot9=18$",
+        "En": "$2\\cdot9=18$"
+      },
+      {
+        "Ar": "$(12+18)/5=6$",
+        "En": "$(12+18)/5=6$"
+      }
+    ],
+    "sub": {
+      "Ar": "$\\frac{3\\cdot4+2\\cdot9}{5}=6$",
+      "En": "$\\frac{3\\cdot4+2\\cdot9}{5}=6$"
+    },
+    "result": {
+      "Ar": "$6$",
+      "En": "$6$"
+    },
+    "verify": {
+      "Ar": "$5\\cdot6=30$",
+      "En": "$5\\cdot6=30$"
+    },
+    "hints": [
+      {
+        "Ar": "لا تتساوى أعداد القراءات في المجموعتين.",
+        "En": "The groups have different sizes."
+      },
+      {
+        "Ar": "احسب مجموع كل مجموعة قبل الدمج.",
+        "En": "Find each total before combining."
+      }
+    ],
+    "error": {
+      "Ar": "تحقق من الشرط المطلوب قبل اختيار الناتج.",
+      "En": "Check the requested condition before selecting the result."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 6,
+    "stage": 1,
+    "cat": 81,
+    "skill": 345,
+    "sk": "primary-signed-rational-number-sense",
+    "family": "opposite-position-coordinate-symmetry",
+    "title": {
+      "Ar": "موضعان متناظران حول الصفر",
+      "En": "Positions symmetric about zero"
+    },
+    "q": {
+      "Ar": "النقطة A تقع عند −2.75 على خط الأعداد. تقع B على الجهة الأخرى من الصفر وتبعد عنه المسافة نفسها. ما إحداثي B؟",
+      "En": "Point A lies at −2.75 on a number line. B lies on the other side of zero at the same distance. What is B's coordinate?"
+    },
+    "opts": [
+      "-2.75",
+      "-0.75",
+      "0",
+      "2.75"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "يبقي النقطة في الموضع نفسه.",
+        "En": "Leaves the point unchanged."
+      },
+      {
+        "Ar": "المسافة والإشارة غير صحيحتين.",
+        "En": "Both distance and sign are wrong."
+      },
+      {
+        "Ar": "الصفر ليس على بعد 2.75.",
+        "En": "Zero is not 2.75 away."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "العددان المتقابلان لهما القيمة المطلقة نفسها وإشارتان متعاكستان.",
+      "En": "Opposites have the same absolute value and opposite signs."
+    },
+    "formula": " -(-2.75)=2.75",
+    "steps": [
+      {
+        "Ar": "$|-2.75|=2.75$",
+        "En": "$|-2.75|=2.75$"
+      },
+      {
+        "Ar": "الجهة الأخرى من الصفر موجبة هنا.",
+        "En": "The other side of zero is positive here."
+      }
+    ],
+    "sub": {
+      "Ar": "$ -(-2.75)=2.75$",
+      "En": "$ -(-2.75)=2.75$"
+    },
+    "result": {
+      "Ar": "$2.75$",
+      "En": "$2.75$"
+    },
+    "verify": {
+      "Ar": "$-2.75+2.75=0$",
+      "En": "$-2.75+2.75=0$"
+    },
+    "hints": [
+      {
+        "Ar": "ما مسافة A عن الصفر؟",
+        "En": "How far is A from zero?"
+      },
+      {
+        "Ar": "غيّر الإشارة ولا تغير المسافة.",
+        "En": "Change the sign, not the distance."
+      }
+    ],
+    "error": {
+      "Ar": "تحقق من الشرط المطلوب قبل اختيار الناتج.",
+      "En": "Check the requested condition before selecting the result."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 7,
+    "stage": 2,
+    "cat": 84,
+    "skill": 325,
+    "sk": "inequality-contexts",
+    "family": "minimum-budget-with-reserve",
+    "title": {
+      "Ar": "ميزانية مع احتياطي",
+      "En": "Budget with a reserve"
+    },
+    "q": {
+      "Ar": "مع طالب 50 وحدة نقدية، ويريد أن يبقي 8 وحدات على الأقل بعد شراء دفاتر ثمن الواحد 6. ما أكبر عدد دفاتر يمكن شراؤه؟",
+      "En": "A student has 50 currency units and wants at least 8 left after buying notebooks costing 6 each. What is the greatest number of notebooks that can be bought?"
+    },
+    "opts": [
+      "6",
+      "7",
+      "8",
+      "9"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "6 ممكن لكنه ليس الأكبر.",
+        "En": "6 works but is not greatest."
+      },
+      null,
+      {
+        "Ar": "8 يترك وحدتين فقط.",
+        "En": "8 leaves only two units."
+      },
+      {
+        "Ar": "9 يتجاوز الميزانية.",
+        "En": "9 exceeds the budget."
+      }
+    ],
+    "idea": {
+      "Ar": "نطرح الاحتياطي أولاً ثم نقسم المتاح على سعر الدفتر.",
+      "En": "Subtract the reserve before dividing by the price per notebook."
+    },
+    "formula": "6n+8\\le50",
+    "steps": [
+      {
+        "Ar": "$6n\\le42$",
+        "En": "$6n\\le42$"
+      },
+      {
+        "Ar": "$n\\le7$",
+        "En": "$n\\le7$"
+      }
+    ],
+    "sub": {
+      "Ar": "$6n+8\\le50$",
+      "En": "$6n+8\\le50$"
+    },
+    "result": {
+      "Ar": "$7$",
+      "En": "$7$"
+    },
+    "verify": {
+      "Ar": "$50-6\\cdot7=8$",
+      "En": "$50-6\\cdot7=8$"
+    },
+    "hints": [
+      {
+        "Ar": "احجز 8 وحدات قبل الشراء.",
+        "En": "Reserve eight units before buying."
+      },
+      {
+        "Ar": "اقسم الباقي على سعر الدفتر.",
+        "En": "Divide the remainder by the notebook price."
+      }
+    ],
+    "error": {
+      "Ar": "تحقق من الشرط المطلوب قبل اختيار الناتج.",
+      "En": "Check the requested condition before selecting the result."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 7,
+    "stage": 2,
+    "cat": 84,
+    "skill": 326,
+    "sk": "number-line-solutions",
+    "family": "inequality-endpoint-membership",
+    "title": {
+      "Ar": "اختبار طرف مجموعة الحل",
+      "En": "Testing a solution-set endpoint"
+    },
+    "q": {
+      "Ar": "مجموعة الحل على خط الأعداد تبدأ عند −2 بدائرة غير مملوءة وتمتد يميناً. أي عدد لا ينتمي إليها؟",
+      "En": "A solution set starts at −2 with an open circle on the number line and extends right. Which number is not in the set?"
+    },
+    "opts": [
+      "-2",
+      "-1.9",
+      "0",
+      "3"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "−1.9 أكبر من −2.",
+        "En": "−1.9 is greater than −2."
+      },
+      {
+        "Ar": "0 أكبر من −2.",
+        "En": "0 is greater than −2."
+      },
+      {
+        "Ar": "3 أكبر من −2.",
+        "En": "3 is greater than −2."
+      }
+    ],
+    "idea": {
+      "Ar": "الدائرة غير المملوءة تستبعد الطرف، والامتداد يميناً يعني أكبر منه.",
+      "En": "An open circle excludes the endpoint, and rightward shading means greater than it."
+    },
+    "formula": "x>-2",
+    "steps": [
+      {
+        "Ar": "−2 غير مشمول بسبب الدائرة المفتوحة.",
+        "En": "−2 is excluded by the open circle."
+      },
+      {
+        "Ar": "باقي الخيارات جميعها أكبر من −2.",
+        "En": "All other options are greater than −2."
+      }
+    ],
+    "sub": {
+      "Ar": "$x>-2$",
+      "En": "$x>-2$"
+    },
+    "result": {
+      "Ar": "$-2$",
+      "En": "$-2$"
+    },
+    "verify": {
+      "Ar": "$-1.9>-2$",
+      "En": "$-1.9>-2$"
+    },
+    "hints": [
+      {
+        "Ar": "هل الطرف نفسه مشمول؟",
+        "En": "Is the endpoint included?"
+      },
+      {
+        "Ar": "قارن كل عدد مع −2.",
+        "En": "Compare each value with −2."
+      }
+    ],
+    "error": {
+      "Ar": "تحقق من الشرط المطلوب قبل اختيار الناتج.",
+      "En": "Check the requested condition before selecting the result."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 7,
+    "stage": 2,
+    "cat": 85,
+    "skill": 336,
+    "sk": "sample-spaces",
+    "family": "sample-space-distinct-outcomes-ordered",
+    "title": {
+      "Ar": "عد النتائج المرتبة",
+      "En": "Counting ordered outcomes"
+    },
+    "q": {
+      "Ar": "تُرمى قطعة نقدية مرة واحدة ويُدار قرص مرقم 1 و2 و3 مرة واحدة. كم نتيجة مختلفة تحتوي العدد 2 أو 3 بغض النظر عن وجه القطعة؟",
+      "En": "A coin is tossed once and a spinner numbered 1, 2, 3 is spun once. How many distinct outcomes contain number 2 or 3 regardless of the coin face?"
+    },
+    "opts": [
+      "2",
+      "3",
+      "4",
+      "6"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "2 يعد أرقام القرص فقط.",
+        "En": "2 counts only spinner labels."
+      },
+      {
+        "Ar": "3 عدد أرقام القرص كلها.",
+        "En": "3 counts all spinner labels."
+      },
+      null,
+      {
+        "Ar": "6 يشمل العدد 1.",
+        "En": "6 includes number one."
+      }
+    ],
+    "idea": {
+      "Ar": "لكل عدد من العددين المطلوبين وجهان ممكنان للقطعة.",
+      "En": "Each of the two requested spinner numbers pairs with two coin faces."
+    },
+    "formula": "2\\cdot2=4",
+    "steps": [
+      {
+        "Ar": "العددان المقبولان 2 و3.",
+        "En": "The accepted numbers are 2 and 3."
+      },
+      {
+        "Ar": "لكل منهما نتيجتان للقطعة.",
+        "En": "Each has two coin outcomes."
+      }
+    ],
+    "sub": {
+      "Ar": "$2\\cdot2=4$",
+      "En": "$2\\cdot2=4$"
+    },
+    "result": {
+      "Ar": "$4$",
+      "En": "$4$"
+    },
+    "verify": {
+      "Ar": "$6-2=4$",
+      "En": "$6-2=4$"
+    },
+    "hints": [
+      {
+        "Ar": "استبعد النتائج التي تحتوي 1.",
+        "En": "Exclude outcomes containing one."
+      },
+      {
+        "Ar": "عد وجهَي القطعة لكل عدد متبقٍ.",
+        "En": "Count both coin faces for each remaining number."
+      }
+    ],
+    "error": {
+      "Ar": "تحقق من الشرط المطلوب قبل اختيار الناتج.",
+      "En": "Check the requested condition before selecting the result."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 8,
+    "stage": 2,
+    "cat": 84,
+    "skill": 327,
+    "sk": "solve-linear-inequalities",
+    "family": "inequality-fractional-coefficient-positive",
+    "title": {
+      "Ar": "متراجحة بمعامل كسري",
+      "En": "Inequality with a fractional coefficient"
+    },
+    "q": {
+      "Ar": "ما مجموعة حلول $\\frac{x}{4}+2\\ge5$ في الأعداد الحقيقية؟",
+      "En": "What is the real solution set of $\\frac{x}{4}+2\\ge5$?"
+    },
+    "opts": [
+      "x\\ge3",
+      "x\\ge12",
+      "x\\le12",
+      "x\\ge28"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "3 حد للعدد x/4 لا x.",
+        "En": "3 bounds x/4, not x."
+      },
+      null,
+      {
+        "Ar": "لا نعكس الاتجاه عند الضرب بموجب.",
+        "En": "Positive multiplication does not reverse the sign."
+      },
+      {
+        "Ar": "28 ينتج من جمع 2 بدلاً من طرحها.",
+        "En": "28 results from adding two instead of subtracting."
+      }
+    ],
+    "idea": {
+      "Ar": "نعزل الحد الكسري ونضرب في عدد موجب، فلا يتغير اتجاه المتراجحة.",
+      "En": "Isolate the fractional term and multiply by a positive number, preserving the inequality direction."
+    },
+    "formula": "x/4+2\\ge5",
+    "steps": [
+      {
+        "Ar": "$x/4\\ge3$",
+        "En": "$x/4\\ge3$"
+      },
+      {
+        "Ar": "$x\\ge12$",
+        "En": "$x\\ge12$"
+      }
+    ],
+    "sub": {
+      "Ar": "$x/4+2\\ge5$",
+      "En": "$x/4+2\\ge5$"
+    },
+    "result": {
+      "Ar": "$x\\ge12$",
+      "En": "$x\\ge12$"
+    },
+    "verify": {
+      "Ar": "$12/4+2=5$",
+      "En": "$12/4+2=5$"
+    },
+    "hints": [
+      {
+        "Ar": "اطرح 2 من الطرفين.",
+        "En": "Subtract two from both sides."
+      },
+      {
+        "Ar": "اضرب في 4 دون تغيير الاتجاه.",
+        "En": "Multiply by four without reversing the sign."
+      }
+    ],
+    "error": {
+      "Ar": "تحقق من الشرط المطلوب قبل اختيار الناتج.",
+      "En": "Check the requested condition before selecting the result."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 8,
+    "stage": 2,
+    "cat": 85,
+    "skill": 335,
+    "sk": "frequency",
+    "family": "frequency-predicted-count-proportional",
+    "title": {
+      "Ar": "توقع عدد النتائج من تجربة",
+      "En": "Predicting counts from observed frequency"
+    },
+    "q": {
+      "Ar": "في 120 تجربة حدثت نتيجة معينة 45 مرة. باستخدام التكرار النسبي نفسه للتقدير فقط، كم مرة نتوقع حدوثها في 200 تجربة جديدة؟",
+      "En": "An outcome occurred 45 times in 120 trials. Using the same relative frequency only as an estimate, how many occurrences would be expected in 200 new trials?"
+    },
+    "opts": [
+      "45",
+      "60",
+      "75",
+      "90"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "45 التكرار القديم.",
+        "En": "45 is the old count."
+      },
+      {
+        "Ar": "60/200 لا يساوي 45/120.",
+        "En": "60/200 differs from 45/120."
+      },
+      null,
+      {
+        "Ar": "90 يفترض تضاعف عدد التجارب.",
+        "En": "90 assumes the trial count doubles."
+      }
+    ],
+    "idea": {
+      "Ar": "نضرب التكرار النسبي التجريبي في عدد التجارب الجديدة؛ الناتج تقدير وليس ضماناً.",
+      "En": "Multiply observed relative frequency by the new trial count; this is an estimate, not a guarantee."
+    },
+    "formula": "200\\cdot45/120=75",
+    "steps": [
+      {
+        "Ar": "$45/120=3/8$",
+        "En": "$45/120=3/8$"
+      },
+      {
+        "Ar": "$200\\cdot3/8=75$",
+        "En": "$200\\cdot3/8=75$"
+      }
+    ],
+    "sub": {
+      "Ar": "$200\\cdot45/120=75$",
+      "En": "$200\\cdot45/120=75$"
+    },
+    "result": {
+      "Ar": "$75$",
+      "En": "$75$"
+    },
+    "verify": {
+      "Ar": "$75/200=45/120$",
+      "En": "$75/200=45/120$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب التكرار النسبي أولاً.",
+        "En": "Find relative frequency first."
+      },
+      {
+        "Ar": "اضربه في عدد التجارب الجديدة.",
+        "En": "Multiply it by the new trial count."
+      }
+    ],
+    "error": {
+      "Ar": "تحقق من الشرط المطلوب قبل اختيار الناتج.",
+      "En": "Check the requested condition before selecting the result."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 9,
+    "stage": 3,
+    "cat": 84,
+    "skill": 327,
+    "sk": "solve-linear-inequalities",
+    "family": "inequality-negative-bracket-division",
+    "title": {
+      "Ar": "متراجحة بعامل سالب خارج قوس",
+      "En": "Inequality with negative factor outside parentheses"
+    },
+    "q": {
+      "Ar": "حل المتراجحة $-4(x+1)\\ge12$ في الأعداد الحقيقية.",
+      "En": "Solve $-4(x+1)\\ge12$ over the reals."
+    },
+    "opts": [
+      "x\\ge-4",
+      "x\\le-4",
+      "x\\le-2",
+      "x\\ge2"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "لم يُعكس الاتجاه.",
+        "En": "The sign was not reversed."
+      },
+      null,
+      {
+        "Ar": "أضاف 1 بدلاً من طرحه.",
+        "En": "Adds one instead of subtracting it."
+      },
+      {
+        "Ar": "النتيجة لا تحقق الحد الأصلي.",
+        "En": "This does not satisfy the original bound."
+      }
+    ],
+    "idea": {
+      "Ar": "عند القسمة على عدد سالب نعكس اتجاه المتراجحة.",
+      "En": "Division by a negative number reverses the inequality."
+    },
+    "formula": " -4(x+1)\\ge12",
+    "steps": [
+      {
+        "Ar": "$x+1\\le-3$",
+        "En": "$x+1\\le-3$"
+      },
+      {
+        "Ar": "$x\\le-4$",
+        "En": "$x\\le-4$"
+      }
+    ],
+    "sub": {
+      "Ar": "$ -4(x+1)\\ge12$",
+      "En": "$ -4(x+1)\\ge12$"
+    },
+    "result": {
+      "Ar": "$x\\le-4$",
+      "En": "$x\\le-4$"
+    },
+    "verify": {
+      "Ar": "$-4(-4+1)=12$",
+      "En": "$-4(-4+1)=12$"
+    },
+    "hints": [
+      {
+        "Ar": "اقسم على −4 واعكس الاتجاه.",
+        "En": "Divide by −4 and reverse the sign."
+      },
+      {
+        "Ar": "اطرح 1 من الطرفين.",
+        "En": "Subtract one from both sides."
+      }
+    ],
+    "error": {
+      "Ar": "تحقق من الشرط المطلوب قبل اختيار الناتج.",
+      "En": "Check the requested condition before selecting the result."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 9,
+    "stage": 3,
+    "cat": 85,
+    "skill": 337,
+    "sk": "simple-compound-events",
+    "family": "probability-at-least-one-independent",
+    "title": {
+      "Ar": "احتمال حدوث نجاح واحد على الأقل",
+      "En": "At least one success"
+    },
+    "q": {
+      "Ar": "محاولتان مستقلتان، واحتمال نجاح كل محاولة 1/3. ما احتمال نجاح محاولة واحدة على الأقل؟",
+      "En": "Two trials are independent and each succeeds with probability 1/3. What is the probability of at least one success?"
+    },
+    "opts": [
+      "\\frac19",
+      "\\frac49",
+      "\\frac59",
+      "\\frac23"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "1/9 احتمال نجاح المحاولتين فقط.",
+        "En": "1/9 is both successes only."
+      },
+      {
+        "Ar": "4/9 احتمال فشلهما معاً.",
+        "En": "4/9 is both failures."
+      },
+      null,
+      {
+        "Ar": "2/3 يجمع الاحتمالين دون طرح التداخل.",
+        "En": "2/3 adds the probabilities without removing overlap."
+      }
+    ],
+    "idea": {
+      "Ar": "الحدث المتمم هو فشل المحاولتين، فنطرح احتماله من الواحد.",
+      "En": "The complement is failure on both trials; subtract its probability from one."
+    },
+    "formula": "1-(2/3)^2=5/9",
+    "steps": [
+      {
+        "Ar": "$P(\\mathrm{both\\ fail})=(2/3)^2=4/9$",
+        "En": "$P(\\mathrm{both\\ fail})=(2/3)^2=4/9$"
+      },
+      {
+        "Ar": "$1-4/9=5/9$",
+        "En": "$1-4/9=5/9$"
+      }
+    ],
+    "sub": {
+      "Ar": "$1-(2/3)^2=5/9$",
+      "En": "$1-(2/3)^2=5/9$"
+    },
+    "result": {
+      "Ar": "$\\frac59$",
+      "En": "$\\frac59$"
+    },
+    "verify": {
+      "Ar": "$2(1/3)(2/3)+(1/3)^2=5/9$",
+      "En": "$2(1/3)(2/3)+(1/3)^2=5/9$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب احتمال فشل المحاولتين.",
+        "En": "Find the probability of both failures."
+      },
+      {
+        "Ar": "اطرحه من 1.",
+        "En": "Subtract it from one."
+      }
+    ],
+    "error": {
+      "Ar": "تحقق من الشرط المطلوب قبل اختيار الناتج.",
+      "En": "Check the requested condition before selecting the result."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 10,
+    "stage": 3,
+    "cat": 88,
+    "skill": 329,
+    "sk": "coordinate-lines",
+    "family": "coordinate-line-parallel-through-point",
+    "title": {
+      "Ar": "معادلة مستقيم موازٍ",
+      "En": "Equation of a parallel line"
+    },
+    "q": {
+      "Ar": "مستقيم يوازي $y=3x-2$ ويمر بالنقطة (2,7). ما معادلته؟",
+      "En": "A line is parallel to $y=3x-2$ and passes through (2,7). What is its equation?"
+    },
+    "opts": [
+      "y=3x+1",
+      "y=3x-2",
+      "y=-3x+13",
+      "y=x+5"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "هذا المستقيم لا يمر بالنقطة.",
+        "En": "This line misses the point."
+      },
+      {
+        "Ar": "الميل −3 لا يساوي 3.",
+        "En": "Slope −3 is not 3."
+      },
+      {
+        "Ar": "الميل 1 لا يساوي 3.",
+        "En": "Slope 1 is not 3."
+      }
+    ],
+    "idea": {
+      "Ar": "المستقيمان المتوازيان لهما الميل نفسه. نحدد التقاطع بالتعويض عن النقطة.",
+      "En": "Parallel lines have the same slope. Determine the intercept using the point."
+    },
+    "formula": "y=3x+b",
+    "steps": [
+      {
+        "Ar": "$7=3\\cdot2+b$",
+        "En": "$7=3\\cdot2+b$"
+      },
+      {
+        "Ar": "$b=1$",
+        "En": "$b=1$"
+      }
+    ],
+    "sub": {
+      "Ar": "$y=3x+b$",
+      "En": "$y=3x+b$"
+    },
+    "result": {
+      "Ar": "$y=3x+1$",
+      "En": "$y=3x+1$"
+    },
+    "verify": {
+      "Ar": "$3\\cdot2+1=7$",
+      "En": "$3\\cdot2+1=7$"
+    },
+    "hints": [
+      {
+        "Ar": "استخرج الميل من المعادلة المعطاة.",
+        "En": "Read the given slope."
+      },
+      {
+        "Ar": "عوّض بالنقطة لإيجاد b.",
+        "En": "Substitute the point to find b."
+      }
+    ],
+    "error": {
+      "Ar": "تحقق من الشرط المطلوب قبل اختيار الناتج.",
+      "En": "Check the requested condition before selecting the result."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 10,
+    "stage": 3,
+    "cat": 88,
+    "skill": 329,
+    "sk": "coordinate-lines",
+    "family": "coordinate-line-axis-intercept",
+    "title": {
+      "Ar": "تقاطع مستقيم مع محور x",
+      "En": "Line's x-intercept"
+    },
+    "q": {
+      "Ar": "يقطع المستقيم $2x+3y=18$ محور x عند أي نقطة؟",
+      "En": "At which point does the line $2x+3y=18$ cross the x-axis?"
+    },
+    "opts": [
+      "(0,6)",
+      "(6,0)",
+      "(9,0)",
+      "(0,9)"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "هذه نقطة تقاطع محور y.",
+        "En": "This is the y-intercept."
+      },
+      {
+        "Ar": "2×6=12 لا 18.",
+        "En": "2×6=12, not 18."
+      },
+      null,
+      {
+        "Ar": "لا تقع على محور x.",
+        "En": "It is not on the x-axis."
+      }
+    ],
+    "idea": {
+      "Ar": "كل نقطة على محور x يكون إحداثي y فيها صفراً.",
+      "En": "Every point on the x-axis has y-coordinate zero."
+    },
+    "formula": "2x+3(0)=18",
+    "steps": [
+      {
+        "Ar": "$2x=18$",
+        "En": "$2x=18$"
+      },
+      {
+        "Ar": "$x=9$",
+        "En": "$x=9$"
+      }
+    ],
+    "sub": {
+      "Ar": "$2x+3(0)=18$",
+      "En": "$2x+3(0)=18$"
+    },
+    "result": {
+      "Ar": "$(9,0)$",
+      "En": "$(9,0)$"
+    },
+    "verify": {
+      "Ar": "$2\\cdot9+3\\cdot0=18$",
+      "En": "$2\\cdot9+3\\cdot0=18$"
+    },
+    "hints": [
+      {
+        "Ar": "ضع y=0.",
+        "En": "Set y=0."
+      },
+      {
+        "Ar": "حل المعادلة المتبقية.",
+        "En": "Solve the remaining equation."
+      }
+    ],
+    "error": {
+      "Ar": "تحقق من الشرط المطلوب قبل اختيار الناتج.",
+      "En": "Check the requested condition before selecting the result."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 11,
+    "stage": 3,
+    "cat": 35,
+    "skill": 54,
+    "sk": "secondary-population-variance",
+    "family": "variance-two-symmetric-points-inverse",
+    "title": {
+      "Ar": "استرجاع المسافة من التباين",
+      "En": "Recovering distance from variance"
+    },
+    "q": {
+      "Ar": "مجتمع بيانات مكوّن من قيمتين متساويتَي البعد عن المتوسط 10، وتباينه السكاني 16. ما القيمة الكبرى؟",
+      "En": "A population contains two values equally distant from its mean of 10, and its population variance is 16. What is the larger value?"
+    },
+    "opts": [
+      "12",
+      "14",
+      "16",
+      "26"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "12 تبعد 2 وتعطي تبايناً 4.",
+        "En": "12 is distance 2 and gives variance 4."
+      },
+      null,
+      {
+        "Ar": "16 تباين لا قيمة كبرى.",
+        "En": "16 is the variance, not the larger observation."
+      },
+      {
+        "Ar": "26 يضيف التباين بدلاً من الجذر.",
+        "En": "26 adds variance rather than its square root."
+      }
+    ],
+    "idea": {
+      "Ar": "إذا كانت القيمتان تبعدان d عن المتوسط فإن التباين السكاني يساوي d².",
+      "En": "If both values are distance d from the mean, the population variance equals d squared."
+    },
+    "formula": "\\sigma^2=(d^2+d^2)/2=d^2",
+    "steps": [
+      {
+        "Ar": "$d=\\sqrt{16}=4$",
+        "En": "$d=\\sqrt{16}=4$"
+      },
+      {
+        "Ar": "$10+4=14$",
+        "En": "$10+4=14$"
+      }
+    ],
+    "sub": {
+      "Ar": "$\\sigma^2=(d^2+d^2)/2=d^2$",
+      "En": "$\\sigma^2=(d^2+d^2)/2=d^2$"
+    },
+    "result": {
+      "Ar": "$14$",
+      "En": "$14$"
+    },
+    "verify": {
+      "Ar": "$((6-10)^2+(14-10)^2)/2=16$",
+      "En": "$((6-10)^2+(14-10)^2)/2=16$"
+    },
+    "hints": [
+      {
+        "Ar": "عبّر عن القيمتين بـ10−d و10+d.",
+        "En": "Express the values as 10−d and 10+d."
+      },
+      {
+        "Ar": "خذ الجذر التربيعي للتباين.",
+        "En": "Take the square root of the variance."
+      }
+    ],
+    "error": {
+      "Ar": "تحقق من الشرط المطلوب قبل اختيار الناتج.",
+      "En": "Check the requested condition before selecting the result."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 11,
+    "stage": 3,
+    "cat": 35,
+    "skill": 54,
+    "sk": "secondary-population-variance",
+    "family": "variance-translation-invariance",
+    "title": {
+      "Ar": "التباين عند إزاحة البيانات",
+      "En": "Variance under translation"
+    },
+    "q": {
+      "Ar": "التباين السكاني لمجموعة بيانات هو 7.5. أضيف العدد 20 إلى كل قيمة في المجموعة. ما التباين السكاني الجديد؟",
+      "En": "A data set has population variance 7.5. The number 20 is added to every observation. What is the new population variance?"
+    },
+    "opts": [
+      "7.5",
+      "27.5",
+      "150",
+      "400"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "27.5 يضيف الثابت إلى التباين دون مبرر.",
+        "En": "27.5 unjustifiably adds the constant to variance."
+      },
+      {
+        "Ar": "150 يضرب التباين في ثابت الإزاحة.",
+        "En": "150 multiplies variance by the shift."
+      },
+      {
+        "Ar": "400 مربع ثابت الإزاحة لا التباين.",
+        "En": "400 is the squared shift, not the variance."
+      }
+    ],
+    "idea": {
+      "Ar": "عند إضافة ثابت إلى كل قيمة ينتقل المتوسط بالمقدار نفسه وتبقى الانحرافات عنه ثابتة.",
+      "En": "Adding a constant shifts the mean equally and preserves deviations from it."
+    },
+    "formula": "(x_i+20)-(\\bar x+20)=x_i-\\bar x",
+    "steps": [
+      {
+        "Ar": "يتغير المتوسط إلى متوسطه القديم زائد 20.",
+        "En": "The mean increases by 20."
+      },
+      {
+        "Ar": "لا يتغير أي مربع انحراف، لذلك لا يتغير متوسط المربعات.",
+        "En": "No squared deviation changes, so their mean is unchanged."
+      }
+    ],
+    "sub": {
+      "Ar": "$(x_i+20)-(\\bar x+20)=x_i-\\bar x$",
+      "En": "$(x_i+20)-(\\bar x+20)=x_i-\\bar x$"
+    },
+    "result": {
+      "Ar": "$7.5$",
+      "En": "$7.5$"
+    },
+    "verify": {
+      "Ar": "$\\sigma_{\\mathrm{new}}^2=7.5$",
+      "En": "$\\sigma_{\\mathrm{new}}^2=7.5$"
+    },
+    "hints": [
+      {
+        "Ar": "كيف يتغير المتوسط؟",
+        "En": "How does the mean change?"
+      },
+      {
+        "Ar": "قارن الفرق بين كل قيمة ومتوسطها قبل الإضافة وبعدها.",
+        "En": "Compare each deviation before and after adding."
+      }
+    ],
+    "error": {
+      "Ar": "تحقق من الشرط المطلوب قبل اختيار الناتج.",
+      "En": "Check the requested condition before selecting the result."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 12,
+    "stage": 3,
+    "cat": 88,
+    "skill": 328,
+    "sk": "circles",
+    "family": "circle-radius-from-point-and-center",
+    "title": {
+      "Ar": "معادلة دائرة من مركز ونقطة",
+      "En": "Circle equation from centre and point"
+    },
+    "q": {
+      "Ar": "دائرة مركزها (−1,2) وتمر بالنقطة (2,6). أي معادلة تمثلها؟",
+      "En": "A circle is centred at (−1,2) and passes through (2,6). Which equation represents it?"
+    },
+    "opts": [
+      "(x+1)^2+(y-2)^2=5",
+      "(x-1)^2+(y+2)^2=25",
+      "(x+1)^2+(y-2)^2=25",
+      "(x+1)^2+(y-2)^2=7"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "5 نصف القطر لا مربعه.",
+        "En": "5 is the radius, not its square."
+      },
+      {
+        "Ar": "إشارتا المركز معكوستان.",
+        "En": "The centre signs are reversed."
+      },
+      null,
+      {
+        "Ar": "7 مجموع الفرقين دون تربيع.",
+        "En": "7 adds differences without squaring."
+      }
+    ],
+    "idea": {
+      "Ar": "مربع نصف القطر يساوي مربع المسافة بين المركز والنقطة.",
+      "En": "The squared radius equals the squared distance from the centre to the point."
+    },
+    "formula": "r^2=3^2+4^2=25",
+    "steps": [
+      {
+        "Ar": "$2-(-1)=3,\\quad6-2=4$",
+        "En": "$2-(-1)=3,\\quad6-2=4$"
+      },
+      {
+        "Ar": "$r^2=9+16=25$",
+        "En": "$r^2=9+16=25$"
+      }
+    ],
+    "sub": {
+      "Ar": "$r^2=3^2+4^2=25$",
+      "En": "$r^2=3^2+4^2=25$"
+    },
+    "result": {
+      "Ar": "$(x+1)^2+(y-2)^2=25$",
+      "En": "$(x+1)^2+(y-2)^2=25$"
+    },
+    "verify": {
+      "Ar": "$(2+1)^2+(6-2)^2=25$",
+      "En": "$(2+1)^2+(6-2)^2=25$"
+    },
+    "hints": [
+      {
+        "Ar": "استعمل فرق الإحداثيات.",
+        "En": "Use coordinate differences."
+      },
+      {
+        "Ar": "ضع مربع نصف القطر في الطرف الأيمن.",
+        "En": "Use the squared radius on the right."
+      }
+    ],
+    "error": {
+      "Ar": "تحقق من الشرط المطلوب قبل اختيار الناتج.",
+      "En": "Check the requested condition before selecting the result."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  }
+]
