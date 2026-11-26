@@ -672,8 +672,11 @@ namespace MathWorldAPI.Controllers
         public async Task<
             ActionResult<ApiResponse<List<ErrorNotebookProblemDto>>>>
             GetErrorNotebook(
-                [FromQuery] bool includeArchived = false)
+                [FromQuery] bool includeArchived = false,
+                [FromQuery] int? pageSize = null, [FromQuery] int page = 1,
+                [FromQuery] int? stageId = null, [FromQuery] bool dueOnly = false)
         {
+            if (page < 1 || page > 10000 || pageSize is < 1 or > 50) return BadRequest();
             var userId =
                 GetUserId();
 
@@ -713,14 +716,22 @@ namespace MathWorldAPI.Controllers
                         !progress.IsErrorNotebookArchived);
             }
 
-            var problems =
-                await query
+            if (pageSize.HasValue)
+            {
+                if (stageId.HasValue) query = query.Where(p => p.Problem.StageId == stageId.Value);
+                query = query.Where(p => p.IsErrorNotebookArchived == includeArchived);
+                var now = DateTime.UtcNow;
+                var due = query.Where(p => !p.IsErrorNotebookArchived && p.NextReviewAt != null && p.NextReviewAt <= now);
+                Response.Headers["X-Due-Count"] = (await due.CountAsync(HttpContext.RequestAborted)).ToString(System.Globalization.CultureInfo.InvariantCulture);
+                if (dueOnly) query = due;
+                Response.Headers["X-Total-Count"] = (await query.CountAsync(HttpContext.RequestAborted)).ToString(System.Globalization.CultureInfo.InvariantCulture);
+            }
+            var ordered = query
                     .OrderBy(progress =>
                         progress.NextReviewAt == null)
                     .ThenBy(progress =>
                         progress.NextReviewAt)
-                    .ThenByDescending(progress =>
-                        progress.LastAttemptAt)
+                    .ThenBy(progress => progress.ProblemId)
                     .Select(progress =>
                         new ErrorNotebookProblemDto
                         {
@@ -768,8 +779,9 @@ namespace MathWorldAPI.Controllers
 
                             LastAttemptAt =
                                 progress.LastAttemptAt
-                        })
-                    .ToListAsync();
+                        });
+            if (pageSize.HasValue) ordered = ordered.Skip((page - 1) * pageSize.Value).Take(pageSize.Value);
+            var problems = await ordered.ToListAsync(HttpContext.RequestAborted);
 
             return Ok(
                 LanguageHelper.SuccessResponse(
