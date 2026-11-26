@@ -46,7 +46,9 @@ public sealed class LearningTrackService(AppDbContext db, IConfiguration config,
     public sealed class ValidTrackLink {public int TrackId{get;init;} public int ProblemId{get;init;} public int CategoryId{get;init;} public int SkillId{get;init;}}
 
     // Keep public catalog and practice validation on the same relational rule.
-    public IQueryable<ValidTrackLink> ValidLinks() =>
+    public IQueryable<ValidTrackLink> ValidLinks() => ValidLinksFor(db);
+
+    public static IQueryable<ValidTrackLink> ValidLinksFor(AppDbContext db) =>
         from link in db.LearningTrackProblems.AsNoTracking()
         join track in db.LearningTracks on link.TrackId equals track.Id
         join problem in db.Problems on link.ProblemId equals problem.Id
@@ -60,8 +62,8 @@ public sealed class LearningTrackService(AppDbContext db, IConfiguration config,
 
     public IQueryable<MathProblem> ValidProblems(int trackId)
     {
-        var links=ValidLinks();
-        return db.Problems.AsNoTracking().Where(p=>links.Any(l=>l.TrackId==trackId&&l.ProblemId==p.Id));
+        var problemIds=ValidLinks().Where(l=>l.TrackId==trackId).Select(l=>l.ProblemId);
+        return db.Problems.AsNoTracking().Where(p=>problemIds.Contains(p.Id));
     }
 
     public IQueryable<LearningTrack> VisibleTracks()
@@ -70,12 +72,14 @@ public sealed class LearningTrackService(AppDbContext db, IConfiguration config,
         return db.LearningTracks.AsNoTracking().Where(t=>t.IsPublished&&links.Any(l=>l.TrackId==t.Id));
     }
 
-    public async Task<int[]> GetFreeCategoryIdsForPlacementAsync(int stageId,CancellationToken ct)
-        => (await access.GetFreeCategoryIdsAsync(stageId,ct)).ToArray();
+    public async Task<int[]> GetFreeCategoryIdsForPlacementAsync(int stageId,int[] categoryIds,CancellationToken ct)
+        => await db.Categories.AsNoTracking().Where(c=>c.StageId==stageId&&categoryIds.Contains(c.Id))
+            .OrderBy(c=>c.Order).ThenBy(c=>c.Id).Select(c=>c.Id)
+            .Take(CategoryAccessPolicy.DefaultFreeCategoriesPerStage).ToArrayAsync(ct);
 
     public async Task<TrackCoverage> CoverageAsync(int id,int stageId,CancellationToken ct)
     {
-        var free=await access.GetFreeCategoryIdsAsync(stageId,ct);
+        var free=await access.GetTrackFreeCategoryIdsAsync(id,stageId,requirePublished:false,ct:ct);
         var valid=ValidProblems(id);
         var categories=await valid.Select(p=>p.CategoryId).Distinct().CountAsync(ct);
         var skills=await db.CurriculumProblemSkills.AsNoTracking()

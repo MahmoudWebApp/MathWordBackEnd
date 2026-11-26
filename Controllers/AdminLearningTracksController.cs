@@ -172,7 +172,6 @@ public sealed class AdminLearningTracksController(AppDbContext db,LearningTrackS
                 .ToLookup(x=>x.TrackId,x=>x.SkillId);
             var problemsByTrack=(await db.LearningTrackProblems.AsNoTracking().Where(x=>trackIds.Contains(x.TrackId)).ToListAsync(ct))
                 .ToLookup(x=>x.TrackId,x=>x.ProblemId);
-            var freeByStage=new Dictionary<int,int[]>();
             foreach(var placement in proposal.Tracks.OrderBy(g=>g.StageId).ThenBy(g=>g.Code))
             {
                 var track=tracks.SingleOrDefault(t=>t.StageId==placement.StageId&&t.Code==placement.Code);
@@ -199,11 +198,7 @@ public sealed class AdminLearningTracksController(AppDbContext db,LearningTrackS
                 if(!same&&(oldC.Length!=0||oldS.Length!=0||oldP.Length!=0))
                     return Conflict(new{Message="TrackBatchExistingMapping",placement.Code});
                 // Use the same current Free policy as the normal track catalog.
-                if(!freeByStage.TryGetValue(placement.StageId,out var free))
-                {
-                    free=await service.GetFreeCategoryIdsForPlacementAsync(placement.StageId,ct);
-                    freeByStage.Add(placement.StageId,free);
-                }
+                var free=await service.GetFreeCategoryIdsForPlacementAsync(placement.StageId,map.CategoryIds,ct);
                 output.Add(new(track.Id,track.Revision,track.Code,track.StageId,ids.Length,
                     placement.Rows.Count(x=>free.Contains(x.CategoryId)),same?"AlreadyMapped":"Ready"));
                 if(!same)pending.Add((track,map));
@@ -237,7 +232,6 @@ public sealed class AdminLearningTracksController(AppDbContext db,LearningTrackS
         var t=await db.LearningTracks.FromSqlInterpolated($@"SELECT * FROM ""LearningTracks"" WHERE ""Id""={id} FOR UPDATE").SingleOrDefaultAsync(ct);
         if(t is null)return NotFound();
         if(t.Revision!=input.Revision)return Conflict(new{Message="TrackChanged"});
-        var premiumOnly=false;
         if(input.Publish)
         {
             var coverage=await service.CoverageAsync(id,t.StageId,ct);
@@ -245,20 +239,12 @@ public sealed class AdminLearningTracksController(AppDbContext db,LearningTrackS
             var categories=await db.LearningTrackCategories.CountAsync(x=>x.TrackId==id,ct);
             if(coverage.Problems==0||coverage.Problems!=mapped||coverage.Categories!=categories)
                 return Conflict(new{Message="TrackNotReady",Coverage=coverage});
-            // University courses may have no overlap with the two Free categories.
-            // This is an explicit catalog publication decision, not an entitlement grant.
+            // All published tracks have at least one populated free category.
             if(coverage.FreeProblems==0)
-            {
-                if(t.StageId!=4||t.Kind!="course")
-                    return Conflict(new{Message="TrackNotReady",Coverage=coverage});
-                if(!input.ConfirmPremiumOnlyCourse)
-                    return Conflict(new{Message="PremiumOnlyCourseConfirmationRequired",Coverage=coverage});
-                premiumOnly=true;
-            }
+                return Conflict(new{Message="TrackNotReady",Coverage=coverage});
         }
         t.IsPublished=input.Publish;t.Revision++;
         Audit(id,input.Publish?"LearningTrackPublished":"LearningTrackUnpublished");
-        if(premiumOnly)Audit(id,"PremiumOnlyCoursePublicationConfirmed");
         await db.SaveChangesAsync(ct);await tx.CommitAsync(ct);
         return Ok(new{t.Revision,t.IsPublished});
     }

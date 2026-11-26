@@ -261,7 +261,7 @@ def verify_tracks(admin, student, uid, stage1, stage2):
     expect("PUT",f"{root}/{tid}/publication",200,{"Revision":3,"Publish":False},admin)
     assert expect("GET",f"/api/stages/{stage1}/tracks",200)["Items"]==[]
     assert expect("GET","/api/users/learning-track",200,token=student).get("TrackId") is None
-    verify_premium_only_course(admin,student,uid,stage1,all_tracks)
+    verify_track_free_outside_stage_pair(admin,student,uid,stage1,all_tracks)
     # Keep journey suite's original stage and fixture assumptions.
     expect("PUT","/api/users/learning-stage",200,{"StageId":stage2},student)
     expect("PUT","/api/users/learning-stage",200,{"StageId":stage1},student)
@@ -272,7 +272,7 @@ def verify_tracks(admin, student, uid, stage1, stage2):
     print("PASS: 17 unpublished tracks, validated mapping, no empty public tracks, original stage Free policy, selection and legacy stage switch")
 
 
-def verify_premium_only_course(admin,student,uid,stage1,all_tracks):
+def verify_track_free_outside_stage_pair(admin,student,uid,stage1,all_tracks):
     root="/api/admin/learning-tracks"
     stage=4
     course=next(x["Track"] for x in all_tracks if x["Track"]["StageId"]==stage and x["Track"]["Kind"]=="course")
@@ -290,21 +290,18 @@ def verify_premium_only_course(admin,student,uid,stage1,all_tracks):
     skill=int(sql(f"""INSERT INTO "CurriculumSkills" ("StableKey","DomainId","StageId","CategoryId","NameAr","NameEn","DescriptionAr","DescriptionEn","SortOrder","IsPublished") VALUES ('ci-premium-course-skill',{domain},{stage},{category},'جمع','Addition','','',0,true) RETURNING "Id" """).splitlines()[0])
     sql(f'INSERT INTO "CurriculumProblemSkills" ("ProblemId","SkillId","IsPrimary") VALUES ({pid},{skill},true)')
     expect("PUT",f"{root}/{tid}/mapping",200,{"Revision":0,"CategoryIds":[category],"SkillIds":[skill],"ProblemIds":[pid]},admin)
-    expect("PUT",f"{root}/{tid}/publication",409,{"Revision":1,"Publish":True},admin)
-    expect("PUT",f"{root}/{tid}/publication",403,{"Revision":1,"Publish":True,"ConfirmPremiumOnlyCourse":True},student)
-    expect("PUT",f"{root}/{tid}/publication",200,{"Revision":1,"Publish":True,"ConfirmPremiumOnlyCourse":True},admin)
+    expect("PUT",f"{root}/{tid}/publication",403,{"Revision":1,"Publish":True},student)
+    expect("PUT",f"{root}/{tid}/publication",200,{"Revision":1,"Publish":True},admin)
     public=expect("GET",f"/api/stages/{stage}/tracks",200)["Items"]
     item=next(x for x in public if x["Id"]==tid)
-    assert item["FreeProblemsCount"]==0 and item["ProblemsCount"]==1
+    assert item["FreeProblemsCount"]==1 and item["ProblemsCount"]==1
     detail=expect("GET",f"/api/learning-tracks/{tid}",200)
-    assert not detail["Categories"][0]["IsFree"] and all(set(x)<={"Id","CategoryId","TitleAr","TitleEn"} for x in detail["Examples"])
+    assert detail["Categories"][0]["IsFree"] and all(set(x)<={"Id","CategoryId","TitleAr","TitleEn"} for x in detail["Examples"])
     expect("PUT","/api/users/learning-track",200,{"TrackId":tid},student)
     progress=expect("GET",f"/api/users/learning-tracks/{tid}/progress",200,token=student)
-    assert progress["Categories"][0]["IsLocked"]
-    expect("GET",f"/api/users/learning-tracks/{tid}/categories/{category}/problems",403,token=student)
-    expect("GET",f"/api/problems/{pid}",403,token=student)
-    correct=int(sql(f'SELECT "Id" FROM "QuestionOptions" WHERE "ProblemId"={pid} AND "IsCorrect"'))
-    expect("POST","/api/problems/submit",403,{"ProblemId":pid,"SelectedOptionId":correct,"TimeSpentSeconds":1,"PracticeScopeId":tid},student)
+    assert not progress["Categories"][0]["IsLocked"]
+    expect("GET",f"/api/users/learning-tracks/{tid}/categories/{category}/problems",200,token=student)
+    expect("GET",f"/api/problems/{pid}",200,token=student)
     sql(f"""UPDATE "Users" SET "SubscriptionType"='Premium',"PremiumExpiresAtUtc"=NULL WHERE "Id"={uid}""")
     assert not expect("GET",f"/api/users/learning-tracks/{tid}/progress",200,token=student)["Categories"][0]["IsLocked"]
     expect("GET",f"/api/users/learning-tracks/{tid}/categories/{category}/problems",200,token=student)
@@ -315,4 +312,4 @@ def verify_premium_only_course(admin,student,uid,stage1,all_tracks):
     expect("PUT",f"{root}/{tid}/publication",200,{"Revision":2,"Publish":False},admin)
     expect("PUT",f"{root}/{tid}/mapping",200,{"Revision":3,"CategoryIds":[],"SkillIds":[],"ProblemIds":[]},admin)
     sql(f'DELETE FROM "Problems" WHERE "Id"={pid}; DELETE FROM "CurriculumSkills" WHERE "Id"={skill}; DELETE FROM "CurriculumDomains" WHERE "Id"={domain}')
-    print("PASS: explicit university Premium-only catalog publication; Free practice remains forbidden; Premium allowed; Free categories unchanged")
+    print("PASS: university track Free access independent of stage-wide Free pair; Premium allowed; legacy stage catalog unchanged")
