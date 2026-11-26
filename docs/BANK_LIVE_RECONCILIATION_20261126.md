@@ -459,3 +459,20 @@ Authored12 candidates, held picture-graph-compare-two-rows for near overlap with
 | growth-v30-grade-2-shape-equal-shares-partition-1 |1393|2104|2/96/355|8405=A|
 
 Verified live1000 (307/227/239/227), structured639 (218/151/140/130), missing361 (89/76/99/97). Draft369 (320 amendments+49 additions), Published873 (412 amendments+461 additions), Withdrawn1. Valid populated category counts grades1–12:5,5,6,8,7,5,8,8,5,6,9,6; mapped university20=5,21=5. All14 meet 5–10 category-count constraint; zero missing category slots. University20/21 still unpublished. Best-five capped805/1400 (643 school+162 mapped university), gap595 (557 school+38 university). Per-track capped34,40,51,57,56,38,76,69,44,65,61,52,83,79. Only8 track/category placements currently contain >=20 valid linked problems; this is NOT complete curriculum depth and not verified distinct-family mastery. Cumulative #193:257 legacy corrections+151 new. Next priority: grow depth in each category toward20 distinct questions, not arbitrary category creation; grades1/2/6/9 first; new category scope review with product owner if existing broad labels need refinement. Continue legacy701 onward, reconcile canonical #179 keys; preserve all Free pairs and university flags. No further category breadth required for minimum; 20 per every existing category is a larger target than best-five 1400 and must be calculated separately. 
+
+
+## Primary depth checkpoint v31 (2026-11-26)
+Start1000 live/639 structured/361 missing; all14 tracks meet the5–10 populated category requirement. Initial ten-candidate construction failed on a missing bilingual field before any database write; rebuilt eight candidates with complete bilingual fields. Prioritized grade1 length, time, shape attributes and data classification; grade2 equal-area partitions and transfer within pictographs; grade6 median after insertion and mean invariance. Checked all four hold registries, current target linked stems and top3 bilingual overlap matches across1369 live/open-draft pairs. Candidate JSON5bd4d8bbc58c62e52cb90356507ba8ce3a5b9a8a is NOT an import payload. Reviewed answers and guard conditions. Final one-time SQL scripts/publish_reviewed_v31_primary_depth_20261126.sql commit7ac495a498093cc49b34a735a149c6350425cfa9 ALREADY APPLIED, DO NOT replay. Rollback rehearsal, independent zero keys, commit, exact independent readback8/8 for bilingual title/stem, ordered choices, full solutions, wizard and primary skill/track links;32 owner_sql audit events. Existing category/skill links only; no changes to global taxonomy, entitlement settings, learner data, app or auth. University20/21 flags remain false. Runtime display and exhaustive duplicate-family audit not verified.
+
+| Content key | Draft | Problem | Track/category/skill | Correct option |
+|---|---:|---:|---|---|
+| growth-v31-grade-1-classify-observations-ordered-counts-1 |1402|2113|1/97/356|8442=(3,2)|
+| growth-v31-grade-1-common-attribute-triangle-square-1 |1403|2114|1/96/354|8447=C|
+| growth-v31-grade-1-compare-identical-informal-units-1 |1404|2115|1/82/321|8449=2|
+| growth-v31-grade-1-order-hour-half-hour-1 |1405|2116|1/82/324|8455=8:30|
+| growth-v31-grade-2-equal-halves-different-outlines-1 |1406|2117|2/96/355|8459=C|
+| growth-v31-grade-2-picture-graph-transfer-between-categories-1 |1407|2118|2/97/357|8463=12|
+| growth-v31-grade-6-mean-unchanged-add-mean-value-1 |1408|2119|6/4/19|8466=6|
+| growth-v31-grade-6-median-even-after-extreme-insertion-1 |1409|2120|6/4/18|8470=8|
+
+Live1008 (315/227/239/227),647 structured (226/151/140/130),361 missing (89/76/99/97). Best-five capped813/1400, gap587 (551 school+38 mapped university). Full current category depth separately calculated from valid linked problems: 88 placements across14 tracks, target1760, capped897, gap863. These are assignment counts capped at20 per category, not a claim of verified distinct mathematical families or fully complete curricula. Grade1/2/6 depth38/42/40 out of100. Cumulative #193:257 legacy corrections+159 new. Next prioritize depth in underfilled categories and legacy701 onward. Reconcile canonical #179 keys without replay.
