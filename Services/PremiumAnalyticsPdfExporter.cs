@@ -216,6 +216,63 @@ public static class PremiumAnalyticsPdfExporter
     }
 
 
+    /// <summary>Printable authoring contract for editors and generation tools.</summary>
+    public static byte[] CreateAuthoringGuide(bool ar)
+    {
+        _ = Initialized.Value;
+        using var imageStream=typeof(PremiumAnalyticsPdfExporter).Assembly.GetManifestResourceStream("MathWorld.Brand.Logo.png")
+            ?? throw new InvalidOperationException("MathWorld approved logo missing");
+        using var buffer=new MemoryStream();imageStream.CopyTo(buffer);var logo=buffer.ToArray();
+        string T(string a,string e)=>ar?a:e;
+        var groups=new (string Title,string[] Lines)[]
+        {
+            (T("1. التصنيف والبنية","1. Classification and structure"),new[]{
+                T("استخدم معرفات حقيقية ومتوافقة للمرحلة والفئة والمهارة الأساسية. اختر من 1 إلى 50 مساراً فريداً من المرحلة نفسها، وحتى 30 مهارة مساندة لا تشمل الأساسية.","Use real compatible stage, category and primary skill IDs. Select 1–50 unique tracks from the same stage and at most 30 distinct secondary skills excluding the primary."),
+                "StageId · CategoryId · PrimarySkillId · SecondarySkillIds · TrackIds",
+                T("الصعوبة من 1 إلى 5؛ النقاط من 1 إلى 100000 وفق العقد. العنوان حتى 250 حرفاً والسؤال حتى 5000 لكل لغة. الحقول الثنائية تحتوي Ar وEn.","Difficulty 1–5; points 1–100000 under the contract. Title up to 250 and question up to 5000 characters per language. Bilingual objects contain Ar and En."),
+                T("لا تخترع معرفات أو مستويات صعوبة. تأكد من تطابق السؤال مع الفئة والمهارات والمنهج المنشور.","Never invent identifiers or difficulty levels. Verify that the question matches the published curriculum and skills.")
+            }),
+            (T("2. LaTeX والخيارات والتلميحات","2. LaTeX, options and hints"),new[]{
+                T("في النصوص، استخدم علامتي الدولار للمعادلة داخل السطر ودولارين مزدوجين للمعادلة المستقلة. في LatexCode وFormulaLatex اكتب LaTeX دون دولارات. استخدم x وy وa وb، وليس رموزاً عربية للمتغيرات.","Use dollar delimiters for inline and double dollar delimiters for display math in text. LatexCode and FormulaLatex contain raw LaTeX. Use Latin mathematical variables."),
+                @"$2x+3=11$  |  $$a^2+b^2=c^2$$  |  \frac{3}{4}  |  \sqrt{x}  |  x^{2}",
+                @"\int_a^b f(x)\,dx  |  \lim_{x\to0} f(x)  |  JSON: ""LatexCode"": ""\\frac{3}{4}""",
+                T("أربعة خيارات مختلفة رياضياً ونصياً؛ صحيح واحد فقط. LatexCode حتى 3000 حرف. لكل مشتت ErrorType حتى 80 حرفاً وReason باللغتين حتى 1000 حرف؛ في الشرح اليدوي المعتمد يمكن تركهما فارغين.","Four mathematically and textually distinct options, exactly one correct. LatexCode max 3000. Each distractor needs ErrorType max 80 and bilingual Reason max 1000; approved manual explanations can omit them."),
+                T("تلميحان مختلفان باللغتين، حتى 1000 حرف لكل لغة. الأول يوجه للفكرة والثاني للخطوة التالية، دون كشف الإجابة.","Two distinct bilingual hints, max 1000 characters per language. First guides the idea, second the next step, neither reveals the answer.")
+            }),
+            (T("3. الحل والفيديو","3. Solution and video"),new[]{
+                T("الحل المنظم: Idea (2000)، Steps (من 1 إلى 20، كل خطوة 2000)، Result (1000) إلزامية باللغتين.","Structured solution requires bilingual Idea (2000), Steps (1–20, 2000 per step) and Result (1000)."),
+                T("في الإضافة والتعديل التفاعلي فقط: FormulaLatex وSubstitution وVerification وCommonError حتى 2000، وUnit حتى 200، اختيارية عند عدم الانطباق. الحقل الثنائي إما فارغ باللغتين أو مكتمل باللغتين. الاستيراد الجماعي يحتفظ بالتحقق الصارم.","Interactive authoring only: FormulaLatex, Substitution, Verification and CommonError up to 2000, Unit up to 200, are optional if inapplicable. Bilingual optional fields must be empty in both languages or complete in both. Bulk imports retain strict validation."),
+                T("الشرح المرن ManualExplanation متاح للأدمن وفق الصلاحيات، حتى 12000 حرف لكل لغة. لا تتجاوز هذه الحدود في الحل المسطح. استخدم خطوات برهانية عند الحاجة دون اختراع قانون أو وحدة.","Admin-authorized ManualExplanation allows up to 12000 characters per language. Flattened solutions must also stay within that limit. Use proof steps when appropriate, never invent a formula or unit."),
+                T("YoutubeSolutionUrl اختياري: رابط HTTPS صالح لفيديو YouTube، بطول لا يتجاوز 2048 حرفاً. تحقق من المعاينة قبل الحفظ.","Optional YoutubeSolutionUrl: valid HTTPS YouTube video URL, max 2048 characters. Verify preview before saving.")
+            }),
+            (T("4. مثال صالح رياضياً","4. Mathematically valid example"),new[]{
+                T("أوجد قيمة x إذا كان 2x+3=11. الخيارات: 3، 4 (صحيح)، 7، 8.","Find x if 2x+3=11. Options: 3, 4 (correct), 7, 8."),
+                T("المشتتات: 3 خطأ حسابي عند طرح 3؛ 7 جمع 3 بدلاً من طرحها؛ 8 تجاهل القسمة على 2.","Distractors: 3 arithmetic error when subtracting 3; 7 added rather than subtracted 3; 8 omitted division by 2."),
+                T("تلميح 1: اعزل الحد الذي يحتوي x. تلميح 2: اطرح 3 من الطرفين.","Hint 1: isolate the term containing x. Hint 2: subtract 3 from both sides."),
+                T("الحل: حافظ على تساوي الطرفين. 2x=8 ثم x=4. تحقق: 2(4)+3=11. لا وحدة لهذه المسألة.","Solution: preserve equality. 2x=8, then x=4. Check: 2(4)+3=11. No unit applies."),
+                "Title: { Ar, En }; Question: { Ar, En }; Options: [{ LatexCode, IsCorrect, ErrorType, Reason: { Ar, En } }]; Hints: [{ Ar, En }, { Ar, En }]; Solution: { Idea, FormulaLatex, Steps, Substitution, Result, Unit, Verification, CommonError }."
+            }),
+            (T("5. تعليمات جاهزة لأدوات الذكاء الاصطناعي","5. Prompt for generation tools"),new[]{
+                T("ولّد مسائل أصلية وفق عقد WizardProblem. استخدم العربية والإنجليزية ورموزاً رياضية لاتينية. استخدم حصراً معرفات التصنيف التي يزودك بها المستخدم. أخرج JSON صحيحاً، بأربعة خيارات غير متكافئة وصحيح واحد، وأسباب للمشتتات وتلميحين متدرجين وحل قابل للتحقق. في الاستيراد الجماعي أكمل حقول الحل المطلوبة؛ لا تترك حقلاً اختيارياً إلا إذا كان المسار التفاعلي يسمح بذلك. لا تخترع محتوى غير منطبق؛ أشر للمراجع البشري إلى الحالات التي تستلزم شرحاً مرناً.","Generate original problems conforming to WizardProblem. Write Arabic and English with Latin math variables. Use only supplied curriculum identifiers. Output valid JSON, four inequivalent options with one correct answer, distractor reasons, two progressive hints and a verifiable solution. Complete strict solution fields for bulk imports; omit optional fields only when the interactive workflow permits. Flag non-applicable fields for human review rather than inventing content."),
+                T("قبل الاعتماد: تحقق مستقلاً من الحساب والبرهان، عدم التكافؤ، تطابق اللغتين، LaTeX، التصنيف والتلميحات. احفظ كمسودة ثم اتبع صلاحيات المراجعة والنشر. لا تغير معرفات الخيارات أو سجل الطالب عند تعديل مسألة منشورة.","Before approval: independently verify math, option inequivalence, translations, LaTeX, classification and hints. Save as a draft and follow review/publication permissions. Never alter option identities or learner history when amending published content.")
+            })
+        };
+        return Document.Create(doc=>doc.Page(page=>{
+            page.Size(PageSizes.A4);page.Margin(34);page.PageColor(Colors.White);
+            page.DefaultTextStyle(t=>t.FontFamily("IBM Plex Sans Arabic").FontSize(11).FontColor(Navy));
+            page.Header().Row(row=>{row.ConstantItem(44).Height(44).Image(logo);row.RelativeItem().PaddingHorizontal(12).AlignMiddle().Text(T("MathWorld | دليل إضافة المسائل","MathWorld | Problem authoring guide")).FontSize(18).Bold().FontColor(Teal);});
+            var root=page.Content().PaddingTop(14);root=ar?root.ContentFromRightToLeft():root.ContentFromLeftToRight();
+            root.Column(col=>{
+                col.Spacing(10);
+                foreach(var group in groups){
+                    col.Item().EnsureSpace(50).Background(Light).Padding(9).Text(group.Title).FontSize(15).Bold().FontColor(Teal);
+                    foreach(var line in group.Lines)col.Item().PaddingHorizontal(6).Text(line);
+                }
+            });
+            page.Footer().AlignCenter().Text(t=>{t.Span("MathWorld • ");t.CurrentPageNumber();t.Span(" / ");t.TotalPages();});
+        })).GeneratePdf();
+    }
+
     public static byte[] CreateExamCertificate(MathWorldAPI.Models.CustomExam exam,bool ar)
     {
         _ = Initialized.Value;
