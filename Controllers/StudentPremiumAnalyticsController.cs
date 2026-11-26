@@ -91,9 +91,10 @@ public sealed class StudentPremiumAnalyticsController : ControllerBase
         var report = await BuildReport(userId.Id!.Value, filter, ct);
         var csv = new StringBuilder();
         var lifetime=report.ScoreBasis=="PermanentAchievements";
-        csv.AppendLine(ar
+        csv.AppendLine((ar
             ? "المرحلة,الفئة,المسائل المجربة,المسائل المحلولة,دفتر الأخطاء,عدد المحاولات,الإجابات الصحيحة,الإجابات الخاطئة,صحيحة من أول مرة,النقاط,"+(lifetime?"وقت التدريب العادي (ثانية)":"الوقت بالثواني")
-            : "Stage,Category,Attempted problems,Solved problems,Error notebook,Attempts,Correct attempts,Incorrect attempts,Correct on first try,Points,"+(lifetime?"Ordinary practice time (seconds)":"Time (seconds)"));
+            : "Stage,Category,Attempted problems,Solved problems,Error notebook,Attempts,Correct attempts,Incorrect attempts,Correct on first try,Points,"+(lifetime?"Ordinary practice time (seconds)":"Time (seconds)")) +
+            (ar ? ",إجمالي المسائل,نسبة الإنجاز" : ",Total problems,Completion percent"));
 
         foreach (var row in report.Categories)
         {
@@ -103,14 +104,16 @@ public sealed class StudentPremiumAnalyticsController : ControllerBase
                 .Append(row.ErrorNotebookProblems).Append(',').Append(row.Attempts).Append(',')
                 .Append(row.CorrectAttempts).Append(',').Append(row.IncorrectAttempts).Append(',')
                 .Append(row.FirstTryCorrect).Append(',').Append(row.AwardedPoints).Append(',')
-                .Append(row.TimeSpentSeconds).AppendLine();
+                .Append(row.TimeSpentSeconds).Append(',').Append(row.TotalProblems).Append(',')
+                .Append(Completion(row.SolvedProblems,row.TotalProblems)).AppendLine();
         }
         csv.Append(Csv(ar ? "الإجمالي" : "TOTAL")).Append(",,")
             .Append(report.AttemptedProblems).Append(',').Append(report.SolvedProblems).Append(',')
             .Append(report.Categories.Sum(x => x.ErrorNotebookProblems)).Append(',')
             .Append(report.Attempts).Append(',').Append(report.CorrectAttempts).Append(',')
             .Append(report.IncorrectAttempts).Append(',').Append(report.FirstTryCorrect).Append(',')
-            .Append(report.AwardedPoints).Append(',').Append(report.TimeSpentSeconds).AppendLine();
+            .Append(report.AwardedPoints).Append(',').Append(report.TimeSpentSeconds).Append(',')
+            .Append(report.TotalProblems).Append(',').Append(Completion(report.SolvedProblems,report.TotalProblems)).AppendLine();
 
         // UTF-8 BOM preserves Arabic in Excel, WPS, and other spreadsheet apps.
         var bytes = Encoding.UTF8.GetPreamble().Concat(
@@ -173,6 +176,8 @@ public sealed class StudentPremiumAnalyticsController : ControllerBase
         Response.Headers["X-Content-Type-Options"] = "nosniff";
         return File(bytes, "application/pdf", "mathworld-premium-analytics-" + lang + ".pdf");
     }
+
+    private static string Completion(int solved,int total) => (total <= 0 ? 0 : Math.Clamp(100.0 * solved / total,0,100)).ToString("0.0",CultureInfo.InvariantCulture);
 
     private async Task<(int? Id, IActionResult? Status)> PremiumStudentId(CancellationToken ct)
     {

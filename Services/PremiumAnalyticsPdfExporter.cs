@@ -20,7 +20,7 @@ public static class PremiumAnalyticsPdfExporter
     private const string Teal = "#0F766E";
     private const string Green = "#15803D";
     private const string Red = "#B91C1C";
-    private const string Amber = "#A16207";
+    private const string Amber = "#806000";
     private const string Blue = "#1D4ED8";
     private const string Ink = "#273345";
     private const string Light = "#F8FAFC";
@@ -101,7 +101,7 @@ public static class PremiumAnalyticsPdfExporter
                         {
                             row.Spacing(8);
                             row.RelativeItem().Element(c => Metric(c,
-                                ar ? "المحلولة" : "Solved", report.SolvedProblems, Green));
+                                ar ? "المحلولة / الإجمالي" : "Solved / total", $"{report.SolvedProblems}/{report.TotalProblems}", Green));
                             row.RelativeItem().Element(c => Metric(c,
                                 ar ? "المحاولات" : "Attempts", report.Attempts, Blue));
                             row.RelativeItem().Element(c => Metric(c,
@@ -157,8 +157,8 @@ public static class PremiumAnalyticsPdfExporter
                         });
 
                         var titles = ar
-                            ? new[] { "المرحلة", "الفئة", "محلولة", "محاولات", "صحيحة", "أخطاء للمراجعة", "النقاط" }
-                            : new[] { "Stage", "Category", "Solved", "Attempts", "Correct", "Review", "Points" };
+                            ? new[] { "المرحلة", "الفئة", "محلولة / الإجمالي", "محاولات", "صحيحة", "أخطاء للمراجعة", "النقاط" }
+                            : new[] { "Stage", "Category", "Solved / total", "Attempts", "Correct", "Review", "Points" };
                         table.Header(header =>
                         {
                             foreach (var title in titles)
@@ -170,11 +170,27 @@ public static class PremiumAnalyticsPdfExporter
                         {
                             AddCell(table, ar ? item.StageNameAr : item.StageNameEn);
                             AddCell(table, ar ? item.CategoryNameAr : item.CategoryNameEn);
-                            AddCell(table, item.SolvedProblems.ToString(CultureInfo.InvariantCulture));
+                            AddCell(table, $"{item.SolvedProblems}/{item.TotalProblems}");
                             AddCell(table, item.Attempts.ToString(CultureInfo.InvariantCulture));
                             AddCell(table, item.CorrectAttempts.ToString(CultureInfo.InvariantCulture));
                             AddCell(table, item.ErrorNotebookProblems.ToString(CultureInfo.InvariantCulture));
                             AddCell(table, item.AwardedPoints.ToString(CultureInfo.InvariantCulture));
+                        }
+                    });
+                    column.Item().Text(ar ? "آخر المحاولات" : "Recent attempts").Bold().FontSize(14).FontColor(Navy);
+                    if(report.RecentAttempts.Count==0)
+                        column.Item().Text(ar?"لا توجد محاولات":"No attempts");
+                    else column.Item().Table(table=>{
+                        table.ColumnsDefinition(cols=>{cols.RelativeColumn(3);cols.RelativeColumn();cols.RelativeColumn(1.4f);});
+                        table.Header(header=>{
+                            foreach(var title in ar?new[]{"المسألة","النتيجة","التاريخ (UTC)"}:new[]{"Problem","Result","Date (UTC)"})
+                                header.Cell().Background(Navy).Padding(6).Text(title).FontColor(Colors.White);
+                        });
+                        foreach(var attempt in report.RecentAttempts)
+                        {
+                            AddCell(table,ar?attempt.TitleAr:attempt.TitleEn);
+                            AddCell(table,attempt.IsCorrect?(ar?"صحيحة":"Correct"):(ar?"خاطئة":"Incorrect"));
+                            AddCell(table,attempt.SubmittedAtUtc.ToString("yyyy-MM-dd HH:mm",CultureInfo.InvariantCulture));
                         }
                     });
                     column.Item().Text(ar
