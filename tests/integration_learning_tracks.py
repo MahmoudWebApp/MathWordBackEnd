@@ -214,6 +214,11 @@ def verify_tracks(admin, student, uid, stage1, stage2):
     sql(f"""UPDATE "Users" SET "SubscriptionType"='Free' WHERE "Id"={uid}""")
     practice=f"/api/users/learning-tracks/{tid}/categories/{category}/problems"
     assert expect("GET",practice,200,token=student)["Items"][0]["Id"]==pid
+    next_route=f"/api/users/learning-tracks/{tid}/categories/{category}/next?afterProblemId={pid}"
+    empty_next=expect("GET",next_route,200,token=student)
+    assert empty_next["HasNext"] is False and empty_next.get("Problem") is None
+    expect("GET",next_route,401)
+    expect("GET",f"/api/users/learning-tracks/{tid}/categories/{category}/next?afterProblemId=0",400,token=student)
     detail=expect("GET",f"/api/problems/{pid}",200,token=admin)
     option=next(x["Id"] for x in detail["Options"] if x["IsCorrect"])
     assert expect("GET",f"/api/problems/{pid}",200,token=student)["PracticeScopeId"]==tid
@@ -235,6 +240,7 @@ def verify_tracks(admin, student, uid, stage1, stage2):
     assert all(x["ProblemsCount"]==x["CategoriesCount"]==x["SkillsCount"]==x["FreeProblemsCount"]==1 for x in public_tracks)
     expect("PUT","/api/users/learning-track",200,{"TrackId":oid},student)
     expect("GET",practice,403,token=student)
+    expect("GET",next_route,403,token=student)
     assert expect("GET",f"/api/users/learning-tracks/{oid}/progress",200,token=student)["Solved"]==0
     expect("POST","/api/users/favorite/toggle",200,{"ProblemId":pid,"IsFavorite":True},student)
     wrong_option=next(x["Id"] for x in detail["Options"] if not x["IsCorrect"])
@@ -351,12 +357,19 @@ def verify_track_free_outside_stage_pair(admin,student,uid,stage1,all_tracks):
         sql(f'INSERT INTO "CurriculumProblemSkills" ("ProblemId","SkillId","IsPrimary") VALUES ({pid},{skill},true)')
         problems.append(pid)
         skills.append(skill)
-    expect("PUT",f"{root}/{tid}/mapping",200,{"Revision":0,"CategoryIds":categories,"SkillIds":skills,"ProblemIds":problems},admin)
+    extra=expect("POST","/api/admin/problems",201,{
+        "QuestionTextAr":"اختبار الاستمرار: ما ناتج 19+3؟","QuestionTextEn":"Continuation fixture: what is 19+3?",
+        "DetailedSolutionAr":"نجمع 19 و3 فنحصل على 22.","DetailedSolutionEn":"Add 19 and 3 to obtain 22.",
+        "StageId":stage,"CategoryId":categories[0],"Points":10,
+        "Options":[{"LatexCode":str(v),"IsCorrect":v==22,"Order":n+1} for n,v in enumerate(range(20,24))]},admin)["Id"]
+    sql(f'INSERT INTO "CurriculumProblemSkills" ("ProblemId","SkillId","IsPrimary") VALUES ({extra},{skills[0]},true)')
+    all_problems=problems+[extra]
+    expect("PUT",f"{root}/{tid}/mapping",200,{"Revision":0,"CategoryIds":categories,"SkillIds":skills,"ProblemIds":all_problems},admin)
     expect("PUT",f"{root}/{tid}/publication",403,{"Revision":1,"Publish":True},student)
     expect("PUT",f"{root}/{tid}/publication",200,{"Revision":1,"Publish":True},admin)
     public=expect("GET",f"/api/stages/{stage}/tracks",200)["Items"]
     item=next(x for x in public if x["Id"]==tid)
-    assert item["FreeProblemsCount"]==2 and item["ProblemsCount"]==3
+    assert item["FreeProblemsCount"]==3 and item["ProblemsCount"]==4
     detail=expect("GET",f"/api/learning-tracks/{tid}",200)
     assert [x["Id"] for x in detail["Categories"] if x["IsFree"]]==categories[:2]
     assert all(set(x)<={"Id","CategoryId","TitleAr","TitleEn"} for x in detail["Examples"])
@@ -366,7 +379,19 @@ def verify_track_free_outside_stage_pair(admin,student,uid,stage1,all_tracks):
     for i,(category,pid) in enumerate(zip(categories,problems)):
         status=200 if i<2 else 403
         expect("GET",f"/api/users/learning-tracks/{tid}/categories/{category}/problems",status,token=student)
+        expect("GET",f"/api/users/learning-tracks/{tid}/categories/{category}/next?afterProblemId={pid}",status,token=student)
         expect("GET",f"/api/problems/{pid}",status,token=student)
+    route=f"/api/users/learning-tracks/{tid}/categories/{categories[0]}/next?afterProblemId={problems[0]}"
+    candidate=expect("GET",route,200,token=student)
+    assert candidate["HasNext"] and candidate["Problem"]["Id"]==extra and not candidate["Problem"]["RequiresRetry"]
+    wrong_extra=int(sql(f'SELECT "Id" FROM "QuestionOptions" WHERE "ProblemId"={extra} AND NOT "IsCorrect" LIMIT 1'))
+    correct_extra=int(sql(f'SELECT "Id" FROM "QuestionOptions" WHERE "ProblemId"={extra} AND "IsCorrect"'))
+    assert not expect("POST","/api/problems/submit",200,{"ProblemId":extra,"SelectedOptionId":wrong_extra,"TimeSpentSeconds":1,"PracticeScopeId":tid},student)["IsCorrect"]
+    candidate=expect("GET",route,200,token=student)
+    assert candidate["HasNext"] and candidate["Problem"]["Id"]==extra and candidate["Problem"]["RequiresRetry"]
+    assert expect("POST","/api/problems/submit",200,{"ProblemId":extra,"SelectedOptionId":correct_extra,"TimeSpentSeconds":1,"PracticeScopeId":tid},student)["IsCorrect"]
+    finished=expect("GET",route,200,token=student)
+    assert not finished["HasNext"] and finished.get("Problem") is None
     locked=problems[2]
     correct=int(sql(f'SELECT "Id" FROM "QuestionOptions" WHERE "ProblemId"={locked} AND "IsCorrect"'))
     expect("POST","/api/problems/submit",403,{"ProblemId":locked,"SelectedOptionId":correct,"TimeSpentSeconds":1,"PracticeScopeId":tid},student)
@@ -380,5 +405,6 @@ def verify_track_free_outside_stage_pair(admin,student,uid,stage1,all_tracks):
     expect("PUT","/api/users/learning-stage",200,{"StageId":stage1},student)
     expect("PUT",f"{root}/{tid}/publication",200,{"Revision":2,"Publish":False},admin)
     expect("PUT",f"{root}/{tid}/mapping",200,{"Revision":3,"CategoryIds":[],"SkillIds":[],"ProblemIds":[]},admin)
-    sql(f'DELETE FROM "Problems" WHERE "Id" IN ({",".join(map(str,problems))}); DELETE FROM "CurriculumSkills" WHERE "Id" IN ({",".join(map(str,skills))}); DELETE FROM "CurriculumDomains" WHERE "Id"={domain}; DELETE FROM "Categories" WHERE "Id" IN ({",".join(map(str,categories))})')
+    sql(f'DELETE FROM "PermanentProblemAchievements" WHERE "ProblemId"={extra}; DELETE FROM "ProblemAttempts" WHERE "ProblemId"={extra}; DELETE FROM "UserProgresses" WHERE "ProblemId"={extra}')
+    sql(f'DELETE FROM "Problems" WHERE "Id" IN ({",".join(map(str,all_problems))}); DELETE FROM "CurriculumSkills" WHERE "Id" IN ({",".join(map(str,skills))}); DELETE FROM "CurriculumDomains" WHERE "Id"={domain}; DELETE FROM "Categories" WHERE "Id" IN ({",".join(map(str,categories))})')
     print("PASS: exactly two populated track categories are Free, third locked, Premium all, legacy stage catalog unchanged")
