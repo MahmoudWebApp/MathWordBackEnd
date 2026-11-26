@@ -85,5 +85,14 @@ def main():
     history=expect("GET",f"{ROUTE}/{sid}/activity",200,token=admin)
     actions={x["Action"] for x in history["Items"]}
     assert {"SupervisorCreated","SupervisorInvited","SupervisorInvitationAccepted","LoggedIn","SupervisorPermissionsChanged"}<=actions, actions
-    print("PASS: managed staff invitation, password setup, supervisor endpoint boundary, permission revocation and disable")
+    # Use a disposable empty supervisor, never remove reviewed fixture content.
+    disposable_email="supervisor-delete-ci@mathworld.test"
+    removed_id=expect("POST",ROUTE,201,{"FullName":"Disposable supervisor","Email":disposable_email},admin)["Id"]
+    expect("DELETE",f"{ROUTE}/{removed_id}",400,token=admin)
+    expect("DELETE",f"{ROUTE}/{removed_id}?confirm=true",401)
+    assert expect("DELETE",f"{ROUTE}/{removed_id}?confirm=true",200,token=admin)["Deleted"]
+    assert sql(f'SELECT COUNT(*) FROM "Users" WHERE "Id"={removed_id}')=="0"
+    expect("DELETE",f"{ROUTE}/{removed_id}?confirm=true",404,token=admin)
+    expect("POST",ROUTE,201,{"FullName":"Recreated supervisor","Email":disposable_email},admin)
+    print("PASS: managed staff invitation, password setup, supervisor endpoint boundary, permission revocation, disable and confirmed deletion")
 if __name__=="__main__": main()

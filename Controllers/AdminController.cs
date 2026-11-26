@@ -771,7 +771,7 @@ namespace MathWorldAPI.Controllers
             typeof(ApiResponse<object>),
             StatusCodes.Status404NotFound)]
         public async Task<IActionResult> DeleteProblem(
-            int id)
+            int id, [FromQuery] bool confirmReviewedDeletion = false)
         {
             var language =
                 LanguageHelper.GetLanguageFromRequest(Request);
@@ -789,7 +789,7 @@ namespace MathWorldAPI.Controllers
                     .FirstOrDefaultAsync(item =>
                         item.Id == id);
 
-            if (problem?.EditorialDetailsJson is not null)
+            if (problem?.EditorialDetailsJson is not null && !confirmReviewedDeletion)
                 return Conflict(new { Message = "ReviewedEditorialMutationRequired" });
 
             if (problem == null)
@@ -802,10 +802,23 @@ namespace MathWorldAPI.Controllers
             }
 
             var hasStudentData =
-                await _context.UserProgresses
+                await _context.UserProgresses.IgnoreQueryFilters()
                     .AnyAsync(item => item.ProblemId == id) ||
                 await _context.ProblemAttempts
-                    .AnyAsync(item => item.ProblemId == id);
+                    .AnyAsync(item => item.ProblemId == id) ||
+                await _context.PermanentProblemAchievements.AnyAsync(item => item.ProblemId == id) ||
+                await _context.LearningSessionAttempts.AnyAsync(item => item.ProblemId == id);
+
+            if (confirmReviewedDeletion && await _context.CurriculumDraftItems.AnyAsync(d =>
+                d.SourceProblemId == id && (d.EditorialStatus == "Draft" ||
+                    d.EditorialStatus == "NeedsChanges" || d.EditorialStatus == "PendingReview" ||
+                    d.EditorialStatus == "Approved")))
+                return Conflict(new { Message = "ProblemHasOpenEditorialReview" });
+
+            if (confirmReviewedDeletion && await _context.LearningSessions.AnyAsync(session =>
+                session.StageId == problem.StageId &&
+                (session.CategoryId == null || session.CategoryId == problem.CategoryId)))
+                return Conflict(new { Message = "ProblemMayBelongToLearningSession" });
 
             if (hasStudentData)
             {

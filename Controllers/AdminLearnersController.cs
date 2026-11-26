@@ -2,6 +2,8 @@ using System.Security.Claims;
 using MathWorldAPI.Data;
 using MathWorldAPI.DTOs;
 using MathWorldAPI.Helpers;
+using MathWorldAPI.Models;
+using Npgsql;
 using MathWorldAPI.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -10,7 +12,7 @@ using Microsoft.EntityFrameworkCore;
 namespace MathWorldAPI.Controllers
 {
     /// <summary>
-    /// Read-only learner management. No admin identities or password hashes
+    /// Admin-only learner management. No admin identities or password hashes
     /// appear in results; all actions require the real Admin JWT role.
     /// Historic points are read from awarded attempt snapshots.
     /// </summary>
@@ -33,6 +35,52 @@ namespace MathWorldAPI.Controllers
         // which requires a reason, audits the grant and notifies the learner.
         // Retaining the old write handler would produce ambiguous routing and
         // permit unaudited, unvalidated Premium changes.
+
+        // Permanent account deletion for disposable development accounts.
+        // Keep commercial records intact; never delete another staff account.
+        [HttpDelete("{learnerId:int}")]
+        public async Task<IActionResult> DeleteLearner(int learnerId, [FromQuery] bool confirm,
+            CancellationToken ct = default)
+        {
+            if (!confirm || learnerId <= 0) return BadRequest(new { Message = "DeletionConfirmationRequired" });
+            if (!int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out var adminId) ||
+                !await _db.Users.AsNoTracking().AnyAsync(u => u.Id == adminId && u.IsActive && u.Role == "Admin", ct))
+                return Forbid();
+
+            await using var tx = await _db.Database.BeginTransactionAsync(ct);
+            try
+            {
+                var student = await _db.Users.FromSqlInterpolated(
+                    $@"SELECT * FROM ""Users"" WHERE ""Id""={learnerId} FOR UPDATE")
+                    .SingleOrDefaultAsync(ct);
+                if (student is null || student.Role != "Student") return NotFound(new { Message = "UserNotFound" });
+                if (await _db.PremiumCheckoutOrders.AnyAsync(x => x.StudentId == learnerId, ct) ||
+                    await _db.PremiumAccessCodes.AnyAsync(x => x.RedeemedByUserId == learnerId, ct))
+                    return Conflict(new { Message = "LearnerHasProtectedBillingHistory" });
+
+                // User-owned audit events and manual grants are restrictive FKs.
+                // Delete only this learner's data, not other learners or staff logs.
+                await _db.PlatformActivityEvents.Where(x => x.ActorUserId == learnerId).ExecuteDeleteAsync(ct);
+                await _db.SubscriptionGrants.Where(x => x.LearnerId == learnerId).ExecuteDeleteAsync(ct);
+                _db.Users.Remove(student);
+                _db.PlatformActivityEvents.Add(new PlatformActivityEvent
+                {
+                    ActorUserId = adminId, ActorRole = "Admin", Action = "LearnerDeleted",
+                    Resource = "Learner", ResourceId = learnerId.ToString(), Origin = "api"
+                });
+                await _db.SaveChangesAsync(ct);
+                await tx.CommitAsync(ct);
+                return Ok(new { Deleted = true, LearnerId = learnerId });
+            }
+            catch (DbUpdateException e) when (e.InnerException is PostgresException { SqlState: "23503" })
+            {
+                return Conflict(new { Message = "LearnerHasProtectedHistory" });
+            }
+            catch (PostgresException e) when (e.SqlState == "23503")
+            {
+                return Conflict(new { Message = "LearnerHasProtectedHistory" });
+            }
+        }
 
         [HttpGet]
         public async Task<IActionResult> List(
