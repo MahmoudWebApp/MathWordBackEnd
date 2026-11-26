@@ -162,6 +162,8 @@ def main():
     assert len(report_initial["Categories"]) >= 1, report_initial
     assert api("GET", report_route + "?stageId=999999",
                token=learner1)[0] == 404
+    assert api("GET", report_route + "?stageId=2",token=learner1)[0] == 400
+    assert api("GET", csv_route + "?stageId=2",token=learner1)[0] == 400
     # CSV is intentionally not JSON; verify the binary export directly.
     import urllib.request
     csv_request = urllib.request.Request(

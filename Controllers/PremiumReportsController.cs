@@ -82,7 +82,11 @@ namespace MathWorldAPI.Controllers
                     LanguageHelper.GetLanguageFromRequest(Request), 403)));
 
             var selectedId = user.CurrentStageId;
-            if(stageId.HasValue&&stageId!=selectedId)return (null, BadRequest(new{Message="CurrentGradeReportOnly"}));
+            if(stageId.HasValue&&stageId!=selectedId)
+            {
+                if(!await _db.EducationalStages.AsNoTracking().AnyAsync(s=>s.Id==stageId,cancellationToken))return (null,NotFound());
+                return (null,BadRequest(new{Message="CurrentGradeReportOnly"}));
+            }
             if (selectedId == null || selectedId < 1) return (null, BadRequest());
             var stage = await _db.EducationalStages.AsNoTracking()
                 .Where(s => s.Id == selectedId.Value)
@@ -121,7 +125,7 @@ namespace MathWorldAPI.Controllers
                 }).ToListAsync(cancellationToken);
             var attempts = await _db.ProblemAttempts.AsNoTracking()
                 .Where(a => a.UserId == userId && scope.Any(q=>q.Id==a.ProblemId) &&
-                    a.IsOfficial&&(!user.CurrentTrackId.HasValue||!tracks.Enabled||a.PracticeScopeId==user.CurrentTrackId.Value))
+                    a.IsOfficial&&(track==null||a.PracticeScopeId==track.Id))
                 .GroupBy(a => a.Problem.CategoryId)
                 .Select(g => new { CategoryId = g.Key,
                     Points = g.Sum(a => a.PointsEarned) })
