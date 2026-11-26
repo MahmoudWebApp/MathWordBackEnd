@@ -1,0 +1,27 @@
+{
+  "status": "reviewed-arabic-step-correction-not-imported",
+  "date": "2026-11-26",
+  "items": [
+    {
+      "problemId": 154,
+      "correctOptionId": 608,
+      "answer": "7",
+      "oldStep": "عوّض س بـ5 ثم اضربها في 2 واطرح 3.",
+      "newStep": "عوّض $x=5$، ثم احسب $2\\times5=10$ واطرح $3$ لتحصل على $7$."
+    },
+    {
+      "problemId": 166,
+      "correctOptionId": 655,
+      "answer": "8",
+      "oldStep": "عوّض س بـ6 ثم اضربها في 2 واطرح 4.",
+      "newStep": "عوّض $x=6$، ثم احسب $2\\times6=12$ واطرح $4$ لتحصل على $8$."
+    },
+    {
+      "problemId": 178,
+      "correctOptionId": 702,
+      "answer": "9",
+      "oldStep": "ضع 7 مكان س، ثم احسب حاصل الضرب واطرح 5.",
+      "newStep": "عوّض $x=7$، ثم احسب $2\\times7=14$ واطرح $5$ لتحصل على $9$."
+    }
+  ]
+}
