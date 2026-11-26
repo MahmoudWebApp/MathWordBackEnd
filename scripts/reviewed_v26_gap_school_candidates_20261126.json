@@ -1,0 +1,1150 @@
+[
+  {
+    "key": "growth-v26-grade-1-equal-difference-compensation-1",
+    "family": "equal-difference-compensation",
+    "skill_key": "primary-subtraction",
+    "track_code": "grade-1",
+    "track": 1,
+    "stage": 1,
+    "category": 1,
+    "skill": 2,
+    "wizard": {
+      "StageId": 1,
+      "CategoryId": 1,
+      "PrimarySkillId": 2,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        1
+      ],
+      "DifficultyLevel": 2,
+      "Points": 10,
+      "Title": {
+        "Ar": "طرح عددين مع تغييرهما",
+        "En": "Compensating a subtraction"
+      },
+      "Question": {
+        "Ar": "أي عملية طرح لها الناتج نفسه للعملية $15-6$؟",
+        "En": "Which subtraction gives the same result as $15-6$?"
+      },
+      "Options": [
+        {
+          "LatexCode": "14-6",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "الناتج 8 لا 9.",
+            "En": "The result is 8, not 9."
+          }
+        },
+        {
+          "LatexCode": "15-5",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "الناتج 10 لا 9.",
+            "En": "The result is 10, not 9."
+          }
+        },
+        {
+          "LatexCode": "14-5",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "16-6",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "الناتج 10 لا 9.",
+            "En": "The result is 10, not 9."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "احسب الفرق الأصلي أولاً.",
+          "En": "Find the original difference first."
+        },
+        {
+          "Ar": "جرّب إنقاص العددين معاً بمقدار واحد.",
+          "En": "Try decreasing both numbers by one."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "إنقاص العددين بالمقدار نفسه يحافظ على الفرق.",
+          "En": "Decreasing both numbers by the same amount preserves the difference."
+        },
+        "FormulaLatex": "15-6=14-5",
+        "Steps": [
+          {
+            "Ar": "ناتج 15 ناقص 6 هو 9.",
+            "En": "15 minus 6 equals 9."
+          },
+          {
+            "Ar": "ننقص العددين بواحد، فتصبح العملية 14 ناقص 5 وناتجها 9 أيضاً.",
+            "En": "Decrease both numbers by one: 14 minus 5 also equals 9."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$15-6=9=14-5$",
+          "En": "$15-6=9=14-5$"
+        },
+        "Result": {
+          "Ar": "$14-5$",
+          "En": "$14-5$"
+        },
+        "Unit": {
+          "Ar": "تعبير حسابي",
+          "En": "Arithmetic expression"
+        },
+        "Verification": {
+          "Ar": "إضافة 5 إلى 9 تعطي 14، وإضافة 6 إلى 9 تعطي 15.",
+          "En": "Adding 5 to 9 gives 14, and adding 6 to 9 gives 15."
+        },
+        "CommonError": {
+          "Ar": "لا تغيّر أحد العددين وحده وتفترض ثبات الفرق.",
+          "En": "Do not change just one number and assume the difference is preserved."
+        }
+      }
+    }
+  },
+  {
+    "key": "growth-v26-grade-1-match-one-to-one-1",
+    "family": "match-one-to-one",
+    "skill_key": "counting",
+    "track_code": "grade-1",
+    "track": 1,
+    "stage": 1,
+    "category": 81,
+    "skill": 302,
+    "wizard": {
+      "StageId": 1,
+      "CategoryId": 81,
+      "PrimarySkillId": 302,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        1
+      ],
+      "DifficultyLevel": 2,
+      "Points": 10,
+      "Title": {
+        "Ar": "المطابقة واحداً بواحد",
+        "En": "One-to-one matching"
+      },
+      "Question": {
+        "Ar": "توجد 6 أطباق و8 ملاعق. نضع ملعقة واحدة على كل طبق. كم ملعقة تبقى بلا طبق؟",
+        "En": "There are 6 plates and 8 spoons. Put one spoon on every plate. How many spoons are left without a plate?"
+      },
+      "Options": [
+        {
+          "LatexCode": "0",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "توجد ملاعق أكثر من الأطباق.",
+            "En": "There are more spoons than plates."
+          }
+        },
+        {
+          "LatexCode": "2",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "6",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "6 عدد الملاعق المستعملة.",
+            "En": "6 counts the spoons used on plates."
+          }
+        },
+        {
+          "LatexCode": "8",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "8 عدد الملاعق قبل المطابقة.",
+            "En": "8 is the initial number of spoons."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "تخيل ملعقة مقابل كل طبق.",
+          "En": "Imagine one spoon paired with each plate."
+        },
+        {
+          "Ar": "بعد مطابقة ست ملاعق عد الملاعق المتبقية.",
+          "En": "After matching six spoons, count the unmatched ones."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "المطابقة واحداً بواحد تبين الفرق بين مجموعتين.",
+          "En": "One-to-one matching reveals the difference between two sets."
+        },
+        "FormulaLatex": "8-6",
+        "Steps": [
+          {
+            "Ar": "نحتاج ست ملاعق لستة أطباق.",
+            "En": "Six plates need six spoons."
+          },
+          {
+            "Ar": "نعد الملاعق المتبقية بعد المطابقة: اثنتان.",
+            "En": "Count the spoons left after matching: two."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$8-6=2$",
+          "En": "$8-6=2$"
+        },
+        "Result": {
+          "Ar": "$2$",
+          "En": "$2$"
+        },
+        "Unit": {
+          "Ar": "ملاعق",
+          "En": "Spoons"
+        },
+        "Verification": {
+          "Ar": "ست ملاعق مستعملة واثنتان باقيتان تعطي ثماني ملاعق.",
+          "En": "Six used and two remaining make eight."
+        },
+        "CommonError": {
+          "Ar": "لا تعد الملاعق المستعملة ضمن الباقي.",
+          "En": "Do not include used spoons in the remainder."
+        }
+      }
+    }
+  },
+  {
+    "key": "growth-v26-grade-2-count-even-repeated-cards-1",
+    "family": "count-even-repeated-cards",
+    "skill_key": "counting",
+    "track_code": "grade-2",
+    "track": 2,
+    "stage": 1,
+    "category": 81,
+    "skill": 302,
+    "wizard": {
+      "StageId": 1,
+      "CategoryId": 81,
+      "PrimarySkillId": 302,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        2
+      ],
+      "DifficultyLevel": 2,
+      "Points": 10,
+      "Title": {
+        "Ar": "عد بطاقات تحقق شرطاً",
+        "En": "Counting cards satisfying a rule"
+      },
+      "Question": {
+        "Ar": "كتبت رنا الأعداد الآتية على خمس بطاقات منفصلة: 14،17،20،14،23. كم بطاقة تحمل عدداً زوجياً؟",
+        "En": "Rana writes 14, 17, 20, 14, 23 on five separate cards. How many cards show an even number?"
+      },
+      "Options": [
+        {
+          "LatexCode": "2",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "عد القيم الزوجية المختلفة فقط رغم تكرار 14 على بطاقتين.",
+            "En": "Counts distinct even values only, although 14 appears on two cards."
+          }
+        },
+        {
+          "LatexCode": "3",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "4",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "17 و23 فرديان؛ فلا توجد أربع بطاقات زوجية.",
+            "En": "17 and 23 are odd; there are not four even cards."
+          }
+        },
+        {
+          "LatexCode": "5",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "يشمل البطاقات الفردية أيضاً.",
+            "En": "Includes the odd cards too."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "العدد الزوجي يمكن تقسيمه إلى أزواج دون باقٍ.",
+          "En": "An even number can be grouped in pairs without a remainder."
+        },
+        {
+          "Ar": "افحص كل بطاقة على حدة حتى إذا تكرر العدد.",
+          "En": "Check every card separately even when a number repeats."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "الأعداد المنتهية بـ0 أو2 أو4 أو6 أو8 زوجية؛ نعد البطاقات لا القيم المختلفة.",
+          "En": "Numbers ending in 0,2,4,6,8 are even; count cards, not distinct values."
+        },
+        "FormulaLatex": "14,20,14",
+        "Steps": [
+          {
+            "Ar": "14 زوجي و17 فردي و20 زوجي.",
+            "En": "14 is even, 17 odd, and 20 even."
+          },
+          {
+            "Ar": "البطاقة الرابعة زوجية أيضاً، والأخيرة فردية.",
+            "En": "The fourth card is also even and the last is odd."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$1+1+1=3$",
+          "En": "$1+1+1=3$"
+        },
+        "Result": {
+          "Ar": "$3$",
+          "En": "$3$"
+        },
+        "Unit": {
+          "Ar": "بطاقات",
+          "En": "Cards"
+        },
+        "Verification": {
+          "Ar": "ثلاث بطاقات زوجية وبطاقتان فرديتان تساوي خمس بطاقات.",
+          "En": "Three even and two odd cards make five cards."
+        },
+        "CommonError": {
+          "Ar": "لا تحذف بطاقة بسبب تكرار العدد المكتوب عليها.",
+          "En": "Do not discard a card because its number repeats."
+        }
+      }
+    }
+  },
+  {
+    "key": "growth-v26-grade-3-fraction-unequal-length-parts-1",
+    "family": "fraction-unequal-length-parts",
+    "skill_key": "p-fractions-decimals-fraction-models",
+    "track_code": "grade-3",
+    "track": 3,
+    "stage": 1,
+    "category": 21,
+    "skill": 97,
+    "wizard": {
+      "StageId": 1,
+      "CategoryId": 21,
+      "PrimarySkillId": 97,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        3
+      ],
+      "DifficultyLevel": 2,
+      "Points": 10,
+      "Title": {
+        "Ar": "شروط نموذج الكسر",
+        "En": "Conditions for a fraction model"
+      },
+      "Question": {
+        "Ar": "قُسّم شريط إلى أربعة أجزاء أطوالها 1 و1 و1 و5 سم. لُوّنت الأجزاء الثلاثة الأولى. ما الكسر الذي يمثل الطول الملون من طول الشريط كله؟",
+        "En": "A strip is divided into four pieces of lengths 1, 1, 1 and 5 cm. The first three are coloured. What fraction of the entire strip length is coloured?"
+      },
+      "Options": [
+        {
+          "LatexCode": "\\frac34",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "عد ثلاثة أجزاء من أربعة رغم اختلاف أطوالها.",
+            "En": "Counts three of four pieces despite unequal lengths."
+          }
+        },
+        {
+          "LatexCode": "\\frac38",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "\\frac58",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "هذا كسر الطول غير الملون.",
+            "En": "This is the uncoloured fraction."
+          }
+        },
+        {
+          "LatexCode": "\\frac14",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "لا يمثل ثلاثة سنتيمترات من ثمانية.",
+            "En": "Does not represent three centimetres out of eight."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "احسب طول الشريط كله لا عدد قطعه.",
+          "En": "Find the whole strip length, not its piece count."
+        },
+        {
+          "Ar": "قارن مجموع أطوال الأجزاء الملونة بالطول الكلي.",
+          "En": "Compare the coloured length with the total length."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "كسر الطول هو طول الجزء على الطول الكلي الموجب، ولا نعد أجزاء غير متساوية كأنها متساوية.",
+          "En": "A fraction of length is part length divided by positive total length; unequal pieces cannot be counted as equal."
+        },
+        "FormulaLatex": "f=\\frac{3}{1+1+1+5}",
+        "Steps": [
+          {
+            "Ar": "الطول الملون 1+1+1=3 سم.",
+            "En": "The coloured length is 1+1+1=3 cm."
+          },
+          {
+            "Ar": "الطول الكلي 3+5=8 سم أي ثماني وحدات طول متساوية.",
+            "En": "The total length is 3+5=8 cm, eight equal length units."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$\\frac38$",
+          "En": "$\\frac38$"
+        },
+        "Result": {
+          "Ar": "$\\frac38$",
+          "En": "$\\frac38$"
+        },
+        "Unit": {
+          "Ar": "بلا وحدة قياس",
+          "En": "Dimensionless"
+        },
+        "Verification": {
+          "Ar": "$\\frac38+\\frac58=1$؛ الجزآن يكونان الشريط كاملاً.",
+          "En": "$\\frac38+\\frac58=1$; the portions form the whole strip."
+        },
+        "CommonError": {
+          "Ar": "لا تستخدم عدد القطع مقاماً إذا اختلفت أطوالها.",
+          "En": "Do not use the piece count as denominator when lengths differ."
+        }
+      }
+    }
+  },
+  {
+    "key": "growth-v26-grade-3-compare-finish-times-1",
+    "family": "compare-finish-times",
+    "skill_key": "time",
+    "track_code": "grade-3",
+    "track": 3,
+    "stage": 1,
+    "category": 82,
+    "skill": 324,
+    "wizard": {
+      "StageId": 1,
+      "CategoryId": 82,
+      "PrimarySkillId": 324,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        3
+      ],
+      "DifficultyLevel": 2,
+      "Points": 10,
+      "Title": {
+        "Ar": "مقارنة وقت انتهاء نشاطين",
+        "En": "Comparing finish times"
+      },
+      "Question": {
+        "Ar": "بدأ نشاط A عند 9:40 واستمر 35 دقيقة. بدأ نشاط B عند 9:55 واستمر 15 دقيقة. أي نشاط انتهى أولاً وبكم دقيقة؟",
+        "En": "Activity A starts at 9:40 and lasts 35 minutes. Activity B starts at 9:55 and lasts 15 minutes. Which activity finishes first, and by how many minutes?"
+      },
+      "Options": [
+        {
+          "LatexCode": "(A,5)",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "A ينتهي 10:15 بعد B الذي ينتهي 10:10.",
+            "En": "A finishes at 10:15 after B, which finishes at 10:10."
+          }
+        },
+        {
+          "LatexCode": "(B,5)",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "(A,15)",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "15 دقيقة فرق البداية لا النهاية.",
+            "En": "15 minutes is the start-time difference, not finish-time difference."
+          }
+        },
+        {
+          "LatexCode": "(B,20)",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "20 دقيقة فرق المدتين لا وقتي النهاية.",
+            "En": "20 minutes is the duration difference, not finish-time difference."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "احسب وقت انتهاء كل نشاط منفرداً.",
+          "En": "Find each finish time separately."
+        },
+        {
+          "Ar": "تذكر أن 60 دقيقة تساوي ساعة.",
+          "En": "Remember that 60 minutes make an hour."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "وقت النهاية يساوي البداية مضافاً إليها الزمن المنقضي، ثم نقارن وقتي النهاية.",
+          "En": "Finish time equals start time plus elapsed time; compare the two finish times."
+        },
+        "FormulaLatex": "(10:15)-(10:10)",
+        "Steps": [
+          {
+            "Ar": "A يصل إلى 10:00 بعد 20 دقيقة ثم يستمر 15 دقيقة، فينتهي 10:15.",
+            "En": "A reaches 10:00 after 20 minutes and continues 15 more, finishing at 10:15."
+          },
+          {
+            "Ar": "B يصل إلى 10:00 بعد 5 دقائق ثم يستمر 10 دقائق، فينتهي 10:10.",
+            "En": "B reaches 10:00 after 5 minutes and continues 10 more, finishing at 10:10."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$15-10=5$",
+          "En": "$15-10=5$"
+        },
+        "Result": {
+          "Ar": "$(B,5)$",
+          "En": "$(B,5)$"
+        },
+        "Unit": {
+          "Ar": "النشاط والدقائق",
+          "En": "Activity and minutes"
+        },
+        "Verification": {
+          "Ar": "10:10 يسبق 10:15 بخمس دقائق، إذن B انتهى أولاً.",
+          "En": "10:10 precedes 10:15 by five minutes, so B finishes first."
+        },
+        "CommonError": {
+          "Ar": "لا تقارن المدتين وحدهما.",
+          "En": "Do not compare the durations alone."
+        }
+      }
+    }
+  },
+  {
+    "key": "growth-v26-grade-9-cancel-variable-contradiction-1",
+    "family": "cancel-variable-contradiction",
+    "skill_key": "solve-linear-inequalities",
+    "track_code": "grade-9",
+    "track": 9,
+    "stage": 2,
+    "category": 84,
+    "skill": 327,
+    "wizard": {
+      "StageId": 2,
+      "CategoryId": 84,
+      "PrimarySkillId": 327,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        9
+      ],
+      "DifficultyLevel": 2,
+      "Points": 10,
+      "Title": {
+        "Ar": "متباينة بلا حلول",
+        "En": "An inequality with no solutions"
+      },
+      "Question": {
+        "Ar": "ما مجموعة حلول المتباينة $3(x+2)<3x+5$ في الأعداد الحقيقية؟",
+        "En": "What is the real solution set of $3(x+2)<3x+5$?"
+      },
+      "Options": [
+        {
+          "LatexCode": "x<5",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "بعد حذف الحدود المتساوية لا يبقى متغير.",
+            "En": "After cancelling equal terms no variable remains."
+          }
+        },
+        {
+          "LatexCode": "x<-1",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "طرح 3x من الطرفين لا يعطي متباينة في x.",
+            "En": "Subtracting 3x from both sides leaves no inequality in x."
+          }
+        },
+        {
+          "LatexCode": "\\mathbb{R}",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "6 أصغر من 5 عبارة خاطئة لكل x.",
+            "En": "6 less than 5 is false for every x."
+          }
+        },
+        {
+          "LatexCode": "\\varnothing",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "وزع العدد 3 على القوس.",
+          "En": "Distribute 3 over the parentheses."
+        },
+        {
+          "Ar": "اطرح 3x من الطرفين وافحص العبارة المتبقية.",
+          "En": "Subtract 3x from both sides and inspect the remaining statement."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "إذا اختفت الحدود المتغيرة من متباينة مكافئة، فالحل جميع الأعداد الحقيقية عند صدق العبارة، وفارغ عند خطئها.",
+          "En": "If variable terms cancel in an equivalent inequality, the solution is all reals if the remaining statement is true and empty otherwise."
+        },
+        "FormulaLatex": "3x+6<3x+5\\iff6<5",
+        "Steps": [
+          {
+            "Ar": "بتوزيع 3 يصبح الطرف الأيسر 3x+6.",
+            "En": "Distributing 3 gives 3x+6 on the left."
+          },
+          {
+            "Ar": "نطرح 3x من الطرفين، فتبقى 6 أصغر من 5 وهي عبارة خاطئة دائماً.",
+            "En": "Subtract 3x from both sides; 6 less than 5 is always false."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$S=\\varnothing$",
+          "En": "$S=\\varnothing$"
+        },
+        "Result": {
+          "Ar": "$\\varnothing$",
+          "En": "$\\varnothing$"
+        },
+        "Unit": {
+          "Ar": "مجموعة حلول",
+          "En": "Solution set"
+        },
+        "Verification": {
+          "Ar": "الطرف الأيسر يزيد على الأيمن بواحد لكل x، فلا يمكن أن يكون أصغر منه.",
+          "En": "The left exceeds the right by one for every x, so it cannot be smaller."
+        },
+        "CommonError": {
+          "Ar": "لا تفترض وجود حل عددي بعد اختفاء المتغير.",
+          "En": "Do not assume a numerical solution exists after the variable cancels."
+        }
+      }
+    }
+  },
+  {
+    "key": "growth-v26-grade-12-bilinear-sum-difference-1",
+    "family": "bilinear-sum-difference",
+    "skill_key": "dot-product",
+    "track_code": "grade-12",
+    "track": 12,
+    "stage": 3,
+    "category": 87,
+    "skill": 338,
+    "wizard": {
+      "StageId": 3,
+      "CategoryId": 87,
+      "PrimarySkillId": 338,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        12
+      ],
+      "DifficultyLevel": 2,
+      "Points": 10,
+      "Title": {
+        "Ar": "الضرب النقطي للمجموع والفرق",
+        "En": "Dot product of sum and difference"
+      },
+      "Question": {
+        "Ar": "إذا كان $u,v\\in\\mathbb R^2$ و$\\|u\\|=5$ و$\\|v\\|=3$، فما قيمة $(u+v)\\cdot(u-v)$؟",
+        "En": "If $u,v\\in\\mathbb R^2$, $\\|u\\|=5$ and $\\|v\\|=3$, what is $(u+v)\\cdot(u-v)$?"
+      },
+      "Options": [
+        {
+          "LatexCode": "2",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "هذا فرق الطولين لا فرق مربعيهما.",
+            "En": "This subtracts norms instead of their squares."
+          }
+        },
+        {
+          "LatexCode": "8",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "هذا مجموع الطولين.",
+            "En": "This is the sum of the norms."
+          }
+        },
+        {
+          "LatexCode": "16",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "34",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "هذا مجموع المربعين لا الفرق.",
+            "En": "This adds the squared norms rather than subtracting."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "وزع الضرب النقطي على الجمع والطرح.",
+          "En": "Distribute the dot product over addition and subtraction."
+        },
+        {
+          "Ar": "استعمل تماثل الضرب النقطي لإلغاء الحدين المختلطين.",
+          "En": "Use dot-product symmetry to cancel the mixed terms."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "الضرب النقطي الحقيقي ثنائي الخطية ومتماثل، وضرب المتجه في نفسه يساوي مربع طوله.",
+          "En": "The real dot product is bilinear and symmetric, and a vector dotted with itself equals its squared norm."
+        },
+        "FormulaLatex": "(u+v)\\cdot(u-v)=\\|u\\|^2-\\|v\\|^2",
+        "Steps": [
+          {
+            "Ar": "بالتوزيع نحصل على $u\\cdot u-u\\cdot v+v\\cdot u-v\\cdot v$.",
+            "En": "Distributing gives $u\\cdot u-u\\cdot v+v\\cdot u-v\\cdot v$."
+          },
+          {
+            "Ar": "بما أن $u\\cdot v=v\\cdot u$ يختفي الحدان المختلطان.",
+            "En": "Since $u\\cdot v=v\\cdot u$, the mixed terms cancel."
+          },
+          {
+            "Ar": "يتبقى $\\|u\\|^2-\\|v\\|^2=25-9$.",
+            "En": "This leaves $\\|u\\|^2-\\|v\\|^2=25-9$."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$25-9=16$",
+          "En": "$25-9=16$"
+        },
+        "Result": {
+          "Ar": "$16$",
+          "En": "$16$"
+        },
+        "Unit": {
+          "Ar": "بلا وحدة محددة",
+          "En": "No specified unit"
+        },
+        "Verification": {
+          "Ar": "مثلاً $u=(5,0),v=(0,3)$ يعطي $(5,3)\\cdot(5,-3)=16$، متسقاً مع الهوية العامة.",
+          "En": "For example $u=(5,0),v=(0,3)$ gives $(5,3)\\cdot(5,-3)=16$, consistent with the general identity."
+        },
+        "CommonError": {
+          "Ar": "لا تستبدل الضرب النقطي بجداء الطولين دون شرط الزاوية المناسب.",
+          "En": "Do not replace a dot product by a product of norms without the appropriate angle condition."
+        }
+      }
+    }
+  },
+  {
+    "key": "growth-v26-grade-12-point-membership-shifted-center-1",
+    "family": "point-membership-shifted-center",
+    "skill_key": "circles",
+    "track_code": "grade-12",
+    "track": 12,
+    "stage": 3,
+    "category": 88,
+    "skill": 328,
+    "wizard": {
+      "StageId": 3,
+      "CategoryId": 88,
+      "PrimarySkillId": 328,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        12
+      ],
+      "DifficultyLevel": 2,
+      "Points": 10,
+      "Title": {
+        "Ar": "اختبار نقطة على محيط دائرة",
+        "En": "Testing a point on a circle"
+      },
+      "Question": {
+        "Ar": "أي نقطة تقع على محيط الدائرة $(x-3)^2+(y+2)^2=25$؟",
+        "En": "Which point lies on the circle $(x-3)^2+(y+2)^2=25$?"
+      },
+      "Options": [
+        {
+          "LatexCode": "(3,2)",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "مربع المسافة عن المركز 16 لا 25.",
+            "En": "Squared distance from the centre is 16, not 25."
+          }
+        },
+        {
+          "LatexCode": "(6,2)",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "(7,2)",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "مربع المسافة 32، فالنقطة خارج المحيط.",
+            "En": "Squared distance is 32, so the point is outside."
+          }
+        },
+        {
+          "LatexCode": "(3,-2)",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "هذه نقطة المركز ومربع مسافتها صفر.",
+            "En": "This is the centre, with squared distance zero."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "استخرج المركز من معادلة الدائرة.",
+          "En": "Read the centre from the circle equation."
+        },
+        {
+          "Ar": "عوّض إحداثيات كل نقطة وابحث عن القيمة 25.",
+          "En": "Substitute each point and seek 25."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "تقع النقطة على المحيط إذا وفقط إذا ساوى مربع بعدها عن المركز مربع نصف القطر.",
+          "En": "A point lies on a circle exactly when its squared distance from the centre equals the squared radius."
+        },
+        "FormulaLatex": "(x-h)^2+(y-k)^2=r^2",
+        "Steps": [
+          {
+            "Ar": "المركز (3,−2) ونصف القطر 5.",
+            "En": "The centre is (3,−2) and radius is 5."
+          },
+          {
+            "Ar": "بالتعويض بالنقطة (6,2) نحصل على مربعين 9 و16 ومجموعهما 25.",
+            "En": "Substituting (6,2) gives squares 9 and 16, summing to 25."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$9+16=25$",
+          "En": "$9+16=25$"
+        },
+        "Result": {
+          "Ar": "$(6,2)$",
+          "En": "$(6,2)$"
+        },
+        "Unit": {
+          "Ar": "نقطة",
+          "En": "Point"
+        },
+        "Verification": {
+          "Ar": "مربعات المسافات للخيارات الأخرى 16 و32 و0، ولا يساوي أي منها 25.",
+          "En": "The other squared distances are 16,32 and 0; none equals 25."
+        },
+        "CommonError": {
+          "Ar": "لا تخلط بين إشارة المركز وإشارة الحد داخل القوس.",
+          "En": "Do not confuse centre coordinates with the sign inside the bracket."
+        }
+      }
+    }
+  },
+  {
+    "key": "growth-v26-grade-12-fourth-power-difference-1",
+    "family": "fourth-power-difference",
+    "skill_key": "secondary-pythagorean-trig-identity",
+    "track_code": "grade-12",
+    "track": 12,
+    "stage": 3,
+    "category": 10,
+    "skill": 47,
+    "wizard": {
+      "StageId": 3,
+      "CategoryId": 10,
+      "PrimarySkillId": 47,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        12
+      ],
+      "DifficultyLevel": 2,
+      "Points": 10,
+      "Title": {
+        "Ar": "فرق قوتين مثلثيتين",
+        "En": "Difference of trigonometric powers"
+      },
+      "Question": {
+        "Ar": "إذا كان $\\cos^2\\theta=0.7$، فما قيمة $\\cos^4\\theta-\\sin^4\\theta$؟",
+        "En": "If $\\cos^2\\theta=0.7$, what is $\\cos^4\\theta-\\sin^4\\theta$?"
+      },
+      "Options": [
+        {
+          "LatexCode": "0.16",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "0.16 مربع الفرق لا فرق المربعين.",
+            "En": "0.16 squares the difference instead of taking the difference of squares."
+          }
+        },
+        {
+          "LatexCode": "0.4",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "0.49",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "0.49 قيمة الحد الأول وحده.",
+            "En": "0.49 is only the first term."
+          }
+        },
+        {
+          "LatexCode": "0.58",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "0.58 مجموع القوتين لا الفرق.",
+            "En": "0.58 adds the powers rather than subtracting."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "استعمل هوية مربعي الجيب وجيب التمام.",
+          "En": "Use the identity relating squared sine and cosine."
+        },
+        {
+          "Ar": "حلل فرق المربعين إلى حاصل ضرب مجموع وفرق.",
+          "En": "Factor the difference of squares into a sum times a difference."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "هوية فيثاغورس تجعل مجموع مربعي الجيب وجيب التمام واحداً لأي زاوية حقيقية.",
+          "En": "The Pythagorean identity makes squared sine and cosine sum to one for every real angle."
+        },
+        "FormulaLatex": "\\cos^4\\theta-\\sin^4\\theta=(\\cos^2\\theta-\\sin^2\\theta)(\\cos^2\\theta+\\sin^2\\theta)",
+        "Steps": [
+          {
+            "Ar": "$\\sin^2\\theta=1-0.7=0.3$.",
+            "En": "$\\sin^2\\theta=1-0.7=0.3$."
+          },
+          {
+            "Ar": "فرق المربعين يساوي حاصل ضرب (0.7−0.3) في (0.7+0.3).",
+            "En": "The factored difference is (0.7−0.3) times (0.7+0.3)."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$0.4(1)=0.4$",
+          "En": "$0.4(1)=0.4$"
+        },
+        "Result": {
+          "Ar": "$0.4$",
+          "En": "$0.4$"
+        },
+        "Unit": {
+          "Ar": "بلا وحدة قياس",
+          "En": "Dimensionless"
+        },
+        "Verification": {
+          "Ar": "بالحساب المباشر 0.49−0.09=0.40.",
+          "En": "Direct calculation gives 0.49−0.09=0.40."
+        },
+        "CommonError": {
+          "Ar": "لا تساو فرق مربعين بمربع الفرق.",
+          "En": "Do not equate a difference of squares with the square of a difference."
+        }
+      }
+    }
+  },
+  {
+    "key": "growth-v26-grade-12-compare-two-half-lives-1",
+    "family": "compare-two-half-lives",
+    "skill_key": "decay-half-life",
+    "track_code": "grade-12",
+    "track": 12,
+    "stage": 3,
+    "category": 86,
+    "skill": 310,
+    "wizard": {
+      "StageId": 3,
+      "CategoryId": 86,
+      "PrimarySkillId": 310,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        12
+      ],
+      "DifficultyLevel": 2,
+      "Points": 10,
+      "Title": {
+        "Ar": "مقارنة كميتين بنصفي عمر مختلفين",
+        "En": "Comparing two half-lives"
+      },
+      "Question": {
+        "Ar": "تبدأ عينتان A وB بكتلة 160 غ لكل منهما. نصف عمر A ساعتان ونصف عمر B أربع ساعات. ما فرق الكتلتين المتبقيتين بعد 8 ساعات؟",
+        "En": "Samples A and B each start at 160 g. A has half-life 2 hours and B has half-life 4 hours. What is the difference between their remaining masses after 8 hours?"
+      },
+      "Options": [
+        {
+          "LatexCode": "10",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "10 غ كتلة A المتبقية فقط.",
+            "En": "10 g is only A's remaining mass."
+          }
+        },
+        {
+          "LatexCode": "20",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "20 غ لا يساوي الفرق بين 40 و10.",
+            "En": "20 g is not the difference between 40 and 10."
+          }
+        },
+        {
+          "LatexCode": "30",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "40",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "40 غ كتلة B المتبقية لا الفرق.",
+            "En": "40 g is B's remaining mass, not the difference."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "احسب عدد أنصاف الأعمار المنقضية لكل عينة.",
+          "En": "Find the number of half-lives elapsed for each sample."
+        },
+        {
+          "Ar": "احسب الكتلتين المتبقيتين ثم اطرح الأصغر من الأكبر.",
+          "En": "Find both remaining masses then subtract the smaller from the larger."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "في نموذج الاضمحلال الأسي بنصف عمر ثابت موجب تنخفض الكمية إلى نصفها بعد كل نصف عمر.",
+          "En": "In exponential decay with a fixed positive half-life, the quantity halves every half-life."
+        },
+        "FormulaLatex": "M(t)=M_0\\left(\\frac12\\right)^{t/h}",
+        "Steps": [
+          {
+            "Ar": "للعينة A تمر أربعة أنصاف أعمار، فتبقى 160/16=10 غ.",
+            "En": "A undergoes four half-lives, leaving 160/16=10 g."
+          },
+          {
+            "Ar": "للعينة B يمر نصفا عمر، فتبقى 160/4=40 غ.",
+            "En": "B undergoes two half-lives, leaving 160/4=40 g."
+          },
+          {
+            "Ar": "نطرح الكتلتين المتبقيتين.",
+            "En": "Subtract the two remaining masses."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$40-10=30$",
+          "En": "$40-10=30$"
+        },
+        "Result": {
+          "Ar": "$30$",
+          "En": "$30$"
+        },
+        "Unit": {
+          "Ar": "غراماً",
+          "En": "Grams"
+        },
+        "Verification": {
+          "Ar": "التنصيف المتكرر يعطي A:160،80،40،20،10 وB:160،80،40.",
+          "En": "Repeated halving gives A:160,80,40,20,10 and B:160,80,40."
+        },
+        "CommonError": {
+          "Ar": "لا تطرح نصفي العمر مباشرة بدلاً من حساب الكتلتين.",
+          "En": "Do not subtract half-lives instead of calculating remaining masses."
+        }
+      }
+    }
+  }
+]
