@@ -639,3 +639,39 @@ Reviewed28 pending drafts803–830; excluded held826,827,828,830. Recomputed24 s
 |829|1585|6330|
 
 Live1008 (315/227/239/227), structured761 (254/175/165/167), missing247 (61/52/74/60). Draft256 (207 amendments+49 additions), Published995 (526 amendments+469 additions), Withdrawn1. Cumulative #193:371 corrections+159 new. Depth unchanged813/1400 and897/1760 (88 placements, gap863). Next legacy831 onward, preserve holds and continue category depth; reconcile canonical #179 keys without replay.
+
+
+## Legacy review checkpoint 832–860 (2026-11-26)
+Reviewed30 drafts831–860; excluded held831,852,857. Recomputed27 selected answers (measurement and conversion, elapsed time, inequalities, integer constraints, coordinate geometry, circles). Retained reviewed bilingual ideas/hints, improved derivations, substitutions, verification and choice-specific feedback. Specs scripts/reviewed_legacy_832_860_specs_20261126.json commit33e68f3019a656c164eea528beff05e9a8340962 NOT importable. Four hold registries checked; source SHA256, draft MD5/revision, owner, exact live/open-draft duplicate and valid placement guards. Full batch script e56feb06fc6e8a4f646cef78aa981d2764a34112 passed rollback rehearsal, but commit attempt failed with PostgreSQL57014 statement timeout; independent readback confirmed all27 unchanged. Nine-item rehearsal also failed with connection timeout; independent read again confirmed27 unchanged. Repartitioned into four smaller transactions, each rollback rehearsed, independent precommit unchanged check, single commit and independent exact readback. Applied partitions: 832–837 (6) 444bea9e789ae45cf07b129cb8231b820d13edf7; 838–844 (7) 37021214be642dcc423c5b27eeb3b2b2fa74ec37; 845–851 (7) 8a80b80c96993c3822de095021f582776c0e96f2; 853–860 excluding857 (7) c090a5c30cee6511631a26b2d45542bc049fe045. ALL APPLIED, DO NOT replay partitions OR original failed full batch. Independent exact readback27/27,108 owner_sql events. No changes to infrastructure, original stems, option IDs/flags, taxonomies, permissions, learners or app; levels20/21 unpublished. Runtime and exhaustive semantic duplicate-family audit pending.
+
+| Draft | Source | Correct option ID |
+|---:|---:|---:|
+|832|1588|6341|
+|833|1589|6347|
+|834|1590|6350|
+|835|1591|6356|
+|836|1592|6358|
+|837|1593|6363|
+|838|1594|6365|
+|839|1595|6371|
+|840|1596|6376|
+|841|1597|6378|
+|842|1598|6383|
+|843|1599|6386|
+|844|1600|6389|
+|845|1601|6395|
+|846|1602|6400|
+|847|1603|6401|
+|848|1604|6406|
+|849|1605|6411|
+|850|1606|6416|
+|851|1607|6418|
+|853|1609|6427|
+|854|1610|6432|
+|855|1611|6435|
+|856|1612|6440|
+|858|1614|6446|
+|859|1615|6451|
+|860|1616|6456|
+
+Live1008 (315/227/239/227), structured788 (265/186/170/167), missing220 (50/41/69/60). Draft229 (180 amendments+49 additions), Published1022 (553 amendments+469 additions), Withdrawn1. Cumulative #193:398 corrections+159 new. Depth unchanged813/1400 and897/1760 (88 placements, gap863). Next legacy861 onward; use small guarded transactions when DB latency demands; preserve holds, expand underfilled categories and reconcile canonical #179 keys without replay.
