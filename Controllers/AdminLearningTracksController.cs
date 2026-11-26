@@ -13,7 +13,7 @@ namespace MathWorldAPI.Controllers;
 [Route("api/admin/learning-tracks")]
 [Authorize(Policy="AdminOnly")]
 [ResponseCache(NoStore=true,Location=ResponseCacheLocation.None)]
-public sealed class AdminLearningTracksController(AppDbContext db,LearningTrackService service):ControllerBase
+public sealed class AdminLearningTracksController(AppDbContext db,LearningTrackService service,ProblemCategoryAccessService access):ControllerBase
 {
     public sealed record TrackInput(int StageId,[Required,StringLength(80)] string Code,[Required] string Kind,
         [Required,StringLength(150)] string NameAr,[Required,StringLength(150)] string NameEn,
@@ -46,6 +46,7 @@ public sealed class AdminLearningTracksController(AppDbContext db,LearningTrackS
         return Ok(new{Track=t,CategoryIds=await db.LearningTrackCategories.Where(x=>x.TrackId==id).Select(x=>x.CategoryId).ToArrayAsync(ct),
             SkillIds=await db.LearningTrackSkills.Where(x=>x.TrackId==id).Select(x=>x.SkillId).ToArrayAsync(ct),
             ProblemIds=await db.LearningTrackProblems.Where(x=>x.TrackId==id).Select(x=>x.ProblemId).ToArrayAsync(ct),
+            FreeCategoryIds=await access.GetTrackFreeCategoryIdsAsync(id,t.StageId,requirePublished:false,ct:ct),
             Coverage=await service.CoverageAsync(id,t.StageId,ct)});
     }
 
