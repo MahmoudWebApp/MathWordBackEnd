@@ -34,12 +34,23 @@ def verify_custom_exams(admin, learner, other, stage):
     baseline=expect("GET","/api/users/current-grade-report",200,token=other)
     assert baseline["TrackId"]==tid and baseline["ProblemsCount"]==5
     assert baseline["Solved"]==0 and baseline["Attempts"]==0,baseline
-    start={"RequestId":str(uuid4()),"CategoryId":category,"Count":5}
+    # Unknown difficulty must never be fabricated; only reviewed metadata qualifies.
+    assert setup["Categories"][0]["DifficultyCounts"]==[]
+    expect("POST",ROOT+"/start",409,{"RequestId":str(uuid4()),"CategoryId":category,"Count":5,"DifficultyLevel":2},other)
+    expect("POST",ROOT+"/start",400,{"RequestId":str(uuid4()),"CategoryId":category,"Count":5,"DifficultyLevel":6},other)
+    import json
+    metadata=json.dumps({"DifficultyLevel":2})
+    sql(f"""UPDATE "Problems" SET "EditorialDetailsJson"='{metadata}' WHERE "CategoryId"={category}""")
+    filtered=expect("GET",ROOT+"/setup",200,token=other)
+    assert filtered["Categories"][0]["DifficultyCounts"]==[{"Level":2,"Count":5}]
+    start={"RequestId":str(uuid4()),"CategoryId":category,"Count":5,"DifficultyLevel":2}
     expect("POST",ROOT+"/start",409,dict(start,Count=10),other)
     first=expect("POST",ROOT+"/start",200,start,other)
+    assert first["DifficultyLevel"]==2
     assert first["Answered"]==0 and first.get("Score") is None and first.get("Review") is None
     eid=first["Id"];path=ROOT+"/"+eid
     assert expect("POST",ROOT+"/start",200,start,other)["Id"]==eid
+    expect("POST",ROOT+"/start",409,dict(start,DifficultyLevel=None),other)
     expect("POST",ROOT+"/start",409,dict(start,RequestId=str(uuid4())),other)
     expect("GET",path,404,token=learner)
     expect("POST",path+"/finish",409,token=other)
