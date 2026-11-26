@@ -20,7 +20,7 @@ public static class PremiumAnalyticsPdfExporter
     private const string Teal = "#0F766E";
     private const string Green = "#15803D";
     private const string Red = "#B91C1C";
-    private const string Amber = "#806000";
+    private const string Amber = "#A16207";
     private const string Blue = "#1D4ED8";
     private const string Ink = "#273345";
     private const string Light = "#F8FAFC";
