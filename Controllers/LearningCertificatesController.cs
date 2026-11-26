@@ -89,13 +89,21 @@ public sealed class LearningCertificatesController(AppDbContext db,IConfiguratio
         c.TitleAr,c.TitleEn,c.VerificationCode,c.PolicyVersion,c.TotalProblems,c.RequiredSkills,c.IssuedAtUtc};
 
     [HttpGet]
-    public async Task<IActionResult> List(CancellationToken ct)
+    public async Task<IActionResult> List(CancellationToken ct,[FromQuery]int page=1,[FromQuery]int? pageSize=null)
     {
         if(!Enabled)return NotFound();
         if(await Owner(ct)==null)return Unauthorized();
-        var rows=await db.LearningCertificates.AsNoTracking().Where(c=>c.UserId==UserId)
-            .OrderByDescending(c=>c.IssuedAtUtc).ToListAsync(ct);
-        return Ok(new{IssuanceEnabled,Items=rows.Select(PrivateView).ToArray()});
+        if(page<1||page>10000||pageSize is <1 or >50)return BadRequest();
+        var query=db.LearningCertificates.AsNoTracking().Where(c=>c.UserId==UserId);
+        var ordered=query.OrderByDescending(c=>c.IssuedAtUtc).ThenBy(c=>c.Id);
+        if(!pageSize.HasValue)
+        {
+            var legacy=await ordered.ToListAsync(ct);
+            return Ok(new{IssuanceEnabled,Items=legacy.Select(PrivateView).ToArray()});
+        }
+        var total=await query.CountAsync(ct);
+        var rows=await ordered.Skip((page-1)*pageSize.Value).Take(pageSize.Value).ToListAsync(ct);
+        return Ok(new{IssuanceEnabled,Items=rows.Select(PrivateView).ToArray(),Total=total,Page=page,PageSize=pageSize.Value});
     }
 
     [HttpGet("eligibility")]

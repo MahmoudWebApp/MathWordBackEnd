@@ -119,11 +119,19 @@ public sealed class CustomExamsController(AppDbContext db, IConfiguration config
         db.Set<CustomExam>().Add(e);await db.SaveChangesAsync(ct);await tx.CommitAsync(ct);return Ok(View(e));
     }
     [HttpGet]
-    public async Task<IActionResult> List(CancellationToken ct)
+    public async Task<IActionResult> List(CancellationToken ct,[FromQuery]int page=1,[FromQuery]int? pageSize=null,[FromQuery]bool certificatesOnly=false)
     {
         if(!Enabled)return NotFound();if(await Owner(ct)==null)return Unauthorized();
-        var items=await db.Set<CustomExam>().AsNoTracking().Where(e=>e.UserId==Uid).OrderByDescending(e=>e.CreatedAtUtc).Take(100).Select(e=>new{e.Id,e.TitleAr,e.TitleEn,e.Total,e.Score,e.PassPercent,e.FinishedAtUtc,e.AbandonedAtUtc,e.CreatedAtUtc,CertificateIssued=e.VerificationCode!=null}).ToListAsync(ct);
-        return Ok(new{Items=items});
+        if(page<1||page>10000||pageSize is <1 or >50)return BadRequest();
+        var mine=db.Set<CustomExam>().AsNoTracking().Where(e=>e.UserId==Uid);
+        var query=certificatesOnly?mine.Where(e=>e.VerificationCode!=null):mine;
+        var ordered=query.OrderByDescending(e=>e.CreatedAtUtc).ThenBy(e=>e.Id);
+        var selection=pageSize.HasValue?ordered.Skip((page-1)*pageSize.Value).Take(pageSize.Value):ordered.Take(100);
+        var items=await selection.Select(e=>new{e.Id,e.TitleAr,e.TitleEn,e.Total,e.Score,e.PassPercent,e.FinishedAtUtc,e.AbandonedAtUtc,e.CreatedAtUtc,CertificateIssued=e.VerificationCode!=null}).ToListAsync(ct);
+        if(!pageSize.HasValue)return Ok(new{Items=items});
+        var total=await query.CountAsync(ct);
+        var hasUnfinished=await mine.AnyAsync(e=>e.FinishedAtUtc==null&&e.AbandonedAtUtc==null,ct);
+        return Ok(new{Items=items,Total=total,Page=page,PageSize=pageSize.Value,HasUnfinished=hasUnfinished});
     }
     [HttpGet("{id:guid}")]
     public async Task<IActionResult> Get(Guid id,CancellationToken ct)
