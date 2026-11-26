@@ -476,3 +476,34 @@ Start1000 live/639 structured/361 missing; all14 tracks meet the5–10 populated
 | growth-v31-grade-6-median-even-after-extreme-insertion-1 |1409|2120|6/4/18|8470=8|
 
 Live1008 (315/227/239/227),647 structured (226/151/140/130),361 missing (89/76/99/97). Best-five capped813/1400, gap587 (551 school+38 mapped university). Full current category depth separately calculated from valid linked problems: 88 placements across14 tracks, target1760, capped897, gap863. These are assignment counts capped at20 per category, not a claim of verified distinct mathematical families or fully complete curricula. Grade1/2/6 depth38/42/40 out of100. Cumulative #193:257 legacy corrections+159 new. Next prioritize depth in underfilled categories and legacy701 onward. Reconcile canonical #179 keys without replay.
+
+
+## Legacy review checkpoint 701–724 (2026-11-26)
+Reviewed 24 pending amendments; excluded 706/source691 and 713/source698 because existing hold registry flags them. Recomputed all 22 selected answers; reviewed stored hints and ideas; expanded individual bilingual derivations, conditions, substitution, verification and option-specific feedback. Used Latin/Greek mathematical notation. Retained original titles, question text, option IDs/order/flags, points and category/skill placements. Restored actual dual-track mappings to wizard for sources654–656 (13+20) and713 (13+21), not merely the older draft track arrays. All four hold registries checked; source SHA256 and draft MD5/revision pinned, exact live/open-draft duplicate guards, valid skill/domain/track checks. One-time SQL scripts/apply_reviewed_legacy_701_724_20261126.sql commit ad853da2946c0cd366803eb0b1cf0b54bb2430b6 ALREADY APPLIED, DO NOT replay. Rollback rehearsal passed; independent precommit unchanged22/22; committed once; independent exact readback22/22 (wizard revision4, solutions, protected fields, options and mapping) plus88 owner_sql audit events. No new problems, categories, permission or learner changes. Levels20/21 remain unpublished. CI/browser/Flutter rendering and full semantic duplicate audit not verified.
+
+| Draft | Source | Correct option ID |
+|---:|---:|---:|
+|701|654|2605|
+|702|655|2610|
+|703|656|2615|
+|704|689|2811|
+|705|690|2815|
+|707|692|2823|
+|708|693|2826|
+|709|694|2830|
+|710|695|2835|
+|711|696|2839|
+|712|697|2843|
+|714|699|2851|
+|715|700|2747|
+|716|701|2750|
+|717|702|2756|
+|718|703|2759|
+|719|704|2762|
+|720|709|2782|
+|721|710|2787|
+|722|711|2791|
+|723|712|2795|
+|724|713|2799|
+
+Live1008 (315/227/239/227), structured669 (233/158/144/134), missing339 (82/69/95/93). Draft347 (298 amendments+49 additions), Published903 (434 amendments+469 additions), Withdrawn1. Cumulative #193:279 legacy corrections+159 new. Category coverage unchanged by amendment-only batch: best-five813/1400; all88 category placements capped897/1760, gap863. Next legacy725 onward, preserve holds and keep growing underfilled categories; reconcile #179 without replay.
