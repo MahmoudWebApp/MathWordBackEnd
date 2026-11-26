@@ -73,10 +73,22 @@ export async function publish(request,plan,{approvedDigest,note,max=500,delay=20
   if(ids.has(r.id))throw Error('Duplicate draft');ids.add(r.id);
   const key=r.kind+'/'+r.number;
   if(group!==key){const began=now();const latest=await request('GET','/reviewed-bank/'+key);if(latest.Kind!==r.kind||latest.Number!==r.number)throw Error('Wrong batch');const state=selectReviewed(latest);for(const x of plan.ready.filter(x=>x.kind===r.kind&&x.number===r.number))if(!state.ready.some(y=>y.id===x.id&&y.key===x.key&&y.revision===x.revision&&y.status===x.status))throw Error('Plan changed: refresh preview');group=key;await waitForPressure(now()-began);}
-  const began=now();const result=await request('POST','/'+r.id+'/publish',{Revision:r.revision,Note:note.trim(),Confirm:true,DirectApproval:r.status!=='Approved'});
-  if(result.Status!=='Published'||!Number.isSafeInteger(result.PublishedProblemId)||result.PublishedProblemId<=0)throw Error('Publication not confirmed: refresh preview');
-  onEvent({key:r.key,id:r.id,publishedProblemId:result.PublishedProblemId});count++;
+  const draftRoute='/'+r.id;
+  const began=now();
+  const result=await request('POST',draftRoute+'/publish',{Revision:r.revision,Note:note.trim(),Confirm:true,DirectApproval:r.status!=='Approved'});
+  if(result?.Status!=='Published'||result.Id!==r.id||!Number.isSafeInteger(result.Revision)||result.Revision<=r.revision
+     ||!Number.isSafeInteger(result.PublishedProblemId)||result.PublishedProblemId<=0){
+   throw Error('Publication not confirmed: refresh preview');
+  }
   await waitForPressure(now()-began);
+  const verificationBegan=now();
+  const verified=await request('GET',draftRoute);
+  if(verified?.Status!=='Published'||verified.Id!==r.id||verified.Revision!==result.Revision
+     ||verified.PublishedProblemId!==result.PublishedProblemId){
+   throw Error('Published draft verification failed: refresh preview');
+  }
+  onEvent({key:r.key,id:r.id,publishedProblemId:verified.PublishedProblemId});count++;
+  await waitForPressure(now()-verificationBegan);
  }
  return count;
 }
