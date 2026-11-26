@@ -15,6 +15,10 @@ public static class WizardProblemContract
 {
     public static bool Text(string? s,int max)=>!string.IsNullOrWhiteSpace(s)&&s.Trim().Length<=max;
     public static bool Pair(BilingualText? p,int max)=>p is not null&&Text(p.Ar,max)&&Text(p.En,max);
+    // Optional fields must either be empty in both languages or complete and bounded.
+    private static bool OptionalText(string? s,int max)=>string.IsNullOrWhiteSpace(s)||Text(s,max);
+    private static bool OptionalPair(BilingualText? p,int max)=>p is null||
+        (string.IsNullOrWhiteSpace(p.Ar)&&string.IsNullOrWhiteSpace(p.En))||Pair(p,max);
     public static string Serialize(WizardProblem p)=>JsonSerializer.Serialize(p);
     public static WizardProblem Read(string json)=>JsonSerializer.Deserialize<WizardProblem>(json)!;
     public static string Normalize(string? s)=>Regex.Replace((s??"").Trim(),@"\s+"," ").ToUpperInvariant();
@@ -37,10 +41,10 @@ public static class WizardProblemContract
             Normalize(p.Hints[0]?.Ar)==Normalize(p.Hints[1]?.Ar)||Normalize(p.Hints[0]?.En)==Normalize(p.Hints[1]?.En))
             errors.Add("TwoDistinctBilingualHintsRequired");
         var solution=p.Solution;
-        if(solution is null||!Pair(solution.Idea,2000)||!Text(solution.FormulaLatex,2000)||
+        if(solution is null||!Pair(solution.Idea,2000)||!OptionalText(solution.FormulaLatex,2000)||
             solution.Steps is null||solution.Steps.Length is <1 or >20||solution.Steps.Any(x=>!Pair(x,2000))||
-            !Pair(solution.Substitution,2000)||!Pair(solution.Result,1000)||!Pair(solution.Unit,200)||
-            !Pair(solution.Verification,2000)||!Pair(solution.CommonError,2000))errors.Add("StructuredSolutionRequired");
+            !OptionalPair(solution.Substitution,2000)||!Pair(solution.Result,1000)||!OptionalPair(solution.Unit,200)||
+            !OptionalPair(solution.Verification,2000)||!OptionalPair(solution.CommonError,2000))errors.Add("StructuredSolutionRequired");
         if(!errors.Contains("StructuredSolutionRequired") &&
             (FlatSolution(solution!,true).Length>12000||FlatSolution(solution!,false).Length>12000))errors.Add("SolutionTooLong");
         return errors;
@@ -85,8 +89,9 @@ public static class WizardProblemContract
     public static string FlatSolution(WizardSolution s,bool ar)
     {
         string L(BilingualText? p)=>ar?p?.Ar??"":p?.En??"";
-        return string.Join("\n\n",new[]{L(s.Idea),"$"+s.FormulaLatex+"$"}
-            .Concat(s.Steps!.Select((x,i)=>(i+1)+". "+L(x)))
-            .Concat(new[]{L(s.Substitution),L(s.Result)+" "+L(s.Unit),L(s.Verification),L(s.CommonError)}));
+        return string.Join("\n\n",new[]{L(s.Idea),string.IsNullOrWhiteSpace(s.FormulaLatex)?"":"$"+s.FormulaLatex+"$"}
+            .Concat((s.Steps??Array.Empty<BilingualText>()).Select((x,i)=>(i+1)+". "+L(x)))
+            .Concat(new[]{L(s.Substitution),(L(s.Result)+" "+L(s.Unit)).Trim(),L(s.Verification),L(s.CommonError)})
+            .Where(x=>!string.IsNullOrWhiteSpace(x)));
     }
 }
