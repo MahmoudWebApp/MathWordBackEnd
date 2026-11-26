@@ -22,6 +22,37 @@ namespace MathWorldAPI.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("MathWorldAPI.Models.CustomExam", b =>
+                {
+                    b.Property<Guid>("Id").HasColumnType("uuid");
+                    b.Property<Guid>("StartRequestId").HasColumnType("uuid");
+                    b.Property<int>("UserId").HasColumnType("integer");
+                    b.Property<int>("StageId").HasColumnType("integer");
+                    b.Property<int>("TrackId").HasColumnType("integer");
+                    b.Property<int?>("CategoryId").HasColumnType("integer");
+                    b.Property<string>("TitleAr").IsRequired().HasColumnType("text");
+                    b.Property<string>("TitleEn").IsRequired().HasColumnType("text");
+                    b.Property<string>("QuestionsJson").IsRequired().HasColumnType("text");
+                    b.Property<string>("AnswersJson").IsRequired().HasColumnType("text");
+                    b.Property<int>("Total").HasColumnType("integer");
+                    b.Property<int>("PassPercent").HasColumnType("integer");
+                    b.Property<int>("PolicyVersion").HasColumnType("integer");
+                    b.Property<DateTime>("CreatedAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<DateTime?>("FinishedAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<DateTime?>("AbandonedAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<int?>("Score").HasColumnType("integer");
+                    b.Property<string>("CertificateStudentName").HasMaxLength(300).HasColumnType("character varying(300)");
+                    b.Property<string>("VerificationCode").HasMaxLength(32).HasColumnType("character varying(32)");
+                    b.HasKey("Id");
+                    b.HasIndex("UserId").IsUnique().HasFilter("\"FinishedAtUtc\" IS NULL AND \"AbandonedAtUtc\" IS NULL");
+                    b.HasIndex("UserId", "StartRequestId").IsUnique();
+                    b.HasIndex("UserId", "CreatedAtUtc");
+                    b.HasIndex("VerificationCode").IsUnique();
+                    b.ToTable("CustomExams", t=>{
+                        t.HasCheckConstraint("CK_CustomExams_Total", "\"Total\" IN (5,10,15,20) AND \"PassPercent\" BETWEEN 1 AND 100 AND \"PolicyVersion\" > 0");
+                        t.HasCheckConstraint("CK_CustomExams_State", "(\"FinishedAtUtc\" IS NULL AND \"Score\" IS NULL AND \"VerificationCode\" IS NULL AND \"CertificateStudentName\" IS NULL) OR (\"FinishedAtUtc\" IS NOT NULL AND \"AbandonedAtUtc\" IS NULL AND \"Score\" IS NOT NULL AND \"Score\" BETWEEN 0 AND \"Total\" AND ((\"Score\" * 100 >= \"PassPercent\" * \"Total\" AND \"VerificationCode\" IS NOT NULL AND \"CertificateStudentName\" IS NOT NULL) OR (\"Score\" * 100 < \"PassPercent\" * \"Total\" AND \"VerificationCode\" IS NULL AND \"CertificateStudentName\" IS NULL)))");
+                    });
+                });
             modelBuilder.Entity("MathWorldAPI.Models.LearningCertificate", b =>
                 {
                     b.Property<Guid>("Id").HasColumnType("uuid");
@@ -1721,6 +1752,11 @@ namespace MathWorldAPI.Migrations
                         .HasForeignKey("CurrentTrackId").OnDelete(DeleteBehavior.Restrict);
                 });
 
+            modelBuilder.Entity("MathWorldAPI.Models.CustomExam", b =>
+                {
+                    b.HasOne("MathWorldAPI.Models.AppUser", null).WithMany()
+                        .HasForeignKey("UserId").OnDelete(DeleteBehavior.Cascade).IsRequired();
+                });
             modelBuilder.Entity("MathWorldAPI.Models.LearningCertificate", b =>
                 {
                     b.HasOne("MathWorldAPI.Models.AppUser", null).WithMany()
