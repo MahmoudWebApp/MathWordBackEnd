@@ -154,6 +154,14 @@ def verify_wizard(admin,supervisor,sid):
     expect("POST",bp+"/submit",400,{"Revision":0},supervisor)
     expect("POST",bp+"/withdraw",200,{"Revision":0,"Note":"Incomplete bilingual fixture"},admin)
     print("PASS: interactive optional solution fields, incomplete bilingual field rejected")
+    # Published preview is staff-only and must be read-only.
+    published_preview=f"{root}/bank/{pid}/preview"
+    expect("GET",published_preview,401)
+    for token in (admin,supervisor):
+        v=expect("GET",published_preview,200,token=token)
+        assert v["Id"]==pid and len(v["Hints"])==2 and len(v["Options"])==4
+        assert sum(o["IsCorrect"] for o in v["Options"])==1
+    print("PASS: staff-only published preview includes actual hints")
     verify_solve(admin,pid,stage,category)
     verify_amendment(admin,supervisor,pid)
     verify_import(admin,supervisor,p,track)
