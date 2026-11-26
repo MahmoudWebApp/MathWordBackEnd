@@ -33,6 +33,8 @@ public sealed class AdminNotificationsController : ControllerBase
         public string BodyAr { get; set; } = "";
         public string BodyEn { get; set; } = "";
         public string? TargetPath { get; set; }
+        // Legacy callers retain consent-aware optional email; explicit in-app callers disable it.
+        public bool IncludeOptionalEmail { get; set; } = true;
     }
 
     [HttpPost("learners/{learnerId:int}")]
@@ -68,6 +70,7 @@ public sealed class AdminNotificationsController : ControllerBase
             CreatedAtUtc = DateTime.UtcNow
         };
         _db.UserNotifications.Add(notification);
+        if(request.IncludeOptionalEmail) _queue.AddOptionalNotice(learner,"announcement",notification.CreatedAtUtc);
         await _db.SaveChangesAsync(ct);
         _stream.Notify(learnerId);
 
