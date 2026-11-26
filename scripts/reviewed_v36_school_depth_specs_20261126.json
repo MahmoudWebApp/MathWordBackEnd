@@ -1,0 +1,796 @@
+[
+  {
+    "track": 1,
+    "stage": 1,
+    "cat": 82,
+    "skill": 324,
+    "sk": "time",
+    "family": "hour-hand-one-hour-later",
+    "title": {
+      "Ar": "حركة عقرب الساعات",
+      "En": "Movement of the hour hand"
+    },
+    "q": {
+      "Ar": "عند الساعة 10:00 صباحاً يشير عقرب الساعات إلى 10. بعد مرور ساعة كاملة، إلى أي عدد يشير عقرب الساعات؟",
+      "En": "At 10:00 a.m. the hour hand points to 10. After one full hour, which number does the hour hand point to?"
+    },
+    "opts": [
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "9 قبل العاشرة بساعة.",
+        "En": "9 is one hour before ten."
+      },
+      {
+        "Ar": "10 موضع العقرب في البداية.",
+        "En": "10 is the starting position."
+      },
+      null,
+      {
+        "Ar": "12 بعد ساعتين من العاشرة.",
+        "En": "12 is two hours after ten."
+      }
+    ],
+    "idea": {
+      "Ar": "يتقدم عقرب الساعات من عدد إلى العدد التالي خلال ساعة كاملة.",
+      "En": "The hour hand advances to the next number in one full hour."
+    },
+    "formula": "10+1=11",
+    "steps": [
+      {
+        "Ar": "نبدأ من العدد 10.",
+        "En": "Start at number 10."
+      },
+      {
+        "Ar": "نتقدم موضعاً واحداً في اتجاه حركة العقارب.",
+        "En": "Move one position clockwise."
+      }
+    ],
+    "sub": {
+      "Ar": "$10+1=11$",
+      "En": "$10+1=11$"
+    },
+    "result": {
+      "Ar": "$11$",
+      "En": "$11$"
+    },
+    "verify": {
+      "Ar": "$11-10=1$",
+      "En": "$11-10=1$"
+    },
+    "hints": [
+      {
+        "Ar": "ابدأ عند العاشرة تماماً.",
+        "En": "Start at ten o'clock."
+      },
+      {
+        "Ar": "انتقل إلى العدد التالي على الساعة.",
+        "En": "Move to the next number on the clock."
+      }
+    ],
+    "error": {
+      "Ar": "لا تخلط بين عقربي الساعات والدقائق.",
+      "En": "Do not confuse the hour and minute hands."
+    }
+  },
+  {
+    "track": 1,
+    "stage": 1,
+    "cat": 96,
+    "skill": 354,
+    "sk": "primary-shape-attributes-composition",
+    "family": "two-triangles-shared-side-outline",
+    "title": {
+      "Ar": "محيط شكل مركب",
+      "En": "Outline of a combined shape"
+    },
+    "q": {
+      "Ar": "وُضع مثلثان ورقيان بحيث يتطابق ضلع كامل من الأول مع ضلع كامل من الثاني، دون تداخل في المساحة. كم ضلعاً من المثلثين يبقى مكشوفاً على الحدود الخارجية؟ عدّ كل ضلع مكشوف منفرداً.",
+      "En": "Two paper triangles share one entire side without overlapping in area. How many of their original sides remain exposed on the outer boundary? Count each exposed original side separately."
+    },
+    "opts": [
+      "2",
+      "3",
+      "4",
+      "6"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "2 عدد الضلعين المختفيين عند الالتقاء.",
+        "En": "2 counts the two hidden sides at the join."
+      },
+      {
+        "Ar": "3 عدد أضلاع مثلث واحد.",
+        "En": "3 counts one triangle."
+      },
+      null,
+      {
+        "Ar": "6 يعد الضلعين المشتركين أيضاً.",
+        "En": "6 includes both shared sides."
+      }
+    ],
+    "idea": {
+      "Ar": "الضلع الذي يشترك فيه المثلثان لا يظهر على الحد الخارجي لأي منهما.",
+      "En": "The shared side is not exposed on either triangle's outer boundary."
+    },
+    "formula": "3+3-2=4",
+    "steps": [
+      {
+        "Ar": "لكل مثلث ثلاثة أضلاع.",
+        "En": "Each triangle has three sides."
+      },
+      {
+        "Ar": "يختفي ضلع من كل مثلث عند موضع الالتقاء.",
+        "En": "One side of each triangle is hidden at the join."
+      }
+    ],
+    "sub": {
+      "Ar": "$6-2=4$",
+      "En": "$6-2=4$"
+    },
+    "result": {
+      "Ar": "$4$",
+      "En": "$4$"
+    },
+    "verify": {
+      "Ar": "$2+2=4$",
+      "En": "$2+2=4$"
+    },
+    "hints": [
+      {
+        "Ar": "عد أضلاع المثلثين قبل ضمهما.",
+        "En": "Count the sides before joining the triangles."
+      },
+      {
+        "Ar": "استبعد ضلع الالتقاء من كل مثلث.",
+        "En": "Exclude the joining side from each triangle."
+      }
+    ],
+    "error": {
+      "Ar": "لا تحسب الضلع المشترك مرتين ضمن الحد الخارجي.",
+      "En": "Do not count the shared side twice on the outer boundary."
+    }
+  },
+  {
+    "track": 1,
+    "stage": 1,
+    "cat": 97,
+    "skill": 356,
+    "sk": "primary-category-count-data",
+    "family": "category-count-equal-after-removal",
+    "title": {
+      "Ar": "تساوي عددين بعد تغيير",
+      "En": "Equal category counts after a change"
+    },
+    "q": {
+      "Ar": "في سجل الألعاب المفضلة اختار 6 أطفال الكرة و4 أطفال الرسم وطفلان القراءة. حذف المعلم اختيار طفلين للكرة فقط لأنهما مكرران. كم فئة أصبح عدد اختياراتها 4؟",
+      "En": "In a favourite-activity record, 6 children chose ball games, 4 drawing and 2 reading. The teacher removes two duplicate entries for ball games only. How many categories now have a count of 4?"
+    },
+    "opts": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "1 يهمل إحدى الفئتين المتساويتين.",
+        "En": "1 misses one of the two equal categories."
+      },
+      null,
+      {
+        "Ar": "3 يشمل القراءة التي بقي عددها 2.",
+        "En": "3 includes reading, whose count remains 2."
+      },
+      {
+        "Ar": "4 عدد الاختيارات في كل فئة مطلوبة لا عدد الفئات.",
+        "En": "4 is the target count per category, not the number of categories."
+      }
+    ],
+    "idea": {
+      "Ar": "نحدّث الفئة التي تغيرت ثم نقرأ عدد الفئات المطابقة.",
+      "En": "Update the changed category, then count the matching categories."
+    },
+    "formula": "6-2=4",
+    "steps": [
+      {
+        "Ar": "أصبح عدد اختيارات الكرة 4.",
+        "En": "Ball games now has a count of 4."
+      },
+      {
+        "Ar": "بقي الرسم 4 والقراءة 2.",
+        "En": "Drawing remains 4 and reading remains 2."
+      }
+    ],
+    "sub": {
+      "Ar": "$1+1=2$",
+      "En": "$1+1=2$"
+    },
+    "result": {
+      "Ar": "$2$",
+      "En": "$2$"
+    },
+    "verify": {
+      "Ar": "$4=4$",
+      "En": "$4=4$"
+    },
+    "hints": [
+      {
+        "Ar": "غيّر عدد اختيارات الكرة فقط.",
+        "En": "Change only the ball-games count."
+      },
+      {
+        "Ar": "عد الفئات التي يساوي عددها أربعة.",
+        "En": "Count categories with exactly four choices."
+      }
+    ],
+    "error": {
+      "Ar": "لا تحذف اختيارين من كل فئة.",
+      "En": "Do not remove two entries from every category."
+    }
+  },
+  {
+    "track": 2,
+    "stage": 1,
+    "cat": 97,
+    "skill": 357,
+    "sk": "primary-single-unit-picture-data",
+    "family": "pictograph-pair-equal-total",
+    "title": {
+      "Ar": "مقارنة مجموع صفين",
+      "En": "Comparing combined pictograph rows"
+    },
+    "q": {
+      "Ar": "كل ● يمثل كتاباً واحداً. سجل الرفوف A: ●●؛ B: ●●●؛ C: ●●●●●؛ D: ●. أي زوج من الرفوف يحتوي معاً العدد نفسه الموجود في C؟",
+      "En": "Each ● represents one book. Shelf record A: ●●; B: ●●●; C: ●●●●●; D: ●. Which pair of shelves together contains the same number as C?"
+    },
+    "opts": [
+      "A+D",
+      "B+D",
+      "A+B",
+      "C+D"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "المجموع 3.",
+        "En": "The total is 3."
+      },
+      {
+        "Ar": "المجموع 4.",
+        "En": "The total is 4."
+      },
+      null,
+      {
+        "Ar": "المجموع 6.",
+        "En": "The total is 6."
+      }
+    ],
+    "idea": {
+      "Ar": "نجمع رموز كل زوج ونقارن المجموع بعدد رموز C.",
+      "En": "Add the symbols in each pair and compare with C's count."
+    },
+    "formula": "2+3=5",
+    "steps": [
+      {
+        "Ar": "في C خمسة رموز.",
+        "En": "C has five symbols."
+      },
+      {
+        "Ar": "في A رمزان وفي B ثلاثة، ومجموعهما خمسة.",
+        "En": "A has two and B has three, totaling five."
+      }
+    ],
+    "sub": {
+      "Ar": "$2+3=5$",
+      "En": "$2+3=5$"
+    },
+    "result": {
+      "Ar": "$A+B$",
+      "En": "$A+B$"
+    },
+    "verify": {
+      "Ar": "$5=5$",
+      "En": "$5=5$"
+    },
+    "hints": [
+      {
+        "Ar": "عد رموز C أولاً.",
+        "En": "Count C's symbols first."
+      },
+      {
+        "Ar": "ابحث عن صفين مجموعهما خمسة.",
+        "En": "Find two rows whose combined count is five."
+      }
+    ],
+    "error": {
+      "Ar": "لا تبحث عن صف واحد فقط.",
+      "En": "Do not look for only one row."
+    }
+  },
+  {
+    "track": 3,
+    "stage": 1,
+    "cat": 82,
+    "skill": 324,
+    "sk": "time",
+    "family": "elapsed-time-excluding-break",
+    "title": {
+      "Ar": "مدة العمل دون الاستراحة",
+      "En": "Working time excluding a break"
+    },
+    "q": {
+      "Ar": "بدأ نشاط الساعة 10:20 صباحاً وانتهى الساعة 11:10 صباحاً. تخللته استراحة مدتها 15 دقيقة. كم دقيقة استغرق النشاط دون الاستراحة؟",
+      "En": "An activity began at 10:20 a.m. and ended at 11:10 a.m., including a 15-minute break. How many minutes were spent on the activity excluding the break?"
+    },
+    "opts": [
+      "15",
+      "35",
+      "50",
+      "65"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "15 مدة الاستراحة وحدها.",
+        "En": "15 is only the break duration."
+      },
+      null,
+      {
+        "Ar": "50 المدة الكلية قبل استبعاد الاستراحة.",
+        "En": "50 is the total duration including the break."
+      },
+      {
+        "Ar": "65 يضيف الاستراحة بدلاً من طرحها.",
+        "En": "65 adds the break instead of subtracting it."
+      }
+    ],
+    "idea": {
+      "Ar": "نحسب المدة الكلية ثم نطرح الجزء المخصص للاستراحة.",
+      "En": "Find the total elapsed time and subtract the break."
+    },
+    "formula": "40+10-15",
+    "steps": [
+      {
+        "Ar": "من 10:20 إلى 11:00 أربعون دقيقة.",
+        "En": "From 10:20 to 11:00 is forty minutes."
+      },
+      {
+        "Ar": "من 11:00 إلى 11:10 عشر دقائق، فالمدة الكلية 50.",
+        "En": "From 11:00 to 11:10 is ten minutes, so the total is 50."
+      }
+    ],
+    "sub": {
+      "Ar": "$50-15=35$",
+      "En": "$50-15=35$"
+    },
+    "result": {
+      "Ar": "$35$",
+      "En": "$35$"
+    },
+    "verify": {
+      "Ar": "$35+15=50$",
+      "En": "$35+15=50$"
+    },
+    "hints": [
+      {
+        "Ar": "قسّم الفترة عند الساعة 11:00.",
+        "En": "Split the interval at 11:00."
+      },
+      {
+        "Ar": "استبعد خمس عشرة دقيقة من المجموع.",
+        "En": "Exclude fifteen minutes from the total."
+      }
+    ],
+    "error": {
+      "Ar": "لا تعد الاستراحة ضمن وقت النشاط المطلوب.",
+      "En": "Do not include the break in the requested activity time."
+    },
+    "unit": {
+      "Ar": "دقيقة",
+      "En": "minutes"
+    }
+  },
+  {
+    "track": 4,
+    "stage": 1,
+    "cat": 1,
+    "skill": 1,
+    "sk": "primary-addition",
+    "family": "addition-missing-tens-digit",
+    "title": {
+      "Ar": "رقم مفقود في جمع عمودي",
+      "En": "Missing digit in column addition"
+    },
+    "q": {
+      "Ar": "في الجمع 3□7+248=615، تمثل □ رقماً واحداً في منزلة العشرات. ما الرقم المفقود؟",
+      "En": "In the addition 3□7+248=615, □ represents one tens digit. What is the missing digit?"
+    },
+    "opts": [
+      "5",
+      "6",
+      "7",
+      "8"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "357+248=605.",
+        "En": "357+248=605."
+      },
+      null,
+      {
+        "Ar": "377+248=625.",
+        "En": "377+248=625."
+      },
+      {
+        "Ar": "387+248=635.",
+        "En": "387+248=635."
+      }
+    ],
+    "idea": {
+      "Ar": "نحسب الآحاد مع الحمل ثم نجد رقم العشرات الذي يعطي الرقم المطلوب.",
+      "En": "Add the ones with regrouping, then find the tens digit that produces the required result."
+    },
+    "formula": "615-248=367",
+    "steps": [
+      {
+        "Ar": "7+8=15، نكتب 5 ونحمل عشرة واحدة.",
+        "En": "7+8=15; write 5 and carry one ten."
+      },
+      {
+        "Ar": "رقم العشرات المفقود مع 4 والعشرة المحمولة يعطي 11 عشرات، لذلك الرقم 6.",
+        "En": "The missing tens digit plus 4 plus the carried ten must give eleven tens, so it is 6."
+      }
+    ],
+    "sub": {
+      "Ar": "$6+4+1=11$",
+      "En": "$6+4+1=11$"
+    },
+    "result": {
+      "Ar": "$6$",
+      "En": "$6$"
+    },
+    "verify": {
+      "Ar": "$367+248=615$",
+      "En": "$367+248=615$"
+    },
+    "hints": [
+      {
+        "Ar": "ابدأ بجمع الآحاد وانتبه للحمل.",
+        "En": "Start with the ones and note the carry."
+      },
+      {
+        "Ar": "ما الرقم الذي إذا أضفت إليه 4 ثم 1 أعطى 11؟",
+        "En": "Which digit plus 4 plus 1 gives 11?"
+      }
+    ],
+    "error": {
+      "Ar": "لا تنس العشرة المحمولة من الآحاد.",
+      "En": "Do not forget the ten carried from the ones."
+    }
+  },
+  {
+    "track": 4,
+    "stage": 1,
+    "cat": 3,
+    "skill": 16,
+    "sk": "primary-unit-conversions",
+    "family": "length-centimeters-decompose-meters-remainder",
+    "title": {
+      "Ar": "تفكيك الطول إلى أمتار وسنتيمترات",
+      "En": "Expressing centimetres in metres and centimetres"
+    },
+    "q": {
+      "Ar": "طول شريط 407 سم. ما الزوج المرتب الذي يمثل عدد الأمتار الكاملة ثم السنتيمترات المتبقية؟",
+      "En": "A strip is 407 cm long. Which ordered pair gives the number of whole metres followed by the remaining centimetres?"
+    },
+    "opts": [
+      "(4,7)",
+      "(4,70)",
+      "(40,7)",
+      "(7,4)"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "4 أمتار و70 سم تساوي 470 سم.",
+        "En": "4 m and 70 cm equals 470 cm."
+      },
+      {
+        "Ar": "40 متراً أكبر بكثير من 407 سم.",
+        "En": "40 m is far greater than 407 cm."
+      },
+      {
+        "Ar": "يعكس العددين، فيعطي 704 سم.",
+        "En": "Reversing the numbers gives 704 cm."
+      }
+    ],
+    "idea": {
+      "Ar": "كل متر يساوي 100 سم؛ نقسم الطول إلى مجموعات من مئة والباقي.",
+      "En": "Each metre is 100 cm; separate the length into hundreds and a remainder."
+    },
+    "formula": "407=4\\cdot100+7",
+    "steps": [
+      {
+        "Ar": "400 سم تساوي أربعة أمتار كاملة.",
+        "En": "400 cm equals four whole metres."
+      },
+      {
+        "Ar": "تبقى سبعة سنتيمترات.",
+        "En": "Seven centimetres remain."
+      }
+    ],
+    "sub": {
+      "Ar": "$407-400=7$",
+      "En": "$407-400=7$"
+    },
+    "result": {
+      "Ar": "$(4,7)$",
+      "En": "$(4,7)$"
+    },
+    "verify": {
+      "Ar": "4 أمتار تساوي 400 سم؛ مع 7 سم يصبح الطول 407 سم.",
+      "En": "4 m is 400 cm; with 7 cm the total is 407 cm."
+    },
+    "hints": [
+      {
+        "Ar": "كم مجموعة كاملة من 100 في 407؟",
+        "En": "How many complete hundreds are in 407?"
+      },
+      {
+        "Ar": "احسب الباقي بعد استبعاد 400.",
+        "En": "Find the remainder after removing 400."
+      }
+    ],
+    "error": {
+      "Ar": "لا تعتبر السبعة في منزلة العشرات.",
+      "En": "Do not treat the seven as a tens digit."
+    }
+  },
+  {
+    "track": 5,
+    "stage": 1,
+    "cat": 33,
+    "skill": 4,
+    "sk": "primary-multiplication",
+    "family": "product-scale-place-value",
+    "title": {
+      "Ar": "تغير حاصل الضرب بتغير المنازل",
+      "En": "Scaling a product by place value"
+    },
+    "q": {
+      "Ar": "إذا كان 37×24=888، فما حاصل 370×240؟",
+      "En": "If 37×24=888, what is 370×240?"
+    },
+    "opts": [
+      "888",
+      "8880",
+      "88800",
+      "888000"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "888 حاصل الضرب الأصلي.",
+        "En": "888 is the original product."
+      },
+      {
+        "Ar": "8880 يضاعف عاملاً واحداً بعشرة فقط.",
+        "En": "8880 scales only one factor by ten."
+      },
+      null,
+      {
+        "Ar": "888000 يضرب الناتج في ألف لا مئة.",
+        "En": "888000 scales the product by one thousand instead of one hundred."
+      }
+    ],
+    "idea": {
+      "Ar": "ضرب كل عامل في عشرة يجعل حاصل الضرب مئة ضعف.",
+      "En": "Multiplying each factor by ten multiplies the product by one hundred."
+    },
+    "formula": " (10a)(10b)=100ab",
+    "steps": [
+      {
+        "Ar": "$370=10\\cdot37,\\quad240=10\\cdot24$",
+        "En": "$370=10\\cdot37,\\quad240=10\\cdot24$"
+      },
+      {
+        "Ar": "$370\\cdot240=100\\cdot888$",
+        "En": "$370\\cdot240=100\\cdot888$"
+      }
+    ],
+    "sub": {
+      "Ar": "$888\\cdot100=88800$",
+      "En": "$888\\cdot100=88800$"
+    },
+    "result": {
+      "Ar": "$88800$",
+      "En": "$88800$"
+    },
+    "verify": {
+      "Ar": "$370\\cdot(200+40)=74000+14800=88800$",
+      "En": "$370\\cdot(200+40)=74000+14800=88800$"
+    },
+    "hints": [
+      {
+        "Ar": "بكم تضاعف كل عامل؟",
+        "En": "By what factor did each factor increase?"
+      },
+      {
+        "Ar": "اضرب معاملي التغير معاً.",
+        "En": "Multiply the two scaling factors."
+      }
+    ],
+    "error": {
+      "Ar": "لا تضف صفراً واحداً عندما يتغير العاملان بعشرة.",
+      "En": "Do not append only one zero when both factors scale by ten."
+    }
+  },
+  {
+    "track": 6,
+    "stage": 1,
+    "cat": 4,
+    "skill": 18,
+    "sk": "primary-median",
+    "family": "median-insert-two-opposite-ends",
+    "title": {
+      "Ar": "إضافة قيمتين إلى طرفي البيانات",
+      "En": "Adding observations at both ends"
+    },
+    "q": {
+      "Ar": "القيم المرتبة هي 4، 6، 9، 12، 15. أضيفت القيمة 1 في بداية القائمة و20 في نهايتها. ما وسيط القائمة الجديدة؟",
+      "En": "The ordered values are 4, 6, 9, 12, 15. The value 1 is added at the beginning and 20 at the end. What is the new median?"
+    },
+    "opts": [
+      "6",
+      "9",
+      "10.5",
+      "12"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "6 القيمة الثالثة في القائمة الجديدة لا الرابعة.",
+        "En": "6 is the third value in the new list, not the fourth."
+      },
+      null,
+      {
+        "Ar": "10.5 متوسط 9 و12، لكن العدد فردي.",
+        "En": "10.5 averages 9 and 12, but the count is odd."
+      },
+      {
+        "Ar": "12 القيمة الخامسة لا الوسطى.",
+        "En": "12 is the fifth value, not the middle one."
+      }
+    ],
+    "idea": {
+      "Ar": "إضافة قيمة أصغر من الجميع وأخرى أكبر من الجميع تحافظ على موضع القيمة الوسطى النسبي.",
+      "En": "Adding one value below all others and one above all others preserves the middle observation."
+    },
+    "formula": "k=(7+1)/2=4",
+    "steps": [
+      {
+        "Ar": "القائمة الجديدة 1،4،6،9،12،15،20.",
+        "En": "The new list is 1,4,6,9,12,15,20."
+      },
+      {
+        "Ar": "لدينا سبع قيم؛ الوسطى هي الرابعة.",
+        "En": "There are seven values; the middle is the fourth."
+      }
+    ],
+    "sub": {
+      "Ar": "$x_4=9$",
+      "En": "$x_4=9$"
+    },
+    "result": {
+      "Ar": "$9$",
+      "En": "$9$"
+    },
+    "verify": {
+      "Ar": "$3+1+3=7$",
+      "En": "$3+1+3=7$"
+    },
+    "hints": [
+      {
+        "Ar": "رتب القيم بعد الإضافة.",
+        "En": "Order the values after adding the two observations."
+      },
+      {
+        "Ar": "حدد القيمة الرابعة من سبع.",
+        "En": "Find the fourth of seven values."
+      }
+    ],
+    "error": {
+      "Ar": "لا تستخدم متوسط قيمتين وسطيتين لقائمة فردية العدد.",
+      "En": "Do not average two middle values for an odd-sized list."
+    }
+  },
+  {
+    "track": 12,
+    "stage": 3,
+    "cat": 87,
+    "skill": 338,
+    "sk": "dot-product",
+    "family": "norm-of-sum-from-dot-product",
+    "title": {
+      "Ar": "معيار مجموع متجهين من الضرب القياسي",
+      "En": "Norm of a sum from the dot product"
+    },
+    "q": {
+      "Ar": "إذا كان $\\|u\\|=3$ و$\\|v\\|=4$ و$u\\cdot v=12$، فما معيار $u+v$؟",
+      "En": "If $\\|u\\|=3$, $\\|v\\|=4$ and $u\\cdot v=12$, what is $\\|u+v\\|$?"
+    },
+    "opts": [
+      "5",
+      "7",
+      "25",
+      "49"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "5 يهمل حد الضرب القياسي ويفترض التعامد.",
+        "En": "5 omits the dot-product term and assumes orthogonality."
+      },
+      null,
+      {
+        "Ar": "25 مجموع مربعي المعيارين فقط.",
+        "En": "25 is only the sum of squared norms."
+      },
+      {
+        "Ar": "49 مربع المعيار المطلوب لا المعيار.",
+        "En": "49 is the squared norm, not the norm."
+      }
+    ],
+    "idea": {
+      "Ar": "مربع معيار المجموع يتضمن مربعي المعيارين وضعف الضرب القياسي.",
+      "En": "The squared norm of a sum includes both squared norms and twice the dot product."
+    },
+    "formula": "\\|u+v\\|^2=\\|u\\|^2+2u\\cdot v+\\|v\\|^2",
+    "steps": [
+      {
+        "Ar": "$\\|u+v\\|^2=9+24+16=49$",
+        "En": "$\\|u+v\\|^2=9+24+16=49$"
+      },
+      {
+        "Ar": "المعيار غير سالب، فنأخذ الجذر الموجب.",
+        "En": "A norm is nonnegative, so take the positive square root."
+      }
+    ],
+    "sub": {
+      "Ar": "$\\sqrt{49}=7$",
+      "En": "$\\sqrt{49}=7$"
+    },
+    "result": {
+      "Ar": "$7$",
+      "En": "$7$"
+    },
+    "verify": {
+      "Ar": "$u\\cdot v=3\\cdot4\\Rightarrow\\cos\\theta=1$",
+      "En": "$u\\cdot v=3\\cdot4\\Rightarrow\\cos\\theta=1$"
+    },
+    "hints": [
+      {
+        "Ar": "وسع الضرب القياسي للمجموع مع نفسه.",
+        "En": "Expand the dot product of the sum with itself."
+      },
+      {
+        "Ar": "لا تنس الحد المتقاطع ثم خذ الجذر.",
+        "En": "Include the cross term, then take the square root."
+      }
+    ],
+    "error": {
+      "Ar": "لا تهمل ضعف الضرب القياسي إلا إذا كان صفراً.",
+      "En": "Do not omit twice the dot product unless it is zero."
+    }
+  }
+]
