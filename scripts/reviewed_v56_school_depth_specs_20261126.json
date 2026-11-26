@@ -1,0 +1,1224 @@
+[
+  {
+    "track": 8,
+    "cat": 34,
+    "skill": 37,
+    "sk": "middle-pythagorean-theorem",
+    "family": "pythagorean-converse-classify-right-triangle",
+    "title": {
+      "Ar": "اختبار مثلث قائم",
+      "En": "Testing a right triangle"
+    },
+    "q": {
+      "Ar": "أي مجموعة أطوال يمكن أن تكون أضلاع مثلث قائم؟",
+      "En": "Which set of lengths can form a right triangle?"
+    },
+    "opts": [
+      "(7,24,25)",
+      "(6,8,11)",
+      "(5,5,7)",
+      "(4,6,8)"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "36+64 لا يساوي 121.",
+        "En": "36+64 is not 121."
+      },
+      {
+        "Ar": "25+25 لا يساوي 49.",
+        "En": "25+25 is not 49."
+      },
+      {
+        "Ar": "16+36 لا يساوي 64.",
+        "En": "16+36 is not 64."
+      }
+    ],
+    "idea": {
+      "Ar": "نختبر عكس نظرية فيثاغورس باستخدام أطول ضلع.",
+      "En": "Apply the converse of Pythagoras using the longest side."
+    },
+    "formula": "a^2+b^2=c^2",
+    "steps": [
+      {
+        "Ar": "$49+576=625$",
+        "En": "$49+576=625$"
+      },
+      {
+        "Ar": "$25^2=625$",
+        "En": "$25^2=625$"
+      }
+    ],
+    "sub": {
+      "Ar": "$7^2+24^2$",
+      "En": "$7^2+24^2$"
+    },
+    "result": {
+      "Ar": "$(7,24,25)$",
+      "En": "$(7,24,25)$"
+    },
+    "verify": {
+      "Ar": "$7+24>25$",
+      "En": "$7+24>25$"
+    },
+    "hints": [
+      {
+        "Ar": "ربع الضلعين الأقصر.",
+        "En": "Square the shorter sides."
+      },
+      {
+        "Ar": "قارن مجموع المربعين بمربع الأطول.",
+        "En": "Compare the sum with the longest side squared."
+      }
+    ],
+    "error": {
+      "Ar": "36+64 لا يساوي 121.",
+      "En": "36+64 is not 121."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 11,
+    "cat": 86,
+    "skill": 312,
+    "sk": "logarithm-domain",
+    "family": "log-domain-quadratic-argument-positive",
+    "title": {
+      "Ar": "مجال لوغاريتم حجة تربيعية",
+      "En": "Logarithm of a quadratic argument"
+    },
+    "q": {
+      "Ar": "ما مجال الدالة الحقيقية $f(x)=\\ln(9-x^2)$؟",
+      "En": "Find the real domain of $f(x)=\\ln(9-x^2)$."
+    },
+    "opts": [
+      "-3\\le x\\le3",
+      "x>3",
+      "x<-3\\ \\text{or}\\ x>3",
+      "-3<x<3"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "يضم نقطتين تجعل الحجة صفراً.",
+        "En": "Includes two points making the argument zero."
+      },
+      {
+        "Ar": "يجعل الحجة سالبة.",
+        "En": "Makes the argument negative."
+      },
+      {
+        "Ar": "يختار خارج المجال المسموح.",
+        "En": "Selects the exterior of the allowed interval."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "حجة اللوغاريتم الحقيقي موجبة حصراً.",
+      "En": "A real logarithm requires a strictly positive argument."
+    },
+    "formula": "9-x^2>0",
+    "steps": [
+      {
+        "Ar": "$|x|<3$",
+        "En": "$|x|<3$"
+      },
+      {
+        "Ar": "$-3<x<3$",
+        "En": "$-3<x<3$"
+      }
+    ],
+    "sub": {
+      "Ar": "$x^2<9$",
+      "En": "$x^2<9$"
+    },
+    "result": {
+      "Ar": "$-3<x<3$",
+      "En": "$-3<x<3$"
+    },
+    "verify": {
+      "Ar": "$x=0:\\ 9-0=9>0$",
+      "En": "$x=0:\\ 9-0=9>0$"
+    },
+    "hints": [
+      {
+        "Ar": "اشترط أن تكون الحجة موجبة.",
+        "En": "Require a positive argument."
+      },
+      {
+        "Ar": "حل متراجحة مربع العدد.",
+        "En": "Solve the squared inequality."
+      }
+    ],
+    "error": {
+      "Ar": "يضم نقطتين تجعل الحجة صفراً.",
+      "En": "Includes two points making the argument zero."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 12,
+    "cat": 23,
+    "skill": 102,
+    "sk": "s-sequences-series-recurrence-relations",
+    "family": "recurrence-backward-two-steps",
+    "title": {
+      "Ar": "استرجاع حد سابق",
+      "En": "Recovering an earlier term"
+    },
+    "q": {
+      "Ar": "تتبع متتالية العلاقة $a_{n+1}=2a_n+3$. إذا كان $a_4=29$، فما $a_2$؟",
+      "En": "A sequence follows $a_{n+1}=2a_n+3$. If $a_4=29$, find $a_2$."
+    },
+    "opts": [
+      "10",
+      "7",
+      "5",
+      "13"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "لم يعكس العمليتين في الخطوة الثانية.",
+        "En": "Does not reverse both operations in the second step."
+      },
+      {
+        "Ar": "قسم الحد الثالث تقريباً على اثنين دون طرح 3.",
+        "En": "Approximately halves term three without subtracting three."
+      },
+      null,
+      {
+        "Ar": "هذا الحد الثالث.",
+        "En": "This is the third term."
+      }
+    ],
+    "idea": {
+      "Ar": "نعكس العلاقة بطرح ثلاثة ثم القسمة على اثنين.",
+      "En": "Reverse the recurrence by subtracting three then halving."
+    },
+    "formula": "a_n=(a_{n+1}-3)/2",
+    "steps": [
+      {
+        "Ar": "$a_3=13$",
+        "En": "$a_3=13$"
+      },
+      {
+        "Ar": "$a_2=(13-3)/2=5$",
+        "En": "$a_2=(13-3)/2=5$"
+      }
+    ],
+    "sub": {
+      "Ar": "$a_3=(29-3)/2$",
+      "En": "$a_3=(29-3)/2$"
+    },
+    "result": {
+      "Ar": "$5$",
+      "En": "$5$"
+    },
+    "verify": {
+      "Ar": "$2(2\\cdot5+3)+3=29$",
+      "En": "$2(2\\cdot5+3)+3=29$"
+    },
+    "hints": [
+      {
+        "Ar": "استخرج الحد الثالث أولاً.",
+        "En": "Recover term three first."
+      },
+      {
+        "Ar": "كرر العملية لاسترجاع الحد الثاني.",
+        "En": "Repeat to recover term two."
+      }
+    ],
+    "error": {
+      "Ar": "هذا الحد الثالث.",
+      "En": "This is the third term."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 1,
+    "cat": 81,
+    "skill": 302,
+    "sk": "counting",
+    "family": "counting-position-swap-neighbour",
+    "title": {
+      "Ar": "تبديل مكانين",
+      "En": "Swapping positions"
+    },
+    "q": {
+      "Ar": "في صف من ستة أطفال، تقف نور في المكان الثاني وتبدل مكانها مع الطفل الرابع. ما ترتيبها الجديد من الأمام؟",
+      "En": "In a line of six children, Nour is second and swaps places with the fourth child. What is her new position from the front?"
+    },
+    "opts": [
+      "6",
+      "4",
+      "2",
+      "3"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "هذا عدد الأطفال.",
+        "En": "The number of children."
+      },
+      null,
+      {
+        "Ar": "هذا مكانها القديم.",
+        "En": "Her old position."
+      },
+      {
+        "Ar": "هذا المكان بينهما.",
+        "En": "The position between them."
+      }
+    ],
+    "idea": {
+      "Ar": "تنتقل نور إلى المكان الذي كان يشغله الطفل الرابع.",
+      "En": "Nour moves to the fourth child's old position."
+    },
+    "formula": "2\\longrightarrow4",
+    "steps": [
+      {
+        "Ar": "$2+2=4$",
+        "En": "$2+2=4$"
+      }
+    ],
+    "sub": {
+      "Ar": "$2+2$",
+      "En": "$2+2$"
+    },
+    "result": {
+      "Ar": "$4$",
+      "En": "$4$"
+    },
+    "verify": {
+      "Ar": "$4\\le6$",
+      "En": "$4\\le6$"
+    },
+    "hints": [
+      {
+        "Ar": "حدد مكان الطفل الآخر.",
+        "En": "Identify the other child's place."
+      },
+      {
+        "Ar": "التبديل لا يغير عدد الأطفال.",
+        "En": "Swapping does not change the count."
+      }
+    ],
+    "error": {
+      "Ar": "هذا مكانها القديم.",
+      "En": "Her old position."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 1,
+    "cat": 81,
+    "skill": 302,
+    "sk": "counting",
+    "family": "counting-identify-skipped-number",
+    "title": {
+      "Ar": "عدد مفقود أثناء العد",
+      "En": "Skipped counting number"
+    },
+    "q": {
+      "Ar": "عد طفل هكذا: 11،12،13،15،16. أي عدد نسيه؟",
+      "En": "A child counts 11,12,13,15,16. Which number was skipped?"
+    },
+    "opts": [
+      "14",
+      "12",
+      "15",
+      "17"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "ذُكر في العد.",
+        "En": "Was already counted."
+      },
+      {
+        "Ar": "ذُكر في العد.",
+        "En": "Was already counted."
+      },
+      {
+        "Ar": "يأتي بعد نهاية العد المعطاة.",
+        "En": "Comes after the given list."
+      }
+    ],
+    "idea": {
+      "Ar": "في العد التصاعدي العادي نزيد واحداً كل مرة.",
+      "En": "In ordinary forward counting, add one each time."
+    },
+    "formula": "13+1=14",
+    "steps": [
+      {
+        "Ar": "$13+1=14$",
+        "En": "$13+1=14$"
+      },
+      {
+        "Ar": "$14+1=15$",
+        "En": "$14+1=15$"
+      }
+    ],
+    "sub": {
+      "Ar": "$13+1$",
+      "En": "$13+1$"
+    },
+    "result": {
+      "Ar": "$14$",
+      "En": "$14$"
+    },
+    "verify": {
+      "Ar": "$15-14=1$",
+      "En": "$15-14=1$"
+    },
+    "hints": [
+      {
+        "Ar": "ما العدد التالي بعد 13؟",
+        "En": "What comes just after thirteen?"
+      },
+      {
+        "Ar": "تحقق أنه يسبق 15.",
+        "En": "Check it comes before fifteen."
+      }
+    ],
+    "error": {
+      "Ar": "ذُكر في العد.",
+      "En": "Was already counted."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 1,
+    "cat": 81,
+    "skill": 302,
+    "sk": "counting",
+    "family": "counting-objects-one-to-one-leftover-containers",
+    "title": {
+      "Ar": "أوعية بلا عناصر",
+      "En": "Empty containers"
+    },
+    "q": {
+      "Ar": "لدينا 9 أكواب و6 كرات. نضع كرة واحدة في كل كوب حتى تنتهي الكرات. كم كوباً يبقى فارغاً؟",
+      "En": "There are nine cups and six balls. Place one ball in each cup until the balls run out. How many cups remain empty?"
+    },
+    "opts": [
+      "6",
+      "9",
+      "15",
+      "3"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "عدد الأكواب الممتلئة.",
+        "En": "The filled cup count."
+      },
+      {
+        "Ar": "عدد الأكواب كلها.",
+        "En": "The total cup count."
+      },
+      {
+        "Ar": "جمع الأكواب والكرات.",
+        "En": "Adds cups and balls."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "كل كرة تملأ كوباً واحداً.",
+      "En": "Each ball fills exactly one cup."
+    },
+    "formula": "9-6",
+    "steps": [
+      {
+        "Ar": "$9-6=3$",
+        "En": "$9-6=3$"
+      }
+    ],
+    "sub": {
+      "Ar": "$9-6$",
+      "En": "$9-6$"
+    },
+    "result": {
+      "Ar": "$3$",
+      "En": "$3$"
+    },
+    "verify": {
+      "Ar": "$6+3=9$",
+      "En": "$6+3=9$"
+    },
+    "hints": [
+      {
+        "Ar": "كم كوباً تم ملؤه؟",
+        "En": "How many cups are filled?"
+      },
+      {
+        "Ar": "اطرح الممتلئة من الكل.",
+        "En": "Subtract filled cups from the total."
+      }
+    ],
+    "error": {
+      "Ar": "عدد الأكواب الممتلئة.",
+      "En": "The filled cup count."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 5,
+    "cat": 4,
+    "skill": 17,
+    "sk": "primary-simple-probability",
+    "family": "probability-equally-likely-letters-multiplicity",
+    "title": {
+      "Ar": "احتمال حرف مكرر",
+      "En": "Probability of a repeated letter"
+    },
+    "q": {
+      "Ar": "توجد خمس بطاقات مكتوب عليها A،A،B،C،C. تُسحب بطاقة واحدة عشوائياً. ما احتمال ظهور الحرف B؟",
+      "En": "Five cards are labelled A,A,B,C,C. One card is drawn uniformly at random. What is the probability of B?"
+    },
+    "opts": [
+      "\\frac25",
+      "\\frac45",
+      "\\frac15",
+      "\\frac13"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "هذا احتمال A أو C كل على حدة.",
+        "En": "This is the probability of either A or C individually."
+      },
+      {
+        "Ar": "هذا احتمال عدم ظهور B.",
+        "En": "This is the probability of not drawing B."
+      },
+      null,
+      {
+        "Ar": "عد الحروف المختلفة لا البطاقات.",
+        "En": "Counts distinct labels rather than cards."
+      }
+    ],
+    "idea": {
+      "Ar": "نعد البطاقات التي تحمل B ونقسم على عدد البطاقات.",
+      "En": "Count cards labelled B and divide by total cards."
+    },
+    "formula": "P(B)=n_B/n",
+    "steps": [
+      {
+        "Ar": "$n_B=1$",
+        "En": "$n_B=1$"
+      },
+      {
+        "Ar": "$n=5$",
+        "En": "$n=5$"
+      },
+      {
+        "Ar": "$P(B)=1/5$",
+        "En": "$P(B)=1/5$"
+      }
+    ],
+    "sub": {
+      "Ar": "$1/5$",
+      "En": "$1/5$"
+    },
+    "result": {
+      "Ar": "$\\frac15$",
+      "En": "$\\frac15$"
+    },
+    "verify": {
+      "Ar": "$1/5+4/5=1$",
+      "En": "$1/5+4/5=1$"
+    },
+    "hints": [
+      {
+        "Ar": "كم بطاقة عليها B؟",
+        "En": "How many cards show B?"
+      },
+      {
+        "Ar": "المجموع خمس بطاقات لا ثلاثة حروف.",
+        "En": "There are five cards, not three labels."
+      }
+    ],
+    "error": {
+      "Ar": "عد الحروف المختلفة لا البطاقات.",
+      "En": "Counts distinct labels rather than cards."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 5,
+    "cat": 4,
+    "skill": 19,
+    "sk": "primary-arithmetic-mean",
+    "family": "mean-equalizing-by-transfer-two-values",
+    "title": {
+      "Ar": "المتوسط بتوزيع متساو",
+      "En": "Mean through equal sharing"
+    },
+    "q": {
+      "Ar": "مع طالب 14 بطاقة ومع طالب آخر 8 بطاقات. إذا أعاد الطالبان توزيع البطاقات بالتساوي، فكم بطاقة يحصل عليها كل واحد؟",
+      "En": "One pupil has fourteen cards and another has eight. If they redistribute the cards equally, how many does each receive?"
+    },
+    "opts": [
+      "22",
+      "11",
+      "3",
+      "6"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "المجموع قبل التوزيع.",
+        "En": "The total before sharing."
+      },
+      null,
+      {
+        "Ar": "عدد البطاقات التي تنتقل من الأول إلى الثاني.",
+        "En": "The number transferred between pupils."
+      },
+      {
+        "Ar": "الفرق بين العددين.",
+        "En": "The difference of the counts."
+      }
+    ],
+    "idea": {
+      "Ar": "المتوسط هو العدد الذي يحصل عليه كل فرد عند توزيع المجموع بالتساوي.",
+      "En": "The mean is each person's share when the total is shared equally."
+    },
+    "formula": "(14+8)/2",
+    "steps": [
+      {
+        "Ar": "$14+8=22$",
+        "En": "$14+8=22$"
+      },
+      {
+        "Ar": "$22/2=11$",
+        "En": "$22/2=11$"
+      }
+    ],
+    "sub": {
+      "Ar": "$22/2$",
+      "En": "$22/2$"
+    },
+    "result": {
+      "Ar": "$11$",
+      "En": "$11$"
+    },
+    "verify": {
+      "Ar": "$11+11=22$",
+      "En": "$11+11=22$"
+    },
+    "hints": [
+      {
+        "Ar": "اجمع البطاقات أولاً.",
+        "En": "Combine the cards first."
+      },
+      {
+        "Ar": "قسّمها بالتساوي على اثنين.",
+        "En": "Share equally between two."
+      }
+    ],
+    "error": {
+      "Ar": "عدد البطاقات التي تنتقل من الأول إلى الثاني.",
+      "En": "The number transferred between pupils."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 5,
+    "cat": 4,
+    "skill": 18,
+    "sk": "primary-median",
+    "family": "median-order-repeated-five-values",
+    "title": {
+      "Ar": "وسيط مع قيم متكررة",
+      "En": "Median with repeated values"
+    },
+    "q": {
+      "Ar": "خمس قراءات هي 7،2،7،4،3. ما وسيطها؟",
+      "En": "Five readings are 7,2,7,4,3. What is their median?"
+    },
+    "opts": [
+      "4",
+      "3",
+      "7",
+      "4.6"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "القيمة الثانية بعد الترتيب.",
+        "En": "The second sorted value."
+      },
+      {
+        "Ar": "أكبر قيمة وهي الأكثر تكراراً.",
+        "En": "The maximum and most frequent value."
+      },
+      {
+        "Ar": "هذا المتوسط الحسابي.",
+        "En": "This is the arithmetic mean."
+      }
+    ],
+    "idea": {
+      "Ar": "نرتب القيم ونأخذ القيمة الثالثة مع الحفاظ على التكرار.",
+      "En": "Sort all values, including repeats, and take the third."
+    },
+    "formula": "i=(5+1)/2",
+    "steps": [
+      {
+        "Ar": "$2,3,4,7,7$",
+        "En": "$2,3,4,7,7$"
+      },
+      {
+        "Ar": "$x_3=4$",
+        "En": "$x_3=4$"
+      }
+    ],
+    "sub": {
+      "Ar": "$i=3$",
+      "En": "$i=3$"
+    },
+    "result": {
+      "Ar": "$4$",
+      "En": "$4$"
+    },
+    "verify": {
+      "Ar": "$2\\le3\\le4\\le7\\le7$",
+      "En": "$2\\le3\\le4\\le7\\le7$"
+    },
+    "hints": [
+      {
+        "Ar": "رتب الأعداد من الأصغر للأكبر.",
+        "En": "Sort in increasing order."
+      },
+      {
+        "Ar": "لا تحذف القيمة المكررة.",
+        "En": "Keep repeated values."
+      }
+    ],
+    "error": {
+      "Ar": "القيمة الثانية بعد الترتيب.",
+      "En": "The second sorted value."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 8,
+    "cat": 6,
+    "skill": 29,
+    "sk": "middle-slope",
+    "family": "slope-zero-horizontal-from-table",
+    "title": {
+      "Ar": "ميل خط أفقي",
+      "En": "Slope of a horizontal line"
+    },
+    "q": {
+      "Ar": "يمر مستقيم بالنقطتين (−2,4) و(5,4). ما ميله؟",
+      "En": "A line passes through (−2,4) and (5,4). Find its slope."
+    },
+    "opts": [
+      "1",
+      "7",
+      "\\frac47",
+      "0"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "التغير الرأسي ليس مساوياً للأفقي.",
+        "En": "Rise is not equal to run."
+      },
+      {
+        "Ar": "هذا التغير الأفقي.",
+        "En": "This is the horizontal change."
+      },
+      {
+        "Ar": "استعمل الإحداثي الرأسي بدلاً من تغيره.",
+        "En": "Uses the ordinate rather than its change."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "الميل يساوي التغير الرأسي على التغير الأفقي.",
+      "En": "Slope is rise divided by run."
+    },
+    "formula": "m=(y_2-y_1)/(x_2-x_1)",
+    "steps": [
+      {
+        "Ar": "$0/7=0$",
+        "En": "$0/7=0$"
+      }
+    ],
+    "sub": {
+      "Ar": "$(4-4)/(5-(-2))$",
+      "En": "$(4-4)/(5-(-2))$"
+    },
+    "result": {
+      "Ar": "$0$",
+      "En": "$0$"
+    },
+    "verify": {
+      "Ar": "$4+0\\cdot7=4$",
+      "En": "$4+0\\cdot7=4$"
+    },
+    "hints": [
+      {
+        "Ar": "هل تغيرت قيمة y؟",
+        "En": "Did the y-value change?"
+      },
+      {
+        "Ar": "اقسم التغير الرأسي على 7.",
+        "En": "Divide the vertical change by seven."
+      }
+    ],
+    "error": {
+      "Ar": "التغير الرأسي ليس مساوياً للأفقي.",
+      "En": "Rise is not equal to run."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 8,
+    "cat": 6,
+    "skill": 26,
+    "sk": "middle-linear-function-evaluation",
+    "family": "linear-function-difference-independent-start",
+    "title": {
+      "Ar": "فرق قيم دالة خطية",
+      "En": "Difference of linear function values"
+    },
+    "q": {
+      "Ar": "لدينا $f(x)=3x-7$. ما قيمة $f(12)-f(10)$؟",
+      "En": "Let $f(x)=3x-7$. Find $f(12)-f(10)$."
+    },
+    "opts": [
+      "-1",
+      "29",
+      "6",
+      "2"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "طرح الثابت رغم إلغائه في الفرق.",
+        "En": "Subtracts the constant despite cancellation."
+      },
+      {
+        "Ar": "هذه قيمة الدالة عند 12 فقط.",
+        "En": "The function value at twelve alone."
+      },
+      null,
+      {
+        "Ar": "هذا فرق المدخلين فقط.",
+        "En": "The input difference only."
+      }
+    ],
+    "idea": {
+      "Ar": "في فرق قيم دالة خطية يُلغى الحد الثابت.",
+      "En": "The constant cancels in the difference of linear function values."
+    },
+    "formula": "f(b)-f(a)=3(b-a)",
+    "steps": [
+      {
+        "Ar": "$3\\cdot2=6$",
+        "En": "$3\\cdot2=6$"
+      }
+    ],
+    "sub": {
+      "Ar": "$3(12-10)$",
+      "En": "$3(12-10)$"
+    },
+    "result": {
+      "Ar": "$6$",
+      "En": "$6$"
+    },
+    "verify": {
+      "Ar": "$(36-7)-(30-7)=6$",
+      "En": "$(36-7)-(30-7)=6$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب فرق المدخلين.",
+        "En": "Find the input difference."
+      },
+      {
+        "Ar": "اضرب الفرق في 3.",
+        "En": "Multiply the difference by three."
+      }
+    ],
+    "error": {
+      "Ar": "هذا فرق المدخلين فقط.",
+      "En": "The input difference only."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 8,
+    "cat": 6,
+    "skill": 25,
+    "sk": "middle-linear-equations",
+    "family": "linear-equation-identify-inconsistent-equation",
+    "title": {
+      "Ar": "معادلة بلا حل",
+      "En": "Equation with no solution"
+    },
+    "q": {
+      "Ar": "أي معادلة من الخيارات ليس لها أي حل حقيقي؟",
+      "En": "Which equation has no real solution?"
+    },
+    "opts": [
+      "3x=0",
+      "2(x+3)=2x+5",
+      "2x+6=10",
+      "2(x+3)=2x+6"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "حلها x=0.",
+        "En": "Its solution is x=0."
+      },
+      null,
+      {
+        "Ar": "حلها x=2.",
+        "En": "Its solution is x=2."
+      },
+      {
+        "Ar": "صحيحة لكل x.",
+        "En": "True for every x."
+      }
+    ],
+    "idea": {
+      "Ar": "عند اختزال المتغير وبقاء مساواة خاطئة لا توجد حلول.",
+      "En": "If the variable cancels and a false equality remains, no solutions exist."
+    },
+    "formula": "2x+6=2x+5",
+    "steps": [
+      {
+        "Ar": "$6=5$",
+        "En": "$6=5$"
+      },
+      {
+        "Ar": "$6\\ne5$",
+        "En": "$6\\ne5$"
+      }
+    ],
+    "sub": {
+      "Ar": "$2x+6-2x=2x+5-2x$",
+      "En": "$2x+6-2x=2x+5-2x$"
+    },
+    "result": {
+      "Ar": "$2(x+3)=2x+5$",
+      "En": "$2(x+3)=2x+5$"
+    },
+    "verify": {
+      "Ar": "$2(x+3)-(2x+5)=1$",
+      "En": "$2(x+3)-(2x+5)=1$"
+    },
+    "hints": [
+      {
+        "Ar": "وزع العامل خارج القوس.",
+        "En": "Distribute the factor."
+      },
+      {
+        "Ar": "اطرح حدود x من الطرفين.",
+        "En": "Subtract the x terms on both sides."
+      }
+    ],
+    "error": {
+      "Ar": "حلها x=2.",
+      "En": "Its solution is x=2."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 7,
+    "cat": 8,
+    "skill": 35,
+    "sk": "middle-triangle-angles",
+    "family": "triangle-angles-check-feasibility-from-two",
+    "title": {
+      "Ar": "إمكان تكوين مثلث من زاويتين",
+      "En": "Feasibility of two angles"
+    },
+    "q": {
+      "Ar": "أي زوج من قياسات زاويتين لا يمكن أن ينتمي إلى مثلث غير منعدم المساحة؟",
+      "En": "Which pair of angle measures cannot belong to a nondegenerate triangle?"
+    },
+    "opts": [
+      "(95^\\circ,85^\\circ)",
+      "(20^\\circ,40^\\circ)",
+      "(90^\\circ,30^\\circ)",
+      "(100^\\circ,50^\\circ)"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "تبقى زاوية ثالثة مقدارها 120°.",
+        "En": "Leaves a third angle of 120°."
+      },
+      {
+        "Ar": "تبقى زاوية ثالثة مقدارها 60°.",
+        "En": "Leaves a third angle of 60°."
+      },
+      {
+        "Ar": "تبقى زاوية ثالثة مقدارها 30°.",
+        "En": "Leaves a third angle of 30°."
+      }
+    ],
+    "idea": {
+      "Ar": "مجموع زاويتين في مثلث يجب أن يكون أقل من 180° حتى تكون الثالثة موجبة.",
+      "En": "The sum of two angles must be below 180° so the third is positive."
+    },
+    "formula": "C=180^\\circ-(A+B)",
+    "steps": [
+      {
+        "Ar": "$95+85=180$",
+        "En": "$95+85=180$"
+      },
+      {
+        "Ar": "$C=0^\\circ$",
+        "En": "$C=0^\\circ$"
+      }
+    ],
+    "sub": {
+      "Ar": "$180-(95+85)$",
+      "En": "$180-(95+85)$"
+    },
+    "result": {
+      "Ar": "$(95^\\circ,85^\\circ)$",
+      "En": "$(95^\\circ,85^\\circ)$"
+    },
+    "verify": {
+      "Ar": "$95+85+0=180$",
+      "En": "$95+85+0=180$"
+    },
+    "hints": [
+      {
+        "Ar": "اجمع كل زوج.",
+        "En": "Add each pair."
+      },
+      {
+        "Ar": "يجب أن تبقى زاوية موجبة.",
+        "En": "A positive third angle must remain."
+      }
+    ],
+    "error": {
+      "Ar": "تبقى زاوية ثالثة مقدارها 120°.",
+      "En": "Leaves a third angle of 120°."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 8,
+    "cat": 5,
+    "skill": 21,
+    "sk": "middle-exponent-laws",
+    "family": "exponent-laws-power-of-product-infer-exponent",
+    "title": {
+      "Ar": "أس حاصل ضرب",
+      "En": "Power of a product"
+    },
+    "q": {
+      "Ar": "بسّط $\\frac{(3a^2)^3}{9a^4}$ حيث $a\\ne0$.",
+      "En": "Simplify $\\frac{(3a^2)^3}{9a^4}$ for $a\\ne0$."
+    },
+    "opts": [
+      "3a^6",
+      "a^2",
+      "3a^{10}",
+      "3a^2"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "لم يطرح أس المقام.",
+        "En": "Does not subtract the denominator exponent."
+      },
+      {
+        "Ar": "أهمل قسمة المعاملات 27 على 9.",
+        "En": "Loses the coefficient quotient 27/9."
+      },
+      {
+        "Ar": "جمع الأسين بدلاً من طرحهما.",
+        "En": "Adds exponents rather than subtracting."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "نرفع كل عامل للقوة ثم نقسم المعاملات ونطرح الأسس.",
+      "En": "Raise each factor to the power, divide coefficients, and subtract exponents."
+    },
+    "formula": "(3a^2)^3=27a^6",
+    "steps": [
+      {
+        "Ar": "$27/9=3$",
+        "En": "$27/9=3$"
+      },
+      {
+        "Ar": "$a^{6-4}=a^2$",
+        "En": "$a^{6-4}=a^2$"
+      }
+    ],
+    "sub": {
+      "Ar": "$27a^6/(9a^4)$",
+      "En": "$27a^6/(9a^4)$"
+    },
+    "result": {
+      "Ar": "$3a^2$",
+      "En": "$3a^2$"
+    },
+    "verify": {
+      "Ar": "$3a^2\\cdot9a^4=27a^6$",
+      "En": "$3a^2\\cdot9a^4=27a^6$"
+    },
+    "hints": [
+      {
+        "Ar": "اضرب الأس الداخلي في الخارجي.",
+        "En": "Multiply inner and outer exponents."
+      },
+      {
+        "Ar": "اقسم المعاملات واطرح الأسس.",
+        "En": "Divide coefficients and subtract exponents."
+      }
+    ],
+    "error": {
+      "Ar": "لم يطرح أس المقام.",
+      "En": "Does not subtract the denominator exponent."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 11,
+    "cat": 11,
+    "skill": 49,
+    "sk": "secondary-polynomial-derivatives",
+    "family": "derivative-polynomial-recover-coefficient-from-slope",
+    "title": {
+      "Ar": "معامل من ميل معلوم",
+      "En": "Coefficient from a given slope"
+    },
+    "q": {
+      "Ar": "إذا كان $f(x)=ax^3+2x$ وميل مماسه عند x=2 يساوي 26، فما a؟",
+      "En": "If $f(x)=ax^3+2x$ has tangent slope 26 at x=2, find a."
+    },
+    "opts": [
+      "6",
+      "12",
+      "2",
+      "3"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "يعطي ميلاً 74.",
+        "En": "Gives slope 74."
+      },
+      {
+        "Ar": "هذا معامل a في المعادلة بعد التعويض.",
+        "En": "This is the coefficient of a after substitution."
+      },
+      null,
+      {
+        "Ar": "يعطي ميلاً 38.",
+        "En": "Gives slope 38."
+      }
+    ],
+    "idea": {
+      "Ar": "نشتق الدالة ثم نعوض قيمة x في المشتقة.",
+      "En": "Differentiate and substitute x into the derivative."
+    },
+    "formula": "f'(x)=3ax^2+2",
+    "steps": [
+      {
+        "Ar": "$12a+2=26$",
+        "En": "$12a+2=26$"
+      },
+      {
+        "Ar": "$12a=24$",
+        "En": "$12a=24$"
+      },
+      {
+        "Ar": "$a=2$",
+        "En": "$a=2$"
+      }
+    ],
+    "sub": {
+      "Ar": "$3a(2)^2+2=26$",
+      "En": "$3a(2)^2+2=26$"
+    },
+    "result": {
+      "Ar": "$2$",
+      "En": "$2$"
+    },
+    "verify": {
+      "Ar": "$3\\cdot2\\cdot4+2=26$",
+      "En": "$3\\cdot2\\cdot4+2=26$"
+    },
+    "hints": [
+      {
+        "Ar": "ميل المماس هو قيمة المشتقة.",
+        "En": "Tangent slope is the derivative value."
+      },
+      {
+        "Ar": "عوّض x=2 ثم حل في a.",
+        "En": "Substitute x=2 and solve for a."
+      }
+    ],
+    "error": {
+      "Ar": "يعطي ميلاً 38.",
+      "En": "Gives slope 38."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  }
+]
