@@ -488,8 +488,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. ليس كل ترتيب جزئي ترتيباً كلياً. العدد 1 يقسم 2 لكن العكس لا يصح؛ العلاقة ليست متناظرة ولا تكافؤاً.",
-              "En": "This choice does not match the derived result. Not every partial order is total. 1 divides 2 but not vice versa; the relation is not symmetric or an equivalence."
+              "Ar": "العلاقة غير متناظرة، فالعدد 1 يقسم 2 ولا يقسم 2 العدد 1.",
+              "En": "The relation fails symmetry because 1 divides 2 and 2 does not divide 1."
             }
           },
           {
@@ -497,8 +497,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. ليس كل ترتيب جزئي ترتيباً كلياً. العدد 1 يقسم 2 لكن العكس لا يصح؛ العلاقة ليست متناظرة ولا تكافؤاً.",
-              "En": "This choice does not match the derived result. Not every partial order is total. 1 divides 2 but not vice versa; the relation is not symmetric or an equivalence."
+              "Ar": "العددان 2 و3 غير قابلين للمقارنة بالقسمة، لذا لا يتحقق الترتيب الكلي.",
+              "En": "The integers 2 and 3 are incomparable under divisibility, so the order is not total."
             }
           },
           {
@@ -512,8 +512,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. ليس كل ترتيب جزئي ترتيباً كلياً. العدد 1 يقسم 2 لكن العكس لا يصح؛ العلاقة ليست متناظرة ولا تكافؤاً.",
-              "En": "This choice does not match the derived result. Not every partial order is total. 1 divides 2 but not vice versa; the relation is not symmetric or an equivalence."
+              "Ar": "القسمة انعكاسية ومتعدية، والقسمة المتبادلة بين عددين صحيحين موجبين تستلزم تساويهما.",
+              "En": "Divisibility is reflexive and transitive. Mutual divisibility of positive integers implies equality."
             }
           }
         ],
@@ -552,8 +552,8 @@
             "En": "Partial order, not total"
           },
           "Verification": {
-            "Ar": "العدد 1 يقسم 2 لكن العكس لا يصح؛ العلاقة ليست متناظرة ولا تكافؤاً.",
-            "En": "1 divides 2 but not vice versa; the relation is not symmetric or an equivalence."
+            "Ar": "تتحقق المقارنة عند النظر إلى 2 و3: لا يقسم أيّ منهما الآخر، ولذلك فالترتيب غير كلي.",
+            "En": "Neither 2 nor 3 divides the other, so this partial order is not total."
           },
           "CommonError": {
             "Ar": "ليس كل ترتيب جزئي ترتيباً كلياً.",
@@ -604,8 +604,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تساو المشتقتين؛ المطلوب الاتصال فقط. $2\\cdot\\frac32+1=4$",
-              "En": "This choice does not match the derived result. Do not equate derivatives; only continuity is required. $2\\cdot\\frac32+1=4$"
+              "Ar": "عند هذا الاختيار تساوي النهاية اليسرى 2، بينما قيمة الدالة عند 2 تساوي 4.",
+              "En": "This choice gives a left-hand limit of 2, while the function value at 2 is 4."
             }
           },
           {
@@ -613,8 +613,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تساو المشتقتين؛ المطلوب الاتصال فقط. $2\\cdot\\frac32+1=4$",
-              "En": "This choice does not match the derived result. Do not equate derivatives; only continuity is required. $2\\cdot\\frac32+1=4$"
+              "Ar": "عند هذا الاختيار تساوي النهاية اليسرى 3، بينما قيمة الدالة عند 2 تساوي 4.",
+              "En": "This choice gives a left-hand limit of 3, while the function value at 2 is 4."
             }
           },
           {
@@ -628,8 +628,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تساو المشتقتين؛ المطلوب الاتصال فقط. $2\\cdot\\frac32+1=4$",
-              "En": "This choice does not match the derived result. Do not equate derivatives; only continuity is required. $2\\cdot\\frac32+1=4$"
+              "Ar": "عند هذا الاختيار تساوي النهاية اليسرى 5، بينما قيمة الدالة عند 2 تساوي 4.",
+              "En": "This choice gives a left-hand limit of 5, while the function value at 2 is 4."
             }
           }
         ],
@@ -1392,8 +1392,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تحذف P أو تبدل التقاطع باتحاد دون قانون. النتيجة تتبع P في جميع الحالات بغض النظر عن Q.",
-              "En": "This choice does not match the derived result. Do not discard P or swap AND for OR without a valid law. The result follows P in every assignment regardless of Q."
+              "Ar": "عندما تكون P صادقة وQ خاطئة، تكون العبارة الأصلية صادقة وتكون Q خاطئة.",
+              "En": "When P is true and Q is false, the original expression is true and Q is false."
             }
           },
           {
@@ -1407,8 +1407,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تحذف P أو تبدل التقاطع باتحاد دون قانون. النتيجة تتبع P في جميع الحالات بغض النظر عن Q.",
-              "En": "This choice does not match the derived result. Do not discard P or swap AND for OR without a valid law. The result follows P in every assignment regardless of Q."
+              "Ar": "عندما تكون P صادقة وQ خاطئة، يكون الاقتران P ∧ Q خاطئاً وتكون العبارة الأصلية صادقة.",
+              "En": "When P is true and Q is false, P ∧ Q is false and the original expression is true."
             }
           },
           {
@@ -1416,8 +1416,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تحذف P أو تبدل التقاطع باتحاد دون قانون. النتيجة تتبع P في جميع الحالات بغض النظر عن Q.",
-              "En": "This choice does not match the derived result. Do not discard P or swap AND for OR without a valid law. The result follows P in every assignment regardless of Q."
+              "Ar": "عندما تكون P خاطئة وQ صادقة، يكون الفصل P ∨ Q صادقاً وتكون العبارة الأصلية خاطئة.",
+              "En": "When P is false and Q is true, P ∨ Q is true and the original expression is false."
             }
           }
         ],
@@ -1848,8 +1848,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تخلط بين مستوى الدلالة وقوة الاختبار 1−β. β يرمز لخطأ النوع الثاني: عدم رفض فرضية صفرية خاطئة.",
-              "En": "This choice does not match the derived result. Do not confuse significance with power 1−β. β denotes Type II error: failure to reject a false null."
+              "Ar": "يرمز β إلى احتمال عدم الرفض عند بديل محدد، وهو خطأ من النوع الثاني.",
+              "En": "β denotes failure to reject under a specified alternative, a Type II error."
             }
           },
           {
@@ -1857,8 +1857,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تخلط بين مستوى الدلالة وقوة الاختبار 1−β. β يرمز لخطأ النوع الثاني: عدم رفض فرضية صفرية خاطئة.",
-              "En": "This choice does not match the derived result. Do not confuse significance with power 1−β. β denotes Type II error: failure to reject a false null."
+              "Ar": "في الحالة التي يبلغ فيها احتمال خطأ النوع الأول المستوى α، يكون 1−α متمّم ذلك الاحتمال.",
+              "En": "When the Type I error probability attains α, 1−α is its complement."
             }
           },
           {
@@ -1872,8 +1872,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تخلط بين مستوى الدلالة وقوة الاختبار 1−β. β يرمز لخطأ النوع الثاني: عدم رفض فرضية صفرية خاطئة.",
-              "En": "This choice does not match the derived result. Do not confuse significance with power 1−β. β denotes Type II error: failure to reject a false null."
+              "Ar": "الكمية 1−β قوة الاختبار عند بديل محدد.",
+              "En": "The quantity 1−β is the power at a specified alternative."
             }
           }
         ],
@@ -1889,18 +1889,18 @@
         ],
         "Solution": {
           "Idea": {
-            "Ar": "خطأ النوع الأول هو رفض فرضية صفرية صحيحة.",
-            "En": "A Type I error means rejecting a true null."
+            "Ar": "يرمز α إلى مستوى الدلالة، وهو حد أعلى لاحتمال رفض الفرضية الصفرية عندما تكون صحيحة.",
+            "En": "The significance level α bounds the probability of rejecting a true null hypothesis."
           },
-          "FormulaLatex": "\\alpha=P(\\text{reject }H_0\\mid H_0\\text{ true})",
+          "FormulaLatex": "P_{\\\\theta}(\\\\text{reject }H_0)\\\\le\\\\alpha\\\\quad(\\\\theta\\\\in H_0)",
           "Steps": [
             {
-              "Ar": "حدد حالة الحقيقة: H₀ صحيحة.",
-              "En": "Identify the true state: H₀ is true."
+              "Ar": "عندما تكون الفرضية الصفرية صحيحة، يُسمّى قرار رفضها خطأً من النوع الأول.",
+              "En": "Under a true null hypothesis, rejecting it is a Type I error."
             },
             {
-              "Ar": "حدد القرار الخاطئ: رفض H₀.",
-              "En": "Identify the erroneous decision: reject H₀."
+              "Ar": "يرمز α إلى المستوى المختار قبل الاختبار. قد يساوي احتمال الخطأ هذا الحد في اختبار مضبوط، وقد يكون أقل منه.",
+              "En": "The prespecified level is denoted by α. The actual error probability can equal this level for a calibrated test or fall below it."
             }
           ],
           "Result": {
@@ -1908,8 +1908,8 @@
             "En": "$\\alpha$"
           },
           "Verification": {
-            "Ar": "β يرمز لخطأ النوع الثاني: عدم رفض فرضية صفرية خاطئة.",
-            "En": "β denotes Type II error: failure to reject a false null."
+            "Ar": "إذا كان مستوى الدلالة 0.05، فإن احتمال الرفض تحت كل حالة تحقق الفرضية الصفرية لا يتجاوز 0.05.",
+            "En": "A 0.05 significance level bounds the rejection probability by 0.05 for every parameter value under the null."
           },
           "CommonError": {
             "Ar": "لا تخلط بين مستوى الدلالة وقوة الاختبار 1−β.",
@@ -1960,8 +1960,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تُبقِ الكم الكلي عند النفي، ولا تنس نفي المحمول. لو تحقق P لكل x لما وُجد مثال مضاد؛ نفي ذلك هو وجود المثال المضاد.",
-              "En": "This choice does not match the derived result. Do not keep the universal quantifier or forget to negate the predicate. If P held for all x there would be no counterexample; its negation asserts one."
+              "Ar": "هذا الخيار يشترط أن تكون P خاطئة لكل قيمة. يكفي أن توجد قيمة واحدة تكون فيها خاطئة.",
+              "En": "This option requires P to be false for every value. One counterexample suffices to negate the universal claim."
             }
           },
           {
@@ -1975,8 +1975,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تُبقِ الكم الكلي عند النفي، ولا تنس نفي المحمول. لو تحقق P لكل x لما وُجد مثال مضاد؛ نفي ذلك هو وجود المثال المضاد.",
-              "En": "This choice does not match the derived result. Do not keep the universal quantifier or forget to negate the predicate. If P held for all x there would be no counterexample; its negation asserts one."
+              "Ar": "هذا الخيار يثبت وجود قيمة تحقق P. المطلوب وجود قيمة تجعل P خاطئة.",
+              "En": "This option asserts that some value satisfies P. The negation requires a value for which P is false."
             }
           },
           {
@@ -1984,8 +1984,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تُبقِ الكم الكلي عند النفي، ولا تنس نفي المحمول. لو تحقق P لكل x لما وُجد مثال مضاد؛ نفي ذلك هو وجود المثال المضاد.",
-              "En": "This choice does not match the derived result. Do not keep the universal quantifier or forget to negate the predicate. If P held for all x there would be no counterexample; its negation asserts one."
+              "Ar": "القول بعدم وجود قيمة تجعل P خاطئة يكافئ القول بأن P تصدق لكل قيمة.",
+              "En": "Having no counterexample is equivalent to P holding for every value."
             }
           }
         ],
@@ -2007,8 +2007,8 @@
           "FormulaLatex": "\\neg(\\forall x\\,P(x))\\equiv\\exists x\\,\\neg P(x)",
           "Steps": [
             {
-              "Ar": "عدم صحة العبارة لكل x يعني وجود x واحد على الأقل لا يحققها.",
-              "En": "Failure for all x means there is at least one x for which the predicate is false."
+              "Ar": "إذا لم تصدق P لكل قيمة من x، فلا بد من وجود قيمة واحدة على الأقل تكون فيها P خاطئة.",
+              "En": "If P does not hold for every x, at least one x makes P false."
             }
           ],
           "Result": {
@@ -3783,12 +3783,12 @@
         ],
         "Hints": [
           {
-            "Ar": "حل القيد الخطي بالنسبة إلى y.",
-            "En": "Solve the linear constraint for y."
+            "Ar": "اعتبر 2x+y ضرباً قياسياً بين المتجهين (2، 1) و(x، y).",
+            "En": "View 2x+y as the dot product of (2, 1) and (x, y)."
           },
           {
-            "Ar": "عوّض في دالة الهدف التربيعية وأوجد نقطة الحد الأدنى ثم قيمتها.",
-            "En": "Substitute into the quadratic objective, find its minimizer and evaluate."
+            "Ar": "استخدم متباينة كوشي–شفارتز لإيجاد حد أدنى ثم اختر متجهاً موازياً لـ(2، 1) يحقق القيد.",
+            "En": "Use Cauchy–Schwarz to obtain a lower bound. Then choose a vector parallel to (2, 1) that satisfies the constraint."
           }
         ],
         "Solution": {
@@ -3809,6 +3809,10 @@
             {
               "Ar": "$(x,y)=(4,2)$",
               "En": "$(x,y)=(4,2)$"
+            },
+            {
+              "Ar": "الزوج (4، 2) يحقق القيد وتبلغ قيمة الهدف عنده 20، فيتحقق الحد الأدنى.",
+              "En": "The pair (4, 2) satisfies the constraint and has objective value 20, attaining the lower bound."
             }
           ],
           "Result": {
@@ -4123,12 +4127,12 @@
         ],
         "Hints": [
           {
-            "Ar": "احسب المشتقتين الجزئيتين وساوِهما بالصفر.",
-            "En": "Compute both partial derivatives and set them to zero."
+            "Ar": "جمّع حدود الدرجة الثانية بحيث يظهر مربع يحتوي x+y.",
+            "En": "Group the quadratic terms to form a square involving x+y."
           },
           {
-            "Ar": "حل النظام الخطي، وتحقق أن مصفوفة هيس موجبة التعيين قبل حساب قيمة الدالة عند الحل.",
-            "En": "Solve the linear system, check that the Hessian is positive definite, and evaluate the function there."
+            "Ar": "أكمل المربعين، ثم تحقق من إمكان جعلهما صفراً في الوقت نفسه.",
+            "En": "Complete the two squares and check whether both can be zero at the same point."
           }
         ],
         "Solution": {
@@ -4156,8 +4160,8 @@
             "En": "$-6$"
           },
           "Verification": {
-            "Ar": "$H=\\begin{pmatrix}2&2\\\\2&6\\end{pmatrix},\\quad\\det H=8>0$",
-            "En": "$H=\\begin{pmatrix}2&2\\\\2&6\\end{pmatrix},\\quad\\det H=8>0$"
+            "Ar": "العنصر القطري الأول في مصفوفة هيس يساوي 2 ومحددها يساوي 8. كلاهما موجب، فتكون موجبة التعريف، كما أن التعويض بالنقطة (1، 1) يعطي −6.",
+            "En": "The first leading principal minor of the Hessian is 2 and the determinant is 8. Both are positive, so it is positive definite. Substitution at (1, 1) gives −6."
           },
           "CommonError": {
             "Ar": "تحقق من أن النقطة حد أدنى عالمي، لا مجرد نقطة ساكنة.",

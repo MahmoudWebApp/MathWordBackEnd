@@ -5414,8 +5414,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الخيار $-3$ لا يطابق الحساب الناتج من القانون: $54/6=r^2=9\\Rightarrow r=3$.",
-              "En": "The choice $-3$ disagrees with the calculation from the rule: $54/6=r^2=9\\Rightarrow r=3$."
+              "Ar": "مربع −3 يساوي 9، لكنه لا يحقق شرط الأساس الموجب.",
+              "En": "The square of −3 is 9, but −3 fails the positive-ratio condition."
             }
           },
           {
@@ -5423,8 +5423,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الخيار $2$ لا يطابق الحساب الناتج من القانون: $54/6=r^2=9\\Rightarrow r=3$.",
-              "En": "The choice $2$ disagrees with the calculation from the rule: $54/6=r^2=9\\Rightarrow r=3$."
+              "Ar": "إذا كان الأساس 2 فإن الحد الرابع يساوي 6 × 4 = 24.",
+              "En": "A ratio of 2 gives a fourth term of 6 × 4 = 24."
             }
           },
           {
@@ -5438,8 +5438,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الخيار $9$ لا يطابق الحساب الناتج من القانون: $54/6=r^2=9\\Rightarrow r=3$.",
-              "En": "The choice $9$ disagrees with the calculation from the rule: $54/6=r^2=9\\Rightarrow r=3$."
+              "Ar": "العدد 9 هو مربع الأساس، والجذر الموجب له يساوي 3.",
+              "En": "The value 9 is the squared ratio. Its positive square root is 3."
             }
           }
         ],
@@ -5465,8 +5465,8 @@
               "En": "Find the ratio squared from the term quotient, then take the positive root."
             },
             {
-              "Ar": "بالتعويض والحساب: $54/6=r^2=9\\Rightarrow r=3$.",
-              "En": "Substituting and calculating: $54/6=r^2=9\\Rightarrow r=3$."
+              "Ar": "قسمة 54 على 6 تعطي مربع الأساس 9. نختار الجذر الموجب 3 لأن الأساس موجب.",
+              "En": "Dividing 54 by 6 gives a squared ratio of 9. Take the positive root 3 because the ratio is positive."
             }
           ],
           "Substitution": {
@@ -6802,7 +6802,7 @@
             "Ar": "نطبق خطية التكامل وقاعدة القوة على الحدين.",
             "En": "Apply integration linearity and the power rule to both terms."
           },
-          "FormulaLatex": "\\int ax^n\\,dx=\\frac{a}{n+1}x^{n+1}+C",
+          "FormulaLatex": "\\\\int ax^n\\\\,dx=\\\\frac{a}{n+1}x^{n+1}+C\\\\quad(n\\\\ne-1)",
           "Steps": [
             {
               "Ar": "زد الأس في كل حد واحداً واقسم المعامل على الأس الجديد.",

@@ -1,0 +1,292 @@
+[
+  {
+    "key": "growth-v12-grade-1-queue-between-children-1",
+    "draft": 1024,
+    "problem": 1727
+  },
+  {
+    "key": "growth-v12-grade-2-compare-unit-lengths-1",
+    "draft": 1025,
+    "problem": 1728
+  },
+  {
+    "key": "growth-v12-grade-3-fence-with-wall-1",
+    "draft": 1026,
+    "problem": 1729
+  },
+  {
+    "key": "growth-v12-grade-4-tie-mode-extra-observations-1",
+    "draft": 1027,
+    "problem": 1730
+  },
+  {
+    "key": "growth-v12-grade-5-redraw-after-removal-1",
+    "draft": 1028,
+    "problem": 1731
+  },
+  {
+    "key": "growth-v12-grade-6-base-part-area-ratio-1",
+    "draft": 1029,
+    "problem": 1732
+  },
+  {
+    "key": "growth-v12-grade-7-seam-aligned-square-tiles-1",
+    "draft": 1030,
+    "problem": 1733
+  },
+  {
+    "key": "growth-v12-grade-8-glued-polygon-angle-sum-1",
+    "draft": 1031,
+    "problem": 1734
+  },
+  {
+    "key": "growth-v12-grade-9-inverse-round-trip-calibration-1",
+    "draft": 1032,
+    "problem": 1735
+  },
+  {
+    "key": "growth-v12-grade-10-reciprocal-root-sum-1",
+    "draft": 1033,
+    "problem": 1736
+  },
+  {
+    "key": "growth-v12-grade-11-committee-exclude-pair-1",
+    "draft": 1034,
+    "problem": 1737
+  },
+  {
+    "key": "growth-v12-grade-12-integral-cancellation-signed-1",
+    "draft": 1035,
+    "problem": 1738
+  },
+  {
+    "key": "growth-v11-grade-2-overlap-joined-strip-length-1",
+    "draft": 1037,
+    "problem": 1739
+  },
+  {
+    "key": "growth-v11-grade-7-equal-distance-average-speed-1",
+    "draft": 1038,
+    "problem": 1740
+  },
+  {
+    "key": "growth-v11-grade-8-rectangle-diagonal-compares-opening-1",
+    "draft": 1039,
+    "problem": 1741
+  },
+  {
+    "key": "growth-v11-grade-10-perpendicular-offset-intercept-1",
+    "draft": 1040,
+    "problem": 1742
+  },
+  {
+    "key": "growth-v11-linear-algebra-inverse-compose-determinant-1",
+    "draft": 1041,
+    "problem": 1743
+  },
+  {
+    "key": "growth-v11-numerical-analysis-bisection-retained-endpoint-second-step-1",
+    "draft": 1042,
+    "problem": 1744
+  },
+  {
+    "key": "growth-v10-grade-12-circle-vertical-line-chord-1",
+    "draft": 1043,
+    "problem": 1745
+  },
+  {
+    "key": "growth-v10-calculus-gradient-normal-level-set-1",
+    "draft": 1044,
+    "problem": 1746
+  },
+  {
+    "key": "growth-v10-discrete-mathematics-graph-odd-degrees-parity-1",
+    "draft": 1045,
+    "problem": 1747
+  },
+  {
+    "key": "growth-v9-grade-3-swap-hundreds-tens-difference-1",
+    "draft": 1046,
+    "problem": 1748
+  },
+  {
+    "key": "growth-v9-grade-4-repair-one-addend-in-total-1",
+    "draft": 1047,
+    "problem": 1749
+  },
+  {
+    "key": "growth-v9-grade-5-minimum-budget-rounded-up-1",
+    "draft": 1048,
+    "problem": 1750
+  },
+  {
+    "key": "growth-v9-grade-6-shared-height-area-difference-1",
+    "draft": 1049,
+    "problem": 1751
+  },
+  {
+    "key": "growth-v9-grade-7-chain-ratios-common-middle-1",
+    "draft": 1050,
+    "problem": 1752
+  },
+  {
+    "key": "growth-v9-grade-8-pool-unequal-relative-frequencies-1",
+    "draft": 1051,
+    "problem": 1753
+  },
+  {
+    "key": "growth-v9-grade-9-unordered-two-color-without-replacement-1",
+    "draft": 1052,
+    "problem": 1754
+  },
+  {
+    "key": "growth-v9-grade-11-stationary-seed-for-recurrence-1",
+    "draft": 1053,
+    "problem": 1755
+  },
+  {
+    "key": "growth-v9-grade-12-telescoping-tail-from-shift-1",
+    "draft": 1054,
+    "problem": 1756
+  },
+  {
+    "key": "growth-v7-grade-1-reverse-queue-rank-1",
+    "draft": 1055,
+    "problem": 1757
+  },
+  {
+    "key": "growth-v7-grade-2-compare-after-both-change-1",
+    "draft": 1056,
+    "problem": 1758
+  },
+  {
+    "key": "growth-v7-grade-4-remaining-fraction-same-whole-1",
+    "draft": 1057,
+    "problem": 1759
+  },
+  {
+    "key": "growth-v7-grade-5-area-model-omitted-cell-1",
+    "draft": 1058,
+    "problem": 1760
+  },
+  {
+    "key": "growth-v7-grade-6-successive-percents-new-base-1",
+    "draft": 1059,
+    "problem": 1761
+  },
+  {
+    "key": "growth-v7-grade-7-annulus-area-coefficient-1",
+    "draft": 1060,
+    "problem": 1762
+  },
+  {
+    "key": "growth-v7-grade-8-recover-total-from-relative-frequency-1",
+    "draft": 1061,
+    "problem": 1763
+  },
+  {
+    "key": "growth-v7-grade-9-intersect-two-linear-integer-bounds-1",
+    "draft": 1062,
+    "problem": 1764
+  },
+  {
+    "key": "growth-v7-grade-10-line-intersection-ordinate-1",
+    "draft": 1063,
+    "problem": 1765
+  },
+  {
+    "key": "growth-v7-grade-12-secant-from-tangent-sign-1",
+    "draft": 1064,
+    "problem": 1766
+  },
+  {
+    "key": "growth-v8-calculus-oblique-direction-normalization-1",
+    "draft": 1065,
+    "problem": 1767
+  },
+  {
+    "key": "growth-v8-calculus-monotone-sequence-supremum-1",
+    "draft": 1066,
+    "problem": 1768
+  },
+  {
+    "key": "growth-v8-differential-equations-relaxation-deviation-half-time-1",
+    "draft": 1067,
+    "problem": 1769
+  },
+  {
+    "key": "growth-v8-differential-equations-initial-curvature-second-order-1",
+    "draft": 1068,
+    "problem": 1770
+  },
+  {
+    "key": "growth-v8-discrete-mathematics-transitive-closure-extra-pairs-1",
+    "draft": 1069,
+    "problem": 1771
+  },
+  {
+    "key": "growth-v8-linear-algebra-determinant-composed-row-operations-1",
+    "draft": 1070,
+    "problem": 1772
+  },
+  {
+    "key": "growth-v8-linear-algebra-coefficient-from-linear-dependence-1",
+    "draft": 1071,
+    "problem": 1773
+  },
+  {
+    "key": "growth-v8-mathematical-optimization-linear-optimum-two-active-constraints-1",
+    "draft": 1072,
+    "problem": 1774
+  },
+  {
+    "key": "growth-v8-mathematical-optimization-convexity-chord-bound-1",
+    "draft": 1073,
+    "problem": 1775
+  },
+  {
+    "key": "growth-v8-numerical-analysis-linear-system-residual-correction-1",
+    "draft": 1074,
+    "problem": 1776
+  },
+  {
+    "key": "growth-v8-numerical-analysis-interval-error-bound-from-rounding-1",
+    "draft": 1075,
+    "problem": 1777
+  },
+  {
+    "key": "growth-v8-probability-statistics-additional-sample-for-target-precision-1",
+    "draft": 1076,
+    "problem": 1778
+  },
+  {
+    "key": "growth-v13-discrete-mathematics-merge-equivalence-blocks-1",
+    "draft": 1077,
+    "problem": 1779
+  },
+  {
+    "key": "growth-v13-calculus-recover-east-slope-1",
+    "draft": 1078,
+    "problem": 1780
+  },
+  {
+    "key": "growth-v13-differential-equations-combine-fundamental-solutions-1",
+    "draft": 1079,
+    "problem": 1781
+  },
+  {
+    "key": "growth-v13-numerical-analysis-eliminate-leading-discretization-error-1",
+    "draft": 1080,
+    "problem": 1782
+  },
+  {
+    "key": "growth-v13-probability-statistics-paired-average-variance-1",
+    "draft": 1081,
+    "problem": 1783
+  },
+  {
+    "key": "growth-v13-mathematical-optimization-minimum-uniform-capacity-relaxation-1",
+    "draft": 1082,
+    "problem": 1784
+  }
+]

@@ -45,8 +45,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "هذا منتصف الفترة الفرعية [1,1.5] لا الفترة الأصلية.",
-              "En": "This is the midpoint of [1,1.5], not the original bracket."
+              "Ar": "هذا منتصف الفترة التالية [1، 1.5]. منتصف الفترة الأولى [1، 2] يساوي 1.5.",
+              "En": "This is the midpoint of the next bracket [1, 1.5]. The original bracket [1, 2] has midpoint 1.5."
             }
           },
           {
@@ -104,8 +104,8 @@
             "En": "No unit specified"
           },
           "Verification": {
-            "Ar": "إشارتا f(1)=-1 و f(2)=2 متعاكستان؛ لا يلزم أن يكون المنتصف جذراً.",
-            "En": "f(1)=-1 and f(2)=2 have opposite signs; midpoint need not be the root."
+            "Ar": "عند 1 تكون قيمة الدالة −1، وعند 1.5 تكون 0.25. إذا تابعنا التنصيف، فالفترة التالية هي [1، 1.5].",
+            "En": "The function is −1 at 1 and 0.25 at 1.5. If bisection continues, the next bracket is [1, 1.5]."
           },
           "CommonError": {
             "Ar": "تحقق من القانون والمعطيات قبل اختيار الإجابة. هذا الحد الأيسر وليس المنتصف.",

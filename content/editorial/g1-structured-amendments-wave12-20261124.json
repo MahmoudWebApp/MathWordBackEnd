@@ -4742,8 +4742,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الجذر −1 يحقق المعادلة التربيعية لكنه يجعل المدخلين سالبين.",
-              "En": "The root −1 solves the quadratic but makes both arguments negative."
+              "Ar": "عند x=−1 يكون المدخلان −3 و−1، وهما سالبان.",
+              "En": "At x=−1 both arguments, −3 and −1, are negative."
             }
           },
           {
@@ -4757,8 +4757,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "القيمة 1 لا تحقق المجال والمعادلة الأصلية معاً.",
-              "En": "1 does not satisfy both the domain and original equation."
+              "Ar": "عند x=1 يكون المدخل x−2 سالباً.",
+              "En": "At x=1 the argument x−2 is negative."
             }
           },
           {
@@ -4766,8 +4766,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "القيمة 5 لا تحقق المجال والمعادلة الأصلية معاً.",
-              "En": "5 does not satisfy both the domain and original equation."
+              "Ar": "القيمة 5 ضمن المجال، لكن حاصل ضرب المدخلين يساوي 15، بينما المطلوب 3.",
+              "En": "The value 5 is in the domain, but the product of the arguments is 15. The equation requires a product of 3."
             }
           }
         ],
@@ -4795,6 +4795,10 @@
             {
               "Ar": "بالتعويض والحساب: $x>2,\\quad x(x-2)=3\\Rightarrow(x-3)(x+1)=0$.",
               "En": "Substituting and calculating: $x>2,\\quad x(x-2)=3\\Rightarrow(x-3)(x+1)=0$."
+            },
+            {
+              "Ar": "الجذران الجبريان هما 3 و−1. نستبعد −1 لأن المجال يشترط x>2، ويبقى x=3.",
+              "En": "The algebraic roots are 3 and −1. The domain requires x>2, so −1 is excluded and x=3 remains."
             }
           ],
           "Substitution": {
@@ -5131,6 +5135,10 @@
             {
               "Ar": "بالتعويض والحساب: $(1/2)^{-3}=2^3=8\\Rightarrow\\log_{1/2}8=-3$.",
               "En": "Substituting and calculating: $(1/2)^{-3}=2^3=8\\Rightarrow\\log_{1/2}8=-3$."
+            },
+            {
+              "Ar": "الأساس 1/2 بين الصفر والواحد. أسّه غير السالب يعطي قيمة لا تتجاوز 1، لذا يتطلب الناتج 8 أساً سالباً.",
+              "En": "The base 1/2 is between zero and one. A nonnegative exponent gives a value at most 1, so reaching 8 requires a negative exponent."
             }
           ],
           "Substitution": {

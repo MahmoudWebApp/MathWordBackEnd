@@ -1,4 +1,5 @@
 import {createHash} from 'node:crypto';
+import {readFileSync} from 'node:fs';
 
 export function chunkImports(items,limit=50,maxBytes=1800000){
  if(!Array.isArray(items)||!Number.isInteger(limit)||limit<1||limit>50||!Number.isSafeInteger(maxBytes)||maxBytes<1)throw Error('Invalid import limit');
@@ -27,6 +28,12 @@ export function pressureController({floor=200,ceiling=5000,slowMs=2000,criticalM
  }};
 }
 const kinds=['amendments','new-existing','new-missing'];
+const heldDraftKeys = new Set(
+ ['school-launch-draft-holds.json', 'reviewed-staged-holds.json'].flatMap(file =>
+  Object.keys(JSON.parse(readFileSync(new URL(file, import.meta.url), 'utf8')))
+ )
+);
+
 export function selectReviewed(batch){
  if(!kinds.includes(batch.Kind)||!Array.isArray(batch.Items)||!Array.isArray(batch.Drafts)||!Number.isInteger(batch.MissingMappings))throw Error('Invalid catalog response');
  const keys=new Set(batch.Items.map(x=>batch.Kind==='amendments'?'g1-amend-'+x.ProblemId:x.ContentKey));
@@ -34,7 +41,7 @@ export function selectReviewed(batch){
  for(const d of batch.Drafts){
   if(!keys.has(d.ContentKey)||seen.has(d.ContentKey))throw Error('Unexpected draft identity');seen.add(d.ContentKey);
   if(d.Status==='Published'){published++;continue;}
-  if(batch.MissingMappings!==0||d.MatchesCandidate!==true||!['Draft','PendingReview','Approved','NeedsChanges'].includes(d.Status)||d.PublishedProblemId!=null){held.push(d.ContentKey);continue;}
+  if(heldDraftKeys.has(d.ContentKey)||batch.MissingMappings!==0||d.MatchesCandidate!==true||!['Draft','PendingReview','Approved','NeedsChanges'].includes(d.Status)||d.PublishedProblemId!=null){held.push(d.ContentKey);continue;}
   if(!Number.isSafeInteger(d.Id)||d.Id<=0||!Number.isSafeInteger(d.Revision)||d.Revision<0)throw Error('Invalid draft revision');
   ready.push({id:d.Id,key:d.ContentKey,revision:d.Revision,status:d.Status,kind:batch.Kind,number:batch.Number});
  }
@@ -66,10 +73,22 @@ export async function publish(request,plan,{approvedDigest,note,max=500,delay=20
   if(ids.has(r.id))throw Error('Duplicate draft');ids.add(r.id);
   const key=r.kind+'/'+r.number;
   if(group!==key){const began=now();const latest=await request('GET','/reviewed-bank/'+key);if(latest.Kind!==r.kind||latest.Number!==r.number)throw Error('Wrong batch');const state=selectReviewed(latest);for(const x of plan.ready.filter(x=>x.kind===r.kind&&x.number===r.number))if(!state.ready.some(y=>y.id===x.id&&y.key===x.key&&y.revision===x.revision&&y.status===x.status))throw Error('Plan changed: refresh preview');group=key;await waitForPressure(now()-began);}
-  const began=now();const result=await request('POST','/'+r.id+'/publish',{Revision:r.revision,Note:note.trim(),Confirm:true,DirectApproval:r.status!=='Approved'});
-  if(result.Status!=='Published'||!Number.isSafeInteger(result.PublishedProblemId)||result.PublishedProblemId<=0)throw Error('Publication not confirmed: refresh preview');
-  onEvent({key:r.key,id:r.id,publishedProblemId:result.PublishedProblemId});count++;
+  const draftRoute='/'+r.id;
+  const began=now();
+  const result=await request('POST',draftRoute+'/publish',{Revision:r.revision,Note:note.trim(),Confirm:true,DirectApproval:r.status!=='Approved'});
+  if(result?.Status!=='Published'||result.Id!==r.id||!Number.isSafeInteger(result.Revision)||result.Revision<=r.revision
+     ||!Number.isSafeInteger(result.PublishedProblemId)||result.PublishedProblemId<=0){
+   throw Error('Publication not confirmed: refresh preview');
+  }
   await waitForPressure(now()-began);
+  const verificationBegan=now();
+  const verified=await request('GET',draftRoute);
+  if(verified?.Status!=='Published'||verified.Id!==r.id||verified.Revision!==result.Revision
+     ||verified.PublishedProblemId!==result.PublishedProblemId){
+   throw Error('Published draft verification failed: refresh preview');
+  }
+  onEvent({key:r.key,id:r.id,publishedProblemId:verified.PublishedProblemId});count++;
+  await waitForPressure(now()-verificationBegan);
  }
  return count;
 }

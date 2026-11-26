@@ -1,0 +1,243 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import test from 'node:test';
+import {selectCandidates, validate} from './pipeline.mjs';
+import {schoolHolds, schoolWave} from './school-wave.mjs';
+import {courseWave} from './course-wave.mjs';
+import {schoolApplicationWave} from './school-application-wave.mjs';
+import {transferWave, transferHolds} from './transfer-wave.mjs';
+import {reasoningExtensionWave} from './reasoning-extension-wave.mjs';
+import {schoolReasoningApplications} from './school-reasoning-applications.mjs';
+import {schoolMeasurementReasoning} from './school-measurement-reasoning.mjs';
+
+import {universityApplications} from "./university-applications.mjs";
+const inventory = JSON.parse(readFileSync(new URL('./inventory-20261125.json', import.meta.url), 'utf8'));
+
+test('school wave uses linked skills and independently checked answers', () => {
+  const rows = schoolWave();
+  const answers = {
+    'reverse-queue-rank': Array.from({length: 14}, (_, i) => 14 - i).indexOf(6) + 1,
+    'compare-after-both-change': (9 + 4) - (34 - 28),
+    'division-ceiling-capacity': [3, 5, 6, 8].find(n => 8 * n >= 43),
+    'remaining-fraction-same-whole': `\\frac{${12 - 12 / 4 - 12 / 3}}{12}`,
+    'area-model-omitted-cell': 26 * 34 - (600 + 80 + 180),
+    'successive-percents-new-base': 80 * (125 * 80 / 10000),
+    'annulus-area-coefficient': (9 - 4) * (9 + 4),
+    'recover-total-from-relative-frequency': Array.from({length: 101}, (_, i) => i).find(n => n * 3 === 180),
+    'intersect-two-linear-integer-bounds': Array.from({length: 41}, (_, i) => i - 20)
+      .filter(x => 3 * x - 2 > 7 && 2 * x + 1 <= 13).length,
+    'line-intersection-ordinate': 13 - ((13 - 1) / 3),
+    'affine-population-variance': [1, 7, 13, 19].reduce((sum, value) => sum + (value - 10) ** 2, 0) / 4,
+    'secant-from-tangent-sign': `-\\frac{${Math.hypot(3, 4)}}{3}`,
+  };
+  assert.equal(rows.length, 12);
+  assert.equal(new Set(rows.map(row => row.Family)).size, 12);
+  assert.equal(new Set(rows.map(row => row.ProposedTrackCodes[0])).size, 12);
+  assert.deepEqual(validate(rows), []);
+  assert.equal(selectCandidates(rows, inventory).selected.length, rows.length);
+  for (const row of rows) assert.equal(row.Check.expected, String(answers[row.Family]), row.ContentKey);
+  assert.deepEqual(schoolHolds, ['division-ceiling-capacity', 'affine-population-variance']);
+});
+
+test('course wave covers seven linked courses and verifies all answers', () => {
+  const rows = courseWave();
+  const f = (x, y) => x * (x + y);
+  const along = t => f(2 + 3 * t / 5, 1 + 4 * t / 5);
+  const determinant = a =>
+    a[0][0] * (a[1][1] * a[2][2] - a[1][2] * a[2][1]) -
+    a[0][1] * (a[1][0] * a[2][2] - a[1][2] * a[2][0]) +
+    a[0][2] * (a[1][0] * a[2][1] - a[1][1] * a[2][0]);
+  const answers = {
+    'oblique-direction-normalization': `\\frac{${Math.round((along(1) - along(-1)) * 5 / 2)}}{5}`,
+    'monotone-sequence-supremum': 7,
+    'relaxation-deviation-half-time': [1, 2].reduce(value => (value + 20) / 2, 44),
+    'initial-curvature-second-order': [0, 4, 8, 14].find(a => a + 4 * (-1) + 3 * 2 === 10),
+    'transitive-closure-extra-pairs': [1, 2, 3, 4]
+      .flatMap(i => [1, 2, 3, 4].filter(j => j - i > 1)).length,
+    'determinant-composed-row-operations': determinant([[0, 9, 0], [1, 0, 0], [0, 18, -2]]),
+    'coefficient-from-linear-dependence': [4, 9, 12, 24].find(a => 2 * a - 8 * 3 === 0),
+    'linear-optimum-two-active-constraints': Math.max(...[[0, 0], [5, 0], [5, 3], [0, 8]].map(([x, y]) => 3 * x + 2 * y)),
+    'convexity-chord-bound': 3 + 2 * ((19 - 3) / 8),
+    'linear-system-residual-correction': (3 * 12 + 14 - (3 * 2 + 3) * 5) / 5,
+    'interval-error-bound-from-rounding': (4.25 + 7.35 - 11.5).toFixed(2),
+    'additional-sample-for-target-precision': [324, 288, 72, 108].find(additional => Math.sqrt(36 + additional) === 18),
+  };
+  assert.equal(rows.length, 12);
+  assert.equal(new Set(rows.map(row => row.Family)).size, rows.length);
+  assert.equal(new Set(rows.map(row => row.ProposedTrackCodes[0])).size, 7);
+  assert.deepEqual(validate([...schoolWave(), ...rows]), []);
+  assert.equal(selectCandidates(rows, inventory).selected.length, rows.length);
+  for (const row of rows) assert.equal(row.Check.expected, String(answers[row.Family]), row.ContentKey);
+});
+
+test('school application wave adds distinct linked reasoning', () => {
+  const rows = schoolApplicationWave();
+  const colours = ['B', 'B', 'B', 'W', 'W'];
+  const different = colours.flatMap((first, i) =>
+    colours.slice(i + 1).filter(second => second !== first)).length;
+  const answers = {
+    'swap-hundreds-tens-difference': 200 - 20,
+    'repair-one-addend-in-total': 1418 + (526 - 562),
+    'minimum-budget-rounded-up': 191 + (8 + 4 + 7),
+    'shared-height-area-difference': (11 * 6) / 2 - (7 * 6) / 2,
+    'chain-ratios-common-middle': `${2 * (12 / 3)}:${5 * (12 / 4)}`,
+    'pool-unequal-relative-frequencies': 0.5 * 40 + 0.2 * 60,
+    'unordered-two-color-without-replacement': `\\frac{${different / 2}}{${(5 * 4 / 2) / 2}}`,
+    'stationary-seed-for-recurrence': [0, 4, 6, 12].find(n => (n + 12) / 3 === n),
+    'telescoping-tail-from-shift': '\\frac{1}{4}',
+  };
+  const partial = Array.from({length: 10000}, (_, i) => i + 4)
+    .reduce((sum, n) => sum + 1 / (n * (n + 1)), 0);
+  assert.ok(0 < 1 / 4 - partial && 1 / 4 - partial < 0.0001);
+  assert.equal(rows.length, 9);
+  assert.equal(new Set(rows.map(row => row.Family)).size, 9);
+  assert.deepEqual(validate([...schoolWave(), ...courseWave(), ...rows]), []);
+  assert.equal(selectCandidates(rows, inventory).selected.length, rows.length);
+  for (const row of rows) assert.equal(row.Check.expected, String(answers[row.Family]), row.ContentKey);
+});
+
+test('transfer wave independently checks geometry, gradient, graph feasibility and probability', () => {
+  const rows = transferWave();
+  const intersections = Array.from({length: 21}, (_, i) => i - 10)
+    .filter(y => (5 - 2) ** 2 + (y + 1) ** 2 === 25);
+  const edges = ['AB', 'AC', 'AD', 'BC', 'BE'];
+  const degrees = [...'ABCDE'].map(vertex => edges.filter(edge => edge.includes(vertex)).length);
+  assert.deepEqual(degrees, [3, 3, 2, 1, 1]);
+  const answers = {
+    'circle-vertical-line-chord': intersections[1] - intersections[0],
+    'gradient-normal-level-set': [[1, -1], [4, 2], [2, 1], [4, 4]]
+      .filter(([x, y]) => x - y === 0).map(v => `(${v.join(',')})`)[0],
+    'graph-odd-degrees-parity': degrees[4],
+    'recover-type-two-error-from-power': ((100 - 87) / 100).toFixed(2),
+  };
+  assert.equal(rows.length, 4);
+  assert.deepEqual(validate([...schoolWave(), ...courseWave(), ...schoolApplicationWave(), ...rows]), []);
+  assert.equal(selectCandidates(rows, inventory).selected.length, rows.length);
+  for (const row of rows) assert.equal(row.Check.expected, String(answers[row.Family]), row.ContentKey);
+  assert.deepEqual(transferHolds, ['recover-type-two-error-from-power']);
+});
+
+test('reasoning extension matches independent calculations and existing taxonomy', () => {
+  const rows = reasoningExtensionWave();
+  const root = Math.sqrt(14);
+  const endpoints = [2, 3, 3.5, 4];
+  const answers = {
+    'overlap-joined-strip-length': new Set([
+      ...Array.from({length: 24}, (_, i) => i),
+      ...Array.from({length: 19}, (_, i) => i + 19),
+    ]).size,
+    'equal-distance-average-speed': (12 + 6 + 6) / 3,
+    'rectangle-diagonal-compares-opening': 16 - Math.hypot(9, 12),
+    'perpendicular-offset-intercept': [4, 5, 6, -4].find(b => 3 * (5 - b) / 3 === -1),
+    'inverse-compose-determinant': [3, -3, -48, 8].find(d => -4 * d === 12),
+    'bisection-retained-endpoint-second-step': endpoints.filter(x => x < root).at(-1),
+  };
+  assert.equal(rows.length, 6);
+  assert.equal(new Set(rows.map(row => row.Family)).size, rows.length);
+  assert.deepEqual(validate([...schoolWave(), ...courseWave(), ...schoolApplicationWave(), ...transferWave(), ...rows]), []);
+  assert.equal(selectCandidates(rows, inventory).selected.length, rows.length);
+  for (const row of rows) assert.equal(row.Check.expected, String(answers[row.Family]), row.ContentKey);
+});
+
+test('school applications use linked grade skills and independently solved answers', () => {
+  const rows = schoolReasoningApplications();
+  const integers = n => Array.from({length: n}, (_, i) => i + 1);
+  const committees = integers(7).flatMap(a => integers(7).filter(b => a < b)
+    .flatMap(b => integers(7).filter(c => b < c).map(c => [a, b, c])));
+  const answers = {
+    'queue-between-children': integers(7).filter(i => 3 < i && i < 7).length,
+    'compare-unit-lengths': 8 * 3 / 4,
+    'fence-with-wall': 2 * (9 + 4) - 9,
+    'tie-mode-extra-observations': integers(6).find(k => 2 + k > 3),
+    'redraw-after-removal': [...'GGGBBB'].filter(x => x === 'G').length / 6,
+    'base-part-area-ratio': 0.5 * 4 * (2 * 54 / 9),
+    'seam-aligned-square-tiles': integers(60).filter(n => 84 % n === 0 && 60 % n === 0).at(-1),
+    'glued-polygon-angle-sum': (5 - 2) * 180 + 180,
+    'inverse-round-trip-calibration': integers(49).find(x => 2 * (2 * x + 3) + 3 === 49),
+    'reciprocal-root-sum': 1 / 0.5 + 1 / 3,
+    'committee-exclude-pair': committees.filter(c => !(c.includes(1) && c.includes(2))).length,
+    'integral-cancellation-signed': integers(13).find(area => 13 - area === 5),
+  };
+  assert.equal(rows.length, 12);
+  assert.equal(new Set(rows.map(row => row.ProposedTrackCodes[0])).size, 12);
+  assert.deepEqual(validate(rows), []);
+  assert.equal(selectCandidates(rows, inventory).selected.length, rows.length);
+  for (const row of rows) {
+    const text = row.Content.Options.find(o => o.IsCorrect).LatexCode;
+    const fraction = /^\\frac\{(\d+)\}\{(\d+)\}$/.exec(text);
+    const actual = fraction ? Number(fraction[1]) / Number(fraction[2]) : Number(text);
+    assert.ok(Math.abs(actual - answers[row.Family]) < 1e-12, row.Family);
+  }
+});
+
+test('V13 university answers and linked placement', () => {
+  const rows = universityApplications();
+  const integers = Array.from({length: 41}, (_, i) => i - 20);
+  const classes = [0, 0, 0, 1, 1, 1, 1];
+  // Covariance matrix of four independent X,Y pairs with alternating signs.
+  let variance = 0;
+  for (let i = 0; i < 8; i++) {
+    for (let j = 0; j < 8; j++) {
+      if ((i >> 1) !== (j >> 1)) continue;
+      const covariance = i !== j ? 8 : i % 2 ? 16 : 9;
+      variance += (-1) ** (i + j) * covariance / 16;
+    }
+  }
+  const answers = {
+    'merge-equivalence-blocks': classes.flatMap(a => classes.filter(b => a !== b)).length,
+    'recover-east-slope': integers.find(x => 3 * x + 4 * 5 === 7 * 5),
+    'combine-fundamental-solutions': integers.find(b => Math.abs(
+      (3 * (Math.cos(2e-6) - 1) + b * Math.sin(2e-6)) / 1e-6 + 8) < 1e-4),
+    'eliminate-leading-discretization-error': integers.find(l => 18 - l === 4 * (15 - l)),
+    'paired-average-variance': variance,
+    'rank-one-area-update': 1 + (2 * 1 + 1 * 2), // determinant lemma
+    'minimum-uniform-capacity-relaxation': Math.min(...integers.filter(x => x >= 0)
+      .map(x => Math.max(0, x - 8, 23 - x - 9))),
+  };
+  assert.equal(rows.length, Object.keys(answers).length);
+  assert.deepEqual(validate(rows), []);
+  assert.equal(selectCandidates(rows, inventory).selected.length, rows.length);
+  for (const row of rows) {
+    const correct = row.Content.Options.find(o => o.IsCorrect);
+    assert.equal(Number(correct.LatexCode), answers[row.Family], row.Family);
+  }
+});
+
+test('V14 authored solutions agree with independent counts and linked placements', () => {
+  const rows = schoolMeasurementReasoning();
+  const marks = Array.from({length: 201}, (_, i) => i - 100);
+  const digits = [0, 4, 7];
+  const cardNumbers = digits.flatMap(a => digits.flatMap(b => digits
+    .filter(c => a > 0 && new Set([a, b, c]).size === 3)
+    .map(c => 100 * a + 10 * b + c)));
+  const bottle = marks.find(m => 17 - 3 * m === 25 - 5 * m);
+  const nearestTen = n => marks.filter(x => x % 10 === 0)
+    .sort((a, b) => Math.abs(a - n) - Math.abs(b - n))[0];
+  const circlePoints = marks.flatMap(x => marks.filter(y =>
+    x * x + y * y === 25 && (x - 6) ** 2 + y * y === 13).map(y => ({x, y})));
+  assert.equal(circlePoints.length, 2);
+  const answers = {
+    'count-unmarked-door-labels': marks.filter(i => i >= 1 && i <= 18 && i % 2 === 1).length,
+    'bell-strike-intervals': Array.from({length: 6}, (_, i) => i * (8 / 2)).at(-1),
+    'smallest-three-digit-card-number': Math.min(...cardNumbers) - 400,
+    'infer-empty-crate-mass': 25 - 5 * bottle,
+    'rounding-order-ticket-count': 2 * nearestTen(46) - nearestTen(92),
+    'triangle-outside-two-inner-bases': 12 * 7 / 2 - 5 * 7 / 2,
+    'equidistant-beacons': marks.find(x => Math.abs(x + 8) === Math.abs(x - 4)),
+    'recover-frequency-from-histogram-density': Array(10).fill(3).reduce((a,b) => a+b)
+      - Array(5).fill(4).reduce((a,b) => a+b),
+    'missing-east-component-closed-route': marks.find(x => 7 - 3 + x === 0),
+    'intersection-of-two-circle-radical-axis': circlePoints[0].x,
+    'compare-pie-sectors-different-totals': 90 / (360 / 24) + 72 / (360 / 30),
+    'quadratic-constant-from-root-separation': marks.find(c => {
+      const roots = marks.filter(x => x * x - 10 * x + c === 0);
+      return roots.length === 2 && roots[1] - roots[0] === 4;
+    }),
+  };
+  assert.deepEqual(validate(rows), []);
+  assert.equal(selectCandidates(rows, inventory).selected.length, rows.length);
+  assert.deepEqual(new Set(rows.map(r => r.Family)), new Set(Object.keys(answers)));
+  for (const row of rows) {
+    assert.equal(Number(row.Content.Options.find(o => o.IsCorrect).LatexCode), answers[row.Family], row.Family);
+  }
+});
