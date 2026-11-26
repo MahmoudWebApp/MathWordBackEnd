@@ -1,0 +1,912 @@
+[
+  {
+    "track": 3,
+    "cat": 81,
+    "skill": 304,
+    "sk": "number-comparison",
+    "family": "number-comparison-nearest-target-three-options",
+    "title": {
+      "Ar": "أقرب عدد إلى هدف",
+      "En": "Nearest number to a target"
+    },
+    "q": {
+      "Ar": "أي عدد من الخيارات أقرب إلى 500؟",
+      "En": "Which listed number is closest to 500?"
+    },
+    "opts": [
+      "497",
+      "490",
+      "506",
+      "510"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "يبعد 10 عن 500.",
+        "En": "Ten away from 500."
+      },
+      {
+        "Ar": "يبعد 6 عن 500.",
+        "En": "Six away from 500."
+      },
+      {
+        "Ar": "يبعد 10 عن 500.",
+        "En": "Ten away from 500."
+      }
+    ],
+    "idea": {
+      "Ar": "نحسب الفرق بين كل عدد والهدف دون اعتبار اتجاه الفرق.",
+      "En": "Compare how far each number is from the target, regardless of direction."
+    },
+    "formula": "500-497=3",
+    "steps": [
+      {
+        "Ar": "$500-490=10$",
+        "En": "$500-490=10$"
+      },
+      {
+        "Ar": "$506-500=6$",
+        "En": "$506-500=6$"
+      },
+      {
+        "Ar": "$500-497=3$",
+        "En": "$500-497=3$"
+      },
+      {
+        "Ar": "$510-500=10$",
+        "En": "$510-500=10$"
+      }
+    ],
+    "sub": {
+      "Ar": "$3<6<10$",
+      "En": "$3<6<10$"
+    },
+    "result": {
+      "Ar": "$497$",
+      "En": "$497$"
+    },
+    "verify": {
+      "Ar": "$497+3=500$",
+      "En": "$497+3=500$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب الفرق عن 500 لكل خيار.",
+        "En": "Find each distance from 500."
+      },
+      {
+        "Ar": "اختر أصغر فرق.",
+        "En": "Choose the smallest difference."
+      }
+    ],
+    "error": {
+      "Ar": "يبعد 10 عن 500.",
+      "En": "Ten away from 500."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 3,
+    "cat": 81,
+    "skill": 305,
+    "sk": "place-value",
+    "family": "place-value-regroup-ten-ones-cross-hundreds",
+    "title": {
+      "Ar": "تجميع عشرات إضافية",
+      "En": "Regrouping extra tens"
+    },
+    "q": {
+      "Ar": "يتكون عدد من 4 مئات و9 عشرات و17 آحاداً. ما رقم المئات بعد إعادة التجميع؟",
+      "En": "A number consists of four hundreds, nine tens and seventeen ones. What is its hundreds digit after regrouping?"
+    },
+    "opts": [
+      "4",
+      "9",
+      "7",
+      "5"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "لم ينقل العشرة الجديدة إلى المئات.",
+        "En": "Does not carry the new ten into hundreds."
+      },
+      {
+        "Ar": "هذا عدد العشرات قبل التجميع.",
+        "En": "The number of tens before regrouping."
+      },
+      {
+        "Ar": "هذا رقم الآحاد النهائي.",
+        "En": "The final ones digit."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "نجمع عشرة آحاد في عشرة واحدة، ثم نجمع عشر عشرات في مئة.",
+      "En": "Regroup ten ones into a ten, then ten tens into a hundred."
+    },
+    "formula": "400+90+17=507",
+    "steps": [
+      {
+        "Ar": "$17=10+7$",
+        "En": "$17=10+7$"
+      },
+      {
+        "Ar": "$90+10=100$",
+        "En": "$90+10=100$"
+      },
+      {
+        "Ar": "$400+100+7=507$",
+        "En": "$400+100+7=507$"
+      }
+    ],
+    "sub": {
+      "Ar": "$400+100+7$",
+      "En": "$400+100+7$"
+    },
+    "result": {
+      "Ar": "$5$",
+      "En": "$5$"
+    },
+    "verify": {
+      "Ar": "$507=400+90+17$",
+      "En": "$507=400+90+17$"
+    },
+    "hints": [
+      {
+        "Ar": "حوّل 10 آحاد إلى عشرة.",
+        "En": "Convert ten ones to one ten."
+      },
+      {
+        "Ar": "ماذا يحدث عندما تصبح العشرات عشر مجموعات؟",
+        "En": "What happens when there are ten tens?"
+      }
+    ],
+    "error": {
+      "Ar": "لم ينقل العشرة الجديدة إلى المئات.",
+      "En": "Does not carry the new ten into hundreds."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 7,
+    "cat": 85,
+    "skill": 335,
+    "sk": "frequency",
+    "family": "experimental-frequency-infer-total-from-occurrences",
+    "title": {
+      "Ar": "عدد التجارب من التكرار النسبي",
+      "En": "Trial count from relative frequency"
+    },
+    "q": {
+      "Ar": "حدثت نتيجة معينة 18 مرة وكان تكرارها النسبي التجريبي $\\frac{3}{10}$. كم تجربة أُجريت؟",
+      "En": "An outcome occurred eighteen times with experimental relative frequency $\\frac{3}{10}$. How many trials were conducted?"
+    },
+    "opts": [
+      "6",
+      "180",
+      "60",
+      "54"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "قسم على البسط فقط.",
+        "En": "Divides by the numerator alone."
+      },
+      {
+        "Ar": "ضرب في المقام دون القسمة على البسط.",
+        "En": "Multiplies by the denominator without dividing by the numerator."
+      },
+      null,
+      {
+        "Ar": "ضرب عدد الحدوث في البسط فقط.",
+        "En": "Multiplies occurrences by the numerator only."
+      }
+    ],
+    "idea": {
+      "Ar": "نقسم عدد مرات الحدوث على التكرار النسبي.",
+      "En": "Divide the occurrence count by the relative frequency."
+    },
+    "formula": "n=18/(3/10)",
+    "steps": [
+      {
+        "Ar": "$18/3=6$",
+        "En": "$18/3=6$"
+      },
+      {
+        "Ar": "$6\\cdot10=60$",
+        "En": "$6\\cdot10=60$"
+      }
+    ],
+    "sub": {
+      "Ar": "$18\\cdot10/3$",
+      "En": "$18\\cdot10/3$"
+    },
+    "result": {
+      "Ar": "$60$",
+      "En": "$60$"
+    },
+    "verify": {
+      "Ar": "$18/60=3/10$",
+      "En": "$18/60=3/10$"
+    },
+    "hints": [
+      {
+        "Ar": "اكتب التكرار النسبي على شكل كسر.",
+        "En": "Write relative frequency as a fraction."
+      },
+      {
+        "Ar": "استرجع العدد الكلي بالقسمة.",
+        "En": "Recover the total by division."
+      }
+    ],
+    "error": {
+      "Ar": "ضرب عدد الحدوث في البسط فقط.",
+      "En": "Multiplies occurrences by the numerator only."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 7,
+    "cat": 85,
+    "skill": 336,
+    "sk": "sample-spaces",
+    "family": "sample-space-sequential-selection-without-replacement-count",
+    "title": {
+      "Ar": "نواتج اختيار متتال دون إرجاع",
+      "En": "Sequential selection without replacement"
+    },
+    "q": {
+      "Ar": "نختار بطاقتين بالتتابع دون إرجاع من أربع بطاقات مميزة A وB وC وD. كم ناتجاً مرتباً ممكناً؟",
+      "En": "Two cards are selected in order without replacement from four distinct cards A, B, C and D. How many ordered outcomes are possible?"
+    },
+    "opts": [
+      "16",
+      "12",
+      "6",
+      "8"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "افترض إمكان اختيار البطاقة الأولى مرة أخرى.",
+        "En": "Allows the first card to be selected again."
+      },
+      null,
+      {
+        "Ar": "أهمل ترتيب الاختيار.",
+        "En": "Ignores selection order."
+      },
+      {
+        "Ar": "جمع عددين بدلاً من ضرب عدد الخيارات.",
+        "En": "Adds counts instead of multiplying choices."
+      }
+    ],
+    "idea": {
+      "Ar": "للاختيار الأول أربعة احتمالات وللثاني ثلاثة بعد حذف البطاقة المختارة.",
+      "En": "There are four first choices and three second choices after removing the first card."
+    },
+    "formula": "4(4-1)",
+    "steps": [
+      {
+        "Ar": "$4-1=3$",
+        "En": "$4-1=3$"
+      },
+      {
+        "Ar": "$4\\cdot3=12$",
+        "En": "$4\\cdot3=12$"
+      }
+    ],
+    "sub": {
+      "Ar": "$4\\cdot3$",
+      "En": "$4\\cdot3$"
+    },
+    "result": {
+      "Ar": "$12$",
+      "En": "$12$"
+    },
+    "verify": {
+      "Ar": "$12/4=3$",
+      "En": "$12/4=3$"
+    },
+    "hints": [
+      {
+        "Ar": "كم خياراً في السحب الأول؟",
+        "En": "How many choices on the first draw?"
+      },
+      {
+        "Ar": "كم يبقى للسحب الثاني؟",
+        "En": "How many remain for the second draw?"
+      }
+    ],
+    "error": {
+      "Ar": "أهمل ترتيب الاختيار.",
+      "En": "Ignores selection order."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 8,
+    "cat": 7,
+    "skill": 33,
+    "sk": "middle-map-scale",
+    "family": "map-scale-two-segments-route-length",
+    "title": {
+      "Ar": "مسافة طريق على خريطة",
+      "En": "Route distance on a map"
+    },
+    "q": {
+      "Ar": "على خريطة بمقياس 1:50000، يتألف طريق من مقطعين طولهما على الخريطة 2.4 سم و3.6 سم. ما طول الطريق الحقيقي بالكيلومترات؟",
+      "En": "On a 1:50000 map, a route has two segments of map lengths 2.4 cm and 3.6 cm. What is the actual route length in kilometres?"
+    },
+    "opts": [
+      "3",
+      "0.3",
+      "6",
+      "300"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "أخطأ بعامل عشرة في تحويل الوحدات.",
+        "En": "Makes a factor-of-ten conversion error."
+      },
+      {
+        "Ar": "هذا طول الطريق على الخريطة بالسنتيمتر.",
+        "En": "This is the map route length in centimetres."
+      },
+      {
+        "Ar": "لم يحول الوحدات إلى كيلومترات بشكل صحيح.",
+        "En": "Does not correctly convert to kilometres."
+      }
+    ],
+    "idea": {
+      "Ar": "نجمع طولي المقطعين ثم نطبق مقياس الرسم ونحول الوحدة.",
+      "En": "Add segment lengths, apply the scale, then convert units."
+    },
+    "formula": "L=(2.4+3.6)50000/100000",
+    "steps": [
+      {
+        "Ar": "$2.4+3.6=6$",
+        "En": "$2.4+3.6=6$"
+      },
+      {
+        "Ar": "$300000/100000=3$",
+        "En": "$300000/100000=3$"
+      }
+    ],
+    "sub": {
+      "Ar": "$6\\cdot50000/100000$",
+      "En": "$6\\cdot50000/100000$"
+    },
+    "result": {
+      "Ar": "$3$",
+      "En": "$3$"
+    },
+    "verify": {
+      "Ar": "$3\\cdot100000/50000=6$",
+      "En": "$3\\cdot100000/50000=6$"
+    },
+    "hints": [
+      {
+        "Ar": "اجمع الطولين على الخريطة.",
+        "En": "Add the map lengths."
+      },
+      {
+        "Ar": "حول السنتيمترات الحقيقية إلى كيلومترات.",
+        "En": "Convert actual centimetres to kilometres."
+      }
+    ],
+    "error": {
+      "Ar": "أخطأ بعامل عشرة في تحويل الوحدات.",
+      "En": "Makes a factor-of-ten conversion error."
+    },
+    "unit": {
+      "Ar": "كم",
+      "En": "km"
+    }
+  },
+  {
+    "track": 8,
+    "cat": 7,
+    "skill": 34,
+    "sk": "middle-percent-increase",
+    "family": "percent-increase-reverse-new-price-known-rate",
+    "title": {
+      "Ar": "استرجاع السعر قبل الزيادة",
+      "En": "Recovering a price before increase"
+    },
+    "q": {
+      "Ar": "أصبح سعر سلعة 138 وحدة نقدية بعد زيادة نسبتها 15%. ما السعر قبل الزيادة؟",
+      "En": "An item costs 138 currency units after a 15% increase. What was its original price?"
+    },
+    "opts": [
+      "117.3",
+      "123",
+      "158.7",
+      "120"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "طرح 15% من السعر الجديد.",
+        "En": "Subtracts 15% of the new price."
+      },
+      {
+        "Ar": "طرح 15 وحدة نقدية بدلاً من نسبة.",
+        "En": "Subtracts fifteen currency units instead of a percentage."
+      },
+      {
+        "Ar": "زاد السعر الجديد مرة أخرى بنسبة 15%.",
+        "En": "Increases the new price by another 15%."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "السعر الجديد يساوي 115% من السعر الأصلي.",
+      "En": "The new price equals 115% of the original."
+    },
+    "formula": "1.15x=138",
+    "steps": [
+      {
+        "Ar": "$x=120$",
+        "En": "$x=120$"
+      }
+    ],
+    "sub": {
+      "Ar": "$138/1.15$",
+      "En": "$138/1.15$"
+    },
+    "result": {
+      "Ar": "$120$",
+      "En": "$120$"
+    },
+    "verify": {
+      "Ar": "$120\\cdot1.15=138$",
+      "En": "$120\\cdot1.15=138$"
+    },
+    "hints": [
+      {
+        "Ar": "حوّل 115% إلى عدد عشري.",
+        "En": "Convert 115% to a decimal."
+      },
+      {
+        "Ar": "اقسم السعر الجديد على عامل الزيادة.",
+        "En": "Divide the new price by the increase factor."
+      }
+    ],
+    "error": {
+      "Ar": "طرح 15% من السعر الجديد.",
+      "En": "Subtracts 15% of the new price."
+    },
+    "unit": {
+      "Ar": "وحدة نقدية",
+      "En": "currency units"
+    }
+  },
+  {
+    "track": 8,
+    "cat": 8,
+    "skill": 39,
+    "sk": "middle-polygon-angles",
+    "family": "polygon-interior-sum-missing-angle-irregular",
+    "title": {
+      "Ar": "زاوية مجهولة في مضلع خماسي",
+      "En": "Missing angle of a pentagon"
+    },
+    "q": {
+      "Ar": "في مضلع خماسي، قياسات أربع زوايا داخلية هي 90° و110° و120° و100°. ما قياس الزاوية الخامسة؟",
+      "En": "Four interior angles of a pentagon are 90°, 110°, 120° and 100°. Find the fifth angle in degrees."
+    },
+    "opts": [
+      "108",
+      "180",
+      "120",
+      "60"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "افترض أن المضلع منتظم.",
+        "En": "Assumes the pentagon is regular."
+      },
+      {
+        "Ar": "خلط الزاوية المطلوبة بمجموع زوايا مثلث.",
+        "En": "Confuses the missing angle with a triangle's total."
+      },
+      null,
+      {
+        "Ar": "استعمل مجموع زوايا أقل من المطلوب.",
+        "En": "Uses too small an angle sum."
+      }
+    ],
+    "idea": {
+      "Ar": "مجموع زوايا المضلع الخماسي 540°، ونطرح مجموع الزوايا المعطاة.",
+      "En": "A pentagon's interior angles total 540°; subtract the four known angles."
+    },
+    "formula": "(5-2)180-(90+110+120+100)",
+    "steps": [
+      {
+        "Ar": "$90+110+120+100=420$",
+        "En": "$90+110+120+100=420$"
+      },
+      {
+        "Ar": "$540-420=120$",
+        "En": "$540-420=120$"
+      }
+    ],
+    "sub": {
+      "Ar": "$540-420$",
+      "En": "$540-420$"
+    },
+    "result": {
+      "Ar": "$120$",
+      "En": "$120$"
+    },
+    "verify": {
+      "Ar": "$420+120=540$",
+      "En": "$420+120=540$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب مجموع زوايا الخماسي.",
+        "En": "Find the pentagon angle sum."
+      },
+      {
+        "Ar": "اطرح الزوايا الأربع.",
+        "En": "Subtract the four known angles."
+      }
+    ],
+    "error": {
+      "Ar": "استعمل مجموع زوايا أقل من المطلوب.",
+      "En": "Uses too small an angle sum."
+    },
+    "unit": {
+      "Ar": "°",
+      "En": "°"
+    }
+  },
+  {
+    "track": 8,
+    "cat": 8,
+    "skill": 36,
+    "sk": "middle-circle-area",
+    "family": "circle-area-square-radius-compare-difference",
+    "title": {
+      "Ar": "فرق مساحتي قرصين",
+      "En": "Difference between disk areas"
+    },
+    "q": {
+      "Ar": "لدينا قرصان نصفا قطريهما 7 سم و5 سم. بكم تزيد مساحة الأكبر على الأصغر بدلالة π؟",
+      "En": "Two disks have radii seven and five centimetres. By how much does the larger area exceed the smaller, in terms of pi?"
+    },
+    "opts": [
+      "74\\pi",
+      "24\\pi",
+      "2\\pi",
+      "4\\pi"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "جمع المساحتين.",
+        "En": "Adds the two areas."
+      },
+      null,
+      {
+        "Ar": "طرح نصفي القطر فقط.",
+        "En": "Subtracts radii only."
+      },
+      {
+        "Ar": "ربع فرق نصفي القطر.",
+        "En": "Squares the difference of the radii."
+      }
+    ],
+    "idea": {
+      "Ar": "نطرح مربعي نصفي القطر ثم نضرب في π.",
+      "En": "Subtract the squared radii and multiply by pi."
+    },
+    "formula": "\\pi(7^2-5^2)",
+    "steps": [
+      {
+        "Ar": "$49-25=24$",
+        "En": "$49-25=24$"
+      }
+    ],
+    "sub": {
+      "Ar": "$\\pi(49-25)$",
+      "En": "$\\pi(49-25)$"
+    },
+    "result": {
+      "Ar": "$24\\pi$",
+      "En": "$24\\pi$"
+    },
+    "verify": {
+      "Ar": "$25\\pi+24\\pi=49\\pi$",
+      "En": "$25\\pi+24\\pi=49\\pi$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب مربع كل نصف قطر.",
+        "En": "Square each radius."
+      },
+      {
+        "Ar": "اطرح المساحتين.",
+        "En": "Subtract the two areas."
+      }
+    ],
+    "error": {
+      "Ar": "طرح نصفي القطر فقط.",
+      "En": "Subtracts radii only."
+    },
+    "unit": {
+      "Ar": "سم²",
+      "En": "cm²"
+    }
+  },
+  {
+    "track": 8,
+    "cat": 22,
+    "skill": 99,
+    "sk": "m-statistics-summary-measures",
+    "family": "mean-weighted-combine-groups-different-sizes",
+    "title": {
+      "Ar": "متوسط مجموعتين بأحجام مختلفة",
+      "En": "Combined mean of unequal groups"
+    },
+    "q": {
+      "Ar": "متوسط خمس قراءات هو 10، ومتوسط ثلاث قراءات أخرى هو 18. ما متوسط القراءات الثماني؟",
+      "En": "Five observations have mean ten and three other observations have mean eighteen. Find the mean of all eight."
+    },
+    "opts": [
+      "13",
+      "14",
+      "28",
+      "104"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "حسب متوسط المتوسطين دون مراعاة العددين.",
+        "En": "Averages the means without weighting by counts."
+      },
+      {
+        "Ar": "جمع المتوسطين.",
+        "En": "Adds the means."
+      },
+      {
+        "Ar": "هذا مجموع القراءات وليس المتوسط.",
+        "En": "This is the total, not the mean."
+      }
+    ],
+    "idea": {
+      "Ar": "نسترجع مجموع كل مجموعة ثم نقسم المجموع الكلي على ثمانية.",
+      "En": "Recover each group total, then divide the combined total by eight."
+    },
+    "formula": "(5\\cdot10+3\\cdot18)/8",
+    "steps": [
+      {
+        "Ar": "$5\\cdot10=50$",
+        "En": "$5\\cdot10=50$"
+      },
+      {
+        "Ar": "$3\\cdot18=54$",
+        "En": "$3\\cdot18=54$"
+      },
+      {
+        "Ar": "$(50+54)/8=13$",
+        "En": "$(50+54)/8=13$"
+      }
+    ],
+    "sub": {
+      "Ar": "$104/8$",
+      "En": "$104/8$"
+    },
+    "result": {
+      "Ar": "$13$",
+      "En": "$13$"
+    },
+    "verify": {
+      "Ar": "$8\\cdot13=104$",
+      "En": "$8\\cdot13=104$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب مجموع المجموعة الأولى والثانية.",
+        "En": "Find each group total."
+      },
+      {
+        "Ar": "اقسم المجموع الكلي على عدد القراءات.",
+        "En": "Divide the combined total by the total count."
+      }
+    ],
+    "error": {
+      "Ar": "حسب متوسط المتوسطين دون مراعاة العددين.",
+      "En": "Averages the means without weighting by counts."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 9,
+    "cat": 22,
+    "skill": 98,
+    "sk": "m-statistics-distributions",
+    "family": "iqr-recover-quartile-from-width-and-center",
+    "title": {
+      "Ar": "ربيع مجهول من المدى الربعي",
+      "En": "Quartile from interquartile range"
+    },
+    "q": {
+      "Ar": "الربيع الثالث لمجموعة بيانات هو 29، والمدى الربعي 12. ما الربيع الأول؟",
+      "En": "A data set has third quartile 29 and interquartile range 12. Find the first quartile."
+    },
+    "opts": [
+      "12",
+      "29",
+      "41",
+      "17"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "هذا المدى الربعي.",
+        "En": "This is the IQR."
+      },
+      {
+        "Ar": "هذا الربيع الثالث.",
+        "En": "This is the third quartile."
+      },
+      {
+        "Ar": "جمع المدى الربعي مع الربيع الثالث.",
+        "En": "Adds the IQR to the third quartile."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "المدى الربعي هو الربيع الثالث ناقص الربيع الأول.",
+      "En": "The IQR equals the third quartile minus the first."
+    },
+    "formula": "Q_1=Q_3-IQR",
+    "steps": [
+      {
+        "Ar": "$Q_1=17$",
+        "En": "$Q_1=17$"
+      }
+    ],
+    "sub": {
+      "Ar": "$29-12$",
+      "En": "$29-12$"
+    },
+    "result": {
+      "Ar": "$17$",
+      "En": "$17$"
+    },
+    "verify": {
+      "Ar": "$29-17=12$",
+      "En": "$29-17=12$"
+    },
+    "hints": [
+      {
+        "Ar": "اكتب تعريف المدى الربعي.",
+        "En": "Recall the IQR definition."
+      },
+      {
+        "Ar": "اعزل الربيع الأول.",
+        "En": "Isolate the first quartile."
+      }
+    ],
+    "error": {
+      "Ar": "هذا المدى الربعي.",
+      "En": "This is the IQR."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 9,
+    "cat": 22,
+    "skill": 98,
+    "sk": "m-statistics-distributions",
+    "family": "mad-two-value-frequency-balanced-deviations",
+    "title": {
+      "Ar": "انحرافات مطلقة بتكرارات غير متساوية",
+      "En": "Absolute deviations with unequal frequencies"
+    },
+    "q": {
+      "Ar": "في مجموعة بيانات تظهر القيمة 2 مرة واحدة، والقيمة 6 ثلاث مرات. المتوسط 5. ما متوسط الانحرافات المطلقة عن المتوسط؟",
+      "En": "In a data set, 2 occurs once and 6 occurs three times. The mean is 5. Find the mean absolute deviation from the mean."
+    },
+    "opts": [
+      "2",
+      "6",
+      "1.5",
+      "0"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "حسب متوسط انحرافي القيمتين المختلفتين دون مراعاة التكرار.",
+        "En": "Averages the two distinct deviations without weighting frequencies."
+      },
+      {
+        "Ar": "هذا مجموع الانحرافات المطلقة.",
+        "En": "This is the sum of absolute deviations."
+      },
+      null,
+      {
+        "Ar": "جمع الانحرافات الموقعة.",
+        "En": "Adds signed deviations."
+      }
+    ],
+    "idea": {
+      "Ar": "نحسب انحراف كل قراءة عن المتوسط ونكرر الانحراف حسب التكرار.",
+      "En": "Count each absolute deviation according to its frequency."
+    },
+    "formula": "MAD=(|2-5|+3|6-5|)/4",
+    "steps": [
+      {
+        "Ar": "$|2-5|=3$",
+        "En": "$|2-5|=3$"
+      },
+      {
+        "Ar": "$|6-5|=1$",
+        "En": "$|6-5|=1$"
+      },
+      {
+        "Ar": "$6/4=1.5$",
+        "En": "$6/4=1.5$"
+      }
+    ],
+    "sub": {
+      "Ar": "$(3+3)/4$",
+      "En": "$(3+3)/4$"
+    },
+    "result": {
+      "Ar": "$1.5$",
+      "En": "$1.5$"
+    },
+    "verify": {
+      "Ar": "$4\\cdot1.5=6$",
+      "En": "$4\\cdot1.5=6$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب انحراف 2 عن 5.",
+        "En": "Find the distance from two to five."
+      },
+      {
+        "Ar": "احسب انحراف 6 ثلاث مرات.",
+        "En": "Count the distance from six three times."
+      }
+    ],
+    "error": {
+      "Ar": "جمع الانحرافات الموقعة.",
+      "En": "Adds signed deviations."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  }
+]
