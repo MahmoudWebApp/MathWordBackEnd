@@ -279,37 +279,54 @@ def verify_track_free_outside_stage_pair(admin,student,uid,stage1,all_tracks):
     tid=course["Id"]
     free=expect("GET",f"/api/stages/{stage}/free-categories",200)["FreeCategoryIds"]
     assert len(free)==2
-    category=int(sql(f'SELECT "Id" FROM "Categories" WHERE "StageId"={stage} AND "Id" NOT IN ({",".join(map(str,free))}) ORDER BY "Id" LIMIT 1'))
-    problem=expect("POST","/api/admin/problems",201,{
-        "QuestionTextAr":"اختبار المساق المميز: ما ناتج 2+3؟","QuestionTextEn":"Premium course fixture: what is 2+3?",
-        "DetailedSolutionAr":"نجمع العددين فنحصل على 5.","DetailedSolutionEn":"Add the two numbers to obtain 5.",
-        "StageId":stage,"CategoryId":category,"Points":10,
-        "Options":[{"LatexCode":str(i),"IsCorrect":i==5,"Order":n+1} for n,i in enumerate((4,5,6,7))]},admin)
-    pid=problem["Id"]
-    domain=int(sql("""INSERT INTO "CurriculumDomains" ("StableKey","NameAr","NameEn","DescriptionAr","DescriptionEn","SortOrder","IsPublished") VALUES ('ci-premium-course-domain','اختبار','Test','','',0,true) RETURNING "Id" """).splitlines()[0])
-    skill=int(sql(f"""INSERT INTO "CurriculumSkills" ("StableKey","DomainId","StageId","CategoryId","NameAr","NameEn","DescriptionAr","DescriptionEn","SortOrder","IsPublished") VALUES ('ci-premium-course-skill',{domain},{stage},{category},'جمع','Addition','','',0,true) RETURNING "Id" """).splitlines()[0])
-    sql(f'INSERT INTO "CurriculumProblemSkills" ("ProblemId","SkillId","IsPrimary") VALUES ({pid},{skill},true)')
-    expect("PUT",f"{root}/{tid}/mapping",200,{"Revision":0,"CategoryIds":[category],"SkillIds":[skill],"ProblemIds":[pid]},admin)
+    # Three disposable populated categories outside the original stage pair.
+    order=int(sql(f'SELECT MAX("Order") FROM "Categories" WHERE "StageId"={stage}'))
+    categories=[]
+    for i in range(3):
+        categories.append(int(sql(f"""INSERT INTO "Categories" ("NameAr","NameEn","Icon","Order","StageId","DescriptionAr","DescriptionEn") VALUES ('اختبار {i}','CI topic {i}','test',{order+i+1},{stage},'','') RETURNING "Id" """).splitlines()[0]))
+    domain=int(sql("""INSERT INTO "CurriculumDomains" ("StableKey","NameAr","NameEn","DescriptionAr","DescriptionEn","SortOrder","IsPublished") VALUES ('ci-track-free-three','اختبار','Test','','',0,true) RETURNING "Id" """).splitlines()[0])
+    problems=[]
+    skills=[]
+    for i,category in enumerate(categories):
+        number=i+4
+        problem=expect("POST","/api/admin/problems",201,{
+            "QuestionTextAr":f"اختبار الفئة {i}: ما ناتج {number}+3؟","QuestionTextEn":f"Track category {i}: what is {number}+3?",
+            "DetailedSolutionAr":f"نجمع العددين فنحصل على {number+3}.","DetailedSolutionEn":f"Add the two numbers to obtain {number+3}.",
+            "StageId":stage,"CategoryId":category,"Points":10,
+            "Options":[{"LatexCode":str(v),"IsCorrect":v==number+3,"Order":n+1} for n,v in enumerate(range(number+1,number+5))]},admin)
+        pid=problem["Id"]
+        skill=int(sql(f"""INSERT INTO "CurriculumSkills" ("StableKey","DomainId","StageId","CategoryId","NameAr","NameEn","DescriptionAr","DescriptionEn","SortOrder","IsPublished") VALUES ('ci-track-free-three-{i}',{domain},{stage},{category},'جمع','Addition','','',0,true) RETURNING "Id" """).splitlines()[0])
+        sql(f'INSERT INTO "CurriculumProblemSkills" ("ProblemId","SkillId","IsPrimary") VALUES ({pid},{skill},true)')
+        problems.append(pid)
+        skills.append(skill)
+    expect("PUT",f"{root}/{tid}/mapping",200,{"Revision":0,"CategoryIds":categories,"SkillIds":skills,"ProblemIds":problems},admin)
     expect("PUT",f"{root}/{tid}/publication",403,{"Revision":1,"Publish":True},student)
     expect("PUT",f"{root}/{tid}/publication",200,{"Revision":1,"Publish":True},admin)
     public=expect("GET",f"/api/stages/{stage}/tracks",200)["Items"]
     item=next(x for x in public if x["Id"]==tid)
-    assert item["FreeProblemsCount"]==1 and item["ProblemsCount"]==1
+    assert item["FreeProblemsCount"]==2 and item["ProblemsCount"]==3
     detail=expect("GET",f"/api/learning-tracks/{tid}",200)
-    assert detail["Categories"][0]["IsFree"] and all(set(x)<={"Id","CategoryId","TitleAr","TitleEn"} for x in detail["Examples"])
+    assert [x["Id"] for x in detail["Categories"] if x["IsFree"]]==categories[:2]
+    assert all(set(x)<={"Id","CategoryId","TitleAr","TitleEn"} for x in detail["Examples"])
     expect("PUT","/api/users/learning-track",200,{"TrackId":tid},student)
     progress=expect("GET",f"/api/users/learning-tracks/{tid}/progress",200,token=student)
-    assert not progress["Categories"][0]["IsLocked"]
-    expect("GET",f"/api/users/learning-tracks/{tid}/categories/{category}/problems",200,token=student)
-    expect("GET",f"/api/problems/{pid}",200,token=student)
+    assert {x["CategoryId"] for x in progress["Categories"] if not x["IsLocked"]}==set(categories[:2])
+    for i,(category,pid) in enumerate(zip(categories,problems)):
+        status=200 if i<2 else 403
+        expect("GET",f"/api/users/learning-tracks/{tid}/categories/{category}/problems",status,token=student)
+        expect("GET",f"/api/problems/{pid}",status,token=student)
+    locked=problems[2]
+    correct=int(sql(f'SELECT "Id" FROM "QuestionOptions" WHERE "ProblemId"={locked} AND "IsCorrect"'))
+    expect("POST","/api/problems/submit",403,{"ProblemId":locked,"SelectedOptionId":correct,"TimeSpentSeconds":1,"PracticeScopeId":tid},student)
     sql(f"""UPDATE "Users" SET "SubscriptionType"='Premium',"PremiumExpiresAtUtc"=NULL WHERE "Id"={uid}""")
-    assert not expect("GET",f"/api/users/learning-tracks/{tid}/progress",200,token=student)["Categories"][0]["IsLocked"]
-    expect("GET",f"/api/users/learning-tracks/{tid}/categories/{category}/problems",200,token=student)
-    expect("GET",f"/api/problems/{pid}",200,token=student)
+    assert all(not x["IsLocked"] for x in expect("GET",f"/api/users/learning-tracks/{tid}/progress",200,token=student)["Categories"])
+    for category,pid in zip(categories,problems):
+        expect("GET",f"/api/users/learning-tracks/{tid}/categories/{category}/problems",200,token=student)
+        expect("GET",f"/api/problems/{pid}",200,token=student)
     sql(f"""UPDATE "Users" SET "SubscriptionType"='Free' WHERE "Id"={uid}""")
     assert expect("GET",f"/api/stages/{stage}/free-categories",200)["FreeCategoryIds"]==free
     expect("PUT","/api/users/learning-stage",200,{"StageId":stage1},student)
     expect("PUT",f"{root}/{tid}/publication",200,{"Revision":2,"Publish":False},admin)
     expect("PUT",f"{root}/{tid}/mapping",200,{"Revision":3,"CategoryIds":[],"SkillIds":[],"ProblemIds":[]},admin)
-    sql(f'DELETE FROM "Problems" WHERE "Id"={pid}; DELETE FROM "CurriculumSkills" WHERE "Id"={skill}; DELETE FROM "CurriculumDomains" WHERE "Id"={domain}')
-    print("PASS: university track Free access independent of stage-wide Free pair; Premium allowed; legacy stage catalog unchanged")
+    sql(f'DELETE FROM "Problems" WHERE "Id" IN ({",".join(map(str,problems))}); DELETE FROM "CurriculumSkills" WHERE "Id" IN ({",".join(map(str,skills))}); DELETE FROM "CurriculumDomains" WHERE "Id"={domain}; DELETE FROM "Categories" WHERE "Id" IN ({",".join(map(str,categories))})')
+    print("PASS: exactly two populated track categories are Free, third locked, Premium all, legacy stage catalog unchanged")
