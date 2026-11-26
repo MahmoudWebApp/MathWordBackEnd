@@ -193,6 +193,23 @@ public sealed partial class EditorialProblemsController:ControllerBase
                 HasOpenReview=db.CurriculumDraftItems.Any(d=>d.SourceProblemId==p.Id&&d.EditorialStatus!="Published"&&d.EditorialStatus!="Withdrawn")}).ToListAsync(ct);
         return Ok(new{Total=await q.CountAsync(ct),Items=items.Select(p=>new{p.Id,p.StageId,p.CategoryId,p.TitleAr,p.TitleEn,HasStructuredSolution=WizardProblemContract.HasStructuredSolution(p.EditorialDetailsJson),p.HasOpenReview,p.OpenDraftId})});
     }
+    // Read-only editorial preview. Never expose unrevealed hints or answer keys through learner APIs.
+    [HttpGet("bank/{problemId:int}/preview")]
+    public async Task<IActionResult> PreviewPublished(int problemId,CancellationToken ct)
+    {
+        if(await Actor(AccountRolePolicy.EditDrafts,false,ct) is null)return Forbid();
+        var p=await db.Problems.AsNoTracking().Include(x=>x.Options).SingleOrDefaultAsync(x=>x.Id==problemId,ct);
+        if(p is null)return NotFound();
+        WizardProblem? metadata=null;
+        if(!string.IsNullOrWhiteSpace(p.EditorialDetailsJson))
+        {
+            try {metadata=WizardProblemContract.Read(p.EditorialDetailsJson);}
+            catch(JsonException) { }
+        }
+        return Ok(new{p.Id,p.TitleAr,p.TitleEn,p.QuestionTextAr,p.QuestionTextEn,p.DetailedSolutionAr,p.DetailedSolutionEn,p.YoutubeSolutionUrl,
+            Options=p.Options.OrderBy(o=>o.Order).ThenBy(o=>o.Id).Select(o=>new{o.Id,o.LatexCode,o.IsCorrect}),
+            Hints=metadata?.Hints??Array.Empty<BilingualText>()});
+    }
     [HttpPost("amend/{problemId:int}")]
     public async Task<IActionResult> Amend(int problemId,CancellationToken ct)
     {
