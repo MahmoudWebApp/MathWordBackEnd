@@ -69,16 +69,34 @@ All 17 have one primary skill and four option keys in the observed records. Exis
 All five are existing structured problems with historical Published amendments, no open amendment. Existing source title and question are identical Arabic strings; preserve English title/question and all option IDs, flags, order, mappings and solution unless a reviewed editorial amendment explicitly changes content. Replace both Arabic title and question with the following exact text only after a supported wording amendment path is available:
 | Problem | Historical draft | Correct option ID | Proposed Arabic title and question |
 |---|---:|---:|---|
-|70|296|recheck|حل المعادلة $x+7=12$.|
+|70|296|271|حل المعادلة $x+7=12$.|
 |85|310|330|حل المعادلة $x+8=15$.|
 |100|324|389|حل المعادلة $x+9=18$.|
 |115|338|452|حل المعادلة $x+10=21$.|
 |130|352|511|حل المعادلة $x+11=24$.|
 
-At the read snapshot, all seven existing HasWordingHistory conditions were false for each of these five (attempts, progress, achievements, session attempts, diagram, student activity and JSON session membership). Recheck inside the authorized server transaction. Standard SameQuestion rejects changed stems; the held-wording importer also rejects existing structured metadata. Therefore do not use standard publish or held-wording import to bypass this. Development handoff: support a reviewed notation-only amendment for structured existing questions with source fingerprint, exact option identity, history guard/versioning, transaction lock and audit. No controller changes made in this content branch. Correct option ID for #70 must be rechecked against current options before use; this document is not an import manifest.
+At the read snapshot, all seven existing HasWordingHistory conditions were false for each of these five (attempts, progress, achievements, session attempts, diagram, student activity and JSON session membership). Recheck inside the authorized server transaction. Standard SameQuestion rejects changed stems; the held-wording importer also rejects existing structured metadata. Therefore do not use standard publish or held-wording import to bypass this. Development handoff: support a reviewed notation-only amendment for structured existing questions with source fingerprint, exact option identity, history guard/versioning, transaction lock and audit. No controller changes made in this content branch. Readback of #70 option order confirmed IDs 269,270,271,272 and correct ID 271; recheck before use. This document is not an import manifest.
 
 ## Next and blockers
 1. Reconcile live admin preview at wizard draft #400 and the nine exact IDs above; verify revision, source fingerprint and supported publishing, serial bounded writes only; stop on any mismatch/pressure. Record persisted state after each write.
 2. Fix the two specific draft inconsistencies and run full reviewed contract; resolve wording-only path with platform conversation. Do not create duplicate amendments.
 3. Refresh live and draft comparison and stable track crosswalk before authoring more; prioritize already-linked grade 1, 2, 6, 9 gaps and previously reviewed 230 bulk candidates, 111 launch candidates (overlapping sets; not additive). No new candidates this pass because existing pending material has not been reconciled through official preview. Do not publish to old university course scopes.
 4. Publish or import only through supported authenticated editorial workflow. The connected read-only inspection does not supply an authenticated application Admin session. No production SQL mutation, no bypass of publication guards.
+
+## Expansion path: fresh reconciliation of 52 unpublished additions
+All 52 Draft revision 0 records were inspected for target tracks, direct category/primary-skill links and normalized AR/EN exact question matches against Problems and other open drafts. No exact matches returned (whitespace/case normalization only; this is not semantic clearance). 14 target old university course tracks: 972,983,1010–1021. Hold and crosswalk, not publish into those scopes. 38 target school grades, 29 lack at least one direct track/category or track/primary-skill link. Nine have both direct links: 965,971,992,993,995,997,1084,1086,1088. First six already have documented reasoning holds; last three require semantic and full contract review, not auto-approval. In particular 1084/1088 both produce difference 4 and 997 is already held for a related comparison family.
+11 additional wizard drafts (1083–1093) coexist with 41 remaining original staged additions. Do not re-import or overwrite. Ten contain questions, one (1093) is empty and held. Recomputed the ten answers; reviewed bilingual questions, four options and reasons, two hints, solution steps, formula and verification. All ten keyed answers agree. Each has only one structured step; split genuinely distinct operations where appropriate. Exact link screening is a conservative preflight, not the application's official validation.
+| Draft | Answer | Editorial/scope action |
+|---|---|---|
+|1083|15|Missing direct skill link; compare make-ten/join family with 984/996.|
+|1084|4|Both links present; compare difference family with 997/1088 and published corpus.|
+|1085|6|Missing skill link; compare missing-addend family with 986; formula should state unknown first.|
+|1086|14|Both links present; review semantic overlap with subtraction context in existing bank.|
+|1087|9+6|Missing skill link; second hint identifies sole matching option too directly; refine.|
+|1088|4|Both links present; compare difference/equalization family with 1084; do not publish both automatically.|
+|1089|60|Missing skill link; compare place-value family with 988.|
+|1090|58<61|Missing skill link; two wrong propositions 58>61 and 61<58 are equivalent. Replace one with an independent plausible misconception before approval and compare 998.|
+|1091|72|Missing skill link; second hint effectively supplies both digits in answer order; refine. Correct Arabic dual «عشرتان».|
+|1092|41|Missing skill link; explicitly list intermediate numbers 40,41,42 in solution, not hint.|
+|1093|none|Empty title/question/options/hints/solution as observed; category 3 and skill 16 not linked to grade 1. Do not publish, delete or duplicate. Coordinate with draft owner.|
+No draft writes or publications. Reconcile the live WizardJson content digest, current revision and review disposition through the authorized Admin path. Recheck links at publication. Prioritize existing reviewed, linked school material and the 230 bulk/111 launch offline proposals rather than accumulating a duplicate queue. A future category/skill link needs documented curriculum and platform coordination; no arbitrary link or new grade created.
