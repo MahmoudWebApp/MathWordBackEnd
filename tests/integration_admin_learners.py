@@ -319,6 +319,21 @@ def main():
                   "/api/admin/learners/999999/attempts"]:
         status, _ = api("GET", route, token=admin)
         assert status == 404, (route, status)
+    # A disposable student can be deleted after practice; their old token
+    # cannot access the profile, and another student is not removed.
+    disposable = student(73)
+    profile = expect("GET", "/api/users/profile", 200, token=disposable)
+    target = profile["Id"]
+    expect("PUT", "/api/users/learning-stage", 200, {"StageId": 1}, disposable)
+    assert submit(disposable, question_id, correct_option)[0] == 200
+    route = f"/api/admin/learners/{target}"
+    expect("DELETE", route, 400, token=admin)
+    expect("DELETE", route+"?confirm=true", 403, token=learner1)
+    expect("DELETE", route+"?confirm=true", 200, token=admin)
+    expect("GET", route, 404, token=admin)
+    assert api("GET", "/api/users/profile", token=disposable)[0] in (401,403,404)
+    expect("GET", f"/api/admin/learners/{first['Id']}", 200, token=admin)
+    student(73)  # same test email is reusable after permanent deletion
     print("PASS: admin learner directory, role privacy, manual Premium grants and revocation, stage history and attempts")
 
 if __name__ == "__main__":
