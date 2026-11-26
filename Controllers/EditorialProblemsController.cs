@@ -143,8 +143,12 @@ public sealed partial class EditorialProblemsController:ControllerBase
         if(ownOnly)q=q.Where(x=>x.OwnerUserId==ActorId);
         if(activeOnly)q=q.Where(x=>x.EditorialStatus=="Draft"||x.EditorialStatus=="NeedsChanges"||x.EditorialStatus=="PendingReview"||x.EditorialStatus=="Approved");
         var items=await q.OrderByDescending(x=>x.Id).Skip((page-1)*30).Take(30)
-            .Select(x=>new{x.Id,x.OwnerUserId,x.Revision,Status=x.EditorialStatus,x.QuestionTextAr,x.QuestionTextEn,x.ReviewNote,x.PublishedProblemId,x.SourceProblemId}).ToListAsync(ct);
-        return Ok(new{Total=await q.CountAsync(ct),Items=items});
+            .Select(x=>new{x.Id,x.OwnerUserId,x.Revision,Status=x.EditorialStatus,x.QuestionTextAr,x.QuestionTextEn,x.ReviewNote,x.PublishedProblemId,x.SourceProblemId,x.WizardJson}).ToListAsync(ct);
+        // Read only the existing page of wizard records; never expose draft JSON in list responses.
+        return Ok(new{Total=await q.CountAsync(ct),Items=items.Select(x=>{
+            var title=WizardProblemContract.Read(x.WizardJson!).Title;
+            return new{x.Id,x.OwnerUserId,x.Revision,x.Status,x.QuestionTextAr,x.QuestionTextEn,x.ReviewNote,x.PublishedProblemId,x.SourceProblemId,TitleAr=title?.Ar??"",TitleEn=title?.En??""};
+        })});
     }
     [HttpGet("{id:long}")]
     public async Task<IActionResult> Detail(long id,CancellationToken ct)
