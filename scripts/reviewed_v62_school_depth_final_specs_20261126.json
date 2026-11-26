@@ -1,0 +1,900 @@
+[
+  {
+    "track": 9,
+    "cat": 6,
+    "skill": 28,
+    "sk": "middle-inverse-function-evaluation",
+    "family": "quadratic-output-unattainable-real-input",
+    "title": {
+      "Ar": "قيمة غير ممكنة للدالة",
+      "En": "An unattainable function value"
+    },
+    "q": {
+      "Ar": "لدالة $f(x)=x^2+4$، أي قيمة من الخيارات لا يمكن أن تكون ناتجاً لأي مدخل حقيقي؟",
+      "En": "For $f(x)=x^2+4$, which listed value cannot be an output for any real input?"
+    },
+    "opts": [
+      "3",
+      "4",
+      "5",
+      "13"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "تتحقق عند x=0.",
+        "En": "Attained at x=0."
+      },
+      {
+        "Ar": "تتحقق عند x=1.",
+        "En": "Attained at x=1."
+      },
+      {
+        "Ar": "تتحقق عند x=3.",
+        "En": "Attained at x=3."
+      }
+    ],
+    "idea": {
+      "Ar": "مربع العدد الحقيقي غير سالب، لذلك لا يقل الناتج عن 4.",
+      "En": "A real square is nonnegative, so the output cannot be below four."
+    },
+    "formula": "x^2+4\\ge4",
+    "steps": [
+      {
+        "Ar": "$x^2=-1$",
+        "En": "$x^2=-1$"
+      },
+      {
+        "Ar": "$3<4$",
+        "En": "$3<4$"
+      }
+    ],
+    "sub": {
+      "Ar": "$3-4=-1$",
+      "En": "$3-4=-1$"
+    },
+    "result": {
+      "Ar": "$3$",
+      "En": "$3$"
+    },
+    "verify": {
+      "Ar": "$f(0)=4$",
+      "En": "$f(0)=4$"
+    },
+    "hints": [
+      {
+        "Ar": "ما أصغر قيمة لمربع عدد حقيقي؟",
+        "En": "What is the smallest real square?"
+      },
+      {
+        "Ar": "قارن الخيارات بالحد الأدنى للناتج.",
+        "En": "Compare the choices with the minimum output."
+      }
+    ],
+    "error": {
+      "Ar": "تتحقق عند x=0.",
+      "En": "Attained at x=0."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 9,
+    "cat": 6,
+    "skill": 27,
+    "sk": "middle-quadratic-function-evaluation",
+    "family": "quadratic-evaluation-coefficient-sign-error",
+    "title": {
+      "Ar": "تصحيح تعويض في دالة تربيعية",
+      "En": "Correcting a quadratic evaluation"
+    },
+    "q": {
+      "Ar": "عند حساب $f(-2)$ للدالة $f(x)=-3x^2+5$، حصل طالب على 17. ما القيمة الصحيحة؟",
+      "En": "A pupil obtains 17 when evaluating $f(-2)$ for $f(x)=-3x^2+5$. What is the correct value?"
+    },
+    "opts": [
+      "17",
+      "-17",
+      "11",
+      "-7"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "حوّل المعامل السالب إلى موجب.",
+        "En": "Changes the negative coefficient to positive."
+      },
+      {
+        "Ar": "طرح 5 بدلاً من جمعها.",
+        "En": "Subtracts five instead of adding it."
+      },
+      {
+        "Ar": "ضرب −3 في −2 دون تربيع المدخل.",
+        "En": "Multiplies −3 by −2 without squaring the input."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "نربع المدخل أولاً ثم نضربه في المعامل السالب.",
+      "En": "Square the input first, then multiply by the negative coefficient."
+    },
+    "formula": "f(-2)=-3(-2)^2+5",
+    "steps": [
+      {
+        "Ar": "$-12+5=-7$",
+        "En": "$-12+5=-7$"
+      }
+    ],
+    "sub": {
+      "Ar": "$-3\\cdot4+5$",
+      "En": "$-3\\cdot4+5$"
+    },
+    "result": {
+      "Ar": "$-7$",
+      "En": "$-7$"
+    },
+    "verify": {
+      "Ar": "$f(2)=-7$",
+      "En": "$f(2)=-7$"
+    },
+    "hints": [
+      {
+        "Ar": "السالب في المعامل خارج مربع المدخل.",
+        "En": "The negative coefficient is outside the input square."
+      },
+      {
+        "Ar": "احسب مربع −2 قبل الضرب.",
+        "En": "Square negative two before multiplying."
+      }
+    ],
+    "error": {
+      "Ar": "حوّل المعامل السالب إلى موجب.",
+      "En": "Changes the negative coefficient to positive."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 4,
+    "cat": 21,
+    "skill": 97,
+    "sk": "p-fractions-decimals-fraction-models",
+    "family": "fraction-model-shaded-parts-split-each-cell",
+    "title": {
+      "Ar": "تجزئة أجزاء مظللة",
+      "En": "Subdividing shaded parts"
+    },
+    "q": {
+      "Ar": "شريط مقسم إلى 5 أجزاء متساوية، اثنان منها مظللان. إذا قُسم كل جزء إلى 3 أجزاء متساوية دون تغيير التظليل، فكم جزءاً صغيراً يصبح مظللاً؟",
+      "En": "A strip is divided into five equal parts, two shaded. Every part is subdivided into three equal pieces without changing the shading. How many small pieces are shaded?"
+    },
+    "opts": [
+      "6",
+      "2",
+      "3",
+      "15"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "هذا عدد الأجزاء المظللة قبل التقسيم.",
+        "En": "The shaded count before subdivision."
+      },
+      {
+        "Ar": "هذا عدد القطع في جزء واحد فقط.",
+        "En": "The pieces in just one original part."
+      },
+      {
+        "Ar": "هذا عدد القطع جميعاً.",
+        "En": "The total number of pieces."
+      }
+    ],
+    "idea": {
+      "Ar": "كل جزء مظلل يصبح ثلاثة أجزاء مظللة.",
+      "En": "Each shaded part becomes three shaded pieces."
+    },
+    "formula": "2\\cdot3",
+    "steps": [
+      {
+        "Ar": "$2\\cdot3=6$",
+        "En": "$2\\cdot3=6$"
+      },
+      {
+        "Ar": "$5\\cdot3=15$",
+        "En": "$5\\cdot3=15$"
+      }
+    ],
+    "sub": {
+      "Ar": "$2\\cdot3$",
+      "En": "$2\\cdot3$"
+    },
+    "result": {
+      "Ar": "$6$",
+      "En": "$6$"
+    },
+    "verify": {
+      "Ar": "$6/15=2/5$",
+      "En": "$6/15=2/5$"
+    },
+    "hints": [
+      {
+        "Ar": "كم جزءاً مظللاً قبل التقسيم؟",
+        "En": "How many parts are shaded initially?"
+      },
+      {
+        "Ar": "كم قطعة صغيرة في كل جزء؟",
+        "En": "How many small pieces in each part?"
+      }
+    ],
+    "error": {
+      "Ar": "هذا عدد الأجزاء المظللة قبل التقسيم.",
+      "En": "The shaded count before subdivision."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 7,
+    "cat": 83,
+    "skill": 308,
+    "sk": "rational-arithmetic",
+    "family": "rational-mixed-sign-multiplication-repeated-factor",
+    "title": {
+      "Ar": "ضرب عدد عشري في كسر سالب",
+      "En": "Multiplying a decimal by a negative fraction"
+    },
+    "q": {
+      "Ar": "احسب $1.2\\times(-\\frac56)$.",
+      "En": "Evaluate $1.2\\times(-\\frac56)$."
+    },
+    "opts": [
+      "1",
+      "-0.2",
+      "-1.2",
+      "-1"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "أهمل السالب.",
+        "En": "Drops the negative sign."
+      },
+      {
+        "Ar": "حسب سدس 1.2 فقط مع سالب.",
+        "En": "Computes only negative one sixth of 1.2."
+      },
+      {
+        "Ar": "لم يطبق العامل الكسري.",
+        "En": "Does not apply the fractional factor."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "نحول العدد العشري إلى كسر ثم نختصر.",
+      "En": "Convert the decimal to a fraction and cancel."
+    },
+    "formula": "1.2=6/5",
+    "steps": [
+      {
+        "Ar": "$-30/30=-1$",
+        "En": "$-30/30=-1$"
+      }
+    ],
+    "sub": {
+      "Ar": "$(6/5)(-5/6)$",
+      "En": "$(6/5)(-5/6)$"
+    },
+    "result": {
+      "Ar": "$-1$",
+      "En": "$-1$"
+    },
+    "verify": {
+      "Ar": "$(-1)/(-5/6)=6/5$",
+      "En": "$(-1)/(-5/6)=6/5$"
+    },
+    "hints": [
+      {
+        "Ar": "اكتب 1.2 على صورة كسر.",
+        "En": "Write 1.2 as a fraction."
+      },
+      {
+        "Ar": "اختصر العوامل المشتركة.",
+        "En": "Cancel common factors."
+      }
+    ],
+    "error": {
+      "Ar": "أهمل السالب.",
+      "En": "Drops the negative sign."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 7,
+    "cat": 83,
+    "skill": 309,
+    "sk": "signed-operations",
+    "family": "signed-balance-two-withdrawals-and-deposit",
+    "title": {
+      "Ar": "رصيد بعد معاملات متتابعة",
+      "En": "Balance after consecutive transactions"
+    },
+    "q": {
+      "Ar": "رصيد حساب يساوي −12 وحدة نقدية. أودع صاحبه 25 وحدة ثم سحب 18 وحدة. ما الرصيد الجديد؟",
+      "En": "An account balance is −12 currency units. Its owner deposits 25 units and then withdraws 18. What is the new balance?"
+    },
+    "opts": [
+      "13",
+      "-55",
+      "-5",
+      "5"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "توقف بعد الإيداع.",
+        "En": "Stops after the deposit."
+      },
+      {
+        "Ar": "عامل الإيداع على أنه سحب.",
+        "En": "Treats the deposit as a withdrawal."
+      },
+      null,
+      {
+        "Ar": "عكس إشارة الناتج.",
+        "En": "Reverses the result sign."
+      }
+    ],
+    "idea": {
+      "Ar": "الإيداع زيادة والسحب نقصان.",
+      "En": "A deposit increases the balance and a withdrawal decreases it."
+    },
+    "formula": "-12+25-18",
+    "steps": [
+      {
+        "Ar": "$-12+25=13$",
+        "En": "$-12+25=13$"
+      },
+      {
+        "Ar": "$13-18=-5$",
+        "En": "$13-18=-5$"
+      }
+    ],
+    "sub": {
+      "Ar": "$13-18$",
+      "En": "$13-18$"
+    },
+    "result": {
+      "Ar": "$-5$",
+      "En": "$-5$"
+    },
+    "verify": {
+      "Ar": "$-5+18=13$",
+      "En": "$-5+18=13$"
+    },
+    "hints": [
+      {
+        "Ar": "أضف مبلغ الإيداع.",
+        "En": "Add the deposit."
+      },
+      {
+        "Ar": "اطرح مبلغ السحب.",
+        "En": "Subtract the withdrawal."
+      }
+    ],
+    "error": {
+      "Ar": "عكس إشارة الناتج.",
+      "En": "Reverses the result sign."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 7,
+    "cat": 22,
+    "skill": 98,
+    "sk": "m-statistics-distributions",
+    "family": "range-comparison-same-mean-different-spread",
+    "title": {
+      "Ar": "مقارنة انتشار مجموعتين",
+      "En": "Comparing two data spreads"
+    },
+    "q": {
+      "Ar": "المجموعة A هي 3،6،9، والمجموعة B هي 5،6،7. بكم يزيد مدى A على مدى B؟",
+      "En": "Set A is 3,6,9 and set B is 5,6,7. By how much does the range of A exceed the range of B?"
+    },
+    "opts": [
+      "6",
+      "4",
+      "0",
+      "2"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "هذا مدى A.",
+        "En": "This is the range of A."
+      },
+      null,
+      {
+        "Ar": "تساوي المتوسطين لا يعني تساوي المديين.",
+        "En": "Equal means do not imply equal ranges."
+      },
+      {
+        "Ar": "هذا مدى B.",
+        "En": "This is the range of B."
+      }
+    ],
+    "idea": {
+      "Ar": "نحسب مدى كل مجموعة من أكبر قيمة ناقص أصغر قيمة.",
+      "En": "Compute each range as maximum minus minimum."
+    },
+    "formula": "(9-3)-(7-5)",
+    "steps": [
+      {
+        "Ar": "$R_A=6$",
+        "En": "$R_A=6$"
+      },
+      {
+        "Ar": "$R_B=2$",
+        "En": "$R_B=2$"
+      },
+      {
+        "Ar": "$6-2=4$",
+        "En": "$6-2=4$"
+      }
+    ],
+    "sub": {
+      "Ar": "$6-2$",
+      "En": "$6-2$"
+    },
+    "result": {
+      "Ar": "$4$",
+      "En": "$4$"
+    },
+    "verify": {
+      "Ar": "$4+2=6$",
+      "En": "$4+2=6$"
+    },
+    "hints": [
+      {
+        "Ar": "حدد الأكبر والأصغر في A.",
+        "En": "Identify the maximum and minimum in A."
+      },
+      {
+        "Ar": "كرر للمجموعة B ثم قارن.",
+        "En": "Repeat for B, then compare."
+      }
+    ],
+    "error": {
+      "Ar": "تساوي المتوسطين لا يعني تساوي المديين.",
+      "En": "Equal means do not imply equal ranges."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 7,
+    "cat": 22,
+    "skill": 99,
+    "sk": "m-statistics-summary-measures",
+    "family": "median-two-middle-observations-sum-known",
+    "title": {
+      "Ar": "وسيط من مجموع القيمتين الوسطيتين",
+      "En": "Median from the middle pair sum"
+    },
+    "q": {
+      "Ar": "ست قيم مرتبة ترتيباً غير تناقصي. مجموع القيمتين الثالثة والرابعة يساوي 19. ما الوسيط؟",
+      "En": "Six observations are sorted in nondecreasing order. The third and fourth sum to 19. What is the median?"
+    },
+    "opts": [
+      "9.5",
+      "19",
+      "19/6",
+      "10"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "هذا المجموع لا متوسط القيمتين.",
+        "En": "This is the sum, not their average."
+      },
+      {
+        "Ar": "قسم على جميع القيم بدلاً من اثنتين.",
+        "En": "Divides by all six values rather than two."
+      },
+      {
+        "Ar": "قرّب دون طلب التقريب.",
+        "En": "Rounds without being asked."
+      }
+    ],
+    "idea": {
+      "Ar": "عندما يكون عدد القيم زوجياً، الوسيط متوسط القيمتين الوسطيتين.",
+      "En": "For an even count, the median is the average of the middle pair."
+    },
+    "formula": "M=(x_3+x_4)/2",
+    "steps": [
+      {
+        "Ar": "$19/2=9.5$",
+        "En": "$19/2=9.5$"
+      }
+    ],
+    "sub": {
+      "Ar": "$19/2$",
+      "En": "$19/2$"
+    },
+    "result": {
+      "Ar": "$9.5$",
+      "En": "$9.5$"
+    },
+    "verify": {
+      "Ar": "$2\\cdot9.5=19$",
+      "En": "$2\\cdot9.5=19$"
+    },
+    "hints": [
+      {
+        "Ar": "حدد موضعي الوسط في ست قيم.",
+        "En": "Locate the middle pair among six."
+      },
+      {
+        "Ar": "اقسم مجموعهما على اثنين.",
+        "En": "Divide their sum by two."
+      }
+    ],
+    "error": {
+      "Ar": "هذا المجموع لا متوسط القيمتين.",
+      "En": "This is the sum, not their average."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 4,
+    "cat": 33,
+    "skill": 4,
+    "sk": "primary-multiplication",
+    "family": "multiplication-recover-missing-digit-partial-product",
+    "title": {
+      "Ar": "رقم مفقود في عملية ضرب",
+      "En": "Missing digit in multiplication"
+    },
+    "q": {
+      "Ar": "عدد من رقمين، رقم عشراته 2. حاصل ضربه في 3 يساوي 84. ما رقم آحاده؟",
+      "En": "A two-digit number has tens digit 2. Its product with three is 84. What is its ones digit?"
+    },
+    "opts": [
+      "4",
+      "2",
+      "6",
+      "8"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "24×3=72.",
+        "En": "24×3=72."
+      },
+      {
+        "Ar": "22×3=66.",
+        "En": "22×3=66."
+      },
+      {
+        "Ar": "26×3=78.",
+        "En": "26×3=78."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "نسترجع العدد بقسمة 84 على 3 ثم نقرأ رقم الآحاد.",
+      "En": "Recover the number by dividing 84 by three, then read its ones digit."
+    },
+    "formula": "84/3=28",
+    "steps": [
+      {
+        "Ar": "$28=20+8$",
+        "En": "$28=20+8$"
+      }
+    ],
+    "sub": {
+      "Ar": "$84/3$",
+      "En": "$84/3$"
+    },
+    "result": {
+      "Ar": "$8$",
+      "En": "$8$"
+    },
+    "verify": {
+      "Ar": "$28\\cdot3=84$",
+      "En": "$28\\cdot3=84$"
+    },
+    "hints": [
+      {
+        "Ar": "اقسم 84 على 3.",
+        "En": "Divide eighty-four by three."
+      },
+      {
+        "Ar": "حدد رقم الآحاد في الناتج.",
+        "En": "Find the ones digit of the result."
+      }
+    ],
+    "error": {
+      "Ar": "24×3=72.",
+      "En": "24×3=72."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 4,
+    "cat": 33,
+    "skill": 6,
+    "sk": "primary-multiplicative-word-problems",
+    "family": "multiplication-reverse-repeated-delivery-missing-days",
+    "title": {
+      "Ar": "عدد أيام من مجموع توريدات",
+      "En": "Days from repeated deliveries"
+    },
+    "q": {
+      "Ar": "يصل إلى مكتبة 3 صناديق يومياً، في كل صندوق 8 كتب. بعد عدة أيام وصل 120 كتاباً. كم يوماً استمرت التوريدات؟",
+      "En": "A library receives three boxes daily, each containing eight books. After several days it has received 120 books. How many days did deliveries continue?"
+    },
+    "opts": [
+      "40",
+      "24",
+      "5",
+      "15"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "قسم على عدد الصناديق اليومي فقط.",
+        "En": "Divides by daily box count only."
+      },
+      {
+        "Ar": "هذا عدد الكتب في اليوم الواحد.",
+        "En": "This is the daily book count."
+      },
+      null,
+      {
+        "Ar": "قسم على كتب الصندوق فقط.",
+        "En": "Divides by books per box only."
+      }
+    ],
+    "idea": {
+      "Ar": "نحسب الكتب في اليوم ثم نقسم المجموع عليها.",
+      "En": "Calculate books per day and divide the total by that amount."
+    },
+    "formula": "d=120/(3\\cdot8)",
+    "steps": [
+      {
+        "Ar": "$3\\cdot8=24$",
+        "En": "$3\\cdot8=24$"
+      },
+      {
+        "Ar": "$120/24=5$",
+        "En": "$120/24=5$"
+      }
+    ],
+    "sub": {
+      "Ar": "$120/24$",
+      "En": "$120/24$"
+    },
+    "result": {
+      "Ar": "$5$",
+      "En": "$5$"
+    },
+    "verify": {
+      "Ar": "$5\\cdot3\\cdot8=120$",
+      "En": "$5\\cdot3\\cdot8=120$"
+    },
+    "hints": [
+      {
+        "Ar": "كم كتاباً يصل في يوم واحد؟",
+        "En": "How many books arrive per day?"
+      },
+      {
+        "Ar": "اقسم 120 على هذا العدد.",
+        "En": "Divide 120 by that count."
+      }
+    ],
+    "error": {
+      "Ar": "قسم على كتب الصندوق فقط.",
+      "En": "Divides by books per box only."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 4,
+    "cat": 21,
+    "skill": 298,
+    "sk": "fraction-operations",
+    "family": "fraction-subtraction-cross-whole-borrow",
+    "title": {
+      "Ar": "طرح كسر عبر الواحد",
+      "En": "Subtracting across a whole"
+    },
+    "q": {
+      "Ar": "لدى ليلى لتران من العصير. سكبت منهما $\\frac58$ لتر. كم لتراً بقي؟",
+      "En": "Layla has two litres of juice. She pours out five eighths of a litre. How many litres remain?"
+    },
+    "opts": [
+      "\\frac38",
+      "\\frac{11}8",
+      "\\frac{13}8",
+      "\\frac{21}8"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "طرح من لتر واحد فقط.",
+        "En": "Subtracts from just one litre."
+      },
+      null,
+      {
+        "Ar": "طرح ثلاثة أثمان بدلاً من خمسة.",
+        "En": "Subtracts three eighths instead of five."
+      },
+      {
+        "Ar": "جمع المقدارين بدلاً من طرحهما.",
+        "En": "Adds the quantities instead of subtracting."
+      }
+    ],
+    "idea": {
+      "Ar": "نكتب اللترين على صورة ستة عشر ثمناً ونطرح خمسة أثمان.",
+      "En": "Express two litres as sixteen eighths and subtract five eighths."
+    },
+    "formula": "2-5/8=16/8-5/8",
+    "sub": {
+      "Ar": "$16/8-5/8$",
+      "En": "$16/8-5/8$"
+    },
+    "steps": [
+      {
+        "Ar": "$2=16/8$",
+        "En": "$2=16/8$"
+      },
+      {
+        "Ar": "$(16-5)/8=11/8$",
+        "En": "$(16-5)/8=11/8$"
+      }
+    ],
+    "result": {
+      "Ar": "$\\frac{11}8$",
+      "En": "$\\frac{11}8$"
+    },
+    "verify": {
+      "Ar": "$11/8+5/8=2$",
+      "En": "$11/8+5/8=2$"
+    },
+    "hints": [
+      {
+        "Ar": "كم ثمناً في لترين؟",
+        "En": "How many eighths are in two litres?"
+      },
+      {
+        "Ar": "اطرح خمسة أثمان من ستة عشر ثمناً.",
+        "En": "Subtract five eighths from sixteen eighths."
+      }
+    ],
+    "error": {
+      "Ar": "لا تطرح الكسر من لتر واحد وتنسى اللتر الآخر.",
+      "En": "Do not subtract from one litre and forget the other."
+    },
+    "unit": {
+      "Ar": "لتر",
+      "En": "L"
+    }
+  },
+  {
+    "track": 4,
+    "cat": 21,
+    "skill": 112,
+    "sk": "p-fractions-decimals-fraction-comparisons",
+    "family": "fraction-comparison-same-whole-complement-order",
+    "title": {
+      "Ar": "ترتيب الأجزاء المتبقية",
+      "En": "Ordering remaining fractions"
+    },
+    "q": {
+      "Ar": "قرأ ثلاثة طلاب نسخاً متطابقة من كتاب. قرأ A مقدار $\\frac23$، وB مقدار $\\frac56$، وC مقدار $\\frac12$. من بقي له أكبر جزء غير مقروء؟ A: الطالب A؛ B: الطالب B؛ C: الطالب C؛ D: متساوون.",
+      "En": "Three pupils read identical copies of a book. A reads $\\frac23$, B reads $\\frac56$, and C reads $\\frac12$. Who has the greatest unread fraction? A: pupil A; B: pupil B; C: pupil C; D: all equal."
+    },
+    "opts": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "الباقي ثلث، وهو أصغر من نصف.",
+        "En": "One third remains, less than one half."
+      },
+      {
+        "Ar": "الباقي سدس، وهو الأصغر.",
+        "En": "One sixth remains, the smallest."
+      },
+      null,
+      {
+        "Ar": "الكسور المقروءة مختلفة ولذلك البواقي مختلفة.",
+        "En": "The read fractions differ, so the remaining fractions differ."
+      }
+    ],
+    "idea": {
+      "Ar": "أصغر جزء مقروء يترك أكبر جزء غير مقروء من الكتاب نفسه.",
+      "En": "The smallest read fraction leaves the largest unread fraction of the same book."
+    },
+    "formula": "R=1-F",
+    "sub": {
+      "Ar": "$R_A=1-2/3,\\quad R_B=1-5/6,\\quad R_C=1-1/2$",
+      "En": "$R_A=1-2/3,\\quad R_B=1-5/6,\\quad R_C=1-1/2$"
+    },
+    "steps": [
+      {
+        "Ar": "$R_A=1/3$",
+        "En": "$R_A=1/3$"
+      },
+      {
+        "Ar": "$R_B=1/6$",
+        "En": "$R_B=1/6$"
+      },
+      {
+        "Ar": "$R_C=1/2$",
+        "En": "$R_C=1/2$"
+      },
+      {
+        "Ar": "$1/2>1/3>1/6$",
+        "En": "$1/2>1/3>1/6$"
+      }
+    ],
+    "result": {
+      "Ar": "$C$",
+      "En": "$C$"
+    },
+    "verify": {
+      "Ar": "$1/2+1/2=1$",
+      "En": "$1/2+1/2=1$"
+    },
+    "hints": [
+      {
+        "Ar": "اطرح كل كسر مقروء من الواحد.",
+        "En": "Subtract each read fraction from one."
+      },
+      {
+        "Ar": "قارن الكسور المتبقية.",
+        "En": "Compare remaining fractions."
+      }
+    ],
+    "error": {
+      "Ar": "المطلوب الجزء غير المقروء وليس الجزء المقروء.",
+      "En": "Compare unread, not read, portions."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  }
+]
