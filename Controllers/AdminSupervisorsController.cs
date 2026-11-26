@@ -95,6 +95,34 @@ public sealed class AdminSupervisorsController(AppDbContext db, IConfiguration c
         return Ok(new {Updated=true});
     }
 
+    // Development-account removal: explicit admin confirmation, no staff escalation.
+    [HttpDelete("{id:int}")]
+    public async Task<IActionResult> Delete(int id, [FromQuery] bool confirm, CancellationToken ct)
+    {
+        if (!confirm || id <= 0) return BadRequest(new { Message = "DeletionConfirmationRequired" });
+        if (AdminId <= 0 || AdminId == id || !await db.Users.AsNoTracking().AnyAsync(x => x.Id == AdminId &&
+            x.IsActive && x.Role == AccountRolePolicy.LegacyAdmin, ct)) return Forbid();
+        await using var tx = await db.Database.BeginTransactionAsync(ct);
+        try
+        {
+            var target = await db.Users.FromSqlInterpolated($@"SELECT * FROM ""Users"" WHERE ""Id""={id} FOR UPDATE").SingleOrDefaultAsync(ct);
+            if (target is null || target.Role != AccountRolePolicy.Supervisor) return NotFound();
+            if (await db.CurriculumDraftItems.AnyAsync(x => x.OwnerUserId == id &&
+                x.EditorialStatus != "Published" && x.EditorialStatus != "Withdrawn", ct))
+                return Conflict(new { Message = "SupervisorHasOpenEditorialWork" });
+            await db.PlatformActivityEvents.Where(x => x.ActorUserId == id).ExecuteDeleteAsync(ct);
+            db.Users.Remove(target);
+            Audit(id, "SupervisorDeleted");
+            await db.SaveChangesAsync(ct);
+            await tx.CommitAsync(ct);
+            return Ok(new { Deleted = true, SupervisorId = id });
+        }
+        catch (DbUpdateException e) when (e.InnerException is Npgsql.PostgresException { SqlState: "23503" })
+        { return Conflict(new { Message = "SupervisorHasProtectedHistory" }); }
+        catch (Npgsql.PostgresException e) when (e.SqlState == "23503")
+        { return Conflict(new { Message = "SupervisorHasProtectedHistory" }); }
+    }
+
     [HttpPost("{id:int}/invite")]
     public async Task<IActionResult> Invite(int id,InviteRequest request,CancellationToken ct)
     {
