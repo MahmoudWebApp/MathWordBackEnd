@@ -214,6 +214,10 @@ def verify_tracks(admin, student, uid, stage1, stage2):
     sql(f"""UPDATE "Users" SET "SubscriptionType"='Free' WHERE "Id"={uid}""")
     practice=f"/api/users/learning-tracks/{tid}/categories/{category}/problems"
     assert expect("GET",practice,200,token=student)["Items"][0]["Id"]==pid
+    next_route=f"/api/users/learning-tracks/{tid}/categories/{category}/next?afterProblemId={pid}"
+    assert expect("GET",next_route,200,token=student)["Problem"] is None
+    expect("GET",next_route,401)
+    expect("GET",f"/api/users/learning-tracks/{tid}/categories/{category}/next?afterProblemId=0",400,token=student)
     detail=expect("GET",f"/api/problems/{pid}",200,token=admin)
     option=next(x["Id"] for x in detail["Options"] if x["IsCorrect"])
     assert expect("GET",f"/api/problems/{pid}",200,token=student)["PracticeScopeId"]==tid
@@ -235,6 +239,7 @@ def verify_tracks(admin, student, uid, stage1, stage2):
     assert all(x["ProblemsCount"]==x["CategoriesCount"]==x["SkillsCount"]==x["FreeProblemsCount"]==1 for x in public_tracks)
     expect("PUT","/api/users/learning-track",200,{"TrackId":oid},student)
     expect("GET",practice,403,token=student)
+    expect("GET",next_route,403,token=student)
     assert expect("GET",f"/api/users/learning-tracks/{oid}/progress",200,token=student)["Solved"]==0
     expect("POST","/api/users/favorite/toggle",200,{"ProblemId":pid,"IsFavorite":True},student)
     wrong_option=next(x["Id"] for x in detail["Options"] if not x["IsCorrect"])
