@@ -113,7 +113,8 @@ def verify_sessions(admin, learner, other, stage):
     assert all(c["StageId"]==stage and c["CategoryId"]==5 for c in scoped["Categories"])
     assert scoped["GuidedAttempts"]<=analytics["GuidedAttempts"]
     expect("GET","/api/users/premium-analytics?days=0",400,token=other)
-    expect("GET","/api/users/premium-analytics?trackId=999999",404,token=other)
+    expect("GET","/api/users/premium-analytics?trackId=999999",400,token=other)
+    assert analytics["FilterStageId"]==stage and analytics.get("FilterTrackId") is None
     expect("GET","/api/users/premium-analytics/export.pdf?days=999",400,token=other)
     old_badges=expect("GET","/api/users/achievements",200,token=other)
     assert old_badges["UniqueSolved"]==mine["SolvedProblems"]

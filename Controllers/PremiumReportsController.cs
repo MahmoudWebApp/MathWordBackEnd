@@ -92,7 +92,8 @@ namespace MathWorldAPI.Controllers
 
             var tracks=HttpContext.RequestServices.GetRequiredService<LearningTrackService>();
             var track=await tracks.ActiveAsync(stage.Id,user.CurrentTrackId,cancellationToken);
-            if(tracks.Enabled&&track is null)return (null,Conflict(new{Message="CurrentGradeRequired"}));
+            if(tracks.Enabled&&track is null&&await tracks.VisibleTracks().AnyAsync(t=>t.StageId==stage.Id,cancellationToken))
+                return (null,Conflict(new{Message="CurrentGradeRequired"}));
             var scope=track is null?_db.Problems.AsNoTracking().Where(p=>p.StageId==stage.Id):tracks.ValidProblems(track.Id);
             var categoriesQuery=_db.Categories.AsNoTracking().Where(c=>c.StageId==stage.Id);
             if(track is not null)categoriesQuery=categoriesQuery.Where(c=>scope.Any(p=>p.CategoryId==c.Id));

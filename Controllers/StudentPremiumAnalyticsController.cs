@@ -202,7 +202,10 @@ public sealed class StudentPremiumAnalyticsController : ControllerBase
         if(!selected.CurrentStageId.HasValue)return (null,Conflict(new{Message="CurrentGradeRequired"}));
         var tracks=HttpContext.RequestServices.GetRequiredService<LearningTrackService>();
         var track=await tracks.ActiveAsync(selected.CurrentStageId,selected.CurrentTrackId,ct);
-        if(tracks.Enabled&&track is null)return (null,Conflict(new{Message="CurrentGradeRequired"}));
+        // Legacy stages with no published grade still have a valid stage-only scope.
+        // Once grades exist, do not expose a stage-wide report to an unplaced student.
+        if(tracks.Enabled&&track is null&&await tracks.VisibleTracks().AnyAsync(t=>t.StageId==selected.CurrentStageId,ct))
+            return (null,Conflict(new{Message="CurrentGradeRequired"}));
         if((requested.StageId.HasValue&&requested.StageId!=selected.CurrentStageId)||
             (requested.TrackId.HasValue&&requested.TrackId!=track?.Id))
             return (null,BadRequest(new{Message="CurrentGradeReportOnly"}));

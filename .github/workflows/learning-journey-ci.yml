@@ -5,6 +5,10 @@ on:
     paths:
       - 'Program.cs'
       - 'Controllers/LearningJourneyController.cs'
+      - 'Controllers/StudentAchievementsController.cs'
+      - 'Services/StudentBadgeRules.cs'
+      - 'Controllers/StudentPremiumAnalyticsController.cs'
+      - 'Controllers/PremiumReportsController.cs'
       - 'Controllers/LearningTracksController.cs'
       - 'Controllers/AdminLearningTracksController.cs'
       - 'Services/LearningTrackService.cs'
