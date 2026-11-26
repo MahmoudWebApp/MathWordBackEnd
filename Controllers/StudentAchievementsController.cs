@@ -49,7 +49,7 @@ public sealed class StudentAchievementsController : ControllerBase
         var permanentEnabled=HttpContext.RequestServices.GetRequiredService<IConfiguration>()
             .GetValue<bool>("LearningSessions:Enabled");
         var activeStages=_db.UserProgresses.AsNoTracking().Where(p=>p.UserId==userId&&p.IsSolved)
-            .Select(p=>p.Problem.StageId);
+            .Select(p=>new{StageId=p.Problem.StageId, p.ProblemId}).Distinct().Select(p=>p.StageId);
         var permanentStages=_db.PermanentProblemAchievements.AsNoTracking().Where(p=>p.UserId==userId)
             .Select(p=>p.StageId);
         var solvedByStage = await (permanentEnabled?permanentStages:activeStages)
@@ -61,30 +61,64 @@ public sealed class StudentAchievementsController : ControllerBase
         var stageCount = await _db.EducationalStages.AsNoTracking().CountAsync(ct);
 
         // First two stage milestones are Free; advanced ones are Premium.
-        var badges = Milestones.Select((m, index) => new
-        {
-            Key = $"stage_{stageId}_{m.Key}",
-            m.TitleAr, m.TitleEn,
-            RequiredSolved = m.Count,
-            IsAvailable = index < 2 || allBadgesEnabled,
-            Earned = (index < 2 || allBadgesEnabled) && solved >= m.Count,
-            CurrentProgress = Math.Min(solved, m.Count)
-        }).ToList();
+        var badges = Milestones.Select((m, index) => StudentBadgeRules.Create(
+            $"stage_{stageId}_{m.Key}",m.TitleAr,m.TitleEn,m.Count,solved,index < 2 || allBadgesEnabled,
+            "solved","medal",$"حل {m.Count} مسألة مختلفة في المرحلة الحالية.",
+            $"Solve {m.Count} distinct problems in the current stage.")).ToList();
 
-        // A real cross-stage milestone requires solving at least one distinct
-        // problem in EVERY existing stage. It never appears earned from mere signup.
-        badges.Add(new
-        {
-            Key = "all_stages_explorer",
-            TitleAr = "مستكشف جميع المراحل",
-            TitleEn = "All-Stage Explorer",
-            RequiredSolved = stageCount,
-            IsAvailable = allBadgesEnabled,
-            Earned = allBadgesEnabled && stageCount > 0 && stagesWithSolved >= stageCount,
-            CurrentProgress = Math.Min(stagesWithSolved, stageCount)
-        });
+        badges.Add(StudentBadgeRules.Create("all_stages_explorer","مستكشف جميع المراحل","All-Stage Explorer",
+            stageCount,stagesWithSolved,allBadgesEnabled,"stages","globe",
+            "حل مسألة واحدة على الأقل في كل مرحلة.","Solve at least one problem in every stage."));
 
-        var next = badges.FirstOrDefault(m => m.IsAvailable && !m.Earned);
+        // Grade awards use the selected visible track and its actual answer
+        // history, not stage totals or membership alone. Never infer old
+        // stage-only activity as belonging to a particular grade.
+        var tracks=HttpContext.RequestServices.GetRequiredService<LearningTrackService>();
+        var track=await tracks.ActiveAsync(student.CurrentStageId,student.CurrentTrackId,ct);
+        if(student.CurrentStageId.HasValue&&(!tracks.Enabled||track is not null))
+        {
+            var scope=track is null?_db.Problems.AsNoTracking().Where(p=>p.StageId==stageId):tracks.ValidProblems(track.Id);
+            var trackId=track?.Id;
+            var practiceScope=trackId??0;
+            var ordinary=_db.ProblemAttempts.AsNoTracking().Where(a=>a.UserId==userId&&a.PracticeScopeId==practiceScope&&
+                scope.Any(p=>p.Id==a.ProblemId));
+            var guided=from a in _db.LearningSessionAttempts.AsNoTracking()
+                       join session in _db.LearningSessions.AsNoTracking() on a.SessionId equals session.Id
+                       where session.UserId==userId&&session.StageId==stageId&&
+                           (!trackId.HasValue||session.TrackId==trackId)&&scope.Any(p=>p.Id==a.ProblemId)
+                       select a;
+            var progress=TrackPractice.For(_db,practiceScope).AsNoTracking()
+                .Where(p=>p.UserId==userId&&scope.Any(q=>q.Id==p.ProblemId));
+            var solvedIds=progress.Where(p=>p.IsSolved).Select(p=>p.ProblemId)
+                .Union(ordinary.Where(a=>a.IsOfficial&&a.IsCorrect).Select(a=>a.ProblemId));
+            var independent=ordinary.Where(a=>a.IsOfficial&&a.IsCorrect&&a.AttemptNumber==1&&!a.UsedHint).Select(a=>a.ProblemId);
+            var days=ordinary.Select(a=>a.SubmittedAt.Date);
+            if(permanentEnabled)
+            {
+                solvedIds=solvedIds.Union(guided.Where(a=>a.IsCorrect).Select(a=>a.ProblemId));
+                independent=independent.Union(guided.Where(a=>a.IsCorrect&&a.AttemptNumber==1&&!a.UsedHint).Select(a=>a.ProblemId));
+                days=days.Union(guided.Select(a=>a.SubmittedAtUtc.Date));
+                if(track is null)
+                    solvedIds=solvedIds.Union(_db.PermanentProblemAchievements.AsNoTracking()
+                        .Where(a=>a.UserId==userId&&scope.Any(p=>p.Id==a.ProblemId)).Select(a=>a.ProblemId));
+            }
+            var categoryTotals=await scope.GroupBy(p=>p.CategoryId).Select(g=>new{Id=g.Key,Total=g.Count()}).ToListAsync(ct);
+            var categorySolved=await scope.Where(p=>solvedIds.Contains(p.Id)).GroupBy(p=>p.CategoryId)
+                .Select(g=>new{Id=g.Key,Total=g.Count()}).ToListAsync(ct);
+            var total=categoryTotals.Sum(c=>c.Total);
+            var completed=categoryTotals.Count(c=>c.Total>0&&categorySolved.Any(s=>s.Id==c.Id&&s.Total==c.Total));
+            var mastered=await progress.Where(p=>p.MasteryStatus=="Mastered").Select(p=>p.ProblemId).Distinct().CountAsync(ct);
+            var firstTry=await independent.Distinct().CountAsync(ct);
+            var activityDays=await days.Distinct().ToListAsync(ct);
+            var prefix=trackId.HasValue?$"track_{trackId}_":$"stage_{stageId}_";
+            var gradeNameAr=track?.NameAr??"المرحلة الحالية";
+            var gradeNameEn=track?.NameEn??"current stage";
+            badges.AddRange(StudentBadgeRules.GradeBadges(prefix,gradeNameAr,gradeNameEn,total,
+                categorySolved.Sum(c=>c.Total),mastered,completed,categoryTotals.Count,firstTry,
+                StudentBadgeRules.LongestStreak(activityDays),allBadgesEnabled,trackId.HasValue));
+        }
+
+        var next = badges.FirstOrDefault(m => m.Unit=="solved"&&m.IsAvailable && !m.Earned);
         return Ok(new
         {
             StageId = stageId,
@@ -92,7 +126,7 @@ public sealed class StudentAchievementsController : ControllerBase
             ScoreBasis = permanentEnabled ? "PermanentAchievements" : "ActiveProgress",
             EarnedCount = badges.Count(b => b.Earned),
             TotalBadges = badges.Count,
-            NextMilestone = next?.Key == "all_stages_explorer" ? (int?)null : next?.RequiredSolved,
+            NextMilestone = next?.RequiredSolved,
             Badges = badges
         });
     }

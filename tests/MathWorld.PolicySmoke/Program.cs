@@ -347,6 +347,18 @@ catch (ArgumentOutOfRangeException) { }
 Console.WriteLine("PASS: scheduled discount UTC boundaries, disabling, usage caps and safe monetary calculations.");
 
 
+
+// Achievement criteria must never award Premium or empty-catalog milestones.
+var gradeBadges = MathWorldAPI.Services.StudentBadgeRules.GradeBadges("track_9_","الصف","grade",21,11,5,1,3,10,7,true,true);
+Assert(gradeBadges.Single(b=>b.Key.EndsWith("grade_scholar")).Earned,"Odd grade total rounds up to the next whole problem.");
+Assert(!gradeBadges.Single(b=>b.Key.EndsWith("grade_champion")).Earned,"Partial completion is not a grade championship.");
+Assert(!gradeBadges.Single(b=>b.Key.EndsWith("grade_master")).Earned,"Correct solves are not mastery.");
+var freeGradeBadges = MathWorldAPI.Services.StudentBadgeRules.GradeBadges("track_9_","الصف","grade",21,21,21,3,3,10,30,false,true);
+Assert(freeGradeBadges.Count(b=>b.Earned)==1&&freeGradeBadges.Single(b=>b.Earned).Key.EndsWith("week_streak"),"Only the explicitly Free streak can be earned without Premium.");
+Assert(!MathWorldAPI.Services.StudentBadgeRules.GradeBadges("track_1_","الصف","grade",0,0,0,0,0,0,0,true,true).Any(b=>b.Earned),"Empty grade cannot earn a badge.");
+var streakStart = new DateTime(2026,1,1,0,0,0,DateTimeKind.Utc);
+Assert(MathWorldAPI.Services.StudentBadgeRules.LongestStreak(new[]{streakStart,streakStart,streakStart.AddDays(1),streakStart.AddDays(3)})==2,"Duplicate attempts and broken days cannot inflate streaks.");
+
 var workbookReport = new StudentPremiumAnalyticsController.StudentAnalyticsReport(
     DateTime.UtcNow, 1, 1, 2, 1, 1, 1, 10, 42,
     new[]
