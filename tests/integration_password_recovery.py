@@ -92,6 +92,8 @@ def main():
         return int(sql(f"""SELECT COUNT(*) FROM "EmailOutbox" WHERE "UserId"={uid} AND "TemplateKey"='{key}' AND "State"='Pending' AND "Locale"='en'"""))
     expect("POST",f"/api/admin/notifications/learners/{uid}",200,notice,admin_token)
     assert queued("announcement")==1
+    expect("POST",f"/api/admin/notifications/learners/{uid}",200,{**notice,"IncludeOptionalEmail":False},admin_token)
+    assert queued("announcement")==1
     manual=f"/api/admin/notifications/email/learners/{uid}"
     expect("POST",manual,403,notice,student_token)
     manual_result=expect("POST",manual,202,notice,admin_token)

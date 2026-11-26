@@ -28,11 +28,13 @@ def verify_reviewed_batch(admin, student, all_tracks):
     categories={row["CategoryId"]:stage for stage,row in rows}
     cat_ids=",".join(map(str,categories))
     expected_count=len(rows)
-    # Explicitly create the two missing identities via the same admin endpoint.
+    # Seed legacy catalog identities in the disposable DB only. Production
+    # creation is locked; exercise that boundary explicitly.
     new_tracks=[]
     for code in ('numerical-analysis','mathematical-optimization'):
-        created=expect('POST','/api/admin/learning-tracks',201,{'StageId':4,'Code':code,'Kind':'course','NameAr':'مساق تجريبي','NameEn':code,'SortOrder':99},admin)
-        new_tracks.append({'Track':created})
+        expect('POST','/api/admin/learning-tracks',409,{'StageId':4,'Code':code,'Kind':'course','NameAr':'مساق تجريبي','NameEn':code,'SortOrder':99},admin)
+        tid=int(sql(f"""INSERT INTO "LearningTracks" ("StageId","Code","Kind","NameAr","NameEn","DescriptionAr","DescriptionEn","SortOrder","IsPublished","Revision") VALUES (4,{literal(code)},'course','مساق تجريبي',{literal(code)},'','',99,false,0) RETURNING "Id" """).splitlines()[0])
+        new_tracks.append(next(x for x in expect('GET','/api/admin/learning-tracks',200,token=admin)["Items"] if x["Track"]["Id"]==tid))
     all_tracks=all_tracks+new_tracks
     assert expected_count+manifest["ExcludedCount"]==773 and len(groups)==19
     assert len({row["ProblemId"] for _,row in rows})==expected_count
@@ -115,6 +117,9 @@ def verify_tracks(admin, student, uid, stage1, stage2):
     assert expect("GET",f"/api/stages/{stage1}/tracks",200)["Items"]==[]
     assert expect("GET","/api/users/learning-track",200,token=student).get("TrackId") is None
     expect("GET",root,403,token=student)
+    expect("POST","/api/admin/stages",409,{"NameAr":"اختبار","NameEn":"Test","Order":99},admin)
+    expect("DELETE",f"/api/admin/stages/{stage1}",409,token=admin)
+    assert sql(f'SELECT COUNT(*) FROM "EducationalStages" WHERE "Id"={stage1}')=="1"
     expect("POST",root+"/reviewed-draft-batch",403,{"Confirm":False},student)
     expect("POST",root+"/reviewed-draft-batch",400,{"Confirm":True},admin)
     # The production manifest is not valid against this disposable fixture.

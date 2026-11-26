@@ -1446,54 +1446,17 @@ namespace MathWorldAPI.Controllers
         }
 
         /// <summary>
-        /// Creates a new educational stage.
+        /// Rejects creation: the educational stage catalog is fixed.
         /// </summary>
         /// <param name="dto">
         /// Educational stage data.
         /// </param>
         /// <returns>
-        /// The ID of the created stage.
+        /// A conflict response; existing stage metadata remains editable.
         /// </returns>
         [HttpPost("stages")]
-        [ProducesResponseType(
-            typeof(ApiResponse<object>),
-            StatusCodes.Status200OK)]
-        public async Task<IActionResult> CreateStage(
-            [FromBody] StageDto dto)
-        {
-            var language =
-                LanguageHelper.GetLanguageFromRequest(Request);
-
-            var stage =
-                new EducationalStage
-                {
-                    NameAr =
-                        dto.NameAr.Trim(),
-
-                    NameEn =
-                        dto.NameEn.Trim(),
-
-                    Order =
-                        Math.Max(0, dto.Order)
-                };
-
-            _context.EducationalStages.Add(stage);
-
-            await _context.SaveChangesAsync();
-
-            _logger.LogInformation(
-                "Educational stage {StageId} was created.",
-                stage.Id);
-
-            return Ok(
-                LanguageHelper.SuccessResponse(
-                    new
-                    {
-                        stage.Id
-                    },
-                    "StageCreated",
-                    language));
-        }
+        public IActionResult CreateStage([FromBody] StageDto dto)
+            => Conflict(new { Message = "FixedEducationalStages" });
 
         /// <summary>
         /// Updates an existing educational stage.
@@ -1568,71 +1531,11 @@ namespace MathWorldAPI.Controllers
         /// Educational stage ID.
         /// </param>
         /// <returns>
-        /// A successful response when the stage is deleted.
+        /// A conflict response; educational stages cannot be deleted.
         /// </returns>
         [HttpDelete("stages/{id:int}")]
-        [ProducesResponseType(
-            typeof(ApiResponse<object>),
-            StatusCodes.Status200OK)]
-        [ProducesResponseType(
-            typeof(ApiResponse<object>),
-            StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(
-            typeof(ApiResponse<object>),
-            StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> DeleteStage(
-            int id)
-        {
-            var language =
-                LanguageHelper.GetLanguageFromRequest(Request);
-
-            var stage =
-                await _context.EducationalStages
-                    .FirstOrDefaultAsync(item =>
-                        item.Id == id);
-
-            if (stage == null)
-            {
-                return NotFound(
-                    LanguageHelper.ErrorResponse<object>(
-                        "StageNotFound",
-                        language,
-                        StatusCodes.Status404NotFound));
-            }
-
-            var hasCategories =
-                await _context.Categories
-                    .AnyAsync(category =>
-                        category.StageId == id);
-
-            var hasProblems =
-                await _context.Problems
-                    .AnyAsync(problem =>
-                        problem.StageId == id);
-
-            if (hasCategories || hasProblems)
-            {
-                return BadRequest(
-                    LanguageHelper.ErrorResponse<object>(
-                        "StageHasProblems",
-                        language,
-                        StatusCodes.Status400BadRequest));
-            }
-
-            _context.EducationalStages.Remove(stage);
-
-            await _context.SaveChangesAsync();
-
-            _logger.LogInformation(
-                "Educational stage {StageId} was deleted.",
-                id);
-
-            return Ok(
-                LanguageHelper.SuccessResponse<object>(
-                    null,
-                    "StageDeleted",
-                    language));
-        }
+        public IActionResult DeleteStage(int id)
+            => Conflict(new { Message = "FixedEducationalStages" });
 
         // =====================================================================
         // MAINTENANCE ENDPOINTS
