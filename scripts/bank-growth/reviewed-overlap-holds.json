@@ -49,5 +49,9 @@
   "recover-cosine-from-tangent-and-quadrant": "V7 already reconstructs secant from tangent and a quadrant. Using the reciprocal function and other signs still tests the same identity reasoning.",
   "balance-pans-infer-added-two-equal-weights": "Subtracting two masses and halving to isolate one identical object repeats the main reconstruction step of the existing empty-crate mass family.",
   "compare-two-repair-batches-with-returned-items": "Live problem 1758 already compares two counts after an increase and decrease, then asks for the difference.",
-  "equal-storage-boxes-after-fixed-damaged-count": "Review overlap with existing two-step equation family (152,164,176,188,200); rearrangement and context alone may not justify another item."
+  "equal-storage-boxes-after-fixed-damaged-count": "Review overlap with existing two-step equation family (152,164,176,188,200); rearrangement and context alone may not justify another item.",
+  "remove-pairs-from-marked-seats": "Same start-count, remove or hide a subset, restore one, and count what remains visible or unmarked as V19 count-visible-faces-on-turning-cards. Prefer the counting task with explicit card states.",
+  "count-forward-steps": "Existing recorded bank exercises already count forward from a supplied starting mark with a fixed number of jumps, or backward by single steps. Reserve the three number-only variants until a distinct objective is established.",
+  "rectangle-border": "Existing problems 191 and 203 already give the two rectangle dimensions and require its boundary length. Wrapping a ribbon around the frame changes the story but leaves the calculation unchanged.",
+  "fraction-set": "Existing bank item asks for two thirds of a set of 18 balls. These variants apply the same divide-by-denominator then multiply-by-numerator reasoning to known set sizes."
 }

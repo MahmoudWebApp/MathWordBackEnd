@@ -1,5 +1,65 @@
 # MathWorld bank — Work / ChatGPT handoff
 Updated 2026-11-26. This is a shared handoff, not a scheduler or autonomous agent.
+## Offline editorial checkpoint — 2026-11-26, following #400–424 source check
+
+Parent 6fbe339679d50a66cde6b2dbd2226afd70d602b4 on PR 179, all three GitHub workflows green. This pass reviewed 67 existing expansion candidates and completed the offline editorial read for the 25 staged amendments #400–424. Independently recalculated 92 answers from the stems and checked the keyed choices, four-option uniqueness, bilingual distractor explanations, hints, formulas, worked steps, units and verification. Compared exact stems with 749 distinct bilingual pairs recovered from the repository G1 amendment/gap manifests and inspected relevant Arabic and English retrieval results from the recorded production comparison and the local candidate catalog. Verified expansion track/category/skill links against the committed snapshot. The public read timed out, so production reads stopped. Admin was unavailable in this run. The previous scoped check of Draft revision 0 is dated evidence. Current status/revision, full live/draft duplicates, displayed math and server preview require a fresh authorized check. Authored 0, published 0.
+
+### Expansion decisions
+
+Family names below are content keys without the leading `growth-` and the final variant suffix. Values for multiple variants follow suffix order. Items within the same family repeat a reasoning pattern and contribute only one concept to diversity.
+
+| Existing family or group | Independent answer(s) | Editorial result |
+|---|---|---|
+| v1-grade-1-hidden-part | 11, 7, 14 | Missing part within 20. Three routine practice variants. |
+| v4-grade-1-count-forward-steps | 7, 13, 17 | Hold all three. Recorded bank already has fixed-step counting from a supplied mark, including a forward number-line task. |
+| v1-grade-2-in-out, v4-grade-2-join-two-collections | 36, 49, 48 / 38, 58, 58 | Serial add/remove vs combine disjoint sets. Distractors distinguish stopping early or wrong sign from taking a part as the whole. |
+| v1-grade-2-hidden-sequence | 18, 24, 39 | Constant-difference reading is implied by the worksheet convention. Make the fixed-step rule explicit in a later revision if used as a standalone reasoning item. |
+| v1-grade-2-mixed-length | 235, 318, 462 cm | Hold all three for grade fit and Arabic plural. Cambridge first explicitly treats the relationship among metric length units in 3Gg.02; CCSS 4.MD.A.1 explicitly expresses larger units in smaller ones. Grade 2 length remains valid for measurement and additive comparison. |
+| v5-grade-2-length-comparison-gap | 11, 17, 21 cm | One routine subtraction family with same-unit lengths. The recorded mixed-unit ribbon comparison also requires conversion; keep coverage credit to one reasoning family. |
+| v1-grade-3-rectangle-border | 26, 26, 28 cm | Hold all three. Same dimensions-to-perimeter reasoning as live-source problems #191/#203 and further variants. |
+| v1-grade-3-rectangle-tiles, v4-grade-3-array-row-total | 42, 40, 60 cm² / 28, 40, 54 | Unit-square area vs counting objects in equal rows. Share an array calculation, so limit use together when selecting for diversity. |
+| v1-grade-3-equal-sharing | 6, 7, 9 pencils per pupil | Exact division, with missing group size. Unlike the recorded 96 pencils/7 students task, this omits remainder interpretation. Keep as a single foundation family. |
+| v1-grade-3-fraction-set | 12, 16, 12 | Hold all three. Recorded bank already asks for two thirds of 18 balls. Same known-whole fractional-group calculation. |
+| v15-grade-1-correct-double-touch-count, v16-grade-1-three-step-square-stair | 7, 6 | One-to-one counting correction vs construct and add row counts. |
+| v14-grade-2-count-unmarked-door-labels, v15-grade-2-count-printed-page-digits | 9, 17 | Pairing odd/even labels vs partitioning one- and two-digit labels. |
+| v15-grade-2-unfold-paired-holes-distance, v17-grade-2-length-invariant-under-slide | 6, 16 cm | Twice the distance to the crease vs translate both endpoints by the same amount. |
+| v15-grade-3-extra-perimeter-after-straight-cut, v15-grade-3-reconstruct-whole-from-three-fifths, v16-grade-3-fraction-of-a-group-of-half-panels | 12 cm, 20 squares, 1 panel | Two new cut edges, inverse fraction of a set, and change of unit from halves to whole panels. The cut solution gives a general argument followed by a midpoint check. |
+| v19 Grade 1 count-visible-faces, Grade 2 strip-length, Grade 3 regroup-into-tens, Grade 4 feasible-sticker-total | 3 stars, 12 cm, 32 ten-rods, 27 stickers | Track visible states, maximize a feasible length, regroup hundreds, reconstruct dividend from quotient and strictly bounded remainder. Sticker options contain only one feasible answer even though two totals are possible. |
+| v19-grade-4-combined-mode-neither-separate-mode | 4 | Hold for placement. Cambridge 4Ss.02–03 supports recording and comparing counts, while explicit mode is in 5Ss.03. Use the current grade only if local scope intentionally introduces mode. |
+| v19 Grade 7 equal-distance, Grade 8 map-scale, Grade 9 distinct-sums | 3, 0.24 km², 7 | Reflect through nonzero reference, convert both lengths before taking the product, deduplicate outcomes. Spinner probabilities are immaterial. |
+| v19 Grade 10 scalar-multiple, Grade 11 combinations, Grade 12 circle radius | −1/2, 12, 4 | Cancel vertical component and verify nonzero vector, count complement or disjoint pairs, use perpendicular distance to a horizontal tangent. |
+| v20 Grade 1 count-events, Grade 2 compare-lengths, Grade 6 remaining-fraction | 10 taps, 2 cm, 19/40 | Weighted event tally, recover both lengths from shifted origins, subtract the surviving allocated portion from the whole. Distinct from a double touch correction, translating a single fixed segment, and simply subtracting two unchanged allocations. |
+| v20-grade-1-remove-pairs-from-marked-seats | 7 seats | Hold. Counts the complement after removing and restoring members, as V19 Grade 1 visible-card states already does. |
+| v18 calculus double-integral, linear algebra diagonal norms, probability/statistics sample-mean variance | 2, 6, 5/3 | Cancel an odd term by symmetry, recover cross term from squared norms, enumerate six equally likely pairs. Uses the population distribution of the mean. |
+| v18 numerical analysis Newton halving, residual correction, matching quadratures | 4 steps, 3, 6 | Stopping threshold at a double root, recover a component from two residuals, equate quadrature estimates. The published V8 residual item asks for one residual and does not invert it to correct a component. |
+| v18-calculus-differentiability-by-oscillation-bound | 0 | Hold for localization. The English acronym DNE appears in a shared math-only option. Render a bilingual-friendly mathematical alternative before release. |
+
+The 10 semantic holds from four families enter `reviewed-overlap-holds.json`, so standard previews exclude them. Keep the five editorial holds above out of any reviewed manifest. The other 52 growth candidates passed this offline content check, of which 45 were selected by launch priority in the fixture replay. Do not count grouped practice variants as distinct launch skills.
+
+### Existing amendments #400–424
+
+The answers in the preceding checkpoint were rederived and match the source options. No verbatim duplicate bilingual stem inside the 25, but #400–409 and #410–419 form 10 matching pairs of numeric variants in the same order. They amend existing questions and add no distinct concepts or assignments. Preserve original choices and history. Record the following 13 draft holds pending a source-preserving editorial or classification decision.
+
+| Drafts | Release gate |
+|---|---|
+| 403, 413 | Two-step `ax+b=c`. The assigned grade 6 is earlier than Cambridge 7Ae.06 and CCSS 7.EE.B.4a; verify local progression before approving. |
+| 404, 414 | Substitution into an expression at grade 5 needs local scope justification against CCSS 6.EE.A.2c; Arabic solution should refer to the variable printed in the stem. |
+| 406, 416 | Triangle angle sum assigned to grade 5. Cambridge lists the explicit outcome at 6Gg.10 and CCSS at 8.G.A.5. Verify local progression. |
+| 407, 417 | Arabic stem needs the correct count form for metres. Keep source-bound wording intact pending authorized wording review. |
+| 408, 418 | Grade 4 mode needs progression review against Cambridge 5Ss.03. Replace the template literals “1 time(s)” and “0 time(s)” with natural bilingual wording. |
+| 412, 415 | Existing wording defects in Arabic currency for 11, and English “a 11 cm” respectively. Keep the source-bound stems intact pending authorized wording review. |
+| 423 | Existing skill hold. The task calculates a preimage by inverse operations (Cambridge 7As.03), but never asks for the inverse function. Verify the local skill definition and scope; no remapping here. |
+
+Remaining 12 amendments have no additional explicit hold in this offline pass. For #401/#411, make the inverse-factor computation visible, for example dividing 60+48 or 140 into known multiples. For #420, tie maximality explicitly to the last nonzero Euclidean remainder. For #422, state `gcd(8,10)=2` and use the identity to justify leastness. Cambridge Stage 7 explicitly places GCD/LCM at 7Ni.04 and Stage 8 includes quotients of powers at 8Ni.05. Median under Cambridge 5Ss.03 supports #409/#419, while CCSS puts its quantitative use in 6.SP.B.5c. Full rendered math, including stored doubled backslashes and RTL punctuation, stays a release gate for the 25. Keep primary skill and source signatures intact.
+
+### References and replay
+
+School scope used [Cambridge Primary 0096, objectives by stage](https://anancambridge.com/cam/Primary/0096%20Primary%20Mathematics%20Curriculum%20Framework%202020_tcm142-592530%20%281%29.pdf), [Cambridge Lower Secondary 0862, objectives by stage](https://cmapspublic2.ihmc.us/rid%3D1X0ZBJYZN-39RWRC-4F50/0862%20Lower%20Secondary%20Mathematics%20Curriculum%20Framework%202020_tcm143-592602.pdf), and [official CCSS mathematics standards](https://www.thecorestandards.org/assets/CCSSI_Math%20Standards.pdf). Use [OECD PISA 2022 Mathematics Framework](https://www.oecd.org/en/publications/pisa-2022-assessment-and-analytical-framework_dfe0bf9c-en/full-report/component-3.html) to assess formulation and interpretation in context, independently of grade placement. The feasibility, map-scale and event-count tasks add contextual constraints; repeated direct arithmetic is fluency practice. University scope used [MAA CUPM Course Area Reports](https://maa.org/resource/cupm-guide/), including [Calculus](https://maa.org/wp-content/uploads/2024/06/CalculusCASGReportFinal.pdf) and [Numerical Analysis](https://maa.org/wp-content/uploads/2024/06/Numerical-Analysis.pdf). [AMS MSC2020](https://mathscinet.ams.org/msc/pdfs/classifications2020.pdf) is a subject index, with 26 for real functions, 15 for linear algebra, 62 for statistics, and 65 for numerical analysis. It supplies subject scope alongside course-specific prerequisites.
+
+`launch-coverage` on the committed 2026-11-25 fixture returned 1,284 additional assignments including 33 missing links. Keep the newer dated production estimate of 1,231 in the continuation checkpoint below. `launch-prepare` on that fixture and the reconstructed 749-pair pool selected 193 candidates into four Confirm=false files. Bulk preview selected 317 into seven. The reviewed launch subset contained 45 in one Confirm=false file after applying the editorial holds. All local files checked against 50 rows and 1.8 MB. All 48 Node tests, 14 G1 scripts and the 92 independent calculations passed. These local previews are a replay and cannot substitute for a fresh authorized preview. No live data writes.
+
+Resume by checking head and writer, refreshing production inventory/draft state through authorized endpoints, and verifying #400–424 before any approval. New amendment math review starts at #425 after source ID and status are verified. Expansion review should skip the 67 content keys identified above unless revisiting an explicit hold. Of the original 327 active candidates, 260 remain unread in this pass; 10 are now mechanically excluded and five more have editorial holds. Verify open/published state and retry status after the read timeout before any production action.
+
 ## Amendment review checkpoint — 2026-11-26
 Read-only mathematical and source-integrity review of existing staged amendments #400–424, all Draft revision 0 at the observed snapshot (not approval or publication). The earlier five and twenty newly reviewed expected answers:
 | Draft | Source | Independent answer |
