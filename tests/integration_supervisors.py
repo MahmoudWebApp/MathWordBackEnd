@@ -94,5 +94,20 @@ def main():
     assert sql(f'SELECT COUNT(*) FROM "Users" WHERE "Id"={removed_id}')=="0"
     expect("DELETE",f"{ROUTE}/{removed_id}?confirm=true",404,token=admin)
     expect("POST",ROUTE,201,{"FullName":"Recreated supervisor","Email":disposable_email},admin)
+    # Real earlier wizard fixtures include published and unpublished
+    # content owned by this disabled supervisor; no production rows touched.
+    owned_published=sql(f"""SELECT string_agg("Id"::text,',' ORDER BY "Id") FROM "CurriculumDraftItems" WHERE "OwnerUserId"={sid} AND "EditorialStatus"='Published'""")
+    owned_unpublished=sql(f"""SELECT COUNT(*) FROM "CurriculumDraftItems" WHERE "OwnerUserId"={sid} AND "EditorialStatus"<>'Published'""")
+    assert owned_published and int(owned_unpublished)>0
+    snapshot=sql(f"""SELECT string_agg("Id"::text||':'||"PublishedProblemId"::text,',' ORDER BY "Id") FROM "CurriculumDraftItems" WHERE "Id" IN ({owned_published})""")
+    before=sql('SELECT COUNT(*) FROM "Problems"')
+    expect("DELETE",f"{ROUTE}/{sid}",400,token=admin)
+    assert expect("DELETE",f"{ROUTE}/{sid}?confirm=true",200,token=admin)["Deleted"]
+    assert sql(f'SELECT COUNT(*) FROM "Users" WHERE "Id"={sid}')=="0"
+    assert sql(f'SELECT COUNT(*) FROM "CurriculumDraftItems" WHERE "OwnerUserId"={sid}')=="0"
+    assert sql(f"""SELECT string_agg("Id"::text||':'||"PublishedProblemId"::text,',' ORDER BY "Id") FROM "CurriculumDraftItems" WHERE "Id" IN ({owned_published}) AND "EditorialStatus"='Published'""")==snapshot
+    assert sql('SELECT COUNT(*) FROM "Problems"')==before
+    assert sql(f'SELECT COUNT(*) FROM "EmailOutbox" WHERE "UserId"={sid}')=="0"
+    print("PASS: removal of supervisor with real editorial history preserves published problem identities")
     print("PASS: managed staff invitation, password setup, supervisor endpoint boundary, permission revocation, disable and confirmed deletion")
 if __name__=="__main__": main()
