@@ -1,0 +1,904 @@
+[
+  {
+    "track": 3,
+    "cat": 33,
+    "skill": 5,
+    "sk": "primary-division",
+    "family": "division-minimum-extra-to-complete-group",
+    "title": {
+      "Ar": "إكمال مجموعة أخيرة",
+      "En": "Completing a final group"
+    },
+    "q": {
+      "Ar": "لدينا 34 ملصقاً. نريد تقسيمها إلى مجموعات من 6 ملصقات دون باقٍ. ما أقل عدد من الملصقات يجب إضافته؟",
+      "En": "There are 34 stickers. They must be divided into groups of six with none left over. What is the fewest stickers to add?"
+    },
+    "opts": [
+      "2",
+      "4",
+      "6",
+      "8"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "هذا الباقي قبل الإضافة.",
+        "En": "This is the original remainder."
+      },
+      {
+        "Ar": "إضافة مجموعة كاملة لا تزيل الباقي.",
+        "En": "Adding a full group leaves the remainder unchanged."
+      },
+      {
+        "Ar": "ليس أقل عدد ممكن.",
+        "En": "Not the minimum possible addition."
+      }
+    ],
+    "idea": {
+      "Ar": "نبحث عن المضاعف التالي للعدد 6.",
+      "En": "Find the next multiple of six."
+    },
+    "formula": "6\\cdot6=36",
+    "steps": [
+      {
+        "Ar": "$34=5\\cdot6+4$",
+        "En": "$34=5\\cdot6+4$"
+      },
+      {
+        "Ar": "$36-34=2$",
+        "En": "$36-34=2$"
+      }
+    ],
+    "sub": {
+      "Ar": "$36-34$",
+      "En": "$36-34$"
+    },
+    "result": {
+      "Ar": "$2$",
+      "En": "$2$"
+    },
+    "verify": {
+      "Ar": "$(34+2)/6=6$",
+      "En": "$(34+2)/6=6$"
+    },
+    "hints": [
+      {
+        "Ar": "كم يتبقى عند تقسيم 34 على 6؟",
+        "En": "What remains when 34 is divided by six?"
+      },
+      {
+        "Ar": "كم ينقص الباقي ليصبح ستة؟",
+        "En": "How many more make the remainder six?"
+      }
+    ],
+    "error": {
+      "Ar": "هذا الباقي قبل الإضافة.",
+      "En": "This is the original remainder."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 3,
+    "cat": 33,
+    "skill": 4,
+    "sk": "primary-multiplication",
+    "family": "multiplication-factor-order-three-equal-products",
+    "title": {
+      "Ar": "ضرب بعوامل مختلفة",
+      "En": "Different factors with equal products"
+    },
+    "q": {
+      "Ar": "أي حاصل ضرب يساوي $6\\times8$ ويستخدم العدد 4 عاملاً؟",
+      "En": "Which product equals $6\\times8$ and uses four as a factor?"
+    },
+    "opts": [
+      "4\\times6",
+      "4\\times8",
+      "4\\times10",
+      "4\\times12"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "يساوي 24.",
+        "En": "Equals 24."
+      },
+      {
+        "Ar": "يساوي 32.",
+        "En": "Equals 32."
+      },
+      {
+        "Ar": "يساوي 40.",
+        "En": "Equals 40."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "نحسب الناتج المطلوب ثم نقسمه على 4 لإيجاد العامل الآخر.",
+      "En": "Find the target product then divide by four to find the other factor."
+    },
+    "formula": "6\\cdot8=4\\cdot n",
+    "steps": [
+      {
+        "Ar": "$6\\cdot8=48$",
+        "En": "$6\\cdot8=48$"
+      },
+      {
+        "Ar": "$n=12$",
+        "En": "$n=12$"
+      }
+    ],
+    "sub": {
+      "Ar": "$48/4$",
+      "En": "$48/4$"
+    },
+    "result": {
+      "Ar": "$4\\times12$",
+      "En": "$4\\times12$"
+    },
+    "verify": {
+      "Ar": "$4\\cdot12=48$",
+      "En": "$4\\cdot12=48$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب حاصل الضرب الأول.",
+        "En": "Calculate the first product."
+      },
+      {
+        "Ar": "ابحث عن العدد الذي يعطي 48 عند ضربه في 4.",
+        "En": "Find the number that gives 48 when multiplied by four."
+      }
+    ],
+    "error": {
+      "Ar": "يساوي 24.",
+      "En": "Equals 24."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 3,
+    "cat": 33,
+    "skill": 6,
+    "sk": "primary-multiplicative-word-problems",
+    "family": "multiplication-two-choices-number-combinations",
+    "title": {
+      "Ar": "عدد التوليفات من اختيارين",
+      "En": "Counting combinations of two choices"
+    },
+    "q": {
+      "Ar": "يوجد 3 أنواع من الخبز و4 أنواع من الجبن. نختار نوع خبز واحداً ونوع جبن واحداً لكل شطيرة. كم شطيرة مختلفة يمكن تكوينها؟",
+      "En": "There are three bread types and four cheese types. Each sandwich uses one bread type and one cheese type. How many different sandwiches can be made?"
+    },
+    "opts": [
+      "3",
+      "4",
+      "12",
+      "7"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "اختار الخبز فقط.",
+        "En": "Chooses bread only."
+      },
+      {
+        "Ar": "اختار الجبن فقط.",
+        "En": "Chooses cheese only."
+      },
+      null,
+      {
+        "Ar": "جمع عددَي الاختيارات بدلاً من ضربهما.",
+        "En": "Adds the choice counts instead of multiplying."
+      }
+    ],
+    "idea": {
+      "Ar": "لكل نوع خبز أربعة اختيارات من الجبن.",
+      "En": "Each bread type has four cheese choices."
+    },
+    "formula": "3\\cdot4",
+    "steps": [
+      {
+        "Ar": "$4+4+4=12$",
+        "En": "$4+4+4=12$"
+      }
+    ],
+    "sub": {
+      "Ar": "$4+4+4$",
+      "En": "$4+4+4$"
+    },
+    "result": {
+      "Ar": "$12$",
+      "En": "$12$"
+    },
+    "verify": {
+      "Ar": "$12/3=4$",
+      "En": "$12/3=4$"
+    },
+    "hints": [
+      {
+        "Ar": "اختر نوع خبز واحداً وعدّ خيارات الجبن.",
+        "En": "Choose one bread type and count cheese choices."
+      },
+      {
+        "Ar": "كرر ذلك لكل أنواع الخبز.",
+        "En": "Repeat for all bread types."
+      }
+    ],
+    "error": {
+      "Ar": "جمع عددَي الاختيارات بدلاً من ضربهما.",
+      "En": "Adds the choice counts instead of multiplying."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 9,
+    "cat": 6,
+    "skill": 27,
+    "sk": "middle-quadratic-function-evaluation",
+    "family": "quadratic-evaluation-identify-equal-output-pair-shifted",
+    "title": {
+      "Ar": "مدخلان متساويا المخرج",
+      "En": "Inputs with equal outputs"
+    },
+    "q": {
+      "Ar": "لدالة $f(x)=(x-3)^2+1$، أي زوج من المدخلات يعطي قيمتين متساويتين للدالة؟",
+      "En": "For $f(x)=(x-3)^2+1$, which pair of inputs gives equal function values?"
+    },
+    "opts": [
+      "(3,5)",
+      "(1,5)",
+      "(1,4)",
+      "(0,3)"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "الناتجان 1 و5.",
+        "En": "The outputs are one and five."
+      },
+      null,
+      {
+        "Ar": "الناتجان 5 و2.",
+        "En": "The outputs are five and two."
+      },
+      {
+        "Ar": "الناتجان 10 و1.",
+        "En": "The outputs are ten and one."
+      }
+    ],
+    "idea": {
+      "Ar": "القيمتان المتساويتان في البعد عن 3 تعطيان المربع نفسه.",
+      "En": "Inputs equally distant from three give the same square."
+    },
+    "formula": "(1-3)^2=(5-3)^2",
+    "steps": [
+      {
+        "Ar": "$f(1)=4+1=5$",
+        "En": "$f(1)=4+1=5$"
+      },
+      {
+        "Ar": "$f(5)=4+1=5$",
+        "En": "$f(5)=4+1=5$"
+      }
+    ],
+    "sub": {
+      "Ar": "$(-2)^2=2^2$",
+      "En": "$(-2)^2=2^2$"
+    },
+    "result": {
+      "Ar": "$(1,5)$",
+      "En": "$(1,5)$"
+    },
+    "verify": {
+      "Ar": "$f(1)-f(5)=0$",
+      "En": "$f(1)-f(5)=0$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب الفرق بين كل مدخل و3.",
+        "En": "Find each input's difference from three."
+      },
+      {
+        "Ar": "قارن مربعي الفرقين.",
+        "En": "Compare the squared differences."
+      }
+    ],
+    "error": {
+      "Ar": "الناتجان 5 و2.",
+      "En": "The outputs are five and two."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 9,
+    "cat": 6,
+    "skill": 28,
+    "sk": "middle-inverse-function-evaluation",
+    "family": "inverse-affine-input-from-shifted-output",
+    "title": {
+      "Ar": "مدخل من قيمة دالة معدّلة",
+      "En": "Input from a modified output"
+    },
+    "q": {
+      "Ar": "إذا كانت $g(x)=3x+2$ و$2g(x)-5=17$، فما قيمة x؟",
+      "En": "If $g(x)=3x+2$ and $2g(x)-5=17$, find x."
+    },
+    "opts": [
+      "3",
+      "5",
+      "9",
+      "11"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "يعطي قيمة 29 للتعبير.",
+        "En": "Makes the expression equal 29."
+      },
+      {
+        "Ar": "يعطي قيمة 53 للتعبير.",
+        "En": "Makes the expression equal 53."
+      },
+      {
+        "Ar": "هذه قيمة الدالة المطلوبة لا المدخل.",
+        "En": "This is the required output, not the input."
+      }
+    ],
+    "idea": {
+      "Ar": "نسترجع قيمة الدالة أولاً ثم المدخل.",
+      "En": "Recover the function output first, then its input."
+    },
+    "formula": "2g(x)=22",
+    "steps": [
+      {
+        "Ar": "$3x+2=11$",
+        "En": "$3x+2=11$"
+      },
+      {
+        "Ar": "$3x=9$",
+        "En": "$3x=9$"
+      },
+      {
+        "Ar": "$x=3$",
+        "En": "$x=3$"
+      }
+    ],
+    "sub": {
+      "Ar": "$g(x)=11$",
+      "En": "$g(x)=11$"
+    },
+    "result": {
+      "Ar": "$3$",
+      "En": "$3$"
+    },
+    "verify": {
+      "Ar": "$2(3\\cdot3+2)-5=17$",
+      "En": "$2(3\\cdot3+2)-5=17$"
+    },
+    "hints": [
+      {
+        "Ar": "أضف 5 واقسم على 2.",
+        "En": "Add five and divide by two."
+      },
+      {
+        "Ar": "حل المعادلة في x.",
+        "En": "Solve the equation for x."
+      }
+    ],
+    "error": {
+      "Ar": "يعطي قيمة 29 للتعبير.",
+      "En": "Makes the expression equal 29."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 9,
+    "cat": 6,
+    "skill": 27,
+    "sk": "middle-quadratic-function-evaluation",
+    "family": "quadratic-output-order-negative-inputs",
+    "title": {
+      "Ar": "ترتيب مخرجات دالة",
+      "En": "Ordering function outputs"
+    },
+    "q": {
+      "Ar": "لدالة $f(x)=7-x^2$، أي مدخل من الخيارات يعطي أكبر قيمة للدالة؟",
+      "En": "For $f(x)=7-x^2$, which listed input gives the greatest output?"
+    },
+    "opts": [
+      "-4",
+      "2",
+      "3",
+      "-1"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "يعطي −9.",
+        "En": "Gives negative nine."
+      },
+      {
+        "Ar": "يعطي 3.",
+        "En": "Gives three."
+      },
+      {
+        "Ar": "يعطي −2.",
+        "En": "Gives negative two."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "كلما صغر مربع المدخل زادت قيمة الدالة.",
+      "En": "A smaller squared input gives a larger output."
+    },
+    "formula": "f(x)=7-x^2",
+    "steps": [
+      {
+        "Ar": "$f(-4)=-9$",
+        "En": "$f(-4)=-9$"
+      },
+      {
+        "Ar": "$f(2)=3$",
+        "En": "$f(2)=3$"
+      },
+      {
+        "Ar": "$f(3)=-2$",
+        "En": "$f(3)=-2$"
+      },
+      {
+        "Ar": "$f(-1)=6$",
+        "En": "$f(-1)=6$"
+      }
+    ],
+    "sub": {
+      "Ar": "$f(-1)=7-1$",
+      "En": "$f(-1)=7-1$"
+    },
+    "result": {
+      "Ar": "$-1$",
+      "En": "$-1$"
+    },
+    "verify": {
+      "Ar": "$6>3>-2>-9$",
+      "En": "$6>3>-2>-9$"
+    },
+    "hints": [
+      {
+        "Ar": "ربع المدخلات الأربعة.",
+        "En": "Square all four inputs."
+      },
+      {
+        "Ar": "اختر أصغر مربع.",
+        "En": "Choose the smallest square."
+      }
+    ],
+    "error": {
+      "Ar": "يعطي −9.",
+      "En": "Gives negative nine."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 4,
+    "cat": 21,
+    "skill": 298,
+    "sk": "fraction-operations",
+    "family": "fraction-addition-missing-addend-over-one",
+    "title": {
+      "Ar": "كسر مفقود في مجموع",
+      "En": "Missing fractional addend"
+    },
+    "q": {
+      "Ar": "ما الكسر الذي نضيفه إلى $\\frac58$ حتى نحصل على $\\frac98$؟",
+      "En": "What fraction must be added to $\\frac58$ to obtain $\\frac98$?"
+    },
+    "opts": [
+      "\\frac78",
+      "\\frac{14}8",
+      "\\frac12",
+      "\\frac14"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "لا يعطي المجموع المطلوب.",
+        "En": "Does not give the required sum."
+      },
+      {
+        "Ar": "جمع الكسرين بدلاً من طرحهما.",
+        "En": "Adds the fractions instead of subtracting."
+      },
+      null,
+      {
+        "Ar": "يعادل 2/8 فقط.",
+        "En": "Equals only two eighths."
+      }
+    ],
+    "idea": {
+      "Ar": "نطرح الكسر المعلوم من المجموع المطلوب.",
+      "En": "Subtract the known addend from the target sum."
+    },
+    "formula": "9/8-5/8",
+    "steps": [
+      {
+        "Ar": "$4/8=1/2$",
+        "En": "$4/8=1/2$"
+      }
+    ],
+    "sub": {
+      "Ar": "$(9-5)/8$",
+      "En": "$(9-5)/8$"
+    },
+    "result": {
+      "Ar": "$\\frac12$",
+      "En": "$\\frac12$"
+    },
+    "verify": {
+      "Ar": "$5/8+4/8=9/8$",
+      "En": "$5/8+4/8=9/8$"
+    },
+    "hints": [
+      {
+        "Ar": "اطرح البسطين لأن المقام مشترك.",
+        "En": "Subtract the numerators because denominators match."
+      },
+      {
+        "Ar": "بسّط أربعة أثمان.",
+        "En": "Simplify four eighths."
+      }
+    ],
+    "error": {
+      "Ar": "يعادل 2/8 فقط.",
+      "En": "Equals only two eighths."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 4,
+    "cat": 21,
+    "skill": 112,
+    "sk": "p-fractions-decimals-fraction-comparisons",
+    "family": "fraction-comparison-between-half-and-one",
+    "title": {
+      "Ar": "كسر بين حدين",
+      "En": "Fraction between two bounds"
+    },
+    "q": {
+      "Ar": "أي كسر أكبر من $\\frac12$ وأصغر من $\\frac34$؟",
+      "En": "Which fraction is greater than $\\frac12$ and less than $\\frac34$?"
+    },
+    "opts": [
+      "\\frac78",
+      "\\frac58",
+      "\\frac38",
+      "\\frac68"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "أكبر من ثلاثة أرباع.",
+        "En": "Above three quarters."
+      },
+      null,
+      {
+        "Ar": "أصغر من النصف.",
+        "En": "Below one half."
+      },
+      {
+        "Ar": "يساوي الحد الأعلى ولا يصغره.",
+        "En": "Equals the upper bound rather than being below it."
+      }
+    ],
+    "idea": {
+      "Ar": "نعبر عن الحدين بمقام ثمانية ونختار البسط الواقع بينهما.",
+      "En": "Express both bounds in eighths and choose a numerator between them."
+    },
+    "formula": "4/8<n/8<6/8",
+    "steps": [
+      {
+        "Ar": "$n=5$",
+        "En": "$n=5$"
+      }
+    ],
+    "sub": {
+      "Ar": "$4<n<6$",
+      "En": "$4<n<6$"
+    },
+    "result": {
+      "Ar": "$\\frac58$",
+      "En": "$\\frac58$"
+    },
+    "verify": {
+      "Ar": "$4/8<5/8<6/8$",
+      "En": "$4/8<5/8<6/8$"
+    },
+    "hints": [
+      {
+        "Ar": "حول النصف إلى أثمان.",
+        "En": "Convert one half to eighths."
+      },
+      {
+        "Ar": "حول ثلاثة أرباع إلى أثمان.",
+        "En": "Convert three quarters to eighths."
+      }
+    ],
+    "error": {
+      "Ar": "أصغر من النصف.",
+      "En": "Below one half."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 7,
+    "cat": 83,
+    "skill": 307,
+    "sk": "absolute-value",
+    "family": "absolute-value-sum-vs-absolute-sum",
+    "title": {
+      "Ar": "مقارنة مجموع القيم المطلقة",
+      "En": "Comparing absolute sums"
+    },
+    "q": {
+      "Ar": "كم تزيد قيمة $|-8|+|3|$ على قيمة $|-8+3|$؟",
+      "En": "By how much does $|-8|+|3|$ exceed $|-8+3|$?"
+    },
+    "opts": [
+      "6",
+      "0",
+      "5",
+      "11"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "افترض أن القيمة المطلقة توزع على الجمع دائماً.",
+        "En": "Assumes absolute value always distributes over addition."
+      },
+      {
+        "Ar": "هذه قيمة المقدار الثاني.",
+        "En": "This is the second expression's value."
+      },
+      {
+        "Ar": "هذه قيمة المقدار الأول.",
+        "En": "This is the first expression's value."
+      }
+    ],
+    "idea": {
+      "Ar": "نحسب كل تعبير مستقلاً ثم نطرح.",
+      "En": "Evaluate each expression separately, then subtract."
+    },
+    "formula": "(|-8|+|3|)-|-8+3|",
+    "steps": [
+      {
+        "Ar": "$8+3=11$",
+        "En": "$8+3=11$"
+      },
+      {
+        "Ar": "$|-5|=5$",
+        "En": "$|-5|=5$"
+      },
+      {
+        "Ar": "$11-5=6$",
+        "En": "$11-5=6$"
+      }
+    ],
+    "sub": {
+      "Ar": "$(8+3)-|-5|$",
+      "En": "$(8+3)-|-5|$"
+    },
+    "result": {
+      "Ar": "$6$",
+      "En": "$6$"
+    },
+    "verify": {
+      "Ar": "$5+6=11$",
+      "En": "$5+6=11$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب القيمتين المطلقتين المنفصلتين.",
+        "En": "Evaluate the separate absolute values."
+      },
+      {
+        "Ar": "اجمع داخل القيمة المطلقة الثانية أولاً.",
+        "En": "Add inside the second absolute value first."
+      }
+    ],
+    "error": {
+      "Ar": "افترض أن القيمة المطلقة توزع على الجمع دائماً.",
+      "En": "Assumes absolute value always distributes over addition."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 7,
+    "cat": 22,
+    "skill": 99,
+    "sk": "m-statistics-summary-measures",
+    "family": "mean-two-observations-symmetric-adjustment",
+    "title": {
+      "Ar": "متوسط بعد نقل مقدار",
+      "En": "Mean after transferring a quantity"
+    },
+    "q": {
+      "Ar": "متوسط ست قراءات يساوي 15. زادت إحدى القراءات بمقدار 4 ونقصت قراءة أخرى بالمقدار نفسه. ما المتوسط الجديد؟",
+      "En": "Six readings have mean 15. One reading increases by four and another decreases by the same amount. Find the new mean."
+    },
+    "opts": [
+      "11",
+      "19",
+      "90",
+      "15"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "طرح 4 من المتوسط.",
+        "En": "Subtracts four from the mean."
+      },
+      {
+        "Ar": "أضاف 4 إلى المتوسط.",
+        "En": "Adds four to the mean."
+      },
+      {
+        "Ar": "هذا المجموع لا المتوسط.",
+        "En": "This is the total, not the mean."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "مجموع القراءات وعددها لا يتغيران.",
+      "En": "Both total and count remain unchanged."
+    },
+    "formula": "S'=6\\cdot15+4-4",
+    "steps": [
+      {
+        "Ar": "$S'=90$",
+        "En": "$S'=90$"
+      },
+      {
+        "Ar": "$90/6=15$",
+        "En": "$90/6=15$"
+      }
+    ],
+    "sub": {
+      "Ar": "$90/6$",
+      "En": "$90/6$"
+    },
+    "result": {
+      "Ar": "$15$",
+      "En": "$15$"
+    },
+    "verify": {
+      "Ar": "$6\\cdot15=90$",
+      "En": "$6\\cdot15=90$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب صافي تغير المجموع.",
+        "En": "Find the net change in total."
+      },
+      {
+        "Ar": "هل تغير عدد القراءات؟",
+        "En": "Did the number of observations change?"
+      }
+    ],
+    "error": {
+      "Ar": "طرح 4 من المتوسط.",
+      "En": "Subtracts four from the mean."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 4,
+    "cat": 33,
+    "skill": 5,
+    "sk": "primary-division",
+    "family": "division-quotient-with-dividend-increase-by-divisor",
+    "title": {
+      "Ar": "تغير خارج القسمة مع الباقي نفسه",
+      "En": "Quotient change with unchanged remainder"
+    },
+    "q": {
+      "Ar": "عند قسمة 53 على 8 يكون الخارج 6 والباقي 5. إذا زاد المقسوم بمقدار 16 وبقي المقسوم عليه 8، فما خارج القسمة الجديد؟",
+      "En": "Dividing 53 by eight gives quotient six and remainder five. If the dividend increases by sixteen while the divisor stays eight, what is the new quotient?"
+    },
+    "opts": [
+      "7",
+      "10",
+      "8",
+      "6"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "حسب مجموعة واحدة فقط.",
+        "En": "Counts only one new group."
+      },
+      {
+        "Ar": "حسب أربع مجموعات إضافية.",
+        "En": "Adds four extra groups."
+      },
+      null,
+      {
+        "Ar": "لم يحسب المجموعتين الجديدتين.",
+        "En": "Ignores the two new groups."
+      }
+    ],
+    "idea": {
+      "Ar": "إضافة مضاعف المقسوم عليه تغير الخارج دون تغيير الباقي.",
+      "En": "Adding a multiple of the divisor changes the quotient but preserves the remainder."
+    },
+    "formula": "53+16=8(6+2)+5",
+    "steps": [
+      {
+        "Ar": "$6+2=8$",
+        "En": "$6+2=8$"
+      }
+    ],
+    "sub": {
+      "Ar": "$16/8=2$",
+      "En": "$16/8=2$"
+    },
+    "result": {
+      "Ar": "$8$",
+      "En": "$8$"
+    },
+    "verify": {
+      "Ar": "$8\\cdot8+5=69$",
+      "En": "$8\\cdot8+5=69$"
+    },
+    "hints": [
+      {
+        "Ar": "كم مجموعة كاملة في 16؟",
+        "En": "How many full groups fit in sixteen?"
+      },
+      {
+        "Ar": "أضفها إلى الخارج القديم.",
+        "En": "Add them to the old quotient."
+      }
+    ],
+    "error": {
+      "Ar": "لم يحسب المجموعتين الجديدتين.",
+      "En": "Ignores the two new groups."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  }
+]
