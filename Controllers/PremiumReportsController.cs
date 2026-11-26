@@ -81,7 +81,8 @@ namespace MathWorldAPI.Controllers
                     "PremiumRequired",
                     LanguageHelper.GetLanguageFromRequest(Request), 403)));
 
-            var selectedId = stageId ?? user.CurrentStageId;
+            var selectedId = user.CurrentStageId;
+            if(stageId.HasValue&&stageId!=selectedId)return (null, BadRequest(new{Message="CurrentGradeReportOnly"}));
             if (selectedId == null || selectedId < 1) return (null, BadRequest());
             var stage = await _db.EducationalStages.AsNoTracking()
                 .Where(s => s.Id == selectedId.Value)
@@ -91,6 +92,7 @@ namespace MathWorldAPI.Controllers
 
             var tracks=HttpContext.RequestServices.GetRequiredService<LearningTrackService>();
             var track=await tracks.ActiveAsync(stage.Id,user.CurrentTrackId,cancellationToken);
+            if(tracks.Enabled&&track is null)return (null,Conflict(new{Message="CurrentGradeRequired"}));
             var scope=track is null?_db.Problems.AsNoTracking().Where(p=>p.StageId==stage.Id):tracks.ValidProblems(track.Id);
             var categoriesQuery=_db.Categories.AsNoTracking().Where(c=>c.StageId==stage.Id);
             if(track is not null)categoriesQuery=categoriesQuery.Where(c=>scope.Any(p=>p.CategoryId==c.Id));
@@ -118,7 +120,7 @@ namespace MathWorldAPI.Controllers
                 }).ToListAsync(cancellationToken);
             var attempts = await _db.ProblemAttempts.AsNoTracking()
                 .Where(a => a.UserId == userId && scope.Any(q=>q.Id==a.ProblemId) &&
-                    a.IsOfficial)
+                    a.IsOfficial&&(!user.CurrentTrackId.HasValue||!tracks.Enabled||a.PracticeScopeId==user.CurrentTrackId.Value))
                 .GroupBy(a => a.Problem.CategoryId)
                 .Select(g => new { CategoryId = g.Key,
                     Points = g.Sum(a => a.PointsEarned) })
@@ -126,7 +128,13 @@ namespace MathWorldAPI.Controllers
 
             if(HttpContext.RequestServices.GetRequiredService<IConfiguration>().GetValue<bool>("LearningSessions:Enabled"))
                 attempts=await _db.PermanentProblemAchievements.AsNoTracking()
-                    .Where(a=>a.UserId==userId&&scope.Any(q=>q.Id==a.ProblemId))
+                    .Where(a=>a.UserId==userId&&scope.Any(q=>q.Id==a.ProblemId)&&
+                        (track==null||
+                         _db.ProblemAttempts.Any(p=>p.UserId==userId&&p.ProblemId==a.ProblemId&&p.PracticeScopeId==track.Id&&p.IsCorrect&&p.SubmittedAt==a.EarnedAtUtc)||
+                         (from sa in _db.LearningSessionAttempts
+                          join session in _db.LearningSessions on sa.SessionId equals session.Id
+                          where session.UserId==userId&&session.TrackId==track.Id&&sa.ProblemId==a.ProblemId&&sa.IsCorrect&&sa.SubmittedAtUtc==a.EarnedAtUtc
+                          select sa).Any()))
                     .GroupBy(a=>a.CategoryId).Select(g=>new{CategoryId=g.Key,Points=g.Sum(a=>a.Points)}).ToListAsync(cancellationToken);
 
             var localizedArabic =
