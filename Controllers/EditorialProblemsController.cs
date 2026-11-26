@@ -177,7 +177,7 @@ public sealed partial class EditorialProblemsController:ControllerBase
         if(!string.IsNullOrWhiteSpace(search)){var term=search.Trim();if(int.TryParse(term.TrimStart('#'),out var id))q=q.Where(p=>p.Id==id||p.TitleAr.Contains(term)||p.TitleEn.Contains(term));else q=q.Where(p=>p.TitleAr.ToLower().Contains(term.ToLower())||p.TitleEn.ToLower().Contains(term.ToLower())||p.QuestionTextAr.ToLower().Contains(term.ToLower())||p.QuestionTextEn.ToLower().Contains(term.ToLower()));}
         var items=await q.OrderBy(p=>p.StageId).ThenBy(p=>p.CategoryId).ThenBy(p=>p.Id).Skip((page-1)*30).Take(30)
             .Select(p=>new{p.Id,p.StageId,p.CategoryId,p.TitleAr,p.TitleEn,p.EditorialDetailsJson,
-                OpenDraftId=db.CurriculumDraftItems.Where(d=>d.WizardJson!=null&&d.SourceProblemId==p.Id&&d.EditorialStatus!="Published"&&d.EditorialStatus!="Withdrawn"&&(Admin||d.OwnerUserId==ActorId)).OrderByDescending(d=>d.Id).Select(d=>(long?)d.Id).FirstOrDefault(),
+                OpenDraftId=db.CurriculumDraftItems.Where(d=>d.WizardJson!=null&&d.SourceProblemId==p.Id&&d.EditorialStatus!="Published"&&d.EditorialStatus!="Withdrawn"&&(d.OwnerUserId==ActorId||(Admin&&db.Users.Any(u=>u.Id==d.OwnerUserId&&u.Role==AccountRolePolicy.LegacyAdmin)))).OrderByDescending(d=>d.Id).Select(d=>(long?)d.Id).FirstOrDefault(),
                 HasOpenReview=db.CurriculumDraftItems.Any(d=>d.SourceProblemId==p.Id&&d.EditorialStatus!="Published"&&d.EditorialStatus!="Withdrawn")}).ToListAsync(ct);
         return Ok(new{Total=await q.CountAsync(ct),Items=items.Select(p=>new{p.Id,p.StageId,p.CategoryId,p.TitleAr,p.TitleEn,HasStructuredSolution=WizardProblemContract.HasStructuredSolution(p.EditorialDetailsJson),p.HasOpenReview,p.OpenDraftId})});
     }
@@ -542,6 +542,11 @@ public sealed partial class EditorialProblemsController:ControllerBase
         if(await Actor(0,true,ct) is null)return Forbid();
         await db.Database.SqlQuery<int>($"SELECT 1 AS \"Value\" FROM pg_advisory_xact_lock({-987654319})").SingleAsync(ct);
         var d=await Lock(id,ct);if(d is null)return NotFound();
+        // Admin-owned drafts may publish directly. Supervisor submissions
+        // must actually be submitted before an administrator can publish.
+        if(d.EditorialStatus is ("Draft" or "NeedsChanges") &&
+            await db.Users.AnyAsync(u=>u.Id==d.OwnerUserId&&u.Role==AccountRolePolicy.Supervisor,ct))
+            return Conflict(new{Message="SupervisorSubmissionRequired"});
         var direct=input.DirectApproval&&d.EditorialStatus is ("Draft" or "PendingReview" or "NeedsChanges");
         var submit=direct&&d.EditorialStatus is ("Draft" or "NeedsChanges");
         var increments=1+(direct?1:0)+(submit?1:0);

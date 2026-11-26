@@ -72,6 +72,7 @@ def verify_wizard(admin,supervisor,sid):
     expect("POST",path+"/submit",400,{"Revision":0},supervisor)
     saved=expect("PUT",path,200,{"Revision":0,"Content":p},supervisor)
     assert saved["Revision"]==1 and saved["Content"]["TrackIds"]==[track]
+    expect("POST",path+"/publish",409,{"Revision":1,"Confirm":True,"DirectApproval":True,"Note":"Not submitted"},admin)
     expect("PUT",path,409,{"Revision":0,"Content":p},supervisor)
     expect("POST",path+"/review",403,{"Revision":1,"Confirm":True,"Note":"Reviewed"},supervisor)
     pending=expect("POST",path+"/submit",200,{"Revision":1},supervisor)
@@ -175,6 +176,11 @@ def verify_amendment(admin,supervisor,pid):
     d=expect("POST",f"{root}/amend/{pid}",201,{},supervisor)
     assert d["SourceProblemId"]==pid and d["Content"]["Solution"]["FormulaLatex"]=="a+b"
     expect("POST",f"{root}/amend/{pid}",409,{},admin)
+    bank=expect("GET",root+f"/bank?search={pid}",200,token=admin)
+    row=next(x for x in bank["Items"] if x["Id"]==pid)
+    assert row["HasOpenReview"] and row.get("OpenDraftId") is None
+    own=expect("GET",root+f"/bank?search={pid}",200,token=supervisor)
+    assert next(x for x in own["Items"] if x["Id"]==pid)["OpenDraftId"]==d["Id"]
     path=f"{root}/{d['Id']}"
     p=d["Content"]
     old=p["Question"]["En"];p["Question"]["En"]="Changed question"
