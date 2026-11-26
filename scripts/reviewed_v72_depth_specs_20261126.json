@@ -1,0 +1,1120 @@
+[
+  {
+    "track": 9,
+    "stage": 2,
+    "cat": 34,
+    "skill": 40,
+    "sk": "middle-similar-triangles",
+    "family": "similarity-angle-correspondence-from-order",
+    "title": {
+      "Ar": "زاوية متناظرة في مثلثين",
+      "En": "Corresponding angle in similar triangles"
+    },
+    "q": {
+      "Ar": "المثلثان $ABC$ و$PQR$ متشابهان، بالترتيب المذكور. إذا كانت زاويتا $A$ و$C$ تساويان 48° و72°، فما قياس الزاوية $Q$ بالدرجات؟",
+      "En": "Triangles $ABC$ and $PQR$ are similar in the stated order. Angles $A$ and $C$ are 48° and 72°. What is angle $Q$ in degrees?"
+    },
+    "opts": [
+      "48",
+      "72",
+      "60",
+      "120"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "هذه زاوية P.",
+        "En": "This is angle P."
+      },
+      {
+        "Ar": "هذه زاوية R.",
+        "En": "This is angle R."
+      },
+      null,
+      {
+        "Ar": "جمع الزاويتين المعطاتين.",
+        "En": "Adds the given angles."
+      }
+    ],
+    "idea": {
+      "Ar": "زاوية Q تناظر B، ومجموع زوايا المثلث 180 درجة.",
+      "En": "Q corresponds to B; triangle angles sum to 180 degrees."
+    },
+    "formula": "B=180-48-72",
+    "steps": [
+      {
+        "Ar": "$B=60$",
+        "En": "$B=60$"
+      },
+      {
+        "Ar": "$Q=B=60$",
+        "En": "$Q=B=60$"
+      }
+    ],
+    "sub": {
+      "Ar": "$B=180-48-72$",
+      "En": "$B=180-48-72$"
+    },
+    "result": {
+      "Ar": "$60$",
+      "En": "$60$"
+    },
+    "verify": {
+      "Ar": "$48+60+72=180$.",
+      "En": "$48+60+72=180$."
+    },
+    "hints": [
+      {
+        "Ar": "حدد الرأس المناظر للرأس Q.",
+        "En": "Identify the vertex corresponding to Q."
+      },
+      {
+        "Ar": "احسب الزاوية الثالثة من مجموع الزوايا.",
+        "En": "Find the third angle using the angle sum."
+      }
+    ],
+    "error": {
+      "Ar": "هذه زاوية P.",
+      "En": "This is angle P."
+    },
+    "unit": {
+      "Ar": "درجة",
+      "En": "degrees"
+    }
+  },
+  {
+    "track": 11,
+    "stage": 3,
+    "cat": 88,
+    "skill": 328,
+    "sk": "circles",
+    "family": "circle-power-classify-point-inside",
+    "title": {
+      "Ar": "موضع نقطة بالنسبة لدائرة",
+      "En": "Point relative to a circle"
+    },
+    "q": {
+      "Ar": "دائرة معادلتها $(x-2)^2+(y+1)^2=36$. أي نقطة تقع داخل الدائرة تماماً، لا على محيطها؟",
+      "En": "For the circle $(x-2)^2+(y+1)^2=36$, which point lies strictly inside, not on the circumference?"
+    },
+    "opts": [
+      "(8,-1)",
+      "(2,6)",
+      "(5,3)",
+      "(-5,-1)"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "بعدها عن المركز يساوي نصف القطر.",
+        "En": "Its distance equals the radius."
+      },
+      {
+        "Ar": "بعدها 7 أكبر من نصف القطر.",
+        "En": "Its distance is seven, larger than the radius."
+      },
+      null,
+      {
+        "Ar": "بعدها 7 أكبر من نصف القطر.",
+        "En": "Its distance is seven, larger than the radius."
+      }
+    ],
+    "idea": {
+      "Ar": "النقطة الداخلية تحقق أن مربع بعدها عن المركز أصغر من مربع نصف القطر.",
+      "En": "An interior point has squared distance from the center less than squared radius."
+    },
+    "formula": "(x-2)^2+(y+1)^2<36",
+    "steps": [
+      {
+        "Ar": "$(5-2)^2+(3+1)^2=9+16=25$",
+        "En": "$(5-2)^2+(3+1)^2=9+16=25$"
+      },
+      {
+        "Ar": "$25<36$",
+        "En": "$25<36$"
+      }
+    ],
+    "sub": {
+      "Ar": "$(x-2)^2+(y+1)^2<36$",
+      "En": "$(x-2)^2+(y+1)^2<36$"
+    },
+    "result": {
+      "Ar": "$(5,3)$",
+      "En": "$(5,3)$"
+    },
+    "verify": {
+      "Ar": "الخيارات الأخرى تعطي 36 و49 و49، فلا تقع داخل الدائرة تماماً.",
+      "En": "The other options give 36,49,49, so none lies strictly inside."
+    },
+    "hints": [
+      {
+        "Ar": "عوّض إحداثيي كل نقطة في الطرف الأيسر.",
+        "En": "Substitute each point into the left side."
+      },
+      {
+        "Ar": "ابحث عن قيمة أصغر تماماً من 36.",
+        "En": "Look for a value strictly below 36."
+      }
+    ],
+    "error": {
+      "Ar": "بعدها عن المركز يساوي نصف القطر.",
+      "En": "Its distance equals the radius."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 11,
+    "stage": 3,
+    "cat": 88,
+    "skill": 330,
+    "sk": "loci",
+    "family": "locus-equidistant-two-points-and-horizontal-line",
+    "title": {
+      "Ar": "تقاطع محل هندسي مع مستقيم",
+      "En": "Intersection of a locus and a line"
+    },
+    "q": {
+      "Ar": "تقع النقطة $P$ على المستقيم $y=3$، وتبعد المسافة نفسها عن $A=(1,0)$ و$B=(5,0)$. ما إحداثيا $P$؟",
+      "En": "Point $P$ lies on $y=3$ and is equally distant from $A=(1,0)$ and $B=(5,0)$. Find its coordinates."
+    },
+    "opts": [
+      "(3,3)",
+      "(3,0)",
+      "(1,3)",
+      "(5,3)"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "لا تقع على المستقيم المعطى.",
+        "En": "Not on the specified line."
+      },
+      {
+        "Ar": "بعدها عن A أصغر.",
+        "En": "Closer to A."
+      },
+      {
+        "Ar": "بعدها عن B أصغر.",
+        "En": "Closer to B."
+      }
+    ],
+    "idea": {
+      "Ar": "المحل الهندسي للنقاط المتساوية البعد هو المنصف العمودي، ونأخذ تقاطعه مع المستقيم المعطى.",
+      "En": "The equidistant locus is the perpendicular bisector; intersect it with the given line."
+    },
+    "formula": "(x-1)^2+9=(x-5)^2+9",
+    "steps": [
+      {
+        "Ar": "$8x=24$",
+        "En": "$8x=24$"
+      },
+      {
+        "Ar": "$x=3,\\quad y=3$",
+        "En": "$x=3,\\quad y=3$"
+      }
+    ],
+    "sub": {
+      "Ar": "$(x-1)^2+9=(x-5)^2+9$",
+      "En": "$(x-1)^2+9=(x-5)^2+9$"
+    },
+    "result": {
+      "Ar": "$(3,3)$",
+      "En": "$(3,3)$"
+    },
+    "verify": {
+      "Ar": "مربع كل من المسافتين عند $(3,3)$ يساوي 13.",
+      "En": "Both squared distances at $(3,3)$ equal 13."
+    },
+    "hints": [
+      {
+        "Ar": "اكتب مساواة مربعي المسافتين.",
+        "En": "Equate the squared distances."
+      },
+      {
+        "Ar": "استعمل قيمة y المعطاة.",
+        "En": "Use the given y-coordinate."
+      }
+    ],
+    "error": {
+      "Ar": "لا تقع على المستقيم المعطى.",
+      "En": "Not on the specified line."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 2,
+    "stage": 1,
+    "cat": 96,
+    "skill": 355,
+    "sk": "primary-shape-attributes-partition",
+    "family": "rectangle-cut-one-corner-new-boundary",
+    "title": {
+      "Ar": "قص زاوية من مستطيل",
+      "En": "Clipping a rectangle corner"
+    },
+    "q": {
+      "Ar": "نقص زاوية واحدة من مستطيل بقطعة مستقيمة تصل نقطتين داخل ضلعين متجاورين، ثم نزيل الجزء المثلث الصغير. كم ضلعاً للشكل المتبقي؟",
+      "En": "Clip one corner off a rectangle with a straight cut joining interior points of adjacent sides, then remove the small triangle. How many sides remain on the new shape?"
+    },
+    "opts": [
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "هذا عدد أضلاع القطعة المزالة.",
+        "En": "Counts the removed triangle."
+      },
+      {
+        "Ar": "لم يحسب ضلع القص الجديد.",
+        "En": "Misses the new cut side."
+      },
+      null,
+      {
+        "Ar": "حسب ضلع قص إضافياً غير موجود.",
+        "En": "Counts an extra cut side."
+      }
+    ],
+    "idea": {
+      "Ar": "تبقى الأضلاع الأصلية الأربعة، اثنان منها أقصر، ويضاف ضلع القص.",
+      "En": "All four original sides remain, two shortened, and the cut adds one side."
+    },
+    "formula": "4+1=5",
+    "steps": [
+      {
+        "Ar": "$5$",
+        "En": "$5$"
+      }
+    ],
+    "sub": {
+      "Ar": "$4+1=5$",
+      "En": "$4+1=5$"
+    },
+    "result": {
+      "Ar": "$5$",
+      "En": "$5$"
+    },
+    "verify": {
+      "Ar": "ضلعان كاملان وضلعان أقصر وضلع مائل: خمسة.",
+      "En": "Two full sides, two shortened sides and one slanted side: five."
+    },
+    "hints": [
+      {
+        "Ar": "تخيل المستطيل بعد إزالة ركنه.",
+        "En": "Imagine the rectangle without one corner."
+      },
+      {
+        "Ar": "عد الأضلاع القديمة وضلع القص الجديد.",
+        "En": "Count the old sides and the new cut side."
+      }
+    ],
+    "error": {
+      "Ar": "هذا عدد أضلاع القطعة المزالة.",
+      "En": "Counts the removed triangle."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 2,
+    "stage": 1,
+    "cat": 96,
+    "skill": 355,
+    "sk": "primary-shape-attributes-partition",
+    "family": "cube-corner-three-incident-faces",
+    "title": {
+      "Ar": "الأوجه عند رأس المكعب",
+      "En": "Faces meeting at a cube corner"
+    },
+    "q": {
+      "Ar": "نضع نقطة على رأس واحد من مكعب. كم وجهاً من أوجه المكعب يحتوي على هذا الرأس؟",
+      "En": "Mark one vertex of a cube. How many faces of the cube contain this vertex?"
+    },
+    "opts": [
+      "2",
+      "3",
+      "4",
+      "6"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "أهمل أحد الأوجه الملتقية عند الرأس.",
+        "En": "Misses one of the meeting faces."
+      },
+      null,
+      {
+        "Ar": "خلط بين حواف الوجه والأوجه عند الرأس.",
+        "En": "Confuses face edges with faces at a vertex."
+      },
+      {
+        "Ar": "حسب كل الأوجه، حتى البعيدة عن الرأس.",
+        "En": "Counts all faces including those away from the vertex."
+      }
+    ],
+    "idea": {
+      "Ar": "عند كل رأس للمكعب يلتقي وجه من كل اتجاه من الاتجاهات الثلاثة.",
+      "En": "At each cube vertex one face from each of three directions meets."
+    },
+    "formula": "1+1+1=3",
+    "steps": [
+      {
+        "Ar": "$3$",
+        "En": "$3$"
+      }
+    ],
+    "sub": {
+      "Ar": "$1+1+1=3$",
+      "En": "$1+1+1=3$"
+    },
+    "result": {
+      "Ar": "$3$",
+      "En": "$3$"
+    },
+    "verify": {
+      "Ar": "لا يمر أي من الأوجه المقابلة الثلاثة بالرأس المختار.",
+      "En": "None of the three opposite faces contains the selected vertex."
+    },
+    "hints": [
+      {
+        "Ar": "تخيل ركناً علوياً أمامياً لمكعب.",
+        "En": "Imagine a top front corner of a cube."
+      },
+      {
+        "Ar": "عد الوجه العلوي والأمامي والجانبي عنده.",
+        "En": "Count top, front and side faces at that corner."
+      }
+    ],
+    "error": {
+      "Ar": "أهمل أحد الأوجه الملتقية عند الرأس.",
+      "En": "Misses one of the meeting faces."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 2,
+    "stage": 1,
+    "cat": 96,
+    "skill": 355,
+    "sk": "primary-shape-attributes-partition",
+    "family": "square-partition-three-equal-strips-area-share",
+    "title": {
+      "Ar": "تجميع أجزاء متساوية",
+      "En": "Combining equal strips"
+    },
+    "q": {
+      "Ar": "قسمنا مربعاً إلى ثلاثة مستطيلات متساوية المساحة. لوّنا مستطيلين منهما. أي كسر يمثل الجزء الملوّن؟",
+      "En": "A square is divided into three rectangles of equal area. Two are colored. What fraction of the square is colored?"
+    },
+    "opts": [
+      "\\frac13",
+      "\\frac23",
+      "\\frac12",
+      "\\frac32"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "هذا كسر الجزء غير الملون.",
+        "En": "This is the uncolored fraction."
+      },
+      null,
+      {
+        "Ar": "افترض جزأين متساويين بدلاً من ثلاثة.",
+        "En": "Assumes two equal parts rather than three."
+      },
+      {
+        "Ar": "عكس البسط والمقام.",
+        "En": "Reverses numerator and denominator."
+      }
+    ],
+    "idea": {
+      "Ar": "المقام عدد الأجزاء المتساوية كلها، والبسط عدد الأجزاء الملونة.",
+      "En": "The denominator counts all equal parts; the numerator counts colored parts."
+    },
+    "formula": "\\frac{2}{3}",
+    "steps": [
+      {
+        "Ar": "$\\frac13+\\frac13=\\frac23$",
+        "En": "$\\frac13+\\frac13=\\frac23$"
+      }
+    ],
+    "sub": {
+      "Ar": "$\\frac{2}{3}$",
+      "En": "$\\frac{2}{3}$"
+    },
+    "result": {
+      "Ar": "$\\frac23$",
+      "En": "$\\frac23$"
+    },
+    "verify": {
+      "Ar": "$2/3+1/3=1$.",
+      "En": "$2/3+1/3=1$."
+    },
+    "hints": [
+      {
+        "Ar": "عد الأجزاء كلها أولاً.",
+        "En": "Count all equal parts first."
+      },
+      {
+        "Ar": "عد الأجزاء الملونة منها.",
+        "En": "Count the colored parts."
+      }
+    ],
+    "error": {
+      "Ar": "هذا كسر الجزء غير الملون.",
+      "En": "This is the uncolored fraction."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 1,
+    "stage": 1,
+    "cat": 1,
+    "skill": 2,
+    "sk": "primary-subtraction",
+    "family": "subtraction-missing-start-from-remainder",
+    "title": {
+      "Ar": "العدد قبل الأخذ",
+      "En": "Original count before removal"
+    },
+    "q": {
+      "Ar": "أخذت ليلى 4 مكعبات من علبة فبقي فيها 8 مكعبات. كم مكعباً كان في العلبة قبل الأخذ؟",
+      "En": "Layla took four cubes from a box, leaving eight. How many cubes were in the box before she took any?"
+    },
+    "opts": [
+      "4",
+      "8",
+      "12",
+      "16"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "طرح المأخوذ من المتبقي.",
+        "En": "Subtracts removed cubes from those remaining."
+      },
+      {
+        "Ar": "استعمل المتبقي وحده.",
+        "En": "Uses only the remaining count."
+      },
+      null,
+      {
+        "Ar": "ضاعف المتبقي بدلاً من إرجاع المأخوذ.",
+        "En": "Doubles the remainder instead of restoring what was taken."
+      }
+    ],
+    "idea": {
+      "Ar": "نرجع المكعبات المأخوذة إلى المتبقي لمعرفة العدد الأصلي.",
+      "En": "Restore the removed cubes to the remainder to find the original count."
+    },
+    "formula": "8+4=12",
+    "steps": [
+      {
+        "Ar": "$12-4=8$",
+        "En": "$12-4=8$"
+      }
+    ],
+    "sub": {
+      "Ar": "$8+4=12$",
+      "En": "$8+4=12$"
+    },
+    "result": {
+      "Ar": "$12$",
+      "En": "$12$"
+    },
+    "verify": {
+      "Ar": "عند طرح 4 من 12 يبقى 8 كما في السؤال.",
+      "En": "Subtracting four from twelve leaves eight as required."
+    },
+    "hints": [
+      {
+        "Ar": "ابدأ بعدد المكعبات الباقية.",
+        "En": "Start with the remaining cubes."
+      },
+      {
+        "Ar": "أضف المكعبات التي أُخذت.",
+        "En": "Add the removed cubes."
+      }
+    ],
+    "error": {
+      "Ar": "طرح المأخوذ من المتبقي.",
+      "En": "Subtracts removed cubes from those remaining."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 1,
+    "stage": 1,
+    "cat": 1,
+    "skill": 2,
+    "sk": "primary-subtraction",
+    "family": "subtraction-same-decrease-preserves-gap",
+    "title": {
+      "Ar": "فرق بعد نقصان متساوٍ",
+      "En": "Difference after equal removals"
+    },
+    "q": {
+      "Ar": "مع سارة 15 خرزة ومع نور 9 خرزات. أعطت كل واحدة منهما 3 خرزات لطفل آخر. كم خرزة تزيد سارة على نور الآن؟",
+      "En": "Sara has 15 beads and Nour has nine. Each gives three beads to another child. How many more beads does Sara now have than Nour?"
+    },
+    "opts": [
+      "3",
+      "6",
+      "9",
+      "12"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "طرح ثلاثة من الفرق رغم نقص المجموعتين بالتساوي.",
+        "En": "Subtracts three from the gap despite equal removals."
+      },
+      null,
+      {
+        "Ar": "حسب الفرق بإزالة ثلاث من مجموعة واحدة فقط.",
+        "En": "Removes three from only one group."
+      },
+      {
+        "Ar": "حسب عدد خرزات سارة المتبقية وحده.",
+        "En": "Uses Sara's remaining count alone."
+      }
+    ],
+    "idea": {
+      "Ar": "عندما تنقص المجموعتان بالمقدار نفسه يبقى الفرق ثابتاً.",
+      "En": "When both groups decrease by the same amount, their gap stays unchanged."
+    },
+    "formula": "(15-3)-(9-3)",
+    "steps": [
+      {
+        "Ar": "$12-6=6$",
+        "En": "$12-6=6$"
+      }
+    ],
+    "sub": {
+      "Ar": "$(15-3)-(9-3)$",
+      "En": "$(15-3)-(9-3)$"
+    },
+    "result": {
+      "Ar": "$6$",
+      "En": "$6$"
+    },
+    "verify": {
+      "Ar": "كان الفرق $15-9=6$ وبقي 6.",
+      "En": "The original difference was six and remains six."
+    },
+    "hints": [
+      {
+        "Ar": "احسب المتبقي مع كل واحدة.",
+        "En": "Find each remaining count."
+      },
+      {
+        "Ar": "اطرح العدد الأصغر من الأكبر.",
+        "En": "Subtract the smaller count from the larger."
+      }
+    ],
+    "error": {
+      "Ar": "طرح ثلاثة من الفرق رغم نقص المجموعتين بالتساوي.",
+      "En": "Subtracts three from the gap despite equal removals."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 1,
+    "stage": 1,
+    "cat": 97,
+    "skill": 356,
+    "sk": "primary-category-count-data",
+    "family": "category-count-combine-two-labels-ranking",
+    "title": {
+      "Ar": "دمج فئتين في سجل",
+      "En": "Combining two categories"
+    },
+    "q": {
+      "Ar": "في سجل الحيوانات: 3 قطط و4 كلاب و5 عصافير. نضع القطط والكلاب في فئة واحدة اسمها الحيوانات ذات الأربع أرجل. كم يزيد عدد هذه الفئة على عدد العصافير؟",
+      "En": "An animal record has three cats, four dogs and five birds. Cats and dogs are combined into a four-legged animal category. How many more are in that category than in the bird category?"
+    },
+    "opts": [
+      "1",
+      "2",
+      "7",
+      "12"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "قارن الكلاب وحدها بالطيور.",
+        "En": "Compares dogs alone with birds."
+      },
+      null,
+      {
+        "Ar": "حسب الفئة المدمجة دون المقارنة.",
+        "En": "Finds only the combined count."
+      },
+      {
+        "Ar": "جمع كل الحيوانات.",
+        "En": "Counts all animals."
+      }
+    ],
+    "idea": {
+      "Ar": "نجمع الفئتين المدمجتين ثم نقارن العدد الناتج بالفئة الأخرى.",
+      "En": "Add the merged categories, then compare the resulting count with the other category."
+    },
+    "formula": "(3+4)-5",
+    "steps": [
+      {
+        "Ar": "$7-5=2$",
+        "En": "$7-5=2$"
+      }
+    ],
+    "sub": {
+      "Ar": "$(3+4)-5$",
+      "En": "$(3+4)-5$"
+    },
+    "result": {
+      "Ar": "$2$",
+      "En": "$2$"
+    },
+    "verify": {
+      "Ar": "$5+2=7$، وهو عدد الحيوانات ذات الأربع أرجل.",
+      "En": "$5+2=7$, the four-legged count."
+    },
+    "hints": [
+      {
+        "Ar": "اجمع عدد القطط والكلاب.",
+        "En": "Add the cat and dog counts."
+      },
+      {
+        "Ar": "قارن الناتج بعدد العصافير.",
+        "En": "Compare the result with the bird count."
+      }
+    ],
+    "error": {
+      "Ar": "قارن الكلاب وحدها بالطيور.",
+      "En": "Compares dogs alone with birds."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 2,
+    "stage": 1,
+    "cat": 82,
+    "skill": 321,
+    "sk": "length",
+    "family": "length-cut-longest-equal-two-with-leftover",
+    "title": {
+      "Ar": "تقسيم شريط وباقٍ",
+      "En": "Splitting a strip with remainder"
+    },
+    "q": {
+      "Ar": "طول شريط 17 سم. نريد قص قطعتين متساويتين بأكبر طول ممكن بالسنتيمترات الصحيحة. كم سنتيمتراً يبقى من الشريط؟",
+      "En": "A strip is 17 cm long. Cut two equal pieces of the greatest possible whole-centimetre length, with no cutting loss. How many centimetres remain?"
+    },
+    "opts": [
+      "0",
+      "1",
+      "2",
+      "8"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "لا يمكن تقسيم 17 بالتساوي إلى طولين صحيحين دون باقٍ.",
+        "En": "Seventeen cannot be divided into two equal whole lengths exactly."
+      },
+      null,
+      {
+        "Ar": "طولان مقدارهما 8 يتركان واحداً فقط.",
+        "En": "Two lengths of eight leave only one."
+      },
+      {
+        "Ar": "هذا طول القطعة الواحدة لا الباقي.",
+        "En": "This is one piece length, not the remainder."
+      }
+    ],
+    "idea": {
+      "Ar": "أكبر طول صحيح للقطعتين هو 8 سم لكل واحدة، لأن 9 سم لكل واحدة يحتاج 18 سم.",
+      "En": "The largest whole length per piece is eight, since nine each would require eighteen."
+    },
+    "formula": "17-2\\cdot8=1",
+    "steps": [
+      {
+        "Ar": "$17-16=1$",
+        "En": "$17-16=1$"
+      }
+    ],
+    "sub": {
+      "Ar": "$17-2\\cdot8=1$",
+      "En": "$17-2\\cdot8=1$"
+    },
+    "result": {
+      "Ar": "$1$",
+      "En": "$1$"
+    },
+    "verify": {
+      "Ar": "$8+8+1=17$ و$9+9>17$.",
+      "En": "$8+8+1=17$ and $9+9>17$."
+    },
+    "hints": [
+      {
+        "Ar": "جرب طولاً صحيحاً متساوياً للقطعتين.",
+        "En": "Try equal whole-number lengths."
+      },
+      {
+        "Ar": "اطرح طول القطعتين من طول الشريط.",
+        "En": "Subtract both pieces from the strip length."
+      }
+    ],
+    "error": {
+      "Ar": "لا يمكن تقسيم 17 بالتساوي إلى طولين صحيحين دون باقٍ.",
+      "En": "Seventeen cannot be divided into two equal whole lengths exactly."
+    },
+    "unit": {
+      "Ar": "سم",
+      "En": "cm"
+    }
+  },
+  {
+    "track": 2,
+    "stage": 1,
+    "cat": 81,
+    "skill": 302,
+    "sk": "counting",
+    "family": "counting-forward-repeated-number-inclusive-cross-ten",
+    "title": {
+      "Ar": "العد عند الانتقال للعشرة",
+      "En": "Counting across a decade"
+    },
+    "q": {
+      "Ar": "كتب طفل الأعداد من 8 إلى 12 بالترتيب، وكتب العدد 10 مرتين بدلاً من مرة واحدة. كم عدداً كتب بالمجموع مع حساب التكرار؟",
+      "En": "A child writes the numbers from eight through twelve in order, but writes ten twice instead of once. How many numbers are written, counting repetitions?"
+    },
+    "opts": [
+      "4",
+      "5",
+      "6",
+      "7"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "أهمل طرفي العد أو التكرار.",
+        "En": "Omits endpoints or the repeated entry."
+      },
+      {
+        "Ar": "حسب كل عدد مرة واحدة فقط.",
+        "En": "Counts each number only once."
+      },
+      null,
+      {
+        "Ar": "أضاف تكراراً آخر غير موجود.",
+        "En": "Adds another repetition that did not occur."
+      }
+    ],
+    "idea": {
+      "Ar": "نكتب الأعداد كاملة مع تكرار العدد 10 مرة إضافية.",
+      "En": "List all numbers, with one extra occurrence of ten."
+    },
+    "formula": "8,9,10,10,11,12",
+    "steps": [
+      {
+        "Ar": "$5+1=6$",
+        "En": "$5+1=6$"
+      }
+    ],
+    "sub": {
+      "Ar": "$8,9,10,10,11,12$",
+      "En": "$8,9,10,10,11,12$"
+    },
+    "result": {
+      "Ar": "$6$",
+      "En": "$6$"
+    },
+    "verify": {
+      "Ar": "القائمة تضم ستة مدخلات عند عدها واحدة واحدة.",
+      "En": "Counting entries one by one gives six."
+    },
+    "hints": [
+      {
+        "Ar": "ابدأ من 8 وانته عند 12 مع حسابهما.",
+        "En": "Include both eight and twelve."
+      },
+      {
+        "Ar": "لا تنس كتابة 10 مرتين.",
+        "En": "Remember ten occurs twice."
+      }
+    ],
+    "error": {
+      "Ar": "أهمل طرفي العد أو التكرار.",
+      "En": "Omits endpoints or the repeated entry."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 2,
+    "stage": 1,
+    "cat": 81,
+    "skill": 302,
+    "sk": "counting",
+    "family": "counting-two-overlapping-lists-common-values",
+    "title": {
+      "Ar": "قيم مشتركة في نمطي عد",
+      "En": "Common values in counting patterns"
+    },
+    "q": {
+      "Ar": "تعد ريم بالقفز 3: 3،6،9،12،15،18. ويعد سامر بالقفز 6: 6،12،18. كم عدداً من قائمة ريم يظهر أيضاً في قائمة سامر؟",
+      "En": "Reem skip-counts by three: 3,6,9,12,15,18. Samer skip-counts by six: 6,12,18. How many of Reem's numbers also appear in Samer's list?"
+    },
+    "opts": [
+      "2",
+      "3",
+      "6",
+      "9"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "أهمل إحدى القيم المشتركة.",
+        "En": "Misses one common value."
+      },
+      null,
+      {
+        "Ar": "حسب كل قائمة ريم.",
+        "En": "Counts all of Reem's list."
+      },
+      {
+        "Ar": "جمع عدد عناصر القائمتين.",
+        "En": "Adds both list lengths."
+      }
+    ],
+    "idea": {
+      "Ar": "نقارن كل عدد في القائمة القصيرة بالأعداد الموجودة في القائمة الطويلة.",
+      "En": "Check each number in the shorter list against the longer list."
+    },
+    "formula": "6,12,18",
+    "steps": [
+      {
+        "Ar": "$1+1+1=3$",
+        "En": "$1+1+1=3$"
+      }
+    ],
+    "sub": {
+      "Ar": "$6,12,18$",
+      "En": "$6,12,18$"
+    },
+    "result": {
+      "Ar": "$3$",
+      "En": "$3$"
+    },
+    "verify": {
+      "Ar": "الأعداد المشتركة هي 6 و12 و18 فقط.",
+      "En": "The common numbers are six, twelve and eighteen only."
+    },
+    "hints": [
+      {
+        "Ar": "ضع إصبعك على العدد 6 في القائمتين.",
+        "En": "Find six in both lists."
+      },
+      {
+        "Ar": "كرر ذلك لبقية أعداد سامر.",
+        "En": "Repeat for Samer's remaining numbers."
+      }
+    ],
+    "error": {
+      "Ar": "أهمل إحدى القيم المشتركة.",
+      "En": "Misses one common value."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 3,
+    "stage": 1,
+    "cat": 2,
+    "skill": 7,
+    "sk": "primary-one-step-additive-equations",
+    "family": "additive-equation-unknown-subtrahend",
+    "title": {
+      "Ar": "مجهول في الطرح",
+      "En": "Unknown subtrahend"
+    },
+    "q": {
+      "Ar": "ما قيمة $x$ التي تجعل $25-x=17$؟",
+      "En": "What value of $x$ makes $25-x=17$ true?"
+    },
+    "opts": [
+      "42",
+      "17",
+      "8",
+      "7"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "جمع العددين بدلاً من إيجاد الفرق.",
+        "En": "Adds the two numbers instead of finding the gap."
+      },
+      {
+        "Ar": "استعمل ناتج الطرح نفسه.",
+        "En": "Uses the subtraction result itself."
+      },
+      null,
+      {
+        "Ar": "أخطأ في طرح الآحاد.",
+        "En": "Miscalculates the subtraction."
+      }
+    ],
+    "idea": {
+      "Ar": "المقدار المطروح يساوي الفرق بين العدد الأول والناتج.",
+      "En": "The subtrahend is the difference between the starting number and the result."
+    },
+    "formula": "x=25-17",
+    "steps": [
+      {
+        "Ar": "$x=8$",
+        "En": "$x=8$"
+      }
+    ],
+    "sub": {
+      "Ar": "$x=25-17$",
+      "En": "$x=25-17$"
+    },
+    "result": {
+      "Ar": "$8$",
+      "En": "$8$"
+    },
+    "verify": {
+      "Ar": "$25-8=17$.",
+      "En": "$25-8=17$."
+    },
+    "hints": [
+      {
+        "Ar": "اسأل: كم نطرح من 25 لنصل إلى 17؟",
+        "En": "Ask how much must be taken from 25 to reach 17."
+      },
+      {
+        "Ar": "اطرح 17 من 25.",
+        "En": "Subtract seventeen from twenty-five."
+      }
+    ],
+    "error": {
+      "Ar": "جمع العددين بدلاً من إيجاد الفرق.",
+      "En": "Adds the two numbers instead of finding the gap."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 3,
+    "stage": 1,
+    "cat": 2,
+    "skill": 9,
+    "sk": "primary-one-step-multiplicative-equations",
+    "family": "multiplicative-equation-unknown-dividend",
+    "title": {
+      "Ar": "مجهول في القسمة",
+      "En": "Unknown dividend"
+    },
+    "q": {
+      "Ar": "إذا كان $x/7=6$، فما قيمة $x$؟",
+      "En": "If $x/7=6$, what is $x$?"
+    },
+    "opts": [
+      "13",
+      "42",
+      "1",
+      "36"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "جمع المقسوم عليه والناتج.",
+        "En": "Adds divisor and quotient."
+      },
+      null,
+      {
+        "Ar": "استعمل الفرق بين العددين.",
+        "En": "Uses the difference of the two numbers."
+      },
+      {
+        "Ar": "ربع ناتج القسمة.",
+        "En": "Squares the quotient."
+      }
+    ],
+    "idea": {
+      "Ar": "لعكس القسمة على 7 نضرب الناتج في 7.",
+      "En": "To undo division by seven, multiply the quotient by seven."
+    },
+    "formula": "x=6\\cdot7",
+    "steps": [
+      {
+        "Ar": "$x=42$",
+        "En": "$x=42$"
+      }
+    ],
+    "sub": {
+      "Ar": "$x=6\\cdot7$",
+      "En": "$x=6\\cdot7$"
+    },
+    "result": {
+      "Ar": "$42$",
+      "En": "$42$"
+    },
+    "verify": {
+      "Ar": "$42/7=6$.",
+      "En": "$42/7=6$."
+    },
+    "hints": [
+      {
+        "Ar": "حدد العملية العكسية للقسمة.",
+        "En": "Identify the inverse of division."
+      },
+      {
+        "Ar": "اضرب 6 في 7.",
+        "En": "Multiply six by seven."
+      }
+    ],
+    "error": {
+      "Ar": "جمع المقسوم عليه والناتج.",
+      "En": "Adds divisor and quotient."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  }
+]
