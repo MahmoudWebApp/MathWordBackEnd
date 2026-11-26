@@ -1,0 +1,942 @@
+[
+  {
+    "track": 1,
+    "cat": 81,
+    "skill": 302,
+    "sk": "counting",
+    "family": "counting-ordinal-number-of-children-ahead",
+    "title": {
+      "Ar": "عدد الأطفال قبل موضع محدد",
+      "En": "Counting children ahead"
+    },
+    "q": {
+      "Ar": "تقف ليلى في المكان التاسع من الأمام. كم طفلاً يقف أمامها؟",
+      "En": "Layla is ninth from the front of a line. How many children stand ahead of her?"
+    },
+    "opts": [
+      "8",
+      "7",
+      "9",
+      "10"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "ينقص طفلين من رقم الموضع.",
+        "En": "Subtracts two from the position."
+      },
+      {
+        "Ar": "يعد ليلى مع الأطفال أمامها.",
+        "En": "Includes Layla in the count ahead."
+      },
+      {
+        "Ar": "يزيد واحداً على رقم الموضع.",
+        "En": "Adds one to the position."
+      }
+    ],
+    "idea": {
+      "Ar": "رقم الموضع يشمل الطفل نفسه؛ نطرح واحداً.",
+      "En": "The position includes the child herself; subtract one."
+    },
+    "formula": "9-1",
+    "steps": [
+      {
+        "Ar": "$9-1=8$",
+        "En": "$9-1=8$"
+      }
+    ],
+    "sub": {
+      "Ar": "$9-1$",
+      "En": "$9-1$"
+    },
+    "result": {
+      "Ar": "$8$",
+      "En": "$8$"
+    },
+    "verify": {
+      "Ar": "$8+1=9$",
+      "En": "$8+1=9$"
+    },
+    "hints": [
+      {
+        "Ar": "لا تعد ليلى نفسها.",
+        "En": "Do not count Layla herself."
+      },
+      {
+        "Ar": "اطرح واحداً من ترتيبها.",
+        "En": "Subtract one from her position."
+      }
+    ],
+    "error": {
+      "Ar": "ينقص طفلين من رقم الموضع.",
+      "En": "Subtracts two from the position."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 1,
+    "cat": 81,
+    "skill": 302,
+    "sk": "counting",
+    "family": "counting-pairs-incomplete-last-pair",
+    "title": {
+      "Ar": "عد مجموعات وأفراد",
+      "En": "Counting groups and singles"
+    },
+    "q": {
+      "Ar": "هناك 4 أزواج من الجوارب. فُقد جورب واحد من أحد الأزواج. كم جورباً بقي؟",
+      "En": "There are four pairs of socks. One sock is lost from one pair. How many socks remain?"
+    },
+    "opts": [
+      "3",
+      "6",
+      "8",
+      "7"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "عد الأزواج الكاملة فقط.",
+        "En": "Counts only complete pairs."
+      },
+      {
+        "Ar": "أهمل الجورب المنفرد.",
+        "En": "Omits the single sock."
+      },
+      {
+        "Ar": "لم يطرح الجورب المفقود.",
+        "En": "Does not remove the lost sock."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "كل زوج فيه جوربان؛ نطرح جورباً واحداً من المجموع.",
+      "En": "Each pair has two socks; subtract one from the total."
+    },
+    "formula": "4\\cdot2-1",
+    "steps": [
+      {
+        "Ar": "$4\\cdot2=8$",
+        "En": "$4\\cdot2=8$"
+      },
+      {
+        "Ar": "$8-1=7$",
+        "En": "$8-1=7$"
+      }
+    ],
+    "sub": {
+      "Ar": "$8-1$",
+      "En": "$8-1$"
+    },
+    "result": {
+      "Ar": "$7$",
+      "En": "$7$"
+    },
+    "verify": {
+      "Ar": "$3\\cdot2+1=7$",
+      "En": "$3\\cdot2+1=7$"
+    },
+    "hints": [
+      {
+        "Ar": "عد الجوارب في الأزواج الأربعة.",
+        "En": "Count the socks in four pairs."
+      },
+      {
+        "Ar": "اطرح الجورب المفقود فقط.",
+        "En": "Subtract just the missing sock."
+      }
+    ],
+    "error": {
+      "Ar": "عد الأزواج الكاملة فقط.",
+      "En": "Counts only complete pairs."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 1,
+    "cat": 81,
+    "skill": 302,
+    "sk": "counting",
+    "family": "counting-number-neighbors-sum",
+    "title": {
+      "Ar": "جيران عدد",
+      "En": "Number neighbors"
+    },
+    "q": {
+      "Ar": "ما العدد الذي يأتي مباشرة قبل 18 ومباشرة بعد 16؟",
+      "En": "Which number comes immediately before 18 and immediately after 16?"
+    },
+    "opts": [
+      "16",
+      "19",
+      "17",
+      "15"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "أحد العددين المعطيين.",
+        "En": "One of the given numbers."
+      },
+      {
+        "Ar": "يأتي بعد 18.",
+        "En": "Comes after eighteen."
+      },
+      null,
+      {
+        "Ar": "يسبق 16.",
+        "En": "Comes before sixteen."
+      }
+    ],
+    "idea": {
+      "Ar": "الأعداد المتتالية تزيد واحداً في كل خطوة.",
+      "En": "Consecutive counting numbers increase by one at each step."
+    },
+    "formula": "16+1=18-1",
+    "steps": [
+      {
+        "Ar": "$16+1=17$",
+        "En": "$16+1=17$"
+      }
+    ],
+    "sub": {
+      "Ar": "$16+1$",
+      "En": "$16+1$"
+    },
+    "result": {
+      "Ar": "$17$",
+      "En": "$17$"
+    },
+    "verify": {
+      "Ar": "$17+1=18$",
+      "En": "$17+1=18$"
+    },
+    "hints": [
+      {
+        "Ar": "ابدأ من 16.",
+        "En": "Start at sixteen."
+      },
+      {
+        "Ar": "زد واحداً فقط.",
+        "En": "Add just one."
+      }
+    ],
+    "error": {
+      "Ar": "يسبق 16.",
+      "En": "Comes before sixteen."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 5,
+    "cat": 4,
+    "skill": 17,
+    "sk": "primary-simple-probability",
+    "family": "probability-certain-event-number-bound",
+    "title": {
+      "Ar": "حدث مؤكد",
+      "En": "Certain event"
+    },
+    "q": {
+      "Ar": "عند رمي حجر نرد عادل مرقم من 1 إلى 6، ما احتمال الحصول على عدد أصغر من 7؟",
+      "En": "A fair die is numbered 1 to 6. What is the probability of rolling a number less than seven?"
+    },
+    "opts": [
+      "\\frac56",
+      "1",
+      "0",
+      "\\frac16"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "استبعد نتيجة ممكنة دون سبب.",
+        "En": "Excludes a possible outcome without reason."
+      },
+      null,
+      {
+        "Ar": "جميع النتائج تحقق الشرط وليس العكس.",
+        "En": "All outcomes satisfy the condition, not none."
+      },
+      {
+        "Ar": "عد نتيجة واحدة فقط.",
+        "En": "Counts just one outcome."
+      }
+    ],
+    "idea": {
+      "Ar": "جميع النتائج الست أقل من سبعة.",
+      "En": "All six outcomes are below seven."
+    },
+    "formula": "P=6/6",
+    "steps": [
+      {
+        "Ar": "$6/6=1$",
+        "En": "$6/6=1$"
+      }
+    ],
+    "sub": {
+      "Ar": "$6/6$",
+      "En": "$6/6$"
+    },
+    "result": {
+      "Ar": "$1$",
+      "En": "$1$"
+    },
+    "verify": {
+      "Ar": "$6<7$",
+      "En": "$6<7$"
+    },
+    "hints": [
+      {
+        "Ar": "اكتب الأعداد على النرد.",
+        "En": "List the die outcomes."
+      },
+      {
+        "Ar": "كم منها أصغر من 7؟",
+        "En": "How many are below seven?"
+      }
+    ],
+    "error": {
+      "Ar": "جميع النتائج تحقق الشرط وليس العكس.",
+      "En": "All outcomes satisfy the condition, not none."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 5,
+    "cat": 4,
+    "skill": 19,
+    "sk": "primary-arithmetic-mean",
+    "family": "mean-total-inferred-known-average-count",
+    "title": {
+      "Ar": "استنتاج مجموع من متوسط",
+      "En": "Total from a mean"
+    },
+    "q": {
+      "Ar": "متوسط عدد الصفحات التي قرأها طالب يومياً خلال أربعة أيام هو 9 صفحات. كم صفحة قرأ إجمالاً؟",
+      "En": "A pupil reads an average of nine pages per day over four days. How many pages are read in total?"
+    },
+    "opts": [
+      "36",
+      "9",
+      "13",
+      "\\frac94"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "هذا المتوسط اليومي.",
+        "En": "This is the daily mean."
+      },
+      {
+        "Ar": "جمع المتوسط وعدد الأيام.",
+        "En": "Adds mean and day count."
+      },
+      {
+        "Ar": "قسم المتوسط بدلاً من ضربه.",
+        "En": "Divides instead of multiplying."
+      }
+    ],
+    "idea": {
+      "Ar": "المجموع يساوي المتوسط مضروباً في عدد القيم.",
+      "En": "The total equals the mean times the count."
+    },
+    "formula": "S=\\bar x n",
+    "steps": [
+      {
+        "Ar": "$S=36$",
+        "En": "$S=36$"
+      }
+    ],
+    "sub": {
+      "Ar": "$9\\cdot4$",
+      "En": "$9\\cdot4$"
+    },
+    "result": {
+      "Ar": "$36$",
+      "En": "$36$"
+    },
+    "verify": {
+      "Ar": "$36/4=9$",
+      "En": "$36/4=9$"
+    },
+    "hints": [
+      {
+        "Ar": "كم يوماً في الفترة؟",
+        "En": "How many days are included?"
+      },
+      {
+        "Ar": "اضرب المتوسط في عدد الأيام.",
+        "En": "Multiply the mean by the day count."
+      }
+    ],
+    "error": {
+      "Ar": "هذا المتوسط اليومي.",
+      "En": "This is the daily mean."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 5,
+    "cat": 4,
+    "skill": 18,
+    "sk": "primary-median",
+    "family": "median-remove-smallest-and-largest-invariance",
+    "title": {
+      "Ar": "وسيط بعد حذف الطرفين",
+      "En": "Median after removing extremes"
+    },
+    "q": {
+      "Ar": "القيم المرتبة هي 2،5،8،9،14. حُذفت أصغر قيمة وأكبر قيمة. ما وسيط القيم الباقية؟",
+      "En": "The ordered values are 2,5,8,9,14. The smallest and largest are removed. What is the median of the remaining values?"
+    },
+    "opts": [
+      "5",
+      "9",
+      "7",
+      "8"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "هذه أول قيمة باقية.",
+        "En": "This is the first remaining value."
+      },
+      {
+        "Ar": "هذه آخر قيمة باقية.",
+        "En": "This is the last remaining value."
+      },
+      {
+        "Ar": "هذا متوسط 5 و9.",
+        "En": "This is the mean of five and nine."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "حذف قيمة من كل طرف يبقي القيمة الوسطى في المنتصف.",
+      "En": "Removing one value at each end preserves the middle observation."
+    },
+    "formula": "(3+1)/2=2",
+    "steps": [
+      {
+        "Ar": "$x_2=8$",
+        "En": "$x_2=8$"
+      }
+    ],
+    "sub": {
+      "Ar": "$5,8,9$",
+      "En": "$5,8,9$"
+    },
+    "result": {
+      "Ar": "$8$",
+      "En": "$8$"
+    },
+    "verify": {
+      "Ar": "$5<8<9$",
+      "En": "$5<8<9$"
+    },
+    "hints": [
+      {
+        "Ar": "احذف 2 و14.",
+        "En": "Remove two and fourteen."
+      },
+      {
+        "Ar": "اختر القيمة الوسطى من الثلاث.",
+        "En": "Choose the middle of the three."
+      }
+    ],
+    "error": {
+      "Ar": "هذه أول قيمة باقية.",
+      "En": "This is the first remaining value."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 8,
+    "cat": 6,
+    "skill": 29,
+    "sk": "middle-slope",
+    "family": "slope-negative-rise-from-known-run",
+    "title": {
+      "Ar": "تغير رأسي من ميل معلوم",
+      "En": "Rise from a known slope"
+    },
+    "q": {
+      "Ar": "ميل مستقيم يساوي −3. إذا زاد x بمقدار 4، فما مقدار تغير y الموقّع؟",
+      "En": "A line has slope −3. If x increases by four, what is the signed change in y?"
+    },
+    "opts": [
+      "-3",
+      "1",
+      "-12",
+      "12"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "هذا الميل لا التغير الرأسي.",
+        "En": "This is the slope, not the rise."
+      },
+      {
+        "Ar": "جمع الميل والتغير الأفقي.",
+        "En": "Adds slope and horizontal change."
+      },
+      null,
+      {
+        "Ar": "أهمل إشارة الميل السالبة.",
+        "En": "Drops the negative slope sign."
+      }
+    ],
+    "idea": {
+      "Ar": "التغير الرأسي يساوي الميل مضروباً في التغير الأفقي.",
+      "En": "Vertical change equals slope times horizontal change."
+    },
+    "formula": "\\Delta y=m\\Delta x",
+    "steps": [
+      {
+        "Ar": "$\\Delta y=-12$",
+        "En": "$\\Delta y=-12$"
+      }
+    ],
+    "sub": {
+      "Ar": "$(-3)\\cdot4$",
+      "En": "$(-3)\\cdot4$"
+    },
+    "result": {
+      "Ar": "$-12$",
+      "En": "$-12$"
+    },
+    "verify": {
+      "Ar": "$-12/4=-3$",
+      "En": "$-12/4=-3$"
+    },
+    "hints": [
+      {
+        "Ar": "استعمل تعريف الميل.",
+        "En": "Use the slope definition."
+      },
+      {
+        "Ar": "احتفظ بإشارة السالب.",
+        "En": "Keep the negative sign."
+      }
+    ],
+    "error": {
+      "Ar": "أهمل إشارة الميل السالبة.",
+      "En": "Drops the negative slope sign."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 8,
+    "cat": 6,
+    "skill": 26,
+    "sk": "middle-linear-function-evaluation",
+    "family": "linear-function-zero-output-context",
+    "title": {
+      "Ar": "مدخل يعطي قيمة صفر",
+      "En": "Input yielding zero"
+    },
+    "q": {
+      "Ar": "لدينا $f(x)=5x-20$. ما قيمة x التي تجعل $f(x)=0$؟",
+      "En": "Let $f(x)=5x-20$. Which x makes $f(x)=0$?"
+    },
+    "opts": [
+      "20",
+      "4",
+      "0",
+      "-4"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "أهمل المعامل 5.",
+        "En": "Ignores the coefficient five."
+      },
+      null,
+      {
+        "Ar": "يعطي قيمة دالة −20.",
+        "En": "Gives function value −20."
+      },
+      {
+        "Ar": "يعطي قيمة دالة −40.",
+        "En": "Gives function value −40."
+      }
+    ],
+    "idea": {
+      "Ar": "نساوي تعبير الدالة بالصفر ونحل.",
+      "En": "Set the function expression equal to zero and solve."
+    },
+    "formula": "5x-20=0",
+    "steps": [
+      {
+        "Ar": "$x=20/5=4$",
+        "En": "$x=20/5=4$"
+      }
+    ],
+    "sub": {
+      "Ar": "$5x=20$",
+      "En": "$5x=20$"
+    },
+    "result": {
+      "Ar": "$4$",
+      "En": "$4$"
+    },
+    "verify": {
+      "Ar": "$f(4)=20-20=0$",
+      "En": "$f(4)=20-20=0$"
+    },
+    "hints": [
+      {
+        "Ar": "ضع صفراً مكان قيمة الدالة.",
+        "En": "Set the output to zero."
+      },
+      {
+        "Ar": "أضف 20 ثم اقسم على 5.",
+        "En": "Add twenty then divide by five."
+      }
+    ],
+    "error": {
+      "Ar": "يعطي قيمة دالة −20.",
+      "En": "Gives function value −20."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 7,
+    "cat": 8,
+    "skill": 35,
+    "sk": "middle-triangle-angles",
+    "family": "triangle-angle-sum-complementary-pair-inference",
+    "title": {
+      "Ar": "مجموع زاويتين معلوم",
+      "En": "Two angles with known sum"
+    },
+    "q": {
+      "Ar": "مجموع زاويتين في مثلث يساوي 110°. ما قياس الزاوية الثالثة؟",
+      "En": "Two angles of a triangle sum to 110°. What is the third angle?"
+    },
+    "opts": [
+      "70",
+      "55",
+      "90",
+      "110"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "نصف مجموع الزاويتين.",
+        "En": "Half the sum of the two angles."
+      },
+      {
+        "Ar": "يفترض أن المثلث قائم.",
+        "En": "Assumes the triangle is right."
+      },
+      {
+        "Ar": "هذا المجموع المعطى.",
+        "En": "This is the given sum."
+      }
+    ],
+    "idea": {
+      "Ar": "مجموع الزوايا الداخلية للمثلث 180°.",
+      "En": "A triangle's interior angles total 180°."
+    },
+    "formula": "C=180-(A+B)",
+    "steps": [
+      {
+        "Ar": "$C=70$",
+        "En": "$C=70$"
+      }
+    ],
+    "sub": {
+      "Ar": "$180-110$",
+      "En": "$180-110$"
+    },
+    "result": {
+      "Ar": "$70$",
+      "En": "$70$"
+    },
+    "verify": {
+      "Ar": "$110+70=180$",
+      "En": "$110+70=180$"
+    },
+    "hints": [
+      {
+        "Ar": "تذكر مجموع زوايا المثلث.",
+        "En": "Recall the angle sum."
+      },
+      {
+        "Ar": "اطرح المجموع المعطى.",
+        "En": "Subtract the given sum."
+      }
+    ],
+    "error": {
+      "Ar": "نصف مجموع الزاويتين.",
+      "En": "Half the sum of the two angles."
+    },
+    "unit": {
+      "Ar": "°",
+      "En": "°"
+    }
+  },
+  {
+    "track": 8,
+    "cat": 5,
+    "skill": 21,
+    "sk": "middle-exponent-laws",
+    "family": "exponent-negative-power-product-reciprocal",
+    "title": {
+      "Ar": "حاصل ضرب قوتين متعاكستين",
+      "En": "Product of inverse powers"
+    },
+    "q": {
+      "Ar": "ما قيمة $7^4\\cdot7^{-4}$؟",
+      "En": "Evaluate $7^4\\cdot7^{-4}$."
+    },
+    "opts": [
+      "0",
+      "7",
+      "7^8",
+      "1"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "الأس صفر لكن قيمة القوة ليست صفراً.",
+        "En": "The exponent is zero, but the power is not zero."
+      },
+      {
+        "Ar": "استعمل الأس 1 بدلاً من صفر.",
+        "En": "Uses exponent one instead of zero."
+      },
+      {
+        "Ar": "أهمل إشارة الأس الثاني.",
+        "En": "Drops the sign of the second exponent."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "عند ضرب قوتين لهما الأساس نفسه نجمع الأسين.",
+      "En": "When multiplying powers of the same base, add exponents."
+    },
+    "formula": "a^ma^n=a^{m+n}",
+    "steps": [
+      {
+        "Ar": "$7^0=1$",
+        "En": "$7^0=1$"
+      }
+    ],
+    "sub": {
+      "Ar": "$7^{4+(-4)}$",
+      "En": "$7^{4+(-4)}$"
+    },
+    "result": {
+      "Ar": "$1$",
+      "En": "$1$"
+    },
+    "verify": {
+      "Ar": "$7^4/7^4=1$",
+      "En": "$7^4/7^4=1$"
+    },
+    "hints": [
+      {
+        "Ar": "اجمع 4 و−4.",
+        "En": "Add four and negative four."
+      },
+      {
+        "Ar": "تذكر قوة الصفر لأساس غير صفري.",
+        "En": "Recall zero power of a nonzero base."
+      }
+    ],
+    "error": {
+      "Ar": "الأس صفر لكن قيمة القوة ليست صفراً.",
+      "En": "The exponent is zero, but the power is not zero."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 11,
+    "cat": 11,
+    "skill": 49,
+    "sk": "secondary-polynomial-derivatives",
+    "family": "derivative-constant-difference-between-functions",
+    "title": {
+      "Ar": "أثر ثابت على المشتقة",
+      "En": "Effect of a constant on a derivative"
+    },
+    "q": {
+      "Ar": "إذا كان $g(x)=f(x)+12$ حيث f كثيرة حدود، فما $g'(x)-f'(x)$؟",
+      "En": "If $g(x)=f(x)+12$ for a polynomial f, what is $g'(x)-f'(x)$?"
+    },
+    "opts": [
+      "-12",
+      "1",
+      "0",
+      "12"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "عكس فرق الدالتين دون اشتقاق.",
+        "En": "Reverses the function difference without differentiating."
+      },
+      {
+        "Ar": "عامل الثابت كأنه x.",
+        "En": "Treats the constant as x."
+      },
+      null,
+      {
+        "Ar": "خلط فرق الدالتين بفرق مشتقتيهما.",
+        "En": "Confuses the function difference with the derivative difference."
+      }
+    ],
+    "idea": {
+      "Ar": "مشتقة الثابت صفر.",
+      "En": "The derivative of a constant is zero."
+    },
+    "formula": "g'=f'+0",
+    "steps": [
+      {
+        "Ar": "$g'-f'=0$",
+        "En": "$g'-f'=0$"
+      }
+    ],
+    "sub": {
+      "Ar": "$g'-f'=f'-f'$",
+      "En": "$g'-f'=f'-f'$"
+    },
+    "result": {
+      "Ar": "$0$",
+      "En": "$0$"
+    },
+    "verify": {
+      "Ar": "$\\frac{d}{dx}(12)=0$",
+      "En": "$\\frac{d}{dx}(12)=0$"
+    },
+    "hints": [
+      {
+        "Ar": "اشتق الطرفين.",
+        "En": "Differentiate both sides."
+      },
+      {
+        "Ar": "اطرح المشتقتين.",
+        "En": "Subtract the derivatives."
+      }
+    ],
+    "error": {
+      "Ar": "خلط فرق الدالتين بفرق مشتقتيهما.",
+      "En": "Confuses the function difference with the derivative difference."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 11,
+    "cat": 11,
+    "skill": 49,
+    "sk": "secondary-polynomial-derivatives",
+    "family": "derivative-polynomial-even-symmetry-origin",
+    "title": {
+      "Ar": "مشتقة كثيرة حدود زوجية عند الأصل",
+      "En": "Derivative of an even polynomial at zero"
+    },
+    "q": {
+      "Ar": "إذا كان $f(x)=4x^4-3x^2+9$، فما ميل المماس عند x=0؟",
+      "En": "If $f(x)=4x^4-3x^2+9$, what is the tangent slope at x=0?"
+    },
+    "opts": [
+      "16",
+      "0",
+      "9",
+      "-3"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "هذا معامل الحد التكعيبي في المشتقة.",
+        "En": "This is the cubic coefficient of the derivative."
+      },
+      null,
+      {
+        "Ar": "هذه قيمة الدالة عند الأصل.",
+        "En": "This is the function value at zero."
+      },
+      {
+        "Ar": "هذا معامل الحد التربيعي الأصلي.",
+        "En": "This is the original quadratic coefficient."
+      }
+    ],
+    "idea": {
+      "Ar": "ميل المماس يساوي قيمة المشتقة عند النقطة.",
+      "En": "The tangent slope is the derivative evaluated at the point."
+    },
+    "formula": "f'(x)=16x^3-6x",
+    "steps": [
+      {
+        "Ar": "$f'(0)=0$",
+        "En": "$f'(0)=0$"
+      }
+    ],
+    "sub": {
+      "Ar": "$16(0)^3-6(0)$",
+      "En": "$16(0)^3-6(0)$"
+    },
+    "result": {
+      "Ar": "$0$",
+      "En": "$0$"
+    },
+    "verify": {
+      "Ar": "$f'(0)=16\\cdot0-6\\cdot0=0$",
+      "En": "$f'(0)=16\\cdot0-6\\cdot0=0$"
+    },
+    "hints": [
+      {
+        "Ar": "اشتق كل حد.",
+        "En": "Differentiate each term."
+      },
+      {
+        "Ar": "عوّض x=0 بعد الاشتقاق.",
+        "En": "Substitute x=0 after differentiating."
+      }
+    ],
+    "error": {
+      "Ar": "هذه قيمة الدالة عند الأصل.",
+      "En": "This is the function value at zero."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  }
+]
