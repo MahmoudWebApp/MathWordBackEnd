@@ -1,0 +1,1306 @@
+[
+  {
+    "track": 1,
+    "cat": 97,
+    "skill": 356,
+    "sk": "primary-category-count-data",
+    "family": "category-data-missing-one-in-each-group",
+    "title": {
+      "Ar": "إكمال عددين",
+      "En": "Completing two counts"
+    },
+    "q": {
+      "Ar": "في سجل ألعاب، اختار 3 أطفال الكرة و5 أطفال القفز. نضيف طفلاً واحداً إلى كل مجموعة. ما مجموع الأطفال الآن؟",
+      "En": "A game record has three children choosing ball games and five choosing jumping. One child joins each group. What is the new total?"
+    },
+    "opts": [
+      "10",
+      "8",
+      "9",
+      "11"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "المجموع قبل الإضافة.",
+        "En": "The original total."
+      },
+      {
+        "Ar": "أضاف طفلاً واحداً فقط.",
+        "En": "Adds only one child."
+      },
+      {
+        "Ar": "أضاف ثلاثة أطفال.",
+        "En": "Adds three children."
+      }
+    ],
+    "idea": {
+      "Ar": "نزيد كل عدد بمقدار واحد ثم نجمع.",
+      "En": "Increase both counts by one, then add."
+    },
+    "formula": "(3+1)+(5+1)",
+    "steps": [
+      {
+        "Ar": "$3+1=4$",
+        "En": "$3+1=4$"
+      },
+      {
+        "Ar": "$5+1=6$",
+        "En": "$5+1=6$"
+      },
+      {
+        "Ar": "$4+6=10$",
+        "En": "$4+6=10$"
+      }
+    ],
+    "sub": {
+      "Ar": "$3+1=4$",
+      "En": "$3+1=4$"
+    },
+    "result": {
+      "Ar": "$10$",
+      "En": "$10$"
+    },
+    "verify": {
+      "Ar": "$10-2=8$",
+      "En": "$10-2=8$"
+    },
+    "hints": [
+      {
+        "Ar": "كم أصبح العدد في كل مجموعة؟",
+        "En": "What is each new count?"
+      },
+      {
+        "Ar": "اجمع العددين الجديدين.",
+        "En": "Add the new counts."
+      }
+    ],
+    "error": {
+      "Ar": "طفل واحد لكل مجموعة يعني طفلين بالمجموع.",
+      "En": "One child per group means two in total."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 1,
+    "cat": 97,
+    "skill": 356,
+    "sk": "primary-category-count-data",
+    "family": "category-data-duplicate-single-category-identify-smallest",
+    "title": {
+      "Ar": "الفئة الأقل بعد التصحيح",
+      "En": "Smallest category after correction"
+    },
+    "q": {
+      "Ar": "عدد السيارات الحمراء 4 والزرقاء 3 والخضراء 5. تبيّن أن سيارتين حمراوين عُدّتا مرتين، فحُذفت العدتان الزائدتان. ما عدد السيارات في الفئة الأقل بعد التصحيح؟",
+      "En": "There are four recorded red cars, three blue cars and five green cars. Two red cars were each counted twice; the two extra counts are removed. What is the smallest corrected category count?"
+    },
+    "opts": [
+      "3",
+      "4",
+      "5",
+      "2"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "أقل عدد قبل التصحيح.",
+        "En": "The smallest count before correction."
+      },
+      {
+        "Ar": "عدد الحمراء قبل التصحيح.",
+        "En": "The original red count."
+      },
+      {
+        "Ar": "عدد الخضراء.",
+        "En": "The green count."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "نصحح عدد الحمراء ثم نقارن الفئات.",
+      "En": "Correct the red count, then compare categories."
+    },
+    "formula": "4-2=2",
+    "steps": [
+      {
+        "Ar": "$4-2=2$",
+        "En": "$4-2=2$"
+      },
+      {
+        "Ar": "$2<3<5$",
+        "En": "$2<3<5$"
+      }
+    ],
+    "sub": {
+      "Ar": "$4-2=2$",
+      "En": "$4-2=2$"
+    },
+    "result": {
+      "Ar": "$2$",
+      "En": "$2$"
+    },
+    "verify": {
+      "Ar": "$2+2=4$",
+      "En": "$2+2=4$"
+    },
+    "hints": [
+      {
+        "Ar": "اطرح العدتين الزائدتين من الحمراء فقط.",
+        "En": "Subtract two extra counts from red only."
+      },
+      {
+        "Ar": "قارن الأعداد الثلاثة.",
+        "En": "Compare the three counts."
+      }
+    ],
+    "error": {
+      "Ar": "لا تقارن الأعداد قبل تصحيحها.",
+      "En": "Do not compare before correcting counts."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 2,
+    "cat": 97,
+    "skill": 357,
+    "sk": "primary-single-unit-picture-data",
+    "family": "pictograph-total-symbols-redistribution-difference",
+    "title": {
+      "Ar": "فرق العدد بعد نقل عنصر",
+      "En": "Difference after moving an item"
+    },
+    "q": {
+      "Ar": "كل ● يمثل كتاباً. A: ●●●●●؛ B: ●●. نُقل كتاب واحد من A إلى B. كم كتاباً يزيد A على B الآن؟",
+      "En": "Each ● represents one book. A: ●●●●●; B: ●●. One book moves from A to B. How many more books does A have now?"
+    },
+    "opts": [
+      "3",
+      "4",
+      "1",
+      "2"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "الفرق القديم.",
+        "En": "The old difference."
+      },
+      {
+        "Ar": "عدد A الجديد.",
+        "En": "The new A count."
+      },
+      null,
+      {
+        "Ar": "هذا مقدار النقص في الفرق لا الفرق الجديد.",
+        "En": "This is the decrease in the difference, not the new difference."
+      }
+    ],
+    "idea": {
+      "Ar": "نطرح واحداً من A ونضيفه إلى B قبل المقارنة.",
+      "En": "Subtract one from A and add it to B before comparing."
+    },
+    "formula": "(5-1)-(2+1)",
+    "steps": [
+      {
+        "Ar": "$5-1=4$",
+        "En": "$5-1=4$"
+      },
+      {
+        "Ar": "$2+1=3$",
+        "En": "$2+1=3$"
+      },
+      {
+        "Ar": "$4-3=1$",
+        "En": "$4-3=1$"
+      }
+    ],
+    "sub": {
+      "Ar": "$5-1=4$",
+      "En": "$5-1=4$"
+    },
+    "result": {
+      "Ar": "$1$",
+      "En": "$1$"
+    },
+    "verify": {
+      "Ar": "$4+3=5+2$",
+      "En": "$4+3=5+2$"
+    },
+    "hints": [
+      {
+        "Ar": "الرف A يفقد كتاباً.",
+        "En": "Shelf A loses one book."
+      },
+      {
+        "Ar": "الرف B يكسب كتاباً.",
+        "En": "Shelf B gains one book."
+      }
+    ],
+    "error": {
+      "Ar": "النقل يغير العدد في الرفين معاً.",
+      "En": "Moving an item changes both counts."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 2,
+    "cat": 97,
+    "skill": 357,
+    "sk": "primary-single-unit-picture-data",
+    "family": "pictograph-three-rows-equalize-minimum-removals",
+    "title": {
+      "Ar": "تساوي صفوف السجل",
+      "En": "Equalizing pictograph rows"
+    },
+    "q": {
+      "Ar": "كل ● يمثل قلماً. A: ●●●●؛ B: ●●؛ C: ●●●. نريد جعل الأعداد متساوية بالحذف فقط. ما أقل عدد من الرموز التي يجب حذفها إجمالاً؟",
+      "En": "Each ● represents one pen. A: ●●●●; B: ●●; C: ●●●. We want equal counts using removals only. What is the fewest symbols to remove altogether?"
+    },
+    "opts": [
+      "6",
+      "3",
+      "1",
+      "2"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "يحذف أكثر من اللازم.",
+        "En": "Removes more than necessary."
+      },
+      null,
+      {
+        "Ar": "يصحح C فقط.",
+        "En": "Corrects C only."
+      },
+      {
+        "Ar": "يصحح A فقط.",
+        "En": "Corrects A only."
+      }
+    ],
+    "idea": {
+      "Ar": "أكبر عدد مشترك ممكن بالحذف هو أصغر عدد حالي.",
+      "En": "The largest attainable equal count using removals is the smallest existing count."
+    },
+    "formula": "(4-2)+(3-2)",
+    "steps": [
+      {
+        "Ar": "$4-2=2$",
+        "En": "$4-2=2$"
+      },
+      {
+        "Ar": "$3-2=1$",
+        "En": "$3-2=1$"
+      },
+      {
+        "Ar": "$2+1=3$",
+        "En": "$2+1=3$"
+      }
+    ],
+    "sub": {
+      "Ar": "$4-2=2$",
+      "En": "$4-2=2$"
+    },
+    "result": {
+      "Ar": "$3$",
+      "En": "$3$"
+    },
+    "verify": {
+      "Ar": "$9-3=6=3\\cdot2$",
+      "En": "$9-3=6=3\\cdot2$"
+    },
+    "hints": [
+      {
+        "Ar": "لا يمكن زيادة B.",
+        "En": "B cannot be increased."
+      },
+      {
+        "Ar": "احذف الزائد من A وC.",
+        "En": "Remove the excess from A and C."
+      }
+    ],
+    "error": {
+      "Ar": "يجب أن تصبح الصفوف الثلاثة متساوية.",
+      "En": "All three rows must become equal."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 3,
+    "cat": 2,
+    "skill": 7,
+    "sk": "primary-one-step-additive-equations",
+    "family": "additive-equation-unknown-subtrahend",
+    "title": {
+      "Ar": "مطروح مجهول",
+      "En": "Unknown subtrahend"
+    },
+    "q": {
+      "Ar": "كان على رف 26 كتاباً، أُخذ منه x كتاباً فبقي 18. ما x؟",
+      "En": "A shelf held 26 books. After x books were taken, 18 remained. Find x."
+    },
+    "opts": [
+      "8",
+      "18",
+      "26",
+      "44"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "هذا العدد المتبقي.",
+        "En": "This is the remaining count."
+      },
+      {
+        "Ar": "هذا العدد الأصلي.",
+        "En": "This is the original count."
+      },
+      {
+        "Ar": "جمع الباقي والأصل.",
+        "En": "Adds remaining and original counts."
+      }
+    ],
+    "idea": {
+      "Ar": "العدد المأخوذ يساوي الفرق بين الأصل والباقي.",
+      "En": "The removed count is the difference between original and remaining counts."
+    },
+    "formula": "26-x=18",
+    "steps": [
+      {
+        "Ar": "$x=26-18$",
+        "En": "$x=26-18$"
+      },
+      {
+        "Ar": "$x=8$",
+        "En": "$x=8$"
+      }
+    ],
+    "sub": {
+      "Ar": "$x=26-18$",
+      "En": "$x=26-18$"
+    },
+    "result": {
+      "Ar": "$8$",
+      "En": "$8$"
+    },
+    "verify": {
+      "Ar": "$26-8=18$",
+      "En": "$26-8=18$"
+    },
+    "hints": [
+      {
+        "Ar": "اكتب ما كان موجوداً أولاً.",
+        "En": "Identify the starting count."
+      },
+      {
+        "Ar": "اطرح منه ما بقي.",
+        "En": "Subtract what remains."
+      }
+    ],
+    "error": {
+      "Ar": "لا تجمع العدد الأصلي والباقي.",
+      "En": "Do not add the original and remaining counts."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 3,
+    "cat": 2,
+    "skill": 7,
+    "sk": "primary-one-step-additive-equations",
+    "family": "additive-equation-equal-sum-compensation",
+    "title": {
+      "Ar": "موازنة مجموعين",
+      "En": "Balancing two sums"
+    },
+    "q": {
+      "Ar": "ما العدد n الذي يجعل $17+6=15+n$؟",
+      "En": "What number n makes $17+6=15+n$ true?"
+    },
+    "opts": [
+      "4",
+      "6",
+      "23",
+      "8"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "أنقص 2 بدلاً من زيادته.",
+        "En": "Subtracts two instead of adding it."
+      },
+      {
+        "Ar": "ترك الحد الآخر دون تعديل.",
+        "En": "Leaves the other addend unchanged."
+      },
+      {
+        "Ar": "هذا المجموع الكلي.",
+        "En": "This is the full sum."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "نحسب المجموع الأول ثم نطرح 15.",
+      "En": "Find the first sum and subtract fifteen."
+    },
+    "formula": "n=17+6-15",
+    "steps": [
+      {
+        "Ar": "$17+6=23$",
+        "En": "$17+6=23$"
+      },
+      {
+        "Ar": "$23-15=8$",
+        "En": "$23-15=8$"
+      }
+    ],
+    "sub": {
+      "Ar": "$17+6=23$",
+      "En": "$17+6=23$"
+    },
+    "result": {
+      "Ar": "$8$",
+      "En": "$8$"
+    },
+    "verify": {
+      "Ar": "$15+8=23$",
+      "En": "$15+8=23$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب الطرف الأيسر.",
+        "En": "Calculate the left side."
+      },
+      {
+        "Ar": "ما العدد الذي يكمل 15 إلى 23؟",
+        "En": "What completes fifteen to twenty-three?"
+      }
+    ],
+    "error": {
+      "Ar": "المساواة تتطلب أن يتساوى مجموع الطرفين.",
+      "En": "Equality requires the same total on both sides."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 3,
+    "cat": 81,
+    "skill": 305,
+    "sk": "place-value",
+    "family": "place-value-regroup-one-hundred-into-tens",
+    "title": {
+      "Ar": "تفكيك مئة إلى عشرات",
+      "En": "Regrouping a hundred into tens"
+    },
+    "q": {
+      "Ar": "يتكون العدد 360 من 3 مئات و6 عشرات. إذا استبدلنا مئة واحدة بعشرات دون تغيير العدد، فكم عشرة يصبح لدينا؟",
+      "En": "The number 360 consists of three hundreds and six tens. If one hundred is regrouped into tens without changing the number, how many tens are there now?"
+    },
+    "opts": [
+      "10",
+      "36",
+      "16",
+      "6"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "العشرات المضافة فقط.",
+        "En": "Only the added tens."
+      },
+      {
+        "Ar": "عدد العشرات إذا فككنا كل المئات.",
+        "En": "The tens count if all hundreds are regrouped."
+      },
+      null,
+      {
+        "Ar": "عدد العشرات قبل التفكيك.",
+        "En": "The original tens count."
+      }
+    ],
+    "idea": {
+      "Ar": "مئة واحدة تعادل عشر عشرات.",
+      "En": "One hundred is ten tens."
+    },
+    "formula": "100=10\\cdot10",
+    "steps": [
+      {
+        "Ar": "$6+10=16$",
+        "En": "$6+10=16$"
+      }
+    ],
+    "sub": {
+      "Ar": "$6+10=16$",
+      "En": "$6+10=16$"
+    },
+    "result": {
+      "Ar": "$16$",
+      "En": "$16$"
+    },
+    "verify": {
+      "Ar": "$2\\cdot100+16\\cdot10=360$",
+      "En": "$2\\cdot100+16\\cdot10=360$"
+    },
+    "hints": [
+      {
+        "Ar": "كم عشرة في مئة واحدة؟",
+        "En": "How many tens are in one hundred?"
+      },
+      {
+        "Ar": "أضفها إلى الست الموجودة.",
+        "En": "Add them to the existing six."
+      }
+    ],
+    "error": {
+      "Ar": "فكك مئة واحدة فقط.",
+      "En": "Regroup just one hundred."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 3,
+    "cat": 81,
+    "skill": 304,
+    "sk": "number-comparison",
+    "family": "number-comparison-same-digits-minimum-difference",
+    "title": {
+      "Ar": "أصغر عدد من أرقام معطاة",
+      "En": "Smallest number from given digits"
+    },
+    "q": {
+      "Ar": "كوّن أصغر عدد من ثلاثة أرقام باستخدام 0 و4 و7 مرة واحدة لكل رقم. ما العدد؟",
+      "En": "Form the smallest three-digit number using 0, 4 and 7 once each. What is the number?"
+    },
+    "opts": [
+      "704",
+      "407",
+      "47",
+      "470"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "بدأ بأكبر رقم غير صفري.",
+        "En": "Starts with the largest nonzero digit."
+      },
+      null,
+      {
+        "Ar": "لا يتكون من ثلاثة أرقام.",
+        "En": "Not a three-digit number."
+      },
+      {
+        "Ar": "وضع 7 قبل الصفر.",
+        "En": "Places seven before zero."
+      }
+    ],
+    "idea": {
+      "Ar": "نضع أصغر رقم غير صفري في المئات ثم أصغر رقم باقٍ في العشرات.",
+      "En": "Put the smallest nonzero digit in hundreds and the smallest remaining digit in tens."
+    },
+    "formula": "400+0+7",
+    "steps": [
+      {
+        "Ar": "$400+0+7=407$",
+        "En": "$400+0+7=407$"
+      }
+    ],
+    "sub": {
+      "Ar": "$400+0+7=407$",
+      "En": "$400+0+7=407$"
+    },
+    "result": {
+      "Ar": "$407$",
+      "En": "$407$"
+    },
+    "verify": {
+      "Ar": "$407<470<704<740$",
+      "En": "$407<470<704<740$"
+    },
+    "hints": [
+      {
+        "Ar": "لا يبدأ عدد من ثلاثة أرقام بالصفر.",
+        "En": "A three-digit number cannot start with zero."
+      },
+      {
+        "Ar": "بعد 4 ضع أصغر رقم باقٍ.",
+        "En": "After four, place the smallest remaining digit."
+      }
+    ],
+    "error": {
+      "Ar": "لا تضع الصفر في منزلة المئات.",
+      "En": "Do not place zero in the hundreds place."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 4,
+    "cat": 33,
+    "skill": 6,
+    "sk": "primary-multiplicative-word-problems",
+    "family": "division-remainder-capacity-unused",
+    "title": {
+      "Ar": "أماكن فارغة بعد توزيع",
+      "En": "Unused places after allocation"
+    },
+    "q": {
+      "Ar": "لدينا 5 صناديق يتسع كل منها لثماني كرات. وُضعت 37 كرة فيها. كم مكاناً فارغاً بقي إجمالاً؟",
+      "En": "Five boxes can hold eight balls each. Thirty-seven balls are placed in them. How many places remain empty altogether?"
+    },
+    "opts": [
+      "3",
+      "5",
+      "8",
+      "37"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "عدد الصناديق.",
+        "En": "The number of boxes."
+      },
+      {
+        "Ar": "سعة الصندوق الواحد.",
+        "En": "One box's capacity."
+      },
+      {
+        "Ar": "عدد الكرات الموضوعة.",
+        "En": "The number of balls placed."
+      }
+    ],
+    "idea": {
+      "Ar": "نحسب السعة الكلية ثم نطرح عدد الكرات.",
+      "En": "Find total capacity and subtract the occupied places."
+    },
+    "formula": "5\\cdot8-37",
+    "steps": [
+      {
+        "Ar": "$5\\cdot8=40$",
+        "En": "$5\\cdot8=40$"
+      },
+      {
+        "Ar": "$40-37=3$",
+        "En": "$40-37=3$"
+      }
+    ],
+    "sub": {
+      "Ar": "$5\\cdot8=40$",
+      "En": "$5\\cdot8=40$"
+    },
+    "result": {
+      "Ar": "$3$",
+      "En": "$3$"
+    },
+    "verify": {
+      "Ar": "$37+3=40$",
+      "En": "$37+3=40$"
+    },
+    "hints": [
+      {
+        "Ar": "كم مكاناً في الصناديق كلها؟",
+        "En": "How many places across all boxes?"
+      },
+      {
+        "Ar": "اطرح الأماكن المشغولة.",
+        "En": "Subtract occupied places."
+      }
+    ],
+    "error": {
+      "Ar": "لا تخلط عدد الكرات الباقية بعد القسمة مع الأماكن الفارغة.",
+      "En": "Do not confuse leftover balls with empty places."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 4,
+    "cat": 33,
+    "skill": 5,
+    "sk": "primary-division",
+    "family": "division-quotient-change-double-divisor",
+    "title": {
+      "Ar": "تأثير مضاعفة المقسوم عليه",
+      "En": "Effect of doubling a divisor"
+    },
+    "q": {
+      "Ar": "نعلم أن $120\\div6=20$. ما ناتج $120\\div12$؟",
+      "En": "Given $120\\div6=20$, what is $120\\div12$?"
+    },
+    "opts": [
+      "20",
+      "40",
+      "12",
+      "10"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "لم يغير الناتج رغم تغيير المقسوم عليه.",
+        "En": "Keeps the old quotient despite changing the divisor."
+      },
+      {
+        "Ar": "ضاعف الناتج بدلاً من تنصيفه.",
+        "En": "Doubles rather than halves the quotient."
+      },
+      {
+        "Ar": "هذا المقسوم عليه الجديد.",
+        "En": "This is the new divisor."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "إذا بقي المقسوم ثابتاً وتضاعف المقسوم عليه، ينصف خارج القسمة.",
+      "En": "With the dividend fixed, doubling the divisor halves the quotient."
+    },
+    "formula": "120/(2\\cdot6)=(120/6)/2",
+    "steps": [
+      {
+        "Ar": "$20/2=10$",
+        "En": "$20/2=10$"
+      }
+    ],
+    "sub": {
+      "Ar": "$20/2=10$",
+      "En": "$20/2=10$"
+    },
+    "result": {
+      "Ar": "$10$",
+      "En": "$10$"
+    },
+    "verify": {
+      "Ar": "$12\\cdot10=120$",
+      "En": "$12\\cdot10=120$"
+    },
+    "hints": [
+      {
+        "Ar": "12 ضعف 6.",
+        "En": "Twelve is twice six."
+      },
+      {
+        "Ar": "فكر في عدد المجموعات إذا تضاعف حجم المجموعة.",
+        "En": "Consider the group count when group size doubles."
+      }
+    ],
+    "error": {
+      "Ar": "لا تضاعف خارج القسمة مع المقسوم عليه.",
+      "En": "Do not double the quotient along with the divisor."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 4,
+    "cat": 82,
+    "skill": 324,
+    "sk": "time",
+    "family": "time-elapsed-across-midday",
+    "title": {
+      "Ar": "مدة تمتد عبر الظهر",
+      "En": "Duration across noon"
+    },
+    "q": {
+      "Ar": "بدأ نشاط عند 11:35 صباحاً وانتهى عند 12:15 ظهراً. كم دقيقة استغرق؟",
+      "En": "An activity begins at 11:35 a.m. and ends at 12:15 p.m. How many minutes does it last?"
+    },
+    "opts": [
+      "25",
+      "50",
+      "40",
+      "20"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "الوقت حتى الظهر فقط.",
+        "En": "Only the time until noon."
+      },
+      {
+        "Ar": "يزيد على المدة الفعلية بعشر دقائق.",
+        "En": "Exceeds the actual duration by ten minutes."
+      },
+      null,
+      {
+        "Ar": "أخطأ في طرح الدقائق عبر الساعة.",
+        "En": "Subtracts minutes incorrectly across the hour."
+      }
+    ],
+    "idea": {
+      "Ar": "نحسب الزمن حتى الظهر ثم نضيف الدقائق بعده.",
+      "En": "Find the time to noon and add the minutes after noon."
+    },
+    "formula": "(60-35)+15",
+    "steps": [
+      {
+        "Ar": "$60-35=25$",
+        "En": "$60-35=25$"
+      },
+      {
+        "Ar": "$25+15=40$",
+        "En": "$25+15=40$"
+      }
+    ],
+    "sub": {
+      "Ar": "$60-35=25$",
+      "En": "$60-35=25$"
+    },
+    "result": {
+      "Ar": "$40$",
+      "En": "$40$"
+    },
+    "verify": {
+      "Ar": "$11{:}35+25\\text{ min}=12{:}00$",
+      "En": "$11{:}35+25\\text{ min}=12{:}00$"
+    },
+    "hints": [
+      {
+        "Ar": "كم دقيقة حتى الساعة 12؟",
+        "En": "How many minutes until twelve?"
+      },
+      {
+        "Ar": "أضف ربع الساعة بعد الظهر.",
+        "En": "Add fifteen minutes after noon."
+      }
+    ],
+    "error": {
+      "Ar": "لا تطرح 35 من 15 مباشرة.",
+      "En": "Do not subtract 35 directly from 15."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 4,
+    "cat": 82,
+    "skill": 322,
+    "sk": "mass",
+    "family": "mass-three-equal-objects-total-mixed",
+    "title": {
+      "Ar": "كتلة مجموعات متساوية",
+      "En": "Mass of equal objects"
+    },
+    "q": {
+      "Ar": "كتلة كل علبة 1 كغ و250 غ. ما كتلة ثلاث علب بالغرام؟",
+      "En": "Each box has mass 1 kg 250 g. What is the mass of three boxes in grams?"
+    },
+    "opts": [
+      "3250",
+      "3750",
+      "1250",
+      "3000"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "أضاف 250 غ مرة واحدة فقط.",
+        "En": "Adds 250 g only once."
+      },
+      null,
+      {
+        "Ar": "كتلة علبة واحدة.",
+        "En": "Mass of one box."
+      },
+      {
+        "Ar": "أهمل 250 غ في كل علبة.",
+        "En": "Omits 250 g in every box."
+      }
+    ],
+    "idea": {
+      "Ar": "نحول كتلة العلبة إلى غرامات ثم نضرب في ثلاثة.",
+      "En": "Convert one box to grams and multiply by three."
+    },
+    "formula": "3(1000+250)",
+    "steps": [
+      {
+        "Ar": "$1000+250=1250$",
+        "En": "$1000+250=1250$"
+      },
+      {
+        "Ar": "$3\\cdot1250=3750$",
+        "En": "$3\\cdot1250=3750$"
+      }
+    ],
+    "sub": {
+      "Ar": "$1000+250=1250$",
+      "En": "$1000+250=1250$"
+    },
+    "result": {
+      "Ar": "$3750$",
+      "En": "$3750$"
+    },
+    "verify": {
+      "Ar": "$3750/3=1250$",
+      "En": "$3750/3=1250$"
+    },
+    "hints": [
+      {
+        "Ar": "كم غراماً في الكيلوغرام؟",
+        "En": "How many grams are in a kilogram?"
+      },
+      {
+        "Ar": "اضرب الكتلة الكاملة في ثلاثة.",
+        "En": "Multiply the full mass by three."
+      }
+    ],
+    "error": {
+      "Ar": "يجب حساب جزء الغرامات لكل علبة.",
+      "En": "Include the gram portion for each box."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 6,
+    "cat": 3,
+    "skill": 14,
+    "sk": "primary-triangle-area",
+    "family": "triangle-area-height-ratio-from-same-base",
+    "title": {
+      "Ar": "نسبة ارتفاعين من مساحتين",
+      "En": "Height ratio from areas"
+    },
+    "q": {
+      "Ar": "مثلثان لهما قاعدة بالطول نفسه. مساحة الأول 24 سم² ومساحة الثاني 36 سم². ما نسبة ارتفاع الثاني إلى ارتفاع الأول؟",
+      "En": "Two triangles have bases of the same length. Their areas are 24 cm² and 36 cm² respectively. What is the ratio of the second height to the first?"
+    },
+    "opts": [
+      "\\frac32",
+      "\\frac23",
+      "2",
+      "12"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "عكس ترتيب النسبة.",
+        "En": "Reverses the ratio."
+      },
+      {
+        "Ar": "ليس نسبة المساحتين.",
+        "En": "Not the area ratio."
+      },
+      {
+        "Ar": "فرق المساحتين لا نسبتهما.",
+        "En": "The difference of areas, not their ratio."
+      }
+    ],
+    "idea": {
+      "Ar": "عند تساوي القاعدتين تتناسب المساحتان مع الارتفاعين.",
+      "En": "With equal bases, areas are proportional to heights."
+    },
+    "formula": "h_2/h_1=A_2/A_1",
+    "steps": [
+      {
+        "Ar": "$36/24=3/2$",
+        "En": "$36/24=3/2$"
+      }
+    ],
+    "sub": {
+      "Ar": "$36/24=3/2$",
+      "En": "$36/24=3/2$"
+    },
+    "result": {
+      "Ar": "$\\frac32$",
+      "En": "$\\frac32$"
+    },
+    "verify": {
+      "Ar": "$24\\cdot3/2=36$",
+      "En": "$24\\cdot3/2=36$"
+    },
+    "hints": [
+      {
+        "Ar": "عامل القاعدة نفسه في المساحتين.",
+        "En": "The base factor is the same in both areas."
+      },
+      {
+        "Ar": "اقسم المساحة الثانية على الأولى.",
+        "En": "Divide the second area by the first."
+      }
+    ],
+    "error": {
+      "Ar": "انتبه إلى اتجاه النسبة المطلوبة.",
+      "En": "Keep the requested ratio direction."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 6,
+    "cat": 3,
+    "skill": 14,
+    "sk": "primary-triangle-area",
+    "family": "triangle-area-double-base-fixed-height-recover-original",
+    "title": {
+      "Ar": "مساحة قبل تغير القاعدة",
+      "En": "Area before changing a base"
+    },
+    "q": {
+      "Ar": "زاد طول قاعدة مثلث إلى ثلاثة أمثاله دون تغيير الارتفاع، فأصبحت مساحته 45 سم². ما المساحة الأصلية؟",
+      "En": "A triangle's base triples while its height stays fixed. Its new area is 45 cm². What was its original area?"
+    },
+    "opts": [
+      "135",
+      "42",
+      "5",
+      "15"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "ضرب المساحة الجديدة بدلاً من القسمة.",
+        "En": "Multiplies the new area instead of dividing."
+      },
+      {
+        "Ar": "طرح ثلاثة بدلاً من القسمة.",
+        "En": "Subtracts three instead of dividing."
+      },
+      {
+        "Ar": "قسم على مربع ثلاثة.",
+        "En": "Divides by the square of three."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "مع ثبات الارتفاع تتغير المساحة بنسبة تغير القاعدة.",
+      "En": "With fixed height, area scales with the base."
+    },
+    "formula": "A_{new}=3A_{old}",
+    "steps": [
+      {
+        "Ar": "$A_{old}=45/3=15$",
+        "En": "$A_{old}=45/3=15$"
+      }
+    ],
+    "sub": {
+      "Ar": "$A_{old}=45/3=15$",
+      "En": "$A_{old}=45/3=15$"
+    },
+    "result": {
+      "Ar": "$15$",
+      "En": "$15$"
+    },
+    "verify": {
+      "Ar": "$15\\cdot3=45$",
+      "En": "$15\\cdot3=45$"
+    },
+    "hints": [
+      {
+        "Ar": "ما معامل تغير طول القاعدة؟",
+        "En": "What is the base scale factor?"
+      },
+      {
+        "Ar": "اعكس الضرب بالقسمة.",
+        "En": "Undo multiplication by dividing."
+      }
+    ],
+    "error": {
+      "Ar": "لم يتغير الارتفاع، فلا تستعمل معامل مساحة لتشابه شكلين.",
+      "En": "Height is unchanged, so do not use an area scale factor for similar shapes."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 6,
+    "cat": 4,
+    "skill": 19,
+    "sk": "primary-arithmetic-mean",
+    "family": "mean-bound-unknown-equal-value-all",
+    "title": {
+      "Ar": "متوسط وحدود القيم",
+      "En": "Mean at the upper bound"
+    },
+    "q": {
+      "Ar": "أربع درجات لا تزيد أي منها على 10، ومتوسطها يساوي 10. كم درجة منها تساوي 10؟",
+      "En": "Four scores are each at most 10, and their mean is 10. How many of the scores equal 10?"
+    },
+    "opts": [
+      "2",
+      "3",
+      "4",
+      "1"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "درجتان أقل تمنعان الوصول إلى مجموع 40.",
+        "En": "Two smaller scores prevent a total of forty."
+      },
+      {
+        "Ar": "حتى درجة واحدة أصغر تخفض المتوسط.",
+        "En": "Even one smaller score lowers the mean."
+      },
+      null,
+      {
+        "Ar": "لو كانت البقية أصغر لانخفض المتوسط.",
+        "En": "If the others were smaller, the mean would fall."
+      }
+    ],
+    "idea": {
+      "Ar": "المجموع المطلوب 40، ولا يمكن بلوغه إلا إذا كانت كل درجة 10.",
+      "En": "The required total is forty, attainable only if all scores are ten."
+    },
+    "formula": "S=4\\cdot10",
+    "steps": [
+      {
+        "Ar": "$S=40$",
+        "En": "$S=40$"
+      },
+      {
+        "Ar": "$10+10+10+10=40$",
+        "En": "$10+10+10+10=40$"
+      }
+    ],
+    "sub": {
+      "Ar": "$S=40$",
+      "En": "$S=40$"
+    },
+    "result": {
+      "Ar": "$4$",
+      "En": "$4$"
+    },
+    "verify": {
+      "Ar": "$40/4=10$",
+      "En": "$40/4=10$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب مجموع الدرجات المطلوب.",
+        "En": "Find the required score total."
+      },
+      {
+        "Ar": "هل يمكن تعويض درجة أقل بدرجة أكبر من 10؟",
+        "En": "Can a lower score be offset by a score above ten?"
+      }
+    ],
+    "error": {
+      "Ar": "المتوسط يساوي الحد الأعلى فقط عندما تساويه كل القيم.",
+      "En": "The mean equals the upper bound only when every value equals it."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 6,
+    "cat": 81,
+    "skill": 345,
+    "sk": "primary-signed-rational-number-sense",
+    "family": "signed-number-between-equal-negative-fractions",
+    "title": {
+      "Ar": "مقارنة تمثيلين للعدد السالب",
+      "En": "Comparing signed fraction representations"
+    },
+    "q": {
+      "Ar": "أي عدد من الخيارات يساوي $-\\frac{6}{8}$؟",
+      "En": "Which number equals $-\\frac68$?"
+    },
+    "opts": [
+      "-1.25",
+      "-0.75",
+      "0.75",
+      "-0.6"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "عكس القسمة أو تجاوز الواحد.",
+        "En": "Reverses division or exceeds one in magnitude."
+      },
+      null,
+      {
+        "Ar": "حذف الإشارة السالبة.",
+        "En": "Drops the negative sign."
+      },
+      {
+        "Ar": "عامل البسط كرقم عشري مباشرة.",
+        "En": "Treats the numerator as a decimal digit directly."
+      }
+    ],
+    "idea": {
+      "Ar": "نبسط الكسر ثم نحوله إلى عدد عشري مع الحفاظ على الإشارة.",
+      "En": "Simplify and convert to decimal while preserving the sign."
+    },
+    "formula": "-6/8=-3/4",
+    "steps": [
+      {
+        "Ar": "$3/4=0.75$",
+        "En": "$3/4=0.75$"
+      },
+      {
+        "Ar": "$-6/8=-0.75$",
+        "En": "$-6/8=-0.75$"
+      }
+    ],
+    "sub": {
+      "Ar": "$3/4=0.75$",
+      "En": "$3/4=0.75$"
+    },
+    "result": {
+      "Ar": "$-0.75$",
+      "En": "$-0.75$"
+    },
+    "verify": {
+      "Ar": "$-0.75\\cdot8=-6$",
+      "En": "$-0.75\\cdot8=-6$"
+    },
+    "hints": [
+      {
+        "Ar": "اقسم البسط والمقام على 2.",
+        "En": "Divide numerator and denominator by two."
+      },
+      {
+        "Ar": "حوّل ثلاثة أرباع إلى عدد عشري سالب.",
+        "En": "Convert three quarters to a negative decimal."
+      }
+    ],
+    "error": {
+      "Ar": "لا تحذف السالب عند تغيير التمثيل.",
+      "En": "Keep the negative sign when changing representations."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  }
+]
