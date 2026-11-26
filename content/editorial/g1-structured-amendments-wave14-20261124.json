@@ -5414,8 +5414,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الخيار $0$ لا يتوافق مع تطبيق القانون: $\\det\\begin{pmatrix}1&0\\\\2&1\\end{pmatrix}=1\\ne0$.",
-              "En": "The choice $0$ disagrees with the rule applied here: $\\det\\begin{pmatrix}1&0\\\\2&1\\end{pmatrix}=1\\ne0$."
+              "Ar": "هناك متجه غير صفري، لذا لا يمكن أن تكون الرتبة صفراً.",
+              "En": "A nonzero vector rules out rank zero."
             }
           },
           {
@@ -5423,8 +5423,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الخيار $1$ لا يتوافق مع تطبيق القانون: $\\det\\begin{pmatrix}1&0\\\\2&1\\end{pmatrix}=1\\ne0$.",
-              "En": "The choice $1$ disagrees with the rule applied here: $\\det\\begin{pmatrix}1&0\\\\2&1\\end{pmatrix}=1\\ne0$."
+              "Ar": "المتجهان (1، 2) و(0، 1) مستقلان، لذا يمكن اختيار متجهين.",
+              "En": "The vectors (1, 2) and (0, 1) are independent, so two can be selected."
             }
           },
           {
@@ -5438,8 +5438,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الخيار $3$ لا يتوافق مع تطبيق القانون: $\\det\\begin{pmatrix}1&0\\\\2&1\\end{pmatrix}=1\\ne0$.",
-              "En": "The choice $3$ disagrees with the rule applied here: $\\det\\begin{pmatrix}1&0\\\\2&1\\end{pmatrix}=1\\ne0$."
+              "Ar": "في فضاء بعده 2، لا توجد مجموعة من ثلاثة متجهات مستقلة خطياً.",
+              "En": "No three vectors in a two-dimensional space are linearly independent."
             }
           }
         ],
@@ -5482,8 +5482,8 @@
             "En": "Dimensionless"
           },
           "Verification": {
-            "Ar": "$(3,6)=3(1,2)$",
-            "En": "$(3,6)=3(1,2)$"
+            "Ar": "المركبة الأولى للتركيب الخطي للمتجهين (1، 2) و(0، 1) تجبر معامل الأول على الصفر، ثم تجبر المركبة الثانية معامل الآخر على الصفر.",
+            "En": "In a zero linear combination of (1, 2) and (0, 1), the first coordinate forces the first coefficient to be zero. The second coordinate then forces the other coefficient to be zero."
           },
           "CommonError": {
             "Ar": "وجود ثلاثة متجهات لا يعني استقلالها جميعاً.",
@@ -5685,6 +5685,10 @@
           "FormulaLatex": "L=\\frac{L+6}2",
           "Steps": [
             {
+              "Ar": "بما أن المتتالية متزايدة ومحدودة من أعلى وفق المعطيات، فلها نهاية منتهية.",
+              "En": "The sequence is increasing and bounded above by assumption, so it has a finite limit."
+            },
+            {
               "Ar": "عوّض الحدين المتتاليين بنهايتهما المشتركة وحل المعادلة.",
               "En": "Replace successive terms by their common limit and solve."
             },
@@ -5706,8 +5710,8 @@
             "En": "Dimensionless"
           },
           "Verification": {
-            "Ar": "$(6+6)/2=6$",
-            "En": "$(6+6)/2=6$"
+            "Ar": "كان الفرق بين 6 والحد الأول 4، وفي كل انتقال ينخفض الفرق إلى النصف. لذا يقترب الفرق من الصفر.",
+            "En": "The gap between 6 and the first term is 4. Each recurrence step halves that gap, which therefore tends to zero."
           },
           "CommonError": {
             "Ar": "لا تفترض أن النهاية تساوي الحد الأول.",

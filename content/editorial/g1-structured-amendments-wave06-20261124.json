@@ -1142,8 +1142,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "0.57 ÷ 10 = 0.056999999999999995، وليس 0.47.",
-              "En": "0.57 divided by ten is 0.056999999999999995, not 0.47."
+              "Ar": "0.57 ÷ 10 = 0.057، وليس 0.47.",
+              "En": "0.57 divided by ten is 0.057, not 0.47."
             }
           }
         ],

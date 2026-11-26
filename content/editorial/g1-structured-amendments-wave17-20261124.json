@@ -488,8 +488,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. ليس كل ترتيب جزئي ترتيباً كلياً. العدد 1 يقسم 2 لكن العكس لا يصح؛ العلاقة ليست متناظرة ولا تكافؤاً.",
-              "En": "This choice does not match the derived result. Not every partial order is total. 1 divides 2 but not vice versa; the relation is not symmetric or an equivalence."
+              "Ar": "العلاقة غير متناظرة، فالعدد 1 يقسم 2 ولا يقسم 2 العدد 1.",
+              "En": "The relation fails symmetry because 1 divides 2 and 2 does not divide 1."
             }
           },
           {
@@ -497,8 +497,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. ليس كل ترتيب جزئي ترتيباً كلياً. العدد 1 يقسم 2 لكن العكس لا يصح؛ العلاقة ليست متناظرة ولا تكافؤاً.",
-              "En": "This choice does not match the derived result. Not every partial order is total. 1 divides 2 but not vice versa; the relation is not symmetric or an equivalence."
+              "Ar": "العددان 2 و3 غير قابلين للمقارنة بالقسمة، لذا لا يتحقق الترتيب الكلي.",
+              "En": "The integers 2 and 3 are incomparable under divisibility, so the order is not total."
             }
           },
           {
@@ -512,8 +512,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. ليس كل ترتيب جزئي ترتيباً كلياً. العدد 1 يقسم 2 لكن العكس لا يصح؛ العلاقة ليست متناظرة ولا تكافؤاً.",
-              "En": "This choice does not match the derived result. Not every partial order is total. 1 divides 2 but not vice versa; the relation is not symmetric or an equivalence."
+              "Ar": "القسمة انعكاسية ومتعدية، والقسمة المتبادلة بين عددين صحيحين موجبين تستلزم تساويهما.",
+              "En": "Divisibility is reflexive and transitive. Mutual divisibility of positive integers implies equality."
             }
           }
         ],
@@ -552,8 +552,8 @@
             "En": "Partial order, not total"
           },
           "Verification": {
-            "Ar": "العدد 1 يقسم 2 لكن العكس لا يصح؛ العلاقة ليست متناظرة ولا تكافؤاً.",
-            "En": "1 divides 2 but not vice versa; the relation is not symmetric or an equivalence."
+            "Ar": "تتحقق المقارنة عند النظر إلى 2 و3: لا يقسم أيّ منهما الآخر، ولذلك فالترتيب غير كلي.",
+            "En": "Neither 2 nor 3 divides the other, so this partial order is not total."
           },
           "CommonError": {
             "Ar": "ليس كل ترتيب جزئي ترتيباً كلياً.",
@@ -604,8 +604,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تساو المشتقتين؛ المطلوب الاتصال فقط. $2\\cdot\\frac32+1=4$",
-              "En": "This choice does not match the derived result. Do not equate derivatives; only continuity is required. $2\\cdot\\frac32+1=4$"
+              "Ar": "عند هذا الاختيار تساوي النهاية اليسرى 2، بينما قيمة الدالة عند 2 تساوي 4.",
+              "En": "This choice gives a left-hand limit of 2, while the function value at 2 is 4."
             }
           },
           {
@@ -613,8 +613,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تساو المشتقتين؛ المطلوب الاتصال فقط. $2\\cdot\\frac32+1=4$",
-              "En": "This choice does not match the derived result. Do not equate derivatives; only continuity is required. $2\\cdot\\frac32+1=4$"
+              "Ar": "عند هذا الاختيار تساوي النهاية اليسرى 3، بينما قيمة الدالة عند 2 تساوي 4.",
+              "En": "This choice gives a left-hand limit of 3, while the function value at 2 is 4."
             }
           },
           {
@@ -628,8 +628,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تساو المشتقتين؛ المطلوب الاتصال فقط. $2\\cdot\\frac32+1=4$",
-              "En": "This choice does not match the derived result. Do not equate derivatives; only continuity is required. $2\\cdot\\frac32+1=4$"
+              "Ar": "عند هذا الاختيار تساوي النهاية اليسرى 5، بينما قيمة الدالة عند 2 تساوي 4.",
+              "En": "This choice gives a left-hand limit of 5, while the function value at 2 is 4."
             }
           }
         ],

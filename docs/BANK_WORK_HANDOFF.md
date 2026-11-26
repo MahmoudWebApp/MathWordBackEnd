@@ -1,5 +1,39 @@
 # MathWorld bank — Work / ChatGPT handoff
 Updated 2026-11-26. This is a shared handoff, not a scheduler or autonomous agent.
+## Offline editorial checkpoint — 2026-11-26, legacy sources #645–832
+
+Audited 100 archived legacy sources in four ranges, including six with a structured record in the original-holds review. This brings the archived audit to 393 sources across the recorded checkpoints. The 327 original expansion candidates were already audited. Checked both languages, four options, distractor feedback, hints, worked steps, laws, units and verification. All 100 bilingual stems and primary skill keys matched the original hint archive. The four options were mathematically distinct in each record, with one correct answer. No additional normalized stem match appeared in the 749-pair archive. Current wizard IDs, statuses and revisions are still unknown.
+
+| Legacy sources in ascending order | Independent answers |
+|---|---|
+| #645–656 | 0, −1, 4, 1/2, 1, 2, 1, 2, 1, 0, 1, 6 |
+| #689–704 | 9, 13, 9, 60, 12, 2/3, 3/4, 2/3 < 3/4, 70°, 80°, 55°, 90°, 30, 65°, 73°, 2 |
+| #705–720 | 5/36, 1/4, 11/36, 3/4, 3, 3, 12, fourth, 15, 1/2, 2/3, 0, 3, 0, 2, 2 |
+| #761–772 | 247 L, 163, 133, 216, −64, 1, 1/8, 27 cm³, 5, {1/2, 3}, 6 cm, 0 |
+| #773–784 | −5, 8, 26, fifth, third order, second order, first order, fourth derivative equation, 5/2, divergent, conditionally convergent, 1 |
+| #785–800 | 30, 40, 60, 24, odd integer implies odd square, 2n+1, both even, 2, 2, 2, (1,3), nontotal partial order, 3/2, 0, 2, continuous at zero with no derivative there |
+| #817–832 | 3/4, 11/8, 3/8 L, 1/6 kg, 8.36, 4.7, 12, 12, 4/3, 6, (8,12,16), 15, −10, 4/5, 6, 3 |
+
+Corrected bilingual content in seven existing records. #652 verifies independence with component equations and addresses the dimension bound. #656 justifies the use of a finite limit and verifies it through the halving gap. #710 explains why the negative root also squares to 9 and fails the positive-ratio condition. #796 uses incomparable integers to verify the failure of totality. #797 compares each wrong option's left limit with the value at the join. #822 gives the exact decimal 0.057 in the distractor calculation. #824 explains the consecutive increase, decrease and nonconsecutive comparison separately. The source stems, option strings and answer flags match their previous versions.
+
+Hold 16 from initial launch preparation for the following resolutions. The remaining 84 can proceed to source and draft reconciliation.
+
+| Source IDs | Hold and resolution |
+|---|---|
+| #649 | Assign the existing determinant skill (61) through the approved taxonomy flow. Nonzero determinant implies independence, while the answer requested is the scalar determinant. |
+| #691 | Both #689 and #691 ask for the unknown number in each equal group and have the same result of 9. Use one as the launch representative after reconciling availability. |
+| #698 | Verify Grade 8 placement for the exterior-angle theorem. Both Cambridge 8Gg.10 and CCSS 8.G.A.5 explicitly place exterior-angle reasoning there. |
+| #705–708 | The answers are valid under independent fair six-sided rolls. Use the archived bilingual stem amendments through the official review so the 36 equiprobable outcomes are justified. The four questions distinguish direct counting, intersection, complement and translating product parity. |
+| #768 | The requested cube volume calls for a geometry volume objective. Confirm the correct safe placement through the official taxonomy flow while preserving current access. |
+| #782, #783, #789, #791, #796, #798, #800 | Verify shared LaTeX options containing text from both languages in each runtime locale. Clarify the finite-terms distractor in #783 as claiming finitely many terms. #782 and #512 use the same harmonic divergence argument, with #512 asking for the reason, so avoid counting them as independent launch skills. |
+| #824 | The archived text supplies data values directly. Verify a line chart is actually provided or use a skill for comparing consecutive values. |
+
+The [Cambridge Primary 0096 framework](https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-primary/curriculum/mathematics/) and [official CCSS mathematics standards](https://www.thecorestandards.org/assets/CCSSI_Math%20Standards.pdf) guide the four-operations and fractions placements. CCSS 3.OA.A.2 and 3.OA.A.4 support equal groups and unknown factors, 4.NF.A.1–2 support equivalent fractions and comparing unlike denominators, 5.NBT.A.2 supports #822 and 7.G.B.6 supports #768. [Cambridge Lower Secondary 0862 objectives](https://static1.squarespace.com/static/5214ff22e4b06e19d62917ee/t/64d511e7b02f11373c39ddbd/1691685351971/Math%2BCurriculum%2BFramework.pdf) distinguishes chart interpretation and angle reasoning. CCSS 7.G.B.5 supports Grade 7 vertical angles. The [OECD PISA 2022 mathematics framework](https://www.oecd.org/en/publications/pisa-2022-assessment-and-analytical-framework_dfe0bf9c-en/full-report/component-3.html) distinguishes contextual formulation and interpretation from executing an operation. #771 requires constructing the area equation and selecting a physically meaningful root. #824 interprets change across consecutive readings if the representation is supplied. The [MAA CUPM guidance](https://maa.org/resource/cupm-guide/) and [linear algebra report](https://maa.org/wp-content/uploads/2024/06/Linear-Algebra-Course-Area-Report-Aug-17-2023.pdf) guide undergraduate course scope. [MSC2020](https://mathscinet.ams.org/msc/pdfs/classifications2020.pdf) supports determinant and independence distinctions (15A15 and 15A03), series convergence (40A05), and graph coloring (05C15).
+
+All four PR workflows passed on parent 24625b5d81e5427db89b55232e3d3f5267b67a2e. The local run passed 50 Node tests, all 14 G1 scripts and 100 independent answer checks. Archived `launch-coverage` still shows 1,284 missing assignments including 33 category links. Local `launch-prepare` produced 111 in batches of 50, 50 and 11, and bulk preparation produced 230 in batches of 50, 50, 50, 50 and 30. All use `Confirm=false` and meet the 50-item and 1.8 MB limits. Current live coverage and the current set of eligible candidates remain unverified. Authored 0, published 0, and made no production requests.
+
+Continue at source #833. The hint archive contains no sources #657–688, #721–760 or #801–816. Verify the live wizard independently starting at draft #400 where applicable. Reconcile current inventory, duplicates and draft revisions through the authenticated official path before previews or publication. The five-category, 20-per-category launch target remains open.
+
 ## Offline editorial checkpoint — 2026-11-26, legacy sources #420–644
 
 Audited 98 archived structured amendments in four disjoint ranges. Together with earlier checkpoints, 293 archived structured amendments and all 327 original expansion candidates have been audited. The 98 source signatures match the archive's bilingual stems and primary skill keys. Independently recomputed every marked answer, checked equivalent numeric options, read both languages and reviewed progressive hints, laws, solution steps, distractor feedback and verification. Compared both normalized stems against the 749-pair repository pool and checked semantic matches by operation and reasoning. Source IDs are legacy problem IDs. The current wizard IDs, revisions and live statuses remain unverified.

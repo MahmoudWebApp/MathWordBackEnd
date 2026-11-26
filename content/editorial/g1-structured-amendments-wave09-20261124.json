@@ -4182,8 +4182,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الخيار $9$ لا يحقق العلاقة الناتجة من المعطيات: $23-14=9,\\quad19-23=-4,\\quad31-19=12$.",
-              "En": "The option $9$ does not satisfy the relation obtained from the given data: $23-14=9,\\quad19-23=-4,\\quad31-19=12$."
+              "Ar": "هذه زيادة من 14 إلى 23، وتوجد زيادة أكبر من 19 إلى 31.",
+              "En": "This is the increase from 14 to 23. The increase from 19 to 31 is larger."
             }
           },
           {
@@ -4191,8 +4191,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الخيار $4$ لا يحقق العلاقة الناتجة من المعطيات: $23-14=9,\\quad19-23=-4,\\quad31-19=12$.",
-              "En": "The option $4$ does not satisfy the relation obtained from the given data: $23-14=9,\\quad19-23=-4,\\quad31-19=12$."
+              "Ar": "التغير من 23 إلى 19 انخفاض مقداره 4.",
+              "En": "The change from 23 to 19 is a decrease of 4."
             }
           },
           {
@@ -4200,8 +4200,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الخيار $17$ لا يحقق العلاقة الناتجة من المعطيات: $23-14=9,\\quad19-23=-4,\\quad31-19=12$.",
-              "En": "The option $17$ does not satisfy the relation obtained from the given data: $23-14=9,\\quad19-23=-4,\\quad31-19=12$."
+              "Ar": "هذا هو الفرق بين 14 و31، وهما قراءتان غير متتاليتين.",
+              "En": "This is the difference between 14 and 31, which are nonconsecutive readings."
             }
           },
           {
