@@ -1,0 +1,1646 @@
+[
+  {
+    "track": 6,
+    "cat": 21,
+    "skill": 93,
+    "sk": "p-fractions-decimals-basic-percentages",
+    "family": "percent-original-quantity-from-percent-remaining",
+    "title": {
+      "Ar": "استرجاع الكمية الأصلية",
+      "En": "Recovering original quantity"
+    },
+    "q": {
+      "Ar": "بعد بيع 30% من كمية التفاح بقي 56 كغ. ما الكمية الأصلية بالكيلوغرام؟",
+      "En": "After selling 30% of a quantity of apples, 56 kg remain. What was the original quantity in kilograms?"
+    },
+    "opts": [
+      "80",
+      "16.8",
+      "72.8",
+      "186.67"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "حسب 30% من الباقي.",
+        "En": "Calculates 30% of the remainder."
+      },
+      {
+        "Ar": "زاد الباقي بنسبة 30% من الباقي نفسه.",
+        "En": "Increases the remainder by 30% of itself."
+      },
+      {
+        "Ar": "قسم على نسبة المبيع بدلاً من الباقي وقرب الناتج.",
+        "En": "Divides by the sold proportion instead of the remaining proportion and rounds."
+      }
+    ],
+    "idea": {
+      "Ar": "الباقي يمثل 70% من الأصل.",
+      "En": "The remainder represents 70% of the original."
+    },
+    "formula": "0.7x=56",
+    "steps": [
+      {
+        "Ar": "$100-30=70$",
+        "En": "$100-30=70$"
+      },
+      {
+        "Ar": "$56/0.7=80$",
+        "En": "$56/0.7=80$"
+      }
+    ],
+    "sub": {
+      "Ar": "$x=56/0.7$",
+      "En": "$x=56/0.7$"
+    },
+    "result": {
+      "Ar": "$80$",
+      "En": "$80$"
+    },
+    "verify": {
+      "Ar": "$0.7\\cdot80=56$",
+      "En": "$0.7\\cdot80=56$"
+    },
+    "hints": [
+      {
+        "Ar": "حدد نسبة الكمية المتبقية.",
+        "En": "Find the remaining percentage."
+      },
+      {
+        "Ar": "اقسم الباقي على 0.7.",
+        "En": "Divide the remainder by 0.7."
+      }
+    ],
+    "error": {
+      "Ar": "حسب 30% من الباقي.",
+      "En": "Calculates 30% of the remainder."
+    },
+    "unit": {
+      "Ar": "كغ",
+      "En": "kg"
+    }
+  },
+  {
+    "track": 6,
+    "cat": 21,
+    "skill": 95,
+    "sk": "p-fractions-decimals-fraction-operations",
+    "family": "fraction-multiplication-cancellation-across-three-factors",
+    "title": {
+      "Ar": "اختصار عوامل كسرية",
+      "En": "Cancelling fractional factors"
+    },
+    "q": {
+      "Ar": "احسب $\\frac{7}{12}\\times\\frac{9}{14}\\times\\frac{8}{3}$ في أبسط صورة.",
+      "En": "Calculate $\\frac{7}{12}\\times\\frac{9}{14}\\times\\frac{8}{3}$ in simplest form."
+    },
+    "opts": [
+      "\\frac12",
+      "\\frac34",
+      "2",
+      "1"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "أسقط عاملاً مقداره 2 أثناء الاختصار.",
+        "En": "Loses a factor of two during cancellation."
+      },
+      {
+        "Ar": "أهمل العامل 4/3 بعد اختصار جزء من التعبير.",
+        "En": "Omits a remaining factor of four thirds."
+      },
+      {
+        "Ar": "ضاعف الناتج بسبب اختصار غير متوازن.",
+        "En": "Doubles the product through unbalanced cancellation."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "نختصر العوامل المشتركة بين البسط والمقام قبل الضرب.",
+      "En": "Cancel common numerator and denominator factors before multiplying."
+    },
+    "formula": "\\frac{7\\cdot9\\cdot8}{12\\cdot14\\cdot3}",
+    "steps": [
+      {
+        "Ar": "$\\frac7{14}=\\frac12$",
+        "En": "$\\frac7{14}=\\frac12$"
+      },
+      {
+        "Ar": "$\\frac93=3$",
+        "En": "$\\frac93=3$"
+      },
+      {
+        "Ar": "$\\frac8{12}=\\frac23$",
+        "En": "$\\frac8{12}=\\frac23$"
+      },
+      {
+        "Ar": "$\\frac12\\cdot3\\cdot\\frac23=1$",
+        "En": "$\\frac12\\cdot3\\cdot\\frac23=1$"
+      }
+    ],
+    "sub": {
+      "Ar": "$\\frac{504}{504}$",
+      "En": "$\\frac{504}{504}$"
+    },
+    "result": {
+      "Ar": "$1$",
+      "En": "$1$"
+    },
+    "verify": {
+      "Ar": "$504=504$",
+      "En": "$504=504$"
+    },
+    "hints": [
+      {
+        "Ar": "اختصر 7 مع 14.",
+        "En": "Cancel seven against fourteen."
+      },
+      {
+        "Ar": "اختصر 9 مع 3 و8 مع 12.",
+        "En": "Cancel nine against three and eight against twelve."
+      }
+    ],
+    "error": {
+      "Ar": "أسقط عاملاً مقداره 2 أثناء الاختصار.",
+      "En": "Loses a factor of two during cancellation."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 7,
+    "cat": 5,
+    "skill": 22,
+    "sk": "middle-gcd",
+    "family": "gcd-reduced-ratio-common-factor",
+    "title": {
+      "Ar": "تبسيط نسبة بالقاسم المشترك",
+      "En": "Reducing a ratio using the GCD"
+    },
+    "q": {
+      "Ar": "نسبة عددَي كتابين في مجموعتين هي 84:126. ما أبسط صورة للنسبة؟",
+      "En": "The numbers of books in two groups are in the ratio 84:126. What is the ratio in simplest form?"
+    },
+    "opts": [
+      "4:6",
+      "1:2",
+      "2:3",
+      "3:2"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "النسبة مكافئة لكنها ليست في أبسط صورة.",
+        "En": "Equivalent, but not simplest."
+      },
+      {
+        "Ar": "ليست نسبة مكافئة للأصل.",
+        "En": "Not equivalent to the original ratio."
+      },
+      null,
+      {
+        "Ar": "عكس ترتيب المجموعتين.",
+        "En": "Reverses the groups."
+      }
+    ],
+    "idea": {
+      "Ar": "نقسم طرفَي النسبة على القاسم المشترك الأكبر.",
+      "En": "Divide both terms by their greatest common divisor."
+    },
+    "formula": "\\gcd(84,126)=42",
+    "steps": [
+      {
+        "Ar": "$126-84=42$",
+        "En": "$126-84=42$"
+      },
+      {
+        "Ar": "$84=2\\cdot42$",
+        "En": "$84=2\\cdot42$"
+      },
+      {
+        "Ar": "$126=3\\cdot42$",
+        "En": "$126=3\\cdot42$"
+      }
+    ],
+    "sub": {
+      "Ar": "$(84/42):(126/42)$",
+      "En": "$(84/42):(126/42)$"
+    },
+    "result": {
+      "Ar": "$2:3$",
+      "En": "$2:3$"
+    },
+    "verify": {
+      "Ar": "$2\\cdot126=3\\cdot84$",
+      "En": "$2\\cdot126=3\\cdot84$"
+    },
+    "hints": [
+      {
+        "Ar": "أوجد أكبر عدد يقسم 84 و126.",
+        "En": "Find the greatest divisor common to both."
+      },
+      {
+        "Ar": "اقسم العددين على 42.",
+        "En": "Divide both terms by forty-two."
+      }
+    ],
+    "error": {
+      "Ar": "عكس ترتيب المجموعتين.",
+      "En": "Reverses the groups."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 7,
+    "cat": 5,
+    "skill": 23,
+    "sk": "middle-evaluate-powers",
+    "family": "power-negative-base-versus-unary-minus",
+    "title": {
+      "Ar": "تمييز الأس عن إشارة السالب",
+      "En": "Powers and the unary minus"
+    },
+    "q": {
+      "Ar": "ما قيمة $(-3)^2-(-3^2)$؟",
+      "En": "Evaluate $(-3)^2-(-3^2)$."
+    },
+    "opts": [
+      "9",
+      "18",
+      "0",
+      "-18"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "أهمل التعبير الثاني.",
+        "En": "Omits the second expression."
+      },
+      null,
+      {
+        "Ar": "عامل التعبيرين على أنهما متساويان.",
+        "En": "Treats both expressions as equal."
+      },
+      {
+        "Ar": "عكس ترتيب الطرح.",
+        "En": "Reverses the subtraction."
+      }
+    ],
+    "idea": {
+      "Ar": "القوس يجعل السالب جزءاً من الأساس، أما الأس دون القوس فيطبق قبل إشارة السالب.",
+      "En": "Parentheses make the negative sign part of the base; otherwise exponentiation precedes unary minus."
+    },
+    "formula": "(-3)^2=9,\\quad-3^2=-9",
+    "steps": [
+      {
+        "Ar": "$9-(-9)=9+9$",
+        "En": "$9-(-9)=9+9$"
+      },
+      {
+        "Ar": "$9+9=18$",
+        "En": "$9+9=18$"
+      }
+    ],
+    "sub": {
+      "Ar": "$9-(-9)$",
+      "En": "$9-(-9)$"
+    },
+    "result": {
+      "Ar": "$18$",
+      "En": "$18$"
+    },
+    "verify": {
+      "Ar": "$18-9=9$",
+      "En": "$18-9=9$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب مربع −3 داخل القوس.",
+        "En": "Square negative three inside parentheses."
+      },
+      {
+        "Ar": "احسب سالب مربع 3 ثم اطرح.",
+        "En": "Negate the square of three, then subtract."
+      }
+    ],
+    "error": {
+      "Ar": "عامل التعبيرين على أنهما متساويان.",
+      "En": "Treats both expressions as equal."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 8,
+    "cat": 34,
+    "skill": 37,
+    "sk": "middle-pythagorean-theorem",
+    "family": "pythagorean-area-squares-difference",
+    "title": {
+      "Ar": "مساحات مربعات على أضلاع مثلث قائم",
+      "En": "Areas of squares on right triangle sides"
+    },
+    "q": {
+      "Ar": "مساحة المربع على وتر مثلث قائم 169 سم²، ومساحة المربع على إحدى ساقيه 25 سم². ما مساحة المربع على الساق الأخرى؟",
+      "En": "The square on a right triangle's hypotenuse has area 169 cm². The square on one leg has area 25 cm². Find the area of the square on the other leg."
+    },
+    "opts": [
+      "144",
+      "12",
+      "194",
+      "156"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "هذا طول الساق وليس مساحة مربعها.",
+        "En": "This is the leg length, not its square's area."
+      },
+      {
+        "Ar": "جمع المساحتين بدلاً من طرحهما.",
+        "En": "Adds instead of subtracting the areas."
+      },
+      {
+        "Ar": "طرح طول الوتر من مساحته.",
+        "En": "Subtracts the hypotenuse length from its square's area."
+      }
+    ],
+    "idea": {
+      "Ar": "مربع الوتر يساوي مجموع مربعي الساقين.",
+      "En": "The hypotenuse square equals the sum of the leg squares."
+    },
+    "formula": "c^2=a^2+b^2",
+    "steps": [
+      {
+        "Ar": "$b^2=144$",
+        "En": "$b^2=144$"
+      }
+    ],
+    "sub": {
+      "Ar": "$b^2=169-25$",
+      "En": "$b^2=169-25$"
+    },
+    "result": {
+      "Ar": "$144$",
+      "En": "$144$"
+    },
+    "verify": {
+      "Ar": "$25+144=169$",
+      "En": "$25+144=169$"
+    },
+    "hints": [
+      {
+        "Ar": "المعطيات مساحات مربعات وليست أطوالاً.",
+        "En": "The given numbers are square areas, not lengths."
+      },
+      {
+        "Ar": "اطرح مساحة مربع الساق المعروفة.",
+        "En": "Subtract the known leg square area."
+      }
+    ],
+    "error": {
+      "Ar": "هذا طول الساق وليس مساحة مربعها.",
+      "En": "This is the leg length, not its square's area."
+    },
+    "unit": {
+      "Ar": "سم²",
+      "En": "cm²"
+    }
+  },
+  {
+    "track": 8,
+    "cat": 34,
+    "skill": 40,
+    "sk": "middle-similar-triangles",
+    "family": "similar-triangles-ratio-perimeter-infer-missing-side",
+    "title": {
+      "Ar": "استنتاج ضلع من نسبة المحيطين",
+      "En": "Inferring a side from perimeters"
+    },
+    "q": {
+      "Ar": "مثلثان متشابهان، محيط الأول 24 سم ومحيط الثاني 36 سم. طول ضلع في الثاني 15 سم. ما طول نظيره في الأول؟",
+      "En": "Two similar triangles have perimeters 24 cm and 36 cm respectively. A side in the second measures 15 cm. Find its corresponding side in the first."
+    },
+    "opts": [
+      "22.5",
+      "9",
+      "12",
+      "10"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "استخدم معامل التكبير في الاتجاه المعاكس.",
+        "En": "Uses the enlargement factor in the wrong direction."
+      },
+      {
+        "Ar": "طرح 6 من طول الضلع دون تناسب.",
+        "En": "Subtracts six without proportionality."
+      },
+      {
+        "Ar": "لا يحقق نسبة المحيطين.",
+        "En": "Does not satisfy the perimeter ratio."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "نسبة الأضلاع المتناظرة تساوي نسبة المحيطين.",
+      "En": "Corresponding side lengths have the same ratio as perimeters."
+    },
+    "formula": "s_1/s_2=P_1/P_2",
+    "steps": [
+      {
+        "Ar": "$24/36=2/3$",
+        "En": "$24/36=2/3$"
+      },
+      {
+        "Ar": "$15\\cdot2/3=10$",
+        "En": "$15\\cdot2/3=10$"
+      }
+    ],
+    "sub": {
+      "Ar": "$15\\cdot24/36$",
+      "En": "$15\\cdot24/36$"
+    },
+    "result": {
+      "Ar": "$10$",
+      "En": "$10$"
+    },
+    "verify": {
+      "Ar": "$10/15=24/36$",
+      "En": "$10/15=24/36$"
+    },
+    "hints": [
+      {
+        "Ar": "حدد أي المثلثين أصغر.",
+        "En": "Identify the smaller triangle."
+      },
+      {
+        "Ar": "اضرب 15 بنسبة الأول إلى الثاني.",
+        "En": "Multiply fifteen by the first-to-second ratio."
+      }
+    ],
+    "error": {
+      "Ar": "استخدم معامل التكبير في الاتجاه المعاكس.",
+      "En": "Uses the enlargement factor in the wrong direction."
+    },
+    "unit": {
+      "Ar": "سم",
+      "En": "cm"
+    }
+  },
+  {
+    "track": 12,
+    "cat": 11,
+    "skill": 49,
+    "sk": "secondary-polynomial-derivatives",
+    "family": "derivative-polynomial-horizontal-tangent-solve",
+    "title": {
+      "Ar": "مماس أفقي لمنحنى",
+      "En": "Horizontal tangent of a curve"
+    },
+    "q": {
+      "Ar": "عند أي قيمة لـ x يكون مماس منحنى $f(x)=2x^2-12x+7$ أفقياً؟",
+      "En": "At which x-value is the tangent to $f(x)=2x^2-12x+7$ horizontal?"
+    },
+    "opts": [
+      "6",
+      "0",
+      "3",
+      "-3"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "لم يشتق الحد التربيعي بشكل صحيح.",
+        "En": "Differentiates the quadratic term incorrectly."
+      },
+      {
+        "Ar": "يفترض أن المماس أفقي عند الأصل.",
+        "En": "Assumes the tangent is horizontal at zero."
+      },
+      null,
+      {
+        "Ar": "عكس إشارة الحل.",
+        "En": "Reverses the solution sign."
+      }
+    ],
+    "idea": {
+      "Ar": "ميل المماس الأفقي يساوي صفراً، فنحل معادلة المشتقة.",
+      "En": "A horizontal tangent has zero slope, so solve the derivative equation."
+    },
+    "formula": "f'(x)=4x-12=0",
+    "steps": [
+      {
+        "Ar": "$f'(x)=4x-12$",
+        "En": "$f'(x)=4x-12$"
+      },
+      {
+        "Ar": "$x=12/4=3$",
+        "En": "$x=12/4=3$"
+      }
+    ],
+    "sub": {
+      "Ar": "$4x=12$",
+      "En": "$4x=12$"
+    },
+    "result": {
+      "Ar": "$3$",
+      "En": "$3$"
+    },
+    "verify": {
+      "Ar": "$f'(3)=12-12=0$",
+      "En": "$f'(3)=12-12=0$"
+    },
+    "hints": [
+      {
+        "Ar": "اشتق كثيرة الحدود.",
+        "En": "Differentiate the polynomial."
+      },
+      {
+        "Ar": "ساوِ المشتقة بالصفر.",
+        "En": "Set the derivative to zero."
+      }
+    ],
+    "error": {
+      "Ar": "عكس إشارة الحل.",
+      "En": "Reverses the solution sign."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 12,
+    "cat": 11,
+    "skill": 50,
+    "sk": "secondary-indefinite-integrals",
+    "family": "antiderivative-initial-value-constant",
+    "title": {
+      "Ar": "تحديد ثابت التكامل",
+      "En": "Determining an integration constant"
+    },
+    "q": {
+      "Ar": "إذا كان $F'(x)=6x-4$ و$F(2)=7$، فما قيمة ثابت التكامل C في $F(x)=3x^2-4x+C$؟",
+      "En": "If $F'(x)=6x-4$ and $F(2)=7$, what is the integration constant C in $F(x)=3x^2-4x+C$?"
+    },
+    "opts": [
+      "4",
+      "3",
+      "7",
+      "-3"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "هذا الجزء المحسوب دون الثابت.",
+        "En": "This is the expression value without the constant."
+      },
+      null,
+      {
+        "Ar": "خلط قيمة الدالة بثابت التكامل.",
+        "En": "Confuses the function value with the integration constant."
+      },
+      {
+        "Ar": "عكس إشارة الفرق.",
+        "En": "Reverses the difference sign."
+      }
+    ],
+    "idea": {
+      "Ar": "نستخدم الشرط المعطى بعد التكامل لإيجاد الثابت.",
+      "En": "Use the given condition after integrating to find the constant."
+    },
+    "formula": "F(2)=3(2)^2-4(2)+C=7",
+    "steps": [
+      {
+        "Ar": "$4+C=7$",
+        "En": "$4+C=7$"
+      },
+      {
+        "Ar": "$C=3$",
+        "En": "$C=3$"
+      }
+    ],
+    "sub": {
+      "Ar": "$12-8+C=7$",
+      "En": "$12-8+C=7$"
+    },
+    "result": {
+      "Ar": "$3$",
+      "En": "$3$"
+    },
+    "verify": {
+      "Ar": "$3(2)^2-4(2)+3=7$",
+      "En": "$3(2)^2-4(2)+3=7$"
+    },
+    "hints": [
+      {
+        "Ar": "عوّض x بالعدد 2.",
+        "En": "Substitute two for x."
+      },
+      {
+        "Ar": "حل المعادلة الناتجة في C.",
+        "En": "Solve the resulting equation for C."
+      }
+    ],
+    "error": {
+      "Ar": "خلط قيمة الدالة بثابت التكامل.",
+      "En": "Confuses the function value with the integration constant."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 2,
+    "cat": 1,
+    "skill": 3,
+    "sk": "primary-multistep-arithmetic",
+    "family": "arithmetic-two-boxes-transfer-and-remove-total",
+    "title": {
+      "Ar": "تغير المجموع بعد نقل وإزالة",
+      "En": "Total after transfer and removal"
+    },
+    "q": {
+      "Ar": "صندوق فيه 18 كرة وآخر فيه 12 كرة. نُقلت 4 كرات من الأول إلى الثاني، ثم أُزيلت 3 كرات من الثاني. كم كرة بقيت في الصندوقين معاً؟",
+      "En": "One box has 18 balls and another has 12. Four balls move from the first to the second, then three balls are removed from the second. How many remain in both boxes altogether?"
+    },
+    "opts": [
+      "27",
+      "23",
+      "30",
+      "31"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "حسب الكرات المنقولة على أنها مفقودة.",
+        "En": "Treats transferred balls as lost."
+      },
+      {
+        "Ar": "لم يطرح الكرات المزالة.",
+        "En": "Does not subtract the removed balls."
+      },
+      {
+        "Ar": "أضاف الكرات المنقولة مرة أخرى.",
+        "En": "Adds transferred balls again."
+      }
+    ],
+    "idea": {
+      "Ar": "النقل لا يغير المجموع؛ الإزالة وحدها تنقصه.",
+      "En": "Transfer preserves the total; only removal reduces it."
+    },
+    "formula": "18+12-3",
+    "steps": [
+      {
+        "Ar": "$18+12=30$",
+        "En": "$18+12=30$"
+      },
+      {
+        "Ar": "$30-3=27$",
+        "En": "$30-3=27$"
+      }
+    ],
+    "sub": {
+      "Ar": "$30-3$",
+      "En": "$30-3$"
+    },
+    "result": {
+      "Ar": "$27$",
+      "En": "$27$"
+    },
+    "verify": {
+      "Ar": "$(18-4)+(12+4-3)=27$",
+      "En": "$(18-4)+(12+4-3)=27$"
+    },
+    "hints": [
+      {
+        "Ar": "كم كرة كانت في الصندوقين أولاً؟",
+        "En": "How many balls were there initially?"
+      },
+      {
+        "Ar": "هل نقل الكرات يخرجها من الصندوقين؟",
+        "En": "Does transferring balls remove them from both boxes?"
+      }
+    ],
+    "error": {
+      "Ar": "حسب الكرات المنقولة على أنها مفقودة.",
+      "En": "Treats transferred balls as lost."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 2,
+    "cat": 1,
+    "skill": 1,
+    "sk": "primary-addition",
+    "family": "addition-three-consecutive-tens-missing-total",
+    "title": {
+      "Ar": "جمع أعداد متتالية من عشرات",
+      "En": "Adding consecutive tens"
+    },
+    "q": {
+      "Ar": "جمع طفل 30 و40 و50. ما المجموع؟",
+      "En": "A child adds 30, 40 and 50. What is the total?"
+    },
+    "opts": [
+      "90",
+      "110",
+      "130",
+      "120"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "أهمل العدد 30.",
+        "En": "Omits thirty."
+      },
+      {
+        "Ar": "أخطأ بعشرة عند الجمع.",
+        "En": "Makes a ten-unit addition error."
+      },
+      {
+        "Ar": "زاد عشرة على المجموع.",
+        "En": "Adds ten too many."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "نجمع العشرات ثم نحولها إلى وحدات.",
+      "En": "Add the tens, then express the total in units."
+    },
+    "formula": "(3+4+5)\\cdot10",
+    "steps": [
+      {
+        "Ar": "$3+4=7$",
+        "En": "$3+4=7$"
+      },
+      {
+        "Ar": "$7+5=12$",
+        "En": "$7+5=12$"
+      },
+      {
+        "Ar": "$12\\cdot10=120$",
+        "En": "$12\\cdot10=120$"
+      }
+    ],
+    "sub": {
+      "Ar": "$12\\cdot10$",
+      "En": "$12\\cdot10$"
+    },
+    "result": {
+      "Ar": "$120$",
+      "En": "$120$"
+    },
+    "verify": {
+      "Ar": "$120-50=70$",
+      "En": "$120-50=70$"
+    },
+    "hints": [
+      {
+        "Ar": "اجمع 3 و4 و5.",
+        "En": "Add three, four and five."
+      },
+      {
+        "Ar": "كل واحدة تمثل عشرة.",
+        "En": "Each represents ten."
+      }
+    ],
+    "error": {
+      "Ar": "أهمل العدد 30.",
+      "En": "Omits thirty."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 2,
+    "cat": 1,
+    "skill": 2,
+    "sk": "primary-subtraction",
+    "family": "subtraction-compensate-both-terms-same-difference",
+    "title": {
+      "Ar": "فرق ثابت بعد تعديل العددين",
+      "En": "Constant difference after adjusting both numbers"
+    },
+    "q": {
+      "Ar": "نعلم أن 63−28=35. ما قيمة 65−30؟",
+      "En": "Given that 63−28=35, what is 65−30?"
+    },
+    "opts": [
+      "37",
+      "95",
+      "35",
+      "33"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "زاد الفرق بمقدار 2.",
+        "En": "Increases the difference by two."
+      },
+      {
+        "Ar": "جمع العددين بدلاً من طرحهما.",
+        "En": "Adds rather than subtracts."
+      },
+      null,
+      {
+        "Ar": "أنقص الفرق بمقدار 2.",
+        "En": "Decreases the difference by two."
+      }
+    ],
+    "idea": {
+      "Ar": "إضافة العدد نفسه إلى المطروح والمطروح منه لا تغير الفرق.",
+      "En": "Adding the same amount to both terms preserves their difference."
+    },
+    "formula": "(63+2)-(28+2)",
+    "steps": [
+      {
+        "Ar": "$63-28+2-2=35$",
+        "En": "$63-28+2-2=35$"
+      }
+    ],
+    "sub": {
+      "Ar": "$65-30$",
+      "En": "$65-30$"
+    },
+    "result": {
+      "Ar": "$35$",
+      "En": "$35$"
+    },
+    "verify": {
+      "Ar": "$35+30=65$",
+      "En": "$35+30=65$"
+    },
+    "hints": [
+      {
+        "Ar": "لاحظ أن كلا العددين زاد بمقدار 2.",
+        "En": "Notice both numbers increase by two."
+      },
+      {
+        "Ar": "احسب الفرق بعد الزيادة.",
+        "En": "Find the difference after the increases."
+      }
+    ],
+    "error": {
+      "Ar": "أنقص الفرق بمقدار 2.",
+      "En": "Decreases the difference by two."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 3,
+    "cat": 3,
+    "skill": 12,
+    "sk": "primary-perimeter",
+    "family": "rectangle-perimeter-equal-square-side",
+    "title": {
+      "Ar": "مربع ومستطيل متساويا المحيط",
+      "En": "Equal perimeters"
+    },
+    "q": {
+      "Ar": "محيط مستطيل طوله 9 سم وعرضه 5 سم يساوي محيط مربع. ما طول ضلع المربع؟",
+      "En": "A 9 cm by 5 cm rectangle has the same perimeter as a square. Find the square's side length."
+    },
+    "opts": [
+      "5",
+      "7",
+      "14",
+      "28"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "هذا عرض المستطيل.",
+        "En": "This is the rectangle width."
+      },
+      null,
+      {
+        "Ar": "هذا نصف المحيط.",
+        "En": "This is half the perimeter."
+      },
+      {
+        "Ar": "هذا المحيط الكلي.",
+        "En": "This is the full perimeter."
+      }
+    ],
+    "idea": {
+      "Ar": "نحسب المحيط المشترك ثم نقسمه على أربعة.",
+      "En": "Find the common perimeter and divide by four."
+    },
+    "formula": "s=2(l+w)/4",
+    "steps": [
+      {
+        "Ar": "$2\\cdot14=28$",
+        "En": "$2\\cdot14=28$"
+      },
+      {
+        "Ar": "$28/4=7$",
+        "En": "$28/4=7$"
+      }
+    ],
+    "sub": {
+      "Ar": "$2(9+5)/4$",
+      "En": "$2(9+5)/4$"
+    },
+    "result": {
+      "Ar": "$7$",
+      "En": "$7$"
+    },
+    "verify": {
+      "Ar": "$4\\cdot7=2(9+5)$",
+      "En": "$4\\cdot7=2(9+5)$"
+    },
+    "hints": [
+      {
+        "Ar": "اجمع الطول والعرض واضرب في 2.",
+        "En": "Add length and width and double."
+      },
+      {
+        "Ar": "للمربع أربعة أضلاع متساوية.",
+        "En": "A square has four equal sides."
+      }
+    ],
+    "error": {
+      "Ar": "هذا نصف المحيط.",
+      "En": "This is half the perimeter."
+    },
+    "unit": {
+      "Ar": "سم",
+      "En": "cm"
+    }
+  },
+  {
+    "track": 3,
+    "cat": 3,
+    "skill": 13,
+    "sk": "primary-rectangle-area",
+    "family": "rectangle-area-equal-rows-two-possible-layouts",
+    "title": {
+      "Ar": "مساحة واحدة لترتيبين",
+      "En": "Same area in two layouts"
+    },
+    "q": {
+      "Ar": "تغطي 24 بلاطة مربعة متساوية مستطيلاً من 4 صفوف. إذا رُتبت البلاطات نفسها في 3 صفوف دون فراغات أو تداخل، فكم بلاطة في الصف الواحد؟",
+      "En": "Twenty-four equal square tiles cover a rectangle in four rows. If the same tiles are rearranged into three rows without gaps or overlap, how many tiles are in each row?"
+    },
+    "opts": [
+      "8",
+      "6",
+      "7",
+      "12"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "هذا عدد البلاطات في الصف القديم.",
+        "En": "This is the old row size."
+      },
+      {
+        "Ar": "لا يعطي 24 بلاطة في ثلاثة صفوف.",
+        "En": "Does not give twenty-four tiles in three rows."
+      },
+      {
+        "Ar": "يعطي 36 بلاطة في ثلاثة صفوف.",
+        "En": "Gives thirty-six tiles in three rows."
+      }
+    ],
+    "idea": {
+      "Ar": "المساحة بعدد البلاطات لا تتغير؛ نقسم العدد على الصفوف الجديدة.",
+      "En": "Area in tile units stays fixed; divide by the new row count."
+    },
+    "formula": "24/3",
+    "steps": [
+      {
+        "Ar": "$24/3=8$",
+        "En": "$24/3=8$"
+      }
+    ],
+    "sub": {
+      "Ar": "$24/3$",
+      "En": "$24/3$"
+    },
+    "result": {
+      "Ar": "$8$",
+      "En": "$8$"
+    },
+    "verify": {
+      "Ar": "$3\\cdot8=24$",
+      "En": "$3\\cdot8=24$"
+    },
+    "hints": [
+      {
+        "Ar": "عدد البلاطات لا يتغير.",
+        "En": "The tile count remains unchanged."
+      },
+      {
+        "Ar": "اقسم 24 على 3.",
+        "En": "Divide twenty-four by three."
+      }
+    ],
+    "error": {
+      "Ar": "هذا عدد البلاطات في الصف القديم.",
+      "En": "This is the old row size."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 3,
+    "cat": 3,
+    "skill": 12,
+    "sk": "primary-perimeter",
+    "family": "perimeter-missing-edge-rectangle-partial-fence",
+    "title": {
+      "Ar": "طول سياج ناقص",
+      "En": "Missing fence length"
+    },
+    "q": {
+      "Ar": "حديقة مستطيلة محيطها 32 م. غُطي 11 م من حدودها بسياج، ثم 9 م أخرى دون تداخل. كم متراً من الحدود بقي بلا سياج؟",
+      "En": "A rectangular garden has perimeter 32 m. Eleven metres of its boundary are fenced, then nine further metres without overlap. How many metres of boundary remain unfenced?"
+    },
+    "opts": [
+      "20",
+      "21",
+      "23",
+      "12"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "هذا مجموع الجزء المسيج.",
+        "En": "This is the fenced total."
+      },
+      {
+        "Ar": "طرح 11 فقط.",
+        "En": "Subtracts only eleven."
+      },
+      {
+        "Ar": "طرح 9 فقط.",
+        "En": "Subtracts only nine."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "نطرح مجموع أطوال السياج من المحيط.",
+      "En": "Subtract total fenced length from the perimeter."
+    },
+    "formula": "32-(11+9)",
+    "steps": [
+      {
+        "Ar": "$11+9=20$",
+        "En": "$11+9=20$"
+      },
+      {
+        "Ar": "$32-20=12$",
+        "En": "$32-20=12$"
+      }
+    ],
+    "sub": {
+      "Ar": "$32-20$",
+      "En": "$32-20$"
+    },
+    "result": {
+      "Ar": "$12$",
+      "En": "$12$"
+    },
+    "verify": {
+      "Ar": "$20+12=32$",
+      "En": "$20+12=32$"
+    },
+    "hints": [
+      {
+        "Ar": "اجمع الجزأين المغطيين.",
+        "En": "Add the two covered lengths."
+      },
+      {
+        "Ar": "اطرحهما من المحيط.",
+        "En": "Subtract from the perimeter."
+      }
+    ],
+    "error": {
+      "Ar": "هذا مجموع الجزء المسيج.",
+      "En": "This is the fenced total."
+    },
+    "unit": {
+      "Ar": "م",
+      "En": "m"
+    }
+  },
+  {
+    "track": 11,
+    "cat": 86,
+    "skill": 310,
+    "sk": "decay-half-life",
+    "family": "half-life-reverse-initial-amount",
+    "title": {
+      "Ar": "كمية أولية من عمر النصف",
+      "En": "Initial amount from half-life"
+    },
+    "q": {
+      "Ar": "كمية مادة تتناقص وفق نموذج عمر نصفه 4 ساعات. بقي منها 15 غ بعد 12 ساعة. ما الكمية الأولية؟",
+      "En": "A substance follows a decay model with half-life four hours. Fifteen grams remain after twelve hours. Find the initial mass."
+    },
+    "opts": [
+      "60",
+      "1.875",
+      "120",
+      "45"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "ضاعفها مرتين فقط.",
+        "En": "Doubles only twice."
+      },
+      {
+        "Ar": "طبق التناقص مرة أخرى بدلاً من عكسه.",
+        "En": "Applies decay again instead of reversing it."
+      },
+      null,
+      {
+        "Ar": "ضرب الكمية في عدد فترات عمر النصف.",
+        "En": "Multiplies by the number of half-life periods."
+      }
+    ],
+    "idea": {
+      "Ar": "مرت ثلاث فترات عمر نصف؛ نعيد كل تنصيف بمضاعفة.",
+      "En": "Three half-life periods have elapsed; reverse each halving by doubling."
+    },
+    "formula": "M=M_0(1/2)^{t/h}",
+    "steps": [
+      {
+        "Ar": "$12/4=3$",
+        "En": "$12/4=3$"
+      },
+      {
+        "Ar": "$M_0=15\\cdot2^3=120$",
+        "En": "$M_0=15\\cdot2^3=120$"
+      }
+    ],
+    "sub": {
+      "Ar": "$15=M_0(1/2)^3$",
+      "En": "$15=M_0(1/2)^3$"
+    },
+    "result": {
+      "Ar": "$120$",
+      "En": "$120$"
+    },
+    "verify": {
+      "Ar": "$120(1/2)^3=15$",
+      "En": "$120(1/2)^3=15$"
+    },
+    "hints": [
+      {
+        "Ar": "كم فترة من أربع ساعات مرت؟",
+        "En": "How many four-hour periods elapsed?"
+      },
+      {
+        "Ar": "اضرب 15 في 2 ثلاث مرات.",
+        "En": "Multiply fifteen by two three times."
+      }
+    ],
+    "error": {
+      "Ar": "ضرب الكمية في عدد فترات عمر النصف.",
+      "En": "Multiplies by the number of half-life periods."
+    },
+    "unit": {
+      "Ar": "غ",
+      "En": "g"
+    }
+  },
+  {
+    "track": 11,
+    "cat": 86,
+    "skill": 313,
+    "sk": "logarithm-inverse-and-equations",
+    "family": "log-equation-two-terms-positive-domain",
+    "title": {
+      "Ar": "معادلة لوغاريتمية وشرط المجال",
+      "En": "Logarithmic equation and domain"
+    },
+    "q": {
+      "Ar": "حل $\\log_2(x)+\\log_2(x-2)=3$ في الأعداد الحقيقية.",
+      "En": "Solve $\\log_2(x)+\\log_2(x-2)=3$ over the reals."
+    },
+    "opts": [
+      "8",
+      "4",
+      "-2",
+      "2"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "خلط بين حاصل الضرب وقيمة x.",
+        "En": "Confuses the product with x."
+      },
+      null,
+      {
+        "Ar": "جذر للمعادلة الجبرية خارج مجال اللوغاريتم.",
+        "En": "Algebraic root outside the log domain."
+      },
+      {
+        "Ar": "يجعل حجة اللوغاريتم الثاني صفراً.",
+        "En": "Makes the second logarithm's argument zero."
+      }
+    ],
+    "idea": {
+      "Ar": "نجمع اللوغاريتمين بقانون الضرب ثم نستبعد الحل خارج المجال x>2.",
+      "En": "Combine logarithms using the product rule, then reject roots outside x>2."
+    },
+    "formula": "x(x-2)=2^3",
+    "steps": [
+      {
+        "Ar": "$(x-4)(x+2)=0$",
+        "En": "$(x-4)(x+2)=0$"
+      },
+      {
+        "Ar": "$x=4\\ \\text{or}\\ x=-2$",
+        "En": "$x=4\\ \\text{or}\\ x=-2$"
+      },
+      {
+        "Ar": "$x>2\\Rightarrow x=4$",
+        "En": "$x>2\\Rightarrow x=4$"
+      }
+    ],
+    "sub": {
+      "Ar": "$x^2-2x-8=0$",
+      "En": "$x^2-2x-8=0$"
+    },
+    "result": {
+      "Ar": "$4$",
+      "En": "$4$"
+    },
+    "verify": {
+      "Ar": "$\\log_2 4+\\log_2 2=2+1=3$",
+      "En": "$\\log_2 4+\\log_2 2=2+1=3$"
+    },
+    "hints": [
+      {
+        "Ar": "حدد مجال كل لوغاريتم أولاً.",
+        "En": "Find both logarithm domains first."
+      },
+      {
+        "Ar": "حول مجموع اللوغاريتمات إلى لوغاريتم حاصل ضرب.",
+        "En": "Convert the sum to the log of a product."
+      }
+    ],
+    "error": {
+      "Ar": "جذر للمعادلة الجبرية خارج مجال اللوغاريتم.",
+      "En": "Algebraic root outside the log domain."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 11,
+    "cat": 86,
+    "skill": 316,
+    "sk": "model-interpretation",
+    "family": "exponential-model-initial-value-and-two-period-factor",
+    "title": {
+      "Ar": "تفسير عامل نمو مركب",
+      "En": "Interpreting a compound growth factor"
+    },
+    "q": {
+      "Ar": "في النموذج $N(t)=500(1.1)^{2t}$، حيث t بالسنوات، ما عامل النمو خلال سنة واحدة؟",
+      "En": "In $N(t)=500(1.1)^{2t}$, where t is in years, what is the growth factor over one year?"
+    },
+    "opts": [
+      "1.21",
+      "1.1",
+      "1.2",
+      "2.2"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "هذا عامل نمو نصف سنة.",
+        "En": "This is the half-year growth factor."
+      },
+      {
+        "Ar": "جمع زيادتين دون تركيب.",
+        "En": "Adds two growth increments without compounding."
+      },
+      {
+        "Ar": "ضاعف عامل النمو بدلاً من تربيعه.",
+        "En": "Doubles the factor instead of squaring it."
+      }
+    ],
+    "idea": {
+      "Ar": "في السنة الواحدة يزيد الأس بمقدار 2.",
+      "En": "The exponent increases by two over one year."
+    },
+    "formula": "N(t+1)/N(t)=(1.1)^2",
+    "steps": [
+      {
+        "Ar": "$1.1\\cdot1.1=1.21$",
+        "En": "$1.1\\cdot1.1=1.21$"
+      }
+    ],
+    "sub": {
+      "Ar": "$1.1\\cdot1.1$",
+      "En": "$1.1\\cdot1.1$"
+    },
+    "result": {
+      "Ar": "$1.21$",
+      "En": "$1.21$"
+    },
+    "verify": {
+      "Ar": "$N(1)/N(0)=605/500=1.21$",
+      "En": "$N(1)/N(0)=605/500=1.21$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب فرق الأس بين t وt+1.",
+        "En": "Find the exponent change from t to t+1."
+      },
+      {
+        "Ar": "ربع عامل النمو الأساسي.",
+        "En": "Square the base growth factor."
+      }
+    ],
+    "error": {
+      "Ar": "هذا عامل نمو نصف سنة.",
+      "En": "This is the half-year growth factor."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 12,
+    "cat": 23,
+    "skill": 101,
+    "sk": "s-sequences-series-series-sums",
+    "family": "finite-geometric-series-sum-three-terms-infer-first",
+    "title": {
+      "Ar": "استرجاع الحد الأول من مجموع",
+      "En": "First term from a sum"
+    },
+    "q": {
+      "Ar": "متتالية هندسية نسبتها 2 ومجموع حدودها الثلاثة الأولى 35. ما حدها الأول؟",
+      "En": "A geometric sequence has ratio two and sum of its first three terms 35. Find its first term."
+    },
+    "opts": [
+      "7",
+      "10",
+      "35/3",
+      "5"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "قسم على خمسة بدلاً من سبعة.",
+        "En": "Divides by five instead of seven."
+      },
+      {
+        "Ar": "هذا الحد الثاني.",
+        "En": "This is the second term."
+      },
+      {
+        "Ar": "افترض تساوي الحدود الثلاثة.",
+        "En": "Assumes the three terms are equal."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "نعبر عن الحدود الثلاثة بدلالة الحد الأول.",
+      "En": "Express the three terms using the first term."
+    },
+    "formula": "a+2a+4a=35",
+    "steps": [
+      {
+        "Ar": "$a(1+2+4)=35$",
+        "En": "$a(1+2+4)=35$"
+      },
+      {
+        "Ar": "$a=5$",
+        "En": "$a=5$"
+      }
+    ],
+    "sub": {
+      "Ar": "$7a=35$",
+      "En": "$7a=35$"
+    },
+    "result": {
+      "Ar": "$5$",
+      "En": "$5$"
+    },
+    "verify": {
+      "Ar": "$5+10+20=35$",
+      "En": "$5+10+20=35$"
+    },
+    "hints": [
+      {
+        "Ar": "اكتب الحد الثاني والثالث بدلالة a.",
+        "En": "Express the next two terms in a."
+      },
+      {
+        "Ar": "اجمع المعاملات واقسم 35 عليها.",
+        "En": "Add the coefficients and divide thirty-five by their sum."
+      }
+    ],
+    "error": {
+      "Ar": "قسم على خمسة بدلاً من سبعة.",
+      "En": "Divides by five instead of seven."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 12,
+    "cat": 23,
+    "skill": 102,
+    "sk": "s-sequences-series-recurrence-relations",
+    "family": "recurrence-affine-fixed-point",
+    "title": {
+      "Ar": "قيمة ثابتة في علاقة تراجعية",
+      "En": "Fixed point of a recurrence"
+    },
+    "q": {
+      "Ar": "تُعرّف متتالية بالعلاقة $a_{n+1}=\\frac12 a_n+6$. ما قيمة الحد الأول التي تجعل جميع الحدود متساوية؟",
+      "En": "A sequence follows $a_{n+1}=\\frac12 a_n+6$. What first term makes every term equal?"
+    },
+    "opts": [
+      "3",
+      "18",
+      "12",
+      "6"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "نصف الثابت المضاف.",
+        "En": "Half the additive constant."
+      },
+      {
+        "Ar": "لا يحقق تساوي الحدين المتتاليين.",
+        "En": "Does not make consecutive terms equal."
+      },
+      null,
+      {
+        "Ar": "هذا الثابت المضاف فقط.",
+        "En": "This is just the additive constant."
+      }
+    ],
+    "idea": {
+      "Ar": "إذا كانت جميع الحدود تساوي L فإنها تحقق العلاقة نفسها مع الحد التالي.",
+      "En": "If all terms equal L, the next term must also equal L."
+    },
+    "formula": "L=L/2+6",
+    "steps": [
+      {
+        "Ar": "$L/2=6$",
+        "En": "$L/2=6$"
+      },
+      {
+        "Ar": "$L=12$",
+        "En": "$L=12$"
+      }
+    ],
+    "sub": {
+      "Ar": "$L-L/2=6$",
+      "En": "$L-L/2=6$"
+    },
+    "result": {
+      "Ar": "$12$",
+      "En": "$12$"
+    },
+    "verify": {
+      "Ar": "$12/2+6=12$",
+      "En": "$12/2+6=12$"
+    },
+    "hints": [
+      {
+        "Ar": "اجعل الحد التالي مساوياً للحالي.",
+        "En": "Set the next term equal to the current term."
+      },
+      {
+        "Ar": "حل المعادلة في L.",
+        "En": "Solve for L."
+      }
+    ],
+    "error": {
+      "Ar": "هذا الثابت المضاف فقط.",
+      "En": "This is just the additive constant."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 12,
+    "cat": 23,
+    "skill": 113,
+    "sk": "s-sequences-series-series-convergence",
+    "family": "geometric-series-tail-after-removed-prefix",
+    "title": {
+      "Ar": "مجموع ذيل سلسلة هندسية",
+      "En": "Geometric series tail sum"
+    },
+    "q": {
+      "Ar": "سلسلة هندسية لا نهائية حدها الأول 24 ونسبتها 1/3. ما مجموع الحدود ابتداءً من الحد الثالث؟",
+      "En": "An infinite geometric series has first term twenty-four and ratio one third. Find the sum starting at its third term."
+    },
+    "opts": [
+      "8/3",
+      "4",
+      "12",
+      "36"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "هذا الحد الثالث وحده.",
+        "En": "This is just the third term."
+      },
+      null,
+      {
+        "Ar": "هذا مجموع الذيل ابتداءً من الحد الثاني.",
+        "En": "This is the tail starting at term two."
+      },
+      {
+        "Ar": "هذا مجموع السلسلة كلها.",
+        "En": "This is the full series sum."
+      }
+    ],
+    "idea": {
+      "Ar": "نحسب الحد الثالث ثم نطبق قانون مجموع السلسلة على الذيل.",
+      "En": "Find the third term and apply the geometric sum formula to the tail."
+    },
+    "formula": "S=ar^2/(1-r)",
+    "steps": [
+      {
+        "Ar": "$a_3=24/9=8/3$",
+        "En": "$a_3=24/9=8/3$"
+      },
+      {
+        "Ar": "$S=(8/3)/(2/3)=4$",
+        "En": "$S=(8/3)/(2/3)=4$"
+      }
+    ],
+    "sub": {
+      "Ar": "$24(1/3)^2/(1-1/3)$",
+      "En": "$24(1/3)^2/(1-1/3)$"
+    },
+    "result": {
+      "Ar": "$4$",
+      "En": "$4$"
+    },
+    "verify": {
+      "Ar": "$24/(1-1/3)-24-8=4$",
+      "En": "$24/(1-1/3)-24-8=4$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب الحد الثالث.",
+        "En": "Calculate term three."
+      },
+      {
+        "Ar": "اقسمه على واحد ناقص النسبة.",
+        "En": "Divide it by one minus the ratio."
+      }
+    ],
+    "error": {
+      "Ar": "هذا مجموع الذيل ابتداءً من الحد الثاني.",
+      "En": "This is the tail starting at term two."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  }
+]
