@@ -606,3 +606,36 @@ Reviewed24 drafts, excluded held789 and796 (mixed bilingual option text). Recomp
 |802|864|3449|
 
 Live1008 (315/227/239/227), structured737 (246/167/160/164), missing271 (69/60/79/63). Draft280 (231 amendments+49 additions), Published971 (502 amendments+469 additions), Withdrawn1. Cumulative #193:347 corrections+159 new. Depth unchanged813/1400 and897/1760 (88 placements; gap863). Next legacy803 onward, continue underfilled category growth, retain holds, reconcile canonical #179 keys without replay. 
+
+
+## Legacy review checkpoint 803–829 (2026-11-26)
+Reviewed28 pending drafts803–830; excluded held826,827,828,830. Recomputed24 selected answers (initial-value ODEs, place value/rounding/estimation, signed rational arithmetic, exponential growth/decay, hypothesis testing). Original bilingual hints and ideas reviewed; expanded steps, conditions, substitution, verification and option-specific explanations; normalized solution result minus signs and grouping separators, preserving original option strings and IDs. First construction failed on JS syntax before database execution; saved revised bilingual review specifications scripts/reviewed_legacy_803_829_specs_20261126.json commit439801f68c2b47f2cd4bea68440c21afe8f7d1c0 (NOT an import payload). Checked four hold registries, source SHA256/draft MD5/revision, owner, exact live/open-draft duplicate and valid scope guards. One-time SQL scripts/apply_reviewed_legacy_803_829_20261126.sql commit149be2ca90508b08b2bd544f59247e099d1c525c ALREADY APPLIED DO NOT replay. Rollback rehearsal passed; independent precommit unchanged24/24; committed once; independent exact readback24/24 (revision4, wizard, solutions, protected fields, options, actual track/skill mapping);96 owner_sql events. Preserved university dual mappings15+21,16+21; levels20/21 unpublished. No taxonomy, access, app, learner or infrastructure changes. Runtime and exhaustive semantic duplicate-family audit pending.
+
+| Draft | Source | Correct option ID |
+|---:|---:|---:|
+|803|865|3455|
+|804|866|3394|
+|805|1555|6211|
+|806|1556|6214|
+|807|1557|6219|
+|808|1558|6222|
+|809|1559|6227|
+|810|1560|6232|
+|811|1561|6234|
+|812|1562|6239|
+|813|1563|6243|
+|814|1564|6246|
+|815|1565|6251|
+|816|1566|6254|
+|817|1567|6258|
+|818|1568|6263|
+|819|1569|6266|
+|820|1570|6272|
+|821|1571|6274|
+|822|1572|6279|
+|823|1573|6282|
+|824|1574|6287|
+|825|1575|6291|
+|829|1585|6330|
+
+Live1008 (315/227/239/227), structured761 (254/175/165/167), missing247 (61/52/74/60). Draft256 (207 amendments+49 additions), Published995 (526 amendments+469 additions), Withdrawn1. Cumulative #193:371 corrections+159 new. Depth unchanged813/1400 and897/1760 (88 placements, gap863). Next legacy831 onward, preserve holds and continue category depth; reconcile canonical #179 keys without replay.
