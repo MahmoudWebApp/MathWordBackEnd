@@ -1,0 +1,970 @@
+[
+  {
+    "track": 7,
+    "cat": 8,
+    "skill": 36,
+    "sk": "middle-circle-area",
+    "family": "circle-inscribed-square-area-unused",
+    "title": {
+      "Ar": "مساحة الجزء خارج قرص",
+      "En": "Area outside a disk"
+    },
+    "q": {
+      "Ar": "قرص دائري قطره يساوي طول ضلع مربع طوله 10 سم، والقرص داخل المربع. ما مساحة الجزء من المربع خارج القرص؟",
+      "En": "A disk inside a square of side 10 cm has diameter equal to the side of the square. What is the area of the square outside the disk?"
+    },
+    "opts": [
+      "100-25\\pi",
+      "100-100\\pi",
+      "100-5\\pi",
+      "25\\pi"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "استعمل القطر بدلاً من نصف القطر.",
+        "En": "Uses diameter as radius."
+      },
+      {
+        "Ar": "لم يربع نصف القطر.",
+        "En": "Does not square the radius."
+      },
+      {
+        "Ar": "هذه مساحة القرص وحده.",
+        "En": "This is the disk area alone."
+      }
+    ],
+    "idea": {
+      "Ar": "نطرح مساحة القرص من مساحة المربع.",
+      "En": "Subtract the disk area from the square area."
+    },
+    "formula": "A=s^2-\\pi(s/2)^2",
+    "steps": [
+      {
+        "Ar": "$r=10/2=5$",
+        "En": "$r=10/2=5$"
+      },
+      {
+        "Ar": "$A=100-25\\pi$",
+        "En": "$A=100-25\\pi$"
+      }
+    ],
+    "sub": {
+      "Ar": "$10^2-\\pi(10/2)^2$",
+      "En": "$10^2-\\pi(10/2)^2$"
+    },
+    "result": {
+      "Ar": "$100-25\\pi$",
+      "En": "$100-25\\pi$"
+    },
+    "verify": {
+      "Ar": "$(100-25\\pi)+25\\pi=100$",
+      "En": "$(100-25\\pi)+25\\pi=100$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب نصف القطر من القطر.",
+        "En": "Find the radius from the diameter."
+      },
+      {
+        "Ar": "اطرح مساحة القرص من مساحة المربع.",
+        "En": "Subtract the disk area from the square area."
+      }
+    ],
+    "error": {
+      "Ar": "استعمل القطر بدلاً من نصف القطر.",
+      "En": "Uses diameter as radius."
+    },
+    "unit": {
+      "Ar": "سم²",
+      "En": "cm²"
+    }
+  },
+  {
+    "track": 7,
+    "cat": 8,
+    "skill": 35,
+    "sk": "middle-triangle-angles",
+    "family": "triangle-angle-change-preserve-third",
+    "title": {
+      "Ar": "أثر تغير زاويتين على الثالثة",
+      "En": "Effect of changing two angles"
+    },
+    "q": {
+      "Ar": "في مثلث تغيّر قياس الزاوية A بزيادة 12°، وتغيّر قياس B بنقصان 5°، وبقي الشكل مثلثاً. ما تغير قياس الزاوية C الموقّع؟",
+      "En": "In a triangle, angle A increases by 12° and angle B decreases by 5°, while the shape remains a triangle. What is the signed change in angle C?"
+    },
+    "opts": [
+      "7",
+      "-17",
+      "17",
+      "-7"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "زاد الثالثة بدلاً من إنقاصها.",
+        "En": "Increases the third instead of decreasing it."
+      },
+      {
+        "Ar": "جمع مقدارَي التغير دون مراعاة الإشارة.",
+        "En": "Adds change magnitudes without signs."
+      },
+      {
+        "Ar": "جمع المقدارين وزاد الثالثة.",
+        "En": "Adds the magnitudes and increases the third."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "مجموع تغيرات الزوايا يساوي صفراً لأن مجموعها ثابت.",
+      "En": "The angle changes sum to zero because the total is fixed."
+    },
+    "formula": "\\Delta A+\\Delta B+\\Delta C=0",
+    "steps": [
+      {
+        "Ar": "$7+\\Delta C=0$",
+        "En": "$7+\\Delta C=0$"
+      },
+      {
+        "Ar": "$\\Delta C=-7$",
+        "En": "$\\Delta C=-7$"
+      }
+    ],
+    "sub": {
+      "Ar": "$12-5+\\Delta C=0$",
+      "En": "$12-5+\\Delta C=0$"
+    },
+    "result": {
+      "Ar": "$-7$",
+      "En": "$-7$"
+    },
+    "verify": {
+      "Ar": "$12-5-7=0$",
+      "En": "$12-5-7=0$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب صافي تغير الزاويتين الأوليين.",
+        "En": "Find the net change in the first two angles."
+      },
+      {
+        "Ar": "اجعل مجموع التغيرات صفراً.",
+        "En": "Make the total change zero."
+      }
+    ],
+    "error": {
+      "Ar": "زاد الثالثة بدلاً من إنقاصها.",
+      "En": "Increases the third instead of decreasing it."
+    },
+    "unit": {
+      "Ar": "°",
+      "En": "°"
+    }
+  },
+  {
+    "track": 7,
+    "cat": 8,
+    "skill": 38,
+    "sk": "middle-vertical-angles",
+    "family": "vertical-angles-acute-obtuse-difference",
+    "title": {
+      "Ar": "فرق الزاويتين عند تقاطع مستقيمين",
+      "En": "Angle difference at intersecting lines"
+    },
+    "q": {
+      "Ar": "يتقاطع مستقيمان غير متعامدين. الفرق بين قياس الزاوية المنفرجة والحادة هو 38°. ما قياس إحدى الزاويتين الحادتين؟",
+      "En": "Two nonperpendicular lines intersect. The obtuse angle exceeds the acute angle by 38°. Find the measure of either acute angle."
+    },
+    "opts": [
+      "109",
+      "142",
+      "71",
+      "38"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "هذا قياس الزاوية المنفرجة.",
+        "En": "This is the obtuse angle."
+      },
+      {
+        "Ar": "هذا مجموع الزاويتين الحادتين.",
+        "En": "This is the sum of the two acute angles."
+      },
+      null,
+      {
+        "Ar": "هذا الفرق المعطى.",
+        "En": "This is the given difference."
+      }
+    ],
+    "idea": {
+      "Ar": "الزاويتان المتجاورتان مجموعهما 180° والمتقابلتان متساويتان.",
+      "En": "Adjacent angles total 180°, and opposite angles are equal."
+    },
+    "formula": "x+(x+38)=180",
+    "steps": [
+      {
+        "Ar": "$2x=142$",
+        "En": "$2x=142$"
+      },
+      {
+        "Ar": "$x=71$",
+        "En": "$x=71$"
+      }
+    ],
+    "sub": {
+      "Ar": "$2x=180-38$",
+      "En": "$2x=180-38$"
+    },
+    "result": {
+      "Ar": "$71$",
+      "En": "$71$"
+    },
+    "verify": {
+      "Ar": "$71+109=180,\\quad109-71=38$",
+      "En": "$71+109=180,\\quad109-71=38$"
+    },
+    "hints": [
+      {
+        "Ar": "سمّ الزاوية الحادة x.",
+        "En": "Call the acute angle x."
+      },
+      {
+        "Ar": "عبّر عن المنفرجة بـ x+38.",
+        "En": "Express the obtuse angle as x+38."
+      }
+    ],
+    "error": {
+      "Ar": "هذا الفرق المعطى.",
+      "En": "This is the given difference."
+    },
+    "unit": {
+      "Ar": "°",
+      "En": "°"
+    }
+  },
+  {
+    "track": 3,
+    "cat": 33,
+    "skill": 5,
+    "sk": "primary-division",
+    "family": "division-exact-missing-dividend-from-sharing",
+    "title": {
+      "Ar": "استنتاج عدد العناصر من توزيعها",
+      "En": "Recovering a total from sharing"
+    },
+    "q": {
+      "Ar": "وُزعت جميع الأقلام بالتساوي على سبعة أطفال، فأخذ كل طفل 6 أقلام. كم قلماً كان لدينا قبل التوزيع؟",
+      "En": "All pencils are shared equally among seven children, each receiving six pencils. How many pencils were there before sharing?"
+    },
+    "opts": [
+      "36",
+      "42",
+      "13",
+      "1"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "حسب حصة ستة أطفال فقط.",
+        "En": "Counts only six children."
+      },
+      null,
+      {
+        "Ar": "جمع عدد الأطفال وحصة الواحد.",
+        "En": "Adds child count and share."
+      },
+      {
+        "Ar": "طرح العددين.",
+        "En": "Subtracts the two numbers."
+      }
+    ],
+    "idea": {
+      "Ar": "نضرب عدد الحصص في حجم الحصة.",
+      "En": "Multiply the number of shares by the size of each share."
+    },
+    "formula": "N=7\\cdot6",
+    "steps": [
+      {
+        "Ar": "$N=42$",
+        "En": "$N=42$"
+      }
+    ],
+    "sub": {
+      "Ar": "$7\\cdot6$",
+      "En": "$7\\cdot6$"
+    },
+    "result": {
+      "Ar": "$42$",
+      "En": "$42$"
+    },
+    "verify": {
+      "Ar": "$42/7=6$",
+      "En": "$42/7=6$"
+    },
+    "hints": [
+      {
+        "Ar": "كم حصة متساوية؟",
+        "En": "How many equal shares?"
+      },
+      {
+        "Ar": "اضرب عدد الحصص في 6.",
+        "En": "Multiply the number of shares by six."
+      }
+    ],
+    "error": {
+      "Ar": "جمع عدد الأطفال وحصة الواحد.",
+      "En": "Adds child count and share."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 3,
+    "cat": 33,
+    "skill": 6,
+    "sk": "primary-multiplicative-word-problems",
+    "family": "multiplicative-word-two-rows-per-table",
+    "title": {
+      "Ar": "عد العناصر عبر مجموعات متداخلة",
+      "En": "Counting items in nested groups"
+    },
+    "q": {
+      "Ar": "في قاعة 4 طاولات. على كل طاولة صينيّتان، وفي كل صينية 3 أكواب. كم كوباً في القاعة على الطاولات؟",
+      "En": "A room has four tables. Each table holds two trays, and each tray holds three cups. How many cups are on the tables?"
+    },
+    "opts": [
+      "24",
+      "8",
+      "12",
+      "9"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "هذا عدد الصواني.",
+        "En": "This is the tray count."
+      },
+      {
+        "Ar": "أهمل عدد الصواني في كل طاولة.",
+        "En": "Omits the trays per table."
+      },
+      {
+        "Ar": "جمع الأعداد بدلاً من ضربها.",
+        "En": "Adds the numbers instead of multiplying."
+      }
+    ],
+    "idea": {
+      "Ar": "نحسب الصواني كلها ثم نضرب في عدد الأكواب في كل صينية.",
+      "En": "Count all trays, then multiply by cups per tray."
+    },
+    "formula": "4\\cdot2\\cdot3",
+    "steps": [
+      {
+        "Ar": "$4\\cdot2=8$",
+        "En": "$4\\cdot2=8$"
+      },
+      {
+        "Ar": "$8\\cdot3=24$",
+        "En": "$8\\cdot3=24$"
+      }
+    ],
+    "sub": {
+      "Ar": "$8\\cdot3$",
+      "En": "$8\\cdot3$"
+    },
+    "result": {
+      "Ar": "$24$",
+      "En": "$24$"
+    },
+    "verify": {
+      "Ar": "$24/4=6=2\\cdot3$",
+      "En": "$24/4=6=2\\cdot3$"
+    },
+    "hints": [
+      {
+        "Ar": "كم صينية على الطاولات كلها؟",
+        "En": "How many trays are on all tables?"
+      },
+      {
+        "Ar": "كم كوباً في كل صينية؟",
+        "En": "How many cups per tray?"
+      }
+    ],
+    "error": {
+      "Ar": "هذا عدد الصواني.",
+      "En": "This is the tray count."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 9,
+    "cat": 6,
+    "skill": 27,
+    "sk": "middle-quadratic-function-evaluation",
+    "family": "quadratic-evaluate-sum-cancels-linear-term",
+    "title": {
+      "Ar": "مجموع قيمتين متناظرتين",
+      "En": "Sum of symmetric quadratic values"
+    },
+    "q": {
+      "Ar": "إذا كانت $f(x)=x^2+3x+2$، فما قيمة $f(2)+f(-2)$؟",
+      "En": "If $f(x)=x^2+3x+2$, find $f(2)+f(-2)$."
+    },
+    "opts": [
+      "0",
+      "8",
+      "24",
+      "12"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "افترض أن القيمتين متعاكستان.",
+        "En": "Assumes the two outputs are opposites."
+      },
+      {
+        "Ar": "أهمل الثابت في القيمتين.",
+        "En": "Omits the constant in both outputs."
+      },
+      {
+        "Ar": "جمع الحد الخطي بدلاً من إلغائه.",
+        "En": "Adds rather than cancels the linear terms."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "الحد الخطي يتلاشى عند جمع القيمتين بينما يتكرر الحد التربيعي والثابت.",
+      "En": "Linear terms cancel, while the squared term and constant occur twice."
+    },
+    "formula": "f(t)+f(-t)=2t^2+4",
+    "steps": [
+      {
+        "Ar": "$f(2)=12$",
+        "En": "$f(2)=12$"
+      },
+      {
+        "Ar": "$f(-2)=0$",
+        "En": "$f(-2)=0$"
+      },
+      {
+        "Ar": "$12+0=12$",
+        "En": "$12+0=12$"
+      }
+    ],
+    "sub": {
+      "Ar": "$2\\cdot2^2+4$",
+      "En": "$2\\cdot2^2+4$"
+    },
+    "result": {
+      "Ar": "$12$",
+      "En": "$12$"
+    },
+    "verify": {
+      "Ar": "$2\\cdot4+4=12$",
+      "En": "$2\\cdot4+4=12$"
+    },
+    "hints": [
+      {
+        "Ar": "عوّض بالعددين 2 و−2.",
+        "En": "Substitute two and negative two."
+      },
+      {
+        "Ar": "اجمع الناتجين.",
+        "En": "Add the outputs."
+      }
+    ],
+    "error": {
+      "Ar": "افترض أن القيمتين متعاكستان.",
+      "En": "Assumes the two outputs are opposites."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 9,
+    "cat": 6,
+    "skill": 28,
+    "sk": "middle-inverse-function-evaluation",
+    "family": "inverse-input-compare-two-output-targets",
+    "title": {
+      "Ar": "فرق مدخلين من قيمتي دالة",
+      "En": "Input difference from two outputs"
+    },
+    "q": {
+      "Ar": "لدينا $f(x)=4x-9$. إذا كان $f(a)=7$ و$f(b)=27$، فما قيمة $b-a$؟",
+      "En": "Let $f(x)=4x-9$. If $f(a)=7$ and $f(b)=27$, find $b-a$."
+    },
+    "opts": [
+      "4",
+      "-5",
+      "5",
+      "20"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "هذه قيمة a.",
+        "En": "This is the value of a."
+      },
+      {
+        "Ar": "عكس ترتيب الطرح.",
+        "En": "Reverses the subtraction."
+      },
+      null,
+      {
+        "Ar": "هذا فرق المخرجين.",
+        "En": "This is the output difference."
+      }
+    ],
+    "idea": {
+      "Ar": "نسترجع المدخلين أو نقسم فرق المخرجين على معامل x.",
+      "En": "Recover both inputs or divide the output difference by the coefficient."
+    },
+    "formula": "4(b-a)=27-7",
+    "steps": [
+      {
+        "Ar": "$a=(7+9)/4=4$",
+        "En": "$a=(7+9)/4=4$"
+      },
+      {
+        "Ar": "$b=(27+9)/4=9$",
+        "En": "$b=(27+9)/4=9$"
+      },
+      {
+        "Ar": "$b-a=5$",
+        "En": "$b-a=5$"
+      }
+    ],
+    "sub": {
+      "Ar": "$(27-7)/4$",
+      "En": "$(27-7)/4$"
+    },
+    "result": {
+      "Ar": "$5$",
+      "En": "$5$"
+    },
+    "verify": {
+      "Ar": "$f(9)-f(4)=27-7=20$",
+      "En": "$f(9)-f(4)=27-7=20$"
+    },
+    "hints": [
+      {
+        "Ar": "اكتب معادلة لكل مدخل.",
+        "En": "Write an equation for each input."
+      },
+      {
+        "Ar": "اطرح المعادلتين أو حلّهما.",
+        "En": "Subtract the equations or solve them."
+      }
+    ],
+    "error": {
+      "Ar": "هذا فرق المخرجين.",
+      "En": "This is the output difference."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 4,
+    "cat": 21,
+    "skill": 298,
+    "sk": "fraction-operations",
+    "family": "fraction-operation-addition-over-one-unit",
+    "title": {
+      "Ar": "جمع كسور تتجاوز الواحد",
+      "En": "Adding fractions beyond one"
+    },
+    "q": {
+      "Ar": "شربت مجموعة من إبريق مقدار $\\frac34$ لتر، ثم من إبريق آخر مقدار $\\frac12$ لتر. كم لتراً شربت بالمجموع؟",
+      "En": "A group drinks three quarters of a litre from one jug and half a litre from another. How many litres are consumed in total?"
+    },
+    "opts": [
+      "1",
+      "\\frac54",
+      "\\frac46",
+      "\\frac14"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "أهمل الربع الزائد على الواحد.",
+        "En": "Omits the quarter above one."
+      },
+      null,
+      {
+        "Ar": "جمع البسطين والمقامين مباشرة.",
+        "En": "Adds numerators and denominators directly."
+      },
+      {
+        "Ar": "طرح الكسرين.",
+        "En": "Subtracts the fractions."
+      }
+    ],
+    "idea": {
+      "Ar": "نوحد المقام إلى أربعة ثم نجمع البسطين.",
+      "En": "Use a common denominator of four and add numerators."
+    },
+    "formula": "3/4+1/2=3/4+2/4",
+    "steps": [
+      {
+        "Ar": "$3/4+2/4=5/4$",
+        "En": "$3/4+2/4=5/4$"
+      }
+    ],
+    "sub": {
+      "Ar": "$(3+2)/4$",
+      "En": "$(3+2)/4$"
+    },
+    "result": {
+      "Ar": "$\\frac54$",
+      "En": "$\\frac54$"
+    },
+    "verify": {
+      "Ar": "$5/4-3/4=1/2$",
+      "En": "$5/4-3/4=1/2$"
+    },
+    "hints": [
+      {
+        "Ar": "حول النصف إلى أرباع.",
+        "En": "Convert one half into quarters."
+      },
+      {
+        "Ar": "اجمع الأرباع.",
+        "En": "Add the quarters."
+      }
+    ],
+    "error": {
+      "Ar": "جمع البسطين والمقامين مباشرة.",
+      "En": "Adds numerators and denominators directly."
+    },
+    "unit": {
+      "Ar": "لتر",
+      "En": "L"
+    }
+  },
+  {
+    "track": 4,
+    "cat": 21,
+    "skill": 97,
+    "sk": "p-fractions-decimals-fraction-models",
+    "family": "fraction-model-denominator-inference-from-unit-piece",
+    "title": {
+      "Ar": "استنتاج عدد الأجزاء من حجم قطعة",
+      "En": "Inferring partition count"
+    },
+    "q": {
+      "Ar": "قطعة طولها 3 سم تمثل سدس شريط. ما طول ثلاثة أجزاء مماثلة من هذا الشريط؟",
+      "En": "A piece 3 cm long is one sixth of a strip. What is the length of three such parts of the strip?"
+    },
+    "opts": [
+      "9",
+      "6",
+      "12",
+      "18"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "هذا ضعف طول القطعة فقط.",
+        "En": "This is only twice one part."
+      },
+      {
+        "Ar": "هذا طول أربع قطع.",
+        "En": "This is four parts."
+      },
+      {
+        "Ar": "هذا طول الشريط الكامل.",
+        "En": "This is the full strip length."
+      }
+    ],
+    "idea": {
+      "Ar": "الأجزاء الستة متساوية وطول كل جزء 3 سم.",
+      "En": "All six parts are equal and each is 3 cm long."
+    },
+    "formula": "L_3=3\\cdot3",
+    "steps": [
+      {
+        "Ar": "$L_3=9$",
+        "En": "$L_3=9$"
+      }
+    ],
+    "sub": {
+      "Ar": "$3\\cdot3$",
+      "En": "$3\\cdot3$"
+    },
+    "result": {
+      "Ar": "$9$",
+      "En": "$9$"
+    },
+    "verify": {
+      "Ar": "$6\\cdot3=18,\\quad9=18/2$",
+      "En": "$6\\cdot3=18,\\quad9=18/2$"
+    },
+    "hints": [
+      {
+        "Ar": "ما طول الجزء الواحد؟",
+        "En": "What is the length of one part?"
+      },
+      {
+        "Ar": "اضربه في ثلاثة.",
+        "En": "Multiply it by three."
+      }
+    ],
+    "error": {
+      "Ar": "هذا ضعف طول القطعة فقط.",
+      "En": "This is only twice one part."
+    },
+    "unit": {
+      "Ar": "سم",
+      "En": "cm"
+    }
+  },
+  {
+    "track": 7,
+    "cat": 83,
+    "skill": 308,
+    "sk": "rational-arithmetic",
+    "family": "rational-arithmetic-division-negative-fractions",
+    "title": {
+      "Ar": "قسمة كسرين بإشارتين مختلفتين",
+      "En": "Dividing fractions of opposite signs"
+    },
+    "q": {
+      "Ar": "احسب $(-\\frac35)\\div\\frac9{10}$.",
+      "En": "Evaluate $(-\\frac35)\\div\\frac9{10}$."
+    },
+    "opts": [
+      "\\frac23",
+      "-\\frac{27}{50}",
+      "-\\frac32",
+      "-\\frac23"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "أهمل الإشارة السالبة.",
+        "En": "Drops the negative sign."
+      },
+      {
+        "Ar": "ضرب في المقسوم عليه بدلاً من مقلوبه.",
+        "En": "Multiplies by the divisor instead of its reciprocal."
+      },
+      {
+        "Ar": "قلب الكسر الخطأ.",
+        "En": "Inverts the wrong fraction."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "نضرب المقسوم في مقلوب المقسوم عليه.",
+      "En": "Multiply the dividend by the reciprocal of the divisor."
+    },
+    "formula": "-3/5\\cdot10/9",
+    "steps": [
+      {
+        "Ar": "$-30/45=-2/3$",
+        "En": "$-30/45=-2/3$"
+      }
+    ],
+    "sub": {
+      "Ar": "$-30/45$",
+      "En": "$-30/45$"
+    },
+    "result": {
+      "Ar": "$-\\frac23$",
+      "En": "$-\\frac23$"
+    },
+    "verify": {
+      "Ar": "$(-2/3)(9/10)=-3/5$",
+      "En": "$(-2/3)(9/10)=-3/5$"
+    },
+    "hints": [
+      {
+        "Ar": "اقلب الكسر الثاني.",
+        "En": "Invert the second fraction."
+      },
+      {
+        "Ar": "اختصر مع الاحتفاظ بالسالب.",
+        "En": "Cancel while retaining the negative sign."
+      }
+    ],
+    "error": {
+      "Ar": "أهمل الإشارة السالبة.",
+      "En": "Drops the negative sign."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 7,
+    "cat": 83,
+    "skill": 309,
+    "sk": "signed-operations",
+    "family": "signed-operations-product-sign-unknown-factor",
+    "title": {
+      "Ar": "إشارة عامل مجهول",
+      "En": "Sign of an unknown factor"
+    },
+    "q": {
+      "Ar": "حاصل ضرب ثلاثة أعداد غير صفرية سالب. اثنان منها سالبان. ما إشارة العدد الثالث؟ A: موجبة، B: سالبة، C: صفر، D: لا يمكن تحديدها.",
+      "En": "The product of three nonzero numbers is negative. Two of them are negative. What is the sign of the third? A: positive; B: negative; C: zero; D: cannot be determined."
+    },
+    "opts": [
+      "C",
+      "D",
+      "B",
+      "A"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "العدد غير صفري بحسب المعطيات.",
+        "En": "The number is nonzero by assumption."
+      },
+      {
+        "Ar": "الإشارة محددة من إشارة حاصل الضرب.",
+        "En": "The product sign determines it."
+      },
+      null,
+      {
+        "Ar": "ضرب سالبين في موجب يعطي موجباً.",
+        "En": "Two negatives and a positive give a positive product."
+      }
+    ],
+    "idea": {
+      "Ar": "ضرب العددين السالبين يعطي موجباً، ويجب ضربه في سالب للحصول على سالب.",
+      "En": "Two negative factors give a positive product; the third must be negative to give a negative result."
+    },
+    "formula": "(-1)(-1)(-1)=-1",
+    "steps": [
+      {
+        "Ar": "$1\\cdot(-1)=-1$",
+        "En": "$1\\cdot(-1)=-1$"
+      }
+    ],
+    "sub": {
+      "Ar": "$(-1)(-1)=1$",
+      "En": "$(-1)(-1)=1$"
+    },
+    "result": {
+      "Ar": "$B$",
+      "En": "$B$"
+    },
+    "verify": {
+      "Ar": "$(-2)(-3)(-4)=-24$",
+      "En": "$(-2)(-3)(-4)=-24$"
+    },
+    "hints": [
+      {
+        "Ar": "ما إشارة حاصل ضرب السالبين؟",
+        "En": "What is the sign of the product of two negatives?"
+      },
+      {
+        "Ar": "ما إشارة عامل يضرب موجباً ليعطي سالباً؟",
+        "En": "What sign times a positive gives a negative?"
+      }
+    ],
+    "error": {
+      "Ar": "ضرب سالبين في موجب يعطي موجباً.",
+      "En": "Two negatives and a positive give a positive product."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 7,
+    "cat": 22,
+    "skill": 99,
+    "sk": "m-statistics-summary-measures",
+    "family": "mode-two-equal-frequencies-break-tie",
+    "title": {
+      "Ar": "منوال بعد كسر التعادل",
+      "En": "Mode after breaking a tie"
+    },
+    "q": {
+      "Ar": "البيانات 2،2،5،5،7. أضيفت القيمة 5 مرة أخرى. ما المنوال الجديد؟",
+      "En": "Data are 2,2,5,5,7. One more observation of 5 is added. What is the new mode?"
+    },
+    "opts": [
+      "3",
+      "5",
+      "2",
+      "7"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "هذا تكرار 5 وليس قيمتها.",
+        "En": "This is the frequency of five, not the value."
+      },
+      null,
+      {
+        "Ar": "تكراره اثنان فقط.",
+        "En": "Occurs only twice."
+      },
+      {
+        "Ar": "تكراره واحد.",
+        "En": "Occurs once."
+      }
+    ],
+    "idea": {
+      "Ar": "المنوال هو القيمة ذات أكبر تكرار.",
+      "En": "The mode is the value with highest frequency."
+    },
+    "formula": "f(2)=2,\\ f(5)=3,\\ f(7)=1",
+    "steps": [
+      {
+        "Ar": "$3>2>1$",
+        "En": "$3>2>1$"
+      }
+    ],
+    "sub": {
+      "Ar": "$2,2,5,5,5,7$",
+      "En": "$2,2,5,5,5,7$"
+    },
+    "result": {
+      "Ar": "$5$",
+      "En": "$5$"
+    },
+    "verify": {
+      "Ar": "$2+3+1=6$",
+      "En": "$2+3+1=6$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب التكرار بعد الإضافة.",
+        "En": "Count frequencies after the addition."
+      },
+      {
+        "Ar": "اختر القيمة التي تكررت أكثر.",
+        "En": "Choose the most frequent value."
+      }
+    ],
+    "error": {
+      "Ar": "تكراره اثنان فقط.",
+      "En": "Occurs only twice."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  }
+]
