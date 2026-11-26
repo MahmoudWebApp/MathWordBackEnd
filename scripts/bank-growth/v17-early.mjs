@@ -96,7 +96,7 @@ const rows = [
     family: "mixed-unit-mass-across-scales",
     difficulty: 3,
     title: ["قراءة وزن مختلف الوحدات", "Mass readings in mixed units"],
-    question: ["ميزان أول يشير إلى 2 كغ و150 غ لكيس فارغ وثمار بداخله. ميزان ثان يشير إلى أن كتلة الثمار وحدها 1970 غ. ما كتلة الكيس الفارغ بالغرام؟", "One scale shows 2 kg 150 g for a bag and the fruit inside it. A second scale shows 1970 g for the fruit alone. What is the mass of the empty bag in grams?"],
+    question: ["ميزان أول يشير إلى 2 كغ و150 غ لكيس يحتوي على ثمار. ميزان ثان يشير إلى أن كتلة الثمار وحدها 1970 غ. ما كتلة الكيس الفارغ بالغرام؟", "One scale shows 2 kg 150 g for a bag and the fruit inside it. A second scale shows 1970 g for the fruit alone. What is the mass of the empty bag in grams?"],
     hints: [["وحّد وحدة قراءتي الميزان.", "Write both scale readings in one unit."], ["اطرح الثمار وحدها من كتلة الكيس والثمار معاً.", "Subtract the fruit mass from the total for the bag and fruit."]],
     formula: "b=(1000k+g)-f",
     steps: [["تساوي كتلة الكيس والثمار 2150 غ.", "The bag and fruit together have mass 2150 g."], ["نطرح 1970 غ من 2150 غ لإبقاء كتلة الكيس وحده.", "Subtracting 1970 g from 2150 g leaves the bag's mass."]],

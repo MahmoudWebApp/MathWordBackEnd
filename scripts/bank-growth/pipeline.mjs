@@ -64,14 +64,16 @@ export function wave2(){
  return out;
 }
 
-export function selectCandidates(rows,inventory,target=101){
+export function selectCandidates(rows,inventory,target=101,{uniqueFamilies=false}={}){
  const index=new Map(inventory.filter(x=>x.categoryId!==null).map(x=>[x.track+":"+x.categoryId,{...x,remaining:Math.max(0,target-Number(x.questions))}]));
- const selected=[],held=[];
+ const selected=[],held=[],seenFamilies=new Set();
  for(const row of rows){const c=row.Content,t=row.ProposedTrackCodes[0],slot=index.get(t+":"+c.CategoryId);let reason;
+  const family=uniqueFamilies&&row.Family?JSON.stringify([t,c.CategoryId,row.Family]):null;
   if(!slot||slot.stage!==c.StageId)reason="UnlinkedTrackCategory";
   else if(!slot.skills.some(x=>x.id===c.PrimarySkillId&&x.key===row.PrimarySkillKey))reason="UnlinkedSkill";
+  else if(family&&seenFamilies.has(family))reason="LaunchFamilyVariant";
   else if(slot.remaining<=0)reason="CategoryTargetReached";
-  if(reason)held.push({key:row.ContentKey,reason});else{slot.remaining--;selected.push(row);}
+  if(reason)held.push({key:row.ContentKey,reason});else{slot.remaining--;selected.push(row);if(family)seenFamilies.add(family);}
  }
  return {selected,held};
 }

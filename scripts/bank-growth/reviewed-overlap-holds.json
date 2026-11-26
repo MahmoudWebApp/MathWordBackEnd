@@ -71,5 +71,14 @@
   "half-life-initial-from-final": "V18 Grade 11 already reverses the identical 15 g after three half-lives before comparing two masses. Keep the contextual comparison over the three routine repetitions.",
   "recover-individual-term-from-partial-sums": "The recorded question subtracts successive sums n squared and (n+1) squared to identify the next odd term. A fixed index in a different quadratic prefix sum repeats that operation.",
   "partial-cross-term": "A recorded Calculus exercise already evaluates the x partial derivative of x squared times y plus a y term at a supplied point. All three repeat the hold-y/power-rule/substitute procedure.",
-  "highest-derivative-order": "Recorded first- and third-order equations already require identifying the highest derivative and ignoring powers of y or its terms. These three repeat the identification at different orders."
+  "highest-derivative-order": "Recorded first- and third-order equations already require identifying the highest derivative and ignoring powers of y or its terms. These three repeat the identification at different orders.",
+  "clock-cross-hour-minutes": "The recorded activity from 14:10 to 15:05 asks for the same elapsed-time calculation across an hour boundary.",
+  "orthogonal-missing-component": "Recorded perpendicular-vector prompts already determine an unknown component by setting the dot product to zero.",
+  "committee-pair-unordered": "Recorded source problems 278, 290, 302, 314 and 326 already count unordered pairs; the last uses eight people exactly as in variant one.",
+  "equalize-two-groups-transfer": "The recorded red-cup and blue-cup question already transfers half the difference to achieve equality.",
+  "quadratic-discriminant": "Recorded source problems 270, 282, 294, 306 and 318 already ask direct discriminant substitution. A nonunit leading coefficient adds arithmetic without a new decision.",
+  "unit-price": "The five existing notebook questions already infer unit price by division, then use it for a new quantity. These variants isolate the existing substep.",
+  "circle-radius-from-equation": "A recorded standard-form circle with right side 49 already asks for the positive square root. Translating the center does not change the operation.",
+  "handshake-regular-graph": "The reviewed complete-graph family already multiplies vertex count by common degree and halves it. The regular variants supply the degree directly.",
+  "partial-y-holding-x-fixed": "Sources 329, 341, 353, 365 and 377 already evaluate the y partial of the identical ax²y+by² family at a supplied point. This supersedes the previous tentative retention."
 }

@@ -81,7 +81,7 @@ const rows = [
     family: "detect-missing-ones-carry",
     difficulty: 3,
     title: ["عشرة انتقلت إلى الخانة التالية", "The ten that moves to the next place"],
-    question: ["جمع عمر 268 و157. كتب 5 في الآحاد، ثم جمع رقمَي العشرات ورقمَي المئات من دون نقل العشرة التي كوّنها الآحاد. بكم كان ناتجه أقل من المجموع الصحيح؟", "Omar adds 268 and 157. He writes 5 in the ones place and adds the tens digits and the hundreds digits without carrying the ten formed by the ones. How much smaller is his result than the correct total?"],
+    question: ["جمع عمر 268 و157. كتب 5 في الآحاد، لكنه أغفل نقل العشرة من خانة الآحاد إلى خانة العشرات. وأكمل بقية الجمع بالنقل الصحيح. بكم كان ناتجه أقل من المجموع الصحيح؟", "Omar adds 268 and 157. He writes 5 in the ones place but forgets to carry the ten from the ones to the tens place. He completes the rest of the addition, including any further carries, correctly. How much smaller is his result than the correct total?"],
     hints: [["فكّر في العدد الذي يُمثِّلُه مجموع 8 و7.", "Think about what the sum of 8 and 7 represents."], ["ما قيمة العشرة التي لم تدخل في الخانة التالية؟", "What is the value of the ten omitted from the next place?"]],
     formula: "D=(8+7)-5",
     steps: [["مجموع الآحاد 15، وفيه آحاد عددها خمسة وعشرة واحدة.", "The ones sum to 15, made up of five ones and one ten."], ["كتب عمر الآحاد الخمسة ولم يحسب العشرة.", "Omar writes the five ones and omits the ten."]],

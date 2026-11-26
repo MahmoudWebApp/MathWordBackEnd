@@ -56,3 +56,23 @@ test('launch preparation excludes editorial and overlap holds with their own rea
   rmSync(dir, {recursive: true, force: true});
  }
 });
+
+test('launch uses one linked representative per family in each selected category',()=>{
+ const inventory=[row(1,17),row(2,18)].map(r=>({...r,skills:[{id:1,key:'skill'}]}));
+ const candidate=(key,id,Family,skill=1)=>({
+  ContentKey:key,Family,PrimarySkillKey:'skill',ProposedTrackCodes:['grade-1'],
+  Content:{StageId:1,CategoryId:id,PrimarySkillId:skill},
+ });
+ const result=selectLaunchCandidates([
+  candidate('unlinked',1,'shared',2),
+  candidate('first',1,'shared'),
+  candidate('sibling',1,'shared'),
+  candidate('different',1,'other'),
+  candidate('separate-slot',2,'shared'),
+ ],inventory);
+ assert.deepEqual(result.selected.map(r=>r.ContentKey),['separate-slot','first','different']);
+ assert.deepEqual(result.held,[
+  {key:'unlinked',reason:'UnlinkedSkill'},
+  {key:'sibling',reason:'LaunchFamilyVariant'},
+ ]);
+});

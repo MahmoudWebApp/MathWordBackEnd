@@ -28,7 +28,7 @@ export function launchCoverage(rows,minimum=20,minCategories=5){
 export function selectLaunchCandidates(rows,inventory,minimum=20,minCategories=5){
  const coverage=launchCoverage(inventory,minimum,minCategories);
  const slots=coverage.tracks.flatMap(t=>t.priority);
- const selected=selectCandidates(rows,slots,minimum);
+ const selected=selectCandidates(rows,slots,minimum,{uniqueFamilies:true});
  const priority=new Map(slots.map(s=>[s.track+':'+s.categoryId,s.deficit]));
  const linked=new Set(inventory.filter(s=>s.categoryId!==null).map(s=>s.track+':'+s.categoryId));
  const key=r=>r.ProposedTrackCodes[0]+':'+r.Content.CategoryId;

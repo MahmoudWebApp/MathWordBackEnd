@@ -1,5 +1,67 @@
 # MathWorld bank — Work / ChatGPT handoff
 Updated 2026-11-26. This is a shared handoff, not a scheduler or autonomous agent.
+## Offline editorial checkpoint — 2026-11-26, original expansion cohort complete and sources #329–388
+
+Parent 97ac0891b3486f58ae194a19de8b2d18eef144aa passed all three GitHub workflows. Recomputed and reviewed the final 80 of the original 327 expansion records and 60 university amendment source records. Checked options for mathematical equivalence, bilingual wording and distractor reasons, progressive hints, laws, steps, units, verification and archived scope. Compared normalized stems against 749 recovered bilingual pairs and used earlier production comparisons and reviewed families for targeted semantic checks. The independent answer check confirms that the four cohorts are disjoint and cover exactly the 327 original keys, including two previously excluded siblings. No new candidate or publication. No fresh authenticated access was available to verify current live inventory or wizard revisions.
+
+### Final expansion cohort
+
+Family labels omit `growth-` and variant suffixes. Answers are in variant order. A held family is excluded from the prep runner even when it has free capacity.
+
+| Existing family group | Independent answer(s) | Disposition |
+|---|---|---|
+| v1 Grade 3 cross-hour and v5 Grade 3 clock-cross-hour-minutes | 20, 15, 15 / 29, 28, 44 minutes | Retain the offset after the hour family. Hold the elapsed-time trio against the recorded activity from 14:10 to 15:05. CCSS 3.MD.A.1 supports minute intervals in Grade 3. Cambridge explicitly bridges through 60 in Stage 5 (5Gt.03), so document the CCSS placement. |
+| v2 Grade 4 missing-factor and mixed-mass | 8, 6 / 2450, 3275 g | Find a missing factor by division, and convert kilograms before adding grams. These are foundation variants. |
+| v2 Grade 10 quadratic discriminant | 25, 40 | Hold both. The direct discriminant formula repeats the recorded source family, even with a nonunit leading coefficient. |
+| v3 calculus rational-sequence-leading | 4, 5, 6 | Compare leading coefficients after dividing by the highest power. Denominators have nonzero leading coefficients. |
+| v3 discrete ordered-officer-pair and v4 Grade 11 committee-pair-unordered | 42, 72, 132 / 28, 55, 91 | Role assignment distinguishes ordering; hold the committee variants against source #326 and its unordered-pair siblings. |
+| v3 linear algebra trace-scalar-matrix and v5 trace-missing-diagonal | 33, 28, 55 / 11, 13, 16 | Scale the trace or reconstruct a missing diagonal element. Source #332 and siblings only sum the diagonal. |
+| v4 Grade 7 unit-price | 7, 9, 12 | Hold three. Recorded notebook questions already divide to infer unit price, then apply it. |
+| v4 Grade 12 circle-radius-from-equation and v14 radical-axis intersection | 5, 7, 9 / 4 cm | Hold the direct radius trio against the recorded standard-form radius problem. The radical-axis problem requires eliminating a variable and verifying both intersections. |
+| v4 calculus constant-rectangle-integral | 60, 84, 120 | Integrand times rectangular area. One foundation family, with the area check confirming the scaling. |
+| v4 linear algebra orthogonal-missing-component | −6, −10, −8 | Hold three. Recorded perpendicular-vector tasks use the identical missing-component equation. |
+| v5 Grade 7 negative-coefficient-boundary, v15 strict-fare-crossover, v18 latest-whole-minute-before-strict-temperature | −4, −6, −8 / 7 / 3 | Sign reversal, economic break-even under a strict inequality, and last admissible integer time. Added a>0 to the three negative-coefficient formulas. |
+| v5 Grade 10 Vieta missing root and v16 shift roots change product | 7, 9, 12 / 40 | Recover a root from sum or product, or expand a product after translation. The latter reuses the source #269 polynomial but changes the required reasoning. |
+| v5 discrete handshake regular graph and v6 tree missing vertices | 12, 20, 30 / 9, 14, 22 | Hold regular graphs because the earlier complete-graph family already multiplies the common degree and halves. Keep connected acyclic tree inference and corrected all three Arabic stems. |
+| v6 Grade 2 equalize-two-groups-transfer, v16 two-stocks-with-same-total-movements | 5, 8, 9 / 14 | Hold all transfer variants against the existing half-gap task. Separate stock updates and a given final shelf count remain distinct. |
+| v6 Grade 3 leftover remainder variant 3, v6 numerical analysis Newton linear variant 3 | 7, 6 | Checked the final previously excluded siblings. Preserve the existing family holds. |
+| v14 Grade 3 bell-strike intervals, v15 opposite-clock errors, v17 latest departure | 20 seconds / 28 minutes / 9:25 a.m. | Count intervals between endpoints, correct two signed clock errors, or back-plan from the latest admissible arrival. |
+| v14 Grade 4 empty crate, v15 wait for both tasks, v16 missing ones carry, v17 mixed mass across scales | 5 kg / 32 minutes / 10 / 180 g | Infer common unit mass then tare, use the slower parallel job, isolate the missed carry, or subtract after conversion. Made later carries explicitly correct in both languages and removed the conflicting description of the fruit bag as empty in Arabic. |
+| v14 Grade 5 rounding order, v14 Grade 8 pie sectors, v15 Grade 8 nested running counts, v16 Grade 7 mixed work rate | 10 / 12 / 18 / 9 boxes/minute | Compare rounded totals, convert each pie sector using its own class size, subtract inclusive cumulative counts, or isolate the second machine's rate. |
+| v15 Grade 11 nonadjacent display spaces and pooled variance, v17 different flavours and variance deletion | 10 / 9 / 26 / 20/3 | Count gap placements, include between-group variance, count unordered cross-group pairs, or remove squared deviations with mean preserved. |
+| v15 Grade 12 periodic integral, v16 tangent segment, v17 Grade 12 reversed net change, v17 Grade 10 compare towers | 18 L / 24 cm / 10 L / 15 m | Decompose intervals into periods and remainder, use tangent perpendicularity, preserve integral orientation, or use equal tangent ratios to infer an absolute height. |
+
+New semantic holds cover 23 members of this cohort and three earlier v5 calculus y-partial candidates. Sources #329, #341, #353, #365 and #377 exercise the same y partial family `ax²y+by²` at a supplied point, superseding the previous tentative retention. Verified eight corrected growth records retain stable keys and all answer values/flags. The user-defined original 327-candidate review is complete across four checkpoints, and all bulk-preview and launch-preview keys were verified against that set.
+
+### University amendment sources #329–388
+
+Reviewed using stable `g1-amend-<problemId>` source identities. The possible wizard range begins around #535. Current draft IDs, status and revision require authorized reconciliation. Source stems and primary skill keys match the repository's earlier source manifests.
+
+| Source IDs in order | Independent answers | Editorial decision |
+|---|---|---|
+| 329, 341, 353, 365, 377 | 14, 43, 94, 173, 286 | Fix x and differentiate by y. The results were recomputed symbolically before evaluation. |
+| 330, 342, 354, 366, 378 | (4,6), (6,8), (8,10), (10,12), (12,14) | Keep component order. |
+| 331, 343, 355, 367, 379 | 2, 4, 6, 8, 10 | Unit direction (1,0); correct dot product and dimensionless quantities in the given model. |
+| 332, 344, 356, 368, 380 | 6, 8, 10, 12, 14 | Trace of the diagonal, independently summed. |
+| 333, 345, 357, 369, 381 | (6,8), (12,15), (20,24), (30,35), (42,48) | Scale both components. |
+| 334, 346, 358, 370, 382 | 10, 18, 28, 40, 54 | Triangular determinant with zero secondary product. |
+| 335, 347, 359, 371, 383 | 14, 23, 34, 47, 62 | Integrate a constant and apply the initial value. |
+| 336, 348, 360, 372, 384 | 9, 16, 25, 36, 49 | Integrate zero acceleration twice and apply both initial conditions. |
+| 337, 349, 361, 373, 385 | 11, 31, 69, 131, 223 | Integrate a linear derivative from zero and add the initial value. |
+| 338, 350, 362, 374, 386 | 0 in each case | Reciprocal sequence, with valid squeeze comparisons. |
+| 339, 351, 363, 375, 387 | 0 in each case | Geometric ratio strictly between zero and one. |
+| 340, 352, 364, 376, 388 | Continuity on [0,1] | Hold all five until mixed Arabic/English text inside shared LaTeX options is verified in both runtime locales. The endpoint signs and IVT conclusion are correct. |
+
+The five IVT source holds are recorded for authorized review. No exact bilingual stem repeat within this source window; the 12 templates contain systematic numerical variants and represent existing practice assignments. Generic distractor explanations chiefly verify wrong substitution and do not add a distinct reasoning goal. The other 55 source records still require current source/status matching and display checks.
+
+### Replay and next work
+
+The curriculum references above and below include Cambridge Primary 0096 and Lower Secondary 0862, official CCSS, and OECD PISA 2022. CCSS 4.MD.A.1 supports the mass conversion tasks and 7.EE.B.4 supports comparing costs under a strict condition. PISA contextual formulation and interpretation particularly apply to the crate, running-count and schedule tasks. Consulted the [MAA CUPM guide](https://maa.org/wp-content/uploads/2024/06/2015-CUPM-Curriculum-Guide.pdf), [updated Linear Algebra report](https://maa.org/wp-content/uploads/2024/06/Linear-Algebra-Course-Area-Report-Aug-17-2023.pdf), and [MSC2020](https://mathscinet.ams.org/msc/pdfs/classifications2020.pdf) for multivariable calculus (26B), linear algebra (15A), ordinary differential equations (34A), vertex degrees (05C07), and trees (05C05).
+
+Launch preparation now takes at most one linked representative per reasoning family within each track/category. It records deferred variants as `LaunchFamilyVariant`, and the ordinary bulk path still accepts appropriate variants. Replayed archived `launch-coverage` (1,284 missing assignments, 33 missing category links) and `launch-prepare` (111 reviewed representatives, three Confirm=false batches of 50, 50 and 11). Fifty sibling variants were excluded by the launch-only diversity rule. Bulk replay selected 233 records in five Confirm=false files. Checked 50-item and 1.8 MB bounds, 50 Node tests, 14 G1 scripts and 140 independent answer calculations. Live inventory, current draft revisions and server previews remain prerequisites. The production launch target remains open.
+
+Continue existing amendment review from source #389 and authenticated status reconciliation from draft #400. Refresh inventory and reconcile current reviewed candidate IDs and content before dedicating work to original skill-gap authoring. The archived replay alone cannot establish current gaps or the existing published bank's family diversity.
+
 ## Offline editorial checkpoint — 2026-11-26, complete current launch review and sources #264–328
 
 Parent b1ed6774e8fea310116ecba6f220df0fad2403b3 passed all three GitHub workflows. Reviewed 98 additional expansion records and 60 amendment sources. Recomputed 158 answers independently, including exact fractions, radicals, factor equivalence, antiderivative families, exhaustive small counts and selected calculus checks. Checked Arabic and English wording, four distinct options and distractor explanations, hints, formulas, worked steps, units and verification. Compared stems against the 749-pair repository pool and targeted earlier live/draft matches in both languages. All 98 map to archived track/category/primary-skill links. No current authenticated inventory or draft access was available and no production request followed the earlier timeout. Authored 0, published 0.
