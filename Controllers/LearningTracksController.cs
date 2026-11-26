@@ -98,10 +98,10 @@ public sealed class LearningTracksController(AppDbContext db,LearningTrackServic
     }
     [Authorize(Roles="Student")]
     [HttpGet("api/users/learning-tracks/{id:int}/categories/{categoryId:int}/problems")]
-    public async Task<IActionResult> PracticeCatalog(int id,int categoryId,[FromQuery]int page=1,[FromQuery]bool hideSolved=false,CancellationToken ct=default)
+    public async Task<IActionResult> PracticeCatalog(int id,int categoryId,[FromQuery]int page=1,[FromQuery]bool hideSolved=false,[FromQuery]int pageSize=50,CancellationToken ct=default)
     {
         if(!tracks.Enabled)return NotFound();
-        if(page is <1 or >10000)return BadRequest();
+        if(page is <1 or >10000 || pageSize is <1 or >50)return BadRequest();
         var t=await tracks.VisibleTracks().SingleOrDefaultAsync(x=>x.Id==id,ct);
         if(t is null)return NotFound();
         var allowed=await access.GetAllowedCategoryIdsAsync(User,ct)??new List<int>();
@@ -114,11 +114,11 @@ public sealed class LearningTracksController(AppDbContext db,LearningTrackServic
         var scopedProgress=TrackPractice.For(db,TrackPractice.Scope(HttpContext.RequestServices.GetRequiredService<IConfiguration>(),id));
         if(hideSolved)valid=valid.Where(p=>!scopedProgress.Any(x=>x.UserId==uid&&x.ProblemId==p.Id&&x.IsSolved));
         var total=await valid.CountAsync(ct);
-        var items=await valid.OrderBy(p=>scopedProgress.Any(x=>x.UserId==uid&&x.ProblemId==p.Id&&x.IsSolved)).ThenBy(p=>p.Id).Skip((page-1)*50).Take(50)
+        var items=await valid.OrderBy(p=>scopedProgress.Any(x=>x.UserId==uid&&x.ProblemId==p.Id&&x.IsSolved)).ThenBy(p=>p.Id).Skip((page-1)*pageSize).Take(pageSize)
             .Select(p=>new{p.Id,p.CategoryId,p.TitleAr,p.TitleEn,p.Points,
                 IsSolved=scopedProgress.Any(x=>x.UserId==uid&&x.ProblemId==p.Id&&x.IsSolved)})
             .ToListAsync(ct);
-        return Ok(new{TrackId=id,CategoryId=categoryId,Total=total,Page=page,PageSize=50,Items=items});
+        return Ok(new{TrackId=id,CategoryId=categoryId,Total=total,Page=page,PageSize=pageSize,Items=items});
     }
 
     [Authorize(Roles="Student")]
