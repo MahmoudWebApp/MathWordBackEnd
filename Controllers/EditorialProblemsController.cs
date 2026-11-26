@@ -124,6 +124,13 @@ public sealed partial class EditorialProblemsController:ControllerBase
         return Ok(new{batch.Kind,batch.Number,batch.Items,Drafts=states,MissingMappings=missingMappings});
     }
 
+    [HttpGet("guide.pdf")]
+    public async Task<IActionResult> DownloadGuide([FromQuery]string lang="ar",CancellationToken ct=default)
+    {
+        if(await Actor(AccountRolePolicy.EditDrafts,false,ct) is null)return Forbid();
+        if(lang is not ("ar" or "en"))return BadRequest();
+        return File(PremiumAnalyticsPdfExporter.CreateAuthoringGuide(lang=="ar"),"application/pdf",$"mathworld-authoring-guide-{lang}.pdf");
+    }
     [HttpGet("classification/{stageId:int}")]
     public async Task<IActionResult> Classification(int stageId,CancellationToken ct)
     {
