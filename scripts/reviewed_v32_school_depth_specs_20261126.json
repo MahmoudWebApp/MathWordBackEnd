@@ -1,0 +1,470 @@
+[
+  {
+    "track": 4,
+    "cat": 2,
+    "skill": 9,
+    "sk": "primary-one-step-multiplicative-equations",
+    "family": "unknown-factor-equation-equivalence",
+    "title": {
+      "Ar": "معادلتان لهما الحل نفسه",
+      "En": "Equations with the same solution"
+    },
+    "q": {
+      "Ar": "أي معادلة من الخيارات لها الحل نفسه للمتغير k في المعادلة 4k=36؟",
+      "En": "Which equation has the same solution for k as 4k=36?"
+    },
+    "opts": [
+      "3k=18",
+      "5k=45",
+      "6k=48",
+      "7k=70"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "حلها 6.",
+        "En": "Its solution is 6."
+      },
+      null,
+      {
+        "Ar": "حلها 8.",
+        "En": "Its solution is 8."
+      },
+      {
+        "Ar": "حلها 10.",
+        "En": "Its solution is 10."
+      }
+    ],
+    "idea": {
+      "Ar": "نجد العامل المجهول بالقسمة على المعامل غير الصفري، ثم نقارن الحلول.",
+      "En": "Find the unknown factor by dividing by the nonzero coefficient, then compare solutions."
+    },
+    "formula": "ak=b\\Rightarrow k=b/a",
+    "steps": [
+      {
+        "Ar": "$k=36/4=9$",
+        "En": "$k=36/4=9$"
+      },
+      {
+        "Ar": "نعوّض بالقيمة 9 في كل معادلة؛ فقط المعادلة ذات المعامل 5 تعطي الطرف الأيمن المطلوب.",
+        "En": "Substitute 9 into each equation; only the equation with coefficient 5 gives the required right-hand side."
+      }
+    ],
+    "sub": {
+      "Ar": "$5\\cdot9=45$",
+      "En": "$5\\cdot9=45$"
+    },
+    "result": {
+      "Ar": "$5k=45$",
+      "En": "$5k=45$"
+    },
+    "verify": {
+      "Ar": "$45/5=36/4=9$",
+      "En": "$45/5=36/4=9$"
+    },
+    "hints": [
+      {
+        "Ar": "أوجد قيمة العامل المجهول أولاً.",
+        "En": "Find the unknown factor first."
+      },
+      {
+        "Ar": "اختبر القيمة نفسها في كل خيار.",
+        "En": "Test the same value in each option."
+      }
+    ],
+    "error": {
+      "Ar": "لا تقارن المعاملات وحدها.",
+      "En": "Do not compare coefficients alone."
+    }
+  },
+  {
+    "track": 5,
+    "cat": 81,
+    "skill": 303,
+    "sk": "estimation",
+    "family": "rounding-estimate-signed-error",
+    "title": {
+      "Ar": "اتجاه خطأ التقدير",
+      "En": "Direction of estimation error"
+    },
+    "q": {
+      "Ar": "قرّبت ليلى العددين 347 و168 إلى أقرب عشرة ثم جمعتهما. بكم يزيد مجموعها التقديري على المجموع الدقيق؟",
+      "En": "Layla rounds 347 and 168 to the nearest ten before adding. By how much does her estimate exceed the exact sum?"
+    },
+    "opts": [
+      "2",
+      "3",
+      "5",
+      "10"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "2 خطأ تقريب العدد الثاني وحده.",
+        "En": "2 is the rounding error of the second number alone."
+      },
+      {
+        "Ar": "3 خطأ تقريب العدد الأول وحده.",
+        "En": "3 is the rounding error of the first number alone."
+      },
+      null,
+      {
+        "Ar": "10 مقدار منزلة التقريب لا الخطأ الفعلي.",
+        "En": "10 is the rounding place, not the actual error."
+      }
+    ],
+    "idea": {
+      "Ar": "الزيادة في مجموع التقدير تساوي مجموع زيادات التقريب عندما يقرب العددان إلى الأعلى.",
+      "En": "The excess in the estimate equals the sum of the rounding increases when both values round upward."
+    },
+    "formula": "E=(350+170)-(347+168)",
+    "steps": [
+      {
+        "Ar": "$347\\to350,\\quad168\\to170$",
+        "En": "$347\\to350,\\quad168\\to170$"
+      },
+      {
+        "Ar": "$350+170=520,\\quad347+168=515$",
+        "En": "$350+170=520,\\quad347+168=515$"
+      }
+    ],
+    "sub": {
+      "Ar": "$520-515=5$",
+      "En": "$520-515=5$"
+    },
+    "result": {
+      "Ar": "$5$",
+      "En": "$5$"
+    },
+    "verify": {
+      "Ar": "$(350-347)+(170-168)=3+2=5$",
+      "En": "$(350-347)+(170-168)=3+2=5$"
+    },
+    "hints": [
+      {
+        "Ar": "قرّب كل عدد على حدة.",
+        "En": "Round each number separately."
+      },
+      {
+        "Ar": "قارن مجموع العددين المقربين بالمجموع الدقيق.",
+        "En": "Compare the rounded sum with the exact sum."
+      }
+    ],
+    "error": {
+      "Ar": "لا تخلط بين مقدار التقريب وخطأ التقدير.",
+      "En": "Do not confuse the rounding place with the estimation error."
+    }
+  },
+  {
+    "track": 2,
+    "cat": 97,
+    "skill": 357,
+    "sk": "primary-single-unit-picture-data",
+    "family": "pictograph-equal-rows-missing-symbols",
+    "title": {
+      "Ar": "إكمال تمثيل مصور",
+      "En": "Completing a pictograph"
+    },
+    "q": {
+      "Ar": "كل رمز ● يمثل صوتاً واحداً. في سجل التصويت: A: ●●، B: ●●●●●، C: ●●●. يريد المعلم إضافة أصوات إلى A فقط حتى يتساوى عدده مع B. كم رمزاً يضيف؟",
+      "En": "Each ● represents one vote. The record is A: ●●; B: ●●●●●; C: ●●●. How many symbols must be added to A alone so that its count equals B?"
+    },
+    "opts": [
+      "2",
+      "3",
+      "5",
+      "7"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "2 عدد أصوات A قبل الإضافة.",
+        "En": "2 is A's original count."
+      },
+      null,
+      {
+        "Ar": "5 العدد المطلوب بعد الإضافة، لا عدد الرموز المضافة.",
+        "En": "5 is the target total, not the added count."
+      },
+      {
+        "Ar": "7 مجموع A وB قبل الإضافة.",
+        "En": "7 is the original combined count of A and B."
+      }
+    ],
+    "idea": {
+      "Ar": "نقرأ الرموز بوحدة واحدة ونجد الفرق بين الصفين.",
+      "En": "Read the one-unit symbols and find the difference between the two rows."
+    },
+    "formula": "5-2",
+    "steps": [
+      {
+        "Ar": "في A رمزان وفي B خمسة رموز.",
+        "En": "A has two symbols and B has five."
+      },
+      {
+        "Ar": "نطابق رمزي A مع اثنين من B؛ يتبقى ثلاثة في B.",
+        "En": "Match A's two symbols with two in B; three remain in B."
+      }
+    ],
+    "sub": {
+      "Ar": "$5-2=3$",
+      "En": "$5-2=3$"
+    },
+    "result": {
+      "Ar": "$3$",
+      "En": "$3$"
+    },
+    "verify": {
+      "Ar": "$2+3=5$",
+      "En": "$2+3=5$"
+    },
+    "hints": [
+      {
+        "Ar": "عد رموز A وB فقط.",
+        "En": "Count the symbols in A and B only."
+      },
+      {
+        "Ar": "كم رمزاً ينقص A ليصل إلى خمسة؟",
+        "En": "How many more symbols does A need to reach five?"
+      }
+    ],
+    "error": {
+      "Ar": "لا تضف أصوات C لأنها ليست جزءاً من المقارنة.",
+      "En": "Do not include C because it is not part of the comparison."
+    }
+  },
+  {
+    "track": 4,
+    "cat": 1,
+    "skill": 1,
+    "sk": "primary-addition",
+    "family": "addition-compensation-preserved-sum",
+    "title": {
+      "Ar": "الحفاظ على مجموع عددين",
+      "En": "Preserving a sum"
+    },
+    "q": {
+      "Ar": "لحساب 398+267 بسهولة، زاد سامر العدد الأول بمقدار 2. ما العدد الذي يجب أن يستعمله بدلاً من 267 حتى يبقى المجموع نفسه؟",
+      "En": "To simplify 398+267, Samer increases the first addend by 2. Which number should replace 267 to keep the sum unchanged?"
+    },
+    "opts": [
+      "265",
+      "267",
+      "269",
+      "400"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "الإبقاء على 267 يزيد المجموع بمقدار 2.",
+        "En": "Keeping 267 increases the sum by 2."
+      },
+      {
+        "Ar": "زيادة الحدين بمقدار 2 تزيد المجموع بمقدار 4.",
+        "En": "Increasing both addends by 2 increases the sum by 4."
+      },
+      {
+        "Ar": "400 هو الحد الأول بعد التعديل.",
+        "En": "400 is the adjusted first addend."
+      }
+    ],
+    "idea": {
+      "Ar": "زيادة أحد الحدين وإنقاص الآخر بالمقدار نفسه يحافظان على المجموع.",
+      "En": "Increasing one addend and decreasing the other by the same amount preserves the sum."
+    },
+    "formula": "a+b=(a+c)+(b-c)",
+    "steps": [
+      {
+        "Ar": "$398+2=400$",
+        "En": "$398+2=400$"
+      },
+      {
+        "Ar": "نعوض الزيادة بإنقاص العدد الثاني بمقدار 2.",
+        "En": "Compensate for the increase by reducing the second addend by 2."
+      }
+    ],
+    "sub": {
+      "Ar": "$267-2=265$",
+      "En": "$267-2=265$"
+    },
+    "result": {
+      "Ar": "$265$",
+      "En": "$265$"
+    },
+    "verify": {
+      "Ar": "$398+267=665=400+265$",
+      "En": "$398+267=665=400+265$"
+    },
+    "hints": [
+      {
+        "Ar": "كم زاد الحد الأول؟",
+        "En": "How much did the first addend increase?"
+      },
+      {
+        "Ar": "أنقص الحد الآخر بالمقدار نفسه.",
+        "En": "Decrease the other addend by the same amount."
+      }
+    ],
+    "error": {
+      "Ar": "لا تزد الحدين معاً عند الحفاظ على المجموع.",
+      "En": "Do not increase both addends when preserving the sum."
+    }
+  },
+  {
+    "track": 5,
+    "cat": 33,
+    "skill": 4,
+    "sk": "primary-multiplication",
+    "family": "multiplication-double-half-invariant",
+    "title": {
+      "Ar": "مضاعفة عامل وتنصيف الآخر",
+      "En": "Doubling and halving factors"
+    },
+    "q": {
+      "Ar": "أي حاصل ضرب يساوي 16×35 ويمكن الحصول عليه بتنصيف العامل الأول ومضاعفة العامل الثاني؟",
+      "En": "Which product equals 16×35 and is obtained by halving the first factor and doubling the second?"
+    },
+    "opts": [
+      "8\\times35",
+      "32\\times70",
+      "8\\times70",
+      "16\\times70"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "ينصف الناتج بدلاً من الحفاظ عليه.",
+        "En": "This halves the product."
+      },
+      {
+        "Ar": "مضاعفة العاملين تجعل الناتج أربعة أمثاله.",
+        "En": "Doubling both factors quadruples the product."
+      },
+      null,
+      {
+        "Ar": "مضاعفة عامل واحد تضاعف الناتج.",
+        "En": "Doubling only one factor doubles the product."
+      }
+    ],
+    "idea": {
+      "Ar": "تنصيف عامل ومضاعفة الآخر يحافظان على حاصل الضرب.",
+      "En": "Halving one factor and doubling the other preserves the product."
+    },
+    "formula": "ab=(a/2)(2b)",
+    "steps": [
+      {
+        "Ar": "$16/2=8$",
+        "En": "$16/2=8$"
+      },
+      {
+        "Ar": "$2\\cdot35=70$",
+        "En": "$2\\cdot35=70$"
+      }
+    ],
+    "sub": {
+      "Ar": "$16\\cdot35=8\\cdot70$",
+      "En": "$16\\cdot35=8\\cdot70$"
+    },
+    "result": {
+      "Ar": "$8\\times70$",
+      "En": "$8\\times70$"
+    },
+    "verify": {
+      "Ar": "$16\\cdot35=560=8\\cdot70$",
+      "En": "$16\\cdot35=560=8\\cdot70$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب نصف 16.",
+        "En": "Find half of 16."
+      },
+      {
+        "Ar": "احسب ضعف 35 واستعمل العاملين معاً.",
+        "En": "Double 35 and use both adjusted factors."
+      }
+    ],
+    "error": {
+      "Ar": "لا تعدل عاملاً واحداً فقط.",
+      "En": "Do not adjust only one factor."
+    }
+  },
+  {
+    "track": 7,
+    "cat": 6,
+    "skill": 25,
+    "sk": "middle-linear-equations",
+    "family": "linear-equation-negative-coefficient-check",
+    "title": {
+      "Ar": "حل معادلة بمعامل سالب",
+      "En": "Solving with a negative coefficient"
+    },
+    "q": {
+      "Ar": "حل المعادلة 17−3x=2، ثم تحقق من الحل بالتعويض.",
+      "En": "Solve 17−3x=2, then check the solution by substitution."
+    },
+    "opts": [
+      "-5",
+      "5",
+      "15",
+      "19/3"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "التعويض بـ−5 يعطي 32 لا 2.",
+        "En": "Substituting −5 gives 32, not 2."
+      },
+      null,
+      {
+        "Ar": "15 قيمة الفرق قبل القسمة على 3.",
+        "En": "15 is the difference before division by 3."
+      },
+      {
+        "Ar": "19/3 ينتج عن جمع 17 و2 بدلاً من طرحهما.",
+        "En": "19/3 comes from adding 17 and 2 rather than subtracting."
+      }
+    ],
+    "idea": {
+      "Ar": "نعزل الحد المتغير بإجراء العملية نفسها على الطرفين ثم نقسم على المعامل غير الصفري.",
+      "En": "Isolate the variable term by applying the same operation to both sides, then divide by the nonzero coefficient."
+    },
+    "formula": "ax+b=c\\Rightarrow x=(c-b)/a",
+    "steps": [
+      {
+        "Ar": "$-3x=2-17=-15$",
+        "En": "$-3x=2-17=-15$"
+      },
+      {
+        "Ar": "$x=\\frac{-15}{-3}=5$",
+        "En": "$x=\\frac{-15}{-3}=5$"
+      }
+    ],
+    "sub": {
+      "Ar": "$x=5$",
+      "En": "$x=5$"
+    },
+    "result": {
+      "Ar": "$5$",
+      "En": "$5$"
+    },
+    "verify": {
+      "Ar": "$17-3(5)=2$",
+      "En": "$17-3(5)=2$"
+    },
+    "hints": [
+      {
+        "Ar": "اطرح 17 من الطرفين.",
+        "En": "Subtract 17 from both sides."
+      },
+      {
+        "Ar": "اقسم الطرفين على −3 مع مراعاة الإشارة.",
+        "En": "Divide both sides by −3, keeping track of the sign."
+      }
+    ],
+    "error": {
+      "Ar": "قسمة سالب على سالب تعطي موجباً.",
+      "En": "A negative divided by a negative is positive."
+    }
+  }
+]
