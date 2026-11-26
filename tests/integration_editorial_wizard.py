@@ -3,6 +3,19 @@ from integration_problem_history import expect
 from integration_password_recovery import sql
 def verify_wizard(admin,supervisor,sid):
     root="/api/editorial/problems"
+    from integration_problem_history import BASE
+    from urllib.request import Request,urlopen
+    assert BASE.startswith(("http://localhost:", "http://127.0.0.1:"))
+    expect("GET",root+"/guide.pdf",401)
+    expect("GET",root+"/guide.pdf?lang=invalid",400,token=admin)
+    for token in (admin,supervisor):
+        for lang in ("ar","en"):
+            with urlopen(Request(BASE+root+"/guide.pdf?lang="+lang,headers={"Authorization":"Bearer "+token}),timeout=45) as response:
+                assert response.headers.get_content_type()=="application/pdf"
+                pdf=response.read()
+                assert pdf.startswith(b"%PDF-") and len(pdf)>1000
+    print("PASS: authenticated bilingual editorial PDF download")
+
     # The private fixed package must not be exposed to anonymous users or supervisors.
     catalog=expect("GET",root+"/reviewed-bank",200,token=admin)
     expect("GET",root+"/reviewed-bank",401)
