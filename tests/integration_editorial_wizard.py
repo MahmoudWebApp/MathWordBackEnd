@@ -121,6 +121,26 @@ def verify_wizard(admin,supervisor,sid):
     expect("POST",fixpath+"/publish",409,{"Revision":2,"Confirm":True},admin)
     expect("POST",fixpath+"/withdraw",200,{"Revision":3,"Note":"Admin removed test submission"},admin)
     assert all(x["Id"]!=fix["Id"] for x in expect("GET",root+"?supervisorOnly=true",200,token=admin)["Items"])
+    # Optional fields are allowed only for interactive authoring, not bulk import.
+    proof=copy.deepcopy(p)
+    proof["Question"]=pair("احسب 14 + 8 في اختبار الحقول الاختيارية","Calculate 14 + 8 in the optional-fields fixture")
+    proof["Solution"]["FormulaLatex"]=""
+    for key in ("Substitution","Unit","Verification","CommonError"):
+        proof["Solution"][key]=pair("","")
+    proof["Solution"]["Steps"]=[pair("اجمع 14 و8","Add 14 and 8")]
+    pd=expect("POST",root,201,{"Revision":0,"Content":proof},supervisor)
+    assert pd["AllowOptionalSolutionFields"] is True
+    pp=f"{root}/{pd['Id']}"
+    pending_proof=expect("POST",pp+"/submit",200,{"Revision":0},supervisor)
+    assert pending_proof["Status"]=="PendingReview"
+    expect("POST",pp+"/withdraw",200,{"Revision":1,"Note":"Optional fields fixture"},admin)
+    invalid=copy.deepcopy(proof)
+    invalid["Solution"]["Unit"]=pair("متر","")
+    bad=expect("POST",root,201,{"Revision":0,"Content":invalid},supervisor)
+    bp=f"{root}/{bad['Id']}"
+    expect("POST",bp+"/submit",400,{"Revision":0},supervisor)
+    expect("POST",bp+"/withdraw",200,{"Revision":0,"Note":"Incomplete bilingual fixture"},admin)
+    print("PASS: interactive optional solution fields, incomplete bilingual field rejected")
     verify_solve(admin,pid,stage,category)
     verify_amendment(admin,supervisor,pid)
     verify_import(admin,supervisor,p,track)
