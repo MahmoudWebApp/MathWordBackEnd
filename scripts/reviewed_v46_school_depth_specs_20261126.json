@@ -1,0 +1,986 @@
+[
+  {
+    "track": 7,
+    "cat": 6,
+    "skill": 25,
+    "sk": "middle-linear-equations",
+    "family": "linear-equation-consecutive-integers-sum",
+    "title": {
+      "Ar": "عددان صحيحان متتاليان",
+      "En": "Consecutive integers"
+    },
+    "q": {
+      "Ar": "مجموع عددين صحيحين متتاليين يساوي 49. ما العدد الأصغر؟",
+      "En": "Two consecutive integers sum to 49. What is the smaller integer?"
+    },
+    "opts": [
+      "23",
+      "24",
+      "25",
+      "26"
+    ],
+    "correct": 1,
+    "idea": {
+      "Ar": "إذا كان الأصغر x فالتالي x+1.",
+      "En": "If the smaller integer is x, the next is x+1."
+    },
+    "formula": "x+(x+1)=49",
+    "steps": [
+      {
+        "Ar": "$2x=48$",
+        "En": "$2x=48$"
+      },
+      {
+        "Ar": "$x=24$",
+        "En": "$x=24$"
+      }
+    ],
+    "sub": {
+      "Ar": "$x=24$",
+      "En": "$x=24$"
+    },
+    "result": {
+      "Ar": "$24$",
+      "En": "$24$"
+    },
+    "verify": {
+      "Ar": "$24+25=49$",
+      "En": "$24+25=49$"
+    },
+    "hints": [
+      {
+        "Ar": "الفرق بين العددين واحد.",
+        "En": "The integers differ by one."
+      },
+      {
+        "Ar": "اكتب مجموعهما بدلالة x.",
+        "En": "Express their sum in terms of x."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "23+24=47.",
+        "En": "23+24=47."
+      },
+      null,
+      {
+        "Ar": "25 هو العدد الأكبر.",
+        "En": "25 is the larger integer."
+      },
+      {
+        "Ar": "26+27=53.",
+        "En": "26+27=53."
+      }
+    ],
+    "error": {
+      "Ar": "23+24=47.",
+      "En": "23+24=47."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 7,
+    "cat": 84,
+    "skill": 326,
+    "sk": "number-line-solutions",
+    "family": "inequality-boundary-order-inclusion-test",
+    "title": {
+      "Ar": "اختبار حدود متراجحة",
+      "En": "Checking an inequality boundary"
+    },
+    "q": {
+      "Ar": "أي متراجحة من الخيارات يقبل حلها العدد 4 ولا يقبل العدد 3؟",
+      "En": "Which inequality admits 4 as a solution but does not admit 3?"
+    },
+    "opts": [
+      "x>4",
+      "x<4",
+      "x\\ge4",
+      "x\\ge3"
+    ],
+    "correct": 2,
+    "idea": {
+      "Ar": "نختبر العددين في كل شرط، فنبحث عن شرط يشمل 4 ويستبعد 3.",
+      "En": "Test both values in each condition to find one including 4 and excluding 3."
+    },
+    "formula": "4\\ge4,\\quad3<4",
+    "steps": [
+      {
+        "Ar": "تتضمن المتراجحة x≥4 الحد 4.",
+        "En": "The inequality x≥4 includes its endpoint."
+      },
+      {
+        "Ar": "العدد 3 أصغر من الحد فلا ينتمي للحلول.",
+        "En": "Three is below the bound and is excluded."
+      }
+    ],
+    "sub": {
+      "Ar": "العدد 3 أصغر من الحد فلا ينتمي للحلول.",
+      "En": "Three is below the bound and is excluded."
+    },
+    "result": {
+      "Ar": "$x\\ge4$",
+      "En": "$x\\ge4$"
+    },
+    "verify": {
+      "Ar": "$4\\ge4,\\quad3\\not\\ge4$",
+      "En": "$4\\ge4,\\quad3\\not\\ge4$"
+    },
+    "hints": [
+      {
+        "Ar": "هل الحد 4 مشمول أم مستبعد؟",
+        "En": "Is the endpoint four included or excluded?"
+      },
+      {
+        "Ar": "اختبر 3 أيضاً.",
+        "En": "Test three as well."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "يستبعد 4.",
+        "En": "Excludes four."
+      },
+      {
+        "Ar": "يستبعد 4 ويقبل 3.",
+        "En": "Excludes four and admits three."
+      },
+      null,
+      {
+        "Ar": "يقبل العددين.",
+        "En": "Admits both values."
+      }
+    ],
+    "error": {
+      "Ar": "يستبعد 4.",
+      "En": "Excludes four."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 7,
+    "cat": 85,
+    "skill": 337,
+    "sk": "simple-compound-events",
+    "family": "probability-fair-game-compare-events",
+    "title": {
+      "Ar": "مقارنة فرص الفوز",
+      "En": "Comparing winning chances"
+    },
+    "q": {
+      "Ar": "على قرص بستة قطاعات متساوية مرقمة من 1 إلى 6، يفوز A إذا ظهر عدد أولي ويفوز B إذا ظهر عدد أكبر من 4. ما الفرق بين احتمالَي الفوز A وB؟",
+      "En": "On a spinner with six equal sectors numbered 1 to 6, A wins on a prime number and B wins on a number above 4. What is P(A)−P(B)?"
+    },
+    "opts": [
+      "0",
+      "\\frac16",
+      "\\frac13",
+      "\\frac12"
+    ],
+    "correct": 1,
+    "idea": {
+      "Ar": "نعد النتائج الملائمة لكل حدث ونقسم على ستة ثم نطرح.",
+      "En": "Count favourable outcomes for each event, divide by six, and subtract."
+    },
+    "formula": "P(A)-P(B)=3/6-2/6",
+    "steps": [
+      {
+        "Ar": "الأعداد الأولية 2 و3 و5، والأعداد الأكبر من 4 هي 5 و6.",
+        "En": "The primes are 2, 3, 5; the numbers above four are 5, 6."
+      },
+      {
+        "Ar": "$3/6-2/6=1/6$",
+        "En": "$3/6-2/6=1/6$"
+      }
+    ],
+    "sub": {
+      "Ar": "$3/6-2/6=1/6$",
+      "En": "$3/6-2/6=1/6$"
+    },
+    "result": {
+      "Ar": "$\\frac16$",
+      "En": "$\\frac16$"
+    },
+    "verify": {
+      "Ar": "$1/2-1/3=1/6$",
+      "En": "$1/2-1/3=1/6$"
+    },
+    "hints": [
+      {
+        "Ar": "تذكر أن 1 ليس عدداً أولياً.",
+        "En": "Remember that one is not prime."
+      },
+      {
+        "Ar": "قارن عدد النتائج الملائمة لكل حدث.",
+        "En": "Compare the favourable counts."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "عدد نتائج الحدثين مختلف.",
+        "En": "The favourable counts differ."
+      },
+      null,
+      {
+        "Ar": "هذا احتمال B وحده.",
+        "En": "This is P(B) alone."
+      },
+      {
+        "Ar": "هذا احتمال A وحده.",
+        "En": "This is P(A) alone."
+      }
+    ],
+    "error": {
+      "Ar": "عدد نتائج الحدثين مختلف.",
+      "En": "The favourable counts differ."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 8,
+    "cat": 22,
+    "skill": 100,
+    "sk": "m-statistics-charts",
+    "family": "data-display-missing-bar-frequency-from-total",
+    "title": {
+      "Ar": "إكمال عمود في مخطط تكراري",
+      "En": "Completing a frequency bar"
+    },
+    "q": {
+      "Ar": "يمثل مخطط أعمدة 40 استجابة موزعة على أربع فئات فقط. ارتفاعات الأعمدة الثلاثة الأولى 8 و11 و14 استجابة. ما ارتفاع العمود الرابع؟",
+      "En": "A bar chart represents 40 responses in exactly four categories. The first three bar heights are 8, 11 and 14 responses. What is the fourth bar's height?"
+    },
+    "opts": [
+      "7",
+      "9",
+      "15",
+      "33"
+    ],
+    "correct": 0,
+    "idea": {
+      "Ar": "مجموع تكرارات الفئات الأربع يساوي إجمالي الاستجابات.",
+      "En": "The four category frequencies sum to the total response count."
+    },
+    "formula": "40-(8+11+14)",
+    "steps": [
+      {
+        "Ar": "$8+11+14=33$",
+        "En": "$8+11+14=33$"
+      },
+      {
+        "Ar": "$40-33=7$",
+        "En": "$40-33=7$"
+      }
+    ],
+    "sub": {
+      "Ar": "$40-33=7$",
+      "En": "$40-33=7$"
+    },
+    "result": {
+      "Ar": "$7$",
+      "En": "$7$"
+    },
+    "verify": {
+      "Ar": "$33+7=40$",
+      "En": "$33+7=40$"
+    },
+    "hints": [
+      {
+        "Ar": "اجمع ارتفاعات الأعمدة المعروفة.",
+        "En": "Add the known bar heights."
+      },
+      {
+        "Ar": "اطرح المجموع من العدد الكلي.",
+        "En": "Subtract that sum from the total."
+      }
+    ],
+    "reasons": [
+      null,
+      {
+        "Ar": "33+9=42.",
+        "En": "33+9=42."
+      },
+      {
+        "Ar": "33+15=48.",
+        "En": "33+15=48."
+      },
+      {
+        "Ar": "33 مجموع الأعمدة المعروفة.",
+        "En": "33 is the sum of the known bars."
+      }
+    ],
+    "error": {
+      "Ar": "33+9=42.",
+      "En": "33+9=42."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 8,
+    "cat": 85,
+    "skill": 336,
+    "sk": "sample-spaces",
+    "family": "sample-space-branch-dependent-options",
+    "title": {
+      "Ar": "خيارات متفرعة غير متساوية",
+      "En": "Unequal branches of choices"
+    },
+    "q": {
+      "Ar": "يمكن اختيار المسار A أو B أو C. للمسار A خياران للنقل، وللمسار B أربعة خيارات، وللمسار C خيار واحد. يختار المسافر مساراً واحداً وطريقة نقل متاحة له. كم خطة مختلفة توجد؟",
+      "En": "A traveller chooses route A, B or C. Route A offers two transport options, B offers four, and C offers one. The traveller chooses one route and one available transport option for it. How many distinct plans exist?"
+    },
+    "opts": [
+      "6",
+      "7",
+      "8",
+      "12"
+    ],
+    "correct": 1,
+    "idea": {
+      "Ar": "نجمع عدد الخيارات في الفروع المنفصلة لأن المسافر يختار مساراً واحداً فقط.",
+      "En": "Add the choices on disjoint branches because exactly one route is selected."
+    },
+    "formula": "2+4+1=7",
+    "steps": [
+      {
+        "Ar": "للمسارين A وB ست خطط معاً.",
+        "En": "Routes A and B have six plans altogether."
+      },
+      {
+        "Ar": "$6+1=7$",
+        "En": "$6+1=7$"
+      }
+    ],
+    "sub": {
+      "Ar": "$6+1=7$",
+      "En": "$6+1=7$"
+    },
+    "result": {
+      "Ar": "$7$",
+      "En": "$7$"
+    },
+    "verify": {
+      "Ar": "$7-1=6$",
+      "En": "$7-1=6$"
+    },
+    "hints": [
+      {
+        "Ar": "عدد خيارات النقل مختلف بين المسارات.",
+        "En": "Transport counts differ across routes."
+      },
+      {
+        "Ar": "اجمع الخيارات ولا تضرب أعداد الفروع.",
+        "En": "Add rather than multiply the branch counts."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "يهمل المسار C.",
+        "En": "Omits route C."
+      },
+      null,
+      {
+        "Ar": "يضرب 2 في 4 بدلاً من الجمع.",
+        "En": "Multiplies two and four instead of adding."
+      },
+      {
+        "Ar": "يفترض أربعة خيارات لكل مسار.",
+        "En": "Assumes four choices per route."
+      }
+    ],
+    "error": {
+      "Ar": "يهمل المسار C.",
+      "En": "Omits route C."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 9,
+    "cat": 22,
+    "skill": 98,
+    "sk": "m-statistics-distributions",
+    "family": "iqr-reverse-scale-negative-multiplier",
+    "title": {
+      "Ar": "المدى الربيعي عند انعكاس القيم",
+      "En": "IQR under reflection"
+    },
+    "q": {
+      "Ar": "الربيع الأول لمجموعة بيانات هو 4 والثالث 10. تحولت كل قيمة x إلى −2x. ما المدى الربيعي الجديد؟",
+      "En": "A data set has first quartile 4 and third quartile 10. Every value x is transformed to −2x. What is the new interquartile range?"
+    },
+    "opts": [
+      "-12",
+      "6",
+      "12",
+      "28"
+    ],
+    "correct": 2,
+    "idea": {
+      "Ar": "التحويل السالب يعكس ترتيب البيانات، ويضاعف المسافات بعامل القيمة المطلقة للمعامل.",
+      "En": "A negative transformation reverses the data order and scales distances by the absolute multiplier."
+    },
+    "formula": "Q'_1=-2Q_3,\\quad Q'_3=-2Q_1",
+    "steps": [
+      {
+        "Ar": "$Q'_1=-20,\\quad Q'_3=-8$",
+        "En": "$Q'_1=-20,\\quad Q'_3=-8$"
+      },
+      {
+        "Ar": "$IQR'=-8-(-20)=12$",
+        "En": "$IQR'=-8-(-20)=12$"
+      }
+    ],
+    "sub": {
+      "Ar": "$IQR'=-8-(-20)=12$",
+      "En": "$IQR'=-8-(-20)=12$"
+    },
+    "result": {
+      "Ar": "$12$",
+      "En": "$12$"
+    },
+    "verify": {
+      "Ar": "$2(10-4)=12$",
+      "En": "$2(10-4)=12$"
+    },
+    "hints": [
+      {
+        "Ar": "الضرب بسالب يعكس ترتيب القيم.",
+        "En": "A negative multiplier reverses their order."
+      },
+      {
+        "Ar": "احسب الفرق بين الربيعين الجديدين بالترتيب الصحيح.",
+        "En": "Subtract the new quartiles in the correct order."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "المدى الربيعي غير سالب.",
+        "En": "IQR is nonnegative."
+      },
+      {
+        "Ar": "هذا المدى قبل التحويل.",
+        "En": "This is the original IQR."
+      },
+      null,
+      {
+        "Ar": "28 يجمع مقداري الربيعين.",
+        "En": "28 adds their magnitudes."
+      }
+    ],
+    "error": {
+      "Ar": "المدى الربيعي غير سالب.",
+      "En": "IQR is nonnegative."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 9,
+    "cat": 84,
+    "skill": 327,
+    "sk": "solve-linear-inequalities",
+    "family": "inequality-parameter-matching-cutoff",
+    "title": {
+      "Ar": "تحديد ثابت متراجحة",
+      "En": "Determining an inequality constant"
+    },
+    "q": {
+      "Ar": "إذا كانت مجموعة حلول المتراجحة $3x+a\\le15$ هي بالضبط $x\\le4$، فما قيمة الثابت a؟",
+      "En": "If the solution set of $3x+a\\le15$ is exactly $x\\le4$, what is the constant a?"
+    },
+    "opts": [
+      "-3",
+      "3",
+      "4",
+      "12"
+    ],
+    "correct": 1,
+    "idea": {
+      "Ar": "عند الحد المشمول تكون المساواة صحيحة.",
+      "En": "At the included boundary, equality holds."
+    },
+    "formula": "3\\cdot4+a=15",
+    "steps": [
+      {
+        "Ar": "$12+a=15$",
+        "En": "$12+a=15$"
+      },
+      {
+        "Ar": "$a=3$",
+        "En": "$a=3$"
+      }
+    ],
+    "sub": {
+      "Ar": "$a=3$",
+      "En": "$a=3$"
+    },
+    "result": {
+      "Ar": "$3$",
+      "En": "$3$"
+    },
+    "verify": {
+      "Ar": "$3x+3\\le15\\iff x\\le4$",
+      "En": "$3x+3\\le15\\iff x\\le4$"
+    },
+    "hints": [
+      {
+        "Ar": "ما القيمة التي تقع عند حد الحل؟",
+        "En": "Which value is at the solution boundary?"
+      },
+      {
+        "Ar": "عوّض بها في المساواة.",
+        "En": "Substitute it into the equality."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "−3 يعطي الحد 6.",
+        "En": "−3 gives boundary six."
+      },
+      null,
+      {
+        "Ar": "4 هو حد الحل لا الثابت.",
+        "En": "Four is the solution bound, not the constant."
+      },
+      {
+        "Ar": "12 قيمة 3x عند الحد.",
+        "En": "Twelve is 3x at the boundary."
+      }
+    ],
+    "error": {
+      "Ar": "−3 يعطي الحد 6.",
+      "En": "−3 gives boundary six."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 10,
+    "cat": 35,
+    "skill": 53,
+    "sk": "secondary-arithmetic-mean",
+    "family": "mean-frequency-unknown-count",
+    "title": {
+      "Ar": "تكرار مجهول من المتوسط",
+      "En": "Unknown frequency from a mean"
+    },
+    "q": {
+      "Ar": "تظهر القيمة 4 ثلاث مرات، وتظهر القيمة 10 عدداً مجهولاً n من المرات. إذا كان المتوسط الحسابي 8، فما n؟",
+      "En": "The value 4 occurs three times and the value 10 occurs an unknown number n of times. If the arithmetic mean is 8, find n."
+    },
+    "opts": [
+      "2",
+      "3",
+      "6",
+      "12"
+    ],
+    "correct": 2,
+    "idea": {
+      "Ar": "نكتب المتوسط موزوناً بالتكرار ثم نحل المعادلة.",
+      "En": "Write the frequency-weighted mean and solve the equation."
+    },
+    "formula": "(12+10n)/(3+n)=8",
+    "steps": [
+      {
+        "Ar": "$12+10n=24+8n$",
+        "En": "$12+10n=24+8n$"
+      },
+      {
+        "Ar": "$2n=12\\Rightarrow n=6$",
+        "En": "$2n=12\\Rightarrow n=6$"
+      }
+    ],
+    "sub": {
+      "Ar": "$2n=12\\Rightarrow n=6$",
+      "En": "$2n=12\\Rightarrow n=6$"
+    },
+    "result": {
+      "Ar": "$6$",
+      "En": "$6$"
+    },
+    "verify": {
+      "Ar": "$(12+60)/9=8$",
+      "En": "$(12+60)/9=8$"
+    },
+    "hints": [
+      {
+        "Ar": "اكتب مجموع القيم بدلالة n.",
+        "En": "Write the sum of observations in terms of n."
+      },
+      {
+        "Ar": "عدد القيم الكلي هو 3+n.",
+        "En": "The total count is 3+n."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "n=2 يعطي متوسط 6.4.",
+        "En": "n=2 gives mean 6.4."
+      },
+      {
+        "Ar": "n=3 يعطي متوسط 7.",
+        "En": "n=3 gives mean seven."
+      },
+      null,
+      {
+        "Ar": "12 قيمة 2n لا n.",
+        "En": "Twelve is 2n, not n."
+      }
+    ],
+    "error": {
+      "Ar": "n=2 يعطي متوسط 6.4.",
+      "En": "n=2 gives mean 6.4."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 10,
+    "cat": 87,
+    "skill": 340,
+    "sk": "vector-components",
+    "family": "vector-closed-triangle-displacement",
+    "title": {
+      "Ar": "إغلاق مسار متجهي",
+      "En": "Closing a vector path"
+    },
+    "q": {
+      "Ar": "يتحرك جسم بإزاحتين (3,−2) ثم (−1,5). ما متجه الإزاحة الثالثة التي تعيده إلى نقطة البداية؟",
+      "En": "An object moves by displacements (3,−2) and then (−1,5). What third displacement returns it to its starting point?"
+    },
+    "opts": [
+      "(2,3)",
+      "(-2,-3)",
+      "(-4,7)",
+      "(4,-7)"
+    ],
+    "correct": 1,
+    "idea": {
+      "Ar": "مجموع إزاحات المسار المغلق متجه صفري.",
+      "En": "Displacements around a closed path sum to the zero vector."
+    },
+    "formula": "w=-(u+v)",
+    "steps": [
+      {
+        "Ar": "$u+v=(2,3)$",
+        "En": "$u+v=(2,3)$"
+      },
+      {
+        "Ar": "$w=(-2,-3)$",
+        "En": "$w=(-2,-3)$"
+      }
+    ],
+    "sub": {
+      "Ar": "$w=(-2,-3)$",
+      "En": "$w=(-2,-3)$"
+    },
+    "result": {
+      "Ar": "$(-2,-3)$",
+      "En": "$(-2,-3)$"
+    },
+    "verify": {
+      "Ar": "$(3,-2)+(-1,5)+(-2,-3)=(0,0)$",
+      "En": "$(3,-2)+(-1,5)+(-2,-3)=(0,0)$"
+    },
+    "hints": [
+      {
+        "Ar": "اجمع الإزاحتين الأوليين.",
+        "En": "Add the first two displacements."
+      },
+      {
+        "Ar": "اعكس اتجاه المحصلة.",
+        "En": "Reverse the resultant direction."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "هذه المحصلة لا عكسها.",
+        "En": "This is the resultant, not its opposite."
+      },
+      null,
+      {
+        "Ar": "هذا لا يجعل المحصلة صفراً.",
+        "En": "This does not make the sum zero."
+      },
+      {
+        "Ar": "هذا لا يعكس المحصلة الصحيحة.",
+        "En": "This does not reverse the correct resultant."
+      }
+    ],
+    "error": {
+      "Ar": "هذه المحصلة لا عكسها.",
+      "En": "This is the resultant, not its opposite."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 11,
+    "cat": 10,
+    "skill": 47,
+    "sk": "secondary-pythagorean-trig-identity",
+    "family": "trig-equal-squares-derive-absolute-value",
+    "title": {
+      "Ar": "تساوي مربعي النسب",
+      "En": "Equal squared trigonometric ratios"
+    },
+    "q": {
+      "Ar": "إذا كان $\\sin^2\\theta=\\cos^2\\theta$، فما القيمة الدقيقة لـ $|\\sin\\theta|$؟",
+      "En": "If $\\sin^2\\theta=\\cos^2\\theta$, what is the exact value of $|\\sin\\theta|$?"
+    },
+    "opts": [
+      "0",
+      "\\frac12",
+      "\\frac{\\sqrt2}{2}",
+      "1"
+    ],
+    "correct": 2,
+    "idea": {
+      "Ar": "المربعان متساويان ومجموعهما واحد، لذا يساوي كل منهما نصفاً.",
+      "En": "The squares are equal and sum to one, so each is one half."
+    },
+    "formula": "2\\sin^2\\theta=1",
+    "steps": [
+      {
+        "Ar": "$\\sin^2\\theta=1/2$",
+        "En": "$\\sin^2\\theta=1/2$"
+      },
+      {
+        "Ar": "$|\\sin\\theta|=\\sqrt{1/2}=\\sqrt2/2$",
+        "En": "$|\\sin\\theta|=\\sqrt{1/2}=\\sqrt2/2$"
+      }
+    ],
+    "sub": {
+      "Ar": "$|\\sin\\theta|=\\sqrt{1/2}=\\sqrt2/2$",
+      "En": "$|\\sin\\theta|=\\sqrt{1/2}=\\sqrt2/2$"
+    },
+    "result": {
+      "Ar": "$\\frac{\\sqrt2}{2}$",
+      "En": "$\\frac{\\sqrt2}{2}$"
+    },
+    "verify": {
+      "Ar": "$2(\\sqrt2/2)^2=1$",
+      "En": "$2(\\sqrt2/2)^2=1$"
+    },
+    "hints": [
+      {
+        "Ar": "استبدل مربع جيب التمام بمربع الجيب.",
+        "En": "Replace cosine squared by sine squared."
+      },
+      {
+        "Ar": "خذ الجذر غير السالب.",
+        "En": "Take the nonnegative square root."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "الصفر يجعل مجموع المربعين صفراً.",
+        "En": "Zero makes the sum of squares zero."
+      },
+      {
+        "Ar": "هذا مربع الجيب، لا قيمته المطلقة.",
+        "En": "This is sine squared, not its absolute value."
+      },
+      null,
+      {
+        "Ar": "هذا يجعل مجموع المربعين اثنين.",
+        "En": "This makes the sum of squares two."
+      }
+    ],
+    "error": {
+      "Ar": "الصفر يجعل مجموع المربعين صفراً.",
+      "En": "Zero makes the sum of squares zero."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 11,
+    "cat": 87,
+    "skill": 339,
+    "sk": "magnitude",
+    "family": "vector-unit-vector-opposite-direction",
+    "title": {
+      "Ar": "متجه وحدة بالاتجاه المعاكس",
+      "En": "Unit vector in the opposite direction"
+    },
+    "q": {
+      "Ar": "أي متجه وحدة له الاتجاه المعاكس للمتجه (−8,6)؟",
+      "En": "Which unit vector points opposite to the vector (−8,6)?"
+    },
+    "opts": [
+      "(-4/5,3/5)",
+      "(4/5,-3/5)",
+      "(8,-6)",
+      "(3/5,4/5)"
+    ],
+    "correct": 1,
+    "idea": {
+      "Ar": "نعكس المتجه ونقسم مركبتيه على معياره.",
+      "En": "Negate the vector and divide its components by its norm."
+    },
+    "formula": "w=-u/\\|u\\|",
+    "steps": [
+      {
+        "Ar": "$\\|u\\|=\\sqrt{64+36}=10$",
+        "En": "$\\|u\\|=\\sqrt{64+36}=10$"
+      },
+      {
+        "Ar": "$w=(8/10,-6/10)=(4/5,-3/5)$",
+        "En": "$w=(8/10,-6/10)=(4/5,-3/5)$"
+      }
+    ],
+    "sub": {
+      "Ar": "$w=(8/10,-6/10)=(4/5,-3/5)$",
+      "En": "$w=(8/10,-6/10)=(4/5,-3/5)$"
+    },
+    "result": {
+      "Ar": "$(4/5,-3/5)$",
+      "En": "$(4/5,-3/5)$"
+    },
+    "verify": {
+      "Ar": "$(4/5)^2+(-3/5)^2=1$",
+      "En": "$(4/5)^2+(-3/5)^2=1$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب معيار المتجه المعطى.",
+        "En": "Find the original norm."
+      },
+      {
+        "Ar": "اعكس الإشارتين واقسم على المعيار.",
+        "En": "Reverse both signs and divide by the norm."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "له اتجاه المتجه الأصلي.",
+        "En": "Points in the original direction."
+      },
+      null,
+      {
+        "Ar": "معياره 10 وليس واحداً.",
+        "En": "Has norm ten, not one."
+      },
+      {
+        "Ar": "هذا متجه متعامد لا معاكس.",
+        "En": "This is perpendicular, not opposite."
+      }
+    ],
+    "error": {
+      "Ar": "له اتجاه المتجه الأصلي.",
+      "En": "Points in the original direction."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 12,
+    "cat": 87,
+    "skill": 338,
+    "sk": "dot-product",
+    "family": "dot-product-projection-prescribed-unknown-component",
+    "title": {
+      "Ar": "مركبة مجهولة من إسقاط موقّع",
+      "En": "Unknown component from signed projection"
+    },
+    "q": {
+      "Ar": "المتجه u=(a,4) والمتجه v=(3,4). إذا كان الإسقاط القياسي الموقّع لـ u على اتجاه v يساوي 5، فما a؟",
+      "En": "Vectors are u=(a,4) and v=(3,4). If the signed scalar projection of u onto the direction of v is 5, what is a?"
+    },
+    "opts": [
+      "1",
+      "3",
+      "5",
+      "9"
+    ],
+    "correct": 1,
+    "idea": {
+      "Ar": "الإسقاط القياسي الموقّع هو الضرب القياسي مقسوماً على معيار متجه الاتجاه.",
+      "En": "Signed scalar projection equals the dot product divided by the direction vector's norm."
+    },
+    "formula": "(u\\cdot v)/\\|v\\|=(3a+16)/5",
+    "steps": [
+      {
+        "Ar": "$(3a+16)/5=5$",
+        "En": "$(3a+16)/5=5$"
+      },
+      {
+        "Ar": "$3a=9\\Rightarrow a=3$",
+        "En": "$3a=9\\Rightarrow a=3$"
+      }
+    ],
+    "sub": {
+      "Ar": "$3a=9\\Rightarrow a=3$",
+      "En": "$3a=9\\Rightarrow a=3$"
+    },
+    "result": {
+      "Ar": "$3$",
+      "En": "$3$"
+    },
+    "verify": {
+      "Ar": "$(9+16)/5=5$",
+      "En": "$(9+16)/5=5$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب معيار v.",
+        "En": "Find the norm of v."
+      },
+      {
+        "Ar": "ساوِ نسبة الضرب القياسي إلى المعيار بالعدد 5.",
+        "En": "Set the dot product divided by the norm equal to five."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "a=1 يعطي 19/5.",
+        "En": "a=1 gives 19/5."
+      },
+      null,
+      {
+        "Ar": "a=5 يعطي 31/5.",
+        "En": "a=5 gives 31/5."
+      },
+      {
+        "Ar": "9 قيمة 3a لا a.",
+        "En": "Nine is 3a, not a."
+      }
+    ],
+    "error": {
+      "Ar": "a=1 يعطي 19/5.",
+      "En": "a=1 gives 19/5."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  }
+]
