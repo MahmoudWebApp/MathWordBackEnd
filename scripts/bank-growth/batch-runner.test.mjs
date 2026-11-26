@@ -35,3 +35,17 @@ test('staged editorial holds stay excluded from preview and a saved publication 
   /Plan changed/
  );
 });
+
+test('legacy amendment holds use source IDs and preserve published counts', () => {
+ const sourceHeld = {...draft(212), Id: 423};
+ const otherSource = {...draft(423), Id: 710};
+ const alreadyPublished = {...draft(340, 'Published'), Id: 546};
+ const report = selectReviewed({
+  Kind: 'amendments', Number: 1, MissingMappings: 0,
+  Items: [{ProblemId: 212}, {ProblemId: 423}, {ProblemId: 340}],
+  Drafts: [sourceHeld, otherSource, alreadyPublished],
+ });
+ assert.deepEqual(report.held, ['g1-amend-212']);
+ assert.deepEqual(report.ready.map(item => item.id), [710]);
+ assert.equal(report.published, 1);
+});

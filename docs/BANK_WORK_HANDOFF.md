@@ -1,5 +1,30 @@
 # MathWorld bank — Work / ChatGPT handoff
 Updated 2026-11-26. This is a shared handoff, not a scheduler or autonomous agent.
+## Offline editorial checkpoint — 2026-11-26, earlier holds and reviewed runner exclusion
+
+Audited 11 additional source-bound records, covering the nine explicit pre-#133 holds plus the canonical source content for the two historically separate open drafts. The two canonical amendments for #3 and #36 were already published in the reconciled snapshot. Current status of separate wizard drafts #1022 and #1023 is unverified. Neither draft should be repeated without reconciling its exact key, source and revision through the official Admin path.
+
+| Legacy source | Independent answer and disposition |
+|---|---|
+| #3 | 7 apples. Draft #1022 is the historical separate draft. The canonical subtraction amendment is recorded as published. |
+| #7 | 10 under the proposed constant-difference rule. Keep the assumption and wording-history hold. Improve each distractor explanation by counting the increment from 8. |
+| #10 | 1/2 for a fair coin. Keep the fairness and wording-history hold. The two-outcome count alone cannot establish equal probabilities. |
+| #20 | {2, 3}. Retain the historical option-language hold. The corrected hint specifies sum 5 and product 6 for factors of the form x−r and x−s. |
+| #26 | 1/6 under independent fair six-sided rolls. Six ordered pairs sum to seven. Improve feedback for all three wrong options. This is the same event as #1684. |
+| #36 | 42. Draft #1023 is the historical separate draft. The canonical addition amendment is recorded as published. |
+| #64 | 1/8 for three independent fair tosses. Retain the assumption hold. Correct Arabic agreement in the verification and distinguish the events represented by the distractors. #291 has the same three-toss model. |
+| #80, #95, #110, #125 | 3/8, 5/16, 15/64 and 21/128 for exactly two heads under independent fair tosses. Keep the assumption holds and count the family once for launch diversity, alongside #140. |
+
+All 11 keyed options matched independent arithmetic, symbolic roots or exhaustive outcome counting. Reviewed the bilingual stems, options, hints, formulas, steps and verification, and compared normalized stems against the 749-pair repository pool. Corrected bilingual guidance on four held records. Their original stems, ordered option strings, answer flags and source identifiers match their archived signatures.
+
+The existing reviewed-runner hold registry now contains 129 more legacy keys. This applies the recorded decisions for the nine early holds, the earlier seven model-assumption holds in #133–184, the explicit launch holds through #1726 and the 13 historical wizard holds resolved to source IDs using the verified #400–424 mapping. The nine newly audited hold records are included in the 129. The runner's revalidation still preserves historical Published counts. The focused test distinguishes source #212 from wizard draft #423 and protects another source whose numeric ID happens to be #423. A local rehearsal across 773 synthetic archived-source states withheld exactly the 132 legacy keys now registered. Four staged university holds and six earlier staged school holds remain registered separately from that count. The repository decisions apply to the reviewed CLI and do not alter server drafts.
+
+The [Cambridge Primary 0096 framework](https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-primary/curriculum/mathematics/) and [official CCSS](https://www.thecorestandards.org/assets/CCSSI_Math%20Standards.pdf) distinguish additive context and regrouping (1.OA.A.1, 2.NBT.B.5), and CCSS HSA-REI.B.4b covers factoring to solve quadratics. [Cambridge Lower Secondary 0862](https://static1.squarespace.com/static/5214ff22e4b06e19d62917ee/t/64d511e7b02f11373c39ddbd/1691685351971/Math%2BCurriculum%2BFramework.pdf) separates independence and combined events at 9Sp.02–03. CCSS HSS-CP uses independence to determine whether probabilities multiply. The [OECD PISA 2022 mathematics framework](https://www.oecd.org/content/dam/oecd/en/publications/reports/2023/08/pisa-2022-assessment-and-analytical-framework_a124aec8/dfe0bf9c-en.pdf) informs the separate modeling review of the assumptions underlying a probability answer. The prior [MAA CUPM](https://maa.org/resource/cupm-guide/) and [MSC2020](https://mathscinet.ams.org/msc/pdfs/classifications2020.pdf) references remain attached to the previously audited university tracks.
+
+All four PR workflows passed on parent 703be2fe124838ec78d24e563912dfa47b289509. Local checks passed 52 Node tests, all 14 G1 scripts and 11 independent answer checks. Archived `launch-coverage` still reports 1,284 missing assignments, including 33 category links. `launch-prepare` has 111 and bulk preparation has 230, with `Confirm=false`, at most 50 items and less than 1.8 MB per file. Authored 0, published 0, and made no production requests.
+
+The #185-onward archived cohort and original 327 expansion candidates are already audited. Resume official reconciliation at wizard #400 with a fresh authenticated inventory and draft preview. Verify current scoped matches and record approved hold resolutions before removing any corresponding keys. Existing archival records without current disposition must be matched before further publication work. The live launch goal remains open.
+
 ## Offline editorial checkpoint — 2026-11-26, remaining staged set and earlier amendments
 
 Audited 29 additional archived records. Seventeen had previously been source-matched and linked, outside the 20-draft school launch cohort and the 22-draft placement review. Recovered their archived IDs from the six import manifests in order, corroborated the order against the recorded launch and placement IDs, and retained stable content keys for the next authenticated reconciliation. Their current IDs, revisions and statuses remain unverified. Also audited the 12 legacy sources in #133–184 outside the 40 historically confirmed published amendments. The 592-source offline audit from #185 and 327-candidate expansion audit are complete in the preceding checkpoints.

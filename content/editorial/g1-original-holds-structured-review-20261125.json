@@ -42,8 +42,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "لا يحقق هذا الخيار القانون أو التحقق التالي: $2+4\\cdot2=10$ لا يمكن تحديد الحد التالي من أربعة أعداد وحدها دون تحديد قاعدة النمط.",
-              "En": "This choice fails the derived rule or check: $2+4\\cdot2=10$ Four numbers alone do not uniquely determine the next term without a pattern rule."
+              "Ar": "الانتقال من 8 إلى 9 يزيد 1، والفرق الثابت في النمط هو 2.",
+              "En": "Moving from 8 to 9 adds 1. The constant difference is 2."
             }
           },
           {
@@ -51,8 +51,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "لا يحقق هذا الخيار القانون أو التحقق التالي: $2+4\\cdot2=10$ لا يمكن تحديد الحد التالي من أربعة أعداد وحدها دون تحديد قاعدة النمط.",
-              "En": "This choice fails the derived rule or check: $2+4\\cdot2=10$ Four numbers alone do not uniquely determine the next term without a pattern rule."
+              "Ar": "الانتقال من 8 إلى 12 يزيد 4، أي خطوتين بحسب قاعدة النمط.",
+              "En": "Moving from 8 to 12 adds 4, which takes two steps in the pattern."
             }
           },
           {
@@ -60,8 +60,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "لا يحقق هذا الخيار القانون أو التحقق التالي: $2+4\\cdot2=10$ لا يمكن تحديد الحد التالي من أربعة أعداد وحدها دون تحديد قاعدة النمط.",
-              "En": "This choice fails the derived rule or check: $2+4\\cdot2=10$ Four numbers alone do not uniquely determine the next term without a pattern rule."
+              "Ar": "الانتقال من 8 إلى 11 يزيد 3، والفرق الثابت في النمط هو 2.",
+              "En": "Moving from 8 to 11 adds 3. The constant difference is 2."
             }
           }
         ],
@@ -305,8 +305,8 @@
             "En": "Try factoring the quadratic into a product of two factors."
           },
           {
-            "Ar": "ابحث عن عددين مجموعهما معامل x وحاصل ضربهما الحد الثابت، ثم ساوِ كل عامل بالصفر.",
-            "En": "Find two integers summing to the x coefficient and multiplying to the constant; set each factor to zero."
+            "Ar": "إذا كتبت العاملين على صورة x−r وx−s، فابحث عن عددين مجموعهما 5 وحاصل ضربهما 6. ثم ساوِ كل عامل بالصفر.",
+            "En": "For factors of the form x−r and x−s, find two numbers with sum 5 and product 6. Then set each factor to zero."
           }
         ],
         "Solution": {
@@ -411,8 +411,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "لا يحقق هذا الخيار القانون أو التحقق التالي: لكل قيمة أولى من 1 إلى 6 مكمل واحد إلى 7. المجاميع ليست متساوية الاحتمال؛ نعد الأزواج المرتبة.",
-              "En": "This choice fails the derived rule or check: Each first value from 1 to 6 has one complement to 7. Sums are not equally likely; count ordered pairs."
+              "Ar": "هذا يعادل 3 من 36. تبديل النردين يعطي نتيجتين مختلفتين لكل زوج من الأعداد التي مجموعها 7.",
+              "En": "This gives 3 out of 36. Swapping the two dice produces a distinct outcome for each pair that sums to 7."
             }
           },
           {
@@ -420,8 +420,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "لا يحقق هذا الخيار القانون أو التحقق التالي: لكل قيمة أولى من 1 إلى 6 مكمل واحد إلى 7. المجاميع ليست متساوية الاحتمال؛ نعد الأزواج المرتبة.",
-              "En": "This choice fails the derived rule or check: Each first value from 1 to 6 has one complement to 7. Sums are not equally likely; count ordered pairs."
+              "Ar": "ربع الحالات يعني 9 من 36، بينما لكل قيمة على النرد الأول قيمة واحدة على الثاني ليكون المجموع 7.",
+              "En": "A quarter would mean 9 of the 36 outcomes. Each first-die value has exactly one partner on the second die that gives a sum of 7."
             }
           },
           {
@@ -429,8 +429,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "لا يحقق هذا الخيار القانون أو التحقق التالي: لكل قيمة أولى من 1 إلى 6 مكمل واحد إلى 7. المجاميع ليست متساوية الاحتمال؛ نعد الأزواج المرتبة.",
-              "En": "This choice fails the derived rule or check: Each first value from 1 to 6 has one complement to 7. Sums are not equally likely; count ordered pairs."
+              "Ar": "ثلث الحالات يعني 12 من 36، بينما الأزواج المرتبة التي مجموعها 7 عددها 6.",
+              "En": "A third would mean 12 of the 36 outcomes. Exactly 6 ordered pairs sum to 7."
             }
           }
         ],
@@ -532,8 +532,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "لا يحقق هذا الخيار القانون أو التحقق التالي: يوجد 8 تسلسلاً متساوي الاحتمال، واحد منها كله صورة. لا تجمع الاحتمالات ولا تكتفِ بعدالة القطعة؛ يلزم استقلال الرميات.",
-              "En": "This choice fails the derived rule or check: There are 8 equally likely sequences and exactly one is all heads. Do not add probabilities or rely on fairness alone; independence is needed."
+              "Ar": "هذا احتمال ظهور الصورة في رميتين مستقلتين. المطلوب ظهورها في الرميات الثلاث.",
+              "En": "This is the probability of two heads in two independent tosses. All three tosses must be heads here."
             }
           },
           {
@@ -541,8 +541,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "لا يحقق هذا الخيار القانون أو التحقق التالي: يوجد 8 تسلسلاً متساوي الاحتمال، واحد منها كله صورة. لا تجمع الاحتمالات ولا تكتفِ بعدالة القطعة؛ يلزم استقلال الرميات.",
-              "En": "This choice fails the derived rule or check: There are 8 equally likely sequences and exactly one is all heads. Do not add probabilities or rely on fairness alone; independence is needed."
+              "Ar": "هذا احتمال ظهور الصورة مرة واحدة بالضبط في ثلاث رميات مستقلة. المطلوب ظهورها في كل رمية.",
+              "En": "This is the probability of exactly one head in three independent tosses. The question requires heads on every toss."
             }
           },
           {
@@ -550,8 +550,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "لا يحقق هذا الخيار القانون أو التحقق التالي: يوجد 8 تسلسلاً متساوي الاحتمال، واحد منها كله صورة. لا تجمع الاحتمالات ولا تكتفِ بعدالة القطعة؛ يلزم استقلال الرميات.",
-              "En": "This choice fails the derived rule or check: There are 8 equally likely sequences and exactly one is all heads. Do not add probabilities or rely on fairness alone; independence is needed."
+              "Ar": "هذا احتمال ظهور الصورة في رمية واحدة. اضرب ثلاثة عوامل مقدار كل منها 1/2.",
+              "En": "This is the probability of heads on one toss. Multiply three factors of 1/2."
             }
           }
         ],
@@ -590,8 +590,8 @@
             "En": "$\\frac{1}{8}$"
           },
           "Verification": {
-            "Ar": "يوجد 8 تسلسلاً متساوي الاحتمال، واحد منها كله صورة.",
-            "En": "There are 8 equally likely sequences and exactly one is all heads."
+            "Ar": "توجد ثمانية تسلسلات متساوية الاحتمال، وفي تسلسل واحد منها فقط يظهر وجه الصورة في الرميات الثلاث.",
+            "En": "There are eight equally likely sequences. Only one has heads on all three tosses."
           },
           "CommonError": {
             "Ar": "لا تجمع الاحتمالات ولا تكتفِ بعدالة القطعة؛ يلزم استقلال الرميات.",
