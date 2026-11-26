@@ -192,3 +192,59 @@ Scripts: batch1 f4a8c68ef4dbcb4ade8c691727c387ea90b26921; batch2 76ebe5396bc1008
 | growth-v19-grade-12-circle-radius-from-horizontal-line-tangency-1 | 1153 | 1866 | 12/88/328 | 7453=4 |
 
 Live after 881 (230 primary,203 middle,226 secondary,222 university); 375 have structured metadata, 506 missing (116/96/125/169). 84 heuristic notation flags (14/26/22/22); the three new flagged IDs 1826/1842/1860 were manually checked and are false positives on ordinary Arabic wording, not actual Arabic variables. Draft 513 (463 amendments,50 new), Published 609 (267 amendments,342 additions), Withdrawn 1. Best-five capped 697/1400 (school 540/1200, university unpublished mappings 157/200), gap 703 (660 school +43 university). 27 added, 23 contribute to capped best-five count; no old amendments in this pass. Cumulative independent #193: 112 corrected,32 new. All 12 school grades received additions, no university changes. Eight missing category links remain. Next legacy wizard 535 onward (skip registry holds); continue large linked growth waves, prioritize best-five gaps and resolve taxonomy proposals separately. Browser rendering and full pedagogical audit incomplete, CI latest head unverified.
+
+## Owner-authorized production checkpoint — 46 additional school problems (2026-11-26)
+Start 881 live, 506 without metadata, 697 capped. Reconciled #179 head 1db6af02bf07a9bf6043ec55836750a229e799df; checked four hold registries, exact live/draft keys, published track/category/skill links, top two English token-overlap comparisons in live/draft inventory. Focused semantic review, not exhaustive proof of uniqueness. Selected v15 early/primary/middle/upper, v16 early/middle/secondary and linked v18; excluded explicit holds and other candidates requiring overlap/skill review. Independent calculation of all 46 answers (including enumeration, rational values, geometric sums, unit conversions, bounds, clock corrections and counting); four distinct numeric options per problem, checked bilingual source content and refined ideas, selected steps, formulas, notation and hints. All 46 existing linked school scopes, no university additions or taxonomy edits. Five guarded one-time SQL import/publication transactions (10+10+10+10+6), rehearsed rollback and verified keys absent before commit. Tool-call limit interrupted orchestration after batch4; confirmed batch5 keys absent, then executed successfully. Exact independent post-write comparison 46/46 including wizard, titles/stems, options/order/flags, metadata/flat solutions, classification/track/primary skill links, Published rev3 and four audit events each (184 events). No application/auth/learner-history changes. No old amendments this pass. Sequence gaps are expected from rollback; do not rerun any script.
+
+Scripts: batch1 cc73f281b8f0d03f74020896228e76cf2405349c; batch2 b14ec067bef8825e594730629c9e8b08d1703129; batch3 e9a5584eccd1a905897efc8813e6db2468e48f9c; batch4 9856d85d9395178be8c919e359051f8299d8127d; batch5 2be9b5e3d723c4eb4162997ba8b2415383085c42.
+
+| Content key | Draft | Problem | Track/category/skill | Correct option |
+|---|---:|---:|---|---|
+| growth-v15-grade-1-correct-double-touch-count-1 | 1164 | 1877 | 1/81/302 | 7497=7 |
+| growth-v15-grade-2-count-printed-page-digits-1 | 1165 | 1878 | 2/81/302 | 7503=17 |
+| growth-v15-grade-2-unfold-paired-holes-distance-1 | 1166 | 1879 | 2/82/321 | 7508=6 |
+| growth-v15-grade-3-cyclic-distribution-last-tray-1 | 1167 | 1880 | 3/33/5 | 7512=2 |
+| growth-v15-grade-3-elapsed-time-opposite-clock-errors-1 | 1168 | 1881 | 3/82/324 | 7514=28 |
+| growth-v15-grade-3-extra-perimeter-after-straight-cut-1 | 1169 | 1882 | 3/3/12 | 7519=12 |
+| growth-v15-grade-3-reconstruct-whole-from-three-fifths-1 | 1170 | 1883 | 3/21/97 | 7521=20 |
+| growth-v15-grade-4-coincident-fraction-marks-1 | 1171 | 1884 | 4/21/96 | 7527=7 |
+| growth-v15-grade-4-pay-for-complete-promotional-groups-1 | 1172 | 1885 | 4/33/6 | 7530=32 |
+| growth-v15-grade-4-wait-for-both-tasks-1 | 1173 | 1886 | 4/82/324 | 7533=32 |
+| growth-v15-grade-5-capacity-displaced-by-submerged-blocks-1 | 1184 | 1897 | 5/82/320 | 7578=450 |
+| growth-v15-grade-5-largest-median-hidden-scores-1 | 1185 | 1898 | 5/4/18 | 7581=15 |
+| growth-v15-grade-6-minimum-overlap-of-percentage-groups-1 | 1186 | 1899 | 6/21/93 | 7588=10 |
+| growth-v15-grade-6-oblique-triangle-rectangle-complement-1 | 1187 | 1900 | 6/3/14 | 7591=21 |
+| growth-v15-grade-7-equivalent-area-single-pond-1 | 1188 | 1901 | 7/8/36 | 7594=10 |
+| growth-v15-grade-7-strict-fare-crossover-1 | 1189 | 1902 | 7/84/325 | 7598=7 |
+| growth-v15-grade-7-wheel-visit-cycle-1 | 1190 | 1903 | 7/5/22 | 7601=3 |
+| growth-v15-grade-8-reprinted-map-scale-denominator-1 | 1191 | 1904 | 8/7/33 | 7608=40000 |
+| growth-v15-grade-8-subtract-nested-running-counts-1 | 1192 | 1905 | 8/85/335 | 7611=18 |
+| growth-v15-grade-9-minimum-median-grouped-integers-1 | 1193 | 1906 | 9/22/98 | 7615=15 |
+| growth-v16-grade-1-three-step-square-stair-1 | 1204 | 1917 | 1/81/302 | 7657=6 |
+| growth-v16-grade-2-two-stocks-with-same-total-movements-1 | 1205 | 1918 | 2/1/3 | 7662=14 |
+| growth-v16-grade-3-fraction-of-a-group-of-half-panels-1 | 1206 | 1919 | 3/21/97 | 7668=1 |
+| growth-v16-grade-3-uncovered-border-count-1 | 1207 | 1920 | 3/3/13 | 7671=24 |
+| growth-v15-grade-11-choose-nonadjacent-display-spaces-1 | 1208 | 1921 | 11/12/56 | 7675=10 |
+| growth-v15-grade-11-equal-point-and-line-distance-1 | 1209 | 1922 | 11/88/330 | 7678=2 |
+| growth-v15-grade-11-pool-variance-with-separated-group-means-1 | 1210 | 1923 | 11/35/54 | 7684=9 |
+| growth-v15-grade-12-integrate-periods-and-a-shifted-remainder-1 | 1211 | 1924 | 12/11/51 | 7686=18 |
+| growth-v15-grade-12-least-terms-for-geometric-tail-tolerance-1 | 1212 | 1925 | 12/23/113 | 7692=5 |
+| growth-v15-grade-12-squared-trig-difference-from-sum-1 | 1213 | 1926 | 12/10/47 | 7695=0.04 |
+| growth-v16-grade-3-recover-number-from-two-roundings-1 | 1224 | 1937 | 3/81/306 | 7737=250 |
+| growth-v16-grade-4-detect-missing-ones-carry-1 | 1225 | 1938 | 4/1/1 | 7742=10 |
+| growth-v16-grade-4-equal-fraction-shares-different-wholes-1 | 1226 | 1939 | 4/21/112 | 7747=1 |
+| growth-v16-grade-4-stacks-with-aisle-in-each-layer-1 | 1227 | 1940 | 4/33/6 | 7752=16 |
+| growth-v16-grade-5-adjacent-hundredths-on-opposite-sides-1 | 1228 | 1941 | 5/21/94 | 7753=4.15 |
+| growth-v16-grade-6-percentage-of-original-after-rejects-recovered-1 | 1229 | 1942 | 6/21/93 | 7759=90 |
+| growth-v16-grade-7-recover-rate-from-equal-time-mixed-work-1 | 1230 | 1943 | 7/7/31 | 7761=9 |
+| growth-v16-grade-8-missing-factor-in-difference-of-same-base-powers-1 | 1231 | 1944 | 8/5/21 | 7767=8 |
+| growth-v16-grade-9-box-corner-two-pythagorean-steps-1 | 1232 | 1945 | 9/34/37 | 7770=13 |
+| growth-v16-grade-11-equal-slopes-at-two-points-1 | 1233 | 1946 | 11/11/49 | 7774=-6 |
+| growth-v18-grade-1-recount-after-rearrangement-1 | 1240 | 1953 | 1/81/302 | 7801=6 |
+| growth-v18-grade-7-latest-whole-minute-before-strict-temperature-1 | 1241 | 1954 | 7/84/325 | 7807=3 |
+| growth-v18-grade-8-recover-exponent-from-common-base-quotient-1 | 1242 | 1955 | 8/5/21 | 7811=2 |
+| growth-v18-grade-10-unchanged-mean-replacing-different-sized-groups-1 | 1243 | 1956 | 10/35/53 | 7816=4 |
+| growth-v16-grade-12-external-point-tangent-segment-1 | 1244 | 1957 | 12/88/328 | 7820=24 |
+| growth-v16-grade-12-signed-work-against-horizontal-motion-1 | 1245 | 1958 | 12/87/338 | 7823=-11 |
+
+Live after 927 (255 primary,214 middle,236 secondary,222 university); 421 structured, 506 missing (116/96/125/169). 90 heuristic notation flags (17/27/24/22), six additional flags (1877,1880,1884,1906,1926,1958); flags are candidates, not confirmed errors. Draft 513 (463 amendments +50 additions), Published 655 (267 amendments+388 additions), Withdrawn1. Best-five capped 734/1400, school 577/1200 plus unpublished university mappings 157/200; gap 666 (623 school +43 university). All twelve school grades received growth; 37 of 46 count toward capped target. Cumulative independent #193: 112 old corrected,78 new published. Eight missing category links remain. CI and browser rendering not confirmed. Next prioritize gaps in grade1,2,6,9; prepare linked growth, review missing categories and pending draft placement separately; legacy wizard535 onward with holds. Coordinate canonical publication mapping with #179 owner to prevent reimport.
