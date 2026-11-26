@@ -507,3 +507,39 @@ Reviewed 24 pending amendments; excluded 706/source691 and 713/source698 because
 |724|713|2799|
 
 Live1008 (315/227/239/227), structured669 (233/158/144/134), missing339 (82/69/95/93). Draft347 (298 amendments+49 additions), Published903 (434 amendments+469 additions), Withdrawn1. Cumulative #193:279 legacy corrections+159 new. Category coverage unchanged by amendment-only batch: best-five813/1400; all88 category placements capped897/1760, gap863. Next legacy725 onward, preserve holds and keep growing underfilled categories; reconcile #179 without replay.
+
+
+## Legacy review checkpoint 725–751 (2026-11-26)
+Reviewed28 pending amendments; held752/source782 excluded (existing editorial hold and mixed bilingual LaTeX options). Selected27 amendments across double integrals, limits, subtraction with regrouping, exponents, quadratics, recurrences, differential-equation order and geometric series. Reviewed existing bilingual ideas/hints, recalculated correct choices, expanded solution derivations, conditions, specific distractor feedback, substitutions, verification and common errors. Preserved titles, stems, option IDs/order/flags, points, video URLs, categories/skills and actual university mappings13+21,13+20,15+21. Checked four hold registries, source SHA256 and draft MD5/revision, owner, exact live/open-draft duplicates and valid placements. One-time SQL scripts/apply_reviewed_legacy_725_751_20261126.sql commit863f0241674d5b36b5205350196efd9ffa518a31 ALREADY APPLIED, DO NOT replay. Rollback rehearsal passed; independently confirmed27/27 unchanged before commit; exact independent postcommit readback27/27 on wizard revision4, solutions, options, protected fields and mapping;108 owner_sql events. No new problems or taxonomy, entitlement, student/auth/app changes. Levels20/21 remain unpublished. Runtime rendering and full semantic duplicate-family review not verified.
+
+| Draft | Source | Correct option ID |
+|---:|---:|---:|
+|725|714|2802|
+|726|715|2807|
+|727|716|2854|
+|728|717|2859|
+|729|718|2862|
+|730|719|2867|
+|731|720|2871|
+|732|761|3034|
+|733|762|3038|
+|734|763|3043|
+|735|764|3046|
+|736|765|3049|
+|737|766|3054|
+|738|767|3057|
+|739|769|3067|
+|740|770|3069|
+|741|771|3074|
+|742|772|3077|
+|743|773|3082|
+|744|774|3087|
+|745|775|3092|
+|746|776|3095|
+|747|777|3099|
+|748|778|3102|
+|749|779|3105|
+|750|780|3111|
+|751|781|3114|
+
+Live1008 (315/227/239/227), structured696 (237/161/152/146), missing312 (78/66/87/81). Draft320 (271 amendments+49 additions), Published930 (461 amendments+469 additions), Withdrawn1. Cumulative #193:306 legacy corrections+159 new. Category depth unchanged (best-five813/1400; all88 placements897/1760, gap863). Next legacy753 onward, retain hold752 and earlier holds; continue new content within underfilled categories, especially grades1/2/6/9; reconcile canonical #179 keys without replay.
