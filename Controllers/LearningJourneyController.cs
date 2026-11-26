@@ -115,24 +115,33 @@ namespace MathWorldAPI.Controllers
 
             var tracks = HttpContext.RequestServices.GetRequiredService<LearningTrackService>();
             var track = await tracks.ActiveAsync(stage.Id,user.CurrentTrackId,cancellationToken);
-            var scoped = track is null
-                ? _context.Problems.AsNoTracking().Where(p=>p.StageId==stage.Id&&p.Category.StageId==stage.Id)
-                : tracks.ValidProblems(track.Id);
+            // Resolve current track membership once for this request. Previously
+            // each of categories, inventory, progress and lifetime credit ran the
+            // same expensive published-skill join again. Keep the identical
+            // ValidLinks eligibility rule and never cache across requests.
+            var scoped = _context.Problems.AsNoTracking()
+                .Where(p=>p.StageId==stage.Id&&p.Category.StageId==stage.Id);
             var categoriesQuery = _context.Categories.AsNoTracking().Where(c=>c.StageId==stage.Id);
-            if(track is not null) categoriesQuery=categoriesQuery.Where(c=>scoped.Any(p=>p.CategoryId==c.Id));
-            var categories = await categoriesQuery
-                .Where(c => c.StageId == stage.Id)
-                .OrderBy(c => c.Order)
-                .Select(c => new { c.Id, c.NameAr, c.NameEn })
-                .ToListAsync(cancellationToken);
-
-            // Count inventory separately: progress records can also be created
-            // just for favorites without any submitted attempts.
-            var inventory = await scoped
-                .GroupBy(p => p.CategoryId)
-                .Select(g => new { CategoryId = g.Key, Count = g.Count() })
-                .ToDictionaryAsync(x => x.CategoryId, x => x.Count,
-                    cancellationToken);
+            Dictionary<int,int> inventory;
+            if(track is not null)
+            {
+                var links=await tracks.ValidLinks().Where(l=>l.TrackId==track.Id)
+                    .Select(l=>new{l.ProblemId,l.CategoryId}).Distinct().ToListAsync(cancellationToken);
+                var problemIds=links.Select(l=>l.ProblemId).ToArray();
+                inventory=links.GroupBy(l=>l.CategoryId).ToDictionary(g=>g.Key,g=>g.Count());
+                var categoryIds=inventory.Keys.ToArray();
+                scoped=scoped.Where(p=>problemIds.Contains(p.Id));
+                categoriesQuery=categoriesQuery.Where(c=>categoryIds.Contains(c.Id));
+            }
+            else
+            {
+                // Preserve empty legacy categories and the original stage rules.
+                inventory=await scoped.GroupBy(p=>p.CategoryId)
+                    .Select(g=>new{CategoryId=g.Key,Count=g.Count()})
+                    .ToDictionaryAsync(x=>x.CategoryId,x=>x.Count,cancellationToken);
+            }
+            var categories = await categoriesQuery.OrderBy(c=>c.Order)
+                .Select(c=>new{c.Id,c.NameAr,c.NameEn}).ToListAsync(cancellationToken);
 
             var practiceScope=TrackPractice.Scope(HttpContext.RequestServices.GetRequiredService<IConfiguration>(),track?.Id);
             var progress = await TrackPractice.For(_context,practiceScope).AsNoTracking()
