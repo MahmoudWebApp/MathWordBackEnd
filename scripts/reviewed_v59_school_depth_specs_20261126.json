@@ -1,0 +1,966 @@
+[
+  {
+    "track": 8,
+    "cat": 5,
+    "skill": 21,
+    "sk": "middle-exponent-laws",
+    "family": "exponent-law-nested-negative-reciprocal",
+    "title": {
+      "Ar": "قوة مقلوب",
+      "En": "Power of a reciprocal"
+    },
+    "q": {
+      "Ar": "بسّط $\\left(\\frac{2}{3}\\right)^{-2}$.",
+      "En": "Simplify $\\left(\\frac{2}{3}\\right)^{-2}$."
+    },
+    "opts": [
+      "\\frac94",
+      "\\frac49",
+      "-\\frac49",
+      "\\frac32"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "لم يقلب الكسر.",
+        "En": "Does not invert the fraction."
+      },
+      {
+        "Ar": "عامل الأس السالب كإشارة سالبة للناتج.",
+        "En": "Treats a negative exponent as a negative sign."
+      },
+      {
+        "Ar": "قلب الكسر دون تربيعه.",
+        "En": "Inverts without squaring."
+      }
+    ],
+    "idea": {
+      "Ar": "الأس السالب يعني مقلوب القوة الموجبة.",
+      "En": "A negative exponent gives the reciprocal of the positive power."
+    },
+    "formula": "(a/b)^{-n}=(b/a)^n",
+    "steps": [
+      {
+        "Ar": "$(3/2)^2=9/4$",
+        "En": "$(3/2)^2=9/4$"
+      }
+    ],
+    "sub": {
+      "Ar": "$(3/2)^2$",
+      "En": "$(3/2)^2$"
+    },
+    "result": {
+      "Ar": "$\\frac94$",
+      "En": "$\\frac94$"
+    },
+    "verify": {
+      "Ar": "$(9/4)(4/9)=1$",
+      "En": "$(9/4)(4/9)=1$"
+    },
+    "hints": [
+      {
+        "Ar": "اقلب الكسر.",
+        "En": "Invert the fraction."
+      },
+      {
+        "Ar": "ربع البسط والمقام.",
+        "En": "Square numerator and denominator."
+      }
+    ],
+    "error": {
+      "Ar": "لم يقلب الكسر.",
+      "En": "Does not invert the fraction."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 11,
+    "cat": 11,
+    "skill": 49,
+    "sk": "secondary-polynomial-derivatives",
+    "family": "derivative-slope-sign-interval",
+    "title": {
+      "Ar": "إشارة ميل المماس",
+      "En": "Sign of tangent slope"
+    },
+    "q": {
+      "Ar": "لدالة $f(x)=x^2-6x+2$، أي مجال يكون فيه ميل المماس سالباً؟",
+      "En": "For $f(x)=x^2-6x+2$, on which interval is the tangent slope negative?"
+    },
+    "opts": [
+      "x>3",
+      "x\\le3",
+      "x<6",
+      "x<3"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "المشتقة موجبة هناك.",
+        "En": "The derivative is positive there."
+      },
+      {
+        "Ar": "يتضمن موضع الميل الصفري.",
+        "En": "Includes the zero-slope point."
+      },
+      {
+        "Ar": "لم يقسم الحد الثابت على معامل x.",
+        "En": "Does not divide the constant by the coefficient of x."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "نشتق ونحدد متى تكون المشتقة أصغر من صفر.",
+      "En": "Differentiate and determine where the derivative is strictly negative."
+    },
+    "formula": "f'(x)=2x-6",
+    "steps": [
+      {
+        "Ar": "$2x<6$",
+        "En": "$2x<6$"
+      },
+      {
+        "Ar": "$x<3$",
+        "En": "$x<3$"
+      }
+    ],
+    "sub": {
+      "Ar": "$2x-6<0$",
+      "En": "$2x-6<0$"
+    },
+    "result": {
+      "Ar": "$x<3$",
+      "En": "$x<3$"
+    },
+    "verify": {
+      "Ar": "$f'(2)=-2,\\quad f'(4)=2$",
+      "En": "$f'(2)=-2,\\quad f'(4)=2$"
+    },
+    "hints": [
+      {
+        "Ar": "اشتق كثيرة الحدود.",
+        "En": "Differentiate the polynomial."
+      },
+      {
+        "Ar": "حل متراجحة المشتقة.",
+        "En": "Solve the derivative inequality."
+      }
+    ],
+    "error": {
+      "Ar": "المشتقة موجبة هناك.",
+      "En": "The derivative is positive there."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 7,
+    "cat": 8,
+    "skill": 36,
+    "sk": "middle-circle-area",
+    "family": "circle-area-quarter-sector-square",
+    "title": {
+      "Ar": "مساحة ربع دائرة",
+      "En": "Quarter-circle area"
+    },
+    "q": {
+      "Ar": "ربع دائرة نصف قطرها 8 سم. ما مساحته بدلالة π؟",
+      "En": "A quarter-circle has radius 8 cm. Find its area in terms of π."
+    },
+    "opts": [
+      "32\\pi",
+      "64\\pi",
+      "16\\pi",
+      "8\\pi"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "هذه مساحة نصف الدائرة.",
+        "En": "This is the semicircle area."
+      },
+      {
+        "Ar": "هذه مساحة الدائرة الكاملة.",
+        "En": "This is the full circle area."
+      },
+      null,
+      {
+        "Ar": "استعمل نصف القطر دون تربيع بشكل صحيح.",
+        "En": "Mishandles squaring the radius."
+      }
+    ],
+    "idea": {
+      "Ar": "ربع الدائرة مساحته ربع مساحة القرص الكامل.",
+      "En": "A quarter-circle has one quarter of the full disk area."
+    },
+    "formula": "A=\\pi r^2/4",
+    "steps": [
+      {
+        "Ar": "$64\\pi/4=16\\pi$",
+        "En": "$64\\pi/4=16\\pi$"
+      }
+    ],
+    "sub": {
+      "Ar": "$\\pi\\cdot8^2/4$",
+      "En": "$\\pi\\cdot8^2/4$"
+    },
+    "result": {
+      "Ar": "$16\\pi$",
+      "En": "$16\\pi$"
+    },
+    "verify": {
+      "Ar": "$4\\cdot16\\pi=64\\pi$",
+      "En": "$4\\cdot16\\pi=64\\pi$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب مساحة الدائرة كاملة.",
+        "En": "Compute the full circle area."
+      },
+      {
+        "Ar": "اقسم على أربعة.",
+        "En": "Divide by four."
+      }
+    ],
+    "error": {
+      "Ar": "استعمل نصف القطر دون تربيع بشكل صحيح.",
+      "En": "Mishandles squaring the radius."
+    },
+    "unit": {
+      "Ar": "سم²",
+      "En": "cm²"
+    }
+  },
+  {
+    "track": 7,
+    "cat": 8,
+    "skill": 35,
+    "sk": "middle-triangle-angles",
+    "family": "triangle-angle-largest-smallest-difference-isosceles",
+    "title": {
+      "Ar": "فرق زاويتين في مثلث متساوي الساقين",
+      "En": "Angle difference in an isosceles triangle"
+    },
+    "q": {
+      "Ar": "في مثلث متساوي الساقين قياس كل زاوية عند القاعدة 72°. بكم تزيد زاوية القاعدة على زاوية الرأس؟",
+      "En": "In an isosceles triangle each base angle measures 72°. By how many degrees does a base angle exceed the apex angle?"
+    },
+    "opts": [
+      "144",
+      "36",
+      "72",
+      "108"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "هذا مجموع زاويتي القاعدة.",
+        "En": "This is the sum of base angles."
+      },
+      null,
+      {
+        "Ar": "هذا قياس زاوية القاعدة.",
+        "En": "This is a base angle."
+      },
+      {
+        "Ar": "طرح زاوية قاعدة واحدة من 180.",
+        "En": "Subtracts just one base angle from 180."
+      }
+    ],
+    "idea": {
+      "Ar": "نطرح مجموع زاويتي القاعدة من 180 ثم نحسب الفرق.",
+      "En": "Subtract both base angles from 180, then find the difference."
+    },
+    "formula": "C=180-2\\cdot72",
+    "steps": [
+      {
+        "Ar": "$C=36$",
+        "En": "$C=36$"
+      },
+      {
+        "Ar": "$72-36=36$",
+        "En": "$72-36=36$"
+      }
+    ],
+    "sub": {
+      "Ar": "$72-(180-144)$",
+      "En": "$72-(180-144)$"
+    },
+    "result": {
+      "Ar": "$36$",
+      "En": "$36$"
+    },
+    "verify": {
+      "Ar": "$72+72+36=180$",
+      "En": "$72+72+36=180$"
+    },
+    "hints": [
+      {
+        "Ar": "اجمع زاويتي القاعدة.",
+        "En": "Add the base angles."
+      },
+      {
+        "Ar": "احسب زاوية الرأس ثم الفرق.",
+        "En": "Find the apex angle, then the difference."
+      }
+    ],
+    "error": {
+      "Ar": "هذا قياس زاوية القاعدة.",
+      "En": "This is a base angle."
+    },
+    "unit": {
+      "Ar": "°",
+      "En": "°"
+    }
+  },
+  {
+    "track": 3,
+    "cat": 33,
+    "skill": 4,
+    "sk": "primary-multiplication",
+    "family": "multiplication-distributive-missing-rectangle-piece",
+    "title": {
+      "Ar": "تفكيك حاصل ضرب",
+      "En": "Splitting a product"
+    },
+    "q": {
+      "Ar": "نعلم أن $8\\times7=56$. ما حاصل $8\\times9$ باستعمال النتيجة المعطاة؟",
+      "En": "Given $8\\times7=56$, find $8\\times9$ using that result."
+    },
+    "opts": [
+      "72",
+      "58",
+      "64",
+      "80"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "أضاف 2 بدلاً من مجموعتين من 8.",
+        "En": "Adds two rather than two groups of eight."
+      },
+      {
+        "Ar": "أضاف مجموعة واحدة فقط.",
+        "En": "Adds only one group."
+      },
+      {
+        "Ar": "أضاف ثلاث مجموعات.",
+        "En": "Adds three groups."
+      }
+    ],
+    "idea": {
+      "Ar": "تسع مجموعات تساوي سبع مجموعات ومجموعتين إضافيتين.",
+      "En": "Nine groups equal seven groups plus two extra groups."
+    },
+    "formula": "8\\cdot9=8\\cdot7+8\\cdot2",
+    "steps": [
+      {
+        "Ar": "$8\\cdot2=16$",
+        "En": "$8\\cdot2=16$"
+      },
+      {
+        "Ar": "$56+16=72$",
+        "En": "$56+16=72$"
+      }
+    ],
+    "sub": {
+      "Ar": "$56+16$",
+      "En": "$56+16$"
+    },
+    "result": {
+      "Ar": "$72$",
+      "En": "$72$"
+    },
+    "verify": {
+      "Ar": "$72-56=16$",
+      "En": "$72-56=16$"
+    },
+    "hints": [
+      {
+        "Ar": "كم مجموعة إضافية من 8؟",
+        "En": "How many extra groups of eight?"
+      },
+      {
+        "Ar": "أضف قيمة المجموعتين.",
+        "En": "Add the value of both extra groups."
+      }
+    ],
+    "error": {
+      "Ar": "أضاف 2 بدلاً من مجموعتين من 8.",
+      "En": "Adds two rather than two groups of eight."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 3,
+    "cat": 33,
+    "skill": 5,
+    "sk": "primary-division",
+    "family": "division-check-quotient-remainder-bound",
+    "title": {
+      "Ar": "اختبار باقي القسمة",
+      "En": "Checking a remainder"
+    },
+    "q": {
+      "Ar": "أي كتابة تمثل قسمة 29 على 4 مع باقي أصغر من المقسوم عليه؟",
+      "En": "Which expression represents division of 29 by 4 with a remainder smaller than the divisor?"
+    },
+    "opts": [
+      "4\\cdot6+5",
+      "4\\cdot8-3",
+      "4\\cdot5+9",
+      "4\\cdot7+1"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "الباقي 5 ليس أصغر من 4.",
+        "En": "Remainder five is not smaller than four."
+      },
+      {
+        "Ar": "الباقي لا يكون سالباً هنا.",
+        "En": "The remainder cannot be negative here."
+      },
+      {
+        "Ar": "الباقي 9 أكبر من 4.",
+        "En": "Remainder nine exceeds four."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "نختار حاصل القسمة الصحيح بحيث يكون الباقي من صفر إلى ثلاثة.",
+      "En": "Choose the quotient so the remainder is from zero through three."
+    },
+    "formula": "29=4q+r,\\quad0\\le r<4",
+    "steps": [
+      {
+        "Ar": "$29-28=1$",
+        "En": "$29-28=1$"
+      }
+    ],
+    "sub": {
+      "Ar": "$29-4\\cdot7$",
+      "En": "$29-4\\cdot7$"
+    },
+    "result": {
+      "Ar": "$4\\cdot7+1$",
+      "En": "$4\\cdot7+1$"
+    },
+    "verify": {
+      "Ar": "$4\\cdot7+1=29$",
+      "En": "$4\\cdot7+1=29$"
+    },
+    "hints": [
+      {
+        "Ar": "أوجد أكبر مضاعف لـ4 لا يتجاوز 29.",
+        "En": "Find the greatest multiple of four not above 29."
+      },
+      {
+        "Ar": "تأكد أن الباقي أصغر من 4.",
+        "En": "Check that the remainder is below four."
+      }
+    ],
+    "error": {
+      "Ar": "الباقي 5 ليس أصغر من 4.",
+      "En": "Remainder five is not smaller than four."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 4,
+    "cat": 21,
+    "skill": 112,
+    "sk": "p-fractions-decimals-fraction-comparisons",
+    "family": "fraction-comparison-distance-from-one",
+    "title": {
+      "Ar": "مقارنة كسور من الواحد",
+      "En": "Comparing fractions by distance from one"
+    },
+    "q": {
+      "Ar": "أي كسر هو الأقرب إلى 1: $\\frac56$، $\\frac78$، $\\frac34$، $\\frac9{10}$؟",
+      "En": "Which fraction is closest to one: $\\frac56$, $\\frac78$, $\\frac34$, or $\\frac9{10}$?"
+    },
+    "opts": [
+      "\\frac78",
+      "\\frac34",
+      "\\frac9{10}",
+      "\\frac56"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "يبعد 1/8 عن الواحد.",
+        "En": "Its distance is one eighth."
+      },
+      {
+        "Ar": "يبعد 1/4 عن الواحد.",
+        "En": "Its distance is one quarter."
+      },
+      null,
+      {
+        "Ar": "يبعد 1/6 عن الواحد.",
+        "En": "Its distance is one sixth."
+      }
+    ],
+    "idea": {
+      "Ar": "نقارن الأجزاء الناقصة لإكمال الواحد.",
+      "En": "Compare the missing parts needed to reach one."
+    },
+    "formula": "1-a/b=(b-a)/b",
+    "steps": [
+      {
+        "Ar": "$1/10<1/8<1/6<1/4$",
+        "En": "$1/10<1/8<1/6<1/4$"
+      }
+    ],
+    "sub": {
+      "Ar": "$1-9/10=1/10$",
+      "En": "$1-9/10=1/10$"
+    },
+    "result": {
+      "Ar": "$\\frac9{10}$",
+      "En": "$\\frac9{10}$"
+    },
+    "verify": {
+      "Ar": "$9/10+1/10=1$",
+      "En": "$9/10+1/10=1$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب كم ينقص كل كسر عن الواحد.",
+        "En": "Find how much each fraction lacks to reach one."
+      },
+      {
+        "Ar": "اختر أصغر فرق.",
+        "En": "Choose the smallest difference."
+      }
+    ],
+    "error": {
+      "Ar": "يبعد 1/6 عن الواحد.",
+      "En": "Its distance is one sixth."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 4,
+    "cat": 21,
+    "skill": 96,
+    "sk": "p-fractions-decimals-equivalence",
+    "family": "equivalent-fraction-common-scale-both-unknown",
+    "title": {
+      "Ar": "كسر مكافئ بمجموع معلوم",
+      "En": "Equivalent fraction with a known total"
+    },
+    "q": {
+      "Ar": "أي كسر يساوي $\\frac23$ ومجموع بسطه ومقامه 25؟",
+      "En": "Which fraction equals $\\frac23$ and has numerator plus denominator equal to 25?"
+    },
+    "opts": [
+      "\\frac{15}{10}",
+      "\\frac{10}{15}",
+      "\\frac8{12}",
+      "\\frac{12}{13}"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "مقلوب الكسر المطلوب.",
+        "En": "The reciprocal of the required fraction."
+      },
+      null,
+      {
+        "Ar": "كسر مكافئ لكن مجموع العددين 20.",
+        "En": "Equivalent but the sum is twenty."
+      },
+      {
+        "Ar": "مجموعه 25 لكن النسبة مختلفة.",
+        "En": "The sum is twenty-five but the ratio differs."
+      }
+    ],
+    "idea": {
+      "Ar": "نضرب البسط والمقام في العدد نفسه حتى يصبح مجموعهما 25.",
+      "En": "Multiply both terms by the same number until their sum is twenty-five."
+    },
+    "formula": "(2+3)k=25",
+    "steps": [
+      {
+        "Ar": "$k=5$",
+        "En": "$k=5$"
+      },
+      {
+        "Ar": "$2\\cdot5=10,\\quad3\\cdot5=15$",
+        "En": "$2\\cdot5=10,\\quad3\\cdot5=15$"
+      }
+    ],
+    "sub": {
+      "Ar": "$k=25/5$",
+      "En": "$k=25/5$"
+    },
+    "result": {
+      "Ar": "$\\frac{10}{15}$",
+      "En": "$\\frac{10}{15}$"
+    },
+    "verify": {
+      "Ar": "$10+15=25,\\quad10/15=2/3$",
+      "En": "$10+15=25,\\quad10/15=2/3$"
+    },
+    "hints": [
+      {
+        "Ar": "كم مجموع 2 و3؟",
+        "En": "What is two plus three?"
+      },
+      {
+        "Ar": "أوجد عامل التكبير المشترك.",
+        "En": "Find the common scaling factor."
+      }
+    ],
+    "error": {
+      "Ar": "كسر مكافئ لكن مجموع العددين 20.",
+      "En": "Equivalent but the sum is twenty."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 9,
+    "cat": 6,
+    "skill": 27,
+    "sk": "middle-quadratic-function-evaluation",
+    "family": "quadratic-function-output-difference-shift",
+    "title": {
+      "Ar": "فرق قيم دالة تربيعية",
+      "En": "Difference of quadratic values"
+    },
+    "q": {
+      "Ar": "إذا كانت $g(x)=x^2+4$، فما قيمة $g(6)-g(5)$؟",
+      "En": "If $g(x)=x^2+4$, find $g(6)-g(5)$."
+    },
+    "opts": [
+      "11",
+      "1",
+      "15",
+      "61"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "هذا فرق المدخلين.",
+        "En": "This is the input difference."
+      },
+      {
+        "Ar": "أضاف الثابت بعد حساب الفرق.",
+        "En": "Adds the constant after taking the difference."
+      },
+      {
+        "Ar": "جمع المربعين بدلاً من طرحهما.",
+        "En": "Adds squares rather than subtracting."
+      }
+    ],
+    "idea": {
+      "Ar": "نحسب قيمتي الدالة ثم نطرح، فيلغى الثابت.",
+      "En": "Evaluate both function values and subtract; the constant cancels."
+    },
+    "formula": "g(6)-g(5)=(36+4)-(25+4)",
+    "steps": [
+      {
+        "Ar": "$40-29=11$",
+        "En": "$40-29=11$"
+      }
+    ],
+    "sub": {
+      "Ar": "$40-29$",
+      "En": "$40-29$"
+    },
+    "result": {
+      "Ar": "$11$",
+      "En": "$11$"
+    },
+    "verify": {
+      "Ar": "$6^2-5^2=(6-5)(6+5)=11$",
+      "En": "$6^2-5^2=(6-5)(6+5)=11$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب مربع كل مدخل.",
+        "En": "Square each input."
+      },
+      {
+        "Ar": "اطرح القيمتين لا المدخلين.",
+        "En": "Subtract the outputs, not the inputs."
+      }
+    ],
+    "error": {
+      "Ar": "هذا فرق المدخلين.",
+      "En": "This is the input difference."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 9,
+    "cat": 6,
+    "skill": 28,
+    "sk": "middle-inverse-function-evaluation",
+    "family": "quadratic-input-two-symmetric-solutions",
+    "title": {
+      "Ar": "مدخلان لقيمة واحدة",
+      "En": "Two inputs for one output"
+    },
+    "q": {
+      "Ar": "إذا كانت $f(x)=x^2-7$، فأي مجموعة تضم جميع المدخلات الحقيقية التي تحقق $f(x)=18$؟",
+      "En": "If $f(x)=x^2-7$, which set contains all real inputs satisfying $f(x)=18$?"
+    },
+    "opts": [
+      "\\{5\\}",
+      "\\{-5\\}",
+      "\\{-25,25\\}",
+      "\\{-5,5\\}"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "أهمل الجذر السالب.",
+        "En": "Omits the negative root."
+      },
+      {
+        "Ar": "أهمل الجذر الموجب.",
+        "En": "Omits the positive root."
+      },
+      {
+        "Ar": "لم يأخذ الجذر التربيعي.",
+        "En": "Does not take the square root."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "نحول شرط قيمة الدالة إلى معادلة تربيعية.",
+      "En": "Turn the given output into a quadratic equation."
+    },
+    "formula": "x^2-7=18",
+    "steps": [
+      {
+        "Ar": "$x=\\pm5$",
+        "En": "$x=\\pm5$"
+      }
+    ],
+    "sub": {
+      "Ar": "$x^2=25$",
+      "En": "$x^2=25$"
+    },
+    "result": {
+      "Ar": "$\\{-5,5\\}$",
+      "En": "$\\{-5,5\\}$"
+    },
+    "verify": {
+      "Ar": "$f(5)=f(-5)=25-7=18$",
+      "En": "$f(5)=f(-5)=25-7=18$"
+    },
+    "hints": [
+      {
+        "Ar": "أضف 7 إلى الطرفين.",
+        "En": "Add seven to both sides."
+      },
+      {
+        "Ar": "تذكر إشارتي الجذر.",
+        "En": "Remember both square-root signs."
+      }
+    ],
+    "error": {
+      "Ar": "أهمل الجذر السالب.",
+      "En": "Omits the negative root."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 3,
+    "cat": 81,
+    "skill": 306,
+    "sk": "rounding",
+    "family": "rounding-identify-same-hundred-boundary",
+    "title": {
+      "Ar": "عددان يقربان إلى المئة نفسها",
+      "En": "Two numbers rounding to the same hundred"
+    },
+    "q": {
+      "Ar": "أي زوج من الأعداد يقرب كلاهما إلى 500 عند التقريب لأقرب مئة، مع تقريب المنتصف للأعلى؟",
+      "En": "Which pair both round to 500 to the nearest hundred, with halfway cases rounded up?"
+    },
+    "opts": [
+      "(500,550)",
+      "(550,599)",
+      "(450,549)",
+      "(449,500)"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "550 يقرب إلى 600.",
+        "En": "550 rounds to 600."
+      },
+      {
+        "Ar": "كلاهما يقرب إلى 600.",
+        "En": "Both round to 600."
+      },
+      null,
+      {
+        "Ar": "449 يقرب إلى 400.",
+        "En": "449 rounds to 400."
+      }
+    ],
+    "idea": {
+      "Ar": "الأعداد الصحيحة من 450 حتى 549 تقرب إلى 500.",
+      "En": "Integers from 450 through 549 round to 500."
+    },
+    "formula": "450\\le n<550",
+    "steps": [
+      {
+        "Ar": "$450\\to500$",
+        "En": "$450\\to500$"
+      },
+      {
+        "Ar": "$549\\to500$",
+        "En": "$549\\to500$"
+      }
+    ],
+    "sub": {
+      "Ar": "$450\\le450\\le549<550$",
+      "En": "$450\\le450\\le549<550$"
+    },
+    "result": {
+      "Ar": "$(450,549)$",
+      "En": "$(450,549)$"
+    },
+    "verify": {
+      "Ar": "$449\\to400,\\quad550\\to600$",
+      "En": "$449\\to400,\\quad550\\to600$"
+    },
+    "hints": [
+      {
+        "Ar": "حدد منتصف المسافة بين 400 و500.",
+        "En": "Find the midpoint between 400 and 500."
+      },
+      {
+        "Ar": "حدد آخر عدد قبل 550.",
+        "En": "Find the last integer before 550."
+      }
+    ],
+    "error": {
+      "Ar": "449 يقرب إلى 400.",
+      "En": "449 rounds to 400."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 4,
+    "cat": 33,
+    "skill": 6,
+    "sk": "primary-multiplicative-word-problems",
+    "family": "multiplicative-two-pack-sizes-compare-total",
+    "title": {
+      "Ar": "مقارنة مجموعتي عبوات",
+      "En": "Comparing two sets of packs"
+    },
+    "q": {
+      "Ar": "لدى متجر 6 صناديق تحوي 14 كرة في كل منها، ولدى متجر آخر 8 صناديق تحوي 12 كرة في كل منها. بكم تزيد كرات المتجر الثاني؟",
+      "En": "One shop has six boxes of fourteen balls each. Another has eight boxes of twelve balls each. How many more balls does the second shop have?"
+    },
+    "opts": [
+      "180",
+      "12",
+      "2",
+      "14"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "جمع العددين الكليين.",
+        "En": "Adds the two totals."
+      },
+      null,
+      {
+        "Ar": "قارن عدد الصناديق فقط.",
+        "En": "Compares box counts only."
+      },
+      {
+        "Ar": "هذا عدد الكرات في صندوق من المتجر الأول.",
+        "En": "This is one first-shop box's ball count."
+      }
+    ],
+    "idea": {
+      "Ar": "نحسب حاصل ضرب عدد الصناديق في محتوى الصندوق لكل متجر ثم نطرح.",
+      "En": "Multiply box count by box contents for each shop, then subtract."
+    },
+    "formula": "8\\cdot12-6\\cdot14",
+    "steps": [
+      {
+        "Ar": "$8\\cdot12=96$",
+        "En": "$8\\cdot12=96$"
+      },
+      {
+        "Ar": "$6\\cdot14=84$",
+        "En": "$6\\cdot14=84$"
+      },
+      {
+        "Ar": "$96-84=12$",
+        "En": "$96-84=12$"
+      }
+    ],
+    "sub": {
+      "Ar": "$96-84$",
+      "En": "$96-84$"
+    },
+    "result": {
+      "Ar": "$12$",
+      "En": "$12$"
+    },
+    "verify": {
+      "Ar": "$84+12=96$",
+      "En": "$84+12=96$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب عدد كرات كل متجر.",
+        "En": "Calculate each shop's total."
+      },
+      {
+        "Ar": "اطرح الأصغر من الأكبر.",
+        "En": "Subtract the smaller from the larger."
+      }
+    ],
+    "error": {
+      "Ar": "قارن عدد الصناديق فقط.",
+      "En": "Compares box counts only."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  }
+]
