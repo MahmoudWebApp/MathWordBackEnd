@@ -958,6 +958,11 @@ namespace MathWorldAPI.Controllers
                         StatusCodes.Status400BadRequest));
             }
 
+            if (dto.TrackId.HasValue != dto.TrackRevision.HasValue || dto.TrackId is <= 0 || dto.TrackRevision is < 0 or int.MaxValue)
+                return BadRequest(new { Message = "InvalidTrackScope" });
+            if (dto.TrackId.HasValue && !await _context.LearningTracks.AnyAsync(t => t.Id == dto.TrackId && t.StageId == dto.StageId && t.Revision == dto.TrackRevision))
+                return Conflict(new { Message = "TrackChanged" });
+
             var category =
                 new Category
                 {
@@ -998,9 +1003,33 @@ namespace MathWorldAPI.Controllers
                         dto.Icon);
             }
 
-            _context.Categories.Add(category);
+            await using var tx = await _context.Database.BeginTransactionAsync();
+            LearningTrack? track = null;
+            if (dto.TrackId.HasValue)
+            {
+                // Serialize with mapping and editorial publication, checking the
+                // revision again after any optional icon upload.
+                track = await _context.LearningTracks.FromSqlInterpolated($@"SELECT * FROM ""LearningTracks"" WHERE ""Id""={dto.TrackId.Value} FOR UPDATE").SingleOrDefaultAsync();
+                if (track is null || track.StageId != dto.StageId || track.Revision != dto.TrackRevision || track.Revision == int.MaxValue)
+                    return Conflict(new { Message = "TrackChanged" });
+                // Empty linked categories are hidden by ValidLinks on track
+                // pages. Avoid moving an empty category ahead of the legacy
+                // stage-wide two Free categories as well.
+                var first = await _context.Categories.AsNoTracking().Where(c => c.StageId == dto.StageId)
+                    .OrderBy(c => c.Order).ThenBy(c => c.Id).Take(2).Select(c => c.Order).ToArrayAsync();
+                if (first.Length == 2 && category.Order < first[1])
+                    return Conflict(new { Message = "CategoryOrderWouldChangeFree" });
+            }
 
+            _context.Categories.Add(category);
             await _context.SaveChangesAsync();
+            if (track is not null)
+            {
+                _context.LearningTrackCategories.Add(new LearningTrackCategory { TrackId = track.Id, CategoryId = category.Id });
+                track.Revision++;
+                await _context.SaveChangesAsync();
+            }
+            await tx.CommitAsync();
 
             _logger.LogInformation(
                 "Category {CategoryId} was created by an administrator.",
