@@ -675,3 +675,36 @@ Reviewed30 drafts831–860; excluded held831,852,857. Recomputed27 selected answ
 |860|1616|6456|
 
 Live1008 (315/227/239/227), structured788 (265/186/170/167), missing220 (50/41/69/60). Draft229 (180 amendments+49 additions), Published1022 (553 amendments+469 additions), Withdrawn1. Cumulative #193:398 corrections+159 new. Depth unchanged813/1400 and897/1760 (88 placements, gap863). Next legacy861 onward; use small guarded transactions when DB latency demands; preserve holds, expand underfilled categories and reconcile canonical #179 keys without replay.
+
+
+## Legacy review checkpoint 861–884 (2026-11-26)
+Reviewed24 drafts861–884, none matched the four hold registries. Recomputed all24 answers (circle geometry and loci, bisection/Newton, numerical quadrature, absolute/relative/rounding error, Jacobi/elimination/residual, fractions and summary statistics). Reviewed stored bilingual hints and ideas, expanded derivations, conditions, substitutions, verification and option-specific feedback. Saved review specs scripts/reviewed_legacy_861_884_specs_20261126.json commit8280597e06e3ba2822f953c089581a0185c8b186 NOT importable. Preserved original option IDs/text/flags, actual track mappings incl18+21, titles, stems, points and videos. Source SHA256 and draft MD5/revision, owner, exact live/open-draft duplicate and scope guards. Used four six-item partitions to avoid prior timeout. Applied scripts 861–866 commit3e6cfc1657196d2c914be348ba911c9397d60908; 867–872 commit5357d865ca65c42b9980a810db83a54213a5f81d; 873–878 commit102d4bf9a75de911f4b4ef64a0fecd565e86654e; 879–884 commita2f9078ea88cbb1c80ce9d68944bf7140b2d9577. ALL APPLIED DO NOT replay. Each passed rollback rehearsal, independent precommit unchanged check6/6, one commit, independent exact readback6/6; overall24/24,96 owner_sql audit events. Removed redundant percent unit from solution874 since its answer already includes percent. No changes to taxonomy, permissions, learner records or app. University visibility [{"Id":20,"IsPublished":false},{"Id":21,"IsPublished":false}]. Runtime and exhaustive semantic duplicate-family audit pending.
+
+| Draft | Source | Correct option ID |
+|---:|---:|---:|
+|861|1617|6458|
+|862|1618|6463|
+|863|1619|6467|
+|864|1620|6469|
+|865|1621|6476|
+|866|1622|6478|
+|867|1623|6483|
+|868|1624|6485|
+|869|1625|6492|
+|870|1626|6493|
+|871|1627|6498|
+|872|1628|6504|
+|873|1629|6507|
+|874|1630|6510|
+|875|1631|6516|
+|876|1632|6517|
+|877|1633|6524|
+|878|1634|6527|
+|879|1635|6529|
+|880|1636|6534|
+|881|1637|6539|
+|882|1638|6544|
+|883|1639|6546|
+|884|1640|6551|
+
+Live1008, structured812, missing196. Stage counts [{"StageId":1,"total":315,"structured":269},{"StageId":2,"total":227,"structured":188},{"StageId":3,"total":239,"structured":176},{"StageId":4,"total":227,"structured":179}]. Draft status [{"EditorialStatus":"Draft","amendments":156,"additions":49},{"EditorialStatus":"Published","amendments":577,"additions":469},{"EditorialStatus":"Withdrawn","amendments":0,"additions":1}]. Cumulative #193:422 corrections+159 new. Depth unchanged813/1400 and897/1760 (88 placements, gap863). Next legacy885 onward and underfilled category growth. Reconcile #179 without replay.
