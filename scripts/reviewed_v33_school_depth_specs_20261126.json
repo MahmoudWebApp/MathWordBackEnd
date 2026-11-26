@@ -1,0 +1,638 @@
+[
+  {
+    "track": 1,
+    "stage": 1,
+    "cat": 82,
+    "skill": 321,
+    "sk": "length",
+    "family": "compare-unit-size-same-length",
+    "title": {
+      "Ar": "قياس الطول بوحدتين",
+      "En": "Measuring with two unit sizes"
+    },
+    "q": {
+      "Ar": "طول شريط يساوي طول ست قطع قصيرة متطابقة. كل قطعة طويلة تساوي طول قطعتين قصيرتين. كم قطعة طويلة تغطي الشريط دون فراغات أو تداخل؟",
+      "En": "A strip is six identical short pieces long. Each long piece is twice as long as a short piece. How many long pieces cover the strip without gaps or overlaps?"
+    },
+    "opts": [
+      "2",
+      "3",
+      "6",
+      "12"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "2 عدد القطع القصيرة في كل طويلة، لا عدد القطع الطويلة.",
+        "En": "2 is the number of short pieces in one long piece."
+      },
+      null,
+      {
+        "Ar": "6 عدد القطع القصيرة.",
+        "En": "6 counts the short pieces."
+      },
+      {
+        "Ar": "12 يضاعف العدد بدلاً من تجميع القطع.",
+        "En": "12 doubles the count instead of grouping pieces."
+      }
+    ],
+    "idea": {
+      "Ar": "عندما تكبر وحدة القياس يقل العدد اللازم لتغطية الطول نفسه.",
+      "En": "A larger unit requires fewer units to cover the same length."
+    },
+    "formula": "6\\div2",
+    "steps": [
+      {
+        "Ar": "نجمع القطع القصيرة الست في أزواج.",
+        "En": "Group the six short pieces into pairs."
+      },
+      {
+        "Ar": "كل زوج يساوي قطعة طويلة واحدة.",
+        "En": "Each pair equals one long piece."
+      }
+    ],
+    "sub": {
+      "Ar": "$6\\div2=3$",
+      "En": "$6\\div2=3$"
+    },
+    "result": {
+      "Ar": "$3$",
+      "En": "$3$"
+    },
+    "verify": {
+      "Ar": "$3\\times2=6$",
+      "En": "$3\\times2=6$"
+    },
+    "hints": [
+      {
+        "Ar": "كم قطعة قصيرة تعادل قطعة طويلة؟",
+        "En": "How many short pieces equal a long piece?"
+      },
+      {
+        "Ar": "كوّن أزواجاً من القطع الست.",
+        "En": "Make pairs from the six pieces."
+      }
+    ],
+    "error": {
+      "Ar": "لا تستخدم عدد الوحدات القصيرة نفسه عند تغيير حجم الوحدة.",
+      "En": "Do not keep the same count when the unit size changes."
+    }
+  },
+  {
+    "track": 1,
+    "stage": 1,
+    "cat": 96,
+    "skill": 354,
+    "sk": "primary-shape-attributes-composition",
+    "family": "separate-shapes-total-vertices",
+    "title": {
+      "Ar": "عد زوايا شكلين",
+      "En": "Counting corners of two shapes"
+    },
+    "q": {
+      "Ar": "على طاولة مثلث ومربع منفصلان لا يتلامسان. كم زاوية للشكلين معاً؟",
+      "En": "A triangle and a square are on a table without touching. How many corners do the two shapes have altogether?"
+    },
+    "opts": [
+      "3",
+      "4",
+      "6",
+      "7"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "3 زوايا المثلث فقط.",
+        "En": "3 counts only the triangle."
+      },
+      {
+        "Ar": "4 زوايا المربع فقط.",
+        "En": "4 counts only the square."
+      },
+      {
+        "Ar": "6 يكرر عدد زوايا المثلث مرتين.",
+        "En": "6 counts two triangles instead."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "نجمع عدد زوايا الشكلين المنفصلين.",
+      "En": "Add the corners of the two separate shapes."
+    },
+    "formula": "3+4",
+    "steps": [
+      {
+        "Ar": "للمثلث ثلاث زوايا وللمربع أربع زوايا.",
+        "En": "The triangle has three corners and the square has four."
+      },
+      {
+        "Ar": "لا توجد زوايا مشتركة، فنعدها كلها.",
+        "En": "There are no shared corners, so count them all."
+      }
+    ],
+    "sub": {
+      "Ar": "$3+4=7$",
+      "En": "$3+4=7$"
+    },
+    "result": {
+      "Ar": "$7$",
+      "En": "$7$"
+    },
+    "verify": {
+      "Ar": "$7-4=3$",
+      "En": "$7-4=3$"
+    },
+    "hints": [
+      {
+        "Ar": "عد زوايا المثلث.",
+        "En": "Count the triangle's corners."
+      },
+      {
+        "Ar": "أضف إليها زوايا المربع الأربع.",
+        "En": "Add the square's four corners."
+      }
+    ],
+    "error": {
+      "Ar": "لا تعد زوايا شكل واحد فقط.",
+      "En": "Do not count just one shape."
+    }
+  },
+  {
+    "track": 2,
+    "stage": 1,
+    "cat": 97,
+    "skill": 357,
+    "sk": "primary-single-unit-picture-data",
+    "family": "pictograph-zero-threshold",
+    "title": {
+      "Ar": "قراءة صف فارغ في سجل مصور",
+      "En": "Reading an empty pictograph row"
+    },
+    "q": {
+      "Ar": "كل ● يمثل كتاباً واحداً. سجل الرفوف: A: ●●●؛ B: لا رموز؛ C: ●؛ D: ●●. كم رفاً يحوي أقل من كتابين؟",
+      "En": "Each ● represents one book. Shelf record: A: ●●●; B: no symbols; C: ●; D: ●●. How many shelves contain fewer than two books?"
+    },
+    "opts": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "1 يهمل الرف الفارغ أو الرف ذي الكتاب الواحد.",
+        "En": "1 misses either the empty shelf or the shelf with one book."
+      },
+      null,
+      {
+        "Ar": "3 يشمل رفاً فيه كتابان رغم الشرط الصارم.",
+        "En": "3 includes a shelf with two books despite the strict condition."
+      },
+      {
+        "Ar": "4 يعد الرفوف جميعها.",
+        "En": "4 counts every shelf."
+      }
+    ],
+    "idea": {
+      "Ar": "الصف الخالي من الرموز يمثل صفراً، والأقل من اثنين يشمل الصفر والواحد.",
+      "En": "A row with no symbols represents zero; fewer than two includes zero and one."
+    },
+    "formula": "0<2,\\quad1<2",
+    "steps": [
+      {
+        "Ar": "الأعداد للرفوف A وB وC وD هي 3 و0 و1 و2 بالترتيب.",
+        "En": "The counts for A, B, C and D are 3, 0, 1 and 2 respectively."
+      },
+      {
+        "Ar": "الرفان B وC وحدهما يحققان الشرط.",
+        "En": "Only shelves B and C meet the condition."
+      }
+    ],
+    "sub": {
+      "Ar": "$0,1$",
+      "En": "$0,1$"
+    },
+    "result": {
+      "Ar": "$2$",
+      "En": "$2$"
+    },
+    "verify": {
+      "Ar": "$2+2=4$",
+      "En": "$2+2=4$"
+    },
+    "hints": [
+      {
+        "Ar": "ما عدد الكتب عندما لا يظهر أي رمز؟",
+        "En": "How many books does a row with no symbols represent?"
+      },
+      {
+        "Ar": "لا تعد الرف الذي يحتوي كتابين بالضبط.",
+        "En": "Do not count the shelf with exactly two books."
+      }
+    ],
+    "error": {
+      "Ar": "الأقل من اثنين لا يشمل الاثنين.",
+      "En": "Fewer than two excludes two."
+    }
+  },
+  {
+    "track": 3,
+    "stage": 1,
+    "cat": 82,
+    "skill": 324,
+    "sk": "time",
+    "family": "third-departure-interval-count",
+    "title": {
+      "Ar": "الفترات بين المواعيد",
+      "En": "Intervals between departures"
+    },
+    "q": {
+      "Ar": "تغادر أول حافلة الساعة 9:05 صباحاً، ثم تغادر حافلة كل 15 دقيقة. في أي وقت تغادر الحافلة الثالثة؟",
+      "En": "The first bus leaves at 9:05 a.m. and another bus leaves every 15 minutes. When does the third bus leave?"
+    },
+    "opts": [
+      "9{:}20",
+      "9{:}30",
+      "9{:}35",
+      "9{:}50"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "9:20 موعد الثانية.",
+        "En": "9:20 is the second departure."
+      },
+      {
+        "Ar": "9:30 لا يقع بعد فترتين كاملتين من 9:05.",
+        "En": "9:30 is not two full intervals after 9:05."
+      },
+      null,
+      {
+        "Ar": "9:50 موعد الرابعة.",
+        "En": "9:50 is the fourth departure."
+      }
+    ],
+    "idea": {
+      "Ar": "بين الموعد الأول والثالث فترتان فقط.",
+      "En": "There are two intervals between the first and third departures."
+    },
+    "formula": "2\\times15=30",
+    "steps": [
+      {
+        "Ar": "الثانية بعد 15 دقيقة من 9:05، أي 9:20.",
+        "En": "The second leaves 15 minutes after 9:05, at 9:20."
+      },
+      {
+        "Ar": "نضيف 15 دقيقة أخرى إلى 9:20.",
+        "En": "Add another 15 minutes to 9:20."
+      }
+    ],
+    "sub": {
+      "Ar": "$9{:}20+15\\ \\mathrm{min}=9{:}35$",
+      "En": "$9{:}20+15\\ \\mathrm{min}=9{:}35$"
+    },
+    "result": {
+      "Ar": "$9{:}35$",
+      "En": "$9{:}35$"
+    },
+    "verify": {
+      "Ar": "$30=15+15$",
+      "En": "$30=15+15$"
+    },
+    "hints": [
+      {
+        "Ar": "ابدأ عد الحافلات من الموعد الأول نفسه.",
+        "En": "Count the first departure as bus one."
+      },
+      {
+        "Ar": "كم فترة تفصل الحافلة الأولى عن الثالثة؟",
+        "En": "How many intervals separate the first and third buses?"
+      }
+    ],
+    "error": {
+      "Ar": "لا تضف ثلاث فترات للوصول إلى الحافلة الثالثة.",
+      "En": "Do not add three intervals to reach the third bus."
+    }
+  },
+  {
+    "track": 5,
+    "stage": 1,
+    "cat": 81,
+    "skill": 303,
+    "sk": "estimation",
+    "family": "rounding-errors-cancel",
+    "title": {
+      "Ar": "تعويض أخطاء التقريب",
+      "En": "Cancelling rounding errors"
+    },
+    "q": {
+      "Ar": "قرّب كل عدد في 246+354 إلى أقرب عشرة ثم اجمع. ما الفرق بين هذا المجموع التقديري والمجموع الدقيق؟",
+      "En": "Round each addend in 246+354 to the nearest ten, then add. What is the absolute difference between the estimated and exact sums?"
+    },
+    "opts": [
+      "0",
+      "4",
+      "8",
+      "10"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "4 مقدار خطأ تقريب أحد العددين فقط.",
+        "En": "4 is the magnitude of one rounding error."
+      },
+      {
+        "Ar": "8 يجمع مقداري الخطأ دون مراعاة اتجاهيهما.",
+        "En": "8 adds error magnitudes without considering their signs."
+      },
+      {
+        "Ar": "10 منزلة التقريب وليس الفرق.",
+        "En": "10 is the rounding place, not the difference."
+      }
+    ],
+    "idea": {
+      "Ar": "قد يتعادل خطأ تقريب لأعلى مع خطأ مساوٍ له لأسفل.",
+      "En": "An upward rounding error can cancel an equal downward error."
+    },
+    "formula": "|(250+350)-(246+354)|",
+    "steps": [
+      {
+        "Ar": "$246\\to250,\\quad354\\to350$",
+        "En": "$246\\to250,\\quad354\\to350$"
+      },
+      {
+        "Ar": "$250+350=600,\\quad246+354=600$",
+        "En": "$250+350=600,\\quad246+354=600$"
+      }
+    ],
+    "sub": {
+      "Ar": "$|600-600|=0$",
+      "En": "$|600-600|=0$"
+    },
+    "result": {
+      "Ar": "$0$",
+      "En": "$0$"
+    },
+    "verify": {
+      "Ar": "$4+(-4)=0$",
+      "En": "$4+(-4)=0$"
+    },
+    "hints": [
+      {
+        "Ar": "قرّب العددين منفصلين.",
+        "En": "Round both numbers separately."
+      },
+      {
+        "Ar": "احسب المجموعين وقارن بينهما.",
+        "En": "Calculate and compare the two sums."
+      }
+    ],
+    "error": {
+      "Ar": "لا تفترض أن كل تقريب يغير المجموع النهائي.",
+      "En": "Do not assume rounding always changes the final sum."
+    }
+  },
+  {
+    "track": 11,
+    "stage": 3,
+    "cat": 10,
+    "skill": 47,
+    "sk": "secondary-pythagorean-trig-identity",
+    "family": "test-pair-unit-circle-consistency",
+    "title": {
+      "Ar": "اختبار اتساق قيم الجيب وجيب التمام",
+      "En": "Testing sine and cosine consistency"
+    },
+    "q": {
+      "Ar": "أي زوج مرتب يمكن أن يكون قيمتي الجيب وجيب التمام لزاوية حقيقية، بالترتيب؟",
+      "En": "Which ordered pair can represent the sine and cosine of a real angle, respectively?"
+    },
+    "opts": [
+      "(1/2,1/2)",
+      "(3/5,4/5)",
+      "(1,1)",
+      "(2/3,2/3)"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "مجموع المربعين 1/2 وليس 1.",
+        "En": "The squares sum to 1/2, not 1."
+      },
+      null,
+      {
+        "Ar": "مجموع المربعين 2.",
+        "En": "The squares sum to 2."
+      },
+      {
+        "Ar": "مجموع المربعين 8/9.",
+        "En": "The squares sum to 8/9."
+      }
+    ],
+    "idea": {
+      "Ar": "أي زوج من قيم الجيب وجيب التمام يقع على دائرة الوحدة، فيكون مجموع مربعيه واحداً.",
+      "En": "Any sine-cosine pair lies on the unit circle, so the squares sum to one."
+    },
+    "formula": "\\sin^2\\theta+\\cos^2\\theta=1",
+    "steps": [
+      {
+        "Ar": "نربع كل مركبة في كل زوج ثم نجمع المربعين.",
+        "En": "Square both components in each pair and add them."
+      },
+      {
+        "Ar": "$(3/5)^2+(4/5)^2=9/25+16/25=1$",
+        "En": "$(3/5)^2+(4/5)^2=9/25+16/25=1$"
+      }
+    ],
+    "sub": {
+      "Ar": "$(3/5)^2+(4/5)^2=1$",
+      "En": "$(3/5)^2+(4/5)^2=1$"
+    },
+    "result": {
+      "Ar": "$(3/5,4/5)$",
+      "En": "$(3/5,4/5)$"
+    },
+    "verify": {
+      "Ar": "$3^2+4^2=5^2$",
+      "En": "$3^2+4^2=5^2$"
+    },
+    "hints": [
+      {
+        "Ar": "استعمل متطابقة فيثاغورس المثلثية.",
+        "En": "Use the Pythagorean identity."
+      },
+      {
+        "Ar": "ابحث عن زوج مجموع مربعيه واحد.",
+        "En": "Find the pair whose squared components sum to one."
+      }
+    ],
+    "error": {
+      "Ar": "لا يكفي أن تكون كل قيمة بين −1 و1 وحدها.",
+      "En": "It is not enough that each value lies between −1 and 1."
+    }
+  },
+  {
+    "track": 12,
+    "stage": 3,
+    "cat": 87,
+    "skill": 338,
+    "sk": "dot-product",
+    "family": "dot-product-linear-combination-known-products",
+    "title": {
+      "Ar": "خطية الضرب القياسي",
+      "En": "Linearity of the dot product"
+    },
+    "q": {
+      "Ar": "إذا كان حاصل الضرب القياسي u·v=−6 وu·w=4، فما قيمة u·(2v−w)؟",
+      "En": "If u·v=−6 and u·w=4, what is u·(2v−w)?"
+    },
+    "opts": [
+      "-16",
+      "-8",
+      "-2",
+      "16"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "−8 ينتج من إضافة 4 إلى −12 بدلاً من طرحها.",
+        "En": "−8 adds 4 to −12 instead of subtracting it."
+      },
+      {
+        "Ar": "−2 يجمع القيمتين المعطاتين ويتجاهل المعاملات.",
+        "En": "−2 adds the given values and ignores the coefficients."
+      },
+      {
+        "Ar": "16 يعكس إشارة الناتج الصحيح.",
+        "En": "16 reverses the sign of the correct result."
+      }
+    ],
+    "idea": {
+      "Ar": "الضرب القياسي خطي في كل مدخل، فنوزع ونستخرج المعاملات.",
+      "En": "The dot product is linear in each argument, so distribute and extract scalar coefficients."
+    },
+    "formula": "u\\cdot(2v-w)=2(u\\cdot v)-u\\cdot w",
+    "steps": [
+      {
+        "Ar": "$2(u\\cdot v)=2(-6)=-12$",
+        "En": "$2(u\\cdot v)=2(-6)=-12$"
+      },
+      {
+        "Ar": "نطرح حاصل الضرب القياسي مع المتجه الثالث.",
+        "En": "Subtract the dot product with the third vector."
+      }
+    ],
+    "sub": {
+      "Ar": "$2(-6)-4=-16$",
+      "En": "$2(-6)-4=-16$"
+    },
+    "result": {
+      "Ar": "$-16$",
+      "En": "$-16$"
+    },
+    "verify": {
+      "Ar": "$-16+4=-12$",
+      "En": "$-16+4=-12$"
+    },
+    "hints": [
+      {
+        "Ar": "وزع الضرب القياسي على الفرق.",
+        "En": "Distribute the dot product across the difference."
+      },
+      {
+        "Ar": "ضاعف القيمة الأولى فقط، ثم اطرح الثانية.",
+        "En": "Double only the first value, then subtract the second."
+      }
+    ],
+    "error": {
+      "Ar": "لا توزع العدد 2 على المتجه w.",
+      "En": "Do not apply the coefficient 2 to w."
+    }
+  },
+  {
+    "track": 12,
+    "stage": 3,
+    "cat": 88,
+    "skill": 328,
+    "sk": "circles",
+    "family": "circle-center-general-form-complete-square",
+    "title": {
+      "Ar": "مركز دائرة من صيغتها العامة",
+      "En": "Circle centre from general form"
+    },
+    "q": {
+      "Ar": "ما مركز الدائرة التي معادلتها x²+y²−6x+8y=0؟",
+      "En": "What is the centre of the circle x²+y²−6x+8y=0?"
+    },
+    "opts": [
+      "(-3,4)",
+      "(6,-8)",
+      "(3,-4)",
+      "(-6,8)"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "يعكس إشارتي إحداثيي المركز.",
+        "En": "Reverses both centre-coordinate signs."
+      },
+      {
+        "Ar": "يستخدم المعاملين بعد تغيير الإشارة دون تنصيفهما.",
+        "En": "Uses the negated coefficients without halving."
+      },
+      null,
+      {
+        "Ar": "ينقل معاملي الحدود الخطية كما هما.",
+        "En": "Copies the linear coefficients directly."
+      }
+    ],
+    "idea": {
+      "Ar": "نكتب المعادلة بصيغة المركز ونصف القطر بإكمال مربع كل متغير.",
+      "En": "Complete the square for each variable to obtain centre-radius form."
+    },
+    "formula": "(x-h)^2+(y-k)^2=r^2",
+    "steps": [
+      {
+        "Ar": "$x^2-6x=(x-3)^2-9$",
+        "En": "$x^2-6x=(x-3)^2-9$"
+      },
+      {
+        "Ar": "$y^2+8y=(y+4)^2-16$",
+        "En": "$y^2+8y=(y+4)^2-16$"
+      },
+      {
+        "Ar": "$(x-3)^2+(y+4)^2=25$",
+        "En": "$(x-3)^2+(y+4)^2=25$"
+      }
+    ],
+    "sub": {
+      "Ar": "$(h,k)=(3,-4)$",
+      "En": "$(h,k)=(3,-4)$"
+    },
+    "result": {
+      "Ar": "$(3,-4)$",
+      "En": "$(3,-4)$"
+    },
+    "verify": {
+      "Ar": "$(x-3)^2+(y+4)^2=25$",
+      "En": "$(x-3)^2+(y+4)^2=25$"
+    },
+    "hints": [
+      {
+        "Ar": "أكمل مربع الحدود التي تحتوي x وحدها ثم y وحدها.",
+        "En": "Complete the square separately for x and y."
+      },
+      {
+        "Ar": "انتبه لإشارة الإحداثي في الصيغة القياسية.",
+        "En": "Read the coordinate signs in standard form carefully."
+      }
+    ],
+    "error": {
+      "Ar": "لا تخلط بين إشارة الحد داخل القوس وإشارة إحداثي المركز.",
+      "En": "Do not confuse the sign inside a bracket with the sign of the centre coordinate."
+    }
+  }
+]
