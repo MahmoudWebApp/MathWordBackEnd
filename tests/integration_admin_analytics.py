@@ -112,6 +112,14 @@ def main():
     assert len(details["DailyActivity"]) == 7, details
     assert sum(day["Attempts"] for day in details["DailyActivity"]) == 2
 
+    scoped = expect("GET", "/api/admin/analytics/stages/1?days=7&categoryId=1", 200, token=admin)
+    assert scoped["CategoryId"] == 1 and len(scoped["Categories"]) == 1
+    assert scoped["Summary"]["AttemptsInWindow"] == 2
+    assert scoped["Summary"]["Problems"] == 1
+    assert scoped["TopLearners"][0]["AwardedPoints"] == 10
+    expect("GET", "/api/admin/analytics/stages/2?categoryId=1", 400, token=admin)
+    expect("GET", "/api/admin/analytics/stages/1?categoryId=1", 403, token=learner)
+
     other = expect("GET", "/api/admin/analytics/stages/2", 200, token=admin)
     assert other["Summary"]["UniqueSolved"] == 0
     assert not other["TopLearners"]

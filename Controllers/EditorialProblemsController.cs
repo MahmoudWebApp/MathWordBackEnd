@@ -200,7 +200,7 @@ public sealed partial class EditorialProblemsController:ControllerBase
         var options=p.Options.OrderBy(o=>o.Order).ThenBy(o=>o.Id).Select(o=>new WizardOption(o.LatexCode,o.IsCorrect)).ToArray();
         var content=new WizardProblem(StageId:p.StageId,CategoryId:p.CategoryId,Points:p.Points,
             PrimarySkillId:skills.SingleOrDefault(x=>x.IsPrimary)?.SkillId??0,SecondarySkillIds:skills.Where(x=>!x.IsPrimary).Select(x=>x.SkillId).ToArray(),
-            TrackIds:tracks,Title:new(p.TitleAr,p.TitleEn),Question:new(p.QuestionTextAr,p.QuestionTextEn),Options:options);
+            TrackIds:tracks,Title:new(p.TitleAr,p.TitleEn),Question:new(p.QuestionTextAr,p.QuestionTextEn),Options:options,YoutubeSolutionUrl:p.YoutubeSolutionUrl);
         if(p.EditorialDetailsJson is not null)
         {
             using var doc=JsonDocument.Parse(p.EditorialDetailsJson);var root=doc.RootElement;
@@ -491,7 +491,9 @@ public sealed partial class EditorialProblemsController:ControllerBase
     }
     private async Task<List<string>> Validate(WizardProblem p,CancellationToken ct,CurriculumDraftItem d)
     {
-        var errors=WizardProblemContract.Validate(p);if(errors.Count>0)return errors;
+        var allowManual=Admin&&(d.ContentKey.StartsWith("wizard-",StringComparison.Ordinal)||d.ContentKey.StartsWith("amend-",StringComparison.Ordinal))&&
+            await db.Users.AnyAsync(u=>u.Id==d.OwnerUserId&&u.Role==AccountRolePolicy.LegacyAdmin,ct);
+        var errors=WizardProblemContract.Validate(p,allowManual);if(errors.Count>0)return errors;
         var skills=new[]{p.PrimarySkillId}.Concat(p.SecondarySkillIds??Array.Empty<int>()).ToArray();
         if(!await db.Categories.AnyAsync(c=>c.Id==p.CategoryId&&c.StageId==p.StageId,ct))errors.Add("CategoryStageMismatch");
         if(await db.CurriculumSkills.CountAsync(s=>skills.Contains(s.Id)&&s.StageId==p.StageId&&s.CategoryId==p.CategoryId&&s.IsPublished&&s.Domain.IsPublished,ct)!=skills.Length)errors.Add("SkillCategoryMismatch");
@@ -596,12 +598,14 @@ public sealed partial class EditorialProblemsController:ControllerBase
             else if(!SameQuestion(problem,p))return Conflict(new{Message="AmendmentSourceChanged"});
             problem.TitleAr=p.Title!.Ar.Trim();problem.TitleEn=p.Title.En.Trim();
             problem.DetailedSolutionAr=flatAr;problem.DetailedSolutionEn=flatEn;problem.EditorialDetailsJson=metadata;
+            if(p.YoutubeSolutionUrl is not null)problem.YoutubeSolutionUrl=string.IsNullOrWhiteSpace(p.YoutubeSolutionUrl)?null:p.YoutubeSolutionUrl.Trim();
         }
         else
         {
             problem=new MathProblem{StageId=p.StageId,CategoryId=p.CategoryId,Points=p.Points,
             TitleAr=p.Title!.Ar.Trim(),TitleEn=p.Title.En.Trim(),QuestionTextAr=p.Question!.Ar.Trim(),QuestionTextEn=p.Question.En.Trim(),
             DetailedSolutionAr=flatAr,DetailedSolutionEn=flatEn,
+            YoutubeSolutionUrl=string.IsNullOrWhiteSpace(p.YoutubeSolutionUrl)?null:p.YoutubeSolutionUrl.Trim(),
             EditorialDetailsJson=metadata,
             Options=p.Options!.Select((o,i)=>new QuestionOption{LatexCode=o.LatexCode.Trim(),IsCorrect=o.IsCorrect,Order=i+1}).ToList()};
             db.Problems.Add(problem);await db.SaveChangesAsync(ct);

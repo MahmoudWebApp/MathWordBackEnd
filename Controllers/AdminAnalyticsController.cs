@@ -1,6 +1,7 @@
 using MathWorldAPI.Data;
 using MathWorldAPI.DTOs;
 using MathWorldAPI.Helpers;
+using MathWorldAPI.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -171,6 +172,8 @@ namespace MathWorldAPI.Controllers
         public async Task<ActionResult<ApiResponse<AdminStageDetailDto>>> StageDetails(
             [FromRoute] int stageId,
             [FromQuery] int days = 30,
+            [FromQuery] int? trackId = null,
+            [FromQuery] int? categoryId = null,
             CancellationToken cancellationToken = default)
         {
             if (days < 1 || days > 365)
@@ -181,6 +184,11 @@ namespace MathWorldAPI.Controllers
             var summary = summaries.FirstOrDefault(s => s.StageId == stageId);
             if (summary == null)
                 return NotFound(Error<AdminStageDetailDto>("StageNotFound", 404));
+
+            if(trackId is <=0 || categoryId is <=0)
+                return BadRequest(Error<AdminStageDetailDto>("InvalidAnalyticsFilter",400));
+            if(trackId.HasValue||categoryId.HasValue)
+                return await ScopedDetails(summary,days,trackId,categoryId,cutoffUtc,cancellationToken);
 
             var categories = await _db.Categories.AsNoTracking()
                 .Where(c => c.StageId == stageId)
@@ -290,6 +298,94 @@ namespace MathWorldAPI.Controllers
                 }).ToList()
             };
             return Ok(Success(response));
+        }
+
+        // Narrow the actual server-side catalog, answer history and rankings.
+        // A question shared between two grades is not a shared practice attempt.
+        private async Task<ActionResult<ApiResponse<AdminStageDetailDto>>> ScopedDetails(
+            AdminStageAnalyticsDto summary,int days,int? trackId,int? categoryId,DateTime cutoff,CancellationToken ct)
+        {
+            var stageId=summary.StageId;
+            var tracks=HttpContext.RequestServices.GetRequiredService<LearningTrackService>();
+            if(trackId.HasValue&&!await _db.LearningTracks.AsNoTracking().AnyAsync(t=>t.Id==trackId&&t.StageId==stageId,ct))
+                return BadRequest(Error<AdminStageDetailDto>("TrackStageMismatch",400));
+            var catalog=_db.Problems.AsNoTracking().Where(p=>p.StageId==stageId&&p.Category.StageId==stageId);
+            if(trackId.HasValue)
+            {
+                var valid=tracks.ValidProblems(trackId.Value);
+                catalog=catalog.Where(p=>valid.Any(v=>v.Id==p.Id));
+            }
+            var categoryQuery=_db.Categories.AsNoTracking().Where(c=>c.StageId==stageId&&
+                (!trackId.HasValue||_db.LearningTrackCategories.Any(l=>l.TrackId==trackId&&l.CategoryId==c.Id)));
+            if(categoryId.HasValue&&!await categoryQuery.AnyAsync(c=>c.Id==categoryId,ct))
+                return BadRequest(Error<AdminStageDetailDto>("CategoryScopeMismatch",400));
+            if(categoryId.HasValue)
+            {
+                catalog=catalog.Where(p=>p.CategoryId==categoryId);
+                categoryQuery=categoryQuery.Where(c=>c.Id==categoryId);
+            }
+            var categories=await categoryQuery.OrderBy(c=>c.Order).ThenBy(c=>c.Id)
+                .Select(c=>new{c.Id,c.NameAr,c.NameEn}).ToListAsync(ct);
+            var counts=await catalog.GroupBy(p=>p.CategoryId).Select(g=>new{Id=g.Key,Count=g.Count()}).ToDictionaryAsync(x=>x.Id,x=>x.Count,ct);
+            var ordinary=_db.ProblemAttempts.AsNoTracking()
+                .Where(a=>a.User.Role=="Student"&&catalog.Any(p=>p.Id==a.ProblemId)&&
+                    (!trackId.HasValue||a.PracticeScopeId==trackId))
+                .Select(a=>new{a.UserId,a.ProblemId,CategoryId=a.Problem.CategoryId,a.IsCorrect,
+                    First=a.IsOfficial&&a.AttemptNumber==1&&a.IsCorrect&&!a.UsedHint,At=a.SubmittedAt});
+            var guided=from a in _db.LearningSessionAttempts.AsNoTracking()
+                       join session in _db.LearningSessions.AsNoTracking() on a.SessionId equals session.Id
+                       join user in _db.Users.AsNoTracking() on session.UserId equals user.Id
+                       join problem in catalog on a.ProblemId equals problem.Id
+                       where user.Role=="Student"&&session.StageId==stageId&&(!trackId.HasValue||session.TrackId==trackId)
+                       select new{session.UserId,a.ProblemId,problem.CategoryId,a.IsCorrect,
+                           First=a.AttemptNumber==1&&a.IsCorrect&&!a.UsedHint,At=a.SubmittedAtUtc};
+            var config=HttpContext.RequestServices.GetRequiredService<IConfiguration>();
+            var lifetime=config.GetValue<bool>("LearningSessions:Enabled");
+            var answers=lifetime?ordinary.Concat(guided):ordinary;
+            var window=answers.Where(a=>a.At>=cutoff);
+            var categoryActivity=await window.GroupBy(a=>a.CategoryId).Select(g=>new{Id=g.Key,Attempts=g.Count(),Correct=g.Count(a=>a.IsCorrect)}).ToDictionaryAsync(x=>x.Id,ct);
+            var daily=await window.GroupBy(a=>a.At.Date).Select(g=>new{Date=g.Key,Attempts=g.Count(),Correct=g.Count(a=>a.IsCorrect),Students=g.Select(a=>a.UserId).Distinct().Count()}).ToDictionaryAsync(x=>x.Date,ct);
+            var progress=(trackId.HasValue?TrackPractice.For(_db,trackId.Value):_db.UserProgresses).AsNoTracking()
+                .Where(p=>p.User.Role=="Student"&&p.IsSolved&&catalog.Any(q=>q.Id==p.ProblemId))
+                .Select(p=>new{p.UserId,p.ProblemId,CategoryId=p.Problem.CategoryId});
+            var solved=progress;
+            if(lifetime)
+                solved=solved.Union(answers.Where(a=>a.IsCorrect).Select(a=>new{a.UserId,a.ProblemId,a.CategoryId}));
+            var solvedCounts=await solved.GroupBy(p=>p.CategoryId).Select(g=>new{Id=g.Key,Count=g.Count()}).ToDictionaryAsync(x=>x.Id,x=>x.Count,ct);
+            var first=answers.Where(a=>a.First).Select(a=>new{a.UserId,a.ProblemId}).Distinct();
+            var firstCounts=await first.GroupBy(a=>a.UserId).Select(g=>new{UserId=g.Key,Count=g.Count()}).ToDictionaryAsync(x=>x.UserId,x=>x.Count,ct);
+            // Use actual immutable awards, never the current editable point value.
+            var points=await _db.ProblemAttempts.AsNoTracking().Where(a=>a.User.Role=="Student"&&
+                catalog.Any(p=>p.Id==a.ProblemId)&&(!trackId.HasValue||a.PracticeScopeId==trackId))
+                .GroupBy(a=>a.UserId).Select(g=>new{UserId=g.Key,Points=g.Sum(a=>a.PointsEarned)}).ToDictionaryAsync(x=>x.UserId,x=>x.Points,ct);
+            if(lifetime)
+                points=await _db.PermanentProblemAchievements.AsNoTracking()
+                    .Where(a=>catalog.Any(p=>p.Id==a.ProblemId)&&answers.Any(q=>q.UserId==a.UserId&&q.ProblemId==a.ProblemId&&q.IsCorrect&&q.At==a.EarnedAtUtc))
+                    .GroupBy(a=>a.UserId).Select(g=>new{UserId=g.Key,Points=g.Sum(a=>a.Points)}).ToDictionaryAsync(x=>x.UserId,x=>x.Points,ct);
+            var solvedByUser=await solved.GroupBy(p=>p.UserId).Select(g=>new{UserId=g.Key,Count=g.Count()}).ToListAsync(ct);
+            var ranked=solvedByUser.OrderByDescending(x=>x.Count).ThenByDescending(x=>points.GetValueOrDefault(x.UserId))
+                .ThenByDescending(x=>firstCounts.GetValueOrDefault(x.UserId)).ThenBy(x=>x.UserId).Take(20).ToArray();
+            var ids=ranked.Select(x=>x.UserId).ToArray();
+            var names=await _db.Users.AsNoTracking().Where(u=>ids.Contains(u.Id)).ToDictionaryAsync(u=>u.Id,u=>u.FullName,ct);
+            var rows=categories.Select(c=>{
+                var activity=categoryActivity.GetValueOrDefault(c.Id);
+                return new AdminCategoryAnalyticsDto{CategoryId=c.Id,NameAr=c.NameAr,NameEn=c.NameEn,
+                    Problems=counts.GetValueOrDefault(c.Id),UniqueSolved=solvedCounts.GetValueOrDefault(c.Id),
+                    AttemptsInWindow=activity?.Attempts??0,CorrectAttemptsInWindow=activity?.Correct??0};
+            }).ToList();
+            summary.Categories=rows.Count; summary.Problems=rows.Sum(c=>c.Problems);
+            summary.UniqueSolved=rows.Sum(c=>c.UniqueSolved);
+            summary.AttemptsInWindow=rows.Sum(c=>c.AttemptsInWindow); summary.CorrectAttemptsInWindow=rows.Sum(c=>c.CorrectAttemptsInWindow);
+            summary.ActiveStudentsInWindow=await window.Select(a=>a.UserId).Distinct().CountAsync(ct);
+            summary.SelectedStudents=await _db.Users.AsNoTracking().CountAsync(u=>u.Role=="Student"&&u.CurrentStageId==stageId&&(!trackId.HasValue||u.CurrentTrackId==trackId),ct);
+            summary.CorrectRatePercent=Percent(summary.CorrectAttemptsInWindow,summary.AttemptsInWindow);
+            return Ok(Success(new AdminStageDetailDto{Summary=summary,WindowDays=days,TrackId=trackId,CategoryId=categoryId,Categories=rows,
+                TopLearners=ranked.Select((x,i)=>new AdminLearnerAnalyticsDto{Rank=i+1,UserId=x.UserId,FullName=names.GetValueOrDefault(x.UserId)??"",
+                    UniqueSolved=x.Count,FirstTryCorrect=firstCounts.GetValueOrDefault(x.UserId),AwardedPoints=points.GetValueOrDefault(x.UserId)}).ToList(),
+                DailyActivity=Enumerable.Range(0,days).Select(offset=>{
+                    var date=cutoff.AddDays(offset);var row=daily.GetValueOrDefault(date);
+                    return new AdminActivityDayDto{DayUtc=date,Attempts=row?.Attempts??0,CorrectAttempts=row?.Correct??0,UniqueStudents=row?.Students??0};
+                }).ToList()}));
         }
 
         private async Task<List<AdminStageAnalyticsDto>> BuildStageSummaries(

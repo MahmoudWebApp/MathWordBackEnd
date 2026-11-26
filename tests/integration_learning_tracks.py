@@ -246,8 +246,24 @@ def verify_tracks(admin, student, uid, stage1, stage2):
     assert expect("GET",f"/api/users/journey?stageId={stage1}",200,token=student)["SolvedProblems"]==0
     assert len(expect("GET","/api/users/error-notebook",200,token=student))==1
     sql(f"""UPDATE "Users" SET "SubscriptionType"='Premium',"PremiumExpiresAtUtc"=NULL WHERE "Id"={uid}""")
-    old_report=expect("GET",f"/api/users/premium-analytics?trackId={tid}",200,token=student)
+    # The same shared question has different practice histories per grade.
+    expect("GET",f"/api/users/premium-analytics?trackId={tid}",400,token=student)
     new_report=expect("GET",f"/api/users/premium-analytics?trackId={oid}",200,token=student)
+    new_badges=expect("GET","/api/users/achievements",200,token=student)["Badges"]
+    assert not next(b for b in new_badges if b["Key"]==f"track_{oid}_grade_champion")["Earned"]
+    assert not any(b["Key"]==f"track_{tid}_grade_champion" for b in new_badges)
+    expect("PUT","/api/users/learning-track",200,{"TrackId":tid},student)
+    old_report=expect("GET",f"/api/users/premium-analytics?trackId={tid}",200,token=student)
+    old_badges=expect("GET","/api/users/achievements",200,token=student)["Badges"]
+    assert next(b for b in old_badges if b["Key"]==f"track_{tid}_grade_champion")["Earned"]
+    assert next(b for b in old_badges if b["Key"]==f"track_{tid}_grade_scholar")["RequiredSolved"]==1
+    assert next(b for b in old_badges if b["Key"]==f"track_{tid}_week_streak")["CurrentProgress"]==1
+    admin_old=expect("GET",f"/api/admin/analytics/stages/{stage1}?trackId={tid}&categoryId={category}",200,token=admin)
+    admin_new=expect("GET",f"/api/admin/analytics/stages/{stage1}?trackId={oid}&categoryId={category}",200,token=admin)
+    assert admin_old["Summary"]["UniqueSolved"]==1 and admin_new["Summary"]["UniqueSolved"]==0
+    assert admin_old["Summary"]["CorrectAttemptsInWindow"]==1 and admin_new["Summary"]["CorrectAttemptsInWindow"]==0
+    assert old_report["TotalProblems"]==new_report["TotalProblems"]==1
+    assert old_report["RecentAttempts"][0]["IsCorrect"] and not new_report["RecentAttempts"][0]["IsCorrect"]
     assert sum(c["ErrorNotebookProblems"] for c in old_report["Categories"])==0
     assert sum(c["ErrorNotebookProblems"] for c in new_report["Categories"])==1
     assert old_report["Attempts"]==1 and old_report["CorrectAttempts"]==1 and old_report["IncorrectAttempts"]==0
@@ -267,6 +283,7 @@ def verify_tracks(admin, student, uid, stage1, stage2):
         xml=book.read("xl/sharedStrings.xml").decode()
         assert "Grade fixture" in xml and "Period (UTC)" in xml
         assert "Guided-session attempts" in xml and "current state" in xml
+    expect("PUT","/api/users/learning-track",200,{"TrackId":oid},student)
     eligibility=expect("GET",f"/api/users/certificates/eligibility?stageId={stage1}&trackId={oid}&categoryId={category}",200,token=student)
     assert eligibility["SolvedProblems"]==0 and eligibility["IndependentSkills"]==0
     sql(f"""UPDATE "Users" SET "SubscriptionType"='Free' WHERE "Id"={uid}""")

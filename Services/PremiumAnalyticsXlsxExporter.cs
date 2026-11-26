@@ -24,7 +24,7 @@ public static class PremiumAnalyticsXlsxExporter
     private static readonly XLColor SlateTint = XLColor.FromHtml("#EAF1F6");
     private static readonly XLColor GreenTint = XLColor.FromHtml("#E5F5E9");
     private static readonly XLColor RedTint = XLColor.FromHtml("#FCE8E8");
-    private static readonly XLColor AmberTint = XLColor.FromHtml("#FFF2D6");
+    private static readonly XLColor AmberTint = XLColor.FromHtml("#FEF08A");
     private static readonly XLColor Light = XLColor.FromHtml("#F8FAFC");
     private static readonly XLColor Border = XLColor.FromHtml("#DDE5EE");
 
@@ -252,10 +252,44 @@ public static class PremiumAnalyticsXlsxExporter
         }
         // A single table with an in-place filter and no floating chart objects.
         sheet.Range(12, 1, Math.Max(12, row - 1), 11).SetAutoFilter();
-        WriteContext(sheet,row+2,report,ar);
+        var completion = sheet.Range(row+2,1,row+2,11).Merge();
+        completion.FirstCell().Value = (ar ? "إنجاز الصف: " : "Grade completion: ") + $"{report.SolvedProblems} / {report.TotalProblems}";
+        completion.Style.Font.Bold = true;
+        completion.Style.Fill.BackgroundColor = GreenTint;
+        WriteContext(sheet,row+4,report,ar);
         sheet.SheetView.FreezeRows(12);
         sheet.PageSetup.PageOrientation = XLPageOrientation.Landscape;
         sheet.PageSetup.FitToPages(1, 0);
+    }
+
+    private static void BuildAttempts(IXLWorksheet sheet,int row,
+        StudentPremiumAnalyticsController.StudentAnalyticsReport report,bool ar)
+    {
+        var title=sheet.Range(row,1,row,11).Merge();
+        title.FirstCell().Value=ar?"آخر المحاولات":"Recent attempts";
+        title.Style.Fill.BackgroundColor=Navy; title.Style.Font.FontColor=XLColor.White;
+        title.Style.Font.Bold=true;
+        row++;
+        var labels=ar?new[]{"المسألة","النتيجة","التاريخ (UTC)"}:new[]{"Problem","Result","Date (UTC)"};
+        var ranges=new[]{sheet.Range(row,1,row,5).Merge(),sheet.Range(row,6,row,7).Merge(),sheet.Range(row,8,row,11).Merge()};
+        for(var i=0;i<labels.Length;i++)ranges[i].FirstCell().Value=labels[i];
+        var header=sheet.Range(row,1,row,11);
+        header.Style.Fill.BackgroundColor=SlateTint; header.Style.Font.FontColor=Navy;
+        header.Style.Font.Bold=true;
+        row++;
+        if(report.RecentAttempts.Count==0)
+            sheet.Range(row,1,row,11).Merge().FirstCell().Value=ar?"لا توجد محاولات":"No attempts";
+        foreach(var attempt in report.RecentAttempts)
+        {
+            var question=sheet.Range(row,1,row,5).Merge();
+            question.FirstCell().Value=ar?attempt.TitleAr:attempt.TitleEn;
+            question.Style.Alignment.WrapText=true;
+            var result=sheet.Range(row,6,row,7).Merge();
+            result.FirstCell().Value=attempt.IsCorrect?(ar?"صحيحة":"Correct"):(ar?"خاطئة":"Incorrect");
+            result.Style.Font.FontColor=attempt.IsCorrect?Green:Red;
+            sheet.Range(row,8,row,11).Merge().FirstCell().Value=attempt.SubmittedAtUtc.ToString("yyyy-MM-dd HH:mm",CultureInfo.InvariantCulture);
+            sheet.Row(row++).Height=38;
+        }
     }
 
     private static void WriteContext(IXLWorksheet sheet,int row,
@@ -384,7 +418,9 @@ public static class PremiumAnalyticsXlsxExporter
         {
             sheet.Cell(9, 1).Value = ar ? "لا توجد بيانات بعد" : "No data yet";
         }
-        WriteContext(sheet,Math.Max(row,10)+2,report,ar);
+        var contextRow=Math.Max(row,10)+2;
+        WriteContext(sheet,contextRow,report,ar);
+        BuildAttempts(sheet,contextRow+PremiumAnalyticsReportContext.Lines(report,ar).Count()+2,report,ar);
         sheet.SheetView.FreezeRows(8);
         sheet.PageSetup.PageOrientation = XLPageOrientation.Landscape;
         sheet.PageSetup.FitToPages(1, 0);
