@@ -575,3 +575,34 @@ Read live questions/options/track mappings for 26 pending drafts. Checked all fo
 Supabase connection restored (initial read confirmed1008 live/696 structured). Independently refreshed all19 previously reviewed pending drafts, options, source fingerprints, draft hashes, actual track mappings, and all four hold registries. Expanded bilingual derivations and option-specific feedback; retained reviewed original hints and ideas. Seven prior held drafts753,759,761,766,768,770,778 excluded. One-time SQL scripts/apply_reviewed_legacy_754_777_20261126.sql commit80a00e44e06271c9c3e6726389780dbb600a3f59 ALREADY APPLIED DO NOT replay. Rollback rehearsal passed, independently confirmed19/19 unchanged, committed once, independent exact readback19/19 (revision4, wizard, solutions, options, protected fields and mappings),76 owner_sql events. No infrastructure changes or changes to students, access, categories, original stems/options/IDs. Preserved university dual mappings13+20 and17+20; both levels20/21 remain unpublished. Runtime and exhaustive semantic duplicate-family audit pending. Prior blocked-checkpoint table identifies exact19 source and correct-option IDs.
 
 Live1008 (315/227/239/227), structured715 (243/162/152/158), missing293 (72/65/87/69). Draft302 (253 amendments+49 additions), Published949 (480 amendments+469 additions), Withdrawn1. Cumulative #193:325 corrections+159 new. Depth unchanged813/1400 and897/1760 (88 placements; gap863). Next legacy779 onward; preserve all holds; continue underfilled category growth and reconcile #179 without replay.
+
+
+## Legacy review checkpoint 779–802 (2026-11-26)
+Reviewed24 drafts, excluded held789 and796 (mixed bilingual option text). Recomputed22 answers across statistics, arithmetic/telescoping sums, graphs, Boolean algebra, multiplication/division, similarity, distance, differentiation, integration and initial-value ODEs. Reviewed stored hints and ideas and improved bilingual derivations, formula conditions, option feedback, substitutions, verification and common errors. Four hold registries, source fingerprint and draft hash/revision, active owner, exact live/open-draft duplicate and placement guards. One-time SQL scripts/apply_reviewed_legacy_779_802_20261126.sql commit f879aa40e9057746a890ccc5d700e1e624257be6 ALREADY APPLIED DO NOT replay. Rollback rehearsal passed; independent unchanged22/22; committed once; independent exact readback22/22 (wizard revision4, solutions, options, protected fields and actual track/skill mapping),88 owner_sql events. Kept actual university dual mappings17+20 and15+21. No new problems, category, entitlement, student/auth/app or infrastructure changes; levels20/21 remain unpublished. Runtime and exhaustive semantic duplicate-family audit pending.
+
+| Draft | Source | Correct option ID |
+|---:|---:|---:|
+|779|825|3289|
+|780|826|3294|
+|781|827|3299|
+|782|828|3304|
+|783|829|3305|
+|784|830|3310|
+|785|831|3315|
+|786|832|3320|
+|787|833|3321|
+|788|834|3326|
+|790|852|3402|
+|791|853|3406|
+|792|854|3411|
+|793|855|3415|
+|794|856|3419|
+|795|857|3422|
+|797|859|3431|
+|798|860|3433|
+|799|861|3437|
+|800|862|3443|
+|801|863|3447|
+|802|864|3449|
+
+Live1008 (315/227/239/227), structured737 (246/167/160/164), missing271 (69/60/79/63). Draft280 (231 amendments+49 additions), Published971 (502 amendments+469 additions), Withdrawn1. Cumulative #193:347 corrections+159 new. Depth unchanged813/1400 and897/1760 (88 placements; gap863). Next legacy803 onward, continue underfilled category growth, retain holds, reconcile canonical #179 keys without replay. 
