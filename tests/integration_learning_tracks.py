@@ -163,7 +163,8 @@ def verify_tracks(admin, student, uid, stage1, stage2):
             with urllib.request.urlopen(req,timeout=20) as response:
                 return response.status,json.loads(response.read())
         except urllib.error.HTTPError as error:
-            return error.code,json.loads(error.read())
+            raw=error.read()
+            return error.code,json.loads(raw) if raw else {}
     assert create_scoped(3,stage1,student)[0]==403
     assert create_scoped(2,stage1,admin)[0]==409
     assert create_scoped(3,stage2,admin)[0]==409
