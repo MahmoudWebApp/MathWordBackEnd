@@ -62,5 +62,14 @@
   "substitution-two-terms": "Existing grade-5 source problems 190 and 202 already substitute a positive integer into a linear expression with a constant. The plus sign does not change the reasoning.",
   "same-base-quotient-exponent": "Source 210, 222, 234, 246 and 258 already use the same-base quotient rule. Reporting the exponent alone rehearses the same step.",
   "input-from-output": "Source 212, 224, 236, 248 and 260 already recover an input from the output of an affine function. These variants change the sign of the constant.",
-  "percent-of-total": "The recorded bank already asks how many of 80 students participated at 25 percent. The first variant uses the same operands and task with a different context and the second substitutes numbers."
+  "percent-of-total": "The recorded bank already asks how many of 80 students participated at 25 percent. The first variant uses the same operands and task with a different context and the second substitutes numbers.",
+  "maximum-equal-packs": "The recorded bank asks for the GCD of 24 and 36, the exact first pack operands. Both pack variants only restate GCD as equal allocation.",
+  "convex-quadratic-min-value": "The recorded bank already asks for the minimum of (x−3)^2+2 on the real line. These three use the same squared-term argument.",
+  "recurring-events-lcm": "Source 211 and the remaining Grade 7 LCM template already extract the least positive common multiple. The alert variants offer no offset or interpretation beyond selecting the LCM.",
+  "derivative-at-point": "Recorded Grade 11 stems already use the quadratic power rule then substitute a supplied value. These change the coefficients.",
+  "vector-length": "The recorded bank already asks for the Euclidean magnitude of (5,12); the signed variants use the same squares and positive root.",
+  "half-life-initial-from-final": "V18 Grade 11 already reverses the identical 15 g after three half-lives before comparing two masses. Keep the contextual comparison over the three routine repetitions.",
+  "recover-individual-term-from-partial-sums": "The recorded question subtracts successive sums n squared and (n+1) squared to identify the next odd term. A fixed index in a different quadratic prefix sum repeats that operation.",
+  "partial-cross-term": "A recorded Calculus exercise already evaluates the x partial derivative of x squared times y plus a y term at a supplied point. All three repeat the hold-y/power-rule/substitute procedure.",
+  "highest-derivative-order": "Recorded first- and third-order equations already require identifying the highest derivative and ignoring powers of y or its terms. These three repeat the identification at different orders."
 }

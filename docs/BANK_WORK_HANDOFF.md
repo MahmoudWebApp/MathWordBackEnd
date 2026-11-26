@@ -1,5 +1,67 @@
 # MathWorld bank — Work / ChatGPT handoff
 Updated 2026-11-26. This is a shared handoff, not a scheduler or autonomous agent.
+## Offline editorial checkpoint — 2026-11-26, complete current launch review and sources #264–328
+
+Parent b1ed6774e8fea310116ecba6f220df0fad2403b3 passed all three GitHub workflows. Reviewed 98 additional expansion records and 60 amendment sources. Recomputed 158 answers independently, including exact fractions, radicals, factor equivalence, antiderivative families, exhaustive small counts and selected calculus checks. Checked Arabic and English wording, four distinct options and distractor explanations, hints, formulas, worked steps, units and verification. Compared stems against the 749-pair repository pool and targeted earlier live/draft matches in both languages. All 98 map to archived track/category/primary-skill links. No current authenticated inventory or draft access was available and no production request followed the earlier timeout. Authored 0, published 0.
+
+### Expansion decisions
+
+Family labels omit the `growth-` prefix and variant suffix. Answer lists use variant order. Record repeated numbers as practice variants within the same reasoning family.
+
+| Existing families | Independent answers | Result |
+|---|---|---|
+| v5 Grade 1 missing-start subtraction, v17 Grade 1 keep-at-least stock, v18 Grade 1 recount after rearrangement | 8, 11, 15 / 6 / 6 | Unknown starting quantity within 20, greatest feasible removal with a boundary check, and conservation of count. The three-digit recorded unknown-start item exercises a later calculation range. Corrected Arabic distractor for taking only five books. |
+| v15 Grade 3 cyclic distribution last tray | 2 | Find the remainder's destination within a four-position cycle. Enumeration verifies the tray label and avoids a zero-remainder ambiguity. |
+| v2 Grade 7 discount final, maximum equal packs, temperature change | 90, 128 / 12, 15 / −2, 1 | Final price differs from the source questions asking for the discount amount. Hold the two pack variants because the first matches exactly the recorded GCD operands and both merely ask for GCD. Corrected Arabic temperature change units for both variants. |
+| v4 Grade 7 recurring events LCM, v15 Grade 7 wheel visit cycle, v17 Grade 7 phase offset synchronization | 24, 36, 30 / 3 / 10 | Hold the three simultaneous-start alerts as the same least-positive-multiple operation in the source LCM family. The wheel targets cycle length and the phase-offset task intersects two shifted schedules. Clarified the wheel return step in Arabic and English. |
+| v15 Grade 7 equivalent area single pond, v17 Grade 7 three-line vertical angle sum | 10 m / 90° | Add areas before recovering radius. Solve the half-turn relation before using vertically opposite angles. Both require more than a direct formula substitution. |
+| v6 Grade 10 geometric ratio from nonadjacent terms, v17 Grade 10 staggered indices | 2, 3, 4 / 9 | Infer positive common ratio from two steps, or shift one sequence index before solving. |
+| v2 Grade 10 vector length, v14 Grade 10 closed route east component, v18 Grade 10 unchanged mean | 10, 15 / −4 m / 4 | Hold norm variants because the live-source magnitude question already uses two coordinates and Pythagoras. Other tasks use vector closure and update both total and count. |
+| v2 Grade 11 derivative at point, v16 Grade 11 equal slopes, v14 Grade 11 root separation | 16, 19 / −6 / 21 | Hold direct quadratic derivative substitutions. The parameter tasks equate two slopes or combine root sum and gap. |
+| v5 Grade 11 log-domain boundary, v15 Grade 11 recover individual term, v18 Grade 11 half-life comparison, v15 Grade 11 equal point and line distance | −5, −7, −9 / 39 / 3/2 / 2 | State a>0 in the log inequality law. Hold individual term because the recorded next-odd-term item already differences successive quadratic sums. Keep the common-time mass ratio and the distance-equality locus. |
+| v2 Grade 12 definite linear, v6 Grade 12 stationary point, v15 Grade 12 geometric tail, v17 Grade 12 alternating affine cycle | 39, 69 / 3, 4, 5 / 5 / 8 | Nonzero lower bound with affine integrand, find a stationary point, bound an entire infinite tail under a strict inequality, or prove a two-cycle. |
+| v5 Grade 12 initial mass from half-life, v16 Grade 12 signed work, v15 Grade 12 squared trig difference | 120, 144, 224 / −11 J / 0.04 | Hold the three mass-recovery variants. V18 Grade 11 includes the identical reverse step 15 g after three half-lives in a richer task. Keep the work sign/unit interpretation and trig identity. Corrected the trig verification to say sum of squares. |
+| v3 calculus factor-cancel limits, v3 calculus partial cross term, v5 calculus partial y with x fixed | 6, 10, 14 / 31, 38, 34 / 62, 60, 73 | Factoring removable discontinuities is distinct from the recorded infinite limit and exponential limit. Hold x-partial trio against recorded x differentiation at a supplied point. Retain y-partial where the deliberate wrong-variable options differ. |
+| v16 calculus reversed triangle, v17 calculus minimum crossings and signed alternating tail | 9/2 / 3 / [7/12, 47/60] | Swap integration order through horizontal slices, prove attainability using a piecewise-linear interpolant, or bound a tail using both sign and magnitude. |
+| v3 ODE polynomial IVP and highest derivative order | 19, 40, 30 / 3, 4, 5 | Accumulate the known rate and apply the initial value. Hold three order variants against the recorded highest-derivative tasks. |
+| v16 ODE integrating factor, v17 ODE oscillator centre speed | 3 / 6 m/s | Initial-condition product and conserved energy. The latter asks for speed even though displacement vanishes. |
+| v3 discrete complete graph edges, v4 discrete Cartesian product size | 15, 28, 45 / 28, 45, 66 | Handshaking for symmetric undirected adjacency versus count ordered choices from two sets. Keep each as one foundation family. |
+| v16 discrete bridge removal, v17 discrete minimum bipartite repair | 15 / 4 | Lost connections between graph components vs optimize a partition before deleting edges. The published equivalence-block exercise counts ordered relation pairs added and uses a different relation model. Made the partition-size domain explicitly integral. |
+| v16 linear algebra rectangular trace swap, v17 pairwise-sum independence | 7 / 3 | Cyclic trace with changed matrix order plus identity shift, and independence via a nonsingular coefficient matrix. |
+| v3 optimization min quadratic and linear budget endpoint, v16 minimax affine costs, v17 flat stationary point | 7, 11, 13 / 56, 90, 72 / 3 / 3 | Hold three square-minimum variants against the recorded completed-square example. The others select a feasible endpoint, intersect two competing costs, or distinguish a flat point from a global minimum. |
+| v16 numerical analysis uneven trapezoids and v17 asymmetric product error | 4 / 5.25 | Invert a two-panel unequal-width quadrature or compare exact error at two attainable corners. |
+| v3 statistics sample-mean SE and one-sample Z statistic | 6, 7, 8 / 2, 2, −2 | Distinct standardization stages. Made independent observations explicit for the three SE stems. |
+| v16 statistics joint sample means and Bonferroni, v17 exact two-sided test | 5/8 / 2 / 1/32 | Account for shared observation, adjust familywise cutoff, or enumerate both extreme tails. Corrected the Arabic unit after the Bonferroni integer result. |
+
+This pass mechanically excluded 22 expansion variants from nine semantic overlap families. It applied precise content corrections to 13 existing records and verified stable keys, answer values and correct flags. Across all three passes, 247 of the original 327 growth candidates have been reviewed, with 80 left. The three reviewed cohorts account for all 155 selected records on the current fixture launch replay, including 54 from this pass. That coverage is conditional on the archived counts and the local duplicate pool.
+
+### Amendment sources #264–328
+
+These are 60 source records and contain five gaps in problem IDs. The next expected wizard window starts near draft #475, pending authorized reconciliation via `g1-amend-<problemId>` keys. Status and revisions remain unverified for this window. Source options, content keys and history remain untouched.
+
+| Source IDs in order | Independent answer(s) | Editorial result |
+|---|---|---|
+| 264–268 | 42 km, 150, 1260°, 40, 42 | Follow prior holds on #266 for Grade 8 polygon placement and #268 for English scale direction. Other records repeat their source families with new operands. |
+| 269, 281, 293, 305, 317 | 10, 18, 28, 40, 54 | Vieta product on monic quadratics. First three verification lines give the general factor identity; explicitly substituting root pairs would make these checks stronger. |
+| 270, 282, 294, 306, 318 | −8, −7, −4, 1, 8 | Discriminant with independently checked signs. |
+| 271, 283, 295, 307, 319 | (x+2)(x+3), (x+3)(x+4), (x+4)(x+5), (x+5)(x+6), (x+6)(x+7) | Verified each choice by expansion and both sum/product conditions. |
+| 272, 284, 296, 308, 320 | 4/5, 12/13, 15/17, 24/25, 40/41 | Adjacent over hypotenuse. |
+| 273, 285, 297, 309, 321 | 3/4, 5/12, 8/15, 7/24, 9/40 | Opposite over adjacent. |
+| 274, 286, 298, 310, 322 | 0, 1/2, √2/2, √3/2, 1 | Hold #274 for the degenerate-triangle suggestion in its first hint. Use the unit circle alone at 0°. #322 already has a quarter-turn hint. |
+| 275, 287, 299, 311, 323 | 36, 432, 6400, 112500, 2286144 | Differentiate before evaluating. Near-number distractors verify as wrong but chiefly test arithmetic precision. |
+| 276, 288, 300, 312, 324 | 2x²+C, 3x³+C, 4x⁴+C, 5x⁵+C, 6x⁶+C | Antiderivative families checked by differentiation with a constant. |
+| 277, 289, 301, 313, 325 | 18, 48, 100, 180, 294 | Integrate a linear rate from zero; endpoint evaluation yields each result. |
+| 278, 290, 302, 314, 326 | 6, 10, 15, 21, 28 | Independently enumerated unordered pairs. |
+| 280, 292, 304, 316, 328 | 5, 6, 7, 8, 9 | Hold placement. Grade 10 items have equal frequencies, so the weighted formula reduces to a two-value average. Cambridge 6Ss.03 explicitly introduces the mean, and these items give no upper-secondary interpretation or unequal weights. |
+
+Eight source holds stay outside authorized release. The other 52 source records require current status/source matching and a client render check before approval. Existing templated variants add no net assignments, and their duplicated workflows do not add launch diversity.
+
+### Curriculum, validation and resume
+
+Used the original Cambridge Primary and Lower Secondary references, official CCSS, and OECD PISA 2022 framework linked in earlier checkpoints. Cambridge 1Nc.01 supports count conservation and CCSS 1.OA.A.1 supports the unknown-start story. Cambridge 7Ni.04 supports the common-divisor and common-multiple tasks. CCSS 7.G.B.4–5 supports circle area and angle reasoning. The pond, shifted schedules, work sign and common-time mass comparison use context to formulate and interpret results in the sense of PISA. For university scope used the [2015 MAA CUPM Guide](https://maa.org/wp-content/uploads/2024/06/2015-CUPM-Curriculum-Guide.pdf), [updated Linear Algebra report](https://maa.org/wp-content/uploads/2024/06/Linear-Algebra-Course-Area-Report-Aug-17-2023.pdf), [Numerical Analysis report](https://maa.org/wp-content/uploads/2024/06/Numerical-Analysis.pdf), and [Operations Research report](https://maa.org/wp-content/uploads/2024/06/OperationsResearchPASGReport.pdf). [MSC2020](https://mathscinet.ams.org/msc/pdfs/classifications2020.pdf) provides topic scope, including 62F03 for hypothesis testing, 65D32 for quadrature and 90C05 for linear programming.
+
+`launch-coverage` replay used the committed snapshot and its 1,284-assignment planning gap. `launch-prepare` selected 155 into Confirm=false batches of 50, 50, 50 and 5. Bulk replay selected 259 into six batches. Checked both previews for 50 rows and 1.8 MB, ran 49 Node tests and 14 G1 scripts, and independently verified 158 answers. No serving database changes. Continue with the 80 remaining expansion records from the bulk queue and amendment source #329, expected near wizard draft #535. Reconcile current inventory and wizard status via the authorized workflow before seeking server preview or publication.
+
 ## Offline editorial checkpoint — 2026-11-26, expansion and sources #214–263
 
 PR 179 parent d3f781e8f2666e7f2e58f5e5eebcc511d9495941 passed all three GitHub workflows. This pass independently recalculated 82 additional expansion candidates and 50 existing amendment source records. It checked both stems, option uniqueness and distractor explanations, progressive hints, laws, substitutions, worked steps, units and verification. Compared exact stems against 749 recovered bilingual pairs and checked relevant prior production comparisons and related authored families for semantic overlap. The 82 growth records match their track, category and primary skill links in the committed snapshot. All 50 amendment stems and keys match their repository source manifests. No fresh authenticated inventory or draft read was available. The prior production read timed out, and no production calls or writes followed it in this pass. Authored 0, published 0.

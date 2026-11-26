@@ -82,7 +82,7 @@ const rows = [
     formula: '(s+c)^2+(s-c)^2=2(s^2+c^2)',
     steps: [['بجمع المربعين يزول الحدّان المتقابلان 2sc و−2sc، ويصبح المجموع 2.', 'Adding the two expansions cancels 2sc and −2sc, giving a total of 2.'], ['مربع المجموع المعطى هو 1.96، فنطرحه من 2.', 'The given sum squares to 1.96, which we subtract from 2.']],
     substitution: '2-1.4^2=0.04', answer: '0.04', unit: ['بلا وحدة', 'unitless'],
-    verify: ['العددان 0.6 و0.8 يحققان مجموع المربعين 1 والمجموع 1.4، ومربع فرقهما 0.04 بأي ترتيب.', 'The values 0.6 and 0.8 have squared sum of magnitudes 0.36 + 0.64 = 1 and sum 1.4. In either order their difference squares to 0.04.'],
+    verify: ['العددان 0.6 و0.8 يحققان مجموع المربعين 1 والمجموع 1.4، ومربع فرقهما 0.04 بأي ترتيب.', 'The values 0.6 and 0.8 have sum of squares 0.36 + 0.64 = 1 and sum 1.4. In either order their difference squares to 0.04.'],
     wrong: [['1.96', 'ربّع المجموع المعطى ولم يحسب مربع الفرق.', 'Squares the given sum and stops.'], ['0.2', 'أعطى القيمة المطلقة للفرق قبل التربيع.', 'Reports the absolute difference before squaring.'], ['0.96', 'حسب ضعف حاصل ضرب الجيب وجيب التمام.', 'Calculates twice the product of sine and cosine.']],
   },
   {

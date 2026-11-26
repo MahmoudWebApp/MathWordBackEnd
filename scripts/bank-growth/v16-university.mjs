@@ -93,7 +93,7 @@ const rows = [
     hints: [['حوّل المستوى العائلي إلى عتبة واحدة لكل اختبار.', 'Convert the familywise level to a per-test cutoff.'], ['اقسم المستوى العائلي على عدد الاختبارات، ثم قارن كل قيمة p بالعتبة.', 'Divide the familywise level by the number of tests and compare each p-value with the cutoff.']],
     formula: 'p_i\\le\\frac{\\alpha}{m}',
     steps: [['عتبة الاختبار الواحد 0.08/4=0.02.', 'The per-test cutoff is 0.08/4=0.02.'], ['تقع القيمتان 0.005 و0.018 دون العتبة، بينما تتجاوزها القيمتان الأخريان.', 'The values 0.005 and 0.018 fall below the cutoff. The other two are above it.']],
-    substitution: '0.005,\\ 0.018 < 0.02', answer: '2', unit: ['فرضيتان', 'hypotheses'],
+    substitution: '0.005,\\ 0.018 < 0.02', answer: '2', unit: ['فرضيات', 'hypotheses'],
     verify: ['بضرب قيم p في 4 نحصل على 0.020 و0.072 و0.120 و0.480. تقع اثنتان تحت 0.08.', 'Multiplying each p-value by 4 gives 0.020, 0.072, 0.120 and 0.480. Two are below 0.08.'],
     wrong: [['3', 'قارن القيم بالعتبة العائلية دون تصحيح.', 'Compares to the familywise cutoff without correction.'], ['1', 'استبدل المستوى المعطى 0.08 بالمستوى الشائع 0.05 قبل التصحيح.', 'Uses the conventional 0.05 instead of the stated 0.08 before correction.'], ['4', 'ضرب العتبة في 4 بدلاً من قسمتها.', 'Multiplies the cutoff by 4 instead of dividing.']],
   },

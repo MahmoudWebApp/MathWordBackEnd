@@ -14,7 +14,7 @@ const rows = [
     answer: "6",
     unit: ["كتب", "books"],
     verify: ["أخذ 6 يترك 9. وأخذ كتاب آخر يترك 8 فقط.", "Taking 6 leaves 9. Taking one more leaves only 8."],
-    wrong: [["9", "عدّ الكتب التي يجب أن تبقى.", "Counts the books that must stay."], ["5", "ترك عشرة كتب وأخذ أقل ما يمكن أخذه بهذه الخطة.", "Leaves ten books and takes fewer than allowed."], ["7", "أخذ كتاباً من الكتب التي يجب أن تبقى.", "Takes one of the books that must remain."]],
+    wrong: [["9", "عدّ الكتب التي يجب أن تبقى.", "Counts the books that must stay."], ["5", "ترك عشرة كتب فأخذ عدداً أقل مما يسمح به الشرط.", "Leaves ten books and takes fewer than allowed."], ["7", "أخذ كتاباً من الكتب التي يجب أن تبقى.", "Takes one of the books that must remain."]],
   },
   {
     scope: ["grade-1", 1, 81, 302, "counting"],

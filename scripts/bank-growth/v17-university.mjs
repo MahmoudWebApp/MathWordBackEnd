@@ -43,7 +43,7 @@ const rows = [
     title: ['أقل حذف لجعل الرسم ثنائي التقسيم', 'Minimum deletions to make a graph bipartite'],
     question: ['ما أقل عدد من الحواف التي يجب حذفها من الرسم البياني الكامل على خمسة رؤوس ليصبح ثنائي التقسيم؟', 'What is the minimum number of edges that must be deleted from the complete graph on five vertices to make it bipartite?'],
     hints: [['قسّم الرؤوس إلى مجموعتين بحيث تبقى الحواف بين المجموعتين فقط.', 'Divide the vertices into two parts, keeping only edges between parts.'], ['إذا احتوت إحدى المجموعتين على k رؤوس، فكم حافة يمكن إبقاؤها؟', 'If one part has k vertices, how many edges can be kept?']],
-    formula: '\\min_{0\\le k\\le 5}\\left[\\binom52-k(5-k)\\right]',
+    formula: '\\min_{k\\in\\{0,1,2,3,4,5\\}}\\left[\\binom52-k(5-k)\\right]',
     steps: [['للرسم الكامل عشر حواف. عند تقسيمه إلى مجموعتين حجماهما k و5−k، يمكن إبقاء k(5−k) حافة فقط.', 'The complete graph has ten edges. A partition into parts of sizes k and 5−k can retain only k(5−k) edges.'], ['أكبر حاصل ضرب للأحجام الصحيحة هو 2×3=6؛ نحتفظ بالحواف الست بين المجموعتين ونحذف الباقي.', 'The largest product of integer part sizes is 2×3=6. Keep the six cross edges and delete the others.']],
     substitution: '10-6=4', answer: '4', unit: ['حواف', 'edges'],
     verify: ['نحذف الحافة الواحدة داخل مجموعة الرأسين والحواف الثلاث داخل مجموعة الرؤوس الثلاثة. جميع الحواف المتبقية تصل بين المجموعتين.', 'Delete the one edge within the two-vertex part and the three within the three-vertex part. Every remaining edge joins the parts.'],
