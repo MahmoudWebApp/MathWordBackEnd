@@ -770,3 +770,31 @@ Live1008, structured850, missing158. Stage counts [{"StageId":1,"total":315,"str
 Reviewed and applied six legacy amendments 933,934,936,938,943,944 (sources 1694,1695,1699,1701,1707,1708; correct option IDs 6765,6770,6786,6795,6818,6821). Recomputed dot product, signed scalar projection, quadratic global minimum and closed interval maximum, tens-digit counting and subtraction. Improved bilingual steps and choice-specific feedback; kept original question, options and mappings including dual university tracks 19+21. Read all four #179 hold registries at 1db6af02bf07a9bf6043ec55836750a229e799df. Held 935/source1697 remains excluded (duplicate with source857). 937,939–942,945–946 remain pending; option-format review needed for 937,939,942,945. Guarded SQL script scripts/apply_reviewed_legacy_933_944_partition_20261126.sql commit 320456cc463dab0a02910dd32ce7f2d69a874b91 ALREADY APPLIED DO NOT REPLAY. Passed rollback rehearsal, independent unchanged check6/6, one commit and independent readback6/6 with exact solutions/hints matching wizard, original options, track assignments, revision4 and 24 owner_sql events. No new problems or changes to learner records, permissions, taxonomy or application. Runtime rendering, comprehensive semantic duplicate audit and CI verification pending.
 
 Live1008, structured856, missing152. Stage counts [{"StageId":1,"total":315,"structured":282},{"StageId":2,"total":227,"structured":198},{"StageId":3,"total":239,"structured":188},{"StageId":4,"total":227,"structured":188}]. Cumulative #193:466 corrections+159 new. Depth unchanged by this correction-only pass. Next review pending 937,939–942,945–946 then 947 onward, preserve all holds and expand underfilled category depth independently. Do not replay #179.
+
+
+## Legacy review checkpoint 937–958 (2026-11-26)
+Completed remaining seven from previous checkpoint and twelve further legacy amendments (19 total). Draft 935/source1697 stays on duplicate hold. Read all four #179 hold registries at 1db6af02bf07a9bf6043ec55836750a229e799df. Recomputed second derivatives, constrained optimization, Hessians, convexity, conditional probability, ordered dice counts, vector norm and distributivity, exponential/logarithmic laws and domains. Reviewed stored bilingual hints, expanded derivations and option-specific feedback. Four previously flagged options use standard single-backslash LaTeX or ordinary inequalities in stored data; runtime display remains untested. Draft945/source1709 is an existing conditional probability question, not a new grade placement; review grade progression independently. Specs scripts/reviewed_legacy_937_958_specs_20261126.json commit2a24224248e195c8f261d4b7434aea7da540175b NOT an import payload. Source snapshot/fingerprint and draft MD5/revision, owner, exact duplicate and scope guards. Four partitions applied: 937–942 excluding already published938 (5) d6893a85d359aa5cf430e2670403b480ee99c59c; 945–949 (5) 02ba97b37760a64883592fa88ffe259b331c8bce; 950–954 (5) 12b7e08f6a7a5bb4acf3386c21cce1e002739613; 955–958 (4) 13b4d724e3f26bd4643832481f50b3d780c69f6b. ALL APPLIED DO NOT REPLAY. Rollback rehearsals and independent unchanged checks passed; first partition postcommit verification had a connection timeout, independent readback confirmed it had succeeded, no replay. All19 published revision4, structured solution/hints match wizard, actual track mappings match wizard, one correct option each,76 owner_sql events. Original stems/options/IDs/skills retained by guarded SQL; existing university 19+21 mappings preserved, no new taxonomy/entitlement/student/app changes. Runtime and exhaustive semantic duplication audit and CI verification pending.
+
+| Draft | Source | Correct option ID |
+|---:|---:|---:|
+|937|1700|6791|
+|939|1702|6798|
+|940|1704|6807|
+|941|1705|6811|
+|942|1706|6815|
+|945|1709|6826|
+|946|1710|6830|
+|947|1711|6835|
+|948|1712|6839|
+|949|1713|6843|
+|950|1714|6846|
+|951|1715|6850|
+|952|1716|6854|
+|953|1717|6858|
+|954|1718|6862|
+|955|1719|6866|
+|956|1720|6870|
+|957|1721|6874|
+|958|1722|6878|
+
+Live1008, structured875, missing133. Stage counts [{"StageId":1,"total":315,"structured":282},{"StageId":2,"total":227,"structured":200},{"StageId":3,"total":239,"structured":198},{"StageId":4,"total":227,"structured":195}]. Cumulative #193:485 corrections+159 new. Depth unchanged897/1760. Next review remaining legacy drafts from959 onward (select only SourceProblemId nonnull), preserve all holds, expand underfilled category depth independently; reconcile #179 without replay.
