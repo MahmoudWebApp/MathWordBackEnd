@@ -121,6 +121,29 @@ public sealed class LearningTracksController(AppDbContext db,LearningTrackServic
         return Ok(new{TrackId=id,CategoryId=categoryId,Total=total,Page=page,PageSize=pageSize,Items=items});
     }
 
+    // Stable continuation independent of mutable unsolved-first pagination.
+    [Authorize(Roles="Student")]
+    [HttpGet("api/users/learning-tracks/{id:int}/categories/{categoryId:int}/next")]
+    public async Task<IActionResult> NextProblem(int id,int categoryId,[FromQuery]int afterProblemId,CancellationToken ct)
+    {
+        if(afterProblemId<=0)return BadRequest();
+        if(!tracks.Enabled)return NotFound();
+        var t=await tracks.VisibleTracks().SingleOrDefaultAsync(x=>x.Id==id,ct);
+        if(t is null)return NotFound();
+        var allowed=await access.GetAllowedCategoryIdsAsync(User,ct)??new List<int>();
+        if(!allowed.Contains(categoryId))return StatusCode(403,new{Message="CategoryLocked"});
+        var uid=int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
+        if(!await db.Users.AsNoTracking().AnyAsync(u=>u.Id==uid&&u.IsActive&&u.Role=="Student"&&u.CurrentStageId==t.StageId&&u.CurrentTrackId==id,ct))
+            return StatusCode(403,new{Message="CurrentTrackOnly"});
+        var valid=tracks.ValidProblems(id).Where(p=>p.CategoryId==categoryId);
+        if(!await valid.AnyAsync(p=>p.Id==afterProblemId,ct))return NotFound();
+        var progress=TrackPractice.For(db,TrackPractice.Scope(HttpContext.RequestServices.GetRequiredService<IConfiguration>(),id));
+        var next=await valid.Where(p=>p.Id!=afterProblemId&&!progress.Any(x=>x.UserId==uid&&x.ProblemId==p.Id&&(x.IsSolved||x.Attempts>0)))
+            .OrderBy(p=>p.Id<=afterProblemId).ThenBy(p=>p.Id)
+            .Select(p=>new{p.Id,p.CategoryId,p.TitleAr,p.TitleEn}).FirstOrDefaultAsync(ct);
+        return Ok(new{TrackId=id,CategoryId=categoryId,Problem=next});
+    }
+
     [Authorize(Roles="Student")]
     [HttpGet("api/users/learning-tracks/continue")]
     public async Task<IActionResult> Continue(CancellationToken ct)
