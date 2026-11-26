@@ -124,6 +124,19 @@ def main():
     isolated = expect("GET", "/api/notifications/v2?take=1&skip=0", 200, token=learner2)
     assert isolated["TotalCount"] == 0 and not isolated["Items"], isolated
 
+    # Anonymous support submissions go only to the private active admin inbox.
+    message={"Name":"CI contact","Email":"contact@mathworld.test","Category":"suggestion","Subject":"CI support","Message":"A disposable integration test contact message."}
+    assert api("POST","/api/contact",dict(message,Email="not-an-email"))[0]==400
+    assert expect("POST","/api/contact",200,message)["Received"] is True
+    contact=[n for n in expect("GET","/api/notifications/v2",200,token=admin)["Items"] if n["Type"]=="contact"]
+    assert len(contact)==1 and "contact@mathworld.test" in contact[0]["BodyEn"]
+    assert "A disposable integration test contact message." in contact[0]["BodyAr"]
+    assert all(n["Type"]!="contact" for n in expect("GET","/api/notifications/v2",200,token=learner1)["Items"])
+    assert api("PUT",f"/api/notifications/v2/{contact[0]['Id']}/read",token=learner2)[0]==404
+    assert expect("POST","/api/contact",200,dict(message,Subject="CI second support"))["Received"] is True
+    assert api("POST","/api/contact",message)[0]==429
+    print("PASS: private support inbox, validation, ownership and rate limit")
+    
     # First unique solve emits exactly one achievement; retry doesn't duplicate it.
     question_id, correct_option = create_question(admin, 9101)
     # A category containing questions must never move stages: this would
