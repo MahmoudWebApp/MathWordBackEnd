@@ -966,5 +966,88 @@
       "Ar": "دقيقة",
       "En": "minutes"
     }
+  },
+  {
+    "track": 11,
+    "stage": 3,
+    "cat": 88,
+    "skill": 328,
+    "sk": "circles",
+    "family": "circle-center-on-axis-through-two-points",
+    "title": {
+      "Ar": "مركز دائرة مقيد بمحور",
+      "En": "Circle center constrained to an axis"
+    },
+    "q": {
+      "Ar": "تمر دائرة بالنقطتين $(0,0)$ و$(6,8)$، ويقع مركزها على محور الإحداثيات الرأسي. ما الإحداثي الرأسي لمركزها؟",
+      "En": "A circle passes through $(0,0)$ and $(6,8)$, and its center lies on the vertical coordinate axis. Find the center's y-coordinate."
+    },
+    "opts": [
+      "4",
+      "5",
+      "\\frac{25}{4}",
+      "8"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "أخذ متوسط الإحداثيين الرأسيين رغم أن المركز ليس بالضرورة منتصف القطعة.",
+        "En": "Averages the y-coordinates even though the center need not be the midpoint."
+      },
+      {
+        "Ar": "نصف المسافة بين النقطتين ليس الإحداثي الرأسي للمركز في هذه الحالة.",
+        "En": "Half the distance between the points is not the center's y-coordinate here."
+      },
+      null,
+      {
+        "Ar": "استخدم إحداثي إحدى النقطتين المعطاتين مباشرة.",
+        "En": "Uses the y-coordinate of a given point directly."
+      }
+    ],
+    "idea": {
+      "Ar": "نكتب المركز $(0,k)$ ثم نساوي مربعي بعده عن نقطتي الدائرة.",
+      "En": "Write the center as $(0,k)$ and equate its squared distances to the two points."
+    },
+    "formula": "k^2=6^2+(8-k)^2",
+    "steps": [
+      {
+        "Ar": "$k^2=36+64-16k+k^2$",
+        "En": "$k^2=36+64-16k+k^2$"
+      },
+      {
+        "Ar": "$16k=100\\Rightarrow k=25/4$",
+        "En": "$16k=100\\Rightarrow k=25/4$"
+      }
+    ],
+    "sub": {
+      "Ar": "$k^2=36+(8-k)^2$",
+      "En": "$k^2=36+(8-k)^2$"
+    },
+    "result": {
+      "Ar": "$\\frac{25}{4}$",
+      "En": "$\\frac{25}{4}$"
+    },
+    "verify": {
+      "Ar": "عند $k=25/4$ يصبح مربع البعد عن الأصل $625/16$، وعن النقطة الثانية $36+(7/4)^2=625/16$.",
+      "En": "At $k=25/4$, the squared distance from the origin is $625/16$; from the other point it is $36+(7/4)^2=625/16$."
+    },
+    "hints": [
+      {
+        "Ar": "بما أن المركز على المحور الرأسي، فإحداثيه الأفقي صفر.",
+        "En": "Since the center is on the vertical axis, its x-coordinate is zero."
+      },
+      {
+        "Ar": "المسافتان من المركز إلى نقطتي المحيط متساويتان.",
+        "En": "Distances from the center to both circumference points are equal."
+      }
+    ],
+    "error": {
+      "Ar": "افترض أن المركز هو منتصف أي وتر.",
+      "En": "Assumes the center is the midpoint of any chord."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
   }
 ]
