@@ -1,0 +1,922 @@
+[
+  {
+    "key": "growth-v23-grade-1-choose-subtraction-expression-1",
+    "family": "choose-subtraction-expression",
+    "skill_key": "primary-subtraction",
+    "track_code": "grade-1",
+    "track": 1,
+    "stage": 1,
+    "category": 1,
+    "skill": 2,
+    "wizard": {
+      "StageId": 1,
+      "CategoryId": 1,
+      "PrimarySkillId": 2,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        1
+      ],
+      "DifficultyLevel": 2,
+      "Points": 10,
+      "Title": {
+        "Ar": "اختيار عملية الطرح المناسبة",
+        "En": "Choosing the subtraction expression"
+      },
+      "Question": {
+        "Ar": "لدى مريم 9 ملصقات. تريد أن تحتفظ بأربعة منها وتعطي الباقي لصديقتها. أي تعبير يحسب عدد الملصقات التي ستعطيها؟",
+        "En": "Mariam has 9 stickers. She wants to keep four and give the rest to her friend. Which expression finds how many she will give?"
+      },
+      "Options": [
+        {
+          "LatexCode": "9+4",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "الجمع يزيد العدد ولا يفصل الجزء المحتفظ به.",
+            "En": "Addition increases the count rather than removing the kept part."
+          }
+        },
+        {
+          "LatexCode": "9-4",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "4-9",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "بدأ بالجزء المحتفظ به وطرح الكل منه.",
+            "En": "Starts with the kept part and subtracts the whole."
+          }
+        },
+        {
+          "LatexCode": "9-0",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "طرح الصفر يتجاهل الملصقات المحتفظ بها.",
+            "En": "Subtracting zero ignores the kept stickers."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "حدّد العدد الكلي والجزء الذي لن تعطيه مريم.",
+          "En": "Identify the total and the part Mariam will not give."
+        },
+        {
+          "Ar": "لإيجاد الباقي اطرح الجزء المحتفظ به من الكل.",
+          "En": "To find the rest, subtract the kept part from the whole."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "نقسم مجموعة الملصقات إلى جزأين لا يتداخلان: ما تحتفظ به وما تعطيه.",
+          "En": "Partition the stickers into two disjoint parts: those kept and those given."
+        },
+        "FormulaLatex": "9-4",
+        "Steps": [
+          {
+            "Ar": "الكل 9 والجزء المحتفظ به 4.",
+            "En": "The total is 9 and the kept part is 4."
+          },
+          {
+            "Ar": "التعبير المطلوب هو 9 ناقص 4؛ ويساوي 5.",
+            "En": "The required expression is 9 minus 4, which equals 5."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$9-4=5$",
+          "En": "$9-4=5$"
+        },
+        "Result": {
+          "Ar": "$9-4$",
+          "En": "$9-4$"
+        },
+        "Unit": {
+          "Ar": "تعبير حسابي",
+          "En": "Arithmetic expression"
+        },
+        "Verification": {
+          "Ar": "خمسة ملصقات مع الأربعة المحتفظ بها تعيد العدد 9.",
+          "En": "Five given plus four kept restores the total of nine."
+        },
+        "CommonError": {
+          "Ar": "لا تعكس ترتيب الطرح.",
+          "En": "Do not reverse the subtraction."
+        }
+      }
+    }
+  },
+  {
+    "key": "growth-v23-grade-1-detect-skipped-count-word-1",
+    "family": "detect-skipped-count-word",
+    "skill_key": "counting",
+    "track_code": "grade-1",
+    "track": 1,
+    "stage": 1,
+    "category": 81,
+    "skill": 302,
+    "wizard": {
+      "StageId": 1,
+      "CategoryId": 81,
+      "PrimarySkillId": 302,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        1
+      ],
+      "DifficultyLevel": 2,
+      "Points": 10,
+      "Title": {
+        "Ar": "اكتشاف خطوة عد مفقودة",
+        "En": "Detecting a skipped counting step"
+      },
+      "Question": {
+        "Ar": "عدّت ريم بصوت مرتفع: 4، 5، 6، 8، 9. أرادت أن تزيد واحداً في كل مرة. أي عدد نسيته؟",
+        "En": "Reem counts aloud: 4, 5, 6, 8, 9. She intended to increase by one each time. Which number did she skip?"
+      },
+      "Options": [
+        {
+          "LatexCode": "3",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "3 يسبق بداية العد المذكورة.",
+            "En": "3 comes before the stated starting number."
+          }
+        },
+        {
+          "LatexCode": "7",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "8",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "8 موجود بالفعل في القائمة.",
+            "En": "8 is already in the list."
+          }
+        },
+        {
+          "LatexCode": "10",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "10 يأتي بعد نهاية القائمة.",
+            "En": "10 comes after the end of the list."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "قارن كل عدد بالعدد الذي يليه.",
+          "En": "Compare each number with the next one."
+        },
+        {
+          "Ar": "ابحث عن مكان زادت فيه الخطوة على واحد.",
+          "En": "Find the place where the increase is more than one."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "عند العد بزيادة واحد يجب أن يظهر كل عدد بين البداية والنهاية بالترتيب.",
+          "En": "Counting by ones must include every number between the start and end in order."
+        },
+        "FormulaLatex": "6+1",
+        "Steps": [
+          {
+            "Ar": "من 4 إلى 5 ثم 6 زادت كل خطوة واحداً.",
+            "En": "From 4 to 5 to 6, each step increases by one."
+          },
+          {
+            "Ar": "بعد 6 ينبغي أن يأتي 7 قبل 8.",
+            "En": "After 6, 7 should come before 8."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$6+1=7$",
+          "En": "$6+1=7$"
+        },
+        "Result": {
+          "Ar": "$7$",
+          "En": "$7$"
+        },
+        "Unit": {
+          "Ar": "عدد",
+          "En": "Number"
+        },
+        "Verification": {
+          "Ar": "تصبح القائمة 4، 5، 6، 7، 8، 9؛ كل خطوة تساوي واحداً.",
+          "En": "The list becomes 4, 5, 6, 7, 8, 9; every step is one."
+        },
+        "CommonError": {
+          "Ar": "لا تختَر عدداً يظهر أصلاً في القائمة.",
+          "En": "Do not choose a number already in the list."
+        }
+      }
+    }
+  },
+  {
+    "key": "growth-v23-grade-2-repeated-digits-skip-pattern-1",
+    "family": "repeated-digits-skip-pattern",
+    "skill_key": "counting",
+    "track_code": "grade-2",
+    "track": 2,
+    "stage": 1,
+    "category": 81,
+    "skill": 302,
+    "wizard": {
+      "StageId": 1,
+      "CategoryId": 81,
+      "PrimarySkillId": 302,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        2
+      ],
+      "DifficultyLevel": 2,
+      "Points": 10,
+      "Title": {
+        "Ar": "نمط الأعداد ذات الرقمين المتماثلين",
+        "En": "Repeated-digit counting pattern"
+      },
+      "Question": {
+        "Ar": "تكتب هدى الأعداد المكونة من رقمين متماثلين، بدءاً من 11 وحتى 55 مع احتساب الطرفين. كم عدداً تكتب؟",
+        "En": "Huda writes the two-digit numbers with identical digits, from 11 through 55 inclusive. How many numbers does she write?"
+      },
+      "Options": [
+        {
+          "LatexCode": "4",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "أهمل أحد الطرفين أو عد الفواصل بدلاً من الأعداد.",
+            "En": "Omits an endpoint or counts intervals rather than numbers."
+          }
+        },
+        {
+          "LatexCode": "5",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "6",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "66 خارج المجال المحدد.",
+            "En": "66 is outside the stated range."
+          }
+        },
+        {
+          "LatexCode": "11",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "11 مقدار الزيادة بين عددين متتاليين وليس عدد الأعداد.",
+            "En": "11 is the step size, not the number of entries."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "ابدأ بالعدد 11 واكتب العدد التالي ذا الرقمين المتماثلين.",
+          "En": "Start at 11 and write the next repeated-digit number."
+        },
+        {
+          "Ar": "زد 11 في كل خطوة وتوقف عند 55.",
+          "En": "Add 11 each step and stop at 55."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "الأعداد المطلوبة نمط عد بزيادة 11، ونحتسب البداية والنهاية.",
+          "En": "The required numbers form a skip-counting pattern by 11, including both endpoints."
+        },
+        "FormulaLatex": "11,22,33,44,55",
+        "Steps": [
+          {
+            "Ar": "الأعداد هي 11، 22، 33، 44، 55.",
+            "En": "The numbers are 11, 22, 33, 44, 55."
+          },
+          {
+            "Ar": "نعد الأعداد المكتوبة، لا المسافات بينها.",
+            "En": "Count the written numbers, not the gaps between them."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$1+1+1+1+1=5$",
+          "En": "$1+1+1+1+1=5$"
+        },
+        "Result": {
+          "Ar": "$5$",
+          "En": "$5$"
+        },
+        "Unit": {
+          "Ar": "أعداد",
+          "En": "Numbers"
+        },
+        "Verification": {
+          "Ar": "توجد أربع زيادات بمقدار 11 بعد العدد الأول؛ فيكون العدد الكلي خمسة.",
+          "En": "There are four increments of 11 after the first number, giving five entries."
+        },
+        "CommonError": {
+          "Ar": "لا تنسَ احتساب 11 و55.",
+          "En": "Remember to count both 11 and 55."
+        }
+      }
+    }
+  },
+  {
+    "key": "growth-v23-grade-2-length-measurement-gap-1",
+    "family": "length-measurement-gap",
+    "skill_key": "length",
+    "track_code": "grade-2",
+    "track": 2,
+    "stage": 1,
+    "category": 82,
+    "skill": 321,
+    "wizard": {
+      "StageId": 1,
+      "CategoryId": 82,
+      "PrimarySkillId": 321,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        2
+      ],
+      "DifficultyLevel": 2,
+      "Points": 10,
+      "Title": {
+        "Ar": "تصحيح قياس فيه فجوة",
+        "En": "Correcting a measurement gap"
+      },
+      "Question": {
+        "Ar": "غطّى طفل حافة كتاب بثلاث قطع طول كل منها 4 سم، من بداية الحافة إلى نهايتها تماماً. ترك فجوة مقدارها 1 سم بين القطعتين الأولى والثانية، ولم يترك أي فجوة أخرى. كم طول الحافة؟",
+        "En": "A child covers a book edge with three pieces, each 4 cm long, from one endpoint to the other. There is a 1 cm gap between the first and second pieces and no other gap or overlap. How long is the edge?"
+      },
+      "Options": [
+        {
+          "LatexCode": "11",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "طرح الفجوة مع أنها جزء من طول الحافة.",
+            "En": "Subtracts the gap although it is part of the edge length."
+          }
+        },
+        {
+          "LatexCode": "12",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "جمع أطوال القطع وأهمل الفجوة.",
+            "En": "Adds the piece lengths but ignores the gap."
+          }
+        },
+        {
+          "LatexCode": "13",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "14",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "احتسب فجوتين مع وجود فجوة واحدة فقط.",
+            "En": "Counts two gaps when only one exists."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "احسب مجموع أطوال القطع الثلاث أولاً.",
+          "En": "Find the combined length of the three pieces first."
+        },
+        {
+          "Ar": "الفجوة جزء من الحافة، فأضف طولها إلى المجموع.",
+          "En": "The gap is part of the edge, so add its length to the total."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "عند عدم التداخل يساوي طول الحافة مجموع أطوال القطع والفجوات الواقعة بينها.",
+          "En": "With no overlap, the edge length equals the total of the pieces and the gaps between them."
+        },
+        "FormulaLatex": "4+4+4+1",
+        "Steps": [
+          {
+            "Ar": "أطوال القطع الثلاث مجموعها 12 سم.",
+            "En": "The three pieces total 12 cm."
+          },
+          {
+            "Ar": "الفجوة الوحيدة طولها 1 سم، فنضيفها.",
+            "En": "The single gap is 1 cm long, so add it."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$12+1=13$",
+          "En": "$12+1=13$"
+        },
+        "Result": {
+          "Ar": "$13$",
+          "En": "$13$"
+        },
+        "Unit": {
+          "Ar": "سم",
+          "En": "cm"
+        },
+        "Verification": {
+          "Ar": "بطرح الفجوة من 13 سم يبقى 12 سم، وهو مجموع أطوال القطع.",
+          "En": "Removing the gap from 13 cm leaves 12 cm, the combined piece length."
+        },
+        "CommonError": {
+          "Ar": "لا تفترض أن القطع تلامس بعضها عندما يذكر السؤال وجود فجوة.",
+          "En": "Do not assume pieces touch when a gap is specified."
+        }
+      }
+    }
+  },
+  {
+    "key": "growth-v23-grade-6-choose-max-triangle-area-pair-1",
+    "family": "choose-max-triangle-area-pair",
+    "skill_key": "primary-triangle-area",
+    "track_code": "grade-6",
+    "track": 6,
+    "stage": 1,
+    "category": 3,
+    "skill": 14,
+    "wizard": {
+      "StageId": 1,
+      "CategoryId": 3,
+      "PrimarySkillId": 14,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        6
+      ],
+      "DifficultyLevel": 2,
+      "Points": 10,
+      "Title": {
+        "Ar": "اختيار أكبر مساحة مثلث",
+        "En": "Choosing the largest triangle area"
+      },
+      "Question": {
+        "Ar": "أمام مهندس أربعة تصاميم مثلثية. يمثل كل زوج مرتب طول القاعدة والارتفاع العمودي بالسنتيمتر. أي زوج يعطي أكبر مساحة؟",
+        "En": "An engineer has four triangular designs. Each ordered pair gives the base and its perpendicular height in centimetres. Which pair produces the greatest area?"
+      },
+      "Options": [
+        {
+          "LatexCode": "(12,3)",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "مساحته 18 سم²، أقل من 21 سم².",
+            "En": "Its area is 18 cm², less than 21 cm²."
+          }
+        },
+        {
+          "LatexCode": "(8,5)",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "مساحته 20 سم²، أقل من 21 سم².",
+            "En": "Its area is 20 cm², less than 21 cm²."
+          }
+        },
+        {
+          "LatexCode": "(7,6)",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "(10,4)",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "مساحته 20 سم²، أقل من 21 سم².",
+            "En": "Its area is 20 cm², less than 21 cm²."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "لا يكفي اختيار أطول قاعدة.",
+          "En": "Choosing the longest base alone is not enough."
+        },
+        {
+          "Ar": "اضرب قاعدة كل تصميم في ارتفاعه العمودي وقارن النواتج.",
+          "En": "Multiply each base by its perpendicular height and compare the products."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "مساحة المثلث نصف حاصل ضرب القاعدة في ارتفاعها العمودي المقابل؛ لذلك ترتيب المساحات هو ترتيب الحواصل.",
+          "En": "Triangle area is half the product of base and corresponding perpendicular height, so area ordering follows product ordering."
+        },
+        "FormulaLatex": "A=\\frac12 bh",
+        "Steps": [
+          {
+            "Ar": "حواصل الضرب بالترتيب: 36، 40، 42، 40.",
+            "En": "The products in order are 36, 40, 42, 40."
+          },
+          {
+            "Ar": "أكبر حاصل ضرب 42، ومساحته 21 سم².",
+            "En": "The largest product is 42, giving area 21 cm²."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$42/2=21$",
+          "En": "$42/2=21$"
+        },
+        "Result": {
+          "Ar": "$(7,6)$",
+          "En": "$(7,6)$"
+        },
+        "Unit": {
+          "Ar": "الزوج بالسنتيمتر",
+          "En": "Pair in cm"
+        },
+        "Verification": {
+          "Ar": "المساحات الأربع 18 و20 و21 و20 سم²، لذا توجد مساحة كبرى واحدة.",
+          "En": "The four areas are 18, 20, 21 and 20 cm², so the maximum is unique."
+        },
+        "CommonError": {
+          "Ar": "لا تقارن القواعد أو الارتفاعات وحدها.",
+          "En": "Do not compare bases or heights alone."
+        }
+      }
+    }
+  },
+  {
+    "key": "growth-v23-grade-6-fraction-expression-order-1",
+    "family": "fraction-expression-order",
+    "skill_key": "p-fractions-decimals-fraction-operations",
+    "track_code": "grade-6",
+    "track": 6,
+    "stage": 1,
+    "category": 21,
+    "skill": 95,
+    "wizard": {
+      "StageId": 1,
+      "CategoryId": 21,
+      "PrimarySkillId": 95,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        6
+      ],
+      "DifficultyLevel": 2,
+      "Points": 10,
+      "Title": {
+        "Ar": "أثر الأقواس في حساب الكسور",
+        "En": "Effect of parentheses on fraction operations"
+      },
+      "Question": {
+        "Ar": "احسب الفرق بين التعبيرين: $A=\\frac34-\\left(\\frac12-\\frac14\\right)$ و$B=\\left(\\frac34-\\frac12\\right)-\\frac14$. ما قيمة $A-B$؟",
+        "En": "Compute the difference between $A=\\frac34-\\left(\\frac12-\\frac14\\right)$ and $B=\\left(\\frac34-\\frac12\\right)-\\frac14$. What is $A-B$?"
+      },
+      "Options": [
+        {
+          "LatexCode": "0",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "يفترض أن تغيير الأقواس لا يؤثر في الطرح، لكن A وB مختلفان.",
+            "En": "Assumes changing parentheses has no effect on subtraction, but A and B differ."
+          }
+        },
+        {
+          "LatexCode": "\\frac14",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "هذه قيمة الفرق داخل قوس A، لا الفرق النهائي.",
+            "En": "This is the value inside the parentheses of A, not the final difference."
+          }
+        },
+        {
+          "LatexCode": "\\frac12",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "-\\frac12",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "طرح A من B بدلاً من B من A.",
+            "En": "Subtracts A from B rather than B from A."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "احسب كل تعبير على حدة وابدأ بالأقواس.",
+          "En": "Evaluate each expression separately, starting with parentheses."
+        },
+        {
+          "Ar": "اكتب النصف على صورة ربعين، ثم احسب الفرق بين النتيجتين.",
+          "En": "Write one half as two quarters, then find the difference of the results."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "الطرح ليس تجميعياً؛ نحترم الأقواس ونوحد المقامات قبل الطرح.",
+          "En": "Subtraction is not associative; respect parentheses and use common denominators."
+        },
+        "FormulaLatex": "a-(b-c)=a-b+c,\\quad (a-b)-c=a-b-c",
+        "Steps": [
+          {
+            "Ar": "$A=\\frac34-\\frac14=\\frac12$.",
+            "En": "$A=\\frac34-\\frac14=\\frac12$."
+          },
+          {
+            "Ar": "$B=\\frac14-\\frac14=0$.",
+            "En": "$B=\\frac14-\\frac14=0$."
+          },
+          {
+            "Ar": "نطرح $A-B=\\frac12-0$.",
+            "En": "Subtract $A-B=\\frac12-0$."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$\\frac12-0=\\frac12$",
+          "En": "$\\frac12-0=\\frac12$"
+        },
+        "Result": {
+          "Ar": "$\\frac12$",
+          "En": "$\\frac12$"
+        },
+        "Unit": {
+          "Ar": "بلا وحدة قياس",
+          "En": "Dimensionless"
+        },
+        "Verification": {
+          "Ar": "الفرق العام بين التعبيرين يساوي $2c$؛ هنا $2\\times\\frac14=\\frac12$.",
+          "En": "The general difference between the expressions is $2c$; here $2\\times\\frac14=\\frac12$."
+        },
+        "CommonError": {
+          "Ar": "لا تحذف الأقواس دون مراعاة إشارة الطرح.",
+          "En": "Do not remove parentheses without accounting for the minus sign."
+        }
+      }
+    }
+  },
+  {
+    "key": "growth-v23-grade-9-inequality-interval-endpoint-translation-1",
+    "family": "inequality-interval-endpoint-translation",
+    "skill_key": "solve-linear-inequalities",
+    "track_code": "grade-9",
+    "track": 9,
+    "stage": 2,
+    "category": 84,
+    "skill": 327,
+    "wizard": {
+      "StageId": 2,
+      "CategoryId": 84,
+      "PrimarySkillId": 327,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        9
+      ],
+      "DifficultyLevel": 2,
+      "Points": 10,
+      "Title": {
+        "Ar": "ترجمة شرطين إلى متباينة",
+        "En": "Translating two bounds into an inequality"
+      },
+      "Question": {
+        "Ar": "يقبل جهاز عدداً حقيقياً إذا كان أكبر من 2 ولا يتجاوز 7. أي متباينة تصف جميع القيم المقبولة بدقة؟",
+        "En": "A device accepts a real number if it is greater than 2 and does not exceed 7. Which inequality describes exactly all accepted values?"
+      },
+      "Options": [
+        {
+          "LatexCode": "2\\le x\\le7",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "تضم القيمة 2 مع أنها غير مقبولة.",
+            "En": "Includes 2 although it is not accepted."
+          }
+        },
+        {
+          "LatexCode": "2<x<7",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "تستبعد القيمة 7 مع أنها مقبولة.",
+            "En": "Excludes 7 although it is accepted."
+          }
+        },
+        {
+          "LatexCode": "2<x\\le7",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "2\\le x<7",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "تضم 2 وتستبعد 7، خلاف الشرطين.",
+            "En": "Includes 2 and excludes 7, contrary to both bounds."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "حدّد إن كانت كل قيمة حدية مسموحة أم مستبعدة.",
+          "En": "Decide whether each endpoint is allowed or excluded."
+        },
+        {
+          "Ar": "استخدم رمزاً صارماً للحد المستبعد ورمز المساواة للحد المسموح.",
+          "En": "Use a strict sign for the excluded endpoint and an inclusive sign for the allowed endpoint."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "تتحقق المتباينة المركبة عندما يتحقق الشرطان معاً.",
+          "En": "A compound inequality is satisfied when both conditions hold simultaneously."
+        },
+        "FormulaLatex": "x>a\\ \\land\\ x\\le b\\iff a<x\\le b",
+        "Steps": [
+          {
+            "Ar": "أكبر من 2 يعني $x>2$.",
+            "En": "Greater than 2 means $x>2$."
+          },
+          {
+            "Ar": "لا يتجاوز 7 يعني $x\\le7$.",
+            "En": "Does not exceed 7 means $x\\le7$."
+          },
+          {
+            "Ar": "نجمع الشرطين: $2<x\\le7$.",
+            "En": "Combine the conditions: $2<x\\le7$."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$x>2,\\ x\\le7\\implies2<x\\le7$",
+          "En": "$x>2,\\ x\\le7\\implies2<x\\le7$"
+        },
+        "Result": {
+          "Ar": "$2<x\\le7$",
+          "En": "$2<x\\le7$"
+        },
+        "Unit": {
+          "Ar": "بلا وحدة قياس",
+          "En": "Dimensionless"
+        },
+        "Verification": {
+          "Ar": "القيمة 2 مرفوضة، و7 مقبولة، و4 مقبولة، و8 مرفوضة.",
+          "En": "2 is rejected, 7 and 4 are accepted, and 8 is rejected."
+        },
+        "CommonError": {
+          "Ar": "لا تخلط بين أكبر من وأكبر من أو يساوي.",
+          "En": "Do not confuse greater than with greater than or equal to."
+        }
+      }
+    }
+  },
+  {
+    "key": "growth-v23-grade-9-ordered-code-no-equal-neighbors-1",
+    "family": "ordered-code-no-equal-neighbors",
+    "skill_key": "sample-spaces",
+    "track_code": "grade-9",
+    "track": 9,
+    "stage": 2,
+    "category": 85,
+    "skill": 336,
+    "wizard": {
+      "StageId": 2,
+      "CategoryId": 85,
+      "PrimarySkillId": 336,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        9
+      ],
+      "DifficultyLevel": 2,
+      "Points": 10,
+      "Title": {
+        "Ar": "فضاء عينة لرمز بثلاث خانات",
+        "En": "Sample space for a three-position code"
+      },
+      "Question": {
+        "Ar": "يتكون رمز من ثلاث خانات، كل خانة إما A أو B. لا يجوز أن تتساوى خانتان متجاورتان. كم رمزاً مختلفاً يحقق الشرط؟",
+        "En": "A code has three positions, each either A or B. No two adjacent positions may be identical. How many different codes satisfy the condition?"
+      },
+      "Options": [
+        {
+          "LatexCode": "2",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "4",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "بعد اختيار الخانة الأولى لا تبقى للخانتين التاليتين اختيارات حرة.",
+            "En": "After choosing the first position, neither later position is free."
+          }
+        },
+        {
+          "LatexCode": "6",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "هذا العدد لا يراعي أن كل خانة بعد الأولى محددة بالشرط.",
+            "En": "This count ignores that each later position is forced by the condition."
+          }
+        },
+        {
+          "LatexCode": "8",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "يعد جميع الرموز دون استبعاد الخانات المتجاورة المتساوية.",
+            "En": "Counts all codes without excluding equal adjacent positions."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "جرّب بدء الرمز بالحرف A ثم بالحرف B.",
+          "En": "Try starting with A, then with B."
+        },
+        {
+          "Ar": "بعد اختيار حرف، الحرف التالي يجب أن يكون الآخر.",
+          "En": "After choosing a letter, the next letter must be the other one."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "نستخدم مبدأ الضرب عندما نعد الاختيارات المتتابعة المسموح بها؛ للخانة الأولى خياران وكل خانة تالية محددة.",
+          "En": "Use the multiplication principle for sequential allowed choices; the first position has two options and each subsequent position is forced."
+        },
+        "FormulaLatex": "2\\times1\\times1",
+        "Steps": [
+          {
+            "Ar": "إذا بدأ الرمز بـA فإن الرمز الوحيد الممكن هو ABA.",
+            "En": "If the code starts with A, the only possible code is ABA."
+          },
+          {
+            "Ar": "إذا بدأ بـB فإن الرمز الوحيد الممكن هو BAB.",
+            "En": "If it starts with B, the only possible code is BAB."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$2\\times1\\times1=2$",
+          "En": "$2\\times1\\times1=2$"
+        },
+        "Result": {
+          "Ar": "$2$",
+          "En": "$2$"
+        },
+        "Unit": {
+          "Ar": "رموز",
+          "En": "Codes"
+        },
+        "Verification": {
+          "Ar": "الرمزان ABA وBAB يحققان الشرط، ولا توجد بداية ثالثة.",
+          "En": "ABA and BAB satisfy the rule, and there is no third starting letter."
+        },
+        "CommonError": {
+          "Ar": "لا تستعمل ثمانية رموز ممكنة دون مراعاة القيد.",
+          "En": "Do not count all eight possible codes without enforcing the restriction."
+        }
+      }
+    }
+  }
+]
