@@ -17,7 +17,10 @@ public sealed class LearningTracksController(AppDbContext db,LearningTrackServic
     public async Task<IActionResult> List(int stageId,CancellationToken ct)
     {
         if(!await db.EducationalStages.AnyAsync(s=>s.Id==stageId,ct))return NotFound();
-        var items=tracks.Enabled?await tracks.VisibleTracks().Where(t=>t.StageId==stageId)
+        // The grouped coverage query below is the visibility check for this
+        // public list. Avoid evaluating the full valid-link EXISTS twice.
+        // Empty or invalid tracks still never enter the response.
+        var items=tracks.Enabled?await db.LearningTracks.AsNoTracking().Where(t=>t.IsPublished&&t.StageId==stageId)
             .OrderBy(t=>t.SortOrder).ThenBy(t=>t.Id).ToListAsync(ct):new List<LearningTrack>();
         var result=new List<object>();
         if(items.Count==0)return Ok(new{Enabled=tracks.Enabled,Items=result});
