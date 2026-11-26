@@ -1,4 +1,5 @@
 import {createHash} from 'node:crypto';
+import {readFileSync} from 'node:fs';
 
 export function chunkImports(items,limit=50,maxBytes=1800000){
  if(!Array.isArray(items)||!Number.isInteger(limit)||limit<1||limit>50||!Number.isSafeInteger(maxBytes)||maxBytes<1)throw Error('Invalid import limit');
@@ -27,6 +28,12 @@ export function pressureController({floor=200,ceiling=5000,slowMs=2000,criticalM
  }};
 }
 const kinds=['amendments','new-existing','new-missing'];
+const heldDraftKeys = new Set(
+ ['school-launch-draft-holds.json', 'reviewed-staged-holds.json'].flatMap(file =>
+  Object.keys(JSON.parse(readFileSync(new URL(file, import.meta.url), 'utf8')))
+ )
+);
+
 export function selectReviewed(batch){
  if(!kinds.includes(batch.Kind)||!Array.isArray(batch.Items)||!Array.isArray(batch.Drafts)||!Number.isInteger(batch.MissingMappings))throw Error('Invalid catalog response');
  const keys=new Set(batch.Items.map(x=>batch.Kind==='amendments'?'g1-amend-'+x.ProblemId:x.ContentKey));
@@ -34,7 +41,7 @@ export function selectReviewed(batch){
  for(const d of batch.Drafts){
   if(!keys.has(d.ContentKey)||seen.has(d.ContentKey))throw Error('Unexpected draft identity');seen.add(d.ContentKey);
   if(d.Status==='Published'){published++;continue;}
-  if(batch.MissingMappings!==0||d.MatchesCandidate!==true||!['Draft','PendingReview','Approved','NeedsChanges'].includes(d.Status)||d.PublishedProblemId!=null){held.push(d.ContentKey);continue;}
+  if(heldDraftKeys.has(d.ContentKey)||batch.MissingMappings!==0||d.MatchesCandidate!==true||!['Draft','PendingReview','Approved','NeedsChanges'].includes(d.Status)||d.PublishedProblemId!=null){held.push(d.ContentKey);continue;}
   if(!Number.isSafeInteger(d.Id)||d.Id<=0||!Number.isSafeInteger(d.Revision)||d.Revision<0)throw Error('Invalid draft revision');
   ready.push({id:d.Id,key:d.ContentKey,revision:d.Revision,status:d.Status,kind:batch.Kind,number:batch.Number});
  }

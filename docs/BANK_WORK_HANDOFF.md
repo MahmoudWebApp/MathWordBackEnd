@@ -1,5 +1,50 @@
 # MathWorld bank — Work / ChatGPT handoff
 Updated 2026-11-26. This is a shared handoff, not a scheduler or autonomous agent.
+## Offline editorial checkpoint — 2026-11-26, remaining staged set and earlier amendments
+
+Audited 29 additional archived records. Seventeen had previously been source-matched and linked, outside the 20-draft school launch cohort and the 22-draft placement review. Recovered their archived IDs from the six import manifests in order, corroborated the order against the recorded launch and placement IDs, and retained stable content keys for the next authenticated reconciliation. Their current IDs, revisions and statuses remain unverified. Also audited the 12 legacy sources in #133–184 outside the 40 historically confirmed published amendments. The 592-source offline audit from #185 and 327-candidate expansion audit are complete in the preceding checkpoints.
+
+| Archived wizard draft | Stable content key | Independent answer and decision |
+|---|---|---|
+| 972 | `g1-gap-01-hypothesis-testing` | 0.85. Complement of Type II error at the specified alternative. |
+| 983 | `g1-depth-03-hypothesis-decision` | Fail to reject H₀ since 0.032 > 0.01. Hold English-only shared options. |
+| 992 | `g1-grade-gap-reverse-percentage` | 60. Retain the existing hold for 18 and 30% with an unknown total. |
+| 993 | `g1-grade-gap-two-step-notebooks` | 8. Retain the fixed-delivery equal-price hold against source #624. |
+| 995 | `g1-grade-gap-triangle-base-from-area` | 10 cm. Retain the inverse-dimension hold against the related source #613. |
+| 997 | `g1-grade-depth-compare-difference` | 2. Retain the Layla and Samer sticker-comparison hold against source #762. |
+| 1010 | `g1-university-depth-independent-means` | 5. Independent means contribute squared standard errors to the variance of their difference. |
+| 1011 | `g1-university-depth-normal-mean-tail` | 0.1587. Standard error 2, cutoff z=1. At reconciliation, verify the stem communicates independent observations and clarify that the two regions split at 52. |
+| 1013 | `g1-university-depth-test-left-tail` | Reject H₀ because −1.9 < −1.645. Hold English-only shared options. |
+| 1014 | `g1-university-depth-secant-linear` | 11/5. The secant intersects the horizontal axis at 11/5. Unlike Newton iteration, the update uses two function values. |
+| 1015 | `g1-university-depth-bisection-bracket` | [1, 2.5]. The task asks which subinterval retains a sign change, extending source #1623's midpoint task. |
+| 1016 | `g1-university-depth-composite-trapezoid-table` | 11.5. Composite quadrature obtained by summing the three panel areas. |
+| 1017 | `g1-university-depth-gauss-seidel-update` | (3, 2). The second update uses the new x, distinguishing it from source #1632's Jacobi update. |
+| 1018 | `g1-university-depth-stationary-classification` | Local maximum. Hold English-only shared options and change the verification's Arabic verb to «تتغير». |
+| 1019 | `g1-university-depth-closed-interval-endpoints` | 8. An endpoint beats the interior stationary point, extending source #1701's interior maximum. |
+| 1020 | `g1-university-depth-circle-linear-objective` | 25. Hold the scaled Cauchy–Schwarz problem against source #1702. |
+| 1021 | `g1-university-depth-convexity-cross-term` | abs(a) ≤ 2, including the semidefinite boundary. |
+
+| Legacy source | Independent answer and decision |
+|---|---|
+| #140 | 7/64. Retain the existing hold for independent fair tosses. |
+| #143 | y=6e^(5x). Hold as the same proportional-growth initial-value method as #864. |
+| #144 | At least one interior zero by continuity and opposite endpoint signs. The line f(x)=2.5x−3 refutes the distractors. |
+| #145 | Continuity at 1. Hold mixed-language shared options for runtime verification. |
+| #147 | A finite real limit. Hold mixed-language shared options for runtime verification. |
+| #148 | The series of 1/n². Integral tests distinguish p=2 from p=1, p=1/2 and p=0. |
+| #153, #165, #177 | 14, 19, 24 with constant differences 3, 4, 5. Retain their archived model-assumption holds. The source #177 wording history guard remains unresolved. |
+| #159, #171, #183 | 1/7, 2/9, 3/11 under uniform random draws. Retain existing holds and fix Arabic singular and dual in #159 and #171 through editorial review. |
+
+All 29 marked answers agree with the independent calculations or theorem checks. Verified bilingual stems, options, hints, worked steps, laws, feedback and verification, and checked the 17 staged links against the inventory fixture. No additional exact normalized repository matches in either language of the 749-pair comparison pool. Eighteen records stay held, including seven new decisions. Eleven may proceed to current reconciliation. Revised explanatory suggestions remain attached to the audit because the staged content digest must be checked against the original manifest before edits.
+
+The reviewed runner now excludes the established school hold keys and the seven newly held keys during preview and publication revalidation. The test verifies that a saved plan cannot publish a newly listed hold. An offline rehearsal simulating the archived 17 staged records selects nine and holds eight. This rehearsal supplies synthetic draft states and creates no server plan.
+
+[Cambridge Primary 0096](https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-primary/curriculum/mathematics/) and [CCSS](https://www.thecorestandards.org/assets/CCSSI_Math%20Standards.pdf) support additive comparison (1.OA.A.1), base-height reasoning (6.G.A.1) and percentage recovery (6.RP.A.3c). CCSS 7.EE.B.4a supports the Grade 7 progression for the two-step fixed-fee model. [Cambridge Lower Secondary 0862](https://static1.squarespace.com/static/5214ff22e4b06e19d62917ee/t/64d511e7b02f11373c39ddbd/1691685351971/Math%2BCurriculum%2BFramework.pdf) explicitly distinguishes independence in 9Sp.02. The [OECD PISA 2022 mathematics framework](https://www.oecd.org/content/dam/oecd/en/publications/reports/2023/08/pisa-2022-assessment-and-analytical-framework_a124aec8/dfe0bf9c-en.pdf) supports distinguishing formulation of the fixed-fee problem from the routine subtraction task. The [MAA CUPM guidance](https://maa.org/resource/cupm-guide/) and [Numerical Analysis course report](https://maa.org/wp-content/uploads/2024/06/Numerical-Analysis.pdf) support roots, quadrature and iterative systems. [MSC2020](https://mathscinet.ams.org/msc/pdfs/classifications2020.pdf) distinguishes hypothesis tests (62F03), quadrature (65D32), stationary iterative linear solvers (65F10), and convex optimization (90C25).
+
+All four PR workflows passed on parent dec97595d0cc6ee835e2115f4244aebac4ffaaaa. Local verification passed 51 Node tests, 14 G1 scripts and 29 independent checks. Archived `launch-coverage` reports 1,284 missing assignments including 33 category links. `launch-prepare` retained 111 candidates and bulk preparation retained 230. All local batches use `Confirm=false` with at most 50 items and 1.8 MB. Authored 0, published 0, and made no production requests.
+
+Reconcile the priority scope through the official Admin path starting at wizard draft #400. Check current inventory and draft revisions and filter the fresh preview by the recorded decisions. Below source #133, consult the already-published amendment evidence and active hold records before selecting anything for further review. The live five-category, 20-per-category goal remains open.
+
 ## Offline editorial checkpoint — 2026-11-26, legacy source coverage #185–1726 complete
 
 Audited 99 existing source records. The batch covers every archived source #1637–1726 plus nine earlier sources previously omitted from the sequential review because they were held separately. #1658 and #1684 have complete records in the model-assumption holds manifest. Across checkpoints, all 592 sources at or above #185 in the two archived hint inventories have now had an offline audit, including the 25 sources matched earlier to wizard drafts #400–424. All 327 original expansion candidates were audited in earlier checkpoints. Current draft revisions and publication status still require authenticated reconciliation.

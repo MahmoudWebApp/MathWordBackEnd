@@ -9,3 +9,29 @@ import {pressureController} from './batch-runner.mjs';
 test('adaptive pacing slows down and stops after sustained or severe latency',()=>{const p=pressureController();assert.equal(p.observe(100).delay,200);assert.equal(p.observe(2200).delay,500);assert.equal(p.observe(2300).delay,1000);assert.equal(p.observe(2400).stopped,true);assert.equal(pressureController().observe(8000).stopped,true);const q=pressureController();q.observe(3000);assert.equal(q.observe(100).delay,400);});
 test('confirmed write is journaled before pressure stop; no second write or retry',async()=>{const b={...batch,Items:[{ProblemId:1},{ProblemId:2}],Drafts:[draft(1),draft(2)]};let writes=0;const req=async(method,route)=>{if(route==='/reviewed-bank')return {PublicationEnabled:true,Batches:[{Kind:'amendments',Number:1}]};if(method==='GET')return b;writes++;return {Status:'Published',PublishedProblemId:1};};const p=await preview(req);let ticks=[0,100,100,8500],events=[];await assert.rejects(()=>publish(req,p,{approvedDigest:digest(p),note:'Reviewed candidate content',now:()=>ticks.shift(),sleep:async()=>{},onEvent:e=>events.push(e)}),/Pressure threshold/);assert.equal(writes,1);assert.equal(events.length,1);});
 test('no retry on uncertain write outcome',async()=>{let writes=0;const req=async(method,route)=>{if(route==='/reviewed-bank')return {PublicationEnabled:true,Batches:[{Kind:'amendments',Number:1}]};if(method==='GET')return batch;writes++;throw Error('HTTP 503');};const p=await preview(req);await assert.rejects(()=>publish(req,p,{approvedDigest:digest(p),note:'Reviewed candidate content',sleep:async()=>{}}),/503/);assert.equal(writes,1);});
+
+test('staged editorial holds stay excluded from preview and a saved publication plan', async () => {
+ const heldKeys = ['g1-grade-gap-reverse-percentage', 'g1-university-depth-circle-linear-objective'];
+ const drafts = heldKeys.map((ContentKey, index) => ({...draft(992 + index), ContentKey}));
+ const staged = {
+  Kind: 'new-existing', Number: 1, MissingMappings: 0,
+  Items: heldKeys.map(ContentKey => ({ContentKey})), Drafts: drafts
+ };
+ const request = async (method, route) => {
+  assert.equal(method, 'GET', 'held drafts must not be published');
+  return route === '/reviewed-bank'
+   ? {PublicationEnabled: true, Batches: [{Kind: staged.Kind, Number: staged.Number}]}
+   : staged;
+ };
+ const plan = await preview(request);
+ assert.deepEqual(plan.ready, []);
+ assert.deepEqual(plan.held, heldKeys);
+ const savedPlan = {
+  ...plan,
+  ready: [{id: drafts[1].Id, key: heldKeys[1], revision: 1, status: 'Draft', kind: staged.Kind, number: 1}]
+ };
+ await assert.rejects(
+  () => publish(request, savedPlan, {approvedDigest: digest(savedPlan), note: 'Reviewed candidate content', delay: 0}),
+  /Plan changed/
+ );
+});

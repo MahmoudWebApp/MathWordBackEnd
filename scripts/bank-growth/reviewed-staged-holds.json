@@ -1,0 +1,9 @@
+{
+  "g1-depth-03-hypothesis-decision": "Archived draft 983 uses only English text in the shared answer choices. Verify both locales before release.",
+  "g1-university-depth-test-left-tail": "Archived draft 1013 uses only English text in the shared answer choices. Verify both locales before release.",
+  "g1-university-depth-stationary-classification": "Archived draft 1018 uses only English text in the shared answer choices. Verify both locales and correct the Arabic verification wording.",
+  "g1-university-depth-circle-linear-objective": "Archived draft 1020 repeats the Cauchy–Schwarz bound and equality case of source 1702 with scaled parameters. Keep one launch representative.",
+  "g1-amend-143": "Legacy source 143 and source 864 both solve the same proportional-growth initial-value problem. Select one launch representative.",
+  "g1-amend-145": "Legacy source 145 puts Arabic and English into shared text options. Verify rendering in both locales before release.",
+  "g1-amend-147": "Legacy source 147 puts Arabic and English into shared text options. Verify rendering in both locales before release."
+}
