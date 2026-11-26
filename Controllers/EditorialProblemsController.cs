@@ -471,10 +471,19 @@ public sealed partial class EditorialProblemsController:ControllerBase
         await using var tx=await db.Database.BeginTransactionAsync(ct);
         if(await Actor(AccountRolePolicy.EditDrafts,true,ct) is null)return Forbid();
         var d=await Lock(id,ct);if(d is null)return NotFound();
-        if(d.Revision!=input.Revision||d.Revision==int.MaxValue||d.EditorialStatus is not ("Draft" or "NeedsChanges"))
+        var reviewing=Admin&&d.SubmittedAtUtc!=null&&d.EditorialStatus is ("PendingReview" or "Approved")&&
+            await db.Users.AnyAsync(u=>u.Id==d.OwnerUserId&&u.Role==AccountRolePolicy.Supervisor,ct);
+        if(d.Revision!=input.Revision||d.Revision==int.MaxValue||(!reviewing&&d.EditorialStatus is not ("Draft" or "NeedsChanges")))
             return Conflict(new{Message="DraftChangedOrLocked"});
+        // Only an active admin can correct a submitted supervisor problem.
+        // Revalidate before saving and invalidate any earlier approval.
+        if(reviewing){
+            var errors=await Validate(input.Content,ct,d);
+            if(errors.Count>0)return BadRequest(new{Message="EditorialValidationFailed",Errors=errors});
+            d.EditorialStatus="PendingReview";d.ReviewedAtUtc=null;d.ReviewedByUserId=null;d.ReviewNote=null;
+        }
         Save(d,input.Content,json,ActorId);d.Revision++;
-        Audit(d,"EditorialDraftUpdated");await db.SaveChangesAsync(ct);await tx.CommitAsync(ct);return Ok(View(d));
+        Audit(d,reviewing?"EditorialSubmissionEdited":"EditorialDraftUpdated");await db.SaveChangesAsync(ct);await tx.CommitAsync(ct);return Ok(View(d));
     }
     private async Task<List<string>> Validate(WizardProblem p,CancellationToken ct,CurriculumDraftItem d)
     {
