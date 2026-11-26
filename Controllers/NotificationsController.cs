@@ -129,7 +129,8 @@ public sealed class NotificationsController : ControllerBase
     private async Task EnsureDailyChallengeReminder(int userId,CancellationToken ct)
     {
         if(!User.IsInRole("Student"))return;
-        var day=DateTime.UtcNow.Date;
+        var now=DateTime.UtcNow;
+        var day=now.Date;
         var next=day.AddDays(1);
         const string type="daily-challenge";
         var today=_db.UserNotifications.Where(n=>n.UserId==userId&&n.Type==type&&n.CreatedAtUtc>=day&&n.CreatedAtUtc<next);
@@ -138,20 +139,36 @@ public sealed class NotificationsController : ControllerBase
         if(student is null||!PremiumEntitlement.IsActive(student)||student.CurrentStageId is null)return;
         var tracks=HttpContext.RequestServices.GetRequiredService<LearningTrackService>();
         var track=await tracks.ActiveAsync(student.CurrentStageId,student.CurrentTrackId,ct);
-        if(tracks.Enabled&&track is null)return;
-        var scope=TrackPractice.Scope(HttpContext.RequestServices.GetRequiredService<IConfiguration>(),track?.Id);
-        var prior=TrackPractice.For(_db,scope).Where(p=>p.UserId==userId&&
-            ((p.Attempts>0&&(p.FirstAttemptAt??p.LastAttemptAt)<day)||(p.IsSolved&&p.SolvedAt.HasValue&&p.SolvedAt.Value<day))).Select(p=>p.ProblemId);
+        if(tracks.Enabled&&student.CurrentTrackId.HasValue&&track is null)return;
+        var config=HttpContext.RequestServices.GetRequiredService<IConfiguration>();
+        var guided=config.GetValue<bool>("LearningSessions:Enabled");
         var eligible=track is null?_db.Problems.AsNoTracking().Where(p=>p.StageId==student.CurrentStageId&&p.Category.StageId==student.CurrentStageId):tracks.ValidProblems(track.Id);
-        if(!await eligible.AnyAsync(p=>!prior.Contains(p.Id),ct))return;
+        if(guided)
+        {
+            var existing=await _db.LearningSessions.AsNoTracking()
+                .Where(s=>s.UserId==userId&&s.Kind=="daily"&&s.CreatedAtUtc>=day&&s.CreatedAtUtc<next)
+                .Select(s=>new{s.StageId,s.TrackId,s.CompletedAtUtc,s.AbandonedAtUtc}).SingleOrDefaultAsync(ct);
+            if(existing is not null)
+            {
+                if(existing.StageId!=student.CurrentStageId||existing.TrackId!=track?.Id||existing.CompletedAtUtc.HasValue||existing.AbandonedAtUtc.HasValue)return;
+            }
+            else if(await eligible.Where(p=>p.Options.Count==4&&p.Options.Count(o=>o.IsCorrect)==1).Take(5).CountAsync(ct)<5)return;
+        }
+        else
+        {
+            var scope=TrackPractice.Scope(config,track?.Id);
+            var prior=TrackPractice.For(_db,scope).Where(p=>p.UserId==userId&&
+                ((p.Attempts>0&&(p.FirstAttemptAt??p.LastAttemptAt)<day)||(p.IsSolved&&p.SolvedAt.HasValue&&p.SolvedAt.Value<day))).Select(p=>p.ProblemId);
+            if(!await eligible.AnyAsync(p=>!prior.Contains(p.Id),ct))return;
+        }
         await using var tx=await _db.Database.BeginTransactionAsync(ct);
         await _db.Database.SqlQuery<int>($"SELECT 1 AS \"Value\" FROM pg_advisory_xact_lock({-928631}, {userId})").SingleAsync(ct);
-        if(await today.AnyAsync(ct))return;
+        if(DateTime.UtcNow.Date!=day||await today.AnyAsync(ct))return;
         _db.UserNotifications.Add(new UserNotification{UserId=userId,Type=type,
             TitleAr="تحدي اليوم",TitleEn="Daily challenge",
             BodyAr="تدرب على مسائل صفك أو مستواك اليوم وتابع إنجازك.",
             BodyEn="Practice today's questions for your grade or level and continue your progress.",
-            TargetPath="/dashboard/daily-challenge",CreatedAtUtc=DateTime.UtcNow});
+            TargetPath=guided?"/dashboard/sessions/daily":"/dashboard/daily-challenge",CreatedAtUtc=now});
         await _db.SaveChangesAsync(ct);
         await tx.CommitAsync(ct);
         _stream.Notify(userId);

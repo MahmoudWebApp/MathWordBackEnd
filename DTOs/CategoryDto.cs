@@ -40,6 +40,8 @@ namespace MathWorldAPI.DTOs
 
         [Description("معرف المرحلة الدراسية التي تنتمي لها الفئة")]
         public int StageId { get; set; }
+        public int? TrackId { get; set; }
+        public int? TrackRevision { get; set; }
     }
 
     public class UpdateCategoryDto

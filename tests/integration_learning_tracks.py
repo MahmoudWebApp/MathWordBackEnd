@@ -1,5 +1,5 @@
 """Track mapping integration, invoked inside the existing disposable journey suite."""
-import os, subprocess, io, zipfile, urllib.request, json
+import os, subprocess, io, zipfile, urllib.request, urllib.error, json
 from pathlib import Path
 from integration_learning_journey import expect, BASE
 def sql(q):
@@ -152,6 +152,36 @@ def verify_tracks(admin, student, uid, stage1, stage2):
     assert len(expect("GET",f"/api/stages/{stage1}/tracks",200)["Items"])==1
     detail=expect("GET",f"/api/learning-tracks/{tid}",200)
     assert detail["Categories"][0]["IsFree"] and detail["Categories"][0]["ProblemsCount"]==1
+    # Real multipart scoped creation; empty category must not change the live
+    # track catalogue or Free access, and stale revision must not create a row.
+    def create_scoped(revision, stage, token):
+        fields={"NameAr":"فئة اختبار الربط","NameEn":"CI scoped category","StageId":stage,"TrackId":tid,"TrackRevision":revision,"Order":10000}
+        boundary="MathWorldScopedCategoryTest"
+        body="".join(f'--{boundary}\r\nContent-Disposition: form-data; name="{key}"\r\n\r\n{value}\r\n' for key,value in fields.items())+f'--{boundary}--\r\n'
+        req=urllib.request.Request(BASE+"/api/admin/categories",data=body.encode(),headers={"Authorization":"Bearer "+token,"Content-Type":"multipart/form-data; boundary="+boundary},method="POST")
+        try:
+            with urllib.request.urlopen(req,timeout=20) as response:
+                return response.status,json.loads(response.read())
+        except urllib.error.HTTPError as error:
+            raw=error.read()
+            return error.code,json.loads(raw) if raw else {}
+    assert create_scoped(3,stage1,student)[0]==403
+    assert create_scoped(2,stage1,admin)[0]==409
+    assert create_scoped(3,stage2,admin)[0]==409
+    assert sql('SELECT COUNT(*) FROM "Categories" WHERE "NameEn"=\'CI scoped category\'')=="0"
+    status,created=create_scoped(3,stage1,admin)
+    assert status==201,created
+    new_category=created["Data"]["Id"]
+    scoped=expect("GET",f"{root}/{tid}",200,token=admin)
+    assert scoped["Track"]["Revision"]==4 and new_category in scoped["CategoryIds"]
+    public=expect("GET",f"/api/learning-tracks/{tid}",200)
+    assert public["Categories"]==detail["Categories"]
+    assert create_scoped(3,stage1,admin)[0]==409
+    assert sql('SELECT COUNT(*) FROM "Categories" WHERE "NameEn"=\'CI scoped category\'')=="1"
+    # Remove only the disposable fixture after checking publication behavior.
+    sql(f'DELETE FROM "Categories" WHERE "Id"={new_category}')
+    print("PASS: atomic category creation in a published grade, stale and cross-stage rejection, hidden empty category")
+
     assert all(set(x)<={"Id","CategoryId","TitleAr","TitleEn"} for x in detail["Examples"])
     expect("PUT","/api/users/learning-track",200,{"TrackId":tid},student)
     assert expect("GET","/api/users/learning-track",200,token=student)["TrackId"]==tid
@@ -262,8 +292,8 @@ def verify_tracks(admin, student, uid, stage1, stage2):
     expect("PUT","/api/users/learning-stage",200,{"StageId":stage2},student)
     assert expect("GET","/api/users/learning-track",200,token=student).get("TrackId") is None
     expect("PUT","/api/users/learning-track",200,{"TrackId":tid},student)
-    expect("PUT",f"{root}/{tid}/mapping",409,{"Revision":3,"CategoryIds":[],"SkillIds":[],"ProblemIds":[]},admin)
-    expect("PUT",f"{root}/{tid}/publication",200,{"Revision":3,"Publish":False},admin)
+    expect("PUT",f"{root}/{tid}/mapping",409,{"Revision":4,"CategoryIds":[],"SkillIds":[],"ProblemIds":[]},admin)
+    expect("PUT",f"{root}/{tid}/publication",200,{"Revision":4,"Publish":False},admin)
     assert expect("GET",f"/api/stages/{stage1}/tracks",200)["Items"]==[]
     assert expect("GET","/api/users/learning-track",200,token=student).get("TrackId") is None
     verify_track_free_outside_stage_pair(admin,student,uid,stage1,all_tracks)

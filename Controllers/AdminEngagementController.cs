@@ -195,12 +195,22 @@ public sealed class AdminEngagementController : ControllerBase
         var ordinarySolved = (trackId.HasValue?TrackPractice.For(_db,trackId.Value):_db.UserProgresses).AsNoTracking()
             .Where(p => p.IsSolved && p.User.Role == "Student" &&
                 p.Problem.StageId == stageId && p.Problem.Category.StageId == stageId)
-            .Select(p=>new{CategoryId=p.Problem.CategoryId,p.UserId,p.User.FullName,Points=(long)p.Problem.Points});
+            .Select(p=>new{CategoryId=p.Problem.CategoryId,p.UserId,p.User.FullName,p.ProblemId,Points=(long)p.Problem.Points});
         var permanentSolved = from credit in _db.PermanentProblemAchievements.AsNoTracking()
                               join student in _db.Users.AsNoTracking() on credit.UserId equals student.Id
                               where credit.StageId==stageId && student.Role=="Student" && student.IsActive
-                              select new{credit.CategoryId,credit.UserId,student.FullName,Points=(long)credit.Points};
-        var solvedByLearner = await (PermanentEnabled&&!trackId.HasValue?permanentSolved:ordinarySolved)
+                              select new{credit.CategoryId,credit.UserId,student.FullName,credit.ProblemId,Points=(long)credit.Points};
+        // Scoped solved counts combine both flows, once per student and
+        // question. Do not attribute unscoped lifetime credit to a grade.
+        var guidedSolved = from answer in _db.LearningSessionAttempts.AsNoTracking()
+                           join session in _db.LearningSessions.AsNoTracking() on answer.SessionId equals session.Id
+                           join student in _db.Users.AsNoTracking() on session.UserId equals student.Id
+                           join problem in _db.Problems.AsNoTracking() on answer.ProblemId equals problem.Id
+                           where trackId.HasValue && session.TrackId==trackId.Value && session.StageId==stageId &&
+                               student.Role=="Student" && answer.IsCorrect && problem.StageId==stageId && problem.Category.StageId==stageId
+                           select new{problem.CategoryId,session.UserId,student.FullName,answer.ProblemId,Points=(long)problem.Points};
+        var scopedSolved = trackId.HasValue&&PermanentEnabled ? ordinarySolved.Union(guidedSolved) : ordinarySolved;
+        var solvedByLearner = await (PermanentEnabled&&!trackId.HasValue?permanentSolved:scopedSolved)
             .GroupBy(p => new { p.CategoryId, p.UserId, p.FullName })
             .Select(g => new
             {
@@ -222,7 +232,7 @@ public sealed class AdminEngagementController : ControllerBase
         return Ok(LanguageHelper.SuccessResponse(new
         {
             StageId = stage.Id, TrackId=trackId, stage.NameAr, stage.NameEn, WindowDays = days,
-            ScoreBasis = trackId.HasValue?"TrackPractice":PermanentEnabled ? "PermanentAchievements" : "ActiveProgress",
+            ScoreBasis = trackId.HasValue?(PermanentEnabled?"TrackPracticeAndSessions":"TrackPractice"):PermanentEnabled ? "PermanentAchievements" : "ActiveProgress",
             TopStudents = leaderboard,
             Categories = categories.Select(c =>
             {

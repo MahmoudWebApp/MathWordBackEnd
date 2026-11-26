@@ -18,6 +18,13 @@ def verify_sessions(admin, learner, other, stage):
             "Options": [{"LatexCode": str(v), "IsCorrect": v==n+1, "Order": i}
                         for i,v in enumerate(range(n,n+4),1)]
         },admin)
+    # First foreground inbox fetch creates exactly one scoped daily reminder.
+    notices=expect("GET","/api/notifications/v2",200,token=other)["Items"]
+    reminder=[n for n in notices if n["Type"]=="daily-challenge"]
+    assert len(reminder)==1 and reminder[0]["TargetPath"]=="/dashboard/sessions/daily",reminder
+    expect("GET","/api/notifications/v2/unread-count",200,token=other)
+    again=[n for n in expect("GET","/api/notifications/v2",200,token=other)["Items"] if n["Type"]=="daily-challenge"]
+    assert [n["Id"] for n in again]==[reminder[0]["Id"]]
     start={"RequestId":str(uuid4()),"Kind":"daily","Count":5}
     expect("POST",ROOT+"/start",401,start)
     expect("POST",ROOT+"/start",403,start,admin)
