@@ -29,6 +29,7 @@ public sealed class StudentPremiumAnalyticsController : ControllerBase
         int FirstTryCorrect, int AwardedPoints, long TimeSpentSeconds)
     {
         public int TotalProblems { get; init; }
+        public int MasteredProblems { get; init; }
     }
     public sealed record RecentAttempt(int ProblemId,string TitleAr,string TitleEn,bool IsCorrect,DateTime SubmittedAtUtc);
 
@@ -263,6 +264,7 @@ public sealed class StudentPremiumAnalyticsController : ControllerBase
                 g.Key.StageId, g.Key.CategoryId,
                 Attempted = g.Count(),
                 Solved = g.Count(x => x.IsSolved),
+                Mastered = g.Count(x => x.MasteryStatus == "Mastered"),
                 ErrorNotebook = g.Count(x => x.IsInErrorNotebook && !x.IsErrorNotebookArchived)
             }).ToListAsync(ct);
 
@@ -285,7 +287,7 @@ public sealed class StudentPremiumAnalyticsController : ControllerBase
                 category.NameAr, category.NameEn, p?.Attempted ?? 0,
                 p?.Solved ?? 0, p?.ErrorNotebook ?? 0, a?.Attempts ?? 0,
                 a?.Correct ?? 0, a?.Incorrect ?? 0, a?.FirstCorrect ?? 0,
-                a?.Points ?? 0, a?.Seconds ?? 0){TotalProblems=total});
+                a?.Points ?? 0, a?.Seconds ?? 0){TotalProblems=total,MasteredProblems=p?.Mastered??0});
         }
 
         rows = rows.OrderBy(x => x.StageId).ThenBy(x => x.CategoryId).ToList();
@@ -336,7 +338,7 @@ public sealed class StudentPremiumAnalyticsController : ControllerBase
             .Select(g=>new{g.Key.StageId,g.Key.CategoryId,Attempts=g.Count(),Correct=g.Count(a=>a.IsCorrect),
                 Incorrect=g.Count(a=>!a.IsCorrect),Seconds=g.Sum(a=>a.Seconds)}).ToListAsync(ct);
         var credits=_db.PermanentProblemAchievements.AsNoTracking().Where(a=>a.UserId==userId&&
-            (!cutoff.HasValue||a.EarnedAtUtc>=cutoff)&&(!filter.StageId.HasValue||a.StageId==filter.StageId)&&
+            (!cutoff.HasValue||a.EarnedAtUtc>=cutoff)&&scope.Any(p=>p.Id==a.ProblemId)&&(!filter.StageId.HasValue||a.StageId==filter.StageId)&&
             (!filter.CategoryId.HasValue||a.CategoryId==filter.CategoryId)&&(!filter.TrackId.HasValue||
                 (scope.Any(p=>p.Id==a.ProblemId)&&
                  (_db.ProblemAttempts.Any(p=>p.UserId==a.UserId&&p.ProblemId==a.ProblemId&&p.PracticeScopeId==filter.TrackId.Value&&
@@ -370,6 +372,9 @@ public sealed class StudentPremiumAnalyticsController : ControllerBase
             .Select(p=>new{p.ProblemId,p.Problem.StageId,p.Problem.CategoryId}).Distinct()
             .GroupBy(p=>new{p.StageId,p.CategoryId})
             .Select(g=>new{g.Key.StageId,g.Key.CategoryId,Count=g.Count()}).ToListAsync(ct);
+        var mastery=await TrackPractice.For(_db,TrackPractice.Scope(HttpContext.RequestServices.GetRequiredService<IConfiguration>(),filter.TrackId))
+            .AsNoTracking().Where(p=>p.UserId==userId&&p.MasteryStatus=="Mastered"&&scope.Any(q=>q.Id==p.ProblemId))
+            .GroupBy(p=>p.Problem.CategoryId).Select(g=>new{CategoryId=g.Key,Count=g.Count()}).ToListAsync(ct);
         var categories=await _db.Categories.AsNoTracking().Select(c=>new{c.Id,c.StageId,c.NameAr,c.NameEn,
             StageAr=c.Stage.NameAr,StageEn=c.Stage.NameEn}).ToListAsync(ct);
         var rows=new List<CategoryStatistics>();
@@ -382,7 +387,7 @@ public sealed class StudentPremiumAnalyticsController : ControllerBase
             var total=totals.FirstOrDefault(t=>t.CategoryId==c.Id)?.Count??0;
             if(total==0)continue;
             rows.Add(new(c.StageId,c.Id,c.StageAr,c.StageEn,c.NameAr,c.NameEn,n?.Count??0,e?.Solved??0,review?.Count??0,
-                a?.Attempts??0,a?.Correct??0,a?.Incorrect??0,e?.First??0,e?.Points??0,a?.Seconds??0){TotalProblems=total});
+                a?.Attempts??0,a?.Correct??0,a?.Incorrect??0,e?.First??0,e?.Points??0,a?.Seconds??0){TotalProblems=total,MasteredProblems=mastery.FirstOrDefault(m=>m.CategoryId==c.Id)?.Count??0});
         }
         rows=rows.OrderBy(x=>x.StageId).ThenBy(x=>x.CategoryId).ToList();
         var stageName=filter.StageId.HasValue?await _db.EducationalStages.AsNoTracking()
