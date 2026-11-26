@@ -43,6 +43,8 @@ namespace MathWorldAPI.DTOs
     public sealed class AdminStageDetailDto
     {
         public AdminStageAnalyticsDto Summary { get; set; } = new();
+        public int? TrackId { get; set; }
+        public int? CategoryId { get; set; }
         public int WindowDays { get; set; }
         public List<AdminCategoryAnalyticsDto> Categories { get; set; } = new();
         public List<AdminLearnerAnalyticsDto> TopLearners { get; set; } = new();

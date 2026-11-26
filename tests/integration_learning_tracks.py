@@ -258,6 +258,10 @@ def verify_tracks(admin, student, uid, stage1, stage2):
     assert next(b for b in old_badges if b["Key"]==f"track_{tid}_grade_champion")["Earned"]
     assert next(b for b in old_badges if b["Key"]==f"track_{tid}_grade_scholar")["RequiredSolved"]==1
     assert next(b for b in old_badges if b["Key"]==f"track_{tid}_week_streak")["CurrentProgress"]==1
+    admin_old=expect("GET",f"/api/admin/analytics/stages/{stage1}?trackId={tid}&categoryId={category}",200,token=admin)
+    admin_new=expect("GET",f"/api/admin/analytics/stages/{stage1}?trackId={oid}&categoryId={category}",200,token=admin)
+    assert admin_old["Summary"]["UniqueSolved"]==1 and admin_new["Summary"]["UniqueSolved"]==0
+    assert admin_old["Summary"]["CorrectAttemptsInWindow"]==1 and admin_new["Summary"]["CorrectAttemptsInWindow"]==0
     assert old_report["TotalProblems"]==new_report["TotalProblems"]==1
     assert old_report["RecentAttempts"][0]["IsCorrect"] and not new_report["RecentAttempts"][0]["IsCorrect"]
     assert sum(c["ErrorNotebookProblems"] for c in old_report["Categories"])==0
