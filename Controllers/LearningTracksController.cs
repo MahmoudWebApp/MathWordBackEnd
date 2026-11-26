@@ -138,10 +138,14 @@ public sealed class LearningTracksController(AppDbContext db,LearningTrackServic
         var valid=tracks.ValidProblems(id).Where(p=>p.CategoryId==categoryId);
         if(!await valid.AnyAsync(p=>p.Id==afterProblemId,ct))return NotFound();
         var progress=TrackPractice.For(db,TrackPractice.Scope(HttpContext.RequestServices.GetRequiredService<IConfiguration>(),id));
-        var next=await valid.Where(p=>p.Id!=afterProblemId&&!progress.Any(x=>x.UserId==uid&&x.ProblemId==p.Id&&(x.IsSolved||x.Attempts>0)))
-            .OrderBy(p=>p.Id<=afterProblemId).ThenBy(p=>p.Id)
-            .Select(p=>new{p.Id,p.CategoryId,p.TitleAr,p.TitleEn}).FirstOrDefaultAsync(ct);
-        return Ok(new{TrackId=id,CategoryId=categoryId,Problem=next});
+        var eligible=valid.Where(p=>p.Id!=afterProblemId&&!progress.Any(x=>x.UserId==uid&&x.ProblemId==p.Id&&(x.IsSolved||(x.Attempts>0&&!x.IsInErrorNotebook))));
+        var next=await eligible
+            .OrderBy(p=>progress.Any(x=>x.UserId==uid&&x.ProblemId==p.Id&&x.Attempts>0))
+            .ThenBy(p=>p.Id<=afterProblemId).ThenBy(p=>p.Id)
+            .Select(p=>new{p.Id,p.CategoryId,p.TitleAr,p.TitleEn,
+                RequiresRetry=progress.Any(x=>x.UserId==uid&&x.ProblemId==p.Id&&x.Attempts>0&&x.IsInErrorNotebook)})
+            .FirstOrDefaultAsync(ct);
+        return Ok(new{TrackId=id,CategoryId=categoryId,HasNext=next!=null,Problem=next});
     }
 
     [Authorize(Roles="Student")]
