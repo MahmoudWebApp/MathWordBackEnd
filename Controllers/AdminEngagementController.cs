@@ -149,10 +149,10 @@ public sealed class AdminEngagementController : ControllerBase
 
     [HttpGet("stages/{stageId:int}")]
     public async Task<IActionResult> Stage(int stageId, [FromQuery] int days = 30,
-        CancellationToken ct = default)
+        [FromQuery] int? trackId = null, CancellationToken ct = default)
     {
         if (!await ActiveAdmin(ct)) return Forbid();
-        if (stageId <= 0 || days is < 1 or > 90)
+        if (stageId <= 0 || days is < 1 or > 90 || trackId is <= 0)
             return BadRequest(new { Message = "InvalidActivityFilter" });
         var stage = await _db.EducationalStages.AsNoTracking()
             .Where(s => s.Id == stageId)
@@ -160,19 +160,24 @@ public sealed class AdminEngagementController : ControllerBase
             .FirstOrDefaultAsync(ct);
         if (stage == null) return NotFound(new { Message = "StageNotFound" });
 
+        if(trackId.HasValue&&!await _db.LearningTracks.AnyAsync(t=>t.Id==trackId.Value&&t.StageId==stageId,ct))
+            return BadRequest(new { Message = "TrackStageMismatch" });
         var start = Cutoff(days);
-        var categories = await _db.Categories.AsNoTracking().Where(c => c.StageId == stageId)
+        var categories = await _db.Categories.AsNoTracking().Where(c => c.StageId == stageId &&
+            (!trackId.HasValue||_db.LearningTrackCategories.Any(l=>l.TrackId==trackId.Value&&l.CategoryId==c.Id)))
             .OrderBy(c => c.Order).ThenBy(c => c.Id)
             .Select(c => new { c.Id, c.NameAr, c.NameEn }).ToListAsync(ct);
         var ordinaryActivity = _db.ProblemAttempts.AsNoTracking()
             .Where(a => a.User.Role == "Student" && a.Problem.StageId == stageId &&
-                a.Problem.Category.StageId == stageId && a.SubmittedAt >= start)
+                a.Problem.Category.StageId == stageId && a.SubmittedAt >= start &&
+                (!trackId.HasValue||a.PracticeScopeId==trackId.Value))
             .Select(a=>new{a.UserId,CategoryId=a.Problem.CategoryId});
         var sessionActivity = from answer in _db.LearningSessionAttempts.AsNoTracking()
                               join session in _db.LearningSessions.AsNoTracking() on answer.SessionId equals session.Id
                               join student in _db.Users.AsNoTracking() on session.UserId equals student.Id
                               join problem in _db.Problems.AsNoTracking() on answer.ProblemId equals problem.Id
                               where student.Role=="Student" && session.StageId==stageId &&
+                                  (!trackId.HasValue||session.TrackId==trackId.Value) &&
                                   problem.StageId==stageId && problem.Category.StageId==stageId && answer.SubmittedAtUtc>=start
                               select new{session.UserId,problem.CategoryId};
         var activity = await (PermanentEnabled?ordinaryActivity.Concat(sessionActivity):ordinaryActivity)
@@ -186,7 +191,7 @@ public sealed class AdminEngagementController : ControllerBase
         // All-time unique solved questions, not answer correctness percentages.
         // First aggregate by learner/category on PostgreSQL; only compact
         // aggregated rows are transferred to the application.
-        var ordinarySolved = _db.UserProgresses.AsNoTracking()
+        var ordinarySolved = (trackId.HasValue?TrackPractice.For(_db,trackId.Value):_db.UserProgresses).AsNoTracking()
             .Where(p => p.IsSolved && p.User.Role == "Student" &&
                 p.Problem.StageId == stageId && p.Problem.Category.StageId == stageId)
             .Select(p=>new{CategoryId=p.Problem.CategoryId,p.UserId,p.User.FullName,Points=(long)p.Problem.Points});
@@ -194,7 +199,7 @@ public sealed class AdminEngagementController : ControllerBase
                               join student in _db.Users.AsNoTracking() on credit.UserId equals student.Id
                               where credit.StageId==stageId && student.Role=="Student" && student.IsActive
                               select new{credit.CategoryId,credit.UserId,student.FullName,Points=(long)credit.Points};
-        var solvedByLearner = await (PermanentEnabled?permanentSolved:ordinarySolved)
+        var solvedByLearner = await (PermanentEnabled&&!trackId.HasValue?permanentSolved:ordinarySolved)
             .GroupBy(p => new { p.CategoryId, p.UserId, p.FullName })
             .Select(g => new
             {
@@ -215,8 +220,8 @@ public sealed class AdminEngagementController : ControllerBase
 
         return Ok(LanguageHelper.SuccessResponse(new
         {
-            StageId = stage.Id, stage.NameAr, stage.NameEn, WindowDays = days,
-            ScoreBasis = PermanentEnabled ? "PermanentAchievements" : "ActiveProgress",
+            StageId = stage.Id, TrackId=trackId, stage.NameAr, stage.NameEn, WindowDays = days,
+            ScoreBasis = trackId.HasValue?"TrackPractice":PermanentEnabled ? "PermanentAchievements" : "ActiveProgress",
             TopStudents = leaderboard,
             Categories = categories.Select(c =>
             {
@@ -243,16 +248,22 @@ public sealed class AdminEngagementController : ControllerBase
     [HttpGet("students")]
     public async Task<IActionResult> Students([FromQuery] int page = 1,
         [FromQuery] int? stageId = null,
+        [FromQuery] int? trackId = null,
         [FromQuery] string? search = null,
         [FromQuery] bool onlineOnly = false, CancellationToken ct = default)
     {
         if (!await ActiveAdmin(ct)) return Forbid();
         const int pageSize = 20;
-        if (page is < 1 or > 50000 || stageId is <= 0 ||
+        if (page is < 1 or > 50000 || stageId is <= 0 || trackId is <= 0 ||
             (search?.Length ?? 0) > 80)
             return BadRequest(new { Message = "InvalidLearnerFilter" });
         var users = _db.Users.AsNoTracking().Where(u => u.Role == "Student");
         if (stageId.HasValue) users = users.Where(u => u.CurrentStageId == stageId.Value);
+        if(trackId.HasValue){
+            if(!await _db.LearningTracks.AnyAsync(t=>t.Id==trackId.Value&&(!stageId.HasValue||t.StageId==stageId.Value),ct))
+                return BadRequest(new { Message = "TrackStageMismatch" });
+            users=users.Where(u=>u.CurrentTrackId==trackId.Value);
+        }
         if (onlineOnly)
         {
             var activeSince = PresenceCutoff();
@@ -266,13 +277,13 @@ public sealed class AdminEngagementController : ControllerBase
         var entries = await users.OrderByDescending(u => u.CreatedAt).ThenByDescending(u => u.Id)
             .Skip((page - 1) * pageSize).Take(pageSize)
             .Select(u => new { u.Id, u.FullName, u.CreatedAt, u.LastLoginAt,
-                u.CurrentStageId, u.IsActive }).ToListAsync(ct);
+                u.CurrentStageId, u.CurrentTrackId, u.IsActive }).ToListAsync(ct);
         var ids = entries.Select(x => x.Id).ToArray();
         var ordinaryAttempts = _db.ProblemAttempts.AsNoTracking()
-            .Where(a => ids.Contains(a.UserId)).Select(a=>new{a.UserId,a.SubmittedAt});
+            .Where(a => ids.Contains(a.UserId)&&(!trackId.HasValue||a.PracticeScopeId==trackId.Value)).Select(a=>new{a.UserId,a.SubmittedAt});
         var sessionAttempts = from answer in _db.LearningSessionAttempts.AsNoTracking()
                               join session in _db.LearningSessions.AsNoTracking() on answer.SessionId equals session.Id
-                              where ids.Contains(session.UserId)
+                              where ids.Contains(session.UserId)&&(!trackId.HasValue||session.TrackId==trackId.Value)
                               select new{session.UserId,SubmittedAt=answer.SubmittedAtUtc};
         var attemptStats = await (PermanentEnabled?ordinaryAttempts.Concat(sessionAttempts):ordinaryAttempts)
             .GroupBy(a => a.UserId)
@@ -301,7 +312,7 @@ public sealed class AdminEngagementController : ControllerBase
             {
                 attemptByUser.TryGetValue(u.Id, out var stat);
                 return new { u.Id, u.FullName, u.CreatedAt, u.LastLoginAt,
-                    u.CurrentStageId, u.IsActive,
+                    u.CurrentStageId, u.CurrentTrackId, u.IsActive,
                     LastPracticeAt = (DateTime?)stat?.LastPracticeAt,
                     LastExplicitSignOutAtUtc = lastSignOuts.TryGetValue(u.Id, out var signout)
                         ? (DateTime?)signout : null,

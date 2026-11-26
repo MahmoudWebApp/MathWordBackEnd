@@ -2,6 +2,7 @@ using System.Security.Claims;
 using System.Threading.Channels;
 using MathWorldAPI.Services;
 using MathWorldAPI.Data;
+using MathWorldAPI.Models;
 using MathWorldAPI.Helpers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -122,6 +123,40 @@ public sealed class NotificationsController : ControllerBase
         }
     }
 
+    // Materialize one daily in-app reminder when an eligible learner first opens
+    // the shared inbox/bell. No cron, email, push provider or notification fan-out.
+    // The transaction lock prevents a second device from creating a duplicate.
+    private async Task EnsureDailyChallengeReminder(int userId,CancellationToken ct)
+    {
+        if(!User.IsInRole("Student"))return;
+        var day=DateTime.UtcNow.Date;
+        var next=day.AddDays(1);
+        const string type="daily-challenge";
+        var today=_db.UserNotifications.Where(n=>n.UserId==userId&&n.Type==type&&n.CreatedAtUtc>=day&&n.CreatedAtUtc<next);
+        if(await today.AnyAsync(ct))return;
+        var student=await _db.Users.AsNoTracking().SingleOrDefaultAsync(u=>u.Id==userId&&u.IsActive&&u.Role=="Student",ct);
+        if(student is null||!PremiumEntitlement.IsActive(student)||student.CurrentStageId is null)return;
+        var tracks=HttpContext.RequestServices.GetRequiredService<LearningTrackService>();
+        var track=await tracks.ActiveAsync(student.CurrentStageId,student.CurrentTrackId,ct);
+        if(tracks.Enabled&&track is null)return;
+        var scope=TrackPractice.Scope(HttpContext.RequestServices.GetRequiredService<IConfiguration>(),track?.Id);
+        var prior=TrackPractice.For(_db,scope).Where(p=>p.UserId==userId&&
+            ((p.Attempts>0&&(p.FirstAttemptAt??p.LastAttemptAt)<day)||(p.IsSolved&&p.SolvedAt.HasValue&&p.SolvedAt.Value<day))).Select(p=>p.ProblemId);
+        var eligible=track is null?_db.Problems.AsNoTracking().Where(p=>p.StageId==student.CurrentStageId&&p.Category.StageId==student.CurrentStageId):tracks.ValidProblems(track.Id);
+        if(!await eligible.AnyAsync(p=>!prior.Contains(p.Id),ct))return;
+        await using var tx=await _db.Database.BeginTransactionAsync(ct);
+        await _db.Database.SqlQuery<int>($"SELECT 1 AS \"Value\" FROM pg_advisory_xact_lock({-928631}, {userId})").SingleAsync(ct);
+        if(await today.AnyAsync(ct))return;
+        _db.UserNotifications.Add(new UserNotification{UserId=userId,Type=type,
+            TitleAr="تحدي اليوم",TitleEn="Daily challenge",
+            BodyAr="تدرب على مسائل صفك أو مستواك اليوم وتابع إنجازك.",
+            BodyEn="Practice today's questions for your grade or level and continue your progress.",
+            TargetPath="/dashboard/daily-challenge",CreatedAtUtc=DateTime.UtcNow});
+        await _db.SaveChangesAsync(ct);
+        await tx.CommitAsync(ct);
+        _stream.Notify(userId);
+    }
+
     // Lightweight count for clients that only render the student bell.
     [HttpGet("unread-count")]
     [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
@@ -129,6 +164,7 @@ public sealed class NotificationsController : ControllerBase
     {
         var userId = await ActiveUserId(ct);
         if (userId is null) return Unauthorized();
+        await EnsureDailyChallengeReminder(userId.Value,ct);
         var cutoff = DateTime.UtcNow.AddDays(-30);
         var count = await _db.UserNotifications.AsNoTracking()
             .CountAsync(x => x.UserId == userId.Value &&
@@ -148,6 +184,7 @@ public sealed class NotificationsController : ControllerBase
         if (userId is null) return Unauthorized();
         if (take < 1 || take > 50) return BadRequest(new { Message = "InvalidPageSize" });
         if (skip < 0 || skip > 10000) return BadRequest(new { Message = "InvalidPageOffset" });
+        await EnsureDailyChallengeReminder(userId.Value,ct);
 
         var cutoff = DateTime.UtcNow.AddDays(-30);
         var mine = _db.UserNotifications.AsNoTracking()
