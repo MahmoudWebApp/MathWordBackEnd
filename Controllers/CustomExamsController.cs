@@ -22,6 +22,13 @@ public sealed class CustomExamsController(AppDbContext db, IConfiguration config
     private sealed record Question(int Id,int CategoryId,string TitleAr,string TitleEn,string QuestionTextAr,string QuestionTextEn,Option[] Options);
     private sealed record Answer(int Position,int OptionId);
     private int Uid=>int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier),out var id)?id:0;
+    // PostgreSQL timestamps have microsecond precision. Use the persisted precision
+    // before returning the first response so idempotent retries are byte-stable.
+    private static DateTime Now()
+    {
+        var now=DateTime.UtcNow;
+        return new DateTime(now.Ticks-now.Ticks%10,DateTimeKind.Utc);
+    }
     private bool Enabled=>config.GetValue<bool>("CustomExams:Enabled");
     private Task<AppUser?> Owner(CancellationToken ct)=>db.Users.AsNoTracking().SingleOrDefaultAsync(u=>u.Id==Uid&&u.IsActive&&u.Role=="Student",ct);
     private Task<CustomExam?> Find(Guid id,CancellationToken ct)=>db.Set<CustomExam>().SingleOrDefaultAsync(e=>e.Id==id&&e.UserId==Uid,ct);
@@ -86,7 +93,7 @@ public sealed class CustomExamsController(AppDbContext db, IConfiguration config
         var byId=rows.ToDictionary(p=>p.Id);var snapshot=ids.Select(id=>{var p=byId[id];return new Question(p.Id,p.CategoryId,p.TitleAr,p.TitleEn,p.QuestionTextAr,p.QuestionTextEn,p.Options.OrderBy(_=>RandomNumberGenerator.GetInt32(int.MaxValue)).Select(o=>new Option(o.Id,o.LatexCode,o.IsCorrect)).ToArray());}).ToArray();
         var category=input.CategoryId.HasValue?await db.Categories.AsNoTracking().SingleOrDefaultAsync(c=>c.Id==input.CategoryId.Value&&c.StageId==t.StageId,ct):null;
         if(input.CategoryId.HasValue&&category==null)return NotFound();
-        var e=new CustomExam{Id=Guid.NewGuid(),StartRequestId=input.RequestId,UserId=Uid,StageId=t.StageId,TrackId=t.Id,CategoryId=input.CategoryId,TitleAr=category==null?t.NameAr:t.NameAr+" — "+category.NameAr,TitleEn=category==null?t.NameEn:t.NameEn+" — "+category.NameEn,QuestionsJson=JsonSerializer.Serialize(snapshot),Total=input.Count,PassPercent=70,CreatedAtUtc=DateTime.UtcNow};
+        var e=new CustomExam{Id=Guid.NewGuid(),StartRequestId=input.RequestId,UserId=Uid,StageId=t.StageId,TrackId=t.Id,CategoryId=input.CategoryId,TitleAr=category==null?t.NameAr:t.NameAr+" — "+category.NameAr,TitleEn=category==null?t.NameEn:t.NameEn+" — "+category.NameEn,QuestionsJson=JsonSerializer.Serialize(snapshot),Total=input.Count,PassPercent=70,CreatedAtUtc=Now()};
         db.Set<CustomExam>().Add(e);await db.SaveChangesAsync(ct);await tx.CommitAsync(ct);return Ok(View(e));
     }
     [HttpGet]
@@ -125,7 +132,7 @@ public sealed class CustomExamsController(AppDbContext db, IConfiguration config
         if(e.AbandonedAtUtc.HasValue)return Conflict(new{Message="ExamClosed"});var q=Questions(e);var a=Answers(e);
         if(a.Count!=e.Total||q.Length!=e.Total)return Conflict(new{Message="ExamIncomplete"});
         e.Score=a.Count(x=>q[x.Position].Options.Any(o=>o.Id==x.OptionId&&o.IsCorrect));
-        e.FinishedAtUtc=DateTime.UtcNow;
+        e.FinishedAtUtc=Now();
         if(e.Score.Value*100>=e.PassPercent*e.Total){if(string.IsNullOrWhiteSpace(owner.FullName)||owner.FullName.Length>300)return Conflict(new{Message="CertificateIdentityUnavailable"});e.CertificateStudentName=owner.FullName;e.VerificationCode=Convert.ToHexString(RandomNumberGenerator.GetBytes(16)).ToLowerInvariant();}
         await db.SaveChangesAsync(ct);await tx.CommitAsync(ct);return Ok(View(e));
     }
@@ -133,7 +140,7 @@ public sealed class CustomExamsController(AppDbContext db, IConfiguration config
     public async Task<IActionResult> Abandon(Guid id,CancellationToken ct)
     {
         if(!Enabled)return NotFound();await using var tx=await db.Database.BeginTransactionAsync(ct);await Lock(ct);
-        if(await Owner(ct)==null)return Unauthorized();var e=await Find(id,ct);if(e==null)return NotFound();if(e.FinishedAtUtc.HasValue)return Conflict(new{Message="ExamClosed"});e.AbandonedAtUtc??=DateTime.UtcNow;await db.SaveChangesAsync(ct);await tx.CommitAsync(ct);return Ok(new{e.Id,e.AbandonedAtUtc});
+        if(await Owner(ct)==null)return Unauthorized();var e=await Find(id,ct);if(e==null)return NotFound();if(e.FinishedAtUtc.HasValue)return Conflict(new{Message="ExamClosed"});e.AbandonedAtUtc??=Now();await db.SaveChangesAsync(ct);await tx.CommitAsync(ct);return Ok(new{e.Id,e.AbandonedAtUtc});
     }
     [HttpGet("{id:guid}/certificate")]
     public async Task<IActionResult> Certificate(Guid id,[FromQuery]string lang="ar",CancellationToken ct=default)
