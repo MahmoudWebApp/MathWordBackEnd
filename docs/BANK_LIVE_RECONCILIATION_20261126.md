@@ -367,3 +367,21 @@ Start959 live/598 structured/361 missing. Authored eight bilingual candidates, c
 | growth-v25-grade-9-probability-disjoint-events-from-union-1 |1323|2034|9/85/337|8127=0.45|
 
 Live965 (281/226/236/222),604 structured (192/150/137/125),361 missing (89/76/99/97). Draft369 (320 amendments+49 additions), Published838 (412 amendments+426 additions), Withdrawn1. Capped772/1400 (615 school+157 mapped university), gap628 (585 school+43 university), all6 contribute. Grade1–12 capped24,34,50,57,56,30,76,69,43,65,61,50; level20=78,21=79. Cumulative #193:257 corrections+116 new. 35 new to1000. Seven school missing category slots and one university remain. Next legacy701 onward; reconcile canonical keys in #179 without replay; continue differentiated growth.
+
+
+## Owner-authorized production checkpoint — nine original linked gap problems (v26, 2026-11-26)
+Start965 live/604 structured/361 missing. Reviewed current published track-category-skill links across grades1,2,3,6,9,12 and current target-category stems. Initial candidate construction failed on translation separator before any database write; rebuilt with a non-mathematical delimiter and validated bilingual fields. Authored ten final candidates, reviewed top three bilingual token overlap matches against1008 live/open-draft school pairs and all four hold registries. Withheld shifted-centre circle point membership due to overlap with live1618/draft862. Independent recalculation of nine: equal-difference compensation, one-to-one counting, even-card count with repeated labels, unequal-length fraction model, finish-time comparison, no-solution inequality, dot-product bilinearity, comparison of half-lives, trigonometric fourth-power difference. Candidate JSON commit7252f416ee1e6a12e9cb7950bdbb4e3c0470a4fd is NOT an import payload; final SQL scripts/publish_reviewed_v26_gap_school_20261126.sql commit04f9b0f1f7aa30e9795ccb74ef972a178b836bb1 ALREADY APPLIED, DO NOT replay. ROLLBACK rehearsal succeeded; independently verified keys absent; COMMIT; exact independent readback9/9 for wizard, bilingual title/stem, flat/structured solution, options, primary skill and scope, Published revision3 and36 owner_sql events. No taxonomy, subscriptions, learner data, app, auth or university visibility changes; levels20/21 remain unpublished. Targeted overlap screening not exhaustive; CI/browser not verified.
+
+| Content key | Draft | Problem | Track/category/skill | Correct option |
+|---|---:|---:|---|---|
+| growth-v26-grade-1-equal-difference-compensation-1 |1333|2044|1/1/2|8167=14-5|
+| growth-v26-grade-1-match-one-to-one-1 |1334|2045|1/81/302|8170=2|
+| growth-v26-grade-2-count-even-repeated-cards-1 |1335|2046|2/81/302|8174=3|
+| growth-v26-grade-3-compare-finish-times-1 |1336|2047|3/82/324|8178=(B,5)|
+| growth-v26-grade-3-fraction-unequal-length-parts-1 |1337|2048|3/21/97|8182=3/8|
+| growth-v26-grade-9-cancel-variable-contradiction-1 |1338|2049|9/84/327|8188=empty set|
+| growth-v26-grade-12-bilinear-sum-difference-1 |1339|2050|12/87/338|8191=16|
+| growth-v26-grade-12-compare-two-half-lives-1 |1340|2051|12/86/310|8195=30|
+| growth-v26-grade-12-fourth-power-difference-1 |1341|2052|12/10/47|8198=0.4|
+
+Live974 (286/227/239/222),613 structured (197/151/140/125),361 missing (89/76/99/97). Draft369 (320 amendments+49 additions), Published847 (412 amendments+435 additions), Withdrawn1. Best-five capped779/1400 (622 school+157 mapped university), gap621 (578 school+43 university); seven of nine additions increase capped count, two in tied/underrepresented categories diversify coverage without increasing capped count immediately. Grade1–12 capped26,35,51,57,56,30,76,69,44,65,61,52; level20=78,21=79. Cumulative #193:257 corrections+125 new. 26 new to1000. Next legacy701 onward; seven school missing category slots and one university remain. Reconcile canonical keys in #179 without replay.
