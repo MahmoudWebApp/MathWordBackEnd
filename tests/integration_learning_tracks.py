@@ -215,7 +215,8 @@ def verify_tracks(admin, student, uid, stage1, stage2):
     practice=f"/api/users/learning-tracks/{tid}/categories/{category}/problems"
     assert expect("GET",practice,200,token=student)["Items"][0]["Id"]==pid
     next_route=f"/api/users/learning-tracks/{tid}/categories/{category}/next?afterProblemId={pid}"
-    assert expect("GET",next_route,200,token=student)["Problem"] is None
+    empty_next=expect("GET",next_route,200,token=student)
+    assert empty_next["HasNext"] is False and empty_next.get("Problem") is None
     expect("GET",next_route,401)
     expect("GET",f"/api/users/learning-tracks/{tid}/categories/{category}/next?afterProblemId=0",400,token=student)
     detail=expect("GET",f"/api/problems/{pid}",200,token=admin)
@@ -371,6 +372,7 @@ def verify_track_free_outside_stage_pair(admin,student,uid,stage1,all_tracks):
     for i,(category,pid) in enumerate(zip(categories,problems)):
         status=200 if i<2 else 403
         expect("GET",f"/api/users/learning-tracks/{tid}/categories/{category}/problems",status,token=student)
+        expect("GET",f"/api/users/learning-tracks/{tid}/categories/{category}/next?afterProblemId={pid}",status,token=student)
         expect("GET",f"/api/problems/{pid}",status,token=student)
     locked=problems[2]
     correct=int(sql(f'SELECT "Id" FROM "QuestionOptions" WHERE "ProblemId"={locked} AND "IsCorrect"'))
