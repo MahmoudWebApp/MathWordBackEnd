@@ -1,0 +1,922 @@
+[
+  {
+    "key": "growth-v31-grade-1-compare-identical-informal-units-1",
+    "family": "compare-identical-informal-units",
+    "skill_key": "length",
+    "track_code": "grade-1",
+    "track": 1,
+    "stage": 1,
+    "category": 82,
+    "skill": 321,
+    "wizard": {
+      "StageId": 1,
+      "CategoryId": 82,
+      "PrimarySkillId": 321,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        1
+      ],
+      "DifficultyLevel": 1,
+      "Points": 10,
+      "Title": {
+        "Ar": "مقارنة الأطوال بوحدة مشتركة",
+        "En": "Comparing lengths with a common unit"
+      },
+      "Question": {
+        "Ar": "غطت خمسة مشابك ورقية متطابقة طول قلم أحمر، وغطت سبعة مشابك من النوع نفسه طول قلم أزرق، دون فراغات أو تداخل. كم مشبكاً يغطي الفرق بين الطولين؟",
+        "En": "Five identical paperclips cover a red pencil exactly, and seven of the same paperclips cover a blue pencil exactly, without gaps or overlap. How many paperclips cover the difference in lengths?"
+      },
+      "Options": [
+        {
+          "LatexCode": "2",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "5",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "طول الأحمر وحده.",
+            "En": "Red pencil length alone."
+          }
+        },
+        {
+          "LatexCode": "7",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "طول الأزرق وحده.",
+            "En": "Blue pencil length alone."
+          }
+        },
+        {
+          "LatexCode": "12",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "مجموع الطولين لا الفرق.",
+            "En": "Sum of lengths, not the difference."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "الوحدات متساوية، فقارن العدين.",
+          "En": "The units are equal, so compare the counts."
+        },
+        {
+          "Ar": "طابق خمس وحدات من كل قياس وعد الباقي.",
+          "En": "Match five units from each measurement and count the remainder."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "عند قياس طولين بوحدات متطابقة، يساوي فرق الطول فرق عددي الوحدات.",
+          "En": "For lengths measured in identical units, subtract their unit counts."
+        },
+        "FormulaLatex": "7-5",
+        "Steps": [
+          {
+            "Ar": "طول الأزرق سبع وحدات والأحمر خمس.",
+            "En": "Blue measures seven units and red five."
+          },
+          {
+            "Ar": "تبقى وحدتان بعد مطابقة خمس من كل طول.",
+            "En": "Two units remain after matching five from each length."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$7-5=2$",
+          "En": "$7-5=2$"
+        },
+        "Result": {
+          "Ar": "$2$",
+          "En": "$2$"
+        },
+        "Unit": {
+          "Ar": "مشابك",
+          "En": "Paperclips"
+        },
+        "Verification": {
+          "Ar": "5+2=7 يؤكد الفرق.",
+          "En": "5+2=7 confirms the difference."
+        },
+        "CommonError": {
+          "Ar": "لا تجمع الطولين عند طلب الفرق.",
+          "En": "Do not add lengths when asked for the difference."
+        }
+      }
+    }
+  },
+  {
+    "key": "growth-v31-grade-1-order-hour-half-hour-1",
+    "family": "order-hour-half-hour",
+    "skill_key": "time",
+    "track_code": "grade-1",
+    "track": 1,
+    "stage": 1,
+    "category": 82,
+    "skill": 324,
+    "wizard": {
+      "StageId": 1,
+      "CategoryId": 82,
+      "PrimarySkillId": 324,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        1
+      ],
+      "DifficultyLevel": 1,
+      "Points": 10,
+      "Title": {
+        "Ar": "ترتيب مواعيد الصباح",
+        "En": "Ordering morning times"
+      },
+      "Question": {
+        "Ar": "تبدأ القراءة الساعة 8:00 صباحاً، والرياضة الساعة 9:00 صباحاً. أي وقت يقع بين موعدي البدء دون أن يساوي أياً منهما؟",
+        "En": "Reading starts at 8:00 a.m. and exercise starts at 9:00 a.m. Which time lies strictly between the two start times?"
+      },
+      "Options": [
+        {
+          "LatexCode": "8{:}00",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "وقت القراءة نفسه.",
+            "En": "The reading start itself."
+          }
+        },
+        {
+          "LatexCode": "9{:}00",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "وقت الرياضة نفسه.",
+            "En": "The exercise start itself."
+          }
+        },
+        {
+          "LatexCode": "8{:}30",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "7{:}30",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "قبل القراءة.",
+            "En": "Before reading."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "ابحث عن وقت بعد الثامنة.",
+          "En": "Find a time after eight."
+        },
+        {
+          "Ar": "نصف الساعة بعد الثامنة وقبل التاسعة.",
+          "En": "Half past eight comes after eight and before nine."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "ترتب الأوقات في الصباح حسب الساعة ثم الدقائق.",
+          "En": "Morning times are ordered by hour and then minute."
+        },
+        "FormulaLatex": "8{:}00<8{:}30<9{:}00",
+        "Steps": [
+          {
+            "Ar": "الثامنة والنصف بعد الثامنة تماماً.",
+            "En": "Half past eight is after eight o'clock."
+          },
+          {
+            "Ar": "وتسبق التاسعة بنصف ساعة.",
+            "En": "It is half an hour before nine."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$8{:}30$",
+          "En": "$8{:}30$"
+        },
+        "Result": {
+          "Ar": "$8{:}30$",
+          "En": "$8{:}30$"
+        },
+        "Unit": {
+          "Ar": "وقت",
+          "En": "Time"
+        },
+        "Verification": {
+          "Ar": "عقرب الساعات بين 8 و9 عند هذا الوقت.",
+          "En": "The hour hand lies between eight and nine at this time."
+        },
+        "CommonError": {
+          "Ar": "لا تختَر أحد طرفي الفترة.",
+          "En": "Do not select either endpoint."
+        }
+      }
+    }
+  },
+  {
+    "key": "growth-v31-grade-1-common-attribute-triangle-square-1",
+    "family": "common-attribute-triangle-square",
+    "skill_key": "primary-shape-attributes-composition",
+    "track_code": "grade-1",
+    "track": 1,
+    "stage": 1,
+    "category": 96,
+    "skill": 354,
+    "wizard": {
+      "StageId": 1,
+      "CategoryId": 96,
+      "PrimarySkillId": 354,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        1
+      ],
+      "DifficultyLevel": 1,
+      "Points": 10,
+      "Title": {
+        "Ar": "خاصية مشتركة بين شكلين",
+        "En": "A shared shape attribute"
+      },
+      "Question": {
+        "Ar": "أمامك مثلث ومربع. أي عبارة صحيحة عن كليهما؟ A: لكل منهما ثلاثة أضلاع. B: لكل منهما أربعة رؤوس. C: كلاهما مغلق وأضلاعه مستقيمة. D: كلاهما له حافة منحنية.",
+        "En": "Consider a triangle and a square. Which statement is true of both? A: Both have three sides. B: Both have four vertices. C: Both are closed with straight sides. D: Both have a curved edge."
+      },
+      "Options": [
+        {
+          "LatexCode": "A",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "المربع له أربعة أضلاع.",
+            "En": "A square has four sides."
+          }
+        },
+        {
+          "LatexCode": "B",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "المثلث له ثلاثة رؤوس.",
+            "En": "A triangle has three vertices."
+          }
+        },
+        {
+          "LatexCode": "C",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "D",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "لا حافة منحنية في أي منهما.",
+            "En": "Neither has a curved edge."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "فكر بخصائص كل شكل.",
+          "En": "Think of each shape's attributes."
+        },
+        {
+          "Ar": "ابحث عن صفة صحيحة في الشكلين معاً.",
+          "En": "Seek an attribute true of both."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "يمكن لأشكال مختلفة أن تشترك في الإغلاق واستقامة الأضلاع.",
+          "En": "Different shapes can share closure and straight sides."
+        },
+        "FormulaLatex": "3\\ne4",
+        "Steps": [
+          {
+            "Ar": "المثلث مغلق بثلاثة أضلاع مستقيمة.",
+            "En": "A triangle is closed with three straight sides."
+          },
+          {
+            "Ar": "المربع مغلق بأربعة أضلاع مستقيمة.",
+            "En": "A square is closed with four straight sides."
+          },
+          {
+            "Ar": "الإغلاق واستقامة الأضلاع مشتركان بينهما.",
+            "En": "Closure and straight sides are shared."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$C$",
+          "En": "$C$"
+        },
+        "Result": {
+          "Ar": "$C$",
+          "En": "$C$"
+        },
+        "Unit": {
+          "Ar": "عبارة",
+          "En": "Statement"
+        },
+        "Verification": {
+          "Ar": "تتبع حد كل شكل يعيدنا لنقطة البداية عبر قطع مستقيمة.",
+          "En": "Tracing either boundary returns to the start along straight segments."
+        },
+        "CommonError": {
+          "Ar": "لا تختَر صفة تخص شكلاً واحداً فقط.",
+          "En": "Do not choose an attribute of only one shape."
+        }
+      }
+    }
+  },
+  {
+    "key": "growth-v31-grade-1-classify-observations-ordered-counts-1",
+    "family": "classify-observations-ordered-counts",
+    "skill_key": "primary-category-count-data",
+    "track_code": "grade-1",
+    "track": 1,
+    "stage": 1,
+    "category": 97,
+    "skill": 356,
+    "wizard": {
+      "StageId": 1,
+      "CategoryId": 97,
+      "PrimarySkillId": 356,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        1
+      ],
+      "DifficultyLevel": 1,
+      "Points": 10,
+      "Title": {
+        "Ar": "مطابقة سجل البيانات بالمشاهدات",
+        "En": "Matching a record to observations"
+      },
+      "Question": {
+        "Ar": "شاهدت ندى الطيور بالتتابع: عصفور، حمامة، عصفور، عصفور، حمامة. أي زوج يمثل عدد العصافير ثم الحمام؟",
+        "En": "Nada observes birds in order: sparrow, pigeon, sparrow, sparrow, pigeon. Which ordered pair gives the sparrow count followed by the pigeon count?"
+      },
+      "Options": [
+        {
+          "LatexCode": "(2,3)",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "عكس ترتيب الفئتين.",
+            "En": "Reverses category order."
+          }
+        },
+        {
+          "LatexCode": "(3,2)",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "(3,3)",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "عد حمامة إضافية.",
+            "En": "Counts an extra pigeon."
+          }
+        },
+        {
+          "LatexCode": "(5,2)",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "5 عدد جميع الطيور.",
+            "En": "Five counts all birds."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "عد كل نوع وحده.",
+          "En": "Count each type separately."
+        },
+        {
+          "Ar": "اكتب عدد العصافير أولاً ثم الحمام.",
+          "En": "Write sparrows first, then pigeons."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "نسجل كل مشاهدة مرة واحدة في فئتها.",
+          "En": "Record each observation exactly once in its category."
+        },
+        "FormulaLatex": "3+2=5",
+        "Steps": [
+          {
+            "Ar": "العصافير في المشاهدات الأولى والثالثة والرابعة: ثلاثة.",
+            "En": "Sparrows occur first, third and fourth: three."
+          },
+          {
+            "Ar": "الحمام في المشاهدتين الثانية والخامسة: اثنان.",
+            "En": "Pigeons occur second and fifth: two."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$(3,2)$",
+          "En": "$(3,2)$"
+        },
+        "Result": {
+          "Ar": "$(3,2)$",
+          "En": "$(3,2)$"
+        },
+        "Unit": {
+          "Ar": "طيور",
+          "En": "Birds"
+        },
+        "Verification": {
+          "Ar": "3+2=5 يوافق مجموع المشاهدات.",
+          "En": "3+2=5 matches the observation count."
+        },
+        "CommonError": {
+          "Ar": "لا تعكس ترتيب الفئتين في الزوج.",
+          "En": "Do not reverse the category order in the pair."
+        }
+      }
+    }
+  },
+  {
+    "key": "growth-v31-grade-2-equal-halves-different-outlines-1",
+    "family": "equal-halves-different-outlines",
+    "skill_key": "primary-shape-attributes-partition",
+    "track_code": "grade-2",
+    "track": 2,
+    "stage": 1,
+    "category": 96,
+    "skill": 355,
+    "wizard": {
+      "StageId": 1,
+      "CategoryId": 96,
+      "PrimarySkillId": 355,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        2
+      ],
+      "DifficultyLevel": 2,
+      "Points": 10,
+      "Title": {
+        "Ar": "أنصاف متساوية بأشكال مختلفة",
+        "En": "Equal halves with different outlines"
+      },
+      "Question": {
+        "Ar": "قُسم مربع مرة بخط يصل منتصف ضلعه العلوي بمنتصف ضلعه السفلي، ومرة أخرى بقطر يصل رأسين متقابلين. أي عبارة صحيحة؟ A: الأول فقط يعطي نصفين متساويين. B: الثاني فقط. C: كلاهما يعطي نصفين متساويين. D: لا أحد منهما.",
+        "En": "A square is divided once by a line joining the midpoints of its top and bottom sides, and separately by a diagonal joining opposite vertices. Which statement is true? A: Only the first gives equal halves. B: Only the second. C: Both give equal halves. D: Neither."
+      },
+      "Options": [
+        {
+          "LatexCode": "A",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "القطر يعطي مثلثين متطابقين أيضاً.",
+            "En": "The diagonal also gives matching triangles."
+          }
+        },
+        {
+          "LatexCode": "B",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "خط المنتصف يعطي مستطيلين متطابقين أيضاً.",
+            "En": "The midpoint line also gives matching rectangles."
+          }
+        },
+        {
+          "LatexCode": "C",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "D",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "كل تقسيم يعطي جزأين متساويين.",
+            "En": "Each partition gives two equal parts."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "تخيل طي المربع على خط المنتصف.",
+          "En": "Imagine folding along the midpoint line."
+        },
+        {
+          "Ar": "ثم تخيل طيه على القطر.",
+          "En": "Then imagine folding along the diagonal."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "النصفان متساويا المساحة؛ ولا يشترط تماثل شكل الأنصاف بين تقسيمين مختلفين.",
+          "En": "Halves have equal area; their outlines need not match across different partitions."
+        },
+        "FormulaLatex": "\\frac12+\\frac12=1",
+        "Steps": [
+          {
+            "Ar": "التقسيم الأول يعطي مستطيلين متطابقين.",
+            "En": "The first gives matching rectangles."
+          },
+          {
+            "Ar": "الثاني يعطي مثلثين متطابقين.",
+            "En": "The second gives matching triangles."
+          },
+          {
+            "Ar": "كلاهما يعطي نصفين متساويين.",
+            "En": "Both give equal halves."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$C$",
+          "En": "$C$"
+        },
+        "Result": {
+          "Ar": "$C$",
+          "En": "$C$"
+        },
+        "Unit": {
+          "Ar": "عبارة",
+          "En": "Statement"
+        },
+        "Verification": {
+          "Ar": "عند طي المربع في كل حالة يتطابق الجزءان.",
+          "En": "Folding in either case makes the two parts coincide."
+        },
+        "CommonError": {
+          "Ar": "لا تشترط أن تكون الأنصاف مستطيلات فقط.",
+          "En": "Do not assume halves must be rectangles."
+        }
+      }
+    }
+  },
+  {
+    "key": "growth-v31-grade-2-picture-graph-transfer-between-categories-1",
+    "family": "picture-graph-transfer-between-categories",
+    "skill_key": "primary-single-unit-picture-data",
+    "track_code": "grade-2",
+    "track": 2,
+    "stage": 1,
+    "category": 97,
+    "skill": 357,
+    "wizard": {
+      "StageId": 1,
+      "CategoryId": 97,
+      "PrimarySkillId": 357,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        2
+      ],
+      "DifficultyLevel": 2,
+      "Points": 10,
+      "Title": {
+        "Ar": "نقل عنصر بين فئتين",
+        "En": "Moving an entry between categories"
+      },
+      "Question": {
+        "Ar": "يمثل كل رمز ● طالباً واحداً. اختيارات النشاط: A: ●●●●●؛ B: ●●●؛ C: ●●●●. غيّر طالب واحد اختياره من A إلى B ولم يغادر أحد. كم طالباً في المجموع بعد التغيير؟",
+        "En": "Each ● represents one pupil. Activity choices are A: ●●●●●; B: ●●●; C: ●●●●. One pupil switches from A to B and nobody leaves. How many pupils are there altogether after the change?"
+      },
+      "Options": [
+        {
+          "LatexCode": "10",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "حذف طالبين رغم أن أحداً لم يغادر.",
+            "En": "Removes two pupils although nobody left."
+          }
+        },
+        {
+          "LatexCode": "11",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "طرح الطالب من A دون إضافته إلى B.",
+            "En": "Removes the pupil from A without adding to B."
+          }
+        },
+        {
+          "LatexCode": "12",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "13",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "أضاف الطالب إلى B دون حذفه من A.",
+            "En": "Adds the pupil to B without removing from A."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "احسب الأعداد قبل النقل.",
+          "En": "Count before the switch."
+        },
+        {
+          "Ar": "انقل طالباً من A إلى B دون تغيير العدد الكلي.",
+          "En": "Move one pupil from A to B without changing the total."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "نقل عنصر بين فئتين دون خروجه من المجموعة يحافظ على المجموع.",
+          "En": "Moving an item between categories without leaving the group preserves the total."
+        },
+        "FormulaLatex": "(5-1)+(3+1)+4",
+        "Steps": [
+          {
+            "Ar": "الأعداد قبل النقل 5 و3 و4.",
+            "En": "Before the switch: 5,3,4."
+          },
+          {
+            "Ar": "بعد النقل تصبح 4 و4 و4.",
+            "En": "Afterwards: 4,4,4."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$4+4+4=12$",
+          "En": "$4+4+4=12$"
+        },
+        "Result": {
+          "Ar": "$12$",
+          "En": "$12$"
+        },
+        "Unit": {
+          "Ar": "طلاب",
+          "En": "Pupils"
+        },
+        "Verification": {
+          "Ar": "5+3+4=12 أيضاً؛ لم يضف أو يحذف طالب.",
+          "En": "5+3+4=12 too; no pupil was added or removed."
+        },
+        "CommonError": {
+          "Ar": "لا تسجل الطالب في فئتين بعد نقله.",
+          "En": "Do not count the transferred pupil in both categories."
+        }
+      }
+    }
+  },
+  {
+    "key": "growth-v31-grade-6-median-even-after-extreme-insertion-1",
+    "family": "median-even-after-extreme-insertion",
+    "skill_key": "primary-median",
+    "track_code": "grade-6",
+    "track": 6,
+    "stage": 1,
+    "category": 4,
+    "skill": 18,
+    "wizard": {
+      "StageId": 1,
+      "CategoryId": 4,
+      "PrimarySkillId": 18,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        6
+      ],
+      "DifficultyLevel": 2,
+      "Points": 10,
+      "Title": {
+        "Ar": "أثر إضافة قيمة على الوسيط",
+        "En": "Effect of adding a value on the median"
+      },
+      "Question": {
+        "Ar": "البيانات المرتبة هي 2، 5، 7، 9، 12. أضيفت القيمة 20. ما الوسيط الجديد؟",
+        "En": "The sorted data are 2,5,7,9,12. The value 20 is added. What is the new median?"
+      },
+      "Options": [
+        {
+          "LatexCode": "7",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "هذا الوسيط قبل الإضافة.",
+            "En": "This is the old median."
+          }
+        },
+        {
+          "LatexCode": "8",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "9",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "اختار القيمة الرابعة وحدها رغم أن العدد زوجي.",
+            "En": "Chooses only the fourth value despite even count."
+          }
+        },
+        {
+          "LatexCode": "12",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "12 ليست قيمة وسطية.",
+            "En": "12 is not a middle observation."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "أعد حساب عدد المشاهدات.",
+          "En": "Recount observations."
+        },
+        {
+          "Ar": "عند ست قيم احسب متوسط الثالثة والرابعة.",
+          "En": "With six observations, average the third and fourth."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "وسيط البيانات المرتبة ذات العدد الزوجي متوسط القيمتين الوسطيتين.",
+          "En": "The median of sorted data with even count is the average of the middle two observations."
+        },
+        "FormulaLatex": "M=\\frac{x_{n/2}+x_{n/2+1}}2",
+        "Steps": [
+          {
+            "Ar": "القائمة الجديدة 2،5،7،9،12،20.",
+            "En": "New list: 2,5,7,9,12,20."
+          },
+          {
+            "Ar": "القيمتان الوسطيتان هما 7 و9.",
+            "En": "The middle values are 7 and 9."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$ (7+9)/2=8 $",
+          "En": "$ (7+9)/2=8 $"
+        },
+        "Result": {
+          "Ar": "$8$",
+          "En": "$8$"
+        },
+        "Unit": {
+          "Ar": "بلا وحدة محددة",
+          "En": "No specified unit"
+        },
+        "Verification": {
+          "Ar": "توجد ثلاث قيم أقل من 8 وثلاث أعلى منه، وهو منتصف 7 و9.",
+          "En": "Three values lie below eight and three above, and it is midway between seven and nine."
+        },
+        "CommonError": {
+          "Ar": "لا تستخدم قاعدة الوسيط لعدد فردي بعد تغير العدد.",
+          "En": "Do not apply the odd-count median rule after the count changes."
+        }
+      }
+    }
+  },
+  {
+    "key": "growth-v31-grade-6-mean-unchanged-add-mean-value-1",
+    "family": "mean-unchanged-add-mean-value",
+    "skill_key": "primary-arithmetic-mean",
+    "track_code": "grade-6",
+    "track": 6,
+    "stage": 1,
+    "category": 4,
+    "skill": 19,
+    "wizard": {
+      "StageId": 1,
+      "CategoryId": 4,
+      "PrimarySkillId": 19,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        6
+      ],
+      "DifficultyLevel": 2,
+      "Points": 10,
+      "Title": {
+        "Ar": "إضافة قيمة تساوي المتوسط",
+        "En": "Adding an observation equal to the mean"
+      },
+      "Question": {
+        "Ar": "متوسط أطوال أربع قطع خشبية هو 6 سم. أضيفت قطعة خامسة طولها 6 سم. ما المتوسط الجديد؟",
+        "En": "Four wooden pieces have mean length 6 cm. A fifth piece of length 6 cm is added. What is the new mean?"
+      },
+      "Options": [
+        {
+          "LatexCode": "5",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "خمسة عدد القطع الجديد.",
+            "En": "Five is the new piece count."
+          }
+        },
+        {
+          "LatexCode": "6",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "7",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "إضافة قيمة تساوي المتوسط لا تزيده بواحد.",
+            "En": "Adding a value equal to the mean does not increase it by one."
+          }
+        },
+        {
+          "LatexCode": "7.5",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "قسمة المجموع الجديد على العدد القديم تعطي 7.5 خطأً.",
+            "En": "Dividing the new total by the old count incorrectly gives 7.5."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "استرجع المجموع القديم من المتوسط والعدد.",
+          "En": "Recover the old total from mean and count."
+        },
+        {
+          "Ar": "أضف 6 ثم اقسم على خمسة.",
+          "En": "Add six, then divide by five."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "إضافة مشاهدة تساوي المتوسط الحالي لمجموعة غير فارغة لا تغير المتوسط.",
+          "En": "Adding a value equal to the mean of a nonempty data set leaves it unchanged."
+        },
+        "FormulaLatex": "\\bar x_{\\mathrm{new}}=\\frac{4\\cdot6+6}{5}",
+        "Steps": [
+          {
+            "Ar": "المجموع القديم 4×6=24 سم.",
+            "En": "Old total is 4×6=24 cm."
+          },
+          {
+            "Ar": "الجديد 24+6=30 سم لخمس قطع.",
+            "En": "New total is 24+6=30 cm for five pieces."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$30/5=6$",
+          "En": "$30/5=6$"
+        },
+        "Result": {
+          "Ar": "$6$",
+          "En": "$6$"
+        },
+        "Unit": {
+          "Ar": "سم",
+          "En": "cm"
+        },
+        "Verification": {
+          "Ar": "خمس قطع بمتوسط 6 سم تعطي مجموعاً 30 سم، مطابقاً للمجموع الفعلي.",
+          "En": "Five pieces averaging 6 cm total 30 cm, matching the actual total."
+        },
+        "CommonError": {
+          "Ar": "لا تنس تحديث المقام.",
+          "En": "Do not forget to update the denominator."
+        }
+      }
+    }
+  }
+]
