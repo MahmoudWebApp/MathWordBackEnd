@@ -216,6 +216,31 @@ public static class PremiumAnalyticsPdfExporter
     }
 
 
+    public static byte[] CreateExamCertificate(MathWorldAPI.Models.CustomExam exam,bool ar)
+    {
+        _ = Initialized.Value;
+        using var stream=typeof(PremiumAnalyticsPdfExporter).Assembly.GetManifestResourceStream("MathWorld.Brand.Logo.png")
+            ?? throw new InvalidOperationException("MathWorld approved report logo missing");
+        using var buffer=new MemoryStream();stream.CopyTo(buffer);var logo=buffer.ToArray();
+        return Document.Create(document=>document.Page(page=>{
+            page.Size(PageSizes.A4.Landscape());page.Margin(36);page.PageColor(Colors.White);
+            page.DefaultTextStyle(t=>t.FontFamily("IBM Plex Sans Arabic").FontColor(Navy).FontSize(15));
+            var root=page.Content();root=ar?root.ContentFromRightToLeft():root.ContentFromLeftToRight();
+            root.Border(2).BorderColor(Teal).Padding(24).Column(col=>{
+                col.Spacing(12);col.Item().AlignCenter().Width(60).Height(60).Image(logo);
+                col.Item().AlignCenter().Text("MathWorld").FontSize(25).Bold().FontColor(Teal);
+                col.Item().AlignCenter().Text(ar?"شهادة اجتياز امتحان":"Exam achievement certificate").FontSize(27).Bold();
+                col.Item().AlignCenter().Text(exam.CertificateStudentName??"").FontSize(24).SemiBold();
+                col.Item().AlignCenter().Text(ar?exam.TitleAr:exam.TitleEn).FontSize(20).SemiBold();
+                col.Item().AlignCenter().Text(ar?$"الدرجة: {exam.Score} من {exam.Total} — حد النجاح {exam.PassPercent}%":$"Score: {exam.Score} of {exam.Total} — pass threshold {exam.PassPercent}%");
+                col.Item().AlignCenter().Text(exam.FinishedAtUtc!.Value.ToString("yyyy-MM-dd",CultureInfo.InvariantCulture));
+                col.Item().AlignCenter().Text(ar?"رمز التحقق":"Verification code").FontSize(11);
+                col.Item().ContentFromLeftToRight().AlignCenter().Text(exam.VerificationCode??"").FontSize(12).SemiBold();
+                col.Item().AlignCenter().Text(ar?"شهادة تعليمية صادرة عن MathWorld، وليست اعتماداً أكاديمياً خارجياً.":"Issued by MathWorld; not an external academic accreditation.").FontSize(10);
+            });
+        })).GeneratePdf();
+    }
+
     public static byte[] CreateCertificate(MathWorldAPI.Models.LearningCertificate certificate,bool ar)
     {
         _ = Initialized.Value;
