@@ -736,3 +736,31 @@ Reviewed24 drafts, excluded held887,889,893,894,899. Recomputed19 answers (summa
 |908|1666|6654|
 
 Live1008, structured831, missing177. Stage counts [{"StageId":1,"total":315,"structured":274},{"StageId":2,"total":227,"structured":194},{"StageId":3,"total":239,"structured":182},{"StageId":4,"total":227,"structured":181}]. Draft status [{"EditorialStatus":"Draft","amendments":137,"additions":49},{"EditorialStatus":"Published","amendments":596,"additions":469},{"EditorialStatus":"Withdrawn","amendments":0,"additions":1}]. Cumulative #193:441 corrections+159 new. Depth unchanged813/1400 and897/1760 (88 placements, gap863). Next legacy909 onward, retain held items and continue underfilled category growth. Reconcile #179 without replay.
+
+
+## Legacy review checkpoint 909–932 (2026-11-26)
+Reviewed24 pending drafts, excluded held910,915,920,921,928. Recomputed19 answers (dot products, constrained and unconstrained optimization, Hessian eigenvalues, place value, number line, grouping, ordered sample spaces, independent trials, percentage-point comparison, unions, vector operations, unit vectors and angles). Reviewed original bilingual ideas and hints, expanded derivations, conditions, substitutions, verification and option-specific feedback. Saved specs scripts/reviewed_legacy_909_932_specs_20261126.json commitcc2e5a77b06d2372193a9ff9aa8c9b84aad38718 NOT importable. All four hold registries, source SHA256 and draft MD5/revision, active owner, exact live/open-draft duplicate and placement guards checked. Applied four small guarded partitions:909–914 (5) ddd4bd53ae8674434744509daf151658a35cead5;916–922 (5) 406c075578d55f9ab2726b6b9b768848dfad560c;923–927 (5) 010f7615638d4c6e70c557b80446f75bccb1fd42;929–932 (4) 9b416ef438be8dd40637d7307cd968400909a728. ALL APPLIED DO NOT replay. Each passed rollback rehearsal, independent precommit unchanged check, one commit and independent exact readback. Overall19/19,76 owner_sql events. Preserved original titles, stems, option IDs/text/flags, points, video, track/skill mappings including19+21, student and access records. Levels20/21 unpublished. No app or infrastructure changes. Runtime rendering and exhaustive semantic duplicate-family audit pending.
+
+| Draft | Source | Correct option ID |
+|---:|---:|---:|
+|909|1667|6657|
+|911|1669|6667|
+|912|1670|6671|
+|913|1671|6675|
+|914|1672|6679|
+|916|1674|6686|
+|917|1675|6690|
+|918|1676|6693|
+|919|1677|6698|
+|922|1680|6710|
+|923|1681|6714|
+|924|1682|6718|
+|925|1683|6723|
+|926|1685|6732|
+|927|1686|6733|
+|929|1690|6750|
+|930|1691|6754|
+|931|1692|6757|
+|932|1693|6762|
+
+Live1008, structured850, missing158. Stage counts [{"StageId":1,"total":315,"structured":280},{"StageId":2,"total":227,"structured":198},{"StageId":3,"total":239,"structured":186},{"StageId":4,"total":227,"structured":186}]. Draft status [{"EditorialStatus":"Draft","amendments":118,"additions":49},{"EditorialStatus":"Published","amendments":615,"additions":469},{"EditorialStatus":"Withdrawn","amendments":0,"additions":1}]. Cumulative #193:460 corrections+159 new. Depth unchanged813/1400 and897/1760 (88 placements, gap863). Next legacy933 onward, retain held items and continue underfilled category growth. Reconcile #179 without replay.
