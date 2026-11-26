@@ -771,7 +771,7 @@ namespace MathWorldAPI.Controllers
             typeof(ApiResponse<object>),
             StatusCodes.Status404NotFound)]
         public async Task<IActionResult> DeleteProblem(
-            int id)
+            int id, [FromQuery] bool confirm = false)
         {
             var language =
                 LanguageHelper.GetLanguageFromRequest(Request);
@@ -789,7 +789,7 @@ namespace MathWorldAPI.Controllers
                     .FirstOrDefaultAsync(item =>
                         item.Id == id);
 
-            if (problem?.EditorialDetailsJson is not null)
+            if (problem?.EditorialDetailsJson is not null && !confirm)
                 return Conflict(new { Message = "ReviewedEditorialMutationRequired" });
 
             if (problem == null)
@@ -802,10 +802,16 @@ namespace MathWorldAPI.Controllers
             }
 
             var hasStudentData =
-                await _context.UserProgresses
+                await _context.UserProgresses.IgnoreQueryFilters()
                     .AnyAsync(item => item.ProblemId == id) ||
                 await _context.ProblemAttempts
-                    .AnyAsync(item => item.ProblemId == id);
+                    .AnyAsync(item => item.ProblemId == id) ||
+                await _context.PermanentProblemAchievements.AnyAsync(item => item.ProblemId == id) ||
+                await _context.LearningSessionAttempts.AnyAsync(item => item.ProblemId == id);
+
+            if (await _context.CurriculumDraftItems.AnyAsync(d => d.SourceProblemId == id &&
+                d.EditorialStatus != "Published" && d.EditorialStatus != "Withdrawn"))
+                return Conflict(new { Message = "OpenEditorialReview" });
 
             if (hasStudentData)
             {
