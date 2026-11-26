@@ -40,8 +40,13 @@ const all=()=>[...generate(),...wave2(),...universityWave(),...depthWave(),...co
 const publishedKeys=new Set(read(new URL('./published-expansion.json',import.meta.url)).map(row=>row.key));
 const reviewedOverlap=read(new URL('./reviewed-overlap-holds.json',import.meta.url));
 const excluded=new Set([...Object.keys(reviewedOverlap),...heldFamilies,...schoolHolds,...transferHolds,...universityApplicationHolds]);
+const editorialHolds=read(new URL('./reviewed-editorial-holds.json',import.meta.url));
+function holdReason(row){
+ if(excluded.has(row.Family))return 'PotentialSemanticOverlap';
+ if(Object.hasOwn(editorialHolds,row.Family))return 'EditorialReviewRequired';
+}
 function wave(p){const x=read(p);if(!Array.isArray(x.Items))throw Error('Expected Items in '+p);return x.Items;}
-function active(rows){const errors=validate(rows);if(errors.length)throw Error(JSON.stringify(errors));return rows.filter(r=>!excluded.has(r.Family)&&!publishedKeys.has(r.ContentKey));}
+function active(rows){const errors=validate(rows);if(errors.length)throw Error(JSON.stringify(errors));return rows.filter(r=>!holdReason(r)&&!publishedKeys.has(r.ContentKey));}
 if(cmd==='plan'&&input&&output)save(output,plan(read(input)));
 else if(cmd==='review-queue'&&input&&output&&extra.length===1){
  const catalog=all(),known=read(extra[0]);
@@ -53,7 +58,7 @@ else if(['pilot','prepare','bulk-prepare','launch-prepare'].includes(cmd)&&input
  let raw=all(),known=[],inventory;
  if(cmd!=='pilot'){if(!output)throw Error('Inventory required');inventory=read(output);}
  if(cmd==='bulk-prepare'||cmd==='launch-prepare'){const [knownPath,...waves]=extra;if(!knownPath)throw Error('Known questions file required');known=read(knownPath);if(!Array.isArray(known)||known.some(q=>typeof q.Ar!=='string'||typeof q.En!=='string'))throw Error('Expected bilingual known-question pairs');raw.push(...waves.flatMap(wave));}
- let rows=active(raw);const held=raw.filter(r=>excluded.has(r.Family)).map(r=>({key:r.ContentKey,reason:'PotentialSemanticOverlap'}));
+ let rows=active(raw);const held=raw.map(r=>({key:r.ContentKey,reason:holdReason(r)})).filter(r=>r.reason);
  const errors=validate(rows,known);if(errors.length)throw Error(JSON.stringify(errors));
  if(inventory){const scoped=cmd==='launch-prepare'?selectLaunchCandidates(rows,inventory):selectCandidates(rows,inventory);rows=scoped.selected;held.push(...scoped.held);}
  if(existsSync(input)&&readdirSync(input).length)throw Error('Use a new output directory');

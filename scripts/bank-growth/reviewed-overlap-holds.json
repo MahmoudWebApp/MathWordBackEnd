@@ -53,5 +53,14 @@
   "remove-pairs-from-marked-seats": "Same start-count, remove or hide a subset, restore one, and count what remains visible or unmarked as V19 count-visible-faces-on-turning-cards. Prefer the counting task with explicit card states.",
   "count-forward-steps": "Existing recorded bank exercises already count forward from a supplied starting mark with a fixed number of jumps, or backward by single steps. Reserve the three number-only variants until a distinct objective is established.",
   "rectangle-border": "Existing problems 191 and 203 already give the two rectangle dimensions and require its boundary length. Wrapping a ribbon around the frame changes the story but leaves the calculation unchanged.",
-  "fraction-set": "Existing bank item asks for two thirds of a set of 18 balls. These variants apply the same divide-by-denominator then multiply-by-numerator reasoning to known set sizes."
+  "fraction-set": "Existing bank item asks for two thirds of a set of 18 balls. These variants apply the same divide-by-denominator then multiply-by-numerator reasoning to known set sizes.",
+  "median-unsorted-five": "The recorded source already asks for the median of an unsorted five-value list (3, 7, 9, 5, 4). These three use the same sort-then-select procedure.",
+  "absolute-approximation-error": "The recorded source already asks for absolute error from exact 10 and approximate 9.7. Integer substitutions use the same operation.",
+  "one-panel-trapezoid": "The recorded source applies one trapezoidal panel to x squared on [0, 2]. Supplying the two endpoint values skips an evaluation step but repeats the numerical quadrature.",
+  "newton-linear-one-step": "The recorded source requests the same first Newton iterate for x squared minus 9 from 4. The linear versions merely substitute easier operands and do not ask why one update reaches the root.",
+  "division-leftover-remainder": "The recorded pencil-bundling and 96-pencil sharing items already extract a remainder after forming the largest number of equal groups. These variants isolate the same remainder.",
+  "substitution-two-terms": "Existing grade-5 source problems 190 and 202 already substitute a positive integer into a linear expression with a constant. The plus sign does not change the reasoning.",
+  "same-base-quotient-exponent": "Source 210, 222, 234, 246 and 258 already use the same-base quotient rule. Reporting the exponent alone rehearses the same step.",
+  "input-from-output": "Source 212, 224, 236, 248 and 260 already recover an input from the output of an affine function. These variants change the sign of the constant.",
+  "percent-of-total": "The recorded bank already asks how many of 80 students participated at 25 percent. The first variant uses the same operands and task with a different context and the second substitutes numbers."
 }
