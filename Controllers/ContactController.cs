@@ -25,7 +25,7 @@ public sealed class ContactController(AppDbContext db,NotificationStreamBroker s
         if(!Text(input.Name,2,100)||!Text(input.Email,3,254)||!MailAddress.TryCreate(input.Email.Trim(),out var address)||
             !string.Equals(address.Address,input.Email.Trim(),StringComparison.OrdinalIgnoreCase)||
             input.Name.Any(char.IsControl)||input.Email.Any(char.IsControl)||
-            !Text(input.Message,10,2000)||(input.Subject?.Trim().Length??0)>150||
+            !Text(input.Message,10,500)||(input.Subject?.Trim().Length??0)>100||
             (input.Subject?.Any(char.IsControl)??false))return BadRequest(new{Message="InvalidContactMessage"});
         var category=input.Category switch{
             "complaint"=>("شكوى أو الإبلاغ عن مشكلة","Complaint or problem report"),
