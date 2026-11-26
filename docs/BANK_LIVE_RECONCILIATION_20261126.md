@@ -708,3 +708,31 @@ Reviewed24 drafts861–884, none matched the four hold registries. Recomputed al
 |884|1640|6551|
 
 Live1008, structured812, missing196. Stage counts [{"StageId":1,"total":315,"structured":269},{"StageId":2,"total":227,"structured":188},{"StageId":3,"total":239,"structured":176},{"StageId":4,"total":227,"structured":179}]. Draft status [{"EditorialStatus":"Draft","amendments":156,"additions":49},{"EditorialStatus":"Published","amendments":577,"additions":469},{"EditorialStatus":"Withdrawn","amendments":0,"additions":1}]. Cumulative #193:422 corrections+159 new. Depth unchanged813/1400 and897/1760 (88 placements, gap863). Next legacy885 onward and underfilled category growth. Reconcile #179 without replay.
+
+
+## Legacy review checkpoint 885–908 (2026-11-26)
+Reviewed24 drafts, excluded held887,889,893,894,899. Recomputed19 answers (summary statistics, geometric series convergence, classical logic, place value, estimation, counting/probability, vectors). Reviewed bilingual ideas/hints, expanded derivations, substitution, verification and distractor-specific feedback. Saved specs scripts/reviewed_legacy_885_908_specs_20261126.json commit5c2b74485e61c4ce1aacde8fe3d477780264b816 NOT importable. Removed redundant percent unit from solution903. Four hold registries, source SHA256/draft MD5/revision, owner, exact live/open-draft duplicate and placement guards checked. Four small partitions applied: 885–891 (5) a0aa0773fdcd9b34fab900f286b6b17ac2c4a6c1; 892–898 (5) f3313c8475ec7a42b92038cefe9a816e89a4a3e0; 900–904 (5) b45ff442d36e63dbe0eee8b93330a5edcaec2ac5; 905–908 (4) b69fecbfb2ef13f51173fc1ae5412ae6c5da922c. ALL APPLIED DO NOT replay. Each passed rollback rehearsal, independent unchanged precommit read, one commit and independent exact readback. Overall19/19,76 owner_sql events. Preserved original stems/options/IDs, points, video, category/skill links and university dual mapping17+20. No student, entitlement, infrastructure or app changes; levels20/21 unpublished. Runtime and exhaustive semantic duplicate-family audit pending.
+
+| Draft | Source | Correct option ID |
+|---:|---:|---:|
+|885|1641|6553|
+|886|1642|6559|
+|888|1644|6568|
+|890|1646|6574|
+|891|1647|6578|
+|892|1648|6583|
+|895|1651|6594|
+|896|1652|6599|
+|897|1653|6603|
+|898|1654|6607|
+|900|1656|6616|
+|901|1657|6618|
+|902|1660|6630|
+|903|1661|6634|
+|904|1662|6638|
+|905|1663|6643|
+|906|1664|6645|
+|907|1665|6650|
+|908|1666|6654|
+
+Live1008, structured831, missing177. Stage counts [{"StageId":1,"total":315,"structured":274},{"StageId":2,"total":227,"structured":194},{"StageId":3,"total":239,"structured":182},{"StageId":4,"total":227,"structured":181}]. Draft status [{"EditorialStatus":"Draft","amendments":137,"additions":49},{"EditorialStatus":"Published","amendments":596,"additions":469},{"EditorialStatus":"Withdrawn","amendments":0,"additions":1}]. Cumulative #193:441 corrections+159 new. Depth unchanged813/1400 and897/1760 (88 placements, gap863). Next legacy909 onward, retain held items and continue underfilled category growth. Reconcile #179 without replay.
