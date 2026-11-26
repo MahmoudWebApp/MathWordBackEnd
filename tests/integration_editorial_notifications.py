@@ -175,6 +175,9 @@ def main():
     assert badges["UniqueSolved"] == 1 and badges["EarnedCount"] == 1, badges
     assert badges["NextMilestone"] == 10, badges
     assert badges["Badges"][0]["Key"] == "stage_1_first_step" and badges["Badges"][0]["Earned"]
+    assert badges["Badges"][0]["MilestoneReachedAtUtc"], "First solved milestone must have a recorded timestamp"
+    assert not badges["Badges"][1].get("MilestoneReachedAtUtc"), "Unearned milestone must not have a timestamp"
+
     assert not badges["Badges"][-1]["Earned"]  # No all-stage badge from one solved stage
     assert not badges["Badges"][1]["Earned"], badges
     assert api("GET", "/api/users/achievements")[0] == 401
