@@ -1392,8 +1392,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تحذف P أو تبدل التقاطع باتحاد دون قانون. النتيجة تتبع P في جميع الحالات بغض النظر عن Q.",
-              "En": "This choice does not match the derived result. Do not discard P or swap AND for OR without a valid law. The result follows P in every assignment regardless of Q."
+              "Ar": "عندما تكون P صادقة وQ خاطئة، تكون العبارة الأصلية صادقة وتكون Q خاطئة.",
+              "En": "When P is true and Q is false, the original expression is true and Q is false."
             }
           },
           {
@@ -1407,8 +1407,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تحذف P أو تبدل التقاطع باتحاد دون قانون. النتيجة تتبع P في جميع الحالات بغض النظر عن Q.",
-              "En": "This choice does not match the derived result. Do not discard P or swap AND for OR without a valid law. The result follows P in every assignment regardless of Q."
+              "Ar": "عندما تكون P صادقة وQ خاطئة، يكون الاقتران P ∧ Q خاطئاً وتكون العبارة الأصلية صادقة.",
+              "En": "When P is true and Q is false, P ∧ Q is false and the original expression is true."
             }
           },
           {
@@ -1416,8 +1416,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تحذف P أو تبدل التقاطع باتحاد دون قانون. النتيجة تتبع P في جميع الحالات بغض النظر عن Q.",
-              "En": "This choice does not match the derived result. Do not discard P or swap AND for OR without a valid law. The result follows P in every assignment regardless of Q."
+              "Ar": "عندما تكون P خاطئة وQ صادقة، يكون الفصل P ∨ Q صادقاً وتكون العبارة الأصلية خاطئة.",
+              "En": "When P is false and Q is true, P ∨ Q is true and the original expression is false."
             }
           }
         ],
@@ -1848,8 +1848,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تخلط بين مستوى الدلالة وقوة الاختبار 1−β. β يرمز لخطأ النوع الثاني: عدم رفض فرضية صفرية خاطئة.",
-              "En": "This choice does not match the derived result. Do not confuse significance with power 1−β. β denotes Type II error: failure to reject a false null."
+              "Ar": "يرمز β إلى احتمال عدم الرفض عند بديل محدد، وهو خطأ من النوع الثاني.",
+              "En": "β denotes failure to reject under a specified alternative, a Type II error."
             }
           },
           {
@@ -1857,8 +1857,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تخلط بين مستوى الدلالة وقوة الاختبار 1−β. β يرمز لخطأ النوع الثاني: عدم رفض فرضية صفرية خاطئة.",
-              "En": "This choice does not match the derived result. Do not confuse significance with power 1−β. β denotes Type II error: failure to reject a false null."
+              "Ar": "في الحالة التي يبلغ فيها احتمال خطأ النوع الأول المستوى α، يكون 1−α متمّم ذلك الاحتمال.",
+              "En": "When the Type I error probability attains α, 1−α is its complement."
             }
           },
           {
@@ -1872,8 +1872,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تخلط بين مستوى الدلالة وقوة الاختبار 1−β. β يرمز لخطأ النوع الثاني: عدم رفض فرضية صفرية خاطئة.",
-              "En": "This choice does not match the derived result. Do not confuse significance with power 1−β. β denotes Type II error: failure to reject a false null."
+              "Ar": "الكمية 1−β قوة الاختبار عند بديل محدد.",
+              "En": "The quantity 1−β is the power at a specified alternative."
             }
           }
         ],
@@ -1889,18 +1889,18 @@
         ],
         "Solution": {
           "Idea": {
-            "Ar": "خطأ النوع الأول هو رفض فرضية صفرية صحيحة.",
-            "En": "A Type I error means rejecting a true null."
+            "Ar": "يرمز α إلى مستوى الدلالة، وهو حد أعلى لاحتمال رفض الفرضية الصفرية عندما تكون صحيحة.",
+            "En": "The significance level α bounds the probability of rejecting a true null hypothesis."
           },
-          "FormulaLatex": "\\alpha=P(\\text{reject }H_0\\mid H_0\\text{ true})",
+          "FormulaLatex": "P_{\\\\theta}(\\\\text{reject }H_0)\\\\le\\\\alpha\\\\quad(\\\\theta\\\\in H_0)",
           "Steps": [
             {
-              "Ar": "حدد حالة الحقيقة: H₀ صحيحة.",
-              "En": "Identify the true state: H₀ is true."
+              "Ar": "عندما تكون الفرضية الصفرية صحيحة، يُسمّى قرار رفضها خطأً من النوع الأول.",
+              "En": "Under a true null hypothesis, rejecting it is a Type I error."
             },
             {
-              "Ar": "حدد القرار الخاطئ: رفض H₀.",
-              "En": "Identify the erroneous decision: reject H₀."
+              "Ar": "يرمز α إلى المستوى المختار قبل الاختبار. قد يساوي احتمال الخطأ هذا الحد في اختبار مضبوط، وقد يكون أقل منه.",
+              "En": "The prespecified level is denoted by α. The actual error probability can equal this level for a calibrated test or fall below it."
             }
           ],
           "Result": {
@@ -1908,8 +1908,8 @@
             "En": "$\\alpha$"
           },
           "Verification": {
-            "Ar": "β يرمز لخطأ النوع الثاني: عدم رفض فرضية صفرية خاطئة.",
-            "En": "β denotes Type II error: failure to reject a false null."
+            "Ar": "إذا كان مستوى الدلالة 0.05، فإن احتمال الرفض تحت كل حالة تحقق الفرضية الصفرية لا يتجاوز 0.05.",
+            "En": "A 0.05 significance level bounds the rejection probability by 0.05 for every parameter value under the null."
           },
           "CommonError": {
             "Ar": "لا تخلط بين مستوى الدلالة وقوة الاختبار 1−β.",

@@ -6802,7 +6802,7 @@
             "Ar": "نطبق خطية التكامل وقاعدة القوة على الحدين.",
             "En": "Apply integration linearity and the power rule to both terms."
           },
-          "FormulaLatex": "\\int ax^n\\,dx=\\frac{a}{n+1}x^{n+1}+C",
+          "FormulaLatex": "\\\\int ax^n\\\\,dx=\\\\frac{a}{n+1}x^{n+1}+C\\\\quad(n\\\\ne-1)",
           "Steps": [
             {
               "Ar": "زد الأس في كل حد واحداً واقسم المعامل على الأس الجديد.",

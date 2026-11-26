@@ -1874,8 +1874,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "العشرات في العدد الأول 0 وفي الثاني 9، لذا الأول ليس أكبر.",
-              "En": "The first tens digit is 0 and the second 9, so the first is not larger."
+              "Ar": "أول اختلاف في منزلة العشرات. الرقم 0 في العدد الأول أصغر من الرقم 9 في العدد الثاني.",
+              "En": "The first differing place is the tens place. The first number has 0 tens and the second has 9."
             }
           },
           {
@@ -1883,8 +1883,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "العددان مختلفان في منزلة العشرات.",
-              "En": "The numbers differ in the tens place."
+              "Ar": "العددان مختلفان، لأن رقمي العشرات 0 و9.",
+              "En": "The numbers differ because their tens digits are 0 and 9."
             }
           },
           {
@@ -1898,8 +1898,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الأول أصغر تماماً من الثاني، فلا هو أكبر ولا مساوٍ.",
-              "En": "The first is strictly smaller, neither larger nor equal."
+              "Ar": "الرمز ≥ يعني أكبر من أو يساوي. العدد الأول أصغر من الثاني.",
+              "En": "The symbol ≥ means greater than or equal to. The first number is smaller."
             }
           }
         ],

@@ -4518,8 +4518,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الخيار $8$ لا يحقق العلاقة الناتجة من المعطيات: $d=\\sqrt{(7-1)^2+(10-2)^2}=\\sqrt{100}=10$.",
-              "En": "The option $8$ does not satisfy the relation obtained from the given data: $d=\\sqrt{(7-1)^2+(10-2)^2}=\\sqrt{100}=10$."
+              "Ar": "العدد 8 هو الفرق الرأسي فقط. تتضمن المسافة أيضاً فرقاً أفقياً مقداره 6.",
+              "En": "The value 8 is only the vertical change. The horizontal change is also 6."
             }
           },
           {
@@ -4533,8 +4533,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الخيار $12$ لا يحقق العلاقة الناتجة من المعطيات: $d=\\sqrt{(7-1)^2+(10-2)^2}=\\sqrt{100}=10$.",
-              "En": "The option $12$ does not satisfy the relation obtained from the given data: $d=\\sqrt{(7-1)^2+(10-2)^2}=\\sqrt{100}=10$."
+              "Ar": "مربع المسافة يساوي 100، بينما مربع 12 يساوي 144.",
+              "En": "The squared distance is 100, while 12 squared is 144."
             }
           },
           {
@@ -4542,8 +4542,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الخيار $14$ لا يحقق العلاقة الناتجة من المعطيات: $d=\\sqrt{(7-1)^2+(10-2)^2}=\\sqrt{100}=10$.",
-              "En": "The option $14$ does not satisfy the relation obtained from the given data: $d=\\sqrt{(7-1)^2+(10-2)^2}=\\sqrt{100}=10$."
+              "Ar": "العدد 14 مجموع الفرقين الأفقي والرأسي. المسافة المستقيمة هي وتر المثلث القائم.",
+              "En": "The value 14 adds the horizontal and vertical changes. Straight-line distance is the hypotenuse."
             }
           }
         ],
@@ -5638,8 +5638,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "يشمل −3، لكن −2×(−3)+6=12 لا يحقق الشرط.",
-              "En": "It includes −3, but −2×(−3)+6=12 fails the condition."
+              "Ar": "القيمة −3 تحقق هذا الخيار لكن التعويض يعطي 12، وهو أكبر من 10.",
+              "En": "This option includes −3, which gives 12, above 10."
             }
           },
           {
@@ -5647,8 +5647,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "يشمل −2، وعندها القيمة 10 وليست أصغر من 10.",
-              "En": "It includes −2, where the expression equals 10 rather than being below it."
+              "Ar": "هذا الخيار يستبعد الصفر مع أن التعويض به يعطي 6، وهي أقل من 10.",
+              "En": "This option excludes zero, although substituting zero gives 6, below 10."
             }
           },
           {
@@ -5662,8 +5662,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "يضيف نقطة الحد −2 رغم أن المساواة غير مسموحة.",
-              "En": "It adds boundary −2 even though equality is not allowed."
+              "Ar": "هذا الخيار يُدخل −2، مع أن التعويض يعطي 10 والمتباينة صارمة.",
+              "En": "This option includes −2, which gives 10 at the strict boundary."
             }
           }
         ],
@@ -6310,8 +6310,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الخيار $6$ لا يحقق العلاقة الناتجة من المعطيات: $2k\\le14\\Rightarrow k\\le7$.",
-              "En": "The option $6$ does not satisfy the relation obtained from the given data: $2k\\le14\\Rightarrow k\\le7$."
+              "Ar": "يمكن دفع تكلفة 6 كم، لكن 7 كم تكلف 18 وحدة بالضبط.",
+              "En": "Six kilometers is affordable, and seven kilometers costs exactly 18."
             }
           },
           {
@@ -6325,8 +6325,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الخيار $8$ لا يحقق العلاقة الناتجة من المعطيات: $2k\\le14\\Rightarrow k\\le7$.",
-              "En": "The option $8$ does not satisfy the relation obtained from the given data: $2k\\le14\\Rightarrow k\\le7$."
+              "Ar": "تكلفة 8 كم تساوي 20 وحدة وتتجاوز الميزانية.",
+              "En": "Eight kilometers costs 20, which exceeds the budget."
             }
           },
           {
@@ -6334,8 +6334,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الخيار $9$ لا يحقق العلاقة الناتجة من المعطيات: $2k\\le14\\Rightarrow k\\le7$.",
-              "En": "The option $9$ does not satisfy the relation obtained from the given data: $2k\\le14\\Rightarrow k\\le7$."
+              "Ar": "تكلفة 9 كم تساوي 22 وحدة وتتجاوز الميزانية.",
+              "En": "Nine kilometers costs 22, which exceeds the budget."
             }
           }
         ],
@@ -6428,8 +6428,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الخيار $3$ لا يحقق العلاقة الناتجة من المعطيات: $5n\\ge19\\Rightarrow n\\ge3.8\\Rightarrow n_{\\min}=4$.",
-              "En": "The option $3$ does not satisfy the relation obtained from the given data: $5n\\ge19\\Rightarrow n\\ge3.8\\Rightarrow n_{\\min}=4$."
+              "Ar": "ثلاث إجابات صحيحة ترفع الرصيد إلى 71، دون 75.",
+              "En": "Three correct answers bring the total to 71, below 75."
             }
           },
           {
@@ -6437,8 +6437,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الخيار $5$ لا يحقق العلاقة الناتجة من المعطيات: $5n\\ge19\\Rightarrow n\\ge3.8\\Rightarrow n_{\\min}=4$.",
-              "En": "The option $5$ does not satisfy the relation obtained from the given data: $5n\\ge19\\Rightarrow n\\ge3.8\\Rightarrow n_{\\min}=4$."
+              "Ar": "خمس إجابات تكفي، لكن أربع إجابات تصل بالرصيد إلى 76.",
+              "En": "Five answers suffice, and four already bring the score to 76."
             }
           },
           {
@@ -6446,8 +6446,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الخيار $6$ لا يحقق العلاقة الناتجة من المعطيات: $5n\\ge19\\Rightarrow n\\ge3.8\\Rightarrow n_{\\min}=4$.",
-              "En": "The option $6$ does not satisfy the relation obtained from the given data: $5n\\ge19\\Rightarrow n\\ge3.8\\Rightarrow n_{\\min}=4$."
+              "Ar": "ست إجابات تكفي، لكن المطلوب أصغر عدد يحقق الحد، وهو أربع إجابات.",
+              "En": "Six answers suffice, and four is the smallest number that meets the target."
             }
           }
         ],
@@ -6534,8 +6534,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الخيار $9$ لا يحقق العلاقة الناتجة من المعطيات: $2n\\le17\\Rightarrow n\\le8.5\\Rightarrow n_{\\max}=8$.",
-              "En": "The option $9$ does not satisfy the relation obtained from the given data: $2n\\le17\\Rightarrow n\\le8.5\\Rightarrow n_{\\max}=8$."
+              "Ar": "تزن تسع قطع مع الصندوق 21 كغ، فتتجاوز الحد.",
+              "En": "Nine items and the box weigh 21 kg, above the limit."
             }
           },
           {
@@ -6543,8 +6543,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الخيار $7$ لا يحقق العلاقة الناتجة من المعطيات: $2n\\le17\\Rightarrow n\\le8.5\\Rightarrow n_{\\max}=8$.",
-              "En": "The option $7$ does not satisfy the relation obtained from the given data: $2n\\le17\\Rightarrow n\\le8.5\\Rightarrow n_{\\max}=8$."
+              "Ar": "سبع قطع ممكنة، ويمكن حمل ثماني قطع بوزن كلي 19 كغ.",
+              "En": "Seven items fit, and eight can be carried at a total of 19 kg."
             }
           },
           {
@@ -6558,8 +6558,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الخيار $10$ لا يحقق العلاقة الناتجة من المعطيات: $2n\\le17\\Rightarrow n\\le8.5\\Rightarrow n_{\\max}=8$.",
-              "En": "The option $10$ does not satisfy the relation obtained from the given data: $2n\\le17\\Rightarrow n\\le8.5\\Rightarrow n_{\\max}=8$."
+              "Ar": "تزن عشر قطع مع الصندوق 23 كغ، فتتجاوز الحد.",
+              "En": "Ten items and the box weigh 23 kg, above the limit."
             }
           }
         ],

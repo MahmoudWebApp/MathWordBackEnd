@@ -1,5 +1,47 @@
 # MathWorld bank — Work / ChatGPT handoff
 Updated 2026-11-26. This is a shared handoff, not a scheduler or autonomous agent.
+## Offline editorial checkpoint — 2026-11-26, legacy sources #833–1636
+
+Audited 100 archived legacy problems, bringing the cumulative archived audit to 493. Checked Arabic and English stems, four distinct options per problem, marked answers, hints, formulas, solution steps, distractor feedback, units and verification. Recomputed the answers with exact arithmetic, truth assignments, symbolic differentiation and integration, substitution in differential equations, interval bounds and explicit numerical iterations. Every bilingual stem and primary skill key matched its archived source. Neither language had an additional normalized stem match in the 749-pair repository pool. The live wizard IDs, statuses and revisions remain unverified.
+
+| Legacy source IDs in ascending order | Independent answers |
+|---|---|
+| #833–834 | 2, P |
+| #851–858 | 13 each with 5 left, 4, 181, 1,200, 10 cm, factor 9, 10, right triangle |
+| #859–866 | 50, y=11x−16, 2x³−2x²+C, 10, 12, 3e², 2, 1 |
+| #1555–1562 | 60,000, 70,543, <, 37,600, 10,000, 1,000, 800, 4,000 |
+| #1563–1570 | 5 °C, 5, 24, −8<−2<0<4, 8, −1/4, −7/6, −0.75 |
+| #1571–1578 | 360, 640, 2,420, 972, 12 hours, 30%, 3%, 2·3ⁿ⁻¹ |
+| #1579–1586 | 2, 3, 0.6, [98.04,101.96], 1.96, 1/2, p<α, α as the conventional significance level |
+| #1587–1594 | 320 cm, 5 cm, 16, 1,850 g, 6, 8, 1,650 mL, 1,550 mL |
+| #1595–1602 | 11:20, 55 minutes, 3,250 m, 180 mm, x<7, x≥5, x>−2, x≥3 |
+| #1603–1610 | x>−3, x≤4, 4, 0, 7 km, 4, 8, T≤−5 |
+| #1611–1618 | 2, (5,3), 10, y=−2x+3, 7, (x−2)²+(y+3)²=16, (x−1)²+y²=9, (3,4) |
+| #1619–1626 | x=2, y=4, (x−1)²+(y−2)²=9, y=2, 1.5, 2, 3.125, 4 |
+| #1627–1636 | 2, 8/3, 0.3, 2%, 0.005, (9/4,7/3), 3, 3, 7/8, 1/2 |
+
+Corrected bilingual content in ten existing records. #834 now uses truth assignments to refute distractors. #857 distinguishes coordinate changes and straight-line distance. #861 states the power-rule restriction. #1557 explains the place-value comparison. #1586 distinguishes the nominal significance level from an actual Type I error probability. #1601 supplies boundary counterexamples. #1607–1609 explain feasible versus optimal integer choices. #1623 identifies the sign-change bracket for the next midpoint. Stems, option strings and answer flags retained their archived signatures.
+
+Hold 15 from initial preparation. The other 85 can proceed to current source and draft reconciliation.
+
+| Source IDs | Hold and resolution |
+|---|---|
+| #851, #858 | Verify shared option strings containing Arabic and English in both runtime locales. |
+| #1576–1577 | Verify that bare percent signs in shared options render legibly and use the official editor to escape them if needed. |
+| #1578 | Use the archived geometric-sequence qualifier. It repeats #709's exact four terms, but asks for the formula. Prefer the formula task if only one can be used. |
+| #1579, #1581 | Review skill placement. These ask for standardizing a single value and computing an observed proportion. Neither calculates a sampling distribution. |
+| #1580, #1582–1584 | Retain the archived assumption holds. Use the source-bound revisions specifying independent observations, known population standard deviation where applicable, and the fixed-z normal interval model for the width result. |
+| #1586 | Align the live stem with the corrected explanation so it asks for the significance level as the Type I error probability bound. |
+| #1587 | Verify Grade 2 placement against local objectives. CCSS 2.MD.B.5 specifies measurement word problems within 100, while this same-unit addition totals 320 cm. |
+| #1608 | Align the Arabic stem about earning five points with the English condition that each additional correct answer earns them. |
+| #1613 | Same differences (6,8), distance 10, and method as #857. Keep a single launch representative, with #857 requiring subtraction on both coordinates. |
+
+The [Cambridge Primary 0096 objectives](https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-primary/curriculum/mathematics/) and [CCSS mathematics standards](https://www.thecorestandards.org/assets/CCSSI_Math%20Standards.pdf) support whole-number place value and rounding (4.NBT.A.1–3), interpretation of quotients and remainders (4.OA.A.3), and the fraction operations (5.NF.A.1). [Cambridge Lower Secondary 0862](https://static1.squarespace.com/static/5214ff22e4b06e19d62917ee/t/64d511e7b02f11373c39ddbd/1691685351971/Math%2BCurriculum%2BFramework.pdf) includes work with number-line representations, inequalities and Pythagorean reasoning. CCSS 7.EE.B.4b covers contextual inequalities, 8.G.B.8 supports #857, and HSF-LE.A.2 supports #1578 once the model is specified. In the [OECD PISA 2022 framework](https://www.oecd.org/en/publications/pisa-2022-assessment-and-analytical-framework_dfe0bf9c-en/full-report/component-3.html), #852 and #1607–1609 require interpreting the integer boundary in context. The [MAA CUPM guidance](https://maa.org/resource/cupm-guide/) and [Numerical Analysis course report](https://maa.org/wp-content/uploads/2024/06/Numerical-Analysis.pdf) support the quadrature, root-finding, error and numerical linear algebra cohort. [MSC2020](https://mathscinet.ams.org/msc/pdfs/classifications2020.pdf) classifies the relevant topics at 34A, 62F03, 62F25, 65D32 and 65F.
+
+All four PR workflows passed on parent ae778fd4f77752cd3ad1141a5c44c4482d52687b. This run passed 50 Node tests, all 14 G1 scripts and 100 independent answer checks. Archived `launch-coverage` reports a gap of 1,284 assignments including 33 category links. Local `launch-prepare` generated 111 candidates in groups of 50, 50 and 11. Bulk preparation generated 230 in groups of 50, 50, 50, 50 and 30. Every file used `Confirm=false`, had at most 50 rows and stayed under 1.8 MB. Authored 0, published 0, and made no production requests.
+
+Continue at source #1637. The original hint archive contains 90 sources at or above this ID, two without a record in the wave or original-hold structured manifests. Legacy source gaps #835–850 and #867–1554 contain no rows in the two hint manifests. Their live status remains open. Reconcile wizard draft #400 onward and fresh live inventory through the official Admin path. The five-category, 20-per-category launch target remains open.
+
 ## Offline editorial checkpoint — 2026-11-26, legacy sources #645–832
 
 Audited 100 archived legacy sources in four ranges, including six with a structured record in the original-holds review. This brings the archived audit to 393 sources across the recorded checkpoints. The 327 original expansion candidates were already audited. Checked both languages, four options, distractor feedback, hints, worked steps, laws, units and verification. All 100 bilingual stems and primary skill keys matched the original hint archive. The four options were mathematically distinct in each record, with one correct answer. No additional normalized stem match appeared in the 749-pair archive. Current wizard IDs, statuses and revisions are still unknown.
