@@ -3,6 +3,19 @@ from integration_problem_history import expect
 from integration_password_recovery import sql
 def verify_wizard(admin,supervisor,sid):
     root="/api/editorial/problems"
+    from integration_problem_history import BASE
+    from urllib.request import Request,urlopen
+    assert BASE.startswith(("http://localhost:", "http://127.0.0.1:"))
+    expect("GET",root+"/guide.pdf",401)
+    expect("GET",root+"/guide.pdf?lang=invalid",400,token=admin)
+    for token in (admin,supervisor):
+        for lang in ("ar","en"):
+            with urlopen(Request(BASE+root+"/guide.pdf?lang="+lang,headers={"Authorization":"Bearer "+token}),timeout=45) as response:
+                assert response.headers.get_content_type()=="application/pdf"
+                pdf=response.read()
+                assert pdf.startswith(b"%PDF-") and len(pdf)>1000
+    print("PASS: authenticated bilingual editorial PDF download")
+
     # The private fixed package must not be exposed to anonymous users or supervisors.
     catalog=expect("GET",root+"/reviewed-bank",200,token=admin)
     expect("GET",root+"/reviewed-bank",401)
@@ -121,6 +134,34 @@ def verify_wizard(admin,supervisor,sid):
     expect("POST",fixpath+"/publish",409,{"Revision":2,"Confirm":True},admin)
     expect("POST",fixpath+"/withdraw",200,{"Revision":3,"Note":"Admin removed test submission"},admin)
     assert all(x["Id"]!=fix["Id"] for x in expect("GET",root+"?supervisorOnly=true",200,token=admin)["Items"])
+    # Optional fields are allowed only for interactive authoring, not bulk import.
+    proof=copy.deepcopy(p)
+    proof["Question"]=pair("احسب 14 + 8 في اختبار الحقول الاختيارية","Calculate 14 + 8 in the optional-fields fixture")
+    proof["Solution"]["FormulaLatex"]=""
+    for key in ("Substitution","Unit","Verification","CommonError"):
+        proof["Solution"][key]=pair("","")
+    proof["Solution"]["Steps"]=[pair("اجمع 14 و8","Add 14 and 8")]
+    pd=expect("POST",root,201,{"Revision":0,"Content":proof},supervisor)
+    assert pd["AllowOptionalSolutionFields"] is True
+    pp=f"{root}/{pd['Id']}"
+    pending_proof=expect("POST",pp+"/submit",200,{"Revision":0},supervisor)
+    assert pending_proof["Status"]=="PendingReview"
+    expect("POST",pp+"/withdraw",200,{"Revision":1,"Note":"Optional fields fixture"},admin)
+    invalid=copy.deepcopy(proof)
+    invalid["Solution"]["Unit"]=pair("متر","")
+    bad=expect("POST",root,201,{"Revision":0,"Content":invalid},supervisor)
+    bp=f"{root}/{bad['Id']}"
+    expect("POST",bp+"/submit",400,{"Revision":0},supervisor)
+    expect("POST",bp+"/withdraw",200,{"Revision":0,"Note":"Incomplete bilingual fixture"},admin)
+    print("PASS: interactive optional solution fields, incomplete bilingual field rejected")
+    # Published preview is staff-only and must be read-only.
+    published_preview=f"{root}/bank/{pid}/preview"
+    expect("GET",published_preview,401)
+    for token in (admin,supervisor):
+        v=expect("GET",published_preview,200,token=token)
+        assert v["Id"]==pid and len(v["Hints"])==2 and len(v["Options"])==4
+        assert sum(o["IsCorrect"] for o in v["Options"])==1
+    print("PASS: staff-only published preview includes actual hints")
     verify_solve(admin,pid,stage,category)
     verify_amendment(admin,supervisor,pid)
     verify_import(admin,supervisor,p,track)

@@ -119,6 +119,22 @@ namespace MathWorldAPI.Data
         {
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.Entity<CustomExam>(e =>
+            {
+                e.Property(x=>x.Id).ValueGeneratedNever();
+                e.ToTable("CustomExams", t=>{
+                    t.HasCheckConstraint("CK_CustomExams_Total", "\"Total\" IN (5,10,15,20) AND \"PassPercent\" BETWEEN 1 AND 100 AND \"PolicyVersion\" > 0");
+                    t.HasCheckConstraint("CK_CustomExams_State", "(\"FinishedAtUtc\" IS NULL AND \"Score\" IS NULL AND \"VerificationCode\" IS NULL AND \"CertificateStudentName\" IS NULL) OR (\"FinishedAtUtc\" IS NOT NULL AND \"AbandonedAtUtc\" IS NULL AND \"Score\" IS NOT NULL AND \"Score\" BETWEEN 0 AND \"Total\" AND ((\"Score\" * 100 >= \"PassPercent\" * \"Total\" AND \"VerificationCode\" IS NOT NULL AND \"CertificateStudentName\" IS NOT NULL) OR (\"Score\" * 100 < \"PassPercent\" * \"Total\" AND \"VerificationCode\" IS NULL AND \"CertificateStudentName\" IS NULL)))");
+                });
+                e.HasKey(x=>x.Id);
+                e.HasOne<AppUser>().WithMany().HasForeignKey(x=>x.UserId).OnDelete(DeleteBehavior.Cascade);
+                e.HasIndex(x=>new{x.UserId,x.StartRequestId}).IsUnique();
+                e.HasIndex(x=>x.UserId).IsUnique().HasFilter("\"FinishedAtUtc\" IS NULL AND \"AbandonedAtUtc\" IS NULL");
+                e.HasIndex(x=>x.VerificationCode).IsUnique();
+                e.HasIndex(x=>new{x.UserId,x.CreatedAtUtc});
+                e.Property(x=>x.VerificationCode).HasMaxLength(32);
+                e.Property(x=>x.CertificateStudentName).HasMaxLength(300);
+            });
             modelBuilder.Entity<LearningCertificate>(e =>
             {
                 e.Property(x => x.Id).ValueGeneratedNever();

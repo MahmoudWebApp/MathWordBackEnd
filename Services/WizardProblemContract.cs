@@ -36,7 +36,7 @@ public static class WizardProblemContract
     private static bool OptionalPair(BilingualText? p,int max)=>p is null||
         (string.IsNullOrWhiteSpace(p.Ar)&&string.IsNullOrWhiteSpace(p.En))||Pair(p,max);
     // Imported bank packages retain strict structured-solution validation.
-    public static List<string> Validate(WizardProblem p,bool allowManual=false)
+    public static List<string> Validate(WizardProblem p,bool allowManual=false,bool allowOptionalSolutionFields=false)
     {
         var errors=new List<string>();
         var manual=allowManual&&p.Solution?.ManualExplanation is not null;
@@ -62,10 +62,13 @@ public static class WizardProblemContract
             if(!Pair(solution!.ManualExplanation,12000)||(solution.Steps?.Length??0)>20||
                 (solution.Steps?.Any(x=>!OptionalPair(x,2000))??false))errors.Add("StructuredSolutionRequired");
         }
-        else if(solution is null||solution.ManualExplanation is not null||!Pair(solution.Idea,2000)||!Text(solution.FormulaLatex,2000)||
+        else if(solution is null||solution.ManualExplanation is not null||!Pair(solution.Idea,2000)||
+            !(allowOptionalSolutionFields?(string.IsNullOrWhiteSpace(solution.FormulaLatex)||Text(solution.FormulaLatex,2000)):Text(solution.FormulaLatex,2000))||
             solution.Steps is null||solution.Steps.Length is <1 or >20||solution.Steps.Any(x=>!Pair(x,2000))||
-            !Pair(solution.Substitution,2000)||!Pair(solution.Result,1000)||!Pair(solution.Unit,200)||
-            !Pair(solution.Verification,2000)||!Pair(solution.CommonError,2000))errors.Add("StructuredSolutionRequired");
+            !Pair(solution.Result,1000)||
+            !(allowOptionalSolutionFields
+                ? OptionalPair(solution.Substitution,2000)&&OptionalPair(solution.Unit,200)&&OptionalPair(solution.Verification,2000)&&OptionalPair(solution.CommonError,2000)
+                : Pair(solution.Substitution,2000)&&Pair(solution.Unit,200)&&Pair(solution.Verification,2000)&&Pair(solution.CommonError,2000)))errors.Add("StructuredSolutionRequired");
         if(!errors.Contains("StructuredSolutionRequired") &&
             (FlatSolution(solution!,true).Length>12000||FlatSolution(solution!,false).Length>12000))errors.Add("SolutionTooLong");
         return errors;
@@ -114,8 +117,9 @@ public static class WizardProblemContract
         if(s.ManualExplanation is not null)
             return string.Join("\n\n",new[]{L(s.ManualExplanation)}.Concat(
                 (s.Steps??Array.Empty<BilingualText>()).Select(L).Where(x=>!string.IsNullOrWhiteSpace(x))));
-        return string.Join("\n\n",new[]{L(s.Idea),"$"+s.FormulaLatex+"$"}
-            .Concat(s.Steps!.Select((x,i)=>(i+1)+". "+L(x)))
-            .Concat(new[]{L(s.Substitution),L(s.Result)+" "+L(s.Unit),L(s.Verification),L(s.CommonError)}));
+        return string.Join("\n\n",new[]{L(s.Idea),string.IsNullOrWhiteSpace(s.FormulaLatex)?"":"$"+s.FormulaLatex+"$"}
+            .Concat((s.Steps??Array.Empty<BilingualText>()).Select((x,i)=>(i+1)+". "+L(x)))
+            .Concat(new[]{L(s.Substitution),(L(s.Result)+" "+L(s.Unit)).Trim(),L(s.Verification),L(s.CommonError)})
+            .Where(x=>!string.IsNullOrWhiteSpace(x)));
     }
 }

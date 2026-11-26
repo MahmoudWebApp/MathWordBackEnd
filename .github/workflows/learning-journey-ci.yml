@@ -21,6 +21,9 @@ on:
       - 'Controllers/ProblemHintsController.cs'
       - 'Controllers/UsersController.cs'
       - 'Controllers/LearningCertificatesController.cs'
+      - 'Controllers/CustomExamsController.cs'
+      - 'Controllers/CurrentGradeReportsController.cs'
+      - 'tests/integration_custom_exams.py'
       - 'tests/integration_learning_certificates.py'
       - 'tests/integration_learning_sessions.py'
       - 'Models/**'
@@ -77,6 +80,7 @@ jobs:
           PracticeCycles__TrackIsolationEnabled: 'true'
           Certificates__Enabled: 'true'
           Certificates__IssuanceEnabled: 'true'
+          CustomExams__Enabled: 'true'
           # This one disposable suite deliberately submits many consecutive fixture answers.
           RateLimits__AnswerTokensPerMinute: '60'
         run: |

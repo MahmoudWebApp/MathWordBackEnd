@@ -252,4 +252,57 @@ public sealed class NotificationsController : ControllerBase
         if (changed > 0) _stream.Notify(userId.Value);
         return NoContent();
     }
+    // Cursor pagination over a fixed inbox snapshot, five records at a time.
+    [HttpGet("managed")]
+    [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
+    public async Task<IActionResult> Managed([FromQuery] long? snapshotId,
+        [FromQuery] long? beforeId, [FromQuery] DateTimeOffset? beforeCreatedAt,
+        CancellationToken ct)
+    {
+        var uid = await ActiveUserId(ct);
+        if (uid is null) return Unauthorized();
+        if (snapshotId is < 0 || beforeId is <= 0 || beforeId.HasValue != beforeCreatedAt.HasValue ||
+            (beforeId.HasValue && (!snapshotId.HasValue || beforeId.Value > snapshotId.Value)))
+            return BadRequest(new { Message = "InvalidInboxCursor" });
+        var cutoff = DateTime.UtcNow.AddDays(-30);
+        var mine = _db.UserNotifications.AsNoTracking().Where(x => x.UserId == uid.Value && x.CreatedAtUtc >= cutoff);
+        var snapshot = snapshotId ?? (await mine.MaxAsync(x => (long?)x.Id, ct) ?? 0);
+        var bounded = mine.Where(x => x.Id <= snapshot);
+        var total = await bounded.CountAsync(ct);
+        var page = bounded;
+        if (beforeId.HasValue && beforeCreatedAt.HasValue)
+        {
+            var date = beforeCreatedAt.Value.UtcDateTime;
+            var id = beforeId.Value;
+            page = page.Where(x => x.CreatedAtUtc < date || (x.CreatedAtUtc == date && x.Id < id));
+        }
+        var rows = await page.OrderByDescending(x => x.CreatedAtUtc).ThenByDescending(x => x.Id)
+            .Take(6).Select(x => new { x.Id, x.Type, x.TitleAr, x.TitleEn, x.BodyAr, x.BodyEn,
+                x.TargetPath, x.CreatedAtUtc, x.ReadAtUtc }).ToListAsync(ct);
+        var unread = await mine.CountAsync(x => x.ReadAtUtc == null, ct);
+        return Ok(LanguageHelper.SuccessResponse(new { Items = rows.Take(5).ToArray(),
+            SnapshotId = snapshot, TotalCount = total, HasMore = rows.Count > 5, UnreadCount = unread },
+            "Success", LanguageHelper.GetLanguageFromRequest(Request)));
+    }
+
+    public sealed record DeleteNoticesInput(bool All, long SnapshotId, long[]? Ids);
+
+    [HttpPost("delete-selection")]
+    public async Task<IActionResult> DeleteSelection(DeleteNoticesInput input, CancellationToken ct)
+    {
+        var uid = await ActiveUserId(ct);
+        if (uid is null) return Unauthorized();
+        var ids = input.Ids ?? Array.Empty<long>();
+        if (input.SnapshotId <= 0 || (input.All && ids.Length != 0) ||
+            (!input.All && (ids.Length is < 1 or > 500 || ids.Any(x => x <= 0 || x > input.SnapshotId))))
+            return BadRequest(new { Message = "InvalidNotificationSelection" });
+        var cutoff = DateTime.UtcNow.AddDays(-30);
+        var mine = _db.UserNotifications.Where(x => x.UserId == uid.Value &&
+            x.CreatedAtUtc >= cutoff && x.Id <= input.SnapshotId);
+        if (!input.All) mine = mine.Where(x => ids.Contains(x.Id));
+        var deleted = await mine.ExecuteDeleteAsync(ct);
+        if (deleted > 0) _stream.Notify(uid.Value);
+        return Ok(LanguageHelper.SuccessResponse(new { DeletedCount = deleted },
+            "Success", LanguageHelper.GetLanguageFromRequest(Request)));
+    }
 }

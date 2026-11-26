@@ -48,6 +48,7 @@ public sealed partial class EditorialProblemsController:ControllerBase
     private static object View(CurriculumDraftItem d)=>new{d.Id,d.OwnerUserId,d.LastEditorUserId,d.Revision,
         Status=d.EditorialStatus,d.SubmittedAtUtc,d.ReviewedAtUtc,d.ReviewedByUserId,d.ReviewNote,d.PublishedAtUtc,d.PublishedProblemId,
         d.SourceProblemId, LegacySolutionAr=d.SourceProblemId.HasValue?d.DetailedSolutionAr:null, LegacySolutionEn=d.SourceProblemId.HasValue?d.DetailedSolutionEn:null,
+        AllowOptionalSolutionFields=d.ContentKey.StartsWith("wizard-",StringComparison.Ordinal)||d.ContentKey.StartsWith("amend-",StringComparison.Ordinal),
         Content=WizardProblemContract.Read(d.WizardJson!)};
     private static void Save(CurriculumDraftItem d,WizardProblem p,string json,int actor)
     {
@@ -123,6 +124,13 @@ public sealed partial class EditorialProblemsController:ControllerBase
         return Ok(new{batch.Kind,batch.Number,batch.Items,Drafts=states,MissingMappings=missingMappings});
     }
 
+    [HttpGet("guide.pdf")]
+    public async Task<IActionResult> DownloadGuide([FromQuery]string lang="ar",CancellationToken ct=default)
+    {
+        if(await Actor(AccountRolePolicy.EditDrafts,false,ct) is null)return Forbid();
+        if(lang is not ("ar" or "en"))return BadRequest();
+        return File(PremiumAnalyticsPdfExporter.CreateAuthoringGuide(lang=="ar"),"application/pdf",$"mathworld-authoring-guide-{lang}.pdf");
+    }
     [HttpGet("classification/{stageId:int}")]
     public async Task<IActionResult> Classification(int stageId,CancellationToken ct)
     {
@@ -184,6 +192,23 @@ public sealed partial class EditorialProblemsController:ControllerBase
                 OpenDraftId=db.CurriculumDraftItems.Where(d=>d.WizardJson!=null&&d.SourceProblemId==p.Id&&d.EditorialStatus!="Published"&&d.EditorialStatus!="Withdrawn"&&(d.OwnerUserId==ActorId||(Admin&&db.Users.Any(u=>u.Id==d.OwnerUserId&&u.Role==AccountRolePolicy.LegacyAdmin)))).OrderByDescending(d=>d.Id).Select(d=>(long?)d.Id).FirstOrDefault(),
                 HasOpenReview=db.CurriculumDraftItems.Any(d=>d.SourceProblemId==p.Id&&d.EditorialStatus!="Published"&&d.EditorialStatus!="Withdrawn")}).ToListAsync(ct);
         return Ok(new{Total=await q.CountAsync(ct),Items=items.Select(p=>new{p.Id,p.StageId,p.CategoryId,p.TitleAr,p.TitleEn,HasStructuredSolution=WizardProblemContract.HasStructuredSolution(p.EditorialDetailsJson),p.HasOpenReview,p.OpenDraftId})});
+    }
+    // Read-only editorial preview. Never expose unrevealed hints or answer keys through learner APIs.
+    [HttpGet("bank/{problemId:int}/preview")]
+    public async Task<IActionResult> PreviewPublished(int problemId,CancellationToken ct)
+    {
+        if(await Actor(AccountRolePolicy.EditDrafts,false,ct) is null)return Forbid();
+        var p=await db.Problems.AsNoTracking().Include(x=>x.Options).SingleOrDefaultAsync(x=>x.Id==problemId,ct);
+        if(p is null)return NotFound();
+        WizardProblem? metadata=null;
+        if(!string.IsNullOrWhiteSpace(p.EditorialDetailsJson))
+        {
+            try {metadata=WizardProblemContract.Read(p.EditorialDetailsJson);}
+            catch(JsonException) { }
+        }
+        return Ok(new{p.Id,p.TitleAr,p.TitleEn,p.QuestionTextAr,p.QuestionTextEn,p.DetailedSolutionAr,p.DetailedSolutionEn,p.YoutubeSolutionUrl,
+            Options=p.Options.OrderBy(o=>o.Order).ThenBy(o=>o.Id).Select(o=>new{o.Id,o.LatexCode,o.IsCorrect}),
+            Hints=metadata?.Hints??Array.Empty<BilingualText>()});
     }
     [HttpPost("amend/{problemId:int}")]
     public async Task<IActionResult> Amend(int problemId,CancellationToken ct)
@@ -493,7 +518,8 @@ public sealed partial class EditorialProblemsController:ControllerBase
     {
         var allowManual=Admin&&(d.ContentKey.StartsWith("wizard-",StringComparison.Ordinal)||d.ContentKey.StartsWith("amend-",StringComparison.Ordinal))&&
             await db.Users.AnyAsync(u=>u.Id==d.OwnerUserId&&u.Role==AccountRolePolicy.LegacyAdmin,ct);
-        var errors=WizardProblemContract.Validate(p,allowManual);if(errors.Count>0)return errors;
+        var interactive=d.ContentKey.StartsWith("wizard-",StringComparison.Ordinal)||d.ContentKey.StartsWith("amend-",StringComparison.Ordinal);
+        var errors=WizardProblemContract.Validate(p,allowManual,allowOptionalSolutionFields:interactive);if(errors.Count>0)return errors;
         var skills=new[]{p.PrimarySkillId}.Concat(p.SecondarySkillIds??Array.Empty<int>()).ToArray();
         if(!await db.Categories.AnyAsync(c=>c.Id==p.CategoryId&&c.StageId==p.StageId,ct))errors.Add("CategoryStageMismatch");
         if(await db.CurriculumSkills.CountAsync(s=>skills.Contains(s.Id)&&s.StageId==p.StageId&&s.CategoryId==p.CategoryId&&s.IsPublished&&s.Domain.IsPublished,ct)!=skills.Length)errors.Add("SkillCategoryMismatch");

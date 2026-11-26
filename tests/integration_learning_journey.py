@@ -431,6 +431,8 @@ def main():
     verify_sessions(admin_token, token, stage_token, stage2)
     from integration_learning_certificates import verify_certificates
     verify_certificates(admin_token, token, stage_token, stage2)
+    from integration_custom_exams import verify_custom_exams
+    verify_custom_exams(admin_token, token, stage_token, stage2)
     print("PASS: onboarding, invalid stage, progress and points, stage switching, old history, auth")
 
 

@@ -66,6 +66,25 @@ public sealed class StudentAchievementsController : ControllerBase
             "solved","medal",$"حل {m.Count} مسألة مختلفة في المرحلة الحالية.",
             $"Solve {m.Count} distinct problems in the current stage.")).ToList();
 
+        // Record the threshold crossing from the same history used for the badge.
+        // This is not a Premium activation or historical badge-unlock timestamp.
+        // Never substitute the current date for missing legacy solve dates.
+        var dates=permanentEnabled
+            ? await _db.PermanentProblemAchievements.AsNoTracking()
+                .Where(p=>p.UserId==userId&&p.StageId==stageId)
+                .OrderBy(p=>p.EarnedAtUtc).ThenBy(p=>p.ProblemId)
+                .Take(Milestones.Max(m=>m.Count)).Select(p=>(DateTime?)p.EarnedAtUtc).ToListAsync(ct)
+            : await _db.UserProgresses.AsNoTracking()
+                .Where(p=>p.UserId==userId&&p.IsSolved&&p.Problem.StageId==stageId)
+                .GroupBy(p=>p.ProblemId)
+                .Select(g=>g.Min(p=>p.SolvedAt))
+                .OrderBy(d=>d==null?0:1).ThenBy(d=>d)
+                .Take(Milestones.Max(m=>m.Count)).ToListAsync(ct);
+        if(dates.All(d=>d.HasValue))
+            for(var i=0;i<badges.Count;i++)
+                if(badges[i].Earned&&dates.Count>=badges[i].RequiredSolved)
+                    badges[i]=badges[i] with {MilestoneReachedAtUtc=dates[badges[i].RequiredSolved-1]};
+
         badges.Add(StudentBadgeRules.Create("all_stages_explorer","مستكشف جميع المراحل","All-Stage Explorer",
             stageCount,stagesWithSolved,allBadgesEnabled,"stages","globe",
             "حل مسألة واحدة على الأقل في كل مرحلة.","Solve at least one problem in every stage."));

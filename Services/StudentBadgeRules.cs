@@ -3,7 +3,7 @@ namespace MathWorldAPI.Services;
 // Read-only, deterministic achievement rules. A badge never grants points,
 // unlocks Premium, or writes a separate claim record.
 public sealed record StudentBadge(string Key,string TitleAr,string TitleEn,int RequiredSolved,
-    bool IsAvailable,bool Earned,int CurrentProgress,string Unit,string Icon,string DescriptionAr,string DescriptionEn);
+    bool IsAvailable,bool Earned,int CurrentProgress,string Unit,string Icon,string DescriptionAr,string DescriptionEn,DateTime? MilestoneReachedAtUtc=null);
 
 public static class StudentBadgeRules
 {

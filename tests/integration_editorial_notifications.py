@@ -175,6 +175,9 @@ def main():
     assert badges["UniqueSolved"] == 1 and badges["EarnedCount"] == 1, badges
     assert badges["NextMilestone"] == 10, badges
     assert badges["Badges"][0]["Key"] == "stage_1_first_step" and badges["Badges"][0]["Earned"]
+    assert badges["Badges"][0]["MilestoneReachedAtUtc"], "First solved milestone must have a recorded timestamp"
+    assert not badges["Badges"][1].get("MilestoneReachedAtUtc"), "Unearned milestone must not have a timestamp"
+
     assert not badges["Badges"][-1]["Earned"]  # No all-stage badge from one solved stage
     assert not badges["Badges"][1]["Earned"], badges
     assert api("GET", "/api/users/achievements")[0] == 401
@@ -255,6 +258,49 @@ def main():
     assert len([n for n in notices if n["Type"] == "subscription"]) == 1
     expect("PUT", "/api/notifications/v2/read-all", 204, token=learner1)
     assert expect("GET", "/api/notifications/v2", 200, token=learner1)["UnreadCount"] == 0
+
+    # Managed inbox: stable five-item cursor, selection and ownership isolation.
+    from urllib.parse import urlencode
+    for i in range(7):
+        expect("POST", f"/api/admin/notifications/learners/{learner_id}", 200, {
+            "TitleAr": f"إشعار إدارة {i}", "TitleEn": f"Managed inbox {i}",
+            "BodyAr": "اختبار الحذف", "BodyEn": "Deletion fixture",
+            "TargetPath": "/dashboard",
+        }, admin)
+    managed = "/api/notifications/v2/managed"
+    deletion = "/api/notifications/v2/delete-selection"
+    page = expect("GET", managed, 200, token=learner1)
+    assert len(page["Items"]) == 5 and page["HasMore"]
+    snapshot = page["SnapshotId"]
+    first_ids = {x["Id"] for x in page["Items"]}
+    last = page["Items"][-1]
+    more = expect("GET", managed + "?" + urlencode({
+        "snapshotId": snapshot, "beforeId": last["Id"],
+        "beforeCreatedAt": last["CreatedAtUtc"]
+    }), 200, token=learner1)
+    assert more["Items"] and not (first_ids & {x["Id"] for x in more["Items"]})
+    assert api("GET", managed)[0] == 401
+    target = page["Items"][0]["Id"]
+    foreign = expect("POST", deletion, 200, {
+        "All": False, "SnapshotId": snapshot, "Ids": [target]
+    }, learner2)
+    assert foreign["DeletedCount"] == 0
+    assert expect("POST", deletion, 200, {
+        "All": False, "SnapshotId": snapshot, "Ids": [target]
+    }, learner1)["DeletedCount"] == 1
+    newer = expect("POST", f"/api/admin/notifications/learners/{learner_id}", 200, {
+        "TitleAr": "إشعار جديد", "TitleEn": "Arrived after selection",
+        "BodyAr": "يجب حفظه", "BodyEn": "Must survive select all",
+        "TargetPath": "/dashboard",
+    }, admin)
+    assert newer["Id"] > snapshot
+    assert expect("POST", deletion, 200, {
+        "All": True, "SnapshotId": snapshot, "Ids": []
+    }, learner1)["DeletedCount"] == page["TotalCount"] - 1
+    remaining = expect("GET", managed, 200, token=learner1)
+    assert remaining["TotalCount"] == 1 and remaining["Items"][0]["Id"] == newer["Id"]
+    expect("PUT", f"/api/notifications/v2/{newer['Id']}/read", 204, token=learner1)
+    print("PASS: five-item managed inbox, owner-bound deletion, snapshot preserves new notices")
 
     # Launch gift access: a one-use code grants 365 days without checkout.
     voucher = expect("POST", "/api/admin/premium-codes", 200, {
