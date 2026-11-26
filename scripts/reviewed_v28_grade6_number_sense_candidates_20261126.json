@@ -1,0 +1,584 @@
+[
+  {
+    "key": "growth-v28-grade-6-signed-number-context-reference-1",
+    "family": "signed-number-context-reference",
+    "skill_key": "primary-signed-rational-number-sense",
+    "track_code": "grade-6",
+    "track": 6,
+    "stage": 1,
+    "category": 81,
+    "skill": 0,
+    "wizard": {
+      "StageId": 1,
+      "CategoryId": 81,
+      "PrimarySkillId": 0,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        6
+      ],
+      "DifficultyLevel": 2,
+      "Points": 10,
+      "Title": {
+        "Ar": "تفسير الإشارة بالنسبة إلى مستوى مرجعي",
+        "En": "Interpreting signs relative to a reference"
+      },
+      "Question": {
+        "Ar": "اتُّخذ سطح البحر مستوى الصفر. توجد غواصة على عمق 18 متراً تحت سطح البحر، وطائر على ارتفاع 12 متراً فوقه. أي زوج مرتب يمثل موقع الغواصة ثم الطائر بالمتر؟",
+        "En": "Sea level is the zero reference. A submarine is 18 metres below sea level and a bird is 12 metres above it. Which ordered pair represents the submarine's position followed by the bird's position in metres?"
+      },
+      "Options": [
+        {
+          "LatexCode": "(18,12)",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "وضع الغواصة فوق سطح البحر رغم أنها تحته.",
+            "En": "Places the submarine above sea level although it is below."
+          }
+        },
+        {
+          "LatexCode": "(-18,12)",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "(18,-12)",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "عكس إشارتَي الموقعين.",
+            "En": "Reverses both position signs."
+          }
+        },
+        {
+          "LatexCode": "(-12,18)",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "بدّل المقدارين 18 و12.",
+            "En": "Swaps the magnitudes 18 and 12."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "تحت الصفر نستخدم إشارة سالبة.",
+          "En": "Below zero we use a negative sign."
+        },
+        {
+          "Ar": "حافظ على ترتيب الغواصة ثم الطائر.",
+          "En": "Keep the order submarine, then bird."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "نستخدم الصفر مرجعاً؛ المواقع فوقه موجبة وتحته سالبة.",
+          "En": "Use zero as reference; positions above it are positive and below it negative."
+        },
+        "FormulaLatex": "(s,b)=(-18,12)",
+        "Steps": [
+          {
+            "Ar": "الغواصة تحت الصفر بـ18 متراً، فموقعها −18.",
+            "En": "The submarine is 18 metres below zero, so its position is −18."
+          },
+          {
+            "Ar": "الطائر فوق الصفر بـ12 متراً، فموقعه +12.",
+            "En": "The bird is 12 metres above zero, so its position is +12."
+          },
+          {
+            "Ar": "نكتب الموقعين بالترتيب المطلوب.",
+            "En": "Write the positions in the requested order."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$(-18,12)$",
+          "En": "$(-18,12)$"
+        },
+        "Result": {
+          "Ar": "$(-18,12)$",
+          "En": "$(-18,12)$"
+        },
+        "Unit": {
+          "Ar": "متر",
+          "En": "Metres"
+        },
+        "Verification": {
+          "Ar": "القيمة الأولى سالبة والثانية موجبة، ومقداراهما 18 و12 بالترتيب.",
+          "En": "The first value is negative and the second positive, with magnitudes 18 and 12 respectively."
+        },
+        "CommonError": {
+          "Ar": "لا تخلط بين مقدار المسافة وإشارة الموقع.",
+          "En": "Do not confuse distance magnitude with position sign."
+        }
+      }
+    }
+  },
+  {
+    "key": "growth-v28-grade-6-signed-fraction-between-negative-integers-1",
+    "family": "signed-fraction-between-negative-integers",
+    "skill_key": "primary-signed-rational-number-sense",
+    "track_code": "grade-6",
+    "track": 6,
+    "stage": 1,
+    "category": 81,
+    "skill": 0,
+    "wizard": {
+      "StageId": 1,
+      "CategoryId": 81,
+      "PrimarySkillId": 0,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        6
+      ],
+      "DifficultyLevel": 2,
+      "Points": 10,
+      "Title": {
+        "Ar": "تحديد موضع كسر سالب",
+        "En": "Locating a negative fraction"
+      },
+      "Question": {
+        "Ar": "على مستقيم أعداد يزداد من اليسار إلى اليمين، أي عدد يقع بين $-2$ و$-1$ دون الطرفين؟",
+        "En": "On a number line increasing from left to right, which number lies strictly between $-2$ and $-1$?"
+      },
+      "Options": [
+        {
+          "LatexCode": "-\\frac52",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "−2.5 أصغر من −2.",
+            "En": "−2.5 is less than −2."
+          }
+        },
+        {
+          "LatexCode": "-\\frac12",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "−0.5 أكبر من −1.",
+            "En": "−0.5 is greater than −1."
+          }
+        },
+        {
+          "LatexCode": "-\\frac32",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "\\frac32",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "1.5 موجب ويقع يمين الصفر.",
+            "En": "1.5 is positive and lies to the right of zero."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "حوّل الكسور إلى أنصاف واضحة على المستقيم.",
+          "En": "Think of the fractions as half-unit positions."
+        },
+        {
+          "Ar": "ابحث عن عدد سالب أكبر من −2 وأصغر من −1.",
+          "En": "Seek a negative number greater than −2 and less than −1."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "الأعداد تزداد بالاتجاه نحو اليمين؛ يمكن مقارنة الكسور السالبة بتحويلها إلى قيم عشرية مكافئة.",
+          "En": "Numbers increase to the right; negative fractions can be compared using equivalent decimals."
+        },
+        "FormulaLatex": "-2<-\\frac32=-1.5<-1",
+        "Steps": [
+          {
+            "Ar": "−5/2 يساوي −2.5 ويقع قبل −2.",
+            "En": "−5/2 equals −2.5 and lies before −2."
+          },
+          {
+            "Ar": "−1/2 يساوي −0.5 ويقع بعد −1.",
+            "En": "−1/2 equals −0.5 and lies after −1."
+          },
+          {
+            "Ar": "−3/2 يساوي −1.5، وهو داخل الفترة المطلوبة.",
+            "En": "−3/2 equals −1.5, within the requested interval."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$-2<-1.5<-1$",
+          "En": "$-2<-1.5<-1$"
+        },
+        "Result": {
+          "Ar": "$-\\frac32$",
+          "En": "$-\\frac32$"
+        },
+        "Unit": {
+          "Ar": "بلا وحدة قياس",
+          "En": "Dimensionless"
+        },
+        "Verification": {
+          "Ar": "$-1.5$ يقع في منتصف المسافة بين −2 و−1، ولا يساوي أي طرف.",
+          "En": "$-1.5$ lies midway between −2 and −1, equal to neither endpoint."
+        },
+        "CommonError": {
+          "Ar": "لا ترتب الأعداد السالبة بحسب قيمها المطلقة وحدها.",
+          "En": "Do not order negative numbers by absolute magnitude alone."
+        }
+      }
+    }
+  },
+  {
+    "key": "growth-v28-grade-6-absolute-value-versus-order-1",
+    "family": "absolute-value-versus-order",
+    "skill_key": "primary-signed-rational-number-sense",
+    "track_code": "grade-6",
+    "track": 6,
+    "stage": 1,
+    "category": 81,
+    "skill": 0,
+    "wizard": {
+      "StageId": 1,
+      "CategoryId": 81,
+      "PrimarySkillId": 0,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        6
+      ],
+      "DifficultyLevel": 2,
+      "Points": 10,
+      "Title": {
+        "Ar": "تمييز القيمة المطلقة عن ترتيب العدد",
+        "En": "Distinguishing absolute value from order"
+      },
+      "Question": {
+        "Ar": "أي عبارة صحيحة عن العددين $a=-8$ و$b=-3$؟",
+        "En": "Which statement about $a=-8$ and $b=-3$ is true?"
+      },
+      "Options": [
+        {
+          "LatexCode": "a>b,\\ |a|>|b|",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "−8 يقع يسار −3 فلا يكون أكبر منه.",
+            "En": "−8 lies to the left of −3, so it is not greater."
+          }
+        },
+        {
+          "LatexCode": "a<b,\\ |a|<|b|",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "المسافة 8 عن الصفر أكبر من المسافة 3.",
+            "En": "Distance 8 from zero exceeds distance 3."
+          }
+        },
+        {
+          "LatexCode": "a>b,\\ |a|<|b|",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "أخطأ في ترتيب العددين وفي مقارنة المسافتين.",
+            "En": "Both the numerical order and distance comparison are wrong."
+          }
+        },
+        {
+          "LatexCode": "a<b,\\ |a|>|b|",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "رتّب العددين على مستقيم الأعداد أولاً.",
+          "En": "Order the numbers on a number line first."
+        },
+        {
+          "Ar": "ثم قارن مسافة كل عدد عن الصفر، بغض النظر عن الإشارة.",
+          "En": "Then compare their distances from zero, ignoring signs."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "القيمة المطلقة هي المسافة غير السالبة إلى الصفر؛ ترتيب العددين لا يلزم أن يطابق ترتيب المسافتين.",
+          "En": "Absolute value is nonnegative distance from zero; ordering numbers need not match ordering their distances."
+        },
+        "FormulaLatex": "-8<-3,\\quad |-8|=8>3=|-3|",
+        "Steps": [
+          {
+            "Ar": "على مستقيم الأعداد −8 قبل −3، إذن a أصغر من b.",
+            "En": "On the number line −8 precedes −3, so a is smaller than b."
+          },
+          {
+            "Ar": "القيمة المطلقة لـ−8 هي 8 ولـ−3 هي 3.",
+            "En": "Absolute values of −8 and −3 are 8 and 3."
+          },
+          {
+            "Ar": "بما أن 8 أكبر من 3، فإن القيمة المطلقة للأول أكبر.",
+            "En": "Since 8 exceeds 3, the first absolute value is larger."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$a<b,\\ |a|>|b|$",
+          "En": "$a<b,\\ |a|>|b|$"
+        },
+        "Result": {
+          "Ar": "$a<b,\\ |a|>|b|$",
+          "En": "$a<b,\\ |a|>|b|$"
+        },
+        "Unit": {
+          "Ar": "علاقة مقارنة",
+          "En": "Comparison statement"
+        },
+        "Verification": {
+          "Ar": "العدد الأبعد عن الصفر في الجهة السالبة هو الأصغر عددياً رغم أن مسافته أكبر.",
+          "En": "On the negative side, the number farther from zero is numerically smaller despite its larger distance."
+        },
+        "CommonError": {
+          "Ar": "لا تحذف الإشارة عند مقارنة الأعداد نفسها.",
+          "En": "Do not remove signs when comparing the numbers themselves."
+        }
+      }
+    }
+  },
+  {
+    "key": "growth-v28-grade-6-opposite-of-opposite-reference-1",
+    "family": "opposite-of-opposite-reference",
+    "skill_key": "primary-signed-rational-number-sense",
+    "track_code": "grade-6",
+    "track": 6,
+    "stage": 1,
+    "category": 81,
+    "skill": 0,
+    "wizard": {
+      "StageId": 1,
+      "CategoryId": 81,
+      "PrimarySkillId": 0,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        6
+      ],
+      "DifficultyLevel": 2,
+      "Points": 10,
+      "Title": {
+        "Ar": "تحديد مقابل المقابل",
+        "En": "Finding the opposite of an opposite"
+      },
+      "Question": {
+        "Ar": "إذا كان $x=-\\frac34$، فأي عدد يمثل مقابل مقابل $x$ على مستقيم الأعداد؟",
+        "En": "If $x=-\\frac34$, which number is the opposite of the opposite of $x$ on the number line?"
+      },
+      "Options": [
+        {
+          "LatexCode": "-\\frac34",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "\\frac34",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "هذا مقابل x مرة واحدة فقط.",
+            "En": "This is the opposite of x only once."
+          }
+        },
+        {
+          "LatexCode": "0",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "الصفر ليس مقابل عدد غير صفري.",
+            "En": "Zero is not the opposite of a nonzero number."
+          }
+        },
+        {
+          "LatexCode": "-\\frac43",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "قلب البسط والمقام ليس إيجاد المقابل.",
+            "En": "Swapping numerator and denominator does not find the opposite."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "المقابل يقع على الجانب الآخر من الصفر وعلى المسافة نفسها.",
+          "En": "The opposite is on the other side of zero at the same distance."
+        },
+        {
+          "Ar": "طبّق تغيير الإشارة مرتين دون تغيير المقدار.",
+          "En": "Change the sign twice without changing magnitude."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "مقابل عدد حقيقي هو سالب ذلك العدد، ومقابل المقابل يعيد العدد الأصلي.",
+          "En": "The opposite of a real number is its negative; taking the opposite twice returns the original."
+        },
+        "FormulaLatex": "-(-x)=x",
+        "Steps": [
+          {
+            "Ar": "مقابل $-\\frac34$ هو $\\frac34$.",
+            "En": "The opposite of $-\\frac34$ is $\\frac34$."
+          },
+          {
+            "Ar": "مقابل $\\frac34$ هو $-\\frac34$؛ عدنا إلى الموقع الأصلي.",
+            "En": "The opposite of $\\frac34$ is $-\\frac34$; we return to the original position."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$-(+\\frac34)=-\\frac34$",
+          "En": "$-(+\\frac34)=-\\frac34$"
+        },
+        "Result": {
+          "Ar": "$-\\frac34$",
+          "En": "$-\\frac34$"
+        },
+        "Unit": {
+          "Ar": "بلا وحدة قياس",
+          "En": "Dimensionless"
+        },
+        "Verification": {
+          "Ar": "المواقع الثلاثة المتتابعة هي −0.75 ثم 0.75 ثم −0.75؛ المسافة عن الصفر ثابتة.",
+          "En": "The successive positions are −0.75, 0.75, −0.75; distance from zero is unchanged."
+        },
+        "CommonError": {
+          "Ar": "المقابل الجمعي ليس المقلوب الضربي.",
+          "En": "The additive opposite is not the multiplicative reciprocal."
+        }
+      }
+    }
+  },
+  {
+    "key": "growth-v28-grade-6-signed-rational-comparison-temperature-1",
+    "family": "signed-rational-comparison-temperature",
+    "skill_key": "primary-signed-rational-number-sense",
+    "track_code": "grade-6",
+    "track": 6,
+    "stage": 1,
+    "category": 81,
+    "skill": 0,
+    "wizard": {
+      "StageId": 1,
+      "CategoryId": 81,
+      "PrimarySkillId": 0,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        6
+      ],
+      "DifficultyLevel": 2,
+      "Points": 10,
+      "Title": {
+        "Ar": "مقارنة درجات حرارة سالبة",
+        "En": "Comparing negative temperatures"
+      },
+      "Question": {
+        "Ar": "سجلت محطات A وB وC وD درجات الحرارة −2.4 و−2.1 و−2.8 و−2.5 درجة مئوية بالترتيب. أي محطة كانت الأدفأ؟",
+        "En": "Stations A, B, C and D recorded temperatures −2.4, −2.1, −2.8 and −2.5 degrees Celsius respectively. Which station was warmest?"
+      },
+      "Options": [
+        {
+          "LatexCode": "A",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "−2.4 أقل من −2.1.",
+            "En": "−2.4 is less than −2.1."
+          }
+        },
+        {
+          "LatexCode": "B",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "C",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "−2.8 هو الأبرد لا الأدفأ.",
+            "En": "−2.8 is the coldest, not the warmest."
+          }
+        },
+        {
+          "LatexCode": "D",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "−2.5 أقل من −2.1.",
+            "En": "−2.5 is less than −2.1."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "درجة الحرارة الأعلى تمثل الجو الأدفأ.",
+          "En": "The higher temperature represents warmer conditions."
+        },
+        {
+          "Ar": "من بين الأعداد السالبة يكون الأقرب إلى الصفر أكبر.",
+          "En": "Among negative numbers, the one closest to zero is greatest."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "نقارن درجات الحرارة عددياً، لا بمقاديرها المطلقة؛ في الجهة السالبة تكون القيمة الأقرب للصفر أكبر.",
+          "En": "Compare temperatures numerically, not by absolute magnitude; on the negative side, the value closest to zero is greater."
+        },
+        "FormulaLatex": "-2.8<-2.5<-2.4<-2.1",
+        "Steps": [
+          {
+            "Ar": "نرتب القراءات من الأصغر إلى الأكبر: −2.8، −2.5، −2.4، −2.1.",
+            "En": "Order readings from least to greatest: −2.8, −2.5, −2.4, −2.1."
+          },
+          {
+            "Ar": "أكبر قراءة هي −2.1، وتخص المحطة B.",
+            "En": "The greatest reading is −2.1, belonging to station B."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$-2.1>-2.4$",
+          "En": "$-2.1>-2.4$"
+        },
+        "Result": {
+          "Ar": "$B$",
+          "En": "$B$"
+        },
+        "Unit": {
+          "Ar": "محطة",
+          "En": "Station"
+        },
+        "Verification": {
+          "Ar": "جميع القراءات سالبة، و−2.1 أقربها إلى الصفر؛ فهي الأعلى.",
+          "En": "All readings are negative and −2.1 is closest to zero, so it is highest."
+        },
+        "CommonError": {
+          "Ar": "لا تعتبر العدد ذا القيمة المطلقة الأكبر أدفأ عندما تكون القراءات سالبة.",
+          "En": "Do not treat the greatest absolute magnitude as warmest when readings are negative."
+        }
+      }
+    }
+  }
+]
