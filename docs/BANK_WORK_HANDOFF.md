@@ -1,5 +1,51 @@
 # MathWorld bank — Work / ChatGPT handoff
 Updated 2026-11-26. This is a shared handoff, not a scheduler or autonomous agent.
+## Offline editorial checkpoint — 2026-11-26, legacy source coverage #185–1726 complete
+
+Audited 99 existing source records. The batch covers every archived source #1637–1726 plus nine earlier sources previously omitted from the sequential review because they were held separately. #1658 and #1684 have complete records in the model-assumption holds manifest. Across checkpoints, all 592 sources at or above #185 in the two archived hint inventories have now had an offline audit, including the 25 sources matched earlier to wizard drafts #400–424. All 327 original expansion candidates were audited in earlier checkpoints. Current draft revisions and publication status still require authenticated reconciliation.
+
+Recomputed marked answers with exact fractions, exhaustive sample spaces and truth assignments, symbolic derivatives, determinants, constrained quadratics and inverse powers. Reviewed Arabic and English wording, options and distractor feedback, hints, laws, steps, units and verification. All 99 archived bilingual stems and primary skill keys matched their source records. Normalized checks found no additional exact repository match in the 749-pair comparison pool. Logically equivalent wrong choices in #1649 were detected by truth tables and remain a launch hold.
+
+| Source IDs in ascending order | Independent answers |
+|---|---|
+| #189, #195, #201, #207 | 29, 4/13, 34, 1/3 |
+| #279, #291, #303, #315, #327 | 1/4, 1/8, 1/16, 1/32, 1/64 |
+| #1637–1646 | 12, 15/4, 7, 8, 5, 10, 6, \(\lvert r\rvert>1\), 2/3, term limit 2 |
+| #1647–1656 | ∃x ¬P(x), P true and Q false, ¬Q⇒¬P, ¬P∨¬Q, 7,000, 4,906, 3,900, 1,325, 500, 4,327 |
+| #1657–1666 | 2/3, 1/10, 1/8, 3/10, 30%, 6, (−3,6), (−3,1), 13, 10 |
+| #1667–1676 | 5, 4, 2, 3, (3,3), 25, 18, 2, 10, 6,049 |
+| #1677–1686 | 350, 4,563, 10, (3,6), 1,608, 2, 4, 1/6, 64/125, 0 percentage points |
+| #1687–1696 | 4/25, 1/2, 12, 3/5, (9,−7), (3/5,4/5), π/4, −4, 3, 6 |
+| #1697–1706 | 10, 5, −3, x>0, 9, 2, (2,−4), 23, 20, a≥1 |
+| #1707–1716 | 10, 5,915, 2/3, 10, −3, 4, 9, −6, 5, 7 |
+| #1717–1726 | 3, 6, 17, 3, 3/2, x>5, −3, 30 dB, 4, a+3 |
+
+Corrected bilingual content in nine existing records. #1638 shows denominator conversion and addition. #1647 makes the scope of the negation explicit and explains each distractor. #1652 ties the comparison to the first differing place. #1681 verifies minimality. #1686 distinguishes the counts from the percentages. #1705 explains attainment of the lower bound and aligns hints to the worked method. #1714 verifies both leading principal minors and aligns hints with completing the square. #1720 checks the excluded root explicitly and #1723 explains the negative exponent. The edits preserve archived source stems, options and answer flags.
+
+Keep 28 of this batch out of initial release preparation. The other 71 can proceed to current source and draft reconciliation.
+
+| Source IDs | Hold and required resolution |
+|---|---|
+| #189, #201 | Specify the constant-difference pattern using the existing model-assumption revisions. These are one reasoning family. |
+| #195, #207 | Specify an equally likely random draw using the existing revisions. |
+| #279, #291, #303, #315, #327 | Specify independent tosses. Fairness alone permits correlated results. Use one launch representative and correct the Arabic dual form in #279 during authorized stem review. |
+| #1643, #1645 | #1643 repeats #442's positive half-ratio routine with changed scale. #1645 exactly repeats #508's signed geometric series in sigma notation. |
+| #1649, #1650 | #1649 revisits #445's contrapositive and has two equivalent distractors. #1650 asks the same De Morgan equivalence as #446. |
+| #1655, #1668, #1697 | #1655 and #611 use the same first operand and rounded addends. #1668 reproduces #647's exact component equation. #1697 uses the same coordinates and distance as #857 and belongs with the prior #1613 hold. |
+| #1658, #1659, #1684, #1687, #1688 | Retain the structured probability assumption holds. State uniform sampling or independence as appropriate. In #1658 the second draw is conditional on the first, while #1687 replaces the ball and uses independent draws. |
+| #1673, #1679 | #1673 requests only a second derivative at a point under convexity. #1679 asks the remaining budget under number comparison. Confirm the corresponding primary objectives in the official flow. |
+| #1678 | English explicitly assumes half-up rounding. Align Arabic to the same tie rule before approval because 4,650 rounds to 4,600 under ties-to-even. |
+| #1689 | Repair Arabic quantity wording so it states choosing from three transport modes, two meals and two activities. |
+| #1696, #1698, #1703 | Continue the archived taxonomy holds for vector triangle area, determinant area and gradient evaluation. Review each against existing geometry or calculus skills. |
+
+#1660 and #1661 both derive 30% from observed frequencies and practise different answer representations. Count one family toward launch diversity. #1686 adds comparison with unequal totals. #1691 combines vector operations and #1712 uses the distributive property; both extend direct component or dot-product practice. #1701 tests an accessible interior vertex and #1713 tests the feasible endpoint when the vertex is outside the domain.
+
+[Cambridge Primary 0096](https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-primary/curriculum/mathematics/) and [CCSS](https://www.thecorestandards.org/assets/CCSSI_Math%20Standards.pdf) support place value, rounding and fractions (4.NBT.A, 4.NF.B and 5.NF.A). [Cambridge Lower Secondary 0862](https://static1.squarespace.com/static/5214ff22e4b06e19d62917ee/t/64d511e7b02f11373c39ddbd/1691685351971/Math%2BCurriculum%2BFramework.pdf) distinguishes independent events at 9Sp.02 from combined events at 9Sp.03. CCSS 7.SP.C.8 and HSS-CP.B.8 support sample spaces and probability rules. Under the [OECD PISA 2022 mathematics framework](https://www.oecd.org/content/dam/oecd/en/publications/reports/2023/08/pisa-2022-assessment-and-analytical-framework_a124aec8/dfe0bf9c-en.pdf), #1686 interprets empirical rates with different totals and #1724–1725 apply a supplied model in context. The [MAA CUPM guide](https://maa.org/resource/cupm-guide/) and [Operations Research course report](https://maa.org/wp-content/uploads/2024/06/OperationsResearchPASGReport.pdf) support modeling, feasible sets and objective verification. [MSC2020](https://mathscinet.ams.org/msc/pdfs/classifications2020.pdf) provides domain boundaries for propositional and predicate logic (03B05, 03B10) and convex optimization (90C25).
+
+All four PR workflows passed on parent d51a4a524830f31cfb81e592fbe083639800ed91. Current local verification passed 50 Node tests, 14 G1 scripts and 99 independent answer checks. Archived `launch-coverage` reports 1,284 missing assignments including 33 category links. `launch-prepare` generated 111 candidates in batches of 50, 50 and 11. Bulk preparation generated 230 in batches of 50, 50, 50, 50 and 30. All payloads use `Confirm=false` and meet the 50-item and 1.8 MB limits. Authored 0, published 0, and made no production requests.
+
+Resume through the official Admin path at wizard draft #400, using fresh inventory and current draft revisions to reconcile the completed offline scope and holds before any server preview. There is no later source in these archived inventories. Source records #3–184 form a separate earlier cohort and include historically confirmed publications. Use their archived and current dispositions before selecting further work, and exclude already audited or published records. The live five-category, 20-per-category goal remains open.
+
 ## Offline editorial checkpoint — 2026-11-26, legacy sources #833–1636
 
 Audited 100 archived legacy problems, bringing the cumulative archived audit to 493. Checked Arabic and English stems, four distinct options per problem, marked answers, hints, formulas, solution steps, distractor feedback, units and verification. Recomputed the answers with exact arithmetic, truth assignments, symbolic differentiation and integration, substitution in differential equations, interval bounds and explicit numerical iterations. Every bilingual stem and primary skill key matched its archived source. Neither language had an additional normalized stem match in the 749-pair repository pool. The live wizard IDs, statuses and revisions remain unverified.

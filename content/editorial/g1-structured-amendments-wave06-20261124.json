@@ -4189,8 +4189,12 @@
           "FormulaLatex": "n\\frac ab=\\frac{nb+a}{b}",
           "Steps": [
             {
-              "Ar": "حوّل 1 و1/4 إلى 5/4 و2 و1/2 إلى 5/2، ثم وحّد المقام.",
-              "En": "Convert 1 and 1/4 to 5/4 and 2 and 1/2 to 5/2, then use a common denominator."
+              "Ar": "حوّل العددين الكسريين إلى 5/4 و5/2.",
+              "En": "Convert the mixed numbers to 5/4 and 5/2."
+            },
+            {
+              "Ar": "اكتب 5/2 على صورة 10/4، ثم اجمع 5/4 و10/4 للحصول على 15/4.",
+              "En": "Write 5/2 as 10/4, then add 5/4 and 10/4 to obtain 15/4."
             }
           ],
           "Substitution": {
@@ -4358,8 +4362,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "4609 أصغر من 4906 عند مقارنة المنازل.",
-              "En": "4609 is smaller than 4906 by place-value comparison."
+              "Ar": "منزلة المئات في 4609 هي 6 وفي 4906 هي 9. رقم الآلاف متساوٍ، فتحسم المئات المقارنة.",
+              "En": "Both numbers have four thousands. The hundreds digit is 6 in 4609 and 9 in 4906, so the hundreds place decides."
             }
           },
           {
@@ -4367,8 +4371,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "4690 أصغر من 4906 عند مقارنة المنازل.",
-              "En": "4690 is smaller than 4906 by place-value comparison."
+              "Ar": "رقم المئات في 4690 هو 6، بينما هو 9 في 4906. المقارنة تُحسم قبل الوصول إلى العشرات.",
+              "En": "The hundreds digits are 6 in 4690 and 9 in 4906. The comparison is decided before the tens place."
             }
           },
           {
@@ -4382,8 +4386,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "4096 أصغر من 4906 عند مقارنة المنازل.",
-              "En": "4096 is smaller than 4906 by place-value comparison."
+              "Ar": "العدد 4096 فيه صفر مئات، بينما لدى 4906 تسع مئات مع تساوي الآلاف.",
+              "En": "With equal thousands digits, 4096 has zero hundreds and 4906 has nine hundreds."
             }
           }
         ],
@@ -4402,7 +4406,7 @@
             "Ar": "نقارن الأعداد متساوية الطول من أكبر منزلة مختلفة.",
             "En": "Compare equal-length numbers at their first differing place from the left."
           },
-          "FormulaLatex": "N_1<N_2",
+          "FormulaLatex": "4\\\\cdot10^3+h\\\\cdot10^2+t\\\\cdot10+u",
           "Steps": [
             {
               "Ar": "جميع الأعداد تبدأ بـ4؛ قارن المئات ثم العشرات عند الحاجة.",
@@ -5502,8 +5506,8 @@
             "En": "Dimensionless"
           },
           "Verification": {
-            "Ar": "$1608\\ge1000$",
-            "En": "$1608\\ge1000$"
+            "Ar": "لا بد أن يكون رقم الآلاف 1 على الأقل. مع تثبيت الرقمين 6 و8، يكون أصغر رقم للعشرات هو 0، فينتج 1608.",
+            "En": "The thousands digit must be at least 1. With 6 and 8 fixed, the smallest tens digit is 0, giving 1608."
           },
           "CommonError": {
             "Ar": "لا تبدأ الآلاف بصفر لأن العدد يجب أن يكون رباعياً.",

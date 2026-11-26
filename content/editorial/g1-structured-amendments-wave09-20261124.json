@@ -7884,8 +7884,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الخيار $3$ لا يحقق العلاقة الناتجة من المعطيات: $100|15/50-18/60|=100|0.30-0.30|=0$.",
-              "En": "The option $3$ does not satisfy the relation obtained from the given data: $100|15/50-18/60|=100|0.30-0.30|=0$."
+              "Ar": "الثلاثة تمثل الفرق في عدد النجاحات. بعد القسمة على إجمالي التجارب لكل فريق، تكون النسبة 30% في الحالتين.",
+              "En": "Three is the difference in success counts. Dividing by each group’s trial count gives 30% for both."
             }
           },
           {
@@ -7893,8 +7893,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الخيار $5$ لا يحقق العلاقة الناتجة من المعطيات: $100|15/50-18/60|=100|0.30-0.30|=0$.",
-              "En": "The option $5$ does not satisfy the relation obtained from the given data: $100|15/50-18/60|=100|0.30-0.30|=0$."
+              "Ar": "قارن نسبتي النجاح بعد توحيد المقياس. كلتا النسبتين تساوي 30%، والفرق صفر.",
+              "En": "Compare the two rates on the same scale. Both equal 30%, so the difference is zero."
             }
           },
           {
@@ -7902,8 +7902,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "الخيار $10$ لا يحقق العلاقة الناتجة من المعطيات: $100|15/50-18/60|=100|0.30-0.30|=0$.",
-              "En": "The option $10$ does not satisfy the relation obtained from the given data: $100|15/50-18/60|=100|0.30-0.30|=0$."
+              "Ar": "العشرة تمثل الفرق في عدد التجارب، بينما السؤال يقارن نسب النجاح، وهما متساويتان.",
+              "En": "Ten is the difference in trial counts. The question compares success rates, which are equal."
             }
           }
         ],

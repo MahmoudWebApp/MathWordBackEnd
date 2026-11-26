@@ -1960,8 +1960,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تُبقِ الكم الكلي عند النفي، ولا تنس نفي المحمول. لو تحقق P لكل x لما وُجد مثال مضاد؛ نفي ذلك هو وجود المثال المضاد.",
-              "En": "This choice does not match the derived result. Do not keep the universal quantifier or forget to negate the predicate. If P held for all x there would be no counterexample; its negation asserts one."
+              "Ar": "هذا الخيار يشترط أن تكون P خاطئة لكل قيمة. يكفي أن توجد قيمة واحدة تكون فيها خاطئة.",
+              "En": "This option requires P to be false for every value. One counterexample suffices to negate the universal claim."
             }
           },
           {
@@ -1975,8 +1975,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تُبقِ الكم الكلي عند النفي، ولا تنس نفي المحمول. لو تحقق P لكل x لما وُجد مثال مضاد؛ نفي ذلك هو وجود المثال المضاد.",
-              "En": "This choice does not match the derived result. Do not keep the universal quantifier or forget to negate the predicate. If P held for all x there would be no counterexample; its negation asserts one."
+              "Ar": "هذا الخيار يثبت وجود قيمة تحقق P. المطلوب وجود قيمة تجعل P خاطئة.",
+              "En": "This option asserts that some value satisfies P. The negation requires a value for which P is false."
             }
           },
           {
@@ -1984,8 +1984,8 @@
             "IsCorrect": false,
             "ErrorType": "incorrect-option",
             "Reason": {
-              "Ar": "هذا الخيار لا يوافق النتيجة المحسوبة. لا تُبقِ الكم الكلي عند النفي، ولا تنس نفي المحمول. لو تحقق P لكل x لما وُجد مثال مضاد؛ نفي ذلك هو وجود المثال المضاد.",
-              "En": "This choice does not match the derived result. Do not keep the universal quantifier or forget to negate the predicate. If P held for all x there would be no counterexample; its negation asserts one."
+              "Ar": "القول بعدم وجود قيمة تجعل P خاطئة يكافئ القول بأن P تصدق لكل قيمة.",
+              "En": "Having no counterexample is equivalent to P holding for every value."
             }
           }
         ],
@@ -2007,8 +2007,8 @@
           "FormulaLatex": "\\neg(\\forall x\\,P(x))\\equiv\\exists x\\,\\neg P(x)",
           "Steps": [
             {
-              "Ar": "عدم صحة العبارة لكل x يعني وجود x واحد على الأقل لا يحققها.",
-              "En": "Failure for all x means there is at least one x for which the predicate is false."
+              "Ar": "إذا لم تصدق P لكل قيمة من x، فلا بد من وجود قيمة واحدة على الأقل تكون فيها P خاطئة.",
+              "En": "If P does not hold for every x, at least one x makes P false."
             }
           ],
           "Result": {
@@ -3783,12 +3783,12 @@
         ],
         "Hints": [
           {
-            "Ar": "حل القيد الخطي بالنسبة إلى y.",
-            "En": "Solve the linear constraint for y."
+            "Ar": "اعتبر 2x+y ضرباً قياسياً بين المتجهين (2، 1) و(x، y).",
+            "En": "View 2x+y as the dot product of (2, 1) and (x, y)."
           },
           {
-            "Ar": "عوّض في دالة الهدف التربيعية وأوجد نقطة الحد الأدنى ثم قيمتها.",
-            "En": "Substitute into the quadratic objective, find its minimizer and evaluate."
+            "Ar": "استخدم متباينة كوشي–شفارتز لإيجاد حد أدنى ثم اختر متجهاً موازياً لـ(2، 1) يحقق القيد.",
+            "En": "Use Cauchy–Schwarz to obtain a lower bound. Then choose a vector parallel to (2, 1) that satisfies the constraint."
           }
         ],
         "Solution": {
@@ -3809,6 +3809,10 @@
             {
               "Ar": "$(x,y)=(4,2)$",
               "En": "$(x,y)=(4,2)$"
+            },
+            {
+              "Ar": "الزوج (4، 2) يحقق القيد وتبلغ قيمة الهدف عنده 20، فيتحقق الحد الأدنى.",
+              "En": "The pair (4, 2) satisfies the constraint and has objective value 20, attaining the lower bound."
             }
           ],
           "Result": {
@@ -4123,12 +4127,12 @@
         ],
         "Hints": [
           {
-            "Ar": "احسب المشتقتين الجزئيتين وساوِهما بالصفر.",
-            "En": "Compute both partial derivatives and set them to zero."
+            "Ar": "جمّع حدود الدرجة الثانية بحيث يظهر مربع يحتوي x+y.",
+            "En": "Group the quadratic terms to form a square involving x+y."
           },
           {
-            "Ar": "حل النظام الخطي، وتحقق أن مصفوفة هيس موجبة التعيين قبل حساب قيمة الدالة عند الحل.",
-            "En": "Solve the linear system, check that the Hessian is positive definite, and evaluate the function there."
+            "Ar": "أكمل المربعين، ثم تحقق من إمكان جعلهما صفراً في الوقت نفسه.",
+            "En": "Complete the two squares and check whether both can be zero at the same point."
           }
         ],
         "Solution": {
@@ -4156,8 +4160,8 @@
             "En": "$-6$"
           },
           "Verification": {
-            "Ar": "$H=\\begin{pmatrix}2&2\\\\2&6\\end{pmatrix},\\quad\\det H=8>0$",
-            "En": "$H=\\begin{pmatrix}2&2\\\\2&6\\end{pmatrix},\\quad\\det H=8>0$"
+            "Ar": "العنصر القطري الأول في مصفوفة هيس يساوي 2 ومحددها يساوي 8. كلاهما موجب، فتكون موجبة التعريف، كما أن التعويض بالنقطة (1، 1) يعطي −6.",
+            "En": "The first leading principal minor of the Hessian is 2 and the determinant is 8. Both are positive, so it is positive definite. Substitution at (1, 1) gives −6."
           },
           "CommonError": {
             "Ar": "تحقق من أن النقطة حد أدنى عالمي، لا مجرد نقطة ساكنة.",
