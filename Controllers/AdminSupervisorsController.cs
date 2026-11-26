@@ -107,9 +107,20 @@ public sealed class AdminSupervisorsController(AppDbContext db, IConfiguration c
         {
             var target = await db.Users.FromSqlInterpolated($@"SELECT * FROM ""Users"" WHERE ""Id""={id} FOR UPDATE").SingleOrDefaultAsync(ct);
             if (target is null || target.Role != AccountRolePolicy.Supervisor) return NotFound();
-            if (await db.CurriculumDraftItems.AnyAsync(x => x.OwnerUserId == id &&
-                x.EditorialStatus != "Published" && x.EditorialStatus != "Withdrawn", ct))
-                return Conflict(new { Message = "SupervisorHasOpenEditorialWork" });
+            // Remove this supervisor's unpublished personal submissions.
+            // Published MathProblems and their provenance are content, not
+            // disposable account data: preserve them and transfer ownership.
+            await db.CurriculumDraftItems.Where(x=>x.OwnerUserId==id&&x.EditorialStatus!="Published")
+                .ExecuteDeleteAsync(ct);
+            await db.CurriculumDraftItems.Where(x=>x.OwnerUserId==id)
+                .ExecuteUpdateAsync(set=>set.SetProperty(x=>x.OwnerUserId,(int?)AdminId),ct);
+            await db.CurriculumDraftItems.Where(x=>x.LastEditorUserId==id)
+                .ExecuteUpdateAsync(set=>set.SetProperty(x=>x.LastEditorUserId,(int?)null),ct);
+            await db.CurriculumDraftItems.Where(x=>x.ReviewedByUserId==id)
+                .ExecuteUpdateAsync(set=>set.SetProperty(x=>x.ReviewedByUserId,(int?)null),ct);
+            await db.EmailOutbox.Where(x=>x.UserId==id).ExecuteDeleteAsync(ct);
+            await db.PasswordResetGrants.Where(x=>x.UserId==id).ExecuteDeleteAsync(ct);
+            await db.EmailVerificationGrants.Where(x=>x.UserId==id).ExecuteDeleteAsync(ct);
             await db.PlatformActivityEvents.Where(x => x.ActorUserId == id).ExecuteDeleteAsync(ct);
             db.Users.Remove(target);
             Audit(id, "SupervisorDeleted");

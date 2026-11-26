@@ -1,6 +1,5 @@
 using System.ComponentModel.DataAnnotations;
 using System.Security.Claims;
-using System.Text.RegularExpressions;
 using MathWorldAPI.Data;
 using MathWorldAPI.Models;
 using MathWorldAPI.Services;
@@ -67,21 +66,11 @@ public sealed class AdminLearningTracksController(AppDbContext db,LearningTrackS
         return Ok(new{Categories=categories,Skills=skills,Problems=items,Total=await problems.CountAsync(ct)});
     }
 
+    // The curriculum catalog is fixed. Mapping, metadata and controlled
+    // publication of existing identities remain separate operations.
     [HttpPost]
-    public async Task<IActionResult> Create(TrackInput input,CancellationToken ct)
-    {
-        if(!Regex.IsMatch(input.Code,"^[a-z0-9]+(-[a-z0-9]+)*$") || input.Kind is not ("grade" or "course") ||
-           string.IsNullOrWhiteSpace(input.NameAr)||string.IsNullOrWhiteSpace(input.NameEn)||input.SortOrder is <0 or >10000 ||
-           !await db.EducationalStages.AnyAsync(x=>x.Id==input.StageId,ct))return BadRequest();
-        await using var tx=await db.Database.BeginTransactionAsync(ct);
-        if(await db.LearningTracks.AnyAsync(x=>x.StageId==input.StageId&&x.Code==input.Code,ct))return Conflict();
-        var t=new LearningTrack{StageId=input.StageId,Code=input.Code,Kind=input.Kind,NameAr=input.NameAr.Trim(),NameEn=input.NameEn.Trim(),
-            DescriptionAr=input.DescriptionAr??"",DescriptionEn=input.DescriptionEn??"",SortOrder=input.SortOrder};
-        db.LearningTracks.Add(t);
-        try{await db.SaveChangesAsync(ct);}catch(DbUpdateException e)when(e.InnerException is Npgsql.PostgresException {SqlState:"23505"}){return Conflict();}
-        Audit(t.Id,"LearningTrackCreated");await db.SaveChangesAsync(ct);await tx.CommitAsync(ct);
-        return StatusCode(201,t);
-    }
+    public IActionResult Create(TrackInput input)
+        => Conflict(new { Message = "FixedLearningTracks" });
 
     [HttpPut("{id:int}/metadata")]
     public async Task<IActionResult> Metadata(int id,MetadataInput input,CancellationToken ct)

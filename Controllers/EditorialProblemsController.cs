@@ -143,8 +143,12 @@ public sealed partial class EditorialProblemsController:ControllerBase
         if(ownOnly)q=q.Where(x=>x.OwnerUserId==ActorId);
         if(activeOnly)q=q.Where(x=>x.EditorialStatus=="Draft"||x.EditorialStatus=="NeedsChanges"||x.EditorialStatus=="PendingReview"||x.EditorialStatus=="Approved");
         var items=await q.OrderByDescending(x=>x.Id).Skip((page-1)*30).Take(30)
-            .Select(x=>new{x.Id,x.OwnerUserId,x.Revision,Status=x.EditorialStatus,x.QuestionTextAr,x.QuestionTextEn,x.ReviewNote,x.PublishedProblemId,x.SourceProblemId}).ToListAsync(ct);
-        return Ok(new{Total=await q.CountAsync(ct),Items=items});
+            .Select(x=>new{x.Id,x.OwnerUserId,x.Revision,Status=x.EditorialStatus,x.QuestionTextAr,x.QuestionTextEn,x.ReviewNote,x.PublishedProblemId,x.SourceProblemId,x.WizardJson}).ToListAsync(ct);
+        // Read only the existing page of wizard records; never expose draft JSON in list responses.
+        return Ok(new{Total=await q.CountAsync(ct),Items=items.Select(x=>{
+            var title=WizardProblemContract.Read(x.WizardJson!).Title;
+            return new{x.Id,x.OwnerUserId,x.Revision,x.Status,x.QuestionTextAr,x.QuestionTextEn,x.ReviewNote,x.PublishedProblemId,x.SourceProblemId,TitleAr=title?.Ar??"",TitleEn=title?.En??""};
+        })});
     }
     [HttpGet("{id:long}")]
     public async Task<IActionResult> Detail(long id,CancellationToken ct)
@@ -471,10 +475,19 @@ public sealed partial class EditorialProblemsController:ControllerBase
         await using var tx=await db.Database.BeginTransactionAsync(ct);
         if(await Actor(AccountRolePolicy.EditDrafts,true,ct) is null)return Forbid();
         var d=await Lock(id,ct);if(d is null)return NotFound();
-        if(d.Revision!=input.Revision||d.Revision==int.MaxValue||d.EditorialStatus is not ("Draft" or "NeedsChanges"))
+        var reviewing=Admin&&d.SubmittedAtUtc!=null&&d.EditorialStatus is ("PendingReview" or "Approved")&&
+            await db.Users.AnyAsync(u=>u.Id==d.OwnerUserId&&u.Role==AccountRolePolicy.Supervisor,ct);
+        if(d.Revision!=input.Revision||d.Revision==int.MaxValue||(!reviewing&&d.EditorialStatus is not ("Draft" or "NeedsChanges")))
             return Conflict(new{Message="DraftChangedOrLocked"});
+        // Only an active admin can correct a submitted supervisor problem.
+        // Revalidate before saving and invalidate any earlier approval.
+        if(reviewing){
+            var errors=await Validate(input.Content,ct,d);
+            if(errors.Count>0)return BadRequest(new{Message="EditorialValidationFailed",Errors=errors});
+            d.EditorialStatus="PendingReview";d.ReviewedAtUtc=null;d.ReviewedByUserId=null;d.ReviewNote=null;
+        }
         Save(d,input.Content,json,ActorId);d.Revision++;
-        Audit(d,"EditorialDraftUpdated");await db.SaveChangesAsync(ct);await tx.CommitAsync(ct);return Ok(View(d));
+        Audit(d,reviewing?"EditorialSubmissionEdited":"EditorialDraftUpdated");await db.SaveChangesAsync(ct);await tx.CommitAsync(ct);return Ok(View(d));
     }
     private async Task<List<string>> Validate(WizardProblem p,CancellationToken ct,CurriculumDraftItem d)
     {

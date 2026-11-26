@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MathWorldAPI.Controllers;
 
-/// <summary>Manual in-app messaging to one learner. Bulk messaging is deliberately not enabled.</summary>
+/// <summary>Manual in-app messaging to one learner or a confirmed student audience.</summary>
 [ApiController]
 [Route("api/admin/notifications")]
 [Authorize(Roles = "Admin")]
@@ -33,6 +33,8 @@ public sealed class AdminNotificationsController : ControllerBase
         public string BodyAr { get; set; } = "";
         public string BodyEn { get; set; } = "";
         public string? TargetPath { get; set; }
+        // Legacy callers retain consent-aware optional email; explicit in-app callers disable it.
+        public bool IncludeOptionalEmail { get; set; } = true;
     }
 
     [HttpPost("learners/{learnerId:int}")]
@@ -68,7 +70,7 @@ public sealed class AdminNotificationsController : ControllerBase
             CreatedAtUtc = DateTime.UtcNow
         };
         _db.UserNotifications.Add(notification);
-        _queue.AddOptionalNotice(learner,"announcement",notification.CreatedAtUtc);
+        if(request.IncludeOptionalEmail) _queue.AddOptionalNotice(learner,"announcement",notification.CreatedAtUtc);
         await _db.SaveChangesAsync(ct);
         _stream.Notify(learnerId);
 
@@ -90,7 +92,9 @@ public sealed class AdminNotificationsController : ControllerBase
             return Forbid();
 
         var path = request.ActionPath?.Trim();
-        if (request.StageId is < 1 || !ValidPath(path))
+        if (request.StageId is < 1 || !ValidPath(path) ||
+            !ValidText(request.TitleAr,140)||!ValidText(request.TitleEn,140)||
+            !ValidText(request.BodyAr,1000)||!ValidText(request.BodyEn,1000))
             return BadRequest();
         if (request.StageId.HasValue &&
             !await _db.EducationalStages.AsNoTracking().AnyAsync(

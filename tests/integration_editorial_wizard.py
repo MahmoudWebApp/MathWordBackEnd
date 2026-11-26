@@ -82,6 +82,7 @@ def verify_wizard(admin,supervisor,sid):
     assert all(row["OwnerUserId"]==sid and row["Status"] in ("PendingReview","Approved") for row in review_queue["Items"])
     expect("GET",root+"?supervisorOnly=true",403,token=supervisor)
     expect("PUT",path,409,{"Revision":2,"Content":p},supervisor)
+    expect("PUT",path,400,{"Revision":2,"Content":{}},admin)
     expect("POST",path+"/publish",403,{"Revision":2,"Confirm":True},supervisor)
     returned=expect("POST",path+"/review",200,{"Revision":2,"Confirm":False,"Note":"Check the steps"},admin)
     assert returned["Status"]=="NeedsChanges"
@@ -107,6 +108,19 @@ def verify_wizard(admin,supervisor,sid):
     assert int(sql('SELECT COUNT(*) FROM "Problems"'))==int(count)+1
     assert sql(f"""SELECT COUNT(*) FROM "PlatformActivityEvents" WHERE "Resource"='EditorialProblem' AND "ResourceId"='{did}'""")=="8"
     expect("DELETE",f"/api/admin/problems/{pid}",409,token=admin)
+    import copy
+    corrected=copy.deepcopy(p)
+    corrected["Question"]={"Ar":"احسب 10 + 12 في اختبار تصحيح المشرف","En":"Calculate 10 + 12 in the supervisor correction fixture"}
+    fix=expect("POST",root,201,{"Revision":0,"Content":corrected},supervisor)
+    fixpath=f"{root}/{fix['Id']}"
+    expect("POST",fixpath+"/submit",200,{"Revision":0},supervisor)
+    expect("POST",fixpath+"/review",200,{"Revision":1,"Confirm":True,"Note":"Reviewed"},admin)
+    corrected["Title"]["En"]="Corrected supervisor title"
+    revised=expect("PUT",fixpath,200,{"Revision":2,"Content":corrected},admin)
+    assert revised["Status"]=="PendingReview" and revised["Revision"]==3 and revised["OwnerUserId"]==sid
+    expect("POST",fixpath+"/publish",409,{"Revision":2,"Confirm":True},admin)
+    expect("POST",fixpath+"/withdraw",200,{"Revision":3,"Note":"Admin removed test submission"},admin)
+    assert all(x["Id"]!=fix["Id"] for x in expect("GET",root+"?supervisorOnly=true",200,token=admin)["Items"])
     verify_solve(admin,pid,stage,category)
     verify_amendment(admin,supervisor,pid)
     verify_import(admin,supervisor,p,track)
