@@ -1,0 +1,1818 @@
+[
+  {
+    "track": 3,
+    "cat": 21,
+    "skill": 97,
+    "sk": "p-fractions-decimals-fraction-models",
+    "family": "fraction-model-uncoloured-unit-segments",
+    "title": {
+      "Ar": "الكسر المتبقي",
+      "En": "Remaining fraction"
+    },
+    "q": {
+      "Ar": "شريط مقسم إلى 8 أجزاء متساوية. لُوّن ثلاثة أجزاء بالأحمر وجزآن بالأزرق. ما الكسر الذي يمثل الأجزاء غير الملونة؟",
+      "En": "A strip is divided into eight equal parts. Three are coloured red and two blue. What fraction remains uncoloured?"
+    },
+    "opts": [
+      "\\frac28",
+      "\\frac38",
+      "\\frac58",
+      "\\frac35"
+    ],
+    "correct": 1,
+    "idea": {
+      "Ar": "نجمع الأجزاء الملونة ونطرحها من الكل.",
+      "En": "Combine the coloured parts and subtract from the whole."
+    },
+    "formula": "\\frac{8-(3+2)}8",
+    "steps": [
+      {
+        "Ar": "$3+2=5$",
+        "En": "$3+2=5$"
+      },
+      {
+        "Ar": "$8-5=3$",
+        "En": "$8-5=3$"
+      },
+      {
+        "Ar": "$3/8$",
+        "En": "$3/8$"
+      }
+    ],
+    "sub": {
+      "Ar": "$3/8$",
+      "En": "$3/8$"
+    },
+    "result": {
+      "Ar": "$\\frac38$",
+      "En": "$\\frac38$"
+    },
+    "verify": {
+      "Ar": "$3/8+5/8=1$",
+      "En": "$3/8+5/8=1$"
+    },
+    "hints": [
+      {
+        "Ar": "عد الأجزاء الملونة من اللونين.",
+        "En": "Count both colours."
+      },
+      {
+        "Ar": "أبقِ المقام ثمانية.",
+        "En": "Keep eight as the denominator."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "هذا عدد الأجزاء الزرقاء فقط.",
+        "En": "This counts blue parts only."
+      },
+      null,
+      {
+        "Ar": "هذا كسر الأجزاء الملونة.",
+        "En": "This is the coloured fraction."
+      },
+      {
+        "Ar": "المقام يجب أن يمثل جميع الأجزاء الثمانية.",
+        "En": "The denominator must represent all eight parts."
+      }
+    ],
+    "error": {
+      "Ar": "لا تغيّر المقام بعد استبعاد بعض الأجزاء.",
+      "En": "Do not change the denominator after removing some parts."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 3,
+    "cat": 21,
+    "skill": 97,
+    "sk": "p-fractions-decimals-fraction-models",
+    "family": "fraction-model-number-line-denominator-inference",
+    "title": {
+      "Ar": "استنتاج عدد التقسيمات",
+      "En": "Inferring the number of divisions"
+    },
+    "q": {
+      "Ar": "على خط الأعداد، قُسمت المسافة من 0 إلى 1 إلى أجزاء متساوية. تقع العلامة الثالثة بعد الصفر عند 3/7. كم جزءاً متساوياً في الوحدة؟",
+      "En": "On a number line, the interval from 0 to 1 is divided equally. The third tick after zero is at 3/7. How many equal intervals make one unit?"
+    },
+    "opts": [
+      "3",
+      "4",
+      "7",
+      "10"
+    ],
+    "correct": 2,
+    "idea": {
+      "Ar": "المقام يحدد عدد الأجزاء المتساوية في الوحدة.",
+      "En": "The denominator gives the number of equal intervals per unit."
+    },
+    "formula": "1=7\\cdot\\frac17",
+    "steps": [
+      {
+        "Ar": "$3\\cdot(1/7)=3/7$",
+        "En": "$3\\cdot(1/7)=3/7$"
+      },
+      {
+        "Ar": "$7\\cdot(1/7)=1$",
+        "En": "$7\\cdot(1/7)=1$"
+      }
+    ],
+    "sub": {
+      "Ar": "$7\\cdot(1/7)=1$",
+      "En": "$7\\cdot(1/7)=1$"
+    },
+    "result": {
+      "Ar": "$7$",
+      "En": "$7$"
+    },
+    "verify": {
+      "Ar": "$7/7=1$",
+      "En": "$7/7=1$"
+    },
+    "hints": [
+      {
+        "Ar": "كل انتقال يمثل جزءاً واحداً.",
+        "En": "Each step represents one part."
+      },
+      {
+        "Ar": "انظر إلى مقام الكسر.",
+        "En": "Look at the denominator."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "هذا عدد الخطوات إلى العلامة المعطاة.",
+        "En": "This is the number of steps to the given tick."
+      },
+      {
+        "Ar": "هذا عدد الخطوات الباقية إلى 1.",
+        "En": "This is the number of remaining steps to one."
+      },
+      null,
+      {
+        "Ar": "هذا يجمع البسط والمقام دون مبرر.",
+        "En": "This adds numerator and denominator without justification."
+      }
+    ],
+    "error": {
+      "Ar": "لا تخلط عدد الأجزاء المأخوذة بعدد أجزاء الوحدة.",
+      "En": "Do not confuse selected parts with parts in the whole."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 3,
+    "cat": 82,
+    "skill": 324,
+    "sk": "time",
+    "family": "time-three-activities-total-in-minutes",
+    "title": {
+      "Ar": "جمع مدد الأنشطة",
+      "En": "Combining activity durations"
+    },
+    "q": {
+      "Ar": "استغرقت ثلاثة أنشطة متتابعة 25 دقيقة و20 دقيقة و30 دقيقة دون فواصل. كم دقيقة استغرقت كلها؟",
+      "En": "Three consecutive activities last 25, 20 and 30 minutes with no breaks. How many minutes do they take altogether?"
+    },
+    "opts": [
+      "45",
+      "50",
+      "75",
+      "85"
+    ],
+    "correct": 2,
+    "idea": {
+      "Ar": "نجمع المدد لأنها متتابعة ولا تتداخل.",
+      "En": "Add the durations because the activities are consecutive and do not overlap."
+    },
+    "formula": "T=25+20+30",
+    "steps": [
+      {
+        "Ar": "$25+20=45$",
+        "En": "$25+20=45$"
+      },
+      {
+        "Ar": "$45+30=75$",
+        "En": "$45+30=75$"
+      }
+    ],
+    "sub": {
+      "Ar": "$45+30=75$",
+      "En": "$45+30=75$"
+    },
+    "result": {
+      "Ar": "$75$",
+      "En": "$75$"
+    },
+    "verify": {
+      "Ar": "$75-30=45$",
+      "En": "$75-30=45$"
+    },
+    "hints": [
+      {
+        "Ar": "اجمع مدتي أول نشاطين.",
+        "En": "Add the first two durations."
+      },
+      {
+        "Ar": "أضف مدة النشاط الثالث.",
+        "En": "Add the third duration."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "يهمل النشاط الثالث.",
+        "En": "Omits the third activity."
+      },
+      {
+        "Ar": "يهمل النشاط الأول.",
+        "En": "Omits the first activity."
+      },
+      null,
+      {
+        "Ar": "يزيد على مجموع المدد بعشر دقائق.",
+        "En": "Exceeds the total by ten minutes."
+      }
+    ],
+    "error": {
+      "Ar": "لا تسقط مدة أحد الأنشطة عند الجمع.",
+      "En": "Do not omit an activity when adding."
+    },
+    "unit": {
+      "Ar": "دقيقة",
+      "En": "minutes"
+    }
+  },
+  {
+    "track": 4,
+    "cat": 1,
+    "skill": 1,
+    "sk": "primary-addition",
+    "family": "addition-sum-parity-two-odd-addends",
+    "title": {
+      "Ar": "زوجية مجموع عددين فرديين",
+      "En": "Parity of the sum of two odd numbers"
+    },
+    "q": {
+      "Ar": "أي مجموع من الخيارات يجب أن يكون زوجياً لأنه يتكون من عددين فرديين؟",
+      "En": "Which sum must be even because both its addends are odd?"
+    },
+    "opts": [
+      "146+217",
+      "135+289",
+      "122+183",
+      "214+97"
+    ],
+    "correct": 1,
+    "idea": {
+      "Ar": "جمع عددين فرديين يعطي عدداً زوجياً لأن الآحاد الفردية تتزاوج.",
+      "En": "The sum of two odd numbers is even because their unpaired units form a pair."
+    },
+    "formula": "(2a+1)+(2b+1)=2(a+b+1)",
+    "steps": [
+      {
+        "Ar": "$135+289=424$",
+        "En": "$135+289=424$"
+      },
+      {
+        "Ar": "$424=2\\cdot212$",
+        "En": "$424=2\\cdot212$"
+      }
+    ],
+    "sub": {
+      "Ar": "$424=2\\cdot212$",
+      "En": "$424=2\\cdot212$"
+    },
+    "result": {
+      "Ar": "$135+289$",
+      "En": "$135+289$"
+    },
+    "verify": {
+      "Ar": "$424\\bmod2=0$",
+      "En": "$424\\bmod2=0$"
+    },
+    "hints": [
+      {
+        "Ar": "انظر إلى رقم الآحاد في كل عدد.",
+        "En": "Inspect the ones digit of each number."
+      },
+      {
+        "Ar": "ابحث عن رقمَي آحاد فرديين.",
+        "En": "Find two odd ones digits."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "146 زوجي و217 فردي.",
+        "En": "146 is even and 217 is odd."
+      },
+      null,
+      {
+        "Ar": "122 زوجي و183 فردي.",
+        "En": "122 is even and 183 is odd."
+      },
+      {
+        "Ar": "214 زوجي و97 فردي.",
+        "En": "214 is even and 97 is odd."
+      }
+    ],
+    "error": {
+      "Ar": "لا يكفي أن يكون أحد العددين فردياً.",
+      "En": "One odd addend alone is not sufficient."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 4,
+    "cat": 1,
+    "skill": 1,
+    "sk": "primary-addition",
+    "family": "addition-total-comparison-disjoint-shifts",
+    "title": {
+      "Ar": "مقارنة مجموعين بعد تغير العددين",
+      "En": "Comparing sums after two changes"
+    },
+    "q": {
+      "Ar": "إذا زاد أحد عددين بمقدار 40 ونقص الآخر بمقدار 15، فبكم يزيد مجموعهما الجديد على مجموعهما الأصلي؟",
+      "En": "One addend increases by 40 and the other decreases by 15. By how much does the new sum exceed the original sum?"
+    },
+    "opts": [
+      "15",
+      "25",
+      "40",
+      "55"
+    ],
+    "correct": 1,
+    "idea": {
+      "Ar": "صافي تغير المجموع هو مجموع التغيرين مع إشاراتهما.",
+      "En": "The net change in the sum is the sum of the signed changes."
+    },
+    "formula": "40-15",
+    "steps": [
+      {
+        "Ar": "$40-15=25$",
+        "En": "$40-15=25$"
+      }
+    ],
+    "sub": {
+      "Ar": "$40-15=25$",
+      "En": "$40-15=25$"
+    },
+    "result": {
+      "Ar": "$25$",
+      "En": "$25$"
+    },
+    "verify": {
+      "Ar": "$(100+40)+(100-15)-200=25$",
+      "En": "$(100+40)+(100-15)-200=25$"
+    },
+    "hints": [
+      {
+        "Ar": "الزيادة تضيف 40 إلى المجموع.",
+        "En": "The increase adds forty to the sum."
+      },
+      {
+        "Ar": "النقص يزيل 15 من المجموع.",
+        "En": "The decrease removes fifteen from the sum."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "هذا مقدار النقص وحده.",
+        "En": "This is the decrease alone."
+      },
+      null,
+      {
+        "Ar": "يهمل النقص.",
+        "En": "Ignores the decrease."
+      },
+      {
+        "Ar": "يجمع مقدارَي التغير كأنهما زيادتان.",
+        "En": "Treats both changes as increases."
+      }
+    ],
+    "error": {
+      "Ar": "لا تجمع الزيادة والنقص بإشارة واحدة.",
+      "En": "Do not treat an increase and decrease as the same sign."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 4,
+    "cat": 2,
+    "skill": 9,
+    "sk": "primary-one-step-multiplicative-equations",
+    "family": "one-step-unknown-divisor-equal-sharing",
+    "title": {
+      "Ar": "مقسوم عليه مجهول",
+      "En": "Unknown divisor"
+    },
+    "q": {
+      "Ar": "وزعت 84 بطاقة بالتساوي على عدد مجهول n من المجموعات، فكانت في كل مجموعة 7 بطاقات. ما n؟",
+      "En": "Eighty-four cards are shared equally among an unknown number n of groups. Each group contains seven cards. Find n."
+    },
+    "opts": [
+      "7",
+      "12",
+      "77",
+      "588"
+    ],
+    "correct": 1,
+    "idea": {
+      "Ar": "عدد المجموعات يساوي الكل مقسوماً على عدد البطاقات في كل مجموعة.",
+      "En": "The number of groups is the total divided by the group size."
+    },
+    "formula": "84=7n",
+    "steps": [
+      {
+        "Ar": "$n=84/7$",
+        "En": "$n=84/7$"
+      },
+      {
+        "Ar": "$n=12$",
+        "En": "$n=12$"
+      }
+    ],
+    "sub": {
+      "Ar": "$n=12$",
+      "En": "$n=12$"
+    },
+    "result": {
+      "Ar": "$12$",
+      "En": "$12$"
+    },
+    "verify": {
+      "Ar": "$12\\cdot7=84$",
+      "En": "$12\\cdot7=84$"
+    },
+    "hints": [
+      {
+        "Ar": "اكتب 84 على صورة سبعة مضروبة في عدد المجموعات.",
+        "En": "Write 84 as seven times the number of groups."
+      },
+      {
+        "Ar": "اقسم 84 على سبعة.",
+        "En": "Divide 84 by seven."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "هذا حجم المجموعة لا عددها.",
+        "En": "This is the group size, not its count."
+      },
+      null,
+      {
+        "Ar": "ينتج من الطرح بدلاً من القسمة.",
+        "En": "Uses subtraction instead of division."
+      },
+      {
+        "Ar": "ينتج من الضرب بدلاً من القسمة.",
+        "En": "Uses multiplication instead of division."
+      }
+    ],
+    "error": {
+      "Ar": "فرّق بين عدد المجموعات وعدد العناصر في كل مجموعة.",
+      "En": "Distinguish group count from group size."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 4,
+    "cat": 3,
+    "skill": 16,
+    "sk": "primary-unit-conversions",
+    "family": "length-conversion-remainder-after-cut",
+    "title": {
+      "Ar": "طول متبق بعد القص",
+      "En": "Remaining length after cutting"
+    },
+    "q": {
+      "Ar": "حبل طوله 2 م، قُص منه 75 سم. كم سنتيمتراً بقي؟",
+      "En": "A rope is 2 m long. A 75 cm piece is cut off. How many centimetres remain?"
+    },
+    "opts": [
+      "25",
+      "125",
+      "175",
+      "275"
+    ],
+    "correct": 1,
+    "idea": {
+      "Ar": "نوحد الوحدة قبل طرح طول القطعة.",
+      "En": "Convert to the same unit before subtracting the piece."
+    },
+    "formula": "200-75",
+    "steps": [
+      {
+        "Ar": "$2\\cdot100=200$",
+        "En": "$2\\cdot100=200$"
+      },
+      {
+        "Ar": "$200-75=125$",
+        "En": "$200-75=125$"
+      }
+    ],
+    "sub": {
+      "Ar": "$200-75=125$",
+      "En": "$200-75=125$"
+    },
+    "result": {
+      "Ar": "$125$",
+      "En": "$125$"
+    },
+    "verify": {
+      "Ar": "$125+75=200$",
+      "En": "$125+75=200$"
+    },
+    "hints": [
+      {
+        "Ar": "حوّل المترين إلى سنتيمترات.",
+        "En": "Convert two metres to centimetres."
+      },
+      {
+        "Ar": "اطرح 75 من الناتج.",
+        "En": "Subtract 75 from the result."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "يتعامل مع الحبل كأنه متر واحد.",
+        "En": "Treats the rope as one metre long."
+      },
+      null,
+      {
+        "Ar": "لا يطرح 75 كاملة.",
+        "En": "Does not subtract the full 75."
+      },
+      {
+        "Ar": "يضيف القطعة بدلاً من طرحها.",
+        "En": "Adds the piece instead of removing it."
+      }
+    ],
+    "error": {
+      "Ar": "لا تطرح السنتيمترات من الأمتار مباشرة.",
+      "En": "Do not subtract centimetres directly from metres."
+    },
+    "unit": {
+      "Ar": "سم",
+      "En": "cm"
+    }
+  },
+  {
+    "track": 4,
+    "cat": 3,
+    "skill": 16,
+    "sk": "primary-unit-conversions",
+    "family": "length-conversion-unit-choice-order",
+    "title": {
+      "Ar": "ترتيب أطوال بوحدات مختلفة",
+      "En": "Ordering lengths in mixed units"
+    },
+    "q": {
+      "Ar": "أي الأطوال التالية هو الأكبر: 98 سم، 1 م، 1050 ملم، 99 سم؟",
+      "En": "Which length is greatest: 98 cm, 1 m, 1050 mm or 99 cm?"
+    },
+    "opts": [
+      "98\\,\\mathrm{cm}",
+      "1\\,\\mathrm{m}",
+      "1050\\,\\mathrm{mm}",
+      "99\\,\\mathrm{cm}"
+    ],
+    "correct": 2,
+    "idea": {
+      "Ar": "نحول كل طول إلى سنتيمترات للمقارنة.",
+      "En": "Express each length in centimetres to compare."
+    },
+    "formula": "1\\,\\mathrm m=100\\,\\mathrm{cm},\\quad10\\,\\mathrm{mm}=1\\,\\mathrm{cm}",
+    "steps": [
+      {
+        "Ar": "$1050/10=105$",
+        "En": "$1050/10=105$"
+      },
+      {
+        "Ar": "$98<99<100<105$",
+        "En": "$98<99<100<105$"
+      }
+    ],
+    "sub": {
+      "Ar": "$98<99<100<105$",
+      "En": "$98<99<100<105$"
+    },
+    "result": {
+      "Ar": "$1050\\,\\mathrm{mm}$",
+      "En": "$1050\\,\\mathrm{mm}$"
+    },
+    "verify": {
+      "Ar": "$105\\cdot10=1050$",
+      "En": "$105\\cdot10=1050$"
+    },
+    "hints": [
+      {
+        "Ar": "المتر مئة سنتيمتر.",
+        "En": "One metre is one hundred centimetres."
+      },
+      {
+        "Ar": "اقسم المليمترات على عشرة.",
+        "En": "Divide millimetres by ten."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "98 أصغر من 105 بعد توحيد الوحدات.",
+        "En": "98 is below 105 after conversion."
+      },
+      {
+        "Ar": "المتر 100 سم فقط.",
+        "En": "One metre is only 100 cm."
+      },
+      null,
+      {
+        "Ar": "99 سم أصغر من 105 سم.",
+        "En": "99 cm is shorter than 105 cm."
+      }
+    ],
+    "error": {
+      "Ar": "لا تقارن الأرقام المجردة إذا اختلفت الوحدات.",
+      "En": "Do not compare raw numbers in different units."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 5,
+    "cat": 33,
+    "skill": 4,
+    "sk": "primary-multiplication",
+    "family": "multiplication-trailing-zero-factorization",
+    "title": {
+      "Ar": "الأصفار النهائية في حاصل الضرب",
+      "En": "Trailing zeros in a product"
+    },
+    "q": {
+      "Ar": "كم صفراً في نهاية العدد الناتج من 125×80؟",
+      "En": "How many trailing zeros does the product 125×80 have?"
+    },
+    "opts": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "correct": 3,
+    "idea": {
+      "Ar": "نبحث عن مجموعات عوامل حاصل ضربها عشرة؛ هنا حاصل الضرب 10000.",
+      "En": "Identify factors that form tens; here the product is 10000."
+    },
+    "formula": "125\\cdot80=(125\\cdot8)\\cdot10",
+    "steps": [
+      {
+        "Ar": "$125\\cdot8=1000$",
+        "En": "$125\\cdot8=1000$"
+      },
+      {
+        "Ar": "$1000\\cdot10=10000$",
+        "En": "$1000\\cdot10=10000$"
+      }
+    ],
+    "sub": {
+      "Ar": "$1000\\cdot10=10000$",
+      "En": "$1000\\cdot10=10000$"
+    },
+    "result": {
+      "Ar": "$4$",
+      "En": "$4$"
+    },
+    "verify": {
+      "Ar": "$10000/80=125$",
+      "En": "$10000/80=125$"
+    },
+    "hints": [
+      {
+        "Ar": "افصل 80 إلى 8×10.",
+        "En": "Split 80 into 8×10."
+      },
+      {
+        "Ar": "احسب 125×8 ثم أضف عامل العشرة.",
+        "En": "Calculate 125×8, then include the factor ten."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "يهمل ثلاثة أصفار من 1000.",
+        "En": "Omits the three zeros from 1000."
+      },
+      {
+        "Ar": "عدد الأصفار أقل من الناتج الفعلي.",
+        "En": "Counts fewer zeros than the product has."
+      },
+      {
+        "Ar": "يحسب أصفار 1000 قبل الضرب في 10.",
+        "En": "Counts zeros in 1000 before multiplying by ten."
+      },
+      null
+    ],
+    "error": {
+      "Ar": "لا تعتمد فقط على الأصفار الظاهرة في العاملين.",
+      "En": "Do not count only the visible zeros in the factors."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 5,
+    "cat": 33,
+    "skill": 6,
+    "sk": "primary-multiplicative-word-problems",
+    "family": "multiplication-grouped-discount-savings",
+    "title": {
+      "Ar": "التوفير عند شراء مجموعات",
+      "En": "Savings from group purchases"
+    },
+    "q": {
+      "Ar": "تباع العبوة الواحدة بسعر 13 وحدة نقدية، وتباع مجموعة من 4 عبوات بسعر 48 وحدة. كم يوفر شراء ثلاث مجموعات مقارنة بشراء 12 عبوة منفردة؟",
+      "En": "One pack costs 13 currency units, while a group of four costs 48. How much is saved by buying three groups instead of twelve individual packs?"
+    },
+    "opts": [
+      "4",
+      "12",
+      "36",
+      "48"
+    ],
+    "correct": 1,
+    "idea": {
+      "Ar": "نحسب التوفير في مجموعة واحدة ثم نضربه في عدد المجموعات.",
+      "En": "Calculate savings per group and multiply by the number of groups."
+    },
+    "formula": "3(4\\cdot13-48)",
+    "steps": [
+      {
+        "Ar": "$4\\cdot13=52$",
+        "En": "$4\\cdot13=52$"
+      },
+      {
+        "Ar": "$52-48=4$",
+        "En": "$52-48=4$"
+      },
+      {
+        "Ar": "$3\\cdot4=12$",
+        "En": "$3\\cdot4=12$"
+      }
+    ],
+    "sub": {
+      "Ar": "$3\\cdot4=12$",
+      "En": "$3\\cdot4=12$"
+    },
+    "result": {
+      "Ar": "$12$",
+      "En": "$12$"
+    },
+    "verify": {
+      "Ar": "$12\\cdot13-3\\cdot48=12$",
+      "En": "$12\\cdot13-3\\cdot48=12$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب سعر أربع عبوات منفردة.",
+        "En": "Find the price of four individual packs."
+      },
+      {
+        "Ar": "ضاعف توفير المجموعة ثلاث مرات.",
+        "En": "Triple the savings per group."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "هذا توفير مجموعة واحدة.",
+        "En": "This saves for one group only."
+      },
+      null,
+      {
+        "Ar": "يضاعف التوفير ثلاث مرات إضافية.",
+        "En": "Triples the total savings again."
+      },
+      {
+        "Ar": "هذا سعر مجموعة وليس التوفير.",
+        "En": "This is a group price, not savings."
+      }
+    ],
+    "error": {
+      "Ar": "قارن كميتين متساويتين من العبوات.",
+      "En": "Compare equal quantities of packs."
+    },
+    "unit": {
+      "Ar": "وحدة نقدية",
+      "En": "currency units"
+    }
+  },
+  {
+    "track": 5,
+    "cat": 81,
+    "skill": 303,
+    "sk": "estimation",
+    "family": "estimation-choose-operation-compatible-numbers",
+    "title": {
+      "Ar": "اختيار تقدير حاصل الضرب",
+      "En": "Choosing a product estimate"
+    },
+    "q": {
+      "Ar": "أي تقدير ينتج عند تقريب 47 إلى أقرب عشرة و198 إلى أقرب مئة ثم ضرب العددين المقربين؟",
+      "En": "Which estimate results from rounding 47 to the nearest ten and 198 to the nearest hundred, then multiplying?"
+    },
+    "opts": [
+      "8000",
+      "9400",
+      "10000",
+      "12000"
+    ],
+    "correct": 2,
+    "idea": {
+      "Ar": "نلتزم بدقة التقريب المطلوبة لكل عامل.",
+      "En": "Use the specified rounding precision for each factor."
+    },
+    "formula": "50\\cdot200",
+    "steps": [
+      {
+        "Ar": "$47\\to50$",
+        "En": "$47\\to50$"
+      },
+      {
+        "Ar": "$198\\to200$",
+        "En": "$198\\to200$"
+      },
+      {
+        "Ar": "$50\\cdot200=10000$",
+        "En": "$50\\cdot200=10000$"
+      }
+    ],
+    "sub": {
+      "Ar": "$50\\cdot200=10000$",
+      "En": "$50\\cdot200=10000$"
+    },
+    "result": {
+      "Ar": "$10000$",
+      "En": "$10000$"
+    },
+    "verify": {
+      "Ar": "$10000/200=50$",
+      "En": "$10000/200=50$"
+    },
+    "hints": [
+      {
+        "Ar": "47 أقرب إلى 50 أم 40؟",
+        "En": "Is 47 closer to 50 or 40?"
+      },
+      {
+        "Ar": "قرّب 198 إلى أقرب مئة.",
+        "En": "Round 198 to the nearest hundred."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "يقرّب 47 إلى 40 خطأً.",
+        "En": "Incorrectly rounds 47 to 40."
+      },
+      {
+        "Ar": "لا يقرّب العامل الأول.",
+        "En": "Leaves the first factor unrounded."
+      },
+      null,
+      {
+        "Ar": "يستعمل 60 بدلاً من 50.",
+        "En": "Uses 60 instead of 50."
+      }
+    ],
+    "error": {
+      "Ar": "لا تخلط دقة التقريب بين العاملين.",
+      "En": "Do not mix the rounding precision of the factors."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 5,
+    "cat": 82,
+    "skill": 322,
+    "sk": "mass",
+    "family": "mass-balance-unknown-extra-weight",
+    "title": {
+      "Ar": "كتلة إضافية لتحقيق التوازن",
+      "En": "Extra mass for balance"
+    },
+    "q": {
+      "Ar": "على كفة ميزان كتلة 2.4 كغ، وعلى الكفة الأخرى كتلتان 850 غ و950 غ. كم غراماً نضيف إلى الكفة الثانية لتتساويا؟",
+      "En": "One side of a balance holds 2.4 kg. The other holds masses of 850 g and 950 g. How many grams must be added to the second side to balance it?"
+    },
+    "opts": [
+      "400",
+      "600",
+      "850",
+      "1800"
+    ],
+    "correct": 1,
+    "idea": {
+      "Ar": "نحسب الفرق بين الكتلتين بوحدة واحدة.",
+      "En": "Find the difference between the masses in a common unit."
+    },
+    "formula": "2400-(850+950)",
+    "steps": [
+      {
+        "Ar": "$850+950=1800$",
+        "En": "$850+950=1800$"
+      },
+      {
+        "Ar": "$2400-1800=600$",
+        "En": "$2400-1800=600$"
+      }
+    ],
+    "sub": {
+      "Ar": "$2400-1800=600$",
+      "En": "$2400-1800=600$"
+    },
+    "result": {
+      "Ar": "$600$",
+      "En": "$600$"
+    },
+    "verify": {
+      "Ar": "$1800+600=2400$",
+      "En": "$1800+600=2400$"
+    },
+    "hints": [
+      {
+        "Ar": "حوّل 2.4 كغ إلى غرامات.",
+        "En": "Convert 2.4 kg to grams."
+      },
+      {
+        "Ar": "اطرح مجموع الكفة الثانية.",
+        "En": "Subtract the second side's total."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "لا يكمل المجموع إلى 2400.",
+        "En": "Does not bring the total to 2400."
+      },
+      null,
+      {
+        "Ar": "هذه إحدى الكتل الموجودة.",
+        "En": "This is one existing mass."
+      },
+      {
+        "Ar": "هذا مجموع الكفة الثانية قبل الإضافة.",
+        "En": "This is the second side's existing mass."
+      }
+    ],
+    "error": {
+      "Ar": "لا تخلط الكتلة الموجودة بالكتلة التي يجب إضافتها.",
+      "En": "Do not confuse existing mass with the additional mass."
+    },
+    "unit": {
+      "Ar": "غ",
+      "En": "g"
+    }
+  },
+  {
+    "track": 5,
+    "cat": 82,
+    "skill": 320,
+    "sk": "capacity",
+    "family": "capacity-comparison-with-repeated-pours",
+    "title": {
+      "Ar": "الكمية المهدرة بعد ملء وعاء",
+      "En": "Excess after filling a container"
+    },
+    "q": {
+      "Ar": "يُصب خمس مرات مقدار 350 مل في وعاء فارغ سعته 1.5 لتر. كم مل يفيض إذا لم يُفرغ الوعاء أثناء الصب؟",
+      "En": "Five portions of 350 mL are poured into an empty container of capacity 1.5 L. How many millilitres overflow if the container is not emptied?"
+    },
+    "opts": [
+      "150",
+      "250",
+      "350",
+      "1750"
+    ],
+    "correct": 1,
+    "idea": {
+      "Ar": "نطرح سعة الوعاء من الحجم المصبوب الكلي.",
+      "En": "Subtract container capacity from the total poured volume."
+    },
+    "formula": "5\\cdot350-1500",
+    "steps": [
+      {
+        "Ar": "$5\\cdot350=1750$",
+        "En": "$5\\cdot350=1750$"
+      },
+      {
+        "Ar": "$1750-1500=250$",
+        "En": "$1750-1500=250$"
+      }
+    ],
+    "sub": {
+      "Ar": "$1750-1500=250$",
+      "En": "$1750-1500=250$"
+    },
+    "result": {
+      "Ar": "$250$",
+      "En": "$250$"
+    },
+    "verify": {
+      "Ar": "$1500+250=1750$",
+      "En": "$1500+250=1750$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب حجم الصبات الخمس.",
+        "En": "Find the volume of five pours."
+      },
+      {
+        "Ar": "حوّل السعة إلى مل واطرحها.",
+        "En": "Convert capacity to mL and subtract."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "لا يساوي فرق 1750 و1500.",
+        "En": "Not the difference of 1750 and 1500."
+      },
+      null,
+      {
+        "Ar": "حجم صبة واحدة لا الفائض.",
+        "En": "One pour, not the overflow."
+      },
+      {
+        "Ar": "الحجم المصبوب كله.",
+        "En": "The total poured volume."
+      }
+    ],
+    "error": {
+      "Ar": "الفائض هو الجزء الذي يتجاوز السعة فقط.",
+      "En": "Overflow is only the amount exceeding capacity."
+    },
+    "unit": {
+      "Ar": "مل",
+      "En": "mL"
+    }
+  },
+  {
+    "track": 6,
+    "cat": 2,
+    "skill": 10,
+    "sk": "primary-two-step-equations",
+    "family": "two-step-equation-missing-constant-from-solution",
+    "title": {
+      "Ar": "ثابت مجهول من حل معطى",
+      "En": "Unknown constant from a known solution"
+    },
+    "q": {
+      "Ar": "إذا كان x=7 حلاً للمعادلة 4x+b=39، فما قيمة b؟",
+      "En": "If x=7 solves the equation 4x+b=39, what is b?"
+    },
+    "opts": [
+      "7",
+      "11",
+      "28",
+      "35"
+    ],
+    "correct": 1,
+    "idea": {
+      "Ar": "نعوض الحل المعروف ثم نعزل الثابت.",
+      "En": "Substitute the known solution and isolate the constant."
+    },
+    "formula": "b=39-4x",
+    "steps": [
+      {
+        "Ar": "$4\\cdot7=28$",
+        "En": "$4\\cdot7=28$"
+      },
+      {
+        "Ar": "$b=39-28=11$",
+        "En": "$b=39-28=11$"
+      }
+    ],
+    "sub": {
+      "Ar": "$b=39-28=11$",
+      "En": "$b=39-28=11$"
+    },
+    "result": {
+      "Ar": "$11$",
+      "En": "$11$"
+    },
+    "verify": {
+      "Ar": "$4\\cdot7+11=39$",
+      "En": "$4\\cdot7+11=39$"
+    },
+    "hints": [
+      {
+        "Ar": "عوّض x بالعدد سبعة.",
+        "En": "Substitute seven for x."
+      },
+      {
+        "Ar": "اطرح حاصل الضرب من 39.",
+        "En": "Subtract the product from 39."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "هذه قيمة x لا b.",
+        "En": "This is x, not b."
+      },
+      null,
+      {
+        "Ar": "هذا حاصل ضرب 4x.",
+        "En": "This is the product 4x."
+      },
+      {
+        "Ar": "يطرح المعامل دون التعويض.",
+        "En": "Subtracts the coefficient without substitution."
+      }
+    ],
+    "error": {
+      "Ar": "لا تخلط قيمة الحل بقيمة الثابت المجهول.",
+      "En": "Do not confuse the known solution with the unknown constant."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 6,
+    "cat": 81,
+    "skill": 345,
+    "sk": "primary-signed-rational-number-sense",
+    "family": "signed-number-absolute-value-equal-distance",
+    "title": {
+      "Ar": "نقطتان متساويتا البعد عن الصفر",
+      "En": "Points equally distant from zero"
+    },
+    "q": {
+      "Ar": "تقع النقطة A عند −2.5 على خط الأعداد. تقع النقطة B في الجهة المقابلة للصفر وبالبعد نفسه عنه. ما إحداثي B؟",
+      "En": "Point A is at −2.5 on a number line. Point B lies on the opposite side of zero at the same distance. What is B's coordinate?"
+    },
+    "opts": [
+      "-5",
+      "-2.5",
+      "0",
+      "2.5"
+    ],
+    "correct": 3,
+    "idea": {
+      "Ar": "العددان المتقابلان لهما البعد نفسه عن الصفر وإشارتان مختلفتان.",
+      "En": "Opposite numbers have equal distances from zero and opposite signs."
+    },
+    "formula": "B=-A",
+    "steps": [
+      {
+        "Ar": "$-(-2.5)=2.5$",
+        "En": "$-(-2.5)=2.5$"
+      }
+    ],
+    "sub": {
+      "Ar": "$-(-2.5)=2.5$",
+      "En": "$-(-2.5)=2.5$"
+    },
+    "result": {
+      "Ar": "$2.5$",
+      "En": "$2.5$"
+    },
+    "verify": {
+      "Ar": "$|-2.5|=|2.5|$",
+      "En": "$|-2.5|=|2.5|$"
+    },
+    "hints": [
+      {
+        "Ar": "حدد جهة A من الصفر.",
+        "En": "Identify A's side of zero."
+      },
+      {
+        "Ar": "انتقل إلى الجهة الأخرى بالمسافة نفسها.",
+        "En": "Move the same distance on the other side."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "يبقى في الجهة السالبة ويضاعف المسافة.",
+        "En": "Stays negative and doubles the distance."
+      },
+      {
+        "Ar": "هذه النقطة A نفسها.",
+        "En": "This is A itself."
+      },
+      {
+        "Ar": "الصفر ليس على بعد 2.5 من نفسه.",
+        "En": "Zero is not 2.5 units from itself."
+      },
+      null
+    ],
+    "error": {
+      "Ar": "المقابل يغير الإشارة فقط ولا يغير مقدار البعد.",
+      "En": "The opposite changes sign, not distance."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 7,
+    "cat": 6,
+    "skill": 25,
+    "sk": "middle-linear-equations",
+    "family": "linear-equation-two-sides-equal-service-cost",
+    "title": {
+      "Ar": "تساوي كلفتين خطيتين",
+      "En": "Equal linear costs"
+    },
+    "q": {
+      "Ar": "خطة A تكلف 12 وحدة ثابتة و3 وحدات لكل ساعة، وخطة B تكلف 4 وحدات ثابتة و5 وحدات لكل ساعة. عند كم ساعة تتساوى الكلفتان؟",
+      "En": "Plan A costs 12 fixed units plus 3 per hour. Plan B costs 4 fixed units plus 5 per hour. At how many hours do they cost the same?"
+    },
+    "opts": [
+      "2",
+      "4",
+      "6",
+      "8"
+    ],
+    "correct": 1,
+    "idea": {
+      "Ar": "نساوي التعبيرين ونحل المعادلة.",
+      "En": "Equate the two expressions and solve."
+    },
+    "formula": "12+3x=4+5x",
+    "steps": [
+      {
+        "Ar": "$12-4=5x-3x$",
+        "En": "$12-4=5x-3x$"
+      },
+      {
+        "Ar": "$8=2x$",
+        "En": "$8=2x$"
+      },
+      {
+        "Ar": "$x=4$",
+        "En": "$x=4$"
+      }
+    ],
+    "sub": {
+      "Ar": "$x=4$",
+      "En": "$x=4$"
+    },
+    "result": {
+      "Ar": "$4$",
+      "En": "$4$"
+    },
+    "verify": {
+      "Ar": "$12+3\\cdot4=4+5\\cdot4=24$",
+      "En": "$12+3\\cdot4=4+5\\cdot4=24$"
+    },
+    "hints": [
+      {
+        "Ar": "اكتب كلفة كل خطة بدلالة الساعات.",
+        "En": "Write each plan's cost in terms of hours."
+      },
+      {
+        "Ar": "ساوِ الطرفين واجمع حدود المتغير.",
+        "En": "Equate them and collect variable terms."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "تعطي الكلفتين 18 و14.",
+        "En": "Gives costs of 18 and 14."
+      },
+      null,
+      {
+        "Ar": "تعطي الكلفتين 30 و34.",
+        "En": "Gives costs of 30 and 34."
+      },
+      {
+        "Ar": "هذا فرق الكلفتين الثابتتين.",
+        "En": "This is the fixed-cost difference."
+      }
+    ],
+    "error": {
+      "Ar": "لا تقارن الجزء الثابت وحده.",
+      "En": "Do not compare fixed costs alone."
+    },
+    "unit": {
+      "Ar": "ساعة",
+      "En": "hours"
+    }
+  },
+  {
+    "track": 8,
+    "cat": 22,
+    "skill": 99,
+    "sk": "m-statistics-summary-measures",
+    "family": "mean-combine-total-known-repeated-score",
+    "title": {
+      "Ar": "المتوسط بعد تكرار كل قراءة",
+      "En": "Mean after repeating each observation"
+    },
+    "q": {
+      "Ar": "متوسط خمس قراءات يساوي 12. إذا سُجلت كل قراءة مرتين بدلاً من مرة واحدة، فما المتوسط الجديد؟",
+      "En": "Five readings have mean 12. If each reading is recorded twice rather than once, what is the new mean?"
+    },
+    "opts": [
+      "6",
+      "12",
+      "24",
+      "60"
+    ],
+    "correct": 1,
+    "idea": {
+      "Ar": "يتضاعف مجموع القيم وعددها معاً فيبقى المتوسط ثابتاً.",
+      "En": "Both total and count double, so the mean stays unchanged."
+    },
+    "formula": "\\bar x'=\\frac{2S}{2n}",
+    "steps": [
+      {
+        "Ar": "$S=5\\cdot12=60$",
+        "En": "$S=5\\cdot12=60$"
+      },
+      {
+        "Ar": "$\\bar x'=120/10=12$",
+        "En": "$\\bar x'=120/10=12$"
+      }
+    ],
+    "sub": {
+      "Ar": "$\\bar x'=120/10=12$",
+      "En": "$\\bar x'=120/10=12$"
+    },
+    "result": {
+      "Ar": "$12$",
+      "En": "$12$"
+    },
+    "verify": {
+      "Ar": "$10\\cdot12=120$",
+      "En": "$10\\cdot12=120$"
+    },
+    "hints": [
+      {
+        "Ar": "كم يصبح عدد القراءات؟",
+        "En": "What is the new number of readings?"
+      },
+      {
+        "Ar": "يتضاعف المجموع أيضاً.",
+        "En": "The sum doubles too."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "يقسم المتوسط على اثنين رغم تضاعف المجموع.",
+        "En": "Halves the mean despite doubling the total."
+      },
+      null,
+      {
+        "Ar": "يضاعف المتوسط رغم تضاعف العدد أيضاً.",
+        "En": "Doubles the mean despite doubling the count."
+      },
+      {
+        "Ar": "هذا مجموع القراءات الأصلي.",
+        "En": "This is the original sum."
+      }
+    ],
+    "error": {
+      "Ar": "لا تخلط تكرار البيانات بضرب قيمها في اثنين.",
+      "En": "Do not confuse duplicating observations with doubling their values."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 8,
+    "cat": 84,
+    "skill": 326,
+    "sk": "number-line-solutions",
+    "family": "inequality-solution-set-count-outside-closed-range",
+    "title": {
+      "Ar": "عد القيم خارج مجال مغلق",
+      "En": "Counting values outside a closed interval"
+    },
+    "q": {
+      "Ar": "من الأعداد الصحيحة 0 إلى 8 شاملة، كم عدداً لا يحقق الشرط $2\\le x\\le6$؟",
+      "En": "Among integers from 0 through 8 inclusive, how many fail the condition $2\\le x\\le6$?"
+    },
+    "opts": [
+      "2",
+      "4",
+      "5",
+      "9"
+    ],
+    "correct": 1,
+    "idea": {
+      "Ar": "نستبعد الأعداد الواقعة بين الحدين المشمولين ونعد الباقي.",
+      "En": "Exclude integers in the inclusive interval and count the rest."
+    },
+    "formula": "9-(6-2+1)",
+    "steps": [
+      {
+        "Ar": "$6-2+1=5$",
+        "En": "$6-2+1=5$"
+      },
+      {
+        "Ar": "$9-5=4$",
+        "En": "$9-5=4$"
+      }
+    ],
+    "sub": {
+      "Ar": "$9-5=4$",
+      "En": "$9-5=4$"
+    },
+    "result": {
+      "Ar": "$4$",
+      "En": "$4$"
+    },
+    "verify": {
+      "Ar": "$4+5=9$",
+      "En": "$4+5=9$"
+    },
+    "hints": [
+      {
+        "Ar": "العددان 2 و6 يحققان الشرط.",
+        "En": "Both endpoints 2 and 6 satisfy the condition."
+      },
+      {
+        "Ar": "عد القيم 0 و1 و7 و8.",
+        "En": "Count zero, one, seven and eight."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "يعد جانباً واحداً من المجال.",
+        "En": "Counts only one side of the interval."
+      },
+      null,
+      {
+        "Ar": "هذا عدد القيم التي تحقق الشرط.",
+        "En": "This counts values satisfying the condition."
+      },
+      {
+        "Ar": "هذا عدد القيم الأصلية كلها.",
+        "En": "This counts all original values."
+      }
+    ],
+    "error": {
+      "Ar": "لا تستبعد حدود المجال إذا كانت الإشارة تشمل المساواة.",
+      "En": "Do not exclude inclusive endpoints."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 8,
+    "cat": 84,
+    "skill": 327,
+    "sk": "solve-linear-inequalities",
+    "family": "inequality-solutions-error-identification-subtract-negative",
+    "title": {
+      "Ar": "كشف خطوة خاطئة في متراجحة",
+      "En": "Identifying an incorrect inequality step"
+    },
+    "q": {
+      "Ar": "بدأ طالب من $x-6>2$ ثم كتب $x>8$. أي عملية تبرر هذه الخطوة؟ A: إضافة 6 للطرفين؛ B: طرح 6 من الطرفين؛ C: ضرب الطرفين في 6؛ D: عكس اتجاه المتراجحة.",
+      "En": "A student starts with $x-6>2$ and writes $x>8$. Which operation justifies this step? A: add 6 to both sides; B: subtract 6 from both sides; C: multiply both sides by 6; D: reverse the inequality."
+    },
+    "opts": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correct": 0,
+    "idea": {
+      "Ar": "إضافة العدد نفسه إلى الطرفين تحافظ على اتجاه المتراجحة.",
+      "En": "Adding the same number to both sides preserves the inequality direction."
+    },
+    "formula": "x-6+6>2+6",
+    "steps": [
+      {
+        "Ar": "$x>8$",
+        "En": "$x>8$"
+      }
+    ],
+    "sub": {
+      "Ar": "$x>8$",
+      "En": "$x>8$"
+    },
+    "result": {
+      "Ar": "$A$",
+      "En": "$A$"
+    },
+    "verify": {
+      "Ar": "$9-6=3>2$",
+      "En": "$9-6=3>2$"
+    },
+    "hints": [
+      {
+        "Ar": "ما العملية العكسية لطرح 6؟",
+        "En": "What undoes subtracting six?"
+      },
+      {
+        "Ar": "نفذ العملية نفسها في الطرفين.",
+        "En": "Perform the same operation on both sides."
+      }
+    ],
+    "reasons": [
+      null,
+      {
+        "Ar": "الطرح يزيد مقدار الحد السالب.",
+        "En": "Subtracting increases the negative offset."
+      },
+      {
+        "Ar": "الضرب لا يلغي طرح 6.",
+        "En": "Multiplication does not undo subtracting six."
+      },
+      {
+        "Ar": "الجمع لا يعكس الإشارة.",
+        "En": "Addition does not reverse the inequality."
+      }
+    ],
+    "error": {
+      "Ar": "لا تعكس اتجاه المتراجحة لمجرد نقل ثابت.",
+      "En": "Do not reverse an inequality simply when moving a constant."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 9,
+    "cat": 22,
+    "skill": 98,
+    "sk": "m-statistics-distributions",
+    "family": "range-possible-max-min-from-known-range",
+    "title": {
+      "Ar": "استنتاج أصغر قيمة من المدى",
+      "En": "Inferring the minimum from a range"
+    },
+    "q": {
+      "Ar": "أكبر قراءة في مجموعة بيانات هي −3، والمدى يساوي 11. ما أصغر قراءة؟",
+      "En": "The largest observation in a data set is −3 and the range is 11. What is the smallest observation?"
+    },
+    "opts": [
+      "-14",
+      "-8",
+      "8",
+      "14"
+    ],
+    "correct": 0,
+    "idea": {
+      "Ar": "المدى يساوي أكبر قيمة ناقص أصغر قيمة.",
+      "En": "Range equals maximum minus minimum."
+    },
+    "formula": "R=M-m",
+    "steps": [
+      {
+        "Ar": "$11=-3-m$",
+        "En": "$11=-3-m$"
+      },
+      {
+        "Ar": "$m=-3-11=-14$",
+        "En": "$m=-3-11=-14$"
+      }
+    ],
+    "sub": {
+      "Ar": "$m=-3-11=-14$",
+      "En": "$m=-3-11=-14$"
+    },
+    "result": {
+      "Ar": "$-14$",
+      "En": "$-14$"
+    },
+    "verify": {
+      "Ar": "$-3-(-14)=11$",
+      "En": "$-3-(-14)=11$"
+    },
+    "hints": [
+      {
+        "Ar": "اكتب علاقة المدى بالأكبر والأصغر.",
+        "En": "Write the range relationship."
+      },
+      {
+        "Ar": "اطرح المدى من أكبر قيمة.",
+        "En": "Subtract the range from the maximum."
+      }
+    ],
+    "reasons": [
+      null,
+      {
+        "Ar": "يعطي مدى 5 فقط.",
+        "En": "Gives range five only."
+      },
+      {
+        "Ar": "أكبر من القيمة القصوى المعطاة.",
+        "En": "Exceeds the given maximum."
+      },
+      {
+        "Ar": "أكبر من القيمة القصوى المعطاة.",
+        "En": "Exceeds the given maximum."
+      }
+    ],
+    "error": {
+      "Ar": "لا تهمل إشارة القيمة القصوى السالبة.",
+      "En": "Do not ignore the negative sign of the maximum."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 12,
+    "cat": 10,
+    "skill": 47,
+    "sk": "secondary-pythagorean-trig-identity",
+    "family": "trig-identity-minimum-product-denominator",
+    "title": {
+      "Ar": "حد أعلى لحاصل ضرب المربعين",
+      "En": "Upper bound of the product of squares"
+    },
+    "q": {
+      "Ar": "ما أكبر قيمة لـ $\\sin^2\\theta\\cos^2\\theta$ عندما تكون θ زاوية حقيقية؟",
+      "En": "What is the maximum of $\\sin^2\\theta\\cos^2\\theta$ over real θ?"
+    },
+    "opts": [
+      "0",
+      "\\frac14",
+      "\\frac12",
+      "1"
+    ],
+    "correct": 1,
+    "idea": {
+      "Ar": "مجموع المربعين واحد، ويبلغ حاصل ضرب عددين غير سالبين بهذا المجموع أقصاه عند تساويهما.",
+      "En": "The squares sum to one; the product of two nonnegative numbers with fixed sum is maximal when equal."
+    },
+    "formula": "4ab=(a+b)^2-(a-b)^2\\le1",
+    "steps": [
+      {
+        "Ar": "$a=\\sin^2\\theta,\\quad b=\\cos^2\\theta$",
+        "En": "$a=\\sin^2\\theta,\\quad b=\\cos^2\\theta$"
+      },
+      {
+        "Ar": "$a+b=1$",
+        "En": "$a+b=1$"
+      },
+      {
+        "Ar": "$ab\\le1/4$",
+        "En": "$ab\\le1/4$"
+      }
+    ],
+    "sub": {
+      "Ar": "$ab\\le1/4$",
+      "En": "$ab\\le1/4$"
+    },
+    "result": {
+      "Ar": "$\\frac14$",
+      "En": "$\\frac14$"
+    },
+    "verify": {
+      "Ar": "$\\theta=45^\\circ:\\ (1/2)(1/2)=1/4$",
+      "En": "$\\theta=45^\\circ:\\ (1/2)(1/2)=1/4$"
+    },
+    "hints": [
+      {
+        "Ar": "استعمل أن مجموع المربعين واحد.",
+        "En": "Use that the squares sum to one."
+      },
+      {
+        "Ar": "مربع الفرق غير سالب.",
+        "En": "The squared difference is nonnegative."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "هذه قيمة صغرى ممكنة.",
+        "En": "This is an attainable minimum."
+      },
+      null,
+      {
+        "Ar": "هذا مقدار أحد المربعين عند التساوي لا حاصل الضرب.",
+        "En": "This is either square at equality, not their product."
+      },
+      {
+        "Ar": "لا يمكن أن يكون المربعان كلاهما واحداً.",
+        "En": "Both squares cannot equal one."
+      }
+    ],
+    "error": {
+      "Ar": "لا تفترض استقلال قيمتي الجيب وجيب التمام.",
+      "En": "Do not treat sine and cosine as independently varying."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 12,
+    "cat": 10,
+    "skill": 47,
+    "sk": "secondary-pythagorean-trig-identity",
+    "family": "trig-identity-solve-linear-in-squares",
+    "title": {
+      "Ar": "معادلة في مربعي النسب",
+      "En": "Equation in squared trigonometric ratios"
+    },
+    "q": {
+      "Ar": "إذا تحقق $2\\sin^2\\theta+5\\cos^2\\theta=3$، فما قيمة $\\cos^2\\theta$؟",
+      "En": "If $2\\sin^2\\theta+5\\cos^2\\theta=3$, what is $\\cos^2\\theta$?"
+    },
+    "opts": [
+      "\\frac15",
+      "\\frac13",
+      "\\frac23",
+      "\\frac35"
+    ],
+    "correct": 1,
+    "idea": {
+      "Ar": "نعوض مربع الجيب بواحد ناقص مربع جيب التمام.",
+      "En": "Replace sine squared by one minus cosine squared."
+    },
+    "formula": "2(1-c)+5c=3,\\quad c=\\cos^2\\theta",
+    "steps": [
+      {
+        "Ar": "$2+3c=3$",
+        "En": "$2+3c=3$"
+      },
+      {
+        "Ar": "$3c=1$",
+        "En": "$3c=1$"
+      },
+      {
+        "Ar": "$c=1/3$",
+        "En": "$c=1/3$"
+      }
+    ],
+    "sub": {
+      "Ar": "$c=1/3$",
+      "En": "$c=1/3$"
+    },
+    "result": {
+      "Ar": "$\\frac13$",
+      "En": "$\\frac13$"
+    },
+    "verify": {
+      "Ar": "$2(2/3)+5(1/3)=3$",
+      "En": "$2(2/3)+5(1/3)=3$"
+    },
+    "hints": [
+      {
+        "Ar": "استعمل المتطابقة الأساسية لإلغاء مربع الجيب.",
+        "En": "Use the fundamental identity to eliminate sine squared."
+      },
+      {
+        "Ar": "اجمع حدود مربع جيب التمام.",
+        "En": "Collect the cosine-squared terms."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "لا يحقق المعادلة بعد التعويض.",
+        "En": "Does not satisfy the equation on substitution."
+      },
+      null,
+      {
+        "Ar": "هذا مربع الجيب الناتج.",
+        "En": "This is the resulting sine squared."
+      },
+      {
+        "Ar": "يقسم 3 على 5 ويهمل حد الجيب.",
+        "En": "Divides three by five and ignores the sine term."
+      }
+    ],
+    "error": {
+      "Ar": "لا تعامل مربعَي الجيب وجيب التمام كمجهولين مستقلين.",
+      "En": "Do not treat the two squared ratios as independent unknowns."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  }
+]
