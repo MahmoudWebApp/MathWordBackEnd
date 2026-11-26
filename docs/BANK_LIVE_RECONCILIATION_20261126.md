@@ -153,3 +153,42 @@ Three additional primary candidates from exact #179 launch-primary-v20.mjs sourc
 All three new imported drafts Published rev3. Sequence gaps expected from rolled-back trials. Update #179 published-expansion manifest by its own branch owner; do not reimport these keys. Four new questions total this checkpoint and 49 old problems corrected. Cumulative independent #193: 112 old corrected and five new published. Live after 854 problems (220/195/217/222), 506 without metadata (116/96/125/169), 81 heuristic notation flags (12/25/22/22); 513 drafts (463 amendments, 50 new), 582 Published (267 amendments, 315 additions), 1 Withdrawn. Best-five capped readiness 674/1400 including 157 mapped unpublished university levels; gap 726 (683 school + 43 university). Grade 1 now 10 assignments, grade 2 21, grade 6 18. No changes to eight missing category links or university visibility.
 
 Prior classification follow-up: live skill 28 NameEn is "Finding inputs from function values" (StableKey middle-inverse-function-evaluation), which is evidence the three recovering-input questions 212/224/236 match the displayed skill despite historical naming concern; retain the recorded hold until coordinated disposition, do not change scope unilaterally. Grade 6 two-step equations 188/200 remain local progression review. Runtime browser rendering and comprehensive legacy educational audit remain incomplete. CI on latest head unverified. Next: wizard 535 onward, skip source 340 and other holds; use current live fingerprint and scope checks (legacy university courses may receive existing content corrections only, not expansion), prioritize linked school growth and approved two-level university transition; no changes to application, authentication or learner history.
+
+## Owner-authorized production checkpoint — 27 new school problems (2026-11-26)
+Live start 854 problems, 506 missing structured metadata, best-five capped 674/1400. Read current #179 head 1db6af02bf07a9bf6043ec55836750a229e799df, four hold registries, live published school skill/category links, content keys and current bilingual school inventory. Candidate screening covered v17 early/middle/secondary, v19 and linked v16. Reviewed top two English token-overlap comparisons across live and draft pool per eligible candidate; also used existing archived semantic holds. This is a focused overlap review, not proof of no semantic equivalence anywhere. Excluded held families (strict interval count, shared-area altitude, periodic interior-event counting, perpendicular triangle area from sum, quadrant trig reciprocal variant, equal-weight balance, linked work and hollow-layer count), and independently withheld v17 grade-9 quadratic-equal-height-symmetric-time because the assigned skill is evaluation, not solving a quadratic; no taxonomy remap. Other unselected candidates are not cleared for publication.
+
+Independently recalculated 27 answers (arithmetic, exact rational values, enumeration, clock minutes, parity, number-line reflection, proportional geometry, weighted/variance and integral rules); verified all four options are mathematically distinct. Reviewed bilingual content, refined idea/steps/formula and selected Arabic notation and hints; retained original candidate keys. Three guarded SQL import/publication transactions of nine each, trialed with ROLLBACK, confirmed keys absent, committed, exact readback 27/27 (wizard, stem, title, metadata, flat bilingual solution, options/order/correctness, scope, track and primary skill links, status Published rev3 and four audit events per draft). 108 audit events. No taxonomy, learner history, web/mobile or auth changes. Sequence gaps caused by rollback. Do not rerun.
+
+Scripts: batch1 f4a8c68ef4dbcb4ade8c691727c387ea90b26921; batch2 76ebe5396bc1008740c0ee7edbc2638acfe8d806; batch3 5ef123a733af46631078f451a27b58f527643af0. Canonical mapping for #179 published-expansion manifest:
+
+| Content key | Draft | Problem | Track/category/skill | Correct option |
+|---|---:|---:|---|---|
+| growth-v17-grade-2-length-invariant-under-slide-1 | 1109 | 1822 | 2/82/321 | 7279=16 |
+| growth-v17-grade-3-latest-departure-with-buffer-1 | 1110 | 1823 | 3/82/324 | 7281=9{:}25 |
+| growth-v17-grade-3-reverse-area-after-width-change-1 | 1111 | 1824 | 3/3/13 | 7288=6 |
+| growth-v17-grade-4-mixed-unit-mass-across-scales-1 | 1112 | 1825 | 4/82/322 | 7291=180 |
+| growth-v17-grade-5-repeated-fill-from-smaller-dispenser-1 | 1113 | 1826 | 5/82/320 | 7294=4 |
+| growth-v17-grade-6-fixed-subgroup-divisibility-minimum-1 | 1114 | 1827 | 6/21/93 | 7299=20 |
+| growth-v17-grade-7-phase-offset-synchronization-1 | 1115 | 1828 | 7/5/24 | 7301=10 |
+| growth-v17-grade-7-three-line-vertical-angle-sum-1 | 1116 | 1829 | 7/8/38 | 7306=90 |
+| growth-v17-grade-8-projection-overhang-from-shadow-1 | 1117 | 1830 | 8/34/40 | 7311=2 |
+| growth-v19-grade-1-count-visible-faces-on-turning-cards-1 | 1127 | 1840 | 1/81/302 | 7349=3 |
+| growth-v17-grade-8-compare-input-revisions-linear-with-fee-1 | 1128 | 1841 | 8/6/26 | 7356=15 |
+| growth-v17-grade-9-deduce-bounded-cumulative-count-1 | 1129 | 1842 | 9/22/98 | 7357=5 |
+| growth-v17-grade-10-compare-towers-fixed-angle-different-baselines-1 | 1130 | 1843 | 10/10/48 | 7363=15 |
+| growth-v17-grade-10-staggered-index-equal-arithmetic-rows-1 | 1131 | 1844 | 10/23/104 | 7368=9 |
+| growth-v17-grade-11-selection-pairs-different-flavours-1 | 1132 | 1845 | 11/12/56 | 7369=26 |
+| growth-v17-grade-11-variance-deletion-equal-opposite-deviations-1 | 1133 | 1846 | 11/35/54 | 7374=\frac{20}{3} |
+| growth-v17-grade-12-alternating-affine-two-cycle-1 | 1134 | 1847 | 12/23/102 | 7379=8 |
+| growth-v17-grade-12-recover-net-change-from-reversed-measurements-1 | 1135 | 1848 | 12/11/51 | 7384=10 |
+| growth-v19-grade-2-strip-length-closest-without-going-over-1 | 1145 | 1858 | 2/82/321 | 7422=12 |
+| growth-v19-grade-3-regroup-into-tens-without-using-hundreds-1 | 1146 | 1859 | 3/81/305 | 7426=32 |
+| growth-v19-grade-4-feasible-sticker-total-with-quotient-and-remainder-limit-1 | 1147 | 1860 | 4/33/5 | 7429=27 |
+| growth-v19-grade-7-equal-distance-opposite-side-coordinates-1 | 1148 | 1861 | 7/83/307 | 7436=3 |
+| growth-v19-grade-8-map-scale-rectangular-area-converts-both-dimensions-1 | 1149 | 1862 | 8/7/33 | 7437=0.24 |
+| growth-v19-grade-9-distinct-sums-from-nonuniform-two-spinners-1 | 1150 | 1863 | 9/85/336 | 7444=7 |
+| growth-v19-grade-10-scalar-multiple-from-one-component-cancelled-1 | 1151 | 1864 | 10/87/340 | 7447=-\frac{1}{2} |
+| growth-v19-grade-11-combinations-avoid-three-way-unanimity-1 | 1152 | 1865 | 11/12/56 | 7452=12 |
+| growth-v19-grade-12-circle-radius-from-horizontal-line-tangency-1 | 1153 | 1866 | 12/88/328 | 7453=4 |
+
+Live after 881 (230 primary,203 middle,226 secondary,222 university); 375 have structured metadata, 506 missing (116/96/125/169). 84 heuristic notation flags (14/26/22/22); the three new flagged IDs 1826/1842/1860 were manually checked and are false positives on ordinary Arabic wording, not actual Arabic variables. Draft 513 (463 amendments,50 new), Published 609 (267 amendments,342 additions), Withdrawn 1. Best-five capped 697/1400 (school 540/1200, university unpublished mappings 157/200), gap 703 (660 school +43 university). 27 added, 23 contribute to capped best-five count; no old amendments in this pass. Cumulative independent #193: 112 corrected,32 new. All 12 school grades received additions, no university changes. Eight missing category links remain. Next legacy wizard 535 onward (skip registry holds); continue large linked growth waves, prioritize best-five gaps and resolve taxonomy proposals separately. Browser rendering and full pedagogical audit incomplete, CI latest head unverified.
