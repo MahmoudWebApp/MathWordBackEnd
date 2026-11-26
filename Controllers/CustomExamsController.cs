@@ -45,6 +45,12 @@ public sealed class CustomExamsController(AppDbContext db, IConfiguration config
         if(track==null||track.Id!=e.TrackId||track.StageId!=e.StageId)return Conflict(new{Message="ExamScopeChanged"});
         return null;
     }
+    [HttpGet("availability")]
+    public async Task<IActionResult> Availability(CancellationToken ct)
+    {
+        if(await Owner(ct)==null)return Unauthorized();
+        return Ok(new{Enabled});
+    }
     [HttpGet("setup")]
     public async Task<IActionResult> Setup(CancellationToken ct)
     {
