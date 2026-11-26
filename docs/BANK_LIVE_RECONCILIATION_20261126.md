@@ -543,3 +543,29 @@ Reviewed28 pending amendments; held752/source782 excluded (existing editorial ho
 |751|781|3114|
 
 Live1008 (315/227/239/227), structured696 (237/161/152/146), missing312 (78/66/87/81). Draft320 (271 amendments+49 additions), Published930 (461 amendments+469 additions), Withdrawn1. Cumulative #193:306 legacy corrections+159 new. Category depth unchanged (best-five813/1400; all88 placements897/1760, gap863). Next legacy753 onward, retain hold752 and earlier holds; continue new content within underfilled categories, especially grades1/2/6/9; reconcile canonical #179 keys without replay.
+
+
+## Blocked legacy checkpoint 753–778 (2026-11-26)
+Read live questions/options/track mappings for 26 pending drafts. Checked all four holds; exclude 753,759,761,766,768,770,778. Recomputed the 19 remaining answers below. Full bilingual solution preparation attempted but fresh source snapshot request failed with connection timeout. A follow-up simple read returned PostgreSQL FATAL 57P03: database system is not accepting connections; Hot standby mode is disabled. No COMMIT was issued, no amendment SQL file was created, no database writes confirmed. Last confirmed totals remain1008 live/696 structured/312 missing; do not count this review as published. Do not restart or modify infrastructure from the content task. Resume by independently checking live DB health, draft status, current source fingerprints and actual dual mappings, then recreate guarded SQL with complete bilingual solutions/hints/distractors, rehearse rollback and independently verify before commit. 
+
+| Draft | Source | Expected correct option ID | Recomputed result |
+|---:|---:|---:|---|
+|754|784|3126|telescoping sum 1|
+|755|785|3131|5!/(2!2!)=30|
+|756|786|3135|C(5,2)C(4,1)=40|
+|757|787|3139|5*4*3=60|
+|758|788|3143|4!=24|
+|760|790|3151|2n+1|
+|762|792|3158|2 is prime and even|
+|763|793|3163|reflexive/transitive, not symmetric|
+|764|794|3166|{1,2},{3}|
+|765|795|3170|(1,3)|
+|767|797|3179|2k+1=4|
+|769|799|3187|a=2; continuity and both slopes|
+|771|817|3257|9/12=3/4|
+|772|818|3262|8/8+3/8=11/8|
+|773|819|3267|(1/2)(3/4)=3/8|
+|774|820|3272|(2/3)/4=1/6|
+|775|821|3273|8+0.3+0.06=8.36|
+|776|822|3278|0.47*10=4.7|
+|777|823|3283|(6-3)*4=12|
