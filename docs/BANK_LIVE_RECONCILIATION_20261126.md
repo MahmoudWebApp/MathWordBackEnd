@@ -569,3 +569,9 @@ Read live questions/options/track mappings for 26 pending drafts. Checked all fo
 |775|821|3273|8+0.3+0.06=8.36|
 |776|822|3278|0.47*10=4.7|
 |777|823|3283|(6-3)*4=12|
+
+
+## Recovered legacy checkpoint 754–777 (2026-11-26)
+Supabase connection restored (initial read confirmed1008 live/696 structured). Independently refreshed all19 previously reviewed pending drafts, options, source fingerprints, draft hashes, actual track mappings, and all four hold registries. Expanded bilingual derivations and option-specific feedback; retained reviewed original hints and ideas. Seven prior held drafts753,759,761,766,768,770,778 excluded. One-time SQL scripts/apply_reviewed_legacy_754_777_20261126.sql commit80a00e44e06271c9c3e6726389780dbb600a3f59 ALREADY APPLIED DO NOT replay. Rollback rehearsal passed, independently confirmed19/19 unchanged, committed once, independent exact readback19/19 (revision4, wizard, solutions, options, protected fields and mappings),76 owner_sql events. No infrastructure changes or changes to students, access, categories, original stems/options/IDs. Preserved university dual mappings13+20 and17+20; both levels20/21 remain unpublished. Runtime and exhaustive semantic duplicate-family audit pending. Prior blocked-checkpoint table identifies exact19 source and correct-option IDs.
+
+Live1008 (315/227/239/227), structured715 (243/162/152/158), missing293 (72/65/87/69). Draft302 (253 amendments+49 additions), Published949 (480 amendments+469 additions), Withdrawn1. Cumulative #193:325 corrections+159 new. Depth unchanged813/1400 and897/1760 (88 placements; gap863). Next legacy779 onward; preserve all holds; continue underfilled category growth and reconcile #179 without replay.
