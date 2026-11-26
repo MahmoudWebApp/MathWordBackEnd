@@ -1,0 +1,900 @@
+[
+  {
+    "track": 3,
+    "cat": 81,
+    "skill": 305,
+    "sk": "place-value",
+    "family": "place-value-decompose-with-zero-tens",
+    "title": {
+      "Ar": "تفكيك عدد دون عشرات",
+      "En": "Decomposition without tens"
+    },
+    "q": {
+      "Ar": "أي تعبير يمثل العدد 608 باستعمال المئات والآحاد فقط؟",
+      "En": "Which expression represents 608 using hundreds and ones only?"
+    },
+    "opts": [
+      "6\\cdot100+8",
+      "6\\cdot10+8",
+      "8\\cdot100+6",
+      "6\\cdot100+8\\cdot10"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "يعطي 68.",
+        "En": "Gives 68."
+      },
+      {
+        "Ar": "يعطي 806.",
+        "En": "Gives 806."
+      },
+      {
+        "Ar": "يعطي 680.",
+        "En": "Gives 680."
+      }
+    ],
+    "idea": {
+      "Ar": "الرقم 6 في المئات والرقم 8 في الآحاد.",
+      "En": "Six is in the hundreds place and eight in the ones place."
+    },
+    "formula": "608=600+8",
+    "steps": [
+      {
+        "Ar": "$600+8=608$",
+        "En": "$600+8=608$"
+      }
+    ],
+    "sub": {
+      "Ar": "$6\\cdot100+8$",
+      "En": "$6\\cdot100+8$"
+    },
+    "result": {
+      "Ar": "$6\\cdot100+8$",
+      "En": "$6\\cdot100+8$"
+    },
+    "verify": {
+      "Ar": "$608-600=8$",
+      "En": "$608-600=8$"
+    },
+    "hints": [
+      {
+        "Ar": "حدد منزلة 6.",
+        "En": "Locate the digit six."
+      },
+      {
+        "Ar": "رقم العشرات صفر.",
+        "En": "The tens digit is zero."
+      }
+    ],
+    "error": {
+      "Ar": "يعطي 68.",
+      "En": "Gives 68."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 3,
+    "cat": 81,
+    "skill": 306,
+    "sk": "rounding",
+    "family": "rounding-sum-of-two-rounded-estimates-error-direction",
+    "title": {
+      "Ar": "اتجاه خطأ تقدير مجموع",
+      "En": "Direction of sum estimation error"
+    },
+    "q": {
+      "Ar": "عند تقدير مجموع 132 و243 بتقريب كل عدد إلى أقرب مئة، بكم يقل المجموع التقديري عن المجموع الدقيق؟",
+      "En": "When estimating 132+243 by rounding each number to the nearest hundred, how much smaller is the estimate than the exact sum?"
+    },
+    "opts": [
+      "25",
+      "43",
+      "375",
+      "75"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "ليس مجموع المقدارين المحذوفين.",
+        "En": "Not the total of the two rounding losses."
+      },
+      {
+        "Ar": "هذا فرق تقريب 243 وحده.",
+        "En": "This is the rounding loss of 243 alone."
+      },
+      {
+        "Ar": "هذا المجموع الدقيق.",
+        "En": "This is the exact sum."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "كلا العددين يقرب إلى المئة الأدنى، فنطرح التقدير من المجموع الدقيق.",
+      "En": "Both numbers round down; subtract the estimate from the exact sum."
+    },
+    "formula": "(132+243)-(100+200)",
+    "steps": [
+      {
+        "Ar": "$132+243=375$",
+        "En": "$132+243=375$"
+      },
+      {
+        "Ar": "$100+200=300$",
+        "En": "$100+200=300$"
+      },
+      {
+        "Ar": "$375-300=75$",
+        "En": "$375-300=75$"
+      }
+    ],
+    "sub": {
+      "Ar": "$375-300$",
+      "En": "$375-300$"
+    },
+    "result": {
+      "Ar": "$75$",
+      "En": "$75$"
+    },
+    "verify": {
+      "Ar": "$32+43=75$",
+      "En": "$32+43=75$"
+    },
+    "hints": [
+      {
+        "Ar": "قرّب العددين أولاً.",
+        "En": "Round both numbers first."
+      },
+      {
+        "Ar": "احسب الفرق بين المجموعين.",
+        "En": "Find the difference between the two sums."
+      }
+    ],
+    "error": {
+      "Ar": "ليس مجموع المقدارين المحذوفين.",
+      "En": "Not the total of the two rounding losses."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 7,
+    "cat": 85,
+    "skill": 336,
+    "sk": "sample-spaces",
+    "family": "sample-space-two-distinct-dice-equal-outcomes-count",
+    "title": {
+      "Ar": "نواتج حجرين متساويين",
+      "En": "Equal outcomes of two dice"
+    },
+    "q": {
+      "Ar": "يُرمى حجران متميزان من النرد، كل منهما مرقم من 1 إلى 6. كم ناتجاً مرتباً يظهر فيه العدد نفسه على الحجرين؟",
+      "En": "Two distinguishable dice, each numbered one through six, are rolled. How many ordered outcomes show the same number on both dice?"
+    },
+    "opts": [
+      "30",
+      "36",
+      "6",
+      "12"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "هذا عدد النواتج المختلفة العددين.",
+        "En": "Counts unequal-number outcomes."
+      },
+      {
+        "Ar": "هذا عدد النواتج كلها.",
+        "En": "Counts all outcomes."
+      },
+      null,
+      {
+        "Ar": "جمع عددَي الأوجه.",
+        "En": "Adds the two face counts."
+      }
+    ],
+    "idea": {
+      "Ar": "لكل عدد على الحجر الأول خيار واحد مطابق على الثاني.",
+      "En": "Each first-die number has exactly one matching second-die number."
+    },
+    "formula": "\\{(1,1),(2,2),\\ldots,(6,6)\\}",
+    "steps": [
+      {
+        "Ar": "$6\\cdot1=6$",
+        "En": "$6\\cdot1=6$"
+      }
+    ],
+    "sub": {
+      "Ar": "$6\\cdot1$",
+      "En": "$6\\cdot1$"
+    },
+    "result": {
+      "Ar": "$6$",
+      "En": "$6$"
+    },
+    "verify": {
+      "Ar": "$6+30=36$",
+      "En": "$6+30=36$"
+    },
+    "hints": [
+      {
+        "Ar": "إذا ظهر 1 على الأول، ماذا يجب أن يظهر على الثاني؟",
+        "En": "If the first shows one, what must the second show?"
+      },
+      {
+        "Ar": "كرر ذلك للأعداد الستة.",
+        "En": "Repeat for all six numbers."
+      }
+    ],
+    "error": {
+      "Ar": "جمع عددَي الأوجه.",
+      "En": "Adds the two face counts."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 7,
+    "cat": 85,
+    "skill": 337,
+    "sk": "simple-compound-events",
+    "family": "probability-union-overlapping-label-events",
+    "title": {
+      "Ar": "احتمال اتحاد حدثين متداخلين",
+      "En": "Probability of overlapping events"
+    },
+    "q": {
+      "Ar": "تُسحب بطاقة عشوائياً من بطاقات مرقمة من 1 إلى 12. ما احتمال أن يكون رقمها من مضاعفات 2 أو 3 أو كليهما؟",
+      "En": "One card is selected uniformly from cards numbered 1 to 12. What is the probability its number is a multiple of two or three or both?"
+    },
+    "opts": [
+      "\\frac12",
+      "\\frac23",
+      "\\frac56",
+      "\\frac16"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "هذا احتمال مضاعفات 2 وحدها.",
+        "En": "This is just the probability of multiples of two."
+      },
+      null,
+      {
+        "Ar": "عد المضاعفات المشتركة مرتين.",
+        "En": "Counts common multiples twice."
+      },
+      {
+        "Ar": "هذا احتمال التقاطع فقط.",
+        "En": "This is just the intersection probability."
+      }
+    ],
+    "idea": {
+      "Ar": "نعد مضاعفات 2 و3 ونطرح المشتركة مرة واحدة.",
+      "En": "Count multiples of two and three, subtracting common multiples once."
+    },
+    "formula": "P=(6+4-2)/12",
+    "steps": [
+      {
+        "Ar": "$6+4-2=8$",
+        "En": "$6+4-2=8$"
+      },
+      {
+        "Ar": "$8/12=2/3$",
+        "En": "$8/12=2/3$"
+      }
+    ],
+    "sub": {
+      "Ar": "$8/12$",
+      "En": "$8/12$"
+    },
+    "result": {
+      "Ar": "$\\frac23$",
+      "En": "$\\frac23$"
+    },
+    "verify": {
+      "Ar": "$\\{2,3,4,6,8,9,10,12\\}$",
+      "En": "$\\{2,3,4,6,8,9,10,12\\}$"
+    },
+    "hints": [
+      {
+        "Ar": "حدد مضاعفات كل عدد.",
+        "En": "List multiples of each number."
+      },
+      {
+        "Ar": "لا تعد 6 و12 مرتين.",
+        "En": "Do not count six and twelve twice."
+      }
+    ],
+    "error": {
+      "Ar": "عد المضاعفات المشتركة مرتين.",
+      "En": "Counts common multiples twice."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 8,
+    "cat": 7,
+    "skill": 33,
+    "sk": "middle-map-scale",
+    "family": "map-scale-infer-length-from-real-distance-mixed-units",
+    "title": {
+      "Ar": "مسافة على الخريطة",
+      "En": "Map length from real distance"
+    },
+    "q": {
+      "Ar": "مقياس خريطة هو 1:25000. كم سنتيمتراً تمثل مسافة حقيقية طولها 1.5 كم؟",
+      "En": "A map has scale 1:25000. How many centimetres on the map represent a real distance of 1.5 km?"
+    },
+    "opts": [
+      "6",
+      "0.06",
+      "60",
+      "37500"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "لم يحول الكيلومترات إلى سنتيمترات.",
+        "En": "Does not convert kilometres to centimetres correctly."
+      },
+      {
+        "Ar": "أخطأ بعامل عشرة في التحويل.",
+        "En": "Makes a factor-of-ten conversion error."
+      },
+      {
+        "Ar": "ضرب المسافة في المقياس بدلاً من القسمة.",
+        "En": "Multiplies by the scale denominator instead of dividing."
+      }
+    ],
+    "idea": {
+      "Ar": "نوحد الوحدات إلى سنتيمترات ثم نقسم على مقام المقياس.",
+      "En": "Convert to centimetres and divide by the scale denominator."
+    },
+    "formula": "L=150000/25000",
+    "steps": [
+      {
+        "Ar": "$1.5\\cdot100000=150000$",
+        "En": "$1.5\\cdot100000=150000$"
+      },
+      {
+        "Ar": "$150000/25000=6$",
+        "En": "$150000/25000=6$"
+      }
+    ],
+    "sub": {
+      "Ar": "$150000/25000$",
+      "En": "$150000/25000$"
+    },
+    "result": {
+      "Ar": "$6$",
+      "En": "$6$"
+    },
+    "verify": {
+      "Ar": "$6\\cdot25000=150000$",
+      "En": "$6\\cdot25000=150000$"
+    },
+    "hints": [
+      {
+        "Ar": "كم سنتيمتراً في كيلومتر واحد؟",
+        "En": "How many centimetres are in a kilometre?"
+      },
+      {
+        "Ar": "اقسم المسافة الحقيقية بالسنتيمتر على 25000.",
+        "En": "Divide the real centimetre distance by 25000."
+      }
+    ],
+    "error": {
+      "Ar": "لم يحول الكيلومترات إلى سنتيمترات.",
+      "En": "Does not convert kilometres to centimetres correctly."
+    },
+    "unit": {
+      "Ar": "سم",
+      "En": "cm"
+    }
+  },
+  {
+    "track": 8,
+    "cat": 7,
+    "skill": 34,
+    "sk": "middle-percent-increase",
+    "family": "percent-increase-compare-same-absolute-change-different-bases",
+    "title": {
+      "Ar": "مقارنة نسبتي زيادة",
+      "En": "Comparing percentage increases"
+    },
+    "q": {
+      "Ar": "زاد سعر سلعة A من 40 إلى 50، وزاد سعر سلعة B من 80 إلى 90. بكم نقطة مئوية تزيد نسبة زيادة A على نسبة زيادة B؟",
+      "En": "Item A increases in price from 40 to 50, and B from 80 to 90. By how many percentage points does A's percentage increase exceed B's?"
+    },
+    "opts": [
+      "0",
+      "10",
+      "25",
+      "12.5"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "تساوي الزيادة المطلقة لا يعني تساوي النسبتين.",
+        "En": "Equal absolute increases do not imply equal rates."
+      },
+      {
+        "Ar": "هذا مقدار الزيادة النقدية لكل سلعة.",
+        "En": "This is each absolute price increase."
+      },
+      {
+        "Ar": "هذه نسبة زيادة A وحدها.",
+        "En": "This is A's rate alone."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "نقسم الزيادة على السعر الأصلي لكل سلعة ونقارن النسبتين.",
+      "En": "Divide each increase by its original price and compare the rates."
+    },
+    "formula": "100(10/40-10/80)",
+    "steps": [
+      {
+        "Ar": "$100\\cdot10/40=25$",
+        "En": "$100\\cdot10/40=25$"
+      },
+      {
+        "Ar": "$100\\cdot10/80=12.5$",
+        "En": "$100\\cdot10/80=12.5$"
+      },
+      {
+        "Ar": "$25-12.5=12.5$",
+        "En": "$25-12.5=12.5$"
+      }
+    ],
+    "sub": {
+      "Ar": "$25-12.5$",
+      "En": "$25-12.5$"
+    },
+    "result": {
+      "Ar": "$12.5$",
+      "En": "$12.5$"
+    },
+    "verify": {
+      "Ar": "$12.5+12.5=25$",
+      "En": "$12.5+12.5=25$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب الزيادة النقدية لكل سلعة.",
+        "En": "Find each absolute increase."
+      },
+      {
+        "Ar": "استعمل السعر الأصلي في المقام.",
+        "En": "Use the original price as denominator."
+      }
+    ],
+    "error": {
+      "Ar": "تساوي الزيادة المطلقة لا يعني تساوي النسبتين.",
+      "En": "Equal absolute increases do not imply equal rates."
+    },
+    "unit": {
+      "Ar": "نقطة مئوية",
+      "En": "percentage points"
+    }
+  },
+  {
+    "track": 8,
+    "cat": 8,
+    "skill": 39,
+    "sk": "middle-polygon-angles",
+    "family": "regular-polygon-interior-angle-infer-exterior",
+    "title": {
+      "Ar": "زاوية خارجية من زاوية داخلية",
+      "En": "Exterior angle from interior angle"
+    },
+    "q": {
+      "Ar": "قياس كل زاوية داخلية في مضلع منتظم 150°. كم ضلعاً له؟",
+      "En": "Each interior angle of a regular polygon is 150°. How many sides does it have?"
+    },
+    "opts": [
+      "10",
+      "30",
+      "12",
+      "6"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "عدد الأضلاع لا يعطي الزاوية المعطاة.",
+        "En": "This side count does not give the stated angle."
+      },
+      {
+        "Ar": "هذا قياس الزاوية الخارجية.",
+        "En": "This is the exterior angle measure."
+      },
+      null,
+      {
+        "Ar": "استعمل زاوية خارجية مقدارها 60°.",
+        "En": "Uses a 60-degree exterior angle."
+      }
+    ],
+    "idea": {
+      "Ar": "الزاوية الخارجية مكملة للداخلية، ومجموع الزوايا الخارجية 360°.",
+      "En": "An exterior angle supplements the interior angle; exterior angles total 360°."
+    },
+    "formula": "n=360/(180-150)",
+    "steps": [
+      {
+        "Ar": "$180-150=30$",
+        "En": "$180-150=30$"
+      },
+      {
+        "Ar": "$360/30=12$",
+        "En": "$360/30=12$"
+      }
+    ],
+    "sub": {
+      "Ar": "$360/30$",
+      "En": "$360/30$"
+    },
+    "result": {
+      "Ar": "$12$",
+      "En": "$12$"
+    },
+    "verify": {
+      "Ar": "$180(12-2)/12=150$",
+      "En": "$180(12-2)/12=150$"
+    },
+    "hints": [
+      {
+        "Ar": "اطرح 150 من 180.",
+        "En": "Subtract 150 from 180."
+      },
+      {
+        "Ar": "اقسم 360 على الزاوية الخارجية.",
+        "En": "Divide 360 by the exterior angle."
+      }
+    ],
+    "error": {
+      "Ar": "استعمل زاوية خارجية مقدارها 60°.",
+      "En": "Uses a 60-degree exterior angle."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 8,
+    "cat": 8,
+    "skill": 36,
+    "sk": "middle-circle-area",
+    "family": "circle-area-two-equal-disks-combined-area",
+    "title": {
+      "Ar": "مساحة قرصين متساويين",
+      "En": "Combined area of equal disks"
+    },
+    "q": {
+      "Ar": "قرصان دائريان غير متداخلين، نصف قطر كل منهما 4 سم. ما مجموع مساحتيهما بدلالة π؟",
+      "En": "Two nonoverlapping disks each have radius four centimetres. What is their combined area in terms of pi?"
+    },
+    "opts": [
+      "64\\pi",
+      "32\\pi",
+      "8\\pi",
+      "16\\pi"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "حسب مساحة قرص نصف قطره 8.",
+        "En": "Computes the area of a disk of radius eight."
+      },
+      null,
+      {
+        "Ar": "جمع نصفي القطر دون تربيع.",
+        "En": "Adds radii without squaring."
+      },
+      {
+        "Ar": "هذه مساحة قرص واحد.",
+        "En": "This is the area of one disk."
+      }
+    ],
+    "idea": {
+      "Ar": "نحسب مساحة القرص الواحد ثم نضاعفها.",
+      "En": "Find the area of one disk and double it."
+    },
+    "formula": "A=2\\pi r^2",
+    "steps": [
+      {
+        "Ar": "$2\\cdot16\\pi=32\\pi$",
+        "En": "$2\\cdot16\\pi=32\\pi$"
+      }
+    ],
+    "sub": {
+      "Ar": "$2\\pi\\cdot4^2$",
+      "En": "$2\\pi\\cdot4^2$"
+    },
+    "result": {
+      "Ar": "$32\\pi$",
+      "En": "$32\\pi$"
+    },
+    "verify": {
+      "Ar": "$32\\pi/2=16\\pi$",
+      "En": "$32\\pi/2=16\\pi$"
+    },
+    "hints": [
+      {
+        "Ar": "ربع نصف القطر.",
+        "En": "Square the radius."
+      },
+      {
+        "Ar": "اضرب مساحة القرص الواحد في اثنين.",
+        "En": "Multiply one disk area by two."
+      }
+    ],
+    "error": {
+      "Ar": "جمع نصفي القطر دون تربيع.",
+      "En": "Adds radii without squaring."
+    },
+    "unit": {
+      "Ar": "سم²",
+      "En": "cm²"
+    }
+  },
+  {
+    "track": 8,
+    "cat": 22,
+    "skill": 98,
+    "sk": "m-statistics-distributions",
+    "family": "iqr-compare-range-outer-extreme-change-quartiles-fixed",
+    "title": {
+      "Ar": "مدى ومدى ربعي عند تغيير الطرف",
+      "En": "Range and IQR after an extreme changes"
+    },
+    "q": {
+      "Ar": "البيانات المرتبة هي 1،3،5،7،9،11،13. استُبدلت 13 بالعدد 30. ما المدى الربعي الجديد باستبعاد الوسيط عند حساب الربيعين؟",
+      "En": "The sorted data are 1,3,5,7,9,11,13. Replace 13 with 30. What is the new IQR, using medians of the halves excluding the overall median?"
+    },
+    "opts": [
+      "8",
+      "29",
+      "17",
+      "4"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "هذا المدى الكلي الجديد.",
+        "En": "This is the new full range."
+      },
+      {
+        "Ar": "هذا مقدار تغير القيمة الكبرى.",
+        "En": "This is the maximum's change."
+      },
+      {
+        "Ar": "هذا الفرق بين الوسيط والربيع الأول.",
+        "En": "This is the difference between the median and lower quartile."
+      }
+    ],
+    "idea": {
+      "Ar": "نحسب وسيط كل نصف بعد استبعاد الوسيط الكلي؛ لا تتغير القيمتان الوسطيتان للنصفين.",
+      "En": "Take the median of each half, excluding the overall median; the middle values of the halves stay unchanged."
+    },
+    "formula": "IQR=Q_3-Q_1",
+    "steps": [
+      {
+        "Ar": "$Q_1=3$",
+        "En": "$Q_1=3$"
+      },
+      {
+        "Ar": "$Q_3=11$",
+        "En": "$Q_3=11$"
+      },
+      {
+        "Ar": "$IQR=8$",
+        "En": "$IQR=8$"
+      }
+    ],
+    "sub": {
+      "Ar": "$11-3$",
+      "En": "$11-3$"
+    },
+    "result": {
+      "Ar": "$8$",
+      "En": "$8$"
+    },
+    "verify": {
+      "Ar": "$3<7<11$",
+      "En": "$3<7<11$"
+    },
+    "hints": [
+      {
+        "Ar": "افصل النصفين حول 7.",
+        "En": "Separate the halves around seven."
+      },
+      {
+        "Ar": "اختر القيمة الوسطى من كل نصف.",
+        "En": "Select the middle value in each half."
+      }
+    ],
+    "error": {
+      "Ar": "هذا المدى الكلي الجديد.",
+      "En": "This is the new full range."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 9,
+    "cat": 22,
+    "skill": 98,
+    "sk": "m-statistics-distributions",
+    "family": "mad-known-three-deviations-one-zero",
+    "title": {
+      "Ar": "انحراف مطلق متوسط مع قيمة مساوية للمتوسط",
+      "En": "Mean absolute deviation with a zero deviation"
+    },
+    "q": {
+      "Ar": "البيانات هي 4،6،8،10،12 ومتوسطها 8. ما متوسط الانحرافات المطلقة عن المتوسط؟",
+      "En": "The data are 4,6,8,10,12 with mean eight. Find the mean absolute deviation from the mean."
+    },
+    "opts": [
+      "0",
+      "3",
+      "12",
+      "2.4"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "جمع الانحرافات الموقعة بدلاً من المطلقة.",
+        "En": "Adds signed rather than absolute deviations."
+      },
+      {
+        "Ar": "قسم على القيم غير الصفرية فقط.",
+        "En": "Divides by only the nonzero deviations."
+      },
+      {
+        "Ar": "هذا مجموع الانحرافات المطلقة.",
+        "En": "This is the sum of absolute deviations."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "نحسب المسافات عن المتوسط بما فيها الصفر ونقسم على عدد القيم كله.",
+      "En": "Compute distances from the mean, including zero, then divide by the full count."
+    },
+    "formula": "MAD=\\frac{4+2+0+2+4}{5}",
+    "steps": [
+      {
+        "Ar": "$4+2+0+2+4=12$",
+        "En": "$4+2+0+2+4=12$"
+      },
+      {
+        "Ar": "$12/5=2.4$",
+        "En": "$12/5=2.4$"
+      }
+    ],
+    "sub": {
+      "Ar": "$12/5$",
+      "En": "$12/5$"
+    },
+    "result": {
+      "Ar": "$2.4$",
+      "En": "$2.4$"
+    },
+    "verify": {
+      "Ar": "$2.4\\cdot5=12$",
+      "En": "$2.4\\cdot5=12$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب بعد كل قيمة عن 8.",
+        "En": "Find each distance from eight."
+      },
+      {
+        "Ar": "اقسم مجموع المسافات على خمسة.",
+        "En": "Divide the total distance by five."
+      }
+    ],
+    "error": {
+      "Ar": "جمع الانحرافات الموقعة بدلاً من المطلقة.",
+      "En": "Adds signed rather than absolute deviations."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 2,
+    "cat": 96,
+    "skill": 355,
+    "sk": "primary-shape-attributes-partition",
+    "family": "shape-partition-count-half-twice",
+    "title": {
+      "Ar": "تجزئة نصفين إلى أرباع",
+      "En": "Splitting halves into quarters"
+    },
+    "q": {
+      "Ar": "قُسم مستطيل إلى نصفين متساويي المساحة، ثم قُسم كل نصف إلى قسمين متساويي المساحة. كم جزءاً متساوياً ينتج؟",
+      "En": "A rectangle is divided into two equal-area halves, and each half is then divided into two equal-area parts. How many equal parts result?"
+    },
+    "opts": [
+      "3",
+      "8",
+      "4",
+      "2"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "قسم نصفاً واحداً فقط.",
+        "En": "Splits only one half."
+      },
+      {
+        "Ar": "ضاعف عدد الأجزاء أكثر من اللازم.",
+        "En": "Doubles the number of parts too many times."
+      },
+      null,
+      {
+        "Ar": "هذا عدد الأنصاف قبل التقسيم.",
+        "En": "Counts halves before subdivision."
+      }
+    ],
+    "idea": {
+      "Ar": "كل نصف يعطي جزأين متساويين، والنصفان يعطيان أربعة أجزاء.",
+      "En": "Each half gives two equal parts, so both halves give four."
+    },
+    "formula": "2+2",
+    "steps": [
+      {
+        "Ar": "$2+2=4$",
+        "En": "$2+2=4$"
+      }
+    ],
+    "sub": {
+      "Ar": "$2+2$",
+      "En": "$2+2$"
+    },
+    "result": {
+      "Ar": "$4$",
+      "En": "$4$"
+    },
+    "verify": {
+      "Ar": "$4\\cdot(1/4)=1$",
+      "En": "$4\\cdot(1/4)=1$"
+    },
+    "hints": [
+      {
+        "Ar": "كم جزءاً ينتج من النصف الأول؟",
+        "En": "How many pieces come from the first half?"
+      },
+      {
+        "Ar": "أضف أجزاء النصف الثاني.",
+        "En": "Add the pieces from the second half."
+      }
+    ],
+    "error": {
+      "Ar": "هذا عدد الأنصاف قبل التقسيم.",
+      "En": "Counts halves before subdivision."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  }
+]
