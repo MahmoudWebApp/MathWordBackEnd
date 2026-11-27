@@ -65,7 +65,7 @@ public sealed class LearningTracksController(AppDbContext db,LearningTrackServic
             orderby g.Key.Order,g.Key.Id
             select new {g.Key,ProblemsCount=g.Count()}).ToListAsync(ct);
         if(rows.Count==0)return NotFound();
-        var t=rows[0].Key;
+        var trackMetadata=rows[0].Key;
         var categories=rows.Select((r,index)=>new {r.Key.Id,r.Key.NameAr,r.Key.NameEn,
             r.Key.DescriptionAr,r.Key.DescriptionEn,r.Key.Icon,
             IsFree=index<CategoryAccessPolicy.DefaultFreeCategoriesPerStage,r.ProblemsCount}).ToList();
@@ -84,8 +84,8 @@ public sealed class LearningTracksController(AppDbContext db,LearningTrackServic
             .Select(s=>new{s.Id,s.CategoryId,s.NameAr,s.NameEn,s.DescriptionAr,s.DescriptionEn}).ToListAsync(ct);
         var examples=await tracks.ValidProblems(id).OrderBy(p=>p.Id).Take(6)
             .Select(p=>new{p.Id,p.CategoryId,p.TitleAr,p.TitleEn}).ToListAsync(ct);
-        return Ok(new{Track=new{Id=t.TrackId,t.StageId,t.Code,t.Kind,NameAr=t.TrackNameAr,NameEn=t.TrackNameEn,
-            DescriptionAr=t.TrackDescriptionAr,DescriptionEn=t.TrackDescriptionEn},
+        return Ok(new{Track=new{Id=trackMetadata.TrackId,trackMetadata.StageId,trackMetadata.Code,trackMetadata.Kind,NameAr=trackMetadata.TrackNameAr,NameEn=trackMetadata.TrackNameEn,
+            DescriptionAr=trackMetadata.TrackDescriptionAr,DescriptionEn=trackMetadata.TrackDescriptionEn},
             Categories=categories,Skills=skills,Examples=examples});
     }
     [Authorize(Roles="Student")]
