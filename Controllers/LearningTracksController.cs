@@ -16,36 +16,35 @@ public sealed class LearningTracksController(AppDbContext db,LearningTrackServic
     [HttpGet("api/stages/{stageId:int}/tracks")]
     public async Task<IActionResult> List(int stageId,CancellationToken ct)
     {
-        if(!await db.EducationalStages.AnyAsync(s=>s.Id==stageId,ct))return NotFound();
-        // The grouped coverage query below is the visibility check for this
-        // public list. Avoid evaluating the full valid-link EXISTS twice.
-        // Empty or invalid tracks still never enter the response.
-        var items=tracks.Enabled?await db.LearningTracks.AsNoTracking().Where(t=>t.IsPublished&&t.StageId==stageId)
-            .OrderBy(t=>t.SortOrder).ThenBy(t=>t.Id).ToListAsync(ct):new List<LearningTrack>();
         var result=new List<object>();
-        if(items.Count==0)return Ok(new{Enabled=tracks.Enabled,Items=result});
-        // One grouped category coverage query for all tracks; select the first
-        // two populated categories independently for each track.
-        var ids=items.Select(t=>t.Id).ToArray();
+        if(!tracks.Enabled)
+        {
+            if(!await db.EducationalStages.AnyAsync(s=>s.Id==stageId,ct))return NotFound();
+            return Ok(new{Enabled=false,Items=result});
+        }
+
+        // Group valid published content once, with its track metadata.
+        // Only the empty-result path needs a separate stage existence check.
         var rows=await (from link in tracks.ValidLinks()
+            join t in db.LearningTracks.AsNoTracking() on link.TrackId equals t.Id
             join category in db.Categories.AsNoTracking() on link.CategoryId equals category.Id
-            where ids.Contains(link.TrackId)
-            group link by new{link.TrackId,link.CategoryId,category.Order} into g
-            select new{g.Key.TrackId,g.Key.CategoryId,g.Key.Order,
+            where t.StageId==stageId&&t.IsPublished
+            group link by new{t.Id,t.StageId,t.Code,t.Kind,t.NameAr,t.NameEn,t.DescriptionAr,t.DescriptionEn,t.SortOrder,
+                CategoryId=category.Id,category.Order} into g
+            select new{g.Key,
                 Problems=g.Select(x=>x.ProblemId).Distinct().Count(),
                 Skills=g.Select(x=>x.SkillId).Distinct().Count()}).ToListAsync(ct);
-        var totals=rows.GroupBy(row=>row.TrackId).ToDictionary(g=>g.Key,g=>new{
-            Problems=g.Sum(x=>x.Problems), Categories=g.Count(), Skills=g.Sum(x=>x.Skills),
-            FreeProblems=g.OrderBy(x=>x.Order).ThenBy(x=>x.CategoryId)
-                .Take(CategoryAccessPolicy.DefaultFreeCategoriesPerStage).Sum(x=>x.Problems)
-        });
-        foreach(var t in items)
+        if(rows.Count==0&&!await db.EducationalStages.AnyAsync(s=>s.Id==stageId,ct))return NotFound();
+        foreach(var group in rows.GroupBy(row=>row.Key.Id)
+            .OrderBy(g=>g.First().Key.SortOrder).ThenBy(g=>g.Key))
         {
-            if(!totals.TryGetValue(t.Id,out var coverage)||coverage.Problems==0)continue;
+            var t=group.First().Key;
             result.Add(new{t.Id,t.StageId,t.Code,t.Kind,t.NameAr,t.NameEn,t.DescriptionAr,t.DescriptionEn,t.SortOrder,
-                ProblemsCount=coverage.Problems,CategoriesCount=coverage.Categories,SkillsCount=coverage.Skills,FreeProblemsCount=coverage.FreeProblems});
+                ProblemsCount=group.Sum(x=>x.Problems),CategoriesCount=group.Count(),SkillsCount=group.Sum(x=>x.Skills),
+                FreeProblemsCount=group.OrderBy(x=>x.Key.Order).ThenBy(x=>x.Key.CategoryId)
+                    .Take(CategoryAccessPolicy.DefaultFreeCategoriesPerStage).Sum(x=>x.Problems)});
         }
-        return Ok(new{Enabled=tracks.Enabled,Items=result});
+        return Ok(new{Enabled=true,Items=result});
     }
     [AllowAnonymous]
     [HttpGet("api/learning-tracks/{id:int}")]
