@@ -190,6 +190,19 @@ def verify_tracks(admin, student, uid, stage1, stage2):
     assert journey["TrackId"]==tid and journey["TotalProblems"]==1 and journey["TrackPracticeIsolationEnabled"]
     scoped=expect("GET",f"/api/problems/search?stageId={stage1}",200,token=student)
     assert scoped["Total"]==1 and scoped["Results"][0]["Id"]==pid
+    search_route=f"/api/problems/search?stageId={stage1}&categoryId={category}&pageSize=5"
+    # Repeated reads reveal first-query overhead without weakening correctness.
+    for _ in range(3):
+        search=expect("GET",search_route,200,token=student)
+        assert search["Total"]==1 and search["PageSize"]==5
+        assert search["Results"][0]["Id"]==pid
+        assert not search["Results"][0]["IsSolved"] and not search["Results"][0]["HasAttempted"]
+    anonymous=expect("GET",search_route,200)
+    assert any(x["Id"]==pid for x in anonymous["Results"]) or anonymous["Total"]>5
+    assert all(not x["IsSolved"] and not x["HasAttempted"] for x in anonymous["Results"])
+    empty_search=expect("GET",search_route+"&q=__absent_mathworld_fixture__",200,token=student)
+    assert empty_search["Total"]==0 and empty_search["Results"]==[]
+    expect("GET",search_route+"&hideSolved=true",401)
     outside=sql(f'SELECT "Id" FROM "Problems" WHERE "StageId"={stage1} AND "CategoryId"={category} AND "Id"<>{pid} LIMIT 1')
     if outside:
         expect("GET",f"/api/problems/{outside}",403,token=student)
@@ -236,6 +249,10 @@ def verify_tracks(admin, student, uid, stage1, stage2):
     filtered=expect("GET",practice+"?hideSolved=true",200,token=student)
     assert filtered["Total"]==0 and filtered["Items"]==[]
     assert expect("GET",practice+"?hideSolved=false",200,token=student)["Total"]==1
+    solved_search=expect("GET",search_route,200,token=student)
+    assert solved_search["Results"][0]["IsSolved"] and solved_search["Results"][0]["HasAttempted"]
+    hidden_search=expect("GET",search_route+"&hideSolved=true",200,token=student)
+    assert hidden_search["Total"]==0 and hidden_search["Results"]==[]
     assert expect("GET",f"/api/users/learning-tracks/{tid}/progress",200,token=student)["Solved"]==1
     assert expect("GET",f"/api/users/journey?stageId={stage1}",200,token=student)["SolvedProblems"]==1
     assert expect("GET","/api/users/dashboard",200,token=student)["SolvedProblemsCount"]==1
@@ -250,6 +267,9 @@ def verify_tracks(admin, student, uid, stage1, stage2):
     expect("GET",practice,403,token=student)
     expect("GET",next_route,403,token=student)
     assert expect("GET",f"/api/users/learning-tracks/{oid}/progress",200,token=student)["Solved"]==0
+    other_search=expect("GET",search_route+"&hideSolved=true",200,token=student)
+    assert other_search["Total"]==1 and other_search["Results"][0]["Id"]==pid
+    assert not other_search["Results"][0]["IsSolved"]
     expect("POST","/api/users/favorite/toggle",200,{"ProblemId":pid,"IsFavorite":True},student)
     wrong_option=next(x["Id"] for x in detail["Options"] if not x["IsCorrect"])
     assert expect("GET",f"/api/problems/{pid}",200,token=student)["PracticeScopeId"]==oid
