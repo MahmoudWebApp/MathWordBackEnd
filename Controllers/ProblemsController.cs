@@ -1187,22 +1187,8 @@ namespace MathWorldAPI.Controllers
             await using var transaction =
                 await _context.Database.BeginTransactionAsync();
 
-            await ProblemTransactionLocks.LockQuestionForAnswerAsync(
-                _context,
-                dto.ProblemId,
-                HttpContext.RequestAborted);
-
-            // Serialize all first-time solves by this learner so milestone
-            // counts cannot race across two different problems.
-            await _context.Database.SqlQuery<int>(
-                    $"SELECT 1 AS \"Value\" FROM pg_advisory_xact_lock({-987654320}, {userId.Value})")
-                .SingleAsync(HttpContext.RequestAborted);
-
-            await ProblemTransactionLocks.LockStudentAttemptAsync(
-                _context,
-                userId.Value,
-                dto.ProblemId,
-                HttpContext.RequestAborted);
+            await ProblemTransactionLocks.LockAnswerMutationAsync(
+                _context, userId.Value, dto.ProblemId, HttpContext.RequestAborted);
 
             var problem =
                 await _context.Problems
