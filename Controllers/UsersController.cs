@@ -145,10 +145,15 @@ namespace MathWorldAPI.Controllers
                 .ToListAsync(ct);
 
             var favoriteIds = recentFavoritesData.Select(progress => progress.ProblemId).ToArray();
-            var favoriteState = favoriteIds.Length == 0
-                ? new Dictionary<int, UserProgress>()
-                : await scopedProgress.Where(progress => favoriteIds.Contains(progress.ProblemId))
-                    .ToDictionaryAsync(progress => progress.ProblemId, ct);
+            // Legacy/shared practice already loaded these exact progress rows
+            // with the same account, track, stage and category predicates.
+            // Isolated track practice still needs its separate scoped lookup.
+            var favoriteState = practiceScope == 0
+                ? recentFavoritesData.ToDictionary(progress => progress.ProblemId)
+                : favoriteIds.Length == 0
+                    ? new Dictionary<int, UserProgress>()
+                    : await scopedProgress.Where(progress => favoriteIds.Contains(progress.ProblemId))
+                        .ToDictionaryAsync(progress => progress.ProblemId, ct);
             var dashboard =
                 new UserDashboardDto
                 {
