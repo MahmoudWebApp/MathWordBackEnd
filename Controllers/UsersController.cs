@@ -258,23 +258,15 @@ namespace MathWorldAPI.Controllers
                         StatusCodes.Status404NotFound));
             }
 
-            var solvedCount =
-                await _context.UserProgresses
-                    .CountAsync(progress =>
-                        progress.UserId == userId &&
-                        progress.IsSolved);
-
-            var totalPoints =
-                await _context.UserProgresses
-                    .Where(progress =>
-                        progress.UserId == userId &&
-                        progress.IsSolved)
-                    .Join(
-                        _context.Problems,
-                        progress => progress.ProblemId,
-                        problem => problem.Id,
-                        (_, problem) => problem.Points)
-                    .SumAsync();
+            // UserProgress has a required problem FK. Count and points can
+            // share one aggregate while retaining the legacy scope filter.
+            var totals = await _context.UserProgresses.AsNoTracking()
+                .Where(progress => progress.UserId == userId && progress.IsSolved)
+                .GroupBy(_ => 1)
+                .Select(g => new { Solved = g.Count(), Points = g.Sum(p => p.Problem.Points) })
+                .FirstOrDefaultAsync(HttpContext.RequestAborted);
+            var solvedCount = totals?.Solved ?? 0;
+            var totalPoints = totals?.Points ?? 0;
 
             var profile =
                 new UserProfileDto
@@ -722,9 +714,15 @@ namespace MathWorldAPI.Controllers
                 query = query.Where(p => p.IsErrorNotebookArchived == includeArchived);
                 var now = DateTime.UtcNow;
                 var due = query.Where(p => !p.IsErrorNotebookArchived && p.NextReviewAt != null && p.NextReviewAt <= now);
-                Response.Headers["X-Due-Count"] = (await due.CountAsync(HttpContext.RequestAborted)).ToString(System.Globalization.CultureInfo.InvariantCulture);
+                var counts = await query.GroupBy(_ => 1).Select(g => new
+                {
+                    Total = g.Count(),
+                    Due = g.Count(p => !p.IsErrorNotebookArchived && p.NextReviewAt != null && p.NextReviewAt <= now)
+                }).FirstOrDefaultAsync(HttpContext.RequestAborted);
+                var dueCount = counts?.Due ?? 0;
+                Response.Headers["X-Due-Count"] = dueCount.ToString(System.Globalization.CultureInfo.InvariantCulture);
                 if (dueOnly) query = due;
-                Response.Headers["X-Total-Count"] = (await query.CountAsync(HttpContext.RequestAborted)).ToString(System.Globalization.CultureInfo.InvariantCulture);
+                Response.Headers["X-Total-Count"] = (dueOnly ? dueCount : counts?.Total ?? 0).ToString(System.Globalization.CultureInfo.InvariantCulture);
             }
             var ordered = query
                     .OrderBy(progress =>
