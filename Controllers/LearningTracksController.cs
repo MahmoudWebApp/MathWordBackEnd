@@ -51,23 +51,41 @@ public sealed class LearningTracksController(AppDbContext db,LearningTrackServic
     public async Task<IActionResult> Detail(int id,CancellationToken ct)
     {
         if(!tracks.Enabled)return NotFound();
-        var t=await tracks.VisibleTracks().SingleOrDefaultAsync(x=>x.Id==id,ct);
-        if(t is null)return NotFound();
-        var valid=tracks.ValidProblems(id);
-        var free=await access.GetTrackFreeCategoryIdsAsync(id,t.StageId,ct:ct);
-        var coverage=valid.GroupBy(p=>p.CategoryId)
-            .Select(g=>new{CategoryId=g.Key,ProblemsCount=g.Count()});
-        var categories=await (from c in db.Categories.AsNoTracking()
-            join count in coverage on c.Id equals count.CategoryId
-            orderby c.Order,c.Id
-            select new{c.Id,c.NameAr,c.NameEn,c.DescriptionAr,c.DescriptionEn,c.Icon,
-                IsFree=free.Contains(c.Id),count.ProblemsCount}).ToListAsync(ct);
-        var skills=await db.CurriculumSkills.AsNoTracking().Where(s=>s.IsPublished&&s.Domain.IsPublished&&
-            db.LearningTrackSkills.Any(ls=>ls.TrackId==id&&ls.SkillId==s.Id)&&
-            db.CurriculumProblemSkills.Any(ps=>ps.SkillId==s.Id&&valid.Any(p=>p.Id==ps.ProblemId&&p.CategoryId==s.CategoryId)))
-            .OrderBy(s=>s.SortOrder).ThenBy(s=>s.Id).Select(s=>new{s.Id,s.CategoryId,s.NameAr,s.NameEn,s.DescriptionAr,s.DescriptionEn}).ToListAsync(ct);
-        var examples=await valid.OrderBy(p=>p.Id).Take(6).Select(p=>new{p.Id,p.CategoryId,p.TitleAr,p.TitleEn}).ToListAsync(ct);
-        return Ok(new{Track=new{t.Id,t.StageId,t.Code,t.Kind,t.NameAr,t.NameEn,t.DescriptionAr,t.DescriptionEn},
+        // Resolve visible track metadata and category coverage together.
+        // The link query has one row per valid primary-mapped problem.
+        var links=tracks.ValidLinks().Where(l=>l.TrackId==id);
+        var rows=await (from link in links
+            join t in db.LearningTracks.AsNoTracking() on link.TrackId equals t.Id
+            join c in db.Categories.AsNoTracking() on link.CategoryId equals c.Id
+            where t.IsPublished
+            group link by new {TrackId=t.Id,t.StageId,t.Code,t.Kind,
+                TrackNameAr=t.NameAr,TrackNameEn=t.NameEn,
+                TrackDescriptionAr=t.DescriptionAr,TrackDescriptionEn=t.DescriptionEn,
+                c.Id,c.NameAr,c.NameEn,c.DescriptionAr,c.DescriptionEn,c.Icon,c.Order} into g
+            orderby g.Key.Order,g.Key.Id
+            select new {g.Key,ProblemsCount=g.Count()}).ToListAsync(ct);
+        if(rows.Count==0)return NotFound();
+        var trackMetadata=rows[0].Key;
+        var categories=rows.Select((r,index)=>new {r.Key.Id,r.Key.NameAr,r.Key.NameEn,
+            r.Key.DescriptionAr,r.Key.DescriptionEn,r.Key.Icon,
+            IsFree=index<CategoryAccessPolicy.DefaultFreeCategoriesPerStage,r.ProblemsCount}).ToList();
+
+        // Preserve secondary skill visibility: every published track skill
+        // mapped to a valid problem in its category, not just primary skills.
+        var skillIds=(from link in links
+            join ps in db.CurriculumProblemSkills.AsNoTracking() on link.ProblemId equals ps.ProblemId
+            join s in db.CurriculumSkills.AsNoTracking() on ps.SkillId equals s.Id
+            join ts in db.LearningTrackSkills.AsNoTracking()
+                on new {link.TrackId,ps.SkillId} equals new {ts.TrackId,ts.SkillId}
+            where s.IsPublished&&s.Domain.IsPublished&&s.CategoryId==link.CategoryId
+            select s.Id).Distinct();
+        var skills=await db.CurriculumSkills.AsNoTracking().Where(s=>skillIds.Contains(s.Id))
+            .OrderBy(s=>s.SortOrder).ThenBy(s=>s.Id)
+            .Select(s=>new{s.Id,s.CategoryId,s.NameAr,s.NameEn,s.DescriptionAr,s.DescriptionEn}).ToListAsync(ct);
+        var examples=await tracks.ValidProblems(id).OrderBy(p=>p.Id).Take(6)
+            .Select(p=>new{p.Id,p.CategoryId,p.TitleAr,p.TitleEn}).ToListAsync(ct);
+        return Ok(new{Track=new{Id=trackMetadata.TrackId,trackMetadata.StageId,trackMetadata.Code,trackMetadata.Kind,NameAr=trackMetadata.TrackNameAr,NameEn=trackMetadata.TrackNameEn,
+            DescriptionAr=trackMetadata.TrackDescriptionAr,DescriptionEn=trackMetadata.TrackDescriptionEn},
             Categories=categories,Skills=skills,Examples=examples});
     }
     [Authorize(Roles="Student")]
