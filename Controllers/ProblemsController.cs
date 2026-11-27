@@ -752,18 +752,20 @@ namespace MathWorldAPI.Controllers
             var userRole =
                 GetUserRole();
 
-            var problem =
+            var detail =
                 await _context.Problems
                     .AsNoTracking()
-                    .Include(item =>
-                        item.Category)
-                    .Include(item =>
-                        item.Stage)
-                    .Include(item =>
-                        item.Options)
+                    .Include(item => item.Category)
+                    .Include(item => item.Stage)
+                    .Include(item => item.Options)
                     .AsSingleQuery()
-                    .FirstOrDefaultAsync(item =>
-                        item.Id == id, HttpContext.RequestAborted);
+                    .Where(item => item.Id == id)
+                    .Select(item => new {
+                        Problem = item,
+                        HasDiagram = _context.ProblemDiagrams.Any(d => d.ProblemId == item.Id)
+                    })
+                    .FirstOrDefaultAsync(HttpContext.RequestAborted);
+            var problem = detail?.Problem;
 
             if (problem == null)
             {
@@ -885,6 +887,7 @@ namespace MathWorldAPI.Controllers
                     LanguageHelper.SuccessResponse(
                         new ProblemForStudentDto
                         {
+                            HasDiagram = detail!.HasDiagram,
                             PracticeScopeId=TrackPractice.Enabled(HttpContext.RequestServices.GetRequiredService<IConfiguration>())?practiceScope:null,
                             Id =
                                 problem.Id,
