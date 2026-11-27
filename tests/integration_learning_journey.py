@@ -30,7 +30,28 @@ def call(method, route, payload=None, token=None):
 
 
 def expect(method, route, status, payload=None, token=None):
+    started = time.perf_counter()
     actual, envelope = call(method, route, payload, token)
+    elapsed_ms = round((time.perf_counter() - started) * 1000, 2)
+    # Diagnostic only: these are local CI request/response timings, not
+    # production SLA or browser/device rendering times. Never record tokens,
+    # payloads, response bodies, or query parameter values.
+    timing_file = os.getenv("MATHWORLD_TEST_TIMINGS")
+    if timing_file:
+        import re
+        from urllib.parse import urlsplit, parse_qsl
+        parsed = urlsplit(route)
+        normalized = re.sub(r"(?<=/)\d+(?=/|$)", ":id", parsed.path)
+        sample = {
+            "method": method, "route": normalized,
+            "query_keys": sorted({key for key, _ in parse_qsl(parsed.query)}),
+            "authenticated": token is not None,
+            "expected_status": status, "status": actual,
+            "elapsed_ms": elapsed_ms,
+        }
+        with open(timing_file, "a", encoding="utf-8") as timings:
+            timings.write(json.dumps(sample) + "\n")
+        print("LATENCY " + json.dumps(sample), flush=True)
     assert actual == status, (method, route, status, actual, envelope)
     return envelope.get("Data", envelope)
 
