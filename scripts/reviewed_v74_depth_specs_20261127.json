@@ -1,0 +1,852 @@
+[
+  {
+    "track": 1,
+    "stage": 1,
+    "cat": 1,
+    "skill": 2,
+    "sk": "primary-subtraction",
+    "family": "number-line-count-moves",
+    "title": {
+      "Ar": "قفزات للخلف",
+      "En": "Backward hops"
+    },
+    "q": {
+      "Ar": "يقف أرنب عند العدد 9 ويرجع حتى العدد 5 على خط الأعداد. كل قفزة تنقله إلى العدد السابق. كم قفزة قام بها؟",
+      "En": "A rabbit starts on 9 and hops back to 5 on a number line. Each hop lands on the previous number. How many hops does it make?"
+    },
+    "opts": [
+      "3",
+      "4",
+      "5",
+      "9"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "حسب الأعداد الواقعة بين الطرفين فقط.",
+        "En": "This counts only the numbers between the endpoints."
+      },
+      null,
+      {
+        "Ar": "عدّ نقطة البداية كأنها قفزة.",
+        "En": "This counts the starting point as a hop."
+      },
+      {
+        "Ar": "هذا موضع البداية.",
+        "En": "This is the starting position."
+      }
+    ],
+    "idea": {
+      "Ar": "نعد الحركات بين الأعداد.",
+      "En": "Count the moves between numbers."
+    },
+    "formula": "9-5=4",
+    "steps": [
+      {
+        "Ar": "أول قفزة من 9 إلى 8.",
+        "En": "The first hop goes from 9 to 8."
+      },
+      {
+        "Ar": "بعد 8 يهبط الأرنب على 7 ثم 6 ثم 5.",
+        "En": "After 8 the rabbit lands on 7, then 6, then 5."
+      }
+    ],
+    "sub": {
+      "Ar": "$9-5=4$",
+      "En": "$9-5=4$"
+    },
+    "result": {
+      "Ar": "$4$",
+      "En": "$4$"
+    },
+    "verify": {
+      "Ar": "أربع قفزات للأمام من 5 تعيدنا إلى 9.",
+      "En": "Four forward hops from 5 return us to 9."
+    },
+    "hints": [
+      {
+        "Ar": "ارسم خطاً قصيراً وضع إصبعك عند البداية.",
+        "En": "Draw a short line and put your finger at the start."
+      },
+      {
+        "Ar": "عدّ القفزات عند الهبوط على كل عدد جديد.",
+        "En": "Count a hop each time you land on a new number."
+      }
+    ],
+    "error": {
+      "Ar": "حسب الأعداد الواقعة بين الطرفين فقط.",
+      "En": "This counts only the numbers between the endpoints."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    },
+    "difficulty": 1,
+    "points": 10
+  },
+  {
+    "track": 1,
+    "stage": 1,
+    "cat": 1,
+    "skill": 2,
+    "sk": "primary-subtraction",
+    "family": "compare-removals-same-start",
+    "title": {
+      "Ar": "أكبر عدد باقٍ",
+      "En": "Largest amount left"
+    },
+    "q": {
+      "Ar": "في كل كيس 10 خرزات. أخذت ليلى خرزة من الأول و3 من الثاني و4 من الثالث و5 من الرابع. كم خرزة في الكيس الذي بقي فيه أكبر عدد؟",
+      "En": "Each bag starts with 10 beads. Layla takes one from the first bag, 3 from the second, 4 from the third and 5 from the fourth. How many beads are in the fullest bag now?"
+    },
+    "opts": [
+      "5",
+      "6",
+      "7",
+      "9"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "هذا الباقي عند أخذ أكبر عدد.",
+        "En": "This is what remains after the largest removal."
+      },
+      {
+        "Ar": "هذا الباقي في الكيس الثالث.",
+        "En": "This is what remains in the third bag."
+      },
+      {
+        "Ar": "هذا الباقي في الكيس الثاني.",
+        "En": "This is what remains in the second bag."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "إذا تساوت البدايات يبقى أكثر حيث نأخذ أقل.",
+      "En": "With equal starts, taking the least leaves the most."
+    },
+    "formula": "10-1=9",
+    "steps": [
+      {
+        "Ar": "أقل عدد مأخوذ هو خرزة واحدة.",
+        "En": "The smallest removal is one bead."
+      },
+      {
+        "Ar": "نطرح خرزة من عشر خرزات.",
+        "En": "Subtract one bead from ten."
+      }
+    ],
+    "sub": {
+      "Ar": "$10-1=9$",
+      "En": "$10-1=9$"
+    },
+    "result": {
+      "Ar": "$9$",
+      "En": "$9$"
+    },
+    "verify": {
+      "Ar": "بقي في الأكياس الأخرى 7 و6 و5 خرزات، وكل منها أقل من 9.",
+      "En": "The other bags have 7, 6 and 5 beads, each fewer than 9."
+    },
+    "hints": [
+      {
+        "Ar": "تأمل عدد الخرزات في الأكياس قبل الأخذ.",
+        "En": "Look at how many beads each bag starts with."
+      },
+      {
+        "Ar": "أي كيس فقد أقل عدد من الخرزات؟",
+        "En": "Which bag lost the fewest beads?"
+      }
+    ],
+    "error": {
+      "Ar": "هذا الباقي عند أخذ أكبر عدد.",
+      "En": "This is what remains after the largest removal."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    },
+    "difficulty": 2,
+    "points": 10
+  },
+  {
+    "track": 1,
+    "stage": 1,
+    "cat": 1,
+    "skill": 2,
+    "sk": "primary-subtraction",
+    "family": "minimum-remove-to-fit",
+    "title": {
+      "Ar": "أماكن في الصندوق",
+      "En": "Places in a box"
+    },
+    "q": {
+      "Ar": "على صينية 12 كوباً. يتسع الصندوق لتسعة أكواب فقط. ما أقل عدد من الأكواب نتركه على الصينية حتى تتسع أماكن الصندوق للباقي؟",
+      "En": "There are 12 cups on a tray. A box holds only nine cups. What is the fewest cups to leave on the tray so the rest fit in the box?"
+    },
+    "opts": [
+      "2",
+      "3",
+      "4",
+      "9"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "يبقى عشرة أكواب للصندوق وهو يتسع لتسعة.",
+        "En": "Ten cups would need to fit in nine places."
+      },
+      null,
+      {
+        "Ar": "يمكن وضع كوب آخر في الصندوق.",
+        "En": "One more cup could still fit in the box."
+      },
+      {
+        "Ar": "هذا عدد الأماكن داخل الصندوق.",
+        "En": "This counts the places inside the box."
+      }
+    ],
+    "idea": {
+      "Ar": "نملأ كل مكان حتى نترك أقل عدد ممكن.",
+      "En": "Fill every place to leave the fewest cups outside."
+    },
+    "formula": "12-9=3",
+    "steps": [
+      {
+        "Ar": "نضع تسعة أكواب في الصندوق.",
+        "En": "Put nine cups in the box."
+      },
+      {
+        "Ar": "نطرح الأكواب الموضوعة من العدد الكلي.",
+        "En": "Subtract the packed cups from the total."
+      }
+    ],
+    "sub": {
+      "Ar": "$12-9=3$",
+      "En": "$12-9=3$"
+    },
+    "result": {
+      "Ar": "$3$",
+      "En": "$3$"
+    },
+    "verify": {
+      "Ar": "إذا تركنا كوبين فقط فسنحتاج إلى عشرة أماكن.",
+      "En": "Leaving only two would require ten places."
+    },
+    "hints": [
+      {
+        "Ar": "متى نترك أقل عدد خارج الصندوق؟",
+        "En": "When do we leave the fewest cups outside?"
+      },
+      {
+        "Ar": "املأ أماكن الصندوق ثم عدّ ما بقي.",
+        "En": "Fill the places in the box and count what remains."
+      }
+    ],
+    "error": {
+      "Ar": "يبقى عشرة أكواب للصندوق وهو يتسع لتسعة.",
+      "En": "Ten cups would need to fit in nine places."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    },
+    "difficulty": 2,
+    "points": 10
+  },
+  {
+    "track": 1,
+    "stage": 1,
+    "cat": 1,
+    "skill": 2,
+    "sk": "primary-subtraction",
+    "family": "remove-equal-sets-empty",
+    "title": {
+      "Ar": "طرح مجموعتين متساويتين",
+      "En": "Removing equal groups"
+    },
+    "q": {
+      "Ar": "مع ريم 8 بطاقات. وضعتها كلها في ظرفين بالتساوي. بعد أن أعطت الظرفين لصديقتها، أي تعبير يصف عدد البطاقات التي بقيت مع ريم؟",
+      "En": "Reem puts all 8 of her cards equally into two envelopes. She gives both envelopes to a friend. Which expression describes how many cards Reem has left?"
+    },
+    "opts": [
+      "8-2",
+      "8-4",
+      "8-4-4",
+      "8+4+4"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "طرح عدد الأظرف بدلاً من عدد البطاقات.",
+        "En": "This subtracts envelopes instead of cards."
+      },
+      {
+        "Ar": "هذا يصف إعطاء ظرف واحد.",
+        "En": "This describes giving away one envelope."
+      },
+      null,
+      {
+        "Ar": "الجمع يزيد العدد عند إعطاء البطاقات.",
+        "En": "Addition increases the count when cards are given away."
+      }
+    ],
+    "idea": {
+      "Ar": "نطرح محتوى كل ظرف عند إعطائه.",
+      "En": "Subtract the contents of each envelope as it leaves."
+    },
+    "formula": "8-4-4=0",
+    "steps": [
+      {
+        "Ar": "في كل ظرف أربع بطاقات لأن أربعاً وأربعاً تساوي ثمانياً.",
+        "En": "Each envelope holds four because four and four make eight."
+      },
+      {
+        "Ar": "نطرح أربعاً للظرف الأول وأربعاً للثاني.",
+        "En": "Subtract four for the first envelope and four for the second."
+      }
+    ],
+    "sub": {
+      "Ar": "$8-4-4=0$",
+      "En": "$8-4-4=0$"
+    },
+    "result": {
+      "Ar": "$8-4-4$",
+      "En": "$8-4-4$"
+    },
+    "verify": {
+      "Ar": "أعطت ريم كل البطاقات، وقيمة التعبير صفر.",
+      "En": "Reem gave away every card and the expression equals zero."
+    },
+    "hints": [
+      {
+        "Ar": "مثل البطاقات بثماني نقاط وقسمها بالتساوي.",
+        "En": "Draw eight dots and split them equally."
+      },
+      {
+        "Ar": "اشطب مجموعة عند إعطاء كل ظرف.",
+        "En": "Cross out a group for each envelope given away."
+      }
+    ],
+    "error": {
+      "Ar": "طرح عدد الأظرف بدلاً من عدد البطاقات.",
+      "En": "This subtracts envelopes instead of cards."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    },
+    "difficulty": 2,
+    "points": 10
+  },
+  {
+    "track": 2,
+    "stage": 1,
+    "cat": 81,
+    "skill": 302,
+    "sk": "counting",
+    "family": "two-rows-share-corner",
+    "title": {
+      "Ar": "مكعب الزاوية",
+      "En": "The corner cube"
+    },
+    "q": {
+      "Ar": "رتبت هدى مكعبات على شكل حرف L. عدّت 6 مكعبات في الصف الأفقي و4 في العمودي. مكعب الزاوية مشترك بين الصفين. كم مكعباً استعملت؟",
+      "En": "Huda makes an L with cubes. She counts 6 cubes along the horizontal row and 4 along the vertical row. The rows share the corner cube. How many cubes did she use?"
+    },
+    "opts": [
+      "10",
+      "8",
+      "9",
+      "24"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "عُدّ مكعب الزاوية مرتين.",
+        "En": "This counts the corner twice."
+      },
+      {
+        "Ar": "حُذف مكعب الزاوية من الصفين كليهما.",
+        "En": "This leaves the corner out of both rows."
+      },
+      null,
+      {
+        "Ar": "الضرب يحسب مستطيلاً كاملاً من المكعبات.",
+        "En": "Multiplication counts a full rectangle of cubes."
+      }
+    ],
+    "idea": {
+      "Ar": "نعد كل مكعب مرة واحدة.",
+      "En": "Count each cube exactly once."
+    },
+    "formula": "6+4-1=9",
+    "steps": [
+      {
+        "Ar": "نعد المكعبات الأفقية الستة بما فيها الزاوية.",
+        "En": "Count all six horizontal cubes including the corner."
+      },
+      {
+        "Ar": "تبقى ثلاثة مكعبات رأسية لم نعدها.",
+        "En": "Three vertical cubes have yet to be counted."
+      }
+    ],
+    "sub": {
+      "Ar": "$6+4-1=9$",
+      "En": "$6+4-1=9$"
+    },
+    "result": {
+      "Ar": "$9$",
+      "En": "$9$"
+    },
+    "verify": {
+      "Ar": "بدءاً بالعمودي نجد أربعة مكعبات ثم خمسة جديدة في الأفقي.",
+      "En": "Starting vertically gives four cubes and then five new horizontal ones."
+    },
+    "hints": [
+      {
+        "Ar": "ارسم الصفين بحيث يلتقيان في مكعب واحد.",
+        "En": "Sketch the two rows meeting at one cube."
+      },
+      {
+        "Ar": "لو جمعت العددين، فكم مرة حسبت الزاوية؟",
+        "En": "If you add the two counts, how often have you counted the corner?"
+      }
+    ],
+    "error": {
+      "Ar": "عُدّ مكعب الزاوية مرتين.",
+      "En": "This counts the corner twice."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    },
+    "difficulty": 2,
+    "points": 10
+  },
+  {
+    "track": 2,
+    "stage": 1,
+    "cat": 81,
+    "skill": 302,
+    "sk": "counting",
+    "family": "count-gaps-in-line",
+    "title": {
+      "Ar": "شرائط بين الأعلام",
+      "En": "Ribbons between flags"
+    },
+    "q": {
+      "Ar": "في صف مستقيم 7 أعلام. نربط كل علم بالعلم التالي بشريط واحد. كم شريطاً نحتاج؟",
+      "En": "Seven flags stand in a straight row. One ribbon joins each flag to the next. How many ribbons are needed?"
+    },
+    "opts": [
+      "6",
+      "7",
+      "8",
+      "14"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "العلم الأخير ليس بعده علم آخر.",
+        "En": "The last flag has no next flag."
+      },
+      {
+        "Ar": "إضافة واحد تحسب فراغات خارج الصف.",
+        "En": "Adding one includes gaps outside the row."
+      },
+      {
+        "Ar": "عدّ طرفي كل وصلة لا يعطينا عدد الشرائط.",
+        "En": "Counting two ends per flag does not give the number of ribbons."
+      }
+    ],
+    "idea": {
+      "Ar": "نعد المسافات بين الأعلام المتجاورة.",
+      "En": "Count the gaps between neighboring flags."
+    },
+    "formula": "7-1=6",
+    "steps": [
+      {
+        "Ar": "العلم الأول وحده لا يحتاج إلى شريط.",
+        "En": "The first flag by itself needs no ribbon."
+      },
+      {
+        "Ar": "كل علم من الأعلام الستة التالية يضيف شريطاً واحداً.",
+        "En": "Each of the next six flags adds one ribbon."
+      }
+    ],
+    "sub": {
+      "Ar": "$7-1=6$",
+      "En": "$7-1=6$"
+    },
+    "result": {
+      "Ar": "$6$",
+      "En": "$6$"
+    },
+    "verify": {
+      "Ar": "الشرائط تصل الأعلام من الأول إلى الثاني حتى السادس إلى السابع.",
+      "En": "The ribbons run from flags one and two through flags six and seven."
+    },
+    "hints": [
+      {
+        "Ar": "مثّل الأعلام بنقاط على خط.",
+        "En": "Draw the flags as dots in a row."
+      },
+      {
+        "Ar": "صل كل نقطتين متجاورتين مرة واحدة.",
+        "En": "Join each neighboring pair of dots once."
+      }
+    ],
+    "error": {
+      "Ar": "العلم الأخير ليس بعده علم آخر.",
+      "En": "The last flag has no next flag."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    },
+    "difficulty": 1,
+    "points": 10
+  },
+  {
+    "track": 2,
+    "stage": 1,
+    "cat": 81,
+    "skill": 302,
+    "sk": "counting",
+    "family": "count-around-ring-stop-at-start",
+    "title": {
+      "Ar": "العد حول حلقة",
+      "En": "Counting around a ring"
+    },
+    "q": {
+      "Ar": "في حلقة خرز خرزة حمراء واحدة. بدأت سلمى منها فعدّتها 1، ثم عدّت كل خرزة بالترتيب. عند وصولها إلى الحمراء مرة أخرى قالت 13. كم خرزة في الحلقة؟",
+      "En": "A bead ring has one red bead. Salma starts there, calling it 1, and counts each bead in order. When she next reaches the red bead she says 13. How many beads are on the ring?"
+    },
+    "opts": [
+      "11",
+      "13",
+      "14",
+      "12"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "حذف ظهورَي الخرزة الحمراء معاً.",
+        "En": "This removes both counts of the red bead."
+      },
+      {
+        "Ar": "حسب خرزة البداية مرتين.",
+        "En": "This counts the starting bead twice."
+      },
+      {
+        "Ar": "أضاف خرزة رغم تكرار عد خرزة البداية.",
+        "En": "This adds a bead even though the starting bead was counted again."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "نتوقف قبل عد خرزة البداية مرة ثانية.",
+      "En": "Stop before counting the first bead a second time."
+    },
+    "formula": "13-1=12",
+    "steps": [
+      {
+        "Ar": "الأعداد من 1 حتى 12 تشير إلى خرزات مختلفة.",
+        "En": "Counts 1 through 12 refer to different beads."
+      },
+      {
+        "Ar": "العد 13 يعود إلى خرزة سبق عدها.",
+        "En": "Count 13 revisits a bead already counted."
+      }
+    ],
+    "sub": {
+      "Ar": "$13-1=12$",
+      "En": "$13-1=12$"
+    },
+    "result": {
+      "Ar": "$12$",
+      "En": "$12$"
+    },
+    "verify": {
+      "Ar": "في حلقة من 12 خرزة نعود بعد الخرزة الثانية عشرة إلى الأولى.",
+      "En": "On a ring of 12 beads, the twelfth bead is followed by the first again."
+    },
+    "hints": [
+      {
+        "Ar": "تخيل وضع علامة على أول خرزة تعدها.",
+        "En": "Imagine marking the first bead you count."
+      },
+      {
+        "Ar": "هل تمثل آخر كلمة عددية خرزة جديدة؟",
+        "En": "Does the last number spoken refer to a new bead?"
+      }
+    ],
+    "error": {
+      "Ar": "حذف ظهورَي الخرزة الحمراء معاً.",
+      "En": "This removes both counts of the red bead."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    },
+    "difficulty": 2,
+    "points": 10
+  },
+  {
+    "track": 2,
+    "stage": 1,
+    "cat": 81,
+    "skill": 302,
+    "sk": "counting",
+    "family": "count-by-group-with-hidden-bundle",
+    "title": {
+      "Ar": "رزم أعواد العد",
+      "En": "Bundles of counting sticks"
+    },
+    "q": {
+      "Ar": "كل ربطة فيها عشرة أعواد. مع ندى 34 عوداً، منها أربعة أعواد مفردة والباقي في ربطات. ترى ندى ربطتين على الطاولة والبقية في حقيبة. كم ربطة في الحقيبة؟",
+      "En": "Each bundle holds ten sticks. Nada has 34 sticks, four loose and the rest bundled. She sees two bundles on the table. The other bundles are in a bag. How many bundles are in the bag?"
+    },
+    "opts": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "هذا عدد الربطات الظاهرة.",
+        "En": "This counts the visible bundles."
+      },
+      {
+        "Ar": "هذا عدد الربطات كلها.",
+        "En": "This counts all the bundles."
+      },
+      {
+        "Ar": "هذا عدد الأعواد المفردة.",
+        "En": "This counts the loose sticks."
+      }
+    ],
+    "idea": {
+      "Ar": "نعد بالعشرات ثم نميز الربطات الظاهرة من المخفية.",
+      "En": "Count by tens and separate visible bundles from hidden ones."
+    },
+    "formula": "34=10+10+10+4",
+    "steps": [
+      {
+        "Ar": "بعد ترك الأعواد المفردة نعد 10، 20، 30 أي ثلاث ربطات.",
+        "En": "Set the loose sticks aside and count 10, 20, 30: three bundles."
+      },
+      {
+        "Ar": "ربطتان من الثلاث على الطاولة.",
+        "En": "Two of the three bundles are on the table."
+      }
+    ],
+    "sub": {
+      "Ar": "$34=10+10+10+4$",
+      "En": "$34=10+10+10+4$"
+    },
+    "result": {
+      "Ar": "$1$",
+      "En": "$1$"
+    },
+    "verify": {
+      "Ar": "ربطة مخفية وربطتان ظاهرتان وأربعة أعواد مفردة تعطي 34 عوداً.",
+      "En": "One hidden bundle, two visible bundles and four loose sticks give 34 sticks."
+    },
+    "hints": [
+      {
+        "Ar": "ضع الأعواد المفردة جانباً في ذهنك.",
+        "En": "Set the loose sticks aside in your mind."
+      },
+      {
+        "Ar": "بعد العد بالعشرات، أي الربطات حسبتها بالفعل على الطاولة؟",
+        "En": "After counting by tens, which bundles can you already see on the table?"
+      }
+    ],
+    "error": {
+      "Ar": "هذا عدد الربطات الظاهرة.",
+      "En": "This counts the visible bundles."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    },
+    "difficulty": 2,
+    "points": 10
+  },
+  {
+    "track": 1,
+    "stage": 1,
+    "cat": 1,
+    "skill": 2,
+    "sk": "primary-subtraction",
+    "family": "choose-subtrahend-for-bounded-result",
+    "title": {
+      "Ar": "الباقي بين عددين",
+      "En": "A remainder between two numbers"
+    },
+    "q": {
+      "Ar": "مع سارة 10 ملصقات. تريد أن يبقى معها أكثر من 5 وأقل من 7 بعد أن تعطي بعض الملصقات لأخيها. كم ملصقاً تعطيه؟",
+      "En": "Sara has 10 stickers. After giving some to her brother she wants more than 5 but fewer than 7 left. How many stickers should she give him?"
+    },
+    "opts": [
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "يبقى سبعة، والمطلوب أقل من سبعة.",
+        "En": "Seven would remain, but she wants fewer than seven."
+      },
+      null,
+      {
+        "Ar": "يبقى خمسة، والمطلوب أكثر من خمسة.",
+        "En": "Five would remain, but she wants more than five."
+      },
+      {
+        "Ar": "ستة هو العدد الذي تريد الاحتفاظ به.",
+        "En": "Six is the number she wants to keep."
+      }
+    ],
+    "idea": {
+      "Ar": "نحدد الباقي من الشرطين ثم نحسب ما تعطيه.",
+      "En": "Find the remainder from both clues, then find how many to give."
+    },
+    "formula": "10-6=4",
+    "steps": [
+      {
+        "Ar": "العدد الوحيد بين خمسة وسبعة هو ستة.",
+        "En": "The only whole number between five and seven is six."
+      },
+      {
+        "Ar": "نحتفظ بستة من العشرة ونعطي الباقي.",
+        "En": "Keep six of the ten and give away the rest."
+      }
+    ],
+    "sub": {
+      "Ar": "$10-6=4$",
+      "En": "$10-6=4$"
+    },
+    "result": {
+      "Ar": "$4$",
+      "En": "$4$"
+    },
+    "verify": {
+      "Ar": "بعد إعطاء أربعة يبقى ستة، وهو أكبر من خمسة وأصغر من سبعة.",
+      "En": "Giving four leaves six, which is greater than five and less than seven."
+    },
+    "hints": [
+      {
+        "Ar": "ضع 5 و7 على خط الأعداد.",
+        "En": "Mark 5 and 7 on a number line."
+      },
+      {
+        "Ar": "أي عدد تريد سارة أن تحتفظ به؟",
+        "En": "How many does Sara want to keep?"
+      }
+    ],
+    "error": {
+      "Ar": "يبقى سبعة، والمطلوب أقل من سبعة.",
+      "En": "Seven would remain, but she wants fewer than seven."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    },
+    "difficulty": 2,
+    "points": 10
+  },
+  {
+    "track": 2,
+    "stage": 1,
+    "cat": 81,
+    "skill": 302,
+    "sk": "counting",
+    "family": "same-collection-different-counting-units",
+    "title": {
+      "Ar": "عدّ الصواني وعدّ الأكواب",
+      "En": "Counting trays and cups"
+    },
+    "q": {
+      "Ar": "على كل صينية خمسة أكواب. تعدّ هالة الصواني فتقول 1، 2، 3، وتعدّ هند الأكواب بالخمسات فتقول 5، 10، 15. إذا تابعتا بالترتيب نفسه، فما العدد الذي تقوله هند عندما تقول هالة 6؟",
+      "En": "Each tray holds five cups. Hala counts trays, saying 1, 2, 3. Hind counts cups in fives, saying 5, 10, 15. If both continue in the same way, what does Hind say when Hala says 6?"
+    },
+    "opts": [
+      "20",
+      "25",
+      "30",
+      "35"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "هذا عدد الأكواب عند الصينية الرابعة.",
+        "En": "This is the cup count at the fourth tray."
+      },
+      {
+        "Ar": "هذا عدد الأكواب عند الصينية الخامسة.",
+        "En": "This is the cup count at the fifth tray."
+      },
+      null,
+      {
+        "Ar": "هذا عدد الأكواب عند الصينية السابعة.",
+        "En": "This is the cup count at the seventh tray."
+      }
+    ],
+    "idea": {
+      "Ar": "نقرن كل صينية بعدد الأكواب حتى تلك الصينية.",
+      "En": "Match each tray with the running total of cups."
+    },
+    "formula": "15+5+5+5=30",
+    "steps": [
+      {
+        "Ar": "عند الصينية الثالثة عُدّ خمسة عشر كوباً.",
+        "En": "At tray three, fifteen cups have been counted."
+      },
+      {
+        "Ar": "نزيد خمسة عند كل صينية تالية: عشرون ثم خمسة وعشرون ثم ثلاثون.",
+        "En": "Add five for each next tray: twenty, twenty-five, thirty."
+      }
+    ],
+    "sub": {
+      "Ar": "$15+5+5+5=30$",
+      "En": "$15+5+5+5=30$"
+    },
+    "result": {
+      "Ar": "$30$",
+      "En": "$30$"
+    },
+    "verify": {
+      "Ar": "إذا رتبنا ثلاثين كوباً في مجموعات من خمسة نحصل على ست صوانٍ.",
+      "En": "Thirty cups form six groups of five."
+    },
+    "hints": [
+      {
+        "Ar": "هل تعدّ الطفلتان الشيء نفسه؟",
+        "En": "Are both children counting the same thing?"
+      },
+      {
+        "Ar": "اكتب عدد الأكواب أسفل رقم كل صينية.",
+        "En": "Write the running cup count below each tray number."
+      }
+    ],
+    "error": {
+      "Ar": "هذا عدد الأكواب عند الصينية الرابعة.",
+      "En": "This is the cup count at the fourth tray."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    },
+    "difficulty": 2,
+    "points": 10
+  }
+]
