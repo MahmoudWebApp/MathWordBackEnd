@@ -40,10 +40,15 @@ public sealed class ProblemCategoryAccessService
         var tracks = _db.LearningTracks.AsNoTracking()
             .Where(track => track.Id == trackId && track.StageId == stageId &&
                 (!requirePublished || track.IsPublished));
-        return await _db.Categories.AsNoTracking()
-            .Where(category => category.StageId == stageId && tracks.Any() &&
-                links.Any(link => link.CategoryId == category.Id))
-            .OrderBy(category => category.Order).ThenBy(category => category.Id)
+        // Unique track/category and track/skill keys make the joined link
+        // query equivalent to the old EXISTS checks. Deduplicate categories
+        // before ordering so the two free slots never depend on problem count.
+        var populated = (from link in links
+            join track in tracks on link.TrackId equals track.Id
+            join category in _db.Categories.AsNoTracking() on link.CategoryId equals category.Id
+            where category.StageId == stageId
+            select new { category.Id, category.Order }).Distinct();
+        return await populated.OrderBy(category => category.Order).ThenBy(category => category.Id)
             .Select(category => category.Id)
             .Take(CategoryAccessPolicy.DefaultFreeCategoriesPerStage)
             .ToListAsync(ct);
