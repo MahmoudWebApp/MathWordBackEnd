@@ -1,0 +1,29 @@
+name: MathWorld bounded public latency smoke
+on:
+  pull_request:
+    paths:
+      - 'scripts/check_public_latency.py'
+      - '.github/workflows/public-latency-smoke.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: mathworld-public-latency-smoke
+  cancel-in-progress: true
+jobs:
+  measure:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Sequential anonymous latency samples
+        run: python3 scripts/check_public_latency.py
+      - name: Preserve measured timings even on failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: public-latency-samples
+          path: public-latency-samples.json
+          retention-days: 7
