@@ -40,6 +40,8 @@ permissions:
 jobs:
   journey:
     runs-on: ubuntu-latest
+    env:
+      MATHWORLD_TEST_TIMINGS: /tmp/mathworld-journey-latency.jsonl
     services:
       postgres:
         image: postgres:16
@@ -131,6 +133,14 @@ jobs:
           dotnet run --no-build --no-launch-profile -c Release --project MathWorldAPI.csproj >> /tmp/mathworld-journey.log 2>&1 &
           echo "$!" > /tmp/mathworld-journey.pid
           python3 tests/integration_shared_grade_report.py
+      - name: Preserve local API latency measurements
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: local-journey-latency
+          path: /tmp/mathworld-journey-latency.jsonl
+          if-no-files-found: warn
+          retention-days: 7
       - name: Show error markers on failure
         if: failure()
         run: |
