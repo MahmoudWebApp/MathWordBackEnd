@@ -396,8 +396,9 @@ public sealed class LearningSessionsController(AppDbContext db, IConfiguration c
             if(json.RootElement.TryGetProperty("Hints",out var value))
                 hints=value.Deserialize<BilingualText[]>();
         }
-        if(hints is null||hints.Length!=2||hints.Any(h=>!WizardProblemContract.Pair(h,1000)))
-            return Ok(new{Available=false,RevealedCount=0,Hints=Array.Empty<object>()});
+        if(hints is null||hints.Length is <1 or >2||hints.Any(h=>!WizardProblemContract.Pair(h,1000)))
+            return Ok(new{Available=false,HintCount=0,RevealedCount=0,Hints=Array.Empty<object>()});
+        if(input.Level>hints.Length)return BadRequest(new{Message="InvalidHintLevel"});
         if(input.Level>session.HintsRevealed+1)
             return Conflict(new{Message="RevealPreviousHintFirst"});
         if(input.Level>session.HintsRevealed)
@@ -410,7 +411,7 @@ public sealed class LearningSessionsController(AppDbContext db, IConfiguration c
         }
         await tx.CommitAsync(ct);
         var ar=LanguageHelper.GetLanguageFromRequest(Request)!="en";
-        return Ok(new{Available=true,RevealedCount=session.HintsRevealed,
+        return Ok(new{Available=true,HintCount=hints.Length,RevealedCount=Math.Min(session.HintsRevealed,hints.Length),
             Hints=hints.Take(session.HintsRevealed).Select((h,i)=>new{Level=i+1,Text=ar?h.Ar:h.En}).ToArray()});
     }
 
