@@ -1,0 +1,1812 @@
+{
+  "batch": "V85",
+  "sourceHead": "40b5f7117e46df068e3607663172507d0c522099",
+  "holds": {
+    "metric-missing-length-complement-mixed": "Similar to #2490 remaining length and #3177 regrouping; hold.",
+    "metric-select-appropriate-scale": "Same cm/mm conversion as #2293; hold.",
+    "addition-recover-ones-digit-with-carry": "Close to #2196 missing digit; ambiguous algebra notation; hold.",
+    "multiplicative-equation-integer-solution-check": "Same integer feasibility reasoning as #3145; hold."
+  },
+  "rows": [
+    {
+      "key": "growth-v85-grade-4-mode-frequency-double-record-1",
+      "family": "mode-frequency-double-record",
+      "skill_key": "primary-mode",
+      "track_code": "grade-4",
+      "track": 4,
+      "stage": 1,
+      "category": 4,
+      "skill": 20,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 4,
+        "PrimarySkillId": 20,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          4
+        ],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "مضاعفة التكرارات",
+          "En": "Doubling frequencies"
+        },
+        "Question": {
+          "Ar": "في استطلاع اختار ثلاثة أطفال اللون الأحمر وطفلان الأزرق وطفل الأخضر. نُسخ سجل كل طفل مرة إضافية بالخطأ. أي وصف صحيح للسجل الناتج؟ A: الأزرق هو المنوال؛ B: الأحمر يبقى المنوال؛ C: الأخضر هو المنوال؛ D: تتساوى التكرارات الثلاثة.",
+          "En": "In a survey three children choose red, two blue and one green. Every child's entry is accidentally copied once more. Which statement is true of the resulting record? A: blue is the mode; B: red remains the mode; C: green is the mode; D: all three frequencies become equal."
+        },
+        "Options": [
+          {
+            "LatexCode": "A",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "تكرار الأزرق أربعة وهو أقل من ستة.",
+              "En": "Blue occurs four times, fewer than six."
+            }
+          },
+          {
+            "LatexCode": "B",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "C",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "الأخضر يتكرر مرتين فقط.",
+              "En": "Green occurs only twice."
+            }
+          },
+          {
+            "LatexCode": "D",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "التكرارات الجديدة ستة وأربعة واثنان، وهي غير متساوية.",
+              "En": "The new frequencies are six, four and two, which are unequal."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "ضاعف عدد السجلات لكل لون.",
+            "En": "Double the count for each color."
+          },
+          {
+            "Ar": "قارن الأعداد الجديدة.",
+            "En": "Compare the new counts."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "مضاعفة كل التكرارات بالتساوي لا تغير ترتيبها.",
+            "En": "Doubling all frequencies preserves their ordering."
+          },
+          "FormulaLatex": "2\\times3=6",
+          "Steps": [
+            {
+              "Ar": "تصبح التكرارات للأحمر والأزرق والأخضر 6 و4 و2.",
+              "En": "Red, blue and green now have frequencies 6, 4 and 2."
+            },
+            {
+              "Ar": "الأحمر ما زال الأكثر تكراراً.",
+              "En": "Red is still the most frequent."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$6>4>2$",
+            "En": "$6>4>2$"
+          },
+          "Result": {
+            "Ar": "$B$",
+            "En": "$B$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "التكرارات الجديدة مجموعها 12 وهو ضعف المجموع الأصلي.",
+            "En": "The new frequencies total 12, twice the original total."
+          },
+          "CommonError": {
+            "Ar": "مضاعفة فئة واحدة فقط بدلاً من جميع الفئات.",
+            "En": "Doubling just one category instead of all categories."
+          }
+        }
+      },
+      "flat_ar": "مضاعفة كل التكرارات بالتساوي لا تغير ترتيبها.\n\n$2\\times3=6$\n\n1. تصبح التكرارات للأحمر والأزرق والأخضر 6 و4 و2.\n\n2. الأحمر ما زال الأكثر تكراراً.\n\n$6>4>2$\n\n$B$\n\nالتكرارات الجديدة مجموعها 12 وهو ضعف المجموع الأصلي.\n\nمضاعفة فئة واحدة فقط بدلاً من جميع الفئات.",
+      "flat_en": "Doubling all frequencies preserves their ordering.\n\n$2\\times3=6$\n\n1. Red, blue and green now have frequencies 6, 4 and 2.\n\n2. Red is still the most frequent.\n\n$6>4>2$\n\n$B$\n\nThe new frequencies total 12, twice the original total.\n\nDoubling just one category instead of all categories.",
+      "metadata": {
+        "DifficultyLevel": 2,
+        "Hints": [
+          {
+            "Ar": "ضاعف عدد السجلات لكل لون.",
+            "En": "Double the count for each color."
+          },
+          {
+            "Ar": "قارن الأعداد الجديدة.",
+            "En": "Compare the new counts."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "مضاعفة كل التكرارات بالتساوي لا تغير ترتيبها.",
+            "En": "Doubling all frequencies preserves their ordering."
+          },
+          "FormulaLatex": "2\\times3=6",
+          "Steps": [
+            {
+              "Ar": "تصبح التكرارات للأحمر والأزرق والأخضر 6 و4 و2.",
+              "En": "Red, blue and green now have frequencies 6, 4 and 2."
+            },
+            {
+              "Ar": "الأحمر ما زال الأكثر تكراراً.",
+              "En": "Red is still the most frequent."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$6>4>2$",
+            "En": "$6>4>2$"
+          },
+          "Result": {
+            "Ar": "$B$",
+            "En": "$B$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "التكرارات الجديدة مجموعها 12 وهو ضعف المجموع الأصلي.",
+            "En": "The new frequencies total 12, twice the original total."
+          },
+          "CommonError": {
+            "Ar": "مضاعفة فئة واحدة فقط بدلاً من جميع الفئات.",
+            "En": "Doubling just one category instead of all categories."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "تكرار الأزرق أربعة وهو أقل من ستة.",
+              "En": "Blue occurs four times, fewer than six."
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "الأخضر يتكرر مرتين فقط.",
+              "En": "Green occurs only twice."
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "التكرارات الجديدة ستة وأربعة واثنان، وهي غير متساوية.",
+              "En": "The new frequencies are six, four and two, which are unequal."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v85-grade-4-mode-frequency-from-total-1",
+      "family": "mode-frequency-from-total",
+      "skill_key": "primary-mode",
+      "track_code": "grade-4",
+      "track": 4,
+      "stage": 1,
+      "category": 4,
+      "skill": 20,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 4,
+        "PrimarySkillId": 20,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          4
+        ],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "التكرار الناقص والمنوال",
+          "En": "Missing frequency and mode"
+        },
+        "Question": {
+          "Ar": "في جدول من عشرة قياسات، تكررت القيمة 3 مرتين والقيمة 6 ثلاث مرات، وجميع القياسات الأخرى تساوي 9. ما المنوال؟",
+          "En": "A table contains ten measurements. Value 3 occurs twice, value 6 three times, and all remaining measurements equal 9. What is the mode?"
+        },
+        "Options": [
+          {
+            "LatexCode": "3",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "تكرار 3 مرتان فقط.",
+              "En": "3 occurs only twice."
+            }
+          },
+          {
+            "LatexCode": "5",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "خمسة هو تكرار 9 وليس القيمة المنوالية.",
+              "En": "Five is the frequency of 9, not the modal value."
+            }
+          },
+          {
+            "LatexCode": "6",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "6 تكررت ثلاث مرات وهو أقل من خمس.",
+              "En": "6 occurs three times, fewer than five."
+            }
+          },
+          {
+            "LatexCode": "9",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "اجمع عدد القياسات المعروفة للقيمتين 3 و6.",
+            "En": "Add the known frequencies for 3 and 6."
+          },
+          {
+            "Ar": "اطرح المجموع من عشرة لتجد تكرار 9.",
+            "En": "Subtract that sum from ten to get the frequency of 9."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نستعيد التكرار الناقص من العدد الكلي ثم نحدد القيمة الأكثر تكراراً.",
+            "En": "Recover the missing frequency from the total, then identify the most frequent value."
+          },
+          "FormulaLatex": "10-(2+3)=5",
+          "Steps": [
+            {
+              "Ar": "عدد القياسات المعروفة خمسة.",
+              "En": "Five measurements have known frequencies."
+            },
+            {
+              "Ar": "الخمسة الباقية تساوي 9، فتكون 9 الأكثر تكراراً.",
+              "En": "The other five equal 9, making 9 most frequent."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$5>3>2$",
+            "En": "$5>3>2$"
+          },
+          "Result": {
+            "Ar": "$9$",
+            "En": "$9$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "مجموع التكرارات 2 و3 و5 يساوي عشرة.",
+            "En": "The frequencies 2, 3 and 5 sum to ten."
+          },
+          "CommonError": {
+            "Ar": "اعتبار التكرار الناقص نفسه قيمة المنوال.",
+            "En": "Mistaking the missing frequency for the mode."
+          }
+        }
+      },
+      "flat_ar": "نستعيد التكرار الناقص من العدد الكلي ثم نحدد القيمة الأكثر تكراراً.\n\n$10-(2+3)=5$\n\n1. عدد القياسات المعروفة خمسة.\n\n2. الخمسة الباقية تساوي 9، فتكون 9 الأكثر تكراراً.\n\n$5>3>2$\n\n$9$\n\nمجموع التكرارات 2 و3 و5 يساوي عشرة.\n\nاعتبار التكرار الناقص نفسه قيمة المنوال.",
+      "flat_en": "Recover the missing frequency from the total, then identify the most frequent value.\n\n$10-(2+3)=5$\n\n1. Five measurements have known frequencies.\n\n2. The other five equal 9, making 9 most frequent.\n\n$5>3>2$\n\n$9$\n\nThe frequencies 2, 3 and 5 sum to ten.\n\nMistaking the missing frequency for the mode.",
+      "metadata": {
+        "DifficultyLevel": 2,
+        "Hints": [
+          {
+            "Ar": "اجمع عدد القياسات المعروفة للقيمتين 3 و6.",
+            "En": "Add the known frequencies for 3 and 6."
+          },
+          {
+            "Ar": "اطرح المجموع من عشرة لتجد تكرار 9.",
+            "En": "Subtract that sum from ten to get the frequency of 9."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نستعيد التكرار الناقص من العدد الكلي ثم نحدد القيمة الأكثر تكراراً.",
+            "En": "Recover the missing frequency from the total, then identify the most frequent value."
+          },
+          "FormulaLatex": "10-(2+3)=5",
+          "Steps": [
+            {
+              "Ar": "عدد القياسات المعروفة خمسة.",
+              "En": "Five measurements have known frequencies."
+            },
+            {
+              "Ar": "الخمسة الباقية تساوي 9، فتكون 9 الأكثر تكراراً.",
+              "En": "The other five equal 9, making 9 most frequent."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$5>3>2$",
+            "En": "$5>3>2$"
+          },
+          "Result": {
+            "Ar": "$9$",
+            "En": "$9$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "مجموع التكرارات 2 و3 و5 يساوي عشرة.",
+            "En": "The frequencies 2, 3 and 5 sum to ten."
+          },
+          "CommonError": {
+            "Ar": "اعتبار التكرار الناقص نفسه قيمة المنوال.",
+            "En": "Mistaking the missing frequency for the mode."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "تكرار 3 مرتان فقط.",
+              "En": "3 occurs only twice."
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "خمسة هو تكرار 9 وليس القيمة المنوالية.",
+              "En": "Five is the frequency of 9, not the modal value."
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "6 تكررت ثلاث مرات وهو أقل من خمس.",
+              "En": "6 occurs three times, fewer than five."
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v85-grade-4-mode-tie-created-by-two-distinct-additions-1",
+      "family": "mode-tie-created-by-two-distinct-additions",
+      "skill_key": "primary-mode",
+      "track_code": "grade-4",
+      "track": 4,
+      "stage": 1,
+      "category": 4,
+      "skill": 20,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 4,
+        "PrimarySkillId": 20,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          4
+        ],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "إنشاء ثلاثة منوالات",
+          "En": "Creating three modes"
+        },
+        "Question": {
+          "Ar": "في قائمة القيم 2، 2، 2، 4، 4، 7، 7، نضيف قيمتين فقط. أي زوج يجعل القيم الثلاث 2 و4 و7 جميعها منوالات؟",
+          "En": "The list is 2, 2, 2, 4, 4, 7, 7. Exactly two values are added. Which pair makes all three values 2, 4 and 7 modes?"
+        },
+        "Options": [
+          {
+            "LatexCode": "(2,4)",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "يزداد تكرار 2 إلى أربعة ولا تتعادل القيم الثلاث.",
+              "En": "2 rises to four occurrences, so the three values do not tie."
+            }
+          },
+          {
+            "LatexCode": "(4,4)",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "تصبح 4 وحدها صاحبة أربعة تكرارات.",
+              "En": "4 alone reaches four occurrences."
+            }
+          },
+          {
+            "LatexCode": "(4,7)",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "(7,7)",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "تصبح 7 وحدها صاحبة أربعة تكرارات.",
+              "En": "7 alone reaches four occurrences."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "احسب تكرار كل قيمة حالياً.",
+            "En": "Find each current frequency."
+          },
+          {
+            "Ar": "تحتاج القيمتان الأقل تكراراً إلى زيادة واحدة لكل منهما.",
+            "En": "Each of the two lower frequencies needs one more occurrence."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "لتصبح القيم الثلاث منوالات يجب أن تتساوى في أكبر تكرار.",
+            "En": "All three must tie at the highest frequency to be modes."
+          },
+          "FormulaLatex": "2+1=3",
+          "Steps": [
+            {
+              "Ar": "2 تظهر ثلاث مرات و4 و7 مرتين لكل منهما.",
+              "En": "2 occurs three times; 4 and 7 occur twice each."
+            },
+            {
+              "Ar": "نضيف 4 و7 مرة واحدة لكل منهما.",
+              "En": "Add one 4 and one 7."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$3=3=3$",
+            "En": "$3=3=3$"
+          },
+          "Result": {
+            "Ar": "$(4,7)$",
+            "En": "$(4,7)$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "تصبح القائمة تسع قيم، كل قيمة من الثلاث تظهر ثلاث مرات.",
+            "En": "The list now has nine observations, three of each value."
+          },
+          "CommonError": {
+            "Ar": "إضافة القيمتين إلى فئة واحدة بدلاً من توزيع الإضافتين.",
+            "En": "Adding both observations to one category instead of distributing them."
+          }
+        }
+      },
+      "flat_ar": "لتصبح القيم الثلاث منوالات يجب أن تتساوى في أكبر تكرار.\n\n$2+1=3$\n\n1. 2 تظهر ثلاث مرات و4 و7 مرتين لكل منهما.\n\n2. نضيف 4 و7 مرة واحدة لكل منهما.\n\n$3=3=3$\n\n$(4,7)$\n\nتصبح القائمة تسع قيم، كل قيمة من الثلاث تظهر ثلاث مرات.\n\nإضافة القيمتين إلى فئة واحدة بدلاً من توزيع الإضافتين.",
+      "flat_en": "All three must tie at the highest frequency to be modes.\n\n$2+1=3$\n\n1. 2 occurs three times; 4 and 7 occur twice each.\n\n2. Add one 4 and one 7.\n\n$3=3=3$\n\n$(4,7)$\n\nThe list now has nine observations, three of each value.\n\nAdding both observations to one category instead of distributing them.",
+      "metadata": {
+        "DifficultyLevel": 2,
+        "Hints": [
+          {
+            "Ar": "احسب تكرار كل قيمة حالياً.",
+            "En": "Find each current frequency."
+          },
+          {
+            "Ar": "تحتاج القيمتان الأقل تكراراً إلى زيادة واحدة لكل منهما.",
+            "En": "Each of the two lower frequencies needs one more occurrence."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "لتصبح القيم الثلاث منوالات يجب أن تتساوى في أكبر تكرار.",
+            "En": "All three must tie at the highest frequency to be modes."
+          },
+          "FormulaLatex": "2+1=3",
+          "Steps": [
+            {
+              "Ar": "2 تظهر ثلاث مرات و4 و7 مرتين لكل منهما.",
+              "En": "2 occurs three times; 4 and 7 occur twice each."
+            },
+            {
+              "Ar": "نضيف 4 و7 مرة واحدة لكل منهما.",
+              "En": "Add one 4 and one 7."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$3=3=3$",
+            "En": "$3=3=3$"
+          },
+          "Result": {
+            "Ar": "$(4,7)$",
+            "En": "$(4,7)$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "تصبح القائمة تسع قيم، كل قيمة من الثلاث تظهر ثلاث مرات.",
+            "En": "The list now has nine observations, three of each value."
+          },
+          "CommonError": {
+            "Ar": "إضافة القيمتين إلى فئة واحدة بدلاً من توزيع الإضافتين.",
+            "En": "Adding both observations to one category instead of distributing them."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "يزداد تكرار 2 إلى أربعة ولا تتعادل القيم الثلاث.",
+              "En": "2 rises to four occurrences, so the three values do not tie."
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "تصبح 4 وحدها صاحبة أربعة تكرارات.",
+              "En": "4 alone reaches four occurrences."
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "تصبح 7 وحدها صاحبة أربعة تكرارات.",
+              "En": "7 alone reaches four occurrences."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v85-grade-4-metric-distance-matching-unit-symbol-1",
+      "family": "metric-distance-matching-unit-symbol",
+      "skill_key": "primary-unit-conversions",
+      "track_code": "grade-4",
+      "track": 4,
+      "stage": 1,
+      "category": 3,
+      "skill": 16,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 3,
+        "PrimarySkillId": 16,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          4
+        ],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "اختيار وحدة التحويل",
+          "En": "Choosing a conversion unit"
+        },
+        "Question": {
+          "Ar": "كتب طالب طول المسار نفسه بطريقتين: 4 km و4000 من وحدة لم يكتب رمزها. أي رمز يجعل القياسين متساويين؟ A: km؛ B: m؛ C: cm؛ D: mm.",
+          "En": "A pupil writes the same route length in two forms: 4 km and 4000 of an unspecified unit. Which symbol makes the measurements equal? A: km; B: m; C: cm; D: mm."
+        },
+        "Options": [
+          {
+            "LatexCode": "A",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "4000 km أكبر بألف مرة من 4 km.",
+              "En": "4000 km is one thousand times 4 km."
+            }
+          },
+          {
+            "LatexCode": "B",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "C",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "4000 cm تساوي 40 m فقط.",
+              "En": "4000 cm is only 40 m."
+            }
+          },
+          {
+            "LatexCode": "D",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "4000 mm تساوي 4 m فقط.",
+              "En": "4000 mm is only 4 m."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "ما الوحدة التي يوجد منها ألف في كل كيلومتر؟",
+            "En": "Which unit has one thousand in a kilometre?"
+          },
+          {
+            "Ar": "اضرب أربعة في ألف ثم اختر رمز الوحدة.",
+            "En": "Multiply four by one thousand and choose the unit symbol."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نحدد الوحدة من معامل التحويل بين العددين.",
+            "En": "Identify the unit using the conversion factor between the counts."
+          },
+          "FormulaLatex": "1\\,\\mathrm{km}=1000\\,\\mathrm{m}",
+          "Steps": [
+            {
+              "Ar": "أربعة كيلومترات تعني أربعة آلاف متر.",
+              "En": "Four kilometres means four thousand metres."
+            },
+            {
+              "Ar": "الرمز المطلوب هو m.",
+              "En": "The needed symbol is m."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$4\\times1000=4000$",
+            "En": "$4\\times1000=4000$"
+          },
+          "Result": {
+            "Ar": "$B$",
+            "En": "$B$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "4000 m مقسومة على ألف تعود إلى 4 km.",
+            "En": "4000 m divided by one thousand returns 4 km."
+          },
+          "CommonError": {
+            "Ar": "اختيار الوحدة من العدد وحده دون مقارنة الطول.",
+            "En": "Choosing a unit from the number alone without checking the length."
+          }
+        }
+      },
+      "flat_ar": "نحدد الوحدة من معامل التحويل بين العددين.\n\n$1\\,\\mathrm{km}=1000\\,\\mathrm{m}$\n\n1. أربعة كيلومترات تعني أربعة آلاف متر.\n\n2. الرمز المطلوب هو m.\n\n$4\\times1000=4000$\n\n$B$\n\n4000 m مقسومة على ألف تعود إلى 4 km.\n\nاختيار الوحدة من العدد وحده دون مقارنة الطول.",
+      "flat_en": "Identify the unit using the conversion factor between the counts.\n\n$1\\,\\mathrm{km}=1000\\,\\mathrm{m}$\n\n1. Four kilometres means four thousand metres.\n\n2. The needed symbol is m.\n\n$4\\times1000=4000$\n\n$B$\n\n4000 m divided by one thousand returns 4 km.\n\nChoosing a unit from the number alone without checking the length.",
+      "metadata": {
+        "DifficultyLevel": 2,
+        "Hints": [
+          {
+            "Ar": "ما الوحدة التي يوجد منها ألف في كل كيلومتر؟",
+            "En": "Which unit has one thousand in a kilometre?"
+          },
+          {
+            "Ar": "اضرب أربعة في ألف ثم اختر رمز الوحدة.",
+            "En": "Multiply four by one thousand and choose the unit symbol."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نحدد الوحدة من معامل التحويل بين العددين.",
+            "En": "Identify the unit using the conversion factor between the counts."
+          },
+          "FormulaLatex": "1\\,\\mathrm{km}=1000\\,\\mathrm{m}",
+          "Steps": [
+            {
+              "Ar": "أربعة كيلومترات تعني أربعة آلاف متر.",
+              "En": "Four kilometres means four thousand metres."
+            },
+            {
+              "Ar": "الرمز المطلوب هو m.",
+              "En": "The needed symbol is m."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$4\\times1000=4000$",
+            "En": "$4\\times1000=4000$"
+          },
+          "Result": {
+            "Ar": "$B$",
+            "En": "$B$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "4000 m مقسومة على ألف تعود إلى 4 km.",
+            "En": "4000 m divided by one thousand returns 4 km."
+          },
+          "CommonError": {
+            "Ar": "اختيار الوحدة من العدد وحده دون مقارنة الطول.",
+            "En": "Choosing a unit from the number alone without checking the length."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "4000 km أكبر بألف مرة من 4 km.",
+              "En": "4000 km is one thousand times 4 km."
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "4000 cm تساوي 40 m فقط.",
+              "En": "4000 cm is only 40 m."
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "4000 mm تساوي 4 m فقط.",
+              "En": "4000 mm is only 4 m."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v85-grade-4-metric-unit-numeral-count-factor-1",
+      "family": "metric-unit-numeral-count-factor",
+      "skill_key": "primary-unit-conversions",
+      "track_code": "grade-4",
+      "track": 4,
+      "stage": 1,
+      "category": 3,
+      "skill": 16,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 3,
+        "PrimarySkillId": 16,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          4
+        ],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "تغير العدد مع الوحدة",
+          "En": "Changing the unit count"
+        },
+        "Question": {
+          "Ar": "طول قطعة مستقيمة مكتوب بالسنتيمتر بعدد صحيح. عند كتابة الطول نفسه بالمليمتر دون تغيير القطعة، ماذا يحدث للعدد؟ A: يصبح عشرة أمثاله؛ B: يصبح مئة مثله؛ C: يبقى كما هو؛ D: يصبح عُشره.",
+          "En": "A straight piece has a whole-number length in centimetres. When the same length is expressed in millimetres without changing the piece, what happens to the numerical count? A: becomes ten times as large; B: becomes one hundred times as large; C: stays the same; D: becomes one tenth as large."
+        },
+        "Options": [
+          {
+            "LatexCode": "A",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "B",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "السنتيمتر فيه عشرة مليمترات لا مئة.",
+              "En": "A centimetre has ten millimetres, not one hundred."
+            }
+          },
+          {
+            "LatexCode": "C",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "الوحدة الأصغر تحتاج عدداً أكبر لنفس الطول الموجب.",
+              "En": "A smaller unit requires a larger count for the same positive length."
+            }
+          },
+          {
+            "LatexCode": "D",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "القسمة على عشرة تكون في الاتجاه المعاكس.",
+              "En": "Division by ten converts in the opposite direction."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "كم مليمتر في سنتيمتر واحد؟",
+            "En": "How many millimetres are in one centimetre?"
+          },
+          {
+            "Ar": "إذا كان لدينا ثلاثة سنتيمترات، فكم مليمتر تمثل؟",
+            "En": "If there are three centimetres, how many millimetres do they represent?"
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "لكل سنتيمتر عشرة مليمترات، فيتضاعف العدد بعامل عشرة.",
+            "En": "Each centimetre contains ten millimetres, so the count scales by ten."
+          },
+          "FormulaLatex": "1\\,\\mathrm{cm}=10\\,\\mathrm{mm}",
+          "Steps": [
+            {
+              "Ar": "نستبدل كل وحدة سنتيمتر بعشر وحدات مليمتر.",
+              "En": "Replace each centimetre unit with ten millimetre units."
+            },
+            {
+              "Ar": "العدد يصبح عشرة أمثال العدد الأصلي.",
+              "En": "The count becomes ten times the original."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$3\\times10=30$",
+            "En": "$3\\times10=30$"
+          },
+          "Result": {
+            "Ar": "$A$",
+            "En": "$A$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "3 cm و30 mm يمثلان الطول نفسه.",
+            "En": "3 cm and 30 mm represent the same length."
+          },
+          "CommonError": {
+            "Ar": "الاعتقاد أن العدد ينخفض عند الانتقال إلى وحدة أصغر.",
+            "En": "Thinking the count decreases when using a smaller unit."
+          }
+        }
+      },
+      "flat_ar": "لكل سنتيمتر عشرة مليمترات، فيتضاعف العدد بعامل عشرة.\n\n$1\\,\\mathrm{cm}=10\\,\\mathrm{mm}$\n\n1. نستبدل كل وحدة سنتيمتر بعشر وحدات مليمتر.\n\n2. العدد يصبح عشرة أمثال العدد الأصلي.\n\n$3\\times10=30$\n\n$A$\n\n3 cm و30 mm يمثلان الطول نفسه.\n\nالاعتقاد أن العدد ينخفض عند الانتقال إلى وحدة أصغر.",
+      "flat_en": "Each centimetre contains ten millimetres, so the count scales by ten.\n\n$1\\,\\mathrm{cm}=10\\,\\mathrm{mm}$\n\n1. Replace each centimetre unit with ten millimetre units.\n\n2. The count becomes ten times the original.\n\n$3\\times10=30$\n\n$A$\n\n3 cm and 30 mm represent the same length.\n\nThinking the count decreases when using a smaller unit.",
+      "metadata": {
+        "DifficultyLevel": 2,
+        "Hints": [
+          {
+            "Ar": "كم مليمتر في سنتيمتر واحد؟",
+            "En": "How many millimetres are in one centimetre?"
+          },
+          {
+            "Ar": "إذا كان لدينا ثلاثة سنتيمترات، فكم مليمتر تمثل؟",
+            "En": "If there are three centimetres, how many millimetres do they represent?"
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "لكل سنتيمتر عشرة مليمترات، فيتضاعف العدد بعامل عشرة.",
+            "En": "Each centimetre contains ten millimetres, so the count scales by ten."
+          },
+          "FormulaLatex": "1\\,\\mathrm{cm}=10\\,\\mathrm{mm}",
+          "Steps": [
+            {
+              "Ar": "نستبدل كل وحدة سنتيمتر بعشر وحدات مليمتر.",
+              "En": "Replace each centimetre unit with ten millimetre units."
+            },
+            {
+              "Ar": "العدد يصبح عشرة أمثال العدد الأصلي.",
+              "En": "The count becomes ten times the original."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$3\\times10=30$",
+            "En": "$3\\times10=30$"
+          },
+          "Result": {
+            "Ar": "$A$",
+            "En": "$A$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "3 cm و30 mm يمثلان الطول نفسه.",
+            "En": "3 cm and 30 mm represent the same length."
+          },
+          "CommonError": {
+            "Ar": "الاعتقاد أن العدد ينخفض عند الانتقال إلى وحدة أصغر.",
+            "En": "Thinking the count decreases when using a smaller unit."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "السنتيمتر فيه عشرة مليمترات لا مئة.",
+              "En": "A centimetre has ten millimetres, not one hundred."
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "الوحدة الأصغر تحتاج عدداً أكبر لنفس الطول الموجب.",
+              "En": "A smaller unit requires a larger count for the same positive length."
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "القسمة على عشرة تكون في الاتجاه المعاكس.",
+              "En": "Division by ten converts in the opposite direction."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v85-grade-4-addition-carry-record-count-1",
+      "family": "addition-carry-record-count",
+      "skill_key": "primary-addition",
+      "track_code": "grade-4",
+      "track": 4,
+      "stage": 1,
+      "category": 1,
+      "skill": 1,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 1,
+        "PrimarySkillId": 1,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          4
+        ],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "عدد مرات الحمل",
+          "En": "Counting carries"
+        },
+        "Question": {
+          "Ar": "عند جمع 587 و648 بالطريقة العمودية، كم مرة نعيد تجميع عشرة من منزلة إلى منزلة أعلى؟",
+          "En": "When adding 587 and 648 by column addition, how many times do we regroup ten units of a place into one unit of the next place?"
+        },
+        "Options": [
+          {
+            "LatexCode": "1",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "الحمل يحدث بعد الآحاد والعشرات والمئات.",
+              "En": "A carry occurs after ones, tens and hundreds."
+            }
+          },
+          {
+            "LatexCode": "2",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا يهمل الحمل من المئات إلى الآلاف.",
+              "En": "This omits the carry from hundreds to thousands."
+            }
+          },
+          {
+            "LatexCode": "3",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "4",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "الآلاف تستقبل واحداً فقط ولا تحتاج حملاً جديداً.",
+              "En": "Thousands receives just one and needs no further carry."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "ابدأ من الآحاد وتابع كل مجموع مع الحمل.",
+            "En": "Start at ones and include incoming carries at each place."
+          },
+          {
+            "Ar": "ضع علامة عند كل انتقال للحمل.",
+            "En": "Mark every transfer to the next place."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نعد انتقالات الحمل الفعلية بين المنازل.",
+            "En": "Count actual carry transfers between places."
+          },
+          "FormulaLatex": "7+8=15,\\quad8+4+1=13",
+          "Steps": [
+            {
+              "Ar": "الآحاد تعطي 15 والعشرات 13، أي حملين.",
+              "En": "Ones gives 15 and tens 13, giving two carries."
+            },
+            {
+              "Ar": "المئات تعطي 5 مع 6 مع 1 أي 12، فنحمل مرة ثالثة.",
+              "En": "Hundreds gives 5 plus 6 plus 1, or 12, yielding a third carry."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$587+648=1235$",
+            "En": "$587+648=1235$"
+          },
+          "Result": {
+            "Ar": "$3$",
+            "En": "$3$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "الناتج 1235، والحمل الأخير شكّل رقم الآلاف.",
+            "En": "The sum is 1235, with the final carry forming its thousands digit."
+          },
+          "CommonError": {
+            "Ar": "عد المنازل الأربع بدلاً من انتقالات الحمل الثلاثة.",
+            "En": "Counting all four places instead of the three carry transfers."
+          }
+        }
+      },
+      "flat_ar": "نعد انتقالات الحمل الفعلية بين المنازل.\n\n$7+8=15,\\quad8+4+1=13$\n\n1. الآحاد تعطي 15 والعشرات 13، أي حملين.\n\n2. المئات تعطي 5 مع 6 مع 1 أي 12، فنحمل مرة ثالثة.\n\n$587+648=1235$\n\n$3$\n\nالناتج 1235، والحمل الأخير شكّل رقم الآلاف.\n\nعد المنازل الأربع بدلاً من انتقالات الحمل الثلاثة.",
+      "flat_en": "Count actual carry transfers between places.\n\n$7+8=15,\\quad8+4+1=13$\n\n1. Ones gives 15 and tens 13, giving two carries.\n\n2. Hundreds gives 5 plus 6 plus 1, or 12, yielding a third carry.\n\n$587+648=1235$\n\n$3$\n\nThe sum is 1235, with the final carry forming its thousands digit.\n\nCounting all four places instead of the three carry transfers.",
+      "metadata": {
+        "DifficultyLevel": 2,
+        "Hints": [
+          {
+            "Ar": "ابدأ من الآحاد وتابع كل مجموع مع الحمل.",
+            "En": "Start at ones and include incoming carries at each place."
+          },
+          {
+            "Ar": "ضع علامة عند كل انتقال للحمل.",
+            "En": "Mark every transfer to the next place."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نعد انتقالات الحمل الفعلية بين المنازل.",
+            "En": "Count actual carry transfers between places."
+          },
+          "FormulaLatex": "7+8=15,\\quad8+4+1=13",
+          "Steps": [
+            {
+              "Ar": "الآحاد تعطي 15 والعشرات 13، أي حملين.",
+              "En": "Ones gives 15 and tens 13, giving two carries."
+            },
+            {
+              "Ar": "المئات تعطي 5 مع 6 مع 1 أي 12، فنحمل مرة ثالثة.",
+              "En": "Hundreds gives 5 plus 6 plus 1, or 12, yielding a third carry."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$587+648=1235$",
+            "En": "$587+648=1235$"
+          },
+          "Result": {
+            "Ar": "$3$",
+            "En": "$3$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "الناتج 1235، والحمل الأخير شكّل رقم الآلاف.",
+            "En": "The sum is 1235, with the final carry forming its thousands digit."
+          },
+          "CommonError": {
+            "Ar": "عد المنازل الأربع بدلاً من انتقالات الحمل الثلاثة.",
+            "En": "Counting all four places instead of the three carry transfers."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "الحمل يحدث بعد الآحاد والعشرات والمئات.",
+              "En": "A carry occurs after ones, tens and hundreds."
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا يهمل الحمل من المئات إلى الآلاف.",
+              "En": "This omits the carry from hundreds to thousands."
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "الآلاف تستقبل واحداً فقط ولا تحتاج حملاً جديداً.",
+              "En": "Thousands receives just one and needs no further carry."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v85-grade-4-addition-estimate-check-range-1",
+      "family": "addition-estimate-check-range",
+      "skill_key": "primary-addition",
+      "track_code": "grade-4",
+      "track": 4,
+      "stage": 1,
+      "category": 1,
+      "skill": 1,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 1,
+        "PrimarySkillId": 1,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          4
+        ],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "فحص معقولية المجموع",
+          "En": "Checking a sum estimate"
+        },
+        "Question": {
+          "Ar": "قدّر طالب مجموع 394 و587 بتقريب كل عدد إلى أقرب مئة. وجد زميله أن الناتج الدقيق 881. أي وصف صحيح؟ A: التقدير 1000 و881 أقل من الناتج الصحيح بمئة؛ B: التقدير 900 والناتج صحيح؛ C: التقدير 1000 والناتج صحيح؛ D: التقدير 1100.",
+          "En": "A pupil estimates 394 + 587 by rounding each addend to the nearest hundred. A classmate reports an exact sum of 881. Which statement is correct? A: the estimate is 1000 and 881 is 100 below the correct sum; B: the estimate is 900 and the sum is correct; C: the estimate is 1000 and the sum is correct; D: the estimate is 1100."
+        },
+        "Options": [
+          {
+            "LatexCode": "A",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "B",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "394 تقرب إلى 400 و587 إلى 600، والمجموع الدقيق ليس 881.",
+              "En": "394 rounds to 400 and 587 to 600, and the exact sum is not 881."
+            }
+          },
+          {
+            "LatexCode": "C",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "المجموع الدقيق 981 لا 881.",
+              "En": "The exact sum is 981, not 881."
+            }
+          },
+          {
+            "LatexCode": "D",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "400 مع 600 يعطي 1000 لا 1100.",
+              "En": "400 plus 600 gives 1000, not 1100."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "قرّب كل عدد إلى المئة الأقرب.",
+            "En": "Round each addend to the nearest hundred."
+          },
+          {
+            "Ar": "احسب المجموع الدقيق للتحقق من مقدار الخطأ.",
+            "En": "Compute the exact sum to verify the error size."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "التقدير يكشف احتمال الخطأ، والجمع الدقيق يحدد مقداره.",
+            "En": "Estimation flags a possible error; exact addition determines its size."
+          },
+          "FormulaLatex": "400+600=1000",
+          "Steps": [
+            {
+              "Ar": "المجموع الدقيق 394 مع 587 يساوي 981.",
+              "En": "The exact sum of 394 and 587 is 981."
+            },
+            {
+              "Ar": "881 أقل من 981 بمئة.",
+              "En": "881 is one hundred below 981."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$981-881=100$",
+            "En": "$981-881=100$"
+          },
+          "Result": {
+            "Ar": "$A$",
+            "En": "$A$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "981 قريب من التقدير 1000 بفارق 19 فقط.",
+            "En": "981 is close to the estimate of 1000, differing by just 19."
+          },
+          "CommonError": {
+            "Ar": "اعتبار التقدير دليلاً كافياً على صحة الناتج دون فحص دقيق.",
+            "En": "Treating an estimate as proof of the exact answer."
+          }
+        }
+      },
+      "flat_ar": "التقدير يكشف احتمال الخطأ، والجمع الدقيق يحدد مقداره.\n\n$400+600=1000$\n\n1. المجموع الدقيق 394 مع 587 يساوي 981.\n\n2. 881 أقل من 981 بمئة.\n\n$981-881=100$\n\n$A$\n\n981 قريب من التقدير 1000 بفارق 19 فقط.\n\nاعتبار التقدير دليلاً كافياً على صحة الناتج دون فحص دقيق.",
+      "flat_en": "Estimation flags a possible error; exact addition determines its size.\n\n$400+600=1000$\n\n1. The exact sum of 394 and 587 is 981.\n\n2. 881 is one hundred below 981.\n\n$981-881=100$\n\n$A$\n\n981 is close to the estimate of 1000, differing by just 19.\n\nTreating an estimate as proof of the exact answer.",
+      "metadata": {
+        "DifficultyLevel": 2,
+        "Hints": [
+          {
+            "Ar": "قرّب كل عدد إلى المئة الأقرب.",
+            "En": "Round each addend to the nearest hundred."
+          },
+          {
+            "Ar": "احسب المجموع الدقيق للتحقق من مقدار الخطأ.",
+            "En": "Compute the exact sum to verify the error size."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "التقدير يكشف احتمال الخطأ، والجمع الدقيق يحدد مقداره.",
+            "En": "Estimation flags a possible error; exact addition determines its size."
+          },
+          "FormulaLatex": "400+600=1000",
+          "Steps": [
+            {
+              "Ar": "المجموع الدقيق 394 مع 587 يساوي 981.",
+              "En": "The exact sum of 394 and 587 is 981."
+            },
+            {
+              "Ar": "881 أقل من 981 بمئة.",
+              "En": "881 is one hundred below 981."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$981-881=100$",
+            "En": "$981-881=100$"
+          },
+          "Result": {
+            "Ar": "$A$",
+            "En": "$A$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "981 قريب من التقدير 1000 بفارق 19 فقط.",
+            "En": "981 is close to the estimate of 1000, differing by just 19."
+          },
+          "CommonError": {
+            "Ar": "اعتبار التقدير دليلاً كافياً على صحة الناتج دون فحص دقيق.",
+            "En": "Treating an estimate as proof of the exact answer."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "394 تقرب إلى 400 و587 إلى 600، والمجموع الدقيق ليس 881.",
+              "En": "394 rounds to 400 and 587 to 600, and the exact sum is not 881."
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "المجموع الدقيق 981 لا 881.",
+              "En": "The exact sum is 981, not 881."
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "400 مع 600 يعطي 1000 لا 1100.",
+              "En": "400 plus 600 gives 1000, not 1100."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v85-grade-4-multiplicative-equation-compare-solutions-1",
+      "family": "multiplicative-equation-compare-solutions",
+      "skill_key": "primary-one-step-multiplicative-equations",
+      "track_code": "grade-4",
+      "track": 4,
+      "stage": 1,
+      "category": 2,
+      "skill": 9,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 2,
+        "PrimarySkillId": 9,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          4
+        ],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "مقارنة مجهولين",
+          "En": "Comparing unknowns"
+        },
+        "Question": {
+          "Ar": "إذا كان $5a=60$ و$4b=60$، فبكم تزيد قيمة $b$ على قيمة $a$؟",
+          "En": "If $5a=60$ and $4b=60$, by how much does $b$ exceed $a$?"
+        },
+        "Options": [
+          {
+            "LatexCode": "1",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا فرق المعاملين لا فرق الحلين.",
+              "En": "This is the difference between coefficients, not solutions."
+            }
+          },
+          {
+            "LatexCode": "3",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "4",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "قيمة b تساوي 15 وقيمة a تساوي 12، والفرق ثلاثة.",
+              "En": "b is 15 and a is 12, giving a difference of three."
+            }
+          },
+          {
+            "LatexCode": "27",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا مجموع الحلين وليس الفرق.",
+              "En": "This adds the solutions instead of subtracting."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "اقسم 60 على 5 لإيجاد a.",
+            "En": "Divide 60 by 5 to find a."
+          },
+          {
+            "Ar": "اقسم 60 على 4 لإيجاد b ثم اطرح الحلين.",
+            "En": "Divide 60 by 4 to find b, then subtract the solutions."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نحل كل معادلة بالقسمة ثم نقارن الحلين.",
+            "En": "Solve each equation by division, then compare the solutions."
+          },
+          "FormulaLatex": "a=60\\div5,\\quad b=60\\div4",
+          "Steps": [
+            {
+              "Ar": "a تساوي 12 وb تساوي 15.",
+              "En": "a equals 12 and b equals 15."
+            },
+            {
+              "Ar": "فرق الحلين 15 ناقص 12.",
+              "En": "Subtract 12 from 15."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$15-12=3$",
+            "En": "$15-12=3$"
+          },
+          "Result": {
+            "Ar": "$3$",
+            "En": "$3$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "5 في 12 و4 في 15 كلاهما يساوي 60.",
+            "En": "5 times 12 and 4 times 15 both equal 60."
+          },
+          "CommonError": {
+            "Ar": "طرح المعاملين بدلاً من الحلين.",
+            "En": "Subtracting coefficients instead of solutions."
+          }
+        }
+      },
+      "flat_ar": "نحل كل معادلة بالقسمة ثم نقارن الحلين.\n\n$a=60\\div5,\\quad b=60\\div4$\n\n1. a تساوي 12 وb تساوي 15.\n\n2. فرق الحلين 15 ناقص 12.\n\n$15-12=3$\n\n$3$\n\n5 في 12 و4 في 15 كلاهما يساوي 60.\n\nطرح المعاملين بدلاً من الحلين.",
+      "flat_en": "Solve each equation by division, then compare the solutions.\n\n$a=60\\div5,\\quad b=60\\div4$\n\n1. a equals 12 and b equals 15.\n\n2. Subtract 12 from 15.\n\n$15-12=3$\n\n$3$\n\n5 times 12 and 4 times 15 both equal 60.\n\nSubtracting coefficients instead of solutions.",
+      "metadata": {
+        "DifficultyLevel": 2,
+        "Hints": [
+          {
+            "Ar": "اقسم 60 على 5 لإيجاد a.",
+            "En": "Divide 60 by 5 to find a."
+          },
+          {
+            "Ar": "اقسم 60 على 4 لإيجاد b ثم اطرح الحلين.",
+            "En": "Divide 60 by 4 to find b, then subtract the solutions."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نحل كل معادلة بالقسمة ثم نقارن الحلين.",
+            "En": "Solve each equation by division, then compare the solutions."
+          },
+          "FormulaLatex": "a=60\\div5,\\quad b=60\\div4",
+          "Steps": [
+            {
+              "Ar": "a تساوي 12 وb تساوي 15.",
+              "En": "a equals 12 and b equals 15."
+            },
+            {
+              "Ar": "فرق الحلين 15 ناقص 12.",
+              "En": "Subtract 12 from 15."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$15-12=3$",
+            "En": "$15-12=3$"
+          },
+          "Result": {
+            "Ar": "$3$",
+            "En": "$3$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "5 في 12 و4 في 15 كلاهما يساوي 60.",
+            "En": "5 times 12 and 4 times 15 both equal 60."
+          },
+          "CommonError": {
+            "Ar": "طرح المعاملين بدلاً من الحلين.",
+            "En": "Subtracting coefficients instead of solutions."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا فرق المعاملين لا فرق الحلين.",
+              "En": "This is the difference between coefficients, not solutions."
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "قيمة b تساوي 15 وقيمة a تساوي 12، والفرق ثلاثة.",
+              "En": "b is 15 and a is 12, giving a difference of three."
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا مجموع الحلين وليس الفرق.",
+              "En": "This adds the solutions instead of subtracting."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v85-grade-4-multiplicative-equation-missing-total-double-1",
+      "family": "multiplicative-equation-missing-total-double",
+      "skill_key": "primary-one-step-multiplicative-equations",
+      "track_code": "grade-4",
+      "track": 4,
+      "stage": 1,
+      "category": 2,
+      "skill": 9,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 2,
+        "PrimarySkillId": 9,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          4
+        ],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "تغير المجموع مع المجموعات",
+          "En": "Changing group count"
+        },
+        "Question": {
+          "Ar": "سبع مجموعات متساوية فيها 56 بطاقة إجمالاً. إذا بقي عدد البطاقات في كل مجموعة كما هو وأصبح عدد المجموعات 9، فكم بطاقة تصبح في المجموع؟",
+          "En": "Seven equal groups contain 56 cards altogether. If the number per group stays the same and there are now nine groups, how many cards are there in total?"
+        },
+        "Options": [
+          {
+            "LatexCode": "58",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "المجموع لا يزيد ببطاقتين فقط، بل بمجموعتين كاملتين.",
+              "En": "The total increases by two full groups, not just two cards."
+            }
+          },
+          {
+            "LatexCode": "63",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا حاصل ضرب تسعة في سبعة، وليس عدد البطاقات في المجموعة.",
+              "En": "This multiplies nine by seven, not by the group size."
+            }
+          },
+          {
+            "LatexCode": "72",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "81",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "عدد البطاقات في كل مجموعة ثمانية لا تسعة.",
+              "En": "Each group contains eight cards, not nine."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "اكتب $7x=56$ لإيجاد عدد البطاقات في كل مجموعة.",
+            "En": "Write $7x=56$ to find the group size."
+          },
+          {
+            "Ar": "اضرب قيمة x في 9.",
+            "En": "Multiply the value of x by 9."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نحل المعادلة الأصلية لإيجاد حجم المجموعة ثم نستخدمه في الوضع الجديد.",
+            "En": "Solve the original equation for group size, then use it in the new situation."
+          },
+          "FormulaLatex": "x=56\\div7",
+          "Steps": [
+            {
+              "Ar": "كل مجموعة فيها 8 بطاقات.",
+              "En": "Each group contains eight cards."
+            },
+            {
+              "Ar": "تسع مجموعات تحوي 9 في 8.",
+              "En": "Nine groups contain nine times eight."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$9\\times8=72$",
+            "En": "$9\\times8=72$"
+          },
+          "Result": {
+            "Ar": "$72$",
+            "En": "$72$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "مجموعتان إضافيتان تعنيان 16 بطاقة، و56 مع 16 يساوي 72.",
+            "En": "Two additional groups mean 16 cards, and 56 plus 16 equals 72."
+          },
+          "CommonError": {
+            "Ar": "إضافة فرق عدد المجموعات إلى المجموع مباشرة.",
+            "En": "Adding the difference in group counts directly to the total."
+          }
+        }
+      },
+      "flat_ar": "نحل المعادلة الأصلية لإيجاد حجم المجموعة ثم نستخدمه في الوضع الجديد.\n\n$x=56\\div7$\n\n1. كل مجموعة فيها 8 بطاقات.\n\n2. تسع مجموعات تحوي 9 في 8.\n\n$9\\times8=72$\n\n$72$\n\nمجموعتان إضافيتان تعنيان 16 بطاقة، و56 مع 16 يساوي 72.\n\nإضافة فرق عدد المجموعات إلى المجموع مباشرة.",
+      "flat_en": "Solve the original equation for group size, then use it in the new situation.\n\n$x=56\\div7$\n\n1. Each group contains eight cards.\n\n2. Nine groups contain nine times eight.\n\n$9\\times8=72$\n\n$72$\n\nTwo additional groups mean 16 cards, and 56 plus 16 equals 72.\n\nAdding the difference in group counts directly to the total.",
+      "metadata": {
+        "DifficultyLevel": 2,
+        "Hints": [
+          {
+            "Ar": "اكتب $7x=56$ لإيجاد عدد البطاقات في كل مجموعة.",
+            "En": "Write $7x=56$ to find the group size."
+          },
+          {
+            "Ar": "اضرب قيمة x في 9.",
+            "En": "Multiply the value of x by 9."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نحل المعادلة الأصلية لإيجاد حجم المجموعة ثم نستخدمه في الوضع الجديد.",
+            "En": "Solve the original equation for group size, then use it in the new situation."
+          },
+          "FormulaLatex": "x=56\\div7",
+          "Steps": [
+            {
+              "Ar": "كل مجموعة فيها 8 بطاقات.",
+              "En": "Each group contains eight cards."
+            },
+            {
+              "Ar": "تسع مجموعات تحوي 9 في 8.",
+              "En": "Nine groups contain nine times eight."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$9\\times8=72$",
+            "En": "$9\\times8=72$"
+          },
+          "Result": {
+            "Ar": "$72$",
+            "En": "$72$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "مجموعتان إضافيتان تعنيان 16 بطاقة، و56 مع 16 يساوي 72.",
+            "En": "Two additional groups mean 16 cards, and 56 plus 16 equals 72."
+          },
+          "CommonError": {
+            "Ar": "إضافة فرق عدد المجموعات إلى المجموع مباشرة.",
+            "En": "Adding the difference in group counts directly to the total."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "المجموع لا يزيد ببطاقتين فقط، بل بمجموعتين كاملتين.",
+              "En": "The total increases by two full groups, not just two cards."
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا حاصل ضرب تسعة في سبعة، وليس عدد البطاقات في المجموعة.",
+              "En": "This multiplies nine by seven, not by the group size."
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "عدد البطاقات في كل مجموعة ثمانية لا تسعة.",
+              "En": "Each group contains eight cards, not nine."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    }
+  ]
+}
