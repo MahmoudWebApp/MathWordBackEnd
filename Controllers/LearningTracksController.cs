@@ -56,9 +56,13 @@ public sealed class LearningTracksController(AppDbContext db,LearningTrackServic
         if(t is null)return NotFound();
         var valid=tracks.ValidProblems(id);
         var free=await access.GetTrackFreeCategoryIdsAsync(id,t.StageId,ct:ct);
-        var categories=await db.Categories.AsNoTracking().Where(c=>valid.Any(p=>p.CategoryId==c.Id))
-            .OrderBy(c=>c.Order).ThenBy(c=>c.Id).Select(c=>new{c.Id,c.NameAr,c.NameEn,c.DescriptionAr,c.DescriptionEn,c.Icon,
-                IsFree=free.Contains(c.Id),ProblemsCount=valid.Count(p=>p.CategoryId==c.Id)}).ToListAsync(ct);
+        var coverage=valid.GroupBy(p=>p.CategoryId)
+            .Select(g=>new{CategoryId=g.Key,ProblemsCount=g.Count()});
+        var categories=await (from c in db.Categories.AsNoTracking()
+            join count in coverage on c.Id equals count.CategoryId
+            orderby c.Order,c.Id
+            select new{c.Id,c.NameAr,c.NameEn,c.DescriptionAr,c.DescriptionEn,c.Icon,
+                IsFree=free.Contains(c.Id),count.ProblemsCount}).ToListAsync(ct);
         var skills=await db.CurriculumSkills.AsNoTracking().Where(s=>s.IsPublished&&s.Domain.IsPublished&&
             db.LearningTrackSkills.Any(ls=>ls.TrackId==id&&ls.SkillId==s.Id)&&
             db.CurriculumProblemSkills.Any(ps=>ps.SkillId==s.Id&&valid.Any(p=>p.Id==ps.ProblemId&&p.CategoryId==s.CategoryId)))
@@ -192,15 +196,21 @@ public sealed class LearningTracksController(AppDbContext db,LearningTrackServic
         var uid=int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
         var allowed=await access.GetAllowedCategoryIdsAsync(User,ct)??new List<int>();
         var valid=tracks.ValidProblems(id);
-        var inventory=await valid.GroupBy(p=>p.CategoryId)
-            .Select(g=>new{CategoryId=g.Key,Total=g.Count()}).ToListAsync(ct);
-        var progress=await TrackPractice.For(db,TrackPractice.Scope(HttpContext.RequestServices.GetRequiredService<IConfiguration>(),id)).AsNoTracking().Where(p=>p.UserId==uid&&valid.Any(v=>v.Id==p.ProblemId))
-            .GroupBy(p=>p.Problem.CategoryId).Select(g=>new{CategoryId=g.Key,Solved=g.Count(p=>p.IsSolved),
-                Attempted=g.Count(p=>p.Attempts>0),Mastered=g.Count(p=>p.MasteryStatus==MasteryStatuses.Mastered)}).ToListAsync(ct);
-        var lookup=progress.ToDictionary(p=>p.CategoryId);
+        // A unique progress row per user/problem/scope makes this left join
+        // equivalent to the separate inventory and progress aggregates.
+        var scoped=TrackPractice.For(db,TrackPractice.Scope(HttpContext.RequestServices.GetRequiredService<IConfiguration>(),id))
+            .AsNoTracking().Where(p=>p.UserId==uid);
+        var rows=from problem in valid
+            join p in scoped on problem.Id equals p.ProblemId into progressRows
+            from progress in progressRows.DefaultIfEmpty()
+            select new{problem.CategoryId,progress};
+        var inventory=await rows.GroupBy(p=>p.CategoryId)
+            .Select(g=>new{CategoryId=g.Key,Total=g.Count(),
+                Solved=g.Count(p=>p.progress!=null&&p.progress.IsSolved),
+                Attempted=g.Count(p=>p.progress!=null&&p.progress.Attempts>0),
+                Mastered=g.Count(p=>p.progress!=null&&p.progress.MasteryStatus==MasteryStatuses.Mastered)}).ToListAsync(ct);
         var categories=inventory.Select(c=>new{c.CategoryId,ProblemsCount=c.Total,IsLocked=!allowed.Contains(c.CategoryId),
-            Solved=lookup.GetValueOrDefault(c.CategoryId)?.Solved??0,Attempted=lookup.GetValueOrDefault(c.CategoryId)?.Attempted??0,
-            Mastered=lookup.GetValueOrDefault(c.CategoryId)?.Mastered??0}).ToList();
+            c.Solved,c.Attempted,c.Mastered}).ToList();
         var total=inventory.Sum(c=>c.Total);var solved=categories.Sum(c=>c.Solved);
         return Ok(new{TrackId=id,t.StageId,TrackPracticeIsolationEnabled=TrackPractice.Enabled(HttpContext.RequestServices.GetRequiredService<IConfiguration>()),ProblemsCount=total,Solved=solved,CompletionPercent=total==0?0:Math.Round(100.0*solved/total,1),Categories=categories});
     }
