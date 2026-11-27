@@ -832,8 +832,8 @@
           "En": "Changing the unit count"
         },
         "Question": {
-          "Ar": "طول قطعة مستقيمة مكتوب بالسنتيمتر بعدد صحيح. عند كتابة الطول نفسه بالمليمتر دون تغيير القطعة، ماذا يحدث للعدد؟ A: يصبح عشرة أمثاله؛ B: يصبح مئة مثله؛ C: يبقى كما هو؛ D: يصبح عُشره.",
-          "En": "A straight piece has a whole-number length in centimetres. When the same length is expressed in millimetres without changing the piece, what happens to the numerical count? A: becomes ten times as large; B: becomes one hundred times as large; C: stays the same; D: becomes one tenth as large."
+          "Ar": "طول قطعة مستقيمة مكتوب بالسنتيمتر بعدد صحيح موجب. عند كتابة الطول نفسه بالمليمتر دون تغيير القطعة، ماذا يحدث للعدد؟ A: يصبح عشرة أمثاله؛ B: يصبح مئة مثله؛ C: يبقى كما هو؛ D: يصبح عُشره.",
+          "En": "A straight piece has a positive whole-number length in centimetres. When the same length is expressed in millimetres without changing the piece, what happens to the numerical count? A: becomes ten times as large; B: becomes one hundred times as large; C: stays the same; D: becomes one tenth as large."
         },
         "Options": [
           {
@@ -1808,5 +1808,6 @@
         ]
       }
     }
-  ]
+  ],
+  "review": "13 candidates examined, four held for similar learning tasks or notation ambiguity; nine retained. Target inventory and whole-bank bilingual nearest-token comparison reviewed including active drafts. Positive length explicitly specified for unit-count factor. Three mode tasks complete scope; two each metric conversion, addition and multiplicative equations. No comprehensive curriculum, rendering or CI claim."
 }
