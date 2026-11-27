@@ -21,7 +21,8 @@ def main():
         assert actual["NextStep"]==step,actual
         if blocked:
             error=expect("GET","/api/users/journey",403,token=token)
-            assert error["NextStep"]==step,error
+            # Middleware WriteAsJsonAsync uses web JSON casing, MVC uses PascalCase.
+            assert error.get("NextStep",error.get("nextStep"))==step,error
     state("VerifyEmail")
     sql(f'UPDATE "Users" SET "VerifiedNotificationEmail"="Email" WHERE "Id"={uid}')
     state("SelectStage")
