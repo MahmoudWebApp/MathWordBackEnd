@@ -3,7 +3,8 @@
   "sourceHead": "84c319ecab393e4c490c4fc2cc5db96e603fbce2",
   "holds": {
     "equation-same-unknown-product-third": "Review possible overlap with #2292 varying coefficient and prior same-solution tasks; defer rather than count similar reasoning.",
-    "mass-equal-balance-with-counterweight": "Potential cross-skill overlap with grade 5 two-step equation, compare with global stems before use."
+    "mass-equal-balance-with-counterweight": "Potential cross-skill overlap with grade 5 two-step equation, compare with global stems before use.",
+    "time-elapsed-midnight-crossing": "Near-exact duplicate of active draft g1-gap-01-time; do not publish."
   },
   "rows": [
     {
@@ -630,8 +631,8 @@
           "En": "Regrouping column totals"
         },
         "Question": {
-          "Ar": "جمع طالب ثلاثة أعداد. قبل إجراء الحمل وجد أن مجموع أرقام المئات 14، ومجموع أرقام العشرات 18، ومجموع أرقام الآحاد 13. ما المجموع الكلي؟",
-          "En": "A pupil adds three numbers. Before carrying, the hundreds digits total 14, the tens digits total 18 and the ones digits total 13. What is the total sum?"
+          "Ar": "جمع طالب ثلاثة أعداد من ثلاثة أرقام لكل منها. قبل إجراء الحمل وجد أن مجموع أرقام المئات 14، ومجموع أرقام العشرات 18، ومجموع أرقام الآحاد 13. ما المجموع الكلي؟",
+          "En": "A pupil adds three three-digit numbers. Before carrying, the hundreds digits total 14, the tens digits total 18 and the ones digits total 13. What is the total sum?"
         },
         "Options": [
           {
@@ -1830,7 +1831,7 @@
           "En": "Remaining capacity"
         },
         "Question": {
-          "Ar": "إبريق سعته 1 L يحتوي 650 mL من الماء، وإبريق آخر سعته 750 mL. كم مليلتراً يجب أن يحتوي الإبريق الثاني حتى تكون المساحة الفارغة فيه مساوية للأول؟",
+          "Ar": "إبريق سعته 1 L يحتوي 650 mL من الماء، وإبريق آخر سعته 750 mL. كم مليلتراً يجب أن يحتوي الإبريق الثاني حتى تكون السعة غير المملوءة فيه مساوية للأول؟",
           "En": "A 1 L jug contains 650 mL of water. Another jug has a capacity of 750 mL. How many millilitres must the second contain so both jugs have the same unfilled capacity?"
         },
         "Options": [
@@ -1839,8 +1840,8 @@
             "IsCorrect": false,
             "ErrorType": "misconception",
             "Reason": {
-              "Ar": "هذا فرق غير مرتبط بالمساحة الفارغة المطلوبة.",
-              "En": "This does not match the required unfilled capacity."
+              "Ar": "إذا كان فيه 100 mL يبقى فارغاً 650 mL، لا 350 mL.",
+              "En": "With 100 mL of water it has 650 mL unfilled, not 350 mL."
             }
           },
           {
@@ -1848,8 +1849,8 @@
             "IsCorrect": false,
             "ErrorType": "misconception",
             "Reason": {
-              "Ar": "350 هو الفراغ المطلوب لا كمية الماء.",
-              "En": "350 is the required empty capacity, not the water amount."
+              "Ar": "350 mL هي السعة غير المملوءة المطلوبة لا كمية الماء.",
+              "En": "350 mL is the required unfilled capacity, not the water amount."
             }
           },
           {
@@ -1974,16 +1975,16 @@
           {
             "ErrorType": "misconception",
             "Reason": {
-              "Ar": "هذا فرق غير مرتبط بالمساحة الفارغة المطلوبة.",
-              "En": "This does not match the required unfilled capacity."
+              "Ar": "إذا كان فيه 100 mL يبقى فارغاً 650 mL، لا 350 mL.",
+              "En": "With 100 mL of water it has 650 mL unfilled, not 350 mL."
             },
             "Order": 1
           },
           {
             "ErrorType": "misconception",
             "Reason": {
-              "Ar": "350 هو الفراغ المطلوب لا كمية الماء.",
-              "En": "350 is the required empty capacity, not the water amount."
+              "Ar": "350 mL هي السعة غير المملوءة المطلوبة لا كمية الماء.",
+              "En": "350 mL is the required unfilled capacity, not the water amount."
             },
             "Order": 2
           },
@@ -2000,206 +2001,6 @@
             "Reason": {
               "Ar": "هذا يجعل الفراغ في الثاني 100 mL فقط.",
               "En": "This leaves only 100 mL empty in the second jug."
-            },
-            "Order": 4
-          }
-        ]
-      }
-    },
-    {
-      "key": "growth-v86-grade-4-time-elapsed-midnight-crossing-1",
-      "family": "time-elapsed-midnight-crossing",
-      "skill_key": "time",
-      "track_code": "grade-4",
-      "track": 4,
-      "stage": 1,
-      "category": 82,
-      "skill": 324,
-      "wizard": {
-        "StageId": 1,
-        "CategoryId": 82,
-        "PrimarySkillId": 324,
-        "SecondarySkillIds": [],
-        "TrackIds": [
-          4
-        ],
-        "DifficultyLevel": 2,
-        "Points": 10,
-        "Title": {
-          "Ar": "مدة عبر منتصف الليل",
-          "En": "Elapsed time across midnight"
-        },
-        "Question": {
-          "Ar": "بدأ تسجيل فلكي عند الساعة 23:40 وانتهى عند الساعة 00:15 من اليوم التالي. كم دقيقة استمر التسجيل؟",
-          "En": "An astronomical recording starts at 23:40 and ends at 00:15 the next day. How many minutes does it last?"
-        },
-        "Options": [
-          {
-            "LatexCode": "25",
-            "IsCorrect": false,
-            "ErrorType": "misconception",
-            "Reason": {
-              "Ar": "من 23:40 إلى منتصف الليل عشرون دقيقة لا عشر.",
-              "En": "23:40 to midnight is twenty minutes, not ten."
-            }
-          },
-          {
-            "LatexCode": "35",
-            "IsCorrect": true,
-            "ErrorType": "",
-            "Reason": {
-              "Ar": "",
-              "En": ""
-            }
-          },
-          {
-            "LatexCode": "45",
-            "IsCorrect": false,
-            "ErrorType": "misconception",
-            "Reason": {
-              "Ar": "بعد منتصف الليل خمس عشرة دقيقة لا خمس وعشرون.",
-              "En": "There are fifteen minutes after midnight, not twenty-five."
-            }
-          },
-          {
-            "LatexCode": "75",
-            "IsCorrect": false,
-            "ErrorType": "misconception",
-            "Reason": {
-              "Ar": "لا توجد ساعة كاملة إضافية بين الوقتين.",
-              "En": "There is no extra full hour between the times."
-            }
-          }
-        ],
-        "Hints": [
-          {
-            "Ar": "احسب الوقت من البداية إلى 00:00.",
-            "En": "Count the time from the start to 00:00."
-          },
-          {
-            "Ar": "أضف الدقائق بعد منتصف الليل.",
-            "En": "Add the minutes after midnight."
-          }
-        ],
-        "Solution": {
-          "Idea": {
-            "Ar": "نقسم الفترة عند منتصف الليل لتجنب طرح أرقام الساعات مباشرة.",
-            "En": "Split the interval at midnight instead of subtracting clock digits directly."
-          },
-          "FormulaLatex": "20+15=35",
-          "Steps": [
-            {
-              "Ar": "من 23:40 إلى 00:00 عشرون دقيقة.",
-              "En": "From 23:40 to 00:00 is twenty minutes."
-            },
-            {
-              "Ar": "ثم خمس عشرة دقيقة حتى النهاية.",
-              "En": "Then fifteen minutes to the finish."
-            }
-          ],
-          "Substitution": {
-            "Ar": "$20+15=35$",
-            "En": "$20+15=35$"
-          },
-          "Result": {
-            "Ar": "$35$",
-            "En": "$35$"
-          },
-          "Unit": {
-            "Ar": "",
-            "En": ""
-          },
-          "Verification": {
-            "Ar": "إضافة 35 دقيقة إلى 23:40 توصل إلى 00:15 في اليوم التالي.",
-            "En": "Adding 35 minutes to 23:40 reaches 00:15 the next day."
-          },
-          "CommonError": {
-            "Ar": "اعتبار منتصف الليل نهاية العد بدلاً من متابعة اليوم التالي.",
-            "En": "Treating midnight as the end of counting instead of continuing into the next day."
-          }
-        }
-      },
-      "flat_ar": "نقسم الفترة عند منتصف الليل لتجنب طرح أرقام الساعات مباشرة.\n\n$20+15=35$\n\n1. من 23:40 إلى 00:00 عشرون دقيقة.\n\n2. ثم خمس عشرة دقيقة حتى النهاية.\n\n$20+15=35$\n\n$35$\n\nإضافة 35 دقيقة إلى 23:40 توصل إلى 00:15 في اليوم التالي.\n\nاعتبار منتصف الليل نهاية العد بدلاً من متابعة اليوم التالي.",
-      "flat_en": "Split the interval at midnight instead of subtracting clock digits directly.\n\n$20+15=35$\n\n1. From 23:40 to 00:00 is twenty minutes.\n\n2. Then fifteen minutes to the finish.\n\n$20+15=35$\n\n$35$\n\nAdding 35 minutes to 23:40 reaches 00:15 the next day.\n\nTreating midnight as the end of counting instead of continuing into the next day.",
-      "metadata": {
-        "DifficultyLevel": 2,
-        "Hints": [
-          {
-            "Ar": "احسب الوقت من البداية إلى 00:00.",
-            "En": "Count the time from the start to 00:00."
-          },
-          {
-            "Ar": "أضف الدقائق بعد منتصف الليل.",
-            "En": "Add the minutes after midnight."
-          }
-        ],
-        "Solution": {
-          "Idea": {
-            "Ar": "نقسم الفترة عند منتصف الليل لتجنب طرح أرقام الساعات مباشرة.",
-            "En": "Split the interval at midnight instead of subtracting clock digits directly."
-          },
-          "FormulaLatex": "20+15=35",
-          "Steps": [
-            {
-              "Ar": "من 23:40 إلى 00:00 عشرون دقيقة.",
-              "En": "From 23:40 to 00:00 is twenty minutes."
-            },
-            {
-              "Ar": "ثم خمس عشرة دقيقة حتى النهاية.",
-              "En": "Then fifteen minutes to the finish."
-            }
-          ],
-          "Substitution": {
-            "Ar": "$20+15=35$",
-            "En": "$20+15=35$"
-          },
-          "Result": {
-            "Ar": "$35$",
-            "En": "$35$"
-          },
-          "Unit": {
-            "Ar": "",
-            "En": ""
-          },
-          "Verification": {
-            "Ar": "إضافة 35 دقيقة إلى 23:40 توصل إلى 00:15 في اليوم التالي.",
-            "En": "Adding 35 minutes to 23:40 reaches 00:15 the next day."
-          },
-          "CommonError": {
-            "Ar": "اعتبار منتصف الليل نهاية العد بدلاً من متابعة اليوم التالي.",
-            "En": "Treating midnight as the end of counting instead of continuing into the next day."
-          }
-        },
-        "Distractors": [
-          {
-            "ErrorType": "misconception",
-            "Reason": {
-              "Ar": "من 23:40 إلى منتصف الليل عشرون دقيقة لا عشر.",
-              "En": "23:40 to midnight is twenty minutes, not ten."
-            },
-            "Order": 1
-          },
-          {
-            "ErrorType": "",
-            "Reason": {
-              "Ar": "",
-              "En": ""
-            },
-            "Order": 2
-          },
-          {
-            "ErrorType": "misconception",
-            "Reason": {
-              "Ar": "بعد منتصف الليل خمس عشرة دقيقة لا خمس وعشرون.",
-              "En": "There are fifteen minutes after midnight, not twenty-five."
-            },
-            "Order": 3
-          },
-          {
-            "ErrorType": "misconception",
-            "Reason": {
-              "Ar": "لا توجد ساعة كاملة إضافية بين الوقتين.",
-              "En": "There is no extra full hour between the times."
             },
             "Order": 4
           }
@@ -2239,8 +2040,8 @@
             "IsCorrect": false,
             "ErrorType": "misconception",
             "Reason": {
-              "Ar": "لا نطرح تأخر الساعة من القراءتين ثم من المدة مرة أخرى.",
-              "En": "Do not subtract the clock error from both readings and then again from the duration."
+              "Ar": "تصحيح القراءتين معاً لا ينقص المدة عشر دقائق؛ فرق الوقتين يبقى نفسه.",
+              "En": "Correcting both readings does not shorten the duration by ten minutes; their difference stays the same."
             }
           },
           {
@@ -2374,8 +2175,8 @@
           {
             "ErrorType": "misconception",
             "Reason": {
-              "Ar": "لا نطرح تأخر الساعة من القراءتين ثم من المدة مرة أخرى.",
-              "En": "Do not subtract the clock error from both readings and then again from the duration."
+              "Ar": "تصحيح القراءتين معاً لا ينقص المدة عشر دقائق؛ فرق الوقتين يبقى نفسه.",
+              "En": "Correcting both readings does not shorten the duration by ten minutes; their difference stays the same."
             },
             "Order": 1
           },
@@ -2406,5 +2207,6 @@
         ]
       }
     }
-  ]
+  ],
+  "review": "14 candidates examined, three held (one near-exact active-draft duplicate, one overlapping equation pattern, one scope ambiguity); 11 retained after live target review and bilingual nearest-token screening of live and active draft inventory. Clarified three-digit addends and unfilled capacity feedback. Two conversions, four addition tasks, three multiplication-equation tasks, two measurement tasks. Full curriculum, rendering and CI not verified."
 }
