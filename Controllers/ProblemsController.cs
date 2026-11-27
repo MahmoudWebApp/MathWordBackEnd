@@ -761,9 +761,9 @@ namespace MathWorldAPI.Controllers
                         item.Stage)
                     .Include(item =>
                         item.Options)
-                    .AsSplitQuery()
+                    .AsSingleQuery()
                     .FirstOrDefaultAsync(item =>
-                        item.Id == id);
+                        item.Id == id, HttpContext.RequestAborted);
 
             if (problem == null)
             {

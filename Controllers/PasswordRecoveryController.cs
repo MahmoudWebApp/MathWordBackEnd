@@ -25,10 +25,16 @@ public sealed class PasswordRecoveryController(PasswordRecoveryService recovery,
         if (!await captcha.VerifyAsync("forgot-password", Request.Headers[AuthCaptchaService.Header].ToString(), ct))
             return BadRequest(LanguageHelper.ErrorResponse<object>("CaptchaVerificationFailed", language, 400, new Dictionary<string,List<string>> { ["Captcha"] = ["CaptchaVerificationFailed"] }));
         var start = System.Diagnostics.Stopwatch.StartNew();
-        await recovery.RequestAsync(request.Email, language, ct);
+        var outcome = await recovery.RequestAsync(request.Email, language, ct);
         // Avoid an obvious synchronous delivery or lookup timing signal.
         var remaining = TimeSpan.FromMilliseconds(250) - start.Elapsed;
         if (remaining > TimeSpan.Zero) await Task.Delay(remaining, ct);
+        if (outcome == RecoveryRequestResult.EmailNotRegistered)
+            return NotFound(LanguageHelper.ErrorResponse<object>("RecoveryEmailNotRegistered", language, 404, new Dictionary<string,List<string>> { ["Email"] = ["RecoveryEmailNotRegistered"] }));
+        if (outcome == RecoveryRequestResult.InvalidEmail)
+            return BadRequest(LanguageHelper.ErrorResponse<object>("RecoveryInvalidEmail", language, 400, new Dictionary<string,List<string>> { ["Email"] = ["RecoveryInvalidEmail"] }));
+        if (outcome == RecoveryRequestResult.Unavailable)
+            return StatusCode(503, LanguageHelper.ErrorResponse<object>("RecoveryTemporarilyUnavailable", language, 503));
         return Accepted(LanguageHelper.SuccessResponse(new { Accepted = true }, "PasswordRecoveryRequested", language, 202));
     }
 

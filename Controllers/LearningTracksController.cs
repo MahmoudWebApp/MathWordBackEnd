@@ -98,10 +98,10 @@ public sealed class LearningTracksController(AppDbContext db,LearningTrackServic
     }
     [Authorize(Roles="Student")]
     [HttpGet("api/users/learning-tracks/{id:int}/categories/{categoryId:int}/problems")]
-    public async Task<IActionResult> PracticeCatalog(int id,int categoryId,[FromQuery]int page=1,[FromQuery]bool hideSolved=false,CancellationToken ct=default,[FromQuery]int pageSize=50)
+    public async Task<IActionResult> PracticeCatalog(int id,int categoryId,[FromQuery]int page=1,[FromQuery]bool hideSolved=false,CancellationToken ct=default,[FromQuery]int pageSize=5,[FromQuery]string? q=null)
     {
         if(!tracks.Enabled)return NotFound();
-        if(page is <1 or >10000 || pageSize is <1 or >50)return BadRequest();
+        if(page is <1 or >10000 || pageSize is <1 or >50 || q?.Length>120)return BadRequest();
         var t=await tracks.VisibleTracks().SingleOrDefaultAsync(x=>x.Id==id,ct);
         if(t is null)return NotFound();
         var allowed=await access.GetAllowedCategoryIdsAsync(User,ct)??new List<int>();
@@ -113,10 +113,24 @@ public sealed class LearningTracksController(AppDbContext db,LearningTrackServic
         if(!await valid.AnyAsync(ct))return NotFound();
         var scopedProgress=TrackPractice.For(db,TrackPractice.Scope(HttpContext.RequestServices.GetRequiredService<IConfiguration>(),id));
         if(hideSolved)valid=valid.Where(p=>!scopedProgress.Any(x=>x.UserId==uid&&x.ProblemId==p.Id&&x.IsSolved));
+        var term=q?.Trim();
+        if(!string.IsNullOrEmpty(term))
+        {
+            // Search only the already-authorized track/category, before paging.
+            var pattern="%"+term.Replace("!","!!").Replace("%","!%").Replace("_","!_")+"%";
+            valid=valid.Where(p=>EF.Functions.ILike(p.TitleAr,pattern,"!")||
+                EF.Functions.ILike(p.TitleEn,pattern,"!")||
+                EF.Functions.ILike(p.QuestionTextAr,pattern,"!")||
+                EF.Functions.ILike(p.QuestionTextEn,pattern,"!"));
+        }
         var total=await valid.CountAsync(ct);
         var items=await valid.OrderBy(p=>scopedProgress.Any(x=>x.UserId==uid&&x.ProblemId==p.Id&&x.IsSolved)).ThenBy(p=>p.Id).Skip((page-1)*pageSize).Take(pageSize)
-            .Select(p=>new{p.Id,p.CategoryId,p.TitleAr,p.TitleEn,p.Points,
-                IsSolved=scopedProgress.Any(x=>x.UserId==uid&&x.ProblemId==p.Id&&x.IsSolved)})
+            .Select(p=>new{p.Id,p.CategoryId,p.TitleAr,p.TitleEn,p.Points,p.StageId,
+                CategoryNameAr=p.Category.NameAr,CategoryNameEn=p.Category.NameEn,
+                StageNameAr=p.Stage.NameAr,StageNameEn=p.Stage.NameEn,
+                IsSolved=scopedProgress.Any(x=>x.UserId==uid&&x.ProblemId==p.Id&&x.IsSolved),
+                HasAttempted=scopedProgress.Any(x=>x.UserId==uid&&x.ProblemId==p.Id&&x.Attempts>0),
+                IsFavorite=db.UserProgresses.AsNoTracking().Any(x=>x.UserId==uid&&x.ProblemId==p.Id&&x.IsFavorite)})
             .ToListAsync(ct);
         return Ok(new{TrackId=id,CategoryId=categoryId,Total=total,Page=page,PageSize=pageSize,Items=items});
     }

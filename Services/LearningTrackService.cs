@@ -37,8 +37,14 @@ public sealed class LearningTrackService(AppDbContext db, IConfiguration config,
             .Select(u=>new{u.CurrentStageId,u.CurrentTrackId}).SingleOrDefaultAsync(ct);
         if(selection is null)return false;
         if(!selection.CurrentTrackId.HasValue)return true;
-        var track=await ActiveAsync(selection.CurrentStageId,selection.CurrentTrackId,ct);
-        return track is not null&&await ValidProblems(track.Id).AnyAsync(p=>p.Id==problemId,ct);
+        if(!selection.CurrentStageId.HasValue)return false;
+        // A valid mapped problem itself proves the track has a valid link.
+        // Keep the published/stage and mapping predicates in one SQL query.
+        var selectedTrackId=selection.CurrentTrackId.Value;
+        var valid=ValidProblems(selectedTrackId);
+        return await db.LearningTracks.AsNoTracking().AnyAsync(t=>
+            t.Id==selectedTrackId&&t.StageId==selection.CurrentStageId.Value&&
+            t.IsPublished&&valid.Any(p=>p.Id==problemId),ct);
     }
 
     // Recheck original stage/category and published primary skill every time.

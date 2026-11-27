@@ -43,9 +43,13 @@ def main():
     assert status == 201
     old_token = token_of(result["Data"])
     route = "/api/auth/forgot-password"
-    a = expect("POST", route, 202, {"Email":"absent@mathworld.test"})
+    status, absent = api("POST", route, {"Email":"absent@mathworld.test"})
+    assert status == 404 and "RecoveryEmailNotRegistered" in absent["Errors"]["Email"], absent
+    # No reset grant or queued message may be created for an unknown address.
+    assert sql("""SELECT COUNT(*) FROM "PasswordResetGrants" WHERE lower("Email")='absent@mathworld.test'""") == "0"
+    assert sql("""SELECT COUNT(*) FROM "EmailOutbox" WHERE lower("Recipient")='absent@mathworld.test' AND "TemplateKey"='password-reset'""") == "0"
     b = expect("POST", route, 202, {"Email":EMAIL})
-    assert a == b == {"Accepted":True}
+    assert b == {"Accepted":True}
     expect("POST", route, 202, {"Email":EMAIL})
     assert sql("""SELECT COUNT(*) FROM "PasswordResetGrants" WHERE "Email"='recovery-ci@mathworld.test'""") == "1"
     token = grant_token(EMAIL)
@@ -163,6 +167,6 @@ def main():
     before=sql("""SELECT COUNT(*) FROM "PasswordResetGrants" WHERE "Email"='recovery-ci@mathworld.test'""")
     expect("POST",route,202,{"Email":EMAIL})
     assert sql("""SELECT COUNT(*) FROM "PasswordResetGrants" WHERE "Email"='recovery-ci@mathworld.test'""")==before
-    print("PASS: generic forgot, cooldown, hash-only grant, queue, single-use reset, admin recovery, expiration, disabled account, and protected outbox status")
+    print("PASS: explicit unknown email, cooldown, hash-only grant, queue, single-use reset, admin recovery, expiration, disabled account, and protected outbox status")
 if __name__=="__main__":
     main()

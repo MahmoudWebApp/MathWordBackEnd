@@ -601,6 +601,7 @@ builder.Services.AddCors(options =>
             .WithOrigins(allowedOrigins)
             .AllowAnyHeader()
             .AllowAnyMethod()
+            .WithExposedHeaders("X-Total-Count", "X-Due-Count")
             .AllowCredentials();
     });
 });
