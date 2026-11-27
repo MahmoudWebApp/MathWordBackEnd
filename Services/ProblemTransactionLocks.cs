@@ -26,6 +26,22 @@ namespace MathWorldAPI.Services
                 cancellationToken);
         }
 
+        /// <summary>
+        /// Acquire the existing three answer/hint locks in the same order in
+        /// one Npgsql command. Separate SQL statements preserve lock ordering;
+        /// the caller's explicit transaction holds them until commit/rollback.
+        /// </summary>
+        public static Task LockAnswerMutationAsync(
+            AppDbContext context, int userId, int problemId,
+            CancellationToken cancellationToken = default)
+        {
+            if (context.Database.CurrentTransaction is null)
+                throw new InvalidOperationException("Answer locks require an active transaction.");
+            return context.Database.ExecuteSqlInterpolatedAsync(
+                $"SELECT pg_advisory_xact_lock_shared({-(long)problemId}); SELECT pg_advisory_xact_lock({-987654320}, {userId}); SELECT pg_advisory_xact_lock({userId}, {problemId})",
+                cancellationToken);
+        }
+
         public static Task LockStudentAttemptAsync(
             AppDbContext context,
             int userId,
