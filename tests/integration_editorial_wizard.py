@@ -154,6 +154,21 @@ def verify_wizard(admin,supervisor,sid):
     expect("POST",bp+"/submit",400,{"Revision":0},supervisor)
     expect("POST",bp+"/withdraw",200,{"Revision":0,"Note":"Incomplete bilingual fixture"},admin)
     print("PASS: interactive optional solution fields, incomplete bilingual field rejected")
+    for hint_count in (0,1):
+        simple=copy.deepcopy(p)
+        simple["Question"]=pair(f"ما ناتج 13 + 9 في اختبار الشرح المرن {hint_count}؟",f"What is 13 + 9 in the flexible editor fixture {hint_count}?")
+        simple["Title"]=pair("شرح مرن","Flexible solution")
+        simple["Hints"]=simple["Hints"][:hint_count]
+        simple["Solution"]={"ManualExplanation":pair("نجمع 13 و9 فنحصل على 22.","Add 13 and 9 to obtain 22."),"Steps":[]}
+        manual=expect("POST",root,201,{"Revision":0,"Content":simple},admin)
+        result=expect("POST",f"{root}/{manual['Id']}/publish",200,{"Revision":0,"Confirm":True,"DirectApproval":True,"Note":"Flexible editor fixture"},admin)
+        preview=expect("GET",f"{root}/bank/{result['PublishedProblemId']}/preview",200,token=admin)
+        assert len(preview["Hints"])==hint_count
+        assert preview["DetailedSolutionEn"]==simple["Solution"]["ManualExplanation"]["En"]
+        supervisor_draft=expect("POST",root,201,{"Revision":0,"Content":simple},supervisor)
+        expect("POST",f"{root}/{supervisor_draft['Id']}/submit",400,{"Revision":0},supervisor)
+        expect("POST",f"{root}/{supervisor_draft['Id']}/withdraw",200,{"Revision":0,"Note":"Strict review fixture"},supervisor)
+    print("PASS: manual admin authoring supports optional hints, supervisor remains strict")
     # Published preview is staff-only and must be read-only.
     published_preview=f"{root}/bank/{pid}/preview"
     expect("GET",published_preview,401)
