@@ -135,6 +135,7 @@ namespace MathWorldAPI.DTOs
     /// </summary>
     public class ProblemForStudentDto
     {
+        public bool HasDiagram { get; set; }
         public int? PracticeScopeId { get; set; }
         public object? SolutionStructure { get; set; }
         /// <summary>
