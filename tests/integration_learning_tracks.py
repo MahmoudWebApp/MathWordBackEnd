@@ -213,7 +213,15 @@ def verify_tracks(admin, student, uid, stage1, stage2):
     assert historical.get("TrackId") is None and historical["StageId"]==stage2
     sql(f"""UPDATE "Users" SET "SubscriptionType"='Free' WHERE "Id"={uid}""")
     practice=f"/api/users/learning-tracks/{tid}/categories/{category}/problems"
-    assert expect("GET",practice,200,token=student)["Items"][0]["Id"]==pid
+    catalog=expect("GET",practice,200,token=student)
+    assert catalog["Items"][0]["Id"]==pid and catalog["PageSize"]==5
+    from urllib.parse import quote
+    for title in (catalog["Items"][0]["TitleAr"],catalog["Items"][0]["TitleEn"]):
+        found=expect("GET",practice+"?q="+quote(title[:100]),200,token=student)
+        assert found["Total"]==1 and found["Items"][0]["Id"]==pid
+    empty=expect("GET",practice+"?q=__absent_mathworld_fixture__",200,token=student)
+    assert empty["Total"]==0 and empty["Items"]==[]
+    expect("GET",practice+"?q="+("a"*121),400,token=student)
     next_route=f"/api/users/learning-tracks/{tid}/categories/{category}/next?afterProblemId={pid}"
     empty_next=expect("GET",next_route,200,token=student)
     assert empty_next["HasNext"] is False and empty_next.get("Problem") is None
@@ -379,6 +387,7 @@ def verify_track_free_outside_stage_pair(admin,student,uid,stage1,all_tracks):
     for i,(category,pid) in enumerate(zip(categories,problems)):
         status=200 if i<2 else 403
         expect("GET",f"/api/users/learning-tracks/{tid}/categories/{category}/problems",status,token=student)
+        expect("GET",f"/api/users/learning-tracks/{tid}/categories/{category}/problems?q=anything",status,token=student)
         expect("GET",f"/api/users/learning-tracks/{tid}/categories/{category}/next?afterProblemId={pid}",status,token=student)
         expect("GET",f"/api/problems/{pid}",status,token=student)
     route=f"/api/users/learning-tracks/{tid}/categories/{categories[0]}/next?afterProblemId={problems[0]}"
