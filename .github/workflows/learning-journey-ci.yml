@@ -24,6 +24,7 @@ on:
       - 'Controllers/CustomExamsController.cs'
       - 'Controllers/CurrentGradeReportsController.cs'
       - 'tests/integration_custom_exams.py'
+      - 'tests/integration_shared_grade_report.py'
       - 'tests/integration_learning_certificates.py'
       - 'tests/integration_learning_sessions.py'
       - 'Models/**'
@@ -96,6 +97,40 @@ jobs:
         env:
           MATHWORLD_TEST_BASE_URL: http://127.0.0.1:5052
         run: python3 tests/integration_learning_journey.py
+      - name: Verify shared practice grade report on same disposable database
+        shell: bash
+        env:
+          ASPNETCORE_ENVIRONMENT: Production
+          ASPNETCORE_URLS: http://127.0.0.1:5052
+          ConnectionStrings__DefaultConnection: Host=127.0.0.1;Port=5432;Database=mathworld_ci;Username=postgres;Password=ci_only_password
+          Jwt__Key: ci_only_test_signing_key_never_use_in_production_0123456789
+          Jwt__Issuer: MathWorld-CI
+          Jwt__Audience: MathWorld-CI
+          Meilisearch__Enabled: 'false'
+          BootstrapAdmin__Enabled: 'true'
+          BootstrapAdmin__Email: ci-admin@mathworld.test
+          BootstrapAdmin__Password: CI_TEST_ADMIN_PASSWORD_12345
+          BootstrapAdmin__FullName: CI Administrator
+          Database__ApplyMigrationsOnStartup: 'true'
+          LearningTracks__Enabled: 'true'
+          LearningSessions__Enabled: 'true'
+          PracticeCycles__TrackIsolationEnabled: 'false'
+          Certificates__Enabled: 'true'
+          Certificates__IssuanceEnabled: 'true'
+          CustomExams__Enabled: 'true'
+          # This one disposable suite deliberately submits many consecutive fixture answers.
+          RateLimits__AnswerTokensPerMinute: '60'
+          MATHWORLD_TEST_BASE_URL: http://127.0.0.1:5052
+        run: |
+          set -euo pipefail
+          kill "$(cat /tmp/mathworld-journey.pid)" 2>/dev/null || true
+          for i in {1..30}; do
+            if ! kill -0 "$(cat /tmp/mathworld-journey.pid)" 2>/dev/null; then break; fi
+            sleep 1
+          done
+          dotnet run --no-build --no-launch-profile -c Release --project MathWorldAPI.csproj >> /tmp/mathworld-journey.log 2>&1 &
+          echo "$!" > /tmp/mathworld-journey.pid
+          python3 tests/integration_shared_grade_report.py
       - name: Show error markers on failure
         if: failure()
         run: |

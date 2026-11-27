@@ -19,7 +19,7 @@ public sealed class CurrentGradeReportsController(AppDbContext db, IConfiguratio
     private static double? Percent(int numerator,int denominator)=>denominator==0?null:Math.Round(100.0*numerator/denominator,1);
 
     [HttpGet]
-    public async Task<IActionResult> Get(CancellationToken ct)
+    public async Task<IActionResult> Get(CancellationToken ct,[FromQuery] bool allowSharedPractice=false)
     {
         if(!int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier),out var uid)||uid<=0)return Unauthorized();
         var student=await db.Users.AsNoTracking().SingleOrDefaultAsync(u=>u.Id==uid&&u.IsActive&&u.Role=="Student",ct);
@@ -27,8 +27,12 @@ public sealed class CurrentGradeReportsController(AppDbContext db, IConfiguratio
         if(!PremiumEntitlement.IsActive(student))return StatusCode(403,new{Message="PremiumRequired"});
         var track=await tracks.ActiveAsync(student.CurrentStageId,student.CurrentTrackId,ct);
         if(track is null)return Conflict(new{Message="LearningTrackRequired"});
-        if(!TrackPractice.Enabled(config))return Conflict(new{Message="TrackReportIsolationUnavailable"});
+        var isolated=TrackPractice.Enabled(config);
+        // Older clients assume every metric is isolated to a grade. Require
+        // explicit opt-in to shared practice reporting so they cannot mislabel it.
+        if(!isolated&&!allowSharedPractice)return Conflict(new{Message="TrackReportIsolationUnavailable"});
         var id=track.Id;
+        var practiceScope=TrackPractice.Scope(config,id);
         // Resolve eligible problem IDs once for this read-only report. The
         // same snapshot scopes all aggregates and recent attempts, rather
         // than recompiling the full track/skill join for every SQL command.
@@ -37,11 +41,11 @@ public sealed class CurrentGradeReportsController(AppDbContext db, IConfiguratio
         var inventory=await valid.GroupBy(p=>new{p.CategoryId,p.Category.NameAr,p.Category.NameEn,p.Category.Order})
             .Select(g=>new{g.Key.CategoryId,g.Key.NameAr,g.Key.NameEn,g.Key.Order,ProblemsCount=g.Count()})
             .OrderBy(x=>x.Order).ThenBy(x=>x.CategoryId).ToListAsync(ct);
-        var progress=await TrackPractice.For(db,id).AsNoTracking()
+        var progress=await TrackPractice.For(db,practiceScope).AsNoTracking()
             .Where(p=>p.UserId==uid&&validIds.Contains(p.ProblemId))
             .GroupBy(p=>p.Problem.CategoryId).Select(g=>new{CategoryId=g.Key,Solved=g.Count(p=>p.IsSolved),Mastered=g.Count(p=>p.MasteryStatus==MasteryStatuses.Mastered)})
             .ToDictionaryAsync(x=>x.CategoryId,ct);
-        var ordinary=db.ProblemAttempts.AsNoTracking().Where(a=>a.UserId==uid&&a.PracticeScopeId==id&&validIds.Contains(a.ProblemId));
+        var ordinary=db.ProblemAttempts.AsNoTracking().Where(a=>a.UserId==uid&&a.PracticeScopeId==practiceScope&&validIds.Contains(a.ProblemId));
         var guided=from a in db.LearningSessionAttempts.AsNoTracking()
             join s in db.LearningSessions.AsNoTracking() on a.SessionId equals s.Id
             join p in valid on a.ProblemId equals p.Id
@@ -60,13 +64,14 @@ public sealed class CurrentGradeReportsController(AppDbContext db, IConfiguratio
                 MasteryPercent=Percent(mastered,c.ProblemsCount),Attempts=attempts,AccuracyPercent=Percent(correct,attempts),Correct=correct,Points=h?.Points??0L};
         }).ToList();
         var recentOrdinary=await ordinary.OrderByDescending(a=>a.SubmittedAt).ThenByDescending(a=>a.Id).Take(10)
-            .Select(a=>new Recent(a.ProblemId,a.Problem.CategoryId,a.Problem.TitleAr,a.Problem.TitleEn,a.IsCorrect,a.PointsEarned,a.SubmittedAt,"ordinary")).ToListAsync(ct);
+            .Select(a=>new Recent(a.ProblemId,a.Problem.CategoryId,a.Problem.TitleAr,a.Problem.TitleEn,a.IsCorrect,a.PointsEarned,a.SubmittedAt,isolated?"ordinary":"shared-practice")).ToListAsync(ct);
         var recentGuided=await guided.OrderByDescending(a=>a.Attempt.SubmittedAtUtc).ThenBy(a=>a.Attempt.RequestId).Take(10)
             .Select(a=>new Recent(a.Problem.Id,a.Problem.CategoryId,a.Problem.TitleAr,a.Problem.TitleEn,a.Attempt.IsCorrect,a.Attempt.PointsEarned,a.Attempt.SubmittedAtUtc,"session")).ToListAsync(ct);
         var total=categories.Sum(c=>c.ProblemsCount);var solved=categories.Sum(c=>c.Solved);var count=categories.Sum(c=>c.Attempts);
         return Ok(new{TrackId=id,track.StageId,Track=new{track.Id,track.NameAr,track.NameEn},ProblemsCount=total,Solved=solved,
             CompletionPercent=Percent(solved,total),Attempts=count,AccuracyPercent=Percent(categories.Sum(c=>c.Correct),count),Points=categories.Sum(c=>c.Points),Categories=categories,
             RecentAttempts=recentOrdinary.Concat(recentGuided).OrderByDescending(a=>a.SubmittedAtUtc).Take(10).ToArray(),
-            MetricsScope="CurrentTrack",HistoryScope="RecordedTrackAttempts",ProgressScope="CurrentPracticeCycle"});
+            MetricsScope="CurrentTrack",HistoryScope=isolated?"RecordedTrackAttempts":"SharedPracticeAndRecordedTrackAttempts",
+            ProgressScope=isolated?"CurrentPracticeCycle":"SharedStagePracticeCycle",TrackPracticeIsolationEnabled=isolated});
     }
 }
