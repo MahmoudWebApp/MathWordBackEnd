@@ -56,8 +56,8 @@
             "IsCorrect": false,
             "ErrorType": "misconception",
             "Reason": {
-              "Ar": "ثلاث عشرات تحتاج 30 آحاداً على الأقل.",
-              "En": "Three tens require at least 30 ones."
+              "Ar": "ثلاث عشرات تحتاج إلى 30 آحاداً على الأقل، والمجموع 24.",
+              "En": "Three tens require at least 30 ones, but the total is 24."
             }
           },
           {
@@ -189,8 +189,8 @@
           {
             "ErrorType": "misconception",
             "Reason": {
-              "Ar": "ثلاث عشرات تحتاج 30 آحاداً على الأقل.",
-              "En": "Three tens require at least 30 ones."
+              "Ar": "ثلاث عشرات تحتاج إلى 30 آحاداً على الأقل، والمجموع 24.",
+              "En": "Three tens require at least 30 ones, but the total is 24."
             },
             "Order": 3
           },
@@ -1230,7 +1230,7 @@
         },
         "Question": {
           "Ar": "في إبريق A كمية 900 mL، وفي إبريق B كمية 650 mL وسعته 1 L. نملأ B من A حتى يمتلئ تماماً دون سكب. كم مليلتراً يبقى في A؟",
-          "En": "Jug A contains 900 mL; jug B contains 650 mL and has a capacity of 1 L. Fill B from A without spilling. How many millilitres remain in A?"
+          "En": "Jug A contains 900 mL; jug B contains 650 mL and has a capacity of 1 L. Fill B from A until B is completely full, without spilling. How many millilitres remain in A?"
         },
         "Options": [
           {
@@ -2605,5 +2605,6 @@
         ]
       }
     }
-  ]
+  ],
+  "review": "14 candidates reviewed, one held for overlapping equation structure. 13 retained after live grade 4 target inventory and whole-bank Arabic/English nearest-token review including active drafts. Three addition, three multiplication equation, seven measurement tasks. Clarified full capacity in English transfer question. Full curriculum, CI, rendering and KaTeX tests not rerun."
 }
