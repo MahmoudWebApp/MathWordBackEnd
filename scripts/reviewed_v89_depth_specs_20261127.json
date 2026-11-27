@@ -4,7 +4,8 @@
   "holds": {
     "triangle-area-midpoint-altitude-split": "Same partition-area reasoning as #1732, simpler midpoint case.",
     "triangle-angle-right-equal-acute": "Same equal-angle calculation as #3292; hold.",
-    "triangle-area-height-increase-only": "Analogous to #1751 with base/height roles reversed and #2556; hold to avoid padding."
+    "triangle-area-height-increase-only": "Analogous to #1751 with base/height roles reversed and #2556; hold to avoid padding.",
+    "triangle-angle-difference-transfer-invariance": "Similar angle-change conservation to #2740; defer rather than publish a simpler numerical case."
   },
   "rows": [
     {
@@ -63,12 +64,12 @@
             }
           },
           {
-            "LatexCode": "27",
+            "LatexCode": "23",
             "IsCorrect": false,
             "ErrorType": "misconception",
             "Reason": {
-              "Ar": "ثلاثة أرباع 24 تساوي 18، لا 32.",
-              "En": "Three quarters of 24 is 18, not 32."
+              "Ar": "هذا يضيف 5 إلى ثلاثة أرباع 24 بدلاً من طرحها.",
+              "En": "This adds 5 to three quarters of 24 instead of subtracting it."
             }
           }
         ],
@@ -199,8 +200,8 @@
           {
             "ErrorType": "misconception",
             "Reason": {
-              "Ar": "ثلاثة أرباع 24 تساوي 18، لا 32.",
-              "En": "Three quarters of 24 is 18, not 32."
+              "Ar": "هذا يضيف 5 إلى ثلاثة أرباع 24 بدلاً من طرحها.",
+              "En": "This adds 5 to three quarters of 24 instead of subtracting it."
             },
             "Order": 4
           }
@@ -1806,206 +1807,7 @@
           }
         ]
       }
-    },
-    {
-      "key": "growth-v89-grade-5-triangle-angle-difference-transfer-invariance-1",
-      "family": "triangle-angle-difference-transfer-invariance",
-      "skill_key": "primary-triangle-angle-sum",
-      "track_code": "grade-5",
-      "track": 5,
-      "stage": 1,
-      "category": 3,
-      "skill": 15,
-      "wizard": {
-        "StageId": 1,
-        "CategoryId": 3,
-        "PrimarySkillId": 15,
-        "SecondarySkillIds": [],
-        "TrackIds": [
-          5
-        ],
-        "DifficultyLevel": 2,
-        "Points": 10,
-        "Title": {
-          "Ar": "تغير زاويتين وثبات الثالثة",
-          "En": "Changing two angles"
-        },
-        "Question": {
-          "Ar": "زوايا مثلث هي 50 و60 و70 درجة. في مثلث آخر زادت الزاوية الأولى 12 درجة ونقصت الثانية 12 درجة. ما قياس الزاوية الثالثة في المثلث الآخر؟",
-          "En": "A triangle has angles 50, 60 and 70 degrees. In another triangle the first angle increases by 12 degrees and the second decreases by 12 degrees. What is the third angle in the new triangle?"
-        },
-        "Options": [
-          {
-            "LatexCode": "46",
-            "IsCorrect": false,
-            "ErrorType": "misconception",
-            "Reason": {
-              "Ar": "هذا يطرح التغيرين رغم أن أحدهما زيادة والآخر نقصان.",
-              "En": "This subtracts both changes although one increases and one decreases."
-            }
-          },
-          {
-            "LatexCode": "58",
-            "IsCorrect": false,
-            "ErrorType": "misconception",
-            "Reason": {
-              "Ar": "هذا يطرح 12 من الزاوية الثالثة دون داعٍ.",
-              "En": "This subtracts 12 from the third angle unnecessarily."
-            }
-          },
-          {
-            "LatexCode": "70",
-            "IsCorrect": true,
-            "ErrorType": "",
-            "Reason": {
-              "Ar": "",
-              "En": ""
-            }
-          },
-          {
-            "LatexCode": "82",
-            "IsCorrect": false,
-            "ErrorType": "misconception",
-            "Reason": {
-              "Ar": "هذا يضيف 12 إلى الثالثة مع أن مجموع الأوليين ثابت.",
-              "En": "This adds 12 to the third even though the first two still have the same sum."
-            }
-          }
-        ],
-        "Hints": [
-          {
-            "Ar": "احسب الزاويتين الجديدتين.",
-            "En": "Find the two new angles."
-          },
-          {
-            "Ar": "اطرح مجموعهما من 180.",
-            "En": "Subtract their sum from 180."
-          }
-        ],
-        "Solution": {
-          "Idea": {
-            "Ar": "إذا تعوضت زيادة إحدى الزاويتين بنقص الأخرى، بقي مجموعهما ثابتاً.",
-            "En": "Equal and opposite angle changes preserve their sum."
-          },
-          "FormulaLatex": "62+48=110",
-          "Steps": [
-            {
-              "Ar": "تصبح الأولى 62 والثانية 48 درجة.",
-              "En": "The first becomes 62 and the second 48 degrees."
-            },
-            {
-              "Ar": "مجموعهما 110 كما كان، فيبقى للثالثة 70.",
-              "En": "Their sum remains 110, leaving 70 for the third."
-            }
-          ],
-          "Substitution": {
-            "Ar": "$180-110=70$",
-            "En": "$180-110=70$"
-          },
-          "Result": {
-            "Ar": "$70$",
-            "En": "$70$"
-          },
-          "Unit": {
-            "Ar": "",
-            "En": ""
-          },
-          "Verification": {
-            "Ar": "62 مع 48 مع 70 تساوي 180.",
-            "En": "62 plus 48 plus 70 equals 180."
-          },
-          "CommonError": {
-            "Ar": "تغيير الزاوية الثالثة رغم ثبات مجموع الزاويتين الأخريين.",
-            "En": "Changing the third angle even though the other two keep their sum."
-          }
-        }
-      },
-      "flat_ar": "إذا تعوضت زيادة إحدى الزاويتين بنقص الأخرى، بقي مجموعهما ثابتاً.\n\n$62+48=110$\n\n1. تصبح الأولى 62 والثانية 48 درجة.\n\n2. مجموعهما 110 كما كان، فيبقى للثالثة 70.\n\n$180-110=70$\n\n$70$\n\n62 مع 48 مع 70 تساوي 180.\n\nتغيير الزاوية الثالثة رغم ثبات مجموع الزاويتين الأخريين.",
-      "flat_en": "Equal and opposite angle changes preserve their sum.\n\n$62+48=110$\n\n1. The first becomes 62 and the second 48 degrees.\n\n2. Their sum remains 110, leaving 70 for the third.\n\n$180-110=70$\n\n$70$\n\n62 plus 48 plus 70 equals 180.\n\nChanging the third angle even though the other two keep their sum.",
-      "metadata": {
-        "DifficultyLevel": 2,
-        "Hints": [
-          {
-            "Ar": "احسب الزاويتين الجديدتين.",
-            "En": "Find the two new angles."
-          },
-          {
-            "Ar": "اطرح مجموعهما من 180.",
-            "En": "Subtract their sum from 180."
-          }
-        ],
-        "Solution": {
-          "Idea": {
-            "Ar": "إذا تعوضت زيادة إحدى الزاويتين بنقص الأخرى، بقي مجموعهما ثابتاً.",
-            "En": "Equal and opposite angle changes preserve their sum."
-          },
-          "FormulaLatex": "62+48=110",
-          "Steps": [
-            {
-              "Ar": "تصبح الأولى 62 والثانية 48 درجة.",
-              "En": "The first becomes 62 and the second 48 degrees."
-            },
-            {
-              "Ar": "مجموعهما 110 كما كان، فيبقى للثالثة 70.",
-              "En": "Their sum remains 110, leaving 70 for the third."
-            }
-          ],
-          "Substitution": {
-            "Ar": "$180-110=70$",
-            "En": "$180-110=70$"
-          },
-          "Result": {
-            "Ar": "$70$",
-            "En": "$70$"
-          },
-          "Unit": {
-            "Ar": "",
-            "En": ""
-          },
-          "Verification": {
-            "Ar": "62 مع 48 مع 70 تساوي 180.",
-            "En": "62 plus 48 plus 70 equals 180."
-          },
-          "CommonError": {
-            "Ar": "تغيير الزاوية الثالثة رغم ثبات مجموع الزاويتين الأخريين.",
-            "En": "Changing the third angle even though the other two keep their sum."
-          }
-        },
-        "Distractors": [
-          {
-            "ErrorType": "misconception",
-            "Reason": {
-              "Ar": "هذا يطرح التغيرين رغم أن أحدهما زيادة والآخر نقصان.",
-              "En": "This subtracts both changes although one increases and one decreases."
-            },
-            "Order": 1
-          },
-          {
-            "ErrorType": "misconception",
-            "Reason": {
-              "Ar": "هذا يطرح 12 من الزاوية الثالثة دون داعٍ.",
-              "En": "This subtracts 12 from the third angle unnecessarily."
-            },
-            "Order": 2
-          },
-          {
-            "ErrorType": "",
-            "Reason": {
-              "Ar": "",
-              "En": ""
-            },
-            "Order": 3
-          },
-          {
-            "ErrorType": "misconception",
-            "Reason": {
-              "Ar": "هذا يضيف 12 إلى الثالثة مع أن مجموع الأوليين ثابت.",
-              "En": "This adds 12 to the third even though the first two still have the same sum."
-            },
-            "Order": 4
-          }
-        ]
-      }
     }
-  ]
+  ],
+  "review": "13 candidates examined, four held for overlapping area/angle reasoning. Nine retained after stage 1 algebra and geometry inventory review and whole-bank bilingual nearest-token screening including active drafts. Short symbolic stems compared by actual operation and variable placement, since token similarity ignores much math notation. Six substitution tasks (fractional coefficient, repeated variable with subtraction, variable denominator, correct replacement, single-input change, comparison of precedence), three triangles (area preserved by parallel vertex movement, classification of missing obtuse angle, correction amount). Improved fractional coefficient distractor. Full curriculum, KaTeX, CI and device rendering outstanding."
 }
