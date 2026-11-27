@@ -24,27 +24,30 @@ public sealed class LearningTrackService(AppDbContext db, IConfiguration config,
     {
         if(!Enabled || !principal.IsInRole("Student") ||
             !int.TryParse(principal.FindFirstValue(ClaimTypes.NameIdentifier),out var id))return null;
-        var selected=await db.Users.AsNoTracking().Where(u=>u.Id==id&&u.IsActive&&u.Role=="Student")
-            .Select(u=>new{u.CurrentStageId,u.CurrentTrackId}).SingleOrDefaultAsync(ct);
-        return selected is null?null:await ActiveAsync(selected.CurrentStageId,selected.CurrentTrackId,ct);
+        // Resolve the live student and selected visible track in one round trip.
+        var selected=from u in db.Users.AsNoTracking()
+            where u.Id==id&&u.IsActive&&u.Role=="Student"
+            join t in VisibleTracks()
+                on new { StageId=u.CurrentStageId, TrackId=u.CurrentTrackId }
+                equals new { StageId=(int?)t.StageId, TrackId=(int?)t.Id }
+            select t;
+        return await selected.SingleOrDefaultAsync(ct);
     }
 
     public async Task<bool> CanPracticeAsync(ClaimsPrincipal principal,int problemId,CancellationToken ct)
     {
         if(!Enabled||!principal.IsInRole("Student"))return true;
         if(!int.TryParse(principal.FindFirstValue(ClaimTypes.NameIdentifier),out var uid))return false;
-        var selection=await db.Users.AsNoTracking().Where(u=>u.Id==uid&&u.IsActive&&u.Role=="Student")
-            .Select(u=>new{u.CurrentStageId,u.CurrentTrackId}).SingleOrDefaultAsync(ct);
-        if(selection is null)return false;
-        if(!selection.CurrentTrackId.HasValue)return true;
-        if(!selection.CurrentStageId.HasValue)return false;
-        // A valid mapped problem itself proves the track has a valid link.
-        // Keep the published/stage and mapping predicates in one SQL query.
-        var selectedTrackId=selection.CurrentTrackId.Value;
-        var valid=ValidProblems(selectedTrackId);
-        return await db.LearningTracks.AsNoTracking().AnyAsync(t=>
-            t.Id==selectedTrackId&&t.StageId==selection.CurrentStageId.Value&&
-            t.IsPublished&&valid.Any(p=>p.Id==problemId),ct);
+        // Keep the legacy no-selection fallback, but never allow an inactive
+        // student or an invalid/unpublished selected track. One SQL snapshot
+        // replaces the separate account read and mapping check.
+        var valid=ValidLinks().Where(l=>l.ProblemId==problemId);
+        return await db.Users.AsNoTracking().AnyAsync(u=>
+            u.Id==uid&&u.IsActive&&u.Role=="Student"&&
+            (!u.CurrentTrackId.HasValue||
+                (u.CurrentStageId.HasValue&&db.LearningTracks.Any(t=>
+                    t.Id==u.CurrentTrackId&&t.StageId==u.CurrentStageId&&t.IsPublished&&
+                    valid.Any(l=>l.TrackId==t.Id)))),ct);
     }
 
     // Recheck original stage/category and published primary skill every time.
