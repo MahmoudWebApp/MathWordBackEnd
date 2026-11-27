@@ -40,6 +40,8 @@ public sealed class RecoveryTokenCodec(IConfiguration config)
     }
 }
 
+public enum RecoveryRequestResult { Accepted, EmailNotRegistered, InvalidEmail, Unavailable }
+
 public sealed class PasswordRecoveryService(AppDbContext db, IConfiguration config, BrevoEmailTransport transport,
     RecoveryEmailQueue queue, NotificationStreamBroker stream)
 {
