@@ -139,7 +139,48 @@ public sealed class ProblemCategoryAccessService
                 cancellationToken);
         if (!categoryMatchesStage)
             return false;
-        return await CanReadProblemAsync(principal, categoryId, cancellationToken);
+        // This endpoint checks one known category, not a catalog listing.
+        // Keep the same live account checks as GetAllowedCategoryIdsAsync.
+        var authenticated = principal.Identity?.IsAuthenticated == true;
+        var rawId = principal.FindFirstValue(ClaimTypes.NameIdentifier);
+        if (authenticated && string.IsNullOrWhiteSpace(rawId)) return false;
+        if (!string.IsNullOrWhiteSpace(rawId))
+        {
+            if (!authenticated || !int.TryParse(rawId, out var id) || id <= 0)
+                return false;
+            var learner = await _db.Users.AsNoTracking().Where(u => u.Id == id)
+                .Select(u => new { u.IsActive, u.Role, u.SubscriptionType,
+                    u.PremiumExpiresAtUtc, u.CurrentStageId, u.CurrentTrackId })
+                .FirstOrDefaultAsync(cancellationToken);
+            if (learner == null || !learner.IsActive) return false;
+            if (principal.IsInRole("Admin") &&
+                string.Equals(learner.Role, "Admin", StringComparison.OrdinalIgnoreCase))
+                return true;
+            if (!string.Equals(learner.Role, "Student", StringComparison.OrdinalIgnoreCase))
+                return false;
+            // The category was already validated against the requested stage.
+            // Premium needs no second catalog query.
+            if (PremiumEntitlement.IsActive(learner.SubscriptionType, learner.PremiumExpiresAtUtc))
+                return true;
+            if (_configuration.GetValue<bool>("LearningTracks:Enabled") && learner.CurrentTrackId.HasValue)
+            {
+                if (!learner.CurrentStageId.HasValue || learner.CurrentStageId.Value != stageId)
+                    return false;
+                var free = await GetTrackFreeCategoryIdsAsync(learner.CurrentTrackId.Value,
+                    stageId, ct: cancellationToken);
+                return free.Contains(categoryId);
+            }
+        }
+
+        // Anonymous and legacy-stage accounts need only the two free IDs
+        // for this category's stage, not all categories in every stage.
+        var freeIds = await _db.Categories.AsNoTracking()
+            .Where(c => c.StageId == stageId)
+            .OrderBy(c => c.Order).ThenBy(c => c.Id)
+            .Select(c => c.Id)
+            .Take(CategoryAccessPolicy.DefaultFreeCategoriesPerStage)
+            .ToListAsync(cancellationToken);
+        return freeIds.Contains(categoryId);
     }
 
     public async Task<bool> CanReadProblemAsync(
