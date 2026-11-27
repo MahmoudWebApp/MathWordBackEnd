@@ -70,8 +70,8 @@
         ],
         "Hints": [
           {
-            "Ar": "كل خطوة تزيل مجموعة من ثمانية.",
-            "En": "Each step removes one group of eight."
+            "Ar": "كل خطوة تزيل مجموعة من ستة.",
+            "En": "Each step removes one group of six."
           },
           {
             "Ar": "عدد المجموعات هو العامل المجهول.",
@@ -122,8 +122,8 @@
         "DifficultyLevel": 2,
         "Hints": [
           {
-            "Ar": "كل خطوة تزيل مجموعة من ثمانية.",
-            "En": "Each step removes one group of eight."
+            "Ar": "كل خطوة تزيل مجموعة من ستة.",
+            "En": "Each step removes one group of six."
           },
           {
             "Ar": "عدد المجموعات هو العامل المجهول.",
@@ -454,8 +454,8 @@
             "IsCorrect": false,
             "ErrorType": "misconception",
             "Reason": {
-              "Ar": "22 لا يحسب حاصل الضرب ab على أنه 28.",
-              "En": "22 does not evaluate ab as 28."
+              "Ar": "22 ينتج من مضاعفة مجموع a وb بدلاً من حساب حاصل الضرب ab ثم إضافة 2a.",
+              "En": "22 doubles the sum of a and b instead of computing ab and adding 2a."
             }
           },
           {
@@ -587,8 +587,8 @@
           {
             "ErrorType": "misconception",
             "Reason": {
-              "Ar": "22 لا يحسب حاصل الضرب ab على أنه 28.",
-              "En": "22 does not evaluate ab as 28."
+              "Ar": "22 ينتج من مضاعفة مجموع a وb بدلاً من حساب حاصل الضرب ab ثم إضافة 2a.",
+              "En": "22 doubles the sum of a and b instead of computing ab and adding 2a."
             },
             "Order": 3
           },
@@ -2603,5 +2603,6 @@
         ]
       }
     }
-  ]
+  ],
+  "review": "13 reviewed candidates retained after grade 4/5 live scope and whole-bank bilingual nearest-token review. For short symbolic substitution stems token overlap is not reliable; mathematical operation and variable structure reviewed against all stage 1 algebra stems. Corrected carried-over first hint for repeated subtraction from six, improved two-variable distractor explanation. One grade 4 equation, nine grade 5 substitution and three grade 5 triangle tasks. Full curriculum, KaTeX, CI, rendering still outstanding."
 }
