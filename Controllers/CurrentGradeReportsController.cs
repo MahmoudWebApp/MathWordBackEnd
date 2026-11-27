@@ -29,15 +29,19 @@ public sealed class CurrentGradeReportsController(AppDbContext db, IConfiguratio
         if(track is null)return Conflict(new{Message="LearningTrackRequired"});
         if(!TrackPractice.Enabled(config))return Conflict(new{Message="TrackReportIsolationUnavailable"});
         var id=track.Id;
-        var valid=tracks.ValidProblems(id);
+        // Resolve eligible problem IDs once for this read-only report. The
+        // same snapshot scopes all aggregates and recent attempts, rather
+        // than recompiling the full track/skill join for every SQL command.
+        var validIds=await tracks.ValidProblems(id).Select(p=>p.Id).ToArrayAsync(ct);
+        var valid=db.Problems.AsNoTracking().Where(p=>validIds.Contains(p.Id));
         var inventory=await valid.GroupBy(p=>new{p.CategoryId,p.Category.NameAr,p.Category.NameEn,p.Category.Order})
             .Select(g=>new{g.Key.CategoryId,g.Key.NameAr,g.Key.NameEn,g.Key.Order,ProblemsCount=g.Count()})
             .OrderBy(x=>x.Order).ThenBy(x=>x.CategoryId).ToListAsync(ct);
         var progress=await TrackPractice.For(db,id).AsNoTracking()
-            .Where(p=>p.UserId==uid&&valid.Any(v=>v.Id==p.ProblemId))
+            .Where(p=>p.UserId==uid&&validIds.Contains(p.ProblemId))
             .GroupBy(p=>p.Problem.CategoryId).Select(g=>new{CategoryId=g.Key,Solved=g.Count(p=>p.IsSolved),Mastered=g.Count(p=>p.MasteryStatus==MasteryStatuses.Mastered)})
             .ToDictionaryAsync(x=>x.CategoryId,ct);
-        var ordinary=db.ProblemAttempts.AsNoTracking().Where(a=>a.UserId==uid&&a.PracticeScopeId==id&&valid.Any(p=>p.Id==a.ProblemId));
+        var ordinary=db.ProblemAttempts.AsNoTracking().Where(a=>a.UserId==uid&&a.PracticeScopeId==id&&validIds.Contains(a.ProblemId));
         var guided=from a in db.LearningSessionAttempts.AsNoTracking()
             join s in db.LearningSessions.AsNoTracking() on a.SessionId equals s.Id
             join p in valid on a.ProblemId equals p.Id
