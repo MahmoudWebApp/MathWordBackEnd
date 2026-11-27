@@ -103,6 +103,9 @@ namespace MathWorldAPI.Helpers
             { "PasswordMustDiffer", ("يجب أن تختلف كلمة المرور الجديدة عن الحالية", "The new password must differ from the current password") },
             { "SessionChanged", ("تغيّرت جلسة الحساب. سجّل الدخول مجدداً.", "The account session has changed. Sign in again.") },
 
+            { "RecoveryEmailNotRegistered", ("البريد الإلكتروني غير مستخدم في المنصة.", "This email is not registered on the platform.") },
+            { "RecoveryInvalidEmail", ("أدخل بريداً إلكترونياً صالحاً.", "Enter a valid email address.") },
+            { "RecoveryTemporarilyUnavailable", ("استعادة كلمة المرور غير متاحة حالياً. حاول لاحقاً.", "Password recovery is temporarily unavailable. Try again later.") },
             { "PasswordRecoveryRequested", ("إذا كان الحساب مؤهلاً للاستعادة ستصلك رسالة على بريدك.", "If the account is eligible for recovery, you will receive an email.") },
             { "InvalidResetToken", ("رابط استعادة كلمة المرور غير صالح أو منتهي. اطلب رابطاً جديداً.", "The recovery link is invalid or expired. Request a new link.") },
             { "PasswordResetSuccess", ("تم تعيين كلمة المرور. سجّل الدخول مجدداً.", "Password reset successful. Please sign in again.") },
