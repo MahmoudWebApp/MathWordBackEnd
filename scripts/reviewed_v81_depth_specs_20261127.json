@@ -1,0 +1,1616 @@
+{
+  "batch": "V81",
+  "sourceHead": "f039f4b2e9369de281072d609886c88df178a4d2",
+  "holds": {
+    "square-from-two-dominoes": "Basic two-row tile counting overlaps #2102 and simple multiplication; not enough shape-specific depth.",
+    "two-squares-share-corner-only": "Same shared-vertex double-count reasoning as #2265; hold for editorial review.",
+    "triangle-strip-outline-classification": "Close to #2194 and #2966 outer-boundary composition.",
+    "pictograph-daily-double-count-trap": "Close to #2262 and #2545 category update and combine records.",
+    "pictograph-two-possible-corrections": "Close to #2126 adding symbols to match a category.",
+    "pictograph-remaining-after-pairing": "Same category difference as #2095, framed as pairing.",
+    "pictograph-minimum-new-total-to-tie-all": "Related to #2546 (removal-only equalization), retain only if inverse constraint merits distinct learning target; held for conservative review.",
+    "same-outline-different-tile-seams": "Overlap with #2099 shape invariance and #2194 boundary versus component count; hold for age review."
+  },
+  "rows": [
+    {
+      "key": "growth-v81-grade-3-whole-number-product-solution-1",
+      "family": "whole-number-product-solution",
+      "skill_key": "primary-one-step-multiplicative-equations",
+      "track_code": "grade-3",
+      "track": 3,
+      "stage": 1,
+      "category": 2,
+      "skill": 9,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 2,
+        "PrimarySkillId": 9,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          3
+        ],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "مجهول عدد صحيح",
+          "En": "Whole-number unknown"
+        },
+        "Question": {
+          "Ar": "يريد طفل اختيار عدد صحيح غير سالب من القطع في كل مجموعة. أي معادلة يمكن أن تكون صحيحة إذا كان $x$ عدد القطع في كل مجموعة من أربع مجموعات؟",
+          "En": "A child wants a nonnegative whole number of pieces in each of four equal groups. Which equation can be true if $x$ is the number of pieces per group?"
+        },
+        "Options": [
+          {
+            "LatexCode": "4x=18",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "18 بين حاصلَي ضرب 4 في 4 و4 في 5.",
+              "En": "18 lies between 4 times 4 and 4 times 5."
+            }
+          },
+          {
+            "LatexCode": "4x=22",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "22 بين 20 و24 ولا يقبل القسمة على 4 دون باقٍ.",
+              "En": "22 is between 20 and 24 and leaves a remainder when divided by 4."
+            }
+          },
+          {
+            "LatexCode": "4x=20",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "4x=26",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "26 بين 24 و28 ولا يقبل القسمة على 4 دون باقٍ.",
+              "En": "26 is between 24 and 28 and leaves a remainder when divided by 4."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "اكتب بعض نواتج جدول ضرب 4.",
+            "En": "List some products in the four times table."
+          },
+          {
+            "Ar": "ابحث عن المجموع الذي يمكن توزيعه على أربع مجموعات دون باقٍ.",
+            "En": "Find the total that can be shared among four groups with nothing left over."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "عدد القطع في كل مجموعة يجب أن يكون عدداً صحيحاً؛ لذا نبحث عن مضاعف للعدد 4.",
+            "En": "The group size must be a whole number, so look for a multiple of 4."
+          },
+          "FormulaLatex": "4x=20",
+          "Steps": [
+            {
+              "Ar": "نجد أن 18 و22 و26 ليست من نواتج جدول ضرب 4.",
+              "En": "18, 22 and 26 are not multiples of 4."
+            },
+            {
+              "Ar": "نقسم 20 على 4 فنجد 5 قطع في كل مجموعة.",
+              "En": "Divide 20 by 4 to get 5 pieces in each group."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$20\\div4=5$",
+            "En": "$20\\div4=5$"
+          },
+          "Result": {
+            "Ar": "$4x=20$",
+            "En": "$4x=20$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "أربع مجموعات من خمس قطع تعطي 20 قطعة.",
+            "En": "Four groups of five give 20 pieces."
+          },
+          "CommonError": {
+            "Ar": "قبول عدد قطع غير صحيح في المجموعة.",
+            "En": "Accepting a fractional count of pieces."
+          }
+        }
+      },
+      "flat_ar": "عدد القطع في كل مجموعة يجب أن يكون عدداً صحيحاً؛ لذا نبحث عن مضاعف للعدد 4.\n\n$4x=20$\n\n1. نجد أن 18 و22 و26 ليست من نواتج جدول ضرب 4.\n\n2. نقسم 20 على 4 فنجد 5 قطع في كل مجموعة.\n\n$20\\div4=5$\n\n$4x=20$\n\nأربع مجموعات من خمس قطع تعطي 20 قطعة.\n\nقبول عدد قطع غير صحيح في المجموعة.",
+      "flat_en": "The group size must be a whole number, so look for a multiple of 4.\n\n$4x=20$\n\n1. 18, 22 and 26 are not multiples of 4.\n\n2. Divide 20 by 4 to get 5 pieces in each group.\n\n$20\\div4=5$\n\n$4x=20$\n\nFour groups of five give 20 pieces.\n\nAccepting a fractional count of pieces.",
+      "metadata": {
+        "DifficultyLevel": 2,
+        "Hints": [
+          {
+            "Ar": "اكتب بعض نواتج جدول ضرب 4.",
+            "En": "List some products in the four times table."
+          },
+          {
+            "Ar": "ابحث عن المجموع الذي يمكن توزيعه على أربع مجموعات دون باقٍ.",
+            "En": "Find the total that can be shared among four groups with nothing left over."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "عدد القطع في كل مجموعة يجب أن يكون عدداً صحيحاً؛ لذا نبحث عن مضاعف للعدد 4.",
+            "En": "The group size must be a whole number, so look for a multiple of 4."
+          },
+          "FormulaLatex": "4x=20",
+          "Steps": [
+            {
+              "Ar": "نجد أن 18 و22 و26 ليست من نواتج جدول ضرب 4.",
+              "En": "18, 22 and 26 are not multiples of 4."
+            },
+            {
+              "Ar": "نقسم 20 على 4 فنجد 5 قطع في كل مجموعة.",
+              "En": "Divide 20 by 4 to get 5 pieces in each group."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$20\\div4=5$",
+            "En": "$20\\div4=5$"
+          },
+          "Result": {
+            "Ar": "$4x=20$",
+            "En": "$4x=20$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "أربع مجموعات من خمس قطع تعطي 20 قطعة.",
+            "En": "Four groups of five give 20 pieces."
+          },
+          "CommonError": {
+            "Ar": "قبول عدد قطع غير صحيح في المجموعة.",
+            "En": "Accepting a fractional count of pieces."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "18 بين حاصلَي ضرب 4 في 4 و4 في 5.",
+              "En": "18 lies between 4 times 4 and 4 times 5."
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "22 بين 20 و24 ولا يقبل القسمة على 4 دون باقٍ.",
+              "En": "22 is between 20 and 24 and leaves a remainder when divided by 4."
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "26 بين 24 و28 ولا يقبل القسمة على 4 دون باقٍ.",
+              "En": "26 is between 24 and 28 and leaves a remainder when divided by 4."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v81-grade-3-combine-third-and-sixth-pieces-1",
+      "family": "combine-third-and-sixth-pieces",
+      "skill_key": "p-fractions-decimals-fraction-models",
+      "track_code": "grade-3",
+      "track": 3,
+      "stage": 1,
+      "category": 21,
+      "skill": 97,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 21,
+        "PrimarySkillId": 97,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          3
+        ],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "التركيب من أسداس",
+          "En": "Building from sixths"
+        },
+        "Question": {
+          "Ar": "لدينا ثلاث قطع مأخوذة من أشرطة متساوية الطول: قطعة طولها ثلث شريط، وقطعتان طول كل منهما سدس شريط. كم قطعة بطول السدس نحتاج لتكوين طول القطع الثلاث مجتمعة؟",
+          "En": "Three pieces come from equal-length strips: one piece is a third of a strip and two pieces are each a sixth of a strip. How many sixth-length pieces match the combined length of all three?"
+        },
+        "Options": [
+          {
+            "LatexCode": "3",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا يعد القطع دون مراعاة اختلاف أطوالها.",
+              "En": "This counts the pieces without considering their lengths."
+            }
+          },
+          {
+            "LatexCode": "4",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "5",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "قطعة الثلث تساوي قطعتين من السدس، لا ثلاثاً.",
+              "En": "The third equals two sixth pieces, not three."
+            }
+          },
+          {
+            "LatexCode": "6",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "ست قطع من السدس تملأ شريطاً كاملاً، وهو أطول من القطع الثلاث.",
+              "En": "Six sixth pieces fill an entire strip, longer than the three pieces."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "تخيّل تقسيم كل ثلث إلى قطعتين متساويتين.",
+            "En": "Imagine cutting each third into two equal pieces."
+          },
+          {
+            "Ar": "استبدل قطعة الثلث بقطع من السدس ثم عدّ الجميع.",
+            "En": "Replace the third with sixth pieces, then count them all."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نستخدم قطعاً متساوية الطول للمقارنة.",
+            "En": "Use equal-length pieces to compare the total."
+          },
+          "FormulaLatex": "\\frac{1}{3}=\\frac{2}{6}",
+          "Steps": [
+            {
+              "Ar": "قطعة الثلث تكافئ قطعتين من السدس.",
+              "En": "The third matches two sixth pieces."
+            },
+            {
+              "Ar": "نضيف إليهما القطعتين الموجودتين أصلاً.",
+              "En": "Add the two sixth pieces already present."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$2+2=4$",
+            "En": "$2+2=4$"
+          },
+          "Result": {
+            "Ar": "$4$",
+            "En": "$4$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "أربعة أسداس تغطي طول ثلثين من شريط كامل، وهو طول القطع المعطاة.",
+            "En": "Four sixths cover two thirds of a strip, matching the given pieces."
+          },
+          "CommonError": {
+            "Ar": "عد القطع الكبيرة والصغيرة وكأن أطوالها متساوية.",
+            "En": "Counting large and small pieces as if they have equal lengths."
+          }
+        }
+      },
+      "flat_ar": "نستخدم قطعاً متساوية الطول للمقارنة.\n\n$\\frac{1}{3}=\\frac{2}{6}$\n\n1. قطعة الثلث تكافئ قطعتين من السدس.\n\n2. نضيف إليهما القطعتين الموجودتين أصلاً.\n\n$2+2=4$\n\n$4$\n\nأربعة أسداس تغطي طول ثلثين من شريط كامل، وهو طول القطع المعطاة.\n\nعد القطع الكبيرة والصغيرة وكأن أطوالها متساوية.",
+      "flat_en": "Use equal-length pieces to compare the total.\n\n$\\frac{1}{3}=\\frac{2}{6}$\n\n1. The third matches two sixth pieces.\n\n2. Add the two sixth pieces already present.\n\n$2+2=4$\n\n$4$\n\nFour sixths cover two thirds of a strip, matching the given pieces.\n\nCounting large and small pieces as if they have equal lengths.",
+      "metadata": {
+        "DifficultyLevel": 2,
+        "Hints": [
+          {
+            "Ar": "تخيّل تقسيم كل ثلث إلى قطعتين متساويتين.",
+            "En": "Imagine cutting each third into two equal pieces."
+          },
+          {
+            "Ar": "استبدل قطعة الثلث بقطع من السدس ثم عدّ الجميع.",
+            "En": "Replace the third with sixth pieces, then count them all."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نستخدم قطعاً متساوية الطول للمقارنة.",
+            "En": "Use equal-length pieces to compare the total."
+          },
+          "FormulaLatex": "\\frac{1}{3}=\\frac{2}{6}",
+          "Steps": [
+            {
+              "Ar": "قطعة الثلث تكافئ قطعتين من السدس.",
+              "En": "The third matches two sixth pieces."
+            },
+            {
+              "Ar": "نضيف إليهما القطعتين الموجودتين أصلاً.",
+              "En": "Add the two sixth pieces already present."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$2+2=4$",
+            "En": "$2+2=4$"
+          },
+          "Result": {
+            "Ar": "$4$",
+            "En": "$4$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "أربعة أسداس تغطي طول ثلثين من شريط كامل، وهو طول القطع المعطاة.",
+            "En": "Four sixths cover two thirds of a strip, matching the given pieces."
+          },
+          "CommonError": {
+            "Ar": "عد القطع الكبيرة والصغيرة وكأن أطوالها متساوية.",
+            "En": "Counting large and small pieces as if they have equal lengths."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا يعد القطع دون مراعاة اختلاف أطوالها.",
+              "En": "This counts the pieces without considering their lengths."
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "قطعة الثلث تساوي قطعتين من السدس، لا ثلاثاً.",
+              "En": "The third equals two sixth pieces, not three."
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "ست قطع من السدس تملأ شريطاً كاملاً، وهو أطول من القطع الثلاث.",
+              "En": "Six sixth pieces fill an entire strip, longer than the three pieces."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v81-grade-1-complete-square-missing-tile-1",
+      "family": "complete-square-missing-tile",
+      "skill_key": "primary-shape-attributes-composition",
+      "track_code": "grade-1",
+      "track": 1,
+      "stage": 1,
+      "category": 96,
+      "skill": 354,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 96,
+        "PrimarySkillId": 354,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          1
+        ],
+        "DifficultyLevel": 1,
+        "Points": 10,
+        "Title": {
+          "Ar": "إكمال شكل مربع",
+          "En": "Completing a square"
+        },
+        "Question": {
+          "Ar": "وضع طفل مربعين صغيرين متطابقين في الصف العلوي ومربعاً واحداً تحت المربع العلوي الأيسر مباشرة. كم مربعاً صغيراً آخر يحتاج ليكوّن مربعاً كبيراً من صفين متساويين دون فراغ؟",
+          "En": "A child places two identical small squares in the top row and one directly below the top-left square. How many more small squares are needed to make a larger square of two equal rows with no gap?"
+        },
+        "Options": [
+          {
+            "LatexCode": "0",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "الصف السفلي ما زال ناقصاً.",
+              "En": "The bottom row is incomplete."
+            }
+          },
+          {
+            "LatexCode": "1",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "2",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "الصف السفلي يحتاج مربعاً واحداً فقط.",
+              "En": "The bottom row needs only one square."
+            }
+          },
+          {
+            "LatexCode": "3",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "لدينا ثلاثة مربعات بالفعل ونحتاج لإكمال مكان واحد.",
+              "En": "Three squares are already present; only one space remains."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "قارن عدد المربعات في الصفين.",
+            "En": "Compare the square counts in the two rows."
+          },
+          {
+            "Ar": "ابحث عن المكان الفارغ تحت المربع العلوي الأيمن.",
+            "En": "Find the empty space below the top-right square."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "لإكمال المربع الكبير يجب أن يتكون كل صف من مربعين.",
+            "En": "To complete the large square, each row needs two small squares."
+          },
+          "FormulaLatex": "2-1=1",
+          "Steps": [
+            {
+              "Ar": "الصف العلوي مكتمل وفيه مربعان.",
+              "En": "The top row is complete with two squares."
+            },
+            {
+              "Ar": "الصف السفلي فيه مربع واحد فنضيف إليه مربعاً.",
+              "En": "The bottom row has one square, so add one."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$2-1=1$",
+            "En": "$2-1=1$"
+          },
+          "Result": {
+            "Ar": "$1$",
+            "En": "$1$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "بعد الإضافة يصبح لدينا صفان، في كل منهما مربعان.",
+            "En": "After adding one, there are two rows with two squares each."
+          },
+          "CommonError": {
+            "Ar": "عد المربعات الموجودة بدلاً من عد الأماكن الناقصة.",
+            "En": "Counting existing squares instead of missing spaces."
+          }
+        }
+      },
+      "flat_ar": "لإكمال المربع الكبير يجب أن يتكون كل صف من مربعين.\n\n$2-1=1$\n\n1. الصف العلوي مكتمل وفيه مربعان.\n\n2. الصف السفلي فيه مربع واحد فنضيف إليه مربعاً.\n\n$2-1=1$\n\n$1$\n\nبعد الإضافة يصبح لدينا صفان، في كل منهما مربعان.\n\nعد المربعات الموجودة بدلاً من عد الأماكن الناقصة.",
+      "flat_en": "To complete the large square, each row needs two small squares.\n\n$2-1=1$\n\n1. The top row is complete with two squares.\n\n2. The bottom row has one square, so add one.\n\n$2-1=1$\n\n$1$\n\nAfter adding one, there are two rows with two squares each.\n\nCounting existing squares instead of missing spaces.",
+      "metadata": {
+        "DifficultyLevel": 1,
+        "Hints": [
+          {
+            "Ar": "قارن عدد المربعات في الصفين.",
+            "En": "Compare the square counts in the two rows."
+          },
+          {
+            "Ar": "ابحث عن المكان الفارغ تحت المربع العلوي الأيمن.",
+            "En": "Find the empty space below the top-right square."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "لإكمال المربع الكبير يجب أن يتكون كل صف من مربعين.",
+            "En": "To complete the large square, each row needs two small squares."
+          },
+          "FormulaLatex": "2-1=1",
+          "Steps": [
+            {
+              "Ar": "الصف العلوي مكتمل وفيه مربعان.",
+              "En": "The top row is complete with two squares."
+            },
+            {
+              "Ar": "الصف السفلي فيه مربع واحد فنضيف إليه مربعاً.",
+              "En": "The bottom row has one square, so add one."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$2-1=1$",
+            "En": "$2-1=1$"
+          },
+          "Result": {
+            "Ar": "$1$",
+            "En": "$1$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "بعد الإضافة يصبح لدينا صفان، في كل منهما مربعان.",
+            "En": "After adding one, there are two rows with two squares each."
+          },
+          "CommonError": {
+            "Ar": "عد المربعات الموجودة بدلاً من عد الأماكن الناقصة.",
+            "En": "Counting existing squares instead of missing spaces."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "الصف السفلي ما زال ناقصاً.",
+              "En": "The bottom row is incomplete."
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "الصف السفلي يحتاج مربعاً واحداً فقط.",
+              "En": "The bottom row needs only one square."
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "لدينا ثلاثة مربعات بالفعل ونحتاج لإكمال مكان واحد.",
+              "En": "Three squares are already present; only one space remains."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v81-grade-1-rectangle-side-length-match-1",
+      "family": "rectangle-side-length-match",
+      "skill_key": "primary-shape-attributes-composition",
+      "track_code": "grade-1",
+      "track": 1,
+      "stage": 1,
+      "category": 96,
+      "skill": 354,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 96,
+        "PrimarySkillId": 354,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          1
+        ],
+        "DifficultyLevel": 1,
+        "Points": 10,
+        "Title": {
+          "Ar": "الأضلاع المتقابلة",
+          "En": "Opposite sides"
+        },
+        "Question": {
+          "Ar": "رُسم مستطيل ليس مربعاً. الضلع العلوي أطول من الضلع الأيسر. أي ضلع يساوي الضلع العلوي في الطول؟ A: الأيسر، B: الأيمن، C: السفلي، D: لا يوجد.",
+          "En": "A non-square rectangle is drawn. Its top side is longer than its left side. Which side has the same length as the top side? A: left; B: right; C: bottom; D: none."
+        },
+        "Options": [
+          {
+            "LatexCode": "A",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "الضلع الأيسر أقصر بحسب السؤال.",
+              "En": "The left side is shorter, as stated."
+            }
+          },
+          {
+            "LatexCode": "B",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "الضلع الأيمن يساوي الأيسر الأقصر.",
+              "En": "The right side matches the shorter left side."
+            }
+          },
+          {
+            "LatexCode": "C",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "D",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "للمستطيل ضلع مقابل للعلوي يساويه في الطول.",
+              "En": "A rectangle has an opposite side matching the top in length."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "انظر إلى الضلع المواجه للعلوي.",
+            "En": "Look for the side opposite the top."
+          },
+          {
+            "Ar": "في المستطيل يتساوى كل ضلعين متقابلين.",
+            "En": "Opposite sides of a rectangle are equal in length."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نحدد الضلع المقابل، لا المجاور.",
+            "En": "Identify the opposite side, not an adjacent one."
+          },
+          "FormulaLatex": "\\text{C}",
+          "Steps": [
+            {
+              "Ar": "الضلع العلوي يقابل الضلع السفلي.",
+              "En": "The top side is opposite the bottom side."
+            },
+            {
+              "Ar": "يتساويان في الطول.",
+              "En": "They have equal lengths."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$\\text{C}$",
+            "En": "$\\text{C}$"
+          },
+          "Result": {
+            "Ar": "$C$",
+            "En": "$C$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "يمكن وضع ضلع علوي مماثل فوق السفلي فيتطابقان.",
+            "En": "An identical copy of the top side fits the bottom side."
+          },
+          "CommonError": {
+            "Ar": "اختيار ضلع مجاور بدلاً من المقابل.",
+            "En": "Choosing an adjacent side instead of the opposite side."
+          }
+        }
+      },
+      "flat_ar": "نحدد الضلع المقابل، لا المجاور.\n\n$\\text{C}$\n\n1. الضلع العلوي يقابل الضلع السفلي.\n\n2. يتساويان في الطول.\n\n$\\text{C}$\n\n$C$\n\nيمكن وضع ضلع علوي مماثل فوق السفلي فيتطابقان.\n\nاختيار ضلع مجاور بدلاً من المقابل.",
+      "flat_en": "Identify the opposite side, not an adjacent one.\n\n$\\text{C}$\n\n1. The top side is opposite the bottom side.\n\n2. They have equal lengths.\n\n$\\text{C}$\n\n$C$\n\nAn identical copy of the top side fits the bottom side.\n\nChoosing an adjacent side instead of the opposite side.",
+      "metadata": {
+        "DifficultyLevel": 1,
+        "Hints": [
+          {
+            "Ar": "انظر إلى الضلع المواجه للعلوي.",
+            "En": "Look for the side opposite the top."
+          },
+          {
+            "Ar": "في المستطيل يتساوى كل ضلعين متقابلين.",
+            "En": "Opposite sides of a rectangle are equal in length."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نحدد الضلع المقابل، لا المجاور.",
+            "En": "Identify the opposite side, not an adjacent one."
+          },
+          "FormulaLatex": "\\text{C}",
+          "Steps": [
+            {
+              "Ar": "الضلع العلوي يقابل الضلع السفلي.",
+              "En": "The top side is opposite the bottom side."
+            },
+            {
+              "Ar": "يتساويان في الطول.",
+              "En": "They have equal lengths."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$\\text{C}$",
+            "En": "$\\text{C}$"
+          },
+          "Result": {
+            "Ar": "$C$",
+            "En": "$C$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "يمكن وضع ضلع علوي مماثل فوق السفلي فيتطابقان.",
+            "En": "An identical copy of the top side fits the bottom side."
+          },
+          "CommonError": {
+            "Ar": "اختيار ضلع مجاور بدلاً من المقابل.",
+            "En": "Choosing an adjacent side instead of the opposite side."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "الضلع الأيسر أقصر بحسب السؤال.",
+              "En": "The left side is shorter, as stated."
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "الضلع الأيمن يساوي الأيسر الأقصر.",
+              "En": "The right side matches the shorter left side."
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "للمستطيل ضلع مقابل للعلوي يساويه في الطول.",
+              "En": "A rectangle has an opposite side matching the top in length."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v81-grade-1-shape-sort-by-exactly-four-sides-1",
+      "family": "shape-sort-by-exactly-four-sides",
+      "skill_key": "primary-shape-attributes-composition",
+      "track_code": "grade-1",
+      "track": 1,
+      "stage": 1,
+      "category": 96,
+      "skill": 354,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 96,
+        "PrimarySkillId": 354,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          1
+        ],
+        "DifficultyLevel": 1,
+        "Points": 10,
+        "Title": {
+          "Ar": "التصنيف بعدد الأضلاع",
+          "En": "Sorting by side count"
+        },
+        "Question": {
+          "Ar": "لدينا مثلثان ومربع ومستطيل ليس مربعاً ودائرة. كم شكلاً من هذه الأشكال له أربعة أضلاع مستقيمة؟",
+          "En": "There are two triangles, one square, one non-square rectangle and one circle. How many of these shapes have four straight sides?"
+        },
+        "Options": [
+          {
+            "LatexCode": "1",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا يحسب المربع أو المستطيل فقط.",
+              "En": "This counts only the square or only the rectangle."
+            }
+          },
+          {
+            "LatexCode": "2",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "3",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "المثلثات لها ثلاثة أضلاع والدائرة ليس لها أضلاع مستقيمة.",
+              "En": "Triangles have three sides, and a circle has no straight sides."
+            }
+          },
+          {
+            "LatexCode": "5",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "ليس لكل الأشكال أربعة أضلاع.",
+              "En": "Not all shapes have four sides."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "كم ضلعاً للمربع؟",
+            "En": "How many sides does a square have?"
+          },
+          {
+            "Ar": "هل المستطيل الذي ليس مربعاً له العدد نفسه؟",
+            "En": "Does a non-square rectangle have the same side count?"
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نصنف الأشكال حسب عدد أضلاعها لا اسمها.",
+            "En": "Sort shapes by their side count, not by name."
+          },
+          "FormulaLatex": "1+1=2",
+          "Steps": [
+            {
+              "Ar": "المربع والمستطيل لهما أربعة أضلاع مستقيمة لكل منهما.",
+              "En": "The square and rectangle each have four straight sides."
+            },
+            {
+              "Ar": "المثلثان والدائرة لا يحققان الشرط.",
+              "En": "The triangles and circle do not meet the condition."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$1+1=2$",
+            "En": "$1+1=2$"
+          },
+          "Result": {
+            "Ar": "$2$",
+            "En": "$2$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "القائمة المطلوبة تتكون من المربع والمستطيل فقط.",
+            "En": "The matching list contains only the square and rectangle."
+          },
+          "CommonError": {
+            "Ar": "اعتبار المربع وحده شكلاً رباعي الأضلاع.",
+            "En": "Thinking only squares have four sides."
+          }
+        }
+      },
+      "flat_ar": "نصنف الأشكال حسب عدد أضلاعها لا اسمها.\n\n$1+1=2$\n\n1. المربع والمستطيل لهما أربعة أضلاع مستقيمة لكل منهما.\n\n2. المثلثان والدائرة لا يحققان الشرط.\n\n$1+1=2$\n\n$2$\n\nالقائمة المطلوبة تتكون من المربع والمستطيل فقط.\n\nاعتبار المربع وحده شكلاً رباعي الأضلاع.",
+      "flat_en": "Sort shapes by their side count, not by name.\n\n$1+1=2$\n\n1. The square and rectangle each have four straight sides.\n\n2. The triangles and circle do not meet the condition.\n\n$1+1=2$\n\n$2$\n\nThe matching list contains only the square and rectangle.\n\nThinking only squares have four sides.",
+      "metadata": {
+        "DifficultyLevel": 1,
+        "Hints": [
+          {
+            "Ar": "كم ضلعاً للمربع؟",
+            "En": "How many sides does a square have?"
+          },
+          {
+            "Ar": "هل المستطيل الذي ليس مربعاً له العدد نفسه؟",
+            "En": "Does a non-square rectangle have the same side count?"
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نصنف الأشكال حسب عدد أضلاعها لا اسمها.",
+            "En": "Sort shapes by their side count, not by name."
+          },
+          "FormulaLatex": "1+1=2",
+          "Steps": [
+            {
+              "Ar": "المربع والمستطيل لهما أربعة أضلاع مستقيمة لكل منهما.",
+              "En": "The square and rectangle each have four straight sides."
+            },
+            {
+              "Ar": "المثلثان والدائرة لا يحققان الشرط.",
+              "En": "The triangles and circle do not meet the condition."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$1+1=2$",
+            "En": "$1+1=2$"
+          },
+          "Result": {
+            "Ar": "$2$",
+            "En": "$2$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "القائمة المطلوبة تتكون من المربع والمستطيل فقط.",
+            "En": "The matching list contains only the square and rectangle."
+          },
+          "CommonError": {
+            "Ar": "اعتبار المربع وحده شكلاً رباعي الأضلاع.",
+            "En": "Thinking only squares have four sides."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا يحسب المربع أو المستطيل فقط.",
+              "En": "This counts only the square or only the rectangle."
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "المثلثات لها ثلاثة أضلاع والدائرة ليس لها أضلاع مستقيمة.",
+              "En": "Triangles have three sides, and a circle has no straight sides."
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "ليس لكل الأشكال أربعة أضلاع.",
+              "En": "Not all shapes have four sides."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v81-grade-2-pictograph-difference-in-differences-1",
+      "family": "pictograph-difference-in-differences",
+      "skill_key": "primary-single-unit-picture-data",
+      "track_code": "grade-2",
+      "track": 2,
+      "stage": 1,
+      "category": 97,
+      "skill": 357,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 97,
+        "PrimarySkillId": 357,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          2
+        ],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "مقارنة الفرقين",
+          "En": "Comparing two gaps"
+        },
+        "Question": {
+          "Ar": "كل ● يمثل كتاباً. الرفوف A: ●●●●●●؛ B: ●●●؛ C: ●●●●؛ D: ●●. بكم يزيد الفرق بين عددي A وB على الفرق بين عددي C وD؟",
+          "En": "Each ● represents one book. Shelves A: ●●●●●●; B: ●●●; C: ●●●●; D: ●●. By how many books is the A–B gap larger than the C–D gap?"
+        },
+        "Options": [
+          {
+            "LatexCode": "1",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "2",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا هو الفرق بين C وD.",
+              "En": "This is the C–D gap."
+            }
+          },
+          {
+            "LatexCode": "3",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا هو الفرق بين A وB.",
+              "En": "This is the A–B gap."
+            }
+          },
+          {
+            "LatexCode": "5",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا مجموع الفرقين وليس الفرق بينهما.",
+              "En": "This adds the two gaps instead of comparing them."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "احسب فرق A وB أولاً.",
+            "En": "Find the A–B gap first."
+          },
+          {
+            "Ar": "احسب فرق C وD ثم قارن الناتجين.",
+            "En": "Find the C–D gap and compare the results."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نحسب فرق كل زوج ثم نطرح الفرق الأصغر من الأكبر.",
+            "En": "Find each gap, then subtract the smaller from the larger."
+          },
+          "FormulaLatex": "6-3=3,\\quad4-2=2",
+          "Steps": [
+            {
+              "Ar": "الفرق الأول 3 كتب والثاني كتابان.",
+              "En": "The first gap is 3 books and the second is 2."
+            },
+            {
+              "Ar": "نطرح 2 من 3.",
+              "En": "Subtract 2 from 3."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$3-2=1$",
+            "En": "$3-2=1$"
+          },
+          "Result": {
+            "Ar": "$1$",
+            "En": "$1$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "الفرق الأول أكبر بكتاب واحد؛ 2 مع 1 يساوي 3.",
+            "En": "The first gap is one larger; 2 plus 1 equals 3."
+          },
+          "CommonError": {
+            "Ar": "إعطاء أحد الفرقين بدلاً من المقارنة بينهما.",
+            "En": "Giving one gap instead of comparing both."
+          }
+        }
+      },
+      "flat_ar": "نحسب فرق كل زوج ثم نطرح الفرق الأصغر من الأكبر.\n\n$6-3=3,\\quad4-2=2$\n\n1. الفرق الأول 3 كتب والثاني كتابان.\n\n2. نطرح 2 من 3.\n\n$3-2=1$\n\n$1$\n\nالفرق الأول أكبر بكتاب واحد؛ 2 مع 1 يساوي 3.\n\nإعطاء أحد الفرقين بدلاً من المقارنة بينهما.",
+      "flat_en": "Find each gap, then subtract the smaller from the larger.\n\n$6-3=3,\\quad4-2=2$\n\n1. The first gap is 3 books and the second is 2.\n\n2. Subtract 2 from 3.\n\n$3-2=1$\n\n$1$\n\nThe first gap is one larger; 2 plus 1 equals 3.\n\nGiving one gap instead of comparing both.",
+      "metadata": {
+        "DifficultyLevel": 2,
+        "Hints": [
+          {
+            "Ar": "احسب فرق A وB أولاً.",
+            "En": "Find the A–B gap first."
+          },
+          {
+            "Ar": "احسب فرق C وD ثم قارن الناتجين.",
+            "En": "Find the C–D gap and compare the results."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نحسب فرق كل زوج ثم نطرح الفرق الأصغر من الأكبر.",
+            "En": "Find each gap, then subtract the smaller from the larger."
+          },
+          "FormulaLatex": "6-3=3,\\quad4-2=2",
+          "Steps": [
+            {
+              "Ar": "الفرق الأول 3 كتب والثاني كتابان.",
+              "En": "The first gap is 3 books and the second is 2."
+            },
+            {
+              "Ar": "نطرح 2 من 3.",
+              "En": "Subtract 2 from 3."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$3-2=1$",
+            "En": "$3-2=1$"
+          },
+          "Result": {
+            "Ar": "$1$",
+            "En": "$1$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "الفرق الأول أكبر بكتاب واحد؛ 2 مع 1 يساوي 3.",
+            "En": "The first gap is one larger; 2 plus 1 equals 3."
+          },
+          "CommonError": {
+            "Ar": "إعطاء أحد الفرقين بدلاً من المقارنة بينهما.",
+            "En": "Giving one gap instead of comparing both."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا هو الفرق بين C وD.",
+              "En": "This is the C–D gap."
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا هو الفرق بين A وB.",
+              "En": "This is the A–B gap."
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا مجموع الفرقين وليس الفرق بينهما.",
+              "En": "This adds the two gaps instead of comparing them."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v81-grade-2-pictograph-one-of-each-complete-sets-1",
+      "family": "pictograph-one-of-each-complete-sets",
+      "skill_key": "primary-single-unit-picture-data",
+      "track_code": "grade-2",
+      "track": 2,
+      "stage": 1,
+      "category": 97,
+      "skill": 357,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 97,
+        "PrimarySkillId": 357,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          2
+        ],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "مجموعات من فئات مختلفة",
+          "En": "Sets from different categories"
+        },
+        "Question": {
+          "Ar": "كل ● يمثل قلماً. الأحمر: ●●●●●؛ الأزرق: ●●●؛ الأخضر: ●●●●. نريد تجهيز مجموعات، في كل مجموعة قلم من كل لون. كم مجموعة كاملة يمكن تجهيزها دون استعمال أي قلم مرتين؟",
+          "En": "Each ● represents a pen. Red: ●●●●●; blue: ●●●; green: ●●●●. Each set must contain one pen of each color. How many complete sets can be made without using any pen twice?"
+        },
+        "Options": [
+          {
+            "LatexCode": "2",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "يمكن تجهيز مجموعة ثالثة لأن كل لون يتوفر منه ثلاثة أقلام على الأقل.",
+              "En": "A third set is possible because every color has at least three pens."
+            }
+          },
+          {
+            "LatexCode": "3",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "4",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "لا توجد أربعة أقلام زرقاء.",
+              "En": "There are not four blue pens."
+            }
+          },
+          {
+            "LatexCode": "5",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "الأزرق والأخضر لا يكفيان لخمس مجموعات.",
+              "En": "Blue and green counts cannot supply five sets."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "أي لون عدد أقلامه أقل؟",
+            "En": "Which color has the fewest pens?"
+          },
+          {
+            "Ar": "كل مجموعة تحتاج قلماً من ذلك اللون أيضاً.",
+            "En": "Every set also needs one pen of that color."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "الفئة ذات العدد الأصغر تحدد عدد المجموعات الكاملة.",
+            "En": "The smallest category count limits the number of complete sets."
+          },
+          "FormulaLatex": "\\min(5,3,4)=3",
+          "Steps": [
+            {
+              "Ar": "يمكن أخذ قلم من كل لون ثلاث مرات.",
+              "En": "One pen of each color can be taken three times."
+            },
+            {
+              "Ar": "بعد ذلك لا يبقى قلم أزرق لمجموعة رابعة.",
+              "En": "After that no blue pen remains for a fourth set."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$3$",
+            "En": "$3$"
+          },
+          "Result": {
+            "Ar": "$3$",
+            "En": "$3$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "بعد ثلاث مجموعات يبقى قلمان أحمران وقلم أخضر ولا يبقى أزرق.",
+            "En": "After three sets, two red and one green remain, with no blue left."
+          },
+          "CommonError": {
+            "Ar": "اختيار الفئة الأكبر بدلاً من الأصغر.",
+            "En": "Choosing the largest category instead of the smallest."
+          }
+        }
+      },
+      "flat_ar": "الفئة ذات العدد الأصغر تحدد عدد المجموعات الكاملة.\n\n$\\min(5,3,4)=3$\n\n1. يمكن أخذ قلم من كل لون ثلاث مرات.\n\n2. بعد ذلك لا يبقى قلم أزرق لمجموعة رابعة.\n\n$3$\n\n$3$\n\nبعد ثلاث مجموعات يبقى قلمان أحمران وقلم أخضر ولا يبقى أزرق.\n\nاختيار الفئة الأكبر بدلاً من الأصغر.",
+      "flat_en": "The smallest category count limits the number of complete sets.\n\n$\\min(5,3,4)=3$\n\n1. One pen of each color can be taken three times.\n\n2. After that no blue pen remains for a fourth set.\n\n$3$\n\n$3$\n\nAfter three sets, two red and one green remain, with no blue left.\n\nChoosing the largest category instead of the smallest.",
+      "metadata": {
+        "DifficultyLevel": 2,
+        "Hints": [
+          {
+            "Ar": "أي لون عدد أقلامه أقل؟",
+            "En": "Which color has the fewest pens?"
+          },
+          {
+            "Ar": "كل مجموعة تحتاج قلماً من ذلك اللون أيضاً.",
+            "En": "Every set also needs one pen of that color."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "الفئة ذات العدد الأصغر تحدد عدد المجموعات الكاملة.",
+            "En": "The smallest category count limits the number of complete sets."
+          },
+          "FormulaLatex": "\\min(5,3,4)=3",
+          "Steps": [
+            {
+              "Ar": "يمكن أخذ قلم من كل لون ثلاث مرات.",
+              "En": "One pen of each color can be taken three times."
+            },
+            {
+              "Ar": "بعد ذلك لا يبقى قلم أزرق لمجموعة رابعة.",
+              "En": "After that no blue pen remains for a fourth set."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$3$",
+            "En": "$3$"
+          },
+          "Result": {
+            "Ar": "$3$",
+            "En": "$3$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "بعد ثلاث مجموعات يبقى قلمان أحمران وقلم أخضر ولا يبقى أزرق.",
+            "En": "After three sets, two red and one green remain, with no blue left."
+          },
+          "CommonError": {
+            "Ar": "اختيار الفئة الأكبر بدلاً من الأصغر.",
+            "En": "Choosing the largest category instead of the smallest."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "يمكن تجهيز مجموعة ثالثة لأن كل لون يتوفر منه ثلاثة أقلام على الأقل.",
+              "En": "A third set is possible because every color has at least three pens."
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "لا توجد أربعة أقلام زرقاء.",
+              "En": "There are not four blue pens."
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "الأزرق والأخضر لا يكفيان لخمس مجموعات.",
+              "En": "Blue and green counts cannot supply five sets."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v81-grade-2-pictograph-missing-legend-unit-1",
+      "family": "pictograph-missing-legend-unit",
+      "skill_key": "primary-single-unit-picture-data",
+      "track_code": "grade-2",
+      "track": 2,
+      "stage": 1,
+      "category": 97,
+      "skill": 357,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 97,
+        "PrimarySkillId": 357,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          2
+        ],
+        "DifficultyLevel": 1,
+        "Points": 10,
+        "Title": {
+          "Ar": "اختيار مفتاح الرسم",
+          "En": "Choosing the pictograph key"
+        },
+        "Question": {
+          "Ar": "في رسم مصور للفواكه، صف التفاح ●●●● وصف الموز ●●. سجل المعلم أربع تفاحات وموزتين. كم ثمرة يمثل كل رمز ●؟",
+          "En": "A fruit pictograph shows apples ●●●● and bananas ●●. The teacher recorded four apples and two bananas. How many fruits does each ● represent?"
+        },
+        "Options": [
+          {
+            "LatexCode": "1",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "2",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "لو كان الرمز يمثل ثمرتين لأصبح عدد التفاح ثمانية.",
+              "En": "If one symbol meant two fruits, apples would total eight."
+            }
+          },
+          {
+            "LatexCode": "3",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "لو كان الرمز يمثل ثلاث ثمرات لأصبح عدد الموز ستاً.",
+              "En": "If each symbol meant three fruits, bananas would total six."
+            }
+          },
+          {
+            "LatexCode": "4",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "لو كان الرمز يمثل أربع ثمرات لأصبح عدد التفاح ست عشرة.",
+              "En": "If each symbol meant four fruits, apples would total sixteen."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "قارن عدد رموز التفاح بعدد التفاحات المسجلة.",
+            "En": "Compare apple symbols with the recorded apple count."
+          },
+          {
+            "Ar": "افعل الشيء نفسه مع الموز.",
+            "En": "Do the same for bananas."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نحدد عدد الثمار التي يمثلها الرمز من تطابق الصفين مع السجل.",
+            "En": "Find the number of fruits per symbol by matching both rows to the record."
+          },
+          "FormulaLatex": "4\\div4=1",
+          "Steps": [
+            {
+              "Ar": "أربعة رموز تقابل أربع تفاحات.",
+              "En": "Four symbols match four apples."
+            },
+            {
+              "Ar": "رمزان يقابلان موزتين، إذن الرمز الواحد يمثل ثمرة واحدة.",
+              "En": "Two symbols match two bananas, so each symbol means one fruit."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$2\\div2=1$",
+            "En": "$2\\div2=1$"
+          },
+          "Result": {
+            "Ar": "$1$",
+            "En": "$1$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "باستخدام ثمرة واحدة لكل رمز نحصل على أربعة واثنين كما في السجل.",
+            "En": "One fruit per symbol reproduces the recorded counts four and two."
+          },
+          "CommonError": {
+            "Ar": "اختيار عدد رموز صف كامل باعتباره قيمة الرمز الواحد.",
+            "En": "Using an entire row count as the value of one symbol."
+          }
+        }
+      },
+      "flat_ar": "نحدد عدد الثمار التي يمثلها الرمز من تطابق الصفين مع السجل.\n\n$4\\div4=1$\n\n1. أربعة رموز تقابل أربع تفاحات.\n\n2. رمزان يقابلان موزتين، إذن الرمز الواحد يمثل ثمرة واحدة.\n\n$2\\div2=1$\n\n$1$\n\nباستخدام ثمرة واحدة لكل رمز نحصل على أربعة واثنين كما في السجل.\n\nاختيار عدد رموز صف كامل باعتباره قيمة الرمز الواحد.",
+      "flat_en": "Find the number of fruits per symbol by matching both rows to the record.\n\n$4\\div4=1$\n\n1. Four symbols match four apples.\n\n2. Two symbols match two bananas, so each symbol means one fruit.\n\n$2\\div2=1$\n\n$1$\n\nOne fruit per symbol reproduces the recorded counts four and two.\n\nUsing an entire row count as the value of one symbol.",
+      "metadata": {
+        "DifficultyLevel": 1,
+        "Hints": [
+          {
+            "Ar": "قارن عدد رموز التفاح بعدد التفاحات المسجلة.",
+            "En": "Compare apple symbols with the recorded apple count."
+          },
+          {
+            "Ar": "افعل الشيء نفسه مع الموز.",
+            "En": "Do the same for bananas."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نحدد عدد الثمار التي يمثلها الرمز من تطابق الصفين مع السجل.",
+            "En": "Find the number of fruits per symbol by matching both rows to the record."
+          },
+          "FormulaLatex": "4\\div4=1",
+          "Steps": [
+            {
+              "Ar": "أربعة رموز تقابل أربع تفاحات.",
+              "En": "Four symbols match four apples."
+            },
+            {
+              "Ar": "رمزان يقابلان موزتين، إذن الرمز الواحد يمثل ثمرة واحدة.",
+              "En": "Two symbols match two bananas, so each symbol means one fruit."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$2\\div2=1$",
+            "En": "$2\\div2=1$"
+          },
+          "Result": {
+            "Ar": "$1$",
+            "En": "$1$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "باستخدام ثمرة واحدة لكل رمز نحصل على أربعة واثنين كما في السجل.",
+            "En": "One fruit per symbol reproduces the recorded counts four and two."
+          },
+          "CommonError": {
+            "Ar": "اختيار عدد رموز صف كامل باعتباره قيمة الرمز الواحد.",
+            "En": "Using an entire row count as the value of one symbol."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "لو كان الرمز يمثل ثمرتين لأصبح عدد التفاح ثمانية.",
+              "En": "If one symbol meant two fruits, apples would total eight."
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "لو كان الرمز يمثل ثلاث ثمرات لأصبح عدد الموز ستاً.",
+              "En": "If each symbol meant three fruits, bananas would total six."
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "لو كان الرمز يمثل أربع ثمرات لأصبح عدد التفاح ست عشرة.",
+              "En": "If each symbol meant four fruits, apples would total sixteen."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    }
+  ]
+}
