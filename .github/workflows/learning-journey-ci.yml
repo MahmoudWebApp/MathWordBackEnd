@@ -40,6 +40,8 @@ permissions:
 jobs:
   journey:
     runs-on: ubuntu-latest
+    env:
+      MATHWORLD_TEST_TIMINGS: '1'
     services:
       postgres:
         image: postgres:16

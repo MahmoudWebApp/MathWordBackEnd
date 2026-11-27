@@ -21,12 +21,27 @@ def call(method, route, payload=None, token=None):
         headers["Content-Type"] = "application/json"
     req = urllib.request.Request(BASE + route, data=data,
                                  headers=headers, method=method)
+    start = time.monotonic()
+    status = None
     try:
         with urllib.request.urlopen(req, timeout=20) as response:
-            return response.status, json.loads(response.read())
+            status = response.status
+            return status, json.loads(response.read())
     except urllib.error.HTTPError as error:
+        status = error.code
         raw = error.read()
-        return error.code, json.loads(raw) if raw else {}
+        return status, json.loads(raw) if raw else {}
+    finally:
+        # Local disposable fixtures only. Never log tokens, bodies, query
+        # strings or credentials. Individual samples are not production SLAs.
+        if os.getenv("MATHWORLD_TEST_TIMINGS") == "1":
+            import re
+            route_template = re.sub(r"/[0-9]+(?=/|$)", "/:id", route.split("?", 1)[0])
+            print("CI_LATENCY " + json.dumps({
+                "method": method, "route": route_template,
+                "authenticated": token is not None, "status": status,
+                "elapsed_ms": round((time.monotonic() - start) * 1000, 1),
+            }), flush=True)
 
 
 def expect(method, route, status, payload=None, token=None):
