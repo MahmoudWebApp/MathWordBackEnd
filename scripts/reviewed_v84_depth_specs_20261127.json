@@ -835,12 +835,12 @@
           "En": "Guaranteed mode"
         },
         "Question": {
-          "Ar": "ست بطاقات ظاهرة تحمل الأعداد 2، 2، 2، 2، 7، 7. توجد بطاقة واحدة مخفية يمكن أن تحمل أي عدد صحيح. ما المنوال الوحيد المؤكد مهما كانت قيمة البطاقة المخفية؟",
-          "En": "Six visible cards show 2, 2, 2, 2, 7, 7. One hidden card may contain any whole number. Which unique mode is guaranteed whatever the hidden value is?"
+          "Ar": "ست بطاقات ظاهرة تحمل الأعداد 2، 2، 2، 2، 7، 7. توجد بطاقة واحدة مخفية يمكن أن تحمل أي عدد صحيح غير سالب. ما المنوال الوحيد المؤكد مهما كانت قيمة البطاقة المخفية؟ A: العدد 2؛ B: العدد 7؛ C: العدد 4؛ D: لا يمكن تحديده.",
+          "En": "Six visible cards show 2, 2, 2, 2, 7, 7. One hidden card may contain any whole number. Which unique mode is guaranteed whatever the hidden value is? A: 2; B: 7; C: 4; D: cannot determine."
         },
         "Options": [
           {
-            "LatexCode": "2",
+            "LatexCode": "A",
             "IsCorrect": true,
             "ErrorType": "",
             "Reason": {
@@ -849,7 +849,7 @@
             }
           },
           {
-            "LatexCode": "7",
+            "LatexCode": "B",
             "IsCorrect": false,
             "ErrorType": "misconception",
             "Reason": {
@@ -858,7 +858,7 @@
             }
           },
           {
-            "LatexCode": "4",
+            "LatexCode": "C",
             "IsCorrect": false,
             "ErrorType": "misconception",
             "Reason": {
@@ -867,7 +867,7 @@
             }
           },
           {
-            "LatexCode": "\\text{None}",
+            "LatexCode": "D",
             "IsCorrect": false,
             "ErrorType": "misconception",
             "Reason": {
@@ -1811,5 +1811,6 @@
         ]
       }
     }
-  ]
+  ],
+  "review": "16 candidates examined, seven held for similar reasoning or curriculum depth; nine retained. Reviewed target scope and global bilingual nearest-token matches against live and active draft inventory. Clarified nonnegative whole-number domain and used bilingual letter choices for guaranteed-mode question. Full curriculum, KaTeX, CI and device verification outstanding."
 }
