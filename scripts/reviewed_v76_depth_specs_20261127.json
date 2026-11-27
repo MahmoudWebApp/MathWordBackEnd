@@ -1,0 +1,427 @@
+[
+  {
+    "track": 1,
+    "stage": 1,
+    "cat": 97,
+    "skill": 356,
+    "sk": "primary-category-count-data",
+    "family": "read-bars-with-shifted-start",
+    "title": {
+      "Ar": "صفا الملصقات",
+      "En": "Two sticker rows"
+    },
+    "q": {
+      "Ar": "وضعت ليلى ملصقاً لكل صوت. في صف التفاح أربعة ملصقات متلاصقة، وفي صف الموز ثلاثة متباعدة. يمتد صف الموز على الورقة مسافة أطول. أي فاكهة حصلت على أصوات أكثر؟ A التفاح، B الموز، C تعادلتا، D لم يصوّت أحد.",
+      "En": "Layla places one sticker per vote. The apple row has four stickers close together. The banana row has three spaced apart and stretches farther across the paper. Which fruit got more votes? A apples, B bananas, C they tied, D nobody voted."
+    },
+    "opts": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "المسافة بين الملصقات لا تضيف أصواتاً.",
+        "En": "Spaces between stickers add no votes."
+      },
+      {
+        "Ar": "يتطلب التعادل تساوي عدد الملصقات.",
+        "En": "A tie requires equal sticker counts."
+      },
+      {
+        "Ar": "كل ملصق يدل على صوت مسجل.",
+        "En": "Each sticker represents a recorded vote."
+      }
+    ],
+    "idea": {
+      "Ar": "نقارن عدد الملصقات في الصفين.",
+      "En": "Compare how many stickers each row contains."
+    },
+    "formula": "4>3",
+    "steps": [
+      {
+        "Ar": "نعد أربعة أصوات للتفاح وثلاثة للموز.",
+        "En": "Count four apple votes and three banana votes."
+      },
+      {
+        "Ar": "الأربعة أكبر من الثلاثة.",
+        "En": "Four is greater than three."
+      }
+    ],
+    "sub": {
+      "Ar": "$4>3$",
+      "En": "$4>3$"
+    },
+    "result": {
+      "Ar": "$A$",
+      "En": "$A$"
+    },
+    "verify": {
+      "Ar": "إذا قربنا ملصقات الموز من بعضها فسيظل عددها ثلاثة.",
+      "En": "Moving the banana stickers closer together still leaves three."
+    },
+    "hints": [
+      {
+        "Ar": "ما الذي يمثّل صوتاً واحداً؟",
+        "En": "What represents one vote?"
+      },
+      {
+        "Ar": "تخيّل ترتيب الصفين بالمسافات نفسها.",
+        "En": "Imagine both rows spaced the same way."
+      }
+    ],
+    "error": {
+      "Ar": "المسافة بين الملصقات لا تضيف أصواتاً.",
+      "En": "Spaces between stickers add no votes."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    },
+    "difficulty": 2,
+    "points": 10
+  },
+  {
+    "track": 1,
+    "stage": 1,
+    "cat": 97,
+    "skill": 356,
+    "sk": "primary-category-count-data",
+    "family": "minimum-extra-votes-to-lead",
+    "title": {
+      "Ar": "متى تتقدم السباحة؟",
+      "En": "When will swimming lead?"
+    },
+    "q": {
+      "Ar": "اختار 5 أطفال الجري واختار 3 السباحة. انضم أطفال جدد اختاروا السباحة فقط. ما أقل عدد منهم يجعل أصوات السباحة أكثر من أصوات الجري؟",
+      "En": "Five children chose running and three chose swimming. Some new children join and all choose swimming. What is the fewest new children needed for swimming to have more votes than running?"
+    },
+    "opts": [
+      "2",
+      "3",
+      "5",
+      "1"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "صوتان يحققان التعادل فقط.",
+        "En": "Two votes only make a tie."
+      },
+      null,
+      {
+        "Ar": "خمسة تكفي، لكن عدداً أصغر يكفي أيضاً.",
+        "En": "Five is enough, but fewer will also work."
+      },
+      {
+        "Ar": "صوت واحد يجعل العدد أربعة ويبقى أقل من خمسة.",
+        "En": "One vote gives four, still below five."
+      }
+    ],
+    "idea": {
+      "Ar": "نصل أولاً إلى التعادل ثم نضيف صوتاً.",
+      "En": "First reach a tie, then add one vote."
+    },
+    "formula": "3+3=6",
+    "steps": [
+      {
+        "Ar": "تحتاج السباحة إلى صوتين لتصل إلى خمسة.",
+        "En": "Swimming needs two votes to reach five."
+      },
+      {
+        "Ar": "الصوت التالي يجعلها تتقدم لأول مرة.",
+        "En": "The next vote puts it ahead for the first time."
+      }
+    ],
+    "sub": {
+      "Ar": "$3+3=6$",
+      "En": "$3+3=6$"
+    },
+    "result": {
+      "Ar": "$3$",
+      "En": "$3$"
+    },
+    "verify": {
+      "Ar": "بعد صوتين يكون العددان متساويين؛ وبعد ثلاثة تصبح النتيجة ستة مقابل خمسة.",
+      "En": "Two votes give a tie. Three give swimming six votes to five."
+    },
+    "hints": [
+      {
+        "Ar": "هل يكفي أن يتساوى العددان؟",
+        "En": "Would equal counts be enough?"
+      },
+      {
+        "Ar": "ابدأ بثلاثة وعدّ الأصوات الجديدة واحداً واحداً.",
+        "En": "Start at three and count the new votes one at a time."
+      }
+    ],
+    "error": {
+      "Ar": "صوتان يحققان التعادل فقط.",
+      "En": "Two votes only make a tie."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    },
+    "difficulty": 2,
+    "points": 10
+  },
+  {
+    "track": 1,
+    "stage": 1,
+    "cat": 97,
+    "skill": 356,
+    "sk": "primary-category-count-data",
+    "family": "choose-record-partition",
+    "title": {
+      "Ar": "سجلّان للتصويت",
+      "En": "Two voting records"
+    },
+    "q": {
+      "Ar": "صوّت 6 أطفال مرة واحدة لكل منهم: للشتاء أو للصيف. أي زوج من العددين يمكن أن يُكتب في السجل؟ العدد الأول للشتاء والثاني للصيف.",
+      "En": "Six children each voted once for either winter or summer. Which pair of counts could appear in the record? The first number is for winter and the second for summer."
+    },
+    "opts": [
+      "(2,3)",
+      "(4,3)",
+      "(2,4)",
+      "(4,4)"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "المجموع خمسة، فينقص صوت.",
+        "En": "These counts total five, one vote short."
+      },
+      {
+        "Ar": "المجموع سبعة، أي أكثر من عدد الأطفال.",
+        "En": "These counts total seven, more than the number of children."
+      },
+      null,
+      {
+        "Ar": "المجموع ثمانية مع أن الأطفال ستة.",
+        "En": "These counts total eight although there are six children."
+      }
+    ],
+    "idea": {
+      "Ar": "مجموع أصوات الفئتين يساوي عدد المصوتين.",
+      "En": "The two category counts add up to the number of voters."
+    },
+    "formula": "2+4=6",
+    "steps": [
+      {
+        "Ar": "نجمع عددي كل خيار.",
+        "En": "Add the two counts in each choice."
+      },
+      {
+        "Ar": "نختار الزوج الذي يحصي الأصوات الستة كلها.",
+        "En": "Choose the pair accounting for all six votes."
+      }
+    ],
+    "sub": {
+      "Ar": "$2+4=6$",
+      "En": "$2+4=6$"
+    },
+    "result": {
+      "Ar": "$(2,4)$",
+      "En": "$(2,4)$"
+    },
+    "verify": {
+      "Ar": "يمكن تخصيص بطاقتين للشتاء وأربع للصيف باستعمال ست بطاقات بالضبط.",
+      "En": "Two winter cards and four summer cards use exactly six cards."
+    },
+    "hints": [
+      {
+        "Ar": "كم صوتاً مع كل طفل؟",
+        "En": "How many votes does each child have?"
+      },
+      {
+        "Ar": "اختبر كل زوج باستخدام ست بطاقات.",
+        "En": "Try each pair using six cards."
+      }
+    ],
+    "error": {
+      "Ar": "المجموع خمسة، فينقص صوت.",
+      "En": "These counts total five, one vote short."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    },
+    "difficulty": 2,
+    "points": 10
+  },
+  {
+    "track": 1,
+    "stage": 1,
+    "cat": 97,
+    "skill": 356,
+    "sk": "primary-category-count-data",
+    "family": "compare-survey-with-population",
+    "title": {
+      "Ar": "من شارك في التصويت؟",
+      "En": "Who took part in the vote?"
+    },
+    "q": {
+      "Ar": "في الصف 9 أطفال. عدّت المعلمة أصوات الأطفال الحاضرين فقط، وصوّت كل حاضر مرة واحدة. اختار 3 أطفال الرسم و4 الغناء، وهما الخياران الوحيدان. كم طفلاً من الصف غاب عن التصويت؟",
+      "En": "A class has 9 children. Only those present voted, and each voted once. Three chose drawing and four chose singing. These were the only choices. How many children in the class missed the vote?"
+    },
+    "opts": [
+      "7",
+      "2",
+      "3",
+      "4"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "هذا عدد المشاركين.",
+        "En": "This counts the voters."
+      },
+      null,
+      {
+        "Ar": "هذا عدد من اختاروا الرسم.",
+        "En": "This counts children who chose drawing."
+      },
+      {
+        "Ar": "هذا عدد من اختاروا الغناء.",
+        "En": "This counts children who chose singing."
+      }
+    ],
+    "idea": {
+      "Ar": "نحصي المشاركين من الفئتين ثم نقارنهم بالصف كله.",
+      "En": "Count participants in both categories, then compare with the whole class."
+    },
+    "formula": "9-(3+4)=2",
+    "steps": [
+      {
+        "Ar": "شارك سبعة أطفال في التصويت.",
+        "En": "Seven children took part in the vote."
+      },
+      {
+        "Ar": "من بين الأطفال التسعة لم يشارك طفلان.",
+        "En": "Two of the nine children did not take part."
+      }
+    ],
+    "sub": {
+      "Ar": "$9-(3+4)=2$",
+      "En": "$9-(3+4)=2$"
+    },
+    "result": {
+      "Ar": "$2$",
+      "En": "$2$"
+    },
+    "verify": {
+      "Ar": "سبعة مشاركين وطفلان غائبان يعطون العدد الكامل للصف.",
+      "En": "Seven participants and two absent children account for all nine."
+    },
+    "hints": [
+      {
+        "Ar": "كيف تعرف عدد المشاركين من سجل الأصوات؟",
+        "En": "How can the vote record tell you how many took part?"
+      },
+      {
+        "Ar": "طابق كل صوت مع طفل من الصف.",
+        "En": "Match each vote with one child in the class."
+      }
+    ],
+    "error": {
+      "Ar": "هذا عدد المشاركين.",
+      "En": "This counts the voters."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    },
+    "difficulty": 2,
+    "points": 10
+  },
+  {
+    "track": 1,
+    "stage": 1,
+    "cat": 97,
+    "skill": 356,
+    "sk": "primary-category-count-data",
+    "family": "fixed-categories-changing-order",
+    "title": {
+      "Ar": "تغيير ترتيب السجل",
+      "En": "Reordering a record"
+    },
+    "q": {
+      "Ar": "سجلت هناء الحيوانات بهذا الترتيب: قطط 3، طيور 1، أسماك 2. ستعيد كتابة الأعداد بترتيب جديد: طيور، أسماك، قطط. ما الأعداد التي تكتبها بالترتيب الجديد؟",
+      "En": "Hana recorded cats 3, birds 1 and fish 2, in that order. She rewrites the counts in a new order: birds, fish, cats. Which numbers should she write in the new order?"
+    },
+    "opts": [
+      "(3,1,2)",
+      "(2,1,3)",
+      "(1,2,3)",
+      "(1,3,2)"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "هذا ترتيب السجل القديم.",
+        "En": "This preserves the old order."
+      },
+      {
+        "Ar": "عكس عددي الطيور والأسماك.",
+        "En": "This swaps the bird and fish counts."
+      },
+      null,
+      {
+        "Ar": "عكس عددي الأسماك والقطط.",
+        "En": "This swaps the fish and cat counts."
+      }
+    ],
+    "idea": {
+      "Ar": "نتتبع اسم الحيوان مع عدده حتى لو تغير مكانه.",
+      "En": "Keep each animal label with its count when its position changes."
+    },
+    "formula": "1+2+3=3+1+2",
+    "steps": [
+      {
+        "Ar": "نبدأ بالطيور فنكتب واحداً، ثم بالأسماك فنكتب اثنين.",
+        "En": "Start with birds and write one, then write two for fish."
+      },
+      {
+        "Ar": "نختم بالقطط فنكتب ثلاثة.",
+        "En": "Finish with cats and write three."
+      }
+    ],
+    "sub": {
+      "Ar": "$1+2+3=3+1+2$",
+      "En": "$1+2+3=3+1+2$"
+    },
+    "result": {
+      "Ar": "$(1,2,3)$",
+      "En": "$(1,2,3)$"
+    },
+    "verify": {
+      "Ar": "بالعودة إلى الأسماء نقرأ قطط 3 وطيور 1 وأسماك 2 كما في السجل الأول.",
+      "En": "Reading by label again gives cats 3, birds 1 and fish 2 as in the first record."
+    },
+    "hints": [
+      {
+        "Ar": "ما اسم الفئة الأولى في الترتيب الجديد؟",
+        "En": "Which label comes first in the new order?"
+      },
+      {
+        "Ar": "ابحث عن عدد كل حيوان في السجل الأول قبل الانتقال إلى التالي.",
+        "En": "Look up each animal in the first record before moving to the next."
+      }
+    ],
+    "error": {
+      "Ar": "هذا ترتيب السجل القديم.",
+      "En": "This preserves the old order."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    },
+    "difficulty": 2,
+    "points": 10
+  }
+]
