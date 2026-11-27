@@ -1,0 +1,2609 @@
+{
+  "batch": "V87",
+  "sourceHead": "2721554919105a229e0b8aea1ef07f8fedc6ad62",
+  "holds": {
+    "equation-unknown-is-divisor-model": "Structurally overlaps #2492 unknown group count and #2324 equivalent multiplication; hold pending replacement."
+  },
+  "rows": [
+    {
+      "key": "growth-v87-grade-4-addition-double-carry-from-ones-1",
+      "family": "addition-double-carry-from-ones",
+      "skill_key": "primary-addition",
+      "track_code": "grade-4",
+      "track": 4,
+      "stage": 1,
+      "category": 1,
+      "skill": 1,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 1,
+        "PrimarySkillId": 1,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          4
+        ],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "حمل أكثر من عشرة",
+          "En": "Carrying more than one ten"
+        },
+        "Question": {
+          "Ar": "عند جمع الأعداد 128 و237 و349 عمودياً، ما عدد العشرات التي تُحمل من عمود الآحاد إلى عمود العشرات؟",
+          "En": "When adding 128, 237 and 349 in columns, how many tens are carried from the ones column into the tens column?"
+        },
+        "Options": [
+          {
+            "LatexCode": "1",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "مجموع الآحاد 24، وفيه عشرتان كاملتان.",
+              "En": "The ones total 24, containing two full tens."
+            }
+          },
+          {
+            "LatexCode": "2",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "3",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "ثلاث عشرات تحتاج 30 آحاداً على الأقل.",
+              "En": "Three tens require at least 30 ones."
+            }
+          },
+          {
+            "LatexCode": "4",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "4 هو رقم الآحاد الباقي وليس مقدار الحمل.",
+              "En": "4 is the remaining ones digit, not the carry."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "اجمع 8 و7 و9.",
+            "En": "Add 8, 7 and 9."
+          },
+          {
+            "Ar": "افصل العشرات الكاملة عن الآحاد الباقية.",
+            "En": "Separate complete tens from the remaining ones."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "قد ينتج أكثر من عشرة عند جمع ثلاثة أرقام.",
+            "En": "Adding three digits can produce more than one ten."
+          },
+          "FormulaLatex": "8+7+9=24",
+          "Steps": [
+            {
+              "Ar": "مجموع الآحاد 24.",
+              "En": "The ones total 24."
+            },
+            {
+              "Ar": "نعيد تجميع 20 آحاداً في عشرتين ونترك 4 آحاد.",
+              "En": "Regroup 20 ones into two tens, leaving four ones."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$24=2\\times10+4$",
+            "En": "$24=2\\times10+4$"
+          },
+          "Result": {
+            "Ar": "$2$",
+            "En": "$2$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "عشرتان وأربع آحاد تعيدان 24.",
+            "En": "Two tens and four ones make 24."
+          },
+          "CommonError": {
+            "Ar": "افتراض أن الحمل يساوي واحداً دائماً.",
+            "En": "Assuming the carry is always one."
+          }
+        }
+      },
+      "flat_ar": "قد ينتج أكثر من عشرة عند جمع ثلاثة أرقام.\n\n$8+7+9=24$\n\n1. مجموع الآحاد 24.\n\n2. نعيد تجميع 20 آحاداً في عشرتين ونترك 4 آحاد.\n\n$24=2\\times10+4$\n\n$2$\n\nعشرتان وأربع آحاد تعيدان 24.\n\nافتراض أن الحمل يساوي واحداً دائماً.",
+      "flat_en": "Adding three digits can produce more than one ten.\n\n$8+7+9=24$\n\n1. The ones total 24.\n\n2. Regroup 20 ones into two tens, leaving four ones.\n\n$24=2\\times10+4$\n\n$2$\n\nTwo tens and four ones make 24.\n\nAssuming the carry is always one.",
+      "metadata": {
+        "DifficultyLevel": 2,
+        "Hints": [
+          {
+            "Ar": "اجمع 8 و7 و9.",
+            "En": "Add 8, 7 and 9."
+          },
+          {
+            "Ar": "افصل العشرات الكاملة عن الآحاد الباقية.",
+            "En": "Separate complete tens from the remaining ones."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "قد ينتج أكثر من عشرة عند جمع ثلاثة أرقام.",
+            "En": "Adding three digits can produce more than one ten."
+          },
+          "FormulaLatex": "8+7+9=24",
+          "Steps": [
+            {
+              "Ar": "مجموع الآحاد 24.",
+              "En": "The ones total 24."
+            },
+            {
+              "Ar": "نعيد تجميع 20 آحاداً في عشرتين ونترك 4 آحاد.",
+              "En": "Regroup 20 ones into two tens, leaving four ones."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$24=2\\times10+4$",
+            "En": "$24=2\\times10+4$"
+          },
+          "Result": {
+            "Ar": "$2$",
+            "En": "$2$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "عشرتان وأربع آحاد تعيدان 24.",
+            "En": "Two tens and four ones make 24."
+          },
+          "CommonError": {
+            "Ar": "افتراض أن الحمل يساوي واحداً دائماً.",
+            "En": "Assuming the carry is always one."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "مجموع الآحاد 24، وفيه عشرتان كاملتان.",
+              "En": "The ones total 24, containing two full tens."
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "ثلاث عشرات تحتاج 30 آحاداً على الأقل.",
+              "En": "Three tens require at least 30 ones."
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "4 هو رقم الآحاد الباقي وليس مقدار الحمل.",
+              "En": "4 is the remaining ones digit, not the carry."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v87-grade-4-addition-round-sum-vs-round-addends-1",
+      "family": "addition-round-sum-vs-round-addends",
+      "skill_key": "primary-addition",
+      "track_code": "grade-4",
+      "track": 4,
+      "stage": 1,
+      "category": 1,
+      "skill": 1,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 1,
+        "PrimarySkillId": 1,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          4
+        ],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "طريقتان للتقريب",
+          "En": "Two ways to round"
+        },
+        "Question": {
+          "Ar": "لجمع 248 و248، قرّب سامر كل عدد إلى أقرب مئة قبل الجمع، بينما جمعت نور العددين بدقة ثم قرّبت المجموع إلى أقرب مئة. بكم يزيد ناتج نور على ناتج سامر؟",
+          "En": "For 248 + 248, Samer rounds each addend to the nearest hundred before adding, while Noor adds exactly and then rounds the sum to the nearest hundred. By how much is Noor's result greater?"
+        },
+        "Options": [
+          {
+            "LatexCode": "0",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "تقريب الأعداد أولاً يعطي 400، وتقريب المجموع يعطي 500.",
+              "En": "Rounding the addends first gives 400; rounding the sum gives 500."
+            }
+          },
+          {
+            "LatexCode": "48",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "48 فرق تقريب عدد واحد، لا فرق الناتجين.",
+              "En": "48 is the rounding difference for one addend, not the two results."
+            }
+          },
+          {
+            "LatexCode": "96",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "96 هو فرق 496 و400 قبل تقريب المجموع.",
+              "En": "96 is the difference between 496 and 400 before rounding the sum."
+            }
+          },
+          {
+            "LatexCode": "100",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "قرّب 248 إلى أقرب مئة.",
+            "En": "Round 248 to the nearest hundred."
+          },
+          {
+            "Ar": "احسب المجموع الدقيق ثم قرّبه وقارن الناتجين.",
+            "En": "Compute the exact sum, round it and compare."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "قد يختلف تقريب المجموع عن مجموع الأعداد المقرّبة.",
+            "En": "Rounding a sum can differ from adding rounded numbers."
+          },
+          "FormulaLatex": "200+200=400",
+          "Steps": [
+            {
+              "Ar": "ناتج سامر 400.",
+              "En": "Samer obtains 400."
+            },
+            {
+              "Ar": "المجموع الدقيق 496 ويُقرّب إلى 500.",
+              "En": "The exact sum is 496, which rounds to 500."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$500-400=100$",
+            "En": "$500-400=100$"
+          },
+          "Result": {
+            "Ar": "$100$",
+            "En": "$100$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "496 أقرب إلى 500 منه إلى 400.",
+            "En": "496 is closer to 500 than to 400."
+          },
+          "CommonError": {
+            "Ar": "افتراض أن ترتيب الجمع والتقريب لا يؤثر أبداً.",
+            "En": "Assuming rounding and adding always give the same result regardless of order."
+          }
+        }
+      },
+      "flat_ar": "قد يختلف تقريب المجموع عن مجموع الأعداد المقرّبة.\n\n$200+200=400$\n\n1. ناتج سامر 400.\n\n2. المجموع الدقيق 496 ويُقرّب إلى 500.\n\n$500-400=100$\n\n$100$\n\n496 أقرب إلى 500 منه إلى 400.\n\nافتراض أن ترتيب الجمع والتقريب لا يؤثر أبداً.",
+      "flat_en": "Rounding a sum can differ from adding rounded numbers.\n\n$200+200=400$\n\n1. Samer obtains 400.\n\n2. The exact sum is 496, which rounds to 500.\n\n$500-400=100$\n\n$100$\n\n496 is closer to 500 than to 400.\n\nAssuming rounding and adding always give the same result regardless of order.",
+      "metadata": {
+        "DifficultyLevel": 2,
+        "Hints": [
+          {
+            "Ar": "قرّب 248 إلى أقرب مئة.",
+            "En": "Round 248 to the nearest hundred."
+          },
+          {
+            "Ar": "احسب المجموع الدقيق ثم قرّبه وقارن الناتجين.",
+            "En": "Compute the exact sum, round it and compare."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "قد يختلف تقريب المجموع عن مجموع الأعداد المقرّبة.",
+            "En": "Rounding a sum can differ from adding rounded numbers."
+          },
+          "FormulaLatex": "200+200=400",
+          "Steps": [
+            {
+              "Ar": "ناتج سامر 400.",
+              "En": "Samer obtains 400."
+            },
+            {
+              "Ar": "المجموع الدقيق 496 ويُقرّب إلى 500.",
+              "En": "The exact sum is 496, which rounds to 500."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$500-400=100$",
+            "En": "$500-400=100$"
+          },
+          "Result": {
+            "Ar": "$100$",
+            "En": "$100$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "496 أقرب إلى 500 منه إلى 400.",
+            "En": "496 is closer to 500 than to 400."
+          },
+          "CommonError": {
+            "Ar": "افتراض أن ترتيب الجمع والتقريب لا يؤثر أبداً.",
+            "En": "Assuming rounding and adding always give the same result regardless of order."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "تقريب الأعداد أولاً يعطي 400، وتقريب المجموع يعطي 500.",
+              "En": "Rounding the addends first gives 400; rounding the sum gives 500."
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "48 فرق تقريب عدد واحد، لا فرق الناتجين.",
+              "En": "48 is the rounding difference for one addend, not the two results."
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "96 هو فرق 496 و400 قبل تقريب المجموع.",
+              "En": "96 is the difference between 496 and 400 before rounding the sum."
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v87-grade-4-addition-inverse-check-identify-1",
+      "family": "addition-inverse-check-identify",
+      "skill_key": "primary-addition",
+      "track_code": "grade-4",
+      "track": 4,
+      "stage": 1,
+      "category": 1,
+      "skill": 1,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 1,
+        "PrimarySkillId": 1,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          4
+        ],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "التحقق من الجمع",
+          "En": "Checking addition"
+        },
+        "Question": {
+          "Ar": "كتب طالب $378+456=834$. أي عملية طرح تتحقق مباشرة من صحة جمعه باستخدام المجموع والعدد الأول؟",
+          "En": "A pupil writes $378+456=834$. Which subtraction directly checks the addition using the total and the first addend?"
+        },
+        "Options": [
+          {
+            "LatexCode": "834-378=456",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "834-456=378",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذه تتحقق باستخدام العدد الثاني، لا الأول كما طلب السؤال.",
+              "En": "This checks using the second addend, not the first as requested."
+            }
+          },
+          {
+            "LatexCode": "456-378=78",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذه تحسب الفرق بين العددين ولا تستخدم المجموع.",
+              "En": "This finds the difference between addends without using the total."
+            }
+          },
+          {
+            "LatexCode": "834-378=466",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "طرح 378 من 834 يعطي 456 لا 466.",
+              "En": "Subtracting 378 from 834 gives 456, not 466."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "اطرح العدد الأول من المجموع.",
+            "En": "Subtract the first addend from the total."
+          },
+          {
+            "Ar": "يجب أن تحصل على العدد الثاني.",
+            "En": "The result must equal the second addend."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "الجمع والطرح عمليتان عكسيتان.",
+            "En": "Addition and subtraction are inverse operations."
+          },
+          "FormulaLatex": "834-378=456",
+          "Steps": [
+            {
+              "Ar": "المجموع المكتوب 834 والعدد الأول 378.",
+              "En": "The reported total is 834 and the first addend is 378."
+            },
+            {
+              "Ar": "نطرح الأول من المجموع فنحصل على 456.",
+              "En": "Subtract the first addend from the total to obtain 456."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$834-378=456$",
+            "En": "$834-378=456$"
+          },
+          "Result": {
+            "Ar": "$834-378=456$",
+            "En": "$834-378=456$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "456 مع 378 يساوي 834 بالفعل.",
+            "En": "456 plus 378 indeed equals 834."
+          },
+          "CommonError": {
+            "Ar": "طرح العددين المضافين من بعضهما بدلاً من طرح أحدهما من المجموع.",
+            "En": "Subtracting one addend from the other instead of subtracting an addend from the total."
+          }
+        }
+      },
+      "flat_ar": "الجمع والطرح عمليتان عكسيتان.\n\n$834-378=456$\n\n1. المجموع المكتوب 834 والعدد الأول 378.\n\n2. نطرح الأول من المجموع فنحصل على 456.\n\n$834-378=456$\n\n$834-378=456$\n\n456 مع 378 يساوي 834 بالفعل.\n\nطرح العددين المضافين من بعضهما بدلاً من طرح أحدهما من المجموع.",
+      "flat_en": "Addition and subtraction are inverse operations.\n\n$834-378=456$\n\n1. The reported total is 834 and the first addend is 378.\n\n2. Subtract the first addend from the total to obtain 456.\n\n$834-378=456$\n\n$834-378=456$\n\n456 plus 378 indeed equals 834.\n\nSubtracting one addend from the other instead of subtracting an addend from the total.",
+      "metadata": {
+        "DifficultyLevel": 2,
+        "Hints": [
+          {
+            "Ar": "اطرح العدد الأول من المجموع.",
+            "En": "Subtract the first addend from the total."
+          },
+          {
+            "Ar": "يجب أن تحصل على العدد الثاني.",
+            "En": "The result must equal the second addend."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "الجمع والطرح عمليتان عكسيتان.",
+            "En": "Addition and subtraction are inverse operations."
+          },
+          "FormulaLatex": "834-378=456",
+          "Steps": [
+            {
+              "Ar": "المجموع المكتوب 834 والعدد الأول 378.",
+              "En": "The reported total is 834 and the first addend is 378."
+            },
+            {
+              "Ar": "نطرح الأول من المجموع فنحصل على 456.",
+              "En": "Subtract the first addend from the total to obtain 456."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$834-378=456$",
+            "En": "$834-378=456$"
+          },
+          "Result": {
+            "Ar": "$834-378=456$",
+            "En": "$834-378=456$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "456 مع 378 يساوي 834 بالفعل.",
+            "En": "456 plus 378 indeed equals 834."
+          },
+          "CommonError": {
+            "Ar": "طرح العددين المضافين من بعضهما بدلاً من طرح أحدهما من المجموع.",
+            "En": "Subtracting one addend from the other instead of subtracting an addend from the total."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذه تتحقق باستخدام العدد الثاني، لا الأول كما طلب السؤال.",
+              "En": "This checks using the second addend, not the first as requested."
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذه تحسب الفرق بين العددين ولا تستخدم المجموع.",
+              "En": "This finds the difference between addends without using the total."
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "طرح 378 من 834 يعطي 456 لا 466.",
+              "En": "Subtracting 378 from 834 gives 456, not 466."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v87-grade-4-equation-reversed-division-error-1",
+      "family": "equation-reversed-division-error",
+      "skill_key": "primary-one-step-multiplicative-equations",
+      "track_code": "grade-4",
+      "track": 4,
+      "stage": 1,
+      "category": 2,
+      "skill": 9,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 2,
+        "PrimarySkillId": 9,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          4
+        ],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "تصحيح ترتيب القسمة",
+          "En": "Correcting division order"
+        },
+        "Question": {
+          "Ar": "لحل $12x=144$ كتب طالب $x=12\\div144$. أي تصحيح يوضح العملية المطلوبة؟",
+          "En": "To solve $12x=144$, a pupil writes $x=12\\div144$. Which correction shows the required operation?"
+        },
+        "Options": [
+          {
+            "LatexCode": "x=144-12",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "الطرح لا يعكس ضرب المجهول في 12.",
+              "En": "Subtraction does not undo multiplication by 12."
+            }
+          },
+          {
+            "LatexCode": "x=144\\div12",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "x=144\\times12",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "الضرب يزيد أثر المعامل بدلاً من إزالته.",
+              "En": "Multiplication increases the effect of the coefficient rather than removing it."
+            }
+          },
+          {
+            "LatexCode": "x=12+144",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "الجمع ليس العملية العكسية للضرب.",
+              "En": "Addition is not the inverse of multiplication."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "اقسم طرفي المعادلة على معامل x.",
+            "En": "Divide both sides by the coefficient of x."
+          },
+          {
+            "Ar": "ضع الناتج 144 في البسط والمعامل 12 في المقام.",
+            "En": "Put the product 144 in the numerator and coefficient 12 in the denominator."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نعزل المجهول بقسمة حاصل الضرب على المعامل.",
+            "En": "Isolate the unknown by dividing the product by the coefficient."
+          },
+          "FormulaLatex": "\\frac{12x}{12}=\\frac{144}{12}",
+          "Steps": [
+            {
+              "Ar": "الطرف الأيسر يصبح x.",
+              "En": "The left side becomes x."
+            },
+            {
+              "Ar": "الطرف الأيمن 144 مقسوماً على 12 يساوي 12.",
+              "En": "The right side is 144 divided by 12, which equals 12."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$x=12$",
+            "En": "$x=12$"
+          },
+          "Result": {
+            "Ar": "$x=144\\div12$",
+            "En": "$x=144\\div12$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "بالتعويض نجد 12 في 12 يساوي 144.",
+            "En": "Substitution gives 12 times 12 equals 144."
+          },
+          "CommonError": {
+            "Ar": "عكس المقسوم والمقسوم عليه.",
+            "En": "Reversing dividend and divisor."
+          }
+        }
+      },
+      "flat_ar": "نعزل المجهول بقسمة حاصل الضرب على المعامل.\n\n$\\frac{12x}{12}=\\frac{144}{12}$\n\n1. الطرف الأيسر يصبح x.\n\n2. الطرف الأيمن 144 مقسوماً على 12 يساوي 12.\n\n$x=12$\n\n$x=144\\div12$\n\nبالتعويض نجد 12 في 12 يساوي 144.\n\nعكس المقسوم والمقسوم عليه.",
+      "flat_en": "Isolate the unknown by dividing the product by the coefficient.\n\n$\\frac{12x}{12}=\\frac{144}{12}$\n\n1. The left side becomes x.\n\n2. The right side is 144 divided by 12, which equals 12.\n\n$x=12$\n\n$x=144\\div12$\n\nSubstitution gives 12 times 12 equals 144.\n\nReversing dividend and divisor.",
+      "metadata": {
+        "DifficultyLevel": 2,
+        "Hints": [
+          {
+            "Ar": "اقسم طرفي المعادلة على معامل x.",
+            "En": "Divide both sides by the coefficient of x."
+          },
+          {
+            "Ar": "ضع الناتج 144 في البسط والمعامل 12 في المقام.",
+            "En": "Put the product 144 in the numerator and coefficient 12 in the denominator."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نعزل المجهول بقسمة حاصل الضرب على المعامل.",
+            "En": "Isolate the unknown by dividing the product by the coefficient."
+          },
+          "FormulaLatex": "\\frac{12x}{12}=\\frac{144}{12}",
+          "Steps": [
+            {
+              "Ar": "الطرف الأيسر يصبح x.",
+              "En": "The left side becomes x."
+            },
+            {
+              "Ar": "الطرف الأيمن 144 مقسوماً على 12 يساوي 12.",
+              "En": "The right side is 144 divided by 12, which equals 12."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$x=12$",
+            "En": "$x=12$"
+          },
+          "Result": {
+            "Ar": "$x=144\\div12$",
+            "En": "$x=144\\div12$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "بالتعويض نجد 12 في 12 يساوي 144.",
+            "En": "Substitution gives 12 times 12 equals 144."
+          },
+          "CommonError": {
+            "Ar": "عكس المقسوم والمقسوم عليه.",
+            "En": "Reversing dividend and divisor."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "الطرح لا يعكس ضرب المجهول في 12.",
+              "En": "Subtraction does not undo multiplication by 12."
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "الضرب يزيد أثر المعامل بدلاً من إزالته.",
+              "En": "Multiplication increases the effect of the coefficient rather than removing it."
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "الجمع ليس العملية العكسية للضرب.",
+              "En": "Addition is not the inverse of multiplication."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v87-grade-4-equation-solution-scale-right-side-1",
+      "family": "equation-solution-scale-right-side",
+      "skill_key": "primary-one-step-multiplicative-equations",
+      "track_code": "grade-4",
+      "track": 4,
+      "stage": 1,
+      "category": 2,
+      "skill": 9,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 2,
+        "PrimarySkillId": 9,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          4
+        ],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "تغير الحل مع الناتج",
+          "En": "Scaling the solution"
+        },
+        "Question": {
+          "Ar": "نعلم أن حل $7x=42$ هو $x=6$. إذا أصبحت المعادلة $7y=126$، فما قيمة y باستخدام الحل المعلوم؟",
+          "En": "The solution of $7x=42$ is $x=6$. If the new equation is $7y=126$, what is y using the known solution?"
+        },
+        "Options": [
+          {
+            "LatexCode": "6",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "6 يعطي 42 فقط، لا 126.",
+              "En": "6 gives 42, not 126."
+            }
+          },
+          {
+            "LatexCode": "12",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "126 يساوي ثلاثة أمثال 42 لا مثليه.",
+              "En": "126 is three times 42, not twice."
+            }
+          },
+          {
+            "LatexCode": "18",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "84",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "84 هو الفرق بين الناتجين وليس الحل.",
+              "En": "84 is the difference between products, not the solution."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "كم مرة يحتوي 126 على 42؟",
+            "En": "How many times does 42 fit into 126?"
+          },
+          {
+            "Ar": "ضاعف الحل 6 بالعامل نفسه.",
+            "En": "Scale the solution 6 by the same factor."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "مع ثبات المعامل، يتغير الحل بالعامل نفسه الذي يتغير به حاصل الضرب.",
+            "En": "With a fixed coefficient, the solution scales by the same factor as the product."
+          },
+          "FormulaLatex": "126=3\\times42",
+          "Steps": [
+            {
+              "Ar": "الناتج الجديد ثلاثة أمثال القديم.",
+              "En": "The new product is three times the old one."
+            },
+            {
+              "Ar": "الحل الجديد ثلاثة أمثال 6.",
+              "En": "The new solution is three times 6."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$y=3\\times6=18$",
+            "En": "$y=3\\times6=18$"
+          },
+          "Result": {
+            "Ar": "$18$",
+            "En": "$18$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "7 في 18 يساوي 126.",
+            "En": "7 times 18 equals 126."
+          },
+          "CommonError": {
+            "Ar": "إضافة فرق الناتجين مباشرة إلى الحل.",
+            "En": "Adding the product difference directly to the solution."
+          }
+        }
+      },
+      "flat_ar": "مع ثبات المعامل، يتغير الحل بالعامل نفسه الذي يتغير به حاصل الضرب.\n\n$126=3\\times42$\n\n1. الناتج الجديد ثلاثة أمثال القديم.\n\n2. الحل الجديد ثلاثة أمثال 6.\n\n$y=3\\times6=18$\n\n$18$\n\n7 في 18 يساوي 126.\n\nإضافة فرق الناتجين مباشرة إلى الحل.",
+      "flat_en": "With a fixed coefficient, the solution scales by the same factor as the product.\n\n$126=3\\times42$\n\n1. The new product is three times the old one.\n\n2. The new solution is three times 6.\n\n$y=3\\times6=18$\n\n$18$\n\n7 times 18 equals 126.\n\nAdding the product difference directly to the solution.",
+      "metadata": {
+        "DifficultyLevel": 2,
+        "Hints": [
+          {
+            "Ar": "كم مرة يحتوي 126 على 42؟",
+            "En": "How many times does 42 fit into 126?"
+          },
+          {
+            "Ar": "ضاعف الحل 6 بالعامل نفسه.",
+            "En": "Scale the solution 6 by the same factor."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "مع ثبات المعامل، يتغير الحل بالعامل نفسه الذي يتغير به حاصل الضرب.",
+            "En": "With a fixed coefficient, the solution scales by the same factor as the product."
+          },
+          "FormulaLatex": "126=3\\times42",
+          "Steps": [
+            {
+              "Ar": "الناتج الجديد ثلاثة أمثال القديم.",
+              "En": "The new product is three times the old one."
+            },
+            {
+              "Ar": "الحل الجديد ثلاثة أمثال 6.",
+              "En": "The new solution is three times 6."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$y=3\\times6=18$",
+            "En": "$y=3\\times6=18$"
+          },
+          "Result": {
+            "Ar": "$18$",
+            "En": "$18$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "7 في 18 يساوي 126.",
+            "En": "7 times 18 equals 126."
+          },
+          "CommonError": {
+            "Ar": "إضافة فرق الناتجين مباشرة إلى الحل.",
+            "En": "Adding the product difference directly to the solution."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "6 يعطي 42 فقط، لا 126.",
+              "En": "6 gives 42, not 126."
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "126 يساوي ثلاثة أمثال 42 لا مثليه.",
+              "En": "126 is three times 42, not twice."
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "84 هو الفرق بين الناتجين وليس الحل.",
+              "En": "84 is the difference between products, not the solution."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v87-grade-4-equation-known-product-commutative-factor-1",
+      "family": "equation-known-product-commutative-factor",
+      "skill_key": "primary-one-step-multiplicative-equations",
+      "track_code": "grade-4",
+      "track": 4,
+      "stage": 1,
+      "category": 2,
+      "skill": 9,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 2,
+        "PrimarySkillId": 9,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          4
+        ],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "استخدام حقيقة ضرب معروفة",
+          "En": "Using a known multiplication fact"
+        },
+        "Question": {
+          "Ar": "يعلم طالب أن $16\\times5=80$. أي قيمة تحل المعادلة $5x=80$ دون إعادة حساب حاصل الضرب؟",
+          "En": "A pupil knows that $16\\times5=80$. Which value solves $5x=80$ without recalculating the product?"
+        },
+        "Options": [
+          {
+            "LatexCode": "5",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "5 في 5 يساوي 25.",
+              "En": "5 times 5 equals 25."
+            }
+          },
+          {
+            "LatexCode": "16",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "75",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "75 هو ناتج طرح 5 من 80 وليس خارج القسمة.",
+              "En": "75 is 80 minus 5, not the quotient."
+            }
+          },
+          {
+            "LatexCode": "80",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "5 في 80 يساوي 400.",
+              "En": "5 times 80 equals 400."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "تذكر خاصية تبديل عاملي الضرب.",
+            "En": "Recall that multiplication factors can be swapped."
+          },
+          {
+            "Ar": "أعد كتابة 16 في 5 على صورة 5 في عدد.",
+            "En": "Rewrite 16 times 5 as 5 times a number."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "تبديل ترتيب عاملي الضرب يحافظ على الناتج.",
+            "En": "Swapping multiplication factors preserves the product."
+          },
+          "FormulaLatex": "16\\times5=5\\times16",
+          "Steps": [
+            {
+              "Ar": "نعلم أن 5 في 16 يساوي 80.",
+              "En": "We know that 5 times 16 equals 80."
+            },
+            {
+              "Ar": "إذن 16 هي القيمة التي تحقق المعادلة.",
+              "En": "Therefore 16 satisfies the equation."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$5\\times16=80$",
+            "En": "$5\\times16=80$"
+          },
+          "Result": {
+            "Ar": "$16$",
+            "En": "$16$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "قسمة 80 على 5 تعيد 16.",
+            "En": "80 divided by 5 returns 16."
+          },
+          "CommonError": {
+            "Ar": "اختيار المعامل بدلاً من العامل المجهول.",
+            "En": "Choosing the coefficient rather than the unknown factor."
+          }
+        }
+      },
+      "flat_ar": "تبديل ترتيب عاملي الضرب يحافظ على الناتج.\n\n$16\\times5=5\\times16$\n\n1. نعلم أن 5 في 16 يساوي 80.\n\n2. إذن 16 هي القيمة التي تحقق المعادلة.\n\n$5\\times16=80$\n\n$16$\n\nقسمة 80 على 5 تعيد 16.\n\nاختيار المعامل بدلاً من العامل المجهول.",
+      "flat_en": "Swapping multiplication factors preserves the product.\n\n$16\\times5=5\\times16$\n\n1. We know that 5 times 16 equals 80.\n\n2. Therefore 16 satisfies the equation.\n\n$5\\times16=80$\n\n$16$\n\n80 divided by 5 returns 16.\n\nChoosing the coefficient rather than the unknown factor.",
+      "metadata": {
+        "DifficultyLevel": 2,
+        "Hints": [
+          {
+            "Ar": "تذكر خاصية تبديل عاملي الضرب.",
+            "En": "Recall that multiplication factors can be swapped."
+          },
+          {
+            "Ar": "أعد كتابة 16 في 5 على صورة 5 في عدد.",
+            "En": "Rewrite 16 times 5 as 5 times a number."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "تبديل ترتيب عاملي الضرب يحافظ على الناتج.",
+            "En": "Swapping multiplication factors preserves the product."
+          },
+          "FormulaLatex": "16\\times5=5\\times16",
+          "Steps": [
+            {
+              "Ar": "نعلم أن 5 في 16 يساوي 80.",
+              "En": "We know that 5 times 16 equals 80."
+            },
+            {
+              "Ar": "إذن 16 هي القيمة التي تحقق المعادلة.",
+              "En": "Therefore 16 satisfies the equation."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$5\\times16=80$",
+            "En": "$5\\times16=80$"
+          },
+          "Result": {
+            "Ar": "$16$",
+            "En": "$16$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "قسمة 80 على 5 تعيد 16.",
+            "En": "80 divided by 5 returns 16."
+          },
+          "CommonError": {
+            "Ar": "اختيار المعامل بدلاً من العامل المجهول.",
+            "En": "Choosing the coefficient rather than the unknown factor."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "5 في 5 يساوي 25.",
+              "En": "5 times 5 equals 25."
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "75 هو ناتج طرح 5 من 80 وليس خارج القسمة.",
+              "En": "75 is 80 minus 5, not the quotient."
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "5 في 80 يساوي 400.",
+              "En": "5 times 80 equals 400."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v87-grade-4-capacity-transfer-to-fill-limit-1",
+      "family": "capacity-transfer-to-fill-limit",
+      "skill_key": "capacity",
+      "track_code": "grade-4",
+      "track": 4,
+      "stage": 1,
+      "category": 82,
+      "skill": 320,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 82,
+        "PrimarySkillId": 320,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          4
+        ],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "نقل الماء دون فيضان",
+          "En": "Transferring without overflow"
+        },
+        "Question": {
+          "Ar": "في إبريق A كمية 900 mL، وفي إبريق B كمية 650 mL وسعته 1 L. نملأ B من A حتى يمتلئ تماماً دون سكب. كم مليلتراً يبقى في A؟",
+          "En": "Jug A contains 900 mL; jug B contains 650 mL and has a capacity of 1 L. Fill B from A without spilling. How many millilitres remain in A?"
+        },
+        "Options": [
+          {
+            "LatexCode": "250",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "نقل 350 mL من 900 mL يترك 550 mL.",
+              "En": "Moving 350 mL from 900 mL leaves 550 mL."
+            }
+          },
+          {
+            "LatexCode": "350",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "350 هو المقدار المنقول لا المتبقي.",
+              "En": "350 is the transferred amount, not the remainder."
+            }
+          },
+          {
+            "LatexCode": "550",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "650",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "650 كانت كمية B قبل النقل.",
+              "En": "650 was the initial amount in B."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "احسب السعة الفارغة في B.",
+            "En": "Find the empty capacity in B."
+          },
+          {
+            "Ar": "اطرح مقدار النقل من كمية A.",
+            "En": "Subtract the transfer amount from A."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "ننقل فقط المقدار اللازم لإكمال سعة الإبريق الثاني.",
+            "En": "Transfer only what is needed to fill the second jug."
+          },
+          "FormulaLatex": "1000-650=350",
+          "Steps": [
+            {
+              "Ar": "يحتاج B إلى 350 mL.",
+              "En": "B needs 350 mL."
+            },
+            {
+              "Ar": "يبقى في A مقدار 900 ناقص 350.",
+              "En": "A retains 900 minus 350 mL."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$900-350=550$",
+            "En": "$900-350=550$"
+          },
+          "Result": {
+            "Ar": "$550$",
+            "En": "$550$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "كان المجموع 1550 mL وما زال 1000 مع 550 يساوي 1550.",
+            "En": "The total remains 1550 mL: 1000 plus 550."
+          },
+          "CommonError": {
+            "Ar": "الإجابة بمقدار الماء المنقول بدلاً من المتبقي.",
+            "En": "Giving the amount transferred instead of the amount remaining."
+          }
+        }
+      },
+      "flat_ar": "ننقل فقط المقدار اللازم لإكمال سعة الإبريق الثاني.\n\n$1000-650=350$\n\n1. يحتاج B إلى 350 mL.\n\n2. يبقى في A مقدار 900 ناقص 350.\n\n$900-350=550$\n\n$550$\n\nكان المجموع 1550 mL وما زال 1000 مع 550 يساوي 1550.\n\nالإجابة بمقدار الماء المنقول بدلاً من المتبقي.",
+      "flat_en": "Transfer only what is needed to fill the second jug.\n\n$1000-650=350$\n\n1. B needs 350 mL.\n\n2. A retains 900 minus 350 mL.\n\n$900-350=550$\n\n$550$\n\nThe total remains 1550 mL: 1000 plus 550.\n\nGiving the amount transferred instead of the amount remaining.",
+      "metadata": {
+        "DifficultyLevel": 2,
+        "Hints": [
+          {
+            "Ar": "احسب السعة الفارغة في B.",
+            "En": "Find the empty capacity in B."
+          },
+          {
+            "Ar": "اطرح مقدار النقل من كمية A.",
+            "En": "Subtract the transfer amount from A."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "ننقل فقط المقدار اللازم لإكمال سعة الإبريق الثاني.",
+            "En": "Transfer only what is needed to fill the second jug."
+          },
+          "FormulaLatex": "1000-650=350",
+          "Steps": [
+            {
+              "Ar": "يحتاج B إلى 350 mL.",
+              "En": "B needs 350 mL."
+            },
+            {
+              "Ar": "يبقى في A مقدار 900 ناقص 350.",
+              "En": "A retains 900 minus 350 mL."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$900-350=550$",
+            "En": "$900-350=550$"
+          },
+          "Result": {
+            "Ar": "$550$",
+            "En": "$550$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "كان المجموع 1550 mL وما زال 1000 مع 550 يساوي 1550.",
+            "En": "The total remains 1550 mL: 1000 plus 550."
+          },
+          "CommonError": {
+            "Ar": "الإجابة بمقدار الماء المنقول بدلاً من المتبقي.",
+            "En": "Giving the amount transferred instead of the amount remaining."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "نقل 350 mL من 900 mL يترك 550 mL.",
+              "En": "Moving 350 mL from 900 mL leaves 550 mL."
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "350 هو المقدار المنقول لا المتبقي.",
+              "En": "350 is the transferred amount, not the remainder."
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "650 كانت كمية B قبل النقل.",
+              "En": "650 was the initial amount in B."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v87-grade-4-capacity-two-cup-sizes-exact-fill-1",
+      "family": "capacity-two-cup-sizes-exact-fill",
+      "skill_key": "capacity",
+      "track_code": "grade-4",
+      "track": 4,
+      "stage": 1,
+      "category": 82,
+      "skill": 320,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 82,
+        "PrimarySkillId": 320,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          4
+        ],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "قياس كمية بكوبين مختلفين",
+          "En": "Measuring with two cup sizes"
+        },
+        "Question": {
+          "Ar": "يريد طفل قياس 1 L من الماء. ملأ كوباً سعته 400 mL مرة واحدة. كم مرة يحتاج إلى ملء كوب سعته 150 mL لإكمال اللتر بالضبط؟",
+          "En": "A child needs to measure 1 L of water. A 400 mL cup is filled once. How many times must a 150 mL cup be filled to make exactly one litre?"
+        },
+        "Options": [
+          {
+            "LatexCode": "2",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "مرتان تعطيان 300 mL فقط من 600 mL المطلوبة.",
+              "En": "Two fills give only 300 of the needed 600 mL."
+            }
+          },
+          {
+            "LatexCode": "3",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "ثلاث مرات تعطي 450 mL فقط.",
+              "En": "Three fills give only 450 mL."
+            }
+          },
+          {
+            "LatexCode": "4",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "6",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "ست مرات تعطي 900 mL إضافية وتتجاوز اللتر.",
+              "En": "Six fills add 900 mL and exceed a litre."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "حوّل 1 L إلى mL واطرح 400.",
+            "En": "Convert 1 L to mL and subtract 400."
+          },
+          {
+            "Ar": "اقسم المقدار الباقي على 150.",
+            "En": "Divide the remaining amount by 150."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نحسب الكمية المتبقية ثم عدد الأكواب الصغيرة اللازمة.",
+            "En": "Find the remaining volume and divide by the small cup capacity."
+          },
+          "FormulaLatex": "1000-400=600",
+          "Steps": [
+            {
+              "Ar": "نحتاج 600 mL بعد الكوب الأول.",
+              "En": "We need 600 mL after the first cup."
+            },
+            {
+              "Ar": "600 مقسومة على 150 تساوي أربع مرات.",
+              "En": "600 divided by 150 equals four fills."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$600\\div150=4$",
+            "En": "$600\\div150=4$"
+          },
+          "Result": {
+            "Ar": "$4$",
+            "En": "$4$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "400 مع أربعة أمثال 150 يساوي 1000 mL.",
+            "En": "400 plus four times 150 equals 1000 mL."
+          },
+          "CommonError": {
+            "Ar": "قسمة اللتر كاملاً على سعة الكوب الصغير رغم استعمال الكوب الأول.",
+            "En": "Dividing the entire litre by the small cup size despite using the first cup."
+          }
+        }
+      },
+      "flat_ar": "نحسب الكمية المتبقية ثم عدد الأكواب الصغيرة اللازمة.\n\n$1000-400=600$\n\n1. نحتاج 600 mL بعد الكوب الأول.\n\n2. 600 مقسومة على 150 تساوي أربع مرات.\n\n$600\\div150=4$\n\n$4$\n\n400 مع أربعة أمثال 150 يساوي 1000 mL.\n\nقسمة اللتر كاملاً على سعة الكوب الصغير رغم استعمال الكوب الأول.",
+      "flat_en": "Find the remaining volume and divide by the small cup capacity.\n\n$1000-400=600$\n\n1. We need 600 mL after the first cup.\n\n2. 600 divided by 150 equals four fills.\n\n$600\\div150=4$\n\n$4$\n\n400 plus four times 150 equals 1000 mL.\n\nDividing the entire litre by the small cup size despite using the first cup.",
+      "metadata": {
+        "DifficultyLevel": 2,
+        "Hints": [
+          {
+            "Ar": "حوّل 1 L إلى mL واطرح 400.",
+            "En": "Convert 1 L to mL and subtract 400."
+          },
+          {
+            "Ar": "اقسم المقدار الباقي على 150.",
+            "En": "Divide the remaining amount by 150."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نحسب الكمية المتبقية ثم عدد الأكواب الصغيرة اللازمة.",
+            "En": "Find the remaining volume and divide by the small cup capacity."
+          },
+          "FormulaLatex": "1000-400=600",
+          "Steps": [
+            {
+              "Ar": "نحتاج 600 mL بعد الكوب الأول.",
+              "En": "We need 600 mL after the first cup."
+            },
+            {
+              "Ar": "600 مقسومة على 150 تساوي أربع مرات.",
+              "En": "600 divided by 150 equals four fills."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$600\\div150=4$",
+            "En": "$600\\div150=4$"
+          },
+          "Result": {
+            "Ar": "$4$",
+            "En": "$4$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "400 مع أربعة أمثال 150 يساوي 1000 mL.",
+            "En": "400 plus four times 150 equals 1000 mL."
+          },
+          "CommonError": {
+            "Ar": "قسمة اللتر كاملاً على سعة الكوب الصغير رغم استعمال الكوب الأول.",
+            "En": "Dividing the entire litre by the small cup size despite using the first cup."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "مرتان تعطيان 300 mL فقط من 600 mL المطلوبة.",
+              "En": "Two fills give only 300 of the needed 600 mL."
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "ثلاث مرات تعطي 450 mL فقط.",
+              "En": "Three fills give only 450 mL."
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "ست مرات تعطي 900 mL إضافية وتتجاوز اللتر.",
+              "En": "Six fills add 900 mL and exceed a litre."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v87-grade-4-mass-complement-pair-to-target-1",
+      "family": "mass-complement-pair-to-target",
+      "skill_key": "mass",
+      "track_code": "grade-4",
+      "track": 4,
+      "stage": 1,
+      "category": 82,
+      "skill": 322,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 82,
+        "PrimarySkillId": 322,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          4
+        ],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "اختيار كتلتين",
+          "En": "Choosing two masses"
+        },
+        "Question": {
+          "Ar": "لدينا أربع قطع كتلها: 650 g و850 g و1 kg و1 kg 150 g. أي زوج مجموع كتلتيه 2 kg بالضبط؟ A: 650 و850؛ B: 650 و1150؛ C: 850 و1150؛ D: 1000 و1150 (بالغرام).",
+          "En": "Four objects have masses 650 g, 850 g, 1 kg and 1 kg 150 g. Which pair totals exactly 2 kg? A: 650 and 850; B: 650 and 1150; C: 850 and 1150; D: 1000 and 1150 (in grams)."
+        },
+        "Options": [
+          {
+            "LatexCode": "A",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "650 مع 850 يساوي 1500 g.",
+              "En": "650 plus 850 is 1500 g."
+            }
+          },
+          {
+            "LatexCode": "B",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "650 مع 1150 يساوي 1800 g.",
+              "En": "650 plus 1150 is 1800 g."
+            }
+          },
+          {
+            "LatexCode": "C",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "D",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "1000 مع 1150 يساوي 2150 g.",
+              "En": "1000 plus 1150 is 2150 g."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "حوّل الهدف 2 kg إلى غرامات.",
+            "En": "Convert the target 2 kg to grams."
+          },
+          {
+            "Ar": "اجمع كتل كل زوج وقارن مع 2000.",
+            "En": "Add each pair and compare with 2000."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نبحث عن زوج يحقق الكتلة المطلوبة بعد توحيد الوحدات.",
+            "En": "Find a pair matching the target mass in a common unit."
+          },
+          "FormulaLatex": "2\\,\\mathrm{kg}=2000\\,\\mathrm{g}",
+          "Steps": [
+            {
+              "Ar": "القطعة الأخيرة كتلتها 1150 g.",
+              "En": "The last object has mass 1150 g."
+            },
+            {
+              "Ar": "850 مع 1150 يساوي 2000 g.",
+              "En": "850 plus 1150 equals 2000 g."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$850+1150=2000$",
+            "En": "$850+1150=2000$"
+          },
+          "Result": {
+            "Ar": "$C$",
+            "En": "$C$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "2000 g تساوي 2 kg بالضبط.",
+            "En": "2000 g equals exactly 2 kg."
+          },
+          "CommonError": {
+            "Ar": "تقريب الكتل بدلاً من التحقق من المجموع الدقيق.",
+            "En": "Rounding masses instead of checking the exact total."
+          }
+        }
+      },
+      "flat_ar": "نبحث عن زوج يحقق الكتلة المطلوبة بعد توحيد الوحدات.\n\n$2\\,\\mathrm{kg}=2000\\,\\mathrm{g}$\n\n1. القطعة الأخيرة كتلتها 1150 g.\n\n2. 850 مع 1150 يساوي 2000 g.\n\n$850+1150=2000$\n\n$C$\n\n2000 g تساوي 2 kg بالضبط.\n\nتقريب الكتل بدلاً من التحقق من المجموع الدقيق.",
+      "flat_en": "Find a pair matching the target mass in a common unit.\n\n$2\\,\\mathrm{kg}=2000\\,\\mathrm{g}$\n\n1. The last object has mass 1150 g.\n\n2. 850 plus 1150 equals 2000 g.\n\n$850+1150=2000$\n\n$C$\n\n2000 g equals exactly 2 kg.\n\nRounding masses instead of checking the exact total.",
+      "metadata": {
+        "DifficultyLevel": 2,
+        "Hints": [
+          {
+            "Ar": "حوّل الهدف 2 kg إلى غرامات.",
+            "En": "Convert the target 2 kg to grams."
+          },
+          {
+            "Ar": "اجمع كتل كل زوج وقارن مع 2000.",
+            "En": "Add each pair and compare with 2000."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نبحث عن زوج يحقق الكتلة المطلوبة بعد توحيد الوحدات.",
+            "En": "Find a pair matching the target mass in a common unit."
+          },
+          "FormulaLatex": "2\\,\\mathrm{kg}=2000\\,\\mathrm{g}",
+          "Steps": [
+            {
+              "Ar": "القطعة الأخيرة كتلتها 1150 g.",
+              "En": "The last object has mass 1150 g."
+            },
+            {
+              "Ar": "850 مع 1150 يساوي 2000 g.",
+              "En": "850 plus 1150 equals 2000 g."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$850+1150=2000$",
+            "En": "$850+1150=2000$"
+          },
+          "Result": {
+            "Ar": "$C$",
+            "En": "$C$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "2000 g تساوي 2 kg بالضبط.",
+            "En": "2000 g equals exactly 2 kg."
+          },
+          "CommonError": {
+            "Ar": "تقريب الكتل بدلاً من التحقق من المجموع الدقيق.",
+            "En": "Rounding masses instead of checking the exact total."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "650 مع 850 يساوي 1500 g.",
+              "En": "650 plus 850 is 1500 g."
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "650 مع 1150 يساوي 1800 g.",
+              "En": "650 plus 1150 is 1800 g."
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "1000 مع 1150 يساوي 2150 g.",
+              "En": "1000 plus 1150 is 2150 g."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v87-grade-4-mass-equal-packets-mixed-unit-total-1",
+      "family": "mass-equal-packets-mixed-unit-total",
+      "skill_key": "mass",
+      "track_code": "grade-4",
+      "track": 4,
+      "stage": 1,
+      "category": 82,
+      "skill": 322,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 82,
+        "PrimarySkillId": 322,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          4
+        ],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "توزيع كتلة متساوية",
+          "En": "Sharing a mass equally"
+        },
+        "Question": {
+          "Ar": "لدى مخبز 2 kg و400 g من الدقيق، يريد توزيعه بالتساوي في ستة أكياس دون بقايا. ما كتلة الدقيق في كل كيس بالغرام؟",
+          "En": "A bakery has 2 kg 400 g of flour and shares it equally among six bags with none left. How many grams are in each bag?"
+        },
+        "Options": [
+          {
+            "LatexCode": "40",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا يقلل خارج القسمة الصحيح بعامل عشرة.",
+              "En": "This is ten times too small."
+            }
+          },
+          {
+            "LatexCode": "240",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "قسمة 2400 على 6 لا تعطي 240.",
+              "En": "2400 divided by six is not 240."
+            }
+          },
+          {
+            "LatexCode": "400",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "600",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "ستة أكياس من 600 g تحتاج 3600 g.",
+              "En": "Six 600 g bags would require 3600 g."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "حوّل الكتلة الكلية إلى غرامات.",
+            "En": "Convert the total mass to grams."
+          },
+          {
+            "Ar": "اقسمها على ستة.",
+            "En": "Divide by six."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نوحد وحدة الكتلة ثم نوزعها بالتساوي.",
+            "En": "Use one mass unit and share equally."
+          },
+          "FormulaLatex": "2000+400=2400",
+          "Steps": [
+            {
+              "Ar": "الكتلة الكلية 2400 g.",
+              "En": "The total mass is 2400 g."
+            },
+            {
+              "Ar": "نقسمها على ستة أكياس.",
+              "En": "Divide it among six bags."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$2400\\div6=400$",
+            "En": "$2400\\div6=400$"
+          },
+          "Result": {
+            "Ar": "$400$",
+            "En": "$400$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "ستة أمثال 400 g تساوي 2400 g.",
+            "En": "Six times 400 g is 2400 g."
+          },
+          "CommonError": {
+            "Ar": "قسمة الجزء المكتوب بالغرام وحده وإهمال الكيلوغرامات.",
+            "En": "Dividing only the gram component and ignoring kilograms."
+          }
+        }
+      },
+      "flat_ar": "نوحد وحدة الكتلة ثم نوزعها بالتساوي.\n\n$2000+400=2400$\n\n1. الكتلة الكلية 2400 g.\n\n2. نقسمها على ستة أكياس.\n\n$2400\\div6=400$\n\n$400$\n\nستة أمثال 400 g تساوي 2400 g.\n\nقسمة الجزء المكتوب بالغرام وحده وإهمال الكيلوغرامات.",
+      "flat_en": "Use one mass unit and share equally.\n\n$2000+400=2400$\n\n1. The total mass is 2400 g.\n\n2. Divide it among six bags.\n\n$2400\\div6=400$\n\n$400$\n\nSix times 400 g is 2400 g.\n\nDividing only the gram component and ignoring kilograms.",
+      "metadata": {
+        "DifficultyLevel": 2,
+        "Hints": [
+          {
+            "Ar": "حوّل الكتلة الكلية إلى غرامات.",
+            "En": "Convert the total mass to grams."
+          },
+          {
+            "Ar": "اقسمها على ستة.",
+            "En": "Divide by six."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نوحد وحدة الكتلة ثم نوزعها بالتساوي.",
+            "En": "Use one mass unit and share equally."
+          },
+          "FormulaLatex": "2000+400=2400",
+          "Steps": [
+            {
+              "Ar": "الكتلة الكلية 2400 g.",
+              "En": "The total mass is 2400 g."
+            },
+            {
+              "Ar": "نقسمها على ستة أكياس.",
+              "En": "Divide it among six bags."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$2400\\div6=400$",
+            "En": "$2400\\div6=400$"
+          },
+          "Result": {
+            "Ar": "$400$",
+            "En": "$400$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "ستة أمثال 400 g تساوي 2400 g.",
+            "En": "Six times 400 g is 2400 g."
+          },
+          "CommonError": {
+            "Ar": "قسمة الجزء المكتوب بالغرام وحده وإهمال الكيلوغرامات.",
+            "En": "Dividing only the gram component and ignoring kilograms."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا يقلل خارج القسمة الصحيح بعامل عشرة.",
+              "En": "This is ten times too small."
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "قسمة 2400 على 6 لا تعطي 240.",
+              "En": "2400 divided by six is not 240."
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "ستة أكياس من 600 g تحتاج 3600 g.",
+              "En": "Six 600 g bags would require 3600 g."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v87-grade-4-time-overlap-two-activities-1",
+      "family": "time-overlap-two-activities",
+      "skill_key": "time",
+      "track_code": "grade-4",
+      "track": 4,
+      "stage": 1,
+      "category": 82,
+      "skill": 324,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 82,
+        "PrimarySkillId": 324,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          4
+        ],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "الوقت المشترك",
+          "En": "Overlapping time"
+        },
+        "Question": {
+          "Ar": "بدأ نشاط الرسم عند 09:10 وانتهى عند 09:50، وبدأ نشاط القراءة عند 09:35 وانتهى عند 10:05. كم دقيقة كان النشاطان جاريين في الوقت نفسه؟",
+          "En": "Drawing runs from 09:10 to 09:50, and reading from 09:35 to 10:05. For how many minutes are both activities running at the same time?"
+        },
+        "Options": [
+          {
+            "LatexCode": "10",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "الفترة المشتركة تبدأ عند 09:35 لا 09:40.",
+              "En": "The overlap starts at 09:35, not 09:40."
+            }
+          },
+          {
+            "LatexCode": "15",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "25",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "25 دقيقة هي الفترة بين بدايتي النشاطين.",
+              "En": "25 minutes is the gap between the start times."
+            }
+          },
+          {
+            "LatexCode": "30",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "30 دقيقة مدة القراءة كاملة لا الجزء المشترك.",
+              "En": "30 minutes is the entire reading session, not the overlap."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "حدد وقت بدء النشاط الأخير.",
+            "En": "Find the later start time."
+          },
+          {
+            "Ar": "حدد وقت انتهاء النشاط الأول الذي ينتهي.",
+            "En": "Find the earlier end time."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "الفترة المشتركة تبدأ عند البداية المتأخرة وتنتهي عند النهاية المبكرة.",
+            "En": "The overlap runs from the later start to the earlier finish."
+          },
+          "FormulaLatex": "50-35=15",
+          "Steps": [
+            {
+              "Ar": "يبدأ التزامن عند 09:35.",
+              "En": "Both are running from 09:35."
+            },
+            {
+              "Ar": "ينتهي التزامن عند 09:50.",
+              "En": "The overlap ends at 09:50."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$50-35=15$",
+            "En": "$50-35=15$"
+          },
+          "Result": {
+            "Ar": "$15$",
+            "En": "$15$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "قبل 09:35 الرسم وحده جارٍ وبعد 09:50 القراءة وحدها جارية.",
+            "En": "Before 09:35 only drawing runs; after 09:50 only reading runs."
+          },
+          "CommonError": {
+            "Ar": "جمع المدتين بدلاً من حساب تقاطعهما.",
+            "En": "Adding durations instead of finding the overlap."
+          }
+        }
+      },
+      "flat_ar": "الفترة المشتركة تبدأ عند البداية المتأخرة وتنتهي عند النهاية المبكرة.\n\n$50-35=15$\n\n1. يبدأ التزامن عند 09:35.\n\n2. ينتهي التزامن عند 09:50.\n\n$50-35=15$\n\n$15$\n\nقبل 09:35 الرسم وحده جارٍ وبعد 09:50 القراءة وحدها جارية.\n\nجمع المدتين بدلاً من حساب تقاطعهما.",
+      "flat_en": "The overlap runs from the later start to the earlier finish.\n\n$50-35=15$\n\n1. Both are running from 09:35.\n\n2. The overlap ends at 09:50.\n\n$50-35=15$\n\n$15$\n\nBefore 09:35 only drawing runs; after 09:50 only reading runs.\n\nAdding durations instead of finding the overlap.",
+      "metadata": {
+        "DifficultyLevel": 2,
+        "Hints": [
+          {
+            "Ar": "حدد وقت بدء النشاط الأخير.",
+            "En": "Find the later start time."
+          },
+          {
+            "Ar": "حدد وقت انتهاء النشاط الأول الذي ينتهي.",
+            "En": "Find the earlier end time."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "الفترة المشتركة تبدأ عند البداية المتأخرة وتنتهي عند النهاية المبكرة.",
+            "En": "The overlap runs from the later start to the earlier finish."
+          },
+          "FormulaLatex": "50-35=15",
+          "Steps": [
+            {
+              "Ar": "يبدأ التزامن عند 09:35.",
+              "En": "Both are running from 09:35."
+            },
+            {
+              "Ar": "ينتهي التزامن عند 09:50.",
+              "En": "The overlap ends at 09:50."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$50-35=15$",
+            "En": "$50-35=15$"
+          },
+          "Result": {
+            "Ar": "$15$",
+            "En": "$15$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "قبل 09:35 الرسم وحده جارٍ وبعد 09:50 القراءة وحدها جارية.",
+            "En": "Before 09:35 only drawing runs; after 09:50 only reading runs."
+          },
+          "CommonError": {
+            "Ar": "جمع المدتين بدلاً من حساب تقاطعهما.",
+            "En": "Adding durations instead of finding the overlap."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "الفترة المشتركة تبدأ عند 09:35 لا 09:40.",
+              "En": "The overlap starts at 09:35, not 09:40."
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "25 دقيقة هي الفترة بين بدايتي النشاطين.",
+              "En": "25 minutes is the gap between the start times."
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "30 دقيقة مدة القراءة كاملة لا الجزء المشترك.",
+              "En": "30 minutes is the entire reading session, not the overlap."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v87-grade-4-time-repeating-minute-hand-full-revolutions-1",
+      "family": "time-repeating-minute-hand-full-revolutions",
+      "skill_key": "time",
+      "track_code": "grade-4",
+      "track": 4,
+      "stage": 1,
+      "category": 82,
+      "skill": 324,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 82,
+        "PrimarySkillId": 324,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          4
+        ],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "دورات عقرب الدقائق",
+          "En": "Minute-hand revolutions"
+        },
+        "Question": {
+          "Ar": "بدأ نشاط عند 08:20 وانتهى عند 10:50. ما عدد الدورات الكاملة التي قطعها عقرب الدقائق خلال النشاط، دون احتساب الجزء غير المكتمل؟",
+          "En": "An activity begins at 08:20 and ends at 10:50. How many complete revolutions does the minute hand make during the activity, excluding any incomplete revolution?"
+        },
+        "Options": [
+          {
+            "LatexCode": "1",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "مر أكثر من 120 دقيقة.",
+              "En": "More than 120 minutes elapsed."
+            }
+          },
+          {
+            "LatexCode": "2",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "3",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "ثلاث دورات كاملة تتطلب 180 دقيقة.",
+              "En": "Three complete revolutions require 180 minutes."
+            }
+          },
+          {
+            "LatexCode": "5",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "خمس دورات تتطلب 300 دقيقة.",
+              "En": "Five revolutions require 300 minutes."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "احسب المدة بالدقائق.",
+            "En": "Find the elapsed time in minutes."
+          },
+          {
+            "Ar": "كل دورة كاملة لعقرب الدقائق تستغرق 60 دقيقة.",
+            "En": "Each complete minute-hand revolution takes 60 minutes."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نقسم المدة على 60 ونحسب الدورات الكاملة فقط.",
+            "En": "Divide elapsed minutes by 60 and count only complete revolutions."
+          },
+          "FormulaLatex": "2\\times60+30=150",
+          "Steps": [
+            {
+              "Ar": "المدة ساعتان و30 دقيقة، أي 150 دقيقة.",
+              "En": "The duration is two hours and 30 minutes, or 150 minutes."
+            },
+            {
+              "Ar": "فيها دورتان كاملتان ونصف دورة إضافية.",
+              "En": "It contains two full revolutions and an extra half revolution."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$150=2\\times60+30$",
+            "En": "$150=2\\times60+30$"
+          },
+          "Result": {
+            "Ar": "$2$",
+            "En": "$2$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "دورتان تستغرقان 120 دقيقة، والباقي 30 دقيقة غير كاف لدورة ثالثة.",
+            "En": "Two revolutions take 120 minutes; the remaining 30 cannot complete a third."
+          },
+          "CommonError": {
+            "Ar": "تقريب الجزء غير المكتمل إلى دورة كاملة.",
+            "En": "Rounding the incomplete revolution up."
+          }
+        }
+      },
+      "flat_ar": "نقسم المدة على 60 ونحسب الدورات الكاملة فقط.\n\n$2\\times60+30=150$\n\n1. المدة ساعتان و30 دقيقة، أي 150 دقيقة.\n\n2. فيها دورتان كاملتان ونصف دورة إضافية.\n\n$150=2\\times60+30$\n\n$2$\n\nدورتان تستغرقان 120 دقيقة، والباقي 30 دقيقة غير كاف لدورة ثالثة.\n\nتقريب الجزء غير المكتمل إلى دورة كاملة.",
+      "flat_en": "Divide elapsed minutes by 60 and count only complete revolutions.\n\n$2\\times60+30=150$\n\n1. The duration is two hours and 30 minutes, or 150 minutes.\n\n2. It contains two full revolutions and an extra half revolution.\n\n$150=2\\times60+30$\n\n$2$\n\nTwo revolutions take 120 minutes; the remaining 30 cannot complete a third.\n\nRounding the incomplete revolution up.",
+      "metadata": {
+        "DifficultyLevel": 2,
+        "Hints": [
+          {
+            "Ar": "احسب المدة بالدقائق.",
+            "En": "Find the elapsed time in minutes."
+          },
+          {
+            "Ar": "كل دورة كاملة لعقرب الدقائق تستغرق 60 دقيقة.",
+            "En": "Each complete minute-hand revolution takes 60 minutes."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نقسم المدة على 60 ونحسب الدورات الكاملة فقط.",
+            "En": "Divide elapsed minutes by 60 and count only complete revolutions."
+          },
+          "FormulaLatex": "2\\times60+30=150",
+          "Steps": [
+            {
+              "Ar": "المدة ساعتان و30 دقيقة، أي 150 دقيقة.",
+              "En": "The duration is two hours and 30 minutes, or 150 minutes."
+            },
+            {
+              "Ar": "فيها دورتان كاملتان ونصف دورة إضافية.",
+              "En": "It contains two full revolutions and an extra half revolution."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$150=2\\times60+30$",
+            "En": "$150=2\\times60+30$"
+          },
+          "Result": {
+            "Ar": "$2$",
+            "En": "$2$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "دورتان تستغرقان 120 دقيقة، والباقي 30 دقيقة غير كاف لدورة ثالثة.",
+            "En": "Two revolutions take 120 minutes; the remaining 30 cannot complete a third."
+          },
+          "CommonError": {
+            "Ar": "تقريب الجزء غير المكتمل إلى دورة كاملة.",
+            "En": "Rounding the incomplete revolution up."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "مر أكثر من 120 دقيقة.",
+              "En": "More than 120 minutes elapsed."
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "ثلاث دورات كاملة تتطلب 180 دقيقة.",
+              "En": "Three complete revolutions require 180 minutes."
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "خمس دورات تتطلب 300 دقيقة.",
+              "En": "Five revolutions require 300 minutes."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v87-grade-4-time-periodic-bus-schedule-wait-1",
+      "family": "time-periodic-bus-schedule-wait",
+      "skill_key": "time",
+      "track_code": "grade-4",
+      "track": 4,
+      "stage": 1,
+      "category": 82,
+      "skill": 324,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 82,
+        "PrimarySkillId": 324,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          4
+        ],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "الانتظار حتى الموعد التالي",
+          "En": "Waiting for the next departure"
+        },
+        "Question": {
+          "Ar": "تنطلق حافلة كل 20 دقيقة ابتداءً من 08:00، ولا تنطلق في أوقات أخرى. وصل طفل إلى المحطة عند 08:47. كم دقيقة ينتظر حتى موعد الانطلاق التالي؟",
+          "En": "A bus departs every 20 minutes starting at 08:00, with no departures in between. A child arrives at 08:47. How many minutes until the next departure?"
+        },
+        "Options": [
+          {
+            "LatexCode": "7",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "سبع دقائق مضت منذ انطلاق 08:40، وهي ليست مدة الانتظار المقبلة.",
+              "En": "Seven minutes have passed since 08:40; that is not the remaining wait."
+            }
+          },
+          {
+            "LatexCode": "13",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "20",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "20 هي الفترة بين الحافلات وليست الانتظار من 08:47.",
+              "En": "20 is the departure interval, not the wait from 08:47."
+            }
+          },
+          {
+            "LatexCode": "33",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا ينتظر إلى 09:20 ويتجاوز رحلة 09:00.",
+              "En": "This waits until 09:20, missing the 09:00 departure."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "اكتب أوقات الانطلاق ابتداءً من 08:00.",
+            "En": "List departures starting at 08:00."
+          },
+          {
+            "Ar": "اختر أول موعد بعد 08:47.",
+            "En": "Choose the first departure after 08:47."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نحدد الموعد التالي في النمط الزمني ثم نحسب الفرق.",
+            "En": "Find the next scheduled time and calculate the difference."
+          },
+          "FormulaLatex": "60-47=13",
+          "Steps": [
+            {
+              "Ar": "الأوقات هي 08:00 و08:20 و08:40 و09:00.",
+              "En": "Departures are 08:00, 08:20, 08:40 and 09:00."
+            },
+            {
+              "Ar": "أول موعد بعد الوصول هو 09:00، بعد 13 دقيقة.",
+              "En": "The first after arrival is 09:00, thirteen minutes later."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$60-47=13$",
+            "En": "$60-47=13$"
+          },
+          "Result": {
+            "Ar": "$13$",
+            "En": "$13$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "08:47 مع 13 دقيقة تساوي 09:00.",
+            "En": "08:47 plus 13 minutes is 09:00."
+          },
+          "CommonError": {
+            "Ar": "حساب الوقت منذ الحافلة السابقة بدلاً من الانتظار للمقبلة.",
+            "En": "Finding time since the previous bus instead of time until the next."
+          }
+        }
+      },
+      "flat_ar": "نحدد الموعد التالي في النمط الزمني ثم نحسب الفرق.\n\n$60-47=13$\n\n1. الأوقات هي 08:00 و08:20 و08:40 و09:00.\n\n2. أول موعد بعد الوصول هو 09:00، بعد 13 دقيقة.\n\n$60-47=13$\n\n$13$\n\n08:47 مع 13 دقيقة تساوي 09:00.\n\nحساب الوقت منذ الحافلة السابقة بدلاً من الانتظار للمقبلة.",
+      "flat_en": "Find the next scheduled time and calculate the difference.\n\n$60-47=13$\n\n1. Departures are 08:00, 08:20, 08:40 and 09:00.\n\n2. The first after arrival is 09:00, thirteen minutes later.\n\n$60-47=13$\n\n$13$\n\n08:47 plus 13 minutes is 09:00.\n\nFinding time since the previous bus instead of time until the next.",
+      "metadata": {
+        "DifficultyLevel": 2,
+        "Hints": [
+          {
+            "Ar": "اكتب أوقات الانطلاق ابتداءً من 08:00.",
+            "En": "List departures starting at 08:00."
+          },
+          {
+            "Ar": "اختر أول موعد بعد 08:47.",
+            "En": "Choose the first departure after 08:47."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نحدد الموعد التالي في النمط الزمني ثم نحسب الفرق.",
+            "En": "Find the next scheduled time and calculate the difference."
+          },
+          "FormulaLatex": "60-47=13",
+          "Steps": [
+            {
+              "Ar": "الأوقات هي 08:00 و08:20 و08:40 و09:00.",
+              "En": "Departures are 08:00, 08:20, 08:40 and 09:00."
+            },
+            {
+              "Ar": "أول موعد بعد الوصول هو 09:00، بعد 13 دقيقة.",
+              "En": "The first after arrival is 09:00, thirteen minutes later."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$60-47=13$",
+            "En": "$60-47=13$"
+          },
+          "Result": {
+            "Ar": "$13$",
+            "En": "$13$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "08:47 مع 13 دقيقة تساوي 09:00.",
+            "En": "08:47 plus 13 minutes is 09:00."
+          },
+          "CommonError": {
+            "Ar": "حساب الوقت منذ الحافلة السابقة بدلاً من الانتظار للمقبلة.",
+            "En": "Finding time since the previous bus instead of time until the next."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "سبع دقائق مضت منذ انطلاق 08:40، وهي ليست مدة الانتظار المقبلة.",
+              "En": "Seven minutes have passed since 08:40; that is not the remaining wait."
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "20 هي الفترة بين الحافلات وليست الانتظار من 08:47.",
+              "En": "20 is the departure interval, not the wait from 08:47."
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا ينتظر إلى 09:20 ويتجاوز رحلة 09:00.",
+              "En": "This waits until 09:20, missing the 09:00 departure."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    }
+  ]
+}
