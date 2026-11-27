@@ -436,21 +436,21 @@
           "En": "Completing a square"
         },
         "Question": {
-          "Ar": "وضع طفل مربعين صغيرين متطابقين في الصف العلوي ومربعاً واحداً تحت المربع العلوي الأيسر مباشرة. كم مربعاً صغيراً آخر يحتاج ليكوّن مربعاً كبيراً من صفين متساويين دون فراغ؟",
-          "En": "A child places two identical small squares in the top row and one directly below the top-left square. How many more small squares are needed to make a larger square of two equal rows with no gap?"
+          "Ar": "وضع طفل مربعين صغيرين متطابقين في الصف العلوي ومربعاً واحداً تحت المربع العلوي الأيسر مباشرة. أين يضع المربع الرابع ليكوّن مربعاً كبيراً دون فراغ؟ A: فوق العلوي الأيسر، B: تحت العلوي الأيمن، C: يسار الصف السفلي، D: فوق العلوي الأيمن.",
+          "En": "A child places two identical small squares in the top row and one directly below the top-left square. Where should the fourth square go to form a larger square with no gap? A: above top-left; B: below top-right; C: left of the bottom row; D: above top-right."
         },
         "Options": [
           {
-            "LatexCode": "0",
+            "LatexCode": "A",
             "IsCorrect": false,
             "ErrorType": "misconception",
             "Reason": {
-              "Ar": "الصف السفلي ما زال ناقصاً.",
-              "En": "The bottom row is incomplete."
+              "Ar": "هذا يضيف صفاً ثالثاً ولا يملأ الفراغ السفلي.",
+              "En": "This adds a third row without filling the bottom gap."
             }
           },
           {
-            "LatexCode": "1",
+            "LatexCode": "B",
             "IsCorrect": true,
             "ErrorType": "",
             "Reason": {
@@ -459,129 +459,129 @@
             }
           },
           {
-            "LatexCode": "2",
+            "LatexCode": "C",
             "IsCorrect": false,
             "ErrorType": "misconception",
             "Reason": {
-              "Ar": "الصف السفلي يحتاج مربعاً واحداً فقط.",
-              "En": "The bottom row needs only one square."
+              "Ar": "هذا يمد الصف السفلي إلى اليسار بدلاً من محاذاته مع الصف العلوي.",
+              "En": "This extends the bottom row left instead of aligning it with the top row."
             }
           },
           {
-            "LatexCode": "3",
+            "LatexCode": "D",
             "IsCorrect": false,
             "ErrorType": "misconception",
             "Reason": {
-              "Ar": "لدينا ثلاثة مربعات بالفعل ونحتاج لإكمال مكان واحد.",
-              "En": "Three squares are already present; only one space remains."
+              "Ar": "هذا يضيف مربعاً فوق الصف العلوي ويترك المكان الناقص فارغاً.",
+              "En": "This adds a square above the top row and leaves the missing space empty."
             }
           }
         ],
         "Hints": [
           {
-            "Ar": "قارن عدد المربعات في الصفين.",
-            "En": "Compare the square counts in the two rows."
+            "Ar": "قارن مواضع المربعات في الصفين.",
+            "En": "Compare the positions of the squares in the two rows."
           },
           {
-            "Ar": "ابحث عن المكان الفارغ تحت المربع العلوي الأيمن.",
-            "En": "Find the empty space below the top-right square."
+            "Ar": "يجب أن يكون لكل مربع في الأعلى مربع تحته مباشرة.",
+            "En": "Each top square should have a square directly below it."
           }
         ],
         "Solution": {
           "Idea": {
-            "Ar": "لإكمال المربع الكبير يجب أن يتكون كل صف من مربعين.",
-            "En": "To complete the large square, each row needs two small squares."
+            "Ar": "نحاذي صفين متساويين لتكوين مربع كبير.",
+            "En": "Align two equal rows to form a larger square."
           },
-          "FormulaLatex": "2-1=1",
+          "FormulaLatex": "2+2=4",
           "Steps": [
             {
-              "Ar": "الصف العلوي مكتمل وفيه مربعان.",
-              "En": "The top row is complete with two squares."
+              "Ar": "المربع العلوي الأيسر له مربع تحته بالفعل.",
+              "En": "The top-left square already has a square below it."
             },
             {
-              "Ar": "الصف السفلي فيه مربع واحد فنضيف إليه مربعاً.",
-              "En": "The bottom row has one square, so add one."
+              "Ar": "نضع المربع الرابع تحت العلوي الأيمن لتكتمل المحاذاة.",
+              "En": "Place the fourth square below the top-right square to complete the alignment."
             }
           ],
           "Substitution": {
-            "Ar": "$2-1=1$",
-            "En": "$2-1=1$"
+            "Ar": "$2+2=4$",
+            "En": "$2+2=4$"
           },
           "Result": {
-            "Ar": "$1$",
-            "En": "$1$"
+            "Ar": "$B$",
+            "En": "$B$"
           },
           "Unit": {
             "Ar": "",
             "En": ""
           },
           "Verification": {
-            "Ar": "بعد الإضافة يصبح لدينا صفان، في كل منهما مربعان.",
-            "En": "After adding one, there are two rows with two squares each."
+            "Ar": "يصبح لدينا صفان متراصان، مربعان في كل صف دون فراغ.",
+            "En": "There are now two aligned rows with two squares each and no gap."
           },
           "CommonError": {
-            "Ar": "عد المربعات الموجودة بدلاً من عد الأماكن الناقصة.",
-            "En": "Counting existing squares instead of missing spaces."
+            "Ar": "إضافة مربع خارج الصفين بدلاً من ملء الفراغ.",
+            "En": "Adding a square outside the two rows instead of filling the gap."
           }
         }
       },
-      "flat_ar": "لإكمال المربع الكبير يجب أن يتكون كل صف من مربعين.\n\n$2-1=1$\n\n1. الصف العلوي مكتمل وفيه مربعان.\n\n2. الصف السفلي فيه مربع واحد فنضيف إليه مربعاً.\n\n$2-1=1$\n\n$1$\n\nبعد الإضافة يصبح لدينا صفان، في كل منهما مربعان.\n\nعد المربعات الموجودة بدلاً من عد الأماكن الناقصة.",
-      "flat_en": "To complete the large square, each row needs two small squares.\n\n$2-1=1$\n\n1. The top row is complete with two squares.\n\n2. The bottom row has one square, so add one.\n\n$2-1=1$\n\n$1$\n\nAfter adding one, there are two rows with two squares each.\n\nCounting existing squares instead of missing spaces.",
+      "flat_ar": "نحاذي صفين متساويين لتكوين مربع كبير.\n\n$2+2=4$\n\n1. المربع العلوي الأيسر له مربع تحته بالفعل.\n\n2. نضع المربع الرابع تحت العلوي الأيمن لتكتمل المحاذاة.\n\n$2+2=4$\n\n$B$\n\nيصبح لدينا صفان متراصان، مربعان في كل صف دون فراغ.\n\nإضافة مربع خارج الصفين بدلاً من ملء الفراغ.",
+      "flat_en": "Align two equal rows to form a larger square.\n\n$2+2=4$\n\n1. The top-left square already has a square below it.\n\n2. Place the fourth square below the top-right square to complete the alignment.\n\n$2+2=4$\n\n$B$\n\nThere are now two aligned rows with two squares each and no gap.\n\nAdding a square outside the two rows instead of filling the gap.",
       "metadata": {
         "DifficultyLevel": 1,
         "Hints": [
           {
-            "Ar": "قارن عدد المربعات في الصفين.",
-            "En": "Compare the square counts in the two rows."
+            "Ar": "قارن مواضع المربعات في الصفين.",
+            "En": "Compare the positions of the squares in the two rows."
           },
           {
-            "Ar": "ابحث عن المكان الفارغ تحت المربع العلوي الأيمن.",
-            "En": "Find the empty space below the top-right square."
+            "Ar": "يجب أن يكون لكل مربع في الأعلى مربع تحته مباشرة.",
+            "En": "Each top square should have a square directly below it."
           }
         ],
         "Solution": {
           "Idea": {
-            "Ar": "لإكمال المربع الكبير يجب أن يتكون كل صف من مربعين.",
-            "En": "To complete the large square, each row needs two small squares."
+            "Ar": "نحاذي صفين متساويين لتكوين مربع كبير.",
+            "En": "Align two equal rows to form a larger square."
           },
-          "FormulaLatex": "2-1=1",
+          "FormulaLatex": "2+2=4",
           "Steps": [
             {
-              "Ar": "الصف العلوي مكتمل وفيه مربعان.",
-              "En": "The top row is complete with two squares."
+              "Ar": "المربع العلوي الأيسر له مربع تحته بالفعل.",
+              "En": "The top-left square already has a square below it."
             },
             {
-              "Ar": "الصف السفلي فيه مربع واحد فنضيف إليه مربعاً.",
-              "En": "The bottom row has one square, so add one."
+              "Ar": "نضع المربع الرابع تحت العلوي الأيمن لتكتمل المحاذاة.",
+              "En": "Place the fourth square below the top-right square to complete the alignment."
             }
           ],
           "Substitution": {
-            "Ar": "$2-1=1$",
-            "En": "$2-1=1$"
+            "Ar": "$2+2=4$",
+            "En": "$2+2=4$"
           },
           "Result": {
-            "Ar": "$1$",
-            "En": "$1$"
+            "Ar": "$B$",
+            "En": "$B$"
           },
           "Unit": {
             "Ar": "",
             "En": ""
           },
           "Verification": {
-            "Ar": "بعد الإضافة يصبح لدينا صفان، في كل منهما مربعان.",
-            "En": "After adding one, there are two rows with two squares each."
+            "Ar": "يصبح لدينا صفان متراصان، مربعان في كل صف دون فراغ.",
+            "En": "There are now two aligned rows with two squares each and no gap."
           },
           "CommonError": {
-            "Ar": "عد المربعات الموجودة بدلاً من عد الأماكن الناقصة.",
-            "En": "Counting existing squares instead of missing spaces."
+            "Ar": "إضافة مربع خارج الصفين بدلاً من ملء الفراغ.",
+            "En": "Adding a square outside the two rows instead of filling the gap."
           }
         },
         "Distractors": [
           {
             "ErrorType": "misconception",
             "Reason": {
-              "Ar": "الصف السفلي ما زال ناقصاً.",
-              "En": "The bottom row is incomplete."
+              "Ar": "هذا يضيف صفاً ثالثاً ولا يملأ الفراغ السفلي.",
+              "En": "This adds a third row without filling the bottom gap."
             },
             "Order": 1
           },
@@ -596,16 +596,16 @@
           {
             "ErrorType": "misconception",
             "Reason": {
-              "Ar": "الصف السفلي يحتاج مربعاً واحداً فقط.",
-              "En": "The bottom row needs only one square."
+              "Ar": "هذا يمد الصف السفلي إلى اليسار بدلاً من محاذاته مع الصف العلوي.",
+              "En": "This extends the bottom row left instead of aligning it with the top row."
             },
             "Order": 3
           },
           {
             "ErrorType": "misconception",
             "Reason": {
-              "Ar": "لدينا ثلاثة مربعات بالفعل ونحتاج لإكمال مكان واحد.",
-              "En": "Three squares are already present; only one space remains."
+              "Ar": "هذا يضيف مربعاً فوق الصف العلوي ويترك المكان الناقص فارغاً.",
+              "En": "This adds a square above the top row and leaves the missing space empty."
             },
             "Order": 4
           }
@@ -1292,7 +1292,7 @@
             "Ar": "الفئة ذات العدد الأصغر تحدد عدد المجموعات الكاملة.",
             "En": "The smallest category count limits the number of complete sets."
           },
-          "FormulaLatex": "\\min(5,3,4)=3",
+          "FormulaLatex": "3<4<5",
           "Steps": [
             {
               "Ar": "يمكن أخذ قلم من كل لون ثلاث مرات.",
@@ -1325,8 +1325,8 @@
           }
         }
       },
-      "flat_ar": "الفئة ذات العدد الأصغر تحدد عدد المجموعات الكاملة.\n\n$\\min(5,3,4)=3$\n\n1. يمكن أخذ قلم من كل لون ثلاث مرات.\n\n2. بعد ذلك لا يبقى قلم أزرق لمجموعة رابعة.\n\n$3$\n\n$3$\n\nبعد ثلاث مجموعات يبقى قلمان أحمران وقلم أخضر ولا يبقى أزرق.\n\nاختيار الفئة الأكبر بدلاً من الأصغر.",
-      "flat_en": "The smallest category count limits the number of complete sets.\n\n$\\min(5,3,4)=3$\n\n1. One pen of each color can be taken three times.\n\n2. After that no blue pen remains for a fourth set.\n\n$3$\n\n$3$\n\nAfter three sets, two red and one green remain, with no blue left.\n\nChoosing the largest category instead of the smallest.",
+      "flat_ar": "الفئة ذات العدد الأصغر تحدد عدد المجموعات الكاملة.\n\n$3<4<5$\n\n1. يمكن أخذ قلم من كل لون ثلاث مرات.\n\n2. بعد ذلك لا يبقى قلم أزرق لمجموعة رابعة.\n\n$3$\n\n$3$\n\nبعد ثلاث مجموعات يبقى قلمان أحمران وقلم أخضر ولا يبقى أزرق.\n\nاختيار الفئة الأكبر بدلاً من الأصغر.",
+      "flat_en": "The smallest category count limits the number of complete sets.\n\n$3<4<5$\n\n1. One pen of each color can be taken three times.\n\n2. After that no blue pen remains for a fourth set.\n\n$3$\n\n$3$\n\nAfter three sets, two red and one green remain, with no blue left.\n\nChoosing the largest category instead of the smallest.",
       "metadata": {
         "DifficultyLevel": 2,
         "Hints": [
@@ -1344,7 +1344,7 @@
             "Ar": "الفئة ذات العدد الأصغر تحدد عدد المجموعات الكاملة.",
             "En": "The smallest category count limits the number of complete sets."
           },
-          "FormulaLatex": "\\min(5,3,4)=3",
+          "FormulaLatex": "3<4<5",
           "Steps": [
             {
               "Ar": "يمكن أخذ قلم من كل لون ثلاث مرات.",
@@ -1612,5 +1612,6 @@
         ]
       }
     }
-  ]
+  ],
+  "review": "Reviewed live target scopes, grade 3 previous inventory, and whole-bank bilingual token nearest neighbors for retained 8; 8 candidates held for educational overlap. Spatial missing-tile prompt refined to location selection, not missing-count arithmetic. No full curriculum, device, or CI claim."
 }
