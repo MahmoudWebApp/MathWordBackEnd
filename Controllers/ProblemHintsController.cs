@@ -52,11 +52,12 @@ public sealed class ProblemHintsController(AppDbContext db,ProblemCategoryAccess
             if(json.RootElement.TryGetProperty("Hints",out var value))
                 hints=value.Deserialize<BilingualText[]>();
         }
-        if(hints is null||hints.Length!=2||hints.Any(h=>!WizardProblemContract.Pair(h,1000)))
-            return Ok(new{ProblemId=problemId,Available=false,RevealedCount=0,Hints=Array.Empty<object>()});
-        var revealed=Math.Clamp(progress?.HintsRevealed??0,0,2);
+        if(hints is null||hints.Length is <1 or >2||hints.Any(h=>!WizardProblemContract.Pair(h,1000)))
+            return Ok(new{ProblemId=problemId,Available=false,HintCount=0,RevealedCount=0,Hints=Array.Empty<object>()});
+        var revealed=Math.Clamp(progress?.HintsRevealed??0,0,hints.Length);
         if(level.HasValue)
         {
+            if(level.Value>hints.Length)return BadRequest(new{Message="InvalidHintLevel"});
             if(level.Value>revealed+1)return Conflict(new{Message="RevealPreviousHintFirst"});
             if(level.Value>revealed)
             {
@@ -70,7 +71,7 @@ public sealed class ProblemHintsController(AppDbContext db,ProblemCategoryAccess
         }
         await tx.CommitAsync(ct);
         var ar=LanguageHelper.GetLanguageFromRequest(Request)!="en";
-        return Ok(new{ProblemId=problemId,Available=true,RevealedCount=revealed,
+        return Ok(new{ProblemId=problemId,Available=true,HintCount=hints.Length,RevealedCount=revealed,
             Hints=hints.Take(revealed).Select((h,i)=>new{Level=i+1,Text=ar?h.Ar:h.En}).ToArray()});
     }
 }
