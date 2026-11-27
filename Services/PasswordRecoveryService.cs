@@ -61,13 +61,15 @@ public sealed class PasswordRecoveryService(AppDbContext db, IConfiguration conf
         return transport.AllowsRecipient(user.Email);
     }
 
-    public async Task RequestAsync(string email, string locale, CancellationToken ct)
+    public async Task<RecoveryRequestResult> RequestAsync(string email, string locale, CancellationToken ct)
     {
-        if (!CanIssue || !MailAddress.TryCreate(email.Trim(), out var address) ||
-            !string.Equals(address.Address, email.Trim(), StringComparison.OrdinalIgnoreCase)) return;
+        if (!MailAddress.TryCreate(email.Trim(), out var address) ||
+            !string.Equals(address.Address, email.Trim(), StringComparison.OrdinalIgnoreCase)) return RecoveryRequestResult.InvalidEmail;
         var normalized = address.Address.ToLowerInvariant();
         var candidates = await db.Users.AsNoTracking().Where(x => x.Email.ToLower() == normalized).Take(2).ToListAsync(ct);
-        if (candidates.Count != 1 || !Eligible(candidates[0]) || candidates[0].StaffSetupPending) return;
+        if (candidates.Count == 0) return RecoveryRequestResult.EmailNotRegistered;
+        if (!CanIssue) return RecoveryRequestResult.Unavailable;
+        if (candidates.Count != 1 || !Eligible(candidates[0]) || candidates[0].StaffSetupPending) return RecoveryRequestResult.Accepted;
         var id = candidates[0].Id;
         await using var tx = await db.Database.BeginTransactionAsync(ct);
         // Lock the account before reading issuance state; change/reset uses
@@ -75,14 +77,14 @@ public sealed class PasswordRecoveryService(AppDbContext db, IConfiguration conf
         await db.Users.Where(x => x.Id == id).ExecuteUpdateAsync(s => s.SetProperty(x => x.TokenVersion, x => x.TokenVersion), ct);
         var user = await db.Users.AsNoTracking().SingleOrDefaultAsync(x => x.Id == id, ct);
         if (user is null || !Eligible(user) || user.StaffSetupPending || !string.Equals(user.Email, normalized, StringComparison.OrdinalIgnoreCase) ||
-            await db.SocialLogins.AnyAsync(x => x.UserId == id, ct)) return;
+            await db.SocialLogins.AnyAsync(x => x.UserId == id, ct)) return RecoveryRequestResult.Accepted;
         var now = DateTime.UtcNow;
-        if (await db.PasswordResetGrants.AnyAsync(x => x.UserId == id && x.CreatedAtUtc > now.AddMinutes(-2), ct)) return;
+        if (await db.PasswordResetGrants.AnyAsync(x => x.UserId == id && x.CreatedAtUtc > now.AddMinutes(-2), ct)) return RecoveryRequestResult.Accepted;
         // Shared daily reservation cap across instances. Recovery is given
         // priority by the worker. No mail is sent inline with the public API.
         await db.Database.ExecuteSqlRawAsync("SELECT pg_advisory_xact_lock(7240162026)", ct);
         var cap = Math.Clamp(config.GetValue("MathWorldRecovery:DailyRequestLimit", 60), 1, 100);
-        if (await db.PasswordResetGrants.CountAsync(x => x.CreatedAtUtc >= now.Date, ct) >= cap) return;
+        if (await db.PasswordResetGrants.CountAsync(x => x.CreatedAtUtc >= now.Date, ct) >= cap) return RecoveryRequestResult.Accepted;
         await db.PasswordResetGrants.Where(x => x.UserId == id && x.ConsumedAtUtc == null)
             .ExecuteUpdateAsync(s => s.SetProperty(x => x.ConsumedAtUtc, now), ct);
         var grant = new PasswordResetGrant
@@ -100,6 +102,7 @@ public sealed class PasswordRecoveryService(AppDbContext db, IConfiguration conf
         });
         await db.SaveChangesAsync(ct);
         await tx.CommitAsync(ct);
+        return RecoveryRequestResult.Accepted;
     }
 
     public async Task<bool> ResetAsync(string token, string password, string locale, CancellationToken ct)
