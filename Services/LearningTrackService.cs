@@ -59,11 +59,13 @@ public sealed class LearningTrackService(AppDbContext db, IConfiguration config,
         join track in db.LearningTracks on link.TrackId equals track.Id
         join problem in db.Problems on link.ProblemId equals problem.Id
         join ps in db.CurriculumProblemSkills on problem.Id equals ps.ProblemId
+        join tc in db.LearningTrackCategories on new { TrackId=track.Id, CategoryId=problem.CategoryId }
+            equals new { tc.TrackId, tc.CategoryId }
+        join ts in db.LearningTrackSkills on new { TrackId=track.Id, SkillId=ps.SkillId }
+            equals new { ts.TrackId, ts.SkillId }
         where problem.StageId==track.StageId&&problem.Category.StageId==track.StageId&&
-            db.LearningTrackCategories.Any(c=>c.TrackId==track.Id&&c.CategoryId==problem.CategoryId)&&
             ps.IsPrimary&&ps.Skill.IsPublished&&ps.Skill.Domain.IsPublished&&
-            ps.Skill.StageId==track.StageId&&ps.Skill.CategoryId==problem.CategoryId&&
-            db.LearningTrackSkills.Any(ls=>ls.TrackId==track.Id&&ls.SkillId==ps.SkillId)
+            ps.Skill.StageId==track.StageId&&ps.Skill.CategoryId==problem.CategoryId
         select new ValidTrackLink {TrackId=link.TrackId,ProblemId=problem.Id,CategoryId=problem.CategoryId,SkillId=ps.SkillId};
 
     public IQueryable<MathProblem> ValidProblems(int trackId)
