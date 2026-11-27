@@ -218,6 +218,9 @@ def verify_tracks(admin, student, uid, stage1, stage2):
     expect("GET",f"/api/problems/{pid}/hints?practiceScopeId=0",409,token=student)
     expect("POST",f"/api/problems/{pid}/hints",409,{"Level":1,"PracticeScopeId":0},student)
     expect("GET",f"/api/problems/{pid}/hints?practiceScopeId={tid}",200,token=student)
+    expect("GET",f"/api/problems/{pid}/hints?practiceScopeId={tid}",401)
+    if outside:
+        expect("GET",f"/api/problems/{outside}/hints?practiceScopeId={tid}",403,token=student)
     challenge=expect("GET","/api/users/daily-challenge",200,token=student)
     assert challenge["TrackId"]==tid and [p["Id"] for p in challenge["Problems"]]==[pid]
     report=expect("GET",f"/api/users/premium-report?stageId={stage1}",200,token=student)
@@ -225,6 +228,7 @@ def verify_tracks(admin, student, uid, stage1, stage2):
     historical=expect("GET",f"/api/users/journey?stageId={stage2}",200,token=student)
     assert historical.get("TrackId") is None and historical["StageId"]==stage2
     sql(f"""UPDATE "Users" SET "SubscriptionType"='Free' WHERE "Id"={uid}""")
+    expect("GET",f"/api/problems/{pid}/hints?practiceScopeId={tid}",403,token=student)
     practice=f"/api/users/learning-tracks/{tid}/categories/{category}/problems"
     catalog=expect("GET",practice,200,token=student)
     assert catalog["Items"][0]["Id"]==pid and catalog["PageSize"]==5
@@ -296,6 +300,9 @@ def verify_tracks(admin, student, uid, stage1, stage2):
     admin_new=expect("GET",f"/api/admin/analytics/stages/{stage1}?trackId={oid}&categoryId={category}",200,token=admin)
     assert admin_old["Summary"]["UniqueSolved"]==1 and admin_new["Summary"]["UniqueSolved"]==0
     assert admin_old["Summary"]["CorrectAttemptsInWindow"]==1 and admin_new["Summary"]["CorrectAttemptsInWindow"]==0
+    expect("GET",f"/api/problems/{pid}/hints?practiceScopeId={tid}",409,token=student)
+    expect("POST",f"/api/problems/{pid}/hints",409,{"Level":1,"PracticeScopeId":tid},student)
+    expect("GET",f"/api/problems/{pid}/hints?practiceScopeId={oid}",409,token=student)
     assert old_report["TotalProblems"]==new_report["TotalProblems"]==1
     assert old_report["RecentAttempts"][0]["IsCorrect"] and not new_report["RecentAttempts"][0]["IsCorrect"]
     assert sum(c["ErrorNotebookProblems"] for c in old_report["Categories"])==0
