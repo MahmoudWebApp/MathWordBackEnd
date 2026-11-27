@@ -32,12 +32,33 @@ public static class StudentOnboardingPolicy
         var track=config.GetValue<bool>("StudentOnboarding:RequireTrack");
         var stage=track||config.GetValue<bool>("StudentOnboarding:RequireStage");
         if(!email&&!stage&&!track)return new(false,false,false,"Complete");
-        var user=await db.Users.AsNoTracking().SingleAsync(u=>u.Id==id&&u.IsActive&&u.Role=="Student",ct);
-        var verified=OptionalEmailPolicy.HasVerifiedAddress(user);
-        var selected=stage?await LegacyLearningStage.EffectiveIdForUserAsync(db,user.CurrentStageId,user.CreatedAt,ct):user.CurrentStageId;
-        var stageValid=selected.HasValue&&await db.EducationalStages.AsNoTracking().AnyAsync(x=>x.Id==selected,ct);
-        var trackValid=track&&stageValid&&await tracks.ActiveAsync(selected,user.CurrentTrackId,ct) is not null;
-        return new(email,stage,track,Next(email,verified,stage,stageValid,track,trackValid));
+        // Fetch only the fields used by the onboarding policy, not the full user.
+        var user=await db.Users.AsNoTracking()
+            .Where(u=>u.Id==id&&u.IsActive&&u.Role=="Student")
+            .Select(u=>new{u.Email,u.VerifiedNotificationEmail,u.CurrentStageId,u.CurrentTrackId,u.CreatedAt})
+            .SingleAsync(ct);
+        var verified=!string.IsNullOrWhiteSpace(user.Email)&&
+            string.Equals(user.Email,user.VerifiedNotificationEmail,StringComparison.Ordinal);
+        // Next() gives email verification priority; the other checks cannot
+        // affect the outcome yet. No cross-request cache or bypass of account validation.
+        if(email&&!verified)return new(email,stage,track,"VerifyEmail");
+        if(!stage)return new(email,stage,track,"Complete");
+        var selected=await LegacyLearningStage.EffectiveIdForUserAsync(db,user.CurrentStageId,user.CreatedAt,ct);
+        if(!selected.HasValue)return new(email,stage,track,"SelectStage");
+        var stages=db.EducationalStages.AsNoTracking().Where(x=>x.Id==selected.Value);
+        if(!track||!tracks.Enabled||!user.CurrentTrackId.HasValue)
+        {
+            var stageValid=await stages.AnyAsync(ct);
+            return new(email,stage,track,Next(email,verified,stage,stageValid,track,false));
+        }
+        // A single round trip checks both the stage and the published, valid
+        // track; retain the same catalog predicates used by ActiveAsync.
+        var trackId=user.CurrentTrackId.Value;
+        var visible=tracks.VisibleTracks();
+        var state=await stages.Select(s=>new{
+            TrackValid=visible.Any(t=>t.StageId==s.Id&&t.Id==trackId)
+        }).SingleOrDefaultAsync(ct);
+        return new(email,stage,track,Next(email,verified,stage,state is not null,track,state?.TrackValid==true));
     }
 }
 
