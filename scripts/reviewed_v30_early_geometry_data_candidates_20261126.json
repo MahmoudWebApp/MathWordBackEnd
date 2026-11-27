@@ -1,0 +1,1402 @@
+[
+  {
+    "key": "growth-v30-grade-1-shape-closed-three-straight-sides-1",
+    "family": "shape-closed-three-straight-sides",
+    "group": "shape",
+    "skill_key": "primary-shape-attributes-composition",
+    "track_code": "grade-1",
+    "track": 1,
+    "stage": 1,
+    "category": 0,
+    "skill": 0,
+    "wizard": {
+      "StageId": 1,
+      "CategoryId": 0,
+      "PrimarySkillId": 0,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        1
+      ],
+      "DifficultyLevel": 1,
+      "Points": 10,
+      "Title": {
+        "Ar": "خصائص المثلث",
+        "En": "Attributes of a triangle"
+      },
+      "Question": {
+        "Ar": "أمامك أربعة أشكال: A له ثلاثة أضلاع مستقيمة ويُغلق تماماً؛ B له ثلاثة أضلاع لكن فيه فتحة؛ C له أربعة أضلاع مستقيمة ومغلق؛ D مغلق وله حافة منحنية فقط. أي شكل مثلث؟",
+        "En": "Four shapes are described: A has three straight sides and is closed; B has three sides but a gap; C has four straight sides and is closed; D is closed with only a curved edge. Which is a triangle?"
+      },
+      "Options": [
+        {
+          "LatexCode": "A",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "B",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "المثلث مغلق، لذلك لا يصلح الشكل ذو الفتحة.",
+            "En": "A triangle must be closed, so the shape with a gap does not qualify."
+          }
+        },
+        {
+          "LatexCode": "C",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "له أربعة أضلاع لا ثلاثة.",
+            "En": "It has four sides, not three."
+          }
+        },
+        {
+          "LatexCode": "D",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "لا توجد له ثلاثة أضلاع مستقيمة.",
+            "En": "It does not have three straight sides."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "عد الأضلاع المستقيمة.",
+          "En": "Count the straight sides."
+        },
+        {
+          "Ar": "تحقق أيضاً من أن الشكل مغلق.",
+          "En": "Also check that the shape is closed."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "المثلث شكل مغلق له ثلاثة أضلاع مستقيمة؛ لا يغيّر اللون أو الحجم أو الاتجاه اسمه.",
+          "En": "A triangle is closed with three straight sides; colour, size and orientation do not change its name."
+        },
+        "FormulaLatex": "3",
+        "Steps": [
+          {
+            "Ar": "A وB لهما ثلاثة أضلاع، لكن B فيه فتحة.",
+            "En": "A and B have three sides, but B has a gap."
+          },
+          {
+            "Ar": "C له أربعة أضلاع وD حافته منحنية.",
+            "En": "C has four sides and D has a curved edge."
+          },
+          {
+            "Ar": "إذن A وحده يحقق الخاصيتين.",
+            "En": "Only A meets both attributes."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$A$",
+          "En": "$A$"
+        },
+        "Result": {
+          "Ar": "$A$",
+          "En": "$A$"
+        },
+        "Unit": {
+          "Ar": "شكل",
+          "En": "Shape"
+        },
+        "Verification": {
+          "Ar": "عند تتبع أضلاع A الثلاثة نعود إلى نقطة البداية دون فتحة.",
+          "En": "Tracing A's three sides returns to the starting point without a gap."
+        },
+        "CommonError": {
+          "Ar": "لا يكفي عد الأضلاع وحده إذا كان الشكل مفتوحاً.",
+          "En": "Counting sides alone is not enough if the shape is open."
+        }
+      }
+    }
+  },
+  {
+    "key": "growth-v30-grade-1-shape-turn-does-not-change-1",
+    "family": "shape-turn-does-not-change",
+    "group": "shape",
+    "skill_key": "primary-shape-attributes-composition",
+    "track_code": "grade-1",
+    "track": 1,
+    "stage": 1,
+    "category": 0,
+    "skill": 0,
+    "wizard": {
+      "StageId": 1,
+      "CategoryId": 0,
+      "PrimarySkillId": 0,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        1
+      ],
+      "DifficultyLevel": 1,
+      "Points": 10,
+      "Title": {
+        "Ar": "ثبات الشكل عند تدويره",
+        "En": "Shape identity under rotation"
+      },
+      "Question": {
+        "Ar": "رسمت ليلى مربعاً على بطاقة ثم أدارت البطاقة ربع دورة دون قصها أو طيها. كم ضلعاً للمربع بعد الدوران؟",
+        "En": "Layla draws a square on a card and turns the card a quarter turn without cutting or folding it. How many sides does the square have after the turn?"
+      },
+      "Options": [
+        {
+          "LatexCode": "2",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "الدوران لا يزيل ضلعين.",
+            "En": "A turn does not remove two sides."
+          }
+        },
+        {
+          "LatexCode": "3",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "ثلاثة أضلاع تخص المثلث لا المربع.",
+            "En": "Three sides belong to a triangle, not a square."
+          }
+        },
+        {
+          "LatexCode": "4",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "8",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "لا يضيف الدوران أضلاعاً جديدة.",
+            "En": "A turn adds no new sides."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "تذكر عدد أضلاع المربع قبل الدوران.",
+          "En": "Recall the square's side count before the turn."
+        },
+        {
+          "Ar": "هل تغيّر اتجاه البطاقة أم تغير الشكل نفسه؟",
+          "En": "Did the card's orientation change, or the shape itself?"
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "دوران شكل دون قص أو تشويه يحافظ على عدد أضلاعه وخصائصه.",
+          "En": "Turning a shape without cutting or deforming preserves its side count and attributes."
+        },
+        "FormulaLatex": "4",
+        "Steps": [
+          {
+            "Ar": "قبل الدوران للمربع أربعة أضلاع.",
+            "En": "Before turning, the square has four sides."
+          },
+          {
+            "Ar": "الدوران يغير اتجاه الأضلاع فقط ولا يضيف أو يحذف ضلعاً.",
+            "En": "Turning changes orientation only; it adds or removes no sides."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$4=4$",
+          "En": "$4=4$"
+        },
+        "Result": {
+          "Ar": "$4$",
+          "En": "$4$"
+        },
+        "Unit": {
+          "Ar": "أضلاع",
+          "En": "Sides"
+        },
+        "Verification": {
+          "Ar": "يمكن تتبع الأضلاع الأربعة بعد الدوران كما قبل الدوران.",
+          "En": "The four sides can be traced after the turn just as before."
+        },
+        "CommonError": {
+          "Ar": "لا تعتبر تغيير اتجاه الشكل تغييراً في عدد أضلاعه.",
+          "En": "Do not treat a change in orientation as a change in side count."
+        }
+      }
+    }
+  },
+  {
+    "key": "growth-v30-grade-1-shape-compose-cubes-count-1",
+    "family": "shape-compose-cubes-count",
+    "group": "shape",
+    "skill_key": "primary-shape-attributes-composition",
+    "track_code": "grade-1",
+    "track": 1,
+    "stage": 1,
+    "category": 0,
+    "skill": 0,
+    "wizard": {
+      "StageId": 1,
+      "CategoryId": 0,
+      "PrimarySkillId": 0,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        1
+      ],
+      "DifficultyLevel": 1,
+      "Points": 10,
+      "Title": {
+        "Ar": "تركيب المجسمات",
+        "En": "Composing solid shapes"
+      },
+      "Question": {
+        "Ar": "وُضع مكعبان متماثلان أحدهما فوق الآخر، بحيث يتلامس وجه كامل من كل مكعب. كم مكعباً استُخدم في هذا المجسم؟",
+        "En": "Two identical cubes are placed one on top of the other, with one whole face of each touching. How many cubes are used in this solid?"
+      },
+      "Options": [
+        {
+          "LatexCode": "1",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "تلامس المكعبين لا يحولهما إلى قطعة واحدة من المكعبات الأصلية.",
+            "En": "Joining the cubes does not turn them into one original cube."
+          }
+        },
+        {
+          "LatexCode": "2",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "3",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "لم يُضف مكعب ثالث.",
+            "En": "No third cube was added."
+          }
+        },
+        {
+          "LatexCode": "6",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "6 عدد أوجه مكعب واحد وليس عدد المكعبات.",
+            "En": "Six is the face count of one cube, not the number of cubes."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "تخيل المكعب السفلي وحده.",
+          "En": "Imagine the bottom cube alone."
+        },
+        {
+          "Ar": "أضف المكعب الموجود فوقه فقط.",
+          "En": "Add just the cube on top."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "عند تركيب مجسم من قطع معروفة نعد القطع الأصلية، لا الأوجه الظاهرة.",
+          "En": "When composing a solid from known pieces, count its original pieces rather than visible faces."
+        },
+        "FormulaLatex": "1+1",
+        "Steps": [
+          {
+            "Ar": "هناك مكعب في الأسفل.",
+            "En": "There is one cube at the bottom."
+          },
+          {
+            "Ar": "وهناك مكعب آخر في الأعلى.",
+            "En": "There is another cube on top."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$1+1=2$",
+          "En": "$1+1=2$"
+        },
+        "Result": {
+          "Ar": "$2$",
+          "En": "$2$"
+        },
+        "Unit": {
+          "Ar": "مكعبات",
+          "En": "Cubes"
+        },
+        "Verification": {
+          "Ar": "إذا فصلنا المجسم عند الوجه المشترك نحصل على المكعبين الأصليين.",
+          "En": "Separating the solid at the shared face gives the two original cubes."
+        },
+        "CommonError": {
+          "Ar": "لا تخلط عدد المكعبات بعدد أوجهها.",
+          "En": "Do not confuse the number of cubes with their faces."
+        }
+      }
+    }
+  },
+  {
+    "key": "growth-v30-grade-1-data-most-least-gap-1",
+    "family": "data-most-least-gap",
+    "group": "data",
+    "skill_key": "primary-category-count-data",
+    "track_code": "grade-1",
+    "track": 1,
+    "stage": 1,
+    "category": 0,
+    "skill": 0,
+    "wizard": {
+      "StageId": 1,
+      "CategoryId": 0,
+      "PrimarySkillId": 0,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        1
+      ],
+      "DifficultyLevel": 1,
+      "Points": 10,
+      "Title": {
+        "Ar": "قراءة بيانات ثلاث مجموعات",
+        "En": "Reading three data groups"
+      },
+      "Question": {
+        "Ar": "سُئل أطفال عن الفاكهة المفضلة. اختار 5 أطفال التفاح، و3 الموز، و7 البرتقال. كم يزيد عدد من اختار البرتقال على عدد من اختار الموز؟",
+        "En": "Children chose a favourite fruit. Five chose apples, three bananas and seven oranges. How many more chose oranges than bananas?"
+      },
+      "Options": [
+        {
+          "LatexCode": "2",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "هذا الفرق بين التفاح والموز.",
+            "En": "This compares apples with bananas."
+          }
+        },
+        {
+          "LatexCode": "3",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "هذا عدد من اختار الموز وحده.",
+            "En": "This is the banana count alone."
+          }
+        },
+        {
+          "LatexCode": "4",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "10",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "هذا مجموع البرتقال والموز، لا الفرق.",
+            "En": "This adds orange and banana counts rather than comparing them."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "اختر فقط عددي البرتقال والموز.",
+          "En": "Use only the orange and banana counts."
+        },
+        {
+          "Ar": "اطرح العدد الأصغر من الأكبر.",
+          "En": "Subtract the smaller count from the larger."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "عند المقارنة بين فئتين في البيانات نستخدم الفرق بين عدديهما.",
+          "En": "When comparing two data categories, use the difference between their counts."
+        },
+        "FormulaLatex": "7-3",
+        "Steps": [
+          {
+            "Ar": "اختار البرتقال 7 أطفال والموز 3 أطفال.",
+            "En": "Seven chose oranges and three chose bananas."
+          },
+          {
+            "Ar": "نطرح 3 من 7 لمعرفة الزيادة.",
+            "En": "Subtract 3 from 7 to find how many more."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$7-3=4$",
+          "En": "$7-3=4$"
+        },
+        "Result": {
+          "Ar": "$4$",
+          "En": "$4$"
+        },
+        "Unit": {
+          "Ar": "أطفال",
+          "En": "Children"
+        },
+        "Verification": {
+          "Ar": "إذا أضفنا 4 إلى 3 نحصل على 7.",
+          "En": "Adding 4 to 3 gives 7."
+        },
+        "CommonError": {
+          "Ar": "لا تستخدم عدد التفاح في هذه المقارنة.",
+          "En": "Do not use the apple count for this comparison."
+        }
+      }
+    }
+  },
+  {
+    "key": "growth-v30-grade-1-data-total-three-exclusive-groups-1",
+    "family": "data-total-three-exclusive-groups",
+    "group": "data",
+    "skill_key": "primary-category-count-data",
+    "track_code": "grade-1",
+    "track": 1,
+    "stage": 1,
+    "category": 0,
+    "skill": 0,
+    "wizard": {
+      "StageId": 1,
+      "CategoryId": 0,
+      "PrimarySkillId": 0,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        1
+      ],
+      "DifficultyLevel": 1,
+      "Points": 10,
+      "Title": {
+        "Ar": "إيجاد العدد الكلي من البيانات",
+        "En": "Finding the total from data"
+      },
+      "Question": {
+        "Ar": "صنّف صفّ مكعباته حسب اللون فقط: 4 حمراء، و6 زرقاء، و2 خضراء. كل مكعب له لون واحد من هذه الألوان. كم مكعباً في الصف؟",
+        "En": "A class sorts its cubes by colour only: 4 red, 6 blue and 2 green. Each cube has exactly one of these colours. How many cubes are there in the class?"
+      },
+      "Options": [
+        {
+          "LatexCode": "8",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "جمع الأزرق والأخضر فقط وأهمل الأحمر.",
+            "En": "Adds blue and green but omits red."
+          }
+        },
+        {
+          "LatexCode": "10",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "جمع الأحمر والأزرق وأهمل الأخضر.",
+            "En": "Adds red and blue but omits green."
+          }
+        },
+        {
+          "LatexCode": "12",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "14",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "أضاف مكعبين زيادة عن مجموع المجموعات الثلاث.",
+            "En": "Adds two extra cubes beyond the three groups."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "استعمل الأعداد الثلاثة لأن كل مكعب ينتمي لمجموعة واحدة.",
+          "En": "Use all three counts because each cube belongs to one group."
+        },
+        {
+          "Ar": "اجمع الأحمر والأزرق ثم أضف الأخضر.",
+          "En": "Add red and blue, then add green."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "عندما لا تتداخل مجموعات البيانات وتغطي كل العناصر، يساوي المجموع الكلي مجموع أعدادها.",
+          "En": "When data groups do not overlap and cover all items, the total equals the sum of their counts."
+        },
+        "FormulaLatex": "4+6+2",
+        "Steps": [
+          {
+            "Ar": "الأحمر والأزرق معاً: 4+6=10.",
+            "En": "Red and blue together: 4+6=10."
+          },
+          {
+            "Ar": "نضيف الأخضر: 10+2=12.",
+            "En": "Add green: 10+2=12."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$4+6+2=12$",
+          "En": "$4+6+2=12$"
+        },
+        "Result": {
+          "Ar": "$12$",
+          "En": "$12$"
+        },
+        "Unit": {
+          "Ar": "مكعبات",
+          "En": "Cubes"
+        },
+        "Verification": {
+          "Ar": "عند طرح المجموعات الثلاث من 12 لا يبقى شيء.",
+          "En": "Removing all three group counts from 12 leaves nothing."
+        },
+        "CommonError": {
+          "Ar": "لا تهمل المجموعة الأصغر.",
+          "En": "Do not omit the smallest group."
+        }
+      }
+    }
+  },
+  {
+    "key": "growth-v30-grade-1-data-count-missing-category-1",
+    "family": "data-count-missing-category",
+    "group": "data",
+    "skill_key": "primary-category-count-data",
+    "track_code": "grade-1",
+    "track": 1,
+    "stage": 1,
+    "category": 0,
+    "skill": 0,
+    "wizard": {
+      "StageId": 1,
+      "CategoryId": 0,
+      "PrimarySkillId": 0,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        1
+      ],
+      "DifficultyLevel": 1,
+      "Points": 10,
+      "Title": {
+        "Ar": "استكمال سجل بسيط",
+        "En": "Completing a simple data record"
+      },
+      "Question": {
+        "Ar": "اختار 10 أطفال نشاطاً واحداً لكل منهم. اختار 4 الرسم، و3 القراءة، واختار الباقون اللعب. كم طفلاً اختار اللعب؟",
+        "En": "Ten children each choose exactly one activity. Four choose drawing, three reading, and the rest play. How many choose play?"
+      },
+      "Options": [
+        {
+          "LatexCode": "2",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "إذا اختار اثنان اللعب يصبح المجموع 9 فقط.",
+            "En": "If two choose play, the total is only nine."
+          }
+        },
+        {
+          "LatexCode": "3",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "4",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "إذا اختار أربعة اللعب يصبح المجموع 11.",
+            "En": "If four choose play, the total is eleven."
+          }
+        },
+        {
+          "LatexCode": "7",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "7 هو مجموع الرسم والقراءة، لا الباقي.",
+            "En": "Seven is the drawing and reading total, not the remainder."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "اجمع من اختار الرسم ومن اختار القراءة.",
+          "En": "Add the drawing and reading counts."
+        },
+        {
+          "Ar": "اطرح هذا المجموع من عشرة.",
+          "En": "Subtract that sum from ten."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "إذا كانت الفئات لا تتداخل، نحسب العدد المفقود بطرح مجموع الفئات المعروفة من الكل.",
+          "En": "For non-overlapping categories, find a missing count by subtracting the known counts from the total."
+        },
+        "FormulaLatex": "10-(4+3)",
+        "Steps": [
+          {
+            "Ar": "اختار الرسم أو القراءة 4+3=7 أطفال.",
+            "En": "Four plus three gives seven children choosing drawing or reading."
+          },
+          {
+            "Ar": "بقي من العشرة 10−7=3 أطفال للعب.",
+            "En": "Of the ten, 10−7=3 remain for play."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$10-7=3$",
+          "En": "$10-7=3$"
+        },
+        "Result": {
+          "Ar": "$3$",
+          "En": "$3$"
+        },
+        "Unit": {
+          "Ar": "أطفال",
+          "En": "Children"
+        },
+        "Verification": {
+          "Ar": "4+3+3=10؛ جميع الأطفال محسوبون مرة واحدة.",
+          "En": "4+3+3=10; every child is counted once."
+        },
+        "CommonError": {
+          "Ar": "لا تعتبر مجموع النشاطين هو عدد من اختار النشاط الثالث.",
+          "En": "Do not mistake the two known groups' total for the third group."
+        }
+      }
+    }
+  },
+  {
+    "key": "growth-v30-grade-2-shape-cube-face-edge-distinction-1",
+    "family": "shape-cube-face-edge-distinction",
+    "group": "shape",
+    "skill_key": "primary-shape-attributes-partition",
+    "track_code": "grade-2",
+    "track": 2,
+    "stage": 1,
+    "category": 0,
+    "skill": 0,
+    "wizard": {
+      "StageId": 1,
+      "CategoryId": 0,
+      "PrimarySkillId": 0,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        2
+      ],
+      "DifficultyLevel": 2,
+      "Points": 10,
+      "Title": {
+        "Ar": "تمييز أوجه المجسمات",
+        "En": "Distinguishing solid faces"
+      },
+      "Question": {
+        "Ar": "لدى رنا مجسم مكعب. تريد وضع ملصق مربع يغطي كل وجه مسطح كاملاً، ملصق واحد لكل وجه دون تداخل. كم ملصقاً تحتاج؟",
+        "En": "Rana has a cube. She wants to cover each entire flat face with one square sticker, with no overlap. How many stickers does she need?"
+      },
+      "Options": [
+        {
+          "LatexCode": "4",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "عدّ بعض الأوجه فقط وأهمل وجهين.",
+            "En": "Counts only some faces and omits two."
+          }
+        },
+        {
+          "LatexCode": "6",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "8",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "8 عدد رؤوس المكعب لا أوجهه.",
+            "En": "Eight counts vertices, not faces."
+          }
+        },
+        {
+          "LatexCode": "12",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "12 عدد حواف المكعب لا أوجهه.",
+            "En": "Twelve counts edges, not faces."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "تخيل الوجه العلوي والسفلي.",
+          "En": "Imagine the top and bottom faces."
+        },
+        {
+          "Ar": "أضف الأوجه الجانبية الأربعة.",
+          "En": "Add the four side faces."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "للمكعب ستة أوجه مربعة متطابقة، وتختلف الأوجه عن الرؤوس والحواف.",
+          "En": "A cube has six congruent square faces; faces differ from vertices and edges."
+        },
+        "FormulaLatex": "2+4",
+        "Steps": [
+          {
+            "Ar": "المكعب له وجه علوي ووجه سفلي.",
+            "En": "A cube has one top and one bottom face."
+          },
+          {
+            "Ar": "وله أربعة أوجه جانبية، فيحتاج 2+4 ملصقات.",
+            "En": "It also has four side faces, so it needs 2+4 stickers."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$2+4=6$",
+          "En": "$2+4=6$"
+        },
+        "Result": {
+          "Ar": "$6$",
+          "En": "$6$"
+        },
+        "Unit": {
+          "Ar": "ملصقات",
+          "En": "Stickers"
+        },
+        "Verification": {
+          "Ar": "عند فك شبكة مكعب نحصل على ستة مربعات، ملصق لكل مربع.",
+          "En": "Unfolding a cube net gives six squares, one sticker for each."
+        },
+        "CommonError": {
+          "Ar": "لا تعد الرؤوس أو الحواف بدلاً من الأوجه.",
+          "En": "Do not count vertices or edges instead of faces."
+        }
+      }
+    }
+  },
+  {
+    "key": "growth-v30-grade-2-shape-equal-shares-partition-1",
+    "family": "shape-equal-shares-partition",
+    "group": "shape",
+    "skill_key": "primary-shape-attributes-partition",
+    "track_code": "grade-2",
+    "track": 2,
+    "stage": 1,
+    "category": 0,
+    "skill": 0,
+    "wizard": {
+      "StageId": 1,
+      "CategoryId": 0,
+      "PrimarySkillId": 0,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        2
+      ],
+      "DifficultyLevel": 2,
+      "Points": 10,
+      "Title": {
+        "Ar": "تمييز الأرباع المتساوية",
+        "En": "Recognizing equal quarters"
+      },
+      "Question": {
+        "Ar": "تريد هند تقسيم مستطيل إلى أربعة أجزاء بحيث يكون كل جزء ربع المستطيل. أي تقسيم يحقق ذلك؟ A: أربعة أجزاء متساوية المساحة؛ B: ثلاثة أجزاء متساوية؛ C: أربعة أجزاء منها جزء أكبر من الباقي؛ D: نصفان متساويان.",
+        "En": "Hind wants to divide a rectangle into four pieces, each one quarter of the rectangle. Which partition works? A: four pieces with equal area; B: three equal pieces; C: four pieces with one larger than the others; D: two equal halves."
+      },
+      "Options": [
+        {
+          "LatexCode": "A",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "B",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "ثلاثة أجزاء متساوية تعطي أثلاثاً لا أرباعاً.",
+            "En": "Three equal parts give thirds, not quarters."
+          }
+        },
+        {
+          "LatexCode": "C",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "الأجزاء غير متساوية، لذلك لا يمثل كل جزء ربعاً.",
+            "En": "The parts are unequal, so each is not a quarter."
+          }
+        },
+        {
+          "LatexCode": "D",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "جزآن متساويان يعطيان نصفين.",
+            "En": "Two equal parts give halves."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "كم جزءاً يجب أن يكون في الكل؟",
+          "En": "How many parts should the whole have?"
+        },
+        {
+          "Ar": "لا يكفي عدد الأجزاء، بل يجب أن تتساوى مساحاتها.",
+          "En": "The number of parts is not enough; their areas must be equal."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "الأرباع الأربعة أجزاء متساوية المساحة من الكل؛ شكل الأجزاء أو اتجاهها لا يغير هذه الخاصية.",
+          "En": "Quarters are four equal-area shares of the whole; their shape or orientation does not change that condition."
+        },
+        "FormulaLatex": "\\frac14+\\frac14+\\frac14+\\frac14=1",
+        "Steps": [
+          {
+            "Ar": "B وD لا يعطيان أربعة أجزاء.",
+            "En": "B and D do not give four parts."
+          },
+          {
+            "Ar": "C يعطي أربعة أجزاء غير متساوية.",
+            "En": "C gives four unequal parts."
+          },
+          {
+            "Ar": "A يعطي أربعة أجزاء متساوية المساحة، إذن كل جزء ربع.",
+            "En": "A gives four equal-area parts, so each is a quarter."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$A$",
+          "En": "$A$"
+        },
+        "Result": {
+          "Ar": "$A$",
+          "En": "$A$"
+        },
+        "Unit": {
+          "Ar": "تقسيم",
+          "En": "Partition"
+        },
+        "Verification": {
+          "Ar": "جمع أربعة أرباع متساوية يعيد المستطيل كاملاً.",
+          "En": "Four equal quarters reassemble the whole rectangle."
+        },
+        "CommonError": {
+          "Ar": "لا تسمِّ كل جزء ربعاً إذا كانت الأجزاء الأربعة غير متساوية.",
+          "En": "Do not call every part a quarter if four parts are unequal."
+        }
+      }
+    }
+  },
+  {
+    "key": "growth-v30-grade-2-shape-array-cover-missing-square-1",
+    "family": "shape-array-cover-missing-square",
+    "group": "shape",
+    "skill_key": "primary-shape-attributes-partition",
+    "track_code": "grade-2",
+    "track": 2,
+    "stage": 1,
+    "category": 0,
+    "skill": 0,
+    "wizard": {
+      "StageId": 1,
+      "CategoryId": 0,
+      "PrimarySkillId": 0,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        2
+      ],
+      "DifficultyLevel": 2,
+      "Points": 10,
+      "Title": {
+        "Ar": "تبليط مستطيل بمربعات متساوية",
+        "En": "Tiling a rectangle with equal squares"
+      },
+      "Question": {
+        "Ar": "يتكون مستطيل من 3 صفوف، وفي كل صف 4 مربعات متساوية دون فراغات. الصفان الأولان مكتملان، وفي الصف الثالث مربع واحد مفقود. كم مربعاً موجوداً الآن؟",
+        "En": "A rectangle consists of 3 rows of 4 equal squares without gaps. The first two rows are complete, and one square is missing from the third row. How many squares are present now?"
+      },
+      "Options": [
+        {
+          "LatexCode": "8",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "عد الصفين الكاملين فقط.",
+            "En": "Counts only the two complete rows."
+          }
+        },
+        {
+          "LatexCode": "10",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "حذف مربعين بدلاً من واحد.",
+            "En": "Removes two squares instead of one."
+          }
+        },
+        {
+          "LatexCode": "11",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "12",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "هذا عدد المربعات قبل فقدان المربع.",
+            "En": "This is the count before a square was removed."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "عد المربعات في كل صف كامل.",
+          "En": "Count squares in each complete row."
+        },
+        {
+          "Ar": "الصف الأخير فيه ثلاثة مربعات لا أربعة.",
+          "En": "The last row contains three squares, not four."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "يمكن تقسيم المستطيل إلى صفوف وأعمدة من مربعات متساوية وعدها صفاً صفاً.",
+          "En": "A rectangle can be partitioned into rows and columns of equal squares and counted row by row."
+        },
+        "FormulaLatex": "4+4+3",
+        "Steps": [
+          {
+            "Ar": "في الصفين الأولين 4+4=8 مربعات.",
+            "En": "The first two rows contain 4+4=8 squares."
+          },
+          {
+            "Ar": "في الثالث 4−1=3 مربعات.",
+            "En": "The third contains 4−1=3 squares."
+          },
+          {
+            "Ar": "نجمع 8+3=11 مربعاً.",
+            "En": "Add 8+3=11 squares."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$4+4+3=11$",
+          "En": "$4+4+3=11$"
+        },
+        "Result": {
+          "Ar": "$11$",
+          "En": "$11$"
+        },
+        "Unit": {
+          "Ar": "مربعات",
+          "En": "Squares"
+        },
+        "Verification": {
+          "Ar": "عند إعادة المربع المفقود تصبح المربعات 12، أي ثلاثة صفوف من أربعة.",
+          "En": "Replacing the missing square gives 12, three rows of four."
+        },
+        "CommonError": {
+          "Ar": "لا تعد الفراغ مربعاً موجوداً.",
+          "En": "Do not count the gap as an existing square."
+        }
+      }
+    }
+  },
+  {
+    "key": "growth-v30-grade-2-picture-graph-compare-two-rows-1",
+    "family": "picture-graph-compare-two-rows",
+    "group": "data",
+    "skill_key": "primary-single-unit-picture-data",
+    "track_code": "grade-2",
+    "track": 2,
+    "stage": 1,
+    "category": 0,
+    "skill": 0,
+    "wizard": {
+      "StageId": 1,
+      "CategoryId": 0,
+      "PrimarySkillId": 0,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        2
+      ],
+      "DifficultyLevel": 2,
+      "Points": 10,
+      "Title": {
+        "Ar": "قراءة مخطط بالرموز",
+        "En": "Reading a picture graph"
+      },
+      "Question": {
+        "Ar": "يمثل كل رمز ● كتاباً واحداً. يبين المخطط عدد الكتب: A: ●●●●●●؛ B: ●●●؛ C: ●●●●. بكم يزيد عدد الكتب في A على B؟",
+        "En": "Each ● represents one book. The picture graph shows A: ●●●●●●; B: ●●●; C: ●●●●. How many more books are in A than B?"
+      },
+      "Options": [
+        {
+          "LatexCode": "2",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "2 هو الفرق بين A وC لا A وB.",
+            "En": "Two compares A with C, not A with B."
+          }
+        },
+        {
+          "LatexCode": "3",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "4",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "4 عدد كتب C وليس الفرق المطلوب.",
+            "En": "Four is C's count, not the requested difference."
+          }
+        },
+        {
+          "LatexCode": "9",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "9 هو مجموع A وB، لا الفرق.",
+            "En": "Nine adds A and B instead of comparing them."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "عد رموز الصف A ورموز الصف B.",
+          "En": "Count symbols in rows A and B."
+        },
+        {
+          "Ar": "كل رمز يساوي كتاباً؛ اطرح العدين.",
+          "En": "Each symbol equals one book; subtract the counts."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "المخطط الصوري أحادي الوحدة يستخدم رمزاً واحداً لكل عنصر؛ المقارنة تتم بين أعداد الرموز.",
+          "En": "A single-unit picture graph uses one symbol per item; compare symbol counts."
+        },
+        "FormulaLatex": "6-3",
+        "Steps": [
+          {
+            "Ar": "في A ستة رموز، وفي B ثلاثة رموز.",
+            "En": "A contains six symbols; B contains three."
+          },
+          {
+            "Ar": "الفرق هو 6−3=3 كتب.",
+            "En": "The difference is 6−3=3 books."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$6-3=3$",
+          "En": "$6-3=3$"
+        },
+        "Result": {
+          "Ar": "$3$",
+          "En": "$3$"
+        },
+        "Unit": {
+          "Ar": "كتب",
+          "En": "Books"
+        },
+        "Verification": {
+          "Ar": "بعد مطابقة ثلاثة رموز من A مع B يبقى في A ثلاثة رموز.",
+          "En": "Matching three A symbols with B leaves three A symbols."
+        },
+        "CommonError": {
+          "Ar": "لا تجمع رموز الصفين عند طلب الفرق.",
+          "En": "Do not add the two rows when asked for a difference."
+        }
+      }
+    }
+  },
+  {
+    "key": "growth-v30-grade-2-picture-graph-update-one-row-1",
+    "family": "picture-graph-update-one-row",
+    "group": "data",
+    "skill_key": "primary-single-unit-picture-data",
+    "track_code": "grade-2",
+    "track": 2,
+    "stage": 1,
+    "category": 0,
+    "skill": 0,
+    "wizard": {
+      "StageId": 1,
+      "CategoryId": 0,
+      "PrimarySkillId": 0,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        2
+      ],
+      "DifficultyLevel": 2,
+      "Points": 10,
+      "Title": {
+        "Ar": "تحديث مخطط صوري",
+        "En": "Updating a picture graph"
+      },
+      "Question": {
+        "Ar": "يمثل كل رمز ● صوتاً واحداً. في سجل التصويت A: ●●●؛ B: ●●●●؛ C: ●●. اكتشف المعلم صوتاً إضافياً لصالح C لم يُسجّل. ما ترتيب أعداد الأصوات بعد إضافة الصوت؟",
+        "En": "Each ● represents one vote. The vote record is A: ●●●; B: ●●●●; C: ●●. The teacher finds one additional vote for C that was not recorded. What is the order of the counts after adding it?"
+      },
+      "Options": [
+        {
+          "LatexCode": "A=B>C",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "A ثلاثة وB أربعة، فلا يتساويان.",
+            "En": "A has three and B four, so they are not equal."
+          }
+        },
+        {
+          "LatexCode": "B>A=C",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "C>B>A",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "C يصبح ثلاثة فقط، فلا يتجاوز B.",
+            "En": "C becomes only three, so it does not exceed B."
+          }
+        },
+        {
+          "LatexCode": "B>A>C",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "هذا ترتيب السجل قبل إضافة الصوت.",
+            "En": "This is the order before adding the vote."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "حوّل الرموز إلى أعداد أولاً.",
+          "En": "Convert the symbols into counts first."
+        },
+        {
+          "Ar": "زد عدد C وحده بمقدار واحد ثم قارن.",
+          "En": "Increase only C by one, then compare."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "تحديث مخطط صوري أحادي الوحدة يعني إضافة رمز للفئة المعنية فقط، ثم قراءة الترتيب الجديد.",
+          "En": "Updating a single-unit pictograph adds a symbol to the affected category only; then read the new order."
+        },
+        "FormulaLatex": "3,4,2+1",
+        "Steps": [
+          {
+            "Ar": "العد الأولي هو A=3 وB=4 وC=2.",
+            "En": "Initial counts are A=3, B=4 and C=2."
+          },
+          {
+            "Ar": "بعد التصحيح يصبح C=3 بينما تبقى A وB كما هما.",
+            "En": "After correction C=3, while A and B stay unchanged."
+          },
+          {
+            "Ar": "B أكبر من A وC المتساويين.",
+            "En": "B exceeds the tied A and C."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$B>A=C$",
+          "En": "$B>A=C$"
+        },
+        "Result": {
+          "Ar": "$B>A=C$",
+          "En": "$B>A=C$"
+        },
+        "Unit": {
+          "Ar": "ترتيب",
+          "En": "Order"
+        },
+        "Verification": {
+          "Ar": "4 أكبر من 3، و3 يساوي 3؛ مجموع الأصوات زاد من 9 إلى 10.",
+          "En": "4 exceeds 3 and 3 equals 3; the total rises from 9 to 10."
+        },
+        "CommonError": {
+          "Ar": "لا تضف الصوت إلى جميع الفئات.",
+          "En": "Do not add the vote to every category."
+        }
+      }
+    }
+  },
+  {
+    "key": "growth-v30-grade-2-picture-graph-find-inconsistent-statement-1",
+    "family": "picture-graph-find-inconsistent-statement",
+    "group": "data",
+    "skill_key": "primary-single-unit-picture-data",
+    "track_code": "grade-2",
+    "track": 2,
+    "stage": 1,
+    "category": 0,
+    "skill": 0,
+    "wizard": {
+      "StageId": 1,
+      "CategoryId": 0,
+      "PrimarySkillId": 0,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        2
+      ],
+      "DifficultyLevel": 2,
+      "Points": 10,
+      "Title": {
+        "Ar": "اكتشاف عبارة غير صحيحة من مخطط",
+        "En": "Identifying an incorrect graph statement"
+      },
+      "Question": {
+        "Ar": "يمثل كل رمز ● طالباً واحداً في نادٍ واحد فقط. A: ●●●●؛ B: ●●●●●؛ C: ●●؛ D: ●●●. أي عبارة غير صحيحة؟ 1: B أكبر مجموعة. 2: C أصغر مجموعة. 3: A وD معاً سبعة طلاب. 4: المجموع 13 طالباً.",
+        "En": "Each ● represents one pupil in exactly one club. A: ●●●●; B: ●●●●●; C: ●●; D: ●●●. Which statement is incorrect? 1: B is largest. 2: C is smallest. 3: A and D together have seven pupils. 4: There are 13 pupils altogether."
+      },
+      "Options": [
+        {
+          "LatexCode": "1",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "B فيه 5 طلاب وهو الأكبر، فالعبارة صحيحة.",
+            "En": "B has five pupils and is largest, so the statement is true."
+          }
+        },
+        {
+          "LatexCode": "2",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "C فيه طالبان وهو الأصغر، فالعبارة صحيحة.",
+            "En": "C has two pupils and is smallest, so the statement is true."
+          }
+        },
+        {
+          "LatexCode": "3",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "A وD معاً 4+3=7؛ العبارة صحيحة.",
+            "En": "A and D total 4+3=7; the statement is true."
+          }
+        },
+        {
+          "LatexCode": "4",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "عد رموز كل نادٍ على حدة.",
+          "En": "Count symbols for each club separately."
+        },
+        {
+          "Ar": "اختبر العبارات الأربع، وتذكر أن المطلوب هو الخاطئة.",
+          "En": "Check all four statements; the question asks for the false one."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "قراءة مخطط أحادي الوحدة تعطي أعداد الفئات مباشرة، ثم نتحقق من المقارنات والمجاميع.",
+          "En": "A single-unit pictograph directly gives category counts; then verify comparisons and totals."
+        },
+        "FormulaLatex": "4+5+2+3",
+        "Steps": [
+          {
+            "Ar": "B=5 هو الأكبر وC=2 هو الأصغر؛ العبارتان 1 و2 صحيحتان.",
+            "En": "B=5 is largest and C=2 smallest; statements 1 and 2 are true."
+          },
+          {
+            "Ar": "A+D=4+3=7؛ العبارة الثالثة صحيحة.",
+            "En": "A+D=4+3=7; statement 3 is true."
+          },
+          {
+            "Ar": "المجموع 4+5+2+3=14 وليس 13، فالعبارة الرابعة خاطئة.",
+            "En": "The total is 4+5+2+3=14, not 13, so statement 4 is false."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$4+5+2+3=14$",
+          "En": "$4+5+2+3=14$"
+        },
+        "Result": {
+          "Ar": "$4$",
+          "En": "$4$"
+        },
+        "Unit": {
+          "Ar": "رقم العبارة",
+          "En": "Statement number"
+        },
+        "Verification": {
+          "Ar": "5+3=8 و4+2=6، ومن ثم 8+6=14؛ وهذا يؤكد المجموع.",
+          "En": "5+3=8 and 4+2=6, so 8+6=14, confirming the total."
+        },
+        "CommonError": {
+          "Ar": "انتبه إلى كلمة غير صحيحة؛ لا تختَر عبارة صحيحة.",
+          "En": "Notice the word incorrect; do not choose a true statement."
+        }
+      }
+    }
+  }
+]

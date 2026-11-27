@@ -1,0 +1,1053 @@
+[
+  {
+    "track": 2,
+    "stage": 1,
+    "cat": 96,
+    "skill": 355,
+    "sk": "primary-shape-attributes-partition",
+    "family": "solid-identify-two-triangle-three-rectangle-faces",
+    "title": {
+      "Ar": "تمييز مجسم من أوجهه",
+      "En": "Identifying a solid from its faces"
+    },
+    "q": {
+      "Ar": "مجسم له وجهان مثلثان متساويان وثلاثة أوجه مستطيلة. أي مجسم هو؟ A مكعب، B منشور ثلاثي، C أسطوانة، D هرم قاعدته مربعة.",
+      "En": "A solid has two identical triangular faces and three rectangular faces. Which solid is it? A: cube; B: triangular prism; C: cylinder; D: square-based pyramid."
+    },
+    "opts": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "أوجه المكعب مربعة.",
+        "En": "A cube has square faces."
+      },
+      null,
+      {
+        "Ar": "للأسطوانة قاعدتان دائريتان وسطح منحن.",
+        "En": "A cylinder has circular bases and a curved surface."
+      },
+      {
+        "Ar": "للهرم المربع أربع أوجه مثلثة وقاعدة مربعة.",
+        "En": "A square-based pyramid has four triangular faces and a square base."
+      }
+    ],
+    "idea": {
+      "Ar": "نميز المجسم من أشكال أوجهه، لا من عددها فقط.",
+      "En": "Identify the solid by the shapes of its faces, not just their number."
+    },
+    "formula": "2+3=5",
+    "steps": [
+      {
+        "Ar": "نحدد القاعدتين المثلثتين ثم الأوجه المستطيلة الثلاثة.",
+        "En": "Identify the two triangular bases and the three rectangular faces."
+      }
+    ],
+    "sub": {
+      "Ar": "$2+3=5$",
+      "En": "$2+3=5$"
+    },
+    "result": {
+      "Ar": "B — منشور ثلاثي.",
+      "En": "B — triangular prism."
+    },
+    "verify": {
+      "Ar": "المنشور الثلاثي القائم يحقق الوصف: وجهان مثلثان وثلاثة مستطيلات.",
+      "En": "A right triangular prism fits: two triangular faces and three rectangular faces."
+    },
+    "hints": [
+      {
+        "Ar": "ابدأ بالبحث عن المجسم ذي القاعدتين المثلثتين.",
+        "En": "Look for the solid with two triangular bases."
+      },
+      {
+        "Ar": "تأكد من شكل الأوجه التي تصل القاعدتين.",
+        "En": "Check the shapes of the connecting faces."
+      }
+    ],
+    "error": {
+      "Ar": "أوجه المكعب مربعة.",
+      "En": "A cube has square faces."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 11,
+    "stage": 3,
+    "cat": 88,
+    "skill": 328,
+    "sk": "circles",
+    "family": "circle-translate-center-radius-invariant",
+    "title": {
+      "Ar": "انسحاب دائرة",
+      "En": "Translation of a circle"
+    },
+    "q": {
+      "Ar": "نُقلت الدائرة $(x-1)^2+(y+2)^2=9$ ثلاث وحدات إلى اليسار وأربع وحدات إلى الأعلى. ما معادلة الدائرة الناتجة؟",
+      "En": "Translate the circle $(x-1)^2+(y+2)^2=9$ three units left and four units up. What is the resulting equation?"
+    },
+    "opts": [
+      "(x+2)^2+(y-2)^2=9",
+      "(x-4)^2+(y+6)^2=9",
+      "(x+2)^2+(y+2)^2=9",
+      "(x+2)^2+(y-2)^2=16"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "عكس اتجاهي الانسحاب.",
+        "En": "Reverses both translation directions."
+      },
+      {
+        "Ar": "لم ينقل المركز رأسياً.",
+        "En": "Does not move the center vertically."
+      },
+      {
+        "Ar": "غيّر نصف القطر رغم أن الانسحاب يحفظ المسافات.",
+        "En": "Changes radius even though translation preserves distances."
+      }
+    ],
+    "idea": {
+      "Ar": "الانسحاب يغيّر إحداثيي المركز فقط ويترك نصف القطر ثابتاً.",
+      "En": "Translation moves the center and preserves the radius."
+    },
+    "formula": "(x-h)^2+(y-k)^2=r^2",
+    "steps": [
+      {
+        "Ar": "$(h,k)=(1-3,-2+4)=(-2,2)$",
+        "En": "$(h,k)=(1-3,-2+4)=(-2,2)$"
+      },
+      {
+        "Ar": "$(x+2)^2+(y-2)^2=9$",
+        "En": "$(x+2)^2+(y-2)^2=9$"
+      }
+    ],
+    "sub": {
+      "Ar": "$(x-h)^2+(y-k)^2=r^2$",
+      "En": "$(x-h)^2+(y-k)^2=r^2$"
+    },
+    "result": {
+      "Ar": "$(x+2)^2+(y-2)^2=9$",
+      "En": "$(x+2)^2+(y-2)^2=9$"
+    },
+    "verify": {
+      "Ar": "النقطة $(4,-2)$ على الدائرة الأولى تنتقل إلى $(1,2)$، وهي تبعد 3 عن المركز الجديد.",
+      "En": "Point $(4,-2)$ translates to $(1,2)$, three units from the new center."
+    },
+    "hints": [
+      {
+        "Ar": "استخرج المركز الأصلي من إشارات المعادلة.",
+        "En": "Read the original center from the signs in the equation."
+      },
+      {
+        "Ar": "اطرح 3 من الإحداثي الأفقي وأضف 4 للرأسي.",
+        "En": "Subtract three from the horizontal coordinate and add four to the vertical coordinate."
+      }
+    ],
+    "error": {
+      "Ar": "عكس اتجاهي الانسحاب.",
+      "En": "Reverses both translation directions."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 1,
+    "stage": 1,
+    "cat": 1,
+    "skill": 2,
+    "sk": "primary-subtraction",
+    "family": "subtraction-make-ten-decomposition-select",
+    "title": {
+      "Ar": "الطرح بالمرور عبر العشرة",
+      "En": "Subtracting through ten"
+    },
+    "q": {
+      "Ar": "يريد طفل حساب $16-9$ بطرح 6 أولاً ليصل إلى 10. كم يجب أن يطرح بعد ذلك؟",
+      "En": "A child wants to calculate $16-9$ by subtracting six first to reach ten. How much must be subtracted next?"
+    },
+    "opts": [
+      "2",
+      "3",
+      "6",
+      "9"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "ستكون الكمية المطروحة كلها 8 فقط.",
+        "En": "The total removed would be only eight."
+      },
+      null,
+      {
+        "Ar": "ستكون الكمية المطروحة كلها 12.",
+        "En": "The total removed would be twelve."
+      },
+      {
+        "Ar": "يطرح التسعة كاملة مرة أخرى.",
+        "En": "Subtracts the full nine again."
+      }
+    ],
+    "idea": {
+      "Ar": "نفكك التسعة إلى جزأين أحدهما 6.",
+      "En": "Split nine into two parts, one of which is six."
+    },
+    "formula": "9=6+3",
+    "steps": [
+      {
+        "Ar": "$16-6=10$",
+        "En": "$16-6=10$"
+      },
+      {
+        "Ar": "$10-3=7$",
+        "En": "$10-3=7$"
+      }
+    ],
+    "sub": {
+      "Ar": "$9=6+3$",
+      "En": "$9=6+3$"
+    },
+    "result": {
+      "Ar": "$3$",
+      "En": "$3$"
+    },
+    "verify": {
+      "Ar": "$6+3=9$ و$16-9=7$.",
+      "En": "$6+3=9$ and $16-9=7$."
+    },
+    "hints": [
+      {
+        "Ar": "كم يبقى من التسعة بعد طرح الستة؟",
+        "En": "How much of nine remains after removing six?"
+      },
+      {
+        "Ar": "يجب أن يكون مجموع المقدارين المطروحين تسعة.",
+        "En": "The two subtractions together must remove nine."
+      }
+    ],
+    "error": {
+      "Ar": "ستكون الكمية المطروحة كلها 8 فقط.",
+      "En": "The total removed would be only eight."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 1,
+    "stage": 1,
+    "cat": 1,
+    "skill": 2,
+    "sk": "primary-subtraction",
+    "family": "subtraction-transfer-equalizing-two-collections",
+    "title": {
+      "Ar": "نقل أشياء لتتساوى المجموعتان",
+      "En": "Transferring to equalize two collections"
+    },
+    "q": {
+      "Ar": "مع ريم 10 أقلام ومع هدى 6 أقلام. أعطت ريم بعض أقلامها لهدى حتى أصبح معهما العدد نفسه. كم قلماً أعطتها؟",
+      "En": "Reem has ten pencils and Huda has six. Reem gives some of her pencils to Huda so that both have equal counts. How many pencils did she give?"
+    },
+    "opts": [
+      "1",
+      "2",
+      "4",
+      "8"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "يبقى مع ريم 9 ومع هدى 7.",
+        "En": "Leaves Reem with nine and Huda with seven."
+      },
+      null,
+      {
+        "Ar": "نقل الفرق كله يعكس العددين ولا يساويهما.",
+        "En": "Moving the entire gap swaps the counts without equalizing them."
+      },
+      {
+        "Ar": "ينقل أكثر مما يلزم بكثير.",
+        "En": "Transfers far too many."
+      }
+    ],
+    "idea": {
+      "Ar": "كل قلم يُنقل ينقص المجموعة الكبيرة واحداً ويزيد الصغيرة واحداً.",
+      "En": "Each transferred pencil reduces the larger group by one and increases the smaller by one."
+    },
+    "formula": "10-2=6+2",
+    "steps": [
+      {
+        "Ar": "$10-6=4$",
+        "En": "$10-6=4$"
+      },
+      {
+        "Ar": "$4=2+2$",
+        "En": "$4=2+2$"
+      }
+    ],
+    "sub": {
+      "Ar": "$10-2=6+2$",
+      "En": "$10-2=6+2$"
+    },
+    "result": {
+      "Ar": "$2$",
+      "En": "$2$"
+    },
+    "verify": {
+      "Ar": "بعد نقل قلمين يصبح مع كل منهما 8 أقلام.",
+      "En": "After transferring two, each has eight pencils."
+    },
+    "hints": [
+      {
+        "Ar": "جرب نقل قلم واحد وقارن العددين.",
+        "En": "Try moving one pencil and compare the counts."
+      },
+      {
+        "Ar": "جرب نقل قلم آخر إذا بقي فرق.",
+        "En": "Try one more pencil if a gap remains."
+      }
+    ],
+    "error": {
+      "Ar": "يبقى مع ريم 9 ومع هدى 7.",
+      "En": "Leaves Reem with nine and Huda with seven."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 2,
+    "stage": 1,
+    "cat": 81,
+    "skill": 302,
+    "sk": "counting",
+    "family": "counting-cross-decade-tens-digit-change",
+    "title": {
+      "Ar": "تبدل رقم العشرات أثناء العد",
+      "En": "Tens digit changes while counting"
+    },
+    "q": {
+      "Ar": "يعد طفل من 18 إلى 32، بزيادة 1 كل مرة. كم مرة يتغير رقم العشرات أثناء هذا العد؟",
+      "En": "A child counts from 18 through 32, adding one each time. How many times does the tens digit change during the count?"
+    },
+    "opts": [
+      "1",
+      "2",
+      "3",
+      "14"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "أهمل الانتقال إلى الثلاثينات.",
+        "En": "Misses the transition into the thirties."
+      },
+      null,
+      {
+        "Ar": "حسب رقم العشرات الأول كتغير.",
+        "En": "Counts the initial tens digit as a change."
+      },
+      {
+        "Ar": "حسب كل خطوة بدلاً من تغير رقم العشرات فقط.",
+        "En": "Counts every step instead of tens digit changes."
+      }
+    ],
+    "idea": {
+      "Ar": "يتغير رقم العشرات عند الانتقال من 19 إلى 20 ومن 29 إلى 30 فقط.",
+      "En": "The tens digit changes only at 19 to 20 and 29 to 30."
+    },
+    "formula": "1+1=2",
+    "steps": [
+      {
+        "Ar": "$19\\to20$",
+        "En": "$19\\to20$"
+      },
+      {
+        "Ar": "$29\\to30$",
+        "En": "$29\\to30$"
+      }
+    ],
+    "sub": {
+      "Ar": "$1+1=2$",
+      "En": "$1+1=2$"
+    },
+    "result": {
+      "Ar": "$2$",
+      "En": "$2$"
+    },
+    "verify": {
+      "Ar": "رقم العشرات يبدأ 1 ثم يصبح 2 ثم 3، أي يتغير مرتين.",
+      "En": "The tens digit starts at one, then becomes two, then three: two changes."
+    },
+    "hints": [
+      {
+        "Ar": "ابحث عن الانتقالات بين عشرات متتالية.",
+        "En": "Look for transitions between decades."
+      },
+      {
+        "Ar": "لا تعد خطوات تغير الآحاد وحدها.",
+        "En": "Do not count steps where only the ones digit changes."
+      }
+    ],
+    "error": {
+      "Ar": "أهمل الانتقال إلى الثلاثينات.",
+      "En": "Misses the transition into the thirties."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 2,
+    "stage": 1,
+    "cat": 81,
+    "skill": 302,
+    "sk": "counting",
+    "family": "counting-distinct-values-two-copies",
+    "title": {
+      "Ar": "عد القيم المختلفة",
+      "En": "Counting distinct values"
+    },
+    "q": {
+      "Ar": "كتب طفل الأعداد 12، 15، 12، 18، 15، 21 على بطاقات منفصلة. كم قيمة مختلفة تظهر على البطاقات؟",
+      "En": "A child writes 12,15,12,18,15,21 on separate cards. How many distinct values appear on the cards?"
+    },
+    "opts": [
+      "2",
+      "4",
+      "5",
+      "6"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "حسب القيم المكررة وحدها.",
+        "En": "Counts only the repeated values."
+      },
+      null,
+      {
+        "Ar": "حذف نسخة مكررة واحدة فقط.",
+        "En": "Removes just one repeated copy."
+      },
+      {
+        "Ar": "حسب جميع البطاقات رغم التكرار.",
+        "En": "Counts every card despite repetitions."
+      }
+    ],
+    "idea": {
+      "Ar": "نحسب كل قيمة مرة واحدة فقط مهما تكررت.",
+      "En": "Count each value once, however often it appears."
+    },
+    "formula": "6-2=4",
+    "steps": [
+      {
+        "Ar": "$12,15,18,21$",
+        "En": "$12,15,18,21$"
+      }
+    ],
+    "sub": {
+      "Ar": "$6-2=4$",
+      "En": "$6-2=4$"
+    },
+    "result": {
+      "Ar": "$4$",
+      "En": "$4$"
+    },
+    "verify": {
+      "Ar": "القيم المختلفة أربع: 12 و15 و18 و21.",
+      "En": "There are four distinct values: 12,15,18,21."
+    },
+    "hints": [
+      {
+        "Ar": "اشطب النسخة الثانية من كل قيمة مكررة.",
+        "En": "Cross out the second copy of each repeated value."
+      },
+      {
+        "Ar": "عد القيم الباقية.",
+        "En": "Count the remaining distinct values."
+      }
+    ],
+    "error": {
+      "Ar": "حسب القيم المكررة وحدها.",
+      "En": "Counts only the repeated values."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 1,
+    "stage": 1,
+    "cat": 97,
+    "skill": 356,
+    "sk": "primary-category-count-data",
+    "family": "category-record-wrong-label-transfer-change-largest",
+    "title": {
+      "Ar": "تصحيح فئة في سجل",
+      "En": "Correcting a category label"
+    },
+    "q": {
+      "Ar": "في سجل الألوان: 5 حمراء و4 زرقاء و2 خضراء. اكتشف المعلم أن واحدة من الحمراء زرقاء في الحقيقة، فنقل تسجيلها إلى فئة الأزرق. ما الفئة الأكبر بعد التصحيح؟ A الأحمر، B الأزرق، C الأخضر، D الأحمر والأزرق بالتساوي.",
+      "En": "A color record lists five red, four blue and two green items. One red entry is actually blue, so the teacher moves its record to blue. Which category is largest after correction? A: red; B: blue; C: green; D: red and blue tied."
+    },
+    "opts": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "ينخفض الأحمر إلى أربعة.",
+        "En": "Red drops to four."
+      },
+      null,
+      {
+        "Ar": "الأخضر يبقى اثنين.",
+        "En": "Green remains two."
+      },
+      {
+        "Ar": "بعد النقل يصبح الأزرق خمسة والأحمر أربعة.",
+        "En": "After the move blue is five and red is four."
+      }
+    ],
+    "idea": {
+      "Ar": "تصحيح التسجيل ينقص فئة الأحمر واحداً ويزيد الأزرق واحداً.",
+      "En": "The correction subtracts one from red and adds one to blue."
+    },
+    "formula": "5-1=4,\\quad4+1=5",
+    "steps": [
+      {
+        "Ar": "$5>4>2$",
+        "En": "$5>4>2$"
+      }
+    ],
+    "sub": {
+      "Ar": "$5-1=4,\\quad4+1=5$",
+      "En": "$5-1=4,\\quad4+1=5$"
+    },
+    "result": {
+      "Ar": "B — الأزرق.",
+      "En": "B — blue."
+    },
+    "verify": {
+      "Ar": "الإجمالي قبل التصحيح وبعده 11، والأزرق وحده له أكبر عدد.",
+      "En": "The total stays eleven, and blue alone has the largest count."
+    },
+    "hints": [
+      {
+        "Ar": "غيّر عددي الفئتين اللتين حصل بينهما النقل.",
+        "En": "Update both categories involved in the move."
+      },
+      {
+        "Ar": "قارن الأعداد الجديدة.",
+        "En": "Compare the corrected counts."
+      }
+    ],
+    "error": {
+      "Ar": "ينخفض الأحمر إلى أربعة.",
+      "En": "Red drops to four."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 2,
+    "stage": 1,
+    "cat": 82,
+    "skill": 321,
+    "sk": "length",
+    "family": "length-folded-rope-recover-full",
+    "title": {
+      "Ar": "طول شريط مطوي",
+      "En": "Length of a folded strip"
+    },
+    "q": {
+      "Ar": "طُوي شريط مستقيم إلى نصفين متساويين فتطابق طرفاه. إذا كانت المسافة من موضع الطي إلى الطرفين المتطابقين 9 سم، فكم طول الشريط بعد فرده؟",
+      "En": "A straight strip is folded exactly in half so its ends meet. The distance from the fold to the aligned ends is 9 cm. How long is the strip when unfolded?"
+    },
+    "opts": [
+      "9",
+      "12",
+      "18",
+      "27"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "حسب طول نصف واحد فقط.",
+        "En": "Counts only one half."
+      },
+      {
+        "Ar": "أضاف مقداراً لا يمثّل النصف الثاني.",
+        "En": "Adds an amount that is not the other half."
+      },
+      null,
+      {
+        "Ar": "حسب ثلاثة أنصاف.",
+        "En": "Counts three halves."
+      }
+    ],
+    "idea": {
+      "Ar": "الجزآن متساويان في الطول، وفرد الشريط يجمع طولهما.",
+      "En": "The two halves have equal length, and unfolding combines their lengths."
+    },
+    "formula": "9+9=18",
+    "steps": [
+      {
+        "Ar": "$18$",
+        "En": "$18$"
+      }
+    ],
+    "sub": {
+      "Ar": "$9+9=18$",
+      "En": "$9+9=18$"
+    },
+    "result": {
+      "Ar": "$18$",
+      "En": "$18$"
+    },
+    "verify": {
+      "Ar": "نصف 18 سم يساوي 9 سم.",
+      "En": "Half of eighteen centimetres is nine centimetres."
+    },
+    "hints": [
+      {
+        "Ar": "كم نصفاً في الشريط المطوي؟",
+        "En": "How many halves are in the folded strip?"
+      },
+      {
+        "Ar": "اجمع طول النصفين المتساويين.",
+        "En": "Add the lengths of both equal halves."
+      }
+    ],
+    "error": {
+      "Ar": "حسب طول نصف واحد فقط.",
+      "En": "Counts only one half."
+    },
+    "unit": {
+      "Ar": "سم",
+      "En": "cm"
+    }
+  },
+  {
+    "track": 3,
+    "stage": 1,
+    "cat": 2,
+    "skill": 7,
+    "sk": "primary-one-step-additive-equations",
+    "family": "additive-equation-balance-choose-expression",
+    "title": {
+      "Ar": "ترجمة ميزان إلى معادلة",
+      "En": "Representing a balance as an equation"
+    },
+    "q": {
+      "Ar": "على كفة ميزان صندوق كتلته $x$ كغ وثقل كتلته 4 كغ. وعلى الكفة الأخرى ثقل كتلته 13 كغ. الميزان متعادل. أي معادلة تمثل ذلك؟",
+      "En": "One pan of a balanced scale holds a box of mass $x$ kg and a 4 kg weight. The other holds a 13 kg weight. Which equation represents the balance?"
+    },
+    "opts": [
+      "x-4=13",
+      "4x=13",
+      "x+4=13",
+      "x+13=4"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "الكتلتان في الكفة نفسها تجمعان ولا تطرحان.",
+        "En": "Masses on the same pan add, not subtract."
+      },
+      {
+        "Ar": "لا توجد أربع نسخ من الصندوق.",
+        "En": "There are not four copies of the box."
+      },
+      null,
+      {
+        "Ar": "وضع الثقل 13 مع الصندوق في الكفة الخطأ.",
+        "En": "Places the thirteen-kilogram weight on the wrong pan."
+      }
+    ],
+    "idea": {
+      "Ar": "كتلة الكفة الأولى مجموع كتلة الصندوق والثقل، وتساوي كتلة الكفة الأخرى.",
+      "En": "The mass on the first pan is the sum of the box and weight, equal to the other pan."
+    },
+    "formula": "x+4=13",
+    "steps": [
+      {
+        "Ar": "$x=13-4=9$",
+        "En": "$x=13-4=9$"
+      }
+    ],
+    "sub": {
+      "Ar": "$x+4=13$",
+      "En": "$x+4=13$"
+    },
+    "result": {
+      "Ar": "$x+4=13$",
+      "En": "$x+4=13$"
+    },
+    "verify": {
+      "Ar": "عند $x=9$ تصبح الكفة الأولى $9+4=13$ كغ.",
+      "En": "At $x=9$, the first pan has $9+4=13$ kg."
+    },
+    "hints": [
+      {
+        "Ar": "اكتب كتلة كل كفة على حدة.",
+        "En": "Write the mass on each pan separately."
+      },
+      {
+        "Ar": "ضع علامة مساواة بين كتلتي الكفتين.",
+        "En": "Set the two pan masses equal."
+      }
+    ],
+    "error": {
+      "Ar": "الكتلتان في الكفة نفسها تجمعان ولا تطرحان.",
+      "En": "Masses on the same pan add, not subtract."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 3,
+    "stage": 1,
+    "cat": 2,
+    "skill": 9,
+    "sk": "primary-one-step-multiplicative-equations",
+    "family": "multiplicative-equation-choose-equal-groups-model",
+    "title": {
+      "Ar": "معادلة لمجموعات متساوية",
+      "En": "Equation for equal groups"
+    },
+    "q": {
+      "Ar": "في كل واحد من خمسة أكياس العدد نفسه $x$ من الكرات. مجموع الكرات 35. أي معادلة تمثل المسألة؟",
+      "En": "Five bags each contain the same number $x$ of balls. There are 35 balls altogether. Which equation models the situation?"
+    },
+    "opts": [
+      "x+5=35",
+      "35x=5",
+      "x/5=35",
+      "5x=35"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "أضاف عدد الأكياس بدلاً من تكرار كمية كل كيس.",
+        "En": "Adds the number of bags instead of repeating each bag's count."
+      },
+      {
+        "Ar": "عكس العدد الكلي وعدد الأكياس.",
+        "En": "Swaps total and number of bags."
+      },
+      {
+        "Ar": "قسّم كمية الكيس الواحد بدلاً من ضربها في عدد الأكياس.",
+        "En": "Divides the per-bag count instead of multiplying by the bag count."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "لدينا خمس مجموعات متساوية، فنضرب عدد الكرات في المجموعة في خمسة.",
+      "En": "There are five equal groups, so multiply the count per group by five."
+    },
+    "formula": "x+x+x+x+x=5x",
+    "steps": [
+      {
+        "Ar": "$5x=35$",
+        "En": "$5x=35$"
+      },
+      {
+        "Ar": "$x=7$",
+        "En": "$x=7$"
+      }
+    ],
+    "sub": {
+      "Ar": "$x+x+x+x+x=5x$",
+      "En": "$x+x+x+x+x=5x$"
+    },
+    "result": {
+      "Ar": "$5x=35$",
+      "En": "$5x=35$"
+    },
+    "verify": {
+      "Ar": "$5\\cdot7=35$، وهو العدد الكلي.",
+      "En": "$5\\cdot7=35$, the total."
+    },
+    "hints": [
+      {
+        "Ar": "اكتب مجموع خمس كميات متساوية.",
+        "En": "Write the sum of five equal quantities."
+      },
+      {
+        "Ar": "حوّل الجمع المتكرر إلى ضرب.",
+        "En": "Turn repeated addition into multiplication."
+      }
+    ],
+    "error": {
+      "Ar": "أضاف عدد الأكياس بدلاً من تكرار كمية كل كيس.",
+      "En": "Adds the number of bags instead of repeating each bag's count."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 3,
+    "stage": 1,
+    "cat": 21,
+    "skill": 97,
+    "sk": "p-fractions-decimals-fraction-models",
+    "family": "fraction-equal-wholes-same-numerator-compare",
+    "title": {
+      "Ar": "مقارنة حصتين من وحدتين متساويتين",
+      "En": "Comparing shares of equal wholes"
+    },
+    "q": {
+      "Ar": "لدينا كعكتان متساويتان في الحجم. قُسمت الأولى إلى 3 أجزاء متساوية والثانية إلى 5 أجزاء متساوية. أخذت ريم جزءين من الأولى وأخذ سامر جزءين من الثانية. من حصل على كمية أكبر؟ A ريم، B سامر، C متساويان، D لا يمكن التحديد.",
+      "En": "Two cakes have equal size. The first is divided into three equal pieces and the second into five equal pieces. Reem takes two pieces of the first and Samer takes two pieces of the second. Who gets more? A: Reem; B: Samer; C: equal; D: cannot determine."
+    },
+    "opts": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "الأجزاء الخمسة أصغر من الأجزاء الثلاثة.",
+        "En": "Fifths are smaller than thirds."
+      },
+      {
+        "Ar": "عدد القطع متساوٍ لكن حجم كل قطعة مختلف.",
+        "En": "The piece counts match but piece sizes differ."
+      },
+      {
+        "Ar": "حجم الكعكتين متساوٍ وعدد الأجزاء معروف.",
+        "En": "Whole sizes and partition counts are known."
+      }
+    ],
+    "idea": {
+      "Ar": "عند تساوي الكل، تقسيمه إلى أجزاء أقل يجعل كل جزء أكبر.",
+      "En": "With equal wholes, fewer equal pieces means each piece is larger."
+    },
+    "formula": "\\frac23>\\frac25",
+    "steps": [
+      {
+        "Ar": "$\\frac23=\\frac{10}{15},\\quad\\frac25=\\frac6{15}$",
+        "En": "$\\frac23=\\frac{10}{15},\\quad\\frac25=\\frac6{15}$"
+      }
+    ],
+    "sub": {
+      "Ar": "$\\frac23>\\frac25$",
+      "En": "$\\frac23>\\frac25$"
+    },
+    "result": {
+      "Ar": "A — ريم.",
+      "En": "A — Reem."
+    },
+    "verify": {
+      "Ar": "عشر وحدات من 15 أكبر من ست وحدات من 15.",
+      "En": "Ten fifteenths is greater than six fifteenths."
+    },
+    "hints": [
+      {
+        "Ar": "تخيل تقسيم كعكتين متماثلتين.",
+        "En": "Imagine cutting identical cakes."
+      },
+      {
+        "Ar": "قارن حجم القطعة الواحدة قبل عد القطعتين.",
+        "En": "Compare one piece's size before counting two."
+      }
+    ],
+    "error": {
+      "Ar": "الأجزاء الخمسة أصغر من الأجزاء الثلاثة.",
+      "En": "Fifths are smaller than thirds."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 3,
+    "stage": 1,
+    "cat": 82,
+    "skill": 324,
+    "sk": "time",
+    "family": "time-countdown-simultaneous-timers-difference",
+    "title": {
+      "Ar": "مؤقتان يعدان تنازلياً",
+      "En": "Two countdown timers"
+    },
+    "q": {
+      "Ar": "بدأ مؤقتان في اللحظة نفسها: الأول من 20 دقيقة والثاني من 35 دقيقة، وينقص كل منهما دقيقة كل دقيقة. عندما ينتهي الأول، كم دقيقة تبقى في الثاني؟",
+      "En": "Two countdown timers start together at 20 minutes and 35 minutes. Each counts down at one minute per minute. When the first finishes, how many minutes remain on the second?"
+    },
+    "opts": [
+      "10",
+      "15",
+      "20",
+      "55"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "لم يحسب فرق المدتين الصحيح.",
+        "En": "Uses the wrong difference."
+      },
+      null,
+      {
+        "Ar": "استعمل مدة المؤقت الأول وحدها.",
+        "En": "Uses the first timer's duration alone."
+      },
+      {
+        "Ar": "جمع المدتين رغم مرور الوقت عليهما معاً.",
+        "En": "Adds durations even though time passes simultaneously."
+      }
+    ],
+    "idea": {
+      "Ar": "يمر الوقت نفسه على المؤقتين، لذلك ننقص مدة الأول من قراءة الثاني.",
+      "En": "The same time passes on both timers, so subtract the first duration from the second reading."
+    },
+    "formula": "35-20=15",
+    "steps": [
+      {
+        "Ar": "$15$",
+        "En": "$15$"
+      }
+    ],
+    "sub": {
+      "Ar": "$35-20=15$",
+      "En": "$35-20=15$"
+    },
+    "result": {
+      "Ar": "$15$",
+      "En": "$15$"
+    },
+    "verify": {
+      "Ar": "$20+15=35$، وهي مدة المؤقت الثاني.",
+      "En": "$20+15=35$, the second timer's initial duration."
+    },
+    "hints": [
+      {
+        "Ar": "كم دقيقة تمر قبل انتهاء المؤقت الأول؟",
+        "En": "How many minutes pass before the first timer ends?"
+      },
+      {
+        "Ar": "اطرح تلك المدة من المؤقت الثاني.",
+        "En": "Subtract that duration from the second timer."
+      }
+    ],
+    "error": {
+      "Ar": "لم يحسب فرق المدتين الصحيح.",
+      "En": "Uses the wrong difference."
+    },
+    "unit": {
+      "Ar": "دقيقة",
+      "En": "minutes"
+    }
+  },
+  {
+    "track": 11,
+    "stage": 3,
+    "cat": 88,
+    "skill": 328,
+    "sk": "circles",
+    "family": "circle-center-on-axis-through-two-points",
+    "title": {
+      "Ar": "مركز دائرة مقيد بمحور",
+      "En": "Circle center constrained to an axis"
+    },
+    "q": {
+      "Ar": "تمر دائرة بالنقطتين $(0,0)$ و$(6,8)$، ويقع مركزها على محور الإحداثيات الرأسي. ما الإحداثي الرأسي لمركزها؟",
+      "En": "A circle passes through $(0,0)$ and $(6,8)$, and its center lies on the vertical coordinate axis. Find the center's y-coordinate."
+    },
+    "opts": [
+      "4",
+      "5",
+      "\\frac{25}{4}",
+      "8"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "أخذ متوسط الإحداثيين الرأسيين رغم أن المركز ليس بالضرورة منتصف القطعة.",
+        "En": "Averages the y-coordinates even though the center need not be the midpoint."
+      },
+      {
+        "Ar": "نصف المسافة بين النقطتين ليس الإحداثي الرأسي للمركز في هذه الحالة.",
+        "En": "Half the distance between the points is not the center's y-coordinate here."
+      },
+      null,
+      {
+        "Ar": "استخدم إحداثي إحدى النقطتين المعطاتين مباشرة.",
+        "En": "Uses the y-coordinate of a given point directly."
+      }
+    ],
+    "idea": {
+      "Ar": "نكتب المركز $(0,k)$ ثم نساوي مربعي بعده عن نقطتي الدائرة.",
+      "En": "Write the center as $(0,k)$ and equate its squared distances to the two points."
+    },
+    "formula": "k^2=6^2+(8-k)^2",
+    "steps": [
+      {
+        "Ar": "$k^2=36+64-16k+k^2$",
+        "En": "$k^2=36+64-16k+k^2$"
+      },
+      {
+        "Ar": "$16k=100\\Rightarrow k=25/4$",
+        "En": "$16k=100\\Rightarrow k=25/4$"
+      }
+    ],
+    "sub": {
+      "Ar": "$k^2=36+(8-k)^2$",
+      "En": "$k^2=36+(8-k)^2$"
+    },
+    "result": {
+      "Ar": "$\\frac{25}{4}$",
+      "En": "$\\frac{25}{4}$"
+    },
+    "verify": {
+      "Ar": "عند $k=25/4$ يصبح مربع البعد عن الأصل $625/16$، وعن النقطة الثانية $36+(7/4)^2=625/16$.",
+      "En": "At $k=25/4$, the squared distance from the origin is $625/16$; from the other point it is $36+(7/4)^2=625/16$."
+    },
+    "hints": [
+      {
+        "Ar": "بما أن المركز على المحور الرأسي، فإحداثيه الأفقي صفر.",
+        "En": "Since the center is on the vertical axis, its x-coordinate is zero."
+      },
+      {
+        "Ar": "المسافتان من المركز إلى نقطتي المحيط متساويتان.",
+        "En": "Distances from the center to both circumference points are equal."
+      }
+    ],
+    "error": {
+      "Ar": "افترض أن المركز هو منتصف أي وتر.",
+      "En": "Assumes the center is the midpoint of any chord."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  }
+]

@@ -1,0 +1,892 @@
+[
+  {
+    "track": 7,
+    "cat": 83,
+    "skill": 308,
+    "sk": "rational-arithmetic",
+    "family": "rational-sum-three-terms-cancel-opposites",
+    "title": {
+      "Ar": "جمع أعداد نسبية متقابلة",
+      "En": "Adding opposite rational numbers"
+    },
+    "q": {
+      "Ar": "احسب $-\\frac{7}{12}+\\frac{5}{8}+\\frac{7}{12}$.",
+      "En": "Evaluate $-\\frac{7}{12}+\\frac{5}{8}+\\frac{7}{12}$."
+    },
+    "opts": [
+      "\\frac58",
+      "0",
+      "-\\frac58",
+      "\\frac76"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "أهمل الكسر الذي لا مقابل له.",
+        "En": "Omits the unpaired fraction."
+      },
+      {
+        "Ar": "غيّر إشارة الكسر المتبقي.",
+        "En": "Changes the remaining fraction's sign."
+      },
+      {
+        "Ar": "جمع مقداري الكسرين المتقابلين.",
+        "En": "Adds the magnitudes of the opposite fractions."
+      }
+    ],
+    "idea": {
+      "Ar": "نجمع العددين المتقابلين أولاً فيكون مجموعهما صفراً.",
+      "En": "Add the opposite numbers first; their sum is zero."
+    },
+    "formula": "(-7/12+7/12)+5/8",
+    "steps": [
+      {
+        "Ar": "$-7/12+7/12=0$",
+        "En": "$-7/12+7/12=0$"
+      },
+      {
+        "Ar": "$0+5/8=5/8$",
+        "En": "$0+5/8=5/8$"
+      }
+    ],
+    "sub": {
+      "Ar": "$0+5/8$",
+      "En": "$0+5/8$"
+    },
+    "result": {
+      "Ar": "$\\frac58$",
+      "En": "$\\frac58$"
+    },
+    "verify": {
+      "Ar": "$5/8-5/8=0$",
+      "En": "$5/8-5/8=0$"
+    },
+    "hints": [
+      {
+        "Ar": "ابحث عن عددين متقابلين.",
+        "En": "Find the two opposite numbers."
+      },
+      {
+        "Ar": "احتفظ بالحد الثالث.",
+        "En": "Keep the third term."
+      }
+    ],
+    "error": {
+      "Ar": "أهمل الكسر الذي لا مقابل له.",
+      "En": "Omits the unpaired fraction."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 7,
+    "cat": 83,
+    "skill": 309,
+    "sk": "signed-operations",
+    "family": "signed-division-missing-factor-negative-result",
+    "title": {
+      "Ar": "عامل مجهول في قسمة موقعة",
+      "En": "Missing factor in signed division"
+    },
+    "q": {
+      "Ar": "أي عدد يجعل $(-48)\\div n=6$؟",
+      "En": "Which number makes $(-48)\\div n=6$?"
+    },
+    "opts": [
+      "8",
+      "-6",
+      "-288",
+      "-8"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "يجعل خارج القسمة سالباً.",
+        "En": "Produces a negative quotient."
+      },
+      {
+        "Ar": "خلط بين الخارج والمقسوم عليه.",
+        "En": "Confuses quotient and divisor."
+      },
+      {
+        "Ar": "ضرب المقسوم في الخارج بدلاً من قسمته عليه.",
+        "En": "Multiplies the dividend by the quotient instead of dividing."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "نستعمل العلاقة العكسية بين الضرب والقسمة.",
+      "En": "Use the inverse relationship between multiplication and division."
+    },
+    "formula": "6n=-48",
+    "steps": [
+      {
+        "Ar": "$n=-8$",
+        "En": "$n=-8$"
+      }
+    ],
+    "sub": {
+      "Ar": "$n=-48/6$",
+      "En": "$n=-48/6$"
+    },
+    "result": {
+      "Ar": "$-8$",
+      "En": "$-8$"
+    },
+    "verify": {
+      "Ar": "$(-48)/(-8)=6$",
+      "En": "$(-48)/(-8)=6$"
+    },
+    "hints": [
+      {
+        "Ar": "ما إشارة المقسوم عليه إذا كان الخارج موجباً والمقسوم سالباً؟",
+        "En": "What sign must the divisor have if the dividend is negative and quotient positive?"
+      },
+      {
+        "Ar": "اقسم −48 على 6.",
+        "En": "Divide negative forty-eight by six."
+      }
+    ],
+    "error": {
+      "Ar": "يجعل خارج القسمة سالباً.",
+      "En": "Produces a negative quotient."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 7,
+    "cat": 83,
+    "skill": 307,
+    "sk": "absolute-value",
+    "family": "absolute-value-compare-product-to-product-magnitudes",
+    "title": {
+      "Ar": "القيمة المطلقة لحاصل ضرب",
+      "En": "Absolute value of a product"
+    },
+    "q": {
+      "Ar": "إذا كان $|a|=4$ و$|b|=7$، فما قيمة $|ab|$؟",
+      "En": "If $|a|=4$ and $|b|=7$, find $|ab|$."
+    },
+    "opts": [
+      "3",
+      "-28",
+      "28",
+      "11"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "طرح المقدارين.",
+        "En": "Subtracts the magnitudes."
+      },
+      {
+        "Ar": "القيمة المطلقة لا تكون سالبة.",
+        "En": "An absolute value cannot be negative."
+      },
+      null,
+      {
+        "Ar": "جمع المقدارين بدلاً من ضربهما.",
+        "En": "Adds instead of multiplying."
+      }
+    ],
+    "idea": {
+      "Ar": "القيمة المطلقة لحاصل الضرب تساوي حاصل ضرب القيمتين المطلقتين.",
+      "En": "The absolute value of a product equals the product of the absolute values."
+    },
+    "formula": "|ab|=|a||b|",
+    "steps": [
+      {
+        "Ar": "$|ab|=28$",
+        "En": "$|ab|=28$"
+      }
+    ],
+    "sub": {
+      "Ar": "$4\\cdot7$",
+      "En": "$4\\cdot7$"
+    },
+    "result": {
+      "Ar": "$28$",
+      "En": "$28$"
+    },
+    "verify": {
+      "Ar": "$|(-4)\\cdot7|=28$",
+      "En": "$|(-4)\\cdot7|=28$"
+    },
+    "hints": [
+      {
+        "Ar": "استعمل قاعدة القيمة المطلقة لحاصل الضرب.",
+        "En": "Use the absolute-product rule."
+      },
+      {
+        "Ar": "اضرب المقدارين المعطيين.",
+        "En": "Multiply the given magnitudes."
+      }
+    ],
+    "error": {
+      "Ar": "جمع المقدارين بدلاً من ضربهما.",
+      "En": "Adds instead of multiplying."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 7,
+    "cat": 22,
+    "skill": 99,
+    "sk": "m-statistics-summary-measures",
+    "family": "mean-recover-missing-observation-from-target-total",
+    "title": {
+      "Ar": "قراءة مجهولة من المتوسط",
+      "En": "Missing observation from mean"
+    },
+    "q": {
+      "Ar": "متوسط أربع قراءات يساوي 12، وثلاث منها هي 8 و11 و15. ما القراءة الرابعة؟",
+      "En": "Four observations have mean twelve; three are 8, 11 and 15. Find the fourth observation."
+    },
+    "opts": [
+      "48",
+      "14",
+      "12",
+      "34"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "هذا مجموع القراءات الأربع.",
+        "En": "This is the total of all four."
+      },
+      null,
+      {
+        "Ar": "هذا المتوسط وليس القراءة المجهولة.",
+        "En": "This is the mean, not the missing observation."
+      },
+      {
+        "Ar": "هذا مجموع القراءات الثلاث.",
+        "En": "This is the sum of three observations."
+      }
+    ],
+    "idea": {
+      "Ar": "نستنتج المجموع من المتوسط ونطرح مجموع القراءات المعلومة.",
+      "En": "Recover the total from the mean and subtract the known sum."
+    },
+    "formula": "x=4\\cdot12-(8+11+15)",
+    "steps": [
+      {
+        "Ar": "$4\\cdot12=48$",
+        "En": "$4\\cdot12=48$"
+      },
+      {
+        "Ar": "$8+11+15=34$",
+        "En": "$8+11+15=34$"
+      },
+      {
+        "Ar": "$x=14$",
+        "En": "$x=14$"
+      }
+    ],
+    "sub": {
+      "Ar": "$48-34$",
+      "En": "$48-34$"
+    },
+    "result": {
+      "Ar": "$14$",
+      "En": "$14$"
+    },
+    "verify": {
+      "Ar": "$(8+11+15+14)/4=12$",
+      "En": "$(8+11+15+14)/4=12$"
+    },
+    "hints": [
+      {
+        "Ar": "كم مجموع القراءات الأربع؟",
+        "En": "What is the total of the four observations?"
+      },
+      {
+        "Ar": "اطرح منه مجموع القراءات الثلاث.",
+        "En": "Subtract the sum of the three known observations."
+      }
+    ],
+    "error": {
+      "Ar": "هذا المتوسط وليس القراءة المجهولة.",
+      "En": "This is the mean, not the missing observation."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 7,
+    "cat": 22,
+    "skill": 98,
+    "sk": "m-statistics-distributions",
+    "family": "range-infer-minimum-from-range-maximum",
+    "title": {
+      "Ar": "قيمة صغرى من المدى",
+      "En": "Minimum from range"
+    },
+    "q": {
+      "Ar": "أكبر قيمة في مجموعة بيانات هي 21، ومداها 13. ما أصغر قيمة؟",
+      "En": "The maximum of a data set is 21 and its range is 13. Find its minimum."
+    },
+    "opts": [
+      "8",
+      "13",
+      "21",
+      "34"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "هذا المدى.",
+        "En": "This is the range."
+      },
+      {
+        "Ar": "هذه القيمة الكبرى.",
+        "En": "This is the maximum."
+      },
+      {
+        "Ar": "جمع المدى مع القيمة الكبرى.",
+        "En": "Adds the range to the maximum."
+      }
+    ],
+    "idea": {
+      "Ar": "المدى هو الفرق بين أكبر قيمة وأصغر قيمة.",
+      "En": "Range is the maximum minus the minimum."
+    },
+    "formula": "R=M-m",
+    "steps": [
+      {
+        "Ar": "$m=8$",
+        "En": "$m=8$"
+      }
+    ],
+    "sub": {
+      "Ar": "$m=21-13$",
+      "En": "$m=21-13$"
+    },
+    "result": {
+      "Ar": "$8$",
+      "En": "$8$"
+    },
+    "verify": {
+      "Ar": "$21-8=13$",
+      "En": "$21-8=13$"
+    },
+    "hints": [
+      {
+        "Ar": "اكتب تعريف المدى.",
+        "En": "Write the definition of range."
+      },
+      {
+        "Ar": "اطرح المدى من القيمة الكبرى.",
+        "En": "Subtract the range from the maximum."
+      }
+    ],
+    "error": {
+      "Ar": "هذا المدى.",
+      "En": "This is the range."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 7,
+    "cat": 22,
+    "skill": 99,
+    "sk": "m-statistics-summary-measures",
+    "family": "mode-count-frequency-table-multiple-values",
+    "title": {
+      "Ar": "منوال من جدول تكرارات",
+      "En": "Mode from frequency counts"
+    },
+    "q": {
+      "Ar": "في سجل درجات، الدرجة 4 تكررت 3 مرات، والدرجة 6 تكررت 7 مرات، والدرجة 8 تكررت 5 مرات، والدرجة 10 تكررت مرتين. ما المنوال؟",
+      "En": "In a score record, score 4 occurs three times, score 6 seven times, score 8 five times, and score 10 twice. What is the mode?"
+    },
+    "opts": [
+      "7",
+      "8",
+      "10",
+      "6"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "هذا أكبر تكرار وليس الدرجة المرتبطة به.",
+        "En": "This is the largest frequency, not its associated score."
+      },
+      {
+        "Ar": "تكرارها أقل من سبعة.",
+        "En": "Its frequency is below seven."
+      },
+      {
+        "Ar": "هذه أكبر درجة وليست الأكثر تكراراً.",
+        "En": "This is the largest score, not the most frequent."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "نبحث عن أكبر تكرار ونختار الدرجة المرتبطة به.",
+      "En": "Find the largest frequency and select its associated score."
+    },
+    "formula": "f(6)=7",
+    "steps": [
+      {
+        "Ar": "$\\operatorname{mode}=6$",
+        "En": "$\\operatorname{mode}=6$"
+      }
+    ],
+    "sub": {
+      "Ar": "$7>5>3>2$",
+      "En": "$7>5>3>2$"
+    },
+    "result": {
+      "Ar": "$6$",
+      "En": "$6$"
+    },
+    "verify": {
+      "Ar": "$f(6)>f(8),\\quad f(6)>f(4),\\quad f(6)>f(10)$",
+      "En": "$f(6)>f(8),\\quad f(6)>f(4),\\quad f(6)>f(10)$"
+    },
+    "hints": [
+      {
+        "Ar": "قارن التكرارات الأربعة.",
+        "En": "Compare the four frequencies."
+      },
+      {
+        "Ar": "اختر الدرجة لا عدد مرات ظهورها.",
+        "En": "Select the score, not its frequency."
+      }
+    ],
+    "error": {
+      "Ar": "هذا أكبر تكرار وليس الدرجة المرتبطة به.",
+      "En": "This is the largest frequency, not its associated score."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 7,
+    "cat": 22,
+    "skill": 99,
+    "sk": "m-statistics-summary-measures",
+    "family": "median-insertion-central-value-even-to-odd",
+    "title": {
+      "Ar": "وسيط بعد إضافة قراءة في الوسط",
+      "En": "Median after inserting a middle observation"
+    },
+    "q": {
+      "Ar": "البيانات المرتبة هي 3،5،11،16. أضيفت قراءة مقدارها 9. ما الوسيط الجديد؟",
+      "En": "The sorted observations are 3, 5, 11, 16. A reading of nine is added. Find the new median."
+    },
+    "opts": [
+      "8",
+      "11",
+      "9",
+      "5"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "هذا الوسيط قبل الإضافة.",
+        "En": "This is the original median."
+      },
+      {
+        "Ar": "هذه القيمة الرابعة بعد الإضافة.",
+        "En": "This is the fourth observation after insertion."
+      },
+      null,
+      {
+        "Ar": "هذه القيمة الثانية بعد الإضافة.",
+        "En": "This is the second observation after insertion."
+      }
+    ],
+    "idea": {
+      "Ar": "نرتب خمس قيم ونختار القيمة الثالثة.",
+      "En": "Sort the five observations and select the third."
+    },
+    "formula": "(5+1)/2=3",
+    "steps": [
+      {
+        "Ar": "$x_3=9$",
+        "En": "$x_3=9$"
+      }
+    ],
+    "sub": {
+      "Ar": "$3,5,9,11,16$",
+      "En": "$3,5,9,11,16$"
+    },
+    "result": {
+      "Ar": "$9$",
+      "En": "$9$"
+    },
+    "verify": {
+      "Ar": "$3<5<9<11<16$",
+      "En": "$3<5<9<11<16$"
+    },
+    "hints": [
+      {
+        "Ar": "ضع 9 في مكانها الصحيح.",
+        "En": "Insert nine in its correct position."
+      },
+      {
+        "Ar": "حدد وسط القيم الخمس.",
+        "En": "Find the middle of the five observations."
+      }
+    ],
+    "error": {
+      "Ar": "هذه القيمة الثانية بعد الإضافة.",
+      "En": "This is the second observation after insertion."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 4,
+    "cat": 33,
+    "skill": 4,
+    "sk": "primary-multiplication",
+    "family": "multiplication-compensation-double-half",
+    "title": {
+      "Ar": "حاصل ضرب بالتنصيف والمضاعفة",
+      "En": "Product by halving and doubling"
+    },
+    "q": {
+      "Ar": "أي حاصل ضرب يساوي $25\\times16$ ويمكن حسابه باستبدال العامل الأول بضعفه والثاني بنصفه؟",
+      "En": "Which product equals $25\\times16$ by doubling the first factor and halving the second?"
+    },
+    "opts": [
+      "50\\times32",
+      "50\\times8",
+      "50\\times16",
+      "25\\times8"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "ضاعف العاملين معاً.",
+        "En": "Doubles both factors."
+      },
+      null,
+      {
+        "Ar": "ضاعف العامل الأول دون تنصيف الثاني.",
+        "En": "Doubles the first factor without halving the second."
+      },
+      {
+        "Ar": "نصف العامل الثاني دون مضاعفة الأول.",
+        "En": "Halves the second without doubling the first."
+      }
+    ],
+    "idea": {
+      "Ar": "مضاعفة عامل وتنصيف الآخر يحافظان على حاصل الضرب.",
+      "En": "Doubling one factor and halving the other preserves the product."
+    },
+    "formula": "25\\cdot16=(2\\cdot25)(16/2)",
+    "steps": [
+      {
+        "Ar": "$2\\cdot25=50$",
+        "En": "$2\\cdot25=50$"
+      },
+      {
+        "Ar": "$16/2=8$",
+        "En": "$16/2=8$"
+      }
+    ],
+    "sub": {
+      "Ar": "$50\\cdot8$",
+      "En": "$50\\cdot8$"
+    },
+    "result": {
+      "Ar": "$50\\times8$",
+      "En": "$50\\times8$"
+    },
+    "verify": {
+      "Ar": "$25\\cdot16=400=50\\cdot8$",
+      "En": "$25\\cdot16=400=50\\cdot8$"
+    },
+    "hints": [
+      {
+        "Ar": "ضاعف 25.",
+        "En": "Double twenty-five."
+      },
+      {
+        "Ar": "اقسم 16 على اثنين.",
+        "En": "Divide sixteen by two."
+      }
+    ],
+    "error": {
+      "Ar": "ضاعف العامل الأول دون تنصيف الثاني.",
+      "En": "Doubles the first factor without halving the second."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 4,
+    "cat": 33,
+    "skill": 5,
+    "sk": "primary-division",
+    "family": "division-two-successive-exact-groups-equivalent",
+    "title": {
+      "Ar": "تقسيم على مرحلتين",
+      "En": "Dividing in two stages"
+    },
+    "q": {
+      "Ar": "قُسم 144 كتاباً بالتساوي على 4 رفوف، ثم قُسمت كتب كل رف بالتساوي على 3 مجموعات. كم كتاباً في كل مجموعة؟",
+      "En": "144 books are divided equally among four shelves. The books on each shelf are then divided equally into three groups. How many books are in each group?"
+    },
+    "opts": [
+      "12",
+      "36",
+      "48",
+      "16"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "هذا عدد الكتب في الرف الواحد.",
+        "En": "This is the number on one shelf."
+      },
+      {
+        "Ar": "قسم على ثلاثة فقط.",
+        "En": "Divides by three only."
+      },
+      {
+        "Ar": "قسم على تسعة بدلاً من اثني عشر.",
+        "En": "Divides by nine rather than twelve."
+      }
+    ],
+    "idea": {
+      "Ar": "نقسم أولاً على عدد الرفوف ثم على عدد المجموعات في الرف.",
+      "En": "Divide by the shelf count and then by groups per shelf."
+    },
+    "formula": "(144/4)/3",
+    "steps": [
+      {
+        "Ar": "$144/4=36$",
+        "En": "$144/4=36$"
+      },
+      {
+        "Ar": "$36/3=12$",
+        "En": "$36/3=12$"
+      }
+    ],
+    "sub": {
+      "Ar": "$36/3$",
+      "En": "$36/3$"
+    },
+    "result": {
+      "Ar": "$12$",
+      "En": "$12$"
+    },
+    "verify": {
+      "Ar": "$12\\cdot3\\cdot4=144$",
+      "En": "$12\\cdot3\\cdot4=144$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب كتب الرف الواحد.",
+        "En": "Find books per shelf."
+      },
+      {
+        "Ar": "قسمها إلى ثلاث مجموعات.",
+        "En": "Divide them into three groups."
+      }
+    ],
+    "error": {
+      "Ar": "هذا عدد الكتب في الرف الواحد.",
+      "En": "This is the number on one shelf."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 4,
+    "cat": 33,
+    "skill": 6,
+    "sk": "primary-multiplicative-word-problems",
+    "family": "multiplicative-compare-unit-cost-exact-divisions",
+    "title": {
+      "Ar": "مقارنة سعر القطعة",
+      "En": "Comparing unit costs"
+    },
+    "q": {
+      "Ar": "عبوة A تحوي 6 أقلام بسعر 30 وحدة نقدية، وعبوة B تحوي 8 أقلام بسعر 32 وحدة نقدية. بكم يقل سعر القلم في B عن سعره في A؟",
+      "En": "Pack A contains six pens for 30 currency units; pack B contains eight pens for 32 units. How much less does one pen cost in B than in A?"
+    },
+    "opts": [
+      "2",
+      "4",
+      "5",
+      "1"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "قارن سعري العبوتين بدلاً من سعر القطعة.",
+        "En": "Compares pack prices instead of unit prices."
+      },
+      {
+        "Ar": "هذا سعر القلم في B.",
+        "En": "This is B's unit price."
+      },
+      {
+        "Ar": "هذا سعر القلم في A.",
+        "En": "This is A's unit price."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "نحسب سعر القلم الواحد في كل عبوة ثم نطرح.",
+      "En": "Find each unit price, then subtract."
+    },
+    "formula": "30/6-32/8",
+    "steps": [
+      {
+        "Ar": "$30/6=5$",
+        "En": "$30/6=5$"
+      },
+      {
+        "Ar": "$32/8=4$",
+        "En": "$32/8=4$"
+      },
+      {
+        "Ar": "$5-4=1$",
+        "En": "$5-4=1$"
+      }
+    ],
+    "sub": {
+      "Ar": "$5-4$",
+      "En": "$5-4$"
+    },
+    "result": {
+      "Ar": "$1$",
+      "En": "$1$"
+    },
+    "verify": {
+      "Ar": "$6\\cdot5=30,\\quad8\\cdot4=32$",
+      "En": "$6\\cdot5=30,\\quad8\\cdot4=32$"
+    },
+    "hints": [
+      {
+        "Ar": "اقسم سعر كل عبوة على عدد أقلامها.",
+        "En": "Divide each price by its pen count."
+      },
+      {
+        "Ar": "قارن سعري القلم الواحد.",
+        "En": "Compare the unit prices."
+      }
+    ],
+    "error": {
+      "Ar": "قارن سعري العبوتين بدلاً من سعر القطعة.",
+      "En": "Compares pack prices instead of unit prices."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 4,
+    "cat": 33,
+    "skill": 5,
+    "sk": "primary-division",
+    "family": "division-remainder-reinterpret-full-trips",
+    "title": {
+      "Ar": "عدد رحلات لنقل جميع العناصر",
+      "En": "Trips to transport all items"
+    },
+    "q": {
+      "Ar": "تنقل عربة 9 صناديق في الرحلة الواحدة على الأكثر. ما أقل عدد من الرحلات اللازمة لنقل 47 صندوقاً؟",
+      "En": "A cart carries at most nine boxes per trip. What is the fewest trips needed to transport all 47 boxes?"
+    },
+    "opts": [
+      "7",
+      "9",
+      "6",
+      "5"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "تكفي ست رحلات بالفعل.",
+        "En": "Six trips already suffice."
+      },
+      {
+        "Ar": "هذا عدد الصناديق الأقصى في الرحلة.",
+        "En": "This is the maximum boxes per trip."
+      },
+      null,
+      {
+        "Ar": "تترك صندوقين دون نقل.",
+        "En": "Leaves two boxes behind."
+      }
+    ],
+    "idea": {
+      "Ar": "نحتاج رحلة إضافية للباقي بعد الرحلات الممتلئة.",
+      "En": "The remainder requires one extra trip after the full trips."
+    },
+    "formula": "47=9\\cdot5+2",
+    "steps": [
+      {
+        "Ar": "$5\\cdot9=45$",
+        "En": "$5\\cdot9=45$"
+      },
+      {
+        "Ar": "$5+1=6$",
+        "En": "$5+1=6$"
+      }
+    ],
+    "sub": {
+      "Ar": "$47-45=2$",
+      "En": "$47-45=2$"
+    },
+    "result": {
+      "Ar": "$6$",
+      "En": "$6$"
+    },
+    "verify": {
+      "Ar": "$45<47\\le54$",
+      "En": "$45<47\\le54$"
+    },
+    "hints": [
+      {
+        "Ar": "كم رحلة ممتلئة يمكن تنفيذها؟",
+        "En": "How many full trips fit?"
+      },
+      {
+        "Ar": "هل يمكن ترك الصندوقين الباقيين؟",
+        "En": "Can the remaining two boxes be left behind?"
+      }
+    ],
+    "error": {
+      "Ar": "تترك صندوقين دون نقل.",
+      "En": "Leaves two boxes behind."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  }
+]

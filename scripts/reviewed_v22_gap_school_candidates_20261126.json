@@ -1,0 +1,918 @@
+[
+  {
+    "key": "growth-v22-grade-1-net-decrease-after-return-1",
+    "family": "net-decrease-after-return",
+    "skill_key": "primary-subtraction",
+    "track_code": "grade-1",
+    "track": 1,
+    "stage": 1,
+    "category": 1,
+    "skill": 2,
+    "wizard": {
+      "StageId": 1,
+      "CategoryId": 1,
+      "PrimarySkillId": 2,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        1
+      ],
+      "DifficultyLevel": 2,
+      "Points": 10,
+      "Title": {
+        "Ar": "نقص العدد بعد عودة بعض الأطفال",
+        "En": "Net decrease after some children return"
+      },
+      "Question": {
+        "Ar": "كان 12 طفلاً في الساحة. غادر 5 أطفال، ثم عاد طفلان من الأطفال الخمسة. كم طفلاً نقص عدد الموجودين في الساحة مقارنة بالبداية؟",
+        "En": "There were 12 children in a yard. Five left, then two of those five returned. By how many did the number in the yard decrease compared with the start?"
+      },
+      "Options": [
+        {
+          "LatexCode": "7",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "هذا عدد الموجودين بعد المغادرة وقبل العودة.",
+            "En": "This is the count after departure but before the return."
+          }
+        },
+        {
+          "LatexCode": "3",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "9",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "هذا العدد النهائي في الساحة، لا مقدار النقص.",
+            "En": "This is the final count in the yard, not the decrease."
+          }
+        },
+        {
+          "LatexCode": "5",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "لم يراع عودة طفلين.",
+            "En": "Ignores the two children who returned."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "من غادر ثم عاد لا يظل غائباً.",
+          "En": "A child who left and returned is no longer absent."
+        },
+        {
+          "Ar": "اطرح عدد العائدين من عدد المغادرين.",
+          "En": "Subtract the number returning from the number leaving."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "النقص الصافي هو عدد المغادرين الذين لم يعودوا، ما دام العائدون من المجموعة نفسها.",
+          "En": "The net decrease is the number who left and did not return, when the returning children are from the same group."
+        },
+        "FormulaLatex": "d=a-b,\\quad 0\\le b\\le a",
+        "Steps": [
+          {
+            "Ar": "غادر 5 أطفال وعاد منهم 2.",
+            "En": "Five left, and two of them returned."
+          },
+          {
+            "Ar": "نطرح $5-2=3$ لمعرفة عدد من بقي خارج الساحة.",
+            "En": "Subtract $5-2=3$ to find how many remain outside the yard."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$5-2=3$",
+          "En": "$5-2=3$"
+        },
+        "Result": {
+          "Ar": "$3$",
+          "En": "$3$"
+        },
+        "Unit": {
+          "Ar": "أطفال",
+          "En": "children"
+        },
+        "Verification": {
+          "Ar": "$12-5+2=9$ ثم $12-9=3$.",
+          "En": "$12-5+2=9$, then $12-9=3$."
+        },
+        "CommonError": {
+          "Ar": "لا تخلط العدد النهائي بمقدار النقص.",
+          "En": "Do not confuse the final count with the decrease."
+        }
+      }
+    }
+  },
+  {
+    "key": "growth-v22-grade-1-counting-grid-left-to-right-1",
+    "family": "counting-grid-left-to-right",
+    "skill_key": "counting",
+    "track_code": "grade-1",
+    "track": 1,
+    "stage": 1,
+    "category": 81,
+    "skill": 302,
+    "wizard": {
+      "StageId": 1,
+      "CategoryId": 81,
+      "PrimarySkillId": 302,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        1
+      ],
+      "DifficultyLevel": 2,
+      "Points": 10,
+      "Title": {
+        "Ar": "العد عبر صفوف متساوية",
+        "En": "Counting across equal rows"
+      },
+      "Question": {
+        "Ar": "في كل صف من صفين توجد 4 خانات. تُرقّم الخانات من 1 بالترتيب من اليسار إلى اليمين في الصف الأول، ثم من اليسار إلى اليمين في الصف الثاني. ما رقم الخانة الثانية في الصف الثاني؟",
+        "En": "There are two rows of four boxes each. Number the boxes from 1, left to right in the first row, then left to right in the second row. What is the number of the second box in the second row?"
+      },
+      "Options": [
+        {
+          "LatexCode": "2",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "أعيد العد من 1 في الصف الثاني بدلاً من متابعة الترقيم.",
+            "En": "Restarts numbering at 1 in the second row."
+          }
+        },
+        {
+          "LatexCode": "5",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "هذا رقم أول خانة في الصف الثاني.",
+            "En": "This is the first box in the second row."
+          }
+        },
+        {
+          "LatexCode": "6",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "8",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "هذا رقم آخر خانة في الصف الثاني.",
+            "En": "This is the last box in the second row."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "أكمل ترقيم الصف الأول قبل الانتقال للثاني.",
+          "En": "Finish numbering the first row before moving to the second."
+        },
+        {
+          "Ar": "تابع العد بعد 4 حتى الخانة الثانية من الصف الثاني.",
+          "En": "Continue counting after 4 to the second box in the second row."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "عند الانتقال للصف التالي نستمر في العد ولا نبدأ من جديد.",
+          "En": "When moving to the next row, continue the count instead of restarting."
+        },
+        "FormulaLatex": "4+2",
+        "Steps": [
+          {
+            "Ar": "أرقام الصف الأول هي 1، 2، 3، 4.",
+            "En": "The first row is numbered 1, 2, 3, 4."
+          },
+          {
+            "Ar": "أول خانة في الصف الثاني تحمل الرقم 5، والتي تليها تحمل الرقم 6.",
+            "En": "The first box of the second row is 5, and the next is 6."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$4+2=6$",
+          "En": "$4+2=6$"
+        },
+        "Result": {
+          "Ar": "$6$",
+          "En": "$6$"
+        },
+        "Unit": {
+          "Ar": "رقم الخانة",
+          "En": "box number"
+        },
+        "Verification": {
+          "Ar": "يبقى بعد الخانة 6 خانتان تحملان 7 و8، فيكتمل الصف الثاني.",
+          "En": "Two boxes after box 6 are numbered 7 and 8, completing the second row."
+        },
+        "CommonError": {
+          "Ar": "لا تبدأ الترقيم من 1 في كل صف.",
+          "En": "Do not restart numbering at 1 in each row."
+        }
+      }
+    }
+  },
+  {
+    "key": "growth-v22-grade-2-alternating-skip-count-membership-1",
+    "family": "alternating-skip-count-membership",
+    "skill_key": "counting",
+    "track_code": "grade-2",
+    "track": 2,
+    "stage": 1,
+    "category": 81,
+    "skill": 302,
+    "wizard": {
+      "StageId": 1,
+      "CategoryId": 81,
+      "PrimarySkillId": 302,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        2
+      ],
+      "DifficultyLevel": 2,
+      "Points": 10,
+      "Title": {
+        "Ar": "تمييز نمطين للعد",
+        "En": "Distinguishing two counting patterns"
+      },
+      "Question": {
+        "Ar": "تعدّ هدى من 3 بزيادة 2 كل مرة، ويعدّ سامر من 4 بزيادة 2 كل مرة. أي عدد سيقوله سامر ولن تقوله هدى؟",
+        "En": "Huda counts from 3, adding 2 each time. Samer counts from 4, adding 2 each time. Which number will Samer say but Huda will not?"
+      },
+      "Options": [
+        {
+          "LatexCode": "7",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "7 يظهر في نمط هدى.",
+            "En": "7 appears in Huda's pattern."
+          }
+        },
+        {
+          "LatexCode": "9",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "9 يظهر في نمط هدى.",
+            "En": "9 appears in Huda's pattern."
+          }
+        },
+        {
+          "LatexCode": "12",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "15",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "15 يظهر في نمط هدى.",
+            "En": "15 appears in Huda's pattern."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "اكتب الأعداد الأولى لكل طفل.",
+          "En": "Write the first few numbers for each child."
+        },
+        {
+          "Ar": "لاحظ أن زيادة 2 تحافظ على كون العدد زوجياً أو فردياً.",
+          "En": "Notice that adding 2 preserves whether a number is even or odd."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "الزيادة بمقدار 2 تحافظ على نمط الزوجية أو الفردية؛ يبدأ سامر بعدد زوجي وتبدأ هدى بعدد فردي.",
+          "En": "Adding 2 preserves parity; Samer starts with an even number and Huda with an odd number."
+        },
+        "FormulaLatex": "a_n=3+2n,\\quad b_n=4+2n,\\quad n=0,1,\\ldots",
+        "Steps": [
+          {
+            "Ar": "نمط هدى: 3، 5، 7، 9، 11، 13، 15.",
+            "En": "Huda's pattern: 3, 5, 7, 9, 11, 13, 15."
+          },
+          {
+            "Ar": "نمط سامر: 4، 6، 8، 10، 12؛ نجد 12 هنا فقط.",
+            "En": "Samer's pattern: 4, 6, 8, 10, 12; only this pattern contains 12."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$4+2+2+2+2=12$",
+          "En": "$4+2+2+2+2=12$"
+        },
+        "Result": {
+          "Ar": "$12$",
+          "En": "$12$"
+        },
+        "Unit": {
+          "Ar": "بلا وحدة قياس",
+          "En": "Dimensionless"
+        },
+        "Verification": {
+          "Ar": "كل عدد في نمط هدى فردي، بينما 12 زوجي.",
+          "En": "Every number in Huda's pattern is odd, whereas 12 is even."
+        },
+        "CommonError": {
+          "Ar": "لا تخلط بين نقطة البداية ومقدار الزيادة.",
+          "En": "Do not confuse the starting value with the step size."
+        }
+      }
+    }
+  },
+  {
+    "key": "growth-v22-grade-2-unlabelled-centimeter-scale-1",
+    "family": "unlabelled-centimeter-scale",
+    "skill_key": "length",
+    "track_code": "grade-2",
+    "track": 2,
+    "stage": 1,
+    "category": 82,
+    "skill": 321,
+    "wizard": {
+      "StageId": 1,
+      "CategoryId": 82,
+      "PrimarySkillId": 321,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        2
+      ],
+      "DifficultyLevel": 2,
+      "Points": 10,
+      "Title": {
+        "Ar": "قراءة تدريج غير مرقّم بالكامل",
+        "En": "Reading a partly labelled ruler"
+      },
+      "Question": {
+        "Ar": "مسطرة تبدأ من 0 سم، وتظهر الأرقام عند 0 و5 و10 و15 فقط، لكن توجد علامة عند كل سنتيمتر. يبدأ قلم عند 0 وتنتهي حافته عند العلامة الثالثة بعد 10. كم طول القلم؟",
+        "En": "A ruler starts at 0 cm and has labels only at 0, 5, 10 and 15, but a tick at every centimetre. A pencil starts at 0 and ends at the third tick after 10. How long is the pencil?"
+      },
+      "Options": [
+        {
+          "LatexCode": "10",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "تجاهل العلامات غير المرقمة بعد 10.",
+            "En": "Ignores unlabelled ticks after 10."
+          }
+        },
+        {
+          "LatexCode": "12",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "عد علامتين بعد 10 فقط.",
+            "En": "Counts only two ticks after 10."
+          }
+        },
+        {
+          "LatexCode": "13",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "15",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "اختار الرقم المطبوع التالي دون قراءة العلامة المطلوبة.",
+            "En": "Chooses the next printed label rather than the requested tick."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "المسافة بين علامتين متتاليتين سنتيمتر واحد.",
+          "En": "Adjacent ticks are one centimetre apart."
+        },
+        {
+          "Ar": "تابع العد من 10 ثلاث خطوات.",
+          "En": "Count three steps after 10."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "عندما يبدأ القياس عند الصفر وتساوي المسافة بين العلامات وحدة واحدة، نضيف عدد الفواصل إلى الرقم المعروف.",
+          "En": "When measurement starts at zero and consecutive ticks are one unit apart, add the number of intervals to the known reading."
+        },
+        "FormulaLatex": "L=10+3\\times1",
+        "Steps": [
+          {
+            "Ar": "العلامة الأولى بعد 10 تمثل 11 سم.",
+            "En": "The first tick after 10 represents 11 cm."
+          },
+          {
+            "Ar": "العلامتان التاليتان تمثلان 12 ثم 13 سم.",
+            "En": "The next two ticks represent 12 and then 13 cm."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$10+3=13$",
+          "En": "$10+3=13$"
+        },
+        "Result": {
+          "Ar": "$13$",
+          "En": "$13$"
+        },
+        "Unit": {
+          "Ar": "سم",
+          "En": "cm"
+        },
+        "Verification": {
+          "Ar": "يبقى من 13 إلى 15 فاصلان، أي سنتيمتران.",
+          "En": "Two intervals remain from 13 to 15, or two centimetres."
+        },
+        "CommonError": {
+          "Ar": "لا تتجاهل العلامات التي ليس فوقها رقم.",
+          "En": "Do not ignore ticks without printed numbers."
+        }
+      }
+    }
+  },
+  {
+    "key": "growth-v22-grade-6-sum-nonoverlapping-triangular-banners-1",
+    "family": "sum-nonoverlapping-triangular-banners",
+    "skill_key": "primary-triangle-area",
+    "track_code": "grade-6",
+    "track": 6,
+    "stage": 1,
+    "category": 3,
+    "skill": 14,
+    "wizard": {
+      "StageId": 1,
+      "CategoryId": 3,
+      "PrimarySkillId": 14,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        6
+      ],
+      "DifficultyLevel": 2,
+      "Points": 10,
+      "Title": {
+        "Ar": "مساحة رايتين مثلثتين",
+        "En": "Area of two triangular banners"
+      },
+      "Question": {
+        "Ar": "يُراد قص رايتين مثلثتين لا تتداخلان من قماش. قاعدة الأولى 6 سم وارتفاعها العمودي 3 سم، وقاعدة الثانية 4 سم وارتفاعها العمودي 5 سم. ما مجموع مساحتيهما؟",
+        "En": "Two nonoverlapping triangular banners are to be cut from fabric. The first has base 6 cm and perpendicular height 3 cm; the second has base 4 cm and perpendicular height 5 cm. What is their combined area?"
+      },
+      "Options": [
+        {
+          "LatexCode": "18",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "18 هو حاصل ضرب قاعدة الأولى بارتفاعها، وليس مجموع المساحتين.",
+            "En": "18 is the product of the first base and height, not the combined area."
+          }
+        },
+        {
+          "LatexCode": "19",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "20",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "20 هو حاصل ضرب قاعدة الثانية بارتفاعها، وليس مجموع المساحتين.",
+            "En": "20 is the product of the second base and height, not the combined area."
+          }
+        },
+        {
+          "LatexCode": "38",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "جمع حاصلَي الضرب دون القسمة على 2.",
+            "En": "Adds the two products without halving."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "احسب مساحة كل مثلث على حدة.",
+          "En": "Find the area of each triangle separately."
+        },
+        {
+          "Ar": "استخدم نصف حاصل ضرب القاعدة في الارتفاع العمودي، ثم اجمع المساحتين.",
+          "En": "Use half the base times its perpendicular height, then add the areas."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "مساحة المثلث نصف حاصل ضرب القاعدة في الارتفاع العمودي المقابل؛ ولعدم التداخل نجمع المساحتين.",
+          "En": "Triangle area is half the base times its corresponding perpendicular height; disjoint areas can be added."
+        },
+        "FormulaLatex": "A=\\frac{b_1h_1+b_2h_2}{2}",
+        "Steps": [
+          {
+            "Ar": "$A_1=6\\times3\\div2=9$.",
+            "En": "$A_1=6\\times3\\div2=9$."
+          },
+          {
+            "Ar": "$A_2=4\\times5\\div2=10$، ثم $A=9+10$.",
+            "En": "$A_2=4\\times5\\div2=10$, then $A=9+10$."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$(18+20)/2=19$",
+          "En": "$(18+20)/2=19$"
+        },
+        "Result": {
+          "Ar": "$19$",
+          "En": "$19$"
+        },
+        "Unit": {
+          "Ar": "سم²",
+          "En": "cm²"
+        },
+        "Verification": {
+          "Ar": "$2\\times19=38=18+20$",
+          "En": "$2\\times19=38=18+20$"
+        },
+        "CommonError": {
+          "Ar": "لا تحسب حاصل ضرب القاعدة والارتفاع على أنه مساحة المثلث.",
+          "En": "Do not treat base times height as the area of a triangle."
+        }
+      }
+    }
+  },
+  {
+    "key": "growth-v22-grade-6-compare-fixed-and-percent-discounts-1",
+    "family": "compare-fixed-and-percent-discounts",
+    "skill_key": "p-fractions-decimals-basic-percentages",
+    "track_code": "grade-6",
+    "track": 6,
+    "stage": 1,
+    "category": 21,
+    "skill": 93,
+    "wizard": {
+      "StageId": 1,
+      "CategoryId": 21,
+      "PrimarySkillId": 93,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        6
+      ],
+      "DifficultyLevel": 2,
+      "Points": 10,
+      "Title": {
+        "Ar": "مقارنة خصمين مختلفين",
+        "En": "Comparing two discount offers"
+      },
+      "Question": {
+        "Ar": "سعر حقيبة 80 وحدة نقدية في متجرين. الأول يقدم خصماً بنسبة 15%، والثاني يخصم 10 وحدات نقدية. بكم يزيد الخصم الأكبر على الأصغر؟",
+        "En": "A bag costs 80 currency units at two shops. The first offers a 15% discount; the second deducts 10 currency units. By how much does the larger discount exceed the smaller?"
+      },
+      "Options": [
+        {
+          "LatexCode": "2",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "5",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "طرح 10 من 15 مباشرة يخلط نسبة مئوية مع مبلغ.",
+            "En": "Subtracts 10 directly from 15, mixing a percentage with an amount."
+          }
+        },
+        {
+          "LatexCode": "10",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "هذا مقدار الخصم الثاني فقط.",
+            "En": "This is the second discount alone."
+          }
+        },
+        {
+          "LatexCode": "12",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "هذا مقدار الخصم الأول فقط، لا الفرق.",
+            "En": "This is the first discount alone, not the difference."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "حوّل الخصم النسبي إلى مبلغ نقدي.",
+          "En": "Convert the percentage discount into money."
+        },
+        {
+          "Ar": "قارن مبلغ الخصم المحسوب بالخصم الثابت.",
+          "En": "Compare the calculated discount with the fixed discount."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "نحسب الخصم النسبي من السعر الأصلي، ثم نقارن المبلغين بالوحدة نفسها.",
+          "En": "Calculate the percentage discount from the original price, then compare both amounts in the same unit."
+        },
+        "FormulaLatex": "D=P\\frac{p}{100},\\quad \\Delta=|D-F|",
+        "Steps": [
+          {
+            "Ar": "$D=80\\times15/100=12$.",
+            "En": "$D=80\\times15/100=12$."
+          },
+          {
+            "Ar": "الخصم الثابت 10؛ الفرق $12-10=2$.",
+            "En": "The fixed discount is 10; the difference is $12-10=2$."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$|12-10|=2$",
+          "En": "$|12-10|=2$"
+        },
+        "Result": {
+          "Ar": "$2$",
+          "En": "$2$"
+        },
+        "Unit": {
+          "Ar": "وحدتان نقديتان",
+          "En": "currency units"
+        },
+        "Verification": {
+          "Ar": "السعران بعد الخصم هما 68 و70؛ الفرق بينهما 2 أيضاً.",
+          "En": "The discounted prices are 68 and 70; their difference is also 2."
+        },
+        "CommonError": {
+          "Ar": "لا تقارن نسبة 15% مباشرة بمبلغ 10.",
+          "En": "Do not compare 15% directly with the amount 10."
+        }
+      }
+    }
+  },
+  {
+    "key": "growth-v22-grade-9-inequality-variable-both-sides-1",
+    "family": "inequality-variable-both-sides",
+    "skill_key": "solve-linear-inequalities",
+    "track_code": "grade-9",
+    "track": 9,
+    "stage": 2,
+    "category": 84,
+    "skill": 327,
+    "wizard": {
+      "StageId": 2,
+      "CategoryId": 84,
+      "PrimarySkillId": 327,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        9
+      ],
+      "DifficultyLevel": 2,
+      "Points": 10,
+      "Title": {
+        "Ar": "متغير في طرفي المتباينة",
+        "En": "Variable on both sides of an inequality"
+      },
+      "Question": {
+        "Ar": "ما مجموعة حلول المتباينة $4x+5\\le2x+13$ في الأعداد الحقيقية؟",
+        "En": "What is the real solution set of $4x+5\\le2x+13$?"
+      },
+      "Options": [
+        {
+          "LatexCode": "x\\ge4",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "اتجاه المتباينة لا ينعكس عند القسمة على 2 الموجب.",
+            "En": "The inequality direction does not reverse when dividing by positive 2."
+          }
+        },
+        {
+          "LatexCode": "x<4",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "استبعد حالة المساواة رغم وجود رمز أصغر من أو يساوي.",
+            "En": "Excludes equality although the symbol permits it."
+          }
+        },
+        {
+          "LatexCode": "x\\le4",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "x\\le9",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "الحد 9 لا يحقق المتباينة: عنده الطرفان 41 و31.",
+            "En": "The bound 9 fails: at 9 the two sides are 41 and 31."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "اطرح الحد المتغير الأصغر من الطرفين.",
+          "En": "Subtract the smaller variable term from both sides."
+        },
+        {
+          "Ar": "اعزل المتغير بالقسمة على معامل موجب ولا تعكس الاتجاه.",
+          "En": "Isolate the variable by dividing by a positive coefficient without reversing the sign."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "إضافة أو طرح المقدار نفسه من الطرفين يحافظ على المتباينة، وكذلك القسمة على عدد موجب.",
+          "En": "Adding or subtracting the same quantity on both sides preserves an inequality, as does division by a positive number."
+        },
+        "FormulaLatex": "a\\le b\\Rightarrow a-c\\le b-c,\\quad \\frac{a}{k}\\le\\frac{b}{k}\\ (k>0)",
+        "Steps": [
+          {
+            "Ar": "نطرح $2x$ من الطرفين: $2x+5\\le13$.",
+            "En": "Subtract $2x$ from both sides: $2x+5\\le13$."
+          },
+          {
+            "Ar": "نطرح 5 فنحصل على $2x\\le8$، ثم نقسم على 2 الموجب.",
+            "En": "Subtract 5 to get $2x\\le8$, then divide by positive 2."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$x\\le8/2=4$",
+          "En": "$x\\le8/2=4$"
+        },
+        "Result": {
+          "Ar": "$x\\le4$",
+          "En": "$x\\le4$"
+        },
+        "Unit": {
+          "Ar": "بلا وحدة قياس",
+          "En": "Dimensionless"
+        },
+        "Verification": {
+          "Ar": "عند $x=4$ الطرفان 21؛ عند $x=3$ الطرفان 17 و19؛ وعند $x=5$ الطرفان 25 و23.",
+          "En": "At $x=4$ both sides are 21; at $x=3$ the sides are 17 and 19; at $x=5$ they are 25 and 23."
+        },
+        "CommonError": {
+          "Ar": "اعكس اتجاه المتباينة فقط عند الضرب أو القسمة على عدد سالب.",
+          "En": "Reverse the inequality only when multiplying or dividing by a negative number."
+        }
+      }
+    }
+  },
+  {
+    "key": "growth-v22-grade-9-compare-mad-equal-mean-1",
+    "family": "compare-mad-equal-mean",
+    "skill_key": "m-statistics-distributions",
+    "track_code": "grade-9",
+    "track": 9,
+    "stage": 2,
+    "category": 22,
+    "skill": 98,
+    "wizard": {
+      "StageId": 2,
+      "CategoryId": 22,
+      "PrimarySkillId": 98,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        9
+      ],
+      "DifficultyLevel": 2,
+      "Points": 10,
+      "Title": {
+        "Ar": "تشتت مختلف مع متوسط متساوٍ",
+        "En": "Different spread with equal means"
+      },
+      "Question": {
+        "Ar": "مجموعتا القياسات A وB هما (2، 4، 6، 8) و(4، 4، 6، 6) على الترتيب. بكم يزيد متوسط الانحراف المطلق عن المتوسط الحسابي في المجموعة A على نظيره في المجموعة B؟",
+        "En": "Data sets A and B are (2, 4, 6, 8) and (4, 4, 6, 6), respectively. By how much does the mean absolute deviation from the mean in A exceed that in B?"
+      },
+      "Options": [
+        {
+          "LatexCode": "0",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "تساوي المتوسطين لا يعني تساوي التشتت.",
+            "En": "Equal means do not imply equal spreads."
+          }
+        },
+        {
+          "LatexCode": "1",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "2",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "هذا متوسط الانحراف المطلق للمجموعة A وحدها.",
+            "En": "This is the mean absolute deviation of A alone."
+          }
+        },
+        {
+          "LatexCode": "4",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "هذا الفرق بين مجموعَي الانحرافات قبل القسمة على 4.",
+            "En": "This is the difference in sums of deviations before dividing by 4."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "احسب المتوسط الحسابي لكل مجموعة أولاً.",
+          "En": "Find the arithmetic mean of each data set first."
+        },
+        {
+          "Ar": "احسب المسافات المطلقة عن المتوسط، واجمعها ثم اقسم على عدد القيم.",
+          "En": "Find absolute distances from the mean, add them and divide by the number of values."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "متوسط الانحراف المطلق يقيس متوسط المسافة عن المتوسط الحسابي؛ نطبقه على كل مجموعة غير فارغة ثم نقارن.",
+          "En": "Mean absolute deviation measures the average distance from the arithmetic mean; apply it to each nonempty set and compare."
+        },
+        "FormulaLatex": "MAD=\\frac1n\\sum_{i=1}^{n}|x_i-\\bar x|,\\quad n>0",
+        "Steps": [
+          {
+            "Ar": "متوسط كل مجموعة هو 5.",
+            "En": "Both data sets have mean 5."
+          },
+          {
+            "Ar": "$MAD_A=(3+1+1+3)/4=2$.",
+            "En": "$MAD_A=(3+1+1+3)/4=2$."
+          },
+          {
+            "Ar": "$MAD_B=(1+1+1+1)/4=1$.",
+            "En": "$MAD_B=(1+1+1+1)/4=1$."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$2-1=1$",
+          "En": "$2-1=1$"
+        },
+        "Result": {
+          "Ar": "$1$",
+          "En": "$1$"
+        },
+        "Unit": {
+          "Ar": "وحدة قياس",
+          "En": "measurement unit"
+        },
+        "Verification": {
+          "Ar": "مجموعا المسافات 8 و4، وفرقهما 4؛ بالقسمة على 4 نحصل على 1.",
+          "En": "The distance sums are 8 and 4; their difference is 4, giving 1 after division by 4."
+        },
+        "CommonError": {
+          "Ar": "لا تجمع الانحرافات بإشاراتها؛ خذ قيمها المطلقة.",
+          "En": "Do not sum signed deviations; use absolute values."
+        }
+      }
+    }
+  }
+]

@@ -1,0 +1,619 @@
+{
+  "notes": "Reviewed corrections, not an import payload. Existing options and assignments preserved. 935 remains held.",
+  "specs": {
+    "937": {
+      "steps": [
+        {
+          "Ar": "نطبق قاعدة القوة مرتين على الدالة المعرفة على جميع الأعداد الحقيقية.",
+          "En": "Apply the power rule twice to the function defined on all real numbers."
+        },
+        {
+          "Ar": "$f'(x)=3x^2,\\quad f''(x)=6x$",
+          "En": "$f'(x)=3x^2,\\quad f''(x)=6x$"
+        },
+        {
+          "Ar": "القسمة على 6 الموجب تحفظ اتجاه المتباينة، ونستبعد الصفر.",
+          "En": "Division by positive 6 preserves the inequality; exclude zero."
+        }
+      ],
+      "reasons": [
+        {
+          "Ar": "عند x السالب تكون المشتقة الثانية سالبة.",
+          "En": "For negative x the second derivative is negative."
+        },
+        {
+          "Ar": "عند الصفر المشتقة الثانية صفر وليست موجبة.",
+          "En": "At zero the second derivative is zero, not positive."
+        },
+        null,
+        {
+          "Ar": "المجال غير الموجب لا يحتوي أي نقطة تحقق الشرط.",
+          "En": "The nonpositive interval contains no point satisfying the condition."
+        }
+      ]
+    },
+    "939": {
+      "steps": [
+        {
+          "Ar": "نطبق كوشي–شفارتز على المتجهين المعطيين؛ مربع معيار المتجه الثاني يساوي 2.",
+          "En": "Apply Cauchy–Schwarz; the second vector has squared norm 2."
+        },
+        {
+          "Ar": "$(x+y)^2\\le2(x^2+y^2)=4\\Rightarrow x+y\\le2$",
+          "En": "$(x+y)^2\\le2(x^2+y^2)=4\\Rightarrow x+y\\le2$"
+        },
+        {
+          "Ar": "المساواة الموجبة تتحقق عند تساوي المركبتين واختيارهما موجبتين؛ القيد يعطي (1,1).",
+          "En": "Positive equality holds for equal positive components; the constraint gives (1,1)."
+        }
+      ],
+      "reasons": [
+        {
+          "Ar": "1 أصغر من القيمة المتحققة عند (1,1).",
+          "En": "1 is below the attained value at (1,1)."
+        },
+        null,
+        {
+          "Ar": "جذر 2 نصف قطر الدائرة وليس أكبر مجموع للمركبتين.",
+          "En": "Square root of 2 is the radius, not the largest component sum."
+        },
+        {
+          "Ar": "4 حد لمربع المجموع وليس للمجموع.",
+          "En": "4 bounds the square of the sum, not the sum."
+        }
+      ]
+    },
+    "940": {
+      "steps": [
+        {
+          "Ar": "$f_x=4x+y,\\quad f_y=x+6y$",
+          "En": "$f_x=4x+y,\\quad f_y=x+6y$"
+        },
+        {
+          "Ar": "$f_{xx}=4,\\quad f_{yy}=6,\\quad f_{xy}=f_{yx}=1$",
+          "En": "$f_{xx}=4,\\quad f_{yy}=6,\\quad f_{xy}=f_{yx}=1$"
+        },
+        {
+          "Ar": "نرتب المشتقات في مصفوفة هيس ثم نطرح حاصل ضرب العنصرين غير القطريين من حاصل ضرب العنصرين القطريين.",
+          "En": "Arrange the derivatives in the Hessian, then subtract the off-diagonal product from the diagonal product."
+        }
+      ],
+      "reasons": [
+        {
+          "Ar": "11 لا يوافق حاصل ضرب القطرين 24 و1.",
+          "En": "11 does not match diagonal products 24 and 1."
+        },
+        {
+          "Ar": "20 يعني طرح 4 بدلاً من حاصل الضرب المختلط 1.",
+          "En": "20 subtracts 4 instead of the mixed product 1."
+        },
+        null,
+        {
+          "Ar": "24 يهمل حاصل ضرب المشتقتين المختلطتين.",
+          "En": "24 omits the product of the mixed derivatives."
+        }
+      ]
+    },
+    "941": {
+      "steps": [
+        {
+          "Ar": "من القيد نعزل المتغير الثاني ثم نعيد كتابة الهدف بدلالة متغير واحد.",
+          "En": "Isolate the second variable from the constraint and express the objective in one variable."
+        },
+        {
+          "Ar": "$y=10-2x,\\quad x^2+(10-2x)^2=5(x-4)^2+20$",
+          "En": "$y=10-2x,\\quad x^2+(10-2x)^2=5(x-4)^2+20$"
+        },
+        {
+          "Ar": "المربع غير سالب وينعدم عند x=4؛ ينتج y=2، فتتحقق القيمة الدنيا.",
+          "En": "The square is nonnegative and vanishes at x=4; then y=2, attaining the minimum."
+        }
+      ],
+      "reasons": [
+        {
+          "Ar": "16 أقل من الحد الأدنى المثبت 20.",
+          "En": "16 is below the proven lower bound of 20."
+        },
+        {
+          "Ar": "18 أقل من الحد الأدنى المثبت 20.",
+          "En": "18 is below the proven lower bound of 20."
+        },
+        null,
+        {
+          "Ar": "25 أكبر من القيمة التي تحققها النقطة (4,2).",
+          "En": "25 exceeds the value attained at (4,2)."
+        }
+      ],
+      "sub": {
+        "Ar": "$y=10-2x,\\quad 5(x-4)^2+20\\ge20$",
+        "En": "$y=10-2x,\\quad 5(x-4)^2+20\\ge20$"
+      },
+      "formula": "x^2+(10-2x)^2=5(x-4)^2+20",
+      "idea": {
+        "Ar": "نعوض من القيد الخطي ثم نكمل المربع لإثبات حد أدنى عالمي متحقق.",
+        "En": "Substitute the linear constraint and complete the square to prove an attained global minimum."
+      }
+    },
+    "942": {
+      "steps": [
+        {
+          "Ar": "$f'(x)=2(a-1)x,\\quad f''(x)=2(a-1)$",
+          "En": "$f'(x)=2(a-1)x,\\quad f''(x)=2(a-1)$"
+        },
+        {
+          "Ar": "على المستقيم الكامل يكافئ التحدب عدم سلبية المشتقة الثانية لهذه الدالة الملساء.",
+          "En": "On the whole line, convexity of this smooth function is equivalent to a nonnegative second derivative."
+        },
+        {
+          "Ar": "$2(a-1)\\ge0\\iff a\\ge1$",
+          "En": "$2(a-1)\\ge0\\iff a\\ge1$"
+        }
+      ],
+      "reasons": [
+        {
+          "Ar": "a>2 شرط كافٍ لكنه غير لازم؛ القيمة 1 تحقق التحدب أيضاً.",
+          "En": "a>2 is sufficient but unnecessary; 1 also gives convexity."
+        },
+        {
+          "Ar": "a≤1 يشمل قيماً أصغر من 1 تجعل الدالة مقعرة.",
+          "En": "a≤1 includes values below 1, which make the function concave."
+        },
+        null,
+        {
+          "Ar": "a<0 يجعل المشتقة الثانية سالبة.",
+          "En": "a<0 makes the second derivative negative."
+        }
+      ]
+    },
+    "945": {
+      "steps": [
+        {
+          "Ar": "نقيد فضاء العينة بالأوجه الزوجية الثلاثة المتساوية الاحتمال.",
+          "En": "Restrict the sample space to the three equally likely even faces."
+        },
+        {
+          "Ar": "$B=\\{2,4,6\\},\\quad A\\cap B=\\{4,6\\}$",
+          "En": "$B=\\{2,4,6\\},\\quad A\\cap B=\\{4,6\\}$"
+        },
+        {
+          "Ar": "نقسم عدد النتائج المطلوبة على عدد النتائج الممكنة بعد الشرط.",
+          "En": "Divide favorable outcomes by possible outcomes after conditioning."
+        }
+      ],
+      "reasons": [
+        {
+          "Ar": "1/3 احتمال الوجه الزوجي الذي لا يزيد على 3.",
+          "En": "1/3 is the probability of an even face not exceeding 3."
+        },
+        null,
+        {
+          "Ar": "1/2 يوافق احتمال تجاوز 3 قبل معرفة الشرط.",
+          "En": "1/2 is the probability of exceeding 3 before conditioning."
+        },
+        {
+          "Ar": "5/6 ليس نسبة ممكنة لحدث من ثلاثة أوجه متساوية الاحتمال.",
+          "En": "5/6 cannot be a count ratio among three equally likely faces."
+        }
+      ],
+      "verify": {
+        "Ar": "$P(A\\mid B)+P(A^c\\mid B)=2/3+1/3=1$",
+        "En": "$P(A\\mid B)+P(A^c\\mid B)=2/3+1/3=1$"
+      }
+    },
+    "946": {
+      "steps": [
+        {
+          "Ar": "إذا ظهر 6 على النرد الأول، فللثاني خمسة أوجه غير 6.",
+          "En": "If the first die shows 6, the second has five non-six faces."
+        },
+        {
+          "Ar": "إذا ظهر 6 على النرد الثاني، فللأول خمسة أوجه غير 6.",
+          "En": "If the second die shows 6, the first has five non-six faces."
+        },
+        {
+          "Ar": "الحالتان متنافيتان والنتائج مرتبة، لذا نجمع عدديهما.",
+          "En": "The cases are disjoint and outcomes ordered, so add their counts."
+        }
+      ],
+      "reasons": [
+        {
+          "Ar": "5 يحسب حالة واحدة فقط.",
+          "En": "5 counts only one case."
+        },
+        null,
+        {
+          "Ar": "11 يشمل النتيجة (6,6) المخالفة للشرط.",
+          "En": "11 includes (6,6), which violates the condition."
+        },
+        {
+          "Ar": "12 يعد ستة خيارات في كل حالة ويشمل الوجه الممنوع.",
+          "En": "12 counts six choices in each case, including the forbidden face."
+        }
+      ],
+      "unit": {
+        "Ar": "",
+        "En": ""
+      }
+    },
+    "947": {
+      "steps": [
+        {
+          "Ar": "$\\sqrt{a^2+4^2}=5$",
+          "En": "$\\sqrt{a^2+4^2}=5$"
+        },
+        {
+          "Ar": "$a^2=25-16=9$",
+          "En": "$a^2=25-16=9$"
+        },
+        {
+          "Ar": "الجذران هما 3 و−3؛ الشرط أن المركبة سالبة يحدد الجذر السالب.",
+          "En": "The roots are 3 and −3; the negative-component condition selects the negative root."
+        }
+      ],
+      "reasons": [
+        {
+          "Ar": "−5 يعطي مربع طول 41 لا 25.",
+          "En": "−5 gives squared length 41, not 25."
+        },
+        {
+          "Ar": "−4 يعطي مربع طول 32 لا 25.",
+          "En": "−4 gives squared length 32, not 25."
+        },
+        null,
+        {
+          "Ar": "3 يحقق الطول لكنه يخالف شرط الإشارة.",
+          "En": "3 satisfies the length but violates the sign condition."
+        }
+      ]
+    },
+    "948": {
+      "steps": [
+        {
+          "Ar": "$v+w=(3-1,0+1)=(2,1)$",
+          "En": "$v+w=(3-1,0+1)=(2,1)$"
+        },
+        {
+          "Ar": "نضرب المركبات المتناظرة ثم نجمع الجداءين.",
+          "En": "Multiply corresponding components, then add their products."
+        },
+        {
+          "Ar": "$u\\cdot(v+w)=1(2)+2(1)=4$",
+          "En": "$u\\cdot(v+w)=1(2)+2(1)=4$"
+        }
+      ],
+      "reasons": [
+        {
+          "Ar": "−1 لا يوافق أي مجموع صحيح للجداءين 2 و2.",
+          "En": "−1 is not the sum of the two products 2 and 2."
+        },
+        {
+          "Ar": "2 يمثل جداء مركبة واحدة فقط.",
+          "En": "2 accounts for only one component product."
+        },
+        null,
+        {
+          "Ar": "6 لا يوافق جمع الجداءين 2 و2.",
+          "En": "6 is not the sum of products 2 and 2."
+        }
+      ]
+    },
+    "949": {
+      "steps": [
+        {
+          "Ar": "الرأس عند x=−2 خارج المجال المسموح.",
+          "En": "The vertex at x=−2 is outside the feasible domain."
+        },
+        {
+          "Ar": "$x\\ge0\\Rightarrow x+2\\ge2\\Rightarrow(x+2)^2\\ge4$",
+          "En": "$x\\ge0\\Rightarrow x+2\\ge2\\Rightarrow(x+2)^2\\ge4$"
+        },
+        {
+          "Ar": "المساواة تتحقق عند الحد الطرفي x=0، فنضيف الثابت 5.",
+          "En": "Equality occurs at the boundary x=0; add the constant 5."
+        }
+      ],
+      "reasons": [
+        {
+          "Ar": "5 قيمة الرأس غير المسموح.",
+          "En": "5 is the infeasible vertex value."
+        },
+        {
+          "Ar": "7 أقل من الحد الأدنى الممكن 9.",
+          "En": "7 is below the feasible minimum 9."
+        },
+        null,
+        {
+          "Ar": "13 أكبر من القيمة عند x=0.",
+          "En": "13 exceeds the value at x=0."
+        }
+      ]
+    },
+    "950": {
+      "steps": [
+        {
+          "Ar": "$f_x=2x+2y-4=0,\\quad f_y=2x+6y-8=0$",
+          "En": "$f_x=2x+2y-4=0,\\quad f_y=2x+6y-8=0$"
+        },
+        {
+          "Ar": "$x+y=2,\\quad x+3y=4\\Rightarrow y=1,\\ x=1$",
+          "En": "$x+y=2,\\quad x+3y=4\\Rightarrow y=1,\\ x=1$"
+        },
+        {
+          "Ar": "مصفوفة هيس ثابتة وموجبة التعيين لأن العنصر الأول 2 ومحددها 8 موجبان؛ كما أن إكمال المربع يثبت الحد الأدنى عالمياً.",
+          "En": "The constant Hessian is positive definite since its first leading entry 2 and determinant 8 are positive; completing squares also proves the global bound."
+        },
+        {
+          "Ar": "$f=(x+y-2)^2+2(y-1)^2-6\\ge-6$",
+          "En": "$f=(x+y-2)^2+2(y-1)^2-6\\ge-6$"
+        }
+      ],
+      "reasons": [
+        {
+          "Ar": "−8 أقل من الحد الأدنى المثبت −6.",
+          "En": "−8 is below the proven lower bound −6."
+        },
+        null,
+        {
+          "Ar": "−4 أكبر من قيمة الدالة عند (1,1).",
+          "En": "−4 exceeds the value at (1,1)."
+        },
+        {
+          "Ar": "6 يعكس إشارة القيمة الصغرى.",
+          "En": "6 reverses the sign of the minimum."
+        }
+      ]
+    },
+    "951": {
+      "steps": [
+        {
+          "Ar": "$243=3\\cdot3\\cdot3\\cdot3\\cdot3=3^5$",
+          "En": "$243=3\\cdot3\\cdot3\\cdot3\\cdot3=3^5$"
+        },
+        {
+          "Ar": "الأساس 3 موجب ومختلف عن 1؛ الدالة الأسية أحادية، لذا تتساوى الأسس.",
+          "En": "Base 3 is positive and not 1; the exponential function is one-to-one, so exponents are equal."
+        },
+        {
+          "Ar": "$x=\\log_3 243=5$",
+          "En": "$x=\\log_3 243=5$"
+        }
+      ],
+      "reasons": [
+        {
+          "Ar": "3 مرفوعاً للقوة 4 يساوي 81.",
+          "En": "3 to the fourth power is 81."
+        },
+        null,
+        {
+          "Ar": "3 مرفوعاً للقوة 6 يساوي 729.",
+          "En": "3 to the sixth power is 729."
+        },
+        {
+          "Ar": "81 ناتج قسمة 243 على 3 وليس الأس.",
+          "En": "81 is 243 divided by 3, not the exponent."
+        }
+      ]
+    },
+    "952": {
+      "steps": [
+        {
+          "Ar": "المدخلان موجبان والأساس 2 صالح، فتطبق قاعدة الجداء.",
+          "En": "Both arguments are positive and base 2 is valid, so use the product rule."
+        },
+        {
+          "Ar": "$8=2^3,\\quad16=2^4$",
+          "En": "$8=2^3,\\quad16=2^4$"
+        },
+        {
+          "Ar": "$\\log_2(8\\cdot16)=3+4=7$",
+          "En": "$\\log_2(8\\cdot16)=3+4=7$"
+        }
+      ],
+      "reasons": [
+        {
+          "Ar": "4 لوغاريتم 16 وحده.",
+          "En": "4 is the logarithm of 16 alone."
+        },
+        null,
+        {
+          "Ar": "5 لا يساوي مجموع الأسين 3 و4.",
+          "En": "5 is not the sum of exponents 3 and 4."
+        },
+        {
+          "Ar": "11 لا يساوي مجموع الأسين 3 و4.",
+          "En": "11 is not the sum of exponents 3 and 4."
+        }
+      ]
+    },
+    "953": {
+      "steps": [
+        {
+          "Ar": "البسط والمقام موجبان والأساس 3 صالح، فنطبق قاعدة القسمة.",
+          "En": "Both arguments are positive and base 3 is valid, so use the quotient rule."
+        },
+        {
+          "Ar": "$243=3^5,\\quad9=3^2$",
+          "En": "$243=3^5,\\quad9=3^2$"
+        },
+        {
+          "Ar": "$\\log_3(243/9)=5-2=3$",
+          "En": "$\\log_3(243/9)=5-2=3$"
+        }
+      ],
+      "reasons": [
+        {
+          "Ar": "2 لوغاريتم المقام وحده.",
+          "En": "2 is the logarithm of the denominator alone."
+        },
+        null,
+        {
+          "Ar": "4 لا يساوي الفرق بين 5 و2.",
+          "En": "4 is not the difference between 5 and 2."
+        },
+        {
+          "Ar": "5 لوغاريتم البسط وحده.",
+          "En": "5 is the logarithm of the numerator alone."
+        }
+      ]
+    },
+    "954": {
+      "steps": [
+        {
+          "Ar": "العدد 25 موجب والأساس 5 صالح، فتطبق قاعدة القوة.",
+          "En": "25 is positive and base 5 is valid, so apply the power rule."
+        },
+        {
+          "Ar": "$25=5^2\\Rightarrow\\log_5 25=2$",
+          "En": "$25=5^2\\Rightarrow\\log_5 25=2$"
+        },
+        {
+          "Ar": "$\\log_5(25^3)=3\\cdot2=6$",
+          "En": "$\\log_5(25^3)=3\\cdot2=6$"
+        }
+      ],
+      "reasons": [
+        {
+          "Ar": "3 هو الأس الخارجي فقط.",
+          "En": "3 is only the outer exponent."
+        },
+        null,
+        {
+          "Ar": "5 يجمع الأس 3 مع اللوغاريتم 2 بدلاً من ضربهما.",
+          "En": "5 adds exponent 3 and logarithm 2 instead of multiplying."
+        },
+        {
+          "Ar": "15 يضرب الأس في أساس اللوغاريتم بدلاً من قيمته.",
+          "En": "15 multiplies the exponent by the base instead of the logarithm value."
+        }
+      ]
+    },
+    "955": {
+      "steps": [
+        {
+          "Ar": "$x-1>0\\Rightarrow x>1$",
+          "En": "$x-1>0\\Rightarrow x>1$"
+        },
+        {
+          "Ar": "$x-1=2^4=16$",
+          "En": "$x-1=2^4=16$"
+        },
+        {
+          "Ar": "نضيف 1 إلى الطرفين فنحصل على 17، وهو ضمن المجال.",
+          "En": "Add 1 to both sides to obtain 17, which lies in the domain."
+        }
+      ],
+      "reasons": [
+        {
+          "Ar": "15 يجعل المدخل 14 لا 16.",
+          "En": "15 makes the argument 14, not 16."
+        },
+        null,
+        {
+          "Ar": "16 هو المدخل المطلوب وليس قيمة المتغير.",
+          "En": "16 is the required argument, not the variable."
+        },
+        {
+          "Ar": "5 يجعل المدخل 4 ولوغاريتمه 2.",
+          "En": "5 makes the argument 4, whose logarithm is 2."
+        }
+      ]
+    },
+    "956": {
+      "steps": [
+        {
+          "Ar": "$x-2>0,\\quad x>0\\Rightarrow x>2$",
+          "En": "$x-2>0,\\quad x>0\\Rightarrow x>2$"
+        },
+        {
+          "Ar": "$\\log_3[x(x-2)]=1\\Rightarrow x(x-2)=3$",
+          "En": "$\\log_3[x(x-2)]=1\\Rightarrow x(x-2)=3$"
+        },
+        {
+          "Ar": "$x^2-2x-3=(x-3)(x+1)=0$",
+          "En": "$x^2-2x-3=(x-3)(x+1)=0$"
+        },
+        {
+          "Ar": "نحصل على 3 و−1؛ نستبعد −1 لأنه لا يحقق المجال، ونحتفظ بـ3.",
+          "En": "The candidates are 3 and −1; reject −1 for violating the domain and retain 3."
+        }
+      ],
+      "reasons": [
+        {
+          "Ar": "−1 جذر جبري لكنه خارج مجال اللوغاريتمين.",
+          "En": "−1 is an algebraic root but violates both logarithm domains."
+        },
+        null,
+        {
+          "Ar": "1 يجعل المدخل الأول سالباً.",
+          "En": "1 makes the first argument negative."
+        },
+        {
+          "Ar": "5 يجعل حاصل ضرب المدخلين 15 لا 3.",
+          "En": "5 gives argument product 15, not 3."
+        }
+      ]
+    },
+    "957": {
+      "steps": [
+        {
+          "Ar": "نختار الأساس المشترك 2؛ كل الأسس موجبة ومختلفة عن 1 والمدخل موجب.",
+          "En": "Choose common base 2; all bases are positive and not 1, and the argument is positive."
+        },
+        {
+          "Ar": "$8=2^3,\\quad4=2^2$",
+          "En": "$8=2^3,\\quad4=2^2$"
+        },
+        {
+          "Ar": "$\\log_4 8=\\frac{\\log_2 8}{\\log_2 4}=\\frac32$",
+          "En": "$\\log_4 8=\\frac{\\log_2 8}{\\log_2 4}=\\frac32$"
+        }
+      ],
+      "reasons": [
+        {
+          "Ar": "2/3 يقلب البسط والمقام.",
+          "En": "2/3 reverses numerator and denominator."
+        },
+        null,
+        {
+          "Ar": "القوة الثانية للعدد 4 هي 16 لا 8.",
+          "En": "4 squared is 16, not 8."
+        },
+        {
+          "Ar": "القوة الرابعة للعدد 4 هي 256 لا 8.",
+          "En": "4 to the fourth power is 256, not 8."
+        }
+      ]
+    },
+    "958": {
+      "steps": [
+        {
+          "Ar": "الأساس 2 صالح، لذا القيد الوحيد هو إيجابية المدخل.",
+          "En": "Base 2 is valid, so the only restriction is a positive argument."
+        },
+        {
+          "Ar": "$x-5>0$",
+          "En": "$x-5>0$"
+        },
+        {
+          "Ar": "$x>5\\iff x\\in(5,\\infty)$",
+          "En": "$x>5\\iff x\\in(5,\\infty)$"
+        }
+      ],
+      "reasons": [
+        {
+          "Ar": "هذا الشرط يسمح بالقيمة 5 التي تجعل المدخل صفراً.",
+          "En": "This includes 5, which makes the argument zero."
+        },
+        null,
+        {
+          "Ar": "x>0 يسمح بأعداد بين 0 و5 لا تحقق إيجابية المدخل.",
+          "En": "x>0 includes numbers between 0 and 5 that do not give a positive argument."
+        },
+        {
+          "Ar": "x<5 يجعل المدخل سالباً.",
+          "En": "x<5 makes the argument negative."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,1368 @@
+[
+  {
+    "track": 8,
+    "cat": 7,
+    "skill": 33,
+    "sk": "middle-map-scale",
+    "family": "map-scale-infer-denominator-from-measured-distance",
+    "title": {
+      "Ar": "استنتاج مقام مقياس الرسم",
+      "En": "Recovering a scale denominator"
+    },
+    "q": {
+      "Ar": "يمثل خط طوله 8 سم على خريطة مسافة حقيقية 2 كم. إذا كان مقياسها 1:n، فما n؟",
+      "En": "An 8 cm map line represents a real distance of 2 km. If its scale is 1:n, find n."
+    },
+    "opts": [
+      "25000",
+      "250",
+      "1600000",
+      "40000"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "استعمل الأمتار بدلاً من السنتيمترات.",
+        "En": "Uses metres instead of centimetres."
+      },
+      {
+        "Ar": "ضرب المسافة الحقيقية في طول الخط.",
+        "En": "Multiplies the real distance by the map length."
+      },
+      {
+        "Ar": "لا يعطي المسافة الحقيقية المعطاة.",
+        "En": "Does not reproduce the stated real distance."
+      }
+    ],
+    "idea": {
+      "Ar": "نوحد الوحدات ونقسم الطول الحقيقي على طول الخط.",
+      "En": "Convert to the same units and divide real length by map length."
+    },
+    "formula": "n=200000/8",
+    "steps": [
+      {
+        "Ar": "$2\\cdot100000=200000$",
+        "En": "$2\\cdot100000=200000$"
+      },
+      {
+        "Ar": "$n=25000$",
+        "En": "$n=25000$"
+      }
+    ],
+    "sub": {
+      "Ar": "$200000/8$",
+      "En": "$200000/8$"
+    },
+    "result": {
+      "Ar": "$25000$",
+      "En": "$25000$"
+    },
+    "verify": {
+      "Ar": "$8\\cdot25000=200000$",
+      "En": "$8\\cdot25000=200000$"
+    },
+    "hints": [
+      {
+        "Ar": "حوّل 2 كم إلى سم.",
+        "En": "Convert two kilometres to centimetres."
+      },
+      {
+        "Ar": "اقسم على طول الخط.",
+        "En": "Divide by the map length."
+      }
+    ],
+    "error": {
+      "Ar": "استعمل الأمتار بدلاً من السنتيمترات.",
+      "En": "Uses metres instead of centimetres."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 3,
+    "cat": 81,
+    "skill": 305,
+    "sk": "place-value",
+    "family": "place-value-digit-change-with-other-digits-fixed",
+    "title": {
+      "Ar": "تغيير رقم واحد",
+      "En": "Changing one digit"
+    },
+    "q": {
+      "Ar": "في العدد 583 استُبدل رقم العشرات 8 بالرقم 2 دون تغيير بقية الأرقام. بكم نقص العدد؟",
+      "En": "In 583, the tens digit eight is replaced by two, leaving the other digits unchanged. How much does the number decrease?"
+    },
+    "opts": [
+      "6",
+      "600",
+      "20",
+      "60"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "هذا فرق الرقمين دون قيمة المنزلة.",
+        "En": "This is the digit difference without place value."
+      },
+      {
+        "Ar": "عامل العشرات كمئات.",
+        "En": "Treats tens as hundreds."
+      },
+      {
+        "Ar": "هذه قيمة العشرات الجديدة فقط.",
+        "En": "This is just the new tens value."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "نقصت العشرات من ثماني عشرات إلى عشرتين.",
+      "En": "The tens decrease from eight tens to two."
+    },
+    "formula": "(8-2)\\cdot10",
+    "steps": [
+      {
+        "Ar": "$583\\to523$",
+        "En": "$583\\to523$"
+      },
+      {
+        "Ar": "$583-523=60$",
+        "En": "$583-523=60$"
+      }
+    ],
+    "sub": {
+      "Ar": "$6\\cdot10$",
+      "En": "$6\\cdot10$"
+    },
+    "result": {
+      "Ar": "$60$",
+      "En": "$60$"
+    },
+    "verify": {
+      "Ar": "$523+60=583$",
+      "En": "$523+60=583$"
+    },
+    "hints": [
+      {
+        "Ar": "اكتب العدد بعد التغيير.",
+        "En": "Write the changed number."
+      },
+      {
+        "Ar": "احسب الفرق بين العددين.",
+        "En": "Find the difference."
+      }
+    ],
+    "error": {
+      "Ar": "هذا فرق الرقمين دون قيمة المنزلة.",
+      "En": "This is the digit difference without place value."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 3,
+    "cat": 81,
+    "skill": 304,
+    "sk": "number-comparison",
+    "family": "number-comparison-count-multiples-ten-between-bounds",
+    "title": {
+      "Ar": "عشرات كاملة بين حدين",
+      "En": "Whole tens between bounds"
+    },
+    "q": {
+      "Ar": "كم عدداً من مضاعفات 10 يقع بين 342 و388؟",
+      "En": "How many multiples of ten lie between 342 and 388?"
+    },
+    "opts": [
+      "5",
+      "46",
+      "4",
+      "3"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "أضاف عدداً خارج المجال.",
+        "En": "Includes a number outside the interval."
+      },
+      {
+        "Ar": "حسب فرق الحدين.",
+        "En": "Computes the difference of the bounds."
+      },
+      null,
+      {
+        "Ar": "أهمل أحد المضاعفات.",
+        "En": "Omits one multiple."
+      }
+    ],
+    "idea": {
+      "Ar": "نعد العشرات الكاملة الأكبر من 342 والأصغر من 388.",
+      "En": "Count whole tens greater than 342 and smaller than 388."
+    },
+    "formula": "350,360,370,380",
+    "steps": [
+      {
+        "Ar": "$3+1=4$",
+        "En": "$3+1=4$"
+      }
+    ],
+    "sub": {
+      "Ar": "$(380-350)/10+1$",
+      "En": "$(380-350)/10+1$"
+    },
+    "result": {
+      "Ar": "$4$",
+      "En": "$4$"
+    },
+    "verify": {
+      "Ar": "$340<342<350<380<388<390$",
+      "En": "$340<342<350<380<388<390$"
+    },
+    "hints": [
+      {
+        "Ar": "ابدأ بأول عشرة كاملة بعد 342.",
+        "En": "Start at the first whole ten after 342."
+      },
+      {
+        "Ar": "توقف قبل 388.",
+        "En": "Stop before 388."
+      }
+    ],
+    "error": {
+      "Ar": "أهمل أحد المضاعفات.",
+      "En": "Omits one multiple."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 3,
+    "cat": 81,
+    "skill": 306,
+    "sk": "rounding",
+    "family": "rounding-estimate-difference-same-hundred",
+    "title": {
+      "Ar": "فرق تقديري يساوي صفراً",
+      "En": "An estimated difference of zero"
+    },
+    "q": {
+      "Ar": "عند تقريب العددين 462 و518 إلى أقرب مئة قبل طرح الأصغر من الأكبر، ما الفرق التقديري؟",
+      "En": "Round 462 and 518 to the nearest hundred before subtracting the smaller from the larger. What is the estimated difference?"
+    },
+    "opts": [
+      "500",
+      "0",
+      "56",
+      "100"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "هذه قيمة كل عدد بعد التقريب.",
+        "En": "The rounded value of either number."
+      },
+      null,
+      {
+        "Ar": "هذا الفرق الدقيق قبل التقريب.",
+        "En": "The exact difference before rounding."
+      },
+      {
+        "Ar": "قرب أحد العددين إلى مئة غير صحيحة.",
+        "En": "Rounds one number to the wrong hundred."
+      }
+    ],
+    "idea": {
+      "Ar": "العددان يقربان إلى المئة نفسها.",
+      "En": "Both numbers round to the same hundred."
+    },
+    "formula": "518\\to500,\\quad462\\to500",
+    "steps": [
+      {
+        "Ar": "$500-500=0$",
+        "En": "$500-500=0$"
+      }
+    ],
+    "sub": {
+      "Ar": "$500-500$",
+      "En": "$500-500$"
+    },
+    "result": {
+      "Ar": "$0$",
+      "En": "$0$"
+    },
+    "verify": {
+      "Ar": "$450\\le462<550,\\quad450\\le518<550$",
+      "En": "$450\\le462<550,\\quad450\\le518<550$"
+    },
+    "hints": [
+      {
+        "Ar": "قرّب كل عدد وحده.",
+        "En": "Round each number separately."
+      },
+      {
+        "Ar": "اطرح الناتجين.",
+        "En": "Subtract the two results."
+      }
+    ],
+    "error": {
+      "Ar": "هذا الفرق الدقيق قبل التقريب.",
+      "En": "The exact difference before rounding."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 8,
+    "cat": 8,
+    "skill": 39,
+    "sk": "middle-polygon-angles",
+    "family": "polygon-angle-sum-test-possible-multiple",
+    "title": {
+      "Ar": "اختبار مجموع زوايا مضلع",
+      "En": "Testing a polygon angle sum"
+    },
+    "q": {
+      "Ar": "أي مجموع لا يمكن أن يكون مجموع الزوايا الداخلية لمضلع بسيط؟",
+      "En": "Which sum cannot be the interior angle sum of a simple polygon?"
+    },
+    "opts": [
+      "1000",
+      "540",
+      "900",
+      "1260"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "هذا مجموع مضلع خماسي.",
+        "En": "This is a pentagon's sum."
+      },
+      {
+        "Ar": "هذا مجموع مضلع سباعي.",
+        "En": "This is a heptagon's sum."
+      },
+      {
+        "Ar": "هذا مجموع مضلع تساعي.",
+        "En": "This is a nonagon's sum."
+      }
+    ],
+    "idea": {
+      "Ar": "مجموع الزوايا الداخلية مضاعف صحيح للعدد 180.",
+      "En": "The interior angle sum is an integer multiple of 180."
+    },
+    "formula": "S=180(n-2)",
+    "steps": [
+      {
+        "Ar": "$1000=5\\cdot180+100$",
+        "En": "$1000=5\\cdot180+100$"
+      },
+      {
+        "Ar": "$100\\ne0$",
+        "En": "$100\\ne0$"
+      }
+    ],
+    "sub": {
+      "Ar": "$1000/180$",
+      "En": "$1000/180$"
+    },
+    "result": {
+      "Ar": "$1000$",
+      "En": "$1000$"
+    },
+    "verify": {
+      "Ar": "$900<1000<1080$",
+      "En": "$900<1000<1080$"
+    },
+    "hints": [
+      {
+        "Ar": "اقسم كل خيار على 180.",
+        "En": "Divide each choice by 180."
+      },
+      {
+        "Ar": "ابحث عن ناتج قسمة ليس عدداً صحيحاً.",
+        "En": "Look for a noninteger quotient."
+      }
+    ],
+    "error": {
+      "Ar": "هذا مجموع مضلع خماسي.",
+      "En": "This is a pentagon's sum."
+    },
+    "unit": {
+      "Ar": "°",
+      "En": "°"
+    }
+  },
+  {
+    "track": 8,
+    "cat": 8,
+    "skill": 35,
+    "sk": "middle-triangle-angles",
+    "family": "triangle-angle-difference-two-known-relations",
+    "title": {
+      "Ar": "زوايا من فرق ومجموع",
+      "En": "Angles from two relations"
+    },
+    "q": {
+      "Ar": "في مثلث قياس زاوية A يساوي 40°، وقياس B يزيد على C بمقدار 20°. ما قياس B؟",
+      "En": "In a triangle, angle A is 40° and angle B exceeds C by 20°. Find B in degrees."
+    },
+    "opts": [
+      "60",
+      "70",
+      "100",
+      "80"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "هذه زاوية C.",
+        "En": "This is angle C."
+      },
+      {
+        "Ar": "قسم مجموع B وC بالتساوي.",
+        "En": "Splits the remaining sum equally."
+      },
+      {
+        "Ar": "أضاف الفرق الكامل إلى نصف غير صحيح.",
+        "En": "Does not satisfy both constraints."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "مجموع B وC يساوي 140 وفرقُهما 20.",
+      "En": "B and C total 140 and differ by twenty."
+    },
+    "formula": "B+C=140,\\quad B-C=20",
+    "steps": [
+      {
+        "Ar": "$B=80$",
+        "En": "$B=80$"
+      },
+      {
+        "Ar": "$C=60$",
+        "En": "$C=60$"
+      }
+    ],
+    "sub": {
+      "Ar": "$2B=160$",
+      "En": "$2B=160$"
+    },
+    "result": {
+      "Ar": "$80$",
+      "En": "$80$"
+    },
+    "verify": {
+      "Ar": "$40+80+60=180,\\quad80-60=20$",
+      "En": "$40+80+60=180,\\quad80-60=20$"
+    },
+    "hints": [
+      {
+        "Ar": "اطرح A من 180.",
+        "En": "Subtract A from 180."
+      },
+      {
+        "Ar": "اجمع معادلتي المجموع والفرق.",
+        "En": "Add the sum and difference equations."
+      }
+    ],
+    "error": {
+      "Ar": "هذه زاوية C.",
+      "En": "This is angle C."
+    },
+    "unit": {
+      "Ar": "°",
+      "En": "°"
+    }
+  },
+  {
+    "track": 8,
+    "cat": 8,
+    "skill": 36,
+    "sk": "middle-circle-area",
+    "family": "circle-area-fraction-three-quarter-disk",
+    "title": {
+      "Ar": "مساحة ثلاثة أرباع قرص",
+      "En": "Area of three quarters of a disk"
+    },
+    "q": {
+      "Ar": "قُسم قرص نصف قطره 6 سم إلى أربعة أجزاء متساوية المساحة وأزيل جزء واحد. ما مساحة الباقي بدلالة π؟",
+      "En": "A disk of radius six centimetres is divided into four equal-area parts and one part is removed. Find the remaining area in terms of pi."
+    },
+    "opts": [
+      "18\\pi",
+      "36\\pi",
+      "27\\pi",
+      "9\\pi"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "هذه نصف مساحة القرص.",
+        "En": "This is half the disk area."
+      },
+      {
+        "Ar": "هذه المساحة قبل الحذف.",
+        "En": "This is the original area."
+      },
+      null,
+      {
+        "Ar": "هذه مساحة الجزء المحذوف.",
+        "En": "This is the removed area."
+      }
+    ],
+    "idea": {
+      "Ar": "تبقى ثلاثة أرباع المساحة الكاملة.",
+      "En": "Three quarters of the full disk remain."
+    },
+    "formula": "A=3\\pi r^2/4",
+    "steps": [
+      {
+        "Ar": "$36\\pi/4=9\\pi$",
+        "En": "$36\\pi/4=9\\pi$"
+      },
+      {
+        "Ar": "$3\\cdot9\\pi=27\\pi$",
+        "En": "$3\\cdot9\\pi=27\\pi$"
+      }
+    ],
+    "sub": {
+      "Ar": "$3\\cdot36\\pi/4$",
+      "En": "$3\\cdot36\\pi/4$"
+    },
+    "result": {
+      "Ar": "$27\\pi$",
+      "En": "$27\\pi$"
+    },
+    "verify": {
+      "Ar": "$27\\pi+9\\pi=36\\pi$",
+      "En": "$27\\pi+9\\pi=36\\pi$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب مساحة القرص كاملاً.",
+        "En": "Find the full disk area."
+      },
+      {
+        "Ar": "خذ ثلاثة أرباعها.",
+        "En": "Take three quarters of it."
+      }
+    ],
+    "error": {
+      "Ar": "هذه مساحة الجزء المحذوف.",
+      "En": "This is the removed area."
+    },
+    "unit": {
+      "Ar": "سم²",
+      "En": "cm²"
+    }
+  },
+  {
+    "track": 7,
+    "cat": 85,
+    "skill": 337,
+    "sk": "simple-compound-events",
+    "family": "probability-spinner-infer-sector-angle-from-probability",
+    "title": {
+      "Ar": "زاوية قطاع من احتمال",
+      "En": "Sector angle from probability"
+    },
+    "q": {
+      "Ar": "مؤشر دوار اتجاه توقفه عشوائي منتظم. احتمال توقفه في القطاع الأخضر 1/5. ما قياس زاوية هذا القطاع؟",
+      "En": "A spinner has a uniformly random stopping direction. The green sector has probability one fifth. What is its angle in degrees?"
+    },
+    "opts": [
+      "288",
+      "72",
+      "36",
+      "180"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "هذه زاوية بقية الدائرة.",
+        "En": "This is the angle outside the green sector."
+      },
+      null,
+      {
+        "Ar": "قسم 180 بدلاً من 360 على خمسة.",
+        "En": "Divides 180 instead of 360 by five."
+      },
+      {
+        "Ar": "استعمل نصف الدائرة.",
+        "En": "Uses a semicircle."
+      }
+    ],
+    "idea": {
+      "Ar": "الاحتمال يساوي نسبة زاوية القطاع إلى 360 درجة.",
+      "En": "Probability equals the sector angle divided by 360 degrees."
+    },
+    "formula": "\\theta=360/5",
+    "steps": [
+      {
+        "Ar": "$\\theta=72$",
+        "En": "$\\theta=72$"
+      }
+    ],
+    "sub": {
+      "Ar": "$360/5$",
+      "En": "$360/5$"
+    },
+    "result": {
+      "Ar": "$72$",
+      "En": "$72$"
+    },
+    "verify": {
+      "Ar": "$72/360=1/5$",
+      "En": "$72/360=1/5$"
+    },
+    "hints": [
+      {
+        "Ar": "كم درجة في الدائرة كاملة؟",
+        "En": "How many degrees in a full circle?"
+      },
+      {
+        "Ar": "خذ خمسها.",
+        "En": "Take one fifth."
+      }
+    ],
+    "error": {
+      "Ar": "قسم 180 بدلاً من 360 على خمسة.",
+      "En": "Divides 180 instead of 360 by five."
+    },
+    "unit": {
+      "Ar": "°",
+      "En": "°"
+    }
+  },
+  {
+    "track": 7,
+    "cat": 85,
+    "skill": 336,
+    "sk": "sample-spaces",
+    "family": "sample-space-three-distinguishable-coins-exact-two-heads",
+    "title": {
+      "Ar": "نواتج ثلاث قطع نقدية",
+      "En": "Outcomes of three coins"
+    },
+    "q": {
+      "Ar": "رُميت ثلاث قطع نقدية مميزة مرة واحدة لكل منها. كم ناتجاً مرتباً يحتوي على صورتين وكتابة واحدة؟",
+      "En": "Three distinguishable coins are tossed once each. How many ordered outcomes contain exactly two heads and one tail?"
+    },
+    "opts": [
+      "3",
+      "2",
+      "6",
+      "8"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "هذا عدد مرات ظهور الصورة المطلوبة.",
+        "En": "Counts the required heads."
+      },
+      {
+        "Ar": "عد ترتيب كل قطعة رغم تكرار الصورة.",
+        "En": "Counts permutations as though both heads differ."
+      },
+      {
+        "Ar": "هذا عدد النواتج الكلية.",
+        "En": "Counts all outcomes."
+      }
+    ],
+    "idea": {
+      "Ar": "نحدد موضع الكتابة الوحيدة من ثلاثة مواضع.",
+      "En": "Choose the position of the single tail among three positions."
+    },
+    "formula": "\\{HHT,HTH,THH\\}",
+    "steps": [
+      {
+        "Ar": "$3\\cdot1=3$",
+        "En": "$3\\cdot1=3$"
+      }
+    ],
+    "sub": {
+      "Ar": "$3\\cdot1$",
+      "En": "$3\\cdot1$"
+    },
+    "result": {
+      "Ar": "$3$",
+      "En": "$3$"
+    },
+    "verify": {
+      "Ar": "$HHT,HTH,THH$",
+      "En": "$HHT,HTH,THH$"
+    },
+    "hints": [
+      {
+        "Ar": "حدد موضع الكتابة.",
+        "En": "Choose the tail position."
+      },
+      {
+        "Ar": "كرر لكل موضع من الثلاثة.",
+        "En": "Repeat for all three positions."
+      }
+    ],
+    "error": {
+      "Ar": "هذا عدد مرات ظهور الصورة المطلوبة.",
+      "En": "Counts the required heads."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 7,
+    "cat": 85,
+    "skill": 335,
+    "sk": "frequency",
+    "family": "experimental-frequency-compare-absolute-count-vs-rate",
+    "title": {
+      "Ar": "مقارنة نجاح تجربتين",
+      "En": "Comparing observed success rates"
+    },
+    "q": {
+      "Ar": "نجح الجهاز A في 12 من 15 تجربة، والجهاز B في 18 من 30 تجربة. بكم تزيد نسبة نجاح A التجريبية على B بالنقاط المئوية؟",
+      "En": "Device A succeeds in 12 of 15 trials; device B succeeds in 18 of 30. By how many percentage points does A's observed success rate exceed B's?"
+    },
+    "opts": [
+      "6",
+      "10",
+      "80",
+      "20"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "قارن عدد النجاحات فقط.",
+        "En": "Compares success counts only."
+      },
+      {
+        "Ar": "ليست نتيجة طرح النسبتين.",
+        "En": "Not the difference of the rates."
+      },
+      {
+        "Ar": "هذه نسبة نجاح A وحدها.",
+        "En": "This is A's rate alone."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "نحسب التكرار النسبي لكل جهاز ونطرح النسبتين.",
+      "En": "Compute each relative frequency and subtract the percentages."
+    },
+    "formula": "100(12/15-18/30)",
+    "steps": [
+      {
+        "Ar": "$12/15=0.8$",
+        "En": "$12/15=0.8$"
+      },
+      {
+        "Ar": "$18/30=0.6$",
+        "En": "$18/30=0.6$"
+      },
+      {
+        "Ar": "$80-60=20$",
+        "En": "$80-60=20$"
+      }
+    ],
+    "sub": {
+      "Ar": "$80-60$",
+      "En": "$80-60$"
+    },
+    "result": {
+      "Ar": "$20$",
+      "En": "$20$"
+    },
+    "verify": {
+      "Ar": "$60+20=80$",
+      "En": "$60+20=80$"
+    },
+    "hints": [
+      {
+        "Ar": "قسم النجاحات على عدد التجارب لكل جهاز.",
+        "En": "Divide successes by trials for each device."
+      },
+      {
+        "Ar": "حول إلى نسب مئوية وقارن.",
+        "En": "Convert to percentages and compare."
+      }
+    ],
+    "error": {
+      "Ar": "قارن عدد النجاحات فقط.",
+      "En": "Compares success counts only."
+    },
+    "unit": {
+      "Ar": "نقطة مئوية",
+      "En": "percentage points"
+    }
+  },
+  {
+    "track": 7,
+    "cat": 85,
+    "skill": 337,
+    "sk": "simple-compound-events",
+    "family": "probability-card-event-inclusion-conditional-count",
+    "title": {
+      "Ar": "احتمال حدث يحتوي حدثاً آخر",
+      "En": "Probability of nested events"
+    },
+    "q": {
+      "Ar": "تُسحب بطاقة عشوائياً من 12 بطاقة مرقمة من 1 إلى 12. الحدث A هو رقم من مضاعفات 4، والحدث B رقم زوجي. ما احتمال حدوث B دون A؟",
+      "En": "A card is drawn uniformly from cards numbered 1 to 12. Event A is a multiple of four and B is an even number. What is the probability of B but not A?"
+    },
+    "opts": [
+      "\\frac34",
+      "\\frac16",
+      "\\frac14",
+      "\\frac12"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "جمع الحدثين رغم التداخل.",
+        "En": "Adds the overlapping events."
+      },
+      {
+        "Ar": "عد نتيجتين فقط بدلاً من ثلاث.",
+        "En": "Counts only two outcomes rather than three."
+      },
+      null,
+      {
+        "Ar": "هذا احتمال B كاملاً.",
+        "En": "This is the whole probability of B."
+      }
+    ],
+    "idea": {
+      "Ar": "نحذف مضاعفات 4 من الأعداد الزوجية.",
+      "En": "Remove multiples of four from the even numbers."
+    },
+    "formula": "B\\setminus A=\\{2,6,10\\}",
+    "steps": [
+      {
+        "Ar": "$3/12=1/4$",
+        "En": "$3/12=1/4$"
+      }
+    ],
+    "sub": {
+      "Ar": "$3/12$",
+      "En": "$3/12$"
+    },
+    "result": {
+      "Ar": "$\\frac14$",
+      "En": "$\\frac14$"
+    },
+    "verify": {
+      "Ar": "$3+3=6$",
+      "En": "$3+3=6$"
+    },
+    "hints": [
+      {
+        "Ar": "اكتب الأعداد الزوجية الستة.",
+        "En": "List the six even numbers."
+      },
+      {
+        "Ar": "اشطب 4 و8 و12.",
+        "En": "Cross out four, eight and twelve."
+      }
+    ],
+    "error": {
+      "Ar": "هذا احتمال B كاملاً.",
+      "En": "This is the whole probability of B."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 9,
+    "cat": 22,
+    "skill": 98,
+    "sk": "m-statistics-distributions",
+    "family": "grouped-data-largest-possible-range-from-classes",
+    "title": {
+      "Ar": "أكبر مدى ممكن من فئات",
+      "En": "Largest possible grouped range"
+    },
+    "q": {
+      "Ar": "توجد 3 قيم صحيحة في الفئة 10–19 و4 في الفئة 20–29 و2 في الفئة 30–39. ما أكبر مدى ممكن للبيانات؟",
+      "En": "There are three integer values in 10–19, four in 20–29 and two in 30–39. What is the largest possible range?"
+    },
+    "opts": [
+      "39",
+      "29",
+      "20",
+      "19"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "هذه القيمة الكبرى الممكنة وليست المدى.",
+        "En": "This is the possible maximum, not the range."
+      },
+      null,
+      {
+        "Ar": "طرح بدايتي الفئتين فقط.",
+        "En": "Subtracts just the class starts."
+      },
+      {
+        "Ar": "لم يستخدم الحد الأعلى للفئة الأخيرة.",
+        "En": "Does not use the last class upper endpoint."
+      }
+    ],
+    "idea": {
+      "Ar": "أكبر مدى يتحقق عند أصغر حد ممكن وأكبر حد ممكن.",
+      "En": "The largest range uses the smallest possible minimum and largest possible maximum."
+    },
+    "formula": "R_{max}=39-10",
+    "steps": [
+      {
+        "Ar": "$R_{max}=29$",
+        "En": "$R_{max}=29$"
+      }
+    ],
+    "sub": {
+      "Ar": "$39-10$",
+      "En": "$39-10$"
+    },
+    "result": {
+      "Ar": "$29$",
+      "En": "$29$"
+    },
+    "verify": {
+      "Ar": "$\\min=10,\\quad\\max=39$",
+      "En": "$\\min=10,\\quad\\max=39$"
+    },
+    "hints": [
+      {
+        "Ar": "حدد أصغر قيمة مسموحة.",
+        "En": "Find the smallest allowed value."
+      },
+      {
+        "Ar": "حدد أكبر قيمة مسموحة.",
+        "En": "Find the largest allowed value."
+      }
+    ],
+    "error": {
+      "Ar": "طرح بدايتي الفئتين فقط.",
+      "En": "Subtracts just the class starts."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 9,
+    "cat": 22,
+    "skill": 98,
+    "sk": "m-statistics-distributions",
+    "family": "iqr-bounds-identify-impossible-from-range",
+    "title": {
+      "Ar": "المدى الربعي والمدى الكلي",
+      "En": "IQR and full range"
+    },
+    "q": {
+      "Ar": "مدى مجموعة بيانات يساوي 12. أي قيمة من الخيارات يستحيل أن تكون مداها الربعي؟",
+      "En": "A data set has range twelve. Which listed value cannot be its interquartile range?"
+    },
+    "opts": [
+      "15",
+      "0",
+      "6",
+      "12"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "يمكن أن يتطابق الربيعان مع بقاء قيم طرفية مختلفة.",
+        "En": "Quartiles can coincide despite distinct extremes."
+      },
+      {
+        "Ar": "يمكن أن يقع المدى الربعي بين صفر والمدى الكلي.",
+        "En": "IQR can lie between zero and the full range."
+      },
+      {
+        "Ar": "يمكن أن يساوي المدى الربعي المدى الكلي.",
+        "En": "IQR can equal the full range."
+      }
+    ],
+    "idea": {
+      "Ar": "الربيعان يقعان ضمن أصغر وأكبر قيمة، لذلك لا يتجاوز المدى الربعي المدى الكلي.",
+      "En": "Quartiles lie between the minimum and maximum, so IQR cannot exceed the range."
+    },
+    "formula": "0\\le Q_3-Q_1\\le12",
+    "steps": [
+      {
+        "Ar": "$IQR\\le12$",
+        "En": "$IQR\\le12$"
+      },
+      {
+        "Ar": "$15>12$",
+        "En": "$15>12$"
+      }
+    ],
+    "sub": {
+      "Ar": "$15>12$",
+      "En": "$15>12$"
+    },
+    "result": {
+      "Ar": "$15$",
+      "En": "$15$"
+    },
+    "verify": {
+      "Ar": "$0\\le0\\le6\\le12<15$",
+      "En": "$0\\le0\\le6\\le12<15$"
+    },
+    "hints": [
+      {
+        "Ar": "قارن مجال الربيعين بمجال البيانات كله.",
+        "En": "Compare the quartile interval with the full data interval."
+      },
+      {
+        "Ar": "ابحث عن قيمة أكبر من المدى.",
+        "En": "Find a value greater than the range."
+      }
+    ],
+    "error": {
+      "Ar": "يمكن أن يتطابق الربيعان مع بقاء قيم طرفية مختلفة.",
+      "En": "Quartiles can coincide despite distinct extremes."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 9,
+    "cat": 22,
+    "skill": 98,
+    "sk": "m-statistics-distributions",
+    "family": "mad-single-outlier-equal-baseline-three-zeros",
+    "title": {
+      "Ar": "انحراف مطلق مع قيمة شاذة",
+      "En": "MAD with one outlier"
+    },
+    "q": {
+      "Ar": "البيانات 0،0،0،8 ومتوسطها 2. ما نسبة متوسط الانحرافات المطلقة إلى المدى؟",
+      "En": "The data are 0,0,0,8 with mean two. What is the ratio of the mean absolute deviation to the range?"
+    },
+    "opts": [
+      "\\frac14",
+      "\\frac34",
+      "\\frac32",
+      "\\frac38"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "قسم المتوسط نفسه على المدى.",
+        "En": "Divides the mean itself by the range."
+      },
+      {
+        "Ar": "قسم انحراف القيمة الكبرى فقط على المدى.",
+        "En": "Divides only the largest deviation by the range."
+      },
+      {
+        "Ar": "قسم مجموع الانحرافات على المدى قبل حساب المتوسط.",
+        "En": "Divides total deviation by the range before averaging."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "نحسب متوسط الانحرافات المطلقة ثم نقسم على المدى.",
+      "En": "Find the mean absolute deviation then divide by range."
+    },
+    "formula": "MAD=(2+2+2+6)/4",
+    "steps": [
+      {
+        "Ar": "$MAD=12/4=3$",
+        "En": "$MAD=12/4=3$"
+      },
+      {
+        "Ar": "$R=8-0=8$",
+        "En": "$R=8-0=8$"
+      },
+      {
+        "Ar": "$MAD/R=3/8$",
+        "En": "$MAD/R=3/8$"
+      }
+    ],
+    "sub": {
+      "Ar": "$3/8$",
+      "En": "$3/8$"
+    },
+    "result": {
+      "Ar": "$\\frac38$",
+      "En": "$\\frac38$"
+    },
+    "verify": {
+      "Ar": "$8\\cdot(3/8)=3$",
+      "En": "$8\\cdot(3/8)=3$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب بعد كل قيمة عن 2.",
+        "En": "Find each observation's distance from two."
+      },
+      {
+        "Ar": "اقسم المتوسط الناتج على المدى.",
+        "En": "Divide the resulting average by the range."
+      }
+    ],
+    "error": {
+      "Ar": "قسم المتوسط نفسه على المدى.",
+      "En": "Divides the mean itself by the range."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 9,
+    "cat": 22,
+    "skill": 98,
+    "sk": "m-statistics-distributions",
+    "family": "grouped-data-class-relative-frequency-combined",
+    "title": {
+      "Ar": "نسبة تكرار فئتين متجاورتين",
+      "En": "Relative frequency of two classes"
+    },
+    "q": {
+      "Ar": "في 40 قياساً، تقع 9 قيم في الفئة الأولى و11 في الثانية و20 في الثالثة. ما التكرار النسبي للفئتين الأولى والثانية مجتمعتين؟",
+      "En": "Among forty measurements, nine fall in the first class, eleven in the second, and twenty in the third. What is the combined relative frequency of the first two classes?"
+    },
+    "opts": [
+      "\\frac{11}{40}",
+      "\\frac14",
+      "\\frac12",
+      "\\frac9{40}"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "استعمل الفئة الثانية فقط.",
+        "En": "Uses only the second class."
+      },
+      {
+        "Ar": "قسم التكرار المشترك على ضعف العدد الكلي.",
+        "En": "Divides the combined count by twice the total."
+      },
+      null,
+      {
+        "Ar": "استعمل الفئة الأولى فقط.",
+        "En": "Uses only the first class."
+      }
+    ],
+    "idea": {
+      "Ar": "نجمع تكراري الفئتين ثم نقسم على العدد الكلي.",
+      "En": "Add both class counts then divide by the total."
+    },
+    "formula": "(9+11)/40",
+    "steps": [
+      {
+        "Ar": "$20/40=1/2$",
+        "En": "$20/40=1/2$"
+      }
+    ],
+    "sub": {
+      "Ar": "$20/40$",
+      "En": "$20/40$"
+    },
+    "result": {
+      "Ar": "$\\frac12$",
+      "En": "$\\frac12$"
+    },
+    "verify": {
+      "Ar": "$40\\cdot(1/2)=20$",
+      "En": "$40\\cdot(1/2)=20$"
+    },
+    "hints": [
+      {
+        "Ar": "اجمع 9 و11.",
+        "En": "Add nine and eleven."
+      },
+      {
+        "Ar": "اقسم على 40.",
+        "En": "Divide by forty."
+      }
+    ],
+    "error": {
+      "Ar": "استعمل الفئة الأولى فقط.",
+      "En": "Uses only the first class."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 10,
+    "cat": 23,
+    "skill": 104,
+    "sk": "s-sequences-series-arithmetic-sequences",
+    "family": "arithmetic-sequence-two-terms-fixed-difference-index-gap",
+    "title": {
+      "Ar": "فرق فهرسي من فرق حدين",
+      "En": "Index gap from term difference"
+    },
+    "q": {
+      "Ar": "متتالية حسابية فرقها المشترك 6. إذا كان $a_j-a_i=42$، فما $j-i$؟",
+      "En": "An arithmetic sequence has common difference six. If $a_j-a_i=42$, find $j-i$."
+    },
+    "opts": [
+      "252",
+      "7",
+      "6",
+      "36"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "ضرب بدلاً من القسمة.",
+        "En": "Multiplies instead of dividing."
+      },
+      null,
+      {
+        "Ar": "هذا الفرق المشترك.",
+        "En": "This is the common difference."
+      },
+      {
+        "Ar": "طرح الفرق المشترك من فرق الحدين.",
+        "En": "Subtracts the common difference from the term difference."
+      }
+    ],
+    "idea": {
+      "Ar": "فرق الحدين يساوي الفرق المشترك مضروباً في فرق الفهرسين.",
+      "En": "The term difference equals the common difference times the index gap."
+    },
+    "formula": "a_j-a_i=(j-i)d",
+    "steps": [
+      {
+        "Ar": "$j-i=7$",
+        "En": "$j-i=7$"
+      }
+    ],
+    "sub": {
+      "Ar": "$42/6$",
+      "En": "$42/6$"
+    },
+    "result": {
+      "Ar": "$7$",
+      "En": "$7$"
+    },
+    "verify": {
+      "Ar": "$7\\cdot6=42$",
+      "En": "$7\\cdot6=42$"
+    },
+    "hints": [
+      {
+        "Ar": "اكتب علاقة الفرق بين حدين.",
+        "En": "Write the term-difference relation."
+      },
+      {
+        "Ar": "اقسم 42 على 6.",
+        "En": "Divide forty-two by six."
+      }
+    ],
+    "error": {
+      "Ar": "هذا الفرق المشترك.",
+      "En": "This is the common difference."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 10,
+    "cat": 23,
+    "skill": 103,
+    "sk": "s-sequences-series-geometric-sequences",
+    "family": "geometric-sequence-product-symmetric-terms",
+    "title": {
+      "Ar": "حاصل ضرب حدين متناظرين",
+      "En": "Product of symmetric terms"
+    },
+    "q": {
+      "Ar": "في متتالية هندسية حدودها موجبة، الحد الثالث يساوي 12. ما حاصل ضرب الحد الثاني في الحد الرابع؟",
+      "En": "In a geometric sequence with positive terms, the third term is 12. Find the product of the second and fourth terms."
+    },
+    "opts": [
+      "144",
+      "24",
+      "12",
+      "36"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "جمع 12 مرتين.",
+        "En": "Adds twelve twice."
+      },
+      {
+        "Ar": "هذا الحد الثالث فقط.",
+        "En": "This is just the third term."
+      },
+      {
+        "Ar": "ليس مربع الحد الأوسط.",
+        "En": "Not the square of the middle term."
+      }
+    ],
+    "idea": {
+      "Ar": "حاصل ضرب الحدين المتجاورين للحد الأوسط يساوي مربع الحد الأوسط.",
+      "En": "The product of the terms adjacent to a middle term equals its square."
+    },
+    "formula": "a_2a_4=a_3^2",
+    "steps": [
+      {
+        "Ar": "$12\\cdot12=144$",
+        "En": "$12\\cdot12=144$"
+      }
+    ],
+    "sub": {
+      "Ar": "$12^2$",
+      "En": "$12^2$"
+    },
+    "result": {
+      "Ar": "$144$",
+      "En": "$144$"
+    },
+    "verify": {
+      "Ar": "$r=2:\\ 6\\cdot24=144$",
+      "En": "$r=2:\\ 6\\cdot24=144$"
+    },
+    "hints": [
+      {
+        "Ar": "عبّر عن الحدين بدلالة الحد الثالث والنسبة.",
+        "En": "Express both terms using the third term and common ratio."
+      },
+      {
+        "Ar": "اضرب فتختصر النسبة.",
+        "En": "Multiply so the ratio cancels."
+      }
+    ],
+    "error": {
+      "Ar": "جمع 12 مرتين.",
+      "En": "Adds twelve twice."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  }
+]

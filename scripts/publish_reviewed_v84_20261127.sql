@@ -1,0 +1,290 @@
+-- One-time owner-authorized v84 school depth. Existing linked categories only.
+BEGIN;
+SET LOCAL lock_timeout='3s';
+SET LOCAL statement_timeout='35s';
+SELECT pg_advisory_xact_lock(-987654319::bigint);
+CREATE TEMP TABLE growth_batch(key text,family text,skill_key text,track_code text,track int,stage int,category int,skill int,wizard jsonb,flat_ar text,flat_en text,metadata text) ON COMMIT DROP;
+INSERT INTO growth_batch VALUES
+($mw$growth-v84-grade-4-mode-uniform-frequency-distinct-1$mw$,$mw$mode-uniform-frequency-distinct$mw$,$mw$primary-mode$mw$,$mw$grade-4$mw$,4,1,4,20,$mw${"StageId":1,"CategoryId":4,"PrimarySkillId":20,"SecondarySkillIds":[],"TrackIds":[4],"DifficultyLevel":2,"Points":10,"Title":{"Ar":"تساوي التكرارات","En":"Equal frequencies"},"Question":{"Ar":"في سجل أربع درجات مختلفة 2، 4، 6، 8، ظهرت كل درجة مرة واحدة. وفق القاعدة المدرسية التي تعتبر البيانات بلا منوال عندما لا تتكرر أي قيمة، ما الوصف الصحيح؟ A: المنوال 2؛ B: المنوال 8؛ C: لا يوجد منوال؛ D: المنوال 5.","En":"Four different scores 2, 4, 6, 8 each appear once. Using the school convention that data with no repeated values have no mode, which description is correct? A: mode 2; B: mode 8; C: no mode; D: mode 5."},"Options":[{"LatexCode":"A","IsCorrect":false,"ErrorType":"misconception","Reason":{"Ar":"كون 2 أصغر قيمة لا يجعله منوالاً.","En":"Being smallest does not make 2 the mode."}},{"LatexCode":"B","IsCorrect":false,"ErrorType":"misconception","Reason":{"Ar":"كون 8 أكبر قيمة لا يجعله منوالاً.","En":"Being largest does not make 8 the mode."}},{"LatexCode":"C","IsCorrect":true,"ErrorType":"","Reason":{"Ar":"","En":""}},{"LatexCode":"D","IsCorrect":false,"ErrorType":"misconception","Reason":{"Ar":"5 ليس قيمة في السجل، وهو المتوسط هنا لا المنوال.","En":"5 is not an observed value; it is the mean here, not the mode."}}],"Hints":[{"Ar":"عد مرات ظهور كل درجة.","En":"Count the occurrences of each score."},{"Ar":"طبّق القاعدة المذكورة في السؤال.","En":"Apply the stated convention."}],"Solution":{"Idea":{"Ar":"نبحث عن التكرار لا عن أكبر قيمة أو متوسطها.","En":"Look at frequencies, not the greatest value or average."},"FormulaLatex":"f(2)=f(4)=f(6)=f(8)=1","Steps":[{"Ar":"تكرار كل درجة يساوي واحداً.","En":"Each score occurs once."},{"Ar":"بحسب القاعدة المذكورة لا يوجد منوال.","En":"By the stated convention there is no mode."}],"Substitution":{"Ar":"$1=1$","En":"$1=1$"},"Result":{"Ar":"$C$","En":"$C$"},"Unit":{"Ar":"","En":""},"Verification":{"Ar":"لا توجد درجة ظهرت مرتين أو أكثر.","En":"No score occurs twice or more."},"CommonError":{"Ar":"اختيار أكبر درجة باعتبارها المنوال.","En":"Choosing the largest score as the mode."}}}$mw$::jsonb,$mw$نبحث عن التكرار لا عن أكبر قيمة أو متوسطها.
+
+$f(2)=f(4)=f(6)=f(8)=1$
+
+1. تكرار كل درجة يساوي واحداً.
+
+2. بحسب القاعدة المذكورة لا يوجد منوال.
+
+$1=1$
+
+$C$
+
+لا توجد درجة ظهرت مرتين أو أكثر.
+
+اختيار أكبر درجة باعتبارها المنوال.$mw$,$mw$Look at frequencies, not the greatest value or average.
+
+$f(2)=f(4)=f(6)=f(8)=1$
+
+1. Each score occurs once.
+
+2. By the stated convention there is no mode.
+
+$1=1$
+
+$C$
+
+No score occurs twice or more.
+
+Choosing the largest score as the mode.$mw$,$mw${"DifficultyLevel":2,"Hints":[{"Ar":"عد مرات ظهور كل درجة.","En":"Count the occurrences of each score."},{"Ar":"طبّق القاعدة المذكورة في السؤال.","En":"Apply the stated convention."}],"Solution":{"Idea":{"Ar":"نبحث عن التكرار لا عن أكبر قيمة أو متوسطها.","En":"Look at frequencies, not the greatest value or average."},"FormulaLatex":"f(2)=f(4)=f(6)=f(8)=1","Steps":[{"Ar":"تكرار كل درجة يساوي واحداً.","En":"Each score occurs once."},{"Ar":"بحسب القاعدة المذكورة لا يوجد منوال.","En":"By the stated convention there is no mode."}],"Substitution":{"Ar":"$1=1$","En":"$1=1$"},"Result":{"Ar":"$C$","En":"$C$"},"Unit":{"Ar":"","En":""},"Verification":{"Ar":"لا توجد درجة ظهرت مرتين أو أكثر.","En":"No score occurs twice or more."},"CommonError":{"Ar":"اختيار أكبر درجة باعتبارها المنوال.","En":"Choosing the largest score as the mode."}},"Distractors":[{"ErrorType":"misconception","Reason":{"Ar":"كون 2 أصغر قيمة لا يجعله منوالاً.","En":"Being smallest does not make 2 the mode."},"Order":1},{"ErrorType":"misconception","Reason":{"Ar":"كون 8 أكبر قيمة لا يجعله منوالاً.","En":"Being largest does not make 8 the mode."},"Order":2},{"ErrorType":"","Reason":{"Ar":"","En":""},"Order":3},{"ErrorType":"misconception","Reason":{"Ar":"5 ليس قيمة في السجل، وهو المتوسط هنا لا المنوال.","En":"5 is not an observed value; it is the mean here, not the mode."},"Order":4}]}$mw$),
+($mw$growth-v84-grade-4-mode-reconstruct-frequency-bound-1$mw$,$mw$mode-reconstruct-frequency-bound$mw$,$mw$primary-mode$mw$,$mw$grade-4$mw$,4,1,4,20,$mw${"StageId":1,"CategoryId":4,"PrimarySkillId":20,"SecondarySkillIds":[],"TrackIds":[4],"DifficultyLevel":2,"Points":10,"Title":{"Ar":"أكبر تكرار مسموح","En":"Largest allowed frequency"},"Question":{"Ar":"تكررت القيمة 5 أربع مرات، والقيمة 8 ثلاث مرات، والقيمة 2 عدداً مجهولاً من المرات. إذا كانت 5 المنوال الوحيد، فما أكبر تكرار ممكن للقيمة 2؟","En":"Value 5 occurs four times, value 8 three times, and value 2 an unknown number of times. If 5 is the unique mode, what is the greatest possible frequency of 2?"},"Options":[{"LatexCode":"2","IsCorrect":false,"ErrorType":"misconception","Reason":{"Ar":"يمكن أن يتكرر 2 ثلاث مرات دون تغيير المنوال.","En":"2 can occur three times without changing the mode."}},{"LatexCode":"3","IsCorrect":true,"ErrorType":"","Reason":{"Ar":"","En":""}},{"LatexCode":"4","IsCorrect":false,"ErrorType":"misconception","Reason":{"Ar":"أربع مرات تجعل 2 و5 منوالين معاً.","En":"Four occurrences tie 2 with 5."}},{"LatexCode":"5","IsCorrect":false,"ErrorType":"misconception","Reason":{"Ar":"خمس مرات تجعل 2 المنوال الوحيد.","En":"Five occurrences make 2 the unique mode."}}],"Hints":[{"Ar":"المنوال الوحيد يجب أن يتفوق على جميع التكرارات الأخرى.","En":"A unique mode must have strictly greater frequency than every other value."},{"Ar":"ما أكبر عدد صحيح أصغر من 4؟","En":"What is the largest integer less than 4?"}],"Solution":{"Idea":{"Ar":"يجب أن يكون تكرار القيمة 2 أصغر تماماً من أربعة.","En":"The frequency of 2 must be strictly less than four."},"FormulaLatex":"f(2)<4","Steps":[{"Ar":"تكرار 5 يساوي 4.","En":"The frequency of 5 is four."},{"Ar":"أكبر تكرار لا يحقق التعادل معه هو 3.","En":"The greatest frequency that avoids tying it is three."}],"Substitution":{"Ar":"$4-1=3$","En":"$4-1=3$"},"Result":{"Ar":"$3$","En":"$3$"},"Unit":{"Ar":"","En":""},"Verification":{"Ar":"عند التكرارات 3 و4 و3 تبقى 5 وحدها صاحبة أعلى تكرار.","En":"With frequencies 3, 4 and 3, only 5 has the highest frequency."},"CommonError":{"Ar":"السماح بتكرار يساوي أعلى تكرار رغم شرط المنوال الوحيد.","En":"Allowing a tie despite the unique-mode condition."}}}$mw$::jsonb,$mw$يجب أن يكون تكرار القيمة 2 أصغر تماماً من أربعة.
+
+$f(2)<4$
+
+1. تكرار 5 يساوي 4.
+
+2. أكبر تكرار لا يحقق التعادل معه هو 3.
+
+$4-1=3$
+
+$3$
+
+عند التكرارات 3 و4 و3 تبقى 5 وحدها صاحبة أعلى تكرار.
+
+السماح بتكرار يساوي أعلى تكرار رغم شرط المنوال الوحيد.$mw$,$mw$The frequency of 2 must be strictly less than four.
+
+$f(2)<4$
+
+1. The frequency of 5 is four.
+
+2. The greatest frequency that avoids tying it is three.
+
+$4-1=3$
+
+$3$
+
+With frequencies 3, 4 and 3, only 5 has the highest frequency.
+
+Allowing a tie despite the unique-mode condition.$mw$,$mw${"DifficultyLevel":2,"Hints":[{"Ar":"المنوال الوحيد يجب أن يتفوق على جميع التكرارات الأخرى.","En":"A unique mode must have strictly greater frequency than every other value."},{"Ar":"ما أكبر عدد صحيح أصغر من 4؟","En":"What is the largest integer less than 4?"}],"Solution":{"Idea":{"Ar":"يجب أن يكون تكرار القيمة 2 أصغر تماماً من أربعة.","En":"The frequency of 2 must be strictly less than four."},"FormulaLatex":"f(2)<4","Steps":[{"Ar":"تكرار 5 يساوي 4.","En":"The frequency of 5 is four."},{"Ar":"أكبر تكرار لا يحقق التعادل معه هو 3.","En":"The greatest frequency that avoids tying it is three."}],"Substitution":{"Ar":"$4-1=3$","En":"$4-1=3$"},"Result":{"Ar":"$3$","En":"$3$"},"Unit":{"Ar":"","En":""},"Verification":{"Ar":"عند التكرارات 3 و4 و3 تبقى 5 وحدها صاحبة أعلى تكرار.","En":"With frequencies 3, 4 and 3, only 5 has the highest frequency."},"CommonError":{"Ar":"السماح بتكرار يساوي أعلى تكرار رغم شرط المنوال الوحيد.","En":"Allowing a tie despite the unique-mode condition."}},"Distractors":[{"ErrorType":"misconception","Reason":{"Ar":"يمكن أن يتكرر 2 ثلاث مرات دون تغيير المنوال.","En":"2 can occur three times without changing the mode."},"Order":1},{"ErrorType":"","Reason":{"Ar":"","En":""},"Order":2},{"ErrorType":"misconception","Reason":{"Ar":"أربع مرات تجعل 2 و5 منوالين معاً.","En":"Four occurrences tie 2 with 5."},"Order":3},{"ErrorType":"misconception","Reason":{"Ar":"خمس مرات تجعل 2 المنوال الوحيد.","En":"Five occurrences make 2 the unique mode."},"Order":4}]}$mw$),
+($mw$growth-v84-grade-4-mode-categorical-size-labels-1$mw$,$mw$mode-categorical-size-labels$mw$,$mw$primary-mode$mw$,$mw$grade-4$mw$,4,1,4,20,$mw${"StageId":1,"CategoryId":4,"PrimarySkillId":20,"SecondarySkillIds":[],"TrackIds":[4],"DifficultyLevel":2,"Points":10,"Title":{"Ar":"المقاس الأكثر طلباً","En":"Most requested size"},"Question":{"Ar":"سجل متجر مقاسات القمصان المطلوبة: S، M، L، M، S، M، L، M. ما المقاس المنوالي؟ A: S؛ B: M؛ C: L؛ D: لا يوجد منوال.","En":"A shop records requested shirt sizes: S, M, L, M, S, M, L, M. What is the modal size? A: S; B: M; C: L; D: no mode."},"Options":[{"LatexCode":"A","IsCorrect":false,"ErrorType":"misconception","Reason":{"Ar":"S ظهر مرتين فقط.","En":"S occurs only twice."}},{"LatexCode":"B","IsCorrect":true,"ErrorType":"","Reason":{"Ar":"","En":""}},{"LatexCode":"C","IsCorrect":false,"ErrorType":"misconception","Reason":{"Ar":"L ظهر مرتين فقط.","En":"L occurs only twice."}},{"LatexCode":"D","IsCorrect":false,"ErrorType":"misconception","Reason":{"Ar":"يمكن إيجاد المنوال للبيانات الوصفية بالتكرار.","En":"Categorical data can have a mode based on frequency."}}],"Hints":[{"Ar":"لا تحتاج المقاسات إلى تحويلها إلى أعداد.","En":"The sizes do not need numeric conversion."},{"Ar":"عد ظهور كل حرف.","En":"Count each label."}],"Solution":{"Idea":{"Ar":"المنوال يصلح للفئات غير العددية أيضاً.","En":"Mode also applies to nonnumeric categories."},"FormulaLatex":"f(M)=4","Steps":[{"Ar":"S وL ظهرا مرتين لكل منهما.","En":"S and L occur twice each."},{"Ar":"M ظهر أربع مرات وهو الأكثر تكراراً.","En":"M occurs four times, the most frequent."}],"Substitution":{"Ar":"$4>2$","En":"$4>2$"},"Result":{"Ar":"$B$","En":"$B$"},"Unit":{"Ar":"","En":""},"Verification":{"Ar":"مجموع التكرارات 2 و4 و2 يساوي ثمانية طلبات.","En":"The frequencies 2, 4 and 2 total eight requests."},"CommonError":{"Ar":"الاعتقاد أن البيانات يجب أن تكون أرقاماً لإيجاد المنوال.","En":"Thinking data must be numeric to have a mode."}}}$mw$::jsonb,$mw$المنوال يصلح للفئات غير العددية أيضاً.
+
+$f(M)=4$
+
+1. S وL ظهرا مرتين لكل منهما.
+
+2. M ظهر أربع مرات وهو الأكثر تكراراً.
+
+$4>2$
+
+$B$
+
+مجموع التكرارات 2 و4 و2 يساوي ثمانية طلبات.
+
+الاعتقاد أن البيانات يجب أن تكون أرقاماً لإيجاد المنوال.$mw$,$mw$Mode also applies to nonnumeric categories.
+
+$f(M)=4$
+
+1. S and L occur twice each.
+
+2. M occurs four times, the most frequent.
+
+$4>2$
+
+$B$
+
+The frequencies 2, 4 and 2 total eight requests.
+
+Thinking data must be numeric to have a mode.$mw$,$mw${"DifficultyLevel":2,"Hints":[{"Ar":"لا تحتاج المقاسات إلى تحويلها إلى أعداد.","En":"The sizes do not need numeric conversion."},{"Ar":"عد ظهور كل حرف.","En":"Count each label."}],"Solution":{"Idea":{"Ar":"المنوال يصلح للفئات غير العددية أيضاً.","En":"Mode also applies to nonnumeric categories."},"FormulaLatex":"f(M)=4","Steps":[{"Ar":"S وL ظهرا مرتين لكل منهما.","En":"S and L occur twice each."},{"Ar":"M ظهر أربع مرات وهو الأكثر تكراراً.","En":"M occurs four times, the most frequent."}],"Substitution":{"Ar":"$4>2$","En":"$4>2$"},"Result":{"Ar":"$B$","En":"$B$"},"Unit":{"Ar":"","En":""},"Verification":{"Ar":"مجموع التكرارات 2 و4 و2 يساوي ثمانية طلبات.","En":"The frequencies 2, 4 and 2 total eight requests."},"CommonError":{"Ar":"الاعتقاد أن البيانات يجب أن تكون أرقاماً لإيجاد المنوال.","En":"Thinking data must be numeric to have a mode."}},"Distractors":[{"ErrorType":"misconception","Reason":{"Ar":"S ظهر مرتين فقط.","En":"S occurs only twice."},"Order":1},{"ErrorType":"","Reason":{"Ar":"","En":""},"Order":2},{"ErrorType":"misconception","Reason":{"Ar":"L ظهر مرتين فقط.","En":"L occurs only twice."},"Order":3},{"ErrorType":"misconception","Reason":{"Ar":"يمكن إيجاد المنوال للبيانات الوصفية بالتكرار.","En":"Categorical data can have a mode based on frequency."},"Order":4}]}$mw$),
+($mw$growth-v84-grade-4-mode-all-values-shifted-1$mw$,$mw$mode-all-values-shifted$mw$,$mw$primary-mode$mw$,$mw$grade-4$mw$,4,1,4,20,$mw${"StageId":1,"CategoryId":4,"PrimarySkillId":20,"SecondarySkillIds":[],"TrackIds":[4],"DifficultyLevel":2,"Points":10,"Title":{"Ar":"إزاحة القيم والمنوال","En":"Shifting values and mode"},"Question":{"Ar":"منوال الدرجات 1، 4، 4، 6 هو 4. أضاف المعلم نقطتين إلى درجة كل طالب. ما المنوال الجديد؟","En":"The mode of scores 1, 4, 4, 6 is 4. The teacher adds two points to every pupil's score. What is the new mode?"},"Options":[{"LatexCode":"4","IsCorrect":false,"ErrorType":"misconception","Reason":{"Ar":"هذا المنوال قبل إضافة النقطتين.","En":"This is the mode before adding the two points."}},{"LatexCode":"5","IsCorrect":false,"ErrorType":"misconception","Reason":{"Ar":"أضيفت نقطتان لا نقطة واحدة.","En":"Two points were added, not one."}},{"LatexCode":"6","IsCorrect":true,"ErrorType":"","Reason":{"Ar":"","En":""}},{"LatexCode":"8","IsCorrect":false,"ErrorType":"misconception","Reason":{"Ar":"8 تظهر مرة واحدة فقط بعد الإضافة.","En":"8 occurs only once after the increase."}}],"Hints":[{"Ar":"أضف 2 لكل درجة في القائمة.","En":"Add 2 to each score."},{"Ar":"حدد الدرجة التي تظهر مرتين في القائمة الجديدة.","En":"Find the score occurring twice in the new list."}],"Solution":{"Idea":{"Ar":"إضافة مقدار ثابت لكل قيمة تنقل المنوال بالمقدار نفسه دون تغيير التكرارات.","En":"Adding a constant to all values shifts the mode by that amount without changing frequencies."},"FormulaLatex":"4+2=6","Steps":[{"Ar":"الدرجات الجديدة 3، 6، 6، 8.","En":"The new scores are 3, 6, 6, 8."},{"Ar":"تظهر 6 مرتين، وبقية القيم مرة واحدة.","En":"6 occurs twice, and the other values once each."}],"Substitution":{"Ar":"$4+2=6$","En":"$4+2=6$"},"Result":{"Ar":"$6$","En":"$6$"},"Unit":{"Ar":"","En":""},"Verification":{"Ar":"تكرار القيمة المنوالية بقي اثنين بعد تغير قيمتها.","En":"The modal frequency remains two while its value changes."},"CommonError":{"Ar":"الاعتقاد أن المنوال لا يتغير عند تغيير القيم.","En":"Assuming the mode cannot change when the values change."}}}$mw$::jsonb,$mw$إضافة مقدار ثابت لكل قيمة تنقل المنوال بالمقدار نفسه دون تغيير التكرارات.
+
+$4+2=6$
+
+1. الدرجات الجديدة 3، 6، 6، 8.
+
+2. تظهر 6 مرتين، وبقية القيم مرة واحدة.
+
+$4+2=6$
+
+$6$
+
+تكرار القيمة المنوالية بقي اثنين بعد تغير قيمتها.
+
+الاعتقاد أن المنوال لا يتغير عند تغيير القيم.$mw$,$mw$Adding a constant to all values shifts the mode by that amount without changing frequencies.
+
+$4+2=6$
+
+1. The new scores are 3, 6, 6, 8.
+
+2. 6 occurs twice, and the other values once each.
+
+$4+2=6$
+
+$6$
+
+The modal frequency remains two while its value changes.
+
+Assuming the mode cannot change when the values change.$mw$,$mw${"DifficultyLevel":2,"Hints":[{"Ar":"أضف 2 لكل درجة في القائمة.","En":"Add 2 to each score."},{"Ar":"حدد الدرجة التي تظهر مرتين في القائمة الجديدة.","En":"Find the score occurring twice in the new list."}],"Solution":{"Idea":{"Ar":"إضافة مقدار ثابت لكل قيمة تنقل المنوال بالمقدار نفسه دون تغيير التكرارات.","En":"Adding a constant to all values shifts the mode by that amount without changing frequencies."},"FormulaLatex":"4+2=6","Steps":[{"Ar":"الدرجات الجديدة 3، 6، 6، 8.","En":"The new scores are 3, 6, 6, 8."},{"Ar":"تظهر 6 مرتين، وبقية القيم مرة واحدة.","En":"6 occurs twice, and the other values once each."}],"Substitution":{"Ar":"$4+2=6$","En":"$4+2=6$"},"Result":{"Ar":"$6$","En":"$6$"},"Unit":{"Ar":"","En":""},"Verification":{"Ar":"تكرار القيمة المنوالية بقي اثنين بعد تغير قيمتها.","En":"The modal frequency remains two while its value changes."},"CommonError":{"Ar":"الاعتقاد أن المنوال لا يتغير عند تغيير القيم.","En":"Assuming the mode cannot change when the values change."}},"Distractors":[{"ErrorType":"misconception","Reason":{"Ar":"هذا المنوال قبل إضافة النقطتين.","En":"This is the mode before adding the two points."},"Order":1},{"ErrorType":"misconception","Reason":{"Ar":"أضيفت نقطتان لا نقطة واحدة.","En":"Two points were added, not one."},"Order":2},{"ErrorType":"","Reason":{"Ar":"","En":""},"Order":3},{"ErrorType":"misconception","Reason":{"Ar":"8 تظهر مرة واحدة فقط بعد الإضافة.","En":"8 occurs only once after the increase."},"Order":4}]}$mw$),
+($mw$growth-v84-grade-4-mode-incomplete-information-guaranteed-1$mw$,$mw$mode-incomplete-information-guaranteed$mw$,$mw$primary-mode$mw$,$mw$grade-4$mw$,4,1,4,20,$mw${"StageId":1,"CategoryId":4,"PrimarySkillId":20,"SecondarySkillIds":[],"TrackIds":[4],"DifficultyLevel":2,"Points":10,"Title":{"Ar":"المنوال المؤكد","En":"Guaranteed mode"},"Question":{"Ar":"ست بطاقات ظاهرة تحمل الأعداد 2، 2، 2، 2، 7، 7. توجد بطاقة واحدة مخفية يمكن أن تحمل أي عدد صحيح غير سالب. ما المنوال الوحيد المؤكد مهما كانت قيمة البطاقة المخفية؟ A: العدد 2؛ B: العدد 7؛ C: العدد 4؛ D: لا يمكن تحديده.","En":"Six visible cards show 2, 2, 2, 2, 7, 7. One hidden card may contain any whole number. Which unique mode is guaranteed whatever the hidden value is? A: 2; B: 7; C: 4; D: cannot determine."},"Options":[{"LatexCode":"A","IsCorrect":true,"ErrorType":"","Reason":{"Ar":"","En":""}},{"LatexCode":"B","IsCorrect":false,"ErrorType":"misconception","Reason":{"Ar":"حتى مع بطاقة إضافية تحمل 7، يصبح تكراره ثلاثة فقط.","En":"Even if the hidden card shows 7, it occurs only three times."}},{"LatexCode":"C","IsCorrect":false,"ErrorType":"misconception","Reason":{"Ar":"4 هو تكرار القيمة 2 لا قيمة منوال ظاهرة.","En":"4 is the frequency of 2, not the observed modal value."}},{"LatexCode":"D","IsCorrect":false,"ErrorType":"misconception","Reason":{"Ar":"لا يمكن لبطاقة واحدة إلغاء تفوق القيمة 2.","En":"One hidden card cannot erase the lead of value 2."}}],"Hints":[{"Ar":"ما تكرار 2 قبل كشف البطاقة؟","En":"How often does 2 occur before revealing the card?"},{"Ar":"ما أكبر تكرار يمكن أن تصل إليه أي قيمة أخرى؟","En":"What is the largest frequency any other value could reach?"}],"Solution":{"Idea":{"Ar":"نقارن أقل تكرار مضمون للقيمة المتقدمة بأكبر تكرار ممكن لمنافسها.","En":"Compare the leader's guaranteed minimum frequency with its competitor's maximum possible frequency."},"FormulaLatex":"4>2+1","Steps":[{"Ar":"2 ظهرت أربع مرات على الأقل.","En":"2 appears at least four times."},{"Ar":"أي قيمة أخرى لا تتجاوز ثلاث مرات بعد إضافة بطاقة واحدة.","En":"Any other value occurs at most three times after one card is added."}],"Substitution":{"Ar":"$4>3$","En":"$4>3$"},"Result":{"Ar":"$2$","En":"$2$"},"Unit":{"Ar":"","En":""},"Verification":{"Ar":"إذا كانت المخفية 2 يزيد تفوقها، وإذا كانت 7 يبقى تكرارها ثلاثة فقط، وإلا لا ينافس عدد جديد.","En":"If the card is 2 its lead grows; if it is 7, that reaches only three; a new value cannot compete."},"CommonError":{"Ar":"افتراض أن كل بطاقة مخفية تجعل المنوال غير قابل للتحديد.","En":"Assuming every hidden card makes the mode indeterminate."}}}$mw$::jsonb,$mw$نقارن أقل تكرار مضمون للقيمة المتقدمة بأكبر تكرار ممكن لمنافسها.
+
+$4>2+1$
+
+1. 2 ظهرت أربع مرات على الأقل.
+
+2. أي قيمة أخرى لا تتجاوز ثلاث مرات بعد إضافة بطاقة واحدة.
+
+$4>3$
+
+$2$
+
+إذا كانت المخفية 2 يزيد تفوقها، وإذا كانت 7 يبقى تكرارها ثلاثة فقط، وإلا لا ينافس عدد جديد.
+
+افتراض أن كل بطاقة مخفية تجعل المنوال غير قابل للتحديد.$mw$,$mw$Compare the leader's guaranteed minimum frequency with its competitor's maximum possible frequency.
+
+$4>2+1$
+
+1. 2 appears at least four times.
+
+2. Any other value occurs at most three times after one card is added.
+
+$4>3$
+
+$2$
+
+If the card is 2 its lead grows; if it is 7, that reaches only three; a new value cannot compete.
+
+Assuming every hidden card makes the mode indeterminate.$mw$,$mw${"DifficultyLevel":2,"Hints":[{"Ar":"ما تكرار 2 قبل كشف البطاقة؟","En":"How often does 2 occur before revealing the card?"},{"Ar":"ما أكبر تكرار يمكن أن تصل إليه أي قيمة أخرى؟","En":"What is the largest frequency any other value could reach?"}],"Solution":{"Idea":{"Ar":"نقارن أقل تكرار مضمون للقيمة المتقدمة بأكبر تكرار ممكن لمنافسها.","En":"Compare the leader's guaranteed minimum frequency with its competitor's maximum possible frequency."},"FormulaLatex":"4>2+1","Steps":[{"Ar":"2 ظهرت أربع مرات على الأقل.","En":"2 appears at least four times."},{"Ar":"أي قيمة أخرى لا تتجاوز ثلاث مرات بعد إضافة بطاقة واحدة.","En":"Any other value occurs at most three times after one card is added."}],"Substitution":{"Ar":"$4>3$","En":"$4>3$"},"Result":{"Ar":"$2$","En":"$2$"},"Unit":{"Ar":"","En":""},"Verification":{"Ar":"إذا كانت المخفية 2 يزيد تفوقها، وإذا كانت 7 يبقى تكرارها ثلاثة فقط، وإلا لا ينافس عدد جديد.","En":"If the card is 2 its lead grows; if it is 7, that reaches only three; a new value cannot compete."},"CommonError":{"Ar":"افتراض أن كل بطاقة مخفية تجعل المنوال غير قابل للتحديد.","En":"Assuming every hidden card makes the mode indeterminate."}},"Distractors":[{"ErrorType":"","Reason":{"Ar":"","En":""},"Order":1},{"ErrorType":"misconception","Reason":{"Ar":"حتى مع بطاقة إضافية تحمل 7، يصبح تكراره ثلاثة فقط.","En":"Even if the hidden card shows 7, it occurs only three times."},"Order":2},{"ErrorType":"misconception","Reason":{"Ar":"4 هو تكرار القيمة 2 لا قيمة منوال ظاهرة.","En":"4 is the frequency of 2, not the observed modal value."},"Order":3},{"ErrorType":"misconception","Reason":{"Ar":"لا يمكن لبطاقة واحدة إلغاء تفوق القيمة 2.","En":"One hidden card cannot erase the lead of value 2."},"Order":4}]}$mw$),
+($mw$growth-v84-grade-4-metric-unit-factor-composition-1$mw$,$mw$metric-unit-factor-composition$mw$,$mw$primary-unit-conversions$mw$,$mw$grade-4$mw$,4,1,3,16,$mw${"StageId":1,"CategoryId":3,"PrimarySkillId":16,"SecondarySkillIds":[],"TrackIds":[4],"DifficultyLevel":2,"Points":10,"Title":{"Ar":"ربط وحدات الطول","En":"Connecting length units"},"Question":{"Ar":"يعلم طالب أن 1 km يساوي 1000 m وأن 1 m يساوي 100 cm. أي عملية تعطي عدد السنتيمترات في 1 km مباشرة؟","En":"A pupil knows 1 km equals 1000 m and 1 m equals 100 cm. Which calculation directly gives the number of centimetres in 1 km?"},"Options":[{"LatexCode":"1000+100","IsCorrect":false,"ErrorType":"misconception","Reason":{"Ar":"لا نجمع معاملي التحويل عند تطبيقهما تباعاً.","En":"Successive conversion factors are not added."}},{"LatexCode":"1000\\div100","IsCorrect":false,"ErrorType":"misconception","Reason":{"Ar":"القسمة تصغر العدد رغم الانتقال إلى وحدة أصغر.","En":"Division decreases the count even though the unit gets smaller."}},{"LatexCode":"1000\\times100","IsCorrect":true,"ErrorType":"","Reason":{"Ar":"","En":""}},{"LatexCode":"100\\div1000","IsCorrect":false,"ErrorType":"misconception","Reason":{"Ar":"هذه القسمة تعكس اتجاه التحويل.","En":"This division reverses the conversion direction."}}],"Hints":[{"Ar":"لكل متر مئة سنتيمتر.","En":"Every metre contains one hundred centimetres."},{"Ar":"لدينا ألف مجموعة من مئة سنتيمتر.","En":"There are one thousand groups of one hundred centimetres."}],"Solution":{"Idea":{"Ar":"نضرب معاملي التحويل المتتابعين.","En":"Multiply the successive conversion factors."},"FormulaLatex":"1\\,\\mathrm{km}=1000\\,\\mathrm{m}","Steps":[{"Ar":"كل متر يحتوي 100 cm.","En":"Each metre contains 100 cm."},{"Ar":"ألف متر يحتوي ألف مرة هذا العدد.","En":"One thousand metres contain one thousand times that number."}],"Substitution":{"Ar":"$1000\\times100=100000$","En":"$1000\\times100=100000$"},"Result":{"Ar":"$1000\\times100$","En":"$1000\\times100$"},"Unit":{"Ar":"","En":""},"Verification":{"Ar":"قسمة 100000 cm على 100 ثم على 1000 تعيد 1 km.","En":"Dividing 100000 cm by 100 and then 1000 returns 1 km."},"CommonError":{"Ar":"جمع معاملات التحويل بدلاً من ضربها.","En":"Adding conversion factors instead of multiplying."}}}$mw$::jsonb,$mw$نضرب معاملي التحويل المتتابعين.
+
+$1\,\mathrm{km}=1000\,\mathrm{m}$
+
+1. كل متر يحتوي 100 cm.
+
+2. ألف متر يحتوي ألف مرة هذا العدد.
+
+$1000\times100=100000$
+
+$1000\times100$
+
+قسمة 100000 cm على 100 ثم على 1000 تعيد 1 km.
+
+جمع معاملات التحويل بدلاً من ضربها.$mw$,$mw$Multiply the successive conversion factors.
+
+$1\,\mathrm{km}=1000\,\mathrm{m}$
+
+1. Each metre contains 100 cm.
+
+2. One thousand metres contain one thousand times that number.
+
+$1000\times100=100000$
+
+$1000\times100$
+
+Dividing 100000 cm by 100 and then 1000 returns 1 km.
+
+Adding conversion factors instead of multiplying.$mw$,$mw${"DifficultyLevel":2,"Hints":[{"Ar":"لكل متر مئة سنتيمتر.","En":"Every metre contains one hundred centimetres."},{"Ar":"لدينا ألف مجموعة من مئة سنتيمتر.","En":"There are one thousand groups of one hundred centimetres."}],"Solution":{"Idea":{"Ar":"نضرب معاملي التحويل المتتابعين.","En":"Multiply the successive conversion factors."},"FormulaLatex":"1\\,\\mathrm{km}=1000\\,\\mathrm{m}","Steps":[{"Ar":"كل متر يحتوي 100 cm.","En":"Each metre contains 100 cm."},{"Ar":"ألف متر يحتوي ألف مرة هذا العدد.","En":"One thousand metres contain one thousand times that number."}],"Substitution":{"Ar":"$1000\\times100=100000$","En":"$1000\\times100=100000$"},"Result":{"Ar":"$1000\\times100$","En":"$1000\\times100$"},"Unit":{"Ar":"","En":""},"Verification":{"Ar":"قسمة 100000 cm على 100 ثم على 1000 تعيد 1 km.","En":"Dividing 100000 cm by 100 and then 1000 returns 1 km."},"CommonError":{"Ar":"جمع معاملات التحويل بدلاً من ضربها.","En":"Adding conversion factors instead of multiplying."}},"Distractors":[{"ErrorType":"misconception","Reason":{"Ar":"لا نجمع معاملي التحويل عند تطبيقهما تباعاً.","En":"Successive conversion factors are not added."},"Order":1},{"ErrorType":"misconception","Reason":{"Ar":"القسمة تصغر العدد رغم الانتقال إلى وحدة أصغر.","En":"Division decreases the count even though the unit gets smaller."},"Order":2},{"ErrorType":"","Reason":{"Ar":"","En":""},"Order":3},{"ErrorType":"misconception","Reason":{"Ar":"هذه القسمة تعكس اتجاه التحويل.","En":"This division reverses the conversion direction."},"Order":4}]}$mw$),
+($mw$growth-v84-grade-4-metric-equality-corrected-zero-1$mw$,$mw$metric-equality-corrected-zero$mw$,$mw$primary-unit-conversions$mw$,$mw$grade-4$mw$,4,1,3,16,$mw${"StageId":1,"CategoryId":3,"PrimarySkillId":16,"SecondarySkillIds":[],"TrackIds":[4],"DifficultyLevel":2,"Points":10,"Title":{"Ar":"تصحيح التحويل","En":"Correcting a conversion"},"Question":{"Ar":"كتب طالب أن 6 km تساوي 600 m. كم متراً يجب أن يضيف إلى العدد 600 ليصبح التحويل صحيحاً؟","En":"A pupil writes that 6 km equals 600 m. How many metres must be added to 600 to make the conversion correct?"},"Options":[{"LatexCode":"540","IsCorrect":false,"ErrorType":"misconception","Reason":{"Ar":"هذا يقلل مقدار التصحيح بعامل عشرة.","En":"This makes the correction ten times too small."}},{"LatexCode":"5400","IsCorrect":true,"ErrorType":"","Reason":{"Ar":"","En":""}},{"LatexCode":"6000","IsCorrect":false,"ErrorType":"misconception","Reason":{"Ar":"6000 هو الطول الصحيح وليس مقدار الفرق.","En":"6000 is the correct length, not the difference."}},{"LatexCode":"6600","IsCorrect":false,"ErrorType":"misconception","Reason":{"Ar":"هذا يجمع العدد الصحيح والخاطئ بدلاً من طرحهما.","En":"This adds the correct and incorrect values instead of subtracting."}}],"Hints":[{"Ar":"حوّل 6 km باستخدام 1000 m لكل km.","En":"Convert 6 km using 1000 m per km."},{"Ar":"اطرح العدد المكتوب من الناتج الصحيح.","En":"Subtract the written number from the correct result."}],"Solution":{"Idea":{"Ar":"نجد الطول الصحيح ثم نحسب مقدار النقص في التحويل.","En":"Find the correct length, then calculate the shortfall."},"FormulaLatex":"6\\times1000=6000","Steps":[{"Ar":"ستة كيلومترات تساوي 6000 m.","En":"Six kilometres equal 6000 m."},{"Ar":"العدد المكتوب 600 m أقل من الصحيح بمقدار 5400 m.","En":"The written 600 m is 5400 m below the correct value."}],"Substitution":{"Ar":"$6000-600=5400$","En":"$6000-600=5400$"},"Result":{"Ar":"$5400$","En":"$5400$"},"Unit":{"Ar":"","En":""},"Verification":{"Ar":"600 مع 5400 يساوي 6000.","En":"600 plus 5400 equals 6000."},"CommonError":{"Ar":"الإجابة بالطول الصحيح بدلاً من مقدار التصحيح.","En":"Giving the corrected length instead of the required correction."}}}$mw$::jsonb,$mw$نجد الطول الصحيح ثم نحسب مقدار النقص في التحويل.
+
+$6\times1000=6000$
+
+1. ستة كيلومترات تساوي 6000 m.
+
+2. العدد المكتوب 600 m أقل من الصحيح بمقدار 5400 m.
+
+$6000-600=5400$
+
+$5400$
+
+600 مع 5400 يساوي 6000.
+
+الإجابة بالطول الصحيح بدلاً من مقدار التصحيح.$mw$,$mw$Find the correct length, then calculate the shortfall.
+
+$6\times1000=6000$
+
+1. Six kilometres equal 6000 m.
+
+2. The written 600 m is 5400 m below the correct value.
+
+$6000-600=5400$
+
+$5400$
+
+600 plus 5400 equals 6000.
+
+Giving the corrected length instead of the required correction.$mw$,$mw${"DifficultyLevel":2,"Hints":[{"Ar":"حوّل 6 km باستخدام 1000 m لكل km.","En":"Convert 6 km using 1000 m per km."},{"Ar":"اطرح العدد المكتوب من الناتج الصحيح.","En":"Subtract the written number from the correct result."}],"Solution":{"Idea":{"Ar":"نجد الطول الصحيح ثم نحسب مقدار النقص في التحويل.","En":"Find the correct length, then calculate the shortfall."},"FormulaLatex":"6\\times1000=6000","Steps":[{"Ar":"ستة كيلومترات تساوي 6000 m.","En":"Six kilometres equal 6000 m."},{"Ar":"العدد المكتوب 600 m أقل من الصحيح بمقدار 5400 m.","En":"The written 600 m is 5400 m below the correct value."}],"Substitution":{"Ar":"$6000-600=5400$","En":"$6000-600=5400$"},"Result":{"Ar":"$5400$","En":"$5400$"},"Unit":{"Ar":"","En":""},"Verification":{"Ar":"600 مع 5400 يساوي 6000.","En":"600 plus 5400 equals 6000."},"CommonError":{"Ar":"الإجابة بالطول الصحيح بدلاً من مقدار التصحيح.","En":"Giving the corrected length instead of the required correction."}},"Distractors":[{"ErrorType":"misconception","Reason":{"Ar":"هذا يقلل مقدار التصحيح بعامل عشرة.","En":"This makes the correction ten times too small."},"Order":1},{"ErrorType":"","Reason":{"Ar":"","En":""},"Order":2},{"ErrorType":"misconception","Reason":{"Ar":"6000 هو الطول الصحيح وليس مقدار الفرق.","En":"6000 is the correct length, not the difference."},"Order":3},{"ErrorType":"misconception","Reason":{"Ar":"هذا يجمع العدد الصحيح والخاطئ بدلاً من طرحهما.","En":"This adds the correct and incorrect values instead of subtracting."},"Order":4}]}$mw$),
+($mw$growth-v84-grade-4-metric-same-distance-repeated-segments-1$mw$,$mw$metric-same-distance-repeated-segments$mw$,$mw$primary-unit-conversions$mw$,$mw$grade-4$mw$,4,1,3,16,$mw${"StageId":1,"CategoryId":3,"PrimarySkillId":16,"SecondarySkillIds":[],"TrackIds":[4],"DifficultyLevel":2,"Points":10,"Title":{"Ar":"مسافات متساوية","En":"Equal segments"},"Question":{"Ar":"مسار طوله 1 km مقسم إلى أربعة أجزاء متساوية. كم متراً يبلغ طول كل جزء؟","En":"A 1 km path is divided into four equal segments. How many metres long is each segment?"},"Options":[{"LatexCode":"25","IsCorrect":false,"ErrorType":"misconception","Reason":{"Ar":"هذا يقسم 100 على 4 بدلاً من 1000.","En":"This divides 100 by four instead of 1000."}},{"LatexCode":"250","IsCorrect":true,"ErrorType":"","Reason":{"Ar":"","En":""}},{"LatexCode":"400","IsCorrect":false,"ErrorType":"misconception","Reason":{"Ar":"400 مضروبة في 4 تتجاوز طول المسار.","En":"400 multiplied by four exceeds the path length."}},{"LatexCode":"4000","IsCorrect":false,"ErrorType":"misconception","Reason":{"Ar":"هذا يضرب طول المسار في أربعة بدلاً من قسمته.","En":"This multiplies the path length by four instead of dividing."}}],"Hints":[{"Ar":"حوّل طول المسار إلى أمتار.","En":"Convert the path length into metres."},{"Ar":"قسّم العدد الناتج إلى أربعة أجزاء متساوية.","En":"Divide that count into four equal parts."}],"Solution":{"Idea":{"Ar":"نوحد الوحدة قبل القسمة على عدد الأجزاء.","En":"Convert to one unit before dividing by the number of segments."},"FormulaLatex":"1\\,\\mathrm{km}=1000\\,\\mathrm{m}","Steps":[{"Ar":"المسار كله 1000 m.","En":"The whole path is 1000 m."},{"Ar":"نقسم ألفاً على أربعة فنحصل على 250 m.","En":"Divide one thousand by four to get 250 m."}],"Substitution":{"Ar":"$1000\\div4=250$","En":"$1000\\div4=250$"},"Result":{"Ar":"$250$","En":"$250$"},"Unit":{"Ar":"","En":""},"Verification":{"Ar":"أربعة أجزاء من 250 m تعطي 1000 m.","En":"Four 250 m segments total 1000 m."},"CommonError":{"Ar":"ضرب الطول في عدد الأجزاء بدلاً من قسمته.","En":"Multiplying length by the segment count rather than dividing."}}}$mw$::jsonb,$mw$نوحد الوحدة قبل القسمة على عدد الأجزاء.
+
+$1\,\mathrm{km}=1000\,\mathrm{m}$
+
+1. المسار كله 1000 m.
+
+2. نقسم ألفاً على أربعة فنحصل على 250 m.
+
+$1000\div4=250$
+
+$250$
+
+أربعة أجزاء من 250 m تعطي 1000 m.
+
+ضرب الطول في عدد الأجزاء بدلاً من قسمته.$mw$,$mw$Convert to one unit before dividing by the number of segments.
+
+$1\,\mathrm{km}=1000\,\mathrm{m}$
+
+1. The whole path is 1000 m.
+
+2. Divide one thousand by four to get 250 m.
+
+$1000\div4=250$
+
+$250$
+
+Four 250 m segments total 1000 m.
+
+Multiplying length by the segment count rather than dividing.$mw$,$mw${"DifficultyLevel":2,"Hints":[{"Ar":"حوّل طول المسار إلى أمتار.","En":"Convert the path length into metres."},{"Ar":"قسّم العدد الناتج إلى أربعة أجزاء متساوية.","En":"Divide that count into four equal parts."}],"Solution":{"Idea":{"Ar":"نوحد الوحدة قبل القسمة على عدد الأجزاء.","En":"Convert to one unit before dividing by the number of segments."},"FormulaLatex":"1\\,\\mathrm{km}=1000\\,\\mathrm{m}","Steps":[{"Ar":"المسار كله 1000 m.","En":"The whole path is 1000 m."},{"Ar":"نقسم ألفاً على أربعة فنحصل على 250 m.","En":"Divide one thousand by four to get 250 m."}],"Substitution":{"Ar":"$1000\\div4=250$","En":"$1000\\div4=250$"},"Result":{"Ar":"$250$","En":"$250$"},"Unit":{"Ar":"","En":""},"Verification":{"Ar":"أربعة أجزاء من 250 m تعطي 1000 m.","En":"Four 250 m segments total 1000 m."},"CommonError":{"Ar":"ضرب الطول في عدد الأجزاء بدلاً من قسمته.","En":"Multiplying length by the segment count rather than dividing."}},"Distractors":[{"ErrorType":"misconception","Reason":{"Ar":"هذا يقسم 100 على 4 بدلاً من 1000.","En":"This divides 100 by four instead of 1000."},"Order":1},{"ErrorType":"","Reason":{"Ar":"","En":""},"Order":2},{"ErrorType":"misconception","Reason":{"Ar":"400 مضروبة في 4 تتجاوز طول المسار.","En":"400 multiplied by four exceeds the path length."},"Order":3},{"ErrorType":"misconception","Reason":{"Ar":"هذا يضرب طول المسار في أربعة بدلاً من قسمته.","En":"This multiplies the path length by four instead of dividing."},"Order":4}]}$mw$),
+($mw$growth-v84-grade-4-metric-round-trip-unit-target-1$mw$,$mw$metric-round-trip-unit-target$mw$,$mw$primary-unit-conversions$mw$,$mw$grade-4$mw$,4,1,3,16,$mw${"StageId":1,"CategoryId":3,"PrimarySkillId":16,"SecondarySkillIds":[],"TrackIds":[4],"DifficultyLevel":2,"Points":10,"Title":{"Ar":"الذهاب والعودة","En":"Out-and-back distance"},"Question":{"Ar":"يمشي طفل إلى حديقة تبعد 450 m عن منزله، ثم يعود من الطريق نفسه. كم سنتيمتراً يقطع في الرحلة كاملة؟","En":"A child walks to a park 450 m from home and returns along the same route. How many centimetres does the entire trip cover?"},"Options":[{"LatexCode":"900","IsCorrect":false,"ErrorType":"misconception","Reason":{"Ar":"900 هو طول الرحلة بالأمتار لا السنتيمترات.","En":"900 is the trip length in metres, not centimetres."}},{"LatexCode":"9000","IsCorrect":false,"ErrorType":"misconception","Reason":{"Ar":"التحويل من متر إلى سنتيمتر يتطلب الضرب في 100.","En":"Converting metres to centimetres requires multiplying by 100."}},{"LatexCode":"45000","IsCorrect":false,"ErrorType":"misconception","Reason":{"Ar":"هذا طول اتجاه واحد فقط بالسنتيمترات.","En":"This is the one-way length in centimetres."}},{"LatexCode":"90000","IsCorrect":true,"ErrorType":"","Reason":{"Ar":"","En":""}}],"Hints":[{"Ar":"احسب الذهاب والعودة معاً بالأمتار.","En":"Find the outward and return distance together in metres."},{"Ar":"اضرب الناتج في عدد السنتيمترات في المتر.","En":"Multiply by the number of centimetres per metre."}],"Solution":{"Idea":{"Ar":"نجمع طولي الرحلة ثم نحول الوحدة المطلوبة.","En":"Combine both legs, then convert to the requested unit."},"FormulaLatex":"2\\times450=900","Steps":[{"Ar":"الذهاب 450 m والعودة 450 m.","En":"The outward and return legs are each 450 m."},{"Ar":"المجموع 900 m ونضربه في 100.","En":"The total is 900 m, multiplied by 100."}],"Substitution":{"Ar":"$900\\times100=90000$","En":"$900\\times100=90000$"},"Result":{"Ar":"$90000$","En":"$90000$"},"Unit":{"Ar":"","En":""},"Verification":{"Ar":"كل اتجاه 45000 cm؛ مجموعهما 90000 cm.","En":"Each leg is 45000 cm; together they total 90000 cm."},"CommonError":{"Ar":"تحويل اتجاه واحد ونسيان العودة.","En":"Converting just one leg and forgetting the return."}}}$mw$::jsonb,$mw$نجمع طولي الرحلة ثم نحول الوحدة المطلوبة.
+
+$2\times450=900$
+
+1. الذهاب 450 m والعودة 450 m.
+
+2. المجموع 900 m ونضربه في 100.
+
+$900\times100=90000$
+
+$90000$
+
+كل اتجاه 45000 cm؛ مجموعهما 90000 cm.
+
+تحويل اتجاه واحد ونسيان العودة.$mw$,$mw$Combine both legs, then convert to the requested unit.
+
+$2\times450=900$
+
+1. The outward and return legs are each 450 m.
+
+2. The total is 900 m, multiplied by 100.
+
+$900\times100=90000$
+
+$90000$
+
+Each leg is 45000 cm; together they total 90000 cm.
+
+Converting just one leg and forgetting the return.$mw$,$mw${"DifficultyLevel":2,"Hints":[{"Ar":"احسب الذهاب والعودة معاً بالأمتار.","En":"Find the outward and return distance together in metres."},{"Ar":"اضرب الناتج في عدد السنتيمترات في المتر.","En":"Multiply by the number of centimetres per metre."}],"Solution":{"Idea":{"Ar":"نجمع طولي الرحلة ثم نحول الوحدة المطلوبة.","En":"Combine both legs, then convert to the requested unit."},"FormulaLatex":"2\\times450=900","Steps":[{"Ar":"الذهاب 450 m والعودة 450 m.","En":"The outward and return legs are each 450 m."},{"Ar":"المجموع 900 m ونضربه في 100.","En":"The total is 900 m, multiplied by 100."}],"Substitution":{"Ar":"$900\\times100=90000$","En":"$900\\times100=90000$"},"Result":{"Ar":"$90000$","En":"$90000$"},"Unit":{"Ar":"","En":""},"Verification":{"Ar":"كل اتجاه 45000 cm؛ مجموعهما 90000 cm.","En":"Each leg is 45000 cm; together they total 90000 cm."},"CommonError":{"Ar":"تحويل اتجاه واحد ونسيان العودة.","En":"Converting just one leg and forgetting the return."}},"Distractors":[{"ErrorType":"misconception","Reason":{"Ar":"900 هو طول الرحلة بالأمتار لا السنتيمترات.","En":"900 is the trip length in metres, not centimetres."},"Order":1},{"ErrorType":"misconception","Reason":{"Ar":"التحويل من متر إلى سنتيمتر يتطلب الضرب في 100.","En":"Converting metres to centimetres requires multiplying by 100."},"Order":2},{"ErrorType":"misconception","Reason":{"Ar":"هذا طول اتجاه واحد فقط بالسنتيمترات.","En":"This is the one-way length in centimetres."},"Order":3},{"ErrorType":"","Reason":{"Ar":"","En":""},"Order":4}]}$mw$);
+DO $$ BEGIN IF EXISTS (SELECT 1 FROM (SELECT track, category, count(*) n FROM growth_batch GROUP BY 1,2) b WHERE b.n+(SELECT count(*) FROM "LearningTrackProblems" tp JOIN "Problems" p ON p."Id"=tp."ProblemId" WHERE tp."TrackId"=b.track AND p."CategoryId"=b.category)>20) THEN RAISE EXCEPTION 'Target already filled'; END IF; END $$;
+CREATE TEMP TABLE growth_seen ON COMMIT DROP AS SELECT upper(regexp_replace(btrim(ar),'[[:space:]]+',' ','g')) ar,upper(regexp_replace(btrim(en),'[[:space:]]+',' ','g')) en FROM (SELECT "QuestionTextAr" ar,"QuestionTextEn" en FROM public."Problems" UNION ALL SELECT "QuestionTextAr","QuestionTextEn" FROM public."CurriculumDraftItems" WHERE "EditorialStatus"<>'Withdrawn' AND "WizardJson" IS NOT NULL UNION ALL SELECT "WizardJson"::jsonb#>>'{Question,Ar}',"WizardJson"::jsonb#>>'{Question,En}' FROM public."CurriculumDraftItems" WHERE "EditorialStatus"<>'Withdrawn') q;
+DO $growth$
+DECLARE b record; did bigint; pid int; actor int;
+BEGIN
+ SELECT d."OwnerUserId" INTO STRICT actor FROM public."CurriculumDraftItems" d JOIN public."Users" u ON u."Id"=d."OwnerUserId" WHERE d."Id"=1088 AND d."EditorialStatus"='Published' AND d."PublishedProblemId"=1806 AND u."Role"='Admin' AND u."IsActive" AND NOT u."StaffSetupPending";
+ FOR b IN SELECT * FROM growth_batch ORDER BY track,key LOOP
+  PERFORM 1 FROM public."LearningTracks" WHERE "Id"=b.track FOR UPDATE;
+  IF NOT EXISTS(SELECT 1 FROM public."LearningTracks" WHERE "Id"=b.track AND "Code"=b.track_code AND "StageId"=b.stage AND "IsPublished" AND "Revision"<2147483647) OR NOT EXISTS(SELECT 1 FROM public."Categories" WHERE "Id"=b.category AND "StageId"=b.stage) OR NOT EXISTS(SELECT 1 FROM public."CurriculumSkills" s JOIN public."CurriculumDomains" dm ON dm."Id"=s."DomainId" WHERE s."Id"=b.skill AND s."StableKey"=b.skill_key AND s."StageId"=b.stage AND s."CategoryId"=b.category AND s."IsPublished" AND dm."IsPublished") OR NOT EXISTS(SELECT 1 FROM public."LearningTrackCategories" WHERE "TrackId"=b.track AND "CategoryId"=b.category) OR NOT EXISTS(SELECT 1 FROM public."LearningTrackSkills" WHERE "TrackId"=b.track AND "SkillId"=b.skill) THEN RAISE EXCEPTION 'Scope changed %',b.key; END IF;
+  IF EXISTS(SELECT 1 FROM public."CurriculumDraftItems" WHERE "ContentKey"=b.key) OR EXISTS(SELECT 1 FROM growth_seen q WHERE q.ar=upper(regexp_replace(btrim(b.wizard#>>'{Question,Ar}'),'[[:space:]]+',' ','g')) OR q.en=upper(regexp_replace(btrim(b.wizard#>>'{Question,En}'),'[[:space:]]+',' ','g'))) THEN RAISE EXCEPTION 'Duplicate %',b.key; END IF;
+  INSERT INTO growth_seen VALUES (upper(regexp_replace(btrim(b.wizard#>>'{Question,Ar}'),'[[:space:]]+',' ','g')),upper(regexp_replace(btrim(b.wizard#>>'{Question,En}'),'[[:space:]]+',' ','g')));
+  INSERT INTO public."CurriculumDraftItems"("ContentKey","PrimarySkillKey","TemplateFamilyKey","DifficultyLevel","PisaProcess","LearningObjectiveAr","LearningObjectiveEn","QuestionTextAr","QuestionTextEn","DetailedSolutionAr","DetailedSolutionEn","OptionsJson","EditorialStatus","WizardJson","OwnerUserId","LastEditorUserId","Revision") VALUES(b.key,b.skill_key,'',(b.wizard->>'DifficultyLevel')::int,'','','',b.wizard#>>'{Question,Ar}',b.wizard#>>'{Question,En}','','','[]'::jsonb,'Draft',b.wizard::text,actor,actor,0) RETURNING "Id" INTO did;
+  INSERT INTO public."Problems"("TitleAr","TitleEn","QuestionTextAr","QuestionTextEn","DetailedSolutionAr","DetailedSolutionEn","StageId","CategoryId","Points","ViewsCount","SolvedCount","CreatedAt","EditorialDetailsJson") VALUES(b.wizard#>>'{Title,Ar}',b.wizard#>>'{Title,En}',b.wizard#>>'{Question,Ar}',b.wizard#>>'{Question,En}',b.flat_ar,b.flat_en,b.stage,b.category,10,0,0,now(),b.metadata) RETURNING "Id" INTO pid;
+  INSERT INTO public."QuestionOptions"("ProblemId","Order","LatexCode","IsCorrect") SELECT pid,ord::int,o->>'LatexCode',(o->>'IsCorrect')::boolean FROM jsonb_array_elements(b.wizard->'Options') WITH ORDINALITY AS x(o,ord);
+  INSERT INTO public."CurriculumProblemSkills"("ProblemId","SkillId","IsPrimary") VALUES(pid,b.skill,true);
+  INSERT INTO public."LearningTrackProblems"("TrackId","ProblemId") VALUES(b.track,pid);
+  UPDATE public."LearningTracks" SET "Revision"="Revision"+1 WHERE "Id"=b.track;
+  UPDATE public."CurriculumDraftItems" SET "EditorialStatus"='Published',"Revision"=3,"SubmittedAtUtc"=now(),"ReviewedAtUtc"=now(),"ReviewedByUserId"=actor,"ReviewNote"='Owner-authorized SQL maintenance; AI educational review of original v84 targeted depth candidate; existing admin owner used for attribution, not an API login.',"PublishedAtUtc"=now(),"PublishedProblemId"=pid WHERE "Id"=did;
+  INSERT INTO public."PlatformActivityEvents"("ActorUserId","ActorRole","Action","Resource","ResourceId","Origin","CreatedAtUtc") SELECT actor,'Admin',action,'EditorialProblem',did::text,'owner_sql',now() FROM unnest(ARRAY['EditorialDraftImported','EditorialDraftSubmitted','EditorialDraftApproved','EditorialDraftPublished']) action;
+ END LOOP;
+END $growth$;
+COMMIT;

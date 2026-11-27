@@ -1,0 +1,796 @@
+[
+  {
+    "track": 2,
+    "stage": 1,
+    "cat": 96,
+    "skill": 355,
+    "sk": "primary-shape-attributes-partition",
+    "family": "cube-vertices-count-two-faces",
+    "title": {
+      "Ar": "عد رؤوس المكعب",
+      "En": "Counting cube vertices"
+    },
+    "q": {
+      "Ar": "للمكعب وجه علوي ووجه سفلي متقابلان. إذا وضعنا نقطة عند كل رأس من هذين الوجهين فقط، فكم نقطة مختلفة نضع؟",
+      "En": "A cube has opposite top and bottom faces. If a dot is placed at every vertex of those two faces only, how many distinct dots are placed?"
+    },
+    "opts": [
+      "4",
+      "6",
+      "8",
+      "12"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "4 يعد رؤوس وجه واحد.",
+        "En": "4 counts one face only."
+      },
+      {
+        "Ar": "6 عدد أوجه المكعب.",
+        "En": "6 counts cube faces."
+      },
+      null,
+      {
+        "Ar": "12 عدد أحرف المكعب لا رؤوسه.",
+        "En": "12 counts edges rather than vertices."
+      }
+    ],
+    "idea": {
+      "Ar": "الوجهان المتقابلان لا يشتركان في أي رأس.",
+      "En": "Opposite faces have no shared vertices."
+    },
+    "formula": "4+4",
+    "steps": [
+      {
+        "Ar": "للوجه العلوي أربعة رؤوس.",
+        "En": "The top face has four vertices."
+      },
+      {
+        "Ar": "للوجه السفلي أربعة رؤوس أخرى.",
+        "En": "The bottom face has four different vertices."
+      }
+    ],
+    "sub": {
+      "Ar": "$4+4=8$",
+      "En": "$4+4=8$"
+    },
+    "result": {
+      "Ar": "$8$",
+      "En": "$8$"
+    },
+    "verify": {
+      "Ar": "$8-4=4$",
+      "En": "$8-4=4$"
+    },
+    "hints": [
+      {
+        "Ar": "عد رؤوس كل وجه على حدة.",
+        "En": "Count the vertices of each face."
+      },
+      {
+        "Ar": "هل يشترك الوجهان المتقابلان في رأس؟",
+        "En": "Do opposite faces share any vertex?"
+      }
+    ],
+    "error": {
+      "Ar": "لا تخلط بين الرأس والحرف والوجه.",
+      "En": "Do not confuse vertices, edges and faces."
+    }
+  },
+  {
+    "track": 3,
+    "stage": 1,
+    "cat": 21,
+    "skill": 97,
+    "sk": "p-fractions-decimals-fraction-models",
+    "family": "fraction-distance-between-ticks",
+    "title": {
+      "Ar": "المسافة بين علامتين كسريتين",
+      "En": "Distance between fraction marks"
+    },
+    "q": {
+      "Ar": "على خط الأعداد قُسّمت المسافة من 0 إلى 1 إلى ستة أجزاء متساوية. ما طول المسافة من العلامة الثانية بعد الصفر إلى العلامة الخامسة بعده، بوحدة المسافة من 0 إلى 1؟",
+      "En": "On a number line the interval from 0 to 1 is split into six equal parts. What is the distance from the second tick after zero to the fifth tick after zero, in units of the interval from 0 to 1?"
+    },
+    "opts": [
+      "\\frac16",
+      "\\frac26",
+      "\\frac36",
+      "\\frac56"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "سدس واحد طول خطوة واحدة فقط.",
+        "En": "One sixth is only one step."
+      },
+      {
+        "Ar": "سدسان موضع البداية لا المسافة.",
+        "En": "Two sixths is the starting position, not the distance."
+      },
+      null,
+      {
+        "Ar": "خمسة أسداس موضع النهاية.",
+        "En": "Five sixths is the ending position."
+      }
+    ],
+    "idea": {
+      "Ar": "كل خطوة طولها سدس، ونعد الفواصل بين العلامتين لا العلامات نفسها.",
+      "En": "Each step is one sixth; count the intervals between the marks, not the marks themselves."
+    },
+    "formula": "\\frac{5-2}{6}",
+    "steps": [
+      {
+        "Ar": "ننتقل من الثانية إلى الثالثة، ثم الرابعة، ثم الخامسة.",
+        "En": "Move from the second tick to the third, fourth and fifth."
+      },
+      {
+        "Ar": "هذه ثلاث خطوات، طول كل منها سدس.",
+        "En": "There are three steps, each one sixth long."
+      }
+    ],
+    "sub": {
+      "Ar": "$\\frac{5-2}{6}=\\frac36$",
+      "En": "$\\frac{5-2}{6}=\\frac36$"
+    },
+    "result": {
+      "Ar": "$\\frac36$",
+      "En": "$\\frac36$"
+    },
+    "verify": {
+      "Ar": "$\\frac26+\\frac36=\\frac56$",
+      "En": "$\\frac26+\\frac36=\\frac56$"
+    },
+    "hints": [
+      {
+        "Ar": "حدد عدد الخطوات من العلامة الثانية إلى الخامسة.",
+        "En": "Find the number of steps from the second to the fifth mark."
+      },
+      {
+        "Ar": "طول الخطوة الواحدة سدس.",
+        "En": "Each step is one sixth long."
+      }
+    ],
+    "error": {
+      "Ar": "لا تعد علامة البداية خطوة.",
+      "En": "Do not count the starting mark as a step."
+    }
+  },
+  {
+    "track": 4,
+    "stage": 1,
+    "cat": 3,
+    "skill": 16,
+    "sk": "primary-unit-conversions",
+    "family": "mixed-length-unit-comparison-difference",
+    "title": {
+      "Ar": "مقارنة طولين بوحدتين",
+      "En": "Comparing mixed-unit lengths"
+    },
+    "q": {
+      "Ar": "طول حبل 3 أمتار و20 سم، وطول حبل آخر 285 سم. بكم سنتيمتراً يزيد طول الحبل الأول؟",
+      "En": "One rope is 3 metres and 20 cm long; another is 285 cm long. By how many centimetres is the first rope longer?"
+    },
+    "opts": [
+      "15",
+      "35",
+      "65",
+      "320"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "15 لا يساوي الفرق بين 320 و285.",
+        "En": "15 is not the difference between 320 and 285."
+      },
+      null,
+      {
+        "Ar": "65 ينتج من تجاهل ترتيب الطرح أو خطأ حسابي؛ الفرق 35.",
+        "En": "65 is not the result of subtracting 285 from 320."
+      },
+      {
+        "Ar": "320 طول الحبل الأول كاملاً.",
+        "En": "320 is the entire length of the first rope."
+      }
+    ],
+    "idea": {
+      "Ar": "نوحّد الوحدات قبل المقارنة والطرح.",
+      "En": "Convert both measurements to the same unit before subtracting."
+    },
+    "formula": "1\\ \\mathrm m=100\\ \\mathrm{cm}",
+    "steps": [
+      {
+        "Ar": "$3\\cdot100+20=320$",
+        "En": "$3\\cdot100+20=320$"
+      },
+      {
+        "Ar": "$320-285=35$",
+        "En": "$320-285=35$"
+      }
+    ],
+    "sub": {
+      "Ar": "$320-285=35$",
+      "En": "$320-285=35$"
+    },
+    "result": {
+      "Ar": "$35$",
+      "En": "$35$"
+    },
+    "verify": {
+      "Ar": "$285+35=320$",
+      "En": "$285+35=320$"
+    },
+    "hints": [
+      {
+        "Ar": "حوّل الأمتار الثلاثة إلى سنتيمترات.",
+        "En": "Convert the three metres to centimetres."
+      },
+      {
+        "Ar": "أضف 20 ثم قارن مع 285.",
+        "En": "Add 20, then compare with 285."
+      }
+    ],
+    "error": {
+      "Ar": "لا تطرح أطوالاً بوحدات مختلفة مباشرة.",
+      "En": "Do not subtract measurements in different units directly."
+    },
+    "unit": {
+      "Ar": "سم",
+      "En": "cm"
+    }
+  },
+  {
+    "track": 6,
+    "stage": 1,
+    "cat": 2,
+    "skill": 10,
+    "sk": "primary-two-step-equations",
+    "family": "choose-equation-for-repeated-additive-model",
+    "title": {
+      "Ar": "معادلة من وصف عددي",
+      "En": "Equation from a numerical description"
+    },
+    "q": {
+      "Ar": "ضُرب عدد مجهول x في 4، ثم أضيف 9 إلى الناتج فأصبح 41. أي معادلة تمثل الوصف بالترتيب الصحيح؟",
+      "En": "An unknown number x is multiplied by 4, then 9 is added to the result to give 41. Which equation represents the description in the correct order?"
+    },
+    "opts": [
+      "4(x+9)=41",
+      "9x+4=41",
+      "4x+9=41",
+      "4x-9=41"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "هذا يضيف 9 قبل الضرب.",
+        "En": "This adds 9 before multiplying."
+      },
+      {
+        "Ar": "هذا يبدّل دور 4 و9.",
+        "En": "This swaps the roles of 4 and 9."
+      },
+      null,
+      {
+        "Ar": "هذا يطرح 9 بدلاً من إضافته.",
+        "En": "This subtracts 9 instead of adding it."
+      }
+    ],
+    "idea": {
+      "Ar": "نترجم العمليات حسب ترتيبها: الضرب أولاً ثم الجمع.",
+      "En": "Translate operations in order: multiplication first, then addition."
+    },
+    "formula": "4x+9=41",
+    "steps": [
+      {
+        "Ar": "الضرب في 4 يعطي 4x.",
+        "En": "Multiplication by 4 gives 4x."
+      },
+      {
+        "Ar": "إضافة 9 تعطي الطرف الذي يساوي 41.",
+        "En": "Adding 9 gives the expression equal to 41."
+      }
+    ],
+    "sub": {
+      "Ar": "$4x+9=41$",
+      "En": "$4x+9=41$"
+    },
+    "result": {
+      "Ar": "$4x+9=41$",
+      "En": "$4x+9=41$"
+    },
+    "verify": {
+      "Ar": "$4\\cdot8+9=41$",
+      "En": "$4\\cdot8+9=41$"
+    },
+    "hints": [
+      {
+        "Ar": "اكتب ناتج الضرب أولاً.",
+        "En": "Write the product first."
+      },
+      {
+        "Ar": "أضف 9 إلى الناتج لا إلى x قبل الضرب.",
+        "En": "Add 9 to the product, not to x before multiplication."
+      }
+    ],
+    "error": {
+      "Ar": "انتبه إلى موضع الأقواس وترتيب العمليات.",
+      "En": "Pay attention to parentheses and operation order."
+    }
+  },
+  {
+    "track": 6,
+    "stage": 1,
+    "cat": 4,
+    "skill": 19,
+    "sk": "primary-arithmetic-mean",
+    "family": "mean-recover-missing-observation",
+    "title": {
+      "Ar": "إيجاد قيمة مفقودة من المتوسط",
+      "En": "Recovering a missing observation from the mean"
+    },
+    "q": {
+      "Ar": "متوسط أربع قراءات هو 7. ثلاث منها 3 و8 و9. ما القراءة الرابعة؟",
+      "En": "Four readings have a mean of 7. Three readings are 3, 8 and 9. What is the fourth reading?"
+    },
+    "opts": [
+      "7",
+      "8",
+      "20",
+      "28"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "7 المتوسط وليس بالضرورة إحدى القراءات.",
+        "En": "7 is the mean, not necessarily an observation."
+      },
+      null,
+      {
+        "Ar": "20 مجموع القراءات الثلاث المعروفة.",
+        "En": "20 is the sum of the three known readings."
+      },
+      {
+        "Ar": "28 مجموع القراءات الأربع.",
+        "En": "28 is the total of all four readings."
+      }
+    ],
+    "idea": {
+      "Ar": "المجموع يساوي المتوسط مضروباً في العدد؛ نطرح مجموع القراءات المعروفة.",
+      "En": "The total equals mean times count; subtract the known observations."
+    },
+    "formula": "x=4\\cdot7-(3+8+9)",
+    "steps": [
+      {
+        "Ar": "$4\\cdot7=28$",
+        "En": "$4\\cdot7=28$"
+      },
+      {
+        "Ar": "$3+8+9=20$",
+        "En": "$3+8+9=20$"
+      }
+    ],
+    "sub": {
+      "Ar": "$28-20=8$",
+      "En": "$28-20=8$"
+    },
+    "result": {
+      "Ar": "$8$",
+      "En": "$8$"
+    },
+    "verify": {
+      "Ar": "$(3+8+9+8)/4=7$",
+      "En": "$(3+8+9+8)/4=7$"
+    },
+    "hints": [
+      {
+        "Ar": "استرجع مجموع القراءات الأربع من المتوسط.",
+        "En": "Recover the total of all four readings."
+      },
+      {
+        "Ar": "اطرح مجموع القراءات المعروفة.",
+        "En": "Subtract the sum of the known readings."
+      }
+    ],
+    "error": {
+      "Ar": "لا تجعل القراءة المفقودة مساوية للمتوسط دون حساب.",
+      "En": "Do not assume the missing reading equals the mean."
+    }
+  },
+  {
+    "track": 6,
+    "stage": 1,
+    "cat": 81,
+    "skill": 345,
+    "sk": "primary-signed-rational-number-sense",
+    "family": "absolute-value-versus-number-order",
+    "title": {
+      "Ar": "المسافة عن الصفر والترتيب",
+      "En": "Distance from zero versus order"
+    },
+    "q": {
+      "Ar": "أي عدد من الخيارات أبعد عن الصفر على خط الأعداد؟",
+      "En": "Which of the following numbers is farthest from zero on the number line?"
+    },
+    "opts": [
+      "-4.5",
+      "3.8",
+      "-2",
+      "4"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "3.8 يبعد 3.8 وحدات فقط.",
+        "En": "3.8 is only 3.8 units away."
+      },
+      {
+        "Ar": "−2 يبعد وحدتين فقط.",
+        "En": "−2 is only two units away."
+      },
+      {
+        "Ar": "4 أكبر عدداً من −4.5 لكنه أقرب إلى الصفر.",
+        "En": "4 is numerically greater than −4.5 but closer to zero."
+      }
+    ],
+    "idea": {
+      "Ar": "المسافة عن الصفر هي القيمة المطلقة، وليست ترتيب الأعداد الموقعة.",
+      "En": "Distance from zero is absolute value, not signed numerical order."
+    },
+    "formula": "|-4.5|=4.5",
+    "steps": [
+      {
+        "Ar": "$|-4.5|=4.5,\\quad|3.8|=3.8$",
+        "En": "$|-4.5|=4.5,\\quad|3.8|=3.8$"
+      },
+      {
+        "Ar": "$|-2|=2,\\quad|4|=4$",
+        "En": "$|-2|=2,\\quad|4|=4$"
+      }
+    ],
+    "sub": {
+      "Ar": "$4.5>4>3.8>2$",
+      "En": "$4.5>4>3.8>2$"
+    },
+    "result": {
+      "Ar": "$-4.5$",
+      "En": "$-4.5$"
+    },
+    "verify": {
+      "Ar": "$|-4.5|>|4|$",
+      "En": "$|-4.5|>|4|$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب المسافة عن الصفر لكل عدد.",
+        "En": "Find each number's distance from zero."
+      },
+      {
+        "Ar": "قارن القيم المطلقة.",
+        "En": "Compare absolute values."
+      }
+    ],
+    "error": {
+      "Ar": "العدد الأكبر ليس دائماً الأبعد عن الصفر.",
+      "En": "The greatest number is not always farthest from zero."
+    }
+  },
+  {
+    "track": 7,
+    "stage": 2,
+    "cat": 85,
+    "skill": 337,
+    "sk": "simple-compound-events",
+    "family": "combined-event-union-disjoint-spinner",
+    "title": {
+      "Ar": "احتمال حدثين متنافيين",
+      "En": "Probability of disjoint outcomes"
+    },
+    "q": {
+      "Ar": "قرص دوّار له 10 قطاعات متساوية، مرقمة من 1 إلى 10. ما احتمال ظهور عدد أقل من 3 أو أكبر من 8 في دورة واحدة؟",
+      "En": "A spinner has 10 equal sectors numbered 1 through 10. What is the probability of landing on a number less than 3 or greater than 8 in one spin?"
+    },
+    "opts": [
+      "\\frac15",
+      "\\frac25",
+      "\\frac35",
+      "\\frac45"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "خُمس يحسب أحد الجزأين فقط.",
+        "En": "One fifth counts only one part of the event."
+      },
+      null,
+      {
+        "Ar": "ثلاثة أخماس تشمل 3 و8 خطأً.",
+        "En": "Three fifths incorrectly includes 3 and 8."
+      },
+      {
+        "Ar": "أربعة أخماس لا يوافق عدد القطاعات المطلوبة.",
+        "En": "Four fifths does not match the favorable sector count."
+      }
+    ],
+    "idea": {
+      "Ar": "نجمع نتائج الحدثين المتنافيين ثم نقسم على عدد النتائج المتساوية الاحتمال.",
+      "En": "Combine the disjoint favorable outcomes and divide by the number of equally likely outcomes."
+    },
+    "formula": "P=\\frac{2+2}{10}",
+    "steps": [
+      {
+        "Ar": "الأعداد الأقل من 3 هي 1 و2.",
+        "En": "The numbers below 3 are 1 and 2."
+      },
+      {
+        "Ar": "الأعداد الأكبر من 8 هي 9 و10، ولا يوجد تداخل.",
+        "En": "The numbers above 8 are 9 and 10, with no overlap."
+      }
+    ],
+    "sub": {
+      "Ar": "$P=4/10=2/5$",
+      "En": "$P=4/10=2/5$"
+    },
+    "result": {
+      "Ar": "$\\frac25$",
+      "En": "$\\frac25$"
+    },
+    "verify": {
+      "Ar": "$4+6=10$",
+      "En": "$4+6=10$"
+    },
+    "hints": [
+      {
+        "Ar": "حدد الأعداد المطلوبة في كل جزء من الشرط.",
+        "En": "List the numbers satisfying each part of the condition."
+      },
+      {
+        "Ar": "اجمع الأعداد المختلفة ثم اقسم على 10.",
+        "En": "Count the distinct favorable numbers and divide by ten."
+      }
+    ],
+    "error": {
+      "Ar": "لا تشمل 3 أو 8 لأن المتراجحتين صارمتان.",
+      "En": "Exclude 3 and 8 because the inequalities are strict."
+    }
+  },
+  {
+    "track": 8,
+    "stage": 2,
+    "cat": 85,
+    "skill": 335,
+    "sk": "frequency",
+    "family": "experimental-frequency-complement-inverse",
+    "title": {
+      "Ar": "استرجاع تكرار عدم النجاح",
+      "En": "Recovering failure frequency"
+    },
+    "q": {
+      "Ar": "في تجربة تكررت 80 مرة، كان التكرار النسبي للنجاح 0.65 بالضبط. كم مرة لم يحدث النجاح؟",
+      "En": "In 80 trials, the observed relative frequency of success was exactly 0.65. How many trials were unsuccessful?"
+    },
+    "opts": [
+      "28",
+      "35",
+      "52",
+      "65"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "35 النسبة المئوية لعدم النجاح لا عدد المحاولات.",
+        "En": "35 is the failure percentage, not the trial count."
+      },
+      {
+        "Ar": "52 عدد النجاحات.",
+        "En": "52 is the number of successes."
+      },
+      {
+        "Ar": "65 النسبة المئوية للنجاح.",
+        "En": "65 is the success percentage."
+      }
+    ],
+    "idea": {
+      "Ar": "نجد التكرار النسبي للحدث المتمم ثم نضربه في عدد المحاولات.",
+      "En": "Find the relative frequency of the complement, then multiply by the trial count."
+    },
+    "formula": "N=80(1-0.65)",
+    "steps": [
+      {
+        "Ar": "$1-0.65=0.35$",
+        "En": "$1-0.65=0.35$"
+      },
+      {
+        "Ar": "$80\\cdot0.35=28$",
+        "En": "$80\\cdot0.35=28$"
+      }
+    ],
+    "sub": {
+      "Ar": "$N=28$",
+      "En": "$N=28$"
+    },
+    "result": {
+      "Ar": "$28$",
+      "En": "$28$"
+    },
+    "verify": {
+      "Ar": "$52+28=80$",
+      "En": "$52+28=80$"
+    },
+    "hints": [
+      {
+        "Ar": "ما التكرار النسبي لعدم النجاح؟",
+        "En": "What is the relative frequency of failure?"
+      },
+      {
+        "Ar": "اضرب هذه النسبة في 80.",
+        "En": "Multiply that proportion by 80."
+      }
+    ],
+    "error": {
+      "Ar": "لا تخلط بين النسبة المئوية وعدد المحاولات.",
+      "En": "Do not confuse a percentage with a trial count."
+    }
+  },
+  {
+    "track": 11,
+    "stage": 3,
+    "cat": 87,
+    "skill": 339,
+    "sk": "magnitude",
+    "family": "vector-magnitude-scaled-difference",
+    "title": {
+      "Ar": "معيار فرق متجهين",
+      "En": "Magnitude of a vector difference"
+    },
+    "q": {
+      "Ar": "إذا كان u=(5,1) وv=(2,5)، فما معيار المتجه u−v وفق المعيار الإقليدي؟",
+      "En": "If u=(5,1) and v=(2,5), what is the Euclidean magnitude of u−v?"
+    },
+    "opts": [
+      "1",
+      "5",
+      "7",
+      "25"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "1 هو مقدار فرق 4 و3 وليس المعيار الإقليدي.",
+        "En": "1 is the difference between 4 and 3, not the Euclidean norm."
+      },
+      null,
+      {
+        "Ar": "7 مجموع القيم المطلقة لا المعيار الإقليدي.",
+        "En": "7 is the sum of absolute components, not the Euclidean norm."
+      },
+      {
+        "Ar": "25 مربع المعيار.",
+        "En": "25 is the squared norm."
+      }
+    ],
+    "idea": {
+      "Ar": "نطرح المركبات المتناظرة ثم نحسب الجذر التربيعي لمجموع مربعاتها.",
+      "En": "Subtract corresponding components, then take the square root of their squared sum."
+    },
+    "formula": "\\|u-v\\|=\\sqrt{(u_1-v_1)^2+(u_2-v_2)^2}",
+    "steps": [
+      {
+        "Ar": "$u-v=(3,-4)$",
+        "En": "$u-v=(3,-4)$"
+      },
+      {
+        "Ar": "$\\sqrt{3^2+(-4)^2}=\\sqrt{25}$",
+        "En": "$\\sqrt{3^2+(-4)^2}=\\sqrt{25}$"
+      }
+    ],
+    "sub": {
+      "Ar": "$\\sqrt{25}=5$",
+      "En": "$\\sqrt{25}=5$"
+    },
+    "result": {
+      "Ar": "$5$",
+      "En": "$5$"
+    },
+    "verify": {
+      "Ar": "$5^2=9+16$",
+      "En": "$5^2=9+16$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب متجه الفرق أولاً.",
+        "En": "Compute the difference vector first."
+      },
+      {
+        "Ar": "ربع كل مركبة واجمع ثم خذ الجذر.",
+        "En": "Square each component, add, then take the square root."
+      }
+    ],
+    "error": {
+      "Ar": "لا تجمع المعايير أو المركبات مباشرة.",
+      "En": "Do not simply add norms or components."
+    }
+  },
+  {
+    "track": 12,
+    "stage": 3,
+    "cat": 88,
+    "skill": 328,
+    "sk": "circles",
+    "family": "circle-point-inside-outside-squared-distance",
+    "title": {
+      "Ar": "موقع نقطة بالنسبة إلى دائرة",
+      "En": "Point position relative to a circle"
+    },
+    "q": {
+      "Ar": "الدائرة معادلتها $(x-1)^2+(y+2)^2=25$. أي نقطة من الخيارات تقع داخل الدائرة تماماً، لا على محيطها؟",
+      "En": "The circle has equation $(x-1)^2+(y+2)^2=25$. Which point lies strictly inside the circle, not on its circumference?"
+    },
+    "opts": [
+      "(6,-2)",
+      "(1,4)",
+      "(3,1)",
+      "(-4,-2)"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "مربع المسافة 25؛ تقع على المحيط.",
+        "En": "Squared distance is 25, so it lies on the circumference."
+      },
+      {
+        "Ar": "مربع المسافة 36؛ تقع خارج الدائرة.",
+        "En": "Squared distance is 36, so it lies outside."
+      },
+      null,
+      {
+        "Ar": "مربع المسافة 25؛ تقع على المحيط.",
+        "En": "Squared distance is 25, so it lies on the circumference."
+      }
+    ],
+    "idea": {
+      "Ar": "تكون النقطة داخل الدائرة تماماً عندما يكون مربع بعدها عن المركز أقل من مربع نصف القطر.",
+      "En": "A point is strictly inside when its squared distance from the centre is less than the squared radius."
+    },
+    "formula": "(x-1)^2+(y+2)^2<25",
+    "steps": [
+      {
+        "Ar": "المركز (1,−2) ومربع نصف القطر 25.",
+        "En": "The centre is (1,−2) and squared radius is 25."
+      },
+      {
+        "Ar": "$(3-1)^2+(1+2)^2=4+9=13$",
+        "En": "$(3-1)^2+(1+2)^2=4+9=13$"
+      }
+    ],
+    "sub": {
+      "Ar": "$13<25$",
+      "En": "$13<25$"
+    },
+    "result": {
+      "Ar": "$(3,1)$",
+      "En": "$(3,1)$"
+    },
+    "verify": {
+      "Ar": "$25,36,13,25$",
+      "En": "$25,36,13,25$"
+    },
+    "hints": [
+      {
+        "Ar": "اقرأ المركز ومربع نصف القطر من المعادلة.",
+        "En": "Read the centre and squared radius from the equation."
+      },
+      {
+        "Ar": "اختبر مربع المسافة لكل خيار.",
+        "En": "Test the squared distance for each option."
+      }
+    ],
+    "error": {
+      "Ar": "لا تعد النقاط التي تحقق المساواة نقاطاً داخلية.",
+      "En": "Do not count boundary points as interior."
+    }
+  }
+]

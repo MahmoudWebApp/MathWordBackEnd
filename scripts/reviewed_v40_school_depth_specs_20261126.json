@@ -1,0 +1,1326 @@
+[
+  {
+    "track": 3,
+    "cat": 82,
+    "skill": 324,
+    "sk": "time",
+    "family": "time-half-hour-intervals",
+    "title": {
+      "Ar": "وحدات نصف الساعة",
+      "En": "Half-hour intervals"
+    },
+    "q": {
+      "Ar": "كم فترة كاملة طول كل منها نصف ساعة توجد في ساعتين ونصف؟",
+      "En": "How many complete half-hour intervals are there in two and a half hours?"
+    },
+    "opts": [
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "3 يقل عن الفترات في ساعتين وحدهما.",
+        "En": "3 is fewer than the intervals in two hours alone."
+      },
+      {
+        "Ar": "4 يهمل نصف الساعة الأخير.",
+        "En": "4 omits the last half-hour."
+      },
+      null,
+      {
+        "Ar": "6 يعادل ثلاث ساعات.",
+        "En": "6 corresponds to three hours."
+      }
+    ],
+    "idea": {
+      "Ar": "كل ساعة تحتوي فترتين من نصف ساعة.",
+      "En": "Each hour contains two half-hour intervals."
+    },
+    "formula": "2\\cdot2+1=5",
+    "steps": [
+      {
+        "Ar": "في ساعتين أربع فترات.",
+        "En": "Two hours contain four intervals."
+      },
+      {
+        "Ar": "$4+1=5$",
+        "En": "$4+1=5$"
+      }
+    ],
+    "sub": {
+      "Ar": "$4+1=5$",
+      "En": "$4+1=5$"
+    },
+    "result": {
+      "Ar": "$5$",
+      "En": "$5$"
+    },
+    "verify": {
+      "Ar": "$5\\cdot30=150$",
+      "En": "$5\\cdot30=150$"
+    },
+    "hints": [
+      {
+        "Ar": "كم نصف ساعة في الساعة الواحدة؟",
+        "En": "How many half-hours are in one hour?"
+      },
+      {
+        "Ar": "أضف نصف الساعة الأخيرة.",
+        "En": "Add the final half-hour."
+      }
+    ],
+    "error": {
+      "Ar": "3 يقل عن الفترات في ساعتين وحدهما.",
+      "En": "3 is fewer than the intervals in two hours alone."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 4,
+    "cat": 2,
+    "skill": 9,
+    "sk": "primary-one-step-multiplicative-equations",
+    "family": "equation-solution-after-coefficient-change",
+    "title": {
+      "Ar": "تغير الحل عند مضاعفة المعامل",
+      "En": "Solution after doubling the coefficient"
+    },
+    "q": {
+      "Ar": "للمعادلة 3x=24 حل. إذا استبدلنا 3 بالعدد 6 وبقي الطرف الأيمن 24، فما الحل الجديد؟",
+      "En": "The equation 3x=24 has a solution. If 3 is replaced by 6 and the right side stays 24, what is the new solution?"
+    },
+    "opts": [
+      "4",
+      "8",
+      "16",
+      "18"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "8 حل المعادلة الأصلية.",
+        "En": "8 solves the original equation."
+      },
+      {
+        "Ar": "16 يضاعف الحل بدلاً من تنصيفه.",
+        "En": "16 doubles rather than halves the solution."
+      },
+      {
+        "Ar": "18 ينتج من الطرح.",
+        "En": "18 comes from subtraction."
+      }
+    ],
+    "idea": {
+      "Ar": "نقسم الناتج الثابت على المعامل الجديد.",
+      "En": "Divide the unchanged product by the new coefficient."
+    },
+    "formula": "x=24/6",
+    "steps": [
+      {
+        "Ar": "$6x=24$",
+        "En": "$6x=24$"
+      },
+      {
+        "Ar": "$x=4$",
+        "En": "$x=4$"
+      }
+    ],
+    "sub": {
+      "Ar": "$x=4$",
+      "En": "$x=4$"
+    },
+    "result": {
+      "Ar": "$4$",
+      "En": "$4$"
+    },
+    "verify": {
+      "Ar": "$6\\cdot4=24$",
+      "En": "$6\\cdot4=24$"
+    },
+    "hints": [
+      {
+        "Ar": "اكتب المعادلة الجديدة.",
+        "En": "Write the new equation."
+      },
+      {
+        "Ar": "اقسم 24 على 6.",
+        "En": "Divide 24 by 6."
+      }
+    ],
+    "error": {
+      "Ar": "8 حل المعادلة الأصلية.",
+      "En": "8 solves the original equation."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 4,
+    "cat": 3,
+    "skill": 16,
+    "sk": "primary-unit-conversions",
+    "family": "length-millimeter-centimeter-equivalence",
+    "title": {
+      "Ar": "تحويل السنتيمترات والمليمترات",
+      "En": "Centimetres and millimetres"
+    },
+    "q": {
+      "Ar": "أي طول يساوي 68 ملم بالضبط؟",
+      "En": "Which length is exactly equal to 68 mm?"
+    },
+    "opts": [
+      "6\\mathrm{\\ cm}+8\\mathrm{\\ mm}",
+      "6\\mathrm{\\ cm}+80\\mathrm{\\ mm}",
+      "8\\mathrm{\\ cm}+6\\mathrm{\\ mm}",
+      "68\\mathrm{\\ cm}"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "هذا يساوي 140 ملم.",
+        "En": "This equals 140 mm."
+      },
+      {
+        "Ar": "هذا يساوي 86 ملم.",
+        "En": "This equals 86 mm."
+      },
+      {
+        "Ar": "هذا يساوي 680 ملم.",
+        "En": "This equals 680 mm."
+      }
+    ],
+    "idea": {
+      "Ar": "كل سنتيمتر يساوي عشرة مليمترات.",
+      "En": "Each centimetre equals ten millimetres."
+    },
+    "formula": "68=6\\cdot10+8",
+    "steps": [
+      {
+        "Ar": "$6\\cdot10=60$",
+        "En": "$6\\cdot10=60$"
+      },
+      {
+        "Ar": "$60+8=68$",
+        "En": "$60+8=68$"
+      }
+    ],
+    "sub": {
+      "Ar": "$60+8=68$",
+      "En": "$60+8=68$"
+    },
+    "result": {
+      "Ar": "$6\\mathrm{\\ cm}+8\\mathrm{\\ mm}$",
+      "En": "$6\\mathrm{\\ cm}+8\\mathrm{\\ mm}$"
+    },
+    "verify": {
+      "Ar": "$68/10=6.8$",
+      "En": "$68/10=6.8$"
+    },
+    "hints": [
+      {
+        "Ar": "قسّم 68 إلى عشرات وآحاد.",
+        "En": "Separate 68 into tens and ones."
+      },
+      {
+        "Ar": "كل عشرة مليمترات تعادل سنتيمتراً.",
+        "En": "Every ten millimetres equal one centimetre."
+      }
+    ],
+    "error": {
+      "Ar": "هذا يساوي 140 ملم.",
+      "En": "This equals 140 mm."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 5,
+    "cat": 81,
+    "skill": 303,
+    "sk": "estimation",
+    "family": "estimate-choose-closest-compatible-quotient",
+    "title": {
+      "Ar": "اختيار تقدير معقول للقسمة",
+      "En": "Choosing a reasonable quotient estimate"
+    },
+    "q": {
+      "Ar": "نريد تقدير 612÷29. أي تعبير هو الأنسب إذا قرّبنا 612 إلى أقرب مئة و29 إلى أقرب عشرة؟",
+      "En": "To estimate 612÷29, which expression is appropriate if 612 is rounded to the nearest hundred and 29 to the nearest ten?"
+    },
+    "opts": [
+      "600/20",
+      "600/30",
+      "700/30",
+      "610/30"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "29 أقرب إلى 30.",
+        "En": "29 is closer to 30."
+      },
+      null,
+      {
+        "Ar": "612 أقرب إلى 600.",
+        "En": "612 is closer to 600."
+      },
+      {
+        "Ar": "610 تقريب لأقرب عشرة لا مئة.",
+        "En": "610 is rounded to tens, not hundreds."
+      }
+    ],
+    "idea": {
+      "Ar": "نتبع دقة التقريب المحددة لكل عدد على حدة.",
+      "En": "Follow the specified rounding precision for each number."
+    },
+    "formula": "600/30",
+    "steps": [
+      {
+        "Ar": "$612\\to600$",
+        "En": "$612\\to600$"
+      },
+      {
+        "Ar": "$29\\to30$",
+        "En": "$29\\to30$"
+      },
+      {
+        "Ar": "$600/30=20$",
+        "En": "$600/30=20$"
+      }
+    ],
+    "sub": {
+      "Ar": "$600/30=20$",
+      "En": "$600/30=20$"
+    },
+    "result": {
+      "Ar": "$600/30$",
+      "En": "$600/30$"
+    },
+    "verify": {
+      "Ar": "$30\\cdot20=600$",
+      "En": "$30\\cdot20=600$"
+    },
+    "hints": [
+      {
+        "Ar": "قرّب المقسوم لأقرب مئة.",
+        "En": "Round the dividend to the nearest hundred."
+      },
+      {
+        "Ar": "قرّب المقسوم عليه لأقرب عشرة.",
+        "En": "Round the divisor to the nearest ten."
+      }
+    ],
+    "error": {
+      "Ar": "29 أقرب إلى 30.",
+      "En": "29 is closer to 30."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 6,
+    "cat": 3,
+    "skill": 14,
+    "sk": "primary-triangle-area",
+    "family": "triangle-area-exterior-height-selection",
+    "title": {
+      "Ar": "الارتفاع الموافق للقاعدة",
+      "En": "Height corresponding to a base"
+    },
+    "q": {
+      "Ar": "في مثلث منفرج الزاوية طول قاعدته 9 سم، وطول الضلع المائل 10 سم، والمسافة العمودية من الرأس إلى امتداد القاعدة 4 سم. ما المساحة؟",
+      "En": "An obtuse triangle has base 9 cm, a slanted side 10 cm, and perpendicular distance from its opposite vertex to the extended base 4 cm. What is its area?"
+    },
+    "opts": [
+      "18",
+      "20",
+      "36",
+      "45"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "20 يستعمل الضلع المائل بدل القاعدة.",
+        "En": "20 uses the slanted side instead of the base."
+      },
+      {
+        "Ar": "36 يهمل النصف.",
+        "En": "36 omits the half."
+      },
+      {
+        "Ar": "45 يستعمل الضلع المائل كارتفاع.",
+        "En": "45 uses the slanted side as height."
+      }
+    ],
+    "idea": {
+      "Ar": "الارتفاع هو المسافة العمودية إلى خط القاعدة ولو وقع خارج المثلث.",
+      "En": "The height is the perpendicular distance to the base line even when outside the triangle."
+    },
+    "formula": "A=\\frac12 bh",
+    "steps": [
+      {
+        "Ar": "$b=9,\\quad h=4$",
+        "En": "$b=9,\\quad h=4$"
+      },
+      {
+        "Ar": "$A=9\\cdot4/2=18$",
+        "En": "$A=9\\cdot4/2=18$"
+      }
+    ],
+    "sub": {
+      "Ar": "$A=9\\cdot4/2=18$",
+      "En": "$A=9\\cdot4/2=18$"
+    },
+    "result": {
+      "Ar": "$18$",
+      "En": "$18$"
+    },
+    "verify": {
+      "Ar": "$2\\cdot18/9=4$",
+      "En": "$2\\cdot18/9=4$"
+    },
+    "hints": [
+      {
+        "Ar": "اختر المسافة العمودية لا الضلع المائل.",
+        "En": "Choose the perpendicular distance, not the slanted side."
+      },
+      {
+        "Ar": "اضرب القاعدة في الارتفاع واقسم على 2.",
+        "En": "Multiply base by height and divide by two."
+      }
+    ],
+    "error": {
+      "Ar": "20 يستعمل الضلع المائل بدل القاعدة.",
+      "En": "20 uses the slanted side instead of the base."
+    },
+    "unit": {
+      "Ar": "سم²",
+      "En": "cm²"
+    }
+  },
+  {
+    "track": 6,
+    "cat": 81,
+    "skill": 345,
+    "sk": "primary-signed-rational-number-sense",
+    "family": "signed-rational-order-mixed-notation",
+    "title": {
+      "Ar": "ترتيب أعداد سالبة بتمثيلات مختلفة",
+      "En": "Ordering negative numbers in mixed notation"
+    },
+    "q": {
+      "Ar": "أي عدد هو الأصغر: −0.6، −3/4، −0.5، −1/4؟",
+      "En": "Which number is smallest: −0.6, −3/4, −0.5, −1/4?"
+    },
+    "opts": [
+      "-0.6",
+      "-\\frac34",
+      "-0.5",
+      "-\\frac14"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "−0.6 أكبر من −0.75.",
+        "En": "−0.6 is greater than −0.75."
+      },
+      null,
+      {
+        "Ar": "−0.5 أكبر من −0.75.",
+        "En": "−0.5 is greater than −0.75."
+      },
+      {
+        "Ar": "−0.25 أقرب للصفر.",
+        "En": "−0.25 is closer to zero."
+      }
+    ],
+    "idea": {
+      "Ar": "نوحّد التمثيل ثم نقارن؛ العدد السالب الأبعد عن الصفر هو الأصغر.",
+      "En": "Use a common representation; the negative number farther from zero is smaller."
+    },
+    "formula": " -0.75<-0.6<-0.5<-0.25",
+    "steps": [
+      {
+        "Ar": "$-3/4=-0.75$",
+        "En": "$-3/4=-0.75$"
+      },
+      {
+        "Ar": "$-1/4=-0.25$",
+        "En": "$-1/4=-0.25$"
+      }
+    ],
+    "sub": {
+      "Ar": "$-1/4=-0.25$",
+      "En": "$-1/4=-0.25$"
+    },
+    "result": {
+      "Ar": "$-\\frac34$",
+      "En": "$-\\frac34$"
+    },
+    "verify": {
+      "Ar": "$-0.75<-0.6$",
+      "En": "$-0.75<-0.6$"
+    },
+    "hints": [
+      {
+        "Ar": "حوّل الكسرين إلى عشريين.",
+        "En": "Convert the fractions to decimals."
+      },
+      {
+        "Ar": "الأصغر يقع أقصى اليسار.",
+        "En": "The smallest lies farthest left."
+      }
+    ],
+    "error": {
+      "Ar": "−0.6 أكبر من −0.75.",
+      "En": "−0.6 is greater than −0.75."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 7,
+    "cat": 84,
+    "skill": 327,
+    "sk": "solve-linear-inequalities",
+    "family": "inequality-negative-multiplier-context-free",
+    "title": {
+      "Ar": "حل متراجحة بقسمة سالبة",
+      "En": "Solving with negative division"
+    },
+    "q": {
+      "Ar": "أي عدد يمثل أكبر حل صحيح للمتراجحة $-5x>16$؟",
+      "En": "What is the greatest integer solution of $-5x>16$?"
+    },
+    "opts": [
+      "-3",
+      "-4",
+      "3",
+      "4"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "−3 يعطي 15 فقط.",
+        "En": "−3 gives only 15."
+      },
+      null,
+      {
+        "Ar": "3 يعطي −15.",
+        "En": "3 gives −15."
+      },
+      {
+        "Ar": "4 يعطي −20.",
+        "En": "4 gives −20."
+      }
+    ],
+    "idea": {
+      "Ar": "نقسم على معامل سالب فنعكس الإشارة، ثم نختار أكبر عدد صحيح يحقق الشرط.",
+      "En": "Divide by the negative coefficient, reverse the inequality, then choose the greatest integer satisfying it."
+    },
+    "formula": "x<-16/5",
+    "steps": [
+      {
+        "Ar": "$x<-3.2$",
+        "En": "$x<-3.2$"
+      },
+      {
+        "Ar": "أكبر عدد صحيح أقل من −3.2 هو −4.",
+        "En": "The greatest integer below −3.2 is −4."
+      }
+    ],
+    "sub": {
+      "Ar": "$x<-3.2$",
+      "En": "$x<-3.2$"
+    },
+    "result": {
+      "Ar": "$-4$",
+      "En": "$-4$"
+    },
+    "verify": {
+      "Ar": "$-5(-4)=20>16$",
+      "En": "$-5(-4)=20>16$"
+    },
+    "hints": [
+      {
+        "Ar": "اعكس الإشارة عند القسمة على −5.",
+        "En": "Reverse the inequality when dividing by −5."
+      },
+      {
+        "Ar": "ابحث عن العدد الصحيح الأقرب من الأسفل.",
+        "En": "Find the nearest integer below the bound."
+      }
+    ],
+    "error": {
+      "Ar": "−3 يعطي 15 فقط.",
+      "En": "−3 gives only 15."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 7,
+    "cat": 85,
+    "skill": 335,
+    "sk": "frequency",
+    "family": "experimental-probability-compare-different-samples",
+    "title": {
+      "Ar": "مقارنة التكرارات النسبية",
+      "En": "Comparing experimental frequencies"
+    },
+    "q": {
+      "Ar": "نجحت آلة A في 18 من 30 اختباراً، ونجحت B في 25 من 50. ما فرق التكرار النسبي للنجاح بين A وB؟",
+      "En": "Machine A succeeds in 18 out of 30 tests and B in 25 out of 50. What is A's relative success frequency minus B's?"
+    },
+    "opts": [
+      "0.1",
+      "0.2",
+      "0.4",
+      "0.5"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "0.2 لا يساوي فرق النسبتين.",
+        "En": "0.2 is not the difference."
+      },
+      {
+        "Ar": "0.4 هو تكرار فشل A.",
+        "En": "0.4 is A's failure frequency."
+      },
+      {
+        "Ar": "0.5 تكرار نجاح B وحده.",
+        "En": "0.5 is B's success frequency alone."
+      }
+    ],
+    "idea": {
+      "Ar": "نقسم نجاحات كل آلة على عدد اختباراتها ثم نطرح النسبتين.",
+      "En": "Divide each machine's successes by its own trial count, then subtract the proportions."
+    },
+    "formula": "18/30-25/50",
+    "steps": [
+      {
+        "Ar": "$18/30=0.6$",
+        "En": "$18/30=0.6$"
+      },
+      {
+        "Ar": "$25/50=0.5$",
+        "En": "$25/50=0.5$"
+      },
+      {
+        "Ar": "$0.6-0.5=0.1$",
+        "En": "$0.6-0.5=0.1$"
+      }
+    ],
+    "sub": {
+      "Ar": "$0.6-0.5=0.1$",
+      "En": "$0.6-0.5=0.1$"
+    },
+    "result": {
+      "Ar": "$0.1$",
+      "En": "$0.1$"
+    },
+    "verify": {
+      "Ar": "$0.5+0.1=0.6$",
+      "En": "$0.5+0.1=0.6$"
+    },
+    "hints": [
+      {
+        "Ar": "لا تقارن أعداد النجاحات مباشرة.",
+        "En": "Do not compare raw success counts."
+      },
+      {
+        "Ar": "احسب النسبتين العشريتين.",
+        "En": "Calculate both decimal proportions."
+      }
+    ],
+    "error": {
+      "Ar": "0.2 لا يساوي فرق النسبتين.",
+      "En": "0.2 is not the difference."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 8,
+    "cat": 22,
+    "skill": 98,
+    "sk": "m-statistics-distributions",
+    "family": "distribution-same-median-different-range",
+    "title": {
+      "Ar": "مقارنة انتشار مجموعتين",
+      "En": "Comparing spread of two sets"
+    },
+    "q": {
+      "Ar": "المجموعتان A=(4,5,6) وB=(1,5,9). أي عبارة صحيحة؟ A: وسيط A أكبر؛ B: وسيط B أكبر؛ C: الوسيطان متساويان ومدى B أكبر؛ D: الوسيطان والمديان متساوية.",
+      "En": "Sets A=(4,5,6) and B=(1,5,9). Which statement is true? A: A has a larger median; B: B has a larger median; C: equal medians and B has a larger range; D: equal medians and equal ranges."
+    },
+    "opts": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "الوسيطان 5.",
+        "En": "Both medians are 5."
+      },
+      {
+        "Ar": "الوسيطان متساويان.",
+        "En": "The medians are equal."
+      },
+      null,
+      {
+        "Ar": "المديان 2 و8 مختلفان.",
+        "En": "The ranges 2 and 8 differ."
+      }
+    ],
+    "idea": {
+      "Ar": "الوسيط يصف المركز والمدى يصف الانتشار؛ قد يتساوى المركز ويختلف الانتشار.",
+      "En": "Median describes centre and range describes spread; centres can match while spreads differ."
+    },
+    "formula": "R_A=6-4=2,\\quad R_B=9-1=8",
+    "steps": [
+      {
+        "Ar": "$M_A=M_B=5$",
+        "En": "$M_A=M_B=5$"
+      },
+      {
+        "Ar": "$8>2$",
+        "En": "$8>2$"
+      }
+    ],
+    "sub": {
+      "Ar": "$8>2$",
+      "En": "$8>2$"
+    },
+    "result": {
+      "Ar": "$C$",
+      "En": "$C$"
+    },
+    "verify": {
+      "Ar": "$R_B-R_A=6$",
+      "En": "$R_B-R_A=6$"
+    },
+    "hints": [
+      {
+        "Ar": "حدد القيمة الوسطى لكل مجموعة.",
+        "En": "Find each middle value."
+      },
+      {
+        "Ar": "احسب أكبر قيمة ناقص أصغر قيمة.",
+        "En": "Compute maximum minus minimum."
+      }
+    ],
+    "error": {
+      "Ar": "الوسيطان 5.",
+      "En": "Both medians are 5."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 8,
+    "cat": 84,
+    "skill": 326,
+    "sk": "number-line-solutions",
+    "family": "inequality-equivalent-interval-from-two-conditions",
+    "title": {
+      "Ar": "دمج شرطين على خط الأعداد",
+      "En": "Combining two number-line bounds"
+    },
+    "q": {
+      "Ar": "أي متراجحة واحدة تصف الأعداد الحقيقية التي تحقق معاً x≥−1 وx<4؟",
+      "En": "Which single inequality describes all real numbers satisfying both x≥−1 and x<4?"
+    },
+    "opts": [
+      "-1<x<4",
+      "-1\\le x<4",
+      "-1\\le x\\le4",
+      "x\\ge4"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "يستبعد −1 خطأً.",
+        "En": "Incorrectly excludes −1."
+      },
+      null,
+      {
+        "Ar": "يشمل 4 خطأً.",
+        "En": "Incorrectly includes 4."
+      },
+      {
+        "Ar": "يخالف شرط x<4.",
+        "En": "Violates x<4."
+      }
+    ],
+    "idea": {
+      "Ar": "نأخذ تقاطع الشرطين؛ الطرف الأول مشمول والثاني غير مشمول.",
+      "En": "Intersect the conditions; the lower endpoint is included and the upper endpoint is excluded."
+    },
+    "formula": " -1\\le x<4",
+    "steps": [
+      {
+        "Ar": "−1 يحقق الشرطين.",
+        "En": "−1 satisfies both."
+      },
+      {
+        "Ar": "4 لا يحقق الشرط الثاني.",
+        "En": "4 fails the second condition."
+      }
+    ],
+    "sub": {
+      "Ar": "$ -1\\le x<4$",
+      "En": "$ -1\\le x<4$"
+    },
+    "result": {
+      "Ar": "$-1\\le x<4$",
+      "En": "$-1\\le x<4$"
+    },
+    "verify": {
+      "Ar": "$-1\\le0<4$",
+      "En": "$-1\\le0<4$"
+    },
+    "hints": [
+      {
+        "Ar": "هل −1 مشمول؟",
+        "En": "Is −1 included?"
+      },
+      {
+        "Ar": "هل 4 مشمول؟",
+        "En": "Is 4 included?"
+      }
+    ],
+    "error": {
+      "Ar": "يستبعد −1 خطأً.",
+      "En": "Incorrectly excludes −1."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 8,
+    "cat": 85,
+    "skill": 336,
+    "sk": "sample-spaces",
+    "family": "sample-space-restricted-pairs-no-repetition",
+    "title": {
+      "Ar": "أزواج مرتبة دون تكرار",
+      "En": "Ordered pairs without repetition"
+    },
+    "q": {
+      "Ar": "تُختار بطاقتان مختلفتان بالتتابع من البطاقات A وB وC وD دون إعادة. كم زوجاً مرتباً يبدأ بالبطاقة A؟",
+      "En": "Two distinct cards are chosen in order from A, B, C, D without replacement. How many ordered pairs start with A?"
+    },
+    "opts": [
+      "2",
+      "3",
+      "4",
+      "12"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "2 يهمل بطاقة ممكنة.",
+        "En": "2 omits one possible card."
+      },
+      null,
+      {
+        "Ar": "4 يسمح بتكرار A.",
+        "En": "4 allows A twice."
+      },
+      {
+        "Ar": "12 يعد جميع الأزواج دون تثبيت الأولى.",
+        "En": "12 counts all ordered pairs."
+      }
+    ],
+    "idea": {
+      "Ar": "بعد تثبيت البطاقة الأولى، تبقى ثلاث بطاقات ممكنة للثانية.",
+      "En": "After fixing the first card, three choices remain for the second."
+    },
+    "formula": "1\\cdot3=3",
+    "steps": [
+      {
+        "Ar": "البطاقة الأولى A ثابتة.",
+        "En": "The first card is fixed as A."
+      },
+      {
+        "Ar": "الثانية B أو C أو D.",
+        "En": "The second is B, C or D."
+      }
+    ],
+    "sub": {
+      "Ar": "$1\\cdot3=3$",
+      "En": "$1\\cdot3=3$"
+    },
+    "result": {
+      "Ar": "$3$",
+      "En": "$3$"
+    },
+    "verify": {
+      "Ar": "الأزواج هي AB وAC وAD.",
+      "En": "The pairs are AB, AC and AD."
+    },
+    "hints": [
+      {
+        "Ar": "هل يمكن اختيار A مرة ثانية؟",
+        "En": "Can A be selected again?"
+      },
+      {
+        "Ar": "عد البطاقات المتبقية فقط.",
+        "En": "Count only the remaining cards."
+      }
+    ],
+    "error": {
+      "Ar": "2 يهمل بطاقة ممكنة.",
+      "En": "2 omits one possible card."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 9,
+    "cat": 85,
+    "skill": 337,
+    "sk": "simple-compound-events",
+    "family": "probability-intersection-from-union",
+    "title": {
+      "Ar": "احتمال تقاطع حدثين",
+      "En": "Probability of an intersection"
+    },
+    "q": {
+      "Ar": "إذا كان P(A)=0.6 وP(B)=0.5 وP(A∪B)=0.8، فما P(A∩B)؟",
+      "En": "If P(A)=0.6, P(B)=0.5 and P(A∪B)=0.8, what is P(A∩B)?"
+    },
+    "opts": [
+      "0.1",
+      "0.2",
+      "0.3",
+      "0.5"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "0.1 فرق احتمالَي الحدثين.",
+        "En": "0.1 is the difference of event probabilities."
+      },
+      {
+        "Ar": "0.2 احتمال متمم الاتحاد.",
+        "En": "0.2 is the complement of the union."
+      },
+      null,
+      {
+        "Ar": "0.5 احتمال B وحده.",
+        "En": "0.5 is P(B)."
+      }
+    ],
+    "idea": {
+      "Ar": "مجموع الاحتمالين يحسب التقاطع مرتين، فنطرحه مرة.",
+      "En": "Adding the probabilities counts their intersection twice, so subtract it once."
+    },
+    "formula": "P(A\\cap B)=P(A)+P(B)-P(A\\cup B)",
+    "steps": [
+      {
+        "Ar": "$0.6+0.5=1.1$",
+        "En": "$0.6+0.5=1.1$"
+      },
+      {
+        "Ar": "$1.1-0.8=0.3$",
+        "En": "$1.1-0.8=0.3$"
+      }
+    ],
+    "sub": {
+      "Ar": "$1.1-0.8=0.3$",
+      "En": "$1.1-0.8=0.3$"
+    },
+    "result": {
+      "Ar": "$0.3$",
+      "En": "$0.3$"
+    },
+    "verify": {
+      "Ar": "$0.6+0.5-0.3=0.8$",
+      "En": "$0.6+0.5-0.3=0.8$"
+    },
+    "hints": [
+      {
+        "Ar": "استخدم قاعدة احتمال الاتحاد.",
+        "En": "Use the union probability rule."
+      },
+      {
+        "Ar": "اعزل احتمال التقاطع.",
+        "En": "Isolate the intersection probability."
+      }
+    ],
+    "error": {
+      "Ar": "0.1 فرق احتمالَي الحدثين.",
+      "En": "0.1 is the difference of event probabilities."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 10,
+    "cat": 88,
+    "skill": 329,
+    "sk": "coordinate-lines",
+    "family": "coordinate-line-collinear-missing-y",
+    "title": {
+      "Ar": "نقاط على مستقيم واحد",
+      "En": "Collinear points"
+    },
+    "q": {
+      "Ar": "تقع النقاط (1,2) و(3,6) و(5,k) على مستقيم واحد. ما k؟",
+      "En": "Points (1,2), (3,6) and (5,k) lie on the same line. What is k?"
+    },
+    "opts": [
+      "8",
+      "9",
+      "10",
+      "12"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "8 يعطي ميلاً 1.",
+        "En": "8 gives slope 1."
+      },
+      {
+        "Ar": "9 يعطي ميلاً 1.5.",
+        "En": "9 gives slope 1.5."
+      },
+      null,
+      {
+        "Ar": "12 يعطي ميلاً 3.",
+        "En": "12 gives slope 3."
+      }
+    ],
+    "idea": {
+      "Ar": "ميل المستقيم ثابت بين أي نقطتين عليه.",
+      "En": "A line has constant slope between any two of its points."
+    },
+    "formula": "\\frac{6-2}{3-1}=\\frac{k-6}{5-3}",
+    "steps": [
+      {
+        "Ar": "$4/2=2$",
+        "En": "$4/2=2$"
+      },
+      {
+        "Ar": "$k-6=4$",
+        "En": "$k-6=4$"
+      },
+      {
+        "Ar": "$k=10$",
+        "En": "$k=10$"
+      }
+    ],
+    "sub": {
+      "Ar": "$k=10$",
+      "En": "$k=10$"
+    },
+    "result": {
+      "Ar": "$10$",
+      "En": "$10$"
+    },
+    "verify": {
+      "Ar": "$(10-6)/(5-3)=2$",
+      "En": "$(10-6)/(5-3)=2$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب الميل بين أول نقطتين.",
+        "En": "Find the slope between the first two points."
+      },
+      {
+        "Ar": "استعمل الميل نفسه للنقطتين الأخيرتين.",
+        "En": "Use the same slope for the last two points."
+      }
+    ],
+    "error": {
+      "Ar": "8 يعطي ميلاً 1.",
+      "En": "8 gives slope 1."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 11,
+    "cat": 87,
+    "skill": 338,
+    "sk": "dot-product",
+    "family": "dot-product-zero-vector-orthogonality-criterion",
+    "title": {
+      "Ar": "اختبار التعامد من المركبات",
+      "En": "Checking orthogonality by components"
+    },
+    "q": {
+      "Ar": "أي متجه من الخيارات عمودي على المتجه (2,3) وغير صفري؟",
+      "En": "Which option is a nonzero vector perpendicular to (2,3)?"
+    },
+    "opts": [
+      "(2,3)",
+      "(3,2)",
+      "(-3,2)",
+      "(0,0)"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "الضرب القياسي 13.",
+        "En": "The dot product is 13."
+      },
+      {
+        "Ar": "الضرب القياسي 12.",
+        "En": "The dot product is 12."
+      },
+      null,
+      {
+        "Ar": "المتجه صفري ويخالف الشرط.",
+        "En": "It is the zero vector and violates the condition."
+      }
+    ],
+    "idea": {
+      "Ar": "المتجهان غير الصفريين متعامدان إذا كان ضربهما القياسي صفراً.",
+      "En": "Two nonzero vectors are perpendicular when their dot product is zero."
+    },
+    "formula": "2a+3b=0",
+    "steps": [
+      {
+        "Ar": "$2(-3)+3(2)=-6+6=0$",
+        "En": "$2(-3)+3(2)=-6+6=0$"
+      },
+      {
+        "Ar": "المتجه (−3,2) غير صفري.",
+        "En": "The vector (−3,2) is nonzero."
+      }
+    ],
+    "sub": {
+      "Ar": "$2(-3)+3(2)=-6+6=0$",
+      "En": "$2(-3)+3(2)=-6+6=0$"
+    },
+    "result": {
+      "Ar": "$(-3,2)$",
+      "En": "$(-3,2)$"
+    },
+    "verify": {
+      "Ar": "$(-3)^2+2^2=13>0$",
+      "En": "$(-3)^2+2^2=13>0$"
+    },
+    "hints": [
+      {
+        "Ar": "اختبر حاصل الضرب القياسي.",
+        "En": "Test the dot product."
+      },
+      {
+        "Ar": "استبعد المتجه الصفري حسب الشرط.",
+        "En": "Exclude the zero vector as required."
+      }
+    ],
+    "error": {
+      "Ar": "الضرب القياسي 13.",
+      "En": "The dot product is 13."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 12,
+    "cat": 10,
+    "skill": 47,
+    "sk": "secondary-pythagorean-trig-identity",
+    "family": "trig-tangent-square-from-cos-square",
+    "title": {
+      "Ar": "مربع الظل من مربع جيب التمام",
+      "En": "Tangent squared from cosine squared"
+    },
+    "q": {
+      "Ar": "إذا كان $\\cos^2\\theta=\\frac29$، فما قيمة $\\tan^2\\theta$؟",
+      "En": "If $\\cos^2\\theta=\\frac29$, what is $\\tan^2\\theta$?"
+    },
+    "opts": [
+      "\\frac27",
+      "\\frac79",
+      "\\frac72",
+      "\\frac92"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "2/7 يعكس النسبة.",
+        "En": "2/7 reverses the ratio."
+      },
+      {
+        "Ar": "7/9 مربع الجيب فقط.",
+        "En": "7/9 is sine squared alone."
+      },
+      null,
+      {
+        "Ar": "9/2 مربع القاطع.",
+        "En": "9/2 is secant squared."
+      }
+    ],
+    "idea": {
+      "Ar": "نحسب مربع الجيب ثم نقسمه على مربع جيب التمام غير الصفري.",
+      "En": "Find sine squared, then divide by nonzero cosine squared."
+    },
+    "formula": "\\tan^2\\theta=\\frac{1-\\cos^2\\theta}{\\cos^2\\theta}",
+    "steps": [
+      {
+        "Ar": "$\\sin^2\\theta=7/9$",
+        "En": "$\\sin^2\\theta=7/9$"
+      },
+      {
+        "Ar": "$(7/9)/(2/9)=7/2$",
+        "En": "$(7/9)/(2/9)=7/2$"
+      }
+    ],
+    "sub": {
+      "Ar": "$(7/9)/(2/9)=7/2$",
+      "En": "$(7/9)/(2/9)=7/2$"
+    },
+    "result": {
+      "Ar": "$\\frac72$",
+      "En": "$\\frac72$"
+    },
+    "verify": {
+      "Ar": "$1+7/2=9/2=1/(2/9)$",
+      "En": "$1+7/2=9/2=1/(2/9)$"
+    },
+    "hints": [
+      {
+        "Ar": "استخرج مربع الجيب من المتطابقة.",
+        "En": "Recover sine squared using the identity."
+      },
+      {
+        "Ar": "اقسمه على مربع جيب التمام.",
+        "En": "Divide by cosine squared."
+      }
+    ],
+    "error": {
+      "Ar": "2/7 يعكس النسبة.",
+      "En": "2/7 reverses the ratio."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 12,
+    "cat": 88,
+    "skill": 328,
+    "sk": "circles",
+    "family": "circle-line-number-intersections-distance",
+    "title": {
+      "Ar": "عدد نقاط تقاطع مستقيم ودائرة",
+      "En": "Number of line-circle intersections"
+    },
+    "q": {
+      "Ar": "كم نقطة تقاطع بين الدائرة $x^2+y^2=16$ والمستقيم y=5؟",
+      "En": "How many intersection points do the circle $x^2+y^2=16$ and the line y=5 have?"
+    },
+    "opts": [
+      "0",
+      "1",
+      "2",
+      "4"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "تقاطع واحد يتطلب التماس عند مسافة 4.",
+        "En": "One intersection requires tangency at distance four."
+      },
+      {
+        "Ar": "تقاطعان يتطلبان مسافة أقل من نصف القطر.",
+        "En": "Two intersections require distance below the radius."
+      },
+      {
+        "Ar": "المستقيم لا يقطع دائرة في أربع نقاط.",
+        "En": "A line cannot intersect a circle at four points."
+      }
+    ],
+    "idea": {
+      "Ar": "إذا كانت المسافة العمودية من المركز إلى المستقيم أكبر من نصف القطر فلا تقاطع.",
+      "En": "If perpendicular distance from the centre to the line exceeds the radius, there is no intersection."
+    },
+    "formula": "x^2+25=16",
+    "steps": [
+      {
+        "Ar": "$x^2=-9$",
+        "En": "$x^2=-9$"
+      },
+      {
+        "Ar": "لا يوجد عدد حقيقي مربعه سالب.",
+        "En": "No real number has a negative square."
+      }
+    ],
+    "sub": {
+      "Ar": "$x^2=-9$",
+      "En": "$x^2=-9$"
+    },
+    "result": {
+      "Ar": "$0$",
+      "En": "$0$"
+    },
+    "verify": {
+      "Ar": "$5>4$",
+      "En": "$5>4$"
+    },
+    "hints": [
+      {
+        "Ar": "عوّض y=5 في معادلة الدائرة.",
+        "En": "Substitute y=5 into the circle equation."
+      },
+      {
+        "Ar": "هل يمكن أن يكون مربع عدد حقيقي سالباً؟",
+        "En": "Can a real square be negative?"
+      }
+    ],
+    "error": {
+      "Ar": "تقاطع واحد يتطلب التماس عند مسافة 4.",
+      "En": "One intersection requires tangency at distance four."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  }
+]

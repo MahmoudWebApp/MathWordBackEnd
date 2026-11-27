@@ -1,0 +1,1248 @@
+[
+  {
+    "track": 1,
+    "cat": 96,
+    "skill": 354,
+    "sk": "primary-shape-attributes-composition",
+    "family": "closed-shape-sticks-missing-side",
+    "title": {
+      "Ar": "إكمال شكل مغلق",
+      "En": "Completing a closed shape"
+    },
+    "q": {
+      "Ar": "رتب طفل ثلاثة عيدان متساوية على ثلاثة أضلاع من مربع، دون أن يغلق الشكل. كم عوداً آخر من النوع نفسه يحتاج لإكمال المربع؟",
+      "En": "A child arranges three equal sticks along three sides of a square, leaving the shape open. How many more identical sticks complete the square?"
+    },
+    "opts": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "correct": 0,
+    "idea": {
+      "Ar": "للمربع أربعة أضلاع، والموجود ثلاثة.",
+      "En": "A square has four sides; three are present."
+    },
+    "formula": "4-3=1",
+    "steps": [
+      {
+        "Ar": "نحتاج أربعة أضلاع ليكتمل المربع.",
+        "En": "Four sides complete the square."
+      },
+      {
+        "Ar": "$4-3=1$",
+        "En": "$4-3=1$"
+      }
+    ],
+    "sub": {
+      "Ar": "$4-3=1$",
+      "En": "$4-3=1$"
+    },
+    "result": {
+      "Ar": "$1$",
+      "En": "$1$"
+    },
+    "verify": {
+      "Ar": "$3+1=4$",
+      "En": "$3+1=4$"
+    },
+    "hints": [
+      {
+        "Ar": "عد أضلاع المربع الكامل.",
+        "En": "Count the sides of a complete square."
+      },
+      {
+        "Ar": "اطرح عدد العيدان الموجودة.",
+        "En": "Subtract the sticks already present."
+      }
+    ],
+    "reasons": [
+      null,
+      {
+        "Ar": "عودان يعطيان خمسة عيدان.",
+        "En": "Two more would give five sticks."
+      },
+      {
+        "Ar": "ثلاثة عدد العيدان الموجودة.",
+        "En": "Three is the existing count."
+      },
+      {
+        "Ar": "أربعة العدد الكلي لا الباقي.",
+        "En": "Four is the total, not the missing count."
+      }
+    ],
+    "error": {
+      "Ar": "عودان يعطيان خمسة عيدان.",
+      "En": "Two more would give five sticks."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 1,
+    "cat": 82,
+    "skill": 321,
+    "sk": "length",
+    "family": "length-identify-valid-unit-arrangement",
+    "title": {
+      "Ar": "اختيار قياس صحيح",
+      "En": "Choosing a valid measurement"
+    },
+    "q": {
+      "Ar": "نريد قياس طول قلم باستعمال عيدان متساوية. أي طريقة صحيحة؟ A: عيدان متداخلة؛ B: عيدان بينها فراغات؛ C: عيدان متجاورة من طرف القلم إلى طرفه دون فراغات؛ D: عيدان بأطوال مختلفة.",
+      "En": "To measure a pencil using equal sticks, which method is valid? A: overlapping sticks; B: sticks with gaps; C: end-to-end sticks covering the pencil with no gaps; D: sticks of different lengths."
+    },
+    "opts": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correct": 2,
+    "idea": {
+      "Ar": "القياس بوحدة متكررة يتطلب وحدات متساوية دون فراغ أو تداخل.",
+      "En": "Repeated-unit measurement requires equal units with no gaps or overlap."
+    },
+    "formula": "L=n\\ell",
+    "steps": [
+      {
+        "Ar": "نبدأ عند طرف القلم.",
+        "En": "Start at one end of the pencil."
+      },
+      {
+        "Ar": "نكرر العود نفسه بالطول حتى الطرف الآخر دون فراغات.",
+        "En": "Repeat equal-length sticks to the other end without gaps."
+      }
+    ],
+    "sub": {
+      "Ar": "نكرر العود نفسه بالطول حتى الطرف الآخر دون فراغات.",
+      "En": "Repeat equal-length sticks to the other end without gaps."
+    },
+    "result": {
+      "Ar": "$C$",
+      "En": "$C$"
+    },
+    "verify": {
+      "Ar": "يغطي الاختيار C الطول كله بوحدة ثابتة.",
+      "En": "Option C covers the full length using a fixed unit."
+    },
+    "hints": [
+      {
+        "Ar": "يجب أن تكون الوحدات متساوية.",
+        "En": "The units must be equal."
+      },
+      {
+        "Ar": "استبعد الفراغات والتداخل.",
+        "En": "Exclude gaps and overlap."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "التداخل يكرر قياس جزء من الطول.",
+        "En": "Overlap measures part of the length twice."
+      },
+      {
+        "Ar": "الفراغات تترك جزءاً دون قياس.",
+        "En": "Gaps leave part unmeasured."
+      },
+      null,
+      {
+        "Ar": "الوحدات المختلفة لا تعطي عدداً بوحدة ثابتة.",
+        "En": "Different units do not give a count in a fixed unit."
+      }
+    ],
+    "error": {
+      "Ar": "التداخل يكرر قياس جزء من الطول.",
+      "En": "Overlap measures part of the length twice."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 2,
+    "cat": 81,
+    "skill": 302,
+    "sk": "counting",
+    "family": "counting-pattern-two-missing-consecutive",
+    "title": {
+      "Ar": "إكمال نمط عد",
+      "En": "Completing a counting pattern"
+    },
+    "q": {
+      "Ar": "العد بنمط ثابت: 12، 16، □، □، 28. ما مجموع العددين المفقودين؟",
+      "En": "A constant-step counting pattern is 12, 16, □, □, 28. What is the sum of the two missing numbers?"
+    },
+    "opts": [
+      "36",
+      "40",
+      "44",
+      "48"
+    ],
+    "correct": 2,
+    "idea": {
+      "Ar": "الخطوة ثابتة وتساوي أربعة.",
+      "En": "The constant step is four."
+    },
+    "formula": "16+4=20",
+    "steps": [
+      {
+        "Ar": "$20+4=24$",
+        "En": "$20+4=24$"
+      },
+      {
+        "Ar": "$20+24=44$",
+        "En": "$20+24=44$"
+      }
+    ],
+    "sub": {
+      "Ar": "$20+24=44$",
+      "En": "$20+24=44$"
+    },
+    "result": {
+      "Ar": "$44$",
+      "En": "$44$"
+    },
+    "verify": {
+      "Ar": "$24+4=28$",
+      "En": "$24+4=28$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب الفرق بين أول عددين.",
+        "En": "Find the difference between the first two numbers."
+      },
+      {
+        "Ar": "أكمل النمط ثم اجمع العددين.",
+        "En": "Complete the pattern and add the missing numbers."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "36 يجمع 16 و20.",
+        "En": "36 adds 16 and 20."
+      },
+      {
+        "Ar": "40 يجمع 12 و28.",
+        "En": "40 adds 12 and 28."
+      },
+      null,
+      {
+        "Ar": "48 يكرر 24.",
+        "En": "48 counts 24 twice."
+      }
+    ],
+    "error": {
+      "Ar": "36 يجمع 16 و20.",
+      "En": "36 adds 16 and 20."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 2,
+    "cat": 96,
+    "skill": 355,
+    "sk": "primary-shape-attributes-partition",
+    "family": "rectangle-grid-half-by-rows",
+    "title": {
+      "Ar": "نصف مستطيل من مربعات",
+      "En": "Half a tiled rectangle"
+    },
+    "q": {
+      "Ar": "مستطيل مغطى بصفين، في كل صف خمسة مربعات متساوية. لُوّن صف كامل. كم مربعاً بقي غير ملون؟",
+      "En": "A rectangle is covered by two rows of five equal squares each. One entire row is coloured. How many squares remain uncoloured?"
+    },
+    "opts": [
+      "2",
+      "4",
+      "5",
+      "10"
+    ],
+    "correct": 2,
+    "idea": {
+      "Ar": "الصفان متساويان، ويبقى صف واحد غير ملون.",
+      "En": "The two rows are equal, and one row remains uncoloured."
+    },
+    "formula": "2\\cdot5-5=5",
+    "steps": [
+      {
+        "Ar": "$2\\cdot5=10$",
+        "En": "$2\\cdot5=10$"
+      },
+      {
+        "Ar": "$10-5=5$",
+        "En": "$10-5=5$"
+      }
+    ],
+    "sub": {
+      "Ar": "$10-5=5$",
+      "En": "$10-5=5$"
+    },
+    "result": {
+      "Ar": "$5$",
+      "En": "$5$"
+    },
+    "verify": {
+      "Ar": "$5+5=10$",
+      "En": "$5+5=10$"
+    },
+    "hints": [
+      {
+        "Ar": "كم مربعاً في صف واحد؟",
+        "En": "How many squares are in one row?"
+      },
+      {
+        "Ar": "بعد تلوين صف، كم صفاً بقي؟",
+        "En": "How many rows remain after colouring one?"
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "اثنان عدد الصفوف.",
+        "En": "Two is the number of rows."
+      },
+      {
+        "Ar": "أربعة لا يساوي عدد مربعات الصف.",
+        "En": "Four is not the row size."
+      },
+      null,
+      {
+        "Ar": "عشرة عدد المربعات كلها.",
+        "En": "Ten counts all squares."
+      }
+    ],
+    "error": {
+      "Ar": "اثنان عدد الصفوف.",
+      "En": "Two is the number of rows."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 3,
+    "cat": 21,
+    "skill": 97,
+    "sk": "p-fractions-decimals-fraction-models",
+    "family": "fraction-equivalent-whole-model-two-partitions",
+    "title": {
+      "Ar": "كسران يمثلان الجزء نفسه",
+      "En": "Equivalent fractions in a model"
+    },
+    "q": {
+      "Ar": "شريطان متساويا الطول. قُسّم الأول إلى نصفين ولُوّن نصف، وقُسّم الثاني إلى ستة أجزاء متساوية. كم جزءاً من الثاني يجب تلوينه ليطابق طول الجزء الملون من الأول؟",
+      "En": "Two strips have equal length. The first is divided into halves and one half is coloured. The second is divided into six equal parts. How many parts of the second must be coloured to match the coloured length of the first?"
+    },
+    "opts": [
+      "1",
+      "2",
+      "3",
+      "6"
+    ],
+    "correct": 2,
+    "idea": {
+      "Ar": "النصف يعني جزءاً من جزأين متساويين؛ نصف الستة ثلاثة.",
+      "En": "Half of six equal parts is three."
+    },
+    "formula": "\\frac12=\\frac36",
+    "steps": [
+      {
+        "Ar": "$6/2=3$",
+        "En": "$6/2=3$"
+      },
+      {
+        "Ar": "$3/6=1/2$",
+        "En": "$3/6=1/2$"
+      }
+    ],
+    "sub": {
+      "Ar": "$3/6=1/2$",
+      "En": "$3/6=1/2$"
+    },
+    "result": {
+      "Ar": "$3$",
+      "En": "$3$"
+    },
+    "verify": {
+      "Ar": "$3+3=6$",
+      "En": "$3+3=6$"
+    },
+    "hints": [
+      {
+        "Ar": "الشريطان متساويا الطول.",
+        "En": "The strips are equally long."
+      },
+      {
+        "Ar": "قسّم ستة إلى مجموعتين متساويتين.",
+        "En": "Split six into two equal groups."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "جزء واحد يمثل السدس.",
+        "En": "One part is one sixth."
+      },
+      {
+        "Ar": "جزآن يمثلان الثلث.",
+        "En": "Two parts represent one third."
+      },
+      null,
+      {
+        "Ar": "ستة أجزاء تمثل الشريط كله.",
+        "En": "Six parts represent the whole strip."
+      }
+    ],
+    "error": {
+      "Ar": "جزء واحد يمثل السدس.",
+      "En": "One part is one sixth."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 3,
+    "cat": 82,
+    "skill": 324,
+    "sk": "time",
+    "family": "time-clock-minute-hand-rotation-fraction",
+    "title": {
+      "Ar": "دورة عقرب الدقائق",
+      "En": "Minute-hand rotation"
+    },
+    "q": {
+      "Ar": "يشير عقرب الدقائق إلى 12. كم دقيقة تمر حتى يدور نصف دورة كاملة للمرة الأولى؟",
+      "En": "The minute hand points to 12. How many minutes pass before it first completes half a full turn?"
+    },
+    "opts": [
+      "15",
+      "30",
+      "45",
+      "60"
+    ],
+    "correct": 1,
+    "idea": {
+      "Ar": "الدورة الكاملة لعقرب الدقائق تستغرق ستين دقيقة.",
+      "En": "One full minute-hand rotation takes sixty minutes."
+    },
+    "formula": "60/2=30",
+    "steps": [
+      {
+        "Ar": "نصف دورة يعني نصف الساعة.",
+        "En": "Half a turn is half an hour."
+      },
+      {
+        "Ar": "$60/2=30$",
+        "En": "$60/2=30$"
+      }
+    ],
+    "sub": {
+      "Ar": "$60/2=30$",
+      "En": "$60/2=30$"
+    },
+    "result": {
+      "Ar": "$30$",
+      "En": "$30$"
+    },
+    "verify": {
+      "Ar": "$30+30=60$",
+      "En": "$30+30=60$"
+    },
+    "hints": [
+      {
+        "Ar": "كم دقيقة في الدورة الكاملة؟",
+        "En": "How many minutes are in one full turn?"
+      },
+      {
+        "Ar": "اقسم الزمن على اثنين.",
+        "En": "Divide that time by two."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "15 ربع دورة.",
+        "En": "15 is a quarter turn."
+      },
+      null,
+      {
+        "Ar": "45 ثلاثة أرباع دورة.",
+        "En": "45 is three quarters of a turn."
+      },
+      {
+        "Ar": "60 دورة كاملة.",
+        "En": "60 is a full turn."
+      }
+    ],
+    "error": {
+      "Ar": "15 ربع دورة.",
+      "En": "15 is a quarter turn."
+    },
+    "unit": {
+      "Ar": "دقيقة",
+      "En": "minutes"
+    }
+  },
+  {
+    "track": 4,
+    "cat": 1,
+    "skill": 1,
+    "sk": "primary-addition",
+    "family": "addition-decomposition-missing-place-part",
+    "title": {
+      "Ar": "جمع بالتفكيك",
+      "En": "Addition by decomposition"
+    },
+    "q": {
+      "Ar": "لحساب 486+257، جمع طالب المئات فحصل على 600، والعشرات فحصل على 130. كم يجب أن يضيف من مجموع الآحاد ليحصل على الناتج الصحيح؟",
+      "En": "To calculate 486+257, a pupil adds hundreds to get 600 and tens to get 130. What must be added for the ones to complete the correct sum?"
+    },
+    "opts": [
+      "3",
+      "7",
+      "13",
+      "30"
+    ],
+    "correct": 2,
+    "idea": {
+      "Ar": "نجمع الآحاد بحسب قيمتها دون إسقاط العشرة الناتجة عن الحمل.",
+      "En": "Add the ones at their full value without dropping the resulting ten."
+    },
+    "formula": "6+7=13",
+    "steps": [
+      {
+        "Ar": "$400+200=600$",
+        "En": "$400+200=600$"
+      },
+      {
+        "Ar": "$80+50=130$",
+        "En": "$80+50=130$"
+      },
+      {
+        "Ar": "$6+7=13$",
+        "En": "$6+7=13$"
+      }
+    ],
+    "sub": {
+      "Ar": "$6+7=13$",
+      "En": "$6+7=13$"
+    },
+    "result": {
+      "Ar": "$13$",
+      "En": "$13$"
+    },
+    "verify": {
+      "Ar": "$600+130+13=743$",
+      "En": "$600+130+13=743$"
+    },
+    "hints": [
+      {
+        "Ar": "حدد رقمي الآحاد.",
+        "En": "Identify both ones digits."
+      },
+      {
+        "Ar": "اجمعهما كاملاً، ولا تكتفِ برقم الآحاد الناتج.",
+        "En": "Add them fully, not just the resulting ones digit."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "3 يهمل العشرة الناتجة.",
+        "En": "3 drops the extra ten."
+      },
+      {
+        "Ar": "7 آحاد العدد الثاني فقط.",
+        "En": "7 is only the second ones digit."
+      },
+      null,
+      {
+        "Ar": "30 لا يساوي مجموع 6 و7.",
+        "En": "30 is not the sum of 6 and 7."
+      }
+    ],
+    "error": {
+      "Ar": "3 يهمل العشرة الناتجة.",
+      "En": "3 drops the extra ten."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 4,
+    "cat": 3,
+    "skill": 16,
+    "sk": "primary-unit-conversions",
+    "family": "length-conversion-perimeter-square-in-mm",
+    "title": {
+      "Ar": "محيط مربع بالمليمتر",
+      "En": "Square perimeter in millimetres"
+    },
+    "q": {
+      "Ar": "طول ضلع مربع 3 سم. ما محيطه بالمليمتر؟",
+      "En": "A square has side length 3 cm. What is its perimeter in millimetres?"
+    },
+    "opts": [
+      "12",
+      "30",
+      "60",
+      "120"
+    ],
+    "correct": 3,
+    "idea": {
+      "Ar": "نحول طول الضلع إلى مليمترات ثم نجمع الأضلاع الأربعة.",
+      "En": "Convert the side length to millimetres, then add the four sides."
+    },
+    "formula": "4\\cdot3\\cdot10=120",
+    "steps": [
+      {
+        "Ar": "$3\\ \\mathrm{cm}=30\\ \\mathrm{mm}$",
+        "En": "$3\\ \\mathrm{cm}=30\\ \\mathrm{mm}$"
+      },
+      {
+        "Ar": "$4\\cdot30=120$",
+        "En": "$4\\cdot30=120$"
+      }
+    ],
+    "sub": {
+      "Ar": "$4\\cdot30=120$",
+      "En": "$4\\cdot30=120$"
+    },
+    "result": {
+      "Ar": "$120$",
+      "En": "$120$"
+    },
+    "verify": {
+      "Ar": "$120/4=30$",
+      "En": "$120/4=30$"
+    },
+    "hints": [
+      {
+        "Ar": "السنتيمتر عشرة مليمترات.",
+        "En": "One centimetre equals ten millimetres."
+      },
+      {
+        "Ar": "المربع أربعة أضلاع متساوية.",
+        "En": "A square has four equal sides."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "12 المحيط بالسنتيمتر.",
+        "En": "12 is the perimeter in centimetres."
+      },
+      {
+        "Ar": "30 طول ضلع واحد بالمليمتر.",
+        "En": "30 is one side in millimetres."
+      },
+      {
+        "Ar": "60 طول ضلعين فقط.",
+        "En": "60 counts two sides only."
+      },
+      null
+    ],
+    "error": {
+      "Ar": "12 المحيط بالسنتيمتر.",
+      "En": "12 is the perimeter in centimetres."
+    },
+    "unit": {
+      "Ar": "ملم",
+      "En": "mm"
+    }
+  },
+  {
+    "track": 5,
+    "cat": 33,
+    "skill": 4,
+    "sk": "primary-multiplication",
+    "family": "multiplication-use-near-hundred-factor",
+    "title": {
+      "Ar": "الضرب باستخدام عدد قريب من المئة",
+      "En": "Multiplying using a near-hundred factor"
+    },
+    "q": {
+      "Ar": "لإيجاد 27×99 ذهنياً، أي تعبير يعطي الناتج نفسه؟",
+      "En": "To calculate 27×99 mentally, which expression gives the same product?"
+    },
+    "opts": [
+      "2700-1",
+      "2700-27",
+      "2700+27",
+      "270-27"
+    ],
+    "correct": 1,
+    "idea": {
+      "Ar": "نكتب 99 على صورة 100 ناقص 1 ونوزع الضرب.",
+      "En": "Write 99 as 100 minus one and distribute."
+    },
+    "formula": "27(100-1)=2700-27",
+    "steps": [
+      {
+        "Ar": "$27\\cdot100=2700$",
+        "En": "$27\\cdot100=2700$"
+      },
+      {
+        "Ar": "$27\\cdot1=27$",
+        "En": "$27\\cdot1=27$"
+      }
+    ],
+    "sub": {
+      "Ar": "$27\\cdot1=27$",
+      "En": "$27\\cdot1=27$"
+    },
+    "result": {
+      "Ar": "$2700-27$",
+      "En": "$2700-27$"
+    },
+    "verify": {
+      "Ar": "$2700-27=2673$",
+      "En": "$2700-27=2673$"
+    },
+    "hints": [
+      {
+        "Ar": "اكتب 99 بدلالة 100.",
+        "En": "Express 99 using 100."
+      },
+      {
+        "Ar": "اضرب 27 في الحدين.",
+        "En": "Multiply 27 by both terms."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "يطرح 1 بدلاً من 27.",
+        "En": "Subtracts one instead of 27."
+      },
+      null,
+      {
+        "Ar": "هذا يستخدم 101 بدلاً من 99.",
+        "En": "This uses 101 rather than 99."
+      },
+      {
+        "Ar": "270 يعادل الضرب في 10 لا 100.",
+        "En": "270 corresponds to multiplying by ten, not 100."
+      }
+    ],
+    "error": {
+      "Ar": "يطرح 1 بدلاً من 27.",
+      "En": "Subtracts one instead of 27."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 5,
+    "cat": 82,
+    "skill": 322,
+    "sk": "mass",
+    "family": "mass-equal-share-after-container-tare",
+    "title": {
+      "Ar": "توزيع الكتلة بعد طرح العبوة",
+      "En": "Sharing mass after removing container weight"
+    },
+    "q": {
+      "Ar": "كتلة وعاء مع محتواه 3 كغ و200 غ. كتلة الوعاء الفارغ 400 غ. قُسّم المحتوى بالتساوي إلى أربع حصص. ما كتلة كل حصة بالغرام؟",
+      "En": "A container and its contents weigh 3 kg 200 g. The empty container weighs 400 g. The contents are divided equally into four portions. What is the mass of each portion in grams?"
+    },
+    "opts": [
+      "600",
+      "700",
+      "800",
+      "900"
+    ],
+    "correct": 1,
+    "idea": {
+      "Ar": "نوحد الوحدات ونطرح كتلة الوعاء ثم نقسم كتلة المحتوى.",
+      "En": "Unify units, remove container mass, then divide the contents' mass."
+    },
+    "formula": "(3200-400)/4=700",
+    "steps": [
+      {
+        "Ar": "$3\\cdot1000+200=3200$",
+        "En": "$3\\cdot1000+200=3200$"
+      },
+      {
+        "Ar": "$3200-400=2800$",
+        "En": "$3200-400=2800$"
+      },
+      {
+        "Ar": "$2800/4=700$",
+        "En": "$2800/4=700$"
+      }
+    ],
+    "sub": {
+      "Ar": "$2800/4=700$",
+      "En": "$2800/4=700$"
+    },
+    "result": {
+      "Ar": "$700$",
+      "En": "$700$"
+    },
+    "verify": {
+      "Ar": "$4\\cdot700+400=3200$",
+      "En": "$4\\cdot700+400=3200$"
+    },
+    "hints": [
+      {
+        "Ar": "حول الكيلوغرامات إلى غرامات.",
+        "En": "Convert kilograms to grams."
+      },
+      {
+        "Ar": "اطرح الوعاء قبل القسمة.",
+        "En": "Remove the container's mass before dividing."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "أربع حصص من 600 تساوي 2400.",
+        "En": "Four 600 g portions total 2400 g."
+      },
+      null,
+      {
+        "Ar": "800 يقسم الكتلة مع الوعاء.",
+        "En": "800 divides the mass including the container."
+      },
+      {
+        "Ar": "900 يضيف كتلة الوعاء قبل القسمة.",
+        "En": "900 adds container mass before division."
+      }
+    ],
+    "error": {
+      "Ar": "أربع حصص من 600 تساوي 2400.",
+      "En": "Four 600 g portions total 2400 g."
+    },
+    "unit": {
+      "Ar": "غ",
+      "En": "g"
+    }
+  },
+  {
+    "track": 5,
+    "cat": 82,
+    "skill": 320,
+    "sk": "capacity",
+    "family": "capacity-mixture-target-volume",
+    "title": {
+      "Ar": "إكمال حجم سائل",
+      "En": "Completing a liquid volume"
+    },
+    "q": {
+      "Ar": "يحتوي إبريق سعته 2 لتر على 650 مل من الماء و850 مل من العصير. كم مل يمكن إضافتها حتى يمتلئ؟",
+      "En": "A 2-litre jug contains 650 mL of water and 850 mL of juice. How many more millilitres can be added to fill it?"
+    },
+    "opts": [
+      "350",
+      "500",
+      "1500",
+      "2000"
+    ],
+    "correct": 1,
+    "idea": {
+      "Ar": "نحسب الحجم الموجود ثم نطرحه من السعة بعد توحيد الوحدات.",
+      "En": "Find the current volume and subtract it from capacity in the same units."
+    },
+    "formula": "2000-(650+850)=500",
+    "steps": [
+      {
+        "Ar": "$650+850=1500$",
+        "En": "$650+850=1500$"
+      },
+      {
+        "Ar": "$2000-1500=500$",
+        "En": "$2000-1500=500$"
+      }
+    ],
+    "sub": {
+      "Ar": "$2000-1500=500$",
+      "En": "$2000-1500=500$"
+    },
+    "result": {
+      "Ar": "$500$",
+      "En": "$500$"
+    },
+    "verify": {
+      "Ar": "$1500+500=2000$",
+      "En": "$1500+500=2000$"
+    },
+    "hints": [
+      {
+        "Ar": "حوّل لترين إلى مليلترات.",
+        "En": "Convert two litres to millilitres."
+      },
+      {
+        "Ar": "اجمع السائلين ثم اطرح المجموع.",
+        "En": "Add the two volumes, then subtract their total."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "350 لا يكمل الحجم إلى 2000.",
+        "En": "350 does not bring the total to 2000."
+      },
+      null,
+      {
+        "Ar": "1500 الحجم الموجود.",
+        "En": "1500 is the current volume."
+      },
+      {
+        "Ar": "2000 سعة الإبريق كاملة.",
+        "En": "2000 is the full capacity."
+      }
+    ],
+    "error": {
+      "Ar": "350 لا يكمل الحجم إلى 2000.",
+      "En": "350 does not bring the total to 2000."
+    },
+    "unit": {
+      "Ar": "مل",
+      "En": "mL"
+    }
+  },
+  {
+    "track": 6,
+    "cat": 2,
+    "skill": 10,
+    "sk": "primary-two-step-equations",
+    "family": "two-step-equation-unknown-start-division-model",
+    "title": {
+      "Ar": "استرجاع العدد قبل القسمة",
+      "En": "Recovering a number before division"
+    },
+    "q": {
+      "Ar": "أضاف طالب 8 إلى عدد مجهول x ثم قسم المجموع على 4 فحصل على 11. ما x؟",
+      "En": "A pupil adds 8 to an unknown number x and divides the sum by 4 to obtain 11. What is x?"
+    },
+    "opts": [
+      "3",
+      "19",
+      "36",
+      "52"
+    ],
+    "correct": 2,
+    "idea": {
+      "Ar": "نعكس القسمة أولاً ثم الجمع، لأن الجمع وقع قبل القسمة.",
+      "En": "Undo division first and then addition, since addition occurred before division."
+    },
+    "formula": "(x+8)/4=11",
+    "steps": [
+      {
+        "Ar": "$x+8=44$",
+        "En": "$x+8=44$"
+      },
+      {
+        "Ar": "$x=44-8=36$",
+        "En": "$x=44-8=36$"
+      }
+    ],
+    "sub": {
+      "Ar": "$x=44-8=36$",
+      "En": "$x=44-8=36$"
+    },
+    "result": {
+      "Ar": "$36$",
+      "En": "$36$"
+    },
+    "verify": {
+      "Ar": "$(36+8)/4=11$",
+      "En": "$(36+8)/4=11$"
+    },
+    "hints": [
+      {
+        "Ar": "اضرب 11 في 4.",
+        "En": "Multiply eleven by four."
+      },
+      {
+        "Ar": "اطرح 8 من المجموع.",
+        "En": "Subtract eight from the sum."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "3 يطرح 8 من الناتج النهائي مباشرة.",
+        "En": "3 subtracts eight directly from the final output."
+      },
+      {
+        "Ar": "19 يضيف 8 دون عكس القسمة.",
+        "En": "19 adds eight without undoing division."
+      },
+      null,
+      {
+        "Ar": "52 يجمع 8 بدلاً من طرحها.",
+        "En": "52 adds eight instead of subtracting it."
+      }
+    ],
+    "error": {
+      "Ar": "3 يطرح 8 من الناتج النهائي مباشرة.",
+      "En": "3 subtracts eight directly from the final output."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 6,
+    "cat": 3,
+    "skill": 14,
+    "sk": "primary-triangle-area",
+    "family": "triangle-area-complement-rectangle-cut",
+    "title": {
+      "Ar": "مساحة الجزء الباقي بعد قص مثلث",
+      "En": "Remaining area after cutting a triangle"
+    },
+    "q": {
+      "Ar": "لوح مستطيل أبعاده 12 سم و8 سم. قُص منه مثلث قاعدته 6 سم وارتفاعه العمودي 8 سم. ما مساحة اللوح الباقي؟",
+      "En": "A rectangular sheet is 12 cm by 8 cm. A triangle with base 6 cm and perpendicular height 8 cm is cut out. What area remains?"
+    },
+    "opts": [
+      "24",
+      "48",
+      "72",
+      "96"
+    ],
+    "correct": 2,
+    "idea": {
+      "Ar": "نطرح مساحة المثلث المقطوع من مساحة المستطيل.",
+      "En": "Subtract the removed triangle's area from the rectangle's area."
+    },
+    "formula": "12\\cdot8-6\\cdot8/2=72",
+    "steps": [
+      {
+        "Ar": "$A_R=96$",
+        "En": "$A_R=96$"
+      },
+      {
+        "Ar": "$A_T=24$",
+        "En": "$A_T=24$"
+      },
+      {
+        "Ar": "$96-24=72$",
+        "En": "$96-24=72$"
+      }
+    ],
+    "sub": {
+      "Ar": "$96-24=72$",
+      "En": "$96-24=72$"
+    },
+    "result": {
+      "Ar": "$72$",
+      "En": "$72$"
+    },
+    "verify": {
+      "Ar": "$72+24=96$",
+      "En": "$72+24=96$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب مساحة المستطيل.",
+        "En": "Find the rectangle area."
+      },
+      {
+        "Ar": "احسب نصف حاصل ضرب قاعدة المثلث في ارتفاعه ثم اطرحه.",
+        "En": "Find half the product of triangle base and height, then subtract."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "24 مساحة الجزء المقطوع.",
+        "En": "24 is the removed area."
+      },
+      {
+        "Ar": "48 ينتج من إهمال النصف.",
+        "En": "48 results from omitting one half."
+      },
+      null,
+      {
+        "Ar": "96 المساحة قبل القص.",
+        "En": "96 is the original area."
+      }
+    ],
+    "error": {
+      "Ar": "24 مساحة الجزء المقطوع.",
+      "En": "24 is the removed area."
+    },
+    "unit": {
+      "Ar": "سم²",
+      "En": "cm²"
+    }
+  },
+  {
+    "track": 6,
+    "cat": 4,
+    "skill": 19,
+    "sk": "primary-arithmetic-mean",
+    "family": "mean-target-next-observation",
+    "title": {
+      "Ar": "تحقيق متوسط مستهدف",
+      "En": "Reaching a target mean"
+    },
+    "q": {
+      "Ar": "سجل طالب أربع درجات: 6 و7 و8 و9. ما الدرجة الخامسة التي تجعل متوسط الدرجات الخمس 8؟",
+      "En": "A pupil records four scores: 6, 7, 8 and 9. What fifth score makes the mean of all five equal to 8?"
+    },
+    "opts": [
+      "8",
+      "9",
+      "10",
+      "12"
+    ],
+    "correct": 2,
+    "idea": {
+      "Ar": "نحسب المجموع المطلوب ثم نطرح مجموع الدرجات الحالية.",
+      "En": "Find the required total and subtract the current total."
+    },
+    "formula": "5\\cdot8-(6+7+8+9)=10",
+    "steps": [
+      {
+        "Ar": "$5\\cdot8=40$",
+        "En": "$5\\cdot8=40$"
+      },
+      {
+        "Ar": "$6+7+8+9=30$",
+        "En": "$6+7+8+9=30$"
+      },
+      {
+        "Ar": "$40-30=10$",
+        "En": "$40-30=10$"
+      }
+    ],
+    "sub": {
+      "Ar": "$40-30=10$",
+      "En": "$40-30=10$"
+    },
+    "result": {
+      "Ar": "$10$",
+      "En": "$10$"
+    },
+    "verify": {
+      "Ar": "$(30+10)/5=8$",
+      "En": "$(30+10)/5=8$"
+    },
+    "hints": [
+      {
+        "Ar": "ما المجموع الذي يعطي متوسطاً 8 لخمس قيم؟",
+        "En": "What total gives mean eight for five values?"
+      },
+      {
+        "Ar": "اطرح مجموع القيم الأربع.",
+        "En": "Subtract the sum of the four values."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "8 لا يرفع المتوسط إلى 8.",
+        "En": "8 does not raise the mean to eight."
+      },
+      {
+        "Ar": "9 يعطي متوسط 7.8.",
+        "En": "9 gives mean 7.8."
+      },
+      null,
+      {
+        "Ar": "12 يعطي متوسط 8.4.",
+        "En": "12 gives mean 8.4."
+      }
+    ],
+    "error": {
+      "Ar": "8 لا يرفع المتوسط إلى 8.",
+      "En": "8 does not raise the mean to eight."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 6,
+    "cat": 81,
+    "skill": 345,
+    "sk": "primary-signed-rational-number-sense",
+    "family": "signed-number-negative-zero-order",
+    "title": {
+      "Ar": "تحديد موضع الصفر بين الأعداد",
+      "En": "Locating zero in an ordering"
+    },
+    "q": {
+      "Ar": "رتبت القيم −1.5 و0 و−0.2 و1.2 تصاعدياً. ما ترتيب الصفر في القائمة؟",
+      "En": "The numbers −1.5, 0, −0.2 and 1.2 are sorted in increasing order. What is the position of zero in the list?"
+    },
+    "opts": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "correct": 2,
+    "idea": {
+      "Ar": "كل عدد سالب أصغر من الصفر، وكل عدد موجب أكبر منه.",
+      "En": "Every negative number is below zero and every positive number is above it."
+    },
+    "formula": "-1.5<-0.2<0<1.2",
+    "steps": [
+      {
+        "Ar": "يوجد عددان سالبان قبل الصفر.",
+        "En": "Two negative numbers precede zero."
+      },
+      {
+        "Ar": "$2+1=3$",
+        "En": "$2+1=3$"
+      }
+    ],
+    "sub": {
+      "Ar": "$2+1=3$",
+      "En": "$2+1=3$"
+    },
+    "result": {
+      "Ar": "$3$",
+      "En": "$3$"
+    },
+    "verify": {
+      "Ar": "يبقى عدد موجب واحد بعد الصفر.",
+      "En": "One positive number follows zero."
+    },
+    "hints": [
+      {
+        "Ar": "ضع السوالب قبل الصفر.",
+        "En": "Place negatives before zero."
+      },
+      {
+        "Ar": "عد موضع الصفر بعد العددين السالبين.",
+        "En": "Count zero's position after both negatives."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "الأول عدد سالب.",
+        "En": "The first is negative."
+      },
+      {
+        "Ar": "الثاني ما زال سالباً.",
+        "En": "The second is still negative."
+      },
+      null,
+      {
+        "Ar": "الرابع هو 1.2.",
+        "En": "The fourth is 1.2."
+      }
+    ],
+    "error": {
+      "Ar": "الأول عدد سالب.",
+      "En": "The first is negative."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  }
+]

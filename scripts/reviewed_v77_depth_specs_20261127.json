@@ -1,0 +1,512 @@
+[
+  {
+    "track": 2,
+    "stage": 1,
+    "cat": 82,
+    "skill": 321,
+    "sk": "length",
+    "family": "center-short-picture-on-strip",
+    "title": {
+      "Ar": "صورة وسط شريط",
+      "En": "Centering a picture"
+    },
+    "q": {
+      "Ar": "طول شريط ورقي 18 سم. وُضعت عليه صورة طولها 10 سم بحيث بقي فراغ متساوٍ عند كل طرف على امتداد الشريط. كم سنتيمتراً يبلغ طول الفراغ عند طرف واحد؟",
+      "En": "A paper strip is 18 cm long. A 10 cm picture is centered along its length, leaving equal gaps at the ends. How many centimeters long is one gap?"
+    },
+    "opts": [
+      "8",
+      "5",
+      "4",
+      "9"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "ثمانية هو مجموع الفراغين.",
+        "En": "Eight is the length of both gaps together."
+      },
+      {
+        "Ar": "خمسة نصف طول الصورة.",
+        "En": "Five is half the picture length."
+      },
+      null,
+      {
+        "Ar": "تسعة نصف طول الشريط كله.",
+        "En": "Nine is half the whole strip."
+      }
+    ],
+    "idea": {
+      "Ar": "نحسب الطول غير المغطى ثم نقسمه بين طرفين.",
+      "En": "Find the uncovered length and share it between two ends."
+    },
+    "formula": "18-10=8",
+    "steps": [
+      {
+        "Ar": "بعد وضع الصورة يبقى 8 سم للفراغين.",
+        "En": "After placing the picture, 8 cm remains for the two gaps."
+      },
+      {
+        "Ar": "نقسم 8 سم بالتساوي فنحصل على 4 سم عند كل طرف.",
+        "En": "Share 8 cm equally to get 4 cm at each end."
+      }
+    ],
+    "sub": {
+      "Ar": "$18-10=8$",
+      "En": "$18-10=8$"
+    },
+    "result": {
+      "Ar": "$4$",
+      "En": "$4$"
+    },
+    "verify": {
+      "Ar": "مجموع 4 سم و10 سم و4 سم يساوي 18 سم.",
+      "En": "The lengths 4 cm, 10 cm and 4 cm add to 18 cm."
+    },
+    "hints": [
+      {
+        "Ar": "ما الطول الذي تركته الصورة مكشوفاً؟",
+        "En": "How much length does the picture leave uncovered?"
+      },
+      {
+        "Ar": "كم فراغاً يشترك في الطول المتبقي؟",
+        "En": "How many gaps share what is left?"
+      }
+    ],
+    "error": {
+      "Ar": "ثمانية هو مجموع الفراغين.",
+      "En": "Eight is the length of both gaps together."
+    },
+    "unit": {
+      "Ar": "سم",
+      "En": "cm"
+    },
+    "difficulty": 2,
+    "points": 10
+  },
+  {
+    "track": 2,
+    "stage": 1,
+    "cat": 82,
+    "skill": 321,
+    "sk": "length",
+    "family": "measure-bent-route-versus-endpoint",
+    "title": {
+      "Ar": "طريق حول زاوية",
+      "En": "A path around a corner"
+    },
+    "q": {
+      "Ar": "يسير روبوت على خط مرسوم: 8 سم إلى اليمين ثم 5 سم إلى الأعلى ثم 8 سم إلى اليسار. كم سنتيمتراً قطع على الخط كله؟",
+      "En": "A robot follows a drawn line: 8 cm right, 5 cm up and 8 cm left. How many centimeters does it travel along the entire line?"
+    },
+    "opts": [
+      "5",
+      "13",
+      "16",
+      "21"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "خمسة هي المسافة العمودية بين البداية والنهاية فقط.",
+        "En": "Five is only the vertical distance between the start and finish."
+      },
+      {
+        "Ar": "هذا مجموع طول جزأين فقط.",
+        "En": "This adds only two of the segments."
+      },
+      {
+        "Ar": "هذا طول الجزأين الأفقيين فقط.",
+        "En": "This counts only the horizontal segments."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "نقيس المسار بجمع أطوال كل أجزائه.",
+      "En": "Measure the route by adding every segment length."
+    },
+    "formula": "8+5+8=21",
+    "steps": [
+      {
+        "Ar": "قطع الروبوت 13 سم قبل أن ينعطف إلى اليسار.",
+        "En": "The robot travels 13 cm before turning left."
+      },
+      {
+        "Ar": "الانعطاف لا يلغي ما قطعه؛ نضيف آخر 8 سم.",
+        "En": "Turning does not erase earlier travel. Add the last 8 cm."
+      }
+    ],
+    "sub": {
+      "Ar": "$8+5+8=21$",
+      "En": "$8+5+8=21$"
+    },
+    "result": {
+      "Ar": "$21$",
+      "En": "$21$"
+    },
+    "verify": {
+      "Ar": "الجزآن الأفقيان 16 سم، ومع 5 سم إلى الأعلى نحصل على 21 سم.",
+      "En": "The horizontal parts total 16 cm. Adding 5 cm upward gives 21 cm."
+    },
+    "hints": [
+      {
+        "Ar": "تتبّع خط الروبوت بإصبعك.",
+        "En": "Trace the robot’s line with your finger."
+      },
+      {
+        "Ar": "هل يختفي طول الجزء الأول عندما ينعطف الروبوت؟",
+        "En": "Does the first segment stop counting when the robot turns?"
+      }
+    ],
+    "error": {
+      "Ar": "خمسة هي المسافة العمودية بين البداية والنهاية فقط.",
+      "En": "Five is only the vertical distance between the start and finish."
+    },
+    "unit": {
+      "Ar": "سم",
+      "En": "cm"
+    },
+    "difficulty": 2,
+    "points": 10
+  },
+  {
+    "track": 2,
+    "stage": 1,
+    "cat": 82,
+    "skill": 321,
+    "sk": "length",
+    "family": "length-range-combine",
+    "title": {
+      "Ar": "أقل طول ممكن",
+      "En": "Shortest possible length"
+    },
+    "q": {
+      "Ar": "طول قلم إما 7 سم أو 9 سم، وطول ممحاة إما 3 سم أو 4 سم. وضعناهما على استقامة واحدة بحيث يتلامس طرفاهما. ما أقل طول ممكن لهما معاً بالسنتيمتر؟",
+      "En": "A pencil is either 7 or 9 cm long and an eraser is either 3 or 4 cm long. They touch end to end in a straight line. What is their shortest possible combined length in centimeters?"
+    },
+    "opts": [
+      "10",
+      "11",
+      "12",
+      "13"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "اختار الممحاة الأطول مع القلم الأقصر.",
+        "En": "This uses the longer eraser with the shorter pencil."
+      },
+      {
+        "Ar": "اختار القلم الأطول مع الممحاة الأقصر.",
+        "En": "This uses the longer pencil with the shorter eraser."
+      },
+      {
+        "Ar": "استخدم الطولين الأكبرين.",
+        "En": "This uses both longer lengths."
+      }
+    ],
+    "idea": {
+      "Ar": "نختار أقصر احتمال لكل جسم ثم نجمع الطولين.",
+      "En": "Choose the shorter possibility for each object and add the lengths."
+    },
+    "formula": "7+3=10",
+    "steps": [
+      {
+        "Ar": "أقصر قلم 7 سم وأقصر ممحاة 3 سم.",
+        "En": "The shortest pencil is 7 cm and the shortest eraser is 3 cm."
+      },
+      {
+        "Ar": "يتلامس الطرفان فلا يوجد فراغ نضيفه.",
+        "En": "The ends touch, so there is no gap to add."
+      }
+    ],
+    "sub": {
+      "Ar": "$7+3=10$",
+      "En": "$7+3=10$"
+    },
+    "result": {
+      "Ar": "$10$",
+      "En": "$10$"
+    },
+    "verify": {
+      "Ar": "زيادة طول أي جسم ستجعل المجموع أكبر من 10 سم.",
+      "En": "Using a longer version of either object gives more than 10 cm."
+    },
+    "hints": [
+      {
+        "Ar": "أي طول للقلم يساعدك على الحصول على أقصر صف؟",
+        "En": "Which pencil length helps make the shortest row?"
+      },
+      {
+        "Ar": "اختر طول الممحاة بالطريقة نفسها.",
+        "En": "Choose the eraser length the same way."
+      }
+    ],
+    "error": {
+      "Ar": "اختار الممحاة الأطول مع القلم الأقصر.",
+      "En": "This uses the longer eraser with the shorter pencil."
+    },
+    "unit": {
+      "Ar": "سم",
+      "En": "cm"
+    },
+    "difficulty": 2,
+    "points": 10
+  },
+  {
+    "track": 2,
+    "stage": 1,
+    "cat": 82,
+    "skill": 321,
+    "sk": "length",
+    "family": "estimate-with-two-known-lengths",
+    "title": {
+      "Ar": "تقدير طول القلم",
+      "En": "Estimating a pencil length"
+    },
+    "q": {
+      "Ar": "طول بطاقة 8 سم. قلم أطول من بطاقة واحدة لكنه أقصر من بطاقتين متلامستين طرفاً بطرف. أي طول من الخيارات يمكن أن يكون طول القلم بالسنتيمتر؟",
+      "En": "A card is 8 cm long. A pencil is longer than one card but shorter than two cards placed end to end. Which listed length in centimeters could be the pencil length?"
+    },
+    "opts": [
+      "8",
+      "12",
+      "16",
+      "20"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "هذا يساوي طول بطاقة واحدة.",
+        "En": "This equals one card length."
+      },
+      null,
+      {
+        "Ar": "هذا يساوي طول بطاقتين.",
+        "En": "This equals two card lengths."
+      },
+      {
+        "Ar": "هذا أطول من البطاقتين معاً.",
+        "En": "This is longer than the two cards together."
+      }
+    ],
+    "idea": {
+      "Ar": "نستخدم طول البطاقة مرجعاً لحدّي التقدير.",
+      "En": "Use the card length to find both limits of the estimate."
+    },
+    "formula": "8<12<16",
+    "steps": [
+      {
+        "Ar": "بطاقتان متلامستان طولهما 16 سم.",
+        "En": "Two cards end to end measure 16 cm."
+      },
+      {
+        "Ar": "من الخيارات يقع 12 فقط بين 8 و16.",
+        "En": "Only 12 among the choices lies between 8 and 16."
+      }
+    ],
+    "sub": {
+      "Ar": "$8<12<16$",
+      "En": "$8<12<16$"
+    },
+    "result": {
+      "Ar": "$12$",
+      "En": "$12$"
+    },
+    "verify": {
+      "Ar": "قلم طوله 12 سم يتجاوز بطاقة واحدة بأربعة سم ويقصر عن بطاقتين بأربعة سم.",
+      "En": "A 12 cm pencil is 4 cm longer than one card and 4 cm shorter than two."
+    },
+    "hints": [
+      {
+        "Ar": "كم يقيس صف من بطاقتين؟",
+        "En": "How long is a row of two cards?"
+      },
+      {
+        "Ar": "استبعد ما يساوي أحد الحدين أو يتجاوزه في الاتجاه الخطأ.",
+        "En": "Discard either endpoint and any length outside the two limits."
+      }
+    ],
+    "error": {
+      "Ar": "هذا يساوي طول بطاقة واحدة.",
+      "En": "This equals one card length."
+    },
+    "unit": {
+      "Ar": "سم",
+      "En": "cm"
+    },
+    "difficulty": 2,
+    "points": 10
+  },
+  {
+    "track": 2,
+    "stage": 1,
+    "cat": 82,
+    "skill": 321,
+    "sk": "length",
+    "family": "string-measures-curved-edge",
+    "title": {
+      "Ar": "قياس خط منحنٍ",
+      "En": "Measuring a curved line"
+    },
+    "q": {
+      "Ar": "تريد سلمى قياس طول خط منحنٍ مرسوم. أي طريقة تستخدم؟ A تقيس المسافة المستقيمة بين طرفيه. B تضع خيطاً على الخط كله ثم تفرده على مسطرة دون شده. C تقيس عرض الخط. D تقيس طول الورقة.",
+      "En": "Salma wants the length of a curved line on paper. Which method should she use? A measure straight between its ends, B follow the whole line with string and straighten it along a ruler without stretching, C measure the line’s width, D measure the length of the paper."
+    },
+    "opts": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "الوصلة المستقيمة تختصر الانحناء.",
+        "En": "The straight connection skips the bend."
+      },
+      null,
+      {
+        "Ar": "عرض الخط لا يقيس المسار على امتداده.",
+        "En": "The width does not measure distance along the line."
+      },
+      {
+        "Ar": "قد يتغير حجم الورقة مع بقاء الخط نفسه.",
+        "En": "The paper size can change while the line stays the same."
+      }
+    ],
+    "idea": {
+      "Ar": "ننقل طول المسار إلى خيط مرن.",
+      "En": "Transfer the path length to a flexible string."
+    },
+    "formula": "L_{curve}=L_{string}",
+    "steps": [
+      {
+        "Ar": "نجعل الخيط يتبع الانحناء تماماً ونحدد موضعي الطرفين عليه.",
+        "En": "Make the string follow the bend and mark the endpoints on it."
+      },
+      {
+        "Ar": "نفرد الجزء المعلّم من الخيط على المسطرة دون شده.",
+        "En": "Straighten the marked section along the ruler without stretching it."
+      }
+    ],
+    "sub": {
+      "Ar": "$L_{curve}=L_{string}$",
+      "En": "$L_{curve}=L_{string}$"
+    },
+    "result": {
+      "Ar": "$B$",
+      "En": "$B$"
+    },
+    "verify": {
+      "Ar": "عند إعادة الخيط إلى الخط المنحني تقع العلامتان على طرفيه.",
+      "En": "When the string is laid back on the curve, its marks meet the endpoints."
+    },
+    "hints": [
+      {
+        "Ar": "هل تسير المسطرة المستقيمة حول المنعطف؟",
+        "En": "Can a straight ruler follow the bend?"
+      },
+      {
+        "Ar": "فكر في شيء يتبع الخط ثم يستقيم دون أن يتغير طوله.",
+        "En": "Think of something that follows the line and then straightens without changing length."
+      }
+    ],
+    "error": {
+      "Ar": "الوصلة المستقيمة تختصر الانحناء.",
+      "En": "The straight connection skips the bend."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    },
+    "difficulty": 2,
+    "points": 10
+  },
+  {
+    "track": 2,
+    "stage": 1,
+    "cat": 82,
+    "skill": 321,
+    "sk": "length",
+    "family": "strip-flipped-read-mark",
+    "title": {
+      "Ar": "قلب الشريط",
+      "En": "Turning a strip around"
+    },
+    "q": {
+      "Ar": "شريط طوله 15 سم وعليه نجمة على بعد 4 سم من طرفه الأيسر. قُلب الشريط على الطاولة حتى تبادل الطرفان مكانهما. كم سنتيمتراً تبعد النجمة الآن عن الطرف الأيسر الجديد؟",
+      "En": "A 15 cm strip has a star 4 cm from its left end. It is turned around on the table so the ends swap places. How many centimeters is the star from the new left end?"
+    },
+    "opts": [
+      "4",
+      "15",
+      "19",
+      "11"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "أربعة هي المسافة إلى الطرف الأيسر القديم.",
+        "En": "Four is the distance from the old left end."
+      },
+      {
+        "Ar": "خمسة عشر هو طول الشريط كله.",
+        "En": "Fifteen is the whole strip length."
+      },
+      {
+        "Ar": "لا يمكن أن تقع النجمة على بعد يتجاوز طول الشريط.",
+        "En": "A star on the strip cannot be farther away than the strip is long."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "الطرف الأيسر الجديد هو الطرف الأيمن القديم.",
+      "En": "The new left end is the old right end."
+    },
+    "formula": "15-4=11",
+    "steps": [
+      {
+        "Ar": "تقسم النجمة الشريط إلى جزأين طولاهما 4 سم و11 سم.",
+        "En": "The star divides the strip into lengths of 4 cm and 11 cm."
+      },
+      {
+        "Ar": "عند تبادل الطرفين يصبح الجزء الأطول على اليسار.",
+        "En": "When the ends swap, the longer part is on the left."
+      }
+    ],
+    "sub": {
+      "Ar": "$15-4=11$",
+      "En": "$15-4=11$"
+    },
+    "result": {
+      "Ar": "$11$",
+      "En": "$11$"
+    },
+    "verify": {
+      "Ar": "المسافتان من النجمة إلى الطرفين مجموعهما 15 سم قبل القلب وبعده.",
+      "En": "The distances from the star to the two ends still sum to 15 cm after turning."
+    },
+    "hints": [
+      {
+        "Ar": "ضع علامة على الطرف الذي كان يميناً.",
+        "En": "Mark the end that was on the right."
+      },
+      {
+        "Ar": "أي جزء يقع بين هذا الطرف والنجمة؟",
+        "En": "Which part lies between that end and the star?"
+      }
+    ],
+    "error": {
+      "Ar": "أربعة هي المسافة إلى الطرف الأيسر القديم.",
+      "En": "Four is the distance from the old left end."
+    },
+    "unit": {
+      "Ar": "سم",
+      "En": "cm"
+    },
+    "difficulty": 2,
+    "points": 10
+  }
+]

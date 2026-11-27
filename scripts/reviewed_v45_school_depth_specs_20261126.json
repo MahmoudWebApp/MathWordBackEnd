@@ -1,0 +1,990 @@
+[
+  {
+    "track": 1,
+    "cat": 96,
+    "skill": 354,
+    "sk": "primary-shape-attributes-composition",
+    "family": "shape-closed-polygon-side-count-match",
+    "title": {
+      "Ar": "مطابقة الأضلاع والرؤوس",
+      "En": "Matching sides and corners"
+    },
+    "q": {
+      "Ar": "شكل مغلق مكوّن من خمسة أضلاع مستقيمة، تلتقي الأضلاع عند زواياه فقط. كم رأساً له؟",
+      "En": "A closed simple shape has five straight sides meeting only at its corners. How many vertices does it have?"
+    },
+    "opts": [
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "correct": 2,
+    "idea": {
+      "Ar": "لكل ضلع في المضلع المغلق رأس عند نهايته التالية.",
+      "En": "Each side of a simple polygon ends at the next vertex."
+    },
+    "formula": "1+1+1+1+1=5",
+    "steps": [
+      {
+        "Ar": "نتتبع حدود الشكل مرة واحدة ونعد كل رأس مرة واحدة.",
+        "En": "Follow the boundary once, counting each vertex once."
+      },
+      {
+        "Ar": "$5=5$",
+        "En": "$5=5$"
+      }
+    ],
+    "sub": {
+      "Ar": "$5=5$",
+      "En": "$5=5$"
+    },
+    "result": {
+      "Ar": "$5$",
+      "En": "$5$"
+    },
+    "verify": {
+      "Ar": "خمسة أضلاع متتابعة تعطي خمسة رؤوس.",
+      "En": "Five successive sides give five vertices."
+    },
+    "hints": [
+      {
+        "Ar": "ابدأ عند أحد الرؤوس.",
+        "En": "Start at one corner."
+      },
+      {
+        "Ar": "لا تعد رأس البداية مرتين.",
+        "En": "Do not count the starting corner twice."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "ثلاثة رؤوس لمثلث.",
+        "En": "Three vertices belong to a triangle."
+      },
+      {
+        "Ar": "أربعة لا تكفي لخمسة أضلاع.",
+        "En": "Four is too few for five sides."
+      },
+      null,
+      {
+        "Ar": "ستة يكرر رأس البداية.",
+        "En": "Six counts the starting vertex twice."
+      }
+    ],
+    "error": {
+      "Ar": "ثلاثة رؤوس لمثلث.",
+      "En": "Three vertices belong to a triangle."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 1,
+    "cat": 97,
+    "skill": 356,
+    "sk": "primary-category-count-data",
+    "family": "category-count-compare-with-fixed-target",
+    "title": {
+      "Ar": "قراءة الأعداد وفق شرط",
+      "En": "Reading counts with a condition"
+    },
+    "q": {
+      "Ar": "اختار 2 من الأطفال الرسم و6 القراءة و4 اللعب و5 الغناء. كم نشاطاً اختاره أكثر من ثلاثة أطفال؟",
+      "En": "Two children chose drawing, six reading, four playing and five singing. How many activities were chosen by more than three children?"
+    },
+    "opts": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "correct": 2,
+    "idea": {
+      "Ar": "نعد الفئات التي يزيد عددها على ثلاثة، وليس الأطفال أنفسهم.",
+      "En": "Count categories whose counts exceed three, not individual children."
+    },
+    "formula": "6>3,\\quad4>3,\\quad5>3",
+    "steps": [
+      {
+        "Ar": "القراءة واللعب والغناء تحقق الشرط.",
+        "En": "Reading, playing and singing meet the condition."
+      },
+      {
+        "Ar": "$1+1+1=3$",
+        "En": "$1+1+1=3$"
+      }
+    ],
+    "sub": {
+      "Ar": "$1+1+1=3$",
+      "En": "$1+1+1=3$"
+    },
+    "result": {
+      "Ar": "$3$",
+      "En": "$3$"
+    },
+    "verify": {
+      "Ar": "الرسم وحده لا يحقق الشرط.",
+      "En": "Only drawing fails the condition."
+    },
+    "hints": [
+      {
+        "Ar": "قارن عدد كل نشاط بثلاثة.",
+        "En": "Compare each count with three."
+      },
+      {
+        "Ar": "عد الأنشطة التي تحقق الشرط.",
+        "En": "Count qualifying activities."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "يهمل نشاطين مؤهلين.",
+        "En": "Misses two qualifying activities."
+      },
+      {
+        "Ar": "يهمل نشاطاً مؤهلاً.",
+        "En": "Misses one qualifying activity."
+      },
+      null,
+      {
+        "Ar": "يضم الرسم رغم أن عدده اثنان.",
+        "En": "Includes drawing although its count is two."
+      }
+    ],
+    "error": {
+      "Ar": "يهمل نشاطين مؤهلين.",
+      "En": "Misses two qualifying activities."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 2,
+    "cat": 96,
+    "skill": 355,
+    "sk": "primary-shape-attributes-partition",
+    "family": "rectangular-box-face-opposite-pairs",
+    "title": {
+      "Ar": "أزواج أوجه صندوق",
+      "En": "Pairs of box faces"
+    },
+    "q": {
+      "Ar": "لصندوق مستطيل ستة أوجه مستوية، كل وجه له وجه مقابل واحد. كم زوجاً مختلفاً من الأوجه المتقابلة يوجد؟",
+      "En": "A rectangular box has six flat faces, and each face has exactly one opposite face. How many distinct pairs of opposite faces are there?"
+    },
+    "opts": [
+      "2",
+      "3",
+      "6",
+      "12"
+    ],
+    "correct": 1,
+    "idea": {
+      "Ar": "كل زوج يضم وجهين، وكل وجه يدخل في زوج واحد.",
+      "En": "Each pair contains two faces and each face belongs to one pair."
+    },
+    "formula": "6/2=3",
+    "steps": [
+      {
+        "Ar": "نضم كل وجه إلى مقابله دون تكرار.",
+        "En": "Pair each face with its opposite without repetition."
+      },
+      {
+        "Ar": "$6/2=3$",
+        "En": "$6/2=3$"
+      }
+    ],
+    "sub": {
+      "Ar": "$6/2=3$",
+      "En": "$6/2=3$"
+    },
+    "result": {
+      "Ar": "$3$",
+      "En": "$3$"
+    },
+    "verify": {
+      "Ar": "$3\\cdot2=6$",
+      "En": "$3\\cdot2=6$"
+    },
+    "hints": [
+      {
+        "Ar": "كم وجه في كل زوج؟",
+        "En": "How many faces are in each pair?"
+      },
+      {
+        "Ar": "قسّم الأوجه الستة إلى أزواج.",
+        "En": "Split six faces into pairs."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "زوجان يغطيان أربعة أوجه.",
+        "En": "Two pairs cover four faces."
+      },
+      null,
+      {
+        "Ar": "ستة عدد الأوجه لا الأزواج.",
+        "En": "Six counts faces, not pairs."
+      },
+      {
+        "Ar": "اثنا عشر عدد أحرف الصندوق.",
+        "En": "Twelve counts the box's edges."
+      }
+    ],
+    "error": {
+      "Ar": "زوجان يغطيان أربعة أوجه.",
+      "En": "Two pairs cover four faces."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 2,
+    "cat": 97,
+    "skill": 357,
+    "sk": "primary-single-unit-picture-data",
+    "family": "pictograph-compare-two-days-one-category",
+    "title": {
+      "Ar": "مقارنة سجلين مصورين",
+      "En": "Comparing two pictographs"
+    },
+    "q": {
+      "Ar": "كل ● يمثل كتاباً واحداً. يوم الاثنين: A: ●●●، B: ●●●●. يوم الثلاثاء: A: ●●●●●، B: ●●. أي رف زاد عدد كتبه، وبكم؟ A: الرف A، كتابان؛ B: الرف B، كتابان؛ C: الرف A، خمسة كتب؛ D: الرف B، أربعة كتب.",
+      "En": "Each ● represents one book. Monday: A: ●●●, B: ●●●●. Tuesday: A: ●●●●●, B: ●●. Which shelf gained books, and how many? A: shelf A, 2; B: shelf B, 2; C: shelf A, 5; D: shelf B, 4."
+    },
+    "opts": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correct": 0,
+    "idea": {
+      "Ar": "نقارن عدد كل رف في اليومين.",
+      "En": "Compare each shelf's count across the two days."
+    },
+    "formula": "5-3=2",
+    "steps": [
+      {
+        "Ar": "زاد A من ثلاثة إلى خمسة، بينما نقص B من أربعة إلى اثنين.",
+        "En": "A rose from three to five while B fell from four to two."
+      },
+      {
+        "Ar": "$5-3=2$",
+        "En": "$5-3=2$"
+      }
+    ],
+    "sub": {
+      "Ar": "$5-3=2$",
+      "En": "$5-3=2$"
+    },
+    "result": {
+      "Ar": "$A$",
+      "En": "$A$"
+    },
+    "verify": {
+      "Ar": "$3+2=5$",
+      "En": "$3+2=5$"
+    },
+    "hints": [
+      {
+        "Ar": "قارن الرف نفسه في اليومين.",
+        "En": "Compare the same shelf on both days."
+      },
+      {
+        "Ar": "احسب الزيادة لا العدد النهائي.",
+        "En": "Find the increase, not the final count."
+      }
+    ],
+    "reasons": [
+      null,
+      {
+        "Ar": "B نقص بمقدار اثنين.",
+        "En": "B lost two books."
+      },
+      {
+        "Ar": "خمسة العدد النهائي لا الزيادة.",
+        "En": "Five is the final count, not the increase."
+      },
+      {
+        "Ar": "أربعة عدد B في اليوم الأول.",
+        "En": "Four is B's first-day count."
+      }
+    ],
+    "error": {
+      "Ar": "B نقص بمقدار اثنين.",
+      "En": "B lost two books."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 4,
+    "cat": 2,
+    "skill": 9,
+    "sk": "primary-one-step-multiplicative-equations",
+    "family": "one-step-equation-zero-product-nonzero-factor",
+    "title": {
+      "Ar": "معادلة حاصلها صفر",
+      "En": "Equation with zero product"
+    },
+    "q": {
+      "Ar": "ما العدد n الذي يحقق 8n=0؟",
+      "En": "Which number n satisfies 8n=0?"
+    },
+    "opts": [
+      "0",
+      "1",
+      "8",
+      "80"
+    ],
+    "correct": 0,
+    "idea": {
+      "Ar": "حاصل ضرب عدد غير صفري في عدد آخر يساوي صفراً فقط إذا كان العدد الآخر صفراً.",
+      "En": "A nonzero factor times another number is zero only if the other number is zero."
+    },
+    "formula": "n=0/8",
+    "steps": [
+      {
+        "Ar": "$n=0$",
+        "En": "$n=0$"
+      },
+      {
+        "Ar": "ثمانية غير صفري، لذا القسمة عليه ممكنة.",
+        "En": "Eight is nonzero, so dividing by it is valid."
+      }
+    ],
+    "sub": {
+      "Ar": "ثمانية غير صفري، لذا القسمة عليه ممكنة.",
+      "En": "Eight is nonzero, so dividing by it is valid."
+    },
+    "result": {
+      "Ar": "$0$",
+      "En": "$0$"
+    },
+    "verify": {
+      "Ar": "$8\\cdot0=0$",
+      "En": "$8\\cdot0=0$"
+    },
+    "hints": [
+      {
+        "Ar": "اقسم الطرفين على ثمانية.",
+        "En": "Divide both sides by eight."
+      },
+      {
+        "Ar": "ما حاصل قسمة الصفر على عدد غير صفري؟",
+        "En": "What is zero divided by a nonzero number?"
+      }
+    ],
+    "reasons": [
+      null,
+      {
+        "Ar": "8×1=8.",
+        "En": "8×1=8."
+      },
+      {
+        "Ar": "8×8=64.",
+        "En": "8×8=64."
+      },
+      {
+        "Ar": "8×80=640.",
+        "En": "8×80=640."
+      }
+    ],
+    "error": {
+      "Ar": "8×1=8.",
+      "En": "8×1=8."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 5,
+    "cat": 81,
+    "skill": 303,
+    "sk": "estimation",
+    "family": "estimate-rounding-sum-max-error-two-terms",
+    "title": {
+      "Ar": "حد خطأ التقريب",
+      "En": "Bounding rounding error"
+    },
+    "q": {
+      "Ar": "قُرّب عددان صحيحان إلى أقرب عشرة مع تقريب المنتصف للأعلى. ما أكبر مقدار ممكن لخطأ مجموع العددين المقربين مقارنة بالمجموع الحقيقي؟",
+      "En": "Two integers are rounded to the nearest ten, with halfway cases rounded up. What is the largest possible absolute error of their rounded sum compared with the exact sum?"
+    },
+    "opts": [
+      "4",
+      "5",
+      "9",
+      "10"
+    ],
+    "correct": 3,
+    "idea": {
+      "Ar": "خطأ كل تقريب لا يتجاوز خمسة، ويمكن أن يكون الخطآن موجبين بمقدار خمسة لكل منهما.",
+      "En": "Each rounding error is at most five in magnitude; both can be positive five."
+    },
+    "formula": "|e_1+e_2|\\le5+5=10",
+    "steps": [
+      {
+        "Ar": "مثلاً 15 و25 يُقربان إلى 20 و30.",
+        "En": "For example, 15 and 25 round to 20 and 30."
+      },
+      {
+        "Ar": "$(20+30)-(15+25)=10$",
+        "En": "$(20+30)-(15+25)=10$"
+      }
+    ],
+    "sub": {
+      "Ar": "$(20+30)-(15+25)=10$",
+      "En": "$(20+30)-(15+25)=10$"
+    },
+    "result": {
+      "Ar": "$10$",
+      "En": "$10$"
+    },
+    "verify": {
+      "Ar": "$50-40=10$",
+      "En": "$50-40=10$"
+    },
+    "hints": [
+      {
+        "Ar": "ما أكبر خطأ لتقريب عدد واحد؟",
+        "En": "What is the greatest error for one rounded integer?"
+      },
+      {
+        "Ar": "يمكن أن يقع الخطآن في الاتجاه نفسه.",
+        "En": "Both errors can point in the same direction."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "أصغر من خطأ عدد واحد عند المنتصف.",
+        "En": "Less than a single halfway rounding error."
+      },
+      {
+        "Ar": "حد الخطأ لعدد واحد فقط.",
+        "En": "Bounds only one rounding error."
+      },
+      {
+        "Ar": "لا يشمل حالة عددين ينتهيان بخمسة.",
+        "En": "Misses the case where both numbers end in five."
+      },
+      null
+    ],
+    "error": {
+      "Ar": "أصغر من خطأ عدد واحد عند المنتصف.",
+      "En": "Less than a single halfway rounding error."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 6,
+    "cat": 4,
+    "skill": 18,
+    "sk": "primary-median",
+    "family": "median-even-list-two-middle-average",
+    "title": {
+      "Ar": "وسيط قائمة زوجية",
+      "En": "Median of an even-sized list"
+    },
+    "q": {
+      "Ar": "أربع قراءات غير مرتبة: 14، 3، 8، 5. ما وسيطها؟",
+      "En": "Four unordered readings are 14, 3, 8, 5. What is their median?"
+    },
+    "opts": [
+      "5",
+      "6.5",
+      "7.5",
+      "8"
+    ],
+    "correct": 1,
+    "idea": {
+      "Ar": "نرتب القيم ونحسب متوسط القيمتين الوسطيتين لأن العدد زوجي.",
+      "En": "Sort the values and average the middle two because the count is even."
+    },
+    "formula": "M=(5+8)/2",
+    "steps": [
+      {
+        "Ar": "الترتيب هو 3،5،8،14.",
+        "En": "The order is 3,5,8,14."
+      },
+      {
+        "Ar": "$13/2=6.5$",
+        "En": "$13/2=6.5$"
+      }
+    ],
+    "sub": {
+      "Ar": "$13/2=6.5$",
+      "En": "$13/2=6.5$"
+    },
+    "result": {
+      "Ar": "$6.5$",
+      "En": "$6.5$"
+    },
+    "verify": {
+      "Ar": "$6.5-5=8-6.5=1.5$",
+      "En": "$6.5-5=8-6.5=1.5$"
+    },
+    "hints": [
+      {
+        "Ar": "رتب القيم تصاعدياً.",
+        "En": "Sort the values in increasing order."
+      },
+      {
+        "Ar": "اجمع القيمتين الثانية والثالثة واقسم على اثنين.",
+        "En": "Average the second and third observations."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "5 إحدى القيمتين الوسطيتين فقط.",
+        "En": "Five is only one middle value."
+      },
+      null,
+      {
+        "Ar": "7.5 ليس متوسط 5 و8.",
+        "En": "7.5 is not the average of five and eight."
+      },
+      {
+        "Ar": "8 القيمة الوسطى الأخرى فقط.",
+        "En": "Eight is only the other middle value."
+      }
+    ],
+    "error": {
+      "Ar": "5 إحدى القيمتين الوسطيتين فقط.",
+      "En": "Five is only one middle value."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 6,
+    "cat": 81,
+    "skill": 345,
+    "sk": "primary-signed-rational-number-sense",
+    "family": "signed-number-distance-order-same-sign",
+    "title": {
+      "Ar": "مسافة بين قيمتين سالبتين",
+      "En": "Distance between negative values"
+    },
+    "q": {
+      "Ar": "تقع نقطتان على خط الأعداد عند −5 و−2. كم وحدة تفصل بينهما؟",
+      "En": "Two points on a number line lie at −5 and −2. How many units separate them?"
+    },
+    "opts": [
+      "-7",
+      "-3",
+      "3",
+      "7"
+    ],
+    "correct": 2,
+    "idea": {
+      "Ar": "المسافة غير سالبة وتساوي القيمة المطلقة للفرق.",
+      "En": "Distance is nonnegative and equals the absolute difference."
+    },
+    "formula": "|-5-(-2)|=3",
+    "steps": [
+      {
+        "Ar": "$-5+2=-3$",
+        "En": "$-5+2=-3$"
+      },
+      {
+        "Ar": "$|-3|=3$",
+        "En": "$|-3|=3$"
+      }
+    ],
+    "sub": {
+      "Ar": "$|-3|=3$",
+      "En": "$|-3|=3$"
+    },
+    "result": {
+      "Ar": "$3$",
+      "En": "$3$"
+    },
+    "verify": {
+      "Ar": "$-5+3=-2$",
+      "En": "$-5+3=-2$"
+    },
+    "hints": [
+      {
+        "Ar": "تحرك من −5 نحو −2.",
+        "En": "Move from −5 toward −2."
+      },
+      {
+        "Ar": "عد الفواصل بينهما، لا الإشارات.",
+        "En": "Count the intervals between them, not the signs."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "المسافة لا تكون سالبة.",
+        "En": "Distance cannot be negative."
+      },
+      {
+        "Ar": "−3 فرق موقّع لا مسافة.",
+        "En": "−3 is a signed difference, not distance."
+      },
+      null,
+      {
+        "Ar": "7 مجموع المسافتين عن الصفر.",
+        "En": "Seven adds distances from zero."
+      }
+    ],
+    "error": {
+      "Ar": "المسافة لا تكون سالبة.",
+      "En": "Distance cannot be negative."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 7,
+    "cat": 6,
+    "skill": 25,
+    "sk": "middle-linear-equations",
+    "family": "linear-equation-fractional-constant-balance",
+    "title": {
+      "Ar": "معادلة ذات ثابت كسري",
+      "En": "Equation with a fractional constant"
+    },
+    "q": {
+      "Ar": "حل المعادلة $2x+\\frac12=\\frac72$.",
+      "En": "Solve $2x+\\frac12=\\frac72$."
+    },
+    "opts": [
+      "1",
+      "\\frac32",
+      "2",
+      "3"
+    ],
+    "correct": 1,
+    "idea": {
+      "Ar": "نعزل الحد المتغير بطرح نصف من الطرفين ثم نقسم على اثنين.",
+      "En": "Isolate the variable term by subtracting one half, then divide by two."
+    },
+    "formula": "2x=7/2-1/2",
+    "steps": [
+      {
+        "Ar": "$2x=6/2=3$",
+        "En": "$2x=6/2=3$"
+      },
+      {
+        "Ar": "$x=3/2$",
+        "En": "$x=3/2$"
+      }
+    ],
+    "sub": {
+      "Ar": "$x=3/2$",
+      "En": "$x=3/2$"
+    },
+    "result": {
+      "Ar": "$\\frac32$",
+      "En": "$\\frac32$"
+    },
+    "verify": {
+      "Ar": "$2(3/2)+1/2=7/2$",
+      "En": "$2(3/2)+1/2=7/2$"
+    },
+    "hints": [
+      {
+        "Ar": "اطرح نصفاً من الطرفين.",
+        "En": "Subtract one half from both sides."
+      },
+      {
+        "Ar": "اقسم الناتج على اثنين.",
+        "En": "Divide the result by two."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "1 يعطي 5/2.",
+        "En": "One gives 5/2."
+      },
+      null,
+      {
+        "Ar": "2 يعطي 9/2.",
+        "En": "Two gives 9/2."
+      },
+      {
+        "Ar": "3 قيمة 2x لا x.",
+        "En": "Three is 2x, not x."
+      }
+    ],
+    "error": {
+      "Ar": "1 يعطي 5/2.",
+      "En": "One gives 5/2."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 8,
+    "cat": 84,
+    "skill": 327,
+    "sk": "solve-linear-inequalities",
+    "family": "inequality-negative-distribution-sign-balance",
+    "title": {
+      "Ar": "اختبار تكافؤ متراجحتين",
+      "En": "Testing inequality equivalence"
+    },
+    "q": {
+      "Ar": "أي متراجحة تنتج عند ضرب طرفي $2x-3\\le7$ في −2 مباشرة؟",
+      "En": "Which inequality follows immediately from multiplying both sides of $2x-3\\le7$ by −2?"
+    },
+    "opts": [
+      "-4x+6\\le-14",
+      "-4x-6\\ge-14",
+      "-4x+6\\ge-14",
+      "4x-6\\ge14"
+    ],
+    "correct": 2,
+    "idea": {
+      "Ar": "نوزع العامل السالب على كل حد ونعكس اتجاه المتراجحة.",
+      "En": "Distribute the negative factor over every term and reverse the inequality."
+    },
+    "formula": "-2(2x-3)\\ge-2(7)",
+    "steps": [
+      {
+        "Ar": "$-2(2x)=-4x$",
+        "En": "$-2(2x)=-4x$"
+      },
+      {
+        "Ar": "$(-2)(-3)=6$",
+        "En": "$(-2)(-3)=6$"
+      },
+      {
+        "Ar": "$-4x+6\\ge-14$",
+        "En": "$-4x+6\\ge-14$"
+      }
+    ],
+    "sub": {
+      "Ar": "$-4x+6\\ge-14$",
+      "En": "$-4x+6\\ge-14$"
+    },
+    "result": {
+      "Ar": "$-4x+6\\ge-14$",
+      "En": "$-4x+6\\ge-14$"
+    },
+    "verify": {
+      "Ar": "$x=5:\\ -20+6=-14$",
+      "En": "$x=5:\\ -20+6=-14$"
+    },
+    "hints": [
+      {
+        "Ar": "اضرب كل حد في −2.",
+        "En": "Multiply every term by −2."
+      },
+      {
+        "Ar": "اعكس اتجاه المقارنة بسبب الضرب بسالب.",
+        "En": "Reverse the comparison when multiplying by a negative."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "لم يعكس اتجاه المتراجحة.",
+        "En": "Fails to reverse the inequality."
+      },
+      {
+        "Ar": "حاصل ضرب سالبين موجب.",
+        "En": "The product of two negatives is positive."
+      },
+      null,
+      {
+        "Ar": "لم يطبق العامل السالب على الحدود.",
+        "En": "Fails to apply the negative factor."
+      }
+    ],
+    "error": {
+      "Ar": "لم يعكس اتجاه المتراجحة.",
+      "En": "Fails to reverse the inequality."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 8,
+    "cat": 85,
+    "skill": 335,
+    "sk": "frequency",
+    "family": "experimental-frequency-zero-observed-not-impossible",
+    "title": {
+      "Ar": "تفسير غياب نتيجة في التجربة",
+      "En": "Interpreting an unobserved outcome"
+    },
+    "q": {
+      "Ar": "أُجريت 20 تجربة ولم يظهر الحدث A في أي منها. ما التكرار النسبي المشاهد له؟",
+      "En": "In 20 trials, event A never occurred. What is its observed relative frequency?"
+    },
+    "opts": [
+      "0",
+      "\\frac1{20}",
+      "\\frac12",
+      "1"
+    ],
+    "correct": 0,
+    "idea": {
+      "Ar": "التكرار النسبي المشاهد هو عدد مرات الحدوث مقسوماً على عدد التجارب؛ الصفر المشاهد لا يثبت الاستحالة.",
+      "En": "Observed relative frequency is the observed count divided by trials; an observed zero does not prove impossibility."
+    },
+    "formula": "f=0/20",
+    "steps": [
+      {
+        "Ar": "عدد مرات الحدوث صفر وعدد التجارب 20.",
+        "En": "The occurrence count is zero and trial count is 20."
+      },
+      {
+        "Ar": "$0/20=0$",
+        "En": "$0/20=0$"
+      }
+    ],
+    "sub": {
+      "Ar": "$0/20=0$",
+      "En": "$0/20=0$"
+    },
+    "result": {
+      "Ar": "$0$",
+      "En": "$0$"
+    },
+    "verify": {
+      "Ar": "$20\\cdot0=0$",
+      "En": "$20\\cdot0=0$"
+    },
+    "hints": [
+      {
+        "Ar": "كم مرة ظهر الحدث؟",
+        "En": "How often did the event occur?"
+      },
+      {
+        "Ar": "اقسم ذلك العدد على 20.",
+        "En": "Divide that count by twenty."
+      }
+    ],
+    "reasons": [
+      null,
+      {
+        "Ar": "يفترض حدوثاً واحداً.",
+        "En": "Assumes one occurrence."
+      },
+      {
+        "Ar": "يفترض عشرة حدوثات.",
+        "En": "Assumes ten occurrences."
+      },
+      {
+        "Ar": "يفترض حدوثه في جميع التجارب.",
+        "En": "Assumes occurrence in all trials."
+      }
+    ],
+    "error": {
+      "Ar": "يفترض حدوثاً واحداً.",
+      "En": "Assumes one occurrence."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 11,
+    "cat": 10,
+    "skill": 47,
+    "sk": "secondary-pythagorean-trig-identity",
+    "family": "trig-square-identity-domain-range-bound",
+    "title": {
+      "Ar": "حدود تعبير مثلثي",
+      "En": "Bounds of a trigonometric expression"
+    },
+    "q": {
+      "Ar": "ما أكبر قيمة ممكنة للتعبير $3\\sin^2\\theta+3\\cos^2\\theta+\\sin^2\\theta$ عندما تكون θ زاوية حقيقية؟",
+      "En": "What is the greatest possible value of $3\\sin^2\\theta+3\\cos^2\\theta+\\sin^2\\theta$ for real θ?"
+    },
+    "opts": [
+      "1",
+      "3",
+      "4",
+      "7"
+    ],
+    "correct": 2,
+    "idea": {
+      "Ar": "نجمع الحدين ذوي المعامل المشترك ثم نستخدم مجال مربع الجيب.",
+      "En": "Combine the terms with a common coefficient, then use the range of sine squared."
+    },
+    "formula": "3(\\sin^2\\theta+\\cos^2\\theta)+\\sin^2\\theta=3+\\sin^2\\theta",
+    "steps": [
+      {
+        "Ar": "$0\\le\\sin^2\\theta\\le1$",
+        "En": "$0\\le\\sin^2\\theta\\le1$"
+      },
+      {
+        "Ar": "$3+1=4$",
+        "En": "$3+1=4$"
+      }
+    ],
+    "sub": {
+      "Ar": "$3+1=4$",
+      "En": "$3+1=4$"
+    },
+    "result": {
+      "Ar": "$4$",
+      "En": "$4$"
+    },
+    "verify": {
+      "Ar": "$\\theta=90^\\circ:\\ 3+1=4$",
+      "En": "$\\theta=90^\\circ:\\ 3+1=4$"
+    },
+    "hints": [
+      {
+        "Ar": "استعمل أن مجموع مربعي الجيب وجيب التمام واحد.",
+        "En": "Use that sine squared plus cosine squared is one."
+      },
+      {
+        "Ar": "ما أكبر قيمة لمربع الجيب؟",
+        "En": "What is the maximum of sine squared?"
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "يهمل الثابت 3.",
+        "En": "Omits the constant three."
+      },
+      {
+        "Ar": "هذه القيمة الصغرى.",
+        "En": "This is the minimum."
+      },
+      null,
+      {
+        "Ar": "لا يمكن أن يبلغ المربعان واحداً معاً.",
+        "En": "Both squares cannot equal one simultaneously."
+      }
+    ],
+    "error": {
+      "Ar": "يهمل الثابت 3.",
+      "En": "Omits the constant three."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  }
+]

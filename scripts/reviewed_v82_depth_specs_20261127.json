@@ -1,0 +1,1613 @@
+{
+  "batch": "V82",
+  "sourceHead": "58cf61d3fefbb82de49a764cc569fcfd4b6295a5",
+  "holds": {
+    "circle-tile-flat-rectangle-gap": "Correct construction repeats #2098, with circle distractors only.",
+    "three-square-pattern-match-turn": "Half-turn spatial orientation distinct but specific grade 1 progression needs confirmation; prior rotation #2991.",
+    "pictograph-swap-labels-total-invariant": "Total invariance under category changes overlaps #2118, and label swap related to #3029.",
+    "pictograph-votes-versus-voters": "Multiple-response extremum beyond single-unit simple category skill; hold for progression."
+  },
+  "rows": [
+    {
+      "key": "growth-v82-grade-1-half-circle-boundary-types-1",
+      "family": "half-circle-boundary-types",
+      "skill_key": "primary-shape-attributes-composition",
+      "track_code": "grade-1",
+      "track": 1,
+      "stage": 1,
+      "category": 96,
+      "skill": 354,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 96,
+        "PrimarySkillId": 354,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          1
+        ],
+        "DifficultyLevel": 1,
+        "Points": 10,
+        "Title": {
+          "Ar": "حدود نصف الدائرة",
+          "En": "Boundary of a half circle"
+        },
+        "Question": {
+          "Ar": "قصّ طفل دائرة ورقية إلى نصفين متساويين بخط مستقيم يمر بمركزها. في إحدى القطعتين، كم جزءاً مستقيماً وكم جزءاً منحنياً يشكّلان الحد الخارجي؟ اختر الزوج بالترتيب: مستقيم، منحني.",
+          "En": "A child cuts a paper circle into two equal halves along a straight line through its center. For one piece, how many straight and curved portions form the boundary? Choose the pair in the order: straight, curved."
+        },
+        "Options": [
+          {
+            "LatexCode": "(0,1)",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "خط القص يشكّل جزءاً مستقيماً أيضاً.",
+              "En": "The cut also forms a straight portion."
+            }
+          },
+          {
+            "LatexCode": "(1,0)",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "جزء من الحد الأصلي للدائرة ما زال منحنياً.",
+              "En": "Part of the original circle boundary remains curved."
+            }
+          },
+          {
+            "LatexCode": "(1,1)",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "(2,1)",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هناك خط قص مستقيم واحد فقط.",
+              "En": "There is only one straight cut edge."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "تتبّع الحافة التي كانت جزءاً من الدائرة.",
+            "En": "Trace the edge that was part of the circle."
+          },
+          {
+            "Ar": "ثم تتبّع الحافة التي صنعها القص.",
+            "En": "Then trace the edge made by the cut."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نميّز الحافة المستقيمة الناتجة عن القص من الحافة المنحنية الأصلية.",
+            "En": "Distinguish the straight cut edge from the original curved edge."
+          },
+          "FormulaLatex": "1+1=2",
+          "Steps": [
+            {
+              "Ar": "القص أعطى حافة مستقيمة واحدة.",
+              "En": "The cut creates one straight edge."
+            },
+            {
+              "Ar": "يبقى نصف المحيط حافة منحنية واحدة.",
+              "En": "Half the original circumference remains one curved edge."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$(1,1)$",
+            "En": "$(1,1)$"
+          },
+          "Result": {
+            "Ar": "$(1,1)$",
+            "En": "$(1,1)$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "إذا جمعنا النصفين تختفي حافتا القص داخل الدائرة وتعود حدودها منحنية.",
+            "En": "Rejoining the halves hides the cut edges inside the circle and restores its curved outline."
+          },
+          "CommonError": {
+            "Ar": "اعتبار حدود نصف الدائرة كلها منحنية.",
+            "En": "Thinking a half circle has only a curved boundary."
+          }
+        }
+      },
+      "flat_ar": "نميّز الحافة المستقيمة الناتجة عن القص من الحافة المنحنية الأصلية.\n\n$1+1=2$\n\n1. القص أعطى حافة مستقيمة واحدة.\n\n2. يبقى نصف المحيط حافة منحنية واحدة.\n\n$(1,1)$\n\n$(1,1)$\n\nإذا جمعنا النصفين تختفي حافتا القص داخل الدائرة وتعود حدودها منحنية.\n\nاعتبار حدود نصف الدائرة كلها منحنية.",
+      "flat_en": "Distinguish the straight cut edge from the original curved edge.\n\n$1+1=2$\n\n1. The cut creates one straight edge.\n\n2. Half the original circumference remains one curved edge.\n\n$(1,1)$\n\n$(1,1)$\n\nRejoining the halves hides the cut edges inside the circle and restores its curved outline.\n\nThinking a half circle has only a curved boundary.",
+      "metadata": {
+        "DifficultyLevel": 1,
+        "Hints": [
+          {
+            "Ar": "تتبّع الحافة التي كانت جزءاً من الدائرة.",
+            "En": "Trace the edge that was part of the circle."
+          },
+          {
+            "Ar": "ثم تتبّع الحافة التي صنعها القص.",
+            "En": "Then trace the edge made by the cut."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نميّز الحافة المستقيمة الناتجة عن القص من الحافة المنحنية الأصلية.",
+            "En": "Distinguish the straight cut edge from the original curved edge."
+          },
+          "FormulaLatex": "1+1=2",
+          "Steps": [
+            {
+              "Ar": "القص أعطى حافة مستقيمة واحدة.",
+              "En": "The cut creates one straight edge."
+            },
+            {
+              "Ar": "يبقى نصف المحيط حافة منحنية واحدة.",
+              "En": "Half the original circumference remains one curved edge."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$(1,1)$",
+            "En": "$(1,1)$"
+          },
+          "Result": {
+            "Ar": "$(1,1)$",
+            "En": "$(1,1)$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "إذا جمعنا النصفين تختفي حافتا القص داخل الدائرة وتعود حدودها منحنية.",
+            "En": "Rejoining the halves hides the cut edges inside the circle and restores its curved outline."
+          },
+          "CommonError": {
+            "Ar": "اعتبار حدود نصف الدائرة كلها منحنية.",
+            "En": "Thinking a half circle has only a curved boundary."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "خط القص يشكّل جزءاً مستقيماً أيضاً.",
+              "En": "The cut also forms a straight portion."
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "جزء من الحد الأصلي للدائرة ما زال منحنياً.",
+              "En": "Part of the original circle boundary remains curved."
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هناك خط قص مستقيم واحد فقط.",
+              "En": "There is only one straight cut edge."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v82-grade-1-three-tiles-rectangle-arrangement-1",
+      "family": "three-tiles-rectangle-arrangement",
+      "skill_key": "primary-shape-attributes-composition",
+      "track_code": "grade-1",
+      "track": 1,
+      "stage": 1,
+      "category": 96,
+      "skill": 354,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 96,
+        "PrimarySkillId": 354,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          1
+        ],
+        "DifficultyLevel": 1,
+        "Points": 10,
+        "Title": {
+          "Ar": "ترتيب ثلاث قطع",
+          "En": "Arranging three tiles"
+        },
+        "Question": {
+          "Ar": "لدينا ثلاثة مربعات صغيرة متطابقة. نريد تركيب مستطيل دون تداخل أو فراغ. أي ترتيب يحقق ذلك؟ A: مربعان متجاوران في الأعلى وواحد تحت الأيسر؛ B: ثلاثة مربعات في صف مستقيم متجاور؛ C: ثلاثة مربعات لا تتلامس؛ D: ثلاثة مربعات تتلامس عند الزوايا فقط.",
+          "En": "Three identical small square tiles must form a rectangle with no overlap or gap. Which arrangement works? A: two adjacent tiles on top and one below the left tile; B: three in one straight adjacent row; C: three separate tiles; D: three tiles touching only at corners."
+        },
+        "Options": [
+          {
+            "LatexCode": "A",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "الصفان غير مكتملين ولا يعطيان مستطيلاً.",
+              "En": "The two unequal rows do not form a rectangle."
+            }
+          },
+          {
+            "LatexCode": "B",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "C",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "القطع المنفصلة لا تشكل مستطيلاً واحداً.",
+              "En": "Separate tiles do not make one rectangle."
+            }
+          },
+          {
+            "LatexCode": "D",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "التقاء الزوايا فقط لا يملأ مستطيلاً.",
+              "En": "Corner-only contact does not fill a rectangle."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "يجب أن تكون الحدود الخارجية مستطيلة.",
+            "En": "The outside boundary must be rectangular."
+          },
+          {
+            "Ar": "تخيّل وضع القطع جنباً إلى جنب على خط واحد.",
+            "En": "Imagine the tiles side by side in one line."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نبحث عن ترتيب يملأ صفاً كاملاً متصلاً.",
+            "En": "Find an arrangement that fills one continuous row."
+          },
+          "FormulaLatex": "3=1+1+1",
+          "Steps": [
+            {
+              "Ar": "عند وضع القطع الثلاث في صف متجاور تتطابق حوافها.",
+              "En": "A row of three adjacent tiles has matching shared edges."
+            },
+            {
+              "Ar": "تصبح الحدود الخارجية مستطيلاً طويلاً.",
+              "En": "The outer outline becomes a long rectangle."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$3$",
+            "En": "$3$"
+          },
+          "Result": {
+            "Ar": "$B$",
+            "En": "$B$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "يتكون الشكل من صف واحد وثلاثة أعمدة متساوية دون فراغ.",
+            "En": "The shape is one row of three equal columns with no gaps."
+          },
+          "CommonError": {
+            "Ar": "اعتبار أي اتصال بين القطع كافياً لتكوين مستطيل.",
+            "En": "Thinking any contact between tiles makes a rectangle."
+          }
+        }
+      },
+      "flat_ar": "نبحث عن ترتيب يملأ صفاً كاملاً متصلاً.\n\n$3=1+1+1$\n\n1. عند وضع القطع الثلاث في صف متجاور تتطابق حوافها.\n\n2. تصبح الحدود الخارجية مستطيلاً طويلاً.\n\n$3$\n\n$B$\n\nيتكون الشكل من صف واحد وثلاثة أعمدة متساوية دون فراغ.\n\nاعتبار أي اتصال بين القطع كافياً لتكوين مستطيل.",
+      "flat_en": "Find an arrangement that fills one continuous row.\n\n$3=1+1+1$\n\n1. A row of three adjacent tiles has matching shared edges.\n\n2. The outer outline becomes a long rectangle.\n\n$3$\n\n$B$\n\nThe shape is one row of three equal columns with no gaps.\n\nThinking any contact between tiles makes a rectangle.",
+      "metadata": {
+        "DifficultyLevel": 1,
+        "Hints": [
+          {
+            "Ar": "يجب أن تكون الحدود الخارجية مستطيلة.",
+            "En": "The outside boundary must be rectangular."
+          },
+          {
+            "Ar": "تخيّل وضع القطع جنباً إلى جنب على خط واحد.",
+            "En": "Imagine the tiles side by side in one line."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نبحث عن ترتيب يملأ صفاً كاملاً متصلاً.",
+            "En": "Find an arrangement that fills one continuous row."
+          },
+          "FormulaLatex": "3=1+1+1",
+          "Steps": [
+            {
+              "Ar": "عند وضع القطع الثلاث في صف متجاور تتطابق حوافها.",
+              "En": "A row of three adjacent tiles has matching shared edges."
+            },
+            {
+              "Ar": "تصبح الحدود الخارجية مستطيلاً طويلاً.",
+              "En": "The outer outline becomes a long rectangle."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$3$",
+            "En": "$3$"
+          },
+          "Result": {
+            "Ar": "$B$",
+            "En": "$B$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "يتكون الشكل من صف واحد وثلاثة أعمدة متساوية دون فراغ.",
+            "En": "The shape is one row of three equal columns with no gaps."
+          },
+          "CommonError": {
+            "Ar": "اعتبار أي اتصال بين القطع كافياً لتكوين مستطيل.",
+            "En": "Thinking any contact between tiles makes a rectangle."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "الصفان غير مكتملين ولا يعطيان مستطيلاً.",
+              "En": "The two unequal rows do not form a rectangle."
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "القطع المنفصلة لا تشكل مستطيلاً واحداً.",
+              "En": "Separate tiles do not make one rectangle."
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "التقاء الزوايا فقط لا يملأ مستطيلاً.",
+              "En": "Corner-only contact does not fill a rectangle."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v82-grade-1-diagonal-cut-square-piece-attributes-1",
+      "family": "diagonal-cut-square-piece-attributes",
+      "skill_key": "primary-shape-attributes-composition",
+      "track_code": "grade-1",
+      "track": 1,
+      "stage": 1,
+      "category": 96,
+      "skill": 354,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 96,
+        "PrimarySkillId": 354,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          1
+        ],
+        "DifficultyLevel": 1,
+        "Points": 10,
+        "Title": {
+          "Ar": "قطعتا مربع",
+          "En": "Two pieces of a square"
+        },
+        "Question": {
+          "Ar": "قصّت طفلة مربعاً ورقياً بخط مستقيم يصل بين زاويتين متقابلتين. أي وصف ينطبق على كل قطعة بعد القص؟ A: لها ضلعان؛ B: لها أربعة أضلاع؛ C: لها ضلع منحني؛ D: لها ثلاثة أضلاع مستقيمة.",
+          "En": "A child cuts a paper square along a straight line joining two opposite corners. Which description fits each resulting piece? A: two sides; B: four sides; C: a curved side; D: three straight sides."
+        },
+        "Options": [
+          {
+            "LatexCode": "A",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا يهمل حافة القص الجديدة.",
+              "En": "This omits the new cut edge."
+            }
+          },
+          {
+            "LatexCode": "B",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "القطعة لا تحتفظ بالأضلاع الأربعة للمربع.",
+              "En": "A piece does not retain all four square sides."
+            }
+          },
+          {
+            "LatexCode": "C",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "القص مستقيم ولا ينتج حافة منحنية.",
+              "En": "The straight cut makes no curved edge."
+            }
+          },
+          {
+            "LatexCode": "D",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "تتبّع ضلعين متجاورين من المربع.",
+            "En": "Trace two adjacent sides of the square."
+          },
+          {
+            "Ar": "أضف الحافة الجديدة التي صنعها القص.",
+            "En": "Include the new edge made by cutting."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "كل قطعة تتكوّن حدودها من ضلعين أصليين وحافة القص.",
+            "En": "Each piece has two original sides plus the cut edge."
+          },
+          "FormulaLatex": "2+1=3",
+          "Steps": [
+            {
+              "Ar": "تحتفظ كل قطعة بضلعين من المربع.",
+              "En": "Each piece keeps two sides of the square."
+            },
+            {
+              "Ar": "تضيف حافة القص ضلعاً ثالثاً مستقيماً.",
+              "En": "The cut adds a third straight side."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$2+1=3$",
+            "En": "$2+1=3$"
+          },
+          "Result": {
+            "Ar": "$D$",
+            "En": "$D$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "عند تتبّع حدود القطعة نمر بثلاث زوايا وثلاثة أضلاع.",
+            "En": "Tracing a piece reveals three corners and three sides."
+          },
+          "CommonError": {
+            "Ar": "عد الأضلاع قبل القص بدلاً من أضلاع كل قطعة.",
+            "En": "Counting the original square sides instead of the piece's sides."
+          }
+        }
+      },
+      "flat_ar": "كل قطعة تتكوّن حدودها من ضلعين أصليين وحافة القص.\n\n$2+1=3$\n\n1. تحتفظ كل قطعة بضلعين من المربع.\n\n2. تضيف حافة القص ضلعاً ثالثاً مستقيماً.\n\n$2+1=3$\n\n$D$\n\nعند تتبّع حدود القطعة نمر بثلاث زوايا وثلاثة أضلاع.\n\nعد الأضلاع قبل القص بدلاً من أضلاع كل قطعة.",
+      "flat_en": "Each piece has two original sides plus the cut edge.\n\n$2+1=3$\n\n1. Each piece keeps two sides of the square.\n\n2. The cut adds a third straight side.\n\n$2+1=3$\n\n$D$\n\nTracing a piece reveals three corners and three sides.\n\nCounting the original square sides instead of the piece's sides.",
+      "metadata": {
+        "DifficultyLevel": 1,
+        "Hints": [
+          {
+            "Ar": "تتبّع ضلعين متجاورين من المربع.",
+            "En": "Trace two adjacent sides of the square."
+          },
+          {
+            "Ar": "أضف الحافة الجديدة التي صنعها القص.",
+            "En": "Include the new edge made by cutting."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "كل قطعة تتكوّن حدودها من ضلعين أصليين وحافة القص.",
+            "En": "Each piece has two original sides plus the cut edge."
+          },
+          "FormulaLatex": "2+1=3",
+          "Steps": [
+            {
+              "Ar": "تحتفظ كل قطعة بضلعين من المربع.",
+              "En": "Each piece keeps two sides of the square."
+            },
+            {
+              "Ar": "تضيف حافة القص ضلعاً ثالثاً مستقيماً.",
+              "En": "The cut adds a third straight side."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$2+1=3$",
+            "En": "$2+1=3$"
+          },
+          "Result": {
+            "Ar": "$D$",
+            "En": "$D$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "عند تتبّع حدود القطعة نمر بثلاث زوايا وثلاثة أضلاع.",
+            "En": "Tracing a piece reveals three corners and three sides."
+          },
+          "CommonError": {
+            "Ar": "عد الأضلاع قبل القص بدلاً من أضلاع كل قطعة.",
+            "En": "Counting the original square sides instead of the piece's sides."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا يهمل حافة القص الجديدة.",
+              "En": "This omits the new cut edge."
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "القطعة لا تحتفظ بالأضلاع الأربعة للمربع.",
+              "En": "A piece does not retain all four square sides."
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "القص مستقيم ولا ينتج حافة منحنية.",
+              "En": "The straight cut makes no curved edge."
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v82-grade-1-four-equal-sticks-square-corners-1",
+      "family": "four-equal-sticks-square-corners",
+      "skill_key": "primary-shape-attributes-composition",
+      "track_code": "grade-1",
+      "track": 1,
+      "stage": 1,
+      "category": 96,
+      "skill": 354,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 96,
+        "PrimarySkillId": 354,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          1
+        ],
+        "DifficultyLevel": 1,
+        "Points": 10,
+        "Title": {
+          "Ar": "زوايا المربع",
+          "En": "Square corners"
+        },
+        "Question": {
+          "Ar": "رتّب طفل أربعة عيدان متساوية الطول في شكل مغلق، لكن إحدى الزوايا ليست كزاوية ورقة مستطيلة. ماذا يحتاج ليصبح الشكل مربعاً؟ A: تغيير طول عود؛ B: فتح الشكل؛ C: ضبط الزوايا الأربع لتكون كزوايا الورقة؛ D: إضافة عود خامس.",
+          "En": "A child joins four equal-length sticks into a closed shape, but one corner does not match a corner of a rectangular sheet of paper. What must change to make a square? A: change a stick length; B: open the shape; C: make all four corners match the paper's corners; D: add a fifth stick."
+        },
+        "Options": [
+          {
+            "LatexCode": "A",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "أطوال العيدان متساوية بالفعل.",
+              "En": "The stick lengths are already equal."
+            }
+          },
+          {
+            "LatexCode": "B",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "المربع شكل مغلق.",
+              "En": "A square is closed."
+            }
+          },
+          {
+            "LatexCode": "C",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "D",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "للمربع أربعة أضلاع فقط.",
+              "En": "A square has only four sides."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "أطوال الأضلاع صحيحة بالفعل.",
+            "En": "The side lengths are already correct."
+          },
+          {
+            "Ar": "قارن زوايا الشكل بزوايا ورقة مستطيلة.",
+            "En": "Compare the corners with those of a rectangular sheet."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "المربع يحتاج أربعة أضلاع متساوية وأربع زوايا قائمة.",
+            "En": "A square needs four equal sides and four right-angle corners."
+          },
+          "FormulaLatex": "4",
+          "Steps": [
+            {
+              "Ar": "الأضلاع الأربعة متساوية بالفعل.",
+              "En": "The four sides are already equal."
+            },
+            {
+              "Ar": "نعدّل الزوايا لتطابق زوايا الورقة المستطيلة.",
+              "En": "Adjust the corners to match the rectangular sheet."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$4$",
+            "En": "$4$"
+          },
+          "Result": {
+            "Ar": "$C$",
+            "En": "$C$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "بعد ضبط الزوايا يكون الشكل مغلقاً وله أربعة أضلاع متساوية وأربع زوايا قائمة.",
+            "En": "After adjustment, the closed shape has four equal sides and four right angles."
+          },
+          "CommonError": {
+            "Ar": "الاعتقاد أن تساوي الأضلاع وحده يكفي دائماً.",
+            "En": "Thinking equal sides alone are always enough."
+          }
+        }
+      },
+      "flat_ar": "المربع يحتاج أربعة أضلاع متساوية وأربع زوايا قائمة.\n\n$4$\n\n1. الأضلاع الأربعة متساوية بالفعل.\n\n2. نعدّل الزوايا لتطابق زوايا الورقة المستطيلة.\n\n$4$\n\n$C$\n\nبعد ضبط الزوايا يكون الشكل مغلقاً وله أربعة أضلاع متساوية وأربع زوايا قائمة.\n\nالاعتقاد أن تساوي الأضلاع وحده يكفي دائماً.",
+      "flat_en": "A square needs four equal sides and four right-angle corners.\n\n$4$\n\n1. The four sides are already equal.\n\n2. Adjust the corners to match the rectangular sheet.\n\n$4$\n\n$C$\n\nAfter adjustment, the closed shape has four equal sides and four right angles.\n\nThinking equal sides alone are always enough.",
+      "metadata": {
+        "DifficultyLevel": 1,
+        "Hints": [
+          {
+            "Ar": "أطوال الأضلاع صحيحة بالفعل.",
+            "En": "The side lengths are already correct."
+          },
+          {
+            "Ar": "قارن زوايا الشكل بزوايا ورقة مستطيلة.",
+            "En": "Compare the corners with those of a rectangular sheet."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "المربع يحتاج أربعة أضلاع متساوية وأربع زوايا قائمة.",
+            "En": "A square needs four equal sides and four right-angle corners."
+          },
+          "FormulaLatex": "4",
+          "Steps": [
+            {
+              "Ar": "الأضلاع الأربعة متساوية بالفعل.",
+              "En": "The four sides are already equal."
+            },
+            {
+              "Ar": "نعدّل الزوايا لتطابق زوايا الورقة المستطيلة.",
+              "En": "Adjust the corners to match the rectangular sheet."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$4$",
+            "En": "$4$"
+          },
+          "Result": {
+            "Ar": "$C$",
+            "En": "$C$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "بعد ضبط الزوايا يكون الشكل مغلقاً وله أربعة أضلاع متساوية وأربع زوايا قائمة.",
+            "En": "After adjustment, the closed shape has four equal sides and four right angles."
+          },
+          "CommonError": {
+            "Ar": "الاعتقاد أن تساوي الأضلاع وحده يكفي دائماً.",
+            "En": "Thinking equal sides alone are always enough."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "أطوال العيدان متساوية بالفعل.",
+              "En": "The stick lengths are already equal."
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "المربع شكل مغلق.",
+              "En": "A square is closed."
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "للمربع أربعة أضلاع فقط.",
+              "En": "A square has only four sides."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v82-grade-2-pictograph-match-missing-label-1",
+      "family": "pictograph-match-missing-label",
+      "skill_key": "primary-single-unit-picture-data",
+      "track_code": "grade-2",
+      "track": 2,
+      "stage": 1,
+      "category": 97,
+      "skill": 357,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 97,
+        "PrimarySkillId": 357,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          2
+        ],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "العنوان الناقص",
+          "En": "Missing category label"
+        },
+        "Question": {
+          "Ar": "كل ● يمثل صوتاً واحداً. في سجل الأصوات: الرسم 2، القراءة 5، اللعب 3. في الرسم المصور توجد ثلاثة صفوف: الرسم ●●؛ صف بلا اسم ●●●؛ القراءة ●●●●●. ما اسم الصف الذي بلا اسم؟ A: الرسم؛ B: القراءة؛ C: اللعب؛ D: لا يمكن معرفة الاسم.",
+          "En": "Each ● represents one vote. The record says drawing 2, reading 5, playing 3. The pictograph shows drawing ●●; an unlabeled row ●●●; reading ●●●●●. What label is missing? A: drawing; B: reading; C: playing; D: cannot tell."
+        },
+        "Options": [
+          {
+            "LatexCode": "A",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "للرسم صف مسمّى فيه رمزان.",
+              "En": "Drawing already has a labeled row with two symbols."
+            }
+          },
+          {
+            "LatexCode": "B",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "للقراءة صف فيه خمسة رموز.",
+              "En": "Reading has a row with five symbols."
+            }
+          },
+          {
+            "LatexCode": "C",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "D",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "السجل يعطي فئة واحدة لها ثلاثة أصوات.",
+              "En": "The record identifies the one category with three votes."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "عد رموز الصف الذي بلا اسم.",
+            "En": "Count symbols in the unlabeled row."
+          },
+          {
+            "Ar": "ابحث في السجل عن الفئة التي لها ذلك العدد.",
+            "En": "Find the category with that count in the record."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نربط عدد الرموز بالفئة المطابقة في السجل.",
+            "En": "Match the symbol count to its category in the record."
+          },
+          "FormulaLatex": "3",
+          "Steps": [
+            {
+              "Ar": "الصف المجهول فيه ثلاثة رموز.",
+              "En": "The unknown row has three symbols."
+            },
+            {
+              "Ar": "سجل اللعب هو الذي يحتوي ثلاثة أصوات.",
+              "En": "Playing has three votes in the record."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$3$",
+            "En": "$3$"
+          },
+          "Result": {
+            "Ar": "$C$",
+            "En": "$C$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "تصبح أسماء الفئات الثلاث متوافقة مع الأعداد 2 و3 و5.",
+            "En": "All three labels then match counts of 2, 3 and 5."
+          },
+          "CommonError": {
+            "Ar": "اختيار اسم صف آخر دون مطابقة العدد.",
+            "En": "Choosing another label without matching the count."
+          }
+        }
+      },
+      "flat_ar": "نربط عدد الرموز بالفئة المطابقة في السجل.\n\n$3$\n\n1. الصف المجهول فيه ثلاثة رموز.\n\n2. سجل اللعب هو الذي يحتوي ثلاثة أصوات.\n\n$3$\n\n$C$\n\nتصبح أسماء الفئات الثلاث متوافقة مع الأعداد 2 و3 و5.\n\nاختيار اسم صف آخر دون مطابقة العدد.",
+      "flat_en": "Match the symbol count to its category in the record.\n\n$3$\n\n1. The unknown row has three symbols.\n\n2. Playing has three votes in the record.\n\n$3$\n\n$C$\n\nAll three labels then match counts of 2, 3 and 5.\n\nChoosing another label without matching the count.",
+      "metadata": {
+        "DifficultyLevel": 2,
+        "Hints": [
+          {
+            "Ar": "عد رموز الصف الذي بلا اسم.",
+            "En": "Count symbols in the unlabeled row."
+          },
+          {
+            "Ar": "ابحث في السجل عن الفئة التي لها ذلك العدد.",
+            "En": "Find the category with that count in the record."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نربط عدد الرموز بالفئة المطابقة في السجل.",
+            "En": "Match the symbol count to its category in the record."
+          },
+          "FormulaLatex": "3",
+          "Steps": [
+            {
+              "Ar": "الصف المجهول فيه ثلاثة رموز.",
+              "En": "The unknown row has three symbols."
+            },
+            {
+              "Ar": "سجل اللعب هو الذي يحتوي ثلاثة أصوات.",
+              "En": "Playing has three votes in the record."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$3$",
+            "En": "$3$"
+          },
+          "Result": {
+            "Ar": "$C$",
+            "En": "$C$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "تصبح أسماء الفئات الثلاث متوافقة مع الأعداد 2 و3 و5.",
+            "En": "All three labels then match counts of 2, 3 and 5."
+          },
+          "CommonError": {
+            "Ar": "اختيار اسم صف آخر دون مطابقة العدد.",
+            "En": "Choosing another label without matching the count."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "للرسم صف مسمّى فيه رمزان.",
+              "En": "Drawing already has a labeled row with two symbols."
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "للقراءة صف فيه خمسة رموز.",
+              "En": "Reading has a row with five symbols."
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "السجل يعطي فئة واحدة لها ثلاثة أصوات.",
+              "En": "The record identifies the one category with three votes."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v82-grade-2-pictograph-find-inconsistent-row-1",
+      "family": "pictograph-find-inconsistent-row",
+      "skill_key": "primary-single-unit-picture-data",
+      "track_code": "grade-2",
+      "track": 2,
+      "stage": 1,
+      "category": 97,
+      "skill": 357,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 97,
+        "PrimarySkillId": 357,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          2
+        ],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "كشف خطأ الرسم",
+          "En": "Finding a chart error"
+        },
+        "Question": {
+          "Ar": "كل ● يمثل كتاباً واحداً. سجل المكتبة: القصص 4، العلوم 3، الفن 2. الرسم المصور: القصص ●●●●، العلوم ●●، الفن ●●. أي صف يختلف عن السجل؟ A: القصص؛ B: العلوم؛ C: الفن؛ D: لا يوجد اختلاف.",
+          "En": "Each ● represents one book. The library record is stories 4, science 3, art 2. The pictograph shows stories ●●●●, science ●●, art ●●. Which row differs from the record? A: stories; B: science; C: art; D: none."
+        },
+        "Options": [
+          {
+            "LatexCode": "A",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "القصص لها أربعة رموز وأربعة كتب في السجل.",
+              "En": "Stories has four symbols and four books in the record."
+            }
+          },
+          {
+            "LatexCode": "B",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "C",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "الفن له رمزان وكتابان في السجل.",
+              "En": "Art has two symbols and two books in the record."
+            }
+          },
+          {
+            "LatexCode": "D",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هناك صف فيه رمزان بينما السجل يعطي ثلاثة كتب.",
+              "En": "One row has two symbols but the record gives three books."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "قارن كل صف بالعدد المسجل له.",
+            "En": "Compare each row with its recorded count."
+          },
+          {
+            "Ar": "ابحث عن الصف الذي لا يتطابق عدده.",
+            "En": "Find the row whose count does not match."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نتحقق من كل فئة على حدة لا من مظهر الرسم فقط.",
+            "En": "Check each category separately instead of judging the chart by appearance."
+          },
+          "FormulaLatex": "3-2=1",
+          "Steps": [
+            {
+              "Ar": "صفا القصص والفن متطابقان مع السجل.",
+              "En": "Stories and art match the record."
+            },
+            {
+              "Ar": "العلوم لها رمزان فقط بدلاً من ثلاثة.",
+              "En": "Science has two symbols instead of three."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$3-2=1$",
+            "En": "$3-2=1$"
+          },
+          "Result": {
+            "Ar": "$B$",
+            "En": "$B$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "إضافة رمز للعلوم تجعل الرسم يطابق السجل في الصفوف الثلاثة.",
+            "En": "Adding one science symbol makes all three rows match."
+          },
+          "CommonError": {
+            "Ar": "افتراض أن صفين متساويين في الرسم يجب أن يتساويا في السجل.",
+            "En": "Assuming equal-looking rows must have equal recorded counts."
+          }
+        }
+      },
+      "flat_ar": "نتحقق من كل فئة على حدة لا من مظهر الرسم فقط.\n\n$3-2=1$\n\n1. صفا القصص والفن متطابقان مع السجل.\n\n2. العلوم لها رمزان فقط بدلاً من ثلاثة.\n\n$3-2=1$\n\n$B$\n\nإضافة رمز للعلوم تجعل الرسم يطابق السجل في الصفوف الثلاثة.\n\nافتراض أن صفين متساويين في الرسم يجب أن يتساويا في السجل.",
+      "flat_en": "Check each category separately instead of judging the chart by appearance.\n\n$3-2=1$\n\n1. Stories and art match the record.\n\n2. Science has two symbols instead of three.\n\n$3-2=1$\n\n$B$\n\nAdding one science symbol makes all three rows match.\n\nAssuming equal-looking rows must have equal recorded counts.",
+      "metadata": {
+        "DifficultyLevel": 2,
+        "Hints": [
+          {
+            "Ar": "قارن كل صف بالعدد المسجل له.",
+            "En": "Compare each row with its recorded count."
+          },
+          {
+            "Ar": "ابحث عن الصف الذي لا يتطابق عدده.",
+            "En": "Find the row whose count does not match."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نتحقق من كل فئة على حدة لا من مظهر الرسم فقط.",
+            "En": "Check each category separately instead of judging the chart by appearance."
+          },
+          "FormulaLatex": "3-2=1",
+          "Steps": [
+            {
+              "Ar": "صفا القصص والفن متطابقان مع السجل.",
+              "En": "Stories and art match the record."
+            },
+            {
+              "Ar": "العلوم لها رمزان فقط بدلاً من ثلاثة.",
+              "En": "Science has two symbols instead of three."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$3-2=1$",
+            "En": "$3-2=1$"
+          },
+          "Result": {
+            "Ar": "$B$",
+            "En": "$B$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "إضافة رمز للعلوم تجعل الرسم يطابق السجل في الصفوف الثلاثة.",
+            "En": "Adding one science symbol makes all three rows match."
+          },
+          "CommonError": {
+            "Ar": "افتراض أن صفين متساويين في الرسم يجب أن يتساويا في السجل.",
+            "En": "Assuming equal-looking rows must have equal recorded counts."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "القصص لها أربعة رموز وأربعة كتب في السجل.",
+              "En": "Stories has four symbols and four books in the record."
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "الفن له رمزان وكتابان في السجل.",
+              "En": "Art has two symbols and two books in the record."
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هناك صف فيه رمزان بينما السجل يعطي ثلاثة كتب.",
+              "En": "One row has two symbols but the record gives three books."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v82-grade-2-pictograph-same-total-different-distribution-1",
+      "family": "pictograph-same-total-different-distribution",
+      "skill_key": "primary-single-unit-picture-data",
+      "track_code": "grade-2",
+      "track": 2,
+      "stage": 1,
+      "category": 97,
+      "skill": 357,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 97,
+        "PrimarySkillId": 357,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          2
+        ],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "المجموع والتوزيع",
+          "En": "Total and distribution"
+        },
+        "Question": {
+          "Ar": "كل ● يمثل طفلاً اختار نشاطاً واحداً. المجموعة الأولى: رسم ●●●●، قراءة ●●. المجموعة الثانية: رسم ●●●، قراءة ●●●. أي عبارة صحيحة؟ A: المجموعان متساويان وتوزيع الاختيارات مختلف؛ B: المجموع الأول أكبر؛ C: المجموع الثاني أكبر؛ D: عدد كل نشاط متساوٍ بين المجموعتين.",
+          "En": "Each ● represents a child choosing one activity. Group 1: drawing ●●●●, reading ●●. Group 2: drawing ●●●, reading ●●●. Which statement is true? A: equal totals but different distributions; B: group 1 has more children; C: group 2 has more children; D: each activity has equal counts across groups."
+        },
+        "Options": [
+          {
+            "LatexCode": "A",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "B",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "مجموع المجموعة الأولى ستة وكذلك الثانية.",
+              "En": "Both groups total six."
+            }
+          },
+          {
+            "LatexCode": "C",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "المجموعة الثانية لا تزيد على الأولى.",
+              "En": "The second group does not exceed the first."
+            }
+          },
+          {
+            "LatexCode": "D",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "اختار الرسم أربعة في الأولى وثلاثة في الثانية.",
+              "En": "Drawing has four in group 1 and three in group 2."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "اجمع رموز كل مجموعة على حدة.",
+            "En": "Add the symbols in each group separately."
+          },
+          {
+            "Ar": "قارن عدد الرسم وعدد القراءة أيضاً.",
+            "En": "Also compare the drawing and reading counts."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "قد يتساوى مجموع مجموعتين مع اختلاف أعداد الفئات داخلهما.",
+            "En": "Two groups can have equal totals but different category counts."
+          },
+          "FormulaLatex": "4+2=3+3",
+          "Steps": [
+            {
+              "Ar": "كل مجموعة فيها ستة أطفال.",
+              "En": "Each group has six children."
+            },
+            {
+              "Ar": "أعداد الرسم والقراءة مختلفة بين المجموعتين.",
+              "En": "The drawing and reading counts differ across groups."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$6=6$",
+            "En": "$6=6$"
+          },
+          "Result": {
+            "Ar": "$A$",
+            "En": "$A$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "يمكن نقل اختيار واحد من الرسم إلى القراءة في الأولى فتصبح مثل الثانية دون تغيير المجموع.",
+            "En": "Moving one drawing choice to reading in group 1 would match group 2 without changing the total."
+          },
+          "CommonError": {
+            "Ar": "الخلط بين تساوي المجموع وتساوي كل فئة.",
+            "En": "Confusing equal totals with equal category counts."
+          }
+        }
+      },
+      "flat_ar": "قد يتساوى مجموع مجموعتين مع اختلاف أعداد الفئات داخلهما.\n\n$4+2=3+3$\n\n1. كل مجموعة فيها ستة أطفال.\n\n2. أعداد الرسم والقراءة مختلفة بين المجموعتين.\n\n$6=6$\n\n$A$\n\nيمكن نقل اختيار واحد من الرسم إلى القراءة في الأولى فتصبح مثل الثانية دون تغيير المجموع.\n\nالخلط بين تساوي المجموع وتساوي كل فئة.",
+      "flat_en": "Two groups can have equal totals but different category counts.\n\n$4+2=3+3$\n\n1. Each group has six children.\n\n2. The drawing and reading counts differ across groups.\n\n$6=6$\n\n$A$\n\nMoving one drawing choice to reading in group 1 would match group 2 without changing the total.\n\nConfusing equal totals with equal category counts.",
+      "metadata": {
+        "DifficultyLevel": 2,
+        "Hints": [
+          {
+            "Ar": "اجمع رموز كل مجموعة على حدة.",
+            "En": "Add the symbols in each group separately."
+          },
+          {
+            "Ar": "قارن عدد الرسم وعدد القراءة أيضاً.",
+            "En": "Also compare the drawing and reading counts."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "قد يتساوى مجموع مجموعتين مع اختلاف أعداد الفئات داخلهما.",
+            "En": "Two groups can have equal totals but different category counts."
+          },
+          "FormulaLatex": "4+2=3+3",
+          "Steps": [
+            {
+              "Ar": "كل مجموعة فيها ستة أطفال.",
+              "En": "Each group has six children."
+            },
+            {
+              "Ar": "أعداد الرسم والقراءة مختلفة بين المجموعتين.",
+              "En": "The drawing and reading counts differ across groups."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$6=6$",
+            "En": "$6=6$"
+          },
+          "Result": {
+            "Ar": "$A$",
+            "En": "$A$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "يمكن نقل اختيار واحد من الرسم إلى القراءة في الأولى فتصبح مثل الثانية دون تغيير المجموع.",
+            "En": "Moving one drawing choice to reading in group 1 would match group 2 without changing the total."
+          },
+          "CommonError": {
+            "Ar": "الخلط بين تساوي المجموع وتساوي كل فئة.",
+            "En": "Confusing equal totals with equal category counts."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "مجموع المجموعة الأولى ستة وكذلك الثانية.",
+              "En": "Both groups total six."
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "المجموعة الثانية لا تزيد على الأولى.",
+              "En": "The second group does not exceed the first."
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "اختار الرسم أربعة في الأولى وثلاثة في الثانية.",
+              "En": "Drawing has four in group 1 and three in group 2."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v82-grade-2-pictograph-count-categories-at-least-threshold-1",
+      "family": "pictograph-count-categories-at-least-threshold",
+      "skill_key": "primary-single-unit-picture-data",
+      "track_code": "grade-2",
+      "track": 2,
+      "stage": 1,
+      "category": 97,
+      "skill": 357,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 97,
+        "PrimarySkillId": 357,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          2
+        ],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "اختيار الفئات المستوفية للشرط",
+          "En": "Categories meeting a condition"
+        },
+        "Question": {
+          "Ar": "كل ● يمثل طالباً واحداً ينتمي إلى فئة واحدة فقط. A: ●●●●؛ B: ●●؛ C: ●●●؛ D: ●. نريد اختيار الفئات التي فيها ثلاثة طلاب على الأقل. كم طالباً في الفئات المختارة مجتمعة؟",
+          "En": "Each ● represents one pupil belonging to exactly one category. A: ●●●●; B: ●●; C: ●●●; D: ●. Select the categories with at least three pupils. How many pupils are in the selected categories altogether?"
+        },
+        "Options": [
+          {
+            "LatexCode": "2",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا عدد الفئات المختارة وليس عدد طلابها.",
+              "En": "This is the number of selected categories, not pupils."
+            }
+          },
+          {
+            "LatexCode": "4",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا يحسب الفئة A وحدها ويستبعد الفئة C التي تحقق الشرط.",
+              "En": "This counts only A and excludes C, which also meets the condition."
+            }
+          },
+          {
+            "LatexCode": "7",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "10",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا مجموع جميع الفئات بما فيها غير المستوفية للشرط.",
+              "En": "This totals every category, including those below the threshold."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "ثلاثة على الأقل تعني ثلاثة أو أكثر.",
+            "En": "At least three means three or more."
+          },
+          {
+            "Ar": "حدّد الصفوف المناسبة ثم اجمع رموزها.",
+            "En": "Choose the matching rows and add their symbols."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نختار الفئات وفق الشرط أولاً ثم نجمع أعدادها.",
+            "En": "First select categories satisfying the condition, then sum their counts."
+          },
+          "FormulaLatex": "4+3=7",
+          "Steps": [
+            {
+              "Ar": "الفئتان A وC تحققان الشرط.",
+              "En": "Categories A and C meet the condition."
+            },
+            {
+              "Ar": "نجمع أربعة طلاب وثلاثة طلاب.",
+              "En": "Add four pupils and three pupils."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$4+3=7$",
+            "En": "$4+3=7$"
+          },
+          "Result": {
+            "Ar": "$7$",
+            "En": "$7$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "عدد الفئات المختارة اثنتان لكن مجموع طلابهما سبعة.",
+            "En": "There are two selected categories, containing seven pupils in total."
+          },
+          "CommonError": {
+            "Ar": "عد الفئات فقط أو استبعاد العدد المساوي للحد.",
+            "En": "Counting only categories or excluding counts equal to the threshold."
+          }
+        }
+      },
+      "flat_ar": "نختار الفئات وفق الشرط أولاً ثم نجمع أعدادها.\n\n$4+3=7$\n\n1. الفئتان A وC تحققان الشرط.\n\n2. نجمع أربعة طلاب وثلاثة طلاب.\n\n$4+3=7$\n\n$7$\n\nعدد الفئات المختارة اثنتان لكن مجموع طلابهما سبعة.\n\nعد الفئات فقط أو استبعاد العدد المساوي للحد.",
+      "flat_en": "First select categories satisfying the condition, then sum their counts.\n\n$4+3=7$\n\n1. Categories A and C meet the condition.\n\n2. Add four pupils and three pupils.\n\n$4+3=7$\n\n$7$\n\nThere are two selected categories, containing seven pupils in total.\n\nCounting only categories or excluding counts equal to the threshold.",
+      "metadata": {
+        "DifficultyLevel": 2,
+        "Hints": [
+          {
+            "Ar": "ثلاثة على الأقل تعني ثلاثة أو أكثر.",
+            "En": "At least three means three or more."
+          },
+          {
+            "Ar": "حدّد الصفوف المناسبة ثم اجمع رموزها.",
+            "En": "Choose the matching rows and add their symbols."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نختار الفئات وفق الشرط أولاً ثم نجمع أعدادها.",
+            "En": "First select categories satisfying the condition, then sum their counts."
+          },
+          "FormulaLatex": "4+3=7",
+          "Steps": [
+            {
+              "Ar": "الفئتان A وC تحققان الشرط.",
+              "En": "Categories A and C meet the condition."
+            },
+            {
+              "Ar": "نجمع أربعة طلاب وثلاثة طلاب.",
+              "En": "Add four pupils and three pupils."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$4+3=7$",
+            "En": "$4+3=7$"
+          },
+          "Result": {
+            "Ar": "$7$",
+            "En": "$7$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "عدد الفئات المختارة اثنتان لكن مجموع طلابهما سبعة.",
+            "En": "There are two selected categories, containing seven pupils in total."
+          },
+          "CommonError": {
+            "Ar": "عد الفئات فقط أو استبعاد العدد المساوي للحد.",
+            "En": "Counting only categories or excluding counts equal to the threshold."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا عدد الفئات المختارة وليس عدد طلابها.",
+              "En": "This is the number of selected categories, not pupils."
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا يحسب الفئة A وحدها ويستبعد الفئة C التي تحقق الشرط.",
+              "En": "This counts only A and excludes C, which also meets the condition."
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا مجموع جميع الفئات بما فيها غير المستوفية للشرط.",
+              "En": "This totals every category, including those below the threshold."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    }
+  ],
+  "review": "12 candidates reviewed against live scopes and previous holds; four held. Eight retained screened with bilingual nearest token matches against live and active draft questions. Clarified mutually exclusive categories and L-shaped distractor. Distinct reasoning: boundary types, rectangle arrangement, diagonal decomposition, square corner criterion, missing label, chart discrepancy, equal totals vs distribution, threshold-select-and-sum. Full curriculum/rendering/CI review remains open."
+}

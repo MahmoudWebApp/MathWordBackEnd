@@ -1,0 +1,1064 @@
+[
+  {
+    "track": 7,
+    "cat": 6,
+    "skill": 25,
+    "sk": "middle-linear-equations",
+    "family": "recover-subtrahend-before-multiplication",
+    "title": {
+      "Ar": "استرجاع المطروح",
+      "En": "Recovering a subtrahend"
+    },
+    "q": {
+      "Ar": "طُرح عدد x من 17 ثم ضُرب الفرق في 3 فكان الناتج 24. ما x؟",
+      "En": "A number x is subtracted from 17, then the difference is multiplied by 3 to give 24. Find x."
+    },
+    "opts": [
+      "9",
+      "8",
+      "25",
+      "-9"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "هذا الفرق قبل الضرب.",
+        "En": "The difference before multiplication."
+      },
+      {
+        "Ar": "جمع الفرق مع 17.",
+        "En": "Adds the difference to 17."
+      },
+      {
+        "Ar": "عكس ترتيب الطرح.",
+        "En": "Reverses the subtraction."
+      }
+    ],
+    "idea": {
+      "Ar": "نعكس الضرب ثم نوجد المطروح.",
+      "En": "Undo multiplication, then find the subtrahend."
+    },
+    "formula": "3(17-x)=24",
+    "steps": [
+      {
+        "Ar": "$17-x=8$",
+        "En": "$17-x=8$"
+      },
+      {
+        "Ar": "$x=17-8=9$",
+        "En": "$x=17-8=9$"
+      }
+    ],
+    "sub": {
+      "Ar": "$17-x=24/3$",
+      "En": "$17-x=24/3$"
+    },
+    "result": {
+      "Ar": "$9$",
+      "En": "$9$"
+    },
+    "verify": {
+      "Ar": "$3(17-9)=24$",
+      "En": "$3(17-9)=24$"
+    },
+    "hints": [
+      {
+        "Ar": "اقسم 24 على 3.",
+        "En": "Divide 24 by three."
+      },
+      {
+        "Ar": "ما العدد الذي نطرحه من 17 ليبقى 8؟",
+        "En": "What must be subtracted from 17 to leave eight?"
+      }
+    ],
+    "error": {
+      "Ar": "هذا الفرق قبل الضرب.",
+      "En": "The difference before multiplication."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 7,
+    "cat": 85,
+    "skill": 335,
+    "sk": "frequency",
+    "family": "frequency-complement-observed-count-ratio",
+    "title": {
+      "Ar": "نسبة الإخفاق إلى النجاح",
+      "En": "Failure-to-success ratio"
+    },
+    "q": {
+      "Ar": "في 50 تجربة ظهر الحدث 35 مرة. ما نسبة عدد مرات عدم ظهوره إلى عدد مرات ظهوره في أبسط صورة؟",
+      "En": "In 50 trials an event occurred 35 times. What is the ratio of non-occurrences to occurrences in simplest form?"
+    },
+    "opts": [
+      "3:10",
+      "7:3",
+      "7:10",
+      "3:7"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "نسبة عدم الظهور إلى جميع التجارب.",
+        "En": "Non-occurrences to all trials."
+      },
+      {
+        "Ar": "عكس ترتيب النسبة.",
+        "En": "Reverses the ratio."
+      },
+      {
+        "Ar": "نسبة الظهور إلى جميع التجارب.",
+        "En": "Occurrences to all trials."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "نحسب الإخفاقات ثم نقارنها بالنجاحات.",
+      "En": "Find failures, then compare with successes."
+    },
+    "formula": "(n-s):s",
+    "steps": [
+      {
+        "Ar": "$15:35$",
+        "En": "$15:35$"
+      },
+      {
+        "Ar": "$3:7$",
+        "En": "$3:7$"
+      }
+    ],
+    "sub": {
+      "Ar": "$(50-35):35$",
+      "En": "$(50-35):35$"
+    },
+    "result": {
+      "Ar": "$3:7$",
+      "En": "$3:7$"
+    },
+    "verify": {
+      "Ar": "$15+35=50$",
+      "En": "$15+35=50$"
+    },
+    "hints": [
+      {
+        "Ar": "اطرح مرات الظهور من 50.",
+        "En": "Subtract occurrences from fifty."
+      },
+      {
+        "Ar": "بسّط بقسمة الطرفين على 5.",
+        "En": "Simplify both terms by five."
+      }
+    ],
+    "error": {
+      "Ar": "نسبة عدم الظهور إلى جميع التجارب.",
+      "En": "Non-occurrences to all trials."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 7,
+    "cat": 85,
+    "skill": 337,
+    "sk": "simple-compound-events",
+    "family": "probability-uniform-label-event-empty-intersection",
+    "title": {
+      "Ar": "احتمال حدث مستحيل",
+      "En": "Probability of an impossible event"
+    },
+    "q": {
+      "Ar": "تُختار بطاقة عشوائياً من بطاقات مرقمة من 1 إلى 8. ما احتمال أن يكون الرقم زوجياً وفردياً في الوقت نفسه؟",
+      "En": "A card is selected uniformly from cards numbered 1 to 8. What is the probability that its number is both even and odd?"
+    },
+    "opts": [
+      "1/2",
+      "1/8",
+      "0",
+      "1"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "احتمال الزوجية وحدها.",
+        "En": "Probability of even alone."
+      },
+      {
+        "Ar": "يفترض وجود حالة ملائمة واحدة.",
+        "En": "Assumes one favourable outcome."
+      },
+      null,
+      {
+        "Ar": "يخلط التقاطع بالاتحاد.",
+        "En": "Confuses intersection with union."
+      }
+    ],
+    "idea": {
+      "Ar": "لا يوجد عدد صحيح زوجي وفردي معاً.",
+      "En": "No integer is both even and odd."
+    },
+    "formula": "P(E\\cap O)=0/8",
+    "steps": [
+      {
+        "Ar": "$P(E\\cap O)=0$",
+        "En": "$P(E\\cap O)=0$"
+      }
+    ],
+    "sub": {
+      "Ar": "$0/8$",
+      "En": "$0/8$"
+    },
+    "result": {
+      "Ar": "$0$",
+      "En": "$0$"
+    },
+    "verify": {
+      "Ar": "$4+4=8$",
+      "En": "$4+4=8$"
+    },
+    "hints": [
+      {
+        "Ar": "المطلوب تحقق الشرطين معاً.",
+        "En": "Both conditions must hold."
+      },
+      {
+        "Ar": "عد الأرقام التي تحقق الشرطين.",
+        "En": "Count numbers satisfying both."
+      }
+    ],
+    "error": {
+      "Ar": "يخلط التقاطع بالاتحاد.",
+      "En": "Confuses intersection with union."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 9,
+    "cat": 22,
+    "skill": 98,
+    "sk": "m-statistics-distributions",
+    "family": "range-expansion-both-extremes",
+    "title": {
+      "Ar": "تغير المدى عند توسيع الطرفين",
+      "En": "Range after extending both extremes"
+    },
+    "q": {
+      "Ar": "مدى مجموعة بيانات 18. أُضيفت قيمة أقل من أصغر قيمة قديمة بمقدار 4 وقيمة أكبر من أكبر قيمة قديمة بمقدار 6. ما المدى الجديد؟",
+      "En": "A data set has range 18. A value four below the old minimum and a value six above the old maximum are added. Find the new range."
+    },
+    "opts": [
+      "18",
+      "28",
+      "20",
+      "24"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "أهمل تغير الطرفين.",
+        "En": "Ignores both extensions."
+      },
+      null,
+      {
+        "Ar": "طرح إحدى الزيادتين.",
+        "En": "Subtracts one extension."
+      },
+      {
+        "Ar": "أضاف زيادة الحد الأعلى فقط.",
+        "En": "Includes only the upper extension."
+      }
+    ],
+    "idea": {
+      "Ar": "كلتا الإضافتين توسعان المجال.",
+      "En": "Both additions extend the range."
+    },
+    "formula": "R'=(M+6)-(m-4)=R+10",
+    "steps": [
+      {
+        "Ar": "$18+10=28$",
+        "En": "$18+10=28$"
+      }
+    ],
+    "sub": {
+      "Ar": "$18+6+4$",
+      "En": "$18+6+4$"
+    },
+    "result": {
+      "Ar": "$28$",
+      "En": "$28$"
+    },
+    "verify": {
+      "Ar": "$28-18=10$",
+      "En": "$28-18=10$"
+    },
+    "hints": [
+      {
+        "Ar": "الحد الأدنى ينخفض أربع وحدات.",
+        "En": "The minimum drops by four."
+      },
+      {
+        "Ar": "الحد الأعلى يرتفع ست وحدات.",
+        "En": "The maximum rises by six."
+      }
+    ],
+    "error": {
+      "Ar": "طرح إحدى الزيادتين.",
+      "En": "Subtracts one extension."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 9,
+    "cat": 22,
+    "skill": 98,
+    "sk": "m-statistics-distributions",
+    "family": "mad-zero-characterization",
+    "title": {
+      "Ar": "تفسير انحراف مطلق صفري",
+      "En": "Interpreting zero absolute deviation"
+    },
+    "q": {
+      "Ar": "متوسط الانحرافات المطلقة عن المتوسط الحسابي لمجموعة غير فارغة يساوي صفراً. ما مدى المجموعة؟",
+      "En": "A nonempty data set has mean absolute deviation from its mean equal to zero. What is its range?"
+    },
+    "opts": [
+      "0",
+      "1",
+      "2",
+      "4"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "لا يمكن وجود اختلاف بين القيم.",
+        "En": "No observations can differ."
+      },
+      {
+        "Ar": "وجود اختلاف يجعل انحرافاً موجباً.",
+        "En": "Different observations produce positive deviations."
+      },
+      {
+        "Ar": "لا يتوافق مع انحراف مطلق صفري.",
+        "En": "Inconsistent with zero absolute deviation."
+      }
+    ],
+    "idea": {
+      "Ar": "الانحرافات المطلقة غير سالبة؛ مجموعها صفر فقط إذا كانت كلها صفراً.",
+      "En": "Absolute deviations are nonnegative; their sum vanishes only if all are zero."
+    },
+    "formula": "\\frac1n\\sum|x_i-\\bar x|=0",
+    "steps": [
+      {
+        "Ar": "$|x_i-\\bar x|=0$",
+        "En": "$|x_i-\\bar x|=0$"
+      },
+      {
+        "Ar": "$x_i=\\bar x$",
+        "En": "$x_i=\\bar x$"
+      },
+      {
+        "Ar": "$R=\\bar x-\\bar x=0$",
+        "En": "$R=\\bar x-\\bar x=0$"
+      }
+    ],
+    "sub": {
+      "Ar": "$\\sum|x_i-\\bar x|=0$",
+      "En": "$\\sum|x_i-\\bar x|=0$"
+    },
+    "result": {
+      "Ar": "$0$",
+      "En": "$0$"
+    },
+    "verify": {
+      "Ar": "$R=0$",
+      "En": "$R=0$"
+    },
+    "hints": [
+      {
+        "Ar": "هل يمكن لانحراف مطلق أن يكون سالباً؟",
+        "En": "Can an absolute deviation be negative?"
+      },
+      {
+        "Ar": "استنتج أن القيم كلها تساوي المتوسط.",
+        "En": "Infer that every value equals the mean."
+      }
+    ],
+    "error": {
+      "Ar": "لا يمكن وجود اختلاف بين القيم.",
+      "En": "No observations can differ."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 10,
+    "cat": 35,
+    "skill": 53,
+    "sk": "secondary-arithmetic-mean",
+    "family": "mean-weighted-group-unknown-subgroup",
+    "title": {
+      "Ar": "متوسط مجموعة مجهول",
+      "En": "Unknown subgroup mean"
+    },
+    "q": {
+      "Ar": "متوسط 12 قراءة هو 14. متوسط أول 8 قراءات هو 11. ما متوسط القراءات الأربع الباقية؟",
+      "En": "Twelve readings have mean 14. The first eight have mean 11. Find the mean of the remaining four."
+    },
+    "opts": [
+      "17",
+      "80",
+      "3",
+      "20"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "لا يراعي حجم كل مجموعة.",
+        "En": "Ignores group sizes."
+      },
+      {
+        "Ar": "هذا مجموع القراءات الأربع.",
+        "En": "This is the remaining sum."
+      },
+      {
+        "Ar": "فرق المتوسطين لا متوسط الباقي.",
+        "En": "The difference of means, not the remaining mean."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "نطرح مجموع المجموعة المعروفة من المجموع الكلي ثم نقسم.",
+      "En": "Subtract the known subgroup sum from the total, then divide."
+    },
+    "formula": "\\bar x_2=(12\\cdot14-8\\cdot11)/4",
+    "steps": [
+      {
+        "Ar": "$168-88=80$",
+        "En": "$168-88=80$"
+      },
+      {
+        "Ar": "$80/4=20$",
+        "En": "$80/4=20$"
+      }
+    ],
+    "sub": {
+      "Ar": "$(168-88)/4$",
+      "En": "$(168-88)/4$"
+    },
+    "result": {
+      "Ar": "$20$",
+      "En": "$20$"
+    },
+    "verify": {
+      "Ar": "$(8\\cdot11+4\\cdot20)/12=14$",
+      "En": "$(8\\cdot11+4\\cdot20)/12=14$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب مجموع القراءات الاثنتي عشرة.",
+        "En": "Find the total of twelve readings."
+      },
+      {
+        "Ar": "اطرح مجموع الثماني ثم اقسم على أربعة.",
+        "En": "Subtract the sum of eight, then divide by four."
+      }
+    ],
+    "error": {
+      "Ar": "لا يراعي حجم كل مجموعة.",
+      "En": "Ignores group sizes."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 11,
+    "cat": 35,
+    "skill": 54,
+    "sk": "secondary-population-variance",
+    "family": "variance-shift-negative-scale",
+    "title": {
+      "Ar": "تحويل التباين",
+      "En": "Variance under shift and scale"
+    },
+    "q": {
+      "Ar": "تباين مجتمع القيم x يساوي 12. استُبدلت كل قيمة بـ $y=10-x/2$. ما تباين قيم y؟",
+      "En": "A population x has variance 12. Every value is replaced by $y=10-x/2$. Find the variance of y."
+    },
+    "opts": [
+      "13",
+      "-6",
+      "3",
+      "6"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "يضيف ثابت التحويل إلى تباين القيم بعد ضربه في ربع.",
+        "En": "Adds the shift to the quarter-scaled variance."
+      },
+      {
+        "Ar": "التباين لا يكون سالباً.",
+        "En": "Variance cannot be negative."
+      },
+      null,
+      {
+        "Ar": "ضرب التباين في نصف بدلاً من ربعه.",
+        "En": "Scales variance by one half instead of one quarter."
+      }
+    ],
+    "idea": {
+      "Ar": "الثابت لا يؤثر والتباين يتغير بمربع المعامل.",
+      "En": "A shift has no effect; variance scales by the squared multiplier."
+    },
+    "formula": "\\operatorname{Var}(aX+b)=a^2\\operatorname{Var}(X)",
+    "steps": [
+      {
+        "Ar": "$(1/4)\\cdot12=3$",
+        "En": "$(1/4)\\cdot12=3$"
+      }
+    ],
+    "sub": {
+      "Ar": "$(-1/2)^2\\cdot12$",
+      "En": "$(-1/2)^2\\cdot12$"
+    },
+    "result": {
+      "Ar": "$3$",
+      "En": "$3$"
+    },
+    "verify": {
+      "Ar": "$4\\cdot3=12$",
+      "En": "$4\\cdot3=12$"
+    },
+    "hints": [
+      {
+        "Ar": "حدد معامل x.",
+        "En": "Identify the multiplier of x."
+      },
+      {
+        "Ar": "ربع المعامل ثم اضرب في 12.",
+        "En": "Square the multiplier and multiply by twelve."
+      }
+    ],
+    "error": {
+      "Ar": "ضرب التباين في نصف بدلاً من ربعه.",
+      "En": "Scales variance by one half instead of one quarter."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 11,
+    "cat": 88,
+    "skill": 328,
+    "sk": "circles",
+    "family": "circle-axis-intercepts-symmetric-ordinate",
+    "title": {
+      "Ar": "تقاطع دائرة مع محور y",
+      "En": "Circle intercepts on y-axis"
+    },
+    "q": {
+      "Ar": "تقطع الدائرة $(x-3)^2+(y-1)^2=25$ محور y عند نقطتين. ما مجموع إحداثيي y لهما؟",
+      "En": "The circle $(x-3)^2+(y-1)^2=25$ meets the y-axis at two points. Find the sum of their y-coordinates."
+    },
+    "opts": [
+      "-2",
+      "2",
+      "0",
+      "8"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "عكس إشارة إحداثي المركز.",
+        "En": "Reverses the centre ordinate."
+      },
+      null,
+      {
+        "Ar": "يفترض تماثل التقاطعين حول الأصل.",
+        "En": "Assumes symmetry about the origin."
+      },
+      {
+        "Ar": "هذه المسافة بين التقاطعين.",
+        "En": "This is the distance between the intercepts."
+      }
+    ],
+    "idea": {
+      "Ar": "نضع x=0 ثم نحل المعادلة في y.",
+      "En": "Set x to zero and solve for y."
+    },
+    "formula": "(y-1)^2=25-9",
+    "steps": [
+      {
+        "Ar": "$(y-1)^2=16$",
+        "En": "$(y-1)^2=16$"
+      },
+      {
+        "Ar": "$y=1\\pm4$",
+        "En": "$y=1\\pm4$"
+      },
+      {
+        "Ar": "$5+(-3)=2$",
+        "En": "$5+(-3)=2$"
+      }
+    ],
+    "sub": {
+      "Ar": "$(0-3)^2+(y-1)^2=25$",
+      "En": "$(0-3)^2+(y-1)^2=25$"
+    },
+    "result": {
+      "Ar": "$2$",
+      "En": "$2$"
+    },
+    "verify": {
+      "Ar": "$9+(5-1)^2=9+(-3-1)^2=25$",
+      "En": "$9+(5-1)^2=9+(-3-1)^2=25$"
+    },
+    "hints": [
+      {
+        "Ar": "ضع x=0.",
+        "En": "Set x to zero."
+      },
+      {
+        "Ar": "خذ الجذر بإشارتيه.",
+        "En": "Take both signs of the square root."
+      }
+    ],
+    "error": {
+      "Ar": "يفترض تماثل التقاطعين حول الأصل.",
+      "En": "Assumes symmetry about the origin."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 11,
+    "cat": 88,
+    "skill": 330,
+    "sk": "loci",
+    "family": "locus-point-distance-axis-constraint",
+    "title": {
+      "Ar": "محل مقيد بمحور",
+      "En": "Locus restricted to an axis"
+    },
+    "q": {
+      "Ar": "النقطة P تقع على محور x وتبعد 5 وحدات عن (0,3). ما عدد المواضع الممكنة لها؟",
+      "En": "Point P lies on the x-axis and is five units from (0,3). How many positions are possible?"
+    },
+    "opts": [
+      "2",
+      "0",
+      "1",
+      "5"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "الدائرة تصل إلى المحور لأن 5 أكبر من 3.",
+        "En": "The circle reaches the axis because five exceeds three."
+      },
+      {
+        "Ar": "ليس تماساً؛ توجد نقطتان.",
+        "En": "This is not tangency; there are two points."
+      },
+      {
+        "Ar": "المسافة ليست عدد المواضع.",
+        "En": "The distance is not the number of positions."
+      }
+    ],
+    "idea": {
+      "Ar": "نكتب P=(x,0) ونستعمل قانون المسافة.",
+      "En": "Write P=(x,0) and use the distance formula."
+    },
+    "formula": "x^2+3^2=5^2",
+    "steps": [
+      {
+        "Ar": "$x^2=16$",
+        "En": "$x^2=16$"
+      },
+      {
+        "Ar": "$x=\\pm4$",
+        "En": "$x=\\pm4$"
+      }
+    ],
+    "sub": {
+      "Ar": "$x^2+9=25$",
+      "En": "$x^2+9=25$"
+    },
+    "result": {
+      "Ar": "$2$",
+      "En": "$2$"
+    },
+    "verify": {
+      "Ar": "$4^2+3^2=25$",
+      "En": "$4^2+3^2=25$"
+    },
+    "hints": [
+      {
+        "Ar": "إحداثي y يساوي صفراً.",
+        "En": "The y-coordinate is zero."
+      },
+      {
+        "Ar": "حل x²=16 في الأعداد الحقيقية.",
+        "En": "Solve x²=16 over the reals."
+      }
+    ],
+    "error": {
+      "Ar": "الدائرة تصل إلى المحور لأن 5 أكبر من 3.",
+      "En": "The circle reaches the axis because five exceeds three."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 12,
+    "cat": 87,
+    "skill": 338,
+    "sk": "dot-product",
+    "family": "dot-product-norm-difference-perpendicular",
+    "title": {
+      "Ar": "فرق متجهين متعامدين",
+      "En": "Difference of perpendicular vectors"
+    },
+    "q": {
+      "Ar": "متجهان متعامدان معياراهما 9 و12. ما معيار الفرق بينهما؟",
+      "En": "Two perpendicular vectors have norms nine and twelve. Find the norm of their difference."
+    },
+    "opts": [
+      "3",
+      "21",
+      "225",
+      "15"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "طرح المعيارين مباشرة.",
+        "En": "Subtracts the norms directly."
+      },
+      {
+        "Ar": "جمع المعيارين مباشرة.",
+        "En": "Adds the norms directly."
+      },
+      {
+        "Ar": "هذا مربع المعيار.",
+        "En": "This is the squared norm."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "الضرب القياسي صفر بسبب التعامد.",
+      "En": "The dot product vanishes by perpendicularity."
+    },
+    "formula": "\\|u-v\\|^2=\\|u\\|^2+\\|v\\|^2-2u\\cdot v",
+    "steps": [
+      {
+        "Ar": "$81+144=225$",
+        "En": "$81+144=225$"
+      },
+      {
+        "Ar": "$\\|u-v\\|=15$",
+        "En": "$\\|u-v\\|=15$"
+      }
+    ],
+    "sub": {
+      "Ar": "$9^2+12^2-0$",
+      "En": "$9^2+12^2-0$"
+    },
+    "result": {
+      "Ar": "$15$",
+      "En": "$15$"
+    },
+    "verify": {
+      "Ar": "$15^2=225$",
+      "En": "$15^2=225$"
+    },
+    "hints": [
+      {
+        "Ar": "استعمل أن الضرب القياسي صفر.",
+        "En": "Use the zero dot product."
+      },
+      {
+        "Ar": "خذ الجذر بعد جمع المربعين.",
+        "En": "Take the square root of their squared sum."
+      }
+    ],
+    "error": {
+      "Ar": "طرح المعيارين مباشرة.",
+      "En": "Subtracts the norms directly."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 12,
+    "cat": 88,
+    "skill": 328,
+    "sk": "circles",
+    "family": "circle-translation-center-radius-invariance",
+    "title": {
+      "Ar": "انسحاب دائرة",
+      "En": "Translating a circle"
+    },
+    "q": {
+      "Ar": "نُقلت الدائرة $(x-2)^2+(y+3)^2=16$ خمس وحدات إلى اليمين ووحدتين إلى الأعلى. ما معادلتها الجديدة؟",
+      "En": "The circle $(x-2)^2+(y+3)^2=16$ is translated five units right and two units up. What is its new equation?"
+    },
+    "opts": [
+      "(x-7)^2+(y-1)^2=16",
+      "(x-7)^2+(y+1)^2=23",
+      "(x-7)^2+(y+1)^2=16",
+      "(x+3)^2+(y+5)^2=16"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "أخطأ في إشارة الإحداثي الرأسي للمركز الجديد.",
+        "En": "Uses the wrong sign for the new centre ordinate."
+      },
+      {
+        "Ar": "غيّر مربع نصف القطر رغم ثباته.",
+        "En": "Changes the squared radius despite translation."
+      },
+      null,
+      {
+        "Ar": "نقل المركز في الاتجاه المعاكس.",
+        "En": "Moves the centre in the opposite direction."
+      }
+    ],
+    "idea": {
+      "Ar": "الانسحاب يغير المركز ويحافظ على نصف القطر.",
+      "En": "Translation changes the centre but preserves the radius."
+    },
+    "formula": "(h',k')=(h+5,k+2)",
+    "steps": [
+      {
+        "Ar": "$(h',k')=(7,-1)$",
+        "En": "$(h',k')=(7,-1)$"
+      },
+      {
+        "Ar": "$r^2=16$",
+        "En": "$r^2=16$"
+      }
+    ],
+    "sub": {
+      "Ar": "$(2+5,-3+2)$",
+      "En": "$(2+5,-3+2)$"
+    },
+    "result": {
+      "Ar": "$(x-7)^2+(y+1)^2=16$",
+      "En": "$(x-7)^2+(y+1)^2=16$"
+    },
+    "verify": {
+      "Ar": "$(11-7)^2+(-1+1)^2=16$",
+      "En": "$(11-7)^2+(-1+1)^2=16$"
+    },
+    "hints": [
+      {
+        "Ar": "استخرج المركز من المعادلة الأصلية.",
+        "En": "Read the original centre."
+      },
+      {
+        "Ar": "أضف متجه الانسحاب إلى المركز.",
+        "En": "Add the translation vector to the centre."
+      }
+    ],
+    "error": {
+      "Ar": "نقل المركز في الاتجاه المعاكس.",
+      "En": "Moves the centre in the opposite direction."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 8,
+    "cat": 8,
+    "skill": 39,
+    "sk": "middle-polygon-angles",
+    "family": "polygon-interior-sum-infer-sides",
+    "title": {
+      "Ar": "عدد الأضلاع من مجموع الزوايا",
+      "En": "Number of sides from angle sum"
+    },
+    "q": {
+      "Ar": "مجموع الزوايا الداخلية لمضلع بسيط يساوي 1440°. كم ضلعاً له؟",
+      "En": "A simple polygon has interior angle sum 1440°. How many sides does it have?"
+    },
+    "opts": [
+      "12",
+      "10",
+      "8",
+      "9"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "أضاف أربعة بدلاً من اثنين.",
+        "En": "Adds four rather than two."
+      },
+      null,
+      {
+        "Ar": "عدد المثلثات الناتجة من التقسيم لا عدد الأضلاع.",
+        "En": "The triangulation count, not the side count."
+      },
+      {
+        "Ar": "أضاف واحداً بدلاً من اثنين.",
+        "En": "Adds one rather than two."
+      }
+    ],
+    "idea": {
+      "Ar": "مجموع زوايا المضلع يساوي 180 مضروبة في عدد الأضلاع ناقص اثنين.",
+      "En": "The interior angle sum is 180 times the number of sides minus two."
+    },
+    "formula": "180(n-2)=1440",
+    "steps": [
+      {
+        "Ar": "$n-2=8$",
+        "En": "$n-2=8$"
+      },
+      {
+        "Ar": "$n=10$",
+        "En": "$n=10$"
+      }
+    ],
+    "sub": {
+      "Ar": "$n-2=1440/180$",
+      "En": "$n-2=1440/180$"
+    },
+    "result": {
+      "Ar": "$10$",
+      "En": "$10$"
+    },
+    "verify": {
+      "Ar": "$180(10-2)=1440$",
+      "En": "$180(10-2)=1440$"
+    },
+    "hints": [
+      {
+        "Ar": "اقسم المجموع على 180.",
+        "En": "Divide the sum by 180."
+      },
+      {
+        "Ar": "أضف 2 للناتج.",
+        "En": "Add two to the result."
+      }
+    ],
+    "error": {
+      "Ar": "عدد المثلثات الناتجة من التقسيم لا عدد الأضلاع.",
+      "En": "The triangulation count, not the side count."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 8,
+    "cat": 22,
+    "skill": 99,
+    "sk": "m-statistics-summary-measures",
+    "family": "median-unknown-middle-position-feasible-bound",
+    "title": {
+      "Ar": "قيمة وسطى من شرط الترتيب",
+      "En": "Middle observation from order"
+    },
+    "q": {
+      "Ar": "خمس قيم مرتبة ترتيباً غير تناقصي هي 2،4،x،9،13. أي عدد من الخيارات لا يمكن أن يكون وسيطاً لها؟",
+      "En": "Five values in nondecreasing order are 2,4,x,9,13. Which listed number cannot be their median?"
+    },
+    "opts": [
+      "10",
+      "4",
+      "6",
+      "9"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "مسموح بتكرار 4 في الوسط.",
+        "En": "Four may be repeated in the middle."
+      },
+      {
+        "Ar": "يقع بين 4 و9.",
+        "En": "Lies between four and nine."
+      },
+      {
+        "Ar": "مسموح بتكرار 9 في الوسط.",
+        "En": "Nine may be repeated in the middle."
+      }
+    ],
+    "idea": {
+      "Ar": "الوسيط هو القيمة الثالثة ولا بد أن تقع بين الثانية والرابعة.",
+      "En": "The median is the third value and must lie between the second and fourth."
+    },
+    "formula": "4\\le x\\le9",
+    "steps": [
+      {
+        "Ar": "$4\\le M\\le9$",
+        "En": "$4\\le M\\le9$"
+      },
+      {
+        "Ar": "$10\\notin[4,9]$",
+        "En": "$10\\notin[4,9]$"
+      }
+    ],
+    "sub": {
+      "Ar": "$x=10>9$",
+      "En": "$x=10>9$"
+    },
+    "result": {
+      "Ar": "$10$",
+      "En": "$10$"
+    },
+    "verify": {
+      "Ar": "$2\\le4\\le9\\le9\\le13$",
+      "En": "$2\\le4\\le9\\le9\\le13$"
+    },
+    "hints": [
+      {
+        "Ar": "حدد موضع الوسيط في قائمة من خمس قيم.",
+        "En": "Locate the median among five values."
+      },
+      {
+        "Ar": "استعمل شرط الترتيب غير التناقصي.",
+        "En": "Use the nondecreasing order constraint."
+      }
+    ],
+    "error": {
+      "Ar": "مسموح بتكرار 4 في الوسط.",
+      "En": "Four may be repeated in the middle."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  }
+]

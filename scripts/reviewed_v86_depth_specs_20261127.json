@@ -1,0 +1,2212 @@
+{
+  "batch": "V86",
+  "sourceHead": "84c319ecab393e4c490c4fc2cc5db96e603fbce2",
+  "holds": {
+    "equation-same-unknown-product-third": "Review possible overlap with #2292 varying coefficient and prior same-solution tasks; defer rather than count similar reasoning.",
+    "mass-equal-balance-with-counterweight": "Potential cross-skill overlap with grade 5 two-step equation, compare with global stems before use.",
+    "time-elapsed-midnight-crossing": "Near-exact duplicate of active draft g1-gap-01-time; do not publish."
+  },
+  "rows": [
+    {
+      "key": "growth-v86-grade-4-metric-whole-metre-bracket-1",
+      "family": "metric-whole-metre-bracket",
+      "skill_key": "primary-unit-conversions",
+      "track_code": "grade-4",
+      "track": 4,
+      "stage": 1,
+      "category": 3,
+      "skill": 16,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 3,
+        "PrimarySkillId": 16,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          4
+        ],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "حصر الطول بين مترين",
+          "En": "Bracketing a length"
+        },
+        "Question": {
+          "Ar": "يبلغ طول شريط 365 cm. بين أي عددين صحيحين متتاليين من الأمتار يقع طوله؟",
+          "En": "A strip is 365 cm long. Between which two consecutive whole numbers of metres does its length lie?"
+        },
+        "Options": [
+          {
+            "LatexCode": "(2,3)",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "ثلاثة أمتار تساوي 300 cm وهي أقل من طول الشريط.",
+              "En": "Three metres equal 300 cm, less than the strip."
+            }
+          },
+          {
+            "LatexCode": "(3,4)",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "(4,5)",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "أربعة أمتار تساوي 400 cm وهي أكبر من طول الشريط.",
+              "En": "Four metres equal 400 cm, greater than the strip."
+            }
+          },
+          {
+            "LatexCode": "(36,37)",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا يعامل عشرة سنتيمترات على أنها متر.",
+              "En": "This treats ten centimetres as a metre."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "اكتب 3 m و4 m بالسنتيمتر.",
+            "En": "Express 3 m and 4 m in centimetres."
+          },
+          {
+            "Ar": "قارن 365 بالعددين 300 و400.",
+            "En": "Compare 365 with 300 and 400."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نستخدم المتر الكامل لتحديد حدين متتاليين للطول.",
+            "En": "Use whole metres to bracket the length."
+          },
+          "FormulaLatex": "1\\,\\mathrm{m}=100\\,\\mathrm{cm}",
+          "Steps": [
+            {
+              "Ar": "3 m تساوي 300 cm و4 m تساوي 400 cm.",
+              "En": "3 m equals 300 cm and 4 m equals 400 cm."
+            },
+            {
+              "Ar": "365 أكبر من 300 وأصغر من 400.",
+              "En": "365 is greater than 300 and less than 400."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$300<365<400$",
+            "En": "$300<365<400$"
+          },
+          "Result": {
+            "Ar": "$(3,4)$",
+            "En": "$(3,4)$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "يبقى بعد ثلاثة أمتار 65 cm، وهو أقل من متر.",
+            "En": "After three metres, 65 cm remains, less than one metre."
+          },
+          "CommonError": {
+            "Ar": "تقريب الطول إلى متر واحد بدلاً من تحديد الحدين.",
+            "En": "Rounding to one metre rather than finding both bounds."
+          }
+        }
+      },
+      "flat_ar": "نستخدم المتر الكامل لتحديد حدين متتاليين للطول.\n\n$1\\,\\mathrm{m}=100\\,\\mathrm{cm}$\n\n1. 3 m تساوي 300 cm و4 m تساوي 400 cm.\n\n2. 365 أكبر من 300 وأصغر من 400.\n\n$300<365<400$\n\n$(3,4)$\n\nيبقى بعد ثلاثة أمتار 65 cm، وهو أقل من متر.\n\nتقريب الطول إلى متر واحد بدلاً من تحديد الحدين.",
+      "flat_en": "Use whole metres to bracket the length.\n\n$1\\,\\mathrm{m}=100\\,\\mathrm{cm}$\n\n1. 3 m equals 300 cm and 4 m equals 400 cm.\n\n2. 365 is greater than 300 and less than 400.\n\n$300<365<400$\n\n$(3,4)$\n\nAfter three metres, 65 cm remains, less than one metre.\n\nRounding to one metre rather than finding both bounds.",
+      "metadata": {
+        "DifficultyLevel": 2,
+        "Hints": [
+          {
+            "Ar": "اكتب 3 m و4 m بالسنتيمتر.",
+            "En": "Express 3 m and 4 m in centimetres."
+          },
+          {
+            "Ar": "قارن 365 بالعددين 300 و400.",
+            "En": "Compare 365 with 300 and 400."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نستخدم المتر الكامل لتحديد حدين متتاليين للطول.",
+            "En": "Use whole metres to bracket the length."
+          },
+          "FormulaLatex": "1\\,\\mathrm{m}=100\\,\\mathrm{cm}",
+          "Steps": [
+            {
+              "Ar": "3 m تساوي 300 cm و4 m تساوي 400 cm.",
+              "En": "3 m equals 300 cm and 4 m equals 400 cm."
+            },
+            {
+              "Ar": "365 أكبر من 300 وأصغر من 400.",
+              "En": "365 is greater than 300 and less than 400."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$300<365<400$",
+            "En": "$300<365<400$"
+          },
+          "Result": {
+            "Ar": "$(3,4)$",
+            "En": "$(3,4)$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "يبقى بعد ثلاثة أمتار 65 cm، وهو أقل من متر.",
+            "En": "After three metres, 65 cm remains, less than one metre."
+          },
+          "CommonError": {
+            "Ar": "تقريب الطول إلى متر واحد بدلاً من تحديد الحدين.",
+            "En": "Rounding to one metre rather than finding both bounds."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "ثلاثة أمتار تساوي 300 cm وهي أقل من طول الشريط.",
+              "En": "Three metres equal 300 cm, less than the strip."
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "أربعة أمتار تساوي 400 cm وهي أكبر من طول الشريط.",
+              "En": "Four metres equal 400 cm, greater than the strip."
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا يعامل عشرة سنتيمترات على أنها متر.",
+              "En": "This treats ten centimetres as a metre."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v86-grade-4-metric-interval-markers-inclusive-1",
+      "family": "metric-interval-markers-inclusive",
+      "skill_key": "primary-unit-conversions",
+      "track_code": "grade-4",
+      "track": 4,
+      "stage": 1,
+      "category": 3,
+      "skill": 16,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 3,
+        "PrimarySkillId": 16,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          4
+        ],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "علامات المسار",
+          "En": "Route markers"
+        },
+        "Question": {
+          "Ar": "طول مسار مستقيم 1 km. توضع علامة عند البداية ثم كل 100 m حتى النهاية، بما في ذلك علامة النهاية. كم علامة توضع؟",
+          "En": "A straight route is 1 km long. A marker is placed at the start and every 100 m through the finish, including the finish marker. How many markers are placed?"
+        },
+        "Options": [
+          {
+            "LatexCode": "9",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا يستبعد علامتي البداية والنهاية.",
+              "En": "This excludes both endpoint markers."
+            }
+          },
+          {
+            "LatexCode": "10",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا عدد الفترات بين العلامات لا عدد العلامات.",
+              "En": "This counts the gaps, not the markers."
+            }
+          },
+          {
+            "LatexCode": "11",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "100",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "100 هو طول الفترة بالأمتار وليس عدد العلامات.",
+              "En": "100 is the gap length in metres, not the marker count."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "حوّل الكيلومتر إلى أمتار.",
+            "En": "Convert the kilometre to metres."
+          },
+          {
+            "Ar": "بعد حساب الفترات، تذكر علامة البداية.",
+            "En": "After counting the gaps, remember the starting marker."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نحسب عدد الفترات ثم نضيف علامة البداية.",
+            "En": "Count intervals, then add the starting marker."
+          },
+          "FormulaLatex": "1000\\div100=10",
+          "Steps": [
+            {
+              "Ar": "المسار طوله 1000 m، وفيه عشر فترات طول كل منها 100 m.",
+              "En": "The route is 1000 m, containing ten intervals of 100 m."
+            },
+            {
+              "Ar": "عدد العلامات أكبر بواحد من عدد الفترات.",
+              "En": "There is one more marker than interval."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$10+1=11$",
+            "En": "$10+1=11$"
+          },
+          "Result": {
+            "Ar": "$11$",
+            "En": "$11$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "العلامات تقع عند 0 و100 و200 حتى 1000 m.",
+            "En": "Markers are at 0, 100, 200, through 1000 m."
+          },
+          "CommonError": {
+            "Ar": "الخلط بين عدد الفترات وعدد نقاط حدودها.",
+            "En": "Confusing the number of intervals with their boundary points."
+          }
+        }
+      },
+      "flat_ar": "نحسب عدد الفترات ثم نضيف علامة البداية.\n\n$1000\\div100=10$\n\n1. المسار طوله 1000 m، وفيه عشر فترات طول كل منها 100 m.\n\n2. عدد العلامات أكبر بواحد من عدد الفترات.\n\n$10+1=11$\n\n$11$\n\nالعلامات تقع عند 0 و100 و200 حتى 1000 m.\n\nالخلط بين عدد الفترات وعدد نقاط حدودها.",
+      "flat_en": "Count intervals, then add the starting marker.\n\n$1000\\div100=10$\n\n1. The route is 1000 m, containing ten intervals of 100 m.\n\n2. There is one more marker than interval.\n\n$10+1=11$\n\n$11$\n\nMarkers are at 0, 100, 200, through 1000 m.\n\nConfusing the number of intervals with their boundary points.",
+      "metadata": {
+        "DifficultyLevel": 2,
+        "Hints": [
+          {
+            "Ar": "حوّل الكيلومتر إلى أمتار.",
+            "En": "Convert the kilometre to metres."
+          },
+          {
+            "Ar": "بعد حساب الفترات، تذكر علامة البداية.",
+            "En": "After counting the gaps, remember the starting marker."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نحسب عدد الفترات ثم نضيف علامة البداية.",
+            "En": "Count intervals, then add the starting marker."
+          },
+          "FormulaLatex": "1000\\div100=10",
+          "Steps": [
+            {
+              "Ar": "المسار طوله 1000 m، وفيه عشر فترات طول كل منها 100 m.",
+              "En": "The route is 1000 m, containing ten intervals of 100 m."
+            },
+            {
+              "Ar": "عدد العلامات أكبر بواحد من عدد الفترات.",
+              "En": "There is one more marker than interval."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$10+1=11$",
+            "En": "$10+1=11$"
+          },
+          "Result": {
+            "Ar": "$11$",
+            "En": "$11$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "العلامات تقع عند 0 و100 و200 حتى 1000 m.",
+            "En": "Markers are at 0, 100, 200, through 1000 m."
+          },
+          "CommonError": {
+            "Ar": "الخلط بين عدد الفترات وعدد نقاط حدودها.",
+            "En": "Confusing the number of intervals with their boundary points."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا يستبعد علامتي البداية والنهاية.",
+              "En": "This excludes both endpoint markers."
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا عدد الفترات بين العلامات لا عدد العلامات.",
+              "En": "This counts the gaps, not the markers."
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "100 هو طول الفترة بالأمتار وليس عدد العلامات.",
+              "En": "100 is the gap length in metres, not the marker count."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v86-grade-4-addition-column-alignment-place-value-1",
+      "family": "addition-column-alignment-place-value",
+      "skill_key": "primary-addition",
+      "track_code": "grade-4",
+      "track": 4,
+      "stage": 1,
+      "category": 1,
+      "skill": 1,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 1,
+        "PrimarySkillId": 1,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          4
+        ],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "محاذاة المنازل",
+          "En": "Column alignment"
+        },
+        "Question": {
+          "Ar": "أراد طالب جمع 3406 و529. كتب 529 أسفل العدد الأول بحيث وضع رقم 5 تحت 3 ورقم 2 تحت 4 ورقم 9 تحت 0، وترك الآحاد فارغة. ما العدد الذي أضافه فعلياً؟",
+          "En": "A pupil intends to add 3406 and 529. In the second row, 5 is placed under 3, 2 under 4 and 9 under 0, leaving the ones column empty. What number is actually being added?"
+        },
+        "Options": [
+          {
+            "LatexCode": "529",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا العدد المقصود قبل خطأ المحاذاة.",
+              "En": "This is the intended addend before the alignment error."
+            }
+          },
+          {
+            "LatexCode": "5290",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "52900",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "انتقلت الأرقام منزلة واحدة لا منزلتين.",
+              "En": "The digits shifted one place, not two."
+            }
+          },
+          {
+            "LatexCode": "59",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "رقم 2 لم يُحذف من الجمع.",
+              "En": "The digit 2 was not removed."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "حدد منزلة كل رقم بعد المحاذاة الخاطئة.",
+            "En": "Identify each digit's place after the incorrect alignment."
+          },
+          {
+            "Ar": "اعتبر منزلة الآحاد الفارغة صفراً.",
+            "En": "Treat the empty ones column as zero."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "قيمة الرقم تعتمد على موضعه في الأعمدة.",
+            "En": "A digit's value depends on its column position."
+          },
+          "FormulaLatex": "5000+200+90=5290",
+          "Steps": [
+            {
+              "Ar": "أصبح 5 في الآلاف و2 في المئات و9 في العشرات.",
+              "En": "5 is in thousands, 2 in hundreds and 9 in tens."
+            },
+            {
+              "Ar": "تساوي قيمة العدد الجديد 5290.",
+              "En": "The new addend equals 5290."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$529\\times10=5290$",
+            "En": "$529\\times10=5290$"
+          },
+          "Result": {
+            "Ar": "$5290$",
+            "En": "$5290$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "المحاذاة الصحيحة تضع 9 تحت 6 في الآحاد.",
+            "En": "Correct alignment places 9 below 6 in ones."
+          },
+          "CommonError": {
+            "Ar": "محاذاة الأعداد من اليسار بدلاً من محاذاة الآحاد.",
+            "En": "Aligning from the left rather than aligning ones."
+          }
+        }
+      },
+      "flat_ar": "قيمة الرقم تعتمد على موضعه في الأعمدة.\n\n$5000+200+90=5290$\n\n1. أصبح 5 في الآلاف و2 في المئات و9 في العشرات.\n\n2. تساوي قيمة العدد الجديد 5290.\n\n$529\\times10=5290$\n\n$5290$\n\nالمحاذاة الصحيحة تضع 9 تحت 6 في الآحاد.\n\nمحاذاة الأعداد من اليسار بدلاً من محاذاة الآحاد.",
+      "flat_en": "A digit's value depends on its column position.\n\n$5000+200+90=5290$\n\n1. 5 is in thousands, 2 in hundreds and 9 in tens.\n\n2. The new addend equals 5290.\n\n$529\\times10=5290$\n\n$5290$\n\nCorrect alignment places 9 below 6 in ones.\n\nAligning from the left rather than aligning ones.",
+      "metadata": {
+        "DifficultyLevel": 2,
+        "Hints": [
+          {
+            "Ar": "حدد منزلة كل رقم بعد المحاذاة الخاطئة.",
+            "En": "Identify each digit's place after the incorrect alignment."
+          },
+          {
+            "Ar": "اعتبر منزلة الآحاد الفارغة صفراً.",
+            "En": "Treat the empty ones column as zero."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "قيمة الرقم تعتمد على موضعه في الأعمدة.",
+            "En": "A digit's value depends on its column position."
+          },
+          "FormulaLatex": "5000+200+90=5290",
+          "Steps": [
+            {
+              "Ar": "أصبح 5 في الآلاف و2 في المئات و9 في العشرات.",
+              "En": "5 is in thousands, 2 in hundreds and 9 in tens."
+            },
+            {
+              "Ar": "تساوي قيمة العدد الجديد 5290.",
+              "En": "The new addend equals 5290."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$529\\times10=5290$",
+            "En": "$529\\times10=5290$"
+          },
+          "Result": {
+            "Ar": "$5290$",
+            "En": "$5290$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "المحاذاة الصحيحة تضع 9 تحت 6 في الآحاد.",
+            "En": "Correct alignment places 9 below 6 in ones."
+          },
+          "CommonError": {
+            "Ar": "محاذاة الأعداد من اليسار بدلاً من محاذاة الآحاد.",
+            "En": "Aligning from the left rather than aligning ones."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا العدد المقصود قبل خطأ المحاذاة.",
+              "En": "This is the intended addend before the alignment error."
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "انتقلت الأرقام منزلة واحدة لا منزلتين.",
+              "En": "The digits shifted one place, not two."
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "رقم 2 لم يُحذف من الجمع.",
+              "En": "The digit 2 was not removed."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v86-grade-4-addition-raw-column-sums-recompose-1",
+      "family": "addition-raw-column-sums-recompose",
+      "skill_key": "primary-addition",
+      "track_code": "grade-4",
+      "track": 4,
+      "stage": 1,
+      "category": 1,
+      "skill": 1,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 1,
+        "PrimarySkillId": 1,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          4
+        ],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "إعادة تجميع مجموع الأعمدة",
+          "En": "Regrouping column totals"
+        },
+        "Question": {
+          "Ar": "جمع طالب ثلاثة أعداد من ثلاثة أرقام لكل منها. قبل إجراء الحمل وجد أن مجموع أرقام المئات 14، ومجموع أرقام العشرات 18، ومجموع أرقام الآحاد 13. ما المجموع الكلي؟",
+          "En": "A pupil adds three three-digit numbers. Before carrying, the hundreds digits total 14, the tens digits total 18 and the ones digits total 13. What is the total sum?"
+        },
+        "Options": [
+          {
+            "LatexCode": "141813",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "لا نلصق مجاميع الأعمدة؛ لكل منها قيمة منزلية.",
+              "En": "Do not concatenate column totals; each has a place value."
+            }
+          },
+          {
+            "LatexCode": "1583",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا يهمل عشرة من مجموع الآحاد.",
+              "En": "This misses ten from the ones total."
+            }
+          },
+          {
+            "LatexCode": "1593",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "1513",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "مجموع العشرات هو 180 وليس 100.",
+              "En": "The tens total is 180, not 100."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "14 مئة تعني 1400.",
+            "En": "14 hundreds means 1400."
+          },
+          {
+            "Ar": "حوّل العشرات إلى قيمتها ثم اجمع مع الآحاد.",
+            "En": "Convert tens to their value, then add the ones."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نحوّل مجموع كل عمود إلى قيمته المنزلية ثم نجمع.",
+            "En": "Convert each raw column total into its place value and add."
+          },
+          "FormulaLatex": "14\\times100+18\\times10+13",
+          "Steps": [
+            {
+              "Ar": "مجموع المئات 1400 ومجموع العشرات 180.",
+              "En": "The hundreds contribute 1400 and the tens 180."
+            },
+            {
+              "Ar": "نضيف 13 إلى 1580.",
+              "En": "Add 13 to 1580."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$1400+180+13=1593$",
+            "En": "$1400+180+13=1593$"
+          },
+          "Result": {
+            "Ar": "$1593$",
+            "En": "$1593$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "13 آحاد تعطي 3 آحاد وحملاً؛ 19 عشرة تعطي 9 عشرات وحملاً إلى المئات، فينتج 1593.",
+            "En": "13 ones give 3 ones and a carry; 19 tens give 9 tens and a carry into hundreds, producing 1593."
+          },
+          "CommonError": {
+            "Ar": "كتابة مجموع كل عمود كأنه رقم واحد.",
+            "En": "Writing each column total as if it were a single digit."
+          }
+        }
+      },
+      "flat_ar": "نحوّل مجموع كل عمود إلى قيمته المنزلية ثم نجمع.\n\n$14\\times100+18\\times10+13$\n\n1. مجموع المئات 1400 ومجموع العشرات 180.\n\n2. نضيف 13 إلى 1580.\n\n$1400+180+13=1593$\n\n$1593$\n\n13 آحاد تعطي 3 آحاد وحملاً؛ 19 عشرة تعطي 9 عشرات وحملاً إلى المئات، فينتج 1593.\n\nكتابة مجموع كل عمود كأنه رقم واحد.",
+      "flat_en": "Convert each raw column total into its place value and add.\n\n$14\\times100+18\\times10+13$\n\n1. The hundreds contribute 1400 and the tens 180.\n\n2. Add 13 to 1580.\n\n$1400+180+13=1593$\n\n$1593$\n\n13 ones give 3 ones and a carry; 19 tens give 9 tens and a carry into hundreds, producing 1593.\n\nWriting each column total as if it were a single digit.",
+      "metadata": {
+        "DifficultyLevel": 2,
+        "Hints": [
+          {
+            "Ar": "14 مئة تعني 1400.",
+            "En": "14 hundreds means 1400."
+          },
+          {
+            "Ar": "حوّل العشرات إلى قيمتها ثم اجمع مع الآحاد.",
+            "En": "Convert tens to their value, then add the ones."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نحوّل مجموع كل عمود إلى قيمته المنزلية ثم نجمع.",
+            "En": "Convert each raw column total into its place value and add."
+          },
+          "FormulaLatex": "14\\times100+18\\times10+13",
+          "Steps": [
+            {
+              "Ar": "مجموع المئات 1400 ومجموع العشرات 180.",
+              "En": "The hundreds contribute 1400 and the tens 180."
+            },
+            {
+              "Ar": "نضيف 13 إلى 1580.",
+              "En": "Add 13 to 1580."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$1400+180+13=1593$",
+            "En": "$1400+180+13=1593$"
+          },
+          "Result": {
+            "Ar": "$1593$",
+            "En": "$1593$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "13 آحاد تعطي 3 آحاد وحملاً؛ 19 عشرة تعطي 9 عشرات وحملاً إلى المئات، فينتج 1593.",
+            "En": "13 ones give 3 ones and a carry; 19 tens give 9 tens and a carry into hundreds, producing 1593."
+          },
+          "CommonError": {
+            "Ar": "كتابة مجموع كل عمود كأنه رقم واحد.",
+            "En": "Writing each column total as if it were a single digit."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "لا نلصق مجاميع الأعمدة؛ لكل منها قيمة منزلية.",
+              "En": "Do not concatenate column totals; each has a place value."
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا يهمل عشرة من مجموع الآحاد.",
+              "En": "This misses ten from the ones total."
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "مجموع العشرات هو 180 وليس 100.",
+              "En": "The tens total is 180, not 100."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v86-grade-4-addition-maximum-three-digit-sum-1",
+      "family": "addition-maximum-three-digit-sum",
+      "skill_key": "primary-addition",
+      "track_code": "grade-4",
+      "track": 4,
+      "stage": 1,
+      "category": 1,
+      "skill": 1,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 1,
+        "PrimarySkillId": 1,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          4
+        ],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "أكبر مجموع ممكن",
+          "En": "Largest possible sum"
+        },
+        "Question": {
+          "Ar": "يريد طفل جمع عددين موجبين من ثلاثة أرقام لكل منهما. أي مجموع من الآتي يستحيل الحصول عليه؟",
+          "En": "A child adds two positive three-digit numbers. Which of the following sums is impossible?"
+        },
+        "Options": [
+          {
+            "LatexCode": "1200",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "مثلاً 600 مع 600 يعطي 1200.",
+              "En": "For example, 600 plus 600 gives 1200."
+            }
+          },
+          {
+            "LatexCode": "1800",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "900 مع 900 يعطي 1800.",
+              "En": "900 plus 900 gives 1800."
+            }
+          },
+          {
+            "LatexCode": "1998",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "999 مع 999 يعطي 1998.",
+              "En": "999 plus 999 gives 1998."
+            }
+          },
+          {
+            "LatexCode": "2000",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "ما أكبر عدد من ثلاثة أرقام؟",
+            "En": "What is the largest three-digit number?"
+          },
+          {
+            "Ar": "اجمع هذا العدد إلى نفسه لتجد الحد الأعلى.",
+            "En": "Add that number to itself to find the upper bound."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "أكبر مجموع ينتج من جمع أكبر عددين مسموحين.",
+            "En": "The largest sum comes from the two largest allowed numbers."
+          },
+          "FormulaLatex": "999+999=1998",
+          "Steps": [
+            {
+              "Ar": "لا يزيد أي عدد من ثلاثة أرقام على 999.",
+              "En": "Neither three-digit number can exceed 999."
+            },
+            {
+              "Ar": "المجموع لا يزيد على 1998، ولذلك 2000 مستحيل.",
+              "En": "The sum cannot exceed 1998, so 2000 is impossible."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$2000>1998$",
+            "En": "$2000>1998$"
+          },
+          "Result": {
+            "Ar": "$2000$",
+            "En": "$2000$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "كل الخيارات الأخرى لها مثال من عددين من ثلاثة أرقام.",
+            "En": "Every other option can be formed by two three-digit numbers."
+          },
+          "CommonError": {
+            "Ar": "اعتبار 1000 عدداً من ثلاثة أرقام.",
+            "En": "Treating 1000 as a three-digit number."
+          }
+        }
+      },
+      "flat_ar": "أكبر مجموع ينتج من جمع أكبر عددين مسموحين.\n\n$999+999=1998$\n\n1. لا يزيد أي عدد من ثلاثة أرقام على 999.\n\n2. المجموع لا يزيد على 1998، ولذلك 2000 مستحيل.\n\n$2000>1998$\n\n$2000$\n\nكل الخيارات الأخرى لها مثال من عددين من ثلاثة أرقام.\n\nاعتبار 1000 عدداً من ثلاثة أرقام.",
+      "flat_en": "The largest sum comes from the two largest allowed numbers.\n\n$999+999=1998$\n\n1. Neither three-digit number can exceed 999.\n\n2. The sum cannot exceed 1998, so 2000 is impossible.\n\n$2000>1998$\n\n$2000$\n\nEvery other option can be formed by two three-digit numbers.\n\nTreating 1000 as a three-digit number.",
+      "metadata": {
+        "DifficultyLevel": 2,
+        "Hints": [
+          {
+            "Ar": "ما أكبر عدد من ثلاثة أرقام؟",
+            "En": "What is the largest three-digit number?"
+          },
+          {
+            "Ar": "اجمع هذا العدد إلى نفسه لتجد الحد الأعلى.",
+            "En": "Add that number to itself to find the upper bound."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "أكبر مجموع ينتج من جمع أكبر عددين مسموحين.",
+            "En": "The largest sum comes from the two largest allowed numbers."
+          },
+          "FormulaLatex": "999+999=1998",
+          "Steps": [
+            {
+              "Ar": "لا يزيد أي عدد من ثلاثة أرقام على 999.",
+              "En": "Neither three-digit number can exceed 999."
+            },
+            {
+              "Ar": "المجموع لا يزيد على 1998، ولذلك 2000 مستحيل.",
+              "En": "The sum cannot exceed 1998, so 2000 is impossible."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$2000>1998$",
+            "En": "$2000>1998$"
+          },
+          "Result": {
+            "Ar": "$2000$",
+            "En": "$2000$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "كل الخيارات الأخرى لها مثال من عددين من ثلاثة أرقام.",
+            "En": "Every other option can be formed by two three-digit numbers."
+          },
+          "CommonError": {
+            "Ar": "اعتبار 1000 عدداً من ثلاثة أرقام.",
+            "En": "Treating 1000 as a three-digit number."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "مثلاً 600 مع 600 يعطي 1200.",
+              "En": "For example, 600 plus 600 gives 1200."
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "900 مع 900 يعطي 1800.",
+              "En": "900 plus 900 gives 1800."
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "999 مع 999 يعطي 1998.",
+              "En": "999 plus 999 gives 1998."
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v86-grade-4-addition-overlapping-subtotals-1",
+      "family": "addition-overlapping-subtotals",
+      "skill_key": "primary-addition",
+      "track_code": "grade-4",
+      "track": 4,
+      "stage": 1,
+      "category": 1,
+      "skill": 1,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 1,
+        "PrimarySkillId": 1,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          4
+        ],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "مجموعان بعنصر مشترك",
+          "En": "Overlapping subtotals"
+        },
+        "Question": {
+          "Ar": "في مخزن ثلاثة رفوف A وB وC. مجموع القطع في A وB يساوي 480، ومجموع القطع في B وC يساوي 530. يحتوي B على 210 قطع. كم قطعة في الرفوف الثلاثة معاً؟",
+          "En": "A storeroom has three shelves A, B and C. A and B hold 480 items together, and B and C hold 530 together. B holds 210 items. How many items are on all three shelves?"
+        },
+        "Options": [
+          {
+            "LatexCode": "590",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا يطرح محتويات B مرتين مع أنها يجب أن تُحسب مرة واحدة.",
+              "En": "This subtracts B twice, although B must count once."
+            }
+          },
+          {
+            "LatexCode": "800",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "1010",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "1010 يتضمن محتويات B مرتين.",
+              "En": "1010 counts B twice."
+            }
+          },
+          {
+            "LatexCode": "1220",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا يزيد تكرار احتساب محتويات B.",
+              "En": "This counts B yet another time."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "اجمع المجموعين الجزئيين.",
+            "En": "Add the two subtotals."
+          },
+          {
+            "Ar": "أي رف حُسب مرتين؟ اطرح محتوياته مرة واحدة.",
+            "En": "Which shelf was counted twice? Subtract its count once."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نضيف المجموعين مع إزالة التكرار مرة واحدة.",
+            "En": "Add subtotals and remove the duplicate count once."
+          },
+          "FormulaLatex": "480+530-210",
+          "Steps": [
+            {
+              "Ar": "المجموع الأول والثاني معاً 1010.",
+              "En": "The two subtotals sum to 1010."
+            },
+            {
+              "Ar": "نطرح 210 لأن الرف B دخل في كليهما.",
+              "En": "Subtract 210 because shelf B appears in both."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$1010-210=800$",
+            "En": "$1010-210=800$"
+          },
+          "Result": {
+            "Ar": "$800$",
+            "En": "$800$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "A فيه 270 وC فيه 320، ومع B يكون المجموع 800.",
+            "En": "A has 270 and C has 320; including B gives 800."
+          },
+          "CommonError": {
+            "Ar": "جمع المجاميع المتداخلة دون تصحيح التكرار.",
+            "En": "Adding overlapping subtotals without removing duplication."
+          }
+        }
+      },
+      "flat_ar": "نضيف المجموعين مع إزالة التكرار مرة واحدة.\n\n$480+530-210$\n\n1. المجموع الأول والثاني معاً 1010.\n\n2. نطرح 210 لأن الرف B دخل في كليهما.\n\n$1010-210=800$\n\n$800$\n\nA فيه 270 وC فيه 320، ومع B يكون المجموع 800.\n\nجمع المجاميع المتداخلة دون تصحيح التكرار.",
+      "flat_en": "Add subtotals and remove the duplicate count once.\n\n$480+530-210$\n\n1. The two subtotals sum to 1010.\n\n2. Subtract 210 because shelf B appears in both.\n\n$1010-210=800$\n\n$800$\n\nA has 270 and C has 320; including B gives 800.\n\nAdding overlapping subtotals without removing duplication.",
+      "metadata": {
+        "DifficultyLevel": 2,
+        "Hints": [
+          {
+            "Ar": "اجمع المجموعين الجزئيين.",
+            "En": "Add the two subtotals."
+          },
+          {
+            "Ar": "أي رف حُسب مرتين؟ اطرح محتوياته مرة واحدة.",
+            "En": "Which shelf was counted twice? Subtract its count once."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نضيف المجموعين مع إزالة التكرار مرة واحدة.",
+            "En": "Add subtotals and remove the duplicate count once."
+          },
+          "FormulaLatex": "480+530-210",
+          "Steps": [
+            {
+              "Ar": "المجموع الأول والثاني معاً 1010.",
+              "En": "The two subtotals sum to 1010."
+            },
+            {
+              "Ar": "نطرح 210 لأن الرف B دخل في كليهما.",
+              "En": "Subtract 210 because shelf B appears in both."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$1010-210=800$",
+            "En": "$1010-210=800$"
+          },
+          "Result": {
+            "Ar": "$800$",
+            "En": "$800$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "A فيه 270 وC فيه 320، ومع B يكون المجموع 800.",
+            "En": "A has 270 and C has 320; including B gives 800."
+          },
+          "CommonError": {
+            "Ar": "جمع المجاميع المتداخلة دون تصحيح التكرار.",
+            "En": "Adding overlapping subtotals without removing duplication."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا يطرح محتويات B مرتين مع أنها يجب أن تُحسب مرة واحدة.",
+              "En": "This subtracts B twice, although B must count once."
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "1010 يتضمن محتويات B مرتين.",
+              "En": "1010 counts B twice."
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا يزيد تكرار احتساب محتويات B.",
+              "En": "This counts B yet another time."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v86-grade-4-equation-equal-groups-difference-model-1",
+      "family": "equation-equal-groups-difference-model",
+      "skill_key": "primary-one-step-multiplicative-equations",
+      "track_code": "grade-4",
+      "track": 4,
+      "stage": 1,
+      "category": 2,
+      "skill": 9,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 2,
+        "PrimarySkillId": 9,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          4
+        ],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "الفرق بين مجموعات متساوية",
+          "En": "Difference of equal groups"
+        },
+        "Question": {
+          "Ar": "لدى فريق 5 صناديق ولدى آخر 3 صناديق، وفي كل صندوق العدد نفسه من الكرات. يزيد عدد كرات الفريق الأول على الثاني بمقدار 24. كم كرة في كل صندوق؟",
+          "En": "One team has 5 boxes and another has 3 boxes, with the same number of balls in every box. The first team has 24 more balls than the second. How many balls are in each box?"
+        },
+        "Options": [
+          {
+            "LatexCode": "3",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا عدد صناديق الفريق الثاني وليس عدد الكرات في الصندوق.",
+              "En": "This is the second team's box count, not balls per box."
+            }
+          },
+          {
+            "LatexCode": "8",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "24 مقسومة على 3 تستخدم عدد الصناديق الخطأ.",
+              "En": "Dividing 24 by 3 uses the wrong number of boxes."
+            }
+          },
+          {
+            "LatexCode": "12",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "24",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "24 هي كرات صندوقين إضافيين لا صندوق واحد.",
+              "En": "24 is the ball count in two extra boxes, not one."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "احسب الفرق بين عددي الصناديق.",
+            "En": "Find the difference between the box counts."
+          },
+          {
+            "Ar": "إذا كان الصندوق يحوي x كرة، فاكتب معادلة الفرق.",
+            "En": "If a box holds x balls, write the difference equation."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "يمثل الفرق صندوقين متساويين، فنحل معادلة ضرب بخطوة واحدة.",
+            "En": "The difference represents two equal boxes, giving a one-step multiplication equation."
+          },
+          "FormulaLatex": "2x=24",
+          "Steps": [
+            {
+              "Ar": "يزيد الفريق الأول بصندوقين.",
+              "En": "The first team has two extra boxes."
+            },
+            {
+              "Ar": "نقسم 24 على 2 لإيجاد محتوى الصندوق.",
+              "En": "Divide 24 by 2 to find the box contents."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$x=24\\div2=12$",
+            "En": "$x=24\\div2=12$"
+          },
+          "Result": {
+            "Ar": "$12$",
+            "En": "$12$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "خمسة صناديق فيها 60 كرة وثلاثة فيها 36، والفرق 24.",
+            "En": "Five boxes hold 60 and three hold 36, a difference of 24."
+          },
+          "CommonError": {
+            "Ar": "قسمة فرق الكرات على عدد صناديق أحد الفريقين.",
+            "En": "Dividing the ball difference by one team's box count."
+          }
+        }
+      },
+      "flat_ar": "يمثل الفرق صندوقين متساويين، فنحل معادلة ضرب بخطوة واحدة.\n\n$2x=24$\n\n1. يزيد الفريق الأول بصندوقين.\n\n2. نقسم 24 على 2 لإيجاد محتوى الصندوق.\n\n$x=24\\div2=12$\n\n$12$\n\nخمسة صناديق فيها 60 كرة وثلاثة فيها 36، والفرق 24.\n\nقسمة فرق الكرات على عدد صناديق أحد الفريقين.",
+      "flat_en": "The difference represents two equal boxes, giving a one-step multiplication equation.\n\n$2x=24$\n\n1. The first team has two extra boxes.\n\n2. Divide 24 by 2 to find the box contents.\n\n$x=24\\div2=12$\n\n$12$\n\nFive boxes hold 60 and three hold 36, a difference of 24.\n\nDividing the ball difference by one team's box count.",
+      "metadata": {
+        "DifficultyLevel": 2,
+        "Hints": [
+          {
+            "Ar": "احسب الفرق بين عددي الصناديق.",
+            "En": "Find the difference between the box counts."
+          },
+          {
+            "Ar": "إذا كان الصندوق يحوي x كرة، فاكتب معادلة الفرق.",
+            "En": "If a box holds x balls, write the difference equation."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "يمثل الفرق صندوقين متساويين، فنحل معادلة ضرب بخطوة واحدة.",
+            "En": "The difference represents two equal boxes, giving a one-step multiplication equation."
+          },
+          "FormulaLatex": "2x=24",
+          "Steps": [
+            {
+              "Ar": "يزيد الفريق الأول بصندوقين.",
+              "En": "The first team has two extra boxes."
+            },
+            {
+              "Ar": "نقسم 24 على 2 لإيجاد محتوى الصندوق.",
+              "En": "Divide 24 by 2 to find the box contents."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$x=24\\div2=12$",
+            "En": "$x=24\\div2=12$"
+          },
+          "Result": {
+            "Ar": "$12$",
+            "En": "$12$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "خمسة صناديق فيها 60 كرة وثلاثة فيها 36، والفرق 24.",
+            "En": "Five boxes hold 60 and three hold 36, a difference of 24."
+          },
+          "CommonError": {
+            "Ar": "قسمة فرق الكرات على عدد صناديق أحد الفريقين.",
+            "En": "Dividing the ball difference by one team's box count."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا عدد صناديق الفريق الثاني وليس عدد الكرات في الصندوق.",
+              "En": "This is the second team's box count, not balls per box."
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "24 مقسومة على 3 تستخدم عدد الصناديق الخطأ.",
+              "En": "Dividing 24 by 3 uses the wrong number of boxes."
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "24 هي كرات صندوقين إضافيين لا صندوق واحد.",
+              "En": "24 is the ball count in two extra boxes, not one."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v86-grade-4-equation-quotient-decomposition-strategy-1",
+      "family": "equation-quotient-decomposition-strategy",
+      "skill_key": "primary-one-step-multiplicative-equations",
+      "track_code": "grade-4",
+      "track": 4,
+      "stage": 1,
+      "category": 2,
+      "skill": 9,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 2,
+        "PrimarySkillId": 9,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          4
+        ],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "حل المعادلة بالتجزئة",
+          "En": "Solving by decomposition"
+        },
+        "Question": {
+          "Ar": "لحل المعادلة $15x=180$، جزّأ طالب 180 إلى 150 و30. أي عملية تستخدم التجزئة بصورة صحيحة لإيجاد x؟",
+          "En": "To solve $15x=180$, a pupil splits 180 into 150 and 30. Which calculation uses that split correctly to find x?"
+        },
+        "Options": [
+          {
+            "LatexCode": "(150+30)\\times15",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "إيجاد المجهول يتطلب القسمة على 15 لا الضرب.",
+              "En": "Finding the unknown requires division by 15, not multiplication."
+            }
+          },
+          {
+            "LatexCode": "150\\div15+30",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "يجب قسمة الجزأين كليهما على 15.",
+              "En": "Both parts must be divided by 15."
+            }
+          },
+          {
+            "LatexCode": "150\\div15+30\\div15",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "150\\div30+15",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "الجزآن يقسمان على معامل المجهول 15، لا أحدهما على الآخر.",
+              "En": "Both parts are divided by coefficient 15, not by each other."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "اعزل x بقسمة الطرفين على 15.",
+            "En": "Isolate x by dividing both sides by 15."
+          },
+          {
+            "Ar": "وزّع القسمة على جزأي 180.",
+            "En": "Distribute division over the two parts of 180."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "يمكن حساب خارج القسمة بجمع خارجي قسمة الجزأين.",
+            "En": "Compute a quotient by adding the quotients of the parts."
+          },
+          "FormulaLatex": "x=\\frac{150+30}{15}",
+          "Steps": [
+            {
+              "Ar": "150 مقسومة على 15 تساوي 10.",
+              "En": "150 divided by 15 equals 10."
+            },
+            {
+              "Ar": "30 مقسومة على 15 تساوي 2، والمجموع 12.",
+              "En": "30 divided by 15 equals 2, so the total is 12."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$10+2=12$",
+            "En": "$10+2=12$"
+          },
+          "Result": {
+            "Ar": "$150\\div15+30\\div15$",
+            "En": "$150\\div15+30\\div15$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "نعوض 12 فنجد 15 في 12 يساوي 180.",
+            "En": "Substitute 12: 15 times 12 equals 180."
+          },
+          "CommonError": {
+            "Ar": "قسمة جزء واحد فقط من البسط.",
+            "En": "Dividing only one part of the numerator."
+          }
+        }
+      },
+      "flat_ar": "يمكن حساب خارج القسمة بجمع خارجي قسمة الجزأين.\n\n$x=\\frac{150+30}{15}$\n\n1. 150 مقسومة على 15 تساوي 10.\n\n2. 30 مقسومة على 15 تساوي 2، والمجموع 12.\n\n$10+2=12$\n\n$150\\div15+30\\div15$\n\nنعوض 12 فنجد 15 في 12 يساوي 180.\n\nقسمة جزء واحد فقط من البسط.",
+      "flat_en": "Compute a quotient by adding the quotients of the parts.\n\n$x=\\frac{150+30}{15}$\n\n1. 150 divided by 15 equals 10.\n\n2. 30 divided by 15 equals 2, so the total is 12.\n\n$10+2=12$\n\n$150\\div15+30\\div15$\n\nSubstitute 12: 15 times 12 equals 180.\n\nDividing only one part of the numerator.",
+      "metadata": {
+        "DifficultyLevel": 2,
+        "Hints": [
+          {
+            "Ar": "اعزل x بقسمة الطرفين على 15.",
+            "En": "Isolate x by dividing both sides by 15."
+          },
+          {
+            "Ar": "وزّع القسمة على جزأي 180.",
+            "En": "Distribute division over the two parts of 180."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "يمكن حساب خارج القسمة بجمع خارجي قسمة الجزأين.",
+            "En": "Compute a quotient by adding the quotients of the parts."
+          },
+          "FormulaLatex": "x=\\frac{150+30}{15}",
+          "Steps": [
+            {
+              "Ar": "150 مقسومة على 15 تساوي 10.",
+              "En": "150 divided by 15 equals 10."
+            },
+            {
+              "Ar": "30 مقسومة على 15 تساوي 2، والمجموع 12.",
+              "En": "30 divided by 15 equals 2, so the total is 12."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$10+2=12$",
+            "En": "$10+2=12$"
+          },
+          "Result": {
+            "Ar": "$150\\div15+30\\div15$",
+            "En": "$150\\div15+30\\div15$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "نعوض 12 فنجد 15 في 12 يساوي 180.",
+            "En": "Substitute 12: 15 times 12 equals 180."
+          },
+          "CommonError": {
+            "Ar": "قسمة جزء واحد فقط من البسط.",
+            "En": "Dividing only one part of the numerator."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "إيجاد المجهول يتطلب القسمة على 15 لا الضرب.",
+              "En": "Finding the unknown requires division by 15, not multiplication."
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "يجب قسمة الجزأين كليهما على 15.",
+              "En": "Both parts must be divided by 15."
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "الجزآن يقسمان على معامل المجهول 15، لا أحدهما على الآخر.",
+              "En": "Both parts are divided by coefficient 15, not by each other."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v86-grade-4-equation-bound-before-solving-1",
+      "family": "equation-bound-before-solving",
+      "skill_key": "primary-one-step-multiplicative-equations",
+      "track_code": "grade-4",
+      "track": 4,
+      "stage": 1,
+      "category": 2,
+      "skill": 9,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 2,
+        "PrimarySkillId": 9,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          4
+        ],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "تقدير حل المعادلة",
+          "En": "Estimating an equation solution"
+        },
+        "Question": {
+          "Ar": "قبل حل $8x=104$، يريد طالب معرفة ما إذا كان x أكبر من 10 أم أصغر. أي عبارة صحيحة؟ A: أصغر من 10 لأن 104 أكبر من 80؛ B: يساوي 10؛ C: أكبر من 10 لأن 8 في 10 يساوي 80 وهو أقل من 104؛ D: لا يمكن المقارنة.",
+          "En": "Before solving $8x=104$, a pupil wants to know whether x is greater or less than 10. Which statement is correct? A: less than 10 because 104 exceeds 80; B: equals 10; C: greater than 10 because 8 times 10 is 80, below 104; D: impossible to compare."
+        },
+        "Options": [
+          {
+            "LatexCode": "A",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "المعامل موجب، لذا زيادة حاصل الضرب تتطلب زيادة x.",
+              "En": "The coefficient is positive, so a larger product requires a larger x."
+            }
+          },
+          {
+            "LatexCode": "B",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "التعويض بـ10 يعطي 80 لا 104.",
+              "En": "Substituting 10 gives 80, not 104."
+            }
+          },
+          {
+            "LatexCode": "C",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "D",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "يمكن المقارنة باستخدام حاصل ضرب 8 في 10.",
+              "En": "Comparison is possible using the product of 8 and 10."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "احسب حاصل ضرب 8 في 10.",
+            "En": "Compute 8 times 10."
+          },
+          {
+            "Ar": "للوصول إلى 104، هل ينبغي زيادة المجهول أم إنقاصه؟",
+            "En": "To reach 104, must the unknown increase or decrease?"
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نقارن حاصل ضرب القيمة المرجعية بالطرف الأيمن.",
+            "En": "Compare the product at the benchmark value with the right-hand side."
+          },
+          "FormulaLatex": "8\\times10=80",
+          "Steps": [
+            {
+              "Ar": "80 أقل من 104.",
+              "En": "80 is less than 104."
+            },
+            {
+              "Ar": "لأن المعامل موجب، يجب أن يكون x أكبر من 10.",
+              "En": "Because the coefficient is positive, x must exceed 10."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$104\\div8=13$",
+            "En": "$104\\div8=13$"
+          },
+          "Result": {
+            "Ar": "$C$",
+            "En": "$C$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "الحل الفعلي 13 وهو أكبر من 10.",
+            "En": "The actual solution is 13, greater than 10."
+          },
+          "CommonError": {
+            "Ar": "عكس اتجاه المقارنة عند زيادة العامل الموجب.",
+            "En": "Reversing the comparison when increasing a positive factor."
+          }
+        }
+      },
+      "flat_ar": "نقارن حاصل ضرب القيمة المرجعية بالطرف الأيمن.\n\n$8\\times10=80$\n\n1. 80 أقل من 104.\n\n2. لأن المعامل موجب، يجب أن يكون x أكبر من 10.\n\n$104\\div8=13$\n\n$C$\n\nالحل الفعلي 13 وهو أكبر من 10.\n\nعكس اتجاه المقارنة عند زيادة العامل الموجب.",
+      "flat_en": "Compare the product at the benchmark value with the right-hand side.\n\n$8\\times10=80$\n\n1. 80 is less than 104.\n\n2. Because the coefficient is positive, x must exceed 10.\n\n$104\\div8=13$\n\n$C$\n\nThe actual solution is 13, greater than 10.\n\nReversing the comparison when increasing a positive factor.",
+      "metadata": {
+        "DifficultyLevel": 2,
+        "Hints": [
+          {
+            "Ar": "احسب حاصل ضرب 8 في 10.",
+            "En": "Compute 8 times 10."
+          },
+          {
+            "Ar": "للوصول إلى 104، هل ينبغي زيادة المجهول أم إنقاصه؟",
+            "En": "To reach 104, must the unknown increase or decrease?"
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نقارن حاصل ضرب القيمة المرجعية بالطرف الأيمن.",
+            "En": "Compare the product at the benchmark value with the right-hand side."
+          },
+          "FormulaLatex": "8\\times10=80",
+          "Steps": [
+            {
+              "Ar": "80 أقل من 104.",
+              "En": "80 is less than 104."
+            },
+            {
+              "Ar": "لأن المعامل موجب، يجب أن يكون x أكبر من 10.",
+              "En": "Because the coefficient is positive, x must exceed 10."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$104\\div8=13$",
+            "En": "$104\\div8=13$"
+          },
+          "Result": {
+            "Ar": "$C$",
+            "En": "$C$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "الحل الفعلي 13 وهو أكبر من 10.",
+            "En": "The actual solution is 13, greater than 10."
+          },
+          "CommonError": {
+            "Ar": "عكس اتجاه المقارنة عند زيادة العامل الموجب.",
+            "En": "Reversing the comparison when increasing a positive factor."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "المعامل موجب، لذا زيادة حاصل الضرب تتطلب زيادة x.",
+              "En": "The coefficient is positive, so a larger product requires a larger x."
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "التعويض بـ10 يعطي 80 لا 104.",
+              "En": "Substituting 10 gives 80, not 104."
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "يمكن المقارنة باستخدام حاصل ضرب 8 في 10.",
+              "En": "Comparison is possible using the product of 8 and 10."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v86-grade-4-capacity-equal-free-space-1",
+      "family": "capacity-equal-free-space",
+      "skill_key": "capacity",
+      "track_code": "grade-4",
+      "track": 4,
+      "stage": 1,
+      "category": 82,
+      "skill": 320,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 82,
+        "PrimarySkillId": 320,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          4
+        ],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "السعة المتبقية",
+          "En": "Remaining capacity"
+        },
+        "Question": {
+          "Ar": "إبريق سعته 1 L يحتوي 650 mL من الماء، وإبريق آخر سعته 750 mL. كم مليلتراً يجب أن يحتوي الإبريق الثاني حتى تكون السعة غير المملوءة فيه مساوية للأول؟",
+          "En": "A 1 L jug contains 650 mL of water. Another jug has a capacity of 750 mL. How many millilitres must the second contain so both jugs have the same unfilled capacity?"
+        },
+        "Options": [
+          {
+            "LatexCode": "100",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "إذا كان فيه 100 mL يبقى فارغاً 650 mL، لا 350 mL.",
+              "En": "With 100 mL of water it has 650 mL unfilled, not 350 mL."
+            }
+          },
+          {
+            "LatexCode": "350",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "350 mL هي السعة غير المملوءة المطلوبة لا كمية الماء.",
+              "En": "350 mL is the required unfilled capacity, not the water amount."
+            }
+          },
+          {
+            "LatexCode": "400",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "650",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا يجعل الفراغ في الثاني 100 mL فقط.",
+              "En": "This leaves only 100 mL empty in the second jug."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "حوّل سعة الإبريق الأول إلى mL.",
+            "En": "Convert the first jug's capacity to mL."
+          },
+          {
+            "Ar": "احسب الفراغ في الأول واطرحه من سعة الثاني.",
+            "En": "Find the first jug's empty space and subtract it from the second capacity."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نساوي السعة غير المملوءة لا كمية الماء.",
+            "En": "Equalize unfilled capacity, not water volume."
+          },
+          "FormulaLatex": "1000-650=350",
+          "Steps": [
+            {
+              "Ar": "الفراغ في الإبريق الأول 350 mL.",
+              "En": "The first jug has 350 mL of unfilled capacity."
+            },
+            {
+              "Ar": "الثاني يحتاج 750 ناقص 350 من الماء.",
+              "En": "The second needs 750 minus 350 mL of water."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$750-350=400$",
+            "En": "$750-350=400$"
+          },
+          "Result": {
+            "Ar": "$400$",
+            "En": "$400$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "750 ناقص 400 يساوي 350، مثل الإبريق الأول.",
+            "En": "750 minus 400 equals 350, matching the first jug."
+          },
+          "CommonError": {
+            "Ar": "مساواة كميتي الماء رغم اختلاف السعتين.",
+            "En": "Equalizing water quantities despite different capacities."
+          }
+        }
+      },
+      "flat_ar": "نساوي السعة غير المملوءة لا كمية الماء.\n\n$1000-650=350$\n\n1. الفراغ في الإبريق الأول 350 mL.\n\n2. الثاني يحتاج 750 ناقص 350 من الماء.\n\n$750-350=400$\n\n$400$\n\n750 ناقص 400 يساوي 350، مثل الإبريق الأول.\n\nمساواة كميتي الماء رغم اختلاف السعتين.",
+      "flat_en": "Equalize unfilled capacity, not water volume.\n\n$1000-650=350$\n\n1. The first jug has 350 mL of unfilled capacity.\n\n2. The second needs 750 minus 350 mL of water.\n\n$750-350=400$\n\n$400$\n\n750 minus 400 equals 350, matching the first jug.\n\nEqualizing water quantities despite different capacities.",
+      "metadata": {
+        "DifficultyLevel": 2,
+        "Hints": [
+          {
+            "Ar": "حوّل سعة الإبريق الأول إلى mL.",
+            "En": "Convert the first jug's capacity to mL."
+          },
+          {
+            "Ar": "احسب الفراغ في الأول واطرحه من سعة الثاني.",
+            "En": "Find the first jug's empty space and subtract it from the second capacity."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نساوي السعة غير المملوءة لا كمية الماء.",
+            "En": "Equalize unfilled capacity, not water volume."
+          },
+          "FormulaLatex": "1000-650=350",
+          "Steps": [
+            {
+              "Ar": "الفراغ في الإبريق الأول 350 mL.",
+              "En": "The first jug has 350 mL of unfilled capacity."
+            },
+            {
+              "Ar": "الثاني يحتاج 750 ناقص 350 من الماء.",
+              "En": "The second needs 750 minus 350 mL of water."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$750-350=400$",
+            "En": "$750-350=400$"
+          },
+          "Result": {
+            "Ar": "$400$",
+            "En": "$400$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "750 ناقص 400 يساوي 350، مثل الإبريق الأول.",
+            "En": "750 minus 400 equals 350, matching the first jug."
+          },
+          "CommonError": {
+            "Ar": "مساواة كميتي الماء رغم اختلاف السعتين.",
+            "En": "Equalizing water quantities despite different capacities."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "إذا كان فيه 100 mL يبقى فارغاً 650 mL، لا 350 mL.",
+              "En": "With 100 mL of water it has 650 mL unfilled, not 350 mL."
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "350 mL هي السعة غير المملوءة المطلوبة لا كمية الماء.",
+              "En": "350 mL is the required unfilled capacity, not the water amount."
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا يجعل الفراغ في الثاني 100 mL فقط.",
+              "En": "This leaves only 100 mL empty in the second jug."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v86-grade-4-time-same-clock-offset-invariance-1",
+      "family": "time-same-clock-offset-invariance",
+      "skill_key": "time",
+      "track_code": "grade-4",
+      "track": 4,
+      "stage": 1,
+      "category": 82,
+      "skill": 324,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 82,
+        "PrimarySkillId": 324,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          4
+        ],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "ساعة غير مضبوطة",
+          "En": "Clock offset"
+        },
+        "Question": {
+          "Ar": "ساعة حائط متأخرة دائماً خمس دقائق عن الوقت الصحيح. قرأ عليها طفل بداية نشاطه 10:20 ونهايته 10:50. كم دقيقة استمر النشاط فعلياً؟",
+          "En": "A wall clock is consistently five minutes slow. A child reads 10:20 at the start of an activity and 10:50 at the end. How many minutes does the activity actually last?"
+        },
+        "Options": [
+          {
+            "LatexCode": "20",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "تصحيح القراءتين معاً لا ينقص المدة عشر دقائق؛ فرق الوقتين يبقى نفسه.",
+              "En": "Correcting both readings does not shorten the duration by ten minutes; their difference stays the same."
+            }
+          },
+          {
+            "LatexCode": "25",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "تصحيح قراءة واحدة فقط يؤدي إلى مدة خاطئة.",
+              "En": "Correcting only one reading gives the wrong duration."
+            }
+          },
+          {
+            "LatexCode": "30",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "35",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "إضافة خمس دقائق إلى المدة لا تلزم لأن القراءتين لهما الخطأ نفسه.",
+              "En": "Adding five minutes to the duration is unnecessary because both readings have the same offset."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "ما الوقت الصحيح لكل قراءة؟ أضف خمس دقائق.",
+            "En": "What is the correct time for each reading? Add five minutes."
+          },
+          {
+            "Ar": "احسب الفرق بين الوقتين المصححين.",
+            "En": "Find the difference between the corrected times."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "التأخر الثابت لا يغير الفرق بين قراءتين.",
+            "En": "A constant clock offset does not change the difference between two readings."
+          },
+          "FormulaLatex": "55-25=30",
+          "Steps": [
+            {
+              "Ar": "البداية الصحيحة 10:25 والنهاية الصحيحة 10:55.",
+              "En": "The true start is 10:25 and the true end 10:55."
+            },
+            {
+              "Ar": "الفرق ثلاثون دقيقة.",
+              "En": "The difference is thirty minutes."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$50-20=30$",
+            "En": "$50-20=30$"
+          },
+          "Result": {
+            "Ar": "$30$",
+            "En": "$30$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "الفرق بين القراءتين الأصليتين أيضاً 30 دقيقة.",
+            "En": "The original readings also differ by 30 minutes."
+          },
+          "CommonError": {
+            "Ar": "تصحيح مدة النشاط بمقدار التأخر مرة واحدة فقط.",
+            "En": "Adjusting the duration by the clock offset only once."
+          }
+        }
+      },
+      "flat_ar": "التأخر الثابت لا يغير الفرق بين قراءتين.\n\n$55-25=30$\n\n1. البداية الصحيحة 10:25 والنهاية الصحيحة 10:55.\n\n2. الفرق ثلاثون دقيقة.\n\n$50-20=30$\n\n$30$\n\nالفرق بين القراءتين الأصليتين أيضاً 30 دقيقة.\n\nتصحيح مدة النشاط بمقدار التأخر مرة واحدة فقط.",
+      "flat_en": "A constant clock offset does not change the difference between two readings.\n\n$55-25=30$\n\n1. The true start is 10:25 and the true end 10:55.\n\n2. The difference is thirty minutes.\n\n$50-20=30$\n\n$30$\n\nThe original readings also differ by 30 minutes.\n\nAdjusting the duration by the clock offset only once.",
+      "metadata": {
+        "DifficultyLevel": 2,
+        "Hints": [
+          {
+            "Ar": "ما الوقت الصحيح لكل قراءة؟ أضف خمس دقائق.",
+            "En": "What is the correct time for each reading? Add five minutes."
+          },
+          {
+            "Ar": "احسب الفرق بين الوقتين المصححين.",
+            "En": "Find the difference between the corrected times."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "التأخر الثابت لا يغير الفرق بين قراءتين.",
+            "En": "A constant clock offset does not change the difference between two readings."
+          },
+          "FormulaLatex": "55-25=30",
+          "Steps": [
+            {
+              "Ar": "البداية الصحيحة 10:25 والنهاية الصحيحة 10:55.",
+              "En": "The true start is 10:25 and the true end 10:55."
+            },
+            {
+              "Ar": "الفرق ثلاثون دقيقة.",
+              "En": "The difference is thirty minutes."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$50-20=30$",
+            "En": "$50-20=30$"
+          },
+          "Result": {
+            "Ar": "$30$",
+            "En": "$30$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "الفرق بين القراءتين الأصليتين أيضاً 30 دقيقة.",
+            "En": "The original readings also differ by 30 minutes."
+          },
+          "CommonError": {
+            "Ar": "تصحيح مدة النشاط بمقدار التأخر مرة واحدة فقط.",
+            "En": "Adjusting the duration by the clock offset only once."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "تصحيح القراءتين معاً لا ينقص المدة عشر دقائق؛ فرق الوقتين يبقى نفسه.",
+              "En": "Correcting both readings does not shorten the duration by ten minutes; their difference stays the same."
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "تصحيح قراءة واحدة فقط يؤدي إلى مدة خاطئة.",
+              "En": "Correcting only one reading gives the wrong duration."
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "إضافة خمس دقائق إلى المدة لا تلزم لأن القراءتين لهما الخطأ نفسه.",
+              "En": "Adding five minutes to the duration is unnecessary because both readings have the same offset."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    }
+  ],
+  "review": "14 candidates examined, three held (one near-exact active-draft duplicate, one overlapping equation pattern, one scope ambiguity); 11 retained after live target review and bilingual nearest-token screening of live and active draft inventory. Clarified three-digit addends and unfilled capacity feedback. Two conversions, four addition tasks, three multiplication-equation tasks, two measurement tasks. Full curriculum, rendering and CI not verified."
+}

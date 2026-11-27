@@ -1,0 +1,1389 @@
+[
+  {
+    "track": 11,
+    "stage": 3,
+    "cat": 23,
+    "skill": 102,
+    "sk": "s-sequences-series-recurrence-relations",
+    "family": "recurrence-shift-to-geometric",
+    "title": {
+      "Ar": "تحويل علاقة تراجعية",
+      "En": "Shifting a recurrence"
+    },
+    "q": {
+      "Ar": "إذا كان $a_{n+1}=2a_n+5$، وعرّفنا $b_n=a_n+5$، فما العلاقة بين $b_{n+1}$ و$b_n$؟",
+      "En": "If $a_{n+1}=2a_n+5$ and $b_n=a_n+5$, how does $b_{n+1}$ relate to $b_n$?"
+    },
+    "opts": [
+      "b_{n+1}=b_n+5",
+      "b_{n+1}=2b_n",
+      "b_{n+1}=2b_n+5",
+      "b_{n+1}=b_n^2"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "لم يضاعف الحد السابق.",
+        "En": "Does not double the previous term."
+      },
+      null,
+      {
+        "Ar": "أبقى الثابت رغم امتصاصه في التحويل.",
+        "En": "Retains the constant after the shift absorbs it."
+      },
+      {
+        "Ar": "استبدل التضاعف بالتربيع.",
+        "En": "Replaces doubling with squaring."
+      }
+    ],
+    "idea": {
+      "Ar": "نعوض في تعريف الحد الجديد ثم نجمع الحدود.",
+      "En": "Substitute in the definition of the new term and collect terms."
+    },
+    "formula": "b_{n+1}=a_{n+1}+5",
+    "steps": [
+      {
+        "Ar": "$b_{n+1}=2a_n+10$",
+        "En": "$b_{n+1}=2a_n+10$"
+      },
+      {
+        "Ar": "$b_{n+1}=2(a_n+5)=2b_n$",
+        "En": "$b_{n+1}=2(a_n+5)=2b_n$"
+      }
+    ],
+    "sub": {
+      "Ar": "$b_{n+1}=a_{n+1}+5$",
+      "En": "$b_{n+1}=a_{n+1}+5$"
+    },
+    "result": {
+      "Ar": "$b_{n+1}=2b_n$",
+      "En": "$b_{n+1}=2b_n$"
+    },
+    "verify": {
+      "Ar": "إذا كان $a_1=1$ فإن $a_2=7$ و$b_1=6,b_2=12$.",
+      "En": "If $a_1=1$, then $a_2=7$ and $b_1=6,b_2=12$."
+    },
+    "hints": [
+      {
+        "Ar": "اكتب تعريف الحد الجديد عند الفهرس التالي.",
+        "En": "Write the new definition at the next index."
+      },
+      {
+        "Ar": "استخرج العامل 2.",
+        "En": "Factor out two."
+      }
+    ],
+    "error": {
+      "Ar": "لم يضاعف الحد السابق.",
+      "En": "Does not double the previous term."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 11,
+    "stage": 3,
+    "cat": 23,
+    "skill": 101,
+    "sk": "s-sequences-series-series-sums",
+    "family": "finite-geometric-sum-scaled-difference",
+    "title": {
+      "Ar": "مجموع هندسي بالطرح",
+      "En": "Geometric sum by subtraction"
+    },
+    "q": {
+      "Ar": "لتكن $S=3+9+27+81+243$. ما قيمة $3S-S$ دون الحاجة لجمع الحدود الخمسة مباشرة؟",
+      "En": "Let $S=3+9+27+81+243$. Find $3S-S$ without directly adding all five terms."
+    },
+    "opts": [
+      "729",
+      "726",
+      "240",
+      "486"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "أهمل الحد الأول المطروح.",
+        "En": "Omits the first subtracted term."
+      },
+      null,
+      {
+        "Ar": "طرح الطرفين الأصليين بدلاً من طرفي المجموعين.",
+        "En": "Subtracts original endpoints instead of shifted endpoints."
+      },
+      {
+        "Ar": "استعمل ضعف الحد الأخير فقط.",
+        "En": "Uses only twice the last term."
+      }
+    ],
+    "idea": {
+      "Ar": "بعد ضرب المجموع في 3 تتطابق الحدود الوسطى وتختفي بالطرح.",
+      "En": "Multiplying by three aligns interior terms, which cancel on subtraction."
+    },
+    "formula": "3S-S=(9+27+81+243+729)-(3+9+27+81+243)",
+    "steps": [
+      {
+        "Ar": "$3S-S=729-3$",
+        "En": "$3S-S=729-3$"
+      },
+      {
+        "Ar": "$3S-S=726$",
+        "En": "$3S-S=726$"
+      }
+    ],
+    "sub": {
+      "Ar": "$3S-S=(9+27+81+243+729)-(3+9+27+81+243)$",
+      "En": "$3S-S=(9+27+81+243+729)-(3+9+27+81+243)$"
+    },
+    "result": {
+      "Ar": "$726$",
+      "En": "$726$"
+    },
+    "verify": {
+      "Ar": "$S=363$ ومن ثم $2S=726$.",
+      "En": "$S=363$, so $2S=726$."
+    },
+    "hints": [
+      {
+        "Ar": "اكتب حدود المجموع بعد ضربها في 3.",
+        "En": "Write the terms after multiplication by three."
+      },
+      {
+        "Ar": "احذف الحدود المشتركة عند الطرح.",
+        "En": "Cancel the shared terms on subtraction."
+      }
+    ],
+    "error": {
+      "Ar": "أهمل الحد الأول المطروح.",
+      "En": "Omits the first subtracted term."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 9,
+    "stage": 2,
+    "cat": 34,
+    "skill": 37,
+    "sk": "middle-pythagorean-theorem",
+    "family": "right-triangle-median-coordinate-identity",
+    "title": {
+      "Ar": "المسافة إلى منتصف الوتر",
+      "En": "Distance to the hypotenuse midpoint"
+    },
+    "q": {
+      "Ar": "في مثلث قائم رؤوسه $A=(0,0),B=(8,0),C=(0,6)$، ما المسافة من $A$ إلى منتصف الوتر $BC$؟",
+      "En": "A right triangle has vertices $A=(0,0),B=(8,0),C=(0,6)$. Find the distance from $A$ to the midpoint of hypotenuse $BC$."
+    },
+    "opts": [
+      "10",
+      "7",
+      "5",
+      "4"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "حسب الوتر كله.",
+        "En": "Finds the entire hypotenuse."
+      },
+      {
+        "Ar": "جمع إحداثيي المنتصف.",
+        "En": "Adds the midpoint coordinates."
+      },
+      null,
+      {
+        "Ar": "استعمل الإحداثي الأفقي وحده.",
+        "En": "Uses only the horizontal coordinate."
+      }
+    ],
+    "idea": {
+      "Ar": "نجد إحداثيي المنتصف ثم نستخدم فيثاغورس للمسافة من الأصل.",
+      "En": "Find midpoint coordinates, then apply Pythagoras to the distance from the origin."
+    },
+    "formula": "M=(4,3)",
+    "steps": [
+      {
+        "Ar": "$AM^2=4^2+3^2=25$",
+        "En": "$AM^2=4^2+3^2=25$"
+      },
+      {
+        "Ar": "$AM=5$",
+        "En": "$AM=5$"
+      }
+    ],
+    "sub": {
+      "Ar": "$M=(4,3)$",
+      "En": "$M=(4,3)$"
+    },
+    "result": {
+      "Ar": "$5$",
+      "En": "$5$"
+    },
+    "verify": {
+      "Ar": "$BC=\\sqrt{8^2+6^2}=10$ و$AM=BC/2=5$.",
+      "En": "$BC=\\sqrt{8^2+6^2}=10$ and $AM=BC/2=5$."
+    },
+    "hints": [
+      {
+        "Ar": "خذ متوسط الإحداثيين الأفقيين والعموديين.",
+        "En": "Average each coordinate separately."
+      },
+      {
+        "Ar": "شكل مثلثاً قائماً من الإزاحتين.",
+        "En": "Form a right triangle from the two displacements."
+      }
+    ],
+    "error": {
+      "Ar": "حسب الوتر كله.",
+      "En": "Finds the entire hypotenuse."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 9,
+    "stage": 2,
+    "cat": 34,
+    "skill": 40,
+    "sk": "middle-similar-triangles",
+    "family": "similar-triangle-parallel-cut-side-remainder",
+    "title": {
+      "Ar": "قطعة موازية وضلع متبقٍ",
+      "En": "Parallel segment and remaining side"
+    },
+    "q": {
+      "Ar": "في مثلث $ABC$ تقع $D$ على $AB$ و$E$ على $AC$، و$DE\\parallel BC$. إذا كان $AD=4,DB=6,AE=8$ فما $EC$؟",
+      "En": "In triangle $ABC$, $D$ lies on $AB$ and $E$ on $AC$, with $DE\\parallel BC$. If $AD=4,DB=6,AE=8$, find $EC$."
+    },
+    "opts": [
+      "20",
+      "12",
+      "10",
+      "16"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "حسب الضلع الكامل $AC$.",
+        "En": "Finds the full side $AC$."
+      },
+      null,
+      {
+        "Ar": "استعمل طول $AB$ مباشرة.",
+        "En": "Uses the length of $AB$ directly."
+      },
+      {
+        "Ar": "ضاعف $AE$ دون استعمال النسبة.",
+        "En": "Doubles $AE$ without using the proportion."
+      }
+    ],
+    "idea": {
+      "Ar": "الخط الموازي يقسم الضلعين بالنسبة نفسها.",
+      "En": "The parallel segment divides the two sides in equal proportions."
+    },
+    "formula": "AD/DB=AE/EC",
+    "steps": [
+      {
+        "Ar": "$4/6=8/EC$",
+        "En": "$4/6=8/EC$"
+      },
+      {
+        "Ar": "$EC=48/4=12$",
+        "En": "$EC=48/4=12$"
+      }
+    ],
+    "sub": {
+      "Ar": "$AD/DB=AE/EC$",
+      "En": "$AD/DB=AE/EC$"
+    },
+    "result": {
+      "Ar": "$12$",
+      "En": "$12$"
+    },
+    "verify": {
+      "Ar": "$4/10=8/20$ وبالتالي المثلثان متشابهان.",
+      "En": "$4/10=8/20$, confirming similarity."
+    },
+    "hints": [
+      {
+        "Ar": "قارن القطعتين على الضلع الأول.",
+        "En": "Compare the segments on the first side."
+      },
+      {
+        "Ar": "اكتب النسبة المناظرة على الضلع الثاني.",
+        "En": "Write the matching ratio on the second side."
+      }
+    ],
+    "error": {
+      "Ar": "حسب الضلع الكامل $AC$.",
+      "En": "Finds the full side $AC$."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 9,
+    "stage": 2,
+    "cat": 34,
+    "skill": 37,
+    "sk": "middle-pythagorean-theorem",
+    "family": "pythagorean-square-area-difference",
+    "title": {
+      "Ar": "مساحات مربعات على أضلاع قائمة",
+      "En": "Areas of squares on right-triangle sides"
+    },
+    "q": {
+      "Ar": "بُني مربع على كل ضلع من مثلث قائم. مساحة المربع على الوتر 100 ومساحة أحد المربعين على الضلعين القائمين 36. ما الفرق بين مساحتي المربعين على الضلعين القائمين؟",
+      "En": "Squares are built on the three sides of a right triangle. The square on the hypotenuse has area 100 and one leg square has area 36. What is the difference between the two leg-square areas?"
+    },
+    "opts": [
+      "64",
+      "28",
+      "36",
+      "136"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "حسب مساحة المربع الآخر ولم يجد الفرق.",
+        "En": "Finds the other square area but not the difference."
+      },
+      null,
+      {
+        "Ar": "استعمل المساحة المعطاة وحدها.",
+        "En": "Uses only the given area."
+      },
+      {
+        "Ar": "جمع المساحتين بدلاً من الطرح.",
+        "En": "Adds rather than subtracts."
+      }
+    ],
+    "idea": {
+      "Ar": "مجموع مساحتي مربعي الضلعين القائمين يساوي مساحة مربع الوتر.",
+      "En": "The two leg-square areas sum to the hypotenuse-square area."
+    },
+    "formula": "A_1+A_2=100",
+    "steps": [
+      {
+        "Ar": "$A_2=100-36=64$",
+        "En": "$A_2=100-36=64$"
+      },
+      {
+        "Ar": "$64-36=28$",
+        "En": "$64-36=28$"
+      }
+    ],
+    "sub": {
+      "Ar": "$A_1+A_2=100$",
+      "En": "$A_1+A_2=100$"
+    },
+    "result": {
+      "Ar": "$28$",
+      "En": "$28$"
+    },
+    "verify": {
+      "Ar": "$6^2+8^2=10^2$، و$8^2-6^2=28$.",
+      "En": "$6^2+8^2=10^2$ and $8^2-6^2=28$."
+    },
+    "hints": [
+      {
+        "Ar": "استعمل نظرية فيثاغورس بصيغة المساحات.",
+        "En": "Use Pythagoras in area form."
+      },
+      {
+        "Ar": "قارن مساحتي مربعي الضلعين القائمين بعد إيجادهما.",
+        "En": "Compare the two leg-square areas."
+      }
+    ],
+    "error": {
+      "Ar": "حسب مساحة المربع الآخر ولم يجد الفرق.",
+      "En": "Finds the other square area but not the difference."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 9,
+    "stage": 2,
+    "cat": 34,
+    "skill": 40,
+    "sk": "middle-similar-triangles",
+    "family": "similarity-composition-three-triangles",
+    "title": {
+      "Ar": "تركيب نسب التشابه",
+      "En": "Composing similarity scales"
+    },
+    "q": {
+      "Ar": "ثلاثة مثلثات متشابهة. نسبة الأطوال من الأول إلى الثاني $3/2$، ومن الثاني إلى الثالث $4/3$. إذا كان ضلع في الأول طوله 7، فما طول نظيره في الثالث؟",
+      "En": "Three triangles are similar. The length scale from first to second is $3/2$, and from second to third is $4/3$. If a side of the first is 7, find its counterpart in the third."
+    },
+    "opts": [
+      "14",
+      "\\frac{21}{2}",
+      "\\frac{28}{3}",
+      "\\frac{119}{6}"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "استخدم معامل الانتقال الأول فقط.",
+        "En": "Uses only the first scale."
+      },
+      {
+        "Ar": "استخدم معامل الانتقال الثاني فقط.",
+        "En": "Uses only the second scale."
+      },
+      {
+        "Ar": "جمع المعاملين بدلاً من ضربهما.",
+        "En": "Adds the scales instead of multiplying."
+      }
+    ],
+    "idea": {
+      "Ar": "معامل التشابه الكلي حاصل ضرب معاملي الانتقال.",
+      "En": "The combined scale is the product of the two scales."
+    },
+    "formula": "k=(3/2)(4/3)",
+    "steps": [
+      {
+        "Ar": "$k=2$",
+        "En": "$k=2$"
+      },
+      {
+        "Ar": "$7k=14$",
+        "En": "$7k=14$"
+      }
+    ],
+    "sub": {
+      "Ar": "$k=(3/2)(4/3)$",
+      "En": "$k=(3/2)(4/3)$"
+    },
+    "result": {
+      "Ar": "$14$",
+      "En": "$14$"
+    },
+    "verify": {
+      "Ar": "$7\\cdot3/2=10.5$ ثم $10.5\\cdot4/3=14$.",
+      "En": "$7\\cdot3/2=10.5$, then $10.5\\cdot4/3=14$."
+    },
+    "hints": [
+      {
+        "Ar": "احسب معامل التحويل على مرحلتين.",
+        "En": "Compose the two scale changes."
+      },
+      {
+        "Ar": "طبق المعامل الكلي على الضلع المعطى.",
+        "En": "Apply the total scale to the given side."
+      }
+    ],
+    "error": {
+      "Ar": "استخدم معامل الانتقال الأول فقط.",
+      "En": "Uses only the first scale."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 11,
+    "stage": 3,
+    "cat": 88,
+    "skill": 328,
+    "sk": "circles",
+    "family": "circle-complete-square-center-radius",
+    "title": {
+      "Ar": "مركز ونصف قطر بإكمال المربع",
+      "En": "Completing squares for a circle"
+    },
+    "q": {
+      "Ar": "ما نصف قطر الدائرة $x^2+y^2-6x+4y=12$؟",
+      "En": "Find the radius of $x^2+y^2-6x+4y=12$."
+    },
+    "opts": [
+      "25",
+      "\\sqrt{12}",
+      "5",
+      "\\sqrt{17}"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "استعمل مربع نصف القطر.",
+        "En": "Uses the squared radius."
+      },
+      {
+        "Ar": "أهمل إكمال المربع.",
+        "En": "Omits completing squares."
+      },
+      null,
+      {
+        "Ar": "أكمل مربع أحد المتغيرين فقط.",
+        "En": "Completes only one variable's square incorrectly."
+      }
+    ],
+    "idea": {
+      "Ar": "نكمل المربع في كل متغير لنحصل على الصورة القياسية.",
+      "En": "Complete the square in both variables to obtain standard form."
+    },
+    "formula": "(x-3)^2+(y+2)^2=12+9+4",
+    "steps": [
+      {
+        "Ar": "$(x-3)^2+(y+2)^2=25$",
+        "En": "$(x-3)^2+(y+2)^2=25$"
+      },
+      {
+        "Ar": "$r=5$",
+        "En": "$r=5$"
+      }
+    ],
+    "sub": {
+      "Ar": "$(x-3)^2+(y+2)^2=12+9+4$",
+      "En": "$(x-3)^2+(y+2)^2=12+9+4$"
+    },
+    "result": {
+      "Ar": "$5$",
+      "En": "$5$"
+    },
+    "verify": {
+      "Ar": "النقطة $(8,-2)$ تحقق المعادلة الأصلية وتبعد 5 عن المركز $(3,-2)$.",
+      "En": "Point $(8,-2)$ satisfies the original equation and is five units from center $(3,-2)$."
+    },
+    "hints": [
+      {
+        "Ar": "خذ نصف معامل كل حد خطي ثم ربعه.",
+        "En": "Halve each linear coefficient and square it."
+      },
+      {
+        "Ar": "أضف المربعين إلى الطرفين.",
+        "En": "Add both squares to both sides."
+      }
+    ],
+    "error": {
+      "Ar": "استعمل مربع نصف القطر.",
+      "En": "Uses the squared radius."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 11,
+    "stage": 3,
+    "cat": 88,
+    "skill": 328,
+    "sk": "circles",
+    "family": "circle-tangent-line-perpendicular-radius",
+    "title": {
+      "Ar": "معادلة مماس عند نقطة",
+      "En": "Tangent line at a point"
+    },
+    "q": {
+      "Ar": "للدائرة $x^2+y^2=25$، ما معادلة المماس عند النقطة $(3,4)$؟",
+      "En": "For the circle $x^2+y^2=25$, find the tangent line at $(3,4)$."
+    },
+    "opts": [
+      "3x+4y=25",
+      "4x-3y=0",
+      "3x+4y=5",
+      "x+y=7"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "هذه معادلة المستقيم الحامل لنصف القطر.",
+        "En": "This is the radial line."
+      },
+      {
+        "Ar": "لا تمر بالنقطة المعطاة.",
+        "En": "Does not pass through the given point."
+      },
+      {
+        "Ar": "تمر بالنقطة لكنها ليست عمودية على نصف القطر.",
+        "En": "Passes through the point but is not perpendicular to the radius."
+      }
+    ],
+    "idea": {
+      "Ar": "المماس عمودي على نصف القطر عند نقطة التماس.",
+      "En": "The tangent is perpendicular to the radius at contact."
+    },
+    "formula": "3(x-3)+4(y-4)=0",
+    "steps": [
+      {
+        "Ar": "$3x+4y=9+16$",
+        "En": "$3x+4y=9+16$"
+      },
+      {
+        "Ar": "$3x+4y=25$",
+        "En": "$3x+4y=25$"
+      }
+    ],
+    "sub": {
+      "Ar": "$3(x-3)+4(y-4)=0$",
+      "En": "$3(x-3)+4(y-4)=0$"
+    },
+    "result": {
+      "Ar": "$3x+4y=25$",
+      "En": "$3x+4y=25$"
+    },
+    "verify": {
+      "Ar": "$(3,4)$ تحقق المعادلة، ومتجه اتجاه المماس $(4,-3)$ جداؤه النقطي مع $(3,4)$ صفر.",
+      "En": "$(3,4)$ lies on the line and direction $(4,-3)$ has zero dot product with $(3,4)$."
+    },
+    "hints": [
+      {
+        "Ar": "حدد متجه نصف القطر إلى نقطة التماس.",
+        "En": "Identify the radial vector to the contact point."
+      },
+      {
+        "Ar": "استعمله متجهاً عمودياً على المماس.",
+        "En": "Use it as a normal vector to the tangent."
+      }
+    ],
+    "error": {
+      "Ar": "هذه معادلة المستقيم الحامل لنصف القطر.",
+      "En": "This is the radial line."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 11,
+    "stage": 3,
+    "cat": 88,
+    "skill": 328,
+    "sk": "circles",
+    "family": "circle-internal-tangency-center-separation",
+    "title": {
+      "Ar": "تماس داخلي",
+      "En": "Internal circle tangency"
+    },
+    "q": {
+      "Ar": "دائرتان متماستان داخلياً، نصفا قطريهما 11 و4. ما المسافة بين مركزيهما؟",
+      "En": "Two circles are internally tangent with radii 11 and 4. Find the distance between their centers."
+    },
+    "opts": [
+      "15",
+      "7",
+      "4",
+      "11"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "استعمل شرط التماس الخارجي.",
+        "En": "Uses external tangency."
+      },
+      null,
+      {
+        "Ar": "استعمل نصف القطر الأصغر فقط.",
+        "En": "Uses only the smaller radius."
+      },
+      {
+        "Ar": "استعمل نصف القطر الأكبر فقط.",
+        "En": "Uses only the larger radius."
+      }
+    ],
+    "idea": {
+      "Ar": "في التماس الداخلي تساوي المسافة فرق نصفي القطرين.",
+      "En": "For internal tangency, center distance equals the difference of radii."
+    },
+    "formula": "d=R-r",
+    "steps": [
+      {
+        "Ar": "$d=11-4=7$",
+        "En": "$d=11-4=7$"
+      }
+    ],
+    "sub": {
+      "Ar": "$d=R-r$",
+      "En": "$d=R-r$"
+    },
+    "result": {
+      "Ar": "$7$",
+      "En": "$7$"
+    },
+    "verify": {
+      "Ar": "$7+4=11$، فتصل الدائرة الصغيرة إلى حدود الكبيرة عند نقطة واحدة.",
+      "En": "$7+4=11$, giving a single internal contact point."
+    },
+    "hints": [
+      {
+        "Ar": "تخيل الدائرة الصغيرة داخل الكبيرة.",
+        "En": "Imagine the smaller circle inside the larger."
+      },
+      {
+        "Ar": "اربط المسافتين من نقطة التماس إلى المركزين.",
+        "En": "Relate distances from the contact point to the centers."
+      }
+    ],
+    "error": {
+      "Ar": "استعمل شرط التماس الخارجي.",
+      "En": "Uses external tangency."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 11,
+    "stage": 3,
+    "cat": 88,
+    "skill": 328,
+    "sk": "circles",
+    "family": "circle-diameter-endpoints-center-radius-squared",
+    "title": {
+      "Ar": "دائرة من طرفي القطر",
+      "En": "Circle from diameter endpoints"
+    },
+    "q": {
+      "Ar": "طرفا قطر دائرة هما $(-2,1)$ و$(4,9)$. ما مربع نصف قطرها؟",
+      "En": "Endpoints of a circle's diameter are $(-2,1)$ and $(4,9)$. Find its squared radius."
+    },
+    "opts": [
+      "100",
+      "50",
+      "25",
+      "10"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "استعمل مربع القطر.",
+        "En": "Uses squared diameter."
+      },
+      {
+        "Ar": "قسم مربع القطر على 2 بدلاً من 4.",
+        "En": "Halves squared diameter instead of quartering it."
+      },
+      null,
+      {
+        "Ar": "استعمل طول القطر.",
+        "En": "Uses the diameter length."
+      }
+    ],
+    "idea": {
+      "Ar": "نحسب مربع طول القطر ثم نقسمه على 4.",
+      "En": "Calculate squared diameter and divide by four."
+    },
+    "formula": "r^2=((4+2)^2+(9-1)^2)/4",
+    "steps": [
+      {
+        "Ar": "$r^2=(36+64)/4$",
+        "En": "$r^2=(36+64)/4$"
+      },
+      {
+        "Ar": "$r^2=25$",
+        "En": "$r^2=25$"
+      }
+    ],
+    "sub": {
+      "Ar": "$r^2=((4+2)^2+(9-1)^2)/4$",
+      "En": "$r^2=((4+2)^2+(9-1)^2)/4$"
+    },
+    "result": {
+      "Ar": "$25$",
+      "En": "$25$"
+    },
+    "verify": {
+      "Ar": "المركز $(1,5)$، ومربع بعده عن $(-2,1)$ يساوي $9+16=25$.",
+      "En": "Center $(1,5)$ has squared distance $9+16=25$ from $(-2,1)$."
+    },
+    "hints": [
+      {
+        "Ar": "احسب فرق كل إحداثي.",
+        "En": "Find both coordinate differences."
+      },
+      {
+        "Ar": "تذكر أن نصف القطر نصف القطر الكامل للدائرة أي نصف طول القطر.",
+        "En": "Recall radius is half the diameter length."
+      }
+    ],
+    "error": {
+      "Ar": "استعمل مربع القطر.",
+      "En": "Uses squared diameter."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 11,
+    "stage": 3,
+    "cat": 88,
+    "skill": 330,
+    "sk": "loci",
+    "family": "locus-fixed-sum-distances-on-segment",
+    "title": {
+      "Ar": "مسار مجموع مسافتين ثابت",
+      "En": "Locus of a fixed distance sum"
+    },
+    "q": {
+      "Ar": "النقطتان $A=(0,0)$ و$B=(6,0)$. ما مجموعة النقاط $P$ التي تحقق $PA+PB=6$؟ A القطعة AB، B المستقيم AB كله، C دائرة مركزها A، D نقطة المنتصف فقط.",
+      "En": "For $A=(0,0)$ and $B=(6,0)$, what is the locus of $P$ satisfying $PA+PB=6$? A: segment AB; B: whole line AB; C: circle centered at A; D: midpoint only."
+    },
+    "opts": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "النقاط خارج القطعة تجعل المجموع أكبر من 6.",
+        "En": "Points outside the segment give a larger sum."
+      },
+      {
+        "Ar": "المسافة إلى A ليست ثابتة منفردة.",
+        "En": "Distance to A alone is not fixed."
+      },
+      {
+        "Ar": "كل نقطة على القطعة تحقق الشرط.",
+        "En": "Every point on the segment satisfies the condition."
+      }
+    ],
+    "idea": {
+      "Ar": "تتحقق المساواة في متباينة المثلث عندما تقع النقطة على القطعة بين الطرفين.",
+      "En": "Equality in the triangle inequality holds when the point lies on the segment between the endpoints."
+    },
+    "formula": "PA+PB\\ge AB=6",
+    "steps": [
+      {
+        "Ar": "$P=(x,0),\\quad 0\\le x\\le6$",
+        "En": "$P=(x,0),\\quad 0\\le x\\le6$"
+      },
+      {
+        "Ar": "$x+(6-x)=6$",
+        "En": "$x+(6-x)=6$"
+      }
+    ],
+    "sub": {
+      "Ar": "$PA+PB\\ge AB=6$",
+      "En": "$PA+PB\\ge AB=6$"
+    },
+    "result": {
+      "Ar": "$A$",
+      "En": "$A$"
+    },
+    "verify": {
+      "Ar": "$P=(2,0)$ يعطي $2+4=6$، أما أي نقطة خارج القطعة فتعطي مساراً أطول.",
+      "En": "$P=(2,0)$ gives $2+4=6$; any point off the segment gives a longer path."
+    },
+    "hints": [
+      {
+        "Ar": "قارن مجموع المسافتين بالمسافة المباشرة بين A وB.",
+        "En": "Compare the distance sum with the direct distance AB."
+      },
+      {
+        "Ar": "حدد متى يتحقق التساوي.",
+        "En": "Identify when equality holds."
+      }
+    ],
+    "error": {
+      "Ar": "النقاط خارج القطعة تجعل المجموع أكبر من 6.",
+      "En": "Points outside the segment give a larger sum."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 11,
+    "stage": 3,
+    "cat": 88,
+    "skill": 328,
+    "sk": "circles",
+    "family": "circle-line-intersection-by-distance",
+    "title": {
+      "Ar": "عدد تقاطعات مستقيم ودائرة",
+      "En": "Circle-line intersection by distance"
+    },
+    "q": {
+      "Ar": "دائرة مركزها $(2,3)$ ونصف قطرها 4. أي مستقيم من الخيارات يقطعها في نقطتين؟",
+      "En": "A circle has center $(2,3)$ and radius 4. Which listed line intersects it at two points?"
+    },
+    "opts": [
+      "y=7",
+      "y=8",
+      "y=5",
+      "y=-2"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "هذا المستقيم مماس فقط.",
+        "En": "This line is tangent."
+      },
+      {
+        "Ar": "بعده عن المركز أكبر من نصف القطر.",
+        "En": "Its center distance exceeds the radius."
+      },
+      null,
+      {
+        "Ar": "بعده عن المركز يساوي 5 وهو أكبر من 4.",
+        "En": "Its center distance is five, greater than four."
+      }
+    ],
+    "idea": {
+      "Ar": "يقطع المستقيم الدائرة في نقطتين عندما يكون بعده العمودي عن المركز أقل من نصف القطر.",
+      "En": "A line intersects at two points when its perpendicular center distance is less than the radius."
+    },
+    "formula": "d=|k-3|",
+    "steps": [
+      {
+        "Ar": "$|7-3|=4,\\quad |8-3|=5$",
+        "En": "$|7-3|=4,\\quad |8-3|=5$"
+      },
+      {
+        "Ar": "$|5-3|=2<4,\\quad |-2-3|=5$",
+        "En": "$|5-3|=2<4,\\quad |-2-3|=5$"
+      }
+    ],
+    "sub": {
+      "Ar": "$d=|k-3|$",
+      "En": "$d=|k-3|$"
+    },
+    "result": {
+      "Ar": "$y=5$",
+      "En": "$y=5$"
+    },
+    "verify": {
+      "Ar": "عند $y=5$ نحصل على $(x-2)^2=12$ وله حلان مختلفان.",
+      "En": "At $y=5$, $(x-2)^2=12$ has two distinct solutions."
+    },
+    "hints": [
+      {
+        "Ar": "احسب بعد كل مستقيم أفقي عن المركز.",
+        "En": "Find the distance from the center to each horizontal line."
+      },
+      {
+        "Ar": "قارن المسافات بنصف القطر.",
+        "En": "Compare the distances with the radius."
+      }
+    ],
+    "error": {
+      "Ar": "هذا المستقيم مماس فقط.",
+      "En": "This line is tangent."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 2,
+    "stage": 1,
+    "cat": 96,
+    "skill": 355,
+    "sk": "primary-shape-attributes-partition",
+    "family": "rectangle-rotation-quarter-turn-side-swap",
+    "title": {
+      "Ar": "دوران مستطيل",
+      "En": "Quarter-turn of a rectangle"
+    },
+    "q": {
+      "Ar": "مستطيل عرضه الأفقي أطول من ارتفاعه. نديره ربع دورة في مستوى الورقة. أي وصف صحيح؟ A يصبح ارتفاعه أكبر من عرضه، B يصبح مربعاً، C يبقى عرضه أكبر، D تتغير أطوال أضلاعه.",
+      "En": "A rectangle is wider than it is tall. Rotate it a quarter turn in the plane. Which is true? A: it becomes taller than wide; B: becomes a square; C: remains wider; D: its side lengths change."
+    },
+    "opts": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "الدوران لا يجعل ضلعين مختلفين متساويين.",
+        "En": "Rotation does not make unequal sides equal."
+      },
+      {
+        "Ar": "تبادل الاتجاهان الأفقي والعمودي.",
+        "En": "Horizontal and vertical directions swap."
+      },
+      {
+        "Ar": "الدوران يحافظ على الأطوال.",
+        "En": "Rotation preserves lengths."
+      }
+    ],
+    "idea": {
+      "Ar": "ربع الدورة ينقل اتجاه الأضلاع الطويلة من الأفقي إلى العمودي.",
+      "En": "A quarter turn changes long sides from horizontal to vertical."
+    },
+    "formula": "90^\\circ",
+    "steps": [
+      {
+        "Ar": "$w>h\\Rightarrow h'=w,\\quad w'=h$",
+        "En": "$w>h\\Rightarrow h'=w,\\quad w'=h$"
+      }
+    ],
+    "sub": {
+      "Ar": "$90^\\circ$",
+      "En": "$90^\\circ$"
+    },
+    "result": {
+      "Ar": "$A$",
+      "En": "$A$"
+    },
+    "verify": {
+      "Ar": "مستطيل عرضه 6 وارتفاعه 2 يصبح عرضه 2 وارتفاعه 6.",
+      "En": "A rectangle six wide and two tall becomes two wide and six tall."
+    },
+    "hints": [
+      {
+        "Ar": "تخيل تدوير ورقة مستطيلة.",
+        "En": "Imagine turning a rectangular sheet."
+      },
+      {
+        "Ar": "لاحظ موضع الضلع الطويل بعد الدوران.",
+        "En": "Notice the long side's new direction."
+      }
+    ],
+    "error": {
+      "Ar": "الدوران لا يجعل ضلعين مختلفين متساويين.",
+      "En": "Rotation does not make unequal sides equal."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 2,
+    "stage": 1,
+    "cat": 96,
+    "skill": 355,
+    "sk": "primary-shape-attributes-partition",
+    "family": "cube-face-adjacency-exclude-opposite",
+    "title": {
+      "Ar": "أوجه تشترك في حافة",
+      "En": "Faces sharing an edge"
+    },
+    "q": {
+      "Ar": "اختر وجهاً واحداً لمكعب. كم وجهاً آخر يشترك معه في حافة كاملة؟",
+      "En": "Choose one face of a cube. How many other faces share a complete edge with it?"
+    },
+    "opts": [
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "أهمل أحد جوانب الوجه المربع.",
+        "En": "Misses one side of the square face."
+      },
+      null,
+      {
+        "Ar": "حسب الوجه المقابل الذي لا يلامسه.",
+        "En": "Includes the opposite non-touching face."
+      },
+      {
+        "Ar": "حسب الوجه المختار نفسه أيضاً.",
+        "En": "Includes the chosen face itself."
+      }
+    ],
+    "idea": {
+      "Ar": "لكل حافة من حواف الوجه المربع وجه مجاور واحد، والوجه المقابل لا يشترك معه بحافة.",
+      "En": "Each edge of the square face has one neighboring face; the opposite face shares none."
+    },
+    "formula": "6-1-1=4",
+    "steps": [
+      {
+        "Ar": "$4$",
+        "En": "$4$"
+      }
+    ],
+    "sub": {
+      "Ar": "$6-1-1=4$",
+      "En": "$6-1-1=4$"
+    },
+    "result": {
+      "Ar": "$4$",
+      "En": "$4$"
+    },
+    "verify": {
+      "Ar": "الأمام والخلف واليمين واليسار أربعة أوجه.",
+      "En": "Front, back, left and right are four faces."
+    },
+    "hints": [
+      {
+        "Ar": "تخيل الوجه العلوي للمكعب.",
+        "En": "Imagine the cube's top face."
+      },
+      {
+        "Ar": "عد الأوجه الجانبية ولا تحسب الوجه السفلي.",
+        "En": "Count the side faces, excluding the bottom."
+      }
+    ],
+    "error": {
+      "Ar": "أهمل أحد جوانب الوجه المربع.",
+      "En": "Misses one side of the square face."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 2,
+    "stage": 1,
+    "cat": 96,
+    "skill": 355,
+    "sk": "primary-shape-attributes-partition",
+    "family": "triangle-halves-rejoin-other-side-shape",
+    "title": {
+      "Ar": "تكوين مربع من مثلثين",
+      "En": "Making a square from two triangles"
+    },
+    "q": {
+      "Ar": "قُص مربع على أحد قطريه إلى مثلثين. أعيد جمع المثلثين على القطر نفسه دون تداخل كما كانا قبل القص. ما الشكل الناتج؟",
+      "En": "A square is cut along one diagonal into two triangles. They are rejoined along the same diagonal without overlap in their original positions. What shape results?"
+    },
+    "opts": [
+      "\\text{A}",
+      "\\text{B}",
+      "\\text{C}",
+      "\\text{D}"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "لا يكون مستطيلاً غير مربع لأن الأضلاع الأربعة متساوية.",
+        "En": "Not a nonsquare rectangle, since all four sides are equal."
+      },
+      {
+        "Ar": "الحد الخارجي له أربعة أضلاع لا ثلاثة.",
+        "En": "The boundary has four sides, not three."
+      },
+      {
+        "Ar": "الحد الخارجي مستقيم الأضلاع وليس منحنياً.",
+        "En": "The boundary is straight-sided, not curved."
+      }
+    ],
+    "idea": {
+      "Ar": "إعادة القطعتين إلى موضعهما الأصلي تعيد الشكل الأصلي.",
+      "En": "Returning both pieces to their original positions restores the original shape."
+    },
+    "formula": "2\\cdot\\frac12=1",
+    "steps": [
+      {
+        "Ar": "$1$",
+        "En": "$1$"
+      }
+    ],
+    "sub": {
+      "Ar": "$2\\cdot\\frac12=1$",
+      "En": "$2\\cdot\\frac12=1$"
+    },
+    "result": {
+      "Ar": "$\\text{A}$",
+      "En": "$\\text{A}$"
+    },
+    "verify": {
+      "Ar": "الحد الخارجي هو أضلاع المربع الأربعة الأصلية.",
+      "En": "The outside boundary is the four original square sides."
+    },
+    "hints": [
+      {
+        "Ar": "تذكر شكل الورقة قبل القص.",
+        "En": "Recall the sheet's shape before cutting."
+      },
+      {
+        "Ar": "ضع القطعتين في موضعهما الأصلي.",
+        "En": "Place the pieces in their original positions."
+      }
+    ],
+    "error": {
+      "Ar": "لا يكون مستطيلاً غير مربع لأن الأضلاع الأربعة متساوية.",
+      "En": "Not a nonsquare rectangle, since all four sides are equal."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 2,
+    "stage": 1,
+    "cat": 96,
+    "skill": 355,
+    "sk": "primary-shape-attributes-partition",
+    "family": "triangular-prism-edge-types",
+    "title": {
+      "Ar": "حواف منشور ثلاثي",
+      "En": "Edges of a triangular prism"
+    },
+    "q": {
+      "Ar": "لمنشور ثلاثي قاعدتان مثلثتان، وتصل ثلاث حواف بين القاعدتين. كم حافة له بالمجموع؟",
+      "En": "A triangular prism has two triangular bases and three edges connecting them. How many edges does it have in total?"
+    },
+    "opts": [
+      "6",
+      "9",
+      "5",
+      "12"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "حسب حواف القاعدتين فقط.",
+        "En": "Counts only the base edges."
+      },
+      null,
+      {
+        "Ar": "حسب الأوجه بدلاً من الحواف.",
+        "En": "Counts faces instead of edges."
+      },
+      {
+        "Ar": "عامله كمكعب ذي قاعدتين مربعتين.",
+        "En": "Treats it as a cube with square bases."
+      }
+    ],
+    "idea": {
+      "Ar": "نعد حواف كل قاعدة ثم الحواف الواصلة بينهما.",
+      "En": "Count the edges of each base and the connecting edges."
+    },
+    "formula": "3+3+3=9",
+    "steps": [
+      {
+        "Ar": "$9$",
+        "En": "$9$"
+      }
+    ],
+    "sub": {
+      "Ar": "$3+3+3=9$",
+      "En": "$3+3+3=9$"
+    },
+    "result": {
+      "Ar": "$9$",
+      "En": "$9$"
+    },
+    "verify": {
+      "Ar": "ست حواف حول القاعدتين وثلاث حواف جانبية.",
+      "En": "Six base edges and three connecting edges."
+    },
+    "hints": [
+      {
+        "Ar": "كم حافة في كل قاعدة مثلثة؟",
+        "En": "How many edges does each triangular base have?"
+      },
+      {
+        "Ar": "أضف الحواف التي تصل القاعدتين.",
+        "En": "Add the edges joining the bases."
+      }
+    ],
+    "error": {
+      "Ar": "حسب حواف القاعدتين فقط.",
+      "En": "Counts only the base edges."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 2,
+    "stage": 1,
+    "cat": 82,
+    "skill": 321,
+    "sk": "length",
+    "family": "length-ruler-reversed-orientation",
+    "title": {
+      "Ar": "قياس جسم باتجاه معاكس",
+      "En": "Measuring in reverse orientation"
+    },
+    "q": {
+      "Ar": "وُضع قلم على مسطرة بحيث يقع رأسه عند 14 سم وطرفه الآخر عند 6 سم. ما طوله بالسنتيمتر؟",
+      "En": "A pencil lies along a ruler with its tip at 14 cm and its other end at 6 cm. Find its length in centimetres."
+    },
+    "opts": [
+      "14",
+      "20",
+      "8",
+      "6"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "قرأ علامة الرأس دون طرح.",
+        "En": "Reads the tip marking without subtraction."
+      },
+      {
+        "Ar": "جمع العلامتين.",
+        "En": "Adds the readings."
+      },
+      null,
+      {
+        "Ar": "قرأ علامة الطرف الآخر وحدها.",
+        "En": "Reads only the other endpoint."
+      }
+    ],
+    "idea": {
+      "Ar": "الطول هو الفرق الموجب بين قراءتي الطرفين بغض النظر عن اتجاه الجسم.",
+      "En": "Length is the positive difference between endpoint readings regardless of orientation."
+    },
+    "formula": "|14-6|=8",
+    "steps": [
+      {
+        "Ar": "$8$",
+        "En": "$8$"
+      }
+    ],
+    "sub": {
+      "Ar": "$|14-6|=8$",
+      "En": "$|14-6|=8$"
+    },
+    "result": {
+      "Ar": "$8$",
+      "En": "$8$"
+    },
+    "verify": {
+      "Ar": "$6+8=14$.",
+      "En": "$6+8=14$."
+    },
+    "hints": [
+      {
+        "Ar": "حدد القراءة الكبرى والصغرى.",
+        "En": "Identify the larger and smaller readings."
+      },
+      {
+        "Ar": "اطرح الصغرى من الكبرى.",
+        "En": "Subtract smaller from larger."
+      }
+    ],
+    "error": {
+      "Ar": "قرأ علامة الرأس دون طرح.",
+      "En": "Reads the tip marking without subtraction."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  }
+]

@@ -1,0 +1,1118 @@
+[
+  {
+    "track": 1,
+    "cat": 81,
+    "skill": 302,
+    "sk": "counting",
+    "family": "counting-ordinal-two-equal-lines",
+    "title": {
+      "Ar": "ترتيب الصف بعد دمج صفين",
+      "En": "Position after joining two lines"
+    },
+    "q": {
+      "Ar": "يقف 5 أطفال في صف، ويقف 4 أطفال في صف ثانٍ. إذا وقف الصف الثاني كله بعد الأول دون تغيير ترتيبه، فما ترتيب أول طفل من الصف الثاني في الصف الجديد؟",
+      "En": "Five children stand in one line and four in another. The second line joins behind the first without changing its order. What is the new position of the first child in the second line?"
+    },
+    "opts": [
+      "6",
+      "4",
+      "5",
+      "9"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "هذا عدد أطفال الصف الثاني.",
+        "En": "This counts the second line."
+      },
+      {
+        "Ar": "هذا ترتيب آخر طفل من الصف الأول.",
+        "En": "This is the last position in the first line."
+      },
+      {
+        "Ar": "هذا عدد الأطفال جميعاً.",
+        "En": "This counts all children."
+      }
+    ],
+    "idea": {
+      "Ar": "يسبق الطفل خمسة أطفال من الصف الأول.",
+      "En": "Five children from the first line stand ahead of the child."
+    },
+    "formula": "5+1",
+    "steps": [
+      {
+        "Ar": "$5+1=6$",
+        "En": "$5+1=6$"
+      }
+    ],
+    "sub": {
+      "Ar": "$5+1$",
+      "En": "$5+1$"
+    },
+    "result": {
+      "Ar": "$6$",
+      "En": "$6$"
+    },
+    "verify": {
+      "Ar": "$6-1=5$",
+      "En": "$6-1=5$"
+    },
+    "hints": [
+      {
+        "Ar": "عد الأطفال الذين يسبقونه.",
+        "En": "Count the children ahead of this child."
+      },
+      {
+        "Ar": "أضف واحداً لمعرفة ترتيبه.",
+        "En": "Add one to find the position."
+      }
+    ],
+    "error": {
+      "Ar": "هذا عدد أطفال الصف الثاني.",
+      "En": "This counts the second line."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 8,
+    "cat": 6,
+    "skill": 29,
+    "sk": "middle-slope",
+    "family": "slope-missing-coordinate-signed-run",
+    "title": {
+      "Ar": "إحداثي من ميل معلوم",
+      "En": "Coordinate from a known slope"
+    },
+    "q": {
+      "Ar": "يمر مستقيم ميله 2 بالنقطتين $(1,3)$ و$(5,y)$. ما قيمة y؟",
+      "En": "A line of slope two passes through $(1,3)$ and $(5,y)$. Find y."
+    },
+    "opts": [
+      "8",
+      "5",
+      "-5",
+      "11"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "هذا مقدار التغير الرأسي وحده.",
+        "En": "This is just the vertical change."
+      },
+      {
+        "Ar": "أضاف الميل إلى الإحداثي الرأسي فقط.",
+        "En": "Adds only the slope to the initial ordinate."
+      },
+      {
+        "Ar": "طرح التغير الرأسي بدلاً من جمعه.",
+        "En": "Subtracts the rise rather than adding it."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "نحسب التغير الرأسي من الميل ثم نضيفه إلى الإحداثي الأول.",
+      "En": "Find the vertical change from the slope, then add it to the initial ordinate."
+    },
+    "formula": "(y-3)/(5-1)=2",
+    "steps": [
+      {
+        "Ar": "$y-3=8$",
+        "En": "$y-3=8$"
+      },
+      {
+        "Ar": "$y=11$",
+        "En": "$y=11$"
+      }
+    ],
+    "sub": {
+      "Ar": "$y-3=2\\cdot4$",
+      "En": "$y-3=2\\cdot4$"
+    },
+    "result": {
+      "Ar": "$11$",
+      "En": "$11$"
+    },
+    "verify": {
+      "Ar": "$(11-3)/(5-1)=2$",
+      "En": "$(11-3)/(5-1)=2$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب فرق الإحداثيين الأفقيين.",
+        "En": "Find the horizontal coordinate difference."
+      },
+      {
+        "Ar": "اضرب الفرق في الميل ثم أضف 3.",
+        "En": "Multiply the difference by the slope, then add three."
+      }
+    ],
+    "error": {
+      "Ar": "هذا مقدار التغير الرأسي وحده.",
+      "En": "This is just the vertical change."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 8,
+    "cat": 5,
+    "skill": 21,
+    "sk": "middle-exponent-laws",
+    "family": "exponents-equal-bases-via-prime-factor",
+    "title": {
+      "Ar": "ضرب قوتين بأساسين مختلفين",
+      "En": "Multiplying powers with different bases"
+    },
+    "q": {
+      "Ar": "اكتب $4^3\\cdot8^2$ على صورة قوة للعدد 2.",
+      "En": "Express $4^3\\cdot8^2$ as a single power of two."
+    },
+    "opts": [
+      "2^6",
+      "2^{10}",
+      "2^{12}",
+      "2^5"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "حسب أحد العاملين فقط.",
+        "En": "Computes only one factor."
+      },
+      {
+        "Ar": "جمع معاملات الأسس بطريقة خاطئة.",
+        "En": "Combines exponent factors incorrectly."
+      },
+      null,
+      {
+        "Ar": "جمع الأسين دون توحيد الأساس.",
+        "En": "Adds exponents without matching bases."
+      }
+    ],
+    "idea": {
+      "Ar": "نكتب 4 و8 على صورة قوتين للعدد 2.",
+      "En": "Express four and eight as powers of two."
+    },
+    "formula": "(2^2)^3(2^3)^2",
+    "steps": [
+      {
+        "Ar": "$2^6\\cdot2^6=2^{12}$",
+        "En": "$2^6\\cdot2^6=2^{12}$"
+      }
+    ],
+    "sub": {
+      "Ar": "$2^{2\\cdot3}2^{3\\cdot2}$",
+      "En": "$2^{2\\cdot3}2^{3\\cdot2}$"
+    },
+    "result": {
+      "Ar": "$2^{12}$",
+      "En": "$2^{12}$"
+    },
+    "verify": {
+      "Ar": "$64\\cdot64=4096=2^{12}$",
+      "En": "$64\\cdot64=4096=2^{12}$"
+    },
+    "hints": [
+      {
+        "Ar": "اكتب 4 و8 بدلالة العدد 2.",
+        "En": "Write four and eight using base two."
+      },
+      {
+        "Ar": "اضرب الأسس داخل كل قوس ثم اجمع.",
+        "En": "Multiply exponents within each power, then add."
+      }
+    ],
+    "error": {
+      "Ar": "جمع الأسين دون توحيد الأساس.",
+      "En": "Adds exponents without matching bases."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 8,
+    "cat": 5,
+    "skill": 21,
+    "sk": "middle-exponent-laws",
+    "family": "exponents-identify-non-equivalent-forms",
+    "title": {
+      "Ar": "تمييز تعبير غير مكافئ",
+      "En": "Identifying a non-equivalent expression"
+    },
+    "q": {
+      "Ar": "أي تعبير لا يساوي $a^6$ حيث $a>1$؟",
+      "En": "Which expression is not equal to $a^6$ for $a>1$?"
+    },
+    "opts": [
+      "a^9/a^3",
+      "(a^3)^3",
+      "a^2a^4",
+      "(a^2)^3"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "فرق الأسين 6.",
+        "En": "The exponents differ by six."
+      },
+      null,
+      {
+        "Ar": "مجموع الأسين 6.",
+        "En": "The exponents sum to six."
+      },
+      {
+        "Ar": "حاصل ضرب الأسين 6.",
+        "En": "The exponents multiply to six."
+      }
+    ],
+    "idea": {
+      "Ar": "أس القوة المرفوعة لقوة أخرى يساوي حاصل ضرب الأسين.",
+      "En": "For a power raised to a power, multiply the exponents."
+    },
+    "formula": "(a^3)^3=a^9",
+    "steps": [
+      {
+        "Ar": "$a^9\\ne a^6\\quad(a>1)$",
+        "En": "$a^9\\ne a^6\\quad(a>1)$"
+      }
+    ],
+    "sub": {
+      "Ar": "$3\\cdot3=9$",
+      "En": "$3\\cdot3=9$"
+    },
+    "result": {
+      "Ar": "$(a^3)^3$",
+      "En": "$(a^3)^3$"
+    },
+    "verify": {
+      "Ar": "$a=2:\\ 2^9=512,\\ 2^6=64$",
+      "En": "$a=2:\\ 2^9=512,\\ 2^6=64$"
+    },
+    "hints": [
+      {
+        "Ar": "بسّط أس كل خيار.",
+        "En": "Simplify the exponent of each choice."
+      },
+      {
+        "Ar": "ابحث عن الأس المختلف عن 6.",
+        "En": "Find the exponent that differs from six."
+      }
+    ],
+    "error": {
+      "Ar": "مجموع الأسين 6.",
+      "En": "The exponents sum to six."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 8,
+    "cat": 5,
+    "skill": 23,
+    "sk": "middle-evaluate-powers",
+    "family": "powers-negative-base-order-comparison",
+    "title": {
+      "Ar": "مقارنة قوتين بإشارة سالبة",
+      "En": "Comparing negative-base powers"
+    },
+    "q": {
+      "Ar": "أي قيمة هي الأكبر: $(-2)^5$ أم $(-3)^3$ أم $(-4)^2$ أم $-5^2$؟",
+      "En": "Which value is greatest: $(-2)^5$, $(-3)^3$, $(-4)^2$, or $-5^2$?"
+    },
+    "opts": [
+      "(-4)^2",
+      "(-2)^5",
+      "(-3)^3",
+      "-5^2"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "قيمته −32.",
+        "En": "Its value is −32."
+      },
+      {
+        "Ar": "قيمته −27.",
+        "En": "Its value is −27."
+      },
+      {
+        "Ar": "قيمته −25 لأن السالب خارج القوة.",
+        "En": "Its value is −25 because the minus is outside the power."
+      }
+    ],
+    "idea": {
+      "Ar": "نحسب قيمة كل قوة مع الانتباه إلى الأقواس وزوجية الأس.",
+      "En": "Evaluate each power, checking parentheses and exponent parity."
+    },
+    "formula": "(-4)^2=16",
+    "steps": [
+      {
+        "Ar": "$(-4)^2=16$",
+        "En": "$(-4)^2=16$"
+      },
+      {
+        "Ar": "$-5^2=-25$",
+        "En": "$-5^2=-25$"
+      },
+      {
+        "Ar": "$16>-25>-27>-32$",
+        "En": "$16>-25>-27>-32$"
+      }
+    ],
+    "sub": {
+      "Ar": "$(-2)^5=-32,\\ (-3)^3=-27$",
+      "En": "$(-2)^5=-32,\\ (-3)^3=-27$"
+    },
+    "result": {
+      "Ar": "$(-4)^2$",
+      "En": "$(-4)^2$"
+    },
+    "verify": {
+      "Ar": "$16>0$",
+      "En": "$16>0$"
+    },
+    "hints": [
+      {
+        "Ar": "الأس الفردي لأساس سالب يعطي قيمة سالبة.",
+        "En": "An odd exponent of a negative base gives a negative value."
+      },
+      {
+        "Ar": "انتبه للسالب خارج القوس.",
+        "En": "Notice the minus outside the power."
+      }
+    ],
+    "error": {
+      "Ar": "قيمته −32.",
+      "En": "Its value is −32."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 11,
+    "cat": 11,
+    "skill": 49,
+    "sk": "secondary-polynomial-derivatives",
+    "family": "derivative-linear-combination-polynomials",
+    "title": {
+      "Ar": "مشتقة تركيب خطي لدالتين",
+      "En": "Derivative of a linear combination"
+    },
+    "q": {
+      "Ar": "إذا كان $f'(2)=5$ و$g'(2)=-3$ لدالتين كثيرتي حدود، وكان $h(x)=2f(x)-4g(x)$، فما $h'(2)$؟",
+      "En": "For polynomials f and g, $f'(2)=5$ and $g'(2)=-3$. If $h(x)=2f(x)-4g(x)$, find $h'(2)$."
+    },
+    "opts": [
+      "-2",
+      "8",
+      "-22",
+      "22"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "طرح 12 بدلاً من جمعها.",
+        "En": "Subtracts twelve instead of adding it."
+      },
+      {
+        "Ar": "أهمل المعاملين.",
+        "En": "Ignores the coefficients."
+      },
+      {
+        "Ar": "عكس إشارة الناتج.",
+        "En": "Reverses the result's sign."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "الاشتقاق يحافظ على التركيب الخطي.",
+      "En": "Differentiation is linear."
+    },
+    "formula": "h'=2f'-4g'",
+    "steps": [
+      {
+        "Ar": "$10+12=22$",
+        "En": "$10+12=22$"
+      }
+    ],
+    "sub": {
+      "Ar": "$2\\cdot5-4(-3)$",
+      "En": "$2\\cdot5-4(-3)$"
+    },
+    "result": {
+      "Ar": "$22$",
+      "En": "$22$"
+    },
+    "verify": {
+      "Ar": "$22-10=12$",
+      "En": "$22-10=12$"
+    },
+    "hints": [
+      {
+        "Ar": "وزّع الاشتقاق على الحدين.",
+        "En": "Distribute differentiation across the terms."
+      },
+      {
+        "Ar": "انتبه إلى طرح عدد سالب.",
+        "En": "Remember that subtracting a negative adds."
+      }
+    ],
+    "error": {
+      "Ar": "طرح 12 بدلاً من جمعها.",
+      "En": "Subtracts twelve instead of adding it."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 11,
+    "cat": 11,
+    "skill": 49,
+    "sk": "secondary-polynomial-derivatives",
+    "family": "derivative-polynomial-identify-original-up-to-constant",
+    "title": {
+      "Ar": "تمييز كثيرة حدود من مشتقتها",
+      "En": "Identifying a polynomial from its derivative"
+    },
+    "q": {
+      "Ar": "أي دالة من الخيارات مشتقتها $6x^2-4$؟",
+      "En": "Which of the following functions has derivative $6x^2-4$?"
+    },
+    "opts": [
+      "2x^3-4+7x",
+      "3x^2-4x+7",
+      "2x^3-4x+7",
+      "6x^3-4x+7"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "مشتقتها 6x²+7.",
+        "En": "Its derivative is 6x²+7."
+      },
+      {
+        "Ar": "مشتقتها 6x−4.",
+        "En": "Its derivative is 6x−4."
+      },
+      null,
+      {
+        "Ar": "مشتقتها 18x²−4.",
+        "En": "Its derivative is 18x²−4."
+      }
+    ],
+    "idea": {
+      "Ar": "نشتق كل خيار ونقارن بالمشتقة المطلوبة.",
+      "En": "Differentiate the choices and compare with the required derivative."
+    },
+    "formula": "\\frac{d}{dx}x^n=nx^{n-1}",
+    "steps": [
+      {
+        "Ar": "$6x^2-4+0=6x^2-4$",
+        "En": "$6x^2-4+0=6x^2-4$"
+      }
+    ],
+    "sub": {
+      "Ar": "$\\frac{d}{dx}(2x^3-4x+7)$",
+      "En": "$\\frac{d}{dx}(2x^3-4x+7)$"
+    },
+    "result": {
+      "Ar": "$2x^3-4x+7$",
+      "En": "$2x^3-4x+7$"
+    },
+    "verify": {
+      "Ar": "$f'(1)=2$",
+      "En": "$f'(1)=2$"
+    },
+    "hints": [
+      {
+        "Ar": "اشتق الحد التكعيبي.",
+        "En": "Differentiate the cubic term."
+      },
+      {
+        "Ar": "الثابت وحده مشتقته صفر.",
+        "En": "A constant alone has zero derivative."
+      }
+    ],
+    "error": {
+      "Ar": "مشتقتها 18x²−4.",
+      "En": "Its derivative is 18x²−4."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 7,
+    "cat": 8,
+    "skill": 36,
+    "sk": "middle-circle-area",
+    "family": "circle-area-diameter-scale-inverse",
+    "title": {
+      "Ar": "تغير مساحة دائرة بتغير قطرها",
+      "En": "Circle area after diameter changes"
+    },
+    "q": {
+      "Ar": "إذا تضاعف قطر دائرة ثلاث مرات، فكم مرة تصبح مساحتها مقارنة بمساحتها الأصلية؟",
+      "En": "If a circle's diameter is tripled, how many times its original area is its new area?"
+    },
+    "opts": [
+      "27",
+      "9",
+      "3",
+      "6"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "رفع معامل الطول للقوة الثالثة.",
+        "En": "Cubes the length scale."
+      },
+      null,
+      {
+        "Ar": "عامل المساحة كأنه طول.",
+        "En": "Treats area as a length."
+      },
+      {
+        "Ar": "ضاعف معامل الطول فقط.",
+        "En": "Only doubles the length scale."
+      }
+    ],
+    "idea": {
+      "Ar": "نصف القطر يتغير بالمعامل نفسه، والمساحة تتناسب مع مربعه.",
+      "En": "The radius scales by the same factor, and area scales with its square."
+    },
+    "formula": "A'=\\pi(3r)^2",
+    "steps": [
+      {
+        "Ar": "$A'=9A$",
+        "En": "$A'=9A$"
+      }
+    ],
+    "sub": {
+      "Ar": "$A'/A=9\\pi r^2/(\\pi r^2)$",
+      "En": "$A'/A=9\\pi r^2/(\\pi r^2)$"
+    },
+    "result": {
+      "Ar": "$9$",
+      "En": "$9$"
+    },
+    "verify": {
+      "Ar": "$r=1:\\ 9\\pi/\\pi=9$",
+      "En": "$r=1:\\ 9\\pi/\\pi=9$"
+    },
+    "hints": [
+      {
+        "Ar": "كيف يتغير نصف القطر؟",
+        "En": "How does the radius change?"
+      },
+      {
+        "Ar": "ربع معامل تغير الطول.",
+        "En": "Square the length scale."
+      }
+    ],
+    "error": {
+      "Ar": "عامل المساحة كأنه طول.",
+      "En": "Treats area as a length."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 7,
+    "cat": 8,
+    "skill": 38,
+    "sk": "middle-vertical-angles",
+    "family": "vertical-angles-algebraic-equal-pair",
+    "title": {
+      "Ar": "معادلة من زاويتين متقابلتين",
+      "En": "Equation from vertical angles"
+    },
+    "q": {
+      "Ar": "زاويتان متقابلتان بالرأس قياساهما $(3x+12)^\\circ$ و$(5x-8)^\\circ$. ما قيمة x؟",
+      "En": "Two vertically opposite angles measure $(3x+12)^\\circ$ and $(5x-8)^\\circ$. Find x."
+    },
+    "opts": [
+      "10",
+      "2",
+      "20",
+      "30"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "لا يجعل القياسين متساويين.",
+        "En": "Does not make the angles equal."
+      },
+      {
+        "Ar": "هذا فرق الثابتين قبل القسمة.",
+        "En": "This is the constant difference before division."
+      },
+      {
+        "Ar": "يعطي زاويتين غير متساويتين.",
+        "En": "Produces unequal angles."
+      }
+    ],
+    "idea": {
+      "Ar": "الزاويتان المتقابلتان بالرأس متساويتان.",
+      "En": "Vertically opposite angles are equal."
+    },
+    "formula": "3x+12=5x-8",
+    "steps": [
+      {
+        "Ar": "$2x=20$",
+        "En": "$2x=20$"
+      },
+      {
+        "Ar": "$x=10$",
+        "En": "$x=10$"
+      }
+    ],
+    "sub": {
+      "Ar": "$20=2x$",
+      "En": "$20=2x$"
+    },
+    "result": {
+      "Ar": "$10$",
+      "En": "$10$"
+    },
+    "verify": {
+      "Ar": "$3\\cdot10+12=5\\cdot10-8=42$",
+      "En": "$3\\cdot10+12=5\\cdot10-8=42$"
+    },
+    "hints": [
+      {
+        "Ar": "ساوِ تعبيري القياسين.",
+        "En": "Set the two angle expressions equal."
+      },
+      {
+        "Ar": "اجمع حدود المتغير في طرف.",
+        "En": "Collect variable terms on one side."
+      }
+    ],
+    "error": {
+      "Ar": "لا يجعل القياسين متساويين.",
+      "En": "Does not make the angles equal."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 7,
+    "cat": 8,
+    "skill": 35,
+    "sk": "middle-triangle-angles",
+    "family": "triangle-angle-sum-ratio-three-angles",
+    "title": {
+      "Ar": "نسبة زوايا مثلث",
+      "En": "Triangle angle ratio"
+    },
+    "q": {
+      "Ar": "زوايا مثلث نسب قياساتها 2:3:4. ما قياس أكبر زاوية؟",
+      "En": "A triangle's angle measures are in the ratio 2:3:4. Find its largest angle in degrees."
+    },
+    "opts": [
+      "20",
+      "40",
+      "60",
+      "80"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "هذا قياس الجزء الواحد من النسبة.",
+        "En": "This is one ratio unit."
+      },
+      {
+        "Ar": "هذه أصغر زاوية.",
+        "En": "This is the smallest angle."
+      },
+      {
+        "Ar": "هذه الزاوية الوسطى.",
+        "En": "This is the middle angle."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "مجموع أجزاء النسبة التسعة يمثل 180 درجة.",
+      "En": "The nine ratio units total 180 degrees."
+    },
+    "formula": "2k+3k+4k=180",
+    "steps": [
+      {
+        "Ar": "$k=20$",
+        "En": "$k=20$"
+      },
+      {
+        "Ar": "$4k=80$",
+        "En": "$4k=80$"
+      }
+    ],
+    "sub": {
+      "Ar": "$9k=180$",
+      "En": "$9k=180$"
+    },
+    "result": {
+      "Ar": "$80$",
+      "En": "$80$"
+    },
+    "verify": {
+      "Ar": "$40+60+80=180$",
+      "En": "$40+60+80=180$"
+    },
+    "hints": [
+      {
+        "Ar": "اجمع 2 و3 و4.",
+        "En": "Add two, three and four."
+      },
+      {
+        "Ar": "اضرب قيمة الجزء في 4.",
+        "En": "Multiply one ratio unit by four."
+      }
+    ],
+    "error": {
+      "Ar": "هذا قياس الجزء الواحد من النسبة.",
+      "En": "This is one ratio unit."
+    },
+    "unit": {
+      "Ar": "°",
+      "En": "°"
+    }
+  },
+  {
+    "track": 9,
+    "cat": 84,
+    "skill": 327,
+    "sk": "solve-linear-inequalities",
+    "family": "inequality-variable-coefficients-cancel-true",
+    "title": {
+      "Ar": "متراجحة تتحقق لكل الأعداد",
+      "En": "An inequality true for all real numbers"
+    },
+    "q": {
+      "Ar": "أي مجموعة تمثل حلول $4(x+2)\\ge4x+5$ في الأعداد الحقيقية؟",
+      "En": "Which set represents the real solutions of $4(x+2)\\ge4x+5$?"
+    },
+    "opts": [
+      "x\\ge3",
+      "x\\le3",
+      "\\mathbb R",
+      "\\varnothing"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "الثابت 3 ليس حداً للمتغير بعد اختزاله.",
+        "En": "Three is not a variable bound after cancellation."
+      },
+      {
+        "Ar": "لا يبقى شرط على x.",
+        "En": "No restriction on x remains."
+      },
+      null,
+      {
+        "Ar": "العبارة النهائية صحيحة دائماً.",
+        "En": "The final statement is always true."
+      }
+    ],
+    "idea": {
+      "Ar": "نوزع ثم نطرح حدود المتغير المتساوية.",
+      "En": "Expand, then subtract equal variable terms."
+    },
+    "formula": "4x+8\\ge4x+5",
+    "steps": [
+      {
+        "Ar": "$8-5=3\\ge0$",
+        "En": "$8-5=3\\ge0$"
+      }
+    ],
+    "sub": {
+      "Ar": "$8\\ge5$",
+      "En": "$8\\ge5$"
+    },
+    "result": {
+      "Ar": "$\\mathbb R$",
+      "En": "$\\mathbb R$"
+    },
+    "verify": {
+      "Ar": "$4(x+2)-(4x+5)=3$",
+      "En": "$4(x+2)-(4x+5)=3$"
+    },
+    "hints": [
+      {
+        "Ar": "وزّع 4 على القوس.",
+        "En": "Distribute four."
+      },
+      {
+        "Ar": "هل تبقى عبارة صحيحة أم خاطئة؟",
+        "En": "Does a true or false statement remain?"
+      }
+    ],
+    "error": {
+      "Ar": "العبارة النهائية صحيحة دائماً.",
+      "En": "The final statement is always true."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 12,
+    "cat": 10,
+    "skill": 47,
+    "sk": "secondary-pythagorean-trig-identity",
+    "family": "trig-identity-squared-ratio-reconstruct-cotangent",
+    "title": {
+      "Ar": "استنتاج مربع ظل التمام",
+      "En": "Recovering cotangent squared"
+    },
+    "q": {
+      "Ar": "إذا كان $\\sin^2\\theta=\\frac29$، فما قيمة $\\cot^2\\theta$؟",
+      "En": "If $\\sin^2\\theta=\\frac29$, find $\\cot^2\\theta$."
+    },
+    "opts": [
+      "\\frac92",
+      "\\frac72",
+      "\\frac27",
+      "\\frac79"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "هذا مربع قاطع التمام.",
+        "En": "This is cosecant squared."
+      },
+      null,
+      {
+        "Ar": "عكس نسبة جيب التمام إلى الجيب.",
+        "En": "Inverts the cosine-to-sine ratio."
+      },
+      {
+        "Ar": "هذا مربع جيب التمام وحده.",
+        "En": "This is cosine squared alone."
+      }
+    ],
+    "idea": {
+      "Ar": "نوجد مربع جيب التمام ثم نقسمه على مربع الجيب.",
+      "En": "Find cosine squared, then divide by sine squared."
+    },
+    "formula": "\\cot^2\\theta=(1-\\sin^2\\theta)/\\sin^2\\theta",
+    "steps": [
+      {
+        "Ar": "$\\cos^2\\theta=7/9$",
+        "En": "$\\cos^2\\theta=7/9$"
+      },
+      {
+        "Ar": "$(7/9)/(2/9)=7/2$",
+        "En": "$(7/9)/(2/9)=7/2$"
+      }
+    ],
+    "sub": {
+      "Ar": "$(1-2/9)/(2/9)$",
+      "En": "$(1-2/9)/(2/9)$"
+    },
+    "result": {
+      "Ar": "$\\frac72$",
+      "En": "$\\frac72$"
+    },
+    "verify": {
+      "Ar": "$1+7/2=9/2$",
+      "En": "$1+7/2=9/2$"
+    },
+    "hints": [
+      {
+        "Ar": "استعمل مجموع المربعين.",
+        "En": "Use the sum-of-squares identity."
+      },
+      {
+        "Ar": "ظل التمام هو جيب التمام على الجيب.",
+        "En": "Cotangent is cosine over sine."
+      }
+    ],
+    "error": {
+      "Ar": "عكس نسبة جيب التمام إلى الجيب.",
+      "En": "Inverts the cosine-to-sine ratio."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 2,
+    "cat": 96,
+    "skill": 355,
+    "sk": "primary-shape-attributes-partition",
+    "family": "solid-pyramid-base-face-count",
+    "title": {
+      "Ar": "أوجه هرم مربع القاعدة",
+      "En": "Faces of a square pyramid"
+    },
+    "q": {
+      "Ar": "هرم قاعدته مربع وله وجه مثلث عند كل ضلع من أضلاع القاعدة. كم وجهاً مستوياً له إجمالاً؟",
+      "En": "A square-based pyramid has one triangular face along each base edge. How many flat faces does it have altogether?"
+    },
+    "opts": [
+      "5",
+      "4",
+      "6",
+      "8"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "عد الأوجه المثلثة فقط.",
+        "En": "Counts triangular faces only."
+      },
+      {
+        "Ar": "أضاف وجهاً غير موجود.",
+        "En": "Adds a nonexistent face."
+      },
+      {
+        "Ar": "خلط بين الأوجه والحواف.",
+        "En": "Confuses faces with edges."
+      }
+    ],
+    "idea": {
+      "Ar": "للقاعدة أربعة أضلاع، ولكل ضلع وجه مثلث، ونضيف القاعدة.",
+      "En": "Four base edges give four triangular faces, plus the base."
+    },
+    "formula": "4+1",
+    "steps": [
+      {
+        "Ar": "$4+1=5$",
+        "En": "$4+1=5$"
+      }
+    ],
+    "sub": {
+      "Ar": "$4+1$",
+      "En": "$4+1$"
+    },
+    "result": {
+      "Ar": "$5$",
+      "En": "$5$"
+    },
+    "verify": {
+      "Ar": "$5-1=4$",
+      "En": "$5-1=4$"
+    },
+    "hints": [
+      {
+        "Ar": "عد الأوجه المثلثة.",
+        "En": "Count triangular faces."
+      },
+      {
+        "Ar": "لا تنس القاعدة المربعة.",
+        "En": "Include the square base."
+      }
+    ],
+    "error": {
+      "Ar": "عد الأوجه المثلثة فقط.",
+      "En": "Counts triangular faces only."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 2,
+    "cat": 96,
+    "skill": 355,
+    "sk": "primary-shape-attributes-partition",
+    "family": "shape-partition-quarter-recombine-count",
+    "title": {
+      "Ar": "إعادة تركيب أنصاف من أرباع",
+      "En": "Recombining quarters into halves"
+    },
+    "q": {
+      "Ar": "قُسم مربع إلى أربعة أجزاء متساوية المساحة. نريد تجميع الأجزاء على هيئة مجموعات، كل مجموعة مساحتها نصف مساحة المربع. كم مجموعة يمكن تكوينها باستعمال جميع الأجزاء دون تداخل؟",
+      "En": "A square is divided into four equal-area parts. Group the parts so each group has half the square's area. How many groups use all parts without overlap?"
+    },
+    "opts": [
+      "1",
+      "3",
+      "4",
+      "2"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "لا يستعمل كل الأجزاء.",
+        "En": "Does not use all parts."
+      },
+      {
+        "Ar": "يتطلب ستة أرباع.",
+        "En": "Would require six quarters."
+      },
+      {
+        "Ar": "يعد الأرباع منفردة لا الأنصاف.",
+        "En": "Counts separate quarters rather than halves."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "كل نصف يتألف من ربعين.",
+      "En": "Each half consists of two quarters."
+    },
+    "formula": "4/2",
+    "steps": [
+      {
+        "Ar": "$4/2=2$",
+        "En": "$4/2=2$"
+      }
+    ],
+    "sub": {
+      "Ar": "$4/2$",
+      "En": "$4/2$"
+    },
+    "result": {
+      "Ar": "$2$",
+      "En": "$2$"
+    },
+    "verify": {
+      "Ar": "$2\\cdot(1/2)=1$",
+      "En": "$2\\cdot(1/2)=1$"
+    },
+    "hints": [
+      {
+        "Ar": "كم ربعاً يشكل نصفاً؟",
+        "En": "How many quarters make one half?"
+      },
+      {
+        "Ar": "قسّم الأرباع الأربعة إلى أزواج.",
+        "En": "Group four quarters into pairs."
+      }
+    ],
+    "error": {
+      "Ar": "لا يستعمل كل الأجزاء.",
+      "En": "Does not use all parts."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  }
+]

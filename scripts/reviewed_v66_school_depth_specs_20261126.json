@@ -1,0 +1,896 @@
+[
+  {
+    "track": 8,
+    "cat": 7,
+    "skill": 33,
+    "sk": "middle-map-scale",
+    "family": "map-scale-compare-two-maps-same-ground-distance",
+    "title": {
+      "Ar": "مقارنة خريطتين",
+      "En": "Comparing two maps"
+    },
+    "q": {
+      "Ar": "تمثل مسافة 4 سم على خريطة بمقياس 1:30000 المسافة الحقيقية نفسها التي يمثلها خط على خريطة بمقياس 1:60000. كم طول الخط الثاني بالسنتيمتر؟",
+      "En": "A 4 cm line on a 1:30000 map represents the same ground distance as a line on a 1:60000 map. How long is the second line in centimetres?"
+    },
+    "opts": [
+      "2",
+      "4",
+      "8",
+      "12"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "أهمل اختلاف المقياس.",
+        "En": "Ignores the different scales."
+      },
+      {
+        "Ar": "عكس اتجاه النسبة.",
+        "En": "Reverses the scale ratio."
+      },
+      {
+        "Ar": "عامل المسافة الحقيقية بالكيلومتر كأنها طول على الخريطة.",
+        "En": "Does not apply the second scale."
+      }
+    ],
+    "idea": {
+      "Ar": "نوجد المسافة الحقيقية ثم نقسمها على مقام المقياس الثاني.",
+      "En": "Find the ground distance then divide by the second scale denominator."
+    },
+    "formula": "L_2=4\\cdot30000/60000",
+    "steps": [
+      {
+        "Ar": "$4\\cdot30000=120000$",
+        "En": "$4\\cdot30000=120000$"
+      },
+      {
+        "Ar": "$120000/60000=2$",
+        "En": "$120000/60000=2$"
+      }
+    ],
+    "sub": {
+      "Ar": "$120000/60000$",
+      "En": "$120000/60000$"
+    },
+    "result": {
+      "Ar": "$2$",
+      "En": "$2$"
+    },
+    "verify": {
+      "Ar": "$2\\cdot60000=4\\cdot30000$",
+      "En": "$2\\cdot60000=4\\cdot30000$"
+    },
+    "hints": [
+      {
+        "Ar": "المسافة الحقيقية ثابتة.",
+        "En": "The ground distance is fixed."
+      },
+      {
+        "Ar": "استعمل المقياسين بالترتيب الصحيح.",
+        "En": "Use the two scales in the correct order."
+      }
+    ],
+    "error": {
+      "Ar": "أهمل اختلاف المقياس.",
+      "En": "Ignores the different scales."
+    },
+    "unit": {
+      "Ar": "سم",
+      "En": "cm"
+    }
+  },
+  {
+    "track": 8,
+    "cat": 7,
+    "skill": 34,
+    "sk": "middle-percent-increase",
+    "family": "percent-increase-double-quantity-rate",
+    "title": {
+      "Ar": "نسبة زيادة إلى الضعف",
+      "En": "Percentage increase to double"
+    },
+    "q": {
+      "Ar": "ارتفع عدد المشاركين من 48 إلى 96. ما نسبة الزيادة المئوية؟",
+      "En": "Participation rises from 48 to 96. What is the percentage increase?"
+    },
+    "opts": [
+      "50",
+      "48",
+      "200",
+      "100"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "قسم الزيادة على العدد النهائي.",
+        "En": "Divides the increase by the final count."
+      },
+      {
+        "Ar": "هذا مقدار الزيادة وليس نسبتها.",
+        "En": "This is the absolute increase."
+      },
+      {
+        "Ar": "هذه نسبة العدد الجديد إلى الأصلي وليست الزيادة.",
+        "En": "This is the new count as a percentage of the original."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "نقسم الزيادة على العدد الأصلي ثم نضرب في مئة.",
+      "En": "Divide the increase by the original count and multiply by one hundred."
+    },
+    "formula": "p=100(96-48)/48",
+    "steps": [
+      {
+        "Ar": "$96-48=48$",
+        "En": "$96-48=48$"
+      },
+      {
+        "Ar": "$p=100$",
+        "En": "$p=100$"
+      }
+    ],
+    "sub": {
+      "Ar": "$100\\cdot48/48$",
+      "En": "$100\\cdot48/48$"
+    },
+    "result": {
+      "Ar": "$100$",
+      "En": "$100$"
+    },
+    "verify": {
+      "Ar": "$48+48=96$",
+      "En": "$48+48=96$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب الفرق بين العددين.",
+        "En": "Find the difference between the counts."
+      },
+      {
+        "Ar": "استعمل العدد الأصلي في المقام.",
+        "En": "Use the original count as denominator."
+      }
+    ],
+    "error": {
+      "Ar": "قسم الزيادة على العدد النهائي.",
+      "En": "Divides the increase by the final count."
+    },
+    "unit": {
+      "Ar": "%",
+      "En": "%"
+    }
+  },
+  {
+    "track": 8,
+    "cat": 7,
+    "skill": 34,
+    "sk": "middle-percent-increase",
+    "family": "percent-increase-successive-two-small-rates",
+    "title": {
+      "Ar": "زيادتان متتاليتان",
+      "En": "Two successive increases"
+    },
+    "q": {
+      "Ar": "زاد سعر سلعة 10% ثم زاد السعر الناتج 20%. ما نسبة الزيادة الكلية عن السعر الأصلي؟",
+      "En": "An item's price increases by 10% and then the resulting price increases by 20%. What is the overall percentage increase from the original price?"
+    },
+    "opts": [
+      "20",
+      "132",
+      "32",
+      "30"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "أهمل الزيادة الأولى.",
+        "En": "Omits the first increase."
+      },
+      {
+        "Ar": "هذه نسبة السعر النهائي إلى الأصلي.",
+        "En": "This is the final price as a percentage of the original."
+      },
+      null,
+      {
+        "Ar": "جمع النسبتين دون مراعاة تغير الأساس.",
+        "En": "Adds rates without accounting for the changed base."
+      }
+    ],
+    "idea": {
+      "Ar": "نضرب عاملي الزيادة ثم نطرح الواحد.",
+      "En": "Multiply the two growth factors and subtract one."
+    },
+    "formula": "p=100(1.10\\cdot1.20-1)",
+    "steps": [
+      {
+        "Ar": "$1.10\\cdot1.20=1.32$",
+        "En": "$1.10\\cdot1.20=1.32$"
+      },
+      {
+        "Ar": "$p=32$",
+        "En": "$p=32$"
+      }
+    ],
+    "sub": {
+      "Ar": "$100(1.32-1)$",
+      "En": "$100(1.32-1)$"
+    },
+    "result": {
+      "Ar": "$32$",
+      "En": "$32$"
+    },
+    "verify": {
+      "Ar": "$100\\to110\\to132$",
+      "En": "$100\\to110\\to132$"
+    },
+    "hints": [
+      {
+        "Ar": "ابدأ بسعر افتراضي مقداره 100.",
+        "En": "Start with a hypothetical price of 100."
+      },
+      {
+        "Ar": "طبق الزيادة الثانية على السعر الجديد.",
+        "En": "Apply the second increase to the new price."
+      }
+    ],
+    "error": {
+      "Ar": "جمع النسبتين دون مراعاة تغير الأساس.",
+      "En": "Adds rates without accounting for the changed base."
+    },
+    "unit": {
+      "Ar": "%",
+      "En": "%"
+    }
+  },
+  {
+    "track": 3,
+    "cat": 81,
+    "skill": 304,
+    "sk": "number-comparison",
+    "family": "number-comparison-same-digits-order-middle",
+    "title": {
+      "Ar": "ترتيب أعداد من الأرقام نفسها",
+      "En": "Ordering numbers with the same digits"
+    },
+    "q": {
+      "Ar": "رتبت الأعداد 372 و327 و732 تصاعدياً. ما العدد الأوسط؟",
+      "En": "The numbers 372, 327 and 732 are ordered from smallest to largest. Which is the middle number?"
+    },
+    "opts": [
+      "237",
+      "372",
+      "327",
+      "732"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "ليس ضمن الأعداد المعطاة.",
+        "En": "Not among the given numbers."
+      },
+      null,
+      {
+        "Ar": "هذا الأصغر.",
+        "En": "This is the smallest."
+      },
+      {
+        "Ar": "هذا الأكبر.",
+        "En": "This is the largest."
+      }
+    ],
+    "idea": {
+      "Ar": "نقارن المئات أولاً، ثم العشرات عندما تتساوى المئات.",
+      "En": "Compare hundreds first, then tens if the hundreds match."
+    },
+    "formula": "327<372<732",
+    "steps": [
+      {
+        "Ar": "$327<372<732$",
+        "En": "$327<372<732$"
+      }
+    ],
+    "sub": {
+      "Ar": "$327<372$",
+      "En": "$327<372$"
+    },
+    "result": {
+      "Ar": "$372$",
+      "En": "$372$"
+    },
+    "verify": {
+      "Ar": "$372-327=45,\\quad732-372=360$",
+      "En": "$372-327=45,\\quad732-372=360$"
+    },
+    "hints": [
+      {
+        "Ar": "أي عدد يبدأ بأكبر رقم للمئات؟",
+        "En": "Which number has the greatest hundreds digit?"
+      },
+      {
+        "Ar": "قارن عشرات العددين الباقيين.",
+        "En": "Compare the tens of the other two numbers."
+      }
+    ],
+    "error": {
+      "Ar": "هذا الأصغر.",
+      "En": "This is the smallest."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 3,
+    "cat": 81,
+    "skill": 306,
+    "sk": "rounding",
+    "family": "rounding-nearest-ten-change-after-addition",
+    "title": {
+      "Ar": "تغير التقريب بعد إضافة",
+      "En": "Rounding after an addition"
+    },
+    "q": {
+      "Ar": "قُرّب العدد 264 إلى أقرب عشرة، ثم أضيف 3 إلى العدد الأصلي وقُرّب الناتج لأقرب عشرة. بكم زاد العدد المقرب؟",
+      "En": "264 is rounded to the nearest ten. Then three is added to the original number and the result is rounded to the nearest ten. How much does the rounded number increase?"
+    },
+    "opts": [
+      "10",
+      "0",
+      "3",
+      "7"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "لم يلاحظ تجاوز حد التقريب.",
+        "En": "Misses the crossing of the rounding boundary."
+      },
+      {
+        "Ar": "هذا مقدار الزيادة قبل التقريب.",
+        "En": "This is the unrounded increase."
+      },
+      {
+        "Ar": "ليس الفرق بين العددين المقربين.",
+        "En": "Not the difference between the rounded numbers."
+      }
+    ],
+    "idea": {
+      "Ar": "نقرب العددين كلّاً على حدة ثم نطرح.",
+      "En": "Round both numbers separately and subtract."
+    },
+    "formula": "264\\to260,\\quad267\\to270",
+    "steps": [
+      {
+        "Ar": "$264+3=267$",
+        "En": "$264+3=267$"
+      },
+      {
+        "Ar": "$270-260=10$",
+        "En": "$270-260=10$"
+      }
+    ],
+    "sub": {
+      "Ar": "$270-260$",
+      "En": "$270-260$"
+    },
+    "result": {
+      "Ar": "$10$",
+      "En": "$10$"
+    },
+    "verify": {
+      "Ar": "$264<265<267$",
+      "En": "$264<265<267$"
+    },
+    "hints": [
+      {
+        "Ar": "قرّب 264 إلى أقرب عشرة.",
+        "En": "Round 264 to the nearest ten."
+      },
+      {
+        "Ar": "أضف 3 للأصل ثم قرّب من جديد.",
+        "En": "Add three to the original and round again."
+      }
+    ],
+    "error": {
+      "Ar": "لم يلاحظ تجاوز حد التقريب.",
+      "En": "Misses the crossing of the rounding boundary."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 7,
+    "cat": 85,
+    "skill": 337,
+    "sk": "simple-compound-events",
+    "family": "probability-complement-infer-colour-count-from-probability",
+    "title": {
+      "Ar": "عدد عناصر من احتمال متمم",
+      "En": "Count from a complement probability"
+    },
+    "q": {
+      "Ar": "في كيس 20 كرة متساوية فرص السحب، بعضها أزرق والباقي أحمر. احتمال عدم سحب كرة زرقاء يساوي 0.35. كم كرة زرقاء فيه؟",
+      "En": "A bag contains twenty equally likely balls, some blue and the rest red. The probability of not drawing blue is 0.35. How many balls are blue?"
+    },
+    "opts": [
+      "7",
+      "20",
+      "0.65",
+      "13"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "هذا عدد الكرات الحمراء.",
+        "En": "This is the red count."
+      },
+      {
+        "Ar": "هذا العدد الكلي.",
+        "En": "This is the total count."
+      },
+      {
+        "Ar": "هذا احتمال الأزرق لا عدد كراته.",
+        "En": "This is the blue probability, not its count."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "نحسب احتمال الأزرق بالمتمم ثم نضرب في العدد الكلي.",
+      "En": "Find the blue probability using its complement, then multiply by the total."
+    },
+    "formula": "n_B=20(1-0.35)",
+    "steps": [
+      {
+        "Ar": "$1-0.35=0.65$",
+        "En": "$1-0.35=0.65$"
+      },
+      {
+        "Ar": "$20\\cdot0.65=13$",
+        "En": "$20\\cdot0.65=13$"
+      }
+    ],
+    "sub": {
+      "Ar": "$20\\cdot0.65$",
+      "En": "$20\\cdot0.65$"
+    },
+    "result": {
+      "Ar": "$13$",
+      "En": "$13$"
+    },
+    "verify": {
+      "Ar": "$(20-13)/20=0.35$",
+      "En": "$(20-13)/20=0.35$"
+    },
+    "hints": [
+      {
+        "Ar": "ما احتمال الأزرق؟",
+        "En": "What is the blue probability?"
+      },
+      {
+        "Ar": "اضربه في 20.",
+        "En": "Multiply by twenty."
+      }
+    ],
+    "error": {
+      "Ar": "هذا عدد الكرات الحمراء.",
+      "En": "This is the red count."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 7,
+    "cat": 85,
+    "skill": 335,
+    "sk": "frequency",
+    "family": "experimental-frequency-added-trials-update",
+    "title": {
+      "Ar": "تكرار نسبي بعد تجارب إضافية",
+      "En": "Relative frequency after more trials"
+    },
+    "q": {
+      "Ar": "نجح اختبار 8 مرات من 20 محاولة. في عشر محاولات إضافية نجح 7 مرات. ما التكرار النسبي للنجاح في جميع المحاولات؟",
+      "En": "A test succeeds eight times in twenty attempts, then seven times in ten more attempts. What is the relative frequency of success across all attempts?"
+    },
+    "opts": [
+      "\\frac{11}{20}",
+      "\\frac25",
+      "\\frac12",
+      "\\frac7{10}"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "حسب متوسط النسبتين دون مراعاة أعداد المحاولات.",
+        "En": "Averages the rates without weighting attempt counts."
+      },
+      {
+        "Ar": "استعمل المحاولات الأولى وحدها.",
+        "En": "Uses only the original attempts."
+      },
+      null,
+      {
+        "Ar": "استعمل المحاولات الجديدة وحدها.",
+        "En": "Uses only the new attempts."
+      }
+    ],
+    "idea": {
+      "Ar": "نجمع النجاحات والمحاولات كلّاً على حدة ونقسم.",
+      "En": "Add successes and attempts separately, then divide."
+    },
+    "formula": "(8+7)/(20+10)",
+    "steps": [
+      {
+        "Ar": "$8+7=15$",
+        "En": "$8+7=15$"
+      },
+      {
+        "Ar": "$20+10=30$",
+        "En": "$20+10=30$"
+      },
+      {
+        "Ar": "$15/30=1/2$",
+        "En": "$15/30=1/2$"
+      }
+    ],
+    "sub": {
+      "Ar": "$15/30$",
+      "En": "$15/30$"
+    },
+    "result": {
+      "Ar": "$\\frac12$",
+      "En": "$\\frac12$"
+    },
+    "verify": {
+      "Ar": "$30\\cdot(1/2)=15$",
+      "En": "$30\\cdot(1/2)=15$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب عدد النجاحات كلها.",
+        "En": "Count all successes."
+      },
+      {
+        "Ar": "اقسمه على عدد المحاولات كلها.",
+        "En": "Divide by all attempts."
+      }
+    ],
+    "error": {
+      "Ar": "استعمل المحاولات الجديدة وحدها.",
+      "En": "Uses only the new attempts."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 8,
+    "cat": 8,
+    "skill": 39,
+    "sk": "middle-polygon-angles",
+    "family": "polygon-interior-sum-side-addition-difference",
+    "title": {
+      "Ar": "أثر إضافة ضلعين إلى المضلع",
+      "En": "Effect of two more polygon sides"
+    },
+    "q": {
+      "Ar": "مضلع بسيط له n من الأضلاع حيث n لا يقل عن 3. بكم درجة يزيد مجموع الزوايا الداخلية لمضلع بسيط له n+2 ضلعاً؟",
+      "En": "A simple polygon has n sides, where n is at least three. By how many degrees does the interior angle sum of a simple polygon with n+2 sides exceed it?"
+    },
+    "opts": [
+      "720",
+      "360",
+      "180",
+      "540"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "هذه زيادة أربعة أضلاع.",
+        "En": "This is the increase for four extra sides."
+      },
+      null,
+      {
+        "Ar": "هذه زيادة ضلع واحد فقط.",
+        "En": "This is the increase for one extra side."
+      },
+      {
+        "Ar": "هذه زيادة ثلاثة أضلاع.",
+        "En": "This is the increase for three extra sides."
+      }
+    ],
+    "idea": {
+      "Ar": "يزداد مجموع الزوايا بمقدار 180 درجة لكل ضلع إضافي.",
+      "En": "The angle sum grows by 180 degrees for each additional side."
+    },
+    "formula": "180((n+2)-2)-180(n-2)",
+    "steps": [
+      {
+        "Ar": "$180n-180n+360=360$",
+        "En": "$180n-180n+360=360$"
+      }
+    ],
+    "sub": {
+      "Ar": "$180n-180(n-2)$",
+      "En": "$180n-180(n-2)$"
+    },
+    "result": {
+      "Ar": "$360$",
+      "En": "$360$"
+    },
+    "verify": {
+      "Ar": "$n=3:\\ 540-180=360$",
+      "En": "$n=3:\\ 540-180=360$"
+    },
+    "hints": [
+      {
+        "Ar": "اكتب قانون مجموع الزوايا لكل مضلع.",
+        "En": "Write the interior sum formula for each polygon."
+      },
+      {
+        "Ar": "اطرح التعبيرين.",
+        "En": "Subtract the expressions."
+      }
+    ],
+    "error": {
+      "Ar": "هذه زيادة ضلع واحد فقط.",
+      "En": "This is the increase for one extra side."
+    },
+    "unit": {
+      "Ar": "°",
+      "En": "°"
+    }
+  },
+  {
+    "track": 8,
+    "cat": 8,
+    "skill": 35,
+    "sk": "middle-triangle-angles",
+    "family": "triangle-angles-one-angle-equals-other-two-sum",
+    "title": {
+      "Ar": "زاوية تساوي مجموع الأخريين",
+      "En": "Angle equal to the sum of the others"
+    },
+    "q": {
+      "Ar": "في مثلث، قياس الزاوية A يساوي مجموع قياسي الزاويتين B وC. ما قياس A؟",
+      "En": "In a triangle, angle A equals the sum of angles B and C. Find angle A in degrees."
+    },
+    "opts": [
+      "90",
+      "45",
+      "60",
+      "120"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "قسم مجموع الزوايا على أربعة.",
+        "En": "Divides the total by four."
+      },
+      {
+        "Ar": "افترض تساوي الزوايا الثلاث.",
+        "En": "Assumes all three angles are equal."
+      },
+      {
+        "Ar": "لا يحقق الشرط لأن مجموع الأخريين 60.",
+        "En": "Fails the condition because the others sum to sixty."
+      }
+    ],
+    "idea": {
+      "Ar": "بما أن A تساوي مجموع الأخريين، فإن ضعفها يساوي 180 درجة.",
+      "En": "Since A equals the sum of the others, twice A equals 180 degrees."
+    },
+    "formula": "A+(B+C)=180",
+    "steps": [
+      {
+        "Ar": "$A=90$",
+        "En": "$A=90$"
+      }
+    ],
+    "sub": {
+      "Ar": "$2A=180$",
+      "En": "$2A=180$"
+    },
+    "result": {
+      "Ar": "$90$",
+      "En": "$90$"
+    },
+    "verify": {
+      "Ar": "$90+90=180$",
+      "En": "$90+90=180$"
+    },
+    "hints": [
+      {
+        "Ar": "استبدل مجموع B وC بالزاوية A.",
+        "En": "Replace the sum of B and C with A."
+      },
+      {
+        "Ar": "اقسم 180 على اثنين.",
+        "En": "Divide 180 by two."
+      }
+    ],
+    "error": {
+      "Ar": "قسم مجموع الزوايا على أربعة.",
+      "En": "Divides the total by four."
+    },
+    "unit": {
+      "Ar": "°",
+      "En": "°"
+    }
+  },
+  {
+    "track": 9,
+    "cat": 22,
+    "skill": 98,
+    "sk": "m-statistics-distributions",
+    "family": "mad-scale-translation-combined-positive",
+    "title": {
+      "Ar": "انحراف مطلق بعد تحويل مركب",
+      "En": "MAD after an affine transformation"
+    },
+    "q": {
+      "Ar": "متوسط الانحرافات المطلقة عن المتوسط لمجموعة بيانات يساوي 4. استبدلت كل قيمة x بالقيمة $2x+7$. ما متوسط الانحرافات المطلقة الجديد؟",
+      "En": "A data set has mean absolute deviation from its mean equal to four. Each observation x is replaced by $2x+7$. Find the new mean absolute deviation."
+    },
+    "opts": [
+      "4",
+      "11",
+      "15",
+      "8"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "تجاهل معامل الضرب.",
+        "En": "Ignores the multiplier."
+      },
+      {
+        "Ar": "أضاف الثابت إلى الانحراف دون مراعاة التحويل.",
+        "En": "Adds the constant to the deviation."
+      },
+      {
+        "Ar": "أضاف الثابت بعد المضاعفة رغم أنه لا يغير الانحرافات.",
+        "En": "Adds the constant after doubling even though it does not change deviations."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "يتضاعف الانحراف عند مضاعفة القيم، أما الإزاحة المشتركة فتُلغى عند حساب الفرق عن المتوسط.",
+      "En": "Doubling observations doubles deviations; a shared translation cancels when subtracting the mean."
+    },
+    "formula": "|(2x+7)-(2\\bar x+7)|=2|x-\\bar x|",
+    "steps": [
+      {
+        "Ar": "$MAD'=2MAD$",
+        "En": "$MAD'=2MAD$"
+      },
+      {
+        "Ar": "$MAD'=8$",
+        "En": "$MAD'=8$"
+      }
+    ],
+    "sub": {
+      "Ar": "$2\\cdot4$",
+      "En": "$2\\cdot4$"
+    },
+    "result": {
+      "Ar": "$8$",
+      "En": "$8$"
+    },
+    "verify": {
+      "Ar": "$x=\\bar x\\Rightarrow |(2x+7)-(2\\bar x+7)|=0$",
+      "En": "$x=\\bar x\\Rightarrow |(2x+7)-(2\\bar x+7)|=0$"
+    },
+    "hints": [
+      {
+        "Ar": "كيف يتغير المتوسط نفسه؟",
+        "En": "How does the mean transform?"
+      },
+      {
+        "Ar": "اطرح المتوسط الجديد من القيمة الجديدة.",
+        "En": "Subtract the new mean from the new observation."
+      }
+    ],
+    "error": {
+      "Ar": "تجاهل معامل الضرب.",
+      "En": "Ignores the multiplier."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 9,
+    "cat": 22,
+    "skill": 98,
+    "sk": "m-statistics-distributions",
+    "family": "grouped-data-frequency-missing-class-total",
+    "title": {
+      "Ar": "تكرار فئة مجهولة",
+      "En": "Missing grouped frequency"
+    },
+    "q": {
+      "Ar": "سجلت 25 درجة صحيحة. منها 7 بين 10 و19، و9 بين 20 و29، والباقي بين 30 و39، مع شمول الطرفين. ما تكرار الفئة الثالثة؟",
+      "En": "Twenty-five integer scores are recorded: seven from 10 to 19, nine from 20 to 29, and the rest from 30 to 39, with endpoints included. What is the frequency of the third class?"
+    },
+    "opts": [
+      "16",
+      "25",
+      "9",
+      "7"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "هذا مجموع تكراري الفئتين الأوليين.",
+        "En": "This is the sum of the first two frequencies."
+      },
+      {
+        "Ar": "هذا عدد الدرجات كلها.",
+        "En": "This is the total count."
+      },
+      null,
+      {
+        "Ar": "هذا تكرار الفئة الأولى.",
+        "En": "This is the first-class frequency."
+      }
+    ],
+    "idea": {
+      "Ar": "مجموع تكرارات الفئات يساوي العدد الكلي.",
+      "En": "The class frequencies sum to the total count."
+    },
+    "formula": "f_3=25-(7+9)",
+    "steps": [
+      {
+        "Ar": "$7+9=16$",
+        "En": "$7+9=16$"
+      },
+      {
+        "Ar": "$25-16=9$",
+        "En": "$25-16=9$"
+      }
+    ],
+    "sub": {
+      "Ar": "$25-16$",
+      "En": "$25-16$"
+    },
+    "result": {
+      "Ar": "$9$",
+      "En": "$9$"
+    },
+    "verify": {
+      "Ar": "$7+9+9=25$",
+      "En": "$7+9+9=25$"
+    },
+    "hints": [
+      {
+        "Ar": "اجمع التكرارين المعلومين.",
+        "En": "Add the known frequencies."
+      },
+      {
+        "Ar": "اطرح الناتج من 25.",
+        "En": "Subtract the result from twenty-five."
+      }
+    ],
+    "error": {
+      "Ar": "هذا تكرار الفئة الأولى.",
+      "En": "This is the first-class frequency."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  }
+]

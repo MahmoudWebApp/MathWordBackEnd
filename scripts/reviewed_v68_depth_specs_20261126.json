@@ -1,0 +1,1187 @@
+[
+  {
+    "track": 3,
+    "stage": 1,
+    "cat": 81,
+    "skill": 305,
+    "sk": "place-value",
+    "family": "fixed-prefix-count",
+    "title": {
+      "Ar": "عدد الأعداد ذات منزلتين ثابتتين",
+      "En": "Counting fixed place digits"
+    },
+    "q": {
+      "Ar": "كم عدداً من ثلاثة أرقام يكون رقم المئات فيه 6 ورقم العشرات 4؟",
+      "En": "How many three-digit integers have hundreds digit 6 and tens digit 4?"
+    },
+    "opts": [
+      "9",
+      "10",
+      "100",
+      "2"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "استبعد الصفر من الآحاد.",
+        "En": "Excludes zero from the ones place."
+      },
+      null,
+      {
+        "Ar": "ترك منزلتين حرتين.",
+        "En": "Leaves two digits free."
+      },
+      {
+        "Ar": "عد المنازل الثابتة.",
+        "En": "Counts the fixed places."
+      }
+    ],
+    "idea": {
+      "Ar": "رقم الآحاد وحده حر من 0 إلى 9.",
+      "En": "Only the ones digit is free, from zero through nine."
+    },
+    "formula": "649-640+1=10",
+    "steps": [
+      {
+        "Ar": "$640,641,\\ldots,649$",
+        "En": "$640,641,\\ldots,649$"
+      }
+    ],
+    "sub": {
+      "Ar": "$649-640+1=10$",
+      "En": "$649-640+1=10$"
+    },
+    "result": {
+      "Ar": "$10$",
+      "En": "$10$"
+    },
+    "verify": {
+      "Ar": "$649-640+1=10$",
+      "En": "$649-640+1=10$"
+    },
+    "hints": [
+      {
+        "Ar": "رقم الآحاد يمكن أن يكون صفراً.",
+        "En": "The ones digit may be zero."
+      },
+      {
+        "Ar": "عد القيم الممكنة للآحاد.",
+        "En": "Count the possible ones digits."
+      }
+    ],
+    "error": {
+      "Ar": "استبعد الصفر من الآحاد.",
+      "En": "Excludes zero from the ones place."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 20,
+    "stage": 4,
+    "cat": 16,
+    "skill": 70,
+    "sk": "university-function-limits",
+    "family": "absolute-value-opposite-one-sided-limits",
+    "title": {
+      "Ar": "نهايتان أحاديتان مختلفتان",
+      "En": "Opposite one-sided limits"
+    },
+    "q": {
+      "Ar": "ما قيمة النهاية $\\lim_{x\\to0}|x|/x$ على الأعداد الحقيقية؟",
+      "En": "What is the real two-sided limit $\\lim_{x\\to0}|x|/x$?"
+    },
+    "opts": [
+      "0",
+      "1",
+      "-1",
+      "\\text{DNE}"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "عوض بالصفر رغم عدم تعريف الكسر.",
+        "En": "Substitutes zero into an undefined quotient."
+      },
+      {
+        "Ar": "استخدم النهاية اليمنى فقط.",
+        "En": "Uses only the right-hand limit."
+      },
+      {
+        "Ar": "استخدم النهاية اليسرى فقط.",
+        "En": "Uses only the left-hand limit."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "النهاية الثنائية موجودة فقط إذا تساوت النهايتان الأحاديتان.",
+      "En": "A two-sided limit exists only when both one-sided limits agree."
+    },
+    "formula": "|x|/x=\\begin{cases}1&x>0\\\\-1&x<0\\end{cases}",
+    "steps": [
+      {
+        "Ar": "$\\lim_{x\\to0^+}|x|/x=1,\\quad\\lim_{x\\to0^-}|x|/x=-1$",
+        "En": "$\\lim_{x\\to0^+}|x|/x=1,\\quad\\lim_{x\\to0^-}|x|/x=-1$"
+      }
+    ],
+    "sub": {
+      "Ar": "$|x|/x=\\begin{cases}1&x>0\\\\-1&x<0\\end{cases}$",
+      "En": "$|x|/x=\\begin{cases}1&x>0\\\\-1&x<0\\end{cases}$"
+    },
+    "result": {
+      "Ar": "النهاية غير موجودة.",
+      "En": "The limit does not exist."
+    },
+    "verify": {
+      "Ar": "$1\\ne-1$؛ النهاية غير موجودة.",
+      "En": "$1\\ne-1$; the limit does not exist."
+    },
+    "hints": [
+      {
+        "Ar": "افصل حالتي الإشارة.",
+        "En": "Separate the two signs."
+      },
+      {
+        "Ar": "قارن النهايتين الأحاديتين.",
+        "En": "Compare the one-sided limits."
+      }
+    ],
+    "error": {
+      "Ar": "عوض بالصفر رغم عدم تعريف الكسر.",
+      "En": "Substitutes zero into an undefined quotient."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 20,
+    "stage": 4,
+    "cat": 16,
+    "skill": 70,
+    "sk": "university-function-limits",
+    "family": "radical-rationalized-increment",
+    "title": {
+      "Ar": "نهاية فرق جذري",
+      "En": "Limit of a radical increment"
+    },
+    "q": {
+      "Ar": "احسب $\\lim_{h\\to0}(\\sqrt{9+h}-3)/h$.",
+      "En": "Evaluate $\\lim_{h\\to0}(\\sqrt{9+h}-3)/h$."
+    },
+    "opts": [
+      "\\frac13",
+      "0",
+      "\\frac16",
+      "6"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "أهمل الحد الثاني في المرافق.",
+        "En": "Omits the second conjugate term."
+      },
+      {
+        "Ar": "عوض مباشرة في البسط فقط.",
+        "En": "Substitutes in the numerator only."
+      },
+      null,
+      {
+        "Ar": "عكس الكسر الناتج.",
+        "En": "Inverts the resulting quotient."
+      }
+    ],
+    "idea": {
+      "Ar": "نضرب البسط والمقام بالمرافق ونختزل قبل أخذ النهاية.",
+      "En": "Multiply by the conjugate and cancel before taking the limit."
+    },
+    "formula": "\\frac{\\sqrt{9+h}-3}{h}=\\frac1{\\sqrt{9+h}+3}",
+    "steps": [
+      {
+        "Ar": "$\\lim_{h\\to0}\\frac1{\\sqrt{9+h}+3}=\\frac16$",
+        "En": "$\\lim_{h\\to0}\\frac1{\\sqrt{9+h}+3}=\\frac16$"
+      }
+    ],
+    "sub": {
+      "Ar": "$\\frac{\\sqrt{9+h}-3}{h}=\\frac1{\\sqrt{9+h}+3}$",
+      "En": "$\\frac{\\sqrt{9+h}-3}{h}=\\frac1{\\sqrt{9+h}+3}$"
+    },
+    "result": {
+      "Ar": "$\\frac16$",
+      "En": "$\\frac16$"
+    },
+    "verify": {
+      "Ar": "$\\frac1{3+3}=\\frac16$",
+      "En": "$\\frac1{3+3}=\\frac16$"
+    },
+    "hints": [
+      {
+        "Ar": "اكتب مرافق البسط.",
+        "En": "Write the conjugate of the numerator."
+      },
+      {
+        "Ar": "اختزل العامل المشترك قبل التعويض.",
+        "En": "Cancel the common factor before substituting."
+      }
+    ],
+    "error": {
+      "Ar": "أهمل الحد الثاني في المرافق.",
+      "En": "Omits the second conjugate term."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 21,
+    "stage": 4,
+    "cat": 91,
+    "skill": 341,
+    "sk": "constrained-optimization",
+    "family": "parallel-objective-entire-edge-optimal",
+    "title": {
+      "Ar": "مجموعة الحلول المثلى",
+      "En": "Optimal edge of feasible region"
+    },
+    "q": {
+      "Ar": "عظّم $2x+2y$ تحت القيود $x\\ge0,y\\ge0,x+y\\le6$. كم نقطة تحقق القيمة العظمى؟",
+      "En": "Maximize $2x+2y$ subject to $x\\ge0,y\\ge0,x+y\\le6$. How many points attain the maximum?"
+    },
+    "opts": [
+      "1",
+      "2",
+      "6",
+      "\\infty"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "افترض أن الحل الأمثل فريد.",
+        "En": "Assumes a unique optimum."
+      },
+      {
+        "Ar": "عد رأسي الضلع فقط.",
+        "En": "Counts only the endpoints."
+      },
+      {
+        "Ar": "قيد المتغيرات بالأعداد الصحيحة دون مبرر.",
+        "En": "Restricts variables to integers without justification."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "الهدف ثابت على الضلع الذي يحقق المساواة في قيد المجموع.",
+      "En": "The objective is constant along the edge where the sum constraint is tight."
+    },
+    "formula": "2x+2y=2(x+y)\\le12",
+    "steps": [
+      {
+        "Ar": "$x+y=6,\\quad0\\le x\\le6$",
+        "En": "$x+y=6,\\quad0\\le x\\le6$"
+      }
+    ],
+    "sub": {
+      "Ar": "$2x+2y=2(x+y)\\le12$",
+      "En": "$2x+2y=2(x+y)\\le12$"
+    },
+    "result": {
+      "Ar": "عدد لا نهائي من النقاط.",
+      "En": "Infinitely many points."
+    },
+    "verify": {
+      "Ar": "$2t+2(6-t)=12,\\quad0\\le t\\le6$",
+      "En": "$2t+2(6-t)=12,\\quad0\\le t\\le6$"
+    },
+    "hints": [
+      {
+        "Ar": "اربط دالة الهدف بالقيد.",
+        "En": "Relate the objective to the constraint."
+      },
+      {
+        "Ar": "افحص الضلع كله لا رأسيه فقط.",
+        "En": "Consider the entire edge, not just its vertices."
+      }
+    ],
+    "error": {
+      "Ar": "افترض أن الحل الأمثل فريد.",
+      "En": "Assumes a unique optimum."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 21,
+    "stage": 4,
+    "cat": 91,
+    "skill": 342,
+    "sk": "convexity",
+    "family": "absolute-affine-convexity-via-maximum",
+    "title": {
+      "Ar": "تحدب القيمة المطلقة",
+      "En": "Convexity of absolute value"
+    },
+    "q": {
+      "Ar": "لتكن $f(x)=|2x-4|$ على الأعداد الحقيقية. أي وصف صحيح؟ الخيارات: A محدبة، B مقعرة، C خطية على المجال كله، D غير محدبة.",
+      "En": "Let $f(x)=|2x-4|$ on the real line. Which description is correct? A: convex; B: concave; C: affine on the entire domain; D: not convex."
+    },
+    "opts": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "ميلها يزداد ولا ينقص.",
+        "En": "Its slope increases rather than decreases."
+      },
+      {
+        "Ar": "يتغير الميل عند 2.",
+        "En": "The slope changes at two."
+      },
+      {
+        "Ar": "عدم قابلية الاشتقاق في نقطة لا ينفي التحدب.",
+        "En": "Nondifferentiability at one point does not disprove convexity."
+      }
+    ],
+    "idea": {
+      "Ar": "القيمة المطلقة تساوي القيمة العظمى لدالتين تآلفيتين؛ وهذه دالة محدبة.",
+      "En": "The absolute value is the maximum of two affine functions, hence convex."
+    },
+    "formula": "f(x)=\\max(2x-4,4-2x)",
+    "steps": [
+      {
+        "Ar": "$x<2:\\ m=-2;\\quad x>2:\\ m=2$",
+        "En": "$x<2:\\ m=-2;\\quad x>2:\\ m=2$"
+      }
+    ],
+    "sub": {
+      "Ar": "$f(x)=\\max(2x-4,4-2x)$",
+      "En": "$f(x)=\\max(2x-4,4-2x)$"
+    },
+    "result": {
+      "Ar": "A — محدبة.",
+      "En": "A — convex."
+    },
+    "verify": {
+      "Ar": "$f((0+4)/2)=0\\le(4+4)/2$",
+      "En": "$f((0+4)/2)=0\\le(4+4)/2$"
+    },
+    "hints": [
+      {
+        "Ar": "اكتب القيمة المطلقة كقيمة عظمى.",
+        "En": "Express absolute value as a maximum."
+      },
+      {
+        "Ar": "قارن الميلين على جانبي نقطة الانكسار.",
+        "En": "Compare slopes on either side of the corner."
+      }
+    ],
+    "error": {
+      "Ar": "ميلها يزداد ولا ينقص.",
+      "En": "Its slope increases rather than decreases."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 21,
+    "stage": 4,
+    "cat": 90,
+    "skill": 334,
+    "sk": "root-finding",
+    "family": "newton-zero-derivative-nonroot",
+    "title": {
+      "Ar": "تعذر خطوة نيوتن",
+      "En": "Undefined Newton update"
+    },
+    "q": {
+      "Ar": "لطريقة نيوتن على $f(x)=x^3-1$، لماذا لا يمكن حساب $x_1$ من $x_0=0$؟ A المشتقة صفر، B الدالة صفر، C الخطوة تساوي 1 دائماً، D يلزم أن تكون الدالة خطية.",
+      "En": "For Newton's method on $f(x)=x^3-1$, why is $x_1$ undefined from $x_0=0$? A: derivative is zero; B: function value is zero; C: the step always equals one; D: the function must be linear."
+    },
+    "opts": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "قيمة الدالة عند الصفر تساوي -1.",
+        "En": "The function at zero equals minus one."
+      },
+      {
+        "Ar": "لا توجد خطوة معرفة أصلاً.",
+        "En": "No defined update exists."
+      },
+      {
+        "Ar": "طريقة نيوتن تستخدم الدوال غير الخطية أيضاً.",
+        "En": "Newton's method also applies to nonlinear functions."
+      }
+    ],
+    "idea": {
+      "Ar": "خطوة نيوتن تتطلب القسمة على مشتقة غير صفرية.",
+      "En": "Newton's update requires division by a nonzero derivative."
+    },
+    "formula": "x_1=x_0-f(x_0)/f'(x_0)",
+    "steps": [
+      {
+        "Ar": "$f(0)=-1,\\quad f'(0)=0$",
+        "En": "$f(0)=-1,\\quad f'(0)=0$"
+      }
+    ],
+    "sub": {
+      "Ar": "$x_1=x_0-f(x_0)/f'(x_0)$",
+      "En": "$x_1=x_0-f(x_0)/f'(x_0)$"
+    },
+    "result": {
+      "Ar": "A — المشتقة صفر.",
+      "En": "A — derivative is zero."
+    },
+    "verify": {
+      "Ar": "$0-(-1)/0$ غير معرف.",
+      "En": "$0-(-1)/0$ is undefined."
+    },
+    "hints": [
+      {
+        "Ar": "احسب المشتقة عند نقطة البداية.",
+        "En": "Compute the derivative at the starting point."
+      },
+      {
+        "Ar": "تحقق من مقام صيغة نيوتن.",
+        "En": "Check the denominator of Newton's formula."
+      }
+    ],
+    "error": {
+      "Ar": "قيمة الدالة عند الصفر تساوي -1.",
+      "En": "The function at zero equals minus one."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 21,
+    "stage": 4,
+    "cat": 90,
+    "skill": 334,
+    "sk": "root-finding",
+    "family": "bisection-width-after-iterations",
+    "title": {
+      "Ar": "عرض مجال التنصيف",
+      "En": "Bisection interval width"
+    },
+    "q": {
+      "Ar": "بدأ التنصيف بمجال حاصر لجذر عرضه 12. إذا لم يُعثر على جذر دقيق، فما عرض المجال بعد أربع خطوات تنصيف كاملة؟",
+      "En": "Bisection starts with a root bracket of width twelve. If no exact root is found, what is the bracket width after four complete bisections?"
+    },
+    "opts": [
+      "3",
+      "\\frac32",
+      "\\frac34",
+      "\\frac38"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "قسم مرتين فقط.",
+        "En": "Halves only twice."
+      },
+      {
+        "Ar": "قسم ثلاث مرات.",
+        "En": "Halves three times."
+      },
+      null,
+      {
+        "Ar": "قسم خمس مرات.",
+        "En": "Halves five times."
+      }
+    ],
+    "idea": {
+      "Ar": "يتناقص عرض المجال إلى النصف في كل خطوة.",
+      "En": "The bracket width halves at each step."
+    },
+    "formula": "w_4=12/2^4",
+    "steps": [
+      {
+        "Ar": "$12\\to6\\to3\\to1.5\\to0.75$",
+        "En": "$12\\to6\\to3\\to1.5\\to0.75$"
+      }
+    ],
+    "sub": {
+      "Ar": "$w_4=12/2^4$",
+      "En": "$w_4=12/2^4$"
+    },
+    "result": {
+      "Ar": "$\\frac34$",
+      "En": "$\\frac34$"
+    },
+    "verify": {
+      "Ar": "$16\\cdot0.75=12$",
+      "En": "$16\\cdot0.75=12$"
+    },
+    "hints": [
+      {
+        "Ar": "حدد عامل تغير العرض.",
+        "En": "Identify the width change factor."
+      },
+      {
+        "Ar": "طبّق العامل أربع مرات.",
+        "En": "Apply the factor four times."
+      }
+    ],
+    "error": {
+      "Ar": "قسم مرتين فقط.",
+      "En": "Halves only twice."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 21,
+    "stage": 4,
+    "cat": 90,
+    "skill": 333,
+    "sk": "numerical-integration",
+    "family": "composite-trapezoid-tabulated-three-panels",
+    "title": {
+      "Ar": "شبه المنحرف المركب من جدول",
+      "En": "Composite trapezoidal rule from samples"
+    },
+    "q": {
+      "Ar": "لقيم الدالة عند $x=0,1,2,3$ على الترتيب $2,5,1,4$، قرّب التكامل على [0,3] بقاعدة شبه المنحرف المركبة بثلاث فترات متساوية.",
+      "En": "Function values at $x=0,1,2,3$ are respectively $2,5,1,4$. Approximate the integral on [0,3] by the composite trapezoidal rule with three equal panels."
+    },
+    "opts": [
+      "12",
+      "9",
+      "6",
+      "10"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "جمع القيم دون أوزان.",
+        "En": "Sums samples without weights."
+      },
+      null,
+      {
+        "Ar": "أهمل القيم الداخلية.",
+        "En": "Omits interior values."
+      },
+      {
+        "Ar": "أعطى وزناً خاطئاً لإحدى القيم.",
+        "En": "Assigns an incorrect weight to a sample."
+      }
+    ],
+    "idea": {
+      "Ar": "نصف وزن الطرفين ووزن كامل للقيم الداخلية، مضروباً في عرض الفترة.",
+      "En": "Use half weights at endpoints and full weights inside, times the step size."
+    },
+    "formula": "T=1\\left(\\frac{2+4}{2}+5+1\\right)",
+    "steps": [
+      {
+        "Ar": "$T=3+6=9$",
+        "En": "$T=3+6=9$"
+      }
+    ],
+    "sub": {
+      "Ar": "$T=1\\left(\\frac{2+4}{2}+5+1\\right)$",
+      "En": "$T=1\\left(\\frac{2+4}{2}+5+1\\right)$"
+    },
+    "result": {
+      "Ar": "$9$",
+      "En": "$9$"
+    },
+    "verify": {
+      "Ar": "$(2+5)/2+(5+1)/2+(1+4)/2=9$",
+      "En": "$(2+5)/2+(5+1)/2+(1+4)/2=9$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب عرض الفترة.",
+        "En": "Find the step size."
+      },
+      {
+        "Ar": "ميز أوزان الطرفين عن الداخل.",
+        "En": "Distinguish endpoint from interior weights."
+      }
+    ],
+    "error": {
+      "Ar": "جمع القيم دون أوزان.",
+      "En": "Sums samples without weights."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 21,
+    "stage": 4,
+    "cat": 90,
+    "skill": 331,
+    "sk": "error-analysis",
+    "family": "signed-error-cancellation-sum",
+    "title": {
+      "Ar": "إلغاء أخطاء موقعة",
+      "En": "Cancellation of signed errors"
+    },
+    "q": {
+      "Ar": "تقديران لكمّيتين لهما خطآن موقعان +0.4 و-0.3، وفق تعريف الخطأ = التقدير ناقص القيمة الحقيقية. ما الخطأ المطلق في مجموع التقديرين؟",
+      "En": "Two estimates have signed errors +0.4 and -0.3, defined as estimate minus exact value. What is the absolute error of their sum?"
+    },
+    "opts": [
+      "0.7",
+      "-0.1",
+      "0.1",
+      "0.4"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "جمع القيم المطلقة بدلاً من الأخطاء الموقعة.",
+        "En": "Adds absolute errors rather than signed errors."
+      },
+      {
+        "Ar": "الخطأ المطلق لا يكون سالباً.",
+        "En": "Absolute error cannot be negative."
+      },
+      null,
+      {
+        "Ar": "أهمل الخطأ الثاني.",
+        "En": "Ignores the second error."
+      }
+    ],
+    "idea": {
+      "Ar": "خطأ المجموع الموقع يساوي مجموع الخطأين الموقعين ثم نأخذ القيمة المطلقة.",
+      "En": "The signed error of a sum equals the sum of signed errors; take its absolute value."
+    },
+    "formula": "|e_1+e_2|=|0.4-0.3|",
+    "steps": [
+      {
+        "Ar": "$|0.1|=0.1$",
+        "En": "$|0.1|=0.1$"
+      }
+    ],
+    "sub": {
+      "Ar": "$|e_1+e_2|=|0.4-0.3|$",
+      "En": "$|e_1+e_2|=|0.4-0.3|$"
+    },
+    "result": {
+      "Ar": "$0.1$",
+      "En": "$0.1$"
+    },
+    "verify": {
+      "Ar": "$|(10.4+19.7)-(10+20)|=0.1$",
+      "En": "$|(10.4+19.7)-(10+20)|=0.1$"
+    },
+    "hints": [
+      {
+        "Ar": "احتفظ بإشارات الأخطاء عند الجمع.",
+        "En": "Keep signs when adding errors."
+      },
+      {
+        "Ar": "خذ القيمة المطلقة بعد الجمع.",
+        "En": "Take the absolute value after adding."
+      }
+    ],
+    "error": {
+      "Ar": "جمع القيم المطلقة بدلاً من الأخطاء الموقعة.",
+      "En": "Adds absolute errors rather than signed errors."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 8,
+    "stage": 2,
+    "cat": 22,
+    "skill": 100,
+    "sk": "m-statistics-charts",
+    "family": "truncated-axis-bar-height-ratio",
+    "title": {
+      "Ar": "محور مبتور في رسم الأعمدة",
+      "En": "Truncated bar-chart axis"
+    },
+    "q": {
+      "Ar": "في رسم أعمدة يبدأ محوره الرأسي عند 90، تمثل قمتا عمودين القيمتين 95 و100. كم مرة يساوي طول العمود الثاني المرئي طول الأول؟",
+      "En": "A bar chart starts its vertical axis at 90. Two bars end at 95 and 100. How many times as tall is the second visible bar as the first?"
+    },
+    "opts": [
+      "\\frac{100}{95}",
+      "5",
+      "2",
+      "10"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "قارن القيم الأصلية لا الأطوال المرئية.",
+        "En": "Compares data values rather than visible lengths."
+      },
+      {
+        "Ar": "حسب فرق القمتين.",
+        "En": "Computes the difference between tops."
+      },
+      null,
+      {
+        "Ar": "حسب طول العمود الثاني فقط.",
+        "En": "Computes only the second bar's height."
+      }
+    ],
+    "idea": {
+      "Ar": "الطول المرئي يقاس من بداية المحور المبتور.",
+      "En": "Visible height is measured from the truncated axis baseline."
+    },
+    "formula": "(100-90)/(95-90)",
+    "steps": [
+      {
+        "Ar": "$10/5=2$",
+        "En": "$10/5=2$"
+      }
+    ],
+    "sub": {
+      "Ar": "$(100-90)/(95-90)$",
+      "En": "$(100-90)/(95-90)$"
+    },
+    "result": {
+      "Ar": "$2$",
+      "En": "$2$"
+    },
+    "verify": {
+      "Ar": "$2\\cdot5=10$",
+      "En": "$2\\cdot5=10$"
+    },
+    "hints": [
+      {
+        "Ar": "اطرح بداية المحور من القمتين.",
+        "En": "Subtract the baseline from both tops."
+      },
+      {
+        "Ar": "قارن الطولين الناتجين بالقسمة.",
+        "En": "Divide the resulting heights."
+      }
+    ],
+    "error": {
+      "Ar": "قارن القيم الأصلية لا الأطوال المرئية.",
+      "En": "Compares data values rather than visible lengths."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 8,
+    "stage": 2,
+    "cat": 22,
+    "skill": 100,
+    "sk": "m-statistics-charts",
+    "family": "pie-chart-angle-remaining-category",
+    "title": {
+      "Ar": "قطاع دائري متبقٍ",
+      "En": "Remaining pie-chart sector"
+    },
+    "q": {
+      "Ar": "في مخطط دائري لثلاث فئات، قياس قطاعين 90° و126°. ما النسبة المئوية للفئة الثالثة؟",
+      "En": "A pie chart has three categories. Two sectors measure 90° and 126°. What percentage belongs to the third category?"
+    },
+    "opts": [
+      "60",
+      "40",
+      "144",
+      "25"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "نسبة القطاعين معاً.",
+        "En": "Percentage of the first two sectors together."
+      },
+      null,
+      {
+        "Ar": "قياس الزاوية وليس النسبة المئوية.",
+        "En": "Angle rather than percentage."
+      },
+      {
+        "Ar": "نسبة القطاع الأول فقط.",
+        "En": "Percentage of the first sector only."
+      }
+    ],
+    "idea": {
+      "Ar": "نطرح زاويتي القطاعين من 360 ثم نحول الزاوية المتبقية إلى نسبة مئوية.",
+      "En": "Subtract both sector angles from 360, then convert the remaining angle to a percentage."
+    },
+    "formula": "100(360-90-126)/360",
+    "steps": [
+      {
+        "Ar": "$144/360\\cdot100=40$",
+        "En": "$144/360\\cdot100=40$"
+      }
+    ],
+    "sub": {
+      "Ar": "$100(360-90-126)/360$",
+      "En": "$100(360-90-126)/360$"
+    },
+    "result": {
+      "Ar": "$40$",
+      "En": "$40$"
+    },
+    "verify": {
+      "Ar": "$0.4\\cdot360=144$",
+      "En": "$0.4\\cdot360=144$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب زاوية القطاع المتبقي.",
+        "En": "Find the remaining sector angle."
+      },
+      {
+        "Ar": "اقسم على زاوية الدائرة كاملة.",
+        "En": "Divide by the full circle angle."
+      }
+    ],
+    "error": {
+      "Ar": "نسبة القطاعين معاً.",
+      "En": "Percentage of the first two sectors together."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 8,
+    "stage": 2,
+    "cat": 22,
+    "skill": 99,
+    "sk": "m-statistics-summary-measures",
+    "family": "combined-mean-unequal-groups",
+    "title": {
+      "Ar": "متوسط مجموعتين غير متساويتين",
+      "En": "Combined mean of unequal groups"
+    },
+    "q": {
+      "Ar": "متوسط أربع قراءات 12 ومتوسط ست قراءات أخرى 17. ما متوسط القراءات العشر؟",
+      "En": "Four readings have mean 12 and six other readings have mean 17. What is the mean of all ten readings?"
+    },
+    "opts": [
+      "14.5",
+      "15",
+      "29",
+      "17"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "حسب متوسط المتوسطين دون وزن.",
+        "En": "Averages the means without weighting."
+      },
+      null,
+      {
+        "Ar": "جمع المتوسطين فقط.",
+        "En": "Adds the two means only."
+      },
+      {
+        "Ar": "استخدم المجموعة الثانية فقط.",
+        "En": "Uses only the second group."
+      }
+    ],
+    "idea": {
+      "Ar": "نستعيد مجموع كل مجموعة ثم نقسم المجموع الكلي على عدد القراءات.",
+      "En": "Recover each group total, then divide the combined total by the number of readings."
+    },
+    "formula": "\\bar{x}=(4\\cdot12+6\\cdot17)/10",
+    "steps": [
+      {
+        "Ar": "$48+102=150$، $150/10=15$",
+        "En": "$48+102=150$, then $150/10=15$"
+      }
+    ],
+    "sub": {
+      "Ar": "$\\bar{x}=(4\\cdot12+6\\cdot17)/10$",
+      "En": "$\\bar{x}=(4\\cdot12+6\\cdot17)/10$"
+    },
+    "result": {
+      "Ar": "$15$",
+      "En": "$15$"
+    },
+    "verify": {
+      "Ar": "$10\\cdot15=150$",
+      "En": "$10\\cdot15=150$"
+    },
+    "hints": [
+      {
+        "Ar": "استخرج مجموع القراءات في كل مجموعة.",
+        "En": "Recover the total of each group."
+      },
+      {
+        "Ar": "اقسم المجموع الكلي على العدد الكلي.",
+        "En": "Divide the combined total by the combined count."
+      }
+    ],
+    "error": {
+      "Ar": "حسب متوسط المتوسطين دون وزن.",
+      "En": "Averages the means without weighting."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 8,
+    "stage": 2,
+    "cat": 22,
+    "skill": 99,
+    "sk": "m-statistics-summary-measures",
+    "family": "median-reflection-decreasing-transform",
+    "title": {
+      "Ar": "وسيط بعد تحويل تناقصي",
+      "En": "Median under reflection"
+    },
+    "q": {
+      "Ar": "خمس قراءات وسيطها 7. استبدلت كل قراءة $x$ بالقيمة $20-x$. ما وسيط القراءات الجديدة؟",
+      "En": "Five readings have median 7. Each reading $x$ is replaced by $20-x$. What is the new median?"
+    },
+    "opts": [
+      "7",
+      "20",
+      "13",
+      "27"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "أبقى الوسيط القديم دون تحويل.",
+        "En": "Keeps the old median unchanged."
+      },
+      {
+        "Ar": "استعمل الثابت وحده.",
+        "En": "Uses the constant alone."
+      },
+      null,
+      {
+        "Ar": "جمع بدلاً من الطرح.",
+        "En": "Adds rather than subtracting."
+      }
+    ],
+    "idea": {
+      "Ar": "التحويل يعكس ترتيب القيم، وتبقى القيمة الوسطى وسطى بعد تحويلها.",
+      "En": "The transformation reverses the order; the transformed middle observation remains in the middle."
+    },
+    "formula": "m'=20-m",
+    "steps": [
+      {
+        "Ar": "$m'=20-7=13$",
+        "En": "$m'=20-7=13$"
+      }
+    ],
+    "sub": {
+      "Ar": "$m'=20-m$",
+      "En": "$m'=20-m$"
+    },
+    "result": {
+      "Ar": "$13$",
+      "En": "$13$"
+    },
+    "verify": {
+      "Ar": "$(1,5,7,9,12)\\to(8,11,13,15,19)$",
+      "En": "$(1,5,7,9,12)\\to(8,11,13,15,19)$"
+    },
+    "hints": [
+      {
+        "Ar": "تخيل ترتيب القيم بعد الطرح من 20.",
+        "En": "Imagine the ordering after subtracting from twenty."
+      },
+      {
+        "Ar": "حدد موقع القيمة الوسطى بعد عكس الترتيب.",
+        "En": "Locate the middle observation after reversal."
+      }
+    ],
+    "error": {
+      "Ar": "أبقى الوسيط القديم دون تحويل.",
+      "En": "Keeps the old median unchanged."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 8,
+    "stage": 2,
+    "cat": 22,
+    "skill": 98,
+    "sk": "m-statistics-distributions",
+    "family": "grouped-frequency-cumulative-crossing",
+    "title": {
+      "Ar": "فئة الوسيط من تكرارات تراكمية",
+      "En": "Median class from cumulative counts"
+    },
+    "q": {
+      "Ar": "تضم الفئات المرتبة 0–9، 10–19، 20–29، 30–39 على الترتيب 4، 5، 8، 3 قيماً صحيحة. في أي فئة تقع القيمتان الوسطيتان؟ A الأولى، B الثانية، C الثالثة، D الرابعة.",
+      "En": "Ordered integer classes 0–9, 10–19, 20–29, 30–39 contain respectively 4, 5, 8, 3 observations. Which class contains both central observations? A: first; B: second; C: third; D: fourth."
+    },
+    "opts": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "تضم الرتب 1 إلى 4.",
+        "En": "Contains ranks one to four."
+      },
+      {
+        "Ar": "تضم الرتب 5 إلى 9.",
+        "En": "Contains ranks five to nine."
+      },
+      null,
+      {
+        "Ar": "تضم الرتب 18 إلى 20.",
+        "En": "Contains ranks eighteen to twenty."
+      }
+    ],
+    "idea": {
+      "Ar": "نحدد الرتبتين الوسطيتين ثم نستخدم التكرار التراكمي لتعيين فئتهما.",
+      "En": "Find the two central ranks, then locate them using cumulative frequencies."
+    },
+    "formula": "N=4+5+8+3=20",
+    "steps": [
+      {
+        "Ar": "$N/2=10,\\quad N/2+1=11$؛ التكرارات التراكمية 4،9،17،20.",
+        "En": "$N/2=10,\\quad N/2+1=11$; cumulative counts are 4,9,17,20."
+      }
+    ],
+    "sub": {
+      "Ar": "$N=4+5+8+3=20$",
+      "En": "$N=4+5+8+3=20$"
+    },
+    "result": {
+      "Ar": "C — الفئة الثالثة.",
+      "En": "C — third class."
+    },
+    "verify": {
+      "Ar": "$9<10<11\\le17$",
+      "En": "$9<10<11\\le17$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب عدد المشاهدات.",
+        "En": "Count observations."
+      },
+      {
+        "Ar": "حدد مجال الرتب لكل فئة.",
+        "En": "Find the rank interval of each class."
+      }
+    ],
+    "error": {
+      "Ar": "تضم الرتب 1 إلى 4.",
+      "En": "Contains ranks one to four."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 8,
+    "stage": 2,
+    "cat": 22,
+    "skill": 99,
+    "sk": "m-statistics-summary-measures",
+    "family": "range-recover-scale-with-translation",
+    "title": {
+      "Ar": "مدى بعد تغيير مقياس",
+      "En": "Range after affine rescaling"
+    },
+    "q": {
+      "Ar": "مدى قراءات يساوي 9. إذا استبدلت كل قراءة $x$ بالقيمة $3x+4$، فما المدى الجديد؟",
+      "En": "A data set has range nine. If each observation $x$ is replaced by $3x+4$, what is the new range?"
+    },
+    "opts": [
+      "31",
+      "9",
+      "13",
+      "27"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "أضاف الثابت إلى المدى رغم إلغائه.",
+        "En": "Adds the constant to the range despite cancellation."
+      },
+      {
+        "Ar": "تجاهل عامل الضرب.",
+        "En": "Ignores scaling."
+      },
+      {
+        "Ar": "أضاف الثابت فقط.",
+        "En": "Adds only the constant."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "الثابت يلغى عند طرح أصغر قيمة من أكبرها، ويبقى عامل الضرب.",
+      "En": "The constant cancels when subtracting the minimum from the maximum; the scale remains."
+    },
+    "formula": "(3M+4)-(3m+4)=3(M-m)",
+    "steps": [
+      {
+        "Ar": "$3\\cdot9=27$",
+        "En": "$3\\cdot9=27$"
+      }
+    ],
+    "sub": {
+      "Ar": "$(3M+4)-(3m+4)=3(M-m)$",
+      "En": "$(3M+4)-(3m+4)=3(M-m)$"
+    },
+    "result": {
+      "Ar": "$27$",
+      "En": "$27$"
+    },
+    "verify": {
+      "Ar": "$M=11,m=2:\\ 37-10=27$",
+      "En": "$M=11,m=2:\\ 37-10=27$"
+    },
+    "hints": [
+      {
+        "Ar": "اكتب القيمتين الطرفيتين بعد التحويل.",
+        "En": "Write the transformed extremes."
+      },
+      {
+        "Ar": "اطرح الطرفين واختزل الثابت.",
+        "En": "Subtract the extremes and cancel the constant."
+      }
+    ],
+    "error": {
+      "Ar": "أضاف الثابت إلى المدى رغم إلغائه.",
+      "En": "Adds the constant to the range despite cancellation."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  }
+]

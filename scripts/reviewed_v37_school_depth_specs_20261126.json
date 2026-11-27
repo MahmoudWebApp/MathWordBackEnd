@@ -1,0 +1,642 @@
+[
+  {
+    "track": 3,
+    "stage": 1,
+    "cat": 82,
+    "skill": 324,
+    "sk": "time",
+    "family": "elapsed-time-same-finish-different-start",
+    "title": {
+      "Ar": "موعد انتهاء مشترك",
+      "En": "A shared finishing time"
+    },
+    "q": {
+      "Ar": "بدأت القراءة الساعة 8:15 صباحاً، وبدأ الرسم الساعة 8:40 صباحاً. انتهى النشاطان في الوقت نفسه. بكم دقيقة تزيد مدة القراءة على مدة الرسم؟",
+      "En": "Reading starts at 8:15 a.m. and drawing at 8:40 a.m. Both activities end at the same time. By how many minutes is reading longer?"
+    },
+    "opts": [
+      "15",
+      "20",
+      "25",
+      "40"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "15 رقم الدقائق في موعد بداية القراءة، لا الفرق بين الموعدين.",
+        "En": "15 is the minute component of the reading start, not the difference."
+      },
+      {
+        "Ar": "20 ليس الفرق بين الموعدين.",
+        "En": "20 is not the difference between the starts."
+      },
+      null,
+      {
+        "Ar": "40 رقم الدقائق في موعد بداية الرسم، لا الفرق.",
+        "En": "40 is the minute component of the drawing start, not the difference."
+      }
+    ],
+    "idea": {
+      "Ar": "عند تساوي موعد النهاية، يساوي فرق المدتين فرق موعدي البداية.",
+      "En": "With a common finish, the difference in durations equals the difference in start times."
+    },
+    "formula": "40-15",
+    "steps": [
+      {
+        "Ar": "بدأت القراءة قبل الرسم في الساعة نفسها.",
+        "En": "Reading starts earlier within the same hour."
+      },
+      {
+        "Ar": "نحسب الفرق بين الدقيقتين 15 و40.",
+        "En": "Subtract minute 15 from minute 40."
+      }
+    ],
+    "sub": {
+      "Ar": "$40-15=25$",
+      "En": "$40-15=25$"
+    },
+    "result": {
+      "Ar": "$25$",
+      "En": "$25$"
+    },
+    "verify": {
+      "Ar": "$15+25=40$",
+      "En": "$15+25=40$"
+    },
+    "hints": [
+      {
+        "Ar": "لا تحتاج إلى معرفة موعد النهاية المشترك.",
+        "En": "You do not need the shared finishing time."
+      },
+      {
+        "Ar": "قارن موعدي البداية.",
+        "En": "Compare the start times."
+      }
+    ],
+    "error": {
+      "Ar": "لا تجمع رقمي الدقائق.",
+      "En": "Do not add the minute readings."
+    },
+    "unit": {
+      "Ar": "دقيقة",
+      "En": "minutes"
+    }
+  },
+  {
+    "track": 4,
+    "stage": 1,
+    "cat": 2,
+    "skill": 9,
+    "sk": "primary-one-step-multiplicative-equations",
+    "family": "multiplicative-equation-check-wrong-factor",
+    "title": {
+      "Ar": "اختبار حل مقترح",
+      "En": "Checking a proposed solution"
+    },
+    "q": {
+      "Ar": "اقترح طالب أن x=8 حل للمعادلة 9x=63. بكم يزيد الطرف الأيسر على الطرف الأيمن عند التعويض بالقيمة المقترحة؟",
+      "En": "A student proposes x=8 as a solution of 9x=63. By how much does the left side exceed the right side when the proposed value is substituted?"
+    },
+    "opts": [
+      "1",
+      "7",
+      "9",
+      "72"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "1 فرق قيمة x المقترحة عن الحل الصحيح، لا فرق الطرفين.",
+        "En": "1 is the difference between the proposed and correct x values, not the sides."
+      },
+      {
+        "Ar": "7 هو الحل الصحيح للمعادلة.",
+        "En": "7 is the actual solution."
+      },
+      null,
+      {
+        "Ar": "72 قيمة الطرف الأيسر وحده.",
+        "En": "72 is the left side alone."
+      }
+    ],
+    "idea": {
+      "Ar": "نختبر الحل بالتعويض ثم نقارن الطرفين.",
+      "En": "Check a proposed solution by substitution, then compare the sides."
+    },
+    "formula": "9\\cdot8-63",
+    "steps": [
+      {
+        "Ar": "$9\\cdot8=72$",
+        "En": "$9\\cdot8=72$"
+      },
+      {
+        "Ar": "$72-63=9$",
+        "En": "$72-63=9$"
+      }
+    ],
+    "sub": {
+      "Ar": "$72-63=9$",
+      "En": "$72-63=9$"
+    },
+    "result": {
+      "Ar": "$9$",
+      "En": "$9$"
+    },
+    "verify": {
+      "Ar": "$63+9=72$",
+      "En": "$63+9=72$"
+    },
+    "hints": [
+      {
+        "Ar": "عوّض 8 في الطرف الأيسر.",
+        "En": "Substitute 8 on the left."
+      },
+      {
+        "Ar": "اطرح 63 من حاصل الضرب.",
+        "En": "Subtract 63 from the product."
+      }
+    ],
+    "error": {
+      "Ar": "المطلوب فرق الطرفين، وليس قيمة الحل الصحيح.",
+      "En": "The question asks for the difference between sides, not the correct solution."
+    }
+  },
+  {
+    "track": 5,
+    "stage": 1,
+    "cat": 81,
+    "skill": 303,
+    "sk": "estimation",
+    "family": "estimate-product-compatible-numbers",
+    "title": {
+      "Ar": "تقدير الضرب بأعداد متوافقة",
+      "En": "Estimating products with compatible numbers"
+    },
+    "q": {
+      "Ar": "يريد متجر تقدير عدد القطع في 49 صندوقاً يحتوي كل منها 19 قطعة. إذا قرّب العددين إلى أقرب عشرة، فما التقدير؟",
+      "En": "A shop estimates the items in 49 boxes with 19 items each. If both numbers are rounded to the nearest ten, what is the estimate?"
+    },
+    "opts": [
+      "800",
+      "900",
+      "950",
+      "1000"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "800 ينتج من تقريب 49 إلى 40 بدلاً من 50.",
+        "En": "800 rounds 49 to 40 instead of 50."
+      },
+      {
+        "Ar": "900 لا يمثل حاصل ضرب 50 و20.",
+        "En": "900 is not the product of 50 and 20."
+      },
+      {
+        "Ar": "950 يبقي 19 دون تقريب.",
+        "En": "950 leaves 19 unrounded."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "نقرّب كلا العاملين قبل حساب حاصل الضرب التقريبي.",
+      "En": "Round both factors before multiplying."
+    },
+    "formula": "50\\cdot20",
+    "steps": [
+      {
+        "Ar": "$49\\to50,\\quad19\\to20$",
+        "En": "$49\\to50,\\quad19\\to20$"
+      },
+      {
+        "Ar": "$50\\cdot20=1000$",
+        "En": "$50\\cdot20=1000$"
+      }
+    ],
+    "sub": {
+      "Ar": "$50\\cdot20=1000$",
+      "En": "$50\\cdot20=1000$"
+    },
+    "result": {
+      "Ar": "$1000$",
+      "En": "$1000$"
+    },
+    "verify": {
+      "Ar": "$5\\cdot2\\cdot100=1000$",
+      "En": "$5\\cdot2\\cdot100=1000$"
+    },
+    "hints": [
+      {
+        "Ar": "قرّب 49 و19 كلّاً على حدة.",
+        "En": "Round 49 and 19 separately."
+      },
+      {
+        "Ar": "اضرب العددين المقربين.",
+        "En": "Multiply the rounded values."
+      }
+    ],
+    "error": {
+      "Ar": "لا تقرّب أحد العاملين فقط.",
+      "En": "Do not round only one factor."
+    }
+  },
+  {
+    "track": 7,
+    "stage": 2,
+    "cat": 6,
+    "skill": 25,
+    "sk": "middle-linear-equations",
+    "family": "linear-equation-negative-input-context",
+    "title": {
+      "Ar": "درجة حرارة البداية",
+      "En": "Finding a starting temperature"
+    },
+    "q": {
+      "Ar": "درجة الحرارة الابتدائية x. ارتفعت 6 درجات في كل ساعة لمدة ساعتين، فأصبحت 5 درجات مئوية. ما درجة الحرارة الابتدائية؟",
+      "En": "The initial temperature is x. It rises by 6 degrees per hour for two hours and reaches 5 degrees Celsius. What is the initial temperature?"
+    },
+    "opts": [
+      "-7",
+      "-1",
+      "7",
+      "17"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "−1 يطرح زيادة ساعة واحدة فقط.",
+        "En": "−1 subtracts only one hour of increase."
+      },
+      {
+        "Ar": "7 يعكس إشارة 5−12.",
+        "En": "7 reverses the sign of 5−12."
+      },
+      {
+        "Ar": "17 يضيف الزيادة بدلاً من طرحها.",
+        "En": "17 adds the increase instead of subtracting it."
+      }
+    ],
+    "idea": {
+      "Ar": "نعبر عن القيمة النهائية بجمع الزيادة الكلية والقيمة الابتدائية.",
+      "En": "Express the final value as the initial value plus the total increase."
+    },
+    "formula": "x+2\\cdot6=5",
+    "steps": [
+      {
+        "Ar": "$x+12=5$",
+        "En": "$x+12=5$"
+      },
+      {
+        "Ar": "$x=5-12$",
+        "En": "$x=5-12$"
+      }
+    ],
+    "sub": {
+      "Ar": "$x=-7$",
+      "En": "$x=-7$"
+    },
+    "result": {
+      "Ar": "$-7$",
+      "En": "$-7$"
+    },
+    "verify": {
+      "Ar": "$-7+12=5$",
+      "En": "$-7+12=5$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب الزيادة خلال الساعتين.",
+        "En": "Find the increase over both hours."
+      },
+      {
+        "Ar": "اعكس الزيادة لإيجاد درجة البداية.",
+        "En": "Reverse the increase to find the starting temperature."
+      }
+    ],
+    "error": {
+      "Ar": "قد تكون درجة البداية سالبة.",
+      "En": "The starting temperature can be negative."
+    },
+    "unit": {
+      "Ar": "درجة مئوية",
+      "En": "°C"
+    }
+  },
+  {
+    "track": 7,
+    "stage": 2,
+    "cat": 6,
+    "skill": 25,
+    "sk": "middle-linear-equations",
+    "family": "linear-equation-error-identify-intermediate",
+    "title": {
+      "Ar": "الخطوة الصحيحة في حل معادلة",
+      "En": "Correct equation-solving step"
+    },
+    "q": {
+      "Ar": "لحل المعادلة 5(x−2)=35، أي معادلة تنتج مباشرة عن قسمة الطرفين على 5 دون إجراء أي عملية أخرى؟",
+      "En": "To solve 5(x−2)=35, which equation follows immediately from dividing both sides by 5, without any other operation?"
+    },
+    "opts": [
+      "x-2=7",
+      "x-2=35",
+      "x=7",
+      "x-10=7"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "لم يُقسم الطرف الأيمن.",
+        "En": "The right side was not divided."
+      },
+      {
+        "Ar": "تم حذف −2 دون عملية مبررة.",
+        "En": "The −2 was removed without a justified operation."
+      },
+      {
+        "Ar": "لا ينتج −10 بعد قسمة العامل الخارجي.",
+        "En": "−10 does not follow from cancelling the outside factor."
+      }
+    ],
+    "idea": {
+      "Ar": "قسمة طرفي المعادلة على العدد غير الصفري نفسه تحافظ على تكافؤ المعادلة.",
+      "En": "Dividing both sides by the same nonzero number preserves equivalence."
+    },
+    "formula": "\\frac{5(x-2)}5=\\frac{35}5",
+    "steps": [
+      {
+        "Ar": "يُختزل العامل 5 في الطرف الأيسر.",
+        "En": "The factor 5 cancels on the left."
+      },
+      {
+        "Ar": "نحسب 35÷5 في الطرف الأيمن.",
+        "En": "Calculate 35÷5 on the right."
+      }
+    ],
+    "sub": {
+      "Ar": "$x-2=7$",
+      "En": "$x-2=7$"
+    },
+    "result": {
+      "Ar": "$x-2=7$",
+      "En": "$x-2=7$"
+    },
+    "verify": {
+      "Ar": "$x=9\\Rightarrow5(9-2)=35$",
+      "En": "$x=9\\Rightarrow5(9-2)=35$"
+    },
+    "hints": [
+      {
+        "Ar": "اقسم التعبير كاملاً، لا جزءاً منه.",
+        "En": "Divide the entire expression, not one part."
+      },
+      {
+        "Ar": "أبقِ ما داخل القوس دون تغيير.",
+        "En": "Keep the expression inside the parentheses unchanged."
+      }
+    ],
+    "error": {
+      "Ar": "لا تحذف −2 عند اختزال العامل 5.",
+      "En": "Do not remove −2 when cancelling the factor 5."
+    }
+  },
+  {
+    "track": 11,
+    "stage": 3,
+    "cat": 10,
+    "skill": 47,
+    "sk": "secondary-pythagorean-trig-identity",
+    "family": "trig-squared-sine-from-double-cos-squared",
+    "title": {
+      "Ar": "تبسيط مجموع مثلثي",
+      "En": "Simplifying a trigonometric sum"
+    },
+    "q": {
+      "Ar": "لأي زاوية حقيقية θ، إذا كان $\\sin^2\\theta=\\frac25$ فما قيمة $\\sin^2\\theta+2\\cos^2\\theta$؟",
+      "En": "For a real angle θ, if $\\sin^2\\theta=\\frac25$, what is $\\sin^2\\theta+2\\cos^2\\theta$?"
+    },
+    "opts": [
+      "1",
+      "\\frac65",
+      "\\frac85",
+      "2"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "1 يساوي مجموع المربعين دون معامل 2.",
+        "En": "1 is the sum of squares without coefficient 2."
+      },
+      {
+        "Ar": "6/5 يحسب ضعف مربع جيب التمام وحده.",
+        "En": "6/5 counts only twice cosine squared."
+      },
+      null,
+      {
+        "Ar": "2 يفترض وجود المعامل 2 أمام الحدين.",
+        "En": "2 assumes coefficient 2 on both terms."
+      }
+    ],
+    "idea": {
+      "Ar": "نعوض عن مربع جيب التمام باستخدام متطابقة فيثاغورس.",
+      "En": "Use the Pythagorean identity to replace cosine squared."
+    },
+    "formula": "\\sin^2\\theta+\\cos^2\\theta=1",
+    "steps": [
+      {
+        "Ar": "$\\cos^2\\theta=1-2/5=3/5$",
+        "En": "$\\cos^2\\theta=1-2/5=3/5$"
+      },
+      {
+        "Ar": "$2/5+2(3/5)=8/5$",
+        "En": "$2/5+2(3/5)=8/5$"
+      }
+    ],
+    "sub": {
+      "Ar": "$2/5+6/5=8/5$",
+      "En": "$2/5+6/5=8/5$"
+    },
+    "result": {
+      "Ar": "$\\frac85$",
+      "En": "$\\frac85$"
+    },
+    "verify": {
+      "Ar": "$1+\\cos^2\\theta=1+3/5=8/5$",
+      "En": "$1+\\cos^2\\theta=1+3/5=8/5$"
+    },
+    "hints": [
+      {
+        "Ar": "استرجع مربع جيب التمام.",
+        "En": "Recover cosine squared."
+      },
+      {
+        "Ar": "انتبه للمعامل 2 في التعبير المطلوب.",
+        "En": "Notice coefficient 2 in the requested expression."
+      }
+    ],
+    "error": {
+      "Ar": "لا تستبدل التعبير كله بالعدد 1.",
+      "En": "Do not replace the whole expression with one."
+    }
+  },
+  {
+    "track": 12,
+    "stage": 3,
+    "cat": 10,
+    "skill": 47,
+    "sk": "secondary-pythagorean-trig-identity",
+    "family": "trig-reciprocal-squared-ratio-identity",
+    "title": {
+      "Ar": "نسبة مربعين مثلثيين",
+      "En": "Ratio of trigonometric squares"
+    },
+    "q": {
+      "Ar": "إذا كانت $\\tan\\theta=2$ و$\\cos\\theta\\ne0$، فما قيمة $\\frac{1}{1+\\tan^2\\theta}$؟",
+      "En": "If $\\tan\\theta=2$ and $\\cos\\theta\\ne0$, what is $\\frac{1}{1+\\tan^2\\theta}$?"
+    },
+    "opts": [
+      "\\frac15",
+      "\\frac13",
+      "\\frac14",
+      "5"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "1/3 ينتج من عدم تربيع 2.",
+        "En": "1/3 omits squaring 2."
+      },
+      {
+        "Ar": "1/4 يهمل الواحد في المقام.",
+        "En": "1/4 omits the one in the denominator."
+      },
+      {
+        "Ar": "5 هو المقام لا مقلوبه.",
+        "En": "5 is the denominator, not its reciprocal."
+      }
+    ],
+    "idea": {
+      "Ar": "من المتطابقة 1+tan²θ=sec²θ، يساوي مقلوب الطرف مربع جيب التمام.",
+      "En": "By 1+tan²θ=sec²θ, the reciprocal equals cosine squared."
+    },
+    "formula": "\\frac1{1+\\tan^2\\theta}=\\cos^2\\theta",
+    "steps": [
+      {
+        "Ar": "$\\tan^2\\theta=4$",
+        "En": "$\\tan^2\\theta=4$"
+      },
+      {
+        "Ar": "$1+\\tan^2\\theta=5$",
+        "En": "$1+\\tan^2\\theta=5$"
+      }
+    ],
+    "sub": {
+      "Ar": "$1/(1+4)=1/5$",
+      "En": "$1/(1+4)=1/5$"
+    },
+    "result": {
+      "Ar": "$\\frac15$",
+      "En": "$\\frac15$"
+    },
+    "verify": {
+      "Ar": "$5\\cdot\\frac15=1$",
+      "En": "$5\\cdot\\frac15=1$"
+    },
+    "hints": [
+      {
+        "Ar": "ربع الظل أولاً.",
+        "En": "Square tangent first."
+      },
+      {
+        "Ar": "أضف 1 ثم خذ المقلوب.",
+        "En": "Add one, then take the reciprocal."
+      }
+    ],
+    "error": {
+      "Ar": "لا تستبدل مربع الظل بالظل نفسه.",
+      "En": "Do not replace tangent squared by tangent."
+    }
+  },
+  {
+    "track": 12,
+    "stage": 3,
+    "cat": 10,
+    "skill": 47,
+    "sk": "secondary-pythagorean-trig-identity",
+    "family": "trig-square-complement-product",
+    "title": {
+      "Ar": "حاصل ضرب مربعي الجيب وجيب التمام",
+      "En": "Product of sine and cosine squares"
+    },
+    "q": {
+      "Ar": "إذا كان $\\sin^2\\theta=\\frac14$، فما قيمة $\\sin^2\\theta\\cos^2\\theta$؟",
+      "En": "If $\\sin^2\\theta=\\frac14$, what is $\\sin^2\\theta\\cos^2\\theta$?"
+    },
+    "opts": [
+      "\\frac1{16}",
+      "\\frac3{16}",
+      "\\frac34",
+      "1"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "1/16 يربع 1/4 بدلاً من ضرب المربعين المختلفين.",
+        "En": "1/16 squares 1/4 instead of multiplying the two different squares."
+      },
+      null,
+      {
+        "Ar": "3/4 قيمة مربع جيب التمام وحده.",
+        "En": "3/4 is cosine squared alone."
+      },
+      {
+        "Ar": "1 مجموع المربعين لا حاصل ضربهما.",
+        "En": "1 is their sum, not their product."
+      }
+    ],
+    "idea": {
+      "Ar": "نستخرج مربع جيب التمام من متطابقة فيثاغورس ثم نضرب.",
+      "En": "Find cosine squared from the Pythagorean identity, then multiply."
+    },
+    "formula": "\\sin^2\\theta\\cos^2\\theta=\\sin^2\\theta(1-\\sin^2\\theta)",
+    "steps": [
+      {
+        "Ar": "$\\cos^2\\theta=1-1/4=3/4$",
+        "En": "$\\cos^2\\theta=1-1/4=3/4$"
+      },
+      {
+        "Ar": "$(1/4)(3/4)=3/16$",
+        "En": "$(1/4)(3/4)=3/16$"
+      }
+    ],
+    "sub": {
+      "Ar": "$3/16$",
+      "En": "$3/16$"
+    },
+    "result": {
+      "Ar": "$\\frac3{16}$",
+      "En": "$\\frac3{16}$"
+    },
+    "verify": {
+      "Ar": "$1/4+3/4=1$",
+      "En": "$1/4+3/4=1$"
+    },
+    "hints": [
+      {
+        "Ar": "أوجد المربع المتمم للعدد 1/4.",
+        "En": "Find the square complementary to 1/4."
+      },
+      {
+        "Ar": "اضرب المربعين ولا تجمعهما.",
+        "En": "Multiply the squares rather than adding."
+      }
+    ],
+    "error": {
+      "Ar": "لا تخلط بين متطابقة الجمع وحاصل الضرب.",
+      "En": "Do not confuse the sum identity with a product."
+    }
+  }
+]

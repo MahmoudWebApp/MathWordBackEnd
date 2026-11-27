@@ -1,0 +1,581 @@
+[
+  {
+    "key": "growth-v29-university-level-1-related-rates-circle-expansion-1",
+    "family": "related-rates-circle-expansion",
+    "skill_key": "u-single-calculus-differentiation",
+    "track_code": "calculus",
+    "track": 13,
+    "stage": 4,
+    "category": 0,
+    "skill": 0,
+    "wizard": {
+      "StageId": 4,
+      "CategoryId": 0,
+      "PrimarySkillId": 0,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        13,
+        20
+      ],
+      "DifficultyLevel": 2,
+      "Points": 10,
+      "Title": {
+        "Ar": "معدل تغير مساحة قرص",
+        "En": "Rate of change of a disk area"
+      },
+      "Question": {
+        "Ar": "يتسع قرص دائري بحيث يزداد نصف قطره بمعدل $0.3$ سم/ثانية. ما معدل زيادة مساحته عندما يكون نصف القطر $5$ سم؟",
+        "En": "A circular disk expands with radius increasing at $0.3$ cm/s. At radius $5$ cm, what is the instantaneous rate of increase of its area?"
+      },
+      "Options": [
+        {
+          "LatexCode": "1.5\\pi",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "أغفل العامل 2 عند اشتقاق مربع نصف القطر.",
+            "En": "Omits the factor 2 when differentiating the squared radius."
+          }
+        },
+        {
+          "LatexCode": "3\\pi",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "10\\pi",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "هذه مشتقة المساحة بالنسبة إلى نصف القطر، لا الزمن.",
+            "En": "This is the area derivative with respect to radius, not time."
+          }
+        },
+        {
+          "LatexCode": "25\\pi",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "هذه المساحة اللحظية، لا معدل تغيرها.",
+            "En": "This is the instantaneous area, not its rate of change."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "اكتب مساحة القرص بدلالة نصف القطر المتغير مع الزمن.",
+          "En": "Express the disk area in terms of its time-dependent radius."
+        },
+        {
+          "Ar": "اشتق بالنسبة إلى الزمن باستخدام قاعدة السلسلة.",
+          "En": "Differentiate with respect to time using the chain rule."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "المساحة $A=\\pi r^2$ لدالة نصف قطر قابلة للاشتقاق؛ قاعدة السلسلة تربط معدل تغير المساحة بمعدل تغير نصف القطر.",
+          "En": "Area is $A=\\pi r^2$ for a differentiable radius function; the chain rule relates the area rate to the radius rate."
+        },
+        "FormulaLatex": "\\frac{dA}{dt}=2\\pi r\\frac{dr}{dt}",
+        "Steps": [
+          {
+            "Ar": "نعرف $A(t)=\\pi r(t)^2$.",
+            "En": "Define $A(t)=\\pi r(t)^2$."
+          },
+          {
+            "Ar": "نشتق الدالة المركبة: $A'(t)=2\\pi r(t)r'(t)$.",
+            "En": "Differentiate the composite: $A'(t)=2\\pi r(t)r'(t)$."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$2\\pi(5)(0.3)=3\\pi$",
+          "En": "$2\\pi(5)(0.3)=3\\pi$"
+        },
+        "Result": {
+          "Ar": "$3\\pi$",
+          "En": "$3\\pi$"
+        },
+        "Unit": {
+          "Ar": "سم²/ثانية",
+          "En": "cm²/s"
+        },
+        "Verification": {
+          "Ar": "عند الزمن اللاحق بمقدار $h$، يكون فرق المساحة $\\pi[(5+0.3h)^2-25]$؛ بقسمته على $h$ وأخذ النهاية نحصل على $3\\pi$.",
+          "En": "After an increment $h$, the area change is $\\pi[(5+0.3h)^2-25]$; dividing by $h$ and taking the limit gives $3\\pi$."
+        },
+        "CommonError": {
+          "Ar": "لا تنس مشتقة نصف القطر بالنسبة إلى الزمن.",
+          "En": "Do not omit the time derivative of the radius."
+        }
+      }
+    }
+  },
+  {
+    "key": "growth-v29-university-level-1-ftc-two-moving-limits-1",
+    "family": "ftc-two-moving-limits",
+    "skill_key": "u-single-calculus-integration",
+    "track_code": "calculus",
+    "track": 13,
+    "stage": 4,
+    "category": 0,
+    "skill": 0,
+    "wizard": {
+      "StageId": 4,
+      "CategoryId": 0,
+      "PrimarySkillId": 0,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        13,
+        20
+      ],
+      "DifficultyLevel": 2,
+      "Points": 10,
+      "Title": {
+        "Ar": "اشتقاق تكامل بحدين متغيرين",
+        "En": "Differentiating an integral with two moving bounds"
+      },
+      "Question": {
+        "Ar": "لتكن $F(x)=\\int_x^{2x}(1+t^2)\\,dt$. أوجد $F'(1)$.",
+        "En": "Let $F(x)=\\int_x^{2x}(1+t^2)\\,dt$. Find $F'(1)$."
+      },
+      "Options": [
+        {
+          "LatexCode": "3",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "هذا فرق قيم الدالة عند الحدين دون عامل مشتقة الحد الأعلى.",
+            "En": "This subtracts endpoint values without the upper-bound derivative factor."
+          }
+        },
+        {
+          "LatexCode": "5",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "هذه قيمة الدالة عند الحد الأعلى فقط.",
+            "En": "This is only the integrand at the upper bound."
+          }
+        },
+        {
+          "LatexCode": "8",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "12",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "جمع مساهمتي الحدين بدلاً من طرح مساهمة الحد الأدنى.",
+            "En": "Adds endpoint contributions instead of subtracting the lower-bound contribution."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "المكامل مستمر؛ يمكن تطبيق المبرهنة الأساسية للتكامل.",
+          "En": "The integrand is continuous, so the fundamental theorem applies."
+        },
+        {
+          "Ar": "اضرب مساهمة كل حد في مشتقة ذلك الحد، ثم اطرح مساهمة الحد الأدنى.",
+          "En": "Multiply each boundary contribution by its derivative, and subtract the lower contribution."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "للدالة المستمرة $f$ وحدين قابلين للاشتقاق $a,b$، تطبق المبرهنة الأساسية وقاعدة السلسلة على دالة أصلية للمتكامل.",
+          "En": "For continuous $f$ and differentiable bounds $a,b$, apply the fundamental theorem and chain rule to an antiderivative."
+        },
+        "FormulaLatex": "\\frac{d}{dx}\\int_{a(x)}^{b(x)}f(t)\\,dt=f(b(x))b'(x)-f(a(x))a'(x)",
+        "Steps": [
+          {
+            "Ar": "الحد الأعلى $2x$ ومشتقته 2، والحد الأدنى $x$ ومشتقته 1.",
+            "En": "The upper bound is $2x$ with derivative 2; the lower bound is $x$ with derivative 1."
+          },
+          {
+            "Ar": "$F'(x)=2(1+4x^2)-(1+x^2)=1+7x^2$.",
+            "En": "$F'(x)=2(1+4x^2)-(1+x^2)=1+7x^2$."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$F'(1)=1+7=8$",
+          "En": "$F'(1)=1+7=8$"
+        },
+        "Result": {
+          "Ar": "$8$",
+          "En": "$8$"
+        },
+        "Unit": {
+          "Ar": "بلا وحدة محددة",
+          "En": "No specified unit"
+        },
+        "Verification": {
+          "Ar": "بالتكامل مباشرةً $F(x)=x+\\frac73x^3$، ومشتقته $1+7x^2$، فتتطابق النتيجة.",
+          "En": "Direct integration gives $F(x)=x+\\frac73x^3$, whose derivative is $1+7x^2$, confirming the result."
+        },
+        "CommonError": {
+          "Ar": "لا تهمل مشتقة أي من الحدين المتغيرين.",
+          "En": "Do not omit the derivative of either moving bound."
+        }
+      }
+    }
+  },
+  {
+    "key": "growth-v29-university-level-1-linearization-square-root-near-point-1",
+    "family": "linearization-square-root-near-point",
+    "skill_key": "u-single-calculus-differentiation",
+    "track_code": "calculus",
+    "track": 13,
+    "stage": 4,
+    "category": 0,
+    "skill": 0,
+    "wizard": {
+      "StageId": 4,
+      "CategoryId": 0,
+      "PrimarySkillId": 0,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        13,
+        20
+      ],
+      "DifficultyLevel": 2,
+      "Points": 10,
+      "Title": {
+        "Ar": "التقريب الخطي وتقدير الخطأ",
+        "En": "Linear approximation near a known value"
+      },
+      "Question": {
+        "Ar": "باستخدام التقريب الخطي للدالة $f(x)=\\sqrt{x}$ عند $x=25$، ما تقريب $\\sqrt{26}$ الناتج عن هذه الطريقة؟",
+        "En": "Using the linearization of $f(x)=\\sqrt{x}$ at $x=25$, what approximation to $\\sqrt{26}$ does this method give?"
+      },
+      "Options": [
+        {
+          "LatexCode": "5.02",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "استعمل 1/50 بدلاً من المشتقة 1/10.",
+            "En": "Uses 1/50 rather than derivative 1/10."
+          }
+        },
+        {
+          "LatexCode": "5.1",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "5.2",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "ضاعف مقدار التصحيح الخطي الصحيح.",
+            "En": "Doubles the correct linear correction."
+          }
+        },
+        {
+          "LatexCode": "5.5",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "عامل زيادة العدد بواحد كزيادة مقدارها نصف في الجذر.",
+            "En": "Treats an increase of one in the input as an increase of one half in the root."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "ابدأ بالقيمة المعروفة للجذر التربيعي عند 25.",
+          "En": "Start with the known square root at 25."
+        },
+        {
+          "Ar": "احسب مشتقة الجذر عند 25 واضربها في فرق المدخلات.",
+          "En": "Find the derivative at 25 and multiply by the input increment."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "الدالة قابلة للاشتقاق قرب $25>0$، لذلك تقريبها الخطي هو قيمة الدالة عند النقطة مضافاً إليها المشتقة مضروبة في فرق المدخل.",
+          "En": "The function is differentiable near $25>0$, so its linearization is the function value plus its derivative times the input increment."
+        },
+        "FormulaLatex": "L(x)=f(a)+f'(a)(x-a)",
+        "Steps": [
+          {
+            "Ar": "$f(25)=5$ و$f'(25)=1/(2\\sqrt{25})=1/10$.",
+            "En": "$f(25)=5$ and $f'(25)=1/(2\\sqrt{25})=1/10$."
+          },
+          {
+            "Ar": "فرق المدخلات $26-25=1$؛ لذا $L(26)=5+0.1$.",
+            "En": "The input increment is $26-25=1$, so $L(26)=5+0.1$."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$L(26)=5.1$",
+          "En": "$L(26)=5.1$"
+        },
+        "Result": {
+          "Ar": "$5.1$",
+          "En": "$5.1$"
+        },
+        "Unit": {
+          "Ar": "قيمة تقريبية",
+          "En": "Approximate value"
+        },
+        "Verification": {
+          "Ar": "$5.1^2=26.01$؛ القيمة قريبة من المطلوب وأكبر قليلاً منه، كما نتوقع لأن الجذر مقعر إلى الأسفل.",
+          "En": "$5.1^2=26.01$; the approximation is close and slightly high, as expected from the square root's concavity."
+        },
+        "CommonError": {
+          "Ar": "لا تخلط التقريب الخطي بالقيمة الدقيقة للجذر.",
+          "En": "Do not confuse the linear approximation with the exact square root."
+        }
+      }
+    }
+  },
+  {
+    "key": "growth-v29-university-level-1-substitution-definite-rational-1",
+    "family": "substitution-definite-rational",
+    "skill_key": "u-single-calculus-integration",
+    "track_code": "calculus",
+    "track": 13,
+    "stage": 4,
+    "category": 0,
+    "skill": 0,
+    "wizard": {
+      "StageId": 4,
+      "CategoryId": 0,
+      "PrimarySkillId": 0,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        13,
+        20
+      ],
+      "DifficultyLevel": 2,
+      "Points": 10,
+      "Title": {
+        "Ar": "تكامل محدد بالتعويض",
+        "En": "Definite integration by substitution"
+      },
+      "Question": {
+        "Ar": "احسب $\\int_0^1\\frac{2x}{(1+x^2)^2}\\,dx$.",
+        "En": "Evaluate $\\int_0^1\\frac{2x}{(1+x^2)^2}\\,dx$."
+      },
+      "Options": [
+        {
+          "LatexCode": "-\\frac12",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "عكس ترتيب طرح قيم الدالة الأصلية عند الحدين.",
+            "En": "Reverses the endpoint subtraction."
+          }
+        },
+        {
+          "LatexCode": "\\frac14",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "استعمل قيمة المتكامل عند النهاية بدلاً من التكامل.",
+            "En": "Uses an incorrect endpoint-based shortcut rather than integration."
+          }
+        },
+        {
+          "LatexCode": "\\frac12",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "\\ln 2",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "هذه نتيجة تكامل 1/u وليس 1/u².",
+            "En": "This integrates 1/u rather than 1/u²."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "لاحظ أن مشتقة ما داخل القوس هي البسط.",
+          "En": "Notice that the derivative of the inner expression is the numerator."
+        },
+        {
+          "Ar": "غيّر حدود التكامل أيضاً بعد التعويض.",
+          "En": "Change the integration bounds after substitution."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "المقام موجب على الفترة، والتعويض $u=1+x^2$ يحول التكامل إلى تكامل قوة مع حدود جديدة.",
+          "En": "The denominator is positive on the interval; substituting $u=1+x^2$ turns the integral into a power integral with new bounds."
+        },
+        "FormulaLatex": "u=1+x^2,\\quad du=2x\\,dx",
+        "Steps": [
+          {
+            "Ar": "عند $x=0$ يكون $u=1$، وعند $x=1$ يكون $u=2$.",
+            "En": "At $x=0$, $u=1$; at $x=1$, $u=2$."
+          },
+          {
+            "Ar": "يصبح التكامل $\\int_1^2u^{-2}\\,du=[-u^{-1}]_1^2$.",
+            "En": "The integral becomes $\\int_1^2u^{-2}\\,du=[-u^{-1}]_1^2$."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$-\\frac12-(-1)=\\frac12$",
+          "En": "$-\\frac12-(-1)=\\frac12$"
+        },
+        "Result": {
+          "Ar": "$\\frac12$",
+          "En": "$\\frac12$"
+        },
+        "Unit": {
+          "Ar": "بلا وحدة محددة",
+          "En": "No specified unit"
+        },
+        "Verification": {
+          "Ar": "مشتقة $-1/(1+x^2)$ تساوي المتكامل الأصلي؛ وتقييمها بين 0 و1 يعطي النصف الموجب.",
+          "En": "The derivative of $-1/(1+x^2)$ is the original integrand; evaluating it from 0 to 1 gives the positive half."
+        },
+        "CommonError": {
+          "Ar": "لا تستخدم حدود x مع متغير التكامل u.",
+          "En": "Do not use x bounds with the integration variable u."
+        }
+      }
+    }
+  },
+  {
+    "key": "growth-v29-university-level-1-accumulated-distance-versus-net-displacement-1",
+    "family": "accumulated-distance-versus-net-displacement",
+    "skill_key": "u-single-calculus-integration",
+    "track_code": "calculus",
+    "track": 13,
+    "stage": 4,
+    "category": 0,
+    "skill": 0,
+    "wizard": {
+      "StageId": 4,
+      "CategoryId": 0,
+      "PrimarySkillId": 0,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        13,
+        20
+      ],
+      "DifficultyLevel": 2,
+      "Points": 10,
+      "Title": {
+        "Ar": "المسافة الكلية من سرعة متغيرة الإشارة",
+        "En": "Total distance from sign-changing velocity"
+      },
+      "Question": {
+        "Ar": "يتحرك جسم على مستقيم بسرعة $v(t)=t-2$ متر/ثانية، خلال $0\\le t\\le5$. ما المسافة الكلية التي قطعها؟",
+        "En": "An object moves on a line with velocity $v(t)=t-2$ metres per second for $0\\le t\\le5$. What total distance does it travel?"
+      },
+      "Options": [
+        {
+          "LatexCode": "\\frac52",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "هذه الإزاحة الصافية، لا مجموع المسافات.",
+            "En": "This is net displacement, not total distance."
+          }
+        },
+        {
+          "LatexCode": "\\frac92",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "هذه مسافة الجزء الموجب من الحركة فقط.",
+            "En": "This is only the distance in the positive-velocity portion."
+          }
+        },
+        {
+          "LatexCode": "\\frac{13}{2}",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "\\frac{25}{2}",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "استعمل سرعة t بدلاً من القيمة المطلقة للسرعة المعطاة.",
+            "En": "Integrates t instead of the absolute value of the given velocity."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "ابحث عن الزمن الذي تتغير عنده إشارة السرعة.",
+          "En": "Find where velocity changes sign."
+        },
+        {
+          "Ar": "المسافة الكلية تكامل القيمة المطلقة للسرعة، لا تكامل السرعة الموقعة.",
+          "En": "Total distance integrates absolute velocity, not signed velocity."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "عندما تكون السرعة مستمرة، المسافة الكلية هي تكامل مقدار السرعة؛ نقسم الفترة عند نقاط تغير الإشارة.",
+          "En": "For continuous velocity, total distance is the integral of speed; split at velocity sign changes."
+        },
+        "FormulaLatex": "D=\\int_0^2(2-t)\\,dt+\\int_2^5(t-2)\\,dt",
+        "Steps": [
+          {
+            "Ar": "تنعدم السرعة عند $t=2$؛ تكون سالبة قبله وموجبة بعده.",
+            "En": "Velocity vanishes at $t=2$; it is negative before and positive after."
+          },
+          {
+            "Ar": "المسافة الأولى $[2t-t^2/2]_0^2=2$ متر.",
+            "En": "The first distance is $[2t-t^2/2]_0^2=2$ metres."
+          },
+          {
+            "Ar": "المسافة الثانية $[(t-2)^2/2]_2^5=9/2$ متر.",
+            "En": "The second distance is $[(t-2)^2/2]_2^5=9/2$ metres."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$D=2+\\frac92=\\frac{13}{2}$",
+          "En": "$D=2+\\frac92=\\frac{13}{2}$"
+        },
+        "Result": {
+          "Ar": "$\\frac{13}{2}$",
+          "En": "$\\frac{13}{2}$"
+        },
+        "Unit": {
+          "Ar": "متر",
+          "En": "Metres"
+        },
+        "Verification": {
+          "Ar": "مساحتا المثلثين تحت منحنى مقدار السرعة هما $2\\times2/2=2$ و$3\\times3/2=4.5$، فتؤكدان 6.5 متر.",
+          "En": "The two triangular areas under the speed curve are $2\\times2/2=2$ and $3\\times3/2=4.5$, confirming 6.5 metres."
+        },
+        "CommonError": {
+          "Ar": "لا تسمح للمسافة في الاتجاه المعاكس بإلغاء جزء من المسافة الكلية.",
+          "En": "Do not let motion in the opposite direction cancel part of the total distance."
+        }
+      }
+    }
+  }
+]

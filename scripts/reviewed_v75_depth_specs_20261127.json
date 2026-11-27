@@ -1,0 +1,257 @@
+[
+  {
+    "track": 1,
+    "stage": 1,
+    "cat": 97,
+    "skill": 356,
+    "sk": "primary-category-count-data",
+    "family": "choose-question-supported-by-data",
+    "title": {
+      "Ar": "ما الذي يخبرنا به السجل؟",
+      "En": "What can the record tell us?"
+    },
+    "q": {
+      "Ar": "عدّ سامر الحقائب حسب اللون فقط: 4 زرقاء و3 خضراء. أي سؤال يستطيع الإجابة عنه من سجله؟ A كم حقيبة فيها كتاب؟ B كم حقيبة خضراء؟ C كم حقيبة لها عجلتان؟ D كم حقيبة ثقيلة؟",
+      "En": "Samer records bags by color only: 4 blue and 3 green. Which question can he answer from his record? A: How many bags hold a book? B: How many bags are green? C: How many bags have two wheels? D: How many bags are heavy?"
+    },
+    "opts": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "لم يسجل محتويات الحقائب.",
+        "En": "The record gives no bag contents."
+      },
+      null,
+      {
+        "Ar": "لم يعد العجلات.",
+        "En": "He did not count wheels."
+      },
+      {
+        "Ar": "لم يزن الحقائب.",
+        "En": "He did not weigh the bags."
+      }
+    ],
+    "idea": {
+      "Ar": "نختار السؤال الذي تتحدث عنه أسماء الفئات.",
+      "En": "Choose the question that the category labels describe."
+    },
+    "formula": "1+1+1=3",
+    "steps": [
+      {
+        "Ar": "الفئتان هما الزرقاء والخضراء.",
+        "En": "The two labels are blue and green."
+      },
+      {
+        "Ar": "نستطيع قراءة عدد الحقائب الخضراء مباشرة.",
+        "En": "We can read the green bag count directly."
+      }
+    ],
+    "sub": {
+      "Ar": "ثلاث علامات للحقائب الخضراء: $1+1+1=3$.",
+      "En": "Three marks for green bags give $1+1+1=3$."
+    },
+    "result": {
+      "Ar": "$B$",
+      "En": "$B$"
+    },
+    "verify": {
+      "Ar": "نجد العدد 3 بجانب اللون الأخضر في السجل.",
+      "En": "The record lists 3 next to green."
+    },
+    "hints": [
+      {
+        "Ar": "انظر إلى الشيء الذي لاحظه سامر في كل حقيبة.",
+        "En": "Look at the feature Samer observed for each bag."
+      },
+      {
+        "Ar": "ابحث عن سؤال يستخدم واحدة من فئتي السجل.",
+        "En": "Find a question that uses one of the two recorded categories."
+      }
+    ],
+    "error": {
+      "Ar": "لم يسجل محتويات الحقائب.",
+      "En": "The record gives no bag contents."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    },
+    "difficulty": 2,
+    "points": 10
+  },
+  {
+    "track": 1,
+    "stage": 1,
+    "cat": 97,
+    "skill": 356,
+    "sk": "primary-category-count-data",
+    "family": "record-zero-versus-unobserved",
+    "title": {
+      "Ar": "يوم بلا مشاهدات",
+      "En": "A day without observations"
+    },
+    "q": {
+      "Ar": "سجّلت ريم عدد الفراشات: الأحد 2، الاثنين 0، الثلاثاء 3. يوم الأربعاء لم تخرج للعد. في كم يوم من هذه الأيام الأربعة سجلت ريم عدداً، حتى لو كان صفراً؟",
+      "En": "Reem recorded butterfly counts: Sunday 2, Monday 0, Tuesday 3. On Wednesday she did not go out to count. On how many of these four days did she record a count, including zero?"
+    },
+    "opts": [
+      "2",
+      "5",
+      "4",
+      "3"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "أهمل يوم الاثنين لأن العدد فيه صفر.",
+        "En": "This skips Monday because its count is zero."
+      },
+      {
+        "Ar": "هذا مجموع الفراشات وليس عدد الأيام المسجلة.",
+        "En": "This adds butterflies instead of counting recorded days."
+      },
+      {
+        "Ar": "عدّ الأربعاء ولهذا اليوم لا يوجد تسجيل.",
+        "En": "This includes Wednesday, which has no entry."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "الصفر عدد مسجل عندما نعدّ ولا نجد شيئاً.",
+      "En": "Zero is a recorded count when we look and find none."
+    },
+    "formula": "1+1+1=3",
+    "steps": [
+      {
+        "Ar": "للأحد والاثنين والثلاثاء أعداد مكتوبة.",
+        "En": "Sunday, Monday and Tuesday each have a written count."
+      },
+      {
+        "Ar": "نعد هذه الأيام ونترك الأربعاء بلا تسجيل.",
+        "En": "Count these days and leave Wednesday unrecorded."
+      }
+    ],
+    "sub": {
+      "Ar": "$1+1+1=3$",
+      "En": "$1+1+1=3$"
+    },
+    "result": {
+      "Ar": "$3$",
+      "En": "$3$"
+    },
+    "verify": {
+      "Ar": "ثلاثة أيام مسجلة ويوم بلا تسجيل تكوّن الأيام الأربعة.",
+      "En": "Three recorded days and one unrecorded day make four days."
+    },
+    "hints": [
+      {
+        "Ar": "ابحث عن الأيام التي خرجت فيها ريم للعد.",
+        "En": "Find the days when Reem went out to count."
+      },
+      {
+        "Ar": "فكّر في الفرق بين عدم رؤية أي فراشة وعدم الخروج للعد.",
+        "En": "Think about seeing no butterflies versus never going out to count."
+      }
+    ],
+    "error": {
+      "Ar": "أهمل يوم الاثنين لأن العدد فيه صفر.",
+      "En": "This skips Monday because its count is zero."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    },
+    "difficulty": 2,
+    "points": 10
+  },
+  {
+    "track": 2,
+    "stage": 1,
+    "cat": 82,
+    "skill": 321,
+    "sk": "length",
+    "family": "tool-length-resolution",
+    "title": {
+      "Ar": "اختيار مسطرة",
+      "En": "Choosing a ruler"
+    },
+    "q": {
+      "Ar": "تريد نور قياس شريط طوله بين 10 و20 سم، وطوله عدد صحيح من السنتيمترات. تريد قراءة طوله من علامة موجودة مباشرة، من دون تقدير أو تحريك المسطرة. أي مسطرة تصلح لكل طول ممكن لهذا الشريط؟ A طولها 30 سم وعليها علامة كل 5 سم فقط. B طولها 8 سم وعليها علامة كل سم. C طولها 30 سم وعليها علامة كل سم. D طولها 10 سم وعليها علامة عند الطرفين فقط.",
+      "En": "Nour wants to measure a strip between 10 and 20 cm long whose length is a whole number of centimeters. She wants to read it at a marked tick without estimating or moving the ruler. Which ruler works for every possible length of this strip? A: 30 cm long, marked only every 5 cm. B: 8 cm long, marked every cm. C: 30 cm long, marked every cm. D: 10 cm long, marked only at its ends."
+    },
+    "opts": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "المسطرة طويلة بما يكفي لكن العلامات متباعدة.",
+        "En": "This ruler is long enough but its marks are too far apart."
+      },
+      {
+        "Ar": "المسطرة أقصر من الشريط.",
+        "En": "This ruler is shorter than the strip."
+      },
+      null,
+      {
+        "Ar": "هذه المسطرة قصيرة وتفتقر إلى تدريج السنتيمترات.",
+        "En": "This ruler is short and has no centimeter divisions."
+      }
+    ],
+    "idea": {
+      "Ar": "نفحص طول المسطرة والمسافة بين علاماتها.",
+      "En": "Check both the length of the ruler and the spacing of its marks."
+    },
+    "formula": "10<L<20",
+    "steps": [
+      {
+        "Ar": "نحتاج إلى مسطرة تصل إلى نهاية الشريط.",
+        "En": "The ruler must reach the far end of the strip."
+      },
+      {
+        "Ar": "نختار من المساطر الطويلة مسطرة تظهر كل سنتيمتر.",
+        "En": "Among long enough rulers choose one that marks every centimeter."
+      }
+    ],
+    "sub": {
+      "Ar": "$10<L<20$",
+      "En": "$10<L<20$"
+    },
+    "result": {
+      "Ar": "$C$",
+      "En": "$C$"
+    },
+    "verify": {
+      "Ar": "على المسطرة C نستطيع مثلاً قراءة 17 سم مباشرة من دون نقلها.",
+      "En": "On ruler C, for instance, 17 cm can be read directly without moving it."
+    },
+    "hints": [
+      {
+        "Ar": "هل تصل كل مسطرة إلى الطرف الآخر؟",
+        "En": "Does each ruler reach the other end?"
+      },
+      {
+        "Ar": "أي تدريج يسمح بقراءة السنتيمترات المفردة؟",
+        "En": "Which scale shows individual centimeters?"
+      }
+    ],
+    "error": {
+      "Ar": "المسطرة طويلة بما يكفي لكن العلامات متباعدة.",
+      "En": "This ruler is long enough but its marks are too far apart."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    },
+    "difficulty": 2,
+    "points": 10
+  }
+]

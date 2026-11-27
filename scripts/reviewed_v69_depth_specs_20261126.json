@@ -1,0 +1,1393 @@
+[
+  {
+    "track": 3,
+    "stage": 1,
+    "cat": 81,
+    "skill": 305,
+    "sk": "place-value",
+    "family": "carry-chain-changed-digit-count",
+    "title": {
+      "Ar": "تغير الأرقام عند الحمل",
+      "En": "Digits changed by carrying"
+    },
+    "q": {
+      "Ar": "عند إضافة 1 إلى العدد 299، كم منزلة يتغير رقمها؟",
+      "En": "When adding one to 299, how many digit positions change?"
+    },
+    "opts": [
+      "3",
+      "1",
+      "2",
+      "0"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "تغيرت الآحاد والعشرات والمئات.",
+        "En": "Ones, tens and hundreds all change."
+      },
+      {
+        "Ar": "أهمل الحمل إلى المئات.",
+        "En": "Misses the carry into hundreds."
+      },
+      {
+        "Ar": "العدد الجديد مختلف عن القديم.",
+        "En": "The new number differs from the old."
+      }
+    ],
+    "idea": {
+      "Ar": "الحمل من الآحاد ينتقل عبر العشرات إلى المئات.",
+      "En": "A carry passes from ones through tens into hundreds."
+    },
+    "formula": "299+1=300",
+    "steps": [
+      {
+        "Ar": "$299\\to300$",
+        "En": "$299\\to300$"
+      },
+      {
+        "Ar": "$2\\to3,\\quad9\\to0,\\quad9\\to0$",
+        "En": "$2\\to3,\\quad9\\to0,\\quad9\\to0$"
+      }
+    ],
+    "sub": {
+      "Ar": "$299+1=300$",
+      "En": "$299+1=300$"
+    },
+    "result": {
+      "Ar": "$3$",
+      "En": "$3$"
+    },
+    "verify": {
+      "Ar": "الفرق بين 300 و299 يساوي 1، وجميع المنازل الثلاث مختلفة.",
+      "En": "The difference is one, and all three positions differ."
+    },
+    "hints": [
+      {
+        "Ar": "ابدأ بجمع الآحاد.",
+        "En": "Start with the ones digit."
+      },
+      {
+        "Ar": "قارن كل منزلة قبل الجمع وبعده.",
+        "En": "Compare every digit position before and after."
+      }
+    ],
+    "error": {
+      "Ar": "تغيرت الآحاد والعشرات والمئات.",
+      "En": "Ones, tens and hundreds all change."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 21,
+    "stage": 4,
+    "cat": 90,
+    "skill": 332,
+    "sk": "linear-systems",
+    "family": "strict-row-diagonal-dominance-permutation",
+    "title": {
+      "Ar": "ترتيب الصفوف للسيادة القطرية",
+      "En": "Row ordering for diagonal dominance"
+    },
+    "q": {
+      "Ar": "للنظام $x+5y=11$ و$4x+2y=8$، أي إجراء يجعل مصفوفة المعاملات سائدة قطرياً بصرامة؟ A تبديل المعادلتين، B ضرب الأولى في 2، C ضرب الثانية في 2، D إبقاء الترتيب.",
+      "En": "For $x+5y=11$ and $4x+2y=8$, which operation makes the coefficient matrix strictly row diagonally dominant? A: swap equations; B: double first equation; C: double second equation; D: keep order."
+    },
+    "opts": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "الضرب يحافظ على نسبة المعاملات في الصف.",
+        "En": "Scaling preserves the ratio within the row."
+      },
+      {
+        "Ar": "لا يغير الضرب موضع المعامل الأكبر.",
+        "En": "Scaling does not move the larger coefficient."
+      },
+      {
+        "Ar": "المعاملان القطريان الحاليان أصغر من غير القطريين.",
+        "En": "The original diagonal entries are smaller than off-diagonal entries."
+      }
+    ],
+    "idea": {
+      "Ar": "نحتاج أن تتجاوز القيمة المطلقة للمعامل القطري مجموع القيم المطلقة لباقي معاملات صفه.",
+      "En": "Each diagonal magnitude must exceed the sum of off-diagonal magnitudes in its row."
+    },
+    "formula": "\\begin{pmatrix}4&2\\\\1&5\\end{pmatrix}",
+    "steps": [
+      {
+        "Ar": "$4>2$",
+        "En": "$4>2$"
+      },
+      {
+        "Ar": "$5>1$",
+        "En": "$5>1$"
+      }
+    ],
+    "sub": {
+      "Ar": "$\\begin{pmatrix}4&2\\\\1&5\\end{pmatrix}$",
+      "En": "$\\begin{pmatrix}4&2\\\\1&5\\end{pmatrix}$"
+    },
+    "result": {
+      "Ar": "$A$",
+      "En": "$A$"
+    },
+    "verify": {
+      "Ar": "بعد التبديل تتحقق المتباينتان في الصفين.",
+      "En": "Both strict inequalities hold after swapping."
+    },
+    "hints": [
+      {
+        "Ar": "افحص المعامل الأكبر في كل معادلة.",
+        "En": "Inspect the larger coefficient in each equation."
+      },
+      {
+        "Ar": "ضع معامل كل متغير الأكبر في موضعه القطري.",
+        "En": "Place the larger coefficient of each variable on its diagonal."
+      }
+    ],
+    "error": {
+      "Ar": "الضرب يحافظ على نسبة المعاملات في الصف.",
+      "En": "Scaling preserves the ratio within the row."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 8,
+    "stage": 2,
+    "cat": 22,
+    "skill": 99,
+    "sk": "m-statistics-summary-measures",
+    "family": "median-and-mode-distinct-even-tie",
+    "title": {
+      "Ar": "وسيط ومنوال مختلفان",
+      "En": "Median versus modes"
+    },
+    "q": {
+      "Ar": "البيانات المرتبة 2،2،4،8،10،10. أي قيمة تساوي الوسيط ولا تظهر في البيانات؟",
+      "En": "The sorted data are 2,2,4,8,10,10. Which value is their median but does not occur in the data?"
+    },
+    "opts": [
+      "4",
+      "6",
+      "8",
+      "10"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "هذه القيمة الوسطى الأولى وحدها.",
+        "En": "Uses only the first central value."
+      },
+      null,
+      {
+        "Ar": "هذه القيمة الوسطى الثانية وحدها.",
+        "En": "Uses only the second central value."
+      },
+      {
+        "Ar": "هذه إحدى القيم الأكثر تكراراً.",
+        "En": "Uses one of the modes."
+      }
+    ],
+    "idea": {
+      "Ar": "عند عدد زوجي من القيم يكون الوسيط متوسط القيمتين الوسطيتين، وقد لا يكون مشاهدة فعلية.",
+      "En": "For an even count the median averages the central observations and need not be observed."
+    },
+    "formula": "m=(x_3+x_4)/2",
+    "steps": [
+      {
+        "Ar": "$m=(4+8)/2$",
+        "En": "$m=(4+8)/2$"
+      },
+      {
+        "Ar": "$m=6$",
+        "En": "$m=6$"
+      }
+    ],
+    "sub": {
+      "Ar": "$m=(x_3+x_4)/2$",
+      "En": "$m=(x_3+x_4)/2$"
+    },
+    "result": {
+      "Ar": "$6$",
+      "En": "$6$"
+    },
+    "verify": {
+      "Ar": "ثلاث قيم أصغر من 6 وثلاث أكبر منه، ولا يظهر 6 ضمن القائمة.",
+      "En": "Three values lie below six and three above, with no six in the list."
+    },
+    "hints": [
+      {
+        "Ar": "حدد رتبتي القيمتين الوسطيتين.",
+        "En": "Identify the two central ranks."
+      },
+      {
+        "Ar": "احسب متوسطهما ثم تحقق من ظهوره في القائمة.",
+        "En": "Average them and check whether the result occurs."
+      }
+    ],
+    "error": {
+      "Ar": "هذه القيمة الوسطى الأولى وحدها.",
+      "En": "Uses only the first central value."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 8,
+    "stage": 2,
+    "cat": 22,
+    "skill": 100,
+    "sk": "m-statistics-charts",
+    "family": "stacked-bar-segment-from-top-and-base",
+    "title": {
+      "Ar": "قراءة جزء من عمود تراكمي",
+      "En": "Reading a stacked bar segment"
+    },
+    "q": {
+      "Ar": "في عمود تراكمي يبدأ عند الصفر، ينتهي الجزء الأول عند 18 وينتهي الثاني عند 30 والثالث عند 40. ما قيمة الجزء الثاني؟",
+      "En": "A stacked bar starts at zero. The first segment ends at 18, the second at 30, and the third at 40. What count does the second segment represent?"
+    },
+    "opts": [
+      "30",
+      "18",
+      "12",
+      "10"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "هذه النهاية التراكمية للجزء الثاني.",
+        "En": "Uses its cumulative endpoint."
+      },
+      {
+        "Ar": "هذه قيمة الجزء الأول.",
+        "En": "Uses the first segment."
+      },
+      null,
+      {
+        "Ar": "هذه قيمة الجزء الثالث.",
+        "En": "Uses the third segment."
+      }
+    ],
+    "idea": {
+      "Ar": "قيمة الجزء هي الفرق بين نهايته وبدايته.",
+      "En": "A segment's count is its top minus its base."
+    },
+    "formula": "30-18",
+    "steps": [
+      {
+        "Ar": "$30-18=12$",
+        "En": "$30-18=12$"
+      }
+    ],
+    "sub": {
+      "Ar": "$30-18$",
+      "En": "$30-18$"
+    },
+    "result": {
+      "Ar": "$12$",
+      "En": "$12$"
+    },
+    "verify": {
+      "Ar": "$18+12+10=40$ وهو إجمالي العمود.",
+      "En": "$18+12+10=40$, the total bar height."
+    },
+    "hints": [
+      {
+        "Ar": "حدد بداية الجزء الثاني.",
+        "En": "Identify the base of the second segment."
+      },
+      {
+        "Ar": "اطرحها من نهايته.",
+        "En": "Subtract it from its top."
+      }
+    ],
+    "error": {
+      "Ar": "هذه النهاية التراكمية للجزء الثاني.",
+      "En": "Uses its cumulative endpoint."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 10,
+    "stage": 3,
+    "cat": 23,
+    "skill": 104,
+    "sk": "s-sequences-series-arithmetic-sequences",
+    "family": "arithmetic-stride-subsequence-difference",
+    "title": {
+      "Ar": "فرق متتالية مأخوذة بخطوات",
+      "En": "Arithmetic subsequence stride"
+    },
+    "q": {
+      "Ar": "متتالية حسابية فرقها المشترك -3. نأخذ الحدود $a_2,a_6,a_{10},\\ldots$ بهذا الترتيب. ما فرق المتتالية الجديدة؟",
+      "En": "An arithmetic sequence has common difference -3. Select $a_2,a_6,a_{10},\\ldots$ in order. What is the new common difference?"
+    },
+    "opts": [
+      "-3",
+      "-6",
+      "12",
+      "-12"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "تجاهل تخطي الحدود.",
+        "En": "Ignores the skipped indices."
+      },
+      {
+        "Ar": "حسب خطوتين لا أربعاً.",
+        "En": "Counts two steps instead of four."
+      },
+      {
+        "Ar": "فقد إشارة الفرق.",
+        "En": "Loses the negative sign."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "فرق الفهرسين المتتاليين في المتتالية المختارة يساوي 4.",
+      "En": "Adjacent selected indices differ by four."
+    },
+    "formula": "a_{n+4}-a_n=4d",
+    "steps": [
+      {
+        "Ar": "$4\\cdot(-3)=-12$",
+        "En": "$4\\cdot(-3)=-12$"
+      }
+    ],
+    "sub": {
+      "Ar": "$a_{n+4}-a_n=4d$",
+      "En": "$a_{n+4}-a_n=4d$"
+    },
+    "result": {
+      "Ar": "$-12$",
+      "En": "$-12$"
+    },
+    "verify": {
+      "Ar": "إذا كان $a_2=20$ فإن $a_6=8$ و$a_{10}=-4$، والفرقان -12.",
+      "En": "If $a_2=20$, then $a_6=8$ and $a_{10}=-4$, both gaps -12."
+    },
+    "hints": [
+      {
+        "Ar": "اطرح فهرسين متتاليين من الاختيار.",
+        "En": "Subtract two consecutive selected indices."
+      },
+      {
+        "Ar": "اضرب عدد الخطوات بالفرق الأصلي.",
+        "En": "Multiply the stride by the original difference."
+      }
+    ],
+    "error": {
+      "Ar": "تجاهل تخطي الحدود.",
+      "En": "Ignores the skipped indices."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 10,
+    "stage": 3,
+    "cat": 23,
+    "skill": 103,
+    "sk": "s-sequences-series-geometric-sequences",
+    "family": "geometric-ratio-of-consecutive-differences",
+    "title": {
+      "Ar": "نسبة الفروق في متتالية هندسية",
+      "En": "Ratio of successive differences"
+    },
+    "q": {
+      "Ar": "متتالية هندسية أساسها 3 وحدها الأول غير صفري. ما قيمة $(a_4-a_3)/(a_3-a_2)$؟",
+      "En": "A geometric sequence has ratio three and nonzero first term. Find $(a_4-a_3)/(a_3-a_2)$."
+    },
+    "opts": [
+      "1",
+      "3",
+      "9",
+      "\\frac13"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "افترض أن الفروق ثابتة.",
+        "En": "Assumes constant differences."
+      },
+      null,
+      {
+        "Ar": "استعمل مربع الأساس.",
+        "En": "Uses the squared ratio."
+      },
+      {
+        "Ar": "عكس ترتيب القسمة.",
+        "En": "Reverses the quotient."
+      }
+    ],
+    "idea": {
+      "Ar": "ضرب حدين متتاليين في الأساس يضرب الفرق بينهما في الأساس نفسه.",
+      "En": "Multiplying both successive terms by the ratio multiplies their difference by that ratio."
+    },
+    "formula": "a_4-a_3=3(a_3-a_2)",
+    "steps": [
+      {
+        "Ar": "$\\frac{a_4-a_3}{a_3-a_2}=3$",
+        "En": "$\\frac{a_4-a_3}{a_3-a_2}=3$"
+      }
+    ],
+    "sub": {
+      "Ar": "$a_4-a_3=3(a_3-a_2)$",
+      "En": "$a_4-a_3=3(a_3-a_2)$"
+    },
+    "result": {
+      "Ar": "$3$",
+      "En": "$3$"
+    },
+    "verify": {
+      "Ar": "للحدود 1،3،9،27 يكون $18/6=3$.",
+      "En": "For terms 1,3,9,27 the quotient is $18/6=3$."
+    },
+    "hints": [
+      {
+        "Ar": "عبر عن الحدين الرابع والثالث بواسطة السابقين.",
+        "En": "Express the fourth and third terms using their predecessors."
+      },
+      {
+        "Ar": "استخرج العامل المشترك من البسط.",
+        "En": "Factor out the common factor in the numerator."
+      }
+    ],
+    "error": {
+      "Ar": "افترض أن الفروق ثابتة.",
+      "En": "Assumes constant differences."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 10,
+    "stage": 3,
+    "cat": 23,
+    "skill": 104,
+    "sk": "s-sequences-series-arithmetic-sequences",
+    "family": "arithmetic-reversal-common-difference",
+    "title": {
+      "Ar": "عكس ترتيب الحدود",
+      "En": "Reversing an arithmetic sequence"
+    },
+    "q": {
+      "Ar": "ثمانية حدود متتالية من متتالية حسابية فرقها 5 كُتبت بترتيب عكسي. ما الفرق المشترك بعد العكس؟",
+      "En": "Eight consecutive terms of an arithmetic sequence with difference five are written in reverse order. What is the resulting common difference?"
+    },
+    "opts": [
+      "5",
+      "-5",
+      "-35",
+      "\\frac15"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "أبقى اتجاه الطرح الأصلي.",
+        "En": "Keeps the original subtraction direction."
+      },
+      null,
+      {
+        "Ar": "حسب فرق الطرفين بدلاً من فرق حدين متجاورين.",
+        "En": "Uses the endpoint gap rather than an adjacent gap."
+      },
+      {
+        "Ar": "أخذ المقلوب بدلاً من تغيير الإشارة.",
+        "En": "Takes the reciprocal instead of reversing the sign."
+      }
+    ],
+    "idea": {
+      "Ar": "الحد السابق ناقص الحد اللاحق في الترتيب الأصلي يساوي سالب الفرق المشترك.",
+      "En": "The previous term minus the next in the original order is the negative common difference."
+    },
+    "formula": "a_n-a_{n+1}=-d",
+    "steps": [
+      {
+        "Ar": "$-d=-5$",
+        "En": "$-d=-5$"
+      }
+    ],
+    "sub": {
+      "Ar": "$a_n-a_{n+1}=-d$",
+      "En": "$a_n-a_{n+1}=-d$"
+    },
+    "result": {
+      "Ar": "$-5$",
+      "En": "$-5$"
+    },
+    "verify": {
+      "Ar": "مثلاً 10،15 تصبح 15،10، والفرق $10-15=-5$.",
+      "En": "For example 10,15 becomes 15,10, giving $10-15=-5$."
+    },
+    "hints": [
+      {
+        "Ar": "اكتب حدين متتاليين أصليين.",
+        "En": "Write two adjacent original terms."
+      },
+      {
+        "Ar": "اعكس ترتيب طرحهما.",
+        "En": "Reverse the subtraction order."
+      }
+    ],
+    "error": {
+      "Ar": "أبقى اتجاه الطرح الأصلي.",
+      "En": "Keeps the original subtraction direction."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 10,
+    "stage": 3,
+    "cat": 23,
+    "skill": 103,
+    "sk": "s-sequences-series-geometric-sequences",
+    "family": "geometric-reciprocal-transform-ratio",
+    "title": {
+      "Ar": "مقلوبات حدود متتالية هندسية",
+      "En": "Reciprocals of geometric terms"
+    },
+    "q": {
+      "Ar": "متتالية هندسية حدودها غير صفرية وأساسها -4. نأخذ مقلوب كل حد بنفس الترتيب. ما أساس المتتالية الناتجة؟",
+      "En": "A geometric sequence has nonzero terms and common ratio -4. Take the reciprocal of each term in the same order. What is the new ratio?"
+    },
+    "opts": [
+      "4",
+      "-4",
+      "\\frac14",
+      "-\\frac14"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "غير الإشارة دون أخذ المقلوب.",
+        "En": "Changes sign without taking reciprocal."
+      },
+      {
+        "Ar": "لم يغير الأساس.",
+        "En": "Keeps the original ratio."
+      },
+      {
+        "Ar": "فقد الإشارة السالبة.",
+        "En": "Loses the negative sign."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "نسبة المقلوبين تساوي مقلوب نسبة الحدين الأصليين.",
+      "En": "The ratio of reciprocal terms is the reciprocal of the original ratio."
+    },
+    "formula": "\\frac{1/a_{n+1}}{1/a_n}=\\frac{a_n}{a_{n+1}}",
+    "steps": [
+      {
+        "Ar": "$r' =1/r$",
+        "En": "$r' =1/r$"
+      },
+      {
+        "Ar": "$r'=-1/4$",
+        "En": "$r'=-1/4$"
+      }
+    ],
+    "sub": {
+      "Ar": "$\\frac{1/a_{n+1}}{1/a_n}=\\frac{a_n}{a_{n+1}}$",
+      "En": "$\\frac{1/a_{n+1}}{1/a_n}=\\frac{a_n}{a_{n+1}}$"
+    },
+    "result": {
+      "Ar": "$-\\frac14$",
+      "En": "$-\\frac14$"
+    },
+    "verify": {
+      "Ar": "الحدان 2 و-8 يعطيان المقلوبين $1/2,-1/8$، ونسبتهما $-1/4$.",
+      "En": "Terms 2 and -8 give reciprocals $1/2,-1/8$, with ratio $-1/4$."
+    },
+    "hints": [
+      {
+        "Ar": "اكتب نسبة حدين من المقلوبات.",
+        "En": "Write the ratio of two reciprocal terms."
+      },
+      {
+        "Ar": "حوّل قسمة الكسور إلى ضرب.",
+        "En": "Convert division of fractions to multiplication."
+      }
+    ],
+    "error": {
+      "Ar": "غير الإشارة دون أخذ المقلوب.",
+      "En": "Changes sign without taking reciprocal."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 10,
+    "stage": 3,
+    "cat": 23,
+    "skill": 104,
+    "sk": "s-sequences-series-arithmetic-sequences",
+    "family": "arithmetic-sequence-sum-symmetric-pair-identify",
+    "title": {
+      "Ar": "مجموع أزواج متناظرة",
+      "En": "Symmetric pair sums"
+    },
+    "q": {
+      "Ar": "في متتالية حسابية $a_2+a_9=44$. ما قيمة $a_4+a_7$؟",
+      "En": "In an arithmetic sequence, $a_2+a_9=44$. Find $a_4+a_7$."
+    },
+    "opts": [
+      "22",
+      "48",
+      "44",
+      "88"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "قسم مجموع الحدين على اثنين.",
+        "En": "Halves the pair sum."
+      },
+      {
+        "Ar": "لم يراع أن زيادة أحد الفهرسين تقابل نقص الآخر.",
+        "En": "Does not offset the index changes."
+      },
+      null,
+      {
+        "Ar": "ضاعف المجموع دون مبرر.",
+        "En": "Doubles the sum without reason."
+      }
+    ],
+    "idea": {
+      "Ar": "مجموع حدين حسابيين يعتمد على مجموع فهرسيهما فقط.",
+      "En": "The sum of two arithmetic terms depends only on the sum of their indices."
+    },
+    "formula": "a_i+a_j=2a_1+(i+j-2)d",
+    "steps": [
+      {
+        "Ar": "$2+9=4+7=11$",
+        "En": "$2+9=4+7=11$"
+      },
+      {
+        "Ar": "$a_4+a_7=a_2+a_9=44$",
+        "En": "$a_4+a_7=a_2+a_9=44$"
+      }
+    ],
+    "sub": {
+      "Ar": "$a_i+a_j=2a_1+(i+j-2)d$",
+      "En": "$a_i+a_j=2a_1+(i+j-2)d$"
+    },
+    "result": {
+      "Ar": "$44$",
+      "En": "$44$"
+    },
+    "verify": {
+      "Ar": "$a_4=a_2+2d$ و$a_7=a_9-2d$.",
+      "En": "$a_4=a_2+2d$ and $a_7=a_9-2d$."
+    },
+    "hints": [
+      {
+        "Ar": "قارن مجموع الفهرسين في كل زوج.",
+        "En": "Compare the sum of indices of each pair."
+      },
+      {
+        "Ar": "لاحظ تعويض الخطوات في اتجاهين متعاكسين.",
+        "En": "Notice how opposite index changes cancel."
+      }
+    ],
+    "error": {
+      "Ar": "قسم مجموع الحدين على اثنين.",
+      "En": "Halves the pair sum."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 10,
+    "stage": 3,
+    "cat": 23,
+    "skill": 103,
+    "sk": "s-sequences-series-geometric-sequences",
+    "family": "geometric-interleaved-even-subsequence-ratio",
+    "title": {
+      "Ar": "أساس الحدود الزوجية",
+      "En": "Ratio of even-index terms"
+    },
+    "q": {
+      "Ar": "متتالية هندسية أساسها $-2$ وحدها الأول غير صفري. نختار $a_2,a_4,a_6,\\ldots$. ما أساس المتتالية المختارة؟",
+      "En": "A geometric sequence has ratio $-2$ and a nonzero first term. Select $a_2,a_4,a_6,\\ldots$. What is the ratio of the selected sequence?"
+    },
+    "opts": [
+      "-2",
+      "-4",
+      "4",
+      "2"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "استعمل خطوة واحدة.",
+        "En": "Uses just one original step."
+      },
+      {
+        "Ar": "ربع الأساس دون تصحيح الإشارة.",
+        "En": "Squares the magnitude but retains a negative sign."
+      },
+      null,
+      {
+        "Ar": "أخذ القيمة المطلقة دون تربيع.",
+        "En": "Takes absolute value without squaring."
+      }
+    ],
+    "idea": {
+      "Ar": "بين حدين مختارين خطوتان، لذا نضرب في الأساس مرتين.",
+      "En": "There are two original steps between selected terms, so multiply by the ratio twice."
+    },
+    "formula": "a_{n+2}=r^2a_n",
+    "steps": [
+      {
+        "Ar": "$r'=(-2)^2=4$",
+        "En": "$r'=(-2)^2=4$"
+      }
+    ],
+    "sub": {
+      "Ar": "$a_{n+2}=r^2a_n$",
+      "En": "$a_{n+2}=r^2a_n$"
+    },
+    "result": {
+      "Ar": "$4$",
+      "En": "$4$"
+    },
+    "verify": {
+      "Ar": "إذا كان $a_2=3$ فإن $a_4=12$ و$a_6=48$.",
+      "En": "If $a_2=3$, then $a_4=12$ and $a_6=48$."
+    },
+    "hints": [
+      {
+        "Ar": "احسب عدد الخطوات بين الحدين المختارين.",
+        "En": "Count original steps between selected terms."
+      },
+      {
+        "Ar": "طبق عامل الضرب لكل خطوة.",
+        "En": "Apply the factor once per step."
+      }
+    ],
+    "error": {
+      "Ar": "استعمل خطوة واحدة.",
+      "En": "Uses just one original step."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 9,
+    "stage": 2,
+    "cat": 34,
+    "skill": 37,
+    "sk": "middle-pythagorean-theorem",
+    "family": "pythagorean-altitude-to-hypotenuse-area",
+    "title": {
+      "Ar": "ارتفاع على الوتر",
+      "En": "Altitude to the hypotenuse"
+    },
+    "q": {
+      "Ar": "مثلث قائم ضلعاه القائمان 6 و8 سم ووتره 10 سم. ما ارتفاعه العمودي على الوتر بالسنتيمتر؟",
+      "En": "A right triangle has legs 6 and 8 cm and hypotenuse 10 cm. Find its perpendicular altitude to the hypotenuse in centimetres."
+    },
+    "opts": [
+      "4.8",
+      "2.4",
+      "6",
+      "8"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "قسم المساحة على الوتر دون مضاعفتها.",
+        "En": "Divides area by hypotenuse without doubling."
+      },
+      {
+        "Ar": "استعمل أحد الضلعين القائمين مباشرة.",
+        "En": "Uses one leg directly."
+      },
+      {
+        "Ar": "استعمل الضلع القائم الآخر مباشرة.",
+        "En": "Uses the other leg directly."
+      }
+    ],
+    "idea": {
+      "Ar": "نحسب المساحة بطريقتين باستخدام الضلعين القائمين ثم الوتر والارتفاع.",
+      "En": "Express area using the legs and using the hypotenuse with its altitude."
+    },
+    "formula": "\\frac12(6)(8)=\\frac12(10)h",
+    "steps": [
+      {
+        "Ar": "$24=5h$",
+        "En": "$24=5h$"
+      },
+      {
+        "Ar": "$h=4.8$",
+        "En": "$h=4.8$"
+      }
+    ],
+    "sub": {
+      "Ar": "$\\frac12(6)(8)=\\frac12(10)h$",
+      "En": "$\\frac12(6)(8)=\\frac12(10)h$"
+    },
+    "result": {
+      "Ar": "$4.8$",
+      "En": "$4.8$"
+    },
+    "verify": {
+      "Ar": "$10\\cdot4.8/2=24$.",
+      "En": "$10\\cdot4.8/2=24$."
+    },
+    "hints": [
+      {
+        "Ar": "احسب مساحة المثلث من الضلعين القائمين.",
+        "En": "Compute the area from the legs."
+      },
+      {
+        "Ar": "اعتبر الوتر قاعدة للمساحة نفسها.",
+        "En": "Use the hypotenuse as base for the same area."
+      }
+    ],
+    "error": {
+      "Ar": "قسم المساحة على الوتر دون مضاعفتها.",
+      "En": "Divides area by hypotenuse without doubling."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 9,
+    "stage": 2,
+    "cat": 34,
+    "skill": 40,
+    "sk": "middle-similar-triangles",
+    "family": "similar-triangle-midsegment-trapezoid-area",
+    "title": {
+      "Ar": "مساحة بعد قطع موازٍ",
+      "En": "Area after a parallel cut"
+    },
+    "q": {
+      "Ar": "في مثلث مساحته 80 سم²، يصل مستقيم منتصفي ضلعين. ما مساحة شبه المنحرف بين هذا المستقيم والضلع الثالث بالسنتيمتر المربع؟",
+      "En": "A triangle has area 80 square cm. A segment joins the midpoints of two sides. Find the area of the trapezoid between this segment and the third side, in square cm."
+    },
+    "opts": [
+      "40",
+      "20",
+      "60",
+      "70"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "استخدم نسبة الأطوال بدلاً من مربعها.",
+        "En": "Uses the length scale instead of its square."
+      },
+      {
+        "Ar": "هذه مساحة المثلث الصغير.",
+        "En": "This is the small triangle's area."
+      },
+      null,
+      {
+        "Ar": "استعمل نسبة مساحة غير صحيحة.",
+        "En": "Uses an incorrect area scale."
+      }
+    ],
+    "idea": {
+      "Ar": "المثلث الصغير مشابه للأصلي بنسبة طول نصف، فتكون مساحته ربع الأصل.",
+      "En": "The small triangle is similar with length scale one half, giving one quarter of the original area."
+    },
+    "formula": "A_{trap}=80(1-(1/2)^2)",
+    "steps": [
+      {
+        "Ar": "$A_{small}=80/4=20$",
+        "En": "$A_{small}=80/4=20$"
+      },
+      {
+        "Ar": "$A_{trap}=80-20=60$",
+        "En": "$A_{trap}=80-20=60$"
+      }
+    ],
+    "sub": {
+      "Ar": "$A_{trap}=80(1-(1/2)^2)$",
+      "En": "$A_{trap}=80(1-(1/2)^2)$"
+    },
+    "result": {
+      "Ar": "$60$",
+      "En": "$60$"
+    },
+    "verify": {
+      "Ar": "$60+20=80$.",
+      "En": "$60+20=80$."
+    },
+    "hints": [
+      {
+        "Ar": "حدد نسبة التشابه باستخدام منتصفي الضلعين.",
+        "En": "Find the similarity ratio from the midpoints."
+      },
+      {
+        "Ar": "اطرح مساحة المثلث الصغير من المساحة الكلية.",
+        "En": "Subtract the small triangle's area from the whole."
+      }
+    ],
+    "error": {
+      "Ar": "استخدم نسبة الأطوال بدلاً من مربعها.",
+      "En": "Uses the length scale instead of its square."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 9,
+    "stage": 2,
+    "cat": 34,
+    "skill": 37,
+    "sk": "middle-pythagorean-theorem",
+    "family": "pythagorean-converse-obtuse-test",
+    "title": {
+      "Ar": "تمييز المثلث المنفرج",
+      "En": "Testing for an obtuse triangle"
+    },
+    "q": {
+      "Ar": "مثلث أطوال أضلاعه 5،6،8 سم. أي وصف لزواياه صحيح؟ A حاد، B قائم، C منفرج، D لا يمكن تكوين مثلث.",
+      "En": "A triangle has sides 5,6,8 cm. Which angle classification is correct? A: acute; B: right; C: obtuse; D: not a possible triangle."
+    },
+    "opts": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "مربع الضلع الأكبر يتجاوز مجموع مربعي الآخرين.",
+        "En": "The largest square exceeds the other two squares' sum."
+      },
+      {
+        "Ar": "لا تتحقق مساواة فيثاغورس.",
+        "En": "Pythagorean equality does not hold."
+      },
+      null,
+      {
+        "Ar": "مجموع الضلعين الأصغر أكبر من الثالث.",
+        "En": "The two shorter sides sum to more than the third."
+      }
+    ],
+    "idea": {
+      "Ar": "نقارن مربع الضلع الأكبر بمجموع مربعي الضلعين الآخرين.",
+      "En": "Compare the longest side squared with the sum of the other two squares."
+    },
+    "formula": "8^2>5^2+6^2",
+    "steps": [
+      {
+        "Ar": "$64>25+36=61$",
+        "En": "$64>25+36=61$"
+      }
+    ],
+    "sub": {
+      "Ar": "$8^2>5^2+6^2$",
+      "En": "$8^2>5^2+6^2$"
+    },
+    "result": {
+      "Ar": "$C$",
+      "En": "$C$"
+    },
+    "verify": {
+      "Ar": "$5+6>8$، والفرق $64-61=3>0$.",
+      "En": "$5+6>8$, and $64-61=3>0$."
+    },
+    "hints": [
+      {
+        "Ar": "تحقق أولاً من إمكانية المثلث.",
+        "En": "First check the triangle inequality."
+      },
+      {
+        "Ar": "قارن 64 بمجموع مربعي الضلعين الأقصر.",
+        "En": "Compare 64 with the two shorter squares' sum."
+      }
+    ],
+    "error": {
+      "Ar": "مربع الضلع الأكبر يتجاوز مجموع مربعي الآخرين.",
+      "En": "The largest square exceeds the other two squares' sum."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 9,
+    "stage": 2,
+    "cat": 34,
+    "skill": 40,
+    "sk": "middle-similar-triangles",
+    "family": "similar-triangle-shadow-with-height-offset",
+    "title": {
+      "Ar": "ارتفاع فوق قاعدة مرتفعة",
+      "En": "Height above a raised base"
+    },
+    "q": {
+      "Ar": "في اللحظة نفسها يلقي عمود ارتفاعه 2 م ظلاً طوله 3 م، ويلقي جسم رأسي فوق منصة ظلاً على سطح المنصة الأفقي طوله 12 م. إذا كان سطح المنصة أعلى من الأرض بمتر واحد، فما ارتفاع قمة الجسم عن الأرض بالمتر؟",
+      "En": "At the same instant a 2 m pole casts a 3 m shadow, and a vertical object on a platform casts a 12 m shadow on the platform's horizontal surface. The platform surface is 1 m above ground. How high is the object's top above ground in metres?"
+    },
+    "opts": [
+      "8",
+      "9",
+      "7",
+      "19"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "حسب ارتفاع الجسم فوق المنصة فقط.",
+        "En": "Finds only the object height above the platform."
+      },
+      null,
+      {
+        "Ar": "طرح ارتفاع المنصة بدلاً من إضافته.",
+        "En": "Subtracts the platform height."
+      },
+      {
+        "Ar": "عكس نسبة التشابه ثم أضاف المنصة.",
+        "En": "Reverses the similarity ratio then adds the platform."
+      }
+    ],
+    "idea": {
+      "Ar": "زاوية أشعة الشمس واحدة، فتتناسب الارتفاعات مع الظلال الأفقية ثم نضيف ارتفاع المنصة.",
+      "En": "The sun angle is shared, so height is proportional to horizontal shadow length; then add the platform height."
+    },
+    "formula": "h/12=2/3",
+    "steps": [
+      {
+        "Ar": "$h=8$",
+        "En": "$h=8$"
+      },
+      {
+        "Ar": "$H=8+1=9$",
+        "En": "$H=8+1=9$"
+      }
+    ],
+    "sub": {
+      "Ar": "$h/12=2/3$",
+      "En": "$h/12=2/3$"
+    },
+    "result": {
+      "Ar": "$9$",
+      "En": "$9$"
+    },
+    "verify": {
+      "Ar": "ارتفاع 8 م يعطي ظلاً 12 م وفق النسبة، وإضافة متر تعطي 9 م.",
+      "En": "An 8 m height gives a 12 m shadow at this ratio; adding one gives nine."
+    },
+    "hints": [
+      {
+        "Ar": "احسب ارتفاع الجسم بدءاً من سطح المنصة.",
+        "En": "Find the object's height measured from the platform."
+      },
+      {
+        "Ar": "انتبه إلى مرجع الارتفاع المطلوب.",
+        "En": "Check the reference level for the requested height."
+      }
+    ],
+    "error": {
+      "Ar": "حسب ارتفاع الجسم فوق المنصة فقط.",
+      "En": "Finds only the object height above the platform."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 11,
+    "stage": 3,
+    "cat": 23,
+    "skill": 102,
+    "sk": "s-sequences-series-recurrence-relations",
+    "family": "recurrence-two-cycle-from-reflection",
+    "title": {
+      "Ar": "دورة من حدين",
+      "En": "Two-cycle recurrence"
+    },
+    "q": {
+      "Ar": "إذا كان $a_1=2$ و$a_{n+1}=10-a_n$ لكل $n\\ge1$، فما قيمة $a_{100}$؟",
+      "En": "If $a_1=2$ and $a_{n+1}=10-a_n$ for $n\\ge1$, find $a_{100}$."
+    },
+    "opts": [
+      "2",
+      "5",
+      "8",
+      "10"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "استعمل قيمة الفهارس الفردية.",
+        "En": "Uses the odd-index value."
+      },
+      {
+        "Ar": "استعمل النقطة الثابتة بدلاً من الدورة الفعلية.",
+        "En": "Uses the fixed point rather than the actual cycle."
+      },
+      null,
+      {
+        "Ar": "استعمل ثابت العلاقة وحده.",
+        "En": "Uses only the recurrence constant."
+      }
+    ],
+    "idea": {
+      "Ar": "تطبيق العلاقة مرتين يعيد الحد الأصلي، فتتكرر دورة من حدين.",
+      "En": "Applying the recurrence twice recovers the original term, creating a two-cycle."
+    },
+    "formula": "a_{n+2}=10-(10-a_n)=a_n",
+    "steps": [
+      {
+        "Ar": "$a_2=8$",
+        "En": "$a_2=8$"
+      },
+      {
+        "Ar": "$100=2\\cdot50$",
+        "En": "$100=2\\cdot50$"
+      },
+      {
+        "Ar": "$a_{100}=a_2=8$",
+        "En": "$a_{100}=a_2=8$"
+      }
+    ],
+    "sub": {
+      "Ar": "$a_{n+2}=10-(10-a_n)=a_n$",
+      "En": "$a_{n+2}=10-(10-a_n)=a_n$"
+    },
+    "result": {
+      "Ar": "$8$",
+      "En": "$8$"
+    },
+    "verify": {
+      "Ar": "$a_{99}=2$ ومن ثم $a_{100}=10-2=8$.",
+      "En": "$a_{99}=2$, so $a_{100}=10-2=8$."
+    },
+    "hints": [
+      {
+        "Ar": "احسب الحدين الثاني والثالث.",
+        "En": "Compute the second and third terms."
+      },
+      {
+        "Ar": "لاحظ تكرار الحدود وفق زوجية الفهرس.",
+        "En": "Notice the repeating pattern by index parity."
+      }
+    ],
+    "error": {
+      "Ar": "استعمل قيمة الفهارس الفردية.",
+      "En": "Uses the odd-index value."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 11,
+    "stage": 3,
+    "cat": 23,
+    "skill": 101,
+    "sk": "s-sequences-series-series-sums",
+    "family": "telescoping-reciprocal-differences-finite",
+    "title": {
+      "Ar": "مجموع متلاشٍ محدود",
+      "En": "Finite telescoping sum"
+    },
+    "q": {
+      "Ar": "احسب $\\sum_{k=1}^{4}(1/k-1/(k+1))$.",
+      "En": "Evaluate $\\sum_{k=1}^{4}(1/k-1/(k+1))$."
+    },
+    "opts": [
+      "\\frac45",
+      "1",
+      "\\frac15",
+      "\\frac34"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "أهمل الحد الطرفي الأخير.",
+        "En": "Omits the final endpoint term."
+      },
+      {
+        "Ar": "احتفظ بالحد الطرفي الأخير فقط.",
+        "En": "Keeps only the last endpoint term."
+      },
+      {
+        "Ar": "توقف عند الفهرس 3.",
+        "En": "Stops at index three."
+      }
+    ],
+    "idea": {
+      "Ar": "تتلاشى الحدود الوسطى عند كتابة المجموع، ويبقى الطرفان فقط.",
+      "En": "Interior terms cancel on expansion, leaving only the endpoints."
+    },
+    "formula": "\\sum_{k=1}^{4}(1/k-1/(k+1))=1-1/5",
+    "steps": [
+      {
+        "Ar": "$(1-1/2)+(1/2-1/3)+(1/3-1/4)+(1/4-1/5)$",
+        "En": "$(1-1/2)+(1/2-1/3)+(1/3-1/4)+(1/4-1/5)$"
+      },
+      {
+        "Ar": "$1-1/5=4/5$",
+        "En": "$1-1/5=4/5$"
+      }
+    ],
+    "sub": {
+      "Ar": "$\\sum_{k=1}^{4}(1/k-1/(k+1))=1-1/5$",
+      "En": "$\\sum_{k=1}^{4}(1/k-1/(k+1))=1-1/5$"
+    },
+    "result": {
+      "Ar": "$\\frac45$",
+      "En": "$\\frac45$"
+    },
+    "verify": {
+      "Ar": "$1/2+1/6+1/12+1/20=4/5$.",
+      "En": "$1/2+1/6+1/12+1/20=4/5$."
+    },
+    "hints": [
+      {
+        "Ar": "اكتب الحدود الأربعة منفصلة.",
+        "En": "Expand all four summands."
+      },
+      {
+        "Ar": "اشطب الأزواج المتساوية متعاكسة الإشارة.",
+        "En": "Cancel equal terms of opposite signs."
+      }
+    ],
+    "error": {
+      "Ar": "أهمل الحد الطرفي الأخير.",
+      "En": "Omits the final endpoint term."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 11,
+    "stage": 3,
+    "cat": 88,
+    "skill": 328,
+    "sk": "circles",
+    "family": "circle-chord-length-from-center-distance",
+    "title": {
+      "Ar": "طول وتر من بعده عن المركز",
+      "En": "Chord length from center distance"
+    },
+    "q": {
+      "Ar": "في دائرة نصف قطرها 13، يبعد مستقيم حامل لوتر مسافة عمودية 5 عن المركز. ما طول الوتر؟",
+      "En": "In a circle of radius 13, the line containing a chord is at perpendicular distance 5 from the center. Find the chord length."
+    },
+    "opts": [
+      "12",
+      "24",
+      "18",
+      "26"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "حسب نصف الوتر فقط.",
+        "En": "Finds only half the chord."
+      },
+      null,
+      {
+        "Ar": "جمع نصف القطر والبعد عن المركز.",
+        "En": "Adds radius and center distance."
+      },
+      {
+        "Ar": "اعتبر الوتر قطراً.",
+        "En": "Treats the chord as a diameter."
+      }
+    ],
+    "idea": {
+      "Ar": "العمود من المركز ينصف الوتر، ونستخدم فيثاغورس في المثلث القائم.",
+      "En": "The perpendicular from the center bisects the chord; apply Pythagoras to the right triangle."
+    },
+    "formula": "L=2\\sqrt{13^2-5^2}",
+    "steps": [
+      {
+        "Ar": "$L/2=\\sqrt{169-25}=12$",
+        "En": "$L/2=\\sqrt{169-25}=12$"
+      },
+      {
+        "Ar": "$L=24$",
+        "En": "$L=24$"
+      }
+    ],
+    "sub": {
+      "Ar": "$L=2\\sqrt{13^2-5^2}$",
+      "En": "$L=2\\sqrt{13^2-5^2}$"
+    },
+    "result": {
+      "Ar": "$24$",
+      "En": "$24$"
+    },
+    "verify": {
+      "Ar": "$5^2+12^2=169=13^2$.",
+      "En": "$5^2+12^2=169=13^2$."
+    },
+    "hints": [
+      {
+        "Ar": "ارسم نصف قطر يصل إلى طرف الوتر.",
+        "En": "Draw a radius to one endpoint of the chord."
+      },
+      {
+        "Ar": "احسب نصف الوتر ثم ضاعفه.",
+        "En": "Find half the chord, then double it."
+      }
+    ],
+    "error": {
+      "Ar": "حسب نصف الوتر فقط.",
+      "En": "Finds only half the chord."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  }
+]

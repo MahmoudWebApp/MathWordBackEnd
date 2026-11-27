@@ -1,0 +1,1482 @@
+[
+  {
+    "track": 7,
+    "cat": 6,
+    "skill": 25,
+    "sk": "middle-linear-equations",
+    "family": "linear-equation-perimeter-isosceles",
+    "title": {
+      "Ar": "معادلة محيط مثلث",
+      "En": "Triangle perimeter equation"
+    },
+    "q": {
+      "Ar": "مثلث متساوي الساقين، طول كل ساق x سم وطول القاعدة 9 سم ومحيطه 35 سم. ما طول الساق؟",
+      "En": "An isosceles triangle has two sides of length x cm, a base of 9 cm and perimeter 35 cm. What is the length of each equal side?"
+    },
+    "opts": [
+      "9",
+      "13",
+      "17.5",
+      "26"
+    ],
+    "correct": 1,
+    "idea": {
+      "Ar": "المحيط مجموع الأطوال الثلاثة، والساقان متساويتان.",
+      "En": "Perimeter is the sum of all three lengths, with two equal sides."
+    },
+    "formula": "2x+9=35",
+    "steps": [
+      {
+        "Ar": "$2x=35-9=26$",
+        "En": "$2x=35-9=26$"
+      },
+      {
+        "Ar": "$x=26/2=13$",
+        "En": "$x=26/2=13$"
+      }
+    ],
+    "sub": {
+      "Ar": "$x=26/2=13$",
+      "En": "$x=26/2=13$"
+    },
+    "result": {
+      "Ar": "$13$",
+      "En": "$13$"
+    },
+    "verify": {
+      "Ar": "$13+13+9=35$",
+      "En": "$13+13+9=35$"
+    },
+    "hints": [
+      {
+        "Ar": "اكتب مجموع أطوال الأضلاع.",
+        "En": "Write the sum of side lengths."
+      },
+      {
+        "Ar": "اطرح القاعدة ثم اقسم على 2.",
+        "En": "Subtract the base, then divide by two."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "9 طول القاعدة.",
+        "En": "9 is the base length."
+      },
+      null,
+      {
+        "Ar": "17.5 يقسم المحيط دون استبعاد القاعدة.",
+        "En": "17.5 divides the perimeter without removing the base."
+      },
+      {
+        "Ar": "26 مجموع الساقين.",
+        "En": "26 is the combined length of the equal sides."
+      }
+    ],
+    "error": {
+      "Ar": "9 طول القاعدة.",
+      "En": "9 is the base length."
+    },
+    "unit": {
+      "Ar": "سم",
+      "En": "cm"
+    }
+  },
+  {
+    "track": 10,
+    "cat": 35,
+    "skill": 53,
+    "sk": "secondary-arithmetic-mean",
+    "family": "mean-correction-two-opposite-changes",
+    "title": {
+      "Ar": "تصحيح قراءتين في المتوسط",
+      "En": "Correcting two observations"
+    },
+    "q": {
+      "Ar": "متوسط 10 قراءات يساوي 18. اكتُشف أن قراءة سجلت أكبر من قيمتها الصحيحة بمقدار 7، وأخرى سجلت أصغر من قيمتها الصحيحة بمقدار 3. ما المتوسط الصحيح؟",
+      "En": "Ten readings have mean 18. One was recorded 7 above its true value, and another 3 below its true value. What is the corrected mean?"
+    },
+    "opts": [
+      "17",
+      "17.6",
+      "18.4",
+      "22"
+    ],
+    "correct": 1,
+    "idea": {
+      "Ar": "نصحح المجموع بمقدار صافي التغير ثم نقسم على عدد القراءات.",
+      "En": "Correct the total by the net adjustment, then divide by the count."
+    },
+    "formula": "\\bar x'=\\frac{180-7+3}{10}",
+    "steps": [
+      {
+        "Ar": "$10\\cdot18=180$",
+        "En": "$10\\cdot18=180$"
+      },
+      {
+        "Ar": "$180-7+3=176$",
+        "En": "$180-7+3=176$"
+      },
+      {
+        "Ar": "$176/10=17.6$",
+        "En": "$176/10=17.6$"
+      }
+    ],
+    "sub": {
+      "Ar": "$176/10=17.6$",
+      "En": "$176/10=17.6$"
+    },
+    "result": {
+      "Ar": "$17.6$",
+      "En": "$17.6$"
+    },
+    "verify": {
+      "Ar": "$176+7-3=180$",
+      "En": "$176+7-3=180$"
+    },
+    "hints": [
+      {
+        "Ar": "اطرح الزيادة الخاطئة.",
+        "En": "Subtract the overstatement."
+      },
+      {
+        "Ar": "أضف النقص ثم اقسم على 10.",
+        "En": "Add the understatement, then divide by ten."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "17 يطرح التصحيحين بدلاً من جمع الثاني.",
+        "En": "17 subtracts both corrections rather than adding the second."
+      },
+      null,
+      {
+        "Ar": "18.4 يعكس صافي التصحيح.",
+        "En": "18.4 reverses the net correction."
+      },
+      {
+        "Ar": "22 يضيف فرق القراءتين للمتوسط مباشرة.",
+        "En": "22 adds the net difference directly to the mean."
+      }
+    ],
+    "error": {
+      "Ar": "17 يطرح التصحيحين بدلاً من جمع الثاني.",
+      "En": "17 subtracts both corrections rather than adding the second."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 11,
+    "cat": 10,
+    "skill": 47,
+    "sk": "secondary-pythagorean-trig-identity",
+    "family": "trig-identical-square-expression-ratio",
+    "title": {
+      "Ar": "اختزال نسبة مثلثية",
+      "En": "Simplifying a trigonometric ratio"
+    },
+    "q": {
+      "Ar": "عندما $\\cos\\theta\\ne0$، أي تعبير يكافئ $\\frac{1-\\sin^2\\theta}{\\cos\\theta}$؟",
+      "En": "When $\\cos\\theta\\ne0$, which expression is equivalent to $\\frac{1-\\sin^2\\theta}{\\cos\\theta}$?"
+    },
+    "opts": [
+      "1",
+      "\\sin\\theta",
+      "\\cos\\theta",
+      "\\sec\\theta"
+    ],
+    "correct": 2,
+    "idea": {
+      "Ar": "نستبدل البسط بمربع جيب التمام ثم نختزل.",
+      "En": "Replace the numerator by cosine squared and cancel."
+    },
+    "formula": "1-\\sin^2\\theta=\\cos^2\\theta",
+    "steps": [
+      {
+        "Ar": "$\\frac{\\cos^2\\theta}{\\cos\\theta}$",
+        "En": "$\\frac{\\cos^2\\theta}{\\cos\\theta}$"
+      },
+      {
+        "Ar": "$=\\cos\\theta$",
+        "En": "$=\\cos\\theta$"
+      }
+    ],
+    "sub": {
+      "Ar": "$=\\cos\\theta$",
+      "En": "$=\\cos\\theta$"
+    },
+    "result": {
+      "Ar": "$\\cos\\theta$",
+      "En": "$\\cos\\theta$"
+    },
+    "verify": {
+      "Ar": "$\\theta=0:\\ (1-0)/1=1$",
+      "En": "$\\theta=0:\\ (1-0)/1=1$"
+    },
+    "hints": [
+      {
+        "Ar": "استخدم متطابقة فيثاغورس للبسط.",
+        "En": "Use the Pythagorean identity in the numerator."
+      },
+      {
+        "Ar": "اختزل عاملاً غير صفري من جيب التمام.",
+        "En": "Cancel one nonzero cosine factor."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "البسط ليس جيب التمام نفسه.",
+        "En": "The numerator is not cosine itself."
+      },
+      {
+        "Ar": "لا ينتج الجيب من الاختزال.",
+        "En": "Cancellation does not yield sine."
+      },
+      null,
+      {
+        "Ar": "القاطع مقلوب جيب التمام لا ناتج الاختزال.",
+        "En": "Secant is the reciprocal of cosine, not the simplified result."
+      }
+    ],
+    "error": {
+      "Ar": "البسط ليس جيب التمام نفسه.",
+      "En": "The numerator is not cosine itself."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 12,
+    "cat": 10,
+    "skill": 47,
+    "sk": "secondary-pythagorean-trig-identity",
+    "family": "trig-sine-cosine-product-from-difference-square",
+    "title": {
+      "Ar": "استنتاج حاصل ضرب الجيب وجيب التمام",
+      "En": "Recovering the sine-cosine product"
+    },
+    "q": {
+      "Ar": "إذا كان $(\\sin\\theta-\\cos\\theta)^2=\\frac35$، فما قيمة $\\sin\\theta\\cos\\theta$؟",
+      "En": "If $(\\sin\\theta-\\cos\\theta)^2=\\frac35$, what is $\\sin\\theta\\cos\\theta$?"
+    },
+    "opts": [
+      "-\\frac15",
+      "\\frac15",
+      "\\frac25",
+      "\\frac35"
+    ],
+    "correct": 1,
+    "idea": {
+      "Ar": "نفك مربع الفرق ونستخدم أن مجموع مربعي الجيب وجيب التمام واحد.",
+      "En": "Expand the squared difference and use the sum-of-squares identity."
+    },
+    "formula": "1-2\\sin\\theta\\cos\\theta=3/5",
+    "steps": [
+      {
+        "Ar": "$2\\sin\\theta\\cos\\theta=1-3/5=2/5$",
+        "En": "$2\\sin\\theta\\cos\\theta=1-3/5=2/5$"
+      },
+      {
+        "Ar": "$\\sin\\theta\\cos\\theta=1/5$",
+        "En": "$\\sin\\theta\\cos\\theta=1/5$"
+      }
+    ],
+    "sub": {
+      "Ar": "$\\sin\\theta\\cos\\theta=1/5$",
+      "En": "$\\sin\\theta\\cos\\theta=1/5$"
+    },
+    "result": {
+      "Ar": "$\\frac15$",
+      "En": "$\\frac15$"
+    },
+    "verify": {
+      "Ar": "$1-2(1/5)=3/5$",
+      "En": "$1-2(1/5)=3/5$"
+    },
+    "hints": [
+      {
+        "Ar": "لا تنس الحد المتقاطع عند التربيع.",
+        "En": "Include the cross term when squaring."
+      },
+      {
+        "Ar": "اعزل حاصل الضرب بقسمة الطرفين على 2.",
+        "En": "Isolate the product by dividing by two."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "الإشارة السالبة تعطي 7/5 عند التعويض.",
+        "En": "The negative sign gives 7/5 on substitution."
+      },
+      null,
+      {
+        "Ar": "2/5 يساوي ضعف حاصل الضرب.",
+        "En": "2/5 is twice the product."
+      },
+      {
+        "Ar": "3/5 قيمة مربع الفرق.",
+        "En": "3/5 is the squared difference."
+      }
+    ],
+    "error": {
+      "Ar": "الإشارة السالبة تعطي 7/5 عند التعويض.",
+      "En": "The negative sign gives 7/5 on substitution."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 9,
+    "cat": 34,
+    "skill": 37,
+    "sk": "middle-pythagorean-theorem",
+    "family": "pythagorean-isosceles-altitude-area",
+    "title": {
+      "Ar": "ارتفاع مثلث متساوي الساقين",
+      "En": "Altitude of an isosceles triangle"
+    },
+    "q": {
+      "Ar": "مثلث متساوي الساقين طول كل ساق 13 سم وطول القاعدة 10 سم. ما ارتفاعه العمودي على القاعدة؟",
+      "En": "An isosceles triangle has equal sides of 13 cm and base 10 cm. What is its perpendicular height to the base?"
+    },
+    "opts": [
+      "5",
+      "8",
+      "12",
+      "13"
+    ],
+    "correct": 2,
+    "idea": {
+      "Ar": "ينصف الارتفاع القاعدة ويكون مثلثاً قائماً مع إحدى الساقين.",
+      "En": "The altitude bisects the base, forming a right triangle with one equal side."
+    },
+    "formula": "h^2+5^2=13^2",
+    "steps": [
+      {
+        "Ar": "$h^2=169-25=144$",
+        "En": "$h^2=169-25=144$"
+      },
+      {
+        "Ar": "$h=12$",
+        "En": "$h=12$"
+      }
+    ],
+    "sub": {
+      "Ar": "$h=12$",
+      "En": "$h=12$"
+    },
+    "result": {
+      "Ar": "$12$",
+      "En": "$12$"
+    },
+    "verify": {
+      "Ar": "$12^2+5^2=13^2$",
+      "En": "$12^2+5^2=13^2$"
+    },
+    "hints": [
+      {
+        "Ar": "اقسم طول القاعدة على اثنين.",
+        "En": "Halve the base."
+      },
+      {
+        "Ar": "استعمل فيثاغورس مع الوتر 13.",
+        "En": "Apply Pythagoras with hypotenuse 13."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "5 نصف القاعدة.",
+        "En": "5 is half the base."
+      },
+      {
+        "Ar": "8 يطرح نصف القاعدة من الساق دون تربيع.",
+        "En": "8 subtracts half the base without squaring."
+      },
+      null,
+      {
+        "Ar": "13 طول الساق لا الارتفاع.",
+        "En": "13 is the equal side, not the height."
+      }
+    ],
+    "error": {
+      "Ar": "5 نصف القاعدة.",
+      "En": "5 is half the base."
+    },
+    "unit": {
+      "Ar": "سم",
+      "En": "cm"
+    }
+  },
+  {
+    "track": 9,
+    "cat": 34,
+    "skill": 40,
+    "sk": "middle-similar-triangles",
+    "family": "similar-triangle-shadow-unknown-height",
+    "title": {
+      "Ar": "قياس ارتفاع بواسطة الظل",
+      "En": "Measuring height using shadows"
+    },
+    "q": {
+      "Ar": "في الوقت نفسه وعلى أرض أفقية، ظل عمود ارتفاعه 2 م طوله 3 م، وظل شجرة قائمة طوله 12 م. ما ارتفاع الشجرة؟",
+      "En": "At the same time on level ground, a vertical 2 m pole casts a 3 m shadow and a vertical tree casts a 12 m shadow. What is the tree's height?"
+    },
+    "opts": [
+      "6",
+      "8",
+      "18",
+      "24"
+    ],
+    "correct": 1,
+    "idea": {
+      "Ar": "أشعة الشمس المتوازية تجعل المثلثين متشابهين، فتتساوى نسبة الارتفاع إلى الظل.",
+      "En": "Parallel sunlight gives similar triangles, so height-to-shadow ratios agree."
+    },
+    "formula": "h/12=2/3",
+    "steps": [
+      {
+        "Ar": "$h=12\\cdot2/3$",
+        "En": "$h=12\\cdot2/3$"
+      },
+      {
+        "Ar": "$h=8$",
+        "En": "$h=8$"
+      }
+    ],
+    "sub": {
+      "Ar": "$h=8$",
+      "En": "$h=8$"
+    },
+    "result": {
+      "Ar": "$8$",
+      "En": "$8$"
+    },
+    "verify": {
+      "Ar": "$8/12=2/3$",
+      "En": "$8/12=2/3$"
+    },
+    "hints": [
+      {
+        "Ar": "قارن طولَي الظلين.",
+        "En": "Compare the two shadow lengths."
+      },
+      {
+        "Ar": "اضرب ارتفاع العمود في معامل التشابه.",
+        "En": "Multiply the pole height by the scale factor."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "6 لا يعطي نسبة 2/3.",
+        "En": "6 does not give ratio 2/3."
+      },
+      null,
+      {
+        "Ar": "18 يعكس النسبة.",
+        "En": "18 reverses the ratio."
+      },
+      {
+        "Ar": "24 يهمل القسمة على 3.",
+        "En": "24 omits division by three."
+      }
+    ],
+    "error": {
+      "Ar": "6 لا يعطي نسبة 2/3.",
+      "En": "6 does not give ratio 2/3."
+    },
+    "unit": {
+      "Ar": "م",
+      "En": "m"
+    }
+  },
+  {
+    "track": 9,
+    "cat": 84,
+    "skill": 327,
+    "sk": "solve-linear-inequalities",
+    "family": "inequality-always-true-variable-cancel",
+    "title": {
+      "Ar": "متراجحة تتحقق لكل عدد حقيقي",
+      "En": "An inequality true for all real numbers"
+    },
+    "q": {
+      "Ar": "ما مجموعة حلول $2(x+4)>2x+3$ في الأعداد الحقيقية؟",
+      "En": "What is the real solution set of $2(x+4)>2x+3$?"
+    },
+    "opts": [
+      "\\mathbb R",
+      "\\varnothing",
+      "x>5",
+      "x<-5"
+    ],
+    "correct": 0,
+    "idea": {
+      "Ar": "نوزع العامل ونطرح الحد المشترك، فإذا بقيت عبارة صحيحة دائماً فكل الأعداد حلول.",
+      "En": "Expand and subtract the shared term; an always-true statement admits every real number."
+    },
+    "formula": "2x+8>2x+3",
+    "steps": [
+      {
+        "Ar": "$8>3$",
+        "En": "$8>3$"
+      },
+      {
+        "Ar": "الشرط صحيح ولا يعتمد على x.",
+        "En": "The statement is true independently of x."
+      }
+    ],
+    "sub": {
+      "Ar": "الشرط صحيح ولا يعتمد على x.",
+      "En": "The statement is true independently of x."
+    },
+    "result": {
+      "Ar": "$\\mathbb R$",
+      "En": "$\\mathbb R$"
+    },
+    "verify": {
+      "Ar": "$(2x+8)-(2x+3)=5>0$",
+      "En": "$(2x+8)-(2x+3)=5>0$"
+    },
+    "hints": [
+      {
+        "Ar": "وزع 2 على الحدين داخل القوس.",
+        "En": "Distribute two over both terms."
+      },
+      {
+        "Ar": "اطرح 2x من الطرفين.",
+        "En": "Subtract 2x from both sides."
+      }
+    ],
+    "reasons": [
+      null,
+      {
+        "Ar": "العبارة العددية صحيحة وليست مستحيلة.",
+        "En": "The numerical statement is true, not impossible."
+      },
+      {
+        "Ar": "لا يبقى قيد على x.",
+        "En": "No restriction on x remains."
+      },
+      {
+        "Ar": "لا يبقى حد سالب للمتغير.",
+        "En": "No negative bound remains."
+      }
+    ],
+    "error": {
+      "Ar": "العبارة العددية صحيحة وليست مستحيلة.",
+      "En": "The numerical statement is true, not impossible."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 9,
+    "cat": 85,
+    "skill": 337,
+    "sk": "simple-compound-events",
+    "family": "probability-independence-check-product",
+    "title": {
+      "Ar": "اختبار استقلال حدثين",
+      "En": "Testing event independence"
+    },
+    "q": {
+      "Ar": "في تجربة احتمالية P(A)=0.4 وP(B)=0.5 وP(A∩B)=0.2. أي عبارة صحيحة؟ A: مستقلان؛ B: متنافيان؛ C: الحدث A مستحيل؛ D: الحدث B مؤكد.",
+      "En": "In an experiment P(A)=0.4, P(B)=0.5 and P(A∩B)=0.2. Which statement is true? A: independent; B: disjoint; C: A is impossible; D: B is certain."
+    },
+    "opts": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correct": 0,
+    "idea": {
+      "Ar": "الاستقلال يعني أن احتمال التقاطع يساوي حاصل ضرب احتمالَي الحدثين.",
+      "En": "Independence means the intersection probability equals the product of event probabilities."
+    },
+    "formula": "P(A)P(B)=0.4\\cdot0.5=0.2",
+    "steps": [
+      {
+        "Ar": "$P(A\\cap B)=0.2$",
+        "En": "$P(A\\cap B)=0.2$"
+      },
+      {
+        "Ar": "يتساوى التقاطع مع حاصل الضرب.",
+        "En": "The intersection equals the product."
+      }
+    ],
+    "sub": {
+      "Ar": "يتساوى التقاطع مع حاصل الضرب.",
+      "En": "The intersection equals the product."
+    },
+    "result": {
+      "Ar": "$A$",
+      "En": "$A$"
+    },
+    "verify": {
+      "Ar": "$0.2=0.2$",
+      "En": "$0.2=0.2$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب حاصل ضرب الاحتمالين.",
+        "En": "Multiply the two probabilities."
+      },
+      {
+        "Ar": "قارنه باحتمال التقاطع.",
+        "En": "Compare it with the intersection."
+      }
+    ],
+    "reasons": [
+      null,
+      {
+        "Ar": "التنافي يتطلب تقاطعاً احتماله صفر.",
+        "En": "Disjointness requires zero intersection probability."
+      },
+      {
+        "Ar": "احتمال A ليس صفراً.",
+        "En": "A has nonzero probability."
+      },
+      {
+        "Ar": "احتمال B ليس واحداً.",
+        "En": "B does not have probability one."
+      }
+    ],
+    "error": {
+      "Ar": "التنافي يتطلب تقاطعاً احتماله صفر.",
+      "En": "Disjointness requires zero intersection probability."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 10,
+    "cat": 87,
+    "skill": 340,
+    "sk": "vector-components",
+    "family": "vector-midpoint-displacement-half",
+    "title": {
+      "Ar": "متجه إلى نقطة منتصف",
+      "En": "Displacement to a midpoint"
+    },
+    "q": {
+      "Ar": "إذا كان متجه الإزاحة من A إلى B هو (−6,8)، وكانت M منتصف القطعة AB، فما مركبتا المتجه AM؟",
+      "En": "If displacement from A to B is (−6,8) and M is the midpoint of AB, what are the components of AM?"
+    },
+    "opts": [
+      "(-3,4)",
+      "(3,-4)",
+      "(-6,8)",
+      "(-12,16)"
+    ],
+    "correct": 0,
+    "idea": {
+      "Ar": "متجه الإزاحة إلى المنتصف نصف المتجه الكامل وفي اتجاهه نفسه.",
+      "En": "Displacement to the midpoint is half the full vector in the same direction."
+    },
+    "formula": "\\overrightarrow{AM}=\\frac12\\overrightarrow{AB}",
+    "steps": [
+      {
+        "Ar": "$-6/2=-3$",
+        "En": "$-6/2=-3$"
+      },
+      {
+        "Ar": "$8/2=4$",
+        "En": "$8/2=4$"
+      }
+    ],
+    "sub": {
+      "Ar": "$8/2=4$",
+      "En": "$8/2=4$"
+    },
+    "result": {
+      "Ar": "$(-3,4)$",
+      "En": "$(-3,4)$"
+    },
+    "verify": {
+      "Ar": "$2(-3,4)=(-6,8)$",
+      "En": "$2(-3,4)=(-6,8)$"
+    },
+    "hints": [
+      {
+        "Ar": "المنتصف يقسم الإزاحة بالتساوي.",
+        "En": "The midpoint halves the displacement."
+      },
+      {
+        "Ar": "اقسم كل مركبة على اثنين.",
+        "En": "Divide each component by two."
+      }
+    ],
+    "reasons": [
+      null,
+      {
+        "Ar": "هذا يعكس الاتجاه.",
+        "En": "This reverses the direction."
+      },
+      {
+        "Ar": "هذا المتجه الكامل.",
+        "En": "This is the full vector."
+      },
+      {
+        "Ar": "هذا يضاعف الإزاحة.",
+        "En": "This doubles the displacement."
+      }
+    ],
+    "error": {
+      "Ar": "هذا يعكس الاتجاه.",
+      "En": "This reverses the direction."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 10,
+    "cat": 87,
+    "skill": 339,
+    "sk": "magnitude",
+    "family": "vector-magnitude-axis-cancellation",
+    "title": {
+      "Ar": "معيار متجه محصلته رأسية",
+      "En": "Magnitude of a vertical resultant"
+    },
+    "q": {
+      "Ar": "متجهان u=(7,−2) وv=(−7,9). ما معيار مجموعهما؟",
+      "En": "Vectors are u=(7,−2) and v=(−7,9). What is the Euclidean magnitude of their sum?"
+    },
+    "opts": [
+      "0",
+      "7",
+      "11",
+      "14"
+    ],
+    "correct": 1,
+    "idea": {
+      "Ar": "نجمع المركبات ثم نحسب معيار المتجه الناتج.",
+      "En": "Add corresponding components, then find the resultant norm."
+    },
+    "formula": "\\|u+v\\|=\\sqrt{(7-7)^2+(-2+9)^2}",
+    "steps": [
+      {
+        "Ar": "$u+v=(0,7)$",
+        "En": "$u+v=(0,7)$"
+      },
+      {
+        "Ar": "$\\sqrt{0^2+7^2}=7$",
+        "En": "$\\sqrt{0^2+7^2}=7$"
+      }
+    ],
+    "sub": {
+      "Ar": "$\\sqrt{0^2+7^2}=7$",
+      "En": "$\\sqrt{0^2+7^2}=7$"
+    },
+    "result": {
+      "Ar": "$7$",
+      "En": "$7$"
+    },
+    "verify": {
+      "Ar": "$7^2=49$",
+      "En": "$7^2=49$"
+    },
+    "hints": [
+      {
+        "Ar": "اجمع المركبتين الأفقيتين أولاً.",
+        "En": "Add the horizontal components first."
+      },
+      {
+        "Ar": "احسب المعيار بعد جمع المركبات الرأسية.",
+        "En": "Find the norm after adding vertical components."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "تلغى المركبة الأفقية فقط.",
+        "En": "Only the horizontal component cancels."
+      },
+      null,
+      {
+        "Ar": "11 يجمع مقادير المركبتين الرأسيتين دون مراعاة الإشارة.",
+        "En": "11 adds absolute vertical components without signs."
+      },
+      {
+        "Ar": "14 يجمع مقداري المركبتين الأفقيتين.",
+        "En": "14 adds absolute horizontal components."
+      }
+    ],
+    "error": {
+      "Ar": "تلغى المركبة الأفقية فقط.",
+      "En": "Only the horizontal component cancels."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 11,
+    "cat": 88,
+    "skill": 330,
+    "sk": "loci",
+    "family": "locus-equidistant-perpendicular-axes-positive-quadrant",
+    "title": {
+      "Ar": "محل هندسي في الربع الأول",
+      "En": "Locus in the first quadrant"
+    },
+    "q": {
+      "Ar": "النقطة P تقع في الربع الأول، وتبعد المسافة نفسها عن المحور x والمحور y. أي معادلة تصف مواضعها في هذا الربع؟",
+      "En": "Point P is in the first quadrant and has equal perpendicular distances from the x-axis and y-axis. Which equation describes its positions in this quadrant?"
+    },
+    "opts": [
+      "y=x",
+      "y=-x",
+      "x=0",
+      "y=0"
+    ],
+    "correct": 0,
+    "idea": {
+      "Ar": "في الربع الأول المسافة عن محور x هي y، وعن محور y هي x.",
+      "En": "In the first quadrant the distance from the x-axis is y and from the y-axis is x."
+    },
+    "formula": "x=y",
+    "steps": [
+      {
+        "Ar": "الإحداثيان موجبان في الربع الأول.",
+        "En": "Both coordinates are positive in the first quadrant."
+      },
+      {
+        "Ar": "$d_x=y,\\quad d_y=x$",
+        "En": "$d_x=y,\\quad d_y=x$"
+      }
+    ],
+    "sub": {
+      "Ar": "$d_x=y,\\quad d_y=x$",
+      "En": "$d_x=y,\\quad d_y=x$"
+    },
+    "result": {
+      "Ar": "$y=x$",
+      "En": "$y=x$"
+    },
+    "verify": {
+      "Ar": "$(3,3):\\ d_x=d_y=3$",
+      "En": "$(3,3):\\ d_x=d_y=3$"
+    },
+    "hints": [
+      {
+        "Ar": "اكتب المسافة العمودية عن كل محور.",
+        "En": "Write the perpendicular distance from each axis."
+      },
+      {
+        "Ar": "ساوِ المسافتين.",
+        "En": "Set the distances equal."
+      }
+    ],
+    "reasons": [
+      null,
+      {
+        "Ar": "y=−x لا يمر داخل الربع الأول.",
+        "En": "y=−x does not pass through the first quadrant."
+      },
+      {
+        "Ar": "x=0 هو محور y وليس داخل الربع.",
+        "En": "x=0 is the y-axis, outside the quadrant interior."
+      },
+      {
+        "Ar": "y=0 هو محور x.",
+        "En": "y=0 is the x-axis."
+      }
+    ],
+    "error": {
+      "Ar": "y=−x لا يمر داخل الربع الأول.",
+      "En": "y=−x does not pass through the first quadrant."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 12,
+    "cat": 88,
+    "skill": 328,
+    "sk": "circles",
+    "family": "circle-tangent-line-at-known-point",
+    "title": {
+      "Ar": "معادلة مماس دائرة",
+      "En": "Equation of a circle tangent"
+    },
+    "q": {
+      "Ar": "أي مستقيم يمس الدائرة $x^2+y^2=25$ عند النقطة (3,4)؟",
+      "En": "Which line is tangent to the circle $x^2+y^2=25$ at (3,4)?"
+    },
+    "opts": [
+      "3x+4y=25",
+      "4x-3y=0",
+      "3x+4y=5",
+      "x+y=7"
+    ],
+    "correct": 0,
+    "idea": {
+      "Ar": "المماس عمودي على نصف القطر الواصل إلى نقطة التماس، فيكون المتجه (3,4) عمودياً على المماس.",
+      "En": "The tangent is perpendicular to the radius to the contact point, so (3,4) is its normal vector."
+    },
+    "formula": "3(x-3)+4(y-4)=0",
+    "steps": [
+      {
+        "Ar": "$3x-9+4y-16=0$",
+        "En": "$3x-9+4y-16=0$"
+      },
+      {
+        "Ar": "$3x+4y=25$",
+        "En": "$3x+4y=25$"
+      }
+    ],
+    "sub": {
+      "Ar": "$3x+4y=25$",
+      "En": "$3x+4y=25$"
+    },
+    "result": {
+      "Ar": "$3x+4y=25$",
+      "En": "$3x+4y=25$"
+    },
+    "verify": {
+      "Ar": "$3\\cdot3+4\\cdot4=25$",
+      "En": "$3\\cdot3+4\\cdot4=25$"
+    },
+    "hints": [
+      {
+        "Ar": "استعمل نصف القطر متجهاً عمودياً.",
+        "En": "Use the radius as a normal vector."
+      },
+      {
+        "Ar": "عوّض إحداثيي نقطة التماس.",
+        "En": "Substitute the contact point."
+      }
+    ],
+    "reasons": [
+      null,
+      {
+        "Ar": "هذا المستقيم يمر بالمركز وبنقطة التماس، فهو حامل نصف القطر.",
+        "En": "This line passes through the centre and contact point; it contains the radius."
+      },
+      {
+        "Ar": "لا يمر بالنقطة (3,4).",
+        "En": "It does not pass through (3,4)."
+      },
+      {
+        "Ar": "يمر بالنقطة لكنه ليس عمودياً على نصف القطر.",
+        "En": "It passes through the point but is not perpendicular to the radius."
+      }
+    ],
+    "error": {
+      "Ar": "هذا المستقيم يمر بالمركز وبنقطة التماس، فهو حامل نصف القطر.",
+      "En": "This line passes through the centre and contact point; it contains the radius."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 11,
+    "cat": 9,
+    "skill": 41,
+    "sk": "secondary-quadratic-roots",
+    "family": "quadratic-root-sum-and-product-reconstruct",
+    "title": {
+      "Ar": "بناء معادلة من جذريها",
+      "En": "Building a quadratic from its roots"
+    },
+    "q": {
+      "Ar": "أي معادلة تربيعية معامل حدها الرئيس 1 وجذراها −2 و5؟",
+      "En": "Which monic quadratic equation has roots −2 and 5?"
+    },
+    "opts": [
+      "x^2-3x-10=0",
+      "x^2+3x-10=0",
+      "x^2-7x+10=0",
+      "x^2+3x+10=0"
+    ],
+    "correct": 0,
+    "idea": {
+      "Ar": "إذا كان الجذران r وs فالمعادلة هي حاصل ضرب العاملين (x−r)(x−s)=0.",
+      "En": "For roots r and s, the monic equation is (x−r)(x−s)=0."
+    },
+    "formula": "(x+2)(x-5)=0",
+    "steps": [
+      {
+        "Ar": "$x^2-5x+2x-10=0$",
+        "En": "$x^2-5x+2x-10=0$"
+      },
+      {
+        "Ar": "$x^2-3x-10=0$",
+        "En": "$x^2-3x-10=0$"
+      }
+    ],
+    "sub": {
+      "Ar": "$x^2-3x-10=0$",
+      "En": "$x^2-3x-10=0$"
+    },
+    "result": {
+      "Ar": "$x^2-3x-10=0$",
+      "En": "$x^2-3x-10=0$"
+    },
+    "verify": {
+      "Ar": "$(-2)^2-3(-2)-10=0,\\quad25-15-10=0$",
+      "En": "$(-2)^2-3(-2)-10=0,\\quad25-15-10=0$"
+    },
+    "hints": [
+      {
+        "Ar": "اكتب عاملاً لكل جذر.",
+        "En": "Write a factor for each root."
+      },
+      {
+        "Ar": "وسع العاملين واجمع الحدود المتشابهة.",
+        "En": "Expand and combine like terms."
+      }
+    ],
+    "reasons": [
+      null,
+      {
+        "Ar": "إشارة معامل x معكوسة.",
+        "En": "The x coefficient has the wrong sign."
+      },
+      {
+        "Ar": "هذا يوافق الجذرين 2 و5.",
+        "En": "This corresponds to roots 2 and 5."
+      },
+      {
+        "Ar": "حاصل ضرب الجذرين سالب لا موجب.",
+        "En": "The product of the roots is negative, not positive."
+      }
+    ],
+    "error": {
+      "Ar": "إشارة معامل x معكوسة.",
+      "En": "The x coefficient has the wrong sign."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 11,
+    "cat": 9,
+    "skill": 42,
+    "sk": "secondary-logarithm-evaluation",
+    "family": "logarithm-negative-fractional-exponent",
+    "title": {
+      "Ar": "لوغاريتم بأس كسري سالب",
+      "En": "Logarithm with a negative fractional exponent"
+    },
+    "q": {
+      "Ar": "ما القيمة الدقيقة لـ $\\log_9(1/3)$؟",
+      "En": "What is the exact value of $\\log_9(1/3)$?"
+    },
+    "opts": [
+      "-2",
+      "-\\frac12",
+      "\\frac12",
+      "2"
+    ],
+    "correct": 1,
+    "idea": {
+      "Ar": "نكتب الأساس والمقدار على صورة قوتين للعدد 3.",
+      "En": "Write the base and argument as powers of three."
+    },
+    "formula": "9^x=1/3",
+    "steps": [
+      {
+        "Ar": "$(3^2)^x=3^{-1}$",
+        "En": "$(3^2)^x=3^{-1}$"
+      },
+      {
+        "Ar": "$2x=-1\\Rightarrow x=-1/2$",
+        "En": "$2x=-1\\Rightarrow x=-1/2$"
+      }
+    ],
+    "sub": {
+      "Ar": "$2x=-1\\Rightarrow x=-1/2$",
+      "En": "$2x=-1\\Rightarrow x=-1/2$"
+    },
+    "result": {
+      "Ar": "$-\\frac12$",
+      "En": "$-\\frac12$"
+    },
+    "verify": {
+      "Ar": "$9^{-1/2}=1/3$",
+      "En": "$9^{-1/2}=1/3$"
+    },
+    "hints": [
+      {
+        "Ar": "اكتب 9 بدلالة قوة للعدد 3.",
+        "En": "Express nine as a power of three."
+      },
+      {
+        "Ar": "ساوِ الأسين بعد توحيد الأساس.",
+        "En": "Equate exponents after matching bases."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "9^{-2}=1/81.",
+        "En": "9^{-2}=1/81."
+      },
+      null,
+      {
+        "Ar": "9^{1/2}=3.",
+        "En": "9^{1/2}=3."
+      },
+      {
+        "Ar": "9^2=81.",
+        "En": "9^2=81."
+      }
+    ],
+    "error": {
+      "Ar": "9^{-2}=1/81.",
+      "En": "9^{-2}=1/81."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 11,
+    "cat": 12,
+    "skill": 56,
+    "sk": "secondary-combinations",
+    "family": "combinations-required-exact-group-count",
+    "title": {
+      "Ar": "اختيار لجنة بأعداد محددة",
+      "En": "Committee with prescribed counts"
+    },
+    "q": {
+      "Ar": "تضم مجموعة 5 معلمين و4 طلاب متميزين. كم لجنة غير مرتبة من أربعة أشخاص تتكون من معلمين اثنين وطالبين اثنين؟",
+      "En": "A group has 5 distinct teachers and 4 distinct students. How many unordered four-person committees contain exactly two teachers and two students?"
+    },
+    "opts": [
+      "16",
+      "20",
+      "60",
+      "126"
+    ],
+    "correct": 2,
+    "idea": {
+      "Ar": "نختار المعلمين والطلاب بتوافيق مستقلة ونضرب العددين.",
+      "En": "Choose teachers and students using separate combinations and multiply the counts."
+    },
+    "formula": "\\binom52\\binom42",
+    "steps": [
+      {
+        "Ar": "$\\binom52=10,\\quad\\binom42=6$",
+        "En": "$\\binom52=10,\\quad\\binom42=6$"
+      },
+      {
+        "Ar": "$10\\cdot6=60$",
+        "En": "$10\\cdot6=60$"
+      }
+    ],
+    "sub": {
+      "Ar": "$10\\cdot6=60$",
+      "En": "$10\\cdot6=60$"
+    },
+    "result": {
+      "Ar": "$60$",
+      "En": "$60$"
+    },
+    "verify": {
+      "Ar": "$5\\cdot4/2\\cdot(4\\cdot3/2)=60$",
+      "En": "$5\\cdot4/2\\cdot(4\\cdot3/2)=60$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب اختيار معلمين من خمسة.",
+        "En": "Count choices of two teachers from five."
+      },
+      {
+        "Ar": "اضرب في عدد طرق اختيار طالبين من أربعة.",
+        "En": "Multiply by the choices of two students from four."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "16 يجمع 10 و6 بدلاً من ضربهما.",
+        "En": "16 adds 10 and 6 rather than multiplying."
+      },
+      {
+        "Ar": "20 يرتب المعلمين فقط.",
+        "En": "20 counts ordered teacher pairs only."
+      },
+      null,
+      {
+        "Ar": "126 يختار أربعة من تسعة دون شرط.",
+        "En": "126 chooses four from nine without the constraint."
+      }
+    ],
+    "error": {
+      "Ar": "16 يجمع 10 و6 بدلاً من ضربهما.",
+      "En": "16 adds 10 and 6 rather than multiplying."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 11,
+    "cat": 35,
+    "skill": 54,
+    "sk": "secondary-population-variance",
+    "family": "variance-compute-from-mean-square",
+    "title": {
+      "Ar": "التباين من متوسط المربعات",
+      "En": "Variance from the mean square"
+    },
+    "q": {
+      "Ar": "متوسط قيم مجتمع بيانات يساوي 6، ومتوسط مربعات قيمه يساوي 45. ما تباينه السكاني؟",
+      "En": "A population has mean 6 and mean of squared observations 45. What is its population variance?"
+    },
+    "opts": [
+      "3",
+      "9",
+      "39",
+      "45"
+    ],
+    "correct": 1,
+    "idea": {
+      "Ar": "التباين السكاني يساوي متوسط المربعات ناقص مربع المتوسط.",
+      "En": "Population variance equals mean square minus the square of the mean."
+    },
+    "formula": "\\sigma^2=E[X^2]-(E[X])^2",
+    "steps": [
+      {
+        "Ar": "$6^2=36$",
+        "En": "$6^2=36$"
+      },
+      {
+        "Ar": "$45-36=9$",
+        "En": "$45-36=9$"
+      }
+    ],
+    "sub": {
+      "Ar": "$45-36=9$",
+      "En": "$45-36=9$"
+    },
+    "result": {
+      "Ar": "$9$",
+      "En": "$9$"
+    },
+    "verify": {
+      "Ar": "$36+9=45$",
+      "En": "$36+9=45$"
+    },
+    "hints": [
+      {
+        "Ar": "ربع المتوسط أولاً.",
+        "En": "Square the mean first."
+      },
+      {
+        "Ar": "اطرحه من متوسط المربعات.",
+        "En": "Subtract it from the mean square."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "3 هو الانحراف المعياري.",
+        "En": "3 is the standard deviation."
+      },
+      null,
+      {
+        "Ar": "39 يطرح المتوسط دون تربيعه.",
+        "En": "39 subtracts the mean without squaring."
+      },
+      {
+        "Ar": "45 متوسط المربعات وليس التباين.",
+        "En": "45 is the mean square, not variance."
+      }
+    ],
+    "error": {
+      "Ar": "3 هو الانحراف المعياري.",
+      "En": "3 is the standard deviation."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 12,
+    "cat": 86,
+    "skill": 310,
+    "sk": "decay-half-life",
+    "family": "half-life-initial-mass-recovery",
+    "title": {
+      "Ar": "استعادة الكتلة الابتدائية",
+      "En": "Recovering initial mass"
+    },
+    "q": {
+      "Ar": "عمر النصف لمادة يساوي 3 ساعات. بعد 9 ساعات بقي 15 غراماً. ما الكتلة الابتدائية؟",
+      "En": "A substance has a half-life of 3 hours. After 9 hours, 15 grams remain. What was the initial mass?"
+    },
+    "opts": [
+      "45",
+      "60",
+      "120",
+      "135"
+    ],
+    "correct": 2,
+    "idea": {
+      "Ar": "تحدث ثلاث عمليات تنصيف خلال تسع ساعات؛ نعكسها بالضرب في ثمانية.",
+      "En": "Three halvings occur in nine hours; reverse them by multiplying by eight."
+    },
+    "formula": "M_0=M(t)2^{t/T}",
+    "steps": [
+      {
+        "Ar": "$9/3=3$",
+        "En": "$9/3=3$"
+      },
+      {
+        "Ar": "$15\\cdot2^3=120$",
+        "En": "$15\\cdot2^3=120$"
+      }
+    ],
+    "sub": {
+      "Ar": "$15\\cdot2^3=120$",
+      "En": "$15\\cdot2^3=120$"
+    },
+    "result": {
+      "Ar": "$120$",
+      "En": "$120$"
+    },
+    "verify": {
+      "Ar": "$120/2^3=15$",
+      "En": "$120/2^3=15$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب عدد فترات عمر النصف.",
+        "En": "Count the half-life intervals."
+      },
+      {
+        "Ar": "اضرب الكتلة الباقية في 2 لكل فترة.",
+        "En": "Multiply the remaining mass by two per interval."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "45 يضرب في عدد الفترات مباشرة.",
+        "En": "45 multiplies by the interval count directly."
+      },
+      {
+        "Ar": "60 يعكس فترتين فقط.",
+        "En": "60 reverses only two halvings."
+      },
+      null,
+      {
+        "Ar": "135 يضرب في عدد الساعات.",
+        "En": "135 multiplies by the hours."
+      }
+    ],
+    "error": {
+      "Ar": "45 يضرب في عدد الفترات مباشرة.",
+      "En": "45 multiplies by the interval count directly."
+    },
+    "unit": {
+      "Ar": "غ",
+      "En": "g"
+    }
+  },
+  {
+    "track": 12,
+    "cat": 86,
+    "skill": 315,
+    "sk": "logarithm-properties",
+    "family": "log-properties-quotient-known-values",
+    "title": {
+      "Ar": "فرق لوغاريتمين",
+      "En": "Difference of logarithms"
+    },
+    "q": {
+      "Ar": "إذا كان $\\log_5 2=a$ و$\\log_5 3=b$، فأي تعبير يساوي $\\log_5(18/4)$؟",
+      "En": "If $\\log_5 2=a$ and $\\log_5 3=b$, which expression equals $\\log_5(18/4)$?"
+    },
+    "opts": [
+      "2b-a",
+      "2a-b",
+      "a+2b",
+      "2b-2a"
+    ],
+    "correct": 0,
+    "idea": {
+      "Ar": "نبسط المقدار إلى 9/2 ثم نطبق قاعدتي القوة والقسمة.",
+      "En": "Simplify the argument to 9/2, then apply the power and quotient laws."
+    },
+    "formula": "\\log_5(3^2/2)=2\\log_5 3-\\log_5 2",
+    "steps": [
+      {
+        "Ar": "$18/4=9/2=3^2/2$",
+        "En": "$18/4=9/2=3^2/2$"
+      },
+      {
+        "Ar": "$2b-a$",
+        "En": "$2b-a$"
+      }
+    ],
+    "sub": {
+      "Ar": "$2b-a$",
+      "En": "$2b-a$"
+    },
+    "result": {
+      "Ar": "$2b-a$",
+      "En": "$2b-a$"
+    },
+    "verify": {
+      "Ar": "$5^{2b-a}=9/2$",
+      "En": "$5^{2b-a}=9/2$"
+    },
+    "hints": [
+      {
+        "Ar": "اختزل 18/4 أولاً.",
+        "En": "Reduce 18/4 first."
+      },
+      {
+        "Ar": "حوّل القسمة إلى طرح والقوة إلى معامل.",
+        "En": "Turn division into subtraction and powers into coefficients."
+      }
+    ],
+    "reasons": [
+      null,
+      {
+        "Ar": "يعكس أدوار a وb.",
+        "En": "Swaps a and b."
+      },
+      {
+        "Ar": "يستخدم الجمع للقسمة.",
+        "En": "Uses addition for division."
+      },
+      {
+        "Ar": "يطرح ضعف a بعد الاختزال.",
+        "En": "Subtracts twice a after reduction."
+      }
+    ],
+    "error": {
+      "Ar": "يعكس أدوار a وb.",
+      "En": "Swaps a and b."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  }
+]

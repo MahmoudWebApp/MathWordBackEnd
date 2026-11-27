@@ -1,0 +1,1322 @@
+[
+  {
+    "track": 12,
+    "cat": 10,
+    "skill": 47,
+    "sk": "secondary-pythagorean-trig-identity",
+    "family": "trig-identity-reciprocal-product",
+    "title": {
+      "Ar": "اختزال حاصل ضرب مثلثي",
+      "En": "Simplifying a trigonometric product"
+    },
+    "q": {
+      "Ar": "عندما يكون $\\sin\\theta\\ne0$، أي تعبير يكافئ $(1-\\cos^2\\theta)\\csc\\theta$؟",
+      "En": "When $\\sin\\theta\\ne0$, which expression equals $(1-\\cos^2\\theta)\\csc\\theta$?"
+    },
+    "opts": [
+      "1",
+      "\\sin\\theta",
+      "\\cos\\theta",
+      "\\csc\\theta"
+    ],
+    "correct": 1,
+    "idea": {
+      "Ar": "نستبدل الفرق بمربع الجيب، والقاطع التمام بمقلوب الجيب.",
+      "En": "Replace the difference by sine squared and cosecant by the reciprocal of sine."
+    },
+    "formula": "1-\\cos^2\\theta=\\sin^2\\theta",
+    "steps": [
+      {
+        "Ar": "$\\sin^2\\theta\\cdot\\frac1{\\sin\\theta}$",
+        "En": "$\\sin^2\\theta\\cdot\\frac1{\\sin\\theta}$"
+      },
+      {
+        "Ar": "$=\\sin\\theta$",
+        "En": "$=\\sin\\theta$"
+      }
+    ],
+    "sub": {
+      "Ar": "$=\\sin\\theta$",
+      "En": "$=\\sin\\theta$"
+    },
+    "result": {
+      "Ar": "$\\sin\\theta$",
+      "En": "$\\sin\\theta$"
+    },
+    "verify": {
+      "Ar": "$\\theta=30^\\circ:\\ (1-3/4)\\cdot2=1/2$",
+      "En": "$\\theta=30^\\circ:\\ (1-3/4)\\cdot2=1/2$"
+    },
+    "hints": [
+      {
+        "Ar": "بسّط القوس باستخدام المتطابقة الأساسية.",
+        "En": "Simplify the parentheses using the fundamental identity."
+      },
+      {
+        "Ar": "استبدل قاطع التمام بمقلوب الجيب.",
+        "En": "Replace cosecant with the reciprocal of sine."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "يبقى عامل جيب بعد الاختزال.",
+        "En": "One sine factor remains after cancellation."
+      },
+      null,
+      {
+        "Ar": "الفرق يساوي مربع الجيب لا مربع جيب التمام.",
+        "En": "The difference is sine squared, not cosine squared."
+      },
+      {
+        "Ar": "لا يجوز إهمال العامل الأول.",
+        "En": "The first factor cannot be omitted."
+      }
+    ],
+    "error": {
+      "Ar": "يبقى عامل جيب بعد الاختزال.",
+      "En": "One sine factor remains after cancellation."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 12,
+    "cat": 10,
+    "skill": 47,
+    "sk": "secondary-pythagorean-trig-identity",
+    "family": "trig-sum-of-reciprocal-squares",
+    "title": {
+      "Ar": "مجموع مربعين مقلوبين",
+      "En": "Sum of reciprocal squares"
+    },
+    "q": {
+      "Ar": "إذا كان $\\sin\\theta\\cos\\theta\\ne0$، فأي تعبير يكافئ $\\frac1{\\sin^2\\theta}+\\frac1{\\cos^2\\theta}$؟",
+      "En": "If $\\sin\\theta\\cos\\theta\\ne0$, which expression equals $\\frac1{\\sin^2\\theta}+\\frac1{\\cos^2\\theta}$?"
+    },
+    "opts": [
+      "1",
+      "\\frac1{\\sin^2\\theta\\cos^2\\theta}",
+      "\\frac1{\\sin^2\\theta+\\cos^2\\theta}",
+      "\\tan^2\\theta"
+    ],
+    "correct": 1,
+    "idea": {
+      "Ar": "نوحد المقامين ثم نستعمل مجموع المربعين.",
+      "En": "Use a common denominator and the sum-of-squares identity."
+    },
+    "formula": "\\frac{\\cos^2\\theta+\\sin^2\\theta}{\\sin^2\\theta\\cos^2\\theta}",
+    "steps": [
+      {
+        "Ar": "$\\cos^2\\theta+\\sin^2\\theta=1$",
+        "En": "$\\cos^2\\theta+\\sin^2\\theta=1$"
+      },
+      {
+        "Ar": "$\\frac1{\\sin^2\\theta\\cos^2\\theta}$",
+        "En": "$\\frac1{\\sin^2\\theta\\cos^2\\theta}$"
+      }
+    ],
+    "sub": {
+      "Ar": "$\\frac1{\\sin^2\\theta\\cos^2\\theta}$",
+      "En": "$\\frac1{\\sin^2\\theta\\cos^2\\theta}$"
+    },
+    "result": {
+      "Ar": "$\\frac1{\\sin^2\\theta\\cos^2\\theta}$",
+      "En": "$\\frac1{\\sin^2\\theta\\cos^2\\theta}$"
+    },
+    "verify": {
+      "Ar": "$\\theta=45^\\circ:\\ 2+2=4=1/(1/4)$",
+      "En": "$\\theta=45^\\circ:\\ 2+2=4=1/(1/4)$"
+    },
+    "hints": [
+      {
+        "Ar": "وحّد المقامين قبل الجمع.",
+        "En": "Find a common denominator before adding."
+      },
+      {
+        "Ar": "بسّط البسط فقط بالمتطابقة.",
+        "En": "Simplify the numerator using the identity."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "مجموع المقلوبين لا يساوي مجموع المربعين.",
+        "En": "The sum of reciprocals is not the sum of squares."
+      },
+      null,
+      {
+        "Ar": "لا يجوز جمع المقامين مباشرة.",
+        "En": "Denominators cannot be added directly."
+      },
+      {
+        "Ar": "مربع الظل نسبة مختلفة.",
+        "En": "Tangent squared is a different ratio."
+      }
+    ],
+    "error": {
+      "Ar": "مجموع المقلوبين لا يساوي مجموع المربعين.",
+      "En": "The sum of reciprocals is not the sum of squares."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 7,
+    "cat": 6,
+    "skill": 25,
+    "sk": "middle-linear-equations",
+    "family": "equation-fractional-result-price-model",
+    "title": {
+      "Ar": "قيمة مجهولة من مجموع",
+      "En": "An unknown value from a total"
+    },
+    "q": {
+      "Ar": "ثلاث علب متساوية الكتلة وقطعة كتلتها 0.6 كغ تزن معاً 5.1 كغ. ما كتلة كل علبة بالكيلوغرام؟",
+      "En": "Three boxes of equal mass and an object of mass 0.6 kg together weigh 5.1 kg. What is the mass of one box in kilograms?"
+    },
+    "opts": [
+      "1.5",
+      "1.7",
+      "1.9",
+      "4.5"
+    ],
+    "correct": 0,
+    "idea": {
+      "Ar": "نطرح كتلة القطعة الإضافية ثم نقسم كتلة العلب على ثلاثة.",
+      "En": "Remove the extra object's mass and divide the boxes' mass by three."
+    },
+    "formula": "3x+0.6=5.1",
+    "steps": [
+      {
+        "Ar": "$3x=4.5$",
+        "En": "$3x=4.5$"
+      },
+      {
+        "Ar": "$x=4.5/3=1.5$",
+        "En": "$x=4.5/3=1.5$"
+      }
+    ],
+    "sub": {
+      "Ar": "$x=4.5/3=1.5$",
+      "En": "$x=4.5/3=1.5$"
+    },
+    "result": {
+      "Ar": "$1.5$",
+      "En": "$1.5$"
+    },
+    "verify": {
+      "Ar": "$3\\cdot1.5+0.6=5.1$",
+      "En": "$3\\cdot1.5+0.6=5.1$"
+    },
+    "hints": [
+      {
+        "Ar": "اعزل كتلة العلب الثلاث.",
+        "En": "Isolate the mass of all three boxes."
+      },
+      {
+        "Ar": "اقسم على ثلاثة.",
+        "En": "Divide by three."
+      }
+    ],
+    "reasons": [
+      null,
+      {
+        "Ar": "1.7 يقسم الوزن الكلي دون طرح القطعة.",
+        "En": "1.7 divides the total without removing the object."
+      },
+      {
+        "Ar": "1.9 ينتج من إضافة كتلة القطعة.",
+        "En": "1.9 adds the object's mass."
+      },
+      {
+        "Ar": "4.5 كتلة العلب الثلاث.",
+        "En": "4.5 is the mass of all three boxes."
+      }
+    ],
+    "error": {
+      "Ar": "1.7 يقسم الوزن الكلي دون طرح القطعة.",
+      "En": "1.7 divides the total without removing the object."
+    },
+    "unit": {
+      "Ar": "كغ",
+      "En": "kg"
+    }
+  },
+  {
+    "track": 7,
+    "cat": 85,
+    "skill": 337,
+    "sk": "simple-compound-events",
+    "family": "probability-unequal-sector-count-complement",
+    "title": {
+      "Ar": "احتمال من قطاعات غير متساوية",
+      "En": "Probability with unequal sectors"
+    },
+    "q": {
+      "Ar": "قرص دائري عادل في اتجاه توقف مؤشره، مقسم إلى قطاع أحمر زاويته 180° وقطاع أزرق زاويته 90° وقطاع أخضر زاويته 90°. ما احتمال توقف المؤشر في القطاع الأحمر؟",
+      "En": "A spinner has a uniformly random stopping direction. Its red sector is 180°, blue sector 90° and green sector 90°. What is the probability of landing on red?"
+    },
+    "opts": [
+      "\\frac13",
+      "\\frac14",
+      "\\frac12",
+      "\\frac34"
+    ],
+    "correct": 2,
+    "idea": {
+      "Ar": "الاحتمال يتناسب مع زاوية القطاع عند تساوي فرص جميع الاتجاهات.",
+      "En": "With uniformly random directions, probability is proportional to sector angle."
+    },
+    "formula": "P(R)=180/360",
+    "steps": [
+      {
+        "Ar": "$180+90+90=360$",
+        "En": "$180+90+90=360$"
+      },
+      {
+        "Ar": "$180/360=1/2$",
+        "En": "$180/360=1/2$"
+      }
+    ],
+    "sub": {
+      "Ar": "$180/360=1/2$",
+      "En": "$180/360=1/2$"
+    },
+    "result": {
+      "Ar": "$\\frac12$",
+      "En": "$\\frac12$"
+    },
+    "verify": {
+      "Ar": "$1/2+1/4+1/4=1$",
+      "En": "$1/2+1/4+1/4=1$"
+    },
+    "hints": [
+      {
+        "Ar": "القطاعات ليست متساوية المساحة.",
+        "En": "The sectors do not have equal areas."
+      },
+      {
+        "Ar": "اقسم زاوية الأحمر على 360.",
+        "En": "Divide the red angle by 360."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "يفترض تساوي القطاعات الثلاثة.",
+        "En": "Assumes three equal sectors."
+      },
+      {
+        "Ar": "ربع يمثل قطاعاً بزاوية 90°.",
+        "En": "One quarter represents a 90° sector."
+      },
+      null,
+      {
+        "Ar": "ثلاثة أرباع تمثل 270°.",
+        "En": "Three quarters represents 270°."
+      }
+    ],
+    "error": {
+      "Ar": "يفترض تساوي القطاعات الثلاثة.",
+      "En": "Assumes three equal sectors."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 8,
+    "cat": 22,
+    "skill": 99,
+    "sk": "m-statistics-summary-measures",
+    "family": "mean-median-two-sets-different-center",
+    "title": {
+      "Ar": "المقارنة بين المتوسط والوسيط",
+      "En": "Comparing mean and median"
+    },
+    "q": {
+      "Ar": "للقيم 1، 2، 3، 4، 20، بكم يزيد المتوسط الحسابي على الوسيط؟",
+      "En": "For the values 1, 2, 3, 4, 20, by how much does the arithmetic mean exceed the median?"
+    },
+    "opts": [
+      "2",
+      "3",
+      "6",
+      "10"
+    ],
+    "correct": 1,
+    "idea": {
+      "Ar": "نحسب مقياسي المركز على حدة ثم نطرح.",
+      "En": "Calculate the two centre measures separately and subtract."
+    },
+    "formula": "\\bar x-M=30/5-3",
+    "steps": [
+      {
+        "Ar": "$1+2+3+4+20=30$",
+        "En": "$1+2+3+4+20=30$"
+      },
+      {
+        "Ar": "$\\bar x=6,\\quad M=3$",
+        "En": "$\\bar x=6,\\quad M=3$"
+      },
+      {
+        "Ar": "$6-3=3$",
+        "En": "$6-3=3$"
+      }
+    ],
+    "sub": {
+      "Ar": "$6-3=3$",
+      "En": "$6-3=3$"
+    },
+    "result": {
+      "Ar": "$3$",
+      "En": "$3$"
+    },
+    "verify": {
+      "Ar": "$3+3=6$",
+      "En": "$3+3=6$"
+    },
+    "hints": [
+      {
+        "Ar": "الوسيط هو القيمة الثالثة.",
+        "En": "The median is the third value."
+      },
+      {
+        "Ar": "اجمع القيم الخمس واقسم على خمسة.",
+        "En": "Add the five values and divide by five."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "الفرق بين 6 و3 ليس 2.",
+        "En": "The difference between six and three is not two."
+      },
+      null,
+      {
+        "Ar": "6 المتوسط وحده.",
+        "En": "6 is the mean alone."
+      },
+      {
+        "Ar": "10 لا يمثل فرق المقياسين.",
+        "En": "10 is not the difference between the measures."
+      }
+    ],
+    "error": {
+      "Ar": "الفرق بين 6 و3 ليس 2.",
+      "En": "The difference between six and three is not two."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 8,
+    "cat": 84,
+    "skill": 325,
+    "sk": "inequality-contexts",
+    "family": "inequality-minimum-capacity-residual",
+    "title": {
+      "Ar": "حجز سعة مطلوبة",
+      "En": "Reserving required capacity"
+    },
+    "q": {
+      "Ar": "خزان سعته 90 لتراً يحتوي 18 لتراً. يضاف إليه 7 لترات في كل مرة. يجب أن تبقى فيه سعة فارغة لا تقل عن 16 لتراً. ما أكبر عدد من الإضافات الكاملة؟",
+      "En": "A 90-litre tank contains 18 litres. Each addition is 7 litres. At least 16 litres of empty capacity must remain. What is the maximum number of full additions?"
+    },
+    "opts": [
+      "7",
+      "8",
+      "9",
+      "10"
+    ],
+    "correct": 1,
+    "idea": {
+      "Ar": "حجم السائل النهائي لا يتجاوز السعة ناقص الفراغ المطلوب.",
+      "En": "The final volume cannot exceed capacity minus the reserved space."
+    },
+    "formula": "18+7n\\le90-16",
+    "steps": [
+      {
+        "Ar": "$7n\\le56$",
+        "En": "$7n\\le56$"
+      },
+      {
+        "Ar": "$n\\le8$",
+        "En": "$n\\le8$"
+      }
+    ],
+    "sub": {
+      "Ar": "$n\\le8$",
+      "En": "$n\\le8$"
+    },
+    "result": {
+      "Ar": "$8$",
+      "En": "$8$"
+    },
+    "verify": {
+      "Ar": "$90-(18+7\\cdot8)=16$",
+      "En": "$90-(18+7\\cdot8)=16$"
+    },
+    "hints": [
+      {
+        "Ar": "اطرح السعة الفارغة المطلوبة.",
+        "En": "Subtract the required empty capacity."
+      },
+      {
+        "Ar": "اطرح السائل الموجود ثم اقسم على سبعة.",
+        "En": "Subtract the existing liquid, then divide by seven."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "7 ممكن لكنه ليس الأكبر.",
+        "En": "Seven is feasible but not maximal."
+      },
+      null,
+      {
+        "Ar": "9 يترك 9 لترات فقط.",
+        "En": "Nine leaves only nine litres."
+      },
+      {
+        "Ar": "10 يترك لترين فقط.",
+        "En": "Ten leaves only two litres."
+      }
+    ],
+    "error": {
+      "Ar": "7 ممكن لكنه ليس الأكبر.",
+      "En": "Seven is feasible but not maximal."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 8,
+    "cat": 85,
+    "skill": 336,
+    "sk": "sample-spaces",
+    "family": "sample-space-unordered-pair-distinct-labels",
+    "title": {
+      "Ar": "نتائج اختيار دون ترتيب",
+      "En": "Unordered selection outcomes"
+    },
+    "q": {
+      "Ar": "تُختار بطاقتان مختلفتان من أربع بطاقات تحمل A وB وC وD. لا يهم ترتيب الاختيار. كم نتيجة مختلفة توجد؟",
+      "En": "Two distinct cards are selected from four cards labelled A, B, C and D. Selection order does not matter. How many different outcomes are possible?"
+    },
+    "opts": [
+      "4",
+      "6",
+      "12",
+      "16"
+    ],
+    "correct": 1,
+    "idea": {
+      "Ar": "كل زوج غير مرتب يظهر مرتين عند عد الاختيارات المرتبة.",
+      "En": "Each unordered pair is counted twice when counting ordered selections."
+    },
+    "formula": "4\\cdot3/2=6",
+    "steps": [
+      {
+        "Ar": "$4\\cdot3=12$",
+        "En": "$4\\cdot3=12$"
+      },
+      {
+        "Ar": "$12/2=6$",
+        "En": "$12/2=6$"
+      }
+    ],
+    "sub": {
+      "Ar": "$12/2=6$",
+      "En": "$12/2=6$"
+    },
+    "result": {
+      "Ar": "$6$",
+      "En": "$6$"
+    },
+    "verify": {
+      "Ar": "الأزواج AB وAC وAD وBC وBD وCD.",
+      "En": "The pairs are AB, AC, AD, BC, BD and CD."
+    },
+    "hints": [
+      {
+        "Ar": "بعد الأولى تبقى ثلاث بطاقات.",
+        "En": "Three cards remain after the first."
+      },
+      {
+        "Ar": "لا تعد AB وBA نتيجتين مختلفتين.",
+        "En": "Do not count AB and BA separately."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "4 عدد البطاقات فقط.",
+        "En": "Four counts only the cards."
+      },
+      null,
+      {
+        "Ar": "12 يحسب ترتيب كل زوج مرتين.",
+        "En": "Twelve counts both orders."
+      },
+      {
+        "Ar": "16 يسمح بالتكرار ويحسب الترتيب.",
+        "En": "Sixteen allows repetition and counts order."
+      }
+    ],
+    "error": {
+      "Ar": "4 عدد البطاقات فقط.",
+      "En": "Four counts only the cards."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 9,
+    "cat": 84,
+    "skill": 327,
+    "sk": "solve-linear-inequalities",
+    "family": "inequality-rational-coefficients-both-sides",
+    "title": {
+      "Ar": "متراجحة بحدين كسريين",
+      "En": "Inequality with fractional coefficients"
+    },
+    "q": {
+      "Ar": "حل المتراجحة $\\frac{x}{2}+1>\\frac{x}{4}+3$ في الأعداد الحقيقية.",
+      "En": "Solve $\\frac{x}{2}+1>\\frac{x}{4}+3$ over the reals."
+    },
+    "opts": [
+      "x>2",
+      "x>4",
+      "x>8",
+      "x<8"
+    ],
+    "correct": 2,
+    "idea": {
+      "Ar": "نضرب الطرفين في أربعة ثم نجمع الحدود المتشابهة.",
+      "En": "Multiply both sides by four, then collect like terms."
+    },
+    "formula": "2x+4>x+12",
+    "steps": [
+      {
+        "Ar": "$x>12-4$",
+        "En": "$x>12-4$"
+      },
+      {
+        "Ar": "$x>8$",
+        "En": "$x>8$"
+      }
+    ],
+    "sub": {
+      "Ar": "$x>8$",
+      "En": "$x>8$"
+    },
+    "result": {
+      "Ar": "$x>8$",
+      "En": "$x>8$"
+    },
+    "verify": {
+      "Ar": "$x=9:\\ 5.5>5.25$",
+      "En": "$x=9:\\ 5.5>5.25$"
+    },
+    "hints": [
+      {
+        "Ar": "أزل المقامات بضرب الطرفين في أربعة.",
+        "En": "Clear denominators by multiplying both sides by four."
+      },
+      {
+        "Ar": "انقل حدود x إلى طرف والثوابت إلى الآخر.",
+        "En": "Collect variable terms on one side and constants on the other."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "2 فرق الثابتين قبل إزالة المقامات.",
+        "En": "Two is the difference of constants before clearing denominators."
+      },
+      {
+        "Ar": "4 لا يحقق المتراجحة.",
+        "En": "Four does not satisfy the inequality."
+      },
+      null,
+      {
+        "Ar": "الضرب في موجب لا يعكس الإشارة.",
+        "En": "Multiplying by a positive number does not reverse the inequality."
+      }
+    ],
+    "error": {
+      "Ar": "2 فرق الثابتين قبل إزالة المقامات.",
+      "En": "Two is the difference of constants before clearing denominators."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 10,
+    "cat": 35,
+    "skill": 53,
+    "sk": "secondary-arithmetic-mean",
+    "family": "mean-deviation-sum-missing-deviation",
+    "title": {
+      "Ar": "مجموع الانحرافات عن المتوسط",
+      "En": "Sum of deviations from the mean"
+    },
+    "q": {
+      "Ar": "أربع قيم متوسطها الحسابي 15. انحرافات ثلاث قيم عن المتوسط هي −4 و2 و5. ما انحراف القيمة الرابعة عن المتوسط؟",
+      "En": "Four observations have arithmetic mean 15. Three signed deviations from the mean are −4, 2 and 5. What is the fourth deviation?"
+    },
+    "opts": [
+      "-7",
+      "-3",
+      "3",
+      "7"
+    ],
+    "correct": 1,
+    "idea": {
+      "Ar": "مجموع الانحرافات الموقعة عن المتوسط الحسابي يساوي صفراً.",
+      "En": "Signed deviations from the arithmetic mean sum to zero."
+    },
+    "formula": " -4+2+5+d=0",
+    "steps": [
+      {
+        "Ar": "$-4+2+5=3$",
+        "En": "$-4+2+5=3$"
+      },
+      {
+        "Ar": "$d=-3$",
+        "En": "$d=-3$"
+      }
+    ],
+    "sub": {
+      "Ar": "$d=-3$",
+      "En": "$d=-3$"
+    },
+    "result": {
+      "Ar": "$-3$",
+      "En": "$-3$"
+    },
+    "verify": {
+      "Ar": "$11+17+20+12=60=4\\cdot15$",
+      "En": "$11+17+20+12=60=4\\cdot15$"
+    },
+    "hints": [
+      {
+        "Ar": "استعمل خاصية مجموع الانحرافات.",
+        "En": "Use the zero-sum property of deviations."
+      },
+      {
+        "Ar": "اعكس إشارة مجموع الانحرافات الثلاثة.",
+        "En": "Take the opposite of their sum."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "−7 لا يجعل المجموع صفراً.",
+        "En": "−7 does not make the sum zero."
+      },
+      null,
+      {
+        "Ar": "3 هو مجموع الانحرافات الثلاثة.",
+        "En": "3 is the sum of the three deviations."
+      },
+      {
+        "Ar": "7 يهمل إشارة أحد الانحرافات.",
+        "En": "7 ignores one deviation's sign."
+      }
+    ],
+    "error": {
+      "Ar": "−7 لا يجعل المجموع صفراً.",
+      "En": "−7 does not make the sum zero."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 11,
+    "cat": 87,
+    "skill": 338,
+    "sk": "dot-product",
+    "family": "dot-product-cauchy-impossible-value",
+    "title": {
+      "Ar": "اختبار إمكانية الضرب القياسي",
+      "En": "Checking a possible dot product"
+    },
+    "q": {
+      "Ar": "متجهان معياراهما 2 و5. أي قيمة مما يلي يستحيل أن تكون ضربهما القياسي؟",
+      "En": "Two vectors have norms 2 and 5. Which of the following values cannot be their dot product?"
+    },
+    "opts": [
+      "-10",
+      "0",
+      "6",
+      "12"
+    ],
+    "correct": 3,
+    "idea": {
+      "Ar": "القيمة المطلقة للضرب القياسي لا تتجاوز حاصل ضرب المعيارين.",
+      "En": "The absolute dot product cannot exceed the product of the norms."
+    },
+    "formula": "|u\\cdot v|\\le\\|u\\|\\|v\\|=10",
+    "steps": [
+      {
+        "Ar": "$-10\\le u\\cdot v\\le10$",
+        "En": "$-10\\le u\\cdot v\\le10$"
+      },
+      {
+        "Ar": "$12>10$",
+        "En": "$12>10$"
+      }
+    ],
+    "sub": {
+      "Ar": "$12>10$",
+      "En": "$12>10$"
+    },
+    "result": {
+      "Ar": "$12$",
+      "En": "$12$"
+    },
+    "verify": {
+      "Ar": "$12/10=1.2>1$",
+      "En": "$12/10=1.2>1$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب حاصل ضرب المعيارين.",
+        "En": "Multiply the norms."
+      },
+      {
+        "Ar": "تذكر أن القيمة المطلقة لجيب التمام لا تتجاوز واحداً.",
+        "En": "Recall that the absolute cosine is at most one."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "−10 ممكن عند تعاكس الاتجاهين.",
+        "En": "−10 is possible for opposite directions."
+      },
+      {
+        "Ar": "صفر ممكن عند التعامد.",
+        "En": "Zero is possible for perpendicular vectors."
+      },
+      {
+        "Ar": "6 يقع ضمن المجال المسموح.",
+        "En": "Six lies within the allowed range."
+      },
+      null
+    ],
+    "error": {
+      "Ar": "−10 ممكن عند تعاكس الاتجاهين.",
+      "En": "−10 is possible for opposite directions."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 12,
+    "cat": 87,
+    "skill": 338,
+    "sk": "dot-product",
+    "family": "dot-product-orthogonal-decomposition-length",
+    "title": {
+      "Ar": "مركبة عمودية من معيار المتجه",
+      "En": "Perpendicular component from a norm"
+    },
+    "q": {
+      "Ar": "متجه معياره 13. طول إسقاطه العمودي على مستقيم يساوي 5. ما معيار المركبة العمودية على المستقيم؟",
+      "En": "A vector has norm 13 and the length of its orthogonal projection onto a line is 5. What is the norm of its component perpendicular to the line?"
+    },
+    "opts": [
+      "5",
+      "8",
+      "12",
+      "18"
+    ],
+    "correct": 2,
+    "idea": {
+      "Ar": "المركبتان المتعامدتان تحققان متطابقة فيثاغورس للمعايير.",
+      "En": "Orthogonal components satisfy the Pythagorean norm identity."
+    },
+    "formula": "13^2=5^2+h^2",
+    "steps": [
+      {
+        "Ar": "$h^2=169-25=144$",
+        "En": "$h^2=169-25=144$"
+      },
+      {
+        "Ar": "$h=12$",
+        "En": "$h=12$"
+      }
+    ],
+    "sub": {
+      "Ar": "$h=12$",
+      "En": "$h=12$"
+    },
+    "result": {
+      "Ar": "$12$",
+      "En": "$12$"
+    },
+    "verify": {
+      "Ar": "$25+144=169$",
+      "En": "$25+144=169$"
+    },
+    "hints": [
+      {
+        "Ar": "المركبتان متعامدتان.",
+        "En": "The components are perpendicular."
+      },
+      {
+        "Ar": "اطرح مربعي المعيارين ثم خذ الجذر.",
+        "En": "Subtract the squared norms and take the square root."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "5 طول المركبة الموازية.",
+        "En": "Five is the parallel component length."
+      },
+      {
+        "Ar": "8 يطرح المعايير مباشرة.",
+        "En": "Eight subtracts the norms directly."
+      },
+      null,
+      {
+        "Ar": "18 يجمع المعايير مباشرة.",
+        "En": "Eighteen adds the norms directly."
+      }
+    ],
+    "error": {
+      "Ar": "5 طول المركبة الموازية.",
+      "En": "Five is the parallel component length."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 9,
+    "cat": 34,
+    "skill": 40,
+    "sk": "middle-similar-triangles",
+    "family": "similar-triangles-missing-scale-from-side-difference",
+    "title": {
+      "Ar": "معامل التشابه من الفرق",
+      "En": "Similarity scale from a difference"
+    },
+    "q": {
+      "Ar": "مثلثان متشابهان ومعامل الانتقال من الأصغر إلى الأكبر 3/2. يزيد طول ضلع في الأكبر على نظيره في الأصغر بمقدار 4 سم. ما طول الضلع في الأصغر؟",
+      "En": "Two triangles are similar with scale factor 3/2 from the smaller to the larger. A side of the larger is 4 cm longer than its corresponding smaller side. What is the smaller side length?"
+    },
+    "opts": [
+      "6",
+      "8",
+      "10",
+      "12"
+    ],
+    "correct": 1,
+    "idea": {
+      "Ar": "نكتب طول الضلع الكبير بدلالة الصغير ثم نستخدم الفرق.",
+      "En": "Express the larger side in terms of the smaller and use the difference."
+    },
+    "formula": "\\frac32x-x=4",
+    "steps": [
+      {
+        "Ar": "$\\frac12x=4$",
+        "En": "$\\frac12x=4$"
+      },
+      {
+        "Ar": "$x=8$",
+        "En": "$x=8$"
+      }
+    ],
+    "sub": {
+      "Ar": "$x=8$",
+      "En": "$x=8$"
+    },
+    "result": {
+      "Ar": "$8$",
+      "En": "$8$"
+    },
+    "verify": {
+      "Ar": "$12-8=4,\\quad12/8=3/2$",
+      "En": "$12-8=4,\\quad12/8=3/2$"
+    },
+    "hints": [
+      {
+        "Ar": "إذا كان الصغير x فالكبير 3x/2.",
+        "En": "If the smaller side is x, the larger is 3x/2."
+      },
+      {
+        "Ar": "اطرح الصغير من الكبير وساوِ الناتج بأربعة.",
+        "En": "Subtract the smaller from the larger and set the result to four."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "6 يعطي فرقاً مقداره 3.",
+        "En": "Six gives a difference of three."
+      },
+      null,
+      {
+        "Ar": "10 يعطي فرقاً مقداره 5.",
+        "En": "Ten gives a difference of five."
+      },
+      {
+        "Ar": "12 هو طول الضلع الكبير.",
+        "En": "Twelve is the larger side."
+      }
+    ],
+    "error": {
+      "Ar": "6 يعطي فرقاً مقداره 3.",
+      "En": "Six gives a difference of three."
+    },
+    "unit": {
+      "Ar": "سم",
+      "En": "cm"
+    }
+  },
+  {
+    "track": 9,
+    "cat": 85,
+    "skill": 337,
+    "sk": "simple-compound-events",
+    "family": "conditional-probability-from-count-table",
+    "title": {
+      "Ar": "احتمال مشروط من جدول أعداد",
+      "En": "Conditional probability from counts"
+    },
+    "q": {
+      "Ar": "في مجموعة من 30 طالباً، 12 يرتدون نظارات، ومن هؤلاء 8 يشاركون في نادٍ علمي. إذا اختير طالب عشوائياً من مرتدي النظارات فقط، فما احتمال مشاركته في النادي العلمي؟",
+      "En": "Among 30 pupils, 12 wear glasses, and 8 of those pupils participate in a science club. If a pupil is selected uniformly from only those wearing glasses, what is the probability of science club participation?"
+    },
+    "opts": [
+      "\\frac4{15}",
+      "\\frac25",
+      "\\frac23",
+      "\\frac34"
+    ],
+    "correct": 2,
+    "idea": {
+      "Ar": "بعد تقييد الاختيار بمرتدي النظارات يصبح عدد الحالات الممكنة 12.",
+      "En": "Restricting the selection to pupils with glasses gives 12 possible cases."
+    },
+    "formula": "P(C\\mid G)=8/12",
+    "steps": [
+      {
+        "Ar": "$8/12=2/3$",
+        "En": "$8/12=2/3$"
+      },
+      {
+        "Ar": "عدد الحالات الملائمة ثمانية من اثني عشر.",
+        "En": "Eight of twelve eligible pupils are favourable."
+      }
+    ],
+    "sub": {
+      "Ar": "عدد الحالات الملائمة ثمانية من اثني عشر.",
+      "En": "Eight of twelve eligible pupils are favourable."
+    },
+    "result": {
+      "Ar": "$\\frac23$",
+      "En": "$\\frac23$"
+    },
+    "verify": {
+      "Ar": "$12\\cdot2/3=8$",
+      "En": "$12\\cdot2/3=8$"
+    },
+    "hints": [
+      {
+        "Ar": "ما المجموعة التي يجري الاختيار منها؟",
+        "En": "Which group is being sampled?"
+      },
+      {
+        "Ar": "اقسم المشاركين داخل هذه المجموعة على عددها.",
+        "En": "Divide the participating pupils in that group by its size."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "4/15 يقسم على جميع الطلاب.",
+        "En": "4/15 divides by all pupils."
+      },
+      {
+        "Ar": "2/5 نسبة مرتدي النظارات من الجميع.",
+        "En": "2/5 is the overall glasses-wearing proportion."
+      },
+      null,
+      {
+        "Ar": "3/4 لا يساوي 8/12.",
+        "En": "3/4 is not equal to 8/12."
+      }
+    ],
+    "error": {
+      "Ar": "4/15 يقسم على جميع الطلاب.",
+      "En": "4/15 divides by all pupils."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 10,
+    "cat": 88,
+    "skill": 329,
+    "sk": "coordinate-lines",
+    "family": "coordinate-line-intercept-triangle-area",
+    "title": {
+      "Ar": "مساحة مثلث محصور بالمحورين",
+      "En": "Area of an intercept triangle"
+    },
+    "q": {
+      "Ar": "يقطع المستقيم $2x+3y=12$ المحورين الإحداثيين. ما مساحة المثلث المحصور بينه وبين المحورين؟",
+      "En": "The line $2x+3y=12$ intersects both coordinate axes. What is the area of the triangle bounded by the line and the axes?"
+    },
+    "opts": [
+      "10",
+      "12",
+      "24",
+      "36"
+    ],
+    "correct": 1,
+    "idea": {
+      "Ar": "نوجد نقطتي التقاطع؛ طولَا الضلعين القائمين هما إحداثيا التقاطعين الموجبان.",
+      "En": "Find both intercepts; their positive coordinates give the perpendicular side lengths."
+    },
+    "formula": "A=\\frac12\\cdot6\\cdot4",
+    "steps": [
+      {
+        "Ar": "$y=0\\Rightarrow x=6$",
+        "En": "$y=0\\Rightarrow x=6$"
+      },
+      {
+        "Ar": "$x=0\\Rightarrow y=4$",
+        "En": "$x=0\\Rightarrow y=4$"
+      },
+      {
+        "Ar": "$A=12$",
+        "En": "$A=12$"
+      }
+    ],
+    "sub": {
+      "Ar": "$A=12$",
+      "En": "$A=12$"
+    },
+    "result": {
+      "Ar": "$12$",
+      "En": "$12$"
+    },
+    "verify": {
+      "Ar": "$2\\cdot12=6\\cdot4$",
+      "En": "$2\\cdot12=6\\cdot4$"
+    },
+    "hints": [
+      {
+        "Ar": "ضع y=0 ثم x=0 لإيجاد التقاطعين.",
+        "En": "Set y=0 and then x=0 to find intercepts."
+      },
+      {
+        "Ar": "استعمل قانون مساحة المثلث القائم.",
+        "En": "Use the right-triangle area formula."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "10 يجمع طولي الضلعين.",
+        "En": "Ten adds the two side lengths."
+      },
+      null,
+      {
+        "Ar": "24 يهمل النصف.",
+        "En": "Twenty-four omits the half."
+      },
+      {
+        "Ar": "36 يربع طول القاعدة دون استخدام الارتفاع.",
+        "En": "Thirty-six squares the base without using the height."
+      }
+    ],
+    "error": {
+      "Ar": "10 يجمع طولي الضلعين.",
+      "En": "Ten adds the two side lengths."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 11,
+    "cat": 88,
+    "skill": 330,
+    "sk": "loci",
+    "family": "locus-fixed-distance-horizontal-line-two-lines",
+    "title": {
+      "Ar": "محل نقاط تبعد مسافة ثابتة عن مستقيم",
+      "En": "Locus at a fixed distance from a line"
+    },
+    "q": {
+      "Ar": "ما مجموعة النقاط التي تبعد مسافة عمودية مقدارها 3 عن المستقيم y=2؟",
+      "En": "What is the locus of points at perpendicular distance 3 from the line y=2?"
+    },
+    "opts": [
+      "y=5",
+      "y=-1",
+      "y=5\\ \\text{or}\\ y=-1",
+      "x=5\\ \\text{or}\\ x=-1"
+    ],
+    "correct": 2,
+    "idea": {
+      "Ar": "المسافة العمودية عن مستقيم أفقي هي القيمة المطلقة لفرق الإحداثي الرأسي.",
+      "En": "Perpendicular distance from a horizontal line is the absolute difference of vertical coordinates."
+    },
+    "formula": "|y-2|=3",
+    "steps": [
+      {
+        "Ar": "$y-2=3\\Rightarrow y=5$",
+        "En": "$y-2=3\\Rightarrow y=5$"
+      },
+      {
+        "Ar": "$y-2=-3\\Rightarrow y=-1$",
+        "En": "$y-2=-3\\Rightarrow y=-1$"
+      }
+    ],
+    "sub": {
+      "Ar": "$y-2=-3\\Rightarrow y=-1$",
+      "En": "$y-2=-3\\Rightarrow y=-1$"
+    },
+    "result": {
+      "Ar": "$y=5\\ \\text{or}\\ y=-1$",
+      "En": "$y=5\\ \\text{or}\\ y=-1$"
+    },
+    "verify": {
+      "Ar": "$|5-2|=|-1-2|=3$",
+      "En": "$|5-2|=|-1-2|=3$"
+    },
+    "hints": [
+      {
+        "Ar": "النقاط قد تكون فوق المستقيم أو تحته.",
+        "En": "Points may lie above or below the line."
+      },
+      {
+        "Ar": "حل معادلة القيمة المطلقة في الحالتين.",
+        "En": "Solve both cases of the absolute-value equation."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "يضم المستقيم العلوي فقط.",
+        "En": "Includes only the upper line."
+      },
+      {
+        "Ar": "يضم المستقيم السفلي فقط.",
+        "En": "Includes only the lower line."
+      },
+      null,
+      {
+        "Ar": "المحل يتكون من مستقيمين أفقيين لا رأسيين.",
+        "En": "The locus consists of horizontal, not vertical, lines."
+      }
+    ],
+    "error": {
+      "Ar": "يضم المستقيم العلوي فقط.",
+      "En": "Includes only the upper line."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 12,
+    "cat": 88,
+    "skill": 328,
+    "sk": "circles",
+    "family": "circle-two-centers-external-tangency",
+    "title": {
+      "Ar": "تماس دائرتين خارجياً",
+      "En": "External tangency of two circles"
+    },
+    "q": {
+      "Ar": "دائرة مركزها (0,0) ونصف قطرها 3، وأخرى مركزها (8,0). ما نصف قطر الثانية إذا كانتا متماستين خارجياً؟",
+      "En": "One circle is centred at (0,0) with radius 3. Another has centre (8,0). What is the second radius if they are externally tangent?"
+    },
+    "opts": [
+      "3",
+      "5",
+      "8",
+      "11"
+    ],
+    "correct": 1,
+    "idea": {
+      "Ar": "في التماس الخارجي تساوي المسافة بين المركزين مجموع نصفي القطرين.",
+      "En": "For external tangency the centre distance equals the sum of radii."
+    },
+    "formula": "d=r_1+r_2",
+    "steps": [
+      {
+        "Ar": "$d=8$",
+        "En": "$d=8$"
+      },
+      {
+        "Ar": "$r_2=8-3=5$",
+        "En": "$r_2=8-3=5$"
+      }
+    ],
+    "sub": {
+      "Ar": "$r_2=8-3=5$",
+      "En": "$r_2=8-3=5$"
+    },
+    "result": {
+      "Ar": "$5$",
+      "En": "$5$"
+    },
+    "verify": {
+      "Ar": "$3+5=8$",
+      "En": "$3+5=8$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب المسافة بين المركزين.",
+        "En": "Find the centre distance."
+      },
+      {
+        "Ar": "اطرح نصف قطر الدائرة الأولى.",
+        "En": "Subtract the first radius."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "3 يجعل مجموع النصفين 6.",
+        "En": "Three gives a radius sum of six."
+      },
+      null,
+      {
+        "Ar": "8 هو المسافة بين المركزين.",
+        "En": "Eight is the centre distance."
+      },
+      {
+        "Ar": "11 يوافق فرق نصفي القطرين في تماس داخلي، لا مجموعهما.",
+        "En": "Eleven corresponds to an internal tangency difference, not the external sum."
+      }
+    ],
+    "error": {
+      "Ar": "3 يجعل مجموع النصفين 6.",
+      "En": "Three gives a radius sum of six."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  }
+]

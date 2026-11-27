@@ -1,0 +1,990 @@
+[
+  {
+    "track": 1,
+    "cat": 82,
+    "skill": 324,
+    "sk": "time",
+    "family": "clock-order-daily-events",
+    "title": {
+      "Ar": "ترتيب أحداث الصباح",
+      "En": "Ordering morning events"
+    },
+    "q": {
+      "Ar": "بدأ الفطور عند 7:00 صباحاً، والدرس عند 9:00 صباحاً، واللعب عند 8:00 صباحاً. أي حدث بدأ أخيراً؟ A: الفطور؛ B: الدرس؛ C: اللعب؛ D: بدأت معاً.",
+      "En": "Breakfast began at 7:00 a.m., class at 9:00 a.m., and play at 8:00 a.m. Which began last? A: breakfast; B: class; C: play; D: all together."
+    },
+    "opts": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correct": 1,
+    "idea": {
+      "Ar": "نرتب الساعات في الصباح من الأصغر إلى الأكبر.",
+      "En": "Order the morning hours from smallest to largest."
+    },
+    "formula": "7<8<9",
+    "steps": [
+      {
+        "Ar": "الفطور أولاً ثم اللعب ثم الدرس.",
+        "En": "Breakfast comes first, then play, then class."
+      }
+    ],
+    "sub": {
+      "Ar": "الفطور أولاً ثم اللعب ثم الدرس.",
+      "En": "Breakfast comes first, then play, then class."
+    },
+    "result": {
+      "Ar": "$B$",
+      "En": "$B$"
+    },
+    "verify": {
+      "Ar": "الساعة 9 بعد الساعة 8 وبعد الساعة 7.",
+      "En": "Nine comes after eight and seven."
+    },
+    "hints": [
+      {
+        "Ar": "كل الأوقات صباحية.",
+        "En": "All times are in the morning."
+      },
+      {
+        "Ar": "ابحث عن أكبر رقم للساعة.",
+        "En": "Find the greatest hour number."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "الفطور بدأ أولاً.",
+        "En": "Breakfast began first."
+      },
+      null,
+      {
+        "Ar": "اللعب بدأ قبل الدرس.",
+        "En": "Play began before class."
+      },
+      {
+        "Ar": "الأوقات مختلفة.",
+        "En": "The times differ."
+      }
+    ],
+    "error": {
+      "Ar": "الفطور بدأ أولاً.",
+      "En": "Breakfast began first."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 1,
+    "cat": 96,
+    "skill": 354,
+    "sk": "primary-shape-attributes-composition",
+    "family": "shape-identify-curved-boundary",
+    "title": {
+      "Ar": "تمييز الحدود المنحنية",
+      "En": "Recognising curved boundaries"
+    },
+    "q": {
+      "Ar": "أي شكل من الآتي ليس له أضلاع مستقيمة؟ A: مربع؛ B: مثلث؛ C: دائرة؛ D: مستطيل.",
+      "En": "Which shape has no straight sides? A: square; B: triangle; C: circle; D: rectangle."
+    },
+    "opts": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correct": 2,
+    "idea": {
+      "Ar": "حد الدائرة منحني بالكامل.",
+      "En": "The boundary of a circle is entirely curved."
+    },
+    "formula": "4>0,\\quad3>0",
+    "steps": [
+      {
+        "Ar": "للمربع والمستطيل أربعة أضلاع مستقيمة، وللمثلث ثلاثة.",
+        "En": "Squares and rectangles have four straight sides, and triangles have three."
+      },
+      {
+        "Ar": "الدائرة ليس لها ضلع مستقيم.",
+        "En": "A circle has no straight side."
+      }
+    ],
+    "sub": {
+      "Ar": "الدائرة ليس لها ضلع مستقيم.",
+      "En": "A circle has no straight side."
+    },
+    "result": {
+      "Ar": "$C$",
+      "En": "$C$"
+    },
+    "verify": {
+      "Ar": "عدد الأضلاع المستقيمة للدائرة صفر.",
+      "En": "The number of straight sides of a circle is zero."
+    },
+    "hints": [
+      {
+        "Ar": "تخيل حدود كل شكل.",
+        "En": "Imagine each shape's boundary."
+      },
+      {
+        "Ar": "ابحث عن شكل حدوده منحنية كلها.",
+        "En": "Find the entirely curved boundary."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "المربع له أربعة أضلاع.",
+        "En": "A square has four sides."
+      },
+      {
+        "Ar": "المثلث له ثلاثة أضلاع.",
+        "En": "A triangle has three sides."
+      },
+      null,
+      {
+        "Ar": "المستطيل له أربعة أضلاع.",
+        "En": "A rectangle has four sides."
+      }
+    ],
+    "error": {
+      "Ar": "المربع له أربعة أضلاع.",
+      "En": "A square has four sides."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 2,
+    "cat": 81,
+    "skill": 302,
+    "sk": "counting",
+    "family": "counting-odd-even-successive-pairs",
+    "title": {
+      "Ar": "نمط أعداد زوجية وفردية",
+      "En": "Odd and even counting pattern"
+    },
+    "q": {
+      "Ar": "في العد التصاعدي من 21 إلى 29، شاملين الطرفين، كم عدداً فردياً يزيد على 24؟",
+      "En": "Counting upward from 21 to 29 inclusive, how many odd numbers are greater than 24?"
+    },
+    "opts": [
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "correct": 1,
+    "idea": {
+      "Ar": "نحدد الأعداد الفردية بعد 24 ضمن المجال.",
+      "En": "List odd numbers after 24 within the interval."
+    },
+    "formula": "25,27,29",
+    "steps": [
+      {
+        "Ar": "الأعداد المطلوبة هي 25 و27 و29.",
+        "En": "The required numbers are 25, 27 and 29."
+      },
+      {
+        "Ar": "$1+1+1=3$",
+        "En": "$1+1+1=3$"
+      }
+    ],
+    "sub": {
+      "Ar": "$1+1+1=3$",
+      "En": "$1+1+1=3$"
+    },
+    "result": {
+      "Ar": "$3$",
+      "En": "$3$"
+    },
+    "verify": {
+      "Ar": "العدد 23 أصغر من 24 والعدد 31 خارج المجال.",
+      "En": "23 is below 24 and 31 is outside the interval."
+    },
+    "hints": [
+      {
+        "Ar": "ابدأ بعد 24.",
+        "En": "Start after 24."
+      },
+      {
+        "Ar": "عد كل عدد فردي حتى 29.",
+        "En": "Count each odd number up to 29."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "يهمل عدداً فردياً.",
+        "En": "Misses one odd number."
+      },
+      null,
+      {
+        "Ar": "يضم عدداً خارج الشرط.",
+        "En": "Includes a number outside the condition."
+      },
+      {
+        "Ar": "هذا عدد الفرديات في المجال الكامل.",
+        "En": "This counts the odds in the full interval."
+      }
+    ],
+    "error": {
+      "Ar": "يهمل عدداً فردياً.",
+      "En": "Misses one odd number."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 2,
+    "cat": 96,
+    "skill": 355,
+    "sk": "primary-shape-attributes-partition",
+    "family": "solid-cone-cylinder-flat-face-comparison",
+    "title": {
+      "Ar": "مقارنة أسطح المجسمات",
+      "En": "Comparing solid surfaces"
+    },
+    "q": {
+      "Ar": "لدينا أسطوانة مغلقة ومخروط ذو قاعدة مستوية. كم وجهاً دائرياً مستوياً لهما معاً؟",
+      "En": "A closed cylinder and a cone with a flat base are given. How many flat circular faces do they have altogether?"
+    },
+    "opts": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "correct": 2,
+    "idea": {
+      "Ar": "للأسطوانة قاعدتان دائريتان وللمخروط قاعدة دائرية واحدة.",
+      "En": "A cylinder has two circular bases and a cone has one."
+    },
+    "formula": "2+1=3",
+    "steps": [
+      {
+        "Ar": "نعد القواعد المستوية فقط ولا نعد الأسطح المنحنية.",
+        "En": "Count only the flat bases, not curved surfaces."
+      },
+      {
+        "Ar": "$2+1=3$",
+        "En": "$2+1=3$"
+      }
+    ],
+    "sub": {
+      "Ar": "$2+1=3$",
+      "En": "$2+1=3$"
+    },
+    "result": {
+      "Ar": "$3$",
+      "En": "$3$"
+    },
+    "verify": {
+      "Ar": "ثلاث قواعد دائرية موزعة بين المجسمين.",
+      "En": "Three circular bases are shared across the two solids."
+    },
+    "hints": [
+      {
+        "Ar": "انظر إلى أعلى الأسطوانة وأسفلها.",
+        "En": "Consider the top and bottom of the cylinder."
+      },
+      {
+        "Ar": "أضف قاعدة المخروط.",
+        "En": "Add the cone's base."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "يعد قاعدة المخروط فقط.",
+        "En": "Counts only the cone base."
+      },
+      {
+        "Ar": "يعد قاعدتي الأسطوانة فقط.",
+        "En": "Counts only the cylinder bases."
+      },
+      null,
+      {
+        "Ar": "يعد سطحاً إضافياً ليس مستوياً.",
+        "En": "Counts an extra surface that is not flat."
+      }
+    ],
+    "error": {
+      "Ar": "يعد قاعدة المخروط فقط.",
+      "En": "Counts only the cone base."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 3,
+    "cat": 21,
+    "skill": 97,
+    "sk": "p-fractions-decimals-fraction-models",
+    "family": "fraction-model-unit-size-different-wholes",
+    "title": {
+      "Ar": "الكسور من وحدتين مختلفتين",
+      "En": "Fractions of different wholes"
+    },
+    "q": {
+      "Ar": "شريط طوله 12 سم وشريط آخر طوله 8 سم. لُوّن ربع الأول ونصف الثاني. بكم سم يزيد طول الجزء الملون من الثاني على الأول؟",
+      "En": "One strip is 12 cm long and another is 8 cm long. One quarter of the first and one half of the second are coloured. How many centimetres longer is the second coloured part?"
+    },
+    "opts": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "correct": 0,
+    "idea": {
+      "Ar": "نحسب الجزء من طول وحدته الخاصة ثم نقارن الطولين.",
+      "En": "Find each part using its own whole, then compare lengths."
+    },
+    "formula": "8/2-12/4",
+    "steps": [
+      {
+        "Ar": "$12/4=3$",
+        "En": "$12/4=3$"
+      },
+      {
+        "Ar": "$8/2=4$",
+        "En": "$8/2=4$"
+      },
+      {
+        "Ar": "$4-3=1$",
+        "En": "$4-3=1$"
+      }
+    ],
+    "sub": {
+      "Ar": "$4-3=1$",
+      "En": "$4-3=1$"
+    },
+    "result": {
+      "Ar": "$1$",
+      "En": "$1$"
+    },
+    "verify": {
+      "Ar": "$3+1=4$",
+      "En": "$3+1=4$"
+    },
+    "hints": [
+      {
+        "Ar": "اقسم طول الشريط الأول على أربعة.",
+        "En": "Divide the first strip's length by four."
+      },
+      {
+        "Ar": "اقسم الثاني على اثنين ثم اطرح.",
+        "En": "Halve the second and subtract."
+      }
+    ],
+    "reasons": [
+      null,
+      {
+        "Ar": "الفرق بين 4 و3 ليس 2.",
+        "En": "The difference between four and three is not two."
+      },
+      {
+        "Ar": "هذا طول الجزء الأول.",
+        "En": "This is the first part's length."
+      },
+      {
+        "Ar": "هذا طول الجزء الثاني.",
+        "En": "This is the second part's length."
+      }
+    ],
+    "error": {
+      "Ar": "الفرق بين 4 و3 ليس 2.",
+      "En": "The difference between four and three is not two."
+    },
+    "unit": {
+      "Ar": "سم",
+      "En": "cm"
+    }
+  },
+  {
+    "track": 3,
+    "cat": 81,
+    "skill": 305,
+    "sk": "place-value",
+    "family": "place-value-zero-placeholder",
+    "title": {
+      "Ar": "الصفر في منزلة العشرات",
+      "En": "Zero in the tens place"
+    },
+    "q": {
+      "Ar": "يتكون عدد من 8 مئات و0 عشرات و4 آحاد. ما العدد الذي يزيد عليه بمقدار عشرة واحدة؟",
+      "En": "A number has 8 hundreds, 0 tens and 4 ones. What number is exactly one ten greater?"
+    },
+    "opts": [
+      "805",
+      "814",
+      "840",
+      "904"
+    ],
+    "correct": 1,
+    "idea": {
+      "Ar": "نضيف عشرة إلى العدد مع الحفاظ على المئات والآحاد.",
+      "En": "Add ten while preserving hundreds and ones."
+    },
+    "formula": "800+4+10=814",
+    "steps": [
+      {
+        "Ar": "$800+0+4=804$",
+        "En": "$800+0+4=804$"
+      },
+      {
+        "Ar": "$804+10=814$",
+        "En": "$804+10=814$"
+      }
+    ],
+    "sub": {
+      "Ar": "$804+10=814$",
+      "En": "$804+10=814$"
+    },
+    "result": {
+      "Ar": "$814$",
+      "En": "$814$"
+    },
+    "verify": {
+      "Ar": "$814-804=10$",
+      "En": "$814-804=10$"
+    },
+    "hints": [
+      {
+        "Ar": "اكتب العدد الأصلي مع الصفر في العشرات.",
+        "En": "Write the original number with zero tens."
+      },
+      {
+        "Ar": "أضف 10 لا 1.",
+        "En": "Add ten, not one."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "يزيد بمقدار واحد فقط.",
+        "En": "Increases by one only."
+      },
+      null,
+      {
+        "Ar": "يغير منزلة الآحاد أيضاً.",
+        "En": "Also changes the ones place."
+      },
+      {
+        "Ar": "يزيد بمقدار مئة.",
+        "En": "Increases by one hundred."
+      }
+    ],
+    "error": {
+      "Ar": "يزيد بمقدار واحد فقط.",
+      "En": "Increases by one only."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 4,
+    "cat": 3,
+    "skill": 16,
+    "sk": "primary-unit-conversions",
+    "family": "length-unit-conversion-identify-error-factor",
+    "title": {
+      "Ar": "اكتشاف خطأ في تحويل الطول",
+      "En": "Identifying a length conversion error"
+    },
+    "q": {
+      "Ar": "كتب طالب أن 250 سم = 25 م. كم مرة تبلغ القيمة التي كتبها بالأمتار القيمة الصحيحة؟",
+      "En": "A pupil writes that 250 cm = 25 m. How many times the correct metre value is the value written?"
+    },
+    "opts": [
+      "2",
+      "5",
+      "10",
+      "100"
+    ],
+    "correct": 2,
+    "idea": {
+      "Ar": "نحول إلى أمتار بالقسمة على 100 ثم نقارن العددين بالقسمة.",
+      "En": "Convert to metres by dividing by 100, then compare by division."
+    },
+    "formula": "25/(250/100)",
+    "steps": [
+      {
+        "Ar": "$250/100=2.5$",
+        "En": "$250/100=2.5$"
+      },
+      {
+        "Ar": "$25/2.5=10$",
+        "En": "$25/2.5=10$"
+      }
+    ],
+    "sub": {
+      "Ar": "$25/2.5=10$",
+      "En": "$25/2.5=10$"
+    },
+    "result": {
+      "Ar": "$10$",
+      "En": "$10$"
+    },
+    "verify": {
+      "Ar": "$10\\cdot2.5=25$",
+      "En": "$10\\cdot2.5=25$"
+    },
+    "hints": [
+      {
+        "Ar": "المتر يساوي مئة سنتيمتر.",
+        "En": "A metre equals one hundred centimetres."
+      },
+      {
+        "Ar": "اقسم القيمة المكتوبة على القيمة الصحيحة.",
+        "En": "Divide the written value by the correct value."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "25 لا يساوي ضعفي 2.5.",
+        "En": "25 is not twice 2.5."
+      },
+      {
+        "Ar": "خمسة أمثال 2.5 تساوي 12.5.",
+        "En": "Five times 2.5 is 12.5."
+      },
+      null,
+      {
+        "Ar": "مئة أمثال 2.5 تساوي 250.",
+        "En": "One hundred times 2.5 is 250."
+      }
+    ],
+    "error": {
+      "Ar": "25 لا يساوي ضعفي 2.5.",
+      "En": "25 is not twice 2.5."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 4,
+    "cat": 82,
+    "skill": 320,
+    "sk": "capacity",
+    "family": "capacity-compare-full-containers-mixed-unit",
+    "title": {
+      "Ar": "مقارنة سعات أوعية",
+      "En": "Comparing container capacities"
+    },
+    "q": {
+      "Ar": "لدينا ثلاثة أوعية سعة كل منها 400 مل، ووعاء سعته لتر واحد. بكم مل تزيد السعة الكلية للأوعية الثلاثة على سعة الوعاء الواحد؟",
+      "En": "Three containers each hold 400 mL, and one container holds 1 litre. How many millilitres greater is the combined capacity of the three than that of the single container?"
+    },
+    "opts": [
+      "100",
+      "200",
+      "400",
+      "1200"
+    ],
+    "correct": 1,
+    "idea": {
+      "Ar": "نحسب السعة الإجمالية ونطرح السعة الأخرى بعد توحيد الوحدة.",
+      "En": "Find the combined capacity and subtract the other capacity in the same unit."
+    },
+    "formula": "3\\cdot400-1000",
+    "steps": [
+      {
+        "Ar": "$3\\cdot400=1200$",
+        "En": "$3\\cdot400=1200$"
+      },
+      {
+        "Ar": "$1200-1000=200$",
+        "En": "$1200-1000=200$"
+      }
+    ],
+    "sub": {
+      "Ar": "$1200-1000=200$",
+      "En": "$1200-1000=200$"
+    },
+    "result": {
+      "Ar": "$200$",
+      "En": "$200$"
+    },
+    "verify": {
+      "Ar": "$1000+200=1200$",
+      "En": "$1000+200=1200$"
+    },
+    "hints": [
+      {
+        "Ar": "اللتر يساوي 1000 مل.",
+        "En": "One litre is 1000 mL."
+      },
+      {
+        "Ar": "اجمع سعات الأوعية الثلاثة.",
+        "En": "Combine the three capacities."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "الفرق ليس 100.",
+        "En": "The difference is not one hundred."
+      },
+      null,
+      {
+        "Ar": "هذا حجم وعاء صغير واحد.",
+        "En": "This is one small container's capacity."
+      },
+      {
+        "Ar": "هذا المجموع قبل الطرح.",
+        "En": "This is the total before subtraction."
+      }
+    ],
+    "error": {
+      "Ar": "الفرق ليس 100.",
+      "En": "The difference is not one hundred."
+    },
+    "unit": {
+      "Ar": "مل",
+      "En": "mL"
+    }
+  },
+  {
+    "track": 5,
+    "cat": 33,
+    "skill": 6,
+    "sk": "primary-multiplicative-word-problems",
+    "family": "multiplication-rectangular-array-missing-corner",
+    "title": {
+      "Ar": "عدد عناصر مصفوفة ناقصة",
+      "En": "Counting an incomplete array"
+    },
+    "q": {
+      "Ar": "ترتب كراسٍ في 9 صفوف، كل صف فيه 14 كرسياً. أزيلت أربعة كراسٍ من صفين مختلفين، كرسيان من كل صف. كم كرسياً بقي؟",
+      "En": "Chairs are arranged in nine rows with fourteen chairs per row. Four chairs are removed from two different rows, two from each. How many chairs remain?"
+    },
+    "opts": [
+      "112",
+      "118",
+      "122",
+      "126"
+    ],
+    "correct": 2,
+    "idea": {
+      "Ar": "نحسب العدد الأصلي بضرب الصفوف في عدد الكراسي لكل صف ثم نطرح الكراسي المزالة.",
+      "En": "Multiply rows by chairs per row, then subtract the removed chairs."
+    },
+    "formula": "9\\cdot14-4",
+    "steps": [
+      {
+        "Ar": "$9\\cdot14=126$",
+        "En": "$9\\cdot14=126$"
+      },
+      {
+        "Ar": "$126-4=122$",
+        "En": "$126-4=122$"
+      }
+    ],
+    "sub": {
+      "Ar": "$126-4=122$",
+      "En": "$126-4=122$"
+    },
+    "result": {
+      "Ar": "$122$",
+      "En": "$122$"
+    },
+    "verify": {
+      "Ar": "$122+4=126$",
+      "En": "$122+4=126$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب العدد قبل الإزالة.",
+        "En": "Find the original count."
+      },
+      {
+        "Ar": "عدد الكراسي المزالة أربعة إجمالاً.",
+        "En": "Four chairs are removed in total."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "هذا عدد ثمانية صفوف كاملة.",
+        "En": "This counts eight full rows."
+      },
+      {
+        "Ar": "يطرح ثمانية بدلاً من أربعة.",
+        "En": "Subtracts eight instead of four."
+      },
+      null,
+      {
+        "Ar": "هذا العدد الأصلي.",
+        "En": "This is the original count."
+      }
+    ],
+    "error": {
+      "Ar": "هذا عدد ثمانية صفوف كاملة.",
+      "En": "This counts eight full rows."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 6,
+    "cat": 3,
+    "skill": 14,
+    "sk": "primary-triangle-area",
+    "family": "triangle-area-fixed-area-base-height-pair",
+    "title": {
+      "Ar": "قاعدة وارتفاع لمساحة ثابتة",
+      "En": "Base and height for a fixed area"
+    },
+    "q": {
+      "Ar": "مساحة مثلث 30 سم². أي زوج مرتب يمثل قاعدة وارتفاعاً عمودياً يمكن أن يحققا هذه المساحة، بالسنتيمتر؟",
+      "En": "A triangle has area 30 cm². Which ordered pair of base and perpendicular height, in centimetres, can give that area?"
+    },
+    "opts": [
+      "(5,6)",
+      "(10,3)",
+      "(12,5)",
+      "(8,8)"
+    ],
+    "correct": 2,
+    "idea": {
+      "Ar": "حاصل ضرب القاعدة والارتفاع يساوي ضعف المساحة.",
+      "En": "Base times height equals twice the area."
+    },
+    "formula": "bh=2A=60",
+    "steps": [
+      {
+        "Ar": "$2\\cdot30=60$",
+        "En": "$2\\cdot30=60$"
+      },
+      {
+        "Ar": "$12\\cdot5=60$",
+        "En": "$12\\cdot5=60$"
+      }
+    ],
+    "sub": {
+      "Ar": "$12\\cdot5=60$",
+      "En": "$12\\cdot5=60$"
+    },
+    "result": {
+      "Ar": "$(12,5)$",
+      "En": "$(12,5)$"
+    },
+    "verify": {
+      "Ar": "$12\\cdot5/2=30$",
+      "En": "$12\\cdot5/2=30$"
+    },
+    "hints": [
+      {
+        "Ar": "ضاعف المساحة المطلوبة.",
+        "En": "Double the desired area."
+      },
+      {
+        "Ar": "ابحث عن زوج حاصل ضربه 60.",
+        "En": "Find the pair whose product is sixty."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "مساحته 15.",
+        "En": "Its area is fifteen."
+      },
+      {
+        "Ar": "مساحته 15.",
+        "En": "Its area is fifteen."
+      },
+      null,
+      {
+        "Ar": "مساحته 32.",
+        "En": "Its area is thirty-two."
+      }
+    ],
+    "error": {
+      "Ar": "مساحته 15.",
+      "En": "Its area is fifteen."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 6,
+    "cat": 4,
+    "skill": 18,
+    "sk": "primary-median",
+    "family": "median-missing-value-bound-middle",
+    "title": {
+      "Ar": "استنتاج قيمة من الوسيط",
+      "En": "Inferring an observation from a median"
+    },
+    "q": {
+      "Ar": "أربع قيم مرتبة تصاعدياً: 2، 4، x، 12. وسيطها 6. ما قيمة x؟",
+      "En": "Four values in increasing order are 2, 4, x, 12. Their median is 6. What is x?"
+    },
+    "opts": [
+      "6",
+      "8",
+      "10",
+      "12"
+    ],
+    "correct": 1,
+    "idea": {
+      "Ar": "الوسيط لقائمة زوجية هو متوسط القيمتين الوسطيتين.",
+      "En": "The median of an even list is the average of the two middle values."
+    },
+    "formula": "(4+x)/2=6",
+    "steps": [
+      {
+        "Ar": "$4+x=12$",
+        "En": "$4+x=12$"
+      },
+      {
+        "Ar": "$x=8$",
+        "En": "$x=8$"
+      }
+    ],
+    "sub": {
+      "Ar": "$x=8$",
+      "En": "$x=8$"
+    },
+    "result": {
+      "Ar": "$8$",
+      "En": "$8$"
+    },
+    "verify": {
+      "Ar": "$(4+8)/2=6$",
+      "En": "$(4+8)/2=6$"
+    },
+    "hints": [
+      {
+        "Ar": "حدد القيمتين الوسطيتين.",
+        "En": "Identify the two middle observations."
+      },
+      {
+        "Ar": "ضاعف الوسيط ثم اطرح 4.",
+        "En": "Double the median and subtract four."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "يعطي وسيطاً 5.",
+        "En": "Gives median five."
+      },
+      null,
+      {
+        "Ar": "يعطي وسيطاً 7.",
+        "En": "Gives median seven."
+      },
+      {
+        "Ar": "يعطي وسيطاً 8.",
+        "En": "Gives median eight."
+      }
+    ],
+    "error": {
+      "Ar": "يعطي وسيطاً 5.",
+      "En": "Gives median five."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 6,
+    "cat": 81,
+    "skill": 345,
+    "sk": "primary-signed-rational-number-sense",
+    "family": "signed-number-opposite-inequality-reversal",
+    "title": {
+      "Ar": "ترتيب الأعداد المتقابلة",
+      "En": "Ordering opposite numbers"
+    },
+    "q": {
+      "Ar": "إذا كان a=−4 وb=2، فأي مقارنة صحيحة بين العددين المقابلين −a و−b؟",
+      "En": "If a=−4 and b=2, which comparison between their opposites −a and −b is true?"
+    },
+    "opts": [
+      "-a<-b",
+      "-a=-b",
+      "-a>-b",
+      "-a=0"
+    ],
+    "correct": 2,
+    "idea": {
+      "Ar": "نحدد العدد المقابل لكل قيمة ثم نقارن على خط الأعداد.",
+      "En": "Find each opposite, then compare on the number line."
+    },
+    "formula": "-a=4,\\quad -b=-2",
+    "steps": [
+      {
+        "Ar": "$-(-4)=4$",
+        "En": "$-(-4)=4$"
+      },
+      {
+        "Ar": "$-(2)=-2$",
+        "En": "$-(2)=-2$"
+      },
+      {
+        "Ar": "$4>-2$",
+        "En": "$4>-2$"
+      }
+    ],
+    "sub": {
+      "Ar": "$4>-2$",
+      "En": "$4>-2$"
+    },
+    "result": {
+      "Ar": "$-a>-b$",
+      "En": "$-a>-b$"
+    },
+    "verify": {
+      "Ar": "$4+(-4)=0,\\quad-2+2=0$",
+      "En": "$4+(-4)=0,\\quad-2+2=0$"
+    },
+    "hints": [
+      {
+        "Ar": "غيّر إشارة كل قيمة.",
+        "En": "Reverse the sign of each value."
+      },
+      {
+        "Ar": "الموجب أكبر من السالب.",
+        "En": "A positive number is greater than a negative number."
+      }
+    ],
+    "reasons": [
+      {
+        "Ar": "4 أكبر من −2 لا أصغر.",
+        "En": "Four is greater than −2, not smaller."
+      },
+      {
+        "Ar": "القيمتان مختلفتان.",
+        "En": "The values differ."
+      },
+      null,
+      {
+        "Ar": "مقابل −4 هو 4 وليس صفراً.",
+        "En": "The opposite of −4 is four, not zero."
+      }
+    ],
+    "error": {
+      "Ar": "4 أكبر من −2 لا أصغر.",
+      "En": "Four is greater than −2, not smaller."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  }
+]

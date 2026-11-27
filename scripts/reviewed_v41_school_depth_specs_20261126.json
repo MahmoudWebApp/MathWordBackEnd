@@ -1,0 +1,1236 @@
+[
+  {
+    "track": 1,
+    "cat": 82,
+    "skill": 321,
+    "sk": "length",
+    "family": "length-same-unit-endpoint-gap",
+    "title": {
+      "Ar": "قياس طول غير مكتمل",
+      "En": "Completing a length measurement"
+    },
+    "q": {
+      "Ar": "غطت 3 عيدان متساوية جزءاً من شريط، وبقي جزء طوله عودان من النوع نفسه. كم عوداً يغطي الشريط كاملاً دون فراغات؟",
+      "En": "Three equal sticks cover part of a strip, leaving a length of two more identical sticks. How many sticks cover the whole strip without gaps?"
+    },
+    "opts": [
+      "2",
+      "3",
+      "5",
+      "6"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "2 طول الجزء الباقي فقط.",
+        "En": "2 counts only the remaining part."
+      },
+      {
+        "Ar": "3 طول الجزء المغطى فقط.",
+        "En": "3 counts only the covered part."
+      },
+      null,
+      {
+        "Ar": "6 لا يساوي مجموع 3 و2.",
+        "En": "6 is not the sum of 3 and 2."
+      }
+    ],
+    "idea": {
+      "Ar": "نجمع عدد وحدات الطول المتساوية.",
+      "En": "Add the counts of equal length units."
+    },
+    "formula": "3+2=5",
+    "steps": [
+      {
+        "Ar": "الجزء المغطى طوله ثلاثة عيدان.",
+        "En": "The covered part is three sticks long."
+      },
+      {
+        "Ar": "$3+2=5$",
+        "En": "$3+2=5$"
+      }
+    ],
+    "sub": {
+      "Ar": "$3+2=5$",
+      "En": "$3+2=5$"
+    },
+    "result": {
+      "Ar": "$5$",
+      "En": "$5$"
+    },
+    "verify": {
+      "Ar": "$5-3=2$",
+      "En": "$5-3=2$"
+    },
+    "hints": [
+      {
+        "Ar": "كم عوداً يغطي الجزء الباقي؟",
+        "En": "How many sticks cover the remaining part?"
+      },
+      {
+        "Ar": "اجمع الجزأين.",
+        "En": "Combine the two parts."
+      }
+    ],
+    "error": {
+      "Ar": "2 طول الجزء الباقي فقط.",
+      "En": "2 counts only the remaining part."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 1,
+    "cat": 97,
+    "skill": 356,
+    "sk": "primary-category-count-data",
+    "family": "category-count-choose-balanced-split",
+    "title": {
+      "Ar": "تقسيم سجل إلى مجموعتين",
+      "En": "Splitting categories into two groups"
+    },
+    "q": {
+      "Ar": "سجل الألوان: الأحمر 3، الأزرق 5، الأخضر 2، الأصفر 4. أي لونين معاً عدد اختياراتهما يساوي مجموع اختيارات اللونين الباقيين؟ اختر زوجاً يحتوي الأحمر. A: الأحمر والأزرق؛ B: الأحمر والأخضر؛ C: الأحمر والأصفر؛ D: الأحمر والأحمر.",
+      "En": "Colour record: red 3, blue 5, green 2, yellow 4. Which pair containing red has the same total as the two remaining colours? A: red and blue; B: red and green; C: red and yellow; D: red and red."
+    },
+    "opts": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "8 لا يساوي 6.",
+        "En": "8 is not 6."
+      },
+      {
+        "Ar": "5 لا يساوي 9.",
+        "En": "5 is not 9."
+      },
+      null,
+      {
+        "Ar": "لا يمكن اختيار اللون نفسه مرتين.",
+        "En": "The same colour cannot be selected twice."
+      }
+    ],
+    "idea": {
+      "Ar": "نقارن مجموع كل زوج يحتوي الأحمر مع مجموع اللونين الباقيين.",
+      "En": "Compare each pair containing red with the total of the remaining colours."
+    },
+    "formula": "3+4=5+2=7",
+    "steps": [
+      {
+        "Ar": "نجمع الأحمر والأصفر، فيكون المجموع 7.",
+        "En": "Red and yellow total 7."
+      },
+      {
+        "Ar": "$5+2=7$",
+        "En": "$5+2=7$"
+      }
+    ],
+    "sub": {
+      "Ar": "$5+2=7$",
+      "En": "$5+2=7$"
+    },
+    "result": {
+      "Ar": "$C$",
+      "En": "$C$"
+    },
+    "verify": {
+      "Ar": "$7+7=14$",
+      "En": "$7+7=14$"
+    },
+    "hints": [
+      {
+        "Ar": "جرّب جمع الأحمر مع كل لون آخر.",
+        "En": "Try adding red to each other colour."
+      },
+      {
+        "Ar": "ابحث عن مجموعين متساويين.",
+        "En": "Look for two equal totals."
+      }
+    ],
+    "error": {
+      "Ar": "8 لا يساوي 6.",
+      "En": "8 is not 6."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 2,
+    "cat": 96,
+    "skill": 355,
+    "sk": "primary-shape-attributes-partition",
+    "family": "solid-cube-edge-length-attribute",
+    "title": {
+      "Ar": "أحرف المكعب",
+      "En": "Edges of a cube"
+    },
+    "q": {
+      "Ar": "اختير حرف واحد من مكعب. كم حرفاً آخر في المكعب له الطول نفسه؟",
+      "En": "One edge of a cube is selected. How many other edges of the cube have the same length?"
+    },
+    "opts": [
+      "5",
+      "7",
+      "11",
+      "12"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "5 ليس عدد الأحرف الباقية.",
+        "En": "5 is not the remaining edge count."
+      },
+      {
+        "Ar": "7 ينتج من عد الرؤوس بدلاً من الأحرف.",
+        "En": "7 results from counting vertices rather than edges."
+      },
+      null,
+      {
+        "Ar": "12 يشمل الحرف المختار.",
+        "En": "12 includes the selected edge."
+      }
+    ],
+    "idea": {
+      "Ar": "للمكعب 12 حرفاً متساوية الطول.",
+      "En": "A cube has 12 edges of equal length."
+    },
+    "formula": "12-1=11",
+    "steps": [
+      {
+        "Ar": "جميع أحرف المكعب متساوية الطول.",
+        "En": "All cube edges have equal length."
+      },
+      {
+        "Ar": "$12-1=11$",
+        "En": "$12-1=11$"
+      }
+    ],
+    "sub": {
+      "Ar": "$12-1=11$",
+      "En": "$12-1=11$"
+    },
+    "result": {
+      "Ar": "$11$",
+      "En": "$11$"
+    },
+    "verify": {
+      "Ar": "$11+1=12$",
+      "En": "$11+1=12$"
+    },
+    "hints": [
+      {
+        "Ar": "كم حرفاً للمكعب كله؟",
+        "En": "How many edges does a cube have?"
+      },
+      {
+        "Ar": "استبعد الحرف المختار.",
+        "En": "Exclude the selected edge."
+      }
+    ],
+    "error": {
+      "Ar": "5 ليس عدد الأحرف الباقية.",
+      "En": "5 is not the remaining edge count."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 2,
+    "cat": 97,
+    "skill": 357,
+    "sk": "primary-single-unit-picture-data",
+    "family": "pictograph-missing-row-from-total",
+    "title": {
+      "Ar": "إكمال صف مفقود في سجل مصور",
+      "En": "Completing a missing pictograph row"
+    },
+    "q": {
+      "Ar": "كل ● يمثل كتاباً. مجموع الكتب 12. A: ●●●●؛ B: ●●●؛ C: صف مخفي. كم رمزاً يجب أن يظهر في C؟",
+      "En": "Each ● represents one book. The total is 12 books. A: ●●●●; B: ●●●; C: hidden row. How many symbols belong in C?"
+    },
+    "opts": [
+      "3",
+      "4",
+      "5",
+      "7"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "3 هو عدد رموز B.",
+        "En": "3 is B's count."
+      },
+      {
+        "Ar": "4 هو عدد رموز A.",
+        "En": "4 is A's count."
+      },
+      null,
+      {
+        "Ar": "7 مجموع الصفين الظاهرين.",
+        "En": "7 is the total visible count."
+      }
+    ],
+    "idea": {
+      "Ar": "نطرح مجموع الصفوف الظاهرة من العدد الكلي.",
+      "En": "Subtract the visible row counts from the total."
+    },
+    "formula": "12-(4+3)=5",
+    "steps": [
+      {
+        "Ar": "$4+3=7$",
+        "En": "$4+3=7$"
+      },
+      {
+        "Ar": "$12-7=5$",
+        "En": "$12-7=5$"
+      }
+    ],
+    "sub": {
+      "Ar": "$12-7=5$",
+      "En": "$12-7=5$"
+    },
+    "result": {
+      "Ar": "$5$",
+      "En": "$5$"
+    },
+    "verify": {
+      "Ar": "$4+3+5=12$",
+      "En": "$4+3+5=12$"
+    },
+    "hints": [
+      {
+        "Ar": "عد رموز A وB.",
+        "En": "Count the symbols in A and B."
+      },
+      {
+        "Ar": "اطرح المجموع من 12.",
+        "En": "Subtract their total from 12."
+      }
+    ],
+    "error": {
+      "Ar": "3 هو عدد رموز B.",
+      "En": "3 is B's count."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 4,
+    "cat": 1,
+    "skill": 1,
+    "sk": "primary-addition",
+    "family": "addition-carry-across-zero",
+    "title": {
+      "Ar": "الجمع مع انتقال الحمل",
+      "En": "Addition with cascading carries"
+    },
+    "q": {
+      "Ar": "عند جمع 998 و7، ما رقم منزلة المئات في الناتج؟",
+      "En": "When adding 998 and 7, what is the hundreds digit of the result?"
+    },
+    "opts": [
+      "0",
+      "1",
+      "9",
+      "5"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "1 رقم الآلاف.",
+        "En": "1 is the thousands digit."
+      },
+      {
+        "Ar": "9 قبل الجمع وليس بعد الحمل.",
+        "En": "9 is the original digit before regrouping."
+      },
+      {
+        "Ar": "5 رقم الآحاد.",
+        "En": "5 is the ones digit."
+      }
+    ],
+    "idea": {
+      "Ar": "ينتقل الحمل من الآحاد إلى العشرات ثم المئات ثم الآلاف.",
+      "En": "Regrouping carries from ones to tens, hundreds and thousands."
+    },
+    "formula": "998+7=1005",
+    "steps": [
+      {
+        "Ar": "$8+7=15$",
+        "En": "$8+7=15$"
+      },
+      {
+        "Ar": "نكتب 5 ونحمل 1؛ في العشرات والمئات 9+1=10 في كل منهما.",
+        "En": "Write 5 and carry 1; tens and hundreds each give 9+1=10."
+      },
+      {
+        "Ar": "$998+7=1005$",
+        "En": "$998+7=1005$"
+      }
+    ],
+    "sub": {
+      "Ar": "$998+7=1005$",
+      "En": "$998+7=1005$"
+    },
+    "result": {
+      "Ar": "$0$",
+      "En": "$0$"
+    },
+    "verify": {
+      "Ar": "$1005-7=998$",
+      "En": "$1005-7=998$"
+    },
+    "hints": [
+      {
+        "Ar": "ابدأ من الآحاد.",
+        "En": "Start with the ones."
+      },
+      {
+        "Ar": "تابع الحمل في كل منزلة حتى الآلاف.",
+        "En": "Follow each carry through to thousands."
+      }
+    ],
+    "error": {
+      "Ar": "1 رقم الآلاف.",
+      "En": "1 is the thousands digit."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 4,
+    "cat": 2,
+    "skill": 9,
+    "sk": "primary-one-step-multiplicative-equations",
+    "family": "one-step-equation-identity-representation",
+    "title": {
+      "Ar": "تمثيل معادلة قسمة",
+      "En": "Representing a division equation"
+    },
+    "q": {
+      "Ar": "أي معادلة ضرب تكافئ المعادلة $n/8=6$؟",
+      "En": "Which multiplication equation is equivalent to $n/8=6$?"
+    },
+    "opts": [
+      "6n=8",
+      "8n=6",
+      "n=8\\cdot6",
+      "n=8+6"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "يبدل دور 6 وn.",
+        "En": "Swaps the roles of six and n."
+      },
+      {
+        "Ar": "يضع 8 معاملاً لـ n بدلاً من مقسوم عليه.",
+        "En": "Makes eight a coefficient instead of a divisor."
+      },
+      null,
+      {
+        "Ar": "الجمع ليس عكس القسمة.",
+        "En": "Addition does not undo division."
+      }
+    ],
+    "idea": {
+      "Ar": "نعكس القسمة على 8 بالضرب في 8.",
+      "En": "Undo division by eight by multiplying by eight."
+    },
+    "formula": "n=8\\cdot6",
+    "steps": [
+      {
+        "Ar": "$(n/8)\\cdot8=6\\cdot8$",
+        "En": "$(n/8)\\cdot8=6\\cdot8$"
+      },
+      {
+        "Ar": "$n=48$",
+        "En": "$n=48$"
+      }
+    ],
+    "sub": {
+      "Ar": "$n=48$",
+      "En": "$n=48$"
+    },
+    "result": {
+      "Ar": "$n=8\\cdot6$",
+      "En": "$n=8\\cdot6$"
+    },
+    "verify": {
+      "Ar": "$48/8=6$",
+      "En": "$48/8=6$"
+    },
+    "hints": [
+      {
+        "Ar": "ما العملية العكسية للقسمة؟",
+        "En": "What is the inverse of division?"
+      },
+      {
+        "Ar": "اضرب الطرفين في 8.",
+        "En": "Multiply both sides by eight."
+      }
+    ],
+    "error": {
+      "Ar": "يبدل دور 6 وn.",
+      "En": "Swaps the roles of six and n."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 5,
+    "cat": 33,
+    "skill": 6,
+    "sk": "primary-multiplicative-word-problems",
+    "family": "multiplication-three-dimensional-packing",
+    "title": {
+      "Ar": "حساب عدد العناصر في طبقات",
+      "En": "Counting items in layers"
+    },
+    "q": {
+      "Ar": "صندوق فيه 4 طبقات متطابقة من العبوات. كل طبقة فيها 6 صفوف، وكل صف فيه 8 عبوات. كم عبوة في الصندوق؟",
+      "En": "A box contains 4 identical layers of containers. Each layer has 6 rows, and each row has 8 containers. How many containers are in the box?"
+    },
+    "opts": [
+      "48",
+      "96",
+      "192",
+      "224"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "48 عدد عبوات طبقة واحدة.",
+        "En": "48 counts one layer."
+      },
+      {
+        "Ar": "96 عدد عبوات طبقتين.",
+        "En": "96 counts two layers."
+      },
+      null,
+      {
+        "Ar": "224 لا يساوي حاصل ضرب الأعداد الثلاثة.",
+        "En": "224 is not the product of the three counts."
+      }
+    ],
+    "idea": {
+      "Ar": "نضرب عدد العناصر في الصف في عدد الصفوف ثم في عدد الطبقات.",
+      "En": "Multiply items per row by rows per layer and then by layers."
+    },
+    "formula": "4\\cdot6\\cdot8=192",
+    "steps": [
+      {
+        "Ar": "$6\\cdot8=48$",
+        "En": "$6\\cdot8=48$"
+      },
+      {
+        "Ar": "$4\\cdot48=192$",
+        "En": "$4\\cdot48=192$"
+      }
+    ],
+    "sub": {
+      "Ar": "$4\\cdot48=192$",
+      "En": "$4\\cdot48=192$"
+    },
+    "result": {
+      "Ar": "$192$",
+      "En": "$192$"
+    },
+    "verify": {
+      "Ar": "$192/4=48$",
+      "En": "$192/4=48$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب عدد العبوات في طبقة واحدة.",
+        "En": "Count the containers in one layer."
+      },
+      {
+        "Ar": "اضرب في عدد الطبقات.",
+        "En": "Multiply by the number of layers."
+      }
+    ],
+    "error": {
+      "Ar": "48 عدد عبوات طبقة واحدة.",
+      "En": "48 counts one layer."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 5,
+    "cat": 81,
+    "skill": 303,
+    "sk": "estimation",
+    "family": "estimation-bound-two-neighbor-products",
+    "title": {
+      "Ar": "حصر حاصل ضرب دون حسابه",
+      "En": "Bounding a product without evaluating it"
+    },
+    "q": {
+      "Ar": "أي مجال يحتوي حاصل الضرب 38×21؟ استخدم 30<38<40 و20<21<30.",
+      "En": "Which interval contains the product 38×21? Use 30<38<40 and 20<21<30."
+    },
+    "opts": [
+      "0<P<500",
+      "600<P<1200",
+      "1200<P<1600",
+      "P>1600"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "الحاصل أكبر من 600.",
+        "En": "The product exceeds 600."
+      },
+      null,
+      {
+        "Ar": "الحاصل أصغر من 1200.",
+        "En": "The product is below 1200."
+      },
+      {
+        "Ar": "الحاصل أقل من 1600.",
+        "En": "The product is below 1600."
+      }
+    ],
+    "idea": {
+      "Ar": "عند ضرب حدود موجبة نحصل على حد أدنى وحد أعلى للحاصل.",
+      "En": "Multiplying positive lower and upper bounds gives bounds for the product."
+    },
+    "formula": "30\\cdot20<P<40\\cdot30",
+    "steps": [
+      {
+        "Ar": "$30\\cdot20=600$",
+        "En": "$30\\cdot20=600$"
+      },
+      {
+        "Ar": "$40\\cdot30=1200$",
+        "En": "$40\\cdot30=1200$"
+      }
+    ],
+    "sub": {
+      "Ar": "$40\\cdot30=1200$",
+      "En": "$40\\cdot30=1200$"
+    },
+    "result": {
+      "Ar": "$600<P<1200$",
+      "En": "$600<P<1200$"
+    },
+    "verify": {
+      "Ar": "$38\\cdot21=798$",
+      "En": "$38\\cdot21=798$"
+    },
+    "hints": [
+      {
+        "Ar": "اضرب الحدين الأدنى معاً.",
+        "En": "Multiply the two lower bounds."
+      },
+      {
+        "Ar": "اضرب الحدين الأعلى معاً.",
+        "En": "Multiply the two upper bounds."
+      }
+    ],
+    "error": {
+      "Ar": "الحاصل أكبر من 600.",
+      "En": "The product exceeds 600."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 6,
+    "cat": 2,
+    "skill": 10,
+    "sk": "primary-two-step-equations",
+    "family": "two-step-equation-division-then-subtraction",
+    "title": {
+      "Ar": "معادلة قسمة ثم طرح",
+      "En": "Division followed by subtraction"
+    },
+    "q": {
+      "Ar": "حل المعادلة $x/5-3=4$.",
+      "En": "Solve the equation $x/5-3=4$."
+    },
+    "opts": [
+      "5",
+      "20",
+      "23",
+      "35"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "5 ناتج ضرب 5 في الفرق 4−3.",
+        "En": "5 multiplies five by the difference 4−3."
+      },
+      {
+        "Ar": "20 يهمل إضافة 3.",
+        "En": "20 omits adding three."
+      },
+      {
+        "Ar": "23 يعكس العمليتين بترتيب خاطئ.",
+        "En": "23 reverses the operations in the wrong order."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "نضيف 3 إلى الطرفين ثم نضرب الطرفين في 5.",
+      "En": "Add three to both sides, then multiply both sides by five."
+    },
+    "formula": "x=5(4+3)",
+    "steps": [
+      {
+        "Ar": "$x/5=7$",
+        "En": "$x/5=7$"
+      },
+      {
+        "Ar": "$x=35$",
+        "En": "$x=35$"
+      }
+    ],
+    "sub": {
+      "Ar": "$x=35$",
+      "En": "$x=35$"
+    },
+    "result": {
+      "Ar": "$35$",
+      "En": "$35$"
+    },
+    "verify": {
+      "Ar": "$35/5-3=4$",
+      "En": "$35/5-3=4$"
+    },
+    "hints": [
+      {
+        "Ar": "اعكس الطرح أولاً.",
+        "En": "Undo subtraction first."
+      },
+      {
+        "Ar": "اعكس القسمة بعد ذلك.",
+        "En": "Then undo division."
+      }
+    ],
+    "error": {
+      "Ar": "5 ناتج ضرب 5 في الفرق 4−3.",
+      "En": "5 multiplies five by the difference 4−3."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 6,
+    "cat": 4,
+    "skill": 18,
+    "sk": "primary-median",
+    "family": "median-replacement-inner-crossing",
+    "title": {
+      "Ar": "الوسيط بعد تعديل قيمة",
+      "En": "Median after replacing a value"
+    },
+    "q": {
+      "Ar": "القيم 2،4،7،9،13. استُبدلت 4 بالقيمة 11. ما الوسيط بعد إعادة الترتيب؟",
+      "En": "The values are 2,4,7,9,13. The value 4 is replaced by 11. What is the median after reordering?"
+    },
+    "opts": [
+      "7",
+      "8",
+      "9",
+      "11"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "7 الوسيط القديم.",
+        "En": "7 is the old median."
+      },
+      {
+        "Ar": "لا نأخذ متوسط قيمتين لقائمة فردية.",
+        "En": "An odd-sized list does not need two middle values averaged."
+      },
+      null,
+      {
+        "Ar": "11 القيمة الرابعة.",
+        "En": "11 is fourth."
+      }
+    ],
+    "idea": {
+      "Ar": "نعيد ترتيب البيانات قبل تحديد القيمة الوسطى.",
+      "En": "Reorder the observations before identifying the middle value."
+    },
+    "formula": "n=5,\\quad (n+1)/2=3",
+    "steps": [
+      {
+        "Ar": "تصبح القائمة المرتبة 2،7،9،11،13.",
+        "En": "The sorted list becomes 2,7,9,11,13."
+      },
+      {
+        "Ar": "$x_3=9$",
+        "En": "$x_3=9$"
+      }
+    ],
+    "sub": {
+      "Ar": "$x_3=9$",
+      "En": "$x_3=9$"
+    },
+    "result": {
+      "Ar": "$9$",
+      "En": "$9$"
+    },
+    "verify": {
+      "Ar": "هناك قيمتان أصغر من 9 وقيمتان أكبر منه.",
+      "En": "Two values are below nine and two above it."
+    },
+    "hints": [
+      {
+        "Ar": "ضع 11 في مكانها الصحيح بعد الترتيب.",
+        "En": "Put eleven in its correct sorted position."
+      },
+      {
+        "Ar": "اختر القيمة الثالثة.",
+        "En": "Choose the third value."
+      }
+    ],
+    "error": {
+      "Ar": "7 الوسيط القديم.",
+      "En": "7 is the old median."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 7,
+    "cat": 6,
+    "skill": 25,
+    "sk": "middle-linear-equations",
+    "family": "linear-equation-distribute-then-negative-coefficient",
+    "title": {
+      "Ar": "حل معادلة بإشارة سالبة",
+      "En": "Equation with a negative factor"
+    },
+    "q": {
+      "Ar": "ما قيمة x التي تحقق $-3(x-4)=18$؟",
+      "En": "What value of x satisfies $-3(x-4)=18$?"
+    },
+    "opts": [
+      "-10",
+      "-2",
+      "2",
+      "10"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "−10 ينتج من طرح 4 بدلاً من جمعها.",
+        "En": "−10 subtracts four instead of adding it."
+      },
+      null,
+      {
+        "Ar": "2 يعكس إشارة الحل.",
+        "En": "2 reverses the sign of the solution."
+      },
+      {
+        "Ar": "10 يهمل إشارة المعامل السالب.",
+        "En": "10 ignores the negative factor."
+      }
+    ],
+    "idea": {
+      "Ar": "نقسم أولاً على المعامل السالب ثم نعزل المتغير.",
+      "En": "Divide by the negative factor, then isolate the variable."
+    },
+    "formula": "x-4=18/(-3)",
+    "steps": [
+      {
+        "Ar": "$x-4=-6$",
+        "En": "$x-4=-6$"
+      },
+      {
+        "Ar": "$x=-2$",
+        "En": "$x=-2$"
+      }
+    ],
+    "sub": {
+      "Ar": "$x=-2$",
+      "En": "$x=-2$"
+    },
+    "result": {
+      "Ar": "$-2$",
+      "En": "$-2$"
+    },
+    "verify": {
+      "Ar": "$-3(-2-4)=18$",
+      "En": "$-3(-2-4)=18$"
+    },
+    "hints": [
+      {
+        "Ar": "اقسم الطرفين على −3.",
+        "En": "Divide both sides by −3."
+      },
+      {
+        "Ar": "أضف 4 إلى الطرفين.",
+        "En": "Add four to both sides."
+      }
+    ],
+    "error": {
+      "Ar": "−10 ينتج من طرح 4 بدلاً من جمعها.",
+      "En": "−10 subtracts four instead of adding it."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 7,
+    "cat": 85,
+    "skill": 336,
+    "sk": "sample-spaces",
+    "family": "sample-space-outcomes-forbidden-pair",
+    "title": {
+      "Ar": "فضاء عينة بشرط استبعاد",
+      "En": "Sample space with an excluded pair"
+    },
+    "q": {
+      "Ar": "يختار طالب وجبة من A وB ومشروباً من X وY وZ. الزوج (B,Z) غير متاح، وبقية الأزواج متاحة. كم اختياراً مختلفاً يوجد؟",
+      "En": "A student selects a meal from A and B and a drink from X, Y, Z. The pair (B,Z) is unavailable, and all other pairs are available. How many distinct choices exist?"
+    },
+    "opts": [
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "3 عدد المشروبات وحدها.",
+        "En": "3 counts drinks alone."
+      },
+      {
+        "Ar": "4 يستبعد زوجين لا زوجاً واحداً.",
+        "En": "4 removes two pairs, not one."
+      },
+      null,
+      {
+        "Ar": "6 يشمل الزوج غير المتاح.",
+        "En": "6 includes the unavailable pair."
+      }
+    ],
+    "idea": {
+      "Ar": "نحسب جميع الأزواج ثم نستبعد الزوج غير المتاح.",
+      "En": "Count all pairs and remove the unavailable pair."
+    },
+    "formula": "2\\cdot3-1=5",
+    "steps": [
+      {
+        "Ar": "$2\\cdot3=6$",
+        "En": "$2\\cdot3=6$"
+      },
+      {
+        "Ar": "$6-1=5$",
+        "En": "$6-1=5$"
+      }
+    ],
+    "sub": {
+      "Ar": "$6-1=5$",
+      "En": "$6-1=5$"
+    },
+    "result": {
+      "Ar": "$5$",
+      "En": "$5$"
+    },
+    "verify": {
+      "Ar": "مع A ثلاثة مشروبات، ومع B مشروبان.",
+      "En": "A has three drink choices and B has two."
+    },
+    "hints": [
+      {
+        "Ar": "كم زوجاً لو كانت كلها متاحة؟",
+        "En": "How many pairs if all were available?"
+      },
+      {
+        "Ar": "استبعد الزوج الواحد الممنوع.",
+        "En": "Remove the single unavailable pair."
+      }
+    ],
+    "error": {
+      "Ar": "3 عدد المشروبات وحدها.",
+      "En": "3 counts drinks alone."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 10,
+    "cat": 35,
+    "skill": 53,
+    "sk": "secondary-arithmetic-mean",
+    "family": "mean-weighted-from-ratio",
+    "title": {
+      "Ar": "متوسط مجموعتين بنسبة أعداد",
+      "En": "Mean using group-size ratio"
+    },
+    "q": {
+      "Ar": "متوسط المجموعة A هو 12 ومتوسط B هو 20. عدد عناصر A يساوي ثلاثة أمثال عدد عناصر B. ما متوسط المجموعتين معاً؟",
+      "En": "Group A has mean 12 and group B has mean 20. A has three times as many observations as B. What is their combined mean?"
+    },
+    "opts": [
+      "14",
+      "16",
+      "18",
+      "32"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "16 يفترض تساوي الحجمين.",
+        "En": "16 assumes equal group sizes."
+      },
+      {
+        "Ar": "18 يعطي الوزن الأكبر للمجموعة B.",
+        "En": "18 gives the larger weight to B."
+      },
+      {
+        "Ar": "32 يجمع المتوسطين.",
+        "En": "32 adds the means."
+      }
+    ],
+    "idea": {
+      "Ar": "المتوسط المجمع موزون بنسبة أعداد عناصر المجموعتين.",
+      "En": "The combined mean is weighted by the ratio of group sizes."
+    },
+    "formula": "\\frac{3\\cdot12+20}{3+1}",
+    "steps": [
+      {
+        "Ar": "$3\\cdot12+20=56$",
+        "En": "$3\\cdot12+20=56$"
+      },
+      {
+        "Ar": "$56/4=14$",
+        "En": "$56/4=14$"
+      }
+    ],
+    "sub": {
+      "Ar": "$56/4=14$",
+      "En": "$56/4=14$"
+    },
+    "result": {
+      "Ar": "$14$",
+      "En": "$14$"
+    },
+    "verify": {
+      "Ar": "$4\\cdot14=56$",
+      "En": "$4\\cdot14=56$"
+    },
+    "hints": [
+      {
+        "Ar": "اعتبر عدد عناصر B هو n وعدد A هو 3n.",
+        "En": "Let B have n observations and A have 3n."
+      },
+      {
+        "Ar": "استخدم الأوزان 3 و1.",
+        "En": "Use weights three and one."
+      }
+    ],
+    "error": {
+      "Ar": "16 يفترض تساوي الحجمين.",
+      "En": "16 assumes equal group sizes."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 11,
+    "cat": 10,
+    "skill": 47,
+    "sk": "secondary-pythagorean-trig-identity",
+    "family": "trig-identity-factor-shared-squared",
+    "title": {
+      "Ar": "تبسيط تعبير مثلثي بالتحليل",
+      "En": "Simplifying a trigonometric expression by factoring"
+    },
+    "q": {
+      "Ar": "أي تعبير يكافئ $\\sin^4\\theta+\\sin^2\\theta\\cos^2\\theta$ لكل زاوية حقيقية؟",
+      "En": "Which expression equals $\\sin^4\\theta+\\sin^2\\theta\\cos^2\\theta$ for every real angle?"
+    },
+    "opts": [
+      "1",
+      "\\sin^2\\theta",
+      "\\cos^2\\theta",
+      "\\sin^4\\theta"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "1 قيمة القوس فقط.",
+        "En": "1 is only the parenthesized factor."
+      },
+      null,
+      {
+        "Ar": "العامل المشترك مربع الجيب لا جيب التمام.",
+        "En": "The common factor is sine squared, not cosine squared."
+      },
+      {
+        "Ar": "يهمل الحد الثاني.",
+        "En": "Omits the second term."
+      }
+    ],
+    "idea": {
+      "Ar": "نستخرج مربع الجيب عاملاً مشتركاً ثم نستعمل المتطابقة الأساسية.",
+      "En": "Factor out sine squared and use the basic identity."
+    },
+    "formula": "\\sin^2\\theta(\\sin^2\\theta+\\cos^2\\theta)",
+    "steps": [
+      {
+        "Ar": "$\\sin^2\\theta+\\cos^2\\theta=1$",
+        "En": "$\\sin^2\\theta+\\cos^2\\theta=1$"
+      },
+      {
+        "Ar": "$\\sin^2\\theta\\cdot1=\\sin^2\\theta$",
+        "En": "$\\sin^2\\theta\\cdot1=\\sin^2\\theta$"
+      }
+    ],
+    "sub": {
+      "Ar": "$\\sin^2\\theta\\cdot1=\\sin^2\\theta$",
+      "En": "$\\sin^2\\theta\\cdot1=\\sin^2\\theta$"
+    },
+    "result": {
+      "Ar": "$\\sin^2\\theta$",
+      "En": "$\\sin^2\\theta$"
+    },
+    "verify": {
+      "Ar": "$\\theta=30^\\circ:\\ 1/16+3/16=1/4$",
+      "En": "$\\theta=30^\\circ:\\ 1/16+3/16=1/4$"
+    },
+    "hints": [
+      {
+        "Ar": "استخرج العامل المشترك.",
+        "En": "Extract the common factor."
+      },
+      {
+        "Ar": "ما قيمة مجموع مربعي الجيب وجيب التمام؟",
+        "En": "What is the sum of sine and cosine squared?"
+      }
+    ],
+    "error": {
+      "Ar": "1 قيمة القوس فقط.",
+      "En": "1 is only the parenthesized factor."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 12,
+    "cat": 87,
+    "skill": 338,
+    "sk": "dot-product",
+    "family": "dot-product-projection-vector-components",
+    "title": {
+      "Ar": "الإسقاط المتجهي",
+      "En": "Vector projection"
+    },
+    "q": {
+      "Ar": "إذا كان u=(4,2) وv=(1,1)، فما الإسقاط المتجهي للمتجه u على اتجاه v؟",
+      "En": "If u=(4,2) and v=(1,1), what is the vector projection of u onto the direction of v?"
+    },
+    "opts": [
+      "(2,2)",
+      "(3,3)",
+      "(6,6)",
+      "(4,2)"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "2 ليس معامل الإسقاط.",
+        "En": "2 is not the projection coefficient."
+      },
+      null,
+      {
+        "Ar": "6 يهمل القسمة على مربع المعيار.",
+        "En": "6 omits division by the squared norm."
+      },
+      {
+        "Ar": "u ليس موازياً لـ v.",
+        "En": "u is not parallel to v."
+      }
+    ],
+    "idea": {
+      "Ar": "الإسقاط المتجهي يساوي المتجه v مضروباً في نسبة الضرب القياسي إلى مربع معياره.",
+      "En": "Vector projection is v multiplied by the dot product divided by the squared norm of v."
+    },
+    "formula": "\\operatorname{proj}_v u=\\frac{u\\cdot v}{v\\cdot v}v",
+    "steps": [
+      {
+        "Ar": "$u\\cdot v=6,\\quad v\\cdot v=2$",
+        "En": "$u\\cdot v=6,\\quad v\\cdot v=2$"
+      },
+      {
+        "Ar": "$(6/2)(1,1)=(3,3)$",
+        "En": "$(6/2)(1,1)=(3,3)$"
+      }
+    ],
+    "sub": {
+      "Ar": "$(6/2)(1,1)=(3,3)$",
+      "En": "$(6/2)(1,1)=(3,3)$"
+    },
+    "result": {
+      "Ar": "$(3,3)$",
+      "En": "$(3,3)$"
+    },
+    "verify": {
+      "Ar": "$((4,2)-(3,3))\\cdot(1,1)=0$",
+      "En": "$((4,2)-(3,3))\\cdot(1,1)=0$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب الضرب القياسي.",
+        "En": "Calculate the dot product."
+      },
+      {
+        "Ar": "اقسم على مربع معيار v واضرب في v.",
+        "En": "Divide by the squared norm of v and multiply by v."
+      }
+    ],
+    "error": {
+      "Ar": "2 ليس معامل الإسقاط.",
+      "En": "2 is not the projection coefficient."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  }
+]

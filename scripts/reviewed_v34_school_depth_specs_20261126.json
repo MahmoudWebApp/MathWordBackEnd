@@ -1,0 +1,792 @@
+[
+  {
+    "track": 4,
+    "stage": 1,
+    "cat": 2,
+    "skill": 9,
+    "sk": "primary-one-step-multiplicative-equations",
+    "family": "recover-coefficient-known-solution",
+    "title": {
+      "Ar": "إيجاد معامل مجهول",
+      "En": "Finding an unknown coefficient"
+    },
+    "q": {
+      "Ar": "المعادلة ak=56 تتحقق عندما k=8. ما قيمة a؟",
+      "En": "The equation ak=56 is satisfied when k=8. What is a?"
+    },
+    "opts": [
+      "6",
+      "7",
+      "8",
+      "48"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "6×8=48 لا 56.",
+        "En": "6×8=48, not 56."
+      },
+      null,
+      {
+        "Ar": "8×8=64.",
+        "En": "8×8=64."
+      },
+      {
+        "Ar": "48 ناتج الطرح لا القسمة.",
+        "En": "48 is the subtraction result, not the quotient."
+      }
+    ],
+    "idea": {
+      "Ar": "نعوّض بالقيمة المعروفة ثم نجد العامل المجهول بالقسمة.",
+      "En": "Substitute the known value, then divide to find the unknown factor."
+    },
+    "formula": "a=56/8",
+    "steps": [
+      {
+        "Ar": "$8a=56$",
+        "En": "$8a=56$"
+      },
+      {
+        "Ar": "$a=56\\div8$",
+        "En": "$a=56\\div8$"
+      }
+    ],
+    "sub": {
+      "Ar": "$56\\div8=7$",
+      "En": "$56\\div8=7$"
+    },
+    "result": {
+      "Ar": "$7$",
+      "En": "$7$"
+    },
+    "verify": {
+      "Ar": "$7\\cdot8=56$",
+      "En": "$7\\cdot8=56$"
+    },
+    "hints": [
+      {
+        "Ar": "عوّض 8 مكان k.",
+        "En": "Substitute 8 for k."
+      },
+      {
+        "Ar": "ما العدد الذي إذا ضربناه في 8 أعطى 56؟",
+        "En": "What number multiplied by 8 gives 56?"
+      }
+    ],
+    "error": {
+      "Ar": "لا تطرح العامل المعروف من الناتج.",
+      "En": "Do not subtract the known factor from the product."
+    }
+  },
+  {
+    "track": 4,
+    "stage": 1,
+    "cat": 2,
+    "skill": 9,
+    "sk": "primary-one-step-multiplicative-equations",
+    "family": "unknown-factor-model-selection",
+    "title": {
+      "Ar": "اختيار معادلة المجموعات المتساوية",
+      "En": "Choosing an equal-groups equation"
+    },
+    "q": {
+      "Ar": "في كل صندوق 6 أقلام. عدد الصناديق n، ومجموع الأقلام 72. أي معادلة تمثل الموقف؟",
+      "En": "Each box contains 6 pens. There are n boxes and 72 pens altogether. Which equation models this situation?"
+    },
+    "opts": [
+      "n+6=72",
+      "n\\div6=72",
+      "6n=72",
+      "72n=6"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "الجمع لا يمثل ستة أقلام في كل صندوق.",
+        "En": "Addition does not represent six pens per box."
+      },
+      {
+        "Ar": "القسمة هنا لا تعطي المجموع.",
+        "En": "This division does not give the total."
+      },
+      null,
+      {
+        "Ar": "72 هو المجموع وليس عدد الأقلام في كل صندوق.",
+        "En": "72 is the total, not the number in each box."
+      }
+    ],
+    "idea": {
+      "Ar": "المجموع يساوي عدد المجموعات مضروباً في عدد العناصر في كل مجموعة.",
+      "En": "The total is the number of groups times the number of items per group."
+    },
+    "formula": "T=n\\cdot6",
+    "steps": [
+      {
+        "Ar": "عدد الصناديق غير معلوم، وهو n.",
+        "En": "The unknown number of boxes is n."
+      },
+      {
+        "Ar": "في كل صندوق ستة أقلام، فنضرب n في 6.",
+        "En": "Each box has six pens, so multiply n by 6."
+      }
+    ],
+    "sub": {
+      "Ar": "$T=72=6n$",
+      "En": "$T=72=6n$"
+    },
+    "result": {
+      "Ar": "$6n=72$",
+      "En": "$6n=72$"
+    },
+    "verify": {
+      "Ar": "$6\\cdot12=72$",
+      "En": "$6\\cdot12=72$"
+    },
+    "hints": [
+      {
+        "Ar": "هل المجموعات متساوية؟",
+        "En": "Are the groups equal?"
+      },
+      {
+        "Ar": "اضرب عدد الصناديق في عدد الأقلام في الصندوق.",
+        "En": "Multiply box count by pens per box."
+      }
+    ],
+    "error": {
+      "Ar": "لا تخلط بين العدد الكلي وعدد عناصر المجموعة.",
+      "En": "Do not confuse total count with items per group."
+    }
+  },
+  {
+    "track": 7,
+    "stage": 2,
+    "cat": 6,
+    "skill": 25,
+    "sk": "middle-linear-equations",
+    "family": "linear-both-sides-cancel-contradiction",
+    "title": {
+      "Ar": "معادلة لا حل لها",
+      "En": "An equation with no solution"
+    },
+    "q": {
+      "Ar": "كم حلاً حقيقياً للمعادلة 4x+9=4x+3؟",
+      "En": "How many real solutions does 4x+9=4x+3 have?"
+    },
+    "opts": [
+      "0",
+      "1",
+      "2",
+      "\\infty"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "لا يمكن عزل قيمة واحدة بعد إلغاء الحد المتغير.",
+        "En": "No single value can be isolated after cancelling the variable."
+      },
+      {
+        "Ar": "المعادلة خطية ولا تنتج حلين منفصلين.",
+        "En": "A linear equation does not give two separate solutions."
+      },
+      {
+        "Ar": "الحلول اللانهائية تتطلب تطابق الطرفين بعد التبسيط.",
+        "En": "Infinitely many solutions require identical simplified sides."
+      }
+    ],
+    "idea": {
+      "Ar": "إذا اختفى المتغير وبقيت مساواة غير صحيحة فلا يوجد حل.",
+      "En": "If the variable cancels and a false equality remains, there is no solution."
+    },
+    "formula": "4x+9=4x+3",
+    "steps": [
+      {
+        "Ar": "$4x+9-4x=4x+3-4x$",
+        "En": "$4x+9-4x=4x+3-4x$"
+      },
+      {
+        "Ar": "$9=3$",
+        "En": "$9=3$"
+      }
+    ],
+    "sub": {
+      "Ar": "$9\\ne3$",
+      "En": "$9\\ne3$"
+    },
+    "result": {
+      "Ar": "$0$",
+      "En": "$0$"
+    },
+    "verify": {
+      "Ar": "$(4x+9)-(4x+3)=6$",
+      "En": "$(4x+9)-(4x+3)=6$"
+    },
+    "hints": [
+      {
+        "Ar": "اطرح 4x من الطرفين.",
+        "En": "Subtract 4x from both sides."
+      },
+      {
+        "Ar": "هل المساواة العددية الناتجة صحيحة؟",
+        "En": "Is the remaining numerical equality true?"
+      }
+    ],
+    "error": {
+      "Ar": "اختفاء المتغير لا يعني دائماً حلولاً لانهائية.",
+      "En": "A cancelled variable does not always mean infinitely many solutions."
+    }
+  },
+  {
+    "track": 7,
+    "stage": 2,
+    "cat": 6,
+    "skill": 25,
+    "sk": "middle-linear-equations",
+    "family": "linear-distributive-recover-constant",
+    "title": {
+      "Ar": "إيجاد ثابت يحقق حلاً معطى",
+      "En": "Finding a constant from a supplied solution"
+    },
+    "q": {
+      "Ar": "إذا كان x=4 حلاً للمعادلة 3(x+2)=2x+c، فما قيمة c؟",
+      "En": "If x=4 solves 3(x+2)=2x+c, what is c?"
+    },
+    "opts": [
+      "6",
+      "8",
+      "10",
+      "18"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "6 هو العدد داخل القوس بعد التعويض.",
+        "En": "6 is the value inside the parentheses after substitution."
+      },
+      {
+        "Ar": "8 هو قيمة 2x وحدها.",
+        "En": "8 is the value of 2x alone."
+      },
+      null,
+      {
+        "Ar": "18 قيمة الطرف الأيسر قبل طرح 8.",
+        "En": "18 is the left side before subtracting 8."
+      }
+    ],
+    "idea": {
+      "Ar": "الحل المعطى يجعل الطرفين متساويين؛ نعوض ثم نعزل الثابت.",
+      "En": "A supplied solution makes the sides equal; substitute it and isolate the constant."
+    },
+    "formula": "3(x+2)=2x+c",
+    "steps": [
+      {
+        "Ar": "$3(4+2)=2(4)+c$",
+        "En": "$3(4+2)=2(4)+c$"
+      },
+      {
+        "Ar": "$18=8+c$",
+        "En": "$18=8+c$"
+      }
+    ],
+    "sub": {
+      "Ar": "$c=18-8=10$",
+      "En": "$c=18-8=10$"
+    },
+    "result": {
+      "Ar": "$10$",
+      "En": "$10$"
+    },
+    "verify": {
+      "Ar": "$3(4+2)=2(4)+10=18$",
+      "En": "$3(4+2)=2(4)+10=18$"
+    },
+    "hints": [
+      {
+        "Ar": "ضع 4 مكان x في الطرفين.",
+        "En": "Replace x by 4 on both sides."
+      },
+      {
+        "Ar": "اطرح الجزء العددي المعروف من الطرف الأيمن.",
+        "En": "Subtract the known numerical term from the right side."
+      }
+    ],
+    "error": {
+      "Ar": "لا تهمل القوس في الطرف الأيسر.",
+      "En": "Do not ignore the parentheses on the left."
+    }
+  },
+  {
+    "track": 1,
+    "stage": 1,
+    "cat": 97,
+    "skill": 356,
+    "sk": "primary-category-count-data",
+    "family": "category-count-tied-largest",
+    "title": {
+      "Ar": "قراءة أكبر عدد مشترك",
+      "En": "Reading tied largest counts"
+    },
+    "q": {
+      "Ar": "في سجل الألوان المفضلة: الأحمر 5، الأزرق 3، الأخضر 5، الأصفر 2. كم لوناً حصل على أكبر عدد من الاختيارات؟",
+      "En": "Favourite colour counts are red 5, blue 3, green 5 and yellow 2. How many colours received the largest number of choices?"
+    },
+    "opts": [
+      "1",
+      "2",
+      "3",
+      "5"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "يوجد لونان متساويان في العدد الأكبر.",
+        "En": "Two colours tie for the largest count."
+      },
+      null,
+      {
+        "Ar": "ثلاثة ليس عدد الألوان صاحبة العدد الأكبر.",
+        "En": "Three is not the number of colours with the largest count."
+      },
+      {
+        "Ar": "5 عدد الاختيارات لكل لون فائز، وليس عدد الألوان.",
+        "En": "5 is the largest vote count, not the number of colours."
+      }
+    ],
+    "idea": {
+      "Ar": "نحدد العدد الأكبر ثم نعد الفئات التي تساويه.",
+      "En": "Find the largest count, then count the categories matching it."
+    },
+    "formula": "5=5>3>2",
+    "steps": [
+      {
+        "Ar": "أكبر عدد من الاختيارات هو 5.",
+        "En": "The largest choice count is 5."
+      },
+      {
+        "Ar": "الأحمر والأخضر فقط لهما هذا العدد.",
+        "En": "Only red and green have this count."
+      }
+    ],
+    "sub": {
+      "Ar": "$1+1=2$",
+      "En": "$1+1=2$"
+    },
+    "result": {
+      "Ar": "$2$",
+      "En": "$2$"
+    },
+    "verify": {
+      "Ar": "$5=5$",
+      "En": "$5=5$"
+    },
+    "hints": [
+      {
+        "Ar": "ابحث عن أكبر عدد في السجل.",
+        "En": "Find the largest number in the record."
+      },
+      {
+        "Ar": "هل يتكرر هذا العدد عند أكثر من لون؟",
+        "En": "Does that number occur for more than one colour?"
+      }
+    ],
+    "error": {
+      "Ar": "المطلوب عدد الألوان لا عدد الاختيارات.",
+      "En": "Count colours, not choices."
+    }
+  },
+  {
+    "track": 2,
+    "stage": 1,
+    "cat": 96,
+    "skill": 355,
+    "sk": "primary-shape-attributes-partition",
+    "family": "rectangular-equal-parts-unshaded-fraction",
+    "title": {
+      "Ar": "الجزء غير الملوّن من شكل",
+      "En": "Uncoloured part of a shape"
+    },
+    "q": {
+      "Ar": "قُسّم مستطيل إلى أربعة أجزاء متساوية المساحة. لُوّن جزء واحد بالأزرق وجزء آخر بالأحمر. ما الكسر الذي يمثل المساحة غير الملوّنة؟",
+      "En": "A rectangle is partitioned into four equal-area parts. One part is coloured blue and another red. What fraction of the rectangle is uncoloured?"
+    },
+    "opts": [
+      "\\frac14",
+      "\\frac24",
+      "\\frac34",
+      "\\frac44"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "ربع واحد يهمل جزءاً غير ملوّن.",
+        "En": "One quarter misses an uncoloured part."
+      },
+      null,
+      {
+        "Ar": "ثلاثة أرباع تستبعد جزءاً ملوّناً واحداً فقط.",
+        "En": "Three quarters excludes only one coloured part."
+      },
+      {
+        "Ar": "أربعة أرباع تمثل الشكل كله.",
+        "En": "Four quarters represent the entire shape."
+      }
+    ],
+    "idea": {
+      "Ar": "كل جزء يساوي ربع المساحة، ونجمع الأجزاء غير الملوّنة فقط.",
+      "En": "Each part is one quarter of the area; count only the uncoloured parts."
+    },
+    "formula": "\\frac{4-2}{4}",
+    "steps": [
+      {
+        "Ar": "جزآن مختلفان ملوّنان من أصل أربعة.",
+        "En": "Two distinct parts out of four are coloured."
+      },
+      {
+        "Ar": "يبقى جزآن غير ملوّنين.",
+        "En": "Two parts remain uncoloured."
+      }
+    ],
+    "sub": {
+      "Ar": "$\\frac{4-2}{4}=\\frac24$",
+      "En": "$\\frac{4-2}{4}=\\frac24$"
+    },
+    "result": {
+      "Ar": "$\\frac24$",
+      "En": "$\\frac24$"
+    },
+    "verify": {
+      "Ar": "$\\frac24+\\frac24=1$",
+      "En": "$\\frac24+\\frac24=1$"
+    },
+    "hints": [
+      {
+        "Ar": "عد الأجزاء الملوّنة أولاً.",
+        "En": "Count the coloured parts first."
+      },
+      {
+        "Ar": "كم جزءاً يبقى من الأربعة؟",
+        "En": "How many of the four parts remain?"
+      }
+    ],
+    "error": {
+      "Ar": "لا تغير المقام؛ المستطيل ما زال مكوّناً من أربعة أجزاء.",
+      "En": "Keep the denominator: the rectangle still has four parts."
+    }
+  },
+  {
+    "track": 4,
+    "stage": 1,
+    "cat": 1,
+    "skill": 1,
+    "sk": "primary-addition",
+    "family": "addition-associative-group-to-thousand",
+    "title": {
+      "Ar": "تجميع حدود الجمع",
+      "En": "Regrouping addends"
+    },
+    "q": {
+      "Ar": "لحساب 625+184+375+216 ذهنياً، أي زوج من الحدود يعطي 1000 بالضبط؟",
+      "En": "To calculate 625+184+375+216 mentally, which pair of addends totals exactly 1000?"
+    },
+    "opts": [
+      "625+184",
+      "184+216",
+      "375+216",
+      "625+375"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "مجموعهما 809.",
+        "En": "Their sum is 809."
+      },
+      {
+        "Ar": "مجموعهما 400.",
+        "En": "Their sum is 400."
+      },
+      {
+        "Ar": "مجموعهما 591.",
+        "En": "Their sum is 591."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "يمكن تبديل ترتيب حدود الجمع وتجميعها لتسهيل الحساب.",
+      "En": "The addends can be reordered and grouped to simplify addition."
+    },
+    "formula": "(625+375)+(184+216)",
+    "steps": [
+      {
+        "Ar": "نكمل العدد 625 إلى 1000 بالبحث عن الفرق.",
+        "En": "Find the amount needed to bring 625 to 1000."
+      },
+      {
+        "Ar": "$1000-625=375$",
+        "En": "$1000-625=375$"
+      }
+    ],
+    "sub": {
+      "Ar": "$625+375=1000$",
+      "En": "$625+375=1000$"
+    },
+    "result": {
+      "Ar": "$625+375$",
+      "En": "$625+375$"
+    },
+    "verify": {
+      "Ar": "$1000+400=1400$",
+      "En": "$1000+400=1400$"
+    },
+    "hints": [
+      {
+        "Ar": "ابحث عن عددين يكمل أحدهما الآخر إلى ألف.",
+        "En": "Look for two numbers that complement each other to one thousand."
+      },
+      {
+        "Ar": "ابدأ بالحد 625.",
+        "En": "Start with the addend 625."
+      }
+    ],
+    "error": {
+      "Ar": "لا تفترض أن الحدين المتجاورين هما الأسهل للجمع.",
+      "En": "Do not assume adjacent addends are the easiest pair."
+    }
+  },
+  {
+    "track": 5,
+    "stage": 1,
+    "cat": 33,
+    "skill": 6,
+    "sk": "primary-multiplicative-word-problems",
+    "family": "multiplicative-two-pack-sizes-total",
+    "title": {
+      "Ar": "حساب محتوى عبوات مختلفة",
+      "En": "Counting items in different pack sizes"
+    },
+    "q": {
+      "Ar": "في المخزن 12 علبة تحوي كل منها 24 قطعة، و8 علب تحوي كل منها 15 قطعة. كم قطعة في العلب كلها؟",
+      "En": "A store has 12 boxes of 24 pieces each and 8 boxes of 15 pieces each. How many pieces are there in all boxes?"
+    },
+    "opts": [
+      "300",
+      "408",
+      "480",
+      "780"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "300 لا يساوي مجموع الناتجين 288 و120.",
+        "En": "300 is not the sum of the products 288 and 120."
+      },
+      null,
+      {
+        "Ar": "480 ينتج من اعتبار العلب العشرين كلها تحوي 24 قطعة.",
+        "En": "480 treats all twenty boxes as containing 24 pieces."
+      },
+      {
+        "Ar": "780 يضرب مجموع أعداد العلب في مجموع القطع لكل علبة.",
+        "En": "780 multiplies the combined box count by the combined pack sizes."
+      }
+    ],
+    "idea": {
+      "Ar": "نحسب حاصل الضرب لكل نوع من العلب على حدة ثم نجمع الناتجين.",
+      "En": "Multiply separately for each box type, then add the products."
+    },
+    "formula": "T=12\\cdot24+8\\cdot15",
+    "steps": [
+      {
+        "Ar": "$12\\cdot24=288$",
+        "En": "$12\\cdot24=288$"
+      },
+      {
+        "Ar": "$8\\cdot15=120$",
+        "En": "$8\\cdot15=120$"
+      }
+    ],
+    "sub": {
+      "Ar": "$288+120=408$",
+      "En": "$288+120=408$"
+    },
+    "result": {
+      "Ar": "$408$",
+      "En": "$408$"
+    },
+    "verify": {
+      "Ar": "$408-120=288$",
+      "En": "$408-120=288$"
+    },
+    "hints": [
+      {
+        "Ar": "لا تتساوى أعداد القطع في كل العلب.",
+        "En": "The box sizes are different."
+      },
+      {
+        "Ar": "احسب قطع كل نوع على حدة.",
+        "En": "Count the pieces of each type separately."
+      }
+    ],
+    "error": {
+      "Ar": "لا تجمع سعات العلب ثم تضربها في العدد الكلي.",
+      "En": "Do not add pack sizes and multiply by total box count."
+    }
+  },
+  {
+    "track": 5,
+    "stage": 1,
+    "cat": 81,
+    "skill": 303,
+    "sk": "estimation",
+    "family": "estimate-choose-precision-budget",
+    "title": {
+      "Ar": "تقدير كافٍ لاتخاذ قرار",
+      "En": "Estimating to make a decision"
+    },
+    "q": {
+      "Ar": "تبلغ أسعار ثلاثة أغراض 198 و297 و398 وحدة نقدية. قرّب كل سعر إلى أقرب مئة. هل تكفي ميزانية 850 وحدة بحسب هذا التقدير، وكم الفرق بين الميزانية والتقدير؟ اختر مقدار النقص في الميزانية.",
+      "En": "Three items cost 198, 297 and 398 currency units. Round each price to the nearest hundred. How much does a budget of 850 fall short of this estimated total?"
+    },
+    "opts": [
+      "0",
+      "43",
+      "50",
+      "150"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "التقدير 900 أكبر من الميزانية.",
+        "En": "The estimate of 900 exceeds the budget."
+      },
+      {
+        "Ar": "43 هو النقص بالنسبة إلى المجموع الدقيق، لا التقديري.",
+        "En": "43 is the shortfall against the exact sum, not the estimate."
+      },
+      null,
+      {
+        "Ar": "150 لا يساوي الفرق بين 900 و850.",
+        "En": "150 is not the difference between 900 and 850."
+      }
+    ],
+    "idea": {
+      "Ar": "نقرب الأسعار منفصلة ثم نقارن مجموعها التقديري بالميزانية.",
+      "En": "Round each price separately, then compare their estimated total with the budget."
+    },
+    "formula": "E=200+300+400",
+    "steps": [
+      {
+        "Ar": "$198\\to200,\\quad297\\to300,\\quad398\\to400$",
+        "En": "$198\\to200,\\quad297\\to300,\\quad398\\to400$"
+      },
+      {
+        "Ar": "$E=900$",
+        "En": "$E=900$"
+      }
+    ],
+    "sub": {
+      "Ar": "$900-850=50$",
+      "En": "$900-850=50$"
+    },
+    "result": {
+      "Ar": "$50$",
+      "En": "$50$"
+    },
+    "verify": {
+      "Ar": "$850+50=900$",
+      "En": "$850+50=900$"
+    },
+    "hints": [
+      {
+        "Ar": "قرّب إلى أقرب مئة لا عشرة.",
+        "En": "Round to the nearest hundred, not ten."
+      },
+      {
+        "Ar": "اطرح الميزانية من المجموع التقديري.",
+        "En": "Subtract the budget from the estimated total."
+      }
+    ],
+    "error": {
+      "Ar": "لا تستبدل المجموع التقديري بالمجموع الدقيق.",
+      "En": "Do not substitute the exact total for the requested estimate."
+    }
+  },
+  {
+    "track": 12,
+    "stage": 3,
+    "cat": 10,
+    "skill": 47,
+    "sk": "secondary-pythagorean-trig-identity",
+    "family": "reciprocal-identity-combined-square",
+    "title": {
+      "Ar": "تبسيط تعبير مثلثي مقلوب",
+      "En": "Simplifying a reciprocal trigonometric expression"
+    },
+    "q": {
+      "Ar": "لزاوية حقيقية θ تحقق sin θ ≠ 0، ما قيمة cot² θ − csc² θ؟",
+      "En": "For a real angle θ with sin θ ≠ 0, what is cot² θ − csc² θ?"
+    },
+    "opts": [
+      "-1",
+      "0",
+      "1",
+      "2"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "الفرق ليس صفراً لأن المربعين يختلفان بواحد.",
+        "En": "The difference is not zero because the squares differ by one."
+      },
+      {
+        "Ar": "1 ينتج من عكس ترتيب الطرح.",
+        "En": "1 reverses the subtraction order."
+      },
+      {
+        "Ar": "2 لا ينتج من متطابقة فيثاغورس.",
+        "En": "2 does not follow from the Pythagorean identity."
+      }
+    ],
+    "idea": {
+      "Ar": "نقسم متطابقة الجيب وجيب التمام على مربع الجيب غير الصفري.",
+      "En": "Divide the sine-cosine identity by the nonzero square of sine."
+    },
+    "formula": "1+\\cot^2\\theta=\\csc^2\\theta",
+    "steps": [
+      {
+        "Ar": "$\\sin^2\\theta+\\cos^2\\theta=1$",
+        "En": "$\\sin^2\\theta+\\cos^2\\theta=1$"
+      },
+      {
+        "Ar": "$1+\\frac{\\cos^2\\theta}{\\sin^2\\theta}=\\frac1{\\sin^2\\theta}$",
+        "En": "$1+\\frac{\\cos^2\\theta}{\\sin^2\\theta}=\\frac1{\\sin^2\\theta}$"
+      }
+    ],
+    "sub": {
+      "Ar": "$\\cot^2\\theta-\\csc^2\\theta=-1$",
+      "En": "$\\cot^2\\theta-\\csc^2\\theta=-1$"
+    },
+    "result": {
+      "Ar": "$-1$",
+      "En": "$-1$"
+    },
+    "verify": {
+      "Ar": "$\\theta=90^\\circ:\\ 0-1=-1$",
+      "En": "$\\theta=90^\\circ:\\ 0-1=-1$"
+    },
+    "hints": [
+      {
+        "Ar": "حوّل cot وcsc إلى نسب بدلالة الجيب وجيب التمام.",
+        "En": "Rewrite cot and csc using sine and cosine."
+      },
+      {
+        "Ar": "استخدم متطابقة فيثاغورس مع مراعاة ترتيب الطرح.",
+        "En": "Use the Pythagorean identity, keeping the subtraction order."
+      }
+    ],
+    "error": {
+      "Ar": "لا تقلب ترتيب الحدين؛ النتيجة سالبة.",
+      "En": "Do not reverse the terms; the result is negative."
+    }
+  }
+]

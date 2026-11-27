@@ -1,0 +1,694 @@
+[
+  {
+    "key": "growth-v27-grade-1-indirect-length-comparison-common-strip-1",
+    "family": "indirect-length-comparison-common-strip",
+    "skill_key": "length",
+    "track_code": "grade-1",
+    "track": 1,
+    "stage": 1,
+    "category": 82,
+    "skill": 321,
+    "wizard": {
+      "StageId": 1,
+      "CategoryId": 82,
+      "PrimarySkillId": 321,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        1
+      ],
+      "DifficultyLevel": 2,
+      "Points": 10,
+      "Title": {
+        "Ar": "المقارنة غير المباشرة للأطوال",
+        "En": "Indirect length comparison"
+      },
+      "Question": {
+        "Ar": "الشريط الأحمر أطول من الشريط الأبيض. الشريط الأزرق أقصر من الشريط الأبيض. أي شريط هو الأطول؟",
+        "En": "The red strip is longer than the white strip. The blue strip is shorter than the white strip. Which strip is longest?"
+      },
+      "Options": [
+        {
+          "LatexCode": "\\mathrm{Red}",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "\\mathrm{White}",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "الأبيض أقصر من الأحمر حسب المعطيات.",
+            "En": "The white strip is shorter than the red one."
+          }
+        },
+        {
+          "LatexCode": "\\mathrm{Blue}",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "الأزرق أقصر من الأبيض، والأبيض أقصر من الأحمر.",
+            "En": "Blue is shorter than white, which is shorter than red."
+          }
+        },
+        {
+          "LatexCode": "\\mathrm{Equal}",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "الأطوال ليست متساوية لأن المقارنتين صارمتان.",
+            "En": "The lengths are not equal because the comparisons are strict."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "قارن الأحمر بالأبيض أولاً.",
+          "En": "Compare red with white first."
+        },
+        {
+          "Ar": "رتّب الشرائط الثلاثة من الأقصر إلى الأطول.",
+          "En": "Order the three strips from shortest to longest."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "إذا كان طول أول أكبر من طول ثانٍ، والثاني أكبر من طول ثالث، فالأول أكبر من الثالث أيضاً.",
+          "En": "If a first length exceeds a second and the second exceeds a third, the first exceeds the third."
+        },
+        "FormulaLatex": "r>w>b",
+        "Steps": [
+          {
+            "Ar": "الأحمر أطول من الأبيض.",
+            "En": "Red is longer than white."
+          },
+          {
+            "Ar": "الأبيض أطول من الأزرق، إذن الأحمر أطول من كليهما.",
+            "En": "White is longer than blue, so red is longer than both."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$r>w>b$",
+          "En": "$r>w>b$"
+        },
+        "Result": {
+          "Ar": "$\\mathrm{Red}$",
+          "En": "$\\mathrm{Red}$"
+        },
+        "Unit": {
+          "Ar": "شريط",
+          "En": "Strip"
+        },
+        "Verification": {
+          "Ar": "الأزرق هو الأقصر والأبيض في الوسط، فيبقى الأحمر الأطول.",
+          "En": "Blue is shortest and white is in the middle, leaving red as longest."
+        },
+        "CommonError": {
+          "Ar": "لا تعكس معنى أطول وأقصر.",
+          "En": "Do not reverse longer and shorter."
+        }
+      }
+    }
+  },
+  {
+    "key": "growth-v27-grade-1-same-size-unit-length-iteration-1",
+    "family": "same-size-unit-length-iteration",
+    "skill_key": "length",
+    "track_code": "grade-1",
+    "track": 1,
+    "stage": 1,
+    "category": 82,
+    "skill": 321,
+    "wizard": {
+      "StageId": 1,
+      "CategoryId": 82,
+      "PrimarySkillId": 321,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        1
+      ],
+      "DifficultyLevel": 2,
+      "Points": 10,
+      "Title": {
+        "Ar": "القياس بوحدات متساوية",
+        "En": "Measuring with equal units"
+      },
+      "Question": {
+        "Ar": "لدى طفل أعواد متساوية الطول. يضع أربعة أعواد متلامسة من طرف إلى طرف دون تداخل أو فراغات على طول قلم. يصل العود الرابع تماماً إلى نهاية القلم. كم طول القلم بوحدة العود؟",
+        "En": "A child has equal-length sticks. Four sticks placed end to end without gaps or overlaps cover a pencil exactly. What is the pencil length in stick units?"
+      },
+      "Options": [
+        {
+          "LatexCode": "3",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "ثلاثة أعواد لا تصل إلى نهاية القلم.",
+            "En": "Three sticks do not reach the end of the pencil."
+          }
+        },
+        {
+          "LatexCode": "4",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "5",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "خمسة أعواد تتجاوز نهاية القلم.",
+            "En": "Five sticks extend beyond the pencil."
+          }
+        },
+        {
+          "LatexCode": "8",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "عد طرفي كل عود لا الأعواد نفسها.",
+            "En": "Counts both ends of each stick instead of the sticks."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "ما وحدة الطول في هذا السؤال؟",
+          "En": "What is the unit of length here?"
+        },
+        {
+          "Ar": "عد الأعواد المستخدمة نفسها، لا أطرافها.",
+          "En": "Count the sticks themselves, not their ends."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "عند وضع وحدات متساوية دون فراغات أو تداخل، يساوي الطول عدد الوحدات التي تغطيه تماماً.",
+          "En": "Equal units laid without gaps or overlap measure length by the number of units that exactly cover it."
+        },
+        "FormulaLatex": "1+1+1+1",
+        "Steps": [
+          {
+            "Ar": "كل عود يمثل وحدة طول واحدة.",
+            "En": "Each stick represents one unit of length."
+          },
+          {
+            "Ar": "تغطي أربعة أعواد القلم تماماً، إذن طول القلم أربع وحدات.",
+            "En": "Four sticks cover the pencil exactly, so its length is four units."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$1+1+1+1=4$",
+          "En": "$1+1+1+1=4$"
+        },
+        "Result": {
+          "Ar": "$4$",
+          "En": "$4$"
+        },
+        "Unit": {
+          "Ar": "وحدات عود",
+          "En": "Stick units"
+        },
+        "Verification": {
+          "Ar": "إذا أزلنا عوداً واحداً تصبح التغطية ناقصة، مما يؤكد أن أربعة أعواد لازمة.",
+          "En": "Removing one stick leaves the coverage incomplete, confirming four sticks are needed."
+        },
+        "CommonError": {
+          "Ar": "لا تعد نقاط التلامس أو أطراف الأعواد بدلاً من وحدات الطول.",
+          "En": "Do not count contact points or stick endpoints instead of length units."
+        }
+      }
+    }
+  },
+  {
+    "key": "growth-v27-grade-1-read-half-hour-from-clock-hands-1",
+    "family": "read-half-hour-from-clock-hands",
+    "skill_key": "time",
+    "track_code": "grade-1",
+    "track": 1,
+    "stage": 1,
+    "category": 82,
+    "skill": 324,
+    "wizard": {
+      "StageId": 1,
+      "CategoryId": 82,
+      "PrimarySkillId": 324,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        1
+      ],
+      "DifficultyLevel": 2,
+      "Points": 10,
+      "Title": {
+        "Ar": "قراءة الساعة ونصف الساعة",
+        "En": "Reading the half hour"
+      },
+      "Question": {
+        "Ar": "على ساعة ذات عقربين، يشير عقرب الدقائق إلى العدد 6 ويقع عقرب الساعات في منتصف المسافة بين 2 و3. ما الوقت؟",
+        "En": "On an analogue clock, the minute hand points to 6 and the hour hand is halfway between 2 and 3. What time is it?"
+      },
+      "Options": [
+        {
+          "LatexCode": "2{:}00",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "عند 2:00 يشير عقرب الدقائق إلى 12.",
+            "En": "At 2:00 the minute hand points to 12."
+          }
+        },
+        {
+          "LatexCode": "2{:}30",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "3{:}00",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "عند 3:00 يشير عقرب الساعات إلى 3 تماماً.",
+            "En": "At 3:00 the hour hand points exactly at 3."
+          }
+        },
+        {
+          "LatexCode": "6{:}02",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "العدد 6 على قرص الساعة يمثل 30 دقيقة لعقرب الدقائق، وليس الساعة السادسة.",
+            "En": "The numeral 6 represents 30 minutes for the minute hand, not six o'clock."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "حدد أولاً ما إذا كان عقرب الدقائق عند 12 أم 6.",
+          "En": "First decide whether the minute hand is at 12 or 6."
+        },
+        {
+          "Ar": "عقرب الساعات تجاوز 2 ولم يصل إلى 3.",
+          "En": "The hour hand has passed 2 but not reached 3."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "عقرب الدقائق عند 6 يعني نصف ساعة بعد الساعة التي تجاوزها عقرب الساعات.",
+          "En": "A minute hand at 6 means half an hour past the hour already passed by the hour hand."
+        },
+        "FormulaLatex": "30=60/2",
+        "Steps": [
+          {
+            "Ar": "عقرب الدقائق عند 6 يعني 30 دقيقة.",
+            "En": "The minute hand at 6 means 30 minutes."
+          },
+          {
+            "Ar": "عقرب الساعات بين 2 و3 يعني أن الساعة الثانية قد مرت.",
+            "En": "The hour hand between 2 and 3 means two o'clock has passed."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$2{:}30$",
+          "En": "$2{:}30$"
+        },
+        "Result": {
+          "Ar": "$2{:}30$",
+          "En": "$2{:}30$"
+        },
+        "Unit": {
+          "Ar": "وقت",
+          "En": "Time"
+        },
+        "Verification": {
+          "Ar": "بعد نصف ساعة أخرى يصبح الوقت 3:00 ويصل عقرب الدقائق إلى 12.",
+          "En": "Another half hour brings 3:00 and the minute hand to 12."
+        },
+        "CommonError": {
+          "Ar": "لا تبدل بين وظيفة عقرب الساعات وعقرب الدقائق.",
+          "En": "Do not swap the roles of the hour and minute hands."
+        }
+      }
+    }
+  },
+  {
+    "key": "growth-v27-grade-6-mean-combine-frequency-counts-1",
+    "family": "mean-combine-frequency-counts",
+    "skill_key": "primary-arithmetic-mean",
+    "track_code": "grade-6",
+    "track": 6,
+    "stage": 1,
+    "category": 4,
+    "skill": 19,
+    "wizard": {
+      "StageId": 1,
+      "CategoryId": 4,
+      "PrimarySkillId": 19,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        6
+      ],
+      "DifficultyLevel": 2,
+      "Points": 10,
+      "Title": {
+        "Ar": "حساب المتوسط من التكرارات",
+        "En": "Computing a mean from frequencies"
+      },
+      "Question": {
+        "Ar": "سجلت مجموعة من 8 طلاب عدد الكتب المقروءة: 3 طلاب قرؤوا كتابين لكل منهم، و4 طلاب قرؤوا 4 كتب لكل منهم، وطالب واحد قرأ 10 كتب. ما متوسط عدد الكتب لكل طالب؟",
+        "En": "Eight pupils reported their reading: 3 read 2 books each, 4 read 4 books each, and 1 read 10 books. What is the mean number of books per pupil?"
+      },
+      "Options": [
+        {
+          "LatexCode": "4",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "5",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "المجموع 32 كتاباً وعدد الطلاب 8، فلا يساوي المتوسط 5.",
+            "En": "There are 32 books and 8 pupils, so the mean is not 5."
+          }
+        },
+        {
+          "LatexCode": "6",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "6 لا يساوي مجموع القراءات مقسوماً على عدد الطلاب.",
+            "En": "6 is not the total readings divided by the pupil count."
+          }
+        },
+        {
+          "LatexCode": "8",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "8 هو عدد الطلاب وليس متوسط القراءات.",
+            "En": "8 is the pupil count, not the mean reading."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "احسب عدد الكتب في كل مجموعة من الطلاب.",
+          "En": "Find the total books read by each group."
+        },
+        {
+          "Ar": "اجمع الكتب واقسم على عدد الطلاب، لا عدد مجموعات التكرار.",
+          "En": "Add the books and divide by the number of pupils, not the number of frequency groups."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "المتوسط الحسابي للبيانات ذات التكرار يساوي مجموع حاصل ضرب كل قيمة في تكرارها مقسوماً على مجموع التكرارات الموجب.",
+          "En": "The mean of frequency data is the sum of each value times its frequency divided by the positive total frequency."
+        },
+        "FormulaLatex": "\\bar x=\\frac{\\sum_i f_ix_i}{\\sum_i f_i}",
+        "Steps": [
+          {
+            "Ar": "المجموع للفئة الأولى 3×2=6 كتب، وللثانية 4×4=16، وللثالثة 1×10=10.",
+            "En": "The first group reads 3×2=6 books, the second 4×4=16, and the third 1×10=10."
+          },
+          {
+            "Ar": "إجمالي الكتب 6+16+10=32. العدد الكلي للطلاب 3+4+1=8.",
+            "En": "Total books are 6+16+10=32. The total pupils are 3+4+1=8."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$\\bar x=\\frac{32}{8}=4$",
+          "En": "$\\bar x=\\frac{32}{8}=4$"
+        },
+        "Result": {
+          "Ar": "$4$",
+          "En": "$4$"
+        },
+        "Unit": {
+          "Ar": "كتب لكل طالب",
+          "En": "Books per pupil"
+        },
+        "Verification": {
+          "Ar": "لو قرأ كل طالب 4 كتب لحصلنا على 8×4=32 كتاباً، وهو المجموع الفعلي.",
+          "En": "If each pupil read four books, 8×4=32 would match the actual total."
+        },
+        "CommonError": {
+          "Ar": "لا تحسب متوسط 2 و4 و10 دون التكرارات.",
+          "En": "Do not average 2, 4 and 10 without their frequencies."
+        }
+      }
+    }
+  },
+  {
+    "key": "growth-v27-grade-6-median-from-ordered-frequency-groups-1",
+    "family": "median-from-ordered-frequency-groups",
+    "skill_key": "primary-median",
+    "track_code": "grade-6",
+    "track": 6,
+    "stage": 1,
+    "category": 4,
+    "skill": 18,
+    "wizard": {
+      "StageId": 1,
+      "CategoryId": 4,
+      "PrimarySkillId": 18,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        6
+      ],
+      "DifficultyLevel": 2,
+      "Points": 10,
+      "Title": {
+        "Ar": "تحديد الوسيط من تكرارات مرتبة",
+        "En": "Finding the median from ordered frequencies"
+      },
+      "Question": {
+        "Ar": "أُحصيت أعداد الأقلام في حقائب 9 طلاب: طالبان لديهما قلم واحد لكل منهما، و4 طلاب لديهم 3 أقلام لكل منهم، و3 طلاب لديهم 5 أقلام لكل منهم. ما وسيط عدد الأقلام؟",
+        "En": "The numbers of pencils in 9 pupils' bags are recorded: 2 pupils have 1 each, 4 have 3 each, and 3 have 5 each. What is the median number of pencils?"
+      },
+      "Options": [
+        {
+          "LatexCode": "1",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "القيمة 1 تشغل الموضعين الأول والثاني فقط.",
+            "En": "1 occupies only the first two positions."
+          }
+        },
+        {
+          "LatexCode": "3",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "4",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "4 تكرار القيمة 3 وليس قيمة من البيانات.",
+            "En": "4 is the frequency of value 3, not an observed value."
+          }
+        },
+        {
+          "LatexCode": "5",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "القيمة 5 تشغل المواضع السابع إلى التاسع، وليس الخامس.",
+            "En": "5 occupies positions seven to nine, not the fifth."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "حدد موضع الوسيط في قائمة تضم 9 قيماً مرتبة.",
+          "En": "Find the median position in a sorted list of 9 observations."
+        },
+        {
+          "Ar": "استعمل التكرارات لتعرف أي قيمة تحتل ذلك الموضع.",
+          "En": "Use the frequencies to find which value occupies that position."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "إذا كان عدد القيم فردياً ومرتباً تصاعدياً، يقع الوسيط في الموضع الأوسط.",
+          "En": "For an odd number of values in ascending order, the median is the middle observation."
+        },
+        "FormulaLatex": "k=\\frac{n+1}{2}",
+        "Steps": [
+          {
+            "Ar": "عدد الطلاب 9، لذا موضع الوسيط (9+1)/2=5.",
+            "En": "There are 9 pupils, so the median position is (9+1)/2=5."
+          },
+          {
+            "Ar": "القيمة 1 في الموضعين 1 و2، والقيمة 3 في المواضع 3 إلى 6، والقيمة 5 في المواضع 7 إلى 9.",
+            "En": "Value 1 occupies positions 1 and 2, value 3 positions 3 through 6, and value 5 positions 7 through 9."
+          },
+          {
+            "Ar": "الموضع الخامس يحمل القيمة 3.",
+            "En": "The fifth position contains value 3."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$k=5$",
+          "En": "$k=5$"
+        },
+        "Result": {
+          "Ar": "$3$",
+          "En": "$3$"
+        },
+        "Unit": {
+          "Ar": "أقلام",
+          "En": "Pencils"
+        },
+        "Verification": {
+          "Ar": "القائمة هي 1،1،3،3،3،3،5،5،5، وتوجد أربع قيم قبل الموضع الخامس وأربع بعده.",
+          "En": "The list is 1,1,3,3,3,3,5,5,5, with four entries before and four after position five."
+        },
+        "CommonError": {
+          "Ar": "لا تخلط بين قيمة الوسيط وعدد مرات تكرارها.",
+          "En": "Do not confuse the median value with its frequency."
+        }
+      }
+    }
+  },
+  {
+    "key": "growth-v27-grade-6-mean-compare-two-equal-total-different-count-1",
+    "family": "mean-compare-two-equal-total-different-count",
+    "skill_key": "primary-arithmetic-mean",
+    "track_code": "grade-6",
+    "track": 6,
+    "stage": 1,
+    "category": 4,
+    "skill": 19,
+    "wizard": {
+      "StageId": 1,
+      "CategoryId": 4,
+      "PrimarySkillId": 19,
+      "SecondarySkillIds": [],
+      "TrackIds": [
+        6
+      ],
+      "DifficultyLevel": 2,
+      "Points": 10,
+      "Title": {
+        "Ar": "مقارنة المتوسطات عند تساوي المجموع",
+        "En": "Comparing means with equal totals"
+      },
+      "Question": {
+        "Ar": "جمع فريق A مقدار 48 نقطة في 6 جولات، وجمع فريق B المقدار نفسه في 8 جولات. بكم يزيد متوسط نقاط A لكل جولة على متوسط نقاط B؟",
+        "En": "Team A scores 48 points in 6 rounds, and Team B scores the same total in 8 rounds. By how much does A's mean points per round exceed B's?"
+      },
+      "Options": [
+        {
+          "LatexCode": "0",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "تساوي المجموعين لا يعني تساوي المتوسطين عندما يختلف عدد الجولات.",
+            "En": "Equal totals do not imply equal means when round counts differ."
+          }
+        },
+        {
+          "LatexCode": "2",
+          "IsCorrect": true,
+          "ErrorType": "",
+          "Reason": {
+            "Ar": "",
+            "En": ""
+          }
+        },
+        {
+          "LatexCode": "6",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "6 هو متوسط الفريق B، وليس الفرق.",
+            "En": "6 is Team B's mean, not the difference."
+          }
+        },
+        {
+          "LatexCode": "8",
+          "IsCorrect": false,
+          "ErrorType": "misconception",
+          "Reason": {
+            "Ar": "8 هو متوسط الفريق A، وليس الفرق.",
+            "En": "8 is Team A's mean, not the difference."
+          }
+        }
+      ],
+      "Hints": [
+        {
+          "Ar": "احسب متوسط كل فريق باستخدام عدد جولاته.",
+          "En": "Find each team's mean using its own round count."
+        },
+        {
+          "Ar": "اطرح متوسط B من متوسط A.",
+          "En": "Subtract B's mean from A's mean."
+        }
+      ],
+      "Solution": {
+        "Idea": {
+          "Ar": "المتوسط الحسابي يساوي مجموع القيم على عددها الموجب؛ وعند تساوي المجموع يزداد المتوسط إذا قل العدد.",
+          "En": "Arithmetic mean is total divided by positive count; for equal positive totals, the smaller count has the greater mean."
+        },
+        "FormulaLatex": "\\Delta=\\frac{48}{6}-\\frac{48}{8}",
+        "Steps": [
+          {
+            "Ar": "متوسط A يساوي 48/6=8 نقاط للجولة.",
+            "En": "A's mean is 48/6=8 points per round."
+          },
+          {
+            "Ar": "متوسط B يساوي 48/8=6 نقاط للجولة.",
+            "En": "B's mean is 48/8=6 points per round."
+          },
+          {
+            "Ar": "الفرق يساوي 8−6=2.",
+            "En": "The difference is 8−6=2."
+          }
+        ],
+        "Substitution": {
+          "Ar": "$8-6=2$",
+          "En": "$8-6=2$"
+        },
+        "Result": {
+          "Ar": "$2$",
+          "En": "$2$"
+        },
+        "Unit": {
+          "Ar": "نقطة لكل جولة",
+          "En": "Points per round"
+        },
+        "Verification": {
+          "Ar": "التحقق: 8×6=48 و6×8=48، فالمتوسطان يوافقان المجموعين وعددي الجولات.",
+          "En": "Check: 8×6=48 and 6×8=48, matching the totals and round counts."
+        },
+        "CommonError": {
+          "Ar": "لا تستخدم مجموع النقاط وحده للمقارنة بين المتوسطات.",
+          "En": "Do not compare means using totals alone."
+        }
+      }
+    }
+  }
+]

@@ -1,0 +1,1498 @@
+[
+  {
+    "track": 7,
+    "cat": 6,
+    "skill": 25,
+    "sk": "middle-linear-equations",
+    "family": "linear-equation-negative-output-fractional-answer",
+    "title": {
+      "Ar": "حل كسري سالب",
+      "En": "Negative fractional solution"
+    },
+    "q": {
+      "Ar": "حل المعادلة $4x+9=2$.",
+      "En": "Solve $4x+9=2$."
+    },
+    "opts": [
+      "-\\frac74",
+      "\\frac74",
+      "-7",
+      "-\\frac{11}4"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "عكس إشارة الفرق.",
+        "En": "Reverses the sign of the difference."
+      },
+      {
+        "Ar": "لم يقسم على 4.",
+        "En": "Fails to divide by four."
+      },
+      {
+        "Ar": "جمع الثابتين مع إشارة خاطئة.",
+        "En": "Combines constants with an incorrect sign."
+      }
+    ],
+    "idea": {
+      "Ar": "نطرح 9 من الطرفين ثم نقسم على 4.",
+      "En": "Subtract nine on both sides and divide by four."
+    },
+    "formula": "x=(2-9)/4",
+    "steps": [
+      {
+        "Ar": "$4x=2-9=-7$",
+        "En": "$4x=2-9=-7$"
+      },
+      {
+        "Ar": "$x=-7/4$",
+        "En": "$x=-7/4$"
+      }
+    ],
+    "sub": {
+      "Ar": "$4x=2-9=-7$",
+      "En": "$4x=2-9=-7$"
+    },
+    "result": {
+      "Ar": "$-\\frac74$",
+      "En": "$-\\frac74$"
+    },
+    "verify": {
+      "Ar": "$4(-7/4)+9=2$",
+      "En": "$4(-7/4)+9=2$"
+    },
+    "hints": [
+      {
+        "Ar": "اطرح 9.",
+        "En": "Subtract nine."
+      },
+      {
+        "Ar": "اقسم الناتج السالب على 4.",
+        "En": "Divide the negative result by four."
+      }
+    ],
+    "error": {
+      "Ar": "لا تحذف الإشارة السالبة عند القسمة.",
+      "En": "Keep the negative sign when dividing."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 7,
+    "cat": 6,
+    "skill": 25,
+    "sk": "middle-linear-equations",
+    "family": "linear-equation-distributive-context-change",
+    "title": {
+      "Ar": "محيط مستطيل بعرض مجهول",
+      "En": "Rectangle perimeter with unknown width"
+    },
+    "q": {
+      "Ar": "طول مستطيل يزيد على عرضه x بمقدار 3، ومحيطه 30. ما العرض؟",
+      "En": "A rectangle has width x and length 3 units more than its width. Its perimeter is 30. Find the width."
+    },
+    "opts": [
+      "12",
+      "9",
+      "7.5",
+      "6"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "طرح 3 من نصف المحيط دون القسمة.",
+        "En": "Subtracts three from half the perimeter without dividing."
+      },
+      {
+        "Ar": "هذا الطول.",
+        "En": "This is the length."
+      },
+      {
+        "Ar": "يفترض تساوي الطول والعرض.",
+        "En": "Assumes a square."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "نعوض الطول x+3 في قانون المحيط.",
+      "En": "Substitute length x+3 into the perimeter formula."
+    },
+    "formula": "2(x+x+3)=30",
+    "steps": [
+      {
+        "Ar": "$2x+3=15$",
+        "En": "$2x+3=15$"
+      },
+      {
+        "Ar": "$2x=12$",
+        "En": "$2x=12$"
+      },
+      {
+        "Ar": "$x=6$",
+        "En": "$x=6$"
+      }
+    ],
+    "sub": {
+      "Ar": "$2x+3=15$",
+      "En": "$2x+3=15$"
+    },
+    "result": {
+      "Ar": "$6$",
+      "En": "$6$"
+    },
+    "verify": {
+      "Ar": "$2(6+9)=30$",
+      "En": "$2(6+9)=30$"
+    },
+    "hints": [
+      {
+        "Ar": "اكتب الطول بدلالة العرض.",
+        "En": "Express length in terms of width."
+      },
+      {
+        "Ar": "اقسم المحيط على 2 أولاً.",
+        "En": "Halve the perimeter first."
+      }
+    ],
+    "error": {
+      "Ar": "نصف المحيط مجموع الطول والعرض وليس العرض وحده.",
+      "En": "Half the perimeter is length plus width, not width alone."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 7,
+    "cat": 85,
+    "skill": 335,
+    "sk": "frequency",
+    "family": "experimental-frequency-combine-replicates",
+    "title": {
+      "Ar": "تجميع نتائج تجربتين",
+      "En": "Pooling two trials"
+    },
+    "q": {
+      "Ar": "نجح اختبار في 8 من 20 محاولة، ثم في 18 من 30 محاولة أخرى. ما التكرار النسبي للنجاح في جميع المحاولات؟",
+      "En": "A test succeeds in 8 of 20 attempts, then in 18 of 30 further attempts. What is the pooled relative frequency of success?"
+    },
+    "opts": [
+      "0.6",
+      "0.4",
+      "0.52",
+      "0.5"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "نسبة المجموعة الثانية فقط.",
+        "En": "Uses only the second group."
+      },
+      {
+        "Ar": "نسبة المجموعة الأولى فقط.",
+        "En": "Uses only the first group."
+      },
+      null,
+      {
+        "Ar": "متوسط النسبتين دون اعتبار عدد المحاولات.",
+        "En": "Averages the rates without weighting by trial count."
+      }
+    ],
+    "idea": {
+      "Ar": "نجمع النجاحات والمحاولات كلّاً على حدة.",
+      "En": "Add successes and attempts separately."
+    },
+    "formula": "f=(8+18)/(20+30)",
+    "steps": [
+      {
+        "Ar": "$8+18=26$",
+        "En": "$8+18=26$"
+      },
+      {
+        "Ar": "$20+30=50$",
+        "En": "$20+30=50$"
+      },
+      {
+        "Ar": "$26/50=0.52$",
+        "En": "$26/50=0.52$"
+      }
+    ],
+    "sub": {
+      "Ar": "$8+18=26$",
+      "En": "$8+18=26$"
+    },
+    "result": {
+      "Ar": "$0.52$",
+      "En": "$0.52$"
+    },
+    "verify": {
+      "Ar": "$0.52\\cdot50=26$",
+      "En": "$0.52\\cdot50=26$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب مجموع النجاحات.",
+        "En": "Total the successes."
+      },
+      {
+        "Ar": "اقسم على مجموع المحاولات.",
+        "En": "Divide by total attempts."
+      }
+    ],
+    "error": {
+      "Ar": "لا تأخذ متوسط نسبتين من مجموعتين مختلفتي الحجم دون أوزان.",
+      "En": "Do not average rates from unequal groups without weights."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 8,
+    "cat": 8,
+    "skill": 36,
+    "sk": "middle-circle-area",
+    "family": "circle-area-annular-region",
+    "title": {
+      "Ar": "مساحة حلقة دائرية",
+      "En": "Area of an annulus"
+    },
+    "q": {
+      "Ar": "دائرتان متحدتا المركز، نصفا قطريهما 7 و3. ما مساحة المنطقة داخل الكبرى وخارج الصغرى؟",
+      "En": "Two concentric circles have radii 7 and 3. What is the area inside the larger and outside the smaller?"
+    },
+    "opts": [
+      "4\\pi",
+      "40\\pi",
+      "16\\pi",
+      "58\\pi"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "استعمل فرق الأطوال دون تربيع.",
+        "En": "Uses the length difference without squaring."
+      },
+      null,
+      {
+        "Ar": "ربع فرق نصفي القطرين.",
+        "En": "Squares the difference of the radii."
+      },
+      {
+        "Ar": "جمع المساحتين.",
+        "En": "Adds the areas."
+      }
+    ],
+    "idea": {
+      "Ar": "نطرح مساحة القرص الأصغر من مساحة الأكبر.",
+      "En": "Subtract the smaller disk area from the larger."
+    },
+    "formula": "A=\\pi(R^2-r^2)",
+    "steps": [
+      {
+        "Ar": "$R^2-r^2=49-9=40$",
+        "En": "$R^2-r^2=49-9=40$"
+      },
+      {
+        "Ar": "$A=40\\pi$",
+        "En": "$A=40\\pi$"
+      }
+    ],
+    "sub": {
+      "Ar": "$R^2-r^2=49-9=40$",
+      "En": "$R^2-r^2=49-9=40$"
+    },
+    "result": {
+      "Ar": "$40\\pi$",
+      "En": "$40\\pi$"
+    },
+    "verify": {
+      "Ar": "$40\\pi+9\\pi=49\\pi$",
+      "En": "$40\\pi+9\\pi=49\\pi$"
+    },
+    "hints": [
+      {
+        "Ar": "احسب مربع كل نصف قطر.",
+        "En": "Square each radius."
+      },
+      {
+        "Ar": "اطرح المربعين ثم اضرب في π.",
+        "En": "Subtract the squares and multiply by π."
+      }
+    ],
+    "error": {
+      "Ar": "فرق المربعين لا يساوي مربع الفرق.",
+      "En": "The difference of squares is not the squared difference."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 8,
+    "cat": 8,
+    "skill": 38,
+    "sk": "middle-vertical-angles",
+    "family": "vertical-angle-adjacent-ratio",
+    "title": {
+      "Ar": "زوايا متقابلة ومتجاورة",
+      "En": "Vertical and adjacent angles"
+    },
+    "q": {
+      "Ar": "يتقاطع مستقيمان. إحدى الزوايا ضعف الزاوية المجاورة لها. ما قياس الزاوية المقابلة بالرأس للزاوية الأكبر بالدرجات؟",
+      "En": "Two lines intersect. One angle is twice its adjacent angle. What is the vertically opposite angle to the larger angle, in degrees?"
+    },
+    "opts": [
+      "120",
+      "60",
+      "90",
+      "180"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "قياس الزاوية الأصغر.",
+        "En": "The smaller angle."
+      },
+      {
+        "Ar": "يفترض التعامد.",
+        "En": "Assumes perpendicular lines."
+      },
+      {
+        "Ar": "مجموع الزاويتين المتجاورتين.",
+        "En": "The sum of adjacent angles."
+      }
+    ],
+    "idea": {
+      "Ar": "المتجاورتان على مستقيم مجموعهما 180 والمتقابلتان بالرأس متساويتان.",
+      "En": "Adjacent angles on a line sum to 180 and vertical angles are equal."
+    },
+    "formula": "x+2x=180",
+    "steps": [
+      {
+        "Ar": "$3x=180$",
+        "En": "$3x=180$"
+      },
+      {
+        "Ar": "$x=60$",
+        "En": "$x=60$"
+      },
+      {
+        "Ar": "$2x=120$",
+        "En": "$2x=120$"
+      }
+    ],
+    "sub": {
+      "Ar": "$3x=180$",
+      "En": "$3x=180$"
+    },
+    "result": {
+      "Ar": "$120$",
+      "En": "$120$"
+    },
+    "verify": {
+      "Ar": "$60+120=180$",
+      "En": "$60+120=180$"
+    },
+    "hints": [
+      {
+        "Ar": "رمز للأصغر بـ x.",
+        "En": "Let the smaller angle be x."
+      },
+      {
+        "Ar": "الزاوية المقابلة بالرأس تساوي الأكبر.",
+        "En": "The vertical angle equals the larger one."
+      }
+    ],
+    "error": {
+      "Ar": "لا تخلط المتقابلتين بالرأس والمتجاورتين.",
+      "En": "Do not confuse vertical and adjacent angles."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 8,
+    "cat": 22,
+    "skill": 99,
+    "sk": "m-statistics-summary-measures",
+    "family": "median-change-in-order-with-tied-center",
+    "title": {
+      "Ar": "الوسيط بعد إضافة تكرار",
+      "En": "Median after adding a repeated value"
+    },
+    "q": {
+      "Ar": "القيم المرتبة هي 2،4،8،10. أضيفت قيمة 4 أخرى. ما الوسيط الجديد؟",
+      "En": "The sorted values are 2,4,8,10. Another value of 4 is added. What is the new median?"
+    },
+    "opts": [
+      "6",
+      "8",
+      "5.6",
+      "4"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "الوسيط قبل الإضافة.",
+        "En": "The original median."
+      },
+      {
+        "Ar": "القيمة الرابعة في القائمة الجديدة.",
+        "En": "The fourth new observation."
+      },
+      {
+        "Ar": "المتوسط الحسابي الجديد.",
+        "En": "The new mean."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "بعد الإضافة يصبح العدد فردياً والوسيط هو القيمة الثالثة.",
+      "En": "After insertion the count is odd and the median is third."
+    },
+    "formula": "i=(5+1)/2",
+    "steps": [
+      {
+        "Ar": "$2,4,4,8,10$",
+        "En": "$2,4,4,8,10$"
+      },
+      {
+        "Ar": "$i=3$",
+        "En": "$i=3$"
+      },
+      {
+        "Ar": "$x_3=4$",
+        "En": "$x_3=4$"
+      }
+    ],
+    "sub": {
+      "Ar": "$2,4,4,8,10$",
+      "En": "$2,4,4,8,10$"
+    },
+    "result": {
+      "Ar": "$4$",
+      "En": "$4$"
+    },
+    "verify": {
+      "Ar": "$2<4\\le4\\le8<10$",
+      "En": "$2<4\\le4\\le8<10$"
+    },
+    "hints": [
+      {
+        "Ar": "أعد ترتيب القيم بعد الإضافة.",
+        "En": "Sort after insertion."
+      },
+      {
+        "Ar": "اختر القيمة الثالثة من خمس.",
+        "En": "Choose the third of five."
+      }
+    ],
+    "error": {
+      "Ar": "لا تستعمل متوسط القيمتين الوسطيتين بعد تحول العدد إلى فردي.",
+      "En": "Do not average two middle values once the count is odd."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 8,
+    "cat": 85,
+    "skill": 336,
+    "sk": "sample-spaces",
+    "family": "sample-space-distinct-products-not-pairs",
+    "title": {
+      "Ar": "عدد النواتج المختلفة",
+      "En": "Distinct product outcomes"
+    },
+    "q": {
+      "Ar": "تُختار قيمة من {1,2,3} وقيمة من {2,4}، ثم تضرب القيمتان. كم حاصل ضرب مختلفاً يمكن الحصول عليه؟",
+      "En": "Choose one value from {1,2,3} and one from {2,4}, then multiply. How many distinct products are possible?"
+    },
+    "opts": [
+      "6",
+      "8",
+      "5",
+      "3"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "يعد الناتج 4 مرتين.",
+        "En": "Counts product four twice."
+      },
+      {
+        "Ar": "لا يمثل عدد الأزواج أو النواتج.",
+        "En": "Neither the pair count nor the product count."
+      },
+      null,
+      {
+        "Ar": "عدد قيم المجموعة الأولى فقط.",
+        "En": "Counts only the first set."
+      }
+    ],
+    "idea": {
+      "Ar": "نسرد النواتج ونزيل التكرار.",
+      "En": "List products and remove duplicates."
+    },
+    "formula": "\\{1,2,3\\}\\times\\{2,4\\}",
+    "steps": [
+      {
+        "Ar": "$1\\cdot2=2,\\ 1\\cdot4=4$",
+        "En": "$1\\cdot2=2,\\ 1\\cdot4=4$"
+      },
+      {
+        "Ar": "$2\\cdot2=4,\\ 2\\cdot4=8$",
+        "En": "$2\\cdot2=4,\\ 2\\cdot4=8$"
+      },
+      {
+        "Ar": "$3\\cdot2=6,\\ 3\\cdot4=12$",
+        "En": "$3\\cdot2=6,\\ 3\\cdot4=12$"
+      }
+    ],
+    "sub": {
+      "Ar": "$1\\cdot2=2,\\ 1\\cdot4=4$",
+      "En": "$1\\cdot2=2,\\ 1\\cdot4=4$"
+    },
+    "result": {
+      "Ar": "$5$",
+      "En": "$5$"
+    },
+    "verify": {
+      "Ar": "$|\\{2,4,6,8,12\\}|=5$",
+      "En": "$|\\{2,4,6,8,12\\}|=5$"
+    },
+    "hints": [
+      {
+        "Ar": "اكتب ست عمليات ضرب.",
+        "En": "List all six products."
+      },
+      {
+        "Ar": "احذف كل قيمة مكررة.",
+        "En": "Remove repeated values."
+      }
+    ],
+    "error": {
+      "Ar": "عدد الأزواج ليس دائماً عدد النواتج المختلفة.",
+      "En": "The pair count need not equal the number of distinct results."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 9,
+    "cat": 34,
+    "skill": 37,
+    "sk": "middle-pythagorean-theorem",
+    "family": "pythagorean-square-diagonal-area",
+    "title": {
+      "Ar": "مساحة مربع من قطره",
+      "En": "Square area from diagonal"
+    },
+    "q": {
+      "Ar": "قطر مربع طوله $10\\sqrt2$. ما مساحة المربع؟",
+      "En": "A square has diagonal $10\\sqrt2$. What is its area?"
+    },
+    "opts": [
+      "20",
+      "100",
+      "50",
+      "200"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "خلط بين المساحة والطول.",
+        "En": "Confuses area with length."
+      },
+      null,
+      {
+        "Ar": "قسم مربع القطر على أربعة.",
+        "En": "Divides the squared diagonal by four."
+      },
+      {
+        "Ar": "مربع القطر وليس مساحة المربع.",
+        "En": "The squared diagonal, not the square area."
+      }
+    ],
+    "idea": {
+      "Ar": "يشكل القطر مثلثاً قائماً بساقين متساويتين.",
+      "En": "The diagonal forms a right triangle with equal legs."
+    },
+    "formula": "d^2=2s^2",
+    "steps": [
+      {
+        "Ar": "$(10\\sqrt2)^2=200$",
+        "En": "$(10\\sqrt2)^2=200$"
+      },
+      {
+        "Ar": "$s^2=200/2=100$",
+        "En": "$s^2=200/2=100$"
+      }
+    ],
+    "sub": {
+      "Ar": "$(10\\sqrt2)^2=200$",
+      "En": "$(10\\sqrt2)^2=200$"
+    },
+    "result": {
+      "Ar": "$100$",
+      "En": "$100$"
+    },
+    "verify": {
+      "Ar": "$10^2+10^2=200$",
+      "En": "$10^2+10^2=200$"
+    },
+    "hints": [
+      {
+        "Ar": "اكتب فيثاغورس للساقين المتساويتين.",
+        "En": "Apply Pythagoras to equal legs."
+      },
+      {
+        "Ar": "المساحة هي مربع الضلع.",
+        "En": "Area is the squared side."
+      }
+    ],
+    "error": {
+      "Ar": "لا تستعمل مربع القطر مباشرة كمساحة.",
+      "En": "Do not use the squared diagonal as the area."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 9,
+    "cat": 34,
+    "skill": 40,
+    "sk": "middle-similar-triangles",
+    "family": "similar-triangle-perimeter-area-scale-check",
+    "title": {
+      "Ar": "نسبة المحيط من نسبة المساحة",
+      "En": "Perimeter ratio from area ratio"
+    },
+    "q": {
+      "Ar": "مثلثان متشابهان، نسبة مساحة الأكبر إلى الأصغر 49:9. محيط الأصغر 18. ما محيط الأكبر؟",
+      "En": "Two triangles are similar with larger-to-smaller area ratio 49:9. The smaller perimeter is 18. What is the larger perimeter?"
+    },
+    "opts": [
+      "42",
+      "98",
+      "54",
+      "126"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "ضرب المحيط بنسبة المساحات.",
+        "En": "Scales perimeter by the area ratio."
+      },
+      {
+        "Ar": "استعمل العدد 3 بدلاً من النسبة.",
+        "En": "Uses three instead of the ratio."
+      },
+      {
+        "Ar": "ضرب في 7 دون القسمة على 3.",
+        "En": "Multiplies by seven without dividing by three."
+      }
+    ],
+    "idea": {
+      "Ar": "نأخذ الجذر التربيعي لنسبة المساحات لإيجاد نسبة الأطوال.",
+      "En": "Take the square root of the area ratio to get the length ratio."
+    },
+    "formula": "k=\\sqrt{49/9}",
+    "steps": [
+      {
+        "Ar": "$k=7/3$",
+        "En": "$k=7/3$"
+      },
+      {
+        "Ar": "$18\\cdot7/3=42$",
+        "En": "$18\\cdot7/3=42$"
+      }
+    ],
+    "sub": {
+      "Ar": "$k=7/3$",
+      "En": "$k=7/3$"
+    },
+    "result": {
+      "Ar": "$42$",
+      "En": "$42$"
+    },
+    "verify": {
+      "Ar": "$(42/18)^2=49/9$",
+      "En": "$(42/18)^2=49/9$"
+    },
+    "hints": [
+      {
+        "Ar": "نسبة المساحات مربع نسبة الأطوال.",
+        "En": "Area ratio is the squared length ratio."
+      },
+      {
+        "Ar": "اضرب المحيط في 7/3.",
+        "En": "Multiply the perimeter by 7/3."
+      }
+    ],
+    "error": {
+      "Ar": "المحيط يتغير خطياً لا تربيعياً.",
+      "En": "Perimeter scales linearly, not quadratically."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 9,
+    "cat": 84,
+    "skill": 327,
+    "sk": "solve-linear-inequalities",
+    "family": "inequality-same-denominator-reverse-negative",
+    "title": {
+      "Ar": "متراجحة بمقام سالب",
+      "En": "Inequality with negative denominator"
+    },
+    "q": {
+      "Ar": "حل المتراجحة $\\frac{x-2}{-3}<4$.",
+      "En": "Solve $\\frac{x-2}{-3}<4$."
+    },
+    "opts": [
+      "x<-10",
+      "x>14",
+      "x>-14",
+      "x>-10"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "لم يعكس الإشارة عند الضرب بسالب.",
+        "En": "Does not reverse the inequality."
+      },
+      {
+        "Ar": "أهمل سالب المقام.",
+        "En": "Ignores the negative denominator."
+      },
+      {
+        "Ar": "طرح 2 بدلاً من جمعه.",
+        "En": "Subtracts two instead of adding it."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "الضرب في −3 يعكس اتجاه المتراجحة.",
+      "En": "Multiplying by −3 reverses the comparison."
+    },
+    "formula": "-3\\frac{x-2}{-3}>-3\\cdot4",
+    "steps": [
+      {
+        "Ar": "$x-2>-12$",
+        "En": "$x-2>-12$"
+      },
+      {
+        "Ar": "$x>-10$",
+        "En": "$x>-10$"
+      }
+    ],
+    "sub": {
+      "Ar": "$x-2>-12$",
+      "En": "$x-2>-12$"
+    },
+    "result": {
+      "Ar": "$x>-10$",
+      "En": "$x>-10$"
+    },
+    "verify": {
+      "Ar": "$x=0:\\ 2/3<4$",
+      "En": "$x=0:\\ 2/3<4$"
+    },
+    "hints": [
+      {
+        "Ar": "اضرب في −3 واعكس الاتجاه.",
+        "En": "Multiply by −3 and reverse the sign."
+      },
+      {
+        "Ar": "أضف 2 للطرفين.",
+        "En": "Add two to both sides."
+      }
+    ],
+    "error": {
+      "Ar": "انتبه إلى سالب المقام.",
+      "En": "Account for the negative denominator."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 9,
+    "cat": 85,
+    "skill": 337,
+    "sk": "simple-compound-events",
+    "family": "probability-with-replacement-exactly-one-success",
+    "title": {
+      "Ar": "احتمال نجاح واحد بالضبط",
+      "En": "Exactly one success"
+    },
+    "q": {
+      "Ar": "كيس فيه كرتان حمراوان وثلاث زرق. نسحب كرتين عشوائياً مع إعادة الأولى قبل السحب الثاني. ما احتمال الحصول على حمراء واحدة بالضبط؟",
+      "En": "A bag has two red and three blue balls. Two random draws are made with replacement. What is the probability of exactly one red ball?"
+    },
+    "opts": [
+      "\\frac4{25}",
+      "\\frac9{25}",
+      "\\frac{12}{25}",
+      "\\frac6{25}"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "احتمال حمراوين.",
+        "En": "Probability of two reds."
+      },
+      {
+        "Ar": "احتمال زرقاوين.",
+        "En": "Probability of two blues."
+      },
+      null,
+      {
+        "Ar": "يحسب ترتيباً واحداً فقط.",
+        "En": "Counts just one order."
+      }
+    ],
+    "idea": {
+      "Ar": "الحالتان المتنافيتان أحمر ثم أزرق أو أزرق ثم أحمر.",
+      "En": "The disjoint cases are red then blue or blue then red."
+    },
+    "formula": "P=2(2/5)(3/5)",
+    "steps": [
+      {
+        "Ar": "$P(RB)=6/25$",
+        "En": "$P(RB)=6/25$"
+      },
+      {
+        "Ar": "$P(BR)=6/25$",
+        "En": "$P(BR)=6/25$"
+      },
+      {
+        "Ar": "$P=12/25$",
+        "En": "$P=12/25$"
+      }
+    ],
+    "sub": {
+      "Ar": "$P(RB)=6/25$",
+      "En": "$P(RB)=6/25$"
+    },
+    "result": {
+      "Ar": "$\\frac{12}{25}$",
+      "En": "$\\frac{12}{25}$"
+    },
+    "verify": {
+      "Ar": "$4/25+12/25+9/25=1$",
+      "En": "$4/25+12/25+9/25=1$"
+    },
+    "hints": [
+      {
+        "Ar": "الإعادة تبقي الاحتمالات ثابتة.",
+        "En": "Replacement preserves the probabilities."
+      },
+      {
+        "Ar": "احسب الترتيبين واجمعهما.",
+        "En": "Count both orders and add."
+      }
+    ],
+    "error": {
+      "Ar": "لا تهمل أحد الترتيبين.",
+      "En": "Do not omit either order."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 10,
+    "cat": 23,
+    "skill": 104,
+    "sk": "s-sequences-series-arithmetic-sequences",
+    "family": "arithmetic-sequence-symmetric-index-property",
+    "title": {
+      "Ar": "حد في منتصف حدين",
+      "En": "Middle indexed term"
+    },
+    "q": {
+      "Ar": "في متتالية حسابية $a_4=13$ و$a_{10}=37$. ما قيمة $a_7$؟",
+      "En": "In an arithmetic sequence, $a_4=13$ and $a_{10}=37$. Find $a_7$."
+    },
+    "opts": [
+      "50",
+      "25",
+      "24",
+      "20"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "مجموع الحدين لا متوسطهما.",
+        "En": "Adds the two terms without averaging."
+      },
+      null,
+      {
+        "Ar": "هذا فرق الحدين المعطيين.",
+        "En": "This is the difference of the given terms."
+      },
+      {
+        "Ar": "ليس متوسط الحدين.",
+        "En": "Not their midpoint."
+      }
+    ],
+    "idea": {
+      "Ar": "الحد الواقع في منتصف الفهرسين هو متوسط الحدين.",
+      "En": "The term midway between two indices is their average."
+    },
+    "formula": "a_7=(a_4+a_{10})/2",
+    "steps": [
+      {
+        "Ar": "$d=(37-13)/6=4$",
+        "En": "$d=(37-13)/6=4$"
+      },
+      {
+        "Ar": "$a_7=13+3\\cdot4=25$",
+        "En": "$a_7=13+3\\cdot4=25$"
+      }
+    ],
+    "sub": {
+      "Ar": "$d=(37-13)/6=4$",
+      "En": "$d=(37-13)/6=4$"
+    },
+    "result": {
+      "Ar": "$25$",
+      "En": "$25$"
+    },
+    "verify": {
+      "Ar": "$37-25=25-13=12$",
+      "En": "$37-25=25-13=12$"
+    },
+    "hints": [
+      {
+        "Ar": "لاحظ أن 7 منتصف 4 و10.",
+        "En": "Notice seven is midway between four and ten."
+      },
+      {
+        "Ar": "احسب متوسط الحدين.",
+        "En": "Average the two terms."
+      }
+    ],
+    "error": {
+      "Ar": "لا تخلط فرق الحدين مع قيمة الحد الأوسط.",
+      "En": "Do not confuse the difference with the middle term."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 10,
+    "cat": 23,
+    "skill": 103,
+    "sk": "s-sequences-series-geometric-sequences",
+    "family": "geometric-sequence-negative-ratio-sign-parity",
+    "title": {
+      "Ar": "إشارة حد في متتالية هندسية",
+      "En": "Sign of a geometric term"
+    },
+    "q": {
+      "Ar": "متتالية هندسية حدها الأول موجب ونسبتها المشتركة سالبة. أي فهرس من الخيارات يوافق حداً سالباً؟",
+      "En": "A geometric sequence has positive first term and negative common ratio. Which listed index has a negative term?"
+    },
+    "opts": [
+      "8",
+      "1",
+      "5",
+      "11"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "الحد الأول موجب.",
+        "En": "The first term is positive."
+      },
+      {
+        "Ar": "أس النسبة أربعة وهو زوجي.",
+        "En": "The ratio exponent is even (four)."
+      },
+      {
+        "Ar": "أس النسبة عشرة وهو زوجي.",
+        "En": "The ratio exponent is even (ten)."
+      }
+    ],
+    "idea": {
+      "Ar": "إشارة الحد تعتمد على زوجية أس النسبة n−1.",
+      "En": "The sign depends on the parity of exponent n−1."
+    },
+    "formula": "a_n=a_1r^{n-1}",
+    "steps": [
+      {
+        "Ar": "$8-1=7$",
+        "En": "$8-1=7$"
+      },
+      {
+        "Ar": "$(-1)^7=-1$",
+        "En": "$(-1)^7=-1$"
+      }
+    ],
+    "sub": {
+      "Ar": "$8-1=7$",
+      "En": "$8-1=7$"
+    },
+    "result": {
+      "Ar": "$8$",
+      "En": "$8$"
+    },
+    "verify": {
+      "Ar": "$(-1)^4=(-1)^{10}=1$",
+      "En": "$(-1)^4=(-1)^{10}=1$"
+    },
+    "hints": [
+      {
+        "Ar": "اكتب أس النسبة بدلالة الفهرس.",
+        "En": "Write the exponent in terms of the index."
+      },
+      {
+        "Ar": "اختر أساً فردياً.",
+        "En": "Choose an odd exponent."
+      }
+    ],
+    "error": {
+      "Ar": "لا تختبر زوجية n بدلاً من n−1 دون الانتباه للحد الأول.",
+      "En": "Remember the exponent is n−1, not n."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 10,
+    "cat": 87,
+    "skill": 340,
+    "sk": "vector-components",
+    "family": "vector-linear-combination-inverse-components",
+    "title": {
+      "Ar": "استرجاع متجه من محصلته",
+      "En": "Recovering a vector from a resultant"
+    },
+    "q": {
+      "Ar": "إذا كان $2u+v=(9,1)$ و$v=(3,-5)$، فما مركبتا u؟",
+      "En": "If $2u+v=(9,1)$ and $v=(3,-5)$, what are the components of u?"
+    },
+    "opts": [
+      "(6,6)",
+      "(6,-2)",
+      "(3,-2)",
+      "(3,3)"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "هذه مركبتا 2u.",
+        "En": "These are the components of 2u."
+      },
+      {
+        "Ar": "جمع v بدلاً من طرحه ثم قسم.",
+        "En": "Adds v instead of subtracting it, then divides."
+      },
+      {
+        "Ar": "أخطأ في طرح المركبة السالبة.",
+        "En": "Mishandles subtraction of a negative component."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "نطرح المتجه المعروف ثم نقسم كل مركبة على اثنين.",
+      "En": "Subtract the known vector and divide each component by two."
+    },
+    "formula": "u=((9,1)-v)/2",
+    "steps": [
+      {
+        "Ar": "$2u=(6,6)$",
+        "En": "$2u=(6,6)$"
+      },
+      {
+        "Ar": "$u=(3,3)$",
+        "En": "$u=(3,3)$"
+      }
+    ],
+    "sub": {
+      "Ar": "$2u=(6,6)$",
+      "En": "$2u=(6,6)$"
+    },
+    "result": {
+      "Ar": "$(3,3)$",
+      "En": "$(3,3)$"
+    },
+    "verify": {
+      "Ar": "$2(3,3)+(3,-5)=(9,1)$",
+      "En": "$2(3,3)+(3,-5)=(9,1)$"
+    },
+    "hints": [
+      {
+        "Ar": "اطرح v من الطرفين.",
+        "En": "Subtract v from both sides."
+      },
+      {
+        "Ar": "اقسم كل مركبة على اثنين.",
+        "En": "Halve each component."
+      }
+    ],
+    "error": {
+      "Ar": "طرح مركبة سالبة يعني إضافة مقدارها.",
+      "En": "Subtracting a negative component adds its magnitude."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 10,
+    "cat": 88,
+    "skill": 329,
+    "sk": "coordinate-lines",
+    "family": "coordinate-line-horizontal-vertical-intersection",
+    "title": {
+      "Ar": "تقاطع مستقيمين خاصين",
+      "En": "Intersection of special lines"
+    },
+    "q": {
+      "Ar": "ما نقطة تقاطع المستقيمين $x=-3$ و$y=5$؟",
+      "En": "What is the intersection of the lines $x=-3$ and $y=5$?"
+    },
+    "opts": [
+      "(3,5)",
+      "(-3,-5)",
+      "(-3,5)",
+      "(5,-3)"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "حذف إشارة x السالبة.",
+        "En": "Drops the negative x sign."
+      },
+      {
+        "Ar": "غيّر إشارة y.",
+        "En": "Changes the y sign."
+      },
+      null,
+      {
+        "Ar": "بدّل ترتيب الإحداثيين.",
+        "En": "Swaps the coordinate order."
+      }
+    ],
+    "idea": {
+      "Ar": "نقطة التقاطع تحقق المعادلتين في الوقت نفسه.",
+      "En": "The intersection satisfies both equations."
+    },
+    "formula": "x=-3,\\quad y=5",
+    "steps": [
+      {
+        "Ar": "$(x,y)=(-3,5)$",
+        "En": "$(x,y)=(-3,5)$"
+      }
+    ],
+    "sub": {
+      "Ar": "$(x,y)=(-3,5)$",
+      "En": "$(x,y)=(-3,5)$"
+    },
+    "result": {
+      "Ar": "$(-3,5)$",
+      "En": "$(-3,5)$"
+    },
+    "verify": {
+      "Ar": "$x+3=0,\\quad y-5=0$",
+      "En": "$x+3=0,\\quad y-5=0$"
+    },
+    "hints": [
+      {
+        "Ar": "المستقيم الأول يثبت x.",
+        "En": "The first line fixes x."
+      },
+      {
+        "Ar": "اكتب الإحداثي الأفقي قبل الرأسي.",
+        "En": "Write the horizontal coordinate first."
+      }
+    ],
+    "error": {
+      "Ar": "لا تبدل ترتيب x وy.",
+      "En": "Do not swap x and y."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 11,
+    "cat": 12,
+    "skill": 56,
+    "sk": "secondary-combinations",
+    "family": "combinations-complementary-selection-excluded",
+    "title": {
+      "Ar": "اختيار عن طريق المستبعدين",
+      "En": "Selection through its complement"
+    },
+    "q": {
+      "Ar": "من 9 أشخاص مختلفين نختار لجنة من 7 دون ترتيب. كم لجنة ممكنة؟",
+      "En": "From nine distinct people, choose an unordered committee of seven. How many committees are possible?"
+    },
+    "opts": [
+      "21",
+      "36",
+      "72",
+      "63"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "يحسب اختيار شخصين من سبعة.",
+        "En": "Chooses two from seven."
+      },
+      null,
+      {
+        "Ar": "عد ترتيب الشخصين المستبعدين مرتين.",
+        "En": "Counts the two excluded people in both orders."
+      },
+      {
+        "Ar": "ضرب 9 في 7 دون استعمال التوافيق.",
+        "En": "Multiplies nine by seven without combinations."
+      }
+    ],
+    "idea": {
+      "Ar": "اختيار سبعة يكافئ تحديد الشخصين المستبعدين.",
+      "En": "Choosing seven is equivalent to choosing the two excluded people."
+    },
+    "formula": "\\binom97=\\binom92",
+    "steps": [
+      {
+        "Ar": "$\\binom92=9\\cdot8/2$",
+        "En": "$\\binom92=9\\cdot8/2$"
+      },
+      {
+        "Ar": "$=36$",
+        "En": "$=36$"
+      }
+    ],
+    "sub": {
+      "Ar": "$\\binom92=9\\cdot8/2$",
+      "En": "$\\binom92=9\\cdot8/2$"
+    },
+    "result": {
+      "Ar": "$36$",
+      "En": "$36$"
+    },
+    "verify": {
+      "Ar": "$36\\cdot2=72$",
+      "En": "$36\\cdot2=72$"
+    },
+    "hints": [
+      {
+        "Ar": "كم شخصاً لن يدخل اللجنة؟",
+        "En": "How many people are excluded?"
+      },
+      {
+        "Ar": "اختر المستبعدين دون ترتيب.",
+        "En": "Choose the excluded pair without order."
+      }
+    ],
+    "error": {
+      "Ar": "لا تعد تبديل ترتيب المستبعدين لجنة جديدة.",
+      "En": "Do not count different orders of the excluded pair as new committees."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 11,
+    "cat": 35,
+    "skill": 54,
+    "sk": "secondary-population-variance",
+    "family": "variance-signed-deviations-zero-sum",
+    "title": {
+      "Ar": "التباين من الانحرافات الموقعة",
+      "En": "Variance from signed deviations"
+    },
+    "q": {
+      "Ar": "مجتمع من أربع قيم، وانحرافاتها عن المتوسط هي −3 و−1 و1 و3. ما تباينه؟",
+      "En": "A population has four signed deviations from its mean: −3, −1, 1, 3. What is its variance?"
+    },
+    "opts": [
+      "5",
+      "0",
+      "20",
+      "\\frac{20}3"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "جمع الانحرافات دون تربيعها.",
+        "En": "Adds deviations without squaring."
+      },
+      {
+        "Ar": "مجموع المربعات دون القسمة.",
+        "En": "Sum of squares without dividing."
+      },
+      {
+        "Ar": "استعمل مقام تباين العينة.",
+        "En": "Uses the sample variance denominator."
+      }
+    ],
+    "idea": {
+      "Ar": "نربع الانحرافات ثم نقسم مجموعها على عدد قيم المجتمع.",
+      "En": "Square deviations and divide their sum by the population count."
+    },
+    "formula": "\\sigma^2=\\frac{\\sum d_i^2}{4}",
+    "steps": [
+      {
+        "Ar": "$9+1+1+9=20$",
+        "En": "$9+1+1+9=20$"
+      },
+      {
+        "Ar": "$20/4=5$",
+        "En": "$20/4=5$"
+      }
+    ],
+    "sub": {
+      "Ar": "$9+1+1+9=20$",
+      "En": "$9+1+1+9=20$"
+    },
+    "result": {
+      "Ar": "$5$",
+      "En": "$5$"
+    },
+    "verify": {
+      "Ar": "$4\\cdot5=20$",
+      "En": "$4\\cdot5=20$"
+    },
+    "hints": [
+      {
+        "Ar": "ربع كل انحراف.",
+        "En": "Square each deviation."
+      },
+      {
+        "Ar": "اقسم على أربعة لا ثلاثة.",
+        "En": "Divide by four, not three."
+      }
+    ],
+    "error": {
+      "Ar": "لا تستعمل مقام تباين العينة لمجتمع كامل.",
+      "En": "Do not use the sample denominator for population variance."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 11,
+    "cat": 87,
+    "skill": 338,
+    "sk": "dot-product",
+    "family": "dot-product-bilinearity-difference-known",
+    "title": {
+      "Ar": "الضرب القياسي من قيم معلومة",
+      "En": "Dot product from given products"
+    },
+    "q": {
+      "Ar": "إذا كان $u\\cdot v=7$ و$u\\cdot w=-2$، فما $u\\cdot(2v-3w)$؟",
+      "En": "If $u\\cdot v=7$ and $u\\cdot w=-2$, find $u\\cdot(2v-3w)$."
+    },
+    "opts": [
+      "8",
+      "9",
+      "14",
+      "20"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "طرح 6 بدلاً من إضافة 6.",
+        "En": "Subtracts six instead of adding it."
+      },
+      {
+        "Ar": "أهمل المعاملين.",
+        "En": "Omits the coefficients."
+      },
+      {
+        "Ar": "أهمل حد w.",
+        "En": "Omits the w term."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "الضرب القياسي خطي في كل متجه.",
+      "En": "The dot product is linear in each argument."
+    },
+    "formula": "u\\cdot(2v-3w)=2(u\\cdot v)-3(u\\cdot w)",
+    "steps": [
+      {
+        "Ar": "$2\\cdot7-3(-2)$",
+        "En": "$2\\cdot7-3(-2)$"
+      },
+      {
+        "Ar": "$14+6=20$",
+        "En": "$14+6=20$"
+      }
+    ],
+    "sub": {
+      "Ar": "$2\\cdot7-3(-2)$",
+      "En": "$2\\cdot7-3(-2)$"
+    },
+    "result": {
+      "Ar": "$20$",
+      "En": "$20$"
+    },
+    "verify": {
+      "Ar": "$20-14=6=-3(-2)$",
+      "En": "$20-14=6=-3(-2)$"
+    },
+    "hints": [
+      {
+        "Ar": "وزع الضرب القياسي.",
+        "En": "Distribute the dot product."
+      },
+      {
+        "Ar": "انتبه إلى حاصل ضرب سالبين.",
+        "En": "Notice the product of two negatives."
+      }
+    ],
+    "error": {
+      "Ar": "لا تحذف إشارة الضرب القياسي المعطى.",
+      "En": "Retain the sign of the given dot product."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  }
+]

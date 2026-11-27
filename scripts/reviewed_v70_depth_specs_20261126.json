@@ -1,0 +1,1306 @@
+[
+  {
+    "track": 8,
+    "stage": 2,
+    "cat": 22,
+    "skill": 99,
+    "sk": "m-statistics-summary-measures",
+    "family": "mean-range-fixed-minimum-impossible",
+    "title": {
+      "Ar": "متوسط مستحيل ضمن مجال",
+      "En": "Impossible mean within a range"
+    },
+    "q": {
+      "Ar": "أصغر قراءة 4 وأكبر قراءة 12 في مجموعة من خمس قراءات. أي متوسط حسابي يستحيل لهذه المجموعة؟",
+      "En": "Five readings have minimum 4 and maximum 12. Which mean is impossible for the data set?"
+    },
+    "opts": [
+      "6",
+      "8",
+      "10",
+      "12"
+    ],
+    "correct": 3,
+    "reasons": [
+      {
+        "Ar": "يمكن أن تكون القيم 4،4،5،5،12.",
+        "En": "Values 4,4,5,5,12 attain six."
+      },
+      {
+        "Ar": "يمكن أن تكون القيم 4،8،8،8،12.",
+        "En": "Values 4,8,8,8,12 attain eight."
+      },
+      {
+        "Ar": "يمكن أن تكون القيم 4،10،12،12،12.",
+        "En": "Values 4,10,12,12,12 attain ten."
+      },
+      null
+    ],
+    "idea": {
+      "Ar": "بوجود قراءة أصغر من 12 لا يمكن أن يساوي المتوسط القيمة الكبرى 12.",
+      "En": "Because one reading is below 12, the mean cannot equal the maximum."
+    },
+    "formula": "\\bar{x}\\le(4+4\\cdot12)/5",
+    "steps": [
+      {
+        "Ar": "$\\bar{x}\\le52/5=10.4$",
+        "En": "$\\bar{x}\\le52/5=10.4$"
+      },
+      {
+        "Ar": "$12>10.4$",
+        "En": "$12>10.4$"
+      }
+    ],
+    "sub": {
+      "Ar": "$\\bar{x}\\le(4+4\\cdot12)/5$",
+      "En": "$\\bar{x}\\le(4+4\\cdot12)/5$"
+    },
+    "result": {
+      "Ar": "$12$",
+      "En": "$12$"
+    },
+    "verify": {
+      "Ar": "المجموعة 4،12،12،12،12 تحقق الحد الأعلى 10.4 فقط.",
+      "En": "The data 4,12,12,12,12 attain the upper bound 10.4."
+    },
+    "hints": [
+      {
+        "Ar": "استعمل حقيقة أن قراءة واحدة على الأقل تساوي 4.",
+        "En": "Use the fact that at least one reading equals four."
+      },
+      {
+        "Ar": "افترض أكبر قيم ممكنة للقراءات الأخرى.",
+        "En": "Consider the largest possible other readings."
+      }
+    ],
+    "error": {
+      "Ar": "يمكن أن تكون القيم 4،4،5،5،12.",
+      "En": "Values 4,4,5,5,12 attain six."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 10,
+    "stage": 3,
+    "cat": 23,
+    "skill": 104,
+    "sk": "s-sequences-series-arithmetic-sequences",
+    "family": "arithmetic-termwise-sum-difference",
+    "title": {
+      "Ar": "جمع متتاليتين حسابيتين",
+      "En": "Termwise sum of arithmetic sequences"
+    },
+    "q": {
+      "Ar": "متتاليتان حسابيتان لهما الفرقان 7 و-4. نكوّن متتالية جديدة بجمع الحدين ذوي الفهرس نفسه. ما فرق المتتالية الجديدة؟",
+      "En": "Two arithmetic sequences have differences 7 and -4. Form a new sequence by adding terms with the same index. What is its common difference?"
+    },
+    "opts": [
+      "11",
+      "3",
+      "-28",
+      "-3"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "طرح الفرق السالب بدل جمعه.",
+        "En": "Subtracts the negative difference instead of adding it."
+      },
+      null,
+      {
+        "Ar": "ضرب الفرقين.",
+        "En": "Multiplies the differences."
+      },
+      {
+        "Ar": "عكس الإشارة.",
+        "En": "Reverses the sign."
+      }
+    ],
+    "idea": {
+      "Ar": "فرق مجموع الحدين يساوي مجموع فرق كل متتالية.",
+      "En": "The difference of the termwise sum equals the sum of the two differences."
+    },
+    "formula": "c_{n+1}-c_n=(a_{n+1}-a_n)+(b_{n+1}-b_n)",
+    "steps": [
+      {
+        "Ar": "$7+(-4)=3$",
+        "En": "$7+(-4)=3$"
+      }
+    ],
+    "sub": {
+      "Ar": "$c_{n+1}-c_n=(a_{n+1}-a_n)+(b_{n+1}-b_n)$",
+      "En": "$c_{n+1}-c_n=(a_{n+1}-a_n)+(b_{n+1}-b_n)$"
+    },
+    "result": {
+      "Ar": "$3$",
+      "En": "$3$"
+    },
+    "verify": {
+      "Ar": "مثلاً 2،9 و10،6 تعطيان 12،15 وفرقاً 3.",
+      "En": "For example 2,9 and 10,6 give 12,15 with gap three."
+    },
+    "hints": [
+      {
+        "Ar": "اكتب الحد الجديد كمجموع حدين.",
+        "En": "Write the new term as a sum."
+      },
+      {
+        "Ar": "وزع الطرح على المجموعين.",
+        "En": "Distribute subtraction over both sums."
+      }
+    ],
+    "error": {
+      "Ar": "طرح الفرق السالب بدل جمعه.",
+      "En": "Subtracts the negative difference instead of adding it."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 10,
+    "stage": 3,
+    "cat": 23,
+    "skill": 103,
+    "sk": "s-sequences-series-geometric-sequences",
+    "family": "geometric-termwise-product-ratio",
+    "title": {
+      "Ar": "جداء متتاليتين هندسيتين",
+      "En": "Termwise product of geometric sequences"
+    },
+    "q": {
+      "Ar": "متتاليتان هندسيتان حدودهما غير صفرية، أساساهما 2 و-3. نضرب الحدين ذوي الفهرس نفسه. ما أساس المتتالية الناتجة؟",
+      "En": "Two geometric sequences have nonzero terms and ratios 2 and -3. Multiply terms with the same index. What is the resulting ratio?"
+    },
+    "opts": [
+      "-1",
+      "6",
+      "-6",
+      "-3"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "جمع الأساسين.",
+        "En": "Adds the ratios."
+      },
+      {
+        "Ar": "أهمل الإشارة السالبة.",
+        "En": "Drops the negative sign."
+      },
+      null,
+      {
+        "Ar": "أهمل أساس المتتالية الأولى.",
+        "En": "Ignores the first ratio."
+      }
+    ],
+    "idea": {
+      "Ar": "نسبة الجداءين المتتاليين تساوي جداء النسبتين.",
+      "En": "The ratio of successive products equals the product of the two ratios."
+    },
+    "formula": "\\frac{a_{n+1}b_{n+1}}{a_nb_n}=r_ar_b",
+    "steps": [
+      {
+        "Ar": "$2(-3)=-6$",
+        "En": "$2(-3)=-6$"
+      }
+    ],
+    "sub": {
+      "Ar": "$\\frac{a_{n+1}b_{n+1}}{a_nb_n}=r_ar_b$",
+      "En": "$\\frac{a_{n+1}b_{n+1}}{a_nb_n}=r_ar_b$"
+    },
+    "result": {
+      "Ar": "$-6$",
+      "En": "$-6$"
+    },
+    "verify": {
+      "Ar": "الحدان 1،2 والحدان 4،-12 يعطيان 4،-24؛ النسبة -6.",
+      "En": "Terms 1,2 and 4,-12 give 4,-24, with ratio -6."
+    },
+    "hints": [
+      {
+        "Ar": "اكتب نسبة حدين جديدين.",
+        "En": "Write the ratio of two new terms."
+      },
+      {
+        "Ar": "افصل الكسر إلى جداء نسبتين.",
+        "En": "Separate the quotient into two ratios."
+      }
+    ],
+    "error": {
+      "Ar": "جمع الأساسين.",
+      "En": "Adds the ratios."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 9,
+    "stage": 2,
+    "cat": 34,
+    "skill": 37,
+    "sk": "middle-pythagorean-theorem",
+    "family": "rectangle-perimeter-from-diagonal-and-side",
+    "title": {
+      "Ar": "محيط مستطيل من قطره",
+      "En": "Rectangle perimeter from diagonal"
+    },
+    "q": {
+      "Ar": "مستطيل طول قطره 17 سم وطول أحد ضلعيه 8 سم. ما محيطه بالسنتيمتر؟",
+      "En": "A rectangle has diagonal 17 cm and one side 8 cm. Find its perimeter in centimetres."
+    },
+    "opts": [
+      "30",
+      "50",
+      "46",
+      "34"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "ضاعف الضلع المجهول وحده.",
+        "En": "Doubles only the unknown side."
+      },
+      {
+        "Ar": "استعمل القطر كضلع.",
+        "En": "Uses the diagonal as a side."
+      },
+      null,
+      {
+        "Ar": "ضاعف القطر فقط.",
+        "En": "Doubles only the diagonal."
+      }
+    ],
+    "idea": {
+      "Ar": "القطر يقسم المستطيل إلى مثلثين قائمين. نحسب الضلع الآخر ثم المحيط.",
+      "En": "The diagonal forms right triangles. Find the other side, then the perimeter."
+    },
+    "formula": "b=\\sqrt{17^2-8^2}",
+    "steps": [
+      {
+        "Ar": "$b=\\sqrt{225}=15$",
+        "En": "$b=\\sqrt{225}=15$"
+      },
+      {
+        "Ar": "$P=2(8+15)=46$",
+        "En": "$P=2(8+15)=46$"
+      }
+    ],
+    "sub": {
+      "Ar": "$b=\\sqrt{17^2-8^2}$",
+      "En": "$b=\\sqrt{17^2-8^2}$"
+    },
+    "result": {
+      "Ar": "$46$",
+      "En": "$46$"
+    },
+    "verify": {
+      "Ar": "$8^2+15^2=289=17^2$ و$8+15+8+15=46$.",
+      "En": "$8^2+15^2=289=17^2$ and $8+15+8+15=46$."
+    },
+    "hints": [
+      {
+        "Ar": "طبق فيثاغورس على نصف المستطيل.",
+        "En": "Apply Pythagoras to half the rectangle."
+      },
+      {
+        "Ar": "اجمع الضلعين واضرب في 2.",
+        "En": "Add the two sides and double."
+      }
+    ],
+    "error": {
+      "Ar": "ضاعف الضلع المجهول وحده.",
+      "En": "Doubles only the unknown side."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 9,
+    "stage": 2,
+    "cat": 34,
+    "skill": 37,
+    "sk": "middle-pythagorean-theorem",
+    "family": "right-triangle-hypotenuse-integer-bound",
+    "title": {
+      "Ar": "حصر طول الوتر",
+      "En": "Bounding a hypotenuse"
+    },
+    "q": {
+      "Ar": "في مثلث قائم ضلعاه القائمان 4 و5 سم. بين أي عددين صحيحين متتاليين يقع طول الوتر؟",
+      "En": "A right triangle has legs 4 and 5 cm. Between which consecutive integers is its hypotenuse length?"
+    },
+    "opts": [
+      "5,6",
+      "6,7",
+      "7,8",
+      "8,9"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "مربع 6 أصغر من 41.",
+        "En": "Six squared is below 41."
+      },
+      null,
+      {
+        "Ar": "مربع 7 أكبر من 41.",
+        "En": "Seven squared is above 41."
+      },
+      {
+        "Ar": "جمع الضلعين بدلاً من استخدام مربعيهما.",
+        "En": "Adds legs rather than using squares."
+      }
+    ],
+    "idea": {
+      "Ar": "نقارن مربع الوتر بالمربعات الكاملة المتتالية.",
+      "En": "Compare the squared hypotenuse with consecutive perfect squares."
+    },
+    "formula": "c^2=4^2+5^2=41",
+    "steps": [
+      {
+        "Ar": "$36<41<49$",
+        "En": "$36<41<49$"
+      },
+      {
+        "Ar": "$6<c<7$",
+        "En": "$6<c<7$"
+      }
+    ],
+    "sub": {
+      "Ar": "$c^2=4^2+5^2=41$",
+      "En": "$c^2=4^2+5^2=41$"
+    },
+    "result": {
+      "Ar": "$6,7$",
+      "En": "$6,7$"
+    },
+    "verify": {
+      "Ar": "$6^2=36$ و$7^2=49$؛ كلاهما يحصر 41.",
+      "En": "$6^2=36$ and $7^2=49$ bracket 41."
+    },
+    "hints": [
+      {
+        "Ar": "احسب مجموع مربعي الضلعين.",
+        "En": "Sum the squared legs."
+      },
+      {
+        "Ar": "حدد مربعين كاملين يحيطان بالناتج.",
+        "En": "Locate two surrounding perfect squares."
+      }
+    ],
+    "error": {
+      "Ar": "مربع 6 أصغر من 41.",
+      "En": "Six squared is below 41."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 9,
+    "stage": 2,
+    "cat": 34,
+    "skill": 40,
+    "sk": "middle-similar-triangles",
+    "family": "similar-triangle-perimeter-increment-area",
+    "title": {
+      "Ar": "تغير مساحة مع زيادة المحيط",
+      "En": "Area after perimeter increase"
+    },
+    "q": {
+      "Ar": "مثلثان متشابهان. محيط الأصغر 24 ومساحته 32. محيط الأكبر يزيد على محيط الأصغر بمقدار 12. ما مساحة الأكبر؟",
+      "En": "Two triangles are similar. The smaller has perimeter 24 and area 32. The larger perimeter is 12 greater. Find the larger area."
+    },
+    "opts": [
+      "48",
+      "72",
+      "64",
+      "44"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "ضرب المساحة في معامل الطول فقط.",
+        "En": "Uses the linear scale for area."
+      },
+      null,
+      {
+        "Ar": "ضاعف المساحة دون حساب نسبة التشابه.",
+        "En": "Doubles area without finding the scale."
+      },
+      {
+        "Ar": "أضاف فرق المحيط إلى المساحة.",
+        "En": "Adds a perimeter difference to area."
+      }
+    ],
+    "idea": {
+      "Ar": "نسبة المحيطين هي معامل التشابه، ونسبة المساحتين مربعه.",
+      "En": "The perimeter ratio is the linear scale; area scales by its square."
+    },
+    "formula": "A_2=32(36/24)^2",
+    "steps": [
+      {
+        "Ar": "$P_2=24+12=36$",
+        "En": "$P_2=24+12=36$"
+      },
+      {
+        "Ar": "$A_2=32(3/2)^2=72$",
+        "En": "$A_2=32(3/2)^2=72$"
+      }
+    ],
+    "sub": {
+      "Ar": "$A_2=32(36/24)^2$",
+      "En": "$A_2=32(36/24)^2$"
+    },
+    "result": {
+      "Ar": "$72$",
+      "En": "$72$"
+    },
+    "verify": {
+      "Ar": "$72/32=9/4=(36/24)^2$.",
+      "En": "$72/32=9/4=(36/24)^2$."
+    },
+    "hints": [
+      {
+        "Ar": "احسب محيط المثلث الأكبر.",
+        "En": "Find the larger perimeter."
+      },
+      {
+        "Ar": "ربع معامل التشابه للمساحات.",
+        "En": "Square the scale for areas."
+      }
+    ],
+    "error": {
+      "Ar": "ضرب المساحة في معامل الطول فقط.",
+      "En": "Uses the linear scale for area."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 11,
+    "stage": 3,
+    "cat": 23,
+    "skill": 102,
+    "sk": "s-sequences-series-recurrence-relations",
+    "family": "recurrence-backward-nonlinear-square-positive",
+    "title": {
+      "Ar": "استرجاع حد سابق",
+      "En": "Recovering a previous term"
+    },
+    "q": {
+      "Ar": "متتالية جميع حدودها موجبة تحقق $a_{n+1}=a_n^2+1$. إذا كان $a_3=26$ فما $a_1$؟",
+      "En": "A sequence of positive terms satisfies $a_{n+1}=a_n^2+1$. If $a_3=26$, find $a_1$."
+    },
+    "opts": [
+      "5",
+      "2",
+      "4",
+      "\\sqrt{26}"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "توقف عند الحد الثاني.",
+        "En": "Stops at the second term."
+      },
+      null,
+      {
+        "Ar": "طرح الواحد ولم يأخذ الجذر في الخطوة الثانية.",
+        "En": "Subtracts one without taking the second square root."
+      },
+      {
+        "Ar": "أهمل طرح الواحد.",
+        "En": "Omits subtracting one."
+      }
+    ],
+    "idea": {
+      "Ar": "نعكس العلاقة بطرح الواحد ثم أخذ الجذر الموجب في كل خطوة.",
+      "En": "Invert the recurrence by subtracting one then taking the positive square root."
+    },
+    "formula": "a_n=\\sqrt{a_{n+1}-1}",
+    "steps": [
+      {
+        "Ar": "$a_2=\\sqrt{26-1}=5$",
+        "En": "$a_2=\\sqrt{26-1}=5$"
+      },
+      {
+        "Ar": "$a_1=\\sqrt{5-1}=2$",
+        "En": "$a_1=\\sqrt{5-1}=2$"
+      }
+    ],
+    "sub": {
+      "Ar": "$a_n=\\sqrt{a_{n+1}-1}$",
+      "En": "$a_n=\\sqrt{a_{n+1}-1}$"
+    },
+    "result": {
+      "Ar": "$2$",
+      "En": "$2$"
+    },
+    "verify": {
+      "Ar": "$2^2+1=5$ ثم $5^2+1=26$.",
+      "En": "$2^2+1=5$ then $5^2+1=26$."
+    },
+    "hints": [
+      {
+        "Ar": "ابدأ بالحد الثالث واعكس العملية.",
+        "En": "Start at the third term and invert the operation."
+      },
+      {
+        "Ar": "كرر ذلك للوصول إلى الحد الأول.",
+        "En": "Repeat to recover the first term."
+      }
+    ],
+    "error": {
+      "Ar": "توقف عند الحد الثاني.",
+      "En": "Stops at the second term."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 11,
+    "stage": 3,
+    "cat": 23,
+    "skill": 102,
+    "sk": "s-sequences-series-recurrence-relations",
+    "family": "recurrence-multiplicative-invariant",
+    "title": {
+      "Ar": "ثابت في علاقة تراجعية",
+      "En": "Invariant of a recurrence"
+    },
+    "q": {
+      "Ar": "إذا كان $a_1=3$ و$a_{n+1}=\\frac{n}{n+1}a_n$ لكل $n\\ge1$، فما قيمة $6a_6$؟",
+      "En": "If $a_1=3$ and $a_{n+1}=\\frac{n}{n+1}a_n$ for $n\\ge1$, find $6a_6$."
+    },
+    "opts": [
+      "18",
+      "\\frac12",
+      "3",
+      "6"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "افترض ثبات الحد نفسه.",
+        "En": "Assumes the term itself stays constant."
+      },
+      {
+        "Ar": "حسب الحد السادس دون ضربه في ستة.",
+        "En": "Finds only the sixth term."
+      },
+      null,
+      {
+        "Ar": "استعمل الفهرس وحده.",
+        "En": "Uses the index alone."
+      }
+    ],
+    "idea": {
+      "Ar": "بعد ضرب العلاقة في الفهرس الجديد نرى أن حاصل ضرب الفهرس في الحد ثابت.",
+      "En": "Multiplying the recurrence by the new index reveals a constant index-term product."
+    },
+    "formula": "(n+1)a_{n+1}=na_n",
+    "steps": [
+      {
+        "Ar": "$6a_6=5a_5=\\cdots=a_1$",
+        "En": "$6a_6=5a_5=\\cdots=a_1$"
+      },
+      {
+        "Ar": "$6a_6=3$",
+        "En": "$6a_6=3$"
+      }
+    ],
+    "sub": {
+      "Ar": "$(n+1)a_{n+1}=na_n$",
+      "En": "$(n+1)a_{n+1}=na_n$"
+    },
+    "result": {
+      "Ar": "$3$",
+      "En": "$3$"
+    },
+    "verify": {
+      "Ar": "$a_2=3/2,a_3=1$، وفي الحالتين حاصل الضرب 3.",
+      "En": "$a_2=3/2,a_3=1$; both index products are three."
+    },
+    "hints": [
+      {
+        "Ar": "اضرب طرفي العلاقة في $n+1$.",
+        "En": "Multiply both sides by $n+1$."
+      },
+      {
+        "Ar": "تتبع المقدار الذي لا يتغير بين حدين.",
+        "En": "Track the quantity that stays constant."
+      }
+    ],
+    "error": {
+      "Ar": "افترض ثبات الحد نفسه.",
+      "En": "Assumes the term itself stays constant."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 11,
+    "stage": 3,
+    "cat": 23,
+    "skill": 101,
+    "sk": "s-sequences-series-series-sums",
+    "family": "finite-series-weighted-geometric-shift",
+    "title": {
+      "Ar": "مجموع هندسي موزون",
+      "En": "Weighted geometric sum"
+    },
+    "q": {
+      "Ar": "احسب $S=1+2\\cdot2+3\\cdot4+4\\cdot8$.",
+      "En": "Evaluate $S=1+2\\cdot2+3\\cdot4+4\\cdot8$."
+    },
+    "opts": [
+      "49",
+      "15",
+      "32",
+      "64"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "جمع القوى دون أوزان.",
+        "En": "Sums the powers without weights."
+      },
+      {
+        "Ar": "استعمل الحد الأخير وحده.",
+        "En": "Uses only the final term."
+      },
+      {
+        "Ar": "استبدل المجموع بقوة للعدد 2.",
+        "En": "Replaces the sum by a power of two."
+      }
+    ],
+    "idea": {
+      "Ar": "نحسب الحدود الموزونة كلّاً على حدة، ويمكن التحقق بإزاحة المجموع ومقارنته بمضاعفه.",
+      "En": "Evaluate the weighted terms; check by shifting and comparing with twice the sum."
+    },
+    "formula": "S=1+4+12+32",
+    "steps": [
+      {
+        "Ar": "$S=5+44$",
+        "En": "$S=5+44$"
+      },
+      {
+        "Ar": "$S=49$",
+        "En": "$S=49$"
+      }
+    ],
+    "sub": {
+      "Ar": "$S=1+4+12+32$",
+      "En": "$S=1+4+12+32$"
+    },
+    "result": {
+      "Ar": "$49$",
+      "En": "$49$"
+    },
+    "verify": {
+      "Ar": "$2S-S=64-(1+2+4+8)=49$.",
+      "En": "$2S-S=64-(1+2+4+8)=49$."
+    },
+    "hints": [
+      {
+        "Ar": "احسب كل جداء قبل الجمع.",
+        "En": "Evaluate each product before summing."
+      },
+      {
+        "Ar": "اجمع القيم الأربع.",
+        "En": "Add all four values."
+      }
+    ],
+    "error": {
+      "Ar": "جمع القوى دون أوزان.",
+      "En": "Sums the powers without weights."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 11,
+    "stage": 3,
+    "cat": 23,
+    "skill": 101,
+    "sk": "s-sequences-series-series-sums",
+    "family": "series-block-sum-with-indexed-repetition",
+    "title": {
+      "Ar": "مجموع كتل متزايدة",
+      "En": "Sum of growing blocks"
+    },
+    "q": {
+      "Ar": "نجمع كتل الأعداد التالية: الأولى (1)، الثانية (1،2)، الثالثة (1،2،3)، الرابعة (1،2،3،4). ما مجموع كل الأعداد في الكتل الأربع؟",
+      "En": "Sum the entries of four blocks: (1), (1,2), (1,2,3), (1,2,3,4). What is the total?"
+    },
+    "opts": [
+      "10",
+      "20",
+      "30",
+      "16"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "جمع أعداد الكتلة الأخيرة فقط.",
+        "En": "Sums only the last block."
+      },
+      null,
+      {
+        "Ar": "جمع مربعات أطوال الكتل.",
+        "En": "Sums squared block sizes."
+      },
+      {
+        "Ar": "افترض أربع كتل من أربعة عناصر متساوية.",
+        "En": "Assumes four equal blocks of four units."
+      }
+    ],
+    "idea": {
+      "Ar": "نجمع كل كتلة ثم نجمع المجاميع الجزئية.",
+      "En": "Sum each block and then add the partial sums."
+    },
+    "formula": "S=1+3+6+10",
+    "steps": [
+      {
+        "Ar": "$S=4+16=20$",
+        "En": "$S=4+16=20$"
+      }
+    ],
+    "sub": {
+      "Ar": "$S=1+3+6+10$",
+      "En": "$S=1+3+6+10$"
+    },
+    "result": {
+      "Ar": "$20$",
+      "En": "$20$"
+    },
+    "verify": {
+      "Ar": "العدد 1 يظهر أربع مرات، و2 ثلاث مرات، و3 مرتين، و4 مرة: $4+6+6+4=20$.",
+      "En": "One occurs four times, two three times, three twice, four once: $4+6+6+4=20$."
+    },
+    "hints": [
+      {
+        "Ar": "احسب مجموع كل كتلة مستقلة.",
+        "En": "Find each block total."
+      },
+      {
+        "Ar": "اجمع المجاميع الأربعة لا الكتلة الأخيرة وحدها.",
+        "En": "Add all four totals, not only the last block."
+      }
+    ],
+    "error": {
+      "Ar": "جمع أعداد الكتلة الأخيرة فقط.",
+      "En": "Sums only the last block."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 11,
+    "stage": 3,
+    "cat": 88,
+    "skill": 328,
+    "sk": "circles",
+    "family": "circle-intersection-subtract-equations",
+    "title": {
+      "Ar": "محور مشترك لدائرتين",
+      "En": "Common chord line of two circles"
+    },
+    "q": {
+      "Ar": "تتقاطع الدائرتان $x^2+y^2=25$ و$(x-6)^2+y^2=25$. ما الإحداثي الأفقي المشترك لنقطتي التقاطع؟",
+      "En": "The circles $x^2+y^2=25$ and $(x-6)^2+y^2=25$ intersect. What x-coordinate do both intersection points share?"
+    },
+    "opts": [
+      "0",
+      "3",
+      "5",
+      "6"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "استعمل مركز الدائرة الأولى.",
+        "En": "Uses the first center."
+      },
+      null,
+      {
+        "Ar": "استعمل نصف القطر.",
+        "En": "Uses the radius."
+      },
+      {
+        "Ar": "استعمل مركز الدائرة الثانية.",
+        "En": "Uses the second center."
+      }
+    ],
+    "idea": {
+      "Ar": "بطرح معادلتي الدائرتين تزول الحدود التربيعية المشتركة.",
+      "En": "Subtracting the circle equations cancels common quadratic terms."
+    },
+    "formula": "x^2-(x-6)^2=0",
+    "steps": [
+      {
+        "Ar": "$12x-36=0$",
+        "En": "$12x-36=0$"
+      },
+      {
+        "Ar": "$x=3$",
+        "En": "$x=3$"
+      }
+    ],
+    "sub": {
+      "Ar": "$x^2-(x-6)^2=0$",
+      "En": "$x^2-(x-6)^2=0$"
+    },
+    "result": {
+      "Ar": "$3$",
+      "En": "$3$"
+    },
+    "verify": {
+      "Ar": "النقطتان $(3,4)$ و$(3,-4)$ تحققان المعادلتين.",
+      "En": "Both $(3,4)$ and $(3,-4)$ satisfy both equations."
+    },
+    "hints": [
+      {
+        "Ar": "اطرح المعادلتين.",
+        "En": "Subtract the equations."
+      },
+      {
+        "Ar": "وسع مربع الفرق ثم حل المعادلة الخطية.",
+        "En": "Expand the square and solve the linear equation."
+      }
+    ],
+    "error": {
+      "Ar": "استعمل مركز الدائرة الأولى.",
+      "En": "Uses the first center."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 11,
+    "stage": 3,
+    "cat": 88,
+    "skill": 328,
+    "sk": "circles",
+    "family": "circle-external-tangency-unknown-radius",
+    "title": {
+      "Ar": "تماس خارجي بين دائرتين",
+      "En": "Externally tangent circles"
+    },
+    "q": {
+      "Ar": "دائرتان متماستان خارجياً، مركزاهما $(1,2)$ و$(9,2)$، ونصف قطر الأولى 3. ما نصف قطر الثانية؟",
+      "En": "Two circles are externally tangent, with centers $(1,2)$ and $(9,2)$. The first radius is 3. Find the second radius."
+    },
+    "opts": [
+      "8",
+      "11",
+      "5",
+      "4"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "استعمل المسافة بين المركزين وحدها.",
+        "En": "Uses the center distance alone."
+      },
+      {
+        "Ar": "جمع نصف القطر مع المسافة.",
+        "En": "Adds the first radius to the distance."
+      },
+      null,
+      {
+        "Ar": "افترض تساوي نصفي القطرين.",
+        "En": "Assumes equal radii."
+      }
+    ],
+    "idea": {
+      "Ar": "عند التماس الخارجي تساوي المسافة بين المركزين مجموع نصفي القطرين.",
+      "En": "For external tangency the center distance equals the sum of radii."
+    },
+    "formula": "d=r_1+r_2",
+    "steps": [
+      {
+        "Ar": "$d=9-1=8$",
+        "En": "$d=9-1=8$"
+      },
+      {
+        "Ar": "$r_2=8-3=5$",
+        "En": "$r_2=8-3=5$"
+      }
+    ],
+    "sub": {
+      "Ar": "$d=r_1+r_2$",
+      "En": "$d=r_1+r_2$"
+    },
+    "result": {
+      "Ar": "$5$",
+      "En": "$5$"
+    },
+    "verify": {
+      "Ar": "نقطة التماس $(4,2)$ تبعد 3 عن الأول و5 عن الثاني.",
+      "En": "The contact point $(4,2)$ is three and five units from the centers."
+    },
+    "hints": [
+      {
+        "Ar": "احسب المسافة الأفقية بين المركزين.",
+        "En": "Find the horizontal center distance."
+      },
+      {
+        "Ar": "استخدم شرط التماس الخارجي.",
+        "En": "Use the external tangency condition."
+      }
+    ],
+    "error": {
+      "Ar": "استعمل المسافة بين المركزين وحدها.",
+      "En": "Uses the center distance alone."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 11,
+    "stage": 3,
+    "cat": 88,
+    "skill": 330,
+    "sk": "loci",
+    "family": "locus-equal-distance-intersecting-axes-both",
+    "title": {
+      "Ar": "منصفا الزاويتين بين المحورين",
+      "En": "Both axis angle bisectors"
+    },
+    "q": {
+      "Ar": "في المستوى كله، ما معادلة مجموعة النقاط التي تتساوى مسافتاها العموديتان عن محوري الإحداثيات؟",
+      "En": "In the entire plane, what equation describes points whose perpendicular distances to the two coordinate axes are equal?"
+    },
+    "opts": [
+      "y=x",
+      "y=-x",
+      "y^2=x^2",
+      "x+y=1"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "يشمل منصفاً واحداً فقط.",
+        "En": "Includes only one bisector."
+      },
+      {
+        "Ar": "يشمل المنصف الآخر فقط.",
+        "En": "Includes only the other bisector."
+      },
+      null,
+      {
+        "Ar": "لا يفرض تساوي المسافتين.",
+        "En": "Does not enforce equal distances."
+      }
+    ],
+    "idea": {
+      "Ar": "المسافتان هما القيمتان المطلقتان للإحداثيين، لذا توجد حالتان للإشارة.",
+      "En": "Distances are absolute coordinate values, so both sign cases occur."
+    },
+    "formula": "|x|=|y|",
+    "steps": [
+      {
+        "Ar": "$x^2=y^2$",
+        "En": "$x^2=y^2$"
+      },
+      {
+        "Ar": "$(y-x)(y+x)=0$",
+        "En": "$(y-x)(y+x)=0$"
+      }
+    ],
+    "sub": {
+      "Ar": "$|x|=|y|$",
+      "En": "$|x|=|y|$"
+    },
+    "result": {
+      "Ar": "$y^2=x^2$",
+      "En": "$y^2=x^2$"
+    },
+    "verify": {
+      "Ar": "النقطتان $(2,2)$ و$(2,-2)$ تحققان الشرط وتوضحان ضرورة الفرعين.",
+      "En": "Points $(2,2)$ and $(2,-2)$ show why both branches are needed."
+    },
+    "hints": [
+      {
+        "Ar": "عبر عن البعد عن كل محور بقيمة مطلقة.",
+        "En": "Express each axis distance with an absolute value."
+      },
+      {
+        "Ar": "تذكر أن النقاط قد تقع في أي ربع.",
+        "En": "Remember points can be in any quadrant."
+      }
+    ],
+    "error": {
+      "Ar": "يشمل منصفاً واحداً فقط.",
+      "En": "Includes only one bisector."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 2,
+    "stage": 1,
+    "cat": 96,
+    "skill": 355,
+    "sk": "primary-shape-attributes-partition",
+    "family": "shape-joined-square-triangle-outer-sides",
+    "title": {
+      "Ar": "حدود شكل مركب",
+      "En": "Outer sides of joined shapes"
+    },
+    "q": {
+      "Ar": "نلصق مثلثاً متساوي الأضلاع بمربع لهما ضلع مشترك كامل، ولا يتداخل داخلاهما، ولا تقع أضلاع الحد الخارجي على استقامة واحدة عند طرفي الضلع المشترك. كم ضلعاً في الحد الخارجي؟",
+      "En": "An equilateral triangle is attached to a square along one complete shared side, with disjoint interiors and no collinear outer sides at either endpoint of the join. How many outer sides are there?"
+    },
+    "opts": [
+      "7",
+      "6",
+      "5",
+      "4"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "عد الضلع المشترك مرتين.",
+        "En": "Counts the shared side twice."
+      },
+      {
+        "Ar": "حذف نسخة واحدة من الضلع المشترك.",
+        "En": "Removes only one copy of the shared side."
+      },
+      null,
+      {
+        "Ar": "أهمل أحد الضلعين الظاهرين للمثلث.",
+        "En": "Omits a visible triangle side."
+      }
+    ],
+    "idea": {
+      "Ar": "الضلع المشترك داخل الشكل فلا نحسبه من حدود المربع ولا من حدود المثلث.",
+      "En": "The shared side is inside the joined shape, so it counts for neither outer boundary."
+    },
+    "formula": "P_{sides}=(4-1)+(3-1)",
+    "steps": [
+      {
+        "Ar": "$3+2=5$",
+        "En": "$3+2=5$"
+      }
+    ],
+    "sub": {
+      "Ar": "$P_{sides}=(4-1)+(3-1)$",
+      "En": "$P_{sides}=(4-1)+(3-1)$"
+    },
+    "result": {
+      "Ar": "$5$",
+      "En": "$5$"
+    },
+    "verify": {
+      "Ar": "ثلاثة أضلاع مربعة وضلعان مثلثيان تكون خمسة أضلاع خارجية.",
+      "En": "Three exposed square sides plus two triangle sides give five."
+    },
+    "hints": [
+      {
+        "Ar": "عد الأضلاع الظاهرة للمربع.",
+        "En": "Count the exposed square sides."
+      },
+      {
+        "Ar": "أضف الأضلاع الظاهرة للمثلث فقط.",
+        "En": "Add only exposed triangle sides."
+      }
+    ],
+    "error": {
+      "Ar": "عد الضلع المشترك مرتين.",
+      "En": "Counts the shared side twice."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 2,
+    "stage": 1,
+    "cat": 96,
+    "skill": 355,
+    "sk": "primary-shape-attributes-partition",
+    "family": "triangular-prism-vertices-distinct-bases",
+    "title": {
+      "Ar": "رؤوس منشور ثلاثي",
+      "En": "Vertices of a triangular prism"
+    },
+    "q": {
+      "Ar": "منشور ثلاثي له قاعدتان مثلثتان متقابلتان لا تشتركان في أي رأس. كم رأساً له؟",
+      "En": "A triangular prism has two opposite triangular bases sharing no vertices. How many vertices does it have?"
+    },
+    "opts": [
+      "3",
+      "5",
+      "6",
+      "9"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "عد رؤوس قاعدة واحدة.",
+        "En": "Counts only one base."
+      },
+      {
+        "Ar": "عد الأوجه لا الرؤوس.",
+        "En": "Counts faces instead of vertices."
+      },
+      null,
+      {
+        "Ar": "عد الحواف لا الرؤوس.",
+        "En": "Counts edges rather than vertices."
+      }
+    ],
+    "idea": {
+      "Ar": "لكل قاعدة ثلاثة رؤوس مختلفة عن رؤوس القاعدة الأخرى.",
+      "En": "Each base has three vertices distinct from those of the other base."
+    },
+    "formula": "V=3+3",
+    "steps": [
+      {
+        "Ar": "$V=6$",
+        "En": "$V=6$"
+      }
+    ],
+    "sub": {
+      "Ar": "$V=3+3$",
+      "En": "$V=3+3$"
+    },
+    "result": {
+      "Ar": "$6$",
+      "En": "$6$"
+    },
+    "verify": {
+      "Ar": "الأضلاع الجانبية تصل كل رأس بنظيره ولا تنشئ رؤوساً إضافية.",
+      "En": "Side edges connect matching vertices without adding any."
+    },
+    "hints": [
+      {
+        "Ar": "عد زوايا القاعدة المثلثية.",
+        "En": "Count corners on one triangular base."
+      },
+      {
+        "Ar": "أضف رؤوس القاعدة الأخرى.",
+        "En": "Add the other base's vertices."
+      }
+    ],
+    "error": {
+      "Ar": "عد رؤوس قاعدة واحدة.",
+      "En": "Counts only one base."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  },
+  {
+    "track": 2,
+    "stage": 1,
+    "cat": 96,
+    "skill": 355,
+    "sk": "primary-shape-attributes-partition",
+    "family": "square-two-perpendicular-folds-small-parts",
+    "title": {
+      "Ar": "تقسيم مربع بمنتصفين",
+      "En": "Partition by two midlines"
+    },
+    "q": {
+      "Ar": "نرسم في مربع خطاً من منتصف الضلع العلوي إلى منتصف السفلي، وخطاً آخر من منتصف الأيسر إلى منتصف الأيمن. كم مربعاً صغيراً متساوياً يتكون؟",
+      "En": "Draw one line in a square joining top and bottom midpoints, and another joining left and right midpoints. How many equal small squares are formed?"
+    },
+    "opts": [
+      "2",
+      "3",
+      "4",
+      "8"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "حسب نتيجة خط واحد.",
+        "En": "Counts the result of one line only."
+      },
+      {
+        "Ar": "لم يحسب جميع الأجزاء.",
+        "En": "Misses one part."
+      },
+      null,
+      {
+        "Ar": "حسب أجزاء إضافية لا ترسمها الخطوط.",
+        "En": "Counts extra undrawn parts."
+      }
+    ],
+    "idea": {
+      "Ar": "كل خط يقسم المربع في اتجاه مختلف إلى نصفين.",
+      "En": "Each line halves the square in a different direction."
+    },
+    "formula": "2\\cdot2=4",
+    "steps": [
+      {
+        "Ar": "$2+2=4$",
+        "En": "$2+2=4$"
+      }
+    ],
+    "sub": {
+      "Ar": "$2\\cdot2=4$",
+      "En": "$2\\cdot2=4$"
+    },
+    "result": {
+      "Ar": "$4$",
+      "En": "$4$"
+    },
+    "verify": {
+      "Ar": "مربعان في الأعلى ومربعان في الأسفل.",
+      "En": "Two squares above and two below."
+    },
+    "hints": [
+      {
+        "Ar": "انظر إلى النصف العلوي والنصف السفلي.",
+        "En": "Consider the top and bottom halves."
+      },
+      {
+        "Ar": "عد الأجزاء على جانبي الخط العمودي.",
+        "En": "Count parts on both sides of the vertical line."
+      }
+    ],
+    "error": {
+      "Ar": "حسب نتيجة خط واحد.",
+      "En": "Counts the result of one line only."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    }
+  }
+]

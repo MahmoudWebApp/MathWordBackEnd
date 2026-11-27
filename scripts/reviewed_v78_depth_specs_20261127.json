@@ -1,0 +1,682 @@
+[
+  {
+    "track": 3,
+    "stage": 1,
+    "cat": 82,
+    "skill": 324,
+    "sk": "time",
+    "family": "overlap-of-two-activities",
+    "title": {
+      "Ar": "وقت اللعب معاً",
+      "En": "Time playing together"
+    },
+    "q": {
+      "Ar": "لعبت مها من 3:10 إلى 3:40 بعد الظهر. ولعبت هناء من 3:25 إلى 3:50 بعد الظهر. كم دقيقة كانتا تلعبان معاً؟",
+      "En": "Maha played from 3:10 to 3:40 in the afternoon. Hana played from 3:25 to 3:50. For how many minutes were both playing?"
+    },
+    "opts": [
+      "10",
+      "15",
+      "25",
+      "40"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "عشر دقائق هي المدة بعد مغادرة مها.",
+        "En": "Ten minutes is the time after Maha leaves."
+      },
+      null,
+      {
+        "Ar": "هذه مدة لعب هناء كلها.",
+        "En": "This is Hana’s entire play time."
+      },
+      {
+        "Ar": "هذه المدة من أول بداية إلى آخر نهاية.",
+        "En": "This is the span from the first start to the last finish."
+      }
+    ],
+    "idea": {
+      "Ar": "تبدأ المدة المشتركة عند وصول الثانية وتنتهي عند مغادرة الأولى.",
+      "En": "The shared time starts when the second player joins and ends when the first leaves."
+    },
+    "formula": "40-25=15",
+    "steps": [
+      {
+        "Ar": "بدأتا اللعب معاً عند 3:25.",
+        "En": "Both are playing from 3:25."
+      },
+      {
+        "Ar": "عند 3:40 انتهت مدة اللعب معاً.",
+        "En": "Their time together ends at 3:40."
+      }
+    ],
+    "sub": {
+      "Ar": "$40-25=15$",
+      "En": "$40-25=15$"
+    },
+    "result": {
+      "Ar": "$15$",
+      "En": "$15$"
+    },
+    "verify": {
+      "Ar": "بعد ربع ساعة من 3:25 تصبح الساعة 3:40.",
+      "En": "A quarter hour after 3:25 is 3:40."
+    },
+    "hints": [
+      {
+        "Ar": "متى كانت كلتاهما قد بدأت اللعب؟",
+        "En": "When had both players started?"
+      },
+      {
+        "Ar": "من غادرت أولاً؟",
+        "En": "Who left first?"
+      }
+    ],
+    "error": {
+      "Ar": "عشر دقائق هي المدة بعد مغادرة مها.",
+      "En": "Ten minutes is the time after Maha leaves."
+    },
+    "unit": {
+      "Ar": "دقيقة",
+      "En": "minutes"
+    },
+    "difficulty": 2,
+    "points": 10
+  },
+  {
+    "track": 3,
+    "stage": 1,
+    "cat": 82,
+    "skill": 324,
+    "sk": "time",
+    "family": "midpoint-of-time-slot",
+    "title": {
+      "Ar": "منتصف الحصة",
+      "En": "Halfway through a lesson"
+    },
+    "q": {
+      "Ar": "بدأت حصة عند 9:40 صباحاً وانتهت عند 10:20. بعد كم دقيقة من بدايتها حلّ منتصف الحصة؟",
+      "En": "A lesson began at 9:40 a.m. and ended at 10:20. How many minutes after it began was the lesson halfway over?"
+    },
+    "opts": [
+      "10",
+      "30",
+      "20",
+      "40"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "عشر دقائق هي ربع الحصة.",
+        "En": "Ten minutes is a quarter of the lesson."
+      },
+      {
+        "Ar": "ثلاثون دقيقة تتجاوز المنتصف.",
+        "En": "Thirty minutes passes the halfway point."
+      },
+      null,
+      {
+        "Ar": "أربعون دقيقة هي مدة الحصة كلها.",
+        "En": "Forty minutes is the entire lesson."
+      }
+    ],
+    "idea": {
+      "Ar": "عند المنتصف يتساوى الزمن الماضي والزمن الباقي.",
+      "En": "At halfway, the elapsed and remaining times are equal."
+    },
+    "formula": "40/2=20",
+    "steps": [
+      {
+        "Ar": "قبل العاشرة عشرون دقيقة، وبعدها عشرون دقيقة أخرى.",
+        "En": "There are twenty minutes before ten and twenty more after ten."
+      },
+      {
+        "Ar": "نقسم مدة الحصة إلى نصفين متساويين.",
+        "En": "Split the lesson into two equal durations."
+      }
+    ],
+    "sub": {
+      "Ar": "$40/2=20$",
+      "En": "$40/2=20$"
+    },
+    "result": {
+      "Ar": "$20$",
+      "En": "$20$"
+    },
+    "verify": {
+      "Ar": "عند 10:00 تكون قد مضت عشرون دقيقة وتبقى عشرون.",
+      "En": "At 10:00 twenty minutes have passed and twenty remain."
+    },
+    "hints": [
+      {
+        "Ar": "ارسم خطاً زمنياً وضع علامة عند الساعة العاشرة.",
+        "En": "Draw a timeline and mark ten o’clock."
+      },
+      {
+        "Ar": "أين تجد مدتين متساويتين على الخط؟",
+        "En": "Where do you see two equal durations?"
+      }
+    ],
+    "error": {
+      "Ar": "عشر دقائق هي ربع الحصة.",
+      "En": "Ten minutes is a quarter of the lesson."
+    },
+    "unit": {
+      "Ar": "دقيقة",
+      "En": "minutes"
+    },
+    "difficulty": 2,
+    "points": 10
+  },
+  {
+    "track": 3,
+    "stage": 1,
+    "cat": 82,
+    "skill": 324,
+    "sk": "time",
+    "family": "hour-hand-between-digits",
+    "title": {
+      "Ar": "قراءة عقرب الساعات",
+      "En": "Reading the hour hand"
+    },
+    "q": {
+      "Ar": "عقرب الدقائق عند الرقم 9، وعقرب الساعات بين 4 و5 على ساعة عادية. كم دقيقة بقيت حتى الساعة الخامسة؟",
+      "En": "On an ordinary clock the minute hand points to 9 and the hour hand is between 4 and 5. How many minutes remain until five o’clock?"
+    },
+    "opts": [
+      "9",
+      "15",
+      "45",
+      "51"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "الرقم 9 موقع العقرب وليس مدة الانتظار.",
+        "En": "The numeral 9 labels the hand’s position, not the wait."
+      },
+      null,
+      {
+        "Ar": "خمس وأربعون دقيقة مضت بعد الرابعة.",
+        "En": "Forty-five minutes have passed since four."
+      },
+      {
+        "Ar": "طرح 9 من 60 يعامل رقم الساعة كأنه عدد دقائق.",
+        "En": "Subtracting 9 from 60 treats the clock numeral as minutes."
+      }
+    ],
+    "idea": {
+      "Ar": "بين رقمين متتاليين على وجه الساعة خمس دقائق لعقرب الدقائق.",
+      "En": "The minute hand takes five minutes to move between neighboring numerals."
+    },
+    "formula": "3\\times5=15",
+    "steps": [
+      {
+        "Ar": "الساعة الآن الرابعة وخمس وأربعون دقيقة.",
+        "En": "The time is now four forty-five."
+      },
+      {
+        "Ar": "بقيت ثلاث مسافات من 9 إلى 12، بكل منها خمس دقائق.",
+        "En": "Three spaces remain from 9 to 12, each worth five minutes."
+      }
+    ],
+    "sub": {
+      "Ar": "$3\\times5=15$",
+      "En": "$3\\times5=15$"
+    },
+    "result": {
+      "Ar": "$15$",
+      "En": "$15$"
+    },
+    "verify": {
+      "Ar": "خمس وأربعون دقيقة ماضية وخمس عشرة باقية تكملان الساعة.",
+      "En": "Forty-five elapsed minutes and fifteen remaining minutes make a full hour."
+    },
+    "hints": [
+      {
+        "Ar": "هل وصل عقرب الساعات إلى 5 بعد؟",
+        "En": "Has the hour hand reached 5 yet?"
+      },
+      {
+        "Ar": "تتبع عقرب الدقائق من 9 حتى 12.",
+        "En": "Trace the minute hand from 9 to 12."
+      }
+    ],
+    "error": {
+      "Ar": "الرقم 9 موقع العقرب وليس مدة الانتظار.",
+      "En": "The numeral 9 labels the hand’s position, not the wait."
+    },
+    "unit": {
+      "Ar": "دقيقة",
+      "En": "minutes"
+    },
+    "difficulty": 2,
+    "points": 10
+  },
+  {
+    "track": 3,
+    "stage": 1,
+    "cat": 82,
+    "skill": 324,
+    "sk": "time",
+    "family": "seconds-countdown-cross-minute",
+    "title": {
+      "Ar": "نهاية العدّ التنازلي",
+      "En": "A countdown crosses a minute"
+    },
+    "q": {
+      "Ar": "تعرض شاشة مؤقت الدقائق والثواني. كانت القراءة دقيقة و8 ثوانٍ ثم أصبحت 49 ثانية. كم ثانية مضت؟",
+      "En": "A timer counts down in minutes and seconds. It showed 1 minute 8 seconds, then it showed 49 seconds. How many seconds passed?"
+    },
+    "opts": [
+      "19",
+      "41",
+      "59",
+      "17"
+    ],
+    "correct": 0,
+    "reasons": [
+      null,
+      {
+        "Ar": "طرح 8 من 49 وأهمل الدقيقة.",
+        "En": "This subtracts 8 from 49 and leaves out the minute."
+      },
+      {
+        "Ar": "هذا ناتج طرح 49 من 108 باعتبار الدقيقة مئة ثانية.",
+        "En": "This subtracts 49 from 108 as if a minute had a hundred seconds."
+      },
+      {
+        "Ar": "هذه المدة تترك 51 ثانية على المؤقت.",
+        "En": "This would leave 51 seconds on the timer."
+      }
+    ],
+    "idea": {
+      "Ar": "نحوّل القراءتين إلى الوحدة نفسها.",
+      "En": "Express both readings in the same unit."
+    },
+    "formula": "60+8-49=19",
+    "steps": [
+      {
+        "Ar": "دقيقة و8 ثوانٍ تساوي 68 ثانية.",
+        "En": "One minute eight seconds is 68 seconds."
+      },
+      {
+        "Ar": "نطرح قراءة النهاية 49 من قراءة البداية 68.",
+        "En": "Subtract the final reading of 49 from the initial 68."
+      }
+    ],
+    "sub": {
+      "Ar": "$60+8-49=19$",
+      "En": "$60+8-49=19$"
+    },
+    "result": {
+      "Ar": "$19$",
+      "En": "$19$"
+    },
+    "verify": {
+      "Ar": "إذا أضفنا 19 إلى 49 حصلنا على 68 ثانية.",
+      "En": "Adding 19 to 49 gives 68 seconds."
+    },
+    "hints": [
+      {
+        "Ar": "كم ثانية في الدقيقة؟",
+        "En": "How many seconds make one minute?"
+      },
+      {
+        "Ar": "هل تزيد قراءة المؤقت أم تنقص؟",
+        "En": "Does a countdown reading increase or decrease?"
+      }
+    ],
+    "error": {
+      "Ar": "طرح 8 من 49 وأهمل الدقيقة.",
+      "En": "This subtracts 8 from 49 and leaves out the minute."
+    },
+    "unit": {
+      "Ar": "ثانية",
+      "En": "seconds"
+    },
+    "difficulty": 2,
+    "points": 10
+  },
+  {
+    "track": 3,
+    "stage": 1,
+    "cat": 82,
+    "skill": 324,
+    "sk": "time",
+    "family": "twenty-four-hour-display",
+    "title": {
+      "Ar": "شاشة محطة الحافلات",
+      "En": "The station display"
+    },
+    "q": {
+      "Ar": "تعرض ساعة المحطة الوقت بنظام 24 ساعة. وعدت المعلمة بمقابلة الصف عند السادسة والربع مساءً. أي قراءة توافق هذا الموعد؟",
+      "En": "The station clock uses 24-hour time. A teacher will meet her class at quarter past six in the evening. Which display matches the meeting time?"
+    },
+    "opts": [
+      "06{:}15",
+      "18{:}45",
+      "18{:}15",
+      "16{:}15"
+    ],
+    "correct": 2,
+    "reasons": [
+      {
+        "Ar": "هذه قراءة السادسة والربع صباحاً.",
+        "En": "This shows quarter past six in the morning."
+      },
+      {
+        "Ar": "هذه قراءة السادسة وخمس وأربعين دقيقة مساءً.",
+        "En": "This shows six forty-five in the evening."
+      },
+      null,
+      {
+        "Ar": "هذه قراءة الرابعة والربع مساءً.",
+        "En": "This shows quarter past four in the afternoon."
+      }
+    ],
+    "idea": {
+      "Ar": "نعدّ الساعات بعد الظهر ونحوّل ربع الساعة إلى دقائق.",
+      "En": "Count the hours after noon and express a quarter hour in minutes."
+    },
+    "formula": "12+6=18",
+    "steps": [
+      {
+        "Ar": "الساعة السادسة مساءً تظهر 18 على الشاشة.",
+        "En": "Six in the evening displays as hour 18."
+      },
+      {
+        "Ar": "ربع الساعة خمس عشرة دقيقة.",
+        "En": "A quarter hour is fifteen minutes."
+      }
+    ],
+    "sub": {
+      "Ar": "$12+6=18$",
+      "En": "$12+6=18$"
+    },
+    "result": {
+      "Ar": "$18{:}15$",
+      "En": "$18{:}15$"
+    },
+    "verify": {
+      "Ar": "إذا طرحنا 12 من 18 عدنا إلى السادسة مساءً، والدقائق تبقى 15.",
+      "En": "Subtracting 12 from 18 returns six in the evening, with the minutes still 15."
+    },
+    "hints": [
+      {
+        "Ar": "كيف تظهر ساعة الظهر على شاشة المحطة؟",
+        "En": "How does the station clock show noon?"
+      },
+      {
+        "Ar": "ماذا تعني كلمة الربع في جزء الدقائق؟",
+        "En": "What does a quarter mean for the minutes?"
+      }
+    ],
+    "error": {
+      "Ar": "هذه قراءة السادسة والربع صباحاً.",
+      "En": "This shows quarter past six in the morning."
+    },
+    "unit": {
+      "Ar": "",
+      "En": ""
+    },
+    "difficulty": 2,
+    "points": 10
+  },
+  {
+    "track": 3,
+    "stage": 1,
+    "cat": 82,
+    "skill": 324,
+    "sk": "time",
+    "family": "activity-fits-opening",
+    "title": {
+      "Ar": "فسحة قبل الحافلة",
+      "En": "Time before the bus"
+    },
+    "q": {
+      "Ar": "الساعة 4:12 عصراً. تغادر الحافلة عند 4:30. تريد هبة إنهاء لعبة كاملة ثم المشي 4 دقائق إلى الحافلة. أي لعبة من الخيارات تستغرق أطول مدة ممكنة تسمح لها بالوصول في الموعد؟ الخيارات مدد بالدقائق.",
+      "En": "It is 4:12 p.m. The bus leaves at 4:30. Hiba wants to finish a game and then walk four minutes to the bus. Which listed game lasts the longest while still letting her arrive on time? The choices are durations in minutes."
+    },
+    "opts": [
+      "10",
+      "14",
+      "16",
+      "18"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "تتسع المدة للعبة أطول من عشر دقائق.",
+        "En": "There is time for a game longer than ten minutes."
+      },
+      null,
+      {
+        "Ar": "ستصل بعد موعد المغادرة بدقيقتين.",
+        "En": "This makes her arrive two minutes after departure."
+      },
+      {
+        "Ar": "هذا يستهلك كل الوقت قبل المشي.",
+        "En": "This uses all the time before the walk."
+      }
+    ],
+    "idea": {
+      "Ar": "نحجز وقت المشي قبل اختيار أطول لعبة.",
+      "En": "Reserve walking time before selecting the longest game."
+    },
+    "formula": "18-4=14",
+    "steps": [
+      {
+        "Ar": "بقيت 18 دقيقة حتى موعد الحافلة.",
+        "En": "Eighteen minutes remain until departure."
+      },
+      {
+        "Ar": "بعد تخصيص أربع دقائق للمشي تتبقى 14 دقيقة للعبة.",
+        "En": "Reserving four minutes to walk leaves fourteen for the game."
+      }
+    ],
+    "sub": {
+      "Ar": "$18-4=14$",
+      "En": "$18-4=14$"
+    },
+    "result": {
+      "Ar": "$14$",
+      "En": "$14$"
+    },
+    "verify": {
+      "Ar": "تنتهي اللعبة عند 4:26 وتصل هبة عند 4:30.",
+      "En": "She finishes playing at 4:26 and arrives at 4:30."
+    },
+    "hints": [
+      {
+        "Ar": "كم دقيقة بقيت حتى المغادرة؟",
+        "En": "How many minutes remain until departure?"
+      },
+      {
+        "Ar": "هل تستطيع هبة استعمال كل تلك الدقائق للعب؟",
+        "En": "Can she spend all those minutes playing?"
+      }
+    ],
+    "error": {
+      "Ar": "تتسع المدة للعبة أطول من عشر دقائق.",
+      "En": "There is time for a game longer than ten minutes."
+    },
+    "unit": {
+      "Ar": "دقيقة",
+      "En": "minutes"
+    },
+    "difficulty": 2,
+    "points": 10
+  },
+  {
+    "track": 3,
+    "stage": 1,
+    "cat": 82,
+    "skill": 324,
+    "sk": "time",
+    "family": "same-time-of-day-next-day",
+    "title": {
+      "Ar": "ساعة في اليوم التالي",
+      "En": "The clock the next day"
+    },
+    "q": {
+      "Ar": "سقت نور النبتة الثلاثاء عند 7:00 مساءً ثم الأربعاء عند 6:00 مساءً. كم ساعة مضت بين المرتين؟",
+      "En": "Nour watered a plant at 7:00 p.m. on Tuesday and at 6:00 p.m. on Wednesday. How many hours passed between waterings?"
+    },
+    "opts": [
+      "1",
+      "23",
+      "24",
+      "25"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "فرق رقمي الساعتين وحده لا يحسب مرور يوم.",
+        "En": "The difference between the clock numerals alone misses the change of day."
+      },
+      null,
+      {
+        "Ar": "يمر يوم كامل عند السابعة مساء الأربعاء.",
+        "En": "A full day would end at 7 p.m. Wednesday."
+      },
+      {
+        "Ar": "هذه مدة الانتظار حتى الثامنة مساء الأربعاء.",
+        "En": "This would take her to 8 p.m. Wednesday."
+      }
+    ],
+    "idea": {
+      "Ar": "نبدأ بيوم كامل ثم نعدّل ساعة النهاية.",
+      "En": "Start with one full day and adjust for the ending hour."
+    },
+    "formula": "24-1=23",
+    "steps": [
+      {
+        "Ar": "من السابعة مساء الثلاثاء إلى السابعة مساء الأربعاء 24 ساعة.",
+        "En": "Tuesday 7 p.m. to Wednesday 7 p.m. spans 24 hours."
+      },
+      {
+        "Ar": "السقي الثاني حدث قبل نهاية تلك المدة بساعة.",
+        "En": "The second watering is one hour before the end of that span."
+      }
+    ],
+    "sub": {
+      "Ar": "$24-1=23$",
+      "En": "$24-1=23$"
+    },
+    "result": {
+      "Ar": "$23$",
+      "En": "$23$"
+    },
+    "verify": {
+      "Ar": "بعد 23 ساعة يكون الوقت السادسة مساءً، وبعد ساعة أخرى يعود إلى السابعة.",
+      "En": "After 23 hours it is 6 p.m. One more hour brings it back to 7 p.m."
+    },
+    "hints": [
+      {
+        "Ar": "متى تنتهي 24 ساعة كاملة؟",
+        "En": "When would a full 24 hours end?"
+      },
+      {
+        "Ar": "هل موعد الأربعاء قبل ذلك الوقت أم بعده؟",
+        "En": "Is Wednesday’s watering before or after that time?"
+      }
+    ],
+    "error": {
+      "Ar": "فرق رقمي الساعتين وحده لا يحسب مرور يوم.",
+      "En": "The difference between the clock numerals alone misses the change of day."
+    },
+    "unit": {
+      "Ar": "ساعة",
+      "En": "hours"
+    },
+    "difficulty": 2,
+    "points": 10
+  },
+  {
+    "track": 3,
+    "stage": 1,
+    "cat": 82,
+    "skill": 324,
+    "sk": "time",
+    "family": "largest-gap-in-logged-events",
+    "title": {
+      "Ar": "أطول فترة انتظار",
+      "En": "Longest wait between visits"
+    },
+    "q": {
+      "Ar": "زارت ثلاث عصافير نافذة عند 8:52 صباحاً ثم 9:06 ثم 9:25. كم دقيقة كانت أطول فترة بين زيارتين متتاليتين؟",
+      "En": "Three birds visited a window at 8:52 a.m., then 9:06, then 9:25. How many minutes was the longest wait between consecutive visits?"
+    },
+    "opts": [
+      "14",
+      "19",
+      "33",
+      "25"
+    ],
+    "correct": 1,
+    "reasons": [
+      {
+        "Ar": "أربع عشرة دقيقة هي الفترة الأقصر.",
+        "En": "Fourteen minutes is the shorter gap."
+      },
+      null,
+      {
+        "Ar": "ثلاث وثلاثون دقيقة تشمل الفترتين.",
+        "En": "Thirty-three minutes covers both waits."
+      },
+      {
+        "Ar": "خمس وعشرون دقيقة تبدأ عند 9:00 ولم يصل طائر عندها.",
+        "En": "Twenty-five minutes starts from 9:00, when no bird arrived."
+      }
+    ],
+    "idea": {
+      "Ar": "نقيس كل فترة بين زيارتين متتاليتين ونقارن.",
+      "En": "Measure each gap between neighboring visits and compare."
+    },
+    "formula": "8+6=14,\\quad25-6=19",
+    "steps": [
+      {
+        "Ar": "من 8:52 إلى 9:06 ثماني دقائق حتى التاسعة ثم ست دقائق.",
+        "En": "From 8:52 to 9:06 there are eight minutes to nine and then six more."
+      },
+      {
+        "Ar": "من 9:06 إلى 9:25 تسع عشرة دقيقة، وهي الفترة الأطول.",
+        "En": "From 9:06 to 9:25 there are nineteen minutes, the longer gap."
+      }
+    ],
+    "sub": {
+      "Ar": "$8+6=14,\\quad25-6=19$",
+      "En": "$8+6=14,\\quad25-6=19$"
+    },
+    "result": {
+      "Ar": "$19$",
+      "En": "$19$"
+    },
+    "verify": {
+      "Ar": "مجموع الفترتين 33 دقيقة، وهي المدة من الزيارة الأولى إلى الأخيرة.",
+      "En": "The waits total 33 minutes, matching the span from first visit to last."
+    },
+    "hints": [
+      {
+        "Ar": "كم فترة تفصل الزيارات الثلاث؟",
+        "En": "How many gaps separate three visits?"
+      },
+      {
+        "Ar": "قس الفترة التي تعبر الساعة التاسعة على جزأين.",
+        "En": "Split the wait that crosses nine o’clock into two parts."
+      }
+    ],
+    "error": {
+      "Ar": "أربع عشرة دقيقة هي الفترة الأقصر.",
+      "En": "Fourteen minutes is the shorter gap."
+    },
+    "unit": {
+      "Ar": "دقيقة",
+      "En": "minutes"
+    },
+    "difficulty": 2,
+    "points": 10
+  }
+]
