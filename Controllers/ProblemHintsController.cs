@@ -29,9 +29,7 @@ public sealed class ProblemHintsController(AppDbContext db,ProblemCategoryAccess
         if(level.HasValue&&level.Value is not (1 or 2))return BadRequest(new{Message="InvalidHintLevel"});
         await using var tx=await db.Database.BeginTransactionAsync(ct);
         // Same lock order as answering and reset; the next hint cannot race a correct solve.
-        await ProblemTransactionLocks.LockQuestionForAnswerAsync(db,problemId,ct);
-        await db.Database.SqlQuery<int>($"SELECT 1 AS \"Value\" FROM pg_advisory_xact_lock({-987654320}, {id})").SingleAsync(ct);
-        await ProblemTransactionLocks.LockStudentAttemptAsync(db,id,problemId,ct);
+        await ProblemTransactionLocks.LockAnswerMutationAsync(db,id,problemId,ct);
         var user=await db.Users.AsNoTracking().SingleOrDefaultAsync(u=>u.Id==id&&u.IsActive&&u.Role=="Student",ct);
         if(user is null)return Unauthorized();
         if(!PremiumEntitlement.IsActive(user))return StatusCode(403,new{Message="PremiumRequired"});
