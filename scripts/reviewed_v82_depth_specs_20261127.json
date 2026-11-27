@@ -232,8 +232,8 @@
           "En": "Arranging three tiles"
         },
         "Question": {
-          "Ar": "لدينا ثلاثة مربعات صغيرة متطابقة. نريد تركيب مستطيل دون تداخل أو فراغ. أي ترتيب يحقق ذلك؟ A: مربعان في الأعلى وواحد تحتهما؛ B: ثلاثة مربعات في صف مستقيم متجاور؛ C: ثلاثة مربعات لا تتلامس؛ D: ثلاثة مربعات تتلامس عند الزوايا فقط.",
-          "En": "Three identical small square tiles must form a rectangle with no overlap or gap. Which arrangement works? A: two on top and one beneath; B: three in one straight adjacent row; C: three separate tiles; D: three tiles touching only at corners."
+          "Ar": "لدينا ثلاثة مربعات صغيرة متطابقة. نريد تركيب مستطيل دون تداخل أو فراغ. أي ترتيب يحقق ذلك؟ A: مربعان متجاوران في الأعلى وواحد تحت الأيسر؛ B: ثلاثة مربعات في صف مستقيم متجاور؛ C: ثلاثة مربعات لا تتلامس؛ D: ثلاثة مربعات تتلامس عند الزوايا فقط.",
+          "En": "Three identical small square tiles must form a rectangle with no overlap or gap. Which arrangement works? A: two adjacent tiles on top and one below the left tile; B: three in one straight adjacent row; C: three separate tiles; D: three tiles touching only at corners."
         },
         "Options": [
           {
@@ -1432,8 +1432,8 @@
           "En": "Categories meeting a condition"
         },
         "Question": {
-          "Ar": "كل ● يمثل طالباً. A: ●●●●؛ B: ●●؛ C: ●●●؛ D: ●. نريد اختيار الفئات التي فيها ثلاثة طلاب على الأقل. كم طالباً في الفئات المختارة مجتمعة؟",
-          "En": "Each ● represents one pupil. A: ●●●●; B: ●●; C: ●●●; D: ●. Select the categories with at least three pupils. How many pupils are in the selected categories altogether?"
+          "Ar": "كل ● يمثل طالباً واحداً ينتمي إلى فئة واحدة فقط. A: ●●●●؛ B: ●●؛ C: ●●●؛ D: ●. نريد اختيار الفئات التي فيها ثلاثة طلاب على الأقل. كم طالباً في الفئات المختارة مجتمعة؟",
+          "En": "Each ● represents one pupil belonging to exactly one category. A: ●●●●; B: ●●; C: ●●●; D: ●. Select the categories with at least three pupils. How many pupils are in the selected categories altogether?"
         },
         "Options": [
           {
@@ -1608,5 +1608,6 @@
         ]
       }
     }
-  ]
+  ],
+  "review": "12 candidates reviewed against live scopes and previous holds; four held. Eight retained screened with bilingual nearest token matches against live and active draft questions. Clarified mutually exclusive categories and L-shaped distractor. Distinct reasoning: boundary types, rectangle arrangement, diagonal decomposition, square corner criterion, missing label, chart discrepancy, equal totals vs distribution, threshold-select-and-sum. Full curriculum/rendering/CI review remains open."
 }
