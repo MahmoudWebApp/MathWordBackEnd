@@ -575,56 +575,53 @@ namespace MathWorldAPI.Controllers
             var viewerId = User.Identity?.IsAuthenticated == true
                 ? GetUserId()
                 : null;
-            var orderedQuery = viewerId.HasValue
-                ? query.OrderBy(problem => scopedProgress.Any(progress =>
-                      progress.UserId == viewerId.Value &&
-                      progress.ProblemId == problem.Id && progress.IsSolved))
-                    .ThenByDescending(problem => problem.Id)
-                : query.OrderByDescending(problem => problem.Id);
-
+            // The unique (UserId, ProblemId, PracticeScopeId) index makes
+            // one left join equivalent to the three repeated progress EXISTS.
+            // A null viewer has no matching progress rows.
+            var viewerProgress = scopedProgress.AsNoTracking()
+                .Where(progress => viewerId.HasValue && progress.UserId == viewerId.Value);
+            var withProgress = from problem in query
+                join progress in viewerProgress on problem.Id equals progress.ProblemId into matches
+                from progress in matches.DefaultIfEmpty()
+                select new { problem,
+                    IsSolved = progress != null && progress.IsSolved,
+                    HasAttempted = progress != null && progress.Attempts > 0 };
             var problems =
-                await orderedQuery
-                    .Skip(
-                        (page - 1) *
-                        pageSize)
+                await withProgress.OrderBy(item => item.IsSolved)
+                    .ThenByDescending(item => item.problem.Id)
+                    .Skip((page - 1) * pageSize)
                     .Take(pageSize)
-                    .Select(problem =>
+                    .Select(item =>
                         new ProblemPreviewDto
                         {
-                            IsSolved = viewerId.HasValue &&
-                                scopedProgress.Any(progress =>
-                                    progress.UserId == viewerId.Value &&
-                                    progress.ProblemId == problem.Id && progress.IsSolved),
-                            HasAttempted = viewerId.HasValue &&
-                                scopedProgress.Any(progress =>
-                                    progress.UserId == viewerId.Value &&
-                                    progress.ProblemId == problem.Id && progress.Attempts > 0),
+                            IsSolved = item.IsSolved,
+                            HasAttempted = item.HasAttempted,
                             Id =
-                                problem.Id,
+                                item.problem.Id,
 
                             Title =
                                 language == "en"
-                                    ? problem.TitleEn
-                                    : problem.TitleAr,
+                                    ? item.problem.TitleEn
+                                    : item.problem.TitleAr,
 
                             StageId =
-                                problem.StageId,
+                                item.problem.StageId,
 
                             StageName =
                                 language == "en"
-                                    ? problem.Stage.NameEn
-                                    : problem.Stage.NameAr,
+                                    ? item.problem.Stage.NameEn
+                                    : item.problem.Stage.NameAr,
 
                             Points =
-                                problem.Points,
+                                item.problem.Points,
 
                             CategoryId =
-                                problem.CategoryId,
+                                item.problem.CategoryId,
 
                             CategoryName =
                                 language == "en"
-                                    ? problem.Category.NameEn
-                                    : problem.Category.NameAr,
+                                    ? item.problem.Category.NameEn
+                                    : item.problem.Category.NameAr,
 
                             RequiresLogin =
                                 true
