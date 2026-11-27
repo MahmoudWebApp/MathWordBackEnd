@@ -538,8 +538,12 @@ namespace MathWorldAPI.Controllers
             var activeTrack=await trackService.ActiveForStudentAsync(User,HttpContext.RequestAborted);
             if(activeTrack is not null)
             {
-                var scope=trackService.ValidProblems(activeTrack.Id);
-                query=query.Where(p=>scope.Any(q=>q.Id==p.Id));
+                // ValidLinks already validates the problem, stage, category
+                // and published primary skill. Filter directly by its IDs
+                // instead of correlating a second Problems query around it.
+                var validIds=trackService.ValidLinks().Where(link=>link.TrackId==activeTrack.Id)
+                    .Select(link=>link.ProblemId);
+                query=query.Where(p=>validIds.Contains(p.Id));
             }
 
             var practiceScope=TrackPractice.Scope(HttpContext.RequestServices.GetRequiredService<IConfiguration>(),activeTrack?.Id);
