@@ -1,0 +1,2612 @@
+{
+  "batch": "V83",
+  "sourceHead": "271abdde36a20179714ecf0a1a1792c06106b3fd",
+  "holds": {
+    "mode-hidden-value-required": "Close to #1730 adding values for unique mode, although missing-value format. Hold for diversity.",
+    "mode-different-values-equal-frequency": "Closely repeats new two-modes-complete-pair objective, hold rather than inflate.",
+    "addition-carry-through-zero-column": "Related to #2323 carrying into hundreds; hold for further depth.",
+    "capacity-minimum-full-bottles-remainder": "Related to #1592 full cups and remainder-focused division #851, hold to avoid repetitive structure."
+  },
+  "rows": [
+    {
+      "key": "growth-v83-grade-1-two-oblong-pieces-square-join-1",
+      "family": "two-oblong-pieces-square-join",
+      "skill_key": "primary-shape-attributes-composition",
+      "track_code": "grade-1",
+      "track": 1,
+      "stage": 1,
+      "category": 96,
+      "skill": 354,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 96,
+        "PrimarySkillId": 354,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          1
+        ],
+        "DifficultyLevel": 1,
+        "Points": 10,
+        "Title": {
+          "Ar": "وصل مستطيلين",
+          "En": "Joining rectangles"
+        },
+        "Question": {
+          "Ar": "لدينا مستطيلان ورقيان متطابقان، طول كل منهما يساوي عرضين من عرضه. أي طريقة لوصلهما دون تداخل أو فراغ تكوّن مربعاً؟ A: وصل الضلعين القصيرين؛ B: وصل الضلعين الطويلين بالكامل؛ C: ملامسة زاوية فقط؛ D: ترك فراغ بينهما.",
+          "En": "Two identical paper rectangles each have a long side twice their short side. Which way of joining them without gaps or overlaps makes a square? A: join the short sides; B: join the entire long sides; C: touch at a corner only; D: leave a gap."
+        },
+        "Options": [
+          {
+            "LatexCode": "A",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "ينتج مستطيل أطول وأضيق.",
+              "En": "This makes a longer, narrower rectangle."
+            }
+          },
+          {
+            "LatexCode": "B",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "C",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "لا تتكون مساحة مربعة متصلة من التقاء زاويتين فقط.",
+              "En": "Corner-only contact does not form a filled square."
+            }
+          },
+          {
+            "LatexCode": "D",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "الفراغ يمنع تكوين مربع ممتلئ.",
+              "En": "A gap prevents a filled square."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "تخيّل أن كل مستطيل مكوّن من مربعين صغيرين.",
+            "En": "Imagine each rectangle as two small squares."
+          },
+          {
+            "Ar": "ضع أحد المستطيلين فوق الآخر بمحاذاة الحافتين الطويلتين.",
+            "En": "Place one above the other with the long edges aligned."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "عند وصل الضلعين الطويلين يصبح العرض الكلي مساوياً للطول.",
+            "En": "Joining long sides doubles the width to match the length."
+          },
+          "FormulaLatex": "1+1=2",
+          "Steps": [
+            {
+              "Ar": "يمثل كل مستطيل صفاً طوله مربعان وعرضه مربع واحد.",
+              "En": "Each rectangle is a row two squares long and one wide."
+            },
+            {
+              "Ar": "نضع صفين متراصين لتكوين مربع.",
+              "En": "Place the two rows together to make a square."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$2=2$",
+            "En": "$2=2$"
+          },
+          "Result": {
+            "Ar": "$B$",
+            "En": "$B$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "الشكل الناتج صفان وفي كل صف مربعان.",
+            "En": "The resulting shape has two rows of two squares."
+          },
+          "CommonError": {
+            "Ar": "وصل الضلعين القصيرين بدلاً من الطويلين.",
+            "En": "Joining the short edges instead of the long edges."
+          }
+        }
+      },
+      "flat_ar": "عند وصل الضلعين الطويلين يصبح العرض الكلي مساوياً للطول.\n\n$1+1=2$\n\n1. يمثل كل مستطيل صفاً طوله مربعان وعرضه مربع واحد.\n\n2. نضع صفين متراصين لتكوين مربع.\n\n$2=2$\n\n$B$\n\nالشكل الناتج صفان وفي كل صف مربعان.\n\nوصل الضلعين القصيرين بدلاً من الطويلين.",
+      "flat_en": "Joining long sides doubles the width to match the length.\n\n$1+1=2$\n\n1. Each rectangle is a row two squares long and one wide.\n\n2. Place the two rows together to make a square.\n\n$2=2$\n\n$B$\n\nThe resulting shape has two rows of two squares.\n\nJoining the short edges instead of the long edges.",
+      "metadata": {
+        "DifficultyLevel": 1,
+        "Hints": [
+          {
+            "Ar": "تخيّل أن كل مستطيل مكوّن من مربعين صغيرين.",
+            "En": "Imagine each rectangle as two small squares."
+          },
+          {
+            "Ar": "ضع أحد المستطيلين فوق الآخر بمحاذاة الحافتين الطويلتين.",
+            "En": "Place one above the other with the long edges aligned."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "عند وصل الضلعين الطويلين يصبح العرض الكلي مساوياً للطول.",
+            "En": "Joining long sides doubles the width to match the length."
+          },
+          "FormulaLatex": "1+1=2",
+          "Steps": [
+            {
+              "Ar": "يمثل كل مستطيل صفاً طوله مربعان وعرضه مربع واحد.",
+              "En": "Each rectangle is a row two squares long and one wide."
+            },
+            {
+              "Ar": "نضع صفين متراصين لتكوين مربع.",
+              "En": "Place the two rows together to make a square."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$2=2$",
+            "En": "$2=2$"
+          },
+          "Result": {
+            "Ar": "$B$",
+            "En": "$B$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "الشكل الناتج صفان وفي كل صف مربعان.",
+            "En": "The resulting shape has two rows of two squares."
+          },
+          "CommonError": {
+            "Ar": "وصل الضلعين القصيرين بدلاً من الطويلين.",
+            "En": "Joining the short edges instead of the long edges."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "ينتج مستطيل أطول وأضيق.",
+              "En": "This makes a longer, narrower rectangle."
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "لا تتكون مساحة مربعة متصلة من التقاء زاويتين فقط.",
+              "En": "Corner-only contact does not form a filled square."
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "الفراغ يمنع تكوين مربع ممتلئ.",
+              "En": "A gap prevents a filled square."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v83-grade-1-fold-square-corner-correspondence-1",
+      "family": "fold-square-corner-correspondence",
+      "skill_key": "primary-shape-attributes-composition",
+      "track_code": "grade-1",
+      "track": 1,
+      "stage": 1,
+      "category": 96,
+      "skill": 354,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 96,
+        "PrimarySkillId": 354,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          1
+        ],
+        "DifficultyLevel": 1,
+        "Points": 10,
+        "Title": {
+          "Ar": "زاويتان تتطابقان",
+          "En": "Matching corners"
+        },
+        "Question": {
+          "Ar": "وُضعت ورقة مربعة مسطحة. نطوي نصفها الأيسر فوق نصفها الأيمن على خط من منتصف الضلع العلوي إلى منتصف الضلع السفلي. أي زاوية تقع فوق الزاوية العلوية اليمنى؟ A: السفلية اليسرى؛ B: السفلية اليمنى؛ C: العلوية اليسرى؛ D: لا زاوية.",
+          "En": "A square sheet lies flat. Fold its left half onto its right half along the line from the top midpoint to the bottom midpoint. Which corner lands on the top-right corner? A: bottom-left; B: bottom-right; C: top-left; D: none."
+        },
+        "Options": [
+          {
+            "LatexCode": "A",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "الطي لا ينقل الأسفل إلى الأعلى.",
+              "En": "The fold does not move bottom to top."
+            }
+          },
+          {
+            "LatexCode": "B",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذه الزاوية تبقى في النصف الأيمن.",
+              "En": "This corner stays on the right half."
+            }
+          },
+          {
+            "LatexCode": "C",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "D",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "الزاوية العلوية اليسرى تنطبق عليها.",
+              "En": "The top-left corner matches it."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "الطي ينقل النصف الأيسر إلى الأيمن فقط.",
+            "En": "The fold moves the left half onto the right."
+          },
+          {
+            "Ar": "تبقى النقاط العلوية في الأعلى.",
+            "En": "Top points stay at the top."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نطابق الزوايا الواقعة على جانبي خط الطي عند الارتفاع نفسه.",
+            "En": "Match corners on opposite sides of the fold at the same height."
+          },
+          "FormulaLatex": "2=2",
+          "Steps": [
+            {
+              "Ar": "الزاويتان العلويتان تبعدان المسافة نفسها عن خط الطي.",
+              "En": "The two top corners are equally far from the fold."
+            },
+            {
+              "Ar": "عند الطي تنطبق العلوية اليسرى على العلوية اليمنى.",
+              "En": "Folding brings the top-left corner onto the top-right corner."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$\\text{top}$",
+            "En": "$\\text{top}$"
+          },
+          "Result": {
+            "Ar": "$C$",
+            "En": "$C$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "بالمثل تنطبق الزاوية السفلية اليسرى على السفلية اليمنى.",
+            "En": "Similarly the bottom-left matches the bottom-right."
+          },
+          "CommonError": {
+            "Ar": "الخلط بين طي اليمين واليسار وطي الأعلى والأسفل.",
+            "En": "Confusing a left-right fold with a top-bottom fold."
+          }
+        }
+      },
+      "flat_ar": "نطابق الزوايا الواقعة على جانبي خط الطي عند الارتفاع نفسه.\n\n$2=2$\n\n1. الزاويتان العلويتان تبعدان المسافة نفسها عن خط الطي.\n\n2. عند الطي تنطبق العلوية اليسرى على العلوية اليمنى.\n\n$\\text{top}$\n\n$C$\n\nبالمثل تنطبق الزاوية السفلية اليسرى على السفلية اليمنى.\n\nالخلط بين طي اليمين واليسار وطي الأعلى والأسفل.",
+      "flat_en": "Match corners on opposite sides of the fold at the same height.\n\n$2=2$\n\n1. The two top corners are equally far from the fold.\n\n2. Folding brings the top-left corner onto the top-right corner.\n\n$\\text{top}$\n\n$C$\n\nSimilarly the bottom-left matches the bottom-right.\n\nConfusing a left-right fold with a top-bottom fold.",
+      "metadata": {
+        "DifficultyLevel": 1,
+        "Hints": [
+          {
+            "Ar": "الطي ينقل النصف الأيسر إلى الأيمن فقط.",
+            "En": "The fold moves the left half onto the right."
+          },
+          {
+            "Ar": "تبقى النقاط العلوية في الأعلى.",
+            "En": "Top points stay at the top."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نطابق الزوايا الواقعة على جانبي خط الطي عند الارتفاع نفسه.",
+            "En": "Match corners on opposite sides of the fold at the same height."
+          },
+          "FormulaLatex": "2=2",
+          "Steps": [
+            {
+              "Ar": "الزاويتان العلويتان تبعدان المسافة نفسها عن خط الطي.",
+              "En": "The two top corners are equally far from the fold."
+            },
+            {
+              "Ar": "عند الطي تنطبق العلوية اليسرى على العلوية اليمنى.",
+              "En": "Folding brings the top-left corner onto the top-right corner."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$\\text{top}$",
+            "En": "$\\text{top}$"
+          },
+          "Result": {
+            "Ar": "$C$",
+            "En": "$C$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "بالمثل تنطبق الزاوية السفلية اليسرى على السفلية اليمنى.",
+            "En": "Similarly the bottom-left matches the bottom-right."
+          },
+          "CommonError": {
+            "Ar": "الخلط بين طي اليمين واليسار وطي الأعلى والأسفل.",
+            "En": "Confusing a left-right fold with a top-bottom fold."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "الطي لا ينقل الأسفل إلى الأعلى.",
+              "En": "The fold does not move bottom to top."
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذه الزاوية تبقى في النصف الأيمن.",
+              "En": "This corner stays on the right half."
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "الزاوية العلوية اليسرى تنطبق عليها.",
+              "En": "The top-left corner matches it."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v83-grade-2-pictograph-tied-second-place-1",
+      "family": "pictograph-tied-second-place",
+      "skill_key": "primary-single-unit-picture-data",
+      "track_code": "grade-2",
+      "track": 2,
+      "stage": 1,
+      "category": 97,
+      "skill": 357,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 97,
+        "PrimarySkillId": 357,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          2
+        ],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "تساوٍ في المركز الثاني",
+          "En": "Tied for second"
+        },
+        "Question": {
+          "Ar": "كل ● يمثل صوتاً واحداً. A: ●●●●●؛ B: ●●●؛ C: ●●●؛ D: ●. أي فئتين تتساويان في العدد وتأتيان مباشرة بعد الفئة الأعلى؟ A: A وB؛ B: B وC؛ C: A وD؛ D: C وD.",
+          "En": "Each ● represents one vote. A: ●●●●●; B: ●●●; C: ●●●; D: ●. Which two categories tie immediately below the highest count? A: A and B; B: B and C; C: A and D; D: C and D."
+        },
+        "Options": [
+          {
+            "LatexCode": "A",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "A لها خمسة أصوات وB ثلاثة.",
+              "En": "A has five votes and B three."
+            }
+          },
+          {
+            "LatexCode": "B",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "C",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "خمسة وواحد غير متساويين.",
+              "En": "Five and one are unequal."
+            }
+          },
+          {
+            "LatexCode": "D",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "ثلاثة وواحد غير متساويين.",
+              "En": "Three and one are unequal."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "ابحث عن العدد الأكبر أولاً.",
+            "En": "Find the highest count first."
+          },
+          {
+            "Ar": "ثم ابحث عن الصفين المتساويين في العدد التالي.",
+            "En": "Find the two rows tied at the next count."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نرتب الأعداد تنازلياً ونحدد التعادل بعد الأكبر.",
+            "En": "Order the counts and identify the tie below the largest."
+          },
+          "FormulaLatex": "5>3=3>1",
+          "Steps": [
+            {
+              "Ar": "A هي الأعلى بخمسة أصوات.",
+              "En": "A is highest with five votes."
+            },
+            {
+              "Ar": "B وC لكل منهما ثلاثة أصوات، وهما التاليان.",
+              "En": "B and C each have three votes and are next."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$3=3$",
+            "En": "$3=3$"
+          },
+          "Result": {
+            "Ar": "$B$",
+            "En": "$B$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "D لديها صوت واحد فقط، فلا تشاركهما المركز الثاني.",
+            "En": "D has only one vote, so it does not share second place."
+          },
+          "CommonError": {
+            "Ar": "اعتبار الفئة الأعلى جزءاً من التعادل رغم اختلاف العدد.",
+            "En": "Including the highest category in the tie despite unequal counts."
+          }
+        }
+      },
+      "flat_ar": "نرتب الأعداد تنازلياً ونحدد التعادل بعد الأكبر.\n\n$5>3=3>1$\n\n1. A هي الأعلى بخمسة أصوات.\n\n2. B وC لكل منهما ثلاثة أصوات، وهما التاليان.\n\n$3=3$\n\n$B$\n\nD لديها صوت واحد فقط، فلا تشاركهما المركز الثاني.\n\nاعتبار الفئة الأعلى جزءاً من التعادل رغم اختلاف العدد.",
+      "flat_en": "Order the counts and identify the tie below the largest.\n\n$5>3=3>1$\n\n1. A is highest with five votes.\n\n2. B and C each have three votes and are next.\n\n$3=3$\n\n$B$\n\nD has only one vote, so it does not share second place.\n\nIncluding the highest category in the tie despite unequal counts.",
+      "metadata": {
+        "DifficultyLevel": 2,
+        "Hints": [
+          {
+            "Ar": "ابحث عن العدد الأكبر أولاً.",
+            "En": "Find the highest count first."
+          },
+          {
+            "Ar": "ثم ابحث عن الصفين المتساويين في العدد التالي.",
+            "En": "Find the two rows tied at the next count."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نرتب الأعداد تنازلياً ونحدد التعادل بعد الأكبر.",
+            "En": "Order the counts and identify the tie below the largest."
+          },
+          "FormulaLatex": "5>3=3>1",
+          "Steps": [
+            {
+              "Ar": "A هي الأعلى بخمسة أصوات.",
+              "En": "A is highest with five votes."
+            },
+            {
+              "Ar": "B وC لكل منهما ثلاثة أصوات، وهما التاليان.",
+              "En": "B and C each have three votes and are next."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$3=3$",
+            "En": "$3=3$"
+          },
+          "Result": {
+            "Ar": "$B$",
+            "En": "$B$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "D لديها صوت واحد فقط، فلا تشاركهما المركز الثاني.",
+            "En": "D has only one vote, so it does not share second place."
+          },
+          "CommonError": {
+            "Ar": "اعتبار الفئة الأعلى جزءاً من التعادل رغم اختلاف العدد.",
+            "En": "Including the highest category in the tie despite unequal counts."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "A لها خمسة أصوات وB ثلاثة.",
+              "En": "A has five votes and B three."
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "خمسة وواحد غير متساويين.",
+              "En": "Five and one are unequal."
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "ثلاثة وواحد غير متساويين.",
+              "En": "Three and one are unequal."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v83-grade-2-pictograph-exclude-category-two-conditions-1",
+      "family": "pictograph-exclude-category-two-conditions",
+      "skill_key": "primary-single-unit-picture-data",
+      "track_code": "grade-2",
+      "track": 2,
+      "stage": 1,
+      "category": 97,
+      "skill": 357,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 97,
+        "PrimarySkillId": 357,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          2
+        ],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "اختيار الصف المستبعد",
+          "En": "Choosing a row to exclude"
+        },
+        "Question": {
+          "Ar": "كل ● يمثل بطاقة. A: ●●●●؛ B: ●●●؛ C: ●●. نريد اختيار فئتين مجموع بطاقاتهما ست، والفرق بين عدديهما اثنتان. أي فئة لا نختارها؟ A: الفئة A؛ B: الفئة B؛ C: الفئة C؛ D: لا يوجد حل.",
+          "En": "Each ● represents a card. A: ●●●●; B: ●●●; C: ●●. Select two categories whose total is six and whose counts differ by two. Which category is not selected? A: category A; B: category B; C: category C; D: impossible."
+        },
+        "Options": [
+          {
+            "LatexCode": "A",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "اختيار B وC يعطي خمس بطاقات وفرقاً واحداً.",
+              "En": "B and C total five and differ by one."
+            }
+          },
+          {
+            "LatexCode": "B",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "C",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "اختيار A وB يعطي سبع بطاقات وفرقاً واحداً.",
+              "En": "A and B total seven and differ by one."
+            }
+          },
+          {
+            "LatexCode": "D",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "يمكن اختيار A وC لتحقيق الشرطين.",
+              "En": "A and C meet both conditions."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "جرّب جمع كل زوج من الأعداد 4 و3 و2.",
+            "En": "Try adding each pair of 4, 3 and 2."
+          },
+          {
+            "Ar": "تحقق من الفرق للزوج الذي مجموعه ستة.",
+            "En": "Check the difference for the pair totaling six."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نختبر شرطي المجموع والفرق معاً.",
+            "En": "Test both the total and the difference."
+          },
+          "FormulaLatex": "4+2=6,\\quad4-2=2",
+          "Steps": [
+            {
+              "Ar": "A وC مجموعهما ست بطاقات.",
+              "En": "A and C total six cards."
+            },
+            {
+              "Ar": "الفرق بينهما اثنتان، لذا نستبعد B.",
+              "En": "Their difference is two, so exclude B."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$4-2=2$",
+            "En": "$4-2=2$"
+          },
+          "Result": {
+            "Ar": "$B$",
+            "En": "$B$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "الزوجان الآخران مجموعاهما سبعة وخمسة، فلا يحققان الشرط الأول.",
+            "En": "The other pairs total seven and five, so neither meets the first condition."
+          },
+          "CommonError": {
+            "Ar": "التحقق من شرط واحد فقط أو إعطاء الفئة المختارة.",
+            "En": "Checking only one condition or naming a selected category."
+          }
+        }
+      },
+      "flat_ar": "نختبر شرطي المجموع والفرق معاً.\n\n$4+2=6,\\quad4-2=2$\n\n1. A وC مجموعهما ست بطاقات.\n\n2. الفرق بينهما اثنتان، لذا نستبعد B.\n\n$4-2=2$\n\n$B$\n\nالزوجان الآخران مجموعاهما سبعة وخمسة، فلا يحققان الشرط الأول.\n\nالتحقق من شرط واحد فقط أو إعطاء الفئة المختارة.",
+      "flat_en": "Test both the total and the difference.\n\n$4+2=6,\\quad4-2=2$\n\n1. A and C total six cards.\n\n2. Their difference is two, so exclude B.\n\n$4-2=2$\n\n$B$\n\nThe other pairs total seven and five, so neither meets the first condition.\n\nChecking only one condition or naming a selected category.",
+      "metadata": {
+        "DifficultyLevel": 2,
+        "Hints": [
+          {
+            "Ar": "جرّب جمع كل زوج من الأعداد 4 و3 و2.",
+            "En": "Try adding each pair of 4, 3 and 2."
+          },
+          {
+            "Ar": "تحقق من الفرق للزوج الذي مجموعه ستة.",
+            "En": "Check the difference for the pair totaling six."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نختبر شرطي المجموع والفرق معاً.",
+            "En": "Test both the total and the difference."
+          },
+          "FormulaLatex": "4+2=6,\\quad4-2=2",
+          "Steps": [
+            {
+              "Ar": "A وC مجموعهما ست بطاقات.",
+              "En": "A and C total six cards."
+            },
+            {
+              "Ar": "الفرق بينهما اثنتان، لذا نستبعد B.",
+              "En": "Their difference is two, so exclude B."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$4-2=2$",
+            "En": "$4-2=2$"
+          },
+          "Result": {
+            "Ar": "$B$",
+            "En": "$B$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "الزوجان الآخران مجموعاهما سبعة وخمسة، فلا يحققان الشرط الأول.",
+            "En": "The other pairs total seven and five, so neither meets the first condition."
+          },
+          "CommonError": {
+            "Ar": "التحقق من شرط واحد فقط أو إعطاء الفئة المختارة.",
+            "En": "Checking only one condition or naming a selected category."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "اختيار B وC يعطي خمس بطاقات وفرقاً واحداً.",
+              "En": "B and C total five and differ by one."
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "اختيار A وB يعطي سبع بطاقات وفرقاً واحداً.",
+              "En": "A and B total seven and differ by one."
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "يمكن اختيار A وC لتحقيق الشرطين.",
+              "En": "A and C meet both conditions."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v83-grade-4-mode-from-frequency-record-1",
+      "family": "mode-from-frequency-record",
+      "skill_key": "primary-mode",
+      "track_code": "grade-4",
+      "track": 4,
+      "stage": 1,
+      "category": 4,
+      "skill": 20,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 4,
+        "PrimarySkillId": 20,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          4
+        ],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "المنوال من جدول التكرار",
+          "En": "Mode from frequencies"
+        },
+        "Question": {
+          "Ar": "سجل عدد الكتب التي قرأها الطلاب: العدد 2 قرأه خمسة طلاب، والعدد 3 قرأه طالبان، والعدد 4 قرأه أربعة طلاب. ما منوال عدد الكتب؟",
+          "En": "The number of books read was recorded: five pupils read 2 books, two pupils read 3, and four pupils read 4. What is the mode of the book counts?"
+        },
+        "Options": [
+          {
+            "LatexCode": "2",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "3",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "العدد 3 تكرر مرتين فقط.",
+              "En": "The value 3 occurs only twice."
+            }
+          },
+          {
+            "LatexCode": "4",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "العدد 4 تكرر أربع مرات، أقل من خمس.",
+              "En": "The value 4 occurs four times, fewer than five."
+            }
+          },
+          {
+            "LatexCode": "5",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "خمسة هو التكرار الأعلى وليس قيمة عدد الكتب.",
+              "En": "Five is the highest frequency, not the book-count value."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "قارن عدد الطلاب لكل قيمة.",
+            "En": "Compare the number of pupils for each value."
+          },
+          {
+            "Ar": "اختر قيمة الكتب التي لها أكبر تكرار.",
+            "En": "Choose the book count with the highest frequency."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "المنوال هو القيمة ذات أكبر تكرار، لا التكرار نفسه.",
+            "En": "The mode is the value with the highest frequency, not the frequency itself."
+          },
+          "FormulaLatex": "5>4>2",
+          "Steps": [
+            {
+              "Ar": "تكرار 2 يساوي خمسة، وتكرار 3 اثنان، وتكرار 4 أربعة.",
+              "En": "The frequencies of 2, 3 and 4 are five, two and four."
+            },
+            {
+              "Ar": "أكبر تكرار خمسة ويقابل القيمة 2.",
+              "En": "The largest frequency is five, belonging to value 2."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$5>4$",
+            "En": "$5>4$"
+          },
+          "Result": {
+            "Ar": "$2$",
+            "En": "$2$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "كتابة البيانات كاملة تعطي خمس نسخ من 2 وأربعاً من 4 ونسختين من 3.",
+            "En": "Expanding the record gives five copies of 2, four of 4 and two of 3."
+          },
+          "CommonError": {
+            "Ar": "الإجابة بأكبر تكرار بدلاً من القيمة.",
+            "En": "Giving the largest frequency instead of the value."
+          }
+        }
+      },
+      "flat_ar": "المنوال هو القيمة ذات أكبر تكرار، لا التكرار نفسه.\n\n$5>4>2$\n\n1. تكرار 2 يساوي خمسة، وتكرار 3 اثنان، وتكرار 4 أربعة.\n\n2. أكبر تكرار خمسة ويقابل القيمة 2.\n\n$5>4$\n\n$2$\n\nكتابة البيانات كاملة تعطي خمس نسخ من 2 وأربعاً من 4 ونسختين من 3.\n\nالإجابة بأكبر تكرار بدلاً من القيمة.",
+      "flat_en": "The mode is the value with the highest frequency, not the frequency itself.\n\n$5>4>2$\n\n1. The frequencies of 2, 3 and 4 are five, two and four.\n\n2. The largest frequency is five, belonging to value 2.\n\n$5>4$\n\n$2$\n\nExpanding the record gives five copies of 2, four of 4 and two of 3.\n\nGiving the largest frequency instead of the value.",
+      "metadata": {
+        "DifficultyLevel": 2,
+        "Hints": [
+          {
+            "Ar": "قارن عدد الطلاب لكل قيمة.",
+            "En": "Compare the number of pupils for each value."
+          },
+          {
+            "Ar": "اختر قيمة الكتب التي لها أكبر تكرار.",
+            "En": "Choose the book count with the highest frequency."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "المنوال هو القيمة ذات أكبر تكرار، لا التكرار نفسه.",
+            "En": "The mode is the value with the highest frequency, not the frequency itself."
+          },
+          "FormulaLatex": "5>4>2",
+          "Steps": [
+            {
+              "Ar": "تكرار 2 يساوي خمسة، وتكرار 3 اثنان، وتكرار 4 أربعة.",
+              "En": "The frequencies of 2, 3 and 4 are five, two and four."
+            },
+            {
+              "Ar": "أكبر تكرار خمسة ويقابل القيمة 2.",
+              "En": "The largest frequency is five, belonging to value 2."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$5>4$",
+            "En": "$5>4$"
+          },
+          "Result": {
+            "Ar": "$2$",
+            "En": "$2$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "كتابة البيانات كاملة تعطي خمس نسخ من 2 وأربعاً من 4 ونسختين من 3.",
+            "En": "Expanding the record gives five copies of 2, four of 4 and two of 3."
+          },
+          "CommonError": {
+            "Ar": "الإجابة بأكبر تكرار بدلاً من القيمة.",
+            "En": "Giving the largest frequency instead of the value."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "العدد 3 تكرر مرتين فقط.",
+              "En": "The value 3 occurs only twice."
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "العدد 4 تكرر أربع مرات، أقل من خمس.",
+              "En": "The value 4 occurs four times, fewer than five."
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "خمسة هو التكرار الأعلى وليس قيمة عدد الكتب.",
+              "En": "Five is the highest frequency, not the book-count value."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v83-grade-4-two-modes-complete-pair-1",
+      "family": "two-modes-complete-pair",
+      "skill_key": "primary-mode",
+      "track_code": "grade-4",
+      "track": 4,
+      "stage": 1,
+      "category": 4,
+      "skill": 20,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 4,
+        "PrimarySkillId": 20,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          4
+        ],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "منوالان",
+          "En": "Two modes"
+        },
+        "Question": {
+          "Ar": "في البيانات 6، 2، 9، 6، 2، 8، 6، 2، ما جميع قيم المنوال؟ اختر الزوج الذي يحتوي القيمتين دون غيرهما.",
+          "En": "In the data 6, 2, 9, 6, 2, 8, 6, 2, what are all the modes? Choose the pair containing exactly the two modal values."
+        },
+        "Options": [
+          {
+            "LatexCode": "(2,8)",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "8 ظهر مرة واحدة فقط.",
+              "En": "8 occurs only once."
+            }
+          },
+          {
+            "LatexCode": "(6,9)",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "9 ظهر مرة واحدة فقط.",
+              "En": "9 occurs only once."
+            }
+          },
+          {
+            "LatexCode": "(2,6)",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "(8,9)",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "8 و9 لكل منهما تكرار واحد، وليس الأعلى.",
+              "En": "8 and 9 each occur once, not the highest frequency."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "عد مرات ظهور كل قيمة.",
+            "En": "Count the occurrences of each value."
+          },
+          {
+            "Ar": "إذا تعادلت قيمتان في أكبر تكرار فكلتاهما منوال.",
+            "En": "If two values tie at the highest frequency, both are modes."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "قد توجد أكثر من قيمة منوال عند التعادل في أكبر تكرار.",
+            "En": "More than one value can be modal when tied at the highest frequency."
+          },
+          "FormulaLatex": "f(2)=f(6)=3",
+          "Steps": [
+            {
+              "Ar": "القيمتان 2 و6 تظهر كل منهما ثلاث مرات.",
+              "En": "Both 2 and 6 occur three times."
+            },
+            {
+              "Ar": "8 و9 تظهر كل منهما مرة واحدة.",
+              "En": "8 and 9 occur once each."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$3>1$",
+            "En": "$3>1$"
+          },
+          "Result": {
+            "Ar": "$(2,6)$",
+            "En": "$(2,6)$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "لا توجد قيمة أخرى تكررت ثلاث مرات.",
+            "En": "No other value occurs three times."
+          },
+          "CommonError": {
+            "Ar": "اختيار منوال واحد فقط رغم التعادل.",
+            "En": "Choosing only one mode despite a tie."
+          }
+        }
+      },
+      "flat_ar": "قد توجد أكثر من قيمة منوال عند التعادل في أكبر تكرار.\n\n$f(2)=f(6)=3$\n\n1. القيمتان 2 و6 تظهر كل منهما ثلاث مرات.\n\n2. 8 و9 تظهر كل منهما مرة واحدة.\n\n$3>1$\n\n$(2,6)$\n\nلا توجد قيمة أخرى تكررت ثلاث مرات.\n\nاختيار منوال واحد فقط رغم التعادل.",
+      "flat_en": "More than one value can be modal when tied at the highest frequency.\n\n$f(2)=f(6)=3$\n\n1. Both 2 and 6 occur three times.\n\n2. 8 and 9 occur once each.\n\n$3>1$\n\n$(2,6)$\n\nNo other value occurs three times.\n\nChoosing only one mode despite a tie.",
+      "metadata": {
+        "DifficultyLevel": 2,
+        "Hints": [
+          {
+            "Ar": "عد مرات ظهور كل قيمة.",
+            "En": "Count the occurrences of each value."
+          },
+          {
+            "Ar": "إذا تعادلت قيمتان في أكبر تكرار فكلتاهما منوال.",
+            "En": "If two values tie at the highest frequency, both are modes."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "قد توجد أكثر من قيمة منوال عند التعادل في أكبر تكرار.",
+            "En": "More than one value can be modal when tied at the highest frequency."
+          },
+          "FormulaLatex": "f(2)=f(6)=3",
+          "Steps": [
+            {
+              "Ar": "القيمتان 2 و6 تظهر كل منهما ثلاث مرات.",
+              "En": "Both 2 and 6 occur three times."
+            },
+            {
+              "Ar": "8 و9 تظهر كل منهما مرة واحدة.",
+              "En": "8 and 9 occur once each."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$3>1$",
+            "En": "$3>1$"
+          },
+          "Result": {
+            "Ar": "$(2,6)$",
+            "En": "$(2,6)$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "لا توجد قيمة أخرى تكررت ثلاث مرات.",
+            "En": "No other value occurs three times."
+          },
+          "CommonError": {
+            "Ar": "اختيار منوال واحد فقط رغم التعادل.",
+            "En": "Choosing only one mode despite a tie."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "8 ظهر مرة واحدة فقط.",
+              "En": "8 occurs only once."
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "9 ظهر مرة واحدة فقط.",
+              "En": "9 occurs only once."
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "8 و9 لكل منهما تكرار واحد، وليس الأعلى.",
+              "En": "8 and 9 each occur once, not the highest frequency."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v83-grade-4-mode-unique-after-removal-1",
+      "family": "mode-unique-after-removal",
+      "skill_key": "primary-mode",
+      "track_code": "grade-4",
+      "track": 4,
+      "stage": 1,
+      "category": 4,
+      "skill": 20,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 4,
+        "PrimarySkillId": 20,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          4
+        ],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "المنوال بعد الحذف",
+          "En": "Mode after removal"
+        },
+        "Question": {
+          "Ar": "البيانات هي 3، 3، 3، 5، 5، 5، 7، 7. إذا حُذفت نسخة واحدة من القيمة 3 فقط، فما المنوال الوحيد للبيانات الباقية؟",
+          "En": "The data are 3, 3, 3, 5, 5, 5, 7, 7. If one occurrence of 3 is removed, what is the unique mode of the remaining data?"
+        },
+        "Options": [
+          {
+            "LatexCode": "3",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "تكرار 3 انخفض إلى اثنين.",
+              "En": "The frequency of 3 drops to two."
+            }
+          },
+          {
+            "LatexCode": "5",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "7",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "7 تكررت مرتين فقط.",
+              "En": "7 occurs only twice."
+            }
+          },
+          {
+            "LatexCode": "(3,5)",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "انتهى التعادل بعد حذف إحدى الثلاثات.",
+              "En": "The tie ends after removing one 3."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "احسب التكرارات قبل الحذف.",
+            "En": "Find the frequencies before removal."
+          },
+          {
+            "Ar": "أنقص تكرار 3 بمقدار واحد فقط.",
+            "En": "Decrease the frequency of 3 by exactly one."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نحدّث تكرار القيمة المحذوفة ثم نبحث عن الأعلى.",
+            "En": "Update the removed value's frequency and find the highest."
+          },
+          "FormulaLatex": "3-1=2",
+          "Steps": [
+            {
+              "Ar": "تكرار 3 أصبح اثنين، وتكرار 7 اثنان.",
+              "En": "3 now occurs twice, as does 7."
+            },
+            {
+              "Ar": "تكرار 5 بقي ثلاثة وهو الأكبر.",
+              "En": "5 still occurs three times, the highest."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$3>2$",
+            "En": "$3>2$"
+          },
+          "Result": {
+            "Ar": "$5$",
+            "En": "$5$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "القائمة الباقية فيها ثلاث خمسات ونسختان من كل قيمة أخرى.",
+            "En": "The remaining list has three 5s and two of each other value."
+          },
+          "CommonError": {
+            "Ar": "حذف جميع نسخ 3 أو تجاهل تغير التكرار.",
+            "En": "Removing every 3 or ignoring the frequency change."
+          }
+        }
+      },
+      "flat_ar": "نحدّث تكرار القيمة المحذوفة ثم نبحث عن الأعلى.\n\n$3-1=2$\n\n1. تكرار 3 أصبح اثنين، وتكرار 7 اثنان.\n\n2. تكرار 5 بقي ثلاثة وهو الأكبر.\n\n$3>2$\n\n$5$\n\nالقائمة الباقية فيها ثلاث خمسات ونسختان من كل قيمة أخرى.\n\nحذف جميع نسخ 3 أو تجاهل تغير التكرار.",
+      "flat_en": "Update the removed value's frequency and find the highest.\n\n$3-1=2$\n\n1. 3 now occurs twice, as does 7.\n\n2. 5 still occurs three times, the highest.\n\n$3>2$\n\n$5$\n\nThe remaining list has three 5s and two of each other value.\n\nRemoving every 3 or ignoring the frequency change.",
+      "metadata": {
+        "DifficultyLevel": 2,
+        "Hints": [
+          {
+            "Ar": "احسب التكرارات قبل الحذف.",
+            "En": "Find the frequencies before removal."
+          },
+          {
+            "Ar": "أنقص تكرار 3 بمقدار واحد فقط.",
+            "En": "Decrease the frequency of 3 by exactly one."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نحدّث تكرار القيمة المحذوفة ثم نبحث عن الأعلى.",
+            "En": "Update the removed value's frequency and find the highest."
+          },
+          "FormulaLatex": "3-1=2",
+          "Steps": [
+            {
+              "Ar": "تكرار 3 أصبح اثنين، وتكرار 7 اثنان.",
+              "En": "3 now occurs twice, as does 7."
+            },
+            {
+              "Ar": "تكرار 5 بقي ثلاثة وهو الأكبر.",
+              "En": "5 still occurs three times, the highest."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$3>2$",
+            "En": "$3>2$"
+          },
+          "Result": {
+            "Ar": "$5$",
+            "En": "$5$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "القائمة الباقية فيها ثلاث خمسات ونسختان من كل قيمة أخرى.",
+            "En": "The remaining list has three 5s and two of each other value."
+          },
+          "CommonError": {
+            "Ar": "حذف جميع نسخ 3 أو تجاهل تغير التكرار.",
+            "En": "Removing every 3 or ignoring the frequency change."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "تكرار 3 انخفض إلى اثنين.",
+              "En": "The frequency of 3 drops to two."
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "7 تكررت مرتين فقط.",
+              "En": "7 occurs only twice."
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "انتهى التعادل بعد حذف إحدى الثلاثات.",
+              "En": "The tie ends after removing one 3."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v83-grade-4-mode-combine-two-samples-1",
+      "family": "mode-combine-two-samples",
+      "skill_key": "primary-mode",
+      "track_code": "grade-4",
+      "track": 4,
+      "stage": 1,
+      "category": 4,
+      "skill": 20,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 4,
+        "PrimarySkillId": 20,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          4
+        ],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "منوال البيانات المجمعة",
+          "En": "Mode of combined data"
+        },
+        "Question": {
+          "Ar": "سجل فريق A القيم 2، 2، 2، 5، 5، وسجل فريق B القيم 5، 5، 8، 8، 8. عند جمع القائمتين دون حذف أي قيمة، ما المنوال الوحيد؟",
+          "En": "Team A recorded 2, 2, 2, 5, 5, and team B recorded 5, 5, 8, 8, 8. When both lists are combined without deleting any value, what is the unique mode?"
+        },
+        "Options": [
+          {
+            "LatexCode": "2",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "2 تكررت ثلاث مرات فقط.",
+              "En": "2 occurs only three times."
+            }
+          },
+          {
+            "LatexCode": "5",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "8",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "8 تكررت ثلاث مرات فقط.",
+              "En": "8 occurs only three times."
+            }
+          },
+          {
+            "LatexCode": "(2,8)",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "منوالا القائمتين منفردتين لا يلزم أن يكونا منوال المجموع.",
+              "En": "The separate modes need not be the combined mode."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "عد كل قيمة في القائمتين معاً.",
+            "En": "Count each value across both lists."
+          },
+          {
+            "Ar": "انتبه إلى القيمة التي تظهر في الفريقين.",
+            "En": "Notice the value appearing in both teams."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نجمع تكرارات كل قيمة عبر القائمتين قبل تحديد المنوال.",
+            "En": "Combine each value's frequencies across the lists before finding the mode."
+          },
+          "FormulaLatex": "2+2=4",
+          "Steps": [
+            {
+              "Ar": "2 و8 تكرر كل منهما ثلاث مرات.",
+              "En": "2 and 8 each occur three times."
+            },
+            {
+              "Ar": "5 ظهرت مرتين في كل فريق، أي أربع مرات.",
+              "En": "5 appears twice in each team, four times overall."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$4>3$",
+            "En": "$4>3$"
+          },
+          "Result": {
+            "Ar": "$5$",
+            "En": "$5$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "أربع خمسات وثلاث ثنائيات وثلاث ثمانيات تعطي عشر قيم.",
+            "En": "Four 5s, three 2s and three 8s total ten values."
+          },
+          "CommonError": {
+            "Ar": "اختيار منوال أحد الفريقين دون جمع التكرارات.",
+            "En": "Choosing one team's mode without combining frequencies."
+          }
+        }
+      },
+      "flat_ar": "نجمع تكرارات كل قيمة عبر القائمتين قبل تحديد المنوال.\n\n$2+2=4$\n\n1. 2 و8 تكرر كل منهما ثلاث مرات.\n\n2. 5 ظهرت مرتين في كل فريق، أي أربع مرات.\n\n$4>3$\n\n$5$\n\nأربع خمسات وثلاث ثنائيات وثلاث ثمانيات تعطي عشر قيم.\n\nاختيار منوال أحد الفريقين دون جمع التكرارات.",
+      "flat_en": "Combine each value's frequencies across the lists before finding the mode.\n\n$2+2=4$\n\n1. 2 and 8 each occur three times.\n\n2. 5 appears twice in each team, four times overall.\n\n$4>3$\n\n$5$\n\nFour 5s, three 2s and three 8s total ten values.\n\nChoosing one team's mode without combining frequencies.",
+      "metadata": {
+        "DifficultyLevel": 2,
+        "Hints": [
+          {
+            "Ar": "عد كل قيمة في القائمتين معاً.",
+            "En": "Count each value across both lists."
+          },
+          {
+            "Ar": "انتبه إلى القيمة التي تظهر في الفريقين.",
+            "En": "Notice the value appearing in both teams."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نجمع تكرارات كل قيمة عبر القائمتين قبل تحديد المنوال.",
+            "En": "Combine each value's frequencies across the lists before finding the mode."
+          },
+          "FormulaLatex": "2+2=4",
+          "Steps": [
+            {
+              "Ar": "2 و8 تكرر كل منهما ثلاث مرات.",
+              "En": "2 and 8 each occur three times."
+            },
+            {
+              "Ar": "5 ظهرت مرتين في كل فريق، أي أربع مرات.",
+              "En": "5 appears twice in each team, four times overall."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$4>3$",
+            "En": "$4>3$"
+          },
+          "Result": {
+            "Ar": "$5$",
+            "En": "$5$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "أربع خمسات وثلاث ثنائيات وثلاث ثمانيات تعطي عشر قيم.",
+            "En": "Four 5s, three 2s and three 8s total ten values."
+          },
+          "CommonError": {
+            "Ar": "اختيار منوال أحد الفريقين دون جمع التكرارات.",
+            "En": "Choosing one team's mode without combining frequencies."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "2 تكررت ثلاث مرات فقط.",
+              "En": "2 occurs only three times."
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "8 تكررت ثلاث مرات فقط.",
+              "En": "8 occurs only three times."
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "منوالا القائمتين منفردتين لا يلزم أن يكونا منوال المجموع.",
+              "En": "The separate modes need not be the combined mode."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v83-grade-4-mode-permutation-of-list-1",
+      "family": "mode-permutation-of-list",
+      "skill_key": "primary-mode",
+      "track_code": "grade-4",
+      "track": 4,
+      "stage": 1,
+      "category": 4,
+      "skill": 20,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 4,
+        "PrimarySkillId": 20,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          4
+        ],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "ترتيب البيانات والمنوال",
+          "En": "Order and mode"
+        },
+        "Question": {
+          "Ar": "البيانات 8، 3، 8، 5، 3، 8. رتّب طالب القيم تصاعدياً دون إضافة أو حذف. أي عبارة تصف المنوال بعد الترتيب؟ A: يتغير إلى 3؛ B: يتغير إلى 5؛ C: يبقى 8؛ D: لا يعود له منوال وحيد.",
+          "En": "The data are 8, 3, 8, 5, 3, 8. A pupil sorts them in increasing order without adding or removing anything. What happens to the mode? A: changes to 3; B: changes to 5; C: remains 8; D: no longer has a unique mode."
+        },
+        "Options": [
+          {
+            "LatexCode": "A",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "3 تكررت مرتين فقط حتى بعد ترتيبها.",
+              "En": "3 still occurs only twice after sorting."
+            }
+          },
+          {
+            "LatexCode": "B",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "5 تظهر مرة واحدة فقط.",
+              "En": "5 occurs only once."
+            }
+          },
+          {
+            "LatexCode": "C",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "D",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "8 تبقى صاحبة أكبر تكرار بمفردها.",
+              "En": "8 still has the unique highest frequency."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "هل يغير الترتيب عدد مرات ظهور أي قيمة؟",
+            "En": "Does sorting change the occurrence count of any value?"
+          },
+          {
+            "Ar": "عد مرات ظهور 8 قبل الترتيب وبعده.",
+            "En": "Count the 8s before and after sorting."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "المنوال يعتمد على التكرار لا على موضع القيم.",
+            "En": "Mode depends on frequency, not the positions of the values."
+          },
+          "FormulaLatex": "f(8)=3",
+          "Steps": [
+            {
+              "Ar": "تصبح القائمة 3، 3، 5، 8، 8، 8.",
+              "En": "The sorted list is 3, 3, 5, 8, 8, 8."
+            },
+            {
+              "Ar": "تكرار 8 بقي ثلاثة، وهو الأكبر.",
+              "En": "8 still occurs three times, the highest."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$3>2$",
+            "En": "$3>2$"
+          },
+          "Result": {
+            "Ar": "$C$",
+            "En": "$C$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "التكرارات لم تتغير لأي قيمة عند الترتيب.",
+            "En": "No value's frequency changed during sorting."
+          },
+          "CommonError": {
+            "Ar": "الخلط بين المنوال والقيمة الأولى أو الوسطى.",
+            "En": "Confusing the mode with the first or middle value."
+          }
+        }
+      },
+      "flat_ar": "المنوال يعتمد على التكرار لا على موضع القيم.\n\n$f(8)=3$\n\n1. تصبح القائمة 3، 3، 5، 8، 8، 8.\n\n2. تكرار 8 بقي ثلاثة، وهو الأكبر.\n\n$3>2$\n\n$C$\n\nالتكرارات لم تتغير لأي قيمة عند الترتيب.\n\nالخلط بين المنوال والقيمة الأولى أو الوسطى.",
+      "flat_en": "Mode depends on frequency, not the positions of the values.\n\n$f(8)=3$\n\n1. The sorted list is 3, 3, 5, 8, 8, 8.\n\n2. 8 still occurs three times, the highest.\n\n$3>2$\n\n$C$\n\nNo value's frequency changed during sorting.\n\nConfusing the mode with the first or middle value.",
+      "metadata": {
+        "DifficultyLevel": 2,
+        "Hints": [
+          {
+            "Ar": "هل يغير الترتيب عدد مرات ظهور أي قيمة؟",
+            "En": "Does sorting change the occurrence count of any value?"
+          },
+          {
+            "Ar": "عد مرات ظهور 8 قبل الترتيب وبعده.",
+            "En": "Count the 8s before and after sorting."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "المنوال يعتمد على التكرار لا على موضع القيم.",
+            "En": "Mode depends on frequency, not the positions of the values."
+          },
+          "FormulaLatex": "f(8)=3",
+          "Steps": [
+            {
+              "Ar": "تصبح القائمة 3، 3، 5، 8، 8، 8.",
+              "En": "The sorted list is 3, 3, 5, 8, 8, 8."
+            },
+            {
+              "Ar": "تكرار 8 بقي ثلاثة، وهو الأكبر.",
+              "En": "8 still occurs three times, the highest."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$3>2$",
+            "En": "$3>2$"
+          },
+          "Result": {
+            "Ar": "$C$",
+            "En": "$C$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "التكرارات لم تتغير لأي قيمة عند الترتيب.",
+            "En": "No value's frequency changed during sorting."
+          },
+          "CommonError": {
+            "Ar": "الخلط بين المنوال والقيمة الأولى أو الوسطى.",
+            "En": "Confusing the mode with the first or middle value."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "3 تكررت مرتين فقط حتى بعد ترتيبها.",
+              "En": "3 still occurs only twice after sorting."
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "5 تظهر مرة واحدة فقط.",
+              "En": "5 occurs only once."
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "8 تبقى صاحبة أكبر تكرار بمفردها.",
+              "En": "8 still has the unique highest frequency."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v83-grade-4-mode-frequency-transfer-correction-1",
+      "family": "mode-frequency-transfer-correction",
+      "skill_key": "primary-mode",
+      "track_code": "grade-4",
+      "track": 4,
+      "stage": 1,
+      "category": 4,
+      "skill": 20,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 4,
+        "PrimarySkillId": 20,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          4
+        ],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "تصحيح قيمة والمنوال",
+          "En": "Correcting a value"
+        },
+        "Question": {
+          "Ar": "في سجل الدرجات 4، 4، 4، 6، 6، 9، اكتشف المعلم أن إحدى قيم 4 كانت في الحقيقة 6. بعد استبدال تلك القيمة فقط، ما المنوال الوحيد؟",
+          "En": "In the scores 4, 4, 4, 6, 6, 9, the teacher finds that one recorded 4 should actually be 6. After replacing only that value, what is the unique mode?"
+        },
+        "Options": [
+          {
+            "LatexCode": "4",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "انخفض تكرار 4 إلى مرتين.",
+              "En": "4 falls to two occurrences."
+            }
+          },
+          {
+            "LatexCode": "6",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "9",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "9 لم تتغير وتكررت مرة واحدة.",
+              "En": "9 is unchanged and occurs once."
+            }
+          },
+          {
+            "LatexCode": "(4,6)",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "6 أصبحت ثلاث مرات و4 مرتين فلا تعادل.",
+              "En": "6 now occurs three times and 4 twice, so there is no tie."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "التصحيح ينقص تكرار 4 ويزيد تكرار 6.",
+            "En": "The correction decreases the frequency of 4 and increases that of 6."
+          },
+          {
+            "Ar": "احسب التكرارين بعد النقل.",
+            "En": "Calculate both frequencies after the transfer."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "استبدال قيمة يحدّث تكرارين في آن واحد.",
+            "En": "Replacing a value changes two frequencies at once."
+          },
+          "FormulaLatex": "3-1=2,\\quad2+1=3",
+          "Steps": [
+            {
+              "Ar": "يصبح تكرار 4 اثنين.",
+              "En": "The frequency of 4 becomes two."
+            },
+            {
+              "Ar": "يصبح تكرار 6 ثلاثة، وهو الأكبر.",
+              "En": "The frequency of 6 becomes three, the highest."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$3>2$",
+            "En": "$3>2$"
+          },
+          "Result": {
+            "Ar": "$6$",
+            "En": "$6$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "عدد الدرجات بقي ستاً: اثنتان من 4 وثلاث من 6 وواحدة من 9.",
+            "En": "The total stays six: two 4s, three 6s and one 9."
+          },
+          "CommonError": {
+            "Ar": "زيادة تكرار 6 دون إنقاص تكرار 4.",
+            "En": "Increasing the count of 6 without decreasing the count of 4."
+          }
+        }
+      },
+      "flat_ar": "استبدال قيمة يحدّث تكرارين في آن واحد.\n\n$3-1=2,\\quad2+1=3$\n\n1. يصبح تكرار 4 اثنين.\n\n2. يصبح تكرار 6 ثلاثة، وهو الأكبر.\n\n$3>2$\n\n$6$\n\nعدد الدرجات بقي ستاً: اثنتان من 4 وثلاث من 6 وواحدة من 9.\n\nزيادة تكرار 6 دون إنقاص تكرار 4.",
+      "flat_en": "Replacing a value changes two frequencies at once.\n\n$3-1=2,\\quad2+1=3$\n\n1. The frequency of 4 becomes two.\n\n2. The frequency of 6 becomes three, the highest.\n\n$3>2$\n\n$6$\n\nThe total stays six: two 4s, three 6s and one 9.\n\nIncreasing the count of 6 without decreasing the count of 4.",
+      "metadata": {
+        "DifficultyLevel": 2,
+        "Hints": [
+          {
+            "Ar": "التصحيح ينقص تكرار 4 ويزيد تكرار 6.",
+            "En": "The correction decreases the frequency of 4 and increases that of 6."
+          },
+          {
+            "Ar": "احسب التكرارين بعد النقل.",
+            "En": "Calculate both frequencies after the transfer."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "استبدال قيمة يحدّث تكرارين في آن واحد.",
+            "En": "Replacing a value changes two frequencies at once."
+          },
+          "FormulaLatex": "3-1=2,\\quad2+1=3",
+          "Steps": [
+            {
+              "Ar": "يصبح تكرار 4 اثنين.",
+              "En": "The frequency of 4 becomes two."
+            },
+            {
+              "Ar": "يصبح تكرار 6 ثلاثة، وهو الأكبر.",
+              "En": "The frequency of 6 becomes three, the highest."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$3>2$",
+            "En": "$3>2$"
+          },
+          "Result": {
+            "Ar": "$6$",
+            "En": "$6$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "عدد الدرجات بقي ستاً: اثنتان من 4 وثلاث من 6 وواحدة من 9.",
+            "En": "The total stays six: two 4s, three 6s and one 9."
+          },
+          "CommonError": {
+            "Ar": "زيادة تكرار 6 دون إنقاص تكرار 4.",
+            "En": "Increasing the count of 6 without decreasing the count of 4."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "انخفض تكرار 4 إلى مرتين.",
+              "En": "4 falls to two occurrences."
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "9 لم تتغير وتكررت مرة واحدة.",
+              "En": "9 is unchanged and occurs once."
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "6 أصبحت ثلاث مرات و4 مرتين فلا تعادل.",
+              "En": "6 now occurs three times and 4 twice, so there is no tie."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v83-grade-4-metric-combined-length-mixed-units-1",
+      "family": "metric-combined-length-mixed-units",
+      "skill_key": "primary-unit-conversions",
+      "track_code": "grade-4",
+      "track": 4,
+      "stage": 1,
+      "category": 3,
+      "skill": 16,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 3,
+        "PrimarySkillId": 16,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          4
+        ],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "جمع طولين بوحدتين",
+          "En": "Adding mixed-unit lengths"
+        },
+        "Question": {
+          "Ar": "طول شريط 3 m و8 cm، وطول شريط آخر 92 cm. إذا وضعناهما طرفاً إلى طرف، فكم متراً يساوي طولهما الكلي؟",
+          "En": "One strip is 3 m 8 cm long, and another is 92 cm long. Placed end to end, what is their total length in metres?"
+        },
+        "Options": [
+          {
+            "LatexCode": "3",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا يهمل مجموع السنتيمترات.",
+              "En": "This ignores the combined centimetres."
+            }
+          },
+          {
+            "LatexCode": "3.1",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "100 cm يساوي متراً كاملاً، لا عُشر متر.",
+              "En": "100 cm is one full metre, not a tenth."
+            }
+          },
+          {
+            "LatexCode": "4",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "13",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا يعامل السنتيمترات المئة كعشرة أمتار.",
+              "En": "This treats one hundred centimetres as ten metres."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "اجمع 8 و92 بالسنتيمترات.",
+            "En": "Add 8 and 92 in centimetres."
+          },
+          {
+            "Ar": "كل 100 cm تساوي 1 m.",
+            "En": "Every 100 cm equals 1 m."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نجمع الوحدات الصغيرة ثم نعيد تجميع مئة سنتيمتر في متر.",
+            "En": "Combine the smaller units, then regroup one hundred centimetres into a metre."
+          },
+          "FormulaLatex": "100\\,\\mathrm{cm}=1\\,\\mathrm{m}",
+          "Steps": [
+            {
+              "Ar": "مجموع السنتيمترات 100.",
+              "En": "The centimetre total is 100."
+            },
+            {
+              "Ar": "نضيف متراً واحداً إلى الأمتار الثلاثة.",
+              "En": "Add one metre to the three metres."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$3+1=4$",
+            "En": "$3+1=4$"
+          },
+          "Result": {
+            "Ar": "$4$",
+            "En": "$4$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "308 cm مع 92 cm تساوي 400 cm أي 4 m.",
+            "En": "308 cm plus 92 cm equals 400 cm, or 4 m."
+          },
+          "CommonError": {
+            "Ar": "إضافة أعداد بوحدات مختلفة دون تحويل.",
+            "En": "Adding quantities in different units without converting."
+          }
+        }
+      },
+      "flat_ar": "نجمع الوحدات الصغيرة ثم نعيد تجميع مئة سنتيمتر في متر.\n\n$100\\,\\mathrm{cm}=1\\,\\mathrm{m}$\n\n1. مجموع السنتيمترات 100.\n\n2. نضيف متراً واحداً إلى الأمتار الثلاثة.\n\n$3+1=4$\n\n$4$\n\n308 cm مع 92 cm تساوي 400 cm أي 4 m.\n\nإضافة أعداد بوحدات مختلفة دون تحويل.",
+      "flat_en": "Combine the smaller units, then regroup one hundred centimetres into a metre.\n\n$100\\,\\mathrm{cm}=1\\,\\mathrm{m}$\n\n1. The centimetre total is 100.\n\n2. Add one metre to the three metres.\n\n$3+1=4$\n\n$4$\n\n308 cm plus 92 cm equals 400 cm, or 4 m.\n\nAdding quantities in different units without converting.",
+      "metadata": {
+        "DifficultyLevel": 2,
+        "Hints": [
+          {
+            "Ar": "اجمع 8 و92 بالسنتيمترات.",
+            "En": "Add 8 and 92 in centimetres."
+          },
+          {
+            "Ar": "كل 100 cm تساوي 1 m.",
+            "En": "Every 100 cm equals 1 m."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نجمع الوحدات الصغيرة ثم نعيد تجميع مئة سنتيمتر في متر.",
+            "En": "Combine the smaller units, then regroup one hundred centimetres into a metre."
+          },
+          "FormulaLatex": "100\\,\\mathrm{cm}=1\\,\\mathrm{m}",
+          "Steps": [
+            {
+              "Ar": "مجموع السنتيمترات 100.",
+              "En": "The centimetre total is 100."
+            },
+            {
+              "Ar": "نضيف متراً واحداً إلى الأمتار الثلاثة.",
+              "En": "Add one metre to the three metres."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$3+1=4$",
+            "En": "$3+1=4$"
+          },
+          "Result": {
+            "Ar": "$4$",
+            "En": "$4$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "308 cm مع 92 cm تساوي 400 cm أي 4 m.",
+            "En": "308 cm plus 92 cm equals 400 cm, or 4 m."
+          },
+          "CommonError": {
+            "Ar": "إضافة أعداد بوحدات مختلفة دون تحويل.",
+            "En": "Adding quantities in different units without converting."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا يهمل مجموع السنتيمترات.",
+              "En": "This ignores the combined centimetres."
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "100 cm يساوي متراً كاملاً، لا عُشر متر.",
+              "En": "100 cm is one full metre, not a tenth."
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا يعامل السنتيمترات المئة كعشرة أمتار.",
+              "En": "This treats one hundred centimetres as ten metres."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v83-grade-4-metric-km-m-remainder-to-next-1",
+      "family": "metric-km-m-remainder-to-next",
+      "skill_key": "primary-unit-conversions",
+      "track_code": "grade-4",
+      "track": 4,
+      "stage": 1,
+      "category": 3,
+      "skill": 16,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 3,
+        "PrimarySkillId": 16,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          4
+        ],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "إكمال الكيلومتر",
+          "En": "Completing the kilometre"
+        },
+        "Question": {
+          "Ar": "قطع متسابق 750 m من مسار طوله 1 km. كم سنتيمتراً بقي حتى نهاية المسار؟",
+          "En": "A runner has travelled 750 m along a 1 km course. How many centimetres remain to the finish?"
+        },
+        "Options": [
+          {
+            "LatexCode": "250",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "250 هو المتبقي بالمتر لا بالسنتيمتر.",
+              "En": "250 is the remaining distance in metres, not centimetres."
+            }
+          },
+          {
+            "LatexCode": "2500",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "التحويل يحتاج الضرب في 100 لا 10.",
+              "En": "Converting requires multiplying by 100, not 10."
+            }
+          },
+          {
+            "LatexCode": "25000",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "75000",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا يحوّل المسافة المقطوعة لا المتبقية.",
+              "En": "This converts the travelled distance, not the remainder."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "حوّل 1 km إلى 1000 m.",
+            "En": "Convert 1 km to 1000 m."
+          },
+          {
+            "Ar": "اطرح المسافة المقطوعة ثم حوّل الباقي إلى cm.",
+            "En": "Subtract the travelled distance, then convert the remainder to cm."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نحسب المتبقي بالمتر أولاً ثم نحوّله إلى سنتيمتر.",
+            "En": "Find the remaining metres first, then convert to centimetres."
+          },
+          "FormulaLatex": "1\\,\\mathrm{km}=1000\\,\\mathrm{m},\\quad1\\,\\mathrm{m}=100\\,\\mathrm{cm}",
+          "Steps": [
+            {
+              "Ar": "المتبقي 1000 ناقص 750 أي 250 m.",
+              "En": "1000 minus 750 leaves 250 m."
+            },
+            {
+              "Ar": "نضرب 250 في 100 للتحويل.",
+              "En": "Multiply 250 by 100 to convert."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$250\\times100=25000$",
+            "En": "$250\\times100=25000$"
+          },
+          "Result": {
+            "Ar": "$25000$",
+            "En": "$25000$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "750 m مع 250 m تكمل 1000 m.",
+            "En": "750 m plus 250 m completes 1000 m."
+          },
+          "CommonError": {
+            "Ar": "التوقف عند الوحدة الوسيطة أو تحويل المسافة المقطوعة.",
+            "En": "Stopping at the intermediate unit or converting the travelled distance."
+          }
+        }
+      },
+      "flat_ar": "نحسب المتبقي بالمتر أولاً ثم نحوّله إلى سنتيمتر.\n\n$1\\,\\mathrm{km}=1000\\,\\mathrm{m},\\quad1\\,\\mathrm{m}=100\\,\\mathrm{cm}$\n\n1. المتبقي 1000 ناقص 750 أي 250 m.\n\n2. نضرب 250 في 100 للتحويل.\n\n$250\\times100=25000$\n\n$25000$\n\n750 m مع 250 m تكمل 1000 m.\n\nالتوقف عند الوحدة الوسيطة أو تحويل المسافة المقطوعة.",
+      "flat_en": "Find the remaining metres first, then convert to centimetres.\n\n$1\\,\\mathrm{km}=1000\\,\\mathrm{m},\\quad1\\,\\mathrm{m}=100\\,\\mathrm{cm}$\n\n1. 1000 minus 750 leaves 250 m.\n\n2. Multiply 250 by 100 to convert.\n\n$250\\times100=25000$\n\n$25000$\n\n750 m plus 250 m completes 1000 m.\n\nStopping at the intermediate unit or converting the travelled distance.",
+      "metadata": {
+        "DifficultyLevel": 2,
+        "Hints": [
+          {
+            "Ar": "حوّل 1 km إلى 1000 m.",
+            "En": "Convert 1 km to 1000 m."
+          },
+          {
+            "Ar": "اطرح المسافة المقطوعة ثم حوّل الباقي إلى cm.",
+            "En": "Subtract the travelled distance, then convert the remainder to cm."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "نحسب المتبقي بالمتر أولاً ثم نحوّله إلى سنتيمتر.",
+            "En": "Find the remaining metres first, then convert to centimetres."
+          },
+          "FormulaLatex": "1\\,\\mathrm{km}=1000\\,\\mathrm{m},\\quad1\\,\\mathrm{m}=100\\,\\mathrm{cm}",
+          "Steps": [
+            {
+              "Ar": "المتبقي 1000 ناقص 750 أي 250 m.",
+              "En": "1000 minus 750 leaves 250 m."
+            },
+            {
+              "Ar": "نضرب 250 في 100 للتحويل.",
+              "En": "Multiply 250 by 100 to convert."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$250\\times100=25000$",
+            "En": "$250\\times100=25000$"
+          },
+          "Result": {
+            "Ar": "$25000$",
+            "En": "$25000$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "750 m مع 250 m تكمل 1000 m.",
+            "En": "750 m plus 250 m completes 1000 m."
+          },
+          "CommonError": {
+            "Ar": "التوقف عند الوحدة الوسيطة أو تحويل المسافة المقطوعة.",
+            "En": "Stopping at the intermediate unit or converting the travelled distance."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "250 هو المتبقي بالمتر لا بالسنتيمتر.",
+              "En": "250 is the remaining distance in metres, not centimetres."
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "التحويل يحتاج الضرب في 100 لا 10.",
+              "En": "Converting requires multiplying by 100, not 10."
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا يحوّل المسافة المقطوعة لا المتبقية.",
+              "En": "This converts the travelled distance, not the remainder."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    },
+    {
+      "key": "growth-v83-grade-4-elapsed-time-interrupted-clock-1",
+      "family": "elapsed-time-interrupted-clock",
+      "skill_key": "time",
+      "track_code": "grade-4",
+      "track": 4,
+      "stage": 1,
+      "category": 82,
+      "skill": 324,
+      "wizard": {
+        "StageId": 1,
+        "CategoryId": 82,
+        "PrimarySkillId": 324,
+        "SecondarySkillIds": [],
+        "TrackIds": [
+          4
+        ],
+        "DifficultyLevel": 2,
+        "Points": 10,
+        "Title": {
+          "Ar": "وقت العمل الفعلي",
+          "En": "Active time"
+        },
+        "Question": {
+          "Ar": "بدأت ورشة الساعة 10:40 وانتهت 11:25. توقف العمل خلال هذه الفترة مدة 10 دقائق فقط. كم دقيقة استمر العمل فعلياً؟",
+          "En": "A workshop began at 10:40 and ended at 11:25. Work paused for exactly 10 minutes during that period. For how many minutes was work actually underway?"
+        },
+        "Options": [
+          {
+            "LatexCode": "25",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا يطرح مدة التوقف من الدقائق بعد الساعة 11 فقط.",
+              "En": "This subtracts the pause from only the minutes after 11."
+            }
+          },
+          {
+            "LatexCode": "35",
+            "IsCorrect": true,
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            }
+          },
+          {
+            "LatexCode": "45",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "45 هي المدة الكلية بما فيها التوقف.",
+              "En": "45 is the entire elapsed time including the pause."
+            }
+          },
+          {
+            "LatexCode": "55",
+            "IsCorrect": false,
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا يضيف التوقف بدلاً من طرحه.",
+              "En": "This adds the pause instead of subtracting it."
+            }
+          }
+        ],
+        "Hints": [
+          {
+            "Ar": "احسب من 10:40 إلى 11:00 ثم إلى 11:25.",
+            "En": "Count from 10:40 to 11:00, then to 11:25."
+          },
+          {
+            "Ar": "اطرح عشر دقائق من المدة الكلية.",
+            "En": "Subtract ten minutes from the elapsed time."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "مدة العمل الفعلية تساوي المدة المنقضية ناقص التوقف.",
+            "En": "Active time equals elapsed time minus the pause."
+          },
+          "FormulaLatex": "20+25-10=35",
+          "Steps": [
+            {
+              "Ar": "من 10:40 إلى 11:00 عشرون دقيقة، ثم 25 دقيقة أخرى.",
+              "En": "From 10:40 to 11:00 is 20 minutes, then another 25."
+            },
+            {
+              "Ar": "نطرح 10 دقائق من 45 دقيقة.",
+              "En": "Subtract 10 minutes from 45."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$45-10=35$",
+            "En": "$45-10=35$"
+          },
+          "Result": {
+            "Ar": "$35$",
+            "En": "$35$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "35 دقيقة عمل مع 10 دقائق توقف تعطي 45 دقيقة.",
+            "En": "35 active minutes plus 10 paused minutes equals 45."
+          },
+          "CommonError": {
+            "Ar": "الخلط بين الوقت المنقضي ووقت العمل.",
+            "En": "Confusing elapsed time with active time."
+          }
+        }
+      },
+      "flat_ar": "مدة العمل الفعلية تساوي المدة المنقضية ناقص التوقف.\n\n$20+25-10=35$\n\n1. من 10:40 إلى 11:00 عشرون دقيقة، ثم 25 دقيقة أخرى.\n\n2. نطرح 10 دقائق من 45 دقيقة.\n\n$45-10=35$\n\n$35$\n\n35 دقيقة عمل مع 10 دقائق توقف تعطي 45 دقيقة.\n\nالخلط بين الوقت المنقضي ووقت العمل.",
+      "flat_en": "Active time equals elapsed time minus the pause.\n\n$20+25-10=35$\n\n1. From 10:40 to 11:00 is 20 minutes, then another 25.\n\n2. Subtract 10 minutes from 45.\n\n$45-10=35$\n\n$35$\n\n35 active minutes plus 10 paused minutes equals 45.\n\nConfusing elapsed time with active time.",
+      "metadata": {
+        "DifficultyLevel": 2,
+        "Hints": [
+          {
+            "Ar": "احسب من 10:40 إلى 11:00 ثم إلى 11:25.",
+            "En": "Count from 10:40 to 11:00, then to 11:25."
+          },
+          {
+            "Ar": "اطرح عشر دقائق من المدة الكلية.",
+            "En": "Subtract ten minutes from the elapsed time."
+          }
+        ],
+        "Solution": {
+          "Idea": {
+            "Ar": "مدة العمل الفعلية تساوي المدة المنقضية ناقص التوقف.",
+            "En": "Active time equals elapsed time minus the pause."
+          },
+          "FormulaLatex": "20+25-10=35",
+          "Steps": [
+            {
+              "Ar": "من 10:40 إلى 11:00 عشرون دقيقة، ثم 25 دقيقة أخرى.",
+              "En": "From 10:40 to 11:00 is 20 minutes, then another 25."
+            },
+            {
+              "Ar": "نطرح 10 دقائق من 45 دقيقة.",
+              "En": "Subtract 10 minutes from 45."
+            }
+          ],
+          "Substitution": {
+            "Ar": "$45-10=35$",
+            "En": "$45-10=35$"
+          },
+          "Result": {
+            "Ar": "$35$",
+            "En": "$35$"
+          },
+          "Unit": {
+            "Ar": "",
+            "En": ""
+          },
+          "Verification": {
+            "Ar": "35 دقيقة عمل مع 10 دقائق توقف تعطي 45 دقيقة.",
+            "En": "35 active minutes plus 10 paused minutes equals 45."
+          },
+          "CommonError": {
+            "Ar": "الخلط بين الوقت المنقضي ووقت العمل.",
+            "En": "Confusing elapsed time with active time."
+          }
+        },
+        "Distractors": [
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا يطرح مدة التوقف من الدقائق بعد الساعة 11 فقط.",
+              "En": "This subtracts the pause from only the minutes after 11."
+            },
+            "Order": 1
+          },
+          {
+            "ErrorType": "",
+            "Reason": {
+              "Ar": "",
+              "En": ""
+            },
+            "Order": 2
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "45 هي المدة الكلية بما فيها التوقف.",
+              "En": "45 is the entire elapsed time including the pause."
+            },
+            "Order": 3
+          },
+          {
+            "ErrorType": "misconception",
+            "Reason": {
+              "Ar": "هذا يضيف التوقف بدلاً من طرحه.",
+              "En": "This adds the pause instead of subtracting it."
+            },
+            "Order": 4
+          }
+        ]
+      }
+    }
+  ]
+}
