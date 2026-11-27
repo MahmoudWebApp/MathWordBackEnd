@@ -98,7 +98,7 @@ public sealed class LearningTracksController(AppDbContext db,LearningTrackServic
     }
     [Authorize(Roles="Student")]
     [HttpGet("api/users/learning-tracks/{id:int}/categories/{categoryId:int}/problems")]
-    public async Task<IActionResult> PracticeCatalog(int id,int categoryId,[FromQuery]int page=1,[FromQuery]bool hideSolved=false,CancellationToken ct=default,[FromQuery]int pageSize=50)
+    public async Task<IActionResult> PracticeCatalog(int id,int categoryId,[FromQuery]int page=1,[FromQuery]bool hideSolved=false,CancellationToken ct=default,[FromQuery]int pageSize=5)
     {
         if(!tracks.Enabled)return NotFound();
         if(page is <1 or >10000 || pageSize is <1 or >50)return BadRequest();
@@ -115,8 +115,12 @@ public sealed class LearningTracksController(AppDbContext db,LearningTrackServic
         if(hideSolved)valid=valid.Where(p=>!scopedProgress.Any(x=>x.UserId==uid&&x.ProblemId==p.Id&&x.IsSolved));
         var total=await valid.CountAsync(ct);
         var items=await valid.OrderBy(p=>scopedProgress.Any(x=>x.UserId==uid&&x.ProblemId==p.Id&&x.IsSolved)).ThenBy(p=>p.Id).Skip((page-1)*pageSize).Take(pageSize)
-            .Select(p=>new{p.Id,p.CategoryId,p.TitleAr,p.TitleEn,p.Points,
-                IsSolved=scopedProgress.Any(x=>x.UserId==uid&&x.ProblemId==p.Id&&x.IsSolved)})
+            .Select(p=>new{p.Id,p.CategoryId,p.TitleAr,p.TitleEn,p.Points,p.StageId,
+                CategoryNameAr=p.Category.NameAr,CategoryNameEn=p.Category.NameEn,
+                StageNameAr=p.Stage.NameAr,StageNameEn=p.Stage.NameEn,
+                IsSolved=scopedProgress.Any(x=>x.UserId==uid&&x.ProblemId==p.Id&&x.IsSolved),
+                HasAttempted=scopedProgress.Any(x=>x.UserId==uid&&x.ProblemId==p.Id&&x.Attempts>0),
+                IsFavorite=db.UserProgresses.AsNoTracking().Any(x=>x.UserId==uid&&x.ProblemId==p.Id&&x.IsFavorite)})
             .ToListAsync(ct);
         return Ok(new{TrackId=id,CategoryId=categoryId,Total=total,Page=page,PageSize=pageSize,Items=items});
     }
