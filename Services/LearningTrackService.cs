@@ -35,19 +35,26 @@ public sealed class LearningTrackService(AppDbContext db, IConfiguration config,
     }
 
     public async Task<bool> CanPracticeAsync(ClaimsPrincipal principal,int problemId,CancellationToken ct)
+        => (await ResolvePracticeAccessAsync(principal,problemId,ct)).Allowed;
+
+    // A successful selected-track membership check also proves that the
+    // track is visible: this problem is itself a valid published mapping.
+    // Return the validated selection from the same SQL snapshot so callers
+    // do not need a second query to resolve the practice scope.
+    public async Task<(bool Allowed,int? TrackId)> ResolvePracticeAccessAsync(
+        ClaimsPrincipal principal,int problemId,CancellationToken ct)
     {
-        if(!Enabled||!principal.IsInRole("Student"))return true;
-        if(!int.TryParse(principal.FindFirstValue(ClaimTypes.NameIdentifier),out var uid))return false;
-        // Keep the legacy no-selection fallback, but never allow an inactive
-        // student or an invalid/unpublished selected track. One SQL snapshot
-        // replaces the separate account read and mapping check.
+        if(!Enabled||!principal.IsInRole("Student"))return (true,null);
+        if(!int.TryParse(principal.FindFirstValue(ClaimTypes.NameIdentifier),out var uid))return (false,null);
         var valid=ValidLinks().Where(l=>l.ProblemId==problemId);
-        return await db.Users.AsNoTracking().AnyAsync(u=>
+        var learner=await db.Users.AsNoTracking().Where(u=>
             u.Id==uid&&u.IsActive&&u.Role=="Student"&&
             (!u.CurrentTrackId.HasValue||
                 (u.CurrentStageId.HasValue&&db.LearningTracks.Any(t=>
                     t.Id==u.CurrentTrackId&&t.StageId==u.CurrentStageId&&t.IsPublished&&
-                    valid.Any(l=>l.TrackId==t.Id)))),ct);
+                    valid.Any(l=>l.TrackId==t.Id)))))
+            .Select(u=>new {u.CurrentTrackId}).SingleOrDefaultAsync(ct);
+        return learner is null?(false,null):(true,learner.CurrentTrackId);
     }
 
     // Recheck original stage/category and published primary skill every time.

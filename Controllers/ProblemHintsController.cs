@@ -35,9 +35,11 @@ public sealed class ProblemHintsController(AppDbContext db,ProblemCategoryAccess
         if(!PremiumEntitlement.IsActive(user))return StatusCode(403,new{Message="PremiumRequired"});
         var problem=await db.Problems.AsNoTracking().SingleOrDefaultAsync(p=>p.Id==problemId,ct);
         if(problem is null)return NotFound();
-        if(!await access.CanReadProblemAsync(User,problem.StageId,problem.CategoryId,ct)||
-            !await tracks.CanPracticeAsync(User,problemId,ct))return StatusCode(403,new{Message="ProblemLocked"});
-        var practiceScope=await TrackPractice.CurrentAsync(db,HttpContext,ct);
+        if(!await access.CanReadProblemAsync(User,problem.StageId,problem.CategoryId,ct))
+            return StatusCode(403,new{Message="ProblemLocked"});
+        var practice=await tracks.ResolvePracticeAccessAsync(User,problemId,ct);
+        if(!practice.Allowed)return StatusCode(403,new{Message="ProblemLocked"});
+        var practiceScope=TrackPractice.Scope(HttpContext.RequestServices.GetRequiredService<IConfiguration>(),practice.TrackId);
         if(TrackPractice.Enabled(HttpContext.RequestServices.GetRequiredService<IConfiguration>())&&
             (expectedScope.HasValue?expectedScope.Value!=practiceScope:practiceScope!=0))
             return Conflict(new{Message="PracticeScopeChanged"});
