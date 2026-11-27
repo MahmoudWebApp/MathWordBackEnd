@@ -53,9 +53,15 @@ public static class WizardProblemContract
             errors.Add("FourDistinctOptionsOneCorrect");
         else if(manual?p.Options.Any(o=>!o.IsCorrect&&((o.ErrorType?.Length??0)>80||!OptionalPair(o.Reason,1000))):
             p.Options.Any(o=>!o.IsCorrect&&(!Text(o.ErrorType,80)||!Pair(o.Reason,1000))))errors.Add("DistractorReasonsRequired");
-        if(p.Hints is null||p.Hints.Length!=2||p.Hints.Any(h=>!Pair(h,1000))||
-            Normalize(p.Hints[0]?.Ar)==Normalize(p.Hints[1]?.Ar)||Normalize(p.Hints[0]?.En)==Normalize(p.Hints[1]?.En))
-            errors.Add("TwoDistinctBilingualHintsRequired");
+        var hints=p.Hints??Array.Empty<BilingualText>();
+        // The administrator's interactive free-text solution may omit hints.
+        // Reviewed structured imports and supervisor submissions remain strict.
+        if(manual
+            ? hints.Length>2||hints.Any(h=>!Pair(h,1000))||(hints.Length==2&&
+                (Normalize(hints[0].Ar)==Normalize(hints[1].Ar)||Normalize(hints[0].En)==Normalize(hints[1].En)))
+            : hints.Length!=2||hints.Any(h=>!Pair(h,1000))||
+                Normalize(hints[0]?.Ar)==Normalize(hints[1]?.Ar)||Normalize(hints[0]?.En)==Normalize(hints[1]?.En))
+            errors.Add(manual?"OptionalBilingualHintsInvalid":"TwoDistinctBilingualHintsRequired");
         var solution=p.Solution;
         if(manual)
         {
