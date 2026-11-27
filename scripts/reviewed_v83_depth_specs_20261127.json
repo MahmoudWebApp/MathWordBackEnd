@@ -5,7 +5,9 @@
     "mode-hidden-value-required": "Close to #1730 adding values for unique mode, although missing-value format. Hold for diversity.",
     "mode-different-values-equal-frequency": "Closely repeats new two-modes-complete-pair objective, hold rather than inflate.",
     "addition-carry-through-zero-column": "Related to #2323 carrying into hundreds; hold for further depth.",
-    "capacity-minimum-full-bottles-remainder": "Related to #1592 full cups and remainder-focused division #851, hold to avoid repetitive structure."
+    "capacity-minimum-full-bottles-remainder": "Related to #1592 full cups and remainder-focused division #851, hold to avoid repetitive structure.",
+    "elapsed-time-interrupted-clock": "Same active-draft learning task g1-depth-03-time-break; hold to avoid replay.",
+    "metric-km-m-remainder-to-next": "Similar to #2490 remaining-length subtraction; hold for more distinct conversion reasoning."
   },
   "rows": [
     {
@@ -32,7 +34,7 @@
           "En": "Joining rectangles"
         },
         "Question": {
-          "Ar": "لدينا مستطيلان ورقيان متطابقان، طول كل منهما يساوي عرضين من عرضه. أي طريقة لوصلهما دون تداخل أو فراغ تكوّن مربعاً؟ A: وصل الضلعين القصيرين؛ B: وصل الضلعين الطويلين بالكامل؛ C: ملامسة زاوية فقط؛ D: ترك فراغ بينهما.",
+          "Ar": "لدينا مستطيلان ورقيان متطابقان، طول كل منهما ضعف عرضه. أي طريقة لوصلهما دون تداخل أو فراغ تكوّن مربعاً؟ A: وصل الضلعين القصيرين؛ B: وصل الضلعين الطويلين بالكامل؛ C: ملامسة زاوية فقط؛ D: ترك فراغ بينهما.",
           "En": "Two identical paper rectangles each have a long side twice their short side. Which way of joining them without gaps or overlaps makes a square? A: join the short sides; B: join the entire long sides; C: touch at a corner only; D: leave a gap."
         },
         "Options": [
@@ -288,7 +290,7 @@
             "Ar": "نطابق الزوايا الواقعة على جانبي خط الطي عند الارتفاع نفسه.",
             "En": "Match corners on opposite sides of the fold at the same height."
           },
-          "FormulaLatex": "2=2",
+          "FormulaLatex": "\\text{left}\\to\\text{right}",
           "Steps": [
             {
               "Ar": "الزاويتان العلويتان تبعدان المسافة نفسها عن خط الطي.",
@@ -300,8 +302,8 @@
             }
           ],
           "Substitution": {
-            "Ar": "$\\text{top}$",
-            "En": "$\\text{top}$"
+            "Ar": "$\\text{top-left}\\to\\text{top-right}$",
+            "En": "$\\text{top-left}\\to\\text{top-right}$"
           },
           "Result": {
             "Ar": "$C$",
@@ -321,8 +323,8 @@
           }
         }
       },
-      "flat_ar": "نطابق الزوايا الواقعة على جانبي خط الطي عند الارتفاع نفسه.\n\n$2=2$\n\n1. الزاويتان العلويتان تبعدان المسافة نفسها عن خط الطي.\n\n2. عند الطي تنطبق العلوية اليسرى على العلوية اليمنى.\n\n$\\text{top}$\n\n$C$\n\nبالمثل تنطبق الزاوية السفلية اليسرى على السفلية اليمنى.\n\nالخلط بين طي اليمين واليسار وطي الأعلى والأسفل.",
-      "flat_en": "Match corners on opposite sides of the fold at the same height.\n\n$2=2$\n\n1. The two top corners are equally far from the fold.\n\n2. Folding brings the top-left corner onto the top-right corner.\n\n$\\text{top}$\n\n$C$\n\nSimilarly the bottom-left matches the bottom-right.\n\nConfusing a left-right fold with a top-bottom fold.",
+      "flat_ar": "نطابق الزوايا الواقعة على جانبي خط الطي عند الارتفاع نفسه.\n\n$\\text{left}\\to\\text{right}$\n\n1. الزاويتان العلويتان تبعدان المسافة نفسها عن خط الطي.\n\n2. عند الطي تنطبق العلوية اليسرى على العلوية اليمنى.\n\n$\\text{top-left}\\to\\text{top-right}$\n\n$C$\n\nبالمثل تنطبق الزاوية السفلية اليسرى على السفلية اليمنى.\n\nالخلط بين طي اليمين واليسار وطي الأعلى والأسفل.",
+      "flat_en": "Match corners on opposite sides of the fold at the same height.\n\n$\\text{left}\\to\\text{right}$\n\n1. The two top corners are equally far from the fold.\n\n2. Folding brings the top-left corner onto the top-right corner.\n\n$\\text{top-left}\\to\\text{top-right}$\n\n$C$\n\nSimilarly the bottom-left matches the bottom-right.\n\nConfusing a left-right fold with a top-bottom fold.",
       "metadata": {
         "DifficultyLevel": 1,
         "Hints": [
@@ -340,7 +342,7 @@
             "Ar": "نطابق الزوايا الواقعة على جانبي خط الطي عند الارتفاع نفسه.",
             "En": "Match corners on opposite sides of the fold at the same height."
           },
-          "FormulaLatex": "2=2",
+          "FormulaLatex": "\\text{left}\\to\\text{right}",
           "Steps": [
             {
               "Ar": "الزاويتان العلويتان تبعدان المسافة نفسها عن خط الطي.",
@@ -352,8 +354,8 @@
             }
           ],
           "Substitution": {
-            "Ar": "$\\text{top}$",
-            "En": "$\\text{top}$"
+            "Ar": "$\\text{top-left}\\to\\text{top-right}$",
+            "En": "$\\text{top-left}\\to\\text{top-right}$"
           },
           "Result": {
             "Ar": "$C$",
@@ -2207,406 +2209,7 @@
           }
         ]
       }
-    },
-    {
-      "key": "growth-v83-grade-4-metric-km-m-remainder-to-next-1",
-      "family": "metric-km-m-remainder-to-next",
-      "skill_key": "primary-unit-conversions",
-      "track_code": "grade-4",
-      "track": 4,
-      "stage": 1,
-      "category": 3,
-      "skill": 16,
-      "wizard": {
-        "StageId": 1,
-        "CategoryId": 3,
-        "PrimarySkillId": 16,
-        "SecondarySkillIds": [],
-        "TrackIds": [
-          4
-        ],
-        "DifficultyLevel": 2,
-        "Points": 10,
-        "Title": {
-          "Ar": "إكمال الكيلومتر",
-          "En": "Completing the kilometre"
-        },
-        "Question": {
-          "Ar": "قطع متسابق 750 m من مسار طوله 1 km. كم سنتيمتراً بقي حتى نهاية المسار؟",
-          "En": "A runner has travelled 750 m along a 1 km course. How many centimetres remain to the finish?"
-        },
-        "Options": [
-          {
-            "LatexCode": "250",
-            "IsCorrect": false,
-            "ErrorType": "misconception",
-            "Reason": {
-              "Ar": "250 هو المتبقي بالمتر لا بالسنتيمتر.",
-              "En": "250 is the remaining distance in metres, not centimetres."
-            }
-          },
-          {
-            "LatexCode": "2500",
-            "IsCorrect": false,
-            "ErrorType": "misconception",
-            "Reason": {
-              "Ar": "التحويل يحتاج الضرب في 100 لا 10.",
-              "En": "Converting requires multiplying by 100, not 10."
-            }
-          },
-          {
-            "LatexCode": "25000",
-            "IsCorrect": true,
-            "ErrorType": "",
-            "Reason": {
-              "Ar": "",
-              "En": ""
-            }
-          },
-          {
-            "LatexCode": "75000",
-            "IsCorrect": false,
-            "ErrorType": "misconception",
-            "Reason": {
-              "Ar": "هذا يحوّل المسافة المقطوعة لا المتبقية.",
-              "En": "This converts the travelled distance, not the remainder."
-            }
-          }
-        ],
-        "Hints": [
-          {
-            "Ar": "حوّل 1 km إلى 1000 m.",
-            "En": "Convert 1 km to 1000 m."
-          },
-          {
-            "Ar": "اطرح المسافة المقطوعة ثم حوّل الباقي إلى cm.",
-            "En": "Subtract the travelled distance, then convert the remainder to cm."
-          }
-        ],
-        "Solution": {
-          "Idea": {
-            "Ar": "نحسب المتبقي بالمتر أولاً ثم نحوّله إلى سنتيمتر.",
-            "En": "Find the remaining metres first, then convert to centimetres."
-          },
-          "FormulaLatex": "1\\,\\mathrm{km}=1000\\,\\mathrm{m},\\quad1\\,\\mathrm{m}=100\\,\\mathrm{cm}",
-          "Steps": [
-            {
-              "Ar": "المتبقي 1000 ناقص 750 أي 250 m.",
-              "En": "1000 minus 750 leaves 250 m."
-            },
-            {
-              "Ar": "نضرب 250 في 100 للتحويل.",
-              "En": "Multiply 250 by 100 to convert."
-            }
-          ],
-          "Substitution": {
-            "Ar": "$250\\times100=25000$",
-            "En": "$250\\times100=25000$"
-          },
-          "Result": {
-            "Ar": "$25000$",
-            "En": "$25000$"
-          },
-          "Unit": {
-            "Ar": "",
-            "En": ""
-          },
-          "Verification": {
-            "Ar": "750 m مع 250 m تكمل 1000 m.",
-            "En": "750 m plus 250 m completes 1000 m."
-          },
-          "CommonError": {
-            "Ar": "التوقف عند الوحدة الوسيطة أو تحويل المسافة المقطوعة.",
-            "En": "Stopping at the intermediate unit or converting the travelled distance."
-          }
-        }
-      },
-      "flat_ar": "نحسب المتبقي بالمتر أولاً ثم نحوّله إلى سنتيمتر.\n\n$1\\,\\mathrm{km}=1000\\,\\mathrm{m},\\quad1\\,\\mathrm{m}=100\\,\\mathrm{cm}$\n\n1. المتبقي 1000 ناقص 750 أي 250 m.\n\n2. نضرب 250 في 100 للتحويل.\n\n$250\\times100=25000$\n\n$25000$\n\n750 m مع 250 m تكمل 1000 m.\n\nالتوقف عند الوحدة الوسيطة أو تحويل المسافة المقطوعة.",
-      "flat_en": "Find the remaining metres first, then convert to centimetres.\n\n$1\\,\\mathrm{km}=1000\\,\\mathrm{m},\\quad1\\,\\mathrm{m}=100\\,\\mathrm{cm}$\n\n1. 1000 minus 750 leaves 250 m.\n\n2. Multiply 250 by 100 to convert.\n\n$250\\times100=25000$\n\n$25000$\n\n750 m plus 250 m completes 1000 m.\n\nStopping at the intermediate unit or converting the travelled distance.",
-      "metadata": {
-        "DifficultyLevel": 2,
-        "Hints": [
-          {
-            "Ar": "حوّل 1 km إلى 1000 m.",
-            "En": "Convert 1 km to 1000 m."
-          },
-          {
-            "Ar": "اطرح المسافة المقطوعة ثم حوّل الباقي إلى cm.",
-            "En": "Subtract the travelled distance, then convert the remainder to cm."
-          }
-        ],
-        "Solution": {
-          "Idea": {
-            "Ar": "نحسب المتبقي بالمتر أولاً ثم نحوّله إلى سنتيمتر.",
-            "En": "Find the remaining metres first, then convert to centimetres."
-          },
-          "FormulaLatex": "1\\,\\mathrm{km}=1000\\,\\mathrm{m},\\quad1\\,\\mathrm{m}=100\\,\\mathrm{cm}",
-          "Steps": [
-            {
-              "Ar": "المتبقي 1000 ناقص 750 أي 250 m.",
-              "En": "1000 minus 750 leaves 250 m."
-            },
-            {
-              "Ar": "نضرب 250 في 100 للتحويل.",
-              "En": "Multiply 250 by 100 to convert."
-            }
-          ],
-          "Substitution": {
-            "Ar": "$250\\times100=25000$",
-            "En": "$250\\times100=25000$"
-          },
-          "Result": {
-            "Ar": "$25000$",
-            "En": "$25000$"
-          },
-          "Unit": {
-            "Ar": "",
-            "En": ""
-          },
-          "Verification": {
-            "Ar": "750 m مع 250 m تكمل 1000 m.",
-            "En": "750 m plus 250 m completes 1000 m."
-          },
-          "CommonError": {
-            "Ar": "التوقف عند الوحدة الوسيطة أو تحويل المسافة المقطوعة.",
-            "En": "Stopping at the intermediate unit or converting the travelled distance."
-          }
-        },
-        "Distractors": [
-          {
-            "ErrorType": "misconception",
-            "Reason": {
-              "Ar": "250 هو المتبقي بالمتر لا بالسنتيمتر.",
-              "En": "250 is the remaining distance in metres, not centimetres."
-            },
-            "Order": 1
-          },
-          {
-            "ErrorType": "misconception",
-            "Reason": {
-              "Ar": "التحويل يحتاج الضرب في 100 لا 10.",
-              "En": "Converting requires multiplying by 100, not 10."
-            },
-            "Order": 2
-          },
-          {
-            "ErrorType": "",
-            "Reason": {
-              "Ar": "",
-              "En": ""
-            },
-            "Order": 3
-          },
-          {
-            "ErrorType": "misconception",
-            "Reason": {
-              "Ar": "هذا يحوّل المسافة المقطوعة لا المتبقية.",
-              "En": "This converts the travelled distance, not the remainder."
-            },
-            "Order": 4
-          }
-        ]
-      }
-    },
-    {
-      "key": "growth-v83-grade-4-elapsed-time-interrupted-clock-1",
-      "family": "elapsed-time-interrupted-clock",
-      "skill_key": "time",
-      "track_code": "grade-4",
-      "track": 4,
-      "stage": 1,
-      "category": 82,
-      "skill": 324,
-      "wizard": {
-        "StageId": 1,
-        "CategoryId": 82,
-        "PrimarySkillId": 324,
-        "SecondarySkillIds": [],
-        "TrackIds": [
-          4
-        ],
-        "DifficultyLevel": 2,
-        "Points": 10,
-        "Title": {
-          "Ar": "وقت العمل الفعلي",
-          "En": "Active time"
-        },
-        "Question": {
-          "Ar": "بدأت ورشة الساعة 10:40 وانتهت 11:25. توقف العمل خلال هذه الفترة مدة 10 دقائق فقط. كم دقيقة استمر العمل فعلياً؟",
-          "En": "A workshop began at 10:40 and ended at 11:25. Work paused for exactly 10 minutes during that period. For how many minutes was work actually underway?"
-        },
-        "Options": [
-          {
-            "LatexCode": "25",
-            "IsCorrect": false,
-            "ErrorType": "misconception",
-            "Reason": {
-              "Ar": "هذا يطرح مدة التوقف من الدقائق بعد الساعة 11 فقط.",
-              "En": "This subtracts the pause from only the minutes after 11."
-            }
-          },
-          {
-            "LatexCode": "35",
-            "IsCorrect": true,
-            "ErrorType": "",
-            "Reason": {
-              "Ar": "",
-              "En": ""
-            }
-          },
-          {
-            "LatexCode": "45",
-            "IsCorrect": false,
-            "ErrorType": "misconception",
-            "Reason": {
-              "Ar": "45 هي المدة الكلية بما فيها التوقف.",
-              "En": "45 is the entire elapsed time including the pause."
-            }
-          },
-          {
-            "LatexCode": "55",
-            "IsCorrect": false,
-            "ErrorType": "misconception",
-            "Reason": {
-              "Ar": "هذا يضيف التوقف بدلاً من طرحه.",
-              "En": "This adds the pause instead of subtracting it."
-            }
-          }
-        ],
-        "Hints": [
-          {
-            "Ar": "احسب من 10:40 إلى 11:00 ثم إلى 11:25.",
-            "En": "Count from 10:40 to 11:00, then to 11:25."
-          },
-          {
-            "Ar": "اطرح عشر دقائق من المدة الكلية.",
-            "En": "Subtract ten minutes from the elapsed time."
-          }
-        ],
-        "Solution": {
-          "Idea": {
-            "Ar": "مدة العمل الفعلية تساوي المدة المنقضية ناقص التوقف.",
-            "En": "Active time equals elapsed time minus the pause."
-          },
-          "FormulaLatex": "20+25-10=35",
-          "Steps": [
-            {
-              "Ar": "من 10:40 إلى 11:00 عشرون دقيقة، ثم 25 دقيقة أخرى.",
-              "En": "From 10:40 to 11:00 is 20 minutes, then another 25."
-            },
-            {
-              "Ar": "نطرح 10 دقائق من 45 دقيقة.",
-              "En": "Subtract 10 minutes from 45."
-            }
-          ],
-          "Substitution": {
-            "Ar": "$45-10=35$",
-            "En": "$45-10=35$"
-          },
-          "Result": {
-            "Ar": "$35$",
-            "En": "$35$"
-          },
-          "Unit": {
-            "Ar": "",
-            "En": ""
-          },
-          "Verification": {
-            "Ar": "35 دقيقة عمل مع 10 دقائق توقف تعطي 45 دقيقة.",
-            "En": "35 active minutes plus 10 paused minutes equals 45."
-          },
-          "CommonError": {
-            "Ar": "الخلط بين الوقت المنقضي ووقت العمل.",
-            "En": "Confusing elapsed time with active time."
-          }
-        }
-      },
-      "flat_ar": "مدة العمل الفعلية تساوي المدة المنقضية ناقص التوقف.\n\n$20+25-10=35$\n\n1. من 10:40 إلى 11:00 عشرون دقيقة، ثم 25 دقيقة أخرى.\n\n2. نطرح 10 دقائق من 45 دقيقة.\n\n$45-10=35$\n\n$35$\n\n35 دقيقة عمل مع 10 دقائق توقف تعطي 45 دقيقة.\n\nالخلط بين الوقت المنقضي ووقت العمل.",
-      "flat_en": "Active time equals elapsed time minus the pause.\n\n$20+25-10=35$\n\n1. From 10:40 to 11:00 is 20 minutes, then another 25.\n\n2. Subtract 10 minutes from 45.\n\n$45-10=35$\n\n$35$\n\n35 active minutes plus 10 paused minutes equals 45.\n\nConfusing elapsed time with active time.",
-      "metadata": {
-        "DifficultyLevel": 2,
-        "Hints": [
-          {
-            "Ar": "احسب من 10:40 إلى 11:00 ثم إلى 11:25.",
-            "En": "Count from 10:40 to 11:00, then to 11:25."
-          },
-          {
-            "Ar": "اطرح عشر دقائق من المدة الكلية.",
-            "En": "Subtract ten minutes from the elapsed time."
-          }
-        ],
-        "Solution": {
-          "Idea": {
-            "Ar": "مدة العمل الفعلية تساوي المدة المنقضية ناقص التوقف.",
-            "En": "Active time equals elapsed time minus the pause."
-          },
-          "FormulaLatex": "20+25-10=35",
-          "Steps": [
-            {
-              "Ar": "من 10:40 إلى 11:00 عشرون دقيقة، ثم 25 دقيقة أخرى.",
-              "En": "From 10:40 to 11:00 is 20 minutes, then another 25."
-            },
-            {
-              "Ar": "نطرح 10 دقائق من 45 دقيقة.",
-              "En": "Subtract 10 minutes from 45."
-            }
-          ],
-          "Substitution": {
-            "Ar": "$45-10=35$",
-            "En": "$45-10=35$"
-          },
-          "Result": {
-            "Ar": "$35$",
-            "En": "$35$"
-          },
-          "Unit": {
-            "Ar": "",
-            "En": ""
-          },
-          "Verification": {
-            "Ar": "35 دقيقة عمل مع 10 دقائق توقف تعطي 45 دقيقة.",
-            "En": "35 active minutes plus 10 paused minutes equals 45."
-          },
-          "CommonError": {
-            "Ar": "الخلط بين الوقت المنقضي ووقت العمل.",
-            "En": "Confusing elapsed time with active time."
-          }
-        },
-        "Distractors": [
-          {
-            "ErrorType": "misconception",
-            "Reason": {
-              "Ar": "هذا يطرح مدة التوقف من الدقائق بعد الساعة 11 فقط.",
-              "En": "This subtracts the pause from only the minutes after 11."
-            },
-            "Order": 1
-          },
-          {
-            "ErrorType": "",
-            "Reason": {
-              "Ar": "",
-              "En": ""
-            },
-            "Order": 2
-          },
-          {
-            "ErrorType": "misconception",
-            "Reason": {
-              "Ar": "45 هي المدة الكلية بما فيها التوقف.",
-              "En": "45 is the entire elapsed time including the pause."
-            },
-            "Order": 3
-          },
-          {
-            "ErrorType": "misconception",
-            "Reason": {
-              "Ar": "هذا يضيف التوقف بدلاً من طرحه.",
-              "En": "This adds the pause instead of subtracting it."
-            },
-            "Order": 4
-          }
-        ]
-      }
     }
-  ]
+  ],
+  "review": "17 candidates examined; six held, eleven retained. Live grade 4 scope/skill inventory and grade 1/2 previous inventory reviewed. Thirteen screened with whole-bank bilingual nearest-token comparison, including nonwithdrawn unpublished drafts; held two further candidates (active draft time and similar length subtraction). Grade 4 mode items cover distinct frequency-table, two-mode tie, removal, pooling, ordering invariance, and replacement tasks. Full curriculum/rendering/CI audit remains outstanding."
 }
