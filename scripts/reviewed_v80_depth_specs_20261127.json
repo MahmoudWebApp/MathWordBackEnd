@@ -3,206 +3,6 @@
   "sourceHead": "7e7d62dd0ca63a6b21832814864cabbbee2b4e34",
   "rows": [
     {
-      "key": "growth-v80-grade-3-unknown-start-subtraction-1",
-      "family": "unknown-start-subtraction",
-      "skill_key": "primary-one-step-additive-equations",
-      "track_code": "grade-3",
-      "track": 3,
-      "stage": 1,
-      "category": 2,
-      "skill": 7,
-      "wizard": {
-        "StageId": 1,
-        "CategoryId": 2,
-        "PrimarySkillId": 7,
-        "SecondarySkillIds": [],
-        "TrackIds": [
-          3
-        ],
-        "DifficultyLevel": 1,
-        "Points": 10,
-        "Title": {
-          "Ar": "العدد قبل الطرح",
-          "En": "The starting number"
-        },
-        "Question": {
-          "Ar": "كان في صندوق $x$ بطاقة. أُخرجت منه 8 بطاقات فبقيت 13 بطاقة. ما قيمة $x$؟",
-          "En": "A box held $x$ cards. After 8 cards were removed, 13 remained. What is $x$?"
-        },
-        "Options": [
-          {
-            "LatexCode": "5",
-            "IsCorrect": false,
-            "ErrorType": "misconception",
-            "Reason": {
-              "Ar": "هذا الفرق بين الباقي والمخرج، وليس العدد الأصلي.",
-              "En": "This subtracts the removed cards from the remainder."
-            }
-          },
-          {
-            "LatexCode": "13",
-            "IsCorrect": false,
-            "ErrorType": "misconception",
-            "Reason": {
-              "Ar": "هذا عدد البطاقات الباقية فقط.",
-              "En": "This is only the remaining count."
-            }
-          },
-          {
-            "LatexCode": "21",
-            "IsCorrect": true,
-            "ErrorType": "",
-            "Reason": {
-              "Ar": "",
-              "En": ""
-            }
-          },
-          {
-            "LatexCode": "104",
-            "IsCorrect": false,
-            "ErrorType": "misconception",
-            "Reason": {
-              "Ar": "الضرب لا يعكس الطرح هنا.",
-              "En": "Multiplication does not undo subtraction here."
-            }
-          }
-        ],
-        "Hints": [
-          {
-            "Ar": "كان العدد الأصلي أكبر من الباقي.",
-            "En": "The starting count exceeded the remainder."
-          },
-          {
-            "Ar": "أعد البطاقات التي أُخرجت.",
-            "En": "Put the removed cards back."
-          }
-        ],
-        "Solution": {
-          "Idea": {
-            "Ar": "نعكس الطرح بالجمع.",
-            "En": "Undo subtraction by addition."
-          },
-          "FormulaLatex": "x-8=13",
-          "Steps": [
-            {
-              "Ar": "نجمع العدد المخرج والباقي.",
-              "En": "Add the removed and remaining counts."
-            },
-            {
-              "Ar": "المجموع هو العدد الأصلي.",
-              "En": "The sum is the starting count."
-            }
-          ],
-          "Substitution": {
-            "Ar": "$13+8=21$",
-            "En": "$13+8=21$"
-          },
-          "Result": {
-            "Ar": "$21$",
-            "En": "$21$"
-          },
-          "Unit": {
-            "Ar": "",
-            "En": ""
-          },
-          "Verification": {
-            "Ar": "عند طرح 8 من 21 يبقى 13.",
-            "En": "Removing 8 from 21 leaves 13."
-          },
-          "CommonError": {
-            "Ar": "طرح العدد المخرج من الباقي مرة أخرى.",
-            "En": "Subtracting the removed count again."
-          }
-        }
-      },
-      "flat_ar": "نعكس الطرح بالجمع.\n\n$x-8=13$\n\n1. نجمع العدد المخرج والباقي.\n\n2. المجموع هو العدد الأصلي.\n\n$13+8=21$\n\n$21$\n\nعند طرح 8 من 21 يبقى 13.\n\nطرح العدد المخرج من الباقي مرة أخرى.",
-      "flat_en": "Undo subtraction by addition.\n\n$x-8=13$\n\n1. Add the removed and remaining counts.\n\n2. The sum is the starting count.\n\n$13+8=21$\n\n$21$\n\nRemoving 8 from 21 leaves 13.\n\nSubtracting the removed count again.",
-      "metadata": {
-        "DifficultyLevel": 1,
-        "Hints": [
-          {
-            "Ar": "كان العدد الأصلي أكبر من الباقي.",
-            "En": "The starting count exceeded the remainder."
-          },
-          {
-            "Ar": "أعد البطاقات التي أُخرجت.",
-            "En": "Put the removed cards back."
-          }
-        ],
-        "Solution": {
-          "Idea": {
-            "Ar": "نعكس الطرح بالجمع.",
-            "En": "Undo subtraction by addition."
-          },
-          "FormulaLatex": "x-8=13",
-          "Steps": [
-            {
-              "Ar": "نجمع العدد المخرج والباقي.",
-              "En": "Add the removed and remaining counts."
-            },
-            {
-              "Ar": "المجموع هو العدد الأصلي.",
-              "En": "The sum is the starting count."
-            }
-          ],
-          "Substitution": {
-            "Ar": "$13+8=21$",
-            "En": "$13+8=21$"
-          },
-          "Result": {
-            "Ar": "$21$",
-            "En": "$21$"
-          },
-          "Unit": {
-            "Ar": "",
-            "En": ""
-          },
-          "Verification": {
-            "Ar": "عند طرح 8 من 21 يبقى 13.",
-            "En": "Removing 8 from 21 leaves 13."
-          },
-          "CommonError": {
-            "Ar": "طرح العدد المخرج من الباقي مرة أخرى.",
-            "En": "Subtracting the removed count again."
-          }
-        },
-        "Distractors": [
-          {
-            "ErrorType": "misconception",
-            "Reason": {
-              "Ar": "هذا الفرق بين الباقي والمخرج، وليس العدد الأصلي.",
-              "En": "This subtracts the removed cards from the remainder."
-            },
-            "Order": 1
-          },
-          {
-            "ErrorType": "misconception",
-            "Reason": {
-              "Ar": "هذا عدد البطاقات الباقية فقط.",
-              "En": "This is only the remaining count."
-            },
-            "Order": 2
-          },
-          {
-            "ErrorType": "",
-            "Reason": {
-              "Ar": "",
-              "En": ""
-            },
-            "Order": 3
-          },
-          {
-            "ErrorType": "misconception",
-            "Reason": {
-              "Ar": "الضرب لا يعكس الطرح هنا.",
-              "En": "Multiplication does not undo subtraction here."
-            },
-            "Order": 4
-          }
-        ]
-      }
-    },
-    {
       "key": "growth-v80-grade-3-repeated-unknown-addition-1",
       "family": "repeated-unknown-addition",
       "skill_key": "primary-one-step-multiplicative-equations",
@@ -1403,206 +1203,6 @@
       }
     },
     {
-      "key": "growth-v80-grade-3-equal-length-fraction-partition-1",
-      "family": "equal-length-fraction-partition",
-      "skill_key": "p-fractions-decimals-fraction-models",
-      "track_code": "grade-3",
-      "track": 3,
-      "stage": 1,
-      "category": 21,
-      "skill": 97,
-      "wizard": {
-        "StageId": 1,
-        "CategoryId": 21,
-        "PrimarySkillId": 97,
-        "SecondarySkillIds": [],
-        "TrackIds": [
-          3
-        ],
-        "DifficultyLevel": 1,
-        "Points": 10,
-        "Title": {
-          "Ar": "أجزاء متساوية",
-          "En": "Equal parts"
-        },
-        "Question": {
-          "Ar": "يريد طفل تقسيم شريط طوله 12 سم إلى أربعة أرباع. أي مجموعة من الأطوال بالسنتيمتر تمثل أربعة أرباع صحيحة للشريط؟",
-          "En": "A child wants to cut a 12 cm strip into four quarters. Which set of lengths in centimeters gives four actual quarters of the strip?"
-        },
-        "Options": [
-          {
-            "LatexCode": "2,2,4,4",
-            "IsCorrect": false,
-            "ErrorType": "misconception",
-            "Reason": {
-              "Ar": "المجموع 12 لكن الأجزاء ليست متساوية.",
-              "En": "The lengths total 12 but are unequal."
-            }
-          },
-          {
-            "LatexCode": "1,3,3,5",
-            "IsCorrect": false,
-            "ErrorType": "misconception",
-            "Reason": {
-              "Ar": "الأجزاء غير متساوية فلا تمثل أرباعاً.",
-              "En": "Unequal parts cannot be quarters."
-            }
-          },
-          {
-            "LatexCode": "3,3,3,3",
-            "IsCorrect": true,
-            "ErrorType": "",
-            "Reason": {
-              "Ar": "",
-              "En": ""
-            }
-          },
-          {
-            "LatexCode": "2,3,3,4",
-            "IsCorrect": false,
-            "ErrorType": "misconception",
-            "Reason": {
-              "Ar": "وجود جزأين متساويين لا يكفي.",
-              "En": "Two equal pieces are not enough."
-            }
-          }
-        ],
-        "Hints": [
-          {
-            "Ar": "هل يكفي أن يكون عدد الأجزاء أربعة؟",
-            "En": "Is having four pieces enough?"
-          },
-          {
-            "Ar": "يجب أن تتساوى أطوال الأجزاء الأربعة.",
-            "En": "All four lengths must be equal."
-          }
-        ],
-        "Solution": {
-          "Idea": {
-            "Ar": "الأرباع أربعة أجزاء متساوية من الكل.",
-            "En": "Quarters are four equal parts of a whole."
-          },
-          "FormulaLatex": "12\\div4=3",
-          "Steps": [
-            {
-              "Ar": "نقسم الطول على 4.",
-              "En": "Divide the length by 4."
-            },
-            {
-              "Ar": "طول كل ربع 3 سم.",
-              "En": "Each quarter is 3 cm."
-            }
-          ],
-          "Substitution": {
-            "Ar": "$3+3+3+3=12$",
-            "En": "$3+3+3+3=12$"
-          },
-          "Result": {
-            "Ar": "$3,3,3,3$",
-            "En": "$3,3,3,3$"
-          },
-          "Unit": {
-            "Ar": "سم",
-            "En": "cm"
-          },
-          "Verification": {
-            "Ar": "الأطوال متساوية ومجموعها 12 سم.",
-            "En": "All lengths are equal and total 12 cm."
-          },
-          "CommonError": {
-            "Ar": "عد الأجزاء دون التأكد من تساويها.",
-            "En": "Counting pieces without checking equal size."
-          }
-        }
-      },
-      "flat_ar": "الأرباع أربعة أجزاء متساوية من الكل.\n\n$12\\div4=3$\n\n1. نقسم الطول على 4.\n\n2. طول كل ربع 3 سم.\n\n$3+3+3+3=12$\n\n$3,3,3,3$\n\nالأطوال متساوية ومجموعها 12 سم.\n\nعد الأجزاء دون التأكد من تساويها.",
-      "flat_en": "Quarters are four equal parts of a whole.\n\n$12\\div4=3$\n\n1. Divide the length by 4.\n\n2. Each quarter is 3 cm.\n\n$3+3+3+3=12$\n\n$3,3,3,3$\n\nAll lengths are equal and total 12 cm.\n\nCounting pieces without checking equal size.",
-      "metadata": {
-        "DifficultyLevel": 1,
-        "Hints": [
-          {
-            "Ar": "هل يكفي أن يكون عدد الأجزاء أربعة؟",
-            "En": "Is having four pieces enough?"
-          },
-          {
-            "Ar": "يجب أن تتساوى أطوال الأجزاء الأربعة.",
-            "En": "All four lengths must be equal."
-          }
-        ],
-        "Solution": {
-          "Idea": {
-            "Ar": "الأرباع أربعة أجزاء متساوية من الكل.",
-            "En": "Quarters are four equal parts of a whole."
-          },
-          "FormulaLatex": "12\\div4=3",
-          "Steps": [
-            {
-              "Ar": "نقسم الطول على 4.",
-              "En": "Divide the length by 4."
-            },
-            {
-              "Ar": "طول كل ربع 3 سم.",
-              "En": "Each quarter is 3 cm."
-            }
-          ],
-          "Substitution": {
-            "Ar": "$3+3+3+3=12$",
-            "En": "$3+3+3+3=12$"
-          },
-          "Result": {
-            "Ar": "$3,3,3,3$",
-            "En": "$3,3,3,3$"
-          },
-          "Unit": {
-            "Ar": "سم",
-            "En": "cm"
-          },
-          "Verification": {
-            "Ar": "الأطوال متساوية ومجموعها 12 سم.",
-            "En": "All lengths are equal and total 12 cm."
-          },
-          "CommonError": {
-            "Ar": "عد الأجزاء دون التأكد من تساويها.",
-            "En": "Counting pieces without checking equal size."
-          }
-        },
-        "Distractors": [
-          {
-            "ErrorType": "misconception",
-            "Reason": {
-              "Ar": "المجموع 12 لكن الأجزاء ليست متساوية.",
-              "En": "The lengths total 12 but are unequal."
-            },
-            "Order": 1
-          },
-          {
-            "ErrorType": "misconception",
-            "Reason": {
-              "Ar": "الأجزاء غير متساوية فلا تمثل أرباعاً.",
-              "En": "Unequal parts cannot be quarters."
-            },
-            "Order": 2
-          },
-          {
-            "ErrorType": "",
-            "Reason": {
-              "Ar": "",
-              "En": ""
-            },
-            "Order": 3
-          },
-          {
-            "ErrorType": "misconception",
-            "Reason": {
-              "Ar": "وجود جزأين متساويين لا يكفي.",
-              "En": "Two equal pieces are not enough."
-            },
-            "Order": 4
-          }
-        ]
-      }
-    },
-    {
       "key": "growth-v80-grade-3-same-shaded-count-different-position-1",
       "family": "same-shaded-count-different-position",
       "skill_key": "p-fractions-decimals-fraction-models",
@@ -1649,12 +1249,12 @@
             }
           },
           {
-            "LatexCode": "\\frac{2}{12}",
+            "LatexCode": "\\frac{5}{6}",
             "IsCorrect": false,
             "ErrorType": "misconception",
             "Reason": {
-              "Ar": "12 يعد أجزاء الشريطين معاً.",
-              "En": "12 counts both strips together."
+              "Ar": "هذا يمثل خمسة أجزاء ملونة، بينما لُوّن جزآن فقط.",
+              "En": "This represents five shaded parts, but only two are shaded."
             }
           },
           {
@@ -1786,8 +1386,8 @@
           {
             "ErrorType": "misconception",
             "Reason": {
-              "Ar": "12 يعد أجزاء الشريطين معاً.",
-              "En": "12 counts both strips together."
+              "Ar": "هذا يمثل خمسة أجزاء ملونة، بينما لُوّن جزآن فقط.",
+              "En": "This represents five shaded parts, but only two are shaded."
             },
             "Order": 3
           },
@@ -3002,5 +2602,10 @@
         ]
       }
     }
-  ]
+  ],
+  "holds": {
+    "unknown-start-subtraction": "Existing problem 763 asks for the original card count after removal; numbers and use of x are insufficient distinction.",
+    "equal-length-fraction-partition": "Existing problem 2104 tests equal-quarter partition; numerical version does not add enough educational depth."
+  },
+  "review": "Reviewed target category published and active draft stems and four reference hold registries; ranked whole-bank published and active draft bilingual nearest token matches, followed by manual reasoning comparison. Two held. Kept 13; distinct learning targets. Corrected equivalent distractors in position-invariance problem. Full curriculum/device/CI review outstanding."
 }
