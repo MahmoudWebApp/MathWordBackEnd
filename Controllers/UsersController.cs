@@ -688,7 +688,9 @@ namespace MathWorldAPI.Controllers
                 .GetRequiredService<ProblemCategoryAccessService>()
                 .GetAllowedCategoryIdsAsync(User, HttpContext.RequestAborted);
 
-            var practiceScope=await TrackPractice.CurrentAsync(_context,HttpContext,HttpContext.RequestAborted);
+            var tracks=HttpContext.RequestServices.GetRequiredService<LearningTrackService>();
+            var track=await tracks.ActiveForStudentAsync(User,HttpContext.RequestAborted);
+            var practiceScope=TrackPractice.Scope(HttpContext.RequestServices.GetRequiredService<IConfiguration>(),track?.Id);
             var query =
                 TrackPractice.For(_context,practiceScope)
                     .AsNoTracking()
@@ -698,9 +700,6 @@ namespace MathWorldAPI.Controllers
                         progress.Problem.Category.StageId == progress.Problem.StageId &&
                         progress.UserId == userId &&
                         progress.IsInErrorNotebook);
-
-            var tracks=HttpContext.RequestServices.GetRequiredService<LearningTrackService>();
-            var track=await tracks.ActiveForStudentAsync(User,HttpContext.RequestAborted);
             var scopedProblems=track is null?_context.Problems.AsNoTracking():tracks.ValidProblems(track.Id);
 
             if(track is not null)
