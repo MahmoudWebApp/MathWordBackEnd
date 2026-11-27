@@ -44,6 +44,9 @@ def main():
     old_token = token_of(result["Data"])
     route = "/api/auth/forgot-password"
     a = expect("POST", route, 202, {"Email":"absent@mathworld.test"})
+    # A neutral response is not evidence of delivery or account existence.
+    assert sql("""SELECT COUNT(*) FROM "PasswordResetGrants" WHERE lower("Email")='absent@mathworld.test'""") == "0"
+    assert sql("""SELECT COUNT(*) FROM "EmailOutbox" WHERE lower("Recipient")='absent@mathworld.test' AND "TemplateKey"='password-reset'""") == "0"
     b = expect("POST", route, 202, {"Email":EMAIL})
     assert a == b == {"Accepted":True}
     expect("POST", route, 202, {"Email":EMAIL})
